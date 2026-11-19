@@ -463,3 +463,399 @@ questions:
     explanation: |
       Vieta’s formulas give $r+s=3$ and $rs=\dfrac{1}{2}$. Since the product is nonzero, add the reciprocals as $\dfrac{r+s}{rs}$. This is $3\div\dfrac{1}{2}=6$.
     approved: true
+
+  - id: q-algebra-quadratic-equations-0021
+    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      After dividing $3x^2-18x=12$ by $3$, what number must be added to both sides to complete the square?
+    choices:
+      - text: '$9$'
+        correct: true
+      - text: '$3$'
+        rationale: |
+          This finds the size of half the coefficient and stops. Square that half before adding it.
+      - text: '$36$'
+        rationale: |
+          This squares $-6$ directly. Halve the coefficient first.
+      - text: '$81$'
+        rationale: |
+          This halves and squares the original coefficient $-18$. Use the coefficient after dividing by $3$.
+    explanation: |
+      After dividing, the left side is $x^2-6x$. Half of $-6$ is $-3$. Its square is $9$, so add $9$ to both sides.
+
+  - id: q-algebra-quadratic-equations-0022
+    lesson: lesson-algebra-finishing-completing-the-square
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Which squared binomial equals $x^2-14x+49$?
+    choices:
+      - text: '$(x-7)^2$'
+        correct: true
+      - text: '$(x+7)^2$'
+        rationale: |
+          This uses the positive root of $49$ for the shift. Check the sign of the middle term.
+      - text: '$(x-14)^2$'
+        rationale: |
+          This copies the full middle coefficient into the binomial. The middle term uses the shift twice.
+      - text: '$(x-49)^2$'
+        rationale: |
+          This copies the constant as the shift. Square the shift to check that it gives $49$.
+    explanation: |
+      Half of $-14$ is $-7$. Both copies of $(x-7)$ give a middle term of $-14x$ and a constant of $49$.
+
+  - id: q-algebra-quadratic-equations-0023
+    lesson: lesson-algebra-quadratic-equations-from-roots
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Which monic quadratic equation has roots $-3$ and $5$?
+    choices:
+      - text: '$x^2-2x-15=0$'
+        correct: true
+      - text: '$x^2+2x-15=0$'
+        rationale: |
+          This puts the sum straight into the equation. Use its opposite for the middle coefficient.
+      - text: '$x^2-2x+15=0$'
+        rationale: |
+          This multiplies the sizes and loses the sign. One negative root makes the product negative.
+      - text: '$x^2-8x-15=0$'
+        rationale: |
+          This treats both roots as positive in the sum. Add the signed roots.
+    explanation: |
+      The roots add to $2$ and multiply to $-15$. Put the negative of the sum on $x$ and the product at the end.
+
+  - id: q-algebra-quadratic-equations-0024
+    lesson: lesson-algebra-quadratic-equations-from-roots
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      One root of $4x^2+3x-7=0$ is $1$. What is the other root?
+    choices:
+      - text: '$-\dfrac74$'
+        correct: true
+      - text: '$\dfrac74$'
+        rationale: |
+          This keeps the size but drops the minus sign. Use the signed constant $-7$.
+      - text: '$-\dfrac47$'
+        rationale: |
+          This divides the leading coefficient by the constant. Check that the product is constant over leading coefficient.
+      - text: '$-\dfrac34$'
+        rationale: |
+          This takes the sum of the roots for the other root. When one root is $1$, use the product.
+    explanation: |
+      The coefficients add to zero, so $1$ is a root. The product is $-\dfrac74$. Since one root is $1$, the other root equals the product.
+
+  - id: q-algebra-quadratic-equations-0025
+    lesson: lesson-algebra-quadratic-equations-from-roots
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      For which value of $k$ does $3x^2+kx+6=0$ have roots $1$ and $2$?
+    choices:
+      - text: '$-9$'
+        correct: true
+      - text: '$9$'
+        rationale: |
+          This gets the size from $3+6$ but uses the same sign. The total must be zero.
+      - text: '$-3$'
+        rationale: |
+          This uses the negative root sum alone. The leading coefficient is $3$, so that sum still needs to be multiplied by $3$.
+      - text: '$-6$'
+        rationale: |
+          This cancels the constant by itself. Include the leading coefficient when adding all three.
+    explanation: |
+      A root of $1$ makes the coefficients add to zero. So $3+k+6=0$, which gives $k=-9$.
+
+  - id: q-algebra-quadratic-equations-0026
+    lesson: lesson-algebra-quadratic-formula-and-irrational-roots
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Which polynomial factors into two linear factors with integer coefficients?
+    choices:
+      - text: '$2x^2+x-6$'
+        correct: true
+      - text: '$2x^2+x-5$'
+        rationale: |
+          This gives $41$, which is near $36$. Check that the value itself is a square.
+      - text: '$2x^2+x+6$'
+        rationale: |
+          This treats $+6$ like $-6$ in the formula. With $+6$, the value is $1-48=-47$.
+      - text: '$2x^2+x-7$'
+        rationale: |
+          This gives $57$, which lies between two squares. Check $7^2$ and $8^2$.
+    explanation: |
+      For $2x^2+x-6$, the number under the root in the formula is $1+48=49$. Since $49=7^2$, this polynomial factors over the integers.
+
+  - id: q-algebra-quadratic-equations-0027
+    lesson: lesson-algebra-quadratic-formula-and-irrational-roots
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What are the roots of $2x^2-4x-1=0$ in simplest radical form?
+    choices:
+      - text: '$\dfrac{2\pm\sqrt6}{2}$'
+        correct: true
+      - text: '$\dfrac{-2\pm\sqrt6}{2}$'
+        rationale: |
+          This keeps the negative sign from $b=-4$. The formula starts with the opposite of $b$.
+      - text: '$\dfrac{2\pm\sqrt6}{4}$'
+        rationale: |
+          This divides both terms on top by $2$ but leaves the bottom as $4$. Divide the bottom too.
+      - text: '$\dfrac{2\pm\sqrt{24}}{2}$'
+        rationale: |
+          This halves the first term and the bottom but leaves the root unchanged. Every term on top must be divided by $2$.
+    explanation: |
+      The value under the root is $16+8=24$. The formula gives $\dfrac{4\pm\sqrt{24}}4$. Use $\sqrt{24}=2\sqrt6$ and divide top and bottom by $2$.
+
+  - id: q-algebra-quadratic-equations-0028
+    lesson: lesson-algebra-quadratic-rectangle-area
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A rectangle has area $70$ square meters. Its length is $3$ meters more than its width. What is the width?
+    choices:
+      - text: '$7$ meters'
+        correct: true
+      - text: '$10$ meters'
+        rationale: |
+          This is the longer side of the rectangle. Check which side the question asks for.
+      - text: '$-10$ meters'
+        rationale: |
+          This root makes the equation true but gives a negative width. Check that the value can be a length.
+      - text: '$5$ meters'
+        rationale: |
+          This uses one factor of $70$ as the width. Check that the two side lengths differ by $3$.
+    explanation: |
+      Let the width be $w$. Then $w(w+3)=70$. Factoring gives $(w-7)(w+10)=0$. A width must be positive, so use $7$ meters.
+
+  - id: q-algebra-quadratic-equations-0029
+    lesson: lesson-algebra-quadratic-inequalities-with-two-roots
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      On which interval is $-(x+3)(x-2)$ positive?
+    choices:
+      - text: '$(-3,2)$'
+        correct: true
+      - text: '$(-\infty,-3)\cup(2,\infty)$'
+        rationale: |
+          This uses the sign pattern for a graph that opens up. Check the minus sign in front.
+      - text: '$(-3,\infty)$'
+        rationale: |
+          This checks the sign change at $-3$ and stops. Check another point past $2$.
+      - text: '$(-\infty,2)$'
+        rationale: |
+          This uses $2$ as the only cutoff. The factor $x+3$ changes sign too.
+    explanation: |
+      The roots are $-3$ and $2$. The graph opens down, so it is above zero between the roots.
+
+  - id: q-algebra-quadratic-equations-0030
+    lesson: lesson-algebra-quadratic-inequalities-with-two-roots
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Where is $(x+5)(x-1)$ positive?
+    choices:
+      - text: '$(-\infty,-5)\cup(1,\infty)$'
+        correct: true
+      - text: '$(-5,1)$'
+        rationale: |
+          This picks the middle interval where the factors have opposite signs. Test $x=0$.
+      - text: '$(1,\infty)$'
+        rationale: |
+          This counts the interval where both factors are positive. Two negative factors also give a positive product.
+      - text: '$(-\infty,-5)\cup(-5,\infty)$'
+        rationale: |
+          This excludes $-5$ but treats every other input as positive. Check the other root and test a point between the roots.
+    explanation: |
+      The roots are $-5$ and $1$. The graph opens up, so it is above zero on both outside intervals.
+
+  - id: q-algebra-quadratic-equations-0031
+    lesson: lesson-algebra-quadratic-inequalities-with-two-roots
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      The expression $q(x)=(x-2)(x-6)$ is negative for $2<x<6$. What is the solution set of $q(x)\le0$?
+    choices:
+      - text: '$[2,6]$'
+        correct: true
+      - text: '$(2,6)$'
+        rationale: |
+          This keeps the values that give a negative result. Check that the sign also allows zero.
+      - text: '$[2,6)$'
+        rationale: |
+          This counts the left root because it gives zero. Test the right root too.
+      - text: '$(2,6]$'
+        rationale: |
+          This counts the right root because it gives zero. Test the left root too.
+    explanation: |
+      Inside the interval, $q(x)$ is negative. At both ends it is zero, which the sign $\le$ allows.
+
+  - id: q-algebra-quadratic-equations-0032
+    lesson: lesson-algebra-quadratic-inequalities-with-two-roots
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A quadratic $p(x)$ is positive for $-4<x<3$ and zero at $-4$ and $3$. Outside those points it is negative. What is the solution set of $p(x)>0$?
+    choices:
+      - text: '$(-4,3)$'
+        correct: true
+      - text: '$[-4,3]$'
+        rationale: |
+          This includes the roots because they bound the interval. Check that zero is not greater than zero.
+      - text: '$[-4,3)$'
+        rationale: |
+          This includes the first root as the start of the positive region. Check the value at $-4$ itself.
+      - text: '$(-4,3]$'
+        rationale: |
+          This includes the last root as the end of the positive region. Check the value at $3$ itself.
+    explanation: |
+      The question asks for positive outputs only. At both ends the output is zero, so leave both out.
+
+  - id: q-algebra-quadratic-equations-0033
+    lesson: lesson-algebra-quadratic-inequalities-outside-the-roots
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Solve $x^2+3x>10$.
+    choices:
+      - text: '$x<-5$ or $x>2$'
+        correct: true
+      - text: '$-5<x<2$'
+        rationale: |
+          This takes the interval between the roots. Test $x=0$ in the original inequality.
+      - text: '$x\le-5$ or $x\ge2$'
+        rationale: |
+          This keeps the correct intervals but includes equality. Check the strict symbol $>$.
+      - text: '$x<-3$ or $x>0$'
+        rationale: |
+          This finds roots of $x^2+3x$. Move the $10$ to the left before finding roots.
+    explanation: |
+      Subtract $10$ and factor to get $(x+5)(x-2)>0$. The product is positive outside the roots $-5$ and $2$.
+
+  - id: q-algebra-quadratic-equations-0034
+    lesson: lesson-algebra-quadratic-inequalities-outside-the-roots
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Solve $x^2\ge 3x+4$.
+    choices:
+      - text: '$(-\infty,-1]\cup[4,\infty)$'
+        correct: true
+      - text: '$[-1,4]$'
+        rationale: |
+          This uses the interval where the factors have opposite signs. Test $x=0$.
+      - text: '$(-\infty,-1)\cup(4,\infty)$'
+        rationale: |
+          This gets the outside intervals but leaves out the roots. The sign $\ge$ allows zero.
+      - text: '$(-\infty,0]\cup[3,\infty)$'
+        rationale: |
+          This moves $3x$ but leaves out $4$ when finding the roots. Move both terms before factoring.
+    explanation: |
+      Move the right side to the left. The result is $(x+1)(x-4)\ge0$. It is positive outside the roots and zero at both roots.
+
+  - id: q-algebra-quadratic-equations-0035
+    lesson: lesson-algebra-quadratic-inequalities-with-fewer-roots
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the solution set of $x^2+4x+8>0$?
+    choices:
+      - text: 'All real numbers'
+        correct: true
+      - text: 'No real numbers'
+        rationale: |
+          This takes no real roots to mean no solutions. Check the sign of the graph where it does not touch zero.
+      - text: 'All real numbers except $-2$'
+        rationale: |
+          This treats the turning point as a root. At $x=-2$, the output is $4$.
+      - text: 'Only $x=-2$'
+        rationale: |
+          This uses the turning point as the only value to check. With no roots, the graph keeps the same sign everywhere.
+    explanation: |
+      The number under the square root in the quadratic formula is $16-32=-16$, so there are no real roots. The graph opens up and stays above zero.
+
+  - id: q-algebra-quadratic-equations-0036
+    lesson: lesson-algebra-quadratic-inequalities-with-fewer-roots
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      For which real values of $x$ is $-2x^2+4x-5\ge0$?
+    choices:
+      - text: 'No real values'
+        correct: true
+      - text: 'All real values'
+        rationale: |
+          This sees no roots and assumes the graph is above zero. Check that the leading coefficient is negative.
+      - text: 'Only $x=1$'
+        rationale: |
+          This uses the turning point as if it were a root. At $x=1$ the output is $-3$.
+      - text: 'All real values except $1$'
+        rationale: |
+          This leaves out the turning point as if it were the only bad value. Test $x=0$ to check the sign away from it.
+    explanation: |
+      Here $b^2-4ac=16-40=-24$, so there are no real roots. The graph opens down and stays below zero.
+
+  - id: q-algebra-quadratic-equations-0037
+    lesson: lesson-algebra-quadratic-inequalities-with-fewer-roots
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Which real values satisfy $-(x-4)^2\ge0$?
+    choices:
+      - text: 'Only $x=4$'
+        correct: true
+      - text: 'All real values'
+        rationale: |
+          This uses the sign of the square alone. Apply the minus sign before comparing.
+      - text: 'All real values except $4$'
+        rationale: |
+          This excludes the repeated root as if the sign were strict. At $4$ the output is zero, which is allowed.
+      - text: 'No real values'
+        rationale: |
+          This sees the minus sign and expects every output to be negative. Check the repeated root.
+    explanation: |
+      A square is zero or positive. Its negative can be at least zero only when the square is zero. That happens at $x=4$.
+
+  - id: q-algebra-quadratic-equations-0038
+    lesson: lesson-algebra-quadratic-inequalities-with-fewer-roots
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Solve $(x+5)^2>0$ over the real numbers.
+    choices:
+      - text: '$x\ne -5$'
+        correct: true
+      - text: 'All real numbers'
+        rationale: |
+          This treats zero as a positive square. Check the strict sign $>$.
+      - text: 'Only $x=-5$'
+        rationale: |
+          This finds the repeated root and keeps it as if solving an equation. Test the root in the inequality.
+      - text: 'All real numbers except $5$'
+        rationale: |
+          This uses $5$ as the root because the factor has $+5$. Set $x+5=0$ to check.
+    explanation: |
+      The square is positive whenever $x+5$ is nonzero. It is zero at $x=-5$, so leave that value out.

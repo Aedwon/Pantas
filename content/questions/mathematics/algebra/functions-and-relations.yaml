@@ -463,3 +463,179 @@ questions:
     explanation: |
       Apply the discount first to get $d(p)=0.8p$. Feed that discounted price into $c$, which adds $30$. The total is $c(d(p))=0.8p+30$.
     approved: true
+
+  - id: q-algebra-functions-and-relations-0021
+    lesson: lesson-algebra-ranges-on-restricted-domains
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the range of $f(x)=7-3x$ on $-1\le x<2$?
+    choices:
+      - text: '$(1,10]$'
+        correct: true
+      - text: '$[1,10)$'
+        rationale: |
+          This keeps the brackets in input order. A falling line swaps the ends. Match each output to its input.
+      - text: '$(1,10)$'
+        rationale: |
+          This leaves out both ends because one input is missing. Check that $x=-1$ is allowed.
+      - text: '$[1,10]$'
+        rationale: |
+          This includes both values because both can be calculated. Check whether each input is allowed.
+    explanation: |
+      The line falls from $10$ at $x=-1$ toward $1$ at $x=2$. Only $-1$ is in the domain, so only $10$ is included.
+
+  - id: q-algebra-functions-and-relations-0022
+    lesson: lesson-algebra-ranges-on-restricted-domains
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      The function $g(x)=4-2x$ is defined for $x>3$. What is its range?
+    choices:
+      - text: '$(-\infty,-2)$'
+        correct: true
+      - text: '$(-\infty,-2]$'
+        rationale: |
+          This counts the boundary value after finding it. Check the strict sign in $x>3$.
+      - text: '$(-2,\infty)$'
+        rationale: |
+          This follows the direction of the input interval. Try $x=4$ to see which way the output goes.
+      - text: '$[-2,\infty)$'
+        rationale: |
+          This uses the input direction and includes the boundary. Check the slope and whether $3$ is allowed.
+    explanation: |
+      At $x=3$ the output would be $-2$. Larger inputs make $4-2x$ smaller without limit, so every output is less than $-2$.
+
+  - id: q-algebra-functions-and-relations-0023
+    lesson: lesson-algebra-arithmetic-with-functions
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      If $f(x)=2x-1$ and $g(x)=x^2+2$, what is $(g-f)(-2)$?
+    choices:
+      - text: '$11$'
+        correct: true
+      - text: '$-11$'
+        rationale: |
+          This subtracts in the order the rules were listed. Read $g-f$ from left to right.
+      - text: '$1$'
+        rationale: |
+          This takes away $5$ because the second output has a minus sign. Put $-5$ in parentheses before subtracting.
+      - text: '$3$'
+        rationale: |
+          This uses $-4$ for $(-2)^2$. Write the square as $(-2)(-2)$ to check its sign.
+    explanation: |
+      At $-2$, $g$ gives $6$ and $f$ gives $-5$. Subtract $-5$ from $6$ to get $11$.
+
+  - id: q-algebra-functions-and-relations-0024
+    lesson: lesson-algebra-arithmetic-with-functions
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Let $f(x)=x+2$ and $g(x)=x-3$. Which expression equals $(f\cdot g)(x)$?
+    choices:
+      - text: '$x^2-x-6$'
+        correct: true
+      - text: '$x^2+x-6$'
+        rationale: |
+          This gets the right size for the middle term but flips its sign. Add $2x-3x$ in that order.
+      - text: '$x^2-x+6$'
+        rationale: |
+          This multiplies the sizes of the constants and loses the minus sign. Check $2(-3)$.
+      - text: '$x^2-6$'
+        rationale: |
+          This multiplies the first and last terms only. Check that each term in the first bracket meets both terms in the second.
+    explanation: |
+      Multiply $(x+2)(x-3)$. The middle terms are $2x$ and $-3x$, so they give $-x$. The constant is $-6$.
+
+  - id: q-algebra-functions-and-relations-0025
+    lesson: lesson-algebra-arithmetic-with-functions
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      The domain of $f$ is $[-3,4]$. The domain of $g(x)=x-2$ is $[0,6]$. What is the domain of $\left(\dfrac{f}{g}\right)(x)$?
+    choices:
+      - text: '$[0,4]\setminus\{2\}$'
+        correct: true
+      - text: '$[0,4]$'
+        rationale: |
+          This finds the overlap and stops there. Check where the divisor is zero.
+      - text: '$[-3,6]\setminus\{2\}$'
+        rationale: |
+          This joins the two domains because both functions appear. Check that each allowed input is in both domains.
+      - text: '$[-3,4]\setminus\{2\}$'
+        rationale: |
+          This starts from the top function and removes the zero. Check where the bottom function is defined too.
+    explanation: |
+      Both functions allow the inputs from $0$ through $4$. At $2$, $g$ gives zero, so remove $2$.
+
+  - id: q-algebra-functions-and-relations-0026
+    lesson: lesson-algebra-inverting-restricted-quadratics
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A restricted quadratic $f$ has domain $(-\infty,3]$ and range $[-4,\infty)$. What is the range of $f^{-1}$?
+    choices:
+      - text: '$(-\infty,3]$'
+        correct: true
+      - text: '$[-4,\infty)$'
+        rationale: |
+          This carries over the original output values. Trace an input through $f$ and back through the inverse.
+      - text: '$(-\infty,3)$'
+        rationale: |
+          This keeps the correct side but drops the last value. Check that $3$ belongs to the original domain.
+      - text: '$[3,\infty)$'
+        rationale: |
+          This keeps the endpoint and flips the direction. Copy the full original input interval.
+    explanation: |
+      Every input of $f$ becomes an output of its inverse. The inputs of $f$ are all numbers up to and including $3$.
+
+  - id: q-algebra-functions-and-relations-0027
+    lesson: lesson-algebra-inverting-restricted-quadratics
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      On the stated branch, $f$ has domain $[2,\infty)$ and range $(-\infty,9]$. What is the domain of $f^{-1}$?
+    choices:
+      - text: '$(-\infty,9]$'
+        correct: true
+      - text: '$[2,\infty)$'
+        rationale: |
+          This copies the original domain because the question asks for a domain. Swap inputs and outputs for the inverse.
+      - text: '$(-\infty,9)$'
+        rationale: |
+          This drops $9$ as if it were only a limit. Check the square bracket in the original range.
+      - text: '$[9,\infty)$'
+        rationale: |
+          This keeps $9$ and takes the other side. Check which values $f$ can actually give.
+    explanation: |
+      The inverse takes the outputs of $f$ as its inputs. Those outputs are all numbers at or below $9$.
+
+  - id: q-algebra-functions-and-relations-0028
+    lesson: lesson-algebra-inverting-restricted-quadratics
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Let $f(x)=(x+1)^2+5$ for $x\le -1$. Which formula gives $f^{-1}(x)$?
+    choices:
+      - text: '$-1-\sqrt{x-5}$'
+        correct: true
+      - text: '$-1+\sqrt{x-5}$'
+        rationale: |
+          This takes the usual positive square root. Check that the result stays at or below $-1$.
+      - text: '$1-\sqrt{x-5}$'
+        rationale: |
+          This picks the negative branch but moves the shift the wrong way. Check the result at $x=5$.
+      - text: '$-1-\sqrt{x+5}$'
+        rationale: |
+          This chooses the correct branch but adds $5$ inside the root. Subtract $5$ to get the square alone.
+    explanation: |
+      After swapping, $(y+1)^2=x-5$. We need $y\le-1$, so $y+1\le0$. Take the negative root and subtract $1$.
