@@ -44,6 +44,8 @@ $$9\text{ mol }H_2\times\dfrac{2\text{ mol }NH_3}{3\text{ mol }H_2}=6\text{ mol 
 
 ### #2: Limiting Reactant from Masses
 
+The **theoretical yield** is the most product the equation predicts from the starting amounts.
+
 For $2Mg+O_2\rightarrow2MgO$, $12$ g $Mg$ react with $4.0$ g $O_2$. The molar masses are $24$ g/mol for $Mg$, $32$ g/mol for $O_2$, and $40$ g/mol for $MgO$. Find the theoretical yield of $MgO$ and the mass of excess reactant left.
 
 **Solution:**
@@ -64,7 +66,7 @@ $$0.25\text{ mol}\times40\text{ g/mol}=10\text{ g }MgO$$
 
 ## Speed Tricks & Shortcuts
 
-To find the limiting reactant fast, divide each reactant's moles by its coefficient. The smaller result is limiting. In Example #3, $\dfrac{4}{1}=4$ for $N_2$ and $\dfrac{9}{3}=3$ for $H_2$, so $H_2$ is limiting.
+To find the limiting reactant fast, divide each reactant's moles by its coefficient. The smaller result is limiting. In the ammonia example, $\dfrac{4}{1}=4$ for $N_2$ and $\dfrac{9}{3}=3$ for $H_2$, so $H_2$ is limiting.
 
 ## Traps to Watch For
 
@@ -72,4 +74,4 @@ To find the limiting reactant fast, divide each reactant's moles by its coeffici
 
 > The reactant with fewer moles or fewer grams is not always limiting.
 
-The coefficients decide how much of each reactant the equation needs. In Example #3, $4$ mol $N_2$ is fewer than $9$ mol $H_2$, but $N_2$ is the one in excess.
+The coefficients decide how much of each reactant the equation needs. In the ammonia example, $4$ mol $N_2$ is fewer than $9$ mol $H_2$, but $N_2$ is the one in excess.

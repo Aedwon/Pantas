@@ -28,7 +28,7 @@ A cook mixes 50 mL of cooking oil with 50 mL of water and shakes it. After stand
 1. Two layers form, so the liquids do not mix. They are immiscible. The oil is less dense, so it floats on top of the water.
 2. Pour the mixture into a separating funnel and let it settle. Open the tap and drain the denser layer, the water, into one beaker.
 3. Close the tap when the boundary between the layers reaches it. The oil stays in the funnel. Pour it out of the top into a second beaker.
-4. Filtration is for a solid, and there is no solid here. Distillation is for liquids that mix, and it would waste heat on liquids that already form two layers.
+4. Filtration is for a solid, and there is no solid here. The funnel separates these two layers without heating them.
 5. A thin layer may stay at the boundary, so the separation is close but not perfect.
 
 ## Speed Tricks & Shortcuts

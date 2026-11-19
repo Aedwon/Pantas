@@ -21,6 +21,8 @@ A **chemical change**, also called a chemical reaction, turns the starting subst
 
 Burning wood, rusting iron, cooking an egg, and digesting food are chemical changes.
 
+A change that gives off heat is **exothermic**. One that takes in heat is **endothermic**.
+
 Signs of a chemical change include a new color, a new gas, a solid forming in a liquid, a new smell, and heat or light given off. These signs are only clues. Boiling water makes bubbles and ice melting takes in heat, yet both are physical. The real test is whether a new substance forms.
 
 <!-- ILLUSTRATION: two-column picture with left heading "Physical change: substance stays the same" showing ice melting to water and right heading "Chemical change: new substance forms" showing iron rusting -->
@@ -29,11 +31,11 @@ Signs of a chemical change include a new color, a new gas, a solid forming in a 
 
 ### #1: Physical or Chemical Change?
 
-Classify each change. (a) Sugar dissolves in tea. (b) A candle burns. (c) Wax near the candle flame melts. (d) A silver spoon turns dark in air with sulfur compounds.
+Classify each change. (a) Sugar dissolves in plain water. (b) A candle burns. (c) Wax near the candle flame melts. (d) A silver spoon turns dark in air with sulfur compounds.
 
 **Solution:**
 
-1. Dissolving sugar: physical. The sugar can be recovered by evaporating the tea.
+1. Dissolving sugar: physical. The sugar can be recovered by evaporating the water.
 2. Burning candle: chemical. New substances form, and heat and light are given off.
 3. Melting wax: physical. It is still wax.
 4. Silver turning dark: chemical. A new substance forms on the surface.

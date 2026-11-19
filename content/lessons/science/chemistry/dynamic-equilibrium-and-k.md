@@ -16,9 +16,9 @@ keyPoints:
 
 ### Chemical Equilibrium
 
-Many reactions can go in both directions. Written with a double arrow, $A+B\rightleftharpoons C+D$, they are **reversible**. At the start, only the forward reaction runs fast. As products build up, the reverse reaction speeds up.
+Many reactions can go in both directions. Written with a double arrow, $A+B\rightleftharpoons C+D$, they are **reversible**. The graph below starts with reactants only, so the reverse rate starts at zero. As products build up, the reverse reaction speeds up.
 
-In a closed container, the two rates become equal. This is **dynamic equilibrium**. Both reactions keep going, so the amounts stay constant, but they are not necessarily equal. Nothing is leaving the system.
+In a closed container, the two rates become equal. This is **dynamic equilibrium**. Both reactions keep going, so the amounts stay constant, but they are not necessarily equal. Matter cannot enter or leave the closed container.
 
 <!-- ILLUSTRATION: graph of rate against time: the forward rate curve falls and the reverse rate curve rises from zero until they meet and level off at the same height, with the meeting point labeled equilibrium -->
 

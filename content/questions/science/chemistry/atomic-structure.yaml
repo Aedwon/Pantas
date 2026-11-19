@@ -258,27 +258,27 @@ questions:
     approved: true
 
   - id: q-chemistry-atomic-structure-0012
-    lesson: lesson-chemistry-atomic-and-mass-numbers
+    lesson: lesson-chemistry-isotopes-and-neutrons
     keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'hard'
     stem: |
-      A nuclide has atomic number 8 and mass number 18. Another nuclide of the same element has mass number 16. Which describes the first nuclide?
+      Two nuclides have atomic number 8. Their mass numbers are 18 and 16. Which statement correctly describes the nuclide with mass number 18?
     choices:
-      - text: '10 neutrons; a different isotope'
+      - text: 'It has 10 neutrons and is a different isotope of the same element.'
         correct: true
-      - text: '18 neutrons; a different element'
+      - text: 'It has 18 neutrons and is a different element.'
         rationale: |
-          This treats mass number as neutron count and mass difference as a new element. Both quantities concern the nucleus. Check proton count for identity and subtract it from mass number for neutrons.
-      - text: '8 neutrons; a different isotope'
+          The mass number counts particles in the nucleus. Check which of those particles fix the element and which count you must subtract.
+      - text: 'It has 8 neutrons and is a different isotope of the same element.'
         rationale: |
-          This uses atomic number for neutron count. The number 8 appears in both nuclides. Check whether it counts protons or neutrons.
-      - text: '10 neutrons; a different element'
+          The atomic number is 8 in both nuclides. Check which particle that number counts.
+      - text: 'It has 10 neutrons and is a different element.'
         rationale: |
-          This interprets different mass as a different element. The neutron calculation is correct. Check whether the atomic number changes.
+          The neutron count is right. Check whether the two proton counts differ.
     explanation: |
-      Its neutron count is $18-8=10$. Both nuclides have the same atomic number but different mass numbers. They are different isotopes of the same element.
-    approved: true
+      Subtract the proton count from the mass number to get $18-8=10$ neutrons. Both nuclei have eight protons, so they are the same element. Their different mass numbers make them different isotopes.
+    approved: false
 
   - id: q-chemistry-atomic-structure-0013
     lesson: lesson-chemistry-ions-and-isotope-notation

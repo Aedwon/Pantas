@@ -35,7 +35,7 @@ Solutions of lead(II) nitrate and potassium iodide are mixed. Write the balanced
 
 1. Swap partners. Write each new formula from the ion charges: $Pb^{2+}$ with $I^-$ gives $PbI_2$, and $K^+$ with $NO_3^-$ gives $KNO_3$. So $Pb(NO_3)_2+KI\rightarrow PbI_2+KNO_3$.
 2. Balance. Put $2$ before $KI$ for the iodine, and then $2$ before $KNO_3$.
-3. Use the rules. $KNO_3$ is soluble. $PbI_2$ is an iodide of $Pb^{2+}$, an exception in the rules, so it forms a yellow solid.
+3. Use the rules. $KNO_3$ is soluble. $PbI_2$ is an iodide of $Pb^{2+}$, an exception in the rules. It can still dissolve in small amounts. At typical classroom concentrations, the mixture holds more than can stay dissolved, so a yellow solid forms.
 4. Add state symbols: $(aq)$ for the dissolved compounds and $(s)$ for the solid.
 5. Write each dissolved ionic compound as separate ions, with its coefficient. Keep the solid as one formula.
 

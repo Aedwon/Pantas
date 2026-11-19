@@ -35,7 +35,7 @@ Think of each carbon as a building block with four connectors. The blocks join i
 
 A **hydrocarbon** contains only carbon and hydrogen. A **saturated** hydrocarbon has no carbon-carbon double or triple bonds. An **unsaturated** hydrocarbon has at least one.
 
-- **Alkanes** have only single bonds. They can be straight chains, branched chains or rings. Rings of this kind are called **cycloalkanes**.
+- **Alkanes** have only single bonds and no rings. Their chains can be straight or branched. Single-bond rings are **cycloalkanes**.
 - **Alkenes** have at least one carbon-carbon double bond ($C=C$).
 - **Alkynes** have at least one carbon-carbon triple bond ($C\equiv C$).
 
@@ -66,8 +66,6 @@ Names treat groups in different ways. Some groups set a name ending, called a **
 - **Carboxylic acid**: a carbonyl carbon that also carries an $-OH$ group. Written $R-COOH$. Name ending: **-oic acid**.
 - **Amine**: a compound derived from ammonia, $NH_3$, by replacing one or more hydrogens with carbon groups. A primary amine has $-NH_2$. Secondary and tertiary amines have $-NHR$ and $-NR_2$. Name ending: **-amine**.
 - **Ester**: the carbonyl carbon is bonded to an $-O-R$ group. It forms when a carboxylic acid joins an alcohol. Name ending: **-oate**, as in ethyl ethanoate.
-
-<!-- ILLUSTRATION: five structures side by side with the functional group circled and labeled: CH3CH2OH (alcohol), CH3CH2CHO (aldehyde), CH3COCH3 (ketone), CH3COOH (carboxylic acid), CH3NH2 (amine) -->
 
 When a compound has more than one group, only the main one sets the suffix. The others are named as prefixes, such as hydroxy- for $-OH$ and amino- for $-NH_2$.
 
@@ -109,7 +107,7 @@ The endings are **-ane**, **-ene** and **-yne** for single, double and triple ca
 For a simple branched alkane, follow these steps:
 
 1. Find the longest continuous carbon chain. This is the parent. If two chains tie in length, choose the one with more double or triple bonds. If they still tie, choose the one with more branches.
-2. Number the chain from the end that gives the first branch the lowest number. If that ties, compare the whole set of numbers and choose the lower one.
+2. Number the chain from the end that gives the first branch the lowest number. Compare the sorted branch numbers one by one. At the first difference, choose the smaller number. If the lists match, give the lower number to the branch named first.
 3. Name each branch and give its number. Use **di-**, **tri-** for repeats, with a number for each one. List different branches in alphabetical order.
 
 The name is written as locants, then branches, then the parent: $2$-methylbutane.
@@ -124,7 +122,7 @@ Older school books choose the chain that contains the double or triple bond. Thi
 
 ### Carbon Compounds of Living Things
 
-Living things are built from large carbon compounds called **biomolecules**. Many are **polymers**, long molecules made by joining many small units called **monomers**. Their functional groups explain their structure and behavior.
+Living things contain **biomolecules**. These range from small molecules, like glucose, to large **polymers**. Polymers are long molecules made by joining small units called **monomers**. Their functional groups explain their structure and behavior.
 
 - **Carbohydrates** contain carbon, hydrogen and oxygen. Sugars such as glucose, $C_6H_{12}O_6$, have many $-OH$ groups, so they dissolve in water. Starch, glycogen and cellulose are polymers made of glucose units.
 - **Proteins** are polymers of **amino acids**. Each amino acid has an amine group and a carboxylic acid group. A **peptide bond** joins the carboxylic acid of one to the amine of the next.
@@ -149,11 +147,11 @@ Methane and glucose are organic. Carbon dioxide and calcium carbonate are not us
 
 ### #2: Hydrocarbon Family from the Bonds
 
-Classify (a) a hydrocarbon with only single bonds, (b) a hydrocarbon with one $C\equiv C$ bond, (c) a hydrocarbon with one $C=C$ bond.
+Classify (a) an open-chain hydrocarbon with only single bonds, (b) a hydrocarbon with one $C\equiv C$ bond, (c) a hydrocarbon with one $C=C$ bond.
 
 **Solution:**
 
-1. (a) Only single bonds: an alkane, which is saturated.
+1. (a) Only single bonds and no ring: an alkane, which is saturated.
 2. (b) A triple bond: an alkyne, which is unsaturated.
 3. (c) A double bond: an alkene, which is unsaturated.
 
@@ -205,6 +203,8 @@ Name the main functional group of each: $CH_3CH_2OH$, $CH_3CH_2CHO$, $CH_3COCH_3
 4. $CH_3COOH$ has $C=O$ with an $-OH$ on the same carbon: a carboxylic acid.
 5. $CH_3NH_2$ has nitrogen bonded to carbon and two hydrogens: a primary amine.
 
+<!-- ILLUSTRATION: five structures side by side with the functional group circled and labeled: CH3CH2OH (alcohol), CH3CH2CHO (aldehyde), CH3COCH3 (ketone), CH3COOH (carboxylic acid), CH3NH2 (amine) -->
+
 ### #7: Aldehyde or Ketone
 
 $C_3H_6O$ has a carbonyl group. Give the two possible compounds and say how to tell them apart.
@@ -213,7 +213,7 @@ $C_3H_6O$ has a carbonyl group. Give the two possible compounds and say how to t
 
 1. Place the $C=O$ at the end of the chain with a hydrogen on it: $CH_3CH_2CHO$, an aldehyde. It is named propanal.
 2. Place the $C=O$ on the middle carbon: $CH_3COCH_3$, a ketone. It is named propanone.
-3. Look at the carbonyl carbon, once you know it has no $-OH$ or $-O-R$ on it. A hydrogen on it means an aldehyde. Two carbon groups on it means a ketone.
+3. Look at the carbonyl carbon. One hydrogen and one carbon group, or two hydrogens, make it an aldehyde. Two carbon groups make it a ketone.
 
 ### #8: Comparing Ethane, Ethanol and Ethanoic Acid
 
@@ -299,7 +299,7 @@ To name an alkane, circle the longest chain first. Then number from the end near
 
 First check the $C=O$ carbon for an $-OH$ or an $-O-R$. If it has one, the compound is a carboxylic acid or an ester, not an aldehyde or ketone.
 
-Methanoic acid, $HCOOH$, has a hydrogen there and is still an acid. If the carbon has neither group, a hydrogen on it means an aldehyde, and two carbon groups mean a ketone.
+Methanoic acid, $HCOOH$, has a hydrogen there and is still an acid. Check both bonds to the carbonyl carbon besides $C=O$. An aldehyde has one hydrogen and one carbon group, or two hydrogens. A ketone has two carbon groups.
 
 ## Traps to Watch For
 
@@ -337,4 +337,4 @@ Check both directions. In $3$-methylhexane, numbering from the other end would g
 
 > Both have $C=O$. The position of the carbonyl carbon decides.
 
-An aldehyde has the carbonyl carbon at the chain end, with at least one hydrogen on it. A ketone has it inside the chain, between two carbons.
+An aldehyde has one hydrogen and one carbon group on its carbonyl carbon, or two hydrogens. A ketone has it inside the chain, between two carbons.

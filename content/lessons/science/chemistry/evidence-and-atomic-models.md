@@ -29,6 +29,8 @@ A good model explains the observations made so far. It also predicts what a new 
 
 ### #1: Testing a Model with a Change
 
+In the gold-foil experiment, scientists aimed fast, positively charged alpha particles at thin gold foil. A screen showed where they went. Most passed straight through. In Rutherford’s model, a few came close to a small, positive nucleus and were pushed sharply off course.
+
 A student repeats the gold-foil work with a foil that is much thicker. What changes and what must stay the same for a fair test? What is likely to happen?
 
 **Solution:**

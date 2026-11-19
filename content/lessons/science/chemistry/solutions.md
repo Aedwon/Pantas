@@ -23,7 +23,7 @@ A **solution** is a mixture that looks the same all the way through, even under 
 
 Most solutions we meet are liquids, like salt in water. But solutions can be solid or gas too. Air is a gas solution. Brass is a solid solution of zinc in copper.
 
-The **solvent** is the part that decides the physical state of the solution. It is often the part present in the largest amount. The other parts are the **solutes**. In salt water, water is the solvent and salt is the solute.
+The **solvent** is the part that dissolves the other parts, called **solutes**. When the parts start in the same state, the solvent is usually the one present in the greatest amount. In salt water, water is the solvent and salt is the solute.
 
 "The solute is the smaller amount" works for most simple cases. It is a handy rule, not the true definition. In a mixture of $50\%$ alcohol and $50\%$ water, the amounts are equal, so size cannot decide.
 
@@ -87,15 +87,15 @@ Use the measured final volume. Do not add the volumes of the parts. When ethanol
 
 ### Which Measures Change with Temperature
 
-Mass does not change when a sealed solution is warmed. So molality and percent by mass stay the same.
+If warming leaves a single liquid solution with the same masses of dissolved solute and solvent, molality and percent by mass stay the same.
 
-Volume does change. Liquids usually expand when warmed. The same amount of solute is then in more liters, so molarity falls. Percent by volume also changes, because the volumes change.
+Volume can change. Liquids usually expand when warmed. The same amount of solute is then in more liters, so molarity falls. Percent by volume can change if the solute volume and the solution volume change by different proportions.
 
 ### Dilution
 
 To **dilute** a solution means to add more solvent. The amount of solute stays the same. Only the volume gets bigger, so the concentration gets smaller.
 
-Let $M_1$ and $V_1$ be the molarity and volume before. Let $M_2$ and $V_2$ be the molarity and final volume after. Moles of solute equal $M\times V$, and these moles are the same before and after:
+Let $M_1$ and $V_1$ be the molarity and volume before. Let $M_2$ and $V_2$ be the molarity and final volume after. Moles of solute equal $M\times V$ when $V$ is in liters, and these moles are the same before and after:
 
 $$M_1V_1=M_2V_2$$
 
@@ -237,7 +237,7 @@ The bottle holds $350$ mL of ethyl alcohol. The rest is water and other ingredie
 
 ### #10: Why Molarity Can Change with Temperature
 
-A sealed solution is warmed with nothing lost or added. Why can its molarity change while its molality stays constant?
+A sealed solution is warmed. It stays as one liquid phase with the same amounts of dissolved solute and solvent. Why can its molarity change while its molality stays constant?
 
 **Solution:**
 

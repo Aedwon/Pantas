@@ -240,22 +240,22 @@ questions:
     type: 'classify'
     difficulty: 'hard'
     stem: |
-      Which statement correctly summarizes broad periodic trends while respecting their limits?
+      Which statement describes the general trend for atomic radius among main-group elements?
     choices:
-      - text: 'Ionization energy and electronegativity generally rise up and right.'
+      - text: 'Radius usually decreases from left to right across a period and increases down a group.'
         correct: true
-      - text: 'Radius and ionization energy generally increase together up and right.'
+      - text: 'Radius usually increases across a period and decreases down a group.'
         rationale: |
-          This gives radius the same direction as electron attraction. All are atomic properties. Check that stronger attraction usually reduces radius.
-      - text: 'Electronegativity generally rises down and left, while ionization energy rises up and right.'
+          Adding protons and electrons can make a trend seem hard to predict. Check the stronger pull across a period and the added shells down a group.
+      - text: 'Radius usually increases both across a period and down a group.'
         rationale: |
-          This splits two properties that follow the same arrow. Both involve the pull of the nucleus on electrons. Check that both depend on distance and shielding in the same way.
-      - text: 'Ionization energy and electronegativity generally increase down and left.'
+          Added shells do make atoms bigger down a group. Check whether moving across a period adds a shell.
+      - text: 'Radius usually decreases both across a period and down a group.'
         rationale: |
-          This sends both properties down and left. Larger atoms occur there. Check how distance and shielding affect electron removal and bonding attraction.
+          A stronger pull does shrink atoms across a period. Down a group, check how far the outer electrons are from the nucleus.
     explanation: |
-      First ionization energy and electronegativity generally rise across a period and fall down a group. Their broad direction is up and right, with local exceptions.
-    approved: true
+      Across a period, the nucleus gains protons while electrons go into the same outer shell. The stronger pull usually shrinks the atom. Down a group, atoms gain shells, so the outer electrons are usually farther from the nucleus.
+    approved: false
 
   - id: q-chemistry-periodic-table-0012
     lesson: lesson-chemistry-atomic-radius-and-shielding

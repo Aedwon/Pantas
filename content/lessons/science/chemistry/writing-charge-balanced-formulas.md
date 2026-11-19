@@ -28,6 +28,8 @@ For calcium nitrate, $Ca^{2+}$ requires two $NO_3^-$ ions:
 
 $$Ca(NO_3)_2$$
 
+A molecular formula gives the actual count of each kind of atom in one molecule.
+
 Parentheses are used around a polyatomic ion when more than one whole ion is present.
 
 ## Examples

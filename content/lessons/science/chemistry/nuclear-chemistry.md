@@ -18,7 +18,7 @@ replacedBy:
 ---
 ## Core Concept
 
-**Nuclear chemistry** studies changes in the **nucleus**, the tiny center of an atom that holds its protons and neutrons. In an ordinary chemical reaction, atoms rearrange their electrons and every nucleus stays the same. In a nuclear reaction, the nucleus itself changes, and one element can become another.
+**Nuclear chemistry** studies changes in the **nucleus**, the tiny center of an atom that holds its protons. Most nuclei also hold neutrons. In an ordinary chemical reaction, atoms rearrange their electrons and every nucleus stays the same. In a nuclear reaction, the nucleus itself changes, and one element can become another.
 
 ### Atoms, Isotopes, and Nuclear Symbols
 
@@ -77,7 +77,7 @@ $$^A_Z X +\ ^{\ 0}_{-1} e \rightarrow\ ^{\ \ A}_{Z-1} Y + \nu$$
 - Mass number unchanged.
 - Atomic number: $Z\rightarrow Z-1$.
 
-Positron emission and electron capture give the same daughter, but the electron is on the product side in one and on the reactant side in the other. A given nuclide may decay by one, the other, or both.
+Positron emission and electron capture give the same daughter. In positron emission, a positron appears on the product side. In electron capture, an electron appears on the reactant side. A given nuclide may decay by one, the other, or both.
 
 **Gamma ($\gamma$) emission.** A nucleus in an excited, high-energy state releases a gamma ray, which is a photon of very high energy. The nucleus drops to a lower energy state.
 
@@ -92,11 +92,11 @@ The element does not change in gamma emission. Gamma emission often follows anot
 
 Radiation can knock electrons off the atoms it hits. This is called **ionizing** radiation, and it can damage living cells.
 
-Alpha particles are heavy and stopped by a sheet of paper or by the outer layer of dead skin. Beta particles go farther and are stopped by a thin sheet of aluminum. Gamma rays go much farther. Thick lead or concrete **attenuates** them, which means it reduces their intensity. More shielding means less gamma, but some gamma rays can still get through.
+Alpha particles are heavy and stopped by a sheet of paper or by the outer layer of dead skin. Beta particles go farther and can be stopped by a thick enough sheet of aluminum. Gamma rays go much farther. Thick lead or concrete **attenuates** them, which means it reduces their intensity. More shielding means less gamma, but some gamma rays can still get through.
 
 Low penetration does not mean low hazard. An alpha emitter that is inhaled or swallowed sits next to living cells and can damage them. Outside the body, the skin shields most of the alpha particles.
 
-<!-- ILLUSTRATION: three penetration diagrams side by side, alpha particle stopped by a sheet of paper, beta particle stopped by aluminum foil, gamma ray passing through paper and foil but greatly reduced by a thick lead block -->
+<!-- ILLUSTRATION: three penetration diagrams side by side, alpha particle stopped by a sheet of paper, beta particle stopped by a thick enough aluminum sheet, gamma ray passing through paper and aluminum but greatly reduced by a thick lead block -->
 
 ### Fission
 
@@ -114,13 +114,13 @@ $$^2_1 H +\ ^3_1 H \rightarrow\ ^4_2 He +\ ^1_0 n$$
 
 Here $^2_1 H$ is **deuterium**, a hydrogen isotope with $1$ proton and $1$ neutron. $^3_1 H$ is **tritium**, a hydrogen isotope with $1$ proton and $2$ neutrons.
 
-Nuclei carry positive charge and push each other away. Fusion needs extremely high temperature and pressure to push them together. The Sun does not join hydrogen into helium in one step. Its net result is that four hydrogen nuclei become one helium-$4$ nucleus, plus other particles and energy, through several steps.
+Nuclei carry positive charge and push each other away. Inside stars like the Sun, very high temperatures and pressures let some nuclei get close enough to fuse. The Sun does not join hydrogen into helium in one step. Its net result is that four hydrogen nuclei become one helium-$4$ nucleus, plus other particles and energy, through several steps.
 
 ### Why Fission and Fusion Release Energy
 
 The **binding energy** is the energy needed to pull a nucleus apart into separate protons and neutrons. The same amount of energy is released when those particles come together to form the nucleus.
 
-A proton or neutron in a nucleus is called a **nucleon**. A larger binding energy per nucleon means a more tightly held, more stable nucleus.
+A proton or neutron in a nucleus is called a **nucleon**. A larger binding energy per nucleon means a more tightly held nucleus.
 
 Binding energy per nucleon is highest near iron-$56$. Splitting a very heavy nucleus gives smaller nuclei with more binding energy per nucleon.
 

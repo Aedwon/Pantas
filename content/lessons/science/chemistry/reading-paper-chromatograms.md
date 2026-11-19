@@ -30,7 +30,7 @@ The value is between $0$ and $1$. It is the same for the same substance, solvent
 
 ### #1: Reading a Chromatogram
 
-A black ink is run on paper. The solvent front moves $6.0$ cm from the baseline. The ink gives three spots. One spot, A, is $3.0$ cm from the baseline. A known blue dye run on the same paper gives a spot at $3.0$ cm. What do the results show, and what is the $R_f$ of A?
+On a different chromatogram from the one shown above, a black ink is run on paper. The solvent front moves $6.0$ cm from the baseline. The ink gives three spots. One spot, A, is $3.0$ cm from the baseline. A known blue dye run on the same paper gives a spot at $3.0$ cm. What do the results show, and what is the $R_f$ of A?
 
 **Solution:**
 

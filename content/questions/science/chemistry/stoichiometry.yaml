@@ -263,22 +263,22 @@ questions:
     type: 'classify'
     difficulty: 'exam'
     stem: |
-      A proposed empirical formula has a formula mass of 46 g/mol. A careful measurement gives a molecular mass of 120 g/mol, so the multiplier is about 2.6. What should be done?
+      The molar mass calculated from a proposed empirical formula is 46 g/mol. The measured molar mass of the compound is 120 g/mol. What should a student do with the calculated multiplier?
     choices:
-      - text: 'Recheck data and the empirical formula.'
+      - text: 'Recheck the measurements and the proposed formula.'
         correct: true
-      - text: 'Round the multiplier to 3 and triple the empirical formula.'
+      - text: 'Round the multiplier to 3 and triple the subscripts.'
         rationale: |
-          This rounds a ratio that is clearly not a whole number. Rounding can seem like a quick way to obtain whole-number subscripts. Check whether a small measurement error could move 2.6 all the way to 3.
-      - text: 'Use the multiplier 2.6 to write fractional subscripts.'
+          Rounding gives whole subscripts, which looks useful. Check whether the multiplier is close enough to 3 for ordinary rounding.
+      - text: 'Use 2.6 as the multiplier and keep fractional subscripts.'
         rationale: |
-          This uses fractional molecular subscripts. The mass ratio was calculated, so it seems to be the answer. Check that a molecule contains whole atom counts.
-      - text: 'Set the multiplier to 1 and keep the empirical formula.'
+          This keeps the calculated ratio. Check whether one molecule can have a fraction of an atom.
+      - text: 'Use 1 as the multiplier and keep the original subscripts.'
         rationale: |
-          This makes the empirical formula the molecular formula. The empirical unit has a known mass. Check whether 46 g/mol matches the measured 120 g/mol.
+          Sometimes both formulas match. Check whether their molar masses match here.
     explanation: |
-      Divide the molecular mass by the empirical formula mass: $120 \div 46 \approx 2.6$. The result should be close to a whole number. It is clearly not, so check the measurements and the empirical formula.
-    approved: true
+      Divide the measured molar mass by the molar mass from the empirical formula. The result, $120\div46\approx2.6$, is too far from a whole number. Recheck the measurements and the formula.
+    approved: false
 
   - id: q-chemistry-stoichiometry-0013
     lesson: lesson-chemistry-limiting-and-excess-reactant-amounts

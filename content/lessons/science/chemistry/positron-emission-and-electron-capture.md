@@ -27,7 +27,7 @@ $$^A_Z X +\ ^{\ 0}_{-1} e \rightarrow\ ^{\ \ A}_{Z-1} Y + \nu$$
 - Mass number unchanged.
 - Atomic number: $Z\rightarrow Z-1$.
 
-Positron emission and electron capture give the same daughter, but the electron is on the product side in one and on the reactant side in the other. A given nuclide may decay by one, the other, or both.
+Positron emission and electron capture give the same daughter. In positron emission, a positron appears on the product side. In electron capture, an electron appears on the reactant side. A given nuclide may decay by one, the other, or both.
 
 ## Examples
 

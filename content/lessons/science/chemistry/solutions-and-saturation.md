@@ -18,7 +18,7 @@ A **solution** is a mixture that looks the same all the way through, even under 
 
 Most solutions we meet are liquids, like salt in water. But solutions can be solid or gas too. Air is a gas solution. Brass is a solid solution of zinc in copper.
 
-The **solvent** is the part that decides the physical state of the solution. It is often the part present in the largest amount. The other parts are the **solutes**. In salt water, water is the solvent and salt is the solute.
+The **solvent** is the part that dissolves the other parts, called **solutes**. When the parts start in the same state, the solvent is usually the one present in the greatest amount. In salt water, water is the solvent and salt is the solute.
 
 "The solute is the smaller amount" works for most simple cases. It is a handy rule, not the true definition. In a mixture of $50\%$ alcohol and $50\%$ water, the amounts are equal, so size cannot decide.
 

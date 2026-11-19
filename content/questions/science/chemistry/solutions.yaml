@@ -217,22 +217,22 @@ questions:
     type: 'cause-effect'
     difficulty: 'hard'
     stem: |
-      A solution changes temperature without gaining or losing material. Why can molarity change while molality stays fixed?
+      A sealed solution is warmed and remains a single liquid phase with unchanged amounts of dissolved solute and solvent. Why can its molarity change while its molality remains constant?
     choices:
-      - text: 'Volume can change; solvent mass stays fixed.'
+      - text: 'The solution volume can change while the solvent mass stays fixed.'
         correct: true
-      - text: 'Molality uses volume; molarity uses shrinking mass.'
+      - text: 'The solvent mass changes and the solution volume stays fixed.'
         rationale: |
-          This reverses the concentration denominators. Both involve solute moles. Check mol/L versus mol/kg.
-      - text: 'Both use volume, so both must change equally.'
+          Volume and mass both appear in concentration formulas. Check the fixed masses in the question.
+      - text: 'Both measures divide by volume, but they use different volume units.'
         rationale: |
-          This gives both concentrations a volume denominator. Their names are similar. Check whether molality uses solvent mass.
-      - text: 'Heating always changes solvent mass as well as volume.'
+          Molarity uses liters, which makes this sound reasonable. Check whether molality divides by liters or by kilograms.
+      - text: 'The number of dissolved solute moles changes only in the molarity calculation.'
         rationale: |
-          This assumes temperature always changes mass. Heat can expand volume. Check whether any material is gained or lost.
+          Both calculations start with dissolved solute. Check whether warming changes the amount of solute in this case.
     explanation: |
-      With no material gained or lost, the solute amount and solvent mass stay fixed. Molality uses that mass. Molarity uses solution volume, which can expand or contract.
-    approved: true
+      The moles of dissolved solute and the solvent mass stay the same. Molality divides by solvent mass, so it stays the same. Molarity divides by solution volume, which can change with temperature.
+    approved: false
 
   - id: q-chemistry-solutions-0011
     lesson: lesson-chemistry-solution-percent-by-volume
@@ -332,22 +332,22 @@ questions:
     type: 'identify'
     difficulty: 'easy'
     stem: |
-      Which description best identifies a solvent in a solution?
+      A student mixes 10 g of liquid ethanol with 90 g of liquid water to make one solution. Which component is normally called the solvent, and why?
     choices:
-      - text: 'The component that sets the physical state of the solution.'
+      - text: 'Water, because it is the liquid present in the greater amount.'
         correct: true
-      - text: 'The component that is present in the smallest amount.'
+      - text: 'Ethanol, because the component present in the smaller amount is the solvent.'
         rationale: |
-          This reverses the usual simple-case amount pattern. Solute often has a smaller amount. Check the physical-state role.
-      - text: 'The component that is the water in the solution.'
+          The smaller amount is easy to pick out. When both parts start as liquids, check which is present in the greater amount.
+      - text: 'Both equally, because both components start as liquids.'
         rationale: |
-          This treats the common solvent as the only possible one. Water is widely used. Check whether solutions can have other solvents.
-      - text: 'The component that is the solid that disappears when stirred.'
+          Their starting states match. Check whether their amounts match too.
+      - text: 'Neither, because a solvent must dissolve a solid.'
         rationale: |
-          This assigns a typical dissolving solid's role to the solvent. Solids often dissolve in liquids. Check which component determines the state.
+          A solid in a liquid is a familiar example. Check whether one liquid can dissolve another.
     explanation: |
-      The solvent determines the solution’s physical state and is often present in the greatest amount.
-    approved: true
+      The solvent is the part that dissolves the other part. When both parts start as liquids, the solvent is usually the one present in the greater amount. Here that is water.
+    approved: false
 
   - id: q-chemistry-solutions-0016
     lesson: lesson-chemistry-solutions-and-saturation

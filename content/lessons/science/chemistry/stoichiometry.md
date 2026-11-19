@@ -63,7 +63,7 @@ To find an empirical formula from composition data:
 3. If a ratio is very close to a whole number, such as $2.01$, round it.
 4. If a ratio is a simple fraction, multiply all the ratios by the same small whole number: $\times2$ for $1.5$, $\times3$ for $1.33$ or $1.67$, and $\times4$ for $1.25$ or $1.75$, and $\times5$ for $1.2$, $1.4$, $1.6$ or $1.8$.
 
-To find the molecular formula, divide the compound's molar mass by the empirical formula mass. The **empirical formula mass** is the mass of one empirical formula unit, such as $12+2(1)+16=30$ g/mol for $CH_2O$. The answer $k$ should be close to a whole number:
+To find the molecular formula, divide the compound's molar mass by the empirical formula mass. The **empirical formula mass** is the molar mass calculated from the empirical formula, such as $12+2(1)+16=30$ g/mol for $CH_2O$. The answer $k$ should be close to a whole number:
 
 $$k=\dfrac{\text{molar mass of compound}}{\text{empirical formula mass}}$$
 
@@ -124,6 +124,8 @@ $$9\text{ mol }H_2\times\dfrac{2\text{ mol }NH_3}{3\text{ mol }H_2}=6\text{ mol 
 <!-- ILLUSTRATION: two bars of reactant amounts for N2 + 3H2 -> 2NH3, with N2 = 4 mol and H2 = 9 mol; show 3 mol N2 reacting with 9 mol H2, the used part shaded and 1 mol N2 left unshaded -->
 
 ### #4: Limiting Reactant from Masses
+
+The **theoretical yield** is the most product the equation predicts from the starting amounts.
 
 For $2Mg+O_2\rightarrow2MgO$, $12$ g $Mg$ react with $4.0$ g $O_2$. The molar masses are $24$ g/mol for $Mg$, $32$ g/mol for $O_2$, and $40$ g/mol for $MgO$. Find the theoretical yield of $MgO$ and the mass of excess reactant left.
 
@@ -205,7 +207,7 @@ $$k=\dfrac{180}{30}=6$$
 
 ## Speed Tricks & Shortcuts
 
-To find the limiting reactant fast, divide each reactant's moles by its coefficient. The smaller result is limiting. In Example #3, $\dfrac{4}{1}=4$ for $N_2$ and $\dfrac{9}{3}=3$ for $H_2$, so $H_2$ is limiting.
+To find the limiting reactant fast, divide each reactant's moles by its coefficient. The smaller result is limiting. In the ammonia example, $\dfrac{4}{1}=4$ for $N_2$ and $\dfrac{9}{3}=3$ for $H_2$, so $H_2$ is limiting.
 
 For empirical formulas, divide by the smallest first and then look at the ratios before you round. Ratios like $1.5$, $1.33$, and $1.25$ need a multiplier. A value such as $2.01$ or $0.98$ is just rounding.
 
@@ -217,7 +219,7 @@ The multiplier $k$ must be close to a whole number. If it is not, recheck the em
 
 > The reactant with fewer moles or fewer grams is not always limiting.
 
-The coefficients decide how much of each reactant the equation needs. In Example #3, $4$ mol $N_2$ is fewer than $9$ mol $H_2$, but $N_2$ is the one in excess.
+The coefficients decide how much of each reactant the equation needs. In the ammonia example, $4$ mol $N_2$ is fewer than $9$ mol $H_2$, but $N_2$ is the one in excess.
 
 ### #2: Treating Coefficients as Grams
 
@@ -247,4 +249,4 @@ If a measured mass gives more than $100\%$, the product was probably wet or impu
 
 > Ionic solids have formula units, not molecules.
 
-For an ionic compound such as $NaCl$, the formula shows the ratio of its ions. Only a molecular compound can have a molecular formula that is a multiple of its empirical formula. Reduce an ionic formula only when its subscripts share a common factor, as in $Na_2O_2$.
+For an ionic compound such as $NaCl$, the formula shows the ratio of its ions. Only a molecular compound can have a molecular formula that is a multiple of its empirical formula. To find the empirical atom ratio of $Na_2O_2$, reduce the subscripts to get $NaO$. Keep $Na_2O_2$ as the ionic formula because it shows the peroxide ion, $O_2^{2-}$.

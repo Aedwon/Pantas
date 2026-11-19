@@ -29,7 +29,7 @@ $A$ is a count, so it is always a whole number. The mass of an atom in $u$ is cl
 
 A nuclide is written as the element symbol with $A$ at the upper left and $Z$ at the lower left. For chlorine with $A=35$ and $Z=17$, this is ${}^{35}_{17}\text{Cl}$. It can also be written as chlorine-35.
 
-A **neutral atom** has no net charge, so it has as many electrons as protons. An ion does not, as the Ions section shows.
+A **neutral atom** has no net charge, so it has as many electrons as protons. An ion does not, as shown in “Monatomic Ion Charge”.
 
 ## Examples
 

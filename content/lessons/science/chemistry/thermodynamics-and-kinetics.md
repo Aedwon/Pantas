@@ -42,11 +42,11 @@ A reaction is **spontaneous** when it can go forward on its own, without a stead
 
 Spontaneity depends on the Gibbs free energy change, $\Delta G=\Delta H-T\Delta S$, at constant temperature and pressure. Here $T$ is the temperature in kelvin. $\Delta S$ is the **entropy** change: it is positive when the particles and energy end up more spread out.
 
-A reaction is spontaneous when $\Delta G<0$. So an exothermic reaction is not always spontaneous, and an endothermic one is not always nonspontaneous. If $\Delta H<0$ and $\Delta S>0$, $\Delta G$ is negative at every temperature. If $\Delta H>0$ and $\Delta S<0$, it is never negative. In the other two cases, the temperature decides.
+A reaction is spontaneous when $\Delta G<0$. So an exothermic reaction is not always spontaneous, and an endothermic one is not always nonspontaneous. At temperatures where $\Delta H<0$ and $\Delta S>0$, $\Delta G$ is negative. Where $\Delta H>0$ and $\Delta S<0$, $\Delta G$ is positive. In the other two cases, the temperature decides.
 
 ### Activation Energy and Collision Theory
 
-**Collision theory** says particles react only when they collide. A collision leads to a reaction only if the particles have enough energy and meet in a suitable orientation.
+In **collision theory**, reactions between particles start with a collision. A collision leads to a reaction only if the particles have enough energy and meet in a suitable orientation.
 
 The smallest energy needed is the **activation energy**, $E_a$. It is the energy barrier between the reactants and the highest point of the pathway, called the **transition state**. A lower barrier means more collisions get over it.
 
@@ -54,26 +54,24 @@ The **rate of a reaction** is how fast the concentration of a reactant falls or 
 
 $$k=Ae^{-E_a/(RT)}$$
 
-Here $A$ is a factor for how often collisions have the right orientation, $R$ is the gas constant, and $T$ is the temperature in kelvin. You need only the pattern. For a reaction without enzymes, a lower $E_a$ or a higher $T$ gives a bigger $k$. A bigger $k$ means a faster reaction at the same concentrations.
+Here $A$ is a factor for how often collisions have the right orientation, $R$ is the gas constant, and $T$ is the temperature in kelvin. You need only the pattern. With $A$ and $T$ fixed, a lower $E_a$ gives a bigger $k$. With $A$ and a positive $E_a$ fixed, a higher $T$ gives a bigger $k$. A bigger $k$ means a faster reaction at the same concentrations.
 
 A higher $E_a$ does not always mean a slower reaction, because $A$, $T$ and the concentrations also matter. When two reactions are compared, the same temperature and concentrations must be used.
-
-<!-- ILLUSTRATION: energy profile with energy in kJ on the vertical axis and reaction progress on the horizontal axis: reactants at 50 kJ, peak at 120 kJ labeled transition state, products at 20 kJ; arrows for Ea forward = 70 kJ and delta H = -30 kJ; a dashed lower peak at 90 kJ labeled with catalyst -->
 
 ### Catalysts
 
 A **catalyst** speeds up a reaction by giving it a new pathway with a lower activation energy. The catalyst can take part in the steps of that pathway. It is given back at the end, so it is not used up. Enzymes are catalysts made by living things.
 
-For a reaction that can go both ways, a catalyst lowers the barrier in both directions by the same amount. It speeds up the forward and the reverse reaction, so equilibrium is reached sooner.
+In a reaction that goes both ways, **equilibrium** is when the two rates are equal and the amounts stay steady. The **equilibrium constant**, $K$, relates the amounts of products and reactants at equilibrium. A catalyst can speed up both directions so equilibrium is reached sooner. In the single-peak diagram in “Activation Energy and Collisions,” lowering the peak cuts both barriers by the same amount.
 
 A catalyst does not change $\Delta H$, the equilibrium constant, or the equilibrium amounts at a given temperature. It cannot make a nonspontaneous reaction spontaneous. When several reactions compete for the same reactants, a different catalyst can change which product forms fastest.
 
 ### Factors That Change the Rate
 
-- **Temperature:** for most reactions, a higher temperature gives a faster rate. More particles have energy of at least $E_a$, and they collide more often. Enzyme-catalyzed reactions are the exception: the rate rises up to the enzyme's best temperature, then falls, because heat denatures the enzyme.
+- **Temperature:** for most reactions, a higher temperature gives a faster rate. More particles have energy of at least $E_a$, and they collide more often. Too much heat can change an enzyme’s shape and make it work less well.
 - **Concentration or gas pressure:** more particles in the same space means more collisions. How much the rate changes is given by the rate law, explained next.
 - **Surface area:** this matters when the reactants are in different phases, such as a solid and a liquid. Only particles at the surface of a solid can meet the other reactant. Crushing the solid exposes more of them.
-- **Catalyst:** it lowers the activation energy, as above.
+- **Catalyst:** it lowers the activation energy, as shown in “Catalysts and Reaction Pathways.”
 
 ### Rate Law and Order
 
@@ -81,7 +79,7 @@ A **rate law** is an equation that tells how the rate depends on concentrations.
 
 $$\text{rate}=k[A]^m[B]^n$$
 
-The square brackets mean concentration in $\text{mol/L}$. The exponents $m$ and $n$ are the **orders** in $A$ and $B$. The **overall order** is $m+n$. The orders are found by experiment. They are not read from the coefficients of the balanced equation, because the equation does not show the steps of the reaction.
+The square brackets mean concentration in $\text{mol/L}$. The exponents $m$ and $n$ are the **orders** in $A$ and $B$. The **overall order** is $m+n$. The orders are found by experiment. The overall equation usually cannot tell you the orders because it leaves out the steps. For a single step, called an elementary step, each reactant’s coefficient gives its order.
 
 If the order in $A$ is $m$, then multiplying $[A]$ by a factor $f$ multiplies the rate by $f^m$. The other concentrations and the temperature must stay fixed.
 
@@ -93,15 +91,15 @@ To find an order from data, compare two experiments in which only one concentrat
 
 ### Fair Tests: Variables and Controls
 
-A rate experiment is fair only when one thing changes. The **independent variable** is the one thing you change on purpose. The **dependent variable** is what you measure, such as the time for a gas to form. The **controlled variables** are everything else, which you keep the same.
+To test one factor in a pair of runs, change that factor and keep the others the same. The **independent variable** is the one thing you change on purpose. The **dependent variable** is what you measure, such as the time for a gas to form. The **controlled variables** are everything else, which you keep the same.
 
 If two things change at once, you cannot tell which one caused the change in rate. A **control** is a baseline run with no change, kept for comparison.
 
 ### Chemical Equilibrium
 
-Many reactions can go in both directions. Written with a double arrow, $A+B\rightleftharpoons C+D$, they are **reversible**. At the start, only the forward reaction runs fast. As products build up, the reverse reaction speeds up.
+Many reactions can go in both directions. Written with a double arrow, $A+B\rightleftharpoons C+D$, they are **reversible**. The graph below starts with reactants only, so the reverse rate starts at zero. As products build up, the reverse reaction speeds up.
 
-In a closed container, the two rates become equal. This is **dynamic equilibrium**. Both reactions keep going, so the amounts stay constant, but they are not necessarily equal. Nothing is leaving the system.
+In a closed container, the two rates become equal. This is **dynamic equilibrium**. Both reactions keep going, so the amounts stay constant, but they are not necessarily equal. Matter cannot enter or leave the closed container.
 
 <!-- ILLUSTRATION: graph of rate against time: the forward rate curve falls and the reverse rate curve rises from zero until they meet and level off at the same height, with the meeting point labeled equilibrium -->
 
@@ -149,13 +147,15 @@ $$E_a=120-20=100\ \text{kJ}$$
 4. With the catalyst, the peak is $90\ \text{kJ}$. The forward $E_a$ is $90-50=40\ \text{kJ}$. The reverse $E_a$ is $90-20=70\ \text{kJ}$.
 5. Both barriers fell by $30\ \text{kJ}$. $\Delta H$ is still $-30\ \text{kJ}$, so the reaction is exothermic.
 
+<!-- ILLUSTRATION: energy profile with energy in kJ on the vertical axis and reaction progress on the horizontal axis: reactants at 50 kJ, peak at 120 kJ labeled transition state, products at 20 kJ; arrows for Ea forward = 70 kJ and delta H = -30 kJ; a dashed lower peak at 90 kJ labeled with catalyst -->
+
 ### #3: Energy Release Does Not Mean Speed
 
 A student says, "This reaction releases a lot of heat, so it must be fast." Is the student right?
 
 **Solution:**
 
-1. Heat released is given by $\Delta H$. Speed depends on the activation energy, the temperature, the concentrations and the pathway.
+1. Heat released is given by $\Delta H$. Speed depends on the activation energy (the energy barrier for the reaction), the temperature, the concentrations and the pathway.
 2. A reaction with a large negative $\Delta H$ can still have a high barrier and so be slow at room temperature.
 3. Wood in air can release a lot of heat when it burns. It does not burn until something starts it with heat.
 4. The student is not right. $\Delta H$ alone does not tell the speed.
@@ -241,7 +241,7 @@ The reaction $\text{N}_2(g)+3\text{H}_2(g)\rightleftharpoons2\text{NH}_3(g)$ has
 
 1. For (a), the left side has $1+3=4$ moles of gas and the right side has $2$. A smaller volume favors the side with fewer moles, so it shifts right.
 2. For (b), $\Delta H<0$, so the forward reaction is exothermic. Raising the temperature favors the endothermic direction, which is the reverse. It shifts left, and $K$ gets smaller.
-3. For (c), a catalyst speeds both directions equally. There is no shift and $K$ is unchanged. Equilibrium is reached sooner.
+3. For (c), a catalyst can speed both directions. There is no shift and $K$ is unchanged. Equilibrium is reached sooner.
 
 ### #11: A Catalyst at Equilibrium
 
@@ -249,7 +249,7 @@ The same reversible reaction is run at the same temperature, once without and on
 
 **Solution:**
 
-1. The catalyst lowers the activation energy in both directions.
+1. The catalyst gives the reaction a faster path in each direction.
 2. The forward and reverse rates both go up, so equilibrium is reached sooner.
 3. The equilibrium constant and the equilibrium amounts are the same in both runs.
 
@@ -275,13 +275,13 @@ Speed depends on kinetics, and spontaneity depends on $\Delta G$, which includes
 
 > A catalyst does not change $K$, the equilibrium amounts, or $\Delta H$.
 
-It speeds the forward and the reverse reaction equally, so equilibrium comes sooner. Look for choices that say a catalyst increases the yield at equilibrium.
+It can speed both directions so equilibrium comes sooner. Look for choices that say a catalyst increases the yield at equilibrium.
 
 ### #3: Orders From the Balanced Equation
 
-> Orders come from experiment, not from the coefficients.
+> For an overall reaction with several steps, use the measured orders. For an elementary step, use the reactant coefficients.
 
-A balanced equation can have a coefficient of $2$ while the rate law shows order $0$ or $1$. Use the order given in the rate law or found from data.
+An overall equation can have a coefficient of $2$ while the rate law shows order $0$ or $1$. Use the order given in the rate law or found from data.
 
 ### #4: More Concentration Always Means More Rate
 

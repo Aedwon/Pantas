@@ -40,6 +40,6 @@ $$k=\dfrac{2.0\times10^{-3}}{(0.10)(0.10)^2}=2.0\ \text{M}^{-2}\text{s}^{-1}$$
 
 ### #1: Orders From the Balanced Equation
 
-> Orders come from experiment, not from the coefficients.
+> For an overall reaction with several steps, use the measured orders. For an elementary step, use the reactant coefficients.
 
-A balanced equation can have a coefficient of $2$ while the rate law shows order $0$ or $1$. Use the order given in the rate law or found from data.
+An overall equation can have a coefficient of $2$ while the rate law shows order $0$ or $1$. Use the order given in the rate law or found from data.

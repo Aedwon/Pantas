@@ -15,7 +15,7 @@ keyPoints:
 
 ### Combined and Ideal Gas Laws
 
-The three ratio laws above are parts of one rule. For the **same fixed amount** of gas changing from state $1$ to state $2$:
+Boyle’s law, Charles’s law, and the pressure-to-temperature law are parts of one rule. For the **same fixed amount** of gas changing from state $1$ to state $2$:
 
 $$\dfrac{P_1V_1}{T_1}=\dfrac{P_2V_2}{T_2}$$
 

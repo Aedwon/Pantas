@@ -10,22 +10,22 @@ questions:
     type: 'classify'
     difficulty: 'easy'
     stem: |
-      An acyclic hydrocarbon has only carbon-carbon single bonds. Which family does it belong to?
+      An open-chain hydrocarbon with no ring has only carbon-carbon single bonds. To which family does it belong?
     choices:
       - text: 'Alkane'
         correct: true
       - text: 'Alkene'
         rationale: |
-          This confuses single bonds with double bonds. Both are carbon-carbon bonds. Check the number of shared bonds between the carbons.
+          Alkenes can also have an open chain. Check for a carbon-carbon double bond.
       - text: 'Alkyne'
         rationale: |
-          This confuses single bonds with triple bonds. Both names describe hydrocarbons. Check whether a triple carbon-carbon bond is present.
+          Alkynes also contain only carbon and hydrogen. Check for a triple bond between carbons.
       - text: 'Carboxylic acid'
         rationale: |
-          This confuses a hydrocarbon with an oxygen-containing acid. Both have carbon frameworks. Check whether the formula contains only carbon and hydrogen.
+          Carboxylic acids can also have a carbon chain. Check whether the compound includes oxygen.
     explanation: |
-      An alkane is a saturated hydrocarbon with only carbon-carbon single bonds. An acyclic alkane has no ring.
-    approved: true
+      An alkane is an open-chain hydrocarbon with only single bonds. The chain here has no ring and no double or triple bonds.
+    approved: false
 
   - id: q-chemistry-basic-organic-chemistry-0002
     lesson: lesson-chemistry-hydrocarbon-families-by-bond

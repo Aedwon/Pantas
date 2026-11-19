@@ -18,7 +18,7 @@ keyPoints:
 
 A **catalyst** speeds up a reaction by giving it a new pathway with a lower activation energy. The catalyst can take part in the steps of that pathway. It is given back at the end, so it is not used up. Enzymes are catalysts made by living things.
 
-For a reaction that can go both ways, a catalyst lowers the barrier in both directions by the same amount. It speeds up the forward and the reverse reaction, so equilibrium is reached sooner.
+In a reaction that goes both ways, **equilibrium** is when the two rates are equal and the amounts stay steady. The **equilibrium constant**, $K$, relates the amounts of products and reactants at equilibrium. A catalyst can speed up both directions so equilibrium is reached sooner. In the single-peak diagram in “Activation Energy and Collisions,” lowering the peak cuts both barriers by the same amount.
 
 A catalyst does not change $\Delta H$, the equilibrium constant, or the equilibrium amounts at a given temperature. It cannot make a nonspontaneous reaction spontaneous. When several reactions compete for the same reactants, a different catalyst can change which product forms fastest.
 
@@ -30,7 +30,7 @@ The same reversible reaction is run at the same temperature, once without and on
 
 **Solution:**
 
-1. The catalyst lowers the activation energy in both directions.
+1. The catalyst gives the reaction a faster path in each direction.
 2. The forward and reverse rates both go up, so equilibrium is reached sooner.
 3. The equilibrium constant and the equilibrium amounts are the same in both runs.
 
@@ -40,4 +40,4 @@ The same reversible reaction is run at the same temperature, once without and on
 
 > A catalyst does not change $K$, the equilibrium amounts, or $\Delta H$.
 
-It speeds the forward and the reverse reaction equally, so equilibrium comes sooner. Look for choices that say a catalyst increases the yield at equilibrium.
+It can speed both directions so equilibrium comes sooner. Look for choices that say a catalyst increases the yield at equilibrium.

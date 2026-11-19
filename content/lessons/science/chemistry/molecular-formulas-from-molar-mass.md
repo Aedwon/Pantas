@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-To find the molecular formula, divide the compound's molar mass by the empirical formula mass. The **empirical formula mass** is the mass of one empirical formula unit, such as $12+2(1)+16=30$ g/mol for $CH_2O$. The answer $k$ should be close to a whole number:
+To find the molecular formula, divide the compound's molar mass by the empirical formula mass. The **empirical formula mass** is the molar mass calculated from the empirical formula, such as $12+2(1)+16=30$ g/mol for $CH_2O$. The answer $k$ should be close to a whole number:
 
 $$k=\dfrac{\text{molar mass of compound}}{\text{empirical formula mass}}$$
 
@@ -47,4 +47,4 @@ The multiplier $k$ must be close to a whole number. If it is not, recheck the em
 
 > Ionic solids have formula units, not molecules.
 
-For an ionic compound such as $NaCl$, the formula shows the ratio of its ions. Only a molecular compound can have a molecular formula that is a multiple of its empirical formula. Reduce an ionic formula only when its subscripts share a common factor, as in $Na_2O_2$.
+For an ionic compound such as $NaCl$, the formula shows the ratio of its ions. Only a molecular compound can have a molecular formula that is a multiple of its empirical formula. To find the empirical atom ratio of $Na_2O_2$, reduce the subscripts to get $NaO$. Keep $Na_2O_2$ as the ionic formula because it shows the peroxide ion, $O_2^{2-}$.

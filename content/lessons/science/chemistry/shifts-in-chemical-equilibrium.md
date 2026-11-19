@@ -33,7 +33,7 @@ The reaction $\text{N}_2(g)+3\text{H}_2(g)\rightleftharpoons2\text{NH}_3(g)$ has
 
 1. For (a), the left side has $1+3=4$ moles of gas and the right side has $2$. A smaller volume favors the side with fewer moles, so it shifts right.
 2. For (b), $\Delta H<0$, so the forward reaction is exothermic. Raising the temperature favors the endothermic direction, which is the reverse. It shifts left, and $K$ gets smaller.
-3. For (c), a catalyst speeds both directions equally. There is no shift and $K$ is unchanged. Equilibrium is reached sooner.
+3. For (c), a catalyst can speed both directions. There is no shift and $K$ is unchanged. Equilibrium is reached sooner.
 
 ## Speed Tricks & Shortcuts
 

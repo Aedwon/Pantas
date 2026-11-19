@@ -55,8 +55,6 @@ Filtration separates an undissolved solid from a liquid, such as sand from water
 
 Dissolved particles are far smaller than the pores. They pass through ordinary filter paper with the solvent. So filtration cannot take dissolved salt out of saltwater.
 
-Two simple relatives of filtration are worth knowing.
-
 **Decanting** means pouring off the liquid after a solid has settled. It works only when the solid really settles, as in a suspension. Some liquid stays with the solid, so the separation is not complete.
 
 A **separating funnel** separates two liquids that do not mix, such as oil and water. Liquids that do not mix are called **immiscible**. Liquids that mix completely are **miscible**.
@@ -81,9 +79,9 @@ The collected liquid is the **distillate**. The more easily a liquid turns to va
 
 In **simple distillation**, one heating and condensing step is used. It works well to take a volatile liquid away from a dissolved solid that does not evaporate, such as fresh water from seawater. It also works when the two liquids have very different boiling points.
 
-When two miscible liquids are mixed, both give off vapor. The vapor is richer in the more volatile liquid than the boiling liquid is. It is not made of that liquid alone. So one step gives only partial separation.
+When two miscible liquids are mixed, both give off vapor. The vapor is often richer in the more volatile liquid than the boiling liquid is. It is not made of that liquid alone. So one step gives only partial separation.
 
-**Fractional distillation** repeats the evaporate-and-condense cycle many times inside a column placed above the flask. Each cycle makes the vapor richer in the more volatile liquid. This is how liquids with closer boiling points are separated.
+**Fractional distillation** repeats the evaporate-and-condense cycle many times inside a column placed above the flask. When the vapor is richer in one liquid, each cycle helps separate that liquid. This is how liquids with closer boiling points are separated.
 
 Distillation has limits. Some liquid pairs form an **azeotrope**: a mixture at one particular composition whose vapor has the same composition as the liquid. Boiling it cannot change the composition, so ordinary distillation stops improving the purity there.
 
@@ -167,7 +165,7 @@ A hot, almost full solution of a solid is allowed to cool slowly. Crystals form,
 
 ### #6: Two Liquids That Mix
 
-Ethanol boils at about $78\,^\circ\text{C}$ and water boils at $100\,^\circ\text{C}$. An ethanol-water mixture is heated. Which method gives the better separation, and is the first vapor pure ethanol?
+Ethanol boils at about $78\,^\circ\text{C}$ and water boils at $100\,^\circ\text{C}$. An ethanol-water mixture with less ethanol than the azeotrope is heated at normal air pressure. Which method gives the better separation, and is the first vapor pure ethanol?
 
 **Solution:**
 
@@ -185,12 +183,12 @@ A cook mixes 50 mL of cooking oil with 50 mL of water and shakes it. After stand
 1. Two layers form, so the liquids do not mix. They are immiscible. The oil is less dense, so it floats on top of the water.
 2. Pour the mixture into a separating funnel and let it settle. Open the tap and drain the denser layer, the water, into one beaker.
 3. Close the tap when the boundary between the layers reaches it. The oil stays in the funnel. Pour it out of the top into a second beaker.
-4. Filtration is for a solid, and there is no solid here. Distillation is for liquids that mix, and it would waste heat on liquids that already form two layers.
+4. Filtration is for a solid, and there is no solid here. The funnel separates these two layers without heating them.
 5. A thin layer may stay at the boundary, so the separation is close but not perfect.
 
 ### #8: Reading a Chromatogram
 
-A black ink is run on paper. The solvent front moves $6.0$ cm from the baseline. The ink gives three spots. One spot, A, is $3.0$ cm from the baseline. A known blue dye run on the same paper gives a spot at $3.0$ cm. What do the results show, and what is the $R_f$ of A?
+On a different chromatogram from the one shown above, a black ink is run on paper. The solvent front moves $6.0$ cm from the baseline. The ink gives three spots. One spot, A, is $3.0$ cm from the baseline. A known blue dye run on the same paper gives a spot at $3.0$ cm. What do the results show, and what is the $R_f$ of A?
 
 **Solution:**
 
@@ -218,7 +216,7 @@ Ask which physical property differs, then match the method:
 - Undissolved solid in a liquid or gas: filtration, if the particles are big enough to stay on the paper (a suspension). A colloid or a dissolved solid passes through. A solid that settled can be decanted instead.
 - Two liquids that do not mix: separating funnel. Not for liquids that mix, and not for an emulsion.
 - Dissolved solid, and only the solid is wanted: evaporation, if the solid does not break down or vaporize when heated. Crystallization, if the solid is much less soluble when cold.
-- Liquids that mix and have different boiling points, or a solvent to be kept: distillation. It stops improving purity at an azeotrope.
+- Liquids that mix and have different boiling points, or a solvent to be kept: distillation.
 - Parts that differ in how strongly a surface holds them: chromatography. Use it to compare small samples. Paper chromatography alone does not give a large amount of pure part.
 - A magnetic part: a magnet. This works when some parts are magnetic and others are not.
 
@@ -244,7 +242,7 @@ A question may say salt "is a solid, so filter it." After dissolving, the partic
 
 > Both liquids in a mixture give off vapor.
 
-The vapor is richer in the more volatile liquid, not made of it alone. This is why repeated steps are used in fractional distillation.
+The vapor can be richer in one liquid and still contain both. This is why repeated steps are used in fractional distillation.
 
 ### #4: Assuming Distillation Gives Pure Parts
 

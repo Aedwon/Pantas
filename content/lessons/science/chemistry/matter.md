@@ -40,7 +40,7 @@ A compound also has properties different from the elements in it. Sodium is a so
 
 A **mixture** has two or more substances that are only mixed together, not chemically joined. The amounts can vary. Each substance keeps its own properties.
 
-- A **homogeneous mixture** has the same composition in every part, even down to the particles. Salt dissolved in water and air are examples. A homogeneous mixture is often called a **solution**.
+- A **homogeneous mixture** has the same composition in samples large enough to contain many particles. Salt dissolved in water and air are examples. A homogeneous mixture is often called a **solution**.
 - A **heterogeneous mixture** has parts you can tell apart, such as sand mixed with iron filings.
 
 Looking the same is not enough. Milk looks the same throughout, but it holds tiny droplets of fat mixed in water, so it is not a solution. Such a mixture is called a colloid.
@@ -103,13 +103,13 @@ During a phase change, the added energy loosens the attractions between particle
 
 At normal air pressure, water boils at $100^\circ\text{C}$. At lower pressure, such as on a high mountain, water boils at a lower temperature.
 
-<!-- ILLUSTRATION: heating curve graph, x-axis "energy added", y-axis "temperature in degrees Celsius", water from ice below 0 degrees C: slanted line labeled "ice warming", flat line at 0 degrees C labeled "melting", slanted line labeled "liquid water warming", flat line at 100 degrees C labeled "boiling", slanted line labeled "steam warming" -->
-
 ### Physical and Chemical Properties and Changes
 
 A **physical property** is something you can observe or measure without changing what the substance is made of. Examples are color, density, melting point, boiling point, hardness, solubility (how much dissolves in a liquid), and electrical conductivity.
 
 A **chemical property** describes how a substance can react to become a different substance. Flammability (it can burn) and the ability to rust are examples. You can only observe a chemical property when a reaction happens.
+
+A **physical change** changes the form or state of a substance. A **chemical change** makes a new substance.
 
 A **physical change** changes the form, state, or arrangement of a substance, but the substance is still the same. Melting, tearing paper, crushing a can, and making a mixture are physical changes.
 
@@ -118,6 +118,8 @@ Dissolving is usually a physical change too. Salt or sugar stirred into water ca
 A **chemical change**, also called a chemical reaction, turns the starting substances into new substances with different properties. The starting substances are the **reactants** and the new substances are the **products**.
 
 Burning wood, rusting iron, cooking an egg, and digesting food are chemical changes.
+
+A change that gives off heat is **exothermic**. One that takes in heat is **endothermic**.
 
 Signs of a chemical change include a new color, a new gas, a solid forming in a liquid, a new smell, and heat or light given off. These signs are only clues. Boiling water makes bubbles and ice melting takes in heat, yet both are physical. The real test is whether a new substance forms.
 
@@ -185,6 +187,8 @@ A pure sample of ice at $-10^\circ\text{C}$ is heated steadily at normal air pre
 3. The energy added during melting loosens the attractions that hold particles in place, so it does not raise the temperature.
 4. After all the ice has melted, the liquid warms above $0^\circ\text{C}$.
 
+<!-- ILLUSTRATION: heating curve graph, x-axis "energy added", y-axis "temperature in degrees Celsius", water from ice below 0 degrees C: slanted line labeled "ice warming", flat line at 0 degrees C labeled "melting", slanted line labeled "liquid water warming", flat line at 100 degrees C labeled "boiling", slanted line labeled "steam warming" -->
+
 ### #7: Sublimation
 
 A block of dry ice, at normal air pressure, shrinks and gives off cold gas without leaving a puddle. Name the process and say whether it takes in or gives out energy.
@@ -208,11 +212,11 @@ Classify each. (a) Iron is attracted by a magnet. (b) Paper is torn. (c) Iron ru
 
 ### #9: Physical or Chemical Change?
 
-Classify each change. (a) Sugar dissolves in tea. (b) A candle burns. (c) Wax near the candle flame melts. (d) A silver spoon turns dark in air with sulfur compounds.
+Classify each change. (a) Sugar dissolves in plain water. (b) A candle burns. (c) Wax near the candle flame melts. (d) A silver spoon turns dark in air with sulfur compounds.
 
 **Solution:**
 
-1. Dissolving sugar: physical. The sugar can be recovered by evaporating the tea.
+1. Dissolving sugar: physical. The sugar can be recovered by evaporating the water.
 2. Burning candle: chemical. New substances form, and heat and light are given off.
 3. Melting wax: physical. It is still wax.
 4. Silver turning dark: chemical. A new substance forms on the surface.

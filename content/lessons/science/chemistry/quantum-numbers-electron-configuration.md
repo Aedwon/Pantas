@@ -44,7 +44,7 @@ This distinction is essential:
 
 So a **$p$ subshell** can contain six electrons, but each of its **three $p$ orbitals** can contain only two.
 
-<!-- FIGURE: {"kind":"chemistry-diagram","type":"orbital-shapes","illustrationKey":"science/chemistry/quantum-numbers-electron-configuration#1","orbitals":[{"label":"s","shape":"sphere","capacity":2},{"label":"p","shape":"dumbbell","capacity":6},{"label":"d","shape":"four-lobed cloverleaf","capacity":10}]} -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"orbital-shapes","illustrationKey":"science/chemistry/quantum-numbers-electron-configuration#1","orbitals":[{"label":"s","shape":"sphere","capacity":2,"subshellCapacity":2},{"label":"p","shape":"dumbbell","capacity":2,"subshellCapacity":6},{"label":"d","shape":"often four-lobed","capacity":2,"subshellCapacity":10}]} -->
 
 ### Ground-State Filling Rules
 
@@ -56,7 +56,7 @@ $$1s,\ 2s,\ 2p,\ 3s,\ 3p,\ 4s,\ 3d,\ 4p,\ 5s,\ 4d,\ldots$$
 
 This is a practical pattern, not a statement that subshell energies are fixed independently of electron occupancy and atomic number. There are well-known exceptions to the simplest predicted configurations, such as chromium and copper.
 
-**Hund's rule:** within a set of degenerate orbitals, the lowest-energy arrangement places electrons singly with parallel spins before pairing them.
+**Hund's rule:** within a set of orbitals with equal energy (degenerate orbitals), the lowest-energy arrangement places electrons singly with parallel spins before pairing them.
 
 **Pauli exclusion principle:** an orbital contains at most two electrons, and paired electrons have opposite $m_s$ values.
 
@@ -104,6 +104,8 @@ For a main-group atom such as chlorine, these are its outer-shell valence electr
 Neutral potassium's observed ground-state configuration is
 
 $$[Ar]4s^1.$$
+
+$[Ar]$ stands for the filled subshells in an argon atom.
 
 The empirical/quantum-mechanical subshell-energy ordering for potassium places $4s$ below $3d$ when that electron is added. However, after $3d$ orbitals become occupied in transition metals, relative energies shift; this helps explain why transition-metal cations commonly lose $4s$ electrons before $3d$ electrons.
 

@@ -47,7 +47,7 @@ If two bonded atoms differ in electronegativity, the shared electrons sit closer
 
 The bigger the difference, the more polar the bond.
 
-A polar bond is a **dipole**: two equal and opposite partial charges a short distance apart. We picture it as a pull of electrons toward the more electronegative atom. A very large difference gives an ionic bond, and books use different cutoffs, so treat any cutoff as a guide.
+A polar bond is a **dipole**: two equal and opposite partial charges a short distance apart. We picture it as a pull of electrons toward the more electronegative atom. A large difference can point to ionic bonding. Bond type also depends on which elements are bonded. Treat any cutoff as a guide.
 
 ### The Octet Rule
 
@@ -63,7 +63,7 @@ A **Lewis structure** shows bonds and **lone pairs**, which are valence electron
 2. For a molecule with one center atom bonded to all the others, usually put the least electronegative atom in the center and join the others to it with single bonds. Hydrogen is not put in the center, because it forms one bond.
 3. Give the outer atoms lone pairs until each has an octet. Hydrogen gets none, because one bond already fills its duet.
 4. Put any electrons left over on the center atom. A center from period $3$ or below may end with more than eight.
-5. If the center atom has less than an octet, move a lone pair from an outer atom to make a double or triple bond. Do not do this for boron or beryllium, as in $BF_3$, where the center stays below eight.
+5. If the center atom has less than an octet, move a lone pair from an outer atom to make a double or triple bond. Some compounds, such as $BF_3$ and $BeH_2$, are exceptions. In these, the center atom can stay below eight electrons.
 
 Step 2 is a guide, not a law. In HOCl the order is H-O-Cl, and molecules with two centers, such as $H_2O_2$ and $C_2H_4$, are given with their atom order.
 
@@ -85,7 +85,7 @@ The number of groups sets the **electron-group geometry**, the arrangement of al
 
 - $2$ groups: electron-group geometry linear, $180^\circ$. The shape is linear.
 - $3$ groups: trigonal planar, $120^\circ$. With no lone pair the shape is trigonal planar. With one lone pair the shape is bent.
-- $4$ groups: tetrahedral, $109.5^\circ$. With no lone pair the shape is tetrahedral. With one lone pair it is trigonal pyramidal. With two lone pairs it is bent.
+Four groups spread into a tetrahedral arrangement with ideal angles of $109.5^\circ$. With no lone pair the shape is tetrahedral. With one lone pair it is trigonal pyramidal. With two lone pairs it is bent.
 
 Lone pairs push harder than bonds, so bond angles are usually a little smaller than these ideal angles.
 
@@ -258,7 +258,7 @@ $HCl$ and $F_2$ each have $18$ electrons. Which has the higher boiling point?
 
 1. $F_2$ is nonpolar, so only London forces act.
 2. $HCl$ is polar, so it also has dipole-dipole forces.
-3. With similar London forces, the extra dipole-dipole attraction makes $HCl$ the one with the higher boiling point.
+3. The electrons in $HCl$ are easier to shift than those in $F_2$, even with the same electron count. This gives $HCl$ stronger London forces. These forces and the dipole-dipole forces both help give $HCl$ the higher boiling point.
 
 ### #12: Bonding and Conductivity
 

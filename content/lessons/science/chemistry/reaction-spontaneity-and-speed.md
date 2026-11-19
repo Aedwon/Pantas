@@ -23,7 +23,7 @@ A reaction is **spontaneous** when it can go forward on its own, without a stead
 
 Spontaneity depends on the Gibbs free energy change, $\Delta G=\Delta H-T\Delta S$, at constant temperature and pressure. Here $T$ is the temperature in kelvin. $\Delta S$ is the **entropy** change: it is positive when the particles and energy end up more spread out.
 
-A reaction is spontaneous when $\Delta G<0$. So an exothermic reaction is not always spontaneous, and an endothermic one is not always nonspontaneous. If $\Delta H<0$ and $\Delta S>0$, $\Delta G$ is negative at every temperature. If $\Delta H>0$ and $\Delta S<0$, it is never negative. In the other two cases, the temperature decides.
+A reaction is spontaneous when $\Delta G<0$. So an exothermic reaction is not always spontaneous, and an endothermic one is not always nonspontaneous. At temperatures where $\Delta H<0$ and $\Delta S>0$, $\Delta G$ is negative. Where $\Delta H>0$ and $\Delta S<0$, $\Delta G$ is positive. In the other two cases, the temperature decides.
 
 ## Examples
 
@@ -33,7 +33,7 @@ A student says, "This reaction releases a lot of heat, so it must be fast." Is t
 
 **Solution:**
 
-1. Heat released is given by $\Delta H$. Speed depends on the activation energy, the temperature, the concentrations and the pathway.
+1. Heat released is given by $\Delta H$. Speed depends on the activation energy (the energy barrier for the reaction), the temperature, the concentrations and the pathway.
 2. A reaction with a large negative $\Delta H$ can still have a high barrier and so be slow at room temperature.
 3. Wood in air can release a lot of heat when it burns. It does not burn until something starts it with heat.
 4. The student is not right. $\Delta H$ alone does not tell the speed.

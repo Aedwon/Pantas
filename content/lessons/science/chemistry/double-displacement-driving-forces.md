@@ -21,7 +21,7 @@ Swapping partners on paper does not prove that anything happens. The letters in 
 A double displacement reaction happens only when a **driving force** removes ions from the solution. There are four common ones.
 
 - A **precipitate** forms. This is a solid that appears when two solutions are mixed because it does not dissolve.
-- Water forms. This happens when an acid meets a hydroxide base, which is one kind of neutralization. See the acids, bases and pH lesson.
+- Water forms. This happens when an acid meets a hydroxide base, which is one kind of neutralization. See “Acid and Base Models.”
 - A gas escapes.
 - A weak electrolyte forms. This is a compound that stays mostly as molecules in water and gives few ions, such as a weak acid, unlike a strong acid such as $HCl$, which gives mostly ions. For example, $HCl+NaC_2H_3O_2\rightarrow NaCl+HC_2H_3O_2$ goes ahead because acetic acid, $HC_2H_3O_2$, is a weak acid.
 
@@ -36,8 +36,8 @@ Solutions of sodium chloride and potassium nitrate are mixed. Does a reaction oc
 **Solution:**
 
 1. The swap gives $NaNO_3$ and $KCl$.
-2. Both are soluble by the rules. Nothing forms a solid, a gas, water or a weak electrolyte.
-3. All four ions stay in solution. Every ion is a spectator, so there is no net ionic equation.
+2. Nitrates and salts of Group $1$ metals dissolve in water, so both products stay dissolved. Nothing forms a solid, a gas, water or a weak electrolyte.
+3. All four ions stay in solution. Every ion is a spectator ion, an ion that stays the same during the reaction, so there is no net ionic equation.
 
 No reaction occurs. Writing the swapped formulas did not prove a reaction.
 

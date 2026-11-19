@@ -19,7 +19,7 @@ A **rate law** is an equation that tells how the rate depends on concentrations.
 
 $$\text{rate}=k[A]^m[B]^n$$
 
-The square brackets mean concentration in $\text{mol/L}$. The exponents $m$ and $n$ are the **orders** in $A$ and $B$. The **overall order** is $m+n$. The orders are found by experiment. They are not read from the coefficients of the balanced equation, because the equation does not show the steps of the reaction.
+The square brackets mean concentration in $\text{mol/L}$. The exponents $m$ and $n$ are the **orders** in $A$ and $B$. The **overall order** is $m+n$. The orders are found by experiment. The overall equation usually cannot tell you the orders because it leaves out the steps. For a single step, called an elementary step, each reactant’s coefficient gives its order.
 
 If the order in $A$ is $m$, then multiplying $[A]$ by a factor $f$ multiplies the rate by $f^m$. The other concentrations and the temperature must stay fixed.
 

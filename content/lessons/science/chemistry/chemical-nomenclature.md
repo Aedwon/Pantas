@@ -18,7 +18,7 @@ replacedBy:
 
 ### Naming Ionic Compounds
 
-For an ionic compound, name the **cation first**, then the **anion**.
+For an ionic compound, name the **cation** (positive ion) first, then the **anion** (negative ion).
 
 For a simple compound of a monatomic cation and monatomic anion:
 
@@ -66,6 +66,8 @@ not $Ca_2O_2$.
 For calcium nitrate, $Ca^{2+}$ requires two $NO_3^-$ ions:
 
 $$Ca(NO_3)_2$$
+
+A molecular formula gives the actual count of each kind of atom in one molecule.
 
 Parentheses are used around a polyatomic ion when more than one whole ion is present.
 

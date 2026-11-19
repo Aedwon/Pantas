@@ -15,10 +15,10 @@ keyPoints:
 
 ### Factors That Change the Rate
 
-- **Temperature:** for most reactions, a higher temperature gives a faster rate. More particles have energy of at least $E_a$, and they collide more often. Enzyme-catalyzed reactions are the exception: the rate rises up to the enzyme's best temperature, then falls, because heat denatures the enzyme.
+- **Temperature:** for most reactions, a higher temperature gives a faster rate. More particles have energy of at least $E_a$, and they collide more often. Too much heat can change an enzyme’s shape and make it work less well.
 - **Concentration or gas pressure:** more particles in the same space means more collisions. How much the rate changes is given by the rate law, explained next.
 - **Surface area:** this matters when the reactants are in different phases, such as a solid and a liquid. Only particles at the surface of a solid can meet the other reactant. Crushing the solid exposes more of them.
-- **Catalyst:** it lowers the activation energy, as above.
+- **Catalyst:** it lowers the activation energy, as shown in “Catalysts and Reaction Pathways.”
 
 ## Examples
 

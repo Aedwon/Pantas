@@ -35,4 +35,4 @@ A student has a clear saltwater solution. The student pours it through filter pa
 
 ## Speed Tricks & Shortcuts
 
-- Liquids that mix and have different boiling points, or a solvent to be kept: distillation. It stops improving purity at an azeotrope.
+- Liquids that mix and have different boiling points, or a solvent to be kept: distillation.

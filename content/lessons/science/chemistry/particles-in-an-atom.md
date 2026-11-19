@@ -14,9 +14,9 @@ keyPoints:
 ---
 ## Core Concept
 
-An **atom** is the smallest piece of an element that still has the element's identity. Introductory chemistry builds every atom from three kinds of **subatomic particles**, which are particles smaller than an atom: **protons**, **neutrons** and **electrons**.
+An **atom** is the smallest piece of an element that still has the element's identity. Three kinds of **subatomic particles** are **protons**, **neutrons** and **electrons**.
 
-The center of the atom is the **nucleus**. It is very small, and it holds the protons and neutrons. The electrons are outside the nucleus.
+The center of the atom is the **nucleus**. It is very small, and it holds the protons. Most nuclei also contain neutrons. Hydrogen-$1$ has none. The electrons are outside the nucleus.
 
 Charge is measured in units of $e$, the size of the charge on one proton. A proton has charge $+1e$. An electron has charge $-1e$. A neutron has charge $0$, so it is neutral.
 

@@ -21,8 +21,6 @@ During a phase change, the added energy loosens the attractions between particle
 
 At normal air pressure, water boils at $100^\circ\text{C}$. At lower pressure, such as on a high mountain, water boils at a lower temperature.
 
-<!-- ILLUSTRATION: heating curve graph, x-axis "energy added", y-axis "temperature in degrees Celsius", water from ice below 0 degrees C: slanted line labeled "ice warming", flat line at 0 degrees C labeled "melting", slanted line labeled "liquid water warming", flat line at 100 degrees C labeled "boiling", slanted line labeled "steam warming" -->
-
 ## Examples
 
 ### #1: Temperature During a Phase Change
@@ -35,6 +33,8 @@ A pure sample of ice at $-10^\circ\text{C}$ is heated steadily at normal air pre
 2. At $0^\circ\text{C}$ it melts. The temperature stays at $0^\circ\text{C}$ until all the ice is liquid.
 3. The energy added during melting loosens the attractions that hold particles in place, so it does not raise the temperature.
 4. After all the ice has melted, the liquid warms above $0^\circ\text{C}$.
+
+<!-- ILLUSTRATION: heating curve graph, x-axis "energy added", y-axis "temperature in degrees Celsius", water from ice below 0 degrees C: slanted line labeled "ice warming", flat line at 0 degrees C labeled "melting", slanted line labeled "liquid water warming", flat line at 100 degrees C labeled "boiling", slanted line labeled "steam warming" -->
 
 ## Traps to Watch For
 

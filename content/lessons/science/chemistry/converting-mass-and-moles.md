@@ -49,7 +49,7 @@ If the problem meant $2.5$ mol of $O$ atoms, the molar mass would be $16.00\ \ma
 
 ## Speed Tricks & Shortcuts
 
-A quick check for a gas or other molecular element: if the formula has a subscript $2$, such as $O_2$, double the atomic molar mass. This applies only to the diatomic elements listed above, and only when the problem means the molecule.
+A quick check for a gas or other molecular element: if the formula has a subscript $2$, such as $O_2$, double the atomic molar mass. Use this when the formula shows two atoms of the element in one molecule.
 
 ## Traps to Watch For
 

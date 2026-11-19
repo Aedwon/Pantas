@@ -19,7 +19,7 @@ An investigation changes one quantity and watches another.
 
 The **independent variable** is the quantity the investigator changes on purpose. The **dependent variable** is the quantity measured to see the effect. The **controlled variables** are the quantities kept the same so the test is fair.
 
-Each gas law is one such investigation of a gas. The other two quantities are controlled. The list below gives the variables of each law.
+Each of these four gas laws is one such investigation. The other two quantities are controlled. The list below gives the variables of each law.
 
 - Boyle: change $V$ and measure $P$, or the reverse. Control $n$ and $T$.
 - Charles: change $T$ and measure $V$. Control $n$ and $P$.

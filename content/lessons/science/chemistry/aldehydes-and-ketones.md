@@ -27,13 +27,13 @@ $C_3H_6O$ has a carbonyl group. Give the two possible compounds and say how to t
 
 1. Place the $C=O$ at the end of the chain with a hydrogen on it: $CH_3CH_2CHO$, an aldehyde. It is named propanal.
 2. Place the $C=O$ on the middle carbon: $CH_3COCH_3$, a ketone. It is named propanone.
-3. Look at the carbonyl carbon, once you know it has no $-OH$ or $-O-R$ on it. A hydrogen on it means an aldehyde. Two carbon groups on it means a ketone.
+3. Look at the carbonyl carbon. One hydrogen and one carbon group, or two hydrogens, make it an aldehyde. Two carbon groups make it a ketone.
 
 ## Speed Tricks & Shortcuts
 
 First check the $C=O$ carbon for an $-OH$ or an $-O-R$. If it has one, the compound is a carboxylic acid or an ester, not an aldehyde or ketone.
 
-Methanoic acid, $HCOOH$, has a hydrogen there and is still an acid. If the carbon has neither group, a hydrogen on it means an aldehyde, and two carbon groups mean a ketone.
+Methanoic acid, $HCOOH$, has a hydrogen there and is still an acid. Check both bonds to the carbonyl carbon besides $C=O$. An aldehyde has one hydrogen and one carbon group, or two hydrogens. A ketone has two carbon groups.
 
 ## Traps to Watch For
 
@@ -41,4 +41,4 @@ Methanoic acid, $HCOOH$, has a hydrogen there and is still an acid. If the carbo
 
 > Both have $C=O$. The position of the carbonyl carbon decides.
 
-An aldehyde has the carbonyl carbon at the chain end, with at least one hydrogen on it. A ketone has it inside the chain, between two carbons.
+An aldehyde has one hydrogen and one carbon group on its carbonyl carbon, or two hydrogens. A ketone has it inside the chain, between two carbons.

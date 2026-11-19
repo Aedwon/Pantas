@@ -49,7 +49,7 @@ $HCl$ and $F_2$ each have $18$ electrons. Which has the higher boiling point?
 
 1. $F_2$ is nonpolar, so only London forces act.
 2. $HCl$ is polar, so it also has dipole-dipole forces.
-3. With similar London forces, the extra dipole-dipole attraction makes $HCl$ the one with the higher boiling point.
+3. The electrons in $HCl$ are easier to shift than those in $F_2$, even with the same electron count. This gives $HCl$ stronger London forces. These forces and the dipole-dipole forces both help give $HCl$ the higher boiling point.
 
 ## Traps to Watch For
 

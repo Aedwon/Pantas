@@ -17,7 +17,7 @@ keyPoints:
 For a simple branched alkane, follow these steps:
 
 1. Find the longest continuous carbon chain. This is the parent. If two chains tie in length, choose the one with more double or triple bonds. If they still tie, choose the one with more branches.
-2. Number the chain from the end that gives the first branch the lowest number. If that ties, compare the whole set of numbers and choose the lower one.
+2. Number the chain from the end that gives the first branch the lowest number. Compare the sorted branch numbers one by one. At the first difference, choose the smaller number. If the lists match, give the lower number to the branch named first.
 3. Name each branch and give its number. Use **di-**, **tri-** for repeats, with a number for each one. List different branches in alphabetical order.
 
 The name is written as locants, then branches, then the parent: $2$-methylbutane.

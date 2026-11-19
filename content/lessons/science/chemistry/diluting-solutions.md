@@ -18,7 +18,7 @@ keyPoints:
 
 To **dilute** a solution means to add more solvent. The amount of solute stays the same. Only the volume gets bigger, so the concentration gets smaller.
 
-Let $M_1$ and $V_1$ be the molarity and volume before. Let $M_2$ and $V_2$ be the molarity and final volume after. Moles of solute equal $M\times V$, and these moles are the same before and after:
+Let $M_1$ and $V_1$ be the molarity and volume before. Let $M_2$ and $V_2$ be the molarity and final volume after. Moles of solute equal $M\times V$ when $V$ is in liters, and these moles are the same before and after:
 
 $$M_1V_1=M_2V_2$$
 

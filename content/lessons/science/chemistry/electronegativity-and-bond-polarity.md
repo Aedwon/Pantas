@@ -21,7 +21,7 @@ If two bonded atoms differ in electronegativity, the shared electrons sit closer
 
 The bigger the difference, the more polar the bond.
 
-A polar bond is a **dipole**: two equal and opposite partial charges a short distance apart. We picture it as a pull of electrons toward the more electronegative atom. A very large difference gives an ionic bond, and books use different cutoffs, so treat any cutoff as a guide.
+A polar bond is a **dipole**: two equal and opposite partial charges a short distance apart. We picture it as a pull of electrons toward the more electronegative atom. A large difference can point to ionic bonding. Bond type also depends on which elements are bonded. Treat any cutoff as a guide.
 
 ## Examples
 

@@ -28,10 +28,9 @@ For main-group elements, the period number is the number of the outermost shell 
 
 ### #1: Same Group
 
-Chlorine and bromine are in the same group. What can be predicted about them?
+Chlorine is in period $3$ and bromine is in period $4$. Both are in group $17$. What do their group and period tell you about them?
 
 **Solution:**
 
-1. Both are in group $17$, so both have $7$ valence electrons.
-2. They are both halogens and tend to form $-1$ ions.
-3. They are not identical. Bromine has more shells, so it has a larger radius and a lower first ionization energy.
+1. Both are in group $17$, so they are in the same column and often behave alike in reactions.
+2. Chlorine has electrons in three shells. Bromine has electrons in four shells.

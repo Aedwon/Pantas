@@ -30,7 +30,7 @@ $$^2_1 H +\ ^3_1 H \rightarrow\ ^4_2 He +\ ^1_0 n$$
 
 Here $^2_1 H$ is **deuterium**, a hydrogen isotope with $1$ proton and $1$ neutron. $^3_1 H$ is **tritium**, a hydrogen isotope with $1$ proton and $2$ neutrons.
 
-Nuclei carry positive charge and push each other away. Fusion needs extremely high temperature and pressure to push them together. The Sun does not join hydrogen into helium in one step. Its net result is that four hydrogen nuclei become one helium-$4$ nucleus, plus other particles and energy, through several steps.
+Nuclei carry positive charge and push each other away. Inside stars like the Sun, very high temperatures and pressures let some nuclei get close enough to fuse. The Sun does not join hydrogen into helium in one step. Its net result is that four hydrogen nuclei become one helium-$4$ nucleus, plus other particles and energy, through several steps.
 
 ## Examples
 

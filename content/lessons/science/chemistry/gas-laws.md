@@ -55,7 +55,7 @@ $$T(\mathrm K)=T(^\circ\mathrm C)+273.15$$
 
 Kinetic energy is proportional to the kelvin temperature, so the gas laws work with kelvin. Doubling the kelvin temperature doubles the average kinetic energy.
 
-Going from $10\,^\circ\mathrm C$ to $20\,^\circ\mathrm C$ does not double anything. Always convert to kelvin before using a gas law that contains $T$.
+Going from $10\,^\circ\mathrm C$ to $20\,^\circ\mathrm C$ does not double the temperature in kelvin. Always convert to kelvin before using a gas law that contains $T$.
 
 ### Reading a Gas Investigation: Three Kinds of Variables
 
@@ -63,7 +63,7 @@ An investigation changes one quantity and watches another.
 
 The **independent variable** is the quantity the investigator changes on purpose. The **dependent variable** is the quantity measured to see the effect. The **controlled variables** are the quantities kept the same so the test is fair.
 
-Each gas law is one such investigation of a gas. The other two quantities are controlled. The list below gives the variables of each law.
+Each of these four gas laws is one such investigation. The other two quantities are controlled. The list below gives the variables of each law.
 
 - Boyle: change $V$ and measure $P$, or the reverse. Control $n$ and $T$.
 - Charles: change $T$ and measure $V$. Control $n$ and $P$.
@@ -110,7 +110,7 @@ This applies when the gas can change volume. Adding gas to a rigid container doe
 
 ### Combined and Ideal Gas Laws
 
-The three ratio laws above are parts of one rule. For the **same fixed amount** of gas changing from state $1$ to state $2$:
+Boyle’s law, Charles’s law, and the pressure-to-temperature law are parts of one rule. For the **same fixed amount** of gas changing from state $1$ to state $2$:
 
 $$\dfrac{P_1V_1}{T_1}=\dfrac{P_2V_2}{T_2}$$
 

@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-This theory explained three patterns in measured masses.
+Dalton’s atomic theory explained three patterns in measured masses.
 
 The first is **conservation of mass**: the total mass stays the same during a chemical reaction in a closed container.
 

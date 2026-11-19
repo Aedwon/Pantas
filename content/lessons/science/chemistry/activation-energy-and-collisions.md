@@ -16,7 +16,7 @@ keyPoints:
 
 ### Activation Energy and Collision Theory
 
-**Collision theory** says particles react only when they collide. A collision leads to a reaction only if the particles have enough energy and meet in a suitable orientation.
+In **collision theory**, reactions between particles start with a collision. A collision leads to a reaction only if the particles have enough energy and meet in a suitable orientation.
 
 The smallest energy needed is the **activation energy**, $E_a$. It is the energy barrier between the reactants and the highest point of the pathway, called the **transition state**. A lower barrier means more collisions get over it.
 
@@ -24,11 +24,9 @@ The **rate of a reaction** is how fast the concentration of a reactant falls or 
 
 $$k=Ae^{-E_a/(RT)}$$
 
-Here $A$ is a factor for how often collisions have the right orientation, $R$ is the gas constant, and $T$ is the temperature in kelvin. You need only the pattern. For a reaction without enzymes, a lower $E_a$ or a higher $T$ gives a bigger $k$. A bigger $k$ means a faster reaction at the same concentrations.
+Here $A$ is a factor for how often collisions have the right orientation, $R$ is the gas constant, and $T$ is the temperature in kelvin. You need only the pattern. With $A$ and $T$ fixed, a lower $E_a$ gives a bigger $k$. With $A$ and a positive $E_a$ fixed, a higher $T$ gives a bigger $k$. A bigger $k$ means a faster reaction at the same concentrations.
 
 A higher $E_a$ does not always mean a slower reaction, because $A$, $T$ and the concentrations also matter. When two reactions are compared, the same temperature and concentrations must be used.
-
-<!-- ILLUSTRATION: energy profile with energy in kJ on the vertical axis and reaction progress on the horizontal axis: reactants at 50 kJ, peak at 120 kJ labeled transition state, products at 20 kJ; arrows for Ea forward = 70 kJ and delta H = -30 kJ; a dashed lower peak at 90 kJ labeled with catalyst -->
 
 ## Examples
 
@@ -46,3 +44,5 @@ $$E_a=120-50=70\ \text{kJ}$$
 $$E_a=120-20=100\ \text{kJ}$$
 4. With the catalyst, the peak is $90\ \text{kJ}$. The forward $E_a$ is $90-50=40\ \text{kJ}$. The reverse $E_a$ is $90-20=70\ \text{kJ}$.
 5. Both barriers fell by $30\ \text{kJ}$. $\Delta H$ is still $-30\ \text{kJ}$, so the reaction is exothermic.
+
+<!-- ILLUSTRATION: energy profile with energy in kJ on the vertical axis and reaction progress on the horizontal axis: reactants at 50 kJ, peak at 120 kJ labeled transition state, products at 20 kJ; arrows for Ea forward = 70 kJ and delta H = -30 kJ; a dashed lower peak at 90 kJ labeled with catalyst -->

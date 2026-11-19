@@ -27,11 +27,11 @@ The element does not change in gamma emission. Gamma emission often follows anot
 
 Radiation can knock electrons off the atoms it hits. This is called **ionizing** radiation, and it can damage living cells.
 
-Alpha particles are heavy and stopped by a sheet of paper or by the outer layer of dead skin. Beta particles go farther and are stopped by a thin sheet of aluminum. Gamma rays go much farther. Thick lead or concrete **attenuates** them, which means it reduces their intensity. More shielding means less gamma, but some gamma rays can still get through.
+Alpha particles are heavy and stopped by a sheet of paper or by the outer layer of dead skin. Beta particles go farther and can be stopped by a thick enough sheet of aluminum. Gamma rays go much farther. Thick lead or concrete **attenuates** them, which means it reduces their intensity. More shielding means less gamma, but some gamma rays can still get through.
 
 Low penetration does not mean low hazard. An alpha emitter that is inhaled or swallowed sits next to living cells and can damage them. Outside the body, the skin shields most of the alpha particles.
 
-<!-- ILLUSTRATION: three penetration diagrams side by side, alpha particle stopped by a sheet of paper, beta particle stopped by aluminum foil, gamma ray passing through paper and foil but greatly reduced by a thick lead block -->
+<!-- ILLUSTRATION: three penetration diagrams side by side, alpha particle stopped by a sheet of paper, beta particle stopped by a thick enough aluminum sheet, gamma ray passing through paper and aluminum but greatly reduced by a thick lead block -->
 
 ## Examples
 
