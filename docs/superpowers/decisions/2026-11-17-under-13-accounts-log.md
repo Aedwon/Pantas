@@ -236,3 +236,14 @@ Relayed by the manager. Aedwon, verbatim: "Accept all". The four items he answer
 - Beta Pro through the parent's selection: accepted; the beta ends Nov 22.
 - Recent Google sign-in on Delete Account and the parent's child entry left active after a child's
   deletion: both go to T5.
+
+## Lead rulings from the T2 report (Nov 19)
+
+- Receipt mail goes when the child's nickname is first set (the legal text needs the nickname), or at
+  setup if one is given. Accepted.
+- Child Notice and tick text versions are separate constants beside the teen document versions, so
+  the live teen answer check is unchanged. T11 sets the real publish date on client and server together.
+- A holder opens a child without a code (the holder has just proved the email by signing in); a
+  sibling needs the code unless the target child's opt-in is on. Accepted; matches rule 4a.
+- Holder study refusal: study callables refuse a holder through the shared account-call wrapper, not
+  one by one. Goes to T5.
