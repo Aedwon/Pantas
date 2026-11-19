@@ -566,3 +566,91 @@ questions:
       Write the pressures as $P_A=P_0+k$ and $P_B=P_0+7k$, where k is the positive water contribution at A. B has greater pressure, so the ratio exceeds 1. Adding the same positive surface pressure to both contributions makes the ratio smaller than 7.
     approved: false
 
+
+  - id: q-mechanical-technical-reasoning-fluid-pressure-0021
+    lesson: lesson-mechanical-technical-reasoning-liquid-levels-in-connected-vessels
+    keyPoint: 2
+    type: fluid-pressure
+    difficulty: medium
+    stem: |
+      A U-tube open to the atmosphere contains water and a layer of oil that is less dense than water. The oil floats on the water in the left arm. Both liquids are at rest, and capillary effects are negligible. Measured from the height of the oil-water boundary, how does the oil column compare with the water column in the right arm?
+    choices:
+      - text: "The oil column is taller."
+        correct: true
+      - text: "The water column is taller."
+        rationale: |
+          A denser liquid may seem able to push its own level higher. But each bit of depth in water adds more pressure. Check which liquid needs more height to match the same pressure.
+      - text: "The two columns are the same height."
+        rationale: |
+          Open arms have equal levels when they hold the same liquid. Check what is above the boundary level in each arm before using that rule.
+      - text: "The heights cannot be compared without knowing the widths of the arms."
+        rationale: |
+          Width changes how much liquid each arm holds. That can make width seem important here. Check which column adds more pressure at a given depth.
+    explanation: |
+      The air pushes equally on both surfaces. The two columns add the same pressure at the boundary level. Oil adds less pressure for each bit of depth. It needs a taller column to match the water.
+
+  - id: q-mechanical-technical-reasoning-fluid-pressure-0022
+    lesson: lesson-mechanical-technical-reasoning-pressure-and-force-in-hydraulics
+    keyPoint: 1
+    type: fluid-pressure
+    difficulty: medium
+    stem: |
+      A piston with a face area of $10\ \text{cm}^2$ presses on a confined liquid with a force of $50\ \text{N}$. Use $1\ \text{cm}^2=0.0001\ \text{m}^2$. What pressure does this force add to the liquid?
+    choices:
+      - text: "50,000 Pa"
+        correct: true
+      - text: "5 Pa"
+        rationale: |
+          Dividing 50 by 10 gives 5 newtons per square centimeter. That number can look ready to use. Check that pascals use square meters.
+      - text: "500,000 Pa"
+        rationale: |
+          One square centimeter is $0.0001$ square meter. That is easy to use as the whole area. Check how many square centimeters the piston covers.
+      - text: "50 Pa"
+        rationale: |
+          The force is 50 newtons, and pascals also use newtons. Check the area before using the same number. A pascal means one newton per square meter.
+    explanation: |
+      The piston covers $0.001\ \text{m}^2$. Divide the force by this area. The added pressure is $\dfrac{50}{0.001}=50{,}000$ Pa.
+
+  - id: q-mechanical-technical-reasoning-fluid-pressure-0023
+    lesson: lesson-mechanical-technical-reasoning-pressure-and-force-in-hydraulics
+    keyPoint: 2
+    type: fluid-pressure
+    difficulty: hard
+    stem: |
+      An ideal hydraulic lift has a small piston with an area of $10\ \text{cm}^2$ and a large piston with an area of $200\ \text{cm}^2$. During a short stroke, the large piston lifts the load. Which pair gives the large piston's output force and travel, respectively, as multiples of the input force and travel at the small piston? Ignore the pressure difference due to height.
+    choices:
+      - text: '$20$ and $\dfrac{1}{20}$'
+        correct: true
+      - text: '$20$ and $20$'
+        rationale: |
+          The larger piston does give 20 times the force. It can seem like travel grows by the same amount. Multiply force by travel to check whether the work stays the same.
+      - text: '$\dfrac{1}{20}$ and $20$'
+        rationale: |
+          Force and travel change in opposite ways, so this pair keeps the work the same. Check which piston has more area for the liquid pressure to push on.
+      - text: "Both are equal to their input values."
+        rationale: |
+          The lift passes on the same change in pressure. That may sound like the force stays the same too. Check how much area that pressure pushes on at each piston.
+    explanation: |
+      The pressure pushes on 20 times as much area at the large piston. This gives 20 times the force. The work stays the same, so the large piston travels only $\dfrac{1}{20}$ as far.
+
+  - id: q-mechanical-technical-reasoning-fluid-pressure-0024
+    lesson: lesson-mechanical-technical-reasoning-flow-rate-in-straight-and-branching-pipes
+    keyPoint: 2
+    type: fluid-pressure
+    difficulty: hard
+    stem: |
+      Water flows steadily at $2\ \text{m/s}$ through a pipe with a cross-sectional area of $10\ \text{cm}^2$. The pipe divides into two branches. In the first branch, the water flows at $2\ \text{m/s}$ through an area of $4\ \text{cm}^2$. The second branch also has an area of $4\ \text{cm}^2$. Assuming incompressible flow and no leaks, what is the mean speed in the second branch?
+    choices:
+      - text: "3 m/s"
+        correct: true
+      - text: "2.5 m/s"
+        rationale: |
+          The two branches have equal areas, so an even split can seem right. Check the speed given for the first branch to see how much flow it actually carries.
+      - text: "5 m/s"
+        rationale: |
+          This sends all the incoming flow through the second branch. That would work if there were only one outlet. Check how much water leaves through the first branch.
+      - text: "2 m/s"
+        rationale: |
+          The first branch and inlet have the same speed, so it may seem that the second branch does too. Add the two branch flow rates at that speed and compare the sum with the inlet flow rate.
+    explanation: |
+      Multiply area by speed to get each flow rate. The inlet carries $10\times 2=20$ and the first branch carries $4\times 2=8$, both in $\text{cm}^2\cdot\text{m/s}$. The other branch carries $20-8=12$ in the same units. Divide by its area to get $12\div 4=3$ m/s.

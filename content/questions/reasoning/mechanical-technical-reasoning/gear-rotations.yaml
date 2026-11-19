@@ -578,3 +578,25 @@ questions:
       The right gear passes $45$ times $4=180$ teeth per minute. The left gear has 18 teeth, so its rate is $180/18=10$ rpm. Two external meshes separate the endpoints, so they share the reported counter-clockwise direction.
     approved: false
 
+
+  - id: q-mechanical-technical-reasoning-gear-rotations-0021
+    lesson: lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
+    keyPoint: 2
+    type: gear-direction
+    difficulty: hard
+    stem: |
+      A clockwise ring gear meshes with gear A on its inner teeth. Gear B is rigidly fixed to the same shaft as gear A. Gear B meshes externally with gear C. All directions are viewed from the same side. Which gears rotate clockwise?
+    choices:
+      - text: "A and B"
+        correct: true
+      - text: "A and C"
+        rationale: |
+          Reversing direction at each step after A can seem like a quick way to trace the gears. Check whether gears A and B can turn in different directions on one shaft.
+      - text: "C alone"
+        rationale: |
+          An outside mesh does reverse direction. That can make it tempting to reverse at the ring gear too. Check which side of the ring holds the teeth that touch A.
+      - text: "All three gears"
+        rationale: |
+          A and B turn the same way as the ring. It may seem that C keeps that direction too. Check how B and C touch at their outside edges.
+    explanation: |
+      The ring touches A on its inner teeth, so A turns clockwise with the ring. B turns with A because they share a shaft. B and C touch at their outside teeth, so C turns counterclockwise.
