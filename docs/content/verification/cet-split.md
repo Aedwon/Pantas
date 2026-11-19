@@ -30,3 +30,7 @@ Not yet done: the independent sample audit by a separate Sol run, listed in the 
 ## Audit fixes (November 20, 2026)
 
 After the independent Sol audit, fixes changed 77 questions. All 1,097 questions in the fixed files were solved blind again by a separate GPT 6.2 Sol run (1,097 matches, 0 mismatches, 0 low confidence). The 77 changed questions are re-approved on that solve.
+
+## Re-check fix (November 20, 2026)
+
+The independent re-check changed one question's wording (q-chemistry-stoichiometry-0004, "molar mass" for a g/mol value). The file was solved blind again by a separate GPT 6.2 Sol run (24 of 24 matched, 0 low confidence). The question is re-approved on that solve.
