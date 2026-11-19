@@ -4014,3 +4014,13 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Under-13 legal sign-off on the multi-child changes (the five-point plain summary in the under-13 log, Decision 6 and "Boards after the multi-child change"), Aedwon verbatim: "Signed off". The signed child privacy assessment is still required before child accounts open. Build (balanced, 8.5 to 10 working days) goes to a new lead session in the Claude Code desktop app.
 - **CET content resumed under the bite-sized rule (Aedwon, Nov 19, relayed by the manager):** verbatim: "can you please have a sub thread continue the CET corpus. have it follow the bite-sized rule to make things consistent". This lifts his Nov 10 pause on backlog A11 (C6, C7, D3, D9 merged in; gate C5 before any CET exam opens). A new CET finish lead runs it. Plan: `docs/superpowers/plans/2026-11-19-cet-bite-sized-finish.md`, estimate E-125. Finding: the CET line now continues on `content/pshs-nce-r1` (the math lane audited every CET math lesson on Nov 17), and 85 CET-only lessons (about 425 parts) remain to split. Claude-side work (merge, split plans, Sonnet rewrites, figures) starts now; Codex re-solves and audits start after the Nov 22 reset.
 - **CET lane Codex model (Aedwon, Nov 19, relayed by the manager):** verbatim: "have it use 6.2 Sol btw". CET finish Codex work (re-solves, fixes) runs as `codex-pick exec -m gpt-6.2-sol`, which the manager test-ran on Nov 19. This overrides the GPT 6.1 Sol default for the CET lane only; audits stay on GPT 6 Astra.
+
+### Nov 19, under-13 build: Aedwon accepts the build-conflict rulings (under-13 build lead)
+
+- Relayed by the manager. Aedwon, verbatim: "Accept all".
+- Fable 5.2 has no usage credits, so the lead's ten proposals are the rulings. They include a separate on-device store per child. Detail: under-13 log, Decisions 9 and 10, on branch claude/under-13-build-386afc.
+- A Codex Sol High review of the switching and code-gate paths runs after the Nov 22 reset.
+- Aedwon will share the board artifact with the build session. Server work goes first.
+- No extra mail capacity is bought now. The lead reports if daily code and receipt mails pass about 60.
+- Children's web trial: one trial per parent email.
+- Plan: docs/superpowers/plans/under-13-accounts/2026-11-19-build-plan.md on the build branch. Estimate: velocity row E-124.
