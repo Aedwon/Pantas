@@ -134,9 +134,9 @@ $$L=\sqrt{20+\sqrt{20+\cdots}},$$
 
 you may set $L=\sqrt{20+L}$ **only after the problem establishes or assumes that the nested expression converges to a real limit**. Then:
 
-$$L^2-L-20=0,$$
+$$L^2-L-20=0.$$
 
-which gives $L=5$ or $L=-4$. Since the principal square root is nonnegative, $L=5$.
+Factor it as $(L-5)(L+4)=0$. A product equals $0$ only when at least one factor equals $0$, so set each factor equal to $0$ to get $L=5$ or $L=-4$. Since the principal square root is nonnegative, $L=5$.
 
 Do not rely on a factor-pair mnemonic without checking the equation and the allowed sign of the limit.
 
