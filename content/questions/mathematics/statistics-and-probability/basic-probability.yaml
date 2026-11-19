@@ -5,6 +5,8 @@ meta:
   exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
 - id: 'q-statistics-and-probability-basic-probability-0001'
+  lesson: lesson-statistics-and-probability-counting-equally-likely-outcomes
+  keyPoint: 1
   type: 'word-problem'
   difficulty: 'easy'
   stem: |
@@ -24,6 +26,8 @@ questions:
   explanation: |
     There are $5+7+8=20$ marbles, with seven blue. The probability is $\dfrac7{20}$.
 - id: 'q-statistics-and-probability-basic-probability-0002'
+  lesson: lesson-statistics-and-probability-counting-equally-likely-outcomes
+  keyPoint: 1
   type: 'word-problem'
   difficulty: 'easy'
   stem: |
@@ -43,6 +47,8 @@ questions:
   explanation: |
     The prime faces are $2,3,5$, three of the six equally likely outcomes. The probability is $\dfrac36=\dfrac12$.
 - id: 'q-statistics-and-probability-basic-probability-0003'
+  lesson: lesson-statistics-and-probability-counting-equally-likely-outcomes
+  keyPoint: 1
   type: 'word-problem'
   difficulty: 'easy'
   stem: |
@@ -62,6 +68,8 @@ questions:
   explanation: |
     There are three face-card ranks in each of four suits, giving $3(4)=12$ face cards. The probability is $\dfrac{12}{52}=\dfrac3{13}$.
 - id: 'q-statistics-and-probability-basic-probability-0004'
+  lesson: lesson-statistics-and-probability-independent-events-and-complements
+  keyPoint: 2
   type: 'word-problem'
   difficulty: 'easy'
   stem: |
@@ -81,6 +89,8 @@ questions:
   explanation: |
     There are $500-25=475$ tickets not held by Juan. A single winning ticket is equally likely to be any of the $500$. His losing probability is $\dfrac{475}{500}=\dfrac{19}{20}$.
 - id: 'q-statistics-and-probability-basic-probability-0005'
+  lesson: lesson-statistics-and-probability-probability-of-either-event
+  keyPoint: 1
   type: 'word-problem'
   difficulty: 'easy'
   stem: |
@@ -100,6 +110,8 @@ questions:
   explanation: |
     The eligible sectors are $2,4,6,7,8$. Five of eight equally likely sectors meet at least one condition. Thus the probability is $\dfrac58$.
 - id: 'q-statistics-and-probability-basic-probability-0006'
+  lesson: lesson-statistics-and-probability-counting-equally-likely-outcomes
+  keyPoint: 2
   type: 'word-problem'
   difficulty: 'medium'
   stem: |
@@ -119,6 +131,8 @@ questions:
   explanation: |
     There are $36$ ordered dice outcomes. The favorable pairs are $(2,6),(3,5),(4,4),(5,3),(6,2)$, five outcomes. Thus the probability is $\dfrac5{36}$.
 - id: 'q-statistics-and-probability-basic-probability-0007'
+  lesson: lesson-statistics-and-probability-conditional-probability-and-replacement
+  keyPoint: 2
   type: 'word-problem'
   difficulty: 'medium'
   stem: |
@@ -138,6 +152,8 @@ questions:
   explanation: |
     Returning the candy and mixing before the next random draw keeps each draw probability at $\dfrac6{10}$. Multiply the independent probabilities: $\dfrac6{10}\dfrac6{10}=\dfrac9{25}$.
 - id: 'q-statistics-and-probability-basic-probability-0008'
+  lesson: lesson-statistics-and-probability-independent-events-and-complements
+  keyPoint: 1
   type: 'word-problem'
   difficulty: 'medium'
   stem: |
@@ -157,6 +173,8 @@ questions:
   explanation: |
     The probability of no Saturday rain is $1-0.60=0.40$. Under the stated independence assumption, multiply: $0.60(0.40)=0.24$.
 - id: 'q-statistics-and-probability-basic-probability-0009'
+  lesson: lesson-statistics-and-probability-conditional-probability-and-replacement
+  keyPoint: 2
   type: 'word-problem'
   difficulty: 'medium'
   stem: |
@@ -176,6 +194,8 @@ questions:
   explanation: |
     The first king probability is $\dfrac4{52}$. After it is removed, three kings remain among $51$ cards. Multiply: $\dfrac4{52}\dfrac3{51}=\dfrac1{221}$.
 - id: 'q-statistics-and-probability-basic-probability-0010'
+  lesson: lesson-statistics-and-probability-probability-of-either-event
+  keyPoint: 1
   type: 'word-problem'
   difficulty: 'medium'
   stem: |
@@ -195,6 +215,8 @@ questions:
   explanation: |
     There are four aces and thirteen hearts. The ace of hearts is counted in both groups, so $4+13-1=16$ cards are aces or hearts. The probability is $\dfrac{16}{52}=\dfrac4{13}$.
 - id: 'q-statistics-and-probability-basic-probability-0011'
+  lesson: lesson-statistics-and-probability-independent-events-and-complements
+  keyPoint: 2
   type: 'word-problem'
   difficulty: 'medium'
   stem: |
@@ -214,6 +236,8 @@ questions:
   explanation: |
     The complement is three tails, with probability $\left(\dfrac12\right)^3=\dfrac18$. Subtract from one to get $1-\dfrac18=\dfrac78$.
 - id: 'q-statistics-and-probability-basic-probability-0012'
+  lesson: lesson-statistics-and-probability-conditional-probability-and-replacement
+  keyPoint: 1
   type: 'word-problem'
   difficulty: 'hard'
   stem: |
@@ -241,6 +265,8 @@ questions:
   explanation: |
     The condition restricts the sample to the $50$ students who took review. Of these, $35$ are STEM students. The conditional probability is $\dfrac{35}{50}=\dfrac7{10}$.
 - id: 'q-statistics-and-probability-basic-probability-0013'
+  lesson: lesson-statistics-and-probability-probability-of-either-event
+  keyPoint: 2
   type: 'word-problem'
   difficulty: 'hard'
   stem: |
@@ -260,6 +286,8 @@ questions:
   explanation: |
     A defective bulb from A has probability $0.60(0.05)=0.030$. A defective bulb from B has probability $0.40(0.02)=0.008$. Add the disjoint cases: $0.030+0.008=0.038=3.8\%$.
 - id: 'q-statistics-and-probability-basic-probability-0014'
+  lesson: lesson-statistics-and-probability-conditional-probability-and-replacement
+  keyPoint: 1
   type: 'word-problem'
   difficulty: 'hard'
   stem: |
@@ -279,6 +307,8 @@ questions:
   explanation: |
     A defective bulb from A has probability $0.60(0.05)=0.030$. The total defective probability is $0.030+0.40(0.02)=0.038$. Among defective bulbs, the fraction from A is $\dfrac{0.030}{0.038}=\dfrac{15}{19}$.
 - id: 'q-statistics-and-probability-basic-probability-0015'
+  lesson: lesson-statistics-and-probability-conditional-probability-and-replacement
+  keyPoint: 2
   type: 'word-problem'
   difficulty: 'hard'
   stem: |
@@ -298,6 +328,8 @@ questions:
   explanation: |
     The successive required probabilities are $\dfrac5{12}$, $\dfrac4{11}$, and $\dfrac3{10}$. After drawing green, all $4$ red clips remain among $11$ clips. After drawing red, all $3$ blue clips remain among $10$ clips. Multiply to get $\dfrac{60}{1320}=\dfrac1{22}$.
 - id: 'q-statistics-and-probability-basic-probability-0016'
+  lesson: lesson-statistics-and-probability-independent-events-and-complements
+  keyPoint: 1
   type: 'word-problem'
   difficulty: 'hard'
   stem: |
@@ -317,6 +349,8 @@ questions:
   explanation: |
     Team A can win with sequences AA, ABA, or BAA. Their probabilities are $0.6^2=0.36$, $0.6(0.4)(0.6)=0.144$, and $0.4(0.6)(0.6)=0.144$. Add the disjoint paths: $0.36+0.144+0.144=0.648$.
 - id: 'q-statistics-and-probability-basic-probability-0017'
+  lesson: lesson-statistics-and-probability-independent-events-and-complements
+  keyPoint: 1
   type: 'which-is-true'
   difficulty: 'easy'
   stem: |
@@ -337,6 +371,8 @@ questions:
     An independent fair toss has two equally likely outcomes. Earlier results do not change those probabilities. Heads therefore has probability one-half.
   approved: false
 - id: 'q-statistics-and-probability-basic-probability-0018'
+  lesson: lesson-statistics-and-probability-probability-of-either-event
+  keyPoint: 1
   type: 'error-spotting'
   difficulty: 'medium'
   stem: |
@@ -357,6 +393,8 @@ questions:
     The count playing either game is $18+12-6=24$. Subtracting six removes the extra count of students in both groups.
   approved: false
 - id: 'q-statistics-and-probability-basic-probability-0019'
+  lesson: lesson-statistics-and-probability-probability-of-either-event
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'hard'
   stem: |
@@ -377,6 +415,8 @@ questions:
     Mutual exclusion gives $P(A\text{ and }B)=0$. Independence would give the positive product $P(A)P(B)$. These cannot agree, so the events are not independent.
   approved: false
 - id: 'q-statistics-and-probability-basic-probability-0020'
+  lesson: lesson-statistics-and-probability-independent-events-and-complements
+  keyPoint: 1
   type: 'word-problem'
   difficulty: 'exam'
   stem: |

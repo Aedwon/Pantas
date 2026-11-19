@@ -6,6 +6,11 @@ subject: "subject-mathematics"
 topic: "topic-precalculus-basic-calculus"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-precalculus-basic-calculus-identifying-axis-aligned-conics
+  - lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms
+  - lesson-precalculus-basic-calculus-ellipse-and-hyperbola-features
 ---
 ## Core Concept
 

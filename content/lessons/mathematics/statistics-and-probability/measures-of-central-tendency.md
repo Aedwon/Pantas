@@ -6,6 +6,12 @@ subject: "subject-mathematics"
 topic: "topic-statistics-and-probability"
 estimatedMinutes: 13
 isActive: true
+status: retired
+replacedBy:
+  - lesson-statistics-and-probability-arithmetic-mean-and-missing-values
+  - lesson-statistics-and-probability-median-and-mode
+  - lesson-statistics-and-probability-choosing-a-measure-of-center
+  - lesson-statistics-and-probability-weighted-means
 ---
 ## Core Concept
 

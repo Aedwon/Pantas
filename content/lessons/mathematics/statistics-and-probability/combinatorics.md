@@ -6,6 +6,13 @@ subject: "subject-mathematics"
 topic: "topic-statistics-and-probability"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-statistics-and-probability-counting-choices-in-stages
+  - lesson-statistics-and-probability-factorials-and-permutations
+  - lesson-statistics-and-probability-combinations-and-complementary-choices
+  - lesson-statistics-and-probability-counting-teams-and-ordered-roles
+  - lesson-statistics-and-probability-adding-counts-with-overlap
 ---
 ## Core Concept
 

@@ -6,6 +6,11 @@ subject: "subject-mathematics"
 topic: "topic-precalculus-basic-calculus"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules
+  - lesson-precalculus-basic-calculus-derivatives-of-products-and-quotients
+  - lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
 ---
 ## Core Concept
 

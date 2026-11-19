@@ -5,6 +5,8 @@ meta:
   exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
 - id: 'q-statistics-and-probability-measures-of-variability-0001'
+  lesson: lesson-statistics-and-probability-range-and-spread
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'easy'
   stem: |
@@ -24,6 +26,8 @@ questions:
   explanation: |
     The largest score is $94$ and the smallest is $55$. The range is $94-55=39$.
 - id: 'q-statistics-and-probability-measures-of-variability-0002'
+  lesson: lesson-statistics-and-probability-range-and-spread
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'easy'
   stem: |
@@ -43,6 +47,8 @@ questions:
   explanation: |
     After correction, the maximum is $20$ and the minimum is $14$. The corrected range is $20-14=6^\circ\text{C}$.
 - id: 'q-statistics-and-probability-measures-of-variability-0003'
+  lesson: lesson-statistics-and-probability-population-variance-and-standard-deviation
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'easy'
   stem: |
@@ -62,6 +68,8 @@ questions:
   explanation: |
     The mean is $6$. Squared deviations are $16,4,0,4,16$, totaling $40$. Population variance divides by five: $40\div5=8$.
 - id: 'q-statistics-and-probability-measures-of-variability-0004'
+  lesson: lesson-statistics-and-probability-range-and-spread
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'easy'
   stem: |
@@ -81,6 +89,8 @@ questions:
   explanation: |
     Range subtracts the minimum from the maximum. Only those two extreme values determine it.
 - id: 'q-statistics-and-probability-measures-of-variability-0005'
+  lesson: lesson-statistics-and-probability-population-variance-and-standard-deviation
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'easy'
   stem: |
@@ -100,6 +110,8 @@ questions:
   explanation: |
     Population variance averages squared distances from the population mean. Its nonnegative square root is the population standard deviation. Taking that root returns the spread to the original measurement units.
 - id: 'q-statistics-and-probability-measures-of-variability-0006'
+  lesson: lesson-statistics-and-probability-sample-variance-and-standard-deviation
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'easy'
   stem: |
@@ -119,6 +131,8 @@ questions:
   explanation: |
     Sample variance is the square of sample standard deviation. Taking the nonnegative square root returns the standard deviation. The result can be zero when all values match.
 - id: 'q-statistics-and-probability-measures-of-variability-0007'
+  lesson: lesson-statistics-and-probability-sample-variance-and-standard-deviation
+  keyPoint: 2
   type: 'direct-computation'
   difficulty: 'medium'
   stem: |
@@ -138,6 +152,8 @@ questions:
   explanation: |
     The mean is $7$. Squared deviations are $16,4,0,1,25$, totaling $46$. Sample variance uses denominator $5-1=4$, so $s^2=46\div4=11.5$.
 - id: 'q-statistics-and-probability-measures-of-variability-0008'
+  lesson: lesson-statistics-and-probability-effects-of-shifting-and-scaling-data
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'medium'
   stem: |
@@ -157,6 +173,8 @@ questions:
   explanation: |
     The original standard deviation is $\sqrt{25}=5$. Multiplying every score by three multiplies its standard deviation by three. Thus the new value is $15$.
 - id: 'q-statistics-and-probability-measures-of-variability-0009'
+  lesson: lesson-statistics-and-probability-sample-variance-and-standard-deviation
+  keyPoint: 2
   type: 'direct-computation'
   difficulty: 'medium'
   stem: |
@@ -176,6 +194,8 @@ questions:
   explanation: |
     The mean is $10$. Squared deviations total $36+36+0+36+36=144$. Divide by $5-1=4$ to get sample variance $36$. Its square root is $6$.
 - id: 'q-statistics-and-probability-measures-of-variability-0010'
+  lesson: lesson-statistics-and-probability-comparing-standard-deviations
+  keyPoint: 1
   type: 'which-is-true'
   difficulty: 'medium'
   stem: |
@@ -195,6 +215,8 @@ questions:
   explanation: |
     Variance uses squared deviations, all nonnegative, divided by a positive count. Standard deviation is its nonnegative square root. Neither quantity can be negative.
 - id: 'q-statistics-and-probability-measures-of-variability-0011'
+  lesson: lesson-statistics-and-probability-effects-of-shifting-and-scaling-data
+  keyPoint: 1
   type: 'which-is-true'
   difficulty: 'medium'
   stem: |
@@ -214,6 +236,8 @@ questions:
   explanation: |
     Adding five shifts every value and the mean by the same amount. The deviations stay unchanged. Thus the standard deviation stays four.
 - id: 'q-statistics-and-probability-measures-of-variability-0012'
+  lesson: lesson-statistics-and-probability-comparing-standard-deviations
+  keyPoint: 1
   type: 'which-is-true'
   difficulty: 'medium'
   stem: |
@@ -233,6 +257,8 @@ questions:
   explanation: |
     Both routes have the same mean. Route A has the smaller standard deviation, three minutes instead of twelve. Its travel times are more tightly clustered around that mean.
 - id: 'q-statistics-and-probability-measures-of-variability-0013'
+  lesson: lesson-statistics-and-probability-comparing-standard-deviations
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -257,6 +283,8 @@ questions:
   explanation: |
     Both means are $8$. Red has squared-deviation total $10$, while Blue has total $40$. Both sample variances divide by four, so their ratio is $\dfrac{40}{10}=4$.
 - id: 'q-statistics-and-probability-measures-of-variability-0014'
+  lesson: lesson-statistics-and-probability-sample-variance-and-standard-deviation
+  keyPoint: 2
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -276,6 +304,8 @@ questions:
   explanation: |
     The range gives $x-2=12$, so $x=14$. The mean is $8$. Squared deviations total $36+9+0+9+36=90$. Sample variance is $90\div4=22.5$.
 - id: 'q-statistics-and-probability-measures-of-variability-0015'
+  lesson: lesson-statistics-and-probability-sample-variance-and-standard-deviation
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'hard'
   stem: |
@@ -295,6 +325,8 @@ questions:
   explanation: |
     The sample average comes from the same values we are measuring. So the squared distances add up to no more, and usually less, when measured from the sample average than from the true population average. The calculated spread then tends to come out too small. Dividing by $n-1$ instead of $n$ raises a positive result. Over many random samples, this fixes the tendency and gives a fair estimate of the population variance.
 - id: 'q-statistics-and-probability-measures-of-variability-0016'
+  lesson: lesson-statistics-and-probability-effects-of-shifting-and-scaling-data
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'hard'
   stem: |
@@ -314,6 +346,8 @@ questions:
   explanation: |
     The mean becomes $2(50)+5=105$. The standard deviation is multiplied by two and is unchanged by adding five. It becomes $2(10)=20$.
 - id: 'q-statistics-and-probability-measures-of-variability-0017'
+  lesson: lesson-statistics-and-probability-effects-of-shifting-and-scaling-data
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'medium'
   stem: |
@@ -334,6 +368,8 @@ questions:
     The multiplier is $-2$, whose magnitude is $2$. The added ten shifts values without changing spread. The new SD is $2(3)=6$.
   approved: false
 - id: 'q-statistics-and-probability-measures-of-variability-0018'
+  lesson: lesson-statistics-and-probability-population-variance-and-standard-deviation
+  keyPoint: 1
   type: 'which-is-true'
   difficulty: 'hard'
   stem: |
@@ -354,6 +390,8 @@ questions:
     Both means are $5$. The squared-deviation totals are $100$ for the first set and $50$ for the second. Both divide by four, so the first has larger variance.
   approved: false
 - id: 'q-statistics-and-probability-measures-of-variability-0019'
+  lesson: lesson-statistics-and-probability-comparing-standard-deviations
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'exam'
   stem: |
@@ -374,6 +412,8 @@ questions:
     Mean and standard deviation do not specify the full distribution. Different frequencies can produce the same two measures. The count at the mean needs more information.
   approved: false
 - id: 'q-statistics-and-probability-measures-of-variability-0020'
+  lesson: lesson-statistics-and-probability-population-variance-and-standard-deviation
+  keyPoint: 1
   type: 'error-spotting'
   difficulty: 'easy'
   stem: |

@@ -1,0 +1,571 @@
+{
+  "outline": [
+    {
+      "original": "lesson-statistics-and-probability-basic-probability",
+      "parts": [
+        {
+          "slug": "counting-equally-likely-outcomes",
+          "title": "Counting Equally Likely Outcomes"
+        },
+        {
+          "slug": "independent-events-and-complements",
+          "title": "Independent Events and Complements"
+        },
+        {
+          "slug": "conditional-probability-and-replacement",
+          "title": "Conditional Probability and Replacement"
+        },
+        {
+          "slug": "probability-of-either-event",
+          "title": "Probability of Either Event"
+        }
+      ]
+    },
+    {
+      "original": "lesson-statistics-and-probability-combinatorics",
+      "parts": [
+        {
+          "slug": "counting-choices-in-stages",
+          "title": "Counting Choices in Stages"
+        },
+        {
+          "slug": "factorials-and-permutations",
+          "title": "Factorials and Permutations"
+        },
+        {
+          "slug": "combinations-and-complementary-choices",
+          "title": "Combinations and Complementary Choices"
+        },
+        {
+          "slug": "counting-teams-and-ordered-roles",
+          "title": "Counting Teams and Ordered Roles"
+        },
+        {
+          "slug": "adding-counts-with-overlap",
+          "title": "Adding Counts With Overlap"
+        }
+      ]
+    },
+    {
+      "original": "lesson-statistics-and-probability-data-analysis-graphs",
+      "parts": [
+        {
+          "slug": "pie-chart-shares-and-angles",
+          "title": "Pie Chart Shares and Angles"
+        },
+        {
+          "slug": "reading-bar-graph-scales",
+          "title": "Reading Bar Graph Scales"
+        },
+        {
+          "slug": "comparing-graph-values",
+          "title": "Comparing Graph Values"
+        },
+        {
+          "slug": "patterns-in-scatter-plots",
+          "title": "Patterns in Scatter Plots"
+        }
+      ]
+    },
+    {
+      "original": "lesson-statistics-and-probability-measures-of-central-tendency",
+      "parts": [
+        {
+          "slug": "arithmetic-mean-and-missing-values",
+          "title": "Arithmetic Mean and Missing Values"
+        },
+        {
+          "slug": "median-and-mode",
+          "title": "Median and Mode"
+        },
+        {
+          "slug": "choosing-a-measure-of-center",
+          "title": "Choosing a Measure of Center"
+        },
+        {
+          "slug": "weighted-means",
+          "title": "Weighted Means"
+        }
+      ]
+    },
+    {
+      "original": "lesson-statistics-and-probability-measures-of-variability",
+      "parts": [
+        {
+          "slug": "range-and-spread",
+          "title": "Range and Spread"
+        },
+        {
+          "slug": "population-variance-and-standard-deviation",
+          "title": "Population Variance and Standard Deviation"
+        },
+        {
+          "slug": "sample-variance-and-standard-deviation",
+          "title": "Sample Variance and Standard Deviation"
+        },
+        {
+          "slug": "comparing-standard-deviations",
+          "title": "Comparing Standard Deviations"
+        },
+        {
+          "slug": "effects-of-shifting-and-scaling-data",
+          "title": "Effects of Shifting and Scaling Data"
+        },
+        {
+          "slug": "expected-value-and-variance",
+          "title": "Expected Value and Variance"
+        }
+      ]
+    },
+    {
+      "original": "lesson-precalculus-basic-calculus-basic-derivatives",
+      "parts": [
+        {
+          "slug": "power-sum-and-constant-derivative-rules",
+          "title": "Power, Sum, and Constant Derivative Rules"
+        },
+        {
+          "slug": "derivatives-of-products-and-quotients",
+          "title": "Derivatives of Products and Quotients"
+        },
+        {
+          "slug": "chain-rule-and-tangent-slopes",
+          "title": "Chain Rule and Tangent Slopes"
+        }
+      ]
+    },
+    {
+      "original": "lesson-precalculus-basic-calculus-basic-integrals",
+      "parts": [
+        {
+          "slug": "antiderivatives-of-polynomials",
+          "title": "Antiderivatives of Polynomials"
+        },
+        {
+          "slug": "integrating-roots-and-reciprocals",
+          "title": "Integrating Roots and Reciprocals"
+        },
+        {
+          "slug": "definite-integrals-and-signed-area",
+          "title": "Definite Integrals and Signed Area"
+        }
+      ]
+    },
+    {
+      "original": "lesson-precalculus-basic-calculus-conic-sections",
+      "parts": [
+        {
+          "slug": "identifying-axis-aligned-conics",
+          "title": "Identifying Axis-Aligned Conics"
+        },
+        {
+          "slug": "circle-and-parabola-standard-forms",
+          "title": "Circle and Parabola Standard Forms"
+        },
+        {
+          "slug": "ellipse-and-hyperbola-features",
+          "title": "Ellipse and Hyperbola Features"
+        }
+      ]
+    },
+    {
+      "original": "lesson-precalculus-basic-calculus-limits-and-continuity",
+      "parts": [
+        {
+          "slug": "direct-substitution-for-limits",
+          "title": "Direct Substitution for Limits"
+        },
+        {
+          "slug": "factoring-to-evaluate-limits",
+          "title": "Factoring to Evaluate Limits"
+        },
+        {
+          "slug": "rational-limits-at-infinity",
+          "title": "Rational Limits at Infinity"
+        },
+        {
+          "slug": "one-sided-limits-and-continuity",
+          "title": "One-Sided Limits and Continuity"
+        }
+      ]
+    },
+    {
+      "original": "lesson-mechanical-technical-reasoning-fluid-pressure",
+      "parts": [
+        {
+          "slug": "pressure-in-a-resting-liquid",
+          "title": "Pressure in a Resting Liquid"
+        },
+        {
+          "slug": "liquid-levels-in-connected-vessels",
+          "title": "Liquid Levels in Connected Vessels"
+        },
+        {
+          "slug": "pressure-and-force-in-hydraulics",
+          "title": "Pressure and Force in Hydraulics"
+        },
+        {
+          "slug": "flow-rate-in-straight-and-branching-pipes",
+          "title": "Flow Rate in Straight and Branching Pipes"
+        },
+        {
+          "slug": "flow-speed-height-and-pressure",
+          "title": "Flow Speed, Height, and Pressure"
+        }
+      ]
+    },
+    {
+      "original": "lesson-mechanical-technical-reasoning-gear-rotations",
+      "parts": [
+        {
+          "slug": "rotation-directions-in-gear-systems",
+          "title": "Rotation Directions in Gear Systems"
+        },
+        {
+          "slug": "gear-speeds-and-tooth-counts",
+          "title": "Gear Speeds and Tooth Counts"
+        }
+      ]
+    },
+    {
+      "original": "lesson-spatial-abstract-reasoning-more-figure-rules",
+      "parts": [
+        {
+          "slug": "comparing-counts-in-figures",
+          "title": "Comparing Counts in Figures"
+        },
+        {
+          "slug": "one-of-each-rules-in-figure-grids",
+          "title": "One-of-Each Rules in Figure Grids"
+        },
+        {
+          "slug": "matching-edges-of-pattern-pieces",
+          "title": "Matching Edges of Pattern Pieces"
+        },
+        {
+          "slug": "transferring-rules-in-visual-analogies",
+          "title": "Transferring Rules in Visual Analogies"
+        },
+        {
+          "slug": "closed-surfaces-in-solids",
+          "title": "Closed Surfaces in Solids"
+        },
+        {
+          "slug": "folding-a-triangular-prism-net",
+          "title": "Folding a Triangular Prism Net"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-statistics-and-probability-counting-equally-likely-outcomes": [],
+    "lesson-statistics-and-probability-independent-events-and-complements": [
+      {
+        "lesson": "lesson-statistics-and-probability-counting-equally-likely-outcomes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-conditional-probability-and-replacement": [
+      {
+        "lesson": "lesson-statistics-and-probability-independent-events-and-complements",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+        "strength": "required",
+        "reason": "Combined-event calculations require fraction multiplication, simplification, and subtraction. This lesson teaches probability rules but assumes those arithmetic methods."
+      }
+    ],
+    "lesson-statistics-and-probability-probability-of-either-event": [
+      {
+        "lesson": "lesson-statistics-and-probability-conditional-probability-and-replacement",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-counting-choices-in-stages": [],
+    "lesson-statistics-and-probability-factorials-and-permutations": [
+      {
+        "lesson": "lesson-statistics-and-probability-counting-choices-in-stages",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-combinations-and-complementary-choices": [
+      {
+        "lesson": "lesson-statistics-and-probability-factorials-and-permutations",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-counting-teams-and-ordered-roles": [
+      {
+        "lesson": "lesson-statistics-and-probability-combinations-and-complementary-choices",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-adding-counts-with-overlap": [
+      {
+        "lesson": "lesson-statistics-and-probability-counting-teams-and-ordered-roles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-algebra-counting-venn-diagram-regions",
+        "strength": "helpful",
+        "reason": "Counting groups that overlap is the same idea as counting a union with a Venn diagram. This lesson explains the subtraction of the overlap."
+      }
+    ],
+    "lesson-statistics-and-probability-pie-chart-shares-and-angles": [
+      {
+        "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+        "strength": "helpful",
+        "reason": "Percentage conversion and fraction multiplication practice make pie-chart calculations easier. This lesson gives the share formulas and demonstrates their use."
+      },
+      {
+        "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions",
+        "strength": "helpful",
+        "reason": "Multiplying a fraction by the whole helps students find the required share."
+      }
+    ],
+    "lesson-statistics-and-probability-reading-bar-graph-scales": [
+      {
+        "lesson": "lesson-statistics-and-probability-pie-chart-shares-and-angles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-data-interpretation-averages-and-pie-chart-shares",
+        "strength": "helpful",
+        "reason": "Basic scale-reading practice helps before comparing graph scales. This lesson repeats the needed reading rules and adds more demanding comparisons."
+      }
+    ],
+    "lesson-statistics-and-probability-comparing-graph-values": [
+      {
+        "lesson": "lesson-statistics-and-probability-reading-bar-graph-scales",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-patterns-in-scatter-plots": [
+      {
+        "lesson": "lesson-statistics-and-probability-comparing-graph-values",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-arithmetic-mean-and-missing-values": [],
+    "lesson-statistics-and-probability-median-and-mode": [
+      {
+        "lesson": "lesson-statistics-and-probability-arithmetic-mean-and-missing-values",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-choosing-a-measure-of-center": [
+      {
+        "lesson": "lesson-statistics-and-probability-median-and-mode",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-weighted-means": [
+      {
+        "lesson": "lesson-statistics-and-probability-choosing-a-measure-of-center",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-measures-of-variability": [
+      {
+        "lesson": "lesson-statistics-and-probability-arithmetic-mean-and-missing-values",
+        "strength": "helpful",
+        "reason": "Every spread measure here starts from the mean. This lesson defines the mean in its first paragraph."
+      }
+    ],
+    "lesson-statistics-and-probability-range-and-spread": [],
+    "lesson-statistics-and-probability-population-variance-and-standard-deviation": [
+      {
+        "lesson": "lesson-statistics-and-probability-range-and-spread",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-statistics-and-probability-arithmetic-mean-and-missing-values",
+        "strength": "helpful",
+        "reason": "Every spread measure here starts from the mean. This lesson defines the mean in its first paragraph."
+      }
+    ],
+    "lesson-statistics-and-probability-sample-variance-and-standard-deviation": [
+      {
+        "lesson": "lesson-statistics-and-probability-population-variance-and-standard-deviation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-comparing-standard-deviations": [
+      {
+        "lesson": "lesson-statistics-and-probability-sample-variance-and-standard-deviation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-effects-of-shifting-and-scaling-data": [
+      {
+        "lesson": "lesson-statistics-and-probability-comparing-standard-deviations",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-statistics-and-probability-expected-value-and-variance": [
+      {
+        "lesson": "lesson-statistics-and-probability-effects-of-shifting-and-scaling-data",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules": [],
+    "lesson-precalculus-basic-calculus-derivatives-of-products-and-quotients": [
+      {
+        "lesson": "lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes": [
+      {
+        "lesson": "lesson-precalculus-basic-calculus-derivatives-of-products-and-quotients",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-precalculus-basic-calculus-antiderivatives-of-polynomials": [],
+    "lesson-precalculus-basic-calculus-integrating-roots-and-reciprocals": [
+      {
+        "lesson": "lesson-precalculus-basic-calculus-antiderivatives-of-polynomials",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-precalculus-basic-calculus-definite-integrals-and-signed-area": [
+      {
+        "lesson": "lesson-precalculus-basic-calculus-integrating-roots-and-reciprocals",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-precalculus-basic-calculus-identifying-axis-aligned-conics": [],
+    "lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms": [
+      {
+        "lesson": "lesson-precalculus-basic-calculus-identifying-axis-aligned-conics",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-precalculus-basic-calculus-ellipse-and-hyperbola-features": [
+      {
+        "lesson": "lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-precalculus-basic-calculus-direct-substitution-for-limits": [],
+    "lesson-precalculus-basic-calculus-factoring-to-evaluate-limits": [
+      {
+        "lesson": "lesson-precalculus-basic-calculus-direct-substitution-for-limits",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-precalculus-basic-calculus-rational-limits-at-infinity": [
+      {
+        "lesson": "lesson-precalculus-basic-calculus-factoring-to-evaluate-limits",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-precalculus-basic-calculus-one-sided-limits-and-continuity": [
+      {
+        "lesson": "lesson-precalculus-basic-calculus-rational-limits-at-infinity",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid": [],
+    "lesson-mechanical-technical-reasoning-liquid-levels-in-connected-vessels": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-pressure-and-force-in-hydraulics": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-liquid-levels-in-connected-vessels",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-flow-rate-in-straight-and-branching-pipes": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-pressure-and-force-in-hydraulics",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-flow-speed-height-and-pressure": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-flow-rate-in-straight-and-branching-pipes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems": [],
+    "lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-spatial-abstract-reasoning-comparing-counts-in-figures": [],
+    "lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids": [
+      {
+        "lesson": "lesson-spatial-abstract-reasoning-comparing-counts-in-figures",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-spatial-abstract-reasoning-matching-edges-of-pattern-pieces": [
+      {
+        "lesson": "lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-spatial-abstract-reasoning-transferring-rules-in-visual-analogies": [
+      {
+        "lesson": "lesson-spatial-abstract-reasoning-matching-edges-of-pattern-pieces",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-spatial-abstract-reasoning-closed-surfaces-in-solids": [
+      {
+        "lesson": "lesson-spatial-abstract-reasoning-transferring-rules-in-visual-analogies",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-spatial-abstract-reasoning-folding-a-triangular-prism-net": [
+      {
+        "lesson": "lesson-spatial-abstract-reasoning-closed-surfaces-in-solids",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ]
+  }
+}

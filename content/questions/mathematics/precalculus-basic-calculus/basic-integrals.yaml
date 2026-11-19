@@ -5,6 +5,8 @@ meta:
   exams: ['pupcet']
 questions:
 - id: 'q-precalculus-basic-calculus-basic-integrals-0001'
+  lesson: lesson-precalculus-basic-calculus-antiderivatives-of-polynomials
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'easy'
   stem: |
@@ -24,6 +26,8 @@ questions:
   explanation: |
     Increase the exponent from $3$ to $4$ and divide by $4$. The integral is $\dfrac{x^4}{4}+C$. The constant includes all antiderivatives.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0002'
+  lesson: lesson-precalculus-basic-calculus-antiderivatives-of-polynomials
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'easy'
   stem: |
@@ -43,6 +47,8 @@ questions:
   explanation: |
     Increase the exponent to $3$ and divide the coefficient by $3$: $6\div3=2$. The integral is $2x^3+C$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0003'
+  lesson: lesson-precalculus-basic-calculus-antiderivatives-of-polynomials
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'easy'
   stem: |
@@ -62,6 +68,8 @@ questions:
   explanation: |
     The antiderivative of a constant is that constant times x. Thus the integral is $5x+C$, whose derivative is $5$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0004'
+  lesson: lesson-precalculus-basic-calculus-definite-integrals-and-signed-area
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'easy'
   stem: |
@@ -81,6 +89,8 @@ questions:
   explanation: |
     An antiderivative of $2x$ is $x^2$. Evaluate upper minus lower: $3^2-0^2=9$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0005'
+  lesson: lesson-precalculus-basic-calculus-integrating-roots-and-reciprocals
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'easy'
   stem: |
@@ -100,6 +110,8 @@ questions:
   explanation: |
     The reciprocal power $x^{-1}$ uses the logarithm rule. On an interval excluding zero, its antiderivative family is $\ln|x|+C$. Its derivative is $\dfrac1x$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0006'
+  lesson: lesson-precalculus-basic-calculus-antiderivatives-of-polynomials
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'medium'
   stem: |
@@ -119,6 +131,8 @@ questions:
   explanation: |
     Integrate each term. The results are $x^3$, $-2x^2$, and $5x$. Together they give $x^3-2x^2+5x+C$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0007'
+  lesson: lesson-precalculus-basic-calculus-integrating-roots-and-reciprocals
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'medium'
   stem: |
@@ -138,6 +152,8 @@ questions:
   explanation: |
     Write $\sqrt{x}=x^{1/2}$. Increase the exponent to three-halves and divide by three-halves. This gives $\dfrac23x^{3/2}+C$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0008'
+  lesson: lesson-precalculus-basic-calculus-integrating-roots-and-reciprocals
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'medium'
   stem: |
@@ -157,6 +173,8 @@ questions:
   explanation: |
     For $x\ne0$, write the function as $x^{-3}$. Increase the exponent to $-2$ and divide by $-2$. The result is $-\dfrac1{2x^2}+C$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0009'
+  lesson: lesson-precalculus-basic-calculus-definite-integrals-and-signed-area
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'medium'
   stem: |
@@ -176,6 +194,8 @@ questions:
   explanation: |
     An antiderivative is $F(x)=x^3+x$. Its endpoint values are $F(2)=10$ and $F(1)=2$. Subtract to get $10-2=8$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0010'
+  lesson: lesson-precalculus-basic-calculus-definite-integrals-and-signed-area
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'medium'
   stem: |
@@ -195,6 +215,8 @@ questions:
   explanation: |
     An antiderivative is $\dfrac23x^{3/2}$. At $4$, $4^{3/2}=(\sqrt4)^3=8$; at zero the value is zero. Thus the integral is $\dfrac23(8)=\dfrac{16}{3}$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0011'
+  lesson: lesson-precalculus-basic-calculus-antiderivatives-of-polynomials
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -214,6 +236,8 @@ questions:
   explanation: |
     Expand $(x+2)^2=x^2+4x+4$. Integrate term by term to get $\dfrac{x^3}{3}+2x^2+4x+C$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0012'
+  lesson: lesson-precalculus-basic-calculus-definite-integrals-and-signed-area
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -233,6 +257,8 @@ questions:
   explanation: |
     An antiderivative is $F(x)=\dfrac{x^3}{3}-x^2$. Then $F(3)=0$ and $F(1)=-\dfrac23$. Subtract: $0-(-\dfrac23)=\dfrac23$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0013'
+  lesson: lesson-precalculus-basic-calculus-integrating-roots-and-reciprocals
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -252,6 +278,8 @@ questions:
   explanation: |
     For $x\ne0$, split the expression as $1+3x^{-2}$. The integrals are x and $-3x^{-1}$. Thus the result is $x-\dfrac3x+C$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0014'
+  lesson: lesson-precalculus-basic-calculus-definite-integrals-and-signed-area
+  keyPoint: 1
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -271,6 +299,8 @@ questions:
   explanation: |
     An antiderivative is $F(x)=x^4-3x^2$. The endpoint values are $F(2)=16-12=4$ and $F(0)=0$. Their difference is $4$.
 - id: 'q-precalculus-basic-calculus-basic-integrals-0015'
+  lesson: lesson-precalculus-basic-calculus-antiderivatives-of-polynomials
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'easy'
   stem: |
@@ -291,6 +321,8 @@ questions:
     Adding any constant to $x^2$ leaves its derivative at $2x$. The arbitrary constant therefore includes all vertical shifts in the antiderivative family.
   approved: false
 - id: 'q-precalculus-basic-calculus-basic-integrals-0016'
+  lesson: lesson-precalculus-basic-calculus-antiderivatives-of-polynomials
+  keyPoint: 1
   type: 'error-spotting'
   difficulty: 'medium'
   stem: |
@@ -311,6 +343,8 @@ questions:
     The new exponent is $4+1=5$. Divide by that exponent to obtain $\dfrac{x^5}{5}+C$.
   approved: false
 - id: 'q-precalculus-basic-calculus-basic-integrals-0017'
+  lesson: lesson-precalculus-basic-calculus-definite-integrals-and-signed-area
+  keyPoint: 1
   type: 'word-problem'
   difficulty: 'hard'
   stem: |
@@ -331,6 +365,8 @@ questions:
     Integrate the rate: $\int_0^3(2t+1)\,dt=[t^2+t]_0^3$. The endpoint difference is $9+3-0=12$ liters.
   approved: false
 - id: 'q-precalculus-basic-calculus-basic-integrals-0018'
+  lesson: lesson-precalculus-basic-calculus-definite-integrals-and-signed-area
+  keyPoint: 2
   type: 'which-is-true'
   difficulty: 'medium'
   stem: |
@@ -351,6 +387,8 @@ questions:
     An antiderivative is $\dfrac{x^2}{2}$. Both endpoints give $\dfrac12$, so their difference is zero. Equal positive and negative areas cancel.
   approved: false
 - id: 'q-precalculus-basic-calculus-basic-integrals-0019'
+  lesson: lesson-precalculus-basic-calculus-antiderivatives-of-polynomials
+  keyPoint: 2
   type: 'direct-computation'
   difficulty: 'hard'
   stem: |
@@ -371,6 +409,8 @@ questions:
     Integrating gives $F(x)=3x^2+C$. The condition $F(1)=8$ gives $3+C=8$, so $C=5$. Thus $F(2)=3(4)+5=17$.
   approved: false
 - id: 'q-precalculus-basic-calculus-basic-integrals-0020'
+  lesson: lesson-precalculus-basic-calculus-definite-integrals-and-signed-area
+  keyPoint: 1
   type: 'error-spotting'
   difficulty: 'exam'
   stem: |

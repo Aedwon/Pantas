@@ -6,6 +6,12 @@ subject: "subject-mathematics"
 topic: "topic-statistics-and-probability"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-statistics-and-probability-counting-equally-likely-outcomes
+  - lesson-statistics-and-probability-independent-events-and-complements
+  - lesson-statistics-and-probability-conditional-probability-and-replacement
+  - lesson-statistics-and-probability-probability-of-either-event
 ---
 ## Core Concept
 
