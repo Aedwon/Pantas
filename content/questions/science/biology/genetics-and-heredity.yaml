@@ -244,21 +244,21 @@ questions:
     type: 'cause-effect'
     difficulty: 'hard'
     stem: |
-      Two plants have the same genotype at a height-related locus but grow to different heights in different conditions. Which conclusion is supported?
+      Genetically identical plants are grown with different amounts of light. All other growing conditions are kept the same. The plants reach different heights. Which conclusion does this result support?
     choices:
-      - text: 'Environment can affect phenotype.'
+      - text: 'Light can affect plant height.'
         correct: true
-      - text: 'Different heights prove different alleles at that locus.'
+      - text: 'The groups must have inherited different alleles for height.'
         rationale: |
-          This treats a visible difference as proof of an allele difference. Genotype can influence height. Check whether the genotype was already stated to be the same.
-      - text: 'Phenotype is determined only by the named genotype.'
+          Genes can affect height, so a height difference might make you suspect different alleles. Check which plants had the same starting DNA.
+      - text: 'Plant height depends only on genotype.'
         rationale: |
-          This leaves out environmental effects. Single-gene classroom examples often hold conditions fixed. Check whether the growing conditions differ.
-      - text: 'Environmental change must rewrite that gene.'
+          Some traits are taught with growing conditions held steady. Here, light varies. Check whether plants with the same genes reached the same height.
+      - text: 'A change in plant height requires a change in its DNA sequence.'
         rationale: |
-          This assumes changing a trait must change its DNA. The plant’s height changes, which can look like genetic change. Check whether the evidence shows a DNA change or only a phenotype change.
+          A visible change can make it seem as if the DNA changed. Check what the experiment measured. It measured height.
     explanation: |
-      An observable trait can depend on both genes and the environment. Different growing conditions can therefore produce different heights even with the same genotype at the named locus.
+      The plants start with the same genes. Light is the only growing condition that changes. The difference in height shows that light can affect this visible trait.
     approved: true
 
   - id: q-biology-genetics-and-heredity-0012

@@ -461,5 +461,5 @@ questions:
         rationale: |
           NADPH is made in the light reactions, so its electron-carrying job is easy to mix up with water splitting, which also happens there. Water is split in the thylakoid membranes, not by NADPH. Check that NADPH carries electrons to the Calvin cycle.
     explanation: |
-      An electron carrier picks up electrons in one place and drops them off in another. NADPH is made in the light reactions. The Calvin cycle uses it to turn carbon dioxide into sugar.
+      An electron carrier picks up electrons in one place and drops them off in another.
     approved: true

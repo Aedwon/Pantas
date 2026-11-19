@@ -43,16 +43,14 @@ The carbon in the carbon dioxide comes from glucose. The oxygen gas ends up in w
 
 Aerobic respiration in a eukaryote has four stages:
 
-1. **Glycolysis** (in the cytosol) splits one glucose, which has six carbons, into two **pyruvate** molecules, which have three carbons each. It gives a net gain of $2$ ATP and makes $2$ NADH. NADH is an electron carrier made when **NAD+** gains electrons. Glycolysis needs no oxygen.
-2. **Pyruvate oxidation** (in the mitochondrial matrix) turns each pyruvate into a two-carbon unit called acetyl CoA. One carbon leaves each time as carbon dioxide. More NADH forms.
-3. The **citric acid cycle** (in the matrix) breaks acetyl CoA down further. It releases the rest of the carbon as carbon dioxide and makes a little ATP. It also fills NADH and a second carrier, FADH$_2$, with electrons.
+1. **Glycolysis** (in the cytosol, the watery fluid outside the organelles) splits one glucose, which has six carbons, into two **pyruvate** molecules, which have three carbons each. It gives a net gain of $2$ ATP and makes $2$ NADH. NADH is an electron carrier made when **NAD+** gains electrons. Glycolysis needs no oxygen.
+2. **Pyruvate oxidation** (in the matrix, the space inside the inner membrane of a mitochondrion) turns each pyruvate into a two-carbon unit called acetyl CoA. One carbon leaves each time as carbon dioxide. More NADH forms.
+3. The **citric acid cycle** (in the matrix) breaks acetyl CoA down further. It releases carbon dioxide and makes a little ATP. It passes electrons to NAD$^+$ and FAD, forming NADH and FADH$_2$.
 4. **Oxidative phosphorylation** (in the inner mitochondrial membrane) is where NADH and FADH$_2$ drop off their electrons. The electrons pass along a chain of proteins, the **electron transport chain**. The energy pumps hydrogen ions (H$^+$) across the membrane.
 
 The hydrogen ions then flow back through an enzyme called **ATP synthase**, which makes most of the ATP. Think of water that builds up behind a dam and turns a turbine as it flows through. At the end of the chain, oxygen takes the electrons and combines with H$^+$ to form water.
 
 A mitochondrion has an outer membrane and a folded inner membrane. The folds are called **cristae**. The space inside the inner membrane is the **matrix**.
-
-<!-- ILLUSTRATION: mitochondrion cut open, labeled outer membrane, inner membrane with cristae, matrix; glycolysis shown outside in the cytosol with glucose to pyruvate; pyruvate oxidation and citric acid cycle in the matrix; electron transport chain and ATP synthase on the inner membrane; oxygen in, water out -->
 
 One glucose gives only $2$ ATP in glycolysis and a few more in the citric acid cycle. Most ATP comes from oxidative phosphorylation.
 
@@ -75,7 +73,7 @@ There are two common kinds:
 - **Lactic acid fermentation** turns pyruvate into lactate (lactic acid). It happens in some bacteria and in animal muscle cells working hard. It releases no carbon dioxide.
 - **Alcohol fermentation** turns pyruvate into ethanol and carbon dioxide. Yeast does this. The carbon dioxide makes bread dough rise.
 
-Many cells, including yeast and human muscle, use aerobic respiration when oxygen is present and ferment when it is not. Some bacteria are **obligate anaerobes**, which means oxygen harms them.
+Fermentation can happen without oxygen. With oxygen present, hard-working muscles can still make lactate and bread yeast can still ferment when sugar is plentiful. Some bacteria are **obligate anaerobes**, which means oxygen harms them.
 
 ### How the two processes connect
 
@@ -105,6 +103,8 @@ In a plant cell, name the organelle where photosynthesis takes place. Then say w
 4. The electron transport chain and ATP synthase are in the inner mitochondrial membrane.
 5. In plant and algal cells, "chloroplast means photosynthesis" is a good rule. Cyanobacteria photosynthesize without chloroplasts, so the rule does not cover prokaryotes.
 6. "All respiration happens in mitochondria" is too broad. Glycolysis is in the cytosol, and prokaryotes have no mitochondria.
+
+<!-- ILLUSTRATION: mitochondrion cut open, labeled outer membrane, inner membrane with cristae, matrix; glycolysis shown outside in the cytosol with glucose to pyruvate; pyruvate oxidation and citric acid cycle in the matrix; electron transport chain and ATP synthase on the inner membrane; oxygen in, water out -->
 
 <!-- FIGURE: {"kind":"biology-diagram","type":"organelle-comparison","illustrationKey":"science/biology/cellular-metabolism#2","organelles":[{"name":"chloroplast","shape":"disc","appearance":"green","process":"photosynthesis"},{"name":"mitochondrion","shape":"bean","appearance":"folded inner membranes/cristae","process":"cellular respiration"}]} -->
 
@@ -151,7 +151,7 @@ In aerobic respiration of one glucose, at which stages is carbon dioxide release
 
 1. Glucose has six carbons. Glycolysis splits it into two pyruvate molecules of three carbons each. No carbon is lost here.
 2. Pyruvate oxidation removes one carbon from each pyruvate as carbon dioxide. That gives $2$ carbon dioxide.
-3. The citric acid cycle releases the remaining four carbons as $4$ carbon dioxide. The total is $6$.
+3. Two turns of the citric acid cycle release $4$ carbon dioxide molecules overall. The first turn releases carbons that were already in the cycle. The total from both stages is $6$ carbon dioxide molecules.
 4. Oxygen is used at the end of the electron transport chain. It accepts electrons and forms water.
 
 Carbon dioxide is released in pyruvate oxidation and the citric acid cycle. Oxygen is used in oxidative phosphorylation.

@@ -19,7 +19,7 @@ The **Law of Segregation** says the two alleles of a gene separate when **gamete
 
 A **Punnett square** shows the possible gametes of each parent along its sides. Each cell inside shows one offspring genotype.
 
-The probability of a trait is the number of cells with it divided by the total number of cells. It gives chances, not a promise for a small family.
+In this model, each parent passes on either allele with an equal chance. The parents pass on their alleles independently, so all pairs in the square are equally likely. Then the chance of a trait is the number of cells with it divided by the total number of cells.
 
 ## Examples
 
@@ -39,7 +39,7 @@ $$P(\text{tall})=\dfrac{3}{4}$$
 
 ## Speed Tricks & Shortcuts
 
-For one gene, two heterozygous parents ($Tt \times Tt$) always give a $1:2:1$ genotype ratio. The phenotype ratio is $3:1$ under complete dominance, and $1:2:1$ under incomplete dominance or codominance.
+Under this model, a cross of two heterozygous parents ($Tt \times Tt$) has an expected genotype ratio of $1:2:1$. The expected phenotype ratio is $3:1$ under complete dominance and $1:2:1$ under incomplete dominance or codominance.
 
 ## Traps to Watch For
 

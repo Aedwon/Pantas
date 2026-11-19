@@ -104,7 +104,7 @@ A mushroom absorbs nutrients from decaying wood, grows, releases spores, and cha
 
 1. Taking in and using nutrients shows energy processing (metabolism).
 2. The question says the mushroom grows, which shows growth and development.
-3. Releasing spores shows reproduction.
+3. **Reproduction** means making new organisms. Releasing spores that can grow into new mushrooms is a step in reproduction.
 4. Changing growth because of the surroundings shows response to stimuli.
 5. Cellular organization is not described. We infer it, because we know a mushroom is a fungus and fungi are made of cells.
 

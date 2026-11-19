@@ -29,8 +29,6 @@ The main phases are:
 - **Anaphase**: the sister chromatids separate and move toward opposite poles. Each separated chromatid is now a chromosome.
 - **Telophase**: the chromosomes reach the poles and new nuclear envelopes form around them.
 
-<!-- FIGURE: {"kind":"biology-diagram","type":"mitosis-stages","illustrationKey":"science/biology/cellular-reproduction#1","stages":[{"phase":"prophase","state":"condensing chromosomes"},{"phase":"metaphase","state":"chromosomes lined up in the middle"},{"phase":"anaphase","state":"chromosomes pulled to opposite ends"},{"phase":"telophase","state":"two forming nuclei"}]} -->
-
 ## Examples
 
 ### #1: Identifying a Mitotic Phase
@@ -42,6 +40,8 @@ A cell is observed with duplicated chromosomes lined up in single file at the mi
 1. Chromosomes lined up at the middle is the clue for metaphase.
 2. Sister chromatids face opposite poles, ready to separate in anaphase.
 3. The phase is **metaphase**.
+
+<!-- FIGURE: {"kind":"biology-diagram","type":"mitosis-stages","illustrationKey":"science/biology/cellular-reproduction#1","stages":[{"phase":"prophase","state":"condensing chromosomes"},{"phase":"metaphase","state":"chromosomes lined up in the middle"},{"phase":"anaphase","state":"chromosomes pulled to opposite ends"},{"phase":"telophase","state":"two forming nuclei"}]} -->
 
 ## Traps to Watch For
 

@@ -48,7 +48,7 @@ Linked genes tend to be inherited together, so the simple ratios do not hold for
 
 A **Punnett square** shows the possible gametes of each parent along its sides. Each cell inside shows one offspring genotype.
 
-The probability of a trait is the number of cells with it divided by the total number of cells. It gives chances, not a promise for a small family.
+In this model, each parent passes on either allele with an equal chance. The parents pass on their alleles independently, so all pairs in the square are equally likely. Then the chance of a trait is the number of cells with it divided by the total number of cells.
 
 <!-- ILLUSTRATION: 2 by 2 Punnett square for Tt x Tt, top row labeled T and t, left column labeled T and t, cells TT, Tt, Tt, tt -->
 
@@ -191,7 +191,7 @@ The chain is methionine, proline, lysine.
 
 ### #7: Effect of a Mutation
 
-In the gene from Example 6, the last template base changes from $C$ to $T$. Codons $AAG$ and $AAA$ both stand for lysine. How does the protein change?
+The last codon on the DNA template is $TTC$. Its last base changes from $C$ to $T$. Codons $AAG$ and $AAA$ both stand for lysine. How does the protein change?
 
 **Solution:**
 
@@ -227,19 +227,19 @@ The pattern is autosomal dominant.
 
 ### #10: X-Linked Pedigree
 
-A rare trait affects two sons of unaffected parents. Their unaffected sister marries an unaffected man from a family with no history of the trait. Their son is affected. Assume one gene and a rare trait. Which pattern fits best?
+A rare trait affects two sons of unaffected parents. Their unaffected sister marries an unaffected man from a family with no history of the trait. Their son is affected. Assume one gene, no new mutations, and that everyone with a genotype for the trait shows it. Which pattern fits best?
 
 **Solution:**
 
-1. The trait skips the parents, so it is recessive.
+1. Under these assumptions, two unaffected parents can have affected children if the trait is recessive.
 2. If it were autosomal recessive, the sister's husband would also need to be a carrier. For a rare trait from a family with no history, that is unlikely.
-3. If it is X-linked recessive, the sister is a carrier ($X^CX^c$). Her son gets her $X^c$ half of the time, so an affected son is likely.
+3. If the trait is X-linked recessive, her affected son got $X^c$ from her. She does not show the trait, so she must be a carrier ($X^CX^c$).
 
-The pattern is X-linked recessive.
+X-linked recessive is the best fit of these two patterns.
 
 ## Speed Tricks & Shortcuts
 
-For one gene, two heterozygous parents ($Tt \times Tt$) always give a $1:2:1$ genotype ratio. The phenotype ratio is $3:1$ under complete dominance, and $1:2:1$ under incomplete dominance or codominance.
+Under this model, a cross of two heterozygous parents ($Tt \times Tt$) has an expected genotype ratio of $1:2:1$. The expected phenotype ratio is $3:1$ under complete dominance and $1:2:1$ under incomplete dominance or codominance.
 
 For two independent genes, solve each cross alone and multiply. This is faster than a $16$-cell square.
 

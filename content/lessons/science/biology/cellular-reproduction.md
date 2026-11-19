@@ -29,7 +29,7 @@ The two chromosomes in the pair are called **homologs**. One came from the mothe
 
 Homologs carry the same genes in the same order. They are not copies of each other. At a given gene they may carry the same allele or different alleles.
 
-The sex chromosomes are the exception. In human males, X and Y pair up in meiosis, but they are not fully homologous. They share only a small matching region and carry mostly different genes.
+The sex chromosomes are the exception. In human males, X and Y pair up in meiosis, but they are not fully homologous. They share only small matching regions and carry mostly different genes.
 
 A cell with two of each kind of chromosome is **diploid**. We write this as $2n$. A cell with one of each kind is **haploid**, written $n$. In humans, $n = 23$ and $2n = 46$.
 
@@ -79,9 +79,7 @@ The main phases are:
 - **Anaphase**: the sister chromatids separate and move toward opposite poles. Each separated chromatid is now a chromosome.
 - **Telophase**: the chromosomes reach the poles and new nuclear envelopes form around them.
 
-<!-- FIGURE: {"kind":"biology-diagram","type":"mitosis-stages","illustrationKey":"science/biology/cellular-reproduction#1","stages":[{"phase":"prophase","state":"condensing chromosomes"},{"phase":"metaphase","state":"chromosomes lined up in the middle"},{"phase":"anaphase","state":"chromosomes pulled to opposite ends"},{"phase":"telophase","state":"two forming nuclei"}]} -->
-
-**Cytokinesis** overlaps with late mitosis, but it is a separate process. In animal cells, the membrane pinches inward in the middle and splits the cell in two. In plant cells, a new cell wall called the cell plate forms across the middle.
+**Cytokinesis** overlaps with late mitosis, but it is a separate process. In animal cells, the membrane pinches inward in the middle and splits the cell in two. In plant cells, a **cell plate** forms across the middle and develops into a new cell wall.
 
 Here is how the numbers change for a human body cell, with $2n = 46$:
 
@@ -119,6 +117,8 @@ A cell is observed with duplicated chromosomes lined up in single file at the mi
 1. Chromosomes lined up at the middle is the clue for metaphase.
 2. Sister chromatids face opposite poles, ready to separate in anaphase.
 3. The phase is **metaphase**.
+
+<!-- FIGURE: {"kind":"biology-diagram","type":"mitosis-stages","illustrationKey":"science/biology/cellular-reproduction#1","stages":[{"phase":"prophase","state":"condensing chromosomes"},{"phase":"metaphase","state":"chromosomes lined up in the middle"},{"phase":"anaphase","state":"chromosomes pulled to opposite ends"},{"phase":"telophase","state":"two forming nuclei"}]} -->
 
 ## Speed Tricks & Shortcuts
 

@@ -120,8 +120,8 @@ questions:
     approved: true
 
   - id: q-biology-botany-0006
-    lesson: lesson-biology-plant-tissue-systems
-    keyPoint: 2
+    lesson: lesson-biology-phloem-sources-and-sinks
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -286,7 +286,7 @@ questions:
     type: "identify"
     difficulty: "medium"
     stem: |
-      What is the transfer of pollen from an anther to the stigma of a flower of the same species called?
+      What is the transfer of pollen from a flower’s anther to a stigma called?
     choices:
       - text: "Pollination"
         correct: true
@@ -300,7 +300,7 @@ questions:
         rationale: |
           This confuses pollen transfer with the later formation of a seed. Pollination can lead to seeds, so the final result seems to name the event. Check which stage is actually described.
     explanation: |
-      Pollination transfers pollen from an anther to a stigma of a flower of the same species. The transfer can occur within one plant or between plants.
+      Pollination happens when pollen moves from an anther to a stigma. The transfer can occur within one plant or between plants.
     approved: true
 
   - id: q-biology-botany-0014

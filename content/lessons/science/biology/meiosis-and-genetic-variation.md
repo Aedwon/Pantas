@@ -177,7 +177,7 @@ A diploid cell has the genotype $AaBb$. The gene for $A$ is on one chromosome pa
 2. The pairs sort independently, so each allele for the first gene can go with each allele for the second gene.
 3. One meiosis has one arrangement of the two pairs. Its four cells are either $AB$, $AB$, $ab$, $ab$ or $Ab$, $Ab$, $aB$, $aB$, so it makes two combinations.
 4. Other cells use the other arrangement. Together they can make all four combinations: $AB$, $Ab$, $aB$, and $ab$, in about equal numbers. This agrees with $2^2 = 4$.
-5. This works only because the genes are on different pairs. Genes close together on the same chromosome tend to travel together, as the next example shows.
+5. This works only because the genes are on different pairs. Genes close together on the same chromosome tend to travel together, as the example in Crossing Over and Fertilization shows.
 6. With crossing over between a gene and its centromere, one meiosis can make up to four combinations. They are still these same four.
 
 ### #7: Crossing Over and New Allele Combinations
@@ -216,7 +216,7 @@ $2^n$ counts chromosome combinations that many cells can make together, where $n
 
 A gene on a male's X is a special case: half his gametes carry the X, and half carry the Y.
 
-For genes on different chromosome pairs, crossing over adds no new allele combinations. It matters for genes on the same chromosome, as in Example #7.
+For genes on different chromosome pairs, crossing over adds no new allele combinations. It matters for genes on the same chromosome, as in the example on crossing over above.
 
 Without crossing over, one meiosis makes at most $2$ combinations.
 

@@ -26,7 +26,7 @@ Most of the cycle of a dividing cell is **interphase**. It has three parts.
 
 After interphase comes the dividing stage. It has two jobs: **mitosis** (or meiosis), which divides the nucleus, and **cytokinesis**, which divides the cytoplasm. The cytoplasm is everything in the cell outside the nucleus.
 
-**Cytokinesis** overlaps with late mitosis, but it is a separate process. In animal cells, the membrane pinches inward in the middle and splits the cell in two. In plant cells, a new cell wall called the cell plate forms across the middle.
+**Cytokinesis** overlaps with late mitosis, but it is a separate process. In animal cells, the membrane pinches inward in the middle and splits the cell in two. In plant cells, a **cell plate** forms across the middle and develops into a new cell wall.
 
 ## Traps to Watch For
 

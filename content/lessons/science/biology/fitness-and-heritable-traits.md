@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-When all three hold, the favored variants usually become more common over generations. **Fitness** means how many offspring survive to reproduce, compared with others in the population. It does not mean strength or a long life.
+When traits vary, can be passed down, and help some individuals leave more offspring than others, those traits tend to become more common over generations. **Fitness** means how many offspring survive to reproduce, compared with others in the population. It does not mean strength or a long life.
 
 An **adaptation** is a heritable trait that helps its bearers survive and reproduce in their environment. Selection works on the traits individuals have, but only the population changes.
 

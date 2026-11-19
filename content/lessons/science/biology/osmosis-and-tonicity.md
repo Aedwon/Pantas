@@ -26,7 +26,7 @@ An animal cell has no wall. In a hypotonic solution it swells and may burst, whi
 
 A plant cell has a wall. In a hypotonic solution, water entering pushes the membrane against the wall. This pressure is **turgor pressure**, and it keeps the cell firm.
 
-In a hypertonic solution, the membrane of a plant cell pulls away from the wall. This is **plasmolysis**.
+In a hypertonic solution, a plant cell loses water and its turgor pressure drops. If enough water leaves, the membrane pulls away from the wall. This is **plasmolysis**.
 
 ## Examples
 

@@ -20,7 +20,7 @@ Flowering plants reproduce sexually. **Sexual reproduction** joins a male and a 
 
 The **anther** is the part that makes **pollen**. Pollen is a powdery grain. Each pollen grain holds the cells that will make sperm, the male gametes.
 
-The anther sits on a thin stalk. Anther and stalk together are the **stamen**, the male part.
+The anther sits on a thin stalk called the **filament**. Anther and stalk together are the **stamen**, the male part.
 
 The female part is the **pistil**. It has three regions. The **stigma** is the sticky top that catches pollen. The **style** is the tube-like stalk below the stigma. The **ovary** is the swollen base.
 

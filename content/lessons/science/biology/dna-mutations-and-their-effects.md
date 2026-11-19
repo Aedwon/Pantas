@@ -24,11 +24,9 @@ Inside a gene's coding sequence, an insertion or deletion of a number of bases t
 
 ## Examples
 
-Example 6 in the original lesson is the example in From DNA to Protein.
-
 ### #1: Effect of a Mutation
 
-In the gene from Example 6, the last template base changes from $C$ to $T$. Codons $AAG$ and $AAA$ both stand for lysine. How does the protein change?
+The last codon on the DNA template is $TTC$. Its last base changes from $C$ to $T$. Codons $AAG$ and $AAA$ both stand for lysine. How does the protein change?
 
 **Solution:**
 
