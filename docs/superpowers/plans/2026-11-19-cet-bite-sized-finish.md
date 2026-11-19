@@ -146,3 +146,11 @@ to 24; Phase C about 2 h plus the integrator. Waits for Aedwon excluded. Uncerta
 - Nov 19: 14 Codex split jobs done (CET-only topics, PSHS-NCE lessons in split topics, 35 Algebra
   skills, mechanical reasoning); integrated with outline rows, ordering and links (7d8319757). Size
   and nothing-dropped checks pass. Gap questions written; blind re-solves 1,770 of 1,770 match.
+- Nov 20: PAUSED at Aedwon's request ("can you pause that lane for now resume it when the next 5-hour
+  resets"). State on `content/cet-bite-r1` fbe45ebc8: all CET lessons split and integrated; 2,430
+  questions approved on matching blind solves; all 166 figures drawn (static check only); independent
+  Sol audit done (7 groups) and its fixes merged; 77 fixed questions are in a blind re-solve (one
+  running job, `scratchpad/codex/q/resolve`), then re-approve them (`approve.dart`, evidence file),
+  re-check the fixed Blockers with a separate Sol run, write the review package, hand the root to the
+  integrator for the C5 proof. Codex jobs: GPT 6.2 Sol via `codex-pick`; briefs and runners are in the
+  shared notes folder `cet-codex/`.
