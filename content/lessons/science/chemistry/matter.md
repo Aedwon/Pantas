@@ -6,6 +6,16 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-classifying-matter-and-mixtures
+  - lesson-chemistry-physical-separation-of-matter
+  - lesson-chemistry-particle-model-of-matter
+  - lesson-chemistry-crystalline-solids-and-plasma
+  - lesson-chemistry-phase-change-directions
+  - lesson-chemistry-temperature-during-phase-changes
+  - lesson-chemistry-physical-and-chemical-properties
+  - lesson-chemistry-physical-and-chemical-changes
 ---
 ## Core Concept
 

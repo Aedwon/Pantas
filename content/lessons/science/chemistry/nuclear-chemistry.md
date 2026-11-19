@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 13
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-nuclear-symbols-and-isotopes
+  - lesson-chemistry-alpha-and-beta-minus-decay
+  - lesson-chemistry-positron-emission-and-electron-capture
+  - lesson-chemistry-gamma-emission-and-radiation-penetration
+  - lesson-chemistry-balancing-nuclear-equations
+  - lesson-chemistry-nuclear-fission-and-fusion
+  - lesson-chemistry-comparing-nuclear-energy
 ---
 ## Core Concept
 

@@ -6,6 +6,14 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-mole-and-avogadro-constant
+  - lesson-chemistry-entities-and-particle-counts
+  - lesson-chemistry-atomic-mass-and-molar-mass
+  - lesson-chemistry-molar-mass-from-formulas
+  - lesson-chemistry-converting-mass-and-moles
+  - lesson-chemistry-converting-mass-and-entities
 ---
 ## Core Concept
 

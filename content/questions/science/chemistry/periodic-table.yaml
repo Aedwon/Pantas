@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "dost-sei"]
 questions:
   - id: q-chemistry-periodic-table-0001
+    lesson: lesson-chemistry-periodic-element-families
+    keyPoint: 2
     type: 'classify'
     difficulty: 'easy'
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0002
+    lesson: lesson-chemistry-periodic-element-families
+    keyPoint: 2
     type: 'classify'
     difficulty: 'easy'
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0003
+    lesson: lesson-chemistry-periodic-element-families
+    keyPoint: 2
     type: 'classify'
     difficulty: 'easy'
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0004
+    lesson: lesson-chemistry-periodic-groups-periods-and-valence
+    keyPoint: 2
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0005
+    lesson: lesson-chemistry-atomic-radius-and-shielding
+    keyPoint: 1
     type: 'compare-contrast'
     difficulty: 'medium'
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0006
+    lesson: lesson-chemistry-first-ionization-energy-trends
+    keyPoint: 1
     type: 'compare-contrast'
     difficulty: 'medium'
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0007
+    lesson: lesson-chemistry-atomic-radius-and-shielding
+    keyPoint: 1
     type: 'compare-contrast'
     difficulty: 'medium'
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0008
+    lesson: lesson-chemistry-electronegativity-and-electron-affinity
+    keyPoint: 1
     type: 'compare-contrast'
     difficulty: 'medium'
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0009
+    lesson: lesson-chemistry-first-ionization-energy-trends
+    keyPoint: 1
     type: 'compare-contrast'
     difficulty: 'medium'
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0010
+    lesson: lesson-chemistry-atomic-radius-and-shielding
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0011
+    lesson: lesson-chemistry-atomic-radius-and-shielding
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0012
+    lesson: lesson-chemistry-atomic-radius-and-shielding
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0013
+    lesson: lesson-chemistry-periodic-element-families
+    keyPoint: 2
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0014
+    lesson: lesson-chemistry-electronegativity-and-electron-affinity
+    keyPoint: 2
     type: 'compare-contrast'
     difficulty: 'hard'
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0015
+    lesson: lesson-chemistry-atomic-radius-and-shielding
+    keyPoint: 1
     type: 'predict-outcome'
     difficulty: 'exam'
     stem: |
@@ -320,6 +350,8 @@ questions:
     approved: true
 
   - id: q-chemistry-periodic-table-0016
+    lesson: lesson-chemistry-periodic-groups-periods-and-valence
+    keyPoint: 1
     type: 'identify'
     difficulty: 'easy'
     stem: |
@@ -341,6 +373,8 @@ questions:
     approved: false
 
   - id: q-chemistry-periodic-table-0017
+    lesson: lesson-chemistry-electronegativity-and-electron-affinity
+    keyPoint: 2
     type: 'identify'
     difficulty: 'medium'
     stem: |
@@ -362,6 +396,8 @@ questions:
     approved: false
 
   - id: q-chemistry-periodic-table-0018
+    lesson: lesson-chemistry-valence-electrons-by-group
+    keyPoint: 1
     type: 'compare-contrast'
     difficulty: 'hard'
     stem: |
@@ -383,6 +419,8 @@ questions:
     approved: false
 
   - id: q-chemistry-periodic-table-0019
+    lesson: lesson-chemistry-first-ionization-energy-trends
+    keyPoint: 2
     type: 'predict-outcome'
     difficulty: 'hard'
     stem: |
@@ -404,6 +442,8 @@ questions:
     approved: false
 
   - id: q-chemistry-periodic-table-0020
+    lesson: lesson-chemistry-periodic-element-families
+    keyPoint: 2
     type: 'classify'
     difficulty: 'exam'
     stem: |
