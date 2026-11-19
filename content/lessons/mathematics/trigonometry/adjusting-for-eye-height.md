@@ -19,7 +19,7 @@ An observer's eyes are above the ground. The angle is measured from the eye, so 
 
 If the ground under the observer and the object's base are at the same height, use these rules. For an angle of elevation, add the rise above eye level to the eye height. For an angle of depression, subtract the drop below eye level from the eye height.
 
-If you want a distance, do not add the eye height to it. Use the height above or below eye level in the ratio.
+If you want the horizontal distance, do not add the eye height to it. Use the height above or below eye level in the ratio.
 
 If the observer's eyes are at the same level as the object's base, no eye height adjustment is needed.
 

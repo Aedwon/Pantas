@@ -23,9 +23,9 @@ $$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
 
 This comes from the Pythagorean theorem. In a right triangle, the two sides that meet at the right angle are the **legs**. The side opposite the right angle is the **hypotenuse**. The theorem says $a^2 + b^2 = c^2$, where $a$ and $b$ are the legs and $c$ is the hypotenuse.
 
-Draw a horizontal line and a vertical line from the two points until they meet. They form a right triangle. The horizontal leg has length $|x_2 - x_1|$ and the vertical leg has length $|y_2 - y_1|$. The distance is the hypotenuse.
+If both coordinates differ, draw a horizontal line from one point and a vertical line from the other until they meet. They form a right triangle. The horizontal leg has length $|x_2 - x_1|$ and the vertical leg has length $|y_2 - y_1|$. The distance is the hypotenuse.
 
-Squaring a number gives the same result as squaring its negative, so the order of subtraction does not matter here. If the points share an $x$ or a $y$, one leg is $0$ and the formula still works.
+Squaring a number gives the same result as squaring its negative, so the order of subtraction does not matter here. If the points share an $x$ or a $y$, the distance is the absolute difference in the other coordinate. The formula still works because one difference is $0$.
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(x1, y1)", "(x2, y2)", "dx = x2 - x1", "dy = y2 - y1", "Distance d"], "semanticsLabel": "Grid diagram showing two points joined by a segment forming a right triangle with horizontal and vertical distance legs."} -->
 
@@ -65,7 +65,7 @@ $$d = \sqrt{100} = 10$$
 Find the shortest distance from $(0,0)$ to $y=x+4$.
 
 **Solution:**
-The shortest path meets the line at a right angle. Slopes of Parallel and Perpendicular Lines shows why the perpendicular through $(0,0)$ is $y=-x$. At the crossing, $-x=x+4$, so $x=-2$ and $y=2$. Use the distance formula from $(0,0)$ to $(-2,2)$. The distance is $\sqrt{(-2)^2+2^2}=2\sqrt{2}$.
+The line meets the axes at $(-4,0)$ and $(0,4)$. These points and the origin form a right triangle with area $\dfrac{1}{2}(4)(4)=8$. The distance between the two intercepts is $\sqrt{4^2+4^2}=4\sqrt{2}$. Use that side as the base. Its perpendicular height $h$ from the origin is the shortest distance to the line. The area is still $8$, so $\dfrac{1}{2}(4\sqrt{2})h=8$ and $h=2\sqrt{2}$.
 
 ## Speed Tricks & Shortcuts
 
