@@ -820,3 +820,181 @@ questions:
           This solves direction but repeats the bottom row's first shape. Left is missing from the row. Check the missing outline separately.
     explanation: |
       The bottom row needs a circle and a left-pointing arrow. In the last column, the top square has the right-pointing arrow. Both requested parts follow the column rules.
+
+  - id: q-spatial-abstract-reasoning-more-figure-rules-0021
+    lesson: lesson-spatial-abstract-reasoning-matching-edges-of-pattern-pieces
+    keyPoint: 1
+    type: odd-figure
+    difficulty: exam
+    stem: |
+      A square gap interrupts two straight lines. One runs horizontally through
+      the midpoint of each side edge. The other runs vertically from top to
+      bottom, one-quarter of the way across from the left. Which piece restores
+      both lines without being turned? Each line on a piece runs from edge to edge.
+    choices:
+      - text: Horizontal at mid-height and vertical one-quarter from the left
+        correct: true
+      - text: Horizontal at mid-height and vertical one-quarter from the right
+        rationale: |
+          The side joins fit, so the piece may look right. The upright line starts from the wrong side. Check the top and bottom joins from the left.
+      - text: Horizontal one-quarter down from the top and vertical one-quarter from the left
+        rationale: |
+          The top and bottom joins fit. That can make the piece look right too soon. Check where the flat line meets both side edges.
+      - text: Horizontal one-quarter down from the top and vertical halfway across from the left
+        rationale: |
+          This swaps the two distances. Both distances are in the pattern, so the piece may look right. Match the height to the flat line and the distance from the left to the upright line.
+    explanation: |
+      The flat line joins both side edges halfway down. The upright line joins
+      the top and bottom edges one-quarter of the way from the left.
+
+  - id: q-spatial-abstract-reasoning-more-figure-rules-0022
+    lesson: lesson-spatial-abstract-reasoning-matching-edges-of-pattern-pieces
+    keyPoint: 2
+    type: mental-rotation
+    difficulty: exam
+    stem: |
+      A square piece has a horizontal line halfway down and a vertical line
+      one-quarter of the way from the left. Both lines run from edge to edge.
+      To fit a square gap, the piece must have a horizontal line one-quarter
+      of the way down from the top and a vertical line halfway across.
+      How should the piece be placed?
+    choices:
+      - text: After a quarter-turn clockwise
+        correct: true
+      - text: After a quarter-turn counterclockwise
+        rationale: |
+          This turn moves one line to the middle as needed. It puts the flat line too low. Check where the old left edge lands.
+      - text: After a half-turn
+        rationale: |
+          A half-turn moves the line away from the left edge. It stays upright. Check that the two lines trade directions.
+      - text: In its original position without turning
+        rationale: |
+          The piece already has both distances, so it may seem to fit. Each distance goes with the wrong line. Check the direction as well as the distance.
+    explanation: |
+      A clockwise quarter-turn moves the old left edge to the top. The line
+      near that edge becomes a flat line one-quarter down. The flat line
+      through the middle becomes an upright line through the middle.
+
+  - id: q-spatial-abstract-reasoning-more-figure-rules-0023
+    lesson: lesson-spatial-abstract-reasoning-transferring-rules-in-visual-analogies
+    keyPoint: 1
+    type: analogy
+    difficulty: exam
+    stem: |
+      A white triangle containing a vertically striped circle becomes a
+      vertically striped triangle containing a white circle. Under the same
+      rule, what does a black pentagon containing a horizontally striped
+      square become?
+    choices:
+      - text: Horizontally striped pentagon enclosing a black square
+        correct: true
+      - text: A vertically striped pentagon containing a black square
+        rationale: |
+          This copies the stripe direction from the first pair. Those stripes stayed the same when they moved. Look at the direction of the stripes in the second pair.
+      - text: A black pentagon containing a white square
+        rationale: |
+          White appears inside the last figure in the first pair. It came from that pair's outer shape. Check where each fill came from before moving it.
+      - text: A horizontally striped square containing a black pentagon
+        rationale: |
+          This moves the whole shapes because their fills change places. The first pair keeps each shape in its place. Move only the fills.
+    explanation: |
+      The outside and inside shapes trade fills. The stripes still run the same
+      way. The pentagon takes the horizontal stripes, and the square becomes black.
+
+  - id: q-spatial-abstract-reasoning-more-figure-rules-0024
+    lesson: lesson-spatial-abstract-reasoning-closed-surfaces-in-solids
+    keyPoint: 1
+    type: odd-figure
+    difficulty: exam
+    stem: |
+      Which object's surface encloses a space completely?
+    choices:
+      - text: A hollow cylinder sealed at both ends
+        correct: true
+      - text: A hollow cylinder with only its lower end sealed
+        rationale: |
+          The side and the bottom cover most of the space. The top is still open. Check both ends.
+      - text: A hollow cylinder with a lid resting above the rim on spacers
+        rationale: |
+          The lid covers the opening when seen from above. The spacers leave a gap under it. Check where the lid meets the rim.
+      - text: A hollow cylinder with both ends covered and a slit in its side
+        rationale: |
+          Both ends are covered, so it may look closed. The slit still leaves a way in. Check the curved side too.
+    explanation: |
+      The curved side wraps all the way around. Both ends are sealed, so the
+      surface closes around the space inside.
+
+  - id: q-spatial-abstract-reasoning-more-figure-rules-0025
+    lesson: lesson-spatial-abstract-reasoning-closed-surfaces-in-solids
+    keyPoint: 1
+    type: odd-figure
+    difficulty: exam
+    stem: |
+      Which of the following has an open surface?
+    choices:
+      - text: A rectangular box with one end panel missing
+        correct: true
+      - text: A sealed rectangular box with a dotted hidden edge
+        rationale: |
+          The dots may look like breaks in the box. They show an edge you cannot see from the front. Look for a missing part of the surface.
+      - text: A cone with its circular base attached
+        rationale: |
+          The cone may look like an open shell because it has a curved side. The disk covers its wide end. Check whether the base is attached.
+      - text: An unbroken sphere with a line drawn around its middle
+        rationale: |
+          The line may look like a cut. It is drawn on the surface. Check whether the line leaves a gap.
+    explanation: |
+      The missing panel leaves one whole end open. The box's surface does not
+      close around the space inside.
+
+  - id: q-spatial-abstract-reasoning-more-figure-rules-0026
+    lesson: lesson-spatial-abstract-reasoning-folding-a-triangular-prism-net
+    keyPoint: 1
+    type: paper-folding
+    difficulty: exam
+    stem: |
+      Three equal, non-square rectangles form a horizontal strip. Their short edges are
+      at the top and bottom. Two matching equilateral triangles each have
+      sides the same length as a short edge. Where should the triangles be
+      attached so the strip folds into a closed triangular prism?
+    choices:
+      - text: Above the left rectangle and below the right rectangle
+        correct: true
+      - text: At the top of the left rectangle and the top of the right rectangle
+        rationale: |
+          The triangles start far apart on the strip. Both top edges still go to the same end when folded. Put one triangle at each end.
+      - text: At the bottom of the left rectangle and the bottom of the right rectangle
+        rationale: |
+          Both triangles fit their short edges. Both bottom edges lead to the same end of the prism. Check that the top end gets a cover too.
+      - text: At the top of the middle rectangle and along the left end of the strip
+        rationale: |
+          The left edge looks like an end when the strip is flat. It must join the right edge to form the tube. Attach each cover to a short edge.
+    explanation: |
+      The rectangles wrap around to form a tube with two open ends. The
+      triangle above the strip covers one end. The triangle below covers the other.
+
+  - id: q-spatial-abstract-reasoning-more-figure-rules-0027
+    lesson: lesson-spatial-abstract-reasoning-folding-a-triangular-prism-net
+    keyPoint: 2
+    type: paper-folding
+    difficulty: exam
+    stem: |
+      A triangular prism net has three rectangles in a row and two triangles
+      attached to opposite short edges of the middle rectangle. The middle
+      rectangle bears a star. Each triangle bears a dot. Where will the
+      markings lie when the net is folded?
+    choices:
+      - text: A star on one rectangular face and a dot on each end
+        correct: true
+      - text: A star on one rectangular face and both dots on the same end
+        rationale: |
+          The triangles touch the same rectangle in the net, so they may seem to go together. They attach at opposite ends. Follow each fold on its own.
+      - text: A star on one triangular end and a dot on each of two rectangular faces
+        rationale: |
+          The star sits between the two triangles in the net. That can make it seem part of an end. Find the outline of the face that actually holds it.
+      - text: A star and a dot on one rectangular face and a dot on the opposite end
+        rationale: |
+          A dot starts next to the marked rectangle, so it may seem to join the star. The fold keeps each mark on its own face. Trace the edge between the rectangle and triangle.
+    explanation: |
+      Each mark stays on the face where it started. The middle rectangle becomes
+      a side face. The triangles become the two ends, each with its own dot.
