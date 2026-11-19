@@ -33,7 +33,7 @@ A compound can be broken down into simpler substances by a chemical reaction. An
 
 A compound also has properties different from the elements in it. Sodium is a soft, reactive metal and chlorine is a poisonous gas, but sodium chloride is the table salt we eat.
 
-A **mixture** has two or more substances that are only mixed together, not chemically joined. The amounts can vary. Each substance keeps its own properties.
+A **mixture** has two or more substances that are only mixed together, not chemically joined. The amounts can vary. Some properties can change when substances mix. For example, salt loses its crystal shape when it dissolves in water.
 
 ## Examples
 

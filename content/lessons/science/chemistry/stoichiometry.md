@@ -63,9 +63,9 @@ To find an empirical formula from composition data:
 3. If a ratio is very close to a whole number, such as $2.01$, round it.
 4. If a ratio is a simple fraction, multiply all the ratios by the same small whole number: $\times2$ for $1.5$, $\times3$ for $1.33$ or $1.67$, and $\times4$ for $1.25$ or $1.75$, and $\times5$ for $1.2$, $1.4$, $1.6$ or $1.8$.
 
-To find the molecular formula, divide the compound's molar mass by the empirical formula mass. The **empirical formula mass** is the molar mass calculated from the empirical formula, such as $12+2(1)+16=30$ g/mol for $CH_2O$. The answer $k$ should be close to a whole number:
+To find the molecular formula, divide the compound's molar mass by the **molar mass calculated from the empirical formula**, such as $12+2(1)+16=30$ g/mol for $CH_2O$. The answer $k$ should be close to a whole number:
 
-$$k=\dfrac{\text{molar mass of compound}}{\text{empirical formula mass}}$$
+$$k=\dfrac{\text{molar mass of compound}}{\text{molar mass from empirical formula}}$$
 
 Multiply every subscript in the empirical formula by $k$.
 
@@ -198,7 +198,7 @@ A compound has empirical formula $CH_2O$ and a molar mass of $180$ g/mol. Use $1
 
 **Solution:**
 
-1. Empirical formula mass: $12+2(1)+16=30$ g/mol.
+1. Molar mass from the empirical formula: $12+2(1)+16=30$ g/mol.
 2. Find the multiplier:
 
 $$k=\dfrac{180}{30}=6$$

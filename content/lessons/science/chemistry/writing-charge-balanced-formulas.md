@@ -57,7 +57,7 @@ A student uses the criss-cross shortcut on $Ca^{2+}$ and $O^{2-}$ and writes $Ca
 
 ## Speed Tricks & Shortcuts
 
-For simple ionic formulas, solve **charge balance first**. The criss-cross method can be a bookkeeping shortcut, but always reduce subscripts to the smallest ratio and add parentheses correctly for repeated polyatomic ions.
+For simple ionic formulas, solve **charge balance first**. The criss-cross method can be a bookkeeping shortcut, but reduce the counts of whole ions to the smallest ratio. Keep the subscripts inside each ion and use parentheses for repeated polyatomic ions.
 
 ## Traps to Watch For
 
