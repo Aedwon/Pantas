@@ -493,3 +493,153 @@ questions:
     explanation: |
       The bottom area is $5(4)=20$. The two longer walls total $2(5)(3)=30$. The two shorter walls total $2(4)(3)=24$. Add them: $20+30+24=74$ square centimeters.
     approved: false
+
+  - id: q-geometry-measurement-0021
+    lesson: lesson-geometry-perimeter-and-area-formulas
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A square display and a rectangular display have equal perimeters. The rectangle measures $14\text{ cm}$ by $6\text{ cm}$. What is the area of the square?
+    choices:
+      - text: '$100\text{ cm}^2$'
+        correct: true
+      - text: '$40\text{ cm}^2$'
+        correct: false
+        rationale: |
+          This is the distance around the square. The question asks for the space inside it. Find the side length and square it.
+      - text: '$84\text{ cm}^2$'
+        correct: false
+        rationale: |
+          This is the area of the rectangle. The two shapes have equal perimeters. Use that shared perimeter to find the square’s side.
+      - text: '$400\text{ cm}^2$'
+        correct: false
+        rationale: |
+          This squares $20$, the sum of two sides of the rectangle. Divide the full perimeter by $4$ before you square the side length.
+    explanation: |
+      The rectangle has perimeter $2(14+6)=40\text{ cm}$. Divide $40$ by the square’s four equal sides to get $10\text{ cm}$ per side. The area is $10\cdot10=100\text{ cm}^2$.
+
+  - id: q-geometry-measurement-0022
+    lesson: lesson-geometry-perpendicular-height-in-area-formulas
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A parallelogram has adjacent sides of lengths $15\text{ cm}$ and $10\text{ cm}$. The height perpendicular to the $15\text{ cm}$ side is $8\text{ cm}$. What is its area?
+    choices:
+      - text: '$120\text{ cm}^2$'
+        correct: true
+      - text: '$80\text{ cm}^2$'
+        correct: false
+        rationale: |
+          This uses the shorter side with the given height. Check which side that height meets at a right angle.
+      - text: '$150\text{ cm}^2$'
+        correct: false
+        rationale: |
+          This multiplies the two side lengths. The height is the length that meets the base at a right angle. Use $8$ for that length.
+      - text: '$60\text{ cm}^2$'
+        correct: false
+        rationale: |
+          This uses half the base times the height. That finds the area of a triangle. For a parallelogram, multiply the base by the height.
+    explanation: |
+      Use the $15\text{ cm}$ side because the $8\text{ cm}$ height meets it at a right angle. Multiply $15$ by $8$ to get $120\text{ cm}^2$.
+
+  - id: q-geometry-measurement-0023
+    lesson: lesson-geometry-cone-and-pyramid-measurements
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A right circular cone has a base radius of $8\text{ cm}$ and a perpendicular height of $15\text{ cm}$. What is its slant height?
+    choices:
+      - text: '$17\text{ cm}$'
+        correct: true
+      - text: '$\sqrt{481}\text{ cm}$'
+        correct: false
+        rationale: |
+          This uses the full width of the base in the right triangle. The triangle reaches from the center to the edge. Use the radius given in the question.
+      - text: '$23\text{ cm}$'
+        correct: false
+        rationale: |
+          This adds the two shorter sides. The slant height goes straight from the tip to the rim. Add the squares before taking the square root.
+      - text: '$\sqrt{161}\text{ cm}$'
+        correct: false
+        rationale: |
+          This subtracts the squares. The slant height is the longest side, so add the squares of the two shorter sides.
+    explanation: |
+      The radius and the height meet at a right angle. The slant height squared is $8^2+15^2=289$. Take the square root to get $17\text{ cm}$.
+
+  - id: q-geometry-measurement-0024
+    lesson: lesson-geometry-scaling-length-area-and-volume
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A scale model has a surface area of $144\text{ cm}^2$. Each length on a smaller copy is $\dfrac{2}{3}$ of the corresponding length on the model. What is the surface area of the smaller copy?
+    choices:
+      - text: '$64\text{ cm}^2$'
+        correct: true
+      - text: '$96\text{ cm}^2$'
+        correct: false
+        rationale: |
+          This shrinks the area by the length factor once. Area has two length factors. Multiply by $\dfrac{2}{3}$ a second time.
+      - text: '$\dfrac{128}{3}\text{ cm}^2$'
+        correct: false
+        rationale: |
+          This uses three length factors, as for volume. Surface area has two. Stop after multiplying by $\dfrac{2}{3}$ twice.
+      - text: '$324\text{ cm}^2$'
+        correct: false
+        rationale: |
+          This uses $\dfrac{3}{2}$ and makes the area grow. Check that you use the smaller length divided by the larger length.
+    explanation: |
+      Surface area has two length factors. Multiply $144$ by $\dfrac{2}{3}$ twice. This gives $96$ and then $64\text{ cm}^2$.
+
+  - id: q-geometry-measurement-0025
+    lesson: lesson-geometry-scaling-length-area-and-volume
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Two similar tanks have volumes in the ratio $27:64$, smaller to larger. If the larger tank is $36\text{ cm}$ tall, how tall is the smaller tank?
+    choices:
+      - text: '$27\text{ cm}$'
+        correct: true
+      - text: '$48\text{ cm}$'
+        correct: false
+        rationale: |
+          This uses the height ratio backward. The smaller tank must be shorter than $36\text{ cm}$. Use $3$ parts for every $4$.
+      - text: '$\dfrac{243}{16}\text{ cm}$'
+        correct: false
+        rationale: |
+          This uses the volume ratio as the height ratio. Take the cube root of each side of the ratio before you scale the height.
+      - text: '$\dfrac{27\sqrt{3}}{2}\text{ cm}$'
+        correct: false
+        rationale: |
+          This takes square roots, which works for an area ratio. Volume uses three length factors. Take cube roots here.
+    explanation: |
+      Volume uses three length factors. Since $27=3^3$ and $64=4^3$, the height ratio is $3:4$. The smaller height is $36\cdot\dfrac{3}{4}=27\text{ cm}$.
+
+  - id: q-geometry-measurement-0026
+    lesson: lesson-geometry-scaling-length-area-and-volume
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      The surface areas of two similar solids are in the ratio $16:25$, smaller to larger. If the volume of the smaller solid is $192\text{ cm}^3$, what is the volume of the larger solid?
+    choices:
+      - text: '$375\text{ cm}^3$'
+        correct: true
+      - text: '$240\text{ cm}^3$'
+        correct: false
+        rationale: |
+          This uses the length factor once. Volume uses it three times. Cube $\dfrac{5}{4}$ before multiplying.
+      - text: '$300\text{ cm}^3$'
+        correct: false
+        rationale: |
+          This uses the surface area ratio for volume. Find the length ratio first, then cube the length factor.
+      - text: '$\dfrac{12288}{125}\text{ cm}^3$'
+        correct: false
+        rationale: |
+          This cubes the length factor in the wrong direction. The larger solid must have more volume. Use $\dfrac{5}{4}$ to scale up.
+    explanation: |
+      Take the square roots of $16$ and $25$ to get the length ratio $4:5$. Volume uses three length factors, so multiply $192$ by $\left(\dfrac{5}{4}\right)^3$. This gives $375\text{ cm}^3$.
