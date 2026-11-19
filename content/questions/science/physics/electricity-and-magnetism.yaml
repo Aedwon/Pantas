@@ -463,3 +463,377 @@ questions:
           This substitutes the left hand. The same gesture appears similar. Check the required hand.
     explanation: |
       First determine conventional current. Point the right thumb in that direction. The curled fingers show the field direction around the wire.
+
+  - id: q-physics-electricity-and-magnetism-0021
+    lesson: lesson-physics-electric-charge-and-charging
+    keyPoint: 2
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A glass rod becomes positively charged after being rubbed with silk. Which transfer explains the rod's charge?
+    choices:
+      - text: 'Electrons move from glass to silk.'
+        correct: true
+      - text: 'Electrons move from silk to glass.'
+        rationale: |
+          Rubbing does move electrons between the two. Check the sign a gain of electrons gives the rod.
+      - text: 'Protons move from silk to glass.'
+        rationale: |
+          Adding positive charge sounds right. Check which particles can move between solids.
+      - text: 'Protons move from glass to silk.'
+        rationale: |
+          A transfer out of the rod sounds right. Check which particles can leave and what sign they carry.
+    explanation: |
+      The rod lost electrons. It now has more positive charge than negative charge.
+
+  - id: q-physics-electricity-and-magnetism-0022
+    lesson: lesson-physics-electric-induction-and-polarization
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A negatively charged rod is brought near two touching neutral metal spheres. The spheres are separated before the rod is removed. What is the charge of the sphere farther from the rod?
+    choices:
+      - text: 'Negative'
+        correct: true
+      - text: 'Positive'
+        rationale: |
+          The rod does leave one sphere positive. Check which sphere loses electrons.
+      - text: 'Neutral'
+        rationale: |
+          The pair starts neutral. Check whether each sphere still has its own original number of electrons.
+      - text: 'Either sign, depending on the order of rod removal after separation'
+        rationale: |
+          The order matters before the spheres separate. Check when electrons lose their path between spheres.
+    explanation: |
+      The rod pushes electrons into the far sphere. The extra electrons stay there once the spheres are apart.
+
+  - id: q-physics-electricity-and-magnetism-0023
+    lesson: lesson-physics-electric-induction-and-polarization
+    keyPoint: 2
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A charged rod attracts an isolated neutral metal sphere without touching it. What accounts for the attraction?
+    choices:
+      - text: 'Opposite charges shift closer to the rod.'
+        correct: true
+      - text: 'Electrons cross the gap into the sphere.'
+        rationale: |
+          Extra charge could make an object react to a rod. Check whether electrons need to cross the gap for charges to shift inside the sphere.
+      - text: 'The sphere loses all charge of the rod''s sign.'
+        rationale: |
+          The far side may carry charge of the rod's sign. Check whether those charges can leave the isolated sphere.
+      - text: 'Both signs of charge shift equally toward the rod.'
+        rationale: |
+          Moving charges closer might seem to explain the pull. Check which sign the rod repels.
+    explanation: |
+      Charges shift inside the sphere. The opposite charge is closer to the rod and feels a stronger pull than the far side feels a push.
+
+  - id: q-physics-electricity-and-magnetism-0024
+    lesson: lesson-physics-coulombs-law-and-electric-fields
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Two point charges exert a force of magnitude 36 N on each other. With the charges unchanged, at what separation will the force have magnitude 4 N?
+    choices:
+      - text: 'Three times the original separation'
+        correct: true
+      - text: 'Nine times the original separation'
+        rationale: |
+          The force changes by a factor of nine. Check what must be squared to get that factor.
+      - text: 'One third of the original separation'
+        rationale: |
+          The square root gives a factor of three. Check whether shrinking the gap makes the force weaker or stronger.
+      - text: 'One ninth of the original separation'
+        rationale: |
+          The new force is one ninth as large. Check how force depends on the square of the separation.
+    explanation: |
+      The force is one ninth as large. The distance is squared in the bottom of Coulomb's formula, so the new distance is three times as large.
+
+  - id: q-physics-electricity-and-magnetism-0025
+    lesson: lesson-physics-current-voltage-and-ohms-law
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      In a metal wire, 12 C of negative charge moves west past a point in 2 s at a steady rate. What is the conventional current?
+    choices:
+      - text: '6 A east'
+        correct: true
+      - text: '6 A west'
+        rationale: |
+          This gives the rate of flow. Check the difference between electron flow and conventional current.
+      - text: '24 A east'
+        rationale: |
+          The direction is reversed correctly. Check how to turn a total charge into the charge per second.
+      - text: '24 A west'
+        rationale: |
+          Using both given numbers and the stated direction may seem enough. Check the rate and the sign of the moving charge.
+    explanation: |
+      Each second, $12/2=6$ coulombs pass the point. Conventional current points opposite to the electrons, so it points east.
+
+  - id: q-physics-electricity-and-magnetism-0026
+    lesson: lesson-physics-current-voltage-and-ohms-law
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A battery delivers 48 J of energy as 4 C of charge passes through it. What is its voltage?
+    choices:
+      - text: '12 V'
+        correct: true
+      - text: '192 V'
+        rationale: |
+          Multiplying uses both values. Check that volts are joules per coulomb.
+      - text: '44 V'
+        rationale: |
+          Subtracting can look like finding energy left over. Check that joules and coulombs measure different things.
+      - text: '0.083 V'
+        rationale: |
+          Dividing makes sense for a rate. Check that energy goes on top.
+    explanation: |
+      Voltage gives the energy for each coulomb. Divide 48 J by 4 C to get 12 V.
+
+  - id: q-physics-electricity-and-magnetism-0027
+    lesson: lesson-physics-parallel-circuit-resistance
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A 12 Ω resistor is connected in parallel with a 4 Ω resistor. What is the equivalent resistance?
+    choices:
+      - text: '3 Ω'
+        correct: true
+      - text: '16 Ω'
+        rationale: |
+          Adding resistances works in series. Check how the resistors are connected.
+      - text: '8 Ω'
+        rationale: |
+          Averaging the two values gives a number between them. Check whether the equivalent resistance must be below both.
+      - text: '4 Ω'
+        rationale: |
+          The easier path has a resistance of 4 Ω. Check whether the other branch can also carry current.
+    explanation: |
+      Add the reciprocals. The sum is $1/12+1/4=4/12=1/3$, so the equivalent resistance is 3 Ω.
+
+  - id: q-physics-electricity-and-magnetism-0028
+    lesson: lesson-physics-electrical-power-and-overload
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A device draws 2.0 A from a 220 V supply. What electrical power does it draw?
+    choices:
+      - text: '440 W'
+        correct: true
+      - text: '110 W'
+        rationale: |
+          Dividing voltage by current uses the same values. Check if that gives resistance or power.
+      - text: '222 W'
+        rationale: |
+          Adding combines both readings. Check that volts and amperes are different units.
+      - text: '220 W'
+        rationale: |
+          The supply rating is given in volts. Check how much current the device draws.
+    explanation: |
+      Multiply current by voltage. The device draws $2.0\times220=440$ W.
+
+  - id: q-physics-electricity-and-magnetism-0029
+    lesson: lesson-physics-electrical-power-and-overload
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A circuit has a 10 A fuse. Two appliances on parallel branches draw 6 A and 3 A. A third appliance drawing 2 A is switched on. What happens?
+    choices:
+      - text: 'The fuse opens.'
+        correct: true
+      - text: 'The fuse stays closed at 9 A.'
+        rationale: |
+          This counts the two appliances already on. Check the current after the new branch starts drawing power.
+      - text: 'The fuse stays closed at 6 A.'
+        rationale: |
+          The largest branch may look like the whole load. Check which branches share the fuse.
+      - text: 'The fuse stays closed at 10 A.'
+        rationale: |
+          The rating is the limit. Add the branch currents to find what the circuit would draw with the third appliance on.
+    explanation: |
+      All three branch currents pass through the fuse. They add to $6+3+2=11$ A. That is above 10 A.
+
+  - id: q-physics-electricity-and-magnetism-0030
+    lesson: lesson-physics-electrical-power-and-overload
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A 500 W appliance runs at constant power for four hours. How much energy does it use?
+    choices:
+      - text: '2 kWh'
+        correct: true
+      - text: '0.5 kWh'
+        rationale: |
+          This gives the energy for one hour. Check the total time.
+      - text: '0.125 kWh'
+        rationale: |
+          Dividing by the time can look like finding a rate. Check whether the question asks for energy or power.
+      - text: '2000 kWh'
+        rationale: |
+          The product in watt-hours is 2000. Check whether the choices are in watt-hours or kilowatt-hours.
+    explanation: |
+      The appliance draws 0.5 kW. Multiply by 4 hours to get 2 kWh.
+
+  - id: q-physics-electricity-and-magnetism-0031
+    lesson: lesson-physics-electrical-power-and-overload
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      An idealized 10 A fuse opens when its current exceeds its rating. A 5 A load must remain on. Which pair of additional parallel loads can operate together without opening the fuse?
+    choices:
+      - text: '2 A and 3 A'
+        correct: true
+      - text: '4 A and 3 A'
+        rationale: |
+          The extra loads alone draw less than the rating. Include the load that stays on.
+      - text: '5 A and 2 A'
+        rationale: |
+          The 5 A load uses the room left over. Check how much room remains for the 2 A load.
+      - text: '6 A and 1 A'
+        rationale: |
+          Each load is below 10 A by itself. Check the sum of all the loads on the same fuse.
+    explanation: |
+      The first load leaves room for 5 A more. The other two loads add to 5 A, so the total stays at the rating.
+
+  - id: q-physics-electricity-and-magnetism-0032
+    lesson: lesson-physics-magnetic-flux-and-faradays-law
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A uniform 0.50 T magnetic field is perpendicular to a flat loop of area 0.40 m². What is the magnetic flux through the loop?
+    choices:
+      - text: '0.20 Wb'
+        correct: true
+      - text: '0 Wb'
+        rationale: |
+          A zero projection is possible. Check whether the field lies along the loop or points through it.
+      - text: '0.50 Wb'
+        rationale: |
+          This uses the field strength by itself. Check how much area the field crosses.
+      - text: '1.25 Wb'
+        rationale: |
+          This divides field by area. Check whether more area gives more flux or less.
+    explanation: |
+      All of the field points through the loop. Multiply the field by the area to get $0.50\times0.40=0.20$ Wb.
+
+  - id: q-physics-electricity-and-magnetism-0033
+    lesson: lesson-physics-magnetic-flux-and-faradays-law
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      The magnetic flux through each turn of a 10-turn coil falls from 0.10 Wb to zero in 0.20 s. What is the magnitude of the average induced emf?
+    choices:
+      - text: '5 V'
+        correct: true
+      - text: '0.50 V'
+        rationale: |
+          This gives the voltage for one turn. Check the number of turns.
+      - text: '1 V'
+        rationale: |
+          This gives the change in flux summed over the turns. Check how much time the change takes.
+      - text: '50 V'
+        rationale: |
+          Dividing the number of turns by the time gives 50. Include the change in flux per turn.
+    explanation: |
+      The flux through one turn changes at $0.10/0.20=0.50$ Wb per second. Multiply by 10 turns to get 5 V.
+
+  - id: q-physics-electricity-and-magnetism-0034
+    lesson: lesson-physics-magnetic-flux-and-faradays-law
+    keyPoint: 2
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      Two coils have the same number of turns. The flux through each turn changes by the same amount in both coils, but coil P takes twice as long as coil Q. How do their average induced emf magnitudes compare?
+    choices:
+      - text: 'P has half the emf of Q.'
+        correct: true
+      - text: 'P has twice the emf of Q.'
+        rationale: |
+          The time doubles, which can suggest a doubled emf. Check whether time is in the top or bottom of the formula.
+      - text: 'P and Q have equal emf magnitudes.'
+        rationale: |
+          The flux changes are equal. Check their rates of change.
+      - text: 'P has four times the emf of Q.'
+        rationale: |
+          A squared ratio occurs in some physics formulas. Check which power of time Faraday's law uses.
+    explanation: |
+      Both coils have the same flux change per turn. P spreads that change across twice the time, so it produces half the emf.
+
+  - id: q-physics-electricity-and-magnetism-0035
+    lesson: lesson-physics-electric-motors-and-generators
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      Why must a simple direct-current motor reverse the current in its coil every half turn?
+    choices:
+      - text: 'To keep the coil turning the same way'
+        correct: true
+      - text: 'To keep the force on each side pointing the same way in space'
+        rationale: |
+          A steady turn may sound like it needs a steady force direction. Check which side of the coil each wire has moved to.
+      - text: 'To make the two sides carry current in the same direction'
+        rationale: |
+          Both sides are in the same circuit. Trace the current around the loop to check its direction in each side.
+      - text: 'To make the coil act as a voltage source instead of a motor'
+        rationale: |
+          A spinning coil can make a voltage. Check whether the reversal is meant to drive the turn or to use the turn as an energy source.
+    explanation: |
+      After half a turn, the two sides have traded places. Reversing their currents reverses the forces on those sides. The forces then keep turning the coil the same way.
+
+  - id: q-physics-electricity-and-magnetism-0036
+    lesson: lesson-physics-electric-motors-and-generators
+    keyPoint: 2
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A generator coil stops rotating and stays fixed in a steady magnetic field. What happens to the emf produced by the generator?
+    choices:
+      - text: 'It falls to zero.'
+        correct: true
+      - text: 'It stays at its last nonzero value.'
+        rationale: |
+          The field is still there. Check whether the flux is changing.
+      - text: 'It becomes greatest when the fixed coil faces the field.'
+        rationale: |
+          That position can give large flux. Check whether large flux by itself gives an emf.
+      - text: 'It reverses while the coil stays still.'
+        rationale: |
+          The emf can reverse as a coil turns. Check what changes after the coil stops.
+    explanation: |
+      The fixed coil keeps the same angle to the field. Its magnetic flux stops changing, so it makes no emf.
+
+  - id: q-physics-electricity-and-magnetism-0037
+    lesson: lesson-physics-electric-motors-and-generators
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      One straight section of a motor coil carries current parallel to a uniform magnetic field. What magnetic force acts on that section?
+    choices:
+      - text: 'Zero force'
+        correct: true
+      - text: 'The largest possible force for that current'
+        rationale: |
+          The strongest force occurs at one special angle. Check whether it is parallel or perpendicular.
+      - text: 'A force directed along the field'
+        rationale: |
+          The field direction may look like the force direction. Check whether this alignment produces any force.
+      - text: 'A force directed opposite to the current'
+        rationale: |
+          A force may oppose motion in other situations. Check whether the wire crosses the field here.
+    explanation: |
+      The current runs along the field. The magnetic force on that section is zero at this angle.

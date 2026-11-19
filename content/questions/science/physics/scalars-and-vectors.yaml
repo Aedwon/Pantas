@@ -463,3 +463,69 @@ questions:
           This treats equal perpendicular components as opposing. Their sizes match. Check that east-west and north-south are different axes.
     explanation: |
       The magnitude is $\sqrt{(-3)^2+(-3)^2}=3\sqrt2\,\mathrm m$. Both components point negatively, so the vector points southwest.
+
+  - id: q-physics-scalars-and-vectors-0021
+    lesson: lesson-physics-resultants-of-two-vectors
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A ring is pulled by two perpendicular forces. One force has magnitude 6 N, and their resultant has magnitude 10 N. What is the magnitude of the second force?
+    choices:
+      - text: '8 N'
+        correct: true
+      - text: '4 N'
+        rationale: |
+          Subtracting the magnitudes would work for forces along the same line. Check the angle between the forces.
+      - text: '16 N'
+        rationale: |
+          Adding the magnitudes treats the resultant like a third pull. Check which side of the triangle the resultant gives.
+      - text: '64 N'
+        rationale: |
+          Subtracting the squares gives the square of the missing force. Take its square root.
+    explanation: |
+      The resultant is the long side of a right triangle. The second force has magnitude $\sqrt{10^2-6^2}=8$ N.
+
+  - id: q-physics-scalars-and-vectors-0022
+    lesson: lesson-physics-resultants-of-two-vectors
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Two forces of 6 N each act on a point at an angle of 60° to one another. What is the magnitude of their resultant? Use $\cos 60^\circ=0.5$.
+    choices:
+      - text: '$6\sqrt{3}$ N'
+        correct: true
+      - text: '$6\sqrt{2}$ N'
+        rationale: |
+          This uses the right-triangle rule. Check whether the angle is 90°.
+      - text: '12 N'
+        rationale: |
+          This adds the two pulls as if they pointed the same way. Check the angle between them.
+      - text: '6 N'
+        rationale: |
+          This can come from using the angle term with a minus sign. Check the sign for two arrows drawn from the same point.
+    explanation: |
+      Square both forces and add the angle term. The sum is $36+36+2(6)(6)(0.5)=108$. Its square root is $6\sqrt{3}$ N.
+
+  - id: q-physics-scalars-and-vectors-0023
+    lesson: lesson-physics-resolving-vector-components
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A 50 N force points up and to the right at 30° from the vertical. What is the magnitude of its horizontal component? Use $\sin 30^\circ=0.50$ and $\cos 30^\circ\approx0.87$.
+    choices:
+      - text: '25 N'
+        correct: true
+      - text: '43.5 N'
+        rationale: |
+          Cosine gives the side next to the angle. Check whether that side is horizontal here.
+      - text: '50 N'
+        rationale: |
+          This is the full slanted force. Check how much of it lies along the horizontal axis.
+      - text: '100 N'
+        rationale: |
+          Dividing by the sine can find a full force from a known component. Check which value was given.
+    explanation: |
+      The horizontal side is across from the angle measured from the vertical. Multiply by the sine to get $50\times0.50=25$ N.

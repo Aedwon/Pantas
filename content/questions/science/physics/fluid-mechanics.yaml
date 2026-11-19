@@ -464,3 +464,135 @@ questions:
     explanation: |
       The weight in air is $mg=5.0\times9.8=49$ N. The buoyant force is $\rho_{fluid}gV=(1000)(9.8)(2.0\times10^{-3})=19.6$ N. The scale reads $W-F_B=49-19.6=29.4$ N.
     approved: false
+
+  - id: q-physics-fluid-mechanics-0025
+    lesson: lesson-physics-gauge-and-absolute-pressure
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      The air above the water in a sealed tank is at 120 kPa absolute pressure. Outside air pressure is 101 kPa. What is the gauge pressure at a depth of 5 m in the tank? Use a water density of 1000 kg/m³ and $g=9.8$ m/s².
+    choices:
+      - text: '68 kPa'
+        correct: true
+      - text: '49 kPa'
+        rationale: |
+          The water alone adds 49 kPa. Check whether the air in the tank is already above outside air pressure.
+      - text: '169 kPa'
+        rationale: |
+          This is the full pressure at that depth. Subtract the outside air pressure to get gauge pressure.
+      - text: '19 kPa'
+        rationale: |
+          This gives the gauge pressure at the surface. Include the extra pressure from the water above the sensor.
+    explanation: |
+      The water adds $1000\times9.8\times5=49000$ Pa, or 49 kPa. The full pressure is $120+49=169$ kPa. Subtract the outside air pressure to get $169-101=68$ kPa.
+
+  - id: q-physics-fluid-mechanics-0026
+    lesson: lesson-physics-pascal-principle-and-hydraulic-force
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Two pistons in an ideal hydraulic system are at the same height. A 30 N force acts on the input piston of area 10 cm². What force does the fluid exert on the output piston of area 60 cm² due to this input?
+    choices:
+      - text: '180 N'
+        correct: true
+      - text: '5.0 N'
+        rationale: |
+          The areas give a factor of six. Check which piston has more area for the fluid to push on.
+      - text: '30 N'
+        rationale: |
+          The fluid passes on the same pressure. Check what that pressure does across a larger area.
+      - text: '3 N'
+        rationale: |
+          This number gives force per square centimeter. Multiply by the whole output area.
+    explanation: |
+      The input adds $30/10=3$ N per square centimeter. The same pressure acts across 60 square centimeters, giving $3\times60=180$ N.
+
+  - id: q-physics-fluid-mechanics-0027
+    lesson: lesson-physics-hydraulic-piston-distance-and-work
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      An ideal hydraulic lift has pistons of equal height. The output piston has four times the input piston's area. If the input piston moves down 12 cm, how far does the output piston rise?
+    choices:
+      - text: '3 cm'
+        correct: true
+      - text: '48 cm'
+        rationale: |
+          The lift multiplies force by four. Check how distance must change to move the same volume.
+      - text: '12 cm'
+        rationale: |
+          The liquid moves as a whole. Check whether equal volumes require equal distances here.
+      - text: '8 cm'
+        rationale: |
+          Subtracting four treats the area ratio as a length. Check how a ratio scales the distance.
+    explanation: |
+      Both pistons move the same volume of liquid. The piston with four times the area moves one fourth as far, or 3 cm.
+
+  - id: q-physics-fluid-mechanics-0028
+    lesson: lesson-physics-hydraulic-piston-distance-and-work
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      In an ideal hydraulic lift, the input piston moves 8 cm against the fluid. Its area is one fourth of the output piston's area. If the input work is 24 J, how much work does the lift deliver at the output piston?
+    choices:
+      - text: '24 J'
+        correct: true
+      - text: '96 J'
+        rationale: |
+          The force grows by a factor of four. Check how the distance changes.
+      - text: '6 J'
+        rationale: |
+          The distance drops by a factor of four. Check what happens to the force.
+      - text: '192 J'
+        rationale: |
+          The 8 cm tells how far the input piston moves. Check whether the given work already includes that distance.
+    explanation: |
+      The output force is four times as large. The output piston moves one fourth as far. The two factors cancel, so the work stays at 24 J.
+
+  - id: q-physics-fluid-mechanics-0029
+    lesson: lesson-physics-apparent-weight-in-a-fluid
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A fully submerged object hangs at rest from a spring scale. Its weight is 26 N and the water exerts an upward buoyant force of 9 N. What does the scale read?
+    choices:
+      - text: '17 N'
+        correct: true
+      - text: '35 N'
+        rationale: |
+          Both forces act on the object. Check whether they point the same way.
+      - text: '26 N'
+        rationale: |
+          The object's weight stays the same. Check how much weight the water supports.
+      - text: '9 N'
+        rationale: |
+          This gives the force from the water. Check what force the scale must supply too.
+    explanation: |
+      The water supports 9 N of the object's weight. The scale supports the remaining $26-9=17$ N.
+
+  - id: q-physics-fluid-mechanics-0030
+    lesson: lesson-physics-floating-fraction-and-displaced-volume
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A hollow buoy floats at rest with three quarters of its volume underwater. The water has a density of 1000 kg/m³. What is the average density of the buoy?
+    choices:
+      - text: '750 kg/m³'
+        correct: true
+      - text: '250 kg/m³'
+        rationale: |
+          One quarter of the buoy is above water. Check which fraction gives the density ratio.
+      - text: '1000 kg/m³'
+        rationale: |
+          This is the water's density. Check whether the buoy is fully submerged.
+      - text: '1333 kg/m³'
+        rationale: |
+          Dividing by the fraction raises the density. Check which object belongs on top in the density ratio.
+    explanation: |
+      The submerged fraction is the buoy's average density divided by the water's density. Multiply the water's density by $3/4$ to get 750 kg/m³.

@@ -463,3 +463,135 @@ questions:
           This swaps the two vectors. Both are part of orbital motion. Check the path tangent and the center direction.
     explanation: |
       Velocity points along the circle’s tangent. Centripetal acceleration points toward the center. They are perpendicular in uniform circular motion.
+
+  - id: q-physics-two-dimensional-motion-0021
+    lesson: lesson-physics-forces-in-circular-motion
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A 2 kg object travels at a steady 6 m/s around a circular track of radius 3 m. What is the magnitude of the net force directed toward the center?
+    choices:
+      - text: '24 N'
+        correct: true
+      - text: '4 N'
+        rationale: |
+          This uses the speed as given in the force formula. Check whether the speed must be squared.
+      - text: '12 N'
+        rationale: |
+          This gives the acceleration toward the center. Multiply by the object's mass.
+      - text: '72 N'
+        rationale: |
+          This multiplies the mass by the squared speed. Check how the radius affects the force.
+    explanation: |
+      The inward acceleration is $6^2/3=12$ m/s². Multiply by 2 kg to get 24 N.
+
+  - id: q-physics-two-dimensional-motion-0022
+    lesson: lesson-physics-static-friction-in-circular-motion
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A car traveling steadily on a level circular road reaches a patch where the maximum static friction is less than the inward force required to follow the curve. What happens as it enters the patch at the same speed?
+    choices:
+      - text: 'The tires begin to slip.'
+        correct: true
+      - text: 'The car continues along the curve without slipping.'
+        rationale: |
+          The speed has stayed the same. Check whether the tires still have enough grip for that speed and radius.
+      - text: 'The road''s normal force takes over the inward pull.'
+        rationale: |
+          The normal force still supports the car. Check which way it points on a level road.
+      - text: 'An extra centripetal force makes up for the loss of friction.'
+        rationale: |
+          The turn still requires an inward force. Check whether that is a separate force or the sum of real forces.
+    explanation: |
+      Static friction must supply the inward force. On the patch it is too weak to keep the car on the curve without sliding.
+
+  - id: q-physics-two-dimensional-motion-0023
+    lesson: lesson-physics-angular-speed-and-rotation
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A turntable spins steadily at 30 revolutions per minute. What is its angular speed?
+    choices:
+      - text: '$\pi$ rad/s'
+        correct: true
+      - text: '$0.5$ rad/s'
+        rationale: |
+          This gives turns per second. Convert each turn to radians.
+      - text: '$2\pi$ rad/s'
+        rationale: |
+          This is one full turn per second. Check how many turns fit in 60 seconds.
+      - text: '$60\pi$ rad/s'
+        rationale: |
+          This converts the angle to radians. Check whether the time is still in minutes.
+    explanation: |
+      Thirty turns per minute is half a turn per second. Each turn is $2\pi$ rad, so the angular speed is $\pi$ rad/s.
+
+  - id: q-physics-two-dimensional-motion-0024
+    lesson: lesson-physics-angular-speed-and-rotation
+    keyPoint: 2
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      Two marks lie at different distances from the axis of the same rigid spinning disk. The outer mark is twice as far from the axis as the inner one. How do their centripetal accelerations compare?
+    choices:
+      - text: 'The outer mark''s is twice as large.'
+        correct: true
+      - text: 'The outer mark''s is half as large.'
+        rationale: |
+          A larger radius gives less acceleration at the same linear speed. Check which speed the two marks share.
+      - text: 'They are equal because the disk is rigid.'
+        rationale: |
+          The marks turn together. Check whether they travel the same distance in one turn.
+      - text: 'The outer mark''s is four times as large.'
+        rationale: |
+          The outer mark moves twice as fast and speed is squared. Check what also doubles in the bottom of $v^2/r$.
+    explanation: |
+      Both marks turn at the same angular speed. The inward acceleration is $\omega^2r$, so doubling the radius doubles it.
+
+  - id: q-physics-two-dimensional-motion-0025
+    lesson: lesson-physics-angular-speed-and-rotation
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A flywheel rotates with an angular speed of $4\pi$ rad/s. What is its period?
+    choices:
+      - text: '0.50 s'
+        correct: true
+      - text: '2.0 s'
+        rationale: |
+          This gives the number of turns per second. Check the time for one turn.
+      - text: '4.0 s'
+        rationale: |
+          This takes the number in the angular speed as a time. Check how many radians make one turn.
+      - text: '0.25 s'
+        rationale: |
+          Taking the inverse of 4 may look like taking the inverse of frequency. Check how angular speed differs from turns per second.
+    explanation: |
+      One turn is $2\pi$ radians. Divide that angle by $4\pi$ radians per second to get 0.50 s.
+
+  - id: q-physics-two-dimensional-motion-0026
+    lesson: lesson-physics-angular-speed-and-rotation
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A mark 0.40 m from the center of a wheel rotates at 5 rad/s. What is the mark's linear speed?
+    choices:
+      - text: '2 m/s'
+        correct: true
+      - text: '10 m/s'
+        rationale: |
+          This uses $\omega^2r$, which measures inward acceleration. Check which quantity is asked for.
+      - text: '5 m/s'
+        rationale: |
+          The angular speed is 5 rad/s. Check how far the mark is from the axis.
+      - text: '12.5 m/s'
+        rationale: |
+          This divides by the radius. Check whether a mark farther out travels more or less distance per turn.
+    explanation: |
+      Multiply the angular speed by the distance from the axis. The speed is $5\times0.40=2$ m/s.

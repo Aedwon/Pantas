@@ -463,3 +463,91 @@ questions:
           This limits an energy property to one height. Ground is often chosen as zero. Check zero reference versus where the interaction exists.
     explanation: |
       The $mgh$ form assumes gravity is approximately uniform over the height change. At very large changes, its variation matters. A more general gravitational potential-energy relation is needed.
+
+  - id: q-physics-work-energy-power-0021
+    lesson: lesson-physics-net-work-and-kinetic-energy
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A moving sled slows to rest. The net work done on it as it stops is −20 J. What was its kinetic energy before it began to slow?
+    choices:
+      - text: '20 J'
+        correct: true
+      - text: '−20 J'
+        rationale: |
+          This is the signed change in energy. Check whether kinetic energy itself can be negative.
+      - text: '0 J'
+        rationale: |
+          The sled is at rest at the end. Check whether it was moving at the start.
+      - text: '40 J'
+        rationale: |
+          This counts the same loss twice. Check how much is left after the sled loses 20 J.
+    explanation: |
+      The sled ends with zero kinetic energy. It lost 20 J, so it started with 20 J.
+
+  - id: q-physics-work-energy-power-0022
+    lesson: lesson-physics-mechanical-energy-with-friction
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A cart's mechanical energy drops from 42 J to 30 J as it travels along a rough track. Friction is the only nonconservative force doing work. How much work does friction do?
+    choices:
+      - text: '−12 J'
+        correct: true
+      - text: '+12 J'
+        rationale: |
+          This gives the size of the change. Check whether friction adds mechanical energy or takes it away.
+      - text: '−30 J'
+        rationale: |
+          The cart ends with 30 J. Check how much energy it lost along the way.
+      - text: '−42 J'
+        rationale: |
+          This would fit if the cart lost all its starting energy. Check the final energy.
+    explanation: |
+      Friction's work equals the change in mechanical energy. The final value minus the starting value is $30-42=-12$ J.
+
+  - id: q-physics-work-energy-power-0023
+    lesson: lesson-physics-machine-efficiency
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A lever's input work is 50 J and its useful output work is 40 J. What is the lever's efficiency?
+    choices:
+      - text: '80%'
+        correct: true
+      - text: '20%'
+        rationale: |
+          This is the fraction of the energy lost. Check which part becomes useful work.
+      - text: '125%'
+        rationale: |
+          This reverses the ratio. Check whether a lever can deliver more work than it receives.
+      - text: '0.8%'
+        rationale: |
+          The fraction is 0.80. Multiply by 100 to write it as a percent.
+    explanation: |
+      Divide the useful 40 J by the input 50 J. The result is 0.80, or 80%.
+
+  - id: q-physics-work-energy-power-0024
+    lesson: lesson-physics-machine-efficiency
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A pulley requires a steady 150 N pull through 4 m to raise a 200 N load through 2 m. The forces are parallel to the respective displacements. What is the pulley system's efficiency, to the nearest percent?
+    choices:
+      - text: '67%'
+        correct: true
+      - text: '75%'
+        rationale: |
+          This ratio uses only the forces. Check how far each force acts.
+      - text: '50%'
+        rationale: |
+          This ratio uses only the distances. Check which force acts over each distance.
+      - text: '33%'
+        rationale: |
+          This gives the share of input work lost. Check the share that lifts the load.
+    explanation: |
+      The input work is $150\times4=600$ J. The load gains $200\times2=400$ J. Divide the useful work by the input work and round to get 67%.

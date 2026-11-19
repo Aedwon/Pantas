@@ -449,3 +449,69 @@ questions:
           This swaps sine and cosine for the two parts of the pull. The angle is easy to place on the wrong side. Check that the part along the floor uses cosine.
     explanation: |
       The pull along the floor is $50\cos30^\circ=43.3\,\mathrm{N}$. The pull upward is $50\sin30^\circ=25\,\mathrm{N}$. So $N=98-25=73\,\mathrm{N}$ and $f_k=0.20\times73=14.6\,\mathrm{N}$. Then $a=\dfrac{43.3-14.6}{10}=2.87\,\mathrm{m/s^2}$.
+
+  - id: q-physics-friction-tension-and-inclines-0015
+    lesson: lesson-physics-tension-between-connected-blocks
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A 2 kg block and a 3 kg block are joined by a light rope on a smooth level table. A horizontal force of 15 N first pulls the 3 kg block with the 2 kg block trailing. The same force is then applied to the 2 kg block with the 3 kg block trailing. What are the two rope tensions, in order?
+    choices:
+      - text: '6 N, then 9 N'
+        correct: true
+      - text: '9 N, then 6 N'
+        rationale: |
+          These products use the masses of the blocks pulled directly. Check which block is pulled forward by the rope alone.
+      - text: '6 N in both cases'
+        rationale: |
+          The acceleration stays the same. Check whether the rope pulls the same mass in both cases.
+      - text: '15 N in both cases'
+        rationale: |
+          The applied force is the same each time. Check whether it acts on one block or speeds up both blocks together.
+    explanation: |
+      The force pulls 5 kg in both cases, so the acceleration stays at 3 m/s². The rope pulls the trailing 2 kg first and the trailing 3 kg second. The tensions are $2\times3=6$ N and $3\times3=9$ N.
+
+  - id: q-physics-friction-tension-and-inclines-0016
+    lesson: lesson-physics-tension-over-pulleys
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      Two loads hang from opposite ends of a taut, inextensible rope over a fixed pulley. One load accelerates downward at 2 m/s². What is the other load's acceleration?
+    choices:
+      - text: '2 m/s² upward'
+        correct: true
+      - text: '1 m/s² upward'
+        rationale: |
+          Halving can apply with a movable pulley. Check which pulley is used here.
+      - text: '2 m/s² downward'
+        rationale: |
+          The rope links the two sizes of acceleration. Check which way its far end moves.
+      - text: '4 m/s² upward'
+        rationale: |
+          Two rope sections can matter with a movable pulley. Check whether the pulley moves with a load.
+    explanation: |
+      As one rope end moves down, the other must move up by the same amount. Their accelerations have equal sizes and opposite directions.
+
+  - id: q-physics-friction-tension-and-inclines-0017
+    lesson: lesson-physics-static-friction-and-its-limit
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A crate on a level floor has a normal force of 490 N. The coefficients of static and kinetic friction are 0.40 and 0.30. How does the friction magnitude change from the threshold of sliding to just after sliding begins?
+    choices:
+      - text: '196 N to 147 N'
+        correct: true
+      - text: '147 N to 196 N'
+        rationale: |
+          Both products are useful. Check which coefficient applies before sliding starts.
+      - text: '196 N to 196 N'
+        rationale: |
+          The normal force stays the same. Check whether the coefficient also stays the same.
+      - text: '147 N to 147 N'
+        rationale: |
+          The sliding value applies after motion starts. Check which rule applies at the threshold.
+    explanation: |
+      At the threshold, static friction is $0.40\times490=196$ N. As soon as the crate slides, use $0.30\times490=147$ N.

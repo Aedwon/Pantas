@@ -463,3 +463,157 @@ questions:
           This extends a perfect-crystal limit to all states. Zero entropy appears in the third law. Check the temperature and system conditions.
     explanation: |
       For an isolated system, the second law states that total entropy cannot decrease. It can stay the same in an ideal reversible process or increase in an irreversible one.
+
+  - id: q-physics-thermodynamics-0021
+    lesson: lesson-physics-thermal-equilibrium-and-the-zeroth-law
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      Two metal samples separately reach thermal equilibrium with the same reference bath held at a fixed temperature. If the samples touch each other immediately afterward, what is the initial net heat transfer between them?
+    choices:
+      - text: 'There is no net heat transfer.'
+        correct: true
+      - text: 'Heat flows from the sample with the greater mass.'
+        rationale: |
+          A larger sample may hold more internal energy. Check whether the samples differ in temperature.
+      - text: 'Heat flows from the sample immersed first.'
+        rationale: |
+          The first sample reached the bath earlier. Check the temperatures when the samples touch.
+      - text: 'Heat flows from the better thermal conductor.'
+        rationale: |
+          A good conductor can pass heat quickly. Check whether there is a temperature difference to drive that flow.
+    explanation: |
+      Each sample has the bath's temperature. They have the same temperature as each other. Neither is hotter, so no net heat flows.
+
+  - id: q-physics-thermodynamics-0022
+    lesson: lesson-physics-absolute-zero-and-the-third-law
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A cooling protocol halves a sample's temperature in kelvin at each step. The sample starts above 0 K. Which result agrees with the third law of thermodynamics?
+    choices:
+      - text: 'It can approach 0 K.'
+        correct: true
+      - text: 'It reaches exactly 0 K after enough steps.'
+        rationale: |
+          Each step brings it closer to zero. Check whether any finite number of halvings makes a positive number zero.
+      - text: 'It crosses 0 K after enough steps.'
+        rationale: |
+          Each step lowers the temperature. Check the sign of half of a positive value.
+      - text: 'It must stop cooling at some fixed positive temperature.'
+        rationale: |
+          Exact zero is out of reach in a finite number of steps. Check whether the law sets a higher limit.
+    explanation: |
+      Each step cuts the temperature to half of a positive value. Every finite number of steps leaves a positive temperature. The third law allows the sample to get close to 0 K.
+
+  - id: q-physics-thermodynamics-0023
+    lesson: lesson-physics-latent-heat-and-phase-changes
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      At its freezing point, 0.10 kg of water freezes completely. How much heat does it release? Use a latent heat of fusion of $3.34\times10^5$ J/kg.
+    choices:
+      - text: '$3.34\times10^4$ J'
+        correct: true
+      - text: '$3.34\times10^5$ J'
+        rationale: |
+          This is the value for one kilogram. Check the mass of the water.
+      - text: '$3.34\times10^6$ J'
+        rationale: |
+          Dividing by 0.10 makes the answer larger. Check how much heat a smaller mass releases.
+      - text: '0 J'
+        rationale: |
+          The water stays at its freezing point. Check whether it gives up heat as it changes state.
+    explanation: |
+      Each kilogram releases $3.34\times10^5$ J as it freezes. Multiply by 0.10 to get $3.34\times10^4$ J.
+
+  - id: q-physics-thermodynamics-0024
+    lesson: lesson-physics-latent-heat-and-phase-changes
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A sample of steam at its condensation temperature releases $2.26\times10^5$ J as it condenses completely. Its latent heat of vaporization is $2.26\times10^6$ J/kg. What is the sample's mass?
+    choices:
+      - text: '0.10 kg'
+        correct: true
+      - text: '10 kg'
+        rationale: |
+          The two values must be divided. Check which one has units of joules per kilogram.
+      - text: '1.0 kg'
+        rationale: |
+          The leading numbers match. Check the powers of ten before canceling.
+      - text: '0.01 kg'
+        rationale: |
+          There is a power of ten in each value. Count how many powers separate them.
+    explanation: |
+      Divide the heat released by the heat released per kilogram. The result is $10^{-1}$ kg, or 0.10 kg.
+
+  - id: q-physics-thermodynamics-0025
+    lesson: lesson-physics-latent-heat-and-phase-changes
+    keyPoint: 2
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A pure liquid at its boiling point receives heat at constant pressure until half of it has turned into vapor. Which expression gives the heat added during this stage?
+    choices:
+      - text: '$Q=mL_v$, with $m$ the mass that vaporizes'
+        correct: true
+      - text: '$Q=mc\Delta T$, with $m$ the entire starting mass'
+        rationale: |
+          This formula works when the temperature changes. Check what happens to the temperature during boiling.
+      - text: '$Q=mL_f$, with $m$ the mass that vaporizes'
+        rationale: |
+          The mass undergoing a phase change is right. Check which latent heat goes with boiling.
+      - text: '$Q=mL_v$, with $m$ the entire starting mass'
+        rationale: |
+          This uses the right latent heat. Check how much of the liquid has become vapor.
+    explanation: |
+      The liquid changes to vapor at the same temperature. Use the heat of vaporization and count only the mass that changes state.
+
+  - id: q-physics-thermodynamics-0026
+    lesson: lesson-physics-heat-exchange-between-objects
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Equal masses of water at 20°C and 80°C are mixed in an insulated container of negligible heat capacity. What is their final temperature?
+    choices:
+      - text: '50°C'
+        correct: true
+      - text: '60°C'
+        rationale: |
+          This gives the gap between the starting readings. Check which temperature makes the two changes equal.
+      - text: '30°C'
+        rationale: |
+          This gives the size of each change. Add it to the colder sample's starting temperature.
+      - text: '40°C'
+        rationale: |
+          This halves the hotter reading. Check that the colder sample starts above zero.
+    explanation: |
+      The masses are equal and both are water. For the heat lost to equal the heat gained, each sample must change by 30°C. They meet at 50°C.
+
+  - id: q-physics-thermodynamics-0027
+    lesson: lesson-physics-heat-exchange-between-objects
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A 0.50 kg sample of water at 80°C is mixed with 1.50 kg of water at 20°C. No heat escapes, and the container absorbs negligible heat. What is the final temperature?
+    choices:
+      - text: '35°C'
+        correct: true
+      - text: '50°C'
+        rationale: |
+          The midpoint works for equal masses of water. Check which sample has more mass.
+      - text: '65°C'
+        rationale: |
+          This puts the final temperature nearer the hot sample. Check which sample needs more heat for each degree of change.
+      - text: '30°C'
+        rationale: |
+          This can come from taking half the gap between the starting temperatures. Check whether that gives the temperature or a change in temperature.
+    explanation: |
+      There is three times as much cool water. It warms one third as many degrees as the hot water cools. A rise of 15°C and a drop of 45°C meet at 35°C.
