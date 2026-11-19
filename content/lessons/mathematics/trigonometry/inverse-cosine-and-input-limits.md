@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-For nonzero inputs, the sign helps locate the principal angle. A positive input sends all three inverse functions to a positive acute angle. A negative input gives a negative principal value for arcsine and arctangent, while arccosine returns an obtuse angle in Quadrant II. Endpoint inputs such as $0$, $1$, and $-1$ can return angles on an axis instead of inside a quadrant.
+For $0<x<1$, all three inverse functions give an acute angle. For $-1<x<0$, arcsine and arctangent give negative angles, and arccosine gives an obtuse angle. Inputs of $0$, $1$, or $-1$ can give angles on an axis.
 
 Inputs are limited too: $\arcsin x$ and $\arccos x$ accept only $x \in [-1,1]$, because sine and cosine values stay in that interval. $\arctan x$ accepts every real number.
 
@@ -23,9 +23,6 @@ Inputs are limited too: $\arcsin x$ and $\arccos x$ accept only $x \in [-1,1]$, 
 ### #1: Negative Input to Arccosine
 
 Evaluate $\arccos\left(-\dfrac{1}{2}\right)$.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["120° in Q II", "cos = -1/2", "arccos range [0°, 180°]"], "semanticsLabel": "Unit circle marking 120 degrees in Quadrant II where cosine equals negative 1 half within arccosine principal range."} -->
-
 
 **Solution:**
 Arccosine answers only between $0^\circ$ and $180^\circ$. For this non-endpoint negative cosine, the principal angle lies in Quadrant II.
@@ -41,9 +38,11 @@ $$\arccos\left(-\dfrac{1}{2}\right) = 120^\circ$$
 
 4. It is not $-60^\circ$, because that angle lies outside the principal range of arccosine.
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["120° in Q II", "cos = -1/2", "arccos range [0°, 180°]"], "semanticsLabel": "Unit circle marking 120 degrees in Quadrant II where cosine equals negative 1 half within arccosine principal range."} -->
+
 ## Speed Tricks & Shortcuts
 
-For nonzero inputs, a useful sign reminder is: arcsine negative, arctangent negative, arccosine obtuse. Check endpoint inputs separately because they may land on an axis.
+For $-1<x<0$, remember that arcsine and arctangent give negative angles, and arccosine gives an obtuse angle. Check $-1$, $0$, and $1$ separately.
 
 ## Traps to Watch For
 

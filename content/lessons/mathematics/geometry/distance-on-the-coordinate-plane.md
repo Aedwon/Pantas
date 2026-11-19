@@ -33,9 +33,7 @@ Squaring a number gives the same result as squaring its negative, so the order o
 
 ### #1: Distance Between Two Points
 
-Measurement shows how to find triangle area using a base and its perpendicular height.
-
-Measurement also shows how to find parallelogram area using a base and its perpendicular height.
+Perpendicular Height in Area Formulas shows how to use a base and height for a triangle or parallelogram. If the base is horizontal, its length is the difference between its endpoints’ $x$-coordinates, larger minus smaller. Use the difference in $y$-coordinates for the perpendicular height, also larger minus smaller.
 
 Find the distance between $(-3, 4)$ and $(5, -2)$.
 
@@ -60,7 +58,14 @@ $$d = \sqrt{100} = 10$$
 
 5. The distance is $10$ units. The squaring removes the sign of each change. Also, $6$-$8$-$10$ is double the $3$-$4$-$5$ right triangle.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(-3, 4)", "(5, -2)", "run = 8", "rise = 6", "d = ?"], "semanticsLabel": "Coordinate plane with points at negative 3 comma 4 and 5 comma negative 2 forming a right triangle with legs 8 and 6."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coordinate-geometry", "labels": ["(-3, 4)", "(5, -2)", "run = 8", "Vertical leg = 6", "d = ?"], "semanticsLabel": "Coordinate plane with points at negative 3 comma 4 and 5 comma negative 2 forming a right triangle with legs 8 and 6."} -->
+
+### #2: Distance From a Point to a Line
+
+Find the shortest distance from $(0,0)$ to $y=x+4$.
+
+**Solution:**
+The shortest path meets the line at a right angle. Slopes of Parallel and Perpendicular Lines shows why the perpendicular through $(0,0)$ is $y=-x$. At the crossing, $-x=x+4$, so $x=-2$ and $y=2$. Use the distance formula from $(0,0)$ to $(-2,2)$. The distance is $\sqrt{(-2)^2+2^2}=2\sqrt{2}$.
 
 ## Speed Tricks & Shortcuts
 

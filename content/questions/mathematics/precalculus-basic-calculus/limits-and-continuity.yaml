@@ -50,7 +50,7 @@ questions:
     The denominator at $3$ is $4$, which is nonzero. Substitute: $\dfrac{3+5}{3+1}=\dfrac84=2$.
 - id: 'q-precalculus-basic-calculus-limits-and-continuity-0003'
   approved: true
-  lesson: lesson-precalculus-basic-calculus-direct-substitution-for-limits
+  lesson: lesson-precalculus-basic-calculus-one-sided-limits-and-continuity
   keyPoint: 1
   type: 'which-is-true'
   difficulty: 'easy'

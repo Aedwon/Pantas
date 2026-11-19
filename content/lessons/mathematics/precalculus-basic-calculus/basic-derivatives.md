@@ -134,7 +134,7 @@ $$2x-4=0\Rightarrow x=2$$
 
 Before choosing the quotient rule, simplify when algebra allows it. For example, $5/x^3=5x^{-3}$ can be differentiated directly with the power rule on $x\ne0$.
 
-For tangent-line problems, $f(a)$ gives the point on the curve and $f'(a)$ gives the slope, provided the derivative exists at $a$.
+The point on the curve is $(a,f(a))$. If the derivative exists at $a$, the tangent slope there is $f'(a)$.
 
 For compositions, look for an inner function whose derivative must be multiplied by the derivative of the outer function. A factor of $1$ may be invisible after simplification, so the important idea is applying the chain rule correctly, not merely seeing an extra written factor.
 

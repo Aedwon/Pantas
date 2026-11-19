@@ -69,4 +69,4 @@ It holds for $0\le r\le n$. Choosing $r$ objects is the same as choosing the $n-
 
 > If swapping the selected objects creates no new outcome, an ordered count is too large.
 
-For a two-person committee with no roles, Ana-Ben and Ben-Ana are the same committee. The ordered count $90$ in Example #7 is twice the committee count $45$.
+For a two-person committee with no roles, Ana-Ben and Ben-Ana are the same committee. For $10$ people, the $90$ ways to fill two different roles are twice the $45$ ways to form a two-person committee.

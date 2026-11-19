@@ -5513,6 +5513,11 @@
     "lesson": "lesson-geometry-triangle-angle-sums-and-types",
     "strength": "helpful",
     "reason": "The distance formula comes from the Pythagorean theorem. This lesson restates the theorem and shows the right triangle."
+   },
+   {
+    "lesson": "lesson-geometry-perpendicular-height-in-area-formulas",
+    "strength": "required",
+    "reason": "Use the base and perpendicular height to find triangle and parallelogram areas on the grid."
    }
   ],
   "lesson-geometry-coordinate-midpoints-and-endpoints": [

@@ -305,7 +305,7 @@ questions:
   type: 'word-problem'
   difficulty: 'hard'
   stem: |
-    Machine A produces $60\%$ of an electronics plant's light bulbs with a $5\%$ defect rate, while Machine B produces the remaining $40\%$ with a $2\%$ defect rate. If a randomly inspected bulb is found to be defective, what is the probability that it was produced by Machine A?
+    Machine A produces $60\%$ of an electronics plant's light bulbs with a $5\%$ defect rate, while Machine B produces the remaining $40\%$ with a $2\%$ defect rate. To find the overall probability of a defect, add the probability of drawing a defective bulb from A to the probability of drawing one from B. If a randomly inspected bulb is found to be defective, what is the probability that it was produced by Machine A?
   choices:
   - text: '$\dfrac{15}{19}$'
     correct: true
@@ -349,7 +349,7 @@ questions:
   type: 'word-problem'
   difficulty: 'hard'
   stem: |
-    In a barangay basketball tournament, Team A and Team B play a best-of-three series (the first team to win two games wins the series). The probability that Team A wins any individual game is $0.60$, independent of other games. What is the probability that Team A wins the series?
+    In a barangay basketball tournament, Team A and Team B play a best-of-three series (the first team to win two games wins the series). The probability that Team A wins any individual game is $0.60$, independent of other games. Team A can win in two straight games, or win one of the first two games and then win Game 3. Add the probabilities of the separate winning sequences. What is the probability that Team A wins the series?
   choices:
   - text: '$0.648$'
     correct: true

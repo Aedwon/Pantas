@@ -256,4 +256,4 @@ If the diameter is $10$, the area is $\pi(5)^2 = 25\pi$, not $\pi(10)^2 = 100\pi
 
 > A chord is a diameter only when it passes through the center.
 
-A chord of length $12$ does not mean the radius is $6$. Use a perpendicular from the center, as in Example $6$.
+A chord of length $12$ does not mean the radius is $6$. Use a perpendicular from the center, as in the Chord Distance and Equal Chords example.

@@ -96,9 +96,6 @@ $$-45^\circ = -\dfrac{\pi}{4}$$
 
 Find the angle between $0^\circ$ and $360^\circ$ that is coterminal with $400^\circ$, and the one coterminal with $-120^\circ$.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "coterminal-angles", "labels": ["400° = 360° + 40°", "-120° = 240°"], "semanticsLabel": "Two coordinate planes showing 400 degrees landing at 40 degrees and negative 120 degrees measured clockwise landing at 240 degrees."} -->
-
-
 **Solution:**
 Add or subtract full turns of $360^\circ$ until you land inside the range.
 
@@ -113,11 +110,13 @@ $$-120 + 360 = 240$$
 
 4. So $-120^\circ$ is coterminal with $240^\circ$, which lies in Quadrant III.
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "coterminal-angles", "labels": ["400° = 360° + 40°", "-120° = 240°"], "semanticsLabel": "Two coordinate planes showing 400 degrees landing at 40 degrees and negative 120 degrees measured clockwise landing at 240 degrees."} -->
+
 ### #5: Arc Length
 
 A circle has a radius of $10$ cm. Find the length of the arc cut off by a central angle of $\dfrac{\pi}{5}$ radians. Then find the arc for a $72^\circ$ central angle.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-arc", "labels": ["r = 10 cm", "θ = π/5 rad (72°)", "Arc s = rθ = 2π cm"], "semanticsLabel": "Circle of radius 10 cm with highlighted arc for central angle of pi over 5 radians or 72 degrees."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-arc", "labels": ["r = 10 cm", "θ = π/5 rad", "Arc s"], "semanticsLabel": "Circle of radius 10 cm with highlighted arc for a central angle of pi over 5 radians."} -->
 
 
 **Solution:**

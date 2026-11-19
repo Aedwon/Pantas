@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-The formulas below count objects that can be told apart from one another. We call such objects **distinct**. Counting objects that repeat, such as the letters of a word with two equal letters, needs other methods that this lesson does not cover.
+The formulas below count objects that can be told apart from one another. We call such objects **distinct**.
 
 ### Factorial
 
@@ -37,6 +37,12 @@ where $0\le r\le n$. The right side is the product of $r$ factors that start at 
 $$P(7,3)=7\times6\times5=210$$
 
 Two boundary cases check the formula. Arranging all $n$ objects gives $P(n,n)=\dfrac{n!}{0!}=n!$. Choosing none gives $P(n,0)=1$, one way to arrange nothing.
+
+To arrange all objects in a row when some are identical, start with $n!$. Divide by the factorial of each identical group's size because swapping identical objects leaves the row the same.
+
+If only rotations count as the same around a table, fix one person and arrange the remaining $n-1$ people in order around the table. This gives $(n-1)!$ for $n$ distinct people.
+
+To keep people together, count them as one unit. Arrange the units, then multiply by the number of orders inside the unit. If they must stay apart, subtract the count where they are together from the count of all arrangements.
 
 ## Examples
 

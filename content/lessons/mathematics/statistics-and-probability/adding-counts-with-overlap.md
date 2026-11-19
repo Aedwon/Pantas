@@ -67,4 +67,4 @@ Choosing a sandwich and a drink needs both choices, so multiply. Choosing a sand
 
 > If some outcomes belong to both groups, adding the two counts counts them twice.
 
-In Example #10, $12+9=21$ is too large, because $5$ students are in both groups. Subtract the overlap once to get $16$.
+For the two sports, $12+9=21$ is too large, because $5$ students are in both groups. Subtract the overlap once to get $16$.

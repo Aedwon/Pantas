@@ -25,7 +25,7 @@ If you know the arc length and the radius, divide the arc length by the radius t
 
 A circle has a radius of $10$ cm. Find the length of the arc cut off by a central angle of $\dfrac{\pi}{5}$ radians. Then find the arc for a $72^\circ$ central angle.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-arc", "labels": ["r = 10 cm", "θ = π/5 rad (72°)", "Arc s = rθ = 2π cm"], "semanticsLabel": "Circle of radius 10 cm with highlighted arc for central angle of pi over 5 radians or 72 degrees."} -->
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "circle-arc", "labels": ["r = 10 cm", "θ = π/5 rad", "Arc s"], "semanticsLabel": "Circle of radius 10 cm with highlighted arc for a central angle of pi over 5 radians."} -->
 
 
 **Solution:**

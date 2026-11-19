@@ -38,14 +38,14 @@ Find the hypothesis and conclusion: "If a number is divisible by $6$, then it is
 
 An office follows this rule: "An applicant may enter the records room only if the applicant has a visitor pass." Rewrite the rule as an if-then statement. Does having a visitor pass alone prove that an applicant may enter?
 
-<!-- ILLUSTRATION: One-way arrow from applicant may enter the records room to applicant has a visitor pass; label the first statement hypothesis and the second conclusion. -->
-
 **Solution:**
 
 1. The part after "only if" is the conclusion: the applicant has a visitor pass.
 2. The rule means "If an applicant may enter the records room, then the applicant has a visitor pass."
 3. Having a visitor pass does not prove that the applicant may enter. That would use the converse, which the rule does not establish.
 4. The rule does show that an applicant without a visitor pass may not enter. This is the contrapositive.
+
+<!-- ILLUSTRATION: One-way arrow from applicant may enter the records room to applicant has a visitor pass; label the first statement hypothesis and the second conclusion. -->
 
 ## Speed Tricks & Shortcuts
 

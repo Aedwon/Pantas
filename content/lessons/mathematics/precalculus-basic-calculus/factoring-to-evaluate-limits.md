@@ -22,9 +22,6 @@ If substitution into an algebraic expression gives $0/0$, that is an **indetermi
 
 Evaluate $\lim_{x\to3}\dfrac{x^2-9}{x-3}$.
 
-<!-- FIGURE: {"kind": "coordinate-graph", "type": "limit-hole", "formula": "y = x + 3", "hole": [3, 6], "points": [[3, 6]], "semanticsLabel": "A graph of y = x + 3 with an open circle hole at (3, 6)."} -->
-
-
 **Solution:**
 Direct substitution gives $0/0$, so simplify.
 
@@ -41,6 +38,8 @@ $$x+3$$
 $$\lim_{x\to3}(x+3)=6$$
 
 The limit is $6$ even though the original quotient is undefined at $x=3$.
+
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "limit-hole", "formula": "y = x + 3", "hole": [3, 6], "points": [[3, 6]], "semanticsLabel": "A graph of y = x + 3 with an open circle hole at (3, 6)."} -->
 
 ### #2: Factoring a Trinomial
 

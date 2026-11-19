@@ -81,7 +81,7 @@ The special quadrilaterals form a family:
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "quadrilateral-tree", "labels": ["Quadrilateral", "Trapezoid", "Parallelogram", "Rectangle", "Rhombus", "Square"], "semanticsLabel": "Hierarchy diagram showing parallelogram branching into rectangle and rhombus, merging into square, with trapezoid separate under the exclusive trapezoid convention."} -->
 
-In a trapezoid, the two angles at the ends of one leg are supplementary. This is because the bases are parallel and the leg crosses both of them.
+In a trapezoid, the two angles at the ends of one leg are supplementary. This is because the bases are parallel and the leg crosses both of them. The midsegment joins the midpoints of the two legs. Its length is half the sum of the base lengths.
 
 ### Diagonals and Classification
 

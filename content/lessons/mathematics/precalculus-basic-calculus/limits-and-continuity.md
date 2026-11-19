@@ -72,9 +72,6 @@ $$\lim_{x\to2}(3x+1)=7$$
 
 Evaluate $\lim_{x\to3}\dfrac{x^2-9}{x-3}$.
 
-<!-- FIGURE: {"kind": "coordinate-graph", "type": "limit-hole", "formula": "y = x + 3", "hole": [3, 6], "points": [[3, 6]], "semanticsLabel": "A graph of y = x + 3 with an open circle hole at (3, 6)."} -->
-
-
 **Solution:**
 Direct substitution gives $0/0$, so simplify.
 
@@ -91,6 +88,8 @@ $$x+3$$
 $$\lim_{x\to3}(x+3)=6$$
 
 The limit is $6$ even though the original quotient is undefined at $x=3$.
+
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "limit-hole", "formula": "y = x + 3", "hole": [3, 6], "points": [[3, 6]], "semanticsLabel": "A graph of y = x + 3 with an open circle hole at (3, 6)."} -->
 
 ### #3: Factoring a Trinomial
 
@@ -119,9 +118,6 @@ $$\lim_{x\to\infty}\dfrac{3x^2+5}{x^2-2}=\dfrac31=3$$
 
 A function is defined as $f(x)=x^2+1$ for $x<1$ and $f(x)=x+k$ for $x\ge1$. Find $k$ so that $f$ is continuous at $x=1$.
 
-<!-- FIGURE: {"kind": "coordinate-graph", "type": "piecewise", "formula": "x^2+1 for x<1, x+1 for x>=1", "points": [[1, 2]], "semanticsLabel": "A continuous piecewise graph of a parabola and a line meeting at x = 1."} -->
-
-
 **Solution:**
 Continuity requires the left-hand limit, right-hand limit, and function value to agree.
 
@@ -140,6 +136,8 @@ $$1+k=2$$
 $$k=1$$
 
 With $k=1$, the pieces meet at $(1,2)$.
+
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "piecewise", "formula": "x^2+1 for x<1, x+1 for x>=1", "points": [[1, 2]], "semanticsLabel": "A continuous piecewise graph of a parabola and a line meeting at x = 1."} -->
 
 ## Speed Tricks & Shortcuts
 

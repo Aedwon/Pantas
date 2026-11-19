@@ -25,14 +25,14 @@ To prove a biconditional, check both directions. Proving only one direction is n
 
 For an integer $n$, check this statement: "$n$ is even if and only if $n$ is divisible by $2$."
 
-<!-- ILLUSTRATION: Two statements, n is even and n is divisible by 2, connected by arrows in both directions to show the two claims of the biconditional. -->
-
 **Solution:**
 
 1. Check the forward direction. An even integer is a multiple of $2$. So it is divisible by $2$ with no remainder.
 2. Check the reverse direction. An integer divisible by $2$ with no remainder is a multiple of $2$. So it is even.
 3. Both directions are true. The biconditional is true.
 4. Join the two true directions: "If $n$ is even, then it is divisible by $2$" and "If $n$ is divisible by $2$, then it is even."
+
+<!-- ILLUSTRATION: Two statements, n is even and n is divisible by 2, connected by arrows in both directions to show the two claims of the biconditional. -->
 
 ## Traps to Watch For
 

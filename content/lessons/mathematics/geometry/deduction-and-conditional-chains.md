@@ -37,14 +37,14 @@ The first conclusion must match the next hypothesis. This gives a new conditiona
 
 Assume these statements are true: "If an application is complete, then it is sent for review." "If an application is sent for review, then a tracking number is assigned." Rico's application is complete. What must follow?
 
-<!-- ILLUSTRATION: Statement chain with arrows from application complete to sent for review to tracking number assigned; show Rico's complete application at the start. -->
-
 **Solution:**
 
 1. The first conclusion matches the second hypothesis: the application is sent for review.
 2. Use the Law of Syllogism. If an application is complete, then a tracking number is assigned.
 3. Rico's application is complete. Use the Law of Detachment with that fact and the new conditional.
 4. A tracking number is assigned to Rico's application.
+
+<!-- ILLUSTRATION: Statement chain with arrows from application complete to sent for review to tracking number assigned; show Rico's complete application at the start. -->
 
 ## Speed Tricks & Shortcuts
 

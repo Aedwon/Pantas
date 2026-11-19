@@ -35,9 +35,6 @@ A fully general quadratic may contain an $xy$ term, which can indicate a rotated
 
 Identify each conic: (a) $3x^2+3y^2=27$, (b) $y=2x^2-8x+1$, (c) $4x^2+9y^2=36$, (d) $x^2-y^2=16$.
 
-<!-- FIGURE: {"kind": "coordinate-graph", "type": "conic-gallery", "conics": ["circle", "parabola", "ellipse", "hyperbola"], "semanticsLabel": "A visual guide showing the four conic section curves: circle, parabola, ellipse, and hyperbola."} -->
-
-
 **Solution:**
 These equations have no $xy$ term and represent nondegenerate conics.
 
@@ -45,6 +42,8 @@ These equations have no $xy$ term and represent nondegenerate conics.
 2. (b) Only $x$ is squared: a parabola opening upward because the quadratic coefficient is positive.
 3. (c) Divide by $36$: $\dfrac{x^2}{9}+\dfrac{y^2}{4}=1$, an ellipse.
 4. (d) Divide by $16$: $\dfrac{x^2}{16}-\dfrac{y^2}{16}=1$, a hyperbola.
+
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "conic-gallery", "conics": ["circle", "parabola", "ellipse", "hyperbola"], "semanticsLabel": "A visual guide showing the four conic section curves: circle, parabola, ellipse, and hyperbola."} -->
 
 ## Speed Tricks & Shortcuts
 

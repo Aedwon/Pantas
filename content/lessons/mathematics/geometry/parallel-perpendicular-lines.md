@@ -44,7 +44,7 @@ If $l \parallel m$, these pairs are equal:
 - **Alternate interior angles** are interior and on opposite sides of the transversal. They are equal.
 - **Alternate exterior angles** are exterior and on opposite sides of the transversal. They are equal.
 
-One pair is supplementary. **Same-side interior angles** (also called co-interior angles) are interior and on the same side of the transversal. They add to $180^\circ$.
+When a transversal cuts two parallel lines, the **same-side interior angles** add to $180^\circ$. These angles lie between the lines on the same side of the transversal. They are also called co-interior angles.
 
 The letters help your eye. Alternate interior angles sit in the corners of a Z or a backward Z. Corresponding angles sit in an F, turned any way.
 

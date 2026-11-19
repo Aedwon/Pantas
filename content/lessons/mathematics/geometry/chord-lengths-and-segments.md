@@ -33,8 +33,6 @@ The distance from the center to a chord means the perpendicular distance.
 
 - Chords $AB$ and $CD$ cross at $P$ inside the circle. The products of the two parts of each chord are equal: $PA \cdot PB = PC \cdot PD$.
 
-The trap refers to the chord problem below as Example 6.
-
 ## Examples
 
 ### #1: Chord Distance and Equal Chords
@@ -78,4 +76,4 @@ $$AP\cdot PB=CP\cdot PD \quad\Rightarrow\quad 4\cdot 9=3\cdot PD$$
 
 > A chord is a diameter only when it passes through the center.
 
-A chord of length $12$ does not mean the radius is $6$. Use a perpendicular from the center, as in Example $6$.
+A chord of length $12$ does not mean the radius is $6$. Use a perpendicular from the center, as in the Chord Distance and Equal Chords example.

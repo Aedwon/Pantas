@@ -30,9 +30,6 @@ There is a catch. Infinitely many angles can have the same sine, cosine, or tang
 
 Evaluate $\arcsin\left(\dfrac{1}{2}\right)$ and $\arctan(1)$.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["30° (sin = 1/2)", "45° (tan = 1)", "Quadrant I"], "semanticsLabel": "Unit circle marking angles 30 degrees and 45 degrees in Quadrant I within arcsine and arctangent principal ranges."} -->
-
-
 **Solution:**
 Ask the reverse question for each.
 
@@ -46,12 +43,11 @@ $$\arctan(1) = 45^\circ$$
 
 3. Both inputs are positive and nonzero, so their principal angles are in Quadrant I.
 
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["30° (sin = 1/2)", "45° (tan = 1)", "Quadrant I"], "semanticsLabel": "Unit circle marking angles 30 degrees and 45 degrees in Quadrant I within arcsine and arctangent principal ranges."} -->
+
 ### #2: Negative Input to Arctangent
 
 Evaluate $\arctan(-\sqrt{3})$.
-
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["-60° in Q IV", "tan = -√3", "arctan range (-90°, 90°)"], "semanticsLabel": "Unit circle marking negative 60 degrees in Quadrant IV where tangent equals negative square root of 3 within arctangent principal range."} -->
-
 
 **Solution:**
 Arctangent answers between $-90^\circ$ and $90^\circ$. A negative tangent has a negative principal angle.
@@ -62,6 +58,8 @@ Arctangent answers between $-90^\circ$ and $90^\circ$. A negative tangent has a 
 $$\arctan(-\sqrt{3}) = -60^\circ$$
 
 3. Although $\tan 120^\circ$ is also $-\sqrt{3}$, $120^\circ$ lies outside arctangent's principal range.
+
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "unit-circle", "labels": ["-60° in Q IV", "tan = -√3", "arctan range (-90°, 90°)"], "semanticsLabel": "Unit circle marking negative 60 degrees in Quadrant IV where tangent equals negative square root of 3 within arctangent principal range."} -->
 
 ## Traps to Watch For
 

@@ -276,7 +276,7 @@ Set two expressions equal when they label opposite (vertical) angles. Neighbors 
 
 > A midpoint or bisector question may ask for the half or the whole. Read twice.
 
-In Example $4$, solving gives $x = 10$ and a half-length of $23$. The question asks for the whole segment, so the answer is $46$. In Example $6$, the answer is the whole angle, $50^\circ$, not $25^\circ$ and not $x$.
+In the midpoint example in Points, Lines, and Midpoints, solving gives $x = 10$ and a half-length of $23$. The question asks for the whole segment, so the answer is $46$. In the angle bisector example, the answer is the whole angle, $50^\circ$, not $25^\circ$ and not $x$.
 
 ### #4: A Line, a Segment, and a Ray Are Different
 
@@ -288,4 +288,4 @@ A line has no endpoints, a segment has two, and a ray has one. A segment has a f
 
 > A bisector splits an angle into two equal parts. It does not have to make a right angle.
 
-Example $6$ splits a $50^\circ$ angle into two $25^\circ$ angles. Equal halves does not mean $90^\circ$ halves. The parts are $90^\circ$ each only when the whole angle is a straight angle, $180^\circ$.
+The angle bisector example splits a $50^\circ$ angle into two $25^\circ$ angles. Equal halves does not mean $90^\circ$ halves. The parts are $90^\circ$ each only when the whole angle is a straight angle, $180^\circ$.

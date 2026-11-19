@@ -34,9 +34,6 @@ Common discontinuities include removable holes, jumps, and infinite discontinuit
 
 A function is defined as $f(x)=x^2+1$ for $x<1$ and $f(x)=x+k$ for $x\ge1$. Find $k$ so that $f$ is continuous at $x=1$.
 
-<!-- FIGURE: {"kind": "coordinate-graph", "type": "piecewise", "formula": "x^2+1 for x<1, x+1 for x>=1", "points": [[1, 2]], "semanticsLabel": "A continuous piecewise graph of a parabola and a line meeting at x = 1."} -->
-
-
 **Solution:**
 Continuity requires the left-hand limit, right-hand limit, and function value to agree.
 
@@ -55,6 +52,8 @@ $$1+k=2$$
 $$k=1$$
 
 With $k=1$, the pieces meet at $(1,2)$.
+
+<!-- FIGURE: {"kind": "coordinate-graph", "type": "piecewise", "formula": "x^2+1 for x<1, x+1 for x>=1", "points": [[1, 2]], "semanticsLabel": "A continuous piecewise graph of a parabola and a line meeting at x = 1."} -->
 
 ## Traps to Watch For
 
