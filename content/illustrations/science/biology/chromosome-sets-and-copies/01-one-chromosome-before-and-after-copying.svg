@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 276" width="360" height="276">
+<title>A chromosome before and after copying</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="tile" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.035"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient><radialGradient id="soft" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.08"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient><radialGradient id="structure" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.13"/><stop offset="1" stop-color="#050505" stop-opacity="0.26"/></radialGradient><radialGradient id="focus" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient></defs>
+<rect width="360" height="276" rx="14" fill="url(#bg)"/>
+<rect x="27" y="42" width="128" height="151" rx="8" fill="url(#tile)" stroke="none" stroke-width="1.5"/>
+<rect x="205" y="42" width="128" height="151" rx="8" fill="url(#tile)" stroke="none" stroke-width="1.5"/>
+<path d="M89 74 V154" fill="none" stroke="#020202" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M166 111 L186.0 111.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="194,111 186.0,115.0 186.0,107.0" fill="#020202"/>
+<path d="M245 73 Q249 99 260 114 Q249 130 245 155 M275 73 Q271 99 260 114 Q271 130 275 155" fill="none" stroke="#020202" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="260" cy="114" r="6" fill="#050505"/>
+<path d="M258 120 L235 169 M274 149 L300 204" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="226" y="183" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">centromere</text>
+<text x="273" y="225" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">sister chromatid</text>
+<text x="240" y="253" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">1 chromosome, 2 chromatids</text>
+</svg>

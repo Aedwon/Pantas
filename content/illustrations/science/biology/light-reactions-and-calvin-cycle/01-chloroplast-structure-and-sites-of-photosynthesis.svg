@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 416" width="360" height="416">
+<title>The two sites of photosynthesis inside a chloroplast</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="tile" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.035"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient><radialGradient id="soft" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.08"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient><radialGradient id="structure" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.13"/><stop offset="1" stop-color="#050505" stop-opacity="0.26"/></radialGradient><radialGradient id="focus" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient></defs>
+<rect width="360" height="416" rx="14" fill="url(#bg)"/>
+<ellipse cx="180" cy="202" rx="141" ry="104" fill="url(#soft)" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="180" cy="202" rx="129" ry="92" fill="url(#structure)" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="103" cy="193" rx="22" ry="6" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<ellipse cx="103" cy="186" rx="22" ry="6" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<ellipse cx="103" cy="179" rx="22" ry="6" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<ellipse cx="155" cy="239" rx="22" ry="6" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<ellipse cx="155" cy="232" rx="22" ry="6" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<ellipse cx="155" cy="225" rx="22" ry="6" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<ellipse cx="101" cy="279" rx="22" ry="6" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<ellipse cx="101" cy="272" rx="22" ry="6" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<ellipse cx="101" cy="265" rx="22" ry="6" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<text x="248" y="204" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">stroma</text>
+<text x="245" y="225" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="245" dy="0">(site of the</tspan><tspan x="245" dy="1.2em">Calvin cycle)</tspan></text>
+<text x="94" y="70" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">light</text>
+<path d="M94 81 L102.2 161.0" fill="none" stroke="#050505" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="103,169 98.2,161.4 106.2,160.6" fill="#050505"/>
+<text x="27" y="109" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">water</text>
+<path d="M47 119 L77.5 164.4" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="82,171 74.2,166.6 80.9,162.1" fill="#020202"/>
+<path d="M78 187 L41.7 222.4" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="36,228 38.9,219.5 44.5,225.3" fill="#020202"/>
+<text x="22" y="247" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">oxygen</text>
+<text x="258" y="66" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">carbon dioxide</text>
+<path d="M258 78 L250.6 177.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="250,185 246.6,176.7 254.6,177.3" fill="#020202"/>
+<path d="M266 252 L309.8 287.9" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="316,293 307.3,291.0 312.4,284.8" fill="#020202"/>
+<text x="319" y="316" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">sugar</text>
+<path d="M118 322 L108 285 M193 351 L200 305 M276 374 H330 V300 L279 263" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="99" y="341" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">thylakoid stacks</text>
+<text x="99" y="362" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="99" dy="0">(site of the</tspan><tspan x="99" dy="1.2em">light reactions)</tspan></text>
+<text x="203" y="370" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">outer membrane</text>
+<text x="246" y="394" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">inner membrane</text>
+</svg>

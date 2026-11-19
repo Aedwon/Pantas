@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 334" width="360" height="334">
+<title>Levels of organization in the human body</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="tile" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.035"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient><radialGradient id="soft" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.08"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient><radialGradient id="structure" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.13"/><stop offset="1" stop-color="#050505" stop-opacity="0.26"/></radialGradient><radialGradient id="focus" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient></defs>
+<rect width="360" height="334" rx="14" fill="url(#bg)"/>
+<rect x="70" y="22" width="272" height="42" rx="8" fill="url(#tile)" stroke="none" stroke-width="1.5"/>
+<text x="81" y="48" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">organism</text>
+<text x="189" y="48" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">human body</text>
+<path d="M42 43 H65" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="70" y="84" width="272" height="42" rx="8" fill="url(#tile)" stroke="none" stroke-width="1.5"/>
+<text x="81" y="110" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">organ system</text>
+<text x="189" y="110" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">circulatory system</text>
+<path d="M42 105 H65" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="70" y="146" width="272" height="42" rx="8" fill="url(#focus)" stroke="#050505" stroke-width="1.5"/>
+<text x="81" y="172" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">organ</text>
+<text x="189" y="172" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">heart</text>
+<path d="M42 167 H65" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="70" y="208" width="272" height="42" rx="8" fill="url(#tile)" stroke="none" stroke-width="1.5"/>
+<text x="81" y="234" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">tissue</text>
+<text x="189" y="234" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">cardiac muscle tissue</text>
+<path d="M42 229 H65" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="70" y="270" width="272" height="42" rx="8" fill="url(#tile)" stroke="none" stroke-width="1.5"/>
+<text x="81" y="296" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">cell</text>
+<text x="189" y="296" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">cardiac muscle cell</text>
+<path d="M42 291 H65" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M42 291 L42.0 51.0" fill="none" stroke="#020202" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="42,43 46.0,51.0 38.0,51.0" fill="#020202"/>
+</svg>
