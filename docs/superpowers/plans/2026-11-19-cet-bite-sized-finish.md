@@ -71,6 +71,14 @@ pipeline as the CSE subjects so the two corpora match.
   Re-solves and audits run on Codex after Nov 22 13:51 PHT, as the CSE subjects did. Codex Sol
   work in this lane uses GPT 6.2 Sol (`codex-pick exec -m gpt-6.2-sol`), Aedwon, Nov 19: "have it
   use 6.2 Sol btw". This overrides the 6.1 Sol default for CET only.
+- R7. When an audited fix changed a worked example inside a live part, the retired original gets
+  the same text, so a rollback restores the fixed version and the nothing-dropped check passes.
+  Nothing else in a retired original changes. Five retired Algebra originals that held CET-rewrite
+  text were set back to prod's text; that rewrite text is the source for the restored skills.
+- R8. Four new PSHS-NCE lessons sit in topics that are already split (two in arithmetic, two in
+  spatial reasoning) and fail the size or part check. The uploader refuses the whole root on that,
+  so they are split in this lane. They have no student reads, so they are replaced by their parts
+  with no retired original.
 - R6. C7 (8 backslash display problems in `light-and-optics.yaml`) is fixed in the physics batch.
 
 ## Steps
@@ -124,3 +132,11 @@ to 24; Phase C about 2 h plus the integrator. Waits for Aedwon excluded. Uncerta
 2. The 35 lost CET Algebra skills: default is to restore them as new Algebra parts, moved from the
    retired rewrites' text, in Phase A (about 8 to 10 parts and their questions). The alternative is
    to leave them as a listed gap.
+
+## Progress
+
+- Nov 19: manager answers: branch from `content/pshs-nce-r1` 68968b3e0 (lane idle), restore the 35
+  Algebra skills. `content/cet-bite-r1` created and merged with prod root 646326517 (c653e45b4):
+  474 shared questions re-approved under R2 (`docs/content/verification/cet-exam-tags.md` on the
+  branch). Gate after merge: 116 Algebra questions edited after approval (math lane fixes, re-solve
+  in Phase B), 1,193 CET questions changed since the frozen list, 240 not approved.
