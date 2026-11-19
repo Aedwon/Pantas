@@ -147,11 +147,11 @@ async function sendReceipt(deps: SetupDeps, holderUid: string, childUid: string)
       const sentToday = Number(global.get('count') ?? 0);
       if (!Number.isFinite(cap) || cap < 1 || sentToday + 1 > cap) {
         const firstFull = global.get('fullLogged') !== true;
-        if (firstFull) tx.set(globalRef, {fullLogged: true}, {merge: true});
+        if (firstFull) tx.set(globalRef, {fullLogged: true, purgeAt: new Date(at + DAY_MS + GUARDIAN_WINDOW_MS)}, {merge: true});
         return {kind: 'full' as const, firstFull};
       }
       const becameFull = sentToday + 1 >= cap && global.get('fullLogged') !== true;
-      tx.set(globalRef, {count: sentToday + 1, cleanupAt: at + DAY_MS + GUARDIAN_WINDOW_MS,
+      tx.set(globalRef, {count: sentToday + 1, purgeAt: new Date(at + DAY_MS + GUARDIAN_WINDOW_MS),
         ...(becameFull ? {fullLogged: true} : {})}, {merge: true});
       tx.update(entryRef, {receiptSentAt: at});
       const noticeVersion: unknown = consent.get('childNoticeVersion');
@@ -176,7 +176,8 @@ async function sendReceipt(deps: SetupDeps, holderUid: string, childUid: string)
       await deps.db.runTransaction(async tx => {
         const global = await tx.get(globalRef);
         tx.update(entryRef, {receiptSentAt: FieldValue.delete()});
-        tx.set(globalRef, {count: Math.max(0, Number(global.get('count') ?? 0) - 1)}, {merge: true});
+        if (global.exists) tx.set(globalRef, {count: Math.max(0, Number(global.get('count') ?? 0) - 1),
+        purgeAt: new Date(at + DAY_MS + GUARDIAN_WINDOW_MS)}, {merge: true});
       });
     }
   } catch (error) {
