@@ -82,9 +82,9 @@ Hormones tie the cycle together. The pituitary hormones FSH and LH act on the ov
 
 A **pathogen** is a germ that can cause disease. An **antigen** is a molecule that the immune system can recognize, often on a pathogen. The **lymphatic system** returns extra tissue fluid to the blood and holds immune cells in lymph nodes and other organs.
 
-**Innate immunity** is the rapid, general defense that is ready from birth. It includes barriers (skin, mucus), inflammation, and **phagocytes**, which are cells that engulf and destroy invaders. It reacts the same way each time and does not build memory of a particular antigen.
+**Innate immunity** is the rapid, general defense that is ready from birth. It includes barriers (skin, mucus), inflammation, and **phagocytes**, which are cells that engulf and destroy invaders. Past exposure can change how innate defenses respond. Memory of a particular antigen is a feature of adaptive immunity.
 
-**Adaptive immunity** is slower on a first meeting but specific to one antigen. It uses white blood cells called **lymphocytes**. An activated B cell becomes a **plasma cell** that releases **antibodies**, proteins that bind a particular antigen. T cells help coordinate the response and kill infected cells.
+**Adaptive immunity** is slower on a first meeting but specific to one antigen. It uses white blood cells called **lymphocytes**. Some activated B cells become **plasma cells** that release **antibodies**, proteins that bind a particular antigen. Others become memory B cells. T cells help coordinate the response and kill infected cells.
 
 After the first response, **memory cells** stay behind. On a later meeting with the same antigen, the response is faster and stronger. A vaccine gives the body a safe look at an antigen, so memory cells form without the disease.
 
@@ -193,7 +193,7 @@ When sorting organ systems, do not assume an organ belongs to exactly one system
 
 ### #2: Saying B Cells Themselves Release Most Antibodies
 
-> Activated B cells turn into plasma cells, and plasma cells release the antibodies.
+> Some activated B cells turn into plasma cells, and those plasma cells release the antibodies.
 
 B cells also form memory cells.
 

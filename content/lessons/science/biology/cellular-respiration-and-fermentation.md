@@ -45,7 +45,7 @@ Aerobic respiration in a eukaryote has four stages:
 
 1. **Glycolysis** (in the cytosol, the watery fluid outside the organelles) splits one glucose, which has six carbons, into two **pyruvate** molecules, which have three carbons each. It gives a net gain of $2$ ATP and makes $2$ NADH. NADH is an electron carrier made when **NAD+** gains electrons. Glycolysis needs no oxygen.
 2. **Pyruvate oxidation** (in the matrix, the space inside the inner membrane of a mitochondrion) turns each pyruvate into a two-carbon unit called acetyl CoA. One carbon leaves each time as carbon dioxide. More NADH forms.
-3. The **citric acid cycle** (in the matrix) breaks acetyl CoA down further. It releases carbon dioxide and makes a little ATP. It passes electrons to NAD$^+$ and FAD, forming NADH and FADH$_2$.
+3. The **citric acid cycle** (in the matrix) breaks acetyl CoA down further. It releases carbon dioxide and makes a little ATP or GTP. GTP can pass energy to make ATP. It passes electrons to NAD$^+$ and FAD, forming NADH and FADH$_2$.
 4. **Oxidative phosphorylation** (in the inner mitochondrial membrane) is where NADH and FADH$_2$ drop off their electrons. The electrons pass along a chain of proteins, the **electron transport chain**. The energy pumps hydrogen ions (H$^+$) across the membrane.
 
 The hydrogen ions then flow back through an enzyme called **ATP synthase**, which makes most of the ATP. Think of water that builds up behind a dam and turns a turbine as it flows through. At the end of the chain, oxygen takes the electrons and combines with H$^+$ to form water.
