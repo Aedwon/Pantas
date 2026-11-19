@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 1
 partCount: 8
-ordering: 0
+ordering: 17
 keyPoints:
   - "Locate the center of gravity from how an object’s weight is spread."
 ---

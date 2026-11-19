@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 8
 partCount: 8
-ordering: 0
+ordering: 24
 keyPoints:
   - "Explain how turning forces, center height, and track width affect rollover."
 ---

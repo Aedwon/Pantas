@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 5
 partCount: 8
-ordering: 0
+ordering: 21
 keyPoints:
   - "Compare tipping angles when shape or mass changes."
 ---

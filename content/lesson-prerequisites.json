@@ -3283,20 +3283,6 @@
     "reason": "Read the previous part first."
    }
   ],
-  "lesson-mechanical-technical-reasoning-pulleys-and-levers": [
-   {
-    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
-    "strength": "helpful",
-    "reason": "The angled-force section uses sine. This lesson gives the sine definition and the two values it needs."
-   }
-  ],
-  "lesson-mechanical-technical-reasoning-structural-stability": [
-   {
-    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
-    "strength": "helpful",
-    "reason": "The tipping angle uses the tangent. This lesson defines the tangent and the inverse tangent key."
-   }
-  ],
   "lesson-text-types-short-stories-and-novels": [
    {
     "lesson": "lesson-comprehension-skills-connecting-clues",
@@ -6566,7 +6552,7 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+    "lesson": "lesson-mechanical-technical-reasoning-ideal-mechanical-advantage",
     "strength": "helpful",
     "reason": "The efficiency section names effort, load and the ideal case, which that lesson explains in full. This lesson defines the efficiency formula itself."
    }
@@ -7245,6 +7231,114 @@
   "lesson-trigonometry-reading-trigonometric-graphs": [
    {
     "lesson": "lesson-trigonometry-polar-and-rectangular-coordinates",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-supporting-rope-segments": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-ideal-mechanical-advantage",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-counting-pulley-supports": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-supporting-rope-segments",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-block-and-tackle": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-counting-pulley-supports",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-classes-of-levers": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-block-and-tackle",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-balancing-lever-torques": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-classes-of-levers",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-torque-from-angled-forces": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-balancing-lever-torques",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+    "strength": "helpful",
+    "reason": "The angled-force section uses sine. This lesson gives the sine definition and the two values it needs."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-spring-extension-under-weight": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-hookes-law-and-stiffness",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-finding-the-base-of-support": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-locating-the-center-of-gravity",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-weight-line-and-tipping": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-finding-the-base-of-support",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-finding-the-tipping-angle": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-weight-line-and-tipping",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+    "strength": "helpful",
+    "reason": "The tipping angle uses the tangent. This lesson defines the tangent and the inverse tangent key."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-comparing-tipping-angles": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-finding-the-tipping-angle",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-combined-center-of-gravity": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-comparing-tipping-angles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-pushing-an-object-over": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-combined-center-of-gravity",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-mechanical-technical-reasoning-why-vehicles-roll-in-turns": [
+   {
+    "lesson": "lesson-mechanical-technical-reasoning-pushing-an-object-over",
     "strength": "required",
     "reason": "Read the previous part first."
    }

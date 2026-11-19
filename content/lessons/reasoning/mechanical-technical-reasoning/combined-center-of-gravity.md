@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 6
 partCount: 8
-ordering: 0
+ordering: 22
 keyPoints:
   - "Calculate the center of gravity of parts fastened together."
 ---

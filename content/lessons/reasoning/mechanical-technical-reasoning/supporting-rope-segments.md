@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 4
 keyPoints:
   - "Identify a movable pulley and count the rope segments that support its load."
   - "Find the effort and rope travel for a steady lift."

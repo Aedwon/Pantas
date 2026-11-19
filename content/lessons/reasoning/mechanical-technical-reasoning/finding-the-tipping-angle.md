@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 4
 partCount: 8
-ordering: 0
+ordering: 20
 keyPoints:
   - "Find the tipping angle from the height and position of the center of gravity."
 ---

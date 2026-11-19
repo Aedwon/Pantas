@@ -5329,8 +5329,53 @@
               "sections": []
             },
             {
+              "title": "Ideal Mechanical Advantage",
+              "slug": "ideal-mechanical-advantage",
+              "sections": []
+            },
+            {
+              "title": "Supporting Rope Segments",
+              "slug": "supporting-rope-segments",
+              "sections": []
+            },
+            {
+              "title": "Counting Pulley Supports",
+              "slug": "counting-pulley-supports",
+              "sections": []
+            },
+            {
+              "title": "Block and Tackle",
+              "slug": "block-and-tackle",
+              "sections": []
+            },
+            {
+              "title": "Classes of Levers",
+              "slug": "classes-of-levers",
+              "sections": []
+            },
+            {
+              "title": "Balancing Lever Torques",
+              "slug": "balancing-lever-torques",
+              "sections": []
+            },
+            {
+              "title": "Torque from Angled Forces",
+              "slug": "torque-from-angled-forces",
+              "sections": []
+            },
+            {
               "title": "Springs and Weights",
               "slug": "springs-and-weights",
+              "sections": []
+            },
+            {
+              "title": "Hooke’s Law and Spring Stiffness",
+              "slug": "hookes-law-and-stiffness",
+              "sections": []
+            },
+            {
+              "title": "Spring Extension Under Weight",
+              "slug": "spring-extension-under-weight",
               "sections": []
             },
             {
@@ -5366,6 +5411,46 @@
             {
               "title": "Structural Stability and Center of Gravity",
               "slug": "structural-stability",
+              "sections": []
+            },
+            {
+              "title": "Locating the Center of Gravity",
+              "slug": "locating-the-center-of-gravity",
+              "sections": []
+            },
+            {
+              "title": "Finding the Base of Support",
+              "slug": "finding-the-base-of-support",
+              "sections": []
+            },
+            {
+              "title": "Weight Line and Tipping",
+              "slug": "weight-line-and-tipping",
+              "sections": []
+            },
+            {
+              "title": "Finding the Tipping Angle",
+              "slug": "finding-the-tipping-angle",
+              "sections": []
+            },
+            {
+              "title": "Comparing Tipping Angles",
+              "slug": "comparing-tipping-angles",
+              "sections": []
+            },
+            {
+              "title": "Combined Center of Gravity",
+              "slug": "combined-center-of-gravity",
+              "sections": []
+            },
+            {
+              "title": "Pushing an Object Over",
+              "slug": "pushing-an-object-over",
+              "sections": []
+            },
+            {
+              "title": "Why Vehicles Roll in Turns",
+              "slug": "why-vehicles-roll-in-turns",
               "sections": []
             }
           ]

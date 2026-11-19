@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 1
 partCount: 5
-ordering: 5
+ordering: 12
 keyPoints:
   - "Compare pressures at different depths in the same liquid."
   - "Calculate pressure when density or surface pressure changes."

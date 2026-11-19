@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 3
 partCount: 8
-ordering: 0
+ordering: 19
 keyPoints:
   - "Use the weight line to tell whether an object tips or turns back."
 ---

@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 1
 partCount: 2
-ordering: 0
+ordering: 10
 keyPoints:
   - "Find displacement from a spring’s unstretched length and tell which way the restoring force acts."
   - "Use force and extension to find or compare spring constants."

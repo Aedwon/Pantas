@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 5
 keyPoints:
   - "Find mechanical advantage by tracing the rope through a pulley system."
 ---

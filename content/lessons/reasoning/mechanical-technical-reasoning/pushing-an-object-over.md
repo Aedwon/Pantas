@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 7
 partCount: 8
-ordering: 0
+ordering: 23
 keyPoints:
   - "Compare push torque with weight torque to tell when an object tips."
   - "Distinguish tipping from sliding."

@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 8
 keyPoints:
   - "Balance a lever by setting the opposing torques equal."
   - "Use the lever arms to find mechanical advantage."

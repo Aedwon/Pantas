@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 6
 keyPoints:
   - "Count supporting rope segments in a block and tackle."
 ---

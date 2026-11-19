@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 2
 partCount: 2
-ordering: 0
+ordering: 11
 keyPoints:
   - "Use a hanging mass and gravity to find the spring’s force or extension."
   - "Find how extension changes when the hanging mass changes."

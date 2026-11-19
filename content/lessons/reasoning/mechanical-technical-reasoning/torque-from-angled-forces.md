@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 9
 keyPoints:
   - "Use the moment arm and sine to find torque from an angled force."
 ---

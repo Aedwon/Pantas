@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 3
 keyPoints:
   - "Compare effort, load, and work in an ideal machine."
   - "Explain what a fixed pulley does."

@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 2
 partCount: 8
-ordering: 0
+ordering: 18
 keyPoints:
   - "Identify the base of support from the points where the object touches the ground."
 ---

@@ -7,7 +7,7 @@ topic: "topic-mechanical-technical-reasoning"
 isActive: true
 part: 5
 partCount: 7
-ordering: 0
+ordering: 7
 keyPoints:
   - "Identify the class of a lever from the position of its fulcrum, load, and effort."
 ---
