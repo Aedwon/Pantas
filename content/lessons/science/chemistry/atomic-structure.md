@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-particles-in-an-atom
+  - lesson-chemistry-atomic-and-mass-numbers
+  - lesson-chemistry-isotopes-and-neutrons
+  - lesson-chemistry-isotope-weighted-average-mass
+  - lesson-chemistry-monatomic-ion-charge
+  - lesson-chemistry-ions-and-isotope-notation
+  - lesson-chemistry-polyatomic-ions-and-charge
 ---
 ## Core Concept
 

@@ -6,6 +6,19 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-gas-particles-and-measurements
+  - lesson-chemistry-celsius-and-kelvin-for-gases
+  - lesson-chemistry-variables-in-gas-investigations
+  - lesson-chemistry-boyles-pressure-volume-law
+  - lesson-chemistry-charless-volume-temperature-law
+  - lesson-chemistry-gay-lussacs-pressure-temperature-law
+  - lesson-chemistry-avogadros-volume-mole-law
+  - lesson-chemistry-combined-gas-law-calculations
+  - lesson-chemistry-ideal-gas-law-calculations
+  - lesson-chemistry-gas-molar-volume-and-stp
+  - lesson-chemistry-when-real-gases-deviate
 ---
 ## Core Concept
 

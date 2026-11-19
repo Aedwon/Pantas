@@ -6,6 +6,18 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-ionic-covalent-and-metallic-bonds
+  - lesson-chemistry-electronegativity-and-bond-polarity
+  - lesson-chemistry-octet-rule-and-exceptions
+  - lesson-chemistry-drawing-lewis-structures
+  - lesson-chemistry-formal-charge-and-resonance
+  - lesson-chemistry-vsepr-two-and-three-groups
+  - lesson-chemistry-vsepr-four-groups
+  - lesson-chemistry-polar-and-nonpolar-molecules
+  - lesson-chemistry-forces-between-molecules
+  - lesson-chemistry-bonding-and-material-properties
 ---
 ## Core Concept
 

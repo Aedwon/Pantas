@@ -6,6 +6,11 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-naming-ionic-compounds
+  - lesson-chemistry-naming-binary-molecules
+  - lesson-chemistry-writing-charge-balanced-formulas
 ---
 ## Core Concept
 

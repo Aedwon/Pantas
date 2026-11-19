@@ -6,6 +6,19 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-conserving-atoms-in-reactions
+  - lesson-chemistry-ion-charges-and-reaction-formulas
+  - lesson-chemistry-balancing-with-coefficients
+  - lesson-chemistry-polyatomic-groups-and-coefficient-ratios
+  - lesson-chemistry-recognizing-reaction-patterns
+  - lesson-chemistry-single-displacement-and-reactivity
+  - lesson-chemistry-double-displacement-driving-forces
+  - lesson-chemistry-precipitates-and-net-ionic-equations
+  - lesson-chemistry-balancing-complete-combustion
+  - lesson-chemistry-incomplete-combustion-products
+  - lesson-chemistry-oxidation-and-reduction-in-reactions
 ---
 ## Core Concept
 

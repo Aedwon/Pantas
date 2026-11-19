@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-chemistry-gas-laws-0001
+    lesson: lesson-chemistry-boyles-pressure-volume-law
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'medium'
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0002
+    lesson: lesson-chemistry-charless-volume-temperature-law
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'medium'
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0003
+    lesson: lesson-chemistry-gay-lussacs-pressure-temperature-law
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'medium'
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0004
+    lesson: lesson-chemistry-avogadros-volume-mole-law
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'medium'
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0005
+    lesson: lesson-chemistry-combined-gas-law-calculations
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'hard'
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0006
+    lesson: lesson-chemistry-ideal-gas-law-calculations
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'hard'
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0007
+    lesson: lesson-chemistry-celsius-and-kelvin-for-gases
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0008
+    lesson: lesson-chemistry-boyles-pressure-volume-law
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0009
+    lesson: lesson-chemistry-combined-gas-law-calculations
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0010
+    lesson: lesson-chemistry-ideal-gas-law-calculations
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0011
+    lesson: lesson-chemistry-when-real-gases-deviate
+    keyPoint: 1
     type: 'predict-outcome'
     difficulty: 'medium'
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0012
+    lesson: lesson-chemistry-charless-volume-temperature-law
+    keyPoint: 1
     type: 'identify'
     difficulty: 'medium'
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0013
+    lesson: lesson-chemistry-ideal-gas-law-calculations
+    keyPoint: 1
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0014
+    lesson: lesson-chemistry-gay-lussacs-pressure-temperature-law
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'exam'
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0015
+    lesson: lesson-chemistry-ideal-gas-law-calculations
+    keyPoint: 2
     type: 'classify'
     difficulty: 'exam'
     stem: |
@@ -320,6 +350,8 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0016
+    lesson: lesson-chemistry-boyles-pressure-volume-law
+    keyPoint: 1
     type: 'identify'
     difficulty: 'easy'
     stem: |
@@ -341,6 +373,8 @@ questions:
     approved: false
 
   - id: q-chemistry-gas-laws-0017
+    lesson: lesson-chemistry-avogadros-volume-mole-law
+    keyPoint: 1
     type: 'compare-contrast'
     difficulty: 'medium'
     stem: |
@@ -362,6 +396,8 @@ questions:
     approved: false
 
   - id: q-chemistry-gas-laws-0018
+    lesson: lesson-chemistry-ideal-gas-law-calculations
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'hard'
     stem: |
@@ -383,6 +419,8 @@ questions:
     approved: false
 
   - id: q-chemistry-gas-laws-0019
+    lesson: lesson-chemistry-ideal-gas-law-calculations
+    keyPoint: 2
     type: 'process-ordering'
     difficulty: 'hard'
     stem: |
@@ -404,6 +442,8 @@ questions:
     approved: false
 
   - id: q-chemistry-gas-laws-0020
+    lesson: lesson-chemistry-celsius-and-kelvin-for-gases
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'exam'
     stem: |
