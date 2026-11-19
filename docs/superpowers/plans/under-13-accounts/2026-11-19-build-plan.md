@@ -14,9 +14,10 @@ Boards: Claude Design artifact PqxcZvKQheCogaXH6LidPM, picks 1A 2A 3A 4B 5 6B 7A
 Aedwon: 7A's description more direct and concise; 8A's code gate reuses the beta sign-in code entry
 (`CodeBoxes` in `sign_in_parts.dart`, as used by `email_sign_in_page.dart`) 1:1.
 
-Progress (Nov 20): T1 to T8 merged on the build branch (server 748 unit and 907 emulator tests pass; T8
-goldens rendered on CI). Codex 6.2 Sol runs T11 legal texts and the child-session wiring. T9 and T10 screens
-wait for the Claude 5-hour reset (one screen worker uses about 30%).
+Progress (Nov 20): T1 to T8 and T11 merged (T7 board 5 state ready; server 748 unit and 910 emulator
+tests pass). Rate-limit records now purge within 30 days (Aedwon confirms the notice wording at staging).
+Codex 6.2 Sol High reviews server and switching. Next after the Claude 5-hour reset: T9 (boards 3A, 4B, 4
+confirms, 5, the parents delete link and checkout box screen), then T10, T12, T13.
 
 ## Global constraints
 
