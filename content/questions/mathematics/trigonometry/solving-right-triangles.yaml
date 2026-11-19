@@ -428,3 +428,129 @@ questions:
     explanation: |
       Let $x$ be the first camera's horizontal distance and $h$ the tower height. The $45^\circ$ view gives $h-5=x$. The ground-level view gives $h=(x+20)/\sqrt{3}$. Substitute $x=h-5$: $h=(h+15)/\sqrt{3}$. Thus $h(\sqrt{3}-1)=15$, so $h=\dfrac{15}{\sqrt{3}-1}$ m.
     approved: false
+  - id: q-trigonometry-solving-right-triangles-0021
+    lesson: lesson-trigonometry-adjusting-for-eye-height
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A surveyor's eye is $14$ m above street level. The angle of depression to the top of a sign is $45^\circ$, and the horizontal distance to the sign is $6$ m. How high is the top of the sign above the street?
+    choices:
+      - text: '$8$ m'
+        correct: true
+      - text: '$6$ m'
+        rationale: |
+          The drop is $6$ m, so it may look like the answer. That measures from the eye. Subtract it from $14$ m to get the height from the street.
+      - text: '$20$ m'
+        rationale: |
+          This adds the drop to eye height. That method fits an angle of elevation. An angle of depression points down, so subtract.
+      - text: '$14$ m'
+        rationale: |
+          This uses the eye height, which is measured from the street. The sign is below the eye. Check how far the sight line drops.
+    explanation: |
+      The $45^\circ$ angle gives a drop equal to the horizontal distance, since $\tan45^\circ=1$. Subtract the $6$ m drop from the eye height. The sign is $14-6=8$ m above the street.
+  - id: q-trigonometry-solving-right-triangles-0022
+    lesson: lesson-trigonometry-finding-acute-angles
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      In right triangle $ABC$, $\angle C=90^\circ$, $AC=5\sqrt{3}$, and $BC=5$. What is $\angle A$?
+    choices:
+      - text: '$30^\circ$'
+        correct: true
+      - text: '$60^\circ$'
+        rationale: |
+          This uses the ratio of the leg next to $A$ to the leg across from it. The two legs are easy to switch. Tangent uses the opposite leg on top.
+      - text: '$45^\circ$'
+        rationale: |
+          This uses the angle for equal legs. Both legs have a factor of $5$, but the factor of $\sqrt{3}$ makes them different. Compare the whole lengths.
+      - text: '$150^\circ$'
+        rationale: |
+          This uses the angle that shares the sine of $30^\circ$. It can look right if you check sine alone. The two angles besides the right angle must be acute.
+    explanation: |
+      The leg across from $A$ has length $5$. The leg next to $A$ has length $5\sqrt{3}$. Thus $\tan A=\dfrac{1}{\sqrt{3}}$, the tangent of $30^\circ$.
+  - id: q-trigonometry-solving-right-triangles-0023
+    lesson: lesson-trigonometry-finding-acute-angles
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A right triangle has a hypotenuse of length $11$. The leg adjacent to acute angle $\theta$ has length $7$. Find $\theta$ to the nearest tenth of a degree.
+    choices:
+      - text: '$50.5^\circ$'
+        correct: true
+      - text: '$39.5^\circ$'
+        rationale: |
+          This uses inverse sine. Inverse sine also takes a leg over the hypotenuse, so it can look right. Check that the given leg is next to the angle.
+      - text: '$32.5^\circ$'
+        rationale: |
+          This uses inverse tangent on $\dfrac{7}{11}$. That fraction is a ratio of two sides. Check that tangent needs two legs.
+      - text: '$0.9^\circ$'
+        rationale: |
+          This is close to the inverse cosine in radians. The calculator gives it in radian mode. Switch to degree mode before you round.
+    explanation: |
+      Cosine is the leg next to the angle divided by the hypotenuse, so $\cos\theta=\dfrac{7}{11}$. In degree mode, $\cos^{-1}\left(\dfrac{7}{11}\right)\approx50.5^\circ$.
+  - id: q-trigonometry-solving-right-triangles-0024
+    lesson: lesson-trigonometry-solving-a-whole-right-triangle
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      In right triangle $ABC$, $C=90^\circ$, $A=30^\circ$, and $AB=14$. Which ordered triple gives $(BC,AC,B)$?
+    choices:
+      - text: '$(7,7\sqrt{3},60^\circ)$'
+        correct: true
+      - text: '$(7\sqrt{3},7,60^\circ)$'
+        rationale: |
+          This finds both leg lengths but switches their places. Check which leg is across from $A$ before using sine.
+      - text: '$(7,7\sqrt{3},30^\circ)$'
+        rationale: |
+          This keeps the right leg lengths but copies angle $A$ for $B$. Check that the two acute angles add to $90^\circ$.
+      - text: '$(7,14\sqrt{3},60^\circ)$'
+        rationale: |
+          This uses the right radical for the leg next to $A$. It leaves out the denominator of cosine. Check that $\cos30^\circ=\dfrac{\sqrt{3}}{2}$.
+    explanation: |
+      The two acute angles add to $90^\circ$, so $B=60^\circ$. The leg across from $A$ is $BC=14\sin30^\circ=7$. The leg next to $A$ is $AC=14\cos30^\circ=7\sqrt{3}$.
+  - id: q-trigonometry-solving-right-triangles-0025
+    lesson: lesson-trigonometry-solving-a-whole-right-triangle
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Right triangle $XYZ$ has a right angle at $Z$, with $XZ=12$ and $YZ=5$. Which triple gives $(XY,\angle X,\angle Y)$? Round angles to the nearest tenth of a degree.
+    choices:
+      - text: '$(13,22.6^\circ,67.4^\circ)$'
+        correct: true
+      - text: '$(13,67.4^\circ,22.6^\circ)$'
+        rationale: |
+          These are the two acute angles, but their places are switched. Match the smaller angle to the shorter leg across from it.
+      - text: '$(17,22.6^\circ,67.4^\circ)$'
+        rationale: |
+          This adds the legs to find the longest side. That gives the length along both legs. For the straight side, use the square root of the sum of their squares.
+      - text: '$(13,21.0^\circ,69.0^\circ)$'
+        rationale: |
+          This uses inverse tangent with $\dfrac{5}{13}$. The $13$ is a side of the triangle, but it is the hypotenuse. For tangent, divide by the other leg.
+    explanation: |
+      The hypotenuse is $XY=\sqrt{12^2+5^2}=13$. From $X$, the opposite leg is $5$ and the leg next to it is $12$. In degree mode, $\angle X=\tan^{-1}\left(\dfrac{5}{12}\right)\approx22.6^\circ$. Subtract from $90^\circ$ to get $\angle Y\approx67.4^\circ$.
+  - id: q-trigonometry-solving-right-triangles-0026
+    lesson: lesson-trigonometry-solving-a-whole-right-triangle
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A rectangular panel is $9$ cm wide and $12$ cm tall. A diagonal forms acute angles with a horizontal edge and a vertical edge. Which triple gives the diagonal length, the angle with the horizontal, and the angle with the vertical, in that order? Round angles to the nearest tenth of a degree.
+    choices:
+      - text: '$15$ cm, $53.1^\circ$, $36.9^\circ$'
+        correct: true
+      - text: '$15$ cm, $36.9^\circ$, $53.1^\circ$'
+        rationale: |
+          Both angles are right for this panel, but their places are switched. The angle with the horizontal is across from the taller leg.
+      - text: '$21$ cm, $53.1^\circ$, $36.9^\circ$'
+        rationale: |
+          This adds the width and height, which gives the length along two edges. Use the Pythagorean theorem for the diagonal.
+      - text: '$15$ cm, $38.7^\circ$, $51.3^\circ$'
+        rationale: |
+          This uses $\dfrac{12}{15}$ in inverse tangent. That ratio has the hypotenuse on the bottom. Use $\dfrac{12}{9}$ for tangent.
+    explanation: |
+      The diagonal is the hypotenuse. Its length is $\sqrt{9^2+12^2}=15$ cm. If $\theta$ is the angle with the horizontal, $\tan\theta=\dfrac{12}{9}$. In degree mode, $\theta\approx53.1^\circ$. The angle with the vertical is $90^\circ-\theta\approx36.9^\circ$.

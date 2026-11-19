@@ -428,3 +428,129 @@ questions:
     explanation: |
       The side opposite angle $P$ is $QR=7$, and the side opposite angle $R$ is $PQ=10$. The Law of Sines gives $\sin R=\dfrac{10\sin30^\circ}{7}=\dfrac{5}{7}$. The two possible angles are about $45.6^\circ$ and $134.4^\circ$. Adding $30^\circ$ leaves the total below $180^\circ$ in either case. The two choices of angle give two triangles with different third sides.
     approved: false
+  - id: q-trigonometry-laws-of-sines-and-cosines-0021
+    lesson: lesson-trigonometry-choosing-a-triangle-law
+    keyPoint: 1
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      In triangle $JKL$, $angle J=40^\circ$ and $KL=8$ cm. Which side and angle form a matched pair for the given length?
+    choices:
+      - text: '$KL$ and $\angle J$'
+        correct: true
+      - text: '$KL$ and $\angle K$'
+        rationale: |
+          $K$ is in the side's name, so it might look like a match. The side touches $K$. Look for the corner across from it.
+      - text: '$KL$ and $\angle L$'
+        rationale: |
+          $L$ is one end of the side, so it might seem to match. Check which corner the side does not touch.
+      - text: '$JL$ and $\angle J$'
+        rationale: |
+          $JL$ starts at $J$, so it might seem to go with that angle. Look for the side that joins the other two corners.
+    explanation: |
+      The ends of $KL$ are $K$ and $L$. The corner across from that side is $J$, so $KL$ and $\angle J$ form a matched pair.
+  - id: q-trigonometry-laws-of-sines-and-cosines-0022
+    lesson: lesson-trigonometry-law-of-sines-surveys
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Survey stations $P$ and $Q$ are $24$ m apart. The interior angles of triangle $PQT$ at $P$ and $Q$ are $45^\circ$ and $105^\circ$, respectively. What is the exact distance from $Q$ to the target $T$?
+    choices:
+      - text: '$24\sqrt{2}$ m'
+        correct: true
+      - text: '$12\sqrt{2}$ m'
+        rationale: |
+          This multiplies by the sine of $45^\circ$. That gives part of the setup. Divide by the sine across from the known side too.
+      - text: '$12\sqrt{3}$ m'
+        rationale: |
+          This multiplies by the sine of $60^\circ$, which is a familiar exact value. Use the given $45^\circ$ angle and divide by the sine across from the baseline.
+      - text: '$24\sqrt{3}$ m'
+        rationale: |
+          This uses the sine of $60^\circ$ for the angle at $P$. Both are common angles. Read the given angle before choosing its sine.
+    explanation: |
+      The angle at $T$ is $180^\circ-45^\circ-105^\circ=30^\circ$. Side $QT$ faces $45^\circ$ and $PQ$ faces $30^\circ$. The Law of Sines gives $QT=24\sin45^\circ\div\sin30^\circ=24\sqrt{2}$ m.
+  - id: q-trigonometry-laws-of-sines-and-cosines-0023
+    lesson: lesson-trigonometry-law-of-sines-surveys
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Two trail markers $M$ and $N$ are $30$ m apart. In triangle $MNR$, the angles at $M$ and $N$ are $30^\circ$ and $45^\circ$, respectively. Given $\sin105^\circ\approx0.966$, what is $NR$ to the nearest tenth of a meter?
+    choices:
+      - text: '$15.5$ m'
+        correct: true
+      - text: '$14.5$ m'
+        rationale: |
+          This multiplies by $0.966$. Since that is close to $1$, the result looks close. Check that the sine across from $MN$ is the divisor.
+      - text: '$22.0$ m'
+        rationale: |
+          This uses the angle at $N$ to find $NR$. The side touches $N$, which makes that choice tempting. Use the angle at the corner across from $NR$.
+      - text: '$31.1$ m'
+        rationale: |
+          This stops after dividing $30$ by $0.966$. That gives a shared ratio. Multiply it by the sine across from $NR$.
+    explanation: |
+      The angle at $R$ is $180^\circ-30^\circ-45^\circ=105^\circ$. Side $NR$ faces $30^\circ$. Side $MN$ faces $105^\circ$. The Law of Sines gives $NR\approx30(0.5)\div0.966\approx15.5$ m.
+  - id: q-trigonometry-laws-of-sines-and-cosines-0024
+    lesson: lesson-trigonometry-law-of-sines-surveys
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      To find the length of a pier $PT$, a surveyor measures $PQ=18$ m along the shore. In triangle $PQT$, $\angle P=120^\circ$ and $\angle Q=30^\circ$. What is the length of the pier?
+    choices:
+      - text: '$18$ m'
+        correct: true
+      - text: '$9$ m'
+        rationale: |
+          This multiplies by the sine of $30^\circ$ alone. That is one part of the ratio. Check the sine across from the known side too.
+      - text: '$18\sqrt{3}$ m'
+        rationale: |
+          This uses the sine of $120^\circ$ for the pier. The pier touches $P$, so that angle looks relevant. Use the corner across from the pier.
+      - text: '$6\sqrt{3}$ m'
+        rationale: |
+          This uses $120^\circ$ as the angle across from the measured side. It is the largest given angle. Find the angle at $T$ before pairing it with $PQ$.
+    explanation: |
+      The angle at $T$ is $180^\circ-120^\circ-30^\circ=30^\circ$. The pier $PT$ and the measured side $PQ$ both face $30^\circ$. The Law of Sines gives $PT=18\sin30^\circ\div\sin30^\circ=18$ m.
+  - id: q-trigonometry-laws-of-sines-and-cosines-0025
+    lesson: lesson-trigonometry-counting-ssa-triangles
+    keyPoint: 1
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      In triangle $ABC$, sides $a$ and $b$ are opposite angles $A$ and $B$. If $A=30^\circ$ and $b=12$, which value of $a$ allows exactly two distinct triangles?
+    choices:
+      - text: '$9$'
+        correct: true
+      - text: '$5$'
+        rationale: |
+          This meets the upper bound since $5<12$. That is only one check. Make sure $a$ can reach past the height of $6$.
+      - text: '$6$'
+        rationale: |
+          This reaches the height exactly, which may look like enough room. At that height there is one right triangle. Look for a side strictly above the height.
+      - text: '$12$'
+        rationale: |
+          This uses the upper end of the range. It is close to values that give two triangles. Check that $a$ must be strictly less than $b$.
+    explanation: |
+      The height is $h=12\sin30^\circ=6$. Two triangles fit when $h<a<b$. The length $9$ is between $6$ and $12$.
+  - id: q-trigonometry-laws-of-sines-and-cosines-0026
+    lesson: lesson-trigonometry-counting-ssa-triangles
+    keyPoint: 1
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      In triangle $ABC$, $A=45^\circ$ and $b=8$. For which value of the opposite side $a$ is there exactly one triangle, with $B=90^\circ$?
+    choices:
+      - text: '$4\sqrt{2}$'
+        correct: true
+      - text: '$8\sqrt{2}$'
+        rationale: |
+          This divides $8$ by the sine of $45^\circ$. That can work when you start with a leg. Here $8$ is the hypotenuse, so multiply by the sine.
+      - text: '$4$'
+        rationale: |
+          This uses the sine of $30^\circ$. Both angles give common exact values. Check the given angle before finding the height.
+      - text: '$8$'
+        rationale: |
+          Equal sides do give one triangle, so this seems to fit. The angle across from $b$ would then be $45^\circ$. For a right angle at $B$, set $a$ equal to the height.
+    explanation: |
+      The side $a$ must just reach the base to form a right angle at $B$. Set it equal to the height $h=8\sin45^\circ=4\sqrt{2}$.

@@ -428,3 +428,108 @@ questions:
     explanation: |
       Cosine is reciprocal secant, so $\cos\theta=-\dfrac{4}{5}$. The Pythagorean identity gives $\sin^2\theta=1-\dfrac{16}{25}=\dfrac{9}{25}$. Sine is negative in the stated quadrant, so $\sin\theta=-\dfrac{3}{5}$. Taking its reciprocal gives $\csc\theta=-\dfrac{5}{3}$.
     approved: false
+  - id: q-trigonometry-trigonometric-identities-0021
+    lesson: lesson-trigonometry-simplifying-trigonometric-expressions
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      With $\theta$ measured in degrees and $\cos\theta\ne0$, simplify $\dfrac{\sin\theta-\sin^3\theta}{\cos^2\theta}$.
+    choices:
+      - text: '$\sin\theta$'
+        correct: true
+      - text: '$\tan\theta$'
+        rationale: |
+          This would follow if the factored term left just one cosine on top. Check that $1-\sin^2\theta$ equals cosine squared.
+      - text: '$\sin^3\theta$'
+        rationale: |
+          This uses $\sin^2\theta$ in place of $1-\sin^2\theta$. Both squares appear in the same identity. Check which square is left after you subtract sine squared.
+      - text: '$\cos^2\theta$'
+        rationale: |
+          This finds the factor left after taking sine out of the numerator. That factor still has to be divided by the denominator. Keep the sine you factored out.
+    explanation: |
+      Factor the top to get $\sin\theta(1-\sin^2\theta)$. The part in parentheses equals $\cos^2\theta$. The top and bottom now share a nonzero factor of $\cos^2\theta$. Cancel it to get $\sin\theta$.
+  - id: q-trigonometry-trigonometric-identities-0022
+    lesson: lesson-trigonometry-sum-and-double-angle-identities
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Which expression equals $\cos(45^\circ-30^\circ)$ exactly?
+    choices:
+      - text: '$\dfrac{\sqrt{6}+\sqrt{2}}{4}$'
+        correct: true
+      - text: '$\dfrac{\sqrt{6}-\sqrt{2}}{4}$'
+        rationale: |
+          This uses a minus sign between the products. The angle difference makes that sign look right. The cosine difference formula adds the products.
+      - text: '$\dfrac{\sqrt{3}+1}{2}$'
+        rationale: |
+          This adds the products with both $45^\circ$ factors treated as $1$. Those equal factors are easy to overlook. Include $\dfrac{\sqrt{2}}{2}$ in each product.
+      - text: '$\dfrac{\sqrt{2}-\sqrt{3}}{2}$'
+        rationale: |
+          This subtracts the two cosine values. The minus sign in the angle can lead to that step. Use the two products from the difference formula.
+    explanation: |
+      The cosine difference formula adds the cosine product and the sine product. Here they are $\dfrac{\sqrt{6}}{4}$ and $\dfrac{\sqrt{2}}{4}$. Their sum is $\dfrac{\sqrt{6}+\sqrt{2}}{4}$.
+  - id: q-trigonometry-trigonometric-identities-0023
+    lesson: lesson-trigonometry-sum-and-double-angle-identities
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Angles $A$ and $B$ are acute and measured in degrees. If $\tan A=\dfrac{1}{2}$ and $\tan B=\dfrac{1}{3}$, what is $\tan(A+B)$?
+    choices:
+      - text: '$1$'
+        correct: true
+      - text: '$\dfrac{5}{6}$'
+        rationale: |
+          This adds the two tangent values. The sum is the top of the formula. Divide by one minus their product.
+      - text: '$\dfrac{5}{7}$'
+        rationale: |
+          This divides by one plus the product. The sum inside the tangent can make the plus sign look right. Use subtraction on the bottom for an angle sum.
+      - text: '$\dfrac{1}{5}$'
+        rationale: |
+          This subtracts the tangents on top. It can look right if you use the difference rule. Check that the angles are added here.
+    explanation: |
+      The top of the tangent sum formula is $\dfrac{1}{2}+\dfrac{1}{3}=\dfrac{5}{6}$. The bottom is $1-\dfrac{1}{2}\cdot\dfrac{1}{3}=\dfrac{5}{6}$. The quotient is $1$.
+  - id: q-trigonometry-trigonometric-identities-0024
+    lesson: lesson-trigonometry-sum-and-double-angle-identities
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      If $\theta$ is acute and measured in degrees and $\cos\theta=\dfrac{5}{13}$, what is $\cos 2\theta$?
+    choices:
+      - text: '$-\dfrac{119}{169}$'
+        correct: true
+      - text: '$\dfrac{119}{169}$'
+        rationale: |
+          This uses one minus twice cosine squared. It looks like the form that uses sine. With cosine squared, double the square first and then subtract one.
+      - text: '$-\dfrac{144}{169}$'
+        rationale: |
+          This keeps the negative sine squared from the formula. That gives the right sign here. Include cosine squared before you subtract sine squared.
+      - text: '$\dfrac{10}{13}$'
+        rationale: |
+          This doubles the given cosine. The angle doubles, which makes that step tempting. Apply $2\cos^2\theta-1$.
+    explanation: |
+      Use the form that needs only cosine, $\cos 2\theta=2\cos^2\theta-1$. Squaring $\dfrac{5}{13}$ gives $\dfrac{25}{169}$. Twice that is $\dfrac{50}{169}$. Subtract $\dfrac{169}{169}$ to get $-\dfrac{119}{169}$.
+  - id: q-trigonometry-trigonometric-identities-0025
+    lesson: lesson-trigonometry-sum-and-double-angle-identities
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      If $\theta$ is acute and measured in degrees and $\tan\theta=2$, what is $\tan 2\theta$?
+    choices:
+      - text: '$-\dfrac{4}{3}$'
+        correct: true
+      - text: '$\dfrac{4}{3}$'
+        rationale: |
+          This subtracts one from tangent squared. That gives the same size, but flips the sign. Check that the bottom starts with one.
+      - text: $-\dfrac{2}{3}$'
+        rationale: |
+          This uses the given tangent on top. The bottom is right, but the formula calls for twice the tangent on top.
+      - text: '$\dfrac{4}{5}$'
+        rationale: |
+          This adds the square to one. That looks like the tangent and secant identity. The tangent double-angle formula subtracts the square.
+    explanation: |
+      The tangent double-angle formula gives $\tan 2\theta=\dfrac{2\tan\theta}{1-\tan^2\theta}$. The top is $4$ and the bottom is $1-4=-3$. So the answer is $-\dfrac{4}{3}$.
