@@ -611,3 +611,108 @@ questions:
         - form: "box"
           baseWidth: 2
           height: 1
+  - id: "q-mechanical-technical-reasoning-structural-stability-0021"
+    lesson: lesson-mechanical-technical-reasoning-finding-the-tipping-angle
+    keyPoint: 1
+    type: "structural-stability"
+    difficulty: "exam"
+    stem: |
+      A crate is tilted slowly about its right bottom edge. When upright, its center of gravity is 0.3 m to the left of that edge and 0.6 m above the floor. At what angle from upright does the crate reach its tipping threshold?
+    choices:
+      - text: "$26.6^\\circ$"
+        correct: true
+      - text: "$63.4^\\circ$"
+        rationale: |
+          This divides the height by the sideways distance. The sideways distance goes on top.
+      - text: "$45.0^\\circ$"
+        rationale: |
+          This treats the two distances as equal. The height is twice the sideways distance.
+      - text: "$30.0^\\circ$"
+        rationale: |
+          This uses 0.5 as the sine. Both given sides are legs of the triangle, so use tangent.
+    explanation: |
+      Divide the sideways distance by the height. This gives $\tan\theta=\dfrac{0.3}{0.6}=0.5$. The angle with that tangent is about $26.6^\circ$.
+  - id: "q-mechanical-technical-reasoning-structural-stability-0022"
+    lesson: lesson-mechanical-technical-reasoning-finding-the-tipping-angle
+    keyPoint: 1
+    type: "structural-stability"
+    difficulty: "exam"
+    stem: |
+      A uniform crate is 0.8 m wide and 0.4 m high. It is slowly tilted about a bottom edge parallel to its depth. At what tilt angle does its center of gravity first lie vertically above that edge?
+    choices:
+      - text: "$63.4^\\circ$"
+        correct: true
+      - text: "$26.6^\\circ$"
+        rationale: |
+          This uses height divided by width. The sideways distance goes on top.
+      - text: "$45.0^\\circ$"
+        rationale: |
+          This would fit a square cross section. The crate is twice as wide as it is high.
+      - text: "$76.0^\\circ$"
+        rationale: |
+          This uses the full width with half the height. The center of gravity is halfway across and halfway up.
+    explanation: |
+      The center is 0.4 m across from the edge and 0.2 m above the floor. The tangent is $\dfrac{0.4}{0.2}=2$. The angle is about $63.4^\circ$.
+  - id: "q-mechanical-technical-reasoning-structural-stability-0023"
+    lesson: lesson-mechanical-technical-reasoning-combined-center-of-gravity
+    keyPoint: 1
+    type: "structural-stability"
+    difficulty: "exam"
+    stem: |
+      A 40 kg frame and a 120 kg motor are bolted together. Their centers of gravity lie at 0.4 m and 1.2 m, respectively, along the same horizontal scale. Where on that scale is the center of gravity of the assembly?
+    choices:
+      - text: "1.0 m"
+        correct: true
+      - text: "0.8 m"
+        rationale: |
+          This takes the midpoint. The motor has more mass, so the center lies closer to it.
+      - text: "1.2 m"
+        rationale: |
+          This uses only the motor’s position. The frame pulls the center toward 0.4 m.
+      - text: "1.33 m"
+        rationale: |
+          This divides the weighted sum by the motor’s mass alone. Use the mass of both parts.
+    explanation: |
+      Multiply each mass by its position and add the results. That gives $40(0.4)+120(1.2)=160$. Divide by the total mass of 160 kg to get 1.0 m.
+  - id: "q-mechanical-technical-reasoning-structural-stability-0024"
+    lesson: lesson-mechanical-technical-reasoning-combined-center-of-gravity
+    keyPoint: 1
+    type: "structural-stability"
+    difficulty: "exam"
+    stem: |
+      Three parts of an assembly have masses of 30 kg, 30 kg, and 90 kg. Their centers of gravity are 0.2 m, 0.6 m, and 0.9 m above the floor, respectively. At what height is the center of gravity of the complete assembly?
+    choices:
+      - text: "0.7 m"
+        correct: true
+      - text: "0.6 m"
+        rationale: |
+          This uses the height of the middle part. All three masses affect the center.
+      - text: "0.57 m"
+        rationale: |
+          This averages the three heights as if all parts had the same mass.
+      - text: "0.9 m"
+        rationale: |
+          This uses the height of the heaviest part. The two lower parts shift the center down.
+    explanation: |
+      Multiply each mass by its height. The results are 6, 18, and 81. Add them and divide by the total mass. The height is $\dfrac{105}{150}=0.7$ m.
+  - id: "q-mechanical-technical-reasoning-structural-stability-0025"
+    lesson: lesson-mechanical-technical-reasoning-pushing-an-object-over
+    keyPoint: 2
+    type: "structural-stability"
+    difficulty: "exam"
+    stem: |
+      A worker gradually increases a horizontal force on a crate near floor level. The crate starts moving across the floor while its entire base remains flat. Which interpretation is supported by this observation?
+    choices:
+      - text: "The crate slid before it tipped."
+        correct: true
+      - text: "The crate tipped about its far bottom edge before sliding."
+        rationale: |
+          A crate that tips about that edge lifts the near side of its base.
+      - text: "The crate reached both thresholds when it started moving."
+        rationale: |
+          The whole base stayed flat. Motion across the floor shows sliding, and gives no sign that tipping began.
+      - text: "The crate reached its tipping threshold because any horizontal motion means it rotated."
+        rationale: |
+          The crate can move sideways while staying upright. Tipping needs the crate to turn about an edge.
+    explanation: |
+      The crate moved along the floor with its base flat. That is sliding. If the crate had tipped, part of its base would have lifted.
