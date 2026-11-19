@@ -7,6 +7,7 @@ import {guardianLinkOrigin, guardianMailFrom} from './guardianConsent.js';
 import {appSecrets, secret} from './_secrets.js';
 import {inactivityWarningMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
 import {hasLiveProClaim} from './_pro.js';
+import {holderForChild} from './childLinks.js';
 
 const DAY_MS = 86_400_000;
 
@@ -193,6 +194,26 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
     logger.error('Pending account deletions not read', {error: String(error)});
   }
 
+  // A linked child's holder and the holder's verified address, read once per run. Null: not a linked child.
+  const holders = new Map<string, {email: string | null} | null>();
+  const holderFor = async (uid: string): Promise<{email: string | null} | null> => {
+    const known = holders.get(uid);
+    if (known !== undefined) return known;
+    const holderUid = await holderForChild(deps.db, uid);
+    let found: {email: string | null} | null = null;
+    if (holderUid !== null) {
+      try {
+        const holder = await deps.auth.getUser(holderUid);
+        found = {email: holder.email && holder.emailVerified ? holder.email : null};
+      } catch (error) {
+        if (!isMissing(error)) throw error;
+        found = {email: null};
+      }
+    }
+    holders.set(uid, found);
+    return found;
+  };
+
   const handle = async (user: UserRecord): Promise<void> => {
     // A disabled account is a guardian withdrawal in progress.
     if (user.disabled) return;
@@ -201,7 +222,18 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
     if (await proRunning(deps.db, user, now)) return;
     const idleLongEnough = now - last >= INACTIVE_DAYS * DAY_MS;
 
-    if (!user.email || !user.emailVerified) {
+    // The address the warning goes to: the account's own verified one or, for a linked child, its holder's.
+    let warnTo = user.email && user.emailVerified ? user.email : null;
+    if (warnTo === null) {
+      const holder = await holderFor(user.uid);
+      if (holder !== null) {
+        // A linked child is treated like an email account. With no verified holder address there is
+        // nobody to warn, and a child is never deleted without a warning.
+        if (holder.email === null) return;
+        warnTo = holder.email;
+      }
+    }
+    if (warnTo === null) {
       // No address to warn: a guest, or an address Google never verified (a Google sign-in can
       // leave one). Mailing an unverified address could reach someone else, so these accounts
       // end at 24 months without a warning, as the privacy texts say.
@@ -219,7 +251,7 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
     }
     if (result.warned >= warningCap) return;
     try {
-      await deps.mailer.send(inactivityWarningMessage({email: user.email,
+      await deps.mailer.send(inactivityWarningMessage({email: warnTo,
         deleteOn: now + WARNING_GRACE_DAYS * DAY_MS, origin: deps.linkOrigin}));
     } catch (error) {
       // Record nothing, so the next run tries again. Not-configured mail lands here too.

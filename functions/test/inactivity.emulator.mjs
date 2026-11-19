@@ -554,3 +554,46 @@ test('legacy parents with no marker are found by paging the responses, within th
   assert.equal(await marked(), 3);
   assert.equal(await exists('ev-lg1'), true, 'kept: the ten years have not passed');
 });
+
+// ---- linked children: warned like an email account, at the holder's email -----------------------
+
+const linkChild = async (holder, child) => {
+  await db.doc(`users/${child}/server/childLink`).set({holderUid: holder});
+  await db.doc(`users/${holder}/server/children/items/${child}`).set({childUid: child, nickname: 'Kid', active: true,
+    siblingOpenWithoutCode: false, createdAt: 1});
+};
+
+test('an idle linked child is warned at the holder\'s email, not deleted without warning', async () => {
+  await wipe('in-parent', 'in-kid');
+  await linkChild('in-parent', 'in-kid');
+  const holder = user('in-parent', {days: 1, email: 'parent@mail.com'});
+  const first = await run([holder, user('in-kid', {days: 800})]);
+  assert.deepEqual(first.auth.deleted, []);
+  assert.equal(first.box.sent.length, 1);
+  assert.equal(first.box.sent[0].to, 'parent@mail.com');
+  assert.deepEqual((await inactivity('in-kid').get()).data(), {warnedAt: NOW});
+  const second = await run([holder, user('in-kid', {days: 800})]);
+  assert.equal(second.box.sent.length, 0, 'warned already');
+  assert.deepEqual(second.auth.deleted, []);
+});
+
+test('a warned linked child is deleted after the 30 day grace and 730 idle days, not before', async () => {
+  await wipe('in-parent2', 'in-kid2', 'in-kid2b');
+  await linkChild('in-parent2', 'in-kid2');
+  await linkChild('in-parent2', 'in-kid2b');
+  await inactivity('in-kid2').set({warnedAt: NOW - 30 * DAY});
+  await inactivity('in-kid2b').set({warnedAt: NOW - 30 * DAY + 1});
+  const {auth, box} = await run([user('in-parent2', {days: 1, email: 'p2@mail.com'}),
+    user('in-kid2', {days: 760}), user('in-kid2b', {days: 760})]);
+  assert.deepEqual(auth.deleted, ['in-kid2']);
+  assert.equal(box.sent.length, 0);
+});
+
+test('a child whose holder has no verified email is not deleted; an unlinked no-email account still ends at 24 months', async () => {
+  await wipe('in-parent3', 'in-kid3', 'in-guest3');
+  await linkChild('in-parent3', 'in-kid3');
+  const {auth, box} = await run([user('in-parent3', {days: 1, email: 'p3@mail.com', verified: false}),
+    user('in-kid3', {days: 800}), user('in-guest3', {days: 800})]);
+  assert.equal(box.sent.length, 0, 'an unverified address is never mailed');
+  assert.deepEqual(auth.deleted, ['in-guest3']);
+});

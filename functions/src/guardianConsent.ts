@@ -609,6 +609,27 @@ export async function purgeGuardianRecords(db: Firestore, now: number): Promise<
       if (typeof due === 'number' && now >= due) tx.delete(row.ref);
     });
   });
+  await purgeExpiredCodeGateRows(db, now);
+}
+
+/** The code-gate collections of `guardianCodeGate.ts`. Each row carries a `purgeAt` date. */
+export const CODE_GATE_COLLECTIONS = ['guardianCodes', 'guardianCodeLimits', 'guardianCodeProofs'] as const;
+const CODE_GATE_PAGE = 200;
+/** Pages per collection per run, so one run is bounded. The hourly job comes back for the rest. */
+const CODE_GATE_PAGES = 10;
+
+/** Deletes code-gate rows whose `purgeAt` has passed. No TTL policy: this existing hourly job does it. */
+async function purgeExpiredCodeGateRows(db: Firestore, now: number): Promise<void> {
+  for (const name of CODE_GATE_COLLECTIONS) {
+    for (let page = 0; page < CODE_GATE_PAGES; page += 1) {
+      const due = await db.collection(name).where('purgeAt', '<=', new Date(now)).limit(CODE_GATE_PAGE).get();
+      if (due.empty) break;
+      const batch = db.batch();
+      for (const row of due.docs) batch.delete(row.ref);
+      await batch.commit();
+      if (due.size < CODE_GATE_PAGE) break;
+    }
+  }
 }
 
 /** The task body, for the combined hourly run and the manual runner. */
