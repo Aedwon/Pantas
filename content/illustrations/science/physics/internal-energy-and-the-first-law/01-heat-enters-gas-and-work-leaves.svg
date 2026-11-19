@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 286" width="360" height="286">
+<title>Show heat input and work output for a gas.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="286" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<path d="M112 70 V172 Q112 188 128 188 H232 Q248 188 248 172 V70" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect x="114" y="117" width="132" height="69" rx="4" fill="url(#depth)" stroke="none" stroke-width="2"/>
+<rect x="113" y="103" width="134" height="15" rx="3" fill="#010101" stroke="none" stroke-width="2"/>
+<line x1="180" y1="103" x2="180" y2="75" fill="none" stroke="#010101" stroke-width="4"/>
+<line x1="180" y1="76" x2="180" y2="35" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="180,29 176,39 184,39" fill="#050505"/>
+<line x1="180" y1="229" x2="180" y2="197" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="180,191 176,201 184,201" fill="#050505"/>
+<text x="218" y="53" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">W out</text>
+<text x="217" y="220" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Q in</text>
+<text x="180" y="263" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Math, serif" font-weight="400">ΔU</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = </tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">Q</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> − </tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">W</tspan></text>
+</svg>

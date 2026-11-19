@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 206" width="360" height="206">
+<title>Show the incident ray and the two media in the example.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="206" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<rect x="22" y="19" width="316" height="81" rx="1" fill="url(#depth)" stroke="none" stroke-width="2"/>
+<line x1="22" y1="100" x2="338" y2="100" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="191" y1="32" x2="191" y2="168" fill="none" stroke="#020202" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="31" y="58" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">air (n = 1.00)</text>
+<text x="31" y="153" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">glass (n = 1.50)</text>
+<line x1="140.1" y1="150.9" x2="186.8" y2="104.2" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="191,100 181.1,104.2 186.8,109.9" fill="#020202"/>
+<path d="M191 131 A31 31 0 0 1 169.1 121.9" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round"/>
+<text x="137" y="138" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">45°</tspan></text>
+<text x="214" y="87" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">?</tspan></text>
+</svg>

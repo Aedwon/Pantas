@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 257" width="360" height="257">
+<title>Compare force and travel at the two pistons.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="257" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<path d="M65 95 V215 Q65 232 82 232 H280 Q298 232 298 214 V95 H214 V182 H103 V95 Z" fill="url(#depth)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect x="65" y="89" width="38" height="13" rx="2" fill="#010101" stroke="none" stroke-width="2"/>
+<rect x="214" y="89" width="84" height="13" rx="2" fill="#010101" stroke="none" stroke-width="2"/>
+<line x1="84" y1="29" x2="84" y2="74" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="84,80 88,70 80,70" fill="#050505"/>
+<line x1="256" y1="80" x2="256" y2="35" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="256,29 252,39 260,39" fill="#050505"/>
+<text x="109" y="58" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">F</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">₁</tspan></text>
+<text x="282" y="58" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">F</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">₂</tspan></text>
+<text x="84" y="123" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">A</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">₁</tspan></text>
+<text x="256" y="123" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">A</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">₂</tspan></text>
+<line x1="45" y1="89" x2="45" y2="173" fill="none" stroke="#020202" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="315" y1="66" x2="315" y2="89" fill="none" stroke="#020202" stroke-width="2" stroke-dasharray="4 4"/>
+<text x="31" y="138" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">d</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">₁</tspan></text>
+<text x="329" y="83" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">d</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">₂</tspan></text>
+</svg>

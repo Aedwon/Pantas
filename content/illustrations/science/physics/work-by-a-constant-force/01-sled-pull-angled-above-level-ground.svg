@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 249" width="360" height="249">
+<title>Show the given rope force and displacement.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="249" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<line x1="22" y1="177" x2="338" y2="177" fill="none" stroke="#020202" stroke-width="2"/>
+<rect x="49" y="125" width="87" height="38" rx="7" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<path d="M33 158 Q34 177 54 177 H147 Q161 177 166 164" fill="none" stroke="#010101" stroke-width="2" stroke-linejoin="round"/>
+<line x1="136" y1="139" x2="185" y2="54.1" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="188,48.9 179.5,55.6 186.5,59.6" fill="#050505"/>
+<line x1="136" y1="139" x2="222" y2="139" fill="none" stroke="#020202" stroke-width="2" stroke-dasharray="4 4"/>
+<path d="M170 139 A34 34 0 0 0 153 109.6" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<text x="185" y="122" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">60°</tspan></text>
+<text x="218" y="54" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">50 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<line x1="52" y1="204" x2="294" y2="204" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="300,204 290,200 290,208" fill="#020202"/>
+<text x="176" y="226" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">10 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan></text>
+</svg>

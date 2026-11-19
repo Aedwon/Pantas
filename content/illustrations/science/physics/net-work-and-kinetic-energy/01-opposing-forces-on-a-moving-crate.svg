@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 228" width="360" height="228">
+<title>Show the given push, friction and displacement.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="228" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<line x1="20" y1="152" x2="339" y2="152" fill="none" stroke="#020202" stroke-width="2"/>
+<rect x="109" y="80" width="80" height="71" rx="7" fill="url(#depth)" stroke="#010101" stroke-width="2"/>
+<line x1="189" y1="115" x2="311" y2="115" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="317,115 307,111 307,119" fill="#050505"/>
+<line x1="109" y1="115" x2="67" y2="115" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="61,115 71,119 71,111" fill="#020202"/>
+<text x="260" y="96" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">40 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<text x="66" y="96" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">15 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<line x1="77" y1="180" x2="292" y2="180" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="298,180 288,176 288,184" fill="#020202"/>
+<text x="187" y="204" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">6.0 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan></text>
+</svg>

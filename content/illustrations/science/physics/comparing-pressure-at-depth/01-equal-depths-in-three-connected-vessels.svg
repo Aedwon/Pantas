@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 244" width="360" height="244">
+<title>Compare pressure at the same depth in connected water.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="244" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<path d="M33 57 V167 Q33 187 53 187 H291 L331 57 H303 L267 164 H224 V57 H130 V164 H63 V57" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<path d="M34 85 H62 V165 H131 V85 H223 V165 H267 L296 85 H322 L291 186 H53 Q34 186 34 167 Z" fill="url(#depth)" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<line x1="33" y1="85" x2="63" y2="85" fill="none" stroke="#050505" stroke-width="2"/>
+<line x1="130" y1="85" x2="224" y2="85" fill="none" stroke="#050505" stroke-width="2"/>
+<line x1="296" y1="85" x2="322" y2="85" fill="none" stroke="#050505" stroke-width="2"/>
+<line x1="25" y1="126" x2="328" y2="126" fill="none" stroke="#050505" stroke-width="2" stroke-dasharray="5 4"/>
+<circle cx="48" cy="126" r="4" fill="#050505" stroke="none" stroke-width="2"/>
+<circle cx="177" cy="126" r="4" fill="#050505" stroke="none" stroke-width="2"/>
+<circle cx="296" cy="126" r="4" fill="#050505" stroke="none" stroke-width="2"/>
+<text x="180" y="218" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">same depth h, same pressure</text>
+</svg>

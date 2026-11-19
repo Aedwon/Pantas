@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 282" width="360" height="282">
+<title>Show the three situations students are asked to classify.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="282" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<text x="39" y="59" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">(a)</text>
+<text x="39" y="157" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">(b)</text>
+<text x="39" y="253" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">(c)</text>
+<line x1="24" y1="107" x2="336" y2="107" fill="none" stroke="#020202" stroke-width="1"/>
+<line x1="24" y1="205" x2="336" y2="205" fill="none" stroke="#020202" stroke-width="1"/>
+<path d="M63 65 L78 49 Q83 45 87 49 L99 59 L106 58 Q114 59 106 67 L97 72 L83 67 L71 77 Z" fill="url(#depth)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<path d="M103 63 H145 C169 63 173 34 194 34 C216 34 216 63 241 63 H329" fill="none" stroke="#010101" stroke-width="2" stroke-linejoin="round"/>
+<line x1="124" y1="74" x2="124" y2="49" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="124,43 120,53 128,53" fill="#050505"/>
+<path d="M69 143 H88 L110 130 V176 L88 163 H69 Z" fill="url(#depth)" stroke="#010101" stroke-width="2" stroke-linejoin="round"/>
+<line x1="125" y1="141" x2="125" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="131" y1="141" x2="131" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="137" y1="141" x2="137" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="143" y1="141" x2="143" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="167" y1="141" x2="167" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="191" y1="141" x2="191" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="197" y1="141" x2="197" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="203" y1="141" x2="203" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="209" y1="141" x2="209" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="233" y1="141" x2="233" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="257" y1="141" x2="257" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="263" y1="141" x2="263" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="269" y1="141" x2="269" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<line x1="275" y1="141" x2="275" y2="165" fill="none" stroke="#020202" stroke-width="1.5"/>
+<circle cx="310" cy="151" r="11" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<path d="M294 181 Q310 165 326 181" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<line x1="70" y1="249" x2="321" y2="249" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="327,249 317,245 317,253" fill="#050505"/>
+</svg>

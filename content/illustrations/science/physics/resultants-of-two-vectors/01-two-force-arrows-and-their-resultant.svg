@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 250" width="360" height="250">
+<title>Show two force vectors and their resultant at one scale.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="250" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<line x1="58" y1="202" x2="326" y2="202" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="332,202 322,198 322,206" fill="#020202"/>
+<line x1="58" y1="202" x2="154" y2="202" fill="none" stroke="#010101" stroke-width="2.5"/>
+<polygon points="160,202 150,198 150,206" fill="#010101"/>
+<line x1="58" y1="202" x2="140" y2="60" fill="none" stroke="#010101" stroke-width="2.5"/>
+<polygon points="143,54.8 134.5,61.4 141.5,65.4" fill="#010101"/>
+<line x1="58" y1="202" x2="240.3" y2="58.5" fill="none" stroke="#050505" stroke-width="2.5" stroke-dasharray="5 4"/>
+<polygon points="245,54.8 234.7,57.8 239.6,64.1" fill="#050505"/>
+<path d="M105 202 A47 47 0 0 0 81.5 161.3" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<text x="111" y="180" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">60°</tspan></text>
+<text x="125" y="225" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">3 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<text x="115" y="104" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">5 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<text x="287" y="70" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">7 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<text x="326" y="224" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan></text>
+</svg>

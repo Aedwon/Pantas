@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 264" width="360" height="264">
+<title>Show the directions of velocity and tension in circular motion.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="264" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<circle cx="147" cy="128" r="91" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<circle cx="147" cy="128" r="4" fill="#010101" stroke="none" stroke-width="2"/>
+<line x1="147" y1="128" x2="238" y2="128" fill="none" stroke="#010101" stroke-width="2"/>
+<line x1="232" y1="128" x2="164" y2="128" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="158,128 168,132 168,124" fill="#050505"/>
+<line x1="238" y1="120" x2="238" y2="37" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="238,31 234,41 242,41" fill="#050505"/>
+<circle cx="238" cy="128" r="8" fill="#010101" stroke="none" stroke-width="2"/>
+<text x="285" y="77" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">4.0 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">/</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">s</tspan></text>
+<text x="277" y="150" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">0.50 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">kg</tspan></text>
+<text x="191" y="156" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">0.80 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan></text>
+<text x="193" y="111" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">Tension</text>
+</svg>

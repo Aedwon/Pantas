@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 206" width="360" height="206">
+<title>Show the incident angle and media for the air-to-glass example.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="206" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<rect x="22" y="101" width="316" height="81" rx="1" fill="url(#depth)" stroke="none" stroke-width="2"/>
+<line x1="22" y1="101" x2="338" y2="101" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="193" y1="33" x2="193" y2="169" fill="none" stroke="#020202" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="31" y="59" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">air (n = 1.00)</text>
+<text x="31" y="154" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">glass (n = 1.50)</text>
+<line x1="157" y1="38.6" x2="190" y2="95.8" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="193,101 191.5,90.3 184.5,94.3" fill="#020202"/>
+<path d="M193 70 A31 31 0 0 0 177.5 74.2" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round"/>
+<text x="139" y="69" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">30°</tspan></text>
+<line x1="193" y1="101" x2="212.3" y2="155.7" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="214.3,161.3 214.8,150.6 207.2,153.2" fill="#050505"/>
+<text x="229" y="146" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">?</tspan></text>
+</svg>

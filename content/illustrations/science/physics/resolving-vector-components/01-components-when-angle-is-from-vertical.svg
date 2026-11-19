@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 274" width="360" height="274">
+<title>Show the horizontal and vertical components for an angle measured from vertical.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="274" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<line x1="87" y1="227" x2="87" y2="44" fill="none" stroke="#020202" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="209.1" y1="81.5" x2="209.1" y2="227" fill="none" stroke="#020202" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="87" y1="81.5" x2="209.1" y2="81.5" fill="none" stroke="#020202" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="87" y1="227" x2="205.3" y2="86" fill="none" stroke="#010101" stroke-width="2.5"/>
+<polygon points="209.1,81.5 199.6,86.5 205.8,91.7" fill="#010101"/>
+<line x1="87" y1="227" x2="203.1" y2="227" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="209.1,227 199.1,223 199.1,231" fill="#050505"/>
+<line x1="87" y1="227" x2="87" y2="87.5" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="87,81.5 83,91.5 91,91.5" fill="#050505"/>
+<path d="M87 167 A60 60 0 0 1 125.6 181" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<text x="119" y="153" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">40°</tspan></text>
+<text x="179" y="131" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">50 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<text x="147" y="251" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">50 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">sin</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> 40</tspan></text>
+<text x="49" y="139" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">50 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">cos</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> 40</tspan></text>
+</svg>

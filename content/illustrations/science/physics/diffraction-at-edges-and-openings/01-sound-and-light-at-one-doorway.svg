@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 205" width="360" height="205">
+<title>Show the doorway and the two given wavelengths.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="205" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<rect x="20" y="95" width="118" height="16" rx="2" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<rect x="222" y="95" width="118" height="16" rx="2" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<line x1="144" y1="103" x2="160" y2="103" fill="none" stroke="#050505" stroke-width="2"/>
+<line x1="200" y1="103" x2="216" y2="103" fill="none" stroke="#050505" stroke-width="2"/>
+<text x="180" y="108" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">1 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan></text>
+<text x="180" y="56" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">sound, wavelength 1 m</text>
+<text x="180" y="155" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">light, wavelength 5 x 10⁻⁷ m</text>
+</svg>

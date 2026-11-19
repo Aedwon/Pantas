@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 385" width="360" height="385">
+<title>Compare the directions of particle motion and wave travel.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="385" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<text x="180" y="33" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Transverse</text>
+<polyline points="30,86 32,83.3 34,80.6 36,78.1 38,75.7 40,73.6 42,71.6 44,70 46,68.7 48,67.8 50,67.2 52,67 54,67.2 56,67.8 58,68.7 60,70 62,71.6 64,73.6 66,75.7 68,78.1 70,80.6 72,83.3 74,86 76,88.7 78,91.4 80,93.9 82,96.3 84,98.4 86,100.4 88,102 90,103.3 92,104.2 94,104.8 96,105 98,104.8 100,104.2 102,103.3 104,102 106,100.4 108,98.4 110,96.3 112,93.9 114,91.4 116,88.7 118,86 120,83.3 122,80.6 124,78.1 126,75.7 128,73.6 130,71.6 132,70 134,68.7 136,67.8 138,67.2 140,67 142,67.2 144,67.8 146,68.7 148,70 150,71.6 152,73.6 154,75.7 156,78.1 158,80.6 160,83.3 162,86 164,88.7 166,91.4 168,93.9 170,96.3 172,98.4 174,100.4 176,102 178,103.3 180,104.2 182,104.8 184,105 186,104.8 188,104.2 190,103.3 192,102 194,100.4 196,98.4 198,96.3 200,93.9 202,91.4 204,88.7 206,86 208,83.3 210,80.6 212,78.1 214,75.7 216,73.6 218,71.6 220,70 222,68.7 224,67.8 226,67.2 228,67 230,67.2 232,67.8 234,68.7 236,70 238,71.6 240,73.6 242,75.7 244,78.1 246,80.6 248,83.3 250,86 252,88.7 254,91.4 256,93.9 258,96.3 260,98.4 262,100.4 264,102 266,103.3 268,104.2 270,104.8 272,105 274,104.8 276,104.2 278,103.3 280,102 282,100.4 284,98.4 286,96.3 288,93.9 290,91.4 292,88.7 294,86" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<line x1="312" y1="110" x2="312" y2="69" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="312,63 308,73 316,73" fill="#050505"/>
+<line x1="312" y1="63" x2="312" y2="104" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="312,110 316,100 308,100" fill="#050505"/>
+<line x1="209" y1="128" x2="322" y2="128" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="328,128 318,124 318,132" fill="#020202"/>
+<text x="135" y="133" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">wave travel</text>
+<text x="180" y="158" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">particle motion ↑↓</text>
+<line x1="23" y1="179" x2="337" y2="179" fill="none" stroke="#020202" stroke-width="1"/>
+<text x="180" y="207" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Longitudinal</text>
+<ellipse cx="43" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="49" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="55" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="61" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="67" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="73" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="90" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="111" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="132" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="153" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="174" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="180" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="186" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="192" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="198" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="204" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="221" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="242" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="263" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="284" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="305" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="311" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="317" cy="252" rx="4" ry="17" fill="none" stroke="#020202" stroke-width="1.5"/>
+<text x="68" y="229" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">compression</text>
+<text x="141" y="294" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">rarefaction</text>
+<line x1="138" y1="321" x2="189" y2="321" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="195,321 185,317 185,325" fill="#050505"/>
+<line x1="195" y1="321" x2="144" y2="321" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="138,321 148,325 148,317" fill="#050505"/>
+<text x="250" y="326" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">particle motion</text>
+<line x1="209" y1="355" x2="322" y2="355" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="328,355 318,351 318,359" fill="#020202"/>
+<text x="135" y="360" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">wave travel</text>
+</svg>

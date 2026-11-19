@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 242" width="360" height="242">
+<title>Show which horizontal forces act on each of the connected blocks.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="242" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<rect x="59" y="51" width="74" height="45" rx="7" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<rect x="174" y="51" width="74" height="45" rx="7" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<line x1="133" y1="73" x2="174" y2="73" fill="none" stroke="#020202" stroke-width="2"/>
+<text x="96" y="78" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">B (2 kg)</text>
+<text x="211" y="78" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">A (3 kg)</text>
+<line x1="249" y1="73" x2="324" y2="73" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="330,73 320,69 320,77" fill="#050505"/>
+<text x="293" y="54" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">20 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<line x1="22" y1="123" x2="338" y2="123" fill="none" stroke="#020202" stroke-width="1"/>
+<text x="110" y="159" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">A</text>
+<text x="270" y="159" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">B</text>
+<circle cx="110" cy="192" r="5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="270" cy="192" r="5" fill="#010101" stroke="none" stroke-width="2"/>
+<line x1="106" y1="192" x2="80" y2="192" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="74,192 84,196 84,188" fill="#050505"/>
+<line x1="114" y1="192" x2="188" y2="192" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="194,192 184,188 184,196" fill="#020202"/>
+<line x1="274" y1="192" x2="300" y2="192" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="306,192 296,188 296,196" fill="#050505"/>
+<text x="87" y="218" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">T</tspan></text>
+<text x="156" y="218" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">20 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<text x="289" y="218" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">T</tspan></text>
+</svg>

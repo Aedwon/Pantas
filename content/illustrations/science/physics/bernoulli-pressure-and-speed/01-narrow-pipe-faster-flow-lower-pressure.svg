@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 298" width="360" height="298">
+<title>Compare flow speed and pressure at two points of a level pipe.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="298" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<path d="M24 145 H128 Q155 145 184 167 H336 V213 H184 Q155 235 128 235 H24 Z" fill="url(#depth)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect x="78" y="52" width="20" height="94" rx="1" fill="none" stroke="#020202" stroke-width="2"/>
+<rect x="257" y="52" width="20" height="116" rx="1" fill="none" stroke="#020202" stroke-width="2"/>
+<rect x="80" y="82" width="16" height="64" rx="0" fill="url(#depth)" stroke="none" stroke-width="2"/>
+<rect x="259" y="123" width="16" height="45" rx="0" fill="url(#depth)" stroke="none" stroke-width="2"/>
+<line x1="79" y1="82" x2="97" y2="82" fill="none" stroke="#050505" stroke-width="2"/>
+<line x1="258" y1="123" x2="276" y2="123" fill="none" stroke="#050505" stroke-width="2"/>
+<line x1="56" y1="190" x2="109" y2="190" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="115,190 105,186 105,194" fill="#050505"/>
+<line x1="207" y1="190" x2="318" y2="190" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="324,190 314,186 314,194" fill="#050505"/>
+<text x="85" y="218" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">v</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">₁</tspan></text>
+<text x="263" y="209" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">v</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">₂</tspan></text>
+<text x="88" y="263" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">1 · </tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">A</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">₁</tspan></text>
+<text x="267" y="263" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">2 · </tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">A</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">₂</tspan></text>
+</svg>

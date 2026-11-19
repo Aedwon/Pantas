@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 375" width="360" height="375">
+<title>Show the three coil orientations in the generator example.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="375" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<rect x="23" y="38" width="31" height="40" rx="4" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<rect x="306" y="38" width="31" height="40" rx="4" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<text x="39" y="63" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">N</text>
+<text x="321" y="63" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">S</text>
+<line x1="69" y1="58" x2="121" y2="58" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="127,58 117,54 117,62" fill="#020202"/>
+<line x1="237" y1="58" x2="285" y2="58" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="291,58 281,54 281,62" fill="#020202"/>
+<text x="94" y="30" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">0°</tspan></text>
+<polyline points="176,85 168,85 168,31 192,31 192,85 184,85" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="176,85 160,85 160,107 170,107" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="184,85 200,85 200,107 188,107" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="179" cy="107" r="9" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<path d="M174 103 L184 111 M184 103 L174 111" fill="none" stroke="#020202" stroke-width="1" stroke-linejoin="round"/>
+<rect x="23" y="151" width="31" height="40" rx="4" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<rect x="306" y="151" width="31" height="40" rx="4" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<text x="39" y="176" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">N</text>
+<text x="321" y="176" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">S</text>
+<line x1="69" y1="171" x2="121" y2="171" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="127,171 117,167 117,175" fill="#020202"/>
+<line x1="237" y1="171" x2="285" y2="171" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="291,171 281,167 281,175" fill="#020202"/>
+<text x="94" y="143" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">45°</tspan></text>
+<polyline points="158.1,187.3 152.4,181.6 190.6,143.4 207.6,160.4 169.4,198.6 163.7,192.9" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="158.1,187.3 142.1,187.3 142.1,220 170,220" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="163.7,192.9 179.7,192.9 179.7,220 188,220" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="179" cy="220" r="9" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<path d="M174 216 L184 224 M184 216 L174 224" fill="none" stroke="#020202" stroke-width="1" stroke-linejoin="round"/>
+<rect x="23" y="264" width="31" height="40" rx="4" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<rect x="306" y="264" width="31" height="40" rx="4" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<text x="39" y="289" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">N</text>
+<text x="321" y="289" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">S</text>
+<line x1="69" y1="284" x2="121" y2="284" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="127,284 117,280 117,288" fill="#020202"/>
+<line x1="237" y1="284" x2="285" y2="284" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="291,284 281,280 281,288" fill="#020202"/>
+<text x="94" y="256" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">90°</tspan></text>
+<polyline points="153,280 153,272 207,272 207,296 153,296 153,288" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="153,280 137,280 137,333 170,333" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="153,288 169,288 169,333 188,333" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="179" cy="333" r="9" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<path d="M174 329 L184 337 M184 329 L174 337" fill="none" stroke="#020202" stroke-width="1" stroke-linejoin="round"/>
+</svg>

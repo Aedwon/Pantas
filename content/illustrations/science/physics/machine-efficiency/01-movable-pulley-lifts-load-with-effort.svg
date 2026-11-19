@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 311" width="360" height="311">
+<title>Show the given load and rope motion in the pulley system.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="311" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<line x1="57" y1="30" x2="286" y2="30" fill="none" stroke="#010101" stroke-width="2"/>
+<line x1="190" y1="30" x2="190" y2="48" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="190" cy="72" r="24" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<circle cx="142" cy="155" r="24" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<path d="M118 30 V155 A24 24 0 0 0 166 155 V72 A24 24 0 0 1 214 72 V173" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<line x1="142" y1="155" x2="142" y2="195" fill="none" stroke="#020202" stroke-width="2"/>
+<rect x="105" y="195" width="74" height="34" rx="7" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<text x="142" y="217" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">50 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">kg</tspan></text>
+<line x1="80" y1="237" x2="80" y2="187" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="80,181 76,191 84,191" fill="#050505"/>
+<text x="48" y="212" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">2.0 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan></text>
+<line x1="214" y1="173" x2="214" y2="279" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="214,285 218,275 210,275" fill="#050505"/>
+<text x="256" y="219" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">4.0 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan></text>
+<text x="258" y="274" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">350 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+</svg>

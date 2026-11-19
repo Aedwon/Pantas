@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 284" width="360" height="284">
+<title>Show the resultant just inside quadrant III.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="284" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<line x1="24" y1="128" x2="330" y2="128" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="336,128 326,124 326,132" fill="#020202"/>
+<line x1="294" y1="244" x2="294" y2="30" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="294,24 290,34 298,34" fill="#020202"/>
+<line x1="294" y1="128" x2="108.7" y2="21" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="103.5,18 110.2,26.5 114.2,19.5" fill="#020202"/>
+<line x1="294" y1="128" x2="294" y2="254" fill="none" stroke="#010101" stroke-width="2.5"/>
+<polygon points="294,260 298,250 290,250" fill="#010101"/>
+<line x1="294" y1="128" x2="109.5" y2="149.3" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="103.5,150 113.9,152.8 113,144.9" fill="#050505"/>
+<path d="M260 128 A34 34 0 0 0 260.2 131.9" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round"/>
+<text x="241" y="165" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">6.6°</tspan></text>
+<text x="147" y="42" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">20 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<text x="325" y="237" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">12 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<text x="126" y="176" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">17.4 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<text x="323" y="153" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan></text>
+<text x="310" y="33" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan></text>
+<line x1="294" y1="128" x2="329" y2="128" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="294" y1="128" x2="106" y2="19" fill="none" stroke="#020202" stroke-width="1"/>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 254" width="360" height="254">
+<title>Show the four named bands and the given radio frequency.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="254" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<rect x="24" y="25" width="152" height="38" rx="6" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="2"/>
+<text x="100" y="49" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">X-rays</text>
+<rect x="184" y="25" width="152" height="38" rx="6" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="2"/>
+<text x="260" y="49" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">radio waves</text>
+<rect x="24" y="72" width="152" height="38" rx="6" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="2"/>
+<text x="100" y="96" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">visible light</text>
+<rect x="184" y="72" width="152" height="38" rx="6" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="2"/>
+<text x="260" y="96" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">gamma rays</text>
+<line x1="22" y1="130" x2="338" y2="130" fill="none" stroke="#020202" stroke-width="1"/>
+<text x="180" y="158" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">100 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">MHz</tspan></text>
+<polyline points="60,203 62,199.7 64,196.5 66,193.5 68,190.7 70,188.2 72,186 74,184.3 76,183 78,182.3 80,182 82,182.3 84,183 86,184.3 88,186 90,188.2 92,190.7 94,193.5 96,196.5 98,199.7 100,203 102,206.3 104,209.5 106,212.5 108,215.3 110,217.8 112,220 114,221.7 116,223 118,223.7 120,224 122,223.7 124,223 126,221.7 128,220 130,217.8 132,215.3 134,212.5 136,209.5 138,206.3 140,203 142,199.7 144,196.5 146,193.5 148,190.7 150,188.2 152,186 154,184.3 156,183 158,182.3 160,182 162,182.3 164,183 166,184.3 168,186 170,188.2 172,190.7 174,193.5 176,196.5 178,199.7 180,203 182,206.3 184,209.5 186,212.5 188,215.3 190,217.8 192,220 194,221.7 196,223 198,223.7 200,224 202,223.7 204,223 206,221.7 208,220 210,217.8 212,215.3 214,212.5 216,209.5 218,206.3 220,203 222,199.7 224,196.5 226,193.5 228,190.7 230,188.2 232,186 234,184.3 236,183 238,182.3 240,182 242,182.3 244,183 246,184.3 248,186 250,188.2 252,190.7 254,193.5 256,196.5 258,199.7 260,203 262,206.3 264,209.5 266,212.5 268,215.3 270,217.8 272,220 274,221.7 276,223 278,223.7 280,224 282,223.7 284,223 286,221.7 288,220 290,217.8 292,215.3 294,212.5 296,209.5 298,206.3 300,203" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round"/>
+<line x1="80" y1="174" x2="80" y2="184" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="160" y1="174" x2="160" y2="184" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="80" y1="179" x2="160" y2="179" fill="none" stroke="#050505" stroke-width="2"/>
+<text x="120" y="169" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">λ = ?</tspan></text>
+</svg>

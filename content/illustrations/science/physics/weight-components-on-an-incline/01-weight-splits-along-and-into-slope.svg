@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 288" width="360" height="288">
+<title>Show the weight and its two components on the slope.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="288" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<path d="M28 238 H220 V127.1 Z" fill="url(#depth)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect transform="rotate(-30 167 147)" x="145" y="126" width="44" height="42" rx="4" fill="url(#depth)" stroke="#010101" stroke-width="2"/>
+<line x1="24" y1="238" x2="75" y2="238" fill="none" stroke="#020202" stroke-width="2"/>
+<path d="M62 238 A34 34 0 0 0 57.4 221" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<text x="91" y="228" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">30°</tspan></text>
+<line x1="74" y1="201" x2="272" y2="86" fill="none" stroke="#020202" stroke-width="1" stroke-dasharray="3 4"/>
+<line x1="108" y1="45" x2="228" y2="253" fill="none" stroke="#020202" stroke-width="1" stroke-dasharray="3 4"/>
+<line x1="167" y1="147" x2="167" y2="238" fill="none" stroke="#010101" stroke-width="2.5"/>
+<polygon points="167,244 171,234 163,234" fill="#010101"/>
+<text x="154" y="262" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">mg</tspan></text>
+<line x1="167" y1="147" x2="131" y2="84.2" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="128,79 129.5,89.7 136.4,85.7" fill="#020202"/>
+<text x="120" y="69" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<line x1="167" y1="147" x2="213.8" y2="120" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="219,117 208.3,118.5 212.3,125.5" fill="#020202"/>
+<text x="230" y="103" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">f</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">ₖ</tspan></text>
+<line x1="167" y1="147" x2="130.2" y2="168" fill="none" stroke="#050505" stroke-width="2.5" stroke-dasharray="4 3"/>
+<polygon points="125,171 135.7,169.5 131.7,162.6" fill="#050505"/>
+<text x="74" y="164" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Math, serif" font-weight="400">mg</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">sin</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">(</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">θ</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">)</tspan></text>
+<line x1="167" y1="147" x2="206" y2="214.8" fill="none" stroke="#050505" stroke-width="2.5" stroke-dasharray="4 3"/>
+<polygon points="209,220 207.5,209.3 200.5,213.3" fill="#050505"/>
+<text x="268" y="222" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Math, serif" font-weight="400">mg</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">cos</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">(</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">θ</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">)</tspan></text>
+</svg>

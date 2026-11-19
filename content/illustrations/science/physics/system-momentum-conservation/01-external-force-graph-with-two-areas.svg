@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 265" width="360" height="265">
+<title>Show the two areas under an external force-time graph.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="265" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<text x="25" y="34" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Force, F (N)</text>
+<text x="181" y="241" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Time, t (s)</text>
+<line x1="57" y1="191" x2="326" y2="191" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="332,191 322,187 322,195" fill="#020202"/>
+<line x1="57" y1="191" x2="57" y2="52" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="57,46 53,56 61,56" fill="#020202"/>
+<line x1="57" y1="191" x2="57" y2="196" fill="none" stroke="#020202" stroke-width="1"/>
+<text x="57.0" y="216" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">0</tspan></text>
+<line x1="157.8" y1="191" x2="157.8" y2="196" fill="none" stroke="#020202" stroke-width="1"/>
+<text x="157.8" y="216" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">2.0</tspan></text>
+<line x1="309" y1="191" x2="309" y2="196" fill="none" stroke="#020202" stroke-width="1"/>
+<text x="309.0" y="216" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">5.0</tspan></text>
+<line x1="51" y1="65" x2="57" y2="65" fill="none" stroke="#020202" stroke-width="1"/>
+<text x="44" y="70.0" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">10</tspan></text>
+<polyline points="57,191 157.8,65 157.8,191 57,191" fill="url(#depth)" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<rect x="157.8" y="65" width="151.2" height="126" rx="0" fill="url(#depth)" stroke="none" stroke-width="2"/>
+<line x1="157.8" y1="65" x2="157.8" y2="191" fill="none" stroke="#020202" stroke-width="2" stroke-dasharray="4 4"/>
+<text x="132" y="173" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">A</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">₁</tspan></text>
+<text x="233" y="131" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">A</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">₂</tspan></text>
+<polyline points="57,191 157.8,65 309,65" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="57" cy="191" r="3" fill="#050505" stroke="none" stroke-width="2"/>
+<circle cx="157.8" cy="65" r="3" fill="#050505" stroke="none" stroke-width="2"/>
+<circle cx="309" cy="65" r="3" fill="#050505" stroke="none" stroke-width="2"/>
+</svg>

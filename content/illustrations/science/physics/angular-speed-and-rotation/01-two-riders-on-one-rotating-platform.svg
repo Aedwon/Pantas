@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 269" width="360" height="269">
+<title>Compare tangent speeds on the same rotating platform.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="269" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<circle cx="164" cy="145" r="104" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<line x1="164" y1="145" x2="268" y2="145" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="164" cy="145" r="3" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="216" cy="145" r="4" fill="#050505" stroke="none" stroke-width="2"/>
+<circle cx="268" cy="145" r="4" fill="#050505" stroke="none" stroke-width="2"/>
+<line x1="216" y1="139" x2="216" y2="110" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="216,104 212,114 220,114" fill="#050505"/>
+<line x1="268" y1="139" x2="268" y2="75" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="268,69 264,79 272,79" fill="#050505"/>
+<text x="216" y="174" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">A</tspan></text>
+<text x="281" y="174" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">B</tspan></text>
+<text x="211" y="196" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">r</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 2.0 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan></text>
+<text x="280" y="221" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">r</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 4.0 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan></text>
+<text x="137" y="103" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">12 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">rpm</tspan></text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 216" width="360" height="216">
+<title>Compare precision with accuracy.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="216" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<circle cx="91" cy="89" r="54" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="91" cy="89" r="35" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="91" cy="89" r="16" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="86" y1="89" x2="96" y2="89" fill="none" stroke="#020202" stroke-width="1"/>
+<line x1="91" y1="84" x2="91" y2="94" fill="none" stroke="#020202" stroke-width="1"/>
+<circle cx="269" cy="89" r="54" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="269" cy="89" r="35" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="269" cy="89" r="16" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="264" y1="89" x2="274" y2="89" fill="none" stroke="#020202" stroke-width="1"/>
+<line x1="269" y1="84" x2="269" y2="94" fill="none" stroke="#020202" stroke-width="1"/>
+<circle cx="118" cy="65" r="4" fill="#050505" stroke="none" stroke-width="2"/>
+<circle cx="126" cy="69" r="4" fill="#050505" stroke="none" stroke-width="2"/>
+<circle cx="119" cy="75" r="4" fill="#050505" stroke="none" stroke-width="2"/>
+<circle cx="239" cy="72" r="4" fill="#050505" stroke="none" stroke-width="2"/>
+<circle cx="298" cy="69" r="4" fill="#050505" stroke="none" stroke-width="2"/>
+<circle cx="270" cy="126" r="4" fill="#050505" stroke="none" stroke-width="2"/>
+<text x="91" y="175" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">precise,</text>
+<text x="91" y="194" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">not accurate</text>
+<text x="269" y="175" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">accurate on average,</text>
+<text x="269" y="194" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">not precise</text>
+</svg>

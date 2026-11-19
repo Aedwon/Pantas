@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 258" width="360" height="258">
+<title>Show the given start height and final speed.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="258" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<path d="M76 74 L275 198 H76 Z" fill="url(#depth)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect transform="rotate(31.9 76 74)" x="75" y="41" width="75" height="32" rx="4" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<text x="115" y="66" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">2.0 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">kg</tspan></text>
+<line x1="53" y1="195" x2="53" y2="80" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="53,74 49,84 57,84" fill="#050505"/>
+<text x="38" y="139" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">1.5 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan></text>
+<line x1="25" y1="198" x2="335" y2="198" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="265" y1="180" x2="325" y2="180" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="331,180 321,176 321,184" fill="#020202"/>
+<text x="292" y="224" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">3.0 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">m</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">/</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">s</tspan></text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 395" width="360" height="395">
+<title>Show the pulley and the forces on each block.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="395" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<line x1="143" y1="27" x2="217" y2="27" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="180" y1="27" x2="180" y2="45" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="180" cy="74" r="29" fill="url(#depth)" stroke="#020202" stroke-width="2"/>
+<path d="M151 157 V74 A29 29 0 0 1 209 74 V110" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect x="113" y="157" width="76" height="32" rx="7" fill="url(#depth)" stroke="none" stroke-width="2"/>
+<rect x="171" y="110" width="76" height="32" rx="7" fill="url(#depth)" stroke="none" stroke-width="2"/>
+<text x="151" y="178" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">A</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> (3 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">kg</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">)</tspan></text>
+<text x="209" y="131" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">B</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> (2 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">kg</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">)</tspan></text>
+<line x1="92" y1="126" x2="92" y2="166" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="92,172 96,162 88,162" fill="#050505"/>
+<line x1="268" y1="165" x2="268" y2="125" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="268,119 264,129 272,129" fill="#050505"/>
+<line x1="22" y1="203" x2="338" y2="203" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="78" cy="295" r="5" fill="#010101" stroke="none" stroke-width="2"/>
+<line x1="78" y1="289" x2="78" y2="237" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="78,231 74,241 82,241" fill="#050505"/>
+<line x1="78" y1="301" x2="78" y2="364" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="78,370 82,360 74,360" fill="#020202"/>
+<text x="44" y="300" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">A</text>
+<text x="100" y="253" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">T</tspan></text>
+<text x="118" y="367" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">29.4 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+<circle cx="243" cy="295" r="5" fill="#010101" stroke="none" stroke-width="2"/>
+<line x1="243" y1="289" x2="243" y2="237" fill="none" stroke="#050505" stroke-width="2.5"/>
+<polygon points="243,231 239,241 247,241" fill="#050505"/>
+<line x1="243" y1="301" x2="243" y2="341" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="243,347 247,337 239,337" fill="#020202"/>
+<text x="209" y="300" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">B</text>
+<text x="265" y="253" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">T</tspan></text>
+<text x="283" y="344" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">19.6 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">N</tspan></text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 286" width="360" height="286">
+<title>Show the order of the electromagnetic spectrum.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.28"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect x="0" y="0" width="360" height="286" rx="14" fill="url(#bg)" stroke="none" stroke-width="2"/>
+<text x="180" y="36" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">wavelength gets longer</text>
+<line x1="327" y1="53" x2="39" y2="53" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="33,53 43,57 43,49" fill="#020202"/>
+<line x1="33" y1="235" x2="321" y2="235" fill="none" stroke="#020202" stroke-width="2.5"/>
+<polygon points="327,235 317,231 317,239" fill="#020202"/>
+<text x="180" y="260" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">frequency gets higher</text>
+<rect x="19" y="72" width="45" height="54" rx="4" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="2"/>
+<text x="41" y="94" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">radio</text>
+<rect x="65" y="72" width="45" height="54" rx="4" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="2"/>
+<text x="87" y="94" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">micro-</text>
+<text x="87" y="114" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">wave</text>
+<rect x="111" y="72" width="45" height="54" rx="4" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="2"/>
+<text x="133" y="94" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">infra-</text>
+<text x="133" y="114" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">red</text>
+<rect x="157" y="72" width="45" height="54" rx="4" fill="url(#depth)" stroke="none" stroke-width="2"/>
+<text x="179" y="94" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">visible</text>
+<rect x="203" y="72" width="45" height="54" rx="4" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="2"/>
+<text x="225" y="94" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">ultra-</text>
+<text x="225" y="114" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">violet</text>
+<rect x="249" y="72" width="45" height="54" rx="4" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="2"/>
+<text x="271" y="94" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">X-ray</text>
+<rect x="295" y="72" width="45" height="54" rx="4" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="2"/>
+<text x="317" y="94" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">gamma</text>
+<text x="317" y="114" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">ray</text>
+<line x1="159" y1="129" x2="81" y2="164" fill="none" stroke="#050505" stroke-width="2"/>
+<line x1="201" y1="129" x2="279" y2="164" fill="none" stroke="#050505" stroke-width="2"/>
+<defs>
+<linearGradient id="visible">
+<stop offset="0" stop-color="#b62629"/>
+<stop offset="0.2" stop-color="#e89526"/>
+<stop offset="0.4" stop-color="#e8cb47"/>
+<stop offset="0.57" stop-color="#38955c"/>
+<stop offset="0.75" stop-color="#376bd7"/>
+<stop offset="1" stop-color="#742ca0"/>
+</linearGradient>
+</defs>
+<rect x="81" y="164" width="198" height="26" rx="5" fill="url(#visible)" stroke="none" stroke-width="2"/>
+<text x="89" y="211" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">700 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">nm</tspan></text>
+<text x="271" y="211" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">400 </tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">nm</tspan></text>
+</svg>
