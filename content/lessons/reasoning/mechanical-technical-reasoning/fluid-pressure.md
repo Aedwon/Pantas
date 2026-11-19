@@ -36,6 +36,8 @@ $$P=P_0+\rho gh,$$
 
 where $h$ is the depth, the straight-down distance below the **free surface** (the top surface of the liquid). $P_0$ is the pressure pushing on that surface. In a container open to the air, $P_0$ is the air pressure, about $101{,}000$ Pa.
 
+**Absolute pressure** is zero in a vacuum. **Gauge pressure** is absolute pressure minus local air pressure.
+
 If $h=0$, the formula gives $P=P_0$, the pressure at the surface.
 
 In the same static liquid, with the same $P_0$, a deeper point has greater pressure. Container shape does not change the pressure at a given depth. Depth means vertical distance, not the length along a slanted wall.
@@ -50,7 +52,6 @@ Different liquids, a sealed surface, or unequal pressures on the surfaces can gi
 
 For two different liquids that do not mix, use pressure. At the same level inside one continuous resting liquid, the pressure is the same. So the pressure at the boundary between the liquids, worked from each arm, must match.
 
-<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "connected", "columns": 2, "semanticsLabel": "A U-shaped tube with two containers of different widths connected at the bottom, with water surface level exactly equal in both."} -->
 ### Pressure in a Closed System (Hydraulics)
 
 Pascal's principle says this: in a confined, resting, incompressible liquid, a pressure change at one place passes to every other place in the liquid without loss. A **hydraulic system** uses this with two pistons of different areas.
@@ -59,7 +60,7 @@ The pressure under both pistons is the same, so
 
 $$\dfrac{F_1}{A_1}=\dfrac{F_2}{A_2}.$$
 
-A small force on a small piston can balance a large force on a large piston. This holds when the pistons are at the same height, the liquid cannot be squeezed, and friction and leaks are ignored. If the pistons sit at different heights, add the $\rho gh$ difference.
+A small force on a small piston can balance a large force on a large piston. This holds when the pistons are at the same height, the liquid cannot be squeezed, and friction and leaks are ignored. In a resting liquid, the pressure at the lower piston is higher by $\rho g$ times the height difference.
 
 The force gain is not a free gain in work. The small piston moves farther than the large piston, in the same ratio as the areas. Work in equals work out.
 
@@ -81,7 +82,7 @@ A **streamline** is the path a small bit of fluid follows. **Static pressure** i
 
 $$P+\tfrac12\rho v^2+\rho gy=\text{constant},$$
 
-where $y$ is the height. At the **same height**, a higher speed goes with a lower static pressure. If the speeds are equal, the pressures are equal. If the height rises and the speed stays the same, the pressure falls.
+where $y$ is the height. At the **same height**, a higher speed goes with a lower static pressure. If the speeds are equal at the same height, the pressures are equal. If the height rises and the speed stays the same, the pressure falls.
 
 To compare two points 1 and 2 on a streamline, write the constant sum for each and subtract. This gives the change in pressure:
 
@@ -91,7 +92,7 @@ If the height is equal, the second term is zero. If the speed is equal, the firs
 
 "Faster flow always means lower pressure" is too broad. A pump adds energy.
 
-Friction in a real pipe lowers the pressure along the pipe even when the speed stays the same. Height changes, fast gas flow, and points on different streamlines also break the simple rule.
+In a level pipe with no pump, friction lowers the pressure along the flow even when the speed stays the same. Height changes, fast gas flow, and points on different streamlines also break the simple rule.
 
 ## Examples
 
@@ -106,7 +107,7 @@ Since $P=P_0+\rho gh$, **B** has greater pressure.
 <!-- FIGURE: {"kind": "fluid-vessel", "vessel": "column", "points": ["A", "B"], "semanticsLabel": "A water-filled container with Point A marked near the surface and Point B near the bottom."} -->
 ### #2: Communicating Vessels
 
-A wide arm and narrow arm are connected at the bottom, contain the same water, and are both open to the atmosphere. After equilibrium, which free surface is higher?
+A wide arm and narrow arm are connected at the bottom, contain the same water, and are both open to the atmosphere. Ignore capillary effects. After the water comes to rest, which free surface is higher?
 
 **Solution:**
 
@@ -189,15 +190,15 @@ The large piston supports **$1000$ N**. It moves only $\dfrac{1}{20}$ as far as 
 <!-- ILLUSTRATION: A hydraulic lift with a small piston of area 10 cm2 pushed by a 50 N force and a large piston of area 200 cm2 joined by one liquid-filled chamber at the same height. The force on the large piston is marked with a question mark. -->
 ### #9: A Pipe That Splits
 
-Water flows steadily at $2$ m/s in a pipe of cross-section $10\ \text{cm}^2$. The pipe splits into two identical branches, each of cross-section $4\ \text{cm}^2$. What is the speed in each branch?
+Water flows steadily at $2$ m/s in a pipe of cross-section $10\ \text{cm}^2$. The pipe splits into two identical branches, each with a cross-section of $4\ \text{cm}^2$. The outlets are at the same height and pressure. What is the speed in each branch?
 
 **Solution:**
 
-The flow rate in is $10\times 2=20\ \text{cm}^2\text{m/s}$. The identical branches share it equally, so each carries $10$.
+The flow rate in is $10\times 2=20\ \text{cm}^2\text{m/s}$. The branches are identical and have equal outlet conditions, so each carries $10\ \text{cm}^2\text{m/s}$.
 
 $$v=\dfrac{10}{4}=2.5\ \text{m/s}.$$
 
-Each branch has a speed of **$2.5$ m/s**. If the branches were different, the split would not be equal, and the pipe sizes alone would not give the speeds.
+Each branch has a speed of **$2.5$ m/s**. Different branches can split the flow unequally. Pipe sizes alone do not tell you the speeds.
 
 <!-- ILLUSTRATION: A pipe of cross-section 10 cm2 with water at 2 m/s that splits into two identical branches of cross-section 4 cm2 each. The branch speeds are marked with a question mark. -->
 ### #10: Height and Speed Both Matter
@@ -229,11 +230,11 @@ The pressure falls by **$16{,}000$ Pa**, then by **$49{,}000$ Pa**.
 
 ### #1: "Bottom Pressure Is Always Greater"
 
-> Deeper pressure is greater only under the stated hydrostatic conditions. Different surface pressures or fluids can change a comparison, as in Example 6.
+> Check the liquid and surface pressure. See the sealed tank example.
 
 ### #2: "Connected Containers Always Have Equal Levels"
 
-> Equal levels require the same connected liquid and equal pressure on the free surfaces at equilibrium, neglecting capillary effects. Two different liquids, as in Example 7, settle at different heights.
+> Equal levels require the same connected liquid and equal pressure on the free surfaces at equilibrium, neglecting capillary effects. Two liquids that do not mix and have different densities can settle at different heights, as in the oil and water example.
 
 ### #3: "A Narrow Pipe Always Makes Fluid Faster"
 

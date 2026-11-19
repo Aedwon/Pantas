@@ -24,7 +24,9 @@ A fluid at rest is called **static**. Take a fluid of constant density $\rho$ at
 
 $$P=P_0+\rho gh,$$
 
-where $h$ is the depth, the straight-down distance below the **free surface** (the top surface of the liquid). $P_0$ is the pressure pushing on that surface. In a container open to the air, $P_0$ is the air pressure, about $101{,}000$ Pa.
+where $h$ is the depth, the straight-down distance below the **free surface** (the top surface of the liquid). $P_0$ is the pressure pushing on that surface. In a container open to the air, $P_0$ is the air pressure, about $101{,}000$ Pa. A pascal is one newton per square meter.
+
+**Absolute pressure** is zero in a vacuum. **Gauge pressure** is absolute pressure minus local air pressure.
 
 If $h=0$, the formula gives $P=P_0$, the pressure at the surface.
 
@@ -80,4 +82,4 @@ Y: $101{,}000+1000\times 9.8\times 3=130{,}400$ Pa.
 
 ### #1: "Bottom Pressure Is Always Greater"
 
-> Deeper pressure is greater only under the stated hydrostatic conditions. Different surface pressures or fluids can change a comparison, as in Example 6.
+> Check the liquid and surface pressure. See the sealed tank example.

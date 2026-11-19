@@ -19,7 +19,7 @@ $$\tan\theta = \dfrac{d}{h_c}$$
 
 For a uniform box with width $w$ and height $h$, $d = \dfrac{w}{2}$ and $h_c = \dfrac{h}{2}$. So $\tan\theta = \dfrac{w}{h}$. A cube tips at $45^\circ$.
 
-Here $\tan\theta$ (the **tangent**) is the opposite side divided by the adjacent side in a right triangle. In the triangle with legs $d$ and $h_c$, $d$ is opposite $\theta$ and $h_c$ is adjacent. To find the angle from a tangent value, press the $\tan^{-1}$ key on a calculator. The lesson Basic Trigonometric Ratios teaches the tangent.
+Here $\tan\theta$ (the **tangent**) is the opposite side divided by the adjacent side in a right triangle. In the triangle with legs $d$ and $h_c$, $d$ is opposite $\theta$ and $h_c$ is adjacent. To find the angle from a tangent value, press the $\tan^{-1}$ key on a calculator. The lesson Reading Right Triangle Ratios teaches the tangent.
 
 ## Examples
 

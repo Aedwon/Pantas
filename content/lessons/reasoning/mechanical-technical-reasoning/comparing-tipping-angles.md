@@ -13,6 +13,8 @@ keyPoints:
 ---
 ## Core Concept
 
+For a slow tilt about a bottom edge, the tipping angle follows $\tan\theta=\dfrac{d}{h_c}$. With the object upright, $d$ is the horizontal distance from the center of gravity to that edge. The height of the center of gravity above the support is $h_c$.
+
 A lower center of gravity gives a larger angle if the base stays the same. A wider base gives a larger angle if the center of gravity stays at the same height and in the middle of the base. A load that shifts the center of gravity toward one edge makes $d$ smaller on that side. That reduces the margin, though a wider base still widens it.
 
 The mass of the object does not appear in this formula. Where the mass sits does.

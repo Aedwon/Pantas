@@ -15,8 +15,6 @@ keyPoints:
 
 Trace the rope from its tied end to the hand to see which segments support the load.
 
-In the trap below, the original lesson’s Example #3 is now #1, and its Example #4 is now #2.
-
 ## Examples
 
 ### #1: Counting the Supporting Segments
@@ -53,6 +51,6 @@ $$F_\text{effort}=\dfrac{900}{3}=300\text{ N}$$
 
 ### #1: Counting Pulleys Instead of Segments
 
-> For one continuous rope, ideal MA is the number of supporting segments, not the number of pulleys.
+> In an ideal system with one continuous rope and vertical supports, count the supporting rope segments to get the MA.
 
-Example #4 has two pulleys but MA $3$. Example #3 has two pulleys but MA $2$. Count the rope segments that pull on the moving load.
+The three-support example has two pulleys and MA $3$. The two-support example also has two pulleys, with MA $2$. Count the rope segments that pull on the moving load.

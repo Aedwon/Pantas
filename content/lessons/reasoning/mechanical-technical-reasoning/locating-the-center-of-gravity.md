@@ -15,15 +15,15 @@ keyPoints:
 
 The **center of gravity** of an object is the point where its whole weight can be treated as acting. Near Earth's surface, gravity is almost the same over the whole object. So this point is also the **center of mass**, the balance point of the object's mass.
 
-If the weight is spread evenly about the middle, the center of gravity is at the middle. A **uniform** object has the same material throughout. This holds for a uniform rectangle, circle, box or rod, and for a dumbbell with two equal weights.
+If the weight is spread evenly about the middle, the center of gravity is at the middle. An object has **uniform density** when equal volumes have equal mass everywhere. A flat rectangle or disk with uniform density and the same thickness all over balances at its middle. So does a uniform box or a rod with the same thickness along its length, or a symmetric dumbbell with two equal weights.
 
-A uniform flat triangle plate has it one-third of the way up from the base. If more weight lies on one side, like the head of a hammer, it lies nearer that side. It can even lie in empty space, like the middle of a ring.
+A flat triangle plate with uniform density and the same thickness all over balances one-third of the way up from the base. If more weight lies on one side, like the head of a hammer, it lies nearer that side. It can even lie in empty space, like the middle of a ring.
 
 ## Examples
 
 ### #1: Locating the Center of Gravity
 
-A uniform metal sheet is a rectangle $40$ cm long and $20$ cm wide. A uniform flat triangle plate has a base of $30$ cm and a height of $30$ cm. A uniform ring has an empty hole in the middle. Where is the center of gravity of each?
+A uniform metal sheet is a rectangle $40$ cm long and $20$ cm wide. A uniform flat triangle plate has a base of $30$ cm and a height of $30$ cm. Both plates have the same thickness all over. A uniform ring with the same shape all the way around has an empty hole in the middle. Where is the center of gravity of each?
 
 **Solution:**
 

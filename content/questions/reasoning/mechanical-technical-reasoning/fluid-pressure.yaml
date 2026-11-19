@@ -465,22 +465,21 @@ questions:
       vessel: column
       points: ["A", "B"]
     stem: |
-      The shown water is at rest. A is 0.10 meter and B 0.70 meter below the surface. Use density 1000 kilograms per cubic meter and gravity 10 newtons per kilogram. Surface pressure is 100 kilopascals. By how much does pressure at B exceed pressure at A?
+      The water shown is at rest. Points A and B are 0.10 m and 0.70 m below the surface, respectively. The density is 1,000 kg/m³, gravity is 10 N/kg, and surface pressure is 100 kPa. Use 1 kPa = 1,000 Pa. By how much does the pressure at B exceed the pressure at A?
     choices:
       - text: "6 kPa"
         correct: true
       - text: "7 kPa"
         rationale: |
-          This gives B's gauge pressure instead of the increase from A. The deeper point is the target of comparison. Check whether A's depth must be subtracted.
+          This uses the depth of B alone, which gives the pressure added from the surface to B. Check how far B is below A.
       - text: "106 kPa"
         rationale: |
-          This adds the 100-kilopascal surface pressure to the difference. Absolute pressure includes that surface term. Check that the same surface pressure cancels in a difference.
+          This adds the surface pressure to the difference. That pressure is part of both totals. Subtract the totals and check what cancels.
       - text: "0.6 kPa"
         rationale: |
-          This divides 6000 pascals by 10000 instead of 1000. Unit conversion can shift a decimal place. Check the number of pascals in one kilopascal.
+          This moves the decimal one place too far when changing units. Check the given number of pascals in one kilopascal.
     explanation: |
-      The depth difference is $0.70-0.10=0.60$ meter. Use the hydrostatic pressure difference: $1000$ times $10$ times $0.60=6000$ pascals. Since $1000$ pascals is $1$ kilopascal, the increase is $6$ kilopascals.
-    approved: true
+      Both points have the same surface pressure in their totals, so it cancels. Point B is $0.70-0.10=0.60$ m deeper. The extra pressure is $1000\times10\times0.60=6000$ Pa, or $6$ kPa.
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0018
     lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid

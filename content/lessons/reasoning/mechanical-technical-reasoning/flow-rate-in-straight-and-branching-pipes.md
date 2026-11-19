@@ -44,15 +44,15 @@ The narrower section has the **higher average speed**.
 
 ### #2: A Pipe That Splits
 
-Water flows steadily at $2$ m/s in a pipe of cross-section $10\ \text{cm}^2$. The pipe splits into two identical branches, each of cross-section $4\ \text{cm}^2$. What is the speed in each branch?
+Water flows steadily at $2$ m/s in a pipe of cross-section $10\ \text{cm}^2$. The pipe splits into two identical branches, each with a cross-section of $4\ \text{cm}^2$. The outlets are at the same height and pressure. What is the speed in each branch?
 
 **Solution:**
 
-The flow rate in is $10\times 2=20\ \text{cm}^2\text{m/s}$. The identical branches share it equally, so each carries $10$.
+The flow rate in is $10\times 2=20\ \text{cm}^2\text{m/s}$. The branches are identical and have equal outlet conditions, so each carries $10\ \text{cm}^2\text{m/s}$.
 
 $$v=\dfrac{10}{4}=2.5\ \text{m/s}.$$
 
-Each branch has a speed of **$2.5$ m/s**. If the branches were different, the split would not be equal, and the pipe sizes alone would not give the speeds.
+Each branch has a speed of **$2.5$ m/s**. Different branches can split the flow unequally. Pipe sizes alone do not tell you the speeds.
 
 <!-- ILLUSTRATION: A pipe of cross-section 10 cm2 with water at 2 m/s that splits into two identical branches of cross-section 4 cm2 each. The branch speeds are marked with a question mark. -->
 

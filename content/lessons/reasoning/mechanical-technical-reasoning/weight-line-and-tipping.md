@@ -37,7 +37,7 @@ A rectangular box is tilted slowly about one lower edge. When does it pass the t
 
 **Solution:**
 
-At the threshold, the vertical line through its center of gravity passes exactly over the pivot edge. Once the line moves past the pivot edge, gravity produces a torque that turns the box farther over.
+At the threshold, the vertical line through its center of gravity passes exactly over the pivot edge. Once the line moves past the pivot edge, gravity gives the box a torque, a turning effect, that turns it farther over.
 
 <!-- FIGURE: {"kind": "stability-shape", "tilt": 22, "shapes": [{"form": "box", "baseWidth": 2, "height": 3}], "semanticsLabel": "A rectangular box tilted on one edge with a vertical plumb line dropped from its center of gravity, to compare with the pivot edge."} -->
 

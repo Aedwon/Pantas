@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-For a hanging mass at rest, the applied force is its weight $mg$ (ignoring the spring's own mass), so
+For a hanging mass at rest, the applied force is its weight $mg$ if we ignore the spring's own mass. If the spring stays in its linear range, then
 
 $$x=\frac{mg}{k}.$$
 

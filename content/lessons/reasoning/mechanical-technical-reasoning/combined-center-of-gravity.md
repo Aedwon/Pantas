@@ -15,11 +15,11 @@ keyPoints:
 
 An object made of several parts fastened together has one center of gravity for the whole. Each part has its own mass $m$ in kilograms. Its position $x$ in meters is where its own center of gravity lies. Measure every position from the same zero point, along the same line.
 
-For two parts, the combined position is:
+If gravity is the same throughout, use the masses. For two parts:
 
 $$x_{cg} = \dfrac{m_1x_1 + m_2x_2}{m_1 + m_2}$$
 
-For three parts, add the third part's term to the top and its mass to the bottom. The result always lies between the parts' own positions. With two parts of unequal mass, it sits closer to the heavier part, and with equal masses it is the midpoint.
+For three parts, add the third part's term to the top and its mass to the bottom. The result lies in the range from the smallest to the largest position. With two parts of unequal mass, it sits closer to the heavier part, and with equal masses it is the midpoint.
 
 With more parts, the formula decides, so do not guess by the heaviest part. The same formula works for heights if you measure each position upward from the floor.
 

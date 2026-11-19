@@ -22,21 +22,21 @@ replacedBy:
 
 The **center of gravity** of an object is the point where its whole weight can be treated as acting. Near Earth's surface, gravity is almost the same over the whole object. So this point is also the **center of mass**, the balance point of the object's mass.
 
-If the weight is spread evenly about the middle, the center of gravity is at the middle. A **uniform** object has the same material throughout. This holds for a uniform rectangle, circle, box or rod, and for a dumbbell with two equal weights.
+If the weight is spread evenly about the middle, the center of gravity is at the middle. An object has **uniform density** when equal volumes have equal mass everywhere. A flat rectangle or disk with uniform density and the same thickness all over balances at its middle. So does a uniform box or a rod with the same thickness along its length, or a symmetric dumbbell with two equal weights.
 
-A uniform flat triangle plate has it one-third of the way up from the base. If more weight lies on one side, like the head of a hammer, it lies nearer that side. It can even lie in empty space, like the middle of a ring.
+A flat triangle plate with uniform density and the same thickness all over balances one-third of the way up from the base. If more weight lies on one side, like the head of a hammer, it lies nearer that side. It can even lie in empty space, like the middle of a ring.
 
-The **base of support** is the region on the ground, or another surface, that is enclosed by the outer points where the object touches it. The region includes the empty space between those points. A table with four legs has a base shaped like the rectangle drawn through its four feet.
+The **base of support** is the region on the ground, or another surface, that is enclosed by the outer points where the object touches it. The region includes the empty space between those points. If the four feet of a table touch the floor at the corners of a rectangle, its base of support is that rectangle.
 
 ### Combining Parts
 
 An object made of several parts fastened together has one center of gravity for the whole. Each part has its own mass $m$ in kilograms. Its position $x$ in meters is where its own center of gravity lies. Measure every position from the same zero point, along the same line.
 
-For two parts, the combined position is:
+If gravity is the same throughout, use the masses. For two parts:
 
 $$x_{cg} = \dfrac{m_1x_1 + m_2x_2}{m_1 + m_2}$$
 
-For three parts, add the third part's term to the top and its mass to the bottom. The result always lies between the parts' own positions. With two parts of unequal mass, it sits closer to the heavier part, and with equal masses it is the midpoint.
+For three parts, add the third part's term to the top and its mass to the bottom. The result lies in the range from the smallest to the largest position. With two parts of unequal mass, it sits closer to the heavier part, and with equal masses it is the midpoint.
 
 With more parts, the formula decides, so do not guess by the heaviest part. The same formula works for heights if you measure each position upward from the floor.
 
@@ -69,7 +69,7 @@ For a uniform box with width $w$ and height $h$, $d = \dfrac{w}{2}$ and $h_c = \
 
 A lower center of gravity gives a larger angle if the base stays the same. A wider base gives a larger angle if the center of gravity stays at the same height and in the middle of the base. A load that shifts the center of gravity toward one edge makes $d$ smaller on that side. That reduces the margin, though a wider base still widens it.
 
-Here $\tan\theta$ (the **tangent**) is the opposite side divided by the adjacent side in a right triangle. In the triangle with legs $d$ and $h_c$, $d$ is opposite $\theta$ and $h_c$ is adjacent. To find the angle from a tangent value, press the $\tan^{-1}$ key on a calculator. The lesson Basic Trigonometric Ratios teaches the tangent.
+Here $\tan\theta$ (the **tangent**) is the opposite side divided by the adjacent side in a right triangle. In the triangle with legs $d$ and $h_c$, $d$ is opposite $\theta$ and $h_c$ is adjacent. To find the angle from a tangent value, press the $\tan^{-1}$ key on a calculator. The lesson Reading Right Triangle Ratios teaches the tangent.
 
 The mass of the object does not appear in this formula. Where the mass sits does.
 
@@ -79,19 +79,19 @@ A **torque** is the turning effect of a force about a pivot, the edge or point i
 
 Let a box rest on level ground, and push it sideways with a horizontal force $F$ at height $H$ above the ground. The bottom edge on the far side from the push is the pivot. The push turns the box over.
 
-The weight $W$ turns it back, with the lever arm $d$ from above. The box tips when:
+The weight $W$ turns it back. Its lever arm $d$ is the horizontal distance from the weight line to the far edge. The box tips when:
 
 $$F \cdot H > W \cdot d$$
 
-Weight is a force, the pull of gravity on the object, so it is measured in newtons (N). It is $W = mg$, where $m$ is the mass in kilograms and $g = 9.8$ m/s$^2$. The value $g = 9.8$ m/s$^2$ means that, with air ignored, a falling object's speed grows by $9.8$ meters per second each second.
+Weight is a force, the pull of gravity on the object, so it is measured in newtons (N). It is $W = mg$, where $m$ is the mass in kilograms and $g = 9.8$ m/s$^2$. Near Earth, gravity gives a freely moving object a downward acceleration of about $9.8$ meters per second squared if we ignore air resistance.
 
 This test assumes the box does not slide first. If the mass is spread the same way, an object of the same shape and size with more mass needs a bigger push to tip, even though its tilt angle is the same.
 
 ### Moving Objects
 
-Everything above assumes the object is at rest, tilts slowly or moves at a steady speed in a straight line. A vehicle in a sharp turn is different, because its direction keeps changing. The road must push the tires sideways, toward the center of the turn. This push acts at road level, below the center of gravity.
+The slow-tilt test uses the weight line to predict whether an object tips about an edge. A vehicle in a sharp turn is different, because its direction keeps changing. The road must push the tires sideways, toward the center of the turn. This push acts at road level, below the center of gravity.
 
-The weight resists rolling over. The road's sideways push, acting below the center of gravity, is what tends to roll the vehicle toward the outside of the turn. More of the load moves onto the outside wheels.
+The weight resists rolling over. The road's sideways push, acting below the center of gravity, is what tends to roll the vehicle toward the outside of the turn. The outside wheels carry more of the load.
 
 If the inside wheels lift off the road, the vehicle is starting to roll over. The **track** is the distance between the left and right wheels. On a flat road, a lower center of gravity or a wider track usually lets the vehicle take a faster turn before this happens. A vertical weight line alone cannot explain it.
 
@@ -99,19 +99,19 @@ If the inside wheels lift off the road, the vehicle is starting to roll over. Th
 
 ### #1: Finding the Base of Support
 
-A four-legged stool stands on a level floor. What is its base of support? What is the base if the stool is tilted until it rests on two legs only?
+A stool stands on a level floor with one foot touching at each corner of a square. Treat each foot as a single point. What is its base of support? What is the base if the stool is tilted until it rests on two legs only?
 
 **Solution:**
 
 1. The four feet touch the floor at four points.
 2. The base is the whole square enclosed by those four points. It includes the floor between the legs.
-3. On two legs, the only contact points are the two feet. The base shrinks to a thin strip along the line joining them.
-4. The weight line must now land on that thin strip. A tiny shift of weight puts it outside, so the stool is very hard to hold.
+3. On two legs, the only contact points are the two feet. The base shrinks to the line segment joining them. Real feet that touch over an area can give a thin strip instead.
+4. For two points, the weight line must land on that segment. A tiny shift to either side puts it outside, so the stool is very hard to hold.
 
 <!-- ILLUSTRATION: a stool on a floor drawn twice, once on four legs with the square base of support shaded between the feet, and once tilted onto two legs with a thin line shaded between the two feet and the weight line marked -->
 ### #2: Locating the Center of Gravity
 
-A uniform metal sheet is a rectangle $40$ cm long and $20$ cm wide. A uniform flat triangle plate has a base of $30$ cm and a height of $30$ cm. A uniform ring has an empty hole in the middle. Where is the center of gravity of each?
+A uniform metal sheet is a rectangle $40$ cm long and $20$ cm wide. A uniform flat triangle plate has a base of $30$ cm and a height of $30$ cm. Both plates have the same thickness all over. A uniform ring with the same shape all the way around has an empty hole in the middle. Where is the center of gravity of each?
 
 **Solution:**
 
@@ -172,7 +172,7 @@ A rectangular box is tilted slowly about one lower edge. When does it pass the t
 
 **Solution:**
 
-At the threshold, the vertical line through its center of gravity passes exactly over the pivot edge. Once the line moves past the pivot edge, gravity produces a torque that turns the box farther over.
+At the threshold, the vertical line through its center of gravity passes exactly over the pivot edge. Once the line moves past the pivot edge, gravity gives the box a torque, a turning effect, that turns it farther over.
 
 <!-- FIGURE: {"kind": "stability-shape", "tilt": 22, "shapes": [{"form": "box", "baseWidth": 2, "height": 3}], "semanticsLabel": "A rectangular box tilted on one edge with a vertical plumb line dropped from its center of gravity, to compare with the pivot edge."} -->
 ### #7: Tipping Angle of a Box
@@ -195,7 +195,7 @@ $$\tan\theta = \dfrac{0.4}{0.2} = 2 \quad\Rightarrow\quad \theta \approx 63.4^\c
 <!-- ILLUSTRATION: a box 0.4 m wide and 0.8 m tall tilted about its bottom edge, with the angle 26.6 degrees at the edge, beside the same box lying on its side, 0.8 m wide and 0.4 m tall, with the angle 63.4 degrees -->
 ### #8: Where to Push a Crate
 
-A uniform crate has a mass of $60$ kg, a width of $0.6$ m and a height of $1.2$ m. It rests on level ground. A person pushes it with a horizontal force. Find the smallest force that tips it, if the push is at the top edge, and if it is at the middle of the side. Assume the crate does not slide.
+A uniform crate has a mass of $60$ kg, a width of $0.6$ m and a height of $1.2$ m. It rests on level ground. A person pushes it with a horizontal force. Find the tipping threshold for a push at the top edge and for a push at the middle of the side. Assume the crate does not slide.
 
 **Solution:**
 
@@ -209,7 +209,7 @@ $$F > \dfrac{176.4}{1.2} = 147 \text{ N}$$
 
 $$F > \dfrac{176.4}{0.6} = 294 \text{ N}$$
 
-5. The top push is twice as high, so it needs half the force.
+5. The thresholds are $147$ N at the top and $294$ N at the middle. Tipping starts just above each threshold.
 
 <!-- ILLUSTRATION: a crate 0.6 m wide and 1.2 m tall with two arrows pointing sideways, one at the top edge at height 1.2 m labeled 147 N and one at the middle at height 0.6 m labeled 294 N -->
 ### #9: Cargo in a Turning Truck
@@ -263,7 +263,7 @@ The angle depends on where the center of gravity is and how wide the base is. If
 
 > A vehicle in a turn has sideways forces from the road.
 
-A lower center of gravity helps, but the full explanation involves those forces and the weight moving to the outside wheels.
+A lower center of gravity helps, but the full explanation involves those forces and the outside wheels carrying more of the load.
 
 ### #4: "Lower or Wider Is Always Better"
 

@@ -30,7 +30,7 @@ The pressure under both pistons is the same, so
 
 $$\dfrac{F_1}{A_1}=\dfrac{F_2}{A_2}.$$
 
-A small force on a small piston can balance a large force on a large piston. This holds when the pistons are at the same height, the liquid cannot be squeezed, and friction and leaks are ignored. If the pistons sit at different heights, add the $\rho gh$ difference.
+A small force on a small piston can balance a large force on a large piston. This holds when the pistons are at the same height, the liquid cannot be squeezed, and friction and leaks are ignored. In a resting liquid, the pressure at the lower piston is higher by $\rho g$ times the height difference.
 
 The force gain is not a free gain in work. The small piston moves farther than the large piston, in the same ratio as the areas. Work in equals work out.
 
