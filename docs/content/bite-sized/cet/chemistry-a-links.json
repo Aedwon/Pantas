@@ -1,0 +1,797 @@
+{
+  "outline": [
+    {
+      "original": "lesson-chemistry-acids-bases-ph",
+      "parts": [
+        {
+          "slug": "acid-and-base-models",
+          "title": "Acid and Base Models"
+        },
+        {
+          "slug": "ph-and-hydronium",
+          "title": "pH and Hydronium"
+        },
+        {
+          "slug": "acid-and-base-strength",
+          "title": "Acid and Base Strength"
+        },
+        {
+          "slug": "ph-from-hydroxide",
+          "title": "pH from Hydroxide"
+        },
+        {
+          "slug": "acid-base-neutralization",
+          "title": "Acid-Base Neutralization"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-atomic-structure",
+      "parts": [
+        {
+          "slug": "particles-in-an-atom",
+          "title": "Particles in an Atom"
+        },
+        {
+          "slug": "atomic-and-mass-numbers",
+          "title": "Atomic and Mass Numbers"
+        },
+        {
+          "slug": "isotopes-and-neutrons",
+          "title": "Isotopes and Neutrons"
+        },
+        {
+          "slug": "isotope-weighted-average-mass",
+          "title": "Isotope-Weighted Average Mass"
+        },
+        {
+          "slug": "monatomic-ion-charge",
+          "title": "Monatomic Ion Charge"
+        },
+        {
+          "slug": "ions-and-isotope-notation",
+          "title": "Ions and Isotope Notation"
+        },
+        {
+          "slug": "polyatomic-ions-and-charge",
+          "title": "Polyatomic Ions and Charge"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-basic-organic-chemistry",
+      "parts": [
+        {
+          "slug": "carbon-compounds-and-frameworks",
+          "title": "Carbon Compounds and Frameworks"
+        },
+        {
+          "slug": "hydrocarbon-families-by-bond",
+          "title": "Hydrocarbon Families by Bond"
+        },
+        {
+          "slug": "hydrocarbon-formulas-and-rings",
+          "title": "Hydrocarbon Formulas and Rings"
+        },
+        {
+          "slug": "recognizing-organic-functional-groups",
+          "title": "Recognizing Organic Functional Groups"
+        },
+        {
+          "slug": "aldehydes-and-ketones",
+          "title": "Aldehydes and Ketones"
+        },
+        {
+          "slug": "functional-groups-and-properties",
+          "title": "Functional Groups and Properties"
+        },
+        {
+          "slug": "hydrocarbon-name-roots-and-endings",
+          "title": "Hydrocarbon Name Roots and Endings"
+        },
+        {
+          "slug": "naming-branched-alkanes",
+          "title": "Naming Branched Alkanes"
+        },
+        {
+          "slug": "parent-chains-and-locants",
+          "title": "Parent Chains and Locants"
+        },
+        {
+          "slug": "functional-groups-in-biomolecules",
+          "title": "Functional Groups in Biomolecules"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-chemical-bonding",
+      "parts": [
+        {
+          "slug": "ionic-covalent-and-metallic-bonds",
+          "title": "Ionic, Covalent, and Metallic Bonds"
+        },
+        {
+          "slug": "electronegativity-and-bond-polarity",
+          "title": "Electronegativity and Bond Polarity"
+        },
+        {
+          "slug": "octet-rule-and-exceptions",
+          "title": "Octet Rule and Exceptions"
+        },
+        {
+          "slug": "drawing-lewis-structures",
+          "title": "Drawing Lewis Structures"
+        },
+        {
+          "slug": "formal-charge-and-resonance",
+          "title": "Formal Charge and Resonance"
+        },
+        {
+          "slug": "vsepr-two-and-three-groups",
+          "title": "VSEPR with Two or Three Groups"
+        },
+        {
+          "slug": "vsepr-four-groups",
+          "title": "VSEPR with Four Groups"
+        },
+        {
+          "slug": "polar-and-nonpolar-molecules",
+          "title": "Polar and Nonpolar Molecules"
+        },
+        {
+          "slug": "forces-between-molecules",
+          "title": "Forces Between Molecules"
+        },
+        {
+          "slug": "bonding-and-material-properties",
+          "title": "Bonding and Material Properties"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-chemical-nomenclature",
+      "parts": [
+        {
+          "slug": "naming-ionic-compounds",
+          "title": "Naming Ionic Compounds"
+        },
+        {
+          "slug": "naming-binary-molecules",
+          "title": "Naming Binary Molecules"
+        },
+        {
+          "slug": "writing-charge-balanced-formulas",
+          "title": "Writing Charge-Balanced Formulas"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-chemical-reactions",
+      "parts": [
+        {
+          "slug": "conserving-atoms-in-reactions",
+          "title": "Conserving Atoms in Reactions"
+        },
+        {
+          "slug": "ion-charges-and-reaction-formulas",
+          "title": "Ion Charges and Reaction Formulas"
+        },
+        {
+          "slug": "balancing-with-coefficients",
+          "title": "Balancing with Coefficients"
+        },
+        {
+          "slug": "polyatomic-groups-and-coefficient-ratios",
+          "title": "Polyatomic Groups and Coefficient Ratios"
+        },
+        {
+          "slug": "recognizing-reaction-patterns",
+          "title": "Recognizing Reaction Patterns"
+        },
+        {
+          "slug": "single-displacement-and-reactivity",
+          "title": "Single Displacement and Reactivity"
+        },
+        {
+          "slug": "double-displacement-driving-forces",
+          "title": "Double Displacement Driving Forces"
+        },
+        {
+          "slug": "precipitates-and-net-ionic-equations",
+          "title": "Precipitates and Net Ionic Equations"
+        },
+        {
+          "slug": "balancing-complete-combustion",
+          "title": "Balancing Complete Combustion"
+        },
+        {
+          "slug": "incomplete-combustion-products",
+          "title": "Incomplete Combustion Products"
+        },
+        {
+          "slug": "oxidation-and-reduction-in-reactions",
+          "title": "Oxidation and Reduction in Reactions"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-gas-laws",
+      "parts": [
+        {
+          "slug": "gas-particles-and-measurements",
+          "title": "Gas Particles and Measurements"
+        },
+        {
+          "slug": "celsius-and-kelvin-for-gases",
+          "title": "Celsius and Kelvin for Gases"
+        },
+        {
+          "slug": "variables-in-gas-investigations",
+          "title": "Variables in Gas Investigations"
+        },
+        {
+          "slug": "boyles-pressure-volume-law",
+          "title": "Boyle’s Pressure-Volume Law"
+        },
+        {
+          "slug": "charless-volume-temperature-law",
+          "title": "Charles’s Volume-Temperature Law"
+        },
+        {
+          "slug": "gay-lussacs-pressure-temperature-law",
+          "title": "Gay-Lussac’s Pressure-Temperature Law"
+        },
+        {
+          "slug": "avogadros-volume-mole-law",
+          "title": "Avogadro’s Volume-Mole Law"
+        },
+        {
+          "slug": "combined-gas-law-calculations",
+          "title": "Combined Gas Law Calculations"
+        },
+        {
+          "slug": "ideal-gas-law-calculations",
+          "title": "Ideal Gas Law Calculations"
+        },
+        {
+          "slug": "gas-molar-volume-and-stp",
+          "title": "Gas Molar Volume and STP"
+        },
+        {
+          "slug": "when-real-gases-deviate",
+          "title": "When Real Gases Deviate"
+        }
+      ]
+    },
+    {
+      "original": "lesson-chemistry-history-of-the-atom",
+      "parts": [
+        {
+          "slug": "evidence-and-atomic-models",
+          "title": "Evidence and Atomic Models"
+        },
+        {
+          "slug": "daltons-atomic-model",
+          "title": "Dalton’s Atomic Model"
+        },
+        {
+          "slug": "daltons-laws-of-mass",
+          "title": "Dalton’s Laws of Mass"
+        },
+        {
+          "slug": "isotopes-and-daltons-claim",
+          "title": "Isotopes and Dalton’s Claim"
+        },
+        {
+          "slug": "thomson-and-cathode-rays",
+          "title": "Thomson and Cathode Rays"
+        },
+        {
+          "slug": "gold-foil-and-the-nucleus",
+          "title": "Gold Foil and the Nucleus"
+        },
+        {
+          "slug": "bohr-and-hydrogen-line-spectra",
+          "title": "Bohr and Hydrogen Line Spectra"
+        },
+        {
+          "slug": "quantum-model-and-orbitals",
+          "title": "Quantum Model and Orbitals"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-chemistry-acid-and-base-models": [],
+    "lesson-chemistry-ph-and-hydronium": [
+      {
+        "lesson": "lesson-chemistry-acid-and-base-models",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-algebra-logarithm-meaning-and-equations",
+        "strength": "helpful",
+        "reason": "The pH formula uses a base-10 logarithm. This lesson explains it as the power of 10 and only needs whole-number powers."
+      },
+      {
+        "lesson": "lesson-chemistry-solutions",
+        "strength": "helpful",
+        "reason": "Molarity, in moles per liter, is taught there in full. This lesson states what the unit M means before using it."
+      }
+    ],
+    "lesson-chemistry-acid-and-base-strength": [
+      {
+        "lesson": "lesson-chemistry-ph-and-hydronium",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-ph-from-hydroxide": [
+      {
+        "lesson": "lesson-chemistry-acid-and-base-strength",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-acid-base-neutralization": [
+      {
+        "lesson": "lesson-chemistry-ph-from-hydroxide",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-particles-in-an-atom": [],
+    "lesson-chemistry-atomic-and-mass-numbers": [
+      {
+        "lesson": "lesson-chemistry-particles-in-an-atom",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-isotopes-and-neutrons": [
+      {
+        "lesson": "lesson-chemistry-atomic-and-mass-numbers",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-isotope-weighted-average-mass": [
+      {
+        "lesson": "lesson-chemistry-isotopes-and-neutrons",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-monatomic-ion-charge": [
+      {
+        "lesson": "lesson-chemistry-isotope-weighted-average-mass",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-ions-and-isotope-notation": [
+      {
+        "lesson": "lesson-chemistry-monatomic-ion-charge",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-polyatomic-ions-and-charge": [
+      {
+        "lesson": "lesson-chemistry-ions-and-isotope-notation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-carbon-compounds-and-frameworks": [],
+    "lesson-chemistry-hydrocarbon-families-by-bond": [
+      {
+        "lesson": "lesson-chemistry-carbon-compounds-and-frameworks",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-hydrocarbon-formulas-and-rings": [
+      {
+        "lesson": "lesson-chemistry-hydrocarbon-families-by-bond",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-recognizing-organic-functional-groups": [
+      {
+        "lesson": "lesson-chemistry-hydrocarbon-formulas-and-rings",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-aldehydes-and-ketones": [
+      {
+        "lesson": "lesson-chemistry-recognizing-organic-functional-groups",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-functional-groups-and-properties": [
+      {
+        "lesson": "lesson-chemistry-aldehydes-and-ketones",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-chemistry-ionic-covalent-and-metallic-bonds",
+        "strength": "helpful",
+        "reason": "Covalent bonds, polar bonds and hydrogen bonds are taught there in full. This lesson defines each one briefly before using it."
+      }
+    ],
+    "lesson-chemistry-hydrocarbon-name-roots-and-endings": [
+      {
+        "lesson": "lesson-chemistry-functional-groups-and-properties",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-naming-branched-alkanes": [
+      {
+        "lesson": "lesson-chemistry-hydrocarbon-name-roots-and-endings",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-parent-chains-and-locants": [
+      {
+        "lesson": "lesson-chemistry-naming-branched-alkanes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-functional-groups-in-biomolecules": [
+      {
+        "lesson": "lesson-chemistry-parent-chains-and-locants",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-ionic-covalent-and-metallic-bonds": [
+      {
+        "lesson": "lesson-chemistry-particles-in-an-atom",
+        "strength": "helpful",
+        "reason": "Valence electrons, cations and anions are taught there in full. This lesson restates each one where it uses it."
+      }
+    ],
+    "lesson-chemistry-electronegativity-and-bond-polarity": [
+      {
+        "lesson": "lesson-chemistry-ionic-covalent-and-metallic-bonds",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-chemistry-periodic-table",
+        "strength": "helpful",
+        "reason": "Electronegativity and its trend across the table are taught there with the reasons. This lesson defines electronegativity and gives the values it needs."
+      }
+    ],
+    "lesson-chemistry-octet-rule-and-exceptions": [
+      {
+        "lesson": "lesson-chemistry-electronegativity-and-bond-polarity",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-drawing-lewis-structures": [
+      {
+        "lesson": "lesson-chemistry-octet-rule-and-exceptions",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-formal-charge-and-resonance": [
+      {
+        "lesson": "lesson-chemistry-drawing-lewis-structures",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-vsepr-two-and-three-groups": [
+      {
+        "lesson": "lesson-chemistry-formal-charge-and-resonance",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-vsepr-four-groups": [
+      {
+        "lesson": "lesson-chemistry-vsepr-two-and-three-groups",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-polar-and-nonpolar-molecules": [
+      {
+        "lesson": "lesson-chemistry-vsepr-four-groups",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-forces-between-molecules": [
+      {
+        "lesson": "lesson-chemistry-polar-and-nonpolar-molecules",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-bonding-and-material-properties": [
+      {
+        "lesson": "lesson-chemistry-forces-between-molecules",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-naming-ionic-compounds": [],
+    "lesson-chemistry-naming-binary-molecules": [
+      {
+        "lesson": "lesson-chemistry-naming-ionic-compounds",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-writing-charge-balanced-formulas": [
+      {
+        "lesson": "lesson-chemistry-naming-binary-molecules",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-conserving-atoms-in-reactions": [],
+    "lesson-chemistry-ion-charges-and-reaction-formulas": [
+      {
+        "lesson": "lesson-chemistry-conserving-atoms-in-reactions",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-balancing-with-coefficients": [
+      {
+        "lesson": "lesson-chemistry-ion-charges-and-reaction-formulas",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-polyatomic-groups-and-coefficient-ratios": [
+      {
+        "lesson": "lesson-chemistry-balancing-with-coefficients",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-recognizing-reaction-patterns": [
+      {
+        "lesson": "lesson-chemistry-polyatomic-groups-and-coefficient-ratios",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-single-displacement-and-reactivity": [
+      {
+        "lesson": "lesson-chemistry-recognizing-reaction-patterns",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-double-displacement-driving-forces": [
+      {
+        "lesson": "lesson-chemistry-single-displacement-and-reactivity",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-chemistry-acid-and-base-models",
+        "strength": "helpful",
+        "reason": "The lesson points to acids and bases for neutralization. It names water formation as a driving force without needing the pH ideas."
+      }
+    ],
+    "lesson-chemistry-precipitates-and-net-ionic-equations": [
+      {
+        "lesson": "lesson-chemistry-double-displacement-driving-forces",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-balancing-complete-combustion": [
+      {
+        "lesson": "lesson-chemistry-precipitates-and-net-ionic-equations",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-incomplete-combustion-products": [
+      {
+        "lesson": "lesson-chemistry-balancing-complete-combustion",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-oxidation-and-reduction-in-reactions": [
+      {
+        "lesson": "lesson-chemistry-incomplete-combustion-products",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-gas-particles-and-measurements": [],
+    "lesson-chemistry-celsius-and-kelvin-for-gases": [
+      {
+        "lesson": "lesson-chemistry-gas-particles-and-measurements",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-variables-in-gas-investigations": [
+      {
+        "lesson": "lesson-chemistry-celsius-and-kelvin-for-gases",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-boyles-pressure-volume-law": [
+      {
+        "lesson": "lesson-chemistry-variables-in-gas-investigations",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-charless-volume-temperature-law": [
+      {
+        "lesson": "lesson-chemistry-boyles-pressure-volume-law",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-gay-lussacs-pressure-temperature-law": [
+      {
+        "lesson": "lesson-chemistry-charless-volume-temperature-law",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-avogadros-volume-mole-law": [
+      {
+        "lesson": "lesson-chemistry-gay-lussacs-pressure-temperature-law",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-combined-gas-law-calculations": [
+      {
+        "lesson": "lesson-chemistry-avogadros-volume-mole-law",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-ideal-gas-law-calculations": [
+      {
+        "lesson": "lesson-chemistry-combined-gas-law-calculations",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-chemistry-mole-concept",
+        "strength": "helpful",
+        "reason": "The mole and molar mass are taught there in full. This lesson defines the mole briefly and gives each molar mass it needs."
+      }
+    ],
+    "lesson-chemistry-gas-molar-volume-and-stp": [
+      {
+        "lesson": "lesson-chemistry-ideal-gas-law-calculations",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-when-real-gases-deviate": [
+      {
+        "lesson": "lesson-chemistry-gas-molar-volume-and-stp",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-evidence-and-atomic-models": [],
+    "lesson-chemistry-daltons-atomic-model": [
+      {
+        "lesson": "lesson-chemistry-evidence-and-atomic-models",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-daltons-laws-of-mass": [
+      {
+        "lesson": "lesson-chemistry-daltons-atomic-model",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-isotopes-and-daltons-claim": [
+      {
+        "lesson": "lesson-chemistry-daltons-laws-of-mass",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-chemistry-particles-in-an-atom",
+        "strength": "helpful",
+        "reason": "Protons, neutrons, isotopes and average atomic mass are taught there in full. This lesson explains each one briefly for the history."
+      }
+    ],
+    "lesson-chemistry-thomson-and-cathode-rays": [
+      {
+        "lesson": "lesson-chemistry-isotopes-and-daltons-claim",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-gold-foil-and-the-nucleus": [
+      {
+        "lesson": "lesson-chemistry-thomson-and-cathode-rays",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-bohr-and-hydrogen-line-spectra": [
+      {
+        "lesson": "lesson-chemistry-gold-foil-and-the-nucleus",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-quantum-model-and-orbitals": [
+      {
+        "lesson": "lesson-chemistry-bohr-and-hydrogen-line-spectra",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-chemistry-nuclear-chemistry": [
+      {
+        "lesson": "lesson-chemistry-particles-in-an-atom",
+        "strength": "helpful",
+        "reason": "The lesson tells the student to review protons and neutrons there. It restates atomic number, mass number and isotopes before using them."
+      }
+    ],
+    "lesson-chemistry-periodic-table": [
+      {
+        "lesson": "lesson-chemistry-quantum-numbers-electron-configuration",
+        "strength": "helpful",
+        "reason": "Shells, subshells and orbitals are taught there in full. This lesson gives a short definition of each and points to that lesson."
+      },
+      {
+        "lesson": "lesson-chemistry-particles-in-an-atom",
+        "strength": "helpful",
+        "reason": "Atomic number, protons and ions are taught there in full. This lesson defines atomic number and cations and anions itself."
+      }
+    ],
+    "lesson-chemistry-stoichiometry": [
+      {
+        "lesson": "lesson-chemistry-mole-concept",
+        "strength": "required",
+        "reason": "This lesson uses moles, molar mass and the mass-to-moles step in every example, and only the mole concept lesson teaches what a mole is and how to find molar mass."
+      },
+      {
+        "lesson": "lesson-chemistry-conserving-atoms-in-reactions",
+        "strength": "helpful",
+        "reason": "Mole ratios come from a balanced equation, and that lesson teaches how to balance one. This lesson gives each balanced equation it uses."
+      }
+    ],
+    "lesson-chemistry-thermodynamics-and-kinetics": [
+      {
+        "lesson": "lesson-chemistry-solutions",
+        "strength": "helpful",
+        "reason": "Concentration in moles per liter drives the rate law and K. This lesson states that M means mol/L and does not teach molarity."
+      },
+      {
+        "lesson": "lesson-chemistry-conserving-atoms-in-reactions",
+        "strength": "helpful",
+        "reason": "Reversible equations and coefficients, which set the exponents in K, are easier after balancing. This lesson does not teach balancing."
+      }
+    ]
+  }
+}

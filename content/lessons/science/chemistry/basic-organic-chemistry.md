@@ -6,6 +6,18 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-carbon-compounds-and-frameworks
+  - lesson-chemistry-hydrocarbon-families-by-bond
+  - lesson-chemistry-hydrocarbon-formulas-and-rings
+  - lesson-chemistry-recognizing-organic-functional-groups
+  - lesson-chemistry-aldehydes-and-ketones
+  - lesson-chemistry-functional-groups-and-properties
+  - lesson-chemistry-hydrocarbon-name-roots-and-endings
+  - lesson-chemistry-naming-branched-alkanes
+  - lesson-chemistry-parent-chains-and-locants
+  - lesson-chemistry-functional-groups-in-biomolecules
 ---
 ## Core Concept
 

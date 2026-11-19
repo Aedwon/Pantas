@@ -6,6 +6,16 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-evidence-and-atomic-models
+  - lesson-chemistry-daltons-atomic-model
+  - lesson-chemistry-daltons-laws-of-mass
+  - lesson-chemistry-isotopes-and-daltons-claim
+  - lesson-chemistry-thomson-and-cathode-rays
+  - lesson-chemistry-gold-foil-and-the-nucleus
+  - lesson-chemistry-bohr-and-hydrogen-line-spectra
+  - lesson-chemistry-quantum-model-and-orbitals
 ---
 ## Core Concept
 

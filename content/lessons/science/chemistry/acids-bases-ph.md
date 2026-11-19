@@ -6,6 +6,13 @@ subject: "subject-science"
 topic: "topic-chemistry"
 estimatedMinutes: 11
 isActive: true
+status: retired
+replacedBy:
+  - lesson-chemistry-acid-and-base-models
+  - lesson-chemistry-ph-and-hydronium
+  - lesson-chemistry-acid-and-base-strength
+  - lesson-chemistry-ph-from-hydroxide
+  - lesson-chemistry-acid-base-neutralization
 ---
 ## Core Concept
 
