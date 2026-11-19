@@ -17,8 +17,8 @@ abstract final class ChildSetupCopy {
 
   // Board 2, parent signs in.
   static const signInTitle = 'Sign in as the parent or guardian';
-  static const signInLead = "Use your own email, not your child's. Each email "
-      "can set up one child's account.";
+  static const signInLead = "Use your own email, not your child's. One email "
+      'can hold up to 5 children.';
   static const continueWithEmail = 'Continue with Email';
   static const continueWithGoogle = 'Continue with Google';
 

@@ -247,3 +247,15 @@ Relayed by the manager. Aedwon, verbatim: "Accept all". The four items he answer
   sibling needs the code unless the target child's opt-in is on. Accepted; matches rule 4a.
 - Holder study refusal: study callables refuse a holder through the shared account-call wrapper, not
   one by one. Goes to T5.
+
+## Lead rulings from the T5, T6 and T8 reports (Nov 20)
+
+- Board 2 (parent signs in) said "Each email can set up one child's account." The signed legal text allows up
+  to 5 children per email, so the screen says "One email can hold up to 5 children." Factual fix, not taste.
+- A PSHS-NCE purchase on any account takes the checkout box confirmation in place of the older teen guardian
+  Terms confirmation; both text versions are recorded on the checkout.
+- Withdrawing a child uses the deletion path (study data erased, required evidence kept), as the legal draft
+  describes withdrawal as closing the account.
+- Each child account keeps its own on-device study store (Decision 9 item 1), on web and native. The switching
+  fix goes to the Codex 6.2 Sol High review with T2 to T5.
+- T7's exam picker state is logic only; board 5 is built with the T9 screens.
