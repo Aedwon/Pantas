@@ -31,7 +31,7 @@ A **valence electron** is an electron in the outermost shell. These electrons ta
 - Groups $13$ to $18$ have the group number minus $10$. Group $15$ has $5$ and group $17$ has $7$.
 - Helium is in group $18$ but has only $2$ valence electrons. Its first shell is full with two.
 
-Groups $3$ to $12$ are the **transition metals**. They fill the $d$ subshell, and their group number does not give a simple count of valence electrons. Many of them form more than one kind of ion, such as iron forming $\text{Fe}^{2+}$ and $\text{Fe}^{3+}$.
+Groups $3$ to $12$ form the **$d$ block**. They fill the $d$ subshell, and their group number does not give a simple count of valence electrons. Many of them form more than one kind of ion, such as iron forming $\text{Fe}^{2+}$ and $\text{Fe}^{3+}$.
 
 <!-- ILLUSTRATION: periodic table outline with groups 1 to 18 numbered across the top and periods 1 to 7 down the side; group 1 labeled alkali metals, group 2 alkaline-earth metals, group 17 halogens, group 18 noble gases, groups 3 to 12 labeled transition metals, hydrogen drawn separately above group 1 -->
 
@@ -92,13 +92,12 @@ Electron affinity generally becomes more negative across a period, but the excep
 
 ### #1: Same Group
 
-Chlorine and bromine are in the same group. What can be predicted about them?
+Chlorine is in period $3$ and bromine is in period $4$. Both are in group $17$. What do their group and period tell you about them?
 
 **Solution:**
 
-1. Both are in group $17$, so both have $7$ valence electrons.
-2. They are both halogens and tend to form $-1$ ions.
-3. They are not identical. Bromine has more shells, so it has a larger radius and a lower first ionization energy.
+1. Both are in group $17$, so they are in the same column and often behave alike in reactions.
+2. Chlorine has electrons in three shells. Bromine has electrons in four shells.
 
 ### #2: Family From Position
 

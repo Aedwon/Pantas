@@ -19,7 +19,7 @@ keyPoints:
 
 ### Naming Ionic Compounds
 
-For an ionic compound, name the **cation first**, then the **anion**.
+For an ionic compound, name the **cation** (positive ion) first, then the **anion** (negative ion).
 
 For a simple compound of a monatomic cation and monatomic anion:
 

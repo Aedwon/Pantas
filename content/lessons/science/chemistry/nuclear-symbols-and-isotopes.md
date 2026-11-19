@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-**Nuclear chemistry** studies changes in the **nucleus**, the tiny center of an atom that holds its protons and neutrons. In an ordinary chemical reaction, atoms rearrange their electrons and every nucleus stays the same. In a nuclear reaction, the nucleus itself changes, and one element can become another.
+**Nuclear chemistry** studies changes in the **nucleus**, the tiny center of an atom that holds its protons. Most nuclei also hold neutrons. In an ordinary chemical reaction, atoms rearrange their electrons and every nucleus stays the same. In a nuclear reaction, the nucleus itself changes, and one element can become another.
 
 ### Atoms, Isotopes, and Nuclear Symbols
 

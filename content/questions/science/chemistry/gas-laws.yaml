@@ -373,27 +373,27 @@ questions:
     approved: true
 
   - id: q-chemistry-gas-laws-0017
-    lesson: lesson-chemistry-avogadros-volume-mole-law
+    lesson: lesson-chemistry-combined-gas-law-calculations
     keyPoint: 1
     type: 'compare-contrast'
     difficulty: 'medium'
     stem: |
-      What distinguishes Avogadro’s law from the combined gas law?
+      Which statement correctly compares Avogadro’s law with the combined gas law?
     choices:
-      - text: 'Avogadro varies amount; the combined law fixes it.'
+      - text: 'Avogadro’s law relates volume to amount. The combined gas law holds amount fixed.'
         correct: true
-      - text: 'Both require the amount to change in every comparison.'
+      - text: 'Both laws compare gas states at different amounts of gas.'
         rationale: |
-          This carries changing amount into the combined law. Both compare gas states. Check the fixed-sample condition.
-      - text: 'Avogadro fixes volume; the combined law fixes pressure.'
+          Both compare gas states, so their conditions can look alike. Check which law uses a fixed sample.
+      - text: 'Avogadro’s law fixes volume. The combined gas law fixes pressure.'
         rationale: |
-          This reverses the variables held fixed. Different laws fix different quantities. Check each equation’s conditions.
-      - text: 'Both permit Celsius in temperature ratios.'
+          Simple gas laws do hold some quantities steady. Check which quantities each law links.
+      - text: 'Both laws use Celsius for temperature ratios.'
         rationale: |
-          This ignores absolute temperature. Celsius shares kelvin’s interval size. Check the scale’s zero point.
+          Celsius and kelvin have equal-sized degrees. Check which scale starts at absolute zero.
     explanation: |
-      Avogadro’s law compares volume and amount at fixed pressure and temperature. The combined law compares two states of a fixed gas amount.
-    approved: true
+      Avogadro’s law compares volume as the amount changes at fixed pressure and temperature. The combined gas law links pressure, volume, and temperature for a fixed amount.
+    approved: false
 
   - id: q-chemistry-gas-laws-0018
     lesson: lesson-chemistry-ideal-gas-law-calculations
@@ -401,22 +401,22 @@ questions:
     type: 'simple-quantitative'
     difficulty: 'hard'
     stem: |
-      Two ideal-gas samples have the same pressure. A has volume V and temperature T. B has volume 2V and temperature 2T. Compare their mole amounts.
+      Two ideal-gas samples have the same pressure. Sample A has volume $V$ and kelvin temperature $T$. Sample B has volume $2V$ and kelvin temperature $2T$. How do their mole amounts compare?
     choices:
-      - text: 'They are equal.'
+      - text: 'A and B have equal mole amounts.'
         correct: true
-      - text: 'B has twice as many moles.'
+      - text: 'B has twice the mole amount of A.'
         rationale: |
-          This counts volume’s factor but omits temperature’s. Larger volume can mean more gas. Check both factors.
-      - text: 'B has half as many moles.'
+          The doubled volume suggests more moles. Check the effect of the doubled kelvin temperature too.
+      - text: 'B has half the mole amount of A.'
         rationale: |
-          This counts temperature’s factor but omits volume’s. Hotter gas can occupy more space. Check the ratio V/T.
-      - text: 'B has four times as many moles.'
+          Using twice the temperature in the denominator gives a factor of one half. Check the change in volume as well.
+      - text: 'B has four times the mole amount of A.'
         rationale: |
-          This multiplies both factors. Both variables double. Check which factor belongs in the denominator.
+          Both quantities double, which makes multiplying tempting. Check which quantity appears in the denominator.
     explanation: |
-      Use $n=PV/(RT)$. For B, $n_B=P(2V)/(R(2T))=PV/(RT)=n_A$. The factors of 2 cancel.
-    approved: true
+      Use $n=\dfrac{PV}{RT}$. Pressure is the same, and $\dfrac{2V}{2T}=\dfrac{V}{T}$. The two samples have the same number of moles.
+    approved: false
 
   - id: q-chemistry-gas-laws-0019
     lesson: lesson-chemistry-ideal-gas-law-calculations

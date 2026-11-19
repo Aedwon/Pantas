@@ -15,7 +15,7 @@ keyPoints:
 
 ### Fair Tests: Variables and Controls
 
-A rate experiment is fair only when one thing changes. The **independent variable** is the one thing you change on purpose. The **dependent variable** is what you measure, such as the time for a gas to form. The **controlled variables** are everything else, which you keep the same.
+To test one factor in a pair of runs, change that factor and keep the others the same. The **independent variable** is the one thing you change on purpose. The **dependent variable** is what you measure, such as the time for a gas to form. The **controlled variables** are everything else, which you keep the same.
 
 If two things change at once, you cannot tell which one caused the change in rate. A **control** is a baseline run with no change, kept for comparison.
 

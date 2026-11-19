@@ -17,7 +17,7 @@ keyPoints:
 
 A **hydrocarbon** contains only carbon and hydrogen. A **saturated** hydrocarbon has no carbon-carbon double or triple bonds. An **unsaturated** hydrocarbon has at least one.
 
-- **Alkanes** have only single bonds. They can be straight chains, branched chains or rings. Rings of this kind are called **cycloalkanes**.
+- **Alkanes** have only single bonds and no rings. Their chains can be straight or branched. Single-bond rings are **cycloalkanes**.
 - **Alkenes** have at least one carbon-carbon double bond ($C=C$).
 - **Alkynes** have at least one carbon-carbon triple bond ($C\equiv C$).
 
@@ -31,11 +31,11 @@ Benzene, $C_6H_6$, is a hydrocarbon with a special ring of shared electrons. It 
 
 ### #1: Hydrocarbon Family from the Bonds
 
-Classify (a) a hydrocarbon with only single bonds, (b) a hydrocarbon with one $C\equiv C$ bond, (c) a hydrocarbon with one $C=C$ bond.
+Classify (a) an open-chain hydrocarbon with only single bonds, (b) a hydrocarbon with one $C\equiv C$ bond, (c) a hydrocarbon with one $C=C$ bond.
 
 **Solution:**
 
-1. (a) Only single bonds: an alkane, which is saturated.
+1. (a) Only single bonds and no ring: an alkane, which is saturated.
 2. (b) A triple bond: an alkyne, which is unsaturated.
 3. (c) A double bond: an alkene, which is unsaturated.
 

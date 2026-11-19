@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-A **polyatomic ion** is a group of bonded atoms with a net charge, such as $\text{NH}_4^{+}$ and $\text{SO}_4^{2-}$. The same formula works if you add up the protons of all the atoms and the electrons of the whole group.
+A **polyatomic ion** is a group of bonded atoms with a net charge, such as $\text{NH}_4^{+}$ and $\text{SO}_4^{2-}$. To find the charge in units of $e$, subtract the total number of electrons from the total number of protons.
 
 Some polyatomic ions form another way. Ammonia, $\text{NH}_3$, picks up a hydrogen ion $\text{H}^{+}$ (a proton) to make $\text{NH}_4^{+}$. The group gains a proton, so its proton count rises by $1$.
 

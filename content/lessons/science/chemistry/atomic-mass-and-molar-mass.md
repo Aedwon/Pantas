@@ -15,7 +15,7 @@ keyPoints:
 
 ### Atomic Mass and Molar Mass
 
-Every atom has a center called the nucleus. The nucleus holds **protons**, which carry a positive charge, and **neutrons**, which carry no charge. The number of protons decides which element the atom is.
+Every atom has a center called the nucleus. The nucleus holds **protons**, which carry a positive charge. Most nuclei also hold **neutrons**, which carry no charge. The number of protons decides which element the atom is.
 
 Atoms of one element can differ slightly in mass. Atoms of the same element with different numbers of neutrons are **isotopes**. The **mass number** of one isotope is a whole number: its count of protons plus neutrons.
 

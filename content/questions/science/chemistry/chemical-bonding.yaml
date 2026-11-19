@@ -580,27 +580,27 @@ questions:
       The four bonds pull equally in a symmetric shape. Together the pulls add up to zero.
 
   - id: q-chemistry-chemical-bonding-0026
-    approved: true
     lesson: lesson-chemistry-forces-between-molecules
     keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
-      Which intermolecular attraction accounts for two nearby nonpolar molecules attracting when their electron clouds become briefly uneven?
+      Which force causes two nonpolar molecules to attract when a brief shift in one electron cloud shifts the neighboring cloud?
     choices:
       - text: 'London dispersion forces'
         correct: true
       - text: 'Hydrogen bonding'
         rationale: |
-          This is an attraction between molecules too. Check for H bonded to N, O, or F before using it.
+          This is also an attraction between molecules. Check for hydrogen bonded to nitrogen, oxygen, or fluorine.
       - text: 'Permanent dipole-dipole attraction'
         rationale: |
-          Each cloud has a dipole for a moment. Check whether the dipoles last or come from brief shifts.
-      - text: 'Covalent bonding between the molecules'
+          The two molecules do have uneven charges for a moment. Check whether those dipoles last.
+      - text: 'Covalent bonding'
         rationale: |
-          Electrons do move in the clouds. Check for a shared pair between atoms before calling it a covalent bond.
+          The electron clouds shift, and covalent bonds also involve electrons. Check whether the molecules share a pair of electrons.
     explanation: |
-      A brief shift of electrons makes one molecule slightly uneven in charge. This shift can cause a matching pull in its neighbor.
+      A brief shift in electrons makes a temporary dipole in one molecule. It shifts the electrons in a nearby molecule and makes another temporary dipole. The attraction between them is called London dispersion.
+    approved: false
 
   - id: q-chemistry-chemical-bonding-0027
     approved: true

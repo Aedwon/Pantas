@@ -18,7 +18,7 @@ keyPoints:
 
 The **binding energy** is the energy needed to pull a nucleus apart into separate protons and neutrons. The same amount of energy is released when those particles come together to form the nucleus.
 
-A proton or neutron in a nucleus is called a **nucleon**. A larger binding energy per nucleon means a more tightly held, more stable nucleus.
+A proton or neutron in a nucleus is called a **nucleon**. A larger binding energy per nucleon means a more tightly held nucleus.
 
 Binding energy per nucleon is highest near iron-$56$. Splitting a very heavy nucleus gives smaller nuclei with more binding energy per nucleon.
 

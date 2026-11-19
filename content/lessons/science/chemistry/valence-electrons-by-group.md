@@ -19,7 +19,7 @@ A **valence electron** is an electron in the outermost shell. These electrons ta
 - Groups $13$ to $18$ have the group number minus $10$. Group $15$ has $5$ and group $17$ has $7$.
 - Helium is in group $18$ but has only $2$ valence electrons. Its first shell is full with two.
 
-Groups $3$ to $12$ are the **transition metals**. They fill the $d$ subshell, and their group number does not give a simple count of valence electrons. Many of them form more than one kind of ion, such as iron forming $\text{Fe}^{2+}$ and $\text{Fe}^{3+}$.
+Groups $3$ to $12$ form the **$d$ block**. They fill the $d$ subshell, and their group number does not give a simple count of valence electrons. Many of them form more than one kind of ion, such as iron forming $\text{Fe}^{2+}$ and $\text{Fe}^{3+}$.
 
 ## Examples
 

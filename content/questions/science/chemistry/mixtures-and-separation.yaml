@@ -33,22 +33,22 @@ questions:
     type: 'classify'
     difficulty: 'easy'
     stem: |
-      A bowl of vegetable soup clearly shows separate chunks of carrots, potatoes, and celery. Is this mixture homogeneous or heterogeneous?
+      A bowl of vegetable soup contains visible pieces of carrot, potato, and celery in broth. How should the soup be classified?
     choices:
-      - text: 'Nonuniform'
+      - text: 'Heterogeneous'
         correct: true
       - text: 'Homogeneous'
         rationale: |
-          This treats the contents of one bowl as uniformly composed. The soup is one sample. Check its different regions.
-      - text: 'One compound'
+          The broth may look uniform on its own. Compare a spoonful with vegetables to one with only broth.
+      - text: 'Pure compound'
         rationale: |
-          This treats a recipe as a fixed chemical substance. Ingredients are combined. Check whether they retain their identities.
-      - text: 'One element'
+          The same recipe can make each bowl look familiar. Check whether the pieces and broth are all one chemical substance.
+      - text: 'Pure element'
         rationale: |
-          This treats the sample as one atom type. It has one common name. Check the distinct substances in its ingredients.
+          The whole bowl has one name. Check whether its ingredients are made of a single kind of atom.
     explanation: |
-      The soup has distinct vegetable pieces and liquid regions with different composition. This makes it a heterogeneous, or nonuniform, mixture.
-    approved: true
+      A spoonful of broth and a spoonful with vegetables contain different amounts of the ingredients. The soup is a heterogeneous mixture because its composition varies from place to place.
+    approved: false
 
   - id: q-chemistry-mixtures-and-separation-0003
     lesson: lesson-chemistry-classifying-mixture-types

@@ -37,17 +37,19 @@ The unit $\mathrm{mol^{-1}}$ is read "per mole". Most problems use the rounded v
 
 ### Naming the Entity
 
-An **entity** is the kind of particle you are counting. It can be an atom, a molecule, an ion (an atom or group of atoms with an electric charge), an electron, or a formula unit. A **formula unit** is the smallest repeating group in the formula of an ionic compound. In solid $NaCl$, one formula unit is one $Na^+$ ion with one $Cl^-$ ion.
+An **entity** is the kind of particle you are counting. It can be an atom, a molecule, an ion (an atom or group of atoms with an electric charge), an electron, or a formula unit. A **formula unit** is the simplest ratio of ions shown by the formula of an ionic compound. In solid $NaCl$, one formula unit is one $Na^+$ ion with one $Cl^-$ ion.
 
 A molecular substance such as water is counted in molecules. An ionic compound such as $NaCl$ is made of a lattice of ions, not separate molecules, so it is counted in formula units. State the entity whenever the words could mean more than one thing. "One mole of oxygen" could mean $O$ atoms or $O_2$ molecules.
 
 Some elements exist as molecules with two atoms. Hydrogen $H_2$, nitrogen $N_2$, oxygen $O_2$, fluorine $F_2$, chlorine $Cl_2$, bromine $Br_2$, and iodine $I_2$ are the common ones, called **diatomic** elements. One mole of $O_2$ molecules contains $2$ mol of $O$ atoms.
 
+To find moles from mass, use $n=\dfrac{m}{M}$. Here $m$ is the sample mass and $M$ is the molar mass.
+
 The mole also tells you how many atoms are inside the particles. One mole of $H_2O$ molecules contains $1$ mol of $O$ atoms and $2$ mol of $H$ atoms. The subscripts in a formula give the ratio of atoms in one molecule, so they give the same ratio of moles.
 
 ### Atomic Mass and Molar Mass
 
-Every atom has a center called the nucleus. The nucleus holds **protons**, which carry a positive charge, and **neutrons**, which carry no charge. The number of protons decides which element the atom is.
+Every atom has a center called the nucleus. The nucleus holds **protons**, which carry a positive charge. Most nuclei also hold **neutrons**, which carry no charge. The number of protons decides which element the atom is.
 
 Atoms of one element can differ slightly in mass. Atoms of the same element with different numbers of neutrons are **isotopes**. The **mass number** of one isotope is a whole number: its count of protons plus neutrons.
 
@@ -65,7 +67,7 @@ A **hydrate** is a crystal that holds water molecules inside it, written with a 
 
 For $CuSO_4\cdot5H_2O$, use $Cu=63.55$, $S=32.06$, $O=16.00$, and $M(H_2O)=18.02$, all in $\mathrm{g/mol}$.
 
-$$M=63.55+32.06+4(16.00)+5(18.02)=249.7\ \mathrm{g/mol}$$
+$$M=63.55+32.06+4(16.00)+5(18.02)=249.71\ \mathrm{g/mol}$$
 
 ### Converting Between Mass, Moles, and Entities
 
@@ -220,7 +222,7 @@ Set up with dimensional analysis. Write each conversion factor so the unit you d
 
 For a compound, multiply each element's molar mass by its subscript before you add. A subscript outside parentheses multiplies every atom inside them. In a hydrate, the coefficient before $H_2O$ multiplies the water, so count that water separately.
 
-A quick check for a gas or other molecular element: if the formula has a subscript $2$, such as $O_2$, double the atomic molar mass. This applies only to the diatomic elements listed above, and only when the problem means the molecule.
+A quick check for a gas or other molecular element: if the formula has a subscript $2$, such as $O_2$, double the atomic molar mass. Use this when the formula shows two atoms of the element in one molecule.
 
 Estimate the answer's size first. A sample of $9$ g of water is less than one mole, because one mole of water is about $18$ g. So the molecule count must be less than $6\times10^{23}$.
 

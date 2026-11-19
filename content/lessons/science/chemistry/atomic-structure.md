@@ -18,9 +18,9 @@ replacedBy:
 ---
 ## Core Concept
 
-An **atom** is the smallest piece of an element that still has the element's identity. Introductory chemistry builds every atom from three kinds of **subatomic particles**, which are particles smaller than an atom: **protons**, **neutrons** and **electrons**.
+An **atom** is the smallest piece of an element that still has the element's identity. Three kinds of **subatomic particles** are **protons**, **neutrons** and **electrons**.
 
-The center of the atom is the **nucleus**. It is very small, and it holds the protons and neutrons. The electrons are outside the nucleus.
+The center of the atom is the **nucleus**. It is very small, and it holds the protons. Most nuclei also contain neutrons. Hydrogen-$1$ has none. The electrons are outside the nucleus.
 
 Charge is measured in units of $e$, the size of the charge on one proton. A proton has charge $+1e$. An electron has charge $-1e$. A neutron has charge $0$, so it is neutral.
 
@@ -50,7 +50,7 @@ $A$ is a count, so it is always a whole number. The mass of an atom in $u$ is cl
 
 A nuclide is written as the element symbol with $A$ at the upper left and $Z$ at the lower left. For chlorine with $A=35$ and $Z=17$, this is ${}^{35}_{17}\text{Cl}$. It can also be written as chlorine-35.
 
-A **neutral atom** has no net charge, so it has as many electrons as protons. An ion does not, as the Ions section shows.
+A **neutral atom** has no net charge, so it has as many electrons as protons. An ion does not, as shown in “Monatomic Ion Charge”.
 
 ### Isotopes
 
@@ -64,7 +64,7 @@ Neutral atoms of two isotopes of one element have the same number of electrons. 
 
 ### Average Atomic Mass
 
-Most elements in nature are a mixture of isotopes. The **average atomic mass** is the average mass of the atoms in a natural sample of the element, in $u$. The **relative atomic mass** (also called standard atomic weight) is the same average compared with $1\ u$, so it is a plain number with no unit. It is the decimal number shown for the element on most periodic tables.
+Most elements in nature are a mixture of isotopes. The **average atomic mass** is the average mass of the atoms in a natural sample of the element, in $u$. The **relative atomic mass** (also called atomic weight) is the same average compared with $1\ u$, so it is a plain number with no unit. It is the decimal number shown for the element on most periodic tables.
 
 It is a **weighted average**. An isotope that is more common counts more. To find it, multiply each isotope's mass by its fraction of the sample, then add:
 
@@ -88,7 +88,7 @@ The charge is written at the upper right, with the number first and then the sig
 
 A single atom becomes an ion when it gains or loses electrons. Its nucleus does not change, so $Z$ and $N$ stay the same. The hydrogen ion $\text{H}^{+}$ is a hydrogen-1 atom that has lost its only electron, so it has $1$ proton and no electrons.
 
-A **polyatomic ion** is a group of bonded atoms with a net charge, such as $\text{NH}_4^{+}$ and $\text{SO}_4^{2-}$. The same formula works if you add up the protons of all the atoms and the electrons of the whole group.
+A **polyatomic ion** is a group of bonded atoms with a net charge, such as $\text{NH}_4^{+}$ and $\text{SO}_4^{2-}$. To find the charge in units of $e$, subtract the total number of electrons from the total number of protons.
 
 Some polyatomic ions form another way. Ammonia, $\text{NH}_3$, picks up a hydrogen ion $\text{H}^{+}$ (a proton) to make $\text{NH}_4^{+}$. The group gains a proton, so its proton count rises by $1$.
 

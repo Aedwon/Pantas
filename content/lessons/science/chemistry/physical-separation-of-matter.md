@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-- A **homogeneous mixture** has the same composition in every part, even down to the particles. Salt dissolved in water and air are examples. A homogeneous mixture is often called a **solution**.
+- A **homogeneous mixture** has the same composition in samples large enough to contain many particles. Salt dissolved in water and air are examples. A homogeneous mixture is often called a **solution**.
 - A **heterogeneous mixture** has parts you can tell apart, such as sand mixed with iron filings.
 
 Looking the same is not enough. Milk looks the same throughout, but it holds tiny droplets of fat mixed in water, so it is not a solution. Such a mixture is called a colloid.

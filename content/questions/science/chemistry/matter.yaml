@@ -447,22 +447,22 @@ questions:
     type: 'compare-contrast'
     difficulty: 'exam'
     stem: |
-      Which correctly distinguishes evaporation from boiling?
+      Which statement correctly distinguishes evaporation from boiling?
     choices:
-      - text: 'Evaporation is at the surface; boiling is throughout.'
+      - text: 'Evaporation occurs at the surface. Boiling occurs throughout the liquid.'
         correct: true
-      - text: 'Evaporation is throughout; boiling is only at the surface.'
+      - text: 'Evaporation occurs throughout the liquid. Boiling occurs only at the surface.'
         rationale: |
-          This reverses the locations. Both processes produce vapor. Check whether bubbles form through the liquid or molecules leave its surface.
-      - text: 'Evaporation always needs the boiling temperature first.'
+          Both processes make vapor. Check where vapor bubbles form and where particles can leave without forming bubbles.
+      - text: 'Evaporation occurs only at the boiling point.'
         rationale: |
-          This assumes all vaporization requires boiling conditions. Boiling is a familiar way to make vapor. Check whether a surface can lose molecules below the boiling point.
-      - text: 'Boiling changes chemical identity; evaporation never does.'
+          Boiling is a familiar way to make vapor. Check whether water can evaporate at room temperature.
+      - text: 'Boiling forms a new substance. Evaporation leaves the substance unchanged.'
         rationale: |
-          This treats different vaporization methods as different chemistry. Boiling is more visible. Check whether the substance’s chemical identity changes.
+          Boiling bubbles can look like a reaction. Check whether the particles themselves change.
     explanation: |
-      Evaporation is vaporization at the liquid surface and can occur below the boiling point. Boiling occurs throughout the liquid when its vapor pressure reaches the surrounding pressure.
-    approved: true
+      In evaporation, particles escape from the surface. This can happen below the boiling point. When a liquid boils, vapor bubbles form inside the liquid too.
+    approved: false
 
   - id: q-chemistry-matter-0021
     approved: true

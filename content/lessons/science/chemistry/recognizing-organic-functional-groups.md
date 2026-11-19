@@ -28,8 +28,6 @@ Names treat groups in different ways. Some groups set a name ending, called a **
 - **Amine**: a compound derived from ammonia, $NH_3$, by replacing one or more hydrogens with carbon groups. A primary amine has $-NH_2$. Secondary and tertiary amines have $-NHR$ and $-NR_2$. Name ending: **-amine**.
 - **Ester**: the carbonyl carbon is bonded to an $-O-R$ group. It forms when a carboxylic acid joins an alcohol. Name ending: **-oate**, as in ethyl ethanoate.
 
-<!-- ILLUSTRATION: five structures side by side with the functional group circled and labeled: CH3CH2OH (alcohol), CH3CH2CHO (aldehyde), CH3COCH3 (ketone), CH3COOH (carboxylic acid), CH3NH2 (amine) -->
-
 When a compound has more than one group, only the main one sets the suffix. The others are named as prefixes, such as hydroxy- for $-OH$ and amino- for $-NH_2$.
 
 ## Examples
@@ -45,6 +43,8 @@ Name the main functional group of each: $CH_3CH_2OH$, $CH_3CH_2CHO$, $CH_3COCH_3
 3. $CH_3COCH_3$ has $C=O$ between two carbons: a ketone.
 4. $CH_3COOH$ has $C=O$ with an $-OH$ on the same carbon: a carboxylic acid.
 5. $CH_3NH_2$ has nitrogen bonded to carbon and two hydrogens: a primary amine.
+
+<!-- ILLUSTRATION: five structures side by side with the functional group circled and labeled: CH3CH2OH (alcohol), CH3CH2CHO (aldehyde), CH3COCH3 (ketone), CH3COOH (carboxylic acid), CH3NH2 (amine) -->
 
 ## Traps to Watch For
 

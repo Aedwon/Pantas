@@ -64,9 +64,9 @@ Very concentrated solutions can also have a pH below $0$ or above $14$. Advanced
 
 ### Strong and Weak
 
-A **strong acid** ionizes completely in water. Every molecule gives up its proton. A **weak acid** ionizes only a little. Most molecules stay whole, and the mixture settles into a balance called **equilibrium**.
+A **strong acid** ionizes completely in water. A **weak acid** ionizes only a little. Most molecules stay whole, and the mixture settles into a balance called **equilibrium**.
 
-Common strong acids are $HCl$, $HNO_3$, and $H_2SO_4$. Acetic acid, the acid in vinegar, is a common weak acid.
+Common strong acids include $HCl$ and $HNO_3$. Sulfuric acid ($H_2SO_4$) gives up its first proton fully. Only some of the resulting ions give up their second proton. Acetic acid, the acid in vinegar, is a common weak acid.
 
 Strong bases are soluble hydroxides, such as $NaOH$ and $Ca(OH)_2$. They split completely into ions. Ammonia, $NH_3$, is a weak base. It reacts only a little with water:
 
@@ -76,13 +76,13 @@ The double arrow means the reaction can go both ways.
 
 **Strength** is how much a substance ionizes. **Concentration** is how much is dissolved in each liter. They are different things.
 
-For a strong acid with one hydrogen, such as $HCl$, $[H_3O^+]$ equals the acid's concentration. For a weak acid, $[H_3O^+]$ is much smaller.
+For a strong acid that gives up one proton, such as $HCl$, $[H_3O^+]$ is about the acid's concentration if water adds very little hydronium. A weak acid at the same concentration gives less hydronium.
 
 ### Neutralization
 
 **Neutralization** is the reaction of an acid with a base. A strong acid and a strong hydroxide make a **salt** and water. A salt is an ionic compound made of a positive ion from the base and a negative ion from the acid. Table salt, $NaCl$, is one.
 
-A **spectator ion** is an ion that is present before and after the reaction and does not change. A **net ionic equation** shows only the ions that change. It leaves out the spectator ions. For a strong acid and a strong hydroxide, it is
+A **spectator ion** is an ion that is present before and after the reaction and does not change. A **net ionic equation** shows the species that react or form. It leaves out the spectator ions. For a strong acid and a strong hydroxide, it is
 
 $$H_3O^+ + OH^- \rightarrow 2H_2O$$
 
@@ -124,8 +124,8 @@ Find the pH of $0.0010\ M$ $HCl$ at $25\ ^\circ\mathrm C$.
 
 **Solution:**
 
-1. $HCl$ is a strong acid with one hydrogen. It ionizes completely, so
-$[H_3O^+]=0.0010\ M=1.0\times10^{-3}\ M$.
+1. $HCl$ is a strong acid with one hydrogen. It ionizes completely and water adds very little hydronium, so
+$[H_3O^+]\approx0.0010\ M=1.0\times10^{-3}\ M$.
 2. Apply the pH formula.
 
 $$\mathrm{pH}=-\log_{10}(10^{-3})=3$$
@@ -155,7 +155,7 @@ A $0.10\ M$ solution of $HCl$ and a $0.10\ M$ solution of acetic acid are compar
 **Solution:**
 
 1. Both have the same concentration, but $HCl$ is strong and acetic acid is weak.
-2. $HCl$ ionizes completely, so $[H_3O^+]=0.10\ M$ and the pH is $1$.
+2. $HCl$ ionizes completely and water adds very little hydronium, so $[H_3O^+]\approx0.10\ M$ and the pH is $1$.
 3. Acetic acid ionizes only partly, so its $[H_3O^+]$ is less than $0.10\ M$ and its pH is higher than $1$.
 
 The $HCl$ solution has the lower pH.

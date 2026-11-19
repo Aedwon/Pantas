@@ -79,22 +79,22 @@ questions:
     type: 'simple-quantitative'
     difficulty: 'medium'
     stem: |
-      Using $N_A=6.022\times10^{23}\,\mathrm{mol^{-1}}$ for this calculation, how many water molecules are in 3 mol?
+      Using $N_A=6.022\times10^{23}\,\mathrm{mol^{-1}}$, calculate the number of molecules in 3.000 mol of water. Report four significant figures.
     choices:
-      - text: '$1.8066\times10^{24}$ molecules'
+      - text: '$1.807\times10^{24}$ molecules'
         correct: true
       - text: '$6.022\times10^{23}$ molecules'
         rationale: |
-          This reports the count for one mole. Avogadro’s value is familiar. Check the actual mole amount.
-      - text: '$1.8066\times10^{23}$ molecules'
+          This is the familiar count for one mole. Check how many moles the sample contains.
+      - text: '$1.807\times10^{23}$ molecules'
         rationale: |
-          This moves the decimal left without raising the exponent. Scientific notation needs one leading digit. Check that rescaling preserves the value.
-      - text: '$3\times10^{23}$ molecules'
+          The leading number has the right digits. When you move the decimal one place left, check that the power of ten rises by one.
+      - text: '$3.000\times10^{23}$ molecules'
         rationale: |
-          This omits the factor 6.022. The exponent is memorable. Check the whole supplied constant.
+          This uses the mole amount and the power of ten. Check that you multiply by the full constant.
     explanation: |
-      Use $N=nN_A$. With the stated rounded constant, $N=3(6.022\times10^{23})=18.066\times10^{23}=1.8066\times10^{24}$ molecules.
-    approved: true
+      Multiply moles by the number of molecules per mole. The product is $3.000(6.022\times10^{23})=1.8066\times10^{24}$. The next digit is $6$, so the result rounds to $1.807\times10^{24}$ molecules.
+    approved: false
 
   - id: q-chemistry-mole-concept-0005
     lesson: lesson-chemistry-converting-mass-and-entities
@@ -102,22 +102,22 @@ questions:
     type: 'simple-quantitative'
     difficulty: 'hard'
     stem: |
-      Using 18 g/mol for water and $N_A=6.022\times10^{23}\,\mathrm{mol^{-1}}$, how many molecules are in 45 g water?
+      A 45 g sample of water has a molar mass of 18 g/mol. Using $N_A=6.022\times10^{23}\,\mathrm{mol^{-1}}$, how many molecules does the sample contain? Report two significant figures.
     choices:
-      - text: '$1.5055\times10^{24}$ molecules'
+      - text: '$1.5\times10^{24}$ molecules'
         correct: true
-      - text: '2.5 molecules'
+      - text: '$2.5$ molecules'
         rationale: |
-          This labels the mole amount as a molecule count. The division gives 2.5. Check the unit before multiplying by N_A.
-      - text: '$6.022\times10^{23}$ molecules'
+          Dividing the mass by molar mass does give 2.5. Check the units before calling that value a molecule count.
+      - text: '$6.0\times10^{23}$ molecules'
         rationale: |
-          This gives the count for one mole. Avogadro’s number is familiar. Check how much substance the mass represents.
-      - text: '$2.7099\times10^{25}$ molecules'
+          This is the count for one mole. Use the mass and molar mass to check the size of the sample in moles.
+      - text: '$2.7\times10^{25}$ molecules'
         rationale: |
-          This multiplies grams by N_A directly, giving about $2.7099\times10^{25}$. Mass is the starting quantity. Check whether the molar-mass factor is included.
+          The problem starts with grams, so it is easy to multiply that number directly. Check that Avogadro’s constant needs moles as the input.
     explanation: |
-      First find $n=45/18=2.5$ mol. Then $N=2.5(6.022\times10^{23})=1.5055\times10^{24}$ molecules using the supplied constant.
-    approved: true
+      First find the moles of water, $n=\dfrac{45}{18}=2.5$ mol. Multiply by $N_A$ to get $1.5055\times10^{24}$ molecules before rounding. To two significant figures, the count is $1.5\times10^{24}$ molecules.
+    approved: false
 
   - id: q-chemistry-mole-concept-0006
     lesson: lesson-chemistry-converting-mass-and-entities
@@ -447,22 +447,22 @@ questions:
     type: 'compare-contrast'
     difficulty: 'exam'
     stem: |
-      What changed in the 2019 SI definition of the mole?
+      What defines the mole in the current SI?
     choices:
-      - text: 'It uses a fixed entity count.'
+      - text: 'An exact count of specified entities'
         correct: true
-      - text: 'It is now defined by exactly 12 g of carbon-12.'
+      - text: 'The mass of exactly 12 g of carbon-12'
         rationale: |
-          This retains the older carbon-12-based definition. Carbon-12 remains important in atomic mass. Check the modern defining constant.
-      - text: 'Its definition depends on the substance’s physical state.'
+          Carbon-12 is used as a reference for atomic mass. Check whether the current mole is defined by mass or by count.
+      - text: 'A count that depends on the physical state'
         rationale: |
-          This makes amount depend on gas, liquid, or solid state. Gas laws often use moles. Check the state-independent entity definition.
-      - text: 'Its entity count changes with each element’s molar mass.'
+          Gas particles spread out differently from particles in a solid or liquid. Check whether spreading changes the number of particles.
+      - text: 'A count that depends on molar mass'
         rationale: |
-          This confuses mass per mole with entities per mole. Elements have different molar masses. Check what stays the same for one mole.
+          Different substances have different masses per mole. Check whether those different masses change the count per mole.
     explanation: |
-      The modern mole is defined by the exact Avogadro constant. It contains exactly $6.02214076\times10^{23}$ specified entities.
-    approved: true
+      One mole contains exactly $6.02214076\times10^{23}$ of the things being counted, such as atoms or molecules. The SI fixes that number exactly.
+    approved: false
 
   - id: q-chemistry-mole-concept-0021
     approved: true

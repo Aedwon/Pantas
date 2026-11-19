@@ -18,7 +18,7 @@ A balanced equation is normally written with the smallest whole-number coefficie
 
 If every coefficient can be divided by the same number, divide. So $4H_2+2O_2\rightarrow4H_2O$ is balanced but not in simplest form.
 
-If a coefficient comes out as a fraction, multiply every coefficient by the number that clears it. Some equations need this, as Example #5 shows.
+If a coefficient comes out as a fraction, multiply every coefficient by the number that clears it. Some equations need this.
 
 ## Examples
 

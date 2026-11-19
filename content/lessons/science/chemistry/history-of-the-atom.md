@@ -41,7 +41,7 @@ In the early $1800$s, **John Dalton** built an atomic theory from measured masse
 - in a chemical reaction, in which substances change into new substances, atoms join, separate, or rearrange, but are not created or destroyed;
 - atoms join in small whole-number ratios to form compounds.
 
-This theory explained three patterns in measured masses.
+Dalton’s atomic theory explained three patterns in measured masses.
 
 The first is **conservation of mass**: the total mass stays the same during a chemical reaction in a closed container.
 
@@ -183,6 +183,8 @@ A student writes two statements about the gold-foil work. Statement 1: "Most alp
 5. Most particles went straight through, so the nucleus fills only a tiny part of the atom's volume.
 
 ### #5: Testing a Model with a Change
+
+In the gold-foil experiment, scientists aimed fast, positively charged alpha particles at thin gold foil. A screen showed where they went. Most passed straight through. In Rutherford’s model, a few came close to a small, positive nucleus and were pushed sharply off course.
 
 A student repeats the gold-foil work with a foil that is much thicker. What changes and what must stay the same for a fair test? What is likely to happen?
 

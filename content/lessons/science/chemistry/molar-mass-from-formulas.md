@@ -20,7 +20,7 @@ A **hydrate** is a crystal that holds water molecules inside it, written with a 
 
 For $CuSO_4\cdot5H_2O$, use $Cu=63.55$, $S=32.06$, $O=16.00$, and $M(H_2O)=18.02$, all in $\mathrm{g/mol}$.
 
-$$M=63.55+32.06+4(16.00)+5(18.02)=249.7\ \mathrm{g/mol}$$
+$$M=63.55+32.06+4(16.00)+5(18.02)=249.71\ \mathrm{g/mol}$$
 
 ## Examples
 

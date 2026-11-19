@@ -19,7 +19,7 @@ keyPoints:
 2. For a molecule with one center atom bonded to all the others, usually put the least electronegative atom in the center and join the others to it with single bonds. Hydrogen is not put in the center, because it forms one bond.
 3. Give the outer atoms lone pairs until each has an octet. Hydrogen gets none, because one bond already fills its duet.
 4. Put any electrons left over on the center atom. A center from period $3$ or below may end with more than eight.
-5. If the center atom has less than an octet, move a lone pair from an outer atom to make a double or triple bond. Do not do this for boron or beryllium, as in $BF_3$, where the center stays below eight.
+5. If the center atom has less than an octet, move a lone pair from an outer atom to make a double or triple bond. Some compounds, such as $BF_3$ and $BeH_2$, are exceptions. In these, the center atom can stay below eight electrons.
 
 Step 2 is a guide, not a law. In HOCl the order is H-O-Cl, and molecules with two centers, such as $H_2O_2$ and $C_2H_4$, are given with their atom order.
 

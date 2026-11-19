@@ -22,8 +22,6 @@ Filtration separates an undissolved solid from a liquid, such as sand from water
 
 Dissolved particles are far smaller than the pores. They pass through ordinary filter paper with the solvent. So filtration cannot take dissolved salt out of saltwater.
 
-Two simple relatives of filtration are worth knowing.
-
 **Decanting** means pouring off the liquid after a solid has settled. It works only when the solid really settles, as in a suspension. Some liquid stays with the solid, so the separation is not complete.
 
 ## Examples

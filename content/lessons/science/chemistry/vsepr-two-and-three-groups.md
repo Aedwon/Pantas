@@ -18,7 +18,7 @@ keyPoints:
 
 **VSEPR** says that electron groups around a central atom repel and spread as far apart as possible.
 
-A **group** is a lone pair or a bond. A single, double, or triple bond counts as one group. This lesson covers up to $4$ groups.
+A **group** is a lone pair or a bond. A single, double, or triple bond counts as one group. The next part covers four groups.
 
 The number of groups sets the **electron-group geometry**, the arrangement of all the groups, lone pairs included. The **molecular shape** names only where the atoms are, so lone pairs are not named. Count the groups, then count how many are lone pairs:
 
@@ -48,3 +48,5 @@ Find the molecular shape of each.
 > One bond, however many lines, is one group.
 
 In $O=C=O$ the carbon has two groups, so the shape is linear.
+
+<!-- ILLUSTRATION: Lewis structure of CO2 with every lone pair drawn, O=C=O, each oxygen with two lone pairs, carbon with none -->

@@ -13,11 +13,9 @@ keyPoints:
 ---
 ## Core Concept
 
-- $4$ groups: tetrahedral, $109.5^\circ$. With no lone pair the shape is tetrahedral. With one lone pair it is trigonal pyramidal. With two lone pairs it is bent.
+Four groups spread into a tetrahedral arrangement with ideal angles of $109.5^\circ$. With no lone pair the shape is tetrahedral. With one lone pair it is trigonal pyramidal. With two lone pairs it is bent.
 
 Lone pairs push harder than bonds, so bond angles are usually a little smaller than these ideal angles.
-
-<!-- ILLUSTRATION: Lewis structure of CO2 with every lone pair drawn, O=C=O, each oxygen with two lone pairs, carbon with none -->
 
 ## Examples
 

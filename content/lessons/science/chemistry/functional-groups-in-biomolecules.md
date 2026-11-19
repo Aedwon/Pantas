@@ -15,7 +15,7 @@ keyPoints:
 
 ### Carbon Compounds of Living Things
 
-Living things are built from large carbon compounds called **biomolecules**. Many are **polymers**, long molecules made by joining many small units called **monomers**. Their functional groups explain their structure and behavior.
+Living things contain **biomolecules**. These range from small molecules, like glucose, to large **polymers**. Polymers are long molecules made by joining small units called **monomers**. Their functional groups explain their structure and behavior.
 
 - **Carbohydrates** contain carbon, hydrogen and oxygen. Sugars such as glucose, $C_6H_{12}O_6$, have many $-OH$ groups, so they dissolve in water. Starch, glycogen and cellulose are polymers made of glucose units.
 - **Proteins** are polymers of **amino acids**. Each amino acid has an amine group and a carboxylic acid group. A **peptide bond** joins the carboxylic acid of one to the amine of the next.

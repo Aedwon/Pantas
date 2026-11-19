@@ -80,7 +80,7 @@ A balanced equation is normally written with the smallest whole-number coefficie
 
 If every coefficient can be divided by the same number, divide. So $4H_2+2O_2\rightarrow4H_2O$ is balanced but not in simplest form.
 
-If a coefficient comes out as a fraction, multiply every coefficient by the number that clears it. Some equations need this, as Example #5 shows.
+If a coefficient comes out as a fraction, multiply every coefficient by the number that clears it. Some equations need this.
 
 ### State Symbols
 
@@ -100,7 +100,7 @@ The patterns overlap, and they do not cover every reaction. One reaction can fit
 - **Double displacement:** two compounds, usually in water, swap partners. The form is $AB+CD\rightarrow AD+CB$.
 - **Combustion:** a substance burns by reacting quickly with oxygen and gives off heat and often light.
 
-Each pattern is explained below. Check the limit of each one before you use it.
+Check the limit of each one before you use it.
 
 ### Single Displacement and Reactivity
 
@@ -123,7 +123,7 @@ Swapping partners on paper does not prove that anything happens. The letters in 
 A double displacement reaction happens only when a **driving force** removes ions from the solution. There are four common ones.
 
 - A **precipitate** forms. This is a solid that appears when two solutions are mixed because it does not dissolve.
-- Water forms. This happens when an acid meets a hydroxide base, which is one kind of neutralization. See the acids, bases and pH lesson.
+- Water forms. This happens when an acid meets a hydroxide base, which is one kind of neutralization. See “Acid and Base Models.”
 - A gas escapes.
 - A weak electrolyte forms. This is a compound that stays mostly as molecules in water and gives few ions, such as a weak acid, unlike a strong acid such as $HCl$, which gives mostly ions. For example, $HCl+NaC_2H_3O_2\rightarrow NaCl+HC_2H_3O_2$ goes ahead because acetic acid, $HC_2H_3O_2$, is a weak acid.
 
@@ -148,7 +148,7 @@ When there is plenty of oxygen, a fuel that has both carbon and hydrogen, and at
 
 A fuel with no hydrogen, such as carbon, gives no water.
 
-When oxygen is short, burning is **incomplete**. Some carbon ends up as carbon monoxide $CO$, which is a poisonous gas, and some as soot, which is solid carbon $C$. The hydrogen of the fuel usually still forms water.
+When oxygen is short, burning is **incomplete**. The carbon can form carbon monoxide ($CO$, a poisonous gas), soot (solid carbon, $C$), or both. The hydrogen of the fuel usually still forms water.
 
 Fuels that also contain other elements give extra products. For example, sulfur burns mainly to form $SO_2$. Metals can burn as well: $2Mg+O_2\rightarrow2MgO$.
 
@@ -172,7 +172,7 @@ If an element's oxidation number goes up, it was oxidized. If it goes down, it w
 
 ### How the Patterns Overlap
 
-Patterns and redox cut across each other. All single displacement and all combustion in oxygen are redox.
+An **oxidation number** tracks how electrons are shared or transferred. A **redox** reaction changes these numbers. A rise is oxidation. A drop is reduction. An element on its own has number $0$. Oxygen is usually $-2$, but in peroxides like $H_2O_2$ it is $-1$. All single displacement and all combustion in oxygen are redox.
 
 Combination and decomposition can be redox or not. Double displacement is not redox, because no oxidation number changes.
 
@@ -328,7 +328,7 @@ Solutions of lead(II) nitrate and potassium iodide are mixed. Write the balanced
 
 1. Swap partners. Write each new formula from the ion charges: $Pb^{2+}$ with $I^-$ gives $PbI_2$, and $K^+$ with $NO_3^-$ gives $KNO_3$. So $Pb(NO_3)_2+KI\rightarrow PbI_2+KNO_3$.
 2. Balance. Put $2$ before $KI$ for the iodine, and then $2$ before $KNO_3$.
-3. Use the rules. $KNO_3$ is soluble. $PbI_2$ is an iodide of $Pb^{2+}$, an exception in the rules, so it forms a yellow solid.
+3. Use the rules. $KNO_3$ is soluble. $PbI_2$ is an iodide of $Pb^{2+}$, an exception in the rules. It can still dissolve in small amounts. At typical classroom concentrations, the mixture holds more than can stay dissolved, so a yellow solid forms.
 4. Add state symbols: $(aq)$ for the dissolved compounds and $(s)$ for the solid.
 5. Write each dissolved ionic compound as separate ions, with its coefficient. Keep the solid as one formula.
 
@@ -358,8 +358,8 @@ Solutions of sodium chloride and potassium nitrate are mixed. Does a reaction oc
 **Solution:**
 
 1. The swap gives $NaNO_3$ and $KCl$.
-2. Both are soluble by the rules. Nothing forms a solid, a gas, water or a weak electrolyte.
-3. All four ions stay in solution. Every ion is a spectator, so there is no net ionic equation.
+2. Nitrates and salts of Group $1$ metals dissolve in water, so both products stay dissolved. Nothing forms a solid, a gas, water or a weak electrolyte.
+3. All four ions stay in solution. Every ion is a spectator ion, an ion that stays the same during the reaction, so there is no net ionic equation.
 
 No reaction occurs. Writing the swapped formulas did not prove a reaction.
 

@@ -18,7 +18,7 @@ keyPoints:
 
 **Neutralization** is the reaction of an acid with a base. A strong acid and a strong hydroxide make a **salt** and water. A salt is an ionic compound made of a positive ion from the base and a negative ion from the acid. Table salt, $NaCl$, is one.
 
-A **spectator ion** is an ion that is present before and after the reaction and does not change. A **net ionic equation** shows only the ions that change. It leaves out the spectator ions. For a strong acid and a strong hydroxide, it is
+A **spectator ion** is an ion that is present before and after the reaction and does not change. A **net ionic equation** shows the species that react or form. It leaves out the spectator ions. For a strong acid and a strong hydroxide, it is
 
 $$H_3O^+ + OH^- \rightarrow 2H_2O$$
 

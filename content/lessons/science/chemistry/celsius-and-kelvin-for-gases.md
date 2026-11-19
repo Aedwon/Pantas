@@ -22,7 +22,7 @@ $$T(\mathrm K)=T(^\circ\mathrm C)+273.15$$
 
 Kinetic energy is proportional to the kelvin temperature, so the gas laws work with kelvin. Doubling the kelvin temperature doubles the average kinetic energy.
 
-Going from $10\,^\circ\mathrm C$ to $20\,^\circ\mathrm C$ does not double anything. Always convert to kelvin before using a gas law that contains $T$.
+Going from $10\,^\circ\mathrm C$ to $20\,^\circ\mathrm C$ does not double the temperature in kelvin. Always convert to kelvin before using a gas law that contains $T$.
 
 ## Examples
 

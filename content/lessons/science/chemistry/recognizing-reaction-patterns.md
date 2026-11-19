@@ -26,11 +26,11 @@ The patterns overlap, and they do not cover every reaction. One reaction can fit
 - **Double displacement:** two compounds, usually in water, swap partners. The form is $AB+CD\rightarrow AD+CB$.
 - **Combustion:** a substance burns by reacting quickly with oxygen and gives off heat and often light.
 
-Each pattern is explained below. Check the limit of each one before you use it.
+Check the limit of each one before you use it.
 
 ### How the Patterns Overlap
 
-Patterns and redox cut across each other. All single displacement and all combustion in oxygen are redox.
+An **oxidation number** tracks how electrons are shared or transferred. A **redox** reaction changes these numbers. A rise is oxidation. A drop is reduction. An element on its own has number $0$. Oxygen is usually $-2$, but in peroxides like $H_2O_2$ it is $-1$. All single displacement and all combustion in oxygen are redox.
 
 Combination and decomposition can be redox or not. Double displacement is not redox, because no oxidation number changes.
 

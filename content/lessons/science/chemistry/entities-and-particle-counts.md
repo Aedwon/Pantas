@@ -16,11 +16,13 @@ keyPoints:
 
 ### Naming the Entity
 
-An **entity** is the kind of particle you are counting. It can be an atom, a molecule, an ion (an atom or group of atoms with an electric charge), an electron, or a formula unit. A **formula unit** is the smallest repeating group in the formula of an ionic compound. In solid $NaCl$, one formula unit is one $Na^+$ ion with one $Cl^-$ ion.
+An **entity** is the kind of particle you are counting. It can be an atom, a molecule, an ion (an atom or group of atoms with an electric charge), an electron, or a formula unit. A **formula unit** is the simplest ratio of ions shown by the formula of an ionic compound. In solid $NaCl$, one formula unit is one $Na^+$ ion with one $Cl^-$ ion.
 
 A molecular substance such as water is counted in molecules. An ionic compound such as $NaCl$ is made of a lattice of ions, not separate molecules, so it is counted in formula units. State the entity whenever the words could mean more than one thing. "One mole of oxygen" could mean $O$ atoms or $O_2$ molecules.
 
 Some elements exist as molecules with two atoms. Hydrogen $H_2$, nitrogen $N_2$, oxygen $O_2$, fluorine $F_2$, chlorine $Cl_2$, bromine $Br_2$, and iodine $I_2$ are the common ones, called **diatomic** elements. One mole of $O_2$ molecules contains $2$ mol of $O$ atoms.
+
+To find moles from mass, use $n=\dfrac{m}{M}$. Here $m$ is the sample mass and $M$ is the molar mass.
 
 The mole also tells you how many atoms are inside the particles. One mole of $H_2O$ molecules contains $1$ mol of $O$ atoms and $2$ mol of $H$ atoms. The subscripts in a formula give the ratio of atoms in one molecule, so they give the same ratio of moles.
 

@@ -19,6 +19,8 @@ A **physical property** is something you can observe or measure without changing
 
 A **chemical property** describes how a substance can react to become a different substance. Flammability (it can burn) and the ability to rust are examples. You can only observe a chemical property when a reaction happens.
 
+A **physical change** changes the form or state of a substance. A **chemical change** makes a new substance.
+
 ## Examples
 
 ### #1: Property or Change?

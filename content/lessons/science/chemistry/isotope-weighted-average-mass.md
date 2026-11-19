@@ -15,7 +15,7 @@ keyPoints:
 
 ### Average Atomic Mass
 
-Most elements in nature are a mixture of isotopes. The **average atomic mass** is the average mass of the atoms in a natural sample of the element, in $u$. The **relative atomic mass** (also called standard atomic weight) is the same average compared with $1\ u$, so it is a plain number with no unit. It is the decimal number shown for the element on most periodic tables.
+Most elements in nature are a mixture of isotopes. The **average atomic mass** is the average mass of the atoms in a natural sample of the element, in $u$. The **relative atomic mass** (also called atomic weight) is the same average compared with $1\ u$, so it is a plain number with no unit. It is the decimal number shown for the element on most periodic tables.
 
 It is a **weighted average**. An isotope that is more common counts more. To find it, multiply each isotope's mass by its fraction of the sample, then add:
 

@@ -15,9 +15,9 @@ keyPoints:
 
 ### Which Measures Change with Temperature
 
-Mass does not change when a sealed solution is warmed. So molality and percent by mass stay the same.
+If warming leaves a single liquid solution with the same masses of dissolved solute and solvent, molality and percent by mass stay the same.
 
-Volume does change. Liquids usually expand when warmed. The same amount of solute is then in more liters, so molarity falls. Percent by volume also changes, because the volumes change.
+Volume can change. Liquids usually expand when warmed. The same amount of solute is then in more liters, so molarity falls. Percent by volume can change if the solute volume and the solution volume change by different proportions.
 
 Check whether the denominator is a mass or a volume before predicting what changes.
 
@@ -25,7 +25,7 @@ Check whether the denominator is a mass or a volume before predicting what chang
 
 ### #1: Why Molarity Can Change with Temperature
 
-A sealed solution is warmed with nothing lost or added. Why can its molarity change while its molality stays constant?
+A sealed solution is warmed. It stays as one liquid phase with the same amounts of dissolved solute and solvent. Why can its molarity change while its molality stays constant?
 
 **Solution:**
 
