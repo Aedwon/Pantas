@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 266" width="360" height="266">
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="wash" cx="0.4" cy="0.3"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.06"/></radialGradient>
+  </defs>
+  <rect width="360" height="266" rx="14" fill="url(#bg)"/>
+  <circle cx="121" cy="112" r="94" fill="url(#wash)" stroke="#020202" stroke-width="1.8"/>
+  <circle cx="239" cy="112" r="94" fill="url(#wash)" stroke="#020202" stroke-width="1.8"/>
+  <path d="M 180 38.81746 A 94 94 0 0 1 180 185.18254 A 94 94 0 0 1 180 38.81746 Z" fill="#050505" stroke="none" stroke-width="0" stroke-linejoin="round" fill-opacity="0.25"/>
+  <text x="81" y="92" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Basketball:</text>
+  <text x="81" y="113" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">12 students</text>
+  <text x="180" y="106" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Both:</text>
+  <text x="180" y="125" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">5 students</text>
+  <text x="279" y="92" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Volleyball:</text>
+  <text x="279" y="113" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">9 students</text>
+  <text x="180" y="228" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Students in at least one sport</text>
+  <text x="180" y="248" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">?</tspan></text>
+</svg>

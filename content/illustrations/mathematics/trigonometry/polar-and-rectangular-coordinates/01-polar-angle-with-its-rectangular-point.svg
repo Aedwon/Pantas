@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 285" width="360" height="285">
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="wash" cx="0.4" cy="0.3"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.06"/></radialGradient>
+  </defs>
+  <rect width="360" height="285" rx="14" fill="url(#bg)"/>
+  <circle cx="180" cy="130" r="88" fill="url(#wash)" stroke="#020202" stroke-width="1.6"/>
+  <line x1="80" y1="130" x2="280" y2="130" stroke="#020202" stroke-width="1"/>
+  <line x1="180" y1="30" x2="180" y2="230" stroke="#020202" stroke-width="1"/>
+  <line x1="180" y1="130" x2="103.78976" y2="174" stroke="#050505" stroke-width="2"/>
+  <circle cx="103.78976" cy="174" r="4" fill="#050505"/>
+  <path d="M 221,130 A 41 41 0 1 0 144.49296,150.5" fill="none" stroke="#050505" stroke-width="2" stroke-linejoin="round"/>
+  <polygon points="144.49296,150.5 137.89488,145.0718 143.09103,142.0718" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.8" stroke-linejoin="round"/>
+  <text x="83" y="230" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">(−2√3, −2)</tspan></text>
+  <text x="104" y="121" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">210°</tspan></text>
+  <text x="137" y="179" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">4</tspan></text>
+</svg>

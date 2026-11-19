@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 222" width="360" height="222">
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="wash" cx="0.4" cy="0.3"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.06"/></radialGradient>
+  </defs>
+  <rect width="360" height="222" rx="14" fill="url(#bg)"/>
+  <polygon points="46,90 46,168 124,168" fill="url(#wash)" fill-opacity="1" stroke="#020202" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M 58 168 v -12 h -12" fill="none" stroke="#020202" stroke-width="1.3" stroke-linejoin="round"/>
+  <polygon points="220,32.90004 220,168 298,168" fill="url(#wash)" fill-opacity="1" stroke="#020202" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M 232 168 v -12 h -12" fill="none" stroke="#020202" stroke-width="1.3" stroke-linejoin="round"/>
+  <text x="68" y="81" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">45°</tspan></text>
+  <text x="132" y="163" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="start"><tspan font-family="KaTeX_Main, serif" font-weight="400">45°</tspan></text>
+  <text x="240" y="23.90004" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">30°</tspan></text>
+  <text x="304" y="164" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="start"><tspan font-family="KaTeX_Main, serif" font-weight="400">60°</tspan></text>
+  <text x="22" y="135" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">1</tspan></text>
+  <text x="85" y="193" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">1</tspan></text>
+  <text x="99" y="118" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">√2</tspan></text>
+  <text x="197" y="124" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">√3</tspan></text>
+  <text x="259" y="193" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">1</tspan></text>
+  <text x="288" y="107" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="400" text-anchor="middle"><tspan font-family="KaTeX_Main, serif" font-weight="400">2</tspan></text>
+</svg>

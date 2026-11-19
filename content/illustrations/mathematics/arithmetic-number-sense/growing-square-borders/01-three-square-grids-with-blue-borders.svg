@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 158" width="360" height="158">
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="wash" cx="0.4" cy="0.3"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.06"/></radialGradient>
+  </defs>
+  <rect width="360" height="158" rx="14" fill="url(#bg)"/>
+  <rect x="25" y="49" width="68" height="68" fill="#FFFFFF"/>
+  <rect x="25" y="49" width="17" height="17" fill="#82B9EF"/>
+  <rect x="25" y="66" width="17" height="17" fill="#82B9EF"/>
+  <rect x="25" y="83" width="17" height="17" fill="#82B9EF"/>
+  <rect x="25" y="100" width="17" height="17" fill="#82B9EF"/>
+  <rect x="42" y="49" width="17" height="17" fill="#82B9EF"/>
+  <rect x="42" y="100" width="17" height="17" fill="#82B9EF"/>
+  <rect x="59" y="49" width="17" height="17" fill="#82B9EF"/>
+  <rect x="59" y="100" width="17" height="17" fill="#82B9EF"/>
+  <rect x="76" y="49" width="17" height="17" fill="#82B9EF"/>
+  <rect x="76" y="66" width="17" height="17" fill="#82B9EF"/>
+  <rect x="76" y="83" width="17" height="17" fill="#82B9EF"/>
+  <rect x="76" y="100" width="17" height="17" fill="#82B9EF"/>
+  <line x1="25" y1="49" x2="25" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="25" y1="49" x2="93" y2="49" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="42" y1="49" x2="42" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="25" y1="66" x2="93" y2="66" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="59" y1="49" x2="59" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="25" y1="83" x2="93" y2="83" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="76" y1="49" x2="76" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="25" y1="100" x2="93" y2="100" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="93" y1="49" x2="93" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="25" y1="117" x2="93" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <text x="59" y="140" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Figure 1</text>
+  <rect x="121" y="32" width="85" height="85" fill="#FFFFFF"/>
+  <rect x="121" y="32" width="17" height="17" fill="#82B9EF"/>
+  <rect x="121" y="49" width="17" height="17" fill="#82B9EF"/>
+  <rect x="121" y="66" width="17" height="17" fill="#82B9EF"/>
+  <rect x="121" y="83" width="17" height="17" fill="#82B9EF"/>
+  <rect x="121" y="100" width="17" height="17" fill="#82B9EF"/>
+  <rect x="138" y="32" width="17" height="17" fill="#82B9EF"/>
+  <rect x="138" y="100" width="17" height="17" fill="#82B9EF"/>
+  <rect x="155" y="32" width="17" height="17" fill="#82B9EF"/>
+  <rect x="155" y="100" width="17" height="17" fill="#82B9EF"/>
+  <rect x="172" y="32" width="17" height="17" fill="#82B9EF"/>
+  <rect x="172" y="100" width="17" height="17" fill="#82B9EF"/>
+  <rect x="189" y="32" width="17" height="17" fill="#82B9EF"/>
+  <rect x="189" y="49" width="17" height="17" fill="#82B9EF"/>
+  <rect x="189" y="66" width="17" height="17" fill="#82B9EF"/>
+  <rect x="189" y="83" width="17" height="17" fill="#82B9EF"/>
+  <rect x="189" y="100" width="17" height="17" fill="#82B9EF"/>
+  <line x1="121" y1="32" x2="121" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="121" y1="32" x2="206" y2="32" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="138" y1="32" x2="138" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="121" y1="49" x2="206" y2="49" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="155" y1="32" x2="155" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="121" y1="66" x2="206" y2="66" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="172" y1="32" x2="172" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="121" y1="83" x2="206" y2="83" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="189" y1="32" x2="189" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="121" y1="100" x2="206" y2="100" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="206" y1="32" x2="206" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="121" y1="117" x2="206" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <text x="163.5" y="140" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Figure 2</text>
+  <rect x="232" y="15" width="102" height="102" fill="#FFFFFF"/>
+  <rect x="232" y="15" width="17" height="17" fill="#82B9EF"/>
+  <rect x="232" y="32" width="17" height="17" fill="#82B9EF"/>
+  <rect x="232" y="49" width="17" height="17" fill="#82B9EF"/>
+  <rect x="232" y="66" width="17" height="17" fill="#82B9EF"/>
+  <rect x="232" y="83" width="17" height="17" fill="#82B9EF"/>
+  <rect x="232" y="100" width="17" height="17" fill="#82B9EF"/>
+  <rect x="249" y="15" width="17" height="17" fill="#82B9EF"/>
+  <rect x="249" y="100" width="17" height="17" fill="#82B9EF"/>
+  <rect x="266" y="15" width="17" height="17" fill="#82B9EF"/>
+  <rect x="266" y="100" width="17" height="17" fill="#82B9EF"/>
+  <rect x="283" y="15" width="17" height="17" fill="#82B9EF"/>
+  <rect x="283" y="100" width="17" height="17" fill="#82B9EF"/>
+  <rect x="300" y="15" width="17" height="17" fill="#82B9EF"/>
+  <rect x="300" y="100" width="17" height="17" fill="#82B9EF"/>
+  <rect x="317" y="15" width="17" height="17" fill="#82B9EF"/>
+  <rect x="317" y="32" width="17" height="17" fill="#82B9EF"/>
+  <rect x="317" y="49" width="17" height="17" fill="#82B9EF"/>
+  <rect x="317" y="66" width="17" height="17" fill="#82B9EF"/>
+  <rect x="317" y="83" width="17" height="17" fill="#82B9EF"/>
+  <rect x="317" y="100" width="17" height="17" fill="#82B9EF"/>
+  <line x1="232" y1="15" x2="232" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="232" y1="15" x2="334" y2="15" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="249" y1="15" x2="249" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="232" y1="32" x2="334" y2="32" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="266" y1="15" x2="266" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="232" y1="49" x2="334" y2="49" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="283" y1="15" x2="283" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="232" y1="66" x2="334" y2="66" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="300" y1="15" x2="300" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="232" y1="83" x2="334" y2="83" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="317" y1="15" x2="317" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="232" y1="100" x2="334" y2="100" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="334" y1="15" x2="334" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <line x1="232" y1="117" x2="334" y2="117" stroke="#1D1D1F" stroke-width="1"/>
+  <text x="283" y="140" fill="#010101" font-family="Geist, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Figure 3</text>
+</svg>
