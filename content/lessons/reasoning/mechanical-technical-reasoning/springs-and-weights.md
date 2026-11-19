@@ -14,7 +14,7 @@ replacedBy:
 ---
 ## Core Concept
 
-For an ideal spring operating within its **elastic limit**, Hooke's law says the restoring force is proportional to displacement from equilibrium:
+Hooke's law applies in the spring's **linear range**. In this range the restoring force grows in direct proportion to how far the spring is stretched or compressed:
 
 $$F_s=-kx$$
 
@@ -28,16 +28,18 @@ The minus sign means the restoring force points opposite the displacement. When 
 
 $$F=kx \qquad\Rightarrow\qquad x=\frac{F}{k}.$$
 
+When hanging masses are at rest in the same gravity, doubling a mass doubles its weight. The weight ratio equals the mass ratio.
+
 This distinction matters: a **larger $k$ means a stiffer spring**, so the same applied force produces a **smaller** extension.
 
-For a hanging mass at rest, the applied force is its weight $mg$ (ignoring the spring's own mass), so
+For a hanging mass at rest, the applied force is its weight $mg$ if we ignore the spring's own mass. If the spring stays in its linear range, then
 
 $$x=\frac{mg}{k}.$$
 
 Mass is measured in kilograms; **weight is a force measured in newtons**. In simple proportional exam questions, you can compare masses directly only when the same gravitational field is assumed, because weight then scales with mass.
 
 
-Hooke's law is an approximation over the range where the spring behaves elastically. A real spring can stop following the linear relation if it is stretched or compressed too far.
+A spring can return to its old shape and still be outside its linear range. Hooke's law works as an approximation within the linear range. A real spring can stop following the linear relation if it is stretched or compressed too far.
 
 <!-- FIGURE: {"kind": "spring-scale", "springs": [{"label": "stiff spring", "stretch": 1}, {"label": "less stiff spring", "stretch": 2}], "semanticsLabel": "Two springs under the same hanging weight: a stiffer spring stretches less and a less stiff spring stretches more."} -->
 ## Examples
@@ -112,6 +114,6 @@ The same force gives a smaller $x$ when $k$ is larger.
 
 > Kilograms measure mass. Weight is the gravitational force $mg$ and is measured in newtons.
 
-### #4: Extending the Linear Rule Beyond the Elastic Range
+### #4: Extending the Rule Beyond the Linear Range
 
 > Real springs follow Hooke's law only over an appropriate range. Large deformations can become nonlinear or permanent.

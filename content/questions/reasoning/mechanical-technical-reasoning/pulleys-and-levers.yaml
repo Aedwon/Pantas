@@ -397,22 +397,21 @@ questions:
       loadDistance: 2
       effortDistance: 8
     stem: |
-      The weightless lever shown has a 1,000 N load at 2 m and downward effort at 8 m. A second ideal two-support movable system lifts the same load. Compare the effort forces required for steady motion or balance.
+      In the horizontal, weightless lever shown, a 1,000 N load acts downward 2 m from the fulcrum. A downward effort acts 8 m from the fulcrum on the opposite side. A separate ideal pulley requires an effort of 500 N to lift the same load at steady speed. What effort balances the lever, and how does it compare with the pulley effort?
     choices:
-      - text: "Lever 250 N; pulley 500 N"
+      - text: "250 N, half the pulley effort"
         correct: true
-      - text: "Lever 250 N; pulley 250 N"
+      - text: "500 N, the same as the pulley effort"
         rationale: |
-          This assumes the pulley also has advantage four. Both machines reduce effort. Count the two stated supports instead of copying the lever ratio.
-      - text: "Lever 500 N; pulley 250 N"
+          The machines lift the same load, so equal effort may seem possible. Use the two lever arms to find the lever effort first.
+      - text: "125 N, one quarter of the pulley effort"
         rationale: |
-          This swaps the machines' force ratios. Each is a force-saving setup. Calculate the arm ratio and supporting-segment count separately.
-      - text: "Lever 1,000 N; pulley 500 N"
+          This divides the pulley effort by the lever arm ratio. The ratio applies to the load force. Start with 1,000 N.
+      - text: "4,000 N, eight times the pulley effort"
         rationale: |
-          This ignores the lever arms while applying the pulley rule. The load is 1,000 N in both. Check that the lever's effort arm is four times its load arm.
+          This multiplies by the arm ratio because the effort acts farther away. Check whether a longer arm needs more force or less.
     explanation: |
-      The lever balance gives $8F=1000(2)$, so $F=250$ N. For the stated two-support pulley, $2T=1000$, so its effort is 500 N.
-    approved: true
+      The load produces $1000\times2=2000$ newton-meters of torque. The effort balances it at an arm of 8 m, so the effort is $\dfrac{2000}{8}=250$ N. That is half of 500 N.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0016"
     lesson: lesson-mechanical-technical-reasoning-supporting-rope-segments
     keyPoint: 1
@@ -594,49 +593,47 @@ questions:
     explanation: |
       One strand pulls up on each side of the moving pulley. The other pulleys only guide the rope. The mechanical advantage is 2.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0023"
-    approved: true
     lesson: lesson-mechanical-technical-reasoning-block-and-tackle
     keyPoint: 1
     type: "pulley-lever"
     difficulty: "exam"
     stem: |
-      A block and tackle has two sheaves in each block. The rope is tied to the moving block. It passes alternately around an upper sheave and a lower sheave, using each sheave once, and then rises vertically from the final lower sheave to the operator. How many strands support the moving block?
+      A block and tackle has two pulley wheels in each block. The rope is tied to the moving block. It goes up around an upper wheel, down around a lower wheel, then repeats this path using the other two wheels. The free end goes up from the final lower wheel to the operator. All strands are vertical. How many strands pull up on the moving block?
     choices:
       - text: "5"
         correct: true
       - text: "4"
         rationale: |
-          This counts the strands at the lower sheaves and misses the tie on the moving block.
+          The two lower wheels each have two strands, so four looks right. Check whether the tied end also pulls on the block.
       - text: "3"
         rationale: |
-          This counts one support per lower sheave plus the tie. Each lower sheave has a strand on both sides.
+          This counts one strand per moving wheel plus the tie. Trace both sides of each lower wheel.
       - text: "6"
         rationale: |
-          This counts the free end a second time. It is already one of the strands at the final lower sheave.
+          This counts the strand to the operator twice. Trace it back to the final lower wheel and count it once.
     explanation: |
-      Two strands pull up at each lower sheave. That makes four. The tied strand adds one more, for five in all.
+      Four strands pull up on the two lower wheels, two at each wheel. The strand tied to the moving block also pulls up. That makes five.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0024"
-    approved: true
     lesson: lesson-mechanical-technical-reasoning-block-and-tackle
     keyPoint: 1
     type: "pulley-lever"
     difficulty: "exam"
     stem: |
-      In a block and tackle, a rope is anchored to the fixed upper block. It runs alternately around a lower sheave and an upper sheave, going around three sheaves in each block before the free end descends to the operator. All strands between the blocks are vertical. How many strands support the moving block?
+      A block and tackle has three pulley wheels in each block. The rope is tied to the fixed upper block. It passes under a lower wheel, over an upper wheel, and repeats that path until it has passed around each wheel once. The free end then descends from the upper block to the operator. All strands are vertical. How many strands pull up on the moving block?
     choices:
       - text: "6"
         correct: true
       - text: "3"
         rationale: |
-          This counts the lower sheaves. Each lower sheave is supported by two strands.
+          Three is the number of wheels in the moving block. Count the strands on both sides of each moving wheel.
       - text: "7"
         rationale: |
-          This includes the strand from the upper block to the operator. It does not touch the lower block.
+          The strand to the hand is easy to count because the operator pulls on it. Check which block that strand leaves.
       - text: "5"
         rationale: |
-          This leaves out the strand from the upper anchor to the first lower sheave. It pulls up on the lower block.
+          The first strand starts at a fixed tie, so it may look like it cannot help. Follow it to the first lower wheel and see where it pulls up.
     explanation: |
-      Each of the three lower sheaves has two strands pulling up on it. That gives six. The strand to the operator leaves from the upper block.
+      Each of the three lower wheels has two strands pulling it up. The moving block has no tied end. It is supported by six strands.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0025"
     approved: true
     lesson: lesson-mechanical-technical-reasoning-classes-of-levers

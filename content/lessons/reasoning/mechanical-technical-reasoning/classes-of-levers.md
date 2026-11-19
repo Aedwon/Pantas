@@ -15,7 +15,7 @@ keyPoints:
 
 A **lever** is a rigid bar that turns about a point called the **fulcrum**. The distance from the fulcrum to the effort is the **effort arm**. The distance from the fulcrum to the load is the **load arm**.
 
-The class of a lever depends on which of the three is in the middle. The MA values below are for an effort and load that push at right angles to the bar.
+The class of a lever depends on which of the three is in the middle. The ideal MA values below assume a weightless lever with no friction. The effort and load act at right angles to the bar.
 
 - **First class:** the fulcrum is in the middle, as on a seesaw or scissors. The MA can be more than, equal to or less than $1$.
 - **Second class:** the load is in the middle, as on a wheelbarrow. The effort arm is longer, so the MA is more than $1$.
@@ -27,20 +27,11 @@ The class of a lever depends on which of the three is in the middle. The MA valu
 
 ### #1: Finding the Class of a Lever
 
-A wheelbarrow carries a load of $600\text{ N}$. The load acts $0.5\text{ m}$ from the axle of the wheel. The handles are lifted straight up at $1.5\text{ m}$ from the axle. What class of lever is this, and what lifting force is needed?
+A wheelbarrow carries a load of $600\text{ N}$. The load acts $0.5\text{ m}$ from the axle of the wheel. The handles are lifted straight up at $1.5\text{ m}$ from the axle. What class of lever is this?
 
 **Solution:**
 
-1. The axle is the fulcrum. The load is between the fulcrum and the effort, so this is a second-class lever.
-2. Set the torques equal.
-
-$$F_e(1.5)=600(0.5)$$
-
-3. Solve.
-
-$$F_e=200\text{ N}$$
-
-The MA is $\dfrac{600}{200}=3$.
+The axle is the fulcrum. The load is between the fulcrum and the effort, so this is a second-class lever.
 
 <!-- ILLUSTRATION: a wheelbarrow with the axle marked fulcrum, a 600 N load arrow 0.5 m from the axle, and an upward effort arrow at the handles 1.5 m from the axle -->
 

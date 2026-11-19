@@ -18,7 +18,7 @@ In the common exam-style setup of **ordinary external gears** whose teeth mesh o
 
 For a simple line of external gears, direction therefore alternates at every mesh. With gears numbered from the input gear, odd positions rotate in the input gear's direction and even positions rotate opposite it.
 
-<!-- FIGURE: {"kind": "gear-train", "gears": 3, "firstTurns": "clockwise", "semanticsLabel": "A row of three meshing gears in a line, showing alternating direction with the first turning clockwise, second counter-clockwise, and third clockwise."} -->
+<!-- FIGURE: {"kind": "gear-train", "gears": 2, "firstTurns": "clockwise", "semanticsLabel": "Two meshing gears with the first turning clockwise."} -->
 
 ### Important Exceptions to the Simple Direction Rule
 

@@ -18,11 +18,11 @@ A **torque** is the turning effect of a force about a pivot, the edge or point i
 
 Let a box rest on level ground, and push it sideways with a horizontal force $F$ at height $H$ above the ground. The bottom edge on the far side from the push is the pivot. The push turns the box over.
 
-The weight $W$ turns it back, with the lever arm $d$ from above. The box tips when:
+The weight $W$ turns it back. Its lever arm $d$ is the horizontal distance from the weight line to the far edge. The box tips when:
 
 $$F \cdot H > W \cdot d$$
 
-Weight is a force, the pull of gravity on the object, so it is measured in newtons (N). It is $W = mg$, where $m$ is the mass in kilograms and $g = 9.8$ m/s$^2$. The value $g = 9.8$ m/s$^2$ means that, with air ignored, a falling object's speed grows by $9.8$ meters per second each second.
+Weight is a force, the pull of gravity on the object, so it is measured in newtons (N). It is $W = mg$, where $m$ is the mass in kilograms and $g = 9.8$ m/s$^2$. Near Earth, gravity gives a freely moving object a downward acceleration of about $9.8$ meters per second squared if we ignore air resistance.
 
 This test assumes the box does not slide first. If the mass is spread the same way, an object of the same shape and size with more mass needs a bigger push to tip, even though its tilt angle is the same.
 
@@ -30,7 +30,7 @@ This test assumes the box does not slide first. If the mass is spread the same w
 
 ### #1: Where to Push a Crate
 
-A uniform crate has a mass of $60$ kg, a width of $0.6$ m and a height of $1.2$ m. It rests on level ground. A person pushes it with a horizontal force. Find the smallest force that tips it, if the push is at the top edge, and if it is at the middle of the side. Assume the crate does not slide.
+A uniform crate has a mass of $60$ kg, a width of $0.6$ m and a height of $1.2$ m. It rests on level ground. A person pushes it with a horizontal force. Find the tipping threshold for a push at the top edge and for a push at the middle of the side. Assume the crate does not slide.
 
 **Solution:**
 
@@ -44,7 +44,7 @@ $$F > \dfrac{176.4}{1.2} = 147 \text{ N}$$
 
 $$F > \dfrac{176.4}{0.6} = 294 \text{ N}$$
 
-5. The top push is twice as high, so it needs half the force.
+5. The thresholds are $147$ N at the top and $294$ N at the middle. Tipping starts just above each threshold.
 
 <!-- ILLUSTRATION: a crate 0.6 m wide and 1.2 m tall with two arrows pointing sideways, one at the top edge at height 1.2 m labeled 147 N and one at the middle at height 0.6 m labeled 294 N -->
 

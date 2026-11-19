@@ -16,7 +16,7 @@ keyPoints:
 
 A **movable pulley** moves with the load. **Tension** is the pull along a rope.
 
-If one rope runs through the whole system and there is no friction, its tension is the same everywhere. Some systems use several ropes, and each rope has its own tension. This lesson counts segments only for one-rope systems.
+In an ideal, frictionless system with one weightless rope, the tension is the same all along the rope. Some systems use several ropes, and each rope has its own tension. This lesson counts segments only for one-rope systems.
 
 Each rope **segment** is a straight length of rope between two turns or ties. Each segment that pulls on the moving load carries that same tension. This gives a reliable rule for an ideal system with one rope and segments that hang straight up:
 

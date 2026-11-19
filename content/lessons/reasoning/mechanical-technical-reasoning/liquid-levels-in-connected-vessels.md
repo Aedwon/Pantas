@@ -22,13 +22,12 @@ Different liquids, a sealed surface, or unequal pressures on the surfaces can gi
 
 For two different liquids that do not mix, use pressure. At the same level inside one continuous resting liquid, the pressure is the same. So the pressure at the boundary between the liquids, worked from each arm, must match.
 
-<!-- FIGURE: {"kind": "fluid-vessel", "vessel": "connected", "columns": 2, "semanticsLabel": "A U-shaped tube with two containers of different widths connected at the bottom, with water surface level exactly equal in both."} -->
 
 ## Examples
 
 ### #1: Communicating Vessels
 
-A wide arm and narrow arm are connected at the bottom, contain the same water, and are both open to the atmosphere. After equilibrium, which free surface is higher?
+A wide arm and narrow arm are connected at the bottom, contain the same water, and are both open to the atmosphere. Ignore capillary effects. After the water comes to rest, which free surface is higher?
 
 **Solution:**
 
@@ -60,4 +59,4 @@ The oil column is **$12.5$ cm** high. The lighter liquid stands higher, so the l
 
 ### #1: "Connected Containers Always Have Equal Levels"
 
-> Equal levels require the same connected liquid and equal pressure on the free surfaces at equilibrium, neglecting capillary effects. Two different liquids, as in Example 7, settle at different heights.
+> Equal levels require the same connected liquid and equal pressure on the free surfaces at equilibrium, neglecting capillary effects. Two liquids that do not mix and have different densities can settle at different heights, as in the oil and water example.

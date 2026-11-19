@@ -150,29 +150,22 @@ questions:
     keyPoint: 1
     type: gear-direction
     difficulty: medium
-    figure: gear-rotations-06
-    figureSpec:
-      kind: gear-train
-      gears: 2
-      firstTurns: clockwise
-      teeth: [8, 16]
     stem: |
-      The left gear shown has 8 teeth and turns at 24 rotations per minute. The compatible right gear must turn at 12 rotations per minute. How many teeth should it have?
+      Two compatible external gears mesh directly. The 8-tooth input gear rotates at 24 revolutions per minute. How many teeth must the output gear have to rotate at 12 revolutions per minute?
     choices:
       - text: "16 teeth"
         correct: true
       - text: "4 teeth"
         rationale: |
-          This multiplies 8 by the reversed speed ratio, 12/24. The two rates can be put in the wrong order. Check that a slower gear needs more teeth.
+          This halves the tooth count because the speed is halved. Check that fewer teeth make a meshing gear turn faster.
       - text: "12 teeth"
         rationale: |
-          This copies the requested output rate as a tooth count. Twelve appears beside the right gear. Check the units before choosing a count.
+          The 12 belongs to the output speed. It is easy to copy the number next to the output gear. Check whether the unit is teeth or revolutions per minute.
       - text: "24 teeth"
         rationale: |
-          This copies the input rotation rate as the tooth count. Twenty-four is prominent in the stem. Check which value is teeth and which is turns per minute.
+          The 24 belongs to the input speed. It is easy to carry this number into the answer. Check that you use both speeds to find the tooth count.
     explanation: |
-      Equal tooth passage requires input teeth times input rate to equal output teeth times output rate. The left passes $8$ times $24=192$ teeth per minute. Divide by the right's $12$ turns per minute to get $192/12=16$ teeth.
-    approved: true
+      The input gear passes $8\times24=192$ teeth through the mesh each minute. The output gear passes the same number of teeth in 12 turns. It needs $\dfrac{192}{12}=16$ teeth.
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0007
     lesson: lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
@@ -434,7 +427,7 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0016
-    lesson: lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems
+    lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
     keyPoint: 1
     type: gear-direction
     difficulty: easy
@@ -445,22 +438,21 @@ questions:
       firstTurns: clockwise
       teeth: [20, 20, 20, 20]
     stem: |
-      The shown four compatible external gears each have 20 teeth. Remove one middle gear and adjust positions so the two unchanged endpoints remain connected through the remaining middle gear. Input motion stays fixed. What changes in the output motion?
+      Four identical external gears mesh in a row as shown. The first gear drives the last. One middle gear is removed and the gears are moved so they mesh in a row again. The input keeps the same speed and direction. How does the output motion change?
     choices:
-      - text: "Direction reverses; speed ratio stays"
+      - text: "The direction reverses and the speed stays the same"
         correct: true
-      - text: "Direction stays; speed ratio doubles"
+      - text: "The direction stays the same and the speed doubles"
         rationale: |
-          This leaves direction unchanged but makes gear count control the speed ratio. Fewer gears can look like a faster path. Check mesh parity for direction and endpoint teeth for speed.
-      - text: "Direction reverses; speed ratio halves"
+          A shorter chain may look like it makes the output faster. Count the meshes for direction and compare the end gears for speed.
+      - text: "The direction reverses and the speed halves"
         rationale: |
-          This gets the direction change but halves speed because a gear was removed. The path is shorter. Check whether intermediate tooth counts affect the endpoint ratio.
-      - text: "Direction stays; speed ratio stays"
+          One fewer gear does reverse the output direction. Check whether that also changes the tooth counts at the ends.
+      - text: "The direction and speed both stay the same"
         rationale: |
-          This keeps both properties unchanged. The same endpoints remain. Check that the number of direction reversals has changed.
+          The end gears stay the same, which keeps their speed ratio. Count the meshes again to see what happens to direction.
     explanation: |
-      Removing one middle gear changes three external meshes to two. That reverses the output's relation to the input direction. The endpoint tooth counts are unchanged, so their overall speed ratio remains unchanged.
-    approved: true
+      The old chain reverses direction three times. The new chain reverses it twice, so the output now turns the other way. The middle gears cancel out of the speed ratio. The end gears stay the same, so the output speed stays the same.
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0017
     lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
@@ -532,22 +524,21 @@ questions:
       firstTurns: clockwise
       teeth: [20, 40]
     stem: |
-      The two shown external gears have 20 and 40 teeth. Their teeth mesh without slipping. Which quantity matches between the two engaged tooth surfaces?
+      Two compatible external gears have 20 and 40 teeth, as shown. Their pitch circles touch at the pitch point. Which quantity is the same for both gears at that point?
     choices:
-      - text: "Equal tangential speeds at contact"
+      - text: "Tangential speed along the pitch circle"
         correct: true
-      - text: "Equal angular speeds despite unequal tooth counts"
+      - text: "Angular speed about the gear axis"
         rationale: |
-          This treats matching tooth motion as matching full-turn speed. Both gears meet at one contact. Check the distinction between movement along the rim and rotation about an axis.
-      - text: "Equal rotations completed per minute"
+          Both rims pass through the same point. That makes equal angular speeds sound possible. Check how far each gear must turn to move its rim the same distance.
+      - text: "Time needed for one full rotation"
         rationale: |
-          This equates a shared contact rate with equal revolutions per minute. The gears transmit the same motion through their teeth. Check their different teeth per full turn.
-      - text: "Equal numbers of teeth on each gear"
+          Both gears run together, so they may seem to finish each turn together. Check which gear has more teeth to pass through the mesh in one turn.
+      - text: "Radius of the pitch circle"
         rationale: |
-          This assumes compatible teeth require equal tooth counts. Their teeth must mesh correctly. Check whether matching tooth shape also requires matching gear circumference.
+          The circles touch, so it may seem that they have the same size. Compare how many equally spaced teeth fit around each one.
     explanation: |
-      The engaged teeth must move through the contact at matching linear speeds so they do not slip past one another. That is equal tangential speed at contact, even though the full-turn rates differ with tooth counts.
-    approved: true
+      Think of the pitch circles as smooth rims that roll together. At the pitch point they cover the same distance in the same time. Their speeds along the rims match.
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0020
     lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts

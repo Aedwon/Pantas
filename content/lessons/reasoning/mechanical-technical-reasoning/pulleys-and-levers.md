@@ -19,7 +19,7 @@ replacedBy:
 ---
 ## Core Concept
 
-**Pulleys** and **levers** are simple machines. Many of them let you move a load with less force, by moving your hand through a longer distance. Some do not: a fixed pulley only changes direction, and a third-class lever trades force for distance.
+**Pulleys** and **levers** are simple machines. Many of them let you move a load with less force, by moving your hand through a longer distance. Some do not: a fixed pulley can just guide the rope, and a third-class lever trades force for distance.
 
 The **effort** is the force you apply. The **load** is the force you work against, such as a weight. The **mechanical advantage** (MA) tells how many times the machine multiplies your force:
 
@@ -35,11 +35,11 @@ Weight is a force in newtons (N): $W=mg$, with mass $m$ in kilograms and $g=9.8\
 
 ### Pulleys
 
-A **fixed pulley** is fastened in place. It only changes the direction of a pull, so its ideal MA is $1$.
+A **fixed pulley** is fastened in place. A single ideal fixed pulley that guides the rope has MA $1$.
 
 A **movable pulley** moves with the load. **Tension** is the pull along a rope.
 
-If one rope runs through the whole system and there is no friction, its tension is the same everywhere. Some systems use several ropes, and each rope has its own tension. This lesson counts segments only for one-rope systems.
+In an ideal, frictionless system with one weightless rope, the tension is the same all along the rope. Some systems use several ropes, and each rope has its own tension. This lesson counts segments only for one-rope systems.
 
 Each rope **segment** is a straight length of rope between two turns or ties. Each segment that pulls on the moving load carries that same tension. This gives a reliable rule for an ideal system with one rope and segments that hang straight up:
 
@@ -56,7 +56,7 @@ Do not count pulleys. Systems with the same number of pulleys can have different
 
 A **lever** is a rigid bar that turns about a point called the **fulcrum**. The distance from the fulcrum to the effort is the **effort arm**. The distance from the fulcrum to the load is the **load arm**.
 
-The class of a lever depends on which of the three is in the middle. The MA values below are for an effort and load that push at right angles to the bar.
+The class of a lever depends on which of the three is in the middle. The ideal MA values below assume a weightless lever with no friction. The effort and load act at right angles to the bar.
 
 - **First class:** the fulcrum is in the middle, as on a seesaw or scissors. The MA can be more than, equal to or less than $1$.
 - **Second class:** the load is in the middle, as on a wheelbarrow. The effort arm is longer, so the MA is more than $1$.
@@ -74,9 +74,15 @@ $$F_\text{effort}\,L_\text{effort}=F_\text{load}\,L_\text{load}$$
 
 Here $L$ means the arm, the distance from the fulcrum to the force. This gives $\text{MA}=\dfrac{L_\text{effort}}{L_\text{load}}$. A longer effort arm needs a smaller effort.
 
+Take the wheelbarrow from Classes of Levers. Ignore its weight and friction.
+
+The load and lift act straight up or down, with horizontal arms of $0.5\text{ m}$ and $1.5\text{ m}$.
+
+Balance the torques to get $F_e=\dfrac{600\text{ N}\times0.5\text{ m}}{1.5\text{ m}}=200\text{ N}$. Its MA is $\dfrac{600}{200}=3$.
+
 ### Angled Forces
 
-Sometimes the force is not at a right angle to the lever. Let $\theta$ be the angle between the force's line and the lever, from $0^\circ$ to $180^\circ$. A line crosses the lever at two angles, $\theta$ and $180^\circ-\theta$, and both give the same torque.
+Sometimes the force is not at a right angle to the lever. Let $\theta$ be the angle between the force's line and the lever, from $0^\circ$ to $180^\circ$. A line crosses the lever at two angles, $\theta$ and $180^\circ-\theta$, and both give the same torque magnitude.
 
 Split the force into two parts. The part along the lever does not turn it. The part at a right angle to the lever is $F\sin\theta$.
 
@@ -84,7 +90,7 @@ $$\tau=r\,F\sin\theta$$
 
 Here $r$ is the distance from the fulcrum to where the force acts. The product $r\sin\theta$ is the moment arm.
 
-**Sine** ($\sin$) of an angle in a right triangle is the opposite side divided by the hypotenuse. The lesson Basic Trigonometric Ratios teaches it, and here you need only these values: $\sin30^\circ=\dfrac12$ and $\sin90^\circ=1$. An angle and its partner $180^\circ-\theta$ have the same sine, so $\sin150^\circ=\sin30^\circ=\dfrac12$.
+**Sine** ($\sin$) of an angle in a right triangle is the opposite side divided by the hypotenuse. The lesson Reading Right Triangle Ratios teaches it, and here you need only these values: $\sin30^\circ=\dfrac12$ and $\sin90^\circ=1$. An angle and its partner $180^\circ-\theta$ have the same sine, so $\sin150^\circ=\sin30^\circ=\dfrac12$.
 
 At $90^\circ$ the formula becomes $\tau=rF$. As the angle moves toward $0^\circ$ or $180^\circ$, you need a bigger force for the same turning effect. At exactly $0^\circ$ or $180^\circ$, the force points along the lever and gives no torque at all.
 
@@ -92,11 +98,11 @@ At $90^\circ$ the formula becomes $\tau=rF$. As the angle moves toward $0^\circ$
 
 ### #1: Fixed Pulley
 
-An ideal fixed pulley lifts a load whose weight is $490\text{ N}$. Neglecting friction, what pulling force is required?
+An ideal fixed pulley lifts a $490\text{ N}$ load at steady speed. What pull is needed?
 
 **Solution:**
 
-A fixed pulley has ideal mechanical advantage $1$, so the rope tension must equal the load's weight:
+Here the ideal mechanical advantage is $1$, so the rope tension must equal the load's weight:
 
 $$F=490\text{ N}.$$
 
@@ -202,26 +208,17 @@ $$d=\dfrac{(30)(2.0)}{40}=1.5\text{ m}$$
 
 ### #8: Finding the Class of a Lever
 
-A wheelbarrow carries a load of $600\text{ N}$. The load acts $0.5\text{ m}$ from the axle of the wheel. The handles are lifted straight up at $1.5\text{ m}$ from the axle. What class of lever is this, and what lifting force is needed?
+A wheelbarrow carries a load of $600\text{ N}$. The load acts $0.5\text{ m}$ from the axle of the wheel. The handles are lifted straight up at $1.5\text{ m}$ from the axle. What class of lever is this?
 
 **Solution:**
 
-1. The axle is the fulcrum. The load is between the fulcrum and the effort, so this is a second-class lever.
-2. Set the torques equal.
-
-$$F_e(1.5)=600(0.5)$$
-
-3. Solve.
-
-$$F_e=200\text{ N}$$
-
-The MA is $\dfrac{600}{200}=3$.
+The axle is the fulcrum. The load is between the fulcrum and the effort, so this is a second-class lever.
 
 <!-- ILLUSTRATION: a wheelbarrow with the axle marked fulcrum, a 600 N load arrow 0.5 m from the axle, and an upward effort arrow at the handles 1.5 m from the axle -->
 
 ### #9: An Angled Effort
 
-A $600\text{ N}$ load pushes straight down, at a right angle, on a horizontal lever at $0.5\text{ m}$ from the fulcrum. A person pushes on the other side of the fulcrum, $2\text{ m}$ from it, with the force at an angle of $30^\circ$ to the lever. What effort balances the load?
+A $600\text{ N}$ load pushes straight down, at a right angle, on a horizontal lever at $0.5\text{ m}$ from the fulcrum. A person pushes down at a slant on the other side of the fulcrum, $2\text{ m}$ from it, with the force at an angle of $30^\circ$ to the lever. What effort balances the load?
 
 **Solution:**
 
@@ -231,11 +228,9 @@ $$\tau_\text{load}=600(0.5)=300\text{ N}\cdot\text{m}$$
 
 2. Write the torque of the effort using the angle.
 
-$$\tau_\text{effort}=F_e(2)\sin30^\circ=F_e(2)\left(\dfrac12\right)=F_e$$
+$$\tau_\text{effort}=F_e(2\text{ m})\sin30^\circ=F_e(1\text{ m})$$
 
-3. Set the torques equal.
-
-$$F_e=300\text{ N}$$
+3. Set $F_e(1\text{ m})=300\text{ N}\cdot\text{m}$. The effort is $F_e=300\text{ N}$.
 
 A right-angle push would need only $150\text{ N}$, because $F_e(2)=300$.
 
@@ -251,9 +246,9 @@ A right-angle push would need only $150\text{ N}$, because $F_e(2)=300$.
 
 ### #1: Counting Pulleys Instead of Segments
 
-> For one continuous rope, ideal MA is the number of supporting segments, not the number of pulleys.
+> In an ideal system with one continuous rope and vertical supports, count the supporting rope segments to get the MA.
 
-Example #4 has two pulleys but MA $3$. Example #3 has two pulleys but MA $2$. Count the rope segments that pull on the moving load.
+The three-support example has two pulleys and MA $3$. The two-support example also has two pulleys, with MA $2$. Count the rope segments that pull on the moving load.
 
 ### #2: Counting a Fixed Pulley as Extra Mechanical Advantage
 
@@ -271,7 +266,7 @@ Test questions often give a mass and ask for a force. Multiply by $g$ first.
 
 > If a force is angled, use $rF\sin\theta$, not $rF$.
 
-In example #9, using $\tau=Fd$ with $d=2$ gives $150\text{ N}$, which is wrong. Also measure $\theta$ from the lever, not from the vertical, or you will use the wrong sine. Either angle between the line and the lever works.
+In the angled effort example, using $\tau=Fd$ with $d=2$ gives $150\text{ N}$, which is wrong. Also measure $\theta$ from the lever, not from the vertical, or you will use the wrong sine. Either angle between the line and the lever works.
 
 ### #5: Measuring the Whole Bar Instead of the Arms
 

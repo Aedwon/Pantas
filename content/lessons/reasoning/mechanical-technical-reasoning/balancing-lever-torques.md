@@ -22,6 +22,12 @@ $$F_\text{effort}\,L_\text{effort}=F_\text{load}\,L_\text{load}$$
 
 Here $L$ means the arm, the distance from the fulcrum to the force. This gives $\text{MA}=\dfrac{L_\text{effort}}{L_\text{load}}$. A longer effort arm needs a smaller effort.
 
+Take the wheelbarrow from Classes of Levers. Ignore its weight and friction.
+
+The load and lift act straight up or down, with horizontal arms of $0.5\text{ m}$ and $1.5\text{ m}$.
+
+Balance the torques to get $F_e=\dfrac{600\text{ N}\times0.5\text{ m}}{1.5\text{ m}}=200\text{ N}$. Its MA is $\dfrac{600}{200}=3$.
+
 ## Examples
 
 ### #1: Lever Balance

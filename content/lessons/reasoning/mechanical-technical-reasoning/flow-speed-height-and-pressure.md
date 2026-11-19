@@ -20,7 +20,7 @@ A **streamline** is the path a small bit of fluid follows. **Static pressure** i
 
 $$P+\tfrac12\rho v^2+\rho gy=\text{constant},$$
 
-where $y$ is the height. At the **same height**, a higher speed goes with a lower static pressure. If the speeds are equal, the pressures are equal. If the height rises and the speed stays the same, the pressure falls.
+where $y$ is the height. At the **same height**, a higher speed goes with a lower static pressure. If the speeds are equal at the same height, the pressures are equal. If the height rises and the speed stays the same, the pressure falls.
 
 To compare two points 1 and 2 on a streamline, write the constant sum for each and subtract. This gives the change in pressure:
 
@@ -30,7 +30,7 @@ If the height is equal, the second term is zero. If the speed is equal, the firs
 
 "Faster flow always means lower pressure" is too broad. A pump adds energy.
 
-Friction in a real pipe lowers the pressure along the pipe even when the speed stays the same. Height changes, fast gas flow, and points on different streamlines also break the simple rule.
+In a level pipe with no pump, friction lowers the pressure along the flow even when the speed stays the same. Height changes, fast gas flow, and points on different streamlines also break the simple rule.
 
 ## Examples
 

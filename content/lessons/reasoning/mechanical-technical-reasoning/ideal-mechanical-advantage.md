@@ -15,7 +15,7 @@ keyPoints:
 ---
 ## Core Concept
 
-**Pulleys** and **levers** are simple machines. Many of them let you move a load with less force, by moving your hand through a longer distance. Some do not: a fixed pulley only changes direction, and a third-class lever trades force for distance.
+**Pulleys** and **levers** are simple machines. Many of them let you move a load with less force, by moving your hand through a longer distance. Some do not: a fixed pulley can just guide the rope, and a third-class lever trades force for distance.
 
 The **effort** is the force you apply. The **load** is the force you work against, such as a weight. The **mechanical advantage** (MA) tells how many times the machine multiplies your force:
 
@@ -29,17 +29,17 @@ So MA is also the effort distance divided by the load distance, each measured in
 
 Weight is a force in newtons (N): $W=mg$, with mass $m$ in kilograms and $g=9.8\text{ m/s}^2$.
 
-A **fixed pulley** is fastened in place. It only changes the direction of a pull, so its ideal MA is $1$.
+A **fixed pulley** is fastened in place. A single ideal fixed pulley that guides the rope has MA $1$.
 
 ## Examples
 
 ### #1: Fixed Pulley
 
-An ideal fixed pulley lifts a load whose weight is $490\text{ N}$. Neglecting friction, what pulling force is required?
+An ideal fixed pulley lifts a $490\text{ N}$ load at steady speed. What pull is needed?
 
 **Solution:**
 
-A fixed pulley has ideal mechanical advantage $1$, so the rope tension must equal the load's weight:
+Here the ideal mechanical advantage is $1$, so the rope tension must equal the load's weight:
 
 $$F=490\text{ N}.$$
 

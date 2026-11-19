@@ -318,22 +318,21 @@ questions:
     type: "structural-stability"
     difficulty: "medium"
     stem: |
-      A bottom-heavy roly-poly toy (weighted heavily at its rounded base) is pushed over onto its side. Why does it return to standing upright?
+      On a level floor, a toy stands on a base shaped like part of a circle. When upright, its center of gravity is directly below the center of that circle. The toy is tilted a little to the right so it rests on a new point on the curved base. About this contact point, in which direction does gravity tend to turn the toy?
     choices:
-      - text: "Gravity turns it back because tilting raises its low center of gravity"
+      - text: "Toward upright, because its weight line falls to the left of the contact point"
         correct: true
-      - text: "Friction on its rounded base turns it back upright"
+      - text: "Farther right, because its weight line falls to the right of the contact point"
         rationale: |
-          This credits friction with the turning effect. The toy touches the table at one small spot as it rocks. Check which force acts on the raised center of gravity.
-      - text: "Its narrow base of support turns it back upright"
+          The top of the toy does lean right. Check where the low center of gravity moves when the toy tilts.
+      - text: "Neither way, because the contact point lies directly below the center of gravity"
         rationale: |
-          This makes narrow support the cause of self-righting. The toy touches a small area as it rocks. Check whether gravity creates a turning force back toward upright.
-      - text: "Air pressure on its curved surface turns it back upright"
+          The contact point is directly below the center of the circle. Check whether the tilted toy puts its center of gravity on that same vertical line.
+      - text: "Farther right, because its weight line passes through the contact point"
         rationale: |
-          This credits air with the turning effect. A curved toy may seem to catch the air. Check that the toy also rights itself where there is little air movement.
+          The contact point is where the toy turns. Check what happens to torque if a force acts through that point.
     explanation: |
-      For a self-righting toy with its center of gravity below the center of its rounded base, a sideways tilt raises its center of gravity. Gravity then gives a turning force toward the lower-energy upright position. This is the physical reason a properly designed toy rocks back up.
-    approved: true
+      The contact point is directly below the center of the circle. When the top leans right, the low center of gravity swings left of that vertical line. Its weight pulls down to the left of the contact point, turning the toy back toward upright.
   - id: "q-mechanical-technical-reasoning-structural-stability-0012"
     lesson: lesson-mechanical-technical-reasoning-why-vehicles-roll-in-turns
     keyPoint: 1
@@ -550,22 +549,21 @@ questions:
     type: "structural-stability"
     difficulty: "hard"
     stem: |
-      The two shown boxes have equal center heights. The right has a wider base. For the same slow sideways tilt from level ground, why does the right have a greater margin before gravity overturns it?
+      The two boxes shown start upright with their centers of gravity at the same height. Each center of gravity is directly over the middle of its base. The box on the right has a wider base. Why must it tilt through a greater angle before gravity turns it farther over?
     choices:
-      - text: "Its support edge is farther from the center"
+      - text: "Its tipping edge starts farther from the weight line"
         correct: true
-      - text: "Its center automatically moves lower"
+      - text: "Its center of gravity starts lower"
         rationale: |
-          This attributes the width benefit to a changed height. Broad shapes can also be short. Use the stated equal center heights.
-      - text: "Its gravitational force is automatically smaller"
+          Wide objects often look shorter. Check the stated heights of the two centers of gravity.
+      - text: "Its weight is spread over a larger area, making gravity pull less strongly"
         rationale: |
-          This treats spreading support as reducing total weight. Pressure may be distributed over more area. Check that total gravity force is not set by base width.
-      - text: "Its pivot cannot become a side edge"
+          A larger base can change pressure on the floor. Check whether changing the contact area also changes the object’s weight.
+      - text: "Its wider base keeps it from pivoting on a side edge"
         rationale: |
-          This assumes a wide base prevents pivoting. More of the base initially touches. Check that slow tilting can still lift one side.
+          More of the wider base touches when the box is flat. Picture one side lifting and check which edge stays on the floor.
     explanation: |
-      A wider base places the side edge farther from the initial weight line. The center must shift farther sideways before that line passes the edge. Equal center heights make the width difference decisive here.
-    approved: true
+      Both centers of gravity are at the same height. The wider box starts with its weight line farther from the edge it tips on. It has to tilt farther before the weight line passes that edge.
     figure: "structural-stability-19"
     figureSpec:
       kind: "stability-shape"

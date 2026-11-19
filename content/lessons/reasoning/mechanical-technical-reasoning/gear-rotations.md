@@ -18,16 +18,16 @@ In the common exam-style setup of **ordinary external gears** whose teeth mesh o
 
 For a simple line of external gears, direction therefore alternates at every mesh. With gears numbered from the input gear, odd positions rotate in the input gear's direction and even positions rotate opposite it.
 
-<!-- FIGURE: {"kind": "gear-train", "gears": 3, "firstTurns": "clockwise", "semanticsLabel": "A row of three meshing gears in a line, showing alternating direction with the first turning clockwise, second counter-clockwise, and third clockwise."} -->
+<!-- FIGURE: {"kind": "gear-train", "gears": 2, "firstTurns": "clockwise", "semanticsLabel": "Two meshing gears with the first turning clockwise."} -->
 ### Speed Ratio
 
-At an ideal gear mesh, the tangential speeds at the contact point match. For compatible gears with tooth counts $N_1$ and $N_2$,
+A **pitch circle** is the circle a gear would roll on if it had a smooth rim. The two pitch circles touch at the **pitch point**. At that point the rims of the two pitch circles move at the same speed. For compatible gears with tooth counts $N_1$ and $N_2$,
 
 $$\frac{|\omega_1|}{|\omega_2|}=\frac{N_2}{N_1}.$$
 
 So the gear with fewer teeth has the larger angular speed magnitude.
 
-The tooth-count rule concerns **angular speed**, not direction. Direction depends on the type and arrangement of the gear connection.
+The tooth-count rule concerns **angular speed**, not direction. Direction depends on the type and arrangement of the gear connection. In a simple chain of external gears, the middle tooth counts cancel when you multiply the pairwise speed ratios. Only the first and last tooth counts set the overall speed ratio.
 
 ### Important Exceptions to the Simple Direction Rule
 
