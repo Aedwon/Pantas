@@ -696,3 +696,25 @@ questions:
           This reports the constant term. That is the remainder for division by $x$. Check the actual divisor before substituting.
     explanation: |
       The divisor $x+2=x-(-2)$ gives remainder $P(-2)$. Compute $P(-2)=2(16)-(-8)+3(-2)-7=32+8-6-7=27$.
+
+  - id: q-algebra-polynomials-0031
+    lesson: lesson-algebra-factoring-cubes
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Which is the factorization of $27x^3+8$?
+    choices:
+      - text: '$(3x+2)(9x^2-6x+4)$'
+        correct: true
+      - text: '$(3x-2)(9x^2+6x+4)$'
+        rationale: |
+          This uses the pattern for a difference. Check the sign between the original cubes.
+      - text: '$(3x+2)(9x^2+6x+4)$'
+        rationale: |
+          This carries the plus sign into the middle term. Check that the middle term has the opposite sign.
+      - text: '$(3x+2)(9x^2-6x-4)$'
+        rationale: |
+          This switches the last sign along with the middle one. The last term is $2^2$, which is positive.
+    explanation: |
+      The cubes are $(3x)^3$ and $2^3$. For a sum, add the roots in the first factor. In the second, use $9x^2-6x+4$.

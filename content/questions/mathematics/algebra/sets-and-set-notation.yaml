@@ -474,3 +474,91 @@ questions:
     explanation: |
       The exactly-one group and both-club group are disjoint. Both belong inside the union. Add them: $30+10=40$.
     approved: true
+
+  - id: q-algebra-sets-and-set-notation-0022
+    lesson: lesson-algebra-counting-elements-and-subsets
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Let $A=\{2,5,2,7,5\}$. Which set has the same elements as $A$?
+    choices:
+      - text: '$\{7,5,2\}$'
+        correct: true
+      - text: '$\{7,5\}$'
+        rationale: |
+          This drops $2$ because it is repeated. Keep one copy of each repeated element.
+      - text: '$\{7,2\}$'
+        rationale: |
+          This drops $5$ when removing repeats. Cross out only the extra copy.
+      - text: '$\{2,5,7,0\}$'
+        rationale: |
+          This has all three elements of $A$ and adds zero. Check that every element appears in both sets.
+    explanation: |
+      The distinct elements of $A$ are $2$, $5$, and $7$. The first set lists all three. Their order does not matter.
+
+  - id: q-algebra-sets-and-set-notation-0023
+    lesson: lesson-algebra-counting-elements-and-subsets
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      How many proper subsets does a set with five elements have?
+    choices:
+      - text: '$31$'
+        correct: true
+      - text: '$32$'
+        rationale: |
+          This counts every subset. Remove the full set to count just the proper ones.
+      - text: '$16$'
+        rationale: |
+          This drops one element before counting. Every element can still appear in a proper subset.
+      - text: '$30$'
+        rationale: |
+          This removes the full set and the empty set. The empty set is a proper subset here.
+    explanation: |
+      Each of the five elements can be in or out. That gives $2^5=32$ subsets. Remove the full set to get $31$.
+
+  - id: q-algebra-sets-and-set-notation-0024
+    lesson: lesson-algebra-set-differences-and-disjoint-sets
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Let $A=\{-3,-1,2,4\}$. Which set is disjoint from $A$?
+    choices:
+      - text: '$\{-4,0,3\}$'
+        correct: true
+      - text: '$\{-3,0,3\}$'
+        rationale: |
+          Most of the values differ, but both sets have $-3$. Even one match makes the intersection nonempty.
+      - text: '$\{-4,-1,3\}$'
+        rationale: |
+          The signs can make the lists hard to scan. Check the common value $-1$.
+      - text: '$\{-4,0,2,4\}$'
+        rationale: |
+          The first two values differ from the elements of $A$. Check the whole list for matches.
+    explanation: |
+      None of $-4$, $0$, and $3$ is in $A$. The intersection is empty, so the sets are disjoint.
+
+  - id: q-algebra-sets-and-set-notation-0025
+    lesson: lesson-algebra-three-set-inclusion-exclusion
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      At a school fair, $22$ students visited the art booth, $18$ visited the science booth, and $15$ visited the history booth. The art and science booths shared $8$ visitors, art and history shared $6$, and science and history shared $5$. These counts include $3$ students who visited all three. How many students visited at least one of the booths?
+    choices:
+      - text: '$39$'
+        correct: true
+      - text: '$36$'
+        rationale: |
+          This subtracts the pair overlaps and stops. Add back the students in all three once.
+      - text: '$55$'
+        rationale: |
+          This adds the booth totals as if each student visited one booth. Check who was counted more than once.
+      - text: '$33$'
+        rationale: |
+          This subtracts the triple overlap after subtracting the pairs. The pair counts already took those students out.
+    explanation: |
+      Add the booth counts to get $55$. Subtract the three overlaps, a total of $19$. Then add back the $3$ students who were in all three. The total is $39$.

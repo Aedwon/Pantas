@@ -468,3 +468,245 @@ questions:
     explanation: |
       Double the first equation to get $4x-6y=14$. The second equation must be identical for the two lines to overlap. Thus $k=14$.
     approved: true
+
+  - id: q-algebra-systems-of-equations-0021
+    lesson: lesson-algebra-eliminating-for-a-sum-or-difference
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      If $7x+2y=31$ and $2x+7y=13$, what is $x-y$?
+    choices:
+      - text: '$\dfrac{18}{5}$'
+        correct: true
+      - text: '$\dfrac{44}{9}$'
+        rationale: |
+          This adds the equations, which gives $x+y$. Subtract to make the signs of the left terms opposite.
+      - text: '$18$'
+        rationale: |
+          This gets the difference on the right but leaves $5(x-y)$ on the left. Divide by $5$.
+      - text: '$-\dfrac{18}{5}$'
+        rationale: |
+          This uses the right sides in reverse order. Subtract the same equation on both sides.
+    explanation: |
+      Subtract the second equation from the first. This gives $5x-5y=18$. Divide by $5$ to get $x-y=\dfrac{18}{5}$.
+
+  - id: q-algebra-systems-of-equations-0022
+    lesson: lesson-algebra-eliminating-for-a-sum-or-difference
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A student wants $x+y$ from $2x+y=8$ and $x+4y=11$. After adding the equations once and subtracting the second from the first once, why would the student still need another step?
+    choices:
+      - text: 'Neither result is a multiple of $x+y$.'
+        correct: true
+      - text: 'The sum already gives a multiple of $x+y$.'
+        rationale: |
+          The result of addition puts a plus sign between the terms. Check that the two numbers before $x$ and $y$ are equal too.
+      - text: 'The difference already gives a multiple of $x+y$.'
+        rationale: |
+          Subtraction leaves a single $x$, which may look close. Check the coefficient of $y$ as well.
+      - text: 'Adding and subtracting are invalid here.'
+        rationale: |
+          These steps may fail to give the target directly, but they keep the equations true. Add or subtract both sides in the same order.
+    explanation: |
+      Adding gives $3x+5y=19$. Subtracting gives $x-3y=-3$. The coefficients of $x$ and $y$ do not match in either result, so neither gives $x+y$ in one step.
+
+  - id: q-algebra-systems-of-equations-0023
+    lesson: lesson-algebra-graphing-linear-systems
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      To graph $3x+2y=12$ in a system, which two points are its intercepts?
+    choices:
+      - text: '$(4,0)$ and $(0,6)$'
+        correct: true
+      - text: '$(6,0)$ and $(0,4)$'
+        rationale: |
+          This uses both intercept values but puts them on the wrong axes. Set the other coordinate to zero for each one.
+      - text: '$(3,0)$ and $(0,2)$'
+        rationale: |
+          This uses the coefficients as the intercepts. Divide $12$ by the remaining coefficient.
+      - text: '$(12,0)$ and $(0,12)$'
+        rationale: |
+          This puts the constant on each axis directly. The remaining term still has a coefficient.
+    explanation: |
+      Set $y=0$ to get $3x=12$, so $x=4$. Set $x=0$ to get $2y=12$, so $y=6$.
+
+  - id: q-algebra-systems-of-equations-0024
+    lesson: lesson-algebra-graphing-linear-systems
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      The graphs of $y=3x$ and $y=4-x$ appear to cross at $(1,3)$. Which check confirms this exact solution?
+    choices:
+      - text: '$3=3(1)$ and $3=4-1$'
+        correct: true
+      - text: '$3=3(1)$ alone'
+        rationale: |
+          This checks the first line only. The point has to lie on the second line too.
+      - text: '$3=4-1$ alone'
+        rationale: |
+          This checks the second line only. The point has to lie on the first line too.
+      - text: '$1=3(3)$ and $1=4-3$'
+        rationale: |
+          This swaps the coordinates before checking. In $(1,3)$, the first number is $x$.
+    explanation: |
+      Use $1$ for $x$ and $3$ for $y$. Both equalities hold, so the point is on both lines exactly.
+
+  - id: q-algebra-systems-of-equations-0025
+    lesson: lesson-algebra-graphing-linear-systems
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A graph suggests that $y=2x+1$ and $y=6-x$ cross near $(1.7,4.3)$. What is the exact intersection?
+    choices:
+      - text: '$\left(\dfrac53,\dfrac{13}3\right)$'
+        correct: true
+      - text: '$(1.7,4.3)$'
+        rationale: |
+          This takes the graph reading as exact. Put $1.7$ into $2x+1$ to check.
+      - text: '$\left(\dfrac53,\dfrac{10}3\right)$'
+        rationale: |
+          This uses the correct $x$ and doubles it. Add $1$ if you use the first rule.
+      - text: '$\left(\dfrac{13}3,\dfrac53\right)$'
+        rationale: |
+          This finds the right values but switches them. Write the $x$ value first.
+    explanation: |
+      Set the two rules equal to get $3x=5$. Then $x=\dfrac53$. Using $y=6-x$ gives $y=\dfrac{13}3$.
+
+  - id: q-algebra-systems-of-equations-0026
+    lesson: lesson-algebra-classifying-linear-systems-by-slope
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      How many solutions does the system $4x-2y=6$ and $6x-3y=9$ have?
+    choices:
+      - text: 'Infinitely many solutions'
+        correct: true
+      - text: 'Exactly one solution'
+        rationale: |
+          The equations look different at first. Put them both in the form $y=mx+b$ and compare.
+      - text: 'No solution because the lines are parallel'
+        rationale: |
+          The slopes match, which can mean parallel lines. Compare the intercepts too.
+      - text: 'Exactly two solutions'
+        rationale: |
+          Two equations do not mean two crossing points. Straight lines that share two points are the same line.
+    explanation: |
+      Both equations become $y=2x-3$. They draw the same line, so every point on that line solves both.
+
+  - id: q-algebra-systems-of-equations-0027
+    lesson: lesson-algebra-classifying-linear-systems-by-slope
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the relationship between the graphs of $3x+y=7$ and $6x+2y=10$?
+    choices:
+      - text: 'They are distinct parallel lines.'
+        correct: true
+      - text: 'They coincide at every point on the line.'
+        rationale: |
+          The left sides are multiples, which can suggest one shared line. Check whether the right sides have the same ratio.
+      - text: 'They cross at exactly one point.'
+        rationale: |
+          Different intercepts can suggest a crossing. Compare the slopes before deciding.
+      - text: 'They cross at a right angle.'
+        rationale: |
+          Both slopes are negative, and they are equal. Lines with the same slope point the same way.
+    explanation: |
+      The rules give $y=-3x+7$ and $y=-3x+5$. They have the same slope but different intercepts, so they never meet.
+
+  - id: q-algebra-systems-of-equations-0028
+    lesson: lesson-algebra-classifying-linear-systems-by-slope
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      How many solutions does the system $2x=6$ and $3x=12$ have?
+    choices:
+      - text: 'No solutions'
+        correct: true
+      - text: 'One solution'
+        rationale: |
+          This expects two lines to cross once. Check that both lines are vertical.
+      - text: 'Infinitely many solutions'
+        rationale: |
+          Each line has many points, but none are shared. Compare the fixed $x$ values.
+      - text: 'Two solutions'
+        rationale: |
+          The two $x$ values belong to separate lines. A solution must meet both equations at once.
+    explanation: |
+      The equations give $x=3$ and $x=4$. Those are two different vertical lines. No point can have both $x$ values.
+
+  - id: q-algebra-systems-of-equations-0029
+    lesson: lesson-algebra-tangent-and-missing-intersections
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      At which point does the line $y=6x-7$ meet the parabola $y=x^2+2$?
+    choices:
+      - text: '$(3,11)$'
+        correct: true
+      - text: '$(3,9)$'
+        rationale: |
+          This squares $3$ to find the height and stops. Add the $2$ in the parabola's rule.
+      - text: '$(-3,11)$'
+        rationale: |
+          This uses the wrong sign for the repeated root. Set $x-3=0$.
+      - text: '$(6,29)$'
+        rationale: |
+          The slope $6$ can look like the input to try. Solve the equation formed by setting the two rules equal.
+    explanation: |
+      Set the rules equal. This gives $x^2-6x+9=0$, or $(x-3)^2=0$. At $x=3$, the parabola gives $y=11$.
+
+  - id: q-algebra-systems-of-equations-0030
+    lesson: lesson-algebra-tangent-and-missing-intersections
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      How many real intersections do $y=x^2+2x+5$ and $y=3$ have?
+    choices:
+      - text: 'None'
+        correct: true
+      - text: 'Exactly one'
+        rationale: |
+          This can happen when the line reaches the turning point. The curve bottoms out at $4$, and the line is at $3$.
+      - text: 'Exactly two'
+        rationale: |
+          A quadratic can have two roots, but it needs to reach zero twice. Check whether $(x+1)^2+1$ ever reaches zero.
+      - text: 'Infinitely many'
+        rationale: |
+          This assumes the rules give the same height for every input. Check their heights at $x=0$.
+    explanation: |
+      Set the rules equal and subtract $3$. This gives $x^2+2x+2=0$, or $(x+1)^2+1=0$. A square plus $1$ is always positive.
+
+  - id: q-algebra-systems-of-equations-0031
+    lesson: lesson-algebra-tangent-and-missing-intersections
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      The graphs of $y=x^3$ and $y=4x$ share how many distinct points?
+    choices:
+      - text: '$3$'
+        correct: true
+      - text: '$0$'
+        rationale: |
+          This may come from treating a curve and a line as unable to meet. Try $x=0$ in both rules.
+      - text: '$1$'
+        rationale: |
+          This finds the shared point at the origin and stops. Check the two inputs where $x^2=4$.
+      - text: '$2$'
+        rationale: |
+          Dividing by $x$ finds the two nonzero roots but loses zero. Check $x=0$ before dividing.
+    explanation: |
+      Set $x^3=4x$. Then $x(x^2-4)=0$, which gives $x=0$, $x=-2$, and $x=2$. Each gives one shared point.

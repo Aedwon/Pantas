@@ -463,3 +463,201 @@ questions:
     explanation: |
       Multiply top and bottom by $\sqrt[3]{2x^2}$. The denominator becomes $\sqrt[3]{8x^3}=2x$. The fraction is $\dfrac{2\sqrt[3]{2x^2}}{2x}$. Cancel two to obtain $\dfrac{\sqrt[3]{2x^2}}{x}$.
     approved: true
+
+  - id: q-algebra-radicals-and-rationalization-0021
+    lesson: lesson-algebra-rational-exponents-and-root-quotients
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the value of $81^{3/4}$?
+    choices:
+      - text: '$27$'
+        correct: true
+      - text: '$3$'
+        rationale: |
+          This stops at the fourth root. Use the numerator as a power after finding the root.
+      - text: '$9$'
+        rationale: |
+          This takes the fourth root but squares it. Check that the numerator is $3$.
+      - text: '$729$'
+        rationale: |
+          This cubes the square root of $81$. Use a fourth root because the denominator is $4$.
+    explanation: |
+      The denominator $4$ calls for the fourth root of $81$, which is $3$. Raise $3$ to the third power to get $27$.
+
+  - id: q-algebra-radicals-and-rationalization-0022
+    lesson: lesson-algebra-rational-exponents-and-root-quotients
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      For which pair $(a,b)$ can $\sqrt{\dfrac ab}$ be rewritten as $\dfrac{\sqrt a}{\sqrt b}$ with both sides defined over the reals?
+    choices:
+      - text: '$(0,9)$'
+        correct: true
+      - text: '$(-4,-9)$'
+        rationale: |
+          This gives a positive ratio because both numbers are negative. Check the separate roots before splitting the ratio.
+      - text: '$(9,0)$'
+        rationale: |
+          This gives two real roots, but the bottom root is zero. Check the divisor too.
+      - text: '$(9,-4)$'
+        rationale: |
+          This has a real root on top. The negative number below it has no real square root.
+    explanation: |
+      For $(0,9)$ the top square root is zero and the bottom square root is $3$. The two roots are real, and the bottom is nonzero.
+
+  - id: q-algebra-radicals-and-rationalization-0023
+    lesson: lesson-algebra-rational-exponents-and-root-quotients
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      For which real values of $t$ is $\dfrac{\sqrt[3]{t}}{\sqrt[3]{t-2}}$ defined?
+    choices:
+      - text: 'All real values except $2$'
+        correct: true
+      - text: 'All real values'
+        rationale: |
+          This allows every cube root but forgets the division. Check when the bottom root is zero.
+      - text: 'Only $t>2$'
+        rationale: |
+          This requires the bottom to be positive as if the root were even. Cube roots allow negative numbers.
+      - text: 'All real values except $0$ and $2$'
+        rationale: |
+          This removes every input that gives a zero root. Zero is allowed on top.
+    explanation: |
+      Cube roots exist for all real numbers. The only problem is a zero divisor, which occurs when $t-2=0$.
+
+  - id: q-algebra-radicals-and-rationalization-0024
+    lesson: lesson-algebra-solving-square-root-equations
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Which equation results from isolating the radical and squaring both sides of $\sqrt{2x+7}-3=2x$?
+    choices:
+      - text: '$2x+7=4x^2+12x+9$'
+        correct: true
+      - text: '$2x+7=4x^2+9$'
+        rationale: |
+          This squares the two terms but drops their cross terms. Multiply the two copies of $(2x+3)$.
+      - text: '$2x+7=2x^2+12x+9$'
+        rationale: |
+          This squares $x$ but keeps its coefficient at $2$. Square the whole term $2x$.
+      - text: '$2x+7=4x^2-12x+9$'
+        rationale: |
+          This treats the isolated side as $2x-3$. Add $3$ to cancel the subtraction on the left.
+    explanation: |
+      Add $3$ to both sides to leave the root alone. Square $2x+3$ to get $4x^2+12x+9$.
+
+  - id: q-algebra-radicals-and-rationalization-0025
+    lesson: lesson-algebra-solving-square-root-equations
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      After squaring both sides of $\sqrt{x+4}=\sqrt{x}+1$ and simplifying, which equation has the remaining radical correctly isolated?
+    choices:
+      - text: '$2\sqrt{x}=3$'
+        correct: true
+      - text: '$\sqrt{x}=3$'
+        rationale: |
+          This counts the product of $\sqrt{x}$ and $1$ once. It appears twice when you square the sum.
+      - text: '$2\sqrt{x}=5$'
+        rationale: |
+          This adds the $1$ when moving it from the right side. Subtract $1$ from both sides.
+      - text: '$2\sqrt{x}=4$'
+        rationale: |
+          This keeps the cross term but drops the square of $1$. Write all three terms of the squared sum.
+    explanation: |
+      The right side squares to $x+2\sqrt{x}+1$. Subtract $x$ and $1$ from both sides to get $2\sqrt{x}=3$.
+
+  - id: q-algebra-radicals-and-rationalization-0026
+    lesson: lesson-algebra-solving-square-root-equations
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Squaring $\sqrt{x+5}=x-1$ gives candidates $-1$ and $4$. Which candidates solve the original equation?
+    choices:
+      - text: 'Only $4$'
+        correct: true
+      - text: 'Both $-1$ and $4$'
+        rationale: |
+          Both values work after squaring because squaring hides signs. Check each value in the original equation.
+      - text: 'Only $-1$'
+        rationale: |
+          This sees that the sizes match at $-1$. Compare the signs too.
+      - text: 'Neither candidate'
+        rationale: |
+          This finds a bad candidate and rejects the whole list. Test $4$ on its own.
+    explanation: |
+      At $4$ both sides are $3$. At $-1$ the left side is $2$ and the right side is $-2$. Only $4$ works.
+
+  - id: q-algebra-radicals-and-rationalization-0027
+    lesson: lesson-algebra-solving-square-root-equations
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Squaring $\sqrt{6x-5}=x$ gives candidates $1$ and $5$. Which candidates solve the original equation?
+    choices:
+      - text: 'Both $1$ and $5$'
+        correct: true
+      - text: 'Only $1$'
+        rationale: |
+          This accepts the first match and stops. Check $5$ in the original equation too.
+      - text: 'Only $5$'
+        rationale: |
+          This may leave out $1$ because it gives a small value inside the root. Check that $\sqrt1$ equals $1$.
+      - text: 'Neither candidate'
+        rationale: |
+          Squaring can add false answers, so both values need a check. Substitute each value to see whether it works.
+    explanation: |
+      At $1$, the left side is $\sqrt1=1$. At $5$, it is $\sqrt{25}=5$. Both values match the right side.
+
+  - id: q-algebra-radicals-and-rationalization-0028
+    lesson: lesson-algebra-solving-cube-root-equations
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Solve $\sqrt[3]{2x-5}+3=1$.
+    choices:
+      - text: '$-\dfrac32$'
+        correct: true
+      - text: '$\dfrac32$'
+        rationale: |
+          This finds the size of the result but drops the minus sign. Check that $-8+5=-3$.
+      - text: '$\dfrac{13}{2}$'
+        rationale: |
+          This treats $(-2)^3$ as $8$. Multiply three copies of $-2$ to check.
+      - text: '$-3$'
+        rationale: |
+          This gets $2x=-3$ and stops. Divide by $2$ to find $x$.
+    explanation: |
+      Subtract $3$ to leave a cube root equal to $-2$. Cubing gives $2x-5=-8$. Add $5$ and divide by $2$.
+
+  - id: q-algebra-radicals-and-rationalization-0029
+    lesson: lesson-algebra-solving-cube-root-equations
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Solve $2\sqrt[3]{x+1}=6$.
+    choices:
+      - text: '$26$'
+        correct: true
+      - text: '$27$'
+        rationale: |
+          This finds the value inside the root. Subtract $1$ to get $x$ itself.
+      - text: '$8$'
+        rationale: |
+          This squares $3$ after isolating the root. The index $3$ calls for cubing.
+      - text: '$107$'
+        rationale: |
+          This cubes $6$ and divides by $2$ once. Divide by $2$ before cubing.
+    explanation: |
+      Divide by $2$ to make the cube root equal to $3$. Cube both sides to get $x+1=27$. Subtract $1$.
