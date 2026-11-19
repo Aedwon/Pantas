@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-earth-science-astronomy-earths-rotation-and-day-length
+  - lesson-earth-science-astronomy-earths-orbit-and-leap-years
+  - lesson-earth-science-astronomy-axial-tilt-and-seasons
+  - lesson-earth-science-astronomy-solstices-and-equinoxes
+  - lesson-earth-science-astronomy-latitude-and-daylight
+  - lesson-earth-science-astronomy-seasonal-constellations
+  - lesson-earth-science-astronomy-earths-axial-precession
 ---
 ## Core Concept
 

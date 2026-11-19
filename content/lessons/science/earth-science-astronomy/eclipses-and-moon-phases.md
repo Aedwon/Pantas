@@ -6,6 +6,14 @@ subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-earth-science-astronomy-moon-phase-cycle
+  - lesson-earth-science-astronomy-identifying-moon-phases
+  - lesson-earth-science-astronomy-eclipse-alignments
+  - lesson-earth-science-astronomy-orbital-tilt-and-eclipses
+  - lesson-earth-science-astronomy-solar-eclipse-types
+  - lesson-earth-science-astronomy-lunar-eclipse-types
 ---
 ## Core Concept
 

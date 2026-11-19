@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" width="360" height="240">
+<title>Two motions of Earth: rotation, a spin around its axis giving day and night, and revolution, a trip around the Sun giving seasons and the year</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="eg" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.04"/><stop offset="1" stop-color="#010101" stop-opacity="0.18"/></radialGradient>
+</defs>
+<rect width="360" height="240" rx="14" fill="url(#bg)"/>
+<rect x="16" y="16" width="156" height="208" rx="10" fill="#010101" fill-opacity="0.05"/>
+<rect x="188" y="16" width="156" height="208" rx="10" fill="#010101" fill-opacity="0.05"/>
+<line x1="94" y1="30" x2="94" y2="142" stroke="#020202" stroke-width="1.8" stroke-linecap="round"/>
+<circle cx="94" cy="86" r="36" fill="url(#eg)" stroke="#010101" stroke-width="1.8"/>
+<path d="M46 62 A48 14 0 0 0 142 62" fill="none" stroke="#050505" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="142,62 143.5,72.2 134.2,68.7" fill="#050505"/>
+<text x="94" y="176" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">rotation:</text>
+<text x="94" y="192" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">day and night</text>
+<circle cx="266" cy="86" r="56" fill="none" stroke="#020202" stroke-width="1.5"/>
+<circle cx="266" cy="86" r="22" fill="url(#eg)" stroke="#010101" stroke-width="1.8"/>
+<text x="266" y="91" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">Sun</text>
+<circle cx="210" cy="86" r="10" fill="url(#eg)" stroke="#010101" stroke-width="1.8"/>
+<circle cx="322" cy="86" r="10" fill="url(#eg)" stroke="#010101" stroke-width="1.8"/>
+<path d="M298.1 40.1 A56 56 0 0 0 233.9 40.1" fill="none" stroke="#050505" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="233.9,40.1 238.4,30.9 244.1,39.1" fill="#050505"/>
+<text x="266" y="176" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">revolution:</text>
+<text x="266" y="192" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">seasons and</text>
+<text x="266" y="208" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">the year</text>
+</svg>

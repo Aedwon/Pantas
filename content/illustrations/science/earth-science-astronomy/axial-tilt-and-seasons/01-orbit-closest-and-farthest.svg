@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 350" width="360" height="350">
+<title>Earth orbit drawn as a near circle with the Sun slightly off center: Earth is closest in early January, when the north has winter, and farthest in early July, when the north has summer</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="eg" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#010101" stop-opacity="0.04"/><stop offset="1" stop-color="#010101" stop-opacity="0.18"/></radialGradient>
+</defs>
+<rect width="360" height="350" rx="14" fill="url(#bg)"/>
+<path d="M30 176 A150 144 0 1 1 330 176 A150 144 0 1 1 30 176 Z" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="198" cy="176" r="20" fill="url(#eg)" stroke="#010101" stroke-width="1.8"/>
+<text x="198" y="181" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">Sun</text>
+<line x1="218" y1="176" x2="319" y2="176" stroke="#050505" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round"/>
+<line x1="178" y1="176" x2="41" y2="176" stroke="#050505" stroke-width="2.5" stroke-dasharray="5 4" stroke-linecap="round"/>
+<circle cx="30" cy="176" r="11" fill="url(#eg)" stroke="#010101" stroke-width="1.8"/>
+<circle cx="330" cy="176" r="11" fill="url(#eg)" stroke="#010101" stroke-width="1.8"/>
+<text x="296" y="106" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">early January:</text>
+<text x="296" y="122" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">closest to the Sun,</text>
+<text x="296" y="138" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Northern winter</text>
+<text x="70" y="224" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">early July:</text>
+<text x="70" y="240" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">farthest from the Sun,</text>
+<text x="70" y="256" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Northern summer</text>
+<text x="180" y="300" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">not to scale</text>
+</svg>

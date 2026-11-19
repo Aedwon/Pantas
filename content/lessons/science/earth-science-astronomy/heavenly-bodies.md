@@ -6,6 +6,14 @@ subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-earth-science-astronomy-planets-and-dwarf-planets
+  - lesson-earth-science-astronomy-planet-families
+  - lesson-earth-science-astronomy-natural-satellites
+  - lesson-earth-science-astronomy-asteroids-and-the-main-belt
+  - lesson-earth-science-astronomy-comet-activity-and-tails
+  - lesson-earth-science-astronomy-meteoroids-meteors-and-meteorites
 ---
 ## Core Concept
 

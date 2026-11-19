@@ -6,6 +6,13 @@ subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 11
 isActive: true
+status: retired
+replacedBy:
+  - lesson-earth-science-astronomy-earths-solid-sphere
+  - lesson-earth-science-astronomy-earths-water-sphere
+  - lesson-earth-science-astronomy-earths-air-sphere
+  - lesson-earth-science-astronomy-earths-living-sphere
+  - lesson-earth-science-astronomy-earth-sphere-interactions
 ---
 ## Core Concept
 

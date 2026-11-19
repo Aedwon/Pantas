@@ -1,0 +1,453 @@
+{
+  "outline": [
+    {
+      "original": "lesson-earth-science-astronomy-earths-motions",
+      "parts": [
+        {
+          "slug": "earths-rotation-and-day-length",
+          "title": "Earth’s Rotation and the Solar Day"
+        },
+        {
+          "slug": "earths-orbit-and-leap-years",
+          "title": "Earth’s Orbit and Leap Years"
+        },
+        {
+          "slug": "axial-tilt-and-seasons",
+          "title": "Axial Tilt and Seasons"
+        },
+        {
+          "slug": "solstices-and-equinoxes",
+          "title": "Solstices and Equinoxes"
+        },
+        {
+          "slug": "latitude-and-daylight",
+          "title": "Latitude and Daylight"
+        },
+        {
+          "slug": "seasonal-constellations",
+          "title": "Seasonal Constellations"
+        },
+        {
+          "slug": "earths-axial-precession",
+          "title": "Earth’s Axial Precession"
+        }
+      ]
+    },
+    {
+      "original": "lesson-earth-science-astronomy-earths-subsystems",
+      "parts": [
+        {
+          "slug": "earths-solid-sphere",
+          "title": "The Geosphere and Lithosphere"
+        },
+        {
+          "slug": "earths-water-sphere",
+          "title": "The Hydrosphere"
+        },
+        {
+          "slug": "earths-air-sphere",
+          "title": "The Atmosphere"
+        },
+        {
+          "slug": "earths-living-sphere",
+          "title": "The Biosphere"
+        },
+        {
+          "slug": "earth-sphere-interactions",
+          "title": "How Earth’s Spheres Interact"
+        }
+      ]
+    },
+    {
+      "original": "lesson-earth-science-astronomy-eclipses-and-moon-phases",
+      "parts": [
+        {
+          "slug": "moon-phase-cycle",
+          "title": "Why the Moon Has Phases"
+        },
+        {
+          "slug": "identifying-moon-phases",
+          "title": "Identifying Moon Phases"
+        },
+        {
+          "slug": "eclipse-alignments",
+          "title": "Eclipse Alignments"
+        },
+        {
+          "slug": "orbital-tilt-and-eclipses",
+          "title": "Orbital Tilt and Eclipses"
+        },
+        {
+          "slug": "solar-eclipse-types",
+          "title": "Solar Eclipse Types"
+        },
+        {
+          "slug": "lunar-eclipse-types",
+          "title": "Lunar Eclipse Types"
+        }
+      ]
+    },
+    {
+      "original": "lesson-earth-science-astronomy-fossils-and-geologic-time",
+      "parts": [
+        {
+          "slug": "fossils-and-preservation",
+          "title": "Fossils and Preservation"
+        },
+        {
+          "slug": "relative-dating-of-rock-layers",
+          "title": "Relative Dating of Rock Layers"
+        },
+        {
+          "slug": "dating-faults-and-intrusions",
+          "title": "Dating Faults and Intrusions"
+        },
+        {
+          "slug": "index-fossils-and-rock-correlation",
+          "title": "Index Fossils and Rock Correlation"
+        },
+        {
+          "slug": "radiometric-dating-and-half-life",
+          "title": "Radiometric Dating and Half-Life"
+        },
+        {
+          "slug": "parent-and-daughter-isotopes",
+          "title": "Parent and Daughter Isotopes"
+        },
+        {
+          "slug": "choosing-radiometric-dating-methods",
+          "title": "Choosing a Radiometric Dating Method"
+        },
+        {
+          "slug": "geologic-time-scale",
+          "title": "The Geologic Time Scale"
+        },
+        {
+          "slug": "life-through-geologic-time",
+          "title": "Life Through Geologic Time"
+        }
+      ]
+    },
+    {
+      "original": "lesson-earth-science-astronomy-heavenly-bodies",
+      "parts": [
+        {
+          "slug": "planets-and-dwarf-planets",
+          "title": "Planets and Dwarf Planets"
+        },
+        {
+          "slug": "planet-families",
+          "title": "Planet Families"
+        },
+        {
+          "slug": "natural-satellites",
+          "title": "Natural Satellites"
+        },
+        {
+          "slug": "asteroids-and-the-main-belt",
+          "title": "Asteroids and the Main Belt"
+        },
+        {
+          "slug": "comet-activity-and-tails",
+          "title": "Comet Activity and Tails"
+        },
+        {
+          "slug": "meteoroids-meteors-and-meteorites",
+          "title": "Meteoroids, Meteors, and Meteorites"
+        }
+      ]
+    },
+    {
+      "original": "lesson-earth-science-astronomy-layers-of-the-earth",
+      "parts": [
+        {
+          "slug": "earths-layers-and-crust",
+          "title": "Earth’s Layers and Crust"
+        },
+        {
+          "slug": "earths-solid-mantle",
+          "title": "Earth’s Solid Mantle"
+        },
+        {
+          "slug": "earths-inner-and-outer-core",
+          "title": "Earth’s Inner and Outer Core"
+        },
+        {
+          "slug": "lithosphere-and-asthenosphere",
+          "title": "The Lithosphere and Asthenosphere"
+        },
+        {
+          "slug": "evidence-from-seismic-waves",
+          "title": "Evidence From Seismic Waves"
+        },
+        {
+          "slug": "seismic-shadow-zones",
+          "title": "Seismic Shadow Zones"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-earth-science-astronomy-earths-rotation-and-day-length": [],
+    "lesson-earth-science-astronomy-earths-orbit-and-leap-years": [
+      {
+        "lesson": "lesson-earth-science-astronomy-earths-rotation-and-day-length",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-axial-tilt-and-seasons": [
+      {
+        "lesson": "lesson-earth-science-astronomy-earths-orbit-and-leap-years",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-solstices-and-equinoxes": [
+      {
+        "lesson": "lesson-earth-science-astronomy-axial-tilt-and-seasons",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-latitude-and-daylight": [
+      {
+        "lesson": "lesson-earth-science-astronomy-solstices-and-equinoxes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-seasonal-constellations": [
+      {
+        "lesson": "lesson-earth-science-astronomy-latitude-and-daylight",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-earths-axial-precession": [
+      {
+        "lesson": "lesson-earth-science-astronomy-seasonal-constellations",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-earths-solid-sphere": [],
+    "lesson-earth-science-astronomy-earths-water-sphere": [
+      {
+        "lesson": "lesson-earth-science-astronomy-earths-solid-sphere",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-earths-air-sphere": [
+      {
+        "lesson": "lesson-earth-science-astronomy-earths-water-sphere",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-earths-living-sphere": [
+      {
+        "lesson": "lesson-earth-science-astronomy-earths-air-sphere",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-earth-sphere-interactions": [
+      {
+        "lesson": "lesson-earth-science-astronomy-earths-living-sphere",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-moon-phase-cycle": [],
+    "lesson-earth-science-astronomy-identifying-moon-phases": [
+      {
+        "lesson": "lesson-earth-science-astronomy-moon-phase-cycle",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-eclipse-alignments": [
+      {
+        "lesson": "lesson-earth-science-astronomy-identifying-moon-phases",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-orbital-tilt-and-eclipses": [
+      {
+        "lesson": "lesson-earth-science-astronomy-eclipse-alignments",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-solar-eclipse-types": [
+      {
+        "lesson": "lesson-earth-science-astronomy-orbital-tilt-and-eclipses",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-lunar-eclipse-types": [
+      {
+        "lesson": "lesson-earth-science-astronomy-solar-eclipse-types",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-water-cycle-oceanography": [
+      {
+        "lesson": "lesson-earth-science-astronomy-moon-phase-cycle",
+        "strength": "helpful",
+        "reason": "Spring and neap tides depend on the Moon phases and the Sun, Earth, and Moon line-up. This lesson describes the line-up, and the phases lesson explains the phases themselves."
+      }
+    ],
+    "lesson-earth-science-astronomy-fossils-and-preservation": [],
+    "lesson-earth-science-astronomy-relative-dating-of-rock-layers": [
+      {
+        "lesson": "lesson-earth-science-astronomy-fossils-and-preservation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-dating-faults-and-intrusions": [
+      {
+        "lesson": "lesson-earth-science-astronomy-relative-dating-of-rock-layers",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-index-fossils-and-rock-correlation": [
+      {
+        "lesson": "lesson-earth-science-astronomy-dating-faults-and-intrusions",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-radiometric-dating-and-half-life": [
+      {
+        "lesson": "lesson-earth-science-astronomy-index-fossils-and-rock-correlation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-parent-and-daughter-isotopes": [
+      {
+        "lesson": "lesson-earth-science-astronomy-radiometric-dating-and-half-life",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-chemistry-nuclear-chemistry",
+        "strength": "helpful",
+        "reason": "Isotopes and radioactive decay sit under radiometric dating. This lesson defines isotope, parent, daughter, and half-life itself, so the link only adds depth."
+      }
+    ],
+    "lesson-earth-science-astronomy-choosing-radiometric-dating-methods": [
+      {
+        "lesson": "lesson-earth-science-astronomy-parent-and-daughter-isotopes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-geologic-time-scale": [
+      {
+        "lesson": "lesson-earth-science-astronomy-choosing-radiometric-dating-methods",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-life-through-geologic-time": [
+      {
+        "lesson": "lesson-earth-science-astronomy-geologic-time-scale",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-planets-and-dwarf-planets": [],
+    "lesson-earth-science-astronomy-planet-families": [
+      {
+        "lesson": "lesson-earth-science-astronomy-planets-and-dwarf-planets",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-natural-satellites": [
+      {
+        "lesson": "lesson-earth-science-astronomy-planet-families",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-asteroids-and-the-main-belt": [
+      {
+        "lesson": "lesson-earth-science-astronomy-natural-satellites",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-comet-activity-and-tails": [
+      {
+        "lesson": "lesson-earth-science-astronomy-asteroids-and-the-main-belt",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-meteoroids-meteors-and-meteorites": [
+      {
+        "lesson": "lesson-earth-science-astronomy-comet-activity-and-tails",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-earths-layers-and-crust": [],
+    "lesson-earth-science-astronomy-earths-solid-mantle": [
+      {
+        "lesson": "lesson-earth-science-astronomy-earths-layers-and-crust",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-earths-inner-and-outer-core": [
+      {
+        "lesson": "lesson-earth-science-astronomy-earths-solid-mantle",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-lithosphere-and-asthenosphere": [
+      {
+        "lesson": "lesson-earth-science-astronomy-earths-inner-and-outer-core",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-evidence-from-seismic-waves": [
+      {
+        "lesson": "lesson-earth-science-astronomy-lithosphere-and-asthenosphere",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-physics-waves-and-sound",
+        "strength": "helpful",
+        "reason": "P and S waves are longitudinal and transverse waves. This lesson explains how each behaves, and the waves lesson gives the general ideas."
+      }
+    ],
+    "lesson-earth-science-astronomy-seismic-shadow-zones": [
+      {
+        "lesson": "lesson-earth-science-astronomy-evidence-from-seismic-waves",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-plate-tectonics": [
+      {
+        "lesson": "lesson-earth-science-astronomy-earths-layers-and-crust",
+        "strength": "helpful",
+        "reason": "Knowing the crust, mantle, lithosphere, and asthenosphere makes plate movement easier to follow. This lesson recaps the layers it uses, so the link is not required."
+      }
+    ]
+  }
+}
