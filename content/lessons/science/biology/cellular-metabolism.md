@@ -6,6 +6,13 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-atp-and-cell-metabolism
+  - lesson-biology-enzyme-action
+  - lesson-biology-biomolecule-groups
+  - lesson-biology-photosynthesis-inputs-and-products
+  - lesson-biology-light-reactions-and-calvin-cycle
 ---
 ## Core Concept
 

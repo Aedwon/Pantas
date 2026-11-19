@@ -1,0 +1,412 @@
+{
+  "outline": [
+    {
+      "original": "lesson-biology-botany",
+      "parts": [
+        {
+          "slug": "plant-tissue-systems",
+          "title": "Plant Tissue Systems"
+        },
+        {
+          "slug": "phloem-sources-and-sinks",
+          "title": "Phloem Sources and Sinks"
+        },
+        {
+          "slug": "plant-tropisms",
+          "title": "Plant Tropisms"
+        },
+        {
+          "slug": "flower-parts",
+          "title": "Flower Parts"
+        },
+        {
+          "slug": "pollination-and-pollen-tube-growth",
+          "title": "Pollination and Pollen Tube Growth"
+        },
+        {
+          "slug": "double-fertilization-and-seed-formation",
+          "title": "Double Fertilization and Seed Formation"
+        }
+      ]
+    },
+    {
+      "original": "lesson-biology-cell-biology",
+      "parts": [
+        {
+          "slug": "organelles-and-protein-secretion",
+          "title": "Organelles and Protein Secretion"
+        },
+        {
+          "slug": "plant-and-animal-cell-structures",
+          "title": "Plant and Animal Cell Structures"
+        },
+        {
+          "slug": "passive-and-active-cell-transport",
+          "title": "Passive and Active Cell Transport"
+        },
+        {
+          "slug": "osmosis-and-tonicity",
+          "title": "Osmosis and Tonicity"
+        }
+      ]
+    },
+    {
+      "original": "lesson-biology-cellular-metabolism",
+      "parts": [
+        {
+          "slug": "atp-and-cell-metabolism",
+          "title": "ATP and Cell Metabolism"
+        },
+        {
+          "slug": "enzyme-action",
+          "title": "Enzyme Action"
+        },
+        {
+          "slug": "biomolecule-groups",
+          "title": "Biomolecule Groups"
+        },
+        {
+          "slug": "photosynthesis-inputs-and-products",
+          "title": "Photosynthesis Inputs and Products"
+        },
+        {
+          "slug": "light-reactions-and-calvin-cycle",
+          "title": "Light Reactions and the Calvin Cycle"
+        }
+      ]
+    },
+    {
+      "original": "lesson-biology-cellular-reproduction",
+      "parts": [
+        {
+          "slug": "chromosome-sets-and-copies",
+          "title": "Chromosome Sets and Copies"
+        },
+        {
+          "slug": "cell-cycle-and-cytokinesis",
+          "title": "Cell Cycle and Cytokinesis"
+        },
+        {
+          "slug": "mitosis-phases-and-results",
+          "title": "Mitosis Phases and Results"
+        },
+        {
+          "slug": "counting-chromosomes-through-mitosis",
+          "title": "Counting Chromosomes Through Mitosis"
+        }
+      ]
+    },
+    {
+      "original": "lesson-biology-cellular-respiration-and-fermentation",
+      "parts": [
+        {
+          "slug": "aerobic-respiration-inputs-and-products",
+          "title": "Aerobic Respiration Inputs and Products"
+        },
+        {
+          "slug": "aerobic-respiration-stages",
+          "title": "Aerobic Respiration Stages"
+        },
+        {
+          "slug": "respiration-in-cells",
+          "title": "Respiration in Cells"
+        },
+        {
+          "slug": "fermentation-and-anaerobic-respiration",
+          "title": "Fermentation and Anaerobic Respiration"
+        },
+        {
+          "slug": "photosynthesis-and-respiration-together",
+          "title": "Photosynthesis and Respiration Together"
+        },
+        {
+          "slug": "plant-respiration-in-light-and-dark",
+          "title": "Plant Respiration in Light and Dark"
+        }
+      ]
+    },
+    {
+      "original": "lesson-biology-characteristics-of-life",
+      "parts": [
+        {
+          "slug": "evidence-for-life-processes",
+          "title": "Evidence for Life Processes"
+        },
+        {
+          "slug": "reproduction-and-population-adaptation",
+          "title": "Reproduction and Population Adaptation"
+        },
+        {
+          "slug": "living-and-nonliving-things",
+          "title": "Living and Nonliving Things"
+        },
+        {
+          "slug": "dormant-seeds",
+          "title": "Dormant Seeds"
+        },
+        {
+          "slug": "viruses-and-the-definition-of-life",
+          "title": "Viruses and the Definition of Life"
+        },
+        {
+          "slug": "levels-of-biological-organization",
+          "title": "Levels of Biological Organization"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-biology-plant-tissue-systems": [],
+    "lesson-biology-phloem-sources-and-sinks": [
+      {
+        "lesson": "lesson-biology-plant-tissue-systems",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-biology-atp-and-cell-metabolism",
+        "strength": "helpful",
+        "reason": "Phloem moves the sugar that photosynthesis makes, and the metabolism lesson explains photosynthesis in full."
+      }
+    ],
+    "lesson-biology-plant-tropisms": [
+      {
+        "lesson": "lesson-biology-phloem-sources-and-sinks",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-flower-parts": [
+      {
+        "lesson": "lesson-biology-plant-tropisms",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-pollination-and-pollen-tube-growth": [
+      {
+        "lesson": "lesson-biology-flower-parts",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-double-fertilization-and-seed-formation": [
+      {
+        "lesson": "lesson-biology-pollination-and-pollen-tube-growth",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-organelles-and-protein-secretion": [],
+    "lesson-biology-plant-and-animal-cell-structures": [
+      {
+        "lesson": "lesson-biology-organelles-and-protein-secretion",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-passive-and-active-cell-transport": [
+      {
+        "lesson": "lesson-biology-plant-and-animal-cell-structures",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-osmosis-and-tonicity": [
+      {
+        "lesson": "lesson-biology-passive-and-active-cell-transport",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-atp-and-cell-metabolism": [],
+    "lesson-biology-enzyme-action": [
+      {
+        "lesson": "lesson-biology-atp-and-cell-metabolism",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-biomolecule-groups": [
+      {
+        "lesson": "lesson-biology-enzyme-action",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-photosynthesis-inputs-and-products": [
+      {
+        "lesson": "lesson-biology-biomolecule-groups",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-light-reactions-and-calvin-cycle": [
+      {
+        "lesson": "lesson-biology-photosynthesis-inputs-and-products",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-biology-organelles-and-protein-secretion",
+        "strength": "helpful",
+        "reason": "Photosynthesis happens in chloroplasts and membranes, and the cell biology lesson describes these organelles and what they do."
+      }
+    ],
+    "lesson-biology-chromosome-sets-and-copies": [],
+    "lesson-biology-cell-cycle-and-cytokinesis": [
+      {
+        "lesson": "lesson-biology-chromosome-sets-and-copies",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-mitosis-phases-and-results": [
+      {
+        "lesson": "lesson-biology-cell-cycle-and-cytokinesis",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-counting-chromosomes-through-mitosis": [
+      {
+        "lesson": "lesson-biology-mitosis-phases-and-results",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-aerobic-respiration-inputs-and-products": [],
+    "lesson-biology-aerobic-respiration-stages": [
+      {
+        "lesson": "lesson-biology-aerobic-respiration-inputs-and-products",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-respiration-in-cells": [
+      {
+        "lesson": "lesson-biology-aerobic-respiration-stages",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-biology-organelles-and-protein-secretion",
+        "strength": "helpful",
+        "reason": "The location of each stage depends on the mitochondrion and cytosol, which the cell biology lesson describes."
+      }
+    ],
+    "lesson-biology-fermentation-and-anaerobic-respiration": [
+      {
+        "lesson": "lesson-biology-respiration-in-cells",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-photosynthesis-and-respiration-together": [
+      {
+        "lesson": "lesson-biology-fermentation-and-anaerobic-respiration",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-biology-atp-and-cell-metabolism",
+        "strength": "helpful",
+        "reason": "This lesson defines ATP, glucose and enzymes itself, but the metabolism lesson gives the photosynthesis side of the comparison and more on enzymes."
+      }
+    ],
+    "lesson-biology-plant-respiration-in-light-and-dark": [
+      {
+        "lesson": "lesson-biology-photosynthesis-and-respiration-together",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-evidence-for-life-processes": [
+      {
+        "lesson": "lesson-biology-organelles-and-protein-secretion",
+        "strength": "helpful",
+        "reason": "The first property says all life is made of cells, and the cell biology lesson shows what a cell contains and how it works."
+      }
+    ],
+    "lesson-biology-reproduction-and-population-adaptation": [
+      {
+        "lesson": "lesson-biology-evidence-for-life-processes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-living-and-nonliving-things": [
+      {
+        "lesson": "lesson-biology-reproduction-and-population-adaptation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-dormant-seeds": [
+      {
+        "lesson": "lesson-biology-living-and-nonliving-things",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-viruses-and-the-definition-of-life": [
+      {
+        "lesson": "lesson-biology-dormant-seeds",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-levels-of-biological-organization": [
+      {
+        "lesson": "lesson-biology-viruses-and-the-definition-of-life",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-ecology": [
+      {
+        "lesson": "lesson-biology-atp-and-cell-metabolism",
+        "strength": "helpful",
+        "reason": "Understanding photosynthesis and respiration makes carbon cycling easier. Ecology explains their relevant roles itself."
+      },
+      {
+        "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+        "strength": "helpful",
+        "reason": "Percentage multiplication helps with energy transfers. Ecology supplies the 0.10 multiplier and worked steps, so it stands alone."
+      }
+    ],
+    "lesson-biology-human-anatomy-physiology": [
+      {
+        "lesson": "lesson-biology-organelles-and-protein-secretion",
+        "strength": "helpful",
+        "reason": "Gas exchange and reabsorption in the kidney depend on diffusion and membranes, which the cell biology lesson explains."
+      }
+    ],
+    "lesson-biology-human-body-control-movement-and-defense": [
+      {
+        "lesson": "lesson-biology-human-anatomy-physiology",
+        "strength": "required",
+        "reason": "The systems-working-together section and example use the digestive, respiratory, circulatory and urinary systems and blood transport, and this lesson does not teach them."
+      },
+      {
+        "lesson": "lesson-biology-chromosome-sets-and-copies",
+        "strength": "helpful",
+        "reason": "The reproductive section uses chromosome numbers, but it also explains that gametes have half the chromosomes, so the lesson is only a help."
+      }
+    ],
+    "lesson-biology-meiosis-and-genetic-variation": [
+      {
+        "lesson": "lesson-biology-chromosome-sets-and-copies",
+        "strength": "required",
+        "reason": "Meiosis uses homologs, sister chromatids, centromeres, haploid and diploid, and mitosis for comparison, and only the cellular reproduction lesson teaches them."
+      }
+    ],
+    "lesson-biology-taxonomy-and-classification": [
+      {
+        "lesson": "lesson-biology-organelles-and-protein-secretion",
+        "strength": "helpful",
+        "reason": "Classifying by nucleus and cell wall is easier after the cell biology lesson shows what these parts are."
+      }
+    ]
+  }
+}

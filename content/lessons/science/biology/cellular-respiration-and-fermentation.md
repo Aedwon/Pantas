@@ -6,6 +6,14 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-aerobic-respiration-inputs-and-products
+  - lesson-biology-aerobic-respiration-stages
+  - lesson-biology-respiration-in-cells
+  - lesson-biology-fermentation-and-anaerobic-respiration
+  - lesson-biology-photosynthesis-and-respiration-together
+  - lesson-biology-plant-respiration-in-light-and-dark
 ---
 ## Core Concept
 

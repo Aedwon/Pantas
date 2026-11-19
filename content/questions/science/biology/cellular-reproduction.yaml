@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "ustet", "dost-sei"]
 questions:
   - id: q-biology-cellular-reproduction-0004
+    lesson: lesson-biology-mitosis-phases-and-results
+    keyPoint: 2
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-reproduction-0005
+    lesson: lesson-biology-mitosis-phases-and-results
+    keyPoint: 1
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-reproduction-0006
+    lesson: lesson-biology-mitosis-phases-and-results
+    keyPoint: 1
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-reproduction-0007
+    lesson: lesson-biology-mitosis-phases-and-results
+    keyPoint: 1
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-reproduction-0008
+    lesson: lesson-biology-mitosis-phases-and-results
+    keyPoint: 1
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-reproduction-0009
+    lesson: lesson-biology-cell-cycle-and-cytokinesis
+    keyPoint: 2
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-reproduction-0012
+    lesson: lesson-biology-mitosis-phases-and-results
+    keyPoint: 1
     type: "process-ordering"
     difficulty: "hard"
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-reproduction-0014
+    lesson: lesson-biology-mitosis-phases-and-results
+    keyPoint: 1
     type: "process-ordering"
     difficulty: "medium"
     stem: |
@@ -177,6 +193,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-reproduction-0016
+    lesson: lesson-biology-cell-cycle-and-cytokinesis
+    keyPoint: 1
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -198,6 +216,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-reproduction-0021
+    lesson: lesson-biology-chromosome-sets-and-copies
+    keyPoint: 2
     type: "classify"
     difficulty: "easy"
     stem: |
@@ -219,6 +239,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-reproduction-0022
+    lesson: lesson-biology-counting-chromosomes-through-mitosis
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -240,6 +262,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-reproduction-0023
+    lesson: lesson-biology-counting-chromosomes-through-mitosis
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -261,6 +285,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-reproduction-0024
+    lesson: lesson-biology-chromosome-sets-and-copies
+    keyPoint: 1
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -282,6 +308,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-reproduction-0025
+    lesson: lesson-biology-mitosis-phases-and-results
+    keyPoint: 2
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
@@ -303,6 +331,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-reproduction-0026
+    lesson: lesson-biology-cell-cycle-and-cytokinesis
+    keyPoint: 2
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -324,6 +354,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-reproduction-0027
+    lesson: lesson-biology-cell-cycle-and-cytokinesis
+    keyPoint: 1
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -345,6 +377,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-reproduction-0028
+    lesson: lesson-biology-mitosis-phases-and-results
+    keyPoint: 1
     type: "structure-function"
     difficulty: "medium"
     stem: |
@@ -366,6 +400,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-reproduction-0029
+    lesson: lesson-biology-mitosis-phases-and-results
+    keyPoint: 2
     type: "cause-effect"
     difficulty: "hard"
     stem: |
@@ -387,6 +423,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-reproduction-0030
+    lesson: lesson-biology-chromosome-sets-and-copies
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -408,6 +446,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-reproduction-0031
+    lesson: lesson-biology-cell-cycle-and-cytokinesis
+    keyPoint: 1
     type: "process-ordering"
     difficulty: "medium"
     stem: |

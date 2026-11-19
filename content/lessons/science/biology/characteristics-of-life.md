@@ -6,6 +6,14 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-evidence-for-life-processes
+  - lesson-biology-reproduction-and-population-adaptation
+  - lesson-biology-living-and-nonliving-things
+  - lesson-biology-dormant-seeds
+  - lesson-biology-viruses-and-the-definition-of-life
+  - lesson-biology-levels-of-biological-organization
 ---
 ## Core Concept
 

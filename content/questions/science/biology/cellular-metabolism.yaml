@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "dlsucet", "ustet", "dost-sei", "acet"]
 questions:
   - id: q-biology-cellular-metabolism-0001
+    lesson: lesson-biology-photosynthesis-inputs-and-products
+    keyPoint: 1
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-metabolism-0003
+    lesson: lesson-biology-light-reactions-and-calvin-cycle
+    keyPoint: 1
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-metabolism-0005
+    lesson: lesson-biology-light-reactions-and-calvin-cycle
+    keyPoint: 2
     type: "cause-effect"
     difficulty: "medium"
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-metabolism-0007
+    lesson: lesson-biology-photosynthesis-inputs-and-products
+    keyPoint: 1
     type: "cause-effect"
     difficulty: "medium"
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-metabolism-0009
+    lesson: lesson-biology-photosynthesis-inputs-and-products
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-metabolism-0013
+    lesson: lesson-biology-photosynthesis-inputs-and-products
+    keyPoint: 1
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-biology-cellular-metabolism-0021
+    lesson: lesson-biology-biomolecule-groups
+    keyPoint: 1
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0022
+    lesson: lesson-biology-atp-and-cell-metabolism
+    keyPoint: 1
     type: "cause-effect"
     difficulty: "easy"
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0023
+    lesson: lesson-biology-enzyme-action
+    keyPoint: 1
     type: "structure-function"
     difficulty: "easy"
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0024
+    lesson: lesson-biology-biomolecule-groups
+    keyPoint: 1
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0025
+    lesson: lesson-biology-biomolecule-groups
+    keyPoint: 2
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0026
+    lesson: lesson-biology-enzyme-action
+    keyPoint: 2
     type: "cause-effect"
     difficulty: "medium"
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0027
+    lesson: lesson-biology-light-reactions-and-calvin-cycle
+    keyPoint: 2
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0028
+    lesson: lesson-biology-light-reactions-and-calvin-cycle
+    keyPoint: 2
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0029
+    lesson: lesson-biology-light-reactions-and-calvin-cycle
+    keyPoint: 1
     type: "cause-effect"
     difficulty: "hard"
     stem: |
@@ -320,6 +350,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0030
+    lesson: lesson-biology-photosynthesis-inputs-and-products
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -341,6 +373,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0031
+    lesson: lesson-biology-biomolecule-groups
+    keyPoint: 2
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
@@ -362,6 +396,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0032
+    lesson: lesson-biology-light-reactions-and-calvin-cycle
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -383,6 +419,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0033
+    lesson: lesson-biology-atp-and-cell-metabolism
+    keyPoint: 1
     type: "cause-effect"
     difficulty: "exam"
     stem: |
@@ -404,6 +442,8 @@ questions:
     approved: false
 
   - id: q-biology-cellular-metabolism-0034
+    lesson: lesson-biology-atp-and-cell-metabolism
+    keyPoint: 2
     type: "structure-function"
     difficulty: "exam"
     stem: |
