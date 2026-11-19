@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 421" width="360" height="421">
+  <title>Mohs hardness ladder</title>
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="shape" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.12"/><stop offset="1" stop-color="#050505" stop-opacity="0.27"/></radialGradient>
+    <radialGradient id="muted" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.07"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient>
+    <radialGradient id="tile" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.03"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient>
+    <radialGradient id="focus" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.23"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+  </defs>
+  <rect width="360" height="421" rx="14" fill="url(#bg)"/>
+  <path d="M51 34 L51 394" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M91 34 L91 394" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M51 34 L91 34" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="34" y="39" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">10</text>
+  <text x="106" y="39" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">diamond</text>
+  <path d="M51 74 L91 74" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="34" y="79" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">9</text>
+  <text x="106" y="79" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">corundum</text>
+  <path d="M51 114 L91 114" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="34" y="119" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">8</text>
+  <text x="106" y="119" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">topaz</text>
+  <path d="M51 154 L91 154" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="34" y="159" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">7</text>
+  <text x="106" y="159" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">quartz</text>
+  <path d="M51 194 L91 194" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="34" y="199" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">6</text>
+  <text x="106" y="199" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">orthoclase</text>
+  <path d="M51 234 L91 234" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="34" y="239" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">5</text>
+  <text x="106" y="239" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">apatite</text>
+  <path d="M51 274 L91 274" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="34" y="279" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">4</text>
+  <text x="106" y="279" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">fluorite</text>
+  <path d="M51 314 L91 314" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="34" y="319" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">3</text>
+  <text x="106" y="319" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">calcite</text>
+  <path d="M51 354 L91 354" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="34" y="359" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">2</text>
+  <text x="106" y="359" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">gypsum</text>
+  <path d="M51 394 L91 394" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="34" y="399" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">1</text>
+  <text x="106" y="399" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">talc</text>
+  <path d="M72 214 L193 214" fill="none" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="72" cy="214" r="3" fill="#050505" stroke="none" stroke-width="1.6"/>
+  <text x="203" y="219" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">glass plate at 5.5</text>
+  <path d="M72 334 L193 334" fill="none" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="72" cy="334" r="3" fill="#050505" stroke="none" stroke-width="1.6"/>
+  <text x="203" y="339" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">fingernail at 2.5</text>
+</svg>

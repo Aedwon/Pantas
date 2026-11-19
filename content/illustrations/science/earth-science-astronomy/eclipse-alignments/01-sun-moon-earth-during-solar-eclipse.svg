@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 203" width="360" height="203">
+  <title>Solar eclipse shadow</title>
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="shape" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.12"/><stop offset="1" stop-color="#050505" stop-opacity="0.27"/></radialGradient>
+    <radialGradient id="muted" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.07"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient>
+    <radialGradient id="tile" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.03"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient>
+    <radialGradient id="focus" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.23"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+  </defs>
+  <rect width="360" height="203" rx="14" fill="url(#bg)"/>
+  <path d="M165,94.8 L245,58.9 L245,159.1 L165,123.2 Z" fill="url(#muted)" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M165,95.8 L239.1,109 L165,122.2 Z" fill="url(#focus)" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="55" cy="109" r="32" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <circle cx="165" cy="109" r="13" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <circle cx="255" cy="109" r="25" fill="#030303"/>
+  <circle cx="255" cy="109" r="25" fill="url(#muted)" stroke="#020202" stroke-width="1.6"/>
+  <text x="55" y="179" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Sun</text>
+  <text x="165" y="179" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">new moon</text>
+  <text x="255" y="179" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Earth</text>
+  <text x="191" y="30" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">umbra</text>
+  <path d="M191 36 V59 L194 103" fill="none" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="322" y="30" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">penumbra</text>
+  <path d="M271 36 V53 L221 84" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

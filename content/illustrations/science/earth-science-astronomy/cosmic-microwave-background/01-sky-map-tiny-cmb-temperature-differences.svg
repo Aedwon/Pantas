@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 246" width="360" height="246">
+  <title>Schematic of CMB temperature differences</title>
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="shape" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.12"/><stop offset="1" stop-color="#050505" stop-opacity="0.27"/></radialGradient>
+    <radialGradient id="muted" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.07"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient>
+    <radialGradient id="tile" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.03"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient>
+    <radialGradient id="focus" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.23"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+  </defs>
+  <rect width="360" height="246" rx="14" fill="url(#bg)"/>
+  <defs><clipPath id="sky"><ellipse cx="180" cy="100" rx="154" ry="73" fill="#FFFFFF"/></clipPath></defs>
+  <g clip-path="url(#sky)">
+  <rect x="26" y="27" width="308" height="146" rx="0" fill="#348668" stroke="none" stroke-width="1.5"/>
+  <path d="M25 54 Q52 38 67 58 T99 71 Q114 72 118 93 T94 113 Q85 111 78 97 T53 93 Q34 105 25 89 Z" fill="#315F9B" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M78 29 Q107 38 123 30 T158 37 Q169 49 146 54 T125 73 Q111 82 102 67 Q101 55 84 53 Z" fill="#A4434C" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M128 88 Q139 72 162 77 T191 66 Q211 60 215 78 T203 102 Q184 101 174 121 T151 129 Q129 121 128 88 Z" fill="#315F9B" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 126 Q52 108 69 117 T94 128 Q106 120 118 133 T143 147 Q157 150 155 174 H28 Z" fill="#A4434C" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M215 30 Q230 48 250 41 T289 56 Q303 71 283 80 T257 75 Q251 64 237 67 T219 57 Z" fill="#A4434C" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M321 61 Q299 68 303 88 T270 108 Q247 99 234 114 T238 138 Q254 149 273 133 T312 124 H337 V65 Z" fill="#315F9B" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M177 153 Q182 132 206 136 Q223 143 219 154 T233 174 H175 Z" fill="#A4434C" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M312 100 Q326 91 339 99 V116 Q326 122 313 118 T312 100 Z" fill="#A4434C" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M81 155 Q96 147 108 158 T116 174 H78 Z" fill="#315F9B" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <ellipse cx="180" cy="100" rx="154" ry="73" fill="none" stroke="#020202" stroke-width="1.6"/>
+  <text x="180" y="201" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">tiny temperature differences,</text>
+  <text x="180" y="221" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">about 1 part in 100,000</text>
+</svg>
