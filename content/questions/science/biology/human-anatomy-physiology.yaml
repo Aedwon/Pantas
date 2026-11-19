@@ -5,6 +5,8 @@ meta:
   exams: [upcat, ustet, dost-sei]
 questions:
   - id: q-biology-human-anatomy-physiology-0001
+    lesson: lesson-biology-digestion-and-nutrient-absorption
+    keyPoint: 1
     type: 'process-ordering'
     difficulty: 'medium'
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0002
+    lesson: lesson-biology-blood-flow-through-the-heart
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0007
+    lesson: lesson-biology-kidneys-and-waste-removal
+    keyPoint: 1
     type: 'identify'
     difficulty: 'medium'
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0008
+    lesson: lesson-biology-kidneys-and-waste-removal
+    keyPoint: 1
     type: 'identify'
     difficulty: 'medium'
     stem: |
@@ -93,6 +101,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0011
+    lesson: lesson-biology-arteries-veins-and-capillaries
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -114,6 +124,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0015
+    lesson: lesson-biology-blood-flow-through-the-heart
+    keyPoint: 1
     type: 'identify'
     difficulty: 'medium'
     stem: |
@@ -139,6 +151,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0016
+    lesson: lesson-biology-digestion-and-nutrient-absorption
+    keyPoint: 3
     type: 'structure-function'
     difficulty: 'easy'
     stem: |
@@ -160,6 +174,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0017
+    lesson: lesson-biology-digestion-and-nutrient-absorption
+    keyPoint: 2
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
@@ -181,6 +197,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0018
+    lesson: lesson-biology-breathing-and-gas-exchange
+    keyPoint: 2
     type: 'structure-function'
     difficulty: 'medium'
     stem: |
@@ -202,6 +220,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0019
+    lesson: lesson-biology-kidneys-and-waste-removal
+    keyPoint: 2
     type: 'process-ordering'
     difficulty: 'hard'
     stem: |
@@ -223,6 +243,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0021
+    lesson: lesson-biology-cells-tissues-and-organs
+    keyPoint: 1
     type: 'identify'
     difficulty: 'easy'
     stem: |
@@ -244,6 +266,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0022
+    lesson: lesson-biology-breathing-and-gas-exchange
+    keyPoint: 1
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
@@ -265,6 +289,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0023
+    lesson: lesson-biology-arteries-veins-and-capillaries
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -286,6 +312,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0024
+    lesson: lesson-biology-digestion-and-nutrient-absorption
+    keyPoint: 2
     type: 'structure-function'
     difficulty: 'medium'
     stem: |
@@ -307,6 +335,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0025
+    lesson: lesson-biology-digestion-and-nutrient-absorption
+    keyPoint: 3
     type: 'identify'
     difficulty: 'easy'
     stem: |
@@ -328,6 +358,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0026
+    lesson: lesson-biology-digestion-and-nutrient-absorption
+    keyPoint: 3
     type: 'structure-function'
     difficulty: 'medium'
     stem: |
@@ -349,6 +381,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0027
+    lesson: lesson-biology-kidneys-and-waste-removal
+    keyPoint: 3
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -370,6 +404,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0028
+    lesson: lesson-biology-blood-flow-through-the-heart
+    keyPoint: 1
     type: 'process-ordering'
     difficulty: 'hard'
     stem: |
@@ -391,6 +427,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0029
+    lesson: lesson-biology-breathing-and-gas-exchange
+    keyPoint: 3
     type: 'identify'
     difficulty: 'easy'
     stem: |
@@ -412,6 +450,8 @@ questions:
     approved: false
 
   - id: q-biology-human-anatomy-physiology-0030
+    lesson: lesson-biology-breathing-and-gas-exchange
+    keyPoint: 2
     type: 'predict-outcome'
     difficulty: 'medium'
     stem: |

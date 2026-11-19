@@ -5,6 +5,8 @@ meta:
   exams: [upcat, dlsucet, ustet, dost-sei]
 questions:
   - id: q-biology-genetics-and-heredity-0001
+    lesson: lesson-biology-genes-alleles-and-phenotypes
+    keyPoint: 1
     type: 'identify'
     difficulty: 'easy'
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0002
+    lesson: lesson-biology-genes-alleles-and-phenotypes
+    keyPoint: 1
     type: 'identify'
     difficulty: 'easy'
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0003
+    lesson: lesson-biology-segregation-and-punnett-squares
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'medium'
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0004
+    lesson: lesson-biology-segregation-and-punnett-squares
+    keyPoint: 1
     type: 'predict-outcome'
     difficulty: 'medium'
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0005
+    lesson: lesson-biology-incomplete-dominance-and-codominance
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0006
+    lesson: lesson-biology-incomplete-dominance-and-codominance
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0007
+    lesson: lesson-biology-from-dna-to-protein
+    keyPoint: 1
     type: 'identify'
     difficulty: 'medium'
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0008
+    lesson: lesson-biology-from-dna-to-protein
+    keyPoint: 1
     type: 'identify'
     difficulty: 'medium'
     stem: |
@@ -177,6 +193,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0009
+    lesson: lesson-biology-from-dna-to-protein
+    keyPoint: 2
     type: 'process-ordering'
     difficulty: 'medium'
     stem: |
@@ -198,6 +216,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0010
+    lesson: lesson-biology-reading-autosomal-pedigrees
+    keyPoint: 2
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -219,6 +239,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0011
+    lesson: lesson-biology-genes-alleles-and-phenotypes
+    keyPoint: 2
     type: 'cause-effect'
     difficulty: 'hard'
     stem: |
@@ -240,6 +262,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0012
+    lesson: lesson-biology-incomplete-dominance-and-codominance
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -261,6 +285,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0013
+    lesson: lesson-biology-from-dna-to-protein
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -286,6 +312,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0014
+    lesson: lesson-biology-independent-assortment-and-linked-genes
+    keyPoint: 2
     type: 'cause-effect'
     difficulty: 'hard'
     stem: |
@@ -307,6 +335,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0015
+    lesson: lesson-biology-segregation-and-punnett-squares
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'exam'
     stem: |
@@ -328,6 +358,8 @@ questions:
     approved: true
 
   - id: q-biology-genetics-and-heredity-0016
+    lesson: lesson-biology-from-dna-to-protein
+    keyPoint: 2
     type: 'structure-function'
     difficulty: 'easy'
     stem: |
@@ -349,6 +381,8 @@ questions:
     approved: false
 
   - id: q-biology-genetics-and-heredity-0017
+    lesson: lesson-biology-segregation-and-punnett-squares
+    keyPoint: 1
     type: 'identify'
     difficulty: 'medium'
     stem: |
@@ -370,6 +404,8 @@ questions:
     approved: false
 
   - id: q-biology-genetics-and-heredity-0018
+    lesson: lesson-biology-genes-alleles-and-phenotypes
+    keyPoint: 3
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -391,6 +427,8 @@ questions:
     approved: false
 
   - id: q-biology-genetics-and-heredity-0019
+    lesson: lesson-biology-independent-assortment-and-linked-genes
+    keyPoint: 1
     type: 'compare-contrast'
     difficulty: 'hard'
     stem: |
@@ -412,6 +450,8 @@ questions:
     approved: false
 
   - id: q-biology-genetics-and-heredity-0020
+    lesson: lesson-biology-from-dna-to-protein
+    keyPoint: 2
     type: 'process-ordering'
     difficulty: 'exam'
     stem: |

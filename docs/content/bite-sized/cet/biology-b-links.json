@@ -1,0 +1,634 @@
+{
+  "outline": [
+    {
+      "original": "lesson-biology-ecology",
+      "parts": [
+        {
+          "slug": "ecosystems-and-population-change",
+          "title": "Ecosystems and Population Change"
+        },
+        {
+          "slug": "food-chains-and-food-webs",
+          "title": "Food Chains and Food Webs"
+        },
+        {
+          "slug": "energy-transfer-between-trophic-levels",
+          "title": "Energy Transfer Between Trophic Levels"
+        },
+        {
+          "slug": "carbon-and-water-cycles",
+          "title": "Carbon and Water Cycles"
+        },
+        {
+          "slug": "nitrogen-cycling",
+          "title": "Nitrogen Cycling"
+        },
+        {
+          "slug": "phosphorus-cycling",
+          "title": "Phosphorus Cycling"
+        },
+        {
+          "slug": "symbiosis-and-its-effects",
+          "title": "Symbiosis and Its Effects"
+        },
+        {
+          "slug": "biodiversity-and-conservation",
+          "title": "Biodiversity and Conservation"
+        }
+      ]
+    },
+    {
+      "original": "lesson-biology-evolution",
+      "parts": [
+        {
+          "slug": "genes-and-inherited-variation",
+          "title": "Genes and Inherited Variation"
+        },
+        {
+          "slug": "allele-frequency-across-generations",
+          "title": "Allele Frequency Across Generations"
+        },
+        {
+          "slug": "how-mutations-add-alleles",
+          "title": "How Mutations Add Alleles"
+        },
+        {
+          "slug": "chance-and-genetic-drift",
+          "title": "Chance and Genetic Drift"
+        },
+        {
+          "slug": "gene-flow-between-populations",
+          "title": "Gene Flow Between Populations"
+        },
+        {
+          "slug": "how-natural-selection-works",
+          "title": "How Natural Selection Works"
+        },
+        {
+          "slug": "fitness-and-heritable-traits",
+          "title": "Fitness and Heritable Traits"
+        },
+        {
+          "slug": "species-and-reproductive-isolation",
+          "title": "Species and Reproductive Isolation"
+        },
+        {
+          "slug": "speciation-and-adaptive-radiation",
+          "title": "Speciation and Adaptive Radiation"
+        }
+      ]
+    },
+    {
+      "original": "lesson-biology-genetics-and-heredity",
+      "parts": [
+        {
+          "slug": "genes-alleles-and-phenotypes",
+          "title": "Genes, Alleles, and Phenotypes"
+        },
+        {
+          "slug": "segregation-and-punnett-squares",
+          "title": "Segregation and Punnett Squares"
+        },
+        {
+          "slug": "independent-assortment-and-linked-genes",
+          "title": "Independent Assortment and Linked Genes"
+        },
+        {
+          "slug": "incomplete-dominance-and-codominance",
+          "title": "Incomplete Dominance and Codominance"
+        },
+        {
+          "slug": "x-linked-traits",
+          "title": "X-Linked Traits"
+        },
+        {
+          "slug": "from-dna-to-protein",
+          "title": "From DNA to Protein"
+        },
+        {
+          "slug": "dna-mutations-and-their-effects",
+          "title": "DNA Mutations and Their Effects"
+        },
+        {
+          "slug": "reading-autosomal-pedigrees",
+          "title": "Reading Autosomal Pedigrees"
+        },
+        {
+          "slug": "identifying-x-linked-pedigrees",
+          "title": "Identifying X-Linked Pedigrees"
+        }
+      ]
+    },
+    {
+      "original": "lesson-biology-human-anatomy-physiology",
+      "parts": [
+        {
+          "slug": "cells-tissues-and-organs",
+          "title": "Cells, Tissues, and Organs"
+        },
+        {
+          "slug": "digestion-and-nutrient-absorption",
+          "title": "Digestion and Nutrient Absorption"
+        },
+        {
+          "slug": "breathing-and-gas-exchange",
+          "title": "Breathing and Gas Exchange"
+        },
+        {
+          "slug": "blood-flow-through-the-heart",
+          "title": "Blood Flow Through the Heart"
+        },
+        {
+          "slug": "arteries-veins-and-capillaries",
+          "title": "Arteries, Veins, and Capillaries"
+        },
+        {
+          "slug": "kidneys-and-waste-removal",
+          "title": "Kidneys and Waste Removal"
+        }
+      ]
+    },
+    {
+      "original": "lesson-biology-human-body-control-movement-and-defense",
+      "parts": [
+        {
+          "slug": "nerves-reflexes-and-brain-control",
+          "title": "Nerves, Reflexes, and Brain Control"
+        },
+        {
+          "slug": "hormones-and-blood-glucose-feedback",
+          "title": "Hormones and Blood Glucose Feedback"
+        },
+        {
+          "slug": "the-pituitary-and-its-hormones",
+          "title": "The Pituitary and Its Hormones"
+        },
+        {
+          "slug": "bones-joints-and-muscles",
+          "title": "Bones, Joints, and Muscles"
+        },
+        {
+          "slug": "human-reproduction-and-fertilization",
+          "title": "Human Reproduction and Fertilization"
+        },
+        {
+          "slug": "innate-and-adaptive-defenses",
+          "title": "Innate and Adaptive Defenses"
+        },
+        {
+          "slug": "how-body-systems-work-together",
+          "title": "How Body Systems Work Together"
+        }
+      ]
+    },
+    {
+      "original": "lesson-biology-meiosis-and-genetic-variation",
+      "parts": [
+        {
+          "slug": "chromosome-sets-in-mitosis-and-meiosis",
+          "title": "Chromosome Sets in Mitosis and Meiosis"
+        },
+        {
+          "slug": "meiosis-i-and-meiosis-ii",
+          "title": "Meiosis I and Meiosis II"
+        },
+        {
+          "slug": "counting-chromosomes-after-meiosis",
+          "title": "Counting Chromosomes After Meiosis"
+        },
+        {
+          "slug": "spores-eggs-and-sperm",
+          "title": "Spores, Eggs, and Sperm"
+        },
+        {
+          "slug": "independent-assortment-of-chromosomes",
+          "title": "Independent Assortment of Chromosomes"
+        },
+        {
+          "slug": "allele-combinations-in-gametes",
+          "title": "Allele Combinations in Gametes"
+        },
+        {
+          "slug": "crossing-over-and-fertilization",
+          "title": "Crossing Over and Fertilization"
+        }
+      ]
+    },
+    {
+      "original": "lesson-biology-taxonomy-and-classification",
+      "parts": [
+        {
+          "slug": "taxonomy-and-traditional-ranks",
+          "title": "Taxonomy and Traditional Ranks"
+        },
+        {
+          "slug": "domains-and-kingdom-schemes",
+          "title": "Domains and Kingdom Schemes"
+        },
+        {
+          "slug": "classifying-organisms-by-their-traits",
+          "title": "Classifying Organisms by Their Traits"
+        },
+        {
+          "slug": "using-a-dichotomous-key",
+          "title": "Using a Dichotomous Key"
+        },
+        {
+          "slug": "common-ancestry-on-branching-trees",
+          "title": "Common Ancestry on Branching Trees"
+        },
+        {
+          "slug": "why-classifications-change",
+          "title": "Why Classifications Change"
+        },
+        {
+          "slug": "two-part-scientific-names",
+          "title": "Two-Part Scientific Names"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-biology-ecosystems-and-population-change": [],
+    "lesson-biology-food-chains-and-food-webs": [
+      {
+        "lesson": "lesson-biology-ecosystems-and-population-change",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-energy-transfer-between-trophic-levels": [
+      {
+        "lesson": "lesson-biology-food-chains-and-food-webs",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+        "strength": "helpful",
+        "reason": "Percentage multiplication helps with energy transfers. Ecology supplies the 0.10 multiplier and worked steps, so it stands alone."
+      }
+    ],
+    "lesson-biology-carbon-and-water-cycles": [
+      {
+        "lesson": "lesson-biology-energy-transfer-between-trophic-levels",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-biology-cellular-metabolism",
+        "strength": "helpful",
+        "reason": "Understanding photosynthesis and respiration makes carbon cycling easier. Ecology explains their relevant roles itself."
+      }
+    ],
+    "lesson-biology-nitrogen-cycling": [
+      {
+        "lesson": "lesson-biology-carbon-and-water-cycles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-phosphorus-cycling": [
+      {
+        "lesson": "lesson-biology-nitrogen-cycling",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-symbiosis-and-its-effects": [
+      {
+        "lesson": "lesson-biology-phosphorus-cycling",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-biodiversity-and-conservation": [
+      {
+        "lesson": "lesson-biology-symbiosis-and-its-effects",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-genes-and-inherited-variation": [
+      {
+        "lesson": "lesson-biology-genes-alleles-and-phenotypes",
+        "strength": "helpful",
+        "reason": "This lesson defines genes, alleles and gametes itself and only points to the genetics lesson for how inheritance works in full."
+      }
+    ],
+    "lesson-biology-allele-frequency-across-generations": [
+      {
+        "lesson": "lesson-biology-genes-and-inherited-variation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-how-mutations-add-alleles": [
+      {
+        "lesson": "lesson-biology-allele-frequency-across-generations",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-chance-and-genetic-drift": [
+      {
+        "lesson": "lesson-biology-how-mutations-add-alleles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-gene-flow-between-populations": [
+      {
+        "lesson": "lesson-biology-chance-and-genetic-drift",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-how-natural-selection-works": [
+      {
+        "lesson": "lesson-biology-gene-flow-between-populations",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-fitness-and-heritable-traits": [
+      {
+        "lesson": "lesson-biology-how-natural-selection-works",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-species-and-reproductive-isolation": [
+      {
+        "lesson": "lesson-biology-fitness-and-heritable-traits",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-speciation-and-adaptive-radiation": [
+      {
+        "lesson": "lesson-biology-species-and-reproductive-isolation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-genes-alleles-and-phenotypes": [],
+    "lesson-biology-segregation-and-punnett-squares": [
+      {
+        "lesson": "lesson-biology-genes-alleles-and-phenotypes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-biology-chromosome-sets-in-mitosis-and-meiosis",
+        "strength": "helpful",
+        "reason": "The Law of Segregation describes how alleles separate into gametes, and the meiosis lesson shows the chromosome movements that cause it."
+      }
+    ],
+    "lesson-biology-independent-assortment-and-linked-genes": [
+      {
+        "lesson": "lesson-biology-segregation-and-punnett-squares",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-incomplete-dominance-and-codominance": [
+      {
+        "lesson": "lesson-biology-independent-assortment-and-linked-genes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-x-linked-traits": [
+      {
+        "lesson": "lesson-biology-incomplete-dominance-and-codominance",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-from-dna-to-protein": [
+      {
+        "lesson": "lesson-biology-x-linked-traits",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-dna-mutations-and-their-effects": [
+      {
+        "lesson": "lesson-biology-from-dna-to-protein",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-reading-autosomal-pedigrees": [
+      {
+        "lesson": "lesson-biology-dna-mutations-and-their-effects",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-identifying-x-linked-pedigrees": [
+      {
+        "lesson": "lesson-biology-reading-autosomal-pedigrees",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-cells-tissues-and-organs": [],
+    "lesson-biology-digestion-and-nutrient-absorption": [
+      {
+        "lesson": "lesson-biology-cells-tissues-and-organs",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-breathing-and-gas-exchange": [
+      {
+        "lesson": "lesson-biology-digestion-and-nutrient-absorption",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-biology-cell-biology",
+        "strength": "helpful",
+        "reason": "Gas exchange and reabsorption in the kidney depend on diffusion and membranes, which the cell biology lesson explains."
+      }
+    ],
+    "lesson-biology-blood-flow-through-the-heart": [
+      {
+        "lesson": "lesson-biology-breathing-and-gas-exchange",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-arteries-veins-and-capillaries": [
+      {
+        "lesson": "lesson-biology-blood-flow-through-the-heart",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-kidneys-and-waste-removal": [
+      {
+        "lesson": "lesson-biology-arteries-veins-and-capillaries",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-biology-cell-biology",
+        "strength": "helpful",
+        "reason": "Gas exchange and reabsorption in the kidney depend on diffusion and membranes, which the cell biology lesson explains."
+      }
+    ],
+    "lesson-biology-nerves-reflexes-and-brain-control": [],
+    "lesson-biology-hormones-and-blood-glucose-feedback": [
+      {
+        "lesson": "lesson-biology-nerves-reflexes-and-brain-control",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-the-pituitary-and-its-hormones": [
+      {
+        "lesson": "lesson-biology-hormones-and-blood-glucose-feedback",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-bones-joints-and-muscles": [
+      {
+        "lesson": "lesson-biology-the-pituitary-and-its-hormones",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-human-reproduction-and-fertilization": [
+      {
+        "lesson": "lesson-biology-bones-joints-and-muscles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-biology-cellular-reproduction",
+        "strength": "helpful",
+        "reason": "The reproductive section uses chromosome numbers, but it also explains that gametes have half the chromosomes, so the lesson is only a help."
+      }
+    ],
+    "lesson-biology-innate-and-adaptive-defenses": [
+      {
+        "lesson": "lesson-biology-human-reproduction-and-fertilization",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-how-body-systems-work-together": [
+      {
+        "lesson": "lesson-biology-innate-and-adaptive-defenses",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-biology-cells-tissues-and-organs",
+        "strength": "required",
+        "reason": "The systems-working-together section and example use the digestive, respiratory, circulatory and urinary systems and blood transport, and this lesson does not teach them."
+      }
+    ],
+    "lesson-biology-chromosome-sets-in-mitosis-and-meiosis": [
+      {
+        "lesson": "lesson-biology-cellular-reproduction",
+        "strength": "required",
+        "reason": "Meiosis uses homologs, sister chromatids, centromeres, haploid and diploid, and mitosis for comparison, and only the cellular reproduction lesson teaches them."
+      }
+    ],
+    "lesson-biology-meiosis-i-and-meiosis-ii": [
+      {
+        "lesson": "lesson-biology-chromosome-sets-in-mitosis-and-meiosis",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-counting-chromosomes-after-meiosis": [
+      {
+        "lesson": "lesson-biology-meiosis-i-and-meiosis-ii",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-spores-eggs-and-sperm": [
+      {
+        "lesson": "lesson-biology-counting-chromosomes-after-meiosis",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-independent-assortment-of-chromosomes": [
+      {
+        "lesson": "lesson-biology-spores-eggs-and-sperm",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-allele-combinations-in-gametes": [
+      {
+        "lesson": "lesson-biology-independent-assortment-of-chromosomes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-crossing-over-and-fertilization": [
+      {
+        "lesson": "lesson-biology-allele-combinations-in-gametes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-taxonomy-and-traditional-ranks": [],
+    "lesson-biology-domains-and-kingdom-schemes": [
+      {
+        "lesson": "lesson-biology-taxonomy-and-traditional-ranks",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-biology-cell-biology",
+        "strength": "helpful",
+        "reason": "Classifying by nucleus and cell wall is easier after the cell biology lesson shows what these parts are."
+      }
+    ],
+    "lesson-biology-classifying-organisms-by-their-traits": [
+      {
+        "lesson": "lesson-biology-domains-and-kingdom-schemes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-using-a-dichotomous-key": [
+      {
+        "lesson": "lesson-biology-classifying-organisms-by-their-traits",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-common-ancestry-on-branching-trees": [
+      {
+        "lesson": "lesson-biology-using-a-dichotomous-key",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-why-classifications-change": [
+      {
+        "lesson": "lesson-biology-common-ancestry-on-branching-trees",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-biology-two-part-scientific-names": [
+      {
+        "lesson": "lesson-biology-why-classifications-change",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ]
+  }
+}

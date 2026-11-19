@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-nerves-reflexes-and-brain-control
+  - lesson-biology-hormones-and-blood-glucose-feedback
+  - lesson-biology-the-pituitary-and-its-hormones
+  - lesson-biology-bones-joints-and-muscles
+  - lesson-biology-human-reproduction-and-fertilization
+  - lesson-biology-innate-and-adaptive-defenses
+  - lesson-biology-how-body-systems-work-together
 ---
 ## Core Concept
 

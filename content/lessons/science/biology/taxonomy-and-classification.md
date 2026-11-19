@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-taxonomy-and-traditional-ranks
+  - lesson-biology-domains-and-kingdom-schemes
+  - lesson-biology-classifying-organisms-by-their-traits
+  - lesson-biology-using-a-dichotomous-key
+  - lesson-biology-common-ancestry-on-branching-trees
+  - lesson-biology-why-classifications-change
+  - lesson-biology-two-part-scientific-names
 ---
 ## Core Concept
 

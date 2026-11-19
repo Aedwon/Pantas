@@ -6,6 +6,16 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-ecosystems-and-population-change
+  - lesson-biology-food-chains-and-food-webs
+  - lesson-biology-energy-transfer-between-trophic-levels
+  - lesson-biology-carbon-and-water-cycles
+  - lesson-biology-nitrogen-cycling
+  - lesson-biology-phosphorus-cycling
+  - lesson-biology-symbiosis-and-its-effects
+  - lesson-biology-biodiversity-and-conservation
 ---
 ## Core Concept
 

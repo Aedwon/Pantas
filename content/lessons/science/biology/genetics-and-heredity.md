@@ -6,6 +6,17 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-genes-alleles-and-phenotypes
+  - lesson-biology-segregation-and-punnett-squares
+  - lesson-biology-independent-assortment-and-linked-genes
+  - lesson-biology-incomplete-dominance-and-codominance
+  - lesson-biology-x-linked-traits
+  - lesson-biology-from-dna-to-protein
+  - lesson-biology-dna-mutations-and-their-effects
+  - lesson-biology-reading-autosomal-pedigrees
+  - lesson-biology-identifying-x-linked-pedigrees
 ---
 ## Core Concept
 

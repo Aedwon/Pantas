@@ -5,6 +5,8 @@ meta:
   exams: [upcat, ustet, dost-sei]
 questions:
   - id: q-biology-human-anatomy-physiology-0003
+    lesson: lesson-biology-bones-joints-and-muscles
+    keyPoint: 3
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0004
+    lesson: lesson-biology-bones-joints-and-muscles
+    keyPoint: 3
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0005
+    lesson: lesson-biology-the-pituitary-and-its-hormones
+    keyPoint: 1
     type: 'identify'
     difficulty: 'easy'
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0006
+    lesson: lesson-biology-the-pituitary-and-its-hormones
+    keyPoint: 1
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0009
+    lesson: lesson-biology-innate-and-adaptive-defenses
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0010
+    lesson: lesson-biology-innate-and-adaptive-defenses
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0012
+    lesson: lesson-biology-nerves-reflexes-and-brain-control
+    keyPoint: 3
     type: 'structure-function'
     difficulty: 'hard'
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0013
+    lesson: lesson-biology-hormones-and-blood-glucose-feedback
+    keyPoint: 3
     type: 'structure-function'
     difficulty: 'hard'
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0014
+    lesson: lesson-biology-innate-and-adaptive-defenses
+    keyPoint: 2
     type: 'identify'
     difficulty: 'hard'
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0020
+    lesson: lesson-biology-hormones-and-blood-glucose-feedback
+    keyPoint: 3
     type: 'compare-contrast'
     difficulty: 'exam'
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0001
+    lesson: lesson-biology-nerves-reflexes-and-brain-control
+    keyPoint: 1
     type: 'process-ordering'
     difficulty: 'medium'
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0002
+    lesson: lesson-biology-bones-joints-and-muscles
+    keyPoint: 2
     type: 'identify'
     difficulty: 'easy'
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0003
+    lesson: lesson-biology-bones-joints-and-muscles
+    keyPoint: 2
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0004
+    lesson: lesson-biology-nerves-reflexes-and-brain-control
+    keyPoint: 2
     type: 'classify'
     difficulty: 'easy'
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0005
+    lesson: lesson-biology-hormones-and-blood-glucose-feedback
+    keyPoint: 2
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -320,6 +350,8 @@ questions:
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0006
+    lesson: lesson-biology-the-pituitary-and-its-hormones
+    keyPoint: 2
     type: 'identify'
     difficulty: 'medium'
     stem: |
@@ -341,6 +373,8 @@ questions:
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0007
+    lesson: lesson-biology-human-reproduction-and-fertilization
+    keyPoint: 1
     type: 'identify'
     difficulty: 'medium'
     stem: |
@@ -362,6 +396,8 @@ questions:
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0008
+    lesson: lesson-biology-innate-and-adaptive-defenses
+    keyPoint: 2
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
@@ -383,6 +419,8 @@ questions:
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0009
+    lesson: lesson-biology-bones-joints-and-muscles
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -404,6 +442,8 @@ questions:
     approved: false
 
   - id: q-biology-human-body-control-movement-and-defense-0010
+    lesson: lesson-biology-nerves-reflexes-and-brain-control
+    keyPoint: 3
     type: 'structure-function'
     difficulty: 'medium'
     stem: |
