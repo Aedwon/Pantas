@@ -24,7 +24,7 @@ Take a constellation near the Sun's yearly path across the sky, such as Orion or
 
 If it is high in the evening, it is seen in the dark sky before sunrise about six months later.
 
-The **north celestial pole** is the point in the sky that Earth's axis points toward in the north. The **south celestial pole** is the matching point in the south. Earth's rotation makes the stars seem to circle around them. Precession, below, explains more.
+The **north celestial pole** is the point in the sky that Earth's axis points toward in the north. The **south celestial pole** is the matching point in the south. Earth's rotation makes the stars seem to circle around them.
 
 Constellations close to a celestial pole can break this rule. Near the north celestial pole, a constellation never sets in places far enough north of the equator, and near the south celestial pole the same holds far enough south. Such a constellation is above the horizon all year.
 

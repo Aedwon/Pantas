@@ -18,13 +18,13 @@ keyPoints:
 
 A **current** is a steady flow of ocean water. There are two main kinds.
 
-**Surface currents** are driven mainly by wind. Their paths are bent by the shape of the continents and by the **Coriolis effect**. This is the turning of moving water and air caused by Earth's spin. It bends them to the right in the Northern Hemisphere and to the left in the Southern Hemisphere. The result is huge loops of current called **gyres**. Gyres turn clockwise in the Northern Hemisphere and counterclockwise in the Southern Hemisphere.
+**Surface currents** are driven mainly by wind. Their paths are bent by the shape of the continents and by the **Coriolis effect**. This is the turning of moving water and air caused by Earth's spin. It bends them to the right in the Northern Hemisphere and to the left in the Southern Hemisphere. The result is huge loops of current called **gyres**. Subtropical gyres turn clockwise in the Northern Hemisphere and counterclockwise in the Southern Hemisphere.
 
 **Deep currents** are driven by differences in density. Near the poles, surface water gets very cold, and sea ice formation leaves extra salt in the water below. This cold, salty water is dense and sinks. It then spreads slowly along the ocean floor, and other water flows in to replace it.
 
 Currents carry heat. A warm current, such as the Kuroshio that flows north past Taiwan and Japan, carries heat from the tropics toward higher latitudes. A cold current, such as the Humboldt Current off western South America, brings cool water toward the tropics.
 
-<!-- ILLUSTRATION: world map with the North Pacific and North Atlantic gyres drawn as clockwise loops, the South Pacific and South Atlantic gyres as counterclockwise loops, warm currents in red and cold currents in blue, labels Kuroshio and Gulf Stream -->
+<!-- ILLUSTRATION: world map of subtropical gyres with the North Pacific and North Atlantic gyres drawn as clockwise loops, the South Pacific and South Atlantic gyres as counterclockwise loops, warm currents in red and cold currents in blue, labels Kuroshio and Gulf Stream -->
 
 ## Examples
 

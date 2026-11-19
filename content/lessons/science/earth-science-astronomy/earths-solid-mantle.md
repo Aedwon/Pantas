@@ -27,4 +27,4 @@ The mantle is mostly solid, but it is not rigid like a brick. Under heat and gre
 
 > The mantle is mostly solid rock that flows very slowly. It is not a sea of liquid magma.
 
-Flowing and liquid are different. Parts of the mantle may hold a small amount of melt, and magma forms in some places. But S waves travel through most of the mantle, which shows it is solid.
+Flowing and liquid are different. Parts of the mantle may hold a small amount of melt, and magma forms in some places. S waves cannot travel through liquid. They travel through most of the mantle, so most of it is solid.

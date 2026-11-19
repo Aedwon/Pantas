@@ -470,21 +470,21 @@ questions:
     type: 'predict-outcome'
     difficulty: 'exam'
     stem: |
-      A geologist studies an undisturbed rock cliff with three layers, bottom to top: Layer 1, Layer 2, and Layer 3. Layer 1 contains a fossil of an early fish, Layer 2 contains a fossil of an early dinosaur, and Layer 3 is volcanic ash. Its minerals formed when the ash was deposited and have stayed closed to any gain or loss of a radioactive element with a half-life of 2 million years. Only one-quarter of the original amount of that element remains. Determine: (a) the relative order in which the three layers formed, (b) which era Layer 1's fossil most likely belongs to, and (c) the age of Layer 3.
+      A layer of volcanic ash contains minerals that formed when the ash was deposited. Since then, the minerals have neither gained nor lost any parent atoms except through radioactive decay. The parent isotope has a half-life of 2 million years, and one-quarter of its original amount remains. How old is the ash layer?
     choices:
-      - text: '(a) Layer 1 formed first, then Layer 2, then Layer 3; (b) Layer 1''s fossil belongs to the Paleozoic era; (c) Layer 3 is 4 million years old.'
+      - text: '4 million years'
         correct: true
-      - text: '(a) Layer 3 formed first, then Layer 2, then Layer 1; (b) Layer 1''s fossil belongs to the Cenozoic era; (c) Layer 3 is 2 million years old.'
+      - text: '1 million years'
         rationale: |
-          This reverses undisturbed layer order and counts only one half-life. The top layer can look most prominent. Check bottom-to-top order and repeated halving.
-      - text: '(a) The layers cannot be ordered without radiometric dating; (b) Layer 1''s fossil belongs to the Mesozoic era; (c) Layer 3 is 8 million years old.'
+          A small fraction can make the time seem short. A half-life cuts the amount left in half. Count how many times it must be halved.
+      - text: '2 million years'
         rationale: |
-          This rejects relative ordering and uses four half-lives for a quarter remaining. Numerical dates sound necessary for all comparisons. Check what superposition can establish and how many halvings give a quarter.
-      - text: '(a) Layer 1 formed first, then Layer 2, then Layer 3; (b) Layer 1''s fossil belongs to the Mesozoic era; (c) Layer 3 is 1 million years old.'
+          This counts one half-life. One-quarter is less than one-half. Halve the amount left again.
+      - text: '8 million years'
         rationale: |
-          This assigns the early-fish clue to the later dinosaur-associated era and halves the time incorrectly. Both involve old life and fractions. Check the fossil context and elapsed half-life count.
+          This counts four half-lives because the fraction has a 4 in it. Check the fraction after each halving.
     explanation: |
-      Superposition gives Layer 1, then Layer 2, then Layer 3 in depositional order. The intended early-fish association is Paleozoic. One-quarter parent remaining gives two half-lives, or $2\times2=4$ million years. The ash minerals formed at deposition and stayed closed, so the isotope clock gives the age of Layer 3.
+      After one half-life, half of the parent remains. After two, half of that remains, or $\dfrac{1}{4}$. Each half-life is 2 million years, so the ash layer is 4 million years old.
     approved: true
 
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0022

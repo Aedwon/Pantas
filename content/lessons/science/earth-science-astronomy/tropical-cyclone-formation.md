@@ -22,7 +22,7 @@ Moist air rises through convection, and surface air moves toward the lower-press
 
 Earth's rotation makes the inward-moving air curve. Around Philippine cyclones, the air spirals counterclockwise toward the center. This turning effect is too weak at the equator for cyclones to form there normally.
 
-Warm water alone is not enough. The storm also needs moist air and winds that do not change too sharply with height. Strong changes in wind can pull the storm apart.
+Warm water alone is not enough. The storm also needs moist air and winds that do not change too sharply with height. A change in wind speed or direction with height is called **wind shear**. Strong wind shear can pull the storm apart.
 
 Over land or cooler water, the storm loses much of its heat and moisture supply. Its winds usually weaken, but dangerous rain can continue.
 

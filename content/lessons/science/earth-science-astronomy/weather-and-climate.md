@@ -24,7 +24,7 @@ replacedBy:
 
 **Weather** is the state of the air at a place and time. It includes temperature, rain, clouds, wind, air pressure, and humidity. **Climate** describes usual weather patterns and their range over many years.
 
-**Air pressure** is the force that air puts on a surface. **Humidity** describes the amount of water vapor in the air. Water vapor is water in its gas form.
+**Air pressure** is the push of air on each unit of surface area. **Humidity** describes the amount of water vapor in the air. Water vapor is water in its gas form.
 
 ### Atmospheric Layers
 
@@ -48,7 +48,7 @@ Auroras, the glowing lights seen near the poles, occur in this broad upper regio
 
 ### Sea Breezes and Land Breezes
 
-Land heats and cools faster than the sea. When air warms, it expands and can rise. The upward movement of warm air is **convection**.
+Land heats and cools faster than the sea. When air warms, it expands and can rise. **Convection** is heat transfer by moving air or liquid. Rising warm air can carry heat upward.
 
 During a sunny day, land often becomes warmer than the nearby sea. Warm air rises over land, and cooler air moves in from the sea. This surface wind is a **sea breeze**.
 
@@ -92,7 +92,7 @@ Moist air rises through convection, and surface air moves toward the lower-press
 
 Earth's rotation makes the inward-moving air curve. Around Philippine cyclones, the air spirals counterclockwise toward the center. This turning effect is too weak at the equator for cyclones to form there normally.
 
-Warm water alone is not enough. The storm also needs moist air and winds that do not change too sharply with height. Strong changes in wind can pull the storm apart.
+Warm water alone is not enough. The storm also needs moist air and winds that do not change too sharply with height. A change in wind speed or direction with height is called **wind shear**. Strong wind shear can pull the storm apart.
 
 Over land or cooler water, the storm loses much of its heat and moisture supply. Its winds usually weaken, but dangerous rain can continue.
 

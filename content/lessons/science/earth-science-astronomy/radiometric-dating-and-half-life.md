@@ -29,9 +29,6 @@ $$\text{age}=n\times\text{half-life}$$
 
 Different isotopes have very different half-lives. Carbon-14 has a half-life of about $5{,}730$ years. Uranium-238 has a half-life of about $4.47$ billion years.
 
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"half-life-halving","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#1","halfLifeSteps":3,"parentFractions":["1","1/2","1/4","1/8"],"daughterMaterial":"stable remainder"} -->
-### Geologic Time
-
 ## Examples
 
 ### #1: Half-Life Reasoning
@@ -45,6 +42,8 @@ A radioactive parent isotope has a half-life of $1$ billion years. In an ideal c
 $$1\to\dfrac12\to\dfrac14\to\dfrac18$$
 
 2. After $3$ half-lives, $\dfrac18$ of the original parent remains.
+
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"half-life-halving","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#1","halfLifeSteps":3,"parentFractions":["1","1/2","1/4","1/8"],"daughterMaterial":"daughter products"} -->
 
 ## Speed Tricks & Shortcuts
 

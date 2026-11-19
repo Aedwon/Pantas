@@ -30,7 +30,7 @@ This layer is mostly solid rock, not liquid. It flows very slowly, over millions
 
 Alfred Wegener gathered evidence that the continents were once joined and later moved apart. It included matching coastlines, fossils, rocks, and signs of old climates. He could not explain what moved them.
 
-Later, maps and magnetic surveys of the ocean floor gave an explanation. A **mid-ocean ridge** is a long underwater mountain chain. In **seafloor spreading**, magma (melted rock) rises at the ridge, cools into new oceanic crust, and moves away from the ridge on both sides.
+Later, maps and magnetic surveys of the ocean floor gave an explanation. Harry Hess proposed the seafloor spreading model. A **mid-ocean ridge** is a long underwater mountain chain. In **seafloor spreading**, magma (melted rock) rises at the ridge, cools into new oceanic crust, and moves away from the ridge on both sides.
 
 Two clues support this model. The rock gets older farther from the ridge.
 
@@ -46,11 +46,11 @@ Several forces move the plates. One main force is **slab pull**: the cold, heavy
 
 At a convergent boundary, what happens depends on the two plates. Density is how heavy a material is for its size. Oceanic crust is denser than continental crust. An older, colder oceanic plate is denser than a younger one.
 
-If an oceanic plate meets a continental plate, the oceanic plate sinks. If two oceanic plates meet, the denser, older one sinks.
+If an oceanic plate meets a continental plate, the oceanic plate sinks. If two oceanic plates meet and one sinks, it is often the older, denser one.
 
 This sinking is **subduction**. It makes a **trench**, a deep, narrow valley in the sea floor.
 
-When two continents meet, both are too light to sink. They crumple and push up mountains in a **collision**. The Himalayas formed this way, where India meets Asia.
+When two continents meet in a **collision**, their crust usually thickens and pushes up mountains. Some continental crust can also sink. The Himalayas formed this way, where India meets Asia.
 
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"plate-boundary-comparison","illustrationKey":"science/earth-science-astronomy/plate-tectonics#1","boundaries":[{"name":"divergent","motion":"plates moving apart","state":"magma rising"},{"name":"convergent","motion":"plates moving together","state":"one plate sliding under another"},{"name":"transform","motion":"plates sliding past each other horizontally","state":"sideways motion"}]} -->
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"transform-boundary","illustrationKey":"science/earth-science-astronomy/plate-tectonics#2","plateMotion":"opposite horizontal directions","faultLine":true,"earthquakeSymbols":true} -->
@@ -66,9 +66,9 @@ A **fault** is a crack in rock where the two sides have moved. Rock under stress
 
 The **focus** (plural: foci) is the point underground where the slip starts. The **epicenter** is the point on the surface directly above it.
 
-Earthquakes send out body waves through Earth and slower surface waves along the ground. Two body waves show distance: the faster **P wave** arrives first, and the slower **S wave** arrives second. A longer gap between them means a more distant earthquake.
+Earthquakes send out body waves through Earth and slower surface waves along the ground. Two body waves show distance: the faster **P wave** arrives first, and the slower **S wave** arrives second. When the waves follow similar paths through rock, a longer gap usually means the earthquake is farther away.
 
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"seismograph-arrivals","illustrationKey":"science/earth-science-astronomy/plate-tectonics#3","firstArrival":"P wave","secondArrival":"S wave","timeGapMeaning":"proportional to distance"} -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"seismograph-arrivals","illustrationKey":"science/earth-science-astronomy/plate-tectonics#3","firstArrival":"P wave","secondArrival":"S wave","timeGapMeaning":"helps estimate distance using wave travel times"} -->
 Faults are named by how the two blocks moved. The block above a tilted fault is the **hanging wall**. The block below it is the **footwall**.
 
 - **Normal fault:** the hanging wall moves down. The rock is being pulled apart (extension).
@@ -85,7 +85,7 @@ The Philippines lies in the **Ring of Fire**, a belt of volcanoes, trenches, and
 
 It has a trench on each side: the Manila Trench on the west and the Philippine Trench on the east. The Philippine Fault Zone, a strike-slip fault system, crosses it.
 
-Strong earthquakes cause ground shaking, **ground rupture** (the ground breaks along the fault), **liquefaction** (loose, wet soil acts like a liquid), landslides, and **tsunami** (huge waves from a strong earthquake under the sea).
+Strong earthquakes can cause ground shaking, **ground rupture** (the ground breaks along the fault), **liquefaction** (loose, wet soil acts like a liquid), and landslides. A **tsunami** is a series of waves caused by a sudden shift of a large amount of water. An earthquake can trigger one if it moves enough water. Landslides and volcanic activity can also trigger tsunamis.
 
 Volcanoes such as Mayon, Taal, and Pinatubo cause lava flows, ashfall, **pyroclastic density currents** (fast, very hot clouds of gas, ash, and rock), and **lahars** (mudflows of volcanic ash and rock mixed with water).
 
@@ -110,8 +110,8 @@ Name the process at each convergent boundary: (a) an oceanic plate meets a conti
 **Solution:**
 
 1. In (a), the denser oceanic plate sinks. This is subduction, with a trench and a volcanic arc, as in the Andes.
-2. In (b), the older, colder plate sinks. This is subduction, with a trench and a volcanic island arc, as in the Aleutian Islands.
-3. In (c), neither plate sinks. They collide and push up high mountains, as in the Himalayas.
+2. In (b), one oceanic plate can sink beneath the other. Often it is the older, colder plate. This is subduction, with a trench and a volcanic island arc, as in the Aleutian Islands.
+3. In (c), the continents collide. The crust usually thickens and pushes up high mountains, as in the Himalayas.
 
 ### #3: Subduction-Zone Volcanoes
 
@@ -136,7 +136,7 @@ The rock layers on either side of a tilted fault no longer line up. The hanging 
 
 ### #5: Reading an Earthquake and Volcano Map
 
-A map shows two belts of earthquakes. Belt A curves beside a deep trench, with volcanoes on its inland side. Its foci are $20$ km deep near the trench and $250$ km deep farthest inland. Belt B is a straight line across land with shallow foci and no volcanoes. What boundary lies along each belt, and which way does the plate dip under belt A?
+A map shows two belts of earthquakes. Belt A curves beside a deep trench, with volcanoes on its inland side. The points where the earthquakes start are $20$ km deep near the trench and $250$ km deep farthest inland. Belt B is a straight line across land where the earthquakes start at shallow depths and no volcanoes. What boundary lies along each belt, and which way does the plate dip under belt A?
 
 <!-- ILLUSTRATION: map of belt A, a curved line of earthquake dots labeled 20 km near a trench and 250 km farthest inland, with volcano triangles inland; belt B, a straight line of shallow dots across land with no volcanoes -->
 **Solution:**

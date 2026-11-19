@@ -16,7 +16,7 @@ keyPoints:
 
 ### Phases of the Moon
 
-The Moon makes no light of its own. It shines because sunlight hits it. Sunlight always lights one half of the Moon, the half that faces the Sun.
+The Moon makes no light of its own. It shines because sunlight hits it. Direct sunlight usually lights about half of the Moon. During a lunar eclipse, Earth’s shadow blocks direct sunlight from part or all of that half.
 
 The Moon orbits Earth, so our view of that lit half keeps changing. Sometimes we see all of it, and sometimes none. These changing shapes are the **phases of the Moon**.
 
@@ -54,4 +54,4 @@ The next new moon comes about $15$ days later.
 
 > Phases are the lit half seen from different angles, not shadow.
 
-A choice may say that Earth's shadow covers part of the Moon to make a crescent. That describes a lunar eclipse. Sunlight always lights half of the Moon, and we see more or less of that half.
+A choice may say that Earth's shadow covers part of the Moon to make a crescent. That describes a lunar eclipse. Outside a lunar eclipse, sunlight lights about half of the Moon. We see more or less of that half as the Moon moves around Earth.

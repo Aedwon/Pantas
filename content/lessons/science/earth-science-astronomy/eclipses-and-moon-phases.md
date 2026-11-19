@@ -19,7 +19,7 @@ replacedBy:
 
 ### Phases of the Moon
 
-The Moon makes no light of its own. It shines because sunlight hits it. Sunlight always lights one half of the Moon, the half that faces the Sun.
+The Moon makes no light of its own. It shines because sunlight hits it. Direct sunlight usually lights about half of the Moon. During a lunar eclipse, Earth’s shadow blocks direct sunlight from part or all of that half.
 
 The Moon orbits Earth, so our view of that lit half keeps changing. Sometimes we see all of it, and sometimes none. These changing shapes are the **phases of the Moon**.
 
@@ -52,7 +52,7 @@ A full moon rises near sunset and sets near sunrise.
 
 An **eclipse** happens when the Sun, Earth, and Moon line up in an almost straight line. Then one body's shadow falls on another body.
 
-A shadow has two parts. The **umbra** is the dark center, where light is fully blocked. The **penumbra** is the lighter outer part, where light is partly blocked.
+Two parts of the shadow matter here. The **umbra** is the dark center, where light is fully blocked. The **penumbra** is the lighter outer part, where light is partly blocked.
 
 A **solar eclipse** happens at new moon. The Moon is between the Sun and Earth. The Moon's shadow falls on a small part of Earth, so only people in that part see the eclipse.
 
@@ -60,24 +60,20 @@ A **lunar eclipse** happens at full moon. Earth is between the Sun and the Moon,
 
 Anyone on the night side of Earth, where the Moon is above the horizon, can see it.
 
-<!-- ILLUSTRATION: solar eclipse, left to right: Sun, Moon labeled "new moon", Earth; Moon shadow cones labeled "umbra" and "penumbra" reach a small spot on Earth -->
-
-<!-- ILLUSTRATION: lunar eclipse, left to right: Sun, Earth, Moon labeled "full moon"; Earth shadow cones labeled "umbra" and "penumbra" cover the Moon -->
-
 The kind of eclipse depends on how much of the object the shadow covers:
 
 - **Total solar eclipse**: the Moon completely covers the Sun for viewers in the Moon's umbra.
 - **Partial solar eclipse**: viewers in the Moon's penumbra see the Moon cover only part of the Sun.
 - **Annular solar eclipse**: the Moon looks too small to cover the Sun, so a bright ring shows around the Moon. This happens when the Moon is far from Earth in its orbit, which is not a perfect circle.
-- **Total lunar eclipse**: the whole Moon moves into Earth's umbra. It often turns reddish, because Earth's air bends some red sunlight onto the Moon.
+- **Total lunar eclipse**: the whole Moon moves into Earth's umbra. It often turns reddish, because Earth's air bends some red sunlight onto the Moon. This reddish Moon is often called a **blood moon**.
 - **Partial lunar eclipse**: only part of the Moon moves into Earth's umbra.
 - **Penumbral lunar eclipse**: the Moon enters only Earth's penumbra and dims slightly.
 
-Eclipses do not happen every month, even though a new moon and a full moon do. The Moon's orbit is tilted about $5$ degrees from Earth's orbit around the Sun. The two orbits cross at only two points.
+Eclipses do not happen every month, even though a new moon and a full moon do. The Moon's orbit is tilted about $5$ degrees from the plane of Earth's orbit around the Sun. The Moon's path crosses that flat plane at two points called nodes.
 
-So the Moon usually passes above or below the line from the Sun through Earth. An eclipse needs a new moon or full moon near a crossing point.
+So the Moon usually passes above or below the line from the Sun through Earth. An eclipse needs a new moon or full moon near a node.
 
-<!-- ILLUSTRATION: side view of "Earth's orbit" plane and "Moon's orbit" plane tilted about 5 degrees, crossing at two points labeled "crossing points" -->
+<!-- ILLUSTRATION: Moon's orbit tilted about 5 degrees from the plane of Earth's orbit, with the two points where the Moon's path crosses the plane labeled "nodes" -->
 
 ## Examples
 
@@ -129,6 +125,10 @@ Work out the alignment first.
 
 The answer is new moon, solar eclipse.
 
+<!-- ILLUSTRATION: solar eclipse, left to right: Sun, Moon labeled "new moon", Earth; Moon shadow cones labeled "umbra" and "penumbra" reach a small spot on Earth -->
+
+<!-- ILLUSTRATION: lunar eclipse, left to right: Sun, Earth, Moon labeled "full moon"; Earth shadow cones labeled "umbra" and "penumbra" cover the Moon -->
+
 ### #5: Lunar Eclipse Alignment
 
 Earth lies between the Sun and the Moon. The whole Moon moves into Earth's umbra. Name the Moon phase, the eclipse, and what the Moon may look like.
@@ -169,12 +169,12 @@ The answer is an annular solar eclipse.
 New moons and full moons happen every month, yet eclipses do not. Explain why.
 
 **Solution:**
-Compare the Moon's orbit with Earth's orbit.
+Compare the Moon's orbit with the plane of Earth's orbit.
 
 1. For an eclipse, the Sun, Earth, and Moon must line up almost exactly.
-2. The Moon's orbit is tilted about $5$ degrees from Earth's orbit.
+2. The Moon's orbit is tilted about $5$ degrees from the plane of Earth's orbit.
 3. At most new moons and full moons, the Moon is a little above or below the line, so no shadow falls where it is needed.
-4. An eclipse happens only when the new moon or full moon falls near a point where the two orbits cross.
+4. An eclipse happens only when the new moon or full moon falls near a node.
 
 ## Speed Tricks & Shortcuts
 
@@ -182,7 +182,7 @@ Ask who is in the middle. If the Moon is in the middle, it is a solar eclipse at
 
 If the timing does not match, that eclipse is impossible.
 
-Name a phase between new moon and full moon with two words: "waxing" or "waning" for direction, and "crescent," "quarter," or "gibbous" for the amount lit. For example, a lit part that is growing and less than half is a waxing crescent.
+For a crescent or gibbous phase, use two words. Use "waxing" if the lit part is growing or "waning" if it is shrinking. Then add "crescent" or "gibbous" for the shape. For example, a lit part that is growing and less than half is a waxing crescent.
 
 This shortcut has limits. New moon and full moon have no direction word. For the quarter phases, the usual names are first quarter (waxing) and last quarter (waning), not "waxing quarter" or "waning quarter".
 
@@ -196,7 +196,7 @@ Students often swap these. Remember who blocks whom. The Moon blocks the Sun in 
 
 ### #2: Assuming Eclipses Happen Every Month
 
-> Eclipses also need the Moon to be near the crossing of the two orbits.
+> Eclipses also need the Moon to be near a node, where its orbit crosses the plane of Earth’s orbit.
 
 A choice may say that a lunar eclipse happens at every full moon. This is false. Most full moons pass just above or below Earth's shadow.
 
@@ -212,4 +212,4 @@ This rule does not carry over to a lunar eclipse. For the Moon, the umbra gives 
 
 > Phases are the lit half seen from different angles, not shadow.
 
-A choice may say that Earth's shadow covers part of the Moon to make a crescent. That describes a lunar eclipse. Sunlight always lights half of the Moon, and we see more or less of that half.
+A choice may say that Earth's shadow covers part of the Moon to make a crescent. That describes a lunar eclipse. Outside a lunar eclipse, sunlight lights about half of the Moon. We see more or less of that half as the Moon moves around Earth.

@@ -35,7 +35,7 @@ Why can an oceanic plate sinking beneath another plate cause volcanoes above the
 
 ### #2: Reading an Earthquake and Volcano Map
 
-A map shows two belts of earthquakes. Belt A curves beside a deep trench, with volcanoes on its inland side. Its foci are $20$ km deep near the trench and $250$ km deep farthest inland. Belt B is a straight line across land with shallow foci and no volcanoes. What boundary lies along each belt, and which way does the plate dip under belt A?
+A map shows two belts of earthquakes. Belt A curves beside a deep trench, with volcanoes on its inland side. The points where the earthquakes start are $20$ km deep near the trench and $250$ km deep farthest inland. Belt B is a straight line across land where the earthquakes start at shallow depths and no volcanoes. What boundary lies along each belt, and which way does the plate dip under belt A?
 
 <!-- ILLUSTRATION: map of belt A, a curved line of earthquake dots labeled 20 km near a trench and 250 km farthest inland, with volcano triangles inland; belt B, a straight line of shallow dots across land with no volcanoes -->
 **Solution:**

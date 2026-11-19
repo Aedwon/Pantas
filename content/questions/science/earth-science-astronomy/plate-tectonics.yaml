@@ -258,7 +258,7 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0012
-    lesson: lesson-earth-science-astronomy-faults-and-seismic-waves
+    lesson: lesson-earth-science-astronomy-evidence-from-seismic-waves
     keyPoint: 2
     type: identify
     difficulty: medium
@@ -281,7 +281,7 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0013
-    lesson: lesson-earth-science-astronomy-faults-and-seismic-waves
+    lesson: lesson-earth-science-astronomy-evidence-from-seismic-waves
     keyPoint: 2
     type: identify
     difficulty: medium
@@ -304,7 +304,7 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0014
-    lesson: lesson-earth-science-astronomy-faults-and-seismic-waves
+    lesson: lesson-earth-science-astronomy-evidence-from-seismic-waves
     keyPoint: 2
     type: classify
     difficulty: hard
@@ -419,26 +419,26 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0019
-    lesson: lesson-earth-science-astronomy-faults-and-seismic-waves
-    keyPoint: 2
+    lesson: lesson-earth-science-astronomy-seismic-shadow-zones
+    keyPoint: 1
     type: cause-effect
     difficulty: medium
     stem: |
-      Scientists first discovered that Earth's outer core is liquid partly by observing that S waves from earthquakes disappear on the far side of the planet, forming a "shadow zone." Why does this observation reveal the outer core's liquid state?
+      Stations in the S-wave shadow zone record no direct S waves from an earthquake. Why does this pattern support the conclusion that Earth has a liquid outer core?
     choices:
-      - text: 'Since S waves can only travel through solids and not liquids, their disappearance in a shadow zone on the far side of Earth indicates a liquid layer (the outer core) blocking them from passing through.'
+      - text: 'Liquid cannot carry the sideways shaking of S waves.'
         correct: true
-      - text: 'S waves travel through both solids and liquids equally, so their disappearance must be caused by something other than the outer core.'
+      - text: 'Direct S waves speed up in liquid and pass the stations too quickly to be recorded.'
         rationale: |
-          This gives shear waves liquid transmission. P waves can cross liquid. Check the specific wave type.
-      - text: 'P waves, not S waves, are the type of wave that reveals information about the outer core.'
+          A new layer can change a wave’s speed. Check whether liquid can carry the sideways motion at all.
+      - text: 'The outer core blocks all earthquake waves equally.'
         rationale: |
-          This excludes one kind of evidence because another also contributes. P-wave paths do reveal the core. Check that S-wave blockage provides separate information.
-      - text: 'The shadow zone shows that the outer core is solid, not liquid.'
+          The missing S waves may make the core seem like a barrier to every wave. Check which kind of wave can still cross a liquid.
+      - text: 'S waves can only be produced by earthquakes on the side of Earth facing the station.'
         rationale: |
-          This reverses the state inference. Solid material can resist shear. Check which state prevents S-wave transmission.
+          Nearby earthquakes may be easier to record. Check whether the source fails to make S waves or their path stops them.
     explanation: |
-      S waves need a material that resists shear. Liquid outer-core material cannot transmit them. Their absence across paths through that layer supports its liquid state.
+      S waves shake material sideways. Liquid flows out of the way instead of passing that motion along. A direct S wave cannot cross the liquid outer core.
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0020
@@ -447,21 +447,21 @@ questions:
     type: predict-outcome
     difficulty: exam
     stem: |
-      A region sits where two continental plates are slowly colliding, with neither plate sinking beneath the other. Nearby, seismographs also detect a location where P waves consistently arrive shortly before S waves, and a separate volcanic island chain sits far from any mapped plate boundary. Identify: (a) the landform most likely produced by the colliding continental plates, (b) what the P-S wave gap tells scientists, and (c) what most likely explains the isolated volcanic island chain.
+      Two continental plates are slowly converging. Measurements show that the crust at the boundary is shortening and thickening. Which landform is most likely to develop along the boundary?
     choices:
-      - text: '(a) A mountain range, since neither continental plate is dense enough to subduct; (b) the size of the gap indicates the earthquake''s distance from the station; (c) a hotspot, since the island chain is unrelated to any plate boundary.'
+      - text: 'A mountain range'
         correct: true
-      - text: '(a) A deep ocean trench from subduction; (b) the gap indicates the earthquake''s magnitude; (c) the island chain must actually sit on an undiscovered plate boundary.'
+      - text: 'A mid-ocean ridge'
         rationale: |
-          This assumes subduction despite the stated collision without sinking, and uses timing as magnitude. Trenches and strong earthquakes are familiar tectonic features. Check each clue against the stated motion and wave measurement.
-      - text: '(a) A mountain range; (b) the gap has no scientific use; (c) volcanic islands can only form at convergent boundaries.'
+          A ridge rises above the ocean floor, so it may seem to fit. Check whether the plates are moving together or apart.
+      - text: 'A continental rift valley'
         rationale: |
-          This discards travel-time information and excludes intraplate magma sources. Boundary volcanoes are common. Check whether the observations require a boundary.
-      - text: '(a) A new ocean forming between the plates; (b) the gap indicates wind speed at the surface; (c) the island chain formed from a meteor impact.'
+          Rifts can form inside continents. Check whether the crust is being stretched or squeezed.
+      - text: 'A deep ocean trench'
         rationale: |
-          This applies separation to colliding plates and assigns unrelated causes to the other observations. Oceans can open when plates separate. Check the specified approach and the physical source of seismic and volcanic activity.
+          Trenches can form where plates converge. Check whether an oceanic plate is sinking or two continents are thickening.
     explanation: |
-      Continental collision can thicken crust and build mountains. A larger P-S arrival gap can indicate a greater distance to the earthquake source. Intraplate volcanic chains such as Hawaii can form above a hotspot as a plate moves over a magma source.
+      The plates squeeze the crust as they come together. The crust gets thicker and rises. Over time this can build a mountain range.
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0021

@@ -19,7 +19,7 @@ There are four eons: the Hadean, the Archean, the Proterozoic, and the Phanerozo
 
 The Phanerozoic Eon began about $539$ million years ago. It has three eras, from oldest to youngest: the Paleozoic, the Mesozoic, and the Cenozoic. A **mass extinction** is a short span of time in which a large share of living species die out. Mass extinctions mark the end of the Paleozoic and of the Mesozoic.
 
-Life in each era:
+Life in the Precambrian:
 
 - **Precambrian:** The oldest widely accepted fossils of single-celled life are about $3.5$ billion years old. Large animals came late, near the end of the Precambrian or after it.
 

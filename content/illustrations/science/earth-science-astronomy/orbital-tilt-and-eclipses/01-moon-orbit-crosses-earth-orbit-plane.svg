@@ -10,13 +10,13 @@
   <rect width="360" height="262" rx="14" fill="url(#bg)"/>
   <ellipse cx="180" cy="94" rx="137" ry="28" fill="url(#muted)" stroke="#020202" stroke-width="1.6"/>
   <ellipse cx="180" cy="94" rx="137" ry="51" fill="url(#shape)" stroke="#050505" stroke-width="1.6"/>
-  <text x="112" y="100" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Earth&#x27;s orbit</text>
+  <text x="112" y="85" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Earth&#x27;s orbital plane</text>
   <text x="180" y="37" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">Moon&#x27;s orbit</text>
   <path d="M180 42 L180 47" fill="none" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
   <circle cx="43" cy="94" r="4" fill="#010101" stroke="none" stroke-width="1.6"/>
   <circle cx="317" cy="94" r="4" fill="#010101" stroke="none" stroke-width="1.6"/>
   <path d="M43 104 L61 159 H107 M317 104 L299 159 H253" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="180" y="164" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">crossing points</text>
+  <text x="180" y="164" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">nodes</text>
   <path d="M32 227 L328 227" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M32 239.95 L328 214.05" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M284 227 A104 104 0 0 0 283.6 217.9" fill="none" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>

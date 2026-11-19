@@ -355,21 +355,21 @@ questions:
     type: identify
     difficulty: easy
     stem: |
-      Which observation is one of the three main lines of evidence for a hot early universe?
+      Which observation supports the prediction that some light nuclei formed when the early universe was hot and dense?
     choices:
-      - text: 'Abundances of light elements'
+      - text: 'The amounts of helium and deuterium found in old material'
         correct: true
-      - text: 'The present number of planetary moons'
+      - text: 'The current number of moons in the Solar System'
         rationale: |
-          This uses local system structure for early cosmic chemistry. Moons formed from Solar System material. Check the scale and composition evidence.
-      - text: 'The daily rising of stars in the eastern sky'
+          Moons tell us about planetary systems. Check which observation measures the makeup of matter.
+      - text: 'The daily rising of stars in the east'
         rationale: |
-          This uses Earth's rotation for the universe's early state. Stars appear to rise daily. Check the cause of that apparent motion.
-      - text: 'The length of Earth''s present ocean tides'
+          The motion is easy to see in the sky. Check whether it comes from Earth spinning or from early changes in matter.
+      - text: 'The time between high tides on Earth'
         rationale: |
-          This uses a local gravitational cycle for early cosmic history. Tides involve astronomical bodies. Check whether the observation tests early light-element production.
+          Tide timing is a regular pattern. Check whether it tells you about gravity near Earth or about what formed in the early universe.
     explanation: |
-      The hot early universe produced light elements. Observed hydrogen, helium, and some lithium abundances broadly fit the predicted pattern. This supports the Big Bang model.
+      The hot early universe made light nuclei, including helium and deuterium, a form of hydrogen. The amounts we find are close to what the Big Bang model predicts.
     approved: true
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0017

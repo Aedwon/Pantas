@@ -37,7 +37,7 @@ Trace the water from its source to the bag.
 1. The bag covers only leaves, so the water did not come from the soil or from a pond.
 2. The plant took in water through its roots and moved it up to the leaves.
 3. The leaves let out water vapor through tiny pores. This is transpiration.
-4. The vapor cooled against the bag and condensed into drops.
+4. The vapor cooled against the bag and condensed, or changed from vapor into liquid drops.
 
 The answer: the water came from the plant, by transpiration.
 

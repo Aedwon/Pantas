@@ -64,11 +64,9 @@ The gas and dust form a glowing cloud around the nucleus, called the **coma**. T
 
 The **solar wind** is a stream of charged particles flowing outward from the Sun. It pushes on the gas of a comet, which forms the **ion tail**, a fairly straight, bluish tail. Sunlight itself gives a gentle push to the dust, which forms the **dust tail**, a wider, whitish tail that often curves.
 
-Both tails point away from the Sun. The dust tail curves because the dust keeps some of the comet's motion along its orbit. This means a comet moving away from the Sun has its tails ahead of it.
+The ion tail points roughly away from the Sun. The dust tail curves because the dust keeps some of the comet's motion along its orbit.
 
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"comet-tail","illustrationKey":"science/earth-science-astronomy/heavenly-bodies#1","orbitShape":"oval","cometPositions":2,"tailDirection":"away from Sun"} -->
-
-Comets are active only near the Sun. Far from the Sun, a comet is a cold, dark, inactive nucleus with no coma or tail. Halley's comet returns about every $76$ years.
+Comets usually become more active as they approach the Sun. Some can release gas and dust even when they are far from the Sun. Halley's comet returns about every $76$ years.
 
 ### Meteoroid, Meteor, Meteorite
 
@@ -98,7 +96,7 @@ A small rocky particle is moving through space toward Earth. It enters the atmos
 An object orbits the Sun. As it approaches the Sun, it becomes surrounded by a coma with gas and dust tails. Is it better classified as an asteroid or a comet?
 
 **Solution:**
-1. A coma and tails come from ice turning into gas when warmed.
+1. When ice warms and turns into gas, it can form a coma, a cloud of gas and dust around the object, and tails.
 2. This activity is typical of a comet.
 3. An ordinary asteroid is rocky or metallic and has no coma or tail.
 
@@ -106,14 +104,15 @@ The object is a comet.
 
 ### #3: Which Way Does the Tail Point?
 
-A comet is moving away from the Sun after passing close to it. Where do its tails point?
+A comet is moving directly away from the Sun after passing close to it. Where does its ion tail point compared with its motion?
 
 **Solution:**
-1. Solar wind and sunlight push material away from the Sun.
-2. So the tails point away from the Sun, whatever direction the comet moves.
-3. The comet is also moving away from the Sun, so the tails point ahead of the comet along its path.
+1. The solar wind pushes the ion tail roughly away from the Sun.
+2. Here the comet is moving directly away from the Sun, so its ion tail points roughly ahead along its path.
 
 The tails are not a wake trailing behind the comet like the wake of a boat.
+
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"comet-tail","illustrationKey":"science/earth-science-astronomy/heavenly-bodies#1","orbitShape":"oval","cometPositions":2,"tailDirection":"ion tail roughly away from Sun; dust tail curves"} -->
 
 ### #4: Planet or Dwarf Planet?
 
@@ -155,7 +154,7 @@ Moons differ in size, shape, and make-up.
 
 **Asteroid or comet.** Both orbit the Sun. Look at what the object is made of and whether it is active: rocky objects without tails are usually asteroids, and icy objects that grow a coma and tails near the Sun are comets. A few objects blur the line, such as asteroids that sometimes shed dust, so use this as a guide rather than a law.
 
-**Tail direction.** A comet's tails point away from the Sun. This holds even when the comet moves toward or away from the Sun.
+**Tail direction.** Use the direction away from the Sun for the ion tail. The dust tail can curve.
 
 ## Traps to Watch For
 
@@ -173,9 +172,9 @@ Some are near-Earth asteroids and some are Trojans. Not every body in the belt i
 
 ### #3: Treating a Comet Tail Like a Wake
 
-> A tail points away from the Sun, not always behind the comet.
+> The ion tail points roughly away from the Sun.
 
-Solar wind and sunlight push the material, so the tail's direction depends on where the Sun is. The tail leads the comet when it moves away from the Sun.
+The solar wind pushes the ion tail away from the Sun. The tail points roughly along the path ahead when the comet moves directly away from the Sun.
 
 ### #4: Treating Pluto as a Planet and Moons as Alike
 

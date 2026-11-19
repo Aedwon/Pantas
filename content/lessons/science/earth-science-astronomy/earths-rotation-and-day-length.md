@@ -32,11 +32,11 @@ One turn relative to the Sun takes about $24$ hours on average. This gives the f
 
 Relative to the distant stars, one turn takes about $23$ hours $56$ minutes. This is the **sidereal day**. It is about $4$ minutes shorter because Earth also moves along its orbit during the day.
 
-After one turn, Earth must turn a little more, about $1^\circ$, before the Sun is back in the same spot in the sky.
+After one turn, Earth must turn a little more, about $1^\circ$, before the Sun crosses the local meridian again, at solar noon.
 
 The same fact explains why a given star rises about $4$ minutes earlier each night. After a month it rises about $2$ hours earlier.
 
-<!-- ILLUSTRATION: top view of Earth at two positions on its orbit, one day apart; a dot on Earth faces a distant star at both positions, labeled "one sidereal day: 23 h 56 min"; at the second position the dot still needs to turn about 1 degree to face the Sun again, labeled "one solar day: 24 h" -->
+<!-- ILLUSTRATION: top view of Earth at two positions on its orbit, one day apart; a dot on Earth faces a distant star at both positions, labeled "one sidereal day: 23 h 56 min"; at the second position the dot still needs to turn about 1 degree to reach solar noon again, labeled "one solar day: 24 h" -->
 
 ## Examples
 
@@ -47,7 +47,7 @@ A star is directly overhead at midnight on one night. About when will it be dire
 **Solution:**
 1. Relative to the stars, Earth turns once in about $23$ hours $56$ minutes.
 2. The clock day is $24$ hours, so the star returns to the same place about $4$ minutes earlier by the clock.
-3. The star is overhead at about $11{:}56$ PM. Earth moves along its orbit as it spins, so the Sun needs about $4$ more minutes of turning to come back, but the star does not.
+3. The star is overhead at about $11{:}56$ PM. Earth moves along its orbit as it spins, so the Sun needs about $4$ more minutes of turning to cross the local meridian again.
 
 ## Speed Tricks & Shortcuts
 

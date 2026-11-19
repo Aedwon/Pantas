@@ -28,11 +28,11 @@ A **body fossil** is a piece of the organism itself, such as a bone, shell, leaf
 
 Fossils do not have to be "turned to stone." Insects in amber and mammoths frozen in ice are fossils too.
 
-Most organisms leave no fossil. Hard parts such as shells and bones, and fast burial in mud or sand, make fossils much more likely. Soft-bodied animals that rot or get eaten are rarely preserved, so the fossil record is incomplete.
+Most organisms leave no fossil. Hard parts such as shells and bones, and fast burial in mud or sand, make fossils much more likely. Soft-bodied animals that rot or get eaten are rarely preserved, so the fossil record is incomplete. Molten rock can destroy remains before it cools into igneous rock. Heat and pressure that change rock into metamorphic rock can also damage or erase fossils.
 
 ### Relative Dating
 
-To **infer** means to work out an answer from evidence. **Relative dating** infers which rocks and events are older or younger, without giving an age in years. It uses three ideas.
+To **infer** means to work out an answer from evidence. **Relative dating** infers which rocks and events are older or younger, without giving an age in years. **Stratigraphy** is the study of rock layers, also called strata. This part uses the law of superposition.
 
 **Law of superposition.** In a sequence of sedimentary layers that has not been overturned, each layer is older than the layer above it. New sediment settles on top of older sediment.
 
@@ -40,7 +40,7 @@ To **infer** means to work out an answer from evidence. **Relative dating** infe
 
 **Index fossils.** Geologists **correlate** rock layers when they match layers in different places as the same age. An **index fossil** helps with this. It is the fossil of an organism that lived widely across the world, was easy to recognize, and existed for a short span of geologic time. If two distant layers hold the same index fossil, the layers formed within that span.
 
-Each idea has limits. Folding can turn layers upside down, and a fault can push older rock over younger rock. A missing layer, where sediment was eroded away or never deposited, leaves a gap in the record.
+This law has limits. Folding can turn layers upside down, and a fault can push older rock over younger rock. A missing layer, where sediment was eroded away or never deposited, leaves a gap in the record.
 
 Fossils can also be eroded out of an old layer and buried again in a younger one. This is called **reworking**. Geologists therefore check the field evidence before they trust any one clue.
 
@@ -62,7 +62,7 @@ $$\text{age}=n\times\text{half-life}$$
 
 Different isotopes have very different half-lives. Carbon-14 has a half-life of about $5{,}730$ years. Uranium-238 has a half-life of about $4.47$ billion years.
 
-These formulas work for an ideal sample. It must be a **closed system**, meaning no parent or daughter atoms entered or left after the rock formed. It must also have started with no daughter atoms, or the amount at the start must be known.
+The half-life formulas tell how much parent isotope remains and how much time has passed. To use parent and daughter measurements to find the starting amount of parent, the sample must be a **closed system**. This means no parent or daughter atoms entered or left after the rock formed. You also need to know how much daughter isotope was there at the start, if any.
 
 Real dating needs more. A scientist measures the amounts of parent and daughter in a sample. Then the scientist uses the isotope's known decay rate.
 
@@ -74,7 +74,6 @@ The method must also fit the material:
 - Rocks that are millions or billions of years old are dated with isotopes of long half-life, such as uranium-238.
 - Radiometric dating usually dates a mineral at the time it formed from molten rock. Igneous rock, which forms from cooled magma or lava, is dated well. Most sedimentary rock is made of old grains, so those grains show the age of their source rock, not of the layer. Geologists often date volcanic ash layers above and below a sedimentary layer to give it an age range.
 
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"half-life-halving","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#1","halfLifeSteps":3,"parentFractions":["1","1/2","1/4","1/8"],"daughterMaterial":"stable remainder"} -->
 ### Geologic Time
 
 Earth is about $4.54$ billion years old. Scientists divide this time into units, from largest to smallest: **eon**, **era**, **period**, and **epoch**.
@@ -83,7 +82,7 @@ There are four eons: the Hadean, the Archean, the Proterozoic, and the Phanerozo
 
 The Phanerozoic Eon began about $539$ million years ago. It has three eras, from oldest to youngest: the Paleozoic, the Mesozoic, and the Cenozoic. A **mass extinction** is a short span of time in which a large share of living species die out. Mass extinctions mark the end of the Paleozoic and of the Mesozoic.
 
-Life in each era:
+Life in the Precambrian:
 
 - **Precambrian:** The oldest widely accepted fossils of single-celled life are about $3.5$ billion years old. Large animals came late, near the end of the Precambrian or after it.
 - **Paleozoic (about $539$ to $252$ million years ago):** Many kinds of sea animals appeared early in the era. Fish, land plants, amphibians, and reptiles came later. It ended in the largest mass extinction known, about $252$ million years ago.
@@ -110,18 +109,18 @@ The order from oldest to youngest is W, X, Y, Z.
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"stratigraphy-stack","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#2","layersBottomToTop":["W","X","Y","Z"],"oldest":"W","youngest":"Z"} -->
 ### #2: Ordering Events with Cross-Cutting Relationships
 
-A cliff shows four horizontal sedimentary layers: P at the bottom, then Q, R, and S at the top. A fault cuts through P, Q, and R. It stops at the bottom of S, and S is not broken. A dark igneous dike (a sheet of cooled magma) cuts through all four layers. What is the order of events, from first to last?
+A cliff shows four horizontal sedimentary layers: P at the bottom, then Q, R, and S at the top. A fault cuts through P, Q, and R. Erosion wore away the top of the fault. Layer S was then laid down on that worn surface. A dark igneous dike (a sheet of cooled magma) cuts through all four layers. What is the order of events, from first to last?
 
 **Solution:**
 
 1. Layers P, Q, and R formed first, in that order, by superposition.
 2. The fault cuts P, Q, and R, so it is younger than all three.
-3. The fault does not cut S, so S formed after the fault, on top of the broken rock.
+3. The worn surface cuts off the fault. Layer S formed on that surface, so S is younger than the fault.
 4. The dike cuts all four layers, so it is younger than S.
 
 The order is P, Q, R, then the fault, then S, then the dike.
 
-<!-- ILLUSTRATION: cliff face with horizontal layers P (bottom), Q, R, S (top); a slanted fault line through P, Q, and R that ends at the bottom of S; a vertical dark dike running from the bottom of P up through the top of S -->
+<!-- ILLUSTRATION: cliff face with horizontal layers P (bottom), Q, R, S (top); a slanted fault line through P, Q, and R that is cut off by the eroded surface below S; a vertical dark dike running from the bottom of P up through the top of S -->
 ### #3: Using an Index Fossil Carefully
 
 The same index fossil is found in two undisturbed sedimentary beds that are hundreds of kilometers apart. What can geologists infer, and what can they not infer?
@@ -144,6 +143,8 @@ A radioactive parent isotope has a half-life of $1$ billion years. In an ideal c
 $$1\to\dfrac12\to\dfrac14\to\dfrac18$$
 
 2. After $3$ half-lives, $\dfrac18$ of the original parent remains.
+
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"half-life-halving","illustrationKey":"science/earth-science-astronomy/fossils-and-geologic-time#1","halfLifeSteps":3,"parentFractions":["1","1/2","1/4","1/8"],"daughterMaterial":"daughter products"} -->
 
 ### #5: Inferring a Numerical Age from Parent and Daughter
 
@@ -193,9 +194,9 @@ The order is the first land plants, the first flowering plants, and then the ext
 
 ## Speed Tricks & Shortcuts
 
-For relative-dating questions, first find what the clue compares. Superposition compares stacked layers. Cross-cutting compares a feature with the rock it cuts. An index fossil compares layers in different places.
+For relative-dating questions, first find what the clue compares. Superposition compares stacked layers. See Dating Faults and Intrusions for features that cut rock, and Index Fossils and Rock Correlation for matching layers in different places.
 
-To order events, list the layers from the bottom by superposition. Then place each cut feature after the rocks it cuts, and before any layer it does not cut that lies across it. These steps assume the layers were not overturned.
+To order events, list the layers from the bottom by superposition. Then place each cut feature after the rocks it cuts. If erosion cuts off a fault and a new layer covers that surface, place the fault before the new layer. These steps assume the layers were not overturned.
 
 For half-life questions that give only a fraction, repeat the halving. Count the halvings to get $n$, then multiply by the half-life if an age is needed.
 

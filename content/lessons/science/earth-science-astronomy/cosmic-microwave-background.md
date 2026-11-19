@@ -15,7 +15,7 @@ keyPoints:
 
 ### Evidence 2: The Cosmic Microwave Background
 
-Early on, the universe was so hot that matter was a glowing mix of charged particles, and light kept being scattered. When the universe was about $380{,}000$ years old, it had cooled enough for atoms to form. Light could then travel freely across space.
+Early on, the universe was so hot that matter was a glowing mix of charged particles, and light kept being scattered. When the universe was about $380{,}000$ years old, it had cooled enough for atoms to form. Light could then travel freely across space. The first stars formed later, and the Solar System formed much later still.
 
 That light is still arriving from every direction. It is called the **cosmic microwave background (CMB)**. Expansion has stretched its wavelengths so much that it is now microwaves, with a temperature of about $2.7$ K. Two features matter: it is almost the same in every direction, and its spectrum matches the glow of a hot, dense early universe that has cooled.
 

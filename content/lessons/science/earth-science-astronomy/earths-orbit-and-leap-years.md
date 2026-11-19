@@ -18,7 +18,7 @@ keyPoints:
 
 **Revolution** is Earth's trip around the Sun along its path, called its **orbit**. One trip measured against the stars takes about $365.26$ days.
 
-Calendars follow the seasonal year instead, about $365.24$ days, from one March equinox to the next. It is slightly shorter because of precession (explained below).
+Calendars follow the seasonal year instead, about $365.24$ days, from one March equinox to the next. It is slightly shorter because of precession.
 
 ### Leap Years
 
