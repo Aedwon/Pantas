@@ -486,3 +486,165 @@ questions:
     explanation: |
       Superposition gives Layer 1, then Layer 2, then Layer 3 in depositional order. The intended early-fish association is Paleozoic. One-quarter parent remaining gives two half-lives, or $2\times2=4$ million years. The ash minerals formed at deposition and stayed closed, so the isotope clock gives the age of Layer 3.
     approved: true
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0022
+    lesson: lesson-earth-science-astronomy-dating-faults-and-intrusions
+    keyPoint: 1
+    type: 'process-ordering'
+    difficulty: 'medium'
+    stem: |
+      A magma intrusion cuts across a sedimentary bed. A fault offsets both the intrusion
+      and the bed. Which sequence lists the events from earliest to latest?
+    choices:
+      - text: 'Bed deposition, intrusion, faulting'
+        correct: true
+      - text: 'Bed deposition, faulting, intrusion'
+        rationale: |
+          Both the fault and intrusion cut the bed. Check which one also cuts the other.
+      - text: 'Intrusion, bed deposition, faulting'
+        rationale: |
+          The bed could overlie some older igneous rocks. Here, check what the magma
+          actually cuts.
+      - text: 'Faulting, intrusion, bed deposition'
+        rationale: |
+          It is easy to start with the most visible cut. Check what had to be there before
+          it could be cut.
+    explanation: |
+      The bed had to exist before magma could cut through it. The intrusion had to exist
+      before the fault could move it.
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0023
+    lesson: lesson-earth-science-astronomy-index-fossils-and-rock-correlation
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Two undisturbed rock sections are far apart. Which fossil would be most useful for
+      matching layers of the same age?
+    choices:
+      - text: 'A widespread species that lived briefly'
+        correct: true
+      - text: 'A widespread species that lived through many intervals'
+        rationale: |
+          A widespread species can link distant sites. Check how narrowly its life span can
+          date a layer.
+      - text: 'A short-lived species limited to one small area'
+        rationale: |
+          A short life span narrows the possible age. Check whether the fossil is likely to
+          occur at both sites.
+      - text: 'An older species found only in fragments of rock eroded into younger beds'
+        rationale: |
+          An older fossil can look like proof of an older layer. Check whether the fossil
+          formed in the bed or arrived in an older fragment.
+    explanation: |
+      A species found across a wide area can occur in both sections. If it lived for a short
+      time, its fossils point to a narrow span of time.
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0024
+    lesson: lesson-earth-science-astronomy-index-fossils-and-rock-correlation
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      An index fossil appears inside a rounded fragment of older rock embedded in a younger
+      sedimentary bed. What should a geologist conclude about using that fossil to date the
+      bed?
+    choices:
+      - text: 'It may date the fragment instead of the bed.'
+        correct: true
+      - text: 'It dates the bed because index fossils always date the rock around them.'
+        rationale: |
+          An index fossil can date a layer when it belongs there. Check whether this one was
+          carried in a piece of older rock.
+      - text: 'It proves the bed formed before the fragment.'
+        rationale: |
+          A bed can contain material from other rocks. Check whether a fragment had to exist
+          before the bed could trap it.
+      - text: 'It proves the fossil formed after the bed was deposited.'
+        rationale: |
+          The fossil is now inside the bed, so it may seem younger. Check when it entered
+          the fragment compared with when the fragment entered the bed.
+    explanation: |
+      The fossil was already in the older rock when the fragment broke off. The younger bed
+      formed when sediment buried the fragment.
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0025
+    lesson: lesson-earth-science-astronomy-parent-and-daughter-isotopes
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A mineral formed with no daughter isotope and remained a closed system. It now
+      contains seven daughter atoms for every parent atom. How many half-lives have elapsed?
+    choices:
+      - text: 'Three half-lives'
+        correct: true
+      - text: 'One half-life'
+        rationale: |
+          You may count one step because parent atoms changed into daughter atoms. Check
+          whether half the original parent is still present.
+      - text: 'Two half-lives'
+        rationale: |
+          Two halvings leave one fourth of the parent. Include both the parent and daughter
+          atoms when you find the starting amount.
+      - text: 'Seven full half-lives'
+        rationale: |
+          Seven is the number of daughter parts. Check how many times you must halve the
+          starting parent amount to get one part.
+    explanation: |
+      One parent part and seven daughter parts make eight parts of original parent. Only one
+      eighth is left. Three halvings take the parent amount from eight to four to two to
+      one.
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0026
+    lesson: lesson-earth-science-astronomy-choosing-radiometric-dating-methods
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A site contains ancient charcoal estimated to be younger than the useful limit of
+      carbon-14 dating. Which method can directly test the age of the charcoal?
+    choices:
+      - text: 'Measure carbon-14 in the charcoal.'
+        correct: true
+      - text: 'Measure uranium-238 in the charcoal to apply a long half-life.'
+        rationale: |
+          A long half-life helps with very old rocks. Check whether this sample was once
+          alive and is young enough for carbon-14.
+      - text: 'Date the sand grains beside the charcoal to find when the charcoal formed.'
+        rationale: |
+          Grains and charcoal can be buried together. Check whether the grain age gives the
+          age of the charcoal itself.
+      - text: 'Use carbon-14 on nearby igneous rock to date the charcoal directly.'
+        rationale: |
+          The rock is nearby, so its age may seem useful. Check whether the sample being
+          dated was once alive.
+    explanation: |
+      Charcoal comes from living material. It is young enough to have carbon-14 left to
+      measure, so the test can use the charcoal itself.
+
+  - id: q-earth-science-astronomy-fossils-and-geologic-time-0027
+    lesson: lesson-earth-science-astronomy-choosing-radiometric-dating-methods
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A fossil-bearing sedimentary bed lies between two volcanic ash layers. The fossil is
+      too old for carbon-14 dating. How can a geologist best limit the bed's age?
+    choices:
+      - text: 'Date both ash layers with a long-lived isotope.'
+        correct: true
+      - text: 'Use carbon-14 on the fossil because it was once alive.'
+        rationale: |
+          Once-living material can hold carbon-14. Check whether enough would remain at this
+          age.
+      - text: 'Date only the oldest sand grain in the fossil bed and assign that age to the bed.'
+        rationale: |
+          The grain is part of the bed, so its age may seem right. Check whether the grain
+          formed before the bed.
+      - text: 'Date only the ash below and assign that age to the fossil bed.'
+        rationale: |
+          The lower ash gives one limit. Check which layer gives the other limit.
+    explanation: |
+      The ash below formed before the bed. The ash above formed after it. Dating both gives
+      the age range for the bed.

@@ -509,3 +509,324 @@ questions:
     explanation: |
       The western North Pacific can produce tropical cyclones throughout the year. July through October is the peak, when many occur. A peak does not limit all occurrences to those months.
     approved: true
+
+  - id: q-earth-science-astronomy-weather-and-climate-0023
+    lesson: lesson-earth-science-astronomy-coastal-breezes-and-rising-air
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      After sunset, coastal land has cooled below the temperature of the nearby sea. Which
+      circulation is expected near the surface?
+    choices:
+      - text: 'Air flows from land toward the sea.'
+        correct: true
+      - text: 'Air flows from the sea toward the land as it does in daytime.'
+        rationale: |
+          A sea breeze is common during the day. Check which surface stays warmer after the
+          land cools.
+      - text: 'Air flows toward the land because the coolest air rises first.'
+        rationale: |
+          The land is cooler. Check whether warmer air or cooler air tends to rise.
+      - text: 'There is no surface flow because the Sun is below the horizon.'
+        rationale: |
+          The Sun heats the surfaces in daytime. Check whether a temperature difference can
+          still exist after dark.
+    explanation: |
+      The sea stays warmer than the land. Air over the sea rises, and cooler air from the
+      land flows toward the sea to take its place.
+
+  - id: q-earth-science-astronomy-weather-and-climate-0024
+    lesson: lesson-earth-science-astronomy-coastal-breezes-and-rising-air
+    keyPoint: 2
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      Warm, moist surface winds meet in the Intertropical Convergence Zone. Which process
+      explains the frequent rain there?
+    choices:
+      - text: 'Moist air rises, cools, and forms clouds.'
+        correct: true
+      - text: 'Moist air sinks, cools, and forms clouds.'
+        rationale: |
+          Cooler air can form clouds. Check which way the moist air moves when surface winds
+          meet.
+      - text: 'Rising air heats up and makes water vapor condense.'
+        rationale: |
+          Rising air is part of the process. Check whether the air warms or cools as it
+          rises.
+      - text: 'Clouds form because the meeting winds prevent moist air from rising.'
+        rationale: |
+          Winds do meet in this zone. Check where the air can go when the winds push it
+          together at the surface.
+    explanation: |
+      When the winds meet, warm, moist air is pushed up. It cools as it rises. Water vapor
+      turns into cloud drops, which can grow and fall as rain.
+
+  - id: q-earth-science-astronomy-weather-and-climate-0025
+    lesson: lesson-earth-science-astronomy-seasonal-monsoon-winds
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      During summer, a large land mass becomes warmer than the nearby ocean. Which pressure
+      and surface wind pattern helps explain the summer monsoon?
+    choices:
+      - text: 'Lower pressure over land draws air from the ocean.'
+        correct: true
+      - text: 'Higher pressure over land pushes air toward the ocean.'
+        rationale: |
+          Air moves away from high pressure. Check whether strong heating makes air rise or
+          sink over land.
+      - text: 'Lower pressure over the ocean draws air from the land.'
+        rationale: |
+          The ocean can be warmer in winter. Compare its temperature with the land in this
+          summer case.
+      - text: 'Equal pressure over land and sea produces a steady wind toward land.'
+        rationale: |
+          A steady wind can be part of a monsoon. Check what difference in pressure gives
+          the air a direction.
+    explanation: |
+      The warmer land heats the air above it. That air rises, leaving lower pressure near
+      the surface. Air moves in from over the ocean.
+
+  - id: q-earth-science-astronomy-weather-and-climate-0026
+    lesson: lesson-earth-science-astronomy-seasonal-monsoon-winds
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      In winter a large land mass cools more than the neighboring ocean. What change in
+      surface flow is expected compared with summer?
+    choices:
+      - text: 'The flow reverses and moves from land to sea.'
+        correct: true
+      - text: 'The summer flow from sea to land becomes stronger.'
+        rationale: |
+          A warmer sea can supply moist air. Check which surface now has the lower air
+          pressure.
+      - text: 'The surface flow stops because the land air is colder.'
+        rationale: |
+          Cold air over land changes the pressure. Check how air moves between higher and
+          lower pressure.
+      - text: 'The flow stays from sea to land because oceans change temperature slowly.'
+        rationale: |
+          The ocean does cool more slowly. Check how that changes which surface is warmer
+          compared with summer.
+    explanation: |
+      Cooler air over land sinks and builds higher pressure. The warmer ocean has lower
+      pressure, so surface air moves from land toward the sea.
+
+  - id: q-earth-science-astronomy-weather-and-climate-0027
+    lesson: lesson-earth-science-astronomy-tropical-cyclone-formation
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which environment best supports the development of a tropical cyclone?
+    choices:
+      - text: 'Warm ocean water, moist air, and weak wind shear'
+        correct: true
+      - text: 'Warm ocean water, moist air, and strong wind shear'
+        rationale: |
+          The warm water and moist air help. Check what happens when winds high above a
+          storm sweep its clouds away from its center.
+      - text: 'Cool ocean water, moist air, and weak wind shear'
+        rationale: |
+          Weak shear helps the storm stay together. Check which ocean temperature can keep
+          supplying heat and water vapor.
+      - text: 'Warm ocean water, dry air, and weak wind shear'
+        rationale: |
+          Warm water supplies heat, and weak shear helps. Check whether the storm also needs
+          moist air to build clouds.
+    explanation: |
+      Warm ocean water supplies heat and water vapor. Moist air can rise and make thick
+      clouds. Weak wind shear lets the rising air and clouds stay near the storm's center.
+
+  - id: q-earth-science-astronomy-weather-and-climate-0028
+    lesson: lesson-earth-science-astronomy-tropical-cyclone-formation
+    keyPoint: 2
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      A tropical cyclone moves from warm ocean water across a broad land mass. Why is it
+      likely to weaken?
+    choices:
+      - text: 'It loses heat and moisture from warm seawater.'
+        correct: true
+      - text: 'Land adds more warm surface water to the storm.'
+        rationale: |
+          Warm water can feed a cyclone. Check what source of water drops away when the
+          storm crosses the coast.
+      - text: 'Air over land keeps feeding the storm with the same ocean moisture.'
+        rationale: |
+          Storms can still bring rain inland. Check whether the storm keeps drawing heat and
+          water from the warm ocean below.
+      - text: 'The storm loses energy because water vapor stops cooling as it rises.'
+        rationale: |
+          Cooling helps water vapor form cloud drops and release heat. Check whether the air
+          stops cooling or the storm loses its source of water vapor.
+    explanation: |
+      A cyclone gets heat and water vapor from warm seawater. Over land, that supply drops.
+      With less water vapor, less heat is released when cloud drops form.
+
+  - id: q-earth-science-astronomy-weather-and-climate-0029
+    lesson: lesson-earth-science-astronomy-weather-hazards-and-safety
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      A cyclone's winds have weakened, but floodwater still covers a road on the route home.
+      Which action fits the remaining hazard?
+    choices:
+      - text: 'Use a safe route that avoids the floodwater.'
+        correct: true
+      - text: 'Drive through slowly because the cyclone''s winds are weaker.'
+        rationale: |
+          Weaker wind can sound like an all-clear. Check whether water still covers the
+          road.
+      - text: 'Walk through the water because a vehicle could stall.'
+        rationale: |
+          A vehicle can stall, but walking exposes you to moving water too. Check for a
+          route that stays dry.
+      - text: 'Cross as soon as the rain stops because the road will then be safe.'
+        rationale: |
+          Rain ending can reduce new runoff. Check whether floodwater is still present
+          before choosing a route.
+    explanation: |
+      Floodwater can still be dangerous after the wind eases. Choosing a safe route away
+      from it keeps you from having to walk or drive through it.
+
+  - id: q-earth-science-astronomy-weather-and-climate-0030
+    lesson: lesson-earth-science-astronomy-weather-hazards-and-safety
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      A farming community expects a long period with too little rain to meet local needs.
+      Which measure addresses this hazard most directly?
+    choices:
+      - text: 'Protect water supplies and plan their use.'
+        correct: true
+      - text: 'Clear storm drains to move rainwater away faster.'
+        rationale: |
+          Clear drains can reduce flooding. Check whether the forecast calls for excess
+          water or a shortage.
+      - text: 'Set up shelters for people affected by strong winds.'
+        rationale: |
+          Shelters can keep people safe in a windstorm. Check which resource the community
+          may run short of here.
+      - text: 'Evacuate low coastal areas to avoid seawater pushed ashore.'
+        rationale: |
+          Moving inland can help during a storm surge. Check whether the forecast mentions
+          rising seas or a lack of rain.
+    explanation: |
+      A long spell with too little rain can cause a drought. Saving and planning how to use
+      the water supply can help it last.
+
+  - id: q-earth-science-astronomy-weather-and-climate-0031
+    lesson: lesson-earth-science-astronomy-effects-of-climate-change
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      If ocean water warms and land ice melts, how do those changes affect global sea level?
+    choices:
+      - text: 'Both changes tend to raise it.'
+        correct: true
+      - text: 'Warming raises it, but melting land ice lowers it.'
+        rationale: |
+          Warm water does take up more space. Check where meltwater goes after it leaves the
+          land.
+      - text: 'Melting raises it, but warmer seawater takes up less space.'
+        rationale: |
+          Land ice adds water to the ocean. Check whether the same amount of water expands
+          or shrinks when it warms.
+      - text: 'Neither affects sea level unless more rain falls into the ocean.'
+        rationale: |
+          Rain adds water, so it can seem like the only way to raise the sea. Check whether
+          warming changes the space water takes up.
+    explanation: |
+      Warm seawater takes up more space. Melting land ice adds water to the ocean. Both
+      changes can make sea level rise.
+
+  - id: q-earth-science-astronomy-weather-and-climate-0032
+    lesson: lesson-earth-science-astronomy-effects-of-climate-change
+    keyPoint: 2
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      A coastal town expects higher average sea levels. Which change to land-use planning
+      most directly addresses the increased risk?
+    choices:
+      - text: 'Keep new homes out of low coastal areas prone to flooding.'
+        correct: true
+      - text: 'Move new homes closer to shore to shorten evacuation routes.'
+        rationale: |
+          Short routes can help people leave. Check whether putting homes closer to the
+          water exposes more people to floods.
+      - text: 'Build more homes at the water''s edge and improve heat warnings.'
+        rationale: |
+          Heat warnings help during hot days. Check whether they protect homes against
+          higher water.
+      - text: 'Use past flood maps as fixed boundaries even as sea level changes.'
+        rationale: |
+          Past maps give a starting point. Check whether rising seas can bring water into
+          places that used to stay dry.
+    explanation: |
+      A higher sea can reach more low land during floods. Keeping homes out of those areas
+      reduces how many people and buildings are exposed.
+
+  - id: q-earth-science-astronomy-weather-and-climate-0033
+    lesson: lesson-earth-science-astronomy-climate-mitigation-and-adaptation
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A city switches from fossil fuels to renewable power and also raises roads in
+      flood-prone areas. How should these actions be classified, respectively?
+    choices:
+      - text: 'Mitigation, then adaptation'
+        correct: true
+      - text: 'Adaptation, then mitigation'
+        rationale: |
+          Both actions respond to climate change. Check which action cuts gases that warm
+          the air and which action reduces flood harm.
+      - text: 'Mitigation in both cases'
+        rationale: |
+          Switching power sources can cut emissions. Check whether raising roads also cuts
+          emissions or helps people cope with water.
+      - text: 'Adaptation in both cases'
+        rationale: |
+          Raising roads helps people deal with floods. Check whether changing power sources
+          also tackles a cause of warming.
+    explanation: |
+      Renewable power can cut the release of gases that warm Earth. That is mitigation.
+      Raising roads helps people deal with floods. That is adaptation.
+
+  - id: q-earth-science-astronomy-weather-and-climate-0034
+    lesson: lesson-earth-science-astronomy-climate-mitigation-and-adaptation
+    keyPoint: 2
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      A town finds that blocked storm drains make flooding worse on streets with existing
+      homes. Which action most directly addresses the problem?
+    choices:
+      - text: 'Clear the drains and improve waste collection.'
+        correct: true
+      - text: 'Replace fossil-fuel electricity with renewable power across town.'
+        rationale: |
+          Cleaner power can slow future warming. Check which action gets water moving
+          through the blocked drains.
+      - text: 'Improve fuel efficiency in vehicles used by the municipal government.'
+        rationale: |
+          Using less fuel can cut emissions. Check whether it helps water drain from those
+          streets.
+      - text: 'Use less electricity in public buildings to lower greenhouse gas emissions.'
+        rationale: |
+          Saving power can help slow warming. Check which step opens the paths that carry
+          rainwater away.
+    explanation: |
+      Trash can block the drains and leave rainwater in the streets. Clearing the drains
+      lets water flow away. Collecting trash helps keep the drains open.

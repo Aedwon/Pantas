@@ -463,3 +463,136 @@ questions:
     explanation: |
       The water cycle has no true starting point. A diagram chooses one place to begin its description. Water keeps moving among reservoirs through different paths.
     approved: false
+
+  - id: q-earth-science-astronomy-water-cycle-oceanography-0021
+    lesson: lesson-earth-science-astronomy-daily-tide-timing
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      In a simple model of ocean tides, why does a high-tide bulge form on the side of Earth
+      farthest from the Moon?
+    choices:
+      - text: 'The Moon pulls that water less strongly than it pulls Earth as a whole.'
+        correct: true
+      - text: 'The Moon pulls the far-side water more strongly because it is farther away.'
+        rationale: |
+          The far side does have a bulge, so a stronger pull may seem likely. Check which
+          side is closer to the Moon.
+      - text: 'The Sun alone pulls the far-side water outward from Earth.'
+        rationale: |
+          The Sun affects the tides too. Check whether a difference in the Moon's pull can
+          explain both bulges.
+      - text: 'Daytime heating expands the water directly opposite the Moon.'
+        rationale: |
+          Heat can affect ocean water. Check whether the bulges are tied to the Moon's
+          position or to which side is in daylight.
+    explanation: |
+      The Moon pulls Earth as a whole more than it pulls the far-side water. That water is
+      left behind a little, so it bulges away from the Moon.
+
+  - id: q-earth-science-astronomy-water-cycle-oceanography-0022
+    lesson: lesson-earth-science-astronomy-daily-tide-timing
+    keyPoint: 2
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      In the lunar-day model, why does the same high tide tend to occur later on the next
+      day?
+    choices:
+      - text: 'Earth must turn farther to catch up with the orbiting Moon.'
+        correct: true
+      - text: 'Earth reverses its direction of rotation after one solar day.'
+        rationale: |
+          A reversal could change when a place faces the Moon. Check whether the Moon
+          travels in the same direction Earth keeps turning.
+      - text: 'The Moon moves opposite Earth''s spin, increasing the time to line up again.'
+        rationale: |
+          Both motions affect the timing. Check whether the observer must catch up to the
+          Moon or meet it head-on.
+      - text: 'The Sun shifts the tide later because the Moon stays fixed above the same place.'
+        rationale: |
+          The Sun helps make tides. Check whether the Moon also changes position during
+          Earth's turn.
+    explanation: |
+      The Moon moves in the same direction that Earth spins. After one turn, Earth must turn
+      a bit more for the same place to line up with the Moon again.
+
+  - id: q-earth-science-astronomy-water-cycle-oceanography-0023
+    lesson: lesson-earth-science-astronomy-daily-tide-timing
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      In a simplified model with two evenly spaced high tides per lunar day, a coast has a
+      high tide at 6:00 a.m. About when is the second high tide after that reading?
+    choices:
+      - text: '6:50 a.m. the next day'
+        correct: true
+      - text: '6:25 p.m. the same day'
+        rationale: |
+          This adds one gap between high tides. Count two gaps after the starting tide.
+      - text: '6:00 a.m. the next day'
+        rationale: |
+          This adds one solar day. Check how much longer a lunar day lasts.
+      - text: '6:25 a.m. the next day'
+        rationale: |
+          This adds part of the extra time. Check what happens when you add two gaps of 12
+          hours and 25 minutes each.
+    explanation: |
+      Two gaps of 12 hours and 25 minutes add up to 24 hours and 50 minutes. That puts the
+      second high tide after the reading at about 6:50 a.m. the next day.
+
+  - id: q-earth-science-astronomy-water-cycle-oceanography-0024
+    lesson: lesson-earth-science-astronomy-spring-and-neap-tides
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A tide forecast is based on the Moon reaching its third-quarter phase. Which kind of
+      tide is expected around that phase?
+    choices:
+      - text: 'Neap tide'
+        correct: true
+      - text: 'Spring tide associated with a full moon'
+        rationale: |
+          A full moon brings a spring tide. Check whether the Sun and Moon line up with
+          Earth at third quarter.
+      - text: 'Spring tide associated with a new moon'
+        rationale: |
+          A new moon also brings a spring tide. Check whether the Moon is on the Sun's side
+          of Earth at third quarter.
+      - text: 'Neither type because the Moon is only partly lit.'
+        rationale: |
+          The Moon's lit shape may seem to tell how strongly it pulls. Check what the phase
+          tells you about the angle between the Sun and Moon.
+    explanation: |
+      At third quarter, the Sun and Moon pull from directions that make a right angle at
+      Earth. Their tide effects partly offset each other, so a neap tide occurs.
+
+  - id: q-earth-science-astronomy-water-cycle-oceanography-0025
+    lesson: lesson-earth-science-astronomy-spring-and-neap-tides
+    keyPoint: 2
+    type: 'compare-contrast'
+    difficulty: 'medium'
+    stem: |
+      At the same coast, how should the difference between high- and low-tide levels during
+      a spring tide compare with that during a neap tide?
+    choices:
+      - text: 'It should be larger during the spring tide.'
+        correct: true
+      - text: 'It should be smaller during the spring tide.'
+        rationale: |
+          The names are easy to mix up. Check which tide has the higher high and the lower
+          low.
+      - text: 'It should be the same because both are caused by the same bodies.'
+        rationale: |
+          The Moon and Sun act in both cases. Check how their angles change how much their
+          tide effects add together.
+      - text: 'It should be the same because a higher high tide is matched by a higher low tide.'
+        rationale: |
+          A higher high tide can suggest that all the water levels rise. Check which way the
+          low tide level changes.
+    explanation: |
+      During a spring tide, the Sun and Moon's tide effects add together. High tide is
+      higher and low tide is lower, so the gap gets bigger.
