@@ -19,7 +19,11 @@ function store(initial = {}) {
   const query = (matches, cursor = '', size = Infinity) => ({
     orderBy: () => query(matches, cursor, size),
     limit: n => query(matches, cursor, n),
-    where: (field, op, value) => query(path => matches(path) && rows.get(path)?.[field] === value, cursor, size),
+    where: (field, op, value) => query(path => {
+      if (!matches(path)) return false;
+      const actual = rows.get(path)?.[field];
+      return op === '<=' ? actual instanceof Date && actual <= value : actual === value;
+    }, cursor, size),
     startAfter: last => query(matches, last.ref.path, size),
     get: async () => {
       const docs = [...rows.keys()].sort().filter(path => path > cursor && matches(path))

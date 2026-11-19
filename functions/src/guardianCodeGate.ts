@@ -219,12 +219,12 @@ export async function sendGuardianCode(request: Req, deps: SendDeps):
     const sentToday = Number(global.get('count') ?? 0);
     if (!Number.isFinite(cap) || cap < 1 || sentToday + 1 > cap) {
       const firstFull = global.get('fullLogged') !== true;
-      if (firstFull) tx.set(globalRef, {fullLogged: true}, {merge: true});
+      if (firstFull) tx.set(globalRef, {fullLogged: true, purgeAt: new Date(at + DAY_MS + GUARDIAN_WINDOW_MS)}, {merge: true});
       return {kind: 'dayFull', firstFull};
     }
     const becameFull = sentToday + 1 >= cap && global.get('fullLogged') !== true;
     const code = String(random()).padStart(6, '0');
-    tx.set(globalRef, {count: sentToday + 1, cleanupAt: at + DAY_MS + GUARDIAN_WINDOW_MS,
+    tx.set(globalRef, {count: sentToday + 1, purgeAt: new Date(at + DAY_MS + GUARDIAN_WINDOW_MS),
       ...(becameFull ? {fullLogged: true} : {})}, {merge: true});
     tx.set(holderDayRef, {count: holderCount + 1, purgeAt: new Date(at + DAY_MS + PURGE_MARGIN_MS)});
     // Replacing the document is what cancels a pending code for another child or action.
@@ -255,8 +255,9 @@ export async function sendGuardianCode(request: Req, deps: SendDeps):
     await deps.db.runTransaction(async tx => {
       const [global, holderDay] = await Promise.all([tx.get(globalRef), tx.get(holderDayRef)]);
       tx.delete(codeRef);
-      tx.set(globalRef, {count: Math.max(0, Number(global.get('count') ?? 0) - 1)}, {merge: true});
-      tx.set(holderDayRef, {count: Math.max(0, Number(holderDay.get('count') ?? 0) - 1),
+      if (global.exists) tx.set(globalRef, {count: Math.max(0, Number(global.get('count') ?? 0) - 1),
+        purgeAt: new Date(at + DAY_MS + GUARDIAN_WINDOW_MS)}, {merge: true});
+      if (holderDay.exists) tx.set(holderDayRef, {count: Math.max(0, Number(holderDay.get('count') ?? 0) - 1),
         purgeAt: new Date(at + DAY_MS + PURGE_MARGIN_MS)});
     });
     throw new HttpsError('unavailable', 'We could not send the email. Try again soon.');

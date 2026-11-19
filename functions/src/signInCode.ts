@@ -309,7 +309,7 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
     await deps.mailer.send(signInCodeMessage({to: email, code}));
   } catch (error) {
     logger.warn('Sign-in code email failed', {message: error instanceof Error ? error.message : 'unknown'});
-    await dropChallenge(deps.db, limitRef, challengeRef, challengeId, dayRef, cacheRef);
+    await dropChallenge(deps.db, limitRef, challengeRef, challengeId, dayRef, cacheRef, at);
     throw new HttpsError('unavailable', 'We could not send the email. Try again soon.');
   }
   return {challengeId, resendAfterSeconds: RESEND_COOLDOWN_MS / 1000};
@@ -329,14 +329,15 @@ const mailboxDayPath = (emailKey: string, day: string): string => `signInLimits/
 /** Delete the challenge this call made. The send counters stay, but the cap place goes back. */
 async function dropChallenge(db: Firestore, limitRef: ReturnType<Firestore['doc']>,
   challengeRef: ReturnType<Firestore['doc']>, challengeId: string, dayRef: ReturnType<Firestore['doc']>,
-  cacheRef: ReturnType<Firestore['doc']>): Promise<void> {
+  cacheRef: ReturnType<Firestore['doc']>, at: number): Promise<void> {
   await db.runTransaction(async transaction => {
     const [limit, day] = await Promise.all([transaction.get(limitRef), transaction.get(dayRef)]);
     transaction.delete(challengeRef);
     transaction.delete(cacheRef);
-    transaction.set(limitRef, {open: openList(limit.get('open')).filter(row => row.id !== challengeId)}, {merge: true});
+    if (limit.exists) transaction.set(limitRef, {open: openList(limit.get('open')).filter(row => row.id !== challengeId),
+      purgeAt: new Date(at + 2 * HOUR_MS)}, {merge: true});
     const sentToday = Number(day.get('count') ?? 0);
-    if (sentToday > 0) transaction.set(dayRef, {count: sentToday - 1}, {merge: true});
+    if (sentToday > 0) transaction.set(dayRef, {count: sentToday - 1, purgeAt: new Date(at + 3 * 24 * HOUR_MS)}, {merge: true});
   });
 }
 
@@ -446,10 +447,11 @@ export async function checkSignInCode(request: Req, deps: VerifyDeps): Promise<{
     if (matches && snapshot.get('standIn') !== true) {
       // Read the list of open challenges before writing, then close every one of them.
       const limitRef = deps.db.doc(`signInCodes/${emailKey}`);
-      const open = openList((await transaction.get(limitRef)).get('open'));
+      const limit = await transaction.get(limitRef);
+      const open = openList(limit.get('open'));
       transaction.delete(ref);
       for (const row of open) if (row.id !== data.challengeId) transaction.delete(deps.db.doc(challengePath(row.id)));
-      transaction.set(limitRef, {open: []}, {merge: true});
+      if (limit.exists) transaction.set(limitRef, {open: [], purgeAt: new Date(now() + 2 * HOUR_MS)}, {merge: true});
       return {kind: 'ok', email};
     }
     const next = attempts + 1;

@@ -236,6 +236,13 @@ custom token for the client to sign in with.
   confirm the tries count down, and confirm a second request within 60 seconds does
   not send another email.
 
+The existing hourly purge removes expired code and rate-limit records, including legacy counters.
+Before deploying the function, deploy `firestore:indexes` and wait for the ascending indexes in
+`firestore.indexes.json` to become ready. The purge uses collection-group indexes on
+`limits.purgeAt`, `limits.windowStartedAt`, and `shards.purgeAfter`, plus a collection-scope
+index on `webhookRateLimits.expireAt`. After rollout, confirm the hourly purge succeeds and the
+legacy backlog clears before relying on the 30-day retention wording.
+
 ## 11b. Storage rules that read Firestore (once per project)
 
 Since Nov 12, 2026, `storage.rules` checks the account-closure records in Firestore

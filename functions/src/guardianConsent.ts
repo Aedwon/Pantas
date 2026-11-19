@@ -3,13 +3,13 @@ import {createHmac, randomBytes} from 'node:crypto';
 import {defineInt, defineString} from 'firebase-functions/params';
 import {appSecrets, secret} from './_secrets.js';
 import {getAuth, type Auth} from 'firebase-admin/auth';
-import {FieldPath, FieldValue, getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore, type Query, type QueryDocumentSnapshot} from 'firebase-admin/firestore';
+import {FieldPath, FieldValue, getFirestore, Timestamp, type DocumentReference, type DocumentSnapshot, type Firestore, type Query, type QueryDocumentSnapshot} from 'firebase-admin/firestore';
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
 import {onSchedule} from 'firebase-functions/v2/scheduler';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {normalizeAgeGroup, type AgeGroup} from './ageGroup.js';
 import {allowFromAddress, clientBucket, type AddressRequest} from './_clientAddress.js';
-import {allowAtMost} from './_limits.js';
+import {allowAtMost, RATE_LIMIT_MAX_AGE_MS} from './_limits.js';
 import {logger} from 'firebase-functions/logger';
 import {deleteUserData} from './deleteUserData.js';
 import {guardianMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
@@ -239,19 +239,19 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     if (sentToday + 1 > ceiling) {
       // The day is full for this send. The first refusal of the day is flagged here and logged once outside.
       if (global.get('fullLogged') === true) return 'full-already-logged';
-      tx.set(globalLimit, {fullLogged: true}, {merge: true});
+      tx.set(globalLimit, {fullLogged: true, purgeAt: new Date(now + DAY_MS + GUARDIAN_WINDOW_MS)}, {merge: true});
       return 'full';
     }
     // The send that reaches the cap fills the day. It is logged once, like the first refusal.
     const becameFull = sentToday + 1 >= cap && global.get('fullLogged') !== true;
-    tx.set(globalLimit, {count: sentToday + 1, cleanupAt: now + DAY_MS + GUARDIAN_WINDOW_MS,
+    tx.set(globalLimit, {count: sentToday + 1, purgeAt: new Date(now + DAY_MS + GUARDIAN_WINDOW_MS),
       ...(becameFull ? {fullLogged: true} : {})}, {merge: true});
     const threshold = Math.ceil(cap * 0.8);
     if (sentToday < threshold && sentToday + 1 >= threshold) {
       (deps.alert ?? ((m: string) => console.error(m)))(
         `Guardian emails reached 80% of the daily cap (${sentToday + 1} of ${cap}).`);
     }
-    tx.set(emailLimit, {windowStartedAt: inWindow ? startedAt : now, count: count + 1, cleanupAt: expiresAt});
+    tx.set(emailLimit, {windowStartedAt: inWindow ? startedAt : now, count: count + 1, purgeAt: new Date(expiresAt)});
     if (typeof before?.tokenHash === 'string') {
       tx.set(tokenRef(deps.db, before.tokenHash), {state: 'revoked', revokedAt: now}, {merge: true});
     }
@@ -285,7 +285,7 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     // Give the place back so a failing mailer cannot use up the cap.
     await deps.db.runTransaction(async (tx) => {
       const count = ((await tx.get(globalLimit)).get('count') as number | undefined) ?? 0;
-      tx.set(globalLimit, {count: Math.max(0, count - 1)}, {merge: true});
+      if (count > 0) tx.set(globalLimit, {count: count - 1, purgeAt: new Date(now + DAY_MS + GUARDIAN_WINDOW_MS)}, {merge: true});
     });
     throw new HttpsError('unavailable', 'The email could not be sent. Try again.');
   }
@@ -563,6 +563,8 @@ const KEPT_CONSENT_FIELDS = ['status', 'ageGroup', 'decidedAt', 'sharingAllowed'
 
 /** Deletes due contacts and links. Transactions recheck sends and answers that raced the scan. */
 export async function purgeGuardianRecords(db: Firestore, now: number): Promise<void> {
+  await purgeExpiredCodeGateRows(db, now);
+  await purgeRateLimits(db, now);
   await visitGuardianRows(db.collection('guardianTokens').orderBy(FieldPath.documentId()), async (row) => {
     await db.runTransaction(async (tx) => {
       const data = (await tx.get(row.ref)).data();
@@ -605,19 +607,6 @@ export async function purgeGuardianRecords(db: Firestore, now: number): Promise<
       }
     });
   });
-  await visitGuardianRows(db.collection('guardianLimits').orderBy(FieldPath.documentId()), async (row) => {
-    await db.runTransaction(async (tx) => {
-      const data = (await tx.get(row.ref)).data();
-      if (!data) return;
-      // Legacy daily counters contain no date field, but their ID names the day.
-      const day = /^global-(\d{4}-\d{2}-\d{2})$/.exec(row.id)?.[1];
-      const start = data.windowStartedAt ?? (day ? Date.parse(`${day}T00:00:00+08:00`) : null);
-      const due = data.cleanupAt ?? (typeof start === 'number'
-        ? start + GUARDIAN_WINDOW_MS + (day ? DAY_MS : 0) : null);
-      if (typeof due === 'number' && now >= due) tx.delete(row.ref);
-    });
-  });
-  await purgeExpiredCodeGateRows(db, now);
 }
 
 /** The code-gate collections of `guardianCodeGate.ts`. Each row carries a `purgeAt` date. */
@@ -626,21 +615,94 @@ const CODE_GATE_PAGE = 200;
 /** Pages per collection per run, so one run is bounded. The hourly job comes back for the rest. */
 const CODE_GATE_PAGES = 10;
 
-/** Deletes expired codes and proofs, plus aged-out rate limits and legacy rows. */
+async function deleteDueRows(db: Firestore, queries: readonly Query[]): Promise<void> {
+  for (let page = 0; page < CODE_GATE_PAGES; page += 1) {
+    const count = await db.runTransaction(async tx => {
+      const snapshots = await Promise.all(queries.map(query => tx.get(query.limit(CODE_GATE_PAGE))));
+      const refs = new Map(snapshots.flatMap(snapshot => snapshot.docs.map(row => [row.ref.path, row.ref] as const)));
+      for (const ref of refs.values()) tx.delete(ref);
+      return refs.size;
+    });
+    if (count < CODE_GATE_PAGE) break;
+  }
+}
+
 async function purgeExpiredCodeGateRows(db: Firestore, now: number): Promise<void> {
-  for (const name of CODE_GATE_COLLECTIONS) {
-    for (let page = 0; page < CODE_GATE_PAGES; page += 1) {
-      const count = await db.runTransaction(async tx => {
-        const rows = db.collection(name);
-        const due = await tx.get(rows.where('purgeAt', '<=', new Date(now)).limit(CODE_GATE_PAGE));
-        const expired = name === 'guardianCodeLimits' ? null
-          : await tx.get(rows.where('expiresAt', '<=', new Date(now)).limit(CODE_GATE_PAGE));
-        const refs = new Map([...due.docs, ...(expired?.docs ?? [])].map(row => [row.id, row.ref]));
-        for (const ref of refs.values()) tx.delete(ref);
-        return refs.size;
-      });
-      if (count < CODE_GATE_PAGE) break;
+  const cutoff = new Date(now);
+  for (const name of [...CODE_GATE_COLLECTIONS, 'signInChallenges']) {
+    const rows = db.collection(name);
+    const queries = [rows.where('purgeAt', '<=', cutoff)];
+    if (name !== 'guardianCodeLimits') queries.push(rows.where('expiresAt', '<=', cutoff));
+    await deleteDueRows(db, queries);
+  }
+}
+
+function legacyTime(value: unknown): number | undefined {
+  if (value instanceof Timestamp) return value.toMillis();
+  return typeof value === 'number' && Number.isFinite(value) ? value : undefined;
+}
+
+function legacyCounterDeadline(row: QueryDocumentSnapshot, name: string): number | undefined {
+  const id = name === 'shards' ? row.ref.parent.parent?.id ?? '' : row.id;
+  const day = /(\d{4}-\d{2}-\d{2})(?:-new)?$/.exec(id)?.[1];
+  const dayStart = day ? Date.parse(`${day}T00:00:00${name === 'guardianCodeLimits' ? 'Z' : '+08:00'}`) : NaN;
+  const dayEnd = Number.isFinite(dayStart) ? dayStart + DAY_MS : undefined;
+  const windowStart = legacyTime(row.get('windowStartedAt'));
+  if (name === 'guardianLimits') {
+    const cleanup = legacyTime(row.get('cleanupAt'));
+    if (cleanup !== undefined) return cleanup;
+    const start = row.id.startsWith('global-') ? dayEnd : windowStart;
+    if (start !== undefined) return start + GUARDIAN_WINDOW_MS;
+  }
+  if (name === 'webhookRateLimits') {
+    const minute = /_(\d+)$/.exec(id)?.[1];
+    if (minute) return (Number(minute) + 1) * 60_000 + 3_600_000;
+  }
+  if (dayEnd !== undefined) return dayEnd + 3 * DAY_MS;
+  const start = legacyTime(row.get('sentAt')) ?? windowStart ?? row.updateTime?.toMillis();
+  return start === undefined ? undefined : start + 3 * DAY_MS;
+}
+
+/** Missing fields cannot be queried. Resume the bounded legacy scan by document name. */
+async function purgeLegacyCounters(db: Firestore, name: string, rows: Query, expiry: string, now: number): Promise<void> {
+  const checkpoint = db.doc(`rateLimitPurgeCursors/${name}`);
+  await db.runTransaction(async tx => {
+    const path: unknown = (await tx.get(checkpoint)).get('path');
+    const ordered = rows.orderBy(FieldPath.documentId());
+    const query = typeof path === 'string' ? ordered.startAfter(db.doc(path)) : ordered;
+    const page = await tx.get(query.limit(CODE_GATE_PAGE));
+    for (const row of page.docs) {
+      if (name === 'shards' && row.ref.parent.parent?.parent.id !== 'contentCeiling') continue;
+      if (row.get(expiry) !== undefined) continue;
+      const deadline = legacyCounterDeadline(row, name);
+      if (deadline !== undefined && deadline <= now) tx.delete(row.ref);
     }
+    const last = page.docs[CODE_GATE_PAGE - 1];
+    if (last) tx.set(checkpoint, {path: last.ref.path});
+    else if (typeof path === 'string') tx.delete(checkpoint);
+  });
+}
+
+async function purgeRateLimits(db: Firestore, now: number): Promise<void> {
+  const cutoff = new Date(now);
+  const limits = db.collectionGroup('limits');
+  await deleteDueRows(db, [
+    limits.where('purgeAt', '<=', cutoff),
+    limits.where('windowStartedAt', '<=', new Date(now - RATE_LIMIT_MAX_AGE_MS)),
+  ]);
+  // The guardian-code limit already has an indexed expiry sweep above.
+  for (const [name, expiry] of [
+    ['guardianLimits', 'purgeAt'],
+    ['guardianCodeLimits', 'purgeAt'],
+    ['signInLimits', 'purgeAt'],
+    ['signInCodes', 'purgeAt'],
+    ['signInRequests', 'purgeAt'],
+    ['webhookRateLimits', 'expireAt'],
+    ['shards', 'purgeAfter'],
+  ] as const) {
+    const rows = name === 'shards' ? db.collectionGroup(name) : db.collection(name);
+    if (name !== 'guardianCodeLimits') await deleteDueRows(db, [rows.where(expiry, '<=', cutoff)]);
+    await purgeLegacyCounters(db, name, rows, expiry, now);
   }
 }
 
