@@ -438,7 +438,7 @@ questions:
         rationale: |
           These are the first and last stages, so they seem to cover the whole path. Neither releases carbon dioxide. Check which stages break down pyruvate and acetyl CoA.
     explanation: |
-      Glycolysis only splits glucose into two pyruvates. Pyruvate oxidation removes one carbon from each pyruvate as carbon dioxide. The citric acid cycle releases the remaining carbon, for six carbon dioxide molecules in all.
+      Pyruvate oxidation releases one carbon dioxide molecule from each pyruvate. Two turns of the citric acid cycle release four carbon dioxide molecules overall. Both stages together release six.
     approved: true
 
   - id: q-biology-cellular-respiration-and-fermentation-0006

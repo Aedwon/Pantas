@@ -3602,9 +3602,9 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-biology-atp-and-cell-metabolism",
+    "lesson": "lesson-biology-photosynthesis-inputs-and-products",
     "strength": "helpful",
-    "reason": "This lesson defines ATP, glucose and enzymes itself, but the metabolism lesson gives the photosynthesis side of the comparison and more on enzymes."
+    "reason": "This part gives the photosynthesis equation used in the comparison."
    }
   ],
   "lesson-biology-plant-respiration-in-light-and-dark": [
@@ -3931,9 +3931,14 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-biology-cells-tissues-and-organs",
+    "lesson": "lesson-biology-breathing-and-gas-exchange",
     "strength": "required",
-    "reason": "The systems-working-together section and example use the digestive, respiratory, circulatory and urinary systems and blood transport, and this lesson does not teach them."
+    "reason": "This part explains how oxygen enters the blood at the alveoli."
+   },
+   {
+    "lesson": "lesson-biology-arteries-veins-and-capillaries",
+    "strength": "required",
+    "reason": "This part explains how oxygen and nutrients move from capillaries to cells."
    }
   ],
   "lesson-biology-chromosome-sets-in-mitosis-and-meiosis": [

@@ -18,7 +18,7 @@ replacedBy:
 ---
 ## Core Concept
 
-This lesson covers six systems and how all the systems work together: nervous, endocrine, skeletal, muscular, reproductive, and immune. It builds on "Human Anatomy and Physiology: Digestion, Breathing, Circulation and Excretion", which covers the levels of organization and the digestive, respiratory, circulatory, and urinary systems. Study that lesson first. The reproductive section also uses chromosomes, which are taught in "Cellular Reproduction (Chromosomes, Cell Cycle, Mitosis)"; study that lesson too.
+This lesson covers six systems and how all the systems work together: nervous, endocrine, skeletal, muscular, reproductive, and immune. For how oxygen enters the blood, see Breathing and Gas Exchange. For how capillaries deliver oxygen and nutrients, see Arteries, Veins, and Capillaries. The reproductive section also uses chromosomes, which are taught in "Cellular Reproduction (Chromosomes, Cell Cycle, Mitosis)"; study that lesson too.
 
 ### Nervous System
 
@@ -34,7 +34,7 @@ A **reflex** is a fast, automatic response. In a reflex, the signal can turn aro
 
 The **cerebrum** handles perception, thinking, language, memory, and voluntary movement. The **cerebellum** helps with coordination, timing, and balance. The **brain stem** has centers that control breathing and blood pressure.
 
-Motor control has two branches. **Somatic** control moves skeletal muscle and is usually voluntary, but reflexes such as pulling a hand from a hot pan also use it. **Autonomic** control is automatic and adjusts the heart, smooth muscle, and glands. The heart can beat on its own, but autonomic nerves speed it up or slow it down.
+Motor control has two branches. **Somatic** control moves skeletal muscle and is usually voluntary, but reflexes such as pulling a hand from a hot pan also use it. **Autonomic** control is automatic and adjusts the heart, smooth muscle, and glands. The heart has a built-in **pacemaker** that sends the signal to start each beat. Autonomic nerves can speed up or slow down the heart.
 
 ### Endocrine System
 
@@ -58,7 +58,7 @@ Bones meet at joints. **Ligaments** join bone to bone. **Tendons** join muscle t
 
 ### Muscular System
 
-Muscles make movement by contracting, which means shortening. A muscle can only pull, not push. So skeletal muscles work in pairs, such as the biceps and triceps, which pull the forearm in opposite directions.
+Muscles help you move by contracting. A muscle contracts when it produces force, even if it stays the same length or is stretched by a load. A muscle can only pull, not push. So skeletal muscles work in pairs, such as the biceps and triceps, which pull the forearm in opposite directions.
 
 There are three muscle types:
 
@@ -74,7 +74,7 @@ The testes make sperm and the hormone testosterone. Sperm leave the testis throu
 
 In most cycles, an ovary releases one oocyte (**ovulation**) and it enters the uterine tube, also called the fallopian tube. Fertilization most often happens in the uterine tube, when a sperm fuses with the oocyte. The oocyte completes its last division when the sperm enters.
 
-The fertilized cell is a **zygote** and has $46$ chromosomes. It divides as it moves along the tube. It reaches the **uterus** and attaches to the uterine lining. This attachment is **implantation**.
+The fertilized cell is a **zygote** and has $46$ chromosomes. The zygote divides as it moves along the tube and becomes an early embryo called a **blastocyst**. The blastocyst attaches to the lining of the **uterus**. This attachment is **implantation**.
 
 Hormones tie the cycle together. The pituitary hormones FSH and LH act on the ovary. Estrogen and progesterone from the ovary prepare the uterine lining. If implantation does not happen, the lining is shed.
 
@@ -149,7 +149,7 @@ A sperm fuses with an oocyte. Where does this usually happen, and what are the n
 
 1. Fertilization most often happens in the uterine tube.
 2. The zygote divides as it moves toward the uterus.
-3. It attaches to the uterine lining. This is implantation.
+3. The early embryo attaches to the uterine lining. This is implantation.
 
 ### #6: Innate vs. Adaptive Immunity
 
@@ -166,12 +166,12 @@ A student eats rice, then runs. Trace how glucose and oxygen reach the leg muscl
 
 **Solution:**
 
-1. Digestive system: the rice starch is split into glucose, which is absorbed into blood in the small intestine.
+1. Digestive system: the rice starch is split into glucose, which is absorbed into blood in the small intestine. See Digestion and Nutrient Absorption.
 2. Respiratory system: oxygen diffuses into the blood at the alveoli.
 3. Circulatory system: the heart pumps blood carrying glucose and oxygen to the leg muscles, where capillaries let them pass into the muscle cells.
 4. The muscle cells use them and make $CO_2$. Blood carries the $CO_2$ back to the lungs, and it leaves when the person breathes out.
 5. Nervous system: the brain stem raises the breathing rate and the heart rate to meet the demand.
-6. Urinary system: the kidneys filter the blood and remove wastes in urine.
+6. Urinary system: the kidneys filter the blood and remove wastes in urine. See Kidneys and Waste Removal.
 
 ## Speed Tricks & Shortcuts
 

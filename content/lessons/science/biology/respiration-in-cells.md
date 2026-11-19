@@ -20,8 +20,6 @@ The **cytosol** is the watery fluid in a cell, outside the organelles. A **chlor
 
 A mitochondrion has an outer membrane and a folded inner membrane. The folds are called **cristae**. The space inside the inner membrane is the **matrix**.
 
-<!-- ILLUSTRATION: mitochondrion cut open, labeled outer membrane, inner membrane with cristae, matrix; glycolysis shown outside in the cytosol with glucose to pyruvate; pyruvate oxidation and citric acid cycle in the matrix; electron transport chain and ATP synthase on the inner membrane; oxygen in, water out -->
-
 One glucose gives only $2$ ATP in glycolysis and a few more in the citric acid cycle. Most ATP comes from oxidative phosphorylation.
 
 Current textbooks estimate about $30$ to $32$ ATP per glucose. Older books say $36$ to $38$. The real number varies with the cell type and how the cell moves NADH into the mitochondrion.
@@ -42,6 +40,8 @@ In a plant cell, name the organelle where photosynthesis takes place. Then say w
 4. The electron transport chain and ATP synthase are in the inner mitochondrial membrane.
 5. In plant and algal cells, "chloroplast means photosynthesis" is a good rule. Cyanobacteria photosynthesize without chloroplasts, so the rule does not cover prokaryotes.
 6. "All respiration happens in mitochondria" is too broad. Glycolysis is in the cytosol, and prokaryotes have no mitochondria.
+
+<!-- ILLUSTRATION: mitochondrion cut open, labeled outer membrane, inner membrane with cristae, matrix; glycolysis shown outside in the cytosol with glucose to pyruvate; pyruvate oxidation and citric acid cycle in the matrix; electron transport chain and ATP synthase on the inner membrane; oxygen in, water out -->
 
 <!-- FIGURE: {"kind":"biology-diagram","type":"organelle-comparison","illustrationKey":"science/biology/cellular-metabolism#2","organelles":[{"name":"chloroplast","shape":"disc","appearance":"green","process":"photosynthesis"},{"name":"mitochondrion","shape":"bean","appearance":"folded inner membranes/cristae","process":"cellular respiration"}]} -->
 

@@ -29,7 +29,7 @@ There are two common kinds:
 - **Lactic acid fermentation** turns pyruvate into lactate (lactic acid). It happens in some bacteria and in animal muscle cells working hard. It releases no carbon dioxide.
 - **Alcohol fermentation** turns pyruvate into ethanol and carbon dioxide. Yeast does this. The carbon dioxide makes bread dough rise.
 
-Many cells, including yeast and human muscle, use aerobic respiration when oxygen is present and ferment when it is not. Some bacteria are **obligate anaerobes**, which means oxygen harms them.
+Fermentation can happen without oxygen. With oxygen present, hard-working muscles can still make lactate and bread yeast can still ferment when sugar is plentiful. Some bacteria are **obligate anaerobes**, which means oxygen harms them.
 
 ## Examples
 

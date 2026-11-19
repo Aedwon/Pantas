@@ -23,7 +23,7 @@ Bones meet at joints. **Ligaments** join bone to bone. **Tendons** join muscle t
 
 ### Muscular System
 
-Muscles make movement by contracting, which means shortening. A muscle can only pull, not push. So skeletal muscles work in pairs, such as the biceps and triceps, which pull the forearm in opposite directions.
+Muscles help you move by contracting. A muscle contracts when it produces force, even if it stays the same length or is stretched by a load. A muscle can only pull, not push. So skeletal muscles work in pairs, such as the biceps and triceps, which pull the forearm in opposite directions.
 
 There are three muscle types:
 

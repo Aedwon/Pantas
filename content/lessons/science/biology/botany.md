@@ -19,7 +19,7 @@ replacedBy:
 
 **Botany** is the study of plants. This lesson covers flowering and other vascular plants. A **vascular plant** has tubes inside it that carry water and food.
 
-The lesson has three parts: the tissues that make up a plant, the way plants grow toward or away from things, and the way flowering plants make seeds.
+The botany series covers plant tissues, growth responses, and how flowering plants make seeds.
 
 ### Plant Tissue Types
 
@@ -37,7 +37,7 @@ Phloem moves sugar from sources to sinks. Because sources and sinks sit in diffe
 
 Xylem and phloem are made of different cells. The water-carrying xylem cells are dead when mature. They are hollow tubes.
 
-All vascular plants have **tracheids**. Flowering plants also have wider tubes called **vessel elements**. Xylem also has living cells, called parenchyma cells.
+All vascular plants have **tracheids**. Most flowering plants also have wider tubes called **vessels**. Each vessel is made of cells called **vessel elements**. Xylem also has living cells, called parenchyma cells.
 
 The sugar-carrying cells of phloem, called **sieve elements**, are alive when mature. In flowering plants, each sieve element works beside a living **companion cell**. Conifers and ferns have a different kind of sieve element and different helper cells, not companion cells.
 
@@ -63,7 +63,7 @@ Flowering plants reproduce sexually. **Sexual reproduction** joins a male and a 
 
 The **anther** is the part that makes **pollen**. Pollen is a powdery grain. Each pollen grain holds the cells that will make sperm, the male gametes.
 
-The anther sits on a thin stalk. Anther and stalk together are the **stamen**, the male part.
+The anther sits on a thin stalk called the **filament**. Anther and stalk together are the **stamen**, the male part.
 
 The female part is the **pistil**. It has three regions. The **stigma** is the sticky top that catches pollen. The **style** is the tube-like stalk below the stigma. The **ovary** is the swollen base.
 
@@ -75,11 +75,11 @@ Inside the ovary are one or more **ovules**. An ovule holds the female gamete, t
 
 Reproduction in a flowering plant is a chain of steps. Each step has its own name.
 
-**Pollination** is the arrival of pollen on a stigma of the same species. The pollen can come from the same flower, another flower on the same plant, or a flower on a different plant. Wind, water, insects and other animals can carry it.
+In flowering plants, **pollination** is the transfer of pollen from an anther to a stigma. The pollen can come from the same flower, another flower on the same plant, or a flower on a different plant. Wind, water, insects and other animals can carry it.
 
 Pollination only moves pollen. It does not join any gametes.
 
-After pollination, the pollen grain grows a thin tube, the **pollen tube**. The tube grows down through the style to an ovule. It carries two sperm cells.
+After pollination, pollen that is a good match for the flower can start growing. This is called **germination**. The pollen grows a thin tube called a **pollen tube**. The tube grows down through the style to an ovule. It carries two sperm cells.
 
 **Fertilization** is the fusion of gametes. In flowering plants it happens twice, which is called **double fertilization**:
 
@@ -157,7 +157,7 @@ Separate the transfer step from the gamete-fusion step.
 
 1. Leaving pollen on the stigma is pollination.
 2. The sperm joining the egg is fertilization.
-3. Pollination comes first, then the pollen tube grows, then fertilization.
+3. In this example, pollination comes first. Then the pollen tube grows and fertilization follows.
 
 ### #7: Tracing Double Fertilization
 

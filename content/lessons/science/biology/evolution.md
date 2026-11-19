@@ -26,7 +26,7 @@ A **gene** is a section of DNA that helps control a trait. An **allele** is one 
 
 A **chromosome** is a long strand of DNA that carries many genes. A **genotype** is the set of alleles an individual carries for a gene.
 
-In a diploid organism made by sexual reproduction, most genes lie on chromosomes that are not sex chromosomes, and they come as a pair, one allele from each parent. In humans, a male has only one allele for most genes on the X chromosome. A haploid organism, such as a bacterium, has one copy of each gene.
+In a diploid organism made by sexual reproduction, most genes lie on chromosomes that are not sex chromosomes, and they come as a pair, one allele from each parent. In humans, a male has only one allele for most genes on the X chromosome. A **haploid** cell has one set of chromosomes. Many bacteria have one main chromosome, but they can also carry small extra loops of DNA called plasmids.
 
 A **phenotype** is the trait you can see or measure, such as green or brown color. A **population** is a group of the same kind of organism living in one place and able to breed with each other.
 
@@ -36,7 +36,7 @@ In asexual reproduction, such as a bacterium splitting in two, one parent passes
 
 ### What Evolution Is
 
-**Evolution** is a change in the inherited makeup of a population from one generation to the next. Individuals do not evolve. Populations do.
+**Evolution** is a change in the inherited makeup of a population from one generation to the next. Individuals do not evolve. Populations do. Darwin called this descent with modification. Species can share ancestors, and inherited traits can change across generations.
 
 Scientists track this change with allele frequency. The **allele frequency** is the share of all copies of a gene that are one particular allele. If a population has $100$ copies of a gene and $30$ are the brown allele, the brown allele frequency is $\dfrac{30}{100} = 0.30$.
 
@@ -78,7 +78,7 @@ Natural selection needs three things.
 2. **Heritability**: some of that variation is passed on through alleles.
 3. **Differential reproductive success**: in a given environment, some heritable variants leave more surviving offspring than others.
 
-When all three hold, the favored variants usually become more common over generations. **Fitness** means how many offspring survive to reproduce, compared with others in the population. It does not mean strength or a long life.
+When traits vary, can be passed down, and help some individuals leave more offspring than others, those traits tend to become more common over generations. **Fitness** means how many offspring survive to reproduce, compared with others in the population. It does not mean strength or a long life.
 
 An **adaptation** is a heritable trait that helps its bearers survive and reproduce in their environment. Selection works on the traits individuals have, but only the population changes.
 

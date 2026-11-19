@@ -19,7 +19,7 @@ A **gene** is a section of DNA that helps control a trait. An **allele** is one 
 
 A **chromosome** is a long strand of DNA that carries many genes. A **genotype** is the set of alleles an individual carries for a gene.
 
-In a diploid organism made by sexual reproduction, most genes lie on chromosomes that are not sex chromosomes, and they come as a pair, one allele from each parent. In humans, a male has only one allele for most genes on the X chromosome. A haploid organism, such as a bacterium, has one copy of each gene.
+In a diploid organism made by sexual reproduction, most genes lie on chromosomes that are not sex chromosomes, and they come as a pair, one allele from each parent. In humans, a male has only one allele for most genes on the X chromosome. A **haploid** cell has one set of chromosomes. Many bacteria have one main chromosome, but they can also carry small extra loops of DNA called plasmids.
 
 A **phenotype** is the trait you can see or measure, such as green or brown color. A **population** is a group of the same kind of organism living in one place and able to breed with each other.
 

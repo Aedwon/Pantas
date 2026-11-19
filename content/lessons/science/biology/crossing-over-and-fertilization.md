@@ -37,4 +37,4 @@ Two genes are close together on the same chromosome. One homolog carries $A$ and
 
 The crossing-over example in this part was Example #7 in the original lesson.
 
-For genes on different chromosome pairs, crossing over adds no new allele combinations. It matters for genes on the same chromosome, as in Example #7.
+For genes on different chromosome pairs, crossing over adds no new allele combinations. It matters for genes on the same chromosome, as in the example on crossing over above.

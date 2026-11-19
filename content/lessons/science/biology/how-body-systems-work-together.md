@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-This lesson covers six systems and how all the systems work together: nervous, endocrine, skeletal, muscular, reproductive, and immune. It builds on "Human Anatomy and Physiology: Digestion, Breathing, Circulation and Excretion", which covers the levels of organization and the digestive, respiratory, circulatory, and urinary systems. Study that lesson first. The reproductive section also uses chromosomes, which are taught in "Cellular Reproduction (Chromosomes, Cell Cycle, Mitosis)"; study that lesson too.
+For how oxygen enters the blood, see Breathing and Gas Exchange. For how capillaries deliver oxygen and nutrients, see Arteries, Veins, and Capillaries.
 
 ### How the Systems Work Together
 
@@ -27,12 +27,12 @@ A student eats rice, then runs. Trace how glucose and oxygen reach the leg muscl
 
 **Solution:**
 
-1. Digestive system: the rice starch is split into glucose, which is absorbed into blood in the small intestine.
+1. Digestive system: the rice starch is split into glucose, which is absorbed into blood in the small intestine. See Digestion and Nutrient Absorption.
 2. Respiratory system: oxygen diffuses into the blood at the alveoli.
 3. Circulatory system: the heart pumps blood carrying glucose and oxygen to the leg muscles, where capillaries let them pass into the muscle cells.
 4. The muscle cells use them and make $CO_2$. Blood carries the $CO_2$ back to the lungs, and it leaves when the person breathes out.
 5. Nervous system: the brain stem raises the breathing rate and the heart rate to meet the demand.
-6. Urinary system: the kidneys filter the blood and remove wastes in urine.
+6. Urinary system: the kidneys filter the blood and remove wastes in urine. See Kidneys and Waste Removal.
 
 ## Speed Tricks & Shortcuts
 

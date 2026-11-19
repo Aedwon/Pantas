@@ -39,7 +39,7 @@ The digestive system breaks food into small molecules the body can absorb, and t
 
 **Mechanical digestion** physically breaks food into smaller pieces, such as chewing. **Chemical digestion** uses **enzymes**, which are molecules that speed up chemical reactions, to split food molecules. Almost all enzymes are proteins, and every enzyme named in this lesson is a protein.
 
-The path of food is: **mouth** → **esophagus** → **stomach** → **small intestine** → **large intestine**. In the mouth, teeth chew and saliva contains salivary amylase, an enzyme that starts to split starch. The esophagus pushes food down by wave-like squeezing. The stomach churns food and adds acid and an enzyme that begins protein digestion.
+Here is the path from the mouth through the large intestine: **mouth** → **esophagus** → **stomach** → **small intestine** → **large intestine**. In the mouth, teeth chew and saliva contains salivary amylase, an enzyme that starts to split starch. The esophagus pushes food down by wave-like squeezing. The stomach churns food and adds acid and an enzyme that begins protein digestion.
 
 The **small intestine** is where most chemical digestion and most nutrient absorption happen. Its inner wall has tiny finger-like folds called villi. They give a very large surface for absorbing nutrients into the blood. The **large intestine** absorbs water and electrolytes (dissolved salts) and compacts the leftover material into feces.
 

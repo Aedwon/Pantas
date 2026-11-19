@@ -19,15 +19,15 @@ A pedigree gives a best fit, not proof. A small family can fit more than one pat
 
 ### #1: X-Linked Pedigree
 
-A rare trait affects two sons of unaffected parents. Their unaffected sister marries an unaffected man from a family with no history of the trait. Their son is affected. Assume one gene and a rare trait. Which pattern fits best?
+A rare trait affects two sons of unaffected parents. Their unaffected sister marries an unaffected man from a family with no history of the trait. Their son is affected. Assume one gene, no new mutations, and that everyone with a genotype for the trait shows it. Which pattern fits best?
 
 **Solution:**
 
-1. The trait skips the parents, so it is recessive.
+1. Under these assumptions, two unaffected parents can have affected children if the trait is recessive.
 2. If it were autosomal recessive, the sister's husband would also need to be a carrier. For a rare trait from a family with no history, that is unlikely.
-3. If it is X-linked recessive, the sister is a carrier ($X^CX^c$). Her son gets her $X^c$ half of the time, so an affected son is likely.
+3. If the trait is X-linked recessive, her affected son got $X^c$ from her. She does not show the trait, so she must be a carrier ($X^CX^c$).
 
-The pattern is X-linked recessive.
+X-linked recessive is the best fit of these two patterns.
 
 ## Traps to Watch For
 

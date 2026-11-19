@@ -346,7 +346,7 @@ questions:
         correct: true
       - text: 'The stomach'
         rationale: |
-          This picks the organ that churns food and adds acid. It handles food early on, so it can seem to handle all of it. Check which organ comes last on the food path.
+          This picks the organ that churns food and adds acid. It handles food early on, so it can seem to handle all of it. Check which organ turns leftover material into feces.
       - text: 'The esophagus'
         rationale: |
           This picks the tube that pushes food down by wave-like squeezing. Food moves through it, so it seems involved. Check whether this organ absorbs anything or only moves food.
@@ -354,7 +354,7 @@ questions:
         rationale: |
           This picks the main site of nutrient absorption. Absorption is the right idea, so it seems to fit. Check which organ forms feces from the leftover material.
     explanation: |
-      The large intestine is the last organ on the food path. It absorbs water and electrolytes from the leftover material. It then compacts what remains into feces.
+      The large intestine absorbs water and electrolytes from the leftover material. It then compacts what remains into feces.
     approved: true
 
   - id: q-biology-human-anatomy-physiology-0026

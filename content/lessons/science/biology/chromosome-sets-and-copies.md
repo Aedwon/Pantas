@@ -28,7 +28,7 @@ The two chromosomes in the pair are called **homologs**. One came from the mothe
 
 Homologs carry the same genes in the same order. They are not copies of each other. At a given gene they may carry the same allele or different alleles.
 
-The sex chromosomes are the exception. In human males, X and Y pair up in meiosis, but they are not fully homologous. They share only a small matching region and carry mostly different genes.
+The sex chromosomes are the exception. In human males, X and Y pair up in meiosis, but they are not fully homologous. They share only small matching regions and carry mostly different genes.
 
 A cell with two of each kind of chromosome is **diploid**. We write this as $2n$. A cell with one of each kind is **haploid**, written $n$. In humans, $n = 23$ and $2n = 46$.
 

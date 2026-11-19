@@ -16,7 +16,7 @@ keyPoints:
 
 ### What Evolution Is
 
-**Evolution** is a change in the inherited makeup of a population from one generation to the next. Individuals do not evolve. Populations do.
+**Evolution** is a change in the inherited makeup of a population from one generation to the next. Individuals do not evolve. Populations do. Darwin called this descent with modification. Species can share ancestors, and inherited traits can change across generations.
 
 Scientists track this change with allele frequency. The **allele frequency** is the share of all copies of a gene that are one particular allele. If a population has $100$ copies of a gene and $30$ are the brown allele, the brown allele frequency is $\dfrac{30}{100} = 0.30$.
 

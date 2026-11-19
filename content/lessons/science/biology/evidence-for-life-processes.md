@@ -20,7 +20,7 @@ Biology is the study of life. Defining "alive" is not as simple as checking one 
 
 Biologists list a set of properties that living things show together. Use the list as a framework. A living thing does not have to show every property at every moment.
 
-### The Seven Properties
+### Five Properties to Look For
 
 **Cellular organization**: every known living organism is made of one or more **cells**. A cell is the smallest unit that can carry out the work of life.
 
@@ -52,6 +52,6 @@ A mushroom absorbs nutrients from decaying wood, grows, releases spores, and cha
 
 1. Taking in and using nutrients shows energy processing (metabolism).
 2. The question says the mushroom grows, which shows growth and development.
-3. Releasing spores shows reproduction.
+3. **Reproduction** means making new organisms. Releasing spores that can grow into new mushrooms is a step in reproduction.
 4. Changing growth because of the surroundings shows response to stimuli.
 5. Cellular organization is not described. We infer it, because we know a mushroom is a fungus and fungi are made of cells.

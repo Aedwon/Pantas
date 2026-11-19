@@ -27,7 +27,7 @@ A **reflex** is a fast, automatic response. In a reflex, the signal can turn aro
 
 The **cerebrum** handles perception, thinking, language, memory, and voluntary movement. The **cerebellum** helps with coordination, timing, and balance. The **brain stem** has centers that control breathing and blood pressure.
 
-Motor control has two branches. **Somatic** control moves skeletal muscle and is usually voluntary, but reflexes such as pulling a hand from a hot pan also use it. **Autonomic** control is automatic and adjusts the heart, smooth muscle, and glands. The heart can beat on its own, but autonomic nerves speed it up or slow it down.
+Motor control has two branches. **Somatic** control moves skeletal muscle and is usually voluntary, but reflexes such as pulling a hand from a hot pan also use it. **Autonomic** control is automatic and adjusts the heart, smooth muscle, and glands. The heart has a built-in **pacemaker** that sends the signal to start each beat. Autonomic nerves can speed up or slow down the heart.
 
 ## Examples
 

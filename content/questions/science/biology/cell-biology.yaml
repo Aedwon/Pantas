@@ -450,7 +450,7 @@ questions:
     type: "classify"
     difficulty: "exam"
     stem: |
-      A transporter uses an existing ion gradient to move a nutrient against its own concentration gradient. The transporter does not split ATP directly. Which classification is correct?
+      A transporter uses an existing ion gradient to move an uncharged nutrient against its own concentration gradient. The transporter does not split ATP directly. Which classification is correct?
     choices:
       - text: "Secondary active transport"
         correct: true

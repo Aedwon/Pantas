@@ -16,7 +16,7 @@ keyPoints:
 
 **Botany** is the study of plants. This lesson covers flowering and other vascular plants. A **vascular plant** has tubes inside it that carry water and food.
 
-The lesson has three parts: the tissues that make up a plant, the way plants grow toward or away from things, and the way flowering plants make seeds.
+The botany series covers plant tissues, growth responses, and how flowering plants make seeds.
 
 ### Plant Tissue Types
 
@@ -28,7 +28,7 @@ A **tissue** is a group of similar cells that work together. A plant body has th
 
 **Xylem** carries water and dissolved minerals from the roots up through the plant. The pull comes mostly from **transpiration**, which is water evaporating from the leaves. So the main xylem stream moves toward the leaves.
 
-All vascular plants have **tracheids**. Flowering plants also have wider tubes called **vessel elements**. Xylem also has living cells, called parenchyma cells.
+All vascular plants have **tracheids**. Most flowering plants also have wider tubes called **vessels**. Each vessel is made of cells called **vessel elements**. Xylem also has living cells, called parenchyma cells.
 
 **Ground tissue** is everything else. It fills the space between the dermal tissue and the vascular tissue. Depending on the organ, it does photosynthesis (making sugar from light, water and carbon dioxide), stores food, or gives support.
 

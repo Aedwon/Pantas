@@ -16,9 +16,9 @@ keyPoints:
 
 Aerobic respiration in a eukaryote has four stages:
 
-1. **Glycolysis** (in the cytosol) splits one glucose, which has six carbons, into two **pyruvate** molecules, which have three carbons each. It gives a net gain of $2$ ATP and makes $2$ NADH. NADH is an electron carrier made when **NAD+** gains electrons. Glycolysis needs no oxygen.
-2. **Pyruvate oxidation** (in the mitochondrial matrix) turns each pyruvate into a two-carbon unit called acetyl CoA. One carbon leaves each time as carbon dioxide. More NADH forms.
-3. The **citric acid cycle** (in the matrix) breaks acetyl CoA down further. It releases the rest of the carbon as carbon dioxide and makes a little ATP. It also fills NADH and a second carrier, FADH$_2$, with electrons.
+1. **Glycolysis** (in the cytosol, the watery fluid outside the organelles) splits one glucose, which has six carbons, into two **pyruvate** molecules, which have three carbons each. It gives a net gain of $2$ ATP and makes $2$ NADH. NADH is an electron carrier made when **NAD+** gains electrons. Glycolysis needs no oxygen.
+2. **Pyruvate oxidation** (in the matrix, the space inside the inner membrane of a mitochondrion) turns each pyruvate into a two-carbon unit called acetyl CoA. One carbon leaves each time as carbon dioxide. More NADH forms.
+3. The **citric acid cycle** (in the matrix) breaks acetyl CoA down further. It releases carbon dioxide and makes a little ATP. It passes electrons to NAD$^+$ and FAD, forming NADH and FADH$_2$.
 4. **Oxidative phosphorylation** (in the inner mitochondrial membrane) is where NADH and FADH$_2$ drop off their electrons. The electrons pass along a chain of proteins, the **electron transport chain**. The energy pumps hydrogen ions (H$^+$) across the membrane.
 
 The hydrogen ions then flow back through an enzyme called **ATP synthase**, which makes most of the ATP. Think of water that builds up behind a dam and turns a turbine as it flows through. At the end of the chain, oxygen takes the electrons and combines with H$^+$ to form water.
@@ -33,7 +33,7 @@ In aerobic respiration of one glucose, at which stages is carbon dioxide release
 
 1. Glucose has six carbons. Glycolysis splits it into two pyruvate molecules of three carbons each. No carbon is lost here.
 2. Pyruvate oxidation removes one carbon from each pyruvate as carbon dioxide. That gives $2$ carbon dioxide.
-3. The citric acid cycle releases the remaining four carbons as $4$ carbon dioxide. The total is $6$.
+3. Two turns of the citric acid cycle release $4$ carbon dioxide molecules overall. The first turn releases carbons that were already in the cycle. The total from both stages is $6$ carbon dioxide molecules.
 4. Oxygen is used at the end of the electron transport chain. It accepts electrons and forms water.
 
 Carbon dioxide is released in pyruvate oxidation and the citric acid cycle. Oxygen is used in oxidative phosphorylation.
