@@ -7,6 +7,10 @@ topic: "topic-mechanical-technical-reasoning"
 estimatedMinutes: 9
 ordering: 4
 isActive: true
+status: retired
+replacedBy:
+  - lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+  - lesson-mechanical-technical-reasoning-spring-extension-under-weight
 ---
 ## Core Concept
 

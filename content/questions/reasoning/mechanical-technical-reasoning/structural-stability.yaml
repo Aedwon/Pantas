@@ -7,6 +7,8 @@ meta:
     - "upcat"
 questions:
   - id: "q-mechanical-technical-reasoning-structural-stability-0001"
+    lesson: lesson-mechanical-technical-reasoning-locating-the-center-of-gravity
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "easy"
     stem: |
@@ -34,6 +36,8 @@ questions:
           baseWidth: 2
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0002"
+    lesson: lesson-mechanical-technical-reasoning-finding-the-base-of-support
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "easy"
     stem: |
@@ -61,6 +65,8 @@ questions:
           baseWidth: 2
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0003"
+    lesson: lesson-mechanical-technical-reasoning-weight-line-and-tipping
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "medium"
     stem: |
@@ -88,6 +94,8 @@ questions:
           baseWidth: 2
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0004"
+    lesson: lesson-mechanical-technical-reasoning-comparing-tipping-angles
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "medium"
     stem: |
@@ -118,6 +126,8 @@ questions:
           baseWidth: 1
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0005"
+    lesson: lesson-mechanical-technical-reasoning-weight-line-and-tipping
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "medium"
     stem: |
@@ -146,6 +156,8 @@ questions:
           height: 3
       tilt: 22
   - id: "q-mechanical-technical-reasoning-structural-stability-0006"
+    lesson: lesson-mechanical-technical-reasoning-why-vehicles-roll-in-turns
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "medium"
     stem: |
@@ -176,6 +188,8 @@ questions:
           baseWidth: 2
           height: 1
   - id: "q-mechanical-technical-reasoning-structural-stability-0007"
+    lesson: lesson-mechanical-technical-reasoning-finding-the-base-of-support
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "medium"
     stem: |
@@ -206,6 +220,8 @@ questions:
           baseWidth: 3
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0008"
+    lesson: lesson-mechanical-technical-reasoning-comparing-tipping-angles
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "hard"
     stem: |
@@ -236,6 +252,8 @@ questions:
           baseWidth: 3
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0009"
+    lesson: lesson-mechanical-technical-reasoning-comparing-tipping-angles
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "hard"
     stem: |
@@ -263,6 +281,8 @@ questions:
           baseWidth: 2
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0010"
+    lesson: lesson-mechanical-technical-reasoning-comparing-tipping-angles
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "hard"
     stem: |
@@ -293,6 +313,8 @@ questions:
           baseWidth: 1
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0011"
+    lesson: lesson-mechanical-technical-reasoning-weight-line-and-tipping
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "medium"
     stem: |
@@ -313,6 +335,8 @@ questions:
       For a self-righting toy with its center of gravity below the center of its rounded base, a sideways tilt raises its center of gravity. Gravity then gives a turning force toward the lower-energy upright position. This is the physical reason a properly designed toy rocks back up.
     approved: true
   - id: "q-mechanical-technical-reasoning-structural-stability-0012"
+    lesson: lesson-mechanical-technical-reasoning-why-vehicles-roll-in-turns
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "hard"
     stem: |
@@ -343,6 +367,8 @@ questions:
           baseWidth: 2
           height: 1
   - id: "q-mechanical-technical-reasoning-structural-stability-0013"
+    lesson: lesson-mechanical-technical-reasoning-weight-line-and-tipping
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "hard"
     stem: |
@@ -370,6 +396,8 @@ questions:
           baseWidth: 3
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0014"
+    lesson: lesson-mechanical-technical-reasoning-weight-line-and-tipping
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "hard"
     stem: |
@@ -398,6 +426,8 @@ questions:
           height: 3
       tilt: 15
   - id: "q-mechanical-technical-reasoning-structural-stability-0015"
+    lesson: lesson-mechanical-technical-reasoning-comparing-tipping-angles
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "hard"
     stem: |
@@ -428,6 +458,8 @@ questions:
           baseWidth: 2
           height: 1
   - id: "q-mechanical-technical-reasoning-structural-stability-0016"
+    lesson: lesson-mechanical-technical-reasoning-locating-the-center-of-gravity
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "easy"
     stem: |
@@ -455,6 +487,8 @@ questions:
           baseWidth: 2
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0017"
+    lesson: lesson-mechanical-technical-reasoning-locating-the-center-of-gravity
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "medium"
     stem: |
@@ -482,6 +516,8 @@ questions:
           baseWidth: 2
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0018"
+    lesson: lesson-mechanical-technical-reasoning-pushing-an-object-over
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "hard"
     stem: |
@@ -509,6 +545,8 @@ questions:
           baseWidth: 2
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0019"
+    lesson: lesson-mechanical-technical-reasoning-comparing-tipping-angles
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "hard"
     stem: |
@@ -539,6 +577,8 @@ questions:
           baseWidth: 3
           height: 2
   - id: "q-mechanical-technical-reasoning-structural-stability-0020"
+    lesson: lesson-mechanical-technical-reasoning-comparing-tipping-angles
+    keyPoint: 1
     type: "structural-stability"
     difficulty: "exam"
     stem: |

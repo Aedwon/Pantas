@@ -8,6 +8,8 @@ meta:
     - "dlsucet"
 questions:
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0001"
+    lesson: lesson-mechanical-technical-reasoning-ideal-mechanical-advantage
+    keyPoint: 2
     type: "pulley-lever"
     difficulty: "easy"
     figure: "pulleys-and-levers-01"
@@ -33,6 +35,8 @@ questions:
       The weight is $50 \times 9.8=490$ N. One rope segment supports the load. For steady lifting, its tension and the effort each equal 490 N.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0002"
+    lesson: lesson-mechanical-technical-reasoning-supporting-rope-segments
+    keyPoint: 2
     type: "pulley-lever"
     difficulty: "easy"
     figure: "pulleys-and-levers-02"
@@ -58,6 +62,8 @@ questions:
       The load weighs $60 \times 10=600$ N. Two equal tensions support it, so effort is $600/2=300$ N. Each supporting segment shortens by 2 m, requiring $2 \times 2=4$ m of free-end travel.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0003"
+    lesson: lesson-mechanical-technical-reasoning-ideal-mechanical-advantage
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "medium"
     figure: "pulleys-and-levers-03"
@@ -84,6 +90,8 @@ questions:
       Ideal effort work equals the gain in gravitational energy. For each load that gain is $800 \times 3=2400$ J. The movable system trades lower force for greater rope travel.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0004"
+    lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "medium"
     figure: "pulleys-and-levers-04"
@@ -109,6 +117,8 @@ questions:
       The load torque is $980 \times 2=1960$ N m. The opposite effort torque must match it. Thus $5F=1960$, giving $F=392$ N.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0005"
+    lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "medium"
     figure: "pulleys-and-levers-05"
@@ -134,6 +144,8 @@ questions:
       The left torque is $900 \times 3=2700$ N m. The right torque is $200 \times 9=1800$ N m. The greater left torque turns the load end down.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0006"
+    lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "medium"
     figure: "pulleys-and-levers-06"
@@ -159,6 +171,8 @@ questions:
       The new load torque is $1000 \times 1=1000$ N m. Static balance requires $5F=1000$. Therefore $F=200$ N.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0007"
+    lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "medium"
     figure: "pulleys-and-levers-07"
@@ -184,6 +198,8 @@ questions:
       The load torque is $1000 \times 4=4000$ N m. With 500 N of effort, $500d=4000$. The required distance is $d=8$ m.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0008"
+    lesson: lesson-mechanical-technical-reasoning-ideal-mechanical-advantage
+    keyPoint: 2
     type: "pulley-lever"
     difficulty: "hard"
     figure: "pulleys-and-levers-08"
@@ -209,6 +225,8 @@ questions:
       The fixed pulley changes the rope direction. This allows effort to be applied in a convenient direction while tension still equals the load weight.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0009"
+    lesson: lesson-mechanical-technical-reasoning-supporting-rope-segments
+    keyPoint: 2
     type: "pulley-lever"
     difficulty: "hard"
     figure: "pulleys-and-levers-09"
@@ -234,6 +252,8 @@ questions:
       Both supporting segments shorten by 0.8 m. The free end must supply their total shortening: $2 \times 0.8=1.6$ m.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0010"
+    lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "hard"
     figure: "pulleys-and-levers-10"
@@ -259,6 +279,8 @@ questions:
       Each torque is its force times its own perpendicular distance. The effort torque is $5F$ and the load torque is $2W$. Opposite torques match in static balance.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0011"
+    lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "hard"
     figure: "pulleys-and-levers-11"
@@ -284,6 +306,8 @@ questions:
       The effort torque is $250 \times 8=2000$ N m. Balance gives $1000d=2000$. Thus $d=2$ m.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0012"
+    lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "hard"
     figure: "pulleys-and-levers-12"
@@ -309,6 +333,8 @@ questions:
       The load torque is $900 \times 3=2700$ N m. Balance requires $150d=2700$. The effort arm is $d=18$ m.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0013"
+    lesson: lesson-mechanical-technical-reasoning-supporting-rope-segments
+    keyPoint: 2
     type: "pulley-lever"
     difficulty: "hard"
     figure: "pulleys-and-levers-13"
@@ -334,6 +360,8 @@ questions:
       In an ideal single rope, the tension $T$ is the same in both supports, so the total upward force is $2T$. If the block is at rest or moves at constant speed, the forces balance: $2T=640$, so $T=320$ N. The free-end effort equals that rope tension.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0014"
+    lesson: lesson-mechanical-technical-reasoning-ideal-mechanical-advantage
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "hard"
     figure: "pulleys-and-levers-14"
@@ -359,6 +387,8 @@ questions:
       Mechanical work requires displacement in the force direction. The lever is motionless, so the effort point moves zero distance. Its mechanical work is zero.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0015"
+    lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
+    keyPoint: 2
     type: "pulley-lever"
     difficulty: "exam"
     figure: "pulleys-and-levers-15"
@@ -384,6 +414,8 @@ questions:
       The lever balance gives $8F=1000(2)$, so $F=250$ N. For the stated two-support pulley, $2T=1000$, so its effort is 500 N.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0016"
+    lesson: lesson-mechanical-technical-reasoning-supporting-rope-segments
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "easy"
     figure: "pulleys-and-levers-16"
@@ -410,6 +442,8 @@ questions:
       The lower pulley belongs to the moving block. Its axle is attached to the load, so it rises with that load. This is what makes it a movable pulley.
     approved: false
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0017"
+    lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "medium"
     figure: "pulleys-and-levers-17"
@@ -435,6 +469,8 @@ questions:
       The required effort is the load multiplied by load arm divided by effort arm. Doubling both arms leaves that ratio unchanged. The balancing effort therefore stays the same.
     approved: false
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0018"
+    lesson: lesson-mechanical-technical-reasoning-ideal-mechanical-advantage
+    keyPoint: 3
     type: "pulley-lever"
     difficulty: "hard"
     figure: "pulleys-and-levers-18"
@@ -460,6 +496,8 @@ questions:
       Friction opposes motion and uses some input energy. The input must cover both lifting the weight and overcoming that resistance. The required pull is therefore greater than the ideal 300 N.
     approved: false
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0019"
+    lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "exam"
     figure: "pulleys-and-levers-19"
@@ -485,6 +523,8 @@ questions:
       The new load torque is twice the force times half the arm. Those factors cancel, leaving the original torque. With the effort arm unchanged, the same effort balances it.
     approved: false
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0020"
+    lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
+    keyPoint: 1
     type: "pulley-lever"
     difficulty: "exam"
     figure: "pulleys-and-levers-20"

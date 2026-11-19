@@ -7,6 +7,16 @@ topic: "topic-mechanical-technical-reasoning"
 estimatedMinutes: 14
 ordering: 10
 isActive: true
+status: retired
+replacedBy:
+  - lesson-mechanical-technical-reasoning-locating-the-center-of-gravity
+  - lesson-mechanical-technical-reasoning-finding-the-base-of-support
+  - lesson-mechanical-technical-reasoning-weight-line-and-tipping
+  - lesson-mechanical-technical-reasoning-finding-the-tipping-angle
+  - lesson-mechanical-technical-reasoning-comparing-tipping-angles
+  - lesson-mechanical-technical-reasoning-combined-center-of-gravity
+  - lesson-mechanical-technical-reasoning-pushing-an-object-over
+  - lesson-mechanical-technical-reasoning-why-vehicles-roll-in-turns
 ---
 ## Core Concept
 

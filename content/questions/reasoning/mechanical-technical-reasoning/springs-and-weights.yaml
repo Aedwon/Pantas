@@ -6,6 +6,8 @@ meta:
     - "dost-sei"
 questions:
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0001"
+    lesson: lesson-mechanical-technical-reasoning-spring-extension-under-weight
+    keyPoint: 2
     type: "spring-weight"
     difficulty: "easy"
     figure: "springs-and-weights-01"
@@ -31,6 +33,8 @@ questions:
       The mass and weight increase by $8/2=4$. For the same spring in its linear range, extension increases by that same factor. Thus $5 \times 4=20$ cm.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0002"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 2
     type: "spring-weight"
     difficulty: "easy"
     figure: "springs-and-weights-02"
@@ -56,6 +60,8 @@ questions:
       Convert $6$ cm to $0.06$ m. Hooke's law gives $k=F/x=30/0.06=500$ N/m.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0003"
+    lesson: lesson-mechanical-technical-reasoning-spring-extension-under-weight
+    keyPoint: 2
     type: "spring-weight"
     difficulty: "medium"
     figure: "springs-and-weights-03"
@@ -81,6 +87,8 @@ questions:
       The extension increases by $20/4=5$. The mass increases by the same factor in unchanged gravity. The attached mass is $1 \times 5=5$ kg.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0004"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 1
     type: "spring-weight"
     difficulty: "medium"
     figure: "springs-and-weights-04"
@@ -106,6 +114,8 @@ questions:
       Extension measures the change from the unstretched length. Subtract $18-12=6$ cm. That is the displacement used in Hooke's law.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0005"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 2
     type: "spring-weight"
     difficulty: "medium"
     figure: "springs-and-weights-05"
@@ -134,6 +144,8 @@ questions:
       For equal force, $k=F/x$. The smaller extension therefore gives the greater spring constant. Spring A extends only 3 cm, so it is stiffer.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0006"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 1
     type: "spring-weight"
     difficulty: "medium"
     figure: "springs-and-weights-06"
@@ -159,6 +171,8 @@ questions:
       The extension is $x=12/200=0.06$ m, or 6 cm. Add it to the natural length: $10+6=16$ cm.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0007"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 2
     type: "spring-weight"
     difficulty: "medium"
     figure: "springs-and-weights-07"
@@ -187,6 +201,8 @@ questions:
       Equal test forces show that $k_A/k_B=10/4=2.5$. At the same extension, force is proportional to stiffness. A therefore needs 2.5 times B's force.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0008"
+    lesson: lesson-mechanical-technical-reasoning-spring-extension-under-weight
+    keyPoint: 2
     type: "spring-weight"
     difficulty: "hard"
     figure: "springs-and-weights-08"
@@ -212,6 +228,8 @@ questions:
       The mass ratio is $3/2=1.5$. Multiply the original extension by that ratio: $4 \times 1.5=6$ cm.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0009"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 1
     type: "spring-weight"
     difficulty: "hard"
     figure: "springs-and-weights-09"
@@ -237,6 +255,8 @@ questions:
       A stretched spring pulls back toward its unstretched length. Here the displacement is downward. Its restoring force on the mass is therefore upward.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0010"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 2
     type: "spring-weight"
     difficulty: "hard"
     figure: "springs-and-weights-10"
@@ -265,6 +285,8 @@ questions:
       The extensions are equal, so $k_B/k_A=F_B/F_A$. In the same gravity the weight ratio equals the mass ratio, $16/8=2$. B is twice as stiff.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0011"
+    lesson: lesson-mechanical-technical-reasoning-spring-extension-under-weight
+    keyPoint: 2
     type: "spring-weight"
     difficulty: "hard"
     figure: "springs-and-weights-11"
@@ -290,6 +312,8 @@ questions:
       At 7 kg the extension is $2 \times 7=14$ cm. A 21 cm extension requires $21/2=10.5$ kg.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0012"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 2
     type: "spring-weight"
     difficulty: "hard"
     figure: "springs-and-weights-12"
@@ -318,6 +342,8 @@ questions:
       For A, $x=10/200=0.05$ m. For B, $x=20/400=0.05$ m. Both therefore extend 5 cm.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0013"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 3
     type: "spring-weight"
     difficulty: "hard"
     figure: "springs-and-weights-13"
@@ -343,6 +369,8 @@ questions:
       For one constant stiffness and fixed gravity, extension per kilogram stays constant. Here $4/2=2$ cm/kg and $10/4=2.5$ cm/kg. These exact measurements do not fit that model.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0014"
+    lesson: lesson-mechanical-technical-reasoning-spring-extension-under-weight
+    keyPoint: 2
     type: "spring-weight"
     difficulty: "hard"
     figure: "springs-and-weights-14"
@@ -368,6 +396,8 @@ questions:
       The calibration is $5/2=2.5$ cm/kg. For 20 cm, mass is $20/2.5=8$ kg. The further 10 cm requires $10/2.5=4$ kg more.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0015"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 2
     type: "spring-weight"
     difficulty: "hard"
     figure: "springs-and-weights-15"
@@ -398,6 +428,8 @@ questions:
       Extension per kilogram is $6/3=2$ for A, $8/4=2$ for B, and $5/5=1$ for C. At the same force, less extension means greater stiffness. C is stiffest, while A and B have equal stiffness.
     approved: true
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0016"
+    lesson: lesson-mechanical-technical-reasoning-spring-extension-under-weight
+    keyPoint: 1
     type: "spring-weight"
     difficulty: "easy"
     figure: "springs-and-weights-16"
@@ -423,6 +455,8 @@ questions:
       The mass weighs $2 \times 10=20$ N. At rest the upward spring force balances that weight. The spring force is 20 N.
     approved: false
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0017"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 2
     type: "spring-weight"
     difficulty: "medium"
     figure: "springs-and-weights-17"
@@ -448,6 +482,8 @@ questions:
       Extension is $F/k$. Tripling both numerator and denominator leaves the ratio unchanged. The new extension equals the old extension.
     approved: false
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0018"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 3
     type: "spring-weight"
     difficulty: "hard"
     figure: "springs-and-weights-18"
@@ -473,6 +509,8 @@ questions:
       The first extension is $25-20=5$ cm. Linear doubling would give 10 cm extension and 30 cm total length. Ten centimeters exceeds the verified 6 cm range, so that prediction is not justified by the supplied calibration.
     approved: false
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0019"
+    lesson: lesson-mechanical-technical-reasoning-hookes-law-and-stiffness
+    keyPoint: 1
     type: "spring-weight"
     difficulty: "hard"
     figure: "springs-and-weights-19"
@@ -498,6 +536,8 @@ questions:
       The displacement $x$ is positive downward and $k$ is positive. The minus sign makes $F_s$ negative. This represents the upward restoring force.
     approved: false
   - id: "q-mechanical-technical-reasoning-springs-and-weights-0020"
+    lesson: lesson-mechanical-technical-reasoning-spring-extension-under-weight
+    keyPoint: 1
     type: "spring-weight"
     difficulty: "exam"
     figure: "springs-and-weights-20"

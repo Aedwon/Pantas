@@ -7,6 +7,15 @@ topic: "topic-mechanical-technical-reasoning"
 estimatedMinutes: 14
 ordering: 3
 isActive: true
+status: retired
+replacedBy:
+  - lesson-mechanical-technical-reasoning-ideal-mechanical-advantage
+  - lesson-mechanical-technical-reasoning-supporting-rope-segments
+  - lesson-mechanical-technical-reasoning-counting-pulley-supports
+  - lesson-mechanical-technical-reasoning-block-and-tackle
+  - lesson-mechanical-technical-reasoning-classes-of-levers
+  - lesson-mechanical-technical-reasoning-balancing-lever-torques
+  - lesson-mechanical-technical-reasoning-torque-from-angled-forces
 ---
 ## Core Concept
 

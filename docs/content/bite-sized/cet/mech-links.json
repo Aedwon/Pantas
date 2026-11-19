@@ -1,0 +1,209 @@
+{
+  "outline": [
+    {
+      "original": "lesson-mechanical-technical-reasoning-pulleys-and-levers",
+      "parts": [
+        {
+          "slug": "ideal-mechanical-advantage",
+          "title": "Ideal Mechanical Advantage"
+        },
+        {
+          "slug": "supporting-rope-segments",
+          "title": "Supporting Rope Segments"
+        },
+        {
+          "slug": "counting-pulley-supports",
+          "title": "Counting Pulley Supports"
+        },
+        {
+          "slug": "block-and-tackle",
+          "title": "Block and Tackle"
+        },
+        {
+          "slug": "classes-of-levers",
+          "title": "Classes of Levers"
+        },
+        {
+          "slug": "balancing-lever-torques",
+          "title": "Balancing Lever Torques"
+        },
+        {
+          "slug": "torque-from-angled-forces",
+          "title": "Torque from Angled Forces"
+        }
+      ]
+    },
+    {
+      "original": "lesson-mechanical-technical-reasoning-springs-and-weights",
+      "parts": [
+        {
+          "slug": "hookes-law-and-stiffness",
+          "title": "Hooke\u2019s Law and Spring Stiffness"
+        },
+        {
+          "slug": "spring-extension-under-weight",
+          "title": "Spring Extension Under Weight"
+        }
+      ]
+    },
+    {
+      "original": "lesson-mechanical-technical-reasoning-structural-stability",
+      "parts": [
+        {
+          "slug": "locating-the-center-of-gravity",
+          "title": "Locating the Center of Gravity"
+        },
+        {
+          "slug": "finding-the-base-of-support",
+          "title": "Finding the Base of Support"
+        },
+        {
+          "slug": "weight-line-and-tipping",
+          "title": "Weight Line and Tipping"
+        },
+        {
+          "slug": "finding-the-tipping-angle",
+          "title": "Finding the Tipping Angle"
+        },
+        {
+          "slug": "comparing-tipping-angles",
+          "title": "Comparing Tipping Angles"
+        },
+        {
+          "slug": "combined-center-of-gravity",
+          "title": "Combined Center of Gravity"
+        },
+        {
+          "slug": "pushing-an-object-over",
+          "title": "Pushing an Object Over"
+        },
+        {
+          "slug": "why-vehicles-roll-in-turns",
+          "title": "Why Vehicles Roll in Turns"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-mechanical-technical-reasoning-supporting-rope-segments": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-ideal-mechanical-advantage",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-counting-pulley-supports": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-supporting-rope-segments",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-block-and-tackle": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-counting-pulley-supports",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-classes-of-levers": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-block-and-tackle",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-balancing-lever-torques": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-classes-of-levers",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-torque-from-angled-forces": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-balancing-lever-torques",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+        "strength": "helpful",
+        "reason": "The angled-force section uses sine. This lesson gives the sine definition and the two values it needs."
+      }
+    ],
+    "lesson-physics-machine-efficiency": [
+      {
+        "lesson": "lesson-physics-average-power-and-work",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-ideal-mechanical-advantage",
+        "strength": "helpful",
+        "reason": "The efficiency section names effort, load and the ideal case, which that lesson explains in full. This lesson defines the efficiency formula itself."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-spring-extension-under-weight": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-hookes-law-and-stiffness",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-finding-the-base-of-support": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-locating-the-center-of-gravity",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-weight-line-and-tipping": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-finding-the-base-of-support",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-finding-the-tipping-angle": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-weight-line-and-tipping",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+        "strength": "helpful",
+        "reason": "The tipping angle uses the tangent. This lesson defines the tangent and the inverse tangent key."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-comparing-tipping-angles": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-finding-the-tipping-angle",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-combined-center-of-gravity": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-comparing-tipping-angles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-pushing-an-object-over": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-combined-center-of-gravity",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-why-vehicles-roll-in-turns": [
+      {
+        "lesson": "lesson-mechanical-technical-reasoning-pushing-an-object-over",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ]
+  }
+}
