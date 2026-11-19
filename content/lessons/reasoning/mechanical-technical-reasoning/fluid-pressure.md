@@ -92,7 +92,7 @@ If the height is equal, the second term is zero. If the speed is equal, the firs
 
 "Faster flow always means lower pressure" is too broad. A pump adds energy.
 
-In a level pipe with no pump, friction lowers the pressure along the flow even when the speed stays the same. Height changes, fast gas flow, and points on different streamlines also break the simple rule.
+In a level pipe with no pump, friction lowers the static pressure if the speed stays the same. In a widening pipe, static pressure can rise if the fluid slows enough to make up for the loss from friction. Height changes, fast gas flow, and points on different streamlines also break the simple rule.
 
 ## Examples
 
@@ -201,6 +201,8 @@ $$v=\dfrac{10}{4}=2.5\ \text{m/s}.$$
 Each branch has a speed of **$2.5$ m/s**. Different branches can split the flow unequally. Pipe sizes alone do not tell you the speeds.
 
 <!-- ILLUSTRATION: A pipe of cross-section 10 cm2 with water at 2 m/s that splits into two identical branches of cross-section 4 cm2 each. The branch speeds are marked with a question mark. -->
+
+The diagram shows the pipes from above. Both outlets are at the same height.
 ### #10: Height and Speed Both Matter
 
 Water flows steadily through a horizontal pipe. The speed rises from $2$ m/s to $6$ m/s where the pipe narrows. Then the pipe, at the same width as the narrow part, rises $5$ m. Ignore friction. By how much does the pressure change in each stage? Use $\rho=1000\ \text{kg/m}^3$ and $g=9.8\ \text{m/s}^2$.
@@ -234,7 +236,7 @@ The pressure falls by **$16{,}000$ Pa**, then by **$49{,}000$ Pa**.
 
 ### #2: "Connected Containers Always Have Equal Levels"
 
-> Equal levels require the same connected liquid and equal pressure on the free surfaces at equilibrium, neglecting capillary effects. Two liquids that do not mix and have different densities can settle at different heights, as in the oil and water example.
+> When the liquids are at rest and the air pressure is the same on both surfaces, equal densities give equal levels if capillary effects are small. This holds even for two different liquids. Two liquids that do not mix and have different densities can settle at different heights, as in the oil and water example.
 
 ### #3: "A Narrow Pipe Always Makes Fluid Faster"
 

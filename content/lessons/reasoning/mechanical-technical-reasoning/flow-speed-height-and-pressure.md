@@ -30,7 +30,7 @@ If the height is equal, the second term is zero. If the speed is equal, the firs
 
 "Faster flow always means lower pressure" is too broad. A pump adds energy.
 
-In a level pipe with no pump, friction lowers the pressure along the flow even when the speed stays the same. Height changes, fast gas flow, and points on different streamlines also break the simple rule.
+In a level pipe with no pump, friction lowers the static pressure if the speed stays the same. In a widening pipe, static pressure can rise if the fluid slows enough to make up for the loss from friction. Height changes, fast gas flow, and points on different streamlines also break the simple rule.
 
 ## Examples
 
