@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 13
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-work-by-a-constant-force
+  - lesson-physics-kinetic-and-gravitational-potential-energy
+  - lesson-physics-net-work-and-kinetic-energy
+  - lesson-physics-mechanical-energy-conservation
+  - lesson-physics-mechanical-energy-with-friction
+  - lesson-physics-average-power-and-work
+  - lesson-physics-machine-efficiency
 ---
 ## Core Concept
 

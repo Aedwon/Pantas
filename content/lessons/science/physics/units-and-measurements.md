@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-si-base-and-derived-units
+  - lesson-physics-si-prefixes-and-scientific-notation
+  - lesson-physics-converting-units-with-cancellation
+  - lesson-physics-converting-squared-and-cubed-units
+  - lesson-physics-checking-equations-by-dimensions
+  - lesson-physics-significant-figures-and-rounding
+  - lesson-physics-uncertainty-accuracy-and-precision
 ---
 ## Core Concept
 

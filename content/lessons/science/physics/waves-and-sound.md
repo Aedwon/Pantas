@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 11
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-wave-period-wavelength-and-amplitude
+  - lesson-physics-wave-speed-frequency-and-wavelength
+  - lesson-physics-waves-crossing-between-media
+  - lesson-physics-mechanical-and-electromagnetic-waves
+  - lesson-physics-ordering-the-electromagnetic-spectrum
+  - lesson-physics-transverse-and-longitudinal-waves
+  - lesson-physics-sound-speed-pitch-and-loudness
 ---
 ## Core Concept
 

@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-launch-components-and-the-ideal-projectile-model
+  - lesson-physics-projectile-motion-at-different-heights
+  - lesson-physics-projectile-peaks-and-level-ground-range
+  - lesson-physics-circular-motion-and-inward-acceleration
+  - lesson-physics-forces-in-circular-motion
+  - lesson-physics-static-friction-in-circular-motion
+  - lesson-physics-angular-speed-and-rotation
 ---
 ## Core Concept
 

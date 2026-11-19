@@ -5,6 +5,8 @@ meta:
   exams: ["dlsucet", "ustet", "dost-sei"]
 questions:
   - id: q-physics-two-dimensional-motion-0001
+    lesson: lesson-physics-projectile-motion-at-different-heights
+    keyPoint: 2
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0002
+    lesson: lesson-physics-projectile-motion-at-different-heights
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0003
+    lesson: lesson-physics-launch-components-and-the-ideal-projectile-model
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0004
+    lesson: lesson-physics-projectile-peaks-and-level-ground-range
+    keyPoint: 1
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0005
+    lesson: lesson-physics-circular-motion-and-inward-acceleration
+    keyPoint: 1
     type: "classify"
     difficulty: "easy"
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0006
+    lesson: lesson-physics-circular-motion-and-inward-acceleration
+    keyPoint: 1
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0007
+    lesson: lesson-physics-projectile-motion-at-different-heights
+    keyPoint: 2
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0008
+    lesson: lesson-physics-forces-in-circular-motion
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0009
+    lesson: lesson-physics-launch-components-and-the-ideal-projectile-model
+    keyPoint: 1
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0010
+    lesson: lesson-physics-projectile-peaks-and-level-ground-range
+    keyPoint: 2
     type: "predict-outcome"
     difficulty: "hard"
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0011
+    lesson: lesson-physics-projectile-motion-at-different-heights
+    keyPoint: 1
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0012
+    lesson: lesson-physics-launch-components-and-the-ideal-projectile-model
+    keyPoint: 2
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0013
+    lesson: lesson-physics-projectile-peaks-and-level-ground-range
+    keyPoint: 1
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0014
+    lesson: lesson-physics-projectile-peaks-and-level-ground-range
+    keyPoint: 2
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0015
+    lesson: lesson-physics-circular-motion-and-inward-acceleration
+    keyPoint: 1
     approved: false
     type: "simple-quantitative"
     difficulty: "easy"
@@ -320,6 +350,8 @@ questions:
       $a_c=v^2/r=6^2/3=36/3=12\,\mathrm{m/s^2}$ inward.
 
   - id: q-physics-two-dimensional-motion-0016
+    lesson: lesson-physics-static-friction-in-circular-motion
+    keyPoint: 1
     approved: false
     type: "predict-outcome"
     difficulty: "medium"
@@ -341,6 +373,8 @@ questions:
       The tires do not slip relative to the road. Static friction provides the horizontal inward force needed for the turn.
 
   - id: q-physics-two-dimensional-motion-0017
+    lesson: lesson-physics-circular-motion-and-inward-acceleration
+    keyPoint: 1
     approved: false
     type: "predict-outcome"
     difficulty: "hard"
@@ -362,6 +396,8 @@ questions:
       At fixed radius, $a_c\propto v^2$. Doubling speed multiplies $v^2$ by four. Acceleration quadruples.
 
   - id: q-physics-two-dimensional-motion-0018
+    lesson: lesson-physics-forces-in-circular-motion
+    keyPoint: 2
     approved: false
     type: "simple-quantitative"
     difficulty: "hard"
@@ -383,6 +419,8 @@ questions:
       The net inward force is $F=mv^2/r=(2)(25)/10=5\,\mathrm N$.
 
   - id: q-physics-two-dimensional-motion-0019
+    lesson: lesson-physics-projectile-motion-at-different-heights
+    keyPoint: 1
     approved: false
     type: "process-ordering"
     difficulty: "hard"
@@ -404,6 +442,8 @@ questions:
       The known height and vertical initial condition give fall time. The same time belongs in the horizontal displacement equation.
 
   - id: q-physics-two-dimensional-motion-0020
+    lesson: lesson-physics-circular-motion-and-inward-acceleration
+    keyPoint: 1
     approved: false
     type: "classify"
     difficulty: "exam"

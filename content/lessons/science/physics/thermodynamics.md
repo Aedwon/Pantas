@@ -6,6 +6,17 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-heat-temperature-and-internal-energy
+  - lesson-physics-conduction-convection-and-radiation
+  - lesson-physics-thermal-equilibrium-and-the-zeroth-law
+  - lesson-physics-internal-energy-and-the-first-law
+  - lesson-physics-entropy-and-the-second-law
+  - lesson-physics-absolute-zero-and-the-third-law
+  - lesson-physics-specific-heat-and-temperature-change
+  - lesson-physics-latent-heat-and-phase-changes
+  - lesson-physics-heat-exchange-between-objects
 ---
 ## Core Concept
 
