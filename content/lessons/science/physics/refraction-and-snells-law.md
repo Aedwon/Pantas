@@ -40,8 +40,6 @@ Use Snell's law to find the direction:
 
 A ray in air ($n=1.00$) strikes glass ($n=1.50$) at an angle of incidence of $30^\circ$. Find the angle of refraction.
 
-<!-- ILLUSTRATION: ray going from air (n = 1.00) into glass (n = 1.50) at a flat boundary, normal drawn, incident angle 30 degrees in air, the angle in the glass marked with a question mark -->
-
 **Solution:**
 
 1. Write Snell's law and solve for $\sin\theta_2$:
@@ -58,11 +56,11 @@ $$\theta_2=\sin^{-1}(0.333)\approx19.5^\circ$$
 
 The ray bends toward the normal, as expected for entering a larger $n$.
 
+<!-- ILLUSTRATION: ray going from air (n = 1.00) into glass (n = 1.50) at a flat boundary, normal drawn, incident angle 30 degrees in air, the angle in the glass marked with a question mark -->
+
 ### #2: Bending Into a Faster Medium
 
 A ray in glass ($n=1.50$) meets a glass-air boundary at $20^\circ$ from the normal. Find the angle of refraction in air ($n=1.00$).
-
-<!-- ILLUSTRATION: ray going from glass (n = 1.50) up into air (n = 1.00) at a flat boundary, normal drawn, incident angle 20 degrees in glass, the angle in the air marked with a question mark -->
 
 **Solution:**
 
@@ -79,6 +77,8 @@ $$\sin\theta_2\approx0.513$$
 $$\theta_2\approx30.9^\circ$$
 
 The ray bends away from the normal, as expected for entering a smaller $n$.
+
+<!-- ILLUSTRATION: ray going from glass (n = 1.50) up into air (n = 1.00) at a flat boundary, normal drawn, incident angle 20 degrees in glass, the angle in the air marked with a question mark -->
 
 ## Traps to Watch For
 

@@ -60,7 +60,7 @@ Use Snell's law to find the direction:
 
 A wave has a **frequency** $f$, the number of wave crests that pass a point each second, measured in hertz (Hz). It also has a **wavelength** $\lambda$, the distance between two neighboring crests, measured in meters or nanometers (nm, where $1$ nm $=10^{-9}$ m). Wave speed, frequency and wavelength are linked by $v=f\lambda$, from the waves and sound lesson. In the Mirrors and Lenses lesson, $f$ also stands for focal length, so check which one is meant.
 
-When light crosses a boundary, its frequency stays the same. The speed changes, so the wavelength changes too. In a material, the wavelength is
+When light crosses a boundary, its frequency stays the same. If the refractive indices differ, the speed and wavelength both change. If the indices match, both stay the same. In a material, the wavelength is
 
 $$\lambda=\dfrac{\lambda_0}{n}$$
 
@@ -125,8 +125,6 @@ $$40^\circ+40^\circ=80^\circ$$
 
 A ray in air ($n=1.00$) strikes glass ($n=1.50$) at an angle of incidence of $30^\circ$. Find the angle of refraction.
 
-<!-- ILLUSTRATION: ray going from air (n = 1.00) into glass (n = 1.50) at a flat boundary, normal drawn, incident angle 30 degrees in air, the angle in the glass marked with a question mark -->
-
 **Solution:**
 
 1. Write Snell's law and solve for $\sin\theta_2$:
@@ -143,11 +141,11 @@ $$\theta_2=\sin^{-1}(0.333)\approx19.5^\circ$$
 
 The ray bends toward the normal, as expected for entering a larger $n$.
 
+<!-- ILLUSTRATION: ray going from air (n = 1.00) into glass (n = 1.50) at a flat boundary, normal drawn, incident angle 30 degrees in air, the angle in the glass marked with a question mark -->
+
 ### #3: Bending Into a Faster Medium
 
 A ray in glass ($n=1.50$) meets a glass-air boundary at $20^\circ$ from the normal. Find the angle of refraction in air ($n=1.00$).
-
-<!-- ILLUSTRATION: ray going from glass (n = 1.50) up into air (n = 1.00) at a flat boundary, normal drawn, incident angle 20 degrees in glass, the angle in the air marked with a question mark -->
 
 **Solution:**
 
@@ -164,6 +162,8 @@ $$\sin\theta_2\approx0.513$$
 $$\theta_2\approx30.9^\circ$$
 
 The ray bends away from the normal, as expected for entering a smaller $n$.
+
+<!-- ILLUSTRATION: ray going from glass (n = 1.50) up into air (n = 1.00) at a flat boundary, normal drawn, incident angle 20 degrees in glass, the angle in the air marked with a question mark -->
 
 ### #4: Speed and Wavelength in Glass
 
@@ -263,7 +263,7 @@ Light going from air into glass never has a critical angle. Light in glass at an
 
 ### #4: Thinking the Frequency Changes in Refraction
 
-> Frequency stays the same across a boundary. Speed and wavelength change.
+> Frequency stays the same across a boundary. Speed and wavelength change only if the refractive indices differ.
 
 A student may say the color changes because the wavelength changes in glass. The frequency, which fixes the color, is unchanged.
 
