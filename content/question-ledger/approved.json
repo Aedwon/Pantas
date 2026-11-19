@@ -510,9 +510,9 @@
     "lesson": "lesson-algebra-line-slopes-and-intercepts"
   },
   "q-algebra-linear-equations-inequalities-0013": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/algebra.md",
-    "hash": "b7892beb3eb7fd654cf5c0d677276fffe7f1a4e74efc36042e873690a254fd6e",
+    "approvedAt": "2026-11-19",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "1925fec196247d997cffe068b18d2ce0be18c6673c42637b6567d0346646460b",
     "lesson": "lesson-algebra-parallel-and-perpendicular-lines"
   },
   "q-algebra-linear-equations-inequalities-0014": {
@@ -534,9 +534,9 @@
     "lesson": "lesson-algebra-two-variable-inequalities"
   },
   "q-algebra-linear-equations-inequalities-0017": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/algebra.md",
-    "hash": "1e9c8b88becbc8fe42181c9ea04532e8c76c48b1b4e7624c7ac92d720869ad76",
+    "approvedAt": "2026-11-19",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "254b7e2601c3ec3ea27d49e32e901c6fd04dc7d055ccd2837865d5b279e9ca21",
     "lesson": "lesson-algebra-solving-linear-equations"
   },
   "q-algebra-linear-equations-inequalities-0018": {
@@ -650,7 +650,7 @@
   "q-algebra-polynomials-0013": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "209200809a5c9ca1b1880021e9ba1c00502384e6db0f4e1519f862edc8abae26",
+    "hash": "8528159ceffd68be1b924ec409683996b1d74ef6abfbc0c18f9133fe30440c64",
     "lesson": "lesson-algebra-polynomial-special-products"
   },
   "q-algebra-polynomials-0014": {
@@ -758,7 +758,7 @@
   "q-algebra-polynomials-0031": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "ca733bb1af54a9689c121033da03030ea136292155d4b2fc9d22c8892fb12d0c",
+    "hash": "2089ad6a80ec43c9c60bf1338fd3b984b1e323cb0a52270e9b1867c0d18e678e",
     "lesson": "lesson-algebra-factoring-cubes"
   },
   "q-algebra-quadratic-equations-0001": {
@@ -852,9 +852,9 @@
     "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
   },
   "q-algebra-quadratic-equations-0016": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/algebra.md",
-    "hash": "0782ccb0b3760cf75172310620679ca3c57d94e3ae7f28bba8e4d8b3679bd6dd",
+    "approvedAt": "2026-11-19",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "cfc6dddb91de9557393c3f8a64b8af634e848924ee4f0e1ee5184b9e92fbfb5c",
     "lesson": "lesson-algebra-quadratic-methods-and-root-properties"
   },
   "q-algebra-quadratic-equations-0017": {
@@ -1370,13 +1370,13 @@
   "q-algebra-systems-of-equations-0011": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "7b42aef684a0e6a70d74e79d5df8937042c9640426bb3825abbd2d8563a90817",
+    "hash": "ae1645cc0aed8dacd2efec79ca5a63eea43d4c0d79fa138a54b64a06d31266ef",
     "lesson": "lesson-algebra-systems-substitution-and-word-problems"
   },
   "q-algebra-systems-of-equations-0012": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "fc46faa51d75d4b7d8bf88ed04c087d3077ef00911b272382444177c2ce9227e",
+    "hash": "f42bcb1df003a276e18bfc070cb26f480bc4d3eb124f2ebd6b9b6b1653950bda",
     "lesson": "lesson-algebra-systems-substitution-and-word-problems"
   },
   "q-algebra-systems-of-equations-0013": {
@@ -1394,7 +1394,7 @@
   "q-algebra-systems-of-equations-0015": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "de966e4aed1ec60dfc7502d7620e18ed73e7839e1c8137fd57c01c45eaef4887",
+    "hash": "e2fa061b48435169a5c04746e62eaf0fae82c05dcab1a728101a08914ceb867f",
     "lesson": "lesson-algebra-systems-substitution-and-word-problems"
   },
   "q-algebra-systems-of-equations-0016": {
@@ -1412,7 +1412,7 @@
   "q-algebra-systems-of-equations-0018": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "a5676a93b3e0dc7fe3a89973e8198055b4b5a2bd11e97b2da96ade28e6b9db74",
+    "hash": "cb34b61c1618b8b993bf092eaf2ffad3fe3acbe43d6a8ed9be8894ecbcaf5fc9",
     "lesson": "lesson-algebra-systems-substitution-and-word-problems"
   },
   "q-algebra-systems-of-equations-0019": {
@@ -3350,8 +3350,8 @@
   "q-biology-botany-0006": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "6adf323c91c10113ba450f2a6be8370dbf24487f5ce40c430f865f34f047d00d",
-    "lesson": "lesson-biology-plant-tissue-systems"
+    "hash": "dc2e1f1770c43ae608456bd8ab9bf5cc239244a4b8bc65f86e9464b2fed007a0",
+    "lesson": "lesson-biology-phloem-sources-and-sinks"
   },
   "q-biology-botany-0007": {
     "approvedAt": "2026-11-19",
@@ -3392,7 +3392,7 @@
   "q-biology-botany-0013": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "83c5c49a974443f2df4a718f0174fc4b7b660ae209cc9b64d579bc2dfaa8df27",
+    "hash": "5f973565bb00803ab1684e6f0d5ab90c5031a3168920f5ea19fcbb3b8b50d8f2",
     "lesson": "lesson-biology-pollination-and-pollen-tube-growth"
   },
   "q-biology-botany-0014": {
@@ -3566,7 +3566,7 @@
   "q-biology-cell-biology-0020": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "3d0afb5d9f092c32fa1e657365abda296472624df1487a6b67bf921455037785",
+    "hash": "b867032ac24e0bde83e622d140f5597651117b9541eea224a0b9f22547c4bc48",
     "lesson": "lesson-biology-passive-and-active-cell-transport"
   },
   "q-biology-cellular-metabolism-0001": {
@@ -3770,7 +3770,7 @@
   "q-biology-cellular-metabolism-0034": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "a946d626fe0b14937a99df411b3817e594380be0834e528b3cd31109f9aa7527",
+    "hash": "5167dc3ba0f15ec8e1e21d84eb672243073ac47e7fd98852333f40307a01907d",
     "lesson": "lesson-biology-atp-and-cell-metabolism"
   },
   "q-biology-cellular-reproduction-0001": {
@@ -3926,7 +3926,7 @@
   "q-biology-cellular-reproduction-0026": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "bf03ccba3e05827aac00e681da8315d97ead91c99a3d437f1f853259a1c38e51",
+    "hash": "2113bb9c6e7290c96742e059e01cd9ac2355573e582b60ccbf809a550d4db2f7",
     "lesson": "lesson-biology-cell-cycle-and-cytokinesis"
   },
   "q-biology-cellular-reproduction-0027": {
@@ -3986,7 +3986,7 @@
   "q-biology-cellular-respiration-and-fermentation-0005": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "b14ebbc85791596327e5447f0a137bf612ed7f42868f251f37b22efd7ce87b3d",
+    "hash": "8c1e82c4b828f600ba8cd9a24d4384cb0974dbbdcc252b48cd6b4aa66266cf06",
     "lesson": "lesson-biology-aerobic-respiration-stages"
   },
   "q-biology-cellular-respiration-and-fermentation-0006": {
@@ -4508,7 +4508,7 @@
   "q-biology-genetics-and-heredity-0011": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "f891b43104660164f47325d91248a9f902a34af01b28592c42324362f742f299",
+    "hash": "c65b0f55dcff224c6813590024b779d7a7733bc81fd62f9aed0f47023261e50a",
     "lesson": "lesson-biology-genes-alleles-and-phenotypes"
   },
   "q-biology-genetics-and-heredity-0012": {
@@ -4766,7 +4766,7 @@
   "q-biology-human-anatomy-physiology-0025": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "facd3e47186cbf546c4041ba2a3f360ef9f750d68486ce7ba35441ef4a49c847",
+    "hash": "dbca329d960d5a8ac94648ad4b16fc88dc21668104f690fb670ce277d33912dc",
     "lesson": "lesson-biology-digestion-and-nutrient-absorption"
   },
   "q-biology-human-anatomy-physiology-0026": {
@@ -5330,8 +5330,8 @@
   "q-chemistry-atomic-structure-0012": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "d50ffcc23ecb0fa30d98df8894c1d60364b24318271aef0a1216cf3120d74707",
-    "lesson": "lesson-chemistry-atomic-and-mass-numbers"
+    "hash": "b86a981afec080919bfea189c33524460cd0e795cdcfdff22dfa8c8dc4250c2f",
+    "lesson": "lesson-chemistry-isotopes-and-neutrons"
   },
   "q-chemistry-atomic-structure-0013": {
     "approvedAt": "2026-11-19",
@@ -5414,7 +5414,7 @@
   "q-chemistry-basic-organic-chemistry-0001": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "a47778c571f4f7ba25a864c7592510f51e1f04bb6b8c3bdf9f6bbc119afaf692",
+    "hash": "872b9675956b07259981cb3dd1f80a35eca3bb58c5ca1c73417878a1381f9194",
     "lesson": "lesson-chemistry-hydrocarbon-families-by-bond"
   },
   "q-chemistry-basic-organic-chemistry-0002": {
@@ -5720,7 +5720,7 @@
   "q-chemistry-chemical-bonding-0026": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "43239343ac88c2ded61d213d352df09b335cf2f5811a9671cdf8fc87d213f2ad",
+    "hash": "1e07ca2020ab36d554b0b9f89c599b39d0141ef44f011bd6dd60eb8027bfeb65",
     "lesson": "lesson-chemistry-forces-between-molecules"
   },
   "q-chemistry-chemical-bonding-0027": {
@@ -6164,13 +6164,13 @@
   "q-chemistry-gas-laws-0017": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "e87005832432054e763a45c7eb49b7f8220b246fbe27867a2124bbd657f5b750",
-    "lesson": "lesson-chemistry-avogadros-volume-mole-law"
+    "hash": "9158066487969ff664634558df6b11604e30e2d2d517571b620c9c2155ee99cf",
+    "lesson": "lesson-chemistry-combined-gas-law-calculations"
   },
   "q-chemistry-gas-laws-0018": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "12b079d27caad74cf98b992780b179f2845003c289ecf5a3e46e8e5c23e56a5b",
+    "hash": "94a29869bb9af8170a3777d3f615430bac194346d828e7a20dc0e64c614269b7",
     "lesson": "lesson-chemistry-ideal-gas-law-calculations"
   },
   "q-chemistry-gas-laws-0019": {
@@ -6500,7 +6500,7 @@
   "q-chemistry-matter-0020": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "f3706f241e17818bbb96a532c0548a2a974ff23158940cfc513c987a39e1ea1d",
+    "hash": "918fc2c8ce5d8a009fccd72674f7cb86f89eca6554bfce39296e28b1b3daf306",
     "lesson": "lesson-chemistry-phase-change-directions"
   },
   "q-chemistry-matter-0021": {
@@ -6548,7 +6548,7 @@
   "q-chemistry-mixtures-and-separation-0002": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "7958d63cfbe9c56f17f113cbe2b8ba57cb8eef8d9234d62aace09663707ffb56",
+    "hash": "eaf836b95a31f4e27faa7fd5a343dc478678f80ecb6ec644f95993a44982e6b5",
     "lesson": "lesson-chemistry-classifying-mixture-types"
   },
   "q-chemistry-mixtures-and-separation-0003": {
@@ -6728,13 +6728,13 @@
   "q-chemistry-mole-concept-0004": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "88f2f5e48364ec7690bddde7a209051cd13d7991259bedd0a3e5db2477c8e287",
+    "hash": "fae1eb9f35fd90af953a50a9d0f20295820f9664e98502506df23f36618d6950",
     "lesson": "lesson-chemistry-mole-and-avogadro-constant"
   },
   "q-chemistry-mole-concept-0005": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "e06771873458466986bce4472bf4498999257d53e3145388d905c49e06efd59f",
+    "hash": "17a9afdd51f4b802fb80a2de464345b8ea1f498a715a588a6c4a32559a28742c",
     "lesson": "lesson-chemistry-converting-mass-and-entities"
   },
   "q-chemistry-mole-concept-0006": {
@@ -6824,7 +6824,7 @@
   "q-chemistry-mole-concept-0020": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "568881b18d05f50a94f818bfcc14bfeee6ae6d90e3f3477dedecaa49158c938a",
+    "hash": "e0924845b6b2747ed968703717ba1825fbc02014564d6f95229948bcee0f7202",
     "lesson": "lesson-chemistry-mole-and-avogadro-constant"
   },
   "q-chemistry-mole-concept-0021": {
@@ -7052,7 +7052,7 @@
   "q-chemistry-periodic-table-0011": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "75dffe7fbd5177b9ff1297ddb51c1bc29027b3b0392c0e41b3fa5196a1c18b21",
+    "hash": "e8869e9ff201a199386d58555d02f55c2d664681a09e17dac2cc9cc7b1369b04",
     "lesson": "lesson-chemistry-atomic-radius-and-shielding"
   },
   "q-chemistry-periodic-table-0012": {
@@ -7298,7 +7298,7 @@
   "q-chemistry-solutions-0010": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "341d1415cfd86c23eb52b55b71994f151f8f759e5683f29d9fe6fbfc5c0756f6",
+    "hash": "c8f32103be95c944434527077b033fe50c1322f9aa3647dd720b26110a7af2d3",
     "lesson": "lesson-chemistry-temperature-and-solution-concentration"
   },
   "q-chemistry-solutions-0011": {
@@ -7328,7 +7328,7 @@
   "q-chemistry-solutions-0015": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "e401da709278696c2e43a6e8d761fa4e102a4f266f181dc118a6461c129c5062",
+    "hash": "db2155964814f2a039ac2de644b22b34036d70f455a08c1625d658f405df2799",
     "lesson": "lesson-chemistry-solutions-and-saturation"
   },
   "q-chemistry-solutions-0016": {
@@ -7472,7 +7472,7 @@
   "q-chemistry-stoichiometry-0012": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "2af40c0b1f26382366534343410a782652dcfabad0240f35a962a8ad4265a442",
+    "hash": "defb390a92cdb2db813bcbf77a1f1977895b535486d4be06a3752642ab7f0339",
     "lesson": "lesson-chemistry-molecular-formulas-from-molar-mass"
   },
   "q-chemistry-stoichiometry-0013": {
@@ -9974,7 +9974,7 @@
   "q-earth-science-astronomy-earths-subsystems-0021": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "5ceef24567b1f837c4eca99e0a6a296f3fedafd760469865b0fde02c3ded0c03",
+    "hash": "f317fa4299bc0ca35122cdf9f092853fbdccfb7e3d63dd40a0f53f932f53fd7f",
     "lesson": "lesson-earth-science-astronomy-earths-air-sphere"
   },
   "q-earth-science-astronomy-earths-subsystems-0022": {
@@ -10226,7 +10226,7 @@
   "q-earth-science-astronomy-fossils-and-geologic-time-0021": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "2ec9e8360a47cd17c951f175004d5f5d538ea4ca9190ce5de5b52bef9fc26c07",
+    "hash": "49e7c36d5108993c04da5af91486acbcaa63c961c5a0d38383975219c4b1aa20",
     "lesson": "lesson-earth-science-astronomy-radiometric-dating-and-half-life"
   },
   "q-earth-science-astronomy-fossils-and-geologic-time-0022": {
@@ -10520,7 +10520,7 @@
   "q-earth-science-astronomy-layers-of-the-earth-0016": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "8da9f88a612e2b96d7ef76954fabcbb7e69105f274179e0bd79031ffa2042191",
+    "hash": "bde72ac1b12909d41ce420f963f65b4abd30fdec3042520664f1274c70f41a92",
     "lesson": "lesson-earth-science-astronomy-seismic-shadow-zones"
   },
   "q-earth-science-astronomy-layers-of-the-earth-0017": {
@@ -10556,7 +10556,7 @@
   "q-earth-science-astronomy-layers-of-the-earth-0022": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "9355bf6da1f936da37565ac3d5d8e8186ed88e25ff1d9eba688b032bc1d4c3ef",
+    "hash": "4d2efc09d35eea051cb9ac6fccdbe87b7afeeef51335c9775da841467eacc946",
     "lesson": "lesson-earth-science-astronomy-evidence-from-seismic-waves"
   },
   "q-earth-science-astronomy-minerals-and-rocks-0001": {
@@ -10796,7 +10796,7 @@
   "q-earth-science-astronomy-origin-of-the-universe-0016": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "f8e6c19c6e7f6f7037670e44e9d9d994dceb9a79599a2ed4691b3211f07c8a94",
+    "hash": "a3871e1bd9d1632af29e56f9107f01be227b2700254e59a31ad27d59712a832b",
     "lesson": "lesson-earth-science-astronomy-light-elements-and-the-big-bang"
   },
   "q-earth-science-astronomy-origin-of-the-universe-0017": {
@@ -10922,20 +10922,20 @@
   "q-earth-science-astronomy-plate-tectonics-0012": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "3c866e2129b2d78aab16156d00c66b100b4bd9103fc9c3197f1e0a78e2f57cf4",
-    "lesson": "lesson-earth-science-astronomy-faults-and-seismic-waves"
+    "hash": "342db98d4b911abe77196eff857250b785558d01b8edfd9dfd936c41525ffb00",
+    "lesson": "lesson-earth-science-astronomy-evidence-from-seismic-waves"
   },
   "q-earth-science-astronomy-plate-tectonics-0013": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "7bde1dfcbf32b82e20a83efc3a23f7401e0d9f74f9cf33680d27d414ff815f49",
-    "lesson": "lesson-earth-science-astronomy-faults-and-seismic-waves"
+    "hash": "2d3107e6f5efddb13357fe54d2b27d4a0c9e3e649fcc9817a4879322263dab96",
+    "lesson": "lesson-earth-science-astronomy-evidence-from-seismic-waves"
   },
   "q-earth-science-astronomy-plate-tectonics-0014": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "175fd20a9e8a04be7dbb2e15c88ab548c76a1c8348ea1f7733e8ef9284bede72",
-    "lesson": "lesson-earth-science-astronomy-faults-and-seismic-waves"
+    "hash": "91fdd0a4d565bddbaf116fead42db59649a7a9d9d6014906047fd9192aa2b9ff",
+    "lesson": "lesson-earth-science-astronomy-evidence-from-seismic-waves"
   },
   "q-earth-science-astronomy-plate-tectonics-0015": {
     "approvedAt": "2026-11-19",
@@ -10964,13 +10964,13 @@
   "q-earth-science-astronomy-plate-tectonics-0019": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "921de97b861ba050ad0a788210341bc630410dc0479000d963bc01c89a26e0f7",
-    "lesson": "lesson-earth-science-astronomy-faults-and-seismic-waves"
+    "hash": "3ed71bbdc8013004dd42c1bc4cc662f0636a50e7410962827d7c7a44f06ab8c8",
+    "lesson": "lesson-earth-science-astronomy-seismic-shadow-zones"
   },
   "q-earth-science-astronomy-plate-tectonics-0020": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "cfdf1cb5ef03a5be5cf77493157df1dcaa9b7fc723e84b21c71c07202efae727",
+    "hash": "1713af499aa55f8670e7b5b4ae2179370fe258d7f2878d540106d2c8ec759cf6",
     "lesson": "lesson-earth-science-astronomy-plate-boundary-motion"
   },
   "q-earth-science-astronomy-plate-tectonics-0021": {
@@ -11060,7 +11060,7 @@
   "q-earth-science-astronomy-stars-and-galaxies-0012": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "bd7eff7419d03bd577e58f77d5884da01c528b1dd0b77dd041aa365245032e5d",
+    "hash": "5585130bfeca074addcbdc21e02b93f846b7ee0747423fecb97b99a25cb3e706",
     "lesson": "lesson-earth-science-astronomy-stellar-life-cycles"
   },
   "q-earth-science-astronomy-stars-and-galaxies-0013": {
@@ -11144,7 +11144,7 @@
   "q-earth-science-astronomy-water-cycle-oceanography-0010": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "c01fc78cf3c5461d64d43f4794ceebb21e43186af9349e89e8d5a7100613b163",
+    "hash": "97075c5700a4c36f888f462ef3fb71e71cf09998ed13daf95b52c1a911f83a96",
     "lesson": "lesson-earth-science-astronomy-clouds-and-precipitation"
   },
   "q-earth-science-astronomy-water-cycle-oceanography-0011": {
@@ -11168,13 +11168,13 @@
   "q-earth-science-astronomy-water-cycle-oceanography-0014": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "79c6ee35631fbbdb7514d6473ea380e6c3513432d80f42f6fa129dfdeb6c64be",
+    "hash": "edbede959075a3f0edbf77af1bc9226332fe443f6bc7a2ed5580647b7e0ae4d3",
     "lesson": "lesson-earth-science-astronomy-seawater-density-and-layers"
   },
   "q-earth-science-astronomy-water-cycle-oceanography-0015": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "4d82ab4ff34925d5b6a5aeea793297824ef13f772bcffb6448b210f6bc803b3e",
+    "hash": "1a0a2bd343b5b7308b9e28c67f65580ab603da768e09e250f79b1066fff28a01",
     "lesson": "lesson-earth-science-astronomy-seawater-density-and-layers"
   },
   "q-earth-science-astronomy-water-cycle-oceanography-0016": {
@@ -12254,14 +12254,14 @@
   "q-geometry-circles-0009": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "99eb7765e523e4c403414cf6f64d85c9e993bc786ebceed9d0d8d7312abc5486",
-    "lesson": "lesson-geometry-central-and-inscribed-angles"
+    "hash": "2ca41338861de36c623f2877763c53ba9bf1dcef02ef0e2a007bceabf05143bf",
+    "lesson": "lesson-geometry-chord-lengths-and-segments"
   },
   "q-geometry-circles-0010": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "7ca242c55e201d8d8708b01e2505e44c8c68e81d1469e68a05247eec11a22145",
-    "lesson": "lesson-geometry-central-and-inscribed-angles"
+    "hash": "c23b62b19b1db5f67388a46cb5f176f67bdca59eb53e3c824060d084e72ad2bd",
+    "lesson": "lesson-geometry-outside-secants-and-tangents"
   },
   "q-geometry-circles-0011": {
     "approvedAt": "2026-11-19",
@@ -15908,7 +15908,7 @@
   "q-mechanical-technical-reasoning-fluid-pressure-0017": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "94ef7d773333e0342ec4d520c114521c12415ab2167231bd780628104f2fee53",
+    "hash": "b80ea9ae1d614c03e401167eb540ed328d5dfaf7fbb73689a1cef682ac5b06d6",
     "lesson": "lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid"
   },
   "q-mechanical-technical-reasoning-fluid-pressure-0018": {
@@ -15986,7 +15986,7 @@
   "q-mechanical-technical-reasoning-gear-rotations-0006": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "41e73d8cde14143818d9596fe560035eebbed05d603e34fcaecf9f7438599b2e",
+    "hash": "0d1937dfb087856f9d2cfb962d43d8fe90b0a1b4f8987b8b63ef8c59a325be24",
     "lesson": "lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts"
   },
   "q-mechanical-technical-reasoning-gear-rotations-0007": {
@@ -16046,8 +16046,8 @@
   "q-mechanical-technical-reasoning-gear-rotations-0016": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "d23803aff01c2e688b3afb2af10be98203d0617b4959e28b915c1927a912e18f",
-    "lesson": "lesson-mechanical-technical-reasoning-rotation-directions-in-gear-systems"
+    "hash": "740af77a7808f3f77f8efd8bc19079f5eba89ebd78b0b47350dbc041d61eedb9",
+    "lesson": "lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts"
   },
   "q-mechanical-technical-reasoning-gear-rotations-0017": {
     "approvedAt": "2026-11-19",
@@ -16064,7 +16064,7 @@
   "q-mechanical-technical-reasoning-gear-rotations-0019": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "09fe7399155876a56f1cb556f7293c3cd826a8ae7c1ed83407fba1c769f6f326",
+    "hash": "8670b9f36942771c13a26bad910a5ba1eb95b44ecbc9e518fce139ade83d11f3",
     "lesson": "lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts"
   },
   "q-mechanical-technical-reasoning-gear-rotations-0020": {
@@ -16166,7 +16166,7 @@
   "q-mechanical-technical-reasoning-pulleys-and-levers-0015": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "89cb1b7ff1bacb224fef661787369dbbcc1c30798d93612e6d3fdc56da298b3c",
+    "hash": "509584d9d8202bc2815797f701350ab9b7a17ebdfa65f7dfe927ccafc04e6fb0",
     "lesson": "lesson-mechanical-technical-reasoning-balancing-lever-torques"
   },
   "q-mechanical-technical-reasoning-pulleys-and-levers-0016": {
@@ -16214,13 +16214,13 @@
   "q-mechanical-technical-reasoning-pulleys-and-levers-0023": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "885a2f1b2855e54c828e8e232ff7a588670fbec754f50a9c1b3b9fd84cad9b96",
+    "hash": "621fbecd4f7261cc29d078faec77adab4820000676fb097b8cb7b24e3076f435",
     "lesson": "lesson-mechanical-technical-reasoning-block-and-tackle"
   },
   "q-mechanical-technical-reasoning-pulleys-and-levers-0024": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "b72e1238ada082dd188a1785ed8be7dd3bb9ab02de5d74f6cb26ca858f39a6ac",
+    "hash": "a5843489c33ec49414d680a9789690e22b8127fb6f8cc1abb70e84d96d4cc517",
     "lesson": "lesson-mechanical-technical-reasoning-block-and-tackle"
   },
   "q-mechanical-technical-reasoning-pulleys-and-levers-0025": {
@@ -16430,7 +16430,7 @@
   "q-mechanical-technical-reasoning-structural-stability-0011": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "07f508ae3780e015668a3a77f7a1c0a30d2e4a520bcce4ae9bb20238eb89a3b6",
+    "hash": "5f8782630068cae5efcd9c907663a872d7319eef9bacd96350fa6700a8dca440",
     "lesson": "lesson-mechanical-technical-reasoning-weight-line-and-tipping"
   },
   "q-mechanical-technical-reasoning-structural-stability-0012": {
@@ -16478,7 +16478,7 @@
   "q-mechanical-technical-reasoning-structural-stability-0019": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "8105c1fd6024cf12c602b65a7b0b69a2e2ec3b60c39e298aabb0ba31f6bab1ea",
+    "hash": "32b126848ac6f97e4b606612c02578511484ae1c2c94776102e06666121f9e23",
     "lesson": "lesson-mechanical-technical-reasoning-comparing-tipping-angles"
   },
   "q-mechanical-technical-reasoning-structural-stability-0020": {
@@ -18656,7 +18656,7 @@
   "q-physics-electricity-and-magnetism-0012": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "d3c7fca1e85f3283471cac786031eb6ce51d46e26816d9ca47bead6191c51f5c",
+    "hash": "8ef3e386d59682e8ad6407c92804b67de38960d3606173e8867769d93fe152a3",
     "lesson": "lesson-physics-lenzs-law-and-induced-current"
   },
   "q-physics-electricity-and-magnetism-0013": {
@@ -18752,13 +18752,13 @@
   "q-physics-electricity-and-magnetism-0028": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "f7f01afe3bcdb60bc5c8910ed0d1b4044825fc8cbc56d4e1e3612e432b102a2a",
+    "hash": "3db3c9d834d9807653d400636a6803134144ac3d68c1d161b70ad08d3465e954",
     "lesson": "lesson-physics-electrical-power-and-overload"
   },
   "q-physics-electricity-and-magnetism-0029": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "d3a033f72faf73f6d19bdd6f8c2c390da331ef103553b5667a0fc7b41963aae1",
+    "hash": "8ba00baaca2dc0071b555a080501495be64ed97183ecd5043dc8839449a20377",
     "lesson": "lesson-physics-electrical-power-and-overload"
   },
   "q-physics-electricity-and-magnetism-0030": {
@@ -18776,7 +18776,7 @@
   "q-physics-electricity-and-magnetism-0032": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "6633d7c91d5b16a68a45395e2e919ce389f249090023e91a55da4b0f717eafa9",
+    "hash": "c36bed390249cf41c90fdba57733900956b925d64c9322764f97721becb1b596",
     "lesson": "lesson-physics-magnetic-flux-and-faradays-law"
   },
   "q-physics-electricity-and-magnetism-0033": {
@@ -18848,7 +18848,7 @@
   "q-physics-fluid-flow-continuity-and-bernoulli-0007": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "81660f579658be233b8c1aa68025569219e6dfaef725771de60fec8246ef1a7c",
+    "hash": "8ae54c4b471c81290f83b5e0493743abd5db8e0ce5829c8d512b0be3aa27ec3c",
     "lesson": "lesson-physics-bernoulli-pressure-and-speed"
   },
   "q-physics-fluid-flow-continuity-and-bernoulli-0008": {
@@ -18896,7 +18896,7 @@
   "q-physics-fluid-flow-continuity-and-bernoulli-0015": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "4b6ec4ad52ce10b585fa7b5c32c9f060a6c293a1ddf8ff930c00e5c6943eca14",
+    "hash": "a9e9182c9d17d652bf202409993408357a80066e4b446334d069e25a1a2ae48c",
     "lesson": "lesson-physics-bernoulli-pressure-and-speed"
   },
   "q-physics-fluid-flow-continuity-and-bernoulli-0016": {
@@ -19106,7 +19106,7 @@
   "q-physics-friction-tension-and-inclines-0004": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "7ebf93b07dafa108d85835344913998fcb10ef333960dea65ac021c17334ed89",
+    "hash": "ab889f077d79e813fbff17089fc5d166cf2ec16120ad9b10002d8b77dbba902d",
     "lesson": "lesson-physics-static-friction-and-its-limit"
   },
   "q-physics-friction-tension-and-inclines-0005": {
@@ -19160,7 +19160,7 @@
   "q-physics-friction-tension-and-inclines-0013": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "265356f9735a4666b6b5e821fe4746125719c4ec927359541e0ab04470d89ece",
+    "hash": "d4fb0b96224102c7bde6f7e07df6b38da7b10dd4c6c23b3925e40404505e06a7",
     "lesson": "lesson-physics-kinetic-friction-and-angled-pulls"
   },
   "q-physics-friction-tension-and-inclines-0014": {
@@ -19628,8 +19628,8 @@
   "q-physics-light-and-optics-0028": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "d1b678a1fdd24e1fa1bc1be37f718ef5532e7b5414ba6f7b506af139063c830d",
-    "lesson": "lesson-physics-converging-and-diverging-lenses"
+    "hash": "0757d235ed3370de5268199e213a3344522f2437a9bffcba58ab9b1c4d4b7a62",
+    "lesson": "lesson-physics-mirror-and-lens-image-equations"
   },
   "q-physics-light-and-optics-0029": {
     "approvedAt": "2026-11-19",
@@ -19694,7 +19694,7 @@
   "q-physics-light-and-optics-0044": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "b5067ff54217d95d4c3cb79e6774e1408449725f3644604470085bdeb729f385",
+    "hash": "6bafe5cc2704fd280d6ffb83dfeb8ba740dd15c7bab13941141a7146b95e0a41",
     "lesson": "lesson-physics-critical-angle-and-total-internal-reflection"
   },
   "q-physics-light-and-optics-0045": {
@@ -20162,7 +20162,7 @@
   "q-physics-two-dimensional-motion-0003": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "003810aaa4693c9b1901ef8a29818be1f1a061ccbcc794d247ea25d2c175b43b",
+    "hash": "c878bff58824cc439e369130e69e3378240d283430010285d8855e64f1deae7f",
     "lesson": "lesson-physics-launch-components-and-the-ideal-projectile-model"
   },
   "q-physics-two-dimensional-motion-0004": {
@@ -20618,7 +20618,7 @@
   "q-physics-waves-and-sound-0024": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "b083cbc48d90f8352a40478ccdbf0768800df8fda3d568c8c4e7a265e7fbf52b",
+    "hash": "6c2ada4b40cd53b8154e9e2add219f18a15cb586c07beedfecd24d25b663bbcd",
     "lesson": "lesson-physics-wave-interference-and-path-difference"
   },
   "q-physics-waves-and-sound-0025": {
@@ -20666,7 +20666,7 @@
   "q-physics-waves-and-sound-0032": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "e96e7f3452dfb4f72dc9adff56c23884cd23abf42f4255d7f5918b6e2790ddea",
+    "hash": "762fcc6ea3a56ef837f30fa46d0edf9e8af8e87fd5474ecdea62048ede47e8f3",
     "lesson": "lesson-physics-wave-interference-and-path-difference"
   },
   "q-physics-waves-and-sound-0033": {
@@ -20678,7 +20678,7 @@
   "q-physics-waves-and-sound-0034": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "70df55b09cec7c8132f08e547a073f2624bd54bdde646ee56814603868c999ca",
+    "hash": "631be3006b82bdc104e3c0575481792442960dc1a58b52c96aff36ec082fec54",
     "lesson": "lesson-physics-wave-interference-and-path-difference"
   },
   "q-physics-waves-and-sound-0035": {
@@ -20846,7 +20846,7 @@
   "q-physics-work-energy-power-0019": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "0fe5568ed53c4e9794f915d115c25e964935d85395957837fcdab60d641cb873",
+    "hash": "deef8ce11abfd63a8b1ade462e28a574539e4c0def1bf1961cc288554f7d7f53",
     "lesson": "lesson-physics-kinetic-and-gravitational-potential-energy"
   },
   "q-physics-work-energy-power-0020": {
@@ -20882,7 +20882,7 @@
   "q-precalculus-basic-calculus-basic-derivatives-0001": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "74a57d9e8c6717c1a6ab1724115664dcafe1b96cadce6b47eb6a46d97f6df53b",
+    "hash": "df17df5ccc10363658c9b2097b91002aac60ef2b6fdbf690c336782e246a7b34",
     "lesson": "lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules"
   },
   "q-precalculus-basic-calculus-basic-derivatives-0002": {
@@ -21278,8 +21278,8 @@
   "q-precalculus-basic-calculus-limits-and-continuity-0003": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "0eeb72f7ae5d96c5de9ebacc337b2f689b46e4f58a9ffc3476589399c8aaa9f8",
-    "lesson": "lesson-precalculus-basic-calculus-direct-substitution-for-limits"
+    "hash": "b4399ab4fdeb501c3b9c835b4f2390ca1a907d405d4a99e692c682f63dbdcfc4",
+    "lesson": "lesson-precalculus-basic-calculus-one-sided-limits-and-continuity"
   },
   "q-precalculus-basic-calculus-limits-and-continuity-0004": {
     "approvedAt": "2026-11-19",
@@ -22256,7 +22256,7 @@
   "q-statistics-and-probability-basic-probability-0014": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "ea7813ac36f61ad84938b950e191fb557f6d42f9fa2479a31f71be0b82f1e099",
+    "hash": "3f7c9b20a48babdcfa0b8be4cf9e1f38d8b8c05e6be37181579376f7aac16fcd",
     "lesson": "lesson-statistics-and-probability-conditional-probability-and-replacement"
   },
   "q-statistics-and-probability-basic-probability-0015": {
@@ -22268,7 +22268,7 @@
   "q-statistics-and-probability-basic-probability-0016": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "91774817ecdfa46cf36be44644fadc98b7fcbf448eff3038767c0c65f01b32d9",
+    "hash": "19f797f1e7282621aacf44caa9b28b085130928717db11a9ec7d616c11919659",
     "lesson": "lesson-statistics-and-probability-independent-events-and-complements"
   },
   "q-statistics-and-probability-basic-probability-0017": {
@@ -22676,8 +22676,8 @@
   "q-statistics-and-probability-measures-of-central-tendency-0014": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "d47fe4f817d28db8ebff4767d4fef8dd934834183f1a86b2eb1ea88ad3fd490f",
-    "lesson": "lesson-statistics-and-probability-arithmetic-mean-and-missing-values"
+    "hash": "a740bc6406fe882293ec3f3458f066d862f2ca6493fcb1ed8ccf3d49b00ef397",
+    "lesson": "lesson-statistics-and-probability-median-and-mode"
   },
   "q-statistics-and-probability-measures-of-central-tendency-0015": {
     "approvedAt": "2026-11-19",
@@ -22688,8 +22688,8 @@
   "q-statistics-and-probability-measures-of-central-tendency-0016": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "8922fe8e86ebe4942f6ebbec79d9dbde8ee6577dca6b1ac882eb3d2d2dd12a29",
-    "lesson": "lesson-statistics-and-probability-arithmetic-mean-and-missing-values"
+    "hash": "7dc9dcea31a07ed18889bc8bde0736df931f1e777a2e65ff0bacfb473b58d0a2",
+    "lesson": "lesson-statistics-and-probability-median-and-mode"
   },
   "q-statistics-and-probability-measures-of-central-tendency-0017": {
     "approvedAt": "2026-11-19",

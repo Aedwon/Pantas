@@ -240,7 +240,7 @@ questions:
       Substitution replaces $y$ with the entire expression $3x+1$. In the second equation, this gives $2x+5(3x+1)=14$. The brackets keep the whole expression multiplied by $5$.
 
   - id: q-algebra-systems-of-equations-0011
-    approved: false
+    approved: true
     lesson: lesson-algebra-systems-substitution-and-word-problems
     keyPoint: 2
     type: word-problem
@@ -263,7 +263,7 @@ questions:
       Let $n$ be the notebook price and $p$ the pen price. The receipts give $3n+2p=140$ and $n+4p=80$. The second equation gives $n=80-4p$. Substitute to get $3(80-4p)+2p=140$. This gives $240-10p=140$, so $10p=100$ and $p=10$ pesos per pen.
 
   - id: q-algebra-systems-of-equations-0012
-    approved: false
+    approved: true
     lesson: lesson-algebra-systems-substitution-and-word-problems
     keyPoint: 1
     type: direct-computation
@@ -332,7 +332,7 @@ questions:
       Put $x=3$ and $y=1$ into both equations. The first gives $2(3)+1=7$. The second gives $3-1=2$. Thus $(3,1)$ satisfies the whole system.
 
   - id: q-algebra-systems-of-equations-0015
-    approved: false
+    approved: true
     lesson: lesson-algebra-systems-substitution-and-word-problems
     keyPoint: 1
     type: direct-computation
@@ -401,7 +401,7 @@ questions:
       From $x^2=x$, move the right side to get $x^2-x=0$. Factor: $x(x-1)=0$. Thus $x=0$ or $x=1$. Dividing by $x$ loses the solution $x=0$.
 
   - id: q-algebra-systems-of-equations-0018
-    approved: false
+    approved: true
     lesson: lesson-algebra-systems-substitution-and-word-problems
     keyPoint: 2
     type: word-problem

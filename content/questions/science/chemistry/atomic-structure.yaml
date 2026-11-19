@@ -278,7 +278,7 @@ questions:
           The neutron count is right. Check whether the two proton counts differ.
     explanation: |
       Subtract the proton count from the mass number to get $18-8=10$ neutrons. Both nuclei have eight protons, so they are the same element. Their different mass numbers make them different isotopes.
-    approved: false
+    approved: true
 
   - id: q-chemistry-atomic-structure-0013
     lesson: lesson-chemistry-ions-and-isotope-notation

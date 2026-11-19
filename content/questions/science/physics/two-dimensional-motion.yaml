@@ -51,6 +51,7 @@ questions:
     approved: true
 
   - id: q-physics-two-dimensional-motion-0003
+    approved: true
     lesson: lesson-physics-launch-components-and-the-ideal-projectile-model
     keyPoint: 1
     type: "simple-quantitative"

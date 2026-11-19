@@ -232,7 +232,7 @@ questions:
           Both calculations start with dissolved solute. Check whether warming changes the amount of solute in this case.
     explanation: |
       The moles of dissolved solute and the solvent mass stay the same. Molality divides by solvent mass, so it stays the same. Molarity divides by solution volume, which can change with temperature.
-    approved: false
+    approved: true
 
   - id: q-chemistry-solutions-0011
     lesson: lesson-chemistry-solution-percent-by-volume
@@ -347,7 +347,7 @@ questions:
           A solid in a liquid is a familiar example. Check whether one liquid can dissolve another.
     explanation: |
       The solvent is the part that dissolves the other part. When both parts start as liquids, the solvent is usually the one present in the greater amount. Here that is water.
-    approved: false
+    approved: true
 
   - id: q-chemistry-solutions-0016
     lesson: lesson-chemistry-solutions-and-saturation

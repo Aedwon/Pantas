@@ -462,7 +462,7 @@ questions:
           Boiling bubbles can look like a reaction. Check whether the particles themselves change.
     explanation: |
       In evaporation, particles escape from the surface. This can happen below the boiling point. When a liquid boils, vapor bubbles form inside the liquid too.
-    approved: false
+    approved: true
 
   - id: q-chemistry-matter-0021
     approved: true

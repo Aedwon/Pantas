@@ -189,6 +189,7 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0024
+    approved: true
     lesson: lesson-physics-wave-interference-and-path-difference
     keyPoint: 2
     type: "cause-effect"
@@ -372,6 +373,7 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0032
+    approved: true
     lesson: lesson-physics-wave-interference-and-path-difference
     keyPoint: 1
     type: "classify"
@@ -417,6 +419,7 @@ questions:
     approved: true
 
   - id: q-physics-waves-and-sound-0034
+    approved: true
     lesson: lesson-physics-wave-interference-and-path-difference
     keyPoint: 2
     type: "simple-quantitative"

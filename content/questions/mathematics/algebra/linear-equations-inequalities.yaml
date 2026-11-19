@@ -292,7 +292,7 @@ questions:
       The rise is $6-2=4$ and the run is $3-1=2$. Their ratio is $\dfrac{4}{2}=2$.
 
   - id: q-algebra-linear-equations-inequalities-0013
-    approved: false
+    approved: true
     lesson: lesson-algebra-parallel-and-perpendicular-lines
     keyPoint: 2
     type: direct-computation
@@ -384,7 +384,7 @@ questions:
       A strict inequality does not include its boundary. The inequality $x<5$ uses the dashed vertical line $x=5$ and includes points to its left.
 
   - id: q-algebra-linear-equations-inequalities-0017
-    approved: false
+    approved: true
     lesson: lesson-algebra-solving-linear-equations
     keyPoint: 1
     type: word-problem

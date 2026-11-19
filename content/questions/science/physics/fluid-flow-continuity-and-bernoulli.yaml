@@ -235,6 +235,7 @@ questions:
       A wide section has a larger area, so by continuity the water slows down. At the same height, slower flow has higher static pressure. So the speed decreases and the pressure increases.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0007
+    approved: true
     lesson: lesson-physics-bernoulli-pressure-and-speed
     keyPoint: 1
     type: "classify"
@@ -418,6 +419,7 @@ questions:
       The area ratio is $\left(\dfrac{6.0}{3.0}\right)^2=4$, so $v_2=4.0\,\mathrm{m/s}$. At equal height, $P_2=P_1+\dfrac{1}{2}\rho(v_1^2-v_2^2)=1.50\times10^5+500(1-16)=1.50\times10^5-7500=1.425\times10^5\,\mathrm{Pa}$.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0015
+    approved: true
     lesson: lesson-physics-bernoulli-pressure-and-speed
     keyPoint: 1
     type: "simple-quantitative"

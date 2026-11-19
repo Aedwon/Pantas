@@ -26,3 +26,7 @@ Not yet done: the independent sample audit by a separate Sol run, listed in the 
 | science/earth-science-astronomy | 291 |
 | science/physics | 408 |
 | Total | 2433 |
+
+## Audit fixes (November 20, 2026)
+
+After the independent Sol audit, fixes changed 76 questions. All 1,097 questions in the fixed files were solved blind again by a separate GPT 6.2 Sol run (1,097 matches, 0 mismatches, 0 low confidence). The 76 changed questions are re-approved on that solve.

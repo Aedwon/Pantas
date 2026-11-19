@@ -94,7 +94,7 @@ questions:
           This uses the mole amount and the power of ten. Check that you multiply by the full constant.
     explanation: |
       Multiply moles by the number of molecules per mole. The product is $3.000(6.022\times10^{23})=1.8066\times10^{24}$. The next digit is $6$, so the result rounds to $1.807\times10^{24}$ molecules.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mole-concept-0005
     lesson: lesson-chemistry-converting-mass-and-entities
@@ -117,7 +117,7 @@ questions:
           The problem starts with grams, so it is easy to multiply that number directly. Check that Avogadro’s constant needs moles as the input.
     explanation: |
       First find the moles of water, $n=\dfrac{45}{18}=2.5$ mol. Multiply by $N_A$ to get $1.5055\times10^{24}$ molecules before rounding. To two significant figures, the count is $1.5\times10^{24}$ molecules.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mole-concept-0006
     lesson: lesson-chemistry-converting-mass-and-entities
@@ -462,7 +462,7 @@ questions:
           Different substances have different masses per mole. Check whether those different masses change the count per mole.
     explanation: |
       One mole contains exactly $6.02214076\times10^{23}$ of the things being counted, such as atoms or molecules. The SI fixes that number exactly.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mole-concept-0021
     approved: true

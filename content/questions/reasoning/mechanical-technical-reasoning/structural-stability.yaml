@@ -313,6 +313,7 @@ questions:
           baseWidth: 1
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0011"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-weight-line-and-tipping
     keyPoint: 1
     type: "structural-stability"
@@ -544,6 +545,7 @@ questions:
           baseWidth: 2
           height: 3
   - id: "q-mechanical-technical-reasoning-structural-stability-0019"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-comparing-tipping-angles
     keyPoint: 1
     type: "structural-stability"

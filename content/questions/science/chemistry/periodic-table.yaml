@@ -255,7 +255,7 @@ questions:
           A stronger pull does shrink atoms across a period. Down a group, check how far the outer electrons are from the nucleus.
     explanation: |
       Across a period, the nucleus gains protons while electrons go into the same outer shell. The stronger pull usually shrinks the atom. Down a group, atoms gain shells, so the outer electrons are usually farther from the nucleus.
-    approved: false
+    approved: true
 
   - id: q-chemistry-periodic-table-0012
     lesson: lesson-chemistry-atomic-radius-and-shielding

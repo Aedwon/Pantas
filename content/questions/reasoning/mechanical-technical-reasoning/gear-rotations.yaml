@@ -146,6 +146,7 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0006
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
     keyPoint: 1
     type: gear-direction
@@ -427,6 +428,7 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0016
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
     keyPoint: 1
     type: gear-direction
@@ -513,6 +515,7 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-gear-rotations-0019
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-gear-speeds-and-tooth-counts
     keyPoint: 2
     type: gear-direction

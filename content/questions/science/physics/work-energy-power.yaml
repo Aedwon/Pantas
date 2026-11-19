@@ -419,6 +419,7 @@ questions:
       $KE_f=KE_i+W_{\mathrm{net}}=100-30=70\,\mathrm J$.
 
   - id: q-physics-work-energy-power-0019
+    approved: true
     lesson: lesson-physics-kinetic-and-gravitational-potential-energy
     keyPoint: 2
     type: "compare-contrast"

@@ -350,7 +350,7 @@ questions:
       For $x^2+x+1=0$, the discriminant is $1^2-4(1)(1)=-3$. A negative discriminant gives no real roots.
 
   - id: q-algebra-quadratic-equations-0016
-    approved: false
+    approved: true
     lesson: lesson-algebra-quadratic-methods-and-root-properties
     keyPoint: 3
     type: which-is-true

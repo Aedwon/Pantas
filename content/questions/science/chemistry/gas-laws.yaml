@@ -393,7 +393,7 @@ questions:
           Celsius and kelvin have equal-sized degrees. Check which scale starts at absolute zero.
     explanation: |
       Avogadro’s law compares volume as the amount changes at fixed pressure and temperature. The combined gas law links pressure, volume, and temperature for a fixed amount.
-    approved: false
+    approved: true
 
   - id: q-chemistry-gas-laws-0018
     lesson: lesson-chemistry-ideal-gas-law-calculations
@@ -416,7 +416,7 @@ questions:
           Both quantities double, which makes multiplying tempting. Check which quantity appears in the denominator.
     explanation: |
       Use $n=\dfrac{PV}{RT}$. Pressure is the same, and $\dfrac{2V}{2T}=\dfrac{V}{T}$. The two samples have the same number of moles.
-    approved: false
+    approved: true
 
   - id: q-chemistry-gas-laws-0019
     lesson: lesson-chemistry-ideal-gas-law-calculations

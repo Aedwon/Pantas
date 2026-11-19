@@ -278,7 +278,7 @@ questions:
           Sometimes both formulas match. Check whether their molar masses match here.
     explanation: |
       Divide the measured molar mass by the molar mass from the empirical formula. The result, $120\div46\approx2.6$, is too far from a whole number. Recheck the measurements and the formula.
-    approved: false
+    approved: true
 
   - id: q-chemistry-stoichiometry-0013
     lesson: lesson-chemistry-limiting-and-excess-reactant-amounts

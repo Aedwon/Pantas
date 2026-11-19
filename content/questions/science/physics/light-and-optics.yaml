@@ -419,6 +419,7 @@ questions:
       The index of refraction is $n=\dfrac{c}{v}$. So $v=\dfrac{c}{n}=\dfrac{3.00\times10^{8}}{1.50}=2.00\times10^{8}\,\mathrm{m/s}$.
 
   - id: q-physics-light-and-optics-0044
+    approved: true
     lesson: lesson-physics-critical-angle-and-total-internal-reflection
     keyPoint: 1
     type: "predict-outcome"

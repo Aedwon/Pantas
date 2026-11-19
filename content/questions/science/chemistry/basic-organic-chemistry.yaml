@@ -25,7 +25,7 @@ questions:
           Carboxylic acids can also have a carbon chain. Check whether the compound includes oxygen.
     explanation: |
       An alkane is an open-chain hydrocarbon with only single bonds. The chain here has no ring and no double or triple bonds.
-    approved: false
+    approved: true
 
   - id: q-chemistry-basic-organic-chemistry-0002
     lesson: lesson-chemistry-hydrocarbon-families-by-bond

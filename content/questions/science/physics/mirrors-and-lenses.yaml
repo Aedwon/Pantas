@@ -281,6 +281,7 @@ questions:
     approved: true
 
   - id: q-physics-light-and-optics-0028
+    approved: true
     lesson: lesson-physics-mirror-and-lens-image-equations
     keyPoint: 2
     type: "predict-outcome"

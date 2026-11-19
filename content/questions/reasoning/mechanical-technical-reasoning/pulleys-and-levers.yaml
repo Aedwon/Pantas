@@ -387,6 +387,7 @@ questions:
       Mechanical work requires displacement in the force direction. The lever is motionless, so the effort point moves zero distance. Its mechanical work is zero.
     approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0015"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
     keyPoint: 2
     type: "pulley-lever"
@@ -593,6 +594,7 @@ questions:
     explanation: |
       One strand pulls up on each side of the moving pulley. The other pulleys only guide the rope. The mechanical advantage is 2.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0023"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-block-and-tackle
     keyPoint: 1
     type: "pulley-lever"
@@ -614,6 +616,7 @@ questions:
     explanation: |
       Four strands pull up on the two lower wheels, two at each wheel. The strand tied to the moving block also pulls up. That makes five.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0024"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-block-and-tackle
     keyPoint: 1
     type: "pulley-lever"

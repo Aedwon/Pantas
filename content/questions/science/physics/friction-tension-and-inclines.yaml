@@ -212,6 +212,7 @@ questions:
       Friction acts along the surface between two touching objects. Kinetic friction acts against the sliding. The box slides right, so the friction on it acts to the left.
 
   - id: q-physics-friction-tension-and-inclines-0004
+    approved: true
     lesson: lesson-physics-static-friction-and-its-limit
     keyPoint: 1
     type: "simple-quantitative"
@@ -418,6 +419,7 @@ questions:
       One end of the rope is fixed, and the block hangs from a movable pulley. The block's acceleration is half the acceleration of the free end. So it is $\dfrac{3.0}{2}=1.5\,\mathrm{m/s^2}$.
 
   - id: q-physics-friction-tension-and-inclines-0013
+    approved: true
     lesson: lesson-physics-kinetic-friction-and-angled-pulls
     keyPoint: 1
     type: "predict-outcome"

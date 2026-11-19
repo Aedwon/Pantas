@@ -455,6 +455,7 @@ questions:
     approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0017
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
     keyPoint: 2
     type: fluid-pressure
