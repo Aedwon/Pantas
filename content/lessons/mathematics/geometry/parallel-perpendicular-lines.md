@@ -6,6 +6,13 @@ subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 13
 isActive: true
+status: retired
+replacedBy:
+  - lesson-geometry-transversals-and-angle-positions
+  - lesson-geometry-same-side-angles-and-supplements
+  - lesson-geometry-perpendicular-transversals
+  - lesson-geometry-proving-lines-are-parallel
+  - lesson-geometry-zigzag-angles-between-parallels
 ---
 ## Core Concept
 

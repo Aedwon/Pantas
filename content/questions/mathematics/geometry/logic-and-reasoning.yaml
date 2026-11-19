@@ -5,6 +5,8 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-geometry-logic-and-reasoning-0001
+    lesson: lesson-geometry-reading-if-then-statements
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -28,6 +30,8 @@ questions:
       The hypothesis is the condition following if. Here that condition is that two lines are perpendicular.
 
   - id: q-geometry-logic-and-reasoning-0002
+    lesson: lesson-geometry-converse-inverse-and-contrapositive
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -51,6 +55,8 @@ questions:
       A converse swaps the if part and the then part without changing either claim. The angle condition moves first, followed by the equilateral-triangle conclusion.
 
   - id: q-geometry-logic-and-reasoning-0003
+    lesson: lesson-geometry-converse-inverse-and-contrapositive
+    keyPoint: 2
     type: which-is-true
     difficulty: easy
     stem: |
@@ -74,6 +80,8 @@ questions:
       A conditional and its contrapositive are logically equivalent. This means they are true and false in exactly the same cases. Their truth values always match.
 
   - id: q-geometry-logic-and-reasoning-0004
+    lesson: lesson-geometry-counterexamples-to-conditional-statements
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -97,6 +105,8 @@ questions:
       A counterexample must have a true hypothesis and false conclusion. A quadrilateral with four equal sides satisfies the hypothesis. If it is not a square, it fails the conclusion. One such example disproves the conditional.
 
   - id: q-geometry-logic-and-reasoning-0005
+    lesson: lesson-geometry-deduction-and-conditional-chains
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -123,6 +133,8 @@ questions:
       The first premise links a regular hexagon to an interior-angle sum of $720^\circ$. The second links that sum to six sides. Chaining them gives: if a polygon is a regular hexagon, then it has six sides.
 
   - id: q-geometry-logic-and-reasoning-0006
+    lesson: lesson-geometry-converse-inverse-and-contrapositive
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -146,6 +158,8 @@ questions:
       An inverse negates both original parts without swapping them. Negating forms a linear pair gives does not form a linear pair. Negating supplementary gives not supplementary. Keep that order in the new if-then statement.
 
   - id: q-geometry-logic-and-reasoning-0007
+    lesson: lesson-geometry-biconditionals
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -169,6 +183,8 @@ questions:
       An if-and-only-if claim contains both directions: if P then Q, and if Q then P. For the biconditional to hold, both directions must be true.
 
   - id: q-geometry-logic-and-reasoning-0008
+    lesson: lesson-geometry-counterexamples-to-conditional-statements
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -192,6 +208,8 @@ questions:
       Two right angles sum to $90^\circ+90^\circ=180^\circ$, so they satisfy the supplementary hypothesis. Each equals $90^\circ$, so neither is obtuse. The hypothesis holds and the conclusion fails, giving a counterexample.
 
   - id: q-geometry-logic-and-reasoning-0009
+    lesson: lesson-geometry-converse-inverse-and-contrapositive
+    keyPoint: 2
     type: which-is-true
     difficulty: medium
     stem: |
@@ -215,6 +233,8 @@ questions:
       Take the contrapositive of if not P then not Q. Swap and negate to get if not-not Q then not-not P. Cancel each double negative. The result is if Q then P, which is the converse.
 
   - id: q-geometry-logic-and-reasoning-0010
+    lesson: lesson-geometry-deduction-and-conditional-chains
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -242,6 +262,8 @@ questions:
       Following the given premises, parallel lines lead to equal alternate angles. That condition leads to an isosceles triangle, which leads to angle A congruent to angle B. The chain therefore links the first condition to the final conclusion.
 
   - id: q-geometry-logic-and-reasoning-0011
+    lesson: lesson-geometry-reading-if-then-statements
+    keyPoint: 2
     type: which-is-true
     difficulty: medium
     stem: |
@@ -265,6 +287,8 @@ questions:
       The conditional says Q follows whenever P is true. It fails when P is true but Q is false. This is exactly the counterexample condition.
 
   - id: q-geometry-logic-and-reasoning-0012
+    lesson: lesson-geometry-biconditionals
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -288,6 +312,8 @@ questions:
       Choose a non-square rhombus, for example one with angles $60^\circ$ and $120^\circ$. It is a parallelogram with perpendicular diagonals, but it is not a rectangle. This breaks one direction of the if-and-only-if claim. The biconditional is therefore false.
 
   - id: q-geometry-logic-and-reasoning-0013
+    lesson: lesson-geometry-reading-if-then-statements
+    keyPoint: 2
     type: which-is-true
     difficulty: hard
     stem: |
@@ -311,6 +337,8 @@ questions:
       A conditional is false exactly when its hypothesis holds and its conclusion fails. Its negation states that case: T is right-angled and does not have two acute angles.
 
   - id: q-geometry-logic-and-reasoning-0014
+    lesson: lesson-geometry-deduction-and-conditional-chains
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -338,6 +366,8 @@ questions:
       The argument starts with if P then Q, observes Q, and concludes P. The rule does not guarantee that reverse direction. A nonsquare rectangle has congruent diagonals and satisfies the observed conclusion while failing the square condition. Thus the argument is invalid. Knowing that the conclusion is true does not prove the hypothesis.
 
   - id: q-geometry-logic-and-reasoning-0015
+    lesson: lesson-geometry-converse-inverse-and-contrapositive
+    keyPoint: 2
     type: which-is-true
     difficulty: hard
     stem: |
@@ -361,6 +391,8 @@ questions:
       The contrapositive shares the original conditional's truth value, so it is true. The inverse shares the converse's truth value. Since the converse has a counterexample, it is false and the inverse is false too.
 
   - id: q-geometry-logic-and-reasoning-0016
+    lesson: lesson-geometry-converse-inverse-and-contrapositive
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -382,6 +414,8 @@ questions:
     approved: false
 
   - id: q-geometry-logic-and-reasoning-0017
+    lesson: lesson-geometry-converse-inverse-and-contrapositive
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -403,6 +437,8 @@ questions:
     approved: false
 
   - id: q-geometry-logic-and-reasoning-0018
+    lesson: lesson-geometry-counterexamples-to-conditional-statements
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -424,6 +460,8 @@ questions:
     approved: false
 
   - id: q-geometry-logic-and-reasoning-0019
+    lesson: lesson-geometry-deduction-and-conditional-chains
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -445,6 +483,8 @@ questions:
     approved: false
 
   - id: q-geometry-logic-and-reasoning-0020
+    lesson: lesson-geometry-biconditionals
+    keyPoint: 1
     type: word-problem
     difficulty: exam
     stem: |

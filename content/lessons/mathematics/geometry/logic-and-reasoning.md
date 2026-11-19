@@ -6,6 +6,13 @@ subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-geometry-reading-if-then-statements
+  - lesson-geometry-converse-inverse-and-contrapositive
+  - lesson-geometry-counterexamples-to-conditional-statements
+  - lesson-geometry-biconditionals
+  - lesson-geometry-deduction-and-conditional-chains
 ---
 ## Core Concept
 

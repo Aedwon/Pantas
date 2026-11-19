@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 268" width="360" height="268">
+<title>Parallel lines a and b cut by a transversal; two angles between the lines on the right of the transversal are labeled (3x + 20)° and (2x − 15)°</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="268" rx="14" fill="url(#bg)"/>
+<line x1="16" y1="70" x2="344" y2="70" stroke="#010101" stroke-width="2" stroke-linecap="butt"/>
+<text x="26" y="59" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">a</tspan></text>
+<polyline points="314,64 320,70 314,76" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="16" y1="210" x2="344" y2="210" stroke="#010101" stroke-width="2" stroke-linecap="butt"/>
+<text x="26" y="199" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">b</tspan></text>
+<polyline points="314,204 320,210 314,216" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="223.8" y1="36" x2="78.2" y2="244" stroke="#010101" stroke-width="2" stroke-linecap="round"/>
+<path d="M189.7 84.7 A18 18 0 0 0 218 70" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<path d="M120 210 A18 18 0 0 0 112.3 195.3" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<text x="224" y="116.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">(3</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> + 20)°</tspan></text>
+<text x="166" y="198.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">(2</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> − 15)°</tspan></text>
+</svg>

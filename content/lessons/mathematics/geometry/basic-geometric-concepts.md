@@ -6,6 +6,13 @@ subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-geometry-points-lines-and-midpoints
+  - lesson-geometry-angle-names-and-measures
+  - lesson-geometry-complementary-and-supplementary-angles
+  - lesson-geometry-linear-pairs-and-vertical-angles
+  - lesson-geometry-bisecting-angles
 ---
 ## Core Concept
 

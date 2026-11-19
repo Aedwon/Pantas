@@ -6,6 +6,14 @@ subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-geometry-distance-on-the-coordinate-plane
+  - lesson-geometry-coordinate-midpoints-and-endpoints
+  - lesson-geometry-coordinate-slope-and-line-forms
+  - lesson-geometry-slopes-of-parallel-and-perpendicular-lines
+  - lesson-geometry-standard-circle-equations
+  - lesson-geometry-expanded-circle-equations
 ---
 ## Core Concept
 
