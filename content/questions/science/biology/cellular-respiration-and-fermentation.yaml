@@ -463,3 +463,25 @@ questions:
     explanation: |
       Anaerobic respiration has an electron transport chain, like aerobic respiration, but its final electron acceptor is not oxygen. Fermentation has no chain. Glycolysis alone makes its ATP.
     approved: false
+
+  - id: q-biology-cellular-respiration-and-fermentation-0007
+    lesson: lesson-biology-aerobic-respiration-inputs-and-products
+    keyPoint: 1
+    type: "identify"
+    difficulty: "hard"
+    stem: |
+      A student traces atoms through the overall reaction for aerobic respiration. Which product contains the carbon that entered the reaction in glucose?
+    choices:
+      - text: "Carbon dioxide"
+        correct: true
+      - text: "Water formed in the reaction"
+        rationale: |
+          Water forms during respiration, so it may seem to carry some of the fuel's atoms. Check whether water has any carbon.
+      - text: "ATP formed in the reaction"
+        rationale: |
+          Glucose supplies energy for making ATP, so it is easy to mix up energy and atoms. Follow carbon through the overall equation.
+      - text: "Oxygen gas released by the cell"
+        rationale: |
+          Oxygen appears in the equation, so it may seem to be released. Check which side shows the starting materials.
+    explanation: |
+      Carbon dioxide contains carbon. In the overall reaction, that carbon comes from glucose.

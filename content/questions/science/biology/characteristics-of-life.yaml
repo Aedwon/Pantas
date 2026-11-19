@@ -466,3 +466,69 @@ questions:
     explanation: |
       The change in surroundings is the stimulus. The mushroom changes how it grows in response. This directly demonstrates response to stimuli.
     approved: false
+
+  - id: q-biology-characteristics-of-life-0021
+    lesson: lesson-biology-dormant-seeds
+    keyPoint: 1
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      A seed from a species that must be chilled before it can germinate is kept warm and wet. It does not sprout. Why is this result alone insufficient to show that the seed is dead?
+    choices:
+      - text: "A living seed may still be dormant without chilling."
+        correct: true
+      - text: "A dead seed can restart its life processes after chilling."
+        rationale: |
+          A dormant seed may grow after chilling, so it is easy to mix it up with a dead one. Check whether the seed still has living cells.
+      - text: "A living seed always grows once it has warmth and water."
+        rationale: |
+          Many seeds need warmth and water to grow. Check whether this species also needs a period of cold.
+      - text: "A resting seed must first grow a new set of living cells."
+        rationale: |
+          Dormant seeds show little growth, so their cells may seem dead. Check whether dormancy slows life processes or kills the cells.
+    explanation: |
+      A dormant seed still has living cells. If the seed needs a cold period to sprout, it may stay dormant in warm, wet conditions.
+
+  - id: q-biology-characteristics-of-life-0022
+    lesson: lesson-biology-levels-of-biological-organization
+    keyPoint: 1
+    type: "process-ordering"
+    difficulty: "exam"
+    stem: |
+      Which sequence moves from the smallest living unit to a whole multicellular organism?
+    choices:
+      - text: "Cell, tissue, organ, organ system, organism"
+        correct: true
+      - text: "Cell, organ, tissue, organ system, organism"
+        rationale: |
+          Organs and tissues both do jobs in the body. Check which one is made of several tissues.
+      - text: "Tissue, cell, organ, organ system, organism"
+        rationale: |
+          A tissue may look like one solid piece. Ask what small living units make up that piece.
+      - text: "Cell, tissue, organ system, organ, organism"
+        rationale: |
+          An organ and an organ system can both do a large job. Check which one is made of several organs.
+    explanation: |
+      Cells form tissues. Tissues make up organs. Organs work together in systems that are part of the whole organism.
+
+  - id: q-biology-characteristics-of-life-0023
+    lesson: lesson-biology-levels-of-biological-organization
+    keyPoint: 2
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      A field survey lists all the living fish, plants, fungi, and microbes in a pond. Which level of organization does the list describe?
+    choices:
+      - text: "Community"
+        correct: true
+      - text: "Population of pond organisms"
+        rationale: |
+          All the organisms live in one pond, which fits part of the meaning. Check whether the list covers just one species.
+      - text: "Ecosystem of the whole pond"
+        rationale: |
+          A pond is an ecosystem when you include its water and other nonliving parts. Check whether the survey lists those too.
+      - text: "Single multicellular organism"
+        rationale: |
+          The living things may depend on each other, like parts of one body. Check whether the list shows one living thing or many.
+    explanation: |
+      A community includes all the populations that live in the same area. The list includes living things from many species.

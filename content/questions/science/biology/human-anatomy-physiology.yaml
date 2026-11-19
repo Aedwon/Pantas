@@ -471,3 +471,47 @@ questions:
     explanation: |
       Diffusion moves a substance from more concentrated to less concentrated. The alveolar air has more oxygen than the blood, so oxygen moves into the blood. The blood has more carbon dioxide than the alveolar air, so carbon dioxide moves out.
     approved: false
+
+  - id: q-biology-human-anatomy-physiology-0031
+    lesson: lesson-biology-cells-tissues-and-organs
+    keyPoint: 2
+    type: "classify"
+    difficulty: "medium"
+    stem: |
+      A sample from the inner surface of an organ forms a lining. Which basic tissue type is best identified by this role?
+    choices:
+      - text: "Epithelial tissue"
+        correct: true
+      - text: "Connective tissue"
+        rationale: |
+          Connective tissue helps hold parts together. Check whether the sample supports parts or covers a surface.
+      - text: "Muscle tissue"
+        rationale: |
+          Muscle can form part of an organ wall. Check whether the job given is to contract or to line a space.
+      - text: "Nervous tissue"
+        rationale: |
+          Nerves can run through an organ wall. Look for a signal-carrying job before you choose nervous tissue.
+    explanation: |
+      Epithelial tissue covers surfaces and lines spaces. This sample forms the organ's inner lining.
+
+  - id: q-biology-human-anatomy-physiology-0032
+    lesson: lesson-biology-arteries-veins-and-capillaries
+    keyPoint: 2
+    type: "structure-function"
+    difficulty: "medium"
+    stem: |
+      A tracer leaves the bloodstream and enters the tissue around a vessel. Which vessel is adapted for this exchange?
+    choices:
+      - text: "A thin-walled capillary"
+        correct: true
+      - text: "An artery carrying blood from the heart"
+        rationale: |
+          Arteries deliver blood to tissues, so they may seem like the place where it leaves materials. Find the tiny vessel where exchange occurs.
+      - text: "A vein carrying blood back toward the heart"
+        rationale: |
+          Veins collect blood after it passes through tissues. Check which vessel lets materials cross its wall before the blood reaches the vein.
+      - text: "A pulmonary artery carrying oxygen-poor blood"
+        rationale: |
+          This artery leads to the lungs, where exchange takes place. Check whether exchange happens in the large vessel or in the tiny ones it feeds.
+    explanation: |
+      A capillary has a thin wall that lets materials pass between blood and nearby tissue.

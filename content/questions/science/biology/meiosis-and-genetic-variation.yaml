@@ -463,3 +463,47 @@ questions:
     explanation: |
       After meiosis I, each cell is haploid with 23 chromosomes. At metaphase II, the chromosomes line up in single file. Each still has two sister chromatids, which separate in anaphase II.
     approved: false
+
+  - id: q-biology-meiosis-and-genetic-variation-0010
+    lesson: lesson-biology-allele-combinations-in-gametes
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "hard"
+    stem: |
+      A diploid organism is $AaBbdd$, with the genes on three different chromosome pairs. Ignoring crossing over, how many distinct allele combinations can its gametes show across many meioses?
+    choices:
+      - text: "$4$"
+        correct: true
+      - text: "$8$"
+        rationale: |
+          Three pairs can give eight whole-chromosome combinations. Check how many pairs carry two different alleles.
+      - text: "$2$"
+        rationale: |
+          One way for the pairs to line up gives two allele combinations. Count the results across many ways the pairs can line up.
+      - text: "$1$"
+        rationale: |
+          Every gamete gets $d$, so they all match for that gene. Check how the other two genes can vary.
+    explanation: |
+      Each gamete gets either $A$ or $a$ and either $B$ or $b$. It always gets $d$. That gives $2\times2\times1=4$ allele combinations.
+
+  - id: q-biology-meiosis-and-genetic-variation-0011
+    lesson: lesson-biology-crossing-over-and-fertilization
+    keyPoint: 2
+    type: "cause-effect"
+    difficulty: "hard"
+    stem: |
+      A female produces eggs with different allele combinations, and a male produces sperm with different allele combinations. How can fertilization add variation among their offspring?
+    choices:
+      - text: "Different sperm can fuse with different eggs."
+        correct: true
+      - text: "Fertilization swaps pieces between homologs in each gamete."
+        rationale: |
+          Swapping pieces can make new allele mixes. Check whether that swap happens during fertilization or during meiosis.
+      - text: "Fertilization makes each gamete sort its chromosome pairs again."
+        rationale: |
+          Sorting pairs can give different mixes. Check whether the gametes already finished that step before they met.
+      - text: "Each zygote receives two full sets of chromosomes from the same parent."
+        rationale: |
+          A zygote does contain two sets. Trace how many sets come from the egg and how many come from the sperm.
+    explanation: |
+      Each egg and sperm brings its own mix of alleles. Which two meet is a matter of chance, so the offspring can get different mixes.

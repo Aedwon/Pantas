@@ -463,3 +463,47 @@ questions:
     explanation: |
       Pollen first reaches the stigma. A pollen tube grows and delivers sperm to the ovule. A sperm joins the egg to make a zygote. The zygote then develops into an embryo.
     approved: false
+
+  - id: q-biology-botany-0021
+    lesson: lesson-biology-flower-parts
+    keyPoint: 1
+    type: "structure-function"
+    difficulty: "exam"
+    stem: |
+      Pollen grains form on a flower's stamens and later collect on the sticky tip of another flower. Which structures perform these jobs, respectively?
+    choices:
+      - text: "Anther, then stigma"
+        correct: true
+      - text: "Stigma first, then anther"
+        rationale: |
+          Both touch pollen, so their jobs are easy to swap. Follow the grain from where it forms to where it lands.
+      - text: "Anther, then the ovary"
+        rationale: |
+          The ovary is part of the pistil, so it may seem to catch pollen. Look for the sticky tip of the pistil.
+      - text: "The style, then the stigma"
+        rationale: |
+          The style is a stalk, so it can look like part of a stamen. Find the pollen-making part at the top of the stamen.
+    explanation: |
+      The anther makes pollen. The stigma is the sticky tip that catches it.
+
+  - id: q-biology-botany-0022
+    lesson: lesson-biology-flower-parts
+    keyPoint: 2
+    type: "structure-function"
+    difficulty: "exam"
+    stem: |
+      Once a pollen grain lands on the stigma, which route allows its sperm cells to reach the egg cell?
+    choices:
+      - text: "Through a pollen tube to an ovule"
+        correct: true
+      - text: "Through a pollen tube to an anther"
+        rationale: |
+          The tube does carry sperm, and the anther makes pollen. Find the part that holds the egg.
+      - text: "Through the stalk of a stamen to an ovule"
+        rationale: |
+          The stamen makes pollen, so its stalk may seem to carry sperm. Trace the tube from the stigma down the style.
+      - text: "Across the stigma to an egg on its surface"
+        rationale: |
+          The grain lands on the stigma, so it may seem to reach the egg there. Find the egg inside the ovary.
+    explanation: |
+      Sperm move down a pollen tube. The tube leads to an ovule, which holds the egg cell.

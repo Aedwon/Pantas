@@ -463,3 +463,135 @@ questions:
     explanation: |
       Sympatric speciation occurs without a geographic barrier. A chromosome-number change can create reproductive isolation among plants in the same area.
     approved: false
+
+  - id: q-biology-evolution-0021
+    lesson: lesson-biology-genes-and-inherited-variation
+    keyPoint: 1
+    type: "identify"
+    difficulty: "exam"
+    stem: |
+      An offspring of two diploid parents carries two different alleles of a gene on a non-sex chromosome. How did the offspring receive those alleles?
+    choices:
+      - text: "One allele from each parent's gamete"
+        correct: true
+      - text: "Both alleles from the same parent's gamete"
+        rationale: |
+          A parent has two copies of the gene, so it may seem to pass both. Check how many copies each gamete gives.
+      - text: "One visible trait from each parent, with no gene copies transferred"
+        rationale: |
+          A visible trait can run in a family. Ask what the gametes carry to the offspring.
+      - text: "Both alleles formed when the gametes fused, with no copies from either parent"
+        rationale: |
+          Fusion makes a new cell, so its alleles may seem new too. Trace each gene copy back to a parent's gamete.
+    explanation: |
+      Each parent passes one allele for this gene in a sex cell. The two sex cells join, so the offspring has two alleles.
+
+  - id: q-biology-evolution-0022
+    lesson: lesson-biology-genes-and-inherited-variation
+    keyPoint: 1
+    type: "compare-contrast"
+    difficulty: "exam"
+    stem: |
+      In a species that reproduces by splitting in two, a new organism receives an allele already present in the parent. Which event accounts for the transfer?
+    choices:
+      - text: "DNA passes from the single parent."
+        correct: true
+      - text: "Gametes from two parents fuse to pass on DNA."
+        rationale: |
+          Gametes pass DNA during sexual reproduction. Check how many parents take part when an organism splits.
+      - text: "An allele passes to the offspring in a gamete made only for reproduction."
+        rationale: |
+          Gametes carry alleles during sexual reproduction. Check whether the parent in this case splits to form the offspring.
+      - text: "An allele forms in the offspring in response to local conditions."
+        rationale: |
+          An offspring can face the same conditions as its parent. Check whether the question says the allele is new or was already in the parent.
+    explanation: |
+      The single parent passes DNA to its offspring as it splits. That DNA carries the allele.
+
+  - id: q-biology-evolution-0023
+    lesson: lesson-biology-allele-frequency-across-generations
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "exam"
+    stem: |
+      A beetle population carries $100$ copies of a color gene. Of those, $30$ are the brown allele and the rest are the green allele. What is the frequency of the green allele?
+    choices:
+      - text: "$0.70$"
+        correct: true
+      - text: "$0.30$"
+        rationale: |
+          This is the share of brown copies. Check which color the question asks you to count.
+      - text: "$1.00$"
+        rationale: |
+          All gene copies make up the whole set. Use only the green copies in the top of the fraction.
+      - text: "$0.40$"
+        rationale: |
+          This is the gap between the shares of the two alleles. To find the green share, divide the green count by the total count.
+    explanation: |
+      There are $100-30=70$ green copies. Divide by all $100$ copies. The frequency is $\dfrac{70}{100}=0.70$.
+
+  - id: q-biology-evolution-0024
+    lesson: lesson-biology-allele-frequency-across-generations
+    keyPoint: 1
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      A beetle population has a brown allele frequency of $0.30$ in one generation and $0.70$ in the next. Which conclusion follows from these data alone?
+    choices:
+      - text: "The population evolved."
+        correct: true
+      - text: "Natural selection caused the entire change."
+        rationale: |
+          Selection can change allele frequency, but other forces can too. Look for evidence about what caused the change.
+      - text: "Individual beetles changed their alleles as they grew."
+        rationale: |
+          A rise in brown alleles may sound like beetles changed one at a time. Check whether the values describe individuals or whole generations.
+      - text: "The population changed only how its alleles were paired."
+        rationale: |
+          Mating can change which alleles pair up. Check whether the measured share of an allele also changed.
+    explanation: |
+      The share of brown alleles changed from one generation to the next. That change in the population is evolution.
+
+  - id: q-biology-evolution-0025
+    lesson: lesson-biology-how-mutations-add-alleles
+    keyPoint: 1
+    type: "classify"
+    difficulty: "exam"
+    stem: |
+      A new DNA variant appears in a skin cell of one animal and in a cell that later makes eggs in another. Which variant could be inherited by an offspring?
+    choices:
+      - text: "The variant present in an egg that is fertilized"
+        correct: true
+      - text: "The variant in skin, because that cell divides as the animal grows"
+        rationale: |
+          Cell division can copy the change to more skin cells. Follow the DNA that actually reaches the offspring.
+      - text: "Both variants, because all changes in body DNA pass to offspring"
+        rationale: |
+          Both are changes to DNA, which can be inherited. Check whether either change reaches a sex cell.
+      - text: "Neither variant, because a new allele must come from a parent of the animal"
+        rationale: |
+          Many alleles come from parents, so a new one may seem impossible. Check whether a change in DNA can make a new allele.
+    explanation: |
+      A mutation can make a new allele. If the allele is in an egg that is fertilized, the egg passes it to the offspring.
+
+  - id: q-biology-evolution-0026
+    lesson: lesson-biology-gene-flow-between-populations
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "exam"
+    stem: |
+      Two plant populations initially have different frequencies of an allele. Pollen regularly moves in both directions between the populations and fertilizes flowers. What effect is gene flow alone expected to have on those frequencies?
+    choices:
+      - text: "The frequencies tend to become more similar."
+        correct: true
+      - text: "The frequencies tend to become more different."
+        rationale: |
+          Separate populations can grow more different over time. Check whether pollen is keeping these two populations connected.
+      - text: "The frequencies stay fixed because the adult plants stay in place."
+        rationale: |
+          Plants stay rooted, so it can seem like their alleles cannot move. Check what the pollen carries into each population.
+      - text: "The allele disappears from both populations after the first exchange."
+        rationale: |
+          An exchange can lower the share of an allele in one group. Check whether the pollen can also add copies of that allele to the other group.
+    explanation: |
+      The pollen brings copies of alleles into each population. Over time, this exchange tends to make the share of an allele more alike in both groups.
