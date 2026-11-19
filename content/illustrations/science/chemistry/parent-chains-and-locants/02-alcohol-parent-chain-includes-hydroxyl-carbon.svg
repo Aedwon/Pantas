@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 319" width="360" height="319">
+<title>Compare the longest chain with the alcohol parent chain in 2-ethylpentan-1-ol.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="319" rx="14" fill="url(#bg)"/>
+<line x1="49" y1="87" x2="101" y2="59" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="101" y1="59" x2="153" y2="87" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="153" y1="87" x2="205" y2="59" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="205" y1="59" x2="257" y2="87" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="257" y1="87" x2="309" y2="59" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="153" y1="87" x2="153" y2="126" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="49" y1="87" x2="101" y2="59" fill="none" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="101" y1="59" x2="153" y2="87" fill="none" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="153" y1="87" x2="205" y2="59" fill="none" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="205" y1="59" x2="257" y2="87" fill="none" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="257" y1="87" x2="309" y2="59" fill="none" stroke="#020202" stroke-width="3.5" stroke-linecap="round"/>
+<text x="153" y="148" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">CH₂OH</tspan></text>
+<text x="180" y="36" fill="#020202" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">six-carbon chain</text>
+<line x1="49" y1="234" x2="101" y2="206" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="101" y1="206" x2="153" y2="234" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="153" y1="234" x2="205" y2="206" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="205" y1="206" x2="257" y2="234" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="257" y1="234" x2="309" y2="206" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="153" y1="234" x2="153" y2="273" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="153" y1="273" x2="153" y2="234" fill="none" stroke="#050505" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="153" y1="234" x2="205" y2="206" fill="none" stroke="#050505" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="205" y1="206" x2="257" y2="234" fill="none" stroke="#050505" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="257" y1="234" x2="309" y2="206" fill="none" stroke="#050505" stroke-width="3.5" stroke-linecap="round"/>
+<circle cx="153" cy="273" r="3.4" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<text x="166" y="294" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">1</tspan></text>
+<circle cx="153" cy="234" r="3.4" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<text x="166" y="221" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">2</tspan></text>
+<circle cx="205" cy="206" r="3.4" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<text x="218" y="193" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">3</tspan></text>
+<circle cx="257" cy="234" r="3.4" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<text x="270" y="221" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">4</tspan></text>
+<circle cx="309" cy="206" r="3.4" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<text x="322" y="193" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">5</tspan></text>
+<text x="153" y="295" fill="#010101" text-anchor="end" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">CH₂OH</tspan></text>
+<text x="180" y="173" fill="#050505" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">five-carbon parent chain</text>
+</svg>

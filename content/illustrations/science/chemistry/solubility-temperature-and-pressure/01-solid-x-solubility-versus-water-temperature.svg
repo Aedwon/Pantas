@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 359" width="360" height="359">
+<title>Read the regions around the solubility line for solid X.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="359" rx="14" fill="url(#bg)"/>
+<text x="24" y="30" fill="#010101" text-anchor="start" font-size="14" font-weight="600" font-family="Geist, sans-serif">grams of X per 100 g of water</text>
+<line x1="59.0" y1="285.0" x2="59.0" y2="63.1" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="59.0,55.05000000000001 62.5,63.1 55.5,63.1" fill="#020202"/>
+<line x1="59.0" y1="285.0" x2="332.4" y2="285.0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="340.40000000000003,285.0 332.4,288.5 332.4,281.5" fill="#020202"/>
+<line x1="59.0" y1="285" x2="59.0" y2="290" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="59.0" y="311" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">0</tspan></text>
+<line x1="126.0" y1="285" x2="126.0" y2="290" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="126.0" y="311" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">20</tspan></text>
+<line x1="260.0" y1="285" x2="260.0" y2="290" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="260.0" y="311" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">60</tspan></text>
+<line x1="327.0" y1="285" x2="327.0" y2="290" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="327.0" y="311" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">80</tspan></text>
+<line x1="53" y1="175.5" x2="59" y2="175.5" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="47" y="180.5" fill="#010101" text-anchor="end" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">30</tspan></text>
+<line x1="53" y1="102.5" x2="59" y2="102.5" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="47" y="107.5" fill="#010101" text-anchor="end" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">50</tspan></text>
+<line x1="53" y1="66.0" x2="59" y2="66.0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="47" y="71.0" fill="#010101" text-anchor="end" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">60</tspan></text>
+<line x1="59" y1="175.5" x2="126.0" y2="175.5" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-opacity=".3" stroke-dasharray="3 5"/>
+<line x1="126.0" y1="175.5" x2="126.0" y2="285" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-opacity=".3" stroke-dasharray="3 5"/>
+<line x1="59" y1="102.5" x2="260.0" y2="102.5" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-opacity=".3" stroke-dasharray="3 5"/>
+<line x1="260.0" y1="102.5" x2="260.0" y2="285" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-opacity=".3" stroke-dasharray="3 5"/>
+<line x1="59.0" y1="212.0" x2="327.0" y2="66.0" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="126.0" cy="175.5" r="4" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<circle cx="260.0" cy="102.5" r="4" fill="#050505" fill-opacity="1" stroke="none" stroke-width="1.5"/>
+<text x="116" y="83" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">supersaturated</text>
+<text x="137" y="103" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">or undissolved solute</text>
+<line x1="226" y1="145" x2="215" y2="127" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<text x="269" y="154" fill="#050505" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">saturated</text>
+<text x="215" y="226" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">unsaturated</text>
+<text x="191" y="335" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">temperature in degrees Celsius</text>
+</svg>

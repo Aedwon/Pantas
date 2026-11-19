@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 287" width="360" height="287">
+<title>Show the three conversions that connect grams of A to grams of B.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="287" rx="14" fill="url(#bg)"/>
+<rect x="23" y="32" width="114" height="44" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="80.0" y="59.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">grams of A</text>
+<rect x="223" y="32" width="114" height="44" rx="8" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="280.0" y="59.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">moles of A</text>
+<rect x="223" y="190" width="114" height="44" rx="8" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="280.0" y="217.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">moles of B</text>
+<rect x="23" y="190" width="114" height="44" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="80.0" y="217.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">grams of B</text>
+<line x1="137" y1="54" x2="215.0" y2="54.0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="223,54 215.0,57.5 215.0,50.5" fill="#020202"/>
+<line x1="280" y1="77" x2="280.0" y2="181.0" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="280,189 276.5,181.0 283.5,181.0" fill="#050505"/>
+<line x1="223" y1="212" x2="145.0" y2="212.0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="137,212 145.0,208.5 145.0,215.5" fill="#020202"/>
+<text x="180" y="103" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">divide by molar mass of A</text>
+<text x="263" y="133" fill="#010101" text-anchor="end" font-size="14" font-weight="600" font-family="Geist, sans-serif">multiply by mole ratio</text>
+<text x="263" y="153" fill="#010101" text-anchor="end" font-size="14" font-weight="600" font-family="Geist, sans-serif">from the equation</text>
+<text x="180" y="263" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">multiply by molar mass of B</text>
+</svg>

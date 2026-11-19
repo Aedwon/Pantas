@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 299" width="360" height="299">
+<title>Show water warming and holding its temperature during melting and boiling.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="299" rx="14" fill="url(#bg)"/>
+<text x="19" y="29" fill="#010101" text-anchor="start" font-size="14" font-weight="600" font-family="Geist, sans-serif">temperature in degrees Celsius</text>
+<line x1="62" y1="247" x2="62.0" y2="55.0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="62,47 65.5,55.0 58.5,55.0" fill="#020202"/>
+<line x1="62" y1="247" x2="331.0" y2="247.0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="339,247 331.0,250.5 331.0,243.5" fill="#020202"/>
+<line x1="55" y1="182" x2="62" y2="182" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="62" y1="182" x2="327" y2="182" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-opacity=".22"/>
+<text x="47" y="187" fill="#010101" text-anchor="end" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">0</tspan></text>
+<line x1="55" y1="97" x2="62" y2="97" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="62" y1="97" x2="327" y2="97" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-opacity=".22"/>
+<text x="47" y="102" fill="#010101" text-anchor="end" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">100</tspan></text>
+<path d="M73 230 L104 182 H164 L220 97 H275 L319 52" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="104" y1="182" x2="164" y2="182" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="220" y1="97" x2="275" y2="97" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<text x="107" y="229" fill="#010101" text-anchor="start" font-size="14" font-weight="600" font-family="Geist, sans-serif">ice warming</text>
+<text x="130" y="168" fill="#050505" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">melting</text>
+<text x="214" y="204" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">liquid water</text>
+<text x="214" y="223" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">warming</text>
+<text x="249" y="83" fill="#050505" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">boiling</text>
+<text x="289" y="41" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">steam warming</text>
+<text x="192" y="274" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">energy added</text>
+</svg>

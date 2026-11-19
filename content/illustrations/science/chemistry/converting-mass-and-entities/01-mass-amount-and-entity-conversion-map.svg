@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 243" width="360" height="243">
+<title>Show how to convert between mass, amount and number of entities.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="243" rx="14" fill="url(#bg)"/>
+<rect x="17" y="114" width="98" height="68" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="66.0" y="144.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">mass</text>
+<text x="66.0" y="162.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">m (g)</text>
+<rect x="131" y="114" width="98" height="68" rx="8" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="180.0" y="144.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">amount</text>
+<text x="180.0" y="162.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">n (mol)</text>
+<rect x="245" y="114" width="98" height="68" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="294.0" y="144.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">number of</text>
+<text x="294.0" y="162.0" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">entities N</text>
+<line x1="118" y1="104" x2="120.0" y2="104.0" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="128,104 120.0,107.5 120.0,100.5" fill="#050505"/>
+<line x1="128" y1="193" x2="126.0" y2="193.0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="118,193 126.0,189.5 126.0,196.5" fill="#020202"/>
+<line x1="232" y1="104" x2="234.0" y2="104.0" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="242,104 234.0,107.5 234.0,100.5" fill="#050505"/>
+<line x1="242" y1="193" x2="240.0" y2="193.0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="232,193 240.0,189.5 240.0,196.5" fill="#020202"/>
+<line x1="66" y1="114" x2="66" y2="104" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="180" y1="114" x2="180" y2="104" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="294" y1="114" x2="294" y2="104" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="66" y1="182" x2="66" y2="193" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="180" y1="182" x2="180" y2="193" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="294" y1="182" x2="294" y2="193" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="66" y1="104" x2="118" y2="104" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<line x1="128" y1="104" x2="180" y2="104" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<line x1="180" y1="104" x2="232" y2="104" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<line x1="242" y1="104" x2="294" y2="104" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<line x1="66" y1="193" x2="118" y2="193" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="128" y1="193" x2="180" y2="193" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="180" y1="193" x2="232" y2="193" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="242" y1="193" x2="294" y2="193" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="121" y="84" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">divide by M (g/mol)</text>
+<text x="250" y="42" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">multiply by Nₐ</text>
+<text x="250" y="63" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif"><tspan font-family="KaTeX_Main, serif" font-weight="400">(6.022 × 10²³ per mol)</tspan></text>
+<text x="120" y="219" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">multiply by M</text>
+<text x="244" y="219" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">divide by Nₐ</text>
+</svg>

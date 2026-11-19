@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 298" width="360" height="298">
+<title>Compare melting ice with rusting iron.</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="depth" cx="0.4" cy="0.3" r="0.7"><stop offset="0" stop-color="#050505" stop-opacity="0.45"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient>
+</defs>
+<rect width="360" height="298" rx="14" fill="url(#bg)"/>
+<rect x="18" y="17" width="152" height="264" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="94" y="43" fill="#010101" text-anchor="middle" font-size="15" font-weight="600" font-family="Geist, sans-serif">Physical change:</text>
+<text x="94" y="65" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">substance stays</text>
+<text x="94" y="83" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">the same</text>
+<rect x="190" y="17" width="152" height="264" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="266" y="43" fill="#010101" text-anchor="middle" font-size="15" font-weight="600" font-family="Geist, sans-serif">Chemical change:</text>
+<text x="266" y="65" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">new substance</text>
+<text x="266" y="83" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">forms</text>
+<path d="M72 127 L94 117 L116 127 V151 L94 162 L72 151 Z" fill="url(#depth)" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M72 127 L94 138 L116 127 M94 138 V162" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="94" y1="172" x2="94.0" y2="207.0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="94,215 90.5,207.0 97.5,207.0" fill="#020202"/>
+<path d="M94 221 C88 234 79 239 79 248 A15 15 0 0 0 109 248 C109 239 100 234 94 221 Z" fill="url(#depth)" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="232" y="128" width="68" height="23" rx="4" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="1.5"/>
+<line x1="266" y1="172" x2="266.0" y2="207.0" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="266,215 262.5,207.0 269.5,207.0" fill="#020202"/>
+<rect x="232" y="232" width="68" height="23" rx="4" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="1.5"/>
+<path d="M233 240 L242 236 L249 241 L257 233 L267 236 L280 232 L291 239 L299 235 V251 H233 Z" fill="#050505" fill-opacity="0.45" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="94" y="113" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">ice</text>
+<text x="94" y="274" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">water</text>
+<text x="266" y="113" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">iron</text>
+<text x="266" y="274" fill="#010101" text-anchor="middle" font-size="14" font-weight="600" font-family="Geist, sans-serif">rust</text>
+</svg>
