@@ -79,7 +79,7 @@ questions:
     type: 'simple-quantitative'
     difficulty: 'hard'
     stem: |
-      A compound has the empirical formula $CH_2O$ (empirical formula mass = 30 g/mol) and an actual molar mass of 180 g/mol. Find its molecular formula.
+      A compound has the empirical formula $CH_2O$ and a molar mass of 180 g/mol. The molar mass calculated from the empirical formula is 30 g/mol. Find its molecular formula.
     choices:
       - text: '$C_6H_{12}O_6$'
         correct: true

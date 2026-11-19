@@ -68,9 +68,9 @@ The **focus** (plural: foci) is the point underground where the slip starts. The
 
 Earthquakes send out body waves through Earth and slower surface waves along the ground. Two body waves show distance: the faster **P wave** arrives first, and the slower **S wave** arrives second. When the waves follow similar paths through rock, a longer gap usually means the earthquake is farther away.
 
-The diagram assumes both waves travel the same path at steady speeds. In real rock, speeds can change. Scientists use wave travel times to estimate distance.
+If both waves travel the same path at steady speeds, the time gap is proportional to distance. In real rock, speeds can change. Scientists use wave travel times to estimate distance.
 
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"seismograph-arrivals","illustrationKey":"science/earth-science-astronomy/plate-tectonics#3","firstArrival":"P wave","secondArrival":"S wave","timeGapMeaning":"proportional to distance"} -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"seismograph-arrivals","illustrationKey":"science/earth-science-astronomy/plate-tectonics#3","firstArrival":"P wave","secondArrival":"S wave","timeGapMeaning":"proportional to distance","semanticsLabel":"The P wave arrives before the S wave. If both waves travel the same path at steady speeds, the time gap is proportional to distance."} -->
 Faults are named by how the two blocks moved. The block above a tilted fault is the **hanging wall**. The block below it is the **footwall**.
 
 - **Normal fault:** the hanging wall moves down. The rock is being pulled apart (extension).

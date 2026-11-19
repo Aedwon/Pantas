@@ -44,9 +44,9 @@ This distinction is essential:
 
 So a **$p$ subshell** can contain six electrons, but each of its **three $p$ orbitals** can contain only two.
 
-The shapes below show one orbital of each type. The maximums on the figure are for whole subshells. Each orbital holds at most two electrons.
+The shapes below show one orbital of each type. The maximums label whole subshells: 2 for $s$, 6 for $p$, and 10 for $d$. Each orbital holds at most two electrons.
 
-<!-- FIGURE: {"kind":"chemistry-diagram","type":"orbital-shapes","illustrationKey":"science/chemistry/quantum-numbers-electron-configuration#1","orbitals":[{"label":"s","shape":"sphere","capacity":2},{"label":"p","shape":"dumbbell","capacity":6},{"label":"d","shape":"four-lobed cloverleaf","capacity":10}]} -->
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"orbital-shapes","semanticsLabel":"One orbital shape per subshell: a sphere for s, a dumbbell for p, and a four-lobed cloverleaf for d. The s, p, and d subshells hold up to 2, 6, and 10 electrons, respectively. Each orbital holds up to 2 electrons.","illustrationKey":"science/chemistry/quantum-numbers-electron-configuration#1","orbitals":[{"label":"s","shape":"sphere","capacity":2},{"label":"p","shape":"dumbbell","capacity":6},{"label":"d","shape":"four-lobed cloverleaf","capacity":10}]} -->
 
 ## Examples
 

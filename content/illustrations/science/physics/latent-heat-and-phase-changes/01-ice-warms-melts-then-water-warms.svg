@@ -23,5 +23,5 @@
 <line x1="72.34" y1="149" x2="253.57" y2="149" fill="none" stroke="#050505" stroke-width="3"/>
 <text x="105" y="202" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">ice warms</text>
 <text x="163" y="135" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">ice melts</text>
-<text x="218" y="104" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">water warms</text>
+<text x="306" y="148" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">water warms</text>
 </svg>
