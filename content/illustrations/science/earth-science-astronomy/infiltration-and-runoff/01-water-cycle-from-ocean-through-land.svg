@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 348" width="360" height="348">
+  <title>Water cycle</title>
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="shape" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.12"/><stop offset="1" stop-color="#050505" stop-opacity="0.27"/></radialGradient>
+    <radialGradient id="muted" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.07"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient>
+    <radialGradient id="tile" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.03"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient>
+    <radialGradient id="focus" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.23"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+  </defs>
+  <rect width="360" height="348" rx="14" fill="url(#bg)"/>
+  <circle cx="44" cy="45" r="18" fill="url(#focus)" stroke="#050505" stroke-width="1.6"/>
+  <text x="44" y="85" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Sun</text>
+  <path d="M124 79 C104 79 104 57 120 56 C122 35 146 34 155 51 C172 42 187 55 179 69 Q177 79 165 79 Z" fill="url(#muted)" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="232" y="64" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">condensation</text>
+  <path d="M18 240 H146 L178 224 L251 158 L341 240 V329 H18 Z" fill="url(#muted)" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18 240 H146 L171 229 L155 267 H18 Z" fill="url(#shape)" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M250 159 L264 173 L249 169 L236 173 Z" fill="#030303" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M310 169 L310 206" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="310" cy="167" r="13" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <path d="M49 230 L49 118" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="49.0,118.0 53.0,126.0 45.0,126.0" fill="#050505"/>
+  <text x="58" y="215" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">evaporation</text>
+  <path d="M310 148 L310 103" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="310.0,103.0 314.0,111.0 306.0,111.0" fill="#020202"/>
+  <text x="330" y="92" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">transpiration</text>
+  <path d="M146 87 L146 232" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="146.0,232.0 142.0,224.0 150.0,224.0" fill="#020202"/>
+  <path d="M161 87 L222 183" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="222.0,183.0 214.3,178.4 221.1,174.1" fill="#020202"/>
+  <text x="207" y="118" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">precipitation</text>
+  <path d="M246 188 Q208 227 176 229 Q154 230 136 245" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="136.0,245.0 139.6,236.8 144.7,243.0" fill="#050505"/>
+  <text x="204" y="254" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">runoff</text>
+  <text x="51" y="260" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">ocean</text>
+  <path d="M301 228 L301 282" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="301.0,282.0 297.0,274.0 305.0,274.0" fill="#020202"/>
+  <text x="290" y="271" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">infiltration</text>
+  <path d="M291 295 Q186 316 118 259" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="118.0,259.0 126.7,261.1 121.6,267.2" fill="#050505"/>
+  <text x="206" y="324" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">groundwater</text>
+</svg>

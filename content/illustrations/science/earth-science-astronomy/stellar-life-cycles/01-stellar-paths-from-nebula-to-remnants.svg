@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 394" width="360" height="394">
+  <title>Stellar life cycles</title>
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="shape" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.12"/><stop offset="1" stop-color="#050505" stop-opacity="0.27"/></radialGradient>
+    <radialGradient id="muted" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.07"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient>
+    <radialGradient id="tile" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.03"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient>
+    <radialGradient id="focus" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.23"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+  </defs>
+  <rect width="360" height="394" rx="14" fill="url(#bg)"/>
+  <rect x="98.0" y="18" width="164" height="32" rx="7" fill="url(#tile)" stroke="#020202" stroke-width="1.5"/>
+  <text x="180" y="39" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">nebula</text>
+  <path d="M180 50 L180 67" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="180.0,67.0 176.0,59.0 184.0,59.0" fill="#020202"/>
+  <rect x="98.0" y="67" width="164" height="32" rx="7" fill="url(#tile)" stroke="#020202" stroke-width="1.5"/>
+  <text x="180" y="88" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">protostar</text>
+  <path d="M180 99 L180 116" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="180.0,116.0 176.0,108.0 184.0,108.0" fill="#020202"/>
+  <rect x="98.0" y="116" width="164" height="32" rx="7" fill="url(#focus)" stroke="#020202" stroke-width="1.5"/>
+  <text x="180" y="137" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">main-sequence star</text>
+  <path d="M180 148 V165 H94 V177 M180 165 H266 V177" fill="none" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="94" y="197" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">star like the Sun</text>
+  <text x="266" y="190" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">star many times</text>
+  <text x="266" y="207" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">the Sun’s mass</text>
+  <rect x="18.5" y="222" width="151" height="32" rx="7" fill="url(#tile)" stroke="#020202" stroke-width="1.5"/>
+  <text x="94" y="243" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">red giant</text>
+  <rect x="190.0" y="222" width="152" height="32" rx="7" fill="url(#tile)" stroke="#020202" stroke-width="1.5"/>
+  <text x="266" y="243" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">supergiant</text>
+  <path d="M94 254 L94 271" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="94.0,271.0 90.0,263.0 98.0,263.0" fill="#020202"/>
+  <path d="M266 254 L266 271" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="266.0,271.0 262.0,263.0 270.0,263.0" fill="#020202"/>
+  <rect x="18.5" y="271" width="151" height="32" rx="7" fill="url(#tile)" stroke="#020202" stroke-width="1.5"/>
+  <text x="94" y="292" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">planetary nebula</text>
+  <rect x="190.0" y="271" width="152" height="32" rx="7" fill="url(#tile)" stroke="#020202" stroke-width="1.5"/>
+  <text x="266" y="292" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">supernova</text>
+  <path d="M94 303 L94 320" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="94.0,320.0 90.0,312.0 98.0,312.0" fill="#020202"/>
+  <path d="M266 303 L266 320" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="266.0,320.0 262.0,312.0 270.0,312.0" fill="#020202"/>
+  <rect x="18.5" y="320" width="151" height="32" rx="7" fill="url(#tile)" stroke="#020202" stroke-width="1.5"/>
+  <text x="94" y="341" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">white dwarf</text>
+  <rect x="190" y="320" width="152" height="56" rx="7" fill="url(#tile)" stroke="#020202" stroke-width="1.5"/>
+  <text x="266" y="342" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">neutron star</text>
+  <text x="266" y="362" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">or black hole</text>
+</svg>

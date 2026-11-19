@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 278" width="360" height="278">
+  <title>Spring and neap tides</title>
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="shape" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.12"/><stop offset="1" stop-color="#050505" stop-opacity="0.27"/></radialGradient>
+    <radialGradient id="muted" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.07"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient>
+    <radialGradient id="tile" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.03"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient>
+    <radialGradient id="focus" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.23"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+  </defs>
+  <rect width="360" height="278" rx="14" fill="url(#bg)"/>
+  <text x="100" y="31" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">spring tide:</text>
+  <text x="100" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">large range</text>
+  <text x="270" y="31" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">neap tide:</text>
+  <text x="270" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">small range</text>
+  <path d="M184 67 L184 249" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 100 L153 100" fill="none" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="40" cy="100" r="14" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <text x="40" y="133" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Sun</text>
+  <circle cx="98" cy="100" r="6" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <text x="98" y="133" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Moon</text>
+  <circle cx="153" cy="100" r="10" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <text x="153" y="133" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Earth</text>
+  <text x="100" y="155" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">new moon</text>
+  <path d="M40 199 L153 199" fill="none" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="40" cy="199" r="14" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <text x="40" y="232" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Sun</text>
+  <circle cx="98" cy="199" r="10" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <text x="98" y="232" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Earth</text>
+  <circle cx="153" cy="199" r="6" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <text x="153" y="232" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Moon</text>
+  <text x="100" y="254" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">full moon</text>
+  <path d="M216 149 L293 149" fill="none" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M293 94 L293 149" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M283 149 V139 H293" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="293" cy="94" r="7" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <text x="293" y="78" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Moon</text>
+  <circle cx="216" cy="149" r="14" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <text x="216" y="182" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Sun</text>
+  <circle cx="293" cy="149" r="10" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <text x="293" y="182" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Earth</text>
+  <text x="265" y="204" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">first quarter</text>
+</svg>

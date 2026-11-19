@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 319" width="360" height="319">
+  <title>Ocean gyres and heat</title>
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="shape" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.12"/><stop offset="1" stop-color="#050505" stop-opacity="0.27"/></radialGradient>
+    <radialGradient id="muted" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.07"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient>
+    <radialGradient id="tile" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.03"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient>
+    <radialGradient id="focus" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.23"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+  </defs>
+  <rect width="360" height="319" rx="14" fill="url(#bg)"/>
+  <rect x="19" y="66" width="322" height="197" rx="8" fill="url(#tile)" stroke="#020202" stroke-width="1.5"/>
+  <path d="M20 82 L53 79 L75 85 L90 94 L104 89 L115 96 L106 107 L91 104 L79 115 L77 133 L61 146 L53 156 L57 169 L43 167 L34 148 L20 139 Z" fill="url(#muted)" stroke="#020202" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 164 L40 169 L50 178 L71 168 L84 172 L102 166 L108 176 L89 183 L61 183 L49 189 L29 181 L20 181 Z" fill="url(#muted)" stroke="#020202" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M43 221 L57 198 L78 196 L97 203 L105 217 L94 237 L75 241 L61 235 L43 239 Z" fill="url(#muted)" stroke="#020202" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M157 92 L165 81 L189 76 L219 81 L240 80 L255 92 L242 106 L229 107 L220 118 L214 130 L205 140 L208 148 L202 151 L191 140 L181 125 L180 112 L169 105 L148 108 L138 103 Z" fill="url(#muted)" stroke="#020202" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M205 152 L220 146 L231 151 L246 161 L252 175 L244 186 L237 194 L232 211 L221 237 L211 249 L211 232 L206 211 L208 196 L199 179 L199 166 Z" fill="url(#muted)" stroke="#020202" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M252 84 L260 76 L275 77 L280 86 L275 98 L257 108 L250 101 Z" fill="url(#muted)" stroke="#020202" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M302 99 L313 88 L340 83 V130 L329 132 L325 122 L309 123 L300 117 Z" fill="url(#muted)" stroke="#020202" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M304 133 L321 128 L340 135 V166 L331 177 L326 194 L318 201 L309 190 L308 173 L302 166 L292 158 L294 145 Z" fill="url(#muted)" stroke="#020202" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M20 250 Q91 243 135 252 T235 252 T340 250 V255 Q340 262 332 262 H27 Q20 262 20 255 Z" fill="url(#muted)" stroke="#020202" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M131 143 C80 143 80 113 131 113" fill="none" stroke="#B64850" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="131.0,113.0 123.0,117.0 123.0,109.0" fill="#B64850"/>
+  <path d="M131 113 C182 113 182 143 131 143" fill="none" stroke="#3471B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="131.0,143.0 139.0,139.0 139.0,147.0" fill="#3471B1"/>
+  <path d="M151 190 C103 190 103 232 151 232" fill="none" stroke="#B64850" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="151.0,232.0 143.0,236.0 143.0,228.0" fill="#B64850"/>
+  <path d="M151 232 C199 232 199 190 151 190" fill="none" stroke="#3471B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="151.0,190.0 159.0,186.0 159.0,194.0" fill="#3471B1"/>
+  <path d="M260 143 C222 143 222 117 260 117" fill="none" stroke="#B64850" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="260.0,117.0 252.0,121.0 252.0,113.0" fill="#B64850"/>
+  <path d="M260 117 C298 117 298 143 260 143" fill="none" stroke="#3471B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="260.0,143.0 268.0,139.0 268.0,147.0" fill="#3471B1"/>
+  <path d="M273 190 C233 190 233 232 273 232" fill="none" stroke="#B64850" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="273.0,232.0 265.0,236.0 265.0,228.0" fill="#B64850"/>
+  <path d="M273 232 C313 232 313 190 273 190" fill="none" stroke="#3471B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="273.0,190.0 281.0,186.0 281.0,194.0" fill="#3471B1"/>
+  <text x="70" y="38" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Kuroshio</text>
+  <path d="M70 45 L77 107 L93 128" fill="none" stroke="#B64850" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="264" y="38" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Gulf Stream</text>
+  <path d="M244 45 L232 61 L228 117 L232 130" fill="none" stroke="#B64850" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M39 290 L65 290" fill="none" stroke="#B64850" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="65.0,290.0 57.0,294.0 57.0,286.0" fill="#B64850"/>
+  <text x="72" y="295" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">warm currents</text>
+  <path d="M190 290 L216 290" fill="none" stroke="#3471B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="216.0,290.0 208.0,294.0 208.0,286.0" fill="#3471B1"/>
+  <text x="223" y="295" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">cold currents</text>
+</svg>

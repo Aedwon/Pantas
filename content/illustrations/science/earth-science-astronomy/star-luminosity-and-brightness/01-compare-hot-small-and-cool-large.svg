@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 221" width="360" height="221">
+  <title>Star size and apparent brightness</title>
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="shape" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.12"/><stop offset="1" stop-color="#050505" stop-opacity="0.27"/></radialGradient>
+    <radialGradient id="muted" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.07"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient>
+    <radialGradient id="tile" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.03"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient>
+    <radialGradient id="focus" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.23"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+  </defs>
+  <rect width="360" height="221" rx="14" fill="url(#bg)"/>
+  <circle cx="48" cy="89" r="10" fill="#DAE8FF" stroke="#4B76AF" stroke-width="1.6"/>
+  <circle cx="221" cy="89" r="38" fill="#BC4E5F" stroke="#842C3F" stroke-width="1.6"/>
+  <text x="90" y="139" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">hot surface, small</text>
+  <text x="263" y="139" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">cool surface, very large</text>
+  <path d="M90 89 L130 89" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="130.0,89.0 122.0,93.0 122.0,85.0" fill="#020202"/>
+  <path d="M265 89 L305 89" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="305.0,89.0 297.0,93.0 297.0,85.0" fill="#020202"/>
+  <circle cx="145" cy="89" r="9" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <circle cx="320" cy="89" r="9" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <text x="145" y="118" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Earth</text>
+  <text x="320" y="118" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Earth</text>
+  <text x="180" y="177" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">same apparent brightness from Earth</text>
+  <text x="180" y="196" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">depends on distance and luminosity</text>
+</svg>

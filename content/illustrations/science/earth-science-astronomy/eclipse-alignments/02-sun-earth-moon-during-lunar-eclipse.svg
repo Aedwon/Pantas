@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" width="360" height="260">
+  <title>Lunar eclipse shadow</title>
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="shape" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.12"/><stop offset="1" stop-color="#050505" stop-opacity="0.27"/></radialGradient>
+    <radialGradient id="muted" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.07"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient>
+    <radialGradient id="tile" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.03"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient>
+    <radialGradient id="focus" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.23"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+  </defs>
+  <rect width="360" height="260" rx="14" fill="url(#bg)"/>
+  <path d="M155,105.4 L300,42.8 L300,207.2 L155,144.6 Z" fill="url(#muted)" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M155,107.0 L300,115.2 L300,134.8 L155,143.0 Z" fill="url(#focus)" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="49" cy="125" r="24" fill="#030303" stroke="none" stroke-width="1.6"/>
+  <circle cx="49" cy="125" r="24" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <text x="49" y="236" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Sun</text>
+  <circle cx="155" cy="125" r="18" fill="#030303" stroke="none" stroke-width="1.6"/>
+  <circle cx="155" cy="125" r="18" fill="url(#shape)" stroke="#020202" stroke-width="1.6"/>
+  <text x="155" y="236" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Earth</text>
+  <circle cx="280" cy="125" r="8" fill="#030303" stroke="none" stroke-width="1.6"/>
+  <circle cx="280" cy="125" r="8" fill="url(#focus)" stroke="#020202" stroke-width="1.6"/>
+  <text x="280" y="236" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">full moon</text>
+  <text x="181" y="30" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">umbra</text>
+  <path d="M181 36 V59 L205 119" fill="none" stroke="#050505" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="307" y="30" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">penumbra</text>
+  <path d="M269 36 V53 L252 83" fill="none" stroke="#020202" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

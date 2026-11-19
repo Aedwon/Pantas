@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 262" width="360" height="262">
+  <title>A redshifted spectral line</title>
+  <defs>
+    <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+    <radialGradient id="shape" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.12"/><stop offset="1" stop-color="#050505" stop-opacity="0.27"/></radialGradient>
+    <radialGradient id="muted" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.07"/><stop offset="1" stop-color="#010101" stop-opacity="0.16"/></radialGradient>
+    <radialGradient id="tile" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#010101" stop-opacity="0.03"/><stop offset="1" stop-color="#010101" stop-opacity="0.07"/></radialGradient>
+    <radialGradient id="focus" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.23"/><stop offset="1" stop-color="#050505" stop-opacity="0.45"/></radialGradient>
+  </defs>
+  <rect width="360" height="262" rx="14" fill="url(#bg)"/>
+  <text x="120" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">laboratory</text>
+  <rect x="24" y="46" width="312" height="33" rx="6" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+  <path d="M120 47 L120 78" fill="none" stroke="#010101" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="120" y="100" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">600 nm</text>
+  <path d="M129 107 L224 150" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="224.0,150.0 215.1,150.3 218.4,143.1" fill="#050505"/>
+  <text x="239" y="114" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">stretched toward red</text>
+  <rect x="24" y="161" width="312" height="33" rx="6" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+  <path d="M228 162 L228 193" fill="none" stroke="#010101" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="228" y="217" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">660 nm</text>
+  <text x="228" y="240" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">distant galaxy</text>
+</svg>
