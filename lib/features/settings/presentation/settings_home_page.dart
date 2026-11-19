@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
@@ -330,7 +331,7 @@ class SettingsHomePage extends ConsumerWidget {
               dividerInset: 56,
               onTap: () => push('/settings/practice'),
             ),
-            if (!kIsWeb)
+            if (!kIsWeb && !ref.watch(resolvedAgeGroupProvider).hasChildLimits)
               ListRow(
                 title: 'Reminders',
                 value: settings.dailyReminderTime == null

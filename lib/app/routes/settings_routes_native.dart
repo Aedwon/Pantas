@@ -439,11 +439,15 @@ class _ChangeExamPageState extends ConsumerState<ChangeExamPage> {
         }
         await saveTarget();
         final count = await ref.read(carryableCountProvider(examId).future);
-        final exams = await ref.read(examListProvider.future);
+        // A flagged PSHS selection can precede installation of its content.
+        final shortName = to?.shortName ??
+            (await ref.read(examListProvider.future))
+                .firstWhere((e) => e.id == examId)
+                .shortName;
         if (!context.mounted) return;
         final route = ModalRoute.of(context);
         final result = ExamChangeResult(
-          examShortName: exams.firstWhere((e) => e.id == examId).shortName,
+          examShortName: shortName,
           carryableCount: count,
           routeSettled: route?.completed ?? Future<void>.value(),
         );

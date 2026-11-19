@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/build_info.dart';
 import 'package:pantas/app/screen_counts_providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
@@ -148,6 +149,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const AboutPage(),
       overrides: [
+        ageGroupProvider.overrideWith((ref) => AgeGroup.minor),
         minorSharingProvider.overrideWith((ref) => MinorSharing.locked),
       ],
     );
@@ -169,7 +171,7 @@ void main() {
     await tester.pumpAppWithProviders(
       const AboutPage(),
       overrides: [
-        minorSharingProvider.overrideWith((ref) => MinorSharing.childLocked),
+        ageGroupProvider.overrideWith((ref) => AgeGroup.child),
       ],
     );
     await tester.pumpAndSettle();
@@ -190,10 +192,16 @@ void main() {
 
   testWidgets('an allowed minor and an adult see no caption and a live switch',
       (tester) async {
-    for (final state in [MinorSharing.allowed, MinorSharing.notMinor]) {
+    for (final (age, sharing) in [
+      (AgeGroup.minor, MinorSharing.allowed),
+      (AgeGroup.adult, MinorSharing.notMinor),
+    ]) {
       await tester.pumpAppWithProviders(
         const AboutPage(),
-        overrides: [minorSharingProvider.overrideWith((ref) => state)],
+        overrides: [
+          ageGroupProvider.overrideWith((ref) => age),
+          minorSharingProvider.overrideWith((ref) => sharing),
+        ],
       );
       await tester.pumpAndSettle();
       expect(

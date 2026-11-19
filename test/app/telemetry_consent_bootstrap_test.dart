@@ -318,6 +318,93 @@ void main() {
   });
 
   group('Startup consent application and settings integration', () {
+    test('a child never enables persisted analytics or reports', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sink = RecordingTelemetrySink();
+      final container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          telemetrySinkProvider.overrideWithValue(sink),
+          ...telemetryConsentOverrides,
+        ],
+      );
+      addTearDown(container.dispose);
+      await DriftSettingsRepository(db).updateHelpImproveApp(enabled: true);
+      await AppPreferencesRepository(db).setAgeGroup('child');
+      expect(
+        (await DriftSettingsRepository(db).readUserSettings()).helpImproveApp,
+        isTrue,
+      );
+      final reporter = ClientReporter(
+        sender: _CollectingSender([]),
+        context: () => throw StateError('No reports should be sent'),
+      );
+      ClientReporter.active = reporter;
+      addTearDown(reporter.dispose);
+
+      await applyPersistedTelemetryConsent(container);
+
+      expect(reporter.enabled, isFalse);
+      expect(sink.enabledCalls, [false]);
+      expect(container.read(effectiveTelemetryConsentProvider), isFalse);
+    });
+
+    test('missing age after the age check holds off persisted consent',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sink = RecordingTelemetrySink();
+      final container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          telemetrySinkProvider.overrideWithValue(sink),
+          ...telemetryConsentOverrides,
+        ],
+      );
+      addTearDown(container.dispose);
+      await DriftSettingsRepository(db).updateHelpImproveApp(enabled: true);
+      await AppPreferencesRepository(db).setAgeCheckNoticeVersion('test');
+
+      await applyPersistedTelemetryConsent(container);
+
+      expect(sink.enabledCalls, [false]);
+      expect(container.read(effectiveTelemetryConsentProvider), isFalse);
+    });
+
+    test('settings cannot turn on child analytics or reports', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sink = RecordingTelemetrySink();
+      final container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          telemetrySinkProvider.overrideWithValue(sink),
+          ...telemetryConsentOverrides,
+        ],
+      );
+      addTearDown(container.dispose);
+      await DriftSettingsRepository(db)
+          .updateSpeedReportsEnabled(enabled: false);
+      await AppPreferencesRepository(db).setAgeGroup('child');
+      final reporter = ClientReporter(
+        sender: _CollectingSender([]),
+        context: () => throw StateError('No reports should be sent'),
+      )..enabled = false;
+      ClientReporter.active = reporter;
+      addTearDown(reporter.dispose);
+
+      final actions = container.read(settingsActionsProvider);
+      await actions.setHelpImproveApp(enabled: true);
+      await actions.setSpeedReportsEnabled(enabled: true);
+
+      expect(sink.enabledCalls, isEmpty);
+      expect(reporter.enabled, isFalse);
+      final settings = await DriftSettingsRepository(db).readUserSettings();
+      expect(settings.helpImproveApp, isFalse);
+      expect(settings.speedReportsEnabled, isFalse);
+    });
+
     test('absent consent defaults to false and deletes unsent reports',
         () async {
       final db = inMemoryDatabase();

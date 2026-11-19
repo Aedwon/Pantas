@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
@@ -135,6 +136,7 @@ class _WrappedRevealPageState extends ConsumerState<WrappedRevealPage> {
   }
 
   Future<void> _share(UserMetricsArtifactEntry entry) async {
+    if (ref.read(resolvedAgeGroupProvider).hasChildLimits) return;
     setState(() {
       _sharing = true;
       _errorMessage = null;

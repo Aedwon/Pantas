@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/app/screen_counts_providers.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
@@ -236,11 +237,12 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
   }
   if (server &&
       ref.watch(screenCountsFlagProvider) &&
-      settings.speedReportsEnabled) {
+      settings.speedReportsEnabled &&
+      !(await ref.watch(ageGroupProvider.future)).hasChildLimits) {
     final accountId = await ref.watch(screenCountsAccountIdProvider.future);
     final store = ref.read(screenCountsNoticeStoreProvider);
     if (accountId != null && !await store.isDismissed(accountId)) {
-      final teen = (await preferences.readAgeGroup()).entersTeenGuardianFlow;
+      final teen = ref.watch(resolvedAgeGroupProvider).entersTeenGuardianFlow;
       candidates.add(
         HomeNotice(
           kind: HomeNoticeKind.screenCounts,
@@ -253,9 +255,7 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
           // secondary, on the left.
           primaryLabel: 'Got It',
           secondaryLabel: 'Learn More',
-          // The Teen Notice for a 13 to 17 account. A child gets the Privacy
-          // Notice for now. The legal pages have no section anchors, so both
-          // open at the top.
+          // The legal pages have no section anchors, so both open at the top.
           route: teen ? '/legal/teens' : '/legal/privacy',
         ),
       );

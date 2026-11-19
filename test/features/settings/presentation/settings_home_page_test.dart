@@ -48,6 +48,24 @@ void main() {
     expect(find.text('Exam date'), findsNothing);
     expect(tester.takeException(), isNull);
   });
+  testWidgets('a child has no Reminders row', (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await AppPreferencesRepository(db).setAgeGroup('child');
+    await tester.pumpAppWithProviders(
+      const SettingsHomePage(),
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        userSettingsProvider
+            .overrideWith((ref) async => UserSettings.defaults()),
+        isAnonymousProvider.overrideWith((ref) async => false),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Your exam'), findsOneWidget);
+    expect(find.text('Reminders'), findsNothing);
+  });
+
   test('Pro root value names the owned plan', () {
     final container = ProviderContainer(
       overrides: [

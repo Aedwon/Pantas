@@ -26,6 +26,14 @@ void main() {
     );
   });
 
+  test('a child can save PSHS but cannot switch to another exam', () async {
+    await repo.setAgeGroup('child');
+    await repo.setSelectedExamId('exam_pshs_nce');
+
+    await expectLater(repo.setSelectedExamId('exam_cse_pro'), throwsStateError);
+    expect(await repo.selectedExamId(), 'exam_pshs_nce');
+  });
+
   test('the under-minimum block remembers the minimum it was set against',
       () async {
     expect(await repo.blockedMinimumAge(), isNull);

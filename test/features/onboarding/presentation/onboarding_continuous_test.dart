@@ -123,28 +123,31 @@ void main() {
       expect(inBox.single.top, last.first.top);
     });
 
-    testWidgets('the picker is one column of rows, with no pinned bar',
-        (tester) async {
-      await pumpFramedStep(tester, 'picker', wide: true);
-      final rows = tester
-          .widgetList(
-            find.byWidgetPredicate(
-              (w) => w.key.toString().contains("'exam-exam_"),
-            ),
-          )
-          .length;
-      expect(rows, 18);
-      final upcat =
-          tester.getRect(find.byKey(const ValueKey('exam-exam_upcat')));
-      final cse =
-          tester.getRect(find.byKey(const ValueKey('exam-exam_cse_pro')));
-      expect(upcat.left, cse.left);
-      expect(upcat.width, cse.width);
-      expect(upcat.width, greaterThan(500));
-      // No pinned bar: the action sits in the scrolling column.
-      expect(find.byType(OverlayPortal), findsNothing);
-      expect(find.text('Enter'), findsOneWidget);
-    });
+    testWidgets(
+      'the picker is one column of rows, with no pinned bar',
+      (tester) async {
+        await pumpFramedStep(tester, 'picker', wide: true);
+        final rows = tester
+            .widgetList(
+              find.byWidgetPredicate(
+                (w) => w.key.toString().contains("'exam-exam_"),
+              ),
+            )
+            .length;
+        expect(rows, 18);
+        final upcat =
+            tester.getRect(find.byKey(const ValueKey('exam-exam_upcat')));
+        final cse =
+            tester.getRect(find.byKey(const ValueKey('exam-exam_cse_pro')));
+        expect(upcat.left, cse.left);
+        expect(upcat.width, cse.width);
+        expect(upcat.width, greaterThan(500));
+        // No pinned bar: the action sits in the scrolling column.
+        expect(find.byType(OverlayPortal), findsNothing);
+        expect(find.text('Enter'), findsOneWidget);
+      },
+      variant: const TargetPlatformVariant({TargetPlatform.iOS}),
+    );
 
     testWidgets('the longest exam names fit their rows', (tester) async {
       await pumpFramedStep(tester, 'picker', wide: true);
