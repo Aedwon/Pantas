@@ -11,6 +11,7 @@ ordering: 35
 keyPoints:
   - "Use the outside part and whole length of a secant in a length equation."
   - "Relate a tangent length to the product for a secant."
+  - "Find the angle where two secants meet outside a circle."
 ---
 ## Core Concept
 

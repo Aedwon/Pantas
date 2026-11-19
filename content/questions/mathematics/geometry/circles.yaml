@@ -215,7 +215,7 @@ questions:
   - id: q-geometry-circles-0009
     approved: true
     lesson: lesson-geometry-chord-lengths-and-segments
-    keyPoint: 2
+    keyPoint: 3
     type: direct-computation
     difficulty: medium
     stem: |
@@ -241,7 +241,7 @@ questions:
   - id: q-geometry-circles-0010
     approved: true
     lesson: lesson-geometry-outside-secants-and-tangents
-    keyPoint: 1
+    keyPoint: 3
     type: direct-computation
     difficulty: medium
     stem: |

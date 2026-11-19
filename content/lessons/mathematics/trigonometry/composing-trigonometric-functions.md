@@ -25,8 +25,6 @@ Evaluate $\sin\left(\arccos \dfrac{3}{5}\right)$.
 **Solution:**
 Let $\theta = \arccos \dfrac{3}{5}$. Since the input is positive, $\theta$ is an acute principal angle. Build a right triangle whose cosine is $3/5$.
 
-<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ", "Adjacent = 3", "Hypotenuse = 5", "Opposite = 4", "90°"], "semanticsLabel": "Right triangle with angle theta, adjacent side 3, hypotenuse 5, and opposite side 4."} -->
-
 1. Cosine is adjacent over hypotenuse: adjacent $3$, hypotenuse $5$.
 2. Find the opposite side with the Pythagorean theorem.
 
@@ -39,6 +37,8 @@ $$\sin \theta = \dfrac{4}{5}$$
 4. Therefore:
 
 $$\sin\left(\arccos \dfrac{3}{5}\right) = \dfrac{4}{5}$$
+
+<!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ", "Adjacent = 3", "Hypotenuse = 5", "Opposite = 4", "90°"], "semanticsLabel": "Right triangle with angle theta, adjacent side 3, hypotenuse 5, and opposite side 4."} -->
 
 <!-- FIGURE: {"kind": "geometry-diagram", "type": "right-triangle-trig", "labels": ["θ = arccos(3/5)", "Adjacent = 3", "Hypotenuse = 5", "Opposite = 4", "sin θ = 4/5"], "semanticsLabel": "Right triangle for angle theta with adjacent side 3, hypotenuse 5, and opposite side 4 giving sine 4 fifths."} -->
 

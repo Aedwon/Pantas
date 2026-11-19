@@ -11,6 +11,7 @@ ordering: 33
 keyPoints:
   - "Use perpendicular distances and right triangles to find chord lengths and lengths in inscribed squares."
   - "Use the products of segment lengths when two chords cross inside a circle."
+  - "Find the angle where two chords cross inside a circle."
 ---
 ## Core Concept
 

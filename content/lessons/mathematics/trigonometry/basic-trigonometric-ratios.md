@@ -313,4 +313,4 @@ The sides could be $6$ and $10$, or $30$ and $50$. Only the ratio is fixed. When
 
 > Do not carry a value from one special angle to another.
 
-Sine is not proportional to the angle. Although $\sin 30^\circ = \dfrac{1}{2}$, the value of $\sin 60^\circ$ is not $1$ but $\dfrac{\sqrt{3}}{2}$. Likewise $\tan 45^\circ = 1$ only at $45^\circ$. Check which angle the question gives before you substitute.
+Sine is not proportional to the angle. Although $\sin 30^\circ = \dfrac{1}{2}$, the value of $\sin 60^\circ$ is not $1$ but $\dfrac{\sqrt{3}}{2}$. Among acute angles, only $45^\circ$ has a tangent of $1$. Check which angle the question gives before you substitute.
