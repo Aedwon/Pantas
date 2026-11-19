@@ -140,3 +140,9 @@ to 24; Phase C about 2 h plus the integrator. Waits for Aedwon excluded. Uncerta
   474 shared questions re-approved under R2 (`docs/content/verification/cet-exam-tags.md` on the
   branch). Gate after merge: 116 Algebra questions edited after approval (math lane fixes, re-solve
   in Phase B), 1,193 CET questions changed since the frozen list, 240 not approved.
+- Nov 19: Aedwon: lead oversees only; Codex (GPT 6.2 Sol) does the work now, not after Nov 22; no
+  Astra ("no need to use astra btw"), so R3 becomes a Sol audit of a sample plus every science and
+  reasoning part, run separately from the authors. Manual resets on exit 75 (tell the manager).
+- Nov 19: 14 Codex split jobs done (CET-only topics, PSHS-NCE lessons in split topics, 35 Algebra
+  skills, mechanical reasoning); integrated with outline rows, ordering and links (7d8319757). Size
+  and nothing-dropped checks pass. Gap questions written; blind re-solves 1,770 of 1,770 match.
