@@ -5,6 +5,8 @@ meta:
   exams: [upcat, dlsucet, ustet, dost-sei, acet]
 questions:
   - id: q-biology-ecology-0001
+    lesson: lesson-biology-ecosystems-and-population-change
+    keyPoint: 1
     type: 'identify'
     difficulty: 'easy'
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0002
+    lesson: lesson-biology-ecosystems-and-population-change
+    keyPoint: 1
     type: 'identify'
     difficulty: 'easy'
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0003
+    lesson: lesson-biology-food-chains-and-food-webs
+    keyPoint: 1
     type: 'process-ordering'
     difficulty: 'medium'
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0004
+    lesson: lesson-biology-food-chains-and-food-webs
+    keyPoint: 2
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0005
+    lesson: lesson-biology-food-chains-and-food-webs
+    keyPoint: 2
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0006
+    lesson: lesson-biology-food-chains-and-food-webs
+    keyPoint: 2
     type: 'compare-contrast'
     difficulty: 'medium'
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0007
+    lesson: lesson-biology-energy-transfer-between-trophic-levels
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'medium'
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0008
+    lesson: lesson-biology-energy-transfer-between-trophic-levels
+    keyPoint: 1
     type: 'simple-quantitative'
     difficulty: 'hard'
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0009
+    lesson: lesson-biology-food-chains-and-food-webs
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0010
+    lesson: lesson-biology-carbon-and-water-cycles
+    keyPoint: 1
     type: 'identify'
     difficulty: 'medium'
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0011
+    lesson: lesson-biology-nitrogen-cycling
+    keyPoint: 1
     type: 'identify'
     difficulty: 'medium'
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0012
+    lesson: lesson-biology-nitrogen-cycling
+    keyPoint: 2
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0013
+    lesson: lesson-biology-phosphorus-cycling
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0014
+    lesson: lesson-biology-symbiosis-and-its-effects
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0015
+    lesson: lesson-biology-symbiosis-and-its-effects
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -320,6 +350,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0016
+    lesson: lesson-biology-symbiosis-and-its-effects
+    keyPoint: 1
     type: 'classify'
     difficulty: 'medium'
     stem: |
@@ -341,6 +373,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0017
+    lesson: lesson-biology-symbiosis-and-its-effects
+    keyPoint: 1
     type: 'classify'
     difficulty: 'hard'
     stem: |
@@ -362,6 +396,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0018
+    lesson: lesson-biology-energy-transfer-between-trophic-levels
+    keyPoint: 1
     type: 'predict-outcome'
     difficulty: 'exam'
     stem: |
@@ -383,6 +419,8 @@ questions:
     approved: true
 
   - id: q-biology-ecology-0019
+    lesson: lesson-biology-food-chains-and-food-webs
+    keyPoint: 2
     type: 'structure-function'
     difficulty: 'medium'
     stem: |
@@ -404,6 +442,8 @@ questions:
     approved: false
 
   - id: q-biology-ecology-0020
+    lesson: lesson-biology-nitrogen-cycling
+    keyPoint: 1
     type: 'process-ordering'
     difficulty: 'exam'
     stem: |

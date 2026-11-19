@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 10
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-chromosome-sets-in-mitosis-and-meiosis
+  - lesson-biology-meiosis-i-and-meiosis-ii
+  - lesson-biology-counting-chromosomes-after-meiosis
+  - lesson-biology-spores-eggs-and-sperm
+  - lesson-biology-independent-assortment-of-chromosomes
+  - lesson-biology-allele-combinations-in-gametes
+  - lesson-biology-crossing-over-and-fertilization
 ---
 ## Core Concept
 

@@ -6,6 +6,14 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-cells-tissues-and-organs
+  - lesson-biology-digestion-and-nutrient-absorption
+  - lesson-biology-breathing-and-gas-exchange
+  - lesson-biology-blood-flow-through-the-heart
+  - lesson-biology-arteries-veins-and-capillaries
+  - lesson-biology-kidneys-and-waste-removal
 ---
 ## Core Concept
 

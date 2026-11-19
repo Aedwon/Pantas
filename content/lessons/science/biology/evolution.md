@@ -6,6 +6,17 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-genes-and-inherited-variation
+  - lesson-biology-allele-frequency-across-generations
+  - lesson-biology-how-mutations-add-alleles
+  - lesson-biology-chance-and-genetic-drift
+  - lesson-biology-gene-flow-between-populations
+  - lesson-biology-how-natural-selection-works
+  - lesson-biology-fitness-and-heritable-traits
+  - lesson-biology-species-and-reproductive-isolation
+  - lesson-biology-speciation-and-adaptive-radiation
 ---
 ## Core Concept
 
