@@ -478,7 +478,7 @@ questions:
           This makes the support surface decide the weight point. The floor is flat. Check that the center depends on the object's mass distribution.
     explanation: |
       With mass spread uniformly in a symmetric shape, the opposing mass portions balance about the geometric center. In an approximately uniform gravitational field, the weight acts through that center.
-    approved: false
+    approved: true
     figure: "structural-stability-16"
     figureSpec:
       kind: "stability-shape"
@@ -507,7 +507,7 @@ questions:
           This assumes the weight point must lie inside material. The top wall is heavy. Check that equal walls on opposite sides balance about the middle.
     explanation: |
       Symmetric mass on opposite sides of an empty interior can balance about a point in that space. The resultant weight can act through that point even though there is no material there.
-    approved: false
+    approved: true
     figure: "structural-stability-17"
     figureSpec:
       kind: "stability-shape"
@@ -536,7 +536,7 @@ questions:
           This assumes tipping can only start after the static threshold is crossed. Gravity acts through the inside point. Check the additional torque supplied by the push.
     explanation: |
       The projection test describes gravity and support in a static case. A horizontal push adds a force with its own turning effect. A large enough added torque can start tipping.
-    approved: false
+    approved: true
     figure: "structural-stability-18"
     figureSpec:
       kind: "stability-shape"
@@ -565,7 +565,7 @@ questions:
           This assumes a wide base prevents pivoting. More of the base initially touches. Check that slow tilting can still lift one side.
     explanation: |
       A wider base places the side edge farther from the initial weight line. The center must shift farther sideways before that line passes the edge. Equal center heights make the width difference decisive here.
-    approved: false
+    approved: true
     figure: "structural-stability-19"
     figureSpec:
       kind: "stability-shape"
@@ -597,7 +597,7 @@ questions:
           This uses equal base widths alone. All support regions match. Check the different center heights as the boxes rotate.
     explanation: |
       With equal base widths, a lower center of gravity requires a greater tilt to bring the weight line to the edge. The right box is shortest, the middle next, and the left tallest. Their critical angles therefore rank right, middle, left.
-    approved: false
+    approved: true
     figure: "structural-stability-20"
     figureSpec:
       kind: "stability-shape"
@@ -612,6 +612,7 @@ questions:
           baseWidth: 2
           height: 1
   - id: "q-mechanical-technical-reasoning-structural-stability-0021"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-finding-the-tipping-angle
     keyPoint: 1
     type: "structural-stability"
@@ -633,6 +634,7 @@ questions:
     explanation: |
       Divide the sideways distance by the height. This gives $\tan\theta=\dfrac{0.3}{0.6}=0.5$. The angle with that tangent is about $26.6^\circ$.
   - id: "q-mechanical-technical-reasoning-structural-stability-0022"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-finding-the-tipping-angle
     keyPoint: 1
     type: "structural-stability"
@@ -654,6 +656,7 @@ questions:
     explanation: |
       The center is 0.4 m across from the edge and 0.2 m above the floor. The tangent is $\dfrac{0.4}{0.2}=2$. The angle is about $63.4^\circ$.
   - id: "q-mechanical-technical-reasoning-structural-stability-0023"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-combined-center-of-gravity
     keyPoint: 1
     type: "structural-stability"
@@ -675,6 +678,7 @@ questions:
     explanation: |
       Multiply each mass by its position and add the results. That gives $40(0.4)+120(1.2)=160$. Divide by the total mass of 160 kg to get 1.0 m.
   - id: "q-mechanical-technical-reasoning-structural-stability-0024"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-combined-center-of-gravity
     keyPoint: 1
     type: "structural-stability"
@@ -696,6 +700,7 @@ questions:
     explanation: |
       Multiply each mass by its height. The results are 6, 18, and 81. Add them and divide by the total mass. The height is $\dfrac{105}{150}=0.7$ m.
   - id: "q-mechanical-technical-reasoning-structural-stability-0025"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-pushing-an-object-over
     keyPoint: 2
     type: "structural-stability"

@@ -5,6 +5,7 @@ meta:
   exams: [pshs-nce]
 questions:
   - id: q-geometry-practical-measurement-0001
+    approved: true
     lesson: lesson-geometry-cube-edges-from-volume
     keyPoint: 1
     type: direct-computation
@@ -30,6 +31,7 @@ questions:
       The edge multiplied by itself three times must give $125$. Since $5\times5\times5=125$, the edge is $5$ cm.
 
   - id: q-geometry-practical-measurement-0002
+    approved: true
     lesson: lesson-geometry-areas-on-a-grid
     keyPoint: 1
     type: direct-computation
@@ -55,6 +57,7 @@ questions:
       The $6$ half-squares make $6\div2=3$ full squares. Add them to the $7$ full squares: $7+3=10$ square units.
 
   - id: q-geometry-practical-measurement-0003
+    approved: true
     lesson: lesson-geometry-whole-pieces-and-floor-tiles
     keyPoint: 2
     type: word-problem
@@ -80,6 +83,7 @@ questions:
       Convert first: $2$ m is $200$ cm and $1$ m is $100$ cm. There are $200\div50=4$ tiles along the length and $100\div50=2$ across the width. The floor needs $4\times2=8$ tiles.
 
   - id: q-geometry-practical-measurement-0004
+    approved: true
     lesson: lesson-geometry-area-inside-margins
     keyPoint: 1
     type: word-problem
@@ -105,6 +109,7 @@ questions:
       The inner length is $14-2(1)=12$ cm. The inner width is $10-2(1)=8$ cm. The area is $12\times8=96\text{ cm}^2$.
 
   - id: q-geometry-practical-measurement-0005
+    approved: true
     lesson: lesson-geometry-cube-edges-from-volume
     keyPoint: 1
     type: error-spotting
@@ -130,6 +135,7 @@ questions:
       Find a number whose cube is $729$. Since $9\times9\times9=729$, the edge is $9$ cm.
 
   - id: q-geometry-practical-measurement-0006
+    approved: true
     lesson: lesson-geometry-areas-on-a-grid
     keyPoint: 1
     type: direct-computation
@@ -156,6 +162,7 @@ questions:
       The left rectangle has area $5\times4=20$. The right triangle has base $8-5=3$ and height $4$, so its area is $\dfrac{3\times4}{2}=6$. Add: $20+6=26$ square units.
 
   - id: q-geometry-practical-measurement-0007
+    approved: true
     lesson: lesson-geometry-whole-pieces-and-floor-tiles
     keyPoint: 1
     type: word-problem
@@ -181,6 +188,7 @@ questions:
       One layout gives $2\times2=4$ labels. Turning them gives $3\times1=3$. The area limit is $66\div15=4.4$, so at most $4$ whole labels are possible. The first layout reaches $4$.
 
   - id: q-geometry-practical-measurement-0008
+    approved: true
     lesson: lesson-geometry-distance-traveled-around-a-circle
     keyPoint: 1
     type: word-problem
@@ -206,6 +214,7 @@ questions:
       One turn covers $\pi d=14\pi$ cm. Three turns cover $3(14\pi)=42\pi$ cm.
 
   - id: q-geometry-practical-measurement-0009
+    approved: true
     lesson: lesson-geometry-whole-pieces-and-floor-tiles
     keyPoint: 2
     type: word-problem
@@ -231,6 +240,7 @@ questions:
       Convert the floor dimensions to $360$ cm and $240$ cm. The side counts are $360\div40=9$ and $240\div40=6$. Multiply: $9\times6=54$ tiles.
 
   - id: q-geometry-practical-measurement-0010
+    approved: true
     lesson: lesson-geometry-area-inside-margins
     keyPoint: 1
     type: word-problem
@@ -256,6 +266,7 @@ questions:
       Each dimension loses $2(1.5)=3$ cm. The inside measures $20-3=17$ cm by $16-3=13$ cm. Its area is $17\times13=221\text{ cm}^2$.
 
   - id: q-geometry-practical-measurement-0011
+    approved: true
     lesson: lesson-geometry-cube-edges-from-volume
     keyPoint: 1
     type: word-problem
@@ -281,6 +292,7 @@ questions:
       The square's area is $27\times27=729\text{ cm}^2$. The cube therefore has volume $729\text{ cm}^3$. Since $9^3=729$, its edge is $9$ cm.
 
   - id: q-geometry-practical-measurement-0012
+    approved: true
     lesson: lesson-geometry-areas-on-a-grid
     keyPoint: 1
     type: direct-computation
@@ -307,6 +319,7 @@ questions:
       The surrounding rectangle has area $6\times5=30$. The missing triangle has legs $6-4=2$ and $5-2=3$. Its area is $\dfrac{2\times3}{2}=3$, so the polygon's area is $30-3=27$ square units.
 
   - id: q-geometry-practical-measurement-0013
+    approved: true
     lesson: lesson-geometry-whole-pieces-and-floor-tiles
     keyPoint: 1
     type: word-problem
@@ -332,6 +345,7 @@ questions:
       Put the $3$ cm side along the $9$ cm edge and the $4$ cm side along the $8$ cm edge. This gives $3\times2=6$ tags. The area limit is $(9\times8)\div(4\times3)=6$, so no layout can fit more.
 
   - id: q-geometry-practical-measurement-0014
+    approved: true
     lesson: lesson-geometry-distance-traveled-around-a-circle
     keyPoint: 1
     type: word-problem
@@ -357,6 +371,7 @@ questions:
       The elapsed time is $2.5$ hours. A minute hand makes one turn per hour, so it makes $2.5$ turns. Each turn covers $2\pi(4)=8\pi$ cm. The distance is $2.5(8\pi)=20\pi$ cm.
 
   - id: q-geometry-practical-measurement-0015
+    approved: true
     lesson: lesson-geometry-whole-pieces-and-floor-tiles
     keyPoint: 2
     type: word-problem
@@ -382,6 +397,7 @@ questions:
       Convert $4.8$ m to $480$ cm first. There are $480\div40=12$ tiles along the length and $350\div25=14$ rows. The total is $12\times14=168$ tiles.
 
   - id: q-geometry-practical-measurement-0016
+    approved: true
     lesson: lesson-geometry-areas-on-a-grid
     keyPoint: 1
     type: direct-computation
@@ -408,6 +424,7 @@ questions:
       P fits in a $6$ by $4$ rectangle with a missing triangle of base $2$ and height $4$. Its area is $24-\dfrac{2\times4}{2}=20$. Q has a $5$ by $3$ rectangle and a triangle of base $5$ and height $2$. Its area is $15+\dfrac{5\times2}{2}=20$. Both areas are $20$ square units.
 
   - id: q-geometry-practical-measurement-0017
+    approved: true
     lesson: lesson-geometry-whole-pieces-and-floor-tiles
     keyPoint: 1
     type: word-problem
@@ -433,6 +450,7 @@ questions:
       The area limit is $(7\times6)\div(4\times3)=3.5$, so at most $3$ whole labels fit. In a $4$ cm by $6$ cm strip, stack two $4$ cm by $3$ cm labels. The remaining $3$ cm by $6$ cm strip holds one turned $3$ cm by $4$ cm label. This fits $3$ labels.
 
   - id: q-geometry-practical-measurement-0018
+    approved: true
     lesson: lesson-geometry-distance-traveled-around-a-circle
     keyPoint: 1
     type: word-problem
@@ -458,6 +476,7 @@ questions:
       One turn covers $2\times\dfrac{22}{7}\times7=44$ cm. In $90$ seconds, the wheel makes $90\div20=4.5$ turns. The dot travels $44\times4.5=198$ cm.
 
   - id: q-geometry-practical-measurement-0019
+    approved: true
     lesson: lesson-geometry-area-inside-margins
     keyPoint: 1
     type: word-problem
@@ -483,6 +502,7 @@ questions:
       Convert first: the board is $90$ cm by $60$ cm. Subtract $2(5)=10$ cm from each dimension. The inside area is $(90-10)(60-10)=80\times50=4000\text{ cm}^2$.
 
   - id: q-geometry-practical-measurement-0020
+    approved: true
     lesson: lesson-geometry-distance-traveled-around-a-circle
     keyPoint: 1
     type: word-problem

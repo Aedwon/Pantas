@@ -5,6 +5,7 @@ meta:
   exams: ['pupcet']
 questions:
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0001'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules
   keyPoint: 1
   type: 'direct-computation'
@@ -26,6 +27,7 @@ questions:
   explanation: |
     The power rule multiplies by the exponent and lowers it by one. Thus $f(x)=4x^{4-1}=4x^3$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0002'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules
   keyPoint: 1
   type: 'direct-computation'
@@ -47,6 +49,7 @@ questions:
   explanation: |
     Differentiate each term: $5x^3$ gives $15x^2$, $-2x$ gives $-2$, and the constant gives zero. Therefore $f'(x)=15x^2-2$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0003'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules
   keyPoint: 1
   type: 'direct-computation'
@@ -68,6 +71,7 @@ questions:
   explanation: |
     The output stays at $12$ as x changes. Its rate of change is zero. Therefore $f'(x)=0$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0004'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
   keyPoint: 2
   type: 'direct-computation'
@@ -89,6 +93,7 @@ questions:
   explanation: |
     The derivative is $y'=6x+4$. It gives the tangent slope. At $x=2$, the slope is $6(2)+4=16$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0005'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules
   keyPoint: 1
   type: 'direct-computation'
@@ -110,6 +115,7 @@ questions:
   explanation: |
     Write $7x=7x^1$. The power rule gives $7(1)x^0=7$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0006'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules
   keyPoint: 2
   type: 'direct-computation'
@@ -131,6 +137,7 @@ questions:
   explanation: |
     Write $\sqrt{x}=x^{1/2}$. The power rule gives $\dfrac12x^{-1/2}=\dfrac1{2\sqrt{x}}$, for $x>0$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0007'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules
   keyPoint: 2
   type: 'direct-computation'
@@ -152,6 +159,7 @@ questions:
   explanation: |
     For $x\ne0$, write $f(x)=4x^{-2}$. Its derivative is $4(-2)x^{-3}=-\dfrac8{x^3}$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0008'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
   keyPoint: 2
   type: 'direct-computation'
@@ -173,6 +181,7 @@ questions:
   explanation: |
     The derivative is $2x-6$. A horizontal tangent has slope zero, so $2x-6=0$. Add $6$ and divide by $2$ to get $x=3$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0009'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules
   keyPoint: 2
   type: 'direct-computation'
@@ -194,6 +203,7 @@ questions:
   explanation: |
     Write $\sqrt[3]{x}=x^{1/3}$. The power rule gives $\dfrac13x^{-2/3}=\dfrac1{3\sqrt[3]{x^2}}$, for $x\ne0$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0010'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-power-sum-and-constant-derivative-rules
   keyPoint: 2
   type: 'direct-computation'
@@ -215,6 +225,7 @@ questions:
   explanation: |
     For $x\ne0$, write $f(x)=2x^4-3x^{-1}+5$. Differentiate term by term: $8x^3+3x^{-2}$. Thus $f'(x)=8x^3+\dfrac3{x^2}$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0011'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
   keyPoint: 2
   type: 'direct-computation'
@@ -236,6 +247,7 @@ questions:
   explanation: |
     The derivative is $\dfrac32x^{1/2}$. At $x=9$, $\sqrt9=3$. The slope is $\dfrac32(3)=\dfrac92$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0012'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
   keyPoint: 2
   type: 'direct-computation'
@@ -257,6 +269,7 @@ questions:
   explanation: |
     The derivative is $x^2-4$. Set it equal to zero: $x^2=4$. Both $x=2$ and $x=-2$ give horizontal tangents.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0013'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-derivatives-of-products-and-quotients
   keyPoint: 1
   type: 'direct-computation'
@@ -278,6 +291,7 @@ questions:
   explanation: |
     Multiplying gives $f(x)=x^3-x^2+3x-3$. Differentiate each term to get $f'(x)=3x^2-2x+3$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0014'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
   keyPoint: 2
   type: 'direct-computation'
@@ -319,7 +333,7 @@ questions:
       This treats every power as a constant. Constants do have zero derivative. Check whether the expression changes with x.
   explanation: |
     The power rule gives $6(5)x^{5-1}=30x^4$. The coefficient is already correct, and the exponent must be four.
-  approved: false
+  approved: true
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0016'
   lesson: lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
   keyPoint: 2
@@ -341,7 +355,7 @@ questions:
       This assumes negative x values are excluded. Some root functions restrict x. Check the domain of this polynomial.
   explanation: |
     The derivative is $f'(x)=2x$. At $x=-1$, it is $-2$. Thus the tangent slope is negative.
-  approved: false
+  approved: true
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0017'
   lesson: lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
   keyPoint: 2
@@ -363,7 +377,7 @@ questions:
       This uses the initial volume as the filling rate. Ten is stated in the model. Check the difference between volume and rate.
   explanation: |
     The derivative gives the instantaneous rate: $V'(t)=2t+3$. At $t=2$, the rate is $2(2)+3=7$ liters per minute.
-  approved: false
+  approved: true
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0018'
   lesson: lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
   keyPoint: 2
@@ -385,7 +399,7 @@ questions:
       This uses four as the root of four. Both signs are included. Square each candidate to check it.
   explanation: |
     The derivative is $3x^2$. Set $3x^2=12$, so $x^2=4$. Both $x=-2$ and $x=2$ give the requested slope.
-  approved: false
+  approved: true
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0019'
   lesson: lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
   keyPoint: 2
@@ -407,7 +421,7 @@ questions:
       This treats the entire function as constant. Its coefficients are fixed. Check that the variable term changes the output.
   explanation: |
     The derivative of $3x$ is $3$, and the derivative of $-8$ is zero. The slope is therefore $3$ for every x.
-  approved: false
+  approved: true
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0020'
   lesson: lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
   keyPoint: 2
@@ -429,8 +443,9 @@ questions:
       This copies a coefficient from the function. It appears in the original formula. Substitute it into the derivative to check.
   explanation: |
     Horizontal tangents satisfy $4x^3-4x=4x(x^2-1)=0$. The factor x gives $x=0$. Dividing by x without checking zero loses that solution.
-  approved: false
+  approved: true
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0021'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-derivatives-of-products-and-quotients
   keyPoint: 1
   type: 'direct-computation'
@@ -452,6 +467,7 @@ questions:
   explanation: |
     Multiply each slope by the value of the other function. Add the two results. This gives $4(-2)+3(5)=-8+15=7$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0022'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-derivatives-of-products-and-quotients
   keyPoint: 2
   type: 'direct-computation'
@@ -473,6 +489,7 @@ questions:
   explanation: |
     At $x=1$, the top is $2$ and its slope is $2$. The bottom is $3$ and its slope is $1$. The quotient rule gives $\dfrac{2(3)-2(1)}{3^2}=\dfrac{4}{9}$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0023'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-derivatives-of-products-and-quotients
   keyPoint: 2
   type: 'direct-computation'
@@ -494,6 +511,7 @@ questions:
   explanation: |
     The top factors as $(x-2)(x+2)$. Cancel $x-2$ where $x\ne2$. This leaves $x+2$, which has slope $1$.
 - id: 'q-precalculus-basic-calculus-basic-derivatives-0024'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-chain-rule-and-tangent-slopes
   keyPoint: 1
   type: 'direct-computation'

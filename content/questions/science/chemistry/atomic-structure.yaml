@@ -370,7 +370,7 @@ questions:
           This confuses a stable charged species with a neutral particle. A cation can be stable. Check whether its name indicates positive charge.
     explanation: |
       A neutron carries no net electric charge. Its charge is zero.
-    approved: false
+    approved: true
 
   - id: q-chemistry-atomic-structure-0017
     lesson: lesson-chemistry-particles-in-an-atom
@@ -393,7 +393,7 @@ questions:
           This treats a very small mass as exactly zero. Electron mass is tiny compared with nuclear mass. Check whether negligible in a rough total means absent.
     explanation: |
       Protons and neutrons are in the nucleus and each has a mass close to one atomic mass unit. Electrons have much smaller masses. The nuclear particles therefore account for nearly all the atom’s mass.
-    approved: false
+    approved: true
 
   - id: q-chemistry-atomic-structure-0018
     lesson: lesson-chemistry-particles-in-an-atom
@@ -416,7 +416,7 @@ questions:
           This turns a quantum description into certainty about a classical path. A drawn region can look like a known route. Check the role of probability in the orbital model.
     explanation: |
       An orbital describes an electron’s quantum state and its associated probability distribution. It is not a fixed classical path.
-    approved: false
+    approved: true
 
   - id: q-chemistry-atomic-structure-0019
     lesson: lesson-chemistry-monatomic-ion-charge
@@ -439,7 +439,7 @@ questions:
           This substitutes mass number for electron count. Both appear in atomic problems. Check whether mass number counts nuclear particles or electrons.
     explanation: |
       Atomic number gives the proton count. Since charge equals protons minus electrons, electron count equals protons minus the signed charge.
-    approved: false
+    approved: true
 
   - id: q-chemistry-atomic-structure-0020
     lesson: lesson-chemistry-isotopes-and-neutrons
@@ -462,9 +462,10 @@ questions:
           This invents changes in particles that the stem holds fixed. Nuclear changes can sound like several counts must change. Check each count explicitly stated to stay the same.
     explanation: |
       Mass number is protons plus neutrons. Adding one neutron raises that total by one. Neutrons have zero charge, and the charged particle counts remain unchanged.
-    approved: false
+    approved: true
 
   - id: q-chemistry-atomic-structure-0021
+    approved: true
     lesson: lesson-chemistry-isotope-weighted-average-mass
     keyPoint: 1
     type: 'simple-quantitative'
@@ -487,6 +488,7 @@ questions:
       Multiply each mass by its share of the sample. Add the results. The average is $0.20(10)+0.80(11)=10.8\ u$.
 
   - id: q-chemistry-atomic-structure-0022
+    approved: true
     lesson: lesson-chemistry-ions-and-isotope-notation
     keyPoint: 2
     type: 'classify'
@@ -509,6 +511,7 @@ questions:
       Both have 17 protons, so they are the same element. They have different neutron counts. Both have one extra electron, so both have charge $-1$.
 
   - id: q-chemistry-atomic-structure-0023
+    approved: true
     lesson: lesson-chemistry-ions-and-isotope-notation
     keyPoint: 2
     type: 'compare-contrast'
@@ -531,6 +534,7 @@ questions:
       The proton and neutron counts match. Y has two fewer electrons than protons, so its charge is $2+$.
 
   - id: q-chemistry-atomic-structure-0024
+    approved: true
     lesson: lesson-chemistry-ions-and-isotope-notation
     keyPoint: 1
     type: 'simple-quantitative'
@@ -553,6 +557,7 @@ questions:
       The lower left number gives 16 protons. Subtract 16 from 32 to get 16 neutrons. The $2-$ charge means two extra electrons, for 18.
 
   - id: q-chemistry-atomic-structure-0025
+    approved: true
     lesson: lesson-chemistry-polyatomic-ions-and-charge
     keyPoint: 1
     type: 'classify'

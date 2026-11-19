@@ -465,6 +465,7 @@ questions:
     approved: true
 
   - id: q-algebra-functions-and-relations-0021
+    approved: true
     lesson: lesson-algebra-ranges-on-restricted-domains
     keyPoint: 1
     type: direct-computation
@@ -487,6 +488,7 @@ questions:
       The line falls from $10$ at $x=-1$ toward $1$ at $x=2$. Only $-1$ is in the domain, so only $10$ is included.
 
   - id: q-algebra-functions-and-relations-0022
+    approved: true
     lesson: lesson-algebra-ranges-on-restricted-domains
     keyPoint: 1
     type: direct-computation
@@ -509,6 +511,7 @@ questions:
       At $x=3$ the output would be $-2$. Larger inputs make $4-2x$ smaller without limit, so every output is less than $-2$.
 
   - id: q-algebra-functions-and-relations-0023
+    approved: true
     lesson: lesson-algebra-arithmetic-with-functions
     keyPoint: 1
     type: direct-computation
@@ -531,6 +534,7 @@ questions:
       At $-2$, $g$ gives $6$ and $f$ gives $-5$. Subtract $-5$ from $6$ to get $11$.
 
   - id: q-algebra-functions-and-relations-0024
+    approved: true
     lesson: lesson-algebra-arithmetic-with-functions
     keyPoint: 1
     type: direct-computation
@@ -553,6 +557,7 @@ questions:
       Multiply $(x+2)(x-3)$. The middle terms are $2x$ and $-3x$, so they give $-x$. The constant is $-6$.
 
   - id: q-algebra-functions-and-relations-0025
+    approved: true
     lesson: lesson-algebra-arithmetic-with-functions
     keyPoint: 2
     type: direct-computation
@@ -575,6 +580,7 @@ questions:
       Both functions allow the inputs from $0$ through $4$. At $2$, $g$ gives zero, so remove $2$.
 
   - id: q-algebra-functions-and-relations-0026
+    approved: true
     lesson: lesson-algebra-inverting-restricted-quadratics
     keyPoint: 1
     type: direct-computation
@@ -597,6 +603,7 @@ questions:
       Every input of $f$ becomes an output of its inverse. The inputs of $f$ are all numbers up to and including $3$.
 
   - id: q-algebra-functions-and-relations-0027
+    approved: true
     lesson: lesson-algebra-inverting-restricted-quadratics
     keyPoint: 1
     type: direct-computation
@@ -619,6 +626,7 @@ questions:
       The inverse takes the outputs of $f$ as its inputs. Those outputs are all numbers at or below $9$.
 
   - id: q-algebra-functions-and-relations-0028
+    approved: true
     lesson: lesson-algebra-inverting-restricted-quadratics
     keyPoint: 2
     type: direct-computation

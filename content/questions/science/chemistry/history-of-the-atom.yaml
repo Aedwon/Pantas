@@ -352,7 +352,7 @@ questions:
           This rejects chemical rearrangement. Isotopes show internal atomic differences. Check whether this evidence changes what ordinary chemical reactions do.
     explanation: |
       Isotopes are atoms of the same element with different neutron counts. Their masses differ. This contradicts identical mass for every atom of one element.
-    approved: false
+    approved: true
 
   - id: q-chemistry-history-of-the-atom-0016
     lesson: lesson-chemistry-thomson-and-cathode-rays
@@ -375,7 +375,7 @@ questions:
           This treats electron evidence as proof of one positive-charge layout. Thomson proposed such a layout later. Check what electron discovery alone establishes.
     explanation: |
       The electron is a constituent of atoms. Discovering this smaller particle showed that an atom has internal structure.
-    approved: false
+    approved: true
 
   - id: q-chemistry-history-of-the-atom-0017
     lesson: lesson-chemistry-bohr-and-hydrogen-line-spectra
@@ -398,7 +398,7 @@ questions:
           This removes the nuclear starting point. Electron levels are emphasized. Check what attracts the electron in the model.
     explanation: |
       Bohr’s model explains hydrogen and hydrogen-like one-electron ions especially well. These systems have one electron interacting with a nucleus.
-    approved: false
+    approved: true
 
   - id: q-chemistry-history-of-the-atom-0018
     lesson: lesson-chemistry-quantum-model-and-orbitals
@@ -421,7 +421,7 @@ questions:
           This confuses electron density with neutron positions. Both are atomic constituents. Check which particle the visualization describes.
     explanation: |
       An electron cloud visualizes electron probability or density. Darker parts of the picture show where an electron is more likely to be found.
-    approved: false
+    approved: true
 
   - id: q-chemistry-history-of-the-atom-0019
     lesson: lesson-chemistry-quantum-model-and-orbitals
@@ -444,7 +444,7 @@ questions:
           This treats theory development as one complete path measurement. Experiments guide models. Check whether the quantum description uses known classical paths.
     explanation: |
       De Broglie, Heisenberg, Schrödinger, Born, and others contributed to quantum mechanics. The model developed through several mathematical and experimental contributions.
-    approved: false
+    approved: true
 
   - id: q-chemistry-history-of-the-atom-0020
     lesson: lesson-chemistry-evidence-and-atomic-models
@@ -467,9 +467,10 @@ questions:
           This treats a model as an exact observed image. Atomic pictures are familiar. Check whether the model is a testable representation.
     explanation: |
       Models describe evidence and have limits. New reliable evidence can reveal those limits. Researchers then improve the description while accounting for established results.
-    approved: false
+    approved: true
 
   - id: q-chemistry-history-of-the-atom-0021
+    approved: true
     lesson: lesson-chemistry-evidence-and-atomic-models
     keyPoint: 1
     type: 'classify'
@@ -492,6 +493,7 @@ questions:
       The paths are what the detector shows. A small dense center is an idea that explains why a few paths change sharply.
 
   - id: q-chemistry-history-of-the-atom-0022
+    approved: true
     lesson: lesson-chemistry-daltons-atomic-model
     keyPoint: 1
     type: 'identify'
@@ -514,6 +516,7 @@ questions:
       Dalton treated atoms as pieces that stay whole during a reaction. The pieces join in new ways to make the products.
 
   - id: q-chemistry-history-of-the-atom-0023
+    approved: true
     lesson: lesson-chemistry-daltons-laws-of-mass
     keyPoint: 1
     type: 'classify'
@@ -536,6 +539,7 @@ questions:
       Both samples contain the same compound. Its elements have a fixed mass ratio even when the samples are different sizes.
 
   - id: q-chemistry-history-of-the-atom-0024
+    approved: true
     lesson: lesson-chemistry-daltons-laws-of-mass
     keyPoint: 1
     type: 'classify'
@@ -558,6 +562,7 @@ questions:
       The two elements make two different compounds. With the carbon mass fixed, the oxygen masses are in the whole-number ratio $2:1$.
 
   - id: q-chemistry-history-of-the-atom-0025
+    approved: true
     lesson: lesson-chemistry-isotopes-and-daltons-claim
     keyPoint: 1
     type: 'identify'

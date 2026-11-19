@@ -331,7 +331,7 @@ questions:
   - id: q-physics-momentum-and-impulse-0015
     lesson: lesson-physics-impulse-and-average-force
     keyPoint: 1
-    approved: false
+    approved: true
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -354,7 +354,7 @@ questions:
   - id: q-physics-momentum-and-impulse-0016
     lesson: lesson-physics-force-time-graphs-and-impulse
     keyPoint: 1
-    approved: false
+    approved: true
     type: "structure-function"
     difficulty: "medium"
     stem: |
@@ -377,7 +377,7 @@ questions:
   - id: q-physics-momentum-and-impulse-0017
     lesson: lesson-physics-impulse-and-average-force
     keyPoint: 2
-    approved: false
+    approved: true
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
@@ -400,7 +400,7 @@ questions:
   - id: q-physics-momentum-and-impulse-0018
     lesson: lesson-physics-system-momentum-conservation
     keyPoint: 1
-    approved: false
+    approved: true
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -423,7 +423,7 @@ questions:
   - id: q-physics-momentum-and-impulse-0019
     lesson: lesson-physics-collision-types-and-kinetic-energy
     keyPoint: 1
-    approved: false
+    approved: true
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
@@ -446,7 +446,7 @@ questions:
   - id: q-physics-momentum-and-impulse-0020
     lesson: lesson-physics-force-time-graphs-and-impulse
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
@@ -467,6 +467,7 @@ questions:
       The force-time area is a triangle of base $0.20\,\mathrm s$ and height $40\,\mathrm N$. Its area is $\dfrac12(0.20)(40)=4\,\mathrm{N\,s}$.
 
   - id: q-physics-momentum-and-impulse-0021
+    approved: true
     lesson: lesson-physics-system-momentum-conservation
     keyPoint: 1
     type: "predict-outcome"
@@ -489,6 +490,7 @@ questions:
       Each cart pushes the other through the spring. For the pair, these pushes cancel. The track gives the pair no sideways push, so its total momentum stays the same.
 
   - id: q-physics-momentum-and-impulse-0022
+    approved: true
     lesson: lesson-physics-collision-types-and-kinetic-energy
     keyPoint: 2
     type: "simple-quantitative"
@@ -511,6 +513,7 @@ questions:
       The carts start with $24+6=30$ J and end with $8+12=20$ J. Together they lose 10 J.
 
   - id: q-physics-momentum-and-impulse-0023
+    approved: true
     lesson: lesson-physics-kinetic-energy-in-elastic-collisions-and-push-aparts
     keyPoint: 1
     type: "predict-outcome"

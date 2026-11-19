@@ -416,7 +416,7 @@ questions:
           This transfers the whole surface pattern to the deep ocean. Both layers are water. Check temperature, density, and sunlight with depth.
     explanation: |
       Sunlight mainly warms upper ocean water. Deep water is beyond sunlight's reach. The lesson describes it as colder and denser than the surface layer.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0019
     lesson: lesson-earth-science-astronomy-ocean-currents-and-heat
@@ -439,7 +439,7 @@ questions:
           This mixes up cooling and warming. Moving water changes temperature. Check whether warm water arriving makes a place warmer or cooler.
     explanation: |
       Warm water contains thermal energy. As the current moves that water, it carries energy to another region. This redistributes heat.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0020
     lesson: lesson-earth-science-astronomy-infiltration-and-runoff
@@ -462,9 +462,10 @@ questions:
           This turns one depicted route into a requirement for every molecule. A simple loop is easy to follow. Check alternative paths such as infiltration.
     explanation: |
       The water cycle has no true starting point. A diagram chooses one place to begin its description. Water keeps moving among reservoirs through different paths.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0021
+    approved: true
     lesson: lesson-earth-science-astronomy-daily-tide-timing
     keyPoint: 1
     type: 'cause-effect'
@@ -492,6 +493,7 @@ questions:
       left behind a little, so it bulges away from the Moon.
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0022
+    approved: true
     lesson: lesson-earth-science-astronomy-daily-tide-timing
     keyPoint: 2
     type: 'cause-effect'
@@ -519,6 +521,7 @@ questions:
       a bit more for the same place to line up with the Moon again.
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0023
+    approved: true
     lesson: lesson-earth-science-astronomy-daily-tide-timing
     keyPoint: 2
     type: 'simple-quantitative'
@@ -544,6 +547,7 @@ questions:
       second high tide after the reading at about 6:50 a.m. the next day.
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0024
+    approved: true
     lesson: lesson-earth-science-astronomy-spring-and-neap-tides
     keyPoint: 1
     type: 'classify'
@@ -571,6 +575,7 @@ questions:
       Earth. Their tide effects partly offset each other, so a neap tide occurs.
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0025
+    approved: true
     lesson: lesson-earth-science-astronomy-spring-and-neap-tides
     keyPoint: 2
     type: 'compare-contrast'

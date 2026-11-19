@@ -5,6 +5,7 @@ meta:
   exams: ['upcat', 'pupcet']
 questions:
 - id: 'q-trigonometry-angles-and-radian-measure-0001'
+  approved: true
   lesson: lesson-trigonometry-converting-degrees-and-radians
   keyPoint: 2
   type: 'direct-computation'
@@ -26,6 +27,7 @@ questions:
   explanation: |
     Use $180^\circ=\pi$ radians. Multiply $90$ by $\dfrac\pi{180}$ to get $\dfrac\pi2$ radians.
 - id: 'q-trigonometry-angles-and-radian-measure-0002'
+  approved: true
   lesson: lesson-trigonometry-converting-degrees-and-radians
   keyPoint: 3
   type: 'direct-computation'
@@ -47,6 +49,7 @@ questions:
   explanation: |
     Multiply by $\dfrac{180^\circ}{\pi}$. The pi factors cancel, leaving $180^\circ\div3=60^\circ$.
 - id: 'q-trigonometry-angles-and-radian-measure-0003'
+  approved: true
   lesson: lesson-trigonometry-finding-coterminal-angles
   keyPoint: 1
   type: 'direct-computation'
@@ -68,6 +71,7 @@ questions:
   explanation: |
     The signed turns sum to $-45^\circ+90^\circ=45^\circ$. Convert: $45\dfrac\pi{180}=\dfrac\pi4$ radians.
 - id: 'q-trigonometry-angles-and-radian-measure-0004'
+  approved: true
   lesson: lesson-trigonometry-converting-degrees-and-radians
   keyPoint: 3
   type: 'direct-computation'
@@ -89,6 +93,7 @@ questions:
   explanation: |
     The given angle is $180^\circ\div6=30^\circ$. Supplementary angles total $180^\circ$, so the partner is $180^\circ-30^\circ=150^\circ$.
 - id: 'q-trigonometry-angles-and-radian-measure-0005'
+  approved: true
   lesson: lesson-trigonometry-converting-degrees-and-radians
   keyPoint: 2
   type: 'direct-computation'
@@ -110,6 +115,7 @@ questions:
   explanation: |
     Degrees convert using $\dfrac\pi{180}$. Thus $150\dfrac\pi{180}=\dfrac{5\pi}{6}$ radians.
 - id: 'q-trigonometry-angles-and-radian-measure-0006'
+  approved: true
   lesson: lesson-trigonometry-converting-degrees-and-radians
   keyPoint: 3
   type: 'direct-computation'
@@ -131,6 +137,7 @@ questions:
   explanation: |
     Pi radians correspond to $180^\circ$. Thus $\dfrac{3\pi}{4}\dfrac{180^\circ}{\pi}=135^\circ$.
 - id: 'q-trigonometry-angles-and-radian-measure-0007'
+  approved: true
   lesson: lesson-trigonometry-finding-coterminal-angles
   keyPoint: 2
   type: 'direct-computation'
@@ -152,6 +159,7 @@ questions:
   explanation: |
     Subtract one complete turn: $370^\circ-360^\circ=10^\circ$. This lies in the stated range and has the same terminal direction.
 - id: 'q-trigonometry-angles-and-radian-measure-0008'
+  approved: true
   lesson: lesson-trigonometry-converting-degrees-and-radians
   keyPoint: 1
   type: 'which-is-true'
@@ -173,6 +181,7 @@ questions:
   explanation: |
     Convert one radian using $\dfrac{180^\circ}{\pi}$. This is about $57.3^\circ$.
 - id: 'q-trigonometry-angles-and-radian-measure-0009'
+  approved: true
   lesson: lesson-trigonometry-arc-length-with-radians
   keyPoint: 1
   type: 'direct-computation'
@@ -194,6 +203,7 @@ questions:
   explanation: |
     For a radian angle, arc length is $s=r\theta$. Multiply: $5\dfrac\pi3=\dfrac{5\pi}{3}$ cm.
 - id: 'q-trigonometry-angles-and-radian-measure-0010'
+  approved: true
   lesson: lesson-trigonometry-finding-coterminal-angles
   keyPoint: 1
   type: 'direct-computation'
@@ -215,6 +225,7 @@ questions:
   explanation: |
     Clockwise gives a negative turn. Convert $-30^\circ$: $-30\dfrac\pi{180}=-\dfrac\pi6$ radians.
 - id: 'q-trigonometry-angles-and-radian-measure-0011'
+  approved: true
   lesson: lesson-trigonometry-finding-coterminal-angles
   keyPoint: 2
   type: 'direct-computation'
@@ -236,6 +247,7 @@ questions:
   explanation: |
     Add a full turn: $-150^\circ+360^\circ=210^\circ$. This is in the required range and preserves the terminal direction.
 - id: 'q-trigonometry-angles-and-radian-measure-0012'
+  approved: true
   lesson: lesson-trigonometry-finding-coterminal-angles
   keyPoint: 2
   type: 'which-is-true'
@@ -257,6 +269,7 @@ questions:
   explanation: |
     The difference is $430^\circ-70^\circ=360^\circ$. Angles separated by one full turn are coterminal.
 - id: 'q-trigonometry-angles-and-radian-measure-0013'
+  approved: true
   lesson: lesson-trigonometry-arc-length-with-radians
   keyPoint: 1
   type: 'direct-computation'
@@ -278,6 +291,7 @@ questions:
   explanation: |
     Use $\theta=\dfrac sr=\dfrac{8\pi/3}{8}=\dfrac\pi3$ radians. Convert to degrees: $\dfrac\pi3\dfrac{180^\circ}{\pi}=60^\circ$.
 - id: 'q-trigonometry-angles-and-radian-measure-0014'
+  approved: true
   lesson: lesson-trigonometry-converting-degrees-and-radians
   keyPoint: 2
   type: 'direct-computation'
@@ -299,6 +313,7 @@ questions:
   explanation: |
     A full rotation is $2\pi$ radians. Seven-eighths of it is $\dfrac78(2\pi)=\dfrac{7\pi}{4}$ radians.
 - id: 'q-trigonometry-angles-and-radian-measure-0015'
+  approved: true
   lesson: lesson-trigonometry-finding-coterminal-angles
   keyPoint: 1
   type: 'which-is-true'
@@ -320,6 +335,7 @@ questions:
   explanation: |
     The signed angle is $-2$ radians. Multiply by $\dfrac{180^\circ}{\pi}$ to get about $-114.6^\circ$.
 - id: 'q-trigonometry-angles-and-radian-measure-0016'
+  approved: true
   lesson: lesson-trigonometry-converting-degrees-and-radians
   keyPoint: 3
   type: 'which-is-true'
@@ -361,7 +377,7 @@ questions:
       This treats the turn as clockwise. Fourth-quadrant angles can be negative. Check the stated counterclockwise direction.
   explanation: |
     The angle is positive and smaller than $\dfrac\pi2\approx1.57$ radians. It therefore lies in Quadrant I.
-  approved: false
+  approved: true
 - id: 'q-trigonometry-angles-and-radian-measure-0018'
   lesson: lesson-trigonometry-converting-degrees-and-radians
   keyPoint: 1
@@ -383,7 +399,7 @@ questions:
       This treats the arc as the entire circumference. A full turn has two pi radians. Compare r with two pi r.
   explanation: |
     Use $\theta=s/r$. Here $s=r$, so $\theta=r/r=1$ radian.
-  approved: false
+  approved: true
 - id: 'q-trigonometry-angles-and-radian-measure-0019'
   lesson: lesson-trigonometry-finding-coterminal-angles
   keyPoint: 2
@@ -405,7 +421,7 @@ questions:
       This rounds the fractional revolution upward. The remainder is half a turn. Do not count an incomplete revolution as complete.
   explanation: |
     Divide by $2\pi$ radians per full turn: $\dfrac{5\pi}{2\pi}=2.5$. This is two complete revolutions plus a half-turn.
-  approved: false
+  approved: true
 - id: 'q-trigonometry-angles-and-radian-measure-0020'
   lesson: lesson-trigonometry-finding-coterminal-angles
   keyPoint: 2
@@ -427,4 +443,4 @@ questions:
       This drops the negative sign from pi over two. The magnitude is a quarter-turn. Check its clockwise direction.
   explanation: |
     Adding $2\pi$ leaves $-\dfrac\pi2$ radians. That is a clockwise quarter-turn from the positive x-axis, ending on the negative y-axis.
-  approved: false
+  approved: true

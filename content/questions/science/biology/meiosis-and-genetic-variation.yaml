@@ -186,7 +186,7 @@ questions:
           This applies mitotic-style chromatid separation to both divisions. Chromatid movement is familiar from mitosis, so it seems universal. Check what happens to homologous pairs in meiosis I.
     explanation: |
       Meiosis I separates the two chromosomes in each homologous pair. Meiosis II separates sister chromatids. The first separation reduces chromosome-set number from diploid to haploid.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0018
     lesson: lesson-biology-spores-eggs-and-sperm
@@ -209,7 +209,7 @@ questions:
           This assumes an unusual cell outcome means a different nuclear process. Mitosis often gives two similar cells, so it can seem easier to explain a large cell. Check whether oogenesis still uses meiosis.
     explanation: |
       Cytokinesis divides the cytoplasm unequally during oogenesis. Most cytoplasm stays in one large cell. The smaller products become polar bodies rather than equivalent functional eggs.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0019
     lesson: lesson-biology-independent-assortment-of-chromosomes
@@ -232,7 +232,7 @@ questions:
           This confuses rearranging chromosome combinations with copying DNA again. New combinations can seem to require new copies. Check whether independent assortment changes orientation or DNA amount.
     explanation: |
       Each homologous pair can face either direction independently. When homologs separate, different combinations can enter the haploid nuclei. This creates variation in chromosome combinations.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0020
     lesson: lesson-biology-meiosis-i-and-meiosis-ii
@@ -255,7 +255,7 @@ questions:
           This makes meiosis undo its earlier reduction. A full chromosome set seems necessary for division, so diploid restoration may seem required. Check whether haploid products are the goal of the process.
     explanation: |
       Normal meiosis includes one DNA replication and two nuclear divisions. Homologs have already separated in meiosis I. Meiosis II separates sister chromatids without another round of DNA replication.
-    approved: false
+    approved: true
 
   - id: q-biology-meiosis-and-genetic-variation-0001
     lesson: lesson-biology-allele-combinations-in-gametes
@@ -278,7 +278,7 @@ questions:
           This is one allele. A gamete carries one allele, so a single letter can seem right. Check that a diploid cell has two alleles of a gene that is not on a sex chromosome.
     explanation: |
       Heterozygous means the two alleles are different. $Aa$ has one $A$ and one $a$.
-    approved: false
+    approved: true
 
   - id: q-biology-meiosis-and-genetic-variation-0002
     lesson: lesson-biology-independent-assortment-of-chromosomes
@@ -301,7 +301,7 @@ questions:
           This squares the number of pairs. Powers appear in the rule, so a power seems right. Check which number is the base and which is the exponent.
     explanation: |
       Six chromosomes make 3 homologous pairs. Each pair sorts independently, and a gamete gets either the maternal or the paternal chromosome. So the number of combinations is $2 \times 2 \times 2 = 2^3 = 8$.
-    approved: false
+    approved: true
 
   - id: q-biology-meiosis-and-genetic-variation-0003
     lesson: lesson-biology-independent-assortment-of-chromosomes
@@ -324,7 +324,7 @@ questions:
           This counts the pairs. The number is correct for pairs, but each pair has two choices. Check how many choices each pair gives.
     explanation: |
       Eight chromosomes make 4 homologous pairs. Each pair has two ways to sort. So the number of combinations is $2^4 = 16$.
-    approved: false
+    approved: true
 
   - id: q-biology-meiosis-and-genetic-variation-0004
     lesson: lesson-biology-counting-chromosomes-after-meiosis
@@ -347,7 +347,7 @@ questions:
           This describes the cell before meiosis I. The cell has copied its DNA but has not divided. Check whether the question asks about the cells after the first division.
     explanation: |
       Meiosis I separates the homologs, so each cell gets 23 chromosomes. The sister chromatids stay together. Each chromosome still has two chromatids, so each cell has $23 \times 2 = 46$ chromatids.
-    approved: false
+    approved: true
 
   - id: q-biology-meiosis-and-genetic-variation-0005
     lesson: lesson-biology-spores-eggs-and-sperm
@@ -370,7 +370,7 @@ questions:
           These are small cells made in animal egg formation. Both come from meiosis, so they seem to fit. Check whether the cell is made in plants and fungi.
     explanation: |
       In plants and fungi, meiosis often makes spores. A spore is a small haploid cell that can grow into a new organism. So meiosis does not always make sperm and eggs.
-    approved: false
+    approved: true
 
   - id: q-biology-meiosis-and-genetic-variation-0006
     lesson: lesson-biology-meiosis-i-and-meiosis-ii
@@ -393,7 +393,7 @@ questions:
           The homologs pair up side by side here, so the pairs seem to fit. They do not line up at the middle yet. Check whether the pairs are lined up at the middle.
     explanation: |
       In metaphase I, the homologous pairs line up at the middle as pairs. The two pairs described match this stage. So this stage is metaphase I.
-    approved: false
+    approved: true
 
   - id: q-biology-meiosis-and-genetic-variation-0007
     lesson: lesson-biology-crossing-over-and-fertilization
@@ -416,7 +416,7 @@ questions:
           This is a diploid genotype. Carrying all the parent's alleles can seem necessary to pass on both genes. A gamete is haploid and carries one allele of each gene. Check that a gamete does not carry both alleles of a gene.
     explanation: |
       Crossing over swaps pieces of DNA between the homologs, between the two genes. Then one chromosome can carry $A$ with $b$. That chromosome gives the gamete $Ab$.
-    approved: false
+    approved: true
 
   - id: q-biology-meiosis-and-genetic-variation-0008
     lesson: lesson-biology-allele-combinations-in-gametes
@@ -439,7 +439,7 @@ questions:
           Keeping all the parent's alleles may seem necessary to pass on both genes. But this is the genotype of the parent cell. The question asks for gametes, and a gamete is haploid. Check that a gamete does not carry both alleles of a gene.
     explanation: |
       A gamete gets one allele of each gene. The pairs sort independently, so each allele of the first gene can go with each allele of the second gene. Many cells together can make $AB$, $Ab$, $aB$, and $ab$.
-    approved: false
+    approved: true
 
   - id: q-biology-meiosis-and-genetic-variation-0009
     lesson: lesson-biology-counting-chromosomes-after-meiosis
@@ -462,9 +462,10 @@ questions:
           This describes a cell before DNA copying. The cell is not yet haploid and has not copied its DNA. Check both numbers.
     explanation: |
       After meiosis I, each cell is haploid with 23 chromosomes. At metaphase II, the chromosomes line up in single file. Each still has two sister chromatids, which separate in anaphase II.
-    approved: false
+    approved: true
 
   - id: q-biology-meiosis-and-genetic-variation-0010
+    approved: true
     lesson: lesson-biology-allele-combinations-in-gametes
     keyPoint: 2
     type: "simple-quantitative"
@@ -487,6 +488,7 @@ questions:
       Each gamete gets either $A$ or $a$ and either $B$ or $b$. It always gets $d$. That gives $2\times2\times1=4$ allele combinations.
 
   - id: q-biology-meiosis-and-genetic-variation-0011
+    approved: true
     lesson: lesson-biology-crossing-over-and-fertilization
     keyPoint: 2
     type: "cause-effect"

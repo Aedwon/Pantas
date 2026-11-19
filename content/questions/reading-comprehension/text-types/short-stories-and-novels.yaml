@@ -44,6 +44,7 @@ passages:
     Ben did not answer. At the corner he turned back. The chalk line was hidden behind the closed door, but he could still picture it. He stepped beside his neighbor and kept walking toward the shelter.
 questions:
 - id: rc-tt-sn-0001
+  approved: true
   passage: rc-tt-sn-p1
   type: feature-of-form
   difficulty: easy
@@ -69,6 +70,7 @@ questions:
 
     '
 - id: rc-tt-sn-0002
+  approved: true
   passage: rc-tt-sn-p1
   type: feature-of-form
   difficulty: medium
@@ -94,6 +96,7 @@ questions:
 
     '
 - id: rc-tt-sn-0003
+  approved: true
   passage: rc-tt-sn-p1
   type: inferencing-and-conclusions
   difficulty: medium
@@ -119,6 +122,7 @@ questions:
 
     '
 - id: rc-tt-sn-0004
+  approved: true
   passage: rc-tt-sn-p1
   type: inferencing-and-conclusions
   difficulty: hard
@@ -144,6 +148,7 @@ questions:
 
     '
 - id: rc-tt-sn-0005
+  approved: true
   passage: rc-tt-sn-p1
   type: feature-of-form
   difficulty: hard
@@ -169,6 +174,7 @@ questions:
 
     '
 - id: rc-tt-sn-0006
+  approved: true
   passage: rc-tt-sn-p2
   type: feature-of-form
   difficulty: easy
@@ -194,6 +200,7 @@ questions:
 
     '
 - id: rc-tt-sn-0007
+  approved: true
   passage: rc-tt-sn-p2
   type: feature-of-form
   difficulty: medium
@@ -219,6 +226,7 @@ questions:
 
     '
 - id: rc-tt-sn-0008
+  approved: true
   passage: rc-tt-sn-p2
   type: inferencing-and-conclusions
   difficulty: medium
@@ -244,6 +252,7 @@ questions:
 
     '
 - id: rc-tt-sn-0009
+  approved: true
   passage: rc-tt-sn-p2
   type: inferencing-and-conclusions
   difficulty: hard
@@ -269,6 +278,7 @@ questions:
 
     '
 - id: rc-tt-sn-0010
+  approved: true
   passage: rc-tt-sn-p2
   type: feature-of-form
   difficulty: hard
@@ -296,7 +306,7 @@ questions:
 - id: q-text-types-short-stories-and-novels-0011
   type: feature-of-form
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which event most clearly reveals Lina''s internal conflict?
 
     '
@@ -322,7 +332,7 @@ questions:
 - id: q-text-types-short-stories-and-novels-0012
   type: feature-of-form
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'How does Lina''s behavior change during the excerpt?
 
     '
@@ -348,7 +358,7 @@ questions:
 - id: q-text-types-short-stories-and-novels-0013
   type: feature-of-form
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which statement about Lina''s character is supported by the excerpt?
 
     '
@@ -374,7 +384,7 @@ questions:
 - id: q-text-types-short-stories-and-novels-0014
   type: feature-of-form
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which theme is best supported by Lina''s excerpt?
 
     '
@@ -400,7 +410,7 @@ questions:
 - id: q-text-types-short-stories-and-novels-0015
   type: inferencing-and-conclusions
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'How does the ending limit what the reader can conclude?
 
     '
@@ -426,7 +436,7 @@ questions:
 - id: q-text-types-short-stories-and-novels-0016
   type: feature-of-form
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which detail establishes a threat from nature in Ben''s story?
 
     '
@@ -452,7 +462,7 @@ questions:
 - id: q-text-types-short-stories-and-novels-0017
   type: purpose-of-device
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Why does the photograph matter to Ben''s decision?
 
     '
@@ -478,7 +488,7 @@ questions:
 - id: q-text-types-short-stories-and-novels-0018
   type: feature-of-form
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which statement best describes the narration in Ben''s excerpt?
 
     '
@@ -504,7 +514,7 @@ questions:
 - id: q-text-types-short-stories-and-novels-0019
   type: feature-of-form
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'What makes Ben''s departure a turning point?
 
     '
@@ -530,7 +540,7 @@ questions:
 - id: q-text-types-short-stories-and-novels-0020
   type: inferencing-and-conclusions
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which interpretation respects what Ben''s ending actually shows?
 
     '

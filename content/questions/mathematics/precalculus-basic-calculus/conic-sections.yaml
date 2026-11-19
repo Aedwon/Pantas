@@ -5,6 +5,7 @@ meta:
   exams: ['pupcet']
 questions:
 - id: 'q-precalculus-basic-calculus-conic-sections-0001'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms
   keyPoint: 1
   type: 'direct-computation'
@@ -26,6 +27,7 @@ questions:
   explanation: |
     Standard form is $(x-h)^2+(y-k)^2=r^2$. Here $h=3$, $k=-4$, and $r^2=25$. Take the positive square root to get radius $5$.
 - id: 'q-precalculus-basic-calculus-conic-sections-0002'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-identifying-axis-aligned-conics
   keyPoint: 1
   type: 'which-is-true'
@@ -47,6 +49,7 @@ questions:
   explanation: |
     Divide by $4$ and complete both squares. The equation becomes $(x-1)^2+(y+2)^2=\dfrac{25}{4}$. This is a circle with a positive radius.
 - id: 'q-precalculus-basic-calculus-conic-sections-0003'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms
   keyPoint: 2
   type: 'direct-computation'
@@ -68,6 +71,7 @@ questions:
   explanation: |
     The vertex form is $y=a(x-h)^2+k$. Reading the two shifts gives $h=1$ and $k=3$. The vertex is $(1,3)$.
 - id: 'q-precalculus-basic-calculus-conic-sections-0004'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-ellipse-and-hyperbola-features
   keyPoint: 2
   type: 'which-is-true'
@@ -89,6 +93,7 @@ questions:
   explanation: |
     A hyperbola is defined by a fixed nonzero absolute difference of distances to two foci, smaller than the distance between them. This distance-difference description identifies a hyperbola.
 - id: 'q-precalculus-basic-calculus-conic-sections-0005'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms
   keyPoint: 2
   type: 'direct-computation'
@@ -110,6 +115,7 @@ questions:
   explanation: |
     Here x depends on a squared y term, so the parabola opens horizontally. The coefficient is negative. As $(y+2)^2$ increases, x decreases from $5$, so it opens left.
 - id: 'q-precalculus-basic-calculus-conic-sections-0006'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-ellipse-and-hyperbola-features
   keyPoint: 1
   type: 'direct-computation'
@@ -131,6 +137,7 @@ questions:
   explanation: |
     The denominators are squared semi-axis lengths. Their square roots are $4$ and $3$. Double these to get full axis lengths $8$ and $6$.
 - id: 'q-precalculus-basic-calculus-conic-sections-0007'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-ellipse-and-hyperbola-features
   keyPoint: 1
   type: 'direct-computation'
@@ -152,6 +159,7 @@ questions:
   explanation: |
     For an ellipse, $c^2=a^2-b^2$. Here $c^2=25-9=16$. Taking the positive square root gives $c=4$.
 - id: 'q-precalculus-basic-calculus-conic-sections-0008'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-ellipse-and-hyperbola-features
   keyPoint: 2
   type: 'direct-computation'
@@ -173,6 +181,7 @@ questions:
   explanation: |
     For a hyperbola, $c^2=a^2+b^2$. Thus $c^2=16+9=25$. Taking the positive square root gives $c=5$.
 - id: 'q-precalculus-basic-calculus-conic-sections-0009'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-ellipse-and-hyperbola-features
   keyPoint: 2
   type: 'direct-computation'
@@ -194,6 +203,7 @@ questions:
   explanation: |
     The positive x term makes the transverse axis horizontal. The semi-axis values are $a=3$ and $b=4$. The asymptotes are $y=\pm\dfrac ba x=\pm\dfrac43x$.
 - id: 'q-precalculus-basic-calculus-conic-sections-0010'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-identifying-axis-aligned-conics
   keyPoint: 1
   type: 'which-is-true'
@@ -215,6 +225,7 @@ questions:
   explanation: |
     For a nondegenerate axis-aligned hyperbola, the squared terms have opposite signs. Thus one of A and C is positive and the other negative, giving $AC<0$.
 - id: 'q-precalculus-basic-calculus-conic-sections-0011'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms
   keyPoint: 3
   type: 'direct-computation'
@@ -236,6 +247,7 @@ questions:
   explanation: |
     Group the variable terms: $(x^2-6x)+(y^2+4y)=12$. Add $9$ and $4$ to both sides. This gives $(x-3)^2+(y+2)^2=25$, so the radius is $\sqrt{25}=5$.
 - id: 'q-precalculus-basic-calculus-conic-sections-0012'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms
   keyPoint: 3
   type: 'direct-computation'
@@ -257,6 +269,7 @@ questions:
   explanation: |
     Complete the square: $y=(x-4)^2+3$. The square is zero at $x=4$, giving $y=3$. The vertex is $(4,3)$.
 - id: 'q-precalculus-basic-calculus-conic-sections-0013'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-ellipse-and-hyperbola-features
   keyPoint: 1
   type: 'direct-computation'
@@ -278,6 +291,7 @@ questions:
   explanation: |
     The center is $(2,-1)$ and the larger denominator is under x. The focal distance satisfies $c^2=25-16=9$, so $c=3$. Move three units horizontally from the center to get $(5,-1)$ and $(-1,-1)$.
 - id: 'q-precalculus-basic-calculus-conic-sections-0014'
+  approved: true
   lesson: lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms
   keyPoint: 2
   type: 'direct-computation'
@@ -319,7 +333,7 @@ questions:
       This treats the original constant as a radius. Five is printed on the right. Check the completed equation and take a square root.
   explanation: |
     Completing $x^2+4x$ adds $4$. Add it to both sides to get $(x+2)^2+y^2=9$.
-  approved: false
+  approved: true
 - id: 'q-precalculus-basic-calculus-conic-sections-0016'
   lesson: lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms
   keyPoint: 2
@@ -341,7 +355,7 @@ questions:
       This ignores the minus sign when evaluating at zero. The square there is nine. Check that a negative squared term can only lower the height.
   explanation: |
     The squared term is nonnegative. Multiplying it by $-2$ makes it nonpositive, so y cannot exceed $8$. At $x=3$, the square is zero and y reaches $8$.
-  approved: false
+  approved: true
 - id: 'q-precalculus-basic-calculus-conic-sections-0017'
   lesson: lesson-precalculus-basic-calculus-ellipse-and-hyperbola-features
   keyPoint: 1
@@ -363,7 +377,7 @@ questions:
       This uses the squared semi-axis as an offset. Twenty-five is the denominator. Take its positive square root first.
   explanation: |
     The center is $(-1,2)$. The larger denominator is $25$ under y, so the major axis is vertical with semi-axis $5$. Moving upward gives $(-1,2+5)=(-1,7)$.
-  approved: false
+  approved: true
 - id: 'q-precalculus-basic-calculus-conic-sections-0018'
   lesson: lesson-precalculus-basic-calculus-ellipse-and-hyperbola-features
   keyPoint: 2
@@ -385,7 +399,7 @@ questions:
       This reads the squared x semi-axis as a vertex coordinate. Nine is the denominator. Take its square root before identifying a vertex.
   explanation: |
     For this point, $\dfrac{x^2}{9}=\dfrac{25}{9}$ and $\dfrac{y^2}{16}=\dfrac{16}{9}$. Their difference is $\dfrac99=1$, so the point satisfies the equation.
-  approved: false
+  approved: true
 - id: 'q-precalculus-basic-calculus-conic-sections-0019'
   lesson: lesson-precalculus-basic-calculus-identifying-axis-aligned-conics
   keyPoint: 2
@@ -407,7 +421,7 @@ questions:
       This excludes zero when considering nonnegative squares. Positive squares cannot sum to zero. Check whether both coordinates can be zero.
   explanation: |
     Both squares are nonnegative. Their sum is zero only when both are zero. Thus the graph is the single point $(0,0)$.
-  approved: false
+  approved: true
 - id: 'q-precalculus-basic-calculus-conic-sections-0020'
   lesson: lesson-precalculus-basic-calculus-circle-and-parabola-standard-forms
   keyPoint: 1
@@ -429,4 +443,4 @@ questions:
       This doubles the radius instead of squaring it. Doubling gives the diameter. Check which quantity belongs on the right side.
   explanation: |
     The distance from the origin to $(0,6)$ is $6$, so the radius is $6$. Circle standard form uses $r^2=36$. Therefore $x^2+y^2=36$.
-  approved: false
+  approved: true

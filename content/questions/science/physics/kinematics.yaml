@@ -330,7 +330,7 @@ questions:
   - id: q-physics-kinematics-0015
     lesson: lesson-physics-position-displacement-and-velocity
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "easy"
     stem: |
@@ -353,7 +353,7 @@ questions:
   - id: q-physics-kinematics-0016
     lesson: lesson-physics-position-displacement-and-velocity
     keyPoint: 1
-    approved: false
+    approved: true
     type: "compare-contrast"
     difficulty: "medium"
     stem: |
@@ -376,7 +376,7 @@ questions:
   - id: q-physics-kinematics-0017
     lesson: lesson-physics-position-displacement-and-velocity
     keyPoint: 2
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -399,7 +399,7 @@ questions:
   - id: q-physics-kinematics-0018
     lesson: lesson-physics-position-time-graph-slope
     keyPoint: 1
-    approved: false
+    approved: true
     type: "structure-function"
     difficulty: "hard"
     stem: |
@@ -422,7 +422,7 @@ questions:
   - id: q-physics-kinematics-0019
     lesson: lesson-physics-velocity-time-graph-slope-and-area
     keyPoint: 2
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -445,7 +445,7 @@ questions:
   - id: q-physics-kinematics-0020
     lesson: lesson-physics-motion-with-constant-acceleration
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
@@ -466,6 +466,7 @@ questions:
       The cart stops after $t=6/2=3\,\mathrm s$. It travels $6(3)-\dfrac12(2)(3^2)=9\,\mathrm m$ before turning. In the last second it travels $\dfrac12(2)(1^2)=1\,\mathrm m$ back. Total distance is $9+1=10\,\mathrm m$.
 
   - id: q-physics-kinematics-0021
+    approved: true
     lesson: lesson-physics-acceleration-and-direction
     keyPoint: 2
     type: "predict-outcome"
@@ -488,6 +489,7 @@ questions:
       The acceleration points against the velocity. It makes the velocity move closer to zero, so the speed drops.
 
   - id: q-physics-kinematics-0022
+    approved: true
     lesson: lesson-physics-acceleration-and-direction
     keyPoint: 1
     type: "simple-quantitative"
@@ -510,6 +512,7 @@ questions:
       Subtract the starting velocity from the ending velocity. The change is $8-(-4)=12$ m/s. Divide by 4 s to get +3 m/s².
 
   - id: q-physics-kinematics-0023
+    approved: true
     lesson: lesson-physics-position-time-graph-slope
     keyPoint: 1
     type: "simple-quantitative"
@@ -532,6 +535,7 @@ questions:
       The position falls by 8 m in 4 s. The slope is $-8/4=-2$ m/s.
 
   - id: q-physics-kinematics-0024
+    approved: true
     lesson: lesson-physics-velocity-time-graph-slope-and-area
     keyPoint: 1
     type: "simple-quantitative"
@@ -554,6 +558,7 @@ questions:
       The velocity falls by 6 m/s in 2 s. Its slope is $-6/2=-3$ m/s².
 
   - id: q-physics-kinematics-0025
+    approved: true
     lesson: lesson-physics-velocity-time-graph-slope-and-area
     keyPoint: 2
     type: "simple-quantitative"
@@ -576,6 +581,7 @@ questions:
       The area under this part of the graph is a rectangle above zero. It is $8\times(10-4)=48$ m.
 
   - id: q-physics-kinematics-0026
+    approved: true
     lesson: lesson-physics-velocity-time-graph-slope-and-area
     keyPoint: 2
     type: "predict-outcome"

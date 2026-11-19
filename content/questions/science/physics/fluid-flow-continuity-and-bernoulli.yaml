@@ -76,7 +76,7 @@ questions:
   - id: q-physics-fluid-mechanics-0020
     lesson: lesson-physics-bernoulli-pressure-and-speed
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
@@ -97,6 +97,7 @@ questions:
       At equal height, $P_1-P_2=\dfrac12\rho(v_2^2-v_1^2)$. Substitute: $\dfrac12(1000)(16-4)=6000\,\mathrm{Pa}$.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0001
+    approved: true
     lesson: lesson-physics-continuity-and-flow-speed
     keyPoint: 2
     type: "cause-effect"
@@ -119,6 +120,7 @@ questions:
       In steady flow of an incompressible fluid, the same volume passes each cross-section every second. This gives $A_1v_1=A_2v_2$. When the area gets smaller, the speed must get larger.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0002
+    approved: true
     lesson: lesson-physics-continuity-and-flow-speed
     keyPoint: 1
     type: "identify"
@@ -141,6 +143,7 @@ questions:
       The volume flow rate is the volume of fluid that passes a point each second. For a pipe, it equals the cross-sectional area times the flow speed.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0003
+    approved: true
     lesson: lesson-physics-bernoullis-equation-and-height
     keyPoint: 2
     type: "identify"
@@ -163,6 +166,7 @@ questions:
       The term $\dfrac{1}{2}\rho v^2$ comes from the kinetic energy formula, $\dfrac{1}{2}mv^2$. Dividing the mass by the volume gives the density $\rho$. So it is the kinetic energy in each unit of volume.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0004
+    approved: true
     lesson: lesson-physics-continuity-and-flow-speed
     keyPoint: 2
     type: "simple-quantitative"
@@ -185,6 +189,7 @@ questions:
       By continuity, $A_1v_1=A_2v_2$. So $v_2=v_1\dfrac{A_1}{A_2}=1.5\times\dfrac{6.0\times10^{-3}}{2.0\times10^{-3}}=1.5\times3.0=4.5\,\mathrm{m/s}$.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0005
+    approved: true
     lesson: lesson-physics-continuity-and-flow-speed
     keyPoint: 2
     type: "simple-quantitative"
@@ -207,6 +212,7 @@ questions:
       The area of a round pipe is $A=\pi r^2$. A pipe with half the diameter has one fourth of the area. The speed is then four times as large: $3.0\times4=12\,\mathrm{m/s}$.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0006
+    approved: true
     lesson: lesson-physics-bernoulli-pressure-and-speed
     keyPoint: 1
     type: "cause-effect"
@@ -229,6 +235,7 @@ questions:
       A wide section has a larger area, so by continuity the water slows down. At the same height, slower flow has higher static pressure. So the speed decreases and the pressure increases.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0007
+    approved: true
     lesson: lesson-physics-bernoulli-pressure-and-speed
     keyPoint: 1
     type: "classify"
@@ -251,6 +258,7 @@ questions:
       The pipe is horizontal, so the height terms are equal. In ideal flow, the point with the lower static pressure has the higher speed. Point $2$ has the lower pressure, so the water moves faster there.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0008
+    approved: true
     lesson: lesson-physics-bernoullis-equation-and-height
     keyPoint: 2
     type: "simple-quantitative"
@@ -273,6 +281,7 @@ questions:
       The kinetic energy in each unit of volume is $\dfrac{1}{2}\rho v^2$. Substitute: $\dfrac{1}{2}(1000)(3.0)^2=\dfrac{1}{2}(1000)(9.0)=4500\,\mathrm{J}$ for each cubic meter.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0009
+    approved: true
     lesson: lesson-physics-bernoullis-equation-and-height
     keyPoint: 1
     type: "classify"
@@ -295,6 +304,7 @@ questions:
       The simple form of Bernoulli's equation needs steady, incompressible, nonviscous flow. Applying it along one streamline then guarantees the comparison between the two points. Without these conditions, the energy balance can change.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0010
+    approved: true
     lesson: lesson-physics-bernoullis-equation-and-height
     keyPoint: 1
     type: "cause-effect"
@@ -317,6 +327,7 @@ questions:
       Bernoulli's equation is an energy balance for the water. A pump puts extra energy into the water. So the simple balance between the two points no longer holds.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0011
+    approved: true
     lesson: lesson-physics-bernoullis-equation-and-height
     keyPoint: 2
     type: "cause-effect"
@@ -339,6 +350,7 @@ questions:
       The pipe has constant width, so by continuity the speed is the same at both points. The kinetic terms cancel, leaving $P_1+\rho gh_1=P_2+\rho gh_2$. Point $2$ is higher, so its pressure is lower.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0012
+    approved: true
     lesson: lesson-physics-bernoullis-equation-and-height
     keyPoint: 1
     type: "cause-effect"
@@ -361,6 +373,7 @@ questions:
       With equal speed and height, ideal flow would keep the pressure the same. Here the pressure falls. A real oil is viscous, and internal friction removes mechanical energy from the flow.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0013
+    approved: true
     lesson: lesson-physics-bernoullis-equation-and-height
     keyPoint: 2
     type: "simple-quantitative"
@@ -383,6 +396,7 @@ questions:
       Continuity gives $v_2=2.0\times\dfrac{4.0}{2.0}=4.0\,\mathrm{m/s}$. Then $P_2=P_1+\dfrac{1}{2}\rho(v_1^2-v_2^2)-\rho g(h_2-h_1)$. So $P_2=3.00\times10^5+500(4-16)-1000(9.8)(2.0)=3.00\times10^5-6000-19600=2.74\times10^5\,\mathrm{Pa}$.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0014
+    approved: true
     lesson: lesson-physics-bernoulli-pressure-and-speed
     keyPoint: 1
     type: "simple-quantitative"
@@ -405,6 +419,7 @@ questions:
       The area ratio is $\left(\dfrac{6.0}{3.0}\right)^2=4$, so $v_2=4.0\,\mathrm{m/s}$. At equal height, $P_2=P_1+\dfrac{1}{2}\rho(v_1^2-v_2^2)=1.50\times10^5+500(1-16)=1.50\times10^5-7500=1.425\times10^5\,\mathrm{Pa}$.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0015
+    approved: true
     lesson: lesson-physics-bernoulli-pressure-and-speed
     keyPoint: 1
     type: "simple-quantitative"
@@ -427,6 +442,7 @@ questions:
       At equal height, $P_1-P_2=\dfrac{1}{2}\rho(v_2^2-v_1^2)$. So $6000=500(v_2^2-4.0)$. This gives $v_2^2=16$, so $v_2=4.0\,\mathrm{m/s}$.
 
   - id: q-physics-fluid-flow-continuity-and-bernoulli-0016
+    approved: true
     lesson: lesson-physics-continuity-and-flow-speed
     keyPoint: 1
     type: "simple-quantitative"

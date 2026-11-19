@@ -396,7 +396,7 @@ questions:
           This confuses storage or digestion with detoxification in a liver cell. Vacuoles can hold unwanted materials, so they seem useful here. Check the cell type and the named functions.
     explanation: |
       Smooth ER has roles in making lipids and detoxification. Detoxification is the processing of harmful substances so they can be removed or made less harmful.
-    approved: false
+    approved: true
 
   - id: q-biology-cell-biology-0018
     lesson: lesson-biology-osmosis-and-tonicity
@@ -419,7 +419,7 @@ questions:
           This confuses making lipids with providing a rigid outer layer. Lipids form membranes, so more lipid seems protective. Check whether a flexible membrane supplies the support of a wall.
     explanation: |
       As water enters, the plant cell contents press against the cell wall. The wall resists further expansion. This creates turgor pressure and helps the cell stay firm.
-    approved: false
+    approved: true
 
   - id: q-biology-cell-biology-0019
     lesson: lesson-biology-osmosis-and-tonicity
@@ -442,7 +442,7 @@ questions:
           This treats a cell wall as a barrier to all water movement. The wall keeps the cell's shape, so its internal pressure may seem fixed. Check whether water can still cross the membrane.
     explanation: |
       The outside now has more nonpenetrating solute. Water moves out of the cell by osmosis. The contents press less firmly against the wall, so turgor pressure decreases.
-    approved: false
+    approved: true
 
   - id: q-biology-cell-biology-0020
     lesson: lesson-biology-passive-and-active-cell-transport
@@ -465,4 +465,4 @@ questions:
           This confuses the source of a gradient with the energy used by this transporter. ATP may have helped build the ion gradient earlier. Check whether this transporter uses ATP directly or uses the stored gradient.
     explanation: |
       The nutrient moves against its own gradient, so its transport needs energy. The transporter takes that energy from an ion gradient. This is secondary active transport.
-    approved: false
+    approved: true

@@ -5,6 +5,7 @@ meta:
   exams: [pshs-nce]
 questions:
   - id: q-spatial-abstract-reasoning-more-figure-rules-0001
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-comparing-counts-in-figures
     keyPoint: 1
     type: odd-figure
@@ -44,6 +45,7 @@ questions:
     explanation: |
       The fifth figure has three sides and two dots. The other figures have equal side and dot counts.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0002
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-comparing-counts-in-figures
     keyPoint: 2
     type: odd-figure
@@ -76,6 +78,7 @@ questions:
     explanation: |
       There are four triangles. One triangle has three sides. Since $4-3=1$, there is one more shape than sides.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0003
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-transferring-rules-in-visual-analogies
     keyPoint: 2
     type: analogy
@@ -100,6 +103,7 @@ questions:
     explanation: |
       The lesson pairs a flat square with a cube. It pairs a flat circle with a sphere, which is ball-shaped.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0004
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids
     keyPoint: 1
     type: figure-matrix
@@ -139,6 +143,7 @@ questions:
     explanation: |
       The middle row has a circle and a triangle. It needs a pentagon. The middle column also needs a pentagon.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0005
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-comparing-counts-in-figures
     keyPoint: 2
     type: odd-figure
@@ -171,6 +176,7 @@ questions:
     explanation: |
       The row has four pentagons. Each pentagon has five sides. Since $5-4=1$, there is one fewer shape than sides.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0006
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-comparing-counts-in-figures
     keyPoint: 1
     type: odd-figure
@@ -209,6 +215,7 @@ questions:
     explanation: |
       The fourth figure has six sides and four dots. Its difference is two. Each other figure has one fewer dot than sides.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0007
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-comparing-counts-in-figures
     keyPoint: 1
     type: odd-figure
@@ -247,6 +254,7 @@ questions:
     explanation: |
       A hexagon has six sides and currently has four dots. Adding $6-4=2$ dots gives equal counts.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0008
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-comparing-counts-in-figures
     keyPoint: 2
     type: odd-figure
@@ -280,6 +288,7 @@ questions:
     explanation: |
       A hexagon has six sides. The rule needs $6+1=7$ copies. Five are shown, so add $7-5=2$ copies.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0009
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-transferring-rules-in-visual-analogies
     keyPoint: 2
     type: analogy
@@ -304,6 +313,7 @@ questions:
     explanation: |
       Reversing circle-to-sphere gives sphere-to-circle. Reversing square-to-cube gives cube-to-square.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0010
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids
     keyPoint: 2
     type: figure-matrix
@@ -351,6 +361,7 @@ questions:
     explanation: |
       The bottom row needs a triangle and two dots. The last column also needs a triangle and two dots. The two rules agree.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0011
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids
     keyPoint: 2
     type: figure-matrix
@@ -398,6 +409,7 @@ questions:
     explanation: |
       The bottom row already has a square and a circle. It needs a triangle. Its large and medium figures leave small as the missing size.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0012
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids
     keyPoint: 2
     type: figure-matrix
@@ -453,6 +465,7 @@ questions:
     explanation: |
       The middle row has three dots and one dot, so it needs two dots. Its small and medium circles leave large. The last column confirms both features.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0013
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids
     keyPoint: 2
     type: figure-matrix
@@ -500,6 +513,7 @@ questions:
     explanation: |
       The middle row needs a triangle. It has half-black and white figures, so its missing fill is all black. The middle column gives the same result.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0014
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids
     keyPoint: 2
     type: figure-matrix
@@ -547,6 +561,7 @@ questions:
     explanation: |
       The top row needs a triangle and a downward ray. The last column already has square and circle, with up and right rays. It confirms the same answer.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0015
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids
     keyPoint: 2
     type: figure-matrix
@@ -594,6 +609,7 @@ questions:
     explanation: |
       The middle row needs a triangle. Its small and medium shapes leave large as the required size. A small triangle has the needed outline and the wrong size.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0016
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-comparing-counts-in-figures
     keyPoint: 1
     type: odd-figure
@@ -633,6 +649,7 @@ questions:
     explanation: |
       The first triangle needs two dots, so add one. The fourth figure is a square and needs three dots, so add one there too. The total is $1+1=2$ dots.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0017
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids
     keyPoint: 2
     type: figure-matrix
@@ -680,6 +697,7 @@ questions:
     explanation: |
       The top row needs a triangle and one dot. The middle column has a circle with two dots and a square with three dots. It also needs a triangle with one dot.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0018
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids
     keyPoint: 2
     type: figure-matrix
@@ -727,6 +745,7 @@ questions:
     explanation: |
       The middle row needs a triangle and large size. Its medium-size figure is the pentagon on the left. The answer is large triangle, then pentagon.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0019
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids
     keyPoint: 2
     type: figure-matrix
@@ -774,6 +793,7 @@ questions:
     explanation: |
       The bottom row needs a square and white fill. After filling the blank, the white shape in that row is the square itself.
   - id: q-spatial-abstract-reasoning-more-figure-rules-0020
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids
     keyPoint: 2
     type: figure-matrix
@@ -822,6 +842,7 @@ questions:
       The bottom row needs a circle and a left-pointing arrow. In the last column, the top square has the right-pointing arrow. Both requested parts follow the column rules.
 
   - id: q-spatial-abstract-reasoning-more-figure-rules-0021
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-matching-edges-of-pattern-pieces
     keyPoint: 1
     type: odd-figure
@@ -848,6 +869,7 @@ questions:
       the top and bottom edges one-quarter of the way from the left.
 
   - id: q-spatial-abstract-reasoning-more-figure-rules-0022
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-matching-edges-of-pattern-pieces
     keyPoint: 2
     type: mental-rotation
@@ -876,6 +898,7 @@ questions:
       through the middle becomes an upright line through the middle.
 
   - id: q-spatial-abstract-reasoning-more-figure-rules-0023
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-transferring-rules-in-visual-analogies
     keyPoint: 1
     type: analogy
@@ -902,6 +925,7 @@ questions:
       way. The pentagon takes the horizontal stripes, and the square becomes black.
 
   - id: q-spatial-abstract-reasoning-more-figure-rules-0024
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-closed-surfaces-in-solids
     keyPoint: 1
     type: odd-figure
@@ -925,6 +949,7 @@ questions:
       surface closes around the space inside.
 
   - id: q-spatial-abstract-reasoning-more-figure-rules-0025
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-closed-surfaces-in-solids
     keyPoint: 1
     type: odd-figure
@@ -948,6 +973,7 @@ questions:
       close around the space inside.
 
   - id: q-spatial-abstract-reasoning-more-figure-rules-0026
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-folding-a-triangular-prism-net
     keyPoint: 1
     type: paper-folding
@@ -974,6 +1000,7 @@ questions:
       triangle above the strip covers one end. The triangle below covers the other.
 
   - id: q-spatial-abstract-reasoning-more-figure-rules-0027
+    approved: true
     lesson: lesson-spatial-abstract-reasoning-folding-a-triangular-prism-net
     keyPoint: 2
     type: paper-folding

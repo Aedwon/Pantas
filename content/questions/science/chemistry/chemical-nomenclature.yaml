@@ -370,7 +370,7 @@ questions:
           This adds a molecular prefix to an ionic salt. One chloride is present. Check whether ionic naming uses that count prefix.
     explanation: |
       Name the polyatomic cation ammonium first. Name the monatomic anion chloride second. The result is ammonium chloride.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-nomenclature-0017
     lesson: lesson-chemistry-writing-charge-balanced-formulas
@@ -393,7 +393,7 @@ questions:
           This reverses how the formulas are obtained. Both systems involve numbers. Check whether neutrality or molecular naming prefixes give the counts.
     explanation: |
       An ionic formula states the smallest whole-number ion ratio. A molecular formula states the actual atom counts in one molecule.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-nomenclature-0018
     lesson: lesson-chemistry-writing-charge-balanced-formulas
@@ -416,7 +416,7 @@ questions:
           This reduces only oxide’s count. Removing one subscript can seem enough. Check that ratio reduction changes both counts together.
     explanation: |
       The charges cancel with one calcium and one oxide. Reduce the $2:2$ counts to $1:1$. The formula is $CaO$.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-nomenclature-0019
     lesson: lesson-chemistry-writing-charge-balanced-formulas
@@ -439,7 +439,7 @@ questions:
           This treats a repeated-ion rule as universal. Many polyatomic formulas use parentheses. Check whether more than one whole ion is present.
     explanation: |
       The outside subscript 2 applies to the whole $NO_3$ group. Parentheses keep the nitrate ion together when it is repeated.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-nomenclature-0020
     lesson: lesson-chemistry-naming-ionic-compounds
@@ -462,4 +462,4 @@ questions:
           This makes familiar pairs an exception-free count rule. Sulfate and sulfite differ by one oxygen. Check whether the particular pair is known.
     explanation: |
       The pattern compares related oxyanions of the same central element. Their established formulas must still be known. The suffix alone does not define all oxyanions.
-    approved: false
+    approved: true

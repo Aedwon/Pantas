@@ -350,7 +350,7 @@ questions:
           This assumes a single cell must belong to a larger organism. Familiar body cells depend on surrounding tissues, so all cells may seem dependent. Check whether the bacterium is itself the organism.
     explanation: |
       A bacterium is a single-celled organism. Its one cell is an organized living system that performs the functions needed for life.
-    approved: false
+    approved: true
 
   - id: q-biology-characteristics-of-life-0016
     lesson: lesson-biology-evidence-for-life-processes
@@ -373,7 +373,7 @@ questions:
           This confuses regulation with reproduction. Both help living systems continue, so the purpose may seem similar. Check whether sweating changes internal conditions or produces new organisms.
     explanation: |
       Sweating can increase heat loss from the body. This helps regulate body temperature within a range suitable for life. Homeostasis allows some variation while keeping conditions workable.
-    approved: false
+    approved: true
 
   - id: q-biology-characteristics-of-life-0017
     lesson: lesson-biology-reproduction-and-population-adaptation
@@ -396,7 +396,7 @@ questions:
           This treats one missing ability as evidence that all cell functions are absent. Reproduction uses living cells, so its failure can seem to imply no cells. Check the cell-based functions already observed.
     explanation: |
       Reproduction is a property of living lineages. An individual can remain alive even when it cannot produce offspring. Sterility does not remove its cells or their life functions.
-    approved: false
+    approved: true
 
   - id: q-biology-characteristics-of-life-0018
     lesson: lesson-biology-reproduction-and-population-adaptation
@@ -419,7 +419,7 @@ questions:
           This confuses regulation during activity with inherited adaptation. Sweating helps the body tolerate heat, so it sounds like an adaptive change. Check whether the change concerns one person or a population across generations.
     explanation: |
       Evolutionary adaptation concerns inherited changes in a population across generations. A useful inherited trait can become more common when its carriers leave more offspring.
-    approved: false
+    approved: true
 
   - id: q-biology-characteristics-of-life-0019
     lesson: lesson-biology-dormant-seeds
@@ -442,7 +442,7 @@ questions:
           This uses growth alone as proof. The seedling is larger than the seed, so size change seems enough. Check the cellular biological system behind the development.
     explanation: |
       A living system need not display every property visibly at every moment. A dormant seed can later resume growth under suitable conditions. Its ordered development is part of the life of the existing organism.
-    approved: false
+    approved: true
 
   - id: q-biology-characteristics-of-life-0020
     lesson: lesson-biology-evidence-for-life-processes
@@ -465,9 +465,10 @@ questions:
           This confuses reproduction with response to stimuli. Spore release may have environmental triggers, so it seems relevant. Check which observation explicitly reports a changed response to changed surroundings.
     explanation: |
       The change in surroundings is the stimulus. The mushroom changes how it grows in response. This directly demonstrates response to stimuli.
-    approved: false
+    approved: true
 
   - id: q-biology-characteristics-of-life-0021
+    approved: true
     lesson: lesson-biology-dormant-seeds
     keyPoint: 1
     type: "classify"
@@ -490,6 +491,7 @@ questions:
       A dormant seed still has living cells. If the seed needs a cold period to sprout, it may stay dormant in warm, wet conditions.
 
   - id: q-biology-characteristics-of-life-0022
+    approved: true
     lesson: lesson-biology-levels-of-biological-organization
     keyPoint: 1
     type: "process-ordering"
@@ -512,6 +514,7 @@ questions:
       Cells form tissues. Tissues make up organs. Organs work together in systems that are part of the whole organism.
 
   - id: q-biology-characteristics-of-life-0023
+    approved: true
     lesson: lesson-biology-levels-of-biological-organization
     keyPoint: 2
     type: "classify"

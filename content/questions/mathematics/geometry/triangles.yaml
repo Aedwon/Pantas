@@ -5,6 +5,7 @@ meta:
   exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
 - id: 'q-geometry-triangles-0001'
+  approved: true
   lesson: lesson-geometry-triangle-angle-sums-and-types
   keyPoint: 1
   type: 'direct-computation'
@@ -29,6 +30,7 @@ questions:
   explanation: |
     Triangle angles total $180^\circ$. The known angles total $55^\circ+65^\circ=120^\circ$. The remaining angle is $180^\circ-120^\circ=60^\circ$.
 - id: 'q-geometry-triangles-0002'
+  approved: true
   lesson: lesson-geometry-triangle-side-limits
   keyPoint: 1
   type: 'which-is-true'
@@ -53,6 +55,7 @@ questions:
   explanation: |
     The two shorter sides must add to more than the longest side. Here $6+8=14$, exactly the longest side. These lengths would lie flat, so they cannot make a triangle.
 - id: 'q-geometry-triangles-0003'
+  approved: true
   lesson: lesson-geometry-triangle-exterior-angles
   keyPoint: 1
   type: 'direct-computation'
@@ -77,6 +80,7 @@ questions:
   explanation: |
     The exterior angle equals the two remote angles added together. Write $55^\circ+x=125^\circ$. Subtract $55^\circ$ to get $x=70^\circ$.
 - id: 'q-geometry-triangles-0004'
+  approved: true
   lesson: lesson-geometry-triangle-congruence-tests
   keyPoint: 1
   type: 'which-is-true'
@@ -101,6 +105,7 @@ questions:
   explanation: |
     SSA gives two sides and an angle that is not between them. Those facts can fit two different triangles. Therefore SSA alone does not guarantee the same shape and size.
 - id: 'q-geometry-triangles-0005'
+  approved: true
   lesson: lesson-geometry-pythagorean-theorem-and-triples
   keyPoint: 1
   type: 'direct-computation'
@@ -125,6 +130,7 @@ questions:
   explanation: |
     For the hypotenuse, add the squared legs: $c^2=9^2+12^2=81+144=225$. Take the positive square root: $c=15$ cm.
 - id: 'q-geometry-triangles-0006'
+  approved: true
   lesson: lesson-geometry-special-right-triangle-ratios
   keyPoint: 1
   type: 'direct-computation'
@@ -149,6 +155,7 @@ questions:
   explanation: |
     Each leg is the hypotenuse divided by $\sqrt{2}$: $\dfrac{10\sqrt{2}}{\sqrt{2}}=10$ cm. Add the two legs and the hypotenuse: $10+10+10\sqrt{2}=20+10\sqrt{2}$ cm.
 - id: 'q-geometry-triangles-0007'
+  approved: true
   lesson: lesson-geometry-special-right-triangle-ratios
   keyPoint: 1
   type: 'direct-computation'
@@ -173,6 +180,7 @@ questions:
   explanation: |
     The short leg is half the hypotenuse: $16\div2=8$ cm. PR is opposite $60^\circ$, so it is the long leg. Multiply the short leg by $\sqrt{3}$ to get $8\sqrt{3}$ cm.
 - id: 'q-geometry-triangles-0008'
+  approved: true
   lesson: lesson-geometry-similar-triangles-and-scale-factors
   keyPoint: 1
   type: 'which-is-true'
@@ -197,6 +205,7 @@ questions:
   explanation: |
     The first perimeter is $6+8+10=24$ cm. Matching sides AB and DE give scale factor $\dfrac{9}{6}=1.5$. All side lengths grow by this factor, so the new perimeter is $24(1.5)=36$ cm.
 - id: 'q-geometry-triangles-0009'
+  approved: true
   lesson: lesson-geometry-triangle-angle-sums-and-types
   keyPoint: 1
   type: 'direct-computation'
@@ -221,6 +230,7 @@ questions:
   explanation: |
     The ratio has $2+3+7=12$ parts. Each part is $180^\circ\div12=15^\circ$. The largest angle has seven parts, so it measures $7(15^\circ)=105^\circ$.
 - id: 'q-geometry-triangles-0010'
+  approved: true
   lesson: lesson-geometry-pythagorean-theorem-and-triples
   keyPoint: 1
   type: 'direct-computation'
@@ -245,6 +255,7 @@ questions:
   explanation: |
     Use $x^2+(x-2)^2=(x+2)^2$. Expanding gives $2x^2-4x+4=x^2+4x+4$, so $x^2-8x=0$. Factor as $x(x-8)=0$. Positive side lengths require $x>2$, so $x=8$. The hypotenuse is $x+2=10$.
 - id: 'q-geometry-triangles-0011'
+  approved: true
   lesson: lesson-geometry-triangle-exterior-angles
   keyPoint: 1
   type: 'direct-computation'
@@ -269,6 +280,7 @@ questions:
   explanation: |
     The exterior-angle rule gives $7x-5=(3x+10)+(2x+15)$. Combine terms to get $2x=30$, so $x=15$. The exterior angle is $7(15)-5=100^\circ$. Its neighboring interior angle is $180^\circ-100^\circ=80^\circ$.
 - id: 'q-geometry-triangles-0012'
+  approved: true
   lesson: lesson-geometry-triangle-side-limits
   keyPoint: 1
   type: 'which-is-true'
@@ -293,6 +305,7 @@ questions:
   explanation: |
     The third side must exceed the difference $11-7=4$ and be less than the sum $11+7=18$. Equality would make a straight line. Thus $4<s<18$.
 - id: 'q-geometry-triangles-0013'
+  approved: true
   lesson: lesson-geometry-similar-triangles-and-scale-factors
   keyPoint: 1
   type: 'direct-computation'
@@ -317,6 +330,7 @@ questions:
   explanation: |
     The two smaller right triangles are similar, with corresponding sides giving $\dfrac{4}{CD}=\dfrac{CD}{9}$. Cross multiply to get $CD^2=36$. The positive square root gives $CD=6$ cm.
 - id: 'q-geometry-triangles-0014'
+  approved: true
   lesson: lesson-geometry-special-right-triangle-ratios
   keyPoint: 1
   type: 'direct-computation'
@@ -341,6 +355,7 @@ questions:
   explanation: |
     Triangle 1 has hypotenuse $2(6)=12$ cm. Triangle 2 has hypotenuse $6\sqrt{2}$ cm. The requested ratio is $\dfrac{12}{6\sqrt{2}}=\dfrac{2}{\sqrt{2}}=\sqrt{2}$.
 - id: 'q-geometry-triangles-0015'
+  approved: true
   lesson: lesson-geometry-similar-triangles-and-scale-factors
   keyPoint: 1
   type: 'direct-computation'
@@ -385,7 +400,7 @@ questions:
       This treats a squared length as a length. The computation reaches a familiar total. Check whether the final square root was taken.
   explanation: |
     Step 3 must take the positive square root of $169$. That gives $c=13$ cm.
-  approved: false
+  approved: true
 - id: 'q-geometry-triangles-0017'
   lesson: lesson-geometry-similar-triangles-and-scale-factors
   keyPoint: 1
@@ -407,7 +422,7 @@ questions:
       This reports the shadow scale factor as a height. Four is a correct intermediate result. Check that the factor still multiplies the known height.
   explanation: |
     The shadow scale factor is $12\div3=4$. Similar triangles have the same height factor. Thus the flagpole height is $2(4)=8$ m.
-  approved: false
+  approved: true
 - id: 'q-geometry-triangles-0018'
   lesson: lesson-geometry-triangle-side-limits
   keyPoint: 2
@@ -429,7 +444,7 @@ questions:
       This treats the triangle as equilateral. Every triangle has three sides. Check whether the three angles are equal.
   explanation: |
     The largest angle is B at $85^\circ$. The longest side lies opposite that angle. The side opposite B is AC.
-  approved: false
+  approved: true
 - id: 'q-geometry-triangles-0019'
   lesson: lesson-geometry-triangle-congruence-tests
   keyPoint: 1
@@ -451,7 +466,7 @@ questions:
       This treats the third matching side as given. Three matching sides would be enough. Check how many pairs of side lengths are stated.
   explanation: |
     The hypotenuse-leg rule applies to right triangles. Their hypotenuses match and one pair of legs matches. These are exactly the HL conditions.
-  approved: false
+  approved: true
 - id: 'q-geometry-triangles-0020'
   lesson: lesson-geometry-triangle-side-limits
   keyPoint: 1
@@ -473,8 +488,9 @@ questions:
       This assumes only equal-sided triangles are possible. Matching sides are needed for special classes. Check the triangle inequality for a general triangle.
   explanation: |
     The third side is $30-8-10=12$ cm. The two shorter sides total $8+10=18>12$. The side lengths therefore form a triangle.
-  approved: false
+  approved: true
 - id: 'q-geometry-triangles-0021'
+  approved: true
   lesson: lesson-geometry-triangle-angle-sums-and-types
   keyPoint: 2
   type: 'which-is-true'
@@ -496,6 +512,7 @@ questions:
   explanation: |
     Equal angles have equal sides across from them. Side $QR$ is across from $P$, and side $PQ$ is across from $R$. So $QR=PQ$.
 - id: 'q-geometry-triangles-0022'
+  approved: true
   lesson: lesson-geometry-triangle-angle-sums-and-types
   keyPoint: 2
   type: 'which-is-true'
@@ -517,6 +534,7 @@ questions:
   explanation: |
     Angles $A$ and $C$ are across from the two equal legs. So they have the same measure.
 - id: 'q-geometry-triangles-0023'
+  approved: true
   lesson: lesson-geometry-proving-triangle-congruence-from-a-figure
   keyPoint: 1
   type: 'which-is-true'
@@ -538,6 +556,7 @@ questions:
   explanation: |
     The midpoint gives $AM=DM$, and $BM=CM$ is given. The angles between those sides face each other at the crossing, so they are equal. This gives SAS.
 - id: 'q-geometry-triangles-0024'
+  approved: true
   lesson: lesson-geometry-proving-triangle-congruence-from-a-figure
   keyPoint: 1
   type: 'which-is-true'
@@ -559,6 +578,7 @@ questions:
   explanation: |
     The triangles share $AC$. The three side pairs are $AB$ with $CD$, $BC$ with $DA$, and $AC$ with $CA$. So $A$, $B$, and $C$ match $C$, $D$, and $A$ in that order.
 - id: 'q-geometry-triangles-0025'
+  approved: true
   lesson: lesson-geometry-proof-of-the-pythagorean-theorem
   keyPoint: 1
   type: 'direct-computation'
@@ -580,6 +600,7 @@ questions:
   explanation: |
     The outer square has area $(a+b)^2=a^2+2ab+b^2$. The four triangles take up $4\cdot\dfrac{1}{2}ab=2ab$. The area left in the middle is $a^2+b^2$.
 - id: 'q-geometry-triangles-0026'
+  approved: true
   lesson: lesson-geometry-proof-of-the-pythagorean-theorem
   keyPoint: 1
   type: 'which-is-true'

@@ -5,6 +5,7 @@ meta:
   exams: [upcat, pupcet]
 questions:
   - id: q-trigonometry-unit-circle-0001
+    approved: true
     lesson: lesson-trigonometry-exact-values-in-the-first-quadrant
     keyPoint: 1
     type: direct-computation
@@ -26,6 +27,7 @@ questions:
     explanation: |
       At $45^\circ$, the unit-circle point has equal positive coordinates. Each coordinate is $\dfrac{\sqrt{2}}{2}$. Sine is the vertical coordinate, so $\sin45^\circ=\dfrac{\sqrt{2}}{2}$.
   - id: q-trigonometry-unit-circle-0002
+    approved: true
     lesson: lesson-trigonometry-exact-values-in-the-first-quadrant
     keyPoint: 1
     type: direct-computation
@@ -47,6 +49,7 @@ questions:
     explanation: |
       Cosine is the unit-circle point's horizontal coordinate. At $30^\circ$, that coordinate is $\dfrac{\sqrt{3}}{2}$. Therefore $\cos30^\circ=\dfrac{\sqrt{3}}{2}$.
   - id: q-trigonometry-unit-circle-0003
+    approved: true
     lesson: lesson-trigonometry-unit-circle-coordinates-and-axes
     keyPoint: 1
     type: direct-computation
@@ -68,6 +71,7 @@ questions:
     explanation: |
       At $90^\circ$, the terminal point is $(0,1)$. Sine is the vertical coordinate, so $\sin90^\circ=1$.
   - id: q-trigonometry-unit-circle-0004
+    approved: true
     lesson: lesson-trigonometry-unit-circle-coordinates-and-axes
     keyPoint: 1
     type: direct-computation
@@ -89,6 +93,7 @@ questions:
     explanation: |
       The point $(-1,0)$ lies on the negative horizontal axis. A counterclockwise half-turn from the positive horizontal axis reaches it. Thus the angle is $180^\circ$.
   - id: q-trigonometry-unit-circle-0005
+    approved: true
     lesson: lesson-trigonometry-reference-angles-and-quadrant-signs
     keyPoint: 2
     type: direct-computation
@@ -110,6 +115,7 @@ questions:
     explanation: |
       The angle is in Quadrant II. Its reference angle is $180^\circ-120^\circ=60^\circ$. Cosine has magnitude $\cos60^\circ=\dfrac{1}{2}$ and is negative in Quadrant II. Therefore $\cos120^\circ=-\dfrac{1}{2}$.
   - id: q-trigonometry-unit-circle-0006
+    approved: true
     lesson: lesson-trigonometry-reference-angles-and-quadrant-signs
     keyPoint: 2
     type: direct-computation
@@ -131,6 +137,7 @@ questions:
     explanation: |
       The reference angle is $225^\circ-180^\circ=45^\circ$. Sine and cosine both have magnitude $\dfrac{\sqrt{2}}{2}$ there. In Quadrant III, both coordinates are negative. The terminal point is $(-\dfrac{\sqrt{2}}{2},-\dfrac{\sqrt{2}}{2})$.
   - id: q-trigonometry-unit-circle-0007
+    approved: true
     lesson: lesson-trigonometry-unit-circle-coordinates-and-axes
     keyPoint: 1
     type: direct-computation
@@ -152,6 +159,7 @@ questions:
     explanation: |
       The angle $-30^\circ$ points clockwise into Quadrant IV. Its reference angle is $30^\circ$. Sine has magnitude one-half and is negative there, so $\sin(-30^\circ)=-\dfrac{1}{2}$.
   - id: q-trigonometry-unit-circle-0008
+    approved: true
     lesson: lesson-trigonometry-reference-angles-and-quadrant-signs
     keyPoint: 2
     type: which-is-true
@@ -173,6 +181,7 @@ questions:
     explanation: |
       In Quadrant III, both horizontal and vertical coordinates are negative. Thus sine and cosine are negative. Their ratio, tangent, is positive because a negative divided by a negative is positive.
   - id: q-trigonometry-unit-circle-0009
+    approved: true
     lesson: lesson-trigonometry-evaluating-signed-trigonometric-values
     keyPoint: 1
     type: direct-computation
@@ -194,6 +203,7 @@ questions:
     explanation: |
       The angle is in Quadrant IV. Its reference angle is $360^\circ-300^\circ=60^\circ$, with tangent magnitude $\sqrt{3}$. Sine is negative and cosine is positive, so their ratio is negative. Therefore $\tan300^\circ=-\sqrt{3}$.
   - id: q-trigonometry-unit-circle-0010
+    approved: true
     lesson: lesson-trigonometry-evaluating-signed-trigonometric-values
     keyPoint: 1
     type: direct-computation
@@ -215,6 +225,7 @@ questions:
     explanation: |
       At $150^\circ$, sine is positive with a $30^\circ$ reference angle, so it is $\dfrac{1}{2}$. At $300^\circ$, cosine is positive with a $60^\circ$ reference angle, so it is $\dfrac{1}{2}$. Their sum is $\dfrac{1}{2}+\dfrac{1}{2}=1$.
   - id: q-trigonometry-unit-circle-0011
+    approved: true
     lesson: lesson-trigonometry-unit-circle-coordinates-and-axes
     keyPoint: 1
     type: which-is-true
@@ -236,6 +247,7 @@ questions:
     explanation: |
       Coordinates are ordered horizontally, then vertically. On the unit circle, cosine gives the horizontal coordinate and sine gives the vertical coordinate. Thus the point is $(\cos\theta,\sin\theta)$.
   - id: q-trigonometry-unit-circle-0012
+    approved: true
     lesson: lesson-trigonometry-unit-circle-coordinates-and-axes
     keyPoint: 2
     type: direct-computation
@@ -257,6 +269,7 @@ questions:
     explanation: |
       At $90^\circ$, the point is $(0,1)$. Tangent divides the vertical coordinate by the horizontal coordinate, giving $1/0$. Division by zero is undefined, so tangent has no value there.
   - id: q-trigonometry-unit-circle-0013
+    approved: true
     lesson: lesson-trigonometry-terminal-sides-and-coterminal-values
     keyPoint: 2
     type: which-is-true
@@ -278,6 +291,7 @@ questions:
     explanation: |
       Sine is the vertical coordinate. A value of $-\dfrac{1}{2}$ lies below the horizontal axis with reference angle $30^\circ$. In Quadrant III the angle is $180^\circ+30^\circ=210^\circ$. In Quadrant IV it is $360^\circ-30^\circ=330^\circ$.
   - id: q-trigonometry-unit-circle-0014
+    approved: true
     lesson: lesson-trigonometry-reference-angles-and-quadrant-signs
     keyPoint: 1
     type: which-is-true
@@ -299,6 +313,7 @@ questions:
     explanation: |
       The angle $300^\circ$ lies in Quadrant IV. Its reference angle is the acute angle back to the positive horizontal axis: $360^\circ-300^\circ=60^\circ$.
   - id: q-trigonometry-unit-circle-0015
+    approved: true
     lesson: lesson-trigonometry-unit-circle-coordinates-and-axes
     keyPoint: 1
     type: direct-computation
@@ -320,6 +335,7 @@ questions:
     explanation: |
       The point at $-45^\circ$ is the reflection of the point at $45^\circ$ across the horizontal axis. The horizontal coordinate stays the same. Its value is $\dfrac{\sqrt{2}}{2}$, so $\cos(-45^\circ)=\dfrac{\sqrt{2}}{2}$.
   - id: q-trigonometry-unit-circle-0016
+    approved: true
     lesson: lesson-trigonometry-reference-angles-and-quadrant-signs
     keyPoint: 1
     type: error-spotting
@@ -361,7 +377,7 @@ questions:
           This reports only the vertical coordinate, which gives sine. That coordinate is already visible. Check that tangent needs both coordinates.
     explanation: |
       Tangent is vertical coordinate divided by horizontal coordinate. Thus $\tan\theta=0.8\div(-0.6)=-\dfrac{8}{6}=-\dfrac{4}{3}$.
-    approved: false
+    approved: true
   - id: q-trigonometry-unit-circle-0018
     lesson: lesson-trigonometry-exact-values-in-the-first-quadrant
     keyPoint: 2
@@ -383,7 +399,7 @@ questions:
           This uses the left-half cosine range for a first-quadrant angle. Negative values occur on that half. Check where $80^\circ$ lies.
     explanation: |
       In Quadrant I, cosine decreases as the angle increases. The angle $80^\circ$ lies between $60^\circ$ and $90^\circ$. Their cosine values are one-half and zero, so $0<\cos80^\circ<\dfrac{1}{2}$.
-    approved: false
+    approved: true
   - id: q-trigonometry-unit-circle-0019
     lesson: lesson-trigonometry-terminal-sides-and-coterminal-values
     keyPoint: 2
@@ -405,7 +421,7 @@ questions:
           This uses the sine sign but ignores the cosine sign. The angle lies below the horizontal axis. Check that its horizontal coordinate is also negative.
     explanation: |
       Cosine one-half in magnitude gives a $60^\circ$ reference angle. Negative cosine places the angle in Quadrant II or III. Negative sine selects Quadrant III. Therefore $\theta=180^\circ+60^\circ=240^\circ$.
-    approved: false
+    approved: true
   - id: q-trigonometry-unit-circle-0020
     lesson: lesson-trigonometry-evaluating-signed-trigonometric-values
     keyPoint: 1
@@ -427,8 +443,9 @@ questions:
           This stops after finding the product of tangent and cosine. That product is a needed intermediate value. Check that the final sine term has been subtracted.
     explanation: |
       The tangent at $135^\circ$ is $-1$. Cosine at $240^\circ$ is $-\dfrac{1}{2}$, so their product is $\dfrac{1}{2}$. Sine at $-30^\circ$ is $-\dfrac{1}{2}$. Subtracting it gives $\dfrac{1}{2}-(-\dfrac{1}{2})=1$.
-    approved: false
+    approved: true
   - id: q-trigonometry-unit-circle-0021
+    approved: true
     lesson: lesson-trigonometry-terminal-sides-and-coterminal-values
     keyPoint: 1
     type: direct-computation
@@ -450,6 +467,7 @@ questions:
     explanation: |
       Add $720^\circ$ to get $-30^\circ$, then add $360^\circ$ to get $330^\circ$. The reference angle is $30^\circ$ and the terminal point is below the horizontal axis. The sine is $-\dfrac{1}{2}$.
   - id: q-trigonometry-unit-circle-0022
+    approved: true
     lesson: lesson-trigonometry-terminal-sides-and-coterminal-values
     keyPoint: 1
     type: direct-computation
@@ -471,6 +489,7 @@ questions:
     explanation: |
       Subtract two full turns to get $855^\circ-720^\circ=135^\circ$. Its reference angle is $45^\circ$. Tangent has size $1$ there and is negative in Quadrant II, so the value is $-1$.
   - id: q-trigonometry-unit-circle-0023
+    approved: true
     lesson: lesson-trigonometry-unit-circle-values-in-radians
     keyPoint: 1
     type: direct-computation
@@ -492,6 +511,7 @@ questions:
     explanation: |
       A half turn is $180^\circ$, or $\pi$ radians. Multiply $315$ by $\dfrac{\pi}{180}$ and reduce to get $\dfrac{7\pi}{4}$ radians.
   - id: q-trigonometry-unit-circle-0024
+    approved: true
     lesson: lesson-trigonometry-unit-circle-values-in-radians
     keyPoint: 1
     type: direct-computation
@@ -513,6 +533,7 @@ questions:
     explanation: |
       Each $\dfrac{\pi}{6}$ is $30^\circ$. Take $11$ of those steps in the negative direction. The angle is $-11(30^\circ)=-330^\circ$.
   - id: q-trigonometry-unit-circle-0025
+    approved: true
     lesson: lesson-trigonometry-unit-circle-values-in-radians
     keyPoint: 2
     type: direct-computation
@@ -534,6 +555,7 @@ questions:
     explanation: |
       The angle is in Quadrant III, where sine is negative. Subtract $\pi$ to get the reference angle $\dfrac{\pi}{4}$. The sine has size $\dfrac{\sqrt{2}}{2}$, so the answer is $-\dfrac{\sqrt{2}}{2}$.
   - id: q-trigonometry-unit-circle-0026
+    approved: true
     lesson: lesson-trigonometry-unit-circle-values-in-radians
     keyPoint: 2
     type: direct-computation
@@ -555,6 +577,7 @@ questions:
     explanation: |
       Subtract a full turn to get $\dfrac{8\pi}{3}-2\pi=\dfrac{2\pi}{3}$. That is in Quadrant II, with reference angle $\dfrac{\pi}{3}$. Cosine is negative there and has size $\dfrac{1}{2}$.
   - id: q-trigonometry-unit-circle-0027
+    approved: true
     lesson: lesson-trigonometry-finding-unit-circle-values-from-one-coordinate
     keyPoint: 1
     type: direct-computation
@@ -576,6 +599,7 @@ questions:
     explanation: |
       Use $x^2+y^2=1$ to get $y^2=1-\dfrac{25}{169}=\dfrac{144}{169}$. In Quadrant IV, $y=-\dfrac{12}{13}$. Divide $y$ by $x$ to get $\tan\theta=-\dfrac{12}{5}$.
   - id: q-trigonometry-unit-circle-0028
+    approved: true
     lesson: lesson-trigonometry-polar-and-rectangular-coordinates
     keyPoint: 1
     type: direct-computation
@@ -597,6 +621,7 @@ questions:
     explanation: |
       The angle is in Quadrant IV with a $30^\circ$ reference angle. Multiply the cosine by $6$ to get $x=3\sqrt{3}$. Multiply the sine by $6$ to get $y=-3$.
   - id: q-trigonometry-unit-circle-0029
+    approved: true
     lesson: lesson-trigonometry-polar-and-rectangular-coordinates
     keyPoint: 1
     type: word-problem
@@ -618,6 +643,7 @@ questions:
     explanation: |
       Use $x=r\cos\theta$. At $135^\circ$, cosine is $-\dfrac{\sqrt{2}}{2}$. Multiply by the radius $10$ to get $-5\sqrt{2}$ m.
   - id: q-trigonometry-unit-circle-0030
+    approved: true
     lesson: lesson-trigonometry-polar-and-rectangular-coordinates
     keyPoint: 2
     type: direct-computation
@@ -639,6 +665,7 @@ questions:
     explanation: |
       The radius is $\sqrt{(-3)^2+(-3)^2}=3\sqrt{2}$. The two coordinate sizes are equal, so the reference angle is $45^\circ$. Both signs are negative, which puts the point at $180^\circ+45^\circ=225^\circ$.
   - id: q-trigonometry-unit-circle-0031
+    approved: true
     lesson: lesson-trigonometry-polar-and-rectangular-coordinates
     keyPoint: 2
     type: direct-computation
@@ -660,6 +687,7 @@ questions:
     explanation: |
       The point is $7$ units from the origin. Its horizontal coordinate is zero and its vertical coordinate is negative, so it is on the ray at $270^\circ$.
   - id: q-trigonometry-unit-circle-0032
+    approved: true
     lesson: lesson-trigonometry-reading-trigonometric-graphs
     keyPoint: 1
     type: which-is-true
@@ -681,6 +709,7 @@ questions:
     explanation: |
       The graph starts at a peak and reaches the next peak after $2\pi$ radians. Its highest value is $1$ and its lowest is $-1$. Half of that height is $1$.
   - id: q-trigonometry-unit-circle-0033
+    approved: true
     lesson: lesson-trigonometry-reading-trigonometric-graphs
     keyPoint: 2
     type: which-is-true
@@ -702,6 +731,7 @@ questions:
     explanation: |
       Tangent is zero at $0$, $\pi$, and $2\pi$. This interval leaves out both endpoints, so only $\pi$ remains.
   - id: q-trigonometry-unit-circle-0034
+    approved: true
     lesson: lesson-trigonometry-reading-trigonometric-graphs
     keyPoint: 2
     type: which-is-true

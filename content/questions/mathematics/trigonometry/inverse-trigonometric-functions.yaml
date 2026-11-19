@@ -5,6 +5,7 @@ meta:
   exams: [pupcet]
 questions:
   - id: q-trigonometry-inverse-trigonometric-functions-0001
+    approved: true
     lesson: lesson-trigonometry-inverse-sine-and-arctangent
     keyPoint: 2
     type: which-is-true
@@ -26,6 +27,7 @@ questions:
     explanation: |
       Arcsine returns an angle from $-90^\circ$ to $90^\circ$. Since $\sin 30^\circ=\dfrac{1}{2}$ and $30^\circ$ is in that range, the answer is $30^\circ$.
   - id: q-trigonometry-inverse-trigonometric-functions-0002
+    approved: true
     lesson: lesson-trigonometry-inverse-sine-and-arctangent
     keyPoint: 1
     type: which-is-true
@@ -47,6 +49,7 @@ questions:
     explanation: |
       In inverse-function notation, $\sin^{-1}x$ means $\arcsin x$. It returns the angle in $[-90^\circ,90^\circ]$ whose sine is $x$, for $-1\leq x\leq1$.
   - id: q-trigonometry-inverse-trigonometric-functions-0003
+    approved: true
     lesson: lesson-trigonometry-inverse-sine-and-arctangent
     keyPoint: 2
     type: which-is-true
@@ -68,6 +71,7 @@ questions:
     explanation: |
       Arcsine returns angles in $[-90^\circ,90^\circ]$. Sine takes each value from $-1$ to $1$ exactly once in this interval. Both endpoints are included because their sine values are allowed inputs.
   - id: q-trigonometry-inverse-trigonometric-functions-0004
+    approved: true
     lesson: lesson-trigonometry-inverse-cosine-and-input-limits
     keyPoint: 2
     type: which-is-true
@@ -89,6 +93,7 @@ questions:
     explanation: |
       Sine values stay between $-1$ and $1$. No real angle has sine $2$. Therefore $\arcsin(2)$ has no real value.
   - id: q-trigonometry-inverse-trigonometric-functions-0005
+    approved: true
     lesson: lesson-trigonometry-inverse-sine-and-arctangent
     keyPoint: 2
     type: error-spotting
@@ -110,6 +115,7 @@ questions:
     explanation: |
       Step 2 is the first error. Arcsine returns angles in $[-90^\circ,90^\circ]$. The angle there with sine $-\dfrac{1}{2}$ is $-30^\circ$, so the principal value is $-30^\circ$.
   - id: q-trigonometry-inverse-trigonometric-functions-0006
+    approved: true
     lesson: lesson-trigonometry-inverse-cosine-and-input-limits
     keyPoint: 1
     type: which-is-true
@@ -131,6 +137,7 @@ questions:
     explanation: |
       Arccosine returns an angle from $0^\circ$ to $180^\circ$. Since $\cos60^\circ=\dfrac{1}{2}$, the reference angle is $60^\circ$. A negative cosine puts the principal angle in Quadrant II: $180^\circ-60^\circ=120^\circ$.
   - id: q-trigonometry-inverse-trigonometric-functions-0007
+    approved: true
     lesson: lesson-trigonometry-inverse-sine-and-arctangent
     keyPoint: 2
     type: which-is-true
@@ -152,6 +159,7 @@ questions:
     explanation: |
       Since $\tan45^\circ=1$, we have $\tan(-45^\circ)=-1$. The angle $-45^\circ$ lies strictly between $-90^\circ$ and $90^\circ$. Thus $\arctan(-1)=-45^\circ$.
   - id: q-trigonometry-inverse-trigonometric-functions-0008
+    approved: true
     lesson: lesson-trigonometry-composing-trigonometric-functions
     keyPoint: 1
     type: direct-computation
@@ -173,6 +181,7 @@ questions:
     explanation: |
       Let $\theta=\arccos(\dfrac{3}{5})$. Its positive cosine makes it acute. Use a right triangle with adjacent side $3$ and hypotenuse $5$. The opposite side is $\sqrt{5^2-3^2}=4$. Therefore $\sin\theta=\dfrac{4}{5}$.
   - id: q-trigonometry-inverse-trigonometric-functions-0009
+    approved: true
     lesson: lesson-trigonometry-composing-trigonometric-functions
     keyPoint: 1
     type: direct-computation
@@ -194,6 +203,7 @@ questions:
     explanation: |
       Let $\theta=\arcsin(\dfrac{5}{13})$. Its positive sine makes it acute. Use opposite side $5$ and hypotenuse $13$. The adjacent side is $\sqrt{13^2-5^2}=12$. Tangent is opposite over adjacent, so $\tan\theta=\dfrac{5}{12}$.
   - id: q-trigonometry-inverse-trigonometric-functions-0010
+    approved: true
     lesson: lesson-trigonometry-inverse-cosine-and-input-limits
     keyPoint: 2
     type: which-is-true
@@ -215,6 +225,7 @@ questions:
     explanation: |
       First find $\sin30^\circ=\dfrac{1}{2}$. Arcsine returns the angle with that sine in $[-90^\circ,90^\circ]$. That angle is $30^\circ$, so $\arcsin(\sin30^\circ)=30^\circ$.
   - id: q-trigonometry-inverse-trigonometric-functions-0011
+    approved: true
     lesson: lesson-trigonometry-composing-trigonometric-functions
     keyPoint: 1
     type: direct-computation
@@ -236,6 +247,7 @@ questions:
     explanation: |
       Let $\theta=\arctan(\dfrac{7}{24})$. It is acute. Use opposite side $7$ and adjacent side $24$. The hypotenuse is $\sqrt{7^2+24^2}=25$. Cosine is adjacent over hypotenuse, so $\cos\theta=\dfrac{24}{25}$.
   - id: q-trigonometry-inverse-trigonometric-functions-0012
+    approved: true
     lesson: lesson-trigonometry-composing-trigonometric-functions
     keyPoint: 2
     type: which-is-true
@@ -257,6 +269,7 @@ questions:
     explanation: |
       For an input $x$ in $[-1,1]$, arcsine returns an angle whose sine is $x$. Taking sine of that angle gives back $x$. Thus $\sin(\arcsin x)=x$ throughout that input interval.
   - id: q-trigonometry-inverse-trigonometric-functions-0013
+    approved: true
     lesson: lesson-trigonometry-inverse-sine-and-arctangent
     keyPoint: 2
     type: error-spotting
@@ -278,6 +291,7 @@ questions:
     explanation: |
       The interval in Step 1 is correct. Since $\tan60^\circ=\sqrt{3}$ and $60^\circ$ lies in that interval, Step 2 is also correct. Therefore Step 3 correctly gives $\arctan(\sqrt{3})=60^\circ$.
   - id: q-trigonometry-inverse-trigonometric-functions-0014
+    approved: true
     lesson: lesson-trigonometry-composing-trigonometric-functions
     keyPoint: 1
     type: which-is-true
@@ -299,6 +313,7 @@ questions:
     explanation: |
       Let $\theta=\arcsin(\dfrac{12}{13})$. It is acute, with opposite side $12$ and hypotenuse $13$. The adjacent side is $\sqrt{13^2-12^2}=5$. Thus $\cos\theta=\dfrac{5}{13}$. Secant is its reciprocal, so $\sec\theta=\dfrac{13}{5}$.
   - id: q-trigonometry-inverse-trigonometric-functions-0015
+    approved: true
     lesson: lesson-trigonometry-inverse-cosine-and-input-limits
     keyPoint: 1
     type: which-is-true
@@ -320,6 +335,7 @@ questions:
     explanation: |
       Arccosine uses $[0^\circ,180^\circ]$. A negative input between $-1$ and $0$ gives an angle strictly between $90^\circ$ and $180^\circ$. Therefore the principal angle is in Quadrant II.
   - id: q-trigonometry-inverse-trigonometric-functions-0016
+    approved: true
     lesson: lesson-trigonometry-composing-trigonometric-functions
     keyPoint: 1
     type: which-is-true
@@ -361,7 +377,7 @@ questions:
           This borrows the input limit of arcsine and arccosine. All three are inverse functions. Check the domain for arctangent itself.
     explanation: |
       Tangent is sine divided by cosine. Cosine is zero at both $90^\circ$ and $-90^\circ$, so tangent is undefined there. The principal range is therefore open at both ends.
-    approved: false
+    approved: true
   - id: q-trigonometry-inverse-trigonometric-functions-0018
     lesson: lesson-trigonometry-inverse-sine-and-arctangent
     keyPoint: 2
@@ -383,7 +399,7 @@ questions:
           This reverses the tangent ratio. The longer horizontal distance may seem like the numerator. Check that tangent puts rise over horizontal distance.
     explanation: |
       The rise is opposite the ground angle and the horizontal distance is adjacent. Therefore $\tan\theta=\dfrac{3}{4}$. Applying arctangent gives the acute angle $\theta=\arctan(\dfrac{3}{4})$.
-    approved: false
+    approved: true
   - id: q-trigonometry-inverse-trigonometric-functions-0019
     lesson: lesson-trigonometry-inverse-cosine-and-input-limits
     keyPoint: 2
@@ -405,7 +421,7 @@ questions:
           This checks only the lower input limit. The lower inequality does give $x\geq0$. Check both ends of arcsine's allowed input interval.
     explanation: |
       The full input must satisfy $-1\leq2x-1\leq1$. Add $1$ to all three parts: $0\leq2x\leq2$. Divide by $2$: $0\leq x\leq1$.
-    approved: false
+    approved: true
   - id: q-trigonometry-inverse-trigonometric-functions-0020
     lesson: lesson-trigonometry-composing-trigonometric-functions
     keyPoint: 1
@@ -427,4 +443,4 @@ questions:
           This carries the cosine sign into sine. Both functions use the same angle. Check each function's sign in that quadrant separately.
     explanation: |
       Step 3 gives sine the wrong sign. Arccosine of a negative input lies in Quadrant II, where sine is positive. The reference triangle gives the remaining leg $\sqrt{5^2-4^2}=3$. Therefore the sine is $\dfrac{3}{5}$.
-    approved: false
+    approved: true

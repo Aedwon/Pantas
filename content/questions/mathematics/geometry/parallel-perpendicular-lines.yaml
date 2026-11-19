@@ -5,6 +5,7 @@ meta:
   exams: [ustet, pupcet]
 questions:
   - id: q-geometry-parallel-perpendicular-lines-0001
+    approved: true
     lesson: lesson-geometry-transversals-and-angle-positions
     keyPoint: 2
     type: direct-computation
@@ -30,6 +31,7 @@ questions:
       Alternate interior angles are equal when the lines are parallel. The other angle therefore measures $68^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0002
+    approved: true
     lesson: lesson-geometry-same-side-angles-and-supplements
     keyPoint: 1
     type: direct-computation
@@ -55,6 +57,7 @@ questions:
       Same-side interior angles sum to $180^\circ$. Subtract the known measure: $180^\circ-115^\circ=65^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0003
+    approved: true
     lesson: lesson-geometry-transversals-and-angle-positions
     keyPoint: 2
     type: direct-computation
@@ -80,6 +83,7 @@ questions:
       Corresponding angles are equal, so $4x+10=70$. Subtract $10$ to get $4x=60$. Divide by $4$: $x=15$.
 
   - id: q-geometry-parallel-perpendicular-lines-0004
+    approved: true
     lesson: lesson-geometry-perpendicular-transversals
     keyPoint: 1
     type: direct-computation
@@ -105,6 +109,7 @@ questions:
       The corresponding angle on the second parallel line equals the right angle on the first. Thus it measures $90^\circ$, and the transversal is perpendicular to both.
 
   - id: q-geometry-parallel-perpendicular-lines-0005
+    approved: true
     lesson: lesson-geometry-transversals-and-angle-positions
     keyPoint: 2
     type: direct-computation
@@ -130,6 +135,7 @@ questions:
       Alternate exterior angles are equal, so $5x-20=3x+16$. Subtract $3x$ and add $20$: $2x=36$. Divide by $2$: $x=18$.
 
   - id: q-geometry-parallel-perpendicular-lines-0006
+    approved: true
     lesson: lesson-geometry-same-side-angles-and-supplements
     keyPoint: 1
     type: direct-computation
@@ -155,6 +161,7 @@ questions:
       The same-side interior sum gives $(7x-15)+(4x+8)=180$. Thus $11x-7=180$, so $x=17$. The angles are $7(17)-15=104^\circ$ and $4(17)+8=76^\circ$. The larger is $104^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0007
+    approved: true
     lesson: lesson-geometry-zigzag-angles-between-parallels
     keyPoint: 1
     type: direct-computation
@@ -180,6 +187,7 @@ questions:
       A horizontal helper line through P splits the left-facing angle into the two inclinations. Alternate interior angles make the upper part $35^\circ$. The full angle is $80^\circ$, so the lower part is $80^\circ-35^\circ=45^\circ$. Its matching angle on the lower parallel line is also $45^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0008
+    approved: true
     lesson: lesson-geometry-proving-lines-are-parallel
     keyPoint: 1
     type: direct-computation
@@ -205,6 +213,7 @@ questions:
       The corresponding-angle converse requires equal measures. Set $3x+25=5x-15$. Rearrange to $2x=40$, so $x=20$.
 
   - id: q-geometry-parallel-perpendicular-lines-0009
+    approved: true
     lesson: lesson-geometry-transversals-and-angle-positions
     keyPoint: 2
     type: direct-computation
@@ -230,6 +239,7 @@ questions:
       The stem states that BEF and CFE are alternate interior angles. Parallel lines make their measures equal, so BEF is $110^\circ$. The bisector divides it equally, giving $\angle GEF=110^\circ\div2=55^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0010
+    approved: true
     lesson: lesson-geometry-same-side-angles-and-supplements
     keyPoint: 1
     type: direct-computation
@@ -255,6 +265,7 @@ questions:
       Same-side exterior angles sum to $180^\circ$. Thus $(9x-14)+(3x+2)=180$, giving $12x=192$ and $x=16$. The measures are $130^\circ$ and $50^\circ$. The smaller is $50^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0011
+    approved: true
     lesson: lesson-geometry-same-side-angles-and-supplements
     keyPoint: 1
     type: direct-computation
@@ -280,6 +291,7 @@ questions:
       Consecutive parallelogram angles are same-side interior angles of its parallel sides. Their sum gives $(5x+10)+(3x+10)=180$, so $x=20$. The angles are $110^\circ$ and $70^\circ$. The acute angle is $70^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0012
+    approved: true
     lesson: lesson-geometry-zigzag-angles-between-parallels
     keyPoint: 1
     type: direct-computation
@@ -305,6 +317,7 @@ questions:
       Both transversals rise in the same left-to-right direction. Their acute inclinations differ by $75^\circ-40^\circ=35^\circ$, which is the acute angle between them. The adjacent obtuse angle is its supplement: $180^\circ-35^\circ=145^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0013
+    approved: true
     lesson: lesson-geometry-perpendicular-transversals
     keyPoint: 1
     type: direct-computation
@@ -330,6 +343,7 @@ questions:
       AB is perpendicular to both parallel lines. At A, the ray makes $90^\circ-32^\circ=58^\circ$ with the first line. Parallel-line angle equality carries that acute measure to the second line. The requested angle is $58^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0014
+    approved: true
     lesson: lesson-geometry-transversals-and-angle-positions
     keyPoint: 2
     type: direct-computation
@@ -355,6 +369,7 @@ questions:
       Equal corresponding angles give $3x+15=5x-25$, so $x=20$. Their acute measure is $3(20)+15=75^\circ$. Its adjacent obtuse angle is $180^\circ-75^\circ=105^\circ$. Bisecting it gives $105^\circ\div2=52.5^\circ$.
 
   - id: q-geometry-parallel-perpendicular-lines-0015
+    approved: true
     lesson: lesson-geometry-zigzag-angles-between-parallels
     keyPoint: 1
     type: direct-computation
@@ -400,7 +415,7 @@ questions:
           This describes vertical angles. Those angles are equal too in their own setting. Check whether the pair is at one crossing or two.
     explanation: |
       Corresponding angles occupy the same relative corner at the two crossings, such as top left at both. Their position identifies the pair.
-    approved: false
+    approved: true
 
   - id: q-geometry-parallel-perpendicular-lines-0017
     lesson: lesson-geometry-proving-lines-are-parallel
@@ -423,7 +438,7 @@ questions:
           This treats a drawing's appearance as proof. Diagrams can look parallel. Check the stated givens or marked relationships.
     explanation: |
       Corresponding-angle equality is guaranteed when the crossed lines are parallel. An appearance of parallelism is not a stated fact. Without a parallel-line condition, the partner measure is not determined.
-    approved: false
+    approved: true
 
   - id: q-geometry-parallel-perpendicular-lines-0018
     lesson: lesson-geometry-same-side-angles-and-supplements
@@ -446,7 +461,7 @@ questions:
           This reports the difference of equal angles. Equal angles do have zero difference. Check that their individual measures are requested.
     explanation: |
       The angles are supplementary, so their sum is $180^\circ$. If both equal $a$, then $2a=180^\circ$. Divide by $2$ to get $a=90^\circ$.
-    approved: false
+    approved: true
 
   - id: q-geometry-parallel-perpendicular-lines-0019
     lesson: lesson-geometry-same-side-angles-and-supplements
@@ -469,7 +484,7 @@ questions:
           This uses a full-turn total. A full circle does have three hundred sixty degrees. Check that these two angles form a supplementary pair.
     explanation: |
       Same-side interior angles are supplementary. Add the two angle expressions and set the total to $180^\circ$. This gives $2x+30+3x-10=180$.
-    approved: false
+    approved: true
 
   - id: q-geometry-parallel-perpendicular-lines-0020
     lesson: lesson-geometry-proving-lines-are-parallel
@@ -492,4 +507,4 @@ questions:
           This ignores the converse of the parallel-line angle rules. The lines were not stated parallel at the start. Check whether equal corresponding angles can establish that fact.
     explanation: |
       Substitute $x=20$. The two measures are $3(20)+10=70^\circ$ and $5(20)-30=70^\circ$. Equal alternate interior angles give equal corresponding angles through a vertical-angle pair. The corresponding-angle converse therefore proves the crossed lines parallel.
-    approved: false
+    approved: true

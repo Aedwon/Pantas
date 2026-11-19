@@ -352,7 +352,7 @@ questions:
   - id: q-physics-work-energy-power-0016
     lesson: lesson-physics-work-by-a-constant-force
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "easy"
     stem: |
@@ -375,7 +375,7 @@ questions:
   - id: q-physics-work-energy-power-0017
     lesson: lesson-physics-work-by-a-constant-force
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -398,7 +398,7 @@ questions:
   - id: q-physics-work-energy-power-0018
     lesson: lesson-physics-net-work-and-kinetic-energy
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -421,7 +421,7 @@ questions:
   - id: q-physics-work-energy-power-0019
     lesson: lesson-physics-kinetic-and-gravitational-potential-energy
     keyPoint: 2
-    approved: false
+    approved: true
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
@@ -444,7 +444,7 @@ questions:
   - id: q-physics-work-energy-power-0020
     lesson: lesson-physics-kinetic-and-gravitational-potential-energy
     keyPoint: 2
-    approved: false
+    approved: true
     type: "classify"
     difficulty: "exam"
     stem: |
@@ -465,6 +465,7 @@ questions:
       The $mgh$ form assumes gravity is approximately uniform over the height change. At very large changes, its variation matters. A more general gravitational potential-energy relation is needed.
 
   - id: q-physics-work-energy-power-0021
+    approved: true
     lesson: lesson-physics-net-work-and-kinetic-energy
     keyPoint: 1
     type: "simple-quantitative"
@@ -487,6 +488,7 @@ questions:
       The sled ends with zero kinetic energy. It lost 20 J, so it started with 20 J.
 
   - id: q-physics-work-energy-power-0022
+    approved: true
     lesson: lesson-physics-mechanical-energy-with-friction
     keyPoint: 1
     type: "simple-quantitative"
@@ -509,6 +511,7 @@ questions:
       Friction's work equals the change in mechanical energy. The final value minus the starting value is $30-42=-12$ J.
 
   - id: q-physics-work-energy-power-0023
+    approved: true
     lesson: lesson-physics-machine-efficiency
     keyPoint: 1
     type: "simple-quantitative"
@@ -531,6 +534,7 @@ questions:
       Divide the useful 40 J by the input 50 J. The result is 0.80, or 80%.
 
   - id: q-physics-work-energy-power-0024
+    approved: true
     lesson: lesson-physics-machine-efficiency
     keyPoint: 1
     type: "simple-quantitative"

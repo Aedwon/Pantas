@@ -470,6 +470,7 @@ questions:
     approved: true
 
   - id: q-algebra-systems-of-equations-0021
+    approved: true
     lesson: lesson-algebra-eliminating-for-a-sum-or-difference
     keyPoint: 1
     type: direct-computation
@@ -492,6 +493,7 @@ questions:
       Subtract the second equation from the first. This gives $5x-5y=18$. Divide by $5$ to get $x-y=\dfrac{18}{5}$.
 
   - id: q-algebra-systems-of-equations-0022
+    approved: true
     lesson: lesson-algebra-eliminating-for-a-sum-or-difference
     keyPoint: 2
     type: direct-computation
@@ -514,6 +516,7 @@ questions:
       Adding gives $3x+5y=19$. Subtracting gives $x-3y=-3$. The coefficients of $x$ and $y$ do not match in either result, so neither gives $x+y$ in one step.
 
   - id: q-algebra-systems-of-equations-0023
+    approved: true
     lesson: lesson-algebra-graphing-linear-systems
     keyPoint: 1
     type: direct-computation
@@ -536,6 +539,7 @@ questions:
       Set $y=0$ to get $3x=12$, so $x=4$. Set $x=0$ to get $2y=12$, so $y=6$.
 
   - id: q-algebra-systems-of-equations-0024
+    approved: true
     lesson: lesson-algebra-graphing-linear-systems
     keyPoint: 2
     type: direct-computation
@@ -558,6 +562,7 @@ questions:
       Use $1$ for $x$ and $3$ for $y$. Both equalities hold, so the point is on both lines exactly.
 
   - id: q-algebra-systems-of-equations-0025
+    approved: true
     lesson: lesson-algebra-graphing-linear-systems
     keyPoint: 2
     type: direct-computation
@@ -580,6 +585,7 @@ questions:
       Set the two rules equal to get $3x=5$. Then $x=\dfrac53$. Using $y=6-x$ gives $y=\dfrac{13}3$.
 
   - id: q-algebra-systems-of-equations-0026
+    approved: true
     lesson: lesson-algebra-classifying-linear-systems-by-slope
     keyPoint: 1
     type: direct-computation
@@ -602,6 +608,7 @@ questions:
       Both equations become $y=2x-3$. They draw the same line, so every point on that line solves both.
 
   - id: q-algebra-systems-of-equations-0027
+    approved: true
     lesson: lesson-algebra-classifying-linear-systems-by-slope
     keyPoint: 1
     type: direct-computation
@@ -624,6 +631,7 @@ questions:
       The rules give $y=-3x+7$ and $y=-3x+5$. They have the same slope but different intercepts, so they never meet.
 
   - id: q-algebra-systems-of-equations-0028
+    approved: true
     lesson: lesson-algebra-classifying-linear-systems-by-slope
     keyPoint: 2
     type: direct-computation
@@ -646,6 +654,7 @@ questions:
       The equations give $x=3$ and $x=4$. Those are two different vertical lines. No point can have both $x$ values.
 
   - id: q-algebra-systems-of-equations-0029
+    approved: true
     lesson: lesson-algebra-tangent-and-missing-intersections
     keyPoint: 1
     type: direct-computation
@@ -668,6 +677,7 @@ questions:
       Set the rules equal. This gives $x^2-6x+9=0$, or $(x-3)^2=0$. At $x=3$, the parabola gives $y=11$.
 
   - id: q-algebra-systems-of-equations-0030
+    approved: true
     lesson: lesson-algebra-tangent-and-missing-intersections
     keyPoint: 1
     type: direct-computation
@@ -690,6 +700,7 @@ questions:
       Set the rules equal and subtract $3$. This gives $x^2+2x+2=0$, or $(x+1)^2+1=0$. A square plus $1$ is always positive.
 
   - id: q-algebra-systems-of-equations-0031
+    approved: true
     lesson: lesson-algebra-tangent-and-missing-intersections
     keyPoint: 2
     type: direct-computation

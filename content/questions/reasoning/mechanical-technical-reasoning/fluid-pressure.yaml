@@ -424,7 +424,7 @@ questions:
           This assumes equilibrium removes depth differences in pressure. The liquid is still. Check that hydrostatic pressure continues to increase with depth.
     explanation: |
       The points are equally spaced in depth. In the same uniform liquid at rest, each pressure increase equals density times gravity times the depth increase. Equal depth increases therefore give equal pressure increases.
-    approved: false
+    approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0016
     lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
@@ -452,7 +452,7 @@ questions:
           This treats zero speed as zero pressure. Motion has ceased. Check that water at rest still has hydrostatic pressure.
     explanation: |
       After the water reaches rest, hydrostatic pressure depends on depth and surface pressure. The compared center-line points share an elevation in one connected liquid. Their static pressures are equal.
-    approved: false
+    approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0017
     lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
@@ -480,7 +480,7 @@ questions:
           This divides 6000 pascals by 10000 instead of 1000. Unit conversion can shift a decimal place. Check the number of pascals in one kilopascal.
     explanation: |
       The depth difference is $0.70-0.10=0.60$ meter. Use the hydrostatic pressure difference: $1000$ times $10$ times $0.60=6000$ pascals. Since $1000$ pascals is $1$ kilopascal, the increase is $6$ kilopascals.
-    approved: false
+    approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0018
     lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
@@ -508,7 +508,7 @@ questions:
           This treats a density change as a depth change. Both can increase pressure. Check which quantity the question actually changes.
     explanation: |
       Gauge pressure is the pressure above atmospheric pressure. The container is open, so at B it equals density times gravity times depth. Doubling the density doubles this pressure.
-    approved: false
+    approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0019
     lesson: lesson-mechanical-technical-reasoning-flow-speed-height-and-pressure
@@ -536,7 +536,7 @@ questions:
           This uses wall thickness as a substitute for fluid-energy conditions. Equal walls look like a fair comparison. Check whether wall thickness establishes lossless flow.
     explanation: |
       The direct ideal Bernoulli comparison needs no energy added or lost between the sections. With equal height, the pressure and motion-energy terms then balance each other.
-    approved: false
+    approved: true
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0020
     lesson: lesson-mechanical-technical-reasoning-pressure-in-a-resting-liquid
@@ -564,10 +564,11 @@ questions:
           This applies same-liquid pressure equality at different depths. The liquid is one connected body. Check the unequal depths of A and B.
     explanation: |
       Write the pressures as $P_A=P_0+k$ and $P_B=P_0+7k$, where k is the positive water contribution at A. B has greater pressure, so the ratio exceeds 1. Adding the same positive surface pressure to both contributions makes the ratio smaller than 7.
-    approved: false
+    approved: true
 
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0021
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-liquid-levels-in-connected-vessels
     keyPoint: 2
     type: fluid-pressure
@@ -590,6 +591,7 @@ questions:
       The air pushes equally on both surfaces. The two columns add the same pressure at the boundary level. Oil adds less pressure for each bit of depth. It needs a taller column to match the water.
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0022
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-pressure-and-force-in-hydraulics
     keyPoint: 1
     type: fluid-pressure
@@ -612,6 +614,7 @@ questions:
       The piston covers $0.001\ \text{m}^2$. Divide the force by this area. The added pressure is $\dfrac{50}{0.001}=50{,}000$ Pa.
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0023
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-pressure-and-force-in-hydraulics
     keyPoint: 2
     type: fluid-pressure
@@ -634,6 +637,7 @@ questions:
       The pressure pushes on 20 times as much area at the large piston. This gives 20 times the force. The work stays the same, so the large piston travels only $\dfrac{1}{20}$ as far.
 
   - id: q-mechanical-technical-reasoning-fluid-pressure-0024
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-flow-rate-in-straight-and-branching-pipes
     keyPoint: 2
     type: fluid-pressure

@@ -370,7 +370,7 @@ questions:
           This imports Avogadro’s changing-amount relation. Amount is a gas variable. Check that the same gas sample is used.
     explanation: |
       Boyle’s law relates pressure and volume at fixed temperature and fixed gas amount.
-    approved: false
+    approved: true
 
   - id: q-chemistry-gas-laws-0017
     lesson: lesson-chemistry-avogadros-volume-mole-law
@@ -393,7 +393,7 @@ questions:
           This ignores absolute temperature. Celsius shares kelvin’s interval size. Check the scale’s zero point.
     explanation: |
       Avogadro’s law compares volume and amount at fixed pressure and temperature. The combined law compares two states of a fixed gas amount.
-    approved: false
+    approved: true
 
   - id: q-chemistry-gas-laws-0018
     lesson: lesson-chemistry-ideal-gas-law-calculations
@@ -416,7 +416,7 @@ questions:
           This multiplies both factors. Both variables double. Check which factor belongs in the denominator.
     explanation: |
       Use $n=PV/(RT)$. For B, $n_B=P(2V)/(R(2T))=PV/(RT)=n_A$. The factors of 2 cancel.
-    approved: false
+    approved: true
 
   - id: q-chemistry-gas-laws-0019
     lesson: lesson-chemistry-ideal-gas-law-calculations
@@ -439,7 +439,7 @@ questions:
           This omits the absolute-temperature requirement. Pressure and volume may match. Check all units in R.
     explanation: |
       Convert the temperature to kelvin. Make pressure and volume units match R. Then rearrange and calculate the amount.
-    approved: false
+    approved: true
 
   - id: q-chemistry-gas-laws-0020
     lesson: lesson-chemistry-celsius-and-kelvin-for-gases
@@ -462,9 +462,10 @@ questions:
           This divides the Celsius readings. Ratios occur in gas laws. Check that an increase here means subtraction.
     explanation: |
       The readings are 293.15 K and 303.15 K. Subtract: $303.15-293.15=10$ K. The conversion offset cancels.
-    approved: false
+    approved: true
 
   - id: q-chemistry-gas-laws-0021
+    approved: true
     lesson: lesson-chemistry-gas-particles-and-measurements
     keyPoint: 1
     type: 'identify'
@@ -487,6 +488,7 @@ questions:
       Amount tells how many particles are present. Moles are the unit for amount.
 
   - id: q-chemistry-gas-laws-0022
+    approved: true
     lesson: lesson-chemistry-gas-particles-and-measurements
     keyPoint: 2
     type: 'cause-effect'
@@ -509,6 +511,7 @@ questions:
       Each particle gives the wall a small push when it hits. Many hits together make the pressure.
 
   - id: q-chemistry-gas-laws-0023
+    approved: true
     lesson: lesson-chemistry-celsius-and-kelvin-for-gases
     keyPoint: 2
     type: 'cause-effect'
@@ -531,6 +534,7 @@ questions:
       The two temperatures are about $293$ K and $313$ K. The second is only a little higher. A ratio must use a scale that starts at absolute zero.
 
   - id: q-chemistry-gas-laws-0024
+    approved: true
     lesson: lesson-chemistry-variables-in-gas-investigations
     keyPoint: 1
     type: 'identify'
@@ -553,6 +557,7 @@ questions:
       The researcher reads the pressure after changing the volume. The value measured in response is the dependent variable.
 
   - id: q-chemistry-gas-laws-0025
+    approved: true
     lesson: lesson-chemistry-variables-in-gas-investigations
     keyPoint: 1
     type: 'identify'
@@ -575,6 +580,7 @@ questions:
       The seal keeps the same amount inside. The rigid walls keep the same volume.
 
   - id: q-chemistry-gas-laws-0026
+    approved: true
     lesson: lesson-chemistry-gas-molar-volume-and-stp
     keyPoint: 1
     type: 'simple-quantitative'
@@ -597,6 +603,7 @@ questions:
       At these conditions one mole fills about $22.7$ L. Two moles fill $2(22.7)=45.4$ L.
 
   - id: q-chemistry-gas-laws-0027
+    approved: true
     lesson: lesson-chemistry-gas-molar-volume-and-stp
     keyPoint: 1
     type: 'simple-quantitative'
@@ -619,6 +626,7 @@ questions:
       At these conditions each mole fills about $22.4$ L. The volume is half of that, so the amount is $0.50$ mol.
 
   - id: q-chemistry-gas-laws-0028
+    approved: true
     lesson: lesson-chemistry-when-real-gases-deviate
     keyPoint: 1
     type: 'predict-outcome'

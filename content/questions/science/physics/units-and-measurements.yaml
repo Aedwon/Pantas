@@ -329,7 +329,7 @@ questions:
   - id: q-physics-units-and-measurements-0015
     lesson: lesson-physics-si-base-and-derived-units
     keyPoint: 1
-    approved: false
+    approved: true
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -352,7 +352,7 @@ questions:
   - id: q-physics-units-and-measurements-0016
     lesson: lesson-physics-si-base-and-derived-units
     keyPoint: 1
-    approved: false
+    approved: true
     type: "identify"
     difficulty: "medium"
     stem: |
@@ -375,7 +375,7 @@ questions:
   - id: q-physics-units-and-measurements-0017
     lesson: lesson-physics-si-base-and-derived-units
     keyPoint: 1
-    approved: false
+    approved: true
     type: "classify"
     difficulty: "medium"
     stem: |
@@ -398,7 +398,7 @@ questions:
   - id: q-physics-units-and-measurements-0018
     lesson: lesson-physics-converting-units-with-cancellation
     keyPoint: 1
-    approved: false
+    approved: true
     type: "cause-effect"
     difficulty: "hard"
     stem: |
@@ -421,7 +421,7 @@ questions:
   - id: q-physics-units-and-measurements-0019
     lesson: lesson-physics-si-prefixes-and-scientific-notation
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -444,7 +444,7 @@ questions:
   - id: q-physics-units-and-measurements-0020
     lesson: lesson-physics-converting-squared-and-cubed-units
     keyPoint: 2
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
@@ -465,6 +465,7 @@ questions:
       One gram is $0.001\,\mathrm{kg}$ and one cubic centimeter is $10^{-6}\,\mathrm{m^3}$. Thus $2\,\mathrm{g/cm^3}=\dfrac{2(0.001)}{10^{-6}}=2000\,\mathrm{kg/m^3}$.
 
   - id: q-physics-units-and-measurements-0021
+    approved: true
     lesson: lesson-physics-si-prefixes-and-scientific-notation
     keyPoint: 2
     type: "simple-quantitative"
@@ -487,6 +488,7 @@ questions:
       To express a Celsius reading in kelvin, add 273.15. The bath is at $20+273.15=293.15$ K.
 
   - id: q-physics-units-and-measurements-0022
+    approved: true
     lesson: lesson-physics-converting-squared-and-cubed-units
     keyPoint: 2
     type: "simple-quantitative"
@@ -509,6 +511,7 @@ questions:
       A cubic meter holds $10^6$ cubic centimeters. Its mass is $0.80\times10^6$ g, which is 800 kg.
 
   - id: q-physics-units-and-measurements-0023
+    approved: true
     lesson: lesson-physics-checking-equations-by-dimensions
     keyPoint: 1
     type: "predict-outcome"
@@ -531,6 +534,7 @@ questions:
       Acceleration has units of meters per second squared. Multiplying by seconds squared leaves meters. That length cannot be added to a speed.
 
   - id: q-physics-units-and-measurements-0024
+    approved: true
     lesson: lesson-physics-checking-equations-by-dimensions
     keyPoint: 1
     type: "predict-outcome"
@@ -553,6 +557,7 @@ questions:
       Speed times time gives length. The pure number 2 leaves the units of the product the same.
 
   - id: q-physics-units-and-measurements-0025
+    approved: true
     lesson: lesson-physics-significant-figures-and-rounding
     keyPoint: 1
     type: "simple-quantitative"
@@ -575,6 +580,7 @@ questions:
       The product is 8.00 cm² before rounding. The least precise factor has two significant figures, so report 8.0 cm².
 
   - id: q-physics-units-and-measurements-0026
+    approved: true
     lesson: lesson-physics-significant-figures-and-rounding
     keyPoint: 1
     type: "simple-quantitative"
@@ -597,6 +603,7 @@ questions:
       The sum before rounding is 5.584 cm. The first reading has one decimal place, so round the sum to one decimal place.
 
   - id: q-physics-units-and-measurements-0027
+    approved: true
     lesson: lesson-physics-uncertainty-accuracy-and-precision
     keyPoint: 1
     type: "simple-quantitative"
@@ -619,6 +626,7 @@ questions:
       Compare 0.4 cm with the full reading of 20.0 cm. The fraction is $0.4/20.0=0.02$, or 2%.
 
   - id: q-physics-units-and-measurements-0028
+    approved: true
     lesson: lesson-physics-uncertainty-accuracy-and-precision
     keyPoint: 2
     type: "predict-outcome"
@@ -641,6 +649,7 @@ questions:
       The readings cluster near 95 g. That makes them precise. They are well below 100 g, so they are inaccurate.
 
   - id: q-physics-units-and-measurements-0029
+    approved: true
     lesson: lesson-physics-uncertainty-accuracy-and-precision
     keyPoint: 1
     type: "simple-quantitative"

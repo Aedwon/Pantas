@@ -82,6 +82,7 @@ passages:
       Keep the passage open.
 questions:
   - id: "rc-tt-po-0001"
+    approved: true
     passage: "rc-tt-po-p1"
     type: "feature-of-form"
     difficulty: "easy"
@@ -102,6 +103,7 @@ questions:
     explanation: |
       Shore and oar rhyme in lines one and three. Gray and day rhyme in lines two and four. Assigning the repeated sounds gives abab.
   - id: "rc-tt-po-0002"
+    approved: true
     passage: "rc-tt-po-p1"
     type: "purpose-of-device"
     difficulty: "easy"
@@ -122,6 +124,7 @@ questions:
     explanation: |
       The line compares the sea to a mother using like. Comparing these unlike things explicitly makes it a simile.
   - id: "rc-tt-po-0003"
+    approved: true
     passage: "rc-tt-po-p1"
     type: "purpose-of-device"
     difficulty: "medium"
@@ -142,6 +145,7 @@ questions:
     explanation: |
       Whispering is an action associated with human speech. Giving that action to the ocean is personification.
   - id: "rc-tt-po-0004"
+    approved: true
     passage: "rc-tt-po-p1"
     type: "purpose-of-device"
     difficulty: "medium"
@@ -162,6 +166,7 @@ questions:
     explanation: |
       The fisherman trusts the water, returns with fish, and receives a bountiful reward. These details present his labor with appreciation.
   - id: "rc-tt-po-0005"
+    approved: true
     passage: "rc-tt-po-p1"
     type: "purpose-of-device"
     difficulty: "hard"
@@ -182,6 +187,7 @@ questions:
     explanation: |
       The rising sun is the subject of the line. Its light makes the water appear golden, adding visual brightness to the return.
   - id: "rc-tt-po-0006"
+    approved: true
     passage: "rc-tt-po-p2"
     type: "purpose-of-device"
     difficulty: "easy"
@@ -202,6 +208,7 @@ questions:
     explanation: |
       The line compares flowing threads with a mountain stream using like. It is an explicit figurative comparison.
   - id: "rc-tt-po-0007"
+    approved: true
     passage: "rc-tt-po-p2"
     type: "purpose-of-device"
     difficulty: "medium"
@@ -222,6 +229,7 @@ questions:
     explanation: |
       Dancing is presented as the shuttle's action. The tool's movement is described in human terms, which personifies it.
   - id: "rc-tt-po-0008"
+    approved: true
     passage: "rc-tt-po-p2"
     type: "feature-of-form"
     difficulty: "medium"
@@ -242,6 +250,7 @@ questions:
     explanation: |
       Room rhymes with bloom, and hour rhymes with power. The recurring sounds alternate, giving abab.
   - id: "rc-tt-po-0009"
+    approved: true
     passage: "rc-tt-po-p2"
     type: "purpose-of-device"
     difficulty: "hard"
@@ -262,6 +271,7 @@ questions:
     explanation: |
       The ancient loom and the mention of generations connect present weaving with skills passed down over time. The image suggests inherited tradition supporting the work.
   - id: "rc-tt-po-0010"
+    approved: true
     passage: "rc-tt-po-p2"
     type: "purpose-of-device"
     difficulty: "hard"
@@ -282,6 +292,7 @@ questions:
     explanation: |
       Simple cotton becomes a floral design in the tapestry. The image shows the beauty created through weaving skill.
   - id: "rc-tt-po-0011"
+    approved: true
     passage: "rc-tt-po-p3"
     type: "purpose-of-device"
     difficulty: "easy"
@@ -302,6 +313,7 @@ questions:
     explanation: |
       The line compares rain with a cloak using like. That explicit comparison is a simile.
   - id: "rc-tt-po-0012"
+    approved: true
     passage: "rc-tt-po-p3"
     type: "purpose-of-device"
     difficulty: "medium"
@@ -322,6 +334,7 @@ questions:
     explanation: |
       Beat suggests a repeated sound. The line invites the reader to hear the rhythm of rain.
   - id: "rc-tt-po-0013"
+    approved: true
     passage: "rc-tt-po-p3"
     type: "purpose-of-device"
     difficulty: "medium"
@@ -342,6 +355,7 @@ questions:
     explanation: |
       Heavy, dark clouds shape the opening. The final stanza names fresh hope and a clearer day. Those details support a shift toward hope.
   - id: "rc-tt-po-0014"
+    approved: true
     passage: "rc-tt-po-p3"
     type: "purpose-of-device"
     difficulty: "hard"
@@ -362,6 +376,7 @@ questions:
     explanation: |
       The surrounding lines describe rain and urban streets. Silver rivers pictures bright streams of rainwater flowing along the stone.
   - id: "rc-tt-po-0015"
+    approved: true
     passage: "rc-tt-po-p3"
     type: "purpose-of-device"
     difficulty: "hard"
@@ -401,7 +416,7 @@ questions:
           This treats leaving space as leaving the market. The command is short. Check the final instruction to keep the passage open.
     explanation: |
       The repeated request is followed by people who need the path. It emphasizes keeping shared space open for them.
-    approved: false
+    approved: true
   - id: "q-text-types-poetry-0017"
     passage: "p-text-types-poetry-0004"
     type: "purpose-of-device"
@@ -422,7 +437,7 @@ questions:
           This reads as in its meaning of in the role of. The words dawn and market are both nouns. Check whether the line says that dawn is the market.
     explanation: |
       Here as means when: the request is placed at dawn. The line does not compare two unlike things.
-    approved: false
+    approved: true
   - id: "q-text-types-poetry-0018"
     passage: "p-text-types-poetry-0004"
     type: "feature-of-form"
@@ -443,7 +458,7 @@ questions:
           This looks for a pattern between the outer lines of a stanza. Other poems link lines this way. Check the first and last line endings in the first stanza.
     explanation: |
       Market, ribbon, stalls, and the other endings do not follow a recurring end-rhyme scheme. The poem uses repetition and line breaks to organize its language.
-    approved: false
+    approved: true
   - id: "q-text-types-poetry-0019"
     passage: "p-text-types-poetry-0004"
     type: "purpose-of-device"
@@ -464,7 +479,7 @@ questions:
           This treats a named plant as scientific explanation. Ginger has a recognizable smell. Check whether any chemical process is explained.
     explanation: |
       Scent appeals to smell and locates a familiar market experience near the entrance. It gives the scene a sensory detail.
-    approved: false
+    approved: true
   - id: "q-text-types-poetry-0020"
     passage: "p-text-types-poetry-0004"
     type: "purpose-of-device"
@@ -485,4 +500,4 @@ questions:
           This treats explicit meaning as canceling imagery. The ending states the point. Check how the details make the shared place concrete.
     explanation: |
       The ending says the morning belongs to all the people named and asks readers to keep the passage open. It states the shared-access point directly.
-    approved: false
+    approved: true

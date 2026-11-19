@@ -42,6 +42,7 @@ passages:
     Think of a student who spends most of a short break waiting and then hurries through a meal. A fairer line could give that student time to eat. Let us test a small change before asking the school to make it permanent.
 questions:
 - id: rc-tt-sp-0001
+  approved: true
   passage: rc-tt-sp-p1
   type: feature-of-form
   difficulty: easy
@@ -67,6 +68,7 @@ questions:
 
     '
 - id: rc-tt-sp-0002
+  approved: true
   passage: rc-tt-sp-p1
   type: purpose-of-device
   difficulty: medium
@@ -92,6 +94,7 @@ questions:
 
     '
 - id: rc-tt-sp-0003
+  approved: true
   passage: rc-tt-sp-p1
   type: feature-of-form
   difficulty: medium
@@ -117,6 +120,7 @@ questions:
 
     '
 - id: rc-tt-sp-0004
+  approved: true
   passage: rc-tt-sp-p1
   type: feature-of-form
   difficulty: hard
@@ -142,6 +146,7 @@ questions:
 
     '
 - id: rc-tt-sp-0005
+  approved: true
   passage: rc-tt-sp-p1
   type: purpose-of-device
   difficulty: hard
@@ -167,6 +172,7 @@ questions:
 
     '
 - id: rc-tt-sp-0006
+  approved: true
   passage: rc-tt-sp-p2
   type: feature-of-form
   difficulty: easy
@@ -192,6 +198,7 @@ questions:
 
     '
 - id: rc-tt-sp-0007
+  approved: true
   passage: rc-tt-sp-p2
   type: purpose-of-device
   difficulty: medium
@@ -217,6 +224,7 @@ questions:
 
     '
 - id: rc-tt-sp-0008
+  approved: true
   passage: rc-tt-sp-p2
   type: feature-of-form
   difficulty: medium
@@ -242,6 +250,7 @@ questions:
 
     '
 - id: rc-tt-sp-0009
+  approved: true
   passage: rc-tt-sp-p2
   type: purpose-of-device
   difficulty: hard
@@ -267,6 +276,7 @@ questions:
 
     '
 - id: rc-tt-sp-0010
+  approved: true
   passage: rc-tt-sp-p2
   type: feature-of-form
   difficulty: hard
@@ -294,7 +304,7 @@ questions:
 - id: q-text-types-speeches-0011
   type: feature-of-form
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'What is the main purpose of the archive welcome?
 
     '
@@ -320,7 +330,7 @@ questions:
 - id: q-text-types-speeches-0012
   type: purpose-of-device
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Why does the speaker mention having been the school''s librarian?
 
     '
@@ -346,7 +356,7 @@ questions:
 - id: q-text-types-speeches-0013
   type: purpose-of-device
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'What does repeating "Remember" achieve in the welcome?
 
     '
@@ -372,7 +382,7 @@ questions:
 - id: q-text-types-speeches-0014
   type: feature-of-form
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which detail supports trustworthiness through admitting limits?
 
     '
@@ -398,7 +408,7 @@ questions:
 - id: q-text-types-speeches-0015
   type: feature-of-form
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which statement best describes the purpose of this speech?
 
     '
@@ -424,7 +434,7 @@ questions:
 - id: q-text-types-speeches-0016
   type: feature-of-form
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'What action does the lunch-line speaker ask the council to approve?
 
     '
@@ -450,7 +460,7 @@ questions:
 - id: q-text-types-speeches-0017
   type: feature-of-form
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Which part of the proposal functions mainly as logos?
 
     '
@@ -476,7 +486,7 @@ questions:
 - id: q-text-types-speeches-0018
   type: purpose-of-device
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Why ask "What good is a change if we never check whether it helps?"?
 
     '
@@ -502,7 +512,7 @@ questions:
 - id: q-text-types-speeches-0019
   type: purpose-of-device
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'How does the final example of a hurried student support the proposal?
 
     '
@@ -528,7 +538,7 @@ questions:
 - id: q-text-types-speeches-0020
   type: feature-of-form
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which statement shows the speaker treating evidence cautiously?
 
     '

@@ -370,7 +370,7 @@ questions:
           This removes the motion needed to carry components. Stationary sounds like the whole setup. Check which phase is specifically called mobile.
     explanation: |
       The mobile phase is the moving fluid. It carries components along the stationary phase as they distribute differently between them.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mixtures-and-separation-0017
     lesson: lesson-chemistry-simple-distillation-and-collection
@@ -393,7 +393,7 @@ questions:
           This lets vapor escape before collection. Evaporation can leave residue. Check whether the vapor must be captured as it forms.
     explanation: |
       Heating produces vapor. Cooling turns it into liquid. The liquid is collected as the distillate.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mixtures-and-separation-0018
     lesson: lesson-chemistry-fractional-distillation-and-azeotropes
@@ -416,7 +416,7 @@ questions:
           This assumes one step always gives purity. Vapor is often enriched in one component. Check whether enrichment means complete separation.
     explanation: |
       Fractional distillation provides repeated vapor-liquid stages. Each suitable stage can enrich the more volatile component, improving separation.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mixtures-and-separation-0019
     lesson: lesson-chemistry-fractional-distillation-and-azeotropes
@@ -439,7 +439,7 @@ questions:
           This substitutes particle size for vapor-liquid equilibrium. Filter size affects another technique. Check which phases distillation compares.
     explanation: |
       At an azeotropic composition, vapor and liquid have the same composition. Condensing that vapor does not change the component ratio at that point.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mixtures-and-separation-0020
     lesson: lesson-chemistry-recovering-dissolved-solids
@@ -462,9 +462,10 @@ questions:
           This assumes solvent removal guarantees purity. A dry residue looks isolated. Check whether nonvolatile impurities also remain.
     explanation: |
       Recrystallization uses differences in solubility. Under suitable conditions the desired solid forms crystals while some impurities remain dissolved.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mixtures-and-separation-0021
+    approved: true
     lesson: lesson-chemistry-colloids-and-suspensions
     keyPoint: 1
     type: 'classify'
@@ -487,6 +488,7 @@ questions:
       The particles are big enough to scatter light. They are small enough to stay mixed and pass through the filter.
 
   - id: q-chemistry-mixtures-and-separation-0022
+    approved: true
     lesson: lesson-chemistry-colloids-and-suspensions
     keyPoint: 1
     type: 'classify'
@@ -509,6 +511,7 @@ questions:
       The solid particles settle under their own weight. They are large enough for ordinary paper to catch.
 
   - id: q-chemistry-mixtures-and-separation-0023
+    approved: true
     lesson: lesson-chemistry-separating-immiscible-liquids
     keyPoint: 1
     type: 'process-ordering'
@@ -531,6 +534,7 @@ questions:
       The denser liquid sinks. The tap is at the bottom, so X comes out first.
 
   - id: q-chemistry-mixtures-and-separation-0024
+    approved: true
     lesson: lesson-chemistry-separating-immiscible-liquids
     keyPoint: 1
     type: 'predict-outcome'
@@ -553,6 +557,7 @@ questions:
       B leaves from the bottom. The boundary moves down as B drains. Close the tap as the boundary gets there so A stays in the funnel.
 
   - id: q-chemistry-mixtures-and-separation-0025
+    approved: true
     lesson: lesson-chemistry-paper-chromatography-setup
     keyPoint: 2
     type: 'identify'
@@ -575,6 +580,7 @@ questions:
       The pencil line stays in place. Keeping the solvent below the spot lets the rising solvent pick up the ink on the paper.
 
   - id: q-chemistry-mixtures-and-separation-0026
+    approved: true
     lesson: lesson-chemistry-reading-paper-chromatograms
     keyPoint: 2
     type: 'simple-quantitative'
@@ -597,6 +603,7 @@ questions:
       Measure from the baseline. The spot went $4.0-1.0=3.0$ cm, and the solvent went $7.0-1.0=6.0$ cm. The ratio is $\dfrac{3.0}{6.0}=0.50$.
 
   - id: q-chemistry-mixtures-and-separation-0027
+    approved: true
     lesson: lesson-chemistry-reading-paper-chromatograms
     keyPoint: 2
     type: 'simple-quantitative'
@@ -619,6 +626,7 @@ questions:
       The spot moved three quarters as far as the solvent. Divide $4.5$ by $0.75$ to get $6.0$ cm.
 
   - id: q-chemistry-mixtures-and-separation-0028
+    approved: true
     lesson: lesson-chemistry-choosing-mixture-separation-methods
     keyPoint: 1
     type: 'process-ordering'

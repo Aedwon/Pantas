@@ -465,6 +465,7 @@ questions:
     approved: true
 
   - id: q-algebra-quadratic-equations-0021
+    approved: true
     lesson: lesson-algebra-quadratic-methods-and-root-properties
     keyPoint: 1
     type: direct-computation
@@ -487,6 +488,7 @@ questions:
       After dividing, the left side is $x^2-6x$. Half of $-6$ is $-3$. Its square is $9$, so add $9$ to both sides.
 
   - id: q-algebra-quadratic-equations-0022
+    approved: true
     lesson: lesson-algebra-finishing-completing-the-square
     keyPoint: 1
     type: direct-computation
@@ -509,6 +511,7 @@ questions:
       Half of $-14$ is $-7$. Both copies of $(x-7)$ give a middle term of $-14x$ and a constant of $49$.
 
   - id: q-algebra-quadratic-equations-0023
+    approved: true
     lesson: lesson-algebra-quadratic-equations-from-roots
     keyPoint: 1
     type: direct-computation
@@ -531,6 +534,7 @@ questions:
       The roots add to $2$ and multiply to $-15$. Put the negative of the sum on $x$ and the product at the end.
 
   - id: q-algebra-quadratic-equations-0024
+    approved: true
     lesson: lesson-algebra-quadratic-equations-from-roots
     keyPoint: 2
     type: direct-computation
@@ -553,6 +557,7 @@ questions:
       The coefficients add to zero, so $1$ is a root. The product is $-\dfrac74$. Since one root is $1$, the other root equals the product.
 
   - id: q-algebra-quadratic-equations-0025
+    approved: true
     lesson: lesson-algebra-quadratic-equations-from-roots
     keyPoint: 2
     type: direct-computation
@@ -575,6 +580,7 @@ questions:
       A root of $1$ makes the coefficients add to zero. So $3+k+6=0$, which gives $k=-9$.
 
   - id: q-algebra-quadratic-equations-0026
+    approved: true
     lesson: lesson-algebra-quadratic-formula-and-irrational-roots
     keyPoint: 2
     type: direct-computation
@@ -597,6 +603,7 @@ questions:
       For $2x^2+x-6$, the number under the root in the formula is $1+48=49$. Since $49=7^2$, this polynomial factors over the integers.
 
   - id: q-algebra-quadratic-equations-0027
+    approved: true
     lesson: lesson-algebra-quadratic-formula-and-irrational-roots
     keyPoint: 1
     type: direct-computation
@@ -619,6 +626,7 @@ questions:
       The value under the root is $16+8=24$. The formula gives $\dfrac{4\pm\sqrt{24}}4$. Use $\sqrt{24}=2\sqrt6$ and divide top and bottom by $2$.
 
   - id: q-algebra-quadratic-equations-0028
+    approved: true
     lesson: lesson-algebra-quadratic-rectangle-area
     keyPoint: 1
     type: word-problem
@@ -641,6 +649,7 @@ questions:
       Let the width be $w$. Then $w(w+3)=70$. Factoring gives $(w-7)(w+10)=0$. A width must be positive, so use $7$ meters.
 
   - id: q-algebra-quadratic-equations-0029
+    approved: true
     lesson: lesson-algebra-quadratic-inequalities-with-two-roots
     keyPoint: 1
     type: direct-computation
@@ -663,6 +672,7 @@ questions:
       The roots are $-3$ and $2$. The graph opens down, so it is above zero between the roots.
 
   - id: q-algebra-quadratic-equations-0030
+    approved: true
     lesson: lesson-algebra-quadratic-inequalities-with-two-roots
     keyPoint: 1
     type: direct-computation
@@ -685,6 +695,7 @@ questions:
       The roots are $-5$ and $1$. The graph opens up, so it is above zero on both outside intervals.
 
   - id: q-algebra-quadratic-equations-0031
+    approved: true
     lesson: lesson-algebra-quadratic-inequalities-with-two-roots
     keyPoint: 2
     type: direct-computation
@@ -707,6 +718,7 @@ questions:
       Inside the interval, $q(x)$ is negative. At both ends it is zero, which the sign $\le$ allows.
 
   - id: q-algebra-quadratic-equations-0032
+    approved: true
     lesson: lesson-algebra-quadratic-inequalities-with-two-roots
     keyPoint: 2
     type: direct-computation
@@ -729,6 +741,7 @@ questions:
       The question asks for positive outputs only. At both ends the output is zero, so leave both out.
 
   - id: q-algebra-quadratic-equations-0033
+    approved: true
     lesson: lesson-algebra-quadratic-inequalities-outside-the-roots
     keyPoint: 1
     type: direct-computation
@@ -751,6 +764,7 @@ questions:
       Subtract $10$ and factor to get $(x+5)(x-2)>0$. The product is positive outside the roots $-5$ and $2$.
 
   - id: q-algebra-quadratic-equations-0034
+    approved: true
     lesson: lesson-algebra-quadratic-inequalities-outside-the-roots
     keyPoint: 1
     type: direct-computation
@@ -773,6 +787,7 @@ questions:
       Move the right side to the left. The result is $(x+1)(x-4)\ge0$. It is positive outside the roots and zero at both roots.
 
   - id: q-algebra-quadratic-equations-0035
+    approved: true
     lesson: lesson-algebra-quadratic-inequalities-with-fewer-roots
     keyPoint: 1
     type: direct-computation
@@ -795,6 +810,7 @@ questions:
       The number under the square root in the quadratic formula is $16-32=-16$, so there are no real roots. The graph opens up and stays above zero.
 
   - id: q-algebra-quadratic-equations-0036
+    approved: true
     lesson: lesson-algebra-quadratic-inequalities-with-fewer-roots
     keyPoint: 1
     type: direct-computation
@@ -817,6 +833,7 @@ questions:
       Here $b^2-4ac=16-40=-24$, so there are no real roots. The graph opens down and stays below zero.
 
   - id: q-algebra-quadratic-equations-0037
+    approved: true
     lesson: lesson-algebra-quadratic-inequalities-with-fewer-roots
     keyPoint: 2
     type: direct-computation
@@ -839,6 +856,7 @@ questions:
       A square is zero or positive. Its negative can be at least zero only when the square is zero. That happens at $x=4$.
 
   - id: q-algebra-quadratic-equations-0038
+    approved: true
     lesson: lesson-algebra-quadratic-inequalities-with-fewer-roots
     keyPoint: 2
     type: direct-computation

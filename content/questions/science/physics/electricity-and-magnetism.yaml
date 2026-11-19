@@ -352,7 +352,7 @@ questions:
   - id: q-physics-electricity-and-magnetism-0016
     lesson: lesson-physics-parallel-circuit-resistance
     keyPoint: 2
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -375,7 +375,7 @@ questions:
   - id: q-physics-electricity-and-magnetism-0017
     lesson: lesson-physics-current-voltage-and-ohms-law
     keyPoint: 3
-    approved: false
+    approved: true
     type: "classify"
     difficulty: "medium"
     stem: |
@@ -398,7 +398,7 @@ questions:
   - id: q-physics-electricity-and-magnetism-0018
     lesson: lesson-physics-lenzs-law-and-induced-current
     keyPoint: 2
-    approved: false
+    approved: true
     type: "cause-effect"
     difficulty: "hard"
     stem: |
@@ -421,7 +421,7 @@ questions:
   - id: q-physics-electricity-and-magnetism-0019
     lesson: lesson-physics-magnetic-poles-and-current
     keyPoint: 1
-    approved: false
+    approved: true
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
@@ -444,7 +444,7 @@ questions:
   - id: q-physics-electricity-and-magnetism-0020
     lesson: lesson-physics-magnetic-poles-and-current
     keyPoint: 2
-    approved: false
+    approved: true
     type: "process-ordering"
     difficulty: "exam"
     stem: |
@@ -465,6 +465,7 @@ questions:
       First determine conventional current. Point the right thumb in that direction. The curled fingers show the field direction around the wire.
 
   - id: q-physics-electricity-and-magnetism-0021
+    approved: true
     lesson: lesson-physics-electric-charge-and-charging
     keyPoint: 2
     type: "predict-outcome"
@@ -487,6 +488,7 @@ questions:
       The rod lost electrons. It now has more positive charge than negative charge.
 
   - id: q-physics-electricity-and-magnetism-0022
+    approved: true
     lesson: lesson-physics-electric-induction-and-polarization
     keyPoint: 1
     type: "predict-outcome"
@@ -509,6 +511,7 @@ questions:
       The rod pushes electrons into the far sphere. The extra electrons stay there once the spheres are apart.
 
   - id: q-physics-electricity-and-magnetism-0023
+    approved: true
     lesson: lesson-physics-electric-induction-and-polarization
     keyPoint: 2
     type: "predict-outcome"
@@ -531,6 +534,7 @@ questions:
       Charges shift inside the sphere. The opposite charge is closer to the rod and feels a stronger pull than the far side feels a push.
 
   - id: q-physics-electricity-and-magnetism-0024
+    approved: true
     lesson: lesson-physics-coulombs-law-and-electric-fields
     keyPoint: 1
     type: "simple-quantitative"
@@ -553,6 +557,7 @@ questions:
       The force is one ninth as large. The distance is squared in the bottom of Coulomb's formula, so the new distance is three times as large.
 
   - id: q-physics-electricity-and-magnetism-0025
+    approved: true
     lesson: lesson-physics-current-voltage-and-ohms-law
     keyPoint: 1
     type: "simple-quantitative"
@@ -575,6 +580,7 @@ questions:
       Each second, $12/2=6$ coulombs pass the point. Conventional current points opposite to the electrons, so it points east.
 
   - id: q-physics-electricity-and-magnetism-0026
+    approved: true
     lesson: lesson-physics-current-voltage-and-ohms-law
     keyPoint: 2
     type: "simple-quantitative"
@@ -597,6 +603,7 @@ questions:
       Voltage gives the energy for each coulomb. Divide 48 J by 4 C to get 12 V.
 
   - id: q-physics-electricity-and-magnetism-0027
+    approved: true
     lesson: lesson-physics-parallel-circuit-resistance
     keyPoint: 2
     type: "simple-quantitative"
@@ -619,6 +626,7 @@ questions:
       Add the reciprocals. The sum is $1/12+1/4=4/12=1/3$, so the equivalent resistance is 3 Ω.
 
   - id: q-physics-electricity-and-magnetism-0028
+    approved: true
     lesson: lesson-physics-electrical-power-and-overload
     keyPoint: 1
     type: "simple-quantitative"
@@ -641,6 +649,7 @@ questions:
       Multiply current by voltage. The device draws $2.0\times220=440$ W.
 
   - id: q-physics-electricity-and-magnetism-0029
+    approved: true
     lesson: lesson-physics-electrical-power-and-overload
     keyPoint: 2
     type: "simple-quantitative"
@@ -663,6 +672,7 @@ questions:
       All three branch currents pass through the fuse. They add to $6+3+2=11$ A. That is above 10 A.
 
   - id: q-physics-electricity-and-magnetism-0030
+    approved: true
     lesson: lesson-physics-electrical-power-and-overload
     keyPoint: 1
     type: "simple-quantitative"
@@ -685,6 +695,7 @@ questions:
       The appliance draws 0.5 kW. Multiply by 4 hours to get 2 kWh.
 
   - id: q-physics-electricity-and-magnetism-0031
+    approved: true
     lesson: lesson-physics-electrical-power-and-overload
     keyPoint: 2
     type: "simple-quantitative"
@@ -707,6 +718,7 @@ questions:
       The first load leaves room for 5 A more. The other two loads add to 5 A, so the total stays at the rating.
 
   - id: q-physics-electricity-and-magnetism-0032
+    approved: true
     lesson: lesson-physics-magnetic-flux-and-faradays-law
     keyPoint: 1
     type: "simple-quantitative"
@@ -729,6 +741,7 @@ questions:
       All of the field points through the loop. Multiply the field by the area to get $0.50\times0.40=0.20$ Wb.
 
   - id: q-physics-electricity-and-magnetism-0033
+    approved: true
     lesson: lesson-physics-magnetic-flux-and-faradays-law
     keyPoint: 2
     type: "simple-quantitative"
@@ -751,6 +764,7 @@ questions:
       The flux through one turn changes at $0.10/0.20=0.50$ Wb per second. Multiply by 10 turns to get 5 V.
 
   - id: q-physics-electricity-and-magnetism-0034
+    approved: true
     lesson: lesson-physics-magnetic-flux-and-faradays-law
     keyPoint: 2
     type: "predict-outcome"
@@ -773,6 +787,7 @@ questions:
       Both coils have the same flux change per turn. P spreads that change across twice the time, so it produces half the emf.
 
   - id: q-physics-electricity-and-magnetism-0035
+    approved: true
     lesson: lesson-physics-electric-motors-and-generators
     keyPoint: 1
     type: "predict-outcome"
@@ -795,6 +810,7 @@ questions:
       After half a turn, the two sides have traded places. Reversing their currents reverses the forces on those sides. The forces then keep turning the coil the same way.
 
   - id: q-physics-electricity-and-magnetism-0036
+    approved: true
     lesson: lesson-physics-electric-motors-and-generators
     keyPoint: 2
     type: "predict-outcome"
@@ -817,6 +833,7 @@ questions:
       The fixed coil keeps the same angle to the field. Its magnetic flux stops changing, so it makes no emf.
 
   - id: q-physics-electricity-and-magnetism-0037
+    approved: true
     lesson: lesson-physics-electric-motors-and-generators
     keyPoint: 1
     type: "predict-outcome"

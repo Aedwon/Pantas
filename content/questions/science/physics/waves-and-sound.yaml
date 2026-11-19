@@ -237,7 +237,7 @@ questions:
   - id: q-physics-waves-and-sound-0016
     lesson: lesson-physics-wave-period-wavelength-and-amplitude
     keyPoint: 1
-    approved: false
+    approved: true
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -260,7 +260,7 @@ questions:
   - id: q-physics-waves-and-sound-0017
     lesson: lesson-physics-wave-period-wavelength-and-amplitude
     keyPoint: 2
-    approved: false
+    approved: true
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
@@ -283,7 +283,7 @@ questions:
   - id: q-physics-waves-and-sound-0018
     lesson: lesson-physics-sound-speed-pitch-and-loudness
     keyPoint: 1
-    approved: false
+    approved: true
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -306,7 +306,7 @@ questions:
   - id: q-physics-waves-and-sound-0019
     lesson: lesson-physics-waves-crossing-between-media
     keyPoint: 1
-    approved: false
+    approved: true
     type: "predict-outcome"
     difficulty: "hard"
     stem: |
@@ -329,7 +329,7 @@ questions:
   - id: q-physics-waves-and-sound-0020
     lesson: lesson-physics-transverse-and-longitudinal-waves
     keyPoint: 2
-    approved: false
+    approved: true
     type: "compare-contrast"
     difficulty: "exam"
     stem: |
@@ -352,7 +352,7 @@ questions:
   - id: q-physics-waves-and-sound-0041
     lesson: lesson-physics-wave-period-wavelength-and-amplitude
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "easy"
     stem: |
@@ -375,7 +375,7 @@ questions:
   - id: q-physics-waves-and-sound-0042
     lesson: lesson-physics-sound-speed-pitch-and-loudness
     keyPoint: 2
-    approved: false
+    approved: true
     type: "predict-outcome"
     difficulty: "medium"
     stem: |
@@ -398,7 +398,7 @@ questions:
   - id: q-physics-waves-and-sound-0043
     lesson: lesson-physics-waves-crossing-between-media
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -421,7 +421,7 @@ questions:
   - id: q-physics-waves-and-sound-0044
     lesson: lesson-physics-ordering-the-electromagnetic-spectrum
     keyPoint: 1
-    approved: false
+    approved: true
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -444,7 +444,7 @@ questions:
   - id: q-physics-waves-and-sound-0045
     lesson: lesson-physics-transverse-and-longitudinal-waves
     keyPoint: 2
-    approved: false
+    approved: true
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -465,6 +465,7 @@ questions:
       A solid can carry both kinds of wave. The faster P waves are longitudinal, and the slower S waves are transverse. S waves cannot pass through liquids.
 
   - id: q-physics-waves-and-sound-0046
+    approved: true
     lesson: lesson-physics-ordering-the-electromagnetic-spectrum
     keyPoint: 2
     type: "simple-quantitative"
@@ -487,6 +488,7 @@ questions:
       Both waves travel at the same speed. Since speed equals frequency times wavelength, tripling wavelength divides frequency by three.
 
   - id: q-physics-waves-and-sound-0047
+    approved: true
     lesson: lesson-physics-ordering-the-electromagnetic-spectrum
     keyPoint: 1
     type: "predict-outcome"
@@ -509,6 +511,7 @@ questions:
       Infrared has longer wavelengths than visible light. Ultraviolet has shorter wavelengths. These are the bands next to visible light.
 
   - id: q-physics-waves-and-sound-0048
+    approved: true
     lesson: lesson-physics-sound-speed-pitch-and-loudness
     keyPoint: 2
     type: "predict-outcome"

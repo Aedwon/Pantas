@@ -465,6 +465,7 @@ questions:
     approved: true
 
   - id: q-algebra-radicals-and-rationalization-0021
+    approved: true
     lesson: lesson-algebra-rational-exponents-and-root-quotients
     keyPoint: 1
     type: direct-computation
@@ -487,6 +488,7 @@ questions:
       The denominator $4$ calls for the fourth root of $81$, which is $3$. Raise $3$ to the third power to get $27$.
 
   - id: q-algebra-radicals-and-rationalization-0022
+    approved: true
     lesson: lesson-algebra-rational-exponents-and-root-quotients
     keyPoint: 2
     type: direct-computation
@@ -509,6 +511,7 @@ questions:
       For $(0,9)$ the top square root is zero and the bottom square root is $3$. The two roots are real, and the bottom is nonzero.
 
   - id: q-algebra-radicals-and-rationalization-0023
+    approved: true
     lesson: lesson-algebra-rational-exponents-and-root-quotients
     keyPoint: 2
     type: direct-computation
@@ -531,6 +534,7 @@ questions:
       Cube roots exist for all real numbers. The only problem is a zero divisor, which occurs when $t-2=0$.
 
   - id: q-algebra-radicals-and-rationalization-0024
+    approved: true
     lesson: lesson-algebra-solving-square-root-equations
     keyPoint: 1
     type: direct-computation
@@ -553,6 +557,7 @@ questions:
       Add $3$ to both sides to leave the root alone. Square $2x+3$ to get $4x^2+12x+9$.
 
   - id: q-algebra-radicals-and-rationalization-0025
+    approved: true
     lesson: lesson-algebra-solving-square-root-equations
     keyPoint: 1
     type: direct-computation
@@ -575,6 +580,7 @@ questions:
       The right side squares to $x+2\sqrt{x}+1$. Subtract $x$ and $1$ from both sides to get $2\sqrt{x}=3$.
 
   - id: q-algebra-radicals-and-rationalization-0026
+    approved: true
     lesson: lesson-algebra-solving-square-root-equations
     keyPoint: 2
     type: direct-computation
@@ -597,6 +603,7 @@ questions:
       At $4$ both sides are $3$. At $-1$ the left side is $2$ and the right side is $-2$. Only $4$ works.
 
   - id: q-algebra-radicals-and-rationalization-0027
+    approved: true
     lesson: lesson-algebra-solving-square-root-equations
     keyPoint: 2
     type: direct-computation
@@ -619,6 +626,7 @@ questions:
       At $1$, the left side is $\sqrt1=1$. At $5$, it is $\sqrt{25}=5$. Both values match the right side.
 
   - id: q-algebra-radicals-and-rationalization-0028
+    approved: true
     lesson: lesson-algebra-solving-cube-root-equations
     keyPoint: 1
     type: direct-computation
@@ -641,6 +649,7 @@ questions:
       Subtract $3$ to leave a cube root equal to $-2$. Cubing gives $2x-5=-8$. Add $5$ and divide by $2$.
 
   - id: q-algebra-radicals-and-rationalization-0029
+    approved: true
     lesson: lesson-algebra-solving-cube-root-equations
     keyPoint: 1
     type: direct-computation

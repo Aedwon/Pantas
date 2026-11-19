@@ -370,7 +370,7 @@ questions:
           This puts the stages in the wrong order. Vapor does end up in air. Check that the vapor comes from the plant.
     explanation: |
       Water taken up is part of the hydrosphere. The living plant is biosphere. Vapor released into air connects with the atmosphere.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-earths-subsystems-0017
     lesson: lesson-earth-science-astronomy-earth-sphere-interactions
@@ -393,7 +393,7 @@ questions:
           This assumes every weathering process requires living roots. Roots can weather rock. Check whether organisms are named here.
     explanation: |
       Rainwater is water in the hydrosphere. The granite surface is rock in the geosphere. Their contact directly links those systems.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-earths-subsystems-0018
     lesson: lesson-earth-science-astronomy-earth-sphere-interactions
@@ -416,7 +416,7 @@ questions:
           This picks water entering the ground, not vapor leaving plants. Removing plants can affect several water movements. Trace the specific transfer in the stem.
     explanation: |
       The removed plants supplied water vapor to air. With fewer of those plants, their direct contribution to this transfer is reduced.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-earths-subsystems-0019
     lesson: lesson-earth-science-astronomy-earths-water-sphere
@@ -439,7 +439,7 @@ questions:
           This compares examples, which can match even when the models differ. Examples are easy to compare. Check the stated definitions of each sphere.
     explanation: |
       Sphere models may draw boundaries differently. Compare their definitions while recognizing that water moves through connected Earth systems.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-earths-subsystems-0020
     lesson: lesson-earth-science-astronomy-earths-solid-sphere
@@ -462,9 +462,10 @@ questions:
           This swaps the minerals and the roots. Soil is often linked to plants. Check which part is rock material and which is living.
     explanation: |
       Soil combines solid materials, water, air, and living organisms. It is a place where geosphere, hydrosphere, atmosphere, and biosphere interact.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-earths-subsystems-0021
+    approved: true
     lesson: lesson-earth-science-astronomy-earths-air-sphere
     keyPoint: 2
     type: 'compare-contrast'
@@ -493,6 +494,7 @@ questions:
       takes in ultraviolet light and the air gets warmer with height.
 
   - id: q-earth-science-astronomy-earths-subsystems-0022
+    approved: true
     lesson: lesson-earth-science-astronomy-earths-living-sphere
     keyPoint: 2
     type: 'process-ordering'

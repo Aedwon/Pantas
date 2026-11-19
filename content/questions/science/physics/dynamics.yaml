@@ -283,7 +283,7 @@ questions:
   - id: q-physics-dynamics-0018
     lesson: lesson-physics-newtons-third-law-pairs
     keyPoint: 1
-    approved: false
+    approved: true
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
@@ -306,7 +306,7 @@ questions:
   - id: q-physics-dynamics-0019
     lesson: lesson-physics-drawing-free-body-diagrams
     keyPoint: 1
-    approved: false
+    approved: true
     type: "structure-function"
     difficulty: "hard"
     stem: |
@@ -347,7 +347,7 @@ questions:
           This adds the push and its reaction. The two equal 80 N forces can tempt you to add their sizes. Equal pairs act on different objects. Check that the net force on the crate is zero.
     explanation: |
       The crate moves at a constant velocity, so the net force on it is zero. The push of $80$ N forward must be canceled by friction. Friction is $80$ N backward.
-    approved: false
+    approved: true
 
   - id: q-physics-dynamics-0022
     lesson: lesson-physics-mass-and-weight
@@ -370,7 +370,7 @@ questions:
           This divides the mass by $g$ instead of multiplying. Dividing gives a smaller number, which seems fair for the Moon. Check the formula $W=mg$.
     explanation: |
       Mass is the same everywhere, so the mass is $70$ kg. Weight uses the Moon's $g$. $W=mg=70\times1.6=112$ N.
-    approved: false
+    approved: true
 
   - id: q-physics-dynamics-0023
     lesson: lesson-physics-normal-force-and-contact
@@ -393,7 +393,7 @@ questions:
           This copies the force of the hand. The hand is the new force in the problem. Check that the table also supports the weight of the book.
     explanation: |
       The book is at rest, so the net force is zero. Take up as positive. $N-mg-20=0$. The weight is $mg=4.0\times9.8=39.2$ N. So $N=39.2+20=59.2$ N.
-    approved: false
+    approved: true
 
   - id: q-physics-dynamics-0024
     lesson: lesson-physics-drawing-free-body-diagrams
@@ -416,7 +416,7 @@ questions:
           This divides $\cos60^\circ$ by the mass without multiplying by the force. The angle part looks like the whole answer. Check that the $10$ N force is multiplied by $\cos60^\circ$ before dividing by the mass.
     explanation: |
       Only the part of the pull along the table accelerates the box. That part is $10\cos60^\circ=10\times0.50=5.0$ N. Then $a=\dfrac{5.0}{2.0}=2.5\ \mathrm{m/s^2}$.
-    approved: false
+    approved: true
 
   - id: q-physics-dynamics-0025
     lesson: lesson-physics-newtons-third-law-pairs
@@ -439,7 +439,7 @@ questions:
           This says they cancel and then uses inertia to explain the motion. A smaller mass does speed up more easily, but only when the net force is not zero. Forces cancel only if they act on one object. Check which object each force acts on.
     explanation: |
       The horse pulls on the cart, and the cart pulls on the horse. These forces act on different objects, so they cannot cancel each other. The cart accelerates when the net force on the cart, such as the pull from the horse minus friction, is forward.
-    approved: false
+    approved: true
 
   - id: q-physics-dynamics-0026
     lesson: lesson-physics-normal-force-and-contact
@@ -462,4 +462,4 @@ questions:
           This is $ma$ alone. The acceleration is in the problem, so it seems to give the force. Check that the normal force also supports the weight.
     explanation: |
       Take up as positive. The net force is $N-mg=ma$. So $N=m(g+a)=60\times(9.8+2.0)=60\times11.8=708$ N.
-    approved: false
+    approved: true

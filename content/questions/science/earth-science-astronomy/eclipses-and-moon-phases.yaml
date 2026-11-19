@@ -393,7 +393,7 @@ questions:
           This assigns the changing shape to changing solar brightness. The Sun supplies the light. Check the viewing geometry during the Moon’s orbit.
     explanation: |
       Sunlight illuminates roughly half the Moon. As it orbits Earth, we see different portions of that illuminated half. This produces ordinary phases.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0018
     lesson: lesson-earth-science-astronomy-identifying-moon-phases
@@ -416,7 +416,7 @@ questions:
           This substitutes quarter-phase illumination for both shape names. Half-lit phases are familiar. Check the specified smaller and larger fractions.
     explanation: |
       Crescent describes less than half the visible disk lit. Gibbous describes more than half lit. Either can occur while illumination grows or shrinks.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0019
     lesson: lesson-earth-science-astronomy-moon-phase-cycle
@@ -439,7 +439,7 @@ questions:
           This moves backward to larger lit fractions after last quarter. Gibbous stages are familiar. Check the decreasing path toward new moon.
     explanation: |
       Illumination decreases from last quarter to waning crescent and new moon. It then grows through waxing crescent to first quarter.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-eclipses-and-moon-phases-0020
     lesson: lesson-earth-science-astronomy-orbital-tilt-and-eclipses
@@ -462,4 +462,4 @@ questions:
           This treats a missed alignment as an annular subtype. Annular eclipses leave a ring. Check that they still require a central solar alignment.
     explanation: |
       A solar eclipse needs the Moon’s shadow to reach Earth. The stated off-line position misses that alignment, so this new moon does not produce a solar eclipse.
-    approved: false
+    approved: true

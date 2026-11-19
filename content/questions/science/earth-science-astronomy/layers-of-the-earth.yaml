@@ -393,7 +393,7 @@ questions:
           This mistakes iron in rock for liquid metal. Both can contain iron. Check basalt and the solid surface location.
     explanation: |
       Oceanic crust is largely basaltic and typically about $6$-$7$ km thick. Both clues fit oceanic crust.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-layers-of-the-earth-0018
     lesson: lesson-earth-science-astronomy-evidence-from-seismic-waves
@@ -416,7 +416,7 @@ questions:
           This ignores the effect of material properties. The wave continues traveling. Check whether continuation requires an unchanged path.
     explanation: |
       P waves can travel through solid and liquid. At a boundary their speed can change. This can bend their path.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-layers-of-the-earth-0019
     lesson: lesson-earth-science-astronomy-earths-layers-and-crust
@@ -439,7 +439,7 @@ questions:
           This multiplies the thicknesses. $35\times7$ gives 245. Check that the required ratio has no distance unit.
     explanation: |
       To compare thicknesses, divide the larger by the smaller. $35\div7=5$. The continental value is five times the oceanic value.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-layers-of-the-earth-0020
     lesson: lesson-earth-science-astronomy-seismic-shadow-zones
@@ -462,9 +462,10 @@ questions:
           This extends a shallow layer measurement to deep core state. Layers do provide geological evidence. Check whether the observation probes the core.
     explanation: |
       Seismic waves pass through deep Earth and respond to the material there. Their paths and transmission reveal layer properties. This provides evidence about the outer core's physical state.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-layers-of-the-earth-0021
+    approved: true
     lesson: lesson-earth-science-astronomy-lithosphere-and-asthenosphere
     keyPoint: 1
     type: 'identify'
@@ -492,6 +493,7 @@ questions:
       move together as a plate.
 
   - id: q-earth-science-astronomy-layers-of-the-earth-0022
+    approved: true
     lesson: lesson-earth-science-astronomy-evidence-from-seismic-waves
     keyPoint: 1
     type: 'cause-effect'

@@ -171,7 +171,7 @@ questions:
           This confuses transporting food with absorbing it. Food passes through the esophagus. Check whether the organ mainly transports or absorbs.
     explanation: |
       Most digested nutrients are absorbed in the small intestine. The lesson identifies it as the main site of nutrient absorption.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0017
     lesson: lesson-biology-digestion-and-nutrient-absorption
@@ -194,7 +194,7 @@ questions:
           This confuses bile storage with fat digestion. The gallbladder stores bile. Check what substance is stored and what bile does to fat.
     explanation: |
       Bile emulsifies fat, dividing it into small droplets. Smaller droplets expose more surface area to fat-digesting enzymes.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0018
     lesson: lesson-biology-breathing-and-gas-exchange
@@ -217,7 +217,7 @@ questions:
           This confuses the entry path with the exchange site. Air enters through the nose. Check where oxygen actually diffuses into lung capillary blood.
     explanation: |
       Alveoli are small lung air sacs where gases diffuse between air and blood. Oxygen enters blood, and carbon dioxide moves into the air.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0019
     lesson: lesson-biology-kidneys-and-waste-removal
@@ -240,7 +240,7 @@ questions:
           This skips the kidney-to-bladder tubes before storage. The bladder is the next major organ. Check the tubes urine uses to reach it.
     explanation: |
       Urine leaves the kidneys through the ureters. The bladder stores it. It then passes out through the urethra.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0021
     lesson: lesson-biology-cells-tissues-and-organs
@@ -263,7 +263,7 @@ questions:
           This picks a group of organs. The stomach works with other organs, so a system can seem right. Check whether the unit is one organ or several organs together.
     explanation: |
       A tissue is a group of similar cells. An organ is made of several tissues that work together as one unit. The stomach has muscle, lining, and other tissues, so it is an organ.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0022
     lesson: lesson-biology-breathing-and-gas-exchange
@@ -286,7 +286,7 @@ questions:
           This pairs a smaller space with lower pressure. Air does flow in, so the ending seems right. Check that air flows out when the chest space gets smaller.
     explanation: |
       When the diaphragm contracts, it flattens. The chest space gets bigger, so the pressure inside drops below the pressure outside. Air then flows into the lungs.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0023
     lesson: lesson-biology-arteries-veins-and-capillaries
@@ -309,7 +309,7 @@ questions:
           These large veins do carry oxygen-poor blood, so they seem to fit. They carry it toward the heart. Check the direction of flow.
     explanation: |
       Arteries carry blood away from the heart, and veins carry blood toward it. The pulmonary arteries take oxygen-poor blood from the heart to the lungs.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0024
     lesson: lesson-biology-digestion-and-nutrient-absorption
@@ -332,7 +332,7 @@ questions:
           This gives the job of the gallbladder to bicarbonate. Both are linked to the gallbladder and liver, so they can be mixed. Check which organ stores bile.
     explanation: |
       Food leaves the stomach mixed with acid. The pancreas adds bicarbonate to the small intestine. Bicarbonate neutralizes the acid, so the intestine's enzymes can work.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0025
     lesson: lesson-biology-digestion-and-nutrient-absorption
@@ -355,7 +355,7 @@ questions:
           This picks the main site of nutrient absorption. Absorption is the right idea, so it seems to fit. Check which organ forms feces from the leftover material.
     explanation: |
       The large intestine is the last organ on the food path. It absorbs water and electrolytes from the leftover material. It then compacts what remains into feces.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0026
     lesson: lesson-biology-digestion-and-nutrient-absorption
@@ -378,7 +378,7 @@ questions:
           This gives the job of the stomach to the villi. Both are found in digestive organs. Check which organ adds acid and begins protein digestion.
     explanation: |
       Villi are tiny finger-like folds. They make the inner wall of the small intestine much larger. A larger wall has more room to move nutrients into the blood.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0027
     lesson: lesson-biology-kidneys-and-waste-removal
@@ -401,7 +401,7 @@ questions:
           This is true, but the ureters belong to the urinary system. The urine path is easy to remember, so it seems relevant. Check whether the fact names an organ outside the urinary system.
     explanation: |
       Excretion is the removal of metabolic wastes. The urinary system is the main route, but it is not the only one. The lungs remove carbon dioxide, and the skin removes water, salts, and a little urea in sweat.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0028
     lesson: lesson-biology-blood-flow-through-the-heart
@@ -424,7 +424,7 @@ questions:
           This swaps each atrium and ventricle. Both are chambers on the same side, so their order is easy to reverse. Check which chamber receives blood first.
     explanation: |
       Blood from the body enters the right atrium and moves to the right ventricle. The ventricle pumps it to the lungs. It returns to the left atrium and then the left ventricle, which pumps it into the aorta.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0029
     lesson: lesson-biology-breathing-and-gas-exchange
@@ -447,7 +447,7 @@ questions:
           This picks an enzyme that starts to split starch. It is a protein, so it can seem to fit the question. Check whether the protein binds oxygen.
     explanation: |
       Most oxygen travels inside red blood cells. It is bound to a protein called hemoglobin. The blood carries the oxygen from the lungs to the body.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0030
     lesson: lesson-biology-breathing-and-gas-exchange
@@ -470,9 +470,10 @@ questions:
           Faster breathing helps remove gas, so this seems right. Each gas still moves by its own difference in amount. Check which side has less oxygen.
     explanation: |
       Diffusion moves a substance from more concentrated to less concentrated. The alveolar air has more oxygen than the blood, so oxygen moves into the blood. The blood has more carbon dioxide than the alveolar air, so carbon dioxide moves out.
-    approved: false
+    approved: true
 
   - id: q-biology-human-anatomy-physiology-0031
+    approved: true
     lesson: lesson-biology-cells-tissues-and-organs
     keyPoint: 2
     type: "classify"
@@ -495,6 +496,7 @@ questions:
       Epithelial tissue covers surfaces and lines spaces. This sample forms the organ's inner lining.
 
   - id: q-biology-human-anatomy-physiology-0032
+    approved: true
     lesson: lesson-biology-arteries-veins-and-capillaries
     keyPoint: 2
     type: "structure-function"

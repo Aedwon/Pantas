@@ -511,6 +511,7 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-weather-and-climate-0023
+    approved: true
     lesson: lesson-earth-science-astronomy-coastal-breezes-and-rising-air
     keyPoint: 1
     type: 'cause-effect'
@@ -537,6 +538,7 @@ questions:
       land flows toward the sea to take its place.
 
   - id: q-earth-science-astronomy-weather-and-climate-0024
+    approved: true
     lesson: lesson-earth-science-astronomy-coastal-breezes-and-rising-air
     keyPoint: 2
     type: 'cause-effect'
@@ -564,6 +566,7 @@ questions:
       turns into cloud drops, which can grow and fall as rain.
 
   - id: q-earth-science-astronomy-weather-and-climate-0025
+    approved: true
     lesson: lesson-earth-science-astronomy-seasonal-monsoon-winds
     keyPoint: 1
     type: 'cause-effect'
@@ -591,6 +594,7 @@ questions:
       the surface. Air moves in from over the ocean.
 
   - id: q-earth-science-astronomy-weather-and-climate-0026
+    approved: true
     lesson: lesson-earth-science-astronomy-seasonal-monsoon-winds
     keyPoint: 1
     type: 'predict-outcome'
@@ -618,6 +622,7 @@ questions:
       pressure, so surface air moves from land toward the sea.
 
   - id: q-earth-science-astronomy-weather-and-climate-0027
+    approved: true
     lesson: lesson-earth-science-astronomy-tropical-cyclone-formation
     keyPoint: 1
     type: 'identify'
@@ -644,6 +649,7 @@ questions:
       clouds. Weak wind shear lets the rising air and clouds stay near the storm's center.
 
   - id: q-earth-science-astronomy-weather-and-climate-0028
+    approved: true
     lesson: lesson-earth-science-astronomy-tropical-cyclone-formation
     keyPoint: 2
     type: 'cause-effect'
@@ -671,6 +677,7 @@ questions:
       With less water vapor, less heat is released when cloud drops form.
 
   - id: q-earth-science-astronomy-weather-and-climate-0029
+    approved: true
     lesson: lesson-earth-science-astronomy-weather-hazards-and-safety
     keyPoint: 1
     type: 'predict-outcome'
@@ -698,6 +705,7 @@ questions:
       from it keeps you from having to walk or drive through it.
 
   - id: q-earth-science-astronomy-weather-and-climate-0030
+    approved: true
     lesson: lesson-earth-science-astronomy-weather-hazards-and-safety
     keyPoint: 1
     type: 'predict-outcome'
@@ -725,6 +733,7 @@ questions:
       the water supply can help it last.
 
   - id: q-earth-science-astronomy-weather-and-climate-0031
+    approved: true
     lesson: lesson-earth-science-astronomy-effects-of-climate-change
     keyPoint: 1
     type: 'cause-effect'
@@ -751,6 +760,7 @@ questions:
       changes can make sea level rise.
 
   - id: q-earth-science-astronomy-weather-and-climate-0032
+    approved: true
     lesson: lesson-earth-science-astronomy-effects-of-climate-change
     keyPoint: 2
     type: 'predict-outcome'
@@ -778,6 +788,7 @@ questions:
       reduces how many people and buildings are exposed.
 
   - id: q-earth-science-astronomy-weather-and-climate-0033
+    approved: true
     lesson: lesson-earth-science-astronomy-climate-mitigation-and-adaptation
     keyPoint: 1
     type: 'classify'
@@ -805,6 +816,7 @@ questions:
       Raising roads helps people deal with floods. That is adaptation.
 
   - id: q-earth-science-astronomy-weather-and-climate-0034
+    approved: true
     lesson: lesson-earth-science-astronomy-climate-mitigation-and-adaptation
     keyPoint: 2
     type: 'predict-outcome'

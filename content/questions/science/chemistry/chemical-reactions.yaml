@@ -370,7 +370,7 @@ questions:
           This changes ion identity instead of quantity. Charge is important in ionic equations. Check whether balancing can be done with coefficients.
     explanation: |
       Coefficients multiply the amounts of substances. Changing them changes atom totals without changing the substance formulas.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-reactions-0017
     lesson: lesson-chemistry-balancing-complete-combustion
@@ -393,7 +393,7 @@ questions:
           This jumps ahead to oxygen before the water is balanced. The oxygen count is not final until the water coefficient is set. Check the oxygen atoms in both $CO_2$ and $H_2O$ first.
     explanation: |
       Propane has $8$ hydrogen atoms. Each water molecule has $2$ hydrogen atoms. So $8 \div 2 = 4$ water molecules are needed. Write $4$ in front of $H_2O$. Leave oxygen for last, because $CO_2$ and $H_2O$ both hold oxygen.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-reactions-0018
     lesson: lesson-chemistry-incomplete-combustion-products
@@ -416,7 +416,7 @@ questions:
           This contains only hydrogen and oxygen, so it seems possible. In the combustion model taught here, the hydrogen in the fuel forms water, not hydrogen peroxide. Check the products the lesson teaches for burning a hydrocarbon.
     explanation: |
       Insufficient oxygen can cause incomplete combustion. Some carbon can form carbon monoxide during this partial reaction.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-reactions-0019
     lesson: lesson-chemistry-recognizing-reaction-patterns
@@ -439,7 +439,7 @@ questions:
           This treats a useful scheme as exhaustive. The five labels are commonly taught. Check whether other chemical features define additional classes.
     explanation: |
       A pattern label describes how reactants and products are arranged. A redox label describes oxidation-state changes. One reaction can fit both descriptions.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-reactions-0020
     lesson: lesson-chemistry-double-displacement-driving-forces
@@ -462,9 +462,10 @@ questions:
           This makes gas formation automatic. Gas can drive some exchanges. Check whether a gas-forming change is observed or specified.
     explanation: |
       Unchanged ions appear on both sides of the complete ionic equation. Canceling them leaves no net ionic change. These observations give no net ionic reaction.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-reactions-0021
+    approved: true
     lesson: lesson-chemistry-conserving-atoms-in-reactions
     keyPoint: 2
     type: 'simple-quantitative'
@@ -487,6 +488,7 @@ questions:
       Each sulfate group has 4 oxygen atoms. Each formula unit has 3 groups, so it has 12 oxygen atoms. Three units have $3(12)=36$.
 
   - id: q-chemistry-chemical-reactions-0022
+    approved: true
     lesson: lesson-chemistry-ion-charges-and-reaction-formulas
     keyPoint: 1
     type: 'identify'
@@ -509,6 +511,7 @@ questions:
       One magnesium ion has charge $+2$. Two nitrate ions give $-2$. The parentheses keep the whole nitrate group together.
 
   - id: q-chemistry-chemical-reactions-0023
+    approved: true
     lesson: lesson-chemistry-ion-charges-and-reaction-formulas
     keyPoint: 1
     type: 'identify'
@@ -531,6 +534,7 @@ questions:
       The charges have the same size and opposite signs. One calcium ion and one sulfate ion cancel.
 
   - id: q-chemistry-chemical-reactions-0024
+    approved: true
     lesson: lesson-chemistry-polyatomic-groups-and-coefficient-ratios
     keyPoint: 1
     type: 'simple-quantitative'
@@ -553,6 +557,7 @@ questions:
       The first formula has three sulfate groups. Each $Na_2SO_4$ has one. Put a 3 before $Na_2SO_4$ to keep all three groups.
 
   - id: q-chemistry-chemical-reactions-0025
+    approved: true
     lesson: lesson-chemistry-polyatomic-groups-and-coefficient-ratios
     keyPoint: 1
     type: 'simple-quantitative'
@@ -575,6 +580,7 @@ questions:
       The aluminum salt has three sulfate groups. Each $BaSO_4$ holds one, so three units are needed.
 
   - id: q-chemistry-chemical-reactions-0026
+    approved: true
     lesson: lesson-chemistry-single-displacement-and-reactivity
     keyPoint: 1
     type: 'predict-outcome'
@@ -597,6 +603,7 @@ questions:
       Zinc is higher in the series. It can take the place of iron in the salt, so iron metal is left.
 
   - id: q-chemistry-chemical-reactions-0027
+    approved: true
     lesson: lesson-chemistry-single-displacement-and-reactivity
     keyPoint: 1
     type: 'predict-outcome'
@@ -619,6 +626,7 @@ questions:
       Copper ranks above silver. The free copper can replace silver ions and leave silver metal.
 
   - id: q-chemistry-chemical-reactions-0028
+    approved: true
     lesson: lesson-chemistry-precipitates-and-net-ionic-equations
     keyPoint: 1
     type: 'predict-outcome'
@@ -641,6 +649,7 @@ questions:
       Silver is an exception to the rule that bromides dissolve. Silver and bromide ions join to make a solid.
 
   - id: q-chemistry-chemical-reactions-0029
+    approved: true
     lesson: lesson-chemistry-precipitates-and-net-ionic-equations
     keyPoint: 2
     type: 'identify'
@@ -663,6 +672,7 @@ questions:
       Barium and sulfate join to make the solid. Sodium and chloride stay as the same ions in water.
 
   - id: q-chemistry-chemical-reactions-0030
+    approved: true
     lesson: lesson-chemistry-precipitates-and-net-ionic-equations
     keyPoint: 2
     type: 'identify'
@@ -685,6 +695,7 @@ questions:
       Two iodide ions balance the charge of one lead ion. The solid forms from those ions. Potassium and nitrate stay dissolved.
 
   - id: q-chemistry-chemical-reactions-0031
+    approved: true
     lesson: lesson-chemistry-balancing-complete-combustion
     keyPoint: 2
     type: 'simple-quantitative'
@@ -707,6 +718,7 @@ questions:
       Start with 2 carbon dioxide and 3 water for one fuel molecule. They have 7 O atoms in all, or $\dfrac{7}{2}$ oxygen molecules. Double all the counts to get 7 oxygen molecules.
 
   - id: q-chemistry-chemical-reactions-0032
+    approved: true
     lesson: lesson-chemistry-incomplete-combustion-products
     keyPoint: 1
     type: 'predict-outcome'
@@ -729,6 +741,7 @@ questions:
       With too little oxygen, some carbon in the fuel stays as solid particles. These particles form soot.
 
   - id: q-chemistry-chemical-reactions-0033
+    approved: true
     lesson: lesson-chemistry-oxidation-and-reduction-in-reactions
     keyPoint: 1
     type: 'identify'
@@ -751,6 +764,7 @@ questions:
       Magnesium starts as an element, with number $0$. It ends at $+2$ in the oxide. A rise in oxidation number means oxidation.
 
   - id: q-chemistry-chemical-reactions-0034
+    approved: true
     lesson: lesson-chemistry-oxidation-and-reduction-in-reactions
     keyPoint: 1
     type: 'identify'

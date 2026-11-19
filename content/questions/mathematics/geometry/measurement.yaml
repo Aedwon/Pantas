@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, ustet, pupcet]
 questions:
   - id: q-geometry-measurement-0001
+    approved: true
     lesson: lesson-geometry-perimeter-and-area-formulas
     keyPoint: 1
     type: word-problem
@@ -30,6 +31,7 @@ questions:
       A rectangle has two lengths and two widths. Add all four: $2(15+8)=2(23)=46$ meters.
 
   - id: q-geometry-measurement-0002
+    approved: true
     lesson: lesson-geometry-rectangular-prism-measurements
     keyPoint: 1
     type: direct-computation
@@ -55,6 +57,7 @@ questions:
       Each cube face has area $5^2=25$ square centimeters. There are six faces. Total surface area is $6(25)=150$ square centimeters.
 
   - id: q-geometry-measurement-0003
+    approved: true
     lesson: lesson-geometry-cylinder-and-sphere-measurements
     keyPoint: 1
     type: word-problem
@@ -80,6 +83,7 @@ questions:
       The cylinder base area is $\pi(3^2)=9\pi$ square meters. Multiply by height: $V=9\pi(10)=90\pi$ cubic meters.
 
   - id: q-geometry-measurement-0004
+    approved: true
     lesson: lesson-geometry-cone-and-pyramid-measurements
     keyPoint: 1
     type: direct-computation
@@ -105,6 +109,7 @@ questions:
       A cone volume is one third of base area times height. Thus $V=\dfrac{1}{3}\pi(6^2)(7)=\dfrac{252\pi}{3}=84\pi$ cubic centimeters.
 
   - id: q-geometry-measurement-0005
+    approved: true
     lesson: lesson-geometry-cylinder-and-sphere-measurements
     keyPoint: 1
     type: direct-computation
@@ -130,6 +135,7 @@ questions:
       A sphere has surface area $4\pi r^2$. Substitute $r=6$: $4\pi(36)=144\pi$ square centimeters.
 
   - id: q-geometry-measurement-0006
+    approved: true
     lesson: lesson-geometry-perpendicular-height-in-area-formulas
     keyPoint: 1
     type: direct-computation
@@ -155,6 +161,7 @@ questions:
       The average base length is $\dfrac{10+18}{2}=14$ cm. Multiply by the perpendicular height, $4$: $14(4)=56$ square centimeters.
 
   - id: q-geometry-measurement-0007
+    approved: true
     lesson: lesson-geometry-combined-areas-and-units
     keyPoint: 1
     type: direct-computation
@@ -180,6 +187,7 @@ questions:
       The rectangle area is $12(8)=96$ square centimeters. The semicircle diameter is $8$, so its radius is $4$ cm. Its area is $\dfrac{1}{2}\pi(4^2)=8\pi$ square centimeters. Add the two areas to get $96+8\pi$ square centimeters.
 
   - id: q-geometry-measurement-0008
+    approved: true
     lesson: lesson-geometry-combined-areas-and-units
     keyPoint: 1
     type: word-problem
@@ -205,6 +213,7 @@ questions:
       The square area is $10^2=100$ square centimeters. The largest centered circle has diameter $10$ and radius $5$ cm. Its area is $25\pi$ square centimeters. Subtract the hole: $100-25\pi$ square centimeters remain.
 
   - id: q-geometry-measurement-0009
+    approved: true
     lesson: lesson-geometry-rectangular-prism-measurements
     keyPoint: 1
     type: direct-computation
@@ -230,6 +239,7 @@ questions:
       The three different face areas are $8(5)=40$, $8(3)=24$, and $5(3)=15$ square centimeters. Each appears twice. Total surface area is $2(40+24+15)=2(79)=158$ square centimeters.
 
   - id: q-geometry-measurement-0010
+    approved: true
     lesson: lesson-geometry-cone-and-pyramid-measurements
     keyPoint: 1
     type: word-problem
@@ -255,6 +265,7 @@ questions:
       The square base area is $6^2=36$ square meters. Pyramid volume is one third of base area times perpendicular height. Thus $V=\dfrac{1}{3}(36)(9)=108$ cubic meters.
 
   - id: q-geometry-measurement-0011
+    approved: true
     lesson: lesson-geometry-cone-and-pyramid-measurements
     keyPoint: 2
     type: direct-computation
@@ -280,6 +291,7 @@ questions:
       The slant height is $\sqrt{5^2+12^2}=\sqrt{169}=13$ cm. Cone lateral area is $\pi r\ell=\pi(5)(13)=65\pi$ square centimeters. The base area is $\pi(5^2)=25\pi$. Add them to get $90\pi$ square centimeters.
 
   - id: q-geometry-measurement-0012
+    approved: true
     lesson: lesson-geometry-cylinder-and-sphere-measurements
     keyPoint: 1
     type: word-problem
@@ -305,6 +317,7 @@ questions:
       The sphere volume is $\dfrac{4}{3}\pi(3^3)=36\pi$ cubic centimeters. Recasting keeps this volume. The cylinder volume is $\pi(3^2)h=9\pi h$. Set $9\pi h=36\pi$ and divide by $9\pi$ to get $h=4$ cm.
 
   - id: q-geometry-measurement-0013
+    approved: true
     lesson: lesson-geometry-cylinder-and-sphere-measurements
     keyPoint: 1
     type: direct-computation
@@ -330,6 +343,7 @@ questions:
       The cylinder volume is $\pi(3^2)(8)=72\pi$ cubic meters. The hemisphere is half a sphere, so its volume is $\dfrac{1}{2}\left[\dfrac{4}{3}\pi(3^3)\right]=18\pi$ cubic meters. Add the parts: $72\pi+18\pi=90\pi$ cubic meters.
 
   - id: q-geometry-measurement-0014
+    approved: true
     lesson: lesson-geometry-combined-areas-and-units
     keyPoint: 1
     type: direct-computation
@@ -355,6 +369,7 @@ questions:
       The outer square area is $12^2=144$ square centimeters. Midpoints cut each side into lengths of $6$ cm. Each of the four corner triangles has area $\dfrac{1}{2}(6)(6)=18$ square centimeters. Those corners are the region outside the inner square. Their total area is $4(18)=72$ square centimeters.
 
   - id: q-geometry-measurement-0015
+    approved: true
     lesson: lesson-geometry-scaling-length-area-and-volume
     keyPoint: 1
     type: which-is-true
@@ -400,7 +415,7 @@ questions:
           This reports the base length as area. Ten is a given measure. Check that area uses two perpendicular lengths.
     explanation: |
       Triangle area uses the perpendicular height. Substitute $4$: $A=\dfrac{1}{2}(10)(4)=20$ square centimeters.
-    approved: false
+    approved: true
 
   - id: q-geometry-measurement-0017
     lesson: lesson-geometry-cylinder-and-sphere-measurements
@@ -423,7 +438,7 @@ questions:
           This reports pi times radius cubed without the four-thirds factor. The cubed radius is correct. Check every factor in the sphere-volume formula.
     explanation: |
       Use $4\pi r^2=36\pi$ to get $r^2=9$ and $r=3$ cm. Then $V=\dfrac{4}{3}\pi(3^3)=36\pi$ cubic centimeters.
-    approved: false
+    approved: true
 
   - id: q-geometry-measurement-0018
     lesson: lesson-geometry-perimeter-and-area-formulas
@@ -446,7 +461,7 @@ questions:
           This treats five as a half-radius and doubles it before squaring. Circle problems often give a diameter. Check that the given length is already radius.
     explanation: |
       The area formula is $\pi r^2$. With the stated approximation, $A\approx3(5^2)=3(25)=75$ square meters.
-    approved: false
+    approved: true
 
   - id: q-geometry-measurement-0019
     lesson: lesson-geometry-combined-areas-and-units
@@ -469,7 +484,7 @@ questions:
           This uses one thousand millimeters per meter as if it were centimeters. Both are smaller length units. Check the requested unit.
     explanation: |
       Convert $2$ meters to $200$ centimeters. Multiply matching units: $200(30)=6000$ square centimeters.
-    approved: false
+    approved: true
 
   - id: q-geometry-measurement-0020
     lesson: lesson-geometry-rectangular-prism-measurements
@@ -492,9 +507,10 @@ questions:
           This multiplies length, width, and height for volume. The same three dimensions are used. Check that face area uses square units.
     explanation: |
       The bottom area is $5(4)=20$. The two longer walls total $2(5)(3)=30$. The two shorter walls total $2(4)(3)=24$. Add them: $20+30+24=74$ square centimeters.
-    approved: false
+    approved: true
 
   - id: q-geometry-measurement-0021
+    approved: true
     lesson: lesson-geometry-perimeter-and-area-formulas
     keyPoint: 1
     type: word-problem
@@ -520,6 +536,7 @@ questions:
       The rectangle has perimeter $2(14+6)=40\text{ cm}$. Divide $40$ by the square’s four equal sides to get $10\text{ cm}$ per side. The area is $10\cdot10=100\text{ cm}^2$.
 
   - id: q-geometry-measurement-0022
+    approved: true
     lesson: lesson-geometry-perpendicular-height-in-area-formulas
     keyPoint: 1
     type: word-problem
@@ -545,6 +562,7 @@ questions:
       Use the $15\text{ cm}$ side because the $8\text{ cm}$ height meets it at a right angle. Multiply $15$ by $8$ to get $120\text{ cm}^2$.
 
   - id: q-geometry-measurement-0023
+    approved: true
     lesson: lesson-geometry-cone-and-pyramid-measurements
     keyPoint: 2
     type: word-problem
@@ -570,6 +588,7 @@ questions:
       The radius and the height meet at a right angle. The slant height squared is $8^2+15^2=289$. Take the square root to get $17\text{ cm}$.
 
   - id: q-geometry-measurement-0024
+    approved: true
     lesson: lesson-geometry-scaling-length-area-and-volume
     keyPoint: 1
     type: word-problem
@@ -595,6 +614,7 @@ questions:
       Surface area has two length factors. Multiply $144$ by $\dfrac{2}{3}$ twice. This gives $96$ and then $64\text{ cm}^2$.
 
   - id: q-geometry-measurement-0025
+    approved: true
     lesson: lesson-geometry-scaling-length-area-and-volume
     keyPoint: 2
     type: word-problem
@@ -620,6 +640,7 @@ questions:
       Volume uses three length factors. Since $27=3^3$ and $64=4^3$, the height ratio is $3:4$. The smaller height is $36\cdot\dfrac{3}{4}=27\text{ cm}$.
 
   - id: q-geometry-measurement-0026
+    approved: true
     lesson: lesson-geometry-scaling-length-area-and-volume
     keyPoint: 2
     type: word-problem

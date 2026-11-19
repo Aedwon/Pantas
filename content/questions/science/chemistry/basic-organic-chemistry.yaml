@@ -347,7 +347,7 @@ questions:
           This limits carbon chemistry to single bonds. Alkanes are familiar examples. Check the double and triple bonds present in other hydrocarbon families.
     explanation: |
       Carbon can form four covalent bonds and stable bonds with other carbon atoms. These properties allow many different frameworks.
-    approved: false
+    approved: true
 
   - id: q-chemistry-basic-organic-chemistry-0016
     lesson: lesson-chemistry-hydrocarbon-families-by-bond
@@ -370,7 +370,7 @@ questions:
           This recognizes carbon but leaves out hydrogen. Carbon-containing oxides are familiar compounds. Check whether both C and H are present.
     explanation: |
       A hydrocarbon contains only carbon and hydrogen. Both the required elements and the restriction to those two matter.
-    approved: false
+    approved: true
 
   - id: q-chemistry-basic-organic-chemistry-0017
     lesson: lesson-chemistry-recognizing-organic-functional-groups
@@ -393,7 +393,7 @@ questions:
           This treats all nitrogen-containing groups as the same amine type. Nitrogen is central to amines. Check the number of attached organic groups rather than using one label for all cases.
     explanation: |
       Primary amines may have $-NH_2$, while secondary amines may have $-NHR$. The amine family includes more than the primary-amino pattern.
-    approved: false
+    approved: true
 
   - id: q-chemistry-basic-organic-chemistry-0018
     lesson: lesson-chemistry-aldehydes-and-ketones
@@ -416,7 +416,7 @@ questions:
           This substitutes a nitrogen group for an oxygen group. Both influence reactivity. Check which atom appears in C=O.
     explanation: |
       Aldehydes and ketones both contain a carbonyl group, $C=O$. Their carbonyl groups occur in different structural environments.
-    approved: false
+    approved: true
 
   - id: q-chemistry-basic-organic-chemistry-0019
     lesson: lesson-chemistry-naming-branched-alkanes
@@ -439,7 +439,7 @@ questions:
           This turns alternative numbering schemes into an average. Two sets of numbers are available. Check that one valid numbering direction must be chosen.
     explanation: |
       After choosing the parent chain, number its carbon atoms so branches receive the lowest allowed position numbers. Then name the branches and state their positions.
-    approved: false
+    approved: true
 
   - id: q-chemistry-basic-organic-chemistry-0020
     lesson: lesson-chemistry-functional-groups-and-properties
@@ -462,9 +462,10 @@ questions:
           This assumes a size difference changes which group exists. Larger molecules have more framework atoms. Check whether the stated functional group actually changes.
     explanation: |
       Functional groups are major predictors of behavior. Carbon skeleton and size also influence properties such as boiling point and water solubility. Matching groups do not specify every property.
-    approved: false
+    approved: true
 
   - id: q-chemistry-basic-organic-chemistry-0021
+    approved: true
     lesson: lesson-chemistry-hydrocarbon-formulas-and-rings
     keyPoint: 1
     type: 'classify'
@@ -487,6 +488,7 @@ questions:
       An open, all-single-bond chain with six carbons has 14 hydrogens. A ring takes away two, leaving 12.
 
   - id: q-chemistry-basic-organic-chemistry-0022
+    approved: true
     lesson: lesson-chemistry-aldehydes-and-ketones
     keyPoint: 1
     type: 'classify'
@@ -509,6 +511,7 @@ questions:
       Find the carbon in $C=O$. It is joined to carbon groups on both sides. This makes the compound a ketone.
 
   - id: q-chemistry-basic-organic-chemistry-0023
+    approved: true
     lesson: lesson-chemistry-parent-chains-and-locants
     keyPoint: 1
     type: 'identify'
@@ -531,6 +534,7 @@ questions:
       The parent chain has four carbons. Counting from the right puts OH on carbon 2. Counting from the left gives 3, so use 2.
 
   - id: q-chemistry-basic-organic-chemistry-0024
+    approved: true
     lesson: lesson-chemistry-functional-groups-in-biomolecules
     keyPoint: 1
     type: 'identify'
@@ -553,6 +557,7 @@ questions:
       An amino acid has both groups. Many amino acids joined by peptide bonds make a protein.
 
   - id: q-chemistry-basic-organic-chemistry-0025
+    approved: true
     lesson: lesson-chemistry-functional-groups-in-biomolecules
     keyPoint: 1
     type: 'identify'
@@ -576,6 +581,7 @@ questions:
 
 
   - id: q-chemistry-basic-organic-chemistry-0026
+    approved: true
     lesson: lesson-chemistry-hydrocarbon-formulas-and-rings
     keyPoint: 1
     type: 'simple-quantitative'

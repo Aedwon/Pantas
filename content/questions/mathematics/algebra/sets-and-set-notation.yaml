@@ -476,6 +476,7 @@ questions:
     approved: true
 
   - id: q-algebra-sets-and-set-notation-0022
+    approved: true
     lesson: lesson-algebra-counting-elements-and-subsets
     keyPoint: 1
     type: direct-computation
@@ -498,6 +499,7 @@ questions:
       The distinct elements of $A$ are $2$, $5$, and $7$. The first set lists all three. Their order does not matter.
 
   - id: q-algebra-sets-and-set-notation-0023
+    approved: true
     lesson: lesson-algebra-counting-elements-and-subsets
     keyPoint: 2
     type: direct-computation
@@ -520,6 +522,7 @@ questions:
       Each of the five elements can be in or out. That gives $2^5=32$ subsets. Remove the full set to get $31$.
 
   - id: q-algebra-sets-and-set-notation-0024
+    approved: true
     lesson: lesson-algebra-set-differences-and-disjoint-sets
     keyPoint: 2
     type: direct-computation
@@ -542,6 +545,7 @@ questions:
       None of $-4$, $0$, and $3$ is in $A$. The intersection is empty, so the sets are disjoint.
 
   - id: q-algebra-sets-and-set-notation-0025
+    approved: true
     lesson: lesson-algebra-three-set-inclusion-exclusion
     keyPoint: 1
     type: word-problem

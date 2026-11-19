@@ -370,7 +370,7 @@ questions:
           This treats a bonding diagram as an exact three-dimensional shape. Bond lines suggest a layout. Check whether a separate geometry model is needed.
     explanation: |
       A Lewis structure keeps track of valence electrons, bonds, lone pairs, and formal charges. It is a model for this information.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-bonding-0017
     lesson: lesson-chemistry-octet-rule-and-exceptions
@@ -393,7 +393,7 @@ questions:
           This confuses one bonding pair with the whole electron shell. Fluorine often forms one bond. Check the additional lone pairs in its usual Lewis pattern.
     explanation: |
       Hydrogen follows a duet rule in simple Lewis structures. Its usual bonding pattern is represented by two electrons in its first shell.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-bonding-0018
     lesson: lesson-chemistry-bonding-and-material-properties
@@ -416,7 +416,7 @@ questions:
           This limits delocalized electrons to one neighboring pair. Bond drawings often connect just two atoms. Check whether the electrons extend through the whole solid.
     explanation: |
       Delocalized valence electrons are spread through a metal. Their movement can carry electrical charge through the solid.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-bonding-0019
     lesson: lesson-chemistry-vsepr-four-groups
@@ -439,7 +439,7 @@ questions:
           This confuses absence of a bonded atom with absence of electron density. Molecular shape names atoms. Check whether a lone pair still affects the electron arrangement.
     explanation: |
       Lone pairs usually repel more strongly than bonding groups. This can push bonding groups closer together and make nearby bond angles smaller.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-bonding-0020
     lesson: lesson-chemistry-formal-charge-and-resonance
@@ -462,9 +462,10 @@ questions:
           This treats several drawings as permission to change electron totals. Bond placement may vary. Check that each valid structure uses the species’ valence-electron count.
     explanation: |
       Some species have electron density spread beyond the pattern in one Lewis drawing. Several resonance drawings help represent that distribution. They describe one species.
-    approved: false
+    approved: true
 
   - id: q-chemistry-chemical-bonding-0021
+    approved: true
     lesson: lesson-chemistry-octet-rule-and-exceptions
     keyPoint: 1
     type: 'identify'
@@ -487,6 +488,7 @@ questions:
       Boron has three bonds to fluorine. Each bond counts as two electrons around boron, for a total of six.
 
   - id: q-chemistry-chemical-bonding-0022
+    approved: true
     lesson: lesson-chemistry-drawing-lewis-structures
     keyPoint: 1
     type: 'identify'
@@ -509,6 +511,7 @@ questions:
       The two N atoms have ten electrons to place. A triple bond uses six. The four left make one lone pair on each N. Each N now has eight electrons around it.
 
   - id: q-chemistry-chemical-bonding-0023
+    approved: true
     lesson: lesson-chemistry-formal-charge-and-resonance
     keyPoint: 1
     type: 'simple-quantitative'
@@ -531,6 +534,7 @@ questions:
       Oxygen starts with six valence electrons. Count six from the lone pairs and one from the bond. The formal charge is $6-7=-1$.
 
   - id: q-chemistry-chemical-bonding-0024
+    approved: true
     lesson: lesson-chemistry-polar-and-nonpolar-molecules
     keyPoint: 1
     type: 'predict-outcome'
@@ -553,6 +557,7 @@ questions:
       Each B-F bond pulls toward fluorine. The three equal pulls point out evenly in a flat shape. They cancel.
 
   - id: q-chemistry-chemical-bonding-0025
+    approved: true
     lesson: lesson-chemistry-polar-and-nonpolar-molecules
     keyPoint: 1
     type: 'predict-outcome'
@@ -575,6 +580,7 @@ questions:
       The four bonds pull equally in a symmetric shape. Together the pulls add up to zero.
 
   - id: q-chemistry-chemical-bonding-0026
+    approved: true
     lesson: lesson-chemistry-forces-between-molecules
     keyPoint: 1
     type: 'classify'
@@ -597,6 +603,7 @@ questions:
       A brief shift of electrons makes one molecule slightly uneven in charge. This shift can cause a matching pull in its neighbor.
 
   - id: q-chemistry-chemical-bonding-0027
+    approved: true
     lesson: lesson-chemistry-forces-between-molecules
     keyPoint: 1
     type: 'identify'
@@ -619,6 +626,7 @@ questions:
       The H bonded to O can be drawn to a lone pair on O in another molecule. That is a hydrogen bond.
 
   - id: q-chemistry-chemical-bonding-0028
+    approved: true
     lesson: lesson-chemistry-bonding-and-material-properties
     keyPoint: 1
     type: 'cause-effect'
@@ -642,6 +650,7 @@ questions:
 
 
   - id: q-chemistry-chemical-bonding-0029
+    approved: true
     lesson: lesson-chemistry-drawing-lewis-structures
     keyPoint: 1
     type: 'identify'

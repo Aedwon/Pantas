@@ -370,7 +370,7 @@ questions:
           This uses density instead of nuclear identity. Density is a physical property. Check whether it determines periodic position.
     explanation: |
       Elements are ordered by atomic number, the proton count. Their electron configurations then produce repeating chemical patterns.
-    approved: false
+    approved: true
 
   - id: q-chemistry-periodic-table-0017
     lesson: lesson-chemistry-electronegativity-and-electron-affinity
@@ -393,7 +393,7 @@ questions:
           This picks an atomic-size measure. Electron interactions affect size. Check whether the question asks for a distance or an energy change.
     explanation: |
       Electron affinity describes the energy change when a gaseous atom gains an electron. Its sign must be interpreted using the stated convention.
-    approved: false
+    approved: true
 
   - id: q-chemistry-periodic-table-0018
     lesson: lesson-chemistry-valence-electrons-by-group
@@ -416,7 +416,7 @@ questions:
           This replaces electron-pattern grouping with mass grouping. The table also lists mass. Check how chemical group similarities arise.
     explanation: |
       Helium’s neutral atom has the $1s^2$ configuration. Its first shell is filled with two electrons, so group 18 does not universally mean eight valence electrons.
-    approved: false
+    approved: true
 
   - id: q-chemistry-periodic-table-0019
     lesson: lesson-chemistry-first-ionization-energy-trends
@@ -439,7 +439,7 @@ questions:
           This gives the right ranking for the wrong reason. Nitrogen atoms are slightly larger, but a larger atom usually holds its outer electron more loosely. Check the reason against the p-electron pairing.
     explanation: |
       The table values show nitrogen is higher than oxygen. The arrow shows only the broad pattern. In oxygen, two electrons share one p orbital and push each other apart. So one of them is easier to remove. This lowers oxygen's value below nitrogen's.
-    approved: false
+    approved: true
 
   - id: q-chemistry-periodic-table-0020
     lesson: lesson-chemistry-periodic-element-families
@@ -462,9 +462,10 @@ questions:
           This treats reference variation as making the category useless. Borderline membership can vary. Check the common intermediate-property description.
     explanation: |
       Metalloid membership varies among references. When an exam supplies a classification, use that stated convention for its question.
-    approved: false
+    approved: true
 
   - id: q-chemistry-periodic-table-0021
+    approved: true
     lesson: lesson-chemistry-valence-electrons-by-group
     keyPoint: 1
     type: 'identify'
@@ -487,6 +488,7 @@ questions:
       Group 16 is between groups 13 and 18. Subtract 10 from 16 to find the outer-shell count, $6$.
 
   - id: q-chemistry-periodic-table-0022
+    approved: true
     lesson: lesson-chemistry-periodic-element-families
     keyPoint: 1
     type: 'classify'

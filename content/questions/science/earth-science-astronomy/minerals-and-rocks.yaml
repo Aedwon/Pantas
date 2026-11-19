@@ -439,7 +439,7 @@ questions:
           This reverses glass formation and crystal size. Slow cooling can grow large crystals. Check the effect of very rapid cooling.
     explanation: |
       Very rapid cooling can form volcanic glass. Its atoms do not have an ordered crystal structure. The material is still classified as igneous rock by its formation.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-minerals-and-rocks-0020
     lesson: lesson-earth-science-astronomy-rock-cycle-pathways
@@ -462,9 +462,10 @@ questions:
           This treats hardened melt as loose particles. Molten material can fragment. Check the stated solid mass after cooling.
     explanation: |
       Complete melting produces molten rock. When that material cools and solidifies, it forms igneous rock. Classification follows the process that formed the new rock.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-minerals-and-rocks-0021
+    approved: true
     lesson: lesson-earth-science-astronomy-weathering-erosion-and-deposition
     keyPoint: 1
     type: 'classify'
@@ -492,6 +493,7 @@ questions:
       stands. That breakage is mechanical weathering.
 
   - id: q-earth-science-astronomy-minerals-and-rocks-0022
+    approved: true
     lesson: lesson-earth-science-astronomy-weathering-erosion-and-deposition
     keyPoint: 1
     type: 'classify'
@@ -519,6 +521,7 @@ questions:
       builds up, that is deposition.
 
   - id: q-earth-science-astronomy-minerals-and-rocks-0023
+    approved: true
     lesson: lesson-earth-science-astronomy-variables-in-a-cooling-test
     keyPoint: 1
     type: 'identify'
@@ -547,6 +550,7 @@ questions:
       size of the crystals.
 
   - id: q-earth-science-astronomy-minerals-and-rocks-0024
+    approved: true
     lesson: lesson-earth-science-astronomy-variables-in-a-cooling-test
     keyPoint: 1
     type: 'predict-outcome'

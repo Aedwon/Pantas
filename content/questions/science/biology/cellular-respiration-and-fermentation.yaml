@@ -209,7 +209,7 @@ questions:
           This treats every oxygen-independent energy pathway as fermentation. Both can occur without oxygen, so they seem interchangeable. Check whether the setup specifically describes respiration with a final electron acceptor.
     explanation: |
       Anaerobic respiration uses a final electron acceptor other than oxygen. It allows some prokaryotes to obtain energy without using oxygen as the final acceptor.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0016
     lesson: lesson-biology-photosynthesis-and-respiration-together
@@ -232,7 +232,7 @@ questions:
           This treats an energy input as a source of atoms. Light is required to build food, so it may seem to create its material. Check where the carbon atoms in glucose come from.
     explanation: |
       Atoms can pass between food, carbon dioxide, and water through these processes. Energy enters mainly as light and is transferred into food and ATP. It eventually spreads into the surroundings as heat.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0017
     lesson: lesson-biology-aerobic-respiration-stages
@@ -255,7 +255,7 @@ questions:
           This places the final ATP-producing stage before earlier fuel-processing stages. ATP is the goal, so its formation can seem to start the pathway. Check the usual order of the named stages.
     explanation: |
       Glycolysis begins glucose breakdown in the cytosol. Pyruvate oxidation prepares the product for the citric acid cycle. The later electron-transfer steps support oxidative phosphorylation.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0018
     lesson: lesson-biology-plant-respiration-in-light-and-dark
@@ -278,7 +278,7 @@ questions:
           This replaces light-driven water splitting with glucose splitting. Glucose stores light energy, so breaking it down may seem to release oxygen. Check whether aerobic glucose breakdown uses or produces oxygen.
     explanation: |
       The light-dependent reactions need light, so they stop in darkness. Stored glucose and oxygen can still support aerobic respiration. The plant can therefore continue obtaining ATP from stored food.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0019
     lesson: lesson-biology-fermentation-and-anaerobic-respiration
@@ -301,7 +301,7 @@ questions:
           This confuses fermentation with photosynthesis. Both can support food-related energy pathways, so they may seem connected. Check whether the mechanism uses light or restores electron carriers.
     explanation: |
       Glycolysis needs electron carriers that can accept electrons. Fermentation restores these carriers to a usable form. This allows glycolysis to keep making some ATP without oxygen-dependent respiration.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0020
     lesson: lesson-biology-photosynthesis-and-respiration-together
@@ -324,7 +324,7 @@ questions:
           This adds uptake and release as if both were gains. Each equation contains a coefficient of six, so adding them seems natural. Check whether each step increases or decreases the carbon dioxide count.
     explanation: |
       Photosynthesis uses 6 carbon dioxide molecules to make one glucose molecule. Complete aerobic respiration of that glucose releases 6 carbon dioxide molecules. The net change is $6 - 6 = 0$ molecules.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-respiration-and-fermentation-0001
     lesson: lesson-biology-aerobic-respiration-stages
@@ -347,7 +347,7 @@ questions:
           The ATP gain is right. Six carbon dioxide molecules are released in aerobic respiration, so this seems to fit. Check whether glycolysis releases any carbon.
     explanation: |
       Glycolysis happens in the cytosol. It splits one six-carbon glucose into two three-carbon pyruvate molecules. It gives a net gain of $2$ ATP and needs no oxygen.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-respiration-and-fermentation-0002
     lesson: lesson-biology-fermentation-and-anaerobic-respiration
@@ -370,7 +370,7 @@ questions:
           Ethanol is right. Oxygen seems to fit bubbles from living cells. Oxygen is used in aerobic respiration, not formed in fermentation. Check which gas forms in alcohol fermentation.
     explanation: |
       Without oxygen, yeast carries out alcohol fermentation. It turns pyruvate into ethanol and carbon dioxide. The bubbles are carbon dioxide.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-respiration-and-fermentation-0003
     lesson: lesson-biology-fermentation-and-anaerobic-respiration
@@ -393,7 +393,7 @@ questions:
           Lactate is right. Carbon dioxide seems to come with every fermentation. Check whether lactic acid fermentation releases any carbon dioxide.
     explanation: |
       In a muscle cell short of oxygen, glycolysis continues and fermentation turns pyruvate into lactate. This restores NAD+ so glycolysis can go on. No carbon dioxide is released.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-respiration-and-fermentation-0004
     lesson: lesson-biology-respiration-in-cells
@@ -416,7 +416,7 @@ questions:
           This stage forms acetyl CoA and more NADH. It is linked to the mitochondrion, so it seems to fit. Check which part uses the hydrogen ion flow to make ATP.
     explanation: |
       The electron transport chain pumps hydrogen ions across the inner mitochondrial membrane. The ions flow back through ATP synthase. This makes most of the ATP.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-respiration-and-fermentation-0005
     lesson: lesson-biology-aerobic-respiration-stages
@@ -439,7 +439,7 @@ questions:
           These are the first and last stages, so they seem to cover the whole path. Neither releases carbon dioxide. Check which stages break down pyruvate and acetyl CoA.
     explanation: |
       Glycolysis only splits glucose into two pyruvates. Pyruvate oxidation removes one carbon from each pyruvate as carbon dioxide. The citric acid cycle releases the remaining carbon, for six carbon dioxide molecules in all.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-respiration-and-fermentation-0006
     lesson: lesson-biology-fermentation-and-anaerobic-respiration
@@ -462,9 +462,10 @@ questions:
           Muscle fermentation makes lactate, so a student may think every fermentation makes lactate. Yeast fermentation forms carbon dioxide, so the products do not separate the two pathways. Check which feature all anaerobic respiration shares.
     explanation: |
       Anaerobic respiration has an electron transport chain, like aerobic respiration, but its final electron acceptor is not oxygen. Fermentation has no chain. Glycolysis alone makes its ATP.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-respiration-and-fermentation-0007
+    approved: true
     lesson: lesson-biology-aerobic-respiration-inputs-and-products
     keyPoint: 1
     type: "identify"

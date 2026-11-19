@@ -347,7 +347,7 @@ questions:
           This confuses moving a variant with creating it. Migration can bring a new allele into a population. Check whether the allele is new in DNA or only new to that group.
     explanation: |
       Mutation changes DNA. Such changes can create new versions of a gene, called alleles.
-    approved: false
+    approved: true
 
   - id: q-biology-evolution-0016
     lesson: lesson-biology-gene-flow-between-populations
@@ -370,7 +370,7 @@ questions:
           This assumes every frequency change follows a reproductive advantage. The newcomers can change frequencies just by breeding. Check whether an advantage is stated.
     explanation: |
       Gene flow moves alleles between populations through reproduction. Migrants can add inherited variants to the population they join.
-    approved: false
+    approved: true
 
   - id: q-biology-evolution-0017
     lesson: lesson-biology-chance-and-genetic-drift
@@ -393,7 +393,7 @@ questions:
           This confuses a changed allele mixture with alleles entering from elsewhere. Both alter frequencies. Check whether migrants or outside breeding are mentioned.
     explanation: |
       Genetic drift changes allele frequencies by chance. The storm did not favor the trait, but the random survivors carried a different mixture of alleles.
-    approved: false
+    approved: true
 
   - id: q-biology-evolution-0018
     lesson: lesson-biology-chance-and-genetic-drift
@@ -416,7 +416,7 @@ questions:
           This assigns unnecessary location requirements. Migration and separation can affect evolution. Check the defining cause of the frequency change.
     explanation: |
       Selection changes frequencies through differences in reproductive success linked to inherited traits. Drift changes frequencies through chance sampling.
-    approved: false
+    approved: true
 
   - id: q-biology-evolution-0019
     lesson: lesson-biology-fitness-and-heritable-traits
@@ -439,7 +439,7 @@ questions:
           This treats inherited color as an individual choice. Matching the background looks useful. Check whether variation is inherited or deliberately selected by the animal.
     explanation: |
       A trait’s advantage depends on conditions. The same coat color can lower reproductive success in one habitat and raise it in another.
-    approved: false
+    approved: true
 
   - id: q-biology-evolution-0020
     lesson: lesson-biology-speciation-and-adaptive-radiation
@@ -462,9 +462,10 @@ questions:
           This treats the change as only a useful trait. Some inherited changes affect adaptation alone. Check whether reproductive isolation is also stated.
     explanation: |
       Sympatric speciation occurs without a geographic barrier. A chromosome-number change can create reproductive isolation among plants in the same area.
-    approved: false
+    approved: true
 
   - id: q-biology-evolution-0021
+    approved: true
     lesson: lesson-biology-genes-and-inherited-variation
     keyPoint: 1
     type: "identify"
@@ -487,6 +488,7 @@ questions:
       Each parent passes one allele for this gene in a sex cell. The two sex cells join, so the offspring has two alleles.
 
   - id: q-biology-evolution-0022
+    approved: true
     lesson: lesson-biology-genes-and-inherited-variation
     keyPoint: 1
     type: "compare-contrast"
@@ -509,6 +511,7 @@ questions:
       The single parent passes DNA to its offspring as it splits. That DNA carries the allele.
 
   - id: q-biology-evolution-0023
+    approved: true
     lesson: lesson-biology-allele-frequency-across-generations
     keyPoint: 2
     type: "simple-quantitative"
@@ -531,6 +534,7 @@ questions:
       There are $100-30=70$ green copies. Divide by all $100$ copies. The frequency is $\dfrac{70}{100}=0.70$.
 
   - id: q-biology-evolution-0024
+    approved: true
     lesson: lesson-biology-allele-frequency-across-generations
     keyPoint: 1
     type: "classify"
@@ -553,6 +557,7 @@ questions:
       The share of brown alleles changed from one generation to the next. That change in the population is evolution.
 
   - id: q-biology-evolution-0025
+    approved: true
     lesson: lesson-biology-how-mutations-add-alleles
     keyPoint: 1
     type: "classify"
@@ -575,6 +580,7 @@ questions:
       A mutation can make a new allele. If the allele is in an egg that is fertilized, the egg passes it to the offspring.
 
   - id: q-biology-evolution-0026
+    approved: true
     lesson: lesson-biology-gene-flow-between-populations
     keyPoint: 1
     type: "predict-outcome"

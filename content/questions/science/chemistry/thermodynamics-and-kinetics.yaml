@@ -347,7 +347,7 @@ questions:
           This substitutes a pathway barrier for a state difference. Both involve energy. Check what defines the enthalpy sign.
     explanation: |
       Exothermic means heat leaves the system. At constant pressure, the system’s enthalpy change is negative.
-    approved: false
+    approved: true
 
   - id: q-chemistry-thermodynamics-and-kinetics-0016
     lesson: lesson-chemistry-activation-energy-and-collisions
@@ -370,7 +370,7 @@ questions:
           This confuses collision conditions with equilibrium. Energy and orientation affect successful encounters. Check rate versus equilibrium constant.
     explanation: |
       Collision theory requires enough energy and a suitable orientation. Energetic particles can still fail to react if they meet in an unsuitable arrangement.
-    approved: false
+    approved: true
 
   - id: q-chemistry-thermodynamics-and-kinetics-0017
     lesson: lesson-chemistry-rate-laws-and-reaction-orders
@@ -393,7 +393,7 @@ questions:
           This moves B into the denominator. Concentration factors can vary between laws. Check the supplied expression.
     explanation: |
       The A factor is 1. B appears to the first power, so replacing B with 3B multiplies the rate by 3.
-    approved: false
+    approved: true
 
   - id: q-chemistry-thermodynamics-and-kinetics-0018
     lesson: lesson-chemistry-catalysts-and-reaction-pathways
@@ -416,7 +416,7 @@ questions:
           This makes equilibrium change a catalyst requirement. A faster reaction is observed. Check that K is unchanged for the same reaction at fixed temperature.
     explanation: |
       A catalyst can form intermediates and undergo temporary changes. It remains catalytic when it is regenerated overall and provides the faster pathway.
-    approved: false
+    approved: true
 
   - id: q-chemistry-thermodynamics-and-kinetics-0019
     lesson: lesson-chemistry-reaction-spontaneity-and-speed
@@ -439,7 +439,7 @@ questions:
           This reverses the universal claim without checking free energy. Enthalpy is only one part. Check the full thermodynamic criterion.
     explanation: |
       Thermodynamic favorability depends on Gibbs free energy under the stated conditions. That includes enthalpy and entropy contributions. Enthalpy alone is insufficient.
-    approved: false
+    approved: true
 
   - id: q-chemistry-thermodynamics-and-kinetics-0020
     lesson: lesson-chemistry-catalysts-and-reaction-pathways
@@ -462,9 +462,10 @@ questions:
           This confuses chemical catalysis with a nuclear process. Atoms are rearranged. Check whether ordinary catalysts change nuclei.
     explanation: |
       A catalyst can accelerate competing pathways unequally. This can change which product forms more readily, called selectivity, in the reaction network.
-    approved: false
+    approved: true
 
   - id: q-chemistry-thermodynamics-and-kinetics-0021
+    approved: true
     lesson: lesson-chemistry-reaction-orders-from-initial-rates
     keyPoint: 1
     type: 'simple-quantitative'
@@ -487,6 +488,7 @@ questions:
       With B fixed, only A changed. Nine is $3^2$, so the rate depends on the square of A's concentration.
 
   - id: q-chemistry-thermodynamics-and-kinetics-0022
+    approved: true
     lesson: lesson-chemistry-reaction-orders-from-initial-rates
     keyPoint: 1
     type: 'simple-quantitative'
@@ -509,6 +511,7 @@ questions:
       Changing A alone leaves the rate the same, so its order is zero. With A fixed, doubling B doubles the rate. B is first order.
 
   - id: q-chemistry-thermodynamics-and-kinetics-0023
+    approved: true
     lesson: lesson-chemistry-fair-tests-of-reaction-rate
     keyPoint: 1
     type: 'identify'
@@ -531,6 +534,7 @@ questions:
       The student changes the heat and then measures how long gas collection takes. The time is the result that can change in response.
 
   - id: q-chemistry-thermodynamics-and-kinetics-0024
+    approved: true
     lesson: lesson-chemistry-fair-tests-of-reaction-rate
     keyPoint: 1
     type: 'identify'
@@ -553,6 +557,7 @@ questions:
       The masses and solutions match. The only planned change is the size of the solid pieces.
 
   - id: q-chemistry-thermodynamics-and-kinetics-0025
+    approved: true
     lesson: lesson-chemistry-dynamic-equilibrium-and-k
     keyPoint: 1
     type: 'identify'
@@ -575,6 +580,7 @@ questions:
       Each direction changes substances into others. They do so at the same rate, so the amounts stay steady.
 
   - id: q-chemistry-thermodynamics-and-kinetics-0026
+    approved: true
     lesson: lesson-chemistry-dynamic-equilibrium-and-k
     keyPoint: 2
     type: 'identify'
@@ -597,6 +603,7 @@ questions:
       Put product C on top and reactants A and B below. The coefficient of A is 2, so square its concentration.
 
   - id: q-chemistry-thermodynamics-and-kinetics-0027
+    approved: true
     lesson: lesson-chemistry-dynamic-equilibrium-and-k
     keyPoint: 2
     type: 'identify'
@@ -619,6 +626,7 @@ questions:
       In the expression for $K$, the reactants go on the bottom. A very small value means the balance favors the reactants.
 
   - id: q-chemistry-thermodynamics-and-kinetics-0028
+    approved: true
     lesson: lesson-chemistry-shifts-in-chemical-equilibrium
     keyPoint: 1
     type: 'predict-outcome'
@@ -641,6 +649,7 @@ questions:
       A smaller volume favors the side with fewer moles of gas. The product side has two, while the reactant side has four.
 
   - id: q-chemistry-thermodynamics-and-kinetics-0029
+    approved: true
     lesson: lesson-chemistry-shifts-in-chemical-equilibrium
     keyPoint: 1
     type: 'predict-outcome'

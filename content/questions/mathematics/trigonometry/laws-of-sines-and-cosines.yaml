@@ -5,6 +5,7 @@ meta:
   exams: [acet, dlsucet, pupcet]
 questions:
   - id: q-trigonometry-laws-of-sines-and-cosines-0001
+    approved: true
     lesson: lesson-trigonometry-law-of-sines-with-two-angles
     keyPoint: 1
     type: direct-computation
@@ -26,6 +27,7 @@ questions:
     explanation: |
       Side $a$ is opposite $A$ and side $b$ is opposite $B$. The Law of Sines gives $\dfrac{10}{\sin30^\circ}=\dfrac{b}{\sin45^\circ}$. Multiply by $\sin45^\circ$: $b=10\times\dfrac{\sqrt{2}}{2}\div\dfrac{1}{2}=10\sqrt{2}$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0002
+    approved: true
     lesson: lesson-trigonometry-law-of-sines-with-two-angles
     keyPoint: 2
     type: direct-computation
@@ -47,6 +49,7 @@ questions:
     explanation: |
       The three angles total $180^\circ$. The given angles total $30^\circ+45^\circ=75^\circ$. Therefore $C=180^\circ-75^\circ=105^\circ$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0003
+    approved: true
     lesson: lesson-trigonometry-law-of-cosines-for-sides
     keyPoint: 1
     type: direct-computation
@@ -68,6 +71,7 @@ questions:
     explanation: |
       The sides meet at the given angle, so use the Law of Cosines. It gives $c^2=5^2+8^2-2(5)(8)\cos60^\circ$. Since $\cos60^\circ=\dfrac{1}{2}$, $c^2=25+64-40=49$. Taking the positive square root gives $c=7$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0004
+    approved: true
     lesson: lesson-trigonometry-law-of-cosines-for-angles
     keyPoint: 1
     type: direct-computation
@@ -89,6 +93,7 @@ questions:
     explanation: |
       Let $C$ be the angle opposite side $7$. The Law of Cosines gives $7^2=3^2+5^2-2(3)(5)\cos C$. Thus $49=34-30\cos C$. Subtract $34$: $15=-30\cos C$. Divide by $-30$: $\cos C=-\dfrac{1}{2}$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0005
+    approved: true
     lesson: lesson-trigonometry-law-of-sines-with-two-angles
     keyPoint: 1
     type: error-spotting
@@ -110,6 +115,7 @@ questions:
     explanation: |
       Step 1 first breaks the side-angle matching rule. Side $a=12$ is opposite $60^\circ$, and side $c$ is opposite $80^\circ$. The correct proportion is $\dfrac{12}{\sin60^\circ}=\dfrac{c}{\sin80^\circ}$. Multiplying by $\sin80^\circ$ gives $c=\dfrac{12\sin80^\circ}{\sin60^\circ}$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0006
+    approved: true
     lesson: lesson-trigonometry-law-of-cosines-for-sides
     keyPoint: 1
     type: word-problem
@@ -131,6 +137,7 @@ questions:
     explanation: |
       The port and ships form a triangle with sides $3$ km and $8$ km meeting at $60^\circ$. Their separation $d$ satisfies $d^2=3^2+8^2-2(3)(8)\cos60^\circ$. Substitute $\cos60^\circ=\dfrac{1}{2}$: $d^2=9+64-24=49$. Therefore $d=7$ km.
   - id: q-trigonometry-laws-of-sines-and-cosines-0007
+    approved: true
     lesson: lesson-trigonometry-ambiguous-triangles-from-sine
     keyPoint: 1
     type: direct-computation
@@ -152,6 +159,7 @@ questions:
     explanation: |
       The matched pairs give $\dfrac{20}{\sin50^\circ}=\dfrac{15}{\sin B}$. Cross-multiply: $20\sin B=15\sin50^\circ$. Divide by $20$: $\sin B=\dfrac{15\sin50^\circ}{20}$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0008
+    approved: true
     lesson: lesson-trigonometry-law-of-cosines-for-angles
     keyPoint: 2
     type: error-spotting
@@ -173,6 +181,7 @@ questions:
     explanation: |
       Step 2 is the first error. The correct value is $\cos120^\circ=-\dfrac{1}{2}$. Then $c^2=136-120(-\dfrac{1}{2})=196$, so $c=14$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0009
+    approved: true
     lesson: lesson-trigonometry-choosing-a-triangle-law
     keyPoint: 3
     type: which-is-true
@@ -194,6 +203,7 @@ questions:
     explanation: |
       Side $a=7$ and its opposite angle $A=40^\circ$ form a known pair. The Law of Sines directly gives $\dfrac{7}{\sin40^\circ}=\dfrac{10}{\sin B}$. This lets us find $\sin B$ before checking the possible angles.
   - id: q-trigonometry-laws-of-sines-and-cosines-0010
+    approved: true
     lesson: lesson-trigonometry-choosing-a-triangle-law
     keyPoint: 2
     type: which-is-true
@@ -215,6 +225,7 @@ questions:
     explanation: |
       A larger side is opposite a larger angle in a triangle. The longest side is $7$. Therefore the angle opposite side $7$ is the largest.
   - id: q-trigonometry-laws-of-sines-and-cosines-0011
+    approved: true
     lesson: lesson-trigonometry-law-of-cosines-for-angles
     keyPoint: 1
     type: error-spotting
@@ -236,6 +247,7 @@ questions:
     explanation: |
       Step 3 is the first error. Subtracting $89$ in Step 2 gives $11=-80\cos C$. Divide both sides by $-80$, keeping the negative sign. This gives $\cos C=-\dfrac{11}{80}$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0012
+    approved: true
     lesson: lesson-trigonometry-law-of-cosines-for-sides
     keyPoint: 1
     type: word-problem
@@ -257,6 +269,7 @@ questions:
     explanation: |
       The turn is $110^\circ$ from the forward direction, so the interior triangle angle is $180^\circ-110^\circ=70^\circ$. The two path lengths are $9$ km and $11$ km. The Law of Cosines gives $d^2=9^2+11^2-2(9)(11)\cos70^\circ=202-198\cos70^\circ$. Thus $d=\sqrt{202-198\cos70^\circ}$ km.
   - id: q-trigonometry-laws-of-sines-and-cosines-0013
+    approved: true
     lesson: lesson-trigonometry-law-of-cosines-for-angles
     keyPoint: 1
     type: which-is-true
@@ -278,6 +291,7 @@ questions:
     explanation: |
       For the angle $C$ opposite side $17$, $\cos C=\dfrac{8^2+15^2-17^2}{2(8)(15)}$. The numerator is $64+225-289=0$. Thus $\cos C=0$, so $C=90^\circ$ and the triangle is right.
   - id: q-trigonometry-laws-of-sines-and-cosines-0014
+    approved: true
     lesson: lesson-trigonometry-choosing-a-triangle-law
     keyPoint: 2
     type: direct-computation
@@ -299,6 +313,7 @@ questions:
     explanation: |
       The missing angle is $C=180^\circ-55^\circ-50^\circ=75^\circ$. This is the largest angle. The longest side lies opposite it, so side $c$ is longest.
   - id: q-trigonometry-laws-of-sines-and-cosines-0015
+    approved: true
     lesson: lesson-trigonometry-law-of-cosines-for-angles
     keyPoint: 1
     type: which-is-true
@@ -320,6 +335,7 @@ questions:
     explanation: |
       Angle $C$ is opposite the longest side, $21$, so it is largest. The Law of Cosines gives $\cos C=\dfrac{12^2+16^2-21^2}{2(12)(16)}=\dfrac{-41}{384}$. Its cosine is negative. Therefore $C$ is obtuse.
   - id: q-trigonometry-laws-of-sines-and-cosines-0016
+    approved: true
     lesson: lesson-trigonometry-law-of-sines-with-two-angles
     keyPoint: 1
     type: which-is-true
@@ -361,7 +377,7 @@ questions:
           This replaces a trigonometric product with addition. Both known side lengths appear in the formula. Check how the correction term is formed.
     explanation: |
       The correction term contains $\cos90^\circ=0$. Multiplying by zero makes the term zero. The remaining equation is $c^2=a^2+b^2$.
-    approved: false
+    approved: true
   - id: q-trigonometry-laws-of-sines-and-cosines-0018
     lesson: lesson-trigonometry-law-of-cosines-for-sides
     keyPoint: 2
@@ -383,7 +399,7 @@ questions:
           This treats an obtuse angle as impossible in a triangle. Right triangles are more familiar. Check whether an angle below $180^\circ$ can be a triangle angle.
     explanation: |
       For the $60^\circ$ triangle, the third side squared is $25+64-40=49$. For the $120^\circ$ triangle, it is $25+64+40=129$. Since $129>49$, the second triangle has the longer third side.
-    approved: false
+    approved: true
   - id: q-trigonometry-laws-of-sines-and-cosines-0019
     lesson: lesson-trigonometry-ambiguous-triangles-from-sine
     keyPoint: 1
@@ -405,7 +421,7 @@ questions:
           This assumes any given sides and angle form a triangle. The problem uses normal triangle labels. Check the allowed range of sine before asking for a real angle.
     explanation: |
       The matched proportion gives $\sin B=\dfrac{10\sin30^\circ}{4}=\dfrac{5}{4}$. This is greater than $1$, so no real angle $B$ exists. Step 3 is the first error: the given measurements cannot form a triangle.
-    approved: false
+    approved: true
   - id: q-trigonometry-laws-of-sines-and-cosines-0020
     lesson: lesson-trigonometry-ambiguous-triangles-from-sine
     keyPoint: 1
@@ -427,8 +443,9 @@ questions:
           This counts the remaining third angle as another solution. A triangle has three angle labels. Check that a solution needs a whole set of three angles, not a single angle.
     explanation: |
       The side opposite angle $P$ is $QR=7$, and the side opposite angle $R$ is $PQ=10$. The Law of Sines gives $\sin R=\dfrac{10\sin30^\circ}{7}=\dfrac{5}{7}$. The two possible angles are about $45.6^\circ$ and $134.4^\circ$. Adding $30^\circ$ leaves the total below $180^\circ$ in either case. The two choices of angle give two triangles with different third sides.
-    approved: false
+    approved: true
   - id: q-trigonometry-laws-of-sines-and-cosines-0021
+    approved: true
     lesson: lesson-trigonometry-choosing-a-triangle-law
     keyPoint: 1
     type: which-is-true
@@ -450,6 +467,7 @@ questions:
     explanation: |
       The ends of $KL$ are $K$ and $L$. The corner across from that side is $J$, so $KL$ and $\angle J$ form a matched pair.
   - id: q-trigonometry-laws-of-sines-and-cosines-0022
+    approved: true
     lesson: lesson-trigonometry-law-of-sines-surveys
     keyPoint: 1
     type: word-problem
@@ -471,6 +489,7 @@ questions:
     explanation: |
       The angle at $T$ is $180^\circ-45^\circ-105^\circ=30^\circ$. Side $QT$ faces $45^\circ$ and $PQ$ faces $30^\circ$. The Law of Sines gives $QT=24\sin45^\circ\div\sin30^\circ=24\sqrt{2}$ m.
   - id: q-trigonometry-laws-of-sines-and-cosines-0023
+    approved: true
     lesson: lesson-trigonometry-law-of-sines-surveys
     keyPoint: 1
     type: word-problem
@@ -492,6 +511,7 @@ questions:
     explanation: |
       The angle at $R$ is $180^\circ-30^\circ-45^\circ=105^\circ$. Side $NR$ faces $30^\circ$. Side $MN$ faces $105^\circ$. The Law of Sines gives $NR\approx30(0.5)\div0.966\approx15.5$ m.
   - id: q-trigonometry-laws-of-sines-and-cosines-0024
+    approved: true
     lesson: lesson-trigonometry-law-of-sines-surveys
     keyPoint: 1
     type: word-problem
@@ -513,6 +533,7 @@ questions:
     explanation: |
       The angle at $T$ is $180^\circ-120^\circ-30^\circ=30^\circ$. The pier $PT$ and the measured side $PQ$ both face $30^\circ$. The Law of Sines gives $PT=18\sin30^\circ\div\sin30^\circ=18$ m.
   - id: q-trigonometry-laws-of-sines-and-cosines-0025
+    approved: true
     lesson: lesson-trigonometry-counting-ssa-triangles
     keyPoint: 1
     type: which-is-true
@@ -534,6 +555,7 @@ questions:
     explanation: |
       The height is $h=12\sin30^\circ=6$. Two triangles fit when $h<a<b$. The length $9$ is between $6$ and $12$.
   - id: q-trigonometry-laws-of-sines-and-cosines-0026
+    approved: true
     lesson: lesson-trigonometry-counting-ssa-triangles
     keyPoint: 1
     type: which-is-true

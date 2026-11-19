@@ -329,7 +329,7 @@ questions:
   - id: q-physics-scalars-and-vectors-0015
     lesson: lesson-physics-identifying-scalars-and-vectors
     keyPoint: 1
-    approved: false
+    approved: true
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -352,7 +352,7 @@ questions:
   - id: q-physics-scalars-and-vectors-0016
     lesson: lesson-physics-adding-collinear-vectors
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -375,7 +375,7 @@ questions:
   - id: q-physics-scalars-and-vectors-0017
     lesson: lesson-physics-adding-and-rebuilding-vectors-from-components
     keyPoint: 1
-    approved: false
+    approved: true
     type: "process-ordering"
     difficulty: "hard"
     stem: |
@@ -398,7 +398,7 @@ questions:
   - id: q-physics-scalars-and-vectors-0018
     lesson: lesson-physics-adding-and-rebuilding-vectors-from-components
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -421,7 +421,7 @@ questions:
   - id: q-physics-scalars-and-vectors-0019
     lesson: lesson-physics-adding-and-rebuilding-vectors-from-components
     keyPoint: 2
-    approved: false
+    approved: true
     type: "classify"
     difficulty: "hard"
     stem: |
@@ -444,7 +444,7 @@ questions:
   - id: q-physics-scalars-and-vectors-0020
     lesson: lesson-physics-adding-and-rebuilding-vectors-from-components
     keyPoint: 2
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "exam"
     stem: |
@@ -465,6 +465,7 @@ questions:
       The magnitude is $\sqrt{(-3)^2+(-3)^2}=3\sqrt2\,\mathrm m$. Both components point negatively, so the vector points southwest.
 
   - id: q-physics-scalars-and-vectors-0021
+    approved: true
     lesson: lesson-physics-resultants-of-two-vectors
     keyPoint: 1
     type: "simple-quantitative"
@@ -487,6 +488,7 @@ questions:
       The resultant is the long side of a right triangle. The second force has magnitude $\sqrt{10^2-6^2}=8$ N.
 
   - id: q-physics-scalars-and-vectors-0022
+    approved: true
     lesson: lesson-physics-resultants-of-two-vectors
     keyPoint: 2
     type: "simple-quantitative"
@@ -509,6 +511,7 @@ questions:
       Square both forces and add the angle term. The sum is $36+36+2(6)(6)(0.5)=108$. Its square root is $6\sqrt{3}$ N.
 
   - id: q-physics-scalars-and-vectors-0023
+    approved: true
     lesson: lesson-physics-resolving-vector-components
     keyPoint: 2
     type: "simple-quantitative"

@@ -440,7 +440,7 @@ questions:
           This treats a flexible rope as a rigid moving block. Its tension is shared. Check that the rope bends and changes direction around a wheel.
     explanation: |
       The lower pulley belongs to the moving block. Its axle is attached to the load, so it rises with that load. This is what makes it a movable pulley.
-    approved: false
+    approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0017"
     lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
     keyPoint: 1
@@ -467,7 +467,7 @@ questions:
           This multiplies the two arm changes together. Both distances double. Check that the balance equation uses a ratio of arms.
     explanation: |
       The required effort is the load multiplied by load arm divided by effort arm. Doubling both arms leaves that ratio unchanged. The balancing effort therefore stays the same.
-    approved: false
+    approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0018"
     lesson: lesson-mechanical-technical-reasoning-ideal-mechanical-advantage
     keyPoint: 3
@@ -494,7 +494,7 @@ questions:
           This assumes any friction removes all mechanical advantage. A direct lift needs 600 N. Check that the amount of friction has not been specified.
     explanation: |
       Friction opposes motion and uses some input energy. The input must cover both lifting the weight and overcoming that resistance. The required pull is therefore greater than the ideal 300 N.
-    approved: false
+    approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0019"
     lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
     keyPoint: 1
@@ -521,7 +521,7 @@ questions:
           This treats a shorter load arm as increasing torque. Both values change. Check that torque multiplies force by its arm, not by the reciprocal arm.
     explanation: |
       The new load torque is twice the force times half the arm. Those factors cancel, leaving the original torque. With the effort arm unchanged, the same effort balances it.
-    approved: false
+    approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0020"
     lesson: lesson-mechanical-technical-reasoning-balancing-lever-torques
     keyPoint: 1
@@ -548,8 +548,9 @@ questions:
           This reports the total force equivalent to the effort torque on the load side. That force is $1500/2$. Subtract the existing load contribution.
     explanation: |
       The effort torque is $250 \times 6=1500$ N m. The existing load torque is $600 \times 2=1200$ N m. An additional opposing torque of 300 N m is needed. At the load arm of 2 m, the added force is $300/2=150$ N downward.
-    approved: false
+    approved: true
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0021"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-counting-pulley-supports
     keyPoint: 1
     type: "pulley-lever"
@@ -571,6 +572,7 @@ questions:
     explanation: |
       Two strands pull up on the moving pulley. One more pulls up at the tie on the frame. The three strands give a mechanical advantage of 3.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0022"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-counting-pulley-supports
     keyPoint: 1
     type: "pulley-lever"
@@ -592,6 +594,7 @@ questions:
     explanation: |
       One strand pulls up on each side of the moving pulley. The other pulleys only guide the rope. The mechanical advantage is 2.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0023"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-block-and-tackle
     keyPoint: 1
     type: "pulley-lever"
@@ -613,6 +616,7 @@ questions:
     explanation: |
       Two strands pull up at each lower sheave. That makes four. The tied strand adds one more, for five in all.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0024"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-block-and-tackle
     keyPoint: 1
     type: "pulley-lever"
@@ -634,6 +638,7 @@ questions:
     explanation: |
       Each of the three lower sheaves has two strands pulling up on it. That gives six. The strand to the operator leaves from the upper block.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0025"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-classes-of-levers
     keyPoint: 1
     type: "pulley-lever"
@@ -655,6 +660,7 @@ questions:
     explanation: |
       The bar turns at the hinge. The grip is where the effort acts, and the blade is where the bar meets the load. The effort is in the middle, so this is a third-class lever.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0026"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-classes-of-levers
     keyPoint: 1
     type: "pulley-lever"
@@ -676,6 +682,7 @@ questions:
     explanation: |
       The hinge is the point the arm turns around. A first-class lever has that point between the effort at the handle and the load at the workpiece.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0027"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-torque-from-angled-forces
     keyPoint: 1
     type: "pulley-lever"
@@ -697,6 +704,7 @@ questions:
     explanation: |
       The sine of $150^\circ$ is the same as the sine of $30^\circ$, or $\dfrac{1}{2}$. Half the force acts across the bar. Multiply 300 N by 2 m to get $600\text{ N}\cdot\text{m}$.
   - id: "q-mechanical-technical-reasoning-pulleys-and-levers-0028"
+    approved: true
     lesson: lesson-mechanical-technical-reasoning-torque-from-angled-forces
     keyPoint: 1
     type: "pulley-lever"

@@ -329,7 +329,7 @@ questions:
   - id: q-physics-gravity-and-keplers-laws-0015
     lesson: lesson-physics-orbital-shape-and-speed
     keyPoint: 1
-    approved: false
+    approved: true
     type: "structure-function"
     difficulty: "easy"
     stem: |
@@ -352,7 +352,7 @@ questions:
   - id: q-physics-gravity-and-keplers-laws-0016
     lesson: lesson-physics-orbital-period-and-semimajor-axis
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -375,7 +375,7 @@ questions:
   - id: q-physics-gravity-and-keplers-laws-0017
     lesson: lesson-physics-orbital-period-and-semimajor-axis
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -398,7 +398,7 @@ questions:
   - id: q-physics-gravity-and-keplers-laws-0018
     lesson: lesson-physics-orbital-period-and-semimajor-axis
     keyPoint: 2
-    approved: false
+    approved: true
     type: "predict-outcome"
     difficulty: "hard"
     stem: |
@@ -421,7 +421,7 @@ questions:
   - id: q-physics-gravity-and-keplers-laws-0019
     lesson: lesson-physics-orbital-shape-and-speed
     keyPoint: 2
-    approved: false
+    approved: true
     type: "process-ordering"
     difficulty: "hard"
     stem: |
@@ -444,7 +444,7 @@ questions:
   - id: q-physics-gravity-and-keplers-laws-0020
     lesson: lesson-physics-orbital-period-and-semimajor-axis
     keyPoint: 1
-    approved: false
+    approved: true
     type: "classify"
     difficulty: "exam"
     stem: |

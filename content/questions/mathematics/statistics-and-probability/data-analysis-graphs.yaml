@@ -5,6 +5,7 @@ meta:
   exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
 - id: 'q-statistics-and-probability-data-analysis-graphs-0001'
+  approved: true
   lesson: lesson-statistics-and-probability-comparing-graph-values
   keyPoint: 1
   type: 'word-problem'
@@ -36,6 +37,7 @@ questions:
   explanation: |
     Add the first three days: $140+165+150=455$ passengers.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0002'
+  approved: true
   lesson: lesson-statistics-and-probability-comparing-graph-values
   keyPoint: 1
   type: 'word-problem'
@@ -66,6 +68,7 @@ questions:
   explanation: |
     Add male and female counts for each strand. The totals are STEM $250$, ABM $200$, HUMSS $180$, and TVL $170$. STEM has the largest total.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0003'
+  approved: true
   lesson: lesson-statistics-and-probability-pie-chart-shares-and-angles
   keyPoint: 2
   type: 'word-problem'
@@ -96,6 +99,7 @@ questions:
   explanation: |
     Total sales are $45+30+25+20=120$. Water accounts for $\dfrac{45}{120}(100\%)=37.5\%$.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0004'
+  approved: true
   lesson: lesson-statistics-and-probability-comparing-graph-values
   keyPoint: 1
   type: 'word-problem'
@@ -126,6 +130,7 @@ questions:
   explanation: |
     Subtract March from April: $600-480=120$ metric tons.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0005'
+  approved: true
   lesson: lesson-statistics-and-probability-comparing-graph-values
   keyPoint: 1
   type: 'word-problem'
@@ -157,6 +162,7 @@ questions:
   explanation: |
     At least thirty includes the last three groups. Add $950+600+400=1950$ residents.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0006'
+  approved: true
   lesson: lesson-statistics-and-probability-comparing-graph-values
   keyPoint: 1
   type: 'word-problem'
@@ -189,6 +195,7 @@ questions:
   explanation: |
     The six-month total is $210+240+225+195+180+270=1320$ kWh. Divide by six: $1320\div6=220$ kWh.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0007'
+  approved: true
   lesson: lesson-statistics-and-probability-pie-chart-shares-and-angles
   keyPoint: 2
   type: 'word-problem'
@@ -220,6 +227,7 @@ questions:
   explanation: |
     Above seventy includes $16+7+3=26$ students. Divide by forty and convert to percent: $\dfrac{26}{40}(100\%)=65\%$.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0008'
+  approved: true
   lesson: lesson-statistics-and-probability-pie-chart-shares-and-angles
   keyPoint: 2
   type: 'word-problem'
@@ -250,6 +258,7 @@ questions:
   explanation: |
     The female total is $220+150+80+50=500$. Of these, $220$ prefer MRT or LRT. The fraction is $\dfrac{220}{500}=\dfrac{11}{25}$.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0009'
+  approved: true
   lesson: lesson-statistics-and-probability-comparing-graph-values
   keyPoint: 1
   type: 'word-problem'
@@ -280,6 +289,7 @@ questions:
   explanation: |
     The annual totals are $240$ for A and $220$ for B. Their ratio is $240:220$. Divide both terms by twenty to get $12:11$.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0010'
+  approved: true
   lesson: lesson-statistics-and-probability-pie-chart-shares-and-angles
   keyPoint: 2
   type: 'word-problem'
@@ -311,6 +321,7 @@ questions:
   explanation: |
     Tuesday has $90+54+36=180$ meals, of which $54$ are pork. Thus $\dfrac{54}{180}(100\%)=30\%$, exactly the requested share.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0011'
+  approved: true
   lesson: lesson-statistics-and-probability-comparing-graph-values
   keyPoint: 2
   type: 'word-problem'
@@ -340,6 +351,7 @@ questions:
   explanation: |
     Day one total is $150+100+100=350$. Day three total is $250+150+125=525$. The increase is $175$, so $\dfrac{175}{350}(100\%)=50\%$.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0012'
+  approved: true
   lesson: lesson-statistics-and-probability-comparing-graph-values
   keyPoint: 1
   type: 'word-problem'
@@ -371,6 +383,7 @@ questions:
   explanation: |
     Multiply each midpoint by its frequency: $100000+262500+450000+330000+162500=1305000$. Divide by the sixty families to get an estimated mean of $\text{₱}21,750$.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0013'
+  approved: true
   lesson: lesson-statistics-and-probability-comparing-graph-values
   keyPoint: 1
   type: 'word-problem'
@@ -401,6 +414,7 @@ questions:
   explanation: |
     The score total is $10(3)+15k+20(8)+25(4)=290+15k$. The student count is $15+k$. Thus $290+15k=18.25(15+k)$. Rearranging gives $16.25=3.25k$, so $k=5$.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0014'
+  approved: true
   lesson: lesson-statistics-and-probability-comparing-graph-values
   keyPoint: 2
   type: 'word-problem'
@@ -430,6 +444,7 @@ questions:
   explanation: |
     The three growth rates are $\dfrac{63000}{300000}=21\%$, $\dfrac{77500}{500000}=15.5\%$, and $\dfrac{82000}{800000}=10.25\%$. Region I has the largest percentage growth.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0015'
+  approved: true
   lesson: lesson-statistics-and-probability-comparing-graph-values
   keyPoint: 1
   type: 'word-problem'
@@ -461,6 +476,7 @@ questions:
   explanation: |
     Center X has $35+20+10=65$ passing students. Center Y has $45+22+8=75$. The difference is $75-65=10$ students.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0016'
+  approved: true
   lesson: lesson-statistics-and-probability-pie-chart-shares-and-angles
   keyPoint: 2
   type: 'word-problem'
@@ -512,7 +528,7 @@ questions:
       This treats the whole budget as a one-percent amount. Percent calculations involve one hundred. Use the sector fraction of the whole.
   explanation: |
     The sector fraction is $\dfrac{72}{360}=\dfrac15$. Multiply by P25000 to get P5000.
-  approved: false
+  approved: true
 - id: 'q-statistics-and-probability-data-analysis-graphs-0018'
   lesson: lesson-statistics-and-probability-patterns-in-scatter-plots
   keyPoint: 1
@@ -534,7 +550,7 @@ questions:
       This focuses only on the right side of the U. That part rises. Inspect the entire pattern.
   explanation: |
     A U-shaped pattern changes direction. It shows a curved relationship. No straight-line pattern does not always mean no relationship.
-  approved: false
+  approved: true
 - id: 'q-statistics-and-probability-data-analysis-graphs-0019'
   lesson: lesson-statistics-and-probability-reading-bar-graph-scales
   keyPoint: 2
@@ -556,7 +572,7 @@ questions:
       This reverses the visible-height ratio. The drawn lengths suggest a factor two. Use actual endpoints in the requested order.
   explanation: |
     The actual values are $110$ and $100$. Their ratio is $\dfrac{110}{100}=1.1$. The nonzero baseline changes the visible lengths.
-  approved: false
+  approved: true
 - id: 'q-statistics-and-probability-data-analysis-graphs-0020'
   lesson: lesson-statistics-and-probability-comparing-graph-values
   keyPoint: 2
@@ -578,8 +594,9 @@ questions:
       This reports the final share and final-to-initial ratio as increases. Both are useful values. Subtract the starting amount first.
   explanation: |
     The difference is $30-20=10$ percentage points. Relative to the original share, the increase is $\dfrac{10}{20}(100\%)=50\%$.
-  approved: false
+  approved: true
 - id: 'q-statistics-and-probability-data-analysis-graphs-0021'
+  approved: true
   lesson: lesson-statistics-and-probability-pie-chart-shares-and-angles
   keyPoint: 1
   type: 'word-problem'
@@ -601,6 +618,7 @@ questions:
   explanation: |
     The whole circle is $360^\circ$. The residential share is $\dfrac{144}{360}=0.4$, or $40\%$.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0022'
+  approved: true
   lesson: lesson-statistics-and-probability-reading-bar-graph-scales
   keyPoint: 1
   type: 'word-problem'
@@ -622,6 +640,7 @@ questions:
   explanation: |
     The difference is $60-36=24$. Each interval is worth $24\div6=4$ deliveries. Two intervals above 36 gives $36+2(4)=44$.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0023'
+  approved: true
   lesson: lesson-statistics-and-probability-reading-bar-graph-scales
   keyPoint: 1
   type: 'word-problem'
@@ -643,6 +662,7 @@ questions:
   explanation: |
     Four ticks between 20 and 50 make five equal spaces. Each space is $30\div5=6$ minutes. The bar ends one step below 50, at 44 minutes.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0024'
+  approved: true
   lesson: lesson-statistics-and-probability-reading-bar-graph-scales
   keyPoint: 2
   type: 'word-problem'
@@ -664,6 +684,7 @@ questions:
   explanation: |
     Tank A shows $\dfrac34$ of 80 liters, which is 60 liters. Tank B shows half of 120 liters, which is also 60 liters.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0025'
+  approved: true
   lesson: lesson-statistics-and-probability-patterns-in-scatter-plots
   keyPoint: 2
   type: 'which-is-true'
@@ -685,6 +706,7 @@ questions:
   explanation: |
     The plot shows that distance and cost tend to rise together. It does not show what causes the higher cost.
 - id: 'q-statistics-and-probability-data-analysis-graphs-0026'
+  approved: true
   lesson: lesson-statistics-and-probability-patterns-in-scatter-plots
   keyPoint: 1
   type: 'which-is-true'

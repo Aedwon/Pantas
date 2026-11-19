@@ -370,7 +370,7 @@ questions:
           This confuses being a base with being neutral. The terms sound related to balancing acidity. Check the proton-transfer role rather than a fixed pH.
     explanation: |
       A Brønsted-Lowry base accepts a proton from an acid. This defines its role in a proton-transfer reaction.
-    approved: false
+    approved: true
 
   - id: q-chemistry-acids-bases-ph-0017
     lesson: lesson-chemistry-acid-and-base-models
@@ -393,7 +393,7 @@ questions:
           This assumes water must be involved in every neutralization. It appears in many classroom examples. Check the reactants actually given in this equation.
     explanation: |
       Ammonia, $NH_3$, gains a proton and becomes ammonium, $NH_4^+$. It therefore acts as the Brønsted-Lowry base.
-    approved: false
+    approved: true
 
   - id: q-chemistry-acids-bases-ph-0018
     lesson: lesson-chemistry-ph-and-hydronium
@@ -416,7 +416,7 @@ questions:
           This uses pH alone to infer complete ionization. A very acidic solution can seem strongly ionized. Check whether the extent of ionization is actually measured.
     explanation: |
       Lower pH means greater hydrogen-ion activity. Both acid strength and concentration can affect pH, so the pH comparison alone describes the solution’s hydrogen-ion activity.
-    approved: false
+    approved: true
 
   - id: q-chemistry-acids-bases-ph-0019
     lesson: lesson-chemistry-acid-base-neutralization
@@ -439,7 +439,7 @@ questions:
           This confuses the amount left over with acid strength. The reaction reduces the amount of acid. Check whether its ionization behavior changes just because less remains.
     explanation: |
       Neutralization uses acid and base in their reacting amounts. If acid remains, the reaction has not removed all its acid contribution. The final mixture is therefore not guaranteed to be neutral.
-    approved: false
+    approved: true
 
   - id: q-chemistry-acids-bases-ph-0020
     lesson: lesson-chemistry-ph-and-hydronium
@@ -462,9 +462,10 @@ questions:
           This assumes any concentration change ends at neutrality. Seven is a familiar reference value. Check whether the final hydronium and hydroxide levels are stated to be equal.
     explanation: |
       Using $\mathrm{pH}\approx-\log_{10}[H_3O^+]$, a tenfold increase raises the logarithm by 1. The minus sign therefore lowers pH by 1 unit.
-    approved: false
+    approved: true
 
   - id: q-chemistry-acids-bases-ph-0021
+    approved: true
     lesson: lesson-chemistry-acid-and-base-strength
     keyPoint: 2
     type: 'simple-quantitative'
@@ -487,6 +488,7 @@ questions:
       Each acid molecule gives one proton to water. The hydronium level is $10^{-5}\ M$. The negative of the power is $5$.
 
   - id: q-chemistry-acids-bases-ph-0022
+    approved: true
     lesson: lesson-chemistry-acid-and-base-strength
     keyPoint: 2
     type: 'simple-quantitative'
@@ -509,6 +511,7 @@ questions:
       Each HCl gives one hydronium ion. The pH values are $2$ and $4$. Going from $2$ to $4$ is a rise of $2$.
 
   - id: q-chemistry-acids-bases-ph-0023
+    approved: true
     lesson: lesson-chemistry-ph-from-hydroxide
     keyPoint: 1
     type: 'simple-quantitative'
@@ -531,6 +534,7 @@ questions:
       The hydroxide power is $-6$, so pOH is $6$. Then pH is $14-6=8$.
 
   - id: q-chemistry-acids-bases-ph-0024
+    approved: true
     lesson: lesson-chemistry-ph-from-hydroxide
     keyPoint: 1
     type: 'simple-quantitative'

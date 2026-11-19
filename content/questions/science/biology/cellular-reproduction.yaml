@@ -213,7 +213,7 @@ questions:
           This places copying at the chromosome-alignment stage. Duplicated chromosomes are visible then, so their copying may seem to happen then too. Check whether their copies existed before mitosis began.
     explanation: |
       DNA replication occurs during S phase. Each chromosome is copied before the cell begins nuclear division.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0021
     lesson: lesson-biology-chromosome-sets-and-copies
@@ -236,7 +236,7 @@ questions:
           Sisters seem to mean two cells that came from one. Chromatids are parts of a chromosome. Check whether the term names cells or copies of DNA.
     explanation: |
       Before a cell divides, it copies each chromosome. If the copying has no errors, the two copies are identical. They stay joined at the centromere. Each copy is a sister chromatid.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0022
     lesson: lesson-biology-counting-chromosomes-through-mitosis
@@ -259,7 +259,7 @@ questions:
           This doubles the number twice. Copying happens once in S phase. Check that each chromosome has two chromatids, not four.
     explanation: |
       In S phase, each of the $46$ chromosomes is copied. Each chromosome then has two chromatids. At metaphase, the cell has $46 \times 2 = 92$ chromatids.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0023
     lesson: lesson-biology-counting-chromosomes-through-mitosis
@@ -282,7 +282,7 @@ questions:
           This is the count in a gamete. The cell has not yet divided and is not haploid. Check whether mitosis reduces the chromosome number.
     explanation: |
       In anaphase the sister chromatids separate. Each chromatid is then counted as its own chromosome. So the whole cell briefly holds $46 \times 2 = 92$ chromosomes, until cytokinesis shares them between two cells.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0024
     lesson: lesson-biology-chromosome-sets-and-copies
@@ -305,7 +305,7 @@ questions:
           This pictures halving each chromosome. Chromosomes are not cut lengthwise into haploid halves. Check that the cell holds whole chromosomes.
     explanation: |
       A haploid cell has $n$ chromosomes. It holds exactly one chromosome of each kind, so one from every homologous pair. In humans, $n = 23$.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0025
     lesson: lesson-biology-mitosis-phases-and-results
@@ -328,7 +328,7 @@ questions:
           This halves the chromosome number in mitosis. Halving is the point of meiosis. Check whether mitosis keeps the parent's chromosome number.
     explanation: |
       Mitosis keeps the chromosome number the same. A haploid parent cell makes two daughter cells, and each is haploid. A diploid parent would make two diploid cells.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0026
     lesson: lesson-biology-cell-cycle-and-cytokinesis
@@ -351,7 +351,7 @@ questions:
           New nuclear envelopes form at the end of mitosis, so this seems to fit. They divide the nucleus, not the cytoplasm. Check which process this part of the question describes.
     explanation: |
       In plant cells, a new cell wall called the cell plate forms across the middle. It divides the cytoplasm into two cells.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0027
     lesson: lesson-biology-cell-cycle-and-cytokinesis
@@ -374,7 +374,7 @@ questions:
           This is the part of interphase where DNA is copied. A cell in S phase is preparing to divide. Check whether the cell is resting.
     explanation: |
       Not every cell is always cycling. Many specialized cells rest in a non-dividing state called $G_0$.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0028
     lesson: lesson-biology-mitosis-phases-and-results
@@ -397,7 +397,7 @@ questions:
           New envelopes form at the end of mitosis, as the spindle finishes its work. Envelopes are separate from the spindle. Check what the spindle is made of.
     explanation: |
       The spindle is a set of fibers made of microtubules. In mitosis the fibers attach to the centromeres of the chromosomes. They line the chromosomes up and then pull the sister chromatids to opposite poles.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0029
     lesson: lesson-biology-mitosis-phases-and-results
@@ -420,7 +420,7 @@ questions:
           Copying and dividing are linked, so the order seems flexible. Copying happens in S phase, before mitosis. Check when the DNA is copied.
     explanation: |
       DNA is copied before mitosis. Copying errors can change the DNA, and chromosomes can sometimes be sorted incorrectly during mitosis. So the daughter cells are almost, but not always exactly, the same as the parent cell.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0030
     lesson: lesson-biology-chromosome-sets-and-copies
@@ -443,7 +443,7 @@ questions:
           A mother's and father's chromosomes seem to differ. Homologs carry the same genes. Check whether the genes and their order match.
     explanation: |
       Homologs are the two chromosomes of a pair, one from the mother and one from the father. They carry the same genes in the same order. At a gene, they may carry the same allele or different alleles.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-reproduction-0031
     lesson: lesson-biology-cell-cycle-and-cytokinesis
@@ -466,4 +466,4 @@ questions:
           This divides the cytoplasm before the nucleus. Cytokinesis ends in two cells, so it seems to be last in some order. Check that the nucleus divides first.
     explanation: |
       The cell first grows in $G_1$. Its DNA is copied in S phase, and it gets ready in $G_2$. Mitosis then divides the nucleus, and cytokinesis divides the cytoplasm.
-    approved: false
+    approved: true

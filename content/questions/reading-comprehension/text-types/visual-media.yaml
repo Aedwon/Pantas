@@ -144,6 +144,7 @@ questions:
 
     '
 - id: rc-tt-vm-0005
+  approved: true
   passage: rc-tt-vm-p1
   type: feature-of-form
   difficulty: hard

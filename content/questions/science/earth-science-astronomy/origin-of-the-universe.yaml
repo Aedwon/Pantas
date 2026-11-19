@@ -370,7 +370,7 @@ questions:
           This uses a local gravitational cycle for early cosmic history. Tides involve astronomical bodies. Check whether the observation tests early light-element production.
     explanation: |
       The hot early universe produced light elements. Observed hydrogen, helium, and some lithium abundances broadly fit the predicted pattern. This supports the Big Bang model.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0017
     lesson: lesson-earth-science-astronomy-solar-system-nebular-model
@@ -393,7 +393,7 @@ questions:
           This connects local particle growth to galaxy recession. Gravity does affect bodies. Check whether this disk controls distant galaxies.
     explanation: |
       Collisions can join solid particles into larger clumps. Continued accumulation is called accretion. It can produce planetesimals and larger planetary bodies.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0018
     lesson: lesson-earth-science-astronomy-evidence-for-a-solar-disk
@@ -416,7 +416,7 @@ questions:
           This assigns one center to both processes. A disk does have a center. Check whether cosmic expansion has a known spatial center.
     explanation: |
       Cosmic expansion increases large-scale separations in space. Nebular formation begins when gravity pulls part of a local cloud inward. These describe different scales and directions of change.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0019
     lesson: lesson-earth-science-astronomy-cosmic-microwave-background
@@ -439,7 +439,7 @@ questions:
           This puts our star system before the first stars. The Sun is a star. Check that earlier stars existed before it.
     explanation: |
       The CMB was released before the first stars formed. The Solar System formed much later from a cloud containing gas and dust. This gives the listed order.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0020
     lesson: lesson-earth-science-astronomy-big-bang-model
@@ -462,9 +462,10 @@ questions:
           This treats a tested chemical prediction as an ultimate-origin claim. Light-element abundances support early evolution. Check predictions versus what caused the beginning.
     explanation: |
       The Big Bang model describes the early universe's evolution. By itself, it does not establish an ultimate cause or what preceded the earliest times that current physics can describe.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0021
+    approved: true
     lesson: lesson-earth-science-astronomy-measuring-galaxy-redshift
     keyPoint: 1
     type: 'classify'
@@ -492,6 +493,7 @@ questions:
       wavelength is called a blueshift.
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0022
+    approved: true
     lesson: lesson-earth-science-astronomy-measuring-galaxy-redshift
     keyPoint: 2
     type: 'simple-quantitative'
@@ -519,6 +521,7 @@ questions:
       is $\dfrac{120}{600}=0.20$.
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0023
+    approved: true
     lesson: lesson-earth-science-astronomy-measuring-galaxy-redshift
     keyPoint: 2
     type: 'simple-quantitative'
@@ -546,6 +549,7 @@ questions:
       $z=\dfrac{-60}{600}=-0.10$.
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0024
+    approved: true
     lesson: lesson-earth-science-astronomy-redshift-and-cosmic-expansion
     keyPoint: 2
     type: 'cause-effect'
@@ -573,6 +577,7 @@ questions:
       us fast enough, its light shifts to shorter wavelengths.
 
   - id: q-earth-science-astronomy-origin-of-the-universe-0025
+    approved: true
     lesson: lesson-earth-science-astronomy-light-elements-and-the-big-bang
     keyPoint: 1
     type: 'identify'

@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, pupcet]
 questions:
   - id: q-trigonometry-trigonometric-identities-0001
+    approved: true
     lesson: lesson-trigonometry-reciprocal-and-quotient-identities
     keyPoint: 1
     type: which-is-true
@@ -26,6 +27,7 @@ questions:
     explanation: |
       Cosecant is the reciprocal of sine. Therefore $\csc\theta=\dfrac{1}{\sin\theta}$ whenever $\sin\theta\neq0$.
   - id: q-trigonometry-trigonometric-identities-0002
+    approved: true
     lesson: lesson-trigonometry-pythagorean-identity-and-signs
     keyPoint: 1
     type: which-is-true
@@ -47,6 +49,7 @@ questions:
     explanation: |
       On the unit circle, the coordinates are $x=\cos\theta$ and $y=\sin\theta$. The radius is $1$, so $x^2+y^2=1$. Substituting the coordinates gives $\sin^2\theta+\cos^2\theta=1$.
   - id: q-trigonometry-trigonometric-identities-0003
+    approved: true
     lesson: lesson-trigonometry-pythagorean-identity-and-signs
     keyPoint: 2
     type: direct-computation
@@ -68,6 +71,7 @@ questions:
     explanation: |
       Use $\cos^2\theta=1-\sin^2\theta$. Substitute: $\cos^2\theta=1-(\dfrac{3}{5})^2=1-\dfrac{9}{25}=\dfrac{16}{25}$. The square root has magnitude $\dfrac{4}{5}$. Since the angle is acute, cosine is positive, so $\cos\theta=\dfrac{4}{5}$.
   - id: q-trigonometry-trigonometric-identities-0004
+    approved: true
     lesson: lesson-trigonometry-reciprocal-and-quotient-identities
     keyPoint: 1
     type: which-is-true
@@ -89,6 +93,7 @@ questions:
     explanation: |
       Tangent is the ratio of sine to cosine. Thus $\tan\theta=\dfrac{\sin\theta}{\cos\theta}$ whenever $\cos\theta\neq0$.
   - id: q-trigonometry-trigonometric-identities-0005
+    approved: true
     lesson: lesson-trigonometry-reciprocal-and-quotient-identities
     keyPoint: 2
     type: error-spotting
@@ -110,6 +115,7 @@ questions:
     explanation: |
       Step 2 is the first error. Replacing tangent gives $\dfrac{\sin\theta}{\cos\theta}\cos\theta$. Since $\cos\theta\neq0$, cancel the cosine factor to obtain $\sin\theta$. Cancellation does not introduce an added term.
   - id: q-trigonometry-trigonometric-identities-0006
+    approved: true
     lesson: lesson-trigonometry-pythagorean-identity-and-signs
     keyPoint: 1
     type: direct-computation
@@ -131,6 +137,7 @@ questions:
     explanation: |
       For $A=30^\circ$, $\sin^2 A=(\dfrac{1}{2})^2=\dfrac{1}{4}$. For $B=60^\circ$, $\cos^2 B=(\dfrac{1}{2})^2=\dfrac{1}{4}$. Their sum is $\dfrac{1}{2}$.
   - id: q-trigonometry-trigonometric-identities-0007
+    approved: true
     lesson: lesson-trigonometry-simplifying-trigonometric-expressions
     keyPoint: 1
     type: direct-computation
@@ -152,6 +159,7 @@ questions:
     explanation: |
       Use $1-\cos^2\theta=\sin^2\theta$. Then the fraction is $\dfrac{\sin^2\theta}{\cos^2\theta}=(\dfrac{\sin\theta}{\cos\theta})^2=\tan^2\theta$. This holds on the original domain, where $\cos\theta\neq0$.
   - id: q-trigonometry-trigonometric-identities-0008
+    approved: true
     lesson: lesson-trigonometry-pythagorean-identity-and-signs
     keyPoint: 2
     type: error-spotting
@@ -173,6 +181,7 @@ questions:
     explanation: |
       Step 4 is the first error. From $\cos^2\theta=\dfrac{16}{25}$, cosine may be $\dfrac{4}{5}$ or $-\dfrac{4}{5}$. Positive sine allows both Quadrants I and II, with different cosine signs. No given range selects one of them.
   - id: q-trigonometry-trigonometric-identities-0009
+    approved: true
     lesson: lesson-trigonometry-simplifying-trigonometric-expressions
     keyPoint: 1
     type: direct-computation
@@ -194,6 +203,7 @@ questions:
     explanation: |
       Factor out secant: $\sec\theta(1-\sin^2\theta)$. Replace the parentheses with $\cos^2\theta$. Since secant is $1/\cos\theta$, the result is $\dfrac{\cos^2\theta}{\cos\theta}=\cos\theta$. The original expression requires $\cos\theta\neq0$.
   - id: q-trigonometry-trigonometric-identities-0010
+    approved: true
     lesson: lesson-trigonometry-tangent-and-cotangent-identities
     keyPoint: 1
     type: which-is-true
@@ -215,6 +225,7 @@ questions:
     explanation: |
       Divide $\sin^2\theta+\cos^2\theta=1$ by nonzero $\cos^2\theta$. This gives $\dfrac{\sin^2\theta}{\cos^2\theta}+1=\dfrac{1}{\cos^2\theta}$. The quotient and reciprocal identities turn this into $\tan^2\theta+1=\sec^2\theta$.
   - id: q-trigonometry-trigonometric-identities-0011
+    approved: true
     lesson: lesson-trigonometry-proving-trigonometric-identities
     keyPoint: 1
     type: error-spotting
@@ -236,6 +247,7 @@ questions:
     explanation: |
       All steps are correct on the stated domain. The reciprocal substitutions in Steps 1 and 2 give division by $1/\sin\theta$ and $1/\cos\theta$. Dividing by each reciprocal multiplies by the corresponding function, giving $\sin^2\theta+\cos^2\theta$. The Pythagorean identity makes the sum $1$.
   - id: q-trigonometry-trigonometric-identities-0012
+    approved: true
     lesson: lesson-trigonometry-tangent-and-cotangent-identities
     keyPoint: 1
     type: direct-computation
@@ -257,6 +269,7 @@ questions:
     explanation: |
       The identity gives $\sec^2\theta=1+\tan^2\theta=1+2^2=5$. Thus secant has magnitude $\sqrt{5}$. Because the angle is acute, cosine and its reciprocal are positive. Therefore $\sec\theta=\sqrt{5}$.
   - id: q-trigonometry-trigonometric-identities-0013
+    approved: true
     lesson: lesson-trigonometry-tangent-and-cotangent-identities
     keyPoint: 1
     type: which-is-true
@@ -278,6 +291,7 @@ questions:
     explanation: |
       If $\cos\theta=\dfrac{2}{3}$, then $\cos^2\theta=\dfrac{4}{9}$. Use $\sin^2\theta=1-\cos^2\theta$: $\sin^2\theta=1-\dfrac{4}{9}=\dfrac{5}{9}$.
   - id: q-trigonometry-trigonometric-identities-0014
+    approved: true
     lesson: lesson-trigonometry-tangent-and-cotangent-identities
     keyPoint: 1
     type: error-spotting
@@ -299,6 +313,7 @@ questions:
     explanation: |
       All steps are correct where $\sin\theta\neq0$. The numerator equals $1$ by the Pythagorean identity. The expression is then $\dfrac{1}{\sin^2\theta}=(\dfrac{1}{\sin\theta})^2=\csc^2\theta$.
   - id: q-trigonometry-trigonometric-identities-0015
+    approved: true
     lesson: lesson-trigonometry-pythagorean-identity-and-signs
     keyPoint: 3
     type: which-is-true
@@ -320,6 +335,7 @@ questions:
     explanation: |
       The notation $\sin^2\theta$ means $(\sin\theta)^2$. First take the sine of the angle. Then square that value.
   - id: q-trigonometry-trigonometric-identities-0016
+    approved: true
     lesson: lesson-trigonometry-tangent-and-cotangent-identities
     keyPoint: 1
     type: direct-computation
@@ -361,7 +377,7 @@ questions:
           This computes $1-0.3^2$, which is cosine squared. The Pythagorean identity links both squares. Check which squared function the question asks for.
     explanation: |
       Square the sine value: $\sin^2\theta=(0.3)^2=0.09$.
-    approved: false
+    approved: true
   - id: q-trigonometry-trigonometric-identities-0018
     lesson: lesson-trigonometry-reciprocal-and-quotient-identities
     keyPoint: 2
@@ -383,7 +399,7 @@ questions:
           This uses sine at $270^\circ$ after canceling the cosine factor. That angle is another axis angle. Check both the stated angle and the original denominator.
     explanation: |
       Tangent is $\sin\theta/\cos\theta$. At $90^\circ$, cosine is zero, so tangent is undefined. The original product is therefore undefined.
-    approved: false
+    approved: true
   - id: q-trigonometry-trigonometric-identities-0019
     lesson: lesson-trigonometry-proving-trigonometric-identities
     keyPoint: 1
@@ -405,7 +421,7 @@ questions:
           This keeps only the numerator and drops the full denominator. The numerator already looks simple. Check that the denominator was factored, not removed.
     explanation: |
       Replace $\cos^2\theta$ with $1-\sin^2\theta$. Factor the denominator as $(1-\sin\theta)(1+\sin\theta)$. The stated condition makes both factors nonzero. Cancel $1-\sin\theta$ to get $\dfrac{1}{1+\sin\theta}$.
-    approved: false
+    approved: true
   - id: q-trigonometry-trigonometric-identities-0020
     lesson: lesson-trigonometry-pythagorean-identity-and-signs
     keyPoint: 2
@@ -427,8 +443,9 @@ questions:
           This stops at sine after finding its sign. That is the last intermediate value. Check that cosecant is reciprocal sine.
     explanation: |
       Cosine is reciprocal secant, so $\cos\theta=-\dfrac{4}{5}$. The Pythagorean identity gives $\sin^2\theta=1-\dfrac{16}{25}=\dfrac{9}{25}$. Sine is negative in the stated quadrant, so $\sin\theta=-\dfrac{3}{5}$. Taking its reciprocal gives $\csc\theta=-\dfrac{5}{3}$.
-    approved: false
+    approved: true
   - id: q-trigonometry-trigonometric-identities-0021
+    approved: true
     lesson: lesson-trigonometry-simplifying-trigonometric-expressions
     keyPoint: 1
     type: direct-computation
@@ -450,6 +467,7 @@ questions:
     explanation: |
       Factor the top to get $\sin\theta(1-\sin^2\theta)$. The part in parentheses equals $\cos^2\theta$. The top and bottom now share a nonzero factor of $\cos^2\theta$. Cancel it to get $\sin\theta$.
   - id: q-trigonometry-trigonometric-identities-0022
+    approved: true
     lesson: lesson-trigonometry-sum-and-double-angle-identities
     keyPoint: 1
     type: direct-computation
@@ -471,6 +489,7 @@ questions:
     explanation: |
       The cosine difference formula adds the cosine product and the sine product. Here they are $\dfrac{\sqrt{6}}{4}$ and $\dfrac{\sqrt{2}}{4}$. Their sum is $\dfrac{\sqrt{6}+\sqrt{2}}{4}$.
   - id: q-trigonometry-trigonometric-identities-0023
+    approved: true
     lesson: lesson-trigonometry-sum-and-double-angle-identities
     keyPoint: 1
     type: direct-computation
@@ -492,6 +511,7 @@ questions:
     explanation: |
       The top of the tangent sum formula is $\dfrac{1}{2}+\dfrac{1}{3}=\dfrac{5}{6}$. The bottom is $1-\dfrac{1}{2}\cdot\dfrac{1}{3}=\dfrac{5}{6}$. The quotient is $1$.
   - id: q-trigonometry-trigonometric-identities-0024
+    approved: true
     lesson: lesson-trigonometry-sum-and-double-angle-identities
     keyPoint: 2
     type: direct-computation
@@ -513,6 +533,7 @@ questions:
     explanation: |
       Use the form that needs only cosine, $\cos 2\theta=2\cos^2\theta-1$. Squaring $\dfrac{5}{13}$ gives $\dfrac{25}{169}$. Twice that is $\dfrac{50}{169}$. Subtract $\dfrac{169}{169}$ to get $-\dfrac{119}{169}$.
   - id: q-trigonometry-trigonometric-identities-0025
+    approved: true
     lesson: lesson-trigonometry-sum-and-double-angle-identities
     keyPoint: 2
     type: direct-computation

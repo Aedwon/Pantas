@@ -698,6 +698,7 @@ questions:
       The divisor $x+2=x-(-2)$ gives remainder $P(-2)$. Compute $P(-2)=2(16)-(-8)+3(-2)-7=32+8-6-7=27$.
 
   - id: q-algebra-polynomials-0031
+    approved: true
     lesson: lesson-algebra-factoring-cubes
     keyPoint: 1
     type: direct-computation

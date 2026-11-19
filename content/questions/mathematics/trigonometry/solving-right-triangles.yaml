@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-trigonometry-solving-right-triangles-0001
+    approved: true
     lesson: lesson-trigonometry-elevation-and-depression
     keyPoint: 2
     type: word-problem
@@ -26,6 +27,7 @@ questions:
     explanation: |
       The height is opposite the $45^\circ$ angle and the ground distance is adjacent. Thus $\tan45^\circ=\dfrac{h}{20}$. Since $\tan45^\circ=1$, multiplying by $20$ gives $h=20$ m.
   - id: q-trigonometry-solving-right-triangles-0002
+    approved: true
     lesson: lesson-trigonometry-solving-a-whole-right-triangle
     keyPoint: 1
     type: direct-computation
@@ -47,6 +49,7 @@ questions:
     explanation: |
       The right angle uses $90^\circ$ of the triangle's $180^\circ$ total. The two acute angles therefore total $90^\circ$. The missing angle is $90^\circ-35^\circ=55^\circ$.
   - id: q-trigonometry-solving-right-triangles-0003
+    approved: true
     lesson: lesson-trigonometry-finding-acute-angles
     keyPoint: 1
     type: word-problem
@@ -68,6 +71,7 @@ questions:
     explanation: |
       The ladder is the hypotenuse and the ground distance is adjacent to the ground angle $\theta$. Thus $\cos\theta=\dfrac{5}{10}=\dfrac{1}{2}$. The acute angle with this cosine is $60^\circ$.
   - id: q-trigonometry-solving-right-triangles-0004
+    approved: true
     lesson: lesson-trigonometry-adjusting-for-eye-height
     keyPoint: 1
     type: word-problem
@@ -89,6 +93,7 @@ questions:
     explanation: |
       Tangent gives the height above eye level: $h_{\text{above eyes}}=30\tan60^\circ=30\sqrt{3}$ m. The eyes are $1.5$ m above the ground. Add that height to get the tree's total height: $1.5+30\sqrt{3}$ m.
   - id: q-trigonometry-solving-right-triangles-0005
+    approved: true
     lesson: lesson-trigonometry-elevation-and-depression
     keyPoint: 2
     type: word-problem
@@ -110,6 +115,7 @@ questions:
     explanation: |
       The horizontal through the clifftop is parallel to sea level. The boat's angle of elevation is therefore $30^\circ$. If the horizontal distance is $d$, then $\tan30^\circ=\dfrac{50}{d}$. Hence $d=50\div\dfrac{1}{\sqrt{3}}=50\sqrt{3}$ m.
   - id: q-trigonometry-solving-right-triangles-0006
+    approved: true
     lesson: lesson-trigonometry-finding-acute-angles
     keyPoint: 2
     type: word-problem
@@ -131,6 +137,7 @@ questions:
     explanation: |
       The rise is opposite and the horizontal run is adjacent to the ramp angle $\theta$. Thus $\tan\theta=\dfrac{3}{9}=\dfrac{1}{3}$. The angle in degrees is $\arctan(\dfrac{1}{3})$.
   - id: q-trigonometry-solving-right-triangles-0007
+    approved: true
     lesson: lesson-trigonometry-comparing-two-observations
     keyPoint: 1
     type: word-problem
@@ -152,6 +159,7 @@ questions:
     explanation: |
       Let $x$ be the distance from the nearer point to the pole and $h$ its height. From that point, $h=x\tan60^\circ=x\sqrt{3}$. From the farther point, $h=(x+100)\tan30^\circ=\dfrac{x+100}{\sqrt{3}}$. Equate the heights and multiply by $\sqrt{3}$: $3x=x+100$. Thus $x=50$ and $h=50\sqrt{3}$ m.
   - id: q-trigonometry-solving-right-triangles-0008
+    approved: true
     lesson: lesson-trigonometry-finding-sides-in-right-triangles
     keyPoint: 1
     type: direct-computation
@@ -173,6 +181,7 @@ questions:
     explanation: |
       Sine compares the opposite side with the hypotenuse. If the opposite side is $a$, then $\sin35^\circ=\dfrac{a}{40}$. Multiplying by $40$ finds that side.
   - id: q-trigonometry-solving-right-triangles-0009
+    approved: true
     lesson: lesson-trigonometry-elevation-and-depression
     keyPoint: 1
     type: error-spotting
@@ -194,6 +203,7 @@ questions:
     explanation: |
       Step 2 first uses the wrong angle. A depression of $40^\circ$ from the upper horizontal equals an elevation of $40^\circ$ at the car. Therefore $\tan40^\circ=\dfrac{25}{d}$, giving $d=\dfrac{25}{\tan40^\circ}$ m.
   - id: q-trigonometry-solving-right-triangles-0010
+    approved: true
     lesson: lesson-trigonometry-comparing-two-observations
     keyPoint: 1
     type: word-problem
@@ -215,6 +225,7 @@ questions:
     explanation: |
       From eye level, the roof is $100\tan30^\circ$ m higher and the pole's top is $100\tan32^\circ$ m higher. Subtract these two heights. The pole height is $100(\tan32^\circ-\tan30^\circ)$ m.
   - id: q-trigonometry-solving-right-triangles-0011
+    approved: true
     lesson: lesson-trigonometry-comparing-two-observations
     keyPoint: 1
     type: word-problem
@@ -236,6 +247,7 @@ questions:
     explanation: |
       Let $d_1$ and $d_2$ be the horizontal distances before and after the plane moves. Tangent gives $d_1=5000\div\tan20^\circ$ and $d_2=5000\div\tan50^\circ$. Cotangent is reciprocal tangent, so these are $5000\cot20^\circ$ and $5000\cot50^\circ$. The plane stays on the same side and moves closer, so its travel is $d_1-d_2=5000(\cot20^\circ-\cot50^\circ)$ m.
   - id: q-trigonometry-solving-right-triangles-0012
+    approved: true
     lesson: lesson-trigonometry-finding-sides-in-right-triangles
     keyPoint: 1
     type: direct-computation
@@ -257,6 +269,7 @@ questions:
     explanation: |
       Sine is opposite over hypotenuse. The specified opposite leg is $30$ and the hypotenuse is $50$. Thus $\sin\theta=\dfrac{30}{50}=\dfrac{3}{5}$.
   - id: q-trigonometry-solving-right-triangles-0013
+    approved: true
     lesson: lesson-trigonometry-finding-sides-in-right-triangles
     keyPoint: 1
     type: word-problem
@@ -278,6 +291,7 @@ questions:
     explanation: |
       Tangent needs the horizontal distance and the height above the observer. The $150$ m is measured along the hill, so it is not the horizontal distance. The helicopter is $100$ m above the stranded person, but the worker may stand higher or lower on the hill. So $\dfrac{100}{150}$ is not the right ratio.
   - id: q-trigonometry-solving-right-triangles-0014
+    approved: true
     lesson: lesson-trigonometry-elevation-and-depression
     keyPoint: 1
     type: which-is-true
@@ -299,6 +313,7 @@ questions:
     explanation: |
       The observer's horizontal line is parallel to the level street. The line of sight crosses both horizontals. Their alternate interior angles are equal, so the elevation angle at the car is $60^\circ$.
   - id: q-trigonometry-solving-right-triangles-0015
+    approved: true
     lesson: lesson-trigonometry-finding-sides-in-right-triangles
     keyPoint: 2
     type: error-spotting
@@ -320,6 +335,7 @@ questions:
     explanation: |
       Step 3 first makes an algebra error. Sine gives $\sin50^\circ=\dfrac{a}{60}$. Multiplying both sides by $60$ gives $a=60\sin50^\circ$.
   - id: q-trigonometry-solving-right-triangles-0016
+    approved: true
     lesson: lesson-trigonometry-comparing-two-observations
     keyPoint: 1
     type: word-problem
@@ -361,7 +377,7 @@ questions:
           This uses the terrain as the reference. Ground can look horizontal in a sketch. Check whether the ground is level before treating it as horizontal.
     explanation: |
       An elevation angle measures how far the line of sight points upward from a horizontal through the observer. Thus the reference is a horizontal line at the observer's height.
-    approved: false
+    approved: true
   - id: q-trigonometry-solving-right-triangles-0018
     lesson: lesson-trigonometry-finding-sides-in-right-triangles
     keyPoint: 2
@@ -383,7 +399,7 @@ questions:
           This omits the denominator $2$ in both cosine values. The radicals in the special-angle values look familiar. Check the complete fractions before multiplying by the ladder length.
     explanation: |
       The first horizontal distance is $10\cos60^\circ=5$ m. The new distance is $10\cos30^\circ=5\sqrt{3}$ m. The foot moves by their difference, $5\sqrt{3}-5=5(\sqrt{3}-1)$ m.
-    approved: false
+    approved: true
   - id: q-trigonometry-solving-right-triangles-0019
     lesson: lesson-trigonometry-comparing-two-observations
     keyPoint: 1
@@ -405,7 +421,7 @@ questions:
           This treats the full $80$ m as the distance from the $60^\circ$ point to the base. The steeper angle suggests tangent $\sqrt{3}$. Check that each observer has only part of the total separation.
     explanation: |
       Let the height be $h$. The distances from the base are $h/\tan30^\circ=h\sqrt{3}$ and $h/\tan60^\circ=h/\sqrt{3}$. Their sum is $80$ m: $h\sqrt{3}+h/\sqrt{3}=80$. Multiply by $\sqrt{3}$ to get $4h=80\sqrt{3}$. Thus $h=20\sqrt{3}$ m.
-    approved: false
+    approved: true
   - id: q-trigonometry-solving-right-triangles-0020
     lesson: lesson-trigonometry-comparing-two-observations
     keyPoint: 1
@@ -427,8 +443,9 @@ questions:
           This treats the $20$-m separation as the full ground-level distance. That is the only distance stated directly. Check that the farther camera is $x+20$ m from the tower.
     explanation: |
       Let $x$ be the first camera's horizontal distance and $h$ the tower height. The $45^\circ$ view gives $h-5=x$. The ground-level view gives $h=(x+20)/\sqrt{3}$. Substitute $x=h-5$: $h=(h+15)/\sqrt{3}$. Thus $h(\sqrt{3}-1)=15$, so $h=\dfrac{15}{\sqrt{3}-1}$ m.
-    approved: false
+    approved: true
   - id: q-trigonometry-solving-right-triangles-0021
+    approved: true
     lesson: lesson-trigonometry-adjusting-for-eye-height
     keyPoint: 1
     type: word-problem
@@ -450,6 +467,7 @@ questions:
     explanation: |
       The $45^\circ$ angle gives a drop equal to the horizontal distance, since $\tan45^\circ=1$. Subtract the $6$ m drop from the eye height. The sign is $14-6=8$ m above the street.
   - id: q-trigonometry-solving-right-triangles-0022
+    approved: true
     lesson: lesson-trigonometry-finding-acute-angles
     keyPoint: 1
     type: direct-computation
@@ -471,6 +489,7 @@ questions:
     explanation: |
       The leg across from $A$ has length $5$. The leg next to $A$ has length $5\sqrt{3}$. Thus $\tan A=\dfrac{1}{\sqrt{3}}$, the tangent of $30^\circ$.
   - id: q-trigonometry-solving-right-triangles-0023
+    approved: true
     lesson: lesson-trigonometry-finding-acute-angles
     keyPoint: 2
     type: direct-computation
@@ -492,6 +511,7 @@ questions:
     explanation: |
       Cosine is the leg next to the angle divided by the hypotenuse, so $\cos\theta=\dfrac{7}{11}$. In degree mode, $\cos^{-1}\left(\dfrac{7}{11}\right)\approx50.5^\circ$.
   - id: q-trigonometry-solving-right-triangles-0024
+    approved: true
     lesson: lesson-trigonometry-solving-a-whole-right-triangle
     keyPoint: 1
     type: direct-computation
@@ -513,6 +533,7 @@ questions:
     explanation: |
       The two acute angles add to $90^\circ$, so $B=60^\circ$. The leg across from $A$ is $BC=14\sin30^\circ=7$. The leg next to $A$ is $AC=14\cos30^\circ=7\sqrt{3}$.
   - id: q-trigonometry-solving-right-triangles-0025
+    approved: true
     lesson: lesson-trigonometry-solving-a-whole-right-triangle
     keyPoint: 2
     type: direct-computation
@@ -534,6 +555,7 @@ questions:
     explanation: |
       The hypotenuse is $XY=\sqrt{12^2+5^2}=13$. From $X$, the opposite leg is $5$ and the leg next to it is $12$. In degree mode, $\angle X=\tan^{-1}\left(\dfrac{5}{12}\right)\approx22.6^\circ$. Subtract from $90^\circ$ to get $\angle Y\approx67.4^\circ$.
   - id: q-trigonometry-solving-right-triangles-0026
+    approved: true
     lesson: lesson-trigonometry-solving-a-whole-right-triangle
     keyPoint: 2
     type: word-problem

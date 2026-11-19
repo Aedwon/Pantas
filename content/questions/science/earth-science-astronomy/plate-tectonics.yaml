@@ -465,6 +465,7 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0021
+    approved: true
     lesson: lesson-earth-science-astronomy-subduction-and-volcanoes
     keyPoint: 1
     type: 'identify'
@@ -492,6 +493,7 @@ questions:
       of deeper quakes away from the trench. Volcanoes form above it.
 
   - id: q-earth-science-astronomy-plate-tectonics-0022
+    approved: true
     lesson: lesson-earth-science-astronomy-philippine-tectonic-hazards
     keyPoint: 1
     type: 'predict-outcome'
@@ -519,6 +521,7 @@ questions:
       ground quickly takes people away from the shore and out of the water's path.
 
   - id: q-earth-science-astronomy-plate-tectonics-0023
+    approved: true
     lesson: lesson-earth-science-astronomy-philippine-tectonic-hazards
     keyPoint: 1
     type: 'predict-outcome'

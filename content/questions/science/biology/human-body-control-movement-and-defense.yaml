@@ -232,7 +232,7 @@ questions:
           This gives both hormones a glucose-lowering role. Both participate in glucose regulation. Check whether low food supply makes raising glucose useful.
     explanation: |
       Insulin generally lowers blood glucose. Glucagon generally raises it. These different effects help regulate glucose in the blood.
-    approved: false
+    approved: true
 
   - id: q-biology-human-body-control-movement-and-defense-0001
     lesson: lesson-biology-nerves-reflexes-and-brain-control
@@ -255,7 +255,7 @@ questions:
           This skips the central nervous system before the motor neuron. The muscle is the visible result, so it seems to come next. Check where the signal turns around in a reflex.
     explanation: |
       The skin receptor detects the heat. A sensory neuron carries the signal to the spinal cord. A motor neuron carries it from the spinal cord to the arm muscle, which pulls the hand away.
-    approved: false
+    approved: true
 
   - id: q-biology-human-body-control-movement-and-defense-0002
     lesson: lesson-biology-bones-joints-and-muscles
@@ -278,7 +278,7 @@ questions:
           This picks the cell that carries signals to a muscle. It reaches the muscle, so it can seem to join it. Check whether the structure holds a muscle to a bone or only signals it.
     explanation: |
       A tendon joins a muscle to a bone. When the muscle shortens, the tendon pulls on the bone.
-    approved: false
+    approved: true
 
   - id: q-biology-human-body-control-movement-and-defense-0003
     lesson: lesson-biology-bones-joints-and-muscles
@@ -301,7 +301,7 @@ questions:
           This mixes up muscle types. Striated and smooth muscle are both real, so the pair seems reasonable. Check that the biceps and triceps are both skeletal.
     explanation: |
       Muscles pull on bones. The biceps pulls the forearm one way. The triceps pulls it the other way. So the two muscles work as a pair.
-    approved: false
+    approved: true
 
   - id: q-biology-human-body-control-movement-and-defense-0004
     lesson: lesson-biology-nerves-reflexes-and-brain-control
@@ -324,7 +324,7 @@ questions:
           These respond to signals, so they seem linked to them. They are effectors and do not carry a signal to the central nervous system. Check which cells do the carrying.
     explanation: |
       Sensory neurons carry signals from receptors toward the brain and spinal cord.
-    approved: false
+    approved: true
 
   - id: q-biology-human-body-control-movement-and-defense-0005
     lesson: lesson-biology-hormones-and-blood-glucose-feedback
@@ -347,7 +347,7 @@ questions:
           Insulin is the best-known loop, so it can seem to be the only one. The lesson shows a second loop for low glucose. Check what glucagon does after a fall.
     explanation: |
       In negative feedback, the response reverses the change. Glucose fell, and glucagon makes it rise again. The name does not depend on whether the level goes up or down.
-    approved: false
+    approved: true
 
   - id: q-biology-human-body-control-movement-and-defense-0006
     lesson: lesson-biology-the-pituitary-and-its-hormones
@@ -370,7 +370,7 @@ questions:
           This is a well-known hormone, so it can seem to fit any question. The testes make it. Check which gland releases the hormone in the question.
     explanation: |
       The hypothalamus makes ADH, and the posterior pituitary releases it. ADH tells the kidneys to keep more water, so less water leaves in urine.
-    approved: false
+    approved: true
 
   - id: q-biology-human-body-control-movement-and-defense-0007
     lesson: lesson-biology-human-reproduction-and-fertilization
@@ -393,7 +393,7 @@ questions:
           This is where sperm are made, so it can seem to be the meeting place. The sperm travel out of the male body. Check where the sperm meets the oocyte.
     explanation: |
       An ovary releases an oocyte, and it enters the uterine tube. Sperm that reach the tube can fuse with it there. The zygote then moves toward the uterus and attaches to its lining.
-    approved: false
+    approved: true
 
   - id: q-biology-human-body-control-movement-and-defense-0008
     lesson: lesson-biology-innate-and-adaptive-defenses
@@ -416,7 +416,7 @@ questions:
           Barriers are part of the body's defense, so this seems reasonable. These barriers help block germs, but the protection tested here comes from memory cells. Check which defense remembers a specific target.
     explanation: |
       A vaccine shows the immune system an antigen without the disease. The body forms memory cells. If the real germ comes later, the response is faster and stronger.
-    approved: false
+    approved: true
 
   - id: q-biology-human-body-control-movement-and-defense-0009
     lesson: lesson-biology-bones-joints-and-muscles
@@ -439,7 +439,7 @@ questions:
           This pairs the vertebral column with the hip girdle. The hip girdle is appendicular, but the vertebral column is axial, so the pair looks half right. Check where the vertebral column belongs.
     explanation: |
       The appendicular skeleton is the limbs and the girdles that attach them to the body. The shoulder and hip girdles are included.
-    approved: false
+    approved: true
 
   - id: q-biology-human-body-control-movement-and-defense-0010
     lesson: lesson-biology-nerves-reflexes-and-brain-control
@@ -462,9 +462,10 @@ questions:
           This region sits above the pituitary and controls it. It sounds like a control center, so it seems to fit. Check which region the lesson links to breathing and blood pressure.
     explanation: |
       The brain stem has the centers that control breathing and blood pressure. It works automatically. During exercise it can raise the breathing rate and the heart rate.
-    approved: false
+    approved: true
 
   - id: q-biology-human-body-control-movement-and-defense-0011
+    approved: true
     lesson: lesson-biology-hormones-and-blood-glucose-feedback
     keyPoint: 1
     type: "cause-effect"
@@ -487,6 +488,7 @@ questions:
       A matching receptor lets a cell receive the hormone's message. Only the cells with that receptor respond.
 
   - id: q-biology-human-body-control-movement-and-defense-0012
+    approved: true
     lesson: lesson-biology-human-reproduction-and-fertilization
     keyPoint: 2
     type: "structure-function"
@@ -509,6 +511,7 @@ questions:
       The ovaries release estrogen and progesterone. These hormones help prepare the lining where implantation can happen.
 
   - id: q-biology-human-body-control-movement-and-defense-0013
+    approved: true
     lesson: lesson-biology-how-body-systems-work-together
     keyPoint: 1
     type: "process-ordering"
@@ -531,6 +534,7 @@ questions:
       Blood carries carbon dioxide from the muscle to the lungs. It leaves the body when the person breathes out.
 
   - id: q-biology-human-body-control-movement-and-defense-0014
+    approved: true
     lesson: lesson-biology-how-body-systems-work-together
     keyPoint: 1
     type: "structure-function"

@@ -261,7 +261,7 @@ questions:
   - id: q-physics-fluid-mechanics-0015
     lesson: lesson-physics-fluid-density-and-pressure
     keyPoint: 1
-    approved: false
+    approved: true
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -284,7 +284,7 @@ questions:
   - id: q-physics-fluid-mechanics-0016
     lesson: lesson-physics-fluid-density-and-pressure
     keyPoint: 2
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -307,7 +307,7 @@ questions:
   - id: q-physics-fluid-mechanics-0017
     lesson: lesson-physics-comparing-pressure-at-depth
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "hard"
     stem: |
@@ -330,7 +330,7 @@ questions:
   - id: q-physics-fluid-mechanics-0018
     lesson: lesson-physics-archimedes-principle-and-buoyant-force
     keyPoint: 1
-    approved: false
+    approved: true
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
@@ -353,7 +353,7 @@ questions:
   - id: q-physics-fluid-mechanics-0019
     lesson: lesson-physics-archimedes-principle-and-buoyant-force
     keyPoint: 1
-    approved: false
+    approved: true
     type: "structure-function"
     difficulty: "hard"
     stem: |
@@ -394,7 +394,7 @@ questions:
           This treats a floating block as fully under. A block less dense than water rises until it floats. Check that the buoyant force equals the weight with less than the whole volume under.
     explanation: |
       A floating block has a buoyant force equal to its weight. The fraction below the surface is $\dfrac{\rho_{object}}{\rho_{fluid}}=\dfrac{600}{1000}=0.60$. So $60\%$ of the block is below the surface.
-    approved: false
+    approved: true
 
   - id: q-physics-fluid-mechanics-0022
     lesson: lesson-physics-pascal-principle-and-hydraulic-force
@@ -417,7 +417,7 @@ questions:
           This multiplies the force by the small area. The area is in the problem, so it seems to be used. Check that the equation uses the ratio of the two areas.
     explanation: |
       The pressure change is the same at both pistons. $F_2=F_1\dfrac{A_2}{A_1}=50\times\dfrac{200}{10}=1000$ N.
-    approved: false
+    approved: true
 
   - id: q-physics-fluid-mechanics-0023
     lesson: lesson-physics-gauge-and-absolute-pressure
@@ -440,7 +440,7 @@ questions:
           This multiplies atmospheric pressure by the depth. The depth is in the question, so it seems to scale the pressure. Check that the formula adds $\rho gh$ to $P_0$.
     explanation: |
       Absolute pressure is $P=P_0+\rho gh$. First, $\rho gh=(1000)(9.8)(8.0)=7.84\times10^4$ Pa. Then $P=1.01\times10^5+0.784\times10^5\approx1.79\times10^5$ Pa.
-    approved: false
+    approved: true
 
   - id: q-physics-fluid-mechanics-0024
     lesson: lesson-physics-apparent-weight-in-a-fluid
@@ -463,9 +463,10 @@ questions:
           This adds the buoyant force to the weight. The water seems to add a push on the object. Check that the buoyant force acts upward and reduces the reading.
     explanation: |
       The weight in air is $mg=5.0\times9.8=49$ N. The buoyant force is $\rho_{fluid}gV=(1000)(9.8)(2.0\times10^{-3})=19.6$ N. The scale reads $W-F_B=49-19.6=29.4$ N.
-    approved: false
+    approved: true
 
   - id: q-physics-fluid-mechanics-0025
+    approved: true
     lesson: lesson-physics-gauge-and-absolute-pressure
     keyPoint: 1
     type: "simple-quantitative"
@@ -488,6 +489,7 @@ questions:
       The water adds $1000\times9.8\times5=49000$ Pa, or 49 kPa. The full pressure is $120+49=169$ kPa. Subtract the outside air pressure to get $169-101=68$ kPa.
 
   - id: q-physics-fluid-mechanics-0026
+    approved: true
     lesson: lesson-physics-pascal-principle-and-hydraulic-force
     keyPoint: 1
     type: "simple-quantitative"
@@ -510,6 +512,7 @@ questions:
       The input adds $30/10=3$ N per square centimeter. The same pressure acts across 60 square centimeters, giving $3\times60=180$ N.
 
   - id: q-physics-fluid-mechanics-0027
+    approved: true
     lesson: lesson-physics-hydraulic-piston-distance-and-work
     keyPoint: 1
     type: "simple-quantitative"
@@ -532,6 +535,7 @@ questions:
       Both pistons move the same volume of liquid. The piston with four times the area moves one fourth as far, or 3 cm.
 
   - id: q-physics-fluid-mechanics-0028
+    approved: true
     lesson: lesson-physics-hydraulic-piston-distance-and-work
     keyPoint: 1
     type: "simple-quantitative"
@@ -554,6 +558,7 @@ questions:
       The output force is four times as large. The output piston moves one fourth as far. The two factors cancel, so the work stays at 24 J.
 
   - id: q-physics-fluid-mechanics-0029
+    approved: true
     lesson: lesson-physics-apparent-weight-in-a-fluid
     keyPoint: 1
     type: "simple-quantitative"
@@ -576,6 +581,7 @@ questions:
       The water supports 9 N of the object's weight. The scale supports the remaining $26-9=17$ N.
 
   - id: q-physics-fluid-mechanics-0030
+    approved: true
     lesson: lesson-physics-floating-fraction-and-displaced-volume
     keyPoint: 1
     type: "simple-quantitative"

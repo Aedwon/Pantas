@@ -347,7 +347,7 @@ questions:
           This treats loose material as rigid parts of the nucleus. Tails appear connected. Check whether released material can respond separately.
     explanation: |
       Dust responds to sunlight and keeps some orbital motion. Its tail can curve. Charged gas responds strongly to solar wind, which carries it away from the Sun.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0019
     lesson: lesson-earth-science-astronomy-comet-activity-and-tails
@@ -370,9 +370,10 @@ questions:
           This reverses the heating-release link. A receding comet can remain active. Check how less heat affects gas release.
     explanation: |
       Solar heating helps release gas and dust from a comet. Farther from the Sun, less heating reaches the surface. Usually, less material is released.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0021
+    approved: true
     lesson: lesson-earth-science-astronomy-planet-families
     keyPoint: 2
     type: cause-effect
@@ -395,6 +396,7 @@ questions:
       Venus has a thick atmosphere. The air traps heat near the surface. This trapped heat makes Venus the hottest planet.
 
   - id: q-earth-science-astronomy-heavenly-bodies-0022
+    approved: true
     lesson: lesson-earth-science-astronomy-planets-and-dwarf-planets
     keyPoint: 1
     type: classify
@@ -417,6 +419,7 @@ questions:
       The IAU says a planet must orbit the Sun, be nearly round, and have cleared its orbit. Pluto orbits the Sun and is nearly round. But it has not cleared its orbit, so it is a dwarf planet.
 
   - id: q-earth-science-astronomy-heavenly-bodies-0023
+    approved: true
     lesson: lesson-earth-science-astronomy-natural-satellites
     keyPoint: 1
     type: identify
@@ -439,6 +442,7 @@ questions:
       Europa has an icy shell over a rocky interior. It is thought to hide a salty ocean under the ice. It orbits Jupiter.
 
   - id: q-earth-science-astronomy-heavenly-bodies-0024
+    approved: true
     lesson: lesson-earth-science-astronomy-planet-families
     keyPoint: 1
     type: classify
@@ -461,6 +465,7 @@ questions:
       A planet with no solid surface that is mostly water, ammonia, and methane around a small core is an ice giant. Uranus and Neptune are ice giants. Rings do not decide the family, because all four giant planets have rings.
 
   - id: q-earth-science-astronomy-heavenly-bodies-0025
+    approved: true
     lesson: lesson-earth-science-astronomy-planets-and-dwarf-planets
     keyPoint: 1
     type: 'classify'
@@ -487,6 +492,7 @@ questions:
       condition because it has not cleared its orbital neighborhood.
 
   - id: q-earth-science-astronomy-heavenly-bodies-0026
+    approved: true
     lesson: lesson-earth-science-astronomy-natural-satellites
     keyPoint: 1
     type: 'identify'
@@ -513,6 +519,7 @@ questions:
       planet. Its path around the planet makes it a moon.
 
   - id: q-earth-science-astronomy-heavenly-bodies-0027
+    approved: true
     lesson: lesson-earth-science-astronomy-asteroids-and-the-main-belt
     keyPoint: 2
     type: 'classify'

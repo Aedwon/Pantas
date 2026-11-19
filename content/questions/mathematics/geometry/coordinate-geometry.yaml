@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-geometry-coordinate-geometry-0001
+    approved: true
     lesson: lesson-geometry-distance-on-the-coordinate-plane
     keyPoint: 1
     type: direct-computation
@@ -30,6 +31,7 @@ questions:
       The horizontal change is $4-(-2)=6$, and the vertical change is $11-3=8$. The distance is $\sqrt{6^2+8^2}=\sqrt{100}=10$ units.
 
   - id: q-geometry-coordinate-geometry-0002
+    approved: true
     lesson: lesson-geometry-coordinate-midpoints-and-endpoints
     keyPoint: 1
     type: direct-computation
@@ -55,6 +57,7 @@ questions:
       Average each coordinate pair. The x-coordinate is $\dfrac{-6+2}{2}=-2$, and the y-coordinate is $\dfrac{8-4}{2}=2$. The midpoint is $(-2,2)$.
 
   - id: q-geometry-coordinate-geometry-0003
+    approved: true
     lesson: lesson-geometry-coordinate-slope-and-line-forms
     keyPoint: 1
     type: direct-computation
@@ -80,6 +83,7 @@ questions:
       The rise is $11-3=8$, and the run is $5-1=4$. Slope is rise over run: $m=\dfrac{8}{4}=2$.
 
   - id: q-geometry-coordinate-geometry-0004
+    approved: true
     lesson: lesson-geometry-slopes-of-parallel-and-perpendicular-lines
     keyPoint: 1
     type: direct-computation
@@ -105,6 +109,7 @@ questions:
       The coefficient of x in $y=3x-7$ is the slope $3$. Parallel nonvertical lines have equal slopes. Therefore the second slope is $3$.
 
   - id: q-geometry-coordinate-geometry-0005
+    approved: true
     lesson: lesson-geometry-slopes-of-parallel-and-perpendicular-lines
     keyPoint: 2
     type: direct-computation
@@ -130,6 +135,7 @@ questions:
       The given slope is finite and nonzero. A perpendicular slope is its negative reciprocal. Flip $-\dfrac{4}{5}$ to $-\dfrac{5}{4}$ and change its sign, giving $\dfrac{5}{4}$.
 
   - id: q-geometry-coordinate-geometry-0006
+    approved: true
     lesson: lesson-geometry-coordinate-slope-and-line-forms
     keyPoint: 2
     type: direct-computation
@@ -155,6 +161,7 @@ questions:
       Use $y=mx+b$ with $m=-4$. Substitute the point: $-2=-4(3)+b$. Thus $-2=-12+b$ and $b=10$. The equation is $y=-4x+10$.
 
   - id: q-geometry-coordinate-geometry-0007
+    approved: true
     lesson: lesson-geometry-slopes-of-parallel-and-perpendicular-lines
     keyPoint: 2
     type: direct-computation
@@ -180,6 +187,7 @@ questions:
       The segment slope is $\dfrac{7-1}{5-(-3)}=\dfrac{6}{8}=\dfrac{3}{4}$. Its perpendicular bisector has the negative reciprocal slope, $-\dfrac{4}{3}$.
 
   - id: q-geometry-coordinate-geometry-0008
+    approved: true
     lesson: lesson-geometry-distance-on-the-coordinate-plane
     keyPoint: 1
     type: direct-computation
@@ -205,6 +213,7 @@ questions:
       AB is horizontal with length $8-2=6$. The perpendicular height from C to that base is $7-3=4$. The triangle area is $\dfrac{1}{2}(6)(4)=12$ square units.
 
   - id: q-geometry-coordinate-geometry-0009
+    approved: true
     lesson: lesson-geometry-coordinate-slope-and-line-forms
     keyPoint: 2
     type: direct-computation
@@ -230,6 +239,7 @@ questions:
       Multiply the point-slope equation by $3$: $3y-12=-2x-12$. Add $2x$ and $12$ to both sides. This gives standard form $2x+3y=0$.
 
   - id: q-geometry-coordinate-geometry-0010
+    approved: true
     lesson: lesson-geometry-coordinate-slope-and-line-forms
     keyPoint: 1
     type: direct-computation
@@ -255,6 +265,7 @@ questions:
       From B to C, the slope is $\dfrac{11-5}{5-2}=2$. From B to A, x decreases by $3$, so y decreases by $2(3)=6$. Thus $k=5-6=-1$.
 
   - id: q-geometry-coordinate-geometry-0011
+    approved: true
     lesson: lesson-geometry-slopes-of-parallel-and-perpendicular-lines
     keyPoint: 2
     type: direct-computation
@@ -280,6 +291,7 @@ questions:
       The given line has slope $\dfrac{3}{4}$. The perpendicular slope is $-\dfrac{4}{3}$. Through $(6,-1)$, write $y+1=-\dfrac{4}{3}(x-6)$. Multiply by $3$: $3y+3=-4x+24$. Rearrange to $4x+3y=21$.
 
   - id: q-geometry-coordinate-geometry-0012
+    approved: true
     lesson: lesson-geometry-distance-on-the-coordinate-plane
     keyPoint: 1
     type: direct-computation
@@ -305,6 +317,7 @@ questions:
       The base OA lies on the x-axis and has length $6$. The opposite side lies at $y=5$, so the perpendicular height is $5$. The parallelogram area is $6(5)=30$ square units.
 
   - id: q-geometry-coordinate-geometry-0013
+    approved: true
     lesson: lesson-geometry-expanded-circle-equations
     keyPoint: 1
     type: direct-computation
@@ -330,6 +343,7 @@ questions:
       Rearrange the circle equation: $x^2-6x+y^2+8y=11$. Add $9+16$ to complete both squares. This gives $(x-3)^2+(y+4)^2=36$. In the circle form $(x-h)^2+(y-k)^2=r^2$, the center is $(3,-4)$ and the radius is $\sqrt{36}=6$.
 
   - id: q-geometry-coordinate-geometry-0014
+    approved: true
     lesson: lesson-geometry-coordinate-slope-and-line-forms
     keyPoint: 2
     type: direct-computation
@@ -355,6 +369,7 @@ questions:
       Multiply the first equation by $2$ to get $4x+6y=26$. Multiply the second by $3$ to get $15x-6y=12$. Add: $19x=38$, so $x=2$. Substitute into the first: $4+3y=13$, giving $y=3$. The intersection is $(2,3)$.
 
   - id: q-geometry-coordinate-geometry-0015
+    approved: true
     lesson: lesson-geometry-distance-on-the-coordinate-plane
     keyPoint: 1
     type: direct-computation
@@ -400,7 +415,7 @@ questions:
           This confuses the vertical and horizontal descriptions. Both types keep one coordinate constant. Check that fixed x means a vertical line.
     explanation: |
       Every point on this line has the same x-coordinate. Any two distinct points have zero horizontal change. The slope would divide by zero, so it is undefined.
-    approved: false
+    approved: true
 
   - id: q-geometry-coordinate-geometry-0017
     lesson: lesson-geometry-coordinate-slope-and-line-forms
@@ -423,7 +438,7 @@ questions:
           This confuses negative slope with zero run. Both can seem unusual. Check that a defined negative number is still a slope.
     explanation: |
       The numerator subtracts the first point from the second. The denominator must use that same order: $4-1=3$. Thus the slope is $\dfrac{8-2}{4-1}=\dfrac{6}{3}=2$.
-    approved: false
+    approved: true
 
   - id: q-geometry-coordinate-geometry-0018
     lesson: lesson-geometry-coordinate-midpoints-and-endpoints
@@ -446,7 +461,7 @@ questions:
           This reports the displacement from A to M. That change must be repeated from M. Check that it is added to the midpoint coordinates.
     explanation: |
       The midpoint averages the endpoints. Thus $x_B=2(1)-6=-4$ and $y_B=2(-3)-2=-8$. The other endpoint is $(-4,-8)$.
-    approved: false
+    approved: true
 
   - id: q-geometry-coordinate-geometry-0019
     lesson: lesson-geometry-slopes-of-parallel-and-perpendicular-lines
@@ -469,7 +484,7 @@ questions:
           This negates a slope without taking its reciprocal. The lines tilt in opposite directions. Check that defined perpendicular slopes multiply to negative one.
     explanation: |
       The first line is vertical and has undefined slope. The second is horizontal and has slope zero. A vertical line and a horizontal line meet at a right angle, so they are perpendicular even though one slope is undefined.
-    approved: false
+    approved: true
 
   - id: q-geometry-coordinate-geometry-0020
     lesson: lesson-geometry-slopes-of-parallel-and-perpendicular-lines
@@ -492,9 +507,10 @@ questions:
           This swaps the point coordinates before substituting. Both numbers belong to the point. Check that the first coordinate is x and the second is y.
     explanation: |
       The original slope is $-\dfrac{2}{3}$. A parallel route keeps the same coefficients and has form $2x+3y=C$. Substitute $(3,2)$: $C=2(3)+3(2)=12$. Thus its equation is $2x+3y=12$.
-    approved: false
+    approved: true
 
   - id: q-geometry-coordinate-geometry-0021
+    approved: true
     lesson: lesson-geometry-coordinate-midpoints-and-endpoints
     keyPoint: 1
     type: word-problem
@@ -520,6 +536,7 @@ questions:
       Average the two $x$ values to get $\dfrac{-9+2}{2}=-3.5$. Average the two $y$ values to get $\dfrac{4+11}{2}=7.5$.
 
   - id: q-geometry-coordinate-geometry-0022
+    approved: true
     lesson: lesson-geometry-coordinate-midpoints-and-endpoints
     keyPoint: 2
     type: direct-computation
@@ -545,6 +562,7 @@ questions:
       Double the midpoint values to get the sums $-3$ and $8$. Take away the coordinates of $A$. This gives $-3-5=-8$ and $8-(-2)=10$.
 
   - id: q-geometry-coordinate-geometry-0023
+    approved: true
     lesson: lesson-geometry-standard-circle-equations
     keyPoint: 1
     type: which-is-true
@@ -570,6 +588,7 @@ questions:
       The squared terms are zero at $x=0$ and $y=-7$. That is the center. The radius squared is $81$, so the radius is $9$.
 
   - id: q-geometry-coordinate-geometry-0024
+    approved: true
     lesson: lesson-geometry-standard-circle-equations
     keyPoint: 1
     type: direct-computation
@@ -595,6 +614,7 @@ questions:
       From the center to the given point, the changes are $-4$ and $-6$. The radius squared is $(-4)^2+(-6)^2=52$. Use $x-(-4)=x+4$ and $y-3$ in the equation.
 
   - id: q-geometry-coordinate-geometry-0025
+    approved: true
     lesson: lesson-geometry-expanded-circle-equations
     keyPoint: 1
     type: direct-computation

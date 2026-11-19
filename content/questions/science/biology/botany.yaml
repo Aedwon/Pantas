@@ -393,7 +393,7 @@ questions:
           This confuses the pollen-producing part with the seed-producing structure. Both belong to the flower and help reproduction. Check which part holds the ovule.
     explanation: |
       The ovule develops into a seed. The seed contains the plant embryo and its supporting tissues.
-    approved: false
+    approved: true
 
   - id: q-biology-botany-0018
     lesson: lesson-biology-phloem-sources-and-sinks
@@ -416,7 +416,7 @@ questions:
           This confuses releasing stored sugar with carrying it between organs. Ground tissue can store sugar, so it seems responsible for the whole journey. Check which tissue handles long-distance sugar transport.
     explanation: |
       The root is a source because it releases stored sugar. The growing shoot is a sink because it uses sugar. Phloem carries sugar from this source to this sink.
-    approved: false
+    approved: true
 
   - id: q-biology-botany-0019
     lesson: lesson-biology-double-fertilization-and-seed-formation
@@ -439,7 +439,7 @@ questions:
           This confuses the ovary surrounding the ovules with a tissue formed by sperm fusion. Both contribute to the final fruit and seed. Check which tissue the second fertilization event creates.
     explanation: |
       Double fertilization includes an event that forms endosperm. Endosperm supplies food to the developing embryo. If that second event fails, endosperm does not form normally.
-    approved: false
+    approved: true
 
   - id: q-biology-botany-0020
     lesson: lesson-biology-double-fertilization-and-seed-formation
@@ -462,9 +462,10 @@ questions:
           This places zygote development before the event that makes the zygote. Growth and fertilization both happen inside the ovule, so their order can blur. Check what must exist before it can develop.
     explanation: |
       Pollen first reaches the stigma. A pollen tube grows and delivers sperm to the ovule. A sperm joins the egg to make a zygote. The zygote then develops into an embryo.
-    approved: false
+    approved: true
 
   - id: q-biology-botany-0021
+    approved: true
     lesson: lesson-biology-flower-parts
     keyPoint: 1
     type: "structure-function"
@@ -487,6 +488,7 @@ questions:
       The anther makes pollen. The stigma is the sticky tip that catches it.
 
   - id: q-biology-botany-0022
+    approved: true
     lesson: lesson-biology-flower-parts
     keyPoint: 2
     type: "structure-function"

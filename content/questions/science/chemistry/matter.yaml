@@ -393,7 +393,7 @@ questions:
           This focuses on fluid motion. Plasma can move through a vessel. Check whether the sample is an ionized gas or a definite-volume liquid.
     explanation: |
       A liquid retains a definite volume under ordinary conditions. It flows, so its shape follows the container.
-    approved: false
+    approved: true
 
   - id: q-chemistry-matter-0018
     lesson: lesson-chemistry-crystalline-solids-and-plasma
@@ -416,7 +416,7 @@ questions:
           This reverses the two categories. The word crystal can sound irregular, and glass looks smooth. Check which kind of solid shows a repeating lattice.
     explanation: |
       Crystalline solids have an ordered pattern extending through the material. Amorphous solids such as glass lack that long-range repeating pattern.
-    approved: false
+    approved: true
 
   - id: q-chemistry-matter-0019
     lesson: lesson-chemistry-crystalline-solids-and-plasma
@@ -439,7 +439,7 @@ questions:
           This removes the charged particles. Ordinary gases can be mostly neutral. Check the feature that makes plasma distinct.
     explanation: |
       Plasma is an ionized gas containing charged particles. Its charged particles can show collective behavior.
-    approved: false
+    approved: true
 
   - id: q-chemistry-matter-0020
     lesson: lesson-chemistry-phase-change-directions
@@ -462,9 +462,10 @@ questions:
           This treats different vaporization methods as different chemistry. Boiling is more visible. Check whether the substance’s chemical identity changes.
     explanation: |
       Evaporation is vaporization at the liquid surface and can occur below the boiling point. Boiling occurs throughout the liquid when its vapor pressure reaches the surrounding pressure.
-    approved: false
+    approved: true
 
   - id: q-chemistry-matter-0021
+    approved: true
     lesson: lesson-chemistry-classifying-matter-and-mixtures
     keyPoint: 2
     type: 'classify'
@@ -487,6 +488,7 @@ questions:
       The two atoms are bonded, so they form a molecule. The particle has no net charge.
 
   - id: q-chemistry-matter-0022
+    approved: true
     lesson: lesson-chemistry-physical-separation-of-matter
     keyPoint: 1
     type: 'identify'
@@ -509,6 +511,7 @@ questions:
       Heat turns the water into vapor. Cooling that vapor lets you collect liquid water while the salt stays behind.
 
   - id: q-chemistry-matter-0023
+    approved: true
     lesson: lesson-chemistry-physical-separation-of-matter
     keyPoint: 1
     type: 'identify'
@@ -531,6 +534,7 @@ questions:
       The magnet pulls on the iron filings. The sand stays behind.
 
   - id: q-chemistry-matter-0024
+    approved: true
     lesson: lesson-chemistry-particle-model-of-matter
     keyPoint: 1
     type: 'cause-effect'
@@ -553,6 +557,7 @@ questions:
       Close particles keep about the same amount of space filled. They can slide past each other and take the new shape.
 
   - id: q-chemistry-matter-0025
+    approved: true
     lesson: lesson-chemistry-temperature-during-phase-changes
     keyPoint: 1
     type: 'cause-effect'
@@ -575,6 +580,7 @@ questions:
       The heat lets particles move out of their fixed places in the ice. Their average speed stays the same during melting, so the temperature stays steady.
 
   - id: q-chemistry-matter-0026
+    approved: true
     lesson: lesson-chemistry-temperature-during-phase-changes
     keyPoint: 1
     type: 'cause-effect'

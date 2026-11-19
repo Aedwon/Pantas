@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-geometry-logic-and-reasoning-0001
+    approved: true
     lesson: lesson-geometry-reading-if-then-statements
     keyPoint: 1
     type: which-is-true
@@ -30,6 +31,7 @@ questions:
       The hypothesis is the condition following if. Here that condition is that two lines are perpendicular.
 
   - id: q-geometry-logic-and-reasoning-0002
+    approved: true
     lesson: lesson-geometry-converse-inverse-and-contrapositive
     keyPoint: 1
     type: which-is-true
@@ -55,6 +57,7 @@ questions:
       A converse swaps the if part and the then part without changing either claim. The angle condition moves first, followed by the equilateral-triangle conclusion.
 
   - id: q-geometry-logic-and-reasoning-0003
+    approved: true
     lesson: lesson-geometry-converse-inverse-and-contrapositive
     keyPoint: 2
     type: which-is-true
@@ -80,6 +83,7 @@ questions:
       A conditional and its contrapositive are logically equivalent. This means they are true and false in exactly the same cases. Their truth values always match.
 
   - id: q-geometry-logic-and-reasoning-0004
+    approved: true
     lesson: lesson-geometry-counterexamples-to-conditional-statements
     keyPoint: 1
     type: which-is-true
@@ -105,6 +109,7 @@ questions:
       A counterexample must have a true hypothesis and false conclusion. A quadrilateral with four equal sides satisfies the hypothesis. If it is not a square, it fails the conclusion. One such example disproves the conditional.
 
   - id: q-geometry-logic-and-reasoning-0005
+    approved: true
     lesson: lesson-geometry-deduction-and-conditional-chains
     keyPoint: 1
     type: which-is-true
@@ -133,6 +138,7 @@ questions:
       The first premise links a regular hexagon to an interior-angle sum of $720^\circ$. The second links that sum to six sides. Chaining them gives: if a polygon is a regular hexagon, then it has six sides.
 
   - id: q-geometry-logic-and-reasoning-0006
+    approved: true
     lesson: lesson-geometry-converse-inverse-and-contrapositive
     keyPoint: 1
     type: which-is-true
@@ -158,6 +164,7 @@ questions:
       An inverse negates both original parts without swapping them. Negating forms a linear pair gives does not form a linear pair. Negating supplementary gives not supplementary. Keep that order in the new if-then statement.
 
   - id: q-geometry-logic-and-reasoning-0007
+    approved: true
     lesson: lesson-geometry-biconditionals
     keyPoint: 1
     type: which-is-true
@@ -183,6 +190,7 @@ questions:
       An if-and-only-if claim contains both directions: if P then Q, and if Q then P. For the biconditional to hold, both directions must be true.
 
   - id: q-geometry-logic-and-reasoning-0008
+    approved: true
     lesson: lesson-geometry-counterexamples-to-conditional-statements
     keyPoint: 1
     type: which-is-true
@@ -208,6 +216,7 @@ questions:
       Two right angles sum to $90^\circ+90^\circ=180^\circ$, so they satisfy the supplementary hypothesis. Each equals $90^\circ$, so neither is obtuse. The hypothesis holds and the conclusion fails, giving a counterexample.
 
   - id: q-geometry-logic-and-reasoning-0009
+    approved: true
     lesson: lesson-geometry-converse-inverse-and-contrapositive
     keyPoint: 2
     type: which-is-true
@@ -233,6 +242,7 @@ questions:
       Take the contrapositive of if not P then not Q. Swap and negate to get if not-not Q then not-not P. Cancel each double negative. The result is if Q then P, which is the converse.
 
   - id: q-geometry-logic-and-reasoning-0010
+    approved: true
     lesson: lesson-geometry-deduction-and-conditional-chains
     keyPoint: 1
     type: which-is-true
@@ -262,6 +272,7 @@ questions:
       Following the given premises, parallel lines lead to equal alternate angles. That condition leads to an isosceles triangle, which leads to angle A congruent to angle B. The chain therefore links the first condition to the final conclusion.
 
   - id: q-geometry-logic-and-reasoning-0011
+    approved: true
     lesson: lesson-geometry-reading-if-then-statements
     keyPoint: 2
     type: which-is-true
@@ -287,6 +298,7 @@ questions:
       The conditional says Q follows whenever P is true. It fails when P is true but Q is false. This is exactly the counterexample condition.
 
   - id: q-geometry-logic-and-reasoning-0012
+    approved: true
     lesson: lesson-geometry-biconditionals
     keyPoint: 1
     type: which-is-true
@@ -312,6 +324,7 @@ questions:
       Choose a non-square rhombus, for example one with angles $60^\circ$ and $120^\circ$. It is a parallelogram with perpendicular diagonals, but it is not a rectangle. This breaks one direction of the if-and-only-if claim. The biconditional is therefore false.
 
   - id: q-geometry-logic-and-reasoning-0013
+    approved: true
     lesson: lesson-geometry-reading-if-then-statements
     keyPoint: 2
     type: which-is-true
@@ -337,6 +350,7 @@ questions:
       A conditional is false exactly when its hypothesis holds and its conclusion fails. Its negation states that case: T is right-angled and does not have two acute angles.
 
   - id: q-geometry-logic-and-reasoning-0014
+    approved: true
     lesson: lesson-geometry-deduction-and-conditional-chains
     keyPoint: 1
     type: which-is-true
@@ -366,6 +380,7 @@ questions:
       The argument starts with if P then Q, observes Q, and concludes P. The rule does not guarantee that reverse direction. A nonsquare rectangle has congruent diagonals and satisfies the observed conclusion while failing the square condition. Thus the argument is invalid. Knowing that the conclusion is true does not prove the hypothesis.
 
   - id: q-geometry-logic-and-reasoning-0015
+    approved: true
     lesson: lesson-geometry-converse-inverse-and-contrapositive
     keyPoint: 2
     type: which-is-true
@@ -411,7 +426,7 @@ questions:
           This negates only the conclusion. The original order stays familiar. Check that both conditions must be negated and reversed.
     explanation: |
       Swap the two conditions and negate both. The three-divisibility condition moves first in negative form, followed by the negated six-divisibility condition.
-    approved: false
+    approved: true
 
   - id: q-geometry-logic-and-reasoning-0017
     lesson: lesson-geometry-converse-inverse-and-contrapositive
@@ -434,7 +449,7 @@ questions:
           This negates only one clause. The original two parts remain visible. Check that converse uses neither negation.
     explanation: |
       The converse changes if P then Q into if Q then P. It swaps the parts and preserves each claim. Therefore P and Q should be swapped without negation.
-    approved: false
+    approved: true
 
   - id: q-geometry-logic-and-reasoning-0018
     lesson: lesson-geometry-counterexamples-to-conditional-statements
@@ -457,7 +472,7 @@ questions:
           This gives an even number that is not prime. Evenness would fail the conclusion. Check that the hypothesis must also hold.
     explanation: |
       Two is prime because its only positive factors are one and two. It is even, so it is not odd. The hypothesis is true and the conclusion false.
-    approved: false
+    approved: true
 
   - id: q-geometry-logic-and-reasoning-0019
     lesson: lesson-geometry-deduction-and-conditional-chains
@@ -480,7 +495,7 @@ questions:
           This treats the chain conditions as facts rather than possibilities. Both conditions appear in the rules. Check that the observed false R rules them out.
     explanation: |
       Contrapose the second rule: not R implies not Q. Then contrapose the first: not Q implies not P. Since R is false, Q is false and therefore P is false.
-    approved: false
+    approved: true
 
   - id: q-geometry-logic-and-reasoning-0020
     lesson: lesson-geometry-biconditionals
@@ -503,9 +518,10 @@ questions:
           This negates the lamp condition while keeping the switch condition. Derived statements sometimes add negations. Check that this reverse biconditional direction keeps both claims positive.
     explanation: |
       If and only if includes the direction from lamp on to switch up. Apply that direction to the observed lamp state. The switch must be up.
-    approved: false
+    approved: true
 
   - id: q-geometry-logic-and-reasoning-0021
+    approved: true
     lesson: lesson-geometry-reading-if-then-statements
     keyPoint: 1
     type: which-is-true

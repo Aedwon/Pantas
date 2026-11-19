@@ -347,7 +347,7 @@ questions:
           This substitutes a slow axis-direction change. Precession affects the pole over long times. Check the daily timescale.
     explanation: |
       Earth’s eastward spin makes the Sun appear to move in the opposite direction across the sky. It generally rises in the east and sets in the west.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-earths-motions-0016
     lesson: lesson-earth-science-astronomy-earths-rotation-and-day-length
@@ -370,7 +370,7 @@ questions:
           This uses a year instead of a day. Both are recurring motions. Check the spin-versus-orbit distinction.
     explanation: |
       A sidereal day measures Earth’s rotation relative to distant stars. It is about 23 hours 56 minutes.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-earths-motions-0017
     lesson: lesson-earth-science-astronomy-earths-orbit-and-leap-years
@@ -393,7 +393,7 @@ questions:
           This overlooks the basic divisibility-by-4 test. Nearby years may be leap years. Check the listed year itself.
     explanation: |
       A century year must be divisible by 400 to be a leap year. Since $2000/400=5$, 2000 qualifies.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-earths-motions-0018
     lesson: lesson-earth-science-astronomy-earths-orbit-and-leap-years
@@ -416,7 +416,7 @@ questions:
           This applies the century requirement to every year. Divisibility by 400 guarantees a leap year. Check whether the year is actually a century.
     explanation: |
       First check divisibility by 4. A century year also needs divisibility by 400. Non-century years passing the first test are leap years.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-earths-motions-0019
     lesson: lesson-earth-science-astronomy-axial-tilt-and-seasons
@@ -439,7 +439,7 @@ questions:
           This doubles the tilt. Two directions are mentioned. Check that a plane and perpendicular are separated by 90 degrees.
     explanation: |
       The plane and its perpendicular form $90^\circ$. Subtract the tilt: $90-23.4=66.6^\circ$.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-earths-motions-0020
     lesson: lesson-earth-science-astronomy-axial-tilt-and-seasons
@@ -462,9 +462,10 @@ questions:
           This treats tilt as giving identical geometry everywhere. Both hemispheres share one Earth. Check their opposite orientations to the Sun.
     explanation: |
       The hemisphere tilted toward the Sun receives longer daylight and more direct sunlight. Both increase solar energy received and support summer conditions.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-earths-motions-0021
+    approved: true
     lesson: lesson-earth-science-astronomy-solstices-and-equinoxes
     keyPoint: 1
     type: 'predict-outcome'
@@ -492,6 +493,7 @@ questions:
       turn in sunlight at that latitude.
 
   - id: q-earth-science-astronomy-earths-motions-0022
+    approved: true
     lesson: lesson-earth-science-astronomy-solstices-and-equinoxes
     keyPoint: 1
     type: 'identify'
@@ -519,6 +521,7 @@ questions:
       equator at noon, and day and night are nearly equal.
 
   - id: q-earth-science-astronomy-earths-motions-0023
+    approved: true
     lesson: lesson-earth-science-astronomy-latitude-and-daylight
     keyPoint: 1
     type: 'compare-contrast'
@@ -546,6 +549,7 @@ questions:
       days gain more daylight and winter days lose more.
 
   - id: q-earth-science-astronomy-earths-motions-0024
+    approved: true
     lesson: lesson-earth-science-astronomy-latitude-and-daylight
     keyPoint: 1
     type: 'predict-outcome'
@@ -572,6 +576,7 @@ questions:
       is included. The station farther north lies outside that belt.
 
   - id: q-earth-science-astronomy-earths-motions-0025
+    approved: true
     lesson: lesson-earth-science-astronomy-seasonal-constellations
     keyPoint: 1
     type: 'cause-effect'
@@ -599,6 +604,7 @@ questions:
       side faces a different set of stars.
 
   - id: q-earth-science-astronomy-earths-motions-0026
+    approved: true
     lesson: lesson-earth-science-astronomy-seasonal-constellations
     keyPoint: 2
     type: 'predict-outcome'

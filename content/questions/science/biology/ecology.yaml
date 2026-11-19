@@ -439,7 +439,7 @@ questions:
           This confuses breaking down matter with locking nutrients away. Dead material may appear inactive. Check whether decomposition releases nutrients into the environment.
     explanation: |
       Decomposers break down dead organisms and wastes. This releases nutrients that can move through the environment and be used again.
-    approved: false
+    approved: true
 
   - id: q-biology-ecology-0020
     lesson: lesson-biology-nitrogen-cycling
@@ -462,9 +462,10 @@ questions:
           This starts with uptake into living matter. Plants use nitrate, so assimilation sounds relevant. Check which steps produce nitrate before it is absorbed.
     explanation: |
       Fixation changes nitrogen gas into ammonia, which can become ammonium in soil water. Nitrification then changes ammonium into nitrite and nitrate.
-    approved: false
+    approved: true
 
   - id: q-biology-ecology-0021
+    approved: true
     lesson: lesson-biology-ecosystems-and-population-change
     keyPoint: 2
     type: "predict-outcome"
@@ -487,6 +488,7 @@ questions:
       Carrying capacity is how many birds the area can support over time. Losing nesting space lowers that limit as soon as the space is lost.
 
   - id: q-biology-ecology-0022
+    approved: true
     lesson: lesson-biology-carbon-and-water-cycles
     keyPoint: 2
     type: "process-ordering"
@@ -509,6 +511,7 @@ questions:
       Evaporation turns pool water into vapor. Condensation makes liquid drops. The drops fall as rain during precipitation.
 
   - id: q-biology-ecology-0023
+    approved: true
     lesson: lesson-biology-phosphorus-cycling
     keyPoint: 1
     type: "process-ordering"
@@ -531,6 +534,7 @@ questions:
       Sediment can become rock over time. Weathering frees phosphate from the rock, and plants take it up.
 
   - id: q-biology-ecology-0024
+    approved: true
     lesson: lesson-biology-biodiversity-and-conservation
     keyPoint: 1
     type: "predict-outcome"
@@ -553,6 +557,7 @@ questions:
       The larger fish loses its main food source. There is too little other prey to make up for the loss, so the stream can support fewer larger fish.
 
   - id: q-biology-ecology-0025
+    approved: true
     lesson: lesson-biology-biodiversity-and-conservation
     keyPoint: 2
     type: "cause-effect"

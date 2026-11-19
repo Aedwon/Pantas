@@ -5,6 +5,7 @@ meta:
   exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0001'
+  approved: true
   lesson: lesson-statistics-and-probability-arithmetic-mean-and-missing-values
   keyPoint: 1
   type: 'word-problem'
@@ -26,6 +27,7 @@ questions:
   explanation: |
     The total is $85+88+90+92+95=450$. Divide by five quizzes to get mean $90$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0002'
+  approved: true
   lesson: lesson-statistics-and-probability-median-and-mode
   keyPoint: 1
   type: 'word-problem'
@@ -47,6 +49,7 @@ questions:
   explanation: |
     Sort the counts: $9,11,14,15,18,22,25$. The fourth of seven values is the middle, so the median is $15$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0003'
+  approved: true
   lesson: lesson-statistics-and-probability-median-and-mode
   keyPoint: 2
   type: 'word-problem'
@@ -68,6 +71,7 @@ questions:
   explanation: |
     Medium appears three times, more than any other size. A mode is the most frequent value, so the mode is Medium.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0004'
+  approved: true
   lesson: lesson-statistics-and-probability-choosing-a-measure-of-center
   keyPoint: 1
   type: 'which-is-true'
@@ -89,6 +93,7 @@ questions:
   explanation: |
     Add all observations to get their total. Divide by the number of observations. This is the definition of the arithmetic mean.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0005'
+  approved: true
   lesson: lesson-statistics-and-probability-median-and-mode
   keyPoint: 1
   type: 'which-is-true'
@@ -110,6 +115,7 @@ questions:
   explanation: |
     Sorting puts the values in numerical order. The median is then the middle value, or the average of the two middle values for an even-sized set.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0006'
+  approved: true
   lesson: lesson-statistics-and-probability-median-and-mode
   keyPoint: 1
   type: 'word-problem'
@@ -131,6 +137,7 @@ questions:
   explanation: |
     Sort the weights: $9,10,11,13,15,20$. The middle pair is $11$ and $13$. Their mean is $\dfrac{11+13}{2}=12$ kg.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0007'
+  approved: true
   lesson: lesson-statistics-and-probability-weighted-means
   keyPoint: 1
   type: 'word-problem'
@@ -160,6 +167,7 @@ questions:
   explanation: |
     The weighted total is $1.50(3)+1.75(3)+2.00(4)+1.00(2)=19.75$. The total weight is $12$. Divide: $\dfrac{19.75}{12}\approx1.6458$, which rounds to $1.65$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0008'
+  approved: true
   lesson: lesson-statistics-and-probability-arithmetic-mean-and-missing-values
   keyPoint: 2
   type: 'word-problem'
@@ -181,6 +189,7 @@ questions:
   explanation: |
     The required total is $5(88)=440$. The four known scores total $82+86+90+87=345$. The fifth score must be $440-345=95$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0009'
+  approved: true
   lesson: lesson-statistics-and-probability-weighted-means
   keyPoint: 1
   type: 'word-problem'
@@ -202,6 +211,7 @@ questions:
   explanation: |
     The sections have totals $20(80)=1600$ and $30(90)=2700$. The combined mean is $\dfrac{1600+2700}{50}=86$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0010'
+  approved: true
   lesson: lesson-statistics-and-probability-choosing-a-measure-of-center
   keyPoint: 1
   type: 'which-is-true'
@@ -223,6 +233,7 @@ questions:
   explanation: |
     The sorted salaries have middle value P16000. Their mean is $\dfrac{213000}{5}=\text{P}42600$. The owner salary pulls the mean far above the four ordinary salaries. The median describes their typical center better.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0011'
+  approved: true
   lesson: lesson-statistics-and-probability-median-and-mode
   keyPoint: 2
   type: 'which-is-true'
@@ -244,6 +255,7 @@ questions:
   explanation: |
     Seven and twelve each occur twice. All other values occur once. Both tied most-frequent values are modes.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0012'
+  approved: true
   lesson: lesson-statistics-and-probability-choosing-a-measure-of-center
   keyPoint: 1
   type: 'word-problem'
@@ -265,6 +277,7 @@ questions:
   explanation: |
     The first six sales total P9000. Adding P12000 gives P21000 over seven days, so the new mean is P3000. The sorted middle is P1600. Their difference is P1400.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0013'
+  approved: true
   lesson: lesson-statistics-and-probability-weighted-means
   keyPoint: 1
   type: 'word-problem'
@@ -293,6 +306,7 @@ questions:
   explanation: |
     The total units are $15$, so the target weighted total is $15(1.75)=26.25$. Known courses contribute $3(2)+4(1.5)+3(2)=18$. Thus $5x=26.25-18=8.25$, giving $x=1.65$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0014'
+  approved: true
   lesson: lesson-statistics-and-probability-arithmetic-mean-and-missing-values
   keyPoint: 2
   type: 'word-problem'
@@ -314,6 +328,7 @@ questions:
   explanation: |
     The total is $5(12)=60$. The sorted last two values must be $15,15$, and the middle value is $12$. The first two must total $18$. The second cannot be $12$, which would tie the mode, so it is at most $11$. The smallest possible first value is therefore $18-11=7$. The set $7,11,12,15,15$ meets all conditions.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0015'
+  approved: true
   lesson: lesson-statistics-and-probability-choosing-a-measure-of-center
   keyPoint: 1
   type: 'which-is-true'
@@ -335,6 +350,7 @@ questions:
   explanation: |
     The mean is $\dfrac{2+2+3+4+39}{5}=10$. The middle value is $3$, so the median is $3$. The value $2$ appears twice, more than any other value, so the mode is $2$.
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0016'
+  approved: true
   lesson: lesson-statistics-and-probability-arithmetic-mean-and-missing-values
   keyPoint: 1
   type: 'which-is-true'
@@ -376,7 +392,7 @@ questions:
       This divides the old mean by the old count. Both numbers are stated. Recover totals before comparing.
   explanation: |
     The old total is $4(18)=72$, and the new total is $5(18)=90$. The added value is $90-72=18$.
-  approved: false
+  approved: true
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0018'
   lesson: lesson-statistics-and-probability-median-and-mode
   keyPoint: 2
@@ -398,7 +414,7 @@ questions:
       This chooses the largest value. Eleven stands out by size. Check repetition instead.
   explanation: |
     Every value occurs once. Under the stated introductory convention, a set with no repeated values has no mode.
-  approved: false
+  approved: true
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0019'
   lesson: lesson-statistics-and-probability-weighted-means
   keyPoint: 1
@@ -420,7 +436,7 @@ questions:
       This gives the mode. Twenty occurs most often. Check that the question asks for mean.
   explanation: |
     The total is $10(2)+20(6)=140$ over $2+6=8$ scores. The mean is $140\div8=17.5$.
-  approved: false
+  approved: true
 - id: 'q-statistics-and-probability-measures-of-central-tendency-0020'
   lesson: lesson-statistics-and-probability-choosing-a-measure-of-center
   keyPoint: 2
@@ -442,4 +458,4 @@ questions:
       This combines two unavailable numerical summaries. Combining averages can sound comprehensive. Check the data type first.
   explanation: |
     The mode is the category with the highest frequency. It can identify the most common color without assigning numbers to the colors.
-  approved: false
+  approved: true

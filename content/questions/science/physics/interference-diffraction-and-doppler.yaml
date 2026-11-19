@@ -140,7 +140,7 @@ questions:
           This treats the cancel as a loss of one wave. The two waves are equal, so neither one wins. Check that both waves keep going after they cross.
     explanation: |
       When waves overlap, their displacements add. A crest is up and a trough is down by the same amount. They add to zero at that point. Two equal waves that are exactly opposite cancel.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0022
     lesson: lesson-physics-wave-interference-and-path-difference
@@ -163,7 +163,7 @@ questions:
           This is the rule for canceling, but it does not fit the given path difference. Check whether $2\lambda$ is a half wavelength.
     explanation: |
       A path difference of $0$, $\lambda$, $2\lambda$ and so on makes crest meet crest. The waves add and the sound is louder. So $2\lambda$ gives constructive interference.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0023
     lesson: lesson-physics-diffraction-at-edges-and-openings
@@ -186,7 +186,7 @@ questions:
           This confuses more sound passing through with more spreading. The widest opening lets the most sound through, so it seems to spread the most. This opening is forty wavelengths wide, and the wave passes with very little spreading. Check how the opening compares with the wavelength.
     explanation: |
       A wave spreads strongly when the opening is about as wide as its wavelength or narrower. The wavelength is $0.50$ m, and $0.40$ m is close to that.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0024
     lesson: lesson-physics-wave-interference-and-path-difference
@@ -209,7 +209,7 @@ questions:
           A path difference of one full wavelength really does give a loud sound, so the rule looks right. But the path difference here is $0.25$ m and the wavelength is $0.50$ m, so it is not a full wavelength. Check the ratio of the two.
     explanation: |
       First find the wavelength. $\lambda=\dfrac{v}{f}=\dfrac{343}{686}=0.50$ m. The path difference is $4.25-4.00=0.25$ m, which is $\dfrac{\lambda}{2}$. Crest meets trough, so the waves cancel and the sound is quiet.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0025
     lesson: lesson-physics-diffraction-at-edges-and-openings
@@ -232,7 +232,7 @@ questions:
           This compares frequencies the wrong way. Higher frequency seems to mean more bending. Check that visible light has the higher frequency of the two.
     explanation: |
       A wave spreads strongly at an opening when its wavelength is about the same size as the opening. Speech wavelengths are close to a doorway's width. Light waves are less than a millionth of a meter, so light hardly bends.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0026
     lesson: lesson-physics-doppler-effect-and-heard-pitch
@@ -255,7 +255,7 @@ questions:
           This says the pitch heard must match the pitch sent. The speaker does keep its frequency. Check how often the listener meets crests while moving away.
     explanation: |
       The speaker sets the spacing of the crests in the air. A listener moving away meets those crests less often. The frequency heard is lower.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0027
     lesson: lesson-physics-doppler-frequency-from-a-moving-source
@@ -278,7 +278,7 @@ questions:
           The formula subtracts the source speed from the sound speed, so it is easy to subtract it from the frequency instead. This lowers the answer when the pitch should rise. Check the direction of the shift for an approaching source.
     explanation: |
       The source approaches, so use $f'=\dfrac{v}{v-v_s}f$. Then $f'=\dfrac{340}{340-30}(500)=\dfrac{340}{310}(500)\approx548$ Hz.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0028
     lesson: lesson-physics-doppler-frequency-from-a-moving-source
@@ -301,7 +301,7 @@ questions:
           This keeps the horn's own frequency. The horn does send 800 Hz. Check that the listener meets the crests less often because the horn moves away.
     explanation: |
       The source recedes, so use $f'=\dfrac{v}{v+v_s}f$. Then $f'=\dfrac{340}{340+25}(800)=\dfrac{340}{365}(800)\approx745$ Hz.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0029
     lesson: lesson-physics-doppler-effect-and-heard-pitch
@@ -324,7 +324,7 @@ questions:
           This uses the motion of the ambulance alone. Motion matters only relative to the listener. Check whether the paramedic moves toward or away from the siren.
     explanation: |
       The Doppler effect depends on the motion between the source and the listener. The paramedic rides with the siren, so they do not move relative to each other. The paramedic hears the siren's own pitch.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0030
     lesson: lesson-physics-doppler-frequency-from-a-moving-source
@@ -347,7 +347,7 @@ questions:
           This has no motion between them, so the pitch does not change. Both are moving, so it seems to count. Check the motion between the source and the listener.
     explanation: |
       The formula is for a source that moves straight toward a listener at rest in the air. The source must be slower than sound, so $v_s<v$. Then $v-v_s$ stays positive.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0031
     lesson: lesson-physics-doppler-frequency-from-a-moving-source
@@ -370,7 +370,7 @@ questions:
           This divides the source speed by the frequency, which looks right because wavelength is speed divided by frequency. But it uses the source speed, not the wave speed. That is the distance the source moves in one period. Check that the wavelength in front comes from subtracting the source speed from the sound speed, then dividing by the frequency. Equivalently, subtract the distance the source moves in one period from $\dfrac{v}{f}$.
     explanation: |
       In one period the source moves toward the listener. The wavelength in front is $\lambda'=\dfrac{v-v_s}{f}=\dfrac{340-20}{400}=0.80$ m.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0032
     lesson: lesson-physics-wave-interference-and-path-difference
@@ -393,7 +393,7 @@ questions:
           This compares two speeds. Light is being compared with sound, a known wave, so it can seem to show wave behavior. But a fast speed is not specific to waves. Check whether the observation shows adding or spreading.
     explanation: |
       Interference and diffraction are wave behaviors. Light shows both, so these observations are evidence that it behaves as a wave.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0033
     lesson: lesson-physics-diffraction-at-edges-and-openings
@@ -416,7 +416,7 @@ questions:
           The widest opening seems to give the widest spread. That reverses the link between width and spreading. This opening is ten wavelengths wide, and the wave passes with very little spreading. Check how the opening compares with the wavelength.
     explanation: |
       First find the wavelength. $\lambda=\dfrac{v}{f}=\dfrac{340}{170}=2.0$ m. A wave spreads strongly when the opening is about one wavelength wide or narrower. The $2.0$ m opening matches the wavelength, so it gives the strongest spreading among the listed openings.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0034
     lesson: lesson-physics-wave-interference-and-path-difference
@@ -439,7 +439,7 @@ questions:
           The path difference is $4.0$ m, which is two wavelengths. A larger difference seems to give a bigger effect. Check that whole wavelengths give a loud sound.
     explanation: |
       First find the wavelength. $\lambda=\dfrac{340}{170}=2.0$ m. Half a wavelength is $\dfrac{\lambda}{2}=1.0$ m. At $10.0+1.0=11.0$ m from B, the path difference is $1.0$ m, so the waves cancel and the sound is quiet.
-    approved: false
+    approved: true
 
   - id: q-physics-waves-and-sound-0035
     lesson: lesson-physics-doppler-frequency-from-a-moving-source
@@ -462,4 +462,4 @@ questions:
           The same source speed seems to give a change of the same size in hertz each way. This uses the source speed as the change in frequency, but the numbers have different units. Check the approach and recession formulas.
     explanation: |
       On approach, $f'=\dfrac{340}{340-34}(600)=\dfrac{340}{306}(600)\approx667$ Hz, a rise of about $67$ Hz. On recession, $f'=\dfrac{340}{340+34}(600)=\dfrac{340}{374}(600)\approx545$ Hz, a fall of about $55$ Hz.
-    approved: false
+    approved: true

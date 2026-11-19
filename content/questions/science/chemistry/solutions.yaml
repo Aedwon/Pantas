@@ -347,7 +347,7 @@ questions:
           This assigns a typical dissolving solid's role to the solvent. Solids often dissolve in liquids. Check which component determines the state.
     explanation: |
       The solvent determines the solution’s physical state and is often present in the greatest amount.
-    approved: false
+    approved: true
 
   - id: q-chemistry-solutions-0016
     lesson: lesson-chemistry-solutions-and-saturation
@@ -370,7 +370,7 @@ questions:
           This replaces a limit comparison with an absolute concentration label. Some solutions contain substantial solute. Check the defined solubility state.
     explanation: |
       An unsaturated solution is below the equilibrium solubility limit. More solute can dissolve under those conditions.
-    approved: false
+    approved: true
 
   - id: q-chemistry-solutions-0017
     lesson: lesson-chemistry-solutions-and-saturation
@@ -393,7 +393,7 @@ questions:
           This treats excess dissolved solute as absence of a mixture. The concentration is unusually high. Check whether a solvent is still present.
     explanation: |
       A supersaturated solution contains more dissolved solute than the ordinary equilibrium limit. It is metastable rather than the usual stable equilibrium solution.
-    approved: false
+    approved: true
 
   - id: q-chemistry-solutions-0018
     lesson: lesson-chemistry-solubility-temperature-and-pressure
@@ -416,7 +416,7 @@ questions:
           This treats pressure as erasing substance-specific behavior. Pressure affects dissolution. Check that gas and solvent identities still matter.
     explanation: |
       Gas solubility in a liquid generally increases with the gas’s partial pressure above it at fixed temperature.
-    approved: false
+    approved: true
 
   - id: q-chemistry-solutions-0019
     lesson: lesson-chemistry-solubility-temperature-and-pressure
@@ -439,7 +439,7 @@ questions:
           This describes a rise followed by a fall, which is not the common trend. Liquids usually hold less dissolved gas as they warm at fixed gas pressure. Check the lesson's gas-solubility behavior.
     explanation: |
       Dissolved gases commonly become less soluble as the liquid warms at fixed gas partial pressure. The equilibrium concentration therefore commonly decreases.
-    approved: false
+    approved: true
 
   - id: q-chemistry-solutions-0020
     lesson: lesson-chemistry-solution-percent-by-mass
@@ -462,9 +462,10 @@ questions:
           This multiplies by 10 without dividing by 100. Ten is in the data. Check the meaning of percent.
     explanation: |
       Ten percent means 10 parts in 100 by mass. Multiply $200\times10/100=20$ g salt.
-    approved: false
+    approved: true
 
   - id: q-chemistry-solutions-0021
+    approved: true
     lesson: lesson-chemistry-solubility-temperature-and-pressure
     keyPoint: 3
     type: 'simple-quantitative'
@@ -487,6 +488,7 @@ questions:
       Read $30$ g of X at $20\ ^\circ\mathrm C$ for every $100$ g of water. There is half as much water here, so it can hold half as much X.
 
   - id: q-chemistry-solutions-0022
+    approved: true
     lesson: lesson-chemistry-solution-percent-by-volume
     keyPoint: 1
     type: 'simple-quantitative'
@@ -509,6 +511,7 @@ questions:
       Use the volume of the solute over the measured volume of the whole mix. The percent is $\dfrac{25.0}{100.0}\times100\%=25.0\%$.
 
   - id: q-chemistry-solutions-0023
+    approved: true
     lesson: lesson-chemistry-diluting-solutions
     keyPoint: 1
     type: 'simple-quantitative'
@@ -531,6 +534,7 @@ questions:
       The volume grows by a factor of 4. The amount of solute stays the same, so the molarity falls to $\dfrac{0.80}{4}=0.20\ M$.
 
   - id: q-chemistry-solutions-0024
+    approved: true
     lesson: lesson-chemistry-diluting-solutions
     keyPoint: 1
     type: 'simple-quantitative'
@@ -553,6 +557,7 @@ questions:
       The final solution is one third as concentrated as the stock. Use one third of the final volume as stock. That is $\dfrac{150}{3}=50$ mL.
 
   - id: q-chemistry-solutions-0025
+    approved: true
     lesson: lesson-chemistry-diluting-solutions
     keyPoint: 2
     type: 'identify'
@@ -575,6 +580,7 @@ questions:
       Only water is added, so the amount of sodium chloride stays the same. The two products $MV$ both count that same amount.
 
   - id: q-chemistry-solutions-0026
+    approved: true
     lesson: lesson-chemistry-solution-labels-and-safe-handling
     keyPoint: 1
     type: 'identify'
@@ -597,6 +603,7 @@ questions:
       Percent by volume compares two volumes. The label means that every 100 mL of product contains 70 mL of ethanol.
 
   - id: q-chemistry-solutions-0027
+    approved: true
     lesson: lesson-chemistry-solution-labels-and-safe-handling
     keyPoint: 1
     type: 'identify'

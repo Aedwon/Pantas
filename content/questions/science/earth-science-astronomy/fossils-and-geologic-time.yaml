@@ -488,6 +488,7 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0022
+    approved: true
     lesson: lesson-earth-science-astronomy-dating-faults-and-intrusions
     keyPoint: 1
     type: 'process-ordering'
@@ -514,6 +515,7 @@ questions:
       before the fault could move it.
 
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0023
+    approved: true
     lesson: lesson-earth-science-astronomy-index-fossils-and-rock-correlation
     keyPoint: 1
     type: 'identify'
@@ -541,6 +543,7 @@ questions:
       time, its fossils point to a narrow span of time.
 
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0024
+    approved: true
     lesson: lesson-earth-science-astronomy-index-fossils-and-rock-correlation
     keyPoint: 1
     type: 'predict-outcome'
@@ -569,6 +572,7 @@ questions:
       formed when sediment buried the fragment.
 
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0025
+    approved: true
     lesson: lesson-earth-science-astronomy-parent-and-daughter-isotopes
     keyPoint: 1
     type: 'simple-quantitative'
@@ -597,6 +601,7 @@ questions:
       one.
 
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0026
+    approved: true
     lesson: lesson-earth-science-astronomy-choosing-radiometric-dating-methods
     keyPoint: 1
     type: 'identify'
@@ -624,6 +629,7 @@ questions:
       measure, so the test can use the charcoal itself.
 
   - id: q-earth-science-astronomy-fossils-and-geologic-time-0027
+    approved: true
     lesson: lesson-earth-science-astronomy-choosing-radiometric-dating-methods
     keyPoint: 1
     type: 'identify'

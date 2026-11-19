@@ -71,7 +71,7 @@ questions:
           This gives planetary motion a role in core heating. Contact can produce friction. Check the Sun's internal energy source.
     explanation: |
       Nuclear fusion joins light atomic nuclei in the Sun's core. This releases energy. The energy reaches space as light and heat.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-heavenly-bodies-0020
     lesson: lesson-earth-science-astronomy-galaxies-and-light-years
@@ -94,9 +94,10 @@ questions:
           This treats hot gas as unique to galaxies. Stars contain hot gas or plasma. Check for many separate stars.
     explanation: |
       A galaxy contains many stars in one large bound system. Seeing separate stars shows that the object is a system rather than one stellar body.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0001
+    approved: true
     lesson: lesson-earth-science-astronomy-star-color-and-temperature
     keyPoint: 1
     type: identify
@@ -119,6 +120,7 @@ questions:
       The color of a star shows its surface temperature. Blue-white stars have the hottest surfaces. Red stars have the coolest surfaces. So the blue-white star is hotter.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0002
+    approved: true
     lesson: lesson-earth-science-astronomy-galaxies-and-light-years
     keyPoint: 2
     type: identify
@@ -141,6 +143,7 @@ questions:
       Light moves very fast. In one year it travels about $9.46$ trillion km. This distance is one light-year. It is a unit of distance, not of time.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0003
+    approved: true
     lesson: lesson-earth-science-astronomy-stellar-life-cycles
     keyPoint: 1
     type: identify
@@ -163,6 +166,7 @@ questions:
       A star is born inside a nebula, which is a cloud of gas and dust. Gravity pulls part of the cloud into a hot, dense ball. When the core gets hot enough, fusion begins.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0004
+    approved: true
     lesson: lesson-earth-science-astronomy-stellar-life-cycles
     keyPoint: 3
     type: identify
@@ -185,6 +189,7 @@ questions:
       A black hole is an object so dense that its gravity is too strong for even light to escape. It can be left behind after a massive star explodes.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0005
+    approved: true
     lesson: lesson-earth-science-astronomy-star-color-and-temperature
     keyPoint: 1
     type: classify
@@ -207,6 +212,7 @@ questions:
       The list goes from hottest to coolest. Classes before G are hotter than the Sun. Classes after G are cooler. Of the choices, only class K comes after G.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0006
+    approved: true
     lesson: lesson-earth-science-astronomy-star-luminosity-and-brightness
     keyPoint: 2
     type: cause-effect
@@ -229,6 +235,7 @@ questions:
       Apparent brightness depends on luminosity and on distance. The luminosities are equal. Star M is much closer, so it looks brighter from Earth.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0007
+    approved: true
     lesson: lesson-earth-science-astronomy-star-fusion-and-balance
     keyPoint: 2
     type: structure-function
@@ -251,6 +258,7 @@ questions:
       A star's own gravity pulls its gas inward. The hot gas pushes outward. For most of the star's life these two effects balance, so the star stays the same size.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0008
+    approved: true
     lesson: lesson-earth-science-astronomy-galaxies-and-light-years
     keyPoint: 1
     type: classify
@@ -273,6 +281,7 @@ questions:
       The Milky Way is a spiral galaxy about $100{,}000$ light-years across.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0009
+    approved: true
     lesson: lesson-earth-science-astronomy-galaxies-and-light-years
     keyPoint: 3
     type: cause-effect
@@ -295,6 +304,7 @@ questions:
       Dark matter does not give off light. But it pulls on stars and gas with gravity. Scientists see this pull, so they know the dark matter is there.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0010
+    approved: true
     lesson: lesson-earth-science-astronomy-stellar-life-cycles
     keyPoint: 2
     type: predict-outcome
@@ -317,6 +327,7 @@ questions:
       Massive stars use their fuel fast, so they live a short time. Red dwarfs burn their fuel very slowly and live far longer. Star R lives for a shorter time than Star S.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0011
+    approved: true
     lesson: lesson-earth-science-astronomy-stellar-life-cycles
     keyPoint: 2
     type: process-ordering
@@ -339,6 +350,7 @@ questions:
       A star like the Sun swells into a red giant. It then blows off its outer layers as a planetary nebula. The hot core that is left is a white dwarf.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0012
+    approved: true
     lesson: lesson-earth-science-astronomy-stellar-life-cycles
     keyPoint: 3
     type: identify
@@ -361,6 +373,7 @@ questions:
       A star many times the Sun's mass ends in a supernova. The core left behind can be a neutron star. A neutron star is about $20$ km across and very dense.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0013
+    approved: true
     lesson: lesson-earth-science-astronomy-star-luminosity-and-brightness
     keyPoint: 1
     type: cause-effect
@@ -383,6 +396,7 @@ questions:
       Luminosity grows with surface temperature and with size. A red giant is cool at the surface but huge. Its large size lets it give off a great amount of energy each second.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0014
+    approved: true
     lesson: lesson-earth-science-astronomy-galaxies-and-light-years
     keyPoint: 1
     type: classify
@@ -405,6 +419,7 @@ questions:
       A constellation is only a pattern that people see in the sky. Stars in the same constellation can be at very different distances. Appearing close in the sky does not tell us their distances.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0015
+    approved: true
     lesson: lesson-earth-science-astronomy-galaxies-and-light-years
     keyPoint: 2
     type: simple-quantitative
@@ -427,6 +442,7 @@ questions:
       One light-year is the distance light travels in one year. The star is $8$ light-years away. So the light needed $8$ years to reach Earth.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0016
+    approved: true
     lesson: lesson-earth-science-astronomy-star-luminosity-and-brightness
     keyPoint: 1
     type: compare-contrast

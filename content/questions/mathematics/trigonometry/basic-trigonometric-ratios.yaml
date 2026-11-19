@@ -5,6 +5,7 @@ meta:
   exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
 - id: 'q-trigonometry-basic-trigonometric-ratios-0001'
+  approved: true
   lesson: lesson-trigonometry-reading-right-triangle-ratios
   keyPoint: 2
   type: 'direct-computation'
@@ -27,6 +28,7 @@ questions:
   explanation: |
     Sine is opposite over hypotenuse. The opposite side is $3$ and hypotenuse is $5$, so $\sin\theta=\dfrac35$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0002'
+  approved: true
   lesson: lesson-trigonometry-special-angle-side-lengths
   keyPoint: 2
   type: 'direct-computation'
@@ -48,6 +50,7 @@ questions:
   explanation: |
     Use $\sin30^\circ=\dfrac12$. The opposite length is $10\sin30^\circ=10(\dfrac12)=5$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0003'
+  approved: true
   lesson: lesson-trigonometry-flipping-trigonometric-ratios
   keyPoint: 1
   type: 'direct-computation'
@@ -70,6 +73,7 @@ questions:
   explanation: |
     Cosecant is the reciprocal of sine. Flip $\dfrac35$ to get $\csc\theta=\dfrac53$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0004'
+  approved: true
   lesson: lesson-trigonometry-finding-ratios-from-a-known-ratio
   keyPoint: 1
   type: 'direct-computation'
@@ -92,6 +96,7 @@ questions:
   explanation: |
     Let the missing leg be a. The right-triangle rule gives $a^2=13^2-5^2=169-25=144$. The positive root is $a=12$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0005'
+  approved: true
   lesson: lesson-trigonometry-scaling-right-triangle-sides
   keyPoint: 2
   type: 'direct-computation'
@@ -113,6 +118,7 @@ questions:
   explanation: |
     Tangent gives opposite-to-adjacent ratio $3:4$. This is a $3:4:5$ triangle. The hypotenuse $20$ makes the scale factor $20\div5=4$. The opposite leg is $3(4)=12$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0006'
+  approved: true
   lesson: lesson-trigonometry-flipping-trigonometric-ratios
   keyPoint: 1
   type: 'direct-computation'
@@ -134,6 +140,7 @@ questions:
   explanation: |
     Secant is the reciprocal of cosine. Flipping $\dfrac5{13}$ gives $\sec\theta=\dfrac{13}{5}$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0007'
+  approved: true
   lesson: lesson-trigonometry-complementary-angle-ratios
   keyPoint: 1
   type: 'which-is-true'
@@ -156,6 +163,7 @@ questions:
   explanation: |
     The two angles total $90^\circ$. Complementary angles swap sine and cosine. Thus $\sin30^\circ=\cos60^\circ=\dfrac12$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0008'
+  approved: true
   lesson: lesson-trigonometry-flipping-trigonometric-ratios
   keyPoint: 1
   type: 'direct-computation'
@@ -177,6 +185,7 @@ questions:
   explanation: |
     Sine of $60^\circ$ is $\dfrac{\sqrt3}{2}$. Cosecant is its reciprocal: $\dfrac2{\sqrt3}=\dfrac{2\sqrt3}{3}$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0009'
+  approved: true
   lesson: lesson-trigonometry-finding-ratios-from-a-known-ratio
   keyPoint: 1
   type: 'direct-computation'
@@ -199,6 +208,7 @@ questions:
   explanation: |
     Use opposite $5$ and hypotenuse $13$ as a representative triangle. The adjacent leg is $\sqrt{13^2-5^2}=12$. Cosine is adjacent over hypotenuse, or $\dfrac{12}{13}$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0010'
+  approved: true
   lesson: lesson-trigonometry-special-angle-side-lengths
   keyPoint: 1
   type: 'direct-computation'
@@ -220,6 +230,7 @@ questions:
   explanation: |
     In a $30^\circ$-$60^\circ$-$90^\circ$ triangle, the short leg is half the hypotenuse. It is adjacent to $60^\circ$. Therefore $\cos60^\circ=\dfrac12$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0011'
+  approved: true
   lesson: lesson-trigonometry-scaling-right-triangle-sides
   keyPoint: 1
   type: 'direct-computation'
@@ -241,6 +252,7 @@ questions:
   explanation: |
     The two acute angles are $45^\circ$, so both legs are seven units. The hypotenuse is $\sqrt{7^2+7^2}=7\sqrt2$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0012'
+  approved: true
   lesson: lesson-trigonometry-flipping-trigonometric-ratios
   keyPoint: 1
   type: 'direct-computation'
@@ -262,6 +274,7 @@ questions:
   explanation: |
     Tangent and cotangent are reciprocals. Flipping $\dfrac43$ gives $\tan\theta=\dfrac34$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0013'
+  approved: true
   lesson: lesson-trigonometry-finding-ratios-from-a-known-ratio
   keyPoint: 1
   type: 'direct-computation'
@@ -284,6 +297,7 @@ questions:
   explanation: |
     The missing leg is $\sqrt{26^2-10^2}=\sqrt{576}=24$. For the angle opposite ten, sine is $\dfrac{10}{26}=\dfrac5{13}$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0014'
+  approved: true
   lesson: lesson-trigonometry-reading-right-triangle-ratios
   keyPoint: 2
   type: 'which-is-true'
@@ -306,6 +320,7 @@ questions:
   explanation: |
     Choosing the acute angle opposite three gives sine $\dfrac35$. Choosing the other acute angle gives sine $\dfrac45$. The reference angle therefore matters.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0015'
+  approved: true
   lesson: lesson-trigonometry-scaling-right-triangle-sides
   keyPoint: 1
   type: 'direct-computation'
@@ -327,6 +342,7 @@ questions:
   explanation: |
     Secant is hypotenuse over adjacent. Thus $\dfrac{20}{a}=\dfrac53$. Cross multiply to get $5a=60$, so $a=12$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0016'
+  approved: true
   lesson: lesson-trigonometry-reading-right-triangle-ratios
   keyPoint: 2
   type: 'direct-computation'
@@ -369,7 +385,7 @@ questions:
       This applies area scaling to a side ratio. Areas grow by four. Trigonometric ratios divide two lengths.
   explanation: |
     Similar triangles have equal corresponding acute angles. Scaling both sides in opposite over hypotenuse by the same factor leaves the ratio unchanged.
-  approved: false
+  approved: true
 - id: 'q-trigonometry-basic-trigonometric-ratios-0018'
   lesson: lesson-trigonometry-flipping-trigonometric-ratios
   keyPoint: 2
@@ -391,7 +407,7 @@ questions:
       This assumes cosecant is at most two. Some familiar angles give small values. Check that sine may be less than one-half.
   explanation: |
     For an acute angle, the opposite leg is shorter than the hypotenuse. Cosecant is hypotenuse over opposite, so it must exceed one. It cannot be 0.8.
-  approved: false
+  approved: true
 - id: 'q-trigonometry-basic-trigonometric-ratios-0019'
   lesson: lesson-trigonometry-reading-right-triangle-ratios
   keyPoint: 1
@@ -413,7 +429,7 @@ questions:
       This fails to distinguish the two legs. Both are not hypotenuses. Only one touches the chosen acute angle.
   explanation: |
     The hypotenuse is always across from the right angle. For an acute angle, the adjacent leg is the other side meeting that angle.
-  approved: false
+  approved: true
 - id: 'q-trigonometry-basic-trigonometric-ratios-0020'
   lesson: lesson-trigonometry-scaling-right-triangle-sides
   keyPoint: 1
@@ -435,8 +451,9 @@ questions:
       This treats 0.6 as six units. The decimal can look like a side length. Keep ratios separate from measurements.
   explanation: |
     Cosine is adjacent over hypotenuse, so $\dfrac9h=0.6$. Multiply by h and divide by 0.6: $h=9\div0.6=15$.
-  approved: false
+  approved: true
 - id: 'q-trigonometry-basic-trigonometric-ratios-0021'
+  approved: true
   lesson: lesson-trigonometry-complementary-angle-ratios
   keyPoint: 1
   type: 'direct-computation'
@@ -458,6 +475,7 @@ questions:
   explanation: |
     The two angles add to $90^\circ$. The leg next to one angle is across from the other. So the tangent of the complement equals $\cot\theta=\dfrac{3}{4}$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0022'
+  approved: true
   lesson: lesson-trigonometry-special-angle-side-lengths
   keyPoint: 1
   type: 'which-is-true'
@@ -479,6 +497,7 @@ questions:
   explanation: |
     In a $30$-$60$-$90$ triangle with hypotenuse $2$, the long leg is $\sqrt{3}$. It is across from $60^\circ$ and next to $30^\circ$. Both ratios are $\dfrac{\sqrt{3}}{2}$.
 - id: 'q-trigonometry-basic-trigonometric-ratios-0023'
+  approved: true
   lesson: lesson-trigonometry-special-angle-side-lengths
   keyPoint: 2
   type: 'word-problem'

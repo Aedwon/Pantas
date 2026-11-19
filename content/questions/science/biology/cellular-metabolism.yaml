@@ -163,7 +163,7 @@ questions:
           Carbohydrates are the usual fuel in cells. DNA contains a sugar, so the link seems close. Check which group stores genetic information.
     explanation: |
       DNA and RNA store and use genetic information. The group of biomolecules with this job is called nucleic acids.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0022
     lesson: lesson-biology-atp-and-cell-metabolism
@@ -186,7 +186,7 @@ questions:
           This says the energy is stored when the phosphate leaves. The phosphate does carry energy while attached. Check that breaking it off releases energy for cell work.
     explanation: |
       ATP has three phosphate groups. When the last one breaks off, ATP becomes ADP. This releases energy that the cell can use for its work.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0023
     lesson: lesson-biology-enzyme-action
@@ -209,7 +209,7 @@ questions:
           This reverses the effect on the starting energy. Cells do control their reactions. Check that an enzyme makes a reaction easier to start.
     explanation: |
       An enzyme speeds up a reaction by making it easier to start. It lowers the energy the reaction needs to get going. The enzyme is not used up, so it can work again.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0024
     lesson: lesson-biology-biomolecule-groups
@@ -232,7 +232,7 @@ questions:
           Water is in every cell, so it seems like a biological molecule. It has no carbon. Check for a carbon-based molecule, such as a sugar, fat, or protein.
     explanation: |
       Glucose, $C_6H_{12}O_6$, is a carbon-based sugar. Its carbon atoms are bonded to hydrogen atoms, so glucose is an organic molecule.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0025
     lesson: lesson-biology-biomolecule-groups
@@ -255,7 +255,7 @@ questions:
           DNA is in cells, so it seems close to the membrane. It stores genetic information inside the cell. Check which group has fats and oils.
     explanation: |
       Phospholipids are the main molecules of cell membranes. They are a kind of lipid.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0026
     lesson: lesson-biology-enzyme-action
@@ -278,7 +278,7 @@ questions:
           Cold does slow enzymes without breaking their shape. The sample was cooled to 37 degrees Celsius, the best temperature. Check what the earlier heating did.
     explanation: |
       High heat changes the shape of an enzyme. This is called denaturing. The active site no longer fits the substrate. Cooling does not usually bring the shape back, so the enzyme stays inactive.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0027
     lesson: lesson-biology-light-reactions-and-calvin-cycle
@@ -301,7 +301,7 @@ questions:
           This describes the Calvin cycle. The two stages are linked, so they are easy to swap. Check which stage needs light-made ATP and NADPH.
     explanation: |
       The light reactions happen in the thylakoid membranes. Chlorophyll absorbs light there. The energy splits water, releases oxygen gas, and makes ATP and NADPH.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0028
     lesson: lesson-biology-light-reactions-and-calvin-cycle
@@ -324,7 +324,7 @@ questions:
           These are the leftovers of the Calvin cycle and the light-reaction inputs. They look like what goes back and forth. Check what the Calvin cycle needs to build sugar.
     explanation: |
       The Calvin cycle happens in the stroma. It uses the ATP and NADPH from the light reactions. It also uses carbon dioxide, which it turns into a three-carbon sugar.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0029
     lesson: lesson-biology-light-reactions-and-calvin-cycle
@@ -347,7 +347,7 @@ questions:
           This says photosynthesis needs organelles. Plants use chloroplasts, so the link seems fair. Check that cyanobacteria release oxygen.
     explanation: |
       A prokaryote has no membrane-bound organelles. Cyanobacteria have no chloroplasts and no stroma. They run both stages of photosynthesis inside the cell.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0030
     lesson: lesson-biology-photosynthesis-inputs-and-products
@@ -370,7 +370,7 @@ questions:
           This counts oxygen atoms, not molecules. Each $O_2$ molecule has two atoms. Check the unit asked for in the question.
     explanation: |
       The equation shows $6O_2$ released for each glucose. For $3$ glucose molecules, multiply: $3\times6=18$ molecules of oxygen gas.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0031
     lesson: lesson-biology-biomolecule-groups
@@ -393,7 +393,7 @@ questions:
           Phospholipids do build membranes. Fats and oils also store energy. Check the jobs of lipids.
     explanation: |
       Fats give more energy per gram than carbohydrates do. Fats and oils store a lot of energy for this reason. Cells can break them down and feed the pieces into the same pathways as sugar.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0032
     lesson: lesson-biology-light-reactions-and-calvin-cycle
@@ -416,7 +416,7 @@ questions:
           Plants are eukaryotes, which seems to make the pair work. Bacteria are prokaryotes. Check which of the two lacks a nucleus.
     explanation: |
       A eukaryote has a nucleus and organelles. Fungi and algae both have cells with a nucleus, so both are eukaryotes.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0033
     lesson: lesson-biology-atp-and-cell-metabolism
@@ -439,7 +439,7 @@ questions:
           Energy is released, so what is left seems like waste. A cell does not throw it away. Check that ADP can gain a phosphate and become ATP again.
     explanation: |
       ADP has two phosphate groups. Other reactions in the cell can add a phosphate back to ADP. That makes ATP again, so the same molecules are used again and again.
-    approved: false
+    approved: true
 
   - id: q-biology-cellular-metabolism-0034
     lesson: lesson-biology-atp-and-cell-metabolism
@@ -462,4 +462,4 @@ questions:
           NADPH is made in the light reactions, so its electron-carrying job is easy to mix up with water splitting, which also happens there. Water is split in the thylakoid membranes, not by NADPH. Check that NADPH carries electrons to the Calvin cycle.
     explanation: |
       An electron carrier picks up electrons in one place and drops them off in another. NADPH is made in the light reactions. The Calvin cycle uses it to turn carbon dioxide into sugar.
-    approved: false
+    approved: true

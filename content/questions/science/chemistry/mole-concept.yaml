@@ -347,7 +347,7 @@ questions:
           This counts only the anion. Chloride is present. Check that each formula unit also represents sodium.
     explanation: |
       Crystalline NaCl is an ion lattice. Its formula units state the simplest sodium-to-chloride ratio used to count the substance.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mole-concept-0016
     lesson: lesson-chemistry-mole-and-avogadro-constant
@@ -370,7 +370,7 @@ questions:
           This gives a mass unit for an amount calculation. Grams are used in other conversions. Check the requested quantity.
     explanation: |
       Use $n=N/N_A$. The entity count is half of $6.02214076\times10^{23}$, so $n=0.5$ mol.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mole-concept-0017
     lesson: lesson-chemistry-converting-mass-and-moles
@@ -393,7 +393,7 @@ questions:
           This treats moles as grams. The amount is 0.25. Check the mass-per-mole conversion factor.
     explanation: |
       Use $m=nM$. Multiply $0.25\,\mathrm{mol}$ by $18\,\mathrm{g/mol}$ to obtain 4.5 g.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mole-concept-0018
     lesson: lesson-chemistry-entities-and-particle-counts
@@ -416,7 +416,7 @@ questions:
           This applies the factor 2 twice. Both the formula and mole amount matter. Check that each molecule contributes two atoms once.
     explanation: |
       Each $O_2$ molecule contains two oxygen atoms. Multiply the mole count of molecules by 2 to get 2 mol of oxygen atoms.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mole-concept-0019
     lesson: lesson-chemistry-mole-and-avogadro-constant
@@ -439,7 +439,7 @@ questions:
           This rejects scientific notation for large counts. Entities are discrete. Check that notation can still express an estimated large count.
     explanation: |
       N_A is exact in the SI. The given measured amount has limited precision, so the reported entity count must reflect that input.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mole-concept-0020
     lesson: lesson-chemistry-mole-and-avogadro-constant
@@ -462,9 +462,10 @@ questions:
           This confuses mass per mole with entities per mole. Elements have different molar masses. Check what stays the same for one mole.
     explanation: |
       The modern mole is defined by the exact Avogadro constant. It contains exactly $6.02214076\times10^{23}$ specified entities.
-    approved: false
+    approved: true
 
   - id: q-chemistry-mole-concept-0021
+    approved: true
     lesson: lesson-chemistry-molar-mass-from-formulas
     keyPoint: 2
     type: 'simple-quantitative'
@@ -487,6 +488,7 @@ questions:
       Sulfate has four O atoms. Each of the seven water molecules adds one more. The sum is $4+7=11$.
 
   - id: q-chemistry-mole-concept-0022
+    approved: true
     lesson: lesson-chemistry-converting-mass-and-moles
     keyPoint: 2
     type: 'simple-quantitative'
@@ -509,6 +511,7 @@ questions:
       Each $N_2$ has two N atoms. A mole of the molecules has mass $2(14)=28$ g. Half a mole has mass $14$ g.
 
   - id: q-chemistry-mole-concept-0023
+    approved: true
     lesson: lesson-chemistry-converting-mass-and-entities
     keyPoint: 1
     type: 'simple-quantitative'

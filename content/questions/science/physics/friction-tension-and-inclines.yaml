@@ -76,7 +76,7 @@ questions:
   - id: q-physics-dynamics-0016
     lesson: lesson-physics-rope-tension-in-hanging-loads
     keyPoint: 1
-    approved: false
+    approved: true
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -99,7 +99,7 @@ questions:
   - id: q-physics-dynamics-0017
     lesson: lesson-physics-static-friction-and-its-limit
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -122,7 +122,7 @@ questions:
   - id: q-physics-dynamics-0020
     lesson: lesson-physics-kinetic-friction-and-angled-pulls
     keyPoint: 1
-    approved: false
+    approved: true
     type: "predict-outcome"
     difficulty: "exam"
     stem: |
@@ -143,6 +143,7 @@ questions:
       The model gives $f_k\approx\mu_kN$. The surface pair and normal force stay the same. The modeled friction therefore stays approximately the same.
 
   - id: q-physics-friction-tension-and-inclines-0001
+    approved: true
     lesson: lesson-physics-rope-tension-in-hanging-loads
     keyPoint: 1
     type: "identify"
@@ -165,6 +166,7 @@ questions:
       A rope can pull on what is tied to its end, along the rope. It cannot push. This is true whether the object moves or not.
 
   - id: q-physics-friction-tension-and-inclines-0002
+    approved: true
     lesson: lesson-physics-kinetic-friction-and-angled-pulls
     keyPoint: 1
     type: "compare-contrast"
@@ -187,6 +189,7 @@ questions:
       For most dry surfaces, it takes more force to start a slide than to keep it going. So the coefficient of static friction, $\mu_s$, is larger than the coefficient of kinetic friction, $\mu_k$.
 
   - id: q-physics-friction-tension-and-inclines-0003
+    approved: true
     lesson: lesson-physics-kinetic-friction-and-angled-pulls
     keyPoint: 1
     type: "identify"
@@ -209,6 +212,7 @@ questions:
       Friction acts along the surface between two touching objects. Kinetic friction acts against the sliding. The box slides right, so the friction on it acts to the left.
 
   - id: q-physics-friction-tension-and-inclines-0004
+    approved: true
     lesson: lesson-physics-static-friction-and-its-limit
     keyPoint: 1
     type: "simple-quantitative"
@@ -231,6 +235,7 @@ questions:
       The floor is level, so $N=mg=20\times9.8=196\,\mathrm{N}$. The largest static friction is $\mu_sN=0.50\times196=98\,\mathrm{N}$. A push above this starts the box sliding.
 
   - id: q-physics-friction-tension-and-inclines-0005
+    approved: true
     lesson: lesson-physics-weight-components-on-an-incline
     keyPoint: 2
     type: "simple-quantitative"
@@ -253,6 +258,7 @@ questions:
       The part of the weight along the slope is $mg\sin\theta=4.0\times9.8\times0.50=19.6\,\mathrm{N}$. There is no friction, so this is the net force. Then $a=\dfrac{19.6}{4.0}=4.9\,\mathrm{m/s^2}$.
 
   - id: q-physics-friction-tension-and-inclines-0006
+    approved: true
     lesson: lesson-physics-kinetic-friction-and-angled-pulls
     keyPoint: 2
     type: "predict-outcome"
@@ -275,6 +281,7 @@ questions:
       The rope pulls partly upward, so it holds up part of the weight. The floor has less to support. The normal force is $N=mg-T\sin30^\circ$, which is less than the weight.
 
   - id: q-physics-friction-tension-and-inclines-0007
+    approved: true
     lesson: lesson-physics-tension-between-connected-blocks
     keyPoint: 1
     type: "simple-quantitative"
@@ -297,6 +304,7 @@ questions:
       Treat both blocks as one system of mass $6.0\,\mathrm{kg}$. Then $a=\dfrac{30}{6.0}=5.0\,\mathrm{m/s^2}$. Only the rope pulls B, so $T=m_Ba=2.0\times5.0=10\,\mathrm{N}$.
 
   - id: q-physics-friction-tension-and-inclines-0008
+    approved: true
     lesson: lesson-physics-rope-tension-in-hanging-loads
     keyPoint: 2
     type: "simple-quantitative"
@@ -319,6 +327,7 @@ questions:
       Take down as positive. The weight is down and the tension is up: $mg-T=ma$. So $T=m(g-a)=5.0\times(9.8-2.0)=39\,\mathrm{N}$.
 
   - id: q-physics-friction-tension-and-inclines-0009
+    approved: true
     lesson: lesson-physics-weight-components-on-an-incline
     keyPoint: 2
     type: "simple-quantitative"
@@ -341,6 +350,7 @@ questions:
       The block is at rest, so the net force along the slope is zero. The part of the weight along the slope is $mg\sin30^\circ=4.0\times9.8\times0.50=19.6\,\mathrm{N}$. Static friction balances it, so it is $19.6\,\mathrm{N}$.
 
   - id: q-physics-friction-tension-and-inclines-0010
+    approved: true
     lesson: lesson-physics-tension-over-pulleys
     keyPoint: 2
     type: "simple-quantitative"
@@ -363,6 +373,7 @@ questions:
       For the $4.0\,\mathrm{kg}$ block, $4.0g-T=4.0a$. For the $1.0\,\mathrm{kg}$ block, $T-1.0g=1.0a$. Add them: $3.0g=5.0a$, so $a=\dfrac{3.0\times9.8}{5.0}=5.88\,\mathrm{m/s^2}$.
 
   - id: q-physics-friction-tension-and-inclines-0011
+    approved: true
     lesson: lesson-physics-weight-components-on-an-incline
     keyPoint: 2
     type: "simple-quantitative"
@@ -385,6 +396,7 @@ questions:
       The normal force is $N=mg\cos30^\circ=2.0\times9.8\times0.866=17.0\,\mathrm{N}$. Then $f_k=0.30\times17.0=5.1\,\mathrm{N}$ up the slope. The part of the weight along the slope is $2.0\times9.8\times0.50=9.8\,\mathrm{N}$. So $a=\dfrac{9.8-5.1}{2.0}=2.35\,\mathrm{m/s^2}$.
 
   - id: q-physics-friction-tension-and-inclines-0012
+    approved: true
     lesson: lesson-physics-tension-over-pulleys
     keyPoint: 1
     type: "simple-quantitative"
@@ -407,6 +419,7 @@ questions:
       One end of the rope is fixed, and the block hangs from a movable pulley. The block's acceleration is half the acceleration of the free end. So it is $\dfrac{3.0}{2}=1.5\,\mathrm{m/s^2}$.
 
   - id: q-physics-friction-tension-and-inclines-0013
+    approved: true
     lesson: lesson-physics-kinetic-friction-and-angled-pulls
     keyPoint: 1
     type: "predict-outcome"
@@ -429,6 +442,7 @@ questions:
       Kinetic friction is $f_k=\mu_kN$. The surfaces and the normal force have not changed, so friction stays at $150\,\mathrm{N}$. The net force is $200-150=50\,\mathrm{N}$ forward, so the crate speeds up.
 
   - id: q-physics-friction-tension-and-inclines-0014
+    approved: true
     lesson: lesson-physics-kinetic-friction-and-angled-pulls
     keyPoint: 2
     type: "simple-quantitative"
@@ -451,6 +465,7 @@ questions:
       The pull along the floor is $50\cos30^\circ=43.3\,\mathrm{N}$. The pull upward is $50\sin30^\circ=25\,\mathrm{N}$. So $N=98-25=73\,\mathrm{N}$ and $f_k=0.20\times73=14.6\,\mathrm{N}$. Then $a=\dfrac{43.3-14.6}{10}=2.87\,\mathrm{m/s^2}$.
 
   - id: q-physics-friction-tension-and-inclines-0015
+    approved: true
     lesson: lesson-physics-tension-between-connected-blocks
     keyPoint: 1
     type: "simple-quantitative"
@@ -473,6 +488,7 @@ questions:
       The force pulls 5 kg in both cases, so the acceleration stays at 3 m/s². The rope pulls the trailing 2 kg first and the trailing 3 kg second. The tensions are $2\times3=6$ N and $3\times3=9$ N.
 
   - id: q-physics-friction-tension-and-inclines-0016
+    approved: true
     lesson: lesson-physics-tension-over-pulleys
     keyPoint: 1
     type: "predict-outcome"
@@ -495,6 +511,7 @@ questions:
       As one rope end moves down, the other must move up by the same amount. Their accelerations have equal sizes and opposite directions.
 
   - id: q-physics-friction-tension-and-inclines-0017
+    approved: true
     lesson: lesson-physics-static-friction-and-its-limit
     keyPoint: 2
     type: "simple-quantitative"

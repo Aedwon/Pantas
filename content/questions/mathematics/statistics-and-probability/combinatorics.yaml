@@ -5,6 +5,7 @@ meta:
   exams: ['upcat', 'acet', 'dlsucet', 'ustet', 'pupcet']
 questions:
 - id: 'q-statistics-and-probability-combinatorics-0001'
+  approved: true
   lesson: lesson-statistics-and-probability-counting-choices-in-stages
   keyPoint: 1
   type: 'word-problem'
@@ -26,6 +27,7 @@ questions:
   explanation: |
     Multiply the three stages: $4(3)(2)=24$. Each main dish can pair with every drink and dessert.
 - id: 'q-statistics-and-probability-combinatorics-0002'
+  approved: true
   lesson: lesson-statistics-and-probability-factorials-and-permutations
   keyPoint: 1
   type: 'word-problem'
@@ -47,6 +49,7 @@ questions:
   explanation: |
     Use each distinct book once. The five positions have $5,4,3,2,1$ choices. Multiply: $5!=120$.
 - id: 'q-statistics-and-probability-combinatorics-0003'
+  approved: true
   lesson: lesson-statistics-and-probability-combinations-and-complementary-choices
   keyPoint: 1
   type: 'word-problem'
@@ -68,6 +71,7 @@ questions:
   explanation: |
     Order does not matter, so use $\binom83=\dfrac{8(7)(6)}{3(2)(1)}=56$. Dividing removes the six orders of each delegation.
 - id: 'q-statistics-and-probability-combinatorics-0004'
+  approved: true
   lesson: lesson-statistics-and-probability-factorials-and-permutations
   keyPoint: 2
   type: 'word-problem'
@@ -89,6 +93,7 @@ questions:
   explanation: |
     The first, second, and third places have $7,6,5$ choices. Multiply: $7(6)(5)=210$.
 - id: 'q-statistics-and-probability-combinatorics-0005'
+  approved: true
   lesson: lesson-statistics-and-probability-counting-choices-in-stages
   keyPoint: 2
   type: 'word-problem'
@@ -110,6 +115,7 @@ questions:
   explanation: |
     Each of four positions has ten possible digits, including zero. Repetition is allowed, so the count is $10^4=10000$.
 - id: 'q-statistics-and-probability-combinatorics-0006'
+  approved: true
   lesson: lesson-statistics-and-probability-factorials-and-permutations
   keyPoint: 1
   type: 'word-problem'
@@ -131,6 +137,7 @@ questions:
   explanation: |
     There are eight letters, including three identical A copies. Divide $8!$ by $3!$ to remove swaps of those copies: $\dfrac{40320}{6}=6720$.
 - id: 'q-statistics-and-probability-combinatorics-0007'
+  approved: true
   lesson: lesson-statistics-and-probability-factorials-and-permutations
   keyPoint: 1
   type: 'word-problem'
@@ -152,6 +159,7 @@ questions:
   explanation: |
     Fix one member as a reference to remove table rotations. The other five have $5!=120$ orders around that member.
 - id: 'q-statistics-and-probability-combinatorics-0008'
+  approved: true
   lesson: lesson-statistics-and-probability-counting-teams-and-ordered-roles
   keyPoint: 1
   type: 'word-problem'
@@ -173,6 +181,7 @@ questions:
   explanation: |
     Nine members remain after Ana is appointed. Choose the Vice-President in nine ways and Secretary in eight ways. Multiply: $9(8)=72$.
 - id: 'q-statistics-and-probability-combinatorics-0009'
+  approved: true
   lesson: lesson-statistics-and-probability-counting-teams-and-ordered-roles
   keyPoint: 2
   type: 'word-problem'
@@ -194,6 +203,7 @@ questions:
   explanation: |
     Choose teachers in $\binom63=20$ ways and students in $\binom52=10$ ways. Pair the choices: $20(10)=200$.
 - id: 'q-statistics-and-probability-combinatorics-0010'
+  approved: true
   lesson: lesson-statistics-and-probability-combinations-and-complementary-choices
   keyPoint: 1
   type: 'word-problem'
@@ -215,6 +225,7 @@ questions:
   explanation: |
     Every handshake is one unordered pair. The count is $\binom{12}{2}=\dfrac{12(11)}2=66$.
 - id: 'q-statistics-and-probability-combinatorics-0011'
+  approved: true
   lesson: lesson-statistics-and-probability-factorials-and-permutations
   keyPoint: 1
   type: 'word-problem'
@@ -236,6 +247,7 @@ questions:
   explanation: |
     Treat the girls as one block. Five units have $5!=120$ orders, and the girls have $3!=6$ orders inside their block. Multiply: $120(6)=720$.
 - id: 'q-statistics-and-probability-combinatorics-0012'
+  approved: true
   lesson: lesson-statistics-and-probability-adding-counts-with-overlap
   keyPoint: 1
   type: 'word-problem'
@@ -257,6 +269,7 @@ questions:
   explanation: |
     Three seniors and one junior give $\binom53\binom41=40$ teams. Four seniors give $\binom54=5$. Add the disjoint cases: $40+5=45$.
 - id: 'q-statistics-and-probability-combinatorics-0013'
+  approved: true
   lesson: lesson-statistics-and-probability-factorials-and-permutations
   keyPoint: 1
   type: 'word-problem'
@@ -278,6 +291,7 @@ questions:
   explanation: |
     The officials form one block, leaving seven units around the table. Their circular orders number $6!=720$. Two internal official orders give $2(720)=1440$.
 - id: 'q-statistics-and-probability-combinatorics-0014'
+  approved: true
   lesson: lesson-statistics-and-probability-counting-teams-and-ordered-roles
   keyPoint: 2
   type: 'word-problem'
@@ -299,6 +313,7 @@ questions:
   explanation: |
     Choose singers in $\binom83=56$ ways and dancers in $\binom62=15$ ways. Order each selection in $5!=120$ ways. Multiply: $56(15)(120)=100800$.
 - id: 'q-statistics-and-probability-combinatorics-0015'
+  approved: true
   lesson: lesson-statistics-and-probability-factorials-and-permutations
   keyPoint: 1
   type: 'word-problem'
@@ -320,6 +335,7 @@ questions:
   explanation: |
     All six books have $6!=720$ orders. Adjacent Math and Science books give $5!$ block orders and two internal orders, totaling $240$. Subtract: $720-240=480$.
 - id: 'q-statistics-and-probability-combinatorics-0016'
+  approved: true
   lesson: lesson-statistics-and-probability-counting-choices-in-stages
   keyPoint: 2
   type: 'word-problem'
@@ -361,7 +377,7 @@ questions:
       This orders the selected members. Six factorial counts arrangements. Check that the team has no roles.
   explanation: |
     There is only one set containing all members. The formula gives $\binom66=\dfrac{6!}{6!0!}=1$.
-  approved: false
+  approved: true
 - id: 'q-statistics-and-probability-combinatorics-0018'
   lesson: lesson-statistics-and-probability-adding-counts-with-overlap
   keyPoint: 1
@@ -383,7 +399,7 @@ questions:
       This counts rice meals only. Three options are available there. Include sandwiches.
   explanation: |
     The categories are alternatives. Add their counts: $5+3=8$.
-  approved: false
+  approved: true
 - id: 'q-statistics-and-probability-combinatorics-0019'
   lesson: lesson-statistics-and-probability-combinations-and-complementary-choices
   keyPoint: 1
@@ -405,7 +421,7 @@ questions:
       This chooses only two other members. Six choose two gives fifteen. Check the three remaining places.
   explanation: |
     With Lia fixed, choose three of the other six. The count is $\binom63=\dfrac{6(5)(4)}{3(2)(1)}=20$.
-  approved: false
+  approved: true
 - id: 'q-statistics-and-probability-combinatorics-0020'
   lesson: lesson-statistics-and-probability-combinations-and-complementary-choices
   keyPoint: 2
@@ -427,8 +443,9 @@ questions:
       This multiplies eight by three. Eight members and three exclusions are present. Count unordered groups.
   explanation: |
     Choose the three excluded members without order. Thus $\binom85=\binom83=\dfrac{8(7)(6)}{3(2)(1)}=56$.
-  approved: false
+  approved: true
 - id: 'q-statistics-and-probability-combinatorics-0021'
+  approved: true
   lesson: lesson-statistics-and-probability-counting-choices-in-stages
   keyPoint: 1
   type: 'word-problem'
@@ -450,6 +467,7 @@ questions:
   explanation: |
     There are $5$ color choices and $4$ border choices for each color. Each of those pairs has $3$ emblem choices, so there are $5\times4\times3=60$ designs.
 - id: 'q-statistics-and-probability-combinatorics-0022'
+  approved: true
   lesson: lesson-statistics-and-probability-counting-teams-and-ordered-roles
   keyPoint: 1
   type: 'which-is-true'
@@ -471,6 +489,7 @@ questions:
   explanation: |
     Each pair of people gives one backup pair. For the lead slots, either person can take the morning session. That gives two lead assignments per pair.
 - id: 'q-statistics-and-probability-combinatorics-0023'
+  approved: true
   lesson: lesson-statistics-and-probability-adding-counts-with-overlap
   keyPoint: 2
   type: 'word-problem'
@@ -492,6 +511,7 @@ questions:
   explanation: |
     Adding $24+19$ gives $43$ requests. There are $39$ people, so the $43-39=4$ extra requests came from people who asked for both sessions.
 - id: 'q-statistics-and-probability-combinatorics-0024'
+  approved: true
   lesson: lesson-statistics-and-probability-adding-counts-with-overlap
   keyPoint: 2
   type: 'word-problem'

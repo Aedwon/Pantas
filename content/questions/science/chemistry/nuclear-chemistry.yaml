@@ -347,7 +347,7 @@ questions:
           This treats ion charge as element identity. Electrons determine atomic charge balance. Check whether the nucleus has changed its proton count.
     explanation: |
       Atomic number Z is the number of protons. It determines which element the nucleus belongs to.
-    approved: false
+    approved: true
 
   - id: q-chemistry-nuclear-chemistry-0016
     lesson: lesson-chemistry-positron-emission-and-electron-capture
@@ -370,7 +370,7 @@ questions:
           This treats nucleon conversion as nucleon addition. A neutron appears. Check that it replaces a proton.
     explanation: |
       A proton converts to a neutron. The nucleon total stays the same, and there is one fewer proton. Thus A is unchanged and Z falls by 1.
-    approved: false
+    approved: true
 
   - id: q-chemistry-nuclear-chemistry-0017
     lesson: lesson-chemistry-positron-emission-and-electron-capture
@@ -393,7 +393,7 @@ questions:
           This removes the nuclear change from capture and reverses positron bookkeeping. Capture starts with an atomic electron. Check the resulting proton-to-neutron change.
     explanation: |
       Electron capture takes an inner atomic electron into the nuclear process. Positron emission releases a positron. Both convert a proton to a neutron and decrease Z by 1.
-    approved: false
+    approved: true
 
   - id: q-chemistry-nuclear-chemistry-0018
     lesson: lesson-chemistry-gamma-emission-and-radiation-penetration
@@ -416,7 +416,7 @@ questions:
           This reverses the exposure routes. Outside the body, skin and paper block alpha particles. Check what happens when the source is next to living tissue.
     explanation: |
       Alpha particles can strongly ionize material over short distances. Alpha-emitting material inside the body can therefore be hazardous.
-    approved: false
+    approved: true
 
   - id: q-chemistry-nuclear-chemistry-0019
     lesson: lesson-chemistry-balancing-nuclear-equations
@@ -439,7 +439,7 @@ questions:
           This counts the emitted electron as one lost nucleon. An electron leaves. Check what particles contribute to mass number.
     explanation: |
       Alpha decay gives $A-4$ and $Z-2$. Beta-minus then leaves A fixed and raises Z by 1. The final values are $A-4$ and $Z-1$.
-    approved: false
+    approved: true
 
   - id: q-chemistry-nuclear-chemistry-0020
     lesson: lesson-chemistry-nuclear-symbols-and-isotopes
@@ -462,9 +462,10 @@ questions:
           This turns a possible element change into a requirement. Many nuclear reactions alter Z. Check gamma emission’s unchanged Z.
     explanation: |
       Ordinary chemical reactions rearrange electrons and preserve nuclear proton and neutron counts. Nuclear processes involve nuclei and can change nuclides.
-    approved: false
+    approved: true
 
   - id: q-chemistry-nuclear-chemistry-0021
+    approved: true
     lesson: lesson-chemistry-balancing-nuclear-equations
     keyPoint: 1
     type: 'simple-quantitative'
@@ -487,6 +488,7 @@ questions:
       The two nuclei have the same mass number, so the missing particle has mass number $0$. Its atomic number must be $-1$ so that $7+(-1)=6$.
 
   - id: q-chemistry-nuclear-chemistry-0022
+    approved: true
     lesson: lesson-chemistry-comparing-nuclear-energy
     keyPoint: 1
     type: 'cause-effect'
@@ -509,6 +511,7 @@ questions:
       The particles in the product are held more tightly. The energy given out is the gain in total binding energy as the product forms.
 
   - id: q-chemistry-nuclear-chemistry-0023
+    approved: true
     lesson: lesson-chemistry-comparing-nuclear-energy
     keyPoint: 1
     type: 'cause-effect'
@@ -532,6 +535,7 @@ questions:
 
 
   - id: q-chemistry-nuclear-chemistry-0024
+    approved: true
     lesson: lesson-chemistry-nuclear-fission-and-fusion
     keyPoint: 2
     type: 'cause-effect'

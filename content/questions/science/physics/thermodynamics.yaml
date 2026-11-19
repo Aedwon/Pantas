@@ -352,7 +352,7 @@ questions:
   - id: q-physics-thermodynamics-0016
     lesson: lesson-physics-heat-temperature-and-internal-energy
     keyPoint: 1
-    approved: false
+    approved: true
     type: "identify"
     difficulty: "easy"
     stem: |
@@ -375,7 +375,7 @@ questions:
   - id: q-physics-thermodynamics-0017
     lesson: lesson-physics-internal-energy-and-the-first-law
     keyPoint: 1
-    approved: false
+    approved: true
     type: "simple-quantitative"
     difficulty: "medium"
     stem: |
@@ -398,7 +398,7 @@ questions:
   - id: q-physics-thermodynamics-0018
     lesson: lesson-physics-latent-heat-and-phase-changes
     keyPoint: 2
-    approved: false
+    approved: true
     type: "predict-outcome"
     difficulty: "hard"
     stem: |
@@ -421,7 +421,7 @@ questions:
   - id: q-physics-thermodynamics-0019
     lesson: lesson-physics-specific-heat-and-temperature-change
     keyPoint: 1
-    approved: false
+    approved: true
     type: "compare-contrast"
     difficulty: "hard"
     stem: |
@@ -444,7 +444,7 @@ questions:
   - id: q-physics-thermodynamics-0020
     lesson: lesson-physics-entropy-and-the-second-law
     keyPoint: 2
-    approved: false
+    approved: true
     type: "classify"
     difficulty: "exam"
     stem: |
@@ -465,6 +465,7 @@ questions:
       For an isolated system, the second law states that total entropy cannot decrease. It can stay the same in an ideal reversible process or increase in an irreversible one.
 
   - id: q-physics-thermodynamics-0021
+    approved: true
     lesson: lesson-physics-thermal-equilibrium-and-the-zeroth-law
     keyPoint: 1
     type: "predict-outcome"
@@ -487,6 +488,7 @@ questions:
       Each sample has the bath's temperature. They have the same temperature as each other. Neither is hotter, so no net heat flows.
 
   - id: q-physics-thermodynamics-0022
+    approved: true
     lesson: lesson-physics-absolute-zero-and-the-third-law
     keyPoint: 1
     type: "predict-outcome"
@@ -509,6 +511,7 @@ questions:
       Each step cuts the temperature to half of a positive value. Every finite number of steps leaves a positive temperature. The third law allows the sample to get close to 0 K.
 
   - id: q-physics-thermodynamics-0023
+    approved: true
     lesson: lesson-physics-latent-heat-and-phase-changes
     keyPoint: 1
     type: "simple-quantitative"
@@ -531,6 +534,7 @@ questions:
       Each kilogram releases $3.34\times10^5$ J as it freezes. Multiply by 0.10 to get $3.34\times10^4$ J.
 
   - id: q-physics-thermodynamics-0024
+    approved: true
     lesson: lesson-physics-latent-heat-and-phase-changes
     keyPoint: 1
     type: "simple-quantitative"
@@ -553,6 +557,7 @@ questions:
       Divide the heat released by the heat released per kilogram. The result is $10^{-1}$ kg, or 0.10 kg.
 
   - id: q-physics-thermodynamics-0025
+    approved: true
     lesson: lesson-physics-latent-heat-and-phase-changes
     keyPoint: 2
     type: "predict-outcome"
@@ -575,6 +580,7 @@ questions:
       The liquid changes to vapor at the same temperature. Use the heat of vaporization and count only the mass that changes state.
 
   - id: q-physics-thermodynamics-0026
+    approved: true
     lesson: lesson-physics-heat-exchange-between-objects
     keyPoint: 1
     type: "simple-quantitative"
@@ -597,6 +603,7 @@ questions:
       The masses are equal and both are water. For the heat lost to equal the heat gained, each sample must change by 30°C. They meet at 50°C.
 
   - id: q-physics-thermodynamics-0027
+    approved: true
     lesson: lesson-physics-heat-exchange-between-objects
     keyPoint: 1
     type: "simple-quantitative"

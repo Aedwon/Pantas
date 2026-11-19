@@ -5,6 +5,7 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-geometry-circles-0001
+    approved: true
     lesson: lesson-geometry-central-and-inscribed-angles
     keyPoint: 1
     type: direct-computation
@@ -30,6 +31,7 @@ questions:
       An inscribed angle equals half of its intercepted arc. Divide $84^\circ$ by $2$ to get $42^\circ$.
 
   - id: q-geometry-circles-0002
+    approved: true
     lesson: lesson-geometry-circle-parts-and-measures
     keyPoint: 2
     type: direct-computation
@@ -55,6 +57,7 @@ questions:
       The radius is half the diameter: $r=14\div2=7$ cm. Circle area is $\pi r^2$, so the area is $\pi(7^2)=49\pi$ square centimeters.
 
   - id: q-geometry-circles-0003
+    approved: true
     lesson: lesson-geometry-central-and-inscribed-angles
     keyPoint: 2
     type: direct-computation
@@ -80,6 +83,7 @@ questions:
       The angle opposite the diameter is $90^\circ$. The triangle angles sum to $180^\circ$. Thus $\angle ABC=180^\circ-90^\circ-35^\circ=55^\circ$.
 
   - id: q-geometry-circles-0004
+    approved: true
     lesson: lesson-geometry-circle-parts-and-measures
     keyPoint: 2
     type: direct-computation
@@ -105,6 +109,7 @@ questions:
       From area $\pi r^2=36\pi$, get $r^2=36$ and the positive radius $r=6$ cm. Circumference is $2\pi r=2\pi(6)=12\pi$ cm.
 
   - id: q-geometry-circles-0005
+    approved: true
     lesson: lesson-geometry-circle-tangent-lengths
     keyPoint: 1
     type: direct-computation
@@ -130,6 +135,7 @@ questions:
       The tangent and touching radius are perpendicular. Their right triangle has hypotenuse $13$ and radius leg $5$. Thus $PT^2=13^2-5^2=169-25=144$. Take the positive root to get $PT=12$ cm.
 
   - id: q-geometry-circles-0006
+    approved: true
     lesson: lesson-geometry-circle-parts-and-measures
     keyPoint: 3
     type: direct-computation
@@ -155,6 +161,7 @@ questions:
       The arc is $\dfrac{60}{360}=\dfrac{1}{6}$ of the circumference. The circumference is $2\pi(12)=24\pi$ cm. Its sixth is $4\pi$ cm.
 
   - id: q-geometry-circles-0007
+    approved: true
     lesson: lesson-geometry-circle-parts-and-measures
     keyPoint: 3
     type: direct-computation
@@ -180,6 +187,7 @@ questions:
       The sector is $\dfrac{90}{360}=\dfrac{1}{4}$ of the circle. The full area is $\pi(8^2)=64\pi$ square centimeters. A quarter is $16\pi$ square centimeters.
 
   - id: q-geometry-circles-0008
+    approved: true
     lesson: lesson-geometry-central-and-inscribed-angles
     keyPoint: 1
     type: direct-computation
@@ -205,6 +213,7 @@ questions:
       Opposite angles of an inscribed quadrilateral sum to $180^\circ$. Thus $(4x+20)+(2x+40)=180$, giving $6x=120$ and $x=20$. Substitute: $\angle C=2(20)+40=80^\circ$.
 
   - id: q-geometry-circles-0009
+    approved: true
     lesson: lesson-geometry-central-and-inscribed-angles
     keyPoint: 1
     type: direct-computation
@@ -230,6 +239,7 @@ questions:
       For chords crossing inside a circle, the angle equals half the sum of its intercepted arcs. Add $70^\circ+50^\circ=120^\circ$. Divide by $2$ to get $60^\circ$.
 
   - id: q-geometry-circles-0010
+    approved: true
     lesson: lesson-geometry-central-and-inscribed-angles
     keyPoint: 1
     type: direct-computation
@@ -255,6 +265,7 @@ questions:
       For two secants meeting outside a circle, the angle equals half the difference of the far and near arcs. Subtract $110^\circ-40^\circ=70^\circ$. Divide by $2$ to get $35^\circ$.
 
   - id: q-geometry-circles-0011
+    approved: true
     lesson: lesson-geometry-chord-lengths-and-segments
     keyPoint: 1
     type: direct-computation
@@ -280,6 +291,7 @@ questions:
       The common center is $5$ cm from the tangent chord. Its perpendicular segment bisects that chord. A half-chord forms a right triangle with legs $5$ and $h$ and hypotenuse $13$. Thus $h^2=13^2-5^2=144$, so $h=12$ cm. The full chord is $2(12)=24$ cm.
 
   - id: q-geometry-circles-0012
+    approved: true
     lesson: lesson-geometry-outside-secants-and-tangents
     keyPoint: 2
     type: direct-computation
@@ -305,6 +317,7 @@ questions:
       The whole secant from P to B is $4+5=9$ cm. The tangent-secant theorem gives $PT^2=PA(PB)=4(9)=36$. Taking the positive root gives $PT=6$ cm.
 
   - id: q-geometry-circles-0013
+    approved: true
     lesson: lesson-geometry-chord-lengths-and-segments
     keyPoint: 1
     type: direct-computation
@@ -330,6 +343,7 @@ questions:
       The circle area is $\pi(6^2)=36\pi$ square centimeters. The square diagonal equals the circle diameter, $12$ cm. If its side is $s$, then $s^2+s^2=12^2$, so its area $s^2$ is $72$ square centimeters. Subtract square area from circle area to get $36\pi-72$ square centimeters.
 
   - id: q-geometry-circles-0014
+    approved: true
     lesson: lesson-geometry-central-and-inscribed-angles
     keyPoint: 1
     type: direct-computation
@@ -355,6 +369,7 @@ questions:
       The central angle is twice the inscribed angle over the same arc. Thus $5x-10=2(2x+10)$. Expand: $5x-10=4x+20$, so $x=30$. The central angle is $5(30)-10=140^\circ$.
 
   - id: q-geometry-circles-0015
+    approved: true
     lesson: lesson-geometry-circle-tangent-lengths
     keyPoint: 1
     type: direct-computation
@@ -400,7 +415,7 @@ questions:
           This reverses the longest-chord inequality. Half of twelve is six. Check that the diameter cannot be shorter than the chord.
     explanation: |
       The diameter is the longest chord, so it is at least $12$ cm. Radius is half the diameter, so $r\ge6$ cm.
-    approved: false
+    approved: true
 
   - id: q-geometry-circles-0017
     lesson: lesson-geometry-circle-parts-and-measures
@@ -423,7 +438,7 @@ questions:
           This halves the wrong area rather than halving the length first. Radius is half the diameter. Check that area changes with the square of radius.
     explanation: |
       The radius is $10\div2=5$ cm. Square the radius: $A=\pi(5^2)=25\pi$ square centimeters.
-    approved: false
+    approved: true
 
   - id: q-geometry-circles-0018
     lesson: lesson-geometry-circle-parts-and-measures
@@ -446,7 +461,7 @@ questions:
           This doubles the radius twice before squaring. The radius changes once. Check the stated scale factor.
     explanation: |
       If the original radius is $r$, its area is $\pi r^2$. The new area is $\pi(2r)^2=4\pi r^2$. Thus the new area is four times the original.
-    approved: false
+    approved: true
 
   - id: q-geometry-circles-0019
     lesson: lesson-geometry-circle-parts-and-measures
@@ -469,7 +484,7 @@ questions:
           This reports the number of equal arcs in the circumference as an angle. Six follows from the arc fraction. Check that the angle is a fraction of three hundred sixty degrees.
     explanation: |
       The full circumference is $2\pi(9)=18\pi$ cm. The arc fraction is $\dfrac{3\pi}{18\pi}=\dfrac{1}{6}$. Multiply the full turn by that fraction: $360^\circ\div6=60^\circ$.
-    approved: false
+    approved: true
 
   - id: q-geometry-circles-0020
     lesson: lesson-geometry-circle-parts-and-measures
@@ -492,9 +507,10 @@ questions:
           This uses the whole circumference with the two radii. Full circumference is needed to find the arc. Check the sector fraction before adding the straight sides.
     explanation: |
       The arc fraction is $\dfrac{72}{360}=\dfrac{1}{5}$. Its arc length is $\dfrac{1}{5}[2\pi(10)]=4\pi$ cm. The two straight radii total $20$ cm. Add them to get $20+4\pi$ cm.
-    approved: false
+    approved: true
 
   - id: q-geometry-circles-0021
+    approved: true
     lesson: lesson-geometry-chord-lengths-and-segments
     keyPoint: 2
     type: direct-computation
@@ -520,6 +536,7 @@ questions:
       First find $PB=17-5=12$. The two chord products are equal, so $10\cdot PD=5\cdot12=60$. This gives $PD=6$. Add the two pieces to get $CD=10+6=16$.
 
   - id: q-geometry-circles-0022
+    approved: true
     lesson: lesson-geometry-chord-lengths-and-segments
     keyPoint: 2
     type: which-is-true
@@ -545,6 +562,7 @@ questions:
       The first chord gives a product of $4\cdot9=36$. The pair $2$ and $18$ also has a product of $36$.
 
   - id: q-geometry-circles-0023
+    approved: true
     lesson: lesson-geometry-outside-secants-and-tangents
     keyPoint: 1
     type: direct-computation
@@ -570,6 +588,7 @@ questions:
       The first outside length times its whole length is $6\cdot14=84$. The second gives $PC\cdot21=84$. Divide by $21$ to get $PC=4$.
 
   - id: q-geometry-circles-0024
+    approved: true
     lesson: lesson-geometry-outside-secants-and-tangents
     keyPoint: 1
     type: which-is-true
@@ -595,6 +614,7 @@ questions:
       The first whole length is $3+9=12$. Its outside length times its whole length is $3\cdot12=36$. The pair $2$ and $16$ gives $2(2+16)=36$ too.
 
   - id: q-geometry-circles-0025
+    approved: true
     lesson: lesson-geometry-outside-secants-and-tangents
     keyPoint: 2
     type: direct-computation

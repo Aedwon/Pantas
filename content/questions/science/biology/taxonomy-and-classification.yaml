@@ -347,7 +347,7 @@ questions:
           This chooses a group broader than family. It is below class, so it may seem narrow. Check whether narrower listed ranks still follow it.
     explanation: |
       Species is the most specific of these traditional ranks. Genus contains species, and broader ranks contain genera.
-    approved: false
+    approved: true
 
   - id: q-biology-taxonomy-and-classification-0016
     lesson: lesson-biology-domains-and-kingdom-schemes
@@ -370,7 +370,7 @@ questions:
           This reverses the nuclear criterion. All three domains contain cells and DNA. Check which has a membrane-enclosed nucleus.
     explanation: |
       Both Bacteria and Archaea lack a membrane-enclosed nucleus. That observation alone does not distinguish those two domains.
-    approved: false
+    approved: true
 
   - id: q-biology-taxonomy-and-classification-0017
     lesson: lesson-biology-taxonomy-and-traditional-ranks
@@ -393,7 +393,7 @@ questions:
           This treats classifications as unchangeable. Older groupings can remain familiar. Check whether new evidence is allowed to revise a relationship hypothesis.
     explanation: |
       Systematics studies evolutionary relationships. It uses evidence about ancestry to inform classification.
-    approved: false
+    approved: true
 
   - id: q-biology-taxonomy-and-classification-0018
     lesson: lesson-biology-why-classifications-change
@@ -416,7 +416,7 @@ questions:
           This treats the second name part as a complete species identity. Epithets can look like unique labels. Check the full name and the ancestry evidence.
     explanation: |
       Similar traits can evolve separately in different lineages. This is convergent evolution. Molecular evidence can help distinguish that resemblance from a recent shared origin.
-    approved: false
+    approved: true
 
   - id: q-biology-taxonomy-and-classification-0019
     lesson: lesson-biology-why-classifications-change
@@ -439,7 +439,7 @@ questions:
           This treats a broad informal category as one species. Some protists share a simple body form. Check whether a common label makes their full species names identical.
     explanation: |
       Protist is an informal term for diverse eukaryotes outside animals, land plants, and fungi. The old catch-all Protista kingdom is not one natural lineage.
-    approved: false
+    approved: true
 
   - id: q-biology-taxonomy-and-classification-0020
     lesson: lesson-biology-taxonomy-and-traditional-ranks
@@ -462,9 +462,10 @@ questions:
           This confuses an intermediate category with a new highest-level group. Both are classification changes. Check where the added rank sits.
     explanation: |
       The familiar eight ranks are a useful classroom list. Real classifications may include intermediate ranks and unranked groups. Adding one does not make the shorter list exhaustive.
-    approved: false
+    approved: true
 
   - id: q-biology-taxonomy-and-classification-0021
+    approved: true
     lesson: lesson-biology-domains-and-kingdom-schemes
     keyPoint: 2
     type: "compare-contrast"
@@ -487,6 +488,7 @@ questions:
       The five-kingdom scheme puts all prokaryotes in Monera. The six-kingdom scheme divides them into two kingdoms.
 
   - id: q-biology-taxonomy-and-classification-0022
+    approved: true
     lesson: lesson-biology-classifying-organisms-by-their-traits
     keyPoint: 1
     type: "classify"
@@ -509,6 +511,7 @@ questions:
       Plants usually have many cells with cellulose walls. They use chlorophyll to make food from light. This organism fits that set of traits.
 
   - id: q-biology-taxonomy-and-classification-0023
+    approved: true
     lesson: lesson-biology-classifying-organisms-by-their-traits
     keyPoint: 1
     type: "classify"
@@ -531,6 +534,7 @@ questions:
       Animals have many cells with no cell walls. They obtain food by eating, which fits the specimen.
 
   - id: q-biology-taxonomy-and-classification-0024
+    approved: true
     lesson: lesson-biology-using-a-dichotomous-key
     keyPoint: 1
     type: "classify"
@@ -559,6 +563,7 @@ questions:
       The nucleus sends you to step 2. The wall sends you to step 3, where chitin points to specimen Y.
 
   - id: q-biology-taxonomy-and-classification-0025
+    approved: true
     lesson: lesson-biology-using-a-dichotomous-key
     keyPoint: 1
     type: "predict-outcome"
@@ -581,6 +586,7 @@ questions:
       The specimen has a wall, so the key sends it to step 2. Neither wall choice fits, so the key gives no name.
 
   - id: q-biology-taxonomy-and-classification-0026
+    approved: true
     lesson: lesson-biology-common-ancestry-on-branching-trees
     keyPoint: 1
     type: "compare-contrast"

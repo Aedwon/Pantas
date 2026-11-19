@@ -5,6 +5,7 @@ meta:
   exams: ['upcat', 'acet', 'ustet', 'pupcet']
 questions:
 - id: 'q-geometry-quadrilaterals-and-polygons-0001'
+  approved: true
   lesson: lesson-geometry-simple-polygons-and-interior-angle-sums
   keyPoint: 2
   type: 'direct-computation'
@@ -29,6 +30,7 @@ questions:
   explanation: |
     A convex n-sided polygon has interior-angle sum $(n-2)180^\circ$. For $n=8$, this gives $(8-2)180^\circ=1080^\circ$.
 - id: 'q-geometry-quadrilaterals-and-polygons-0002'
+  approved: true
   lesson: lesson-geometry-regular-polygon-angles-and-side-counts
   keyPoint: 1
   type: 'direct-computation'
@@ -53,6 +55,7 @@ questions:
   explanation: |
     The same-direction exterior turning angles of a convex polygon make one complete turn. Their sum is therefore $360^\circ$.
 - id: 'q-geometry-quadrilaterals-and-polygons-0003'
+  approved: true
   lesson: lesson-geometry-angles-in-parallelograms-and-trapezoids
   keyPoint: 1
   type: 'direct-computation'
@@ -77,6 +80,7 @@ questions:
   explanation: |
     Consecutive parallelogram angles are supplementary. Thus $\angle B=180^\circ-72^\circ=108^\circ$.
 - id: 'q-geometry-quadrilaterals-and-polygons-0004'
+  approved: true
   lesson: lesson-geometry-rectangle-rhombus-and-square-diagonals
   keyPoint: 1
   type: 'direct-computation'
@@ -101,6 +105,7 @@ questions:
   explanation: |
     A rhombus has four equal sides. Divide its perimeter by four: $52\div4=13$ cm per side.
 - id: 'q-geometry-quadrilaterals-and-polygons-0005'
+  approved: true
   lesson: lesson-geometry-rectangle-rhombus-and-square-diagonals
   keyPoint: 2
   type: 'direct-computation'
@@ -125,6 +130,7 @@ questions:
   explanation: |
     Rectangle diagonals are equal, so $4x+6=6x-10$. Subtract $4x$ and add $10$ to get $2x=16$. Divide by $2$: $x=8$.
 - id: 'q-geometry-quadrilaterals-and-polygons-0006'
+  approved: true
   lesson: lesson-geometry-regular-polygon-angles-and-side-counts
   keyPoint: 2
   type: 'direct-computation'
@@ -149,6 +155,7 @@ questions:
   explanation: |
     The exterior angle is $180^\circ-144^\circ=36^\circ$. Equal exterior angles total $360^\circ$, so $n=360\div36=10$ sides.
 - id: 'q-geometry-quadrilaterals-and-polygons-0007'
+  approved: true
   lesson: lesson-geometry-angles-in-parallelograms-and-trapezoids
   keyPoint: 2
   type: 'direct-computation'
@@ -173,6 +180,7 @@ questions:
   explanation: |
     A trapezoid midsegment length is the average of its bases. Thus $M=\dfrac{14+26}{2}=\dfrac{40}{2}=20$ cm.
 - id: 'q-geometry-quadrilaterals-and-polygons-0008'
+  approved: true
   lesson: lesson-geometry-rectangle-rhombus-and-square-diagonals
   keyPoint: 2
   type: 'direct-computation'
@@ -197,6 +205,7 @@ questions:
   explanation: |
     Rhombus diagonals are perpendicular and bisect each other. Their half-lengths are $6$ and $8$ cm. A side is the hypotenuse of that right triangle: $s=\sqrt{6^2+8^2}=10$ cm. Four sides give perimeter $4(10)=40$ cm.
 - id: 'q-geometry-quadrilaterals-and-polygons-0009'
+  approved: true
   lesson: lesson-geometry-angles-in-parallelograms-and-trapezoids
   keyPoint: 1
   type: 'direct-computation'
@@ -221,6 +230,7 @@ questions:
   explanation: |
     Opposite parallelogram angles are equal: $5x+12=3x+48$. Thus $2x=36$ and $x=18$. Angle D is $5(18)+12=102^\circ$. Its consecutive angle E measures $180^\circ-102^\circ=78^\circ$.
 - id: 'q-geometry-quadrilaterals-and-polygons-0010'
+  approved: true
   lesson: lesson-geometry-quadrilateral-angle-sums
   keyPoint: 1
   type: 'direct-computation'
@@ -245,6 +255,7 @@ questions:
   explanation: |
     The quadrilateral sum gives $2x+(3x+10)+(4x-15)+(x+25)=360$. Thus $10x+20=360$, so $x=34$. The measures are $68^\circ,112^\circ,121^\circ,$ and $59^\circ$. The largest is $121^\circ$.
 - id: 'q-geometry-quadrilaterals-and-polygons-0011'
+  approved: true
   lesson: lesson-geometry-simple-polygons-and-interior-angle-sums
   keyPoint: 2
   type: 'direct-computation'
@@ -269,6 +280,7 @@ questions:
   explanation: |
     Use $(n-2)180=1800$ to get $n=12$. Each vertex connects by diagonals to nine others, excluding itself and its two neighbors. This counts $12(9)=108$ connections. Each diagonal is counted at both ends, so divide by $2$: $108\div2=54$.
 - id: 'q-geometry-quadrilaterals-and-polygons-0012'
+  approved: true
   lesson: lesson-geometry-angles-in-parallelograms-and-trapezoids
   keyPoint: 2
   type: 'direct-computation'
@@ -293,6 +305,7 @@ questions:
   explanation: |
     Parallel bases make angles BAD and ADC supplementary. Thus BAD measures $180^\circ-65^\circ=115^\circ$. Its bisector gives CAD equal to $57.5^\circ$. In triangle ACD, subtract the other two angles from $180^\circ$: ACD is $180^\circ-65^\circ-57.5^\circ=57.5^\circ$.
 - id: 'q-geometry-quadrilaterals-and-polygons-0013'
+  approved: true
   lesson: lesson-geometry-rectangle-rhombus-and-square-diagonals
   keyPoint: 2
   type: 'direct-computation'
@@ -317,6 +330,7 @@ questions:
   explanation: |
     Let the square side be $s$. The diagonal forms a right triangle with two equal legs, so $s^2+s^2=12^2$. Hence $2s^2=144$ and $s^2=72$. The square area is $72$ square centimeters.
 - id: 'q-geometry-quadrilaterals-and-polygons-0014'
+  approved: true
   lesson: lesson-geometry-regular-polygon-angles-and-side-counts
   keyPoint: 2
   type: 'direct-computation'
@@ -341,6 +355,7 @@ questions:
   explanation: |
     The interior and adjacent exterior angle sum to $180^\circ$. Their ratio gives $7x+2x=180$, so $x=20$. The exterior angle is $2(20)=40^\circ$. Divide the full exterior turn by this measure: $360\div40=9$ sides.
 - id: 'q-geometry-quadrilaterals-and-polygons-0015'
+  approved: true
   lesson: lesson-geometry-rectangle-rhombus-and-square-diagonals
   keyPoint: 2
   type: 'direct-computation'
@@ -385,7 +400,7 @@ questions:
       This identifies a rhombus without equal-side information. Rhombi are also parallelograms. Check that the figure has only one parallel pair.
   explanation: |
     The exclusive definition requires exactly one pair of parallel sides. That is the defining condition for a trapezoid in this convention.
-  approved: false
+  approved: true
 - id: 'q-geometry-quadrilaterals-and-polygons-0017'
   lesson: lesson-geometry-regular-polygon-angles-and-side-counts
   keyPoint: 1
@@ -407,7 +422,7 @@ questions:
       This reports a single interior angle of a regular hexagon. One hundred twenty is a familiar hexagon measure. Check both the angle type and whether a sum is requested.
   explanation: |
     Those exterior turns trace one complete rotation around the polygon. Their total is $360^\circ$.
-  approved: false
+  approved: true
 - id: 'q-geometry-quadrilaterals-and-polygons-0018'
   lesson: lesson-geometry-rectangle-rhombus-and-square-diagonals
   keyPoint: 1
@@ -429,7 +444,7 @@ questions:
       This treats shape classes as mutually exclusive. Their names are different. Check that a square satisfies both broader definitions.
   explanation: |
     A square has four right angles, meeting the rectangle definition. It also has four equal sides, meeting the rhombus definition. Therefore both classifications apply.
-  approved: false
+  approved: true
 - id: 'q-geometry-quadrilaterals-and-polygons-0019'
   lesson: lesson-geometry-rectangle-rhombus-and-square-diagonals
   keyPoint: 1
@@ -451,7 +466,7 @@ questions:
       This uses the exclusive trapezoid condition. Both types have parallel sides. Check that rectangles have both pairs parallel.
   explanation: |
     Equal diagonal lengths are a rectangle property. Every rectangle has this property, including its square special cases.
-  approved: false
+  approved: true
 - id: 'q-geometry-quadrilaterals-and-polygons-0020'
   lesson: lesson-geometry-simple-polygons-and-interior-angle-sums
   keyPoint: 2
@@ -473,8 +488,9 @@ questions:
       This uses the exterior-angle total. Both polygons have the same exterior-turn total. Check that the comparison concerns interior sums.
   explanation: |
     The sums are $(8-2)180^\circ=1080^\circ$ and $(11-2)180^\circ=1620^\circ$. Their difference is $1620^\circ-1080^\circ=540^\circ$.
-  approved: false
+  approved: true
 - id: 'q-geometry-quadrilaterals-and-polygons-0021'
+  approved: true
   lesson: lesson-geometry-simple-polygons-and-interior-angle-sums
   keyPoint: 1
   type: 'which-is-true'
@@ -496,6 +512,7 @@ questions:
   explanation: |
     The five sides make a pentagon. The sides do not cross, so it is simple. The angle of $210^\circ$ is greater than $180^\circ$, so it is concave.
 - id: 'q-geometry-quadrilaterals-and-polygons-0022'
+  approved: true
   lesson: lesson-geometry-quadrilateral-angle-sums
   keyPoint: 1
   type: 'direct-computation'
@@ -517,6 +534,7 @@ questions:
   explanation: |
     The two given angles add to $180^\circ$. The missing angles share the other $180^\circ$. One part plus two parts makes three parts, so the larger angle is $2(180^\circ\div3)=120^\circ$.
 - id: 'q-geometry-quadrilaterals-and-polygons-0023'
+  approved: true
   lesson: lesson-geometry-quadrilateral-angle-sums
   keyPoint: 1
   type: 'word-problem'
@@ -538,6 +556,7 @@ questions:
   explanation: |
     All four angles add to $360^\circ$. The known angles add to $230^\circ$. The two equal angles split the remaining $130^\circ$, so each is $65^\circ$.
 - id: 'q-geometry-quadrilaterals-and-polygons-0024'
+  approved: true
   lesson: lesson-geometry-classifying-quadrilaterals-by-diagonals
   keyPoint: 1
   type: 'which-is-true'
@@ -559,6 +578,7 @@ questions:
   explanation: |
     The diagonals cut each other in half, so the shape is a parallelogram. Equal diagonals make it a rectangle. Diagonals that meet at right angles make it a rhombus too. A shape that is both is a square.
 - id: 'q-geometry-quadrilaterals-and-polygons-0025'
+  approved: true
   lesson: lesson-geometry-classifying-quadrilaterals-by-diagonals
   keyPoint: 1
   type: 'error-spotting'

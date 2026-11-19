@@ -347,7 +347,7 @@ questions:
           This substitutes spin for shell. It is one of the four numbers. Check which has positive-integer shell values.
     explanation: |
       The principal quantum number n identifies the principal shell. Its allowed values are positive integers.
-    approved: false
+    approved: true
 
   - id: q-chemistry-quantum-numbers-electron-configuration-0016
     lesson: lesson-chemistry-quantum-number-ranges-and-orbitals
@@ -370,7 +370,7 @@ questions:
           This uses the symmetric range for m_l. Both are quantum numbers. Check which range applies to l.
     explanation: |
       Allowed l values run from 0 through n-1. For n=3, they are 0, 1, and 2.
-    approved: false
+    approved: true
 
   - id: q-chemistry-quantum-numbers-electron-configuration-0017
     lesson: lesson-chemistry-quantum-number-ranges-and-orbitals
@@ -393,7 +393,7 @@ questions:
           This assumes l must be positive. Principal n is positive. Check that an s subshell has l=0.
     explanation: |
       For n=2, l may be 0 or 1. The pair n=2, l=2 exceeds the allowed limit l=n-1.
-    approved: false
+    approved: true
 
   - id: q-chemistry-quantum-numbers-electron-configuration-0018
     lesson: lesson-chemistry-quantum-number-ranges-and-orbitals
@@ -416,7 +416,7 @@ questions:
           This mixes zero with a negative integer. Magnetic labels may be negative. Check the separate spin rule.
     explanation: |
       The electron spin quantum number has two allowed values: $+\dfrac{1}{2}$ and $-\dfrac{1}{2}$. Opposite-spin electrons can share an orbital.
-    approved: false
+    approved: true
 
   - id: q-chemistry-quantum-numbers-electron-configuration-0019
     lesson: lesson-chemistry-ground-state-electron-filling
@@ -439,7 +439,7 @@ questions:
           This confuses complex valence behavior with no electron loss. Transition metals have variable charges. Check how cations form.
     explanation: |
       Relative subshell energies change with atomic number and occupation. Transition-metal cations commonly lose 4s before 3d even though 4s was filled earlier.
-    approved: false
+    approved: true
 
   - id: q-chemistry-quantum-numbers-electron-configuration-0020
     lesson: lesson-chemistry-ground-state-electron-filling
@@ -462,4 +462,4 @@ questions:
           This treats a filling exception as missing orbital types. The pattern differs. Check that the orbitals still exist.
     explanation: |
       The simple Aufbau pattern has known exceptions, including chromium and copper. Observed ground-state configurations describe the actual occupation.
-    approved: false
+    approved: true

@@ -5,6 +5,7 @@ meta:
   exams: [pshs-nce]
 questions:
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0001
+    approved: true
     lesson: lesson-arithmetic-number-sense-reading-clock-time
     keyPoint: 1
     type: direct-computation
@@ -30,6 +31,7 @@ questions:
       For a pm time after the noon hour, add $12$ to the hour: $7+12=19$. Keep the $35$ minutes. The time is 19:35.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0002
+    approved: true
     lesson: lesson-arithmetic-number-sense-reading-clock-time
     keyPoint: 1
     type: direct-computation
@@ -55,6 +57,7 @@ questions:
       In 24-hour time, hour $00$ is the midnight hour. Change it to $12$ and use am. The minutes stay $40$, so the time is 12:40 am.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0003
+    approved: true
     lesson: lesson-arithmetic-number-sense-reading-clock-time
     keyPoint: 1
     type: direct-computation
@@ -80,6 +83,7 @@ questions:
       Noon is 12:00 in 24-hour time. During the noon hour, keep the hour $12$. Thus 12:15 pm is 12:15.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0004
+    approved: true
     lesson: lesson-arithmetic-number-sense-reading-clock-time
     keyPoint: 1
     type: direct-computation
@@ -105,6 +109,7 @@ questions:
       Hour $16$ is after noon, so use pm. Subtract $12$ from the hour: $16-12=4$. The departure time is 4:08 pm.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0005
+    approved: true
     lesson: lesson-arithmetic-number-sense-finding-elapsed-time
     keyPoint: 1
     type: word-problem
@@ -130,6 +135,7 @@ questions:
       Both times are in the same hour. Subtract the minutes: $47-12=35$. The student reads for $35$ minutes.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0006
+    approved: true
     lesson: lesson-arithmetic-number-sense-finding-elapsed-time
     keyPoint: 1
     type: word-problem
@@ -155,6 +161,7 @@ questions:
       From 10:48 am to 11:00 am is $12$ minutes. From 11:00 am to noon is $1$ hour. Add the last $16$ minutes: $12+16=28$. The activity lasts $1$ hour $28$ minutes.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0007
+    approved: true
     lesson: lesson-arithmetic-number-sense-finding-elapsed-time
     keyPoint: 1
     type: direct-computation
@@ -180,6 +187,7 @@ questions:
       Borrow $1$ hour from $17$ hours. Then $17$ hours $9$ minutes becomes $16$ hours $69$ minutes. Subtract: $69-52=17$ minutes and $16-14=2$ hours. The elapsed time is $2$ hours $17$ minutes.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0008
+    approved: true
     lesson: lesson-arithmetic-number-sense-elapsed-time-across-midnight
     keyPoint: 1
     type: word-problem
@@ -205,6 +213,7 @@ questions:
       From 11:25 pm to midnight is $35$ minutes. From midnight to 2:00 am is $2$ hours. Add the last $10$ minutes: $35+10=45$. The trip lasts $2$ hours $45$ minutes.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0009
+    approved: true
     lesson: lesson-arithmetic-number-sense-adding-a-duration
     keyPoint: 1
     type: word-problem
@@ -230,6 +239,7 @@ questions:
       Add the minutes: $35+45=80$, or $1$ hour $20$ minutes. Add the hours and the carried hour: $10+2+1=13$. The ending time is 13:20, or 1:20 pm.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0010
+    approved: true
     lesson: lesson-arithmetic-number-sense-adding-a-duration
     keyPoint: 1
     type: word-problem
@@ -255,6 +265,7 @@ questions:
       The minutes total $50+25=75$, or $1$ hour $15$ minutes. The hours total $22+3+1=26$. Subtract $24$ and move to Saturday. The bus arrives at 02:15 Saturday.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0011
+    approved: true
     lesson: lesson-arithmetic-number-sense-using-time-zone-offsets
     keyPoint: 1
     type: word-problem
@@ -280,6 +291,7 @@ questions:
       Town B is ahead, so add $3$ hours. Starting at 9:40 am, three hours later is 12:40 pm. The minutes stay $40$.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0012
+    approved: true
     lesson: lesson-arithmetic-number-sense-using-time-zone-offsets
     keyPoint: 1
     type: word-problem
@@ -305,6 +317,7 @@ questions:
       Change 6:50 pm to 18:50. Town D is behind, so subtract the offset. The minutes give $50-30=20$. The hours give $18-4=14$. Thus Town D shows 14:20, or 2:20 pm.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0013
+    approved: true
     lesson: lesson-arithmetic-number-sense-finding-elapsed-time
     keyPoint: 1
     type: error-spotting
@@ -337,6 +350,7 @@ questions:
       An hour supplies $60$ minutes. Step 2 should give $10$ hours $78$ minutes. Then $78-46=32$ minutes and $10-8=2$ hours. The elapsed time is $2$ hours $32$ minutes.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0014
+    approved: true
     lesson: lesson-arithmetic-number-sense-adding-a-duration
     keyPoint: 1
     type: word-problem
@@ -362,6 +376,7 @@ questions:
       The durations total $1+1=2$ hours and $35+20+50=105$ minutes. Since $105$ minutes is $1$ hour $45$ minutes, the program lasts $3$ hours $45$ minutes. From 9:45 am, add $3$ hours to get 12:45 pm. Add $45$ minutes to reach 1:30 pm.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0015
+    approved: true
     lesson: lesson-arithmetic-number-sense-using-time-zone-offsets
     keyPoint: 1
     type: word-problem
@@ -387,6 +402,7 @@ questions:
       Use 21:35 for the start. Add $40$ minutes to get 22:15. Add $5$ hours to get $27$ hours $15$ minutes. Subtract $24$ and move forward one day. Town F shows 03:15 Thursday.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0016
+    approved: true
     lesson: lesson-arithmetic-number-sense-using-time-zone-offsets
     keyPoint: 1
     type: word-problem
@@ -412,6 +428,7 @@ questions:
       Subtract $4$ hours $10$ minutes to reach midnight at the start of Monday. The offset still has $2$ hours $25$ minutes left. Moving back that far from midnight gives 21:35 Sunday. Check: adding $6$ hours $35$ minutes returns to 4:10 am Monday.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0017
+    approved: true
     lesson: lesson-arithmetic-number-sense-finding-elapsed-time
     keyPoint: 1
     type: word-problem
@@ -437,6 +454,7 @@ questions:
       From 7:54 am to 8:00 am is $6$ minutes. From 8:00 am to 3:00 pm is $7$ hours. Add $21$ more minutes to reach 3:21 pm. The journey lasts $7$ hours $27$ minutes.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0018
+    approved: true
     lesson: lesson-arithmetic-number-sense-using-time-zone-offsets
     keyPoint: 1
     type: word-problem
@@ -462,6 +480,7 @@ questions:
       Use 22:20 for 10:20 pm. Borrow $1$ hour to get $21$ hours $80$ minutes. Subtract $8$ hours $45$ minutes: $21-8=13$ and $80-45=35$. Town J shows 13:35, or 1:35 pm.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0019
+    approved: true
     lesson: lesson-arithmetic-number-sense-using-time-zone-offsets
     keyPoint: 1
     type: word-problem
@@ -487,6 +506,7 @@ questions:
       Town L is behind Town M, so subtract $7$ hours $30$ minutes. From 2:15 am Saturday, move back $2$ hours $15$ minutes to midnight. There are $5$ hours $15$ minutes left to subtract. This gives 18:45 Friday.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0020
+    approved: true
     lesson: lesson-arithmetic-number-sense-adding-a-duration
     keyPoint: 1
     type: word-problem
@@ -512,6 +532,7 @@ questions:
       Change the start to 23:48 Thursday. Add the minutes: $48+37=85$, or $1$ hour $25$ minutes. Add the hours: $23+2+1=26$. Subtract $24$ and move to Friday. The timer stops at 02:25 Friday.
 
   - id: q-arithmetic-number-sense-clock-time-and-time-differences-0021
+    approved: true
     lesson: lesson-arithmetic-number-sense-elapsed-time-across-midnight
     keyPoint: 1
     type: word-problem
