@@ -446,3 +446,10 @@ the current decision log.
 - Why: the merge step grepped the whole wait-loop output for "CI completed success", which matched a line from an earlier poll; a later wait loop also used a short SHA, which `gh run list --commit` does not match.
 - Fix: before any merge, read the CI conclusion directly with the full SHA (`gh run list --commit <full sha> --json name,conclusion -q '.[]|select(.name=="CI").conclusion'` must equal `success`). Main was fixed forward within 30 minutes (a01635b22, CI green); nothing was deployed from the red commit.
 
+
+### Nov 19, 2026: the new manager burned the Claude 5-hour limit in a few hours
+
+- Words: Aedwon, "burning usage too fast, what did you do".
+- Wrong: on the second Claude account (Pro plan, much smaller limits than the first account), the manager ran an Opus integrator for the prod ship, then two Opus lead sessions at once (under-13 build and CET finish). The CET lead started 11 Sonnet workers in parallel. The 5-hour limit reached 93%.
+- Why: the manager applied the Nov 15 relaxation ("you can accelerate things") made for the first account and did not read this account's limits before starting lanes.
+- Fix: at takeover and before starting any lane, read the plan limits (`get_usage`). On this Pro account: one Claude lane at a time, at most 2 workers per lead, Sonnet or Haiku workers by default, and pause lanes when the 5-hour limit passes 70%. Bulk reading and generation go to Codex (`codex-pick`) or Gemini where the rules allow, not Claude workers.
