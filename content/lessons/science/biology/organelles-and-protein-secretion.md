@@ -38,8 +38,6 @@ The **Golgi apparatus** modifies, sorts, and packages proteins and lipids. It se
 
 **Lysosomes** are small sacs of enzymes that digest worn-out parts and food inside the cell.
 
-<!-- FIGURE: {"kind":"biology-diagram","type":"cell-protein-flow","illustrationKey":"science/biology/cell-biology#1","labels":["nucleus","mitochondria","ribosomes","rough ER","smooth ER","Golgi apparatus"],"proteinFlow":["ribosomes","rough ER","Golgi apparatus"]} -->
-
 ## Examples
 
 ### #1: Matching Organelles to Their Jobs
@@ -62,3 +60,5 @@ A cell makes a protein that it will send out of the cell. Name the organelles th
 1. A ribosome on the rough ER builds the protein, and the rough ER helps process it.
 2. The Golgi apparatus modifies and packages it into a vesicle.
 3. The vesicle joins the plasma membrane and releases the protein. This is exocytosis.
+
+<!-- FIGURE: {"kind":"biology-diagram","type":"cell-protein-flow","illustrationKey":"science/biology/cell-biology#1","labels":["nucleus","mitochondria","ribosomes","rough ER","smooth ER","Golgi apparatus"],"proteinFlow":["ribosomes","rough ER","Golgi apparatus"]} -->
