@@ -26,6 +26,8 @@ On a graph, use the **vertical line test**: a graph represents a function of $x$
 
 The **domain** is the set of allowed inputs. The **range** is the set of outputs produced by those inputs.
 
+In $\{(1,2),(2,3),(3,3)\}$, the second numbers are $2$, $3$, and $3$. List each output once. The range is $\{2,3\}$.
+
 To find a real-valued domain, exclude inputs that make the expression undefined. Common examples include:
 
 - a denominator equal to $0$;

@@ -17,6 +17,8 @@ replacedBy:
 
 For a positive whole-number exponent, $a^n$ means repeated multiplication of the base $a$. For example, $2^3=2\times2\times2=8$.
 
+If a batch starts with $5$ items and doubles each round, multiply by $2$ each time. After $3$ rounds there are $5(2^3)=40$ items.
+
 A **logarithm** asks which exponent gives a number. For $b>0$, $b\ne1$, and $x>0$:
 
 $$\log_b(x)=y\quad\Longleftrightarrow\quad b^y=x$$
@@ -66,6 +68,8 @@ For integer $m$, positive whole-number $n$, and $a>0$, a fractional exponent mea
 $$a^{m/n}=\sqrt[n]{a^m}=(\sqrt[n]{a})^m$$
 
 The $n$th root of a positive number is the positive number whose $n$th power gives it. For example, $\sqrt[3]{8}=2$ because $2^3=8$.
+
+To place a cube root between two whole numbers, find the cubes on either side. Since $2^3=8$ and $3^3=27$, the cube root of $20$ lies between $2$ and $3$.
 
 For $b>0$ and $b\ne1$, different exponents give different powers. Thus, if $b^u=b^v$, then $u=v$.
 

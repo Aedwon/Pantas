@@ -24,7 +24,7 @@ An **algebraic expression** is a math phrase made of numbers, variables, and ope
 
 A **sum** means addition. A **difference** means subtraction. A **product** means multiplication, and a **quotient** means division.
 
-The phrase "less than" reverses the written order. For example, "$5$ less than $x$" means $x-5$.
+In a subtraction phrase like "$a$ less than $b$," subtract $a$ from $b$. For example, "$5$ less than $x$" means $x-5$.
 
 The word **of** often means multiplication when it gives a part of a quantity. For example, "$\dfrac{3}{5}$ of $n$" means $\dfrac{3}{5}n$.
 

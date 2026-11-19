@@ -33,7 +33,7 @@ add
 
 $$\left(\dfrac{p}{2}\right)^2$$
 
-to create a perfect-square trinomial. In an equation, preserve equality by making the corresponding change to both sides.
+to make the square $\left(x+\dfrac{p}{2}\right)^2$. If you add this amount to one side of an equation, add it to the other side too.
 
 ### Quadratic Formula and Discriminant
 
@@ -49,7 +49,7 @@ For real coefficients:
 
 - If $D>0$, there are two distinct real roots.
 - If $D=0$, there is one repeated real root.
-- If $D<0$, there are two non-real complex-conjugate roots.
+- If $D<0$, there are no real roots.
 
 ## Mnemonics & Memory Aids
 
@@ -62,10 +62,6 @@ For the discriminant, remember:
 ## Examples
 
 ### #1: Basic Factoring
-
-Measurement shows how to find rectangle area by multiplying length by width.
-
-For a rectangle, both dimensions must be positive, so reject any root that makes either dimension zero or negative.
 
 Find the roots of $x^2-8x+15=0$.
 
@@ -114,6 +110,8 @@ $$k^2-4(1)(9)=0$$
 $$k^2=36$$
 
 $$k=6\quad\text{or}\quad k=-6$$
+
+To find the repeated root for $k=6$, start with $x^2+6x=-9$. Add $9$ to both sides to get $(x+3)^2=0$. So $x+3=0$ and $x=-3$. For $k=-6$, the same steps give $(x-3)^2=0$ and $x=3$.
 
 ### #4: Sum and Product of Roots
 

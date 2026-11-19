@@ -17,15 +17,13 @@ replacedBy:
 
 A **system of equations** is a group of two or more equations that share the same variables. To "solve the system" means to find the values that make all the equations true at the same time.
 
-Think of it like finding a meeting place. Each equation is a road. The solution is the exact spot where the roads cross.
-
-There are three main ways to solve a system.
+Think of it like finding a meeting place. Each equation is a road. When the equations are drawn, every point on all their graphs is a solution.
 
 **Substitution** means solving one equation for one variable, then swapping it into the other equation. Use this when one equation already has a lonely variable, like $y = x + 1$.
 
 **Elimination** means adding or subtracting the equations to make one variable disappear. Use this when the equations line up nicely, like $2x + 3y = 12$ and $4x - 3y = 6$.
 
-**Graphing** means drawing both equations as lines. The solution is the point where the lines cross.
+**Graphing** means drawing both equations as lines. Every point on both lines is a solution.
 
 <!-- FIGURE: {"kind": "coordinate-graph", "type": "system", "points": [[3, 4]], "formula": "Crossing at (3, 4)", "semanticsLabel": "A coordinate graph with two lines intersecting at the point (3, 4)."} -->
 
@@ -37,7 +35,7 @@ A system of two lines can have three outcomes:
 
 A **non-linear system** has at least one equation that is not a straight line, like a parabola from $y = x^2 - 4$. A line can cross a parabola at two points, so these systems can have two solutions.
 
-CETs love systems because they can hide them inside word problems. If a problem gives you two facts about two unknown things, it is a system in disguise.
+CETs love systems because they can hide them inside word problems. If two facts about the same unknowns each give an equation, those equations form a system.
 
 ## Examples
 
@@ -212,7 +210,7 @@ $$x + y = 4$$
 
 Done in two steps. Always read what the question actually asks before you start solving.
 
-Another quick check: to know how many solutions a linear system has, compare the equations. If one equation is just the other multiplied by a number, there are infinite solutions. If only the left sides match that way but the right sides do not, the lines are parallel and there is no solution.
+Compare the equations. If multiplying both sides of one equation by the same nonzero number gives the other equation, there are infinitely many solutions. If the left sides match after multiplying but the right sides differ, the lines are parallel and there is no solution.
 
 ## Traps to Watch For
 

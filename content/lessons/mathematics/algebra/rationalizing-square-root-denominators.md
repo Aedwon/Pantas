@@ -26,7 +26,7 @@ For a binomial denominator such as $a-\sqrt b$, use the conjugate $a+\sqrt b$ wh
 
 ### #1: Rationalizing a Simple Denominator
 
-For $x>0$, rationalize $\dfrac{10}{\sqrt{5x}}$.
+For positive rational $x$, rationalize $\dfrac{10}{\sqrt{5x}}$.
 
 **Solution:**
 

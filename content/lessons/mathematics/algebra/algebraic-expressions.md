@@ -28,7 +28,7 @@ An **algebraic expression** is a math phrase made of numbers, variables, and ope
 
 A **sum** means addition. A **difference** means subtraction. A **product** means multiplication, and a **quotient** means division.
 
-The phrase "less than" reverses the written order. For example, "$5$ less than $x$" means $x-5$.
+In a subtraction phrase like "$a$ less than $b$," subtract $a$ from $b$. For example, "$5$ less than $x$" means $x-5$.
 
 The word **of** often means multiplication when it gives a part of a quantity. For example, "$\dfrac{3}{5}$ of $n$" means $\dfrac{3}{5}n$.
 
@@ -97,6 +97,8 @@ Divide the number of parts by the number of hours:
 
 $$\dfrac{p}{h}$$
 
+If the rate stays the same, multiply the rate by the time to find the total number of parts.
+
 Part 2, Motion Problems (Meeting and Moving Apart), shows how to multiply a steady rate by time to find an amount.
 
 Least Common Multiple shows how to convert minutes to hours: divide the minutes by $60$ before finding a per-hour rate.
@@ -152,7 +154,7 @@ The sum of three consecutive even integers is $S$. Express the largest integer i
 
 $$x+(x+2)+(x+4)=S$$
 
-3. Combine like terms.
+3. Add the three copies of $x$ to get $3x$. Add $2+4$ to get $6$.
 
 $$3x+6=S$$
 
@@ -198,6 +200,6 @@ Without parentheses, the exponent applies only to $3$, so $-3^2=-9$. With parent
 
 ### #3: Subtracting a Group
 
-> A minus sign before parentheses changes every sign inside the group.
+> To subtract a group, change the sign of each term in the outer group. Keep any smaller group together as a single term in this step.
 
 For example, $10-(x-4)=10-x+4=14-x$. Leaving the second sign unchanged gives the wrong expression.

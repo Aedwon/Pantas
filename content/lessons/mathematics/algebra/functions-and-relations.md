@@ -26,6 +26,8 @@ On a graph, use the **vertical line test**: a graph represents a function of $x$
 
 The **domain** is the set of allowed inputs. The **range** is the set of outputs produced by those inputs.
 
+In $\{(1,2),(2,3),(3,3)\}$, the second numbers are $2$, $3$, and $3$. List each output once. The range is $\{2,3\}$.
+
 To find a real-valued domain, exclude inputs that make the expression undefined. Common examples include:
 
 - a denominator equal to $0$;
@@ -38,6 +40,8 @@ Do not assume those are the only possible restrictions. The domain is determined
 ### Function Evaluation and Composition
 
 Evaluating $f(3)$ means using $3$ as the input and calculating the corresponding output.
+
+An input can also be an expression. If $f(x)=2x+3$, replace $x$ with the whole group $x+1$. This gives $f(x+1)=2(x+1)+3=2x+5$. To find $f(x+1)-f(x)$, subtract the whole output $(2x+3)$. The difference is $(2x+5)-(2x+3)=2$.
 
 Composition means feeding the output of one function into another. The notation $(f\circ g)(x)$ means $f(g(x))$, so $g$ is applied first. The input must also belong to the domain of the composition: it must be valid for $g$, and $g(x)$ must be valid for $f$.
 

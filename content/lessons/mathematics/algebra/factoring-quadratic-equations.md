@@ -34,10 +34,6 @@ Factoring is efficient when the quadratic has convenient factors. For a monic qu
 
 ### #1: Basic Factoring
 
-Measurement shows how to find rectangle area by multiplying length by width.
-
-For a rectangle, both dimensions must be positive, so reject any root that makes either dimension zero or negative.
-
 Find the roots of $x^2-8x+15=0$.
 
 **Solution:**

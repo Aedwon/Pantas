@@ -16,13 +16,11 @@ keyPoints:
 
 A **system of equations** is a group of two or more equations that share the same variables. To "solve the system" means to find the values that make all the equations true at the same time.
 
-Think of it like finding a meeting place. Each equation is a road. The solution is the exact spot where the roads cross.
-
-There are three main ways to solve a system.
+Think of it like finding a meeting place. Each equation is a road. When the equations are drawn, every point on all their graphs is a solution.
 
 **Substitution** means solving one equation for one variable, then swapping it into the other equation. Use this when one equation already has a lonely variable, like $y = x + 1$.
 
-CETs love systems because they can hide them inside word problems. If a problem gives you two facts about two unknown things, it is a system in disguise.
+CETs love systems because they can hide them inside word problems. If two facts about the same unknowns each give an equation, those equations form a system.
 
 ## Examples
 

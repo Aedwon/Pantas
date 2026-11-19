@@ -92,6 +92,6 @@ Without parentheses, the exponent applies only to $3$, so $-3^2=-9$. With parent
 
 ### #2: Subtracting a Group
 
-> A minus sign before parentheses changes every sign inside the group.
+> To subtract a group, change the sign of each term in the outer group. Keep any smaller group together as a single term in this step.
 
 For example, $10-(x-4)=10-x+4=14-x$. Leaving the second sign unchanged gives the wrong expression.

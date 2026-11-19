@@ -74,7 +74,7 @@ $$3(2\sqrt5)-3\sqrt5+2\sqrt5=5\sqrt5$$
 
 ### #3: Rationalizing a Simple Denominator
 
-For $x>0$, rationalize $\dfrac{10}{\sqrt{5x}}$.
+For positive rational $x$, rationalize $\dfrac{10}{\sqrt{5x}}$.
 
 **Solution:**
 
@@ -102,7 +102,7 @@ $$\dfrac{4(3+\sqrt5)}4=3+\sqrt5$$
 
 ### #5: Rationalizing a Cube-Root Denominator
 
-For $x\ne0$, rationalize $\dfrac2{\sqrt[3]{4x}}$.
+For nonzero rational $x$, rationalize $\dfrac2{\sqrt[3]{4x}}$.
 
 **Solution:**
 
@@ -136,7 +136,7 @@ you may set $L=\sqrt{20+L}$ **only after the problem establishes or assumes that
 
 $$L^2-L-20=0.$$
 
-Factor it as $(L-5)(L+4)=0$. A product equals $0$ only when at least one factor equals $0$, so set each factor equal to $0$ to get $L=5$ or $L=-4$. Since the principal square root is nonnegative, $L=5$.
+The numbers $-5$ and $4$ multiply to $-20$ and add to $-1$. So the equation factors as $(L-5)(L+4)=0$. A product equals $0$ only when at least one factor equals $0$, so set each factor equal to $0$ to get $L=5$ or $L=-4$. Since the principal square root is nonnegative, $L=5$.
 
 Do not rely on a factor-pair mnemonic without checking the equation and the allowed sign of the limit.
 
@@ -164,4 +164,4 @@ The symbol $\sqrt{25}$ means the principal square root, $5$. But solving $x^2=25
 
 ### #4: Cube-Root Rationalization
 
-To rationalize $\dfrac1{\sqrt[3]x}$ for $x\ne0$, multiply by $\sqrt[3]{x^2}$ so the denominator becomes $x$.
+To rationalize $\dfrac1{\sqrt[3]x}$ for nonzero rational $x$, multiply by $\sqrt[3]{x^2}$ so the denominator becomes $x$.

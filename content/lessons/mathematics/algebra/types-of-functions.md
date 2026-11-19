@@ -90,6 +90,8 @@ Its vertex is $(h,k)$. Replacing $x$ with $x-h$ moves the vertex to input $h$. A
 
 The size $|a|$ changes how far outputs lie from the vertex height. If $|a|>1$, the V stretches vertically and becomes narrower. If $0<|a|<1$, it compresses vertically and becomes wider.
 
+If all real inputs are allowed, an upward V has range $y\ge k$ and a downward V has range $y\le k$. The vertex height $k$ is included because $|x-h|=0$ at $x=h$.
+
 A negative $a$ also reflects the V across the $x$-axis before the vertical shift. The V then opens downward.
 
 ### Exponential, Logarithmic, and Piecewise Functions
@@ -245,7 +247,7 @@ Describe the graph of $f(x)=-2|x-3|+1$ from the basic graph $y=|x|$.
 
 1. The expression $x-3$ shifts the graph right by $3$. The added $1$ shifts it up by $1$.
 2. The factor has size $2$, so the graph stretches vertically by $2$ and becomes narrower.
-3. The negative factor reflects the V across the $x$-axis before the upward shift. The graph opens downward with vertex $(3,1)$.
+3. The negative factor reflects the V across the $x$-axis before the upward shift. The graph opens downward with vertex $(3,1)$. Its range is $y\le1$ for all real inputs.
 
 <!-- ILLUSTRATION: coordinate graph of y=-2|x-3|+1 with vertex (3,1), points (2,-1) and (4,-1), opening downward, alongside dashed y=|x| for comparison -->
 
@@ -326,11 +328,12 @@ A graph is a downward-opening V with vertex $(2,3)$ and passes through $(0,-1)$.
 
 1. The downward-opening V needs a negative factor. This removes $y=2|x-2|+3$.
 2. The vertex has input $2$, so the inside must be $x-2$. This leaves $y=-2|x-2|+3$.
-3. Check the given point.
+3. To find the factor without choices, start with $y=a|x-2|+3$. Put in the given point $(0,-1)$ to get $-1=2a+3$. Subtract $3$ and divide by $2$ to get $a=-2$.
+4. The $y$-intercept is where $x=0$. Here the given point already tells us the intercept. Using the formula gives the same value.
 
 $$-2|0-2|+3=-4+3=-1$$
 
-4. The matching formula is $y=-2|x-2|+3$.
+5. The matching formula is $y=-2|x-2|+3$.
 
 ## Speed Tricks & Shortcuts
 
