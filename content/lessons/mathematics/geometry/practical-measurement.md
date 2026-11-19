@@ -6,6 +6,13 @@ subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-geometry-cube-edges-from-volume
+  - lesson-geometry-areas-on-a-grid
+  - lesson-geometry-whole-pieces-and-floor-tiles
+  - lesson-geometry-distance-traveled-around-a-circle
+  - lesson-geometry-area-inside-margins
 ---
 ## Core Concept
 

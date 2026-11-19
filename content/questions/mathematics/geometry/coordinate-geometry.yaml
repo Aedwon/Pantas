@@ -5,6 +5,8 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-geometry-coordinate-geometry-0001
+    lesson: lesson-geometry-distance-on-the-coordinate-plane
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -28,6 +30,8 @@ questions:
       The horizontal change is $4-(-2)=6$, and the vertical change is $11-3=8$. The distance is $\sqrt{6^2+8^2}=\sqrt{100}=10$ units.
 
   - id: q-geometry-coordinate-geometry-0002
+    lesson: lesson-geometry-coordinate-midpoints-and-endpoints
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -51,6 +55,8 @@ questions:
       Average each coordinate pair. The x-coordinate is $\dfrac{-6+2}{2}=-2$, and the y-coordinate is $\dfrac{8-4}{2}=2$. The midpoint is $(-2,2)$.
 
   - id: q-geometry-coordinate-geometry-0003
+    lesson: lesson-geometry-coordinate-slope-and-line-forms
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -74,6 +80,8 @@ questions:
       The rise is $11-3=8$, and the run is $5-1=4$. Slope is rise over run: $m=\dfrac{8}{4}=2$.
 
   - id: q-geometry-coordinate-geometry-0004
+    lesson: lesson-geometry-slopes-of-parallel-and-perpendicular-lines
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -97,6 +105,8 @@ questions:
       The coefficient of x in $y=3x-7$ is the slope $3$. Parallel nonvertical lines have equal slopes. Therefore the second slope is $3$.
 
   - id: q-geometry-coordinate-geometry-0005
+    lesson: lesson-geometry-slopes-of-parallel-and-perpendicular-lines
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -120,6 +130,8 @@ questions:
       The given slope is finite and nonzero. A perpendicular slope is its negative reciprocal. Flip $-\dfrac{4}{5}$ to $-\dfrac{5}{4}$ and change its sign, giving $\dfrac{5}{4}$.
 
   - id: q-geometry-coordinate-geometry-0006
+    lesson: lesson-geometry-coordinate-slope-and-line-forms
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -143,6 +155,8 @@ questions:
       Use $y=mx+b$ with $m=-4$. Substitute the point: $-2=-4(3)+b$. Thus $-2=-12+b$ and $b=10$. The equation is $y=-4x+10$.
 
   - id: q-geometry-coordinate-geometry-0007
+    lesson: lesson-geometry-slopes-of-parallel-and-perpendicular-lines
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -166,6 +180,8 @@ questions:
       The segment slope is $\dfrac{7-1}{5-(-3)}=\dfrac{6}{8}=\dfrac{3}{4}$. Its perpendicular bisector has the negative reciprocal slope, $-\dfrac{4}{3}$.
 
   - id: q-geometry-coordinate-geometry-0008
+    lesson: lesson-geometry-distance-on-the-coordinate-plane
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -189,6 +205,8 @@ questions:
       AB is horizontal with length $8-2=6$. The perpendicular height from C to that base is $7-3=4$. The triangle area is $\dfrac{1}{2}(6)(4)=12$ square units.
 
   - id: q-geometry-coordinate-geometry-0009
+    lesson: lesson-geometry-coordinate-slope-and-line-forms
+    keyPoint: 2
     type: direct-computation
     difficulty: medium
     stem: |
@@ -212,6 +230,8 @@ questions:
       Multiply the point-slope equation by $3$: $3y-12=-2x-12$. Add $2x$ and $12$ to both sides. This gives standard form $2x+3y=0$.
 
   - id: q-geometry-coordinate-geometry-0010
+    lesson: lesson-geometry-coordinate-slope-and-line-forms
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -235,6 +255,8 @@ questions:
       From B to C, the slope is $\dfrac{11-5}{5-2}=2$. From B to A, x decreases by $3$, so y decreases by $2(3)=6$. Thus $k=5-6=-1$.
 
   - id: q-geometry-coordinate-geometry-0011
+    lesson: lesson-geometry-slopes-of-parallel-and-perpendicular-lines
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -258,6 +280,8 @@ questions:
       The given line has slope $\dfrac{3}{4}$. The perpendicular slope is $-\dfrac{4}{3}$. Through $(6,-1)$, write $y+1=-\dfrac{4}{3}(x-6)$. Multiply by $3$: $3y+3=-4x+24$. Rearrange to $4x+3y=21$.
 
   - id: q-geometry-coordinate-geometry-0012
+    lesson: lesson-geometry-distance-on-the-coordinate-plane
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -281,6 +305,8 @@ questions:
       The base OA lies on the x-axis and has length $6$. The opposite side lies at $y=5$, so the perpendicular height is $5$. The parallelogram area is $6(5)=30$ square units.
 
   - id: q-geometry-coordinate-geometry-0013
+    lesson: lesson-geometry-expanded-circle-equations
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -304,6 +330,8 @@ questions:
       Rearrange the circle equation: $x^2-6x+y^2+8y=11$. Add $9+16$ to complete both squares. This gives $(x-3)^2+(y+4)^2=36$. In the circle form $(x-h)^2+(y-k)^2=r^2$, the center is $(3,-4)$ and the radius is $\sqrt{36}=6$.
 
   - id: q-geometry-coordinate-geometry-0014
+    lesson: lesson-geometry-coordinate-slope-and-line-forms
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -327,6 +355,8 @@ questions:
       Multiply the first equation by $2$ to get $4x+6y=26$. Multiply the second by $3$ to get $15x-6y=12$. Add: $19x=38$, so $x=2$. Substitute into the first: $4+3y=13$, giving $y=3$. The intersection is $(2,3)$.
 
   - id: q-geometry-coordinate-geometry-0015
+    lesson: lesson-geometry-distance-on-the-coordinate-plane
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -350,6 +380,8 @@ questions:
       The shortest distance follows a perpendicular from the origin. Rewrite the line as $y=-\dfrac{3}{4}x+5$, so the perpendicular through the origin is $y=\dfrac{4}{3}x$. Substitute this into $3x+4y=20$: $3x+\dfrac{16}{3}x=20$, so $x=\dfrac{12}{5}$ and $y=\dfrac{16}{5}$. Use the distance formula from the origin to this point: $\sqrt{\left(\dfrac{12}{5}\right)^2+\left(\dfrac{16}{5}\right)^2}=\sqrt{16}=4$ units.
 
   - id: q-geometry-coordinate-geometry-0016
+    lesson: lesson-geometry-coordinate-slope-and-line-forms
+    keyPoint: 2
     type: which-is-true
     difficulty: easy
     stem: |
@@ -371,6 +403,8 @@ questions:
     approved: false
 
   - id: q-geometry-coordinate-geometry-0017
+    lesson: lesson-geometry-coordinate-slope-and-line-forms
+    keyPoint: 1
     type: error-spotting
     difficulty: medium
     stem: |
@@ -392,6 +426,8 @@ questions:
     approved: false
 
   - id: q-geometry-coordinate-geometry-0018
+    lesson: lesson-geometry-coordinate-midpoints-and-endpoints
+    keyPoint: 2
     type: word-problem
     difficulty: hard
     stem: |
@@ -413,6 +449,8 @@ questions:
     approved: false
 
   - id: q-geometry-coordinate-geometry-0019
+    lesson: lesson-geometry-slopes-of-parallel-and-perpendicular-lines
+    keyPoint: 2
     type: which-is-true
     difficulty: hard
     stem: |
@@ -434,6 +472,8 @@ questions:
     approved: false
 
   - id: q-geometry-coordinate-geometry-0020
+    lesson: lesson-geometry-slopes-of-parallel-and-perpendicular-lines
+    keyPoint: 1
     type: word-problem
     difficulty: exam
     stem: |

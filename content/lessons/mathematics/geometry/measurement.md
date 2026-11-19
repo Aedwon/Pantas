@@ -6,6 +6,15 @@ subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-geometry-perimeter-and-area-formulas
+  - lesson-geometry-perpendicular-height-in-area-formulas
+  - lesson-geometry-combined-areas-and-units
+  - lesson-geometry-rectangular-prism-measurements
+  - lesson-geometry-cylinder-and-sphere-measurements
+  - lesson-geometry-cone-and-pyramid-measurements
+  - lesson-geometry-scaling-length-area-and-volume
 ---
 ## Core Concept
 

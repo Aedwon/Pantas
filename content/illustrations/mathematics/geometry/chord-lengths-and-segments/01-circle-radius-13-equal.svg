@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 340" width="360" height="340">
+<title>Circle of radius 13 with center O, equal chords AB and EF each 24, and the perpendicular h from O to AB</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="340" rx="14" fill="url(#bg)"/>
+<circle cx="180" cy="170" r="125" fill="#010101" fill-opacity="0.07" stroke="#020202" stroke-width="2"/>
+<line x1="64.6" y1="218.1" x2="295.4" y2="218.1" stroke="#010101" stroke-width="2.5"/>
+<line x1="64.6" y1="121.9" x2="295.4" y2="121.9" stroke="#010101" stroke-width="2.5"/>
+<line x1="180" y1="170" x2="305" y2="170" stroke="#020202" stroke-width="2"/>
+<line x1="180" y1="170" x2="180" y2="218.1" stroke="#050505" stroke-width="3.5"/>
+<polyline points="180,209.1 189,209.1 189,218.1" fill="none" stroke="#020202" stroke-width="1.5"/>
+<circle cx="64.6" cy="218.1" r="4" fill="#010101"/>
+<circle cx="295.4" cy="218.1" r="4" fill="#010101"/>
+<circle cx="64.6" cy="121.9" r="4" fill="#010101"/>
+<circle cx="295.4" cy="121.9" r="4" fill="#010101"/>
+<circle cx="180" cy="170" r="4.5" fill="#010101"/>
+<text x="48.9" y="230.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">A</text>
+<text x="311.1" y="230.2" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">B</text>
+<text x="48.9" y="120.9" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">E</text>
+<text x="311.1" y="120.9" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">F</text>
+<text x="168" y="164" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">O</text>
+<text x="246.5" y="159" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">13</tspan></text>
+<text x="180" y="242.1" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">24</tspan></text>
+<text x="180" y="112.9" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">24</tspan></text>
+<text x="194" y="196.1" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Math, serif" font-weight="400">h</tspan></text>
+</svg>

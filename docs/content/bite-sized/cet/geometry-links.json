@@ -1,0 +1,670 @@
+{
+  "outline": [
+    {
+      "original": "lesson-geometry-basic-geometric-concepts",
+      "parts": [
+        {
+          "slug": "points-lines-and-midpoints",
+          "title": "Points, Lines, and Midpoints"
+        },
+        {
+          "slug": "angle-names-and-measures",
+          "title": "Angle Names and Measures"
+        },
+        {
+          "slug": "complementary-and-supplementary-angles",
+          "title": "Complementary and Supplementary Angles"
+        },
+        {
+          "slug": "linear-pairs-and-vertical-angles",
+          "title": "Linear Pairs and Vertical Angles"
+        },
+        {
+          "slug": "bisecting-angles",
+          "title": "Bisecting Angles"
+        }
+      ]
+    },
+    {
+      "original": "lesson-geometry-circles",
+      "parts": [
+        {
+          "slug": "circle-parts-and-measures",
+          "title": "Circle Parts and Measures"
+        },
+        {
+          "slug": "central-and-inscribed-angles",
+          "title": "Central and Inscribed Angles"
+        },
+        {
+          "slug": "chord-lengths-and-segments",
+          "title": "Chord Lengths and Segments"
+        },
+        {
+          "slug": "circle-tangent-lengths",
+          "title": "Circle Tangent Lengths"
+        },
+        {
+          "slug": "outside-secants-and-tangents",
+          "title": "Outside Secants and Tangents"
+        }
+      ]
+    },
+    {
+      "original": "lesson-geometry-coordinate-geometry",
+      "parts": [
+        {
+          "slug": "distance-on-the-coordinate-plane",
+          "title": "Distance on the Coordinate Plane"
+        },
+        {
+          "slug": "coordinate-midpoints-and-endpoints",
+          "title": "Coordinate Midpoints and Endpoints"
+        },
+        {
+          "slug": "coordinate-slope-and-line-forms",
+          "title": "Coordinate Slope and Line Forms"
+        },
+        {
+          "slug": "slopes-of-parallel-and-perpendicular-lines",
+          "title": "Slopes of Parallel and Perpendicular Lines"
+        },
+        {
+          "slug": "standard-circle-equations",
+          "title": "Standard Circle Equations"
+        },
+        {
+          "slug": "expanded-circle-equations",
+          "title": "Expanded Circle Equations"
+        }
+      ]
+    },
+    {
+      "original": "lesson-geometry-logic-and-reasoning",
+      "parts": [
+        {
+          "slug": "reading-if-then-statements",
+          "title": "Reading If-Then Statements"
+        },
+        {
+          "slug": "converse-inverse-and-contrapositive",
+          "title": "Converse, Inverse, and Contrapositive"
+        },
+        {
+          "slug": "counterexamples-to-conditional-statements",
+          "title": "Counterexamples to Conditional Statements"
+        },
+        {
+          "slug": "biconditionals",
+          "title": "Biconditionals"
+        },
+        {
+          "slug": "deduction-and-conditional-chains",
+          "title": "Deduction and Conditional Chains"
+        }
+      ]
+    },
+    {
+      "original": "lesson-geometry-measurement",
+      "parts": [
+        {
+          "slug": "perimeter-and-area-formulas",
+          "title": "Perimeter and Area Formulas"
+        },
+        {
+          "slug": "perpendicular-height-in-area-formulas",
+          "title": "Perpendicular Height in Area Formulas"
+        },
+        {
+          "slug": "combined-areas-and-units",
+          "title": "Combined Areas and Units"
+        },
+        {
+          "slug": "rectangular-prism-measurements",
+          "title": "Rectangular Prism Measurements"
+        },
+        {
+          "slug": "cylinder-and-sphere-measurements",
+          "title": "Cylinder and Sphere Measurements"
+        },
+        {
+          "slug": "cone-and-pyramid-measurements",
+          "title": "Cone and Pyramid Measurements"
+        },
+        {
+          "slug": "scaling-length-area-and-volume",
+          "title": "Scaling Length, Area, and Volume"
+        }
+      ]
+    },
+    {
+      "original": "lesson-geometry-parallel-perpendicular-lines",
+      "parts": [
+        {
+          "slug": "transversals-and-angle-positions",
+          "title": "Transversals and Angle Positions"
+        },
+        {
+          "slug": "same-side-angles-and-supplements",
+          "title": "Same-Side Angles and Supplements"
+        },
+        {
+          "slug": "perpendicular-transversals",
+          "title": "Perpendicular Transversals"
+        },
+        {
+          "slug": "proving-lines-are-parallel",
+          "title": "Proving Lines Are Parallel"
+        },
+        {
+          "slug": "zigzag-angles-between-parallels",
+          "title": "Zigzag Angles Between Parallels"
+        }
+      ]
+    },
+    {
+      "original": "lesson-geometry-practical-measurement",
+      "parts": [
+        {
+          "slug": "cube-edges-from-volume",
+          "title": "Cube Edges from Volume"
+        },
+        {
+          "slug": "areas-on-a-grid",
+          "title": "Areas on a Grid"
+        },
+        {
+          "slug": "whole-pieces-and-floor-tiles",
+          "title": "Whole Pieces and Floor Tiles"
+        },
+        {
+          "slug": "distance-traveled-around-a-circle",
+          "title": "Distance Traveled Around a Circle"
+        },
+        {
+          "slug": "area-inside-margins",
+          "title": "Area Inside Margins"
+        }
+      ]
+    },
+    {
+      "original": "lesson-geometry-quadrilaterals-and-polygons",
+      "parts": [
+        {
+          "slug": "simple-polygons-and-interior-angle-sums",
+          "title": "Simple Polygons and Interior Angle Sums"
+        },
+        {
+          "slug": "regular-polygon-angles-and-side-counts",
+          "title": "Regular Polygon Angles and Side Counts"
+        },
+        {
+          "slug": "quadrilateral-angle-sums",
+          "title": "Quadrilateral Angle Sums"
+        },
+        {
+          "slug": "angles-in-parallelograms-and-trapezoids",
+          "title": "Angles in Parallelograms and Trapezoids"
+        },
+        {
+          "slug": "rectangle-rhombus-and-square-diagonals",
+          "title": "Rectangle, Rhombus, and Square Diagonals"
+        },
+        {
+          "slug": "classifying-quadrilaterals-by-diagonals",
+          "title": "Classifying Quadrilaterals by Diagonals"
+        }
+      ]
+    },
+    {
+      "original": "lesson-geometry-triangles",
+      "parts": [
+        {
+          "slug": "triangle-angle-sums-and-types",
+          "title": "Triangle Angle Sums and Types"
+        },
+        {
+          "slug": "triangle-side-limits",
+          "title": "Triangle Side Limits"
+        },
+        {
+          "slug": "triangle-exterior-angles",
+          "title": "Triangle Exterior Angles"
+        },
+        {
+          "slug": "triangle-congruence-tests",
+          "title": "Triangle Congruence Tests"
+        },
+        {
+          "slug": "proving-triangle-congruence-from-a-figure",
+          "title": "Proving Triangle Congruence from a Figure"
+        },
+        {
+          "slug": "similar-triangles-and-scale-factors",
+          "title": "Similar Triangles and Scale Factors"
+        },
+        {
+          "slug": "pythagorean-theorem-and-triples",
+          "title": "Pythagorean Theorem and Triples"
+        },
+        {
+          "slug": "proof-of-the-pythagorean-theorem",
+          "title": "Proof of the Pythagorean Theorem"
+        },
+        {
+          "slug": "special-right-triangle-ratios",
+          "title": "Special Right Triangle Ratios"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-geometry-points-lines-and-midpoints": [],
+    "lesson-geometry-angle-names-and-measures": [
+      {
+        "lesson": "lesson-geometry-points-lines-and-midpoints",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-complementary-and-supplementary-angles": [
+      {
+        "lesson": "lesson-geometry-angle-names-and-measures",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-linear-pairs-and-vertical-angles": [
+      {
+        "lesson": "lesson-geometry-complementary-and-supplementary-angles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-bisecting-angles": [
+      {
+        "lesson": "lesson-geometry-linear-pairs-and-vertical-angles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-circle-parts-and-measures": [],
+    "lesson-geometry-central-and-inscribed-angles": [
+      {
+        "lesson": "lesson-geometry-circle-parts-and-measures",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-chord-lengths-and-segments": [
+      {
+        "lesson": "lesson-geometry-central-and-inscribed-angles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-circle-tangent-lengths": [
+      {
+        "lesson": "lesson-geometry-chord-lengths-and-segments",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-geometry-triangle-angle-sums-and-types",
+        "strength": "helpful",
+        "reason": "The tangent, chord and semicircle examples use the Pythagorean theorem and the 30-60-90 triangle, and this lesson restates the theorem but not the special triangle."
+      }
+    ],
+    "lesson-geometry-outside-secants-and-tangents": [
+      {
+        "lesson": "lesson-geometry-circle-tangent-lengths",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-distance-on-the-coordinate-plane": [
+      {
+        "lesson": "lesson-geometry-triangle-angle-sums-and-types",
+        "strength": "helpful",
+        "reason": "The distance formula comes from the Pythagorean theorem. This lesson restates the theorem and shows the right triangle."
+      }
+    ],
+    "lesson-geometry-coordinate-midpoints-and-endpoints": [
+      {
+        "lesson": "lesson-geometry-distance-on-the-coordinate-plane",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-coordinate-slope-and-line-forms": [
+      {
+        "lesson": "lesson-geometry-coordinate-midpoints-and-endpoints",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-algebra-line-slopes-and-intercepts",
+        "strength": "helpful",
+        "reason": "Slope, line forms and perpendicular slopes are also taught in the Line Slopes and Intercepts lesson. This lesson teaches them again from the start."
+      }
+    ],
+    "lesson-geometry-slopes-of-parallel-and-perpendicular-lines": [
+      {
+        "lesson": "lesson-geometry-coordinate-slope-and-line-forms",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-standard-circle-equations": [
+      {
+        "lesson": "lesson-geometry-slopes-of-parallel-and-perpendicular-lines",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-expanded-circle-equations": [
+      {
+        "lesson": "lesson-geometry-standard-circle-equations",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-reading-if-then-statements": [],
+    "lesson-geometry-converse-inverse-and-contrapositive": [
+      {
+        "lesson": "lesson-geometry-reading-if-then-statements",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-counterexamples-to-conditional-statements": [
+      {
+        "lesson": "lesson-geometry-converse-inverse-and-contrapositive",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-biconditionals": [
+      {
+        "lesson": "lesson-geometry-counterexamples-to-conditional-statements",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-deduction-and-conditional-chains": [
+      {
+        "lesson": "lesson-geometry-biconditionals",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-perimeter-and-area-formulas": [
+      {
+        "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
+        "strength": "helpful",
+        "reason": "Distribute to every term and substitute values before combining like terms."
+      }
+    ],
+    "lesson-geometry-perpendicular-height-in-area-formulas": [
+      {
+        "lesson": "lesson-geometry-perimeter-and-area-formulas",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-combined-areas-and-units": [
+      {
+        "lesson": "lesson-geometry-perpendicular-height-in-area-formulas",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-rectangular-prism-measurements": [
+      {
+        "lesson": "lesson-geometry-combined-areas-and-units",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-cylinder-and-sphere-measurements": [
+      {
+        "lesson": "lesson-geometry-rectangular-prism-measurements",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-cone-and-pyramid-measurements": [
+      {
+        "lesson": "lesson-geometry-cylinder-and-sphere-measurements",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-scaling-length-area-and-volume": [
+      {
+        "lesson": "lesson-geometry-cone-and-pyramid-measurements",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-transversals-and-angle-positions": [
+      {
+        "lesson": "lesson-geometry-points-lines-and-midpoints",
+        "strength": "helpful",
+        "reason": "Angle types, complementary and supplementary sums, and bisectors are used in the examples. This lesson defines linear pairs and vertical angles itself."
+      }
+    ],
+    "lesson-geometry-same-side-angles-and-supplements": [
+      {
+        "lesson": "lesson-geometry-transversals-and-angle-positions",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-perpendicular-transversals": [
+      {
+        "lesson": "lesson-geometry-same-side-angles-and-supplements",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-proving-lines-are-parallel": [
+      {
+        "lesson": "lesson-geometry-perpendicular-transversals",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-zigzag-angles-between-parallels": [
+      {
+        "lesson": "lesson-geometry-proving-lines-are-parallel",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-cube-edges-from-volume": [],
+    "lesson-geometry-areas-on-a-grid": [
+      {
+        "lesson": "lesson-geometry-cube-edges-from-volume",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-whole-pieces-and-floor-tiles": [
+      {
+        "lesson": "lesson-geometry-areas-on-a-grid",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-distance-traveled-around-a-circle": [
+      {
+        "lesson": "lesson-geometry-whole-pieces-and-floor-tiles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-area-inside-margins": [
+      {
+        "lesson": "lesson-geometry-distance-traveled-around-a-circle",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-simple-polygons-and-interior-angle-sums": [],
+    "lesson-geometry-regular-polygon-angles-and-side-counts": [
+      {
+        "lesson": "lesson-geometry-simple-polygons-and-interior-angle-sums",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-quadrilateral-angle-sums": [
+      {
+        "lesson": "lesson-geometry-regular-polygon-angles-and-side-counts",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-angles-in-parallelograms-and-trapezoids": [
+      {
+        "lesson": "lesson-geometry-quadrilateral-angle-sums",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-geometry-transversals-and-angle-positions",
+        "strength": "helpful",
+        "reason": "The supplementary angles in a parallelogram or trapezoid come from parallel lines cut by a transversal. This lesson states those facts as properties."
+      }
+    ],
+    "lesson-geometry-rectangle-rhombus-and-square-diagonals": [
+      {
+        "lesson": "lesson-geometry-angles-in-parallelograms-and-trapezoids",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-geometry-triangle-angle-sums-and-types",
+        "strength": "helpful",
+        "reason": "The angle sum formula splits a polygon into triangles, and rhombus and square examples use the Pythagorean theorem. This lesson states both facts."
+      }
+    ],
+    "lesson-geometry-classifying-quadrilaterals-by-diagonals": [
+      {
+        "lesson": "lesson-geometry-rectangle-rhombus-and-square-diagonals",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-triangle-angle-sums-and-types": [
+      {
+        "lesson": "lesson-geometry-points-lines-and-midpoints",
+        "strength": "helpful",
+        "reason": "Angle names, linear pairs, midpoints and the supplementary and complementary sums make the angle examples easier. This lesson restates vertical angles and the 180-degree triangle sum."
+      }
+    ],
+    "lesson-geometry-triangle-side-limits": [
+      {
+        "lesson": "lesson-geometry-triangle-angle-sums-and-types",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-triangle-exterior-angles": [
+      {
+        "lesson": "lesson-geometry-triangle-side-limits",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-triangle-congruence-tests": [
+      {
+        "lesson": "lesson-geometry-triangle-exterior-angles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-proving-triangle-congruence-from-a-figure": [
+      {
+        "lesson": "lesson-geometry-triangle-congruence-tests",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-similar-triangles-and-scale-factors": [
+      {
+        "lesson": "lesson-geometry-proving-triangle-congruence-from-a-figure",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-pythagorean-theorem-and-triples": [
+      {
+        "lesson": "lesson-geometry-similar-triangles-and-scale-factors",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-proof-of-the-pythagorean-theorem": [
+      {
+        "lesson": "lesson-geometry-pythagorean-theorem-and-triples",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-geometry-special-right-triangle-ratios": [
+      {
+        "lesson": "lesson-geometry-proof-of-the-pythagorean-theorem",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-basic-trigonometric-ratios": [
+      {
+        "lesson": "lesson-geometry-triangle-angle-sums-and-types",
+        "strength": "helpful",
+        "reason": "The ratios rest on right triangles, the Pythagorean theorem, similar triangles and the 45-45-90 and 30-60-90 shapes. This lesson restates each one."
+      },
+      {
+        "lesson": "lesson-algebra-rationalizing-square-root-denominators",
+        "strength": "helpful",
+        "reason": "The special-angle values use square roots and removing a root from a denominator. This lesson shows the one multiplication it needs."
+      }
+    ],
+    "lesson-trigonometry-laws-of-sines-and-cosines": [
+      {
+        "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+        "strength": "required",
+        "reason": "Both laws use sine and cosine as ratios of sides and the exact values at 30, 45 and 60 degrees, and this lesson only starts from them. The Basic Trigonometric Ratios lesson defines them."
+      },
+      {
+        "lesson": "lesson-geometry-triangle-angle-sums-and-types",
+        "strength": "helpful",
+        "reason": "The triangle angle sum, the larger-angle-faces-longer-side fact and the triangle inequality are used throughout. This lesson restates each of them."
+      },
+      {
+        "lesson": "lesson-trigonometry-unit-circle",
+        "strength": "helpful",
+        "reason": "The sign of the cosine of an obtuse angle follows from the unit circle. This lesson states the 180-degree formulas without the picture."
+      }
+    ],
+    "lesson-trigonometry-unit-circle": [
+      {
+        "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
+        "strength": "helpful",
+        "reason": "The unit circle extends right-triangle sine and cosine to all angles. This lesson derives the special values itself."
+      },
+      {
+        "lesson": "lesson-geometry-distance-on-the-coordinate-plane",
+        "strength": "helpful",
+        "reason": "Polar-to-rectangular conversion uses coordinates and the distance formula. This lesson names the distance formula without deriving it."
+      },
+      {
+        "lesson": "lesson-trigonometry-angles-and-radian-measure",
+        "strength": "helpful",
+        "reason": "Radians and degree conversion get a full treatment in the Angles and Radian Measure lesson. This lesson teaches the radian shortcut it needs."
+      }
+    ]
+  }
+}

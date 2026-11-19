@@ -6,6 +6,17 @@ subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-geometry-triangle-angle-sums-and-types
+  - lesson-geometry-triangle-side-limits
+  - lesson-geometry-triangle-exterior-angles
+  - lesson-geometry-triangle-congruence-tests
+  - lesson-geometry-proving-triangle-congruence-from-a-figure
+  - lesson-geometry-similar-triangles-and-scale-factors
+  - lesson-geometry-pythagorean-theorem-and-triples
+  - lesson-geometry-proof-of-the-pythagorean-theorem
+  - lesson-geometry-special-right-triangle-ratios
 ---
 ## Core Concept
 

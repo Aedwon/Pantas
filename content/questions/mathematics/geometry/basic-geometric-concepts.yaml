@@ -5,6 +5,8 @@ meta:
   exams: [acet, pupcet]
 questions:
   - id: q-geometry-basic-geometric-concepts-0001
+    lesson: lesson-geometry-complementary-and-supplementary-angles
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -28,6 +30,8 @@ questions:
       Complementary angles sum to $90^\circ$. Subtract the known angle: $B=90^\circ-35^\circ=55^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0002
+    lesson: lesson-geometry-linear-pairs-and-vertical-angles
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -51,6 +55,8 @@ questions:
       A linear pair sums to $180^\circ$. Thus $Y=180^\circ-112^\circ=68^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0003
+    lesson: lesson-geometry-linear-pairs-and-vertical-angles
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -74,6 +80,8 @@ questions:
       Vertical angles are the opposite pair formed by two intersecting lines. Their measures are equal. Therefore $\angle BPD=\angle APC=48^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0004
+    lesson: lesson-geometry-points-lines-and-midpoints
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -97,6 +105,8 @@ questions:
       A ray starts at one endpoint and extends forever in one direction. A segment is bounded at both ends. Thus a ray has one endpoint and a segment has two.
 
   - id: q-geometry-basic-geometric-concepts-0005
+    lesson: lesson-geometry-bisecting-angles
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -120,6 +130,8 @@ questions:
       The bisector makes two equal parts of the full angle. Each part is $28^\circ$. Add them: $28^\circ+28^\circ=56^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0006
+    lesson: lesson-geometry-points-lines-and-midpoints
+    keyPoint: 2
     type: which-is-true
     difficulty: medium
     stem: |
@@ -143,6 +155,8 @@ questions:
       A midpoint gives $AM=MB$, so $3x+4=5x-8$. Rearrange: $12=2x$, giving $x=6$. Each half is $3(6)+4=22$. The whole segment is $22+22=44$.
 
   - id: q-geometry-basic-geometric-concepts-0007
+    lesson: lesson-geometry-complementary-and-supplementary-angles
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -166,6 +180,8 @@ questions:
       Let the smaller angle be $s$. The larger is $2s-15$ degrees. Their sum gives $s+(2s-15)=90$, so $3s=105$ and $s=35$. The larger angle is $2(35)-15=55^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0008
+    lesson: lesson-geometry-angle-names-and-measures
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -189,6 +205,8 @@ questions:
       Multiplying $30<x<60$ by $3$ and subtracting $10$ gives $80<3x-10<170$. This interval contains angles below $90^\circ$, equal to $90^\circ$, and between $90^\circ$ and $180^\circ$. The possible types are acute, right, and obtuse.
 
   - id: q-geometry-basic-geometric-concepts-0009
+    lesson: lesson-geometry-linear-pairs-and-vertical-angles
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -212,6 +230,8 @@ questions:
       The vertical angles are equal: $4x+18=6x-14$. Thus $2x=32$ and $x=16$. Each vertical angle is $4(16)+18=82^\circ$. Its adjacent angle forms a linear pair, so it measures $180^\circ-82^\circ=98^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0010
+    lesson: lesson-geometry-linear-pairs-and-vertical-angles
+    keyPoint: 2
     type: which-is-true
     difficulty: medium
     stem: |
@@ -235,6 +255,8 @@ questions:
       The three adjacent angles fill a straight angle. Add them: $2x+(3x+10)+(x+20)=180$. Thus $6x+30=180$ and $x=25$. The requested angle is $3(25)+10=85^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0011
+    lesson: lesson-geometry-bisecting-angles
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -258,6 +280,8 @@ questions:
       Let the two linear-pair angles be $\alpha$ and $\beta$, so $\alpha+\beta=180^\circ$. Their bisectors make an angle of $\dfrac{\alpha}{2}+\dfrac{\beta}{2}=90^\circ$. Rays meeting at $90^\circ$ are perpendicular.
 
   - id: q-geometry-basic-geometric-concepts-0012
+    lesson: lesson-geometry-complementary-and-supplementary-angles
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -281,6 +305,8 @@ questions:
       Let the angle measure be $x$ degrees. Its supplement is $180-x$ and its complement is $90-x$. The condition gives $180-x=4(90-x)$. Expand to get $180-x=360-4x$, so $3x=180$ and $x=60$. Since $60^\circ$ is between $0^\circ$ and $90^\circ$, the angle is acute.
 
   - id: q-geometry-basic-geometric-concepts-0013
+    lesson: lesson-geometry-points-lines-and-midpoints
+    keyPoint: 2
     type: which-is-true
     difficulty: hard
     stem: |
@@ -304,6 +330,8 @@ questions:
       Because B is the midpoint of AC, $AB=BC$. Because C is the midpoint of BD, $BC=CD$. Thus the whole segment has three equal pieces. Each is $36\div3=12$ cm, so $BC=12$ cm.
 
   - id: q-geometry-basic-geometric-concepts-0014
+    lesson: lesson-geometry-angle-names-and-measures
+    keyPoint: 2
     type: which-is-true
     difficulty: hard
     stem: |
@@ -327,6 +355,8 @@ questions:
       The three sectors around O fill $360^\circ$. Their measures give $(4x-5)+(2x+15)+(10x-10)=360$. Collect terms: $16x=360$, so $x=22.5$. Therefore $\angle AOB=4(22.5)-5=85^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0015
+    lesson: lesson-geometry-complementary-and-supplementary-angles
+    keyPoint: 1
     type: which-is-true
     difficulty: hard
     stem: |
@@ -350,6 +380,8 @@ questions:
       The supplementary condition is $P+Q=180^\circ$. With $P=3Q-20^\circ$, this gives $4Q-20^\circ=180^\circ$, so $Q=50^\circ$. Since R complements Q, $R=90^\circ-50^\circ=40^\circ$.
 
   - id: q-geometry-basic-geometric-concepts-0016
+    lesson: lesson-geometry-points-lines-and-midpoints
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -371,6 +403,8 @@ questions:
     approved: false
 
   - id: q-geometry-basic-geometric-concepts-0017
+    lesson: lesson-geometry-points-lines-and-midpoints
+    keyPoint: 2
     type: error-spotting
     difficulty: medium
     stem: |
@@ -392,6 +426,8 @@ questions:
     approved: false
 
   - id: q-geometry-basic-geometric-concepts-0018
+    lesson: lesson-geometry-linear-pairs-and-vertical-angles
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -413,6 +449,8 @@ questions:
     approved: false
 
   - id: q-geometry-basic-geometric-concepts-0019
+    lesson: lesson-geometry-bisecting-angles
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -434,6 +472,8 @@ questions:
     approved: false
 
   - id: q-geometry-basic-geometric-concepts-0020
+    lesson: lesson-geometry-complementary-and-supplementary-angles
+    keyPoint: 1
     type: which-is-true
     difficulty: exam
     stem: |

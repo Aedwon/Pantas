@@ -5,6 +5,8 @@ meta:
   exams: [upcat, acet, dlsucet, ustet, pupcet]
 questions:
   - id: q-geometry-circles-0001
+    lesson: lesson-geometry-central-and-inscribed-angles
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -28,6 +30,8 @@ questions:
       An inscribed angle equals half of its intercepted arc. Divide $84^\circ$ by $2$ to get $42^\circ$.
 
   - id: q-geometry-circles-0002
+    lesson: lesson-geometry-circle-parts-and-measures
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -51,6 +55,8 @@ questions:
       The radius is half the diameter: $r=14\div2=7$ cm. Circle area is $\pi r^2$, so the area is $\pi(7^2)=49\pi$ square centimeters.
 
   - id: q-geometry-circles-0003
+    lesson: lesson-geometry-central-and-inscribed-angles
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -74,6 +80,8 @@ questions:
       The angle opposite the diameter is $90^\circ$. The triangle angles sum to $180^\circ$. Thus $\angle ABC=180^\circ-90^\circ-35^\circ=55^\circ$.
 
   - id: q-geometry-circles-0004
+    lesson: lesson-geometry-circle-parts-and-measures
+    keyPoint: 2
     type: direct-computation
     difficulty: easy
     stem: |
@@ -97,6 +105,8 @@ questions:
       From area $\pi r^2=36\pi$, get $r^2=36$ and the positive radius $r=6$ cm. Circumference is $2\pi r=2\pi(6)=12\pi$ cm.
 
   - id: q-geometry-circles-0005
+    lesson: lesson-geometry-circle-tangent-lengths
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -120,6 +130,8 @@ questions:
       The tangent and touching radius are perpendicular. Their right triangle has hypotenuse $13$ and radius leg $5$. Thus $PT^2=13^2-5^2=169-25=144$. Take the positive root to get $PT=12$ cm.
 
   - id: q-geometry-circles-0006
+    lesson: lesson-geometry-circle-parts-and-measures
+    keyPoint: 3
     type: direct-computation
     difficulty: medium
     stem: |
@@ -143,6 +155,8 @@ questions:
       The arc is $\dfrac{60}{360}=\dfrac{1}{6}$ of the circumference. The circumference is $2\pi(12)=24\pi$ cm. Its sixth is $4\pi$ cm.
 
   - id: q-geometry-circles-0007
+    lesson: lesson-geometry-circle-parts-and-measures
+    keyPoint: 3
     type: direct-computation
     difficulty: medium
     stem: |
@@ -166,6 +180,8 @@ questions:
       The sector is $\dfrac{90}{360}=\dfrac{1}{4}$ of the circle. The full area is $\pi(8^2)=64\pi$ square centimeters. A quarter is $16\pi$ square centimeters.
 
   - id: q-geometry-circles-0008
+    lesson: lesson-geometry-central-and-inscribed-angles
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -189,6 +205,8 @@ questions:
       Opposite angles of an inscribed quadrilateral sum to $180^\circ$. Thus $(4x+20)+(2x+40)=180$, giving $6x=120$ and $x=20$. Substitute: $\angle C=2(20)+40=80^\circ$.
 
   - id: q-geometry-circles-0009
+    lesson: lesson-geometry-central-and-inscribed-angles
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -212,6 +230,8 @@ questions:
       For chords crossing inside a circle, the angle equals half the sum of its intercepted arcs. Add $70^\circ+50^\circ=120^\circ$. Divide by $2$ to get $60^\circ$.
 
   - id: q-geometry-circles-0010
+    lesson: lesson-geometry-central-and-inscribed-angles
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -235,6 +255,8 @@ questions:
       For two secants meeting outside a circle, the angle equals half the difference of the far and near arcs. Subtract $110^\circ-40^\circ=70^\circ$. Divide by $2$ to get $35^\circ$.
 
   - id: q-geometry-circles-0011
+    lesson: lesson-geometry-chord-lengths-and-segments
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -258,6 +280,8 @@ questions:
       The common center is $5$ cm from the tangent chord. Its perpendicular segment bisects that chord. A half-chord forms a right triangle with legs $5$ and $h$ and hypotenuse $13$. Thus $h^2=13^2-5^2=144$, so $h=12$ cm. The full chord is $2(12)=24$ cm.
 
   - id: q-geometry-circles-0012
+    lesson: lesson-geometry-outside-secants-and-tangents
+    keyPoint: 2
     type: direct-computation
     difficulty: hard
     stem: |
@@ -281,6 +305,8 @@ questions:
       The whole secant from P to B is $4+5=9$ cm. The tangent-secant theorem gives $PT^2=PA(PB)=4(9)=36$. Taking the positive root gives $PT=6$ cm.
 
   - id: q-geometry-circles-0013
+    lesson: lesson-geometry-chord-lengths-and-segments
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -304,6 +330,8 @@ questions:
       The circle area is $\pi(6^2)=36\pi$ square centimeters. The square diagonal equals the circle diameter, $12$ cm. If its side is $s$, then $s^2+s^2=12^2$, so its area $s^2$ is $72$ square centimeters. Subtract square area from circle area to get $36\pi-72$ square centimeters.
 
   - id: q-geometry-circles-0014
+    lesson: lesson-geometry-central-and-inscribed-angles
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -327,6 +355,8 @@ questions:
       The central angle is twice the inscribed angle over the same arc. Thus $5x-10=2(2x+10)$. Expand: $5x-10=4x+20$, so $x=30$. The central angle is $5(30)-10=140^\circ$.
 
   - id: q-geometry-circles-0015
+    lesson: lesson-geometry-circle-tangent-lengths
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -350,6 +380,8 @@ questions:
       The two tangent-radius triangles have equal radii and the same hypotenuse OP, so their angles at P are equal. Each is $60^\circ\div2=30^\circ$. In either right triangle, the radius $9$ is opposite $30^\circ$ and is half the hypotenuse. Thus $OP=2(9)=18$ cm.
 
   - id: q-geometry-circles-0016
+    lesson: lesson-geometry-circle-parts-and-measures
+    keyPoint: 1
     type: which-is-true
     difficulty: easy
     stem: |
@@ -371,6 +403,8 @@ questions:
     approved: false
 
   - id: q-geometry-circles-0017
+    lesson: lesson-geometry-circle-parts-and-measures
+    keyPoint: 2
     type: error-spotting
     difficulty: medium
     stem: |
@@ -392,6 +426,8 @@ questions:
     approved: false
 
   - id: q-geometry-circles-0018
+    lesson: lesson-geometry-circle-parts-and-measures
+    keyPoint: 2
     type: word-problem
     difficulty: medium
     stem: |
@@ -413,6 +449,8 @@ questions:
     approved: false
 
   - id: q-geometry-circles-0019
+    lesson: lesson-geometry-circle-parts-and-measures
+    keyPoint: 3
     type: direct-computation
     difficulty: hard
     stem: |
@@ -434,6 +472,8 @@ questions:
     approved: false
 
   - id: q-geometry-circles-0020
+    lesson: lesson-geometry-circle-parts-and-measures
+    keyPoint: 3
     type: word-problem
     difficulty: exam
     stem: |

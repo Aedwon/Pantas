@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" width="360" height="280">
+<title>A quadrilateral whose interior angles are in the ratio 1 : 2 : 3 : 4, asking for the largest angle</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="280" rx="14" fill="url(#bg)"/>
+<text x="180" y="38" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">Interior angles in</text>
+<text x="180" y="58" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101">the ratio <tspan font-family="KaTeX_Main, serif" font-weight="400">1 : 2 : 3 : 4</tspan></text>
+<polygon points="86,200 130,94 282,114 270,196" fill="#050505" fill-opacity="0.22" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="180" y="246" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">Largest angle = <tspan fill="#050505">?</tspan></text>
+</svg>

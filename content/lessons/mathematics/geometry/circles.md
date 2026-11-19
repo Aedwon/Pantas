@@ -6,6 +6,13 @@ subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-geometry-circle-parts-and-measures
+  - lesson-geometry-central-and-inscribed-angles
+  - lesson-geometry-chord-lengths-and-segments
+  - lesson-geometry-circle-tangent-lengths
+  - lesson-geometry-outside-secants-and-tangents
 ---
 ## Core Concept
 

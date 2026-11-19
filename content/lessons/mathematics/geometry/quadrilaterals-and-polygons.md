@@ -6,6 +6,14 @@ subject: "subject-mathematics"
 topic: "topic-geometry"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-geometry-simple-polygons-and-interior-angle-sums
+  - lesson-geometry-regular-polygon-angles-and-side-counts
+  - lesson-geometry-quadrilateral-angle-sums
+  - lesson-geometry-angles-in-parallelograms-and-trapezoids
+  - lesson-geometry-rectangle-rhombus-and-square-diagonals
+  - lesson-geometry-classifying-quadrilaterals-by-diagonals
 ---
 ## Core Concept
 
