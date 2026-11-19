@@ -28,6 +28,11 @@ const replayProtectedCallables = <String>{
   'submitBetaSurvey',
   'activateBetaReward',
   'getBetaReward',
+  'requestGuardianCode',
+  'verifyGuardianCode',
+  'setupChildAccount',
+  'setChildNickname',
+  'openChildSession',
 };
 
 /// Options for calling [name]: limited-use App Check tokens for the callables
