@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" width="360" height="200">
+<title>Compare water movement in three solutions</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.08"/></radialGradient>
+</defs>
+<rect width="360" height="200" rx="14" fill="url(#bg)"/>
+<text x="68" y="38" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">hypotonic</text>
+<path d="M19 65 V161 Q19 171 29 171 H107 Q117 171 117 161 V65" fill="#010101" fill-opacity="0.07" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M20 86 L116 86" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="68" cy="127" r="21" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="68" cy="127" r="3" fill="#010101" stroke="#010101" stroke-width="1.5"/>
+<path d="M26 127 L49.0 127.0" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M55 127 L46.0 123.0 L46.0 131.0 Z" fill="#050505" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M110 127 L87.0 127.0" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M81 127 L90.0 131.0 L90.0 123.0 Z" fill="#050505" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="180" y="38" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">isotonic</text>
+<path d="M131 65 V161 Q131 171 141 171 H219 Q229 171 229 161 V65" fill="#010101" fill-opacity="0.07" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M132 86 L228 86" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="180" cy="127" r="16" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="180" cy="127" r="3" fill="#010101" stroke="#010101" stroke-width="1.5"/>
+<path d="M142 122 L166.0 122.0" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M172 122 L163.0 118.0 L163.0 126.0 Z" fill="#050505" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M172 132 L148.0 132.0" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M142 132 L151.0 136.0 L151.0 128.0 Z" fill="#050505" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="292" y="38" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">hypertonic</text>
+<path d="M243 65 V161 Q243 171 253 171 H331 Q341 171 341 161 V65" fill="#010101" fill-opacity="0.07" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M244 86 L340 86" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="292" cy="127" r="11" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+<circle cx="292" cy="127" r="3" fill="#010101" stroke="#010101" stroke-width="1.5"/>
+<path d="M286 127 L261.0 127.0" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M255 127 L264.0 131.0 L264.0 123.0 Z" fill="#050505" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M298 127 L323.0 127.0" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M329 127 L320.0 123.0 L320.0 131.0 Z" fill="#050505" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

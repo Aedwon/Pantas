@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 264" width="360" height="264">
+<title>Compare the two responses to blood glucose changes</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.08"/></radialGradient>
+</defs>
+<rect width="360" height="264" rx="14" fill="url(#bg)"/>
+<rect x="16" y="17" width="156" height="58" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="94" y="43" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">blood glucose<tspan x="94" dy="1.2em">rises</tspan></text>
+<path d="M94 80 L94.0 92.0" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M94 98 L98.0 89.0 L90.0 89.0 Z" fill="#020202" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="16" y="103" width="156" height="58" rx="8" fill="#050505" fill-opacity="0.22" stroke="#050505" stroke-width="1.5"/>
+<text x="94" y="129" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">pancreas releases<tspan x="94" dy="1.2em">insulin</tspan></text>
+<path d="M94 166 L94.0 178.0" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M94 184 L98.0 175.0 L90.0 175.0 Z" fill="#020202" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="16" y="189" width="156" height="58" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="94" y="223" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">glucose falls</text>
+<rect x="188" y="17" width="156" height="58" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="266" y="43" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">blood glucose<tspan x="266" dy="1.2em">falls</tspan></text>
+<path d="M266 80 L266.0 92.0" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M266 98 L270.0 89.0 L262.0 89.0 Z" fill="#020202" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="188" y="103" width="156" height="58" rx="8" fill="#050505" fill-opacity="0.22" stroke="#050505" stroke-width="1.5"/>
+<text x="266" y="129" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">pancreas releases<tspan x="266" dy="1.2em">glucagon</tspan></text>
+<path d="M266 166 L266.0 178.0" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M266 184 L270.0 175.0 L262.0 175.0 Z" fill="#020202" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="188" y="189" width="156" height="58" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="266" y="223" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">glucose rises</text>
+</svg>

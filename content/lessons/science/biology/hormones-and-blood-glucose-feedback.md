@@ -23,8 +23,6 @@ A **negative feedback loop** keeps a body condition near a set level. When the c
 
 Blood glucose shows a loop. After a meal, blood glucose rises. The pancreas releases **insulin**, which helps cells take in glucose and helps the liver store it as glycogen. Glucose falls, so less insulin is released. If glucose falls too low, the pancreas releases **glucagon**, which makes the liver release stored glucose into the blood.
 
-<!-- ILLUSTRATION: two-loop feedback diagram for blood glucose: "blood glucose rises" → "pancreas releases insulin" → "glucose falls"; and "blood glucose falls" → "pancreas releases glucagon" → "glucose rises" -->
-
 ## Examples
 
 ### #1: Tracing a Feedback Loop
@@ -37,6 +35,8 @@ A student eats a sweet snack and blood glucose rises. Explain how the body retur
 2. Insulin helps cells take in glucose, and the liver stores some as glycogen.
 3. Blood glucose falls toward its usual level.
 4. As glucose falls, less insulin is released. The change causes the opposite response, so this is negative feedback.
+
+<!-- ILLUSTRATION: two-loop feedback diagram for blood glucose: "blood glucose rises" → "pancreas releases insulin" → "glucose falls"; and "blood glucose falls" → "pancreas releases glucagon" → "glucose rises" -->
 
 ## Speed Tricks & Shortcuts
 

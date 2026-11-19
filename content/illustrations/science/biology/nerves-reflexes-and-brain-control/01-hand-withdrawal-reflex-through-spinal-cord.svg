@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 276" width="360" height="276">
+<title>Trace the hot object withdrawal reflex</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.08"/></radialGradient>
+</defs>
+<rect width="360" height="276" rx="14" fill="url(#bg)"/>
+<rect x="18" y="93" width="53" height="40" rx="6" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="1.5"/>
+<text x="49" y="78" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">stimulus</text>
+<path d="M77 108 H113 C127 108 134 120 144 130 L207 186 L176 224 L113 152 H91 Q82 152 82 143 L82 132 H79 Q71 132 71 124 V116 Q71 108 77 108 Z" fill="url(#shape)" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="168" cy="182" rx="22" ry="10" fill="#010101" stroke="#020202" stroke-width="1.5"/>
+<circle cx="71" cy="116" r="4" fill="#050505" stroke="#050505" stroke-width="1.5"/>
+<text x="94" y="189" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">receptor</text>
+<path d="M70 121 L55 170" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="290" y="104" width="47" height="101" rx="18" fill="#020202" fill-opacity="0.1" stroke="#020202" stroke-width="1.5"/>
+<text x="313" y="223" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">spinal<tspan x="313" dy="1.2em">cord</tspan></text>
+<path d="M75 116 H122 Q133 116 140 99 L151 72 H271 Q288 72 304 118" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M304 118 L308.2 131.3" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M310 137 L311.1 127.2 L303.5 129.6 Z" fill="#050505" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M312 154 Q304 177 273 182 H206" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M206 182 L197.0 182.0" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M191 182 L200.0 186.0 L200.0 178.0 Z" fill="#050505" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="211" y="57" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">sensory neuron</text>
+<text x="246" y="166" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">motor neuron</text>
+<text x="147" y="245" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">effector</text>
+<path d="M162 229 L167 194" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

@@ -13,7 +13,13 @@ Lesson: `content/lessons/science/physics/velocity-time-graph-slope-and-area.md`.
 - Must not show: Shading, acceleration labels or area calculations.
 - Suggested height: 265
 
-## Marker 2
+## 02-signed-areas-on-a-reversal-graph.svg
 
+- File: `content/illustrations/science/physics/velocity-time-graph-slope-and-area/02-signed-areas-on-a-reversal-graph.svg`
 - Marker: velocity-time graph, time axis 0 to 6 s, velocity axis -6 to +6 m/s; one straight line from (0, +6) down through (3, 0) to (6, -6); the triangle above the axis shaded +9 m and the triangle below shaded -9 m
-- Marker to move after its solution: The requested 3 s crossing and the signed area labels give the turnaround time and the displacement and distance steps.
+- Purpose: Show the positive and negative displacement areas.
+- Layout: Use uniform scales. Draw the straight trace from (0, +6) through (3, 0) to (6, −6). Shade its triangles above and below the time axis and label their signed areas.
+- Labels (verbatim): "Velocity (m/s)"; "Time (s)"; "0"; "3"; "6"; "+6"; "−6"; "+9 m"; "−9 m"
+- Focus (accent): The signed area pair.
+- Must not show: Acceleration, total displacement, or total distance.
+- Suggested height: 294

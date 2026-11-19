@@ -2,10 +2,16 @@
 
 Lesson: `content/lessons/mathematics/geometry/triangle-angle-sums-and-types.md`. Folder: `content/illustrations/mathematics/geometry/triangle-angle-sums-and-types/`.
 
-## Marker 1 to move after its solution
+## 01-three-angles-in-a-right-triangle.svg
 
+- File: `content/illustrations/mathematics/geometry/triangle-angle-sums-and-types/01-three-angles-in-a-right-triangle.svg`
 - Marker: a triangle with its three angles in the ratio 1 : 2 : 3, labeled x, 2x, and 3x
-- Reason: A true-scale 1 : 2 : 3 triangle has a visibly right angle. Its classification is part of the worked answer.
+- Purpose: Show the triangle with angles in the ratio 1 to 2 to 3.
+- Layout: Draw a true 30°, 60°, 90° triangle. Put x at the 30° vertex, 2x at the 60° vertex, and 3x at the 90° vertex. Use a square at the right angle.
+- Labels (verbatim): "x"; "2x"; "3x"
+- Focus (accent): The square at the 3x angle.
+- Must not show: An equation or extra angle labels.
+- Suggested height: 214
 
 ## 02-two-placements-of-the-given-angle.svg
 

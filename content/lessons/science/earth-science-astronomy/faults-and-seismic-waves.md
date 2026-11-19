@@ -38,11 +38,12 @@ At a subduction zone, many foci lie along the sinking plate and get deeper farth
 
 The rock layers on either side of a tilted fault no longer line up. The hanging wall has moved down relative to the footwall. What type of fault is this, and what kind of stress caused it?
 
-<!-- ILLUSTRATION: side view of a tilted fault; the labeled hanging wall has moved down, the labeled footwall has not, arrows pointing apart -->
 **Solution:**
 
 1. The hanging wall moved down, so this is a normal fault.
 2. Normal faults form when rock is pulled apart. The stress is extension.
+
+<!-- ILLUSTRATION: side view of a tilted fault; the labeled hanging wall has moved down, the labeled footwall has not, arrows pointing apart -->
 
 ## Speed Tricks & Shortcuts
 

@@ -34,8 +34,6 @@ For example, the lion is classified like this:
 
 **Eukarya → Animalia → Chordata → Mammalia → Carnivora → Felidae → *Panthera* → *Panthera leo***
 
-<!-- ILLUSTRATION: nested boxes from Domain Eukarya on the outside to Species Panthera leo on the inside, each box labeled with its rank and the lion's group name: Eukarya, Animalia, Chordata, Mammalia, Carnivora, Felidae, Panthera, Panthera leo -->
-
 ## Examples
 
 ### #1: Ordering the Traditional Ranks
@@ -49,6 +47,8 @@ Arrange Family, Kingdom, Species, Phylum, Domain, Genus, Class, and Order from b
 3. The narrowest ranks are Genus and then Species.
 
 The order is Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species.
+
+<!-- ILLUSTRATION: nested boxes from Domain Eukarya on the outside to Species Panthera leo on the inside, each box labeled with its rank and the lion's group name: Eukarya, Animalia, Chordata, Mammalia, Carnivora, Felidae, Panthera, Panthera leo -->
 
 ### #2: Reading Nested Ranks
 

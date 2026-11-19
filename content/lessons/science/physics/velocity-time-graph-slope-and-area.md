@@ -39,8 +39,6 @@ $$\dfrac12(4)(8)+(6)(8)+\dfrac12(2)(8)=16+48+8=72\text{ m}$$
 
 A velocity-time graph is one straight line from $+6\,\mathrm{m/s}$ at $0$ s to $-6\,\mathrm{m/s}$ at $6$ s. Find the acceleration, the time of the turnaround, the displacement, and the distance.
 
-<!-- ILLUSTRATION: velocity-time graph, time axis 0 to 6 s, velocity axis -6 to +6 m/s; one straight line from (0, +6) down through (3, 0) to (6, -6); the triangle above the axis shaded +9 m and the triangle below shaded -9 m -->
-
 **Solution:**
 
 1. Acceleration:
@@ -51,6 +49,8 @@ $$a=\dfrac{-6-6}{6}=-2\,\mathrm{m/s^2}$$
 3. Area above the axis: $\dfrac12(3)(6)=+9$ m. Area below: $-9$ m.
 4. Displacement: $+9+(-9)=0$ m. The object is back at its start.
 5. Distance: $9+9=18$ m.
+
+<!-- ILLUSTRATION: velocity-time graph, time axis 0 to 6 s, velocity axis -6 to +6 m/s; one straight line from (0, +6) down through (3, 0) to (6, -6); the triangle above the axis shaded +9 m and the triangle below shaded -9 m -->
 
 ## Speed Tricks & Shortcuts
 

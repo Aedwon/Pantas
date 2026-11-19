@@ -12,3 +12,14 @@ Lesson: `content/lessons/science/earth-science-astronomy/spring-and-neap-tides.m
 - Focus (accent): The Sun–Earth alignment in each sketch.
 - Must not show: Extra phases, measurements or a worked solution.
 - Suggested height: 278
+
+## 02-moon-phases-that-set-tidal-range.svg
+
+- File: `content/illustrations/science/earth-science-astronomy/spring-and-neap-tides/02-moon-phases-that-set-tidal-range.svg`
+- Marker: three top-view sketches of Sun, Earth, and Moon: new moon (Moon between Sun and Earth), full moon (Earth between Sun and Moon), and first quarter (Moon at a right angle to the Sun-Earth line), each labeled spring or neap
+- Purpose: Match three Moon phases to tide types.
+- Layout: Stack three top views. Line up Sun, Moon, Earth for new moon and Sun, Earth, Moon for full moon. In first quarter put Moon directly above Earth and Sun left of Earth. Mark the right angle.
+- Labels (verbatim): "new moon"; "full moon"; "first quarter"; "Sun"; "Earth"; "Moon"; "spring"; "neap"
+- Focus (accent): The tide type beside each phase.
+- Must not show: Other phases or numerical tidal ranges.
+- Suggested height: 420

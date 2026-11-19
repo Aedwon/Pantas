@@ -25,8 +25,6 @@ A **stimulus** is a change that the body can detect. A **receptor** is a cell or
 
 A **reflex** is a fast, automatic response. In a reflex, the signal can turn around in the spinal cord without waiting for the brain. The brain is told at the same time, so you feel the touch just after you pull away.
 
-<!-- ILLUSTRATION: reflex arc with a hand touching a hot object, arrows from receptor in skin to sensory neuron to spinal cord to motor neuron to arm muscle, labeled "stimulus", "receptor", "sensory neuron", "spinal cord", "motor neuron", "effector" -->
-
 The **cerebrum** handles perception, thinking, language, memory, and voluntary movement. The **cerebellum** helps with coordination, timing, and balance. The **brain stem** has centers that control breathing and blood pressure.
 
 Motor control has two branches. **Somatic** control moves skeletal muscle and is usually voluntary, but reflexes such as pulling a hand from a hot pan also use it. **Autonomic** control is automatic and adjusts the heart, smooth muscle, and glands. The heart can beat on its own, but autonomic nerves speed it up or slow it down.
@@ -44,6 +42,8 @@ A person touches a hot pan and pulls the hand away at once. Trace the signal fro
 3. In the spinal cord the signal passes to motor neurons.
 4. Motor neurons carry it to the arm muscles, which are the effector.
 5. The muscles contract and the hand moves away. The brain is told too, so the person feels the pain afterward.
+
+<!-- ILLUSTRATION: reflex arc with a hand touching a hot object, arrows from receptor in skin to sensory neuron to spinal cord to motor neuron to arm muscle, labeled "stimulus", "receptor", "sensory neuron", "spinal cord", "motor neuron", "effector" -->
 
 ## Speed Tricks & Shortcuts
 

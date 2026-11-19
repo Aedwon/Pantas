@@ -32,8 +32,6 @@ Spring tides have nothing to do with the spring season. Each type happens about 
 
 On what Moon phases do spring tides happen, and on what phases do neap tides happen? Explain the difference in the pull.
 
-<!-- ILLUSTRATION: three top-view sketches of Sun, Earth, and Moon: new moon (Moon between Sun and Earth), full moon (Earth between Sun and Moon), and first quarter (Moon at a right angle to the Sun-Earth line), each labeled spring or neap -->
-
 **Solution:**
 Place the Sun, Moon, and Earth for each phase.
 
@@ -43,6 +41,8 @@ Place the Sun, Moon, and Earth for each phase.
 4. The two pulls then partly cancel, so the tidal range is smaller. These are neap tides.
 
 The answer: spring tides at new moon and full moon, neap tides at first and third quarter.
+
+<!-- ILLUSTRATION: three top-view sketches of Sun, Earth, and Moon: new moon (Moon between Sun and Earth), full moon (Earth between Sun and Moon), and first quarter (Moon at a right angle to the Sun-Earth line), each labeled spring or neap -->
 
 ## Speed Tricks & Shortcuts
 

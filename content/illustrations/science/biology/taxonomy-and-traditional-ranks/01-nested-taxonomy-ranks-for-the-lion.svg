@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 406" width="360" height="406">
+<title>Show the traditional ranks for a lion</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.08"/></radialGradient>
+</defs>
+<rect width="360" height="406" rx="14" fill="url(#bg)"/>
+<rect x="16" y="16" width="328" height="371" rx="8" fill="#010101" fill-opacity="0.026" stroke="#020202" stroke-width="1.5"/>
+<text x="180" y="40" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Domain Eukarya</text>
+<rect x="24" y="55" width="312" height="325" rx="8" fill="#010101" fill-opacity="0.026" stroke="#020202" stroke-width="1.5"/>
+<text x="180" y="79" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Kingdom Animalia</text>
+<rect x="32" y="94" width="296" height="279" rx="8" fill="#010101" fill-opacity="0.026" stroke="#020202" stroke-width="1.5"/>
+<text x="180" y="118" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Phylum Chordata</text>
+<rect x="40" y="133" width="280" height="233" rx="8" fill="#010101" fill-opacity="0.026" stroke="#020202" stroke-width="1.5"/>
+<text x="180" y="157" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Class Mammalia</text>
+<rect x="48" y="172" width="264" height="187" rx="8" fill="#010101" fill-opacity="0.026" stroke="#020202" stroke-width="1.5"/>
+<text x="180" y="196" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Order Carnivora</text>
+<rect x="56" y="211" width="248" height="141" rx="8" fill="#010101" fill-opacity="0.026" stroke="#020202" stroke-width="1.5"/>
+<text x="180" y="235" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Family Felidae</text>
+<rect x="64" y="250" width="232" height="95" rx="8" fill="#010101" fill-opacity="0.026" stroke="#020202" stroke-width="1.5"/>
+<text x="180" y="274" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Genus Panthera</text>
+<rect x="72" y="289" width="216" height="49" rx="8" fill="#050505" fill-opacity="0.22" stroke="#050505" stroke-width="1.5"/>
+<text x="180" y="313" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Species Panthera leo</text>
+</svg>

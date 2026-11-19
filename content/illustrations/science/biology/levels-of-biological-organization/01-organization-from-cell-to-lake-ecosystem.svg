@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 466" width="360" height="466">
+<title>Show biological organization from cell to ecosystem</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.08"/></radialGradient>
+</defs>
+<rect width="360" height="466" rx="14" fill="url(#bg)"/>
+<path d="M28 441 L28.0 28.0" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M28 22 L24.0 31.0 L32.0 31.0 Z" fill="#020202" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M28 40 L45 40" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="45" y="16" width="299" height="49" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="57" y="45" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">ecosystem</text>
+<text x="165" y="36" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">the lake with its water,<tspan x="165" dy="1.2em">sunlight and soil</tspan></text>
+<path d="M28 95 L45 95" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="45" y="71" width="299" height="49" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="57" y="100" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">community</text>
+<text x="165" y="91" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">all the fish, plants and<tspan x="165" dy="1.2em">microbes in the lake</tspan></text>
+<path d="M28 150 L45 150" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="45" y="126" width="299" height="49" rx="8" fill="#050505" fill-opacity="0.22" stroke="none" stroke-width="1.5"/>
+<text x="57" y="155" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">population</text>
+<text x="165" y="155" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">all the Nile tilapia in a lake</text>
+<path d="M28 205 L45 205" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="45" y="181" width="299" height="49" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="57" y="210" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">organism</text>
+<text x="165" y="210" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">one person</text>
+<path d="M28 260 L45 260" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="45" y="236" width="299" height="49" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="57" y="265" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">organ system</text>
+<text x="165" y="265" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">circulatory system</text>
+<path d="M28 315 L45 315" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="45" y="291" width="299" height="49" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="57" y="320" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">organ</text>
+<text x="165" y="320" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">heart</text>
+<path d="M28 370 L45 370" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="45" y="346" width="299" height="49" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="57" y="375" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">tissue</text>
+<text x="165" y="375" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">muscle tissue</text>
+<path d="M28 425 L45 425" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="45" y="401" width="299" height="49" rx="8" fill="#010101" fill-opacity="0.05" stroke="none" stroke-width="1.5"/>
+<text x="57" y="430" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">cell</text>
+<text x="165" y="430" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">muscle cell</text>
+</svg>

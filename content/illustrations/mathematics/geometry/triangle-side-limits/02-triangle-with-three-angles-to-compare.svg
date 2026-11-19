@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 274" width="360" height="274">
+<title>Show how the triangle angles order its sides</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.08"/></radialGradient>
+</defs>
+<rect width="360" height="274" rx="14" fill="url(#bg)"/>
+<path d="M54 228 H306 L203.3 50.1 Z" fill="url(#shape)" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M85 228 A31 31 0 0 0 73.9 204.3" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M275 228 A31 31 0 0 1 290.5 201.2" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M182.7 74.6 A32 32 0 0 0 219.3 77.8" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="39" y="249" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">A</text>
+<text x="320" y="249" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">B</text>
+<text x="203.3" y="36" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">C</text>
+<text x="112" y="217" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">50°</tspan></text>
+<text x="253" y="217" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">60°</tspan></text>
+<text x="203.3" y="117" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505">?</text>
+</svg>

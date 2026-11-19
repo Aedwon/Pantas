@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 214" width="360" height="214">
+<title>Show the triangle with angles in the ratio 1 to 2 to 3</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.08"/></radialGradient>
+</defs>
+<rect width="360" height="214" rx="14" fill="url(#bg)"/>
+<path d="M57 180 H291 L57 44.9 Z" fill="url(#shape)" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M57 160 H77 V180" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M57 71.9 A27 27 0 0 0 80.4 58.4" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M245 180 A46 46 0 0 1 251.2 157" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="95" y="151" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">3</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"></tspan></text>
+<text x="85" y="94" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">2</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"></tspan></text>
+<text x="221" y="170" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400"></tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"></tspan></text>
+</svg>

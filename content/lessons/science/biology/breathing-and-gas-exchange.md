@@ -27,8 +27,6 @@ Alveolar air has more oxygen than the blood arriving in the lung capillaries, so
 
 The exchange is fast because the alveolus wall and the capillary wall are each very thin, and many alveoli give a huge surface. Most oxygen then travels inside red blood cells, bound to a protein called **hemoglobin**.
 
-<!-- ILLUSTRATION: one alveolus beside a capillary, arrows showing $O_2$ moving from alveolar air into blood and $CO_2$ moving from blood into alveolar air, labels "alveolus", "capillary", "red blood cell" -->
-
 ## Examples
 
 ### #1: Gas Exchange in the Alveoli
@@ -41,3 +39,5 @@ After hard exercise, a person breathes faster. Describe how oxygen and carbon di
 2. Alveolar air has more oxygen and less carbon dioxide than this blood.
 3. By diffusion, oxygen moves from the alveolar air into the blood.
 4. Carbon dioxide moves from the blood into the alveolar air and leaves when the person breathes out.
+
+<!-- ILLUSTRATION: one alveolus beside a capillary, arrows showing $O_2$ moving from alveolar air into blood and $CO_2$ moving from blood into alveolar air, labels "alveolus", "capillary", "red blood cell" -->

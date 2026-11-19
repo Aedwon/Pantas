@@ -44,8 +44,6 @@ $$9 - 5 < s < 5 + 9$$
 
 In $\triangle ABC$, $\angle A = 50^\circ$ and $\angle B = 60^\circ$. Which side is the longest, and which is the shortest?
 
-<!-- ILLUSTRATION: triangle ABC with angle A = 50°, angle B = 60°, angle C = ? -->
-
 **Solution:**
 Find the third angle first.
 
@@ -53,6 +51,8 @@ Find the third angle first.
 
 2. The largest angle is $C$, so the longest side is $AB$.
 3. The smallest angle is $A$, so the shortest side is $BC$.
+
+<!-- ILLUSTRATION: triangle ABC with angle A = 50°, angle B = 60°, angle C = ? -->
 
 ## Traps to Watch For
 

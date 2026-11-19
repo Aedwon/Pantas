@@ -21,8 +21,6 @@ A **Punnett square** shows the possible gametes of each parent along its sides. 
 
 The probability of a trait is the number of cells with it divided by the total number of cells. It gives chances, not a promise for a small family.
 
-<!-- ILLUSTRATION: 2 by 2 Punnett square for Tt x Tt, top row labeled T and t, left column labeled T and t, cells TT, Tt, Tt, tt -->
-
 ## Examples
 
 ### #1: Basic Punnett Square Cross
@@ -36,6 +34,8 @@ Two heterozygous pea plants are crossed: $Tt \times Tt$. Allele $T$ is dominant 
 3. Three of the four cells contain $T$, so they are tall.
 
 $$P(\text{tall})=\dfrac{3}{4}$$
+
+<!-- ILLUSTRATION: 2 by 2 Punnett square for Tt x Tt, top row labeled T and t, left column labeled T and t, cells TT, Tt, Tt, tt -->
 
 ## Speed Tricks & Shortcuts
 

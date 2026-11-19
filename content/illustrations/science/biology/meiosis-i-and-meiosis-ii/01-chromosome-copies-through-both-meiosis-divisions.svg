@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 486" width="360" height="486">
+<title>Track chromosomes through both divisions</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.08"/></radialGradient>
+</defs>
+<rect width="360" height="486" rx="14" fill="url(#bg)"/>
+<text x="180" y="29" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">after copying</text>
+<text x="180" y="143" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">metaphase I</text>
+<text x="180" y="251" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">after meiosis I</text>
+<text x="180" y="364" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">after meiosis II</text>
+<text x="180" y="50" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">2</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">n</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 4</tspan></text>
+<ellipse cx="180" cy="90" rx="55" ry="34" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="180" cy="193" rx="55" ry="36" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+<path d="M152 72 L160 92 M160 72 L152 92" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M194 72 L202 92 M202 72 L194 92 M195 82 H201" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M157 99 L165 111 M165 99 L157 111 M158 105 H164" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M187 99 L195 111 M195 99 L187 111" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M168 167 L176 187 M176 167 L168 187" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M184 167 L192 187 M192 167 L184 187 M185 177 H191" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M168 203 L176 215 M176 203 L168 215 M169 209 H175" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M184 203 L192 215 M192 203 L184 215" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M180 161 L180 224" fill="none" fill-opacity="1" stroke="#020202" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="100" cy="300" rx="48" ry="34" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+<path d="M83 290 L91 310 M91 290 L83 310" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M109 294 L117 306 M117 294 L109 306 M110 300 H116" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="260" cy="300" rx="48" ry="34" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+<path d="M243 290 L251 310 M251 290 L243 310 M244 300 H250" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M269 294 L277 306 M277 294 L269 306" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="50" cy="413" r="29" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+<path d="M42 403 L42 423" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M58 407 L58 419 M55 413 H61" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="50" y="465" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400"></tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">n</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 2</tspan></text>
+<circle cx="125" cy="413" r="29" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+<path d="M117 403 L117 423" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M133 407 L133 419 M130 413 H136" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="125" y="465" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400"></tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">n</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 2</tspan></text>
+<circle cx="235" cy="413" r="29" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+<path d="M227 403 L227 423 M224 413 H230" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M243 407 L243 419" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="235" y="465" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400"></tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">n</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 2</tspan></text>
+<circle cx="310" cy="413" r="29" fill="url(#shape)" stroke="#020202" stroke-width="1.5"/>
+<path d="M302 403 L302 423 M299 413 H305" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M318 407 L318 419" fill="none" fill-opacity="1" stroke="#010101" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="310" y="465" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400"></tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">n</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 2</tspan></text>
+</svg>

@@ -22,8 +22,6 @@ keyPoints:
 - **Hypertonic** solution: a higher concentration of solute outside than inside the cell. Water leaves.
 - **Isotonic** solution: the same concentration of solute inside and out. Water moves both ways at the same rate, so there is no net change in volume.
 
-<!-- ILLUSTRATION: three beakers labeled hypotonic, isotonic, hypertonic, each with an animal cell and arrows for water: arrows into the cell, equal arrows both ways, arrows out of the cell; the cell is swollen, normal, shrunken -->
-
 An animal cell has no wall. In a hypotonic solution it swells and may burst, which is called **lysis**. In a hypertonic solution it shrinks.
 
 A plant cell has a wall. In a hypotonic solution, water entering pushes the membrane against the wall. This pressure is **turgor pressure**, and it keeps the cell firm.
@@ -40,6 +38,8 @@ A red blood cell is placed in salt solution A and shrinks. In salt solution B, i
 
 1. In A, the cell shrinks, so water left it. Water moves toward more solute, so the outside had a higher solute concentration. Solution A is hypertonic.
 2. In B, there is no net change in volume. Water moves both ways at the same rate, so the solute concentrations are equal. Solution B is isotonic.
+
+<!-- ILLUSTRATION: three beakers labeled hypotonic, isotonic, hypertonic, each with an animal cell and arrows for water: arrows into the cell, equal arrows both ways, arrows out of the cell; the cell is swollen, normal, shrunken -->
 
 ### #2: The Same Solutions, Two Kinds of Cell
 

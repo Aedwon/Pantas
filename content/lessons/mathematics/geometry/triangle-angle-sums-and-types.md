@@ -30,8 +30,6 @@ An equilateral triangle has three equal angles. Each one is $180^\circ \div 3 = 
 
 The angles of a triangle are in the ratio $1 : 2 : 3$. Find the angles and classify the triangle.
 
-<!-- ILLUSTRATION: a triangle with its three angles in the ratio 1 : 2 : 3, labeled x, 2x, and 3x -->
-
 **Solution:**
 The angles are $x$, $2x$, and $3x$.
 
@@ -44,6 +42,8 @@ $$x + 2x + 3x = 180$$
 $$6x = 180 \quad\Rightarrow\quad x = 30$$
 
 3. The angles are $30^\circ$, $60^\circ$, and $90^\circ$. One angle is $90^\circ$, so this is a right triangle.
+
+<!-- ILLUSTRATION: a triangle with its three angles in the ratio 1 : 2 : 3, labeled x, 2x, and 3x -->
 
 ### #2: Isosceles Triangle
 

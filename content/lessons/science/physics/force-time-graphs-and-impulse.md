@@ -36,8 +36,6 @@ You do not need calculus to find an area from a straight-sided graph.
 
 A force along a straight line acts on an $8.0\,\mathrm{kg}$ cart that starts at rest on a level track with negligible friction. The force rises steadily from $0$ to $10\,\mathrm N$ in the first $2.0\,\mathrm s$. Then it stays at $10\,\mathrm N$ for the next $3.0\,\mathrm s$. Find the final speed of the cart at $5.0\,\mathrm s$.
 
-<!-- ILLUSTRATION: force-time graph for the cart, time in s from $0$ to $5.0$, force in N from $0$ to $10$; a straight line from $(0,0)$ to $(2.0,10)$, then a flat line at $10\,\mathrm N$ to $t=5.0\,\mathrm s$; the triangle is labeled $J_1=10\,\mathrm{N\,s}$ and the rectangle is labeled $J_2=30\,\mathrm{N\,s}$ -->
-
 **Solution:**
 
 1. The first part is a triangle with base $2.0\,\mathrm s$ and height $10\,\mathrm N$:
@@ -55,6 +53,8 @@ $$J=J_1+J_2=40\,\mathrm{N\,s}$$
 4. The cart starts at rest, so $J=mv_f-0$:
 
 $$v_f=\dfrac{J}{m}=\dfrac{40}{8.0}=5.0\,\mathrm{m/s}$$
+
+<!-- ILLUSTRATION: force-time graph for the cart, time in s from $0$ to $5.0$, force in N from $0$ to $10$; a straight line from $(0,0)$ to $(2.0,10)$, then a flat line at $10\,\mathrm N$ to $t=5.0\,\mathrm s$; the triangle is labeled $J_1=10\,\mathrm{N\,s}$ and the rectangle is labeled $J_2=30\,\mathrm{N\,s}$ -->
 
 ## Speed Tricks & Shortcuts
 

@@ -29,8 +29,6 @@ The cell does not copy its DNA again between meiosis I and meiosis II.
 - In anaphase II, the sister chromatids separate.
 - After cytokinesis, there are four haploid cells in total. Each chromosome is now a single chromatid.
 
-<!-- ILLUSTRATION: meiosis of a cell with 2n = 4, in four rows: (1) after copying, one cell with 2 homologous pairs, red and blue, each chromosome with 2 chromatids; (2) metaphase I, the 2 pairs lined up as pairs; (3) after meiosis I, 2 cells each with 2 chromosomes of 2 chromatids; (4) after meiosis II, 4 cells each with 2 single-chromatid chromosomes. Label "n = 2" on the final cells -->
-
 ## Examples
 
 ### #1: Telling Metaphase of Mitosis, Meiosis I, and Meiosis II Apart
@@ -43,6 +41,8 @@ A diploid cell has $2n = 4$. Describe what the cell looks like at the middle of 
 2. Metaphase I: the chromosomes line up as $2$ homologous pairs. The pairs sit next to each other, with a homolog on each side of the middle.
 3. Metaphase II: the cell is haploid, so there are only $2$ chromosomes. They line up in single file. Each has two chromatids.
 4. Check by counting. Mitosis and metaphase I both have $4$ chromosomes, but only metaphase I has pairs. Metaphase II has half as many chromosomes as the others.
+
+<!-- ILLUSTRATION: meiosis of a cell with 2n = 4, in four rows: (1) after copying, one cell with 2 homologous pairs, red and blue, each chromosome with 2 chromatids; (2) metaphase I, the 2 pairs lined up as pairs; (3) after meiosis I, 2 cells each with 2 chromosomes of 2 chromatids; (4) after meiosis II, 4 cells each with 2 single-chromatid chromosomes. Label "n = 2" on the final cells -->
 
 ## Speed Tricks & Shortcuts
 

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 286" width="360" height="286">
+<title>Show the two gas exchange directions</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+<radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.08"/></radialGradient>
+</defs>
+<rect width="360" height="286" rx="14" fill="url(#bg)"/>
+<path d="M91 55 V83 C58 89 42 110 42 148 C42 200 96 224 156 209 C196 200 212 178 212 148 C212 109 173 83 121 83 V55" fill="url(#shape)" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="226" y="60" width="86" height="172" rx="40" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="271" cy="195" rx="24" ry="12" fill="#010101" stroke="#020202" stroke-width="1.5"/>
+<ellipse cx="271" cy="195" rx="12" ry="5" fill="#030303" stroke="#020202" stroke-width="1.5"/>
+<path d="M153 113 L244.0 113.0" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M250 113 L241.0 109.0 L241.0 117.0 Z" fill="#050505" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M250 160 L182.0 160.0" fill="none" fill-opacity="1" stroke="#050505" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M176 160 L185.0 164.0 L185.0 156.0 Z" fill="#050505" fill-opacity="1" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="152" y="101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">O₂</tspan></text>
+<text x="163" y="148" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">CO₂</tspan></text>
+<text x="116" y="156" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">alveolus</text>
+<text x="267" y="47" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">capillary</text>
+<path d="M271 209 L271 244" fill="none" fill-opacity="1" stroke="#020202" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="271" y="265" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">red blood cell</text>
+</svg>

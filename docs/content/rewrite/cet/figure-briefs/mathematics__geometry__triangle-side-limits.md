@@ -13,7 +13,13 @@ Lesson: `content/lessons/mathematics/geometry/triangle-side-limits.md`. Folder: 
 - Must not show: The allowed range, candidate lengths, or the number of possibilities.
 - Suggested height: 214
 
-## Marker 2 to move after its solution
+## 02-triangle-with-three-angles-to-compare.svg
 
+- File: `content/illustrations/mathematics/geometry/triangle-side-limits/02-triangle-with-three-angles-to-compare.svg`
 - Marker: triangle ABC with angle A = 50°, angle B = 60°, angle C = ?
-- Reason: A true-scale drawing would visibly order the labeled sides. Longest and shortest are the worked answers.
+- Purpose: Show how the triangle angles order its sides.
+- Layout: Draw ABC with A and B on a horizontal base and C above. Draw the angles at their true sizes: 50° at A, 60° at B, and 70° at C. Label the first two arcs with their values and the last with a question mark.
+- Labels (verbatim): "A"; "B"; "C"; "50°"; "60°"; "?"
+- Focus (accent): The arc at C.
+- Must not show: Numeric side lengths or an equation.
+- Suggested height: 274
