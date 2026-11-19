@@ -6,6 +6,13 @@ subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-earth-science-astronomy-plate-motion-and-seafloor-spreading
+  - lesson-earth-science-astronomy-plate-boundary-motion
+  - lesson-earth-science-astronomy-subduction-and-volcanoes
+  - lesson-earth-science-astronomy-faults-and-seismic-waves
+  - lesson-earth-science-astronomy-philippine-tectonic-hazards
 ---
 ## Core Concept
 

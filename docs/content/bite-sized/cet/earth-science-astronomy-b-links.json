@@ -1,0 +1,517 @@
+{
+  "outline": [
+    {
+      "original": "lesson-earth-science-astronomy-minerals-and-rocks",
+      "parts": [
+        {
+          "slug": "minerals-versus-rocks",
+          "title": "Minerals and Rocks"
+        },
+        {
+          "slug": "mineral-hardness-and-streak",
+          "title": "Mineral Hardness and Streak"
+        },
+        {
+          "slug": "mineral-luster-and-breakage",
+          "title": "Mineral Luster and Breakage"
+        },
+        {
+          "slug": "weathering-erosion-and-deposition",
+          "title": "Weathering, Erosion, and Deposition"
+        },
+        {
+          "slug": "sedimentary-rock-formation",
+          "title": "Sedimentary Rock Formation"
+        },
+        {
+          "slug": "igneous-rock-texture",
+          "title": "Igneous Rock Texture"
+        },
+        {
+          "slug": "variables-in-a-cooling-test",
+          "title": "Variables in a Cooling Test"
+        },
+        {
+          "slug": "metamorphic-rock-formation",
+          "title": "Metamorphic Rock Formation"
+        },
+        {
+          "slug": "rock-cycle-pathways",
+          "title": "Rock Cycle Pathways"
+        }
+      ]
+    },
+    {
+      "original": "lesson-earth-science-astronomy-origin-of-the-universe",
+      "parts": [
+        {
+          "slug": "big-bang-model",
+          "title": "The Big Bang Model"
+        },
+        {
+          "slug": "measuring-galaxy-redshift",
+          "title": "Measuring Galaxy Redshift"
+        },
+        {
+          "slug": "redshift-and-cosmic-expansion",
+          "title": "Redshift and Cosmic Expansion"
+        },
+        {
+          "slug": "cosmic-microwave-background",
+          "title": "The Cosmic Microwave Background"
+        },
+        {
+          "slug": "light-elements-and-the-big-bang",
+          "title": "Light Elements and the Big Bang"
+        },
+        {
+          "slug": "solar-system-nebular-model",
+          "title": "The Solar System and the Nebular Model"
+        },
+        {
+          "slug": "evidence-for-a-solar-disk",
+          "title": "Evidence for a Solar Disk"
+        }
+      ]
+    },
+    {
+      "original": "lesson-earth-science-astronomy-plate-tectonics",
+      "parts": [
+        {
+          "slug": "plate-motion-and-seafloor-spreading",
+          "title": "Plate Motion and Seafloor Spreading"
+        },
+        {
+          "slug": "plate-boundary-motion",
+          "title": "Plate Boundary Motion"
+        },
+        {
+          "slug": "subduction-and-volcanoes",
+          "title": "Subduction and Volcanoes"
+        },
+        {
+          "slug": "faults-and-seismic-waves",
+          "title": "Faults and Seismic Waves"
+        },
+        {
+          "slug": "philippine-tectonic-hazards",
+          "title": "Tectonic Hazards in the Philippines"
+        }
+      ]
+    },
+    {
+      "original": "lesson-earth-science-astronomy-stars-and-galaxies",
+      "parts": [
+        {
+          "slug": "star-fusion-and-balance",
+          "title": "Star Fusion and Balance"
+        },
+        {
+          "slug": "star-color-and-temperature",
+          "title": "Star Color and Temperature"
+        },
+        {
+          "slug": "star-luminosity-and-brightness",
+          "title": "Star Luminosity and Brightness"
+        },
+        {
+          "slug": "stellar-life-cycles",
+          "title": "Stellar Life Cycles"
+        },
+        {
+          "slug": "galaxies-and-light-years",
+          "title": "Galaxies and Light-Years"
+        }
+      ]
+    },
+    {
+      "original": "lesson-earth-science-astronomy-water-cycle-oceanography",
+      "parts": [
+        {
+          "slug": "evaporation-and-transpiration",
+          "title": "Evaporation and Transpiration"
+        },
+        {
+          "slug": "clouds-and-precipitation",
+          "title": "Clouds and Precipitation"
+        },
+        {
+          "slug": "infiltration-and-runoff",
+          "title": "Infiltration and Runoff"
+        },
+        {
+          "slug": "earths-water-reservoirs",
+          "title": "Earth’s Water Reservoirs"
+        },
+        {
+          "slug": "seawater-density-and-layers",
+          "title": "Seawater Density and Layers"
+        },
+        {
+          "slug": "ocean-currents-and-heat",
+          "title": "Ocean Currents and Heat"
+        },
+        {
+          "slug": "daily-tide-timing",
+          "title": "Daily Tide Timing"
+        },
+        {
+          "slug": "spring-and-neap-tides",
+          "title": "Spring and Neap Tides"
+        }
+      ]
+    },
+    {
+      "original": "lesson-earth-science-astronomy-weather-and-climate",
+      "parts": [
+        {
+          "slug": "weather-versus-climate",
+          "title": "Weather and Climate Patterns"
+        },
+        {
+          "slug": "earths-atmospheric-layers",
+          "title": "Earth’s Atmospheric Layers"
+        },
+        {
+          "slug": "coastal-breezes-and-rising-air",
+          "title": "Coastal Breezes and Rising Air"
+        },
+        {
+          "slug": "seasonal-monsoon-winds",
+          "title": "Seasonal Monsoon Winds"
+        },
+        {
+          "slug": "amihan-and-habagat",
+          "title": "Amihan and Habagat"
+        },
+        {
+          "slug": "tropical-cyclone-formation",
+          "title": "Tropical Cyclone Formation"
+        },
+        {
+          "slug": "tropical-cyclone-categories",
+          "title": "Tropical Cyclone Categories"
+        },
+        {
+          "slug": "weather-hazards-and-safety",
+          "title": "Weather Hazards and Safety"
+        },
+        {
+          "slug": "greenhouse-effect-and-warming",
+          "title": "The Greenhouse Effect and Warming"
+        },
+        {
+          "slug": "effects-of-climate-change",
+          "title": "Effects of Climate Change"
+        },
+        {
+          "slug": "climate-mitigation-and-adaptation",
+          "title": "Climate Mitigation and Adaptation"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-earth-science-astronomy-minerals-versus-rocks": [],
+    "lesson-earth-science-astronomy-mineral-hardness-and-streak": [
+      {
+        "lesson": "lesson-earth-science-astronomy-minerals-versus-rocks",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-mineral-luster-and-breakage": [
+      {
+        "lesson": "lesson-earth-science-astronomy-mineral-hardness-and-streak",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-weathering-erosion-and-deposition": [
+      {
+        "lesson": "lesson-earth-science-astronomy-mineral-luster-and-breakage",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-sedimentary-rock-formation": [
+      {
+        "lesson": "lesson-earth-science-astronomy-weathering-erosion-and-deposition",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-igneous-rock-texture": [
+      {
+        "lesson": "lesson-earth-science-astronomy-sedimentary-rock-formation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-variables-in-a-cooling-test": [
+      {
+        "lesson": "lesson-earth-science-astronomy-igneous-rock-texture",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-metamorphic-rock-formation": [
+      {
+        "lesson": "lesson-earth-science-astronomy-variables-in-a-cooling-test",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-rock-cycle-pathways": [
+      {
+        "lesson": "lesson-earth-science-astronomy-metamorphic-rock-formation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-big-bang-model": [],
+    "lesson-earth-science-astronomy-measuring-galaxy-redshift": [
+      {
+        "lesson": "lesson-earth-science-astronomy-big-bang-model",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-redshift-and-cosmic-expansion": [
+      {
+        "lesson": "lesson-earth-science-astronomy-measuring-galaxy-redshift",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-cosmic-microwave-background": [
+      {
+        "lesson": "lesson-earth-science-astronomy-redshift-and-cosmic-expansion",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-light-elements-and-the-big-bang": [
+      {
+        "lesson": "lesson-earth-science-astronomy-cosmic-microwave-background",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-solar-system-nebular-model": [
+      {
+        "lesson": "lesson-earth-science-astronomy-light-elements-and-the-big-bang",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-evidence-for-a-solar-disk": [
+      {
+        "lesson": "lesson-earth-science-astronomy-solar-system-nebular-model",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-plate-motion-and-seafloor-spreading": [
+      {
+        "lesson": "lesson-earth-science-astronomy-layers-of-the-earth",
+        "strength": "helpful",
+        "reason": "Knowing the crust, mantle, lithosphere, and asthenosphere makes plate movement easier to follow. This lesson recaps the layers it uses, so the link is not required."
+      }
+    ],
+    "lesson-earth-science-astronomy-plate-boundary-motion": [
+      {
+        "lesson": "lesson-earth-science-astronomy-plate-motion-and-seafloor-spreading",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-subduction-and-volcanoes": [
+      {
+        "lesson": "lesson-earth-science-astronomy-plate-boundary-motion",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-faults-and-seismic-waves": [
+      {
+        "lesson": "lesson-earth-science-astronomy-subduction-and-volcanoes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-philippine-tectonic-hazards": [
+      {
+        "lesson": "lesson-earth-science-astronomy-faults-and-seismic-waves",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-star-fusion-and-balance": [
+      {
+        "lesson": "lesson-chemistry-nuclear-chemistry",
+        "strength": "helpful",
+        "reason": "Nuclear fusion powers every star. This lesson defines fusion briefly, and the nuclear chemistry lesson shows how nuclei join and release energy."
+      }
+    ],
+    "lesson-earth-science-astronomy-star-color-and-temperature": [
+      {
+        "lesson": "lesson-earth-science-astronomy-star-fusion-and-balance",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-star-luminosity-and-brightness": [
+      {
+        "lesson": "lesson-earth-science-astronomy-star-color-and-temperature",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-stellar-life-cycles": [
+      {
+        "lesson": "lesson-earth-science-astronomy-star-luminosity-and-brightness",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-galaxies-and-light-years": [
+      {
+        "lesson": "lesson-earth-science-astronomy-stellar-life-cycles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-evaporation-and-transpiration": [],
+    "lesson-earth-science-astronomy-clouds-and-precipitation": [
+      {
+        "lesson": "lesson-earth-science-astronomy-evaporation-and-transpiration",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-infiltration-and-runoff": [
+      {
+        "lesson": "lesson-earth-science-astronomy-clouds-and-precipitation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-earths-water-reservoirs": [
+      {
+        "lesson": "lesson-earth-science-astronomy-infiltration-and-runoff",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-seawater-density-and-layers": [
+      {
+        "lesson": "lesson-earth-science-astronomy-earths-water-reservoirs",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-ocean-currents-and-heat": [
+      {
+        "lesson": "lesson-earth-science-astronomy-seawater-density-and-layers",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-daily-tide-timing": [
+      {
+        "lesson": "lesson-earth-science-astronomy-ocean-currents-and-heat",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-spring-and-neap-tides": [
+      {
+        "lesson": "lesson-earth-science-astronomy-daily-tide-timing",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-earth-science-astronomy-eclipses-and-moon-phases",
+        "strength": "helpful",
+        "reason": "Spring and neap tides depend on the Moon phases and the Sun, Earth, and Moon line-up. This lesson describes the line-up, and the phases lesson explains the phases themselves."
+      }
+    ],
+    "lesson-earth-science-astronomy-weather-versus-climate": [],
+    "lesson-earth-science-astronomy-earths-atmospheric-layers": [
+      {
+        "lesson": "lesson-earth-science-astronomy-weather-versus-climate",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-coastal-breezes-and-rising-air": [
+      {
+        "lesson": "lesson-earth-science-astronomy-earths-atmospheric-layers",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-physics-thermodynamics",
+        "strength": "helpful",
+        "reason": "Heat-transfer knowledge helps explain winds and warming. Weather and Climate defines the needed processes itself."
+      }
+    ],
+    "lesson-earth-science-astronomy-seasonal-monsoon-winds": [
+      {
+        "lesson": "lesson-earth-science-astronomy-coastal-breezes-and-rising-air",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-amihan-and-habagat": [
+      {
+        "lesson": "lesson-earth-science-astronomy-seasonal-monsoon-winds",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-tropical-cyclone-formation": [
+      {
+        "lesson": "lesson-earth-science-astronomy-amihan-and-habagat",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-tropical-cyclone-categories": [
+      {
+        "lesson": "lesson-earth-science-astronomy-tropical-cyclone-formation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-weather-hazards-and-safety": [
+      {
+        "lesson": "lesson-earth-science-astronomy-tropical-cyclone-categories",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-greenhouse-effect-and-warming": [
+      {
+        "lesson": "lesson-earth-science-astronomy-weather-hazards-and-safety",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-effects-of-climate-change": [
+      {
+        "lesson": "lesson-earth-science-astronomy-greenhouse-effect-and-warming",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-earth-science-astronomy-climate-mitigation-and-adaptation": [
+      {
+        "lesson": "lesson-earth-science-astronomy-effects-of-climate-change",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ]
+  }
+}

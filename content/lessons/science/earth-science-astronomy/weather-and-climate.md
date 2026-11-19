@@ -6,6 +6,19 @@ subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-earth-science-astronomy-weather-versus-climate
+  - lesson-earth-science-astronomy-earths-atmospheric-layers
+  - lesson-earth-science-astronomy-coastal-breezes-and-rising-air
+  - lesson-earth-science-astronomy-seasonal-monsoon-winds
+  - lesson-earth-science-astronomy-amihan-and-habagat
+  - lesson-earth-science-astronomy-tropical-cyclone-formation
+  - lesson-earth-science-astronomy-tropical-cyclone-categories
+  - lesson-earth-science-astronomy-weather-hazards-and-safety
+  - lesson-earth-science-astronomy-greenhouse-effect-and-warming
+  - lesson-earth-science-astronomy-effects-of-climate-change
+  - lesson-earth-science-astronomy-climate-mitigation-and-adaptation
 ---
 ## Core Concept
 

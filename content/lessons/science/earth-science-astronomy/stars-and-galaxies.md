@@ -6,6 +6,13 @@ subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-earth-science-astronomy-star-fusion-and-balance
+  - lesson-earth-science-astronomy-star-color-and-temperature
+  - lesson-earth-science-astronomy-star-luminosity-and-brightness
+  - lesson-earth-science-astronomy-stellar-life-cycles
+  - lesson-earth-science-astronomy-galaxies-and-light-years
 ---
 ## Core Concept
 

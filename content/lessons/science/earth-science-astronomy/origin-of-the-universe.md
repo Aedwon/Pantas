@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 13
 isActive: true
+status: retired
+replacedBy:
+  - lesson-earth-science-astronomy-big-bang-model
+  - lesson-earth-science-astronomy-measuring-galaxy-redshift
+  - lesson-earth-science-astronomy-redshift-and-cosmic-expansion
+  - lesson-earth-science-astronomy-cosmic-microwave-background
+  - lesson-earth-science-astronomy-light-elements-and-the-big-bang
+  - lesson-earth-science-astronomy-solar-system-nebular-model
+  - lesson-earth-science-astronomy-evidence-for-a-solar-disk
 ---
 ## Core Concept
 

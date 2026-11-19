@@ -6,6 +6,17 @@ subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-earth-science-astronomy-minerals-versus-rocks
+  - lesson-earth-science-astronomy-mineral-hardness-and-streak
+  - lesson-earth-science-astronomy-mineral-luster-and-breakage
+  - lesson-earth-science-astronomy-weathering-erosion-and-deposition
+  - lesson-earth-science-astronomy-sedimentary-rock-formation
+  - lesson-earth-science-astronomy-igneous-rock-texture
+  - lesson-earth-science-astronomy-variables-in-a-cooling-test
+  - lesson-earth-science-astronomy-metamorphic-rock-formation
+  - lesson-earth-science-astronomy-rock-cycle-pathways
 ---
 ## Core Concept
 
