@@ -202,3 +202,17 @@ until Fable rules or the manager relays another route. Work that does not depend
    saying Pantas is for ages 13 and up for now.
 10. Teen guardian form prefill (`onboarding_guardian_step.dart:41-56`) breaks rule 4d. Proposal: fix
     here, in the switching task.
+
+## Decision 10: Aedwon accepts the Decision 9 proposals and the open items (Nov 19)
+
+Relayed by the manager. Aedwon, verbatim: "Accept all". The four items he answered:
+
+1. Fable has no usage credits. The ten Decision 9 proposals are accepted as rulings, including a
+   separate on-device store per child. A Codex Sol High review of the switching fix and the code-gate
+   paths runs after the Nov 22 reset through `codex-pick`. The manager wrote "GPT 6.2 Sol High"; the
+   standing model list names GPT 6.1 Sol (`gpt-6.1-sol`), which the lead uses unless told otherwise.
+2. Boards: Aedwon will share artifact PqxcZvKQheCogaXH6LidPM with this account. Server work goes
+   first. Screen work waits until the lead can open the artifact.
+3. Mail: no extra capacity is bought now. The lead reports if the daily code and receipt mails pass
+   about 60.
+4. Web trial for children: one trial per parent email (Decision 9 item 2 as proposed).
