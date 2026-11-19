@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 238" width="360" height="238">
+<title>A stool on four feet and on two</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="238" rx="14" fill="url(#bg)"/>
+<polygon points="39,166 120,166 148,147 67,147" fill="url(#shape)" stroke="#050505" stroke-width="2" stroke-linejoin="round"/>
+<line x1="39" y1="98" x2="39" y2="166" fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round"/>
+<line x1="120" y1="98" x2="120" y2="166" fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round"/>
+<line x1="148" y1="79" x2="148" y2="147" fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round"/>
+<line x1="67" y1="79" x2="67" y2="147" fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round"/>
+<polygon points="39,98 120,98 148,79 67,79" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<text x="93" y="202" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Base of support</text>
+<line x1="287" y1="166" x2="315" y2="147" fill="none" stroke="#050505" stroke-width="4" stroke-linecap="round"/>
+<line x1="208" y1="58" x2="215" y2="129" fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round"/>
+<line x1="285" y1="92" x2="287" y2="166" fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round"/>
+<line x1="313" y1="73" x2="315" y2="147" fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round"/>
+<line x1="236" y1="39" x2="243" y2="110" fill="none" stroke="#020202" stroke-width="3" stroke-linecap="round"/>
+<polygon points="208,58 285,92 313,73 236,39" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="301" cy="104" r="3.5" fill="#050505" stroke="none" stroke-width="2"/>
+<line x1="301" y1="110" x2="301" y2="150.5" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="301,156.5 305,147.5 297,147.5" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<text x="270" y="202" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Weight line</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 278" width="360" height="278">
+<title>Pipe narrowing and then rising</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="278" rx="14" fill="url(#bg)"/>
+<path d="M23 179 H99 L143 189.6 H230 Q250.6 189.6 250.6 169 V90 Q250.6 61.6 280 61.6 H334 V90.4 H285 Q279.4 90.4 279.4 98 V172 Q279.4 218.4 234 218.4 H143 L99 229 H23 Z" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<line x1="41" y1="204" x2="79" y2="204" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="85,204 76,200 76,208" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<line x1="147" y1="204" x2="186" y2="204" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="192,204 183,200 183,208" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<line x1="265" y1="151" x2="265" y2="117" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="265,111 261,120 269,120" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<text x="63" y="165" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">2 m/s</tspan></text>
+<text x="165" y="178" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">6 m/s</tspan></text>
+<text x="114" y="255" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">?</tspan></text>
+<text x="267" y="245" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">?</tspan></text>
+<line x1="320" y1="76" x2="320" y2="204" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="316" y1="76" x2="324" y2="76" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="316" y1="204" x2="324" y2="204" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="311" y="146" fill="#010101" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">5 m</tspan></text>
+<line x1="282" y1="204" x2="320" y2="204" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4"/>
+</svg>

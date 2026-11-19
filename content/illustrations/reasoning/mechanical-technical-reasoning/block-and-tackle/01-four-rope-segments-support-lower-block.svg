@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 296" width="360" height="296">
+<title>Four rope segments support the lower block</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="296" rx="14" fill="url(#bg)"/>
+<rect x="54" y="31" width="205" height="9" rx="3" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<rect x="89" y="193" width="123" height="9" rx="3" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<line x1="84" y1="40" x2="84" y2="74" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<circle cx="84" cy="74" r="20" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<line x1="164" y1="40" x2="164" y2="74" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<circle cx="164" cy="74" r="20" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<line x1="124" y1="162" x2="124" y2="193" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<circle cx="124" cy="162" r="20" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<line x1="204" y1="162" x2="204" y2="193" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<circle cx="204" cy="162" r="20" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<path d="M224 40 V162 A20 20 0 0 1 184 162 V74 A20 20 0 0 0 144 74 V162 A20 20 0 0 1 104 162 V74 A20 20 0 0 0 64 74 V175" fill="none" stroke="#010101" stroke-width="2.5" stroke-linejoin="round"/>
+<circle cx="224" cy="40" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<line x1="64" y1="173" x2="64" y2="184" fill="none" stroke="#020202" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="64,190 68,181 60,181" fill="#020202" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<text x="116" y="121" fill="#050505" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">1</tspan></text>
+<text x="156" y="121" fill="#050505" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">2</tspan></text>
+<text x="196" y="121" fill="#050505" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">3</tspan></text>
+<text x="236" y="121" fill="#050505" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">4</tspan></text>
+<text x="22" y="204" fill="#020202" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600">not counted</text>
+<line x1="150" y1="202" x2="150" y2="222" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<rect x="103" y="222" width="94" height="43" rx="6" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<text x="150" y="249" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">1600 N</tspan></text>
+</svg>

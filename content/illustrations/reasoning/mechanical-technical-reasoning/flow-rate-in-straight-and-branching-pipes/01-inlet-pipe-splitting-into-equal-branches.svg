@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 245" width="360" height="245">
+<title>One inlet feeding two identical branches</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="245" rx="14" fill="url(#bg)"/>
+<path d="M22 98 H125 Q153 98 173 67 Q190 42 225 42 H334 V66 H225 Q203 66 185 97 Q177 110 159 117 Q177 124 185 137 Q203 168 225 168 H334 V192 H225 Q190 192 173 167 Q153 136 125 136 H22 Z" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<line x1="49" y1="117" x2="108" y2="117" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="114,117 105,113 105,121" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<line x1="234" y1="54" x2="283" y2="54" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="289,54 280,50 280,58" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<line x1="234" y1="180" x2="283" y2="180" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="289,180 280,176 280,184" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<text x="80" y="83" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">10 cm²</tspan></text>
+<text x="80" y="160" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">2 m/s</tspan></text>
+<text x="278" y="32" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">4 cm²</tspan></text>
+<text x="310" y="59" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">?</tspan></text>
+<text x="278" y="218" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">4 cm²</tspan></text>
+<text x="310" y="185" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">?</tspan></text>
+</svg>

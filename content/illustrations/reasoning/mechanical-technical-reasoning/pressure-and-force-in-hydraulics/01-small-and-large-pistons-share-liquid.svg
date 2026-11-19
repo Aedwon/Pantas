@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 248" width="360" height="248">
+<title>Two pistons on a shared hydraulic chamber</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="248" rx="14" fill="url(#bg)"/>
+<path d="M62 116 V195 H287 V116 H153 V165 H92 V116 Z" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<path d="M62 68 V116 M92 68 V116 M153 68 V116 M287 68 V116" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect x="62" y="108" width="30" height="8" rx="0" fill="#010101" stroke="none" stroke-width="2"/>
+<rect x="153" y="108" width="134" height="8" rx="0" fill="#010101" stroke="none" stroke-width="2"/>
+<line x1="77" y1="54" x2="77" y2="95" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="77,101 81,92 73,92" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<line x1="220" y1="100" x2="220" y2="61" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="220,55 216,64 224,64" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<text x="77" y="42" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">50 N</tspan></text>
+<text x="220" y="45" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">?</tspan></text>
+<text x="77" y="144" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">10 cm²</tspan></text>
+<text x="220" y="144" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">200 cm²</tspan></text>
+</svg>

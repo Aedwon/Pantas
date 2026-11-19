@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 386" width="360" height="386">
+<title>First, second, and third class levers</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="386" rx="14" fill="url(#bg)"/>
+<text x="180" y="36" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="600">First class</text>
+<rect x="52" y="79" width="256" height="7" rx="3" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<polygon points="180,86 166,109 194,109" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<line x1="67" y1="55" x2="67" y2="71" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="67,77 71,68 63,68" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<line x1="293" y1="55" x2="293" y2="71" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="293,77 297,68 289,68" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<text x="67" y="134" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Effort</text>
+<text x="293" y="107" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Load</text>
+<text x="180" y="132" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Fulcrum</text>
+<text x="180" y="152" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="600">Second class</text>
+<rect x="52" y="195" width="256" height="7" rx="3" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<polygon points="67,202 53,225 81,225" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<line x1="293" y1="235" x2="293" y2="210" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="293,204 289,213 297,213" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<line x1="180" y1="171" x2="180" y2="187" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="180,193 184,184 176,184" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<text x="293" y="250" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Effort</text>
+<text x="180" y="223" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Load</text>
+<text x="67" y="248" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Fulcrum</text>
+<text x="180" y="268" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="600">Third class</text>
+<rect x="52" y="311" width="256" height="7" rx="3" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<polygon points="67,318 53,341 81,341" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<line x1="180" y1="351" x2="180" y2="326" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="180,320 176,329 184,329" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<line x1="293" y1="287" x2="293" y2="303" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="293,309 297,300 289,300" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<text x="180" y="366" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Effort</text>
+<text x="293" y="339" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Load</text>
+<text x="67" y="364" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Fulcrum</text>
+</svg>

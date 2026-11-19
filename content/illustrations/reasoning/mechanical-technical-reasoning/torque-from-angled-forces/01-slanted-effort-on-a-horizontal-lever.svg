@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 249" width="360" height="249">
+<title>A load and a force angled at 30 degrees</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="249" rx="14" fill="url(#bg)"/>
+<rect x="24" y="141" width="312" height="7" rx="3" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<polygon points="112,148 95,174 129,174" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<line x1="62" y1="74" x2="62" y2="135" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="62,141 66,132 58,132" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<line x1="226" y1="91.3" x2="306.8" y2="138" fill="none" stroke="#050505" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="312,141 306.2,133 302.2,140" fill="#050505" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<path d="M275 141 A37 37 0 0 1 280 122.5" fill="none" stroke="#050505" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="248" y="128" fill="#050505" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">30°</tspan></text>
+<text x="215" y="91" fill="#050505" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Math, serif" font-weight="400">F</tspan></text>
+<text x="62" y="59" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">600 N</tspan></text>
+<line x1="62" y1="193" x2="112" y2="193" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="62" y1="189" x2="62" y2="197" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="112" y1="189" x2="112" y2="197" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="112" y1="193" x2="312" y2="193" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="112" y1="189" x2="112" y2="197" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="312" y1="189" x2="312" y2="197" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<text x="87" y="217" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">0.5 m</tspan></text>
+<text x="212" y="217" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">2 m</tspan></text>
+</svg>
