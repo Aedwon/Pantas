@@ -510,3 +510,28 @@ questions:
           This leaves the minute sum on the clock. Eighty-five is the direct sum of forty-eight and thirty-seven. Check that sixty of those minutes make another hour.
     explanation: |
       Change the start to 23:48 Thursday. Add the minutes: $48+37=85$, or $1$ hour $25$ minutes. Add the hours: $23+2+1=26$. Subtract $24$ and move to Friday. The timer stops at 02:25 Friday.
+
+  - id: q-arithmetic-number-sense-clock-time-and-time-differences-0021
+    lesson: lesson-arithmetic-number-sense-elapsed-time-across-midnight
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A station log shows that a power outage began at 21:48 on Friday and ended at 03:16 on Saturday. How long did the outage last?
+    choices:
+      - text: '5 h 28 min'
+        correct: true
+      - text: '6 h 28 min'
+        rationale: |
+          The minute difference is right after borrowing. But borrowing uses up one hour. Cross out the old hour before you subtract.
+      - text: '6 h 32 min'
+        rationale: |
+          The hour labels are six hours apart. Taking $16$ from $48$ gives a positive minute count, but the end time has fewer minutes. Borrow an hour before subtracting.
+      - text: '18 h 32 min'
+        rationale: |
+          Subtracting 03:16 from 21:48 gives this time gap if both times are on the same day. Check the dates first. Add $24$ hours to Saturday's time for the subtraction.
+      - text: '3 h 16 min'
+        rationale: |
+          This counts the time from midnight to 03:16. That is only the Saturday part. Check how much time passed before midnight too.
+    explanation: |
+      The end is on Saturday, so add $24$ hours to 03:16. Use $27$ hours $16$ minutes for the end. Trade one hour for $60$ minutes to get $26$ hours $76$ minutes. Subtract $21$ hours $48$ minutes. The outage lasted $5$ hours $28$ minutes.
