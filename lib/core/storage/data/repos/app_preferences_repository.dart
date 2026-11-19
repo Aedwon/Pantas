@@ -58,6 +58,7 @@ class AppPreferencesRepository {
   }
 
   Future<bool> hasPassedAgeGate() async {
+    if (await needsGuardianSetup()) return false;
     final row = await (_db.select(_db.devicePrefs)
           ..where((p) => p.key.equals(_passedAgeGateKey)))
         .getSingleOrNull();
@@ -112,6 +113,15 @@ class AppPreferencesRepository {
   Future<int?> blockedMinimumAge() async {
     final raw = await _deviceValue('age_blocked_minimum');
     return raw == null ? null : int.tryParse(raw);
+  }
+
+  /// Existing under-13 blocks now lead to guardian setup.
+  Future<bool> needsGuardianSetup() async => await blockedMinimumAge() != null;
+
+  Future<void> clearGuardianSetup() async {
+    await (_db.delete(_db.devicePrefs)
+          ..where((row) => row.key.equals('age_blocked_minimum')))
+        .go();
   }
 
   Future<void> setBlockedMinimumAge(int minimumAge) =>

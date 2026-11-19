@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
-import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
@@ -34,29 +33,6 @@ class _OnboardingGuardianStepState
   /// The server refused because too many links went to this address or from
   /// this student. A retry now fails the same way, so the line says so.
   bool _rateLimited = false;
-
-  @override
-  void initState() {
-    super.initState();
-    unawaited(_restore());
-  }
-
-  /// Change Email starts from what the student typed before.
-  Future<void> _restore() async {
-    try {
-      final contact =
-          await ref.read(appPreferencesRepositoryProvider).guardianContact();
-      if (contact == null || !mounted) return;
-      if (_name.text.isEmpty && _email.text.isEmpty) {
-        setState(() {
-          _name.text = contact.name;
-          _email.text = contact.email;
-        });
-      }
-    } on Object catch (error, stack) {
-      unawaited(ref.read(telemetryProvider).recordError(error, stack));
-    }
-  }
 
   @override
   void dispose() {

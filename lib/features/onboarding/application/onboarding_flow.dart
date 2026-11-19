@@ -57,7 +57,7 @@ class OnboardingProgress {
     this.nameAnswered = false,
     this.remindersShown = false,
     this.minorAwaitingGuardian = false,
-    this.ageBlocked = false,
+    this.needsGuardianSetup = false,
   });
 
   final bool agePassed;
@@ -71,11 +71,11 @@ class OnboardingProgress {
   /// Under 18, with the age gate not yet passed: a guardian has to agree.
   final bool minorAwaitingGuardian;
 
-  /// Blocked for being under the minimum age. The block lasts.
-  final bool ageBlocked;
+  /// The device recorded an age under 13 and needs guardian setup.
+  final bool needsGuardianSetup;
 
   OnboardingStep get resumeStep {
-    if (ageBlocked) return OnboardingStep.age;
+    if (needsGuardianSetup) return OnboardingStep.age;
     if (!agePassed) {
       return minorAwaitingGuardian
           ? OnboardingStep.guardian
@@ -90,6 +90,7 @@ class OnboardingProgress {
   }
 
   bool get complete =>
+      !needsGuardianSetup &&
       agePassed &&
       policyAccepted &&
       examPicked &&
@@ -165,7 +166,7 @@ final onboardingProgressProvider =
     agePassed: await ref.watch(passedAgeGateProvider.future),
     minorAwaitingGuardian:
         (await preferences.readAgeGroup()).entersTeenGuardianFlow,
-    ageBlocked: await preferences.blockedMinimumAge() != null,
+    needsGuardianSetup: await preferences.needsGuardianSetup(),
     policyAccepted: settings.acceptedTermsAt != null,
     examPicked: await preferences.selectedExamId() != null,
     dateAnswered: settings.examDate != null ||

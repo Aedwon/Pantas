@@ -28,6 +28,16 @@ class FirebaseAuthGateway
     return changes.map(_sessionFromUser);
   }
 
+  void discardPendingGoogleCredential() => _pendingGoogleCredential = null;
+
+  Future<String?> ageGroupClaim(String uid) async {
+    final user = _auth.currentUser;
+    if (user == null || user.uid != uid) return null;
+    final token = await user.getIdTokenResult();
+    final group = token.claims?['ageGroup'];
+    return group is String ? group : null;
+  }
+
   @override
   Future<AuthSession> signInAnonymously() async {
     try {

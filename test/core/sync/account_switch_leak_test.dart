@@ -10,6 +10,7 @@ import 'dart:convert';
 import 'package:drift/drift.dart' show Value;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/app/account_device_state.dart';
 import 'package:pantas/app/sync_runtime_bootstrap.dart';
 import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/content/content.dart';
@@ -35,6 +36,180 @@ const _accountB = 'user-b';
 const _aRowIds = ['a-attempt-1', 'a-question-1', 'a-review-1'];
 
 void main() {
+  test('sign-in restores the server age group for the current account',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final device = AccountDeviceState(
+      shared: db,
+      openChild: (_) => throw StateError('Unexpected child'),
+      activate: (_) async {},
+    );
+    final auth = _FakeAuth();
+    final repository = AuthRepository(
+      gateway: auth,
+      readAgeGroup: (session) async =>
+          session.uid == _accountA ? 'adult' : 'minor',
+      restoreDeviceState: device.restore,
+    );
+    final prefs = AppPreferencesRepository(db);
+    auth.session = const AuthSession(uid: _accountA, isAnonymous: true);
+    await repository.authState.first;
+    expect(await prefs.readAgeGroup(), AgeGroup.unset);
+
+    auth.session = const AuthSession(uid: _accountA);
+    await repository.authState.first;
+    expect(await prefs.readAgeGroup(), AgeGroup.adult);
+    expect(await prefs.hasPassedAgeGate(), isTrue);
+    await prefs.setSelectedExamId('exam-cse');
+    await prefs.setAgeCheckNoticeVersion('previous-notice');
+    await prefs.setGuardianContact(
+      name: 'Previous contact',
+      email: 'previous@example.com',
+    );
+
+    auth.session = const AuthSession(uid: _accountB);
+    await repository.authState.first;
+    expect(await prefs.readAgeGroup(), AgeGroup.minor);
+    expect(await prefs.hasPassedAgeGate(), isFalse);
+    expect(await prefs.selectedExamId(), isNull);
+    expect(await prefs.ageCheckNoticeVersion(), isNull);
+    expect(await prefs.guardianContact(), isNull);
+  });
+
+  test('holder and Free and Pro siblings keep separate local records',
+      () async {
+    final h = await _Harness.open();
+    addTearDown(h.close);
+    final stores = <String, AppDatabase>{};
+    addTearDown(() async {
+      for (final db in stores.values) {
+        await db.close();
+      }
+    });
+    var db = h.db;
+    final device = AccountDeviceState(
+      shared: h.db,
+      openChild: (uid) async => stores.putIfAbsent(uid, inMemoryDatabase),
+      activate: (database) async => db = database,
+    );
+    final auth = h.auth;
+    final repository = AuthRepository(
+      gateway: auth,
+      functionsGateway: const _Functions(),
+      customTokenGateway: auth,
+      readAgeGroup: (session) async =>
+          session.uid.startsWith('child-') ? 'child' : null,
+      restoreDeviceState: device.restore,
+      childAccounts: const _Children(),
+      activeStateWiper: () => SyncLocalStateWiper(db),
+    );
+
+    auth.session = const AuthSession(
+      uid: 'holder',
+      email: 'holder@example.com',
+    );
+    await AppPreferencesRepository(db).setGuardianContact(
+      name: 'Holder',
+      email: 'holder@example.com',
+    );
+    Future<void> open(String uid) async {
+      expect(
+        await repository.openChildSession(uid),
+        const SignInResult.switchedToExisting(),
+      );
+      await repository.authState.first;
+      expect(auth.session?.uid, uid);
+      expect(auth.session?.email, isNull);
+      final prefs = AppPreferencesRepository(db);
+      expect(await prefs.readAgeGroup(), AgeGroup.child);
+      expect(await prefs.hasPassedAgeGate(), isTrue);
+      expect(await prefs.guardianContact(), isNull);
+    }
+
+    Future<void> expectAttempts(List<String> ids) async {
+      final rows = await db.select(db.attemptsLocal).get();
+      expect(rows.map((row) => row.id), unorderedEquals(ids));
+    }
+
+    Future<void> seedPending(String id) async {
+      await db.into(db.attemptsLocal).insert(
+            AttemptsLocalCompanion.insert(
+              id: id,
+              examId: 'cse',
+              startedAt: DateTime.utc(2026, 11, 18),
+              itemsJson: '[]',
+            ),
+          );
+      await db.into(db.pendingSync).insert(
+            PendingSyncCompanion.insert(
+              tableType: 'attempts',
+              rowId: id,
+              op: 'upsert',
+              queuedAt: DateTime.utc(2026, 11, 18),
+            ),
+          );
+    }
+
+    await open('child-free');
+    expect(await AppPreferencesRepository(h.db).guardianContact(), isNull);
+    await seedPending('free-attempt');
+    await AppPreferencesRepository(db).setSelectedExamId('exam_pshs_nce');
+
+    await open('child-pro');
+    await expectAttempts([]);
+    expect(await AppPreferencesRepository(db).selectedExamId(), isNull);
+    final proContainer = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(h.contentDb),
+      ],
+    );
+    addTearDown(proContainer.dispose);
+    final proRuntime = await buildConfiguredSyncRuntime(
+      proContainer,
+      firestoreGateway: h.cloud,
+      functionsGateway: FakeSyncFunctionsGateway(),
+      claimGateway: const _AllowClaims(),
+      deviceId: 'pro-child-device',
+    );
+    addTearDown(() => proRuntime.quiesce(flush: false));
+    await seedPending('pro-attempt');
+
+    await open('child-free');
+    await expectAttempts(['free-attempt']);
+    expect(
+      await AppPreferencesRepository(db).selectedExamId(),
+      'exam_pshs_nce',
+    );
+    expect(
+      (await db.select(db.pendingSync).get()).single.rowId,
+      'free-attempt',
+    );
+
+    await repository.signOut();
+    await repository.authState.first;
+    expect(auth.session?.isAnonymous, isTrue);
+    auth.session = const AuthSession(uid: 'holder');
+    await open('child-free');
+    await expectAttempts(['free-attempt']);
+    expect(
+      (await db.select(db.pendingSync).get()).single.rowId,
+      'free-attempt',
+    );
+
+    await open('child-pro');
+    await expectAttempts(['pro-attempt']);
+    expect((await db.select(db.pendingSync).get()).single.rowId, 'pro-attempt');
+    await proRuntime.update(
+      identity: const SyncIdentity(uid: 'child-pro'),
+      entitlement: SyncEntitlement.pro,
+    );
+    expect(h.paths('child-pro'), anyElement(endsWith('/pro-attempt')));
+    expect(h.paths('child-pro'), isNot(anyElement(endsWith('/free-attempt'))));
+    expect(h.paths('child-free'), isEmpty);
+  });
+
   test(
       'signing out of A and signing in as B uploads nothing of A to B '
       '(the Sign Out button path)', () async {
@@ -526,4 +701,19 @@ class _AllowClaims implements SyncClaimGateway {
     bool force = true,
   }) async =>
       true;
+}
+
+class _Children implements ChildAccountsGateway {
+  const _Children();
+
+  @override
+  Future<ChildList> listChildren() async =>
+      (children: const <LinkedChild>[], maskedHolderEmail: null);
+
+  @override
+  Future<String> openChildSession(
+    String childId, {
+    String? guardianProofId,
+  }) async =>
+      _tokenFor(childId);
 }

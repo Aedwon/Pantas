@@ -33,6 +33,8 @@ final appDatabaseProvider = Provider<AppDatabase>(
   ),
 );
 
+final activeChildDatabaseProvider = StateProvider<AppDatabase?>((ref) => null);
+
 final contentRepositoryProvider = Provider<ContentRepository>(
   (ref) => ContentRepository(
     ref.watch(contentDatabaseProvider),
@@ -65,7 +67,11 @@ final appPreferencesRepositoryProvider = Provider<AppPreferencesRepository>(
 /// Call from main bootstrap.
 Future<List<Override>> bootstrapStorageOverrides() async {
   final db = await openEncryptedDatabase();
-  return [appDatabaseProvider.overrideWithValue(db)];
+  return [
+    appDatabaseProvider.overrideWith(
+      (ref) => ref.watch(activeChildDatabaseProvider) ?? db,
+    ),
+  ];
 }
 
 final examListProvider = FutureProvider<List<Exam>>((ref) async {
