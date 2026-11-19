@@ -571,6 +571,7 @@ test('an idle linked child is warned at the holder\'s email, not deleted without
   assert.deepEqual(first.auth.deleted, []);
   assert.equal(first.box.sent.length, 1);
   assert.equal(first.box.sent[0].to, 'parent@mail.com');
+  assert.match(first.box.sent[0].text, /Open Pantas as Kid to keep Kid's progress[.]/);
   assert.deepEqual((await inactivity('in-kid').get()).data(), {warnedAt: NOW});
   const second = await run([holder, user('in-kid', {days: 800})]);
   assert.equal(second.box.sent.length, 0, 'warned already');

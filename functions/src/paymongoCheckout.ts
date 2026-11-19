@@ -2,9 +2,10 @@ import {randomUUID, createHash} from 'node:crypto';
 import {getFirestore, type DocumentReference, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {onAccountCall as onCall} from './_accountAccess.js';
+import {assertAccountActive, onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
+import {holderForChild} from './childLinks.js';
 import {isRestrictedAgeGroup} from './ageGroup.js';
 import {paymentSecrets, secret} from './_secrets.js';
 import {GUARDIAN_DOCUMENT_VERSIONS} from './guardianConsent.js';
@@ -15,6 +16,9 @@ import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
 import {priceCentavos, webProduct} from './paymongoPolicy.js';
 import {examCatalog, sittingFor, type CatalogExam, type Sitting} from './revenuecatPasses.js';
 import {timed} from './_timed.js';
+
+export const CHECKOUT_BOX_TEXT_VERSION = '2026-11-19'; // T11 synchronizes the published text.
+const PSHS_NCE_EXAM = 'exam_pshs_nce';
 
 const CHECKOUTS_PER_WINDOW = 10;
 const WINDOW_MS = 10 * 60_000;
@@ -34,18 +38,21 @@ const NAMES: Record<string, string> = {
 };
 
 export type CheckoutDeps = {client: PaymongoClient; db: Firestore; origin: string; methods: string[];
-  allow?: (uid: string) => Promise<boolean>; catalog?: CatalogExam[]; now?: () => number};
+  allow?: (uid: string) => Promise<boolean>; catalog?: CatalogExam[]; now?: () => number;
+  productFor?: typeof webProduct};
 
-/**
- * An account the server knows as a minor or child (or with an unreadable age group) can only buy with a parent or guardian's confirmation
- * of the current Terms. The device's age group only drives the screen; this check is the control.
- * Returns what to record on the checkout (nothing for an adult). Runs before any reservation write.
- */
-async function guardianAttestation(db: Firestore, uid: string, data: unknown, now: number):
-  Promise<{attestedAt?: number; termsVersion?: string}> {
-  const consent = (await db.doc(`users/${uid}/server/guardianConsent`).get()).data();
-  // No record means the server never learned an age: an adult. A record with any group but adult is restricted.
-  if (!consent || !isRestrictedAgeGroup(consent.ageGroup)) return {};
+// PSHS requires its own declaration. Other products keep the existing guardian Terms check.
+function guardianAttestation(restricted: boolean, pshs: boolean, data: unknown, now: number):
+  {attestedAt?: number; termsVersion?: string; checkoutBoxTextVersion?: string} {
+  if (pshs) {
+    const version = (data as {checkoutBoxTextVersion?: unknown} | null)?.checkoutBoxTextVersion;
+    if (version !== CHECKOUT_BOX_TEXT_VERSION) {
+      throw new HttpsError('failed-precondition', 'Confirm the current checkout declaration.',
+        {reason: 'stale-checkout-box'});
+    }
+    return {attestedAt: now, termsVersion: GUARDIAN_DOCUMENT_VERSIONS.terms, checkoutBoxTextVersion: version};
+  }
+  if (!restricted) return {};
   const given = (data as {guardianAttestation?: {termsVersion?: unknown} | null} | null)?.guardianAttestation?.termsVersion;
   if (given !== GUARDIAN_DOCUMENT_VERSIONS.terms) {
     throw new HttpsError('failed-precondition', 'A parent or guardian must confirm this purchase.',
@@ -64,10 +71,28 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
       {reason: 'holder-cannot-buy'});
   }
   const requested = (data as {product?: unknown} | null)?.product;
-  const product = typeof requested === 'string' ? webProduct(requested) : undefined;
+  const product = typeof requested === 'string' ? (deps.productFor ?? webProduct)(requested) : undefined;
+  const consent = (await deps.db.doc(`users/${uid}/server/guardianConsent`).get()).data();
+  const claims = auth?.token as {ageGroup?: unknown; holder?: unknown} | undefined;
+  const child = claims?.ageGroup === 'child' || consent?.ageGroup === 'child';
+  const pshs = product?.examId === PSHS_NCE_EXAM;
+  if (child && !pshs) {
+    throw new HttpsError('permission-denied', 'This account can buy only the PSHS-NCE pass.',
+      {reason: 'child-product'});
+  }
   if (!product) throw new HttpsError('invalid-argument', 'This product is not sold on the web.');
   const now = (deps.now ?? Date.now)();
-  const attestation = await guardianAttestation(deps.db, uid, data, now);
+  const restricted = (consent !== undefined && isRestrictedAgeGroup(consent.ageGroup))
+    || (claims?.ageGroup !== undefined && isRestrictedAgeGroup(claims.ageGroup));
+  const attestation = guardianAttestation(restricted, pshs, data, now);
+  if (child) {
+    const holder = await holderForChild(deps.db, uid);
+    if (!holder || (claims?.ageGroup === 'child' && claims.holder !== holder)) {
+      throw new HttpsError('permission-denied', 'This child account is not linked.', {reason: 'not-linked'});
+    }
+    await assertAccountActive(deps.db, uid);
+    await assertAccountActive(deps.db, holder);
+  }
   const allowed = await (deps.allow ?? (id => allowAtMost(id, 'paymongoCheckout', CHECKOUTS_PER_WINDOW, WINDOW_MS)))(uid);
   if (!allowed) throw new HttpsError('resource-exhausted', 'Too many checkout attempts. Try again later.');
   let sitting: Sitting | undefined;
@@ -106,7 +131,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     if (reserved.state !== 'open') throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
     const remote = await deps.client.getCheckoutSession(reserved.sessionId as string);
     if (remote.status === 'active' && !remote.payments.some(p => p.status === 'paid')) {
-      // A minor's current confirmation must reach the records this session is paid against.
+      // Save the current confirmation on both records for the reused session.
       if (attestation.attestedAt !== undefined) {
         const update = deps.db.batch();
         update.update(deps.db.doc(`paymongoCheckouts/${reserved.sessionId as string}`), attestation);

@@ -629,16 +629,20 @@ const CODE_GATE_PAGE = 200;
 /** Pages per collection per run, so one run is bounded. The hourly job comes back for the rest. */
 const CODE_GATE_PAGES = 10;
 
-/** Deletes code-gate rows whose `purgeAt` has passed. No TTL policy: this existing hourly job does it. */
+/** Deletes expired codes and proofs, plus aged-out rate limits and legacy rows. */
 async function purgeExpiredCodeGateRows(db: Firestore, now: number): Promise<void> {
   for (const name of CODE_GATE_COLLECTIONS) {
     for (let page = 0; page < CODE_GATE_PAGES; page += 1) {
-      const due = await db.collection(name).where('purgeAt', '<=', new Date(now)).limit(CODE_GATE_PAGE).get();
-      if (due.empty) break;
-      const batch = db.batch();
-      for (const row of due.docs) batch.delete(row.ref);
-      await batch.commit();
-      if (due.size < CODE_GATE_PAGE) break;
+      const count = await db.runTransaction(async tx => {
+        const rows = db.collection(name);
+        const due = await tx.get(rows.where('purgeAt', '<=', new Date(now)).limit(CODE_GATE_PAGE));
+        const expired = name === 'guardianCodeLimits' ? null
+          : await tx.get(rows.where('expiresAt', '<=', new Date(now)).limit(CODE_GATE_PAGE));
+        const refs = new Map([...due.docs, ...(expired?.docs ?? [])].map(row => [row.id, row.ref]));
+        for (const ref of refs.values()) tx.delete(ref);
+        return refs.size;
+      });
+      if (count < CODE_GATE_PAGE) break;
     }
   }
 }

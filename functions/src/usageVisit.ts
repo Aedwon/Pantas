@@ -1,6 +1,6 @@
 import {logger} from 'firebase-functions';
 import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
-import {onAccountCall as onCall} from './_accountAccess.js';
+import {onStudyAccountCall as onCall} from './_accountAccess.js';
 import {enforceAppCheck} from './_appCheck.js';
 import {RateLimiter} from './clientTelemetry.js';
 import {SCREEN_IDS} from './_screenIds.js';

@@ -58,6 +58,7 @@ export {getBetaAccess} from './betaAccess.js';
 export {requestSignInCode, verifySignInCode} from './signInCode.js';
 export {requestGuardianCode, verifyGuardianCode} from './guardianCodeGate.js';
 export {listChildren, openChildSession, setChildNickname, setupChildAccount} from './childSetup.js';
+export {deleteChild, setSiblingOpen, withdrawChild} from './childActions.js';
 export {exchangeGoogleSignIn} from './googleSignIn.js';
 
 
