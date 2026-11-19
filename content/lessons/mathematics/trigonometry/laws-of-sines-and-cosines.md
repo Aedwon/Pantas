@@ -6,6 +6,15 @@ subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-trigonometry-choosing-a-triangle-law
+  - lesson-trigonometry-law-of-sines-with-two-angles
+  - lesson-trigonometry-law-of-sines-surveys
+  - lesson-trigonometry-law-of-cosines-for-sides
+  - lesson-trigonometry-law-of-cosines-for-angles
+  - lesson-trigonometry-ambiguous-triangles-from-sine
+  - lesson-trigonometry-counting-ssa-triangles
 ---
 ## Core Concept
 

@@ -1,0 +1,537 @@
+{
+  "outline": [
+    {
+      "original": "lesson-trigonometry-angles-and-radian-measure",
+      "parts": [
+        {
+          "slug": "converting-degrees-and-radians",
+          "title": "Converting Degrees and Radians"
+        },
+        {
+          "slug": "finding-coterminal-angles",
+          "title": "Finding Coterminal Angles"
+        },
+        {
+          "slug": "arc-length-with-radians",
+          "title": "Arc Length With Radians"
+        }
+      ]
+    },
+    {
+      "original": "lesson-trigonometry-basic-trigonometric-ratios",
+      "parts": [
+        {
+          "slug": "reading-right-triangle-ratios",
+          "title": "Reading Right Triangle Ratios"
+        },
+        {
+          "slug": "finding-ratios-from-a-known-ratio",
+          "title": "Finding Ratios From a Known Ratio"
+        },
+        {
+          "slug": "flipping-trigonometric-ratios",
+          "title": "Flipping Trigonometric Ratios"
+        },
+        {
+          "slug": "complementary-angle-ratios",
+          "title": "Complementary Angle Ratios"
+        },
+        {
+          "slug": "special-angle-side-lengths",
+          "title": "Special-Angle Side Lengths"
+        },
+        {
+          "slug": "scaling-right-triangle-sides",
+          "title": "Scaling Right Triangle Sides"
+        }
+      ]
+    },
+    {
+      "original": "lesson-trigonometry-inverse-trigonometric-functions",
+      "parts": [
+        {
+          "slug": "inverse-sine-and-arctangent",
+          "title": "Inverse Sine and Arctangent"
+        },
+        {
+          "slug": "inverse-cosine-and-input-limits",
+          "title": "Inverse Cosine and Input Limits"
+        },
+        {
+          "slug": "composing-trigonometric-functions",
+          "title": "Composing Trigonometric Functions"
+        }
+      ]
+    },
+    {
+      "original": "lesson-trigonometry-laws-of-sines-and-cosines",
+      "parts": [
+        {
+          "slug": "choosing-a-triangle-law",
+          "title": "Choosing a Triangle Law"
+        },
+        {
+          "slug": "law-of-sines-with-two-angles",
+          "title": "Law of Sines With Two Angles"
+        },
+        {
+          "slug": "law-of-sines-surveys",
+          "title": "Law of Sines in Surveys"
+        },
+        {
+          "slug": "law-of-cosines-for-sides",
+          "title": "Law of Cosines for Sides"
+        },
+        {
+          "slug": "law-of-cosines-for-angles",
+          "title": "Law of Cosines for Angles"
+        },
+        {
+          "slug": "ambiguous-triangles-from-sine",
+          "title": "Ambiguous Triangles From Sine"
+        },
+        {
+          "slug": "counting-ssa-triangles",
+          "title": "Counting SSA Triangles"
+        }
+      ]
+    },
+    {
+      "original": "lesson-trigonometry-solving-right-triangles",
+      "parts": [
+        {
+          "slug": "finding-sides-in-right-triangles",
+          "title": "Finding Sides in Right Triangles"
+        },
+        {
+          "slug": "finding-acute-angles",
+          "title": "Finding Acute Angles"
+        },
+        {
+          "slug": "solving-a-whole-right-triangle",
+          "title": "Solving a Whole Right Triangle"
+        },
+        {
+          "slug": "elevation-and-depression",
+          "title": "Elevation and Depression"
+        },
+        {
+          "slug": "adjusting-for-eye-height",
+          "title": "Adjusting for Eye Height"
+        },
+        {
+          "slug": "comparing-two-observations",
+          "title": "Comparing Two Observations"
+        }
+      ]
+    },
+    {
+      "original": "lesson-trigonometry-trigonometric-identities",
+      "parts": [
+        {
+          "slug": "reciprocal-and-quotient-identities",
+          "title": "Reciprocal and Quotient Identities"
+        },
+        {
+          "slug": "pythagorean-identity-and-signs",
+          "title": "Pythagorean Identity and Signs"
+        },
+        {
+          "slug": "tangent-and-cotangent-identities",
+          "title": "Tangent and Cotangent Identities"
+        },
+        {
+          "slug": "simplifying-trigonometric-expressions",
+          "title": "Simplifying Trigonometric Expressions"
+        },
+        {
+          "slug": "proving-trigonometric-identities",
+          "title": "Proving Trigonometric Identities"
+        },
+        {
+          "slug": "sum-and-double-angle-identities",
+          "title": "Sum and Double-Angle Identities"
+        }
+      ]
+    },
+    {
+      "original": "lesson-trigonometry-unit-circle",
+      "parts": [
+        {
+          "slug": "unit-circle-coordinates-and-axes",
+          "title": "Unit Circle Coordinates and Axes"
+        },
+        {
+          "slug": "exact-values-in-the-first-quadrant",
+          "title": "Exact Values in the First Quadrant"
+        },
+        {
+          "slug": "reference-angles-and-quadrant-signs",
+          "title": "Reference Angles and Quadrant Signs"
+        },
+        {
+          "slug": "evaluating-signed-trigonometric-values",
+          "title": "Evaluating Signed Trigonometric Values"
+        },
+        {
+          "slug": "terminal-sides-and-coterminal-values",
+          "title": "Terminal Sides and Coterminal Values"
+        },
+        {
+          "slug": "unit-circle-values-in-radians",
+          "title": "Unit Circle Values in Radians"
+        },
+        {
+          "slug": "finding-unit-circle-values-from-one-coordinate",
+          "title": "Finding Unit Circle Values From One Coordinate"
+        },
+        {
+          "slug": "polar-and-rectangular-coordinates",
+          "title": "Polar and Rectangular Coordinates"
+        },
+        {
+          "slug": "reading-trigonometric-graphs",
+          "title": "Reading Trigonometric Graphs"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-trigonometry-converting-degrees-and-radians": [],
+    "lesson-trigonometry-finding-coterminal-angles": [
+      {
+        "lesson": "lesson-trigonometry-converting-degrees-and-radians",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-arc-length-with-radians": [
+      {
+        "lesson": "lesson-trigonometry-finding-coterminal-angles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-reading-right-triangle-ratios": [
+      {
+        "lesson": "lesson-geometry-triangles",
+        "strength": "helpful",
+        "reason": "The ratios rest on right triangles, the Pythagorean theorem, similar triangles and the 45-45-90 and 30-60-90 shapes. This lesson restates each one."
+      }
+    ],
+    "lesson-trigonometry-finding-ratios-from-a-known-ratio": [
+      {
+        "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-flipping-trigonometric-ratios": [
+      {
+        "lesson": "lesson-trigonometry-finding-ratios-from-a-known-ratio",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-complementary-angle-ratios": [
+      {
+        "lesson": "lesson-trigonometry-flipping-trigonometric-ratios",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-special-angle-side-lengths": [
+      {
+        "lesson": "lesson-trigonometry-complementary-angle-ratios",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-algebra-rationalizing-square-root-denominators",
+        "strength": "helpful",
+        "reason": "The special-angle values use square roots and removing a root from a denominator. This lesson shows the one multiplication it needs."
+      }
+    ],
+    "lesson-trigonometry-scaling-right-triangle-sides": [
+      {
+        "lesson": "lesson-trigonometry-special-angle-side-lengths",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-inverse-sine-and-arctangent": [],
+    "lesson-trigonometry-inverse-cosine-and-input-limits": [
+      {
+        "lesson": "lesson-trigonometry-inverse-sine-and-arctangent",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-composing-trigonometric-functions": [
+      {
+        "lesson": "lesson-trigonometry-inverse-cosine-and-input-limits",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-choosing-a-triangle-law": [
+      {
+        "lesson": "lesson-geometry-triangles",
+        "strength": "helpful",
+        "reason": "The triangle angle sum, the larger-angle-faces-longer-side fact and the triangle inequality are used throughout. This lesson restates each of them."
+      }
+    ],
+    "lesson-trigonometry-law-of-sines-with-two-angles": [
+      {
+        "lesson": "lesson-trigonometry-choosing-a-triangle-law",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+        "strength": "required",
+        "reason": "Both laws use sine and cosine as ratios of sides and the exact values at 30, 45 and 60 degrees, and this lesson only starts from them. The Basic Trigonometric Ratios lesson defines them."
+      }
+    ],
+    "lesson-trigonometry-law-of-sines-surveys": [
+      {
+        "lesson": "lesson-trigonometry-law-of-sines-with-two-angles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-law-of-cosines-for-sides": [
+      {
+        "lesson": "lesson-trigonometry-law-of-sines-surveys",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-law-of-cosines-for-angles": [
+      {
+        "lesson": "lesson-trigonometry-law-of-cosines-for-sides",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-trigonometry-unit-circle-coordinates-and-axes",
+        "strength": "helpful",
+        "reason": "The sign of the cosine of an obtuse angle follows from the unit circle. This lesson states the 180-degree formulas without the picture."
+      }
+    ],
+    "lesson-trigonometry-ambiguous-triangles-from-sine": [
+      {
+        "lesson": "lesson-trigonometry-law-of-cosines-for-angles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-counting-ssa-triangles": [
+      {
+        "lesson": "lesson-trigonometry-ambiguous-triangles-from-sine",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-finding-sides-in-right-triangles": [
+      {
+        "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+        "strength": "helpful",
+        "reason": "SOH-CAH-TOA and the special-angle values are used from the start. This lesson restates the three ratios and lists the exact values."
+      }
+    ],
+    "lesson-trigonometry-finding-acute-angles": [
+      {
+        "lesson": "lesson-trigonometry-finding-sides-in-right-triangles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-solving-a-whole-right-triangle": [
+      {
+        "lesson": "lesson-trigonometry-finding-acute-angles",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-elevation-and-depression": [
+      {
+        "lesson": "lesson-trigonometry-solving-a-whole-right-triangle",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-adjusting-for-eye-height": [
+      {
+        "lesson": "lesson-trigonometry-elevation-and-depression",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-comparing-two-observations": [
+      {
+        "lesson": "lesson-trigonometry-adjusting-for-eye-height",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-reciprocal-and-quotient-identities": [
+      {
+        "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+        "strength": "required",
+        "reason": "The lesson uses sine, cosine and tangent and the exact values at 30 and 45 degrees (Example 9) without defining them. The Basic Trigonometric Ratios lesson teaches both."
+      }
+    ],
+    "lesson-trigonometry-pythagorean-identity-and-signs": [
+      {
+        "lesson": "lesson-trigonometry-reciprocal-and-quotient-identities",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-trigonometry-unit-circle-coordinates-and-axes",
+        "strength": "helpful",
+        "reason": "Quadrant signs and the point (cos, sin) on the unit circle explain the identities. This lesson summarizes the quadrant signs and names the Unit Circle lesson for the full picture."
+      }
+    ],
+    "lesson-trigonometry-tangent-and-cotangent-identities": [
+      {
+        "lesson": "lesson-trigonometry-pythagorean-identity-and-signs",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-simplifying-trigonometric-expressions": [
+      {
+        "lesson": "lesson-trigonometry-tangent-and-cotangent-identities",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-proving-trigonometric-identities": [
+      {
+        "lesson": "lesson-trigonometry-simplifying-trigonometric-expressions",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-sum-and-double-angle-identities": [
+      {
+        "lesson": "lesson-trigonometry-proving-trigonometric-identities",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-unit-circle-coordinates-and-axes": [
+      {
+        "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+        "strength": "helpful",
+        "reason": "The unit circle extends right-triangle sine and cosine to all angles. This lesson derives the special values itself."
+      }
+    ],
+    "lesson-trigonometry-exact-values-in-the-first-quadrant": [
+      {
+        "lesson": "lesson-trigonometry-unit-circle-coordinates-and-axes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-reference-angles-and-quadrant-signs": [
+      {
+        "lesson": "lesson-trigonometry-exact-values-in-the-first-quadrant",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-evaluating-signed-trigonometric-values": [
+      {
+        "lesson": "lesson-trigonometry-reference-angles-and-quadrant-signs",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-terminal-sides-and-coterminal-values": [
+      {
+        "lesson": "lesson-trigonometry-evaluating-signed-trigonometric-values",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-unit-circle-values-in-radians": [
+      {
+        "lesson": "lesson-trigonometry-terminal-sides-and-coterminal-values",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-trigonometry-converting-degrees-and-radians",
+        "strength": "helpful",
+        "reason": "Radians and degree conversion get a full treatment in the Angles and Radian Measure lesson. This lesson teaches the radian shortcut it needs."
+      }
+    ],
+    "lesson-trigonometry-finding-unit-circle-values-from-one-coordinate": [
+      {
+        "lesson": "lesson-trigonometry-unit-circle-values-in-radians",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-trigonometry-polar-and-rectangular-coordinates": [
+      {
+        "lesson": "lesson-trigonometry-finding-unit-circle-values-from-one-coordinate",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-geometry-coordinate-geometry",
+        "strength": "helpful",
+        "reason": "Polar-to-rectangular conversion uses coordinates and the distance formula. This lesson names the distance formula without deriving it."
+      }
+    ],
+    "lesson-trigonometry-reading-trigonometric-graphs": [
+      {
+        "lesson": "lesson-trigonometry-polar-and-rectangular-coordinates",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-pulleys-and-levers": [
+      {
+        "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+        "strength": "helpful",
+        "reason": "The angled-force section uses sine. This lesson gives the sine definition and the two values it needs."
+      }
+    ],
+    "lesson-mechanical-technical-reasoning-structural-stability": [
+      {
+        "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+        "strength": "helpful",
+        "reason": "The tipping angle uses the tangent. This lesson defines the tangent and the inverse tangent key."
+      }
+    ],
+    "lesson-physics-light-and-optics": [
+      {
+        "lesson": "lesson-physics-waves-and-sound",
+        "strength": "helpful",
+        "reason": "The relation v = f times wavelength comes from the waves lesson. This lesson defines frequency and wavelength before using it."
+      },
+      {
+        "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+        "strength": "helpful",
+        "reason": "Snell's law uses the sine of an angle and its inverse. This lesson explains both for the angles it needs."
+      }
+    ],
+    "lesson-physics-scalars-and-vectors": [
+      {
+        "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+        "strength": "helpful",
+        "reason": "Resolving a vector uses sine, cosine and tangent. This lesson defines all three and gives SOH-CAH-TOA."
+      },
+      {
+        "lesson": "lesson-trigonometry-unit-circle-coordinates-and-axes",
+        "strength": "helpful",
+        "reason": "The unit circle explains the signs of sine and cosine beyond 90 degrees. This lesson works the quadrant signs out itself."
+      }
+    ]
+  }
+}

@@ -6,6 +6,11 @@ subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 11
 isActive: true
+status: retired
+replacedBy:
+  - lesson-trigonometry-inverse-sine-and-arctangent
+  - lesson-trigonometry-inverse-cosine-and-input-limits
+  - lesson-trigonometry-composing-trigonometric-functions
 ---
 ## Core Concept
 

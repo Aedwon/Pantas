@@ -6,6 +6,17 @@ subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-trigonometry-unit-circle-coordinates-and-axes
+  - lesson-trigonometry-exact-values-in-the-first-quadrant
+  - lesson-trigonometry-reference-angles-and-quadrant-signs
+  - lesson-trigonometry-evaluating-signed-trigonometric-values
+  - lesson-trigonometry-terminal-sides-and-coterminal-values
+  - lesson-trigonometry-unit-circle-values-in-radians
+  - lesson-trigonometry-finding-unit-circle-values-from-one-coordinate
+  - lesson-trigonometry-polar-and-rectangular-coordinates
+  - lesson-trigonometry-reading-trigonometric-graphs
 ---
 ## Core Concept
 

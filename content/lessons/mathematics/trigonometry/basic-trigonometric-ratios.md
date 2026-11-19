@@ -6,6 +6,14 @@ subject: "subject-mathematics"
 topic: "topic-trigonometry"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-trigonometry-reading-right-triangle-ratios
+  - lesson-trigonometry-finding-ratios-from-a-known-ratio
+  - lesson-trigonometry-flipping-trigonometric-ratios
+  - lesson-trigonometry-complementary-angle-ratios
+  - lesson-trigonometry-special-angle-side-lengths
+  - lesson-trigonometry-scaling-right-triangle-sides
 ---
 ## Core Concept
 
