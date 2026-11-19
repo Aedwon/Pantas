@@ -5,6 +5,8 @@ meta:
   exams: ["upcat", "dlsucet", "ustet", "dost-sei", "acet"]
 questions:
   - id: q-earth-science-astronomy-plate-tectonics-0001
+    lesson: lesson-earth-science-astronomy-plate-motion-and-seafloor-spreading
+    keyPoint: 1
     type: identify
     difficulty: easy
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0002
+    lesson: lesson-earth-science-astronomy-plate-motion-and-seafloor-spreading
+    keyPoint: 2
     type: identify
     difficulty: medium
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0003
+    lesson: lesson-earth-science-astronomy-plate-motion-and-seafloor-spreading
+    keyPoint: 3
     type: identify
     difficulty: medium
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0004
+    lesson: lesson-earth-science-astronomy-plate-motion-and-seafloor-spreading
+    keyPoint: 2
     type: cause-effect
     difficulty: medium
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0005
+    lesson: lesson-earth-science-astronomy-plate-motion-and-seafloor-spreading
+    keyPoint: 2
     type: classify
     difficulty: hard
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0006
+    lesson: lesson-earth-science-astronomy-plate-boundary-motion
+    keyPoint: 1
     type: identify
     difficulty: medium
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0007
+    lesson: lesson-earth-science-astronomy-plate-boundary-motion
+    keyPoint: 1
     type: identify
     difficulty: medium
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0008
+    lesson: lesson-earth-science-astronomy-plate-boundary-motion
+    keyPoint: 1
     type: identify
     difficulty: medium
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0009
+    lesson: lesson-earth-science-astronomy-faults-and-seismic-waves
+    keyPoint: 1
     type: classify
     difficulty: medium
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0010
+    lesson: lesson-earth-science-astronomy-plate-boundary-motion
+    keyPoint: 2
     type: classify
     difficulty: hard
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0011
+    lesson: lesson-earth-science-astronomy-faults-and-seismic-waves
+    keyPoint: 1
     type: identify
     difficulty: medium
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0012
+    lesson: lesson-earth-science-astronomy-faults-and-seismic-waves
+    keyPoint: 2
     type: identify
     difficulty: medium
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0013
+    lesson: lesson-earth-science-astronomy-faults-and-seismic-waves
+    keyPoint: 2
     type: identify
     difficulty: medium
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0014
+    lesson: lesson-earth-science-astronomy-faults-and-seismic-waves
+    keyPoint: 2
     type: classify
     difficulty: hard
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0015
+    lesson: lesson-earth-science-astronomy-faults-and-seismic-waves
+    keyPoint: 3
     type: cause-effect
     difficulty: medium
     stem: |
@@ -320,6 +350,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0016
+    lesson: lesson-earth-science-astronomy-subduction-and-volcanoes
+    keyPoint: 2
     type: classify
     difficulty: medium
     stem: |
@@ -341,6 +373,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0017
+    lesson: lesson-earth-science-astronomy-subduction-and-volcanoes
+    keyPoint: 2
     type: classify
     difficulty: hard
     stem: |
@@ -362,6 +396,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0018
+    lesson: lesson-earth-science-astronomy-plate-boundary-motion
+    keyPoint: 2
     type: cause-effect
     difficulty: medium
     stem: |
@@ -383,6 +419,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0019
+    lesson: lesson-earth-science-astronomy-faults-and-seismic-waves
+    keyPoint: 2
     type: cause-effect
     difficulty: medium
     stem: |
@@ -404,6 +442,8 @@ questions:
     approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0020
+    lesson: lesson-earth-science-astronomy-plate-boundary-motion
+    keyPoint: 2
     type: predict-outcome
     difficulty: exam
     stem: |

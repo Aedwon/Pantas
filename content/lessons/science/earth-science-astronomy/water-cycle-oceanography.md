@@ -6,6 +6,16 @@ subject: "subject-science"
 topic: "topic-earth-science-astronomy"
 estimatedMinutes: 13
 isActive: true
+status: retired
+replacedBy:
+  - lesson-earth-science-astronomy-evaporation-and-transpiration
+  - lesson-earth-science-astronomy-clouds-and-precipitation
+  - lesson-earth-science-astronomy-infiltration-and-runoff
+  - lesson-earth-science-astronomy-earths-water-reservoirs
+  - lesson-earth-science-astronomy-seawater-density-and-layers
+  - lesson-earth-science-astronomy-ocean-currents-and-heat
+  - lesson-earth-science-astronomy-daily-tide-timing
+  - lesson-earth-science-astronomy-spring-and-neap-tides
 ---
 ## Core Concept
 
