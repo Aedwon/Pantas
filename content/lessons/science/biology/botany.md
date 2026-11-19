@@ -6,6 +6,14 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-plant-tissue-systems
+  - lesson-biology-phloem-sources-and-sinks
+  - lesson-biology-plant-tropisms
+  - lesson-biology-flower-parts
+  - lesson-biology-pollination-and-pollen-tube-growth
+  - lesson-biology-double-fertilization-and-seed-formation
 ---
 ## Core Concept
 

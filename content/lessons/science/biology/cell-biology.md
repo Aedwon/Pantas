@@ -6,6 +6,12 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-organelles-and-protein-secretion
+  - lesson-biology-plant-and-animal-cell-structures
+  - lesson-biology-passive-and-active-cell-transport
+  - lesson-biology-osmosis-and-tonicity
 ---
 ## Core Concept
 

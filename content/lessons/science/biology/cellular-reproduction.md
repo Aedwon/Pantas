@@ -6,6 +6,12 @@ subject: "subject-science"
 topic: "topic-biology"
 estimatedMinutes: 10
 isActive: true
+status: retired
+replacedBy:
+  - lesson-biology-chromosome-sets-and-copies
+  - lesson-biology-cell-cycle-and-cytokinesis
+  - lesson-biology-mitosis-phases-and-results
+  - lesson-biology-counting-chromosomes-through-mitosis
 ---
 ## Core Concept
 
