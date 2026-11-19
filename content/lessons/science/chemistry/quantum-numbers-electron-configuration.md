@@ -44,7 +44,9 @@ This distinction is essential:
 
 So a **$p$ subshell** can contain six electrons, but each of its **three $p$ orbitals** can contain only two.
 
-<!-- FIGURE: {"kind":"chemistry-diagram","type":"orbital-shapes","illustrationKey":"science/chemistry/quantum-numbers-electron-configuration#1","orbitals":[{"label":"s","shape":"sphere","capacity":2,"subshellCapacity":2},{"label":"p","shape":"dumbbell","capacity":2,"subshellCapacity":6},{"label":"d","shape":"often four-lobed","capacity":2,"subshellCapacity":10}]} -->
+The shapes below show one orbital of each type. The maximums on the figure are for whole subshells. Each orbital holds at most two electrons.
+
+<!-- FIGURE: {"kind":"chemistry-diagram","type":"orbital-shapes","illustrationKey":"science/chemistry/quantum-numbers-electron-configuration#1","orbitals":[{"label":"s","shape":"sphere","capacity":2},{"label":"p","shape":"dumbbell","capacity":6},{"label":"d","shape":"four-lobed cloverleaf","capacity":10}]} -->
 
 ### Ground-State Filling Rules
 

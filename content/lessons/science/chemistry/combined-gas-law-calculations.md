@@ -45,6 +45,6 @@ The higher pressure shrinks the gas. The higher temperature expands it a little.
 
 ## Speed Tricks & Shortcuts
 
-In a ratio law, units cancel. You may leave $P$ or $V$ in any unit as long as both states use the same one. The temperature is the exception: it must be in kelvin in every gas law.
+In a ratio law, units cancel. You may leave $P$ or $V$ in any unit as long as both states use the same one. For temperature ratios, use the same absolute scale for both states, such as kelvin or Rankine.
 
 Use the combined law when a fixed amount of gas changes state. Use $PV=nRT$ when you know the amount, or need it. If you need $n$ in two states, apply $PV=nRT$ to each state.
