@@ -29,7 +29,7 @@ This layer is mostly solid rock, not liquid. It flows very slowly, over millions
 
 Alfred Wegener gathered evidence that the continents were once joined and later moved apart. It included matching coastlines, fossils, rocks, and signs of old climates. He could not explain what moved them.
 
-Later, maps and magnetic surveys of the ocean floor gave an explanation. A **mid-ocean ridge** is a long underwater mountain chain. In **seafloor spreading**, magma (melted rock) rises at the ridge, cools into new oceanic crust, and moves away from the ridge on both sides.
+Later, maps and magnetic surveys of the ocean floor gave an explanation. Harry Hess proposed the seafloor spreading model. A **mid-ocean ridge** is a long underwater mountain chain. In **seafloor spreading**, magma (melted rock) rises at the ridge, cools into new oceanic crust, and moves away from the ridge on both sides.
 
 Two clues support this model. The rock gets older farther from the ridge.
 

@@ -23,9 +23,6 @@ Four moments in the orbit have names:
 
 In many places, the hottest and coldest weather come a few weeks after the solstices, because land and sea take time to warm up and cool down.
 
-<!-- ILLUSTRATION: side view of Earth at the June and December solstices, axis tilted $23.4^\circ$ and pointing the same way both times; parallel sunlight rays shown hitting the leaning-toward hemisphere at a steeper angle than the leaning-away hemisphere; labels "Northern summer, Southern winter" and "Northern winter, Southern summer" -->
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"seasonal-tilt-comparison","illustrationKey":"science/earth-science-astronomy/earths-motions#3","earthPositions":2,"axisTiltDegrees":23.5,"northernHemisphereStates":["toward Sun (summer)","away from Sun (winter)"],"sunlightAngles":"different"} -->
-
 ## Examples
 
 ### #1: Why Seasons Are Opposite
@@ -37,3 +34,7 @@ Why can the Northern Hemisphere have summer while the Southern Hemisphere has wi
 2. During part of the orbit, the Northern Hemisphere leans toward the Sun. Away from the equator, it gets more direct sunlight and longer days.
 3. At the same time, the Southern Hemisphere leans away. Away from the equator, it gets less direct sunlight and shorter days.
 4. About six months later, the lean reverses, so the seasons reverse.
+
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"seasonal-tilt-comparison","illustrationKey":"science/earth-science-astronomy/earths-motions#3","earthPositions":2,"axisTiltDegrees":23.5,"northernHemisphereStates":["toward Sun (summer)","away from Sun (winter)"],"sunlightAngles":"different"} -->
+
+<!-- ILLUSTRATION: side view of Earth at the June and December solstices, axis tilted $23.4^\circ$ and pointing the same way both times; parallel sunlight rays shown hitting the leaning-toward hemisphere at a steeper angle than the leaning-away hemisphere; labels "Northern summer, Southern winter" and "Northern winter, Southern summer" -->

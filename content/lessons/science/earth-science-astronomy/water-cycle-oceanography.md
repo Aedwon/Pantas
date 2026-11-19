@@ -33,7 +33,7 @@ Sunlight supplies the heat that powers the upward steps. Gravity pulls water dow
 
 **Condensation**: air that rises usually gets cooler. Cool air cannot hold as much vapor, so the vapor turns back into tiny liquid droplets. The droplets gather on tiny bits of dust or salt in the air, and together they form clouds. Condensation is the opposite of evaporation.
 
-**Precipitation**: cloud droplets are too small to fall. They bump into each other and join until they are heavy enough to drop. Precipitation is any water that falls from clouds.
+**Precipitation**: tiny cloud droplets fall very slowly and usually stay in the cloud. Some rain forms when droplets bump into each other and join into drops big enough to fall out. Precipitation is any water that falls from clouds.
 
 - Rain is liquid drops.
 - Snow is ice crystals.
@@ -60,9 +60,9 @@ About $2.5\%$ of Earth's water is fresh water, according to the US Geological Su
 
 ### Ocean water and its layers
 
-Ocean water is **saline**, which means salty. Seawater has about $35$ grams of dissolved salt in every $1000$ grams of water. The saltiness changes a little from place to place.
+Ocean water is **saline**, which means salty. Seawater has about $35$ grams of dissolved salt in every $1000$ grams of seawater. The saltiness changes a little from place to place.
 
-**Density** is how much mass fits in a given space. A denser liquid sinks below a less dense one. For seawater, cold water is denser than warm water. Fresh water is different: it is densest at about $4\,^\circ\text{C}$ and gets slightly less dense as it cools toward freezing. Ice floats for a separate reason: solid ice is less dense than liquid water. Salty water is denser than less salty water.
+**Density** is how much mass fits in a given space. A denser liquid sinks below a less dense one. At the same saltiness, colder seawater is denser than warmer seawater. Fresh water is different: it is densest at about $4\,^\circ\text{C}$ and gets slightly less dense as it cools toward freezing. Ice floats for a separate reason: solid ice is less dense than liquid water. At the same temperature, saltier seawater is denser.
 
 The ocean forms layers because of density and sunlight. The top layer is warm and lit by the Sun. Sunlight reaches down to about $200$ meters. Below it, in most of the open ocean, the temperature falls fast with depth in a layer called the **thermocline**. Under that, the deep water is cold, dense, and dark.
 
@@ -70,13 +70,13 @@ The ocean forms layers because of density and sunlight. The top layer is warm an
 
 A **current** is a steady flow of ocean water. There are two main kinds.
 
-**Surface currents** are driven mainly by wind. Their paths are bent by the shape of the continents and by the **Coriolis effect**. This is the turning of moving water and air caused by Earth's spin. It bends them to the right in the Northern Hemisphere and to the left in the Southern Hemisphere. The result is huge loops of current called **gyres**. Gyres turn clockwise in the Northern Hemisphere and counterclockwise in the Southern Hemisphere.
+**Surface currents** are driven mainly by wind. Their paths are bent by the shape of the continents and by the **Coriolis effect**. This is the turning of moving water and air caused by Earth's spin. It bends them to the right in the Northern Hemisphere and to the left in the Southern Hemisphere. The result is huge loops of current called **gyres**. Subtropical gyres turn clockwise in the Northern Hemisphere and counterclockwise in the Southern Hemisphere.
 
 **Deep currents** are driven by differences in density. Near the poles, surface water gets very cold, and sea ice formation leaves extra salt in the water below. This cold, salty water is dense and sinks. It then spreads slowly along the ocean floor, and other water flows in to replace it.
 
 Currents carry heat. A warm current, such as the Kuroshio that flows north past Taiwan and Japan, carries heat from the tropics toward higher latitudes. A cold current, such as the Humboldt Current off western South America, brings cool water toward the tropics.
 
-<!-- ILLUSTRATION: world map with the North Pacific and North Atlantic gyres drawn as clockwise loops, the South Pacific and South Atlantic gyres as counterclockwise loops, warm currents in red and cold currents in blue, labels Kuroshio and Gulf Stream -->
+<!-- ILLUSTRATION: world map of subtropical gyres with the North Pacific and North Atlantic gyres drawn as clockwise loops, the South Pacific and South Atlantic gyres as counterclockwise loops, warm currents in red and cold currents in blue, labels Kuroshio and Gulf Stream -->
 
 ### Tides
 
@@ -86,19 +86,17 @@ The Moon pulls hardest on the water facing it. Water on the far side is pulled l
 
 Earth spins under the bulges. In most places, each spot passes through two high tides and two low tides a day. Some places get only one of each a day, because the shape of the coast and the sea changes the pattern. The **tidal range** is the difference in water height between high tide and low tide.
 
-The Moon also moves around Earth in the same direction as Earth spins. So a given spot reaches the Moon again after about $24$ hours and $50$ minutes. Two high tides are therefore about $12$ hours and $25$ minutes apart, and each day's tides come about $50$ minutes later than the day before.
+The Moon also moves around Earth in the same direction as Earth spins. So a given spot reaches the Moon again after about $24$ hours and $50$ minutes. In a simple model with two evenly spaced high tides a day, high tides are about $12$ hours and $25$ minutes apart. Each day's tides come about $50$ minutes later. Some coasts have one high tide a day or two uneven tides.
 
 ### Spring tides and neap tides
 
-The Moon's and Sun's pulls add up or partly cancel, depending on where they are.
+The tidal effects of the Moon and Sun can make the tidal range larger or smaller, depending on how they line up.
 
-At **new moon** and **full moon**, the Sun, Earth, and Moon lie nearly in a straight line. The two pulls work together. This gives **spring tides**, with the highest high tides and the lowest low tides, so the tidal range is largest.
+At **new moon** and **full moon**, the Sun, Earth, and Moon lie nearly in a straight line. Their tidal effects line up and make the range larger. This gives **spring tides**, with the highest high tides and the lowest low tides, so the tidal range is largest.
 
-At **first quarter** and **third quarter**, the Moon and Sun pull from directions at a right angle to each other. The pulls partly cancel. This gives **neap tides**, with a smaller tidal range.
+At **first quarter** and **third quarter**, the Moon and Sun pull from directions at a right angle to each other. Their tidal effects partly offset each other. This gives **neap tides**, with a smaller tidal range.
 
 Spring tides have nothing to do with the spring season. Each type happens about twice a month.
-
-<!-- ILLUSTRATION: two top-view diagrams of Sun, Earth, and Moon. Left: Sun, Moon, and Earth in a line (new moon) and Sun, Earth, Moon in a line (full moon), labeled "spring tide: large range". Right: Moon at a right angle to the Sun-Earth line (first quarter), labeled "neap tide: small range" -->
 
 ## Examples
 
@@ -139,7 +137,7 @@ Trace the water from its source to the bag.
 1. The bag covers only leaves, so the water did not come from the soil or from a pond.
 2. The plant took in water through its roots and moved it up to the leaves.
 3. The leaves let out water vapor through tiny pores. This is transpiration.
-4. The vapor cooled against the bag and condensed into drops.
+4. The vapor cooled against the bag and condensed, or changed from vapor into liquid drops.
 
 The answer: the water came from the plant, by transpiration.
 
@@ -153,7 +151,7 @@ Follow the air as it rises.
 1. The mountain forces the moist air upward.
 2. Rising air cools.
 3. Cooler air cannot hold as much water vapor, so the vapor condenses into cloud droplets.
-4. The droplets join into drops that are heavy enough to fall as precipitation.
+4. If enough droplets join into larger drops, those drops can fall out of the cloud as rain.
 
 The answer: rising air cools, vapor condenses, and the drops fall as rain on the slope that faces the wind.
 
@@ -183,9 +181,9 @@ Four water samples are listed. Which sample is the densest and sinks below the o
 **Solution:**
 Use the two things that raise density.
 
-1. Cold seawater is denser than warm seawater, so C and D beat A and B on temperature.
-2. Saltier seawater is denser than less salty seawater, so B and D beat A and C on salt.
-3. Sample D wins on both counts.
+1. B and D are equally salty. D is colder, so it is denser than B.
+2. C and D are equally cold. D is saltier, so it is denser than C.
+3. D is both colder and saltier than A. Both changes make D denser than A.
 
 The answer: D, cold and very salty. This is the kind of water that sinks near the poles and drives the deep currents.
 
@@ -204,7 +202,7 @@ The answer: it carries heat from the tropics toward the pole, and wind is the ma
 
 ### #8: Timing of High Tides
 
-At a coast with two high tides a day, high tide is at $6$ a.m. on Monday. About when is the next high tide, and about when is high tide on Tuesday morning?
+In the simple model with two evenly spaced high tides a day, high tide is at $6$ a.m. on Monday. About when is the next high tide, and about when is high tide on Tuesday morning?
 
 **Solution:**
 Use the spacing of tides.
@@ -218,19 +216,19 @@ The answer: about $6{:}25$ p.m. on Monday and about $6{:}50$ a.m. on Tuesday. Lo
 
 ### #9: Spring or Neap Tide
 
-On what Moon phases do spring tides happen, and on what phases do neap tides happen? Explain the difference in the pull.
-
-<!-- ILLUSTRATION: three top-view sketches of Sun, Earth, and Moon: new moon (Moon between Sun and Earth), full moon (Earth between Sun and Moon), and first quarter (Moon at a right angle to the Sun-Earth line), each labeled spring or neap -->
+On what Moon phases do spring tides happen, and on what phases do neap tides happen? Explain how the tidal effects combine in each case.
 
 **Solution:**
 Place the Sun, Moon, and Earth for each phase.
 
 1. At new moon the Moon is between Earth and the Sun. At full moon Earth is between them. Either way the three are nearly in a line.
-2. In a line, the Moon's pull and the Sun's pull work together, so the tidal range is largest. These are spring tides.
+2. In a line, the Moon's and Sun's tidal effects reinforce each other, so the tidal range is largest. These are spring tides.
 3. At first quarter and third quarter the Moon is at a right angle to the Sun as seen from Earth.
-4. The two pulls then partly cancel, so the tidal range is smaller. These are neap tides.
+4. The two tidal effects then partly offset each other, so the tidal range is smaller. These are neap tides.
 
 The answer: spring tides at new moon and full moon, neap tides at first and third quarter.
+
+<!-- ILLUSTRATION: two top-view diagrams of Sun, Earth, and Moon. Left: Sun, Moon, and Earth in a line (new moon) and Sun, Earth, Moon in a line (full moon), labeled "spring tide: large range". Right: Moon at a right angle to the Sun-Earth line (first quarter), labeled "neap tide: small range" -->
 
 ## Speed Tricks & Shortcuts
 

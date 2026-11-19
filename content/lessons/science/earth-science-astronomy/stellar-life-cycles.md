@@ -25,20 +25,20 @@ What happens next depends mostly on the star's mass, which is the amount of matt
 
 When a star like the Sun runs low on core hydrogen, it swells into a red giant. It then blows off its outer layers as a shell of gas called a planetary nebula, which has nothing to do with planets. The hot core left behind is a white dwarf, which slowly cools and fades.
 
-A star many times the Sun's mass swells into a supergiant. It ends in a huge explosion called a **supernova**. The core that remains is a neutron star, a tiny but very dense ball about $20$ km across, or a black hole.
+A star many times the Sun's mass can swell into a supergiant and then explode in a **supernova**. The core left after the explosion can be a neutron star, a tiny but very dense ball about $20$ km across, or a black hole. Some massive stars collapse into black holes without a bright supernova.
 
 A **black hole** is an object so dense that its gravity is too strong for even light to escape.
-
-<!-- ILLUSTRATION: flow diagram from "nebula" to "protostar" to "main-sequence star", then two branches: "star like the Sun: red giant, planetary nebula, white dwarf" and "star many times the Sun's mass: supergiant, supernova, neutron star or black hole" -->
 
 ## Examples
 
 ### #1: How Will This Star End?
 
-Star X has about the same mass as the Sun. Star Y has many times the mass of the Sun. Compare how the two stars end.
+Star X has about the same mass as the Sun. Star Y has many times the mass of the Sun. Compare a typical ending for each star.
 
 **Solution:**
-1. Mass decides a star's path.
+1. Mass is the main clue to a star’s path.
 2. Star X ends as a red giant, then sheds a planetary nebula and leaves a white dwarf.
-3. Star Y ends as a supergiant, then explodes as a supernova and leaves a neutron star or a black hole.
+3. Star Y can become a supergiant, explode as a supernova, and leave a neutron star or a black hole. Some stars like Y collapse into black holes without a bright explosion.
 4. Star Y also uses its fuel faster, so it lives a shorter time.
+
+<!-- ILLUSTRATION: flow diagram from "nebula" to "protostar" to "main-sequence star", then two branches: "star like the Sun: red giant, planetary nebula, white dwarf" and "common path for a massive star: supergiant, supernova, neutron star or black hole" -->

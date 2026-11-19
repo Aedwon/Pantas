@@ -17,17 +17,13 @@ keyPoints:
 
 An **eclipse** happens when the Sun, Earth, and Moon line up in an almost straight line. Then one body's shadow falls on another body.
 
-A shadow has two parts. The **umbra** is the dark center, where light is fully blocked. The **penumbra** is the lighter outer part, where light is partly blocked.
+Two parts of the shadow matter here. The **umbra** is the dark center, where light is fully blocked. The **penumbra** is the lighter outer part, where light is partly blocked.
 
 A **solar eclipse** happens at new moon. The Moon is between the Sun and Earth. The Moon's shadow falls on a small part of Earth, so only people in that part see the eclipse.
 
 A **lunar eclipse** happens at full moon. Earth is between the Sun and the Moon, and Earth's shadow falls on the Moon.
 
 Anyone on the night side of Earth, where the Moon is above the horizon, can see it.
-
-<!-- ILLUSTRATION: solar eclipse, left to right: Sun, Moon labeled "new moon", Earth; Moon shadow cones labeled "umbra" and "penumbra" reach a small spot on Earth -->
-
-<!-- ILLUSTRATION: lunar eclipse, left to right: Sun, Earth, Moon labeled "full moon"; Earth shadow cones labeled "umbra" and "penumbra" cover the Moon -->
 
 ## Examples
 
@@ -42,6 +38,10 @@ Work out the alignment first.
 2. The Moon's shadow on Earth makes a solar eclipse.
 
 The answer is new moon, solar eclipse.
+
+<!-- ILLUSTRATION: solar eclipse, left to right: Sun, Moon labeled "new moon", Earth; Moon shadow cones labeled "umbra" and "penumbra" reach a small spot on Earth -->
+
+<!-- ILLUSTRATION: lunar eclipse, left to right: Sun, Earth, Moon labeled "full moon"; Earth shadow cones labeled "umbra" and "penumbra" cover the Moon -->
 
 ## Speed Tricks & Shortcuts
 

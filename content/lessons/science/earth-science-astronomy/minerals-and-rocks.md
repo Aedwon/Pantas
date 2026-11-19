@@ -22,13 +22,13 @@ replacedBy:
 
 ### Minerals and Rocks
 
-A **mineral** is a solid that forms in nature, is inorganic, has its atoms arranged in an orderly pattern, and has a definite chemical makeup or a narrow range of makeups. "Inorganic" means it is not made by living things from the carbon compounds of life. Quartz, feldspar, calcite, and olivine are common minerals.
+A **mineral** is a solid that forms in nature, is inorganic, has its atoms arranged in an orderly pattern, and has a definite chemical makeup or a narrow range of makeups. "Inorganic" describes what a substance is made of. Calcite is inorganic, even when an animal makes it to build its shell. Quartz, feldspar, calcite, and olivine are common minerals.
 
 A **rock** is a solid mass made of one or more minerals, or of other natural mineral-like matter, stuck together. Granite holds several minerals. Some rocks are made almost entirely of one mineral, such as quartzite, which is mostly quartz.
 
 Rocks are grouped mainly by how they form. A rock can also contain material that is not a crystal. Obsidian is natural glass with no crystals, so it is a rock but not a mineral.
 
-Coal is a rock made from buried plant remains. It is not a mineral, because it comes from living things.
+Coal is a rock made from buried plant remains. It is rich in organic material from those plants.
 
 ### Identifying Minerals
 
@@ -65,7 +65,7 @@ Erosion cuts away land and makes landforms such as river valleys and canyons. De
 A **crystal** is a piece of mineral with its atoms in an orderly pattern. The **texture** of a rock means the size and arrangement of its grains or crystals. The cooling time controls crystal size. Slow cooling gives crystals more time to grow.
 
 - **Intrusive** igneous rocks cool below the surface. They usually cool slowly, so they often have large crystals you can see. Granite is an example.
-- **Extrusive** igneous rocks cool at or near the surface. Fast cooling usually gives small crystals, as in basalt. Very fast cooling can give natural glass, as in obsidian. Pumice has many holes where gas escaped from the lava.
+- **Extrusive** igneous rocks cool at or near the surface. Fast cooling usually gives small crystals, as in basalt. Very fast cooling can give natural glass, as in obsidian. Pumice has many holes left by gas bubbles that expanded in the lava and kept their shape as it hardened.
 
 Texture shows how fast a rock cooled. Color and mineral makeup show the kind of magma it came from. Granite is usually light in color, and basalt is usually dark.
 
@@ -85,7 +85,7 @@ Squeezing in one direction can line up flat minerals into layers or bands. This 
 
 Shale can change to slate, and with more heat and pressure to schist and gneiss. Limestone changes to marble. Sandstone changes to quartzite.
 
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"rock-cycle","illustrationKey":"science/earth-science-astronomy/minerals-and-rocks#1","stages":["magma","igneous rock","sediment","sedimentary rock","metamorphic rock"],"processes":[{"from":"magma","to":"igneous rock","label":"cooling"},{"from":"igneous rock","to":"sediment","label":"weathering"},{"from":"sediment","to":"sedimentary rock","label":"compacting"},{"from":"any rock","to":"metamorphic rock","label":"heat and pressure"},{"from":"any rock","to":"magma","label":"melting"}]} -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"rock-cycle","illustrationKey":"science/earth-science-astronomy/minerals-and-rocks#1","stages":["magma","igneous rock","sediment","sedimentary rock","metamorphic rock"],"processes":[{"from":"magma","to":"igneous rock","label":"cooling"},{"from":"igneous rock","to":"sediment","label":"weathering and erosion"},{"from":"sediment","to":"sedimentary rock","label":"compaction and cementation"},{"from":"any rock","to":"metamorphic rock","label":"heat and pressure"},{"from":"any rock","to":"magma","label":"melting"}]} -->
 
 ### The Rock Cycle
 
@@ -145,11 +145,11 @@ The slowly cooled intrusive rock likely has larger crystals, because the crystal
 A student pours the same amount of the same hot, saturated salt solution into three identical dishes. Dish A cools in an ice bath. Dish B cools at room temperature. Dish C is kept warm. Later the student measures the size of the salt crystals in each dish. What is the independent variable, the dependent variable, and two controlled variables?
 
 **Solution:**
-1. The student changes the cooling condition, so cooling rate is the independent variable.
+1. The independent variable is the cooling condition: an ice bath, room temperature, or a warm place.
 2. The student measures crystal size, so crystal size is the dependent variable.
 3. The same solution and the same amount are kept constant, so they are controlled variables. The identical dishes are another.
 
-Only cooling differs between the dishes, so a difference in crystal size can be linked to cooling. This is a small model of how cooling time may affect crystal size in igneous rock.
+Only the cooling condition differs between the dishes, so a difference in crystal size can be linked to that condition. This models how different cooling conditions may affect crystal size in igneous rock.
 
 ### #7: From Loose Grains to Rock
 
@@ -214,7 +214,7 @@ To identify a mineral, test hardness first, then streak, cleavage or fracture, a
 
 > Not every natural crystal or solid counts as a mineral.
 
-A mineral must be inorganic and have an orderly structure and a definite makeup. Coal is natural and solid, but it comes from plants, so it is not a mineral. Obsidian is natural, but it has no crystals.
+A mineral must be inorganic and have an orderly structure and a definite makeup. Coal is natural and solid and contains organic material from plants. Obsidian is natural, but it has no crystals.
 
 ### #2: Trusting Color
 

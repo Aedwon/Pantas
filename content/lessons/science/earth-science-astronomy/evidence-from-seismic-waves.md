@@ -16,7 +16,7 @@ keyPoints:
 
 ### How We Know
 
-No one has seen the inside of Earth directly. The deepest hole ever drilled, the Kola Superdeep Borehole in Russia, reached about $12$ km. The distance to Earth's center is about $6{,}371$ km, so the drill reached a tiny part of the way. It stayed in the crust.
+No drill has reached Earth’s core. Scientists have drilled into mantle rock where it is exposed on the sea floor. The deepest hole ever drilled, the Kola Superdeep Borehole in Russia, reached about $12$ km. The distance to Earth's center is about $6{,}371$ km, so the drill reached a tiny part of the way. It stayed in the crust.
 
 So scientists use indirect evidence. The most important kind is **seismic waves**, which are waves of energy that travel through Earth after an earthquake. A machine called a seismograph records them.
 
@@ -33,13 +33,13 @@ Other evidence supports the picture. These include gravity measurements, Earth's
 
 ### #1: Can Scientists Sample the Core Directly?
 
-Have humans drilled through the crust into the mantle or the core?
+Have people drilled all the way through intact crust into the mantle? Has a drill reached the core?
 
 **Solution:**
 1. The deepest borehole, the Kola Superdeep Borehole, reached about $12$ km.
-2. This is well inside the crust. It is far above the mantle, which begins at the Moho.
+2. That hole stayed in the crust. No drill has gone all the way through intact crust into the mantle.
 3. No hole has reached the core, which is about $2{,}900$ km down.
-4. So scientists study the mantle and core indirectly, mainly with seismic waves. They also use rocks that volcanoes bring up from the upper mantle.
+4. So scientists study the mantle and core indirectly, mainly with seismic waves. They can also study mantle rock brought up by volcanoes or exposed on the sea floor.
 
 ## Traps to Watch For
 
@@ -47,4 +47,4 @@ Have humans drilled through the crust into the mantle or the core?
 
 > We know the deep layers by indirect evidence, mainly seismic waves.
 
-The deepest drill reached about $12$ km, which is the crust.
+The deepest hole reached about $12$ km and stayed in the crust. The core is much deeper.

@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-These formulas work for an ideal sample. It must be a **closed system**, meaning no parent or daughter atoms entered or left after the rock formed. It must also have started with no daughter atoms, or the amount at the start must be known.
+The half-life formulas tell how much parent isotope remains and how much time has passed. To use parent and daughter measurements to find the starting amount of parent, the sample must be a **closed system**. This means no parent or daughter atoms entered or left after the rock formed. You also need to know how much daughter isotope was there at the start, if any.
 
 Real dating needs more. A scientist measures the amounts of parent and daughter in a sample. Then the scientist uses the isotope's known decay rate.
 

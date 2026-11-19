@@ -21,7 +21,7 @@ keyPoints:
 A **crystal** is a piece of mineral with its atoms in an orderly pattern. The **texture** of a rock means the size and arrangement of its grains or crystals. The cooling time controls crystal size. Slow cooling gives crystals more time to grow.
 
 - **Intrusive** igneous rocks cool below the surface. They usually cool slowly, so they often have large crystals you can see. Granite is an example.
-- **Extrusive** igneous rocks cool at or near the surface. Fast cooling usually gives small crystals, as in basalt. Very fast cooling can give natural glass, as in obsidian. Pumice has many holes where gas escaped from the lava.
+- **Extrusive** igneous rocks cool at or near the surface. Fast cooling usually gives small crystals, as in basalt. Very fast cooling can give natural glass, as in obsidian. Pumice has many holes left by gas bubbles that expanded in the lava and kept their shape as it hardened.
 
 Texture shows how fast a rock cooled. Color and mineral makeup show the kind of magma it came from. Granite is usually light in color, and basalt is usually dark.
 

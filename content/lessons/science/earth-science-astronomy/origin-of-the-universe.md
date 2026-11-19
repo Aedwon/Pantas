@@ -22,7 +22,7 @@ Two different questions are easy to mix up. One asks how the whole universe bega
 
 ### The Big Bang Model
 
-The **Big Bang model** says the early universe was extremely hot and dense. Since then it has been expanding and cooling for about $13.8$ billion years. A **galaxy** is a huge group of stars, gas, and dust held together by gravity. The Milky Way is our galaxy.
+The **Big Bang model** says the early universe was extremely hot and dense. Since then it has been expanding and cooling for about $13.8$ billion years. A **galaxy** is a huge group of stars, gas, and dust held together by gravity. The Milky Way is our galaxy. Georges Lemaître published a model of an expanding universe in $1927$. Edwin Hubble published galaxy observations in $1929$ that supported expansion.
 
 The name is misleading. The Big Bang was not a bomb going off at one place inside empty space. In the model, space itself expands, and galaxies are carried apart as it stretches. No center of the expansion has been found in ordinary space.
 
@@ -48,7 +48,7 @@ This rule has limits. Galaxies that are close together are held by gravity, and 
 
 ### Evidence 2: The Cosmic Microwave Background
 
-Early on, the universe was so hot that matter was a glowing mix of charged particles, and light kept being scattered. When the universe was about $380{,}000$ years old, it had cooled enough for atoms to form. Light could then travel freely across space.
+Early on, the universe was so hot that matter was a glowing mix of charged particles, and light kept being scattered. When the universe was about $380{,}000$ years old, it had cooled enough for atoms to form. Light could then travel freely across space. The first stars formed later, and the Solar System formed much later still.
 
 That light is still arriving from every direction. It is called the **cosmic microwave background (CMB)**. Expansion has stretched its wavelengths so much that it is now microwaves, with a temperature of about $2.7$ K. Two features matter: it is almost the same in every direction, and its spectrum matches the glow of a hot, dense early universe that has cooled.
 
@@ -77,8 +77,6 @@ First, gravity pulls a region of the cloud inward, and it collapses. A spinning 
 The spinning flattens the cloud into a **protoplanetary disk**, a flat, rotating disk of gas and dust. Most of the material falls to the center and forms the young Sun. Dust grains in the disk stick together in a process called **accretion**, which means growing by gathering more material. They build bodies called **planetesimals** (small bodies kilometers across), and then larger planets.
 
 Near the Sun it was warm, so mostly rock and metal could stay solid, and this explains the small rocky planets. Farther out, ice could also form, so large planets could grow and gather gas. The details of planet formation are still being studied. The nebular model is a simplified picture of a complicated process.
-
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"nebular-sequence","illustrationKey":"science/earth-science-astronomy/origin-of-the-universe#1","stages":["large slowly spinning cloud of gas and dust","flattened disk","bright center forming the Sun","small clumps forming planets along the disk"]} -->
 
 Several observations support the model. All eight planets orbit the Sun in the same direction, in nearly the same flat plane, as a disk would produce. Radioactive dating of meteorites gives ages of about $4.6$ billion years. Telescopes also see disks of gas and dust around young stars elsewhere.
 
@@ -140,6 +138,8 @@ Put these stages of Solar System formation in order: protoplanetary disk, molecu
 2. The collapsing material spins faster and flattens into a protoplanetary disk, with the young Sun at the center.
 3. Dust and solid particles accrete into planetesimals.
 4. Continued growth and interactions produce planets and other bodies.
+
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"nebular-sequence","illustrationKey":"science/earth-science-astronomy/origin-of-the-universe#1","stages":["large slowly spinning cloud of gas and dust","flattened disk","bright center forming the Sun","small clumps forming planets along the disk"]} -->
 
 ### #7: Which Model Fits?
 

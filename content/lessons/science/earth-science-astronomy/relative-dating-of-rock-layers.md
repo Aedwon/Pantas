@@ -15,11 +15,11 @@ keyPoints:
 
 ### Relative Dating
 
-To **infer** means to work out an answer from evidence. **Relative dating** infers which rocks and events are older or younger, without giving an age in years. It uses three ideas.
+To **infer** means to work out an answer from evidence. **Relative dating** infers which rocks and events are older or younger, without giving an age in years. **Stratigraphy** is the study of rock layers, also called strata. This part uses the law of superposition.
 
 **Law of superposition.** In a sequence of sedimentary layers that has not been overturned, each layer is older than the layer above it. New sediment settles on top of older sediment.
 
-Each idea has limits. Folding can turn layers upside down, and a fault can push older rock over younger rock. A missing layer, where sediment was eroded away or never deposited, leaves a gap in the record.
+This law has limits. Folding can turn layers upside down, and a fault can push older rock over younger rock. A missing layer, where sediment was eroded away or never deposited, leaves a gap in the record.
 
 ## Examples
 
@@ -39,7 +39,7 @@ The order from oldest to youngest is W, X, Y, Z.
 
 ## Speed Tricks & Shortcuts
 
-For relative-dating questions, first find what the clue compares. Superposition compares stacked layers. Cross-cutting compares a feature with the rock it cuts. An index fossil compares layers in different places.
+For relative-dating questions, first find what the clue compares. Superposition compares stacked layers. See Dating Faults and Intrusions for features that cut rock, and Index Fossils and Rock Correlation for matching layers in different places.
 
 ## Traps to Watch For
 

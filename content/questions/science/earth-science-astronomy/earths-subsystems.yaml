@@ -471,27 +471,21 @@ questions:
     type: 'compare-contrast'
     difficulty: 'medium'
     stem: |
-      A weather balloon first records falling air temperature with height, then records
-      rising temperature as it enters the next layer. Which layer has the rise in
-      temperature?
+      A weather balloon launches from ground level. Its readings fall as it rises through the lowest layer of the atmosphere. After it enters the layer directly above, its readings begin to rise with height. Which layer has the rising temperatures?
     choices:
       - text: 'Stratosphere'
         correct: true
       - text: 'Mesosphere'
         rationale: |
-          The mesosphere is higher up too. Check whether its temperature rises or falls with
-          height.
+          The mesosphere is higher up. Count the layers from the ground and check where the balloon made its first crossing.
       - text: 'Thermosphere'
         rationale: |
-          The thermosphere warms with height too. Check whether it is the layer right above
-          the lowest one.
+          The thermosphere warms with height too. Check which warming layer directly follows the lowest layer.
       - text: 'Troposphere'
         rationale: |
-          The balloon starts in the troposphere. Check whether its readings rise before or
-          after it leaves that layer.
+          This is the layer the balloon started in. Check whether the temperature rose before or after the balloon left it.
     explanation: |
-      Air usually cools with height in the troposphere. In the stratosphere above it, ozone
-      takes in ultraviolet light and the air gets warmer with height.
+      The balloon starts in the troposphere, where air usually cools with height. It then enters the stratosphere. There, ozone absorbs ultraviolet light, and the air gets warmer with height.
 
   - id: q-earth-science-astronomy-earths-subsystems-0022
     approved: true

@@ -22,7 +22,7 @@ Squeezing in one direction can line up flat minerals into layers or bands. This 
 
 Shale can change to slate, and with more heat and pressure to schist and gneiss. Limestone changes to marble. Sandstone changes to quartzite.
 
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"rock-cycle","illustrationKey":"science/earth-science-astronomy/minerals-and-rocks#1","stages":["magma","igneous rock","sediment","sedimentary rock","metamorphic rock"],"processes":[{"from":"magma","to":"igneous rock","label":"cooling"},{"from":"igneous rock","to":"sediment","label":"weathering"},{"from":"sediment","to":"sedimentary rock","label":"compacting"},{"from":"any rock","to":"metamorphic rock","label":"heat and pressure"},{"from":"any rock","to":"magma","label":"melting"}]} -->
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"rock-cycle","illustrationKey":"science/earth-science-astronomy/minerals-and-rocks#1","stages":["magma","igneous rock","sediment","sedimentary rock","metamorphic rock"],"processes":[{"from":"magma","to":"igneous rock","label":"cooling"},{"from":"igneous rock","to":"sediment","label":"weathering and erosion"},{"from":"sediment","to":"sedimentary rock","label":"compaction and cementation"},{"from":"any rock","to":"metamorphic rock","label":"heat and pressure"},{"from":"any rock","to":"magma","label":"melting"}]} -->
 
 ## Examples
 

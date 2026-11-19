@@ -53,6 +53,6 @@ The answer is waning crescent.
 
 ## Speed Tricks & Shortcuts
 
-Name a phase between new moon and full moon with two words: "waxing" or "waning" for direction, and "crescent," "quarter," or "gibbous" for the amount lit. For example, a lit part that is growing and less than half is a waxing crescent.
+For a crescent or gibbous phase, use two words. Use "waxing" if the lit part is growing or "waning" if it is shrinking. Then add "crescent" or "gibbous" for the shape. For example, a lit part that is growing and less than half is a waxing crescent.
 
 This shortcut has limits. New moon and full moon have no direction word. For the quarter phases, the usual names are first quarter (waxing) and last quarter (waning), not "waxing quarter" or "waning quarter".

@@ -49,7 +49,7 @@ A student says, "It is summer in the north because Earth is closest to the Sun i
 
 ## Speed Tricks & Shortcuts
 
-For opposite seasons, picture the hemisphere that leans toward the Sun. It has summer, longer days, and a higher noon Sun. This works for places away from the equator, where tilt matters most, and not near the equinoxes.
+For opposite seasons, picture the hemisphere that leans toward the Sun. Near a solstice, the hemisphere leaning toward the Sun has summer. Away from the equator, it has longer days. For places outside the tropics, the noon Sun also climbs higher in summer than in winter.
 
 ## Traps to Watch For
 

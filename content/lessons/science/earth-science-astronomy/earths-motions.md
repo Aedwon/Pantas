@@ -36,17 +36,17 @@ One turn relative to the Sun takes about $24$ hours on average. This gives the f
 
 Relative to the distant stars, one turn takes about $23$ hours $56$ minutes. This is the **sidereal day**. It is about $4$ minutes shorter because Earth also moves along its orbit during the day.
 
-After one turn, Earth must turn a little more, about $1^\circ$, before the Sun is back in the same spot in the sky.
+After one turn, Earth must turn a little more, about $1^\circ$, before the Sun crosses the local meridian again, at solar noon.
 
 The same fact explains why a given star rises about $4$ minutes earlier each night. After a month it rises about $2$ hours earlier.
 
-<!-- ILLUSTRATION: top view of Earth at two positions on its orbit, one day apart; a dot on Earth faces a distant star at both positions, labeled "one sidereal day: 23 h 56 min"; at the second position the dot still needs to turn about 1 degree to face the Sun again, labeled "one solar day: 24 h" -->
+<!-- ILLUSTRATION: top view of Earth at two positions on its orbit, one day apart; a dot on Earth faces a distant star at both positions, labeled "one sidereal day: 23 h 56 min"; at the second position the dot still needs to turn about 1 degree to reach solar noon again, labeled "one solar day: 24 h" -->
 
 ### Revolution and Axial Tilt
 
 **Revolution** is Earth's trip around the Sun along its path, called its **orbit**. One trip measured against the stars takes about $365.26$ days.
 
-Calendars follow the seasonal year instead, about $365.24$ days, from one March equinox to the next. It is slightly shorter because of precession (explained below).
+Calendars follow the seasonal year instead, about $365.24$ days, from one March equinox to the next. It is slightly shorter because of precession.
 
 The flat surface that the orbit lies on is the **orbital plane**.
 
@@ -75,9 +75,6 @@ Four moments in the orbit have names:
 - At the two **equinoxes** (around March $20$ and September $22$), neither hemisphere leans toward the Sun. The Sun is straight overhead at noon on the equator, and day and night are nearly equal at most places.
 
 In many places, the hottest and coldest weather come a few weeks after the solstices, because land and sea take time to warm up and cool down.
-
-<!-- ILLUSTRATION: side view of Earth at the June and December solstices, axis tilted $23.4^\circ$ and pointing the same way both times; parallel sunlight rays shown hitting the leaning-toward hemisphere at a steeper angle than the leaning-away hemisphere; labels "Northern summer, Southern winter" and "Northern winter, Southern summer" -->
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"seasonal-tilt-comparison","illustrationKey":"science/earth-science-astronomy/earths-motions#3","earthPositions":2,"axisTiltDegrees":23.5,"northernHemisphereStates":["toward Sun (summer)","away from Sun (winter)"],"sunlightAngles":"different"} -->
 
 ### Where the Tilt Matters Less
 
@@ -111,7 +108,7 @@ Take a constellation near the Sun's yearly path across the sky, such as Orion or
 
 If it is high in the evening, it is seen in the dark sky before sunrise about six months later.
 
-The **north celestial pole** is the point in the sky that Earth's axis points toward in the north. The **south celestial pole** is the matching point in the south. Earth's rotation makes the stars seem to circle around them. Precession, below, explains more.
+The **north celestial pole** is the point in the sky that Earth's axis points toward in the north. The **south celestial pole** is the matching point in the south. Earth's rotation makes the stars seem to circle around them.
 
 Constellations close to a celestial pole can break this rule. Near the north celestial pole, a constellation never sets in places far enough north of the equator, and near the south celestial pole the same holds far enough south. Such a constellation is above the horizon all year.
 
@@ -161,6 +158,10 @@ Why can the Northern Hemisphere have summer while the Southern Hemisphere has wi
 3. At the same time, the Southern Hemisphere leans away. Away from the equator, it gets less direct sunlight and shorter days.
 4. About six months later, the lean reverses, so the seasons reverse.
 
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"seasonal-tilt-comparison","illustrationKey":"science/earth-science-astronomy/earths-motions#3","earthPositions":2,"axisTiltDegrees":23.5,"northernHemisphereStates":["toward Sun (summer)","away from Sun (winter)"],"sunlightAngles":"different"} -->
+
+<!-- ILLUSTRATION: side view of Earth at the June and December solstices, axis tilted $23.4^\circ$ and pointing the same way both times; parallel sunlight rays shown hitting the leaning-toward hemisphere at a steeper angle than the leaning-away hemisphere; labels "Northern summer, Southern winter" and "Northern winter, Southern summer" -->
+
 ### #3: Distance Is Not the Cause
 
 A student says, "It is summer in the north because Earth is closest to the Sun in June." Is the reasoning correct?
@@ -179,7 +180,7 @@ A star is directly overhead at midnight on one night. About when will it be dire
 **Solution:**
 1. Relative to the stars, Earth turns once in about $23$ hours $56$ minutes.
 2. The clock day is $24$ hours, so the star returns to the same place about $4$ minutes earlier by the clock.
-3. The star is overhead at about $11{:}56$ PM. Earth moves along its orbit as it spins, so the Sun needs about $4$ more minutes of turning to come back, but the star does not.
+3. The star is overhead at about $11{:}56$ PM. Earth moves along its orbit as it spins, so the Sun needs about $4$ more minutes of turning to cross the local meridian again.
 
 ### #5: Day Length and Latitude
 
@@ -230,7 +231,7 @@ Keep the roles separate: **rotation gives day and night**, **revolution with til
 
 For leap years, test $4$ first. If the year ends in two zeros, test $400$ instead. A century year such as $1700$ or $2100$ that is not divisible by $400$ is not a leap year.
 
-For opposite seasons, picture the hemisphere that leans toward the Sun. It has summer, longer days, and a higher noon Sun. This works for places away from the equator, where tilt matters most, and not near the equinoxes.
+For opposite seasons, picture the hemisphere that leans toward the Sun. Near a solstice, the hemisphere leaning toward the Sun has summer. Away from the equator, it has longer days. For places outside the tropics, the noon Sun also climbs higher in summer than in winter.
 
 ## Traps to Watch For
 

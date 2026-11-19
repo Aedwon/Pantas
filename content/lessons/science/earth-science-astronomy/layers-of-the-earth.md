@@ -67,7 +67,7 @@ The lithosphere is not the same as the crust. It is thicker, because it contains
 
 ### How We Know
 
-No one has seen the inside of Earth directly. The deepest hole ever drilled, the Kola Superdeep Borehole in Russia, reached about $12$ km. The distance to Earth's center is about $6{,}371$ km, so the drill reached a tiny part of the way. It stayed in the crust.
+No drill has reached Earth’s core. Scientists have drilled into mantle rock where it is exposed on the sea floor. The deepest hole ever drilled, the Kola Superdeep Borehole in Russia, reached about $12$ km. The distance to Earth's center is about $6{,}371$ km, so the drill reached a tiny part of the way. It stayed in the crust.
 
 So scientists use indirect evidence. The most important kind is **seismic waves**, which are waves of energy that travel through Earth after an earthquake. A machine called a seismograph records them.
 
@@ -78,11 +78,9 @@ There are two main kinds of body waves, which travel through the inside of Earth
 
 Waves change speed and bend (this is called **refraction**) when the material changes. They can also bounce back (**reflection**). By timing the waves at many seismographs, scientists work out where the layers are and what they are like.
 
-When a large earthquake occurs, S waves do not appear at seismographs on the far side of Earth, beyond roughly $104^\circ$ from the earthquake. This is the **S-wave shadow zone**. It shows that something liquid lies in the way.
+When a large earthquake occurs, direct S waves do not appear at seismographs on the far side of Earth, beyond roughly $104^\circ$ from the earthquake. This is the **S-wave shadow zone**. A wave can still cross the liquid as a P wave and change back into an S wave on the far side. It shows that something liquid lies in the way.
 
 P waves pass through the outer core, but they slow down and bend sharply. This leaves a **P-wave shadow zone**, roughly between $104^\circ$ and $140^\circ$ from the earthquake. The shadow zone shows that the outer core has very different properties from the mantle.
-
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"seismic-core","illustrationKey":"science/earth-science-astronomy/layers-of-the-earth#3","sWaveBehavior":"stops at liquid outer core","pWaveBehavior":"bends through liquid outer core","shadowZone":"S-wave"} -->
 
 The inner core was found in $1936$ by the Danish scientist Inge Lehmann. She noticed P waves that were reflected from a boundary deep inside the core. Later study of the waves showed that the inner core is solid.
 
@@ -92,14 +90,16 @@ Other evidence supports the picture. These include gravity measurements, Earth's
 
 ### #1: Why the Outer Core Is Liquid
 
-Seismographs on the far side of Earth from an earthquake record P waves but no S waves. What does this show about the outer core?
+Seismographs on the far side of Earth from an earthquake record P waves but no direct S waves. What does this show about the outer core?
 
 **Solution:**
 1. S waves cannot travel through a liquid, because a liquid does not spring back when pushed sideways.
-2. The S waves from the earthquake did not come out through the core, so the core must contain a liquid region.
+2. Direct S waves from the earthquake did not pass through the core, so the core must contain a liquid region.
 3. P waves can travel through liquids, but they slow down and bend at the core boundary. This also fits a liquid outer core.
 
 The outer core is therefore liquid.
+
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"seismic-core","illustrationKey":"science/earth-science-astronomy/layers-of-the-earth#3","sWaveBehavior":"stops at liquid outer core","pWaveBehavior":"bends through liquid outer core","shadowZone":"S-wave"} -->
 
 ### #2: Oceanic and Continental Crust
 
@@ -134,13 +134,13 @@ A student says that the lithosphere and the crust are the same layer. Is this co
 
 ### #5: Can Scientists Sample the Core Directly?
 
-Have humans drilled through the crust into the mantle or the core?
+Have people drilled all the way through intact crust into the mantle? Has a drill reached the core?
 
 **Solution:**
 1. The deepest borehole, the Kola Superdeep Borehole, reached about $12$ km.
-2. This is well inside the crust. It is far above the mantle, which begins at the Moho.
+2. That hole stayed in the crust. No drill has gone all the way through intact crust into the mantle.
 3. No hole has reached the core, which is about $2{,}900$ km down.
-4. So scientists study the mantle and core indirectly, mainly with seismic waves. They also use rocks that volcanoes bring up from the upper mantle.
+4. So scientists study the mantle and core indirectly, mainly with seismic waves. They can also study mantle rock brought up by volcanoes or exposed on the sea floor.
 
 ## Speed Tricks & Shortcuts
 
@@ -156,7 +156,7 @@ This shortcut tells about the S waves only. It does not tell you how thick the l
 
 > The mantle is mostly solid rock that flows very slowly. It is not a sea of liquid magma.
 
-Flowing and liquid are different. Parts of the mantle may hold a small amount of melt, and magma forms in some places. But S waves travel through most of the mantle, which shows it is solid.
+Flowing and liquid are different. Parts of the mantle may hold a small amount of melt, and magma forms in some places. S waves cannot travel through liquid. They travel through most of the mantle, so most of it is solid.
 
 ### #2: Hotter Does Not Always Mean Liquid
 
@@ -180,4 +180,4 @@ The lithosphere includes the crust and the top of the mantle.
 
 > We know the deep layers by indirect evidence, mainly seismic waves.
 
-The deepest drill reached about $12$ km, which is the crust.
+The deepest hole reached about $12$ km and stayed in the crust. The core is much deeper.

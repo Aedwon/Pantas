@@ -18,7 +18,7 @@ Two different questions are easy to mix up. One asks how the whole universe bega
 
 ### The Big Bang Model
 
-The **Big Bang model** says the early universe was extremely hot and dense. Since then it has been expanding and cooling for about $13.8$ billion years. A **galaxy** is a huge group of stars, gas, and dust held together by gravity. The Milky Way is our galaxy.
+The **Big Bang model** says the early universe was extremely hot and dense. Since then it has been expanding and cooling for about $13.8$ billion years. A **galaxy** is a huge group of stars, gas, and dust held together by gravity. The Milky Way is our galaxy. Georges Lemaître published a model of an expanding universe in $1927$. Edwin Hubble published galaxy observations in $1929$ that supported expansion.
 
 The name is misleading. The Big Bang was not a bomb going off at one place inside empty space. In the model, space itself expands, and galaxies are carried apart as it stretches. No center of the expansion has been found in ordinary space.
 

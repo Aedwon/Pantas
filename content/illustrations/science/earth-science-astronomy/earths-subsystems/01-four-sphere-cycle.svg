@@ -17,7 +17,7 @@
 <text x="236" y="396" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">land</text>
 <polygon points="152,350 150,338 160,328 176,330 186,342 180,356" fill="#010101" fill-opacity="0.3" stroke="#010101" stroke-width="1.5" stroke-linejoin="round"/>
 <text x="198" y="344" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">rock</text>
-<text x="198" y="360" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">lithosphere</text>
+<text x="198" y="360" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101">geosphere</text>
 <rect x="201" y="276" width="6" height="24" fill="#010101" fill-opacity="0.45"/>
 <circle cx="204" cy="262" r="18" fill="#050505" fill-opacity="0.4" stroke="#050505" stroke-width="1.8"/>
 <text x="232" y="268" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">tree</text>

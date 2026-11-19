@@ -15,13 +15,13 @@ keyPoints:
 
 ### Minerals and Rocks
 
-A **mineral** is a solid that forms in nature, is inorganic, has its atoms arranged in an orderly pattern, and has a definite chemical makeup or a narrow range of makeups. "Inorganic" means it is not made by living things from the carbon compounds of life. Quartz, feldspar, calcite, and olivine are common minerals.
+A **mineral** is a solid that forms in nature, is inorganic, has its atoms arranged in an orderly pattern, and has a definite chemical makeup or a narrow range of makeups. "Inorganic" describes what a substance is made of. Calcite is inorganic, even when an animal makes it to build its shell. Quartz, feldspar, calcite, and olivine are common minerals.
 
 A **rock** is a solid mass made of one or more minerals, or of other natural mineral-like matter, stuck together. Granite holds several minerals. Some rocks are made almost entirely of one mineral, such as quartzite, which is mostly quartz.
 
 Rocks are grouped mainly by how they form. A rock can also contain material that is not a crystal. Obsidian is natural glass with no crystals, so it is a rock but not a mineral.
 
-Coal is a rock made from buried plant remains. It is not a mineral, because it comes from living things.
+Coal is a rock made from buried plant remains. It is rich in organic material from those plants.
 
 ## Examples
 
@@ -38,4 +38,4 @@ Quartz is a mineral. Granite is a rock made of several minerals. Quartzite is al
 
 > Not every natural crystal or solid counts as a mineral.
 
-A mineral must be inorganic and have an orderly structure and a definite makeup. Coal is natural and solid, but it comes from plants, so it is not a mineral. Obsidian is natural, but it has no crystals.
+A mineral must be inorganic and have an orderly structure and a definite makeup. Coal is natural and solid and contains organic material from plants. Obsidian is natural, but it has no crystals.

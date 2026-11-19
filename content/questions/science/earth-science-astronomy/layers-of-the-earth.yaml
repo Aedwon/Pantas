@@ -355,21 +355,21 @@ questions:
     type: predict-outcome
     difficulty: exam
     stem: |
-      An earthquake occurs, and scientists observe that a certain wave type (one that only travels through solid material) fails to reach detectors on the exact opposite side of Earth, while a different wave type (one that can travel through both solid and liquid) does reach those detectors, though bent from its expected path. What can scientists conclude about Earth's interior from this pattern?
+      After an earthquake, detectors on the opposite side of Earth record no direct S waves. P waves reach the detectors after bending as they pass through the core. Which model best explains both observations?
     choices:
-      - text: 'A liquid layer blocks S waves and bends P waves.'
+      - text: 'The outer core is liquid. It blocks direct S waves and bends P waves.'
         correct: true
-      - text: 'The entire interior is solid because P waves arrive.'
+      - text: 'The entire interior is solid because P waves reach the far side.'
         rationale: |
-          This treats P-wave passage as proof of solidity. P waves also cross solids. Check whether they can cross liquid too.
-      - text: 'The entire interior is liquid because S waves are absent.'
+          P waves can travel through rock. Check whether they can travel through a liquid too.
+      - text: 'The entire interior is liquid because direct S waves are missing on the far side.'
         rationale: |
-          This extends one liquid layer to the whole interior. S-wave absence reveals a barrier. Check the solid layers through which waves already traveled.
-      - text: 'Both wave types must travel through identical material.'
+          Missing direct S waves tell us something about their path. Check whether one liquid layer is enough to stop them.
+      - text: 'P and S waves can travel through all the same materials.'
         rationale: |
-          This assumes different wave types have the same transmission limits. Both come from earthquakes. Check shear waves versus pressure waves.
+          Both are earthquake waves and travel through rock. Compare how they behave in a liquid.
     explanation: |
-      S waves do not pass through liquid. P waves can cross liquid but change speed and direction at boundaries. Together, this behavior supports a liquid outer core.
+      The liquid outer core cannot carry direct S waves. P waves can pass through the liquid and bend when they enter or leave it. That explains the two observations.
     approved: true
 
   - id: q-earth-science-astronomy-layers-of-the-earth-0017
@@ -499,23 +499,18 @@ questions:
     type: 'cause-effect'
     difficulty: 'medium'
     stem: |
-      Why do scientists rely mainly on earthquake records to study the core rather than on
-      material brought up by drilling?
+      Why do scientists study Earth’s core mainly with earthquake records instead of drilling samples?
     choices:
-      - text: 'Even the deepest boreholes stay in the crust.'
+      - text: 'Drills have never reached the core, but seismic waves can travel through it.'
         correct: true
-      - text: 'Drill cores reach the core, but the samples cannot be kept at high pressure.'
+      - text: 'Drills reach the core, but the samples lose pressure on the way up.'
         rationale: |
-          Pressure is much higher deep inside Earth. First check whether a drill has ever
-          reached the core at all.
-      - text: 'Earthquake records contain rock samples carried to the surface by seismic waves.'
+          Pressure is high in the core. First check whether a drill can reach it.
+      - text: 'Seismic waves bring pieces of the core to the surface for study.'
         rationale: |
-          Seismic waves come from inside Earth. Check whether instruments record shaking or
-          collect rock.
-      - text: 'Drilling reaches both core layers but cannot tell where one layer ends and the next begins.'
+          The waves come from inside Earth. Check whether a seismograph collects rock or records motion.
+      - text: 'Drills reach the core but cannot locate the boundary between its layers.'
         rationale: |
-          Drilling can show what lies below the surface. Check how far it has actually gone
-          compared with the depth of the core.
+          Scientists use waves to find layer boundaries. Check how far any drill has gone compared with the depth of the core.
     explanation: |
-      Drills have reached only a small part of Earth's crust. Waves can travel much deeper,
-      so their paths and arrival times give clues about the core.
+      No drill has reached the core. Seismic waves can travel much deeper than drills. Their paths and arrival times help scientists work out what the core is like.

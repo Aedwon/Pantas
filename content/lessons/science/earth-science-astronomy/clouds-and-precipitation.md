@@ -16,7 +16,7 @@ keyPoints:
 
 **Condensation**: air that rises usually gets cooler. Cool air cannot hold as much vapor, so the vapor turns back into tiny liquid droplets. The droplets gather on tiny bits of dust or salt in the air, and together they form clouds. Condensation is the opposite of evaporation.
 
-**Precipitation**: cloud droplets are too small to fall. They bump into each other and join until they are heavy enough to drop. Precipitation is any water that falls from clouds.
+**Precipitation**: tiny cloud droplets fall very slowly and usually stay in the cloud. Some rain forms when droplets bump into each other and join into drops big enough to fall out. Precipitation is any water that falls from clouds.
 
 - Rain is liquid drops.
 - Snow is ice crystals.
@@ -48,7 +48,7 @@ Follow the air as it rises.
 1. The mountain forces the moist air upward.
 2. Rising air cools.
 3. Cooler air cannot hold as much water vapor, so the vapor condenses into cloud droplets.
-4. The droplets join into drops that are heavy enough to fall as precipitation.
+4. If enough droplets join into larger drops, those drops can fall out of the cloud as rain.
 
 The answer: rising air cools, vapor condenses, and the drops fall as rain on the slope that faces the wind.
 

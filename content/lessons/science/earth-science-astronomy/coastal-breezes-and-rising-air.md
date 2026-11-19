@@ -16,7 +16,7 @@ keyPoints:
 
 ### Sea Breezes and Land Breezes
 
-Land heats and cools faster than the sea. When air warms, it expands and can rise. The upward movement of warm air is **convection**.
+Land heats and cools faster than the sea. When air warms, it expands and can rise. **Convection** is heat transfer by moving air or liquid. Rising warm air can carry heat upward.
 
 During a sunny day, land often becomes warmer than the nearby sea. Warm air rises over land, and cooler air moves in from the sea. This surface wind is a **sea breeze**.
 

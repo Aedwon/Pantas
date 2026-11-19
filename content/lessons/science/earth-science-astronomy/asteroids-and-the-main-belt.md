@@ -27,7 +27,7 @@ Asteroids range from small rocks to bodies hundreds of kilometers wide. Some ast
 An object orbits the Sun. As it approaches the Sun, it becomes surrounded by a coma with gas and dust tails. Is it better classified as an asteroid or a comet?
 
 **Solution:**
-1. A coma and tails come from ice turning into gas when warmed.
+1. When ice warms and turns into gas, it can form a coma, a cloud of gas and dust around the object, and tails.
 2. This activity is typical of a comet.
 3. An ordinary asteroid is rocky or metallic and has no coma or tail.
 

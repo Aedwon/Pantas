@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 319" width="360" height="319">
-  <title>Ocean gyres and heat</title>
+  <title>Subtropical gyres and heat</title>
   <defs>
     <linearGradient id="bg"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
     <radialGradient id="shape" cx="0.4" cy="0.3" r="0.75"><stop offset="0" stop-color="#050505" stop-opacity="0.12"/><stop offset="1" stop-color="#050505" stop-opacity="0.27"/></radialGradient>
@@ -44,4 +44,5 @@
   <path d="M190 290 L216 290" fill="none" stroke="#3471B1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   <polygon points="216.0,290.0 208.0,294.0 208.0,286.0" fill="#3471B1"/>
   <text x="223" y="295" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">cold currents</text>
+  <text x="180" y="20" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">Subtropical gyres</text>
 </svg>

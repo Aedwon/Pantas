@@ -20,7 +20,7 @@ keyPoints:
 
 Apparent brightness depends on luminosity and on distance. A faraway star with high luminosity can look as bright as a nearby star with low luminosity. Luminosity grows with the star's surface temperature and with its size, so a cool red giant can still be very luminous because it is so large.
 
-<!-- ILLUSTRATION: two stars side by side, a small blue-white star labeled "hot surface, small" and a huge red star labeled "cool surface, very large", each with a horizontal arrow of the same length to Earth, and a note "same apparent brightness from Earth depends on distance and luminosity" -->
+<!-- ILLUSTRATION: two stars side by side, a small blue-white star labeled "hot surface, small" and a huge red star labeled "cool surface, very large", each with a horizontal arrow of the same length to Earth, and a note "apparent brightness depends on distance and luminosity" -->
 
 ## Examples
 

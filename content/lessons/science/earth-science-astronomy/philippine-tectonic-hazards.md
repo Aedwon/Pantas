@@ -21,7 +21,7 @@ The Philippines lies in the **Ring of Fire**, a belt of volcanoes, trenches, and
 
 It has a trench on each side: the Manila Trench on the west and the Philippine Trench on the east. The Philippine Fault Zone, a strike-slip fault system, crosses it.
 
-Strong earthquakes cause ground shaking, **ground rupture** (the ground breaks along the fault), **liquefaction** (loose, wet soil acts like a liquid), landslides, and **tsunami** (huge waves from a strong earthquake under the sea).
+Strong earthquakes can cause ground shaking, **ground rupture** (the ground breaks along the fault), **liquefaction** (loose, wet soil acts like a liquid), and landslides. A **tsunami** is a series of waves caused by a sudden shift of a large amount of water. An earthquake can trigger one if it moves enough water. Landslides and volcanic activity can also trigger tsunamis.
 
 Volcanoes such as Mayon, Taal, and Pinatubo cause lava flows, ashfall, **pyroclastic density currents** (fast, very hot clouds of gas, ash, and rock), and **lahars** (mudflows of volcanic ash and rock mixed with water).
 

@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-- **Total lunar eclipse**: the whole Moon moves into Earth's umbra. It often turns reddish, because Earth's air bends some red sunlight onto the Moon.
+- **Total lunar eclipse**: the whole Moon moves into Earth's umbra. It often turns reddish, because Earth's air bends some red sunlight onto the Moon. This reddish Moon is often called a **blood moon**.
 - **Partial lunar eclipse**: only part of the Moon moves into Earth's umbra.
 - **Penumbral lunar eclipse**: the Moon enters only Earth's penumbra and dims slightly.
 

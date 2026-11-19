@@ -16,7 +16,7 @@ keyPoints:
 
 **Weather** is the state of the air at a place and time. It includes temperature, rain, clouds, wind, air pressure, and humidity. **Climate** describes usual weather patterns and their range over many years.
 
-**Air pressure** is the force that air puts on a surface. **Humidity** describes the amount of water vapor in the air. Water vapor is water in its gas form.
+**Air pressure** is the push of air on each unit of surface area. **Humidity** describes the amount of water vapor in the air. Water vapor is water in its gas form.
 
 ## Examples
 

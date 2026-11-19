@@ -356,21 +356,21 @@ questions:
     type: identify
     difficulty: medium
     stem: |
-      A massive star explodes as a supernova. The core left behind is a tiny, extremely dense ball about $20$ km across. What is this core called?
+      A massive star explodes as a supernova. A dense ball of matter about 20 km across remains at the site of the explosion. Which object is it?
     choices:
       - text: 'A neutron star'
         correct: true
       - text: 'A white dwarf'
         rationale: |
-          This picks another dense core left by a dying star. Both are small and dense. Check that a white dwarf is about as wide as Earth and comes from a star like the Sun.
+          A white dwarf is also a small, dense remnant. Compare its Earth-sized width with the width given here.
       - text: 'A red giant'
         rationale: |
-          This picks a stage near the end of a star's life. Red giants come late in life. Check that a red giant is huge, not tiny.
+          A red giant is a late stage in a star’s life. Compare its huge size with the tiny object left after the blast.
       - text: 'A planetary nebula'
         rationale: |
-          This picks a name linked to a dying star. A planetary nebula appears after the death of a star. Check that it is a shell of gas, not a dense ball.
+          A planetary nebula forms near the end of a star’s life. Check whether the object is a shell of gas or a dense core.
     explanation: |
-      A star many times the Sun's mass ends in a supernova. The core left behind can be a neutron star. A neutron star is about $20$ km across and very dense.
+      After the supernova in this question, the core remains as a tiny, very dense ball about 20 km across. That size and density fit a neutron star.
 
   - id: q-earth-science-astronomy-stars-and-galaxies-0013
     approved: true

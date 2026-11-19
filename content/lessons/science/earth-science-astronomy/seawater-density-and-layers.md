@@ -16,9 +16,9 @@ keyPoints:
 
 ### Ocean water and its layers
 
-Ocean water is **saline**, which means salty. Seawater has about $35$ grams of dissolved salt in every $1000$ grams of water. The saltiness changes a little from place to place.
+Ocean water is **saline**, which means salty. Seawater has about $35$ grams of dissolved salt in every $1000$ grams of seawater. The saltiness changes a little from place to place.
 
-**Density** is how much mass fits in a given space. A denser liquid sinks below a less dense one. For seawater, cold water is denser than warm water. Fresh water is different: it is densest at about $4\,^\circ\text{C}$ and gets slightly less dense as it cools toward freezing. Ice floats for a separate reason: solid ice is less dense than liquid water. Salty water is denser than less salty water.
+**Density** is how much mass fits in a given space. A denser liquid sinks below a less dense one. At the same saltiness, colder seawater is denser than warmer seawater. Fresh water is different: it is densest at about $4\,^\circ\text{C}$ and gets slightly less dense as it cools toward freezing. Ice floats for a separate reason: solid ice is less dense than liquid water. At the same temperature, saltier seawater is denser.
 
 The ocean forms layers because of density and sunlight. The top layer is warm and lit by the Sun. Sunlight reaches down to about $200$ meters. Below it, in most of the open ocean, the temperature falls fast with depth in a layer called the **thermocline**. Under that, the deep water is cold, dense, and dark.
 
@@ -36,9 +36,9 @@ Four water samples are listed. Which sample is the densest and sinks below the o
 **Solution:**
 Use the two things that raise density.
 
-1. Cold seawater is denser than warm seawater, so C and D beat A and B on temperature.
-2. Saltier seawater is denser than less salty seawater, so B and D beat A and C on salt.
-3. Sample D wins on both counts.
+1. B and D are equally salty. D is colder, so it is denser than B.
+2. C and D are equally cold. D is saltier, so it is denser than C.
+3. D is both colder and saltier than A. Both changes make D denser than A.
 
 The answer: D, cold and very salty. This is the kind of water that sinks near the poles and drives the deep currents.
 

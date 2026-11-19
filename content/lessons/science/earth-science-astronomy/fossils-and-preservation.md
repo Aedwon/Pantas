@@ -21,4 +21,4 @@ A **body fossil** is a piece of the organism itself, such as a bone, shell, leaf
 
 Fossils do not have to be "turned to stone." Insects in amber and mammoths frozen in ice are fossils too.
 
-Most organisms leave no fossil. Hard parts such as shells and bones, and fast burial in mud or sand, make fossils much more likely. Soft-bodied animals that rot or get eaten are rarely preserved, so the fossil record is incomplete.
+Most organisms leave no fossil. Hard parts such as shells and bones, and fast burial in mud or sand, make fossils much more likely. Soft-bodied animals that rot or get eaten are rarely preserved, so the fossil record is incomplete. Molten rock can destroy remains before it cools into igneous rock. Heat and pressure that change rock into metamorphic rock can also damage or erase fossils.

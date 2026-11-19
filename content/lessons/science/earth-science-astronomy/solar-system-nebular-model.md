@@ -22,8 +22,6 @@ First, gravity pulls a region of the cloud inward, and it collapses. A spinning 
 
 The spinning flattens the cloud into a **protoplanetary disk**, a flat, rotating disk of gas and dust. Most of the material falls to the center and forms the young Sun. Dust grains in the disk stick together in a process called **accretion**, which means growing by gathering more material. They build bodies called **planetesimals** (small bodies kilometers across), and then larger planets.
 
-<!-- FIGURE: {"kind":"earth-science-diagram","type":"nebular-sequence","illustrationKey":"science/earth-science-astronomy/origin-of-the-universe#1","stages":["large slowly spinning cloud of gas and dust","flattened disk","bright center forming the Sun","small clumps forming planets along the disk"]} -->
-
 ## Examples
 
 ### #1: From Cloud to Planets
@@ -35,6 +33,8 @@ Put these stages of Solar System formation in order: protoplanetary disk, molecu
 2. The collapsing material spins faster and flattens into a protoplanetary disk, with the young Sun at the center.
 3. Dust and solid particles accrete into planetesimals.
 4. Continued growth and interactions produce planets and other bodies.
+
+<!-- FIGURE: {"kind":"earth-science-diagram","type":"nebular-sequence","illustrationKey":"science/earth-science-astronomy/origin-of-the-universe#1","stages":["large slowly spinning cloud of gas and dust","flattened disk","bright center forming the Sun","small clumps forming planets along the disk"]} -->
 
 ## Speed Tricks & Shortcuts
 

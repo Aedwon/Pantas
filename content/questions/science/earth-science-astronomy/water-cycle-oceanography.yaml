@@ -217,21 +217,21 @@ questions:
     type: classify
     difficulty: medium
     stem: |
-      A cloud's droplets have formed, but none are falling to the ground yet. Which statement describes the stages observed so far?
+      Water vapor has formed liquid droplets inside a cloud. No drops have started falling out of the cloud. Which statement describes what has happened within the cloud so far?
     choices:
-      - text: 'Condensation occurred; precipitation has not begun.'
+      - text: 'Condensation has occurred, and precipitation has yet to begin.'
         correct: true
-      - text: 'Precipitation occurred; condensation has not begun.'
+      - text: 'Both condensation and precipitation have occurred.'
         rationale: |
-          This places falling water before forming droplets in this setup. Clouds often lead to rain. Check whether anything is falling.
-      - text: 'Infiltration occurred; evaporation has not begun.'
+          Making droplets is the first step toward rain. Check whether any water has left the cloud as falling drops.
+      - text: 'Precipitation has occurred, and condensation has yet to begin.'
         rationale: |
-          This assigns a soil process to cloud formation. Both can store water. Check the location.
-      - text: 'Runoff occurred; condensation has not begun.'
+          The drops may look like rain in the making. Check what the change from vapor to liquid is called.
+      - text: 'Neither condensation nor precipitation has occurred.'
         rationale: |
-          This assigns ground-surface flow to a cloud. Both contain liquid water. Check where movement occurs.
+          The lack of falling drops rules out precipitation in this setup. Check what already happened to the vapor.
     explanation: |
-      Cloud droplets form when vapor condenses. Precipitation is water falling from clouds. The given cloud has formed droplets but has not yet produced precipitation.
+      Water vapor became liquid drops. That change is condensation. Precipitation begins when water falls out of the cloud, and these drops are still inside it.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0011
@@ -309,21 +309,21 @@ questions:
     type: identify
     difficulty: medium
     stem: |
-      What term describes ocean water's saltiness, distinguishing it from most water in lakes and rivers?
+      Which word describes seawater because it contains dissolved salts?
     choices:
       - text: 'Saline'
         correct: true
       - text: 'Saturated'
         rationale: |
-          This treats having salt as holding the maximum possible amount. Both describe a solution. Check salt presence versus the solubility limit.
+          Both words can describe solutions. Check whether the water needs to hold the most salt it can dissolve or simply contain salt.
       - text: 'Distilled'
         rationale: |
-          This applies a purified-water description to natural seawater. Both are water. Check the dissolved salts.
+          This describes water collected from vapor. Check whether most dissolved salts stay behind when water evaporates.
       - text: 'Turbid'
         rationale: |
-          This treats suspended particles as dissolved salt. Both affect water properties. Check cloudiness versus salt content.
+          Cloudiness can change how water looks. Check whether it comes from floating particles or from dissolved salt.
     explanation: |
-      Saline means salty. Ocean water contains dissolved salts, so it is saline.
+      Saline means salty. Seawater contains dissolved salts, so it is saline.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0015
@@ -332,21 +332,21 @@ questions:
     type: identify
     difficulty: medium
     stem: |
-      Ocean water is layered based on two main factors. What are they?
+      Which pair of water properties describes the contrast between the warm surface layer and the cold, dense deep layer of the open ocean?
     choices:
       - text: 'Temperature and density'
         correct: true
       - text: 'Salinity and color'
         rationale: |
-          This uses visible color as a layering factor. Salinity can affect density. Check the pair asked for rather than color.
-      - text: 'Depth and sunlight only, unrelated to temperature'
+          Salinity affects how dense seawater is, and water can look different at different depths. Check which properties are given by warm, cold, and dense.
+      - text: 'Depth and light level'
         rationale: |
-          This ignores the link between sunlight and temperature. Depth changes light exposure. Check temperature and density together.
+          Deeper water gets less sunlight. Check which pair describes the water itself as warmer, colder, or denser.
       - text: 'Wave height and wind speed'
         rationale: |
-          This uses surface conditions as the layer classification. Wind and waves mix water. Check what distinguishes the deeper layers.
+          Wind and waves affect the surface. Check whether the question describes surface motion or properties of the water in each layer.
     explanation: |
-      The lesson describes ocean layers using temperature and density. The typical surface is warmer and sunlit. Deep water is colder, denser, and beyond sunlight's reach.
+      Warm and cold describe temperature. Dense means more mass fits in the same space. These layers differ in both temperature and density.
     approved: true
 
   - id: q-earth-science-astronomy-water-cycle-oceanography-0016
