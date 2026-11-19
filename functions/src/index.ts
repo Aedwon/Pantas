@@ -56,6 +56,7 @@ export {recordSetupAcceptance} from './setupAcceptance.js';
 export {getBetaAccess} from './betaAccess.js';
 
 export {requestSignInCode, verifySignInCode} from './signInCode.js';
+export {requestGuardianCode, verifyGuardianCode} from './guardianCodeGate.js';
 export {exchangeGoogleSignIn} from './googleSignIn.js';
 
 

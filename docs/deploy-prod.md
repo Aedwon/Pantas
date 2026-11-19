@@ -228,6 +228,10 @@ custom token for the client to sign in with.
   `signInLimits` and `signInRequests`. Clients cannot read or write any of them; rules deny them.
 - Optional cleanup: add Firestore TTL policies on `signInChallenges.expiresAt`, and on
   `purgeAt` for the collection groups `signInCodes`, `signInLimits` and `signInRequests`.
+- Guardian code gate (`requestGuardianCode`, `verifyGuardianCode`; under-13 accounts): uses the same
+  `SIGN_IN_CODE_KEY` and mail sender, no new secret. Pending codes live in `guardianCodes`, proofs in
+  `guardianCodeProofs`, per-holder daily counts in `guardianCodeLimits`; rules deny all three. Optional
+  cleanup: Firestore TTL policies on `purgeAt` for those three collection groups.
 - Smoke test: request a code, enter it, confirm sign-in. Then enter a wrong code and
   confirm the tries count down, and confirm a second request within 60 seconds does
   not send another email.
