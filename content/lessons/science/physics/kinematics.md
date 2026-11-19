@@ -6,6 +6,15 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-position-displacement-and-velocity
+  - lesson-physics-acceleration-and-direction
+  - lesson-physics-position-time-graph-slope
+  - lesson-physics-velocity-time-graph-slope-and-area
+  - lesson-physics-motion-with-constant-acceleration
+  - lesson-physics-choosing-a-constant-acceleration-equation
+  - lesson-physics-free-fall-up-and-down
 ---
 ## Core Concept
 

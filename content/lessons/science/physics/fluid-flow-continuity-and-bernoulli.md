@@ -6,6 +6,11 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 8
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-continuity-and-flow-speed
+  - lesson-physics-bernoullis-equation-and-height
+  - lesson-physics-bernoulli-pressure-and-speed
 ---
 ## Core Concept
 

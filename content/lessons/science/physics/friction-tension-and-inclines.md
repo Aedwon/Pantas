@@ -6,6 +6,14 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 10
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-rope-tension-in-hanging-loads
+  - lesson-physics-tension-between-connected-blocks
+  - lesson-physics-tension-over-pulleys
+  - lesson-physics-static-friction-and-its-limit
+  - lesson-physics-kinetic-friction-and-angled-pulls
+  - lesson-physics-weight-components-on-an-incline
 ---
 ## Core Concept
 

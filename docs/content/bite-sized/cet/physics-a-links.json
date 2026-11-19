@@ -1,0 +1,575 @@
+{
+  "outline": [
+    {
+      "original": "lesson-physics-dynamics",
+      "parts": [
+        {
+          "slug": "inertia-and-balanced-forces",
+          "title": "Inertia and Balanced Forces"
+        },
+        {
+          "slug": "net-force-and-acceleration",
+          "title": "Net Force and Acceleration"
+        },
+        {
+          "slug": "newtons-third-law-pairs",
+          "title": "Newton’s Third-Law Pairs"
+        },
+        {
+          "slug": "mass-and-weight",
+          "title": "Mass and Weight"
+        },
+        {
+          "slug": "normal-force-and-contact",
+          "title": "Normal Force and Contact"
+        },
+        {
+          "slug": "drawing-free-body-diagrams",
+          "title": "Drawing Free-Body Diagrams"
+        }
+      ]
+    },
+    {
+      "original": "lesson-physics-electricity-and-magnetism",
+      "parts": [
+        {
+          "slug": "electric-charge-and-charging",
+          "title": "Electric Charge and Charging"
+        },
+        {
+          "slug": "electric-induction-and-polarization",
+          "title": "Electric Induction and Polarization"
+        },
+        {
+          "slug": "coulombs-law-and-electric-fields",
+          "title": "Coulomb’s Law and Electric Fields"
+        },
+        {
+          "slug": "current-voltage-and-ohms-law",
+          "title": "Current, Voltage, and Ohm’s Law"
+        },
+        {
+          "slug": "series-circuit-current-and-voltage",
+          "title": "Series Circuit Current and Voltage"
+        },
+        {
+          "slug": "parallel-circuit-resistance",
+          "title": "Parallel Circuit Resistance"
+        },
+        {
+          "slug": "electrical-power-and-overload",
+          "title": "Electrical Power and Overload"
+        },
+        {
+          "slug": "magnetic-poles-and-current",
+          "title": "Magnetic Poles and Current"
+        },
+        {
+          "slug": "magnetic-flux-and-faradays-law",
+          "title": "Magnetic Flux and Faraday’s Law"
+        },
+        {
+          "slug": "lenzs-law-and-induced-current",
+          "title": "Lenz’s Law and Induced Current"
+        },
+        {
+          "slug": "electric-motors-and-generators",
+          "title": "Electric Motors and Generators"
+        }
+      ]
+    },
+    {
+      "original": "lesson-physics-fluid-flow-continuity-and-bernoulli",
+      "parts": [
+        {
+          "slug": "continuity-and-flow-speed",
+          "title": "Continuity and Flow Speed"
+        },
+        {
+          "slug": "bernoullis-equation-and-height",
+          "title": "Bernoulli’s Equation and Height"
+        },
+        {
+          "slug": "bernoulli-pressure-and-speed",
+          "title": "Bernoulli Pressure and Speed"
+        }
+      ]
+    },
+    {
+      "original": "lesson-physics-fluid-mechanics",
+      "parts": [
+        {
+          "slug": "fluid-density-and-pressure",
+          "title": "Fluid Density and Pressure"
+        },
+        {
+          "slug": "gauge-and-absolute-pressure",
+          "title": "Gauge and Absolute Pressure"
+        },
+        {
+          "slug": "comparing-pressure-at-depth",
+          "title": "Comparing Pressure at Depth"
+        },
+        {
+          "slug": "pascal-principle-and-hydraulic-force",
+          "title": "Pascal’s Principle and Hydraulic Force"
+        },
+        {
+          "slug": "hydraulic-piston-distance-and-work",
+          "title": "Hydraulic Piston Distance and Work"
+        },
+        {
+          "slug": "archimedes-principle-and-buoyant-force",
+          "title": "Archimedes’ Principle and Buoyant Force"
+        },
+        {
+          "slug": "apparent-weight-in-a-fluid",
+          "title": "Apparent Weight in a Fluid"
+        },
+        {
+          "slug": "floating-and-sinking",
+          "title": "Floating and Sinking"
+        },
+        {
+          "slug": "floating-fraction-and-displaced-volume",
+          "title": "Floating Fraction and Displaced Volume"
+        }
+      ]
+    },
+    {
+      "original": "lesson-physics-friction-tension-and-inclines",
+      "parts": [
+        {
+          "slug": "rope-tension-in-hanging-loads",
+          "title": "Rope Tension in Hanging Loads"
+        },
+        {
+          "slug": "tension-between-connected-blocks",
+          "title": "Tension Between Connected Blocks"
+        },
+        {
+          "slug": "tension-over-pulleys",
+          "title": "Tension Over Pulleys"
+        },
+        {
+          "slug": "static-friction-and-its-limit",
+          "title": "Static Friction and Its Limit"
+        },
+        {
+          "slug": "kinetic-friction-and-angled-pulls",
+          "title": "Kinetic Friction and Angled Pulls"
+        },
+        {
+          "slug": "weight-components-on-an-incline",
+          "title": "Weight Components on an Incline"
+        }
+      ]
+    },
+    {
+      "original": "lesson-physics-gravity-and-keplers-laws",
+      "parts": [
+        {
+          "slug": "universal-gravitation-and-distance",
+          "title": "Universal Gravitation and Distance"
+        },
+        {
+          "slug": "orbital-shape-and-speed",
+          "title": "Orbital Shape and Speed"
+        },
+        {
+          "slug": "orbital-period-and-semimajor-axis",
+          "title": "Orbital Period and Semimajor Axis"
+        }
+      ]
+    },
+    {
+      "original": "lesson-physics-interference-diffraction-and-doppler",
+      "parts": [
+        {
+          "slug": "wave-interference-and-path-difference",
+          "title": "Wave Interference and Path Difference"
+        },
+        {
+          "slug": "diffraction-at-edges-and-openings",
+          "title": "Diffraction at Edges and Openings"
+        },
+        {
+          "slug": "doppler-effect-and-heard-pitch",
+          "title": "Doppler Effect and Heard Pitch"
+        },
+        {
+          "slug": "doppler-frequency-from-a-moving-source",
+          "title": "Doppler Frequency From a Moving Source"
+        }
+      ]
+    },
+    {
+      "original": "lesson-physics-kinematics",
+      "parts": [
+        {
+          "slug": "position-displacement-and-velocity",
+          "title": "Position, Displacement, and Velocity"
+        },
+        {
+          "slug": "acceleration-and-direction",
+          "title": "Acceleration and Direction"
+        },
+        {
+          "slug": "position-time-graph-slope",
+          "title": "Position-Time Graph Slope"
+        },
+        {
+          "slug": "velocity-time-graph-slope-and-area",
+          "title": "Velocity-Time Graph Slope and Area"
+        },
+        {
+          "slug": "motion-with-constant-acceleration",
+          "title": "Motion With Constant Acceleration"
+        },
+        {
+          "slug": "choosing-a-constant-acceleration-equation",
+          "title": "Choosing a Constant-Acceleration Equation"
+        },
+        {
+          "slug": "free-fall-up-and-down",
+          "title": "Free Fall Up and Down"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-physics-inertia-and-balanced-forces": [],
+    "lesson-physics-net-force-and-acceleration": [
+      {
+        "lesson": "lesson-physics-inertia-and-balanced-forces",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-physics-position-displacement-and-velocity",
+        "strength": "helpful",
+        "reason": "Acceleration as the rate of change of velocity comes from kinematics. This lesson restates it where the second law needs it."
+      }
+    ],
+    "lesson-physics-newtons-third-law-pairs": [
+      {
+        "lesson": "lesson-physics-net-force-and-acceleration",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-mass-and-weight": [
+      {
+        "lesson": "lesson-physics-newtons-third-law-pairs",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-normal-force-and-contact": [
+      {
+        "lesson": "lesson-physics-mass-and-weight",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-drawing-free-body-diagrams": [
+      {
+        "lesson": "lesson-physics-normal-force-and-contact",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-physics-scalars-and-vectors",
+        "strength": "helpful",
+        "reason": "Splitting a force into parts along each axis is taught there in full. This lesson gives the cosine and sine rule it needs."
+      }
+    ],
+    "lesson-physics-electric-charge-and-charging": [],
+    "lesson-physics-electric-induction-and-polarization": [
+      {
+        "lesson": "lesson-physics-electric-charge-and-charging",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-coulombs-law-and-electric-fields": [
+      {
+        "lesson": "lesson-physics-electric-induction-and-polarization",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-current-voltage-and-ohms-law": [
+      {
+        "lesson": "lesson-physics-coulombs-law-and-electric-fields",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-series-circuit-current-and-voltage": [
+      {
+        "lesson": "lesson-physics-current-voltage-and-ohms-law",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-parallel-circuit-resistance": [
+      {
+        "lesson": "lesson-physics-series-circuit-current-and-voltage",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-electrical-power-and-overload": [
+      {
+        "lesson": "lesson-physics-parallel-circuit-resistance",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-magnetic-poles-and-current": [
+      {
+        "lesson": "lesson-physics-electrical-power-and-overload",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-magnetic-flux-and-faradays-law": [
+      {
+        "lesson": "lesson-physics-magnetic-poles-and-current",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-lenzs-law-and-induced-current": [
+      {
+        "lesson": "lesson-physics-magnetic-flux-and-faradays-law",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-electric-motors-and-generators": [
+      {
+        "lesson": "lesson-physics-lenzs-law-and-induced-current",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-continuity-and-flow-speed": [
+      {
+        "lesson": "lesson-physics-fluid-density-and-pressure",
+        "strength": "helpful",
+        "reason": "Density, pressure and pressure at depth are taught there. This lesson defines each one briefly before using it."
+      }
+    ],
+    "lesson-physics-bernoullis-equation-and-height": [
+      {
+        "lesson": "lesson-physics-continuity-and-flow-speed",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-physics-work-energy-power",
+        "strength": "helpful",
+        "reason": "Bernoulli's equation is an energy balance with kinetic and potential energy for each unit of volume. This lesson names both terms but does not derive them."
+      }
+    ],
+    "lesson-physics-bernoulli-pressure-and-speed": [
+      {
+        "lesson": "lesson-physics-bernoullis-equation-and-height",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-fluid-density-and-pressure": [],
+    "lesson-physics-gauge-and-absolute-pressure": [
+      {
+        "lesson": "lesson-physics-fluid-density-and-pressure",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-comparing-pressure-at-depth": [
+      {
+        "lesson": "lesson-physics-gauge-and-absolute-pressure",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-pascal-principle-and-hydraulic-force": [
+      {
+        "lesson": "lesson-physics-comparing-pressure-at-depth",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-hydraulic-piston-distance-and-work": [
+      {
+        "lesson": "lesson-physics-pascal-principle-and-hydraulic-force",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-archimedes-principle-and-buoyant-force": [
+      {
+        "lesson": "lesson-physics-hydraulic-piston-distance-and-work",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-apparent-weight-in-a-fluid": [
+      {
+        "lesson": "lesson-physics-archimedes-principle-and-buoyant-force",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-floating-and-sinking": [
+      {
+        "lesson": "lesson-physics-apparent-weight-in-a-fluid",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-floating-fraction-and-displaced-volume": [
+      {
+        "lesson": "lesson-physics-floating-and-sinking",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-rope-tension-in-hanging-loads": [
+      {
+        "lesson": "lesson-physics-inertia-and-balanced-forces",
+        "strength": "required",
+        "reason": "This lesson uses Newton's second law, weight, the normal force and free-body diagrams in every example, and only the dynamics lesson teaches them."
+      }
+    ],
+    "lesson-physics-tension-between-connected-blocks": [
+      {
+        "lesson": "lesson-physics-rope-tension-in-hanging-loads",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-tension-over-pulleys": [
+      {
+        "lesson": "lesson-physics-tension-between-connected-blocks",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-static-friction-and-its-limit": [
+      {
+        "lesson": "lesson-physics-tension-over-pulleys",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-kinetic-friction-and-angled-pulls": [
+      {
+        "lesson": "lesson-physics-static-friction-and-its-limit",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-weight-components-on-an-incline": [
+      {
+        "lesson": "lesson-physics-kinetic-friction-and-angled-pulls",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-universal-gravitation-and-distance": [],
+    "lesson-physics-orbital-shape-and-speed": [
+      {
+        "lesson": "lesson-physics-universal-gravitation-and-distance",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-orbital-period-and-semimajor-axis": [
+      {
+        "lesson": "lesson-physics-orbital-shape-and-speed",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-wave-interference-and-path-difference": [
+      {
+        "lesson": "lesson-physics-waves-and-sound",
+        "strength": "required",
+        "reason": "The lesson uses wavelength, frequency, wave speed and v = f times wavelength without defining them, and the waves lesson teaches them. It tells the student to read that lesson first."
+      }
+    ],
+    "lesson-physics-diffraction-at-edges-and-openings": [
+      {
+        "lesson": "lesson-physics-wave-interference-and-path-difference",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-doppler-effect-and-heard-pitch": [
+      {
+        "lesson": "lesson-physics-diffraction-at-edges-and-openings",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-doppler-frequency-from-a-moving-source": [
+      {
+        "lesson": "lesson-physics-doppler-effect-and-heard-pitch",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-position-displacement-and-velocity": [],
+    "lesson-physics-acceleration-and-direction": [
+      {
+        "lesson": "lesson-physics-position-displacement-and-velocity",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-position-time-graph-slope": [
+      {
+        "lesson": "lesson-physics-acceleration-and-direction",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-algebra-line-slopes-and-intercepts",
+        "strength": "helpful",
+        "reason": "Slope as rise over run makes the motion graphs easier to read. This lesson explains slope in the graph section, so the link is optional."
+      }
+    ],
+    "lesson-physics-velocity-time-graph-slope-and-area": [
+      {
+        "lesson": "lesson-physics-position-time-graph-slope",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-motion-with-constant-acceleration": [
+      {
+        "lesson": "lesson-physics-velocity-time-graph-slope-and-area",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-choosing-a-constant-acceleration-equation": [
+      {
+        "lesson": "lesson-physics-motion-with-constant-acceleration",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-physics-free-fall-up-and-down": [
+      {
+        "lesson": "lesson-physics-choosing-a-constant-acceleration-equation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ]
+  }
+}

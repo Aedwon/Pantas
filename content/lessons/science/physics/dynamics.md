@@ -6,6 +6,14 @@ subject: "subject-science"
 topic: "topic-physics"
 estimatedMinutes: 10
 isActive: true
+status: retired
+replacedBy:
+  - lesson-physics-inertia-and-balanced-forces
+  - lesson-physics-net-force-and-acceleration
+  - lesson-physics-newtons-third-law-pairs
+  - lesson-physics-mass-and-weight
+  - lesson-physics-normal-force-and-contact
+  - lesson-physics-drawing-free-body-diagrams
 ---
 ## Core Concept
 
