@@ -428,3 +428,297 @@ questions:
     explanation: |
       The tangent at $135^\circ$ is $-1$. Cosine at $240^\circ$ is $-\dfrac{1}{2}$, so their product is $\dfrac{1}{2}$. Sine at $-30^\circ$ is $-\dfrac{1}{2}$. Subtracting it gives $\dfrac{1}{2}-(-\dfrac{1}{2})=1$.
     approved: false
+  - id: q-trigonometry-unit-circle-0021
+    lesson: lesson-trigonometry-terminal-sides-and-coterminal-values
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the exact value of $\sin(-750^\circ)$?
+    choices:
+      - text: '$-\dfrac{1}{2}$'
+        correct: true
+      - text: '$\dfrac{1}{2}$'
+        rationale: |
+          This uses the size of sine at the reference angle. That gives the right size. Keep the negative sign because the terminal point is below the horizontal axis.
+      - text: '$-\dfrac{\sqrt{3}}{2}$'
+        rationale: |
+          This uses the cosine size at $30^\circ$. Both values come from the same reference angle. Read sine from the vertical coordinate.
+      - text: '$0$'
+        rationale: |
+          This treats the angle as two full clockwise turns. That would put it on the horizontal axis. Check the extra $30^\circ$ past those turns.
+    explanation: |
+      Add $720^\circ$ to get $-30^\circ$, then add $360^\circ$ to get $330^\circ$. The reference angle is $30^\circ$ and the terminal point is below the horizontal axis. The sine is $-\dfrac{1}{2}$.
+  - id: q-trigonometry-unit-circle-0022
+    lesson: lesson-trigonometry-terminal-sides-and-coterminal-values
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the exact value of $\tan855^\circ$?
+    choices:
+      - text: '$-1$'
+        correct: true
+      - text: '$1$'
+        rationale: |
+          This uses the tangent at the $45^\circ$ reference angle. The size is right. Check the sign of tangent in Quadrant II.
+      - text: '$0$'
+        rationale: |
+          This treats the terminal side as lying on the horizontal axis. Tangent is zero there, but $855^\circ$ leaves $135^\circ$ after two turns. Use that angle.
+      - text: 'Undefined'
+        rationale: |
+          This treats the terminal side as vertical. Tangent is undefined there, but check that $135^\circ$ lies between the axes.
+    explanation: |
+      Subtract two full turns to get $855^\circ-720^\circ=135^\circ$. Its reference angle is $45^\circ$. Tangent has size $1$ there and is negative in Quadrant II, so the value is $-1$.
+  - id: q-trigonometry-unit-circle-0023
+    lesson: lesson-trigonometry-unit-circle-values-in-radians
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Which radian measure equals $315^\circ$?
+    choices:
+      - text: '$\dfrac{7\pi}{4}$'
+        correct: true
+      - text: '$\dfrac{7\pi}{8}$'
+        rationale: |
+          This uses $360$ as the divisor when multiplying by $\pi$. A full turn is $360^\circ$, but it equals $2\pi$. Use $180^\circ$ for $\pi$.
+      - text: '$\dfrac{5\pi}{4}$'
+        rationale: |
+          This counts five steps of $45^\circ$. The step size is right. Count seven steps to reach $315^\circ$.
+      - text: '$\dfrac{3\pi}{4}$'
+        rationale: |
+          This uses the angle left after removing a half turn. That gives $135^\circ$. Keep the full angle when changing units.
+    explanation: |
+      A half turn is $180^\circ$, or $\pi$ radians. Multiply $315$ by $\dfrac{\pi}{180}$ and reduce to get $\dfrac{7\pi}{4}$ radians.
+  - id: q-trigonometry-unit-circle-0024
+    lesson: lesson-trigonometry-unit-circle-values-in-radians
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the degree measure of $-\dfrac{11\pi}{6}$ radians?
+    choices:
+      - text: '$-330^\circ$'
+        correct: true
+      - text: '$330^\circ$'
+        rationale: |
+          This counts the steps correctly but drops the minus sign. Keep the clockwise direction when changing units.
+      - text: '$-165^\circ$'
+        rationale: |
+          This treats $\pi$ as $90^\circ$. That is a quarter turn. Check that $\pi$ radians is a half turn.
+      - text: '$30^\circ$'
+        rationale: |
+          This adds a full turn to give the same terminal side. It points in the same direction. Keep the same signed angle when changing units.
+    explanation: |
+      Each $\dfrac{\pi}{6}$ is $30^\circ$. Take $11$ of those steps in the negative direction. The angle is $-11(30^\circ)=-330^\circ$.
+  - id: q-trigonometry-unit-circle-0025
+    lesson: lesson-trigonometry-unit-circle-values-in-radians
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the exact value of $\sin\left(\dfrac{5\pi}{4}\right)$, with the angle in radians?
+    choices:
+      - text: '$-\dfrac{\sqrt{2}}{2}$'
+        correct: true
+      - text: '$\dfrac{\sqrt{2}}{2}$'
+        rationale: |
+          This reads sine at the reference angle alone. It gives the right size. Check the negative sign in Quadrant III.
+      - text: '$-\dfrac{\sqrt{3}}{2}$'
+        rationale: |
+          This uses the value for a $60^\circ$ reference angle. The sign is right for this quadrant. Check that a denominator of $4$ gives steps of $45^\circ$.
+      - text: '$-\dfrac{1}{2}$'
+        rationale: |
+          This uses the value for a $30^\circ$ reference angle. The sign fits Quadrant III. Subtract $\pi$ from the given angle to get the actual reference angle.
+    explanation: |
+      The angle is in Quadrant III, where sine is negative. Subtract $\pi$ to get the reference angle $\dfrac{\pi}{4}$. The sine has size $\dfrac{\sqrt{2}}{2}$, so the answer is $-\dfrac{\sqrt{2}}{2}$.
+  - id: q-trigonometry-unit-circle-0026
+    lesson: lesson-trigonometry-unit-circle-values-in-radians
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the exact value of $\cos\left(\dfrac{8\pi}{3}\right)$, with the angle in radians?
+    choices:
+      - text: '$-\dfrac{1}{2}$'
+        correct: true
+      - text: '$\dfrac{1}{2}$'
+        rationale: |
+          This takes the cosine of the reference angle. Its size is right. Check the sign in Quadrant II.
+      - text: '$-\dfrac{\sqrt{3}}{2}$'
+        rationale: |
+          This reads the sine size for a $60^\circ$ reference angle. Use the horizontal coordinate for cosine.
+      - text: '$-1$'
+        rationale: |
+          This treats the angle as ending at $\pi$ after a full turn. Subtract $\dfrac{6\pi}{3}$ to find the actual remainder.
+    explanation: |
+      Subtract a full turn to get $\dfrac{8\pi}{3}-2\pi=\dfrac{2\pi}{3}$. That is in Quadrant II, with reference angle $\dfrac{\pi}{3}$. Cosine is negative there and has size $\dfrac{1}{2}$.
+  - id: q-trigonometry-unit-circle-0027
+    lesson: lesson-trigonometry-finding-unit-circle-values-from-one-coordinate
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      The terminal point of angle $\theta$ on the unit circle lies in Quadrant IV and has horizontal coordinate $\dfrac{5}{13}$. With $\theta$ measured in degrees, what is the vertical coordinate and what is $\tan\theta$, respectively?
+    choices:
+      - text: '$-\dfrac{12}{13}$ and $-\dfrac{12}{5}$'
+        correct: true
+      - text: '$\dfrac{12}{13}$ and $\dfrac{12}{5}$'
+        rationale: |
+          This uses the positive square root. It has the right size. Take the negative root because the point lies below the horizontal axis.
+      - text: '$-\dfrac{12}{13}$ and $-\dfrac{5}{12}$'
+        rationale: |
+          This finds the right coordinate and then flips the tangent ratio. Check that the vertical coordinate goes on top.
+      - text: '$-\dfrac{8}{13}$ and $-\dfrac{8}{5}$'
+        rationale: |
+          This subtracts $\dfrac{5}{13}$ from $1$. The coordinates fit a circle through their squares. Square first, then solve for the missing coordinate.
+    explanation: |
+      Use $x^2+y^2=1$ to get $y^2=1-\dfrac{25}{169}=\dfrac{144}{169}$. In Quadrant IV, $y=-\dfrac{12}{13}$. Divide $y$ by $x$ to get $\tan\theta=-\dfrac{12}{5}$.
+  - id: q-trigonometry-unit-circle-0028
+    lesson: lesson-trigonometry-polar-and-rectangular-coordinates
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A point has polar coordinates $(6,330^\circ)$. What are its rectangular coordinates?
+    choices:
+      - text: '$(3\sqrt{3},-3)$'
+        correct: true
+      - text: '$(-3\sqrt{3},3)$'
+        rationale: |
+          This reverses both signs and gives a point across the origin. Check that $330^\circ$ is in Quadrant IV, where $x$ is positive and $y$ is negative.
+      - text: '$(3,-3\sqrt{3})$'
+        rationale: |
+          This puts the larger size on the vertical axis. The coordinates have the right signs, but $330^\circ$ is only $30^\circ$ from the horizontal axis. Multiply cosine by $6$ for $x$.
+      - text: '$(\dfrac{\sqrt{3}}{2},-\dfrac{1}{2})$'
+        rationale: |
+          This gives the point on the unit circle. Its direction is right. Multiply both coordinates by the given radius.
+    explanation: |
+      The angle is in Quadrant IV with a $30^\circ$ reference angle. Multiply the cosine by $6$ to get $x=3\sqrt{3}$. Multiply the sine by $6$ to get $y=-3$.
+  - id: q-trigonometry-unit-circle-0029
+    lesson: lesson-trigonometry-polar-and-rectangular-coordinates
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A tracker reports a point $10$ m from the origin at $135^\circ$ measured counterclockwise from the positive horizontal axis. What is its horizontal coordinate, in meters?
+    choices:
+      - text: '$-5\sqrt{2}$'
+        correct: true
+      - text: '$5\sqrt{2}$'
+        rationale: |
+          This uses the size at the $45^\circ$ reference angle. The point is left of the vertical axis. Use a negative horizontal coordinate.
+      - text: '$-\dfrac{\sqrt{2}}{2}$'
+        rationale: |
+          This gives the horizontal coordinate for a radius of $1$. The sign is right. Multiply by the actual radius.
+      - text: '$-10\sqrt{2}$'
+        rationale: |
+          This uses the right radical but drops the denominator from cosine. Check the full value of cosine at $135^\circ$ before multiplying.
+    explanation: |
+      Use $x=r\cos\theta$. At $135^\circ$, cosine is $-\dfrac{\sqrt{2}}{2}$. Multiply by the radius $10$ to get $-5\sqrt{2}$ m.
+  - id: q-trigonometry-unit-circle-0030
+    lesson: lesson-trigonometry-polar-and-rectangular-coordinates
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What are the polar coordinates $(r,\theta)$ of $(-3,-3)$ for $r>0$ and $0^\circ\leq\theta<360^\circ$?
+    choices:
+      - text: '$(3\sqrt{2},225^\circ)$'
+        correct: true
+      - text: '$(3\sqrt{2},45^\circ)$'
+        rationale: |
+          This uses the reference angle alone. Both coordinates at $45^\circ$ would be positive. Use both given signs to place the point in Quadrant III.
+      - text: '$(3\sqrt{2},315^\circ)$'
+        rationale: |
+          This uses the correct reference angle and a negative vertical sign. In Quadrant IV, the horizontal coordinate would be positive. Check its sign too.
+      - text: '$(6,225^\circ)$'
+        rationale: |
+          This adds the two distances along the axes. The angle is right, but the radius is the straight distance from the origin. Use the square root of the sum of the squares.
+    explanation: |
+      The radius is $\sqrt{(-3)^2+(-3)^2}=3\sqrt{2}$. The two coordinate sizes are equal, so the reference angle is $45^\circ$. Both signs are negative, which puts the point at $180^\circ+45^\circ=225^\circ$.
+  - id: q-trigonometry-unit-circle-0031
+    lesson: lesson-trigonometry-polar-and-rectangular-coordinates
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Which polar coordinates represent $(0,-7)$ for $r>0$ and $0^\circ\leq\theta<360^\circ$?
+    choices:
+      - text: '$(7,270^\circ)$'
+        correct: true
+      - text: '$(7,90^\circ)$'
+        rationale: |
+          This points along the vertical axis, but goes upward. Check that the vertical coordinate is negative.
+      - text: '$(7,180^\circ)$'
+        rationale: |
+          This puts the point on the left because a coordinate is negative. Check which coordinate is zero. The point has no horizontal shift.
+      - text: '$(7,0^\circ)$'
+        rationale: |
+          This uses the starting angle because the horizontal coordinate is zero. At $0^\circ$ the point would be on the horizontal axis. Follow the negative vertical axis instead.
+    explanation: |
+      The point is $7$ units from the origin. Its horizontal coordinate is zero and its vertical coordinate is negative, so it is on the ray at $270^\circ$.
+  - id: q-trigonometry-unit-circle-0032
+    lesson: lesson-trigonometry-reading-trigonometric-graphs
+    keyPoint: 1
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      For $y=\cos x$, where $x$ is in radians, which ordered pair gives (period, amplitude)?
+    choices:
+      - text: '$(2\pi,1)$'
+        correct: true
+      - text: '$(\pi,1)$'
+        rationale: |
+          The graph takes $\pi$ radians to go from its highest point to its lowest. That is only half of the full pattern. Check when it reaches the next high point.
+      - text: '$(2\pi,2)$'
+        rationale: |
+          The graph spans $2$ units from bottom to top. That is the full height. Divide it by two for the amplitude.
+      - text: '$(\pi,2)$'
+        rationale: |
+          This uses the distance from the highest point to the lowest and the full height. Those are both parts of the graph. Measure a full repeat and half the height.
+    explanation: |
+      The graph starts at a peak and reaches the next peak after $2\pi$ radians. Its highest value is $1$ and its lowest is $-1$. Half of that height is $1$.
+  - id: q-trigonometry-unit-circle-0033
+    lesson: lesson-trigonometry-reading-trigonometric-graphs
+    keyPoint: 2
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      For the graph of $y=\tan x$ on $0<x<2\pi$, with $x$ in radians, which statement is true?
+    choices:
+      - text: 'The only zero is at $x=\pi$.'
+        correct: true
+      - text: 'The only zero is at $x=\dfrac{\pi}{2}$.'
+        rationale: |
+          This picks a point halfway between two crossings. That point is on an asymptote. Look where the graph crosses the horizontal axis.
+      - text: 'The function is undefined at $x=\pi$.'
+        rationale: |
+          This spots a break in the repeating pattern but puts it at a crossing. Check that tangent is zero at each whole multiple of $\pi$.
+      - text: 'The function is defined at $x=\dfrac{3\pi}{2}$.'
+        rationale: |
+          This angle lies inside the interval, so it may look like a point on the graph. Check whether cosine is zero there before dividing.
+    explanation: |
+      Tangent is zero at $0$, $\pi$, and $2\pi$. This interval leaves out both endpoints, so only $\pi$ remains.
+  - id: q-trigonometry-unit-circle-0034
+    lesson: lesson-trigonometry-reading-trigonometric-graphs
+    keyPoint: 2
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      For $y=\tan x$ with $x$ measured in radians, which pair gives all the vertical asymptotes on $0\leq x\leq2\pi$?
+    choices:
+      - text: '$x=\dfrac{\pi}{2}$ and $x=\dfrac{3\pi}{2}$'
+        correct: true
+      - text: '$x=\dfrac{\pi}{4}$ and $x=\dfrac{5\pi}{4}$'
+        rationale: |
+          These points are a period apart, so they match the graph's repeat. Tangent equals $1$ there. Look for the lines the graph never touches.
+      - text: '$x=0$ and $x=\pi$'
+        rationale: |
+          These angles are a period apart and mark crossings of the horizontal axis. At each one, the graph has value zero. Find the angles where tangent has no value.
+      - text: '$x=\pi$ and $x=2\pi$'
+        rationale: |
+          These are also a period apart. They are the ends of full tangent cycles, but the graph crosses the axis there. Look halfway between successive zeros for each asymptote.
+    explanation: |
+      Tangent is sine divided by cosine. Cosine is zero at $\dfrac{\pi}{2}$ and $\dfrac{3\pi}{2}$ in this interval. Tangent has no value there, so those are the two asymptotes.
