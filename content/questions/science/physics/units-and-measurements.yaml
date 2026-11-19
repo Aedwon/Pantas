@@ -463,3 +463,201 @@ questions:
           This converts cubic centimeters to cubic meters but leaves grams unchanged. The volume factor is large. Check grams to kilograms too.
     explanation: |
       One gram is $0.001\,\mathrm{kg}$ and one cubic centimeter is $10^{-6}\,\mathrm{m^3}$. Thus $2\,\mathrm{g/cm^3}=\dfrac{2(0.001)}{10^{-6}}=2000\,\mathrm{kg/m^3}$.
+
+  - id: q-physics-units-and-measurements-0021
+    lesson: lesson-physics-si-prefixes-and-scientific-notation
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A laboratory bath is maintained at 20°C. What is its temperature on the kelvin scale?
+    choices:
+      - text: '293.15 K'
+        correct: true
+      - text: '253.15 K'
+        rationale: |
+          This puts the bath 20 degrees below 0°C. Check whether the Celsius reading is positive or negative.
+      - text: '273.15 K'
+        rationale: |
+          This is the kelvin value for 0°C. Include the bath's 20-degree rise above that point.
+      - text: '20 K'
+        rationale: |
+          Celsius and kelvin use the same size step. Check where the two scales start.
+    explanation: |
+      To express a Celsius reading in kelvin, add 273.15. The bath is at $20+273.15=293.15$ K.
+
+  - id: q-physics-units-and-measurements-0022
+    lesson: lesson-physics-converting-squared-and-cubed-units
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A liquid has a density of 0.80 g/cm³. What is its density in kg/m³?
+    choices:
+      - text: '800 kg/m³'
+        correct: true
+      - text: '0.0008 kg/m³'
+        rationale: |
+          This changes grams to kilograms. Check that the denominator also changes.
+      - text: '0.80 kg/m³'
+        rationale: |
+          This keeps the number unchanged. Check whether the mass and volume factors cancel.
+      - text: '80 kg/m³'
+        rationale: |
+          This can come from using the squared length factor. Check the power on the volume unit.
+    explanation: |
+      A cubic meter holds $10^6$ cubic centimeters. Its mass is $0.80\times10^6$ g, which is 800 kg.
+
+  - id: q-physics-units-and-measurements-0023
+    lesson: lesson-physics-checking-equations-by-dimensions
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A student proposes $v=u+at^2$, where $v$ and $u$ are speeds, $a$ is acceleration, and $t$ is time. Which dimensional check applies?
+    choices:
+      - text: 'The term $at^2$ has dimensions of length.'
+        correct: true
+      - text: 'Both right-hand terms have dimensions of speed.'
+        rationale: |
+          Both terms involve motion. Cancel the time units in $at^2$ to see what remains.
+      - text: 'The term $u$ has dimensions of length because it is the starting value.'
+        rationale: |
+          A starting position would have length units. Check what $u$ stands for here.
+      - text: 'The term $at^2$ has dimensions of acceleration.'
+        rationale: |
+          The letter $a$ is acceleration. Check what multiplying by time squared does to its units.
+    explanation: |
+      Acceleration has units of meters per second squared. Multiplying by seconds squared leaves meters. That length cannot be added to a speed.
+
+  - id: q-physics-units-and-measurements-0024
+    lesson: lesson-physics-checking-equations-by-dimensions
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      Two proposed formulas for displacement are $s=vt$ and $s=2vt$, where $v$ is speed and $t$ is time. Which conclusion can be drawn from dimensions alone?
+    choices:
+      - text: 'Both formulas pass the dimension check.'
+        correct: true
+      - text: 'Only $s=vt$ passes because 2 changes the dimensions.'
+        rationale: |
+          The factor 2 changes the value. Check if it carries any units of its own.
+      - text: 'Only $s=2vt$ passes because the speed is doubled.'
+        rationale: |
+          The factor 2 doubles the product. Check whether meters appear in both products.
+      - text: 'Neither passes because both formulas contain time.'
+        rationale: |
+          Each formula has a time factor. Check what cancels when speed is multiplied by time.
+    explanation: |
+      Speed times time gives length. The pure number 2 leaves the units of the product the same.
+
+  - id: q-physics-units-and-measurements-0025
+    lesson: lesson-physics-significant-figures-and-rounding
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A rectangular tile has measured sides of 2.50 cm and 3.2 cm. What is its area to the correct number of significant figures?
+    choices:
+      - text: '8.0 cm²'
+        correct: true
+      - text: '8.00 cm²'
+        rationale: |
+          The calculator product can be written this way. Check how many digits the shorter measurement supports.
+      - text: '8 cm²'
+        rationale: |
+          Dropping the zero gives the same value. Check how many significant figures that leaves.
+      - text: '8.000 cm²'
+        rationale: |
+          Adding zeros can look like showing more care. Check whether the readings support four significant figures.
+    explanation: |
+      The product is 8.00 cm² before rounding. The least precise factor has two significant figures, so report 8.0 cm².
+
+  - id: q-physics-units-and-measurements-0026
+    lesson: lesson-physics-significant-figures-and-rounding
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Two measured lengths are 5.2 cm and 0.384 cm. What is their sum when reported to the correct precision?
+    choices:
+      - text: '5.6 cm'
+        correct: true
+      - text: '5.58 cm'
+        rationale: |
+          This rounds to two decimal places. For addition, check the number of decimal places in the least precise reading.
+      - text: '5.584 cm'
+        rationale: |
+          This gives the full sum. Check which reading limits the decimal places you can report.
+      - text: '5.5 cm'
+        rationale: |
+          This drops digits after the tenths place. Check the next digit to see if the tenths place rounds up.
+    explanation: |
+      The sum before rounding is 5.584 cm. The first reading has one decimal place, so round the sum to one decimal place.
+
+  - id: q-physics-units-and-measurements-0027
+    lesson: lesson-physics-uncertainty-accuracy-and-precision
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A student reports a length of $20.0\pm0.4$ cm. What is the percent uncertainty in the reported length?
+    choices:
+      - text: '2%'
+        correct: true
+      - text: '0.02%'
+        rationale: |
+          The fraction is 0.02. Multiply by 100 to express it as a percent.
+      - text: '4%'
+        rationale: |
+          This counts the whole span from the low end to the high end. Use the amount after the plus-or-minus sign.
+      - text: '20%'
+        rationale: |
+          This can come from moving the decimal too far. Check what percent of 20.0 cm gives back 0.4 cm.
+    explanation: |
+      Compare 0.4 cm with the full reading of 20.0 cm. The fraction is $0.4/20.0=0.02$, or 2%.
+
+  - id: q-physics-units-and-measurements-0028
+    lesson: lesson-physics-uncertainty-accuracy-and-precision
+    keyPoint: 2
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      A reference block has a known mass of 100.0 g. One balance gives readings of 95.0 g, 95.1 g, and 94.9 g. How should these readings be described?
+    choices:
+      - text: 'Precise but inaccurate'
+        correct: true
+      - text: 'Accurate because the readings agree closely'
+        rationale: |
+          The readings agree with each other. Compare them with the known mass to check accuracy.
+      - text: 'Accurate but imprecise because the readings differ slightly'
+        rationale: |
+          The readings differ a little. Check their spread and their distance from the true value separately.
+      - text: 'Imprecise because all the readings are below the true mass'
+        rationale: |
+          All the readings are low. Check whether that tells you about their spread or about their accuracy.
+    explanation: |
+      The readings cluster near 95 g. That makes them precise. They are well below 100 g, so they are inaccurate.
+
+  - id: q-physics-units-and-measurements-0029
+    lesson: lesson-physics-uncertainty-accuracy-and-precision
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Two lengths are reported as $20.0\pm0.2$ cm and $10.0\pm0.2$ cm. Which reading has the greater percent uncertainty?
+    choices:
+      - text: 'The 10.0 cm reading'
+        correct: true
+      - text: 'The 20.0 cm reading because its value is larger'
+        rationale: |
+          A larger reading gives a larger denominator. Check how that affects a fraction with a fixed numerator.
+      - text: 'Both readings because their uncertainties are equal in centimeters'
+        rationale: |
+          Their absolute uncertainties match. Check how large each is compared with its own reading.
+      - text: 'The values cannot be compared without knowing the true lengths.'
+        rationale: |
+          The true lengths may be unknown. Use the reported lengths to find the percentages.
+    explanation: |
+      The uncertainty is the same size for both. It takes up a larger share of 10.0 cm, so that reading has the greater percent uncertainty.

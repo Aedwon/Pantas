@@ -463,3 +463,69 @@ questions:
           Both are waves in rock, so they seem alike. A solid can carry both types of wave, and the speeds differ. Check the lesson's statement about earthquakes.
     explanation: |
       A solid can carry both kinds of wave. The faster P waves are longitudinal, and the slower S waves are transverse. S waves cannot pass through liquids.
+
+  - id: q-physics-waves-and-sound-0046
+    lesson: lesson-physics-ordering-the-electromagnetic-spectrum
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Two electromagnetic waves travel in a vacuum. Wave X has three times the wavelength of wave Y. How does X's frequency compare with Y's?
+    choices:
+      - text: 'It is one third as large.'
+        correct: true
+      - text: 'It is three times as large.'
+        rationale: |
+          Both values belong in the speed equation. Check what happens to their product if both grow.
+      - text: 'It is the same as Y''s frequency.'
+        rationale: |
+          Their speeds match in a vacuum. Check whether waves of different lengths must pass at different rates to keep that speed.
+      - text: 'It is nine times as large.'
+        rationale: |
+          Squaring factors matters in some formulas. Check how often wavelength appears in this one.
+    explanation: |
+      Both waves travel at the same speed. Since speed equals frequency times wavelength, tripling wavelength divides frequency by three.
+
+  - id: q-physics-waves-and-sound-0047
+    lesson: lesson-physics-ordering-the-electromagnetic-spectrum
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      Which pair of bands lies directly on either side of visible light in the electromagnetic spectrum?
+    choices:
+      - text: 'Infrared and ultraviolet'
+        correct: true
+      - text: 'Microwaves and ultraviolet'
+        rationale: |
+          Microwaves are on the longer wavelength side. Check which band falls between microwaves and visible light.
+      - text: 'Infrared and X-rays'
+        rationale: |
+          X-rays are on the shorter wavelength side. Check which band falls between visible light and X-rays.
+      - text: 'Microwaves and X-rays'
+        rationale: |
+          These bands lie on opposite sides of visible light. Check which bands are closer to it.
+    explanation: |
+      Infrared has longer wavelengths than visible light. Ultraviolet has shorter wavelengths. These are the bands next to visible light.
+
+  - id: q-physics-waves-and-sound-0048
+    lesson: lesson-physics-sound-speed-pitch-and-loudness
+    keyPoint: 2
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      Two tones reach the same listener. The second tone has a higher frequency than the first and a smaller amplitude. Which conclusion follows directly from the higher frequency?
+    choices:
+      - text: 'The second tone has a higher pitch.'
+        correct: true
+      - text: 'The second tone must sound louder.'
+        rationale: |
+          A higher pitch can make a tone stand out. Check whether frequency alone sets loudness.
+      - text: 'The second tone has a lower pitch because its amplitude is smaller.'
+        rationale: |
+          A smaller amplitude can weaken a sound. Check whether pitch depends on amplitude or frequency.
+      - text: 'The second tone has the same pitch because the two changes cancel.'
+        rationale: |
+          One value rises and the other falls. Check whether both affect pitch.
+    explanation: |
+      Pitch follows the frequency. A faster vibration gives a higher pitch. The smaller amplitude does not lower the pitch.

@@ -463,3 +463,25 @@ questions:
           This shifts the decimal point of the right coefficient. The coefficient $2$ looks right. Check the power of ten in $\dfrac{10^{8}}{10^{8}}$.
     explanation: |
       From $c=f\lambda$, the wavelength is $\lambda=\dfrac{c}{f}$. So $\lambda=\dfrac{3.00\times10^{8}}{1.50\times10^{8}}=2.00\,\mathrm m$.
+
+  - id: q-physics-light-and-optics-0046
+    lesson: lesson-physics-light-speed-and-wavelength-in-materials
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A light wave passes into a material in which its speed is two thirds of its speed in air. What happens to its wavelength and frequency?
+    choices:
+      - text: 'Wavelength becomes two thirds as large. Frequency stays the same.'
+        correct: true
+      - text: 'Wavelength stays the same. Frequency becomes two thirds as large.'
+        rationale: |
+          Changing either factor could reduce their product. Check what the light keeps when it enters the material.
+      - text: 'Both wavelength and frequency become two thirds as large.'
+        rationale: |
+          Both values appear in the wave equation. Check whether the source changes at the boundary.
+      - text: 'Wavelength becomes one and a half times as large. Frequency stays the same.'
+        rationale: |
+          This keeps the frequency fixed. Check whether wavelength rises or falls when speed falls.
+    explanation: |
+      The wave keeps its frequency at the boundary. Speed equals frequency times wavelength, so the wavelength falls by the same factor as speed.

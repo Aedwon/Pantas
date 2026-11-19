@@ -465,3 +465,69 @@ questions:
           This reports peak force as impulse. The largest graph value is prominent. Check the duration and area units.
     explanation: |
       The force-time area is a triangle of base $0.20\,\mathrm s$ and height $40\,\mathrm N$. Its area is $\dfrac12(0.20)(40)=4\,\mathrm{N\,s}$.
+
+  - id: q-physics-momentum-and-impulse-0021
+    lesson: lesson-physics-system-momentum-conservation
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      Two carts push apart on a level track as a spring of negligible mass between them expands. Friction is negligible. Which system has conserved horizontal momentum during the push?
+    choices:
+      - text: 'The pair of carts'
+        correct: true
+      - text: 'Only the cart that moves right'
+        rationale: |
+          Its motion may seem to account for the whole push. Check whether the other cart exerts a force on it through the spring.
+      - text: 'Only the cart that moves left'
+        rationale: |
+          It moves away from the spring, which can look like free motion. Check what pushes it during the release.
+      - text: 'Neither the pair nor either cart alone'
+        rationale: |
+          The spring changes each cart's momentum. Check whether the two changes cancel when both carts are counted.
+    explanation: |
+      Each cart pushes the other through the spring. For the pair, these pushes cancel. The track gives the pair no sideways push, so its total momentum stays the same.
+
+  - id: q-physics-momentum-and-impulse-0022
+    lesson: lesson-physics-collision-types-and-kinetic-energy
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      Before a collision, two carts have kinetic energies of 24 J and 6 J. Afterward, their kinetic energies are 8 J and 12 J. How does their total kinetic energy change?
+    choices:
+      - text: 'It decreases by 10 J.'
+        correct: true
+      - text: 'It decreases by 16 J.'
+        rationale: |
+          This gives the first cart's loss. Include the second cart's gain.
+      - text: 'It increases by 6 J.'
+        rationale: |
+          This gives the second cart's gain. Include the first cart's loss.
+      - text: 'It increases by 10 J.'
+        rationale: |
+          The totals differ by 10 J. Check which total comes first.
+    explanation: |
+      The carts start with $24+6=30$ J and end with $8+12=20$ J. Together they lose 10 J.
+
+  - id: q-physics-momentum-and-impulse-0023
+    lesson: lesson-physics-kinetic-energy-in-elastic-collisions-and-push-aparts
+    keyPoint: 1
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      Two skaters initially at rest push away from one another on level ice. During the push the net external horizontal impulse is negligible. How do the pair's total horizontal momentum and total kinetic energy change?
+    choices:
+      - text: 'Momentum is unchanged. Kinetic energy increases.'
+        correct: true
+      - text: 'Both totals increase as the skaters gain speed.'
+        rationale: |
+          Both skaters gain speed. Check that momentum also has a direction.
+      - text: 'Both totals stay at zero because the pushes cancel.'
+        rationale: |
+          The pushes cancel for the pair. Check whether kinetic energies can cancel with opposite motion.
+      - text: 'Momentum increases. Kinetic energy stays at zero.'
+        rationale: |
+          Both skaters start at rest. Check which total adds signed motion and which adds energy from both skaters.
+    explanation: |
+      The skaters push each other in opposite directions. Their momenta cancel, so the total stays zero. Both now move, so they have more kinetic energy.

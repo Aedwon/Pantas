@@ -464,3 +464,135 @@ questions:
           This uses final speed magnitude for the full interval and adds it to the net displacement. The last speed is available. Check the separate paths before and after stopping.
     explanation: |
       The cart stops after $t=6/2=3\,\mathrm s$. It travels $6(3)-\dfrac12(2)(3^2)=9\,\mathrm m$ before turning. In the last second it travels $\dfrac12(2)(1^2)=1\,\mathrm m$ back. Total distance is $9+1=10\,\mathrm m$.
+
+  - id: q-physics-kinematics-0021
+    lesson: lesson-physics-acceleration-and-direction
+    keyPoint: 2
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      East is positive. A vehicle has westward velocity and eastward acceleration. What is happening to its speed at that instant?
+    choices:
+      - text: 'It is decreasing.'
+        correct: true
+      - text: 'It is increasing because acceleration is positive.'
+        rationale: |
+          Positive acceleration increases signed velocity. Check what that does to the size of a negative velocity.
+      - text: 'It stays constant because the directions cancel.'
+        rationale: |
+          The two arrows point opposite ways. Check whether velocity and acceleration can be added as if they were the same kind of quantity.
+      - text: 'It becomes zero as soon as the acceleration turns east.'
+        rationale: |
+          An eastward acceleration can stop the vehicle in time. Check whether the vehicle still has westward velocity at this instant.
+    explanation: |
+      The acceleration points against the velocity. It makes the velocity move closer to zero, so the speed drops.
+
+  - id: q-physics-kinematics-0022
+    lesson: lesson-physics-acceleration-and-direction
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      With east defined as positive, a cyclist's velocity changes uniformly from −4 m/s to +8 m/s in 4 s. What is the cyclist's acceleration?
+    choices:
+      - text: '+3 m/s²'
+        correct: true
+      - text: '+1 m/s²'
+        rationale: |
+          This subtracts the speeds. Keep the sign of the starting velocity.
+      - text: '−3 m/s²'
+        rationale: |
+          This uses the full change in speed and direction. Check which velocity is subtracted from which.
+      - text: '+12 m/s²'
+        rationale: |
+          This is the size of the velocity change. Check how much change occurs each second.
+    explanation: |
+      Subtract the starting velocity from the ending velocity. The change is $8-(-4)=12$ m/s. Divide by 4 s to get +3 m/s².
+
+  - id: q-physics-kinematics-0023
+    lesson: lesson-physics-position-time-graph-slope
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A straight segment of a position-time graph joins the points (2 s, 8 m) and (6 s, 0 m). What is the velocity on this segment?
+    choices:
+      - text: '−2 m/s'
+        correct: true
+      - text: '+2 m/s'
+        rationale: |
+          This gives the size of the slope. Check whether the graph rises or falls.
+      - text: '−4 m/s'
+        rationale: |
+          The 4 comes from the time change. Divide the change in position by that time.
+      - text: '0 m/s'
+        rationale: |
+          The object ends at position zero. Check whether the line is flat or sloped.
+    explanation: |
+      The position falls by 8 m in 4 s. The slope is $-8/4=-2$ m/s.
+
+  - id: q-physics-kinematics-0024
+    lesson: lesson-physics-velocity-time-graph-slope-and-area
+    keyPoint: 1
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A straight segment on a velocity-time graph runs from +8 m/s at 4 s to +2 m/s at 6 s. What is the acceleration on this segment?
+    choices:
+      - text: '−3 m/s²'
+        correct: true
+      - text: '+3 m/s²'
+        rationale: |
+          This gives the steepness. Check whether the graph rises or falls.
+      - text: '−1 m/s²'
+        rationale: |
+          Dividing by 6 uses the last clock reading. Check how long the segment lasts.
+      - text: '+2 m/s²'
+        rationale: |
+          This is the last velocity on the segment. Check how fast the velocity changes.
+    explanation: |
+      The velocity falls by 6 m/s in 2 s. Its slope is $-6/2=-3$ m/s².
+
+  - id: q-physics-kinematics-0025
+    lesson: lesson-physics-velocity-time-graph-slope-and-area
+    keyPoint: 2
+    type: "simple-quantitative"
+    difficulty: "medium"
+    stem: |
+      A velocity-time graph is horizontal at +8 m/s from 4 s to 10 s. What is the displacement over that interval?
+    choices:
+      - text: '+48 m'
+        correct: true
+      - text: '0 m'
+        rationale: |
+          The flat graph shows zero acceleration. Check how far an object travels while it keeps moving.
+      - text: '+80 m'
+        rationale: |
+          This counts 10 seconds of motion. Check where the interval starts.
+      - text: '+24 m'
+        rationale: |
+          Halving the product gives the area of a triangle. Check the shape made by the flat line.
+    explanation: |
+      The area under this part of the graph is a rectangle above zero. It is $8\times(10-4)=48$ m.
+
+  - id: q-physics-kinematics-0026
+    lesson: lesson-physics-velocity-time-graph-slope-and-area
+    keyPoint: 2
+    type: "predict-outcome"
+    difficulty: "medium"
+    stem: |
+      An object's velocity-time graph crosses the time axis once, going from positive to negative velocity. What occurs at the crossing?
+    choices:
+      - text: 'The object reverses direction.'
+        correct: true
+      - text: 'The object returns to its starting position.'
+        rationale: |
+          The graph value reaches zero. Check whether the vertical axis gives position or velocity.
+      - text: 'The object''s acceleration changes sign.'
+        rationale: |
+          One value on the graph changes sign. Check whether acceleration comes from that value or from the slope.
+      - text: 'The object continues in the same direction at constant speed.'
+        rationale: |
+          A straight segment can have a constant slope. Check the velocity signs on both sides of the crossing.
+    explanation: |
+      Its velocity reaches zero and then points the other way. The sign change shows the reversal.
