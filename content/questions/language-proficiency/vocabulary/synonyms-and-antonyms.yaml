@@ -5,6 +5,8 @@ meta:
   exams: [upcat, ustet, dost-sei, cse-pro, cse-sub]
 questions:
   - id: q-vocabulary-synonyms-and-antonyms-0001
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 1
     type: synonym
     difficulty: easy
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0002
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 2
     type: antonym
     difficulty: easy
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0003
+    lesson: lesson-vocabulary-kasingkahulugan-at-kasalungat
+    keyPoint: 1
     type: synonym
     difficulty: medium
     stem: |
@@ -56,18 +62,20 @@ questions:
         correct: true
       - text: "Natupad"
         rationale: |
-          This reverses ruin into fulfillment. Both concern the fate of a dream. Check the effect of the disaster in the sentence.
+          Binabaligtad nito ang pagkawasak tungo sa pagkatupad. Parehong tungkol sa kinahinatnan ng pangarap. Tingnan ang epekto ng sakuna.
       - text: "Naantala"
         rationale: |
-          This weakens collapse into a delay. A disaster can postpone a plan. Check whether the target means waiting longer or losing the dream.
+          Pinahihina nito ang pagkawasak tungo sa pagkaantala lamang. Maaaring maantala ang plano dahil sa sakuna. Tingnan kung paghihintay o pagkawala ng pangarap ang ibig sabihin.
       - text: "Nabago"
         rationale: |
-          This weakens ruin into any change. A disaster can change plans. Check the strength of the word "gumuho."
+          Pinahihina nito ang pagkawasak tungo sa anumang pagbabago. Maaaring magbago ang plano dahil sa sakuna. Tingnan kung gaano katindi ang "gumuho."
     explanation: |
-      Here the dreams "collapsed" because of the disaster. "Nawasak" means ruined and fits that figurative sense.
+      Gumuho ang mga pangarap dahil sa sakuna. Ang "nawasak" ang katugma ng matalinghagang kahulugang ito.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0004
+    lesson: lesson-vocabulary-kasingkahulugan-at-kasalungat
+    keyPoint: 2
     type: antonym
     difficulty: medium
     stem: |
@@ -77,18 +85,20 @@ questions:
         correct: true
       - text: "Mahirap"
         rationale: |
-          This chooses the same financial condition instead of its opposite. Both words describe poverty. Check the direction of the requested contrast.
+          Parehong kalagayan sa pera ang pinili nito. Parehong tumutukoy sa kahirapan ang dalawang salita. Tingnan kung kasalungat ang hinihingi.
       - text: "Matipid"
         rationale: |
-          This confuses wealth with spending habits. A person with little money may spend carefully. Check whether the target describes resources or behavior.
+          Napagpapalit nito ang yaman at ugali sa paggastos. Maaaring maingat gumastos ang taong kapos. Tingnan kung ari-arian o ugali ang inilalarawan.
       - text: "Mapagbigay"
         rationale: |
-          This confuses wealth with giving to others. Giving may suggest having money. Check whether the word states financial condition or generosity.
+          Napagpapalit nito ang yaman at pagbibigay sa iba. Maaaring isipin na may pera ang nagbibigay. Tingnan kung kalagayan sa pera o pagkabukas-palad ang tinutukoy.
     explanation: |
-      "Maralita" means poor in financial resources. "Mayaman" means wealthy, so it gives the opposite financial condition.
+      Kapos sa pera ang "maralita." Maraming yaman ang "mayaman," kaya magkasalungat ang kanilang kalagayan sa pera.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0005
+    lesson: lesson-vocabulary-meaning-and-grammar-in-context
+    keyPoint: 1
     type: synonym
     difficulty: medium
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0006
+    lesson: lesson-vocabulary-meaning-and-grammar-in-context
+    keyPoint: 1
     type: synonym
     difficulty: medium
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0007
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 2
     type: antonym
     difficulty: medium
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0008
+    lesson: lesson-vocabulary-kasingkahulugan-at-kasalungat
+    keyPoint: 1
     type: synonym
     difficulty: medium
     stem: |
@@ -161,18 +177,20 @@ questions:
         correct: true
       - text: "Mapagpakitang-tao"
         rationale: |
-          This treats warmth as insincere display. Friendly greetings can be used to impress others. Check whether the sentence gives evidence of pretending.
+          Itinuturing nitong pagpapanggap ang magiliw na kilos. Maaaring gamitin ang pagbati upang magpasikat. Tingnan kung may patunay ng pagpapanggap.
       - text: "Mapag-utos"
         rationale: |
-          This treats approaching people as directing them. Both involve social interaction. Check whether the neighbor greets or commands.
+          Itinuturing nitong pag-uutos ang pakikitungo sa tao. Pareho silang may pakikipag-usap. Tingnan kung bumabati o nag-uutos ang kapitbahay.
       - text: "Mapagmataas"
         rationale: |
-          This treats confident greeting as superiority. An outgoing person may seem self-assured. Check whether the actions show warmth or arrogance.
+          Itinuturing nitong pagmamataas ang masiglang pagbati. Maaaring mukhang may tiwala sa sarili ang taong palakaibigan. Tingnan kung kabaitan o kayabangan ang ipinapakita.
     explanation: |
-      The neighbor smiles and greets people warmly. "Magiliw" means warm and friendly, so "palakaibigan" fits this context.
+      Ngumingiti at masayang bumabati ang kapitbahay. Maganda ang pakikitungo niya sa iba. Kaya "palakaibigan" ang katugma ng "magiliw" rito.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0009
+    lesson: lesson-vocabulary-kasingkahulugan-at-kasalungat
+    keyPoint: 2
     type: antonym
     difficulty: medium
     stem: |
@@ -182,18 +200,20 @@ questions:
         correct: true
       - text: "Malakas"
         rationale: |
-          This confuses courage with physical strength. Strong people may seem able to face danger. Check whether the word describes strength or willingness to face fear.
+          Napagpapalit nito ang tapang at lakas ng katawan. Maaaring mukhang kayang humarap sa panganib ang malakas. Tingnan kung lakas o pagharap sa takot ang tinutukoy.
       - text: "Maingat"
         rationale: |
-          This confuses caution with lack of courage. A brave person may act carefully. Check whether the contrast concerns fear or planning.
+          Napagpapalit nito ang pag-iingat at kawalan ng tapang. Maaaring maging maingat ang matapang. Tingnan kung takot o pagpaplano ang usapan.
       - text: "Padalos-dalos"
         rationale: |
-          This treats bravery as recklessness. Both can involve taking risks. Check whether the question asks for the opposite of courage.
+          Itinuturing nitong kawalan ng ingat ang tapang. Parehong maaaring may pagsuong sa panganib. Tingnan kung kasalungat ng tapang ang hinihingi.
     explanation: |
-      "Matapang" describes courage in facing danger. "Duwag" describes lack of that courage and is the opposite.
+      May lakas ng loob sa panganib ang "matapang." Kulang sa ganitong tapang ang "duwag," kaya ito ang kasalungat.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0010
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 2
     type: antonym
     difficulty: hard
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0011
+    lesson: lesson-vocabulary-kasingkahulugan-at-kasalungat
+    keyPoint: 2
     type: antonym
     difficulty: medium
     stem: |
@@ -224,18 +246,20 @@ questions:
         correct: true
       - text: "Nasisiyahan"
         rationale: |
-          This chooses a similar pleasant feeling instead of its opposite. Both describe satisfaction or joy. Check the requested direction of meaning.
+          Katulad na magandang damdamin ang pinili nito. Parehong may tuwa o kasiyahan ang dalawang salita. Tingnan kung kasalungat ang hinihingi.
       - text: "Nasasabik"
         rationale: |
-          This confuses excitement with an opposite emotion. Excitement can be different from calm happiness. Check whether it actually means sadness.
+          Itinuturing nitong kasalungat na damdamin ang pananabik. Maaaring iba ito sa payapang saya. Tingnan kung lungkot talaga ang kahulugan.
       - text: "Nababahala"
         rationale: |
-          This treats any unpleasant feeling as the precise opposite of happiness. Worry is unpleasant. Check whether the alternative means sad or concerned about danger.
+          Itinuturing nitong tiyak na kasalungat ng saya ang anumang hindi magandang damdamin. Hindi maganda ang pag-aalala. Tingnan kung lungkot o pag-aalala sa panganib ang ibig sabihin.
     explanation: |
-      "Masaya" means happy. "Malungkot" means sad, which is the opposite emotional state.
+      May tuwa ang "masaya." May lungkot ang "malungkot," kaya magkasalungat ang mga damdaming ito.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0012
+    lesson: lesson-vocabulary-meaning-and-grammar-in-context
+    keyPoint: 1
     type: synonym
     difficulty: hard
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0013
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 1
     type: synonym
     difficulty: medium
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0014
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 2
     type: antonym
     difficulty: medium
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0015
+    lesson: lesson-vocabulary-kasingkahulugan-at-kasalungat
+    keyPoint: 1
     type: synonym
     difficulty: medium
     stem: |
@@ -308,18 +338,20 @@ questions:
         correct: true
       - text: "Tamad"
         rationale: |
-          This reverses sustained effort into avoiding work. Both describe work habits. Check the daily practice in the sentence.
+          Binabaligtad nito ang patuloy na pagsisikap tungo sa pag-iwas sa gawain. Pareho silang ugali sa paggawa. Tingnan ang araw-araw na pagsasanay.
       - text: "Mahusay"
         rationale: |
-          This confuses effort with existing skill. Practice can lead to skill. Check whether the word describes trying persistently or already performing well.
+          Napagpapalit nito ang pagsisikap at kasanayan. Maaaring humantong sa husay ang pagsasanay. Tingnan kung patuloy na pagsubok o pagiging mahusay na ang inilalarawan.
       - text: "Padalos-dalos"
         rationale: |
-          This confuses repeated effort with rushing. Frequent practice can involve much activity. Check whether the person works steadily or acts without care.
+          Napagpapalit nito ang paulit-ulit na pagsisikap at pagmamadali. Maaaring maraming kilos sa madalas na pagsasanay. Tingnan kung tuloy-tuloy o walang ingat ang paggawa.
     explanation: |
-      The person practices every day until learning the piece. "Matiyaga" here means persistent in effort, so "masikap" is the closest fit.
+      Araw-araw siyang nagsasanay hanggang matutuhan ang piyesa. Patuloy ang pagsisikap niya. Kaya "masikap" ang pinakamalapit sa "matiyaga" rito.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0016
+    lesson: lesson-vocabulary-kasingkahulugan-at-kasalungat
+    keyPoint: 2
     type: antonym
     difficulty: medium
     stem: |
@@ -329,18 +361,20 @@ questions:
         correct: true
       - text: "Mapagkakatiwalaan"
         rationale: |
-          This chooses trustworthiness instead of dishonesty. An honest person can be trusted. Check whether the question asks for a similar word or an opposite.
+          Pagiging mapagkakatiwalaan ang pinili nito sa halip na panlilinlang. Mapagkakatiwalaan ang matapat na tao. Tingnan kung katulad o kasalungat ang hinihingi.
       - text: "Mapagkimkim"
         rationale: |
-          This confuses keeping feelings inside with lying. Someone who says little may seem less open. Check whether the word means withholding feelings or deceiving.
+          Napagpapalit nito ang pagtatago ng damdamin at pagsisinungaling. Maaaring mukhang hindi bukas ang tahimik na tao. Tingnan kung damdamin ang kinikimkim o may panlilinlang.
       - text: "Mapagsalita"
         rationale: |
-          This confuses how much someone speaks with whether the speech is true. More speech can reveal more information. Check whether the contrast concerns quantity or honesty.
+          Napagpapalit nito ang dami ng pagsasalita at katotohanan ng sinasabi. Maaaring maraming impormasyong sabihin ang madaldal. Tingnan kung dami o katapatan ang usapan.
     explanation: |
-      In the stated sense, "matapat" means honest. "Mapanlinlang" means deceitful, which reverses that meaning.
+      Sa kahulugang ibinigay, hindi nandaraya ang "matapat." Nandaraya ang "mapanlinlang," kaya ito ang kasalungat.
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0017
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 2
     type: antonym
     difficulty: hard
     stem: |
@@ -362,6 +396,8 @@ questions:
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0018
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 2
     type: synonym
     difficulty: exam
     stem: |
@@ -383,6 +419,8 @@ questions:
     approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0019
+    lesson: lesson-vocabulary-feeling-strength-and-formality
+    keyPoint: 1
     type: synonym
     difficulty: hard
     stem: |
@@ -401,9 +439,11 @@ questions:
           This reverses careful spending into excessive spending. The person gives help to others, which may suggest spending freely. Check whether generosity removes the stated care with money.
     explanation: |
       "Frugal" describes sensible care with money. It keeps the approving tone of spending wisely while still meeting others' needs.
-    approved: false
+    approved: true
 
   - id: q-vocabulary-synonyms-and-antonyms-0020
+    lesson: lesson-vocabulary-opposite-roles
+    keyPoint: 1
     type: word-analogy
     difficulty: exam
     stem: |
@@ -422,5 +462,212 @@ questions:
           This selects another way of receiving temporary use. Renting resembles borrowing. Check whether the second word names the other participant's role.
     explanation: |
       Buying and selling describe the two sides of one exchange. In the same way, one person borrows what another person lends. "Lend" names the other side of borrowing.
-    approved: false
+    approved: true
 
+
+  - id: q-vocabulary-synonyms-and-antonyms-0021
+    approved: true
+    lesson: lesson-vocabulary-feeling-strength-and-formality
+    keyPoint: 2
+    type: synonym
+    difficulty: exam
+    stem: |
+      The clerk was **annoyed** by a minor interruption but resumed work calmly. Which replacement for the word in bold preserves its intensity?
+    choices:
+      - text: "bothered"
+        correct: true
+      - text: "enraged"
+        rationale: |
+          This makes mild anger much stronger. The calm return to work may be missed. Check how strong the feeling is.
+      - text: "furious"
+        rationale: |
+          This also means very angry. A delay can cause anger, but check whether the sentence shows a strong outburst.
+      - text: "delighted"
+        rationale: |
+          This changes displeasure into pleasure. Returning calmly does not mean enjoying the interruption. Check the feeling first.
+    explanation: |
+      Annoyed means bothered or a little angry. Bothered keeps that mild strength and fits the calm return to work.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0022
+    approved: true
+    lesson: lesson-vocabulary-feeling-strength-and-formality
+    keyPoint: 3
+    type: synonym
+    difficulty: exam
+    stem: |
+      An office must replace the casual phrase in this public notice: "Processing will **kick off** after the briefing." Which replacement for the words in bold best suits the formal notice?
+    choices:
+      - text: "commence"
+        correct: true
+      - text: "get going"
+        rationale: |
+          This keeps a casual tone. It means begin, but check whether the wording suits an official notice.
+      - text: "fire up"
+        rationale: |
+          This uses another casual expression. A public notice needs formal wording for beginning the work.
+      - text: "kick things off"
+        rationale: |
+          This changes the wording but keeps the casual phrase. Check the setting as well as the meaning.
+    explanation: |
+      Commence means begin and is formal. "Processing will commence after the briefing" keeps the meaning and suits the notice.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0023
+    approved: true
+    lesson: lesson-vocabulary-meaning-and-grammar-in-context
+    keyPoint: 2
+    type: synonym
+    difficulty: exam
+    stem: |
+      Choose the replacement for the word in bold that preserves both meaning and grammar: "The panel must **decide** before releasing its report."
+    choices:
+      - text: "choose"
+        correct: true
+      - text: "decision"
+        rationale: |
+          This names the result of deciding. It shares a root with decide, but the sentence needs an action after must.
+      - text: "decisive"
+        rationale: |
+          This describes someone or something. The shared root can look right. Check that must is followed by a verb.
+      - text: "choice"
+        rationale: |
+          This names a choice instead of expressing the action. Check the job needed after must.
+    explanation: |
+      The sentence needs a verb after must. Choose names the action of making a choice, so it preserves the meaning of decide.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0024
+    approved: true
+    lesson: lesson-vocabulary-opposite-roles
+    keyPoint: 1
+    type: word-analogy
+    difficulty: exam
+    stem: |
+      The office bought a used printer from a supplier. Which statement describes the same transaction from the supplier's role?
+    choices:
+      - text: "The supplier sold the printer."
+        correct: true
+      - text: "The supplier bought the printer."
+        rationale: |
+          This gives the supplier the buyer's role. Both parties take part in the exchange. Check who received the printer.
+      - text: "The supplier lent the printer."
+        rationale: |
+          This changes a sale into a loan. Both can transfer an item, but check whether the office bought it.
+      - text: "The supplier returned the printer."
+        rationale: |
+          This changes a sale into a return. An item changes hands in both cases. Check the stated transaction.
+    explanation: |
+      Buying and selling describe opposite roles in the same exchange. The office bought the printer, so the supplier sold it.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0025
+    approved: true
+    lesson: lesson-vocabulary-opposites-with-levels-and-two-states
+    keyPoint: 1
+    type: antonym
+    difficulty: exam
+    stem: |
+      A service log permits only the labels "available" and "unavailable." A terminal is recorded as not available. Which label must it receive under this system?
+    choices:
+      - text: "unavailable"
+        correct: true
+      - text: "temporarily available"
+        rationale: |
+          This adds a time limit that the log does not offer. Check the labels the system permits.
+      - text: "partially available"
+        rationale: |
+          This invents a middle state. Some systems allow levels, but this log allows only the stated labels.
+      - text: "usually available"
+        rationale: |
+          This substitutes a usual condition for the recorded state. Check the current record and its allowed labels.
+    explanation: |
+      The log allows only available or unavailable. Ruling out available leaves unavailable.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0026
+    approved: true
+    lesson: lesson-vocabulary-opposites-with-levels-and-two-states
+    keyPoint: 1
+    type: antonym
+    difficulty: exam
+    stem: |
+      A reviewer says only, "The water is not hot." Which conclusion is justified by the meaning of this statement?
+    choices:
+      - text: "It may be warm."
+        correct: true
+      - text: "It must be cold."
+        rationale: |
+          This treats hot and cold as the only possible states. Check whether a middle level is possible.
+      - text: "It cannot be warm."
+        rationale: |
+          This rules out a middle level without evidence. Warm water can be not hot. Check the range of meanings.
+      - text: "It must be freezing."
+        rationale: |
+          This turns the denial of heat into extreme cold. Check whether the statement gives that level of detail.
+    explanation: |
+      Hot and cold have middle levels, including warm. The statement leaves warm as a possible condition.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0027
+    approved: true
+    lesson: lesson-vocabulary-prefix-clues-in-context
+    keyPoint: 1
+    type: synonym
+    difficulty: exam
+    stem: |
+      The selection was **unfair** because a favored applicant received extra help. Using the prefix and context, which phrase best gives the meaning of the word in bold?
+    choices:
+      - text: "not fair"
+        correct: true
+      - text: "not finished"
+        rationale: |
+          This applies a negative meaning to the wrong base. Extra help shows unequal treatment, not unfinished work. Check fair in context.
+      - text: "not clear"
+        rationale: |
+          This confuses unequal treatment with unclear instructions. Check what the extra help reveals about fairness.
+      - text: "not needed"
+        rationale: |
+          This confuses a biased process with an unnecessary one. Check the base fair and the favored applicant.
+    explanation: |
+      The prefix un- means not here. Fair is the base. Extra help for a favored applicant confirms the meaning not fair.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0028
+    approved: true
+    lesson: lesson-vocabulary-prefix-clues-in-context
+    keyPoint: 1
+    type: synonym
+    difficulty: exam
+    stem: |
+      A reader claims that **uncle** must mean "not cle" because **unfair** means "not fair." Which statement correctly evaluates this claim?
+    choices:
+      - text: "Uncle has no base cle."
+        correct: true
+      - text: "Every initial un means not."
+        rationale: |
+          This extends the prefix rule to every matching beginning. Unfair can be split meaningfully. Check whether the other word has a real base.
+      - text: "Matching letters prove a prefix."
+        rationale: |
+          This treats the look of the letters as proof. A familiar beginning can be part of a whole word. Check the base and meaning.
+      - text: "Context never matters for prefixes."
+        rationale: |
+          This ignores the check that makes a prefix clue useful. The clue must fit the whole word in its sentence.
+    explanation: |
+      Uncle cannot be explained as un- plus a base cle. A prefix clue works only when it is a real word part with a meaning that fits.
+
+  - id: q-vocabulary-synonyms-and-antonyms-0029
+    approved: true
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 3
+    type: synonym
+    difficulty: exam
+    stem: |
+      An editor must replace the unnatural word pairing in "The road closed during **strong rain**." Which replacement for the words in bold uses the standard pairing without changing the intended weather condition?
+    choices:
+      - text: "heavy rain"
+        correct: true
+      - text: "powerful rain"
+        rationale: |
+          This treats a word with a similar idea of strength as freely interchangeable. Check which adjective commonly pairs with rain.
+      - text: "muscular rain"
+        rationale: |
+          This uses physical strength to describe rain. Check the established word pairing instead of the general idea of force.
+      - text: "strong rainfall"
+        rationale: |
+          This keeps strong while changing the noun. Check the natural pairing taught for rain.
+    explanation: |
+      Heavy rain is the common English word pairing for rain falling with great force or in a large amount. It fits the road closure.

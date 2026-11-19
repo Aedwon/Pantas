@@ -7,6 +7,9 @@ meta:
   - cse-sub
 questions:
 - id: q-environment-management-environmental-concepts-0001
+  approved: true
+  lesson: lesson-environment-management-source-segregation-and-waste-types
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What distinguishes segregation at source under RA 9003?
@@ -31,6 +34,9 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0002
+  approved: true
+  lesson: lesson-environment-management-reduction-composting-and-diversion
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: 'What concept includes reduction, reuse, recycling, and composting that keep solid waste out of disposal facilities?
@@ -55,6 +61,9 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0008
+  approved: true
+  lesson: lesson-environment-management-source-segregation-and-waste-types
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'A school sorts food scraps for composting separately from clean recyclable paper before collection. Which statement best describes the practice?
@@ -79,9 +88,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0009
+  lesson: lesson-environment-management-reduction-composting-and-diversion
+  keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which action reduces waste before it needs collection?
 
     '
@@ -104,9 +115,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0010
+  lesson: lesson-environment-management-reuse-and-recycling
+  keyPoint: 2
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'An intact container is cleaned and used again for storage. Which diversion activity is shown?
 
     '
@@ -129,9 +142,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0011
+  lesson: lesson-environment-management-reuse-and-recycling
+  keyPoint: 2
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Waste paper is processed into new paper products instead of being landfilled. Which activity is this?
 
     '
@@ -154,9 +169,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0012
+  lesson: lesson-environment-management-reduction-composting-and-diversion
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Why does composting suitable organic waste count as diversion?
 
     '
@@ -179,9 +196,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0013
+  lesson: lesson-environment-management-source-segregation-and-waste-types
+  keyPoint: 2
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Which material category fits suitable food scraps intended to decompose into compost?
 
     '
@@ -204,9 +223,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0019
+  lesson: lesson-environment-management-reduction-composting-and-diversion
+  keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'What is the best test of whether a new waste program achieves diversion?
 
     '
@@ -229,9 +250,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0020
+  lesson: lesson-environment-management-reduction-composting-and-diversion
+  keyPoint: 2
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which statement best combines source segregation and waste diversion?
 
     '
@@ -254,9 +277,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0021
+  lesson: lesson-environment-management-source-segregation-and-waste-types
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'A town keeps separate compostable, recyclable, residual, and special-waste streams. Which instruction best preserves segregation after collection?
 
     '
@@ -279,10 +304,12 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0022
+  lesson: lesson-environment-management-source-segregation-and-waste-types
+  keyPoint: 2
   type: single_choice
   difficulty: easy
-  approved: false
-  stem: 'Which group consists entirely of special waste as described in the lesson?
+  approved: true
+  stem: 'Which group consists entirely of special waste under RA 9003?
 
     '
   choices:
@@ -304,9 +331,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0023
+  lesson: lesson-environment-management-source-segregation-and-waste-types
+  keyPoint: 2
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'A discarded wrapper cannot be recovered through the available recycling or composting process. It is not special waste. Which category fits it?
 
     '
@@ -329,9 +358,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0024
+  lesson: lesson-environment-management-reduction-composting-and-diversion
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'A barangay describes its composting process in a public notice. Which description is accurate?
 
     '
@@ -354,9 +385,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0025
+  lesson: lesson-environment-management-reuse-and-recycling
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'An office puts clean recyclable paper in a container with food scraps. Why can this make recovery harder?
 
     '
@@ -379,9 +412,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0026
+  lesson: lesson-environment-management-reuse-and-recycling
+  keyPoint: 2
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'A clerk writes draft notes on the unused sides of old office sheets. Another office sends old sheets to be processed into new paper. How should the actions be classified, respectively?
 
     '
@@ -404,9 +439,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0027
+  lesson: lesson-environment-management-reduction-composting-and-diversion
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'A buyer says that choosing goods with less unnecessary packaging and recycling packaging after use are both source reduction. Which correction is most accurate?
 
     '
@@ -423,15 +460,17 @@ questions:
     rationale: 'Recycling processes waste that already exists. Choosing less packaging reduces waste generation and does not use an item again.
 
       '
-  - text: Choosing less packaging is source reduction, while recycling recovers material after use.
+  - text: Less packaging prevents waste; recycling recovers used material.
     correct: true
   explanation: 'Source reduction creates less waste in the first place. Recycling processes material after use. Both can support diversion, but they act at different stages.
 
     '
 - id: q-environment-management-environmental-concepts-0028
+  lesson: lesson-environment-management-source-segregation-and-waste-types
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'A school hires a contractor to sort its waste. Which arrangement meets the meaning of segregation at source?
 
     '
@@ -454,10 +493,12 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0029
+  lesson: lesson-environment-management-source-segregation-and-waste-types
+  keyPoint: 2
   type: single_choice
   difficulty: exam
-  approved: false
-  stem: 'An employee argues that a discarded consumer electronic device should go in the ordinary recyclable bin because it contains useful metal. Which response best follows the lesson?
+  approved: true
+  stem: 'An employee argues that a discarded consumer electronic device should go in the ordinary recyclable bin because it contains useful metal. Which response correctly applies RA 9003?
 
     '
   choices:
@@ -479,9 +520,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0030
+  lesson: lesson-environment-management-reduction-composting-and-diversion
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'An office starts buying supplies with less packaging, uses empty jars for storage, and sends garden waste for controlled breakdown into compost. Which sequence correctly names these actions?
 
     '

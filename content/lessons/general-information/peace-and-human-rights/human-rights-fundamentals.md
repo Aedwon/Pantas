@@ -6,6 +6,20 @@ subject: "subject-general-information"
 topic: "topic-peace-and-human-rights"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-peace-and-human-rights-universal-rights-and-history
+  - lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms
+  - lesson-peace-and-human-rights-searches-and-private-messages
+  - lesson-peace-and-human-rights-home-travel-and-public-records
+  - lesson-peace-and-human-rights-groups-property-and-contracts
+  - lesson-peace-and-human-rights-custodial-investigation-and-bail
+  - lesson-peace-and-human-rights-criminal-trial-protections
+  - lesson-peace-and-human-rights-detention-review-and-compelled-testimony
+  - lesson-peace-and-human-rights-detention-punishment-and-debt
+  - lesson-peace-and-human-rights-double-jeopardy-protections
+  - lesson-peace-and-human-rights-rights-during-emergencies
+  - lesson-peace-and-human-rights-commission-on-human-rights
 ---
 <!-- SOURCE AUDIT: RW-076; branch content/cse-rewrite-r1; assignment base c38ca13c; accessed 2026-10-26. Goal: recognize universal rights, apply the Bill of Rights to basic cases, and explain CHR help. No prerequisite teaching assumed. Constitutional rules and section count: 1987 Constitution, Article III, Sections 1-22, and Article XIII, Sections 17-18, official text reproduced by LawPhil, https://lawphil.net/consti/cons1987.html . Double jeopardy conditions and dismissal exceptions: Supreme Court, G.R. Nos. 232197-98, December 5, 2018, https://lawphil.net/judjuris/juri2018/dec2018/gr_232197-98_2018.html ; Supreme Court E-Library, https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/18/64671 . CHR mandate and protective powers: CHR, About Us, Functions of the CHR, https://chr.gov.ph/about-us/ ; referral for prosecution or agency action: Presidential Human Rights Committee Secretariat, Human Rights: A Primer, https://phrcs.gov.ph/human-rights-a-primer/ . Universal rights and community duties: UDHR, preamble and Articles 1-2, 29-30, United Nations official text. Emergency conditions: ICCPR, Articles 4, 6-7, https://2covenants.ohchr.org/About-ICCPR.html . Historical context: UN, History of the Declaration, and The Global Impact of the Holocaust. No source conflict found. Hypothetical examples apply these rules, not claims about actual cases or specific exam coverage. -->
 ## Core Concept

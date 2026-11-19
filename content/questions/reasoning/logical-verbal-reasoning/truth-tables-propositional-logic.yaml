@@ -5,6 +5,8 @@ meta:
   exams: [acet, ustet, dost-sei, cse-pro, upcat, dlsucet]
 questions:
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0001
+    lesson: lesson-logical-verbal-reasoning-truth-tables-and-connectives
+    keyPoint: 2
     type: truth-table-evaluation
     difficulty: easy
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0002
+    lesson: lesson-logical-verbal-reasoning-truth-tables-and-connectives
+    keyPoint: 2
     type: truth-table-evaluation
     difficulty: easy
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0003
+    lesson: lesson-logical-verbal-reasoning-combined-truth-values
+    keyPoint: 2
     type: truth-table-evaluation
     difficulty: easy
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0004
+    lesson: lesson-logical-verbal-reasoning-truth-tables-and-connectives
+    keyPoint: 2
     type: truth-table-evaluation
     difficulty: medium
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0005
+    lesson: lesson-logical-verbal-reasoning-truth-tables-and-connectives
+    keyPoint: 2
     type: truth-table-evaluation
     difficulty: medium
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0006
+    lesson: lesson-logical-verbal-reasoning-conditional-truth-values
+    keyPoint: 1
     type: truth-table-evaluation
     difficulty: medium
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0007
+    lesson: lesson-logical-verbal-reasoning-conditional-truth-values
+    keyPoint: 1
     type: truth-table-evaluation
     difficulty: medium
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0008
+    lesson: lesson-logical-verbal-reasoning-combined-truth-values
+    keyPoint: 1
     type: truth-table-evaluation
     difficulty: hard
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0009
+    lesson: lesson-logical-verbal-reasoning-combined-truth-values
+    keyPoint: 2
     type: truth-table-evaluation
     difficulty: hard
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0010
+    lesson: lesson-logical-verbal-reasoning-combined-truth-values
+    keyPoint: 1
     type: truth-table-evaluation
     difficulty: medium
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0011
+    lesson: lesson-logical-verbal-reasoning-combined-truth-values
+    keyPoint: 1
     type: truth-table-evaluation
     difficulty: medium
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0012
+    lesson: lesson-logical-verbal-reasoning-combined-truth-values
+    keyPoint: 1
     type: truth-table-evaluation
     difficulty: hard
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0013
+    lesson: lesson-logical-verbal-reasoning-combined-truth-values
+    keyPoint: 2
     type: truth-table-evaluation
     difficulty: medium
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0014
+    lesson: lesson-logical-verbal-reasoning-truth-tables-and-connectives
+    keyPoint: 2
     type: truth-table-evaluation
     difficulty: medium
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0015
+    lesson: lesson-logical-verbal-reasoning-conditional-truth-values
+    keyPoint: 1
     type: truth-table-evaluation
     difficulty: hard
     stem: |
@@ -320,6 +350,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0016
+    lesson: lesson-logical-verbal-reasoning-combined-truth-values
+    keyPoint: 1
     type: truth-table-evaluation
     difficulty: exam
     stem: |
@@ -341,6 +373,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0017
+    lesson: lesson-logical-verbal-reasoning-combined-truth-values
+    keyPoint: 2
     type: truth-table-evaluation
     difficulty: hard
     stem: |
@@ -359,9 +393,11 @@ questions:
           This negates an AND table instead of an OR table. The final NOT is applied, but to the wrong inner rule. Check the connective inside the group.
     explanation: |
       OR is true in the first three rows and false in the last row. NOT reverses those values. The resulting column is F, F, F, T.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0018
+    lesson: lesson-logical-verbal-reasoning-combined-truth-values
+    keyPoint: 1
     type: truth-table-evaluation
     difficulty: hard
     stem: |
@@ -380,9 +416,11 @@ questions:
           This assumes forward and reverse conditionals always share a value. They contain the same letters. Check the two rows with different input values.
     explanation: |
       With two true inputs, both conditional directions are true. With two false inputs, both have false if-parts and are true. Each mixed-input row makes one direction false. Exactly two rows make the full AND true.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0019
+    lesson: lesson-logical-verbal-reasoning-combined-truth-values
+    keyPoint: 2
     type: truth-table-evaluation
     difficulty: exam
     stem: |
@@ -401,9 +439,11 @@ questions:
           This treats a conditional like a negated AND. That would be false for two true inputs. Check the conditional's specific false case.
     explanation: |
       A false conditional forces P true and Q false. NOT Q is therefore true, so P AND NOT Q is true. Negating that group gives false. The requested values are T, F, F.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0020
+    lesson: lesson-logical-verbal-reasoning-combined-truth-values
+    keyPoint: 1
     type: truth-table-evaluation
     difficulty: exam
     stem: |
@@ -422,5 +462,36 @@ questions:
           This overlooks Q while requiring the negated OR to be true. P and R are both false, which may look promising. Check both inputs of the inner OR.
     explanation: |
       For the outer conditional to be false, its if-part must be true and R false. NOT of P OR Q is true only when P and Q are both false. Thus the required row is (F,F,F).
-    approved: false
+    approved: true
 
+  - id: q-logical-verbal-reasoning-truth-tables-propositional-logic-0021
+    approved: true
+    lesson: lesson-logical-verbal-reasoning-truth-tables-and-connectives
+    keyPoint: 1
+    type: truth-table-evaluation
+    difficulty: exam
+    stem: |
+      An analyst lists the following assignments for two propositions, P and Q, when preparing a complete truth table.
+
+      | Row | P | Q |
+      | --- | --- | --- |
+      | I | T | T |
+      | II | F | T |
+      | III | T | F |
+      | IV | F | T |
+
+      Which correction makes the list complete without adding a row?
+    choices:
+      - text: Replace row IV with F, F.
+        correct: true
+      - text: Replace row IV with T, F.
+        rationale: |
+          This replaces one repeated pair with another. Row III already has T, F. Check that each possible pair appears once.
+      - text: Replace row III with F, F.
+        rationale: |
+          This adds the missing pair but removes T, F. The repeated F, T pair remains. Replace a repeated row, not a unique row.
+      - text: Keep every row as written.
+        rationale: |
+          This checks only that the list has four rows. Two rows repeat F, T. Check the pairs themselves before calling the table complete.
+    explanation: |
+      The possible pairs are T, T; T, F; F, T; and F, F. Rows II and IV repeat F, T. Replacing row IV with F, F keeps each of the four possible pairs exactly once.

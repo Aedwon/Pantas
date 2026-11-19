@@ -6,6 +6,11 @@ subject: "subject-reasoning"
 topic: "topic-logical-verbal-reasoning"
 estimatedMinutes: 11
 isActive: true
+status: retired
+replacedBy:
+  - lesson-logical-verbal-reasoning-truth-tables-and-connectives
+  - lesson-logical-verbal-reasoning-conditional-truth-values
+  - lesson-logical-verbal-reasoning-combined-truth-values
 ---
 
 ## Core Concept

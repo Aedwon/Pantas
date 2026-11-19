@@ -7,6 +7,9 @@ meta:
   - cse-sub
 questions:
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0001
+  approved: true
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What situation does IHL specifically govern?
@@ -31,6 +34,9 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0002
+  approved: true
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'Whom does IHL bind when they are parties to an armed conflict?
@@ -55,11 +61,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0003
+  approved: true
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  stem: 'Which statement correctly compares their general time scopes?
-
-    '
+  stem: |
+    Which statement correctly compares when human rights law (HRL) and international humanitarian law (IHL) apply?
   choices:
   - text: HRL continues in peace and conflict; IHL governs armed conflict.
     correct: true
@@ -79,6 +87,9 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0004
+  approved: true
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: 'Which body of law specifically restricts means and methods of warfare while protecting people outside active hostilities?
@@ -103,11 +114,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0005
+  approved: true
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: medium
-  stem: 'A non-state armed group says IHL cannot bind it because it is not a government. How does the lesson assess the claim?
-
-    '
+  stem: |
+    A non-state armed group says IHL cannot bind it because it is not a government. Which assessment is correct?
   choices:
   - text: It is wrong if the group is a conflict party.
     correct: true
@@ -127,6 +140,9 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0006
+  approved: true
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which description matches International Humanitarian Law''s scope?
@@ -151,6 +167,9 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0008
+  approved: true
+  lesson: lesson-peace-and-human-rights-people-protected-from-attack
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'Which framework specifically protects wounded fighters and prisoners in armed conflict?
@@ -175,12 +194,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0009
+  lesson: lesson-peace-and-human-rights-iccpr-protected-rights
+  keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
-  stem: 'In a qualifying public emergency, what does the lesson say about HRL obligations?
-
-    '
+  approved: true
+  stem: |
+    In a qualifying public emergency, which statement correctly describes HRL obligations?
   choices:
   - text: Some may permit lawful derogation; some cannot.
     correct: true
@@ -200,9 +220,11 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0010
+  lesson: lesson-peace-and-human-rights-people-protected-from-attack
+  keyPoint: 2
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which person best fits IHL''s category of no longer participating in hostilities?
 
     '
@@ -225,9 +247,11 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0011
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which proposal conflicts with IHL''s stated purpose?
 
     '
@@ -250,9 +274,11 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0012
+  lesson: lesson-peace-and-human-rights-ihl-preparation-and-peace
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Why can a state train personnel in IHL during peace?
 
     '
@@ -275,9 +301,11 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0013
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Which statement properly distinguishes people protected by IHL from parties bound by it?
 
     '
@@ -300,9 +328,11 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0014
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-together
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'During armed conflict, what happens to the human-rights framework in relation to IHL?
 
     '
@@ -325,9 +355,11 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0015
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which statement describes IHL''s purpose without adding a claim about whether a war should begin?
 
     '
@@ -350,12 +382,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0016
+  lesson: lesson-peace-and-human-rights-iccpr-protected-rights
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
-  stem: 'What does non-derogable mean in the emergency distinction taught in the lesson?
-
-    '
+  approved: true
+  stem: |
+    Under ICCPR Article 4, what does it mean for an obligation to be non-derogable?
   choices:
   - text: The obligation cannot be set aside by derogation.
     correct: true
@@ -375,12 +408,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0017
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 3
   type: single_choice
   difficulty: hard
-  approved: false
-  stem: 'Which relationship is central to HRL in the lesson?
-
-    '
+  approved: true
+  stem: |
+    Which relationship is central to international human rights law?
   choices:
   - text: A state and persons within its jurisdiction
     correct: true
@@ -400,9 +434,11 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0018
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which pair best represents IHL''s complementary protective and regulatory aims?
 
     '
@@ -425,12 +461,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0019
+  lesson: lesson-peace-and-human-rights-armed-conflict-types
+  keyPoint: 2
   type: single_choice
   difficulty: exam
-  approved: false
-  stem: 'An election campaign is tense, but the facts describe no armed conflict. What can be concluded from the lesson?
-
-    '
+  approved: true
+  stem: |
+    An election campaign is tense, but the facts describe no armed conflict. Which conclusion follows?
   choices:
   - text: The campaign alone does not establish IHL's conflict trigger.
     correct: true
@@ -450,9 +487,11 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0020
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-scope
+  keyPoint: 2
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which statement avoids confusing a party''s non-state status with a civilian''s protected role?
 
     '
@@ -475,12 +514,13 @@ questions:
 
     '
 - id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0021
+  lesson: lesson-peace-and-human-rights-ihl-preparation-and-peace
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
-  stem: 'An official says HRL has no wartime role and IHL has no peacetime implementation duties. Which correction follows from the lesson?
-
-    '
+  approved: true
+  stem: |
+    An official says HRL has no wartime role and IHL has no peacetime implementation duties. Which statement corrects these claims?
   choices:
   - text: HRL continues in conflict; some IHL duties require preparation in peace.
     correct: true
@@ -499,3 +539,333 @@ questions:
   explanation: 'HRL applies in peace and armed conflict. IHL governs armed conflict, but some duties such as training require implementation during peace. Distinct focuses do not remove those continuing or preparatory duties.
 
     '
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0022
+  approved: true
+  lesson: lesson-peace-and-human-rights-armed-conflict-types
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    Foreign armed forces occupy another state's territory. No armed resistance occurs, and neither state declares war. Which assessment is correct under the Geneva Conventions?
+  choices:
+  - text: Occupation can trigger the rules for an IAC.
+    correct: true
+  - text: A declaration of war is required before occupation can trigger IHL.
+    rationale: |
+      This makes a formal declaration decisive. Check whether occupation can bring the rules into force without one.
+  - text: Armed resistance is required before occupation can fall under IHL.
+    rationale: |
+      This treats the absence of fighting as an exemption. Check the rule for occupation without resistance.
+  - text: Occupation becomes a NIAC whenever the local population does not resist.
+    rationale: |
+      This confuses international occupation with internal fighting. Check the states involved, not resistance alone.
+  explanation: |
+    The Geneva Conventions cover occupation of a state's territory even without armed resistance. A formal declaration of war is not required. Source: Geneva Conventions, common Article 2.
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0023
+  approved: true
+  lesson: lesson-peace-and-human-rights-hrl-and-ihl-together
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    During an IAC, a legal adviser reviews an attack on an active opposing combatant. How should the adviser assess a claim that the attack necessarily violates the right to life?
+  choices:
+  - text: Consider target status and IHL attack rules.
+    correct: true
+  - text: Treat every battlefield death as a violation regardless of target status.
+    rationale: |
+      This treats the right to life as a ban on every battlefield attack. Check the target and the rules for fighting.
+  - text: Disregard the right to life because armed conflict suspends all HRL duties.
+    rationale: |
+      This treats war as an end to human rights. Check that HRL continues during armed conflict.
+  - text: Accept national authorization as sufficient without checking the attack rules.
+    rationale: |
+      This treats national permission as the full test. Check whether the killing could still be arbitrary.
+  explanation: |
+    The right to life bars arbitrary killing. During battlefield fighting, the target's status and IHL attack rules help assess that protection. An active opposing combatant is not automatically protected from every attack. Source: ICCPR, Article 6; Additional Protocol I, Articles 48, 51, and 57.
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0024
+  approved: true
+  lesson: lesson-peace-and-human-rights-iccpr-emergency-conditions
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An emergency threatens the life of the nation, but the government has not officially proclaimed it. An official argues that the seriousness of the danger alone permits derogation under ICCPR Article 4. Which assessment is correct?
+  choices:
+  - text: Official proclamation is also required.
+    correct: true
+  - text: The danger alone removes the need for any official proclamation.
+    rationale: |
+      This checks the danger but drops the announcement. Check both conditions for using Article 4.
+  - text: An official proclamation would allow derogation during any ordinary protest.
+    rationale: |
+      This treats an announcement as enough. Check whether the emergency threatens the life of the nation.
+  - text: The official may replace proclamation with a personal finding of urgency.
+    rationale: |
+      This substitutes one person's view for an official act. Check how the emergency must be announced.
+  explanation: |
+    Article 4 requires an emergency threatening the life of the nation and an official proclamation of its existence. The stated facts meet only the first condition. Source: ICCPR, Article 4(1).
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0025
+  approved: true
+  lesson: lesson-peace-and-human-rights-iccpr-emergency-conditions
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    During a qualifying, officially proclaimed emergency, a state uses derogation for a treaty duty that permits it. The measure is strictly needed, respects other international duties, and meets the notice requirements. It selects affected people solely by religion. Which remaining defect violates Article 4?
+  choices:
+  - text: Selection solely by religion
+    correct: true
+  - text: Keeping the measure within what the emergency strictly requires
+    rationale: |
+      This mistakes a safeguard for a defect. Check that the measure must be strictly needed.
+  - text: Respecting international duties beyond those affected by derogation
+    rationale: |
+      This treats other duties as optional during an emergency. Check Article 4's requirement to respect them.
+  - text: Giving other treaty states notice through the UN Secretary-General
+    rationale: |
+      This mistakes required notice for a violation. Check who must receive the state's notice.
+  explanation: |
+    A derogation measure must not discriminate solely because of religion. Meeting other conditions does not remove this rule. Source: ICCPR, Article 4(1).
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0026
+  approved: true
+  lesson: lesson-peace-and-human-rights-iccpr-protected-rights
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A reviewer argues that because freedom of religion is non-derogable, every outward religious practice is beyond all treaty limits. Which distinction correctly addresses the argument?
+  choices:
+  - text: Non-derogation differs from permitted limits.
+    correct: true
+  - text: Non-derogation means outward practice can never face a treaty limit.
+    rationale: |
+      This treats protection from suspension as freedom from all limits. Check the treaty's rules for outward practice.
+  - text: An emergency lets the state suspend freedom of belief if notice is given.
+    rationale: |
+      This treats notice as permission to suspend belief. Check which protections Article 4 keeps in force.
+  - text: A permitted limit on outward practice allows forced changes of belief.
+    rationale: |
+      This merges practice with belief. Check that a limit on outward practice does not permit forced belief.
+  explanation: |
+    Article 4 does not permit suspension of Article 18. Article 18 still allows necessary limits on outward religious practice under its own rules. Freedom of belief cannot be suspended through derogation. Source: ICCPR, Articles 4(2) and 18.
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0027
+  approved: true
+  lesson: lesson-peace-and-human-rights-people-protected-from-attack
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    In an armed conflict, a civilian directly participates in hostilities. Which statement correctly describes the effect on protection from direct attack?
+  choices:
+  - text: It is lost for the time of direct participation.
+    correct: true
+  - text: It continues throughout participation solely because the person is a civilian.
+    rationale: |
+      This treats civilian status as protection during every act. Check the effect of direct participation.
+  - text: It is permanently lost for all later periods after participation has ended.
+    rationale: |
+      This turns a time-based rule into a permanent loss. Check how long the stated loss lasts.
+  - text: It removes every limit on the weapons used against the person during participation.
+    rationale: |
+      This confuses target protection with weapons rules. Check the separate limits that still apply.
+  explanation: |
+    A civilian loses protection from direct attack for the time of direct participation in hostilities. The applicable weapons and attack rules still apply. Source: Additional Protocol I, Article 51(3).
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0028
+  approved: true
+  lesson: lesson-peace-and-human-rights-people-protected-from-attack
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    During an armed conflict, custodians withhold needed care from a wounded prisoner solely because he belongs to the opposing side. Which obligation directly addresses this conduct?
+  choices:
+  - text: Humane treatment and needed medical care
+    correct: true
+  - text: Permission to withhold care from anyone captured from the opposing side
+    rationale: |
+      This makes enemy status a reason to deny care. Check the duties toward wounded people in custody.
+  - text: Permission to torture a prisoner until the prisoner provides information
+    rationale: |
+      This treats useful information as an excuse for abuse. Check the requirement of humane treatment.
+  - text: Permission to execute a prisoner without trial because fighting continues
+    rationale: |
+      This confuses ongoing war with permission to punish without trial. Check custody protections separately.
+  explanation: |
+    People in custody must receive humane treatment. Wounded and sick people must receive needed care without unfair discrimination. Belonging to the opposing side does not remove those duties. Source: Geneva Conventions, common Article 3.
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0029
+  approved: true
+  lesson: lesson-peace-and-human-rights-weapons-limits
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A weapon cannot be directed at a specific military target, and its effects cannot be confined within IHL limits. A commander proposes using it only against enemy forces. Which assessment is correct?
+  choices:
+  - text: The weapon is indiscriminate by nature.
+    correct: true
+  - text: The commander's intended target removes the weapon's indiscriminate character.
+    rationale: |
+      This treats intention as control over the weapon. Check whether it can actually separate military targets from protected people.
+  - text: The weapon is lawful if the commander expects a military advantage from using it.
+    rationale: |
+      This lets expected gain override a weapons ban. Check the weapon's effects before weighing an attack's gain.
+  - text: The weapon is prohibited only when protected civilians are its intended target.
+    rationale: |
+      This makes intention the only test. Check whether the weapon can keep its effects within IHL limits.
+  explanation: |
+    A weapon is indiscriminate by nature if it cannot be directed at a specific military target or its effects cannot be kept within IHL limits. Its use is prohibited. Source: Additional Protocol I, Article 51(4)(b)-(c); ICRC Customary IHL, Rule 71.
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0030
+  approved: true
+  lesson: lesson-peace-and-human-rights-weapons-limits
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A weapon can be aimed precisely at opposing fighters but causes suffering beyond what a lawful military purpose can justify. Which rule remains relevant despite its accuracy?
+  choices:
+  - text: The ban on unnecessary suffering
+    correct: true
+  - text: A rule allowing any injury whenever a weapon can be aimed precisely
+    rationale: |
+      This makes accuracy the only weapons test. Check the separate limit on injury and suffering.
+  - text: A rule protecting only civilians from excessive injury caused by weapons
+    rationale: |
+      This excludes fighters from a weapons safeguard. Check who is protected from unnecessary suffering.
+  - text: A rule permitting every weapon used solely against opposing armed forces
+    rationale: |
+      This treats a military target as permission to use any weapon. Check weapons limits separately from target status.
+  explanation: |
+    Weapons must not cause superfluous injury or unnecessary suffering. This rule protects fighters too. Accurate aiming does not remove that limit. Source: Additional Protocol I, Article 35(2).
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0031
+  approved: true
+  lesson: lesson-peace-and-human-rights-weapons-limits
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A planner argues that poison gas may be used in war if it offers a definite military gain and is aimed at opposing forces. What is the controlling rule?
+  choices:
+  - text: The treaty ban still applies.
+    correct: true
+  - text: Definite military gain creates an exception to the poison-gas ban.
+    rationale: |
+      This uses military gain to override a specific ban. Check whether the prohibition has that exception.
+  - text: A military target makes every proposed weapon lawful for the attack.
+    rationale: |
+      This treats target status as the full test. Check the separate prohibition on poison gas.
+  - text: A commander's approval replaces the treaty rule on using poison gas.
+    rationale: |
+      This treats an order as permission to ignore a treaty. Check the weapon's legal limits before its approval.
+  explanation: |
+    The Geneva Gas Protocol prohibits using poison gas in war. A claimed military gain does not cancel the prohibition. Source: Geneva Gas Protocol of 1925.
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0032
+  approved: true
+  lesson: lesson-peace-and-human-rights-military-targets
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An attack plan lists protected civilians and civilian homes as intended targets solely to pressure the opposing side. Which principle directly prohibits that choice of targets?
+  choices:
+  - text: Distinction
+    correct: true
+  - text: Military gain, allowing direct civilian targeting if the gain is large
+    rationale: |
+      This lets claimed gain override civilian protection. Check the ban on directly attacking protected civilians.
+  - text: Enemy pressure, allowing civilian targeting if it might weaken the opposing side
+    rationale: |
+      This treats pressure as a reason to attack civilians. Check whether the intended targets are protected.
+  - text: Military objective status, established solely by the pressure an attack may create
+    rationale: |
+      This treats fear or pressure as enough to make civilian homes military targets. Check what distinction protects.
+  explanation: |
+    Distinction requires attacks to be directed at military targets. Protected civilians and civilian objects must not be directly attacked. Pressure on the opposing side does not change their protected status. Source: Additional Protocol I, Articles 48, 51(2), and 52(1).
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0033
+  approved: true
+  lesson: lesson-peace-and-human-rights-military-targets
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An adviser assesses whether an object is a military objective. The object effectively contributes to military action, but its destruction, capture, or neutralization would offer no definite military gain in the circumstances. Which conclusion follows?
+  choices:
+  - text: The object fails the stated test.
+    correct: true
+  - text: Effective contribution alone satisfies both conditions for a military objective.
+    rationale: |
+      This treats the first condition as enough. Check the separate requirement of a definite military gain.
+  - text: The object qualifies because any connection to military action is sufficient.
+    rationale: |
+      This weakens the test to a connection alone. Check both required conditions in the circumstances.
+  - text: The object qualifies whenever destroying it would frighten the opposing side.
+    rationale: |
+      This substitutes fear for the missing military gain. Check the conditions for a military objective.
+  explanation: |
+    Both conditions must be met. The object must effectively help military action, and its destruction, capture, or neutralization must offer a definite military gain in the circumstances. The second condition is absent. Source: Additional Protocol I, Article 52(2).
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0034
+  approved: true
+  lesson: lesson-peace-and-human-rights-attack-rules
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A verified military target is selected for attack. The expected incidental civilian harm would be excessive in relation to the concrete and direct military advantage anticipated. Civilians are not the intended targets. Which conclusion follows?
+  choices:
+  - text: Proportionality prohibits the planned attack.
+    correct: true
+  - text: A verified military target removes the need to compare harm with advantage.
+    rationale: |
+      This makes target status the only check. Check expected civilian harm separately.
+  - text: Unintended civilian harm cannot make an attack unlawful under proportionality.
+    rationale: |
+      This treats lack of intent as enough. Check that proportionality covers incidental civilian harm.
+  - text: Any military advantage permits the attack regardless of expected civilian harm.
+    rationale: |
+      This treats all gains as sufficient. Check whether the harm is excessive compared with the expected gain.
+  explanation: |
+    Proportionality bars an attack expected to cause incidental civilian harm excessive compared with its concrete and direct military gain. The facts state that this limit is exceeded. Source: Additional Protocol I, Articles 51(5)(b) and 57(2)(a)(iii).
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0035
+  approved: true
+  lesson: lesson-peace-and-human-rights-attack-rules
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A military target remains lawful, but new information makes clear that an attack would cause excessive civilian harm compared with its expected military gain. A warning has already been issued. What must the planner do?
+  choices:
+  - text: Cancel or stop the attack.
+    correct: true
+  - text: Proceed because the warning satisfies every precaution requirement.
+    rationale: |
+      This treats a warning as permission to continue. Check what the new information shows about civilian harm.
+  - text: Proceed because the target's military status has not changed.
+    rationale: |
+      This checks the target but ignores excessive harm. Check both requirements before continuing.
+  - text: Continue using the earlier estimate and disregard the new information.
+    rationale: |
+      This freezes the review at the earlier plan. Check whether new facts require cancellation or stopping.
+  explanation: |
+    An attack must be canceled or stopped when expected civilian harm becomes excessive compared with the expected military gain. A warning does not make the attack lawful. Source: Additional Protocol I, Article 57(2)(b).
+- id: q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0036
+  approved: true
+  lesson: lesson-peace-and-human-rights-ihl-preparation-and-peace
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A community mediation procedure requires groups to identify their needs, discuss lawful options, and adopt terms that specify actions and allow compliance to be checked. Two groups have completed the first two steps for a shared facility. Which action meets the remaining requirement?
+  choices:
+  - text: Set clear steps and a way to check compliance.
+    correct: true
+  - text: Announce that the stronger group alone will decide every future use.
+    rationale: |
+      This replaces agreement with one side's control. Check whether the steps address both groups' needs.
+  - text: Leave the terms unclear so each group can follow its own understanding.
+    rationale: |
+      This treats unclear terms as flexibility. Check whether each group can tell what was agreed.
+  - text: Treat the discussion itself as proof that an armed conflict legally exists.
+    rationale: |
+      This confuses seeking agreement with classifying violence. Check that armed conflict requires separate legal tests.
+  explanation: |
+    After hearing needs and discussing lawful options, the groups should agree on clear steps and a way to check whether people follow them. These are the lesson's practical peace steps, not a treaty procedure. Any agreement must respect basic rights. Source for that rights limit: ICCPR, Article 5(1).

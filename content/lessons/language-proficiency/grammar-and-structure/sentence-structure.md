@@ -6,6 +6,12 @@ subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-grammar-and-structure-simple-and-compound-sentences
+  - lesson-grammar-and-structure-complex-and-compound-complex-sentences
+  - lesson-grammar-and-structure-payak-at-tambalang-pangungusap
+  - lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay
 ---
 ## Core Concept
 

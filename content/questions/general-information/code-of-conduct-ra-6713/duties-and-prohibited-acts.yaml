@@ -7,6 +7,9 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0001
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-duties-public-letters
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Under Section 5(a) of RA 6713, what is the deadline for responding to public letters and requests?
@@ -31,6 +34,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0002
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-duties-document-completion
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'As far as practicable, how many signatories should official papers contain under Section 5(c) of RA 6713?
@@ -55,6 +61,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0003
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Within how many working days after year-end must heads or other responsible officers render the office''s annual performance report?
@@ -79,6 +88,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0006
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Under RA 6713''s implementing rules, failing to respond promptly within the public-letter deadline can be grounds for what?
@@ -103,6 +115,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0009
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-duties-public-record-access
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Subject to lawful disclosure restrictions, when must public documents be available for inspection under Section 5(e)?
@@ -127,6 +142,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0012
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-duties-public-letters
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What must the reply to a public letter or request state under Section 5(a)?
@@ -151,9 +169,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0017
+  lesson: lesson-code-of-conduct-ra-6713-duties-document-completion
+  keyPoint: 2
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'When an authorized signatory is absent, whom does Section 5(c) direct to sign on that official''s behalf?
 
     '
@@ -176,6 +196,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0018
+  lesson: lesson-code-of-conduct-ra-6713-duties-code-coverage
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: |
@@ -191,8 +213,10 @@ questions:
     rationale: The filing exemption gives no right to choose which duties and bans apply.
   explanation: |
     Free-service volunteers need not file a SALN under Rule XII. They must still follow the Code's duties and bans. The filing exemption is limited.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0019
+  lesson: lesson-code-of-conduct-ra-6713-duties-protected-information-and-gifts
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -205,13 +229,15 @@ questions:
     rationale: A private recipient does not remove the protection given to confidential work information.
   - text: The disclosure is prohibited only if the file was obtained outside work.
     rationale: The ban covers confidential information learned through official work. It does not require an outside source.
-  - text: The disclosure is prohibited because it gives an unfair private advantage.
+  - text: It is prohibited because it gives an unfair private advantage.
     correct: true
   explanation: |
     Protected work information must not be shared to give an unfair advantage.
     The employee need not receive money for the disclosure to be prohibited.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0020
+  lesson: lesson-code-of-conduct-ra-6713-duties-protected-information-and-gifts
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: |
@@ -227,8 +253,10 @@ questions:
     rationale: The link to official duties matters. Giving the gift outside office hours does not remove that link.
   explanation: |
     The business offers the gift for favorable official action. The employee must refuse it. A low price does not make that exchange acceptable.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0021
+  lesson: lesson-code-of-conduct-ra-6713-duties-public-letters
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -238,14 +266,16 @@ questions:
     rationale: Missing papers may delay completion. They do not automatically excuse silence about the request.
   - text: Send only a receipt and leave the applicant to identify what is missing.
     rationale: A receipt alone does not state the action taken or identify the missing requirements.
-  - text: Explain the action taken, name the missing papers, give a reasonable submission period, and identify the worker in charge.
+  - text: State action taken, missing papers, reasonable filing period, and worker in charge.
     correct: true
   - text: Return the request without explanation because incomplete requests require no reply.
     rationale: Incomplete papers do not remove the duty to answer and explain what the applicant must provide.
   explanation: |
     The office should explain its action and list the missing papers. It should give a reasonable period to submit them and name the worker in charge. Missing papers can delay completion, but the office still needs to reply.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0022
+  lesson: lesson-code-of-conduct-ra-6713-duties-public-letters
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -261,8 +291,10 @@ questions:
     rationale: Prompt service does not give an office authority over a matter assigned to another office.
   explanation: |
     The receiving office should send the request to the office that can act. It should also tell the sender about the referral. A wrong address is not a reason to ignore the request.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0023
+  lesson: lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -274,18 +306,20 @@ questions:
     rationale: The duty to attend promptly exists before any complaint is filed.
   - text: Complete papers allow the employee to postpone service without a reason.
     rationale: Complete papers support prompt handling. They do not justify postponement.
-  - text: The employee must attend promptly because the stated deadline does not justify this delay.
+  - text: The employee must attend promptly; the written-reply deadline allows no delay.
     correct: true
   explanation: |
     Workers must promptly attend to people seeking service in person. A routine request that can be settled at once should not face an unjustified delay.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0024
+  lesson: lesson-code-of-conduct-ra-6713-duties-document-completion
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
     No law or valid rule sets a completion deadline for a certain document. Employees disagree about how long processing should take. Under the implementing rules, what is the proper approach?
   choices:
-  - text: The agency head must set a reasonable period through rules that consider the work and relevant conditions.
+  - text: The agency head must set a reasonable period by rules considering the work and relevant conditions.
     correct: true
   - text: Each employee may select a deadline based only on personal workload.
     rationale: Workers do not have a free choice of deadline. The agency head must set rules when no deadline exists.
@@ -295,8 +329,10 @@ questions:
     rationale: The absence of a legal deadline requires agency rules setting a reasonable period. It does not permit endless delay.
   explanation: |
     The agency head must set a reasonable period when no deadline already applies. The rules must consider the work, its complexity, and relevant conditions. Each worker cannot simply choose a deadline.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0025
+  lesson: lesson-code-of-conduct-ra-6713-duties-public-record-access
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -306,14 +342,16 @@ questions:
     rationale: Unfinished status alone does not make every record secret. A lawful disclosure restriction must apply.
   - text: The agency wants to avoid unfavorable public attention.
     rationale: Avoiding public attention is not a lawful reason to deny access.
-  - text: The implementing rules protect information that would expose a confidential source.
+  - text: The rules protect information that would expose a confidential source.
     correct: true
   - text: Public inspection is limited to employees of the investigating agency.
     rationale: Public access is not generally limited to agency employees. Specific lawful restrictions determine what may be withheld.
   explanation: |
     Public access has lawful limits. The rules protect confidential sources in investigations. The office must rely on that protection, not merely on the fact that the matter is unfinished.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0026
+  lesson: lesson-code-of-conduct-ra-6713-duties-private-business-interests
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -321,7 +359,7 @@ questions:
   choices:
   - text: The stake is allowed because it is held through another person.
     rationale: The ban covers indirect interests held through another person as well as direct interests.
-  - text: The stake is prohibited because the transaction requires approval from the employee's office.
+  - text: It is prohibited because the transaction needs approval from that office.
     correct: true
   - text: The stake is allowed unless the employee personally signs the approval.
     rationale: The rule concerns transactions requiring the office's approval. It is not limited to the employee who signs.
@@ -329,8 +367,10 @@ questions:
     rationale: A financial interest does not have to produce a profit before the prohibition applies.
   explanation: |
     The Code bars a direct or indirect financial stake in a transaction requiring the worker's office to approve it. Using a nominee does not remove the stake. The worker need not be the person who signs the approval.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0027
+  lesson: lesson-code-of-conduct-ra-6713-duties-private-business-interests
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -342,19 +382,21 @@ questions:
     rationale: The ban includes trustees and other listed roles. It is not limited to owners and managers.
   - text: The arrangement is allowed because supervision differs from licensing.
     rationale: The ban covers businesses regulated, supervised, or licensed by the office. Licensing is not the only basis.
-  - text: The arrangement is prohibited because trustee is a covered role and no law expressly permits it.
+  - text: The trustee role is prohibited unless expressly allowed by law.
     correct: true
   explanation: |
     The ban includes serving as a trustee for a business the office supervises. Express permission in law is needed for the exception. A supervisor's approval alone is not enough.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0028
+  lesson: lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
     A government professional has valid legal authority to serve private clients.
     A proposed engagement would tend to conflict with public duties, although no actual conflict has occurred yet. May the professional accept it on these facts?
   choices:
-  - text: No, because private work must neither conflict nor tend to conflict with public duties.
+  - text: No, private work must neither conflict nor tend to conflict with public duties.
     correct: true
   - text: Yes, because valid legal authority removes the separate conflict restriction.
     rationale: Authority to practice does not permit work that conflicts or tends to conflict with public duties.
@@ -364,8 +406,10 @@ questions:
     rationale: Authorized private practice can be allowed when it does not conflict or tend to conflict with public duties.
   explanation: |
     Legal authority is only one requirement. The private work must also avoid conflict with public duties. Work that tends to conflict fails this test even before an actual conflict occurs.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0029
+  lesson: lesson-code-of-conduct-ra-6713-duties-after-leaving-office
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |
@@ -375,14 +419,16 @@ questions:
     rationale: The restriction continues for one year after departure. Resignation does not end it immediately.
   - text: The restriction bars all professional work for any private client during that year.
     rationale: This limit concerns matters before the former office. It does not prohibit every professional engagement everywhere.
-  - text: The lawyer cannot practice on this matter before the former agency during that year.
+  - text: The lawyer cannot handle this matter before the former agency that year.
     correct: true
   - text: The restriction applies only to former workers who were dismissed.
     rationale: The post-employment limit is not confined to dismissal. Leaving through resignation does not avoid it.
   explanation: |
     For one year after leaving, the lawyer cannot practice on a matter before the former office. This specific limit does not ban every private legal job.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0030
+  lesson: lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |
@@ -398,4 +444,73 @@ questions:
     rationale: The general ban covers both regular and pending official dealings. Pending status is not an exemption.
   explanation: |
     The general rule bars certain job recommendations to businesses dealing with the office. The rules allow referrals required by assigned public duties. The stated referral meets that exception.
-  approved: false
+  approved: true
+
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0031
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-duties-after-leaving-office
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A retired officer recommends a friend for employment at a private enterprise with a pending transaction before the former office. The officer retired six months ago. No law, agreement, or assigned duty requires the recommendation. Which conclusion follows the Code?
+  choices:
+  - text: "The recommendation remains prohibited."
+    correct: true
+  - text: "Retirement ended the restriction because the officer no longer receives a government salary."
+    rationale: |
+      This treats departure as the end of the ban. The officer is no longer in service. Check whether the restriction continues after departure.
+  - text: "The restriction covers ownership interests but does not cover job recommendations after retirement."
+    rationale: |
+      This leaves out the recommendation ban. Business ownership may seem the main concern. Check the activity and the rule that continues to apply.
+  - text: "A recommendation is allowed during the restricted period if it concerns a friend rather than the officer."
+    rationale: |
+      This treats a benefit for a friend as exempt. The officer is not seeking the job personally. Check that the rule covers recommendations to such enterprises.
+  explanation: |
+    RA 6713, Section 7(b) continues the covered recommendation ban for one year after retirement or resignation. Six months is within that period. With a pending transaction and no stated exception, the recommendation remains prohibited.
+
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0032
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-duties-code-coverage
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A temporary appointee in a subsidiary of a government-owned corporation argues that RA 6713 covers only permanent employees of national departments. Which assessment is correct?
+  choices:
+  - text: "The Code covers the appointee."
+    correct: true
+  - text: "The Code excludes the appointee because a temporary post is outside both career and non-career coverage."
+    rationale: |
+      This treats temporary service as excluded. Permanent posts may seem the normal case. Check that the Code includes temporary workers too.
+  - text: "The Code excludes the appointee because subsidiaries are outside its definition of government."
+    rationale: |
+      This leaves out government-corporation subsidiaries. The company form may look private. Check the Code's definition of government.
+  - text: "The Code covers the appointee only after the position becomes a permanent national-department post."
+    rationale: |
+      This adds conditions the definition does not require. National departments are familiar offices. Check the wider scope of covered public workers.
+  explanation: |
+    RA 6713, Section 3(a) includes government-owned or controlled corporations and their subsidiaries. Section 3(b) includes permanent and temporary public workers. The appointee falls within that coverage.
+
+- id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0033
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A citizen alleges that an employee failed to reply to a written request. The employee offers a dated reply showing action taken. What should the disciplinary authority do before imposing a penalty?
+  choices:
+  - text: "Give notice and a fair chance to present evidence."
+    correct: true
+  - text: "Impose a penalty once the complaint is received because an accusation establishes failure to reply."
+    rationale: |
+      This treats a complaint as proof. A citizen's report starts the review. Check the records and hear the employee's answer before deciding.
+  - text: "Reject the employee's reply without review because only the complainant may submit evidence."
+    rationale: |
+      This denies a fair chance to answer. The complaint may seem to control the case. Check evidence from both sides.
+  - text: "Treat unfinished work as conclusive proof that no reply was sent, regardless of the dated record."
+    rationale: |
+      This confuses completing work with sending a reply. The request may remain unfinished. Check the dated reply and what action it reports.
+  explanation: |
+    RA 6713, Section 11(a) requires due notice and hearing by the proper body before a penalty. The employee must have a fair chance to answer and present evidence. The authority must examine the dated reply under the applicable process.

@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0001"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       The request asks for an honest opinion. In this context, "truthful" repeats that quality without adding needed meaning, so "honest opinion" preserves the request.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0002"
+    lesson: lesson-grammar-and-structure-editing-negative-concord
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "Doesn't want any help" uses one standard negative pattern. It expresses the intended present refusal of help.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0003"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -72,6 +78,8 @@ questions:
       "Collaborated" means worked together. The revision keeps both participants and their shared mural without repeating the idea of joint work.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0004"
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       "Hardly" means almost not. "Can hardly hear" states that the speaker hears very little in standard formal English.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0005"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -112,6 +122,8 @@ questions:
       PIN stands for "personal identification number." Saying "PIN number" therefore repeats "number." The concise form is simply "PIN."
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0006"
+    lesson: lesson-grammar-and-structure-editing-negative-concord
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -132,6 +144,8 @@ questions:
       In a negative-concord dialect, "didn't" and "nothing" work together to express one negative. The statement means that no unusual thing was seen.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0007"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -152,6 +166,8 @@ questions:
       ATM stands for "automated teller machine." Adding "machine" after ATM repeats the final word of the abbreviation.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0008"
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "medium"
     stem: |
@@ -172,6 +188,8 @@ questions:
       "Barely started" means only just begun. The sentence says that very little work has been done.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0009"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
@@ -192,6 +210,8 @@ questions:
       ISBN stands for "International Standard Book Number." "ISBN number" repeats the word "number," so "ISBN" alone is the concise form.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0010"
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "hard"
     stem: |
@@ -212,6 +232,8 @@ questions:
       "Could scarcely finish" means he only just managed to finish. It expresses great difficulty.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0011"
+    lesson: lesson-grammar-and-structure-editing-negative-concord
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "hard"
     stem: |
@@ -232,6 +254,8 @@ questions:
       "Don't" and "no" express one negative together in negative-concord dialects. A standard-formal exam would use "I don't have any time" or "I have no time."
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0012"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "medium"
     stem: |
@@ -252,6 +276,8 @@ questions:
       "Return" already means to bring or give something back. The concise revision keeps that action and the Friday deadline.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0013"
+    lesson: lesson-grammar-and-structure-keeping-needed-repetition
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "medium"
     stem: |
@@ -272,6 +298,8 @@ questions:
       "Repeat" means say it again. With no separate earlier repeat to contrast, that verb alone expresses the request.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0014"
+    lesson: lesson-grammar-and-structure-editing-negative-concord
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "medium"
     stem: |
@@ -292,6 +320,8 @@ questions:
       "Isn't anybody" expresses that no person is there. It uses the standard negative verb with "anybody."
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0015"
+    lesson: lesson-grammar-and-structure-editing-negative-concord
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "exam"
     stem: |
@@ -312,12 +342,14 @@ questions:
       ATM means "automated teller machine," and PIN means "personal identification number." The abbreviations already include the labels, so use ATM and PIN alone. For the requested formal style, "was never available" gives one clear negative meaning.
     approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0016"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "easy"
     stem: |
       The agency gave residents "advance warning several days before a road closure." For a shorter version, why can "advance" be removed?
     choices:
-      - text: "The phrase \"several days before a road closure\" already gives the early timing."
+      - text: "\"Several days before a road closure\" already states the timing."
         correct: true
       - text: "It must be deleted because every warning contains the same timing detail."
         rationale: |
@@ -330,8 +362,10 @@ questions:
           This turns one needless repetition into a blanket rule. Repetition can add needed meaning in other contexts. Check: evaluate each phrase by the meaning it adds.
     explanation: |
       "Several days before a road closure" already tells when residents received the warning. "Advance" repeats that early timing, so it can be removed for a shorter version.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0017"
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "medium"
     stem: |
@@ -350,8 +384,10 @@ questions:
           This makes a qualified description absolute. An expected result may seem certain. Check: preserve the less absolute wording.
     explanation: |
       "Unexpected" means not expected. "Not unexpected" means the result was not a surprise. It may suggest the result was expected to some degree, but it does not say the result was fully expected.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0018"
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "hard"
     stem: |
@@ -370,8 +406,10 @@ questions:
           This changes almost none into none at all. Both describe a shortage. Check: preserve the distinction between very little and zero.
     explanation: |
       "Scarcely" means almost not. "Scarcely any" therefore says that almost no supplies remained.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0019"
+    lesson: lesson-grammar-and-structure-removing-needless-repeated-meaning
+    keyPoint: 2
     type: "redundancy-identification"
     difficulty: "hard"
     stem: |
@@ -390,8 +428,10 @@ questions:
           This mistakes a modifier's effect for number agreement. The adjective appears beside a location expression. Check: check meaning and emphasis rather than unrelated noun number.
     explanation: |
       "Close" may emphasize the degree of nearness. The editor should decide whether that extra meaning is needed in this context.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-redundancy-and-double-negatives-0020"
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 1
     type: "redundancy-identification"
     difficulty: "exam"
     stem: |
@@ -410,4 +450,50 @@ questions:
           This treats two negative elements as making meaning impossible. Some multiple-negative patterns require care. Check: check whether the words create a standard qualified positive.
     explanation: |
       "Not unreasonable" gives a qualified positive judgment. It calls the proposal fairly reasonable without the stronger claim that it is perfect.
-    approved: false
+    approved: true
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0021
+    approved: true
+    lesson: lesson-grammar-and-structure-keeping-needed-repetition
+    keyPoint: 1
+    type: redundancy-identification
+    difficulty: exam
+    stem: |
+      An officer gave an instruction, then repeated it when asked. A late arrival missed both readings. In "Please repeat the instruction again for the late arrival," what does "again" add?
+    choices:
+      - text: "It requests a further repeat."
+        correct: true
+      - text: "It says the instruction has never been repeated."
+        rationale: |
+          This overlooks the repeat already given. Repeat can suggest doing something another time. Count what has happened before this request.
+      - text: "It changes the request into a warning about delay."
+        rationale: |
+          This confuses another repetition with a warning. The late arrival may suggest delay. Ask what action the speaker requests.
+      - text: "It requires the officer to change the instruction."
+        rationale: |
+          This treats another reading as new wording. A new listener may need help. Check whether the request asks for a change or another repeat.
+    explanation: |
+      The officer has already repeated the instruction. Again points to one more repeat for the late arrival. It adds that further repetition to the request.
+
+  - id: q-grammar-and-structure-redundancy-and-double-negatives-0022
+    approved: true
+    lesson: lesson-grammar-and-structure-qualified-negatives-and-near-negatives
+    keyPoint: 3
+    type: redundancy-identification
+    difficulty: exam
+    stem: |
+      Which statement preserves the meaning of "The employee seldom requests an extension"?
+    choices:
+      - text: "The employee rarely requests extra time."
+        correct: true
+      - text: "The employee never requests any extra time."
+        rationale: |
+          This turns a low frequency into none at all. Seldom has a negative meaning. Check whether it still allows an occasional request.
+      - text: "The employee regularly requests extra time."
+        rationale: |
+          This changes rarely to often. Both describe a pattern of requests. Check how frequent seldom says the action is.
+      - text: "The employee always receives extra time when requested."
+        rationale: |
+          This changes a statement about requesting into one about receiving. Both mention extra time. Check which action seldom describes.
+    explanation: |
+      Seldom means not often or rarely. An extension gives extra time. The sentence says the employee rarely requests extra time.

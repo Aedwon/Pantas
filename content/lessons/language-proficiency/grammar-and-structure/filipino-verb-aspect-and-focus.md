@@ -6,6 +6,12 @@ subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-grammar-and-structure-kalagayan-ng-kilos
+  - lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa
+  - lesson-grammar-and-structure-mga-pahiwatig-ng-oras
+  - lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa
 ---
 ## Core Concept
 

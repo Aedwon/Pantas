@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0001
+  lesson: lesson-philippine-constitution-congress-members-and-terms
+  keyPoint: 1
   type: senate-composition-and-terms
   difficulty: easy
   stem: |
@@ -23,8 +25,10 @@ questions:
   explanation: |
     Article VI, Sections 2 and 4 provide for 24 senators elected nationwide.
     Each term lasts six years. A senator may serve two consecutive terms.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0002
+  lesson: lesson-philippine-constitution-congress-members-and-terms
+  keyPoint: 2
   type: house-composition-and-terms
   difficulty: easy
   stem: |
@@ -36,14 +40,16 @@ questions:
     rationale: The 20 percent share uses total House membership, including party-list seats.
   - text: Representatives serve six-year terms with two consecutive terms allowed.
     rationale: These are the Senate's term rules. Representatives serve three-year terms.
-  - text: Representatives serve three-year terms with at most three consecutive terms.
+  - text: "Representatives have three-year terms, at most three consecutively."
     correct: true
   explanation: |
     Article VI, Section 7 sets three-year terms and a three-consecutive-term limit.
     The House size is at most 250 unless law provides otherwise.
     The 20 percent share of total House seats, including party-list seats, sets the maximum seats available to party-list groups. Some may remain unfilled.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0003
+  lesson: lesson-philippine-constitution-congress-bills-budget-and-inquiries
+  keyPoint: 1
   type: bill-origination
   difficulty: easy
   stem: |
@@ -60,8 +66,10 @@ questions:
   explanation: |
     Article VI, Section 24 requires revenue bills to start in the House.
     The Senate may propose or agree to amendments.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0004
+  lesson: lesson-philippine-constitution-president-terms-and-appointments
+  keyPoint: 1
   type: presidential-succession-and-term-limits
   difficulty: easy
   stem: |
@@ -71,7 +79,7 @@ questions:
     rationale: The Vice-President succeeds when the President dies and the Vice-Presidency is occupied.
   - text: The successor may later be elected President because the five years were only an inherited term.
     rationale: A successor who serves more than four years as President cannot later be elected President.
-  - text: The Vice-President becomes President and cannot later be elected President after serving those five years.
+  - text: "The Vice-President succeeds and is barred from later election as President."
     correct: true
   - text: The Vice-President only acts as President until Congress selects a permanent President.
     rationale: Upon the President's death, the Vice-President becomes President for the unexpired term.
@@ -79,8 +87,10 @@ questions:
     Article VII, Section 8 makes the Vice-President the successor.
     Section 4 bars a later presidential election after more than four years as successor.
     The Vice-President's two-successive-term rule does not change this limit.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0005
+  lesson: lesson-philippine-constitution-president-clemency-and-treaties
+  keyPoint: 1
   type: pardon-versus-amnesty
   difficulty: easy
   stem: |
@@ -88,7 +98,7 @@ questions:
   choices:
   - text: A pardon may remove the result of impeachment if the Senate agrees.
     rationale: The President's pardon power excludes impeachment cases.
-  - text: A pardon follows conviction by final judgment, while amnesty needs concurrence of a majority of all Members of Congress.
+  - text: "Pardon requires final conviction; amnesty, concurrence of a majority of all Members of Congress."
     correct: true
   - text: A pardon may be granted before conviction by final judgment, while amnesty needs no congressional concurrence.
     rationale: This removes both the final-judgment requirement for pardon and the congressional requirement for amnesty.
@@ -97,8 +107,10 @@ questions:
   explanation: |
     Article VII, Section 19 places pardon after conviction by final judgment.
     Pardon cannot cover impeachment. Amnesty requires congressional concurrence.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0006
+  lesson: lesson-philippine-constitution-elected-office-qualifications
+  keyPoint: 1
   type: elected-office-qualification
   difficulty: medium
   stem: |
@@ -115,14 +127,16 @@ questions:
   explanation: |
     Article VI, Section 6 requires one year of residence in the district.
     Eight months is too short. Lea meets the stated age requirement.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0007
+  lesson: lesson-philippine-constitution-elected-office-qualifications
+  keyPoint: 1
   type: elected-office-qualification
   difficulty: medium
   stem: |
     Mario is a naturalized Philippine citizen seeking a Senate seat. On election day, he is 40, can read and write, is a registered voter, and has lived in the Philippines continuously for ten years. Which requirement does he fail?
   choices:
-  - text: Natural-born citizenship
+  - text: "Being natural-born"
     correct: true
   - text: Minimum age
     rationale: A Senator must be at least 35 on election day. Mario is 40.
@@ -133,8 +147,10 @@ questions:
   explanation: |
     Article VI, Section 3 requires Senators to be natural-born citizens.
     Naturalization does not meet that requirement. Age and long residence cannot replace it.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0008
+  lesson: lesson-philippine-constitution-elected-office-qualifications
+  keyPoint: 2
   type: elected-office-qualification
   difficulty: medium
   stem: |
@@ -151,8 +167,10 @@ questions:
   explanation: |
     Article VII, Sections 2 and 3 require ten years of Philippine residence.
     The period must immediately precede election day. Nine years falls short.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0009
+  lesson: lesson-philippine-constitution-courts-and-judicial-review
+  keyPoint: 2
   type: appointment-and-judicial-tenure
   difficulty: medium
   stem: |
@@ -164,14 +182,16 @@ questions:
     rationale: Judges serve during good behavior until age 70 or incapacity, not for a fixed seven-year term.
   - text: The Judicial and Bar Council appoints judges directly from its own list.
     rationale: The Council recommends nominees. The President makes the appointment.
-  - text: An ambassador needs Commission on Appointments consent; a judge is appointed by the President from at least three JBC nominees.
+  - text: Ambassadors need confirmation; Presidents appoint judges from at least three JBC nominees.
     correct: true
   explanation: |
     Article VII, Section 16 covers consent for ambassadors.
     Article VIII, Section 9 uses a JBC list of at least three nominees per vacancy.
     Judges need no confirmation. Section 11 sets tenure during good behavior until 70 or incapacity.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0010
+  lesson: lesson-philippine-constitution-judicial-office-qualifications
+  keyPoint: 1
   type: supreme-court-qualification
   difficulty: medium
   stem: |
@@ -189,8 +209,10 @@ questions:
     Article VIII, Section 7 requires natural-born citizenship and a minimum age of 40.
     It also requires at least 15 years of the specified Philippine legal experience.
     Only the 42-year-old candidate meets all three stated requirements.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0011
+  lesson: lesson-philippine-constitution-commission-and-ombudsman-qualifications
+  keyPoint: 1
   type: comelec-qualification
   difficulty: hard
   stem: |
@@ -208,8 +230,10 @@ questions:
   explanation: |
     Article IX-C, Section 1 requires a lawyer majority with ten years of practice.
     That majority must include the Chair. Four lawyers alone do not satisfy the Chair requirement.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0012
+  lesson: lesson-philippine-constitution-commission-and-ombudsman-qualifications
+  keyPoint: 2
   type: coa-qualification
   difficulty: hard
   stem: |
@@ -227,8 +251,10 @@ questions:
     Article IX-D, Section 1 allows qualified CPAs or lawyers.
     Lawyers need ten years of practice. All COA members cannot belong to the same profession.
     The lawyer with eleven years meets both professional rules in this case.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0013
+  lesson: lesson-philippine-constitution-commission-and-ombudsman-qualifications
+  keyPoint: 3
   type: ombudsman-qualification-and-term
   difficulty: hard
   stem: |
@@ -246,8 +272,10 @@ questions:
     Article XI, Section 8 bars candidates in the immediately preceding election.
     She meets the stated age and experience rules but fails this separate rule.
     Section 11 sets a seven-year term without reappointment for the Ombudsman.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0014
+  lesson: lesson-philippine-constitution-courts-and-judicial-review
+  keyPoint: 2
   type: supreme-court-composition-and-review
   difficulty: hard
   stem: |
@@ -266,8 +294,10 @@ questions:
     Article VIII, Section 4 provides for a Chief Justice and 14 Associate Justices.
     Cases involving a law's constitutionality are heard en banc, meaning by the full Court.
     Divisions may have three, five, or seven Members for other cases.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0015
+  lesson: lesson-philippine-constitution-president-emergency-powers
+  keyPoint: 1
   type: martial-law-limits
   difficulty: hard
   stem: |
@@ -285,8 +315,10 @@ questions:
     Article VII, Section 18 limits the initial period to 60 days.
     The President must report to Congress within 48 hours.
     These limits also apply to suspension of the writ's privilege.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0016
+  lesson: lesson-philippine-constitution-president-emergency-powers
+  keyPoint: 2
   type: martial-law-checks
   difficulty: hard
   stem: |
@@ -297,7 +329,7 @@ questions:
     rationale: Any citizen may bring the factual basis before the Supreme Court for review.
   - text: Congress may revoke only through separate two-thirds votes in each House.
     rationale: Revocation uses a majority of all Members of Congress voting jointly, not separate two-thirds votes.
-  - text: The Supreme Court may review the factual basis, and Congress may revoke by a majority of all its Members voting jointly.
+  - text: "Supreme Court review; revocation by a majority of all Congress Members voting jointly"
     correct: true
   - text: Martial law replaces functioning civil courts.
     rationale: Martial law does not replace functioning civil courts.
@@ -305,8 +337,10 @@ questions:
     Article VII, Section 18 gives Congress the power to revoke by a joint majority vote.
     Any citizen may ask the Supreme Court to review the factual basis.
     Martial law does not suspend the Constitution or automatically suspend the writ's privilege.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0017
+  lesson: lesson-philippine-constitution-president-clemency-and-treaties
+  keyPoint: 2
   type: treaty-concurrence
   difficulty: exam
   stem: |
@@ -323,8 +357,10 @@ questions:
   explanation: |
     Article VII, Section 21 requires at least two-thirds of all Senators.
     Two-thirds of 24 is 16. Fifteen votes fall short even when fewer Senators attend.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0018
+  lesson: lesson-philippine-constitution-congress-war-and-veto-votes
+  keyPoint: 2
   type: veto-and-override
   difficulty: exam
   stem: |
@@ -342,8 +378,10 @@ questions:
     Article VI, Section 27 requires 200 House votes and 16 Senate votes here.
     The House reaches its threshold. The Senate does not, so the veto stands.
     Without a veto communicated within 30 days, the bill becomes law as if signed.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0019
+  lesson: lesson-philippine-constitution-congress-war-and-veto-votes
+  keyPoint: 1
   type: state-of-war-vote
   difficulty: exam
   stem: |
@@ -351,7 +389,7 @@ questions:
   choices:
   - text: The President commands the armed forces and alone declares the existence of a state of war.
     rationale: Commander-in-Chief authority does not include Congress's exclusive power to declare a state of war.
-  - text: The President commands the armed forces; Congress declares a state of war by two-thirds votes in joint session, voting separately.
+  - text: "The President commands; Congress declares war by two-thirds votes in joint session, voting separately."
     correct: true
   - text: Congress commands the armed forces; the President declares a state of war after Senate concurrence.
     rationale: This reverses military command and the war-declaration power. Senate treaty concurrence is a different rule.
@@ -361,8 +399,10 @@ questions:
     Article VII, Section 18 makes the President Commander-in-Chief.
     Article VI, Section 23 reserves the declaration of a state of war to Congress.
     The Houses meet jointly but vote separately under the two-thirds rule.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-the-three-branches-and-their-powers-0020
+  lesson: lesson-philippine-constitution-congress-bills-budget-and-inquiries
+  keyPoint: 2
   type: legislative-inquiry-and-budget-rules
   difficulty: exam
   stem: |
@@ -372,7 +412,7 @@ questions:
     rationale: An inquiry in aid of legislation must still respect the rights of people who appear or are affected.
   - text: A revenue bill may originate in the Senate if a Senate committee conducted the inquiry.
     rationale: A Senate inquiry does not remove the requirement that revenue bills originate in the House.
-  - text: The inquiry must follow duly published rules and respect rights; Congress cannot increase the recommended appropriations for government operations.
+  - text: Inquiries require published rules and respect for rights; Congress cannot increase those appropriations.
     correct: true
   - text: Congress may increase those recommended appropriations whenever each House approves by a simple majority.
     rationale: Article VI, Section 25 bars that increase. A simple majority does not remove the restriction.
@@ -380,4 +420,119 @@ questions:
     Legislative inquiries must follow published rules and respect people's rights.
     Revenue bills must start in the House. A Senate inquiry does not change this.
     Congress cannot increase the recommended appropriations for government operations specified in the budget.
-  approved: false
+  approved: true
+
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0021
+  approved: true
+  lesson: lesson-philippine-constitution-branches-and-checks
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An official claims that carrying out laws and settling actual legal disputes are both executive functions. Which allocation is correct?
+  choices:
+  - text: "The President executes laws; courts settle legal disputes."
+    correct: true
+  - text: "Congress executes laws; the President settles legal disputes."
+    rationale: |
+      This swaps lawmaking with execution and gives court work to the President. Check each branch’s assigned power.
+  - text: "Courts execute laws; Congress settles actual disputes over legal rights."
+    rationale: |
+      This confuses deciding cases with carrying out laws. Match disputes over legal rights to the courts.
+  - text: "The President executes laws and alone settles actual legal disputes."
+    rationale: |
+      This puts judicial power in the executive branch. Carrying out a law does not include deciding court cases.
+  explanation: |
+    Article VII, Section 1 places executive power in the President. Article VIII, Section 1 places judicial power in the Supreme Court and lower courts. Carrying out laws is executive work. Settling actual legal disputes is judicial work.
+
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0022
+  approved: true
+  lesson: lesson-philippine-constitution-branches-and-checks
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    The President rejects a bill passed by Congress. Congress seeks to pass it despite that rejection. Which pair identifies these checks?
+  choices:
+  - text: "Veto and veto override"
+    correct: true
+  - text: "Judicial review and veto override"
+    rationale: |
+      This calls the President’s rejection a court power. Check which branch uses judicial review.
+  - text: "Veto and Commission on Appointments consent"
+    rationale: |
+      This uses an appointment check to answer a lawmaking question. Check whether the act concerns a bill or an appointment.
+  - text: "Impeachment charge and Senate impeachment trial"
+    rationale: |
+      This confuses checks on a bill with charges against an officer. Identify what is being rejected.
+  explanation: |
+    Article VI, Section 27 provides for the President’s veto and Congress’s veto override. The veto rejects the bill. The override lets Congress pass it despite that rejection.
+
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0023
+  approved: true
+  lesson: lesson-philippine-constitution-courts-and-judicial-review
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A proper case alleges that a government body gravely abused its discretion and acted beyond its legal authority. Which statement describes the courts’ constitutional duty?
+  choices:
+  - text: "They may examine that abuse of government power."
+    correct: true
+  - text: "They may review only private disputes, never government actions."
+    rationale: |
+      This leaves out the courts’ duty to check grave abuse by government bodies. Read both parts of judicial power.
+  - text: "They must accept the act whenever the body calls it a policy decision."
+    rationale: |
+      This treats a policy label as protection from court review. Check whether the body acted beyond its authority.
+  - text: "They must replace every policy they dislike with their preferred policy."
+    rationale: |
+      This confuses a legal limit with a policy preference. Check for grave abuse of power, not mere disagreement.
+  explanation: |
+    Article VIII, Section 1 includes checking grave abuse of discretion by any government branch or body. The alleged abuse must amount to acting without legal authority or beyond it. Courts may examine that issue in a proper case.
+
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0024
+  approved: true
+  lesson: lesson-philippine-constitution-judicial-office-qualifications
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A reviewer states that citizenship and Philippine Bar membership exhaust the constitutional requirements for every lower-court judge. Which correction is accurate?
+  choices:
+  - text: "Lower collegiate court judges must also be natural-born."
+    correct: true
+  - text: "Every lower-court judge must satisfy the Supreme Court’s age and experience minimums."
+    rationale: |
+      This applies Supreme Court requirements to every lower court. Check which office the rule names.
+  - text: "Lower-court judges need no proven integrity if they are Philippine Bar members."
+    rationale: |
+      This treats Bar membership as a substitute for honesty. Check the qualities required of every judge.
+  - text: "Congress cannot set further qualifications once citizenship and Bar membership are met."
+    rationale: |
+      This treats the minimum requirements as a complete list. The Constitution lets Congress set lower-court qualifications.
+  explanation: |
+    Article VIII, Section 7 requires natural-born citizenship for members of lower collegiate courts. It also lets Congress set qualifications for lower-court judges. All judges must have proven competence, integrity, probity, and independence.
+
+- id: q-philippine-constitution-the-three-branches-and-their-powers-0025
+  approved: true
+  lesson: lesson-philippine-constitution-president-terms-and-appointments
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    The President appoints the Vice-President to the Cabinet. An adviser insists that Commission on Appointments consent is required for this appointment. Which rule applies?
+  choices:
+  - text: "This appointment needs no confirmation."
+    correct: true
+  - text: "Consent is required because all Cabinet appointments follow the same rule."
+    rationale: |
+      This overlooks the special rule for the Vice-President. Check the rule for the person appointed.
+  - text: "The Vice-President cannot hold a Cabinet position under the Constitution."
+    rationale: |
+      This mistakes a confirmation exception for a ban on appointment. Article VII allows this Cabinet appointment.
+  - text: "The Judicial and Bar Council must first recommend the Vice-President."
+    rationale: |
+      This applies the judicial appointment process to a Cabinet post. Check whether the appointment is to a court.
+  explanation: |
+    Article VII, Section 3 allows the Vice-President to be appointed to the Cabinet. It expressly states that the appointment requires no confirmation.

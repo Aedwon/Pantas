@@ -7,6 +7,9 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-filing-dates
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Within how many days after assuming office must a covered official file the initial sworn SALN?
@@ -31,6 +34,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0002
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-filing-dates
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What is RA 6713''s annual SALN deadline after the initial filing?
@@ -55,6 +61,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0003
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-filing-dates
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Within how many days after separation must a covered official file the final SALN?
@@ -79,6 +88,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0004
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-relatives-in-government
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Through what civil degree does RA 6713 define relatives for disclosure of relatives in government?
@@ -103,6 +115,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0005
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-conflict-action-deadlines
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'For a conflict existing on assumption of office, within how many days must the relevant shareholdings be divested under Section 9?
@@ -127,6 +142,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0006
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-conflict-action-deadlines
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'For a conflict existing on assumption of office, what is the deadline to resign from the conflicting private business position?
@@ -151,6 +169,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0007
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-public-access-and-use
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'After how many working days from filing does Section 8(C) make a SALN available for copying?
@@ -175,6 +196,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0008
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-public-access-and-use
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'For how long after receipt does Section 8(C) require public availability of a filed SALN before possible destruction, unless an investigation still needs it?
@@ -199,6 +223,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0009
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Under Section 8(A)''s statutory list, where do national executive officials file?
@@ -223,6 +250,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0010
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Under RA 6713, where do senators file their SALN?
@@ -247,6 +277,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0011
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: 'Under Section 8(A), which repository receives covered officials in the residual all-other category when no specifically listed category applies?
@@ -271,6 +304,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'Besides the official, whose financial information is included under Section 8? Assume the spouses are not under complete separation of property. For children, assume they live in the household and are under eighteen.
@@ -295,6 +331,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0013
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: 'Where do regional and local officials and employees file their SALN under RA 6713?
@@ -319,6 +358,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0014
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: 'Under RA 6713''s statutory filing list, where do Supreme Court justices file their SALN?
@@ -343,6 +385,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0015
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: 'Under RA 6713, where do trial-court judges file their SALN?
@@ -367,9 +412,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0016
+  lesson: lesson-code-of-conduct-ra-6713-conflict-action-deadlines
+  keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'A conflict arises after an employee is already in government service. Under the implementing rules, when do the resignation and divestment periods begin?
 
     '
@@ -392,9 +439,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0017
+  lesson: lesson-code-of-conduct-ra-6713-saln-public-access-and-use
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'A SALN has been held for eleven years and is needed in an ongoing investigation. What does Section 8(C) allow?
 
     '
@@ -417,10 +466,12 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0018
+  lesson: lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage
+  keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
-  stem: 'Which relative must be included in the family financial disclosures described in the lesson?
+  approved: true
+  stem: 'Which child must be included in a public employee’s Statement of Assets, Liabilities, and Net Worth under RA 6713?
 
     '
   choices:
@@ -442,9 +493,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0019
+  lesson: lesson-code-of-conduct-ra-6713-conflict-action-deadlines
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which pair correctly matches the conflict-of-interest deadlines for a newly appointed official?
 
     '
@@ -467,9 +520,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0020
+  lesson: lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Under the statutory repository list, what fact sends an armed-forces officer''s SALN to the Office of the President?
 
     '
@@ -491,3 +546,233 @@ questions:
   explanation: 'RA 6713 assigns armed-forces officers from colonel or naval captain upward to the Office of the President. Officers below those ranks go to the appropriate regional Deputy Ombudsman.
 
     '
+
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0021
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An agency officer indirectly owns enough shares to elect a director of a private corporation. Faithful performance of the officer's public duties may affect that corporation's interests. Which assessment follows RA 6713?
+  choices:
+  - text: "The facts show a conflict of interest."
+    correct: true
+  - text: "There is no conflict unless the officer has already caused financial loss to the corporation."
+    rationale: |
+      This requires actual loss before a conflict can exist. Loss may seem like the clearest clash. Check whether honest public duty may affect the business interest.
+  - text: "There is no substantial stockholding because the shares are held indirectly rather than directly."
+    rationale: |
+      This leaves out indirect ownership. Direct ownership is easier to see. Check whether either form gives enough shares to elect a director.
+  - text: "There is no conflict unless the officer also holds a paid position on the corporate board."
+    rationale: |
+      This adds a board job as a required condition. A board role is one listed case. Check the separate rule for a substantial stockholder.
+  explanation: |
+    RA 6713, Section 3(f) includes indirect shares sufficient to elect a director in substantial stockholding. Section 3(i) covers this stake when faithful public duty may affect the business interest. Both conditions are present.
+
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0022
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An official must divest a business interest because of a conflict. Which proposed transfer meets the stated requirements for divestment?
+  choices:
+  - text: "A complete, actual transfer to an unrelated buyer."
+    correct: true
+  - text: "A complete transfer of title to the official's spouse with no shares left in the official's name."
+    rationale: |
+      This ignores the recipient restriction. A full transfer may look enough. Check that the recipient is neither the spouse nor a covered relative.
+  - text: "A transfer to an unrelated buyer that leaves the official in control of the interest."
+    rationale: |
+      This keeps control after the transfer. New ownership papers may look enough. Check that the official actually gives up the interest completely.
+  - text: "A resignation from the corporate board while keeping all of the conflicting shares."
+    rationale: |
+      This confuses leaving a position with giving up ownership. Resignation changes the official's role. Check whether the conflicting interest was also transferred.
+  explanation: |
+    RA 6713, Section 3(j) defines divestment as voluntarily, completely, and actually disposing of title or interest. The recipient cannot be the spouse or a covered relative. The complete transfer to an unrelated buyer meets these requirements.
+
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0023
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A covered employee reports land and savings but leaves out debts and a paid consultancy with a private firm. Which correction follows the financial-declaration rules?
+  choices:
+  - text: "Report the debts and the financial connection."
+    correct: true
+  - text: "Report only debts secured by the land because other debts do not affect financial declarations."
+    rationale: |
+      This leaves out debts based on what secures them. The land is already listed. Check the full list of liabilities, not just debts tied to land.
+  - text: "Report the consultancy only if the employee also owns shares in the private firm."
+    rationale: |
+      This confuses a financial connection with ownership. Shares are one business link. Check paid consultancy work as a separate financial connection.
+  - text: "Keep both omissions because reporting property and savings completes every required declaration."
+    rationale: |
+      This treats assets as the whole disclosure. Property and savings may draw attention first. Check liabilities and business links too.
+  explanation: |
+    RA 6713, Section 8(A) requires declarations of assets, liabilities, net worth, business interests, and financial connections. Debts are liabilities. Paid consultancy is a financial connection, so both must be reported.
+
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0024
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A covered employee lists total assets of ₱800,000 and total liabilities of ₱250,000. Which method correctly determines the employee's net worth?
+  choices:
+  - text: "Subtract liabilities from assets."
+    correct: true
+  - text: "Add total liabilities to total assets before reporting the net worth."
+    rationale: |
+      This counts debts as wealth owned. Both amounts appear in the statement. Check that debts reduce what remains after obligations are paid.
+  - text: "Subtract total assets from total liabilities before reporting the net worth."
+    rationale: |
+      This reverses the subtraction. The rule uses both amounts. Check that the amount owned comes before the amount owed.
+  - text: "Report the total assets without making any adjustment for the listed liabilities."
+    rationale: |
+      This leaves out debts. Assets show what is owned. Check that net worth also accounts for what is owed.
+  explanation: |
+    RA 6713, Section 8(A) requires disclosure of assets, liabilities, and net worth. Net worth is assets minus liabilities: ₱800,000 - ₱250,000 = ₱550,000. Subtracting the debts gives the required amount.
+
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0025
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A worker claims the honorary-service exemption from SALN filing solely because the government pays no salary. Which additional fact is required to qualify as honorary service under the implementing rules of RA 6713?
+  choices:
+  - text: "The work also earns no service credit."
+    correct: true
+  - text: "The work earns service credit even though it does not earn a salary."
+    rationale: |
+      This keeps a government-service benefit that the honorary definition excludes. Unpaid work may seem enough. Check both pay and service credit.
+  - text: "The worker has received no written request from a citizen to inspect the SALN."
+    rationale: |
+      This confuses the filing duty with public access. A request may prompt a records search. Check the worker's actual service category.
+  - text: "The worker has not yet filed a joint financial statement with a spouse."
+    rationale: |
+      This confuses a filing option with an exemption. Joint statements concern covered spouses. Check pay and service credit for honorary service.
+  explanation: |
+    RA 6713, Section 8(A) excludes people serving in an honorary capacity. Under its implementing rules, Rule VII, Section 1, honorary capacity means service without pay and without service credit. Both conditions must be met.
+
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0026
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-filing-dates
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A newly appointed covered employee files a SALN but gives no authority for the Ombudsman to obtain government financial records. Which additional action is required?
+  choices:
+  - text: "Give the authority within 30 days after assumption."
+    correct: true
+  - text: "Give the authority only after the Ombudsman files a criminal case involving the employee."
+    rationale: |
+      This delays a required action until a criminal case exists. Access may seem needed only for a case. Check the deadline tied to entering office.
+  - text: "Give the authority only after leaving office because it is part of the separation filing."
+    rationale: |
+      This attaches the authority to the wrong event. Separation also has a filing deadline. Check that this authority is due after assumption.
+  - text: "Give the authority on the next annual filing date instead of within the entry period."
+    rationale: |
+      This substitutes the annual schedule for a separate deadline. Both concern financial records. Check the period given for the authority itself.
+  explanation: |
+    RA 6713, Section 8(A) requires covered filers to give the Ombudsman authority to obtain relevant financial records from government agencies. The authority is due within 30 days after assumption of office.
+
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0027
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-public-access-and-use
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A business obtains SALN copies and plans to sell their financial data for marketing. It argues that public access allows any commercial use. Which conclusion follows RA 6713?
+  choices:
+  - text: "The proposed marketing use is prohibited."
+    correct: true
+  - text: "Public inspection permits the business to sell the data once it has paid the copying fee."
+    rationale: |
+      This treats paying for copies as permission for any use. The fee allows copying costs to be covered. Check the separate limits on use.
+  - text: "Any business may claim the media exception by calling its sales list public information."
+    rationale: |
+      This expands a specific exception to every business. A sales list contains information. Check whether the use is by news or communications media to inform the public.
+  - text: "The commercial-use restriction applies only before the statement becomes available for copying."
+    rationale: |
+      This treats access timing as the end of use limits. Copying becomes available under its own rule. Check that prohibited purposes still remain prohibited.
+  explanation: |
+    RA 6713, Section 8(D) bars commercial use except by news and communications media to inform the general public. Selling SALN data for marketing does not fit that exception. Public access does not remove the use limit.
+
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0028
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-relatives-in-government
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An employee knows that the employee's spouse's parent holds a government post. How is that relationship classified for the Code's disclosure rule?
+  choices:
+  - text: "First degree by affinity."
+    correct: true
+  - text: "First degree by consanguinity because the relative is a parent in the spouse's family."
+    rationale: |
+      This calls a marriage link a blood link. A parent is in the first degree. Check whose blood relationship creates the link.
+  - text: "Second degree by affinity because marriage adds a degree to the parent-child relationship."
+    rationale: |
+      This adds a step for marriage. The link may seem longer through a spouse. Use the spouse's blood-relative degree for affinity.
+  - text: "Outside the covered degrees because only the employee's own blood relatives are included."
+    rationale: |
+      This leaves out marriage relatives. Blood relatives are one group. Check the separate inclusion of affinity.
+  explanation: |
+    RA 6713, Sections 3(k) and 8(B) cover disclosure of relatives in government within the stated degrees. A spouse's parent is a first-degree relative by affinity. The known government post falls within the covered relationship.
+
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0029
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A review finds that an employee filed a SALN on time but left required entries incomplete. What action follows Section 10 of RA 6713?
+  choices:
+  - text: "Notify the filer and direct correction."
+    correct: true
+  - text: "Accept the statement as complete because timely submission satisfies every review requirement."
+    rationale: |
+      This treats meeting the date as the only check. Timeliness matters. Check completeness and proper form too.
+  - text: "Treat the missing entries as a final finding of guilt without notifying the employee."
+    rationale: |
+      This turns review into automatic punishment. Missing entries need action. Check the notice and correction rule.
+  - text: "Ignore the missing entries until the employee leaves government service and files again."
+    rationale: |
+      This puts off correction until a later filing. Another statement may be due then. Check the duty to address the defect found now.
+  explanation: |
+    RA 6713, Section 10 requires review of timeliness, completeness, and proper form. If a statement fails a required check, the filer must be informed and directed to take corrective action.
+
+- id: q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0030
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A House committee issues an interpretation within its authority. The House approves it by majority vote. After issuance, an employee whose facts are similar follows it honestly. What protection does the Code provide?
+  choices:
+  - text: "Protection from Code penalties for that reliance."
+    correct: true
+  - text: "Protection applies only to the person who requested the opinion, even when another person's facts are similar."
+    rationale: |
+      This leaves out people with similar facts. The original recipient is directly named. Check the rule extending good-faith protection to similar cases.
+  - text: "Protection covers every later act by the employee even if the facts differ from the approved opinion."
+    rationale: |
+      This turns specific reliance into a general exemption. Approval gives the opinion legal effect. Check whether it applies to the actual facts.
+  - text: "Protection began before issuance because later approval makes every earlier act protected."
+    rationale: |
+      This applies the opinion backward. Later approval may seem to settle the issue. Check that protected reliance occurs after the opinion is issued.
+  explanation: |
+    RA 6713, Section 10 protects good-faith reliance on a written opinion approved by the required majority. The protection includes another person with similar facts who acts after issuance in line with the opinion.

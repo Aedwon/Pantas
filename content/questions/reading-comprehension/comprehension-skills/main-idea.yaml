@@ -7,6 +7,8 @@ meta:
     - "acet"
     - "dlsucet"
     - "ustet"
+    - "cse-pro"
+    - "cse-sub"
 passages:
   - id: "rc-cs-mi-p1"
     title: "The Barangay Vacant Lot Dispute"
@@ -40,8 +42,15 @@ passages:
       Nag-usap ang mga kasapi at gumawa ng talaan ng magkakaibang gawain. May pangkat na nag-aalaga ng mga punla, may naglilinis ng paligid, at may sumusuri kung kailangan ng tubig ang lupa. Nagpalitan din sila ng tungkulin upang matutuhan ng bawat isa ang mga gawaing dati ay hindi niya kayang gawin. Hindi lahat ng halaman ay tumubo nang maayos, ngunit hindi na humihinto ang pag-aalaga kapag may isang kasaping wala.
       
       Sa pagtatapos ng buwan, ipinakita nila ang talaan sa kanilang guro. Mas marami nang kasapi ang nakapagpapaliwanag ng kanilang ginawa. Para sa grupo, ang gulayan ay naging pagsasanay sa pananagutan. Nagpapatuloy ang isang gawaing sama-sama kapag malinaw ang tungkulin at naibabahagi ang kaalaman.
+  - id: "p-comprehension-skills-balangkas-at-ugnayan-gap"
+    title: "Balangkas At Ugnayan"
+    body: |
+      Sa kathang ulat na ito, binago ng tanggapan ang paraan ng pagtanggap ng mga tanong. Inilagay nito sa pisara ang mga sagot sa karaniwang tanong. Naglaan din ito ng hiwalay na mesa para sa mas masalimuot na usapin. Dahil dito, hindi na kailangang ulitin ng kawani ang parehong paliwanag sa bawat bisita.
 questions:
   - id: "rc-cs-mi-0001"
+    approved: true
+    lesson: lesson-comprehension-skills-main-idea-across-paragraphs
+    keyPoint: 1
     passage: "rc-cs-mi-p1"
     type: "main-idea"
     difficulty: "easy"
@@ -55,18 +64,21 @@ questions:
           This chooses one group's supporting argument as the whole point. Safe recreation motivates the petition. Check the resolution that serves both groups.
       - text: "Food prices explained why families might value a garden."
         rationale: |
-          This picks the reason behind one proposal as the main idea. Rising food prices explain the garden plan. Check whether the choice also covers the dispute and the shared solution.
+          This focuses on one supporting detail. Food prices help explain the garden proposal, so the choice is relevant. Check whether it covers the dispute and the shared solution.
       - text: "A full basketball court replaced the entire garden proposal."
         rationale: |
           This turns a compromise into a full court. The youth originally asks for basketball space. Check the actual shared design.
     explanation: |
       The account moves from conflicting proposals through consultation to a space used by both groups. Its main point is the shared solution to the land-use dispute.
   - id: "rc-cs-mi-0002"
+    approved: true
+    lesson: lesson-comprehension-skills-main-idea-scope
+    keyPoint: 1
     passage: "rc-cs-mi-p1"
     type: "identify"
     difficulty: "easy"
     stem: |
-      What percentage of the vacant lot was allocated to raised garden beds and a composting station combined?
+      What percentage of the vacant lot was allocated to raised garden beds and a composting station together?
     choices:
       - text: "Sixty percent"
         correct: true
@@ -82,6 +94,9 @@ questions:
     explanation: |
       The design allocates sixty percent to the garden area, including beds and a composting station. This is the combined garden allocation given in the passage.
   - id: "rc-cs-mi-0003"
+    approved: true
+    lesson: lesson-comprehension-skills-implied-main-point
+    keyPoint: 1
     passage: "rc-cs-mi-p1"
     type: "infer"
     difficulty: "medium"
@@ -102,6 +117,9 @@ questions:
     explanation: |
       Cruz invites elders, parents, and youth leaders to consultations. That action supports a collaborative approach in this decision.
   - id: "rc-cs-mi-0004"
+    approved: true
+    lesson: lesson-comprehension-skills-implied-main-point
+    keyPoint: 2
     passage: "rc-cs-mi-p1"
     type: "evaluate"
     difficulty: "medium"
@@ -122,6 +140,9 @@ questions:
     explanation: |
       The first paragraph states that the youth association sought a court because safe recreation was not available nearby.
   - id: "rc-cs-mi-0005"
+    approved: true
+    lesson: lesson-comprehension-skills-main-idea-across-paragraphs
+    keyPoint: 1
     passage: "rc-cs-mi-p1"
     type: "main-idea"
     difficulty: "hard"
@@ -142,6 +163,9 @@ questions:
     explanation: |
       The final paragraph describes vegetable harvests and nightly games. Those outcomes complete the account of a shared solution serving both groups.
   - id: "rc-cs-mi-0006"
+    approved: true
+    lesson: lesson-comprehension-skills-main-idea-across-paragraphs
+    keyPoint: 1
     passage: "rc-cs-mi-p2"
     type: "main-idea"
     difficulty: "easy"
@@ -150,18 +174,21 @@ questions:
     choices:
       - text: "Trust and discipline help the store endure."
         correct: true
-      - text: "Lower supermarket prices make small stores hard to keep open."
+      - text: "Supermarkets are certain to replace every neighborhood store."
         rationale: |
-          This picks the competition detail as the main idea. Supermarkets do offer lower prices. Check whether the passage says why the store still survives.
-      - text: "A ledger of credit records helps Aling Rosa manage debts."
+          This turns competition into an unsupported prediction. Supermarkets offer lower prices. Check how the passage explains continued survival.
+      - text: "Avoiding all customer credit is the key to continued profit."
         rationale: |
-          This picks one business practice as the main idea. The ledger is part of her credit control. Check whether the choice also covers convenience and buying.
-      - text: "Monday wholesale buying lowers the cost of the store's stock."
+          This treats credit risk as a reason to avoid all credit. Debts require care. Check Rosa's actual limited-credit practice.
+      - text: "Weekly wholesale buying is the only requirement for survival."
         rationale: |
-          This picks a purchasing detail as the main idea. Bulk buying does secure discounts. Check whether the choice covers the whole account.
+          This turns a purchasing detail into a universal rule. Monday purchases save costs. Check the other practices supporting the store.
     explanation: |
       The store helps neighbors through convenience and credit while controlling stock and debts. The closing paragraph brings these together as trust balanced with business discipline.
   - id: "rc-cs-mi-0007"
+    approved: true
+    lesson: lesson-comprehension-skills-main-point-and-topic-sentence
+    keyPoint: 1
     passage: "rc-cs-mi-p2"
     type: "identify"
     difficulty: "easy"
@@ -182,6 +209,9 @@ questions:
     explanation: |
       The passage says Rosa records transactions in the talaan. In the credit-management paragraph, this record helps her keep track of customers' debts.
   - id: "rc-cs-mi-0008"
+    approved: true
+    lesson: lesson-comprehension-skills-implied-main-point
+    keyPoint: 1
     passage: "rc-cs-mi-p2"
     type: "infer"
     difficulty: "medium"
@@ -202,6 +232,9 @@ questions:
     explanation: |
       The opening links neighborhood stores with convenient access and flexible credit. These benefits help explain why residents continue using Rosa's store.
   - id: "rc-cs-mi-0009"
+    approved: true
+    lesson: lesson-comprehension-skills-implied-main-point
+    keyPoint: 2
     passage: "rc-cs-mi-p2"
     type: "evaluate"
     difficulty: "medium"
@@ -222,6 +255,9 @@ questions:
     explanation: |
       The second paragraph states that existing credit balances must be settled before new charges are allowed. That rule limits the growth of unpaid debts.
   - id: "rc-cs-mi-0010"
+    approved: true
+    lesson: lesson-comprehension-skills-main-point-and-topic-sentence
+    keyPoint: 1
     passage: "rc-cs-mi-p2"
     type: "main-idea"
     difficulty: "hard"
@@ -242,6 +278,9 @@ questions:
     explanation: |
       The Monday wholesale purchase is one specific example of how Rosa manages stock costs. It supports the wider point about careful business habits.
   - id: "rc-cs-mi-0011"
+    approved: true
+    lesson: lesson-comprehension-skills-main-idea-across-paragraphs
+    keyPoint: 1
     passage: "rc-cs-mi-p3"
     type: "main-idea"
     difficulty: "easy"
@@ -262,6 +301,9 @@ questions:
     explanation: |
       The account connects restoring mangroves with wave protection and habitat. These benefits bring environmental work, coastal resilience, and livelihoods into one main point.
   - id: "rc-cs-mi-0012"
+    approved: true
+    lesson: lesson-comprehension-skills-implied-main-point
+    keyPoint: 2
     passage: "rc-cs-mi-p3"
     type: "identify"
     difficulty: "easy"
@@ -282,6 +324,9 @@ questions:
     explanation: |
       The dikes are opened to restore water circulation. The passage links that change with wild seedlings establishing near the planted ones.
   - id: "rc-cs-mi-0013"
+    approved: true
+    lesson: lesson-comprehension-skills-implied-main-point
+    keyPoint: 1
     passage: "rc-cs-mi-p3"
     type: "infer"
     difficulty: "medium"
@@ -302,6 +347,9 @@ questions:
     explanation: |
       Choosing species for the site's tidal conditions and salinity shows that organizers consider environmental needs. That supports a scientifically informed approach intended to improve survival.
   - id: "rc-cs-mi-0014"
+    approved: true
+    lesson: lesson-comprehension-skills-main-idea-across-paragraphs
+    keyPoint: 1
     passage: "rc-cs-mi-p3"
     type: "evaluate"
     difficulty: "medium"
@@ -315,13 +363,16 @@ questions:
           This supplies benefits from another kind of project. Tourism and construction can affect coastal towns. Check the outcomes named in the report.
       - text: "Free plastic clearing services and expanded coastal road lanes"
         rationale: |
-          This combines a real maintenance task with an unsupported road claim. Youth groups do remove plastic, which makes it look right. Check the two benefits the report names after three years.
+          This turns maintenance and roads into the two outcomes. Both connect to the project. Check the closing claims about waves and habitat.
       - text: "Elimination of all typhoons and expanded freshwater reservoirs"
         rationale: |
           This turns reduced impact into removal of storms. Mangroves protect coastlines. Check whether the project changes storm occurrence.
     explanation: |
       The report describes reduced wave energy and nursery habitat for young fish and crabs. These are the two connected benefits named in its conclusion.
   - id: "rc-cs-mi-0015"
+    approved: true
+    lesson: lesson-comprehension-skills-main-idea-scope
+    keyPoint: 1
     passage: "rc-cs-mi-p3"
     type: "choosing-a-title"
     difficulty: "hard"
@@ -335,13 +386,15 @@ questions:
           This expands a restoration account into all fishpond history. Old dikes are discussed. Check whether historical construction is the central point.
       - text: "Cleaning Plastic: The Project's Only Environmental Goal"
         rationale: |
-          This turns a maintenance detail into the project's only goal. Plastic removal is mentioned, which makes the title sound relevant. Check whether the title also covers coastal protection and nursery habitat.
+          This combines a maintenance detail with a claim about youth. Plastic removal is mentioned. Check whether harm to youth is described.
       - text: "Commercial Fishing Methods for Typhoon Season"
         rationale: |
           This changes restoration into fishing during storms. Both waves and livelihoods appear. Check the project's actual activity.
     explanation: |
       The title connects restoring trees with coastal protection. That relationship is central to the project account.
   - id: "q-comprehension-skills-main-idea-0016"
+    lesson: lesson-comprehension-skills-paksa-at-pangunahing-ideya
+    keyPoint: 1
     passage: "p-comprehension-skills-main-idea-0004"
     type: "main-idea"
     difficulty: "easy"
@@ -352,17 +405,19 @@ questions:
         correct: true
       - text: "Kailangang masipag ang isang lider upang siya lamang ang gumawa ng lahat."
         rationale: |
-          This treats reliance on one leader as the solution. The leader initially works hard. Check the problem when that person is absent.
+          Itinuturing nitong solusyon ang pag-asa sa iisang lider. Masipag ang lider sa simula. Tingnan ang problema kapag wala siya.
       - text: "Ang pinakamahalagang layunin ng hardin ay ang pagdami ng talaan."
         rationale: |
-          This mistakes a tool for the purpose. A task list helps organize work. Check what improves because of the list.
+          Ginagawa nitong layunin ang isang kasangkapan. Nakatutulong ang talaan sa pag-aayos ng gawain. Tingnan kung ano ang bumuti dahil dito.
       - text: "Nagiging maayos ang bawat halaman kapag walang kasaping lumiliban."
         rationale: |
-          This turns continued care into a guarantee of perfect plants. Participation improves. Check the sentence saying some plants still fail.
+          Ginagawa nitong garantiya ng maayos na halaman ang tuloy-tuloy na pag-aalaga. Mas marami nang nakikilahok. Balikan ang bahaging nagsasabing may mga halamang hindi tumubo nang maayos.
     explanation: |
-      The passage shows that shared duties and skills keep the garden work going. The final sentence brings that main point together.
-    approved: false
+      Ipinapakita ng talata na nagpapatuloy ang pag-aalaga sa gulayan kapag naibabahagi ang tungkulin at kaalaman. Binubuo ng huling pangungusap ang pangunahing ideyang ito.
+    approved: true
   - id: "q-comprehension-skills-main-idea-0017"
+    lesson: lesson-comprehension-skills-paksa-at-pangunahing-ideya
+    keyPoint: 1
     passage: "p-comprehension-skills-main-idea-0004"
     type: "main-idea"
     difficulty: "medium"
@@ -373,17 +428,19 @@ questions:
         correct: true
       - text: "Tumutulong ang malinaw na tungkulin sa pagpapatuloy ng gawain."
         rationale: |
-          This selects a claim about the topic. Clear roles support continuing work. Check whether it only names the subject or says something about it.
+          Pahayag na ito tungkol sa paksa. Nakatutulong ang malinaw na tungkulin sa pagpapatuloy ng gawain. Tingnan kung pangalan lamang ito ng paksa o may sinasabi na tungkol dito.
       - text: "Naibabahagi ang kaalaman kapag nagpapalitan ng tungkulin."
         rationale: |
-          This selects a relationship developed in the passage. Role changes help share knowledge. Check whether the phrase is a subject or a complete point.
+          Ugnayang ipinaliwanag sa talata ang pinili nito. Nakatutulong ang pagpapalitan ng tungkulin sa pagbabahagi ng kaalaman. Suriin kung paksa lamang o buong diwa ang mga salita.
       - text: "Hindi dapat umasa ang grupo sa iisang kasapi lamang."
         rationale: |
-          This selects a lesson from the opening problem. Dependence on one person is challenged. Check whether the words only name the topic.
+          Aral mula sa unang problema ang pinili nito. Ipinapakitang may problema sa pag-asa sa isang tao. Suriin kung pinapangalanan lamang ng mga salita ang paksa.
     explanation: |
-      Sharing garden work names the subject. It does not yet state the central claim about how shared responsibility keeps the work going.
-    approved: false
+      Pinapangalanan lamang ng "paghahati ng gawain sa gulayan" ang paksa. Hindi pa nito sinasabi kung paano napapanatili ng sama-samang pananagutan ang gawain.
+    approved: true
   - id: "q-comprehension-skills-main-idea-0018"
+    lesson: lesson-comprehension-skills-main-point-and-topic-sentence
+    keyPoint: 2
     passage: "p-comprehension-skills-main-idea-0004"
     type: "main-idea"
     difficulty: "medium"
@@ -403,8 +460,10 @@ questions:
           This selects a step in the response. Making the list begins the change. Check for a sentence connecting roles with continued shared work.
     explanation: |
       The quoted final sentence states the general point joining the initial problem and the new shared system. It serves as the clearest topic statement.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-main-idea-0019"
+    lesson: lesson-comprehension-skills-implied-main-point
+    keyPoint: 2
     passage: "p-comprehension-skills-main-idea-0004"
     type: "main-idea"
     difficulty: "hard"
@@ -424,8 +483,10 @@ questions:
           This ignores the separate learning evidence. Plant growth is uneven. Check the members' ability to explain their tasks.
     explanation: |
       The passage acknowledges imperfect plant growth while showing that care continues and more members learn. This qualifies success as shared responsibility rather than perfect results.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-main-idea-0020"
+    lesson: lesson-comprehension-skills-main-idea-scope
+    keyPoint: 1
     passage: "p-comprehension-skills-main-idea-0004"
     type: "main-idea"
     difficulty: "exam"
@@ -436,13 +497,59 @@ questions:
         correct: true
       - text: "Ang malinaw na tungkulin ay nakatutulong sa pagpapatuloy ng gulayan."
         rationale: |
-          This treats a supported principle as an overgeneralization. It concerns the same garden work. Check whether it extends to every school problem.
+          Itinuturing nitong labis na paglalahat ang ideyang suportado ng talata. Tungkol pa rin ito sa parehong gulayan. Tingnan kung saklaw nito ang lahat ng suliranin sa paaralan.
       - text: "Ang pagpapalitan ng gawain ay nakatutulong sa pagbabahagi ng kaalaman."
         rationale: |
-          This treats a stated learning relationship as too broad. Members exchange roles. Check the limited scope of the claim.
+          Itinuturing nitong masyadong malawak ang ugnayang nakasaad sa talata. Nagpapalitan ng tungkulin ang mga kasapi. Tingnan ang limitadong saklaw ng pahayag.
       - text: "Mas matatag ang gawaing hindi umaasa sa isang tao lamang."
         rationale: |
-          This treats a lesson from the initial absence as universal certainty. The wording compares shared work with dependence on one person. Check whether it promises to solve everything.
+          Itinuturing nitong tiyak na pangako para sa lahat ang aral mula sa pagkawala ng isang kasapi. Paghahambing lamang ito sa pag-asa sa iisang tao. Tingnan kung ipinapangako nitong malulutas ang lahat.
     explanation: |
-      The passage describes one garden project. Claiming that cooperation solves every school problem reaches beyond that evidence.
-    approved: false
+      Isang proyekto sa gulayan ang inilalarawan ng talata. Lampas sa ebidensya ang sabihing malulutas ng pagtutulungan ang lahat ng suliranin sa paaralan.
+    approved: true
+  - id: "q-comprehension-skills-main-idea-0021"
+    approved: true
+    lesson: lesson-comprehension-skills-balangkas-at-ugnayan
+    keyPoint: 1
+    passage: "p-comprehension-skills-balangkas-at-ugnayan-gap"
+    type: "main-idea"
+    difficulty: "exam"
+    stem: |
+      Aling balangkas ang pinakamahusay na nagpapakita ng ugnayan ng pangunahing ideya at mga detalye?
+    choices:
+      - text: "Pagbabago sa pagtanggap ng tanong: pisara at hiwalay na mesa."
+        correct: true
+      - text: "Paglalagay ng pisara: pagbabago ng tanggapan at hiwalay na mesa."
+        rationale: |
+          Ginawang pangunahing ideya ang isang detalye. Mahalaga ang pisara, pero hindi nito sakop ang mesa. Hanapin ang ideyang sakop ang parehong paraan.
+      - text: "Pagtatayo ng tanggapan: pagdating ng bisita at pagkuha ng kawani."
+        rationale: |
+          Nagdagdag ito ng mga gawaing wala sa ulat. Maaaring kailangan ang mga ito sa isang tanggapan. Tingnan kung talagang sinabi ang mga ito.
+      - text: "Pagbawas ng mga bisita: pagtanggal ng pisara at pagsasara ng mesa."
+        rationale: |
+          Napagpalit ang bunga at mga paraan. Walang sinabing pagbawas ng bisita. Basahin kung ano ang inilagay at inilaan.
+    explanation: |
+      Ang pagbabago sa pagtanggap ng tanong ang pangunahing ideya. Ang pisara at hiwalay na mesa ang mga paraang nagpapaliwanag dito.
+  - id: "q-comprehension-skills-main-idea-0022"
+    approved: true
+    lesson: lesson-comprehension-skills-balangkas-at-ugnayan
+    keyPoint: 2
+    passage: "p-comprehension-skills-balangkas-at-ugnayan-gap"
+    type: "main-idea"
+    difficulty: "exam"
+    stem: |
+      Sa pag-aayos ng talata, bakit dapat sumunod ang pangungusap na nagsisimula sa "Dahil dito" sa paglalarawan ng pisara at mesa?
+    choices:
+      - text: "Ibinibigay nito ang bunga ng mga pagbabagong iyon."
+        correct: true
+      - text: "Ipinapakilala nito ang sanhi ng unang pagtatayo ng tanggapan."
+        rationale: |
+          Ginawang sanhi ang isang bunga. Maaaring sumagot sa bakit ang parirala, pero dito ay resulta ang kasunod. Tukuyin ang tinutukoy ng dito.
+      - text: "Ipinapakita nito na magkasalungat ang pisara at hiwalay na mesa."
+        rationale: |
+          Napagkamalang pagsalungat ang pag-uugnay. Magkaibang paraan ang dalawa, pero pareho ang layunin. Hanapin ang salitang nagpapakita ng resulta.
+      - text: "Inilalarawan nito ang pangyayaring naganap bago ang lahat ng pagbabago."
+        rationale: |
+          Inuna ang bunga sa mga sanhi nito. Maaaring hindi ayon sa oras ang lahat ng talata. Dito, kailangan munang malaman kung anong pagbabago ang tinutukoy.
+    explanation: |
+      Ang dito ay tumutukoy sa mga paraang kababanggit. Ang hindi na pag-uulit ng paliwanag ang bunga ng mga pagbabagong iyon.

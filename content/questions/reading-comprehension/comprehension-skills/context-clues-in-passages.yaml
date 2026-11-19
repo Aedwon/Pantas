@@ -7,6 +7,8 @@ meta:
     - "acet"
     - "dlsucet"
     - "ustet"
+    - "cse-pro"
+    - "cse-sub"
 passages:
   - id: "rc-cs-cc-p1"
     title: "Aquaculture Strategies in Laguna de Bay"
@@ -40,8 +42,35 @@ passages:
       Before the fair, each club made a pitch for its proposed activity. Members explained their idea and tried to win the committee's support. A gardening club offered a planting demonstration. The organizers liked it, but asked the club to scale back the plan. Instead of several displays, it would prepare one smaller exhibit that the available volunteers could manage.
       
       Neri kept a current list of assignments, replacing old information whenever a plan changed. She also created a channel for volunteers to report problems: a shared message group where concerns could reach the committee quickly. The fair depended on people knowing both what to do and how to seek help. Clear roles and communication made the modest event easier to organize.
+  - id: "p-comprehension-skills-contrast-and-cause-clues-gap"
+    title: "Contrast And Cause Clues"
+    body: |
+      In this fictional inspection report, the first account was **inconclusive**: the officer could not tell whether the leak came from the roof or a pipe. A later test, however, isolated the damaged pipe and settled the question. Repairs began only after that test.
+  - id: "p-comprehension-skills-word-parts-in-passages-gap"
+    title: "Word Parts In Passages"
+    body: |
+      In this fictional archive notice, the staff found the labels **illegible**: the letters had faded until even the file numbers could not be read. The team will **relabel** the folders, removing the damaged labels and writing clear replacements.
+  - id: "p-comprehension-skills-filipino-meaning-clues-gap"
+    title: "Filipino Meaning Clues"
+    body: |
+      Sa kathang salaysay na ito, **masinop** si Ruel sa pag-iingat ng mga resibo. Nakaayos ang mga ito ayon sa petsa at nakatago sa magkakahiwalay na sobre. Nang mawala ang isang resibo, hindi siya agad sumuko. **Sinuyod** niya ang bawat sobre hanggang matagpuan ito sa maling lagayan.
+  - id: "p-comprehension-skills-filipino-possibility-and-time-gap"
+    title: "Filipino Possibility And Time"
+    body: |
+      Sa kathang ulat na ito, natapos na ni Celia ang panayam kahapon. Isinusulat niya ngayon ang buod. Maaaring ipabasa niya ito sa patnugot bukas, ngunit hinihintay pa niya ang tugon nito kung may oras ito.
+  - id: "p-comprehension-skills-filipino-pronouns-modifiers-spelling-gap"
+    title: "Filipino Pronouns Modifiers Spelling"
+    body: |
+      Sa kathang salaysay na ito, iniabot ni Nardo ang mapa kay Tess. Si Tess ang tumingin sa mapa at nagsabi, "Dito lamang sa silangan may daan patungo sa tulay." Pagkatapos, tiniklop niya ang mapa. Sa labas, ipininta ng pintor ang sirang pinto ng himpilan.
+  - id: "p-comprehension-skills-filipino-sentence-types-gap"
+    title: "Filipino Sentence Types"
+    body: |
+      Sa kathang usapan na ito, tinanong ni Belen, "Naipadala na ba ang kahon?" Sumagot si Arman, "Pakisuri ang talaan bago tumawag sa tagatanggap." Pagtingin ni Belen sa talaan, sinabi niya, "Nasa imbakan pa ang kahon. Kay bigat pala nito!"
 questions:
   - id: "rc-cs-cc-0001"
+    approved: true
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p1"
     type: "context-clues-in-passages"
     difficulty: "easy"
@@ -55,13 +84,16 @@ questions:
           This uses the emotional meaning of harbor. The word can describe holding feelings. Check what receives protection in this passage.
       - text: "Provide a port for ships"
         rationale: |
-          This ties harbor to ships because the setting is a lake. The passage describes protecting young fish, not boats. Check what is being sheltered.
+          This uses the noun meaning associated with ships. The setting is a lake. Check whether harbor names a place or an action here.
       - text: "Keep something secret"
         rationale: |
           This uses the sense of hiding something. Protected pens keep fish contained. Check whether the purpose is secrecy or safety.
     explanation: |
       The next sentence says the operators shelter young fish from strong currents. That action explains harbor as providing protection.
   - id: "rc-cs-cc-0002"
+    approved: true
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p1"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -82,6 +114,9 @@ questions:
     explanation: |
       The sheltering detail describes what the operators do for the young fish. It directly explains the protective action.
   - id: "rc-cs-cc-0003"
+    approved: true
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p1"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -102,6 +137,9 @@ questions:
     explanation: |
       The sentence explains that the investments are postponed until conditions improve. The plans are kept for later consideration.
   - id: "rc-cs-cc-0004"
+    approved: true
+    lesson: lesson-comprehension-skills-contrast-and-cause-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p1"
     type: "context-clues-in-passages"
     difficulty: "hard"
@@ -122,6 +160,9 @@ questions:
     explanation: |
       The passage delays purchases and sends available funds to aeration and monitoring. The contrast shows which work waits and which receives attention now.
   - id: "rc-cs-cc-0005"
+    approved: true
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p1"
     type: "context-clues-in-passages"
     difficulty: "hard"
@@ -142,6 +183,9 @@ questions:
     explanation: |
       Returning to the plans means they remain available for later action. That clue supports temporary delay.
   - id: "rc-cs-cc-0006"
+    approved: true
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p2"
     type: "context-clues-in-passages"
     difficulty: "easy"
@@ -162,6 +206,9 @@ questions:
     explanation: |
       The passage follows raw fibers through cleaning and spinning into thread. Render describes that change from one state to another.
   - id: "rc-cs-cc-0007"
+    approved: true
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p2"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -182,6 +229,9 @@ questions:
     explanation: |
       Spinning loose fibers into a continuous strand shows the transformation into usable thread. That result explains render.
   - id: "rc-cs-cc-0008"
+    approved: true
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p2"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -202,6 +252,9 @@ questions:
     explanation: |
       The passage says the mixture contains living microorganisms and must be kept active. Those details give culture its biological meaning.
   - id: "rc-cs-cc-0009"
+    approved: true
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p2"
     type: "context-clues-in-passages"
     difficulty: "hard"
@@ -222,6 +275,9 @@ questions:
     explanation: |
       The presence of living microorganisms directly identifies a biological culture. Keeping them active explains why it needs care.
   - id: "rc-cs-cc-0010"
+    approved: true
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "rc-cs-cc-p2"
     type: "context-clues-in-passages"
     difficulty: "hard"
@@ -242,6 +298,8 @@ questions:
     explanation: |
       Descriptions of microorganisms show the biological meaning. Descriptions of shared skills and traditions show the social meaning. The surrounding words select each sense.
   - id: "q-comprehension-skills-context-clues-in-passages-0011"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0003"
     type: "context-clues-in-passages"
     difficulty: "easy"
@@ -261,8 +319,10 @@ questions:
           This uses a banking meaning. Printing can involve payment. Check whether draft names money or writing.
     explanation: |
       Blank interview spaces and editing notes show that the copy is not final. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0012"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0003"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -282,8 +342,10 @@ questions:
           This uses the result meaning. One activity follows another. Check the explicit reference to an edition.
     explanation: |
       The team plans the first newsletter edition and chooses its contents. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0013"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0003"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -303,8 +365,10 @@ questions:
           This uses the table-layout meaning. Editors arrange information on pages. Check whether the term names recurring prose or data entries.
     explanation: |
       The volunteer writes regularly about gardening, and her piece appears as a section of the paper. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0014"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0003"
     type: "context-clues-in-passages"
     difficulty: "hard"
@@ -324,8 +388,10 @@ questions:
           This uses the location meaning. Local people appear in the newsletter. Check what follows the verb address.
     explanation: |
       The editors discuss each accuracy problem and ask writers to confirm details. Address means dealing with those concerns. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0015"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0003"
     type: "context-clues-in-passages"
     difficulty: "exam"
@@ -345,8 +411,10 @@ questions:
           This uses the urging meaning. Editors need details confirmed. Check the activity described at the press.
     explanation: |
       The pages go to a place where machines produce copies. Press therefore names the printing operation. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0016"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0004"
     type: "context-clues-in-passages"
     difficulty: "easy"
@@ -366,8 +434,10 @@ questions:
           This uses the accusation meaning. A committee can investigate problems. Check whether Neri is assigned work or accused of an offense.
     explanation: |
       Neri supervises the entrance volunteers and handles questions. These duties show that she is responsible for the desk. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0017"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0004"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -387,8 +457,10 @@ questions:
           This uses the slope meaning. Fair spaces may include shelters. Check the action of explaining an idea.
     explanation: |
       Clubs explain ideas and try to win committee support. Their pitch is a persuasive presentation of an activity. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0018"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0004"
     type: "context-clues-in-passages"
     difficulty: "medium"
@@ -408,8 +480,10 @@ questions:
           This uses the surface-removal meaning. Gardening involves materials. Check whether the phrase describes size or a physical layer.
     explanation: |
       The club changes several displays into one smaller exhibit. That reduction explains scale back. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0019"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0004"
     type: "context-clues-in-passages"
     difficulty: "hard"
@@ -429,8 +503,10 @@ questions:
           This confuses recent information with popular preferences. Both can change over time. Check what Neri updates.
     explanation: |
       Neri replaces old information whenever assignments change. The list is current because it reflects the latest plans. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-context-clues-in-passages-0020"
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
     passage: "p-comprehension-skills-context-clues-in-passages-0004"
     type: "context-clues-in-passages"
     difficulty: "exam"
@@ -450,4 +526,257 @@ questions:
           This uses the groove meaning. Organizers may work with display materials. Check whether the passage describes a physical cut or shared messages.
     explanation: |
       The shared message group lets concerns reach the committee. It provides a route for communication. The surrounding details select this meaning of the word.
-    approved: false
+    approved: true
+  - id: "q-comprehension-skills-context-clues-in-passages-0021"
+    approved: true
+    lesson: lesson-comprehension-skills-contrast-and-cause-clues
+    keyPoint: 1
+    passage: "p-comprehension-skills-contrast-and-cause-clues-gap"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      As used in the passage, the word in bold most nearly means
+    choices:
+      - text: "not settling the issue"
+        correct: true
+      - text: "giving the wrong final answer"
+        rationale: |
+          This confuses lack of a firm answer with a false answer. An uncertain report can sound mistaken. Check whether the first account actually chose a source.
+      - text: "too costly for the office"
+        rationale: |
+          This supplies a financial meaning from the repair setting. Repairs may cost money. Use the contrast between uncertainty and a settled question.
+      - text: "deliberately hiding evidence"
+        rationale: |
+          This adds a motive to an unclear finding. A missing answer can seem suspicious. Check whether the passage says the officer concealed anything.
+    explanation: |
+      The first account leaves the source uncertain. The later test settles it. This contrast shows that inconclusive means not settling the issue.
+  - id: "q-comprehension-skills-context-clues-in-passages-0022"
+    approved: true
+    lesson: lesson-comprehension-skills-word-parts-in-passages
+    keyPoint: 1
+    passage: "p-comprehension-skills-word-parts-in-passages-gap"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      Which meaning of the first word in bold is supported by its negative prefix and the surrounding description?
+    choices:
+      - text: "unable to be read"
+        correct: true
+      - text: "written in a foreign language"
+        rationale: |
+          This treats difficulty reading as a language problem. Both can make labels hard to understand. Check the stated cause, which is faded letters.
+      - text: "not permitted by office rules"
+        rationale: |
+          This confuses illegible with illegal. Their beginnings look alike. Read the description of the letters before choosing a meaning.
+      - text: "not useful for sorting folders"
+        rationale: |
+          This chooses a possible effect as the word's meaning. Unreadable labels may hinder sorting. Look for what the word describes directly.
+    explanation: |
+      The prefix gives a negative meaning. The letters have faded so much that the numbers cannot be read. Together, these clues support unable to be read.
+  - id: "q-comprehension-skills-context-clues-in-passages-0023"
+    approved: true
+    lesson: lesson-comprehension-skills-word-parts-in-passages
+    keyPoint: 1
+    passage: "p-comprehension-skills-word-parts-in-passages-gap"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      What does the second word in bold mean in this notice?
+    choices:
+      - text: "put labels on again"
+        correct: true
+      - text: "read the old labels aloud"
+        rationale: |
+          This mistakes a related activity for the meaning of the base word. Labels contain text. Check the new labels described after the word.
+      - text: "remove the folders permanently"
+        rationale: |
+          This ignores the base label. Removing damaged labels is part of the work. Check whether the folders themselves will be removed.
+      - text: "move the labels to a new room"
+        rationale: |
+          This gives re- a location meaning. The archive setting suggests storage changes. Check the stated writing of replacements.
+    explanation: |
+      The prefix re- means again here, and label names the action. Removing old labels and writing replacements confirms that staff will label the folders again.
+  - id: "q-comprehension-skills-context-clues-in-passages-0024"
+    approved: true
+    lesson: lesson-comprehension-skills-filipino-meaning-clues
+    keyPoint: 1
+    passage: "p-comprehension-skills-filipino-meaning-clues-gap"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      Ano ang pinakamalapit na kahulugan ng unang salitang naka-bold batay sa talata?
+    choices:
+      - text: "maingat at maayos"
+        correct: true
+      - text: "mabilis ngunit padalos-dalos"
+        rationale: |
+          Napagkamalang bilis ang maayos na kilos. Maaaring mapabilis ng ayos ang paghahanap. Tingnan kung anong ugali ang ipinapakita ng petsa at sobre.
+      - text: "mahigpit sa paniningil ng utang"
+        rationale: |
+          Nagbigay ng ugaling hindi ipinakita. May kinalaman sa bayad ang resibo. Suriin kung pag-iingat o paniningil ang inilalarawan.
+      - text: "tahimik kapag may kausap"
+        rationale: |
+          Nagdagdag ng asal na wala sa talata. Maaaring tahimik ang isang maingat na tao. Hanapin ang kilos na tuwirang kaugnay ng salita.
+    explanation: |
+      Inayos ni Ruel ang mga resibo ayon sa petsa at itinago sa mga sobre. Ang mga kilos na ito ay nagpapakita ng maingat at maayos na pag-iingat.
+  - id: "q-comprehension-skills-context-clues-in-passages-0025"
+    approved: true
+    lesson: lesson-comprehension-skills-filipino-meaning-clues
+    keyPoint: 1
+    passage: "p-comprehension-skills-filipino-meaning-clues-gap"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      Ano ang ipinahihiwatig ng ikalawang salitang naka-bold sa salaysay?
+    choices:
+      - text: "masusing hinalughog"
+        correct: true
+      - text: "ginamitan ng pang-ayos ng buhok"
+        rationale: |
+          Literal na kahulugan lamang ng suyod ang ginamit. Sobre ang sinusuri rito, hindi buhok. Basahin ang layunin ng paghahanap.
+      - text: "agad na itinapon ang laman"
+        rationale: |
+          Ginawang pagtatapon ang paghahanap. May maling lagayan, pero hindi sinabi ang pagtatapon. Tingnan kung paano natagpuan ang resibo.
+      - text: "mabilis na nilaktawan ang lahat"
+        rationale: |
+          Kabaligtaran ng masusing paghahanap ang napili. Maaaring nais niyang matapos agad. Suriin ang bawat sobre at hanggang matagpuan.
+    explanation: |
+      Tiningnan ni Ruel ang bawat sobre hanggang makita ang nawawalang resibo. Sa ganitong gamit, ang sinuyod ay masusing hinalughog.
+  - id: "q-comprehension-skills-context-clues-in-passages-0026"
+    approved: true
+    lesson: lesson-comprehension-skills-filipino-possibility-and-time
+    keyPoint: 1
+    passage: "p-comprehension-skills-filipino-possibility-and-time-gap"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      Aling pahayag ang wastong nag-uugnay sa kilos at oras sa talata?
+    choices:
+      - text: "Tapos na ang panayam; ginagawa pa ang buod."
+        correct: true
+      - text: "Ginagawa pa ang panayam; tapos na ang buod kahapon."
+        rationale: |
+          Napagpalit ang dalawang kilos. Parehong bahagi ng ulat ang mga ito. Basahin ang natapos at isinusulat kasama ng oras.
+      - text: "Tapos na ang pagpapabasa; gagawin pa lamang ang panayam."
+        rationale: |
+          Ginawang tapos ang posibleng kilos bukas. Ang panayam naman ay kahapon pa. Iugnay ang bawat pandiwa sa katabing hudyat ng oras.
+      - text: "Sabay na natapos kahapon ang panayam at pagpapabasa."
+        rationale: |
+          Pinagsama ang magkaibang oras. Parehong kaugnay ng isinulat ang mga kilos. Suriin kung alin ang may bukas at maaaring.
+    explanation: |
+      Ang natapos na at kahapon ay nagsasaad na tapos ang panayam. Ang isinusulat at ngayon ay nagsasaad na ginagawa pa ang buod.
+  - id: "q-comprehension-skills-context-clues-in-passages-0027"
+    approved: true
+    lesson: lesson-comprehension-skills-filipino-possibility-and-time
+    keyPoint: 1
+    passage: "p-comprehension-skills-filipino-possibility-and-time-gap"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      Alin ang hindi pa tiyak ayon sa talata?
+    choices:
+      - text: "Pagpapabasa ng buod bukas."
+        correct: true
+      - text: "Pagtatapos ng panayam kahapon."
+        rationale: |
+          Ginawang hindi tiyak ang tuwirang iniulat na natapos. Maaaring tumagal ang ibang gawain. Tingnan kung aling kilos ang may maaaring.
+      - text: "Pagsulat ni Celia ng buod ngayon."
+        rationale: |
+          Hindi pinansin ang pandiwang nagsasaad ng kasalukuyang kilos. Hindi pa tapos ang buod, pero ginagawa na ito. Ihiwalay ang hindi tapos sa hindi tiyak.
+      - text: "Paghihintay ni Celia sa tugon ng patnugot."
+        rationale: |
+          Ginawang posibleng kilos ang tahasang sinabing ginagawa pa. Ang tugon ang wala pa. Basahin kung sino ang kasalukuyang naghihintay.
+    explanation: |
+      Ang maaaring ay naglilimita sa pagpapabasa bukas. Hinihintay pa ang tugon tungkol sa oras ng patnugot, kaya hindi pa tiyak ang gawaing iyon.
+  - id: "q-comprehension-skills-context-clues-in-passages-0028"
+    approved: true
+    lesson: lesson-comprehension-skills-filipino-pronouns-modifiers-spelling
+    keyPoint: 1
+    passage: "p-comprehension-skills-filipino-pronouns-modifiers-spelling-gap"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      Sino ang tinutukoy ng "niya" sa pangungusap tungkol sa pagtiklop?
+    choices:
+      - text: "Si Tess"
+        correct: true
+      - text: "Si Nardo na nag-abot ng mapa"
+        rationale: |
+          Unang nabanggit na tao ang pinili. May hawak siya ng mapa sa simula. Sundan kung sino ang tumingin at nagsalita bago ang pagtiklop.
+      - text: "Ang pintor sa labas ng himpilan"
+        rationale: |
+          Sumunod na taong nabanggit ang pinili. Gumagawa rin siya ng kilos. Suriin kung nabanggit na siya bago ang panghalip.
+      - text: "Ang tulay na nasa silangan"
+        rationale: |
+          Pinakamalapit na pangngalan lamang ang pinili. Nasa huling bahagi ng sipi ang tulay. Tingnan kung maaari itong tumiklop ng mapa.
+    explanation: |
+      Si Tess ang tumingin at nagsalita tungkol sa mapa. Ang kasunod na pagtiklop ay pagpapatuloy ng kanyang kilos, kaya siya ang tinutukoy ng niya.
+  - id: "q-comprehension-skills-context-clues-in-passages-0029"
+    approved: true
+    lesson: lesson-comprehension-skills-filipino-pronouns-modifiers-spelling
+    keyPoint: 1
+    passage: "p-comprehension-skills-filipino-pronouns-modifiers-spelling-gap"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      Ano ang nililimitahan ng "lamang" sa sinabi ni Tess?
+    choices:
+      - text: "Ang kinaroroonan ng daan."
+        correct: true
+      - text: "Ang taong maaaring gumamit ng mapa."
+        rationale: |
+          Ginawang limitasyon sa tao ang limitasyon sa lugar. May nagsasalita at may mapa. Basahin ang dito sa silangan na katabi ng lamang.
+      - text: "Ang bilang ng tulay sa buong bayan."
+        rationale: |
+          Pinalawak ang pahayag sa bilang ng mga tulay. May tulay sa sipi, pero lokasyon ng daan ang paksa. Tukuyin kung anong parirala ang nililimitahan.
+      - text: "Ang bagay na maaaring dalhin ni Nardo."
+        rationale: |
+          Iniuugnay ang lamang sa naunang pag-abot. Mapa ang dinala ni Nardo, pero wala ito sa pariralang may lamang. Basahin ang mismong sinabi ni Tess.
+    explanation: |
+      Ang dito lamang sa silangan ay tumutukoy sa lugar na may daan patungo sa tulay. Ang lokasyon ng daan ang nililimitahan.
+  - id: "q-comprehension-skills-context-clues-in-passages-0030"
+    approved: true
+    lesson: lesson-comprehension-skills-filipino-sentence-types
+    keyPoint: 1
+    passage: "p-comprehension-skills-filipino-sentence-types-gap"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      Bago tingnan ni Belen ang talaan, ano ang naitatatag ng tanong at sagot?
+    choices:
+      - text: "Hindi pa nakumpirma ang pagpapadala."
+        correct: true
+      - text: "Tiyak nang natanggap ang kahon sa destinasyon."
+        rationale: |
+          Ginawang ulat ng pagtanggap ang tanong sa pagpapadala. Nabanggit ang tagatanggap. Tingnan kung may pahayag na natanggap na niya ang kahon.
+      - text: "Tiyak nang naipadala ang kahon bago ang tanong."
+        rationale: |
+          Ginawang patunay ang tanong. May na sa pangungusap, pero may ba rin. Suriin kung humihingi ito ng impormasyon.
+      - text: "Tapos nang suriin ni Arman ang buong talaan."
+        rationale: |
+          Ginawang natapos na kilos ang pakiusap. Nabanggit ang pagsuri, pero utos pa ito kay Belen. Ihiwalay ang ipinagagawa sa naiulat na nagawa.
+    explanation: |
+      Ang unang pangungusap ay nagtatanong kung naipadala na ang kahon. Ang tugon ay pakiusap na suriin ang talaan. Wala pa sa mga ito ang kumpirmasyon ng pagpapadala.
+  - id: "q-comprehension-skills-context-clues-in-passages-0031"
+    approved: true
+    lesson: lesson-comprehension-skills-filipino-sentence-types
+    keyPoint: 1
+    passage: "p-comprehension-skills-filipino-sentence-types-gap"
+    type: "context-clues-in-passages"
+    difficulty: "exam"
+    stem: |
+      Aling bahagi ng usapan ang tuwirang nagsasabi ng kinaroroonan ng kahon?
+    choices:
+      - text: "\"Nasa imbakan pa ang kahon.\""
+        correct: true
+      - text: "\"Naipadala na ba ang kahon?\""
+        rationale: |
+          Tanong ang ginawang ulat. Tinutukoy nito ang kahon, pero humihingi ng sagot. Hanapin ang pangungusap na nagsasabi ng kalagayan.
+      - text: "\"Pakisuri ang talaan bago tumawag sa tagatanggap.\""
+        rationale: |
+          Pakiusap ang ginawang ulat. May dapat gawin ang kausap. Suriin kung sinasabi nito ang kinaroroonan ng kahon.
+      - text: "\"Kay bigat pala nito!\""
+        rationale: |
+          Padamdam ang piniling ulat ng lokasyon. Tungkol ito sa kahon, pero matinding damdamin sa bigat ang diin. Hanapin ang tahasang pahayag kung nasaan ito.
+    explanation: |
+      Ang nasa imbakan pa ang kahon ay pasalaysay. Tuwiran nitong sinasabi ang kasalukuyang kinaroroonan ng kahon.

@@ -7,6 +7,9 @@ meta:
   - cse-sub
 questions:
 - id: q-environment-management-the-environmental-laws-0001
+  approved: true
+  lesson: lesson-environment-management-solid-waste-law
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which law is the Ecological Solid Waste Management Act of 2000?
@@ -31,6 +34,9 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0002
+  approved: true
+  lesson: lesson-environment-management-clean-air-law
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What is RA 8749''s short title?
@@ -55,6 +61,9 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0003
+  approved: true
+  lesson: lesson-environment-management-clean-water-law
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which statute provides the water-quality management and wastewater-discharge framework?
@@ -79,6 +88,9 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0004
+  approved: true
+  lesson: lesson-environment-management-climate-policy-law
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Under what title did RA 9729 create the Climate Change Commission?
@@ -103,6 +115,9 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0005
+  approved: true
+  lesson: lesson-environment-management-disaster-risk-law
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Which law set the disaster-risk framework and renamed the National Disaster Coordinating Council as the NDRRMC?
@@ -127,6 +142,9 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0006
+  approved: true
+  lesson: lesson-environment-management-project-review-and-clearance
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Which decree established the Philippine Environmental Impact Statement System?
@@ -151,6 +169,9 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0007
+  approved: true
+  lesson: lesson-environment-management-wildlife-and-protected-area-laws
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'What is the central subject of RA 9147?
@@ -175,6 +196,9 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0008
+  approved: true
+  lesson: lesson-environment-management-wildlife-and-protected-area-laws
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'What protected-area system did RA 7586 establish?
@@ -199,6 +223,9 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0009
+  approved: true
+  lesson: lesson-environment-management-environmental-agencies
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which department is the Environmental Management Bureau part of?
@@ -223,6 +250,9 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0010
+  approved: true
+  lesson: lesson-environment-management-climate-policy-law
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Which body guides and coordinates government climate policy under RA 9729?
@@ -247,9 +277,12 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0011
+  approved: true
+  lesson: lesson-environment-management-clean-air-law
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  stem: 'Which law regulates air emissions and prohibits the incineration described in the lesson when it emits poisonous and toxic fumes?
+  stem: 'Which law regulates air emissions and prohibits incineration of municipal, biomedical, and hazardous waste when it emits poisonous and toxic fumes?
 
     '
   choices:
@@ -271,6 +304,9 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0012
+  approved: true
+  lesson: lesson-environment-management-solid-waste-law
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'A proposed town plan opens a new open dump instead of using proper waste management. Which statutory framework is most directly involved?
@@ -295,9 +331,11 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0013
+  lesson: lesson-environment-management-wildlife-and-protected-area-laws
+  keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which law expanded and amended NIPAS?
 
     '
@@ -320,9 +358,11 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0014
+  lesson: lesson-environment-management-disaster-risk-law
+  keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which pairing accurately distinguishes the two frameworks?
 
     '
@@ -345,9 +385,11 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0015
+  lesson: lesson-environment-management-clean-water-law
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'A policy separately regulates factory air emissions and wastewater discharges. Which laws match those two subjects?
 
     '
@@ -370,10 +412,12 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0016
+  lesson: lesson-environment-management-clean-air-law
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
-  stem: 'Which statement accurately reads the Clean Air Act provision taught in the lesson?
+  approved: true
+  stem: 'Which statement accurately describes the Clean Air Act provision on incineration?
 
     '
   choices:
@@ -395,9 +439,11 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0017
+  lesson: lesson-environment-management-environmental-agencies
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which statement best describes EMB''s place in environmental governance?
 
     '
@@ -420,9 +466,11 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0018
+  lesson: lesson-environment-management-climate-policy-law
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which instrument does the Climate Change Act, as amended by RA 10174, require for national policy direction?
 
     '
@@ -445,10 +493,12 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0019
+  lesson: lesson-environment-management-wildlife-and-protected-area-laws
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
-  stem: 'Which distinction best follows the lesson''s wildlife and protected-area statutes?
+  approved: true
+  stem: 'Which distinction between wildlife and protected-area statutes is correct?
 
     '
   choices:
@@ -470,9 +520,11 @@ questions:
 
     '
 - id: q-environment-management-the-environmental-laws-0020
+  lesson: lesson-environment-management-solid-waste-law
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Why is the claim ''one environmental law automatically resolves every environmental issue'' unreliable?
 
     '
@@ -495,6 +547,9 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0003
+  approved: true
+  lesson: lesson-environment-management-project-review-and-clearance
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'What environmental decision document must a project covered by the Philippine EIS System secure before implementation?
@@ -519,9 +574,11 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0014
+  lesson: lesson-environment-management-project-review-and-clearance
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Which sequence best fits a project known to be covered by the EIS System?
 
     '
@@ -544,10 +601,12 @@ questions:
 
     '
 - id: q-environment-management-environmental-concepts-0015
+  lesson: lesson-environment-management-project-review-and-clearance
+  keyPoint: 2
   type: single_choice
   difficulty: hard
-  approved: false
-  stem: 'Which claim about an ECC follows from the lesson?
+  approved: true
+  stem: 'Which statement about an Environmental Compliance Certificate (ECC) is correct?
 
     '
   choices:
@@ -568,3 +627,72 @@ questions:
   explanation: 'An ECC is the decision document resulting from review under the Philippine EIS System for a covered project.
 
     '
+
+- id: q-environment-management-the-environmental-laws-0021
+  approved: true
+  lesson: lesson-environment-management-critical-area-review
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A proposed facility is not classified as an Environmentally Critical Project. Its site lies in a watershed reserve. Which conclusion is most appropriate for environmental screening?
+  choices:
+  - text: "The location still requires a coverage check."
+    correct: true
+  - text: "Only the project type matters once the facility is found not to be an ECP."
+    rationale: |
+      This leaves out location-based coverage. The ECP finding may seem to finish the review. Check the site for an ECA classification too.
+  - text: "A watershed reserve becomes an ECP because of the features of its location."
+    rationale: |
+      This mixes up project type and location. Both can lead to review. Check whether the label describes the project or the place.
+  - text: "A site must be both an ECP and an ECA before any coverage check is needed."
+    rationale: |
+      This makes the tests depend on each other. Both labels appear in project review. Check each basis for coverage on its own.
+  explanation: |
+    PD 1586, Section 4 allows environmentally critical areas to be declared for project review. Proclamation 2146, Section B(1) lists watershed reserves. The location must still be checked under the applicable coverage rules.
+
+- id: q-environment-management-the-environmental-laws-0022
+  approved: true
+  lesson: lesson-environment-management-critical-area-review
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An environmental screening report identifies an aquifer recharge area. The proponent argues that only the type of construction can affect EIS coverage. Which response best addresses this claim?
+  choices:
+  - text: "Site features can also affect coverage."
+    correct: true
+  - text: "Recharge areas concern project type rather than the place where work occurs."
+    rationale: |
+      This treats a feature of land as a kind of construction. Both are used in screening. Check whether the feature describes where the project will be built.
+  - text: "Only a project inside a national park can have location-based coverage."
+    rationale: |
+      This treats one listed area as the whole list. National parks are familiar protected places. Check the other ECA categories, including recharge areas.
+  - text: "Every water body has the same classification as an aquifer recharge area."
+    rationale: |
+      This gives all water-related places one label. They may seem alike because they involve water. Check the listed conditions for the particular place.
+  explanation: |
+    PD 1586, Section 4 provides for declaring environmentally critical areas. Proclamation 2146, Section B(9) includes recharge areas of aquifers. Screening must consider the site as well as the project type.
+
+- id: q-environment-management-the-environmental-laws-0023
+  approved: true
+  lesson: lesson-environment-management-solid-waste-law
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A local waste report records separate collection of food scraps and paper. It also records that all collected waste went to final disposal without recovery or processing. What does the report establish?
+  choices:
+  - text: "Segregation occurred, but diversion was not shown."
+    correct: true
+  - text: "Separate collection establishes diversion even when all waste reaches final disposal."
+    rationale: |
+      This counts sorting as diversion. Separate collection looks like progress. Check whether any waste was kept away from final disposal.
+  - text: "The food scraps were composted because they were collected in separate containers."
+    rationale: |
+      This assumes a treatment that was not done. Food scraps can be composted. Check for controlled breakdown, not just a separate bin.
+  - text: "The paper was recycled because workers separated it before sending it for disposal."
+    rationale: |
+      This assumes material recovery from sorting alone. Paper can be recycled. Check whether it was recovered for useful use.
+  explanation: |
+    RA 9003, Section 3 defines segregation and waste diversion. Diversion keeps waste away from disposal through actions such as reuse, recycling, or composting. The report shows separation but no waste kept away from disposal.

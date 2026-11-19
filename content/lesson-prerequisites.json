@@ -3,170 +3,3336 @@
  "date": "2026-10-26",
  "rule": "required: the lesson cannot be followed without an idea the other teaches and it does not; helpful: easier with it. Authored order is never a reason. Drafted by Codex GPT 6.1 Sol from the current lessons and the audit's map; every required link reviewed by the Claude lead. CET lessons (November 9, 2026): drafted by Sonnet 5.5 from the current lessons and the audit map; every required link reviewed by the Claude lead.",
  "lessons": {
-  "lesson-algebra-algebraic-expressions": [
+  "lesson-algebra-quadratic-methods-and-root-properties": [
    {
-    "lesson": "lesson-arithmetic-number-sense-order-of-operations",
+    "lesson": "lesson-algebra-factoring-quadratic-equations",
+    "strength": "required",
+    "reason": "Use the ideas from the previous part."
+   }
+  ],
+  "lesson-algebra-rationalizing-square-root-denominators": [
+   {
+    "lesson": "lesson-algebra-simplifying-and-combining-radicals",
+    "strength": "required",
+    "reason": "Use the ideas from the previous part."
+   }
+  ],
+  "lesson-algebra-cube-root-denominators-and-nested-radicals": [
+   {
+    "lesson": "lesson-algebra-rationalizing-square-root-denominators",
+    "strength": "required",
+    "reason": "Use the ideas from the previous part."
+   }
+  ],
+  "lesson-algebra-counting-venn-diagram-regions": [
+   {
+    "lesson": "lesson-algebra-set-membership-and-operations",
+    "strength": "required",
+    "reason": "Use the ideas from the previous part."
+   }
+  ],
+  "lesson-algebra-simplifying-and-evaluating-expressions": [
+   {
+    "lesson": "lesson-algebra-rates-and-consecutive-integers",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
     "strength": "helpful",
     "reason": "Signed-number practice makes substitution easier. This lesson repeats the evaluation order and explains negative-base parentheses."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "helpful",
     "reason": "Fraction arithmetic helps with the final symbolic example, which shows the needed denominator conversion locally."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "strength": "helpful",
+    "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
   ],
-  "lesson-algebra-exponents-and-logarithms": [
+  "lesson-algebra-logarithm-product-quotient-and-power-laws": [
    {
-    "lesson": "lesson-algebra-algebraic-expressions",
+    "lesson": "lesson-algebra-logarithm-meaning-and-equations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-translating-algebraic-phrases",
     "strength": "helpful",
     "reason": "Expression simplification and equation practice make the symbolic exponent examples easier. Their worked steps provide enough local guidance."
    }
   ],
-  "lesson-algebra-functions-and-relations": [
+  "lesson-algebra-solving-linear-equations": [
    {
-    "lesson": "lesson-algebra-polynomials",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
     "strength": "helpful",
-    "reason": "The domain example needs factoring a difference of two squares. This lesson names the Polynomials lesson for it and shows the factored form."
-   },
-   {
-    "lesson": "lesson-algebra-quadratic-equations",
-    "strength": "helpful",
-    "reason": "The domain of a composition example needs a quadratic inequality. This lesson names the Quadratic Equations lesson for it and gives a short sign argument."
-   },
-   {
-    "lesson": "lesson-algebra-linear-equations-inequalities",
-    "strength": "helpful",
-    "reason": "Finding an inverse means solving a linear equation for y, and domains need inequality solving. This lesson shows each step."
-   },
-   {
-    "lesson": "lesson-algebra-exponents-and-logarithms",
-    "strength": "helpful",
-    "reason": "The domain rules name logarithms without teaching them. The lesson only lists the restriction, so the Exponents and Logarithms lesson explains the idea."
+    "reason": "Distribute to every term and substitute values before combining like terms."
    }
   ],
-  "lesson-algebra-linear-equations-inequalities": [
+  "lesson-algebra-polynomial-terms-and-degree": [
    {
-    "lesson": "lesson-algebra-algebraic-expressions",
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor",
     "strength": "helpful",
-    "reason": "Distribution and like-term practice help with solving. The earlier required coordinate-geometry link is rejected because this lesson teaches its graphing ideas."
+    "reason": "Finding the greatest common factor helps students finish factoring completely."
    }
   ],
-  "lesson-algebra-polynomials": [
+  "lesson-biology-ecology": [
    {
-    "lesson": "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm",
+    "lesson": "lesson-biology-cellular-metabolism",
     "strength": "helpful",
-    "reason": "Finding numerical common factors is easier with prior GCF practice. This lesson defines polynomial GCF and demonstrates extraction."
-   }
-  ],
-  "lesson-algebra-quadratic-equations": [
-   {
-    "lesson": "lesson-algebra-polynomials",
-    "strength": "helpful",
-    "reason": "Factoring and the difference of squares are easier with prior practice. This lesson shows the factoring steps it uses."
+    "reason": "Understanding photosynthesis and respiration makes carbon cycling easier. Ecology explains their relevant roles itself."
    },
    {
-    "lesson": "lesson-algebra-linear-equations-inequalities",
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "helpful",
-    "reason": "Solving the linear factors and keeping the inequality direction are easier with prior practice. This lesson works each step in its examples."
+    "reason": "Percentage multiplication helps with energy transfers. Ecology supplies the 0.10 multiplier and worked steps, so it stands alone."
    }
   ],
-  "lesson-algebra-radicals-and-rationalization": [
+  "lesson-earth-science-astronomy-weather-and-climate": [
    {
-    "lesson": "lesson-algebra-quadratic-equations",
+    "lesson": "lesson-physics-thermodynamics",
     "strength": "helpful",
-    "reason": "The radical equation examples factor trinomials such as m squared minus 6m minus 7. This lesson shows that one factoring and names the Quadratic Equations lesson for the full method."
-   },
-   {
-    "lesson": "lesson-algebra-exponents-and-logarithms",
-    "strength": "helpful",
-    "reason": "Rational exponents and powers of variables under a root build on exponent rules. This lesson states the root-to-exponent conversion it needs."
+    "reason": "Heat-transfer knowledge helps explain winds and warming. Weather and Climate defines the needed processes itself."
    }
   ],
-  "lesson-algebra-sets-and-set-notation": [],
-  "lesson-algebra-systems-of-equations": [
+  "lesson-geometry-logic-and-reasoning": [],
+  "lesson-geometry-measurement": [
    {
-    "lesson": "lesson-algebra-linear-equations-inequalities",
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
     "strength": "helpful",
-    "reason": "Solving the one-variable equation after substitution, and graphing lines with slope and intercept, are covered in the Linear Equations lesson. This lesson shows the steps it uses."
-   },
-   {
-    "lesson": "lesson-algebra-quadratic-equations",
-    "strength": "helpful",
-    "reason": "The line-and-parabola examples need factoring a quadratic. This lesson factors it in the worked step and names the Quadratic Equations lesson for the full method."
+    "reason": "Distribute to every term and substitute values before combining like terms."
    }
   ],
-  "lesson-algebra-types-of-functions": [
+  "lesson-grammar-and-structure-english-word-jobs": [],
+  "lesson-grammar-and-structure-joining-words-phrases-and-clauses": [
    {
-    "lesson": "lesson-algebra-functions-and-relations",
-    "strength": "helpful",
-    "reason": "Downgraded from the earlier required link. This lesson now defines functions, domain, and function notation itself."
-   },
-   {
-    "lesson": "lesson-algebra-polynomials",
-    "strength": "helpful",
-    "reason": "Polynomial division and factoring practice help with rational graphs. This lesson explains its needed division steps and factoring identity."
-   }
-  ],
-  "lesson-algebra-word-problems": [
-   {
-    "lesson": "lesson-algebra-linear-equations-inequalities",
-    "strength": "helpful",
-    "reason": "Equation-solving practice reduces the work after translation. This lesson shows the needed solving steps in its examples."
-   },
-   {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-grammar-and-structure-english-word-jobs",
     "strength": "required",
-    "reason": "The work example assumes common-denominator addition and division by a fraction without teaching those arithmetic rules."
+    "reason": "The previous part teaches the ideas used in this part."
    }
   ],
-  "lesson-arithmetic-number-sense-business-math": [
+  "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari": [
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-grammar-and-structure-joining-words-phrases-and-clauses",
     "strength": "required",
-    "reason": "Retained from the earlier audit. Business examples assume percentage-to-decimal conversion and decimal multiplication without teaching their methods."
+    "reason": "The previous part teaches the ideas used in this part."
    }
   ],
-  "lesson-arithmetic-number-sense-divisibility-rules": [],
-  "lesson-arithmetic-number-sense-fractions-decimals-percentages": [],
-  "lesson-arithmetic-number-sense-order-of-operations": [],
-  "lesson-arithmetic-number-sense-prime-factorization-gcf-lcm": [
+  "lesson-grammar-and-structure-pang-uri-at-pang-abay": [
    {
-    "lesson": "lesson-arithmetic-number-sense-divisibility-rules",
+    "lesson": "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-pang-ukol-pangatnig-at-pandamdam": [
+   {
+    "lesson": "lesson-grammar-and-structure-pang-uri-at-pang-abay",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they": [],
+  "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents": [
+   {
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao": [
+   {
+    "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip": [
+   {
+    "lesson": "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-simple-and-compound-sentences": [
+   {
+    "lesson": "lesson-grammar-and-structure-phrases-and-understood-subjects",
     "strength": "helpful",
-    "reason": "Digit tests make finding prime divisors faster. Prime factorization still works through the repeated division taught here."
-   }
-  ],
-  "lesson-arithmetic-number-sense-properties-of-real-numbers": [
+    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   },
    {
-    "lesson": "lesson-arithmetic-number-sense-order-of-operations",
+    "lesson": "lesson-grammar-and-structure-finite-verbs-and-ing-groups",
     "strength": "helpful",
-    "reason": "Signed arithmetic practice makes combining coefficients and distributing negative factors easier. This lesson supplies the algebra rules."
-   }
-  ],
-  "lesson-arithmetic-number-sense-ratio-and-proportion": [
+    "reason": "Finding the finite verb helps students tell an incomplete word group from a complete sentence."
+   },
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses",
     "strength": "helpful",
-    "reason": "Fraction fluency helps with ratio notation and fractional answers. This lesson teaches the proportion methods it uses."
+    "reason": "Checking whether a clause can stand alone helps students identify complete statements."
    }
   ],
-  "lesson-arithmetic-number-sense-real-imaginary-numbers": [
+  "lesson-grammar-and-structure-complex-and-compound-complex-sentences": [
    {
-    "lesson": "lesson-arithmetic-number-sense-order-of-operations",
+    "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses",
     "strength": "helpful",
-    "reason": "Signed arithmetic makes complex-number multiplication easier. This lesson teaches distribution, collecting terms, and replacing i squared locally."
+    "reason": "Checking whether a clause can stand alone helps students identify complete statements."
    }
   ],
-  "lesson-arithmetic-number-sense-sequences-and-series": [
+  "lesson-grammar-and-structure-payak-at-tambalang-pangungusap": [
    {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
+    "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   }
+  ],
+  "lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay": [
+   {
+    "lesson": "lesson-grammar-and-structure-payak-at-tambalang-pangungusap",
+    "strength": "required",
+    "reason": "The previous part teaches the ideas used in this part."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses",
+    "strength": "helpful",
+    "reason": "Recognizing clause boundaries makes counting clauses and identifying sentence types easier. The lesson teaches the needed clause definitions itself."
+   }
+  ],
+  "lesson-statistics-and-probability-basic-probability": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "required",
+    "reason": "Combined-event calculations require fraction multiplication, simplification, and subtraction. This lesson teaches probability rules but assumes those arithmetic methods."
+   }
+  ],
+  "lesson-statistics-and-probability-data-analysis-graphs": [
+   {
+    "lesson": "lesson-data-interpretation-averages-and-pie-chart-shares",
+    "strength": "helpful",
+    "reason": "Basic scale-reading practice helps before comparing graph scales. This lesson repeats the needed reading rules and adds more demanding comparisons."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "Percentage conversion and fraction multiplication practice make pie-chart calculations easier. This lesson gives the share formulas and demonstrates their use."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions",
+    "strength": "helpful",
+    "reason": "Multiplying a fraction by the whole helps students find the required share."
+   }
+  ],
+  "lesson-statistics-and-probability-measures-of-central-tendency": [],
+  "lesson-text-types-essays-editorials-articles": [
+   {
+    "lesson": "lesson-comprehension-skills-sentence-cues-and-meaning",
+    "strength": "helpful",
+    "reason": "Distinguishing the dominant purpose from individual statements makes mixed text types easier to classify. This lesson provides its own method."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-projections-and-forecasts",
+    "strength": "helpful",
+    "reason": "Separating checkable claims from judgments helps students distinguish reporting from argument. This lesson explains enough to classify its examples independently."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments",
+    "strength": "helpful",
+    "reason": "Separating checkable claims from judgments helps students distinguish reporting from argument. This lesson explains enough to classify its examples independently."
+   }
+  ],
+  "lesson-text-types-poetry": [
+   {
+    "lesson": "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis",
+    "strength": "helpful",
+    "reason": "Recognizing figurative comparisons and repeated sounds makes poetic interpretation easier. Poetry defines each device before applying it."
+   }
+  ],
+  "lesson-text-types-visual-media": [
+   {
+    "lesson": "lesson-comprehension-skills-paghatol-at-ebidensya",
+    "strength": "helpful",
+    "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "The numerical examples require fraction simplification, fraction multiplication, and conversion to decimals. This lesson supplies formulas but does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-connecting-clues",
+    "strength": "helpful",
+    "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-evidence-and-claim-strength",
+    "strength": "helpful",
+    "reason": "Matching a claim to the evidence helps students reject unsupported promises and conclusions."
+   }
+  ],
+  "lesson-vocabulary-definitions-examples-and-synonyms": [],
+  "lesson-vocabulary-idioms-and-literal-meanings": [
+   {
+    "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar",
+    "strength": "helpful",
+    "reason": "Using surrounding events to infer meaning helps distinguish literal expressions from idioms. The lesson demonstrates that distinction independently."
+   }
+  ],
+  "lesson-vocabulary-roots-bases-and-valid-splits": [
+   {
+    "lesson": "lesson-grammar-and-structure-english-word-jobs",
+    "strength": "helpful",
+    "reason": "Recognizing word jobs makes suffix-driven changes easier to understand. The lesson defines the word classes needed for its examples."
+   }
+  ],
+  "lesson-data-interpretation-table-values-and-totals": [],
+  "lesson-data-interpretation-chart-scales-and-differences": [
+   {
+    "lesson": "lesson-data-interpretation-table-values-and-totals",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-data-interpretation-averages-and-pie-chart-shares": [
+   {
+    "lesson": "lesson-data-interpretation-chart-scales-and-differences",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-data-interpretation-percentage-change": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "Conversion and percentage-base practice make the calculations easier. This lesson explains its comparison formulas and demonstrates conversion."
+   }
+  ],
+  "lesson-data-interpretation-percentages-and-ratios-of-groups": [
+   {
+    "lesson": "lesson-data-interpretation-percentage-change",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-data-interpretation-unit-rates-and-direct-proportion": [
+   {
+    "lesson": "lesson-data-interpretation-percentages-and-ratios-of-groups",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-data-interpretation-inverse-proportion-and-ratio-parts": [
+   {
+    "lesson": "lesson-data-interpretation-unit-rates-and-direct-proportion",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection": [],
+  "lesson-philippine-constitution-bill-of-rights-search-and-arrest-warrants": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-arrest-in-an-officers-presence": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-search-and-arrest-warrants",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-hot-pursuit-arrests": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-arrest-in-an-officers-presence",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-consent-and-private-messages": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-hot-pursuit-arrests",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-expression-and-public-action": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-consent-and-private-messages",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-religion-abode-and-travel": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-expression-and-public-action",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-information-and-association": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-religion-abode-and-travel",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-information-and-association",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-double-jeopardy": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-detention-and-punishment",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-amendment-or-revision": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "The worked examples assume fraction multiplication and percentage-to-decimal conversion. This lesson does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
+   }
+  ],
+  "lesson-philippine-constitution-congress-and-constitutional-conventions": [
+   {
+    "lesson": "lesson-philippine-constitution-amendment-or-revision",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-peoples-initiative": [
+   {
+    "lesson": "lesson-philippine-constitution-congress-and-constitutional-conventions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division",
+    "strength": "helpful",
+    "reason": "Dividing the part by the base helps students tell a percentage from an amount."
+   }
+  ],
+  "lesson-philippine-constitution-ratification-and-plebiscites": [
+   {
+    "lesson": "lesson-philippine-constitution-peoples-initiative",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-detention-and-punishment": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-prohibited-laws": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-property-and-contracts": [],
+  "lesson-philippine-constitution-bill-of-rights-court-access-and-legal-help": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-property-and-contracts",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-court-access-and-legal-help",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-custodial-force-and-statements": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-bail-before-conviction": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-custodial-force-and-statements",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-fines-and-prison-punishment": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-replacement-penalties-and-parole": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-fines-and-prison-punishment",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-double-jeopardy-conditions": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-debt-and-poll-tax",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-double-jeopardy-covered-offenses": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy-conditions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-later-offenses-and-local-ordinances": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-double-jeopardy-covered-offenses",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-later-offenses-and-local-ordinances",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-rights-claims-evidence-and-effects": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-court-remedies-and-rights-investigations": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-rights-claims-evidence-and-effects",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service": [
+   {
+    "lesson": "lesson-philippine-constitution-forced-self-incrimination",
+    "strength": "helpful",
+    "reason": "Understanding speedy-trial violations helps explain why certain requested dismissals bar another prosecution. This lesson states the exception without developing the delay assessment."
+   }
+  ],
+  "lesson-philippine-constitution-bill-of-rights-debt-and-poll-tax": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-replacement-penalties-and-parole",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-branches-and-checks": [
+   {
+    "lesson": "lesson-philippine-constitution-ballot-protection-and-overseas-voting",
+    "strength": "helpful",
+    "reason": "Knowing the special election-of-citizenship rule clarifies natural-born qualifications across offices. This lesson defines natural-born status but refers elsewhere for that exception."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "The voting-threshold examples assume students can multiply a whole number by a fraction. This lesson identifies the calculation but does not teach fraction arithmetic. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
+   }
+  ],
+  "lesson-philippine-constitution-congress-members-and-terms": [
+   {
+    "lesson": "lesson-philippine-constitution-branches-and-checks",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-congress-bills-budget-and-inquiries": [
+   {
+    "lesson": "lesson-philippine-constitution-congress-members-and-terms",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-congress-war-and-veto-votes": [
+   {
+    "lesson": "lesson-philippine-constitution-congress-bills-budget-and-inquiries",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions",
+    "strength": "helpful",
+    "reason": "Multiplying a fraction by the whole helps students find the required share."
+   }
+  ],
+  "lesson-philippine-constitution-president-terms-and-appointments": [
+   {
+    "lesson": "lesson-philippine-constitution-congress-war-and-veto-votes",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-president-emergency-powers": [
+   {
+    "lesson": "lesson-philippine-constitution-president-terms-and-appointments",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-president-clemency-and-treaties": [
+   {
+    "lesson": "lesson-philippine-constitution-president-emergency-powers",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-courts-and-judicial-review": [
+   {
+    "lesson": "lesson-philippine-constitution-president-clemency-and-treaties",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-elected-office-qualifications": [
+   {
+    "lesson": "lesson-philippine-constitution-courts-and-judicial-review",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-judicial-office-qualifications": [
+   {
+    "lesson": "lesson-philippine-constitution-elected-office-qualifications",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-commission-and-ombudsman-qualifications": [
+   {
+    "lesson": "lesson-philippine-constitution-judicial-office-qualifications",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-accused-charge-and-defense": [
+   {
+    "lesson": "lesson-philippine-constitution-bill-of-rights-bail-before-conviction",
+    "strength": "helpful",
+    "reason": "Knowing custodial silence helps distinguish it from protection against compelled testimony. This lesson gives a brief comparison sufficient to stand alone."
+   }
+  ],
+  "lesson-philippine-constitution-accused-fair-and-speedy-trial": [
+   {
+    "lesson": "lesson-philippine-constitution-accused-charge-and-defense",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-accused-witnesses-and-absence": [
+   {
+    "lesson": "lesson-philippine-constitution-accused-fair-and-speedy-trial",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-habeas-corpus-suspension": [
+   {
+    "lesson": "lesson-philippine-constitution-accused-witnesses-and-absence",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-speedy-disposition-of-cases": [
+   {
+    "lesson": "lesson-philippine-constitution-habeas-corpus-suspension",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-forced-self-incrimination": [
+   {
+    "lesson": "lesson-philippine-constitution-speedy-disposition-of-cases",
+    "strength": "required",
+    "reason": "Continue from the preceding part of the original lesson."
+   }
+  ],
+  "lesson-philippine-constitution-csc-personnel-and-career-service": [],
+  "lesson-philippine-constitution-csc-membership-and-citizenship": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-personnel-and-career-service",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-csc-age-capacity-and-candidacy": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-membership-and-citizenship",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-csc-appointments-and-terms": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-age-capacity-and-candidacy",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-csc-civil-service-coverage": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-appointments-and-terms",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-csc-merit-and-examination-exceptions": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-civil-service-coverage",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-csc-worker-protection-and-politics": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-merit-and-examination-exceptions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-csc-independence-and-conflicts": [
+   {
+    "lesson": "lesson-philippine-constitution-csc-worker-protection-and-politics",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-public-trust-and-impeachable-officers": [],
+  "lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery": [
+   {
+    "lesson": "lesson-philippine-constitution-public-trust-and-impeachable-officers",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-impeachment-graft-and-high-crimes": [
+   {
+    "lesson": "lesson-philippine-constitution-impeachment-constitutional-breach-treason-and-bribery",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-impeachment-betrayal-and-proof": [
+   {
+    "lesson": "lesson-philippine-constitution-impeachment-graft-and-high-crimes",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-impeachment-house-filing-routes": [
+   {
+    "lesson": "lesson-philippine-constitution-impeachment-betrayal-and-proof",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-impeachment-senate-trial-and-limits": [
+   {
+    "lesson": "lesson-philippine-constitution-impeachment-house-filing-routes",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-ombudsman-investigations-and-remedies": [
+   {
+    "lesson": "lesson-philippine-constitution-impeachment-senate-trial-and-limits",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-citizenship-by-parentage": [],
+  "lesson-philippine-constitution-natural-born-and-naturalized-citizens": [
+   {
+    "lesson": "lesson-philippine-constitution-citizenship-by-parentage",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-keeping-and-regaining-citizenship": [
+   {
+    "lesson": "lesson-philippine-constitution-natural-born-and-naturalized-citizens",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-domestic-voting-qualifications": [
+   {
+    "lesson": "lesson-philippine-constitution-keeping-and-regaining-citizenship",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-ballot-protection-and-overseas-voting": [
+   {
+    "lesson": "lesson-philippine-constitution-domestic-voting-qualifications",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-constitution-preamble-and-article-count": [],
+  "lesson-philippine-constitution-constitution-articles-i-to-v": [
+   {
+    "lesson": "lesson-philippine-constitution-constitution-preamble-and-article-count",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-constitution-department-articles": [
+   {
+    "lesson": "lesson-philippine-constitution-constitution-articles-i-to-v",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-constitution-commission-articles": [
+   {
+    "lesson": "lesson-philippine-constitution-constitution-department-articles",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-constitution-local-government-and-welfare": [
+   {
+    "lesson": "lesson-philippine-constitution-constitution-commission-articles",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-philippine-constitution-constitution-other-fields-and-change": [
+   {
+    "lesson": "lesson-philippine-constitution-constitution-local-government-and-welfare",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures": [],
+  "lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-relatives-in-government": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-filing-dates": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-relatives-in-government",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-filing-dates",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-public-access-and-use": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-public-access-and-use",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-conflict-action-deadlines": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-conflict-action-deadlines",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism": [],
+  "lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-code-coverage": [],
+  "lesson-code-of-conduct-ra-6713-duties-public-letters": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-code-coverage",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-public-letters",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-document-completion": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-public-record-access": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-document-completion",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-public-record-access",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-private-business-interests": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-private-business-interests",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-after-leaving-office": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-duties-protected-information-and-gifts": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-duties-after-leaving-office",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery": [],
+  "lesson-code-of-conduct-ra-6713-corruption-graft-and-information": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-corruption-plunder-and-kickbacks": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-graft-and-information",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-plunder-and-kickbacks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-corruption-state-response": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-administrative-limits": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-foreign-government-benefits",
+    "strength": "helpful",
+    "reason": "Knowing Section 7 violations makes matching offenses to penalties easier. This lesson restates the disclosure offense used in its examples."
+   },
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions",
+    "strength": "helpful",
+    "reason": "Understanding permitted SALN access and use helps distinguish public disclosure from punishable misuse. This lesson supplies the essential misuse rules."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-administrative-limits",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   },
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-saln-public-access-and-use",
+    "strength": "helpful",
+    "reason": "The limits on using filed statements help students identify the rule behind the penalty."
+   },
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment",
+    "strength": "helpful",
+    "reason": "Recognizing conflict and divestment duties helps students distinguish them from other rules."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   },
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles",
+    "strength": "helpful",
+    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   },
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits",
+    "strength": "helpful",
+    "reason": "Recognizing misuse of protected work information helps students identify the prohibited act."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-accomplices-and-accessories": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-filed-statement-misuse": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-accomplices-and-accessories",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-filed-statement-misuse",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-penalties-review-of-decisions": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles": [],
+  "lesson-code-of-conduct-ra-6713-prohibitions-private-practice": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-private-practice",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-organization-and-government-donations": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-code-of-conduct-ra-6713-prohibitions-foreign-government-benefits": [
+   {
+    "lesson": "lesson-code-of-conduct-ra-6713-prohibitions-organization-and-government-donations",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-environment-management-solid-waste-law": [],
+  "lesson-environment-management-clean-air-law": [
+   {
+    "lesson": "lesson-environment-management-solid-waste-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-clean-water-law": [
+   {
+    "lesson": "lesson-environment-management-clean-air-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-climate-policy-law": [
+   {
+    "lesson": "lesson-environment-management-clean-water-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-disaster-risk-law": [
+   {
+    "lesson": "lesson-environment-management-climate-policy-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-project-review-and-clearance": [
+   {
+    "lesson": "lesson-environment-management-disaster-risk-law",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-critical-area-review": [
+   {
+    "lesson": "lesson-environment-management-project-review-and-clearance",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-wildlife-and-protected-area-laws": [
+   {
+    "lesson": "lesson-environment-management-critical-area-review",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-environmental-agencies": [
+   {
+    "lesson": "lesson-environment-management-wildlife-and-protected-area-laws",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types",
+    "strength": "helpful",
+    "reason": "The detailed distinction between sorting and diversion makes the waste-law cases easier. This lesson gives enough definitions to stand alone."
+   },
+   {
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness",
+    "strength": "helpful",
+    "reason": "Knowing the four DRRM areas makes matching disaster actions to the law easier. This lesson briefly explains the areas itself."
+   }
+  ],
+  "lesson-environment-management-disaster-risk-and-readiness": [],
+  "lesson-environment-management-disaster-response-and-recovery": [
+   {
+    "lesson": "lesson-environment-management-disaster-risk-and-readiness",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-choosing-a-disaster-management-area": [
+   {
+    "lesson": "lesson-environment-management-disaster-response-and-recovery",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-source-segregation-and-waste-types": [],
+  "lesson-environment-management-reuse-and-recycling": [
+   {
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-reduction-composting-and-diversion": [
+   {
+    "lesson": "lesson-environment-management-reuse-and-recycling",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-local-environmental-problems": [
+   {
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types",
+    "strength": "helpful",
+    "reason": "Knowing how sorting supports material recovery makes evaluating the waste program easier. This lesson defines segregation and explains the collection problem."
+   }
+  ],
+  "lesson-environment-management-government-environmental-responses": [
+   {
+    "lesson": "lesson-environment-management-local-environmental-problems",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types",
+    "strength": "helpful",
+    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   },
+   {
+    "lesson": "lesson-environment-management-reuse-and-recycling",
+    "strength": "helpful",
+    "reason": "Keeping useful materials separate helps students understand how sorting supports recovery."
+   }
+  ],
+  "lesson-environment-management-climate-change-and-its-effects": [
+   {
+    "lesson": "lesson-environment-management-government-environmental-responses",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-climate-adaptation-and-mitigation": [
+   {
+    "lesson": "lesson-environment-management-climate-change-and-its-effects",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-environment-management-source-segregation-and-waste-types",
+    "strength": "helpful",
+    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   }
+  ],
+  "lesson-environment-management-national-climate-framework": [
+   {
+    "lesson": "lesson-environment-management-climate-adaptation-and-mitigation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-species-habitats-and-ecosystems": [],
+  "lesson-environment-management-protecting-threatened-species": [
+   {
+    "lesson": "lesson-environment-management-species-habitats-and-ecosystems",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-conserving-natural-resources": [
+   {
+    "lesson": "lesson-environment-management-protecting-threatened-species",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-protected-area-management": [
+   {
+    "lesson": "lesson-environment-management-conserving-natural-resources",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-environment-management-choosing-environmental-options": [
+   {
+    "lesson": "lesson-environment-management-protected-area-management",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-grammar-and-structure-present-habits-and-ongoing-actions": [
+   {
+    "lesson": "lesson-grammar-and-structure-mga-gamit-ng-pananda",
+    "strength": "helpful",
+    "reason": "Subject and number identification makes choosing auxiliary forms easier. The lesson provides the basic agreement patterns needed for its examples."
+   }
+  ],
+  "lesson-grammar-and-structure-past-events-and-future-meaning": [
+   {
+    "lesson": "lesson-grammar-and-structure-present-habits-and-ongoing-actions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-present-perfect-links-to-now": [
+   {
+    "lesson": "lesson-grammar-and-structure-past-events-and-future-meaning",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-past-perfect-earlier-completion": [
+   {
+    "lesson": "lesson-grammar-and-structure-present-perfect-links-to-now",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-recognizing-active-and-passive-voice": [
+   {
+    "lesson": "lesson-grammar-and-structure-past-perfect-earlier-completion",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-changing-voice-and-get-passives": [
+   {
+    "lesson": "lesson-grammar-and-structure-recognizing-active-and-passive-voice",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-modals-ability-and-permission": [
+   {
+    "lesson": "lesson-grammar-and-structure-changing-voice-and-get-passives",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-modals-requirements-and-possibility": [
+   {
+    "lesson": "lesson-grammar-and-structure-modals-ability-and-permission",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-finding-subjects-and-matching-verbs": [
+   {
+    "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos",
+    "strength": "helpful",
+    "reason": "Prior practice with Filipino aspect and focus eases the shift from English agreement rules. The lesson independently explains its Filipino rules."
+   }
+  ],
+  "lesson-grammar-and-structure-groups-and-indefinite-pronouns": [
+   {
+    "lesson": "lesson-grammar-and-structure-finding-subjects-and-matching-verbs",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-agreement-with-joined-subjects": [
+   {
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino": [
+   {
+    "lesson": "lesson-grammar-and-structure-agreement-with-joined-subjects",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-pokus-at-papel-ng-paksa": [
+   {
+    "lesson": "lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-mga-gamit-ng-pananda": [
+   {
+    "lesson": "lesson-grammar-and-structure-pokus-at-papel-ng-paksa",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning": [
+   {
+    "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses",
+    "strength": "helpful",
+    "reason": "Recognizing phrases and their understood doers makes dangling-modifier repairs easier. The lesson explains the repairs sufficiently to stand alone."
+   }
+  ],
+  "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects": [
+   {
+    "lesson": "lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-finite-verbs-and-ing-groups",
+    "strength": "helpful",
+    "reason": "Finding the finite verb helps students tell an incomplete word group from a complete sentence."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses",
+    "strength": "helpful",
+    "reason": "Checking whether a clause can stand alone helps students identify complete statements."
+   }
+  ],
+  "lesson-grammar-and-structure-scope-of-small-modifiers": [
+   {
+    "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-commas-in-lists-and-joined-clauses": [
+   {
+    "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses",
+    "strength": "helpful",
+    "reason": "Practice distinguishing independent and dependent clauses makes comma and semicolon choices easier. The lesson repeats the necessary definitions."
+   }
+  ],
+  "lesson-grammar-and-structure-commas-with-openings-and-extra-information": [
+   {
+    "lesson": "lesson-grammar-and-structure-commas-in-lists-and-joined-clauses",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-semicolons-and-comma-splices": [
+   {
+    "lesson": "lesson-grammar-and-structure-commas-with-openings-and-extra-information",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses",
+    "strength": "helpful",
+    "reason": "Checking whether a clause can stand alone helps students identify complete statements."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-finite-verbs-and-ing-groups",
+    "strength": "helpful",
+    "reason": "Finding the finite verb helps students tell an incomplete word group from a complete sentence."
+   }
+  ],
+  "lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions": [
+   {
+    "lesson": "lesson-grammar-and-structure-semicolons-and-comma-splices",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes": [
+   {
+    "lesson": "lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-phrases-and-understood-subjects": [],
+  "lesson-grammar-and-structure-independent-and-dependent-clauses": [
+   {
+    "lesson": "lesson-grammar-and-structure-phrases-and-understood-subjects",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-relative-clauses-and-main-thoughts": [
+   {
+    "lesson": "lesson-grammar-and-structure-independent-and-dependent-clauses",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-connectors-for-reason-and-contrast": [
+   {
+    "lesson": "lesson-grammar-and-structure-relative-clauses-and-main-thoughts",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-finite-verbs-and-ing-groups": [
+   {
+    "lesson": "lesson-grammar-and-structure-connectors-for-reason-and-contrast",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses": [
+   {
+    "lesson": "lesson-grammar-and-structure-finite-verbs-and-ing-groups",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-matching-forms-in-lists": [
+   {
+    "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses",
+    "strength": "helpful",
+    "reason": "Understanding infinitive and -ing groups makes comparisons between grammatical forms easier. The lesson supplies its own matching-form rules."
+   }
+  ],
+  "lesson-grammar-and-structure-shared-words-in-parallel-lists": [
+   {
+    "lesson": "lesson-grammar-and-structure-matching-forms-in-lists",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses",
+    "strength": "helpful",
+    "reason": "Recognizing the base verb after to helps students check an infinitive group."
+   }
+  ],
+  "lesson-grammar-and-structure-parallel-pairs-and-comparisons": [
+   {
+    "lesson": "lesson-grammar-and-structure-shared-words-in-parallel-lists",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa": [
+   {
+    "lesson": "lesson-grammar-and-structure-mga-pahiwatig-ng-oras",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-grammar-and-structure-kalagayan-ng-kilos": [],
+  "lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa": [
+   {
+    "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-grammar-and-structure-mga-pahiwatig-ng-oras": [
+   {
+    "lesson": "lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-grammar-and-structure-qualified-negatives-and-near-negatives": [
+   {
+    "lesson": "lesson-grammar-and-structure-editing-negative-concord",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-grammar-and-structure-removing-needless-repeated-meaning": [],
+  "lesson-grammar-and-structure-keeping-needed-repetition": [
+   {
+    "lesson": "lesson-grammar-and-structure-removing-needless-repeated-meaning",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-grammar-and-structure-editing-negative-concord": [
+   {
+    "lesson": "lesson-grammar-and-structure-keeping-needed-repetition",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-similar-and-opposite-meanings": [
+   {
+    "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar",
+    "strength": "helpful",
+    "reason": "Practice inferring meaning and checking replacement words makes contextual synonym selection easier. The lesson teaches its own context and nuance checks."
+   }
+  ],
+  "lesson-vocabulary-opposites-with-levels-and-two-states": [
+   {
+    "lesson": "lesson-vocabulary-similar-and-opposite-meanings",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-opposite-roles": [
+   {
+    "lesson": "lesson-vocabulary-opposites-with-levels-and-two-states",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-meaning-and-grammar-in-context": [
+   {
+    "lesson": "lesson-vocabulary-opposite-roles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar",
+    "strength": "helpful",
+    "reason": "Checking nearby words helps students choose the meaning that fits the sentence."
+   }
+  ],
+  "lesson-vocabulary-feeling-strength-and-formality": [
+   {
+    "lesson": "lesson-vocabulary-meaning-and-grammar-in-context",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-prefix-clues-in-context": [
+   {
+    "lesson": "lesson-vocabulary-feeling-strength-and-formality",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-kasingkahulugan-at-kasalungat": [
+   {
+    "lesson": "lesson-vocabulary-prefix-clues-in-context",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-letters-sounds-and-vowel-order": [
+   {
+    "lesson": "lesson-vocabulary-panlaping-kabilaan-at-laguhan",
+    "strength": "helpful",
+    "reason": "Practice separating bases from suffixes makes spelling changes easier to track. The lesson defines both terms and teaches its spelling rules."
+   }
+  ],
+  "lesson-vocabulary-silent-e-with-suffixes": [
+   {
+    "lesson": "lesson-vocabulary-letters-sounds-and-vowel-order",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-doubling-final-consonants": [
+   {
+    "lesson": "lesson-vocabulary-silent-e-with-suffixes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-checking-longer-spellings": [
+   {
+    "lesson": "lesson-vocabulary-doubling-final-consonants",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-vocabulary-roots-bases-and-valid-splits",
+    "strength": "helpful",
+    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   }
+  ],
+  "lesson-vocabulary-baybay-ng-hiram-na-salita": [
+   {
+    "lesson": "lesson-vocabulary-checking-longer-spellings",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-affect-and-effect": [
+   {
+    "lesson": "lesson-grammar-and-structure-english-word-jobs",
+    "strength": "helpful",
+    "reason": "Recognizing word jobs helps distinguish affect/effect and sila/sina. The lesson defines the relevant jobs and usage rules itself."
+   }
+  ],
+  "lesson-vocabulary-its-and-it-is-or-it-has": [
+   {
+    "lesson": "lesson-vocabulary-affect-and-effect",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-ng-at-nang": [
+   {
+    "lesson": "lesson-vocabulary-its-and-it-is-or-it-has",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-sila-at-sina": [
+   {
+    "lesson": "lesson-vocabulary-ng-at-nang",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-vocabulary-english-word-elements": [
+   {
+    "lesson": "lesson-vocabulary-roots-bases-and-valid-splits",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-suffixes-for-qualities-and-absence": [
+   {
+    "lesson": "lesson-vocabulary-english-word-elements",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-suffixes-and-word-jobs": [
+   {
+    "lesson": "lesson-vocabulary-suffixes-for-qualities-and-absence",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi": [
+   {
+    "lesson": "lesson-vocabulary-suffixes-and-word-jobs",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-panlaping-kabilaan-at-laguhan": [
+   {
+    "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-comparisons-and-human-actions": [
+   {
+    "lesson": "lesson-vocabulary-idioms-and-literal-meanings",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-sound-and-opposing-words": [
+   {
+    "lesson": "lesson-vocabulary-comparisons-and-human-actions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis": [
+   {
+    "lesson": "lesson-vocabulary-sound-and-opposing-words",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-contrast-and-inference-clues": [
+   {
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-vocabulary-word-partners-feeling-and-grammar": [
+   {
+    "lesson": "lesson-vocabulary-contrast-and-inference-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-authors-main-purpose": [],
+  "lesson-comprehension-skills-title-main-idea": [
+   {
+    "lesson": "lesson-comprehension-skills-balangkas-at-ugnayan",
+    "strength": "helpful",
+    "reason": "Finding the central point and checking its scope makes title selection easier. This lesson also explains both steps."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-main-idea-scope",
+    "strength": "helpful",
+    "reason": "Checking the scope helps students choose a main point that covers more than one detail."
+   }
+  ],
+  "lesson-comprehension-skills-definition-and-example-clues": [
+   {
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms",
+    "strength": "helpful",
+    "reason": "Practice recognizing word-level clues helps students combine clues across sentences. This lesson reteaches the needed clue types."
+   }
+  ],
+  "lesson-language-application-completion-meaning-clues": [
+   {
+    "lesson": "lesson-vocabulary-definitions-examples-and-synonyms",
+    "strength": "helpful",
+    "reason": "Practice combining contrast, cause, and surrounding details makes predicting missing meanings easier. The lesson explains its own meaning-clue method."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-present-habits-and-ongoing-actions",
+    "strength": "helpful",
+    "reason": "Prior practice distinguishing finished actions from earlier completed actions eases tense selection. The lesson explains its tested verb patterns."
+   }
+  ],
+  "lesson-language-application-completion-word-forms": [
+   {
+    "lesson": "lesson-language-application-completion-meaning-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-completion-past-time": [
+   {
+    "lesson": "lesson-language-application-completion-word-forms",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-past-events-and-future-meaning",
+    "strength": "helpful",
+    "reason": "Using past forms for finished past events helps students keep the time clear."
+   }
+  ],
+  "lesson-language-application-completion-articles-and-lists": [
+   {
+    "lesson": "lesson-language-application-completion-past-time",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-completion-natural-phrases": [
+   {
+    "lesson": "lesson-language-application-completion-articles-and-lists",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-pagkumpleto-ng-pangungusap": [
+   {
+    "lesson": "lesson-language-application-completion-natural-phrases",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-universal-rights-and-history": [],
+  "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms": [
+   {
+    "lesson": "lesson-peace-and-human-rights-universal-rights-and-history",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-searches-and-private-messages": [
+   {
+    "lesson": "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-home-travel-and-public-records": [
+   {
+    "lesson": "lesson-peace-and-human-rights-searches-and-private-messages",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-groups-property-and-contracts": [
+   {
+    "lesson": "lesson-peace-and-human-rights-home-travel-and-public-records",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-custodial-investigation-and-bail": [
+   {
+    "lesson": "lesson-peace-and-human-rights-groups-property-and-contracts",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-criminal-trial-protections": [
+   {
+    "lesson": "lesson-peace-and-human-rights-custodial-investigation-and-bail",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-detention-review-and-compelled-testimony": [
+   {
+    "lesson": "lesson-peace-and-human-rights-criminal-trial-protections",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-detention-punishment-and-debt": [
+   {
+    "lesson": "lesson-peace-and-human-rights-detention-review-and-compelled-testimony",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-double-jeopardy-protections": [
+   {
+    "lesson": "lesson-peace-and-human-rights-detention-punishment-and-debt",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-rights-during-emergencies": [
+   {
+    "lesson": "lesson-peace-and-human-rights-double-jeopardy-protections",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-commission-on-human-rights": [
+   {
+    "lesson": "lesson-peace-and-human-rights-rights-during-emergencies",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-peace-and-human-rights-hrl-and-ihl-scope": [
+   {
+    "lesson": "lesson-peace-and-human-rights-commission-on-human-rights",
+    "strength": "helpful",
+    "reason": "Understanding continuing government duties and emergency limits makes the comparison with humanitarian law easier. This lesson explains those principles again."
+   }
+  ],
+  "lesson-peace-and-human-rights-armed-conflict-types": [
+   {
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-scope",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-hrl-and-ihl-together": [
+   {
+    "lesson": "lesson-peace-and-human-rights-armed-conflict-types",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-iccpr-emergency-conditions": [
+   {
+    "lesson": "lesson-peace-and-human-rights-hrl-and-ihl-together",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-iccpr-protected-rights": [
+   {
+    "lesson": "lesson-peace-and-human-rights-iccpr-emergency-conditions",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-people-protected-from-attack": [
+   {
+    "lesson": "lesson-peace-and-human-rights-iccpr-protected-rights",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-weapons-limits": [
+   {
+    "lesson": "lesson-peace-and-human-rights-people-protected-from-attack",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-military-targets": [
+   {
+    "lesson": "lesson-peace-and-human-rights-weapons-limits",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-attack-rules": [
+   {
+    "lesson": "lesson-peace-and-human-rights-military-targets",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-peace-and-human-rights-ihl-preparation-and-peace": [
+   {
+    "lesson": "lesson-peace-and-human-rights-attack-rules",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-authors-tone": [
+   {
+    "lesson": "lesson-comprehension-skills-authors-main-purpose",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-first-and-second-person": [
+   {
+    "lesson": "lesson-comprehension-skills-authors-tone",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-third-person-thoughts": [
+   {
+    "lesson": "lesson-comprehension-skills-first-and-second-person",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-argument-viewpoint-and-bias": [
+   {
+    "lesson": "lesson-comprehension-skills-third-person-thoughts",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-paragraph-links-and-patterns": [
+   {
+    "lesson": "lesson-comprehension-skills-argument-viewpoint-and-bias",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-sentence-cues-and-meaning": [
+   {
+    "lesson": "lesson-comprehension-skills-paragraph-links-and-patterns",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-contrast-and-cause-clues": [
+   {
+    "lesson": "lesson-comprehension-skills-definition-and-example-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-word-parts-in-passages": [
+   {
+    "lesson": "lesson-comprehension-skills-contrast-and-cause-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-meaning-clues": [
+   {
+    "lesson": "lesson-comprehension-skills-word-parts-in-passages",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-possibility-and-time": [
+   {
+    "lesson": "lesson-comprehension-skills-filipino-meaning-clues",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-pronouns-modifiers-spelling": [
+   {
+    "lesson": "lesson-comprehension-skills-filipino-possibility-and-time",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-sentence-types": [
+   {
+    "lesson": "lesson-comprehension-skills-filipino-pronouns-modifiers-spelling",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-title-scope": [
+   {
+    "lesson": "lesson-comprehension-skills-title-main-idea",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-comprehension-skills-title-authors-stance": [
+   {
+    "lesson": "lesson-comprehension-skills-title-scope",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   },
+   {
+    "lesson": "lesson-comprehension-skills-main-point-and-topic-sentence",
+    "strength": "helpful",
+    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   }
+  ],
+  "lesson-comprehension-skills-connecting-clues": [],
+  "lesson-comprehension-skills-evidence-and-claim-strength": [
+   {
+    "lesson": "lesson-comprehension-skills-connecting-clues",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-necessary-assumptions": [
+   {
+    "lesson": "lesson-comprehension-skills-evidence-and-claim-strength",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-visual-data-conclusions": [
+   {
+    "lesson": "lesson-comprehension-skills-necessary-assumptions",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-hinuha-mula-sa-detalye": [
+   {
+    "lesson": "lesson-comprehension-skills-visual-data-conclusions",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-paghatol-at-ebidensya": [
+   {
+    "lesson": "lesson-comprehension-skills-hinuha-mula-sa-detalye",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-main-point-and-topic-sentence": [],
+  "lesson-comprehension-skills-implied-main-point": [
+   {
+    "lesson": "lesson-comprehension-skills-main-point-and-topic-sentence",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-main-idea-scope": [
+   {
+    "lesson": "lesson-comprehension-skills-implied-main-point",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-main-idea-across-paragraphs": [
+   {
+    "lesson": "lesson-comprehension-skills-main-idea-scope",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-paksa-at-pangunahing-ideya": [
+   {
+    "lesson": "lesson-comprehension-skills-main-idea-across-paragraphs",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-balangkas-at-ugnayan": [
+   {
+    "lesson": "lesson-comprehension-skills-paksa-at-pangunahing-ideya",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-checkable-claims-and-judgments": [],
+  "lesson-comprehension-skills-claim-type-and-evidence": [
+   {
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-projections-and-forecasts": [
+   {
+    "lesson": "lesson-comprehension-skills-claim-type-and-evidence",
+    "strength": "required",
+    "reason": "This part builds on the previous part."
+   }
+  ],
+  "lesson-comprehension-skills-event-time-words": [],
+  "lesson-comprehension-skills-event-verb-forms": [
+   {
+    "lesson": "lesson-comprehension-skills-event-time-words",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-event-causes-and-overlap": [
+   {
+    "lesson": "lesson-comprehension-skills-event-verb-forms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-event-time": [
+   {
+    "lesson": "lesson-comprehension-skills-event-causes-and-overlap",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-filipino-event-causes": [
+   {
+    "lesson": "lesson-comprehension-skills-filipino-event-time",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-scanning-exact-details": [],
+  "lesson-comprehension-skills-skimming-and-meaning-matches": [
+   {
+    "lesson": "lesson-comprehension-skills-scanning-exact-details",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-comprehension-skills-old-and-current-details": [
+   {
+    "lesson": "lesson-comprehension-skills-skimming-and-meaning-matches",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-language-application-subject-and-verb-checks": [
+   {
+    "lesson": "lesson-grammar-and-structure-finding-subjects-and-matching-verbs",
+    "strength": "helpful",
+    "reason": "Focused agreement practice makes the correction checks easier. The lesson restates agreement rules and explains each correction."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences",
+    "strength": "helpful",
+    "reason": "Practice counting clauses supports the English and Filipino sentence-classification tasks. The lesson supplies its own sentence-type definitions."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns",
+    "strength": "helpful",
+    "reason": "Checking what a group noun or pronoun refers to helps students choose the matching verb."
+   }
+  ],
+  "lesson-language-application-pronoun-reference-checks": [
+   {
+    "lesson": "lesson-language-application-subject-and-verb-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-groups-and-indefinite-pronouns",
+    "strength": "helpful",
+    "reason": "Checking what a group noun or pronoun refers to helps students choose the matching verb."
+   }
+  ],
+  "lesson-language-application-modifiers-and-matching-forms": [
+   {
+    "lesson": "lesson-language-application-pronoun-reference-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-past-time-checks": [
+   {
+    "lesson": "lesson-language-application-modifiers-and-matching-forms",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-modal-meaning-checks": [
+   {
+    "lesson": "lesson-language-application-past-time-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-phrases-and-sentence-types": [
+   {
+    "lesson": "lesson-language-application-modal-meaning-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-clause-punctuation-checks": [
+   {
+    "lesson": "lesson-language-application-phrases-and-sentence-types",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-word-meaning-checks": [
+   {
+    "lesson": "lesson-language-application-clause-punctuation-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-wastong-gamit-at-panahon": [
+   {
+    "lesson": "lesson-language-application-word-meaning-checks",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-kayarian-at-sugnay": [
+   {
+    "lesson": "lesson-language-application-wastong-gamit-at-panahon",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-openings-and-reference-links": [
+   {
+    "lesson": "lesson-comprehension-skills-balangkas-at-ugnayan",
+    "strength": "helpful",
+    "reason": "Distinguishing a main point from supporting details helps organize general statements, examples, and outlines. The lesson explains these ideas sufficiently itself."
+   },
+   {
+    "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they",
+    "strength": "helpful",
+    "reason": "Practice identifying pronoun references makes reference chains easier to follow. The lesson teaches how references guide ordering."
+   }
+  ],
+  "lesson-language-application-transition-links": [
+   {
+    "lesson": "lesson-language-application-openings-and-reference-links",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-time-and-step-order": [
+   {
+    "lesson": "lesson-language-application-transition-links",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-cause-and-effect-order": [
+   {
+    "lesson": "lesson-language-application-time-and-step-order",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-main-ideas-and-details": [
+   {
+    "lesson": "lesson-language-application-cause-and-effect-order",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-details-and-supported-inferences": [
+   {
+    "lesson": "lesson-language-application-main-ideas-and-details",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-pagkakasunod-at-sanhi": [
+   {
+    "lesson": "lesson-language-application-details-and-supported-inferences",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-language-application-paksa-at-balangkas": [
+   {
+    "lesson": "lesson-language-application-pagkakasunod-at-sanhi",
+    "strength": "required",
+    "reason": "Read the previous part before this part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-sequence-letter-patterns": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-sequence-earlier-terms",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-invalid-conditional-forms": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-valid-conditional-forms",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-combined-truth-values": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-conditional-truth-values",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs": [
+   {
+    "lesson": "lesson-vocabulary-similar-and-opposite-meanings",
+    "strength": "helpful",
+    "reason": "Recognizing close meanings, opposites, and differences in strength makes relationship matching easier. The lesson explains these relationships sufficiently itself."
+   },
+   {
+    "lesson": "lesson-logical-verbal-reasoning-analogy-functions-users-and-work",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-arithmetic-number-sense-decimal-and-percent-conversions": [],
+  "lesson-arithmetic-number-sense-fractions-and-mixed-forms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-adding-and-multiplying-fractions": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-fractions-and-mixed-forms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-multiplying-and-dividing-decimals": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-adding-and-multiplying-fractions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-percentage-base-and-fraction-division": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-multiplying-and-dividing-decimals",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-successive-percentages-and-increases": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-finding-number-patterns": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
     "strength": "required",
     "reason": "The infinite-series example assumes fraction subtraction and reciprocal division without explaining those rules."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-order-of-operations",
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
     "strength": "helpful",
     "reason": "Formula evaluation benefits from powers and signed-arithmetic practice. The earlier required exponent-laws link is unnecessary for the examples used."
+   }
+  ],
+  "lesson-arithmetic-number-sense-odd-and-even-position-patterns": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-finding-number-patterns",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-arithmetic-sequence-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-odd-and-even-position-patterns",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-arithmetic-series-sums": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-sequence-terms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-geometric-sequence-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-arithmetic-series-sums",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-finite-geometric-series": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-geometric-sequence-terms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-infinite-geometric-series": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-finite-geometric-series",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-harmonic-sequence-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-infinite-geometric-series",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-fibonacci-type-sequence-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-harmonic-sequence-terms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-operation-priority-and-left-to-right": [],
+  "lesson-arithmetic-number-sense-signed-integers-and-substitution": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-grouping-and-fraction-bars": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-same-remainder-numbers": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-last-digit-divisibility",
+    "strength": "helpful",
+    "reason": "Digit tests make finding prime divisors faster. Prime factorization still works through the repeated division taught here."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-least-common-multiple",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-prime-factors-and-powers": [],
+  "lesson-arithmetic-number-sense-greatest-common-factor": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-prime-factors-and-powers",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-least-common-multiple": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-coprime-divisibility-tests": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-last-digit-divisibility": [],
+  "lesson-arithmetic-number-sense-digit-sums-and-six": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-last-digit-divisibility",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-digit-sums-and-six",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-compound-interest": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "required",
+    "reason": "Retained from the earlier audit. Business examples assume percentage-to-decimal conversion and decimal multiplication without teaching their methods."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-simple-interest",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-discounted-prices": [],
+  "lesson-arithmetic-number-sense-markup-on-cost": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-discounted-prices",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division",
+    "strength": "helpful",
+    "reason": "Dividing the part by the base helps students tell a percentage from an amount."
+   }
+  ],
+  "lesson-arithmetic-number-sense-commission-and-sales-tax": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-markup-on-cost",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-simple-interest": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-commission-and-sales-tax",
+    "strength": "required",
+    "reason": "This part continues the preceding part of the split lesson."
+   }
+  ],
+  "lesson-arithmetic-number-sense-commutative-and-associative-properties": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
+    "strength": "helpful",
+    "reason": "Signed arithmetic practice makes combining coefficients and distributing negative factors easier. This lesson supplies the algebra rules."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "strength": "helpful",
+    "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
+   }
+  ],
+  "lesson-arithmetic-number-sense-identities-and-like-terms": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-commutative-and-associative-properties",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-additive-and-multiplicative-inverses": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-identities-and-like-terms",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "strength": "helpful",
+    "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
+   }
+  ],
+  "lesson-arithmetic-number-sense-distribution-and-common-factors": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-additive-and-multiplicative-inverses",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "strength": "helpful",
+    "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
+   }
+  ],
+  "lesson-arithmetic-number-sense-direct-proportion-and-travel": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "helpful",
+    "reason": "Fraction fluency helps with ratio notation and fractional answers. This lesson teaches the proportion methods it uses."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division",
+    "strength": "helpful",
+    "reason": "Dividing the part by the base helps students tell a percentage from an amount."
+   }
+  ],
+  "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-direct-proportion-and-travel",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-partitive-proportion-and-differences": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-arithmetic-number-sense-real-number-sets": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars",
+    "strength": "helpful",
+    "reason": "Signed arithmetic makes complex-number multiplication easier. This lesson teaches distribution, collecting terms, and replacing i squared locally."
+   }
+  ],
+  "lesson-arithmetic-number-sense-imaginary-unit-and-powers": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-real-number-sets",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "strength": "helpful",
+    "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
+   }
+  ],
+  "lesson-arithmetic-number-sense-complex-products-and-quotients": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-imaginary-unit-and-powers",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "strength": "helpful",
+    "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
+   }
+  ],
+  "lesson-clerical-ability-personal-name-filing-units": [],
+  "lesson-clerical-ability-filing-patterns-and-surname-particles": [
+   {
+    "lesson": "lesson-clerical-ability-personal-name-filing-units",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-suffixes-titles-and-filing-ties": [
+   {
+    "lesson": "lesson-clerical-ability-filing-patterns-and-surname-particles",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-whole-number-and-decimal-filing": [],
+  "lesson-clerical-ability-oldest-and-newest-date-order": [
+   {
+    "lesson": "lesson-clerical-ability-whole-number-and-decimal-filing",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-year-first-and-stated-date-formats": [
+   {
+    "lesson": "lesson-clerical-ability-oldest-and-newest-date-order",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-integer-subcode-filing": [
+   {
+    "lesson": "lesson-clerical-ability-year-first-and-stated-date-formats",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-character-string-filing": [
+   {
+    "lesson": "lesson-clerical-ability-integer-subcode-filing",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-clerical-ability-terminal-digit-filing-order": [
+   {
+    "lesson": "lesson-clerical-ability-character-string-filing",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-needed-assumptions": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments",
+    "strength": "helpful",
+    "reason": "Practice with forced conclusions makes group-based deductions easier. Assumptions and Conclusions explains the needed group meanings itself."
+   },
+   {
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives",
+    "strength": "helpful",
+    "reason": "Understanding negation and compound statements makes the compound-assumption test easier. The lesson supplies its own negation rules."
+   }
+  ],
+  "lesson-verbal-logic-negating-assumptions": [
+   {
+    "lesson": "lesson-verbal-logic-needed-assumptions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-must-be-true-conclusions": [
+   {
+    "lesson": "lesson-verbal-logic-compound-assumptions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments",
+    "strength": "helpful",
+    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   },
+   {
+    "lesson": "lesson-logical-verbal-reasoning-invalid-conditional-forms",
+    "strength": "helpful",
+    "reason": "Checking a conditional in its stated direction helps students avoid reversed or unsupported conclusions."
+   }
+  ],
+  "lesson-verbal-logic-none-and-may": [
+   {
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-logical-verbal-reasoning-invalid-conditional-forms",
+    "strength": "helpful",
+    "reason": "Checking a conditional in its stated direction helps students avoid reversed or unsupported conclusions."
+   }
+  ],
+  "lesson-verbal-logic-best-supported-conclusions": [
+   {
+    "lesson": "lesson-verbal-logic-none-and-may",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-unsupported-causes-and-motives": [
+   {
+    "lesson": "lesson-verbal-logic-best-supported-conclusions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-recognizing-bias": [
+   {
+    "lesson": "lesson-verbal-logic-unsupported-causes-and-motives",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-verbal-logic-compound-assumptions": [
+   {
+    "lesson": "lesson-verbal-logic-negating-assumptions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-sequence-moves": [],
+  "lesson-logical-verbal-reasoning-sequence-positions-and-operations": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-sequence-earlier-terms": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-sequence-positions-and-operations",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-deductive-group-arguments": [],
+  "lesson-logical-verbal-reasoning-valid-conditional-forms": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-deductive-group-arguments",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-truth-tables-and-connectives": [],
+  "lesson-logical-verbal-reasoning-conditional-truth-values": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-truth-tables-and-connectives",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-logical-verbal-reasoning-analogy-parts-types-and-products": [],
+  "lesson-logical-verbal-reasoning-analogy-functions-users-and-work": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-analogy-parts-types-and-products",
+    "strength": "required",
+    "reason": "This part continues the ideas in the previous part."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matrix-turns-and-counts": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+    "strength": "helpful",
+    "reason": "Tracking separate visual changes prepares students to combine row and column rules. Matrices teaches enough to stand alone."
+   },
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills",
+    "strength": "helpful",
+    "reason": "Tracking separate visual changes prepares students to combine row and column rules. Matrices teaches enough to stand alone."
+   },
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+    "strength": "helpful",
+    "reason": "Tracking the direction and size of each turn helps students continue a visual pattern."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills",
+    "strength": "helpful",
+    "reason": "Wrong answers on this lesson's questions point here; it teaches the skill they need."
+   },
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+    "strength": "helpful",
+    "reason": "Checking each changing feature helps students continue size and count patterns."
+   },
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+    "strength": "helpful",
+    "reason": "Tracking the direction and size of each turn helps students continue a visual pattern."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matrix-keeping-all-features": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-matrix-keeping-shared-features": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold": [],
+  "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-uneven-folds-and-cut-layers": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-figure-counts-and-fills": [
+   {
+    "lesson": "lesson-logical-verbal-reasoning-sequence-moves",
+    "strength": "helpful",
+    "reason": "Separating odd and even positions makes mixed figure patterns easier. Figure Series also explains this method itself."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-figure-turns-and-positions": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry": [],
+  "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-testing-a-figure-group-rule": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips": [],
+  "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows": [
+   {
+    "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-age-word-problems": [],
+  "lesson-algebra-motion-meeting-and-separation": [
+   {
+    "lesson": "lesson-algebra-age-word-problems",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-motion-chase-problems": [
+   {
+    "lesson": "lesson-algebra-motion-meeting-and-separation",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-work-rate-problems": [
+   {
+    "lesson": "lesson-algebra-motion-chase-problems",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-mixture-word-problems": [
+   {
+    "lesson": "lesson-algebra-work-rate-problems",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-coin-and-digit-problems": [
+   {
+    "lesson": "lesson-algebra-mixture-word-problems",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-two-variable-inequalities",
+    "strength": "helpful",
+    "reason": "Equation-solving practice reduces the work after translation. This lesson shows the needed solving steps in its examples."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+    "strength": "required",
+    "reason": "The work example assumes common-denominator addition and division by a fraction without teaching those arithmetic rules."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-decimal-and-percent-conversions",
+    "strength": "helpful",
+    "reason": "The work example assumes common-denominator addition and division by a fraction without teaching those arithmetic rules."
+   }
+  ],
+  "lesson-algebra-translating-algebraic-phrases": [],
+  "lesson-algebra-rates-and-consecutive-integers": [
+   {
+    "lesson": "lesson-algebra-translating-algebraic-phrases",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-exponent-laws-and-zero-powers": [],
+  "lesson-algebra-fractional-powers-and-exponent-equations": [
+   {
+    "lesson": "lesson-algebra-exponent-laws-and-zero-powers",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
+    "strength": "helpful",
+    "reason": "Distribute to every term and substitute values before combining like terms."
+   }
+  ],
+  "lesson-algebra-logarithm-meaning-and-equations": [
+   {
+    "lesson": "lesson-algebra-fractional-powers-and-exponent-equations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-rates-and-consecutive-integers",
+    "strength": "helpful",
+    "reason": "Use the same operation on both sides to find an unknown."
+   }
+  ],
+  "lesson-algebra-functions-domain-and-range": [],
+  "lesson-algebra-evaluating-and-composing-functions": [
+   {
+    "lesson": "lesson-algebra-functions-domain-and-range",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-inverse-functions-and-checks": [
+   {
+    "lesson": "lesson-algebra-evaluating-and-composing-functions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-one-variable-inequalities": [
+   {
+    "lesson": "lesson-algebra-solving-linear-equations",
+    "strength": "required",
+    "reason": "Continue from the preceding part of this lesson."
+   },
+   {
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
+    "strength": "helpful",
+    "reason": "Distribute to every term and substitute values before combining like terms."
+   }
+  ],
+  "lesson-algebra-line-slopes-and-intercepts": [
+   {
+    "lesson": "lesson-algebra-one-variable-inequalities",
+    "strength": "required",
+    "reason": "Continue from the preceding part of this lesson."
+   },
+   {
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
+    "strength": "helpful",
+    "reason": "Distribute to every term and substitute values before combining like terms."
+   }
+  ],
+  "lesson-algebra-parallel-and-perpendicular-lines": [
+   {
+    "lesson": "lesson-algebra-line-slopes-and-intercepts",
+    "strength": "required",
+    "reason": "Continue from the preceding part of this lesson."
+   }
+  ],
+  "lesson-algebra-two-variable-inequalities": [
+   {
+    "lesson": "lesson-algebra-parallel-and-perpendicular-lines",
+    "strength": "required",
+    "reason": "Continue from the preceding part of this lesson."
+   }
+  ],
+  "lesson-algebra-polynomial-operations": [
+   {
+    "lesson": "lesson-algebra-polynomial-terms-and-degree",
+    "strength": "required",
+    "reason": "Continue from the preceding part of this lesson."
+   }
+  ],
+  "lesson-algebra-polynomial-special-products": [
+   {
+    "lesson": "lesson-algebra-polynomial-operations",
+    "strength": "required",
+    "reason": "Continue from the preceding part of this lesson."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-greatest-common-factor",
+    "strength": "helpful",
+    "reason": "Factoring out the greatest common factor uses the GCF skill."
+   }
+  ],
+  "lesson-algebra-factoring-quadratics": [
+   {
+    "lesson": "lesson-algebra-polynomial-special-products",
+    "strength": "required",
+    "reason": "Continue from the preceding part of this lesson."
+   }
+  ],
+  "lesson-algebra-factoring-cubes": [
+   {
+    "lesson": "lesson-algebra-factoring-quadratics",
+    "strength": "required",
+    "reason": "Continue from the preceding part of this lesson."
+   }
+  ],
+  "lesson-algebra-polynomial-long-division": [
+   {
+    "lesson": "lesson-algebra-factoring-cubes",
+    "strength": "required",
+    "reason": "Continue from the preceding part of this lesson."
+   }
+  ],
+  "lesson-algebra-polynomial-synthetic-division": [
+   {
+    "lesson": "lesson-algebra-polynomial-long-division",
+    "strength": "required",
+    "reason": "Continue from the preceding part of this lesson."
+   }
+  ],
+  "lesson-algebra-remainder-and-factor-theorems": [
+   {
+    "lesson": "lesson-algebra-polynomial-synthetic-division",
+    "strength": "required",
+    "reason": "Continue from the preceding part of this lesson."
+   }
+  ],
+  "lesson-algebra-polynomial-multiple-factors": [
+   {
+    "lesson": "lesson-algebra-remainder-and-factor-theorems",
+    "strength": "required",
+    "reason": "Continue from the preceding part of this lesson."
+   }
+  ],
+  "lesson-algebra-systems-substitution-and-word-problems": [],
+  "lesson-algebra-systems-elimination": [
+   {
+    "lesson": "lesson-algebra-systems-substitution-and-word-problems",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-systems-graphs-and-solution-counts": [
+   {
+    "lesson": "lesson-algebra-systems-elimination",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-systems-lines-and-parabolas": [
+   {
+    "lesson": "lesson-algebra-systems-graphs-and-solution-counts",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-linear-and-quadratic-functions": [
+   {
+    "lesson": "lesson-algebra-functions-domain-and-range",
+    "strength": "helpful",
+    "reason": "Downgraded from the earlier required link. This lesson now defines functions, domain, and function notation itself."
+   },
+   {
+    "lesson": "lesson-algebra-polynomial-multiple-factors",
+    "strength": "helpful",
+    "reason": "Polynomial division and factoring practice help with rational graphs. This lesson explains its needed division steps and factoring identity."
+   }
+  ],
+  "lesson-algebra-rational-domains-and-holes": [
+   {
+    "lesson": "lesson-algebra-linear-and-quadratic-functions",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-rational-vertical-and-horizontal-asymptotes": [
+   {
+    "lesson": "lesson-algebra-rational-domains-and-holes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-polynomial-terms-and-degree",
+    "strength": "helpful",
+    "reason": "Compare the highest exponents to find polynomial degrees."
+   }
+  ],
+  "lesson-algebra-rational-slant-asymptotes": [
+   {
+    "lesson": "lesson-algebra-rational-vertical-and-horizontal-asymptotes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-absolute-value-equations-and-graph-matching": [
+   {
+    "lesson": "lesson-algebra-rational-slant-asymptotes",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-absolute-value-transformations": [
+   {
+    "lesson": "lesson-algebra-absolute-value-equations-and-graph-matching",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-exponential-growth-and-function-families": [
+   {
+    "lesson": "lesson-algebra-absolute-value-transformations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-logarithmic-and-piecewise-functions": [
+   {
+    "lesson": "lesson-algebra-exponential-growth-and-function-families",
+    "strength": "required",
+    "reason": "Read the previous part first."
    }
   ],
   "lesson-biology-botany": [
@@ -202,18 +3368,6 @@
     "lesson": "lesson-biology-cell-biology",
     "strength": "helpful",
     "reason": "The first property says all life is made of cells, and the cell biology lesson shows what a cell contains and how it works."
-   }
-  ],
-  "lesson-biology-ecology": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-    "strength": "helpful",
-    "reason": "Percentage multiplication helps with energy transfers. Ecology supplies the 0.10 multiplier and worked steps, so it stands alone."
-   },
-   {
-    "lesson": "lesson-biology-cellular-metabolism",
-    "strength": "helpful",
-    "reason": "Understanding photosynthesis and respiration makes carbon cycling easier. Ecology explains their relevant roles itself."
    }
   ],
   "lesson-biology-evolution": [
@@ -265,7 +3419,7 @@
   ],
   "lesson-chemistry-acids-bases-ph": [
    {
-    "lesson": "lesson-algebra-exponents-and-logarithms",
+    "lesson": "lesson-algebra-logarithm-meaning-and-equations",
     "strength": "helpful",
     "reason": "The pH formula uses a base-10 logarithm. This lesson explains it as the power of 10 and only needs whole-number powers."
    },
@@ -375,53 +3529,6 @@
     "reason": "Concentration in moles per liter drives the rate law and K. This lesson states that M means mol/L and does not teach molarity."
    }
   ],
-  "lesson-clerical-ability-alphabetic-filing-rules": [],
-  "lesson-clerical-ability-numeric-and-chronological-filing": [],
-  "lesson-code-of-conduct-ra-6713-corruption-and-its-effects": [],
-  "lesson-code-of-conduct-ra-6713-duties-and-prohibited-acts": [],
-  "lesson-code-of-conduct-ra-6713-norms-of-conduct": [],
-  "lesson-code-of-conduct-ra-6713-penalties-and-enforcement": [
-   {
-    "lesson": "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules",
-    "strength": "helpful",
-    "reason": "Knowing Section 7 violations makes matching offenses to penalties easier. This lesson restates the disclosure offense used in its examples."
-   },
-   {
-    "lesson": "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment",
-    "strength": "helpful",
-    "reason": "Understanding permitted SALN access and use helps distinguish public disclosure from punishable misuse. This lesson supplies the essential misuse rules."
-   }
-  ],
-  "lesson-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules": [],
-  "lesson-code-of-conduct-ra-6713-statements-of-assets-and-divestment": [],
-  "lesson-comprehension-skills-authors-purpose-tone-pov": [],
-  "lesson-comprehension-skills-choosing-a-title": [
-   {
-    "lesson": "lesson-comprehension-skills-main-idea",
-    "strength": "helpful",
-    "reason": "Finding the central point and checking its scope makes title selection easier. This lesson also explains both steps."
-   }
-  ],
-  "lesson-comprehension-skills-context-clues-in-passages": [
-   {
-    "lesson": "lesson-vocabulary-context-clues",
-    "strength": "helpful",
-    "reason": "Practice recognizing word-level clues helps students combine clues across sentences. This lesson reteaches the needed clue types."
-   }
-  ],
-  "lesson-comprehension-skills-fact-vs-opinion": [],
-  "lesson-comprehension-skills-inferencing-and-conclusions": [],
-  "lesson-comprehension-skills-main-idea": [],
-  "lesson-comprehension-skills-noting-specific-details": [],
-  "lesson-comprehension-skills-sequencing-of-events": [],
-  "lesson-data-interpretation-rates-ratios-and-percentages-in-context": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-    "strength": "helpful",
-    "reason": "Conversion and percentage-base practice make the calculations easier. This lesson explains its comparison formulas and demonstrates conversion."
-   }
-  ],
-  "lesson-data-interpretation-tables-and-charts": [],
   "lesson-earth-science-astronomy-earths-motions": [],
   "lesson-earth-science-astronomy-earths-subsystems": [],
   "lesson-earth-science-astronomy-eclipses-and-moon-phases": [],
@@ -463,35 +3570,6 @@
     "reason": "Spring and neap tides depend on the Moon phases and the Sun, Earth, and Moon line-up. This lesson describes the line-up, and the phases lesson explains the phases themselves."
    }
   ],
-  "lesson-earth-science-astronomy-weather-and-climate": [
-   {
-    "lesson": "lesson-physics-thermodynamics",
-    "strength": "helpful",
-    "reason": "Heat-transfer knowledge helps explain winds and warming. Weather and Climate defines the needed processes itself."
-   }
-  ],
-  "lesson-environment-management-disaster-risk-reduction-and-management": [],
-  "lesson-environment-management-environmental-concepts": [],
-  "lesson-environment-management-environmental-problems-and-climate-change": [
-   {
-    "lesson": "lesson-environment-management-environmental-concepts",
-    "strength": "helpful",
-    "reason": "Knowing how sorting supports material recovery makes evaluating the waste program easier. This lesson defines segregation and explains the collection problem."
-   }
-  ],
-  "lesson-environment-management-species-resources-and-environmental-decisions": [],
-  "lesson-environment-management-the-environmental-laws": [
-   {
-    "lesson": "lesson-environment-management-environmental-concepts",
-    "strength": "helpful",
-    "reason": "The detailed distinction between sorting and diversion makes the waste-law cases easier. This lesson gives enough definitions to stand alone."
-   },
-   {
-    "lesson": "lesson-environment-management-disaster-risk-reduction-and-management",
-    "strength": "helpful",
-    "reason": "Knowing the four DRRM areas makes matching disaster actions to the law easier. This lesson briefly explains the areas itself."
-   }
-  ],
   "lesson-geometry-basic-geometric-concepts": [],
   "lesson-geometry-circles": [
    {
@@ -507,17 +3585,9 @@
     "reason": "The distance formula comes from the Pythagorean theorem. This lesson restates the theorem and shows the right triangle."
    },
    {
-    "lesson": "lesson-algebra-linear-equations-inequalities",
+    "lesson": "lesson-algebra-line-slopes-and-intercepts",
     "strength": "helpful",
-    "reason": "Slope, line forms and perpendicular slopes are also taught in the Linear Equations lesson. This lesson teaches them again from the start."
-   }
-  ],
-  "lesson-geometry-logic-and-reasoning": [],
-  "lesson-geometry-measurement": [
-   {
-    "lesson": "lesson-algebra-algebraic-expressions",
-    "strength": "helpful",
-    "reason": "Substitution and simple equation practice make measurement formulas easier. The examples show their required calculations step by step."
+    "reason": "Slope, line forms and perpendicular slopes are also taught in the Line Slopes and Intercepts lesson. This lesson teaches them again from the start."
    }
   ],
   "lesson-geometry-parallel-perpendicular-lines": [
@@ -546,99 +3616,6 @@
     "reason": "Angle names, linear pairs, midpoints and the supplementary and complementary sums make the angle examples easier. This lesson restates vertical angles and the 180-degree triangle sum."
    }
   ],
-  "lesson-grammar-and-structure-filipino-verb-aspect-and-focus": [],
-  "lesson-grammar-and-structure-modifiers": [
-   {
-    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
-    "strength": "helpful",
-    "reason": "Recognizing phrases and their understood doers makes dangling-modifier repairs easier. The lesson explains the repairs sufficiently to stand alone."
-   }
-  ],
-  "lesson-grammar-and-structure-parallelism": [
-   {
-    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
-    "strength": "helpful",
-    "reason": "Understanding infinitive and -ing groups makes comparisons between grammatical forms easier. The lesson supplies its own matching-form rules."
-   }
-  ],
-  "lesson-grammar-and-structure-parts-of-speech": [],
-  "lesson-grammar-and-structure-phrases-and-clauses": [],
-  "lesson-grammar-and-structure-pronoun-antecedent-agreement": [],
-  "lesson-grammar-and-structure-punctuation-and-capitalization": [
-   {
-    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
-    "strength": "helpful",
-    "reason": "Practice distinguishing independent and dependent clauses makes comma and semicolon choices easier. The lesson repeats the necessary definitions."
-   }
-  ],
-  "lesson-grammar-and-structure-redundancy-and-double-negatives": [],
-  "lesson-grammar-and-structure-sentence-structure": [
-   {
-    "lesson": "lesson-grammar-and-structure-phrases-and-clauses",
-    "strength": "helpful",
-    "reason": "Recognizing clause boundaries makes counting clauses and identifying sentence types easier. The lesson teaches the needed clause definitions itself."
-   }
-  ],
-  "lesson-grammar-and-structure-subject-verb-agreement": [
-   {
-    "lesson": "lesson-grammar-and-structure-filipino-verb-aspect-and-focus",
-    "strength": "helpful",
-    "reason": "Prior practice with Filipino aspect and focus eases the shift from English agreement rules. The lesson independently explains its Filipino rules."
-   }
-  ],
-  "lesson-grammar-and-structure-tenses-and-voice": [
-   {
-    "lesson": "lesson-grammar-and-structure-subject-verb-agreement",
-    "strength": "helpful",
-    "reason": "Subject and number identification makes choosing auxiliary forms easier. The lesson provides the basic agreement patterns needed for its examples."
-   }
-  ],
-  "lesson-language-application-error-identification": [
-   {
-    "lesson": "lesson-grammar-and-structure-subject-verb-agreement",
-    "strength": "helpful",
-    "reason": "Focused agreement practice makes the correction checks easier. The lesson restates agreement rules and explains each correction."
-   },
-   {
-    "lesson": "lesson-grammar-and-structure-sentence-structure",
-    "strength": "helpful",
-    "reason": "Practice counting clauses supports the English and Filipino sentence-classification tasks. The lesson supplies its own sentence-type definitions."
-   }
-  ],
-  "lesson-language-application-paragraph-organization": [
-   {
-    "lesson": "lesson-comprehension-skills-main-idea",
-    "strength": "helpful",
-    "reason": "Distinguishing a main point from supporting details helps organize general statements, examples, and outlines. The lesson explains these ideas sufficiently itself."
-   },
-   {
-    "lesson": "lesson-grammar-and-structure-pronoun-antecedent-agreement",
-    "strength": "helpful",
-    "reason": "Practice identifying pronoun references makes reference chains easier to follow. The lesson teaches how references guide ordering."
-   }
-  ],
-  "lesson-language-application-sentence-completion": [
-   {
-    "lesson": "lesson-vocabulary-context-clues",
-    "strength": "helpful",
-    "reason": "Practice combining contrast, cause, and surrounding details makes predicting missing meanings easier. The lesson explains its own meaning-clue method."
-   },
-   {
-    "lesson": "lesson-grammar-and-structure-tenses-and-voice",
-    "strength": "helpful",
-    "reason": "Prior practice distinguishing finished actions from earlier completed actions eases tense selection. The lesson explains its tested verb patterns."
-   }
-  ],
-  "lesson-logical-verbal-reasoning-number-and-letter-sequences": [],
-  "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic": [],
-  "lesson-logical-verbal-reasoning-truth-tables-propositional-logic": [],
-  "lesson-logical-verbal-reasoning-word-analogies": [
-   {
-    "lesson": "lesson-vocabulary-synonyms-and-antonyms",
-    "strength": "helpful",
-    "reason": "Recognizing close meanings, opposites, and differences in strength makes relationship matching easier. The lesson explains these relationships sufficiently itself."
-   }
-  ],
   "lesson-mechanical-technical-reasoning-fluid-pressure": [],
   "lesson-mechanical-technical-reasoning-pulleys-and-levers": [
    {
@@ -652,53 +3629,6 @@
     "lesson": "lesson-trigonometry-basic-trigonometric-ratios",
     "strength": "helpful",
     "reason": "The tipping angle uses the tangent. This lesson defines the tangent and the inverse tangent key."
-   }
-  ],
-  "lesson-peace-and-human-rights-human-rights-fundamentals": [],
-  "lesson-peace-and-human-rights-humanitarian-law-and-human-rights-law": [
-   {
-    "lesson": "lesson-peace-and-human-rights-human-rights-fundamentals",
-    "strength": "helpful",
-    "reason": "Understanding continuing government duties and emergency limits makes the comparison with humanitarian law easier. This lesson explains those principles again."
-   }
-  ],
-  "lesson-philippine-constitution-accountability-and-impeachment": [],
-  "lesson-philippine-constitution-amending-and-revising-the-constitution": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-    "strength": "helpful",
-    "reason": "The worked examples assume fraction multiplication and percentage-to-decimal conversion. This lesson does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
-   }
-  ],
-  "lesson-philippine-constitution-bill-of-rights": [],
-  "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody": [],
-  "lesson-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws": [
-   {
-    "lesson": "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial",
-    "strength": "helpful",
-    "reason": "Understanding speedy-trial violations helps explain why certain requested dismissals bar another prosecution. This lesson states the exception without developing the delay assessment."
-   }
-  ],
-  "lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial": [
-   {
-    "lesson": "lesson-philippine-constitution-bill-of-rights-property-courts-and-custody",
-    "strength": "helpful",
-    "reason": "Knowing custodial silence helps distinguish it from protection against compelled testimony. This lesson gives a brief comparison sufficient to stand alone."
-   }
-  ],
-  "lesson-philippine-constitution-citizenship-and-suffrage": [],
-  "lesson-philippine-constitution-the-articles-in-outline": [],
-  "lesson-philippine-constitution-the-civil-service-commission": [],
-  "lesson-philippine-constitution-the-three-branches-and-their-powers": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-    "strength": "helpful",
-    "reason": "The voting-threshold examples assume students can multiply a whole number by a fraction. This lesson identifies the calculation but does not teach fraction arithmetic. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
-   },
-   {
-    "lesson": "lesson-philippine-constitution-citizenship-and-suffrage",
-    "strength": "helpful",
-    "reason": "Knowing the special election-of-citizenship rule clarifies natural-born qualifications across offices. This lesson defines natural-born status but refers elsewhere for that exception."
    }
   ],
   "lesson-physics-dynamics": [
@@ -743,7 +3673,7 @@
   ],
   "lesson-physics-kinematics": [
    {
-    "lesson": "lesson-algebra-linear-equations-inequalities",
+    "lesson": "lesson-algebra-line-slopes-and-intercepts",
     "strength": "helpful",
     "reason": "Slope as rise over run makes the motion graphs easier to read. This lesson explains slope in the graph section, so the link is optional."
    }
@@ -834,50 +3764,13 @@
     "reason": "The efficiency section names effort, load and the ideal case, which that lesson explains in full. This lesson defines the efficiency formula itself."
    }
   ],
-  "lesson-spatial-abstract-reasoning-figure-grouping": [],
-  "lesson-spatial-abstract-reasoning-figure-matrices": [
-   {
-    "lesson": "lesson-spatial-abstract-reasoning-figure-series",
-    "strength": "helpful",
-    "reason": "Tracking separate visual changes prepares students to combine row and column rules. Matrices teaches enough to stand alone."
-   }
-  ],
-  "lesson-spatial-abstract-reasoning-figure-series": [
-   {
-    "lesson": "lesson-logical-verbal-reasoning-number-and-letter-sequences",
-    "strength": "helpful",
-    "reason": "Separating odd and even positions makes mixed figure patterns easier. Figure Series also explains this method itself."
-   }
-  ],
-  "lesson-spatial-abstract-reasoning-mental-rotation-3d-visualization": [],
-  "lesson-spatial-abstract-reasoning-paper-folding-and-cutting": [],
-  "lesson-statistics-and-probability-basic-probability": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-    "strength": "required",
-    "reason": "Combined-event calculations require fraction multiplication, simplification, and subtraction. This lesson teaches probability rules but assumes those arithmetic methods."
-   }
-  ],
   "lesson-statistics-and-probability-combinatorics": [
    {
-    "lesson": "lesson-algebra-sets-and-set-notation",
+    "lesson": "lesson-algebra-counting-venn-diagram-regions",
     "strength": "helpful",
     "reason": "Counting groups that overlap is the same idea as counting a union with a Venn diagram. This lesson explains the subtraction of the overlap."
    }
   ],
-  "lesson-statistics-and-probability-data-analysis-graphs": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-    "strength": "helpful",
-    "reason": "Percentage conversion and fraction multiplication practice make pie-chart calculations easier. This lesson gives the share formulas and demonstrates their use."
-   },
-   {
-    "lesson": "lesson-data-interpretation-tables-and-charts",
-    "strength": "helpful",
-    "reason": "Basic scale-reading practice helps before comparing graph scales. This lesson repeats the needed reading rules and adds more demanding comparisons."
-   }
-  ],
-  "lesson-statistics-and-probability-measures-of-central-tendency": [],
   "lesson-statistics-and-probability-measures-of-variability": [
    {
     "lesson": "lesson-statistics-and-probability-measures-of-central-tendency",
@@ -885,59 +3778,28 @@
     "reason": "Every spread measure here starts from the mean. This lesson defines the mean in its first paragraph."
    }
   ],
-  "lesson-text-types-essays-editorials-articles": [
-   {
-    "lesson": "lesson-comprehension-skills-authors-purpose-tone-pov",
-    "strength": "helpful",
-    "reason": "Distinguishing the dominant purpose from individual statements makes mixed text types easier to classify. This lesson provides its own method."
-   },
-   {
-    "lesson": "lesson-comprehension-skills-fact-vs-opinion",
-    "strength": "helpful",
-    "reason": "Separating checkable claims from judgments helps students distinguish reporting from argument. This lesson explains enough to classify its examples independently."
-   }
-  ],
-  "lesson-text-types-poetry": [
-   {
-    "lesson": "lesson-vocabulary-idioms-and-figures-of-speech",
-    "strength": "helpful",
-    "reason": "Recognizing figurative comparisons and repeated sounds makes poetic interpretation easier. Poetry defines each device before applying it."
-   }
-  ],
   "lesson-text-types-short-stories-and-novels": [
    {
-    "lesson": "lesson-comprehension-skills-inferencing-and-conclusions",
+    "lesson": "lesson-comprehension-skills-connecting-clues",
     "strength": "helpful",
     "reason": "Story analysis needs inferences that stay inside the evidence. This lesson explains inference briefly, and the inference lesson teaches how strong each claim can be."
    },
    {
-    "lesson": "lesson-comprehension-skills-authors-purpose-tone-pov",
+    "lesson": "lesson-comprehension-skills-authors-main-purpose",
     "strength": "helpful",
     "reason": "Narration, point of view, and author motivation are covered here in brief. The author's purpose lesson treats them in more depth."
    }
   ],
   "lesson-text-types-speeches": [
    {
-    "lesson": "lesson-comprehension-skills-authors-purpose-tone-pov",
+    "lesson": "lesson-comprehension-skills-authors-main-purpose",
     "strength": "helpful",
     "reason": "A speech's purpose and viewpoint are also taught as general reading skills. This lesson defines purpose itself, so the link is optional."
    },
    {
-    "lesson": "lesson-comprehension-skills-fact-vs-opinion",
+    "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments",
     "strength": "helpful",
     "reason": "Judging evidence draws on telling facts, opinions, and forecasts apart. This lesson sets out its own checks for evidence."
-   }
-  ],
-  "lesson-text-types-visual-media": [
-   {
-    "lesson": "lesson-arithmetic-number-sense-fractions-decimals-percentages",
-    "strength": "helpful",
-    "reason": "The numerical examples require fraction simplification, fraction multiplication, and conversion to decimals. This lesson supplies formulas but does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
-   },
-   {
-    "lesson": "lesson-comprehension-skills-inferencing-and-conclusions",
-    "strength": "helpful",
-    "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
    }
   ],
   "lesson-trigonometry-basic-trigonometric-ratios": [
@@ -947,7 +3809,7 @@
     "reason": "The ratios rest on right triangles, the Pythagorean theorem, similar triangles and the 45-45-90 and 30-60-90 shapes. This lesson restates each one."
    },
    {
-    "lesson": "lesson-algebra-radicals-and-rationalization",
+    "lesson": "lesson-algebra-rationalizing-square-root-denominators",
     "strength": "helpful",
     "reason": "The special-angle values use square roots and removing a root from a denominator. This lesson shows the one multiplication it needs."
    }
@@ -1003,54 +3865,6 @@
     "lesson": "lesson-trigonometry-angles-and-radian-measure",
     "strength": "helpful",
     "reason": "Radians and degree conversion get a full treatment in the Angles and Radian Measure lesson. This lesson teaches the radian shortcut it needs."
-   }
-  ],
-  "lesson-verbal-logic-assumptions-and-conclusions": [
-   {
-    "lesson": "lesson-logical-verbal-reasoning-syllogisms-and-deductive-logic",
-    "strength": "helpful",
-    "reason": "Practice with forced conclusions makes group-based deductions easier. Assumptions and Conclusions explains the needed group meanings itself."
-   },
-   {
-    "lesson": "lesson-logical-verbal-reasoning-truth-tables-propositional-logic",
-    "strength": "helpful",
-    "reason": "Understanding negation and compound statements makes the compound-assumption test easier. The lesson supplies its own negation rules."
-   }
-  ],
-  "lesson-vocabulary-confusing-words": [
-   {
-    "lesson": "lesson-grammar-and-structure-parts-of-speech",
-    "strength": "helpful",
-    "reason": "Recognizing word jobs helps distinguish affect/effect and sila/sina. The lesson defines the relevant jobs and usage rules itself."
-   }
-  ],
-  "lesson-vocabulary-context-clues": [],
-  "lesson-vocabulary-idioms-and-figures-of-speech": [
-   {
-    "lesson": "lesson-vocabulary-context-clues",
-    "strength": "helpful",
-    "reason": "Using surrounding events to infer meaning helps distinguish literal expressions from idioms. The lesson demonstrates that distinction independently."
-   }
-  ],
-  "lesson-vocabulary-root-words-prefixes-suffixes": [
-   {
-    "lesson": "lesson-grammar-and-structure-parts-of-speech",
-    "strength": "helpful",
-    "reason": "Recognizing word jobs makes suffix-driven changes easier to understand. The lesson defines the word classes needed for its examples."
-   }
-  ],
-  "lesson-vocabulary-spelling-rules": [
-   {
-    "lesson": "lesson-vocabulary-root-words-prefixes-suffixes",
-    "strength": "helpful",
-    "reason": "Practice separating bases from suffixes makes spelling changes easier to track. The lesson defines both terms and teaches its spelling rules."
-   }
-  ],
-  "lesson-vocabulary-synonyms-and-antonyms": [
-   {
-    "lesson": "lesson-vocabulary-context-clues",
-    "strength": "helpful",
-    "reason": "Practice inferring meaning and checking replacement words makes contextual synonym selection easier. The lesson teaches its own context and nuance checks."
    }
   ]
  }

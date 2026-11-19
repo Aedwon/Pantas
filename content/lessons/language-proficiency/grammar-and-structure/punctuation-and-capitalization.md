@@ -6,6 +6,13 @@ subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-grammar-and-structure-commas-in-lists-and-joined-clauses
+  - lesson-grammar-and-structure-commas-with-openings-and-extra-information
+  - lesson-grammar-and-structure-semicolons-and-comma-splices
+  - lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions
+  - lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes
 ---
 ## Core Concept
 

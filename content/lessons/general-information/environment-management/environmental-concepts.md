@@ -6,6 +6,11 @@ subject: "subject-general-information"
 topic: "topic-environment-management"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-environment-management-source-segregation-and-waste-types
+  - lesson-environment-management-reuse-and-recycling
+  - lesson-environment-management-reduction-composting-and-diversion
 ---
 <!-- AUDIT: Learning goal: Sort waste into the four source-segregation categories and distinguish sorting from reduction, reuse, recycling and composting. Branch: content/cse-rewrite-r1. Supplied standards base: f1062e06. Source checked 2026-10-26: RA 9003, Sections 2, 3, 20 to 22, https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html. Section 3(bb) expressly includes collection, segregation and reuse of used packaging within recycling. No prerequisite teaching assumed. -->
 ## Core Concept

@@ -8,6 +8,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-language-application-sentence-completion-0001"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "easy"
     stem: |
@@ -28,6 +30,8 @@ questions:
       "Resilient" means able to recover from difficulty. The team overcame the obstacles and still delivered on schedule, so that meaning fits.
     approved: true
   - id: "q-language-application-sentence-completion-0002"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "easy"
     stem: |
@@ -48,6 +52,8 @@ questions:
       "Equivocal" means open to more than one interpretation. This uncertainty explains why the investigator waited for more results.
     approved: true
   - id: "q-language-application-sentence-completion-0003"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -68,6 +74,8 @@ questions:
       Replacing the whole established structure is a radical change. Managers who explicitly oppose that change show resistance.
     approved: true
   - id: "q-language-application-sentence-completion-0004"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -89,6 +97,8 @@ questions:
       "Disparate" means very different. A building ban and unrestricted construction are sharply different views, so the word fits their relationship.
     approved: true
   - id: "q-language-application-sentence-completion-0005"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "easy"
     stem: |
@@ -109,6 +119,8 @@ questions:
       "Lucid" means clear and easy to understand. It matches an explanation that new employees could follow.
     approved: true
   - id: "q-language-application-sentence-completion-0006"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -129,6 +141,8 @@ questions:
       "Coherent" means orderly and consistent. The report is far from that quality, and "contradictory" describes statements that conflict.
     approved: true
   - id: "q-language-application-sentence-completion-0007"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "hard"
     stem: |
@@ -149,12 +163,14 @@ questions:
       "Depleted" means greatly reduced. A drought-reduced reservoir supports the need to ration the remaining water.
     approved: true
   - id: "q-language-application-sentence-completion-0008"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "hard"
     stem: |
       While the keynote speaker praised the overall expansion plan, she nevertheless cautioned that rapid growth without adequate funding would prove ________ to long-term stability.
     choices:
-      - text: "detrimental"
+      - text: "harmful"
         correct: true
       - text: "beneficial"
         rationale: |
@@ -166,9 +182,11 @@ questions:
         rationale: |
           This describes importance rather than harm. Funding is important to expansion. Check: choose a word that states the effect on stability.
     explanation: |
-      "Detrimental" means harmful. It states the warned-of effect on long-term stability.
+      "Harmful" states the warned-of effect on long-term stability.
     approved: true
   - id: "q-language-application-sentence-completion-0009"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -189,6 +207,8 @@ questions:
       "Boost" means increase, matching the output goal. "Reducing" means lowering, matching the expense goal. The pair also fits the shared sentence structure.
     approved: true
   - id: "q-language-application-sentence-completion-0010"
+    lesson: lesson-language-application-completion-word-forms
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -209,6 +229,8 @@ questions:
       "Eloquently" is an adverb describing clear, effective speech. It fits how the engineer spoke with clarity and precision.
     approved: true
   - id: "q-language-application-sentence-completion-0011"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "hard"
     stem: |
@@ -229,12 +251,14 @@ questions:
       "Implement" means put a plan or measure into effect. It fits carrying out the approved plan.
     approved: true
   - id: "q-language-application-sentence-completion-0012"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "exam"
     stem: |
       The new regulations covered every major operational area, and inspectors applied them strictly and consistently across all regional branches. The regulations were therefore ________ in scope and ________ in enforcement.
     choices:
-      - text: "comprehensive ... rigorous"
+      - text: "complete ... rigorous"
         correct: true
       - text: "lenient ... strict"
         rationale: |
@@ -246,15 +270,17 @@ questions:
         rationale: |
           This limits the scope despite the stated broad coverage. The second word fits strict enforcement. Check: check both blanks rather than one.
     explanation: |
-      "Comprehensive" means covering the whole needed range. "Rigorous" means strict and careful, matching how inspectors applied the rules.
+      "Complete" means covering the whole needed range. "Rigorous" means strict and careful, matching how inspectors applied the rules.
     approved: true
   - id: "q-language-application-sentence-completion-0013"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "easy"
     stem: |
       Heavy snowfall during the peak morning rush hour caused traffic on the main highway to crawl at a ________ pace.
     choices:
-      - text: "sluggish"
+      - text: "slow"
         correct: true
       - text: "rapid"
         rationale: |
@@ -266,9 +292,11 @@ questions:
         rationale: |
           This confuses being in a hurry with moving slowly. Drivers during rush hour may feel rushed. Check: describe the actual traffic movement.
     explanation: |
-      "Sluggish" means slow-moving. It matches the traffic described as crawling.
+      "Slow" matches the traffic described as crawling.
     approved: true
   - id: "q-language-application-sentence-completion-0014"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -289,12 +317,14 @@ questions:
       "Flustered" means agitated or confused. The opening says the associate was far from that state, which matches being composed and articulate.
     approved: true
   - id: "q-language-application-sentence-completion-0015"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "exam"
     stem: |
       In a fictional review, the preliminary records did not establish who received the parcel, but the signed final register settled the disputed delivery beyond doubt. The first records were ___, whereas the final record was ___.
     choices:
-      - text: "inconclusive ... definitive"
+      - text: "uncertain ... decisive"
         correct: true
       - text: "promising ... ambiguous"
         rationale: |
@@ -306,9 +336,11 @@ questions:
         rationale: |
           This makes the final record unstable. The preliminary records may contain consistent details. Check: use the final register's settled result.
     explanation: |
-      "Inconclusive" means not settling the question. "Definitive" means settling it clearly and firmly. The preliminary records lacked an answer, and the final signed register supplied it.
+      "Uncertain" means not known for sure. "Decisive" means settling the question clearly. The preliminary records lacked an answer, and the final signed register supplied it.
     approved: true
   - id: "q-language-application-sentence-completion-0016"
+    lesson: lesson-language-application-completion-articles-and-lists
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "easy"
     stem: |
@@ -327,8 +359,10 @@ questions:
           This transfers the pattern from expressions such as "responsible for". Preservation is a responsibility. Check: use the phrase governed by the actual adjective.
     explanation: |
       The usual phrase is "interested in" followed by the subject of interest. Here that subject is preserving oral histories.
-    approved: false
+    approved: true
   - id: "q-language-application-sentence-completion-0017"
+    lesson: lesson-language-application-completion-natural-phrases
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "medium"
     stem: |
@@ -347,8 +381,10 @@ questions:
           This transfers a verb used with meetings and reviews. The committee has conducted a review. Check: match the verb to the noun in the blank's phrase.
     explanation: |
       The usual expression is "make a decision." "Must" is followed by the base form "make."
-    approved: false
+    approved: true
   - id: "q-language-application-sentence-completion-0018"
+    lesson: lesson-language-application-completion-past-time
+    keyPoint: 1
     type: "fill-in-the-blank"
     difficulty: "hard"
     stem: |
@@ -367,8 +403,10 @@ questions:
           This uses a to-plus-verb phrase as the main verb. It can name a goal in another sentence. Check: check the form needed after the subject.
     explanation: |
       "Last Tuesday" and "returned" place both actions in the past. "Found" supplies the matching completed past action.
-    approved: false
+    approved: true
   - id: "q-language-application-sentence-completion-0019"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "hard"
     stem: |
@@ -387,8 +425,10 @@ questions:
           This makes the crew too unconcerned to heed the threat. The directions are correctly described as clear. Check: connect the second blank to delaying for the storm.
     explanation: |
       "Clear" describes directions that can be followed. "Apprehensive" means worried about what may happen, which fits delaying because of the approaching storm.
-    approved: false
+    approved: true
   - id: "q-language-application-sentence-completion-0020"
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
     type: "fill-in-the-blank"
     difficulty: "exam"
     stem: |
@@ -407,4 +447,202 @@ questions:
           This fits speed but makes the fix impossible to reverse. A formal word can sound suitable for a contract. Check: match the second blank to a temporary replaceable repair.
     explanation: |
       "Expeditious" means prompt and efficient, fitting repair within the agreed hour. "Provisional" means temporary, fitting a fix that needs replacement.
-    approved: false
+    approved: true
+  - id: q-language-application-sentence-completion-0021
+    approved: true
+    lesson: lesson-language-application-completion-word-forms
+    keyPoint: 2
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the correct completion: "The records assistants ___ incoming requests before the office opens each morning."
+    choices:
+      - text: "sort"
+        correct: true
+      - text: "sorts"
+        rationale: |
+          This matches a singular subject. Assistants means more than one person. Check the subject before choosing the verb.
+      - text: "is sorting"
+        rationale: |
+          This uses singular is with plural assistants. The action fits the sentence, but the helper does not. Check who does the work.
+      - text: "sorting"
+        rationale: |
+          This leaves the sentence without a complete verb. Sorting names the action but needs a helper here. Check for a complete subject and verb.
+    explanation: |
+      Assistants is plural. Each morning describes a routine, so use the simple-present form sort.
+  - id: q-language-application-sentence-completion-0022
+    approved: true
+    lesson: lesson-language-application-completion-word-forms
+    keyPoint: 3
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the correct pair: "The trainees want ___ the filing system, and they enjoy ___ sample records."
+    choices:
+      - text: "to learn ... organizing"
+        correct: true
+      - text: "learning ... organizing"
+        rationale: |
+          This uses an -ing form after want. It may look right beside organizing. Check the pattern want to learn.
+      - text: "to learn ... to organize"
+        rationale: |
+          This uses to plus a verb after enjoy. Both actions are goals, but the verb patterns differ. Check enjoy organizing.
+      - text: "learn ... organize"
+        rationale: |
+          This uses bare verbs after both verbs. They name the right actions. Check the form each first verb requires.
+    explanation: |
+      Want takes to plus the base verb: to learn. Enjoy takes an -ing form: organizing.
+  - id: q-language-application-sentence-completion-0023
+    approved: true
+    lesson: lesson-language-application-completion-articles-and-lists
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the correct pair: "A visitor left a sealed package at reception. Please place ___ package beside ___ unused cabinet."
+    choices:
+      - text: "the, an"
+        correct: true
+      - text: "a, an"
+        rationale: |
+          This treats the known package as a new one. A introduces a package earlier, but the second mention points to that package. Check what is already named.
+      - text: "the, a"
+        rationale: |
+          This chooses a by spelling instead of sound. Unused starts with a vowel sound. Say the word before choosing the article.
+      - text: "some, the"
+        rationale: |
+          This uses some with the singular countable noun package. It also treats the cabinet as already known. Check the noun form and what the context identifies.
+    explanation: |
+      The package is the one already introduced, so use the. Unused begins with a vowel sound, so use an for the newly mentioned cabinet.
+  - id: q-language-application-sentence-completion-0024
+    approved: true
+    lesson: lesson-language-application-completion-articles-and-lists
+    keyPoint: 3
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the completion that maintains parallel structure: "The assignment involves reviewing applications, recording decisions, and ___ applicants."
+    choices:
+      - text: "notifying"
+        correct: true
+      - text: "to notify"
+        rationale: |
+          This changes an -ing list to a to-plus-verb phrase. Both name an action. Compare the forms of all three list items.
+      - text: "notification of"
+        rationale: |
+          This changes an action list into a noun phrase. Notification names the same task. Check that all list items use matching forms.
+      - text: "notify"
+        rationale: |
+          This uses the base verb in an -ing list. It describes the right action. Compare it with reviewing and recording.
+    explanation: |
+      Reviewing and recording are -ing forms doing the same job. Notifying gives the third action the same form.
+  - id: q-language-application-sentence-completion-0025
+    approved: true
+    lesson: lesson-language-application-completion-natural-phrases
+    keyPoint: 2
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the expression that means to watch the entrance while a coworker is away: "While I deliver these files, please ___ the entrance."
+    choices:
+      - text: "keep an eye on"
+        correct: true
+      - text: "turn a blind eye to"
+        rationale: |
+          This means ignore something. It contains eye, which may seem to fit. Check the meaning of the whole expression.
+      - text: "close your eyes to"
+        rationale: |
+          This means ignore or refuse to notice something. The words involve looking. Check whether the expression asks someone to watch.
+      - text: "keep your eyes off"
+        rationale: |
+          This tells someone not to look. It uses familiar eye words. Read the whole expression before choosing.
+    explanation: |
+      Keep an eye on means watch or look after. It asks the coworker to watch the entrance during the delivery.
+  - id: q-language-application-sentence-completion-0026
+    approved: true
+    lesson: lesson-language-application-completion-past-time
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the form showing an action still in progress: "When the supervisor interrupted her, the clerk ___ the entries and had reached only the middle of the list."
+    choices:
+      - text: "was checking"
+        correct: true
+      - text: "had checked"
+        rationale: |
+          This presents the check as completed before the interruption. A past event may suggest had. Check the clue that she was only halfway through.
+      - text: "will be checking"
+        rationale: |
+          This places the action in the future. The checking may take time, but interrupted places this event in the past. Check the timeline.
+      - text: "has checked"
+        rationale: |
+          This presents a completed action linked to the present. The sentence describes an interrupted past action. Check whether the work was finished.
+    explanation: |
+      Was checking is past progressive. It shows that checking was still going on when the interruption happened.
+  - id: q-language-application-sentence-completion-0027
+    approved: true
+    lesson: lesson-language-application-pagkumpleto-ng-pangungusap
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Piliin ang angkop na anyo: "Natapos na ang gawain. Kahapon ay ___ ni Mila ang lahat ng liham sa mga tatanggap."
+    choices:
+      - text: "ipinadala"
+        correct: true
+      - text: "ipapadala"
+        rationale: |
+          Hindi pa nagaganap ang kilos sa anyong ito. Maaaring mapansin mo ang pagpapadala ngunit malampasan ang panahon. Tingnan ang kahapon.
+      - text: "ipinapadala"
+        rationale: |
+          Nagaganap pa ang kilos sa anyong ito. Tungkol ito sa pagpapadala, ngunit tapos na ang gawain sa pangungusap. Tingnan kung natapos na ang kilos.
+      - text: "ipapadala pa lamang"
+        rationale: |
+          Sinasabi nitong hindi pa nagsisimula ang pagpapadala. Maaaring akma ang gawain ngunit hindi ang panahon. Basahin ang natapos na at kahapon.
+    explanation: |
+      Tapos na ang pagpapadala at nangyari ito kahapon. Ang ipinadala ang anyong nagpapakita ng naganap na kilos.
+  - id: q-language-application-sentence-completion-0028
+    approved: true
+    lesson: lesson-language-application-pagkumpleto-ng-pangungusap
+    keyPoint: 2
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Piliin ang angkop na pang-ugnay: "Ipinagpatuloy ang pagpupulong ___ hindi pa dumarating ang hinihintay na ulat; taliwas ito sa inaasahang pagpapaliban."
+    choices:
+      - text: "ngunit"
+        correct: true
+      - text: "kaya"
+        rationale: |
+          Ipinapakita nito ang bunga. Maaaring magkaugnay ang mga pangyayari, ngunit pagsalungat ang hinihingi. Tingnan ang taliwas sa inaasahan.
+      - text: "dahil"
+        rationale: |
+          Ipinapakita nito ang dahilan. Maaaring may dahilan ang pagpapatuloy, ngunit ang diwa rito ay pagsalungat. Suriin ang ugnayan ng mga ideya.
+      - text: "sapagkat"
+        rationale: |
+          Ipinapakita nito ang sanhi. Hindi sanhi ng pagpapatuloy ang kawalan ng ulat ayon sa diwa rito. Tingnan ang salungat na resulta.
+    explanation: |
+      Ang ngunit ay nagpapakita ng pagsalungat. Nagpatuloy ang pulong kahit wala pa ang ulat na inaasahang magiging dahilan ng pagpapaliban.
+  - id: q-language-application-sentence-completion-0029
+    approved: true
+    lesson: lesson-language-application-pagkumpleto-ng-pangungusap
+    keyPoint: 3
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Piliin ang pariralang likas at akma sa kahulugan: "Dahil sa ___, nabasa ang mga dokumentong naiwan sa labas."
+    choices:
+      - text: "matinding ulan"
+        correct: true
+      - text: "matinding tulong"
+        rationale: |
+          Likas ang matindi sa ilang gamit, ngunit hindi tulong ang nakababasa ng papel. Tingnan ang nangyari sa mga dokumento.
+      - text: "malaking pagkatuyo"
+        rationale: |
+          May kaugnayan ito sa tubig, ngunit ang pagkatuyo ay pagkawala ng basa. Suriin kung ang salita ay sanhi ng pagkabasa.
+      - text: "malaking katahimikan"
+        rationale: |
+          Maaaring tahimik sa labas, ngunit hindi nito ipinapaliwanag ang basang papel. Hanapin ang pariralang akma sa resulta.
+    explanation: |
+      Likas na magkasama ang matinding at ulan. Ang ulan ang nagpapaliwanag kung bakit nabasa ang mga dokumentong nasa labas.

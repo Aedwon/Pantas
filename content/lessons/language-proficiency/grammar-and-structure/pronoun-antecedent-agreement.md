@@ -6,6 +6,12 @@ subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 13
 isActive: true
+status: retired
+replacedBy:
+  - lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+  - lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+  - lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao
+  - lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip
 ---
 ## Core Concept
 
@@ -115,7 +121,7 @@ Palitan ng panghalip ang pangalan sa pangungusap: "Si Ana ang tatawag sa opisina
 1. Si Ana ang taong itinatampok. Isang tao ang tinutukoy.
 2. Gamitin ang *siya*: "Siya ang tatawag sa opisina."
 
-### #7: Anyong Ng Bilang Gumagawa
+### #7: Anyong ng Bilang Gumagawa
 
 Piliin ang tamang anyo: "Sina Ana at Ben ang gumawa ng ulat. Ipinasa (sila / nila / kanila) ang ulat kahapon."
 
@@ -151,7 +157,7 @@ Kausap ni Liza si Ben. Pareho silang dadalo sa pulong. Piliin ang tama sa sasabi
 1. Kasama si Ben, ang kausap, sa dadalo.
 2. Piliin ang *tayo*: "Tayo ang dadalo sa pulong." Kung hindi kasama si Ben at ibang tao ang kasama ni Liza, *kami* ang gagamitin.
 
-### #11: Anyong Ng Bilang May-ari
+### #11: Anyong ng Bilang May-ari
 
 Si Liza ang may-ari ng lapis. Piliin ang tama sa sasabihin niya kay Ben: "Ito ang lapis (ko / mo / ako)."
 

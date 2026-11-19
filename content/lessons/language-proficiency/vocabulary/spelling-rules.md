@@ -6,6 +6,13 @@ subject: "subject-language-proficiency"
 topic: "topic-vocabulary"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-vocabulary-letters-sounds-and-vowel-order
+  - lesson-vocabulary-silent-e-with-suffixes
+  - lesson-vocabulary-doubling-final-consonants
+  - lesson-vocabulary-checking-longer-spellings
+  - lesson-vocabulary-baybay-ng-hiram-na-salita
 ---
 ## Core Concept
 

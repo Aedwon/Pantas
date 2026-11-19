@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0001"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       The girl uses she/her pronouns, and the book is her own. "Her" is the possessive form used before the noun "book."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0002"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "easy"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "Girls" is a plural antecedent, so it needs the plural pronoun "their."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0003"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 2
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       Although "each" is grammatically singular, singular "they/their" is accepted in modern formal English when a person's gender is unknown or irrelevant. "Each of the students must submit their essay" is therefore the gender-neutral choice.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0004"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 2
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       "Somebody" is grammatically singular, but modern formal English accepts singular "their" for a person whose gender is unknown or irrelevant.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0005"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       "Company" refers to one organization acting as a single unit here, so the sentence uses the singular possessive pronoun "its."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0006"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -132,6 +144,8 @@ questions:
       The sentence treats "class" as one collective unit completing a shared project, so it uses the singular pronoun "its."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0007"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 2
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
       "Liza and Carlo" is a compound antecedent joined by "and," making it plural, so it takes the pronoun "their."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0008"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 3
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -172,6 +188,8 @@ questions:
       "The required equipment" keeps the intended object and avoids a pronoun with mixed singular and plural antecedents. The revision also assigns no gender.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0009"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 4
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -192,6 +210,8 @@ questions:
       Both Mrs. Santos and Anna can be the person who seemed upset. The sentence does not identify which one "she" refers to.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0010"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 2
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -212,6 +232,8 @@ questions:
       The compound subject names Sofia and her sister. Under the stated ordinary plural reading, "their" refers to both of them.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0011"
+    lesson: lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip
+    keyPoint: 3
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -232,6 +254,8 @@ questions:
       "Siya" can refer to a person without stating that person's gender. Filipino uses the same pronoun for these personal references.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0012"
+    lesson: lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao
+    keyPoint: 2
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -241,17 +265,19 @@ questions:
         correct: true
       - text: "Nila"
         rationale: |
-          This uses a plural actor form for one student. The whole class is mentioned nearby. Check: match the actor who showed the project.
+          Pangmaramihan ang "nila," ngunit iisa ang estudyante. Maaaring makalito ang pagbanggit sa buong klase. Itugma ang panghalip sa nagpakita ng proyekto.
       - text: "Namin"
         rationale: |
-          This includes the speaker in the acting group. It is a familiar form used for a group's actions. Check: check who the sentence names as the actor.
+          Kasama ang nagsasalita sa "namin." Karaniwan itong gamit para sa kilos ng isang grupo. Tingnan kung sino ang gumawa sa pangungusap.
       - text: "Ninyo"
         rationale: |
-          This refers to the listener instead of the student. The sentence describes an action shown to others. Check: keep the reference in the third person.
+          Ang kausap ang tinutukoy ng "ninyo," hindi ang estudyante. Ipinakita sa iba ang proyekto. Tiyaking ang panghalip ay para sa taong pinag-uusapan.
     explanation: |
-      One student is named as the person who showed the project. "Niya" is the matching singular third-person form in "ipinakita niya ito."
+      Iisang estudyante ang nagpakita ng proyekto. Ang "niya" ay panghalip para sa isang taong pinag-uusapan sa "ipinakita niya ito."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0013"
+    lesson: lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -261,17 +287,19 @@ questions:
         correct: true
       - text: "Niya"
         rationale: |
-          This selects an ng-set form instead of an ang-set form. Both can refer to the same person. Check: check the grammatical set, not only the referent.
+          Kabilang ang "niya" sa pangkat ng "ng." Maaari nitong tukuyin ang parehong tao. Tingnan ang pangkat ng panghalip, hindi lang ang taong tinutukoy.
       - text: "Kaniya"
         rationale: |
-          This selects a sa-set form instead of an ang-set form. The forms share a personal reference. Check: identify the role requested by the stem.
+          Kabilang ang "kaniya" sa pangkat ng "sa." Maaari rin itong tumukoy sa isang tao. Tingnan kung anong papel ang hinihingi sa tanong.
       - text: "Nila"
         rationale: |
-          This selects a plural ng-set form. It is a familiar personal pronoun. Check: check both its set and its number.
+          Pangmaramihan ang "nila" at kabilang ito sa pangkat ng "ng." Isa itong karaniwang panghalip panao. Suriin kapwa ang pangkat at bilang nito.
     explanation: |
-      "Siya" belongs to the ang set of Filipino personal pronouns. It can fill the topic role in a sentence such as "Siya ay dumating."
+      Kabilang ang "siya" sa pangkat ng "ang." Maaari itong maging paksa, gaya sa "Siya ay dumating."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0014"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 2
     type: "pronoun-reference"
     difficulty: "hard"
     stem: |
@@ -292,6 +320,8 @@ questions:
       Modern formal English accepts singular "their" for an unspecified person. "Everybody" can use this personal reference while keeping singular main-verb agreement.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0015"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "hard"
     stem: |
@@ -312,6 +342,8 @@ questions:
       The stem treats the team as one unit. "Its" is the possessive form matching that unit.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0016"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 4
     type: "pronoun-reference"
     difficulty: "hard"
     stem: |
@@ -332,6 +364,8 @@ questions:
       "Her" could refer to Sarah or Michelle. The sentence gives no detail identifying the painting's owner.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0017"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 3
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
@@ -352,6 +386,8 @@ questions:
       "Everybody" takes the singular verb "has." Singular "they" still takes its usual verb form, "are."
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0018"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "exam"
     stem: |
@@ -372,6 +408,8 @@ questions:
       "Each" refers to an unspecified person, so singular "their" provides the requested gender-neutral form. The team is treated as one unit, so "its" fits the second blank.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0019"
+    lesson: lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they
+    keyPoint: 4
     type: "pronoun-reference"
     difficulty: "easy"
     stem: |
@@ -390,8 +428,10 @@ questions:
           This changes one person's result into a result for both. The plural use of "they" may suggest a pair. Check: keep the stated single-person result.
     explanation: |
       Repeating "Sam" identifies the person who passed. The revision keeps the stated result and gives the pronoun's intended reference directly.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0020"
+    lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
+    keyPoint: 1
     type: "pronoun-reference"
     difficulty: "exam"
     stem: |
@@ -410,4 +450,73 @@ questions:
           This reports a single group decision. Voting involves individual people. Check: ask whether the pronoun refers to the group unit or its separate members.
     explanation: |
       "Their homes" refers to separate homes belonging to the members. Under the stated variety of English, plural "their" emphasizes those people within the committee.
-    approved: false
+    approved: true
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0021
+    approved: true
+    lesson: lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao
+    keyPoint: 3
+    type: pronoun-reference
+    difficulty: exam
+    stem: |
+      Ang mga boluntaryo ang tatanggap ng mga kagamitan. Palitan ng panghalip ang "sa mga boluntaryo" sa "Ibinigay ng tagapangasiwa sa mga boluntaryo ang mga kagamitan."
+    choices:
+      - text: "sa kanila"
+        correct: true
+      - text: "sila"
+        rationale: |
+          Anyong ang ito. Maaaring dami lamang ng tao ang tingnan mo. Para sa tatanggap, piliin ang anyong sa.
+      - text: "nila"
+        rationale: |
+          Anyong ng ito. Maaaring isipin mong lahat ng maramihang panghalip ay puwede. Suriin kung sino ang tumanggap.
+      - text: "para sa kaniya"
+        rationale: |
+          Isang tao ang tinutukoy nito. May panandang sa kaya maaari itong magmukhang tama. Panatilihin ang maramihang tatanggap.
+    explanation: |
+      Ang mga boluntaryo ang tumanggap. Kailangan ang anyong sa para sa maraming taong pinag-uusapan: sa kanila. "Ibinigay ng tagapangasiwa sa kanila ang mga kagamitan."
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0022
+    approved: true
+    lesson: lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip
+    keyPoint: 1
+    type: pronoun-reference
+    difficulty: exam
+    stem: |
+      Si Elena ang may-ari ng aklat. Aling panghalip ang angkop sa sasabihin niya: "___ ang aklat na nasa mesa"?
+    choices:
+      - text: "Akin"
+        correct: true
+      - text: "Ako"
+        rationale: |
+          Anyong para sa taong itinatampok ang napili. Si Elena ang nagsasalita. Suriin na pagmamay-ari ng aklat ang ipinahahayag niya.
+      - text: "Ko"
+        rationale: |
+          Anyong ng ang napili. Wasto ito sa aklat ko. Tingnan ang ibang ayos na nauuna ang nagsasabi ng may-ari.
+      - text: "Kanila"
+        rationale: |
+          Ang kanila ay tumutukoy sa pag-aari ng ibang mga tao. Panghalip na paari rin ito, kaya maaari itong magmukhang tama. Suriin kung sino ang may-ari at nagsasalita. Si Elena ang may-ari, kaya akin ang kailangan.
+    explanation: |
+      Nauuna ang nagsasabi ng may-ari. Si Elena mismo ang nagsasalita, kaya akin ang gamitin: "Akin ang aklat na nasa mesa."
+
+  - id: q-grammar-and-structure-pronoun-antecedent-agreement-0023
+    approved: true
+    lesson: lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip
+    keyPoint: 2
+    type: pronoun-reference
+    difficulty: exam
+    stem: |
+      Kausap ni Ruben si Mila. Dadalo si Ruben at ang kaniyang mga kasama, ngunit hindi dadalo si Mila. Aling panghalip ang angkop sa sasabihin ni Ruben: "___ ang dadalo sa pagpupulong"?
+    choices:
+      - text: "Kami"
+        correct: true
+      - text: "Tayo"
+        rationale: |
+          Isinama nito ang kausap na si Mila. Maaaring mapili ito dahil may pangkat na dadalo. Suriin kung kasama ang kausap sa pangkat.
+      - text: "Sila"
+        rationale: |
+          Inalis nito ang nagsasalitang si Ruben sa pangkat. Maraming dadalo kaya maaari itong magmukhang tama. Suriin kung kasama ang nagsasalita.
+      - text: "Kayong lahat"
+        rationale: |
+          Ang mga kausap ang tinutukoy nito. May binabanggit na pangkat sa sitwasyon. Tukuyin kung nagsasalita o kausap ang kasama sa dadalo.
+    explanation: |
+      Kasama si Ruben na nagsasalita. Hindi kasama si Mila na kausap. Kami ang tumutukoy sa nagsasalita at mga kasama niya na hindi kasama ang kausap.

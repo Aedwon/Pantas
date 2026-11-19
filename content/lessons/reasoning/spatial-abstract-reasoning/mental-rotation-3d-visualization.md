@@ -6,6 +6,11 @@ subject: "subject-reasoning"
 topic: "topic-spatial-abstract-reasoning"
 estimatedMinutes: 11
 isActive: true
+status: retired
+replacedBy:
+  - lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips
+  - lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+  - lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows
 ---
 ## Core Concept
 

@@ -6,6 +6,11 @@ subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 9
 isActive: true
+status: retired
+replacedBy:
+  - lesson-grammar-and-structure-matching-forms-in-lists
+  - lesson-grammar-and-structure-shared-words-in-parallel-lists
+  - lesson-grammar-and-structure-parallel-pairs-and-comparisons
 ---
 ## Core Concept
 

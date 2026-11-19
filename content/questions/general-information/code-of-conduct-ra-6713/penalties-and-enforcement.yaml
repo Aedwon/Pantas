@@ -7,6 +7,9 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0001
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-administrative-limits
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What is Section 11(a)''s maximum salary-based fine for general violations?
@@ -31,6 +34,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0002
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-administrative-limits
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What is the maximum suspension under Section 11(a)''s general penalty provision?
@@ -55,6 +61,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0003
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'What maximum imprisonment does RA 6713 specify for violations of Sections 7, 8, or 9?
@@ -79,6 +88,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0004
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'What is the maximum fixed-peso criminal fine under RA 6713 for violations of Sections 7, 8, or 9?
@@ -103,6 +115,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0005
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-filed-statement-misuse
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Under Section 11(d), what is the maximum court-assessed penalty for obtaining or using a filed statement for a purpose prohibited by Section 8(D)?
@@ -127,6 +142,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0006
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-accomplices-and-accessories
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'How does Section 11(c) treat a private person who conspires with an official as an accomplice in an RA 6713 violation?
@@ -151,6 +169,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0007
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'If another statute imposes a heavier penalty for the violation, what does Section 11(a) direct?
@@ -175,6 +196,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0008
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Can a violation proven in a proper administrative proceeding support removal even when no criminal prosecution is filed?
@@ -199,6 +223,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0009
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-administrative-limits
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which statement about removal for general violations under Section 11(a) is accurate?
@@ -223,6 +250,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0010
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'What additional sanction may a competent court impose at its discretion for violations of Sections 7, 8, or 9?
@@ -247,30 +277,36 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0011
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Which rules govern an administrative case under RA 6713?
 
     '
   choices:
-  - text: The applicable rules for the authority handling the case
+  - text: The handling authority’s rules
     correct: true
   - text: Private corporate arbitration codes
     rationale: 'This uses rules for private disputes. Employment disagreements can involve arbitration. Check whether the employee serves in government.
 
       '
-  - text: Municipal zoning board ordinances
-    rationale: 'This uses land-use rules for employee discipline. Both are government regulation. Check the subject of the proceeding.
+  - text: Criminal trial rules in every case
+    rationale: 'This treats administrative discipline as a criminal trial. Both require a fair chance to answer. Check which authority handles the case and which rules apply.
 
       '
-  - text: International trade commission laws
-    rationale: 'This uses trade rules for public-service discipline. An agency may handle commercial matters. Check who administers the ethics code.
+  - text: The complainant’s chosen procedure
+    rationale: 'This lets the complainant choose the process. Filing a complaint starts the review, but it does not set the rules. Check the rules of the authority handling the case.
 
       '
   explanation: 'Section 12 gives the Civil Service Commission primary responsibility for administering and enforcing RA 6713. The agency, CSC, or Ombudsman may investigate within its legal powers. The case must follow the applicable rules and give the worker a fair chance to answer.
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0012
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Violation of which RA 6713 section on prohibited acts can carry up to five years of imprisonment?
@@ -295,6 +331,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0013
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Violating which section of RA 6713 regarding Statement of Assets, Liabilities and Net Worth carries up to 5 years imprisonment?
@@ -319,6 +358,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0014
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Besides Sections 7 and 8, violating which section of RA 6713 can carry up to 5 years imprisonment?
@@ -343,6 +385,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0015
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'A private co-principal conspires in a Section 7 violation. What imprisonment ceiling applies under RA 6713?
@@ -367,9 +412,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0016
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which combination may the court impose for a violation of Section 8 under RA 6713?
 
     '
@@ -392,9 +439,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0017
+  lesson: lesson-code-of-conduct-ra-6713-penalties-accomplices-and-accessories
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Which private participant is expressly included in Section 11(c)''s conspiracy rule?
 
     '
@@ -417,10 +466,12 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0018
+  lesson: lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
-  stem: 'An office receives an untested complaint of an RA 6713 violation. Can that filing alone support dismissal under the lesson’s Section 11 rule?
+  approved: true
+  stem: 'An office receives a complaint alleging a violation of RA 6713. Is filing the complaint alone sufficient to justify dismissal under Section 11?
 
     '
   choices:
@@ -442,9 +493,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0019
+  lesson: lesson-code-of-conduct-ra-6713-penalties-filed-statement-misuse
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Who may bring the Section 11(d) action over prohibited use of a filed statement?
 
     '
@@ -467,9 +520,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0020
+  lesson: lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which statement accurately describes the two monetary ceilings in Section 11(a)?
 
     '
@@ -491,3 +546,141 @@ questions:
   explanation: 'The general fine is capped at six months'' salary. The criminal fine specified for Sections 7, 8, or 9 is capped at P5,000. These are distinct statutory measures.
 
     '
+
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0021
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An administrative body finds substantial evidence that an officer disclosed confidential office information for private benefit. In a separate criminal case, the court retains reasonable doubt about the officer's purpose. Which conclusion follows the different proof standards?
+  choices:
+  - text: "Criminal acquittal can coexist with administrative discipline."
+    correct: true
+  - text: "The administrative finding requires criminal conviction because both cases involve the same disclosure."
+    rationale: |
+      This gives both cases one proof standard. They concern the same act. Check the level of proof each case requires.
+  - text: "The criminal court must convict once substantial evidence has been accepted by the administrative body."
+    rationale: |
+      This uses the lower standard for criminal punishment. The evidence may support discipline. Check for proof beyond reasonable doubt in the criminal case.
+  - text: "Reasonable doubt in the criminal case automatically cancels the separate administrative finding."
+    rationale: |
+      This treats acquittal as a decision under both standards. Both cases involve the officer. Check that administrative discipline uses substantial evidence.
+  explanation: |
+    RA 6713, Section 7(c) requires protected office information and a prohibited purpose. Rule 133, Sections 2 and 6 set different proof standards. Criminal guilt needs proof beyond reasonable doubt. Administrative discipline may rest on substantial evidence, so the findings can differ.
+
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0022
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A private technician and a public officer agree and decide to carry out a criminal Code violation involving confidential records. The technician knowingly provides help without which the act could not occur. If the violation and participation are proved, which assessment applies?
+  choices:
+  - text: "The technician can be a co-principal."
+    correct: true
+  - text: "The technician cannot have criminal liability under the Code because only public workers may be tried."
+    rationale: |
+      This excludes private participants. The Code mainly addresses public workers. Check Section 11(c) for people who conspire with them.
+  - text: "The technician's conduct shows only knowledge of a plan, even though the technician agreed and supplied essential help."
+    rationale: |
+      This ignores agreement and action. Knowledge alone is not conspiracy. Check the added decision to commit the act and the essential help.
+  - text: "The technician can be tried only apart from the officer because private and public participants cannot be joined."
+    rationale: |
+      This separates people the Code says are tried together. Their employment differs. Check the rule for private participants in the conspiracy.
+  explanation: |
+    RA 6713, Section 11(c) covers private people who conspire as co-principals with public workers. Revised Penal Code Articles 8 and 17 describe agreement, decision, and essential help. The stated acts fit those requirements, with the same penal liabilities and joint trial.
+
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0023
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    The CSC receives evidence of a suspected criminal Code violation that falls within the Sandiganbayan's authority. Which division of roles is correct?
+  choices:
+  - text: "The CSC refers; the Ombudsman investigates; the court tries."
+    correct: true
+  - text: "The CSC decides criminal guilt, while the Sandiganbayan only forwards the complaint for administrative review."
+    rationale: |
+      This swaps enforcement and trial. The CSC enforces the Code. Check that courts decide criminal guilt.
+  - text: "The Sandiganbayan acts as the national administrative agency, while the CSC prosecutes every criminal case."
+    rationale: |
+      This treats a court as an administrative agency. Both handle legal cases. Check each body's separate authority.
+  - text: "The Ombudsman's preliminary investigation itself establishes criminal guilt without a court trial."
+    rationale: |
+      This treats a charging review as a verdict. An investigation may support a case. Check that it does not decide guilt.
+  explanation: |
+    RA 6713, Section 12 gives the CSC primary Code enforcement responsibility and directs referral of cases needing prosecution. RA 6770, Section 15(1) authorizes Ombudsman investigation and prosecution. The Sandiganbayan tries cases within its authority.
+
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0024
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A citizen who reported a Code violation receives threats and requests protection. Which statement accurately describes the statutory duty?
+  choices:
+  - text: "The Ombudsman must take protective steps."
+    correct: true
+  - text: "The CSC must give the citizen automatic immunity from every legal claim related to the report."
+    rationale: |
+      This turns protection into unlimited immunity and assigns it to the wrong body. The CSC enforces the Code. Check the Ombudsman's specific protection duty.
+  - text: "The Sandiganbayan must treat the report itself as proof of guilt to prevent retaliation."
+    rationale: |
+      This substitutes a verdict for protection. A court may hear the case. Check that a report alone does not establish guilt.
+  - text: "The Ombudsman can investigate the report but has no stated duty concerning protection of its citizen reporter."
+    rationale: |
+      This leaves out the protection duty. Investigation is a familiar Ombudsman role. Check the separate duty to protect citizens who report violations.
+  explanation: |
+    RA 6713, Section 12 directs the Ombudsman to take steps to protect citizens who report Code violations by public officials and employees. The citizen may raise the threats and request that protection.
+
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0025
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-review-of-decisions
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    The CSC issues a disciplinary decision. After any required administrative review, the employee seeks court review of that CSC ruling. Which filing is the proper remedy for judicial review?
+  choices:
+  - text: "A verified Rule 43 petition in the Court of Appeals."
+    correct: true
+  - text: "A new criminal complaint in the Sandiganbayan seeking reversal of the CSC disciplinary ruling."
+    rationale: |
+      This uses a criminal case to review an administrative ruling. The Sandiganbayan hears certain criminal cases. Check the review route for a CSC disciplinary decision.
+  - text: "An unverified request sent directly to the Court of Appeals without the required petition."
+    rationale: |
+      This leaves out verification and the required filing. The court is the right destination. Check that the petition must be confirmed under oath.
+  - text: "A motion asking the Court of Appeals to reconsider the CSC's decision as if the court had issued it."
+    rationale: |
+      This confuses appeal with reconsideration. Both ask for review. Check whether the deciding body or a higher body is being asked to act.
+  explanation: |
+    Rule 43, Sections 1 and 5 provide review of CSC decisions by verified petition in the Court of Appeals. The petition is a written request confirmed under oath. The route applies to the stated CSC disciplinary ruling.
+
+- id: q-code-of-conduct-ra-6713-penalties-and-enforcement-0026
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-penalties-review-of-decisions
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    The CSC denies a timely motion for reconsideration in a disciplinary case. The employee has a lawyer. What ordinarily starts the Rule 43 filing period for court review?
+  choices:
+  - text: "Notice to counsel of the denial."
+    correct: true
+  - text: "The date the citizen first complained, even though no disciplinary ruling existed at that time."
+    rationale: |
+      This starts court review before a decision. The complaint begins the dispute. Check the notice tied to the decision being reviewed.
+  - text: "The date the employee first learned of the charge, regardless of notice of the later denial."
+    rationale: |
+      This uses notice of the charge for a later review period. Both are notices in the case. Check which ruling the petition will challenge.
+  - text: "The date the employee personally reads the denial, even if counsel already received notice earlier."
+    rationale: |
+      This ignores notice to the party's lawyer. Personal receipt may seem the clearest notice. Check the effect of representation by counsel.
+  explanation: |
+    Rule 43, Section 4 gives the ordinary 15-day period from notice of the decision or denial of a timely motion for reconsideration. For a represented party, notice to counsel matters. The stated denial starts that ordinary review period upon notice to counsel.

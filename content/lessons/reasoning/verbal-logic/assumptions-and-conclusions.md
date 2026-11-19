@@ -6,6 +6,16 @@ subject: "subject-reasoning"
 topic: "topic-verbal-logic"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-verbal-logic-needed-assumptions
+  - lesson-verbal-logic-negating-assumptions
+  - lesson-verbal-logic-compound-assumptions
+  - lesson-verbal-logic-must-be-true-conclusions
+  - lesson-verbal-logic-none-and-may
+  - lesson-verbal-logic-best-supported-conclusions
+  - lesson-verbal-logic-unsupported-causes-and-motives
+  - lesson-verbal-logic-recognizing-bias
 ---
 ## Core Concept
 

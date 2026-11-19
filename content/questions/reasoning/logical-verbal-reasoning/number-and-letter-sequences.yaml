@@ -5,6 +5,8 @@ meta:
   exams: [acet, ustet, dost-sei, cse-pro, cse-sub, upcat, dlsucet]
 questions:
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0001
+    lesson: lesson-logical-verbal-reasoning-sequence-moves
+    keyPoint: 1
     type: number-letter-series
     difficulty: easy
     stem: |
@@ -26,6 +28,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0002
+    lesson: lesson-logical-verbal-reasoning-sequence-moves
+    keyPoint: 1
     type: number-letter-series
     difficulty: easy
     stem: |
@@ -47,6 +51,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0003
+    lesson: lesson-logical-verbal-reasoning-sequence-moves
+    keyPoint: 1
     type: number-letter-series
     difficulty: medium
     stem: |
@@ -68,6 +74,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0004
+    lesson: lesson-logical-verbal-reasoning-sequence-moves
+    keyPoint: 1
     type: number-letter-series
     difficulty: medium
     stem: |
@@ -89,6 +97,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0005
+    lesson: lesson-logical-verbal-reasoning-sequence-moves
+    keyPoint: 2
     type: number-letter-series
     difficulty: medium
     stem: |
@@ -110,6 +120,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0006
+    lesson: lesson-logical-verbal-reasoning-sequence-moves
+    keyPoint: 2
     type: number-letter-series
     difficulty: medium
     stem: |
@@ -131,6 +143,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0007
+    lesson: lesson-logical-verbal-reasoning-sequence-positions-and-operations
+    keyPoint: 1
     type: number-letter-series
     difficulty: medium
     stem: |
@@ -152,6 +166,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0008
+    lesson: lesson-logical-verbal-reasoning-sequence-earlier-terms
+    keyPoint: 2
     type: number-letter-series
     difficulty: medium
     stem: |
@@ -173,6 +189,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0009
+    lesson: lesson-logical-verbal-reasoning-sequence-letter-patterns
+    keyPoint: 1
     type: number-letter-series
     difficulty: medium
     stem: |
@@ -194,6 +212,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0010
+    lesson: lesson-logical-verbal-reasoning-sequence-letter-patterns
+    keyPoint: 1
     type: number-letter-series
     difficulty: easy
     stem: |
@@ -215,6 +235,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0011
+    lesson: lesson-logical-verbal-reasoning-sequence-positions-and-operations
+    keyPoint: 2
     type: number-letter-series
     difficulty: hard
     stem: |
@@ -236,6 +258,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0012
+    lesson: lesson-logical-verbal-reasoning-sequence-positions-and-operations
+    keyPoint: 2
     type: number-letter-series
     difficulty: hard
     stem: |
@@ -257,6 +281,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0013
+    lesson: lesson-logical-verbal-reasoning-sequence-letter-patterns
+    keyPoint: 1
     type: number-letter-series
     difficulty: hard
     stem: |
@@ -278,6 +304,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0014
+    lesson: lesson-logical-verbal-reasoning-sequence-positions-and-operations
+    keyPoint: 1
     type: number-letter-series
     difficulty: medium
     stem: |
@@ -299,6 +327,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0015
+    lesson: lesson-logical-verbal-reasoning-sequence-positions-and-operations
+    keyPoint: 2
     type: number-letter-series
     difficulty: hard
     stem: |
@@ -320,6 +350,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0016
+    lesson: lesson-logical-verbal-reasoning-sequence-letter-patterns
+    keyPoint: 1
     type: number-letter-series
     difficulty: exam
     stem: |
@@ -341,6 +373,8 @@ questions:
     approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0017
+    lesson: lesson-logical-verbal-reasoning-sequence-positions-and-operations
+    keyPoint: 2
     type: number-letter-series
     difficulty: hard
     stem: |
@@ -359,9 +393,11 @@ questions:
           This subtracts 3 instead of 1. The two operation amounts are remembered but exchanged. Check the drops from 7 to 6 and from 9 to 8.
     explanation: |
       The rule alternates adding 3 and subtracting 1: 4 becomes 7, then 6, then 9, then 8, then 11. The next step is $11-1=10$.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0018
+    lesson: lesson-logical-verbal-reasoning-sequence-earlier-terms
+    keyPoint: 1
     type: number-letter-series
     difficulty: hard
     stem: |
@@ -380,9 +416,11 @@ questions:
           This uses the earlier 1 instead of the most recent third preceding term, 2. Several starting ones can blur the positions. Check the three terms directly before the gap.
     explanation: |
       After the first three terms, add the previous three: $1+1+2=4$, then $1+2+4=7$. The next term is $2+4+7=13$.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0019
+    lesson: lesson-logical-verbal-reasoning-sequence-letter-patterns
+    keyPoint: 2
     type: number-letter-series
     difficulty: hard
     stem: |
@@ -401,9 +439,11 @@ questions:
           This repeats J after the June and July terms. Consecutive matching initials can look like a repeated-letter rule. Check the next calendar month.
     explanation: |
       The letters stand for January through July. The eighth month is August, whose first letter is A.
-    approved: false
+    approved: true
 
   - id: q-logical-verbal-reasoning-number-and-letter-sequences-0020
+    lesson: lesson-logical-verbal-reasoning-sequence-positions-and-operations
+    keyPoint: 1
     type: number-letter-series
     difficulty: exam
     stem: |
@@ -422,5 +462,5 @@ questions:
           This jumps by 5 in both tracks, skipping the next size of 4. Both gap patterns are growing. Check the sequence of gap sizes before advancing.
     explanation: |
       Read the two letter tracks separately. The first letters A, B, D, G move by 1, 2, and 3, so the next move of 4 gives K. The second letters Z, Y, W, T move back by 1, 2, and 3, so the next backward move of 4 gives P. The pair is KP.
-    approved: false
+    approved: true
 

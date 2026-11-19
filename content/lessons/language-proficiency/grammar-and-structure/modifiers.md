@@ -6,6 +6,11 @@ subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 estimatedMinutes: 9
 isActive: true
+status: retired
+replacedBy:
+  - lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning
+  - lesson-grammar-and-structure-dangling-modifiers-and-their-subjects
+  - lesson-grammar-and-structure-scope-of-small-modifiers
 ---
 ## Core Concept
 

@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
 - id: q-environment-management-species-resources-and-environmental-decisions-0001
+  lesson: lesson-environment-management-species-habitats-and-ecosystems
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -15,7 +17,7 @@ questions:
   - text: A group of living things of the same kind
     rationale: |
       This describes a species. A habitat is the place that meets a living thing's needs.
-  - text: A place where a living thing gets food, water, shelter, and space
+  - text: A place providing food, water, shelter, and space
     correct: true
   - text: The production of more animals or plants with human help
     rationale: |
@@ -25,8 +27,10 @@ questions:
       This describes resource conservation. It is a practice, not a habitat.
   explanation: |
     A habitat supplies the things a living thing needs. A species is a group of living things of the same kind.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0002
+  lesson: lesson-environment-management-species-habitats-and-ecosystems
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -45,8 +49,10 @@ questions:
       The report focuses on how living and nonliving parts affect one another. It does not classify resources by how they recover.
   explanation: |
     An ecosystem includes living things and nonliving parts around them. These parts affect one another.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0003
+  lesson: lesson-environment-management-conserving-natural-resources
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -65,8 +71,10 @@ questions:
       Rain may help supply recover. Waiting still allows avoidable water loss.
   explanation: |
     Repairing leaks stops avoidable water loss. Adding more water does not fix the waste.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0004
+  lesson: lesson-environment-management-conserving-natural-resources
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -81,12 +89,14 @@ questions:
   - text: Reused materials no longer come from natural resources.
     rationale: |
       Reuse does not change where the materials originally came from.
-  - text: Reuse reduces the need for new materials from resources that do not return on a human time scale.
+  - text: Reuse reduces extraction of nonrenewable minerals.
     correct: true
   explanation: |
     Minerals do not return on a human time scale. Using materials again helps reduce the need to take more.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0005
+  lesson: lesson-environment-management-protected-area-management
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: |
@@ -95,7 +105,7 @@ questions:
   - text: To serve as an unrestricted area for activities banned inside
     rationale: |
       A buffer zone needs special care. It is not an unrestricted place for harmful activities.
-  - text: To help prevent harm to the protected area through special care of nearby land or water
+  - text: To protect the area by special care of nearby land or water
     correct: true
   - text: To replace all activity zones inside the protected area
     rationale: |
@@ -105,8 +115,10 @@ questions:
       Buffer zones do not remove legal requirements for wildlife breeding or collection.
   explanation: |
     A buffer zone is outside and beside a protected area. Special care there helps prevent harm from reaching the protected area.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0006
+  lesson: lesson-environment-management-species-habitats-and-ecosystems
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -125,8 +137,10 @@ questions:
       More animals still need food and space. Breeding alone leaves the main threat unresolved.
   explanation: |
     Wildlife can decline when its habitat is cleared even if hunting stops. Protecting and restoring habitat addresses the loss of food and connected space.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0007
+  lesson: lesson-environment-management-protecting-threatened-species
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -145,8 +159,10 @@ questions:
       A different market does not reduce the number of fish removed.
   explanation: |
     The catch is greater than the population can replace. Harvest limits can give fish time to reproduce and recover.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0008
+  lesson: lesson-environment-management-protecting-threatened-species
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -165,8 +181,10 @@ questions:
     correct: true
   explanation: |
     The threat comes from pollution. Controlling the waste helps make the water safer for the animal.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0009
+  lesson: lesson-environment-management-protected-area-management
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -185,8 +203,10 @@ questions:
       Reuse reduces demand for materials. It does not describe dividing an area by activity rules.
   explanation: |
     Zoning divides an area into parts with different activity rules. Visitor access can differ between those parts.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0010
+  lesson: lesson-environment-management-protected-area-management
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -205,8 +225,10 @@ questions:
       Critical-habitat protection concerns threatened species and their habitats. The stem identifies a rock formation as the reason for protection.
   explanation: |
     A natural monument protects a notable natural feature. The rock formation fits that purpose.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0011
+  lesson: lesson-environment-management-protected-area-management
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -225,8 +247,10 @@ questions:
       This tool protects habitat for threatened species. The stem does not identify threatened species as the reason for protection.
   explanation: |
     A protected landscape or seascape recognizes how people and land or sea have shaped one another over time.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0012
+  lesson: lesson-environment-management-species-habitats-and-ecosystems
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -245,17 +269,19 @@ questions:
     correct: true
   explanation: |
     Roots help hold soil in place. After clearing, rain can carry more soil into the river. This sediment can block light and cover feeding or breeding places.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0013
+  lesson: lesson-environment-management-protecting-threatened-species
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
-    Scientific studies identify an important habitat for a threatened species outside an existing NIPAS protected area. Damaging activities threaten the species there. Which conclusion follows from the lesson?
+    Scientific studies identify an important habitat for a threatened species outside an existing NIPAS protected area. Damaging activities threaten the species there. Which conclusion is legally sound?
   choices:
   - text: Habitat protection must wait until the site is included in NIPAS.
     rationale: |
       The lesson provides another tool for sites outside existing protected areas. NIPAS inclusion is not the only path described.
-  - text: Critical-habitat protection under the Wildlife Resources Conservation and Protection Act can address this case.
+  - text: Critical-habitat protection under RA 9147 can apply.
     correct: true
   - text: The studies automatically make the site a NIPAS wildlife sanctuary.
     rationale: |
@@ -265,8 +291,10 @@ questions:
       Wildlife protection can apply outside NIPAS. Location outside a protected area does not make harmful use lawful.
   explanation: |
     Critical habitats can protect threatened species outside existing protected areas. Scientific evidence guides their selection. They are different from NIPAS protected areas.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0014
+  lesson: lesson-environment-management-protecting-threatened-species
+  keyPoint: 3
   type: single_choice
   difficulty: hard
   stem: |
@@ -278,21 +306,23 @@ questions:
   - text: Treat approval for breeding as permission for anyone to collect and release wildlife.
     rationale: |
       Breeding approval does not remove legal approval and scientific checks for wildlife activities.
-  - text: Protect or repair the release habitat as part of the program and follow the required approvals and scientific checks.
+  - text: Protect or restore release habitat, with required approvals and scientific checks.
     correct: true
   - text: Keep breeding as the only conservation action because producing young replaces the need for habitat protection.
     rationale: |
       Producing young does not provide a safe place to live. Habitat protection remains necessary.
   explanation: |
     Released animals need food, shelter, and places to breed. The program must address continuing habitat damage. Breeding alone cannot provide those conditions.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0015
+  lesson: lesson-environment-management-conserving-natural-resources
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
     A proposal for resource conservation permits some forest harvesting within lawful limits that allow recovery. A critic says any use of a natural resource is incompatible with conservation. Which response is best?
   choices:
-  - text: Conservation can allow use when its amount and kind fit the resource and the law.
+  - text: Conservation allows lawful use suited to the resource.
     correct: true
   - text: Conservation requires the same complete ban for all resources and places.
     rationale: |
@@ -305,8 +335,10 @@ questions:
       Legal limits matter, but the use must also fit the resource. Recovery conditions cannot be ignored.
   explanation: |
     Conservation means using and caring for resources without waste or damage. Some use can fit that goal. Its amount and kind must suit the resource and follow the law.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0016
+  lesson: lesson-environment-management-choosing-environmental-options
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -325,17 +357,19 @@ questions:
     correct: true
   explanation: |
     Already cleared ground may reduce new habitat loss. River risks still need checking. A good choice must also be lawful and workable.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0017
+  lesson: lesson-environment-management-choosing-environmental-options
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
-    A town must provide a working water supply. The cheapest proposal would break an applicable habitat-protection rule. A more costly proposal is lawful, meets the supply goal, and causes less habitat harm. Which decision best follows the lesson?
+    A town must provide a working water supply. The cheapest proposal would break an applicable habitat-protection rule. A more costly proposal is lawful, meets the supply goal, and causes less habitat harm. Which decision best meets the stated requirements?
   choices:
   - text: Choose the cheapest proposal because public benefit removes protection rules.
     rationale: |
       A useful goal does not remove legal limits. The cheaper proposal still breaks a protection rule.
-  - text: Choose the lawful proposal because it meets the goal with less harm while respecting the protection rule.
+  - text: Choose the lawful proposal that meets the goal with less habitat harm.
     correct: true
   - text: Average the prices and authorize either proposal without considering legality.
     rationale: |
@@ -345,8 +379,10 @@ questions:
       Conservation decisions consider habitat harm and legal limits. Lowest price is not the sole test.
   explanation: |
     An option that breaks a protection rule is unacceptable. The lawful proposal provides the needed water supply and causes less habitat harm.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0018
+  lesson: lesson-environment-management-choosing-environmental-options
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
@@ -358,21 +394,23 @@ questions:
   - text: The cheaper site avoids habitat damage because lower cost means fewer environmental effects.
     rationale: |
       Cost does not measure habitat loss. The cheaper site requires clearing intact habitat.
-  - text: The already cleared site has an added cost but avoids the new habitat clearing required at the cheaper site.
+  - text: The cleared site costs more but avoids new habitat clearing.
     correct: true
   - text: There is no tradeoff because both sites meet the facility's purpose.
     rationale: |
       Both meet the goal, but their costs and habitat effects differ. That difference creates a tradeoff.
   explanation: |
     The already cleared site costs more. It also avoids new habitat loss. The tradeoff is the added cost and the avoided harm.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0019
+  lesson: lesson-environment-management-choosing-environmental-options
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |
     A supplier promotes a treatment as natural and green. A town plans to use it beside a wildlife habitat, but no evidence about its effects on water or species has been provided. Which step should guide the town's decision?
   choices:
-  - text: Obtain evidence about likely effects on water, species, and habitat and check legal requirements.
+  - text: Assess effects on water, species, and habitat; check legal requirements.
     correct: true
   - text: Accept the treatment because the word natural establishes that it is safe for wildlife.
     rationale: |
@@ -385,8 +423,10 @@ questions:
       The label provides no proof about environmental effects. Price alone cannot resolve the missing evidence.
   explanation: |
     Labels do not prove that a choice is safe. The town needs evidence about possible harm and must check the law before deciding.
-  approved: false
+  approved: true
 - id: q-environment-management-species-resources-and-environmental-decisions-0020
+  lesson: lesson-environment-management-protected-area-management
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |
@@ -401,8 +441,31 @@ questions:
   - text: Breed animals elsewhere while continuing visits and habitat damage at the breeding site.
     rationale: |
       Breeding does not remove the disturbance or repair the habitat wildlife needs.
-  - text: Use the alternative visitor area, limit access near the breeding site, and rehabilitate its habitat under the plan.
+  - text: Move visits, limit breeding-site access, and restore its habitat under the plan.
     correct: true
   explanation: |
     The alternative area keeps visitor access available. Limiting access reduces disturbance at the breeding site. Repairing that habitat helps it support wildlife again.
-  approved: false
+  approved: true
+
+- id: q-environment-management-species-resources-and-environmental-decisions-0021
+  approved: true
+  lesson: lesson-environment-management-protected-area-management
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A site outside NIPAS contains threatened wildlife. A planning officer says the site cannot receive critical-habitat protection because it is outside a protected area. Which conclusion is correct?
+  choices:
+  - text: "Critical-habitat protection can apply outside NIPAS."
+    correct: true
+  - text: "The site must first become a NIPAS wildlife sanctuary before critical-habitat protection can apply."
+    rationale: |
+      This makes NIPAS status a required first step. Both tools protect habitats. Check the separate provision for critical habitats outside protected areas.
+  - text: "Being outside NIPAS allows harmful wildlife use until the site becomes a protected area."
+    rationale: |
+      This treats one system as the only source of protection. NIPAS is a major system. Check whether wildlife law also protects the site.
+  - text: "A critical habitat and a NIPAS wildlife sanctuary are the same legal designation."
+    rationale: |
+      This gives different tools one label. Both can protect wildlife. Check which law and designation each tool uses.
+  explanation: |
+    RA 9147, Section 25 provides for critical habitats outside existing protected areas where threatened species are found. This is a different tool from NIPAS under RA 7586, as amended by RA 11038.

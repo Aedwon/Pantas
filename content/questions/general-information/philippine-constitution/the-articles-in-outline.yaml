@@ -7,6 +7,9 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-the-articles-in-outline-0001
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-preamble-and-article-count
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Excluding the Preamble, how many articles are in the 1987 Constitution?
@@ -31,6 +34,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0002
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-articles-i-to-v
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: 'A study index assigns the Bill of Rights to Article IV. Which correction follows from the outline?
@@ -55,6 +61,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0003
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-articles-i-to-v
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: 'Where does the outline place Citizenship?
@@ -79,6 +88,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0004
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-articles-i-to-v
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: 'What is Article V''s subject?
@@ -103,6 +115,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0005
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-department-articles
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Which article concerns the Executive Department?
@@ -127,6 +142,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0006
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-commission-articles
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'What is the overall subject of Article IX?
@@ -151,6 +169,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0007
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-local-government-and-welfare
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Which article concerns Local Government?
@@ -175,11 +196,13 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0008
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-local-government-and-welfare
+  keyPoint: 2
   type: single_choice
   difficulty: medium
-  stem: 'An index sends public-officer accountability questions to Article XVI because its heading says General Provisions. What is the correct correction?
-
-    '
+  stem: |
+    An index assigns public-officer accountability to Article XVI, General Provisions. Which revision places the topic under the correct article?
   choices:
   - text: Use Article XI for accountability.
     correct: true
@@ -199,6 +222,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0009
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-other-fields-and-change
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Which article groups education, science, technology, arts, culture, and sports?
@@ -223,6 +249,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0010
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-other-fields-and-change
+  keyPoint: 3
   type: single_choice
   difficulty: hard
   stem: 'Which article concerns amendments or revisions?
@@ -247,6 +276,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0011
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-department-articles
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Which article concerns the Judicial Department?
@@ -271,6 +303,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0012
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-local-government-and-welfare
+  keyPoint: 3
   type: single_choice
   difficulty: hard
   stem: 'What is Article XII''s heading?
@@ -295,6 +330,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0013
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-other-fields-and-change
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which article is titled The Family?
@@ -319,6 +357,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0014
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-articles-i-to-v
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What is Article I''s subject?
@@ -343,6 +384,9 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0015
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-department-articles
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Which article concerns the Legislative Department?
@@ -367,9 +411,11 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0016
+  lesson: lesson-philippine-constitution-constitution-commission-articles
+  keyPoint: 2
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'What does Article IX-A cover in the outline?
 
     '
@@ -392,9 +438,11 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0017
+  lesson: lesson-philippine-constitution-constitution-preamble-and-article-count
+  keyPoint: 2
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'What role does the Preamble have in the outline?
 
     '
@@ -417,9 +465,11 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0018
+  lesson: lesson-philippine-constitution-constitution-department-articles
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which sequence matches the branch articles VI, VII, and VIII?
 
     '
@@ -442,9 +492,11 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0019
+  lesson: lesson-philippine-constitution-constitution-other-fields-and-change
+  keyPoint: 3
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which article concerns Transitory Provisions?
 
     '
@@ -467,27 +519,97 @@ questions:
 
     '
 - id: q-philippine-constitution-the-articles-in-outline-0020
+  lesson: lesson-philippine-constitution-constitution-department-articles
+  keyPoint: 2
   type: single_choice
   difficulty: exam
-  approved: false
-  stem: 'What does knowing the article outline establish about the rules inside each article?
-
-    '
+  approved: true
+  stem: |
+    An official argues that Article VI's heading, Legislative Department, allows a revenue bill to originate in either House. Which response correctly assesses this use of the article heading?
   choices:
-  - text: It helps locate topics, but the exact rules must still be read or recalled.
+  - text: "The heading locates legislative powers; Section 24 sets the rule."
     correct: true
-  - text: It proves each department can use its power without constitutional limits.
+  - text: "The heading permits either House to originate any bill without restriction."
     rationale: 'This treats a department title as unlimited power. The departments have constitutional limits. Check the exact rule.
 
       '
-  - text: It guarantees every article contains the same number of rules.
-    rationale: 'This assumes that major divisions contain equal numbers of rules. The outline lists topics. It does not give a rule count.
+  - text: "The heading gives the Senate sole authority to originate revenue bills."
+    rationale: 'This gives the Senate a power the heading does not state. Check the specific section on where revenue bills must start.
 
       '
-  - text: It guarantees a student can omit all understanding because titles alone answer every item.
-    rationale: 'This treats an index as complete teaching. Titles help recall. Check locating material versus understanding it.
+  - text: "The heading lets Congress disregard the section governing revenue bills."
+    rationale: 'This treats a heading as permission to ignore a specific rule. Check the section on revenue bills, not just the article title.
 
       '
   explanation: 'The outline helps locate major topics. A title does not state every rule, power, requirement, or exception. Read or recall the exact rule too.
 
     '
+
+- id: q-philippine-constitution-the-articles-in-outline-0021
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-articles-i-to-v
+  keyPoint: 3
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An official argues that the State’s broad duty to protect health supplies every legal step needed to run a health program. Which assessment is correct?
+  choices:
+  - text: "The policy does not supply a complete procedure."
+    correct: true
+  - text: "The health policy removes the need to check any more specific legal rule."
+    rationale: |
+      This turns a broad goal into every step of a program. Check the law and specific rules that apply.
+  - text: "The claim is correct because all State policies contain complete operating rules."
+    rationale: |
+      This treats an article’s goals as detailed instructions. A policy can state an aim without giving every step.
+  - text: "The health policy is part of the citizenship rules rather than State policies."
+    rationale: |
+      This confuses a State policy with rules about who is Filipino. Match the subject to the correct article.
+  explanation: |
+    Article II, Section 15 states the policy to protect and promote the right to health. That broad policy does not state every step for running a health program. The relevant law or a more specific rule may also be needed.
+
+- id: q-philippine-constitution-the-articles-in-outline-0022
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-local-government-and-welfare
+  keyPoint: 4
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A researcher needs the constitutional provision giving the Commission on Human Rights power to investigate violations involving civil and political rights. Which article should be consulted?
+  choices:
+  - text: "Article XIII"
+    correct: true
+  - text: "Article X: Local Government"
+    rationale: |
+      This selects Local Government. A complaint may arise locally, but the question asks about the Commission on Human Rights.
+  - text: "Article XI: Accountability of Public Officers"
+    rationale: |
+      This selects public-officer accountability. Check the article that creates the human rights body and states its powers.
+  - text: "Article XII: National Economy and Patrimony"
+    rationale: |
+      This selects the economy and national resources. Check the article on social justice and human rights.
+  explanation: |
+    Article XIII, Section 18(1) gives the Commission on Human Rights power to investigate human rights violations involving civil and political rights. Article XIII concerns Social Justice and Human Rights.
+
+- id: q-philippine-constitution-the-articles-in-outline-0023
+  approved: true
+  lesson: lesson-philippine-constitution-constitution-other-fields-and-change
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An index lists only the titles of the Constitution’s articles. A student needs the provision describing the Philippine flag’s colors, sun, and stars. Which entry should the student open?
+  choices:
+  - text: "Article XVI: General Provisions"
+    correct: true
+  - text: "Article XIV: Education, Science and Technology, Arts, Culture and Sports"
+    rationale: |
+      This chooses culture because a flag is a national symbol. Check the specific subject covered by General Provisions.
+  - text: "Article XV: The Family"
+    rationale: |
+      This connects a national symbol with the nation’s foundation. The family article does not contain the flag provision.
+  - text: "Article XVII: Amendments or Revisions"
+    rationale: |
+      This confuses rules about the flag with rules for changing the Constitution. Check the subject being located.
+  explanation: |
+    Article XVI, Section 1 describes the flag as red, white, and blue, with a sun and three stars. The flag provision is under General Provisions.

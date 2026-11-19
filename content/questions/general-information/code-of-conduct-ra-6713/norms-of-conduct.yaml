@@ -7,6 +7,9 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0001
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Under Section 4 of RA 6713, how many norms of conduct are listed?
@@ -31,6 +34,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0002
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: 'Which norm most directly requires efficient use of public funds and priority for public needs?
@@ -55,6 +61,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0003
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'An office serves applicants without discrimination based on political party. Which norm most specifically addresses that basis of fairness?
@@ -79,6 +88,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0004
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: 'What is the first norm listed in Section 4?
@@ -103,6 +115,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0005
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which norm requires modest lives appropriate to position and income?
@@ -127,6 +142,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0006
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
+  keyPoint: 3
   type: single_choice
   difficulty: medium
   stem: 'Which norm most directly emphasizes skill, care, and dedication in discharging duties?
@@ -151,6 +169,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0007
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Which norm expressly requires loyalty to the Republic and Filipino people?
@@ -175,6 +196,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0008
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'Which norm expressly combines upholding the Constitution with loyalty to country above persons or party?
@@ -199,6 +223,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0009
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service
+  keyPoint: 3
   type: single_choice
   difficulty: easy
   stem: 'Which norm most directly requires prompt, courteous, and adequate public service?
@@ -223,6 +250,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0010
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Which norm expressly combines remaining true to the people, fair treatment, and respect for others'' rights?
@@ -247,6 +277,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0011
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which proposed norm is NOT a named Section 4 norm?
@@ -271,6 +304,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0012
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Which reading of the simple-living norm is accurate?
@@ -295,6 +331,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0013
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'Which norm ends the Section 4 list?
@@ -319,6 +358,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0014
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
+  keyPoint: 3
   type: single_choice
   difficulty: easy
   stem: 'Which norm is listed second in Section 4?
@@ -343,6 +385,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0015
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: 'An officer stops using an official vehicle for personal weekend trips to prevent waste. Which norm most directly concerns this use of resources?
@@ -367,9 +412,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0016
+  lesson: lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service
+  keyPoint: 3
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which office practice most directly demonstrates responsiveness to the public?
 
     '
@@ -392,9 +439,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0017
+  lesson: lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
+  keyPoint: 3
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'A qualified officer keeps improving technical skills rather than acting as a source of special favors. Which norm directly addresses this approach?
 
     '
@@ -417,9 +466,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0018
+  lesson: lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which statutory norm expressly calls for promoting locally produced goods, resources, and technology?
 
     '
@@ -442,9 +493,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0019
+  lesson: lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'An employee denies a poor applicant the respectful service given to wealthier applicants. Which norm most specifically names this discrimination?
 
     '
@@ -467,14 +520,16 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-norms-of-conduct-0020
+  lesson: lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy
+  keyPoint: 2
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which principle is expressly part of commitment to democracy under Section 4(g)?
 
     '
   choices:
-  - text: Officials must answer to the people for how they use public power and resources.
+  - text: Officials must answer to the people for public power and resources.
     correct: true
   - text: Officials may use public power without answering to the people.
     rationale: 'This rejects public accountability. Officials must answer to the people for how they use public power and resources.
@@ -491,3 +546,26 @@ questions:
   explanation: 'Commitment to democracy includes public accountability. Officials must answer to the people for how they use public power and resources.
 
     '
+
+- id: q-code-of-conduct-ra-6713-norms-of-conduct-0021
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An agency nominates an employee for outstanding ethical service under RA 6713. Which statement accurately describes the statutory recognition system?
+  choices:
+  - text: "An annual awards system recognizes outstanding service."
+    correct: true
+  - text: "The system guarantees automatic promotion to every nominee without checking legal conditions."
+    rationale: |
+      This removes the conditions for promotion. Promotion is a possible reward. Check whether the employee meets the legal conditions.
+  - text: "The system limits recognition to cash bonuses and excludes scholarships and citations."
+    rationale: |
+      This narrows the possible rewards. Bonuses are one familiar benefit. Check the other forms of recognition listed in the law.
+  - text: "The system provides recognition only after a worker has been found guilty in a disciplinary case."
+    rationale: |
+      This confuses rewards with penalties. Both appear in the Code. Check that awards encourage outstanding ethical service.
+  explanation: |
+    RA 6713, Section 6 establishes an annual system of incentives and rewards for outstanding public officials and employees. The Committee on Awards reviews performance and gives recognition using the law's standards.

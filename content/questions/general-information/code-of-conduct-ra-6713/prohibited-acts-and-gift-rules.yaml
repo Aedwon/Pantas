@@ -7,6 +7,9 @@ meta:
   - cse-sub
 questions:
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0004
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'For how long after separation does Section 7 bar professional practice connected with matters before the former office?
@@ -31,6 +34,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0005
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Which gift falls outside RA 6713''s definition of a prohibited gift in this situation?
@@ -55,13 +61,16 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0007
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Which recommendation is prohibited by Section 7(b)(3) of RA 6713?
 
     '
   choices:
-  - text: An applicant for a private job in a firm with pending office business, with no required-referral exception
+  - text: A job applicant at a firm with pending office business, absent a required referral
     correct: true
   - text: A student for a merit scholarship without any promise of special treatment
     rationale: 'This treats any recommendation as prohibited. Official influence can create concerns. Check whether a job in a transacting private firm is involved.
@@ -79,13 +88,16 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0008
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  stem: 'When considering whether a gift is allowed under the lesson''s RA 6713 rules, which facts matter most?
+  stem: 'Under the implementing rules of RA 6713, which factors determine whether a gift is of nominal value?
 
     '
   choices:
-  - text: Its value, the relationship, and any expected favor
+  - text: Salary, how often gifts are given, and expected benefits
     correct: true
   - text: Its low price alone, regardless of an expected official favor
     rationale: 'This treats nominal value as a complete exemption. Low-value tokens can be allowed. Check the giver''s purpose too.
@@ -99,10 +111,13 @@ questions:
     rationale: 'This treats courteous presentation as legality. Gifts often arrive with thanks. Check the actual value and transaction.
 
       '
-  explanation: 'The rules distinguish gifts by value, relationship, and purpose. A gift linked to an expected official favor is not made acceptable merely by its label.
+  explanation: 'Rule X, Section 1(f)(1) of the Rules Implementing RA 6713 says nominal value depends on the circumstances of each case, taking into account the salary of the official or employee, how often such gifts are given, the expectation of benefits, and similar factors.
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-private-practice
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'An official has legal permission for private practice, but the work conflicts with official functions. How does RA 6713 treat it?
@@ -127,6 +142,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0011
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-foreign-government-benefits
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Which foreign-government travel grant can qualify under Section 7(d), with appropriate Philippine interests and office-head permission?
@@ -151,6 +169,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'Which section of RA 6713 prohibits using confidential official information for private gain?
@@ -175,6 +196,9 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0014
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: 'What can expressly authorize an otherwise prohibited role in a private enterprise regulated by an official''s office?
@@ -199,9 +223,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0015
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation
+  keyPoint: 1
   type: single_choice
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'A regular supplier asks an official to recommend a friend for a company position. What fact brings the request within Section 7(b)(3)?
 
     '
@@ -224,9 +250,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0016
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'An employee shares an unpublished bid evaluation with a friend so the friend''s firm can adjust its offer. Which rule applies?
 
     '
@@ -249,9 +277,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0001
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles
+  keyPoint: 1
   type: single_choice
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'An official offers a former client priority approval because their company will later employ the official. Which prohibition is most directly implicated?
 
     '
@@ -274,9 +304,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0002
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'An official resigns and opens a professional practice. Which client matter remains barred during the following year?
 
     '
@@ -299,9 +331,11 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0003
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-private-practice
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which statement correctly combines permission and conflict rules for private professional practice during public service?
 
     '
@@ -324,6 +358,8 @@ questions:
 
     '
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0004
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -343,8 +379,10 @@ questions:
       The ban covers valuable benefits, not just cash. Payment for a personal vacation is a valuable benefit.
   explanation: |
     Solicitation means asking for a benefit. The employee asked a licensed company for a personal benefit. The company's refusal does not make that request proper.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0005
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-foreign-government-benefits
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -356,15 +394,17 @@ questions:
   - text: The grant is excluded because only medical treatment is listed.
     rationale: |
       Medical treatment is one listed benefit. Scholarships and fellowship grants from foreign governments are also listed.
-  - text: The grant is a listed foreign-government benefit separate from courtesy souvenirs.
+  - text: Fellowships are listed foreign-government benefits, separate from souvenirs.
     correct: true
   - text: The grant is excluded because a fellowship must come from a private organization.
     rationale: |
       The stated exception expressly includes fellowship grants from foreign governments. It does not require a private donor.
   explanation: |
     A fellowship supports study, training, or research. Foreign-government fellowship grants are listed separately. They do not have to be treated as nominal courtesy souvenirs.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0006
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -383,8 +423,10 @@ questions:
       The Code defines family and relatives separately. The donor is a named relative and does not need to meet the definition of a child.
   explanation: |
     The parent of a son-in-law or daughter-in-law is a balae. The Code expressly includes this relative. The family celebration and lack of expected financial benefit meet the stated gift conditions.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0007
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -403,8 +445,10 @@ questions:
     correct: true
   explanation: |
     The implementing rules allow referrals required by assigned public duties. This referral meets that condition. A pending transaction alone does not defeat this exception.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0008
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -413,7 +457,7 @@ questions:
   - text: Yes, because only transactions already pending must be checked.
     rationale: |
       This exception also checks regular and expected transactions. An application the donor expects to submit cannot be ignored.
-  - text: No, because the donor has an expected transaction with the agency.
+  - text: No, the donor expects an agency transaction.
     correct: true
   - text: Yes, because nominal value removes every condition about agency transactions.
     rationale: |
@@ -424,8 +468,10 @@ questions:
   explanation: |
     This exception requires no regular, pending, or expected agency transaction. The planned application is an expected transaction.
     Small value and lack of expected financial benefit do not remove that condition.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0009
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-organization-and-government-donations
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -444,8 +490,10 @@ questions:
       The donor is a government entity, not a private person. The rules list government-to-government donations separately.
   explanation: |
     The donation passes from one government entity to another. That is a listed exception. The equipment belongs to the receiving agency, not to the officer who accepts it.
-  approved: false
+  approved: true
 - id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0010
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-organization-and-government-donations
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
@@ -465,4 +513,27 @@ questions:
       A relief donation does not buy favorable official action. The agency must still decide the license application fairly.
   explanation: |
     The supplies help people in need. They are reviewed and accepted for that purpose without a sought private gain. The organization-donation exception does not state the no-transaction condition used for nominal donations from persons. The pending application alone does not defeat it.
-  approved: false
+  approved: true
+
+- id: q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0017
+  approved: true
+  lesson: lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    At a family celebration, an employee receives a gift from a first cousin. No financial benefit or official favor is expected. Which assessment follows the stated family-gift exception?
+  choices:
+  - text: "The gift meets the family-celebration conditions."
+    correct: true
+  - text: "The gift is excluded from the exception because a first cousin is outside the fourth civil degree."
+    rationale: |
+      This counts the family steps incorrectly. A cousin can seem distant. Count up to the shared grandparent and down to the cousin.
+  - text: "The exception requires a financial benefit to be expected because the donor is a relative."
+    rationale: |
+      This reverses a condition of the exception. Family members may give valuable gifts. Check that no financial gain or benefit is expected.
+  - text: "The exception covers family friends and relatives on the same basis because the occasion is a celebration."
+    rationale: |
+      This treats friendship as a legal relationship. Friends may join a family event. Check the Code's definition of covered relatives.
+  explanation: |
+    RA 6713, Section 3(k) includes relatives within the fourth civil degree. A first cousin is in that degree. The implementing rules, Rule X, Section 1(f)(2), cover a relative's gift at a family celebration without expected financial gain or benefit.

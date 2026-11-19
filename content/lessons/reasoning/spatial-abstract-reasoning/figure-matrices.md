@@ -6,6 +6,12 @@ subject: "subject-reasoning"
 topic: "topic-spatial-abstract-reasoning"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-spatial-abstract-reasoning-matrix-turns-and-counts
+  - lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+  - lesson-spatial-abstract-reasoning-matrix-keeping-all-features
+  - lesson-spatial-abstract-reasoning-matrix-keeping-shared-features
 ---
 ## Core Concept
 

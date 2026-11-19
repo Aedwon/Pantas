@@ -7,6 +7,8 @@ meta:
     - "acet"
     - "dlsucet"
     - "ustet"
+    - "cse-pro"
+    - "cse-sub"
 passages:
   - id: "rc-cs-fo-p1"
     title: "A Fictional Transport Debate"
@@ -37,11 +39,14 @@ passages:
     body: |
       In a fictional town, residents wrote to a water service office after an interruption. Their letter stated that the outage had lasted two days. It also called the service the worst in the region and said every other town had reliable water throughout the same week. The residents asked the office to provide an explanation and improve its response.
       
-      The office checked its logs and found that service had been interrupted for one day. This did not make the residents' duration claim an opinion. It made a checkable claim inconsistent with the available record. The comparison with every other town would require separate records; the letter supplied none. Calling the service the worst also required a standard for judging quality, not just a forceful phrase.
+      The office checked its logs and found that service had been interrupted for one day. At the next meeting, a staff member placed the local log on the table beside a copy of the letter. Residents passed both papers around and asked when the office would reply. The letter included no records from other towns.
       
-      A resident later wrote, "The outage lasted one day, and the delay was unacceptable." The first part could be checked against the logs. The second expressed a judgment about what residents should have to endure. Clear complaints can contain both evidence and evaluation without treating them as the same thing.
+      A resident later wrote, "The outage lasted one day, and the delay was unacceptable." She asked for the office's response to be read at the next meeting. Other residents signed the revised letter, and a volunteer delivered it to the service desk that afternoon.
 questions:
   - id: "rc-cs-fo-0001"
+    approved: true
+    lesson: lesson-comprehension-skills-checkable-claims-and-judgments
+    keyPoint: 1
     passage: "rc-cs-fo-p1"
     type: "fact-vs-opinion"
     difficulty: "easy"
@@ -62,6 +67,9 @@ questions:
     explanation: |
       An emissions change can be checked by comparing measurements. The passage attributes this measured claim to city records.
   - id: "rc-cs-fo-0002"
+    approved: true
+    lesson: lesson-comprehension-skills-checkable-claims-and-judgments
+    keyPoint: 1
     passage: "rc-cs-fo-p1"
     type: "fact-vs-opinion"
     difficulty: "easy"
@@ -82,6 +90,9 @@ questions:
     explanation: |
       Calling the vehicles obsolete relics evaluates their worth. That wording expresses a stance about whether they should remain in use.
   - id: "rc-cs-fo-0003"
+    approved: true
+    lesson: lesson-comprehension-skills-checkable-claims-and-judgments
+    keyPoint: 1
     passage: "rc-cs-fo-p1"
     type: "fact-vs-opinion"
     difficulty: "medium"
@@ -102,6 +113,9 @@ questions:
     explanation: |
       The phrase judges the overall quality of an experience. Without defined criteria for superior, the evaluation depends on values and preferences.
   - id: "rc-cs-fo-0004"
+    approved: true
+    lesson: lesson-comprehension-skills-checkable-claims-and-judgments
+    keyPoint: 2
     passage: "rc-cs-fo-p1"
     type: "fact-vs-opinion"
     difficulty: "medium"
@@ -122,6 +136,9 @@ questions:
     explanation: |
       The amount per unit is checkable. Calling the spending an excessive waste judges its value. The sentence contains both kinds of claim.
   - id: "rc-cs-fo-0005"
+    approved: true
+    lesson: lesson-comprehension-skills-checkable-claims-and-judgments
+    keyPoint: 1
     passage: "rc-cs-fo-p1"
     type: "fact-vs-opinion"
     difficulty: "hard"
@@ -142,6 +159,9 @@ questions:
     explanation: |
       Best ranks the transport option by value. Absolute intensifies that judgment without supplying a defined standard.
   - id: "rc-cs-fo-0006"
+    approved: true
+    lesson: lesson-comprehension-skills-checkable-claims-and-judgments
+    keyPoint: 1
     passage: "rc-cs-fo-p2"
     type: "fact-vs-opinion"
     difficulty: "easy"
@@ -162,6 +182,9 @@ questions:
     explanation: |
       Rated capacity describes the plant's power rating. It can be checked against technical records.
   - id: "rc-cs-fo-0007"
+    approved: true
+    lesson: lesson-comprehension-skills-checkable-claims-and-judgments
+    keyPoint: 1
     passage: "rc-cs-fo-p2"
     type: "fact-vs-opinion"
     difficulty: "easy"
@@ -182,6 +205,9 @@ questions:
     explanation: |
       Tragic mistake evaluates whether the decision was acceptable. The phrase depends on the values used to judge the land conversion.
   - id: "rc-cs-fo-0008"
+    approved: true
+    lesson: lesson-comprehension-skills-projections-and-forecasts
+    keyPoint: 1
     passage: "rc-cs-fo-p2"
     type: "fact-vs-opinion"
     difficulty: "medium"
@@ -202,6 +228,9 @@ questions:
     explanation: |
       The claim concerns future growth based on applications. It depends on the projects being completed, so it is a conditional forecast.
   - id: "rc-cs-fo-0009"
+    approved: true
+    lesson: lesson-comprehension-skills-checkable-claims-and-judgments
+    keyPoint: 1
     passage: "rc-cs-fo-p2"
     type: "fact-vs-opinion"
     difficulty: "medium"
@@ -222,6 +251,9 @@ questions:
     explanation: |
       Magnificent and triumph praise the project's worth. Most adds a ranking for which the passage gives no defined standard.
   - id: "rc-cs-fo-0010"
+    approved: true
+    lesson: lesson-comprehension-skills-projections-and-forecasts
+    keyPoint: 2
     passage: "rc-cs-fo-p2"
     type: "fact-vs-opinion"
     difficulty: "hard"
@@ -242,6 +274,8 @@ questions:
     explanation: |
       A checkable present or past claim differs from an evaluation and from a future forecast. Reading meaning and time reference helps separate these types.
   - id: "q-comprehension-skills-fact-vs-opinion-0011"
+    lesson: lesson-comprehension-skills-checkable-claims-and-judgments
+    keyPoint: 1
     passage: "p-comprehension-skills-fact-vs-opinion-0003"
     type: "fact-vs-opinion"
     difficulty: "easy"
@@ -261,8 +295,10 @@ questions:
           This treats acceptance of a cost as a measurement. Supervision affects the proposal. Check whether worth expresses a judgment.
     explanation: |
       Survey forms can be counted now to check the number of respondents.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-fact-vs-opinion-0012"
+    lesson: lesson-comprehension-skills-projections-and-forecasts
+    keyPoint: 1
     passage: "p-comprehension-skills-fact-vs-opinion-0003"
     type: "fact-vs-opinion"
     difficulty: "medium"
@@ -282,8 +318,10 @@ questions:
           This removes practical needs from the proposal. Costs affect feasibility. Check which assumption connects the survey to visits.
     explanation: |
       The report states that the forecast assumes every interested respondent comes daily. That links expressed interest to the predicted attendance.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-fact-vs-opinion-0013"
+    lesson: lesson-comprehension-skills-projections-and-forecasts
+    keyPoint: 2
     passage: "p-comprehension-skills-fact-vs-opinion-0003"
     type: "fact-vs-opinion"
     difficulty: "medium"
@@ -303,8 +341,10 @@ questions:
           This confuses uncertainty with preference. A prediction may fail. Check whether its assumptions and data still make it a forecast.
     explanation: |
       The club's report can be checked to see what it forecasts. Reporting that forecast does not establish actual future attendance.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-fact-vs-opinion-0014"
+    lesson: lesson-comprehension-skills-claim-type-and-evidence
+    keyPoint: 1
     passage: "p-comprehension-skills-fact-vs-opinion-0003"
     type: "fact-vs-opinion"
     difficulty: "hard"
@@ -324,8 +364,10 @@ questions:
           This treats a practical revision as a change in meaning. A trial may gather more evidence. Check whether best remains a judgment.
     explanation: |
       The responses give reasons for her view. Calling the room the best improvement still evaluates it against other possible priorities.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-fact-vs-opinion-0015"
+    lesson: lesson-comprehension-skills-projections-and-forecasts
+    keyPoint: 1
     passage: "p-comprehension-skills-fact-vs-opinion-0003"
     type: "fact-vs-opinion"
     difficulty: "exam"
@@ -345,8 +387,10 @@ questions:
           This treats changing counts as unmeasurable. Attendance may vary. Check whether each day's visits can still be counted.
     explanation: |
       The survey records what respondents say now. Future visits must be observed later, and the forecast depends on an attendance assumption.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-fact-vs-opinion-0016"
+    lesson: lesson-comprehension-skills-claim-type-and-evidence
+    keyPoint: 1
     passage: "p-comprehension-skills-fact-vs-opinion-0004"
     type: "fact-vs-opinion"
     difficulty: "easy"
@@ -366,8 +410,10 @@ questions:
           This lets the purpose of a letter classify every sentence. The residents are dissatisfied. Check the specific claim about elapsed time.
     explanation: |
       The duration claim can be tested against records. A mismatch affects its accuracy, but it remains factual in type.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-fact-vs-opinion-0017"
+    lesson: lesson-comprehension-skills-claim-type-and-evidence
+    keyPoint: 1
     passage: "p-comprehension-skills-fact-vs-opinion-0004"
     type: "fact-vs-opinion"
     difficulty: "medium"
@@ -387,8 +433,10 @@ questions:
           This substitutes stronger wording for a test. Forceful complaints can sound persuasive. Check what evidence addresses the comparison.
     explanation: |
       The claim covers every other town during the stated week. Records across those towns would allow that factual claim to be checked.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-fact-vs-opinion-0018"
+    lesson: lesson-comprehension-skills-checkable-claims-and-judgments
+    keyPoint: 2
     passage: "p-comprehension-skills-fact-vs-opinion-0004"
     type: "fact-vs-opinion"
     difficulty: "medium"
@@ -408,8 +456,10 @@ questions:
           This mistakes a past event for prediction. Duration is numerical. Check the verb lasted and the event's timing.
     explanation: |
       One day states a duration that records can check. Unacceptable judges the delay by a standard of what residents should endure.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-fact-vs-opinion-0019"
+    lesson: lesson-comprehension-skills-checkable-claims-and-judgments
+    keyPoint: 1
     passage: "p-comprehension-skills-fact-vs-opinion-0004"
     type: "fact-vs-opinion"
     difficulty: "hard"
@@ -429,8 +479,10 @@ questions:
           This uses the speaker's identity to classify claims. Residents express preferences. Check whether they can also make checkable statements.
     explanation: |
       Worst ranks service quality. The letter supplies no defined standard for that overall judgment.
-    approved: false
+    approved: true
   - id: "q-comprehension-skills-fact-vs-opinion-0020"
+    lesson: lesson-comprehension-skills-claim-type-and-evidence
+    keyPoint: 1
     passage: "p-comprehension-skills-fact-vs-opinion-0004"
     type: "fact-vs-opinion"
     difficulty: "exam"
@@ -450,4 +502,4 @@ questions:
           This treats forceful wording as evidence. The complaint is emphatic. Check for records supporting its scope.
     explanation: |
       Records could test the statement about other towns. The letter provides no such records, so it is a factual claim without support there.
-    approved: false
+    approved: true

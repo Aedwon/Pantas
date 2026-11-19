@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-modifiers-0001"
+    lesson: lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning
+    keyPoint: 1
     type: "modifier-placement"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       The revision places "covered in cheese" directly after "pasta." That makes the pasta the clear target of the description.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0002"
+    lesson: lesson-grammar-and-structure-dangling-modifiers-and-their-subjects
+    keyPoint: 2
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -52,6 +56,8 @@ questions:
       The opening phrase describes the person who finished the race. The main subject "she" supplies that person, so the description has a clear target.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0003"
+    lesson: lesson-grammar-and-structure-dangling-modifiers-and-their-subjects
+    keyPoint: 1
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       The tourists are the subject of the main clause. They can perform the opening action, "driving through the mountains."
     approved: true
   - id: "q-grammar-and-structure-modifiers-0004"
+    lesson: lesson-grammar-and-structure-scope-of-small-modifiers
+    keyPoint: 1
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       "Only she" says that she alone gave the answer. "Only him" says that he alone received it.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0005"
+    lesson: lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning
+    keyPoint: 1
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       "With a torn cover" follows "a book." It clearly describes the book being handed over.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0006"
+    lesson: lesson-grammar-and-structure-dangling-modifiers-and-their-subjects
+    keyPoint: 2
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -132,6 +144,8 @@ questions:
       "I" is the main subject and the person rushing for the bus. The opening phrase now has a clear person to describe.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0007"
+    lesson: lesson-grammar-and-structure-dangling-modifiers-and-their-subjects
+    keyPoint: 1
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
       The main subject is "the campers." They are the people described as exhausted, so the opening description fits.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0008"
+    lesson: lesson-grammar-and-structure-scope-of-small-modifiers
+    keyPoint: 1
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -172,6 +188,8 @@ questions:
       "Only" limits part of a sentence. Its position helps show that part, and the surrounding words can also make the limit clear.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0009"
+    lesson: lesson-grammar-and-structure-dangling-modifiers-and-their-subjects
+    keyPoint: 2
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -192,6 +210,8 @@ questions:
       "As Liza approached the gate" names Liza as its own subject. The main clause can therefore have a different subject, "a dog."
     approved: true
   - id: "q-grammar-and-structure-modifiers-0010"
+    lesson: lesson-grammar-and-structure-scope-of-small-modifiers
+    keyPoint: 2
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -212,6 +232,8 @@ questions:
       "Almost every day" describes how often the cyclists rode. It means they rode on most days, with some days left out.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0011"
+    lesson: lesson-grammar-and-structure-scope-of-small-modifiers
+    keyPoint: 1
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -232,6 +254,8 @@ questions:
       "On Saturday only" limits the day of admission. It allows Saturday and excludes other days.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0012"
+    lesson: lesson-grammar-and-structure-dangling-modifiers-and-their-subjects
+    keyPoint: 1
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -252,6 +276,8 @@ questions:
       "Having studied all night" describes someone who studied. The main subject is "the exam," so the sentence does not name a matching subject for the opening action.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0013"
+    lesson: lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning
+    keyPoint: 1
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -272,6 +298,8 @@ questions:
       "Wearing a blue jacket" follows "the student." The revision clearly identifies the student as the person wearing the jacket.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0014"
+    lesson: lesson-grammar-and-structure-dangling-modifiers-and-their-subjects
+    keyPoint: 2
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -292,6 +320,8 @@ questions:
       The main subject "we" names people who can be excited. It also names the people packing the suitcases.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0015"
+    lesson: lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning
+    keyPoint: 2
     type: "modifier-placement"
     difficulty: "exam"
     stem: |
@@ -312,6 +342,8 @@ questions:
       "We" names the visitors entering the room. "Wrapped in a napkin" follows "bread," so it describes the bread.
     approved: true
   - id: "q-grammar-and-structure-modifiers-0016"
+    lesson: lesson-grammar-and-structure-scope-of-small-modifiers
+    keyPoint: 2
     type: "modifier-placement"
     difficulty: "easy"
     stem: |
@@ -330,8 +362,10 @@ questions:
           This says that she missed the train. The word "almost" can suggest a near event. Check: check which words "almost" actually limits.
     explanation: |
       "Almost missed" means the miss nearly happened. Mara therefore caught the train.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-modifiers-0017"
+    lesson: lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning
+    keyPoint: 2
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
@@ -350,8 +384,10 @@ questions:
           This gives the damage to the ladder. The relative clause removes some placement uncertainty. Check: check that the revision preserves the intended damage.
     explanation: |
       "Broken" directly describes "window." The ladder only tells where the worker stood.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-modifiers-0018"
+    lesson: lesson-grammar-and-structure-dangling-modifiers-and-their-subjects
+    keyPoint: 1
     type: "modifier-placement"
     difficulty: "hard"
     stem: |
@@ -370,8 +406,10 @@ questions:
           This treats an opening action phrase as automatically faulty. The opening words come before the main subject. Check: match working to the editors.
     explanation: |
       "To reach the deadline" needs people who aim to finish on time. The main subject is "more time," so the sentence leaves those people unnamed.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-modifiers-0019"
+    lesson: lesson-grammar-and-structure-scope-of-small-modifiers
+    keyPoint: 2
     type: "modifier-placement"
     difficulty: "hard"
     stem: |
@@ -390,8 +428,10 @@ questions:
           This limits the duration of the display. The phrase "almost" still suggests an exception. Check: keep the exception attached to the vases.
     explanation: |
       "Almost all the vases" limits the number of vases displayed. It means nearly all were displayed, without giving an exact number left out.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-modifiers-0020"
+    lesson: lesson-grammar-and-structure-dangling-modifiers-and-their-subjects
+    keyPoint: 2
     type: "modifier-placement"
     difficulty: "exam"
     stem: |
@@ -410,4 +450,4 @@ questions:
           This makes dinner the understood arrival. The later mention of guests supplies an intended meaning. Check: look for a stated subject in the opening group.
     explanation: |
       "After the guests arrived" has its own subject, "the guests." The main clause may therefore use "dinner" as a different subject.
-    approved: false
+    approved: true

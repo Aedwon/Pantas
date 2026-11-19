@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-sentence-structure-0001"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       The teacher and students share the actions "prepared and rehearsed." There is one independent clause and no dependent clause, so the sentence is simple.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0002"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 3
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "She wanted to travel abroad" and "she could not afford the airfare" are independent clauses joined by "but." There is no dependent clause, so the sentence is compound.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0003"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 1
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       "Although the storm was severe" is dependent. "The town suffered minimal damage" is independent. One of each makes a complex sentence.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0004"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       "When the bell rang" is dependent. "The students grabbed their bags" and "they rushed out the door" are independent. That combination makes a compound-complex sentence.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0005"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       The main subject is "the old warehouse," and its verb is "remained." The other groups add place and time details, so there is one independent clause and the sentence is simple.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0006"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 3
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -132,6 +144,8 @@ questions:
       "The rain stopped" and "we went outside to play" are independent clauses joined by "so." There is no dependent clause, so the sentence is compound.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0007"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 1
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
       "Since the exam was postponed" is dependent. "The students relaxed for the weekend" is independent. One of each makes a complex sentence.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0008"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -172,6 +188,8 @@ questions:
       "The students lit candles" and "they continued studying" are independent clauses. "Because the power went out" is dependent. Two independent clauses plus a dependent clause make the sentence compound-complex.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0009"
+    lesson: lesson-grammar-and-structure-payak-at-tambalang-pangungusap
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -181,17 +199,19 @@ questions:
         correct: true
       - text: "Tambalan"
         rationale: |
-          This assumes a short action statement contains joined main clauses. A complete event can involve several ideas. Check: count the actual subject-and-verb statements.
+          Ipinapalagay nitong may magkaugnay na sugnay na makapag-iisa. Maaaring maraming ideya sa isang pangyayari. Bilangin ang mga sugnay na talagang nakasulat.
       - text: "Hugnayan"
         rationale: |
-          This imagines a dependent reason or time clause. A reason for going home could be supplied. Check: use only clauses actually written.
+          Ipinapalagay nitong may sugnay na di-makapag-iisa para sa dahilan o oras. Maaaring magdagdag ng dahilan ng pag-uwi. Ngunit suriin lamang ang nakasulat.
       - text: "Langkapan"
         rationale: |
-          This assumes any complete thought combines several clause types. The statement is a full sentence. Check: look for both multiple main clauses and a dependent clause.
+          Ipinapalagay nitong may iba-ibang uri ng sugnay dahil buo ang diwa. Kumpletong pangungusap nga ito. Ngunit hanapin kung may maraming sugnay na makapag-iisa at may di-makapag-iisa.
     explanation: |
-      "Umuwi ang bata" gives one complete independent statement. It is payak, or simple.
+      Ang "Umuwi ang bata" ay isang buong pahayag na makapag-iisa. Payak ang pangungusap.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0010"
+    lesson: lesson-grammar-and-structure-payak-at-tambalang-pangungusap
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -201,17 +221,19 @@ questions:
         correct: true
       - text: "Payak"
         rationale: |
-          This merges the going-home and left-bag statements. Both concern the child's trip. Check: test each side of "ngunit" on its own.
+          Pinagsasama nito sa bilang ang pag-uwi at ang pagkaiwan ng bag. Pareho silang tungkol sa bata. Subukang basahin nang hiwalay ang bawat panig ng "ngunit."
       - text: "Hugnayan"
         rationale: |
-          This treats "ngunit" as a subordinating connector. It marks a contrast. Check: check that both clauses are independent.
+          Itinuturing nitong pananda ng sugnay na di-makapag-iisa ang "ngunit." Nagsasaad ito ng pagsalungat. Suriing makapag-iisa ang parehong sugnay.
       - text: "Langkapan"
         rationale: |
-          This adds a dependent clause that is not stated. The lost bag may suggest a reason or problem. Check: count only the written clauses.
+          Nagdaragdag ito ng sugnay na di-makapag-iisa na wala sa pangungusap. Maaaring magpahiwatig ng problema ang naiwan na bag. Bilangin lamang ang mga sugnay na nakasulat.
     explanation: |
-      "Umuwi ang bata" and "naiwan ang bag niya" are independent statements joined by "ngunit." The sentence is tambalan, or compound.
+      Makapag-iisa ang "Umuwi ang bata" at "naiwan ang bag niya." Pinag-uugnay sila ng "ngunit." Tambalan ang pangungusap.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0011"
+    lesson: lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay
+    keyPoint: 1
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -221,17 +243,19 @@ questions:
         correct: true
       - text: "Payak"
         rationale: |
-          This leaves out the reason clause. The going-home statement is complete. Check: include "dahil umuulan na" in the count.
+          Hindi nito binibilang ang sugnay na nagbibigay ng dahilan. Buo ang pahayag tungkol sa pag-uwi. Isama sa bilang ang "dahil umuulan na."
       - text: "Tambalan"
         rationale: |
-          This treats the reason clause as independent. It contains the action "umuulan". Check: include the effect of "dahil".
+          Itinuturing nitong makapag-iisa ang sugnay ng dahilan. May kilos na "umuulan" dito. Tingnan ang epekto ng "dahil" sa buong sugnay.
       - text: "Langkapan"
         rationale: |
-          This counts the reason clause as another main clause. Two clause groups are visible. Check: count independent and dependent groups separately.
+          Binibilang nitong isa pang sugnay na makapag-iisa ang dahilan. Dalawang sugnay ang nakikita. Ihiwalay sa bilang ang makapag-iisa at di-makapag-iisa.
     explanation: |
-      "Umuwi ang bata" is independent, and "dahil umuulan na" is dependent. One of each makes the sentence hugnayan, or complex.
+      Makapag-iisa ang "Umuwi ang bata." Di-makapag-iisa ang "dahil umuulan na." Hugnayan ang pangungusap dahil may tig-isa nito.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0012"
+    lesson: lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -241,17 +265,19 @@ questions:
         correct: true
       - text: "Payak"
         rationale: |
-          This counts only one overall event. All the clauses concern the same rainy situation. Check: identify each clause's own subject and action.
+          Iisang pangyayari lamang ang binibilang nito. Tungkol sa ulan ang lahat ng sugnay. Hanapin ang sariling paksa at kilos ng bawat sugnay.
       - text: "Tambalan"
         rationale: |
-          This ignores "dahil malakas na ang ulan". The first two main statements are joined by "at". Check: check for the final reason clause.
+          Hindi nito pinapansin ang "dahil malakas na ang ulan." Pinag-uugnay ng "at" ang unang dalawang sugnay. Isama sa pagsusuri ang huling sugnay ng dahilan.
       - text: "Hugnayan"
         rationale: |
-          This merges "Umuwi ang bata" and "nagsara ang tindahan". They are joined within one sentence. Check: test each of those statements independently.
+          Pinagsasama nito sa bilang ang "Umuwi ang bata" at "nagsara ang tindahan." Magkasama sila sa isang pangungusap. Subukang basahin nang hiwalay ang bawat isa.
     explanation: |
-      "Umuwi ang bata" and "nagsara ang tindahan" are independent. "Dahil malakas na ang ulan" is dependent. The combination is langkapan, or compound-complex.
+      Makapag-iisa ang "Umuwi ang bata" at "nagsara ang tindahan." Di-makapag-iisa ang "dahil malakas na ang ulan." Langkapan ang ganitong pagsasama.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0013"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 3
     type: "sentence-structure-classification"
     difficulty: "hard"
     stem: |
@@ -272,6 +298,8 @@ questions:
       "The dog played" and "the cat slept" are independent clauses. Joining them with "and" makes a compound sentence.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0014"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 1
     type: "sentence-structure-classification"
     difficulty: "hard"
     stem: |
@@ -292,6 +320,8 @@ questions:
       "Because the meeting ran late" is dependent. "The team missed lunch" is independent. This inventory makes the sentence complex.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0015"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 1
     type: "sentence-structure-classification"
     difficulty: "hard"
     stem: |
@@ -312,6 +342,8 @@ questions:
       "We will open the hall" is the only independent clause. "If the rain stops" and "when the guests arrive" are dependent, so the sentence is complex.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0016"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 2
     type: "sentence-structure-classification"
     difficulty: "exam"
     stem: |
@@ -332,6 +364,8 @@ questions:
       "Since the flight was delayed" is dependent. "The passengers waited," "some of them ordered food," and "others simply read books" are three independent statements. That combination makes the sentence compound-complex.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0017"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 3
     type: "sentence-structure-classification"
     difficulty: "easy"
     stem: |
@@ -350,8 +384,10 @@ questions:
           This adds a dependent clause that is not present. Two clauses are already visible. Check: look for an actual subordinate clause.
     explanation: |
       Both "The clinic reopened" and "appointments resumed" are independent clauses. A semicolon joins them, so the sentence is compound.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-sentence-structure-0018"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 3
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
@@ -370,8 +406,10 @@ questions:
           This ignores the subject and verb in the opening clause. A time introduction can look like a phrase. Check: check whether the opening group has its own clause.
     explanation: |
       "After rehearsal" is a prepositional phrase giving time. "The musicians left" is the only clause, so the sentence is simple.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-sentence-structure-0019"
+    lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
+    keyPoint: 1
     type: "sentence-structure-classification"
     difficulty: "hard"
     stem: |
@@ -390,8 +428,10 @@ questions:
           This counts the embedded clause as another main clause. The sentence contains two action words. Check: count independent clauses separately from dependent ones.
     explanation: |
       "While she checked the records" is a dependent clause giving time. The main clause is "The nurse called the patient." One of each makes the sentence complex.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-sentence-structure-0020"
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 3
     type: "sentence-structure-classification"
     difficulty: "exam"
     stem: |
@@ -410,4 +450,96 @@ questions:
           This retains the original classification after the dependent clause is removed. The two main statements are unchanged. Check: check whether any dependent clause survives.
     explanation: |
       The remaining clauses are "The truck arrived" and "the driver unloaded the supplies." Both are independent and joined by "and," so the remaining sentence is compound.
-    approved: false
+    approved: true
+
+  - id: q-grammar-and-structure-sentence-structure-0021
+    approved: true
+    lesson: lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay
+    keyPoint: 3
+    type: sentence-structure-classification
+    difficulty: exam
+    stem: |
+      Sa salaysay, unang inihanda ang ulat, kasunod itong sinuri, at pangwakas itong ipinasa. Aling hanay ng pananda ang angkop sa pagkakasunod na ito?
+    choices:
+      - text: "Una, pagkatapos, sa huli"
+        correct: true
+      - text: "Sa huli, pagkatapos nito, una"
+        rationale: |
+          Nabaligtad ang simula at wakas. Maaaring piliin mo ang mga salitang pamilyar nang hindi sinusuri ang ayos. Itugma ang una sa paghahanda.
+      - text: "Pagkatapos, sa huli, una"
+        rationale: |
+          Inilagay sa hulihan ang panandang para sa simula. Maaaring makilala mo ang bawat salita ngunit hindi ang ayos. Hanapin muna ang unang pangyayari.
+      - text: "Una, sa huli, pagkatapos"
+        rationale: |
+          Inilagay ang pangwakas bago ang kasunod na pangyayari. Maaaring mapansin mo lamang na tama ang una. Suriin din ang huling dalawang pananda.
+    explanation: |
+      Una ang paghahanda. Pagkatapos ang pagsusuri. Sa huli ang pagpasa. Tumutugma ang mga pananda sa simula, kasunod, at pangwakas.
+
+  - id: q-grammar-and-structure-sentence-structure-0022
+    approved: true
+    lesson: lesson-grammar-and-structure-payak-at-tambalang-pangungusap
+    keyPoint: 1
+    type: sentence-structure-classification
+    difficulty: exam
+    stem: |
+      Alin sa mga sumusunod ang sugnay na makapag-iisa?
+    choices:
+      - text: "Inayos ng kawani ang pila."
+        correct: true
+      - text: "Dahil inayos ng kawani ang pila."
+        rationale: |
+          May simuno at panaguri ngunit naghihintay pa ng bunga. Maaaring isipin mong sapat na ang mga ito. Suriin kung buo na ang diwa.
+      - text: "Kapag inayos ng kawani ang pila."
+        rationale: |
+          Nagbibigay ito ng kondisyon na kailangan pang ituloy. Maaaring magmukhang buo dahil may kilos. Hanapin kung natapos na ang diwa.
+      - text: "Habang inaayos ng kawani ang pila."
+        rationale: |
+          Nagsasaad ito ng panahong may hinihintay pang pangyayari. May simuno at panaguri ito. Suriin kung kaya nitong tumayo nang mag-isa.
+    explanation: |
+      Buo ang diwa ng "Inayos ng kawani ang pila." Ang pila ang simuno at sinasabi ng panaguri kung ano ang ginawa rito. Hindi nito kailangan ng ibang sugnay upang mabuo ang diwa.
+
+  - id: q-grammar-and-structure-sentence-structure-0023
+    approved: true
+    lesson: lesson-grammar-and-structure-payak-at-tambalang-pangungusap
+    keyPoint: 3
+    type: sentence-structure-classification
+    difficulty: exam
+    stem: |
+      Aling pangatnig ang angkop upang magbigay ng pagpipilian: "Maaari kang magpasa sa tanggapan, ___ maaari kang magpadala sa koreo"?
+    choices:
+      - text: "o"
+        correct: true
+      - text: "ngunit"
+        rationale: |
+          Pagsalungat ang ipinapakita nito. Maaaring mapansin mong magkaiba ang paraan. Suriin kung salungatan o pagpipilian ang hinihingi.
+      - text: "at"
+        rationale: |
+          Dagdag na diwa ang ipinapakita nito. Parehong maaaring gawin ang mga kilos. Piliin ang salitang malinaw na nagpapakita ng pagpipilian.
+      - text: "dahil"
+        rationale: |
+          Dahilan ang ipinapakilala nito. Magkaugnay ang dalawang paraan ngunit hindi dahilan ng isa ang isa. Suriin ang ugnayang hinihingi.
+    explanation: |
+      Ang o ay ginagamit para sa pagpipilian. Pinag-uugnay nito ang dalawang buong diwa bilang mga paraang mapagpipilian sa pagpapasa.
+
+  - id: q-grammar-and-structure-sentence-structure-0024
+    approved: true
+    lesson: lesson-grammar-and-structure-simple-and-compound-sentences
+    keyPoint: 1
+    type: sentence-structure-classification
+    difficulty: exam
+    stem: |
+      Which group can stand alone as a complete sentence?
+    choices:
+      - text: "The supervisor signed the request."
+        correct: true
+      - text: "Although the supervisor signed the request."
+        rationale: |
+          Although makes this group dependent. It has a subject and a verb, which may make it look complete. Check whether it leaves you waiting for the main thought.
+      - text: "Because the supervisor signed the request."
+        rationale: |
+          Because introduces a reason that needs a main clause. The action is clear. Ask what happened because of it.
+      - text: "When the supervisor signed the request."
+        rationale: |
+          When leaves the reader waiting for another event. A subject and verb alone can still form a dependent clause. Check whether the thought is complete.
+    explanation: |
+      "The supervisor signed the request" has the subject "the supervisor" and the verb signed. It gives a complete thought and is an independent clause.

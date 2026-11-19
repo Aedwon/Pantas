@@ -6,6 +6,12 @@ subject: "subject-reasoning"
 topic: "topic-spatial-abstract-reasoning"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold
+  - lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines
+  - lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes
+  - lesson-spatial-abstract-reasoning-uneven-folds-and-cut-layers
 ---
 ## Core Concept
 

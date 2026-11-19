@@ -11,7 +11,9 @@ FRONT_KEYS = ["_id", "title", "summary", "subject", "topic",
 
 def run(root=None):
     for les in lib.iter_lessons(root):
-        if list(les.front) != FRONT_KEYS:
+        # `ordering` is optional and, when present, comes last.
+        keys = [k for k in les.front if k != "ordering"]
+        if keys != FRONT_KEYS or list(les.front)[-1] != ("ordering" if "ordering" in les.front else FRONT_KEYS[-1]):
             lib.finding("STRUCT", "polish", les, 1,
                         f"frontmatter keys {list(les.front)} differ from required order {FRONT_KEYS}")
         mins = les.front.get("estimatedMinutes", "")

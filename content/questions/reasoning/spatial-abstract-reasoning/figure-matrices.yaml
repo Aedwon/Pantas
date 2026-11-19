@@ -9,6 +9,8 @@ meta:
     - "dlsucet"
 questions:
   - id: "q-spatial-abstract-reasoning-figure-matrices-0001"
+    lesson: lesson-spatial-abstract-reasoning-matrix-turns-and-counts
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "easy"
     figure: "figure-matrices-01"
@@ -42,6 +44,8 @@ questions:
       Across the first row, the internal line turns 90 degrees clockwise from up to right. In the second row, apply that same turn from down to left. The row keeps its square outline.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0002"
+    lesson: lesson-spatial-abstract-reasoning-matrix-turns-and-counts
+    keyPoint: 2
     type: "figure-matrix"
     difficulty: "easy"
     figure: "figure-matrices-02"
@@ -85,6 +89,8 @@ questions:
       Dot counts increase by one across each row and down each column. The bottom row begins three, four, so the blank needs five dots. The last column also continues three, four, five.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0003"
+    lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-03"
@@ -122,6 +128,8 @@ questions:
       Each column follows small, medium, large from top to bottom. The blank is the bottom cell of the second column. It therefore has a large square.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0004"
+    lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-04"
@@ -173,6 +181,8 @@ questions:
       Size is constant across each row and grows small, medium, large down columns. Fill is black, white, black across each row. The blank is in the bottom middle, so it is large and white.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0005"
+    lesson: lesson-spatial-abstract-reasoning-matrix-keeping-all-features
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-05"
@@ -212,6 +222,8 @@ questions:
       The third cell in the first row contains both rays from its first two cells. Keep both rays in the square row too. The blank therefore keeps both diagonal rays, one upper-right and one lower-right.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0006"
+    lesson: lesson-spatial-abstract-reasoning-matrix-keeping-all-features
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-06"
@@ -256,6 +268,8 @@ questions:
       In each row, the third cell combines the filled areas of the first two. Bottom-half and top-half fill together cover the whole square. The missing square is fully black.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0007"
+    lesson: lesson-spatial-abstract-reasoning-matrix-turns-and-counts
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-07"
@@ -289,6 +303,8 @@ questions:
       Across the top row the dot moves one corner clockwise, from top-left to top-right. The bottom row starts with a top-left dot too. Its missing square therefore needs a top-right dot.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0008"
+    lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-08"
@@ -340,6 +356,8 @@ questions:
       Within each row, dot counts increase one, two, three. Down each column, triangle size grows small, medium, large. The blank combines bottom-row large size with third-column three dots.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0009"
+    lesson: lesson-spatial-abstract-reasoning-matrix-keeping-shared-features
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-09"
@@ -375,9 +393,9 @@ questions:
       - text: "Square with all three diagonal rays"
         rationale: |
           This keeps all rays instead of only shared rays. All the rays occur in the inputs. Check that the completed output kept only the common ray.
-      - text: "Square with only the upper-right ray"
+      - text: "Square with the lower-right and lower-left rays"
         rationale: |
-          This chooses a ray present in only the first input. It is prominent there. Compare both inputs for a shared direction.
+          This copies the second input instead of keeping only the shared ray. Both rays are in the cell next to the blank, so it looks safe. Check that the third cell keeps only what the first two cells have in common.
       - text: "Square with only the lower-left ray"
         rationale: |
           This chooses a ray present in only the second input. It is most recent. Check which direction appears in both.
@@ -385,6 +403,8 @@ questions:
       In the completed row, the third cell keeps the ray shared by both preceding cells. Up is shared in the first row. In the square row, the shared ray points lower-right, so that is the blank's only ray.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0010"
+    lesson: lesson-spatial-abstract-reasoning-matrix-turns-and-counts
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-10"
@@ -418,6 +438,8 @@ questions:
       Across the first row, the dot switches from left to right and stays at the top. Apply the same left-right switch to the bottom row. The bottom-right dot moves to bottom-left. Keep the pentagon outline.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0011"
+    lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-11"
@@ -455,6 +477,8 @@ questions:
       Each row has fill states black, white, black. The missing cell is third in the bottom row. It therefore has black fill like the third cell in the completed row.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0012"
+    lesson: lesson-spatial-abstract-reasoning-matrix-turns-and-counts
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-12"
@@ -492,6 +516,8 @@ questions:
       Both columns follow up, right, down. Each step down a column turns the arrow 90 degrees clockwise. The blank at the bottom left therefore points down.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0013"
+    lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-13"
@@ -535,6 +561,8 @@ questions:
       Outline changes down the rows from triangle to square to pentagon. The internal line changes across each row from up to upper-right to right. The blank combines pentagon outline with a right-pointing line.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0014"
+    lesson: lesson-spatial-abstract-reasoning-matrix-keeping-all-features
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-14"
@@ -590,6 +618,8 @@ questions:
       Across each row, the last cell combines the first two rays. Down each column, size grows small, medium, large. The missing cell therefore has the large size and both up and right rays.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0015"
+    lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "easy"
     figure: "figure-matrices-15"
@@ -623,8 +653,10 @@ questions:
           This invents a new outline to avoid repetition. The blank needs an absent member. Choose from the three-outline set used in every completed row.
     explanation: |
       Each row and each column contains one circle, one triangle, and one square. The bottom row already has square and circle. Triangle completes both that row and the last column.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0016"
+    lesson: lesson-spatial-abstract-reasoning-matrix-keeping-all-features
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-16"
@@ -666,8 +698,10 @@ questions:
           This uses the difference $3-1$ instead of the sum. Both numbers occur in the last row. Check the completed-row operation.
     explanation: |
       The last dot count in each row equals the first two counts added together. The completed rows show $1+2=3$ and $2+2=4$. The final row therefore gives $1+3=4$ dots.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0017"
+    lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "medium"
     figure: "figure-matrices-17"
@@ -709,8 +743,10 @@ questions:
           This follows size but changes the constant outline. Medium is the missing size. Keep the square form.
     explanation: |
       Sizes cycle small, medium, large across the first row. Each following row starts one place later in that same cycle. The final row is large, small, medium, so medium fills the blank.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0018"
+    lesson: lesson-spatial-abstract-reasoning-matrix-turns-and-counts
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "hard"
     figure: "figure-matrices-18"
@@ -752,8 +788,10 @@ questions:
           This copies the first row's middle diagonal instead of completing the bottom row. Upper-right appears in the grid. Use the bottom row's own 135-degree step.
     explanation: |
       Within a row, the line turns clockwise by a constant step. Those steps increase down the rows: 45 degrees, 90 degrees, then 135 degrees. In the final row, a second 135-degree turn from lower-right points left.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0019"
+    lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "hard"
     figure: "figure-matrices-19"
@@ -792,11 +830,13 @@ questions:
           This repeats the adjacent corner. Bottom-left is most recent. Move one further corner clockwise.
       - text: "Square with dot at top-right"
         rationale: |
-          This uses the wrong column direction. Top-right appears earlier in the grid. Check the counter-clockwise change down columns.
+          This repeats the cell directly above the blank. Top-right is the dot in that cell, so a copy looks like a column rule. Check that the dot changes in every row and every column.
     explanation: |
       Dots move one corner clockwise across every row. Moving down a column uses the reverse corner order. The bottom row starts bottom-right, bottom-left, so its last dot is top-left.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-matrices-0020"
+    lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+    keyPoint: 1
     type: "figure-matrix"
     difficulty: "exam"
     figure: "figure-matrices-20"
@@ -854,4 +894,34 @@ questions:
           This follows size and edge count but freezes dots. Two dots are adjacent. Continue the increasing dot track.
     explanation: |
       Size grows small, medium, large down rows. Dots increase one, two, three across each row, while edge lines decrease three, two, one. The blank combines the final state of all three tracks: large, three dots, one edge line.
-    approved: false
+    approved: true
+  - id: q-spatial-abstract-reasoning-figure-matrices-0021
+    approved: true
+    lesson: lesson-spatial-abstract-reasoning-matrix-keeping-shared-features
+    keyPoint: 1
+    type: figure-matrix
+    difficulty: exam
+    stem: |
+      Each cell in a matrix is a square with dots at the listed corner positions. In each completed row, the third cell keeps only dots found at the same positions in both starting cells.
+
+      | Row | First cell | Second cell | Third cell |
+      | --- | --- | --- | --- |
+      | I | Top-left, top-right | Top-right, bottom-left | Top-right |
+      | II | Bottom-left, bottom-right | Top-left, bottom-left | Bottom-left |
+      | III | Top-left, top-right, bottom-right | Top-left, bottom-left, bottom-right | Missing |
+
+      Which dot arrangement completes row III?
+    choices:
+      - text: Top-left, bottom-right
+        correct: true
+      - text: Top-right and bottom-left
+        rationale: |
+          This keeps the dots found in only one starting cell. Those positions differ between the cells. Keep a dot only if both cells have it at that position.
+      - text: All four corner positions
+        rationale: |
+          This combines all dots from either cell. That is a different combination rule. Check what the completed rows keep.
+      - text: Top-left corner only
+        rationale: |
+          This stops after finding one shared dot. Top-left does appear in both cells. Check bottom-right too before finishing.
+    explanation: |
+      Both starting cells in row III have dots at top-left and bottom-right. These are their shared positions. Keeping only those positions gives top-left and bottom-right dots.

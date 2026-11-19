@@ -7,6 +7,8 @@ meta:
   - cse-sub
 questions:
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0001
+    lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
+    keyPoint: 1
     type: proposal-routes
     difficulty: easy
     stem: |
@@ -15,7 +17,7 @@ questions:
       - text: "Two"
         rationale: |
           This leaves out one route. People's initiative is also a proposal route, although it is limited to amendments.
-      - text: "Three"
+      - text: "3"
         correct: true
       - text: "Four"
         rationale: |
@@ -26,12 +28,14 @@ questions:
           Both concern forming the same kind of proposing body.
     explanation: |
       The three routes are Congress, a constitutional convention, and people's initiative. Initiative can propose amendments only.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0002
+    lesson: lesson-philippine-constitution-amendment-or-revision
+    keyPoint: 1
     type: amendment-or-revision
     difficulty: easy
     stem: |
-      Which description best defines a constitutional amendment as taught in the lesson?
+      Which description best defines a constitutional amendment under Article XVII?
     choices:
       - text: A replacement of the basic plan of government
         rationale: |
@@ -42,12 +46,14 @@ questions:
       - text: A change that voters alone may propose
         rationale: |
           Congress and a constitutional convention may also propose amendments.
-      - text: A specific change that leaves basic principles intact
+      - text: "A specific change preserving basic principles"
         correct: true
     explanation: |
       An amendment changes specific provisions without changing a basic principle. A revision changes the basic structure or a large part.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0003
+    lesson: lesson-philippine-constitution-amendment-or-revision
+    keyPoint: 1
     type: amendment-or-revision
     difficulty: easy
     stem: |
@@ -67,8 +73,10 @@ questions:
     explanation: |
       A revision changes the basic structure or a large part of the Constitution.
       Even a short proposal is a revision if it changes the plan of government.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0004
+    lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
+    keyPoint: 2
     type: congressional-threshold
     difficulty: easy
     stem: |
@@ -89,8 +97,10 @@ questions:
     explanation: |
       Congress needs three-fourths of all its Members to propose a change.
       Two-thirds is the separate rule for calling a convention.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0005
+    lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
+    keyPoint: 2
     type: congressional-threshold
     difficulty: easy
     stem: |
@@ -110,8 +120,10 @@ questions:
           This uses both the wrong share and the wrong membership base for calling a convention directly.
     explanation: |
       A direct call needs two-thirds of all Members. A majority of all Members can instead ask voters whether to call a convention.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0006
+    lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
+    keyPoint: 2
     type: congressional-threshold
     difficulty: easy
     stem: |
@@ -131,8 +143,10 @@ questions:
     explanation: |
       More than half of all Members must support submitting the question.
       This asks voters whether to call a convention. It does not call one itself.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0007
+    lesson: lesson-philippine-constitution-peoples-initiative
+    keyPoint: 2
     type: initiative-signatures
     difficulty: easy
     stem: |
@@ -155,8 +169,10 @@ questions:
     explanation: |
       The nationwide minimum is twelve percent of all registered voters.
       Every district must also meet its own signature minimum.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0008
+    lesson: lesson-philippine-constitution-peoples-initiative
+    keyPoint: 2
     type: initiative-signatures
     difficulty: easy
     stem: |
@@ -169,15 +185,17 @@ questions:
       - text: At least twelve percent in every district
         rationale: |
           Twelve percent is the nationwide minimum. Each district has a separate three percent minimum.
-      - text: At least three percent of registered voters in every district
+      - text: "At least 3% of registered voters in every district"
         correct: true
       - text: No district minimum once the nationwide requirement is met
         rationale: |
           The national and district requirements both apply. Meeting one does not remove the other.
     explanation: |
       Each legislative district must supply signatures from at least three percent of its registered voters. The national total alone is not enough.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0009
+    lesson: lesson-philippine-constitution-peoples-initiative
+    keyPoint: 1
     type: initiative-scope
     difficulty: easy
     stem: |
@@ -192,13 +210,15 @@ questions:
       - text: A convention may propose revisions but may not propose amendments
         rationale: |
           Section 1 allows a convention to propose either kind of change.
-      - text: Congress and a convention may propose either kind, but initiative permits only amendments
+      - text: "Congress or convention: either; initiative: amendments only"
         correct: true
     explanation: |
       Congress and a convention may propose amendments or revisions.
       People's initiative may propose amendments only, regardless of signature totals.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0010
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 1
     type: ratification
     difficulty: easy
     stem: |
@@ -220,8 +240,10 @@ questions:
     explanation: |
       Ratification is the people's approval through a plebiscite.
       A convention's approval is only the proposal step.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0011
+    lesson: lesson-philippine-constitution-peoples-initiative
+    keyPoint: 3
     type: initiative-spacing
     difficulty: medium
     stem: |
@@ -234,7 +256,7 @@ questions:
         rationale: |
           The first five-year bar did not remove later spacing limits.
           The route is allowed no more than once every five years afterward.
-      - text: They were barred for five years after ratification in 1987 and are allowed no more than once every five years afterward
+      - text: "Barred for five years after 1987 ratification; then at most once every five years"
         correct: true
       - text: They were barred for three years after ratification in 1987 and are allowed once every three years afterward
         rationale: |
@@ -243,8 +265,10 @@ questions:
       Section 2 sets an initial five-year bar after ratification in 1987.
       After that, it allows this route no more than once every five years.
       These are time limits, not a ruling that the route is usable today.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0012
+    lesson: lesson-philippine-constitution-peoples-initiative
+    keyPoint: 2
     type: initiative-signature-calculation
     difficulty: medium
     stem: |
@@ -265,8 +289,10 @@ questions:
           The petition needs three percent from the district, not a majority.
     explanation: |
       Three percent of 40,000 is 1,200. The twelve percent rule applies to the nationwide total, not to each district's minimum.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0013
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 1
     type: ratification
     difficulty: medium
     stem: |
@@ -286,8 +312,10 @@ questions:
     explanation: |
       Half of 600 is 300. The smallest whole number above that is 301.
       Ratification uses votes cast on the proposal, not all registered voters.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0014
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 2
     type: plebiscite-timing
     difficulty: medium
     stem: |
@@ -307,8 +335,10 @@ questions:
     explanation: |
       The plebiscite cannot be earlier than sixty days after approval.
       It must also be no later than ninety days after approval.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0015
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 2
     type: plebiscite-timing
     difficulty: medium
     stem: |
@@ -329,8 +359,10 @@ questions:
     explanation: |
       The latest permitted day is ninety days after approval.
       The sixty-to-ninety-day period has both a start and an end.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0016
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 2
     type: plebiscite-timing
     difficulty: medium
     stem: |
@@ -351,12 +383,14 @@ questions:
           Congressional endorsement is not its starting event.
     explanation: |
       For initiative, count from COMELEC's certification that the petition is sufficient. Gathering signatures does not start the period.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0017
+    lesson: lesson-philippine-constitution-congress-and-constitutional-conventions
+    keyPoint: 2
     type: congressional-threshold-calculation
     difficulty: hard
     stem: |
-      For a threshold exercise only, assume the relevant membership is 240, with 200 Members present. Without deciding whether the Houses vote jointly or separately, how many affirmative votes meet the Section 1 requirement for Congress to propose a constitutional change?
+      For this calculation, assume Congress has 240 Members, of whom 200 are present. Set aside whether the Houses vote jointly or separately. How many affirmative votes constitute the three-fourths vote of all Members required by Article XVII, Section 1?
     choices:
       - text: "150"
         rationale: |
@@ -372,8 +406,10 @@ questions:
     explanation: |
       Three-fourths of 240 is 180. Absent Members remain part of the base.
       Using only the 200 present would give the wrong minimum.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0018
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 3
     type: section-matching
     difficulty: hard
     stem: |
@@ -398,8 +434,10 @@ questions:
       Section 1 covers congressional and convention proposals.
       Section 2 covers initiative. Section 3 covers calling a convention.
       Section 4 covers ratification and plebiscite timing.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0019
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 1
     type: invalid-step
     difficulty: exam
     stem: |
@@ -412,7 +450,7 @@ questions:
         rationale: |
           A specific amendment still requires the Article XVII process.
           A small change does not qualify for an ordinary-law shortcut.
-      - text: The claim is incorrect because Article XVII requires a proper proposal and ratification by voters
+      - text: "Article XVII requires a valid proposal and voter ratification"
         correct: true
       - text: The claim is incorrect only because a convention must propose every constitutional change
         rationale: |
@@ -421,8 +459,10 @@ questions:
       An ordinary statute cannot complete a constitutional change.
       Article XVII requires a valid proposal route and voter ratification.
       Calling the change an amendment does not remove those steps.
-    approved: false
+    approved: true
   - id: q-philippine-constitution-amending-and-revising-the-constitution-0020
+    lesson: lesson-philippine-constitution-ratification-and-plebiscites
+    keyPoint: 1
     type: valid-change-requirements
     difficulty: exam
     stem: |
@@ -441,4 +481,4 @@ questions:
           Forty days is too early. The plebiscite must be held sixty to ninety days after the convention approves the revision.
     explanation: |
       A convention may propose a revision. Seventy days is within the required period. A majority of votes cast supplies ratification. Both the proper proposal route and the people's approval are needed.
-    approved: false
+    approved: true

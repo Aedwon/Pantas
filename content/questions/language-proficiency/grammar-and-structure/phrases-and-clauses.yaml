@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-phrases-and-clauses-0001"
+    lesson: lesson-grammar-and-structure-phrases-and-understood-subjects
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       "Under" introduces the noun phrase "the old bridge." Together they form a prepositional phrase giving a location.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0002"
+    lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "easy"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "The cat" is the subject, and "slept" is the finite verb. The group can stand as a complete sentence.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0003"
+    lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       "She" is the subject, and "finished her homework" says what she did. The group can stand as a complete statement.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0004"
+    lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       "She" is the subject, and "was" is a finite verb. "Although" makes this clause depend on a main clause to finish the statement.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0005"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 3
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       "We went home" can stand as a complete sentence. Adding it to "Because the store was closed" supplies the main clause that the opening group needs.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0006"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 3
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -132,12 +144,14 @@ questions:
       "Although" makes "the teacher explained the lesson twice" dependent. Standing alone in ordinary formal prose, the group is a fragment.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0007"
+    lesson: lesson-grammar-and-structure-finite-verbs-and-ing-groups
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
       In a formal task requiring a complete sentence, how is "running quickly through the park" classified?
     choices:
-      - text: "An incomplete group with a nonfinite verb"
+      - text: "A nonfinite verb group"
         correct: true
       - text: "Independent finite clause"
         rationale: |
@@ -152,6 +166,8 @@ questions:
       "Running" does not show tense by itself. "Running quickly through the park" has no finite verb and cannot stand alone as a complete formal sentence.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0008"
+    lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -172,12 +188,14 @@ questions:
       "When" makes the clause "the bell rang" subordinate. In this use, the group needs a main clause describing what happened then.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0009"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
       Is the comma placement correct in this sentence? "Because it was raining, we stayed inside."
     choices:
-      - text: "Yes: an introductory dependent clause is followed by a comma before the independent clause."
+      - text: "Yes: a comma follows the opening clause."
         correct: true
       - text: "No: commas are never used with dependent clauses."
         rationale: |
@@ -192,12 +210,14 @@ questions:
       When a dependent clause comes first, standard punctuation places a comma before the following independent clause: "Because it was raining, we stayed inside."
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0010"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
       Does this sentence need a comma before "because"? "We stayed inside because it was raining."
     choices:
-      - text: "No: when the independent clause comes first, no comma is typically needed before this essential reason clause."
+      - text: "No: the essential reason clause follows the main clause."
         correct: true
       - text: "Yes: a comma is always required regardless of clause order."
         rationale: |
@@ -212,12 +232,14 @@ questions:
       In "We stayed inside because it was raining," the main clause comes first and the following reason clause is essential to the intended meaning, so no comma is normally used before "because."
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0011"
+    lesson: lesson-grammar-and-structure-phrases-and-understood-subjects
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
       In "Close the door," what kind of group is the complete command?
     choices:
-      - text: "An independent clause with an understood subject"
+      - text: "Independent clause; implied subject"
         correct: true
       - text: "A noun phrase because it names an action"
         rationale: |
@@ -232,6 +254,8 @@ questions:
       "Close" is the verb in a command. Its understood subject is "you," so "Close the door" can stand as an independent sentence.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0012"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 3
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -252,12 +276,14 @@ questions:
       "Because" makes "she was late" dependent. In a formal task requiring a full sentence, this group needs a main clause.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0013"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
       A student writes "Because it was raining we stayed inside" without a comma. Is this correctly punctuated in standard formal writing?
     choices:
-      - text: "No: place a comma after the introductory dependent clause: \"Because it was raining, we stayed inside.\""
+      - text: "No: add a comma after \"raining\"."
         correct: true
       - text: "Yes: commas are never needed between dependent and independent clauses."
         rationale: |
@@ -272,6 +298,8 @@ questions:
       An introductory dependent clause is followed by a comma before the main clause: "Because it was raining, we stayed inside."
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0014"
+    lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -292,6 +320,8 @@ questions:
       "Since" introduces the reason clause "the concert ended late." The opening connector makes that clause dependent on "everyone was tired."
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0015"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 3
     type: "phrase-clause-identification"
     difficulty: "exam"
     stem: |
@@ -312,6 +342,8 @@ questions:
       "Although she reviewed it carefully" is dependent. "The manager still had questions" is independent. Joining them forms one complete sentence.
     approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0016"
+    lesson: lesson-grammar-and-structure-relative-clauses-and-main-thoughts
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "easy"
     stem: |
@@ -330,8 +362,10 @@ questions:
           This classifies the group from the person it refers to. The volunteer is a person. Check: distinguish the noun from the clause describing it.
     explanation: |
       "Who repaired the bench" describes "the volunteer." The relative word "who" links this dependent clause to that noun.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0017"
+    lesson: lesson-grammar-and-structure-independent-and-dependent-clauses
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "medium"
     stem: |
@@ -350,8 +384,10 @@ questions:
           This mistakes the noun "journey" for a verb in context. Journey can be an action word elsewhere. Check: check its role after "the bus".
     explanation: |
       "The bus" is the subject, and "arrived" is the finite verb. "After" makes their clause dependent.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0018"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 3
     type: "phrase-clause-identification"
     difficulty: "hard"
     stem: |
@@ -370,8 +406,10 @@ questions:
           This adds a noun phrase. The phrase refers to the expected result. Check: look for a finite verb in the added group.
     explanation: |
       "The totals will match" is a main clause with a subject and a verb. It completes the condition introduced by "If."
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0019"
+    lesson: lesson-grammar-and-structure-relative-clauses-and-main-thoughts
+    keyPoint: 2
     type: "phrase-clause-identification"
     difficulty: "hard"
     stem: |
@@ -390,8 +428,10 @@ questions:
           This takes the main predicate without its subject. The action seems to express the main point. Check: include the subject of "delayed".
     explanation: |
       The full subject is "The driver who found the road closed." Its main verb is "delayed." The whole sentence is the independent clause. The relative clause "who found the road closed" describes "driver" and is dependent.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-phrases-and-clauses-0020"
+    lesson: lesson-grammar-and-structure-connectors-for-reason-and-contrast
+    keyPoint: 1
     type: "phrase-clause-identification"
     difficulty: "exam"
     stem: |
@@ -410,4 +450,73 @@ questions:
           This adds a noun phrase rather than a main clause. The phrase names the contrasting result. Check: check whether a finite verb states that result.
     explanation: |
       "It lost" is an independent clause. It completes the sentence and supplies a result that contrasts with the weeks of practice.
-    approved: false
+    approved: true
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0021
+    approved: true
+    lesson: lesson-grammar-and-structure-finite-verbs-and-ing-groups
+    keyPoint: 1
+    type: phrase-clause-identification
+    difficulty: exam
+    stem: |
+      In "The assistant is preparing the documents to submit before closing," which word supplies the finite verb form?
+    choices:
+      - text: "is"
+        correct: true
+      - text: "preparing"
+        rationale: |
+          This is an -ing form. It may look complete because it names the main action. Find the helper that carries tense.
+      - text: "to submit"
+        rationale: |
+          This is an infinitive group. It names an action but does not carry tense. Look for the tense form in the main verb group.
+      - text: "closing"
+        rationale: |
+          This -ing form names the closing event. Its place after before may draw attention to time. Find the verb that supplies tense for the assistant.
+    explanation: |
+      The main verb group is "is preparing." Is supplies the present tense form. It is the finite verb.
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0022
+    approved: true
+    lesson: lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses
+    keyPoint: 1
+    type: phrase-clause-identification
+    difficulty: exam
+    stem: |
+      Using basic school grammar, classify the words in bold: "The applicant hopes **to obtain a certified copy** before the office closes."
+    choices:
+      - text: "Infinitive phrase"
+        correct: true
+      - text: "Independent clause"
+        rationale: |
+          This treats the action group as a complete thought. The group names what the applicant hopes to do. Check whether it has its own finite verb.
+      - text: "Finite dependent clause"
+        rationale: |
+          This treats to obtain as a tense form. The group depends on the main clause. Check whether its verb actually carries tense.
+      - text: "Complete formal sentence"
+        rationale: |
+          This treats an understood doer as enough for a sentence. The applicant is understood to act. Check whether the group can stand alone.
+    explanation: |
+      In basic school grammar, an infinitive and the words that go with it form an infinitive phrase. The group begins with "to obtain" and tells what the applicant hopes to do.
+
+  - id: q-grammar-and-structure-phrases-and-clauses-0023
+    approved: true
+    lesson: lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses
+    keyPoint: 2
+    type: phrase-clause-identification
+    difficulty: exam
+    stem: |
+      Which entry is a complete formal sentence rather than an infinitive group that needs a main clause?
+    choices:
+      - text: "The unit plans to revise the policy."
+        correct: true
+      - text: "To revise the policy before the next inspection."
+        rationale: |
+          This group has an infinitive but no finite main verb. Its purpose sounds complete. Find a subject and a verb that carries tense.
+      - text: "To have the policy revised before the inspection."
+        rationale: |
+          This longer infinitive group still has no finite main verb. Extra words can make a fragment look complete. Find the tense form.
+      - text: "To revise the policy and to notify all employees."
+        rationale: |
+          Joining two infinitives does not supply a main clause. The two actions may look like a full sentence. Look for a finite verb.
+    explanation: |
+      The unit is the subject, and plans is the finite verb. The group "to revise the policy" tells what the unit plans to do. Together they give a complete thought.

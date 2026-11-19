@@ -6,6 +6,12 @@ subject: "subject-general-information"
 topic: "topic-code-of-conduct-ra-6713"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism
+  - lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service
+  - lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy
+  - lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards
 ---
 
 ## Core Concept

@@ -6,6 +6,14 @@ subject: "subject-reasoning"
 topic: "topic-clerical-ability"
 estimatedMinutes: 13
 isActive: true
+status: retired
+replacedBy:
+  - lesson-clerical-ability-whole-number-and-decimal-filing
+  - lesson-clerical-ability-oldest-and-newest-date-order
+  - lesson-clerical-ability-year-first-and-stated-date-formats
+  - lesson-clerical-ability-integer-subcode-filing
+  - lesson-clerical-ability-character-string-filing
+  - lesson-clerical-ability-terminal-digit-filing-order
 ---
 ## Core Concept
 

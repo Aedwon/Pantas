@@ -12,6 +12,8 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-subject-verb-agreement-0001"
+    lesson: lesson-grammar-and-structure-finding-subjects-and-matching-verbs
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "easy"
     stem: |
@@ -32,6 +34,8 @@ questions:
       The singular subject "dog" takes the singular simple-present form "barks."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0002"
+    lesson: lesson-grammar-and-structure-finding-subjects-and-matching-verbs
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "easy"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "Technicians" is plural. In the simple present, its verb takes the base form "test."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0003"
+    lesson: lesson-grammar-and-structure-finding-subjects-and-matching-verbs
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       The head of the subject phrase is "list," not "items," so the verb is singular: "is."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0004"
+    lesson: lesson-grammar-and-structure-finding-subjects-and-matching-verbs
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       The head subject is plural "labels." "On this box" adds a detail but does not change the subject's number, so "are" fits.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0005"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       The committee acts as one unit in the stated American-English convention. Singular "has" agrees with that unit and forms "has reached."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0006"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -132,6 +144,8 @@ questions:
       The family is one unit in the stated convention. Singular "is" agrees with that unit and forms "is planning."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0007"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
       "Everybody" takes singular verb agreement, so "is" is correct.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0008"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -172,6 +188,8 @@ questions:
       The subject "nothing" is singular, so the correct form is "seems."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0009"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 3
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -192,6 +210,8 @@ questions:
       "Most of the water" takes singular agreement here, giving "has evaporated."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0010"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 3
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -212,6 +232,8 @@ questions:
       Because "cookies" is plural, "some of the cookies" takes plural "are."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0011"
+    lesson: lesson-grammar-and-structure-agreement-with-joined-subjects
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -232,6 +254,8 @@ questions:
       "Ana and Ben" is plural, so "are" is correct.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0012"
+    lesson: lesson-grammar-and-structure-agreement-with-joined-subjects
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -252,6 +276,8 @@ questions:
       In the formal proximity convention tested here, the verb agrees with the nearer subject: plural "employees" gives "were."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0013"
+    lesson: lesson-grammar-and-structure-agreement-with-joined-subjects
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -272,6 +298,8 @@ questions:
       Under the convention stated in the stem, singular "teacher" controls agreement, giving "was."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0014"
+    lesson: lesson-grammar-and-structure-finding-subjects-and-matching-verbs
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "hard"
     stem: |
@@ -292,6 +320,8 @@ questions:
       The full subject is "The letter from the tutors." Its head is singular "letter," so it controls the singular verb "is."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0015"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "hard"
     stem: |
@@ -312,6 +342,8 @@ questions:
       "Among themselves" emphasizes the members acting separately. A variety that permits plural collective agreement can use "are" for that reading.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0016"
+    lesson: lesson-grammar-and-structure-groups-and-indefinite-pronouns
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "hard"
     stem: |
@@ -332,6 +364,8 @@ questions:
       "Everybody" takes singular "has." Modern singular "their" can refer back to the indefinite person without assigning gender.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0017"
+    lesson: lesson-grammar-and-structure-agreement-with-joined-subjects
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "hard"
     stem: |
@@ -352,6 +386,8 @@ questions:
       Plural "students" takes "were," and singular "teacher" takes "was." The two negative statements preserve that nobody in either group arrived late.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0018"
+    lesson: lesson-grammar-and-structure-pokus-at-papel-ng-paksa
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -361,17 +397,19 @@ questions:
         correct: true
       - text: "Ng"
         rationale: |
-          This uses "ng" for the eater, but the eater is the topic with "kumain". "Ng" can mark the actor when something else is the topic. Check the verb form and the topic's role in the action.
+          Ginagamit nito ang "ng" para sa kumakain. Ngunit ang kumakain ang paksa sa "kumain." Maaaring gamitin ang "ng" para sa gumagawa kung iba ang paksa. Suriin ang anyo ng pandiwa at papel ng paksa.
       - text: "Sa"
         rationale: |
-          This treats the child as a place or recipient. "Sa" can link an action to someone, so it may seem possible. Check whether the noun names the eater or a destination.
+          Itinuturing nitong lugar o tagatanggap ang bata. Maaaring iugnay ng "sa" ang kilos sa isang tao. Tingnan kung kumakain o patutunguhan ang tinutukoy.
       - text: "Na"
         rationale: |
-          This treats the gap as a link between a noun and its description. "Na" often joins words, so it can look like a general connector. Check whether the gap marks a noun's role in the sentence.
+          Itinuturing nitong pang-ugnay ng pangalan at paglalarawan ang patlang. Madalas mag-ugnay ng salita ang "na." Tingnan kung pananda ng papel ng pangalan ang kailangan.
     explanation: |
-      "Ang bata" marks the child as the topic. The child does the eating, so "kumain" uses actor focus.
+      Minarkahan ng "ang bata" ang bata bilang paksa. Siya ang kumakain, kaya pokus sa tagaganap ang "kumain."
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0019"
+    lesson: lesson-grammar-and-structure-mga-gamit-ng-pananda
+    keyPoint: 1
     type: "subject-verb-agreement"
     difficulty: "medium"
     stem: |
@@ -381,17 +419,19 @@ questions:
         correct: true
       - text: "Ang"
         rationale: |
-          This marks the eater as the topic. That seems right if the verb is read like "kumain." Check the verb form before choosing a marker.
+          Minarkahan nitong paksa ang kumakain. Maaaring mukhang tama kung babasahing "kumain" ang pandiwa. Suriin muna ang anyo ng pandiwa.
       - text: "Sa"
         rationale: |
-          This treats the eater as a place or recipient. "Sa" can mark people in some constructions, so it may look familiar. Check whether the person did the action or received something.
+          Itinuturing nitong lugar o tagatanggap ang kumakain. Ginagamit ang "sa" para sa tao sa ilang pangungusap. Tingnan kung gumawa o tumanggap ang tao.
       - text: "Na"
         rationale: |
-          This uses a word linker to mark the eater. "Na" is a common connector, so it may seem to fit any gap. Check whether the gap needs a role marker or a link to a description.
+          Pang-ugnay ang ginamit nito para sa kumakain. Karaniwan ang "na," kaya maaaring mukhang angkop. Tingnan kung pananda ng papel o pang-ugnay sa paglalarawan ang kailangan.
     explanation: |
-      "Ang tinapay" marks the bread as the topic. The bread is the thing eaten, so "kinain" uses object focus. "Ng bata" names the child who did the eating.
+      "Ang tinapay" ang paksa. Ito ang bagay na kinain, kaya pokus sa layon ang "kinain." Tinutukoy ng "ng bata" kung sino ang kumain.
     approved: true
   - id: "q-grammar-and-structure-subject-verb-agreement-0020"
+    lesson: lesson-grammar-and-structure-agreement-with-joined-subjects
+    keyPoint: 2
     type: "subject-verb-agreement"
     difficulty: "exam"
     stem: |
@@ -411,3 +451,95 @@ questions:
     explanation: |
       The proximity convention gives plural "were" from nearer "players." For the second clause, the stem explicitly specifies the standard American-English unit reading of "crowd," giving singular "was."
     approved: true
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0021
+    approved: true
+    lesson: lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino
+    keyPoint: 1
+    type: subject-verb-agreement
+    difficulty: exam
+    stem: |
+      Kasalukuyang nasa hapag si Nena at hindi pa tapos sa pagkain. Aling anyo ang angkop sa pangungusap: "___ pa si Nena habang hinihintay ang kaniyang kasama"?
+    choices:
+      - text: "Kumakain"
+        correct: true
+      - text: "Kumain"
+        rationale: |
+          Tapos na kilos ang ipinapakita nito. Maaaring mapansin mo lamang na nagsimula na siyang kumain. Suriin kung tapos na o nagpapatuloy pa ang kilos.
+      - text: "Kakain"
+        rationale: |
+          Hindi pa nasisimulang kilos ang ipinapakita nito. Maaaring maisip mo ang paghihintay sa kasama. Tingnan na kumakain na si Nena.
+      - text: "Kakakain lamang"
+        rationale: |
+          Katatapos na kilos ang ipinapakita nito. Maaaring mapagkamalan ang kasalukuyang oras na katatapos na kilos. Suriin kung nagpapatuloy pa ang pagkain.
+    explanation: |
+      Nagaganap pa ang pagkain ni Nena. Kaya kumakain ang angkop na anyo: "Kumakain pa si Nena habang hinihintay ang kaniyang kasama."
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0022
+    approved: true
+    lesson: lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino
+    keyPoint: 2
+    type: subject-verb-agreement
+    difficulty: exam
+    stem: |
+      Gawing maramihan ang paksa ng "Kumakain ng tanghalian ang kawani." Panatilihin ang kalagayan ng kilos. Alin ang wastong pagbabago?
+    choices:
+      - text: "Kumakain ng tanghalian ang mga kawani."
+        correct: true
+      - text: "Kumain na ng tanghalian ang mga kawani."
+        rationale: |
+          Ginawang tapos ang nagpapatuloy na kilos. Maaaring isipin mong kailangang baguhin ang pandiwa kapag dumami ang paksa. Bilang lamang ng kawani ang baguhin.
+      - text: "Kakain pa lamang ng tanghalian ang mga kawani."
+        rationale: |
+          Ginawang hindi pa nagsisimula ang kilos. Maaaring maitugma mo ang bagong paksa sa ibang aspekto. Panatilihin ang kumakain.
+      - text: "Katatapos lamang kumain ng tanghalian ang mga kawani."
+        rationale: |
+          Ginawang katatapos ang kilos. Maaaring mauna mong pansinin ang maramihang paksa. Suriing nagaganap pa rin ang pagkain.
+    explanation: |
+      Ang mga kawani ang maramihang paksa. Nananatili ang kumakain dahil nagpapatuloy pa rin ang kilos. Hindi kailangang baguhin ang pandiwa dahil lamang dumami ang paksa.
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0023
+    approved: true
+    lesson: lesson-grammar-and-structure-mga-gamit-ng-pananda
+    keyPoint: 2
+    type: subject-verb-agreement
+    difficulty: exam
+    stem: |
+      Sa "Inihatid ng kawani ang katibayan sa aplikante," ano ang papel ng "sa aplikante"?
+    choices:
+      - text: "Tagatanggap ng katibayan"
+        correct: true
+      - text: "Lugar na ginanapan ng paghahatid"
+        rationale: |
+          Ginawang lugar ang taong tumanggap. Madalas magpakilala ng lugar ang sa. Itanong kung kanino inihatid ang katibayan.
+      - text: "Direksiyong walang tinutukoy na tao"
+        rationale: |
+          Binalewala ang aplikanteng tumanggap. Maaaring magpahiwatig ng patutunguhan ang sa. Tingnan kung tao ang binigyan ng bagay.
+      - text: "Gumagawa ng paghahatid ng katibayan"
+        rationale: |
+          Napagpalit ang kawani at aplikante. Pareho silang tao sa pangungusap. Hanapin kung sino ang naghatid at sino ang tumanggap.
+    explanation: |
+      Sinasagot ng "sa aplikante" ang tanong na "Kanino inihatid ang katibayan?" Ang aplikante ang tagatanggap.
+
+  - id: q-grammar-and-structure-subject-verb-agreement-0024
+    approved: true
+    lesson: lesson-grammar-and-structure-pokus-at-papel-ng-paksa
+    keyPoint: 2
+    type: subject-verb-agreement
+    difficulty: exam
+    stem: |
+      Sa "Sumulat si Mara ng liham," si Mara ang paksa. Aling pangungusap ang ginagawang paksa ang liham habang pinananatili ang gumawa at tapos na kilos?
+    choices:
+      - text: "Sinulat ni Mara ang liham."
+        correct: true
+      - text: "Sumulat si Mara ng mahalagang liham."
+        rationale: |
+          Si Mara pa rin ang paksa rito. Maaaring mapansin mo lamang ang salitang liham. Hanapin kung alin ang may ang o si.
+      - text: "Sinusulat ni Mara ang mahalagang liham."
+        rationale: |
+          Nagaganap pa ang kilos dito. Naging paksa ang liham kaya maaaring magmukhang tama. Suriin din kung tapos na ang kilos.
+      - text: "Susulatin ni Mara ang mahalagang liham."
+        rationale: |
+          Hindi pa nasisimulan ang kilos dito. Tama ang paksa ngunit nagbago ang kalagayan ng kilos. Panatilihin ang tapos na pagsulat.
+    explanation: |
+      Sa "Sinulat ni Mara ang liham," ang liham ang paksa at bagay na sinulat. Si Mara pa rin ang gumawa. Tapos na rin ang kilos.

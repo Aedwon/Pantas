@@ -7,6 +7,9 @@ meta:
   - cse-sub
 questions:
 - id: q-philippine-constitution-bill-of-rights-0008
+  approved: true
+  lesson: lesson-philippine-constitution-bill-of-rights-double-jeopardy-conditions
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Protecting an individual from being prosecuted twice for the same criminal offense is known as what?
@@ -31,6 +34,9 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0009
+  approved: true
+  lesson: lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: 'A law that penalizes an act that was not punishable at the time it was committed is prohibited as what?
@@ -55,6 +61,9 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0010
+  approved: true
+  lesson: lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: 'A legislative act that inflicts punishment without a judicial trial is prohibited under Article III as what?
@@ -79,6 +88,9 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0011
+  approved: true
+  lesson: lesson-philippine-constitution-bill-of-rights-debt-and-poll-tax
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: 'Section 20 prohibits imprisonment solely for which reason?
@@ -103,11 +115,13 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-0013
+  approved: true
+  lesson: lesson-philippine-constitution-bill-of-rights-fines-and-prison-punishment
+  keyPoint: 1
   type: single_choice
   difficulty: medium
-  stem: 'Which punishment is prohibited in the lesson''s Article III summary?
-
-    '
+  stem: |
+    Which punishment does Article III, Section 19(1) prohibit?
   choices:
   - text: Cruel or degrading punishment
     correct: true
@@ -115,8 +129,8 @@ questions:
     rationale: 'This treats the Constitution as prohibiting all punishment. Article III limits punishment. Check the specific forbidden qualities.
 
       '
-  - text: Only punishment that an official personally dislikes imposing
-    rationale: 'This makes personal preference the legal test. Punishment can involve difficult judgments. Check the constitutional standard.
+  - text: Only punishment that causes lasting physical injury to the prisoner
+    rationale: 'This limits the protection to lasting physical injury. Such injury can show abuse, but degrading punishment can also violate dignity. Check for cruelty, degradation, or inhuman treatment.
 
       '
   - text: Only punishment imposed by a body outside the executive branch
@@ -127,9 +141,11 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0001
+  lesson: lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service
+  keyPoint: 1
   type: single_choice
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which statement correctly combines political-belief and involuntary-servitude protections?
 
     '
@@ -152,6 +168,8 @@ questions:
 
     '
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0002
+  lesson: lesson-philippine-constitution-bill-of-rights-court-remedies-and-rights-investigations
+  keyPoint: 1
   type: single_choice
   difficulty: easy
   stem: |
@@ -170,8 +188,10 @@ questions:
       The Commission may investigate rights violations. It does not issue criminal acquittals as a trial court does.
   explanation: |
     A writ of habeas corpus brings the detained person before a court. The court can then check the legal basis for detention. Parole serves a different purpose and follows service of part of a sentence.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0003
+  lesson: lesson-philippine-constitution-bill-of-rights-court-remedies-and-rights-investigations
+  keyPoint: 2
   type: single_choice
   difficulty: easy
   stem: |
@@ -190,8 +210,10 @@ questions:
       The Commission's investigative role does not give it the trial court's power to decide criminal charges.
   explanation: |
     The Commission on Human Rights may investigate civil and political rights violations. A court decides criminal guilt. An investigation does not itself convict the officers.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0004
+  lesson: lesson-philippine-constitution-bill-of-rights-replacement-penalties-and-parole
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -210,8 +232,10 @@ questions:
       The Act uses reclusion perpetua when the violated law uses Revised Penal Code penalty names.
   explanation: |
     Republic Act No. 9346 prohibits imposing death. The replacement depends on the penalty names used by the violated law. Revised Penal Code names require reclusion perpetua. Other penalty names require life imprisonment.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0005
+  lesson: lesson-philippine-constitution-bill-of-rights-replacement-penalties-and-parole
+  keyPoint: 2
   type: single_choice
   difficulty: medium
   stem: |
@@ -226,12 +250,14 @@ questions:
   - text: The parole restriction applies only while the sentence still prescribes death.
     rationale: |
       The restriction expressly covers sentences reduced to reclusion perpetua by reason of the Act.
-  - text: The Act bars parole for a prisoner whose sentence is reduced in this way.
+  - text: The Act bars parole after this sentence reduction.
     correct: true
   explanation: |
     The Act bars parole when a death sentence is reduced to reclusion perpetua by reason of the Act. The sentence reduction does not create parole eligibility.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0006
+  lesson: lesson-philippine-constitution-bill-of-rights-debt-and-poll-tax
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -250,8 +276,10 @@ questions:
       The Constitution protects against imprisonment for debt as well as nonpayment of a poll tax.
   explanation: |
     The Constitution bars jail for the debt itself. It does not cancel a valid loan. The lender may use lawful remedies that do not imprison the borrower solely for nonpayment.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0007
+  lesson: lesson-philippine-constitution-bill-of-rights-double-jeopardy-conditions
+  keyPoint: 1
   type: single_choice
   difficulty: medium
   stem: |
@@ -264,15 +292,17 @@ questions:
     rationale: |
       A withdrawal before arraignment is not an acquittal after trial.
       The facts do not show the required plea.
-  - text: Filing alone is insufficient because arraignment and a valid plea are required.
+  - text: "Filing alone is insufficient; arraignment and a valid plea are required."
     correct: true
   - text: Double jeopardy arises only after an accused has served a prison sentence.
     rationale: |
       Serving a sentence is not a condition for this protection. A valid acquittal can trigger it without any prison sentence.
   explanation: |
     A filed complaint alone does not establish double jeopardy. The general rule requires a valid charge, a court with authority, arraignment, a valid plea, and a protected end to the case.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0008
+  lesson: lesson-philippine-constitution-bill-of-rights-double-jeopardy-covered-offenses
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -291,8 +321,10 @@ questions:
       Having fewer elements does not remove the protection. The rule covers an offense necessarily included in the first charge.
   explanation: |
     The murder charge included every required part of homicide. The acquittal therefore bars a homicide trial for the same killing under these facts. Changing the charge's name does not remove the bar.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0009
+  lesson: lesson-philippine-constitution-bill-of-rights-later-offenses-and-local-ordinances
+  keyPoint: 2
   type: single_choice
   difficulty: hard
   stem: |
@@ -311,8 +343,10 @@ questions:
     correct: true
   explanation: |
     When a law and an ordinance punish the same act, conviction or acquittal under either bars prosecution under the other. The rule applies even though one measure is national and the other is local.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0010
+  lesson: lesson-philippine-constitution-bill-of-rights-later-offenses-and-local-ordinances
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -321,7 +355,7 @@ questions:
   - text: Any conviction permanently bars prosecution for every later result of the act.
     rationale: |
       This ignores the exception for a graver offense that develops after the first conviction.
-  - text: A later prosecution may proceed under the exception for a graver offense developing after conviction.
+  - text: "The graver offense developing after conviction permits later prosecution."
     correct: true
   - text: The first conviction automatically establishes guilt of the graver offense.
     rationale: |
@@ -332,8 +366,10 @@ questions:
       The stated exception concerns a graver offense developing from the same act after conviction.
   explanation: |
     The victim's later death caused a graver offense to develop after conviction. Rule 117 recognizes an exception for this situation. The first conviction does not automatically bar the later case.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0011
+  lesson: lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment
+  keyPoint: 1
   type: single_choice
   difficulty: hard
   stem: |
@@ -346,22 +382,24 @@ questions:
   - text: The law is allowed because a court will still conduct a trial.
     rationale: |
       Holding a trial does not cure a harmful backward change in the proof required to convict.
-  - text: The backward reduction in required proof falls within the ex post facto prohibition.
+  - text: "Retroactively lowering required proof violates the ex post facto ban."
     correct: true
   - text: The change is a bill of attainder solely because it concerns earlier offenses.
     rationale: |
       Earlier offenses alone do not make a bill of attainder. That prohibition concerns legislative punishment without judicial trial.
   explanation: |
     An ex post facto law can lower the proof needed to convict for an earlier offense. The penalty need not increase. The harmful backward change in proof is enough to raise this prohibition.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0012
+  lesson: lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
     After a valid charge, arraignment, and plea in a proper court, an accused requests dismissal for a procedural defect. The court grants the request without deciding guilt or finding a speedy-trial violation.
     What is the effect of that dismissal under the general double-jeopardy rule?
   choices:
-  - text: The requested procedural dismissal does not by itself bar another prosecution.
+  - text: "The requested procedural dismissal does not itself bar reprosecution."
     correct: true
   - text: Every dismissal after a plea is an acquittal that bars another prosecution.
     rationale: |
@@ -375,8 +413,10 @@ questions:
       A request alone does not establish that violation. The court made no such finding in this case.
   explanation: |
     The accused expressly requested this procedural dismissal. The stated facts show neither an acquittal for insufficient evidence nor a speedy-trial violation. The dismissal alone does not bar another case.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0013
+  lesson: lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |
@@ -392,12 +432,14 @@ questions:
   - text: Another trial is required because a demurrer prevents the court from assessing evidence.
     rationale: |
       A demurrer asks the court to assess whether the prosecution's evidence can support conviction. The court found it insufficient.
-  - text: Another trial is barred because the granted demurrer is an acquittal under these facts.
+  - text: Another trial is barred because this demurrer ruling is an acquittal.
     correct: true
   explanation: |
     The court found the prosecution's evidence insufficient and granted the demurrer. That ruling is an acquittal. The accused's request does not permit a second prosecution for the same offense under these facts.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0014
+  lesson: lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals
+  keyPoint: 1
   type: single_choice
   difficulty: exam
   stem: |
@@ -417,8 +459,10 @@ questions:
       An acquittal for insufficient evidence is one exception. A dismissal for a constitutional speedy-trial violation is another.
   explanation: |
     A dismissal for a constitutional speedy-trial violation is an exception to the usual rule on requested dismissals. The accused's request does not remove double-jeopardy protection under these facts.
-  approved: false
+  approved: true
 - id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0015
+  lesson: lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment
+  keyPoint: 2
   type: single_choice
   difficulty: exam
   stem: |
@@ -430,11 +474,130 @@ questions:
   - text: It is a bill of attainder because Congress defined a punishable offense.
     rationale: |
       Defining a general offense does not itself impose punishment without trial. This law requires proof of guilt in court.
-  - text: Neither label is established because the law is prospective and requires a judicial trial.
+  - text: "Neither applies: the law is prospective and requires a judicial trial."
     correct: true
   - text: Both labels apply because a judicial trial cannot authorize punishment under a new law.
     rationale: |
       Neither prohibition bars every new penal law. The facts show no harmful backward application or legislative punishment without trial.
   explanation: |
     The law applies only to future conduct, so the facts show no harmful backward penal change. A court must decide guilt before punishment. Defining this general offense does not itself create a bill of attainder.
-  approved: false
+  approved: true
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0016
+  approved: true
+  lesson: lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A person serving lawful punishment after due conviction is required to work. The person claims that the ban on involuntary servitude admits no exception. Which statement correctly applies the constitutional rule?
+  choices:
+  - text: Work as punishment after due conviction is a stated exception.
+    correct: true
+  - text: Any forced work is prohibited even when imposed as lawful punishment after conviction.
+    rationale: |
+      This leaves out the crime-punishment exception. Check whether due conviction came before the punishment.
+  - text: An accusation alone would have been enough to permit the same punishment.
+    rationale: |
+      This treats a charge as a conviction. Check that the person has been duly convicted, not merely accused.
+  - text: Only unpopular political beliefs can justify forced work as punishment.
+    rationale: |
+      This confuses the section's separate protections. Check the exception based on conviction for a crime, not political belief.
+  explanation: |
+    Article III, Section 18 allows involuntary servitude as punishment for a crime after due conviction.
+    The facts state both a due conviction and lawful punishment, so the stated exception applies.
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0017
+  approved: true
+  lesson: lesson-philippine-constitution-bill-of-rights-fines-and-prison-punishment
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    An official argues that the Constitution's conditional wording on the death penalty is enough for a court to impose it despite Republic Act No. 9346. Which statement correctly distinguishes the constitutional text from that Act?
+  choices:
+  - text: The Act prohibits imposing death.
+    correct: true
+  - text: The Constitution requires death for every heinous crime.
+    rationale: |
+      This turns conditional permission into a requirement. Check the constitutional wording separately from the Act's prohibition.
+  - text: The Act permits death whenever a judge finds compelling reasons.
+    rationale: |
+      This transfers constitutional wording into a judicial exception under the Act. Check Section 1's prohibition.
+  - text: The Constitution leaves courts free to disregard the Act's prohibition.
+    rationale: |
+      This treats constitutional wording as permission to ignore a law. Check what Republic Act No. 9346 actually allows courts to impose.
+  explanation: |
+    Article III, Section 19 contains conditional wording about Congress providing for the death penalty for compelling reasons involving heinous crimes.
+    Republic Act No. 9346, Section 1 prohibits imposing death. That statutory prohibition controls the question as stated.
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0018
+  approved: true
+  lesson: lesson-philippine-constitution-bill-of-rights-double-jeopardy-covered-offenses
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    In an offense for which both stages apply, one person begins acts directly aimed at the crime but is stopped before performing all the needed acts, without freely giving up. Another performs all those acts, but the intended result fails for a reason outside that person's will. Which stages are described, respectively?
+  choices:
+  - text: Attempted; frustrated
+    correct: true
+  - text: Frustrated and attempted
+    rationale: |
+      This reverses the stages. Check whether all needed acts were performed before the result failed.
+  - text: Attempted in both cases
+    rationale: |
+      This overlooks the completed acts in the second case. Check the acts performed, not only the missing result.
+  - text: Frustrated in both cases
+    rationale: |
+      This overlooks the unfinished acts in the first case. Check whether the person performed all the acts needed.
+  explanation: |
+    The first case is an attempt because the person was stopped before completing the needed acts.
+    The second is frustrated because all those acts were performed, but the result failed for an outside reason.
+    These meanings come from Revised Penal Code Article 6.
+    Article III, Section 21 protects against double jeopardy. Rule 117, Section 7 extends that protection to attempted and frustrated forms of the offense.
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0019
+  approved: true
+  lesson: lesson-philippine-constitution-bill-of-rights-rights-claims-evidence-and-effects
+  keyPoint: 1
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A report alleges degrading punishment of a detainee. An investigator proposes treating the label "rights violation" as proof without checking records or witnesses. Which approach best follows a sound analysis of the claim?
+  choices:
+  - text: Accept the label as proof because it names a constitutional right.
+    rationale: |
+      This treats an accusation as established fact. Check available evidence before deciding whether the conduct fits a violation.
+  - text: Reject the report because detention removes protection from punishment.
+    rationale: |
+      This assumes detainees lose basic protections. Check Section 19 and the facts about the reported treatment.
+  - text: Check the evidence against the relevant right and its conditions.
+    correct: true
+  - text: Decide from the alleged harm alone without identifying who acted or what happened.
+    rationale: |
+      This skips the conduct and the responsible person. Check what happened, who acted, and how the facts fit the rule.
+  explanation: |
+    Article III, Section 19 protects against degrading punishment and addresses abusive treatment of detainees.
+    Records, witness accounts, and medical findings can help establish what happened.
+    Comparing that evidence with the protection is the needed next step in analyzing this claim.
+- id: q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0020
+  approved: true
+  lesson: lesson-philippine-constitution-bill-of-rights-rights-claims-evidence-and-effects
+  keyPoint: 2
+  type: single_choice
+  difficulty: exam
+  stem: |
+    A worker is unlawfully detained solely for political beliefs. The record shows missed paid work and a family unable to meet daily expenses. It contains no medical findings. Which pair identifies a personal effect and a family effect supported by this record?
+  choices:
+  - text: Loss of liberty and difficulty meeting daily expenses
+    correct: true
+  - text: A proven physical injury and difficulty meeting daily expenses
+    rationale: |
+      This adds an injury that the record does not establish. Check each claimed effect against the stated facts.
+  - text: Loss of liberty and cancellation of all the family's debts
+    rationale: |
+      This invents debt cancellation. Check the actual family effect, missed earnings and difficulty paying daily expenses.
+  - text: A proven physical injury and cancellation of all the family's debts
+    rationale: |
+      Neither effect is established by the record. Check the detention and financial effects that the facts actually support.
+  explanation: |
+    Article III, Section 18 bars detention solely for political beliefs.
+    The stated detention takes away the worker's liberty.
+    The missed paid work also leaves the family unable to meet daily expenses. Both effects are supported by the record.

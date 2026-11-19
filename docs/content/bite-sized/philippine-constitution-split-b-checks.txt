@@ -1,0 +1,37 @@
+Running build hooks...Running build hooks...lesson-philippine-constitution-accountability-and-impeachment: active lesson in split topic needs part
+lesson-philippine-constitution-bill-of-rights-the-accused-and-the-trial: active lesson in split topic needs part
+lesson-philippine-constitution-citizenship-and-suffrage: active lesson in split topic needs part
+lesson-philippine-constitution-the-articles-in-outline: active lesson in split topic needs part
+lesson-philippine-constitution-the-civil-service-commission: active lesson in split topic needs part
+lesson-philippine-constitution-the-three-branches-and-their-powers: active lesson in split topic needs part
+lesson-philippine-constitution-amendment-or-revision: cse-pro: key point 1 has no shipping, gate-passing question
+lesson-philippine-constitution-amendment-or-revision: cse-pro: pool 0 is below quizSize 2
+lesson-philippine-constitution-amendment-or-revision: cse-sub: key point 1 has no shipping, gate-passing question
+lesson-philippine-constitution-amendment-or-revision: cse-sub: pool 0 is below quizSize 2
+lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection: cse-pro: key point 1 has no shipping, gate-passing question
+lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection: cse-pro: key point 2 has no shipping, gate-passing question
+lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection: cse-pro: key point 3 has no shipping, gate-passing question
+lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection: cse-pro: pool 0 is below quizSize 3
+lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection: cse-sub: key point 1 has no shipping, gate-passing question
+lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection: cse-sub: key point 2 has no shipping, gate-passing question
+lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection: cse-sub: key point 3 has no shipping, gate-passing question
+lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection: cse-sub: pool 0 is below quizSize 3
+lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service: cse-pro: key point 1 has no shipping, gate-passing question
+lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service: cse-pro: pool 0 is below quizSize 2
+lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service: cse-sub: key point 1 has no shipping, gate-passing question
+lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service: cse-sub: pool 0 is below quizSize 2
+lesson-philippine-constitution-bill-of-rights-property-and-contracts: cse-pro: key point 1 has no shipping, gate-passing question
+lesson-philippine-constitution-bill-of-rights-property-and-contracts: cse-pro: key point 2 has no shipping, gate-passing question
+lesson-philippine-constitution-bill-of-rights-property-and-contracts: cse-pro: pool 0 is below quizSize 2
+lesson-philippine-constitution-bill-of-rights-property-and-contracts: cse-sub: key point 1 has no shipping, gate-passing question
+lesson-philippine-constitution-bill-of-rights-property-and-contracts: cse-sub: key point 2 has no shipping, gate-passing question
+lesson-philippine-constitution-bill-of-rights-property-and-contracts: cse-sub: pool 0 is below quizSize 2
+
+Worker verification:
+question map: PASS; 40 ids, each mapped exactly once
+preservation: PASS; 16 parts; 34 examples; 12 traps; all core paragraphs unchanged; original bodies unchanged
+teaching words: 172 to 411 per part
+emdash grep: no output (exit 1)
+git diff --check: PASS
+audit runner: exit 1, IndexError in existing summary printer; 36 assigned-lesson findings retained in split-b-audit.tsv
+AI tells, source/new active parts: caps 7/7, emdash 0/0, notjust 0/0, stock 0/0, testmakers 0/0

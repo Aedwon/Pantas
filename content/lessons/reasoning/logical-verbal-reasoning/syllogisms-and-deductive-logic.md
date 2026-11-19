@@ -6,6 +6,11 @@ subject: "subject-reasoning"
 topic: "topic-logical-verbal-reasoning"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-logical-verbal-reasoning-deductive-group-arguments
+  - lesson-logical-verbal-reasoning-valid-conditional-forms
+  - lesson-logical-verbal-reasoning-invalid-conditional-forms
 ---
 ## Core Concept
 

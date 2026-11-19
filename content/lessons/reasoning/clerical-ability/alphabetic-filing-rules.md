@@ -6,6 +6,11 @@ subject: "subject-reasoning"
 topic: "topic-clerical-ability"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-clerical-ability-personal-name-filing-units
+  - lesson-clerical-ability-filing-patterns-and-surname-particles
+  - lesson-clerical-ability-suffixes-titles-and-filing-ties
 ---
 ## Core Concept
 

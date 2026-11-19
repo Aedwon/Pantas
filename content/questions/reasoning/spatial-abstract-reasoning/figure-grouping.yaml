@@ -9,6 +9,8 @@ meta:
     - "dlsucet"
 questions:
   - id: "q-spatial-abstract-reasoning-figure-grouping-0001"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "easy"
     figure: "figure-grouping-01"
@@ -37,6 +39,8 @@ questions:
       The square, rectangle, and rhombus each have four sides. The triangle has three sides and breaks that shared count.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0002"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "easy"
     figure: "figure-grouping-02"
@@ -50,7 +54,7 @@ questions:
     stem: |
       Group the figures by whether their outlines have a reflection axis. Which lacks one?
     choices:
-      - text: "Irregular blob"
+      - text: "Blob"
         correct: true
       - text: "Circle"
         rationale: |
@@ -65,6 +69,8 @@ questions:
       The circle, square, and equilateral triangle each have an axis along which reflected halves match. The irregular blob has no such axis.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0003"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-03"
@@ -98,6 +104,8 @@ questions:
       The first three circles have lines passing through their centers. The rightmost has lines meeting below its center. It breaks the shared center-crossing rule.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0004"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-04"
@@ -132,6 +140,8 @@ questions:
       The square, triangle, circle, and pentagon each contain one dot. The hexagon contains two dots and breaks that shared count.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0005"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-05"
@@ -160,34 +170,38 @@ questions:
       The square, triangle, and rectangle have only straight boundary segments. The circle has a curved boundary.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0006"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-06"
     figureSpec:
       kind: "shape-row"
       shapes:
-        - form: "pentagon"
-        - form: "pentagon"
+        - form: "parallelogram"
+        - form: "rectangle"
         - form: "hexagon"
-        - form: "pentagon"
+        - form: "rhombus"
     stem: |
       Three outlines match in side count. Which outline breaks that count?
     choices:
-      - text: "Third figure from the left"
+      - text: "Hexagon"
         correct: true
-      - text: "First figure from the left"
+      - text: "Parallelogram"
         rationale: |
-          This chooses an endpoint in the row. The first position can look separated from the others. Count sides instead of row position.
-      - text: "Second figure from the left"
+          This picks the slanted outline because it looks unlike the others. Its slant makes it stand out. Count its sides: it has four, the same as two other figures.
+      - text: "Rectangle"
         rationale: |
-          This chooses a matching pentagon because it is near the center. Its placement stands out. Count its five sides.
-      - text: "Fourth figure from the left"
+          This groups by equal sides. The rectangle's sides are not all equal, so it looks different from the rhombus. Count the sides, not their lengths.
+      - text: "Rhombus"
         rationale: |
-          This chooses the last position as a pattern endpoint. The last figure is visually isolated at the edge. Compare its side count.
+          This picks the tilted outline because it stands on a point. Turning a shape does not change its side count. Count its four sides.
     explanation: |
-      The first, second, and fourth figures are pentagons with five sides. The third is a hexagon with six sides.
+      The parallelogram, rectangle, and rhombus each have four sides. The hexagon has six sides and breaks that shared count.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0007"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-07"
@@ -221,6 +235,8 @@ questions:
       The first square has a radial line at 30 degrees, which is not one of the square's reflection axes. The other figures each preserve a vertical or diagonal axis through their marks. The first complete figure therefore lacks reflection symmetry.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0008"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-08"
@@ -249,6 +265,8 @@ questions:
       Rotation does not change side count. The first three outlines each have four sides. The rightmost triangle has three.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0009"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-09"
@@ -281,6 +299,8 @@ questions:
       The first three circles have two internal lines each. The rightmost has one. It breaks the common line-count rule.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0010"
+    lesson: lesson-spatial-abstract-reasoning-testing-a-figure-group-rule
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-10"
@@ -309,6 +329,8 @@ questions:
       The first three figures are triangles. Each has three sides. That shared count separates them from the four-sided rhombus.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0011"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-11"
@@ -337,13 +359,15 @@ questions:
       - text: "The middle square"
         rationale: |
           This uses square shape as the distinguishing feature. It has four sides. Check the fill feature named in the stem.
-      - text: "Second circle from the left"
+      - text: "The first circle from the left"
         rationale: |
           This selects a circle even though its fill matches the group. The circle has a curved boundary. Compare black versus white fill.
     explanation: |
       The first four figures have black fill. The rightmost circle has white fill. It breaks the shared fill state.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0012"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-12"
@@ -376,6 +400,8 @@ questions:
       One, two, and three distinct lines through the center create two, four, and six regions. The uncut rightmost circle has one region. One is odd, so it breaks the even-region rule.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0013"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-13"
@@ -404,6 +430,8 @@ questions:
       The square, rectangle, and hexagon have four, four, and six sides. These are even counts. The pentagon has five sides, an odd count.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0014"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-14"
@@ -437,6 +465,8 @@ questions:
       The square, circle, and pentagon all have upward arrows. The triangle has a downward arrow. Its internal direction breaks the shared rule.
     approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0015"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "easy"
     figure: "figure-grouping-15"
@@ -454,7 +484,7 @@ questions:
     stem: |
       Considering dot-count parity, which figure does not belong?
     choices:
-      - text: "The circle"
+      - text: "Circle"
         correct: true
       - text: "Square"
         rationale: |
@@ -467,8 +497,10 @@ questions:
           This groups by sides instead of dot parity. The outline has six sides. Count its two internal dots.
     explanation: |
       The square, rectangle, and hexagon contain two, four, and two dots. Each count is even. The circle contains three dots, an odd count.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0016"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "medium"
     figure: "figure-grouping-16"
@@ -500,8 +532,10 @@ questions:
           This confuses a downward ray with a diagonal ray. It appears below the center. Compare its direction with the square's vertical sides.
     explanation: |
       The first, second, and fourth rays point up, right, and down. Each direction is parallel to a side of its square. The third ray points diagonally and breaks that rule.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0017"
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
     type: "odd-figure"
     difficulty: "hard"
     figure: "figure-grouping-17"
@@ -528,8 +562,10 @@ questions:
           This changes internal marks instead of the outline. Dots add a visible difference. Check the feature that defines the group.
     explanation: |
       The other outlines are polygons made of straight segments. A hexagon also has only straight segments. Replacing the circle with a hexagon therefore makes the boundary rule hold for every outline.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0018"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "hard"
     figure: "figure-grouping-18"
@@ -560,8 +596,10 @@ questions:
           This picks the largest dot count. Three differs from the two-dot figures. Check that six sides is still twice three dots.
     explanation: |
       The square, rectangle, and hexagon have four sides with two dots, four with two, and six with three. Each side count is twice the dot count. The triangle has three sides and two dots, so it breaks the relation.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0019"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "exam"
     figure: "figure-grouping-19"
@@ -597,8 +635,10 @@ questions:
           This selects the most dots. It has three of each. Compare the two counts within it.
     explanation: |
       The first, second, and fourth squares have matching dot and edge-line counts: one and one, two and two, three and three. The third has two dots and three edge lines. Its counts differ.
-    approved: false
+    approved: true
   - id: "q-spatial-abstract-reasoning-figure-grouping-0020"
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
     type: "odd-figure"
     difficulty: "exam"
     figure: "figure-grouping-20"
@@ -630,4 +670,34 @@ questions:
           This assumes only even-sided shapes have reflection symmetry. The triangle has three sides. Check its three vertex-to-opposite-side reflection axes.
     explanation: |
       Each regular triangle has three reflection axes, and each square has four. The first three figures have three, four, and three dots, matching their outlines' reflection axes. The fourth figure is a square with two dots but four reflection axes. It breaks the relation.
-    approved: false
+    approved: true
+  - id: q-spatial-abstract-reasoning-figure-grouping-0021
+    approved: true
+    lesson: lesson-spatial-abstract-reasoning-testing-a-figure-group-rule
+    keyPoint: 1
+    type: odd-figure
+    difficulty: exam
+    stem: |
+      Five figures have the following features. A proposed rule must group exactly four figures and exclude exactly one. Which rule meets this requirement?
+
+      | Figure | Outline | Size | Internal dots |
+      | --- | --- | --- | --- |
+      | A | Triangle | Small | Two |
+      | B | Square | Large | Two |
+      | C | Pentagon | Small | Two |
+      | D | Hexagon | Large | Two |
+      | E | Rectangle | Small | Three |
+    choices:
+      - text: Contains two dots
+        correct: true
+      - text: Has a small outline
+        rationale: |
+          This groups the three small figures. The two large figures both fall outside it. Count how many figures the rule excludes.
+      - text: Has four straight sides
+        rationale: |
+          This groups the square and rectangle. Both have four sides, but three figures are left out. Test the rule on every outline.
+      - text: Uses only straight sides
+        rationale: |
+          This finds a feature shared by all five figures. It sounds like a common rule but excludes none. Check that exactly one figure must fail it.
+    explanation: |
+      A, B, C, and D each contain two dots. E contains three dots. The two-dot rule groups exactly four figures and excludes only E.

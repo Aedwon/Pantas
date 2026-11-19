@@ -12,12 +12,14 @@ meta:
     - "cse-sub"
 questions:
   - id: "q-grammar-and-structure-parallelism-0001"
+    lesson: lesson-grammar-and-structure-matching-forms-in-lists
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "easy"
     stem: |
       Identify and fix the parallelism error: "The coach told the team to run faster, jumping higher, and to try harder."
     choices:
-      - text: "Change \"jumping\" to \"to jump.\""
+      - text: "Use \"to jump\" for \"jumping\"."
         correct: true
       - text: "Change \"to run\" to \"running.\""
         rationale: |
@@ -32,6 +34,8 @@ questions:
       The list starts with "to run" and ends with "to try." Changing the middle action to "to jump" gives three matching to-plus-verb phrases.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0002"
+    lesson: lesson-grammar-and-structure-parallel-pairs-and-comparisons
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "medium"
     stem: |
@@ -52,6 +56,8 @@ questions:
       "Not only" introduces the adjective "fun." "But also educational" supplies another adjective, so the two descriptions match.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0003"
+    lesson: lesson-grammar-and-structure-shared-words-in-parallel-lists
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "medium"
     stem: |
@@ -72,6 +78,8 @@ questions:
       "How to" applies to all three actions. The base verbs "install," "update," and "repair" make a matching list.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0004"
+    lesson: lesson-grammar-and-structure-parallel-pairs-and-comparisons
+    keyPoint: 2
     type: "parallelism-correction"
     difficulty: "medium"
     stem: |
@@ -92,6 +100,8 @@ questions:
       The sentence compares two activities. "Reading a book" and "watching television" both use -ing forms as activity names.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0005"
+    lesson: lesson-grammar-and-structure-matching-forms-in-lists
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "medium"
     stem: |
@@ -112,6 +122,8 @@ questions:
       "Painting" and "singing" name hobbies using -ing forms. "Dancing" supplies a matching middle item.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0006"
+    lesson: lesson-grammar-and-structure-parallel-pairs-and-comparisons
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "medium"
     stem: |
@@ -132,6 +144,8 @@ questions:
       "Both" and "and" join two descriptions. "Intelligent" and "hardworking" are adjectives, so they form a matching pair.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0007"
+    lesson: lesson-grammar-and-structure-matching-forms-in-lists
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "medium"
     stem: |
@@ -152,6 +166,8 @@ questions:
       "Chopping," "mincing," and "boiling" name the required activities. Their matching -ing forms make the list parallel.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0008"
+    lesson: lesson-grammar-and-structure-parallel-pairs-and-comparisons
+    keyPoint: 2
     type: "parallelism-correction"
     difficulty: "medium"
     stem: |
@@ -172,12 +188,14 @@ questions:
       The subject names the cost of a bus trip. The phrase after "than" names the cost of a taxi trip, so the comparison matches costs.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0009"
+    lesson: lesson-grammar-and-structure-matching-forms-in-lists
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "hard"
     stem: |
       Identify the hidden parallelism error in this longer sentence: "The report covers the company's history, analyzing its financial growth, and its plans for the future."
     choices:
-      - text: "Change \"analyzing its financial growth\" to \"its financial growth.\""
+      - text: "Delete \"analyzing\"."
         correct: true
       - text: "Change \"its plans for the future\" to \"planning for the future.\""
         rationale: |
@@ -192,6 +210,8 @@ questions:
       The report covers three topics. "The company's history," "its financial growth," and "its plans for the future" are all noun phrases.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0010"
+    lesson: lesson-grammar-and-structure-matching-forms-in-lists
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "hard"
     stem: |
@@ -212,6 +232,8 @@ questions:
       "Enjoys" is followed by the activity names "hiking" and "swimming." They share the same -ing form.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0011"
+    lesson: lesson-grammar-and-structure-parallel-pairs-and-comparisons
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "hard"
     stem: |
@@ -232,6 +254,8 @@ questions:
       "Wanted to" applies to both actions: "win the race" and "finish in the top three." The matching base verbs keep both original goals.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0012"
+    lesson: lesson-grammar-and-structure-matching-forms-in-lists
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "medium"
     stem: |
@@ -252,6 +276,8 @@ questions:
       "Budgeting," "marketing," and "sales strategy" all function as noun phrases naming workshop topics. Parallel items can have different endings when they share the same role.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0013"
+    lesson: lesson-grammar-and-structure-shared-words-in-parallel-lists
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "medium"
     stem: |
@@ -272,6 +298,8 @@ questions:
       "Helps users" can be followed by a base verb. The matching actions are "track expenses," "set budgets," and "save money."
     approved: true
   - id: "q-grammar-and-structure-parallelism-0014"
+    lesson: lesson-grammar-and-structure-parallel-pairs-and-comparisons
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "hard"
     stem: |
@@ -292,6 +320,8 @@ questions:
       The helping verb "will" applies to both actions. "Raise" and "cut" are matching base verbs after it.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0015"
+    lesson: lesson-grammar-and-structure-parallel-pairs-and-comparisons
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "exam"
     stem: |
@@ -313,6 +343,8 @@ questions:
       First, pair "how to negotiate" with "how to improve." Then list the topics as "budgeting," "marketing," and "team management." Each group now has matching forms.
     approved: true
   - id: "q-grammar-and-structure-parallelism-0016"
+    lesson: lesson-grammar-and-structure-matching-forms-in-lists
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "easy"
     stem: |
@@ -331,8 +363,10 @@ questions:
           This inserts a full clause into the list. The clause expresses a related quality. Check: compare each item's grammatical form.
     explanation: |
       "Accuracy" and "fairness" are nouns naming qualities. "Transparency" is a matching noun.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-parallelism-0017"
+    lesson: lesson-grammar-and-structure-parallel-pairs-and-comparisons
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "medium"
     stem: |
@@ -351,8 +385,10 @@ questions:
           This combines a noun phrase with a verb phrase. Both phrases identify application routes. Check: compare the two alternatives after "either" and "or".
     explanation: |
       The shared verb is "submit." "Either" and "or" then join two ways to submit: "online" and "by mail."
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-parallelism-0018"
+    lesson: lesson-grammar-and-structure-parallel-pairs-and-comparisons
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "hard"
     stem: |
@@ -371,8 +407,10 @@ questions:
           This pairs an adjective with a to-plus-verb phrase. Saving money relates to affordability. Check: match both halves by grammatical form.
     explanation: |
       "Practical" and "affordable" are adjectives describing the policy. They form a matching pair after the two connectors.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-parallelism-0019"
+    lesson: lesson-grammar-and-structure-matching-forms-in-lists
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "hard"
     stem: |
@@ -391,8 +429,10 @@ questions:
           This combines a complete clause with an -ing phrase. The first clause states a possible result. Check: keep both alternatives in matching forms.
     explanation: |
       "Between" introduces two possible actions. "Repairing the roof" and "installing a new roof" both use -ing phrases to name them.
-    approved: false
+    approved: true
   - id: "q-grammar-and-structure-parallelism-0020"
+    lesson: lesson-grammar-and-structure-matching-forms-in-lists
+    keyPoint: 1
     type: "parallelism-correction"
     difficulty: "exam"
     stem: |
@@ -411,4 +451,4 @@ questions:
           This starts the list with a full clause. The later items share -ing endings. Check: check the opening item as well.
     explanation: |
       The grant funds three activities. "Training," "buying," and "improving" all name activities with matching -ing forms.
-    approved: false
+    approved: true
