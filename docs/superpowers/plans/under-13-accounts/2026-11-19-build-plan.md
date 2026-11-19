@@ -14,9 +14,9 @@ Boards: Claude Design artifact PqxcZvKQheCogaXH6LidPM, picks 1A 2A 3A 4B 5 6B 7A
 Aedwon: 7A's description more direct and concise; 8A's code gate reuses the beta sign-in code entry
 (`CodeBoxes` in `sign_in_parts.dart`, as used by `email_sign_in_page.dart`) 1:1.
 
-Progress (Nov 19): T1 to T4 merged on the build branch; unit tests 748 of 748; emulator half on CI
-(draft PR 76). Paused at 62% of the 5-hour limit until the manager signals the reset. Next: T5 (Codex
-6.2 Sol through `codex-pick` where it fits), then T6 and T7. Codex account b needs a re-login.
+Progress (Nov 20): T1 to T8 merged on the build branch (server 748 unit and 907 emulator tests pass; T8
+goldens rendered on CI). Codex 6.2 Sol runs T11 legal texts and the child-session wiring. T9 and T10 screens
+wait for the Claude 5-hour reset (one screen worker uses about 30%).
 
 ## Global constraints
 
