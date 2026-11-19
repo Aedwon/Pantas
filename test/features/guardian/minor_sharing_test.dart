@@ -123,4 +123,26 @@ void main() {
     expect(await sync(), MinorSharing.locked);
     expect(await sharingOn(), isFalse);
   });
+
+  test(
+      'a child is locked, sharing and speed reports go off, and the server is '
+      'not asked', () async {
+    final settings = container.read(settingsRepositoryProvider);
+    await settings.updateHelpImproveApp(enabled: true);
+    await settings.updateSpeedReportsEnabled(enabled: true);
+    await container.read(appPreferencesRepositoryProvider).setAgeGroup('child');
+    gateway.current = status(sharingAllowed: true);
+    expect(await sync(), MinorSharing.childLocked);
+    final after = await settings.readUserSettings();
+    expect(after.helpImproveApp, isFalse);
+    expect(after.speedReportsEnabled, isFalse);
+    expect(gateway.statusCalls, 0);
+  });
+
+  test('an unrecognized stored group follows the minor path, never adult',
+      () async {
+    await container.read(appPreferencesRepositoryProvider).setAgeGroup('teen');
+    gateway.current = status(sharingAllowed: false);
+    expect(await sync(), MinorSharing.locked);
+  });
 }

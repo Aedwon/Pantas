@@ -7,6 +7,7 @@ import {FieldPath, FieldValue, getFirestore, type DocumentReference, type Docume
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
 import {onSchedule} from 'firebase-functions/v2/scheduler';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
+import {normalizeAgeGroup, type AgeGroup} from './ageGroup.js';
 import {allowFromAddress, clientBucket, type AddressRequest} from './_clientAddress.js';
 import {allowAtMost} from './_limits.js';
 import {logger} from 'firebase-functions/logger';
@@ -128,7 +129,7 @@ function publicStatus(data: FirebaseFirestore.DocumentData | undefined, now: num
 }
 
 export type StatusResult = {status: PublicStatus; maskedEmail: string | null; expiresAt: number | null;
-  sharingAllowed: boolean; ageGroup: 'minor' | 'adult' | null};
+  sharingAllowed: boolean; ageGroup: AgeGroup | null};
 
 /** Reads the caller's own status. Expiry is worked out here, never trusted from the client. */
 export async function getStatus(request: AppRequest, deps: ConsentDeps): Promise<StatusResult> {
@@ -142,7 +143,8 @@ export async function getStatus(request: AppRequest, deps: ConsentDeps): Promise
   const status = publicStatus(data, now);
   return {status, maskedEmail: data?.maskedEmail ?? null, expiresAt: data?.expiresAt ?? null,
     sharingAllowed: data?.sharingAllowed === true,
-    ageGroup: data?.ageGroup === 'minor' || data?.ageGroup === 'adult' ? data.ageGroup : null};
+    // No record is null. A record with a missing or unknown group reads as minor: restricted by default.
+    ageGroup: data ? normalizeAgeGroup(data.ageGroup) : null};
 }
 
 /**
@@ -206,6 +208,11 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     // An adult has no guardian. A new request would turn the record back into a minor.
     if (before?.ageGroup === 'adult') {
       throw new HttpsError('failed-precondition', 'This account is already an adult account.');
+    }
+    // A child account is held by a parent or guardian through setup, never through this emailed link.
+    // An unknown group is refused the same way, so no value can be rewritten to minor by accident.
+    if (before !== undefined && before.ageGroup !== undefined && before.ageGroup !== 'minor') {
+      throw new HttpsError('failed-precondition', 'This account is managed by a parent or guardian.');
     }
     if (typeof before?.sentAt === 'number' && now - before.sentAt < SEND_LIMIT.gapMs) {
       throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
@@ -400,7 +407,8 @@ async function manageView(get: (ref: DocumentReference) => Promise<DocumentSnaps
   if (!row || row.kind !== 'manage' || row.state !== 'open' || typeof row.uid !== 'string') return unknown;
   const uid = row.uid;
   const consent = (await get(consentRef(deps.db, uid))).data();
-  if (!consent || consent.ageGroup === 'adult') return unknown;
+  // The emailed manage link belongs to the 13 to 17 flow only. Adult, child and unknown groups read as unknown.
+  if (!consent || (consent.ageGroup !== undefined && consent.ageGroup !== 'minor')) return unknown;
   if (consent.status === 'confirmed') return {state: 'active', uid, sharingAllowed: consent.sharingAllowed === true};
   if (consent.status === 'withdrawn') return {state: 'withdrawn', uid};
   if (consent.status === 'pending' || consent.status === 'declined') return {state: 'not_confirmed'};
@@ -509,6 +517,10 @@ export async function markAdult(request: AppRequest, deps: ConsentDeps): Promise
     // The server never knew a minor, so there is nothing to switch and nothing to write.
     if (!data) return {state: 'adult'};
     if (data.status === 'withdrawn') throw accountClosed();
+    // A child is never switched by the account itself, and an unknown group is not guessed at.
+    if (data.ageGroup === 'child' || (data.ageGroup !== undefined && data.ageGroup !== 'minor' && data.ageGroup !== 'adult')) {
+      throw new HttpsError('failed-precondition', 'This account is managed by a parent or guardian.');
+    }
     if (data.ageGroup !== 'minor' || data.adultSince !== undefined) {
       throw new HttpsError('failed-precondition', 'Already switched.');
     }
@@ -577,11 +589,11 @@ export async function purgeGuardianRecords(db: Firestore, now: number): Promise<
         // Keep the gate status, the age group, the sharing choice and the minimum confirmation
         // facts, without contact data (email hash, masked address, link hash, send and expiry times).
         const kept = Object.fromEntries(KEPT_CONSENT_FIELDS.filter((key) => data[key] !== undefined).map((key) => [key, data[key]]));
-        tx.set(row.ref, {...kept, ageGroup: data.ageGroup ?? 'minor'});
+        tx.set(row.ref, {...kept, ageGroup: normalizeAgeGroup(data.ageGroup)});
       } else {
         // An unanswered or declined request loses its contact data and status, but the server
         // must still know the account is under 18: checkout's guardian box depends on it.
-        tx.set(row.ref, {ageGroup: data.ageGroup ?? 'minor'});
+        tx.set(row.ref, {ageGroup: normalizeAgeGroup(data.ageGroup)});
       }
     });
   });

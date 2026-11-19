@@ -831,15 +831,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         : '${_periodName(pendingPackage.sku)}, '
             '${_money(pendingPackage.priceString)}. ';
     final showOffers = covered == false && !paused && !waiting;
-    // A minor's payment needs the box ticked. The server is the control; the
-    // device age group only decides whether the box shows. The free trial
-    // takes no payment, so it has no box.
+    // A minor's or child's payment needs the box ticked. The server is the
+    // control; the device age group only decides whether the box shows. The
+    // free trial takes no payment, so it has no box.
     final buyShown = showOffers &&
         !(web && anonymous) &&
         exam != null &&
         (selectedPackage != null || selectedPass != null);
     final guardianBox = buyShown &&
-        ref.watch(ageGroupProvider).valueOrNull == 'minor' &&
+        (ref.watch(ageGroupProvider).valueOrNull?.needsPurchaseAttestation ??
+            false) &&
         !(trial && !lapsed);
     final buyLocked = _busy || (guardianBox && !_guardianTicked);
     final purchaseLabel = selectedPass != null

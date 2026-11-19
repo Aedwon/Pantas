@@ -1,4 +1,5 @@
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/age_group.dart';
 
 class AppPreferencesRepository {
   AppPreferencesRepository(this._db);
@@ -77,8 +78,11 @@ class AppPreferencesRepository {
         );
   }
 
-  /// `minor` or `adult`. Only the group is kept, never the age.
+  /// `minor`, `adult` or `child`. Only the group is kept, never the age.
   Future<String?> ageGroup() => _deviceValue('age_group');
+
+  /// [ageGroup] as a typed value. Unknown text is restricted, never adult.
+  Future<AgeGroup> readAgeGroup() async => AgeGroup.parse(await ageGroup());
 
   Future<void> setAgeGroup(String group) => _setDeviceValue('age_group', group);
 

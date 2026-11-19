@@ -163,7 +163,8 @@ final onboardingProgressProvider =
       .getSingleOrNull();
   return OnboardingProgress(
     agePassed: await ref.watch(passedAgeGateProvider.future),
-    minorAwaitingGuardian: await preferences.ageGroup() == 'minor',
+    minorAwaitingGuardian:
+        (await preferences.readAgeGroup()).entersTeenGuardianFlow,
     ageBlocked: await preferences.blockedMinimumAge() != null,
     policyAccepted: settings.acceptedTermsAt != null,
     examPicked: await preferences.selectedExamId() != null,

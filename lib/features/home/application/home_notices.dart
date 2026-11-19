@@ -240,7 +240,7 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
     final accountId = await ref.watch(screenCountsAccountIdProvider.future);
     final store = ref.read(screenCountsNoticeStoreProvider);
     if (accountId != null && !await store.isDismissed(accountId)) {
-      final minor = await preferences.ageGroup() == 'minor';
+      final teen = (await preferences.readAgeGroup()).entersTeenGuardianFlow;
       candidates.add(
         HomeNotice(
           kind: HomeNoticeKind.screenCounts,
@@ -253,9 +253,10 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
           // secondary, on the left.
           primaryLabel: 'Got It',
           secondaryLabel: 'Learn More',
-          // The Teen Notice for an under-18 account. The legal pages have no
-          // section anchors, so both open at the top.
-          route: minor ? '/legal/teens' : '/legal/privacy',
+          // The Teen Notice for a 13 to 17 account. A child gets the Privacy
+          // Notice for now. The legal pages have no section anchors, so both
+          // open at the top.
+          route: teen ? '/legal/teens' : '/legal/privacy',
         ),
       );
     }

@@ -169,12 +169,14 @@ void main() {
       bool speedReports = true,
       String? uid = 'learner-a',
       bool minor = false,
+      String? ageGroup,
       List<String> dismissedFor = const [],
     }) async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       final prefs = AppPreferencesRepository(db);
       if (minor) await prefs.setAgeGroup('minor');
+      if (ageGroup != null) await prefs.setAgeGroup(ageGroup);
       final store = ScreenCountsNoticeStore(prefs);
       for (final id in dismissedFor) {
         await store.markDismissed(id);
@@ -235,6 +237,13 @@ void main() {
           await (await open(minor: true)).read(homeNoticeProvider.future);
       expect(notice?.kind, HomeNoticeKind.screenCounts);
       expect(notice?.route, '/legal/teens');
+    });
+
+    test('a child gets no Teen Notice, only the Privacy Notice link', () async {
+      final notice =
+          await (await open(ageGroup: 'child')).read(homeNoticeProvider.future);
+      expect(notice?.kind, HomeNoticeKind.screenCounts);
+      expect(notice?.route, '/legal/privacy');
     });
 
     test('is absent while the flag is off', () async {
