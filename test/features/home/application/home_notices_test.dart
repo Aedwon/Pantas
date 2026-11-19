@@ -239,11 +239,10 @@ void main() {
       expect(notice?.route, '/legal/teens');
     });
 
-    test('a child gets no Teen Notice, only the Privacy Notice link', () async {
+    test('a child has no screen counts notice with a saved opt-in', () async {
       final notice =
           await (await open(ageGroup: 'child')).read(homeNoticeProvider.future);
-      expect(notice?.kind, HomeNoticeKind.screenCounts);
-      expect(notice?.route, '/legal/privacy');
+      expect(notice?.kind, isNot(HomeNoticeKind.screenCounts));
     });
 
     test('is absent while the flag is off', () async {

@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -22,7 +23,8 @@ class _PermissionRationalePageState
   Future<void> _continue({required bool requestPermission}) async {
     if (_isSaving) return;
     setState(() => _isSaving = true);
-    if (requestPermission) {
+    if (requestPermission &&
+        !ref.read(resolvedAgeGroupProvider).hasChildLimits) {
       await ref.read(notificationServiceProvider).requestPermission();
     }
     await ref.read(notificationRationaleRepositoryProvider).markShown();
@@ -32,6 +34,14 @@ class _PermissionRationalePageState
 
   @override
   Widget build(BuildContext context) {
+    final age = ref.watch(ageGroupProvider);
+    if (age.isLoading) return const SizedBox.shrink();
+    if (ref.watch(resolvedAgeGroupProvider).hasChildLimits) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) GoRouter.maybeOf(context)?.go('/home');
+      });
+      return const SizedBox.shrink();
+    }
     final styles = context.type;
     final colors = context.colors;
     return Scaffold(

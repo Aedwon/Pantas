@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/build_info.dart';
 import 'package:pantas/app/screen_counts_providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -125,7 +126,8 @@ class AboutPage extends ConsumerWidget {
     final contact = ref.watch(legalContactProvider);
     // A minor's guardian decides whether the student can turn sharing on.
     final sharing = ref.watch(minorSharingProvider).valueOrNull;
-    final childLocked = sharing == MinorSharing.childLocked;
+    final childLocked = sharing == MinorSharing.childLocked ||
+        ref.watch(resolvedAgeGroupProvider).hasChildLimits;
     final sharingLocked = childLocked || sharing == MinorSharing.locked;
     void push(String path) {
       final router = GoRouter.maybeOf(context);
@@ -225,7 +227,8 @@ class AboutPage extends ConsumerWidget {
                             ),
                       ),
             ),
-            if (!context.wideWeb && sharedLinksRow != null) sharedLinksRow!,
+            if (!context.wideWeb && !childLocked && sharedLinksRow != null)
+              sharedLinksRow!,
             SettingsRow(
               title: 'Contact our data protection officer',
               trailingWidget: context.wideWeb ? null : _externalIcon(context),

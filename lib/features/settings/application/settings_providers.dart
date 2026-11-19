@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -106,10 +107,12 @@ class SettingsActions {
   }
 
   Future<void> setSpeedReportsEnabled({required bool enabled}) async {
+    await _ref.read(ageGroupProvider.future);
     await _ref
         .read(settingsRepositoryProvider)
         .updateSpeedReportsEnabled(enabled: enabled);
-    ClientReporter.active?.enabled = enabled;
+    ClientReporter.active?.enabled =
+        enabled && !_ref.read(resolvedAgeGroupProvider).hasChildLimits;
     _ref.invalidate(userSettingsProvider);
   }
 

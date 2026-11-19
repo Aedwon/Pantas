@@ -13,3 +13,11 @@ final onboardingCompleteProvider = FutureProvider<bool>((ref) async {
 final ageGroupProvider = FutureProvider<AgeGroup>((ref) async {
   return ref.watch(appPreferencesRepositoryProvider).readAgeGroup();
 });
+
+/// Privacy-sensitive controls stay closed while the age is loading or failed.
+final resolvedAgeGroupProvider = Provider<AgeGroup>((ref) {
+  final age = ref.watch(ageGroupProvider);
+  return age.isLoading || age.hasError
+      ? AgeGroup.unrecognized
+      : age.requireValue;
+});

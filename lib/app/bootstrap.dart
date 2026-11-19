@@ -267,8 +267,8 @@ Future<void> _bootstrap(
     // and is awaited where the flags are used. It never throws: a failure or
     // a timeout yields the fallback flags.
     final remoteFlags = bootstrapRemoteFlagsOverrides();
-    // Web only, always on, sends no identity. Never blocks startup.
-    ClientReporter.startForWeb();
+    // A page can be hidden before auth restores its age group.
+    ClientReporter.startForWeb()?.enabled = false;
     await activateAppCheck(flavor);
     PerfTimeline.mark('boot.appcheck');
 
@@ -490,12 +490,14 @@ Future<void> applyPersistedTelemetryConsent(
     );
     // A child's speed and error reports stay off whatever the stored switch
     // says, from the first moment.
-    final child = (await container.read(ageGroupProvider.future)).isChild;
-    ClientReporter.active?.enabled = settings.speedReportsEnabled && !child;
+    final group = await container.read(ageGroupProvider.future);
+    ClientReporter.active?.enabled =
+        settings.speedReportsEnabled && !group.hasChildLimits;
     await controller.applyStartupConsent(
-      enabled: settings.helpImproveApp,
+      enabled: settings.helpImproveApp && !group.hasChildLimits,
     );
   } catch (error, stack) {
+    ClientReporter.active?.enabled = false;
     debugPrint('Failed to apply persisted telemetry consent: $error\n$stack');
   }
 }

@@ -48,14 +48,19 @@ class AppPreferencesRepository {
     return legacyRow?.value;
   }
 
-  Future<void> setSelectedExamId(String examId) async {
-    await _db.into(_db.devicePrefs).insertOnConflictUpdate(
-          DevicePrefsCompanion.insert(
-            key: _selectedExamIdKey,
-            value: examId,
-          ),
-        );
-  }
+  Future<void> setSelectedExamId(String examId) => _db.transaction(() async {
+        final group = await readAgeGroup();
+        if (group.hasChildLimits &&
+            (!group.isChild || examId != 'exam_pshs_nce')) {
+          throw StateError('This exam is unavailable for this account.');
+        }
+        await _db.into(_db.devicePrefs).insertOnConflictUpdate(
+              DevicePrefsCompanion.insert(
+                key: _selectedExamIdKey,
+                value: examId,
+              ),
+            );
+      });
 
   Future<bool> hasPassedAgeGate() async {
     if (await needsGuardianSetup()) return false;
@@ -82,8 +87,15 @@ class AppPreferencesRepository {
   /// `minor`, `adult` or `child`. Only the group is kept, never the age.
   Future<String?> ageGroup() => _deviceValue('age_group');
 
-  /// [ageGroup] as a typed value. Unknown text is restricted, never adult.
-  Future<AgeGroup> readAgeGroup() async => AgeGroup.parse(await ageGroup());
+  /// [ageGroup] as a typed value. An age-check record also makes a missing
+  /// group restricted.
+  Future<AgeGroup> readAgeGroup() async {
+    final stored = await ageGroup();
+    if (stored == null && await ageCheckNoticeVersion() != null) {
+      return AgeGroup.unrecognized;
+    }
+    return AgeGroup.parse(stored);
+  }
 
   Future<void> setAgeGroup(String group) => _setDeviceValue('age_group', group);
 

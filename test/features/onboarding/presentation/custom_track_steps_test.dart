@@ -221,6 +221,21 @@ void main() {
       await tester.pumpAndSettle();
     }
 
+    testWidgets('a child cannot save a custom exam from a direct entry',
+        (tester) async {
+      final prefs = AppPreferencesRepository(db);
+      await prefs.setAgeGroup('child');
+      await pumpSubjectsStep(tester);
+
+      await tester.tap(find.text('Mathematics'));
+      await tester.pump();
+      await tester.tap(find.widgetWithText(PantasButton, 'Continue'));
+      await tester.pumpAndSettle();
+
+      expect(await prefs.selectedExamId(), isNull);
+      expect(await db.select(db.customTrackMetaLocal).get(), isEmpty);
+    });
+
     testWidgets('the subject list is the corpus, deduplicated', (tester) async {
       await pumpSubjectsStep(tester);
 

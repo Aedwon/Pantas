@@ -35,6 +35,9 @@ enum AgeGroup {
   /// A child account. Its own limits come on top of [isRestricted].
   bool get isChild => this == child;
 
+  /// Child-only limits also apply when the stored group is unrecognized.
+  bool get hasChildLimits => isChild || this == unrecognized;
+
   /// The 13 to 17 guardian-link flow (waiting page, contact form). A child is
   /// held by a parent through setup and never enters it. An unrecognized value
   /// does, because it must be at least as strict as `minor`.
