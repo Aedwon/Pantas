@@ -463,3 +463,113 @@ questions:
     explanation: |
       Mass number is protons plus neutrons. Adding one neutron raises that total by one. Neutrons have zero charge, and the charged particle counts remain unchanged.
     approved: false
+
+  - id: q-chemistry-atomic-structure-0021
+    lesson: lesson-chemistry-isotope-weighted-average-mass
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      In a sample, one isotope has a mass of $10\ u$ and makes up $20\%$ of the atoms. The rest have a mass of $11\ u$. What is the average atomic mass?
+    choices:
+      - text: '$10.8\ u$'
+        correct: true
+      - text: '$10.2\ u$'
+        rationale: |
+          This uses the right masses with their shares switched. Give the $11\ u$ isotope the larger share.
+      - text: '$10.5\ u$'
+        rationale: |
+          The middle of the two masses works for equal shares. Use the given shares.
+      - text: '$11.0\ u$'
+        rationale: |
+          Most atoms have a mass of $11\ u$. Include the lighter atoms too.
+    explanation: |
+      Multiply each mass by its share of the sample. Add the results. The average is $0.20(10)+0.80(11)=10.8\ u$.
+
+  - id: q-chemistry-atomic-structure-0022
+    lesson: lesson-chemistry-ions-and-isotope-notation
+    keyPoint: 2
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      Species X has 17 protons, 18 neutrons, and 18 electrons. Species Y has 17 protons, 20 neutrons, and 18 electrons. How are they related?
+    choices:
+      - text: 'They are different isotopes with the same charge.'
+        correct: true
+      - text: 'They are the same isotope with different charges.'
+        rationale: |
+          The proton counts match, but neutron counts set the isotope within an element. Compare those first.
+      - text: 'They are neutral atoms of different elements.'
+        rationale: |
+          The neutron counts differ and both have 18 electrons. Check the proton counts for the element and compare protons with electrons for charge.
+      - text: 'They are different isotopes with opposite charges.'
+        rationale: |
+          The neutrons do differ. Check the electron count against the proton count in each species.
+    explanation: |
+      Both have 17 protons, so they are the same element. They have different neutron counts. Both have one extra electron, so both have charge $-1$.
+
+  - id: q-chemistry-atomic-structure-0023
+    lesson: lesson-chemistry-ions-and-isotope-notation
+    keyPoint: 2
+    type: 'compare-contrast'
+    difficulty: 'medium'
+    stem: |
+      Species X has 12 protons, 12 neutrons, and 12 electrons. Species Y has 12 protons, 12 neutrons, and 10 electrons. What distinguishes species Y from species X?
+    choices:
+      - text: 'Y has charge $2+$ and is the same isotope.'
+        correct: true
+      - text: 'Y has charge $2-$ and is the same isotope.'
+        rationale: |
+          The gap is two electrons. Fewer negative electrons leave a positive charge.
+      - text: 'Y is neutral and belongs to a different isotope.'
+        rationale: |
+          The electron count changes. Check the neutrons for the isotope and compare electrons with protons for charge.
+      - text: 'Y has charge $2+$ and belongs to a different element.'
+        rationale: |
+          The charge is right. The proton count still names the same element.
+    explanation: |
+      The proton and neutron counts match. Y has two fewer electrons than protons, so its charge is $2+$.
+
+  - id: q-chemistry-atomic-structure-0024
+    lesson: lesson-chemistry-ions-and-isotope-notation
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      How many protons, neutrons, and electrons, respectively, are in $^{32}_{16}\mathrm{S}^{2-}$?
+    choices:
+      - text: '16, 16, 18'
+        correct: true
+      - text: '16, 16, 14'
+        rationale: |
+          The proton and neutron counts are right. A negative charge means electrons were added.
+      - text: '16, 32, 18'
+        rationale: |
+          The top left number counts protons and neutrons together. Subtract the proton count.
+      - text: '32, 16, 34'
+        rationale: |
+          The top left number is the mass number. Start with the lower left number for the proton count.
+    explanation: |
+      The lower left number gives 16 protons. Subtract 16 from 32 to get 16 neutrons. The $2-$ charge means two extra electrons, for 18.
+
+  - id: q-chemistry-atomic-structure-0025
+    lesson: lesson-chemistry-polyatomic-ions-and-charge
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A bonded group contains one nitrogen atom and four hydrogen atoms. It has one more proton than electron in total. How should the group be classified?
+    choices:
+      - text: 'A positive polyatomic ion'
+        correct: true
+      - text: 'A neutral polyatomic molecule'
+        rationale: |
+          Several atoms can make a neutral molecule. Check whether the whole group has equal numbers of protons and electrons.
+      - text: 'A negative polyatomic ion'
+        rationale: |
+          The group has a charge and several atoms. Since protons outnumber electrons, the sign is positive.
+      - text: 'A positive monatomic ion'
+        rationale: |
+          The charge is positive. Count all the bonded atoms before deciding if the ion has only one atom.
+    explanation: |
+      The group has several bonded atoms. It has one extra proton compared with its electrons, so the whole group has charge $+1$.

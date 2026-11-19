@@ -463,3 +463,69 @@ questions:
     explanation: |
       The modern mole is defined by the exact Avogadro constant. It contains exactly $6.02214076\times10^{23}$ specified entities.
     approved: false
+
+  - id: q-chemistry-mole-concept-0021
+    lesson: lesson-chemistry-molar-mass-from-formulas
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      How many oxygen atoms are represented in one formula unit of the hydrate $MgSO_4\cdot7H_2O$?
+    choices:
+      - text: '$11$'
+        correct: true
+      - text: '$4$'
+        rationale: |
+          The sulfate part has four O atoms. Add one for each water molecule too.
+      - text: '$7$'
+        rationale: |
+          The water part has seven O atoms. Count the ones in sulfate as well.
+      - text: '$28$'
+        rationale: |
+          Multiplying four by seven treats the water count as a count of sulfate groups. The 7 applies only to water.
+    explanation: |
+      Sulfate has four O atoms. Each of the seven water molecules adds one more. The sum is $4+7=11$.
+
+  - id: q-chemistry-mole-concept-0022
+    lesson: lesson-chemistry-converting-mass-and-moles
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A sample contains $0.50$ mol of $N_2$. Given that the atomic molar mass of nitrogen is $14\ \mathrm{g/mol}$, what is the mass of the sample?
+    choices:
+      - text: '$14$ g'
+        correct: true
+      - text: '$7$ g'
+        rationale: |
+          This uses $14$ g for a mole of molecules. Double the atomic molar mass for $N_2$ first.
+      - text: '$28$ g'
+        rationale: |
+          This is the mass of one mole of $N_2$. Multiply it by $0.50$ for the sample.
+      - text: '$56$ g'
+        rationale: |
+          This divides $28$ g by $0.50$. Half a mole needs half the mass of a full mole.
+    explanation: |
+      Each $N_2$ has two N atoms. A mole of the molecules has mass $2(14)=28$ g. Half a mole has mass $14$ g.
+
+  - id: q-chemistry-mole-concept-0023
+    lesson: lesson-chemistry-converting-mass-and-entities
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A sample contains $3.011\times 10^{23}$ water molecules. The molar mass of water is $18.0\ \mathrm{g/mol}$. What is the sample mass?
+    choices:
+      - text: '$9.0$ g'
+        correct: true
+      - text: '$18.0$ g'
+        rationale: |
+          This is the mass of a full mole. Compare the number of molecules with the count in one mole.
+      - text: '$36.0$ g'
+        rationale: |
+          Dividing the count in a mole by the sample count gives two. Divide in the other order to get the sample's moles.
+      - text: '$4.5$ g'
+        rationale: |
+          Halving the molar mass once gives the sample mass. There is no second halving step.
+    explanation: |
+      One mole has about $6.022\times10^{23}$ molecules. This sample has half that many, so it has mass $0.50(18.0)=9.0$ g.

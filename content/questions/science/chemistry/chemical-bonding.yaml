@@ -463,3 +463,202 @@ questions:
     explanation: |
       Some species have electron density spread beyond the pattern in one Lewis drawing. Several resonance drawings help represent that distribution. They describe one species.
     approved: false
+
+  - id: q-chemistry-chemical-bonding-0021
+    lesson: lesson-chemistry-octet-rule-and-exceptions
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which molecule is an example of a central atom with fewer than eight electrons in its usual Lewis structure?
+    choices:
+      - text: '$BF_3$'
+        correct: true
+      - text: '$CH_4$'
+        rationale: |
+          Carbon shares its electrons in four bonds. Count both electrons in each bond to get eight.
+      - text: '$NH_3$'
+        rationale: |
+          Three bonds give six electrons around nitrogen. Add the two electrons in its lone pair.
+      - text: '$SF_6$'
+        rationale: |
+          Sulfur is an octet exception here. Six bonds put twelve electrons around it.
+    explanation: |
+      Boron has three bonds to fluorine. Each bond counts as two electrons around boron, for a total of six.
+
+  - id: q-chemistry-chemical-bonding-0022
+    lesson: lesson-chemistry-drawing-lewis-structures
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which bond and lone-pair arrangement uses the correct number of valence electrons in $N_2$ and gives both atoms an octet?
+    choices:
+      - text: 'A triple bond and one lone pair on each N'
+        correct: true
+      - text: 'A double bond and two lone pairs on each N'
+        rationale: |
+          This gives both atoms an octet. Count the total too. This plan uses twelve electrons.
+      - text: 'A triple bond and two lone pairs on each N'
+        rationale: |
+          The triple bond is right. There are only four electrons left for lone pairs in the whole molecule.
+      - text: 'A single bond and two lone pairs on each N'
+        rationale: |
+          This uses all ten electrons, but each N has only six around it. Move lone-pair electrons into bonds to fill both octets.
+    explanation: |
+      The two N atoms have ten electrons to place. A triple bond uses six. The four left make one lone pair on each N. Each N now has eight electrons around it.
+
+  - id: q-chemistry-chemical-bonding-0023
+    lesson: lesson-chemistry-formal-charge-and-resonance
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A Lewis structure shows an oxygen atom with one single bond and three lone pairs. What is its formal charge?
+    choices:
+      - text: '$-1$'
+        correct: true
+      - text: '$0$'
+        rationale: |
+          Six lone-pair electrons match the starting six. Also count one electron from the bond.
+      - text: '$+1$'
+        rationale: |
+          The difference is one electron. Oxygen owns one extra electron in this count, so its charge is negative.
+      - text: '$-2$'
+        rationale: |
+          Counting both bond electrons gives eight. Give oxygen half the bond pair for formal charge.
+    explanation: |
+      Oxygen starts with six valence electrons. Count six from the lone pairs and one from the bond. The formal charge is $6-7=-1$.
+
+  - id: q-chemistry-chemical-bonding-0024
+    lesson: lesson-chemistry-polar-and-nonpolar-molecules
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      Which molecule is nonpolar despite having polar bonds?
+    choices:
+      - text: 'Planar $BF_3$'
+        correct: true
+      - text: 'Bent $H_2O$'
+        rationale: |
+          Both outer atoms are the same. The bent shape keeps the pulls from pointing straight opposite each other.
+      - text: 'Pyramidal $NH_3$'
+        rationale: |
+          The three outer atoms are the same, as in $BF_3$. Check the pyramid shape. Its pulls do not cancel.
+      - text: 'Tetrahedral $CH_3Cl$'
+        rationale: |
+          A tetrahedron can have pulls that cancel. Check whether the four outside atoms are all the same.
+    explanation: |
+      Each B-F bond pulls toward fluorine. The three equal pulls point out evenly in a flat shape. They cancel.
+
+  - id: q-chemistry-chemical-bonding-0025
+    lesson: lesson-chemistry-polar-and-nonpolar-molecules
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      A tetrahedral molecule with four identical polar bonds is nonpolar. What explains this result?
+    choices:
+      - text: 'Its bond dipoles cancel.'
+        correct: true
+      - text: 'Its bonds have no dipoles.'
+        rationale: |
+          The whole molecule has no net pull. Check what happens in each bond before adding the pulls.
+      - text: 'Its bond dipoles point in the same direction.'
+        rationale: |
+          The four pulls are equal in size. Look at their directions in the tetrahedron.
+      - text: 'Its central atom stops attracting the bonding electrons.'
+        rationale: |
+          The molecule has no overall dipole. That says how the pulls add up, even though the atoms still attract electrons.
+    explanation: |
+      The four bonds pull equally in a symmetric shape. Together the pulls add up to zero.
+
+  - id: q-chemistry-chemical-bonding-0026
+    lesson: lesson-chemistry-forces-between-molecules
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      Which intermolecular attraction accounts for two nearby nonpolar molecules attracting when their electron clouds become briefly uneven?
+    choices:
+      - text: 'London dispersion forces'
+        correct: true
+      - text: 'Hydrogen bonding'
+        rationale: |
+          This is an attraction between molecules too. Check for H bonded to N, O, or F before using it.
+      - text: 'Permanent dipole-dipole attraction'
+        rationale: |
+          Each cloud has a dipole for a moment. Check whether the dipoles last or come from brief shifts.
+      - text: 'Covalent bonding between the molecules'
+        rationale: |
+          Electrons do move in the clouds. Check for a shared pair between atoms before calling it a covalent bond.
+    explanation: |
+      A brief shift of electrons makes one molecule slightly uneven in charge. This shift can cause a matching pull in its neighbor.
+
+  - id: q-chemistry-chemical-bonding-0027
+    lesson: lesson-chemistry-forces-between-molecules
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which liquid can form hydrogen bonds between its own molecules?
+    choices:
+      - text: '$CH_3OH$'
+        correct: true
+      - text: '$CH_3Cl$'
+        rationale: |
+          This molecule has H and a polar bond. Find the atom directly bonded to H. It is C.
+      - text: '$CH_3OCH_3$'
+        rationale: |
+          O has lone pairs that can take part in hydrogen bonding. All the H atoms are bonded to C, so these molecules cannot supply the needed H to each other.
+      - text: '$CH_4$'
+        rationale: |
+          This molecule has plenty of H atoms. Check if any H is bonded to N, O, or F.
+    explanation: |
+      The H bonded to O can be drawn to a lone pair on O in another molecule. That is a hydrogen bond.
+
+  - id: q-chemistry-chemical-bonding-0028
+    lesson: lesson-chemistry-bonding-and-material-properties
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      An ionic compound conducts electricity when molten. What changes when it melts?
+    choices:
+      - text: 'Its ions can move.'
+        correct: true
+      - text: 'Its ions become neutral atoms.'
+        rationale: |
+          Melting frees the particles to move. Check that the moving particles still have charge.
+      - text: 'Its electrons become free to move through the liquid.'
+        rationale: |
+          Free electrons carry charge in a metal. In this liquid, check which charged particles leave their fixed spots.
+      - text: 'Its bonds form a network of stationary ions.'
+        rationale: |
+          Ions can form a fixed network in a solid. Look for a change that lets charge move through the melt.
+    explanation: |
+      In the solid, the ions sit in fixed spots. When it melts, the ions can travel and carry charge.
+
+
+  - id: q-chemistry-chemical-bonding-0029
+    lesson: lesson-chemistry-drawing-lewis-structures
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which arrangement gives a valid Lewis structure of $H_2O_2$ with the atom order H-O-O-H?
+    choices:
+      - text: 'Three single bonds and two lone pairs on each O'
+        correct: true
+      - text: 'Three single bonds and three lone pairs on each O'
+        rationale: |
+          O can have three lone pairs when it has just one bond. Here each O already has two bonds.
+      - text: 'Three single bonds and one lone pair on each O'
+        rationale: |
+          The bonds are right. Count the electrons left after making them. There are eight, enough for four pairs.
+      - text: 'An O=O bond, two O-H bonds, and one lone pair on each O'
+        rationale: |
+          Each O needs eight electrons around it. This plan gives only twelve electrons in all. Start with fourteen and use single bonds to give each O two lone pairs.
+    explanation: |
+      The two O atoms bring twelve valence electrons. The two H atoms bring two more. The three single bonds use six electrons. The eight left make two lone pairs on each O.

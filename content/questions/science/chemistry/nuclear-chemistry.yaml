@@ -463,3 +463,92 @@ questions:
     explanation: |
       Ordinary chemical reactions rearrange electrons and preserve nuclear proton and neutron counts. Nuclear processes involve nuclei and can change nuclides.
     approved: false
+
+  - id: q-chemistry-nuclear-chemistry-0021
+    lesson: lesson-chemistry-balancing-nuclear-equations
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A nuclear equation has a parent with mass number $14$ and atomic number $6$. The products include a nucleus with mass number $14$ and atomic number $7$, plus an uncharged particle with $A=0$ and $Z=0$. What are the mass and atomic numbers of the remaining particle, respectively?
+    choices:
+      - text: '$0$ and $-1$'
+        correct: true
+      - text: '$0$ and $+1$'
+        rationale: |
+          The mass number is right. The daughter has the higher atomic number, so the missing particle must bring the sum down.
+      - text: '$1$ and $-1$'
+        rationale: |
+          The charge works. Check that the daughter already accounts for all $14$ of the mass number.
+      - text: '$1$ and $0$'
+        rationale: |
+          This would add one to the mass number and leave the charge unchanged. Check both sums on both sides.
+    explanation: |
+      The two nuclei have the same mass number, so the missing particle has mass number $0$. Its atomic number must be $-1$ so that $7+(-1)=6$.
+
+  - id: q-chemistry-nuclear-chemistry-0022
+    lesson: lesson-chemistry-comparing-nuclear-energy
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      A very light nucleus joins another light nucleus and releases energy. Which change in the product explains this release?
+    choices:
+      - text: 'Its binding energy per nucleon is higher.'
+        correct: true
+      - text: 'Its binding energy per nucleon is lower.'
+        rationale: |
+          The product can have less mass, which may suggest less binding. Tighter binding means more energy is needed to pull the particles apart.
+      - text: 'Its nucleons are no longer bound to each other.'
+        rationale: |
+          Energy comes out when the nucleons join and bind. Pulling them apart would take energy in.
+      - text: 'Its nucleons are held equally tightly, but it has more of them.'
+        rationale: |
+          The new nucleus is bigger than either starting nucleus. Compare how tightly each nucleon is held before and after.
+    explanation: |
+      The particles in the product are held more tightly. The energy given out is the gain in total binding energy as the product forms.
+
+  - id: q-chemistry-nuclear-chemistry-0023
+    lesson: lesson-chemistry-comparing-nuclear-energy
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      Why can a very heavy nucleus release energy when it splits into smaller nuclei?
+    choices:
+      - text: 'The products bind their nucleons more tightly.'
+        correct: true
+      - text: 'Breaking apart any nucleus releases its binding energy.'
+        rationale: |
+          Binding energy tells how hard it is to pull a nucleus apart. Compare the strength of the binding before and after the split.
+      - text: 'The products contain more nucleons in total than the parent did.'
+        rationale: |
+          There are multiple products, but the particles are shared among them. Look at how tightly they are held in each product.
+      - text: 'The products have less binding energy per nucleon than the parent.'
+        rationale: |
+          Splitting can sound like making the binding weaker. Check that the smaller nuclei are closer to the peak for binding energy.
+    explanation: |
+      In the smaller nuclei, each proton or neutron is held more tightly on average. Making the more tightly bound nuclei gives out energy.
+
+
+  - id: q-chemistry-nuclear-chemistry-0024
+    lesson: lesson-chemistry-nuclear-fission-and-fusion
+    keyPoint: 2
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      During fission, several neutrons are released. Which event makes the process a chain reaction?
+    choices:
+      - text: 'Released neutrons trigger fission in other nuclei.'
+        correct: true
+      - text: 'The released neutrons all leave the material before causing another split.'
+        rationale: |
+          Neutrons can leave after the first split. A chain needs more splits started by those neutrons.
+      - text: 'The released neutrons become bound in nuclei without any further fission.'
+        rationale: |
+          A nucleus can take in a neutron. For a chain, some of those encounters must lead to a new split.
+      - text: 'The original fragments join back together to release the same neutrons.'
+        rationale: |
+          Joining nuclei is fusion. A fission chain needs other nuclei to split after the first one.
+    explanation: |
+      The first split sends out neutrons. Some reach other nuclei and cause them to split too. Those splits can send out more neutrons.

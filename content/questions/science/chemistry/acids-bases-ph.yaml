@@ -463,3 +463,91 @@ questions:
     explanation: |
       Using $\mathrm{pH}\approx-\log_{10}[H_3O^+]$, a tenfold increase raises the logarithm by 1. The minus sign therefore lowers pH by 1 unit.
     approved: false
+
+  - id: q-chemistry-acids-bases-ph-0021
+    lesson: lesson-chemistry-acid-and-base-strength
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A solution contains $1.0\times10^{-5}\ M$ nitric acid, $HNO_3$, a strong acid. Assuming complete ionization, what is its pH?
+    choices:
+      - text: '$5$'
+        correct: true
+      - text: '$-5$'
+        rationale: |
+          The power in the concentration is $-5$. Take its negative to get pH.
+      - text: '$9$'
+        rationale: |
+          Subtracting $5$ from $14$ gives the pOH at $25\ ^\circ\mathrm C$. The question asks for pH.
+      - text: '$10$'
+        rationale: |
+          The base in the power is $10$. Use the power of $10$ to find pH.
+    explanation: |
+      Each acid molecule gives one proton to water. The hydronium level is $10^{-5}\ M$. The negative of the power is $5$.
+
+  - id: q-chemistry-acids-bases-ph-0022
+    lesson: lesson-chemistry-acid-and-base-strength
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      Two fully ionized hydrochloric acid solutions have concentrations of $10^{-2}\ M$ and $10^{-4}\ M$. What happens to the pH from the first solution to the second?
+    choices:
+      - text: 'It rises by 2.'
+        correct: true
+      - text: 'It falls by 2.'
+        rationale: |
+          The acid level falls, so a drop may seem right. Lower hydronium gives a higher pH.
+      - text: 'It rises by 100.'
+        rationale: |
+          The hydronium level changes by a factor of $100$. Count the two powers of ten to get the pH change.
+      - text: 'It stays the same.'
+        rationale: |
+          Both acids have the same strength. Check the amount of hydronium in each one.
+    explanation: |
+      Each HCl gives one hydronium ion. The pH values are $2$ and $4$. Going from $2$ to $4$ is a rise of $2$.
+
+  - id: q-chemistry-acids-bases-ph-0023
+    lesson: lesson-chemistry-ph-from-hydroxide
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      At $25\ ^\circ\mathrm C$, a solution has $[OH^-]=1.0\times10^{-6}\ M$. What is its pH?
+    choices:
+      - text: '$8$'
+        correct: true
+      - text: '$6$'
+        rationale: |
+          The power gives a pOH of $6$. Subtract it from $14$ for pH.
+      - text: '$7$'
+        rationale: |
+          The number $7$ applies when the solution is neutral. Check that pOH is $6$ here.
+      - text: '$20$'
+        rationale: |
+          Adding $6$ to $14$ uses the right values. Subtract because pH and pOH must add to $14$.
+    explanation: |
+      The hydroxide power is $-6$, so pOH is $6$. Then pH is $14-6=8$.
+
+  - id: q-chemistry-acids-bases-ph-0024
+    lesson: lesson-chemistry-ph-from-hydroxide
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      At $25\ ^\circ\mathrm C$, the hydroxide concentration of a solution drops from $10^{-3}\ M$ to $10^{-5}\ M$. What is the new pH?
+    choices:
+      - text: '$9$'
+        correct: true
+      - text: '$5$'
+        rationale: |
+          The new power gives the pOH. Subtract that value from $14$ for pH.
+      - text: '$11$'
+        rationale: |
+          That uses the starting hydroxide level. Use the level after the drop.
+      - text: '$13$'
+        rationale: |
+          That adds $2$ to the starting pH. A drop in hydroxide raises pOH, so pH falls.
+    explanation: |
+      The new pOH is $5$. The pH is $14-5=9$.

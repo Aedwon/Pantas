@@ -463,3 +463,47 @@ questions:
     explanation: |
       Metalloid membership varies among references. When an exam supplies a classification, use that stated convention for its question.
     approved: false
+
+  - id: q-chemistry-periodic-table-0021
+    lesson: lesson-chemistry-valence-electrons-by-group
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Oxygen and sulfur are both in Group 16. According to the main-group rule, how many valence electrons does each have?
+    choices:
+      - text: '$6$'
+        correct: true
+      - text: '$8$'
+        rationale: |
+          Eight is a full outer shell for many atoms. The question asks how many electrons these atoms already have in that shell.
+      - text: '$10$'
+        rationale: |
+          Ten is what you subtract from the group number. Take $16-10$ to get the count.
+      - text: '$16$'
+        rationale: |
+          For groups 1 and 2 you can use the group number directly. For Group 16, subtract 10.
+    explanation: |
+      Group 16 is between groups 13 and 18. Subtract 10 from 16 to find the outer-shell count, $6$.
+
+  - id: q-chemistry-periodic-table-0022
+    lesson: lesson-chemistry-periodic-element-families
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      An element forms diatomic molecules, and its atoms tend to gain one electron to make ions with charge $-1$. Which named family fits both traits?
+    choices:
+      - text: 'Halogens'
+        correct: true
+      - text: 'Alkali metals'
+        rationale: |
+          Alkali metals form ions with a charge of size one. They lose one electron, so their ions are positive.
+      - text: 'Alkaline-earth metals'
+        rationale: |
+          These elements form ions too. They tend to lose two electrons and form positive ions.
+      - text: 'Noble gases'
+        rationale: |
+          These elements have full outer shells. They tend to stay as single atoms and have little reason to gain an electron.
+    explanation: |
+      Halogens have seven outer electrons and often gain one. Common halogens also form molecules made of pairs of atoms.

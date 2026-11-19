@@ -463,3 +463,179 @@ questions:
     explanation: |
       Recrystallization uses differences in solubility. Under suitable conditions the desired solid forms crystals while some impurities remain dissolved.
     approved: false
+
+  - id: q-chemistry-mixtures-and-separation-0021
+    lesson: lesson-chemistry-colloids-and-suspensions
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A mixture scatters a narrow light beam. It remains uniformly cloudy after standing, and ordinary filter paper does not clear it. How should it be classified?
+    choices:
+      - text: 'A colloid'
+        correct: true
+      - text: 'A true solution'
+        rationale: |
+          A true solution can pass through filter paper. It does not show the beam path like this mixture does.
+      - text: 'A coarse suspension'
+        rationale: |
+          A suspension can look cloudy. Look for larger particles settling or being caught by the filter.
+      - text: 'A solution with settled salt crystals'
+        rationale: |
+          Salt crystals can make a sample look cloudy at first. This sample has no settled solid after standing.
+    explanation: |
+      The particles are big enough to scatter light. They are small enough to stay mixed and pass through the filter.
+
+  - id: q-chemistry-mixtures-and-separation-0022
+    lesson: lesson-chemistry-colloids-and-suspensions
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      After a cloudy water sample stands, a solid layer forms at the bottom. Ordinary filter paper also traps these solids. Which classification fits?
+    choices:
+      - text: 'A suspension'
+        correct: true
+      - text: 'A true solution'
+        rationale: |
+          A true solution stays mixed as it stands. Check whether the solid comes out of the mixture on its own.
+      - text: 'A stable colloid'
+        rationale: |
+          A colloid can look cloudy. Its particles are too small to settle or be caught by ordinary filter paper.
+      - text: 'A homogeneous liquid mixture'
+        rationale: |
+          Cloudiness can look even at first. Check the layers that form after standing.
+    explanation: |
+      The solid particles settle under their own weight. They are large enough for ordinary paper to catch.
+
+  - id: q-chemistry-mixtures-and-separation-0023
+    lesson: lesson-chemistry-separating-immiscible-liquids
+    keyPoint: 1
+    type: 'process-ordering'
+    difficulty: 'medium'
+    stem: |
+      Two immiscible liquids settle into layers in a separating funnel. Liquid X is denser than liquid Y. How should the operator collect X first?
+    choices:
+      - text: 'Drain the bottom layer through the tap.'
+        correct: true
+      - text: 'Drain the upper layer first through the tap.'
+        rationale: |
+          The liquids do form two layers. Check which layer touches the tap.
+      - text: 'Mix the layers and drain the denser liquid first.'
+        rationale: |
+          Stirring spreads the liquids into drops. Let the denser liquid settle to the bottom before opening the tap.
+      - text: 'Pour off the upper layer and label it X.'
+        rationale: |
+          Pouring from the top would collect the lighter liquid first. X is the denser one.
+    explanation: |
+      The denser liquid sinks. The tap is at the bottom, so X comes out first.
+
+  - id: q-chemistry-mixtures-and-separation-0024
+    lesson: lesson-chemistry-separating-immiscible-liquids
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      Liquid A floats on liquid B in a separating funnel. When should the operator close the tap to collect B with as little A as possible?
+    choices:
+      - text: 'When the boundary reaches the tap'
+        correct: true
+      - text: 'As soon as the top surface starts to fall'
+        rationale: |
+          The top surface drops as B drains. Most of B can still be inside when the surface first moves.
+      - text: 'After the upper layer has drained through the tap'
+        rationale: |
+          The upper layer would follow B into the same vessel. Stop when the boundary gets to the tap.
+      - text: 'Before any liquid flows out of the bottom outlet'
+        rationale: |
+          The tap controls which layer leaves. Open it for B and close it before A starts coming out.
+    explanation: |
+      B leaves from the bottom. The boundary moves down as B drains. Close the tap as the boundary gets there so A stays in the funnel.
+
+  - id: q-chemistry-mixtures-and-separation-0025
+    lesson: lesson-chemistry-paper-chromatography-setup
+    keyPoint: 2
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which starting arrangement is appropriate for paper chromatography of an ink sample?
+    choices:
+      - text: 'A pencil baseline and a solvent level below the ink spot'
+        correct: true
+      - text: 'A pencil baseline and a solvent level above the ink spot'
+        rationale: |
+          The pencil line stays put. If the spot is under the solvent, ink can spill into the cup.
+      - text: 'An ink baseline and a solvent level below the sample spot'
+        rationale: |
+          The solvent starts in the right place. It can carry ink from the line as well as from the sample.
+      - text: 'An ink baseline and a solvent level above the sample spot'
+        rationale: |
+          The marker ink can spread, and the sample can wash away. Use pencil and keep both marks above the liquid.
+    explanation: |
+      The pencil line stays in place. Keeping the solvent below the spot lets the rising solvent pick up the ink on the paper.
+
+  - id: q-chemistry-mixtures-and-separation-0026
+    lesson: lesson-chemistry-reading-paper-chromatograms
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      On a chromatogram, the baseline is $1.0$ cm above the bottom edge. The spot center and solvent front are $4.0$ cm and $7.0$ cm above that edge, respectively. What is the spot's $R_f$?
+    choices:
+      - text: '$0.50$'
+        correct: true
+      - text: '$0.57$'
+        rationale: |
+          This divides the two readings from the paper edge. Subtract the baseline height from each first.
+      - text: '$0.43$'
+        rationale: |
+          This uses the spot's travel but keeps the front's height from the edge. Use distances from the baseline for both.
+      - text: '$0.67$'
+        rationale: |
+          This uses the front's travel but keeps the spot's height from the edge. Find the spot's travel from the same baseline.
+    explanation: |
+      Measure from the baseline. The spot went $4.0-1.0=3.0$ cm, and the solvent went $7.0-1.0=6.0$ cm. The ratio is $\dfrac{3.0}{6.0}=0.50$.
+
+  - id: q-chemistry-mixtures-and-separation-0027
+    lesson: lesson-chemistry-reading-paper-chromatograms
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A spot has $R_f=0.75$. Its center is $4.5$ cm above the baseline. How far did the solvent front move from the baseline?
+    choices:
+      - text: '$6.0$ cm'
+        correct: true
+      - text: '$3.4$ cm'
+        rationale: |
+          Multiplying the spot distance by $0.75$ makes it smaller. The solvent front had to move farther.
+      - text: '$4.5$ cm'
+        rationale: |
+          That is the spot's distance. The front would move that far only if $R_f$ were $1$.
+      - text: '$5.25$ cm'
+        rationale: |
+          Adding $0.75$ treats the ratio as a distance. Use it to divide the spot distance.
+    explanation: |
+      The spot moved three quarters as far as the solvent. Divide $4.5$ by $0.75$ to get $6.0$ cm.
+
+  - id: q-chemistry-mixtures-and-separation-0028
+    lesson: lesson-chemistry-choosing-mixture-separation-methods
+    keyPoint: 1
+    type: 'process-ordering'
+    difficulty: 'medium'
+    stem: |
+      A mixture contains wet sand and salt dissolved in water. Which sequence recovers the sand and then the salt as separate solids?
+    choices:
+      - text: 'Filter the mixture, then evaporate the filtrate.'
+        correct: true
+      - text: 'Evaporate the mixture, then filter the solids.'
+        rationale: |
+          Evaporation can leave salt behind. If done first, it leaves both solids together with no liquid to filter.
+      - text: 'Distill the mixture, then collect the salt in the distillate.'
+        rationale: |
+          Distillation can take the water away. The salt stays behind with the sand.
+      - text: 'Filter the mixture, then collect both solids from the filter paper.'
+        rationale: |
+          Sand stays on the paper. Dissolved salt goes through with the water and needs a second step.
+    explanation: |
+      The filter holds the sand. The water that passes through has the salt. Let that water go into the air to leave solid salt.

@@ -463,3 +463,136 @@ questions:
     explanation: |
       Functional groups are major predictors of behavior. Carbon skeleton and size also influence properties such as boiling point and water solubility. Matching groups do not specify every property.
     approved: false
+
+  - id: q-chemistry-basic-organic-chemistry-0021
+    lesson: lesson-chemistry-hydrocarbon-formulas-and-rings
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A hydrocarbon has formula $C_6H_{12}$ and contains only single carbon-carbon bonds. Which structure fits both observations?
+    choices:
+      - text: 'A six-carbon cycloalkane'
+        correct: true
+      - text: 'A six-carbon acyclic alkane'
+        rationale: |
+          The single bonds fit an alkane. Check that an open chain would have 14 hydrogens.
+      - text: 'A six-carbon acyclic alkene'
+        rationale: |
+          One double bond would fit the hydrogen count. Here all carbon-carbon bonds are single.
+      - text: 'A six-carbon acyclic alkyne'
+        rationale: |
+          A triple bond would cut the hydrogen count. It would leave 10 hydrogens and break the single-bond rule.
+    explanation: |
+      An open, all-single-bond chain with six carbons has 14 hydrogens. A ring takes away two, leaving 12.
+
+  - id: q-chemistry-basic-organic-chemistry-0022
+    lesson: lesson-chemistry-aldehydes-and-ketones
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      Which statement correctly identifies the carbonyl compound $CH_3COCH_2CH_3$?
+    choices:
+      - text: 'It is a ketone with two carbon groups on the carbonyl carbon.'
+        correct: true
+      - text: 'It is an aldehyde because the carbonyl carbon has a hydrogen.'
+        rationale: |
+          An aldehyde does have a hydrogen at that spot. Look at the two carbon groups attached to this carbonyl carbon.
+      - text: 'It is an aldehyde because the carbonyl is next to an end carbon.'
+        rationale: |
+          The carbonyl is close to a chain end. Check what is attached directly to its carbon.
+      - text: 'It is a ketone because its carbonyl carbon has one carbon group and one hydrogen.'
+        rationale: |
+          This choice finds the right family but gives the wrong bond pattern. Count the carbon groups attached directly to the carbonyl carbon.
+    explanation: |
+      Find the carbon in $C=O$. It is joined to carbon groups on both sides. This makes the compound a ketone.
+
+  - id: q-chemistry-basic-organic-chemistry-0023
+    lesson: lesson-chemistry-parent-chains-and-locants
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which name gives the correct hydroxyl position for $CH_3CH_2CH(OH)CH_3$?
+    choices:
+      - text: 'Butan-2-ol'
+        correct: true
+      - text: 'Butan-3-ol'
+        rationale: |
+          This counts from the left. Count from both ends and use the smaller OH number.
+      - text: 'Butan-1-ol'
+        rationale: |
+          Numbering starts at 1. Check that OH is on the carbon next to the end carbon.
+      - text: 'Propan-2-ol'
+        rationale: |
+          Three carbons can still include the OH group. Follow the full four-carbon chain that includes it.
+    explanation: |
+      The parent chain has four carbons. Counting from the right puts OH on carbon 2. Counting from the left gives 3, so use 2.
+
+  - id: q-chemistry-basic-organic-chemistry-0024
+    lesson: lesson-chemistry-functional-groups-in-biomolecules
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      The monomers of a biological polymer each have both an amine group and a carboxylic acid group. Which polymer fits this description?
+    choices:
+      - text: 'A protein'
+        correct: true
+      - text: 'A starch molecule'
+        rationale: |
+          Starch is also made of repeating units. Its units are glucose, which has many OH groups.
+      - text: 'A DNA molecule'
+        rationale: |
+          DNA is also a polymer. Its units have a sugar, a phosphate, and a base.
+      - text: 'A glycogen molecule'
+        rationale: |
+          Glycogen is a polymer too. Check that its building blocks are glucose units.
+    explanation: |
+      An amino acid has both groups. Many amino acids joined by peptide bonds make a protein.
+
+  - id: q-chemistry-basic-organic-chemistry-0025
+    lesson: lesson-chemistry-functional-groups-in-biomolecules
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      A polymer is broken down into units that each contain a sugar, a phosphate group, and a nitrogen-containing base. Which class of biomolecule was broken down?
+    choices:
+      - text: 'Nucleic acid'
+        correct: true
+      - text: 'Carbohydrate'
+        rationale: |
+          The units contain sugar, which may point to carbohydrates. Look for the phosphate and base joined to each sugar.
+      - text: 'Protein'
+        rationale: |
+          The units have nitrogen, which is also found in amino acids. Check for the sugar and phosphate parts of a nucleotide.
+      - text: 'Lipid'
+        rationale: |
+          Some lipids are built from several parts. For a fat, look for glycerol and fatty acids.
+    explanation: |
+      A sugar, a phosphate, and a base make one nucleotide. A chain of nucleotides is a nucleic acid.
+
+
+  - id: q-chemistry-basic-organic-chemistry-0026
+    lesson: lesson-chemistry-hydrocarbon-formulas-and-rings
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      An acyclic hydrocarbon with seven carbon atoms has exactly one carbon-carbon triple bond and no other multiple bonds. What is its molecular formula?
+    choices:
+      - text: '$C_7H_{12}$'
+        correct: true
+      - text: '$C_7H_{14}$'
+        rationale: |
+          This is two fewer hydrogens than for an open alkane. One triple bond takes away four.
+      - text: '$C_7H_{16}$'
+        rationale: |
+          This fits an open chain with only single bonds. Take away four hydrogens for the triple bond.
+      - text: '$C_7H_{10}$'
+        rationale: |
+          This takes away too many hydrogens. Check that the chain has just one triple bond and no ring.
+    explanation: |
+      An open alkyne with one triple bond has $2n-2$ hydrogens. For seven carbons that is $2(7)-2=12$.

@@ -463,3 +463,135 @@ questions:
     explanation: |
       Evaporation is vaporization at the liquid surface and can occur below the boiling point. Boiling occurs throughout the liquid when its vapor pressure reaches the surrounding pressure.
     approved: false
+
+  - id: q-chemistry-matter-0021
+    lesson: lesson-chemistry-classifying-matter-and-mixtures
+    keyPoint: 2
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A particle consists of two bonded oxygen atoms and has no net charge. Which description applies to that particle?
+    choices:
+      - text: 'A neutral molecule'
+        correct: true
+      - text: 'A monatomic ion'
+        rationale: |
+          The particle has just one kind of atom. Count the two atoms and check that there is no net charge.
+      - text: 'A polyatomic ion'
+        rationale: |
+          The particle does have bonded atoms. A group needs a net charge to count as an ion.
+      - text: 'A single neutral atom'
+        rationale: |
+          The particle is neutral and has only one element. Count the two bonded atoms before naming it.
+    explanation: |
+      The two atoms are bonded, so they form a molecule. The particle has no net charge.
+
+  - id: q-chemistry-matter-0022
+    lesson: lesson-chemistry-physical-separation-of-matter
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Which method would recover the solvent as a liquid from a solution of salt in water?
+    choices:
+      - text: 'Distillation'
+        correct: true
+      - text: 'Evaporation in an open dish'
+        rationale: |
+          The water leaves the salt behind. To collect the water, cool the vapor in a place where it can drip into a vessel.
+      - text: 'Filtration through paper'
+        rationale: |
+          A filter can catch solid grains. Dissolved salt passes through with the water.
+      - text: 'Decanting after the mixture has settled'
+        rationale: |
+          Pouring off a liquid works if a solid settles first. The salt here stays dissolved.
+    explanation: |
+      Heat turns the water into vapor. Cooling that vapor lets you collect liquid water while the salt stays behind.
+
+  - id: q-chemistry-matter-0023
+    lesson: lesson-chemistry-physical-separation-of-matter
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      Fine iron filings are mixed with similarly sized grains of sand. Which method separates the iron directly without adding a liquid?
+    choices:
+      - text: 'Pass a magnet over the mixture.'
+        correct: true
+      - text: 'Pass the mixture through a fine dry sieve.'
+        rationale: |
+          A sieve sorts by size. The two kinds of grains have about the same size here.
+      - text: 'Heat the mixture to evaporate the sand.'
+        rationale: |
+          Evaporation can remove a liquid from a mixture. Look for the property that lets you pull iron from the sand.
+      - text: 'Let the mixture settle, then decant the upper layer.'
+        rationale: |
+          Decanting can separate a liquid from a settled solid. Here both parts are solids.
+    explanation: |
+      The magnet pulls on the iron filings. The sand stays behind.
+
+  - id: q-chemistry-matter-0024
+    lesson: lesson-chemistry-particle-model-of-matter
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      A liquid is poured into a differently shaped container. It takes the new shape while keeping nearly the same volume. Which particle behavior explains both observations?
+    choices:
+      - text: 'Its particles stay close and slide past one another.'
+        correct: true
+      - text: 'Its particles stay locked in a fixed arrangement.'
+        rationale: |
+          Close, fixed particles can keep the volume. A fixed arrangement also keeps the shape, as in a solid.
+      - text: 'Its particles spread far apart to fill the entire container.'
+        rationale: |
+          Spreading out can let a gas take any shape. The space filled by a gas changes with the container.
+      - text: 'Its particles expand to match the new container shape.'
+        rationale: |
+          The liquid changes shape as a whole. Check how the particles move past each other without growing.
+    explanation: |
+      Close particles keep about the same amount of space filled. They can slide past each other and take the new shape.
+
+  - id: q-chemistry-matter-0025
+    lesson: lesson-chemistry-temperature-during-phase-changes
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      A beaker holds both ice and liquid water at the melting point. The beaker absorbs heat at constant pressure. Why does its temperature stay steady while ice remains?
+    choices:
+      - text: 'The added energy loosens attractions between particles.'
+        correct: true
+      - text: 'The added energy makes ice particles move faster.'
+        rationale: |
+          Heat can raise particle speeds. During melting, it helps particles break out of their fixed places.
+      - text: 'The solid and liquid stop taking in energy from the beaker.'
+        rationale: |
+          The temperature does stay steady. Look for what is changing while heat keeps entering.
+      - text: 'The added energy breaks water molecules into separate atoms.'
+        rationale: |
+          Melting changes the arrangement of water molecules. The atoms within each molecule stay joined.
+    explanation: |
+      The heat lets particles move out of their fixed places in the ice. Their average speed stays the same during melting, so the temperature stays steady.
+
+  - id: q-chemistry-matter-0026
+    lesson: lesson-chemistry-temperature-during-phase-changes
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      A pure liquid boils steadily at constant pressure. A heater transfers energy to it throughout this time. What accounts for the constant temperature?
+    choices:
+      - text: 'Energy goes into separating particles.'
+        correct: true
+      - text: 'Energy is used to increase the average speed of liquid particles.'
+        rationale: |
+          That would make the liquid hotter. During boiling, look for the change in how far apart the particles are.
+      - text: 'Energy changes the liquid into a new chemical substance.'
+        rationale: |
+          A gas looks quite different from a liquid. Check whether the particles change into new substances or just spread apart.
+      - text: 'Energy enters only before bubbles begin to form.'
+        rationale: |
+          Heating first brings the liquid to its boiling point. It still takes energy to turn more liquid into gas.
+    explanation: |
+      Particles leave the liquid and spread out as gas. The energy helps them get away from the pull of their neighbors. Their average speed in the liquid stays steady.
