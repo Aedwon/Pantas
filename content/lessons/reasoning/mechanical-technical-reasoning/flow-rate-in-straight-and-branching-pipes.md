@@ -56,6 +56,8 @@ Each branch has a speed of **$2.5$ m/s**. Different branches can split the flow 
 
 <!-- ILLUSTRATION: A pipe of cross-section 10 cm2 with water at 2 m/s that splits into two identical branches of cross-section 4 cm2 each. The branch speeds are marked with a question mark. -->
 
+The diagram shows the pipes from above. Both outlets are at the same height.
+
 ## Speed Tricks & Shortcuts
 
 **Continuity:** narrower means faster for steady incompressible flow in one unbranched stream. At a split, compare the total flow rate.

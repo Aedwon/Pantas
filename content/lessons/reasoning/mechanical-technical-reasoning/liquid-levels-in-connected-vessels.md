@@ -59,4 +59,4 @@ The oil column is **$12.5$ cm** high. The lighter liquid stands higher, so the l
 
 ### #1: "Connected Containers Always Have Equal Levels"
 
-> Equal levels require the same connected liquid and equal pressure on the free surfaces at equilibrium, neglecting capillary effects. Two liquids that do not mix and have different densities can settle at different heights, as in the oil and water example.
+> When the liquids are at rest and the air pressure is the same on both surfaces, equal densities give equal levels if capillary effects are small. This holds even for two different liquids. Two liquids that do not mix and have different densities can settle at different heights, as in the oil and water example.

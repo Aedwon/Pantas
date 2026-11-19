@@ -21,7 +21,7 @@ The **effort** is the force you apply. The **load** is the force you work agains
 
 $$\text{MA}=\dfrac{F_\text{load}}{F_\text{effort}}$$
 
-A machine is **ideal** when it has no friction and its ropes, pulleys and bar have no weight. Then the work you put in equals the work you get out. Work is force times distance, so a smaller effort must act through a longer distance:
+A machine is **ideal** when it has no friction and its ropes, pulleys and bar have no weight. When you lift a load at steady speed, the work you put in equals the work done against the load’s weight. Work is force times distance, so a smaller effort must act through a longer distance:
 
 $$F_\text{effort}\,d_\text{effort}=F_\text{load}\,d_\text{load}$$
 

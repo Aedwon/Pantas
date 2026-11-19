@@ -32,7 +32,7 @@ A short, wide uniform object and a tall, narrow uniform object have comparable s
 3. The tilt needed before the weight line passes the edge is larger.
 4. It is **more steady** under the stated comparison.
 
-<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "pyramid", "baseWidth": 3, "height": 1}, {"form": "pyramid", "baseWidth": 1, "height": 3}], "semanticsLabel": "A short wide pyramid beside a tall narrow pyramid, each with its center of gravity marked, showing the short wide pyramid is more stable."} -->
+<!-- FIGURE: {"kind": "stability-shape", "shapes": [{"form": "box", "baseWidth": 3, "height": 1}, {"form": "box", "baseWidth": 1, "height": 3}], "semanticsLabel": "A short wide uniform box beside a tall narrow uniform box, each with its center of gravity marked, showing the short wide pyramid is more stable."} -->
 
 ## Speed Tricks & Shortcuts
 
