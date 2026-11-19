@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 4
 partCount: 6
-ordering: 47
+ordering: 68
 keyPoints:
   - "Add work rates and divide one job by the combined rate."
 ---

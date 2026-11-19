@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 1
 partCount: 4
-ordering: 6
+ordering: 10
 keyPoints:
   - "Multiply, divide, and raise powers using the allowed exponent laws."
   - "Use zero and negative exponents with nonzero bases."

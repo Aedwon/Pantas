@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 3
 partCount: 4
-ordering: 8
+ordering: 12
 keyPoints:
   - "Evaluate logarithms using their exponential form."
   - "Check logarithm conditions when solving for an argument."

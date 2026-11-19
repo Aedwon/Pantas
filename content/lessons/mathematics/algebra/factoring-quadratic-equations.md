@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 1
 partCount: 2
-ordering: 27
+ordering: 34
 keyPoints:
   - "Solve quadratic equations by factoring."
   - "Keep equality and all possible roots when solving."

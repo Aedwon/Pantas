@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 5
 partCount: 9
-ordering: 17
+ordering: 24
 keyPoints:
   - "Factor sums and differences of cubes."
 ---

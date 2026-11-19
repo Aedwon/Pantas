@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 3
 partCount: 3
-ordering: 35
+ordering: 55
 keyPoints:
   - "Find an inverse by reversing the input-output pairing."
   - "Use one-to-one behavior and compositions to check inverse functions."

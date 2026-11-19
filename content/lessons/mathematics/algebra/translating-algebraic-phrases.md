@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 1
 partCount: 3
-ordering: 3
+ordering: 7
 keyPoints:
   - "Translate operation words into expressions."
   - "Use the correct order for less than and is less than."

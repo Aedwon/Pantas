@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 5
 partCount: 5
-ordering: 26
+ordering: 33
 keyPoints:
   - "Choose a solid or dashed boundary."
   - "Test a point to choose the shaded side."

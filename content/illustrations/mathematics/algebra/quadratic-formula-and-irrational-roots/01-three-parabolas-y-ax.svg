@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 480" width="360" height="480">
+<title>Three upward parabolas y = ax² + bx + c: D > 0 crosses the x-axis at two points, D = 0 touches it at one point, D below 0 stays above it</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="480" rx="14" fill="url(#bg)"/>
+<text x="180" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = </tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">ax</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">² + </tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">bx</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> + </tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">c</tspan></text>
+<rect x="16" y="52" width="150" height="120" rx="8" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1" stroke-opacity="0.4"/>
+<line x1="22" y1="122" x2="160" y2="122" stroke="#020202" stroke-width="1.5"/>
+<line x1="91" y1="60" x2="91" y2="166" stroke="#020202" stroke-width="1.5"/>
+<path d="M41 62 Q91 242 141 62" fill="none" stroke="#010101" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="62.1" cy="122" r="5.5" fill="#050505"/>
+<circle cx="119.9" cy="122" r="5.5" fill="#050505"/>
+<text x="186" y="104" text-anchor="start" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">D</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> > 0</tspan></text>
+<text x="186" y="130" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">two different</text>
+<text x="186" y="150" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">real roots</text>
+<line x1="16" y1="182" x2="344" y2="182" stroke="#020202" stroke-width="1" stroke-opacity="0.3"/>
+<rect x="16" y="192" width="150" height="120" rx="8" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1" stroke-opacity="0.4"/>
+<line x1="22" y1="262" x2="160" y2="262" stroke="#020202" stroke-width="1.5"/>
+<line x1="91" y1="200" x2="91" y2="306" stroke="#020202" stroke-width="1.5"/>
+<path d="M41 202 Q91 322 141 202" fill="none" stroke="#010101" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="91" cy="262" r="5.5" fill="#050505"/>
+<text x="186" y="244" text-anchor="start" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">D</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = 0</tspan></text>
+<text x="186" y="270" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">one repeated</text>
+<text x="186" y="290" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">real root</text>
+<line x1="16" y1="322" x2="344" y2="322" stroke="#020202" stroke-width="1" stroke-opacity="0.3"/>
+<rect x="16" y="332" width="150" height="120" rx="8" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1" stroke-opacity="0.4"/>
+<line x1="22" y1="402" x2="160" y2="402" stroke="#020202" stroke-width="1.5"/>
+<line x1="91" y1="340" x2="91" y2="446" stroke="#020202" stroke-width="1.5"/>
+<path d="M41 342 Q91 418 141 342" fill="none" stroke="#010101" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="91" y1="380" x2="91" y2="402" stroke="#050505" stroke-width="3"/>
+<line x1="86" y1="380" x2="96" y2="380" stroke="#050505" stroke-width="2.5"/>
+<line x1="86" y1="402" x2="96" y2="402" stroke="#050505" stroke-width="2.5"/>
+<text x="186" y="384" text-anchor="start" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">D</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> &lt; 0</tspan></text>
+<text x="186" y="410" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#020202">no real roots</text>
+</svg>

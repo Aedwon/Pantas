@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 3
 partCount: 3
-ordering: 5
+ordering: 9
 keyPoints:
   - "Combine like terms and distribute through groups."
   - "Evaluate expressions with powers and negative values."

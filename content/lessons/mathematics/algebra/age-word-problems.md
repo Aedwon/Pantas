@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 1
 partCount: 6
-ordering: 44
+ordering: 65
 keyPoints:
   - "Change every person's age by the same number of years."
   - "Read what the question asks for after solving the equation."

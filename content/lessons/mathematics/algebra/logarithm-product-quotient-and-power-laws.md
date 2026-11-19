@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 4
 partCount: 4
-ordering: 9
+ordering: 13
 keyPoints:
   - "Condense logarithms with product, quotient, and power laws."
   - "Express logarithms in terms of given logarithm values."

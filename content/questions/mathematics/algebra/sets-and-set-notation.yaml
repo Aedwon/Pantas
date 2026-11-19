@@ -7,7 +7,7 @@ questions:
   - id: q-algebra-sets-and-set-notation-0001
     approved: true
     lesson: lesson-algebra-set-membership-and-operations
-    keyPoint: 2
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -29,7 +29,7 @@ questions:
 
   - id: q-algebra-sets-and-set-notation-0002
     approved: true
-    lesson: lesson-algebra-set-membership-and-operations
+    lesson: lesson-algebra-set-elements-and-subsets
     keyPoint: 1
     type: which-is-true
     difficulty: easy
@@ -53,7 +53,7 @@ questions:
   - id: q-algebra-sets-and-set-notation-0003
     approved: true
     lesson: lesson-algebra-set-membership-and-operations
-    keyPoint: 2
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -75,7 +75,7 @@ questions:
 
   - id: q-algebra-sets-and-set-notation-0004
     approved: true
-    lesson: lesson-algebra-set-membership-and-operations
+    lesson: lesson-algebra-set-elements-and-subsets
     keyPoint: 1
     type: which-is-true
     difficulty: easy
@@ -99,7 +99,7 @@ questions:
   - id: q-algebra-sets-and-set-notation-0005
     approved: true
     lesson: lesson-algebra-set-membership-and-operations
-    keyPoint: 2
+    keyPoint: 1
     type: direct-computation
     difficulty: easy
     stem: |
@@ -167,8 +167,8 @@ questions:
 
   - id: q-algebra-sets-and-set-notation-0008
     approved: true
-    lesson: lesson-algebra-set-membership-and-operations
-    keyPoint: 1
+    lesson: lesson-algebra-counting-elements-and-subsets
+    keyPoint: 2
     type: which-is-true
     difficulty: medium
     stem: |
@@ -213,8 +213,8 @@ questions:
 
   - id: q-algebra-sets-and-set-notation-0010
     approved: true
-    lesson: lesson-algebra-set-membership-and-operations
-    keyPoint: 2
+    lesson: lesson-algebra-set-differences-and-disjoint-sets
+    keyPoint: 1
     type: which-is-true
     difficulty: medium
     stem: |
@@ -236,8 +236,8 @@ questions:
 
   - id: q-algebra-sets-and-set-notation-0011
     approved: true
-    lesson: lesson-algebra-counting-venn-diagram-regions
-    keyPoint: 2
+    lesson: lesson-algebra-three-set-inclusion-exclusion
+    keyPoint: 1
     type: word-problem
     difficulty: hard
     stem: |
@@ -268,8 +268,8 @@ questions:
 
   - id: q-algebra-sets-and-set-notation-0013
     approved: true
-    lesson: lesson-algebra-set-membership-and-operations
-    keyPoint: 2
+    lesson: lesson-algebra-set-differences-and-disjoint-sets
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |
@@ -339,7 +339,7 @@ questions:
 
   - id: q-algebra-sets-and-set-notation-0016
     lesson: lesson-algebra-set-membership-and-operations
-    keyPoint: 2
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -407,8 +407,8 @@ questions:
     approved: true
 
   - id: q-algebra-sets-and-set-notation-0019
-    lesson: lesson-algebra-set-membership-and-operations
-    keyPoint: 1
+    lesson: lesson-algebra-set-elements-and-subsets
+    keyPoint: 2
     type: which-is-true
     difficulty: easy
     stem: |
@@ -431,7 +431,7 @@ questions:
 
   - id: q-algebra-sets-and-set-notation-0020
     lesson: lesson-algebra-set-membership-and-operations
-    keyPoint: 2
+    keyPoint: 1
     type: direct-computation
     difficulty: hard
     stem: |

@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 1
 partCount: 5
-ordering: 22
+ordering: 29
 keyPoints:
   - "Solve an equation by doing the same valid operation to both sides."
 ---

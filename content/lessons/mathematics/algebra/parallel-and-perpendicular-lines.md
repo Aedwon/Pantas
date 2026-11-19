@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 4
 partCount: 5
-ordering: 25
+ordering: 32
 keyPoints:
   - "Find a perpendicular slope, including vertical and horizontal cases."
   - "Use point-slope form to write a line equation."

@@ -259,7 +259,7 @@ questions:
 
   - id: q-algebra-quadratic-equations-0012
     approved: true
-    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    lesson: lesson-algebra-finishing-completing-the-square
     keyPoint: 2
     type: error-spotting
     difficulty: easy
@@ -282,7 +282,7 @@ questions:
 
   - id: q-algebra-quadratic-equations-0013
     approved: true
-    lesson: lesson-algebra-factoring-quadratic-equations
+    lesson: lesson-algebra-quadratic-equations-from-roots
     keyPoint: 1
     type: which-is-true
     difficulty: easy
@@ -305,8 +305,8 @@ questions:
 
   - id: q-algebra-quadratic-equations-0014
     approved: true
-    lesson: lesson-algebra-quadratic-methods-and-root-properties
-    keyPoint: 2
+    lesson: lesson-algebra-quadratic-formula-and-irrational-roots
+    keyPoint: 1
     type: direct-computation
     difficulty: medium
     stem: |
@@ -374,7 +374,7 @@ questions:
 
   - id: q-algebra-quadratic-equations-0017
     approved: true
-    lesson: lesson-algebra-factoring-quadratic-equations
+    lesson: lesson-algebra-quadratic-rectangle-area
     keyPoint: 1
     type: word-problem
     difficulty: medium
@@ -419,7 +419,7 @@ questions:
       Exactly one real root requires a zero discriminant. Here $D=k^2-4(1)(9)=k^2-36$. Set it to zero: $k^2=36$. Thus $k=6$ or $k=-6$.
 
   - id: q-algebra-quadratic-equations-0019
-    lesson: lesson-algebra-quadratic-methods-and-root-properties
+    lesson: lesson-algebra-finishing-completing-the-square
     keyPoint: 1
     type: direct-computation
     difficulty: hard

@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 4
 partCount: 9
-ordering: 16
+ordering: 23
 keyPoints:
   - "Factor a monic quadratic using a product and a sum."
   - "Split the middle term to factor a nonmonic quadratic."

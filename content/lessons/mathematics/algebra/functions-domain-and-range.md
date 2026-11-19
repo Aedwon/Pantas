@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 1
 partCount: 3
-ordering: 33
+ordering: 51
 keyPoints:
   - "Identify functions from input-output pairs or the vertical line test."
   - "Find domain restrictions and the range of a function."

@@ -213,7 +213,7 @@ questions:
 
   - id: q-algebra-functions-and-relations-0010
     approved: true
-    lesson: lesson-algebra-functions-domain-and-range
+    lesson: lesson-algebra-ranges-on-restricted-domains
     keyPoint: 2
     type: error-spotting
     difficulty: medium

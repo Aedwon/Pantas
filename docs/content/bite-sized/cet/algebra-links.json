@@ -1,0 +1,262 @@
+{
+  "outline": [
+    {
+      "original": "lesson-algebra-sets-and-set-notation",
+      "parts": [
+        {
+          "slug": "set-elements-and-subsets",
+          "title": "Set Elements and Subsets"
+        },
+        {
+          "slug": "counting-elements-and-subsets",
+          "title": "Counting Elements and Subsets"
+        },
+        {
+          "slug": "set-differences-and-disjoint-sets",
+          "title": "Set Differences and Disjoint Sets"
+        },
+        {
+          "slug": "three-set-inclusion-exclusion",
+          "title": "Three-Set Inclusion-Exclusion"
+        }
+      ]
+    },
+    {
+      "original": "lesson-algebra-functions-and-relations",
+      "parts": [
+        {
+          "slug": "ranges-on-restricted-domains",
+          "title": "Ranges on Restricted Domains"
+        },
+        {
+          "slug": "arithmetic-with-functions",
+          "title": "Arithmetic with Functions"
+        },
+        {
+          "slug": "inverting-restricted-quadratics",
+          "title": "Inverting Restricted Quadratics"
+        }
+      ]
+    },
+    {
+      "original": "lesson-algebra-quadratic-equations",
+      "parts": [
+        {
+          "slug": "quadratic-rectangle-area",
+          "title": "Quadratic Rectangle Area"
+        },
+        {
+          "slug": "finishing-completing-the-square",
+          "title": "Completing the Square to Find Roots"
+        },
+        {
+          "slug": "quadratic-formula-and-irrational-roots",
+          "title": "Quadratic Formula and Irrational Roots"
+        },
+        {
+          "slug": "quadratic-equations-from-roots",
+          "title": "Quadratic Equations From Roots"
+        },
+        {
+          "slug": "quadratic-inequalities-with-two-roots",
+          "title": "Quadratic Inequalities With Two Roots"
+        },
+        {
+          "slug": "quadratic-inequalities-outside-the-roots",
+          "title": "Quadratic Inequalities Outside the Roots"
+        },
+        {
+          "slug": "quadratic-inequalities-with-fewer-roots",
+          "title": "Quadratic Inequalities With No or One Root"
+        }
+      ]
+    },
+    {
+      "original": "lesson-algebra-radicals-and-rationalization",
+      "parts": [
+        {
+          "slug": "rational-exponents-and-root-quotients",
+          "title": "Rational Exponents and Root Quotients"
+        },
+        {
+          "slug": "solving-square-root-equations",
+          "title": "Solving Square-Root Equations"
+        },
+        {
+          "slug": "solving-cube-root-equations",
+          "title": "Solving Cube-Root Equations"
+        }
+      ]
+    },
+    {
+      "original": "lesson-algebra-systems-of-equations",
+      "parts": [
+        {
+          "slug": "eliminating-for-a-sum-or-difference",
+          "title": "Eliminating for a Sum or Difference"
+        },
+        {
+          "slug": "graphing-linear-systems",
+          "title": "Graphing Linear Systems"
+        },
+        {
+          "slug": "classifying-linear-systems-by-slope",
+          "title": "Classifying Linear Systems by Slope"
+        },
+        {
+          "slug": "tangent-and-missing-intersections",
+          "title": "Tangent and Missing Intersections"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-algebra-set-elements-and-subsets": [
+      {
+        "lesson": "lesson-algebra-set-membership-and-operations",
+        "strength": "required",
+        "reason": "Use the set notation and universal set introduced in the previous lesson."
+      }
+    ],
+    "lesson-algebra-counting-elements-and-subsets": [
+      {
+        "lesson": "lesson-algebra-set-elements-and-subsets",
+        "strength": "required",
+        "reason": "Use membership, subsets, and proper subsets to count sets."
+      }
+    ],
+    "lesson-algebra-three-set-inclusion-exclusion": [
+      {
+        "lesson": "lesson-algebra-counting-venn-diagram-regions",
+        "strength": "required",
+        "reason": "Use the three-set regions to check the union total."
+      }
+    ],
+    "lesson-algebra-ranges-on-restricted-domains": [
+      {
+        "lesson": "lesson-algebra-functions-domain-and-range",
+        "strength": "required",
+        "reason": "Use domain, range, and interval notation."
+      }
+    ],
+    "lesson-algebra-arithmetic-with-functions": [
+      {
+        "lesson": "lesson-algebra-evaluating-and-composing-functions",
+        "strength": "required",
+        "reason": "Use function notation and evaluate each function at the given input."
+      }
+    ],
+    "lesson-algebra-inverting-restricted-quadratics": [
+      {
+        "lesson": "lesson-algebra-inverse-functions-and-checks",
+        "strength": "required",
+        "reason": "Use the inverse and one-to-one tests before selecting a branch."
+      }
+    ],
+    "lesson-algebra-quadratic-rectangle-area": [
+      {
+        "lesson": "lesson-algebra-factoring-quadratic-equations",
+        "strength": "required",
+        "reason": "Factor the equation to find the possible widths."
+      }
+    ],
+    "lesson-algebra-finishing-completing-the-square": [
+      {
+        "lesson": "lesson-algebra-quadratic-methods-and-root-properties",
+        "strength": "required",
+        "reason": "Use the first steps of completing the square."
+      }
+    ],
+    "lesson-algebra-quadratic-formula-and-irrational-roots": [
+      {
+        "lesson": "lesson-algebra-quadratic-methods-and-root-properties",
+        "strength": "required",
+        "reason": "Use the quadratic formula and discriminant."
+      }
+    ],
+    "lesson-algebra-quadratic-equations-from-roots": [
+      {
+        "lesson": "lesson-algebra-quadratic-methods-and-root-properties",
+        "strength": "required",
+        "reason": "Use the sum and product of the roots."
+      }
+    ],
+    "lesson-algebra-quadratic-inequalities-with-two-roots": [
+      {
+        "lesson": "lesson-algebra-quadratic-methods-and-root-properties",
+        "strength": "required",
+        "reason": "Use roots and the discriminant to find where the quadratic changes sign."
+      }
+    ],
+    "lesson-algebra-quadratic-inequalities-with-fewer-roots": [
+      {
+        "lesson": "lesson-algebra-quadratic-inequalities-with-two-roots",
+        "strength": "required",
+        "reason": "Use the sign intervals from the previous lesson."
+      }
+    ],
+    "lesson-algebra-rational-exponents-and-root-quotients": [
+      {
+        "lesson": "lesson-algebra-simplifying-and-combining-radicals",
+        "strength": "required",
+        "reason": "Use real root notation and the rules for simplifying radicals."
+      }
+    ],
+    "lesson-algebra-solving-square-root-equations": [
+      {
+        "lesson": "lesson-algebra-cube-root-denominators-and-nested-radicals",
+        "strength": "required",
+        "reason": "Use the nested radical example as background for solving radical equations."
+      }
+    ],
+    "lesson-algebra-solving-cube-root-equations": [
+      {
+        "lesson": "lesson-algebra-cube-root-denominators-and-nested-radicals",
+        "strength": "required",
+        "reason": "Use cube roots and their real values."
+      }
+    ],
+    "lesson-algebra-graphing-linear-systems": [
+      {
+        "lesson": "lesson-algebra-systems-graphs-and-solution-counts",
+        "strength": "required",
+        "reason": "Use the intersection to identify a system solution."
+      }
+    ],
+    "lesson-algebra-classifying-linear-systems-by-slope": [
+      {
+        "lesson": "lesson-algebra-systems-graphs-and-solution-counts",
+        "strength": "required",
+        "reason": "Use the three possible solution counts for two lines."
+      }
+    ],
+    "lesson-algebra-tangent-and-missing-intersections": [
+      {
+        "lesson": "lesson-algebra-systems-lines-and-parabolas",
+        "strength": "required",
+        "reason": "Use substitution for a line and a parabola."
+      }
+    ],
+    "lesson-algebra-eliminating-for-a-sum-or-difference": [
+      {
+        "lesson": "lesson-algebra-systems-elimination",
+        "strength": "required",
+        "reason": "Use addition and subtraction on whole equations."
+      }
+    ],
+    "lesson-algebra-set-differences-and-disjoint-sets": [
+      {
+        "lesson": "lesson-algebra-set-membership-and-operations",
+        "strength": "required",
+        "reason": "Use intersection and complement to describe differences."
+      }
+    ],
+    "lesson-algebra-quadratic-inequalities-outside-the-roots": [
+      {
+        "lesson": "lesson-algebra-quadratic-inequalities-with-two-roots",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ]
+  }
+}

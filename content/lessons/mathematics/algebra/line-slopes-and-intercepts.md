@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 3
 partCount: 5
-ordering: 24
+ordering: 31
 keyPoints:
   - "Find slope from two points or standard form."
   - "Use intercepts and coordinates to draw or check a line."

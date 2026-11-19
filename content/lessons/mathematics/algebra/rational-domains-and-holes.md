@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 2
 partCount: 8
-ordering: 37
+ordering: 58
 keyPoints:
   - "Keep original domain restrictions and identify removable holes."
 ---

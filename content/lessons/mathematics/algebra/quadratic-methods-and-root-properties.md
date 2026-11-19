@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 2
 partCount: 2
-ordering: 28
+ordering: 36
 keyPoints:
   - "Complete the square while keeping both sides equal."
   - "Use the quadratic formula and discriminant to find or describe roots."

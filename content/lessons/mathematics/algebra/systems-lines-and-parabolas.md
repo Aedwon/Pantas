@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 4
 partCount: 4
-ordering: 32
+ordering: 49
 keyPoints:
   - "Find every intersection of a line and a parabola."
 ---

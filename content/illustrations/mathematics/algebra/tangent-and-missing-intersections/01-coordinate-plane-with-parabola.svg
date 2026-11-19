@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 380" width="360" height="380">
+<title>Parabola y = x² − 4 with lowest point (0, −4), the line y = −4 touching it there, and the line y = −5 passing below it</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="380" rx="14" fill="url(#bg)"/>
+<rect x="30" y="44" width="300" height="320" rx="4" fill="#010101" fill-opacity="0.05" stroke="#020202" stroke-width="1" stroke-opacity="0.4"/>
+<line x1="30" y1="44" x2="30" y2="364" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="80" y1="44" x2="80" y2="364" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="130" y1="44" x2="130" y2="364" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="180" y1="44" x2="180" y2="364" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="230" y1="44" x2="230" y2="364" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="280" y1="44" x2="280" y2="364" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="330" y1="44" x2="330" y2="364" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="30" y1="364" x2="330" y2="364" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="30" y1="332" x2="330" y2="332" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="30" y1="300" x2="330" y2="300" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="30" y1="268" x2="330" y2="268" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="30" y1="236" x2="330" y2="236" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="30" y1="204" x2="330" y2="204" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="30" y1="172" x2="330" y2="172" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="30" y1="140" x2="330" y2="140" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="30" y1="108" x2="330" y2="108" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="30" y1="76" x2="330" y2="76" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="30" y1="44" x2="330" y2="44" stroke="#020202" stroke-width="1" stroke-opacity="0.18"/>
+<line x1="30" y1="172" x2="330" y2="172" stroke="#020202" stroke-width="1.5"/>
+<line x1="180" y1="44" x2="180" y2="364" stroke="#020202" stroke-width="1.5"/>
+<text x="322" y="164" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#020202"><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan></text>
+<text x="188" y="60" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#020202"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan></text>
+<path d="M38.6 44 Q180 556 321.4 44" fill="none" stroke="#010101" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="30" y1="332" x2="330" y2="332" stroke="#020202" stroke-width="2.5"/>
+<line x1="30" y1="300" x2="330" y2="300" stroke="#050505" stroke-width="2.5"/>
+<circle cx="180" cy="300" r="6.5" fill="#050505"/>
+<text x="168" y="320" text-anchor="end" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Main, serif" font-weight="400">(0, −4)</tspan></text>
+<text x="322" y="290" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#050505"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = −4</tspan></text>
+<text x="322" y="352" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#020202"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = −5</tspan></text>
+<text x="296" y="86" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = </tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">² − 4</tspan></text>
+</svg>

@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 6
 partCount: 9
-ordering: 18
+ordering: 25
 keyPoints:
   - "Use long division and check the quotient and remainder."
 ---

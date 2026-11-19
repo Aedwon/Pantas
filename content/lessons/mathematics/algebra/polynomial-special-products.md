@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 3
 partCount: 9
-ordering: 15
+ordering: 22
 keyPoints:
   - "Use difference-of-squares and perfect-square patterns."
   - "Take out the greatest common factor and factor completely."

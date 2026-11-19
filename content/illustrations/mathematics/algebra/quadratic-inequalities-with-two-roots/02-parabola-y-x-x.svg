@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 276" width="360" height="276">
+<title>Downward parabola y = −x² + x + 6 crossing the x-axis at −2 and 3, with the arc between the crossings marked</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="276" rx="14" fill="url(#bg)"/>
+<text x="180" y="34" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> = −</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">² + </tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400"> + 6</tspan></text>
+<path d="M80 178 Q180 -47 280 178 Z" fill="#050505" fill-opacity="0.45"/>
+<line x1="24" y1="178" x2="326" y2="178" stroke="#020202" stroke-width="1.5"/>
+<line x1="160" y1="52" x2="160" y2="260" stroke="#020202" stroke-width="1.5"/>
+<path d="M51.9 250 Q66 209.6 80 178" fill="none" stroke="#010101" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M280 178 Q294 209.6 308.1 250" fill="none" stroke="#010101" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M80 178 Q180 -47 280 178" fill="none" stroke="#050505" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="80" cy="178" r="5.5" fill="#050505"/>
+<circle cx="280" cy="178" r="5.5" fill="#050505"/>
+<text x="86" y="200" text-anchor="start" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">−2</tspan></text>
+<text x="274" y="200" text-anchor="end" font-family="Geist, sans-serif" font-size="15" font-weight="600" fill="#010101"><tspan font-family="KaTeX_Main, serif" font-weight="400">3</tspan></text>
+<text x="334" y="170" text-anchor="middle" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#020202"><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan></text>
+<text x="152" y="60" text-anchor="end" font-family="Geist, sans-serif" font-size="15" font-weight="400" fill="#020202"><tspan font-family="KaTeX_Math, serif" font-weight="400">y</tspan></text>
+</svg>

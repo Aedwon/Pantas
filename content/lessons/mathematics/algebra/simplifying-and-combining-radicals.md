@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 1
 partCount: 3
-ordering: 10
+ordering: 14
 keyPoints:
   - "Simplify radicals with domain and absolute-value checks."
   - "Combine radicals without adding their radicands."

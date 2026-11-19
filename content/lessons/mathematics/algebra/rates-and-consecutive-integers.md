@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 2
 partCount: 3
-ordering: 4
+ordering: 8
 keyPoints:
   - "Write a per-hour rate as a quotient."
   - "Express consecutive even integers using their sum."

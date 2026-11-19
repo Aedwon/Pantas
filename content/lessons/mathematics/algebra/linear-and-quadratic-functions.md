@@ -7,7 +7,7 @@ topic: "topic-algebra"
 isActive: true
 part: 1
 partCount: 8
-ordering: 36
+ordering: 57
 keyPoints:
   - "Recognize linear and polynomial functions."
   - "Find a quadratic vertex and its maximum or minimum."
