@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 316" width="360" height="316">
+<title>One dot in a three-shape stem</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="316" rx="14" fill="url(#bg)"/>
+<polygon points="169,22 104,125 234,125" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect x="78" y="63" width="204" height="49" rx="0" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="169" cy="88" r="14" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="169" cy="88" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<rect x="18" y="157" width="102" height="122" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<text x="69" y="300" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">A</text>
+<rect x="129" y="157" width="102" height="122" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<text x="180" y="300" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">B</text>
+<rect x="240" y="157" width="102" height="122" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<text x="291" y="300" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">C</text>
+<rect x="27" y="192" width="47" height="57" rx="0" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="50" cy="219" r="14" fill="none" stroke="#020202" stroke-width="2"/>
+<polygon points="96,199 81,236 110,236" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect x="148" y="172" width="64" height="89" rx="0" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="180" cy="212" r="24" fill="none" stroke="#020202" stroke-width="2"/>
+<polygon points="180,197 166,222 194,222" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="269,182 242,252 296,252" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect x="259" y="220" width="21" height="20" rx="0" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="321" cy="220" r="15" fill="none" stroke="#020202" stroke-width="2"/>
+</svg>

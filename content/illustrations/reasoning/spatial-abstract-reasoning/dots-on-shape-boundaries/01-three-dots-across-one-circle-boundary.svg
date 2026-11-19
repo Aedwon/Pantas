@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 224" width="360" height="224">
+<title>Three dots beside a circle boundary</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="224" rx="14" fill="url(#bg)"/>
+<circle cx="121" cy="110" r="70" fill="none" stroke="#020202" stroke-width="2"/>
+<rect x="146" y="71" width="166" height="78" rx="0" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="169" cy="110" r="3.5" fill="#050505" stroke="none" stroke-width="2"/>
+<text x="169" y="132" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Q</text>
+<circle cx="191" cy="110" r="3.5" fill="#050505" stroke="none" stroke-width="2"/>
+<text x="191" y="132" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">P</text>
+<circle cx="213" cy="110" r="3.5" fill="#050505" stroke="none" stroke-width="2"/>
+<text x="213" y="132" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">R</text>
+</svg>

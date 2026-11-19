@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 318" width="360" height="318">
+<title>A cone, box, folded sheet and sphere</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="318" rx="14" fill="url(#bg)"/>
+<path d="M52 91 L92 27 L132 91 A40 12 0 0 1 52 91 Z" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<path d="M52 91 A40 12 0 0 1 132 91" fill="none" stroke="#020202" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="3 4"/>
+<text x="92" y="130" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">A</text>
+<polygon points="214,58 278,58 305,36 241,36" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="278,58 305,36 305,86 278,108" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect x="214" y="58" width="64" height="50" rx="0" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<line x1="214" y1="108" x2="241" y2="86" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4"/>
+<line x1="241" y1="86" x2="305" y2="86" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4"/>
+<line x1="241" y1="36" x2="241" y2="86" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4"/>
+<text x="258" y="130" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">B</text>
+<polygon points="33,192 87,256 138,229 82,166" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="87,256 138,229 172,173 121,200" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<text x="98" y="287" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">C</text>
+<circle cx="258" cy="218" r="44" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<text x="258" y="287" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">D</text>
+</svg>

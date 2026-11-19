@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 371" width="360" height="371">
+<title>Three arrays of repeated polygons</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="371" rx="14" fill="url(#bg)"/>
+<rect x="22" y="18" width="316" height="104" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<text x="51" y="75" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">P</text>
+<polygon points="86,54 99.9,78 72.1,78" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="142,54 155.9,78 128.1,78" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="198,54 211.9,78 184.1,78" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="254,54 267.9,78 240.1,78" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect x="22" y="134" width="316" height="104" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<text x="51" y="191" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Q</text>
+<polygon points="86,147 101.2,158.1 95.4,175.9 76.6,175.9 70.8,158.1" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="142,147 157.2,158.1 151.4,175.9 132.6,175.9 126.8,158.1" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="198,147 213.2,158.1 207.4,175.9 188.6,175.9 182.8,158.1" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="254,147 269.2,158.1 263.4,175.9 244.6,175.9 238.8,158.1" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="86,193 101.2,204.1 95.4,221.9 76.6,221.9 70.8,204.1" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="142,193 157.2,204.1 151.4,221.9 132.6,221.9 126.8,204.1" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect x="22" y="250" width="316" height="104" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<text x="51" y="307" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">R</text>
+<polygon points="86,263 97.3,267.7 102,279 97.3,290.3 86,295 74.7,290.3 70,279 74.7,267.7" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="142,263 153.3,267.7 158,279 153.3,290.3 142,295 130.7,290.3 126,279 130.7,267.7" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="198,263 209.3,267.7 214,279 209.3,290.3 198,295 186.7,290.3 182,279 186.7,267.7" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="254,263 265.3,267.7 270,279 265.3,290.3 254,295 242.7,290.3 238,279 242.7,267.7" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="86,309 97.3,313.7 102,325 97.3,336.3 86,341 74.7,336.3 70,325 74.7,313.7" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="142,309 153.3,313.7 158,325 153.3,336.3 142,341 130.7,336.3 126,325 130.7,313.7" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="198,309 209.3,313.7 214,325 209.3,336.3 198,341 186.7,336.3 182,325 186.7,313.7" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="254,309 265.3,313.7 270,325 265.3,336.3 254,341 242.7,336.3 238,325 242.7,313.7" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+</svg>

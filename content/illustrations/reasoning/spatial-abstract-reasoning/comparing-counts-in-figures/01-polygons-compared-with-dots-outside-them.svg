@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280" width="360" height="280">
+<title>Four polygons with outside dots</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="280" rx="14" fill="url(#bg)"/>
+<rect x="24" y="19" width="144" height="116" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<polygon points="96,39 119.4,79.5 72.6,79.5" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="96" cy="31" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="96" cy="101" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<text x="96" y="124" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">A</text>
+<rect x="192" y="19" width="144" height="116" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<polygon points="264,39 289.7,57.7 279.9,87.8 248.1,87.8 238.3,57.7" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="264" cy="31" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="317" cy="66" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="264" cy="101" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="211" cy="66" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<text x="264" y="124" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">B</text>
+<rect x="24" y="145" width="144" height="116" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<polygon points="96,165 115.1,172.9 123,192 115.1,211.1 96,219 76.9,211.1 69,192 76.9,172.9" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="96" cy="157" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="137.4" cy="170.2" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="147.7" cy="199.8" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="119" cy="223.5" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="73" cy="223.5" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="44.3" cy="199.8" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="54.6" cy="170.2" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<text x="96" y="250" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">C</text>
+<rect x="192" y="145" width="144" height="116" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<polygon points="264,165 287.4,178.5 287.4,205.5 264,219 240.6,205.5 240.6,178.5" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="264" cy="157" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="309.9" cy="174.5" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="309.9" cy="209.5" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="264" cy="227" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="218.1" cy="209.5" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<circle cx="218.1" cy="174.5" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<text x="264" y="250" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">D</text>
+</svg>

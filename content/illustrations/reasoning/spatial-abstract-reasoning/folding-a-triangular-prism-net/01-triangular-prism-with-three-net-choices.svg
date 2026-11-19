@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 348" width="360" height="348">
+<title>A triangular prism and three possible nets</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="348" rx="14" fill="url(#bg)"/>
+<polygon points="146,26 176,52 236,52 206,26" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="146,26 176,52 116,52" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="176" cy="41" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<rect x="70" y="104" width="69" height="46" rx="0" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="93" y1="104" x2="93" y2="150" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="116" y1="104" x2="116" y2="150" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="93,104 116,104 104.5,84.1" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="93,150 116,150 104.5,169.9" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="81.5" cy="127" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<text x="104.5" y="192.9" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">A</text>
+<rect x="207" y="104" width="92" height="46" rx="0" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="230" y1="104" x2="230" y2="150" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="253" y1="104" x2="253" y2="150" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="276" y1="104" x2="276" y2="150" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="230,104 253,104 241.5,84.1" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="230,150 253,150 241.5,169.9" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<text x="253" y="192.9" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">B</text>
+<rect x="142" y="219" width="69" height="46" rx="0" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="165" y1="219" x2="165" y2="265" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<line x1="188" y1="219" x2="188" y2="265" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="165,219 188,219 176.5,199.1" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="165,265 188,265 176.5,284.9" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="176.5" cy="212.4" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<text x="176.5" y="307.9" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">C</text>
+</svg>

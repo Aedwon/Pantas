@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 306" width="360" height="306">
+<title>Two dots in a stem and three choices</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="306" rx="14" fill="url(#bg)"/>
+<rect x="120" y="19" width="120" height="120" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<polygon points="180,30 136,105 224,105" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="189" cy="93" r="35" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="179" cy="48" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<text x="149" y="51" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">P</text>
+<circle cx="181" cy="81" r="3.5" fill="#010101" stroke="none" stroke-width="2"/>
+<text x="168" y="85" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">Q</text>
+<rect x="18" y="155" width="102" height="102" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<text x="69" y="281" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">A</text>
+<rect x="129" y="155" width="102" height="102" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<text x="180" y="281" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">B</text>
+<rect x="240" y="155" width="102" height="102" rx="7" fill="none" stroke="#020202" stroke-width="2" stroke-opacity="0.2"/>
+<text x="291" y="281" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600">C</text>
+<circle cx="69" cy="206" r="34" fill="none" stroke="#020202" stroke-width="2"/>
+<polygon points="69,184 48,220 90,220" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="180,165 138,244 222,244" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="180" cy="218" r="17" fill="none" stroke="#020202" stroke-width="2"/>
+<polygon points="263,181 247,222 279,222" fill="none" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="315" cy="206" r="19" fill="none" stroke="#020202" stroke-width="2"/>
+</svg>

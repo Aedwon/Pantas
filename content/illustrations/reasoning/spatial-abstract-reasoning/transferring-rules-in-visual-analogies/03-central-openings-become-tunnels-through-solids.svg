@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 329" width="360" height="329">
+<title>An opening-to-tunnel analogy with three choices</title>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient><radialGradient id="shape" cx="0.4" cy="0.3" r="0.8"><stop offset="0" stop-color="#050505" stop-opacity="0.22"/><stop offset="1" stop-color="#050505" stop-opacity="0.12"/></radialGradient></defs>
+<rect width="360" height="329" rx="14" fill="url(#bg)"/>
+<rect x="60" y="37" width="63" height="63" rx="0" fill="none" stroke="#020202" stroke-width="2"/>
+<rect x="78" y="55" width="27" height="27" rx="0" fill="none" stroke="#020202" stroke-width="2"/>
+<polygon points="231,42 249,24 304,24 286,42" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="286,42 304,24 304,79 286,97" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<rect x="231" y="42" width="55" height="55" rx="0" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<rect x="245.8" y="56.9" width="25.3" height="25.3" rx="0" fill="#030303" stroke="#020202" stroke-width="2"/>
+<polygon points="245.8,56.9 255.8,56.9 255.8,72.2 245.8,82.2" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<polygon points="245.8,82.2 255.8,72.2 271.1,72.2 271.1,82.2" fill="url(#shape)" stroke="#020202" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="91" cy="156" r="31" fill="none" stroke="#020202" stroke-width="2"/>
+<circle cx="91" cy="156" r="13" fill="none" stroke="#020202" stroke-width="2"/>
+<line x1="149" y1="68" x2="204" y2="68" fill="none" stroke="#020202" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="210,68 201,64 201,72" fill="#020202" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<line x1="149" y1="156" x2="204" y2="156" fill="none" stroke="#020202" stroke-width="2.5" stroke-linecap="round"/>
+<polygon points="210,156 201,152 201,160" fill="#020202" stroke="none" stroke-width="2" stroke-linejoin="round"/>
+<text x="267" y="162" fill="#010101" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600"><tspan font-family="KaTeX_Main, serif" font-weight="400">?</tspan></text>
+<line x1="29" y1="206" x2="331" y2="206" fill="none" stroke="#020202" stroke-width="1" stroke-linecap="round" stroke-opacity="0.3"/>
+<circle cx="68" cy="266" r="43" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<circle cx="180" cy="266" r="43" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<ellipse cx="176" cy="267" rx="15" ry="9" fill="#030303" stroke="#020202" stroke-width="2"/>
+<path d="M163 270 Q174 261 189 269" fill="none" stroke="#020202" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="292" cy="266" r="43" fill="url(#shape)" stroke="#020202" stroke-width="2"/>
+<ellipse cx="288" cy="253" rx="15" ry="9" fill="#030303" stroke="#020202" stroke-width="2"/>
+<path d="M275 256 Q286 247 301 255" fill="none" stroke="#020202" stroke-width="1.5" stroke-linejoin="round"/>
+<ellipse cx="288" cy="280" rx="15" ry="9" fill="#030303" stroke="#020202" stroke-width="2"/>
+<path d="M275 283 Q286 274 301 282" fill="none" stroke="#020202" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>
