@@ -504,3 +504,28 @@ questions:
     explanation: |
       If and only if includes the direction from lamp on to switch up. Apply that direction to the observed lamp state. The switch must be up.
     approved: false
+
+  - id: q-geometry-logic-and-reasoning-0021
+    lesson: lesson-geometry-reading-if-then-statements
+    keyPoint: 1
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Consider the statement “A proposal is reviewed only if it includes a budget.” Which statement gives its conclusion?
+    choices:
+      - text: 'The proposal includes a budget.'
+        correct: true
+      - text: 'The proposal has been reviewed.'
+        correct: false
+        rationale: |
+          Review is the first part of the rule. It belongs after “if.” Look after “only if” to find the conclusion.
+      - text: 'The proposal does not include a budget.'
+        correct: false
+        rationale: |
+          This keeps the budget part but changes its meaning. Read the words after “only if” and keep them as written.
+      - text: 'The proposal has not been reviewed.'
+        correct: false
+        rationale: |
+          This denies the first part of the rule. Rewrite the sentence with “if” and “then.” Read the part after “then.”
+    explanation: |
+      Rewrite the rule as “If a proposal is reviewed, then it includes a budget.” The part after “then” is the conclusion.

@@ -493,3 +493,128 @@ questions:
     explanation: |
       The arc fraction is $\dfrac{72}{360}=\dfrac{1}{5}$. Its arc length is $\dfrac{1}{5}[2\pi(10)]=4\pi$ cm. The two straight radii total $20$ cm. Add them to get $20+4\pi$ cm.
     approved: false
+
+  - id: q-geometry-circles-0021
+    lesson: lesson-geometry-chord-lengths-and-segments
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Chords $AB$ and $CD$ intersect at $P$ inside a circle. If $AB=17$, $AP=5$, and $CP=10$, what is $CD$?
+    choices:
+      - text: '$16$'
+        correct: true
+      - text: '$6$'
+        correct: false
+        rationale: |
+          You found $PD$, which is one piece. Check the letters in the question. Add $CP$ and $PD$ to get $CD$.
+      - text: '$17$'
+        correct: false
+        rationale: |
+          Both chords cross at $P$, so they may look equal. Check the rule. It sets the products of the pieces equal.
+      - text: '$22$'
+        correct: false
+        rationale: |
+          You used the $12$ from the first chord as a piece of the second chord. Check $PD$ by dividing the product by $CP$.
+    explanation: |
+      First find $PB=17-5=12$. The two chord products are equal, so $10\cdot PD=5\cdot12=60$. This gives $PD=6$. Add the two pieces to get $CD=10+6=16$.
+
+  - id: q-geometry-circles-0022
+    lesson: lesson-geometry-chord-lengths-and-segments
+    keyPoint: 2
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Chords $AB$ and $CD$ intersect at $P$ inside a circle. If $AP=4$ and $PB=9$, which pair could give the lengths $CP$ and $PD$, respectively?
+    choices:
+      - text: '$2$ and $18$'
+        correct: true
+      - text: '$5$ and $8$'
+        correct: false
+        rationale: |
+          These lengths add to $13$, the length of $AB$. Check the products of the pieces to test the pair.
+      - text: '$8$ and $18$'
+        correct: false
+        rationale: |
+          These lengths double both pieces of $AB$. Doubling both pieces makes the product four times as large. Multiply the pieces to check.
+      - text: '$3$ and $11$'
+        correct: false
+        rationale: |
+          These lengths give a product close to $36$. The products must match exactly. Multiply $3$ by $11$ to check.
+    explanation: |
+      The first chord gives a product of $4\cdot9=36$. The pair $2$ and $18$ also has a product of $36$.
+
+  - id: q-geometry-circles-0023
+    lesson: lesson-geometry-outside-secants-and-tangents
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      From an external point $P$, two secants meet a circle at $A,B$ and $C,D$, respectively, with the nearer intersection listed first. If $PA=6$, $PB=14$, and $PD=21$, what is $PC$?
+    choices:
+      - text: '$4$'
+        correct: true
+      - text: '$7$'
+        correct: false
+        rationale: |
+          This subtracts the two whole lengths. That gives the gap between them. Check the outside length times the whole length for each secant.
+      - text: '$8$'
+        correct: false
+        rationale: |
+          This gives $AB=14-6$. That piece is inside the circle on the first secant. Use the product rule to find the second outside piece.
+      - text: '$9$'
+        correct: false
+        rationale: |
+          This scales $6$ up by the same factor as the whole length. The products must stay equal. When the whole length grows, the outside length shrinks.
+    explanation: |
+      The first outside length times its whole length is $6\cdot14=84$. The second gives $PC\cdot21=84$. Divide by $21$ to get $PC=4$.
+
+  - id: q-geometry-circles-0024
+    lesson: lesson-geometry-outside-secants-and-tangents
+    keyPoint: 1
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      From an external point $P$, a secant enters a circle at $A$ and exits at $B$. If $PA=3$ and $AB=9$, which pair could be the outside and inside lengths, respectively, of another secant from $P$?
+    choices:
+      - text: '$2$ and $16$'
+        correct: true
+      - text: '$4$ and $9$'
+        correct: false
+        rationale: |
+          These numbers multiply to $36$, but $9$ is just the inside piece. Add the two pieces before you multiply.
+      - text: '$2$ and $18$'
+        correct: false
+        rationale: |
+          This treats $18$ as the whole length. Here it is just the inside piece. Add $2$ before you check the product.
+      - text: '$6$ and $6$'
+        correct: false
+        rationale: |
+          These numbers multiply to $36$ on their own. Both pieces together give a whole length of $12$. Check $6\cdot12$.
+    explanation: |
+      The first whole length is $3+9=12$. Its outside length times its whole length is $3\cdot12=36$. The pair $2$ and $16$ gives $2(2+16)=36$ too.
+
+  - id: q-geometry-circles-0025
+    lesson: lesson-geometry-outside-secants-and-tangents
+    keyPoint: 2
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      A tangent from an external point $P$ touches a circle at $T$. A secant from $P$ meets the circle first at $A$ and then at $B$. If $PT=12$ and $PB=18$, what is $AB$?
+    choices:
+      - text: '$10$'
+        correct: true
+      - text: '$8$'
+        correct: false
+        rationale: |
+          This is the outside piece $PA$. Check which two points name the piece you need. Subtract $PA$ from $PB$.
+      - text: '$6$'
+        correct: false
+        rationale: |
+          This subtracts the tangent length from the whole secant. The tangent lies on a different line. Find $PA$ before you subtract.
+      - text: '$14$'
+        correct: false
+        rationale: |
+          This treats $PA$ as $4$. Check by multiplying $4$ by $18$. The product must equal $12^2$.
+    explanation: |
+      Square the tangent length to get $12^2=144$. This equals $PA\cdot18$, so $PA=8$. The inside piece is $AB=18-8=10$.
