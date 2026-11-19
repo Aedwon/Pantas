@@ -111,3 +111,13 @@ test('the existing hourly guardian purge removes expired code-gate rows and keep
     await db.doc(path).delete();
   }
 });
+
+test('expired proofs and codes are removed on the next hourly purge', async () => {
+  const now = Date.now();
+  const paths = ['guardianCodes/e13-expired', 'guardianCodeProofs/cccccccccccccccccccccccccccccccc'];
+  for (const path of paths) {
+    await db.doc(path).set({expiresAt: new Date(now - 1), purgeAt: new Date(now + DAY)});
+  }
+  await purgeGuardianRecords(db, now);
+  for (const path of paths) assert.equal((await db.doc(path).get()).exists, false);
+});

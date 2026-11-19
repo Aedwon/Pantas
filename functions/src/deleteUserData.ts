@@ -3,6 +3,7 @@ import {FieldValue, type Firestore} from 'firebase-admin/firestore';
 import {getStorage} from 'firebase-admin/storage';
 import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
+import {childEntryPath, childrenPath, holderForChild} from './childLinks.js';
 import {retirePublicId} from './publicId.js';
 import {clearPassOwnership} from './revenuecatPasses.js';
 import {childTrialMarkers, identityMarkers, identityMarkersForUser, isEmaillessCustom} from './webTrial.js';
@@ -39,21 +40,24 @@ export async function deleteUserData(
   // the daily job finishes the deletion from this record, with no guardian link or caller needed.
   // The first reason and start time stay, so a retry does not look like a new request.
   const task = db.doc(`accountDeletions/${uid}`);
-  const earlier = await task.get();
-  // A custom token can recreate a deleted Auth UID with a renewable session.
-  // An empty document permanently closes that UID, without retaining task data.
-  if (earlier.exists && Object.keys(earlier.data() ?? {}).length === 0) return;
-  if (typeof earlier.get('closedUntil') === 'number') {
-    await task.set({}); // Upgrade a legacy expiring marker without reopening access.
-    return;
-  }
-  // Each attempt moves the next retry back, so a task that keeps failing goes to the end of the
-  // queue and cannot starve newer ones.
-  await task.set({reason: earlier.get('reason') ?? reason, startedAt: earlier.get('startedAt') ?? now,
-    nextRetryAt: now + DELETION_RETRY_MS, attempts: FieldValue.increment(1),
-    // Every caller's reason is kept, so a withdrawal or a user's own request is never mistaken for
-    // an inactivity deletion that may be called off.
-    reasons: FieldValue.arrayUnion(reason)}, {merge: true});
+  // Capture the holder before recursive deletion removes the child's link. Retries reuse it.
+  const linkedHolder = await holderForChild(db, uid);
+  const attempt = await db.runTransaction(async tx => {
+    const earlier = await tx.get(task);
+    // A custom token can recreate a deleted Auth UID. An empty document permanently closes it.
+    if (earlier.exists && Object.keys(earlier.data() ?? {}).length === 0) return null;
+    if (typeof earlier.get('closedUntil') === 'number') {
+      tx.set(task, {}); // Upgrade a legacy expiring marker without reopening access.
+      return null;
+    }
+    const holderUid = (earlier.get('holderUid') as string | undefined) ?? linkedHolder;
+    // Move a stalled attempt to the end of the queue. Keep the first reason and start time.
+    tx.set(task, {reason: earlier.get('reason') ?? reason, startedAt: earlier.get('startedAt') ?? now,
+      nextRetryAt: now + DELETION_RETRY_MS, attempts: FieldValue.increment(1),
+      reasons: FieldValue.arrayUnion(reason), ...(holderUid ? {holderUid} : {})}, {merge: true});
+    return {holderUid, destructiveAt: earlier.get('destructiveAt') as number | undefined};
+  });
+  if (!attempt) return;
 
   // Older trials have only an account-local record. Preserve eligibility before
   // deleting that record, including when an earlier deletion attempt is retried.
@@ -71,7 +75,13 @@ export async function deleteUserData(
   await keepGuardianEvidence(db, uid, reason, now);
   await writeAuditLog({uid, event: 'accountDeleted', metadata: {reason}});
   // From here on the account loses data, so a stalled deletion must be finished, never called off.
-  await task.set({destructiveAt: earlier.get('destructiveAt') ?? now}, {merge: true});
+  const pending = await db.runTransaction(async tx => {
+    const current = await tx.get(task);
+    if (!current.exists || !current.get('reason')) return false;
+    tx.set(task, {destructiveAt: attempt.destructiveAt ?? now}, {merge: true});
+    return true;
+  });
+  if (!pending) return;
   await retirePublicId(db, uid);
   await deleteGuardianRecords(db, uid);
   await db.recursiveDelete(userRef);
@@ -105,16 +115,35 @@ export async function deleteUserData(
   } catch (error) {
     if ((error as {code?: string} | null)?.code !== 'auth/user-not-found') throw error;
   }
-  // Replace all task metadata. Only the UID in the document ID remains, forever.
-  // No nextRetryAt: completed tombstones never enter the scheduled retry queue.
-  await task.set({});
+  // Remove the holder's entry and schedule the last holder's deletion atomically with closing
+  // the child task. A crash after this commit still leaves the holder's own durable retry task.
+  const holderUid = attempt.holderUid;
+  if (!holderUid) {
+    await task.set({});
+    return;
+  }
+  const closeHolder = await db.runTransaction(async tx => {
+    const entry = db.doc(childEntryPath(holderUid, uid));
+    const holderTask = db.doc(`accountDeletions/${holderUid}`);
+    const [children, existing] = await Promise.all([
+      tx.get(db.collection(childrenPath(holderUid)).where('active', '==', true)), tx.get(holderTask),
+    ]);
+    const last = !existing.exists && children.size === 1 && children.docs[0].id === uid;
+    tx.delete(entry);
+    tx.set(task, {});
+    if (last) {
+      tx.create(holderTask, {reason, startedAt: now, nextRetryAt: now + DELETION_RETRY_MS,
+        destructiveAt: now, reasons: [reason]});
+    }
+    return last;
+  });
+  if (closeHolder) await deleteUserData(db, auth, holderUid, reason, {now: options.now});
 }
 
 /**
  * Marks the deletion in the guardian evidence and copies each guardian-attested purchase there,
- * before the user tree and the payment index go. Only an account with such evidence gets a marker,
- * so an adult with none leaves nothing behind. The copy holds the attestation time, the Terms
- * version, our own reference and the product: no email, name or payment details.
+ * before the user tree and the payment index go. The copy holds the attestation time, text versions,
+ * purchase reference and product.
  */
 async function keepGuardianEvidence(db: Firestore, uid: string, reason: DeletionReason, now: number): Promise<void> {
   const evidence = db.doc(`guardianConsentEvidence/${uid}`);
@@ -126,16 +155,31 @@ async function keepGuardianEvidence(db: Firestore, uid: string, reason: Deletion
   // One purchase document per payment reference. A checkout wins over its order because its id is
   // the stable one; an order whose checkout record was never written (the last step of checkout
   // failed, yet the payment can still be fulfilled from the order) is kept under its own id.
-  const purchases = new Map<string, {id: string; attestedAt: unknown; termsVersion: unknown; reference: unknown; product: unknown}>();
+  const purchases = new Map<string, {
+    id: string;
+    attestedAt: number;
+    termsVersion: unknown;
+    checkoutBoxTextVersion?: string;
+    reference: unknown;
+    product: unknown;
+  }>();
   for (const doc of checkouts.docs) {
-    if (typeof doc.get('attestedAt') !== 'number') continue;
-    purchases.set(doc.get('reference') ?? `checkout-${doc.id}`, {id: doc.id, attestedAt: doc.get('attestedAt'),
-      termsVersion: doc.get('termsVersion') ?? null, reference: doc.get('reference') ?? null, product: doc.get('product') ?? null});
+    const attestedAt: unknown = doc.get('attestedAt');
+    if (typeof attestedAt !== 'number') continue;
+    const checkoutBoxTextVersion = doc.get('checkoutBoxTextVersion');
+    purchases.set(doc.get('reference') ?? `checkout-${doc.id}`, {id: doc.id, attestedAt,
+      termsVersion: doc.get('termsVersion') ?? null,
+      ...(typeof checkoutBoxTextVersion === 'string' ? {checkoutBoxTextVersion} : {}),
+      reference: doc.get('reference') ?? null, product: doc.get('product') ?? null});
   }
   for (const doc of orders.docs) {
-    if (typeof doc.get('attestedAt') !== 'number' || purchases.has(doc.id)) continue;
-    purchases.set(doc.id, {id: `order-${doc.id}`, attestedAt: doc.get('attestedAt'),
-      termsVersion: doc.get('termsVersion') ?? null, reference: doc.id, product: doc.get('product') ?? null});
+    const attestedAt: unknown = doc.get('attestedAt');
+    if (typeof attestedAt !== 'number' || purchases.has(doc.id)) continue;
+    const checkoutBoxTextVersion = doc.get('checkoutBoxTextVersion');
+    purchases.set(doc.id, {id: `order-${doc.id}`, attestedAt,
+      termsVersion: doc.get('termsVersion') ?? null,
+      ...(typeof checkoutBoxTextVersion === 'string' ? {checkoutBoxTextVersion} : {}),
+      reference: doc.id, product: doc.get('product') ?? null});
   }
   if (answers.empty && purchases.size === 0) return;
   const batch = db.batch();

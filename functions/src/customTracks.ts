@@ -3,7 +3,7 @@ import {loadCorpusCached} from './_examContent.js';
 import {enforceAppCheck} from './_appCheck.js';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {onAccountCall as onCall} from './_accountAccess.js';
+import {onStudyAccountCall as onCall} from './_accountAccess.js';
 import {allowAtMost} from './_limits.js';
 import {MAX_CUSTOM_TRACKS, customTier, customTrackRef, isCustomExamId, tierDisplayName} from './_customTrack.js';
 import {assertStudyOwner} from './studyObservations.js';

@@ -2,7 +2,7 @@ import {getAuth, type Auth} from 'firebase-admin/auth';
 import {FieldValue, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions/logger';
 import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
-import {assertSignInTargetActive, onAccountCall as onCall} from './_accountAccess.js';
+import {accountClosed, assertSignInTargetActive, onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {allowAtMost} from './_limits.js';
 import {phDay} from './_phDate.js';
@@ -261,7 +261,9 @@ export async function setupChild(request: Req, deps: SetupDeps): Promise<{childU
     const customToken = await deps.auth.createCustomToken(childUid);
     const holderRef = deps.db.doc(HOLDER_PATH(uid));
     await deps.db.runTransaction(async tx => {
-      const [holder, items] = await Promise.all([tx.get(holderRef), tx.get(deps.db.collection(childrenPath(uid)))]);
+      const [holder, items, deletion] = await Promise.all([tx.get(holderRef),
+        tx.get(deps.db.collection(childrenPath(uid))), tx.get(deps.db.doc(`accountDeletions/${uid}`))]);
+      if (deletion.exists) throw accountClosed();
       const count = items.docs.filter(row => row.get('active') === true).length;
       if (count >= CHILD_LIMIT) throw childLimit();
       // Another setup finished first on an account that had no children: this call holds no proof.

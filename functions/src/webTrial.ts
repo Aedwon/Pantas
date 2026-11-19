@@ -3,7 +3,7 @@ import {appSecrets, secret} from './_secrets.js';
 import {FieldValue, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {onAccountCall as onCall} from './_accountAccess.js';
+import {onStudyAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {canonicalEmail} from './_email.js';

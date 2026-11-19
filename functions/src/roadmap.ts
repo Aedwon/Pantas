@@ -3,7 +3,7 @@ import {enforceAppCheck} from './_appCheck.js';
 import {createHash} from 'node:crypto';
 import {FieldPath, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {onAccountCall as onCall} from './_accountAccess.js';
+import {onStudyAccountCall as onCall} from './_accountAccess.js';
 import {allowAtMost} from './_limits.js';
 import {core} from './_core.js';
 import {loadExamContent, loadStudyContent, loadStudyContentLinks, loadGapTags, scopeLessonContent} from './_examContent.js';
