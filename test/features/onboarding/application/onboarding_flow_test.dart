@@ -97,10 +97,14 @@ void main() {
     );
   });
 
-  test('a blocked student resumes at the age step, which shows the block', () {
+  test('a stored age block requires guardian setup even after another age', () {
     expect(
-      OnboardingProgress(ageBlocked: true).resumeStep,
+      OnboardingProgress(needsGuardianSetup: true, agePassed: true).resumeStep,
       OnboardingStep.age,
+    );
+    expect(
+      OnboardingProgress(needsGuardianSetup: true, agePassed: true).complete,
+      isFalse,
     );
   });
 

@@ -17,6 +17,7 @@ import 'package:pantas/app/startup_gates.dart';
 import 'package:pantas/app/sync_runtime_bootstrap.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/app/theme.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/bundle/protected_content_installer.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/content_database_memory.dart';
@@ -351,6 +352,9 @@ Future<void> _bootstrap(
     onContainerReady(container);
 
     await bootstrapAuthSession(container, firebaseResult);
+    if (firebaseResult == FirebaseBootstrapResult.configured) {
+      await container.read(authStateProvider.future);
+    }
     PerfTimeline.mark('boot.auth');
     // The beta check is a server call. Start it now so it runs beside the
     // content restore, consent and sync steps. The router reuses its result.

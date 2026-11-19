@@ -31,6 +31,10 @@ void main() {
     expect(await repo.blockedMinimumAge(), isNull);
     await repo.setBlockedMinimumAge(13);
     expect(await repo.blockedMinimumAge(), 13);
+    await repo.setAgeGroup('adult');
+    await repo.setPassedAgeGate(value: true);
+    expect(await repo.needsGuardianSetup(), isTrue);
+    expect(await repo.hasPassedAgeGate(), isFalse);
   });
 
   test('guardian contact is kept for Resend and can be cleared', () async {

@@ -36,7 +36,13 @@ class SyncRuntimeBinding {
   SyncRuntimeBinding({
     required ProviderContainer container,
     required SyncRuntimeSurface runtime,
-  })  : _runtime = runtime,
+    bool followActiveRuntime = false,
+  })  : _runtime = followActiveRuntime
+            ? (() => container.read(syncRuntimeProvider))
+            : (() => runtime),
+        _currentUid = followActiveRuntime
+            ? (() => container.read(authRepositoryProvider).currentSession?.uid)
+            : null,
         lifecycleObserver = SyncRuntimeLifecycleObserver(
           () => container.read(syncRuntimeProvider),
         ) {
@@ -67,7 +73,8 @@ class SyncRuntimeBinding {
     WidgetsBinding.instance.addObserver(lifecycleObserver);
   }
 
-  final SyncRuntimeSurface _runtime;
+  final SyncRuntimeSurface Function() _runtime;
+  final String? Function()? _currentUid;
   late final ProviderSubscription<AsyncValue<AuthState>> _authSubscription;
   late final ProviderSubscription<AsyncValue<Entitlement>>
       _entitlementSubscription;
@@ -79,13 +86,18 @@ class SyncRuntimeBinding {
   bool _disposed = false;
 
   // The newest state not yet handed to Sync.
-  ({SyncIdentity identity, SyncEntitlement entitlement})? _waiting;
+  ({
+    SyncIdentity identity,
+    SyncEntitlement entitlement,
+    SyncRuntimeSurface runtime,
+  })? _waiting;
 
   void _scheduleUpdate() {
     if (_disposed || _auth == null || _entitlement == null) return;
     _waiting = (
       identity: _toSyncIdentity(_auth!),
       entitlement: _toSyncEntitlement(_entitlement!),
+      runtime: _runtime(),
     );
     _updateTail = _updateTail.then(
       (_) => _sendWaiting(),
@@ -101,7 +113,14 @@ class SyncRuntimeBinding {
     final waiting = _waiting;
     if (waiting == null) return Future<void>.value();
     _waiting = null;
-    return _runtime.update(
+    final currentUid = _currentUid;
+    if (!identical(waiting.runtime, _runtime()) ||
+        (currentUid != null &&
+            waiting.identity.uid !=
+                (currentUid() ?? SyncIdentity.signedOutUid))) {
+      return Future<void>.value();
+    }
+    return waiting.runtime.update(
       identity: waiting.identity,
       entitlement: waiting.entitlement,
     );
@@ -115,7 +134,7 @@ class SyncRuntimeBinding {
     _authSubscription.close();
     _entitlementSubscription.close();
     WidgetsBinding.instance.removeObserver(lifecycleObserver);
-    unawaited(_runtime.quiesce(flush: false));
+    unawaited(_runtime().quiesce(flush: false));
   }
 }
 
@@ -165,7 +184,11 @@ Future<SyncRuntimeBinding> bootstrapSyncRuntime(
   final runtime =
       await (runtimeBuilder ?? () => buildConfiguredSyncRuntime(container))();
   container.read(syncRuntimeProvider.notifier).state = runtime;
-  return SyncRuntimeBinding(container: container, runtime: runtime);
+  return SyncRuntimeBinding(
+    container: container,
+    runtime: runtime,
+    followActiveRuntime: runtimeBuilder == null,
+  );
 }
 
 Future<SyncRuntimeSurface> buildConfiguredSyncRuntime(
@@ -174,8 +197,9 @@ Future<SyncRuntimeSurface> buildConfiguredSyncRuntime(
   SyncFunctionsGateway? functionsGateway,
   SyncClaimGateway? claimGateway,
   String? deviceId,
+  AppDatabase? database,
 }) async {
-  final db = container.read(appDatabaseProvider);
+  final db = database ?? container.read<AppDatabase>(appDatabaseProvider);
   final contentDb = container.read(contentDatabaseProvider);
   final gateway = firestoreGateway ?? FirebaseFirestoreGateway();
   final functions = functionsGateway ?? FirebaseSyncFunctionsGateway();
