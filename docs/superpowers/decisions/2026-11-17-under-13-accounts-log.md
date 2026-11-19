@@ -225,3 +225,14 @@ Relayed by the manager. Aedwon, verbatim: "Accept all". The four items he answer
 - The board artifact is shared with the build session (read only; nothing is published to it). Its
   board files (`project/*.dc.html`, `canvas.json` with the board titles, and the DS tokens and component
   CSS) are copied for workers to the session notes folder, `u13-boards/`, outside the repository.
+
+## Lead rulings from the T4 report (Nov 19)
+
+- Inactivity warning for a child: name the child and say how to keep it ("Open Pantas as {nickname}"),
+  since a parent's own sign-in does not reset a child's idle time. Product mail, rule 8 shape; the lead
+  settles the wording under rule 4 in T5 and records it.
+- Web trial on a child account: the 7-day trial is on Monthly only and the PSHS-NCE pass is a season
+  pass, so a child is not offered a trial in practice. The one-per-parent marker stays as the guard.
+- Beta Pro through the parent's selection: accepted; the beta ends Nov 22.
+- Recent Google sign-in on Delete Account and the parent's child entry left active after a child's
+  deletion: both go to T5.
