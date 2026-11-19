@@ -428,3 +428,87 @@ questions:
   explanation: |
     Choose the three excluded members without order. Thus $\binom85=\binom83=\dfrac{8(7)(6)}{3(2)(1)}=56$.
   approved: false
+- id: 'q-statistics-and-probability-combinatorics-0021'
+  lesson: lesson-statistics-and-probability-counting-choices-in-stages
+  keyPoint: 1
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    A convention pass has one background color, one border style, and one emblem. The organizer can pair any of 5 background colors with any of 4 border styles. The print shop offers the same 3 emblems for each pairing. How many distinct passes can the organizer design?
+  choices:
+  - text: '60'
+    correct: true
+  - text: '12'
+    rationale: |
+      This adds the choices. Each pass needs one choice from all three groups.
+  - text: '20'
+    rationale: |
+      This counts color and border pairs. Each pair can still take any of three emblems.
+  - text: '23'
+    rationale: |
+      This adds the emblems to the number of pairs. Every pair can use all three emblems.
+  explanation: |
+    There are $5$ color choices and $4$ border choices for each color. Each of those pairs has $3$ emblem choices, so there are $5\times4\times3=60$ designs.
+- id: 'q-statistics-and-probability-combinatorics-0022'
+  lesson: lesson-statistics-and-probability-counting-teams-and-ordered-roles
+  keyPoint: 1
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    An event coordinator must assign two different people from a pool of seven to lead the morning and afternoon sessions, one person per session. The coordinator must also list all possible two-person backup pairs from the same pool. How do the two counts compare?
+  choices:
+  - text: 'There are twice as many lead assignments as backup pairs.'
+    correct: true
+  - text: 'There are twice as many backup pairs as lead assignments.'
+    rationale: |
+      This gives the extra choices to the backups. The two lead slots are the ones with different roles.
+  - text: 'There are equally many lead assignments and backup pairs.'
+    rationale: |
+      This counts each pair of leads just once. Switching the two leads changes the assignment.
+  - text: 'There are seven times as many lead assignments as backup pairs.'
+    rationale: |
+      This uses the number of people as the multiplier. Once a pair is picked, only two assignments are possible.
+  explanation: |
+    Each pair of people gives one backup pair. For the lead slots, either person can take the morning session. That gives two lead assignments per pair.
+- id: 'q-statistics-and-probability-combinatorics-0023'
+  lesson: lesson-statistics-and-probability-adding-counts-with-overlap
+  keyPoint: 2
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    A school received 39 applications for two workshop sessions. Of these, 24 applicants requested the morning session and 19 requested the afternoon session. Every applicant requested at least one of the two sessions. How many requested both sessions?
+  choices:
+  - text: '4'
+    correct: true
+  - text: '5'
+    rationale: |
+      This compares the session counts. Their difference does not tell you how many people signed up for both.
+  - text: '15'
+    rationale: |
+      This counts everyone who did not ask for the morning session. Those 15 people asked for the afternoon only.
+  - text: '43'
+    rationale: |
+      This adds the two session counts. In that sum, each person who asked for both is counted twice.
+  explanation: |
+    Adding $24+19$ gives $43$ requests. There are $39$ people, so the $43-39=4$ extra requests came from people who asked for both sessions.
+- id: 'q-statistics-and-probability-combinatorics-0024'
+  lesson: lesson-statistics-and-probability-adding-counts-with-overlap
+  keyPoint: 2
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    A library database flags 32 books for rebinding and 27 books for a replacement label. Seven flagged books need both services. If each flagged book is sent to the repair desk only once, how many books will the desk receive?
+  choices:
+  - text: '52'
+    correct: true
+  - text: '45'
+    rationale: |
+      This takes out the seven books twice. They should still count once each.
+  - text: '59'
+    rationale: |
+      This adds the lists as if no book is on both. Seven books are counted twice.
+  - text: '66'
+    rationale: |
+      This adds seven extra books. Those seven are already included in both lists.
+  explanation: |
+    The two lists contain $32+27=59$ entries. Seven books are on both lists. Subtract those seven extra entries to get $52$ books.

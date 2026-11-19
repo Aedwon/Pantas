@@ -579,3 +579,129 @@ questions:
   explanation: |
     The difference is $30-20=10$ percentage points. Relative to the original share, the increase is $\dfrac{10}{20}(100\%)=50\%$.
   approved: false
+- id: 'q-statistics-and-probability-data-analysis-graphs-0021'
+  lesson: lesson-statistics-and-probability-pie-chart-shares-and-angles
+  keyPoint: 1
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    A pie chart shows the breakdown of a town's water use. The residential sector has a central angle of $144^\circ$. What percentage of total water use does this sector represent?
+  choices:
+  - text: '$40\%$'
+    correct: true
+  - text: '$4\%$'
+    rationale: |
+      This moves the decimal point one place. To turn $0.4$ into a percent, move it two places to the right.
+  - text: '$60\%$'
+    rationale: |
+      This gives the share for the rest of the circle. The question asks for the residential sector.
+  - text: '$72\%$'
+    rationale: |
+      This compares the angle with $200^\circ$. A full circle has $360^\circ$.
+  explanation: |
+    The whole circle is $360^\circ$. The residential share is $\dfrac{144}{360}=0.4$, or $40\%$.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0022'
+  lesson: lesson-statistics-and-probability-reading-bar-graph-scales
+  keyPoint: 1
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    On a bar graph of daily parcel deliveries, the labeled values 36 and 60 are separated by six equal intervals. A bar ends at the second tick above 36. What delivery count does the bar represent?
+  choices:
+  - text: '44'
+    correct: true
+  - text: '40'
+    rationale: |
+      This adds just one interval to 36. The bar ends two intervals above it.
+  - text: '48'
+    rationale: |
+      This uses the tick halfway to 60. The halfway tick is three intervals above 36.
+  - text: '52'
+    rationale: |
+      This counts two intervals down from 60. The stem counts two up from 36.
+  explanation: |
+    The difference is $60-36=24$. Each interval is worth $24\div6=4$ deliveries. Two intervals above 36 gives $36+2(4)=44$.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0023'
+  lesson: lesson-statistics-and-probability-reading-bar-graph-scales
+  keyPoint: 1
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    A horizontal bar graph shows the time needed for each lab procedure. Between the labeled ticks at 20 and 50 minutes are four unlabeled ticks, all equally spaced. The bar for Procedure B ends at the first tick to the left of 50. What time does the graph show for Procedure B?
+  choices:
+  - text: '44 minutes'
+    correct: true
+  - text: '42.5 minutes'
+    rationale: |
+      This splits 30 minutes into four spaces. Four ticks between the labels make five spaces.
+  - text: '26 minutes'
+    rationale: |
+      This reads the first tick to the right of 20. The bar ends one tick to the left of 50.
+  - text: '49 minutes'
+    rationale: |
+      This treats a tick as one minute. Use the labeled values to find the size of one step.
+  explanation: |
+    Four ticks between 20 and 50 make five equal spaces. Each space is $30\div5=6$ minutes. The bar ends one step below 50, at 44 minutes.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0024'
+  lesson: lesson-statistics-and-probability-reading-bar-graph-scales
+  keyPoint: 2
+  type: 'word-problem'
+  difficulty: 'exam'
+  stem: |
+    Two equal-height bar graphs start at zero. Graph A uses an axis from 0 to 80 liters, and the bar for Tank A reaches three-fourths of the graph height. Graph B uses an axis from 0 to 120 liters, and the bar for Tank B reaches half of the graph height. Which statement is correct?
+  choices:
+  - text: 'The tanks contain equal amounts.'
+    correct: true
+  - text: 'Tank A contains 20 liters more.'
+    rationale: |
+      This uses the 80-liter scale for both tanks. Read Tank B on its own scale.
+  - text: 'Tank B contains 40 liters more.'
+    rationale: |
+      This takes the difference between the two axis limits. Neither bar reaches its axis limit.
+  - text: 'Tank A contains 50 percent more.'
+    rationale: |
+      This compares the visible heights. The two graphs use different scales.
+  explanation: |
+    Tank A shows $\dfrac34$ of 80 liters, which is 60 liters. Tank B shows half of 120 liters, which is also 60 liters.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0025'
+  lesson: lesson-statistics-and-probability-patterns-in-scatter-plots
+  keyPoint: 2
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    A scatter plot shows that students who live farther from school tend to spend more money on transportation. The plot contains no information about the routes taken or the modes of transportation used. Which conclusion is supported by the plot alone?
+  choices:
+  - text: 'Greater distance tends to go with higher cost.'
+    correct: true
+  - text: 'Greater distance is the sole cause of higher cost.'
+    rationale: |
+      The dots show a link. They cannot show that distance is the only cause of higher cost.
+  - text: 'Changing a student''s route will always lower the cost.'
+    rationale: |
+      The graph does not show routes or what happens when a student changes routes.
+  - text: 'All students living the same distance pay the same fare.'
+    rationale: |
+      A trend shows what often happens. Students at the same distance can still pay different fares.
+  explanation: |
+    The plot shows that distance and cost tend to rise together. It does not show what causes the higher cost.
+- id: 'q-statistics-and-probability-data-analysis-graphs-0026'
+  lesson: lesson-statistics-and-probability-patterns-in-scatter-plots
+  keyPoint: 1
+  type: 'which-is-true'
+  difficulty: 'exam'
+  stem: |
+    A scatter plot shows the distance a toy car travels on ramps set at different angles. As the angle increases, the points rise and then level off, forming a smooth bend. Which description best fits the plot?
+  choices:
+  - text: 'A curved association'
+    correct: true
+  - text: 'A positive linear association'
+    rationale: |
+      The dots go up at first and then level off. A straight line does not follow that bend.
+  - text: 'A negative linear association'
+    rationale: |
+      A negative linear pattern goes down from left to right. These points rise before they level off.
+  - text: 'No discernible association'
+    rationale: |
+      The dots follow a clear shape. A pattern can bend and still show a link.
+  explanation: |
+    The points rise and then level off. The bend shows a curved pattern.
