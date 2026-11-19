@@ -5,6 +5,7 @@ import {HttpsError} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
+import {isRestrictedAgeGroup} from './ageGroup.js';
 import {paymentSecrets, secret} from './_secrets.js';
 import {GUARDIAN_DOCUMENT_VERSIONS} from './guardianConsent.js';
 import {allowAtMost} from './_limits.js';
@@ -36,14 +37,15 @@ export type CheckoutDeps = {client: PaymongoClient; db: Firestore; origin: strin
   allow?: (uid: string) => Promise<boolean>; catalog?: CatalogExam[]; now?: () => number};
 
 /**
- * An account the server knows as a minor can only buy with a parent or guardian's confirmation
+ * An account the server knows as a minor or child (or with an unreadable age group) can only buy with a parent or guardian's confirmation
  * of the current Terms. The device's age group only drives the screen; this check is the control.
  * Returns what to record on the checkout (nothing for an adult). Runs before any reservation write.
  */
 async function guardianAttestation(db: Firestore, uid: string, data: unknown, now: number):
   Promise<{attestedAt?: number; termsVersion?: string}> {
   const consent = (await db.doc(`users/${uid}/server/guardianConsent`).get()).data();
-  if (consent?.ageGroup !== 'minor') return {};
+  // No record means the server never learned an age: an adult. A record with any group but adult is restricted.
+  if (!consent || !isRestrictedAgeGroup(consent.ageGroup)) return {};
   const given = (data as {guardianAttestation?: {termsVersion?: unknown} | null} | null)?.guardianAttestation?.termsVersion;
   if (given !== GUARDIAN_DOCUMENT_VERSIONS.terms) {
     throw new HttpsError('failed-precondition', 'A parent or guardian must confirm this purchase.',

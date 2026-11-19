@@ -22,6 +22,7 @@ export 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 export 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';
 export 'package:pantas/core/storage/data/repos/lesson_progress_repository.dart';
 export 'package:pantas/core/storage/data/repos/question_flags_repository.dart';
+export 'package:pantas/core/storage/domain/age_group.dart';
 export 'package:pantas/core/storage/domain/assessment_question.dart';
 export 'package:pantas/core/storage/domain/assessment_question_selector.dart';
 export 'package:pantas/core/storage/domain/passage.dart';

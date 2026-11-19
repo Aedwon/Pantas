@@ -245,3 +245,19 @@ test('a withdrawn record is left exactly as it is, so an unfinished withdrawal c
   await guardian.purgeGuardianRecords(s.db, T0 + 400 * DAY);
   assert.deepEqual(s.rows.get(consentPath), withdrawn);
 });
+
+test('cleanup keeps a child record as child and turns a missing or unknown group into minor', async () => {
+  const base = {decidedAt: T0, sharingAllowed: false, emailHash: 'e', maskedEmail: 'm', tokenHash: 't', sentAt: T0, expiresAt: T0 + 7 * DAY, createdAt: T0};
+  const child = store({[consentPath]: {status: 'confirmed', ageGroup: 'child', ...base}});
+  await guardian.purgeGuardianRecords(child.db, T0 + 8 * DAY);
+  assert.deepEqual(child.rows.get(consentPath), {status: 'confirmed', ageGroup: 'child', decidedAt: T0, sharingAllowed: false});
+  const unknown = store({[consentPath]: {status: 'confirmed', ageGroup: 'teen', ...base}});
+  await guardian.purgeGuardianRecords(unknown.db, T0 + 8 * DAY);
+  assert.equal(unknown.rows.get(consentPath).ageGroup, 'minor');
+  const blank = store({[consentPath]: {status: 'declined', decidedAt: T0, emailHash: 'e', expiresAt: T0 + 7 * DAY}});
+  await guardian.purgeGuardianRecords(blank.db, T0 + 8 * DAY);
+  assert.deepEqual(blank.rows.get(consentPath), {ageGroup: 'minor'});
+  const unanswered = store({[consentPath]: {status: 'pending', ageGroup: 'child', emailHash: 'e', expiresAt: T0 + 7 * DAY}});
+  await guardian.purgeGuardianRecords(unanswered.db, T0 + 8 * DAY);
+  assert.deepEqual(unanswered.rows.get(consentPath), {ageGroup: 'child'});
+});

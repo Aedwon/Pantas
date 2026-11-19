@@ -468,7 +468,8 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   /// Asks the server for a PayMongo checkout and sends this tab to it.
   ///
   /// [guardianAttested] is true when a parent or guardian ticked the box on a
-  /// minor's checkout. The server decides whether an account needs it.
+  /// minor's or child's checkout. The server decides whether an account needs
+  /// it.
   Future<PaymentOperationResult> _checkout(
     String productId, {
     Future<void> Function(String sessionId, String reference)? beforeRedirect,
@@ -537,7 +538,8 @@ PaymentOperationStatus _statusForError(Object error) {
   if (error is! FirebaseException) {
     return PaymentOperationStatus.unknownFailure;
   }
-  // The server's refusal of a minor's checkout without the guardian box.
+  // The server's refusal of a minor's or child's checkout without the guardian
+  // box.
   if (error is FirebaseFunctionsException &&
       error.code == 'failed-precondition' &&
       error.details is Map &&

@@ -75,6 +75,18 @@ void main() {
     expect(find.text("I'm 18 now"), findsNothing);
   });
 
+  testWidgets("a child and an unrecognized group never see I'm 18 now",
+      (tester) async {
+    await pump(tester, ageGroup: 'child');
+    expect(find.text("I'm 18 now"), findsNothing);
+  });
+
+  testWidgets("an unrecognized stored group never sees I'm 18 now",
+      (tester) async {
+    await pump(tester, ageGroup: 'teen');
+    expect(find.text("I'm 18 now"), findsNothing);
+  });
+
   testWidgets('a minor sees the row', (tester) async {
     await pump(tester, ageGroup: 'minor');
     expect(find.text("I'm 18 now"), findsOneWidget);

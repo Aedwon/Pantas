@@ -86,7 +86,7 @@ void main() {
       ),
       isAnonymousProvider.overrideWith((ref) async => false),
       paymentsOnWebProvider.overrideWithValue(true),
-      ageGroupProvider.overrideWith((ref) async => group),
+      ageGroupProvider.overrideWith((ref) async => AgeGroup.parse(group)),
       revenueCatGatewayProvider.overrideWithValue(gateway),
       proForActiveExamProvider.overrideWith((ref) async => false),
       activeExamFocusProvider.overrideWith(
@@ -250,11 +250,34 @@ void main() {
       expect(calls.single.$2, {'product': 'pantas_cs_monthly'});
     });
 
-    testWidgets('an unknown age group shows no box, $where', (tester) async {
+    testWidgets('no age group on the device shows no box, $where',
+        (tester) async {
       await pumpPro(tester, group: null, wide: wide);
       expect(box(), findsNothing);
       expect(buyPressed(tester, wide: wide), isNotNull);
     });
+
+    for (final group in ['child', 'teen']) {
+      testWidgets(
+          'a $group stored group sees the box and sends the attestation, '
+          '$where', (tester) async {
+        await pumpPro(tester, group: group, wide: wide);
+        expect(box(), findsOneWidget);
+        expect(buyPressed(tester, wide: wide), isNull);
+        await tick(tester);
+        final buy = wide
+            ? find.widgetWithText(WebButton, _buy)
+            : find.widgetWithText(PantasButton, _buy);
+        await tester.tap(buy);
+        await afterBuy(tester);
+        expect(calls.single.$2, {
+          'product': 'pantas_cs_monthly',
+          'guardianAttestation': {
+            'termsVersion': guardianDocumentVersions['terms'],
+          },
+        });
+      });
+    }
 
     testWidgets(
         'the free trial takes no payment, so a minor sees no box, '

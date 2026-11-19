@@ -52,6 +52,20 @@ void main() {
     expect(await gate(), GuardianGate.notRequired);
   });
 
+  test(
+      'a child never enters the teen guardian flow and the server is not asked',
+      () async {
+    await container.read(appPreferencesRepositoryProvider).setAgeGroup('child');
+    expect(await gate(), GuardianGate.notRequired);
+    expect(gateway.statusCalls, 0);
+  });
+
+  test('an unrecognized stored group is held like a minor, never released',
+      () async {
+    await container.read(appPreferencesRepositoryProvider).setAgeGroup('teen');
+    expect(await gate(), GuardianGate.needsContact);
+  });
+
   test('a minor with no request needs to give a contact', () async {
     await container.read(appPreferencesRepositoryProvider).setAgeGroup('minor');
     expect(await gate(), GuardianGate.needsContact);

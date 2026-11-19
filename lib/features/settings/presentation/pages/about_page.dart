@@ -33,6 +33,7 @@ const _speedReportsSubtitle = 'Helps us find slow screens and errors.';
 const _speedReportsCountsSubtitle =
     'Helps us fix slow screens and errors. Includes screen counts.';
 const _minorLockedCaption = 'Your parent or guardian can turn this on.';
+const _childLockedCaption = 'Turned off for child accounts.';
 
 class AboutPage extends ConsumerWidget {
   const AboutPage({
@@ -123,8 +124,9 @@ class AboutPage extends ConsumerWidget {
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
     final contact = ref.watch(legalContactProvider);
     // A minor's guardian decides whether the student can turn sharing on.
-    final sharingLocked =
-        ref.watch(minorSharingProvider).valueOrNull == MinorSharing.locked;
+    final sharing = ref.watch(minorSharingProvider).valueOrNull;
+    final childLocked = sharing == MinorSharing.childLocked;
+    final sharingLocked = childLocked || sharing == MinorSharing.locked;
     void push(String path) {
       final router = GoRouter.maybeOf(context);
       if (router != null) unawaited(router.push<void>(path));
@@ -187,8 +189,12 @@ class AboutPage extends ConsumerWidget {
                       ),
                     ),
               variant: ListRowVariant.switchControl,
-              selected: settings.helpImproveApp,
-              subtitle: sharingLocked ? _minorLockedCaption : null,
+              selected: settings.helpImproveApp && !childLocked,
+              subtitle: childLocked
+                  ? _childLockedCaption
+                  : sharingLocked
+                      ? _minorLockedCaption
+                      : null,
               divider: true,
               // ST_About: the divider starts at the text.
               dividerInset: context.wideWeb ? PantasSpace.s0 : PantasSpace.s16,
@@ -206,14 +212,18 @@ class AboutPage extends ConsumerWidget {
                   ? _speedReportsCountsSubtitle
                   : _speedReportsSubtitle,
               variant: ListRowVariant.switchControl,
-              selected: settings.speedReportsEnabled,
+              selected: settings.speedReportsEnabled && !childLocked,
               divider: true,
               dividerInset: context.wideWeb ? PantasSpace.s0 : PantasSpace.s16,
-              onTap: () => unawaited(
-                ref.read(settingsActionsProvider).setSpeedReportsEnabled(
-                      enabled: !settings.speedReportsEnabled,
-                    ),
-              ),
+              onTap: childLocked
+                  ? null
+                  : () => unawaited(
+                        ref
+                            .read(settingsActionsProvider)
+                            .setSpeedReportsEnabled(
+                              enabled: !settings.speedReportsEnabled,
+                            ),
+                      ),
             ),
             if (!context.wideWeb && sharedLinksRow != null) sharedLinksRow!,
             SettingsRow(

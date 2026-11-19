@@ -72,7 +72,7 @@ void main() {
   testWidgets('under 18 the usage sharing row is not offered', (tester) async {
     await pump(
       tester,
-      overrides: [ageGroupProvider.overrideWith((ref) async => 'minor')],
+      overrides: [ageGroupProvider.overrideWith((ref) async => AgeGroup.minor)],
     );
     await tester.pumpAndSettle();
     expect(find.byType(CheckboxRow), findsOneWidget);
@@ -80,6 +80,46 @@ void main() {
       find.text('Help improve Pantas by sharing usage data'),
       findsNothing,
     );
+  });
+
+  testWidgets(
+      'a child gets no usage row, and usage sharing and speed reports are '
+      'saved off', (tester) async {
+    final repository = DriftSettingsRepository(db);
+    // A leftover opt-in on this device must not survive the child's setup.
+    await repository.updateHelpImproveApp(enabled: true);
+    await repository.updateSpeedReportsEnabled(enabled: true);
+    await pump(
+      tester,
+      repository: repository,
+      overrides: [ageGroupProvider.overrideWith((ref) async => AgeGroup.child)],
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(CheckboxRow), findsOneWidget);
+    expect(
+      find.text('Help improve Pantas by sharing usage data'),
+      findsNothing,
+    );
+    await tester.tap(find.byKey(const ValueKey('selection-mark')));
+    await tester.pump();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    final settings = await DriftSettingsRepository(db).readUserSettings();
+    expect(settings.acceptedTermsAt, isNotNull);
+    expect(settings.helpImproveApp, isFalse);
+    expect(settings.speedReportsEnabled, isFalse);
+  });
+
+  testWidgets('an unrecognized stored group is treated as restricted',
+      (tester) async {
+    await pump(
+      tester,
+      overrides: [
+        ageGroupProvider.overrideWith((ref) async => AgeGroup.unrecognized),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(CheckboxRow), findsOneWidget);
   });
 
   for (final brightness in Brightness.values) {

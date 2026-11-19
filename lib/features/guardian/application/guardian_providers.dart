@@ -128,7 +128,11 @@ final guardianGateProvider = FutureProvider<GuardianGate>((ref) async {
     await prefs.setGuardianStatusCache('none');
     await prefs.setDeviceValue('guardian_closed_uid', '');
   }
-  if (await prefs.ageGroup() != 'minor') return GuardianGate.notRequired;
+  // A child is held by a parent through setup, not by the teen guardian link.
+  // An unrecognized stored group is held like a minor.
+  if (!(await prefs.readAgeGroup()).entersTeenGuardianFlow) {
+    return GuardianGate.notRequired;
+  }
   GuardianConsentStatus status;
   try {
     status = (await ref.watch(guardianGatewayProvider).status()).status;

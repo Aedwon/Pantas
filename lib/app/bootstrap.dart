@@ -35,6 +35,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/platform/install/install_providers.dart';
 import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
@@ -483,7 +484,10 @@ Future<void> applyPersistedTelemetryConsent(
     final controller = container.read(
       telemetryConsentControllerProvider.notifier,
     );
-    ClientReporter.active?.enabled = settings.speedReportsEnabled;
+    // A child's speed and error reports stay off whatever the stored switch
+    // says, from the first moment.
+    final child = (await container.read(ageGroupProvider.future)).isChild;
+    ClientReporter.active?.enabled = settings.speedReportsEnabled && !child;
     await controller.applyStartupConsent(
       enabled: settings.helpImproveApp,
     );

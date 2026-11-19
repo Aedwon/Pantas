@@ -9,7 +9,7 @@ const db = getFirestore();
 const NOW = Date.parse('2026-11-10T10:00:00+08:00');
 const terms = GUARDIAN_DOCUMENT_VERSIONS.terms;
 const caller = uid => ({uid, token: {firebase: {sign_in_provider: 'google.com'}}});
-const consent = (uid, ageGroup) => db.doc(`users/${uid}/server/guardianConsent`).set({status: 'confirmed', ageGroup, decidedAt: NOW});
+const consent = (uid, ageGroup) => db.doc(`users/${uid}/server/guardianConsent`).set({status: 'confirmed', ...(ageGroup === undefined ? {} : {ageGroup}), decidedAt: NOW});
 
 function deps() {
   const calls = [];
@@ -98,4 +98,24 @@ test('an adult who reuses an open checkout gets no attestation written', async (
   await createCheckout(caller(uid), {product}, d);
   assert.equal('attestedAt' in (await db.doc(`paymongoCheckouts/${first.sessionId}`).get()).data(), false);
   assert.equal((await db.doc(`paymongoOrders/${first.reference}`).get()).get('attestedAt'), undefined);
+});
+
+test('a child, an unknown group and a record with no group are all refused without the attestation', async () => {
+  for (const [uid, group] of [['gc-child', 'child'], ['gc-unknown', 'teen'], ['gc-blank', undefined], ['gc-null', null]]) {
+    await reset(uid); await consent(uid, group);
+    const d = deps();
+    await assert.rejects(createCheckout(caller(uid), {product}, d),
+      {code: 'failed-precondition', details: {reason: 'guardian-attestation-required'}}, uid);
+    assert.equal(d.calls.length, 0, uid);
+    assert.equal((await db.collection(`users/${uid}/pendingCheckouts`).get()).size, 0, uid);
+  }
+});
+
+test('a child with the current Terms version gets a checkout that records the attestation', async () => {
+  const uid = 'gc-child-ok'; await reset(uid); await consent(uid, 'child');
+  const d = deps();
+  const result = await createCheckout(caller(uid), {product, guardianAttestation: {termsVersion: terms}}, d);
+  const checkout = (await db.doc(`paymongoCheckouts/${result.sessionId}`).get()).data();
+  assert.equal(checkout.attestedAt, NOW);
+  assert.equal(checkout.termsVersion, terms);
 });
