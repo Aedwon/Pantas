@@ -7,6 +7,12 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 /// Height of the drawing. The design system sets no height for diagrams.
 const double _figureHeight = 270;
 
+/// Label under the seismograph time gap. The gap only tracks distance when
+/// both waves keep a steady speed, so the label states that condition.
+@visibleForTesting
+const String seismographGapLabel =
+    'time gap proportional to distance (at steady wave speed)';
+
 /// Original lesson diagrams for Earth Science and Astronomy.
 class EarthScienceDiagramFigure extends StatelessWidget {
   const EarthScienceDiagramFigure._({
@@ -1654,7 +1660,7 @@ class _EarthSciencePainter extends CustomPainter {
     _arrow(canvas, Offset(pX + 7, 207), Offset(sX - 7, 207));
     _text(
       canvas,
-      'time gap proportional to distance',
+      seismographGapLabel,
       Offset((pX + sX) / 2, 216),
       maxWidth: 190,
       mutedText: true,
