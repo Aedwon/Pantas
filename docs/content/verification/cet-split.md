@@ -227,3 +227,11 @@ A separate solver received only the four stems, shuffled choices, and proposed f
 `tool/content/approve.dart` exited 0 for 0006, 0012, and the counting question 0014. `lesson_checks.dart`, `content_gate.dart`, and main's question validator each exited 0. The content patch SHA-256 from `git diff --binary -- content` is `bc2ca1cfe53086956a5b1ff8a96ef8f8f95ec089167d2845336b9e8f0e11e1c5`. The export SHA-256 is `2c058a7d1037e324d0557a6d1eb80bfd89e9194cc2b096ad56e96b37da206b51`.
 
 The main export gained exactly the three reapproved IDs and lost none. The validator, export, seed SQLite database, and offline upload files preserved the three specs as structured data. The export and seed omit 0016. The offline uploader still includes its existing slug-only row because it reads question YAML directly. Check logs and the blind packet are in `/private/tmp/cet-grid-figures.aR9VC6`.
+
+### Noticeboard comic wording
+
+Content base `1e0b0da470f69b50c6ea7fd1571daf588e3c26a6`. Policy `origin/main` at `fd6789a45314d18dbfd62e265691368c970e3779` (local ref, fetch blocked by filesystem permissions). Content tools from `cet-finish-443d02` at `cf54318c4b13bc22c297e75446c4efe3dfc6bb05`.
+
+A separate solver received only the passage, stem, and choices shuffled by `tools/content_rewrite/question_check/build_packets.py`. Packet SHA-256 `d3e4e5ec4cdbc1abfd7d8af8d9f4b930f11e8efa6422239b48c77ffbc6cb9bb2`. The solver chose B with high confidence for `q-text-types-visual-media-0016`: “Gio adds a poster, then needs the timetable that the posters have covered.” `merge_solves.py` reported 1 match, 0 mismatches, 0 low-confidence answers, and 0 missing or invalid answers.
+
+`tool/content/approve.dart` exited 0 and printed `q-text-types-visual-media-0016: approved`. `lesson_checks.dart` and `content_gate.dart` each exited 0 with no findings against `cet-vm/content`. The first lesson-check run used a package config pointing to the content branch’s app code and failed to resolve `BlueprintValue`. Both gates passed with a temporary package config pointing `package:pantas` to `cet-finish-443d02`. Packet, solve, gate logs, and package config are in `/private/tmp/cet-vm.2UZFQC`. The approved content patch SHA-256 from `git diff --binary -- content` is `e122454aea290a4937ac5da548d3c7eca98f09ec8d0abfc82422ef92d2af0bb8`.

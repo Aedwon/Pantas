@@ -474,7 +474,7 @@ questions:
     '
   passage: p-text-types-visual-media-0004
   choices:
-  - text: Gio needs the timetable his posters helped hide.
+  - text: Gio needs the timetable after helping crowd the board.
     correct: true
   - text: Mara announces that the club posters are official safety reminders.
     rationale: 'This changes the status of the posters. The board includes a safety notice. Check which sheets cover it.
@@ -488,7 +488,7 @@ questions:
     rationale: 'This supplies a solution not shown. A separate board sounds sensible. Check whether the comic depicts that decision.
 
       '
-  explanation: 'Gio first supports adding a poster, then cannot find the timetable after posters cover it. His own need exposes the effect of the earlier action.
+  explanation: 'Gio puts up one poster, and other students add more. The posters hide the timetable. The reversal comes when Gio needs the timetable himself.
 
     '
 - id: q-text-types-visual-media-0017
