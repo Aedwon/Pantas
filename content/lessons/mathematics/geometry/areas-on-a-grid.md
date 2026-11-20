@@ -15,9 +15,9 @@ keyPoints:
 
 ### Areas on a Grid
 
-A **polygon** is a closed flat shape made of straight sides. On a square grid, count the little squares inside it. On a dot grid, imagine horizontal and vertical lines joining neighboring dots.
+A **polygon** is a closed flat shape made of straight sides. On a square grid, count the little squares inside it.
 
-If neighboring lines or dots are $1$ unit apart, each small square has area $1$ square unit. Count full squares first. Join partial squares when their pieces make full squares. Two half-squares make $1$ square unit.
+If neighboring grid lines are $1$ unit apart, each small square has area $1$ square unit. Count full squares first. Join partial squares when their pieces make full squares. Two half-squares make $1$ square unit.
 
 You can also split a polygon into rectangles and triangles. A rectangle with length $l$ and width $w$ has area:
 
@@ -69,12 +69,12 @@ The methods agree. To compare this garden with another grid shape, find that sha
 
 ## Speed Tricks & Shortcuts
 
-On a grid, count spaces between dots to measure a side. Use counting for small shapes. Split into rectangles and triangles when that gives fewer calculations. Use a surrounding rectangle when the missing pieces are simple.
+Count grid spaces along a horizontal or vertical side to measure it. Use counting for small shapes. Split into rectangles and triangles when that gives fewer calculations. Use a surrounding rectangle when the missing pieces are simple.
 
 ## Traps to Watch For
 
-### #1: Counting Dots as Area
+### #1: Counting Grid Corners as Area
 
-> Count square spaces, not dots.
+> Count square spaces to find the area.
 
-Dots show positions. They do not fill the polygon. A slanted boundary may cut through squares, so count those pieces by their areas.
+Grid corners show positions. They do not fill the polygon. A slanted boundary may cut through squares, so count those pieces by their areas.
