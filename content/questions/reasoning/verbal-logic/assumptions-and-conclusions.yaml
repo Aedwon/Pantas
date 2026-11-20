@@ -655,3 +655,601 @@ questions:
           This turns the order of events into a cause. Reviewing came first. Check whether the record says it caused or required approval.
     explanation: |
       The record gives an action and its order: the supervisor reviewed the request, then approved it. That supports the stated sequence. No reason for the approval is recorded.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0029
+    approved: false
+    lesson: lesson-verbal-logic-needed-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: easy
+    stem: |
+      A school paper argues that the canteen should post ingredient lists beside its food trays. Some students avoid dishes when they cannot tell what is in them. The staff already keep written recipes. Which statement gives the paper's main conclusion?
+    choices:
+      - text: "The canteen should display ingredient lists."
+        correct: true
+      - text: "Some students skip dishes with unknown ingredients."
+        rationale: |
+          That fact shows why the lists could help. Ask what action the paper wants the canteen to take.
+      - text: "The canteen staff already keep written recipes."
+        rationale: |
+          That fact makes the plan sound doable. Look for the change the paper is asking for.
+      - text: "Students should ask the canteen staff about ingredients."
+        rationale: |
+          Asking staff sounds like another way to get the facts. Check which action the paper actually calls for.
+    explanation: |
+      The paper uses the students' needs and the written recipes to back one point. It wants the canteen to show what is in each dish.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0030
+    approved: false
+    lesson: lesson-verbal-logic-negating-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: easy
+    stem: |
+      A museum guide claims that every jar in the exhibit has a readable label. Which observation is enough to disprove the claim?
+    choices:
+      - text: "A jar has an unreadable label."
+        correct: true
+      - text: "A few jars have labels that visitors can still read."
+        rationale: |
+          Reading a few labels may seem like a test of the claim. Look for a jar whose label fails the test.
+      - text: "Several labels list the towns where the jars were made."
+        rationale: |
+          The labels give details, which may seem to matter. Check if the claim is about what the labels say or whether people can read them.
+      - text: "A visitor has not yet read the labels on every jar."
+        rationale: |
+          It is easy to mix up an unread label with one that cannot be read. Ask if a visitor could read the label by trying.
+    explanation: |
+      The guide says every jar passes the same test. One jar with a label you cannot read breaks that claim.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0031
+    approved: false
+    lesson: lesson-verbal-logic-negating-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: easy
+    stem: |
+      A barangay treasurer assumes that at least one receipt in a folder lacks a signature. Which audit result would establish that the assumption is false?
+    choices:
+      - text: "Every receipt in the folder is signed."
+        correct: true
+      - text: "One of the receipts in the folder is signed."
+        rationale: |
+          A signed receipt may seem to clear the folder. Check whether an unsigned receipt could still be in it.
+      - text: "More receipts are signed than are unsigned."
+        rationale: |
+          Most of the forms could be fine. Check if even one unsigned receipt could remain.
+      - text: "No receipt in the folder bears a signature."
+        rationale: |
+          This flips the wrong group. If none is signed, then the unsigned receipts are the very ones the treasurer says exist.
+    explanation: |
+      The treasurer's claim needs even one unsigned receipt. If every receipt is signed, there is no such receipt.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0032
+    approved: false
+    lesson: lesson-verbal-logic-compound-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: easy
+    stem: |
+      A quality inspector accepts a sack of rice only if its seal is intact and its batch code is legible. Which finding is sufficient to show that the sack fails the stated inspection?
+    choices:
+      - text: "The seal on the sack is torn."
+        correct: true
+      - text: "The batch code remains easy to read."
+        rationale: |
+          A clear code may catch your eye because it is part of the test. Check if that finding shows a failed step.
+      - text: "The inspector read the batch code before examining the seal."
+        rationale: |
+          The order might sound like part of the rule. Look for a finding about the seal or code itself.
+      - text: "The sack came from a batch inspected earlier in the week."
+        rationale: |
+          An earlier check may seem to settle the issue. Check what the inspector found on this sack.
+    explanation: |
+      The sack needs a good seal and a clear code. A torn seal fails one of those tests. One failure is enough.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0033
+    approved: false
+    lesson: lesson-verbal-logic-none-and-may
+    keyPoint: 1
+    type: single_choice
+    difficulty: easy
+    stem: |
+      At a school plant fair, the list of plants for sale has no overlap with the list of plants on loan. Which label would reveal an error in the lists?
+    choices:
+      - text: "For sale and on loan"
+        correct: true
+      - text: "For sale and grown by students"
+        rationale: |
+          Two labels may look like a clash. Match them with the two lists the rule keeps apart.
+      - text: "On loan and grown outside the school"
+        rationale: |
+          A plant can come from outside the school and be on loan. Check if the label also puts it up for sale.
+      - text: "On display and absent from both lists"
+        rationale: |
+          A plant on display may seem to need a spot on a list. Check if the rule says every plant must be on one.
+    explanation: |
+      The two lists share no plants. If a plant is for sale and on loan, it would be on both lists.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0034
+    approved: false
+    lesson: lesson-verbal-logic-none-and-may
+    keyPoint: 2
+    type: single_choice
+    difficulty: easy
+    stem: |
+      A school circular says, “Classes may shift online next week.” Which headline preserves the meaning of the notice?
+    choices:
+      - text: "Online Classes Possible Next Week"
+        correct: true
+      - text: "School Confirms Shift to Online Classes Next Week"
+        rationale: |
+          A headline may sound clearer with a firm claim. Look for words in the notice that make the shift certain.
+      - text: "School Rules Out Online Classes for Next Week"
+        rationale: |
+          The lack of a firm plan may sound like a decision to stay in class. Check if the notice still leaves a shift open.
+      - text: "Online Classes Expected to Continue Into Next Week"
+        rationale: |
+          The word “continue” makes it sound like classes are online now. Check if the notice says that has already happened.
+    explanation: |
+      The notice leaves a shift online open. The word “possible” keeps that meaning.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0035
+    approved: false
+    lesson: lesson-verbal-logic-best-supported-conclusions
+    keyPoint: 1
+    type: single_choice
+    difficulty: easy
+    stem: |
+      In a Quezon City repair shop's booking log, customers asked for services in both English and Filipino. The log does not identify their first languages or say why they used either language. Which conclusion is best supported?
+    choices:
+      - text: "The shop received requests in both languages."
+        correct: true
+      - text: "Most customers chose the language they first learned at home."
+        rationale: |
+          The language used at home may seem like a good guess. Look for facts on what customers learned first.
+      - text: "Customers used Filipino mainly for more complicated repairs."
+        rationale: |
+          A different language might help some people explain a problem. Check if the log links language to how tough a repair was.
+      - text: "Individual customers generally switched between the two languages."
+        rationale: |
+          The whole log uses both languages, which may make switching sound likely. Check if the same customers used both.
+    explanation: |
+      The booking log contains requests in English and requests in Filipino. That is enough to show that the shop received both kinds.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0036
+    approved: false
+    lesson: lesson-verbal-logic-unsupported-causes-and-motives
+    keyPoint: 1
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Street vendors moved their stalls to a covered court on the same morning that the city closed part of the market road. The report gives no reason for the move. Which edit would remove the unsupported claim from the line “The vendors moved to the court because of the road closure”?
+    choices:
+      - text: "The vendors moved to the court on the morning of the closure."
+        correct: true
+      - text: "The vendors moved to avoid being blocked by city workers."
+        rationale: |
+          A road closure might block the stalls. Check if the report says the vendors wanted to avoid the workers.
+      - text: "The vendors moved in order to keep serving their regular customers."
+        rationale: |
+          The move may have helped keep customers. Check if the report gives that as a reason for moving.
+      - text: "The vendors' move prompted the city to close part of the road."
+        rationale: |
+          The two events may seem linked since they happened on the same day. Check for proof that the move led to the closure.
+    explanation: |
+      The report puts the move and the closure on the same morning. The edit keeps that fact and leaves the reason open.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0037
+    approved: false
+    lesson: lesson-verbal-logic-recognizing-bias
+    keyPoint: 1
+    type: single_choice
+    difficulty: easy
+    stem: |
+      Two school paper headlines describe the same student council vote. One reads “Council Delays Decision on Fair Schedule.” The other reads “Council Stalls Again While Clubs Do the Real Work.” What in the second headline most clearly favors one side?
+    choices:
+      - text: "It credits the clubs and belittles the council."
+        correct: true
+      - text: "It identifies the council as the group making the decision."
+        rationale: |
+          Naming the group might draw attention to it. Look for words that judge how the group acts.
+      - text: "It leaves out the date on which the vote took place."
+        rationale: |
+          A date could help readers place the vote. Ask whether leaving it out makes either group look better.
+      - text: "It gives readers less detail than the full news story would."
+        rationale: |
+          A headline has little room for detail. Check if the words it does use treat both sides fairly.
+    explanation: |
+      “Real work” gives the clubs the credit. “Stalls again” makes the council sound like it is wasting time. Those words take sides.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0038
+    approved: false
+    lesson: lesson-verbal-logic-recognizing-bias
+    keyPoint: 1
+    type: single_choice
+    difficulty: easy
+    stem: |
+      A barangay bulletin calls a drainage plan “a gift for sensible residents.” Which revision would best remove the bias from that phrase while keeping the subject?
+    choices:
+      - text: "A proposed drainage plan for residents"
+        correct: true
+      - text: "A long-awaited drainage plan for the neighborhood"
+        rationale: |
+          “Long-awaited” sounds positive. Check if the bulletin shows that people have been waiting for it.
+      - text: "A drainage plan for residents who understand the problem"
+        rationale: |
+          That wording sounds calmer than “sensible.” It still praises one group as wiser. Check who the new words leave out.
+      - text: "A drainage plan that even its critics should welcome"
+        rationale: |
+          Mentioning critics may sound fair. Check if the new words still tell people what they ought to think.
+    explanation: |
+      The revision says what the plan is and whom it serves. It leaves people free to judge the plan for themselves.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0039
+    approved: false
+    lesson: lesson-verbal-logic-must-be-true-conclusions
+    keyPoint: 2
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Every specimen in a Cebu science exhibit's tray is cataloged. Some specimens in the tray are shells. What must also be true?
+    choices:
+      - text: "Some cataloged specimens are shells."
+        correct: true
+      - text: "Every cataloged shell is in the exhibit tray."
+        rationale: |
+          The tray contains cataloged shells, so it may seem to hold them all. Check if the rule covers specimens outside the tray.
+      - text: "At least one specimen in the tray is something other than a shell."
+        rationale: |
+          In daily speech, “some” can sound like “only some.” Try a tray filled with shells and see if the facts still fit.
+      - text: "Every specimen in the tray is a shell."
+        rationale: |
+          The shells get special mention, which might make them seem like the whole tray. Check if “some” tells you about every specimen.
+    explanation: |
+      Start with any shell in the tray. Every item there is cataloged, so that shell is cataloged too. This gives at least one cataloged shell.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0040
+    approved: false
+    lesson: lesson-verbal-logic-negating-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: medium
+    stem: |
+      A clinic's report assumes, “No sample rejected at intake was listed as accepted in the final log.” Which audit finding is precisely the negation of that assumption?
+    choices:
+      - text: "A rejected sample was listed as accepted."
+        correct: true
+      - text: "A sample accepted at intake was listed as rejected in the final log."
+        rationale: |
+          This also sounds like a mix-up. Check which group the report starts with.
+      - text: "Every sample rejected at intake was listed as accepted in the final log."
+        rationale: |
+          This would break the claim, but it asks for too much. See if a single bad entry would be enough.
+      - text: "A sample rejected at intake was absent from the final log altogether."
+        rationale: |
+          A missing entry may be a problem. Check if the claim bans missing entries or entries marked as accepted.
+    explanation: |
+      The report rules out even one rejected sample listed as accepted. Finding a single case makes the claim false.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0041
+    approved: false
+    lesson: lesson-verbal-logic-compound-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: medium
+    stem: |
+      A note on a school lab worksheet reads, “The water sample came from the rain barrel or the cistern, possibly from both.” If the note is false, which description must be accurate?
+    choices:
+      - text: "The sample came from neither source."
+        correct: true
+      - text: "The sample came from the cistern but not the rain barrel."
+        rationale: |
+          It may seem enough to rule out the barrel. Check whether the cistern alone still fits the note.
+      - text: "The sample came from the rain barrel but not the cistern."
+        rationale: |
+          It may seem enough to cross off the cistern. Check whether the rain barrel alone makes the note true.
+      - text: "The sample did not contain water from both sources."
+        rationale: |
+          Ruling out a mix sounds like a denial. Try a sample from just one source and ask if the note would still fit.
+    explanation: |
+      The note allows the barrel alone, the cistern alone, or both. It fails only when the sample comes from neither.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0042
+    approved: false
+    lesson: lesson-verbal-logic-compound-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: medium
+    stem: |
+      A committee's recommendation rests on the claim that a proposed footbridge crosses the creek and connects directly to the school path. An engineer finds that the bridge crosses the creek but ends at a fenced lot with no direct access to the path. What does the finding establish about the claim?
+    choices:
+      - text: "It fails because one required link is missing."
+        correct: true
+      - text: "The finding confirms the claim since the bridge provides the creek crossing."
+        rationale: |
+          Crossing the creek is a big part of the plan. Check if the claim also needs the bridge to reach the path.
+      - text: "The claim remains undecided until both proposed features have been disproved."
+        rationale: |
+          Testing both features may sound careful. Ask how many need to fail when the claim requires both.
+      - text: "The finding shows that neither of the proposed features will be present."
+        rationale: |
+          The claim as a whole fails, which may sound like both parts fail. Read what the engineer found about the crossing.
+    explanation: |
+      The claim needs two things. The bridge crosses the creek, but it misses the school path. That is enough to make the full claim false.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0043
+    approved: false
+    lesson: lesson-verbal-logic-none-and-may
+    keyPoint: 2
+    type: single_choice
+    difficulty: medium
+    stem: |
+      A health center says, “Walk-in consultations may resume on Friday.” A radio host reports, “Walk-in consultations will resume on Friday.” Which change in meaning did the host introduce?
+    choices:
+      - text: "The host made the restart sound certain."
+        correct: true
+      - text: "The host moved the expected restart to an earlier day."
+        rationale: |
+          A change in wording may sound like a change in the schedule. Compare the days named in both statements.
+      - text: "The host changed which type of consultation the notice covered."
+        rationale: |
+          A shorter report might leave out a group. Check whether both statements still name walk-in consultations.
+      - text: "The host said consultations would run on Fridays from then on."
+        rationale: |
+          A Friday restart may sound like a new weekly schedule. Look for words that refer to more than one Friday.
+    explanation: |
+      The health center said a Friday restart was possible. The host used “will,” which says the restart is set.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0044
+    approved: false
+    lesson: lesson-verbal-logic-best-supported-conclusions
+    keyPoint: 1
+    type: single_choice
+    difficulty: medium
+    stem: |
+      A Davao school offered both print and audio copies of a short story. The borrowing record shows that the print copies were checked out more often. The school had made more print copies than audio copies available. Which claim has the strongest support?
+    choices:
+      - text: "Print copies had more recorded loans."
+        correct: true
+      - text: "The difference in the number of copies explains the difference in loans."
+        rationale: |
+          Having more copies may help raise loans. Check if the record shows that this is what made the difference.
+      - text: "Given equal access, students would still choose print more often."
+        rationale: |
+          The larger loan count can look like a clear choice. Check if the students had equal access during the trial.
+      - text: "The print edition reached more individual students than the audio edition."
+        rationale: |
+          More loans can sound like more readers. Check if the same student could have borrowed a copy more than once.
+    explanation: |
+      The record counts more checkouts for print. That is enough to compare the loan totals.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0045
+    approved: false
+    lesson: lesson-verbal-logic-best-supported-conclusions
+    keyPoint: 1
+    type: single_choice
+    difficulty: medium
+    stem: |
+      A barangay asked residents to mark places where they had trouble crossing a road. The maps submitted named several locations, and the junction by the bakery appeared on more maps than any other location. The forms recorded locations but did not ask how often residents crossed there. Which conclusion is best supported?
+    choices:
+      - text: "The bakery junction was marked most often."
+        correct: true
+      - text: "Residents cross at the bakery junction more often than elsewhere."
+        rationale: |
+          Many marks can make a crossing look busy. Check if the maps counted trips or places people found hard to cross.
+      - text: "The bakery junction had the most serious crossing problems."
+        rationale: |
+          A high number of reports may sound like a sign of danger. Check whether the maps rate how serious each problem was.
+      - text: "Most residents who submitted maps marked the bakery junction."
+        rationale: |
+          First place can sound like a majority. Check if a place could get the most marks while still appearing on fewer than half the maps.
+    explanation: |
+      The bakery junction appeared on more of the returned maps than any other place. That makes it the most often marked location.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0046
+    approved: false
+    lesson: lesson-verbal-logic-unsupported-causes-and-motives
+    keyPoint: 1
+    type: single_choice
+    difficulty: medium
+    stem: |
+      A school garden's pechay grew faster after students changed its watering schedule. During the same week, the students also moved the trays from a shaded hallway to a sunny courtyard. Why is it premature to credit the watering schedule alone?
+    choices:
+      - text: "The move also changed the plants' light."
+        correct: true
+      - text: "The faster growth began after students changed the watering schedule."
+        rationale: |
+          That timing makes the schedule seem important. Check if timing points to just one change or fits both.
+      - text: "The students kept the same kind of vegetable throughout the trial."
+        rationale: |
+          Using the same vegetable may seem like a reason to doubt the result. Look for what did change along with the watering.
+      - text: "The move proves that sunlight was the only cause of the increase."
+        rationale: |
+          More sun may help the plants grow. Check if the trial tested the move by itself before giving it all the credit.
+    explanation: |
+      The plants got a new watering schedule and more light at the same time. Either change could have helped them grow faster.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0047
+    approved: false
+    lesson: lesson-verbal-logic-unsupported-causes-and-motives
+    keyPoint: 1
+    type: single_choice
+    difficulty: medium
+    stem: |
+      After a town hall meeting, Mariel took down the poster she had put up to promote a proposal. Her coworker claims that she took it down because she had changed her mind. Which detail would most directly support that explanation?
+    choices:
+      - text: "Mariel says she removed it because she withdrew her support."
+        correct: true
+      - text: "Other workers took down their own posters after the meeting."
+        rationale: |
+          Their actions may make the change seem common. Check if anyone explains why Mariel took hers down.
+      - text: "The proposal faced strong opposition during the town hall meeting."
+        rationale: |
+          Opposition could make someone rethink a plan. Look for a sign that it changed Mariel's own view.
+      - text: "Mariel had put the poster in a hallway used by meeting attendees."
+        rationale: |
+          The spot shows that she wanted people to see the poster. Check if it tells you what she thought after the meeting.
+    explanation: |
+      Mariel gives her own reason for taking the poster down. Her change of mind is now backed by what she says.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0048
+    approved: false
+    lesson: lesson-verbal-logic-recognizing-bias
+    keyPoint: 1
+    type: single_choice
+    difficulty: medium
+    stem: |
+      An Iloilo cooperative newsletter reports on two proposed market sites. It describes traders with stalls near the first site as “experienced vendors” and traders with equally long records near the second as “people protecting their turf.” What gives the clearest evidence of bias?
+    choices:
+      - text: "Similar groups are described in unequal terms."
+        correct: true
+      - text: "Both groups have a financial interest in the site decision."
+        rationale: |
+          Their interests may shape their own views. Check how the newsletter treats the two groups.
+      - text: "The newsletter reports on the two sites under consideration."
+        rationale: |
+          A report with only two sites may look narrow. Check whether the choice of words favors one of those sites.
+      - text: "The newsletter identifies where the traders currently operate."
+        rationale: |
+          Their locations matter to the plan, so this may stand out. Look for the words that give each group a good or bad name.
+    explanation: |
+      The two groups have worked for about as long. The paper praises one group's skill and makes the other group sound selfish.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0049
+    approved: false
+    lesson: lesson-verbal-logic-recognizing-bias
+    keyPoint: 1
+    type: single_choice
+    difficulty: medium
+    stem: |
+      A campus magazine says its article presents student views on a proposal to charge for parking. The editor invites only members of a club formed to oppose the fee. The article quotes those members accurately. Which criticism identifies the main source of bias?
+    choices:
+      - text: "The invitations favored one viewpoint."
+        correct: true
+      - text: "The editor needed to print each student's full statement."
+        rationale: |
+          A short quote can sometimes hide context. Check if the passage says any quote was changed or used unfairly.
+      - text: "The quoted members should have avoided expressing an opinion about the fee."
+        rationale: |
+          Strong opinions may sound unfair. Look at who was asked to speak and who was left out.
+      - text: "The article should have addressed campus transport issues besides parking."
+        rationale: |
+          A broader article could cover more ground. Check how the editor chose views on the issue the article did cover.
+    explanation: |
+      Only students in the group against the fee were asked. Even correct quotes can give a one-sided picture when all the voices come from one side.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0050
+    approved: false
+    lesson: lesson-verbal-logic-negating-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: hard
+    stem: |
+      A school records officer assumes that every form returned by a class adviser contained at least one parent signature. Which finding states the exact condition under which that assumption fails?
+    choices:
+      - text: "An adviser returned a form with no parent signature."
+        correct: true
+      - text: "A parent left some adviser-returned forms unsigned even though another parent signed each one."
+        rationale: |
+          Seeing a missing signature may make a form seem to fail. Check whether the claim needs every parent to sign or just one.
+      - text: "No form returned by any class adviser contained a parent signature."
+        rationale: |
+          This would make the claim false, but it goes too far. Ask if a single form could break the rule.
+      - text: "At least one form without a parent signature was never returned by a class adviser."
+        rationale: |
+          The form has no signature, but check which forms the claim covers. It counts forms advisers did return.
+    explanation: |
+      The claim is about each form the advisers returned. Take away every parent signature from just one of those forms and the claim fails.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0051
+    approved: false
+    lesson: lesson-verbal-logic-compound-assumptions
+    keyPoint: 1
+    type: single_choice
+    difficulty: hard
+    stem: |
+      A coastal monitoring team assumes that the station has a working battery and at least one of its two memory cards has room. Which statement is the exact negation of that assumption?
+    choices:
+      - text: "The battery fails or neither card has room."
+        correct: true
+      - text: "The battery fails and both memory cards are full."
+        rationale: |
+          All of these failures would stop the plan. Check if the battery failing by itself would already be enough.
+      - text: "The battery fails or at least one memory card is full."
+        rationale: |
+          A full card sounds like a problem. Try a good battery and one card with room to see if the original claim still holds.
+      - text: "The battery works but neither of the two memory cards has room."
+        rationale: |
+          Full cards do break the claim. Check whether this answer also covers a failed battery.
+    explanation: |
+      A good battery is needed. Room on even one card is enough for the other part. The claim fails if the battery fails or if both cards lack room.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0052
+    approved: false
+    lesson: lesson-verbal-logic-none-and-may
+    keyPoint: 1
+    type: single_choice
+    difficulty: hard
+    stem: |
+      The roster for a provincial debate meet has separate lists for judges, speakers, and observers. No judge is also listed as a speaker. Some observers are on the judges' list, and no other restrictions are given. Which conclusion is required?
+    choices:
+      - text: "Some observers are not speakers."
+        correct: true
+      - text: "The observers who are speakers must also be on the judges' list."
+        rationale: |
+          The lists for observers and judges overlap, which may make them seem linked for every observer. Check what happens when a speaker is put on the judges' list.
+      - text: "The observers who are outside the judges' list must be speakers."
+        rationale: |
+          Being left off one list may make it seem that the other is the only choice. Check if an observer can be on neither list.
+      - text: "No observer can appear on the speakers' list at this meet."
+        rationale: |
+          Some observers are kept off the speakers' list. Check if the rule covers every observer or just those who are judges.
+    explanation: |
+      At least one observer is a judge. Judges cannot be speakers, so that observer is outside the speakers' list.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0053
+    approved: false
+    lesson: lesson-verbal-logic-best-supported-conclusions
+    keyPoint: 1
+    type: single_choice
+    difficulty: hard
+    stem: |
+      A Laguna packing plant trialed two types of fruit crate. On long routes, fruit in slotted crates arrived with less damage on average. On short routes, fruit in solid crates arrived with less damage on average. The report gives no overall result across both route groups. Which statement best reflects the results?
+    choices:
+      - text: "The better crate differed by route length."
+        correct: true
+      - text: "Either crate is equally effective across all of the routes combined."
+        rationale: |
+          Each style led in one group, which may look like a tie. Check if each group had the same weight in the total.
+      - text: "Slotted crates should replace solid crates on routes of either length."
+        rationale: |
+          The long-route result may seem to settle the choice. Check which crate did better on the short routes.
+      - text: "Solid crates protected the fruit better across the trial as a whole."
+        rationale: |
+          The short-route result may make solid crates sound better overall. Check if the report gives a result for both sets of routes together.
+    explanation: |
+      Slotted crates led on long routes. Solid crates led on short routes. The lead changed with the route length.
+
+  - id: q-verbal-logic-assumptions-and-conclusions-0054
+    approved: false
+    lesson: lesson-verbal-logic-unsupported-causes-and-motives
+    keyPoint: 1
+    type: single_choice
+    difficulty: hard
+    stem: |
+      Lowland rice plots assigned new seed trays had fewer failed seedlings than upland plots assigned the old trays. The field team credited the new trays. Which follow-up would most directly test that claim?
+    choices:
+      - text: "Compare both tray types on similar plots at one elevation."
+        correct: true
+      - text: "Repeat the trial with more lowland plots using new trays and more upland plots using old trays."
+        rationale: |
+          A bigger test may sound stronger. Check if it still changes two things at once.
+      - text: "Compare the two elevations using only new trays at both locations."
+        rationale: |
+          This could show a difference between locations. Check if the test also gives you evidence about the old trays.
+      - text: "Use the new trays on one crop and the old trays on a different crop at the same site."
+        rationale: |
+          Using one site helps keep the land alike. Check what else changes when the tray type changes.
+    explanation: |
+      The first test changes the trays and the height of the land at the same time. Testing both trays at the same height helps show what difference the trays make.
