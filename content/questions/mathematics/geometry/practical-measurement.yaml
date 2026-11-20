@@ -414,6 +414,25 @@ questions:
     type: direct-computation
     difficulty: exam
     figure: practical-measurement-grid-comparison
+    figureSpec:
+      kind: grid-polygon
+      panels:
+        - title: P
+          width: 6
+          height: 4
+          vertices:
+            - [0, 0]
+            - [6, 0]
+            - [4, 4]
+            - [0, 4]
+        - title: Q
+          width: 5
+          height: 5
+          vertices:
+            - [0, 0]
+            - [5, 0]
+            - [5, 5]
+            - [0, 3]
     stem: |
       Two polygons are drawn on dot grids with the same unit spacing. Polygon P has vertices $(0,0)$, $(6,0)$, $(4,4)$, and $(0,4)$. Polygon Q has vertices $(0,0)$, $(5,0)$, $(5,5)$, and $(0,3)$. Join each list in order and close it. Which pair gives the areas of P and Q, respectively, in square units?
     choices:
