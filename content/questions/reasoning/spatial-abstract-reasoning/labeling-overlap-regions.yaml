@@ -1,0 +1,51 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: labeling-overlap-regions
+  exams: [pshs-nce]
+questions:
+  - id: q-spatial-abstract-reasoning-labeling-overlap-regions-0001
+    approved: true
+    lesson: lesson-spatial-abstract-reasoning-labeling-overlap-regions
+    keyPoint: 1
+    type: statement-inference
+    difficulty: easy
+    stem: |
+      Two overlapping circles are labeled A and B. Their centers are 6 cm apart, and each circle has radius 5 cm. Point P is halfway between the centers. Which region contains P?
+    choices:
+      - text: "Inside both A and B"
+        correct: true
+      - text: "Inside A only"
+        rationale: |
+          This checks the distance to A alone. The two halves are equal. Check the distance to B as well.
+      - text: "Inside B only"
+        rationale: |
+          This checks the distance to B alone. The same radius applies to A. Compare both distances with it.
+      - text: "Outside both A and B"
+        rationale: |
+          This uses the full 6 cm as each distance. P is halfway between the centers. Divide 6 by 2 before comparing with the radius.
+    explanation: |
+      P is 3 cm from each center. That is less than the radius of 5 cm, so both circles contain P.
+
+  - id: q-spatial-abstract-reasoning-labeling-overlap-regions-0002
+    approved: true
+    lesson: lesson-spatial-abstract-reasoning-labeling-overlap-regions
+    keyPoint: 1
+    type: statement-inference
+    difficulty: medium
+    stem: |
+      Rectangles L and R each have a height of 3 units. Their bottom edges lie on the same straight line. L runs from position 0 to position 5 along that line, and R runs from position 3 to position 8. Point P is 1 unit directly above position 6. Which region contains P?
+    choices:
+      - text: "Inside R only"
+        correct: true
+      - text: "Inside both L and R"
+        rationale: |
+          This uses the shared height as proof of overlap. The point fits that height. Check whether its horizontal position also fits L.
+      - text: "Inside L only"
+        rationale: |
+          This swaps the horizontal spans. Both rectangles start below P. Check which span includes position 6.
+      - text: "Outside both L and R"
+        rationale: |
+          This stops after checking that 6 is beyond L. That rules out L only. Compare 6 with both ends of R.
+    explanation: |
+      P is 1 unit above the bottom and below the 3-unit top. Its horizontal position, 6, lies between 3 and 8, beyond the right edge of L.

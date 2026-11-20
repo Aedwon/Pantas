@@ -1,0 +1,51 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: matching-two-dots
+  exams: [pshs-nce]
+questions:
+  - id: q-spatial-abstract-reasoning-matching-two-dots-0001
+    approved: true
+    lesson: lesson-spatial-abstract-reasoning-matching-two-dots
+    keyPoint: 1
+    type: statement-inference
+    difficulty: easy
+    stem: |
+      Two circles A and B overlap without either containing the other. A square frame completely encloses both. P must be inside A, outside B, and inside the frame. Q must be inside both circles and inside the frame. Where can the dots go?
+    choices:
+      - text: "P in the part of A beyond B, and Q in the overlap"
+        correct: true
+      - text: "P in the overlap, and Q in the part of A beyond B"
+        rationale: |
+          This picks the two relevant regions. It swaps the records. Check which dot must also be inside B.
+      - text: "P outside both circles but inside the frame, and Q in the overlap"
+        rationale: |
+          This puts Q in the shared interior and keeps P outside B. P is outside A as well. Check the shape that must contain P.
+      - text: "P in the part of A beyond B, and Q in the part of B beyond A"
+        rationale: |
+          This places P correctly. Q is in B only. Check both circle interiors for Q.
+    explanation: |
+      The frame contains both circles. The part of A beyond B gives P its record. The shared interior gives Q its record.
+
+  - id: q-spatial-abstract-reasoning-matching-two-dots-0002
+    approved: true
+    lesson: lesson-spatial-abstract-reasoning-matching-two-dots
+    keyPoint: 1
+    type: statement-inference
+    difficulty: medium
+    stem: |
+      P must lie inside circle T but outside circle S. Q must lie inside S but outside T. The dots must fit the same arrangement. Which arrangement works?
+    choices:
+      - text: "The circles cross at two points, and neither contains the other."
+        correct: true
+      - text: "The circles have identical centers and radii."
+        rationale: |
+          This gives a shared interior. Every point inside one circle is also inside the other. Check for a region that belongs to each circle alone.
+      - text: "T lies entirely inside S."
+        rationale: |
+          This leaves space for Q in S beyond T. It leaves no point in T outside S. Check P's record too.
+      - text: "S lies entirely inside T."
+        rationale: |
+          This leaves space for P in T beyond S. It leaves no point in S outside T. Check Q's record too.
+    explanation: |
+      When the outlines cross and neither circle contains the other, each circle has some interior space outside the other. Put one dot in each of those regions.

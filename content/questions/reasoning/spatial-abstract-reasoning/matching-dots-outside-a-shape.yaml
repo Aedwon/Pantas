@@ -1,0 +1,51 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: matching-dots-outside-a-shape
+  exams: [pshs-nce]
+questions:
+  - id: q-spatial-abstract-reasoning-matching-dots-outside-a-shape-0001
+    approved: true
+    lesson: lesson-spatial-abstract-reasoning-matching-dots-outside-a-shape
+    keyPoint: 1
+    type: statement-inference
+    difficulty: easy
+    stem: |
+      Circle A sits entirely inside circle B. The two outlines have a gap between them. A dot must stay outside A and inside B. Where can it go?
+    choices:
+      - text: "Between the two outlines"
+        correct: true
+      - text: "Inside A"
+        rationale: |
+          This puts the point inside B because B contains A. It also puts the point inside the excluded circle. Check A separately.
+      - text: "On the outline of A"
+        rationale: |
+          This leaves the interior of A. The point still touches its outline. Choose a point past that outline.
+      - text: "Beyond the outline of B"
+        rationale: |
+          This gets outside A. It also leaves B. Keep the point on the inside of B's outline.
+    explanation: |
+      A point between the outlines lies past A's edge while staying within B's edge.
+
+  - id: q-spatial-abstract-reasoning-matching-dots-outside-a-shape-0002
+    approved: true
+    lesson: lesson-spatial-abstract-reasoning-matching-dots-outside-a-shape
+    keyPoint: 1
+    type: statement-inference
+    difficulty: medium
+    stem: |
+      Three circles have a shared center. A has radius 8 cm, B has radius 4 cm, and C has radius 6 cm. A dot must be inside A and outside both B and C. How far from the center can it be?
+    choices:
+      - text: "7 cm"
+        correct: true
+      - text: "3 cm"
+        rationale: |
+          This keeps the dot in A. It is also closer than both smaller radii. Check both circles that the dot must stay outside.
+      - text: "5 cm"
+        rationale: |
+          This clears the edge of B. It is still within C. Check the greater of the two excluded radii.
+      - text: "9 cm"
+        rationale: |
+          This clears the two smaller circles. It also goes past A. Check the largest distance the included circle allows.
+    explanation: |
+      At 7 cm the dot is farther from the center than the radii of B and C. It is closer than the radius of A.

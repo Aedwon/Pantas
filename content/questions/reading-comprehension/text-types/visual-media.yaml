@@ -297,7 +297,7 @@ questions:
 - id: q-text-types-visual-media-0011
   type: feature-of-form
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'Which month has the second-highest sales in the classroom exercise?
 
     '
@@ -323,7 +323,7 @@ questions:
 - id: q-text-types-visual-media-0012
   type: purpose-of-device
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Why can the second bar chart exaggerate the apparent sales gap?
 
     '
@@ -349,7 +349,7 @@ questions:
 - id: q-text-types-visual-media-0013
   type: feature-of-form
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which claim is supported by the monthly figures?
 
     '
@@ -375,7 +375,7 @@ questions:
 - id: q-text-types-visual-media-0014
   type: feature-of-form
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Which reading of the line chart follows the lesson''s scale guidance?
 
     '
@@ -401,7 +401,7 @@ questions:
 - id: q-text-types-visual-media-0015
   type: purpose-of-device
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'What is the main purpose of placing both bar charts together?
 
     '
@@ -427,7 +427,7 @@ questions:
 - id: q-text-types-visual-media-0016
   type: purpose-of-device
   difficulty: easy
-  approved: false
+  approved: true
   stem: 'What creates the reversal in the noticeboard comic?
 
     '
@@ -453,7 +453,7 @@ questions:
 - id: q-text-types-visual-media-0017
   type: feature-of-form
   difficulty: medium
-  approved: false
+  approved: true
   stem: 'Why must the comic''s panels be read as a sequence?
 
     '
@@ -479,7 +479,7 @@ questions:
 - id: q-text-types-visual-media-0018
   type: purpose-of-device
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'What does the contrast in lettering size suggest about the club poster?
 
     '
@@ -505,7 +505,7 @@ questions:
 - id: q-text-types-visual-media-0019
   type: purpose-of-device
   difficulty: hard
-  approved: false
+  approved: true
   stem: 'Which interpretation best fits the comic''s treatment of responsibility?
 
     '
@@ -531,7 +531,7 @@ questions:
 - id: q-text-types-visual-media-0020
   type: purpose-of-device
   difficulty: exam
-  approved: false
+  approved: true
   stem: 'Why is Mara''s silent pointing effective in the final panel?
 
     '

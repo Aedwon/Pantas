@@ -1,0 +1,51 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: matching-dot-placement
+  exams: [pshs-nce]
+questions:
+  - id: q-spatial-abstract-reasoning-matching-dot-placement-0001
+    approved: true
+    lesson: lesson-spatial-abstract-reasoning-matching-dot-placement
+    keyPoint: 1
+    type: statement-inference
+    difficulty: easy
+    stem: |
+      A dot is inside a square and a circle. In a new arrangement, the circle lies entirely inside the square, with a gap between their outlines. Which placement keeps the original record?
+    choices:
+      - text: "At the center of the circle"
+        correct: true
+      - text: "Between the circle and the square's outline"
+        rationale: |
+          This stays inside the square. It gives a point you can place. Check that the point must stay inside the circle too.
+      - text: "On the circle's outline"
+        rationale: |
+          This stays within the square and touches the circle. Touching its outline is different from being inside. Use a spot in the circle's interior.
+      - text: "Beyond the square's outline"
+        rationale: |
+          This moves the dot away from the old spot. Its position can change. Check that it must still be inside the square.
+    explanation: |
+      The center is inside the circle. The square contains the entire circle, so the center is inside the square as well.
+
+  - id: q-spatial-abstract-reasoning-matching-dot-placement-0002
+    approved: true
+    lesson: lesson-spatial-abstract-reasoning-matching-dot-placement
+    keyPoint: 1
+    type: statement-inference
+    difficulty: medium
+    stem: |
+      A dot is inside a circle and outside a square. In a new arrangement, the two shapes have the same center. The square has side length 10 cm, and the circle has radius 4 cm. Does any point match the original record?
+    choices:
+      - text: "No, because the square contains the whole circle."
+        correct: true
+      - text: "Yes, at the common center."
+        rationale: |
+          This puts the dot inside the circle. The center also lies in the square. Check the original outside condition.
+      - text: "Yes, near a corner inside the square."
+        rationale: |
+          This can get outside the circle. It leaves the dot inside the square. Check which shape the dot must be outside.
+      - text: "Yes, just beyond the middle of a square side."
+        rationale: |
+          This gets outside the square. That side is already 5 cm from the center. Compare that distance with the circle's radius.
+    explanation: |
+      Each square side is 5 cm from the center. The circle reaches only 4 cm in any direction. No point inside the circle is outside the square.

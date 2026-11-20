@@ -369,7 +369,7 @@ questions:
           This treats first-person writing as necessarily memoir. The writer says I. Check whether the text reflects on childhood or argues a current policy.
     explanation: |
       The byline identifies Rosa as writing in her personal capacity. She argues for a crossing policy, which makes this individual commentary.
-    approved: false
+    approved: true
   - id: "q-text-types-essays-editorials-articles-0017"
     passage: "p-text-types-essays-editorials-articles-0004"
     type: "feature-of-form"
@@ -390,7 +390,7 @@ questions:
           This treats a named author as evidence of neutrality. Reports have bylines too. Check the explicit recommendations.
     explanation: |
       The byline states that Rosa writes personally. It separates her argument from a publication's institutional position.
-    approved: false
+    approved: true
   - id: "q-text-types-essays-editorials-articles-0018"
     passage: "p-text-types-essays-editorials-articles-0004"
     type: "feature-of-form"
@@ -411,7 +411,7 @@ questions:
           This treats supporting evidence as final certainty. Visibility is relevant. Check the recommendation to test and review the change.
     explanation: |
       The blocked sightlines explain why the writer recommends moving pickup farther away. Observations are used as evidence in an argument.
-    approved: false
+    approved: true
   - id: "q-text-types-essays-editorials-articles-0019"
     passage: "p-text-types-essays-editorials-articles-0004"
     type: "feature-of-form"
@@ -432,7 +432,7 @@ questions:
           This treats personal authorship as memoir. The byline names a teacher. Check whether the piece recounts a past life lesson.
     explanation: |
       Rosa recommends a trial, acknowledges walking concerns, and asks for observation. Those choices develop a reasoned argument in a calm voice.
-    approved: false
+    approved: true
   - id: "q-text-types-essays-editorials-articles-0020"
     passage: "p-text-types-essays-editorials-articles-0004"
     type: "feature-of-form"
@@ -453,4 +453,4 @@ questions:
           This relies on a label while the function stays the same. News labels are useful cues. Check whether the text itself remains a personal argument.
     explanation: |
       Straight reporting could describe Rosa's proposal as her position and include attributed responses. The reporter's task would be presenting those developments.
-    approved: false
+    approved: true

@@ -1,0 +1,51 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: dots-on-shape-boundaries
+  exams: [pshs-nce]
+questions:
+  - id: q-spatial-abstract-reasoning-dots-on-shape-boundaries-0001
+    approved: true
+    lesson: lesson-spatial-abstract-reasoning-dots-on-shape-boundaries
+    keyPoint: 1
+    type: statement-inference
+    difficulty: easy
+    stem: |
+      A dot touches the side of a triangle, but its center is clearly inside the triangle. A second dot is centered exactly on the side. How should you record the two dots in order?
+    choices:
+      - text: "Inside, on the boundary"
+        correct: true
+      - text: "On the boundary, on the boundary"
+        rationale: |
+          This counts any ink touching the outline. Both dots touch it. Check where each center lies.
+      - text: "Inside, inside"
+        rationale: |
+          This counts the ink that lies inside the triangle. Some of the second dot enters it. Locate the center of that dot.
+      - text: "On the boundary, outside"
+        rationale: |
+          This uses the outer edge of each mark. The second mark extends beyond the outline. Check the two centers instead.
+    explanation: |
+      The first center is inside the triangle. The second center is on its outline. A dot's center decides the record.
+
+  - id: q-spatial-abstract-reasoning-dots-on-shape-boundaries-0002
+    approved: true
+    lesson: lesson-spatial-abstract-reasoning-dots-on-shape-boundaries
+    keyPoint: 1
+    type: statement-inference
+    difficulty: medium
+    stem: |
+      Two circles have a shared center. The inner circle has radius 2 cm and the outer circle has radius 5 cm. Dot P has its center exactly 5 cm from their shared center. What is P's record?
+    choices:
+      - text: "Outside the inner circle and on the outer boundary"
+        correct: true
+      - text: "Outside the inner circle and inside the outer circle"
+        rationale: |
+          This compares P with both radii. At exactly 5 cm it has reached the edge of the outer circle. Use the boundary record when the distance equals the radius.
+      - text: "On the inner boundary and inside the outer circle"
+        rationale: |
+          This notices that P is on an outline. The smaller outline is only 2 cm from the center. Check which radius equals the dot's distance.
+      - text: "Outside both circles"
+        rationale: |
+          This correctly places P beyond the inner circle. Its distance equals 5 cm. Outside the outer circle would require a distance greater than 5 cm.
+    explanation: |
+      P is farther away than the inner radius of 2 cm. Its distance equals the outer radius, so its center sits on the outer outline.
