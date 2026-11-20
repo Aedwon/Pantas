@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 3
 partCount: 7
-ordering: 0
+ordering: 27
 keyPoints:
   - "Explain how visual contrast and exaggeration support a cartoon’s point."
   - "Identify irony from the gap between words and events."

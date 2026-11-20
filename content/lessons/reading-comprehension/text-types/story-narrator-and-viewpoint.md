@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 4
 partCount: 6
-ordering: 0
+ordering: 13
 keyPoints:
   - "Distinguish first person, third person limited, and third person omniscient."
 ---

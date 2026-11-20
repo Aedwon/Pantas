@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 9
 partCount: 9
-ordering: 0
+ordering: 24
 keyPoints:
   - "Identify the cause of a communication breakdown and choose a matching repair."
 ---

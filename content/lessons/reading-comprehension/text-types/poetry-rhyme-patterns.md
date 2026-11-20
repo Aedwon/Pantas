@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 3
 partCount: 5
-ordering: 0
+ordering: 7
 keyPoints:
   - "Use ending sounds to identify a rhyme scheme."
   - "Distinguish internal rhyme from near rhyme."

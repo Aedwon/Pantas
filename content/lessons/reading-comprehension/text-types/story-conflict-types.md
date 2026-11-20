@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 3
 partCount: 6
-ordering: 0
+ordering: 12
 keyPoints:
   - "Distinguish an inner struggle from a conflict with an outside force."
   - "Identify which outside force opposes a character."

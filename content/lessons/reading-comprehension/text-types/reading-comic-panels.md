@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 1
 partCount: 7
-ordering: 0
+ordering: 25
 keyPoints:
   - "Use panel order to explain what changes in a comic."
   - "Use visible details and their arrangement to support an interpretation."

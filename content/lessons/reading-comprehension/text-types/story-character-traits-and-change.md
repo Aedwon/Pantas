@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 2
 partCount: 6
-ordering: 0
+ordering: 11
 keyPoints:
   - "Use a character’s actions to infer traits."
   - "Judge character complexity and change separately."
@@ -23,7 +23,7 @@ Two questions about a character are different:
 - **Round or flat?** This is about complexity. A round character has several sides, which may clash. A flat character shows only one or two traits.
 - **Dynamic or static?** This is about change. A dynamic character changes in a big way. A static character stays the same.
 
-A flat character can change, and a round character can stay the same. Example 5 works both cases.
+A flat character can change, and a round character can stay the same. Example 1 works both cases.
 
 ## Examples
 

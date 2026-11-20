@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 4
 partCount: 5
-ordering: 0
+ordering: 8
 keyPoints:
   - "Recognize alliteration, assonance, and consonance."
   - "Explain how repetition and pauses shape rhythm."

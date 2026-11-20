@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 1
 partCount: 9
-ordering: 0
+ordering: 16
 keyPoints:
   - "Identify the audience and occasion from the words."
   - "Find the main purpose of a speech with one or more aims."

@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 6
 partCount: 7
-ordering: 0
+ordering: 30
 keyPoints:
   - "Compare sectors using angles or stated shares."
   - "Use a sector’s share and the whole to find its amount."

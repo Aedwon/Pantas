@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 7
 partCount: 7
-ordering: 0
+ordering: 31
 keyPoints:
   - "Use the requested row, column, and unit to check a statement."
 ---

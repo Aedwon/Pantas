@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 1
 partCount: 5
-ordering: 0
+ordering: 5
 keyPoints:
   - "Recognize similes and metaphors by what they compare."
   - "Recognize personification when something nonhuman acts like a person."

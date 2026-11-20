@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 4
 partCount: 7
-ordering: 0
+ordering: 28
 keyPoints:
   - "Read and rank bar values using the labels and scale."
   - "Explain how a truncated axis changes the visible gap between values."

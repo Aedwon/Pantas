@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 3
 partCount: 4
-ordering: 0
+ordering: 3
 keyPoints:
   - "Identify reflection in a personal essay."
   - "Distinguish explanation, analysis, and argument by the writer’s main task."

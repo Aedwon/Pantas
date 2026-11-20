@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 6
 partCount: 6
-ordering: 0
+ordering: 15
 keyPoints:
   - "Use repeated choices and results to infer a theme."
 ---

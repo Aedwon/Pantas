@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 3
 partCount: 9
-ordering: 0
+ordering: 18
 keyPoints:
   - "Use word choice to identify a speech style."
   - "Distinguish scripted from extemporaneous speech."

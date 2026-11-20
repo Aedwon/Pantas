@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 4
 partCount: 9
-ordering: 0
+ordering: 19
 keyPoints:
   - "Use context to distinguish requests, promises, warnings, and other speech acts."
 ---

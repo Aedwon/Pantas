@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 5
 partCount: 6
-ordering: 0
+ordering: 14
 keyPoints:
   - "Explain how the setting affects characters or mood."
   - "Use style to infer mood or the author’s aim."

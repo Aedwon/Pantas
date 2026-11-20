@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 5
 partCount: 5
-ordering: 0
+ordering: 9
 keyPoints:
   - "Identify sensory imagery and test possible meanings of a symbol."
   - "Use details to explain the speaker’s tone or the poem’s meaning."

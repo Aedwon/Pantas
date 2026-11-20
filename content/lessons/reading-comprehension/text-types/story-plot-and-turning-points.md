@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 1
 partCount: 6
-ordering: 0
+ordering: 10
 keyPoints:
   - "Identify the turning point in a story."
   - "Use the events shown to tell what an ending leaves open."

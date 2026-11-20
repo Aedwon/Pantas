@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 6
 partCount: 9
-ordering: 0
+ordering: 21
 keyPoints:
   - "Check the source, method, and relevance of evidence."
 ---

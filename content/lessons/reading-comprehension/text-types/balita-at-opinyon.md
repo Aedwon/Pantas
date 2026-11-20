@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 4
 partCount: 4
-ordering: 0
+ordering: 4
 keyPoints:
   - "Ihambing ang layunin ng balita at opinyon."
   - "Kilalanin kung kanino galing ang pahayag."

@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 5
 partCount: 9
-ordering: 0
+ordering: 20
 keyPoints:
   - "Recognize how a speaker builds credibility."
   - "Distinguish appeals to emotion from appeals that give reasons."

@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 8
 partCount: 9
-ordering: 0
+ordering: 23
 keyPoints:
   - "Identify repetition and parallel structure and explain their effect."
   - "Identify a rhetorical question by its purpose."

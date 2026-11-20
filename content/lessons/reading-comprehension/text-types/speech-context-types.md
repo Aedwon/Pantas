@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 2
 partCount: 9
-ordering: 0
+ordering: 17
 keyPoints:
   - "Distinguish intrapersonal, interpersonal, public, and mass communication."
 ---

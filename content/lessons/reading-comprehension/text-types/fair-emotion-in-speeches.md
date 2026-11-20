@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 7
 partCount: 9
-ordering: 0
+ordering: 22
 keyPoints:
   - "Distinguish fair emotional appeal from manipulation."
 ---

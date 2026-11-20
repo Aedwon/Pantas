@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 2
 partCount: 4
-ordering: 0
+ordering: 2
 keyPoints:
   - "Tell a publication’s view from an individual writer’s view."
   - "Explain how facts and reasons support an opinion."

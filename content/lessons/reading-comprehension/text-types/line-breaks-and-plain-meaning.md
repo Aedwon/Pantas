@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 2
 partCount: 5
-ordering: 0
+ordering: 6
 keyPoints:
   - "Read a statement across a line break and explain its plain meaning."
 ---

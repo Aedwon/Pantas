@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 1
 partCount: 4
-ordering: 0
+ordering: 1
 keyPoints:
   - "Recognize a news report by its main purpose."
   - "Use attribution to tell who made a claim."

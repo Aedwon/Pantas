@@ -7,7 +7,7 @@ topic: "topic-text-types"
 isActive: true
 part: 2
 partCount: 7
-ordering: 0
+ordering: 26
 keyPoints:
   - "Interpret labeled symbols in context."
 ---
