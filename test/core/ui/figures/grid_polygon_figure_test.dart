@@ -266,9 +266,7 @@ void main() {
         testWidgets('${entry.key} ${dark ? 'dark' : 'light'}', (tester) async {
           await loadDsFonts();
           final image = await render(tester, entry.value, dark: dark);
-          final data = (await tester.runAsync(
-            () => image.toByteData(),
-          ))!;
+          final data = (await tester.runAsync(image.toByteData))!;
           // The outline is the app accent: some pixels carry exactly it.
           final colors = (dark ? buildDarkTheme() : buildLightTheme())
               .extension<PantasColors>()!;
