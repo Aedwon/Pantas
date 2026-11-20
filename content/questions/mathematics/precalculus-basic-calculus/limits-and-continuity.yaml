@@ -468,4 +468,4 @@ questions:
       The value at $4$ differs from the nearby target. That can look like a break in the limit. Check whether the two sides head toward the same value.
   explanation: |
     The values of $f(x)$ head toward $7$ on both sides of $4$. That shared value is the limit.
-  approved: false
+  approved: true

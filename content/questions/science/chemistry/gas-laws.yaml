@@ -649,7 +649,7 @@ questions:
       At low pressure particles are far apart. At high temperature they move fast. Their size and attractions have less effect.
 
   - id: q-chemistry-gas-laws-0029
-    approved: false
+    approved: true
     lesson: lesson-chemistry-avogadros-volume-mole-law
     keyPoint: 1
     type: 'simple-quantitative'

@@ -569,7 +569,7 @@ questions:
           Using many sites helps because each records waves along a different path. Check what else the team needs from each site. It needs the wave records.
     explanation: |
       Drills reach only a small part of the way into Earth. Earthquake waves travel much deeper. They can bend or change speed at a boundary. Scientists use their arrival times at different sites to find where that happens.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0025
     lesson: lesson-earth-science-astronomy-faults-and-seismic-waves
@@ -592,7 +592,7 @@ questions:
           Both S waves and surface waves arrive after P waves. Check their paths. S waves are body waves, so they travel through rock inside Earth.
     explanation: |
       P waves move faster than S waves through the rock. Both start together and cover the same distance. The P waves get there first.
-    approved: false
+    approved: true
 
   - id: q-earth-science-astronomy-plate-tectonics-0026
     lesson: lesson-earth-science-astronomy-seismic-shadow-zones
@@ -615,4 +615,4 @@ questions:
           This gives each wave one of the two effects, but swaps the waves. Check which type can travel through a liquid.
     explanation: |
       P waves can pass through the liquid outer core. They bend there, so they miss some stations and reach others farther away. S waves cannot pass through liquid, so those stations receive no direct S waves.
-    approved: false
+    approved: true

@@ -5,7 +5,7 @@ meta:
   exams: ['dlsucet']
 questions:
 - id: 'q-statistics-and-probability-normal-distribution-areas-0001'
-  approved: false
+  approved: true
   lesson: lesson-statistics-and-probability-normal-distribution-areas
   keyPoint: 1
   type: 'which-is-true'
@@ -27,7 +27,7 @@ questions:
   explanation: |
     $F(6)$ gives the chance of waiting $6$ minutes or less. That chance is $0.27$.
 - id: 'q-statistics-and-probability-normal-distribution-areas-0002'
-  approved: false
+  approved: true
   lesson: lesson-statistics-and-probability-normal-distribution-areas
   keyPoint: 2
   type: 'direct-computation'
@@ -49,7 +49,7 @@ questions:
   explanation: |
     Each edge is $12$ grams from $500$. That is one standard deviation on each side. The rule puts about $68\%$ in this band.
 - id: 'q-statistics-and-probability-normal-distribution-areas-0003'
-  approved: false
+  approved: true
   lesson: lesson-statistics-and-probability-normal-distribution-areas
   keyPoint: 3
   type: 'direct-computation'
@@ -71,7 +71,7 @@ questions:
   explanation: |
     The score is $64-76=-12$ points from the mean. Divide by the standard deviation to get $z=\dfrac{-12}{8}=-1.5$.
 - id: 'q-statistics-and-probability-normal-distribution-areas-0004'
-  approved: false
+  approved: true
   lesson: lesson-statistics-and-probability-normal-distribution-areas
   keyPoint: 4
   type: 'which-is-true'
@@ -93,7 +93,7 @@ questions:
   explanation: |
     Row $0.9$ and column $0.05$ give $z=0.95$. The entry gives the chance of $Z$ being $0.95$ or less.
 - id: 'q-statistics-and-probability-normal-distribution-areas-0005'
-  approved: false
+  approved: true
   lesson: lesson-statistics-and-probability-normal-distribution-areas
   keyPoint: 1
   type: 'word-problem'
@@ -115,7 +115,7 @@ questions:
   explanation: |
     The area up to $505$ mL includes the area up to $490$ mL. Take that smaller area away to get $0.71-0.18=0.53$.
 - id: 'q-statistics-and-probability-normal-distribution-areas-0006'
-  approved: false
+  approved: true
   lesson: lesson-statistics-and-probability-normal-distribution-areas
   keyPoint: 2
   type: 'word-problem'
@@ -137,7 +137,7 @@ questions:
   explanation: |
     The cutoff is $9$ mm below the mean, or three standard deviations. About $99.7\%$ lies in the middle band. The two equal tails share $0.3\%$, so the lower tail has about $0.15\%$.
 - id: 'q-statistics-and-probability-normal-distribution-areas-0007'
-  approved: false
+  approved: true
   lesson: lesson-statistics-and-probability-normal-distribution-areas
   keyPoint: 3
   type: 'word-problem'
@@ -159,7 +159,7 @@ questions:
   explanation: |
     Three quarters of $8$ minutes is $6$ minutes. The minus sign puts the time below the mean. The time was $34-6=28$ minutes.
 - id: 'q-statistics-and-probability-normal-distribution-areas-0008'
-  approved: false
+  approved: true
   lesson: lesson-statistics-and-probability-normal-distribution-areas
   keyPoint: 4
   type: 'direct-computation'
@@ -181,7 +181,7 @@ questions:
   explanation: |
     The table gives $0.9332$ to the left of $1.50$. The whole area is $1$, so the area to the right is $1-0.9332=0.0668$.
 - id: 'q-statistics-and-probability-normal-distribution-areas-0009'
-  approved: false
+  approved: true
   lesson: lesson-statistics-and-probability-normal-distribution-areas
   keyPoint: 1
   type: 'word-problem'
@@ -203,7 +203,7 @@ questions:
   explanation: |
     The share at or below $7.8$ mm is $0.09$. The share above $8.2$ mm is $1-0.82=0.18$. These two groups do not overlap, so the share that fails is $0.09+0.18=0.27$.
 - id: 'q-statistics-and-probability-normal-distribution-areas-0010'
-  approved: false
+  approved: true
   lesson: lesson-statistics-and-probability-normal-distribution-areas
   keyPoint: 4
   type: 'word-problem'

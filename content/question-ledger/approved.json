@@ -6233,6 +6233,12 @@
     "hash": "d7fcd4550113169e0759a8230858149107b5a184fdeec1de99986916509363c7",
     "lesson": "lesson-chemistry-when-real-gases-deviate"
   },
+  "q-chemistry-gas-laws-0029": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "da009b6d5588257c6ef4392165da9dd1530a626d90c4bfbfd4613b4c7f4ec3e1",
+    "lesson": "lesson-chemistry-avogadros-volume-mole-law"
+  },
   "q-chemistry-history-of-the-atom-0001": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
@@ -10990,6 +10996,24 @@
     "evidence": "docs/content/verification/cet-split.md",
     "hash": "46383f0655d883d554032768cc95daab02a80b8fb4b2ef656e07f23ce4b21b4e",
     "lesson": "lesson-earth-science-astronomy-philippine-tectonic-hazards"
+  },
+  "q-earth-science-astronomy-plate-tectonics-0024": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "1c7dd09e58f67cba60cc16a008307bcb4391b129a32272d091ebc95a1a6228b9",
+    "lesson": "lesson-earth-science-astronomy-evidence-from-seismic-waves"
+  },
+  "q-earth-science-astronomy-plate-tectonics-0025": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "65b53b4a0cb5df26e9ecb025a3b1e63b97bfa3f2373f3f63c8f3edd54b2e0277",
+    "lesson": "lesson-earth-science-astronomy-faults-and-seismic-waves"
+  },
+  "q-earth-science-astronomy-plate-tectonics-0026": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "d4b4bdc8c92854b5ef66606798167f0abc56c197c9dfd54cd2ded4070f9e07b3",
+    "lesson": "lesson-earth-science-astronomy-seismic-shadow-zones"
   },
   "q-earth-science-astronomy-stars-and-galaxies-0001": {
     "approvedAt": "2026-11-19",
@@ -19673,6 +19697,12 @@
     "hash": "0ccdb9ff2327c89e5e34963e676d6f3da447f12c1401bc8bbbd9a1b53ea3d2da",
     "lesson": "lesson-physics-mirror-and-lens-image-equations"
   },
+  "q-physics-light-and-optics-0036": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "364780700317b140fc2d317267950ec2326a76cdfd14738e46513f0922194e5b",
+    "lesson": "lesson-physics-converging-and-diverging-lenses"
+  },
   "q-physics-light-and-optics-0041": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
@@ -21383,6 +21413,12 @@
     "hash": "26306a429555b6f7d78c2c5ad544a20217516f71372dc482ad58347ed9167431",
     "lesson": "lesson-precalculus-basic-calculus-direct-substitution-for-limits"
   },
+  "q-precalculus-basic-calculus-limits-and-continuity-0021": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "4b700ab5a8167a081099dc0f9f739e8d5be215c5c276f2dab67d45e01dc8703b",
+    "lesson": "lesson-precalculus-basic-calculus-direct-substitution-for-limits"
+  },
   "q-spatial-abstract-reasoning-figure-grouping-0001": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-exam-tags.md",
@@ -22715,6 +22751,12 @@
     "hash": "cbc49a636f644ca8d0e134b770076ca0838a49c3caae18f6c010dcda2a304501",
     "lesson": "lesson-statistics-and-probability-choosing-a-measure-of-center"
   },
+  "q-statistics-and-probability-measures-of-central-tendency-0021": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "eeb5f991279a6a56341bcd41d325b4d1daa6aa379e460e1976a25152cadb5277",
+    "lesson": "lesson-statistics-and-probability-arithmetic-mean-and-missing-values"
+  },
   "q-statistics-and-probability-measures-of-variability-0001": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-split.md",
@@ -22858,6 +22900,66 @@
     "evidence": "docs/content/verification/cet-split.md",
     "hash": "b91214b55bf58ffc63b42d34b4b666a993aa5170e8fc6b6831d5bec7ba3781c1",
     "lesson": "lesson-statistics-and-probability-expected-value-and-variance"
+  },
+  "q-statistics-and-probability-normal-distribution-areas-0001": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "bc7f94b1344a7b3e19580430ede8512f774c1383fb356489514149a43b82d447",
+    "lesson": "lesson-statistics-and-probability-normal-distribution-areas"
+  },
+  "q-statistics-and-probability-normal-distribution-areas-0002": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "55f600e348538067f0e40dd7e930b5fe2498fb770a63e66b8e49601a4168c1e6",
+    "lesson": "lesson-statistics-and-probability-normal-distribution-areas"
+  },
+  "q-statistics-and-probability-normal-distribution-areas-0003": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "cb2ca58d0fc52920a4cdcdc444900d1216085ce1f490a53cf62c51d568e3f0cc",
+    "lesson": "lesson-statistics-and-probability-normal-distribution-areas"
+  },
+  "q-statistics-and-probability-normal-distribution-areas-0004": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "c0e3fb00e2bf4a4ee527d68c5d199f6a30fd1f8c780d0911ece39a2f50758315",
+    "lesson": "lesson-statistics-and-probability-normal-distribution-areas"
+  },
+  "q-statistics-and-probability-normal-distribution-areas-0005": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "a85430a391bbb0c814143bdf3eecff1009f6416bb1116e872c9aa66669266d5f",
+    "lesson": "lesson-statistics-and-probability-normal-distribution-areas"
+  },
+  "q-statistics-and-probability-normal-distribution-areas-0006": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "33b87a498d9bcf0fdf81f1039cfe96c5c80d99a3adf8b5ada833489843921074",
+    "lesson": "lesson-statistics-and-probability-normal-distribution-areas"
+  },
+  "q-statistics-and-probability-normal-distribution-areas-0007": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "aad4867f1b93049996c6235b5e2cd6c1a0b5cdc60a7090c2b59ffd740ae313ea",
+    "lesson": "lesson-statistics-and-probability-normal-distribution-areas"
+  },
+  "q-statistics-and-probability-normal-distribution-areas-0008": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "5acc833364095d95331884deef136004978b8588625aa34f9bb839e799a44e8d",
+    "lesson": "lesson-statistics-and-probability-normal-distribution-areas"
+  },
+  "q-statistics-and-probability-normal-distribution-areas-0009": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "a05ad901768fa7cc68c1f479474b209a137996ab2ce828d70554b3e870195c16",
+    "lesson": "lesson-statistics-and-probability-normal-distribution-areas"
+  },
+  "q-statistics-and-probability-normal-distribution-areas-0010": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "012fff5416a9d80e429536779a912be1f679481309f0d18f9f466efebe0136f6",
+    "lesson": "lesson-statistics-and-probability-normal-distribution-areas"
   },
   "q-text-types-poetry-0016": {
     "approvedAt": "2026-11-19",

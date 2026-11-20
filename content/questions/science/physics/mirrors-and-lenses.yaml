@@ -485,4 +485,4 @@ questions:
           Both images are virtual and upright, but their sizes are swapped. Check which lens helps you see small details by making them look bigger.
     explanation: |
       The letter is inside the focal length of the magnifying glass, so it looks upright and bigger. The concave lens makes it look upright and smaller. Both images are virtual. The rays only look as if they come from the image.
-    approved: false
+    approved: true

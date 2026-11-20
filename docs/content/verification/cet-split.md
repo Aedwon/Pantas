@@ -38,3 +38,7 @@ The independent re-check changed one question's wording (q-chemistry-stoichiomet
 ## ACET verbal logic pool (November 20, 2026)
 
 GPT 6.2 Sol wrote 26 new questions (ids 0029 to 0054 in `reasoning/verbal-logic/assumptions-and-conclusions.yaml`) so the pool reaches 54 for the 45 ACET slots. A separate GPT 6.2 Sol run solved the file blind: 34 of 34 solved questions matched, including all 26 new ones, 0 mismatches, 0 low confidence. The 26 are approved on that solve.
+
+## Normal-curve lesson, pool gaps, mocks (November 20, 2026)
+
+GPT 6.2 Sol wrote 10 questions for the new normal-curve lesson (DCAT only) and 7 gap questions in six older lessons whose pools fell short after the audit fixes. A separate GPT 6.2 Sol run solved the files blind: 10 of 10 for the normal-curve file and 118 of 118 for the five gap files, 0 mismatches, 0 low confidence. The 17 new questions are approved on those solves.
