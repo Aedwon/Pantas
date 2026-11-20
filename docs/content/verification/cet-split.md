@@ -212,3 +212,18 @@ A separate solver received only the 23 new questions with shuffled choices. `mer
 - `q-text-types-visual-media-0023` B. Ninety degrees is one quarter of the circle, and one quarter of 80 is 20.
 - `q-text-types-visual-media-0024` B. West went from 27 on Tuesday to 24 on Wednesday, a drop of three.
 - `q-text-types-visual-media-0025` B. The afternoon entry for Garden B is 18, and the unit in the heading is liters.
+
+### Grid polygon figures
+
+Policy and content tools `fd6789a45314d18dbfd62e265691368c970e3779`. Content base `b85c6fcda339d0c821773f278c067cb2a0fb7bd8`. Renderer `a0dad3cfbafdb740f4a71150a7e99f826c5b13b4`.
+
+A separate solver received only the four stems, shuffled choices, and proposed figure data. The packet used `render_packet` and `shuffled_order` from `tools/content_rewrite/question_check/build_packets.py`. Packet SHA-256 `b3d8a49b5112728066ef03c8d77a9eb7877405141c0e6864029f058fb0519a0d`. `merge_solves.py` recorded 4 matches, 0 mismatches, 0 low-confidence answers, and 0 missing or invalid answers. Letters below follow the shuffled packet.
+
+- `q-geometry-practical-measurement-0006` E. The rectangle and triangle give 20 + 6 = 26 square units.
+- `q-geometry-practical-measurement-0012` A. Subtract the corner triangle from the surrounding rectangle to get 30 − 3 = 27 square units.
+- `q-geometry-practical-measurement-0016` E. P has area 24 − 4 = 20. Q has area 25 − 5 = 20. The figure remains pending because PR #77 scales the two grids independently. At 358 logical pixels of available width, P uses about 25.83 per cell and Q uses 31. The stem says the grids have the same unit spacing.
+- `q-arithmetic-number-sense-counting-and-digit-patterns-0014` A. Removing the corner breaks one square of each size. The complete grid has 30, leaving 26.
+
+`tool/content/approve.dart` exited 0 for 0006, 0012, and the counting question 0014. `lesson_checks.dart`, `content_gate.dart`, and main's question validator each exited 0. The content patch SHA-256 from `git diff --binary -- content` is `bc2ca1cfe53086956a5b1ff8a96ef8f8f95ec089167d2845336b9e8f0e11e1c5`. The export SHA-256 is `2c058a7d1037e324d0557a6d1eb80bfd89e9194cc2b096ad56e96b37da206b51`.
+
+The main export gained exactly the three reapproved IDs and lost none. The validator, export, seed SQLite database, and offline upload files preserved the three specs as structured data. The export and seed omit 0016. The offline uploader still includes its existing slug-only row because it reads question YAML directly. Check logs and the blind packet are in `/private/tmp/cet-grid-figures.aR9VC6`.

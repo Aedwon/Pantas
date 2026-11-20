@@ -2148,9 +2148,9 @@
     "lesson": "lesson-arithmetic-number-sense-repeating-units-digits"
   },
   "q-arithmetic-number-sense-counting-and-digit-patterns-0014": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "813bc420b158fc7ee92e7937232f9471c03ecb291aafff0714f6c286be32c81a",
+    "hash": "c1a4794fe3caa8498fb3ebb8bfb92e1abea0dd094c740fbc3adb04aec932cbd8",
     "lesson": "lesson-arithmetic-number-sense-counting-squares-by-size"
   },
   "q-arithmetic-number-sense-counting-and-digit-patterns-0015": {
@@ -12960,9 +12960,9 @@
     "lesson": "lesson-geometry-cube-edges-from-volume"
   },
   "q-geometry-practical-measurement-0006": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "38bcec06faf3b95098fdcf201d7495a815dc21eca8c136e9e9f3dc27a948c52e",
+    "hash": "4f14078962b0879045a1569ef5929624d0334152e9ce93d31cd9ab94f861c39e",
     "lesson": "lesson-geometry-areas-on-a-grid"
   },
   "q-geometry-practical-measurement-0007": {
@@ -12996,9 +12996,9 @@
     "lesson": "lesson-geometry-cube-edges-from-volume"
   },
   "q-geometry-practical-measurement-0012": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "7533edadd5136ba64c93a8696f9f8c12a8b1fea53124cbb9e3a76e8c300b6d2c",
+    "hash": "1a1787a4a0fcbf8494f881ae4fed2462ed0556749a00492ce45ae895fd2e4b32",
     "lesson": "lesson-geometry-areas-on-a-grid"
   },
   "q-geometry-practical-measurement-0013": {

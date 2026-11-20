@@ -349,6 +349,12 @@ questions:
     type: direct-computation
     difficulty: hard
     figure: counting-digit-patterns-missing-corner-14
+    figureSpec:
+      kind: grid-polygon
+      width: 4
+      height: 4
+      gridWithinPolygon: true
+      vertices: [[0, 0], [4, 0], [4, 3], [3, 3], [3, 4], [0, 4]]
     stem: |
       The figure starts as a complete $4$ by $4$ grid of unit squares. The upper-right cell is removed along with its top and right outer edges. All boundaries of the other cells remain. How many complete squares of all sizes have sides along the remaining grid lines?
     choices:

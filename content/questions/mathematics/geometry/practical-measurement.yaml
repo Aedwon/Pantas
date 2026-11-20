@@ -141,6 +141,12 @@ questions:
     type: direct-computation
     difficulty: medium
     figure: practical-measurement-grid-split
+    figureSpec:
+      kind: grid-polygon
+      width: 8
+      height: 4
+      vertices: [[0, 0], [8, 0], [5, 4], [0, 4]]
+      xTicks: [0, 5, 8]
     stem: |
       A polygon on a unit square grid has vertices $(0,0)$, $(8,0)$, $(5,4)$, and $(0,4)$, joined in that order. Split it into a rectangle and a right triangle. What is its area in square units?
     choices:
@@ -298,6 +304,11 @@ questions:
     type: direct-computation
     difficulty: hard
     figure: practical-measurement-grid-surrounding
+    figureSpec:
+      kind: grid-polygon
+      width: 6
+      height: 5
+      vertices: [[0, 0], [6, 0], [6, 2], [4, 5], [0, 5]]
     stem: |
       On a unit dot grid, a polygon has vertices $(0,0)$, $(6,0)$, $(6,2)$, $(4,5)$, and $(0,5)$, joined in that order. Use a surrounding rectangle to find its area in square units.
     choices:
