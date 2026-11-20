@@ -418,8 +418,8 @@ class _MockSetupPageState extends State<MockSetupPage> {
               const SizedBox(height: PantasSpace.s2),
               Text(
                 label,
-                style: PantasType.webLead
-                    .copyWith(color: t.colors.secondaryLabel),
+                style:
+                    PantasType.webLead.copyWith(color: t.colors.secondaryLabel),
               ),
             ],
             const SizedBox(height: PantasSpace.s6),
