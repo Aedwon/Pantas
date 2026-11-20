@@ -247,3 +247,13 @@ A separate GPT 6.2 Sol run saw only the stem, shuffled choices, and figure data 
 A standalone headless Flutter run used the exported spec and PR #77 source. Both painters reported 25.833333333333332 logical pixels per unit. The painter draws grid lines through the same unit intersections described by the stem's dot grids. Both polygons are drawn closed, with no splits or area labels. The regular Flutter test runner could not open its loopback socket.
 
 Main's two export commands exited 0 and produced identical JSON with 1,148 links and 204 tags. The export grew from 4,428 to 4,429 questions. The only added ID was 0016. Export SHA-256 `443c1aca33b14a3fafeace687baa92e06a4a920bf3415046310104f281e34bfc`. Seed SQLite and the offline upload files preserved the exact structured spec. The local package verified as `7ad1180d418f3c4e`. Dry run reported `no database was read or written`. Commands, logs, and scratch artifacts are in `/private/tmp/cet-g6.Htpc9o`.
+
+## Noticeboard comic safety reminder rationale
+
+Content base `acd6f1760e31354d9caad89fee212df35961bd26`. Cached `origin/main` policy `fd6789a45314d18dbfd62e265691368c970e3779`. The fetch could not write `FETCH_HEAD`, and GitHub DNS resolution was unavailable. Content tools from `cet-finish-443d02` at `cf54318c4b13bc22c297e75446c4efe3dfc6bb05`.
+
+The passage names the timetable and part of Mara’s note as covered. The revised rationale directs readers to Mara’s request to keep the board clear for official notices. A reread of the passage, stem, choices, other rationales, and explanation found no other mismatch.
+
+A separate GPT 6.2 Sol run received only the passage, stem, and shuffled choices for `q-text-types-visual-media-0016`. It chose B with high confidence: “Gio helps crowd the board with posters, then needs the timetable they covered.” `merge_solves.py` recorded 1 match and 0 mismatches, low-confidence answers, missing files, or invalid answers. Packet SHA-256 `d3e4e5ec4cdbc1abfd7d8af8d9f4b930f11e8efa6422239b48c77ffbc6cb9bb2`. Packet and answer are in `/private/tmp/cet-v2.UxSXp2`.
+
+With `--root` set to `cet-v2/content`, `approve.dart` printed `q-text-types-visual-media-0016: approved` and exited 0. `lesson_checks.dart` and `content_gate.dart` each exited 0 with empty output. All three ran from `cet-finish-443d02` using the Dart 3.12.2 package config saved with the logs in `/private/tmp/cet-v2.UxSXp2`. The approved patch SHA-256 from `git diff --binary -- content` is `e579b0333a55e4e80eed4b77fe5addc5f321f5b58e98ed6b8edff8fdfe98cc1f`.
