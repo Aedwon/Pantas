@@ -257,3 +257,22 @@ The passage names the timetable and part of Mara’s note as covered. The revise
 A separate GPT 6.2 Sol run received only the passage, stem, and shuffled choices for `q-text-types-visual-media-0016`. It chose B with high confidence: “Gio helps crowd the board with posters, then needs the timetable they covered.” `merge_solves.py` recorded 1 match and 0 mismatches, low-confidence answers, missing files, or invalid answers. Packet SHA-256 `d3e4e5ec4cdbc1abfd7d8af8d9f4b930f11e8efa6422239b48c77ffbc6cb9bb2`. Packet and answer are in `/private/tmp/cet-v2.UxSXp2`.
 
 With `--root` set to `cet-v2/content`, `approve.dart` printed `q-text-types-visual-media-0016: approved` and exited 0. `lesson_checks.dart` and `content_gate.dart` each exited 0 with empty output. All three ran from `cet-finish-443d02` using the Dart 3.12.2 package config saved with the logs in `/private/tmp/cet-v2.UxSXp2`. The approved patch SHA-256 from `git diff --binary -- content` is `e579b0333a55e4e80eed4b77fe5addc5f321f5b58e98ed6b8edff8fdfe98cc1f`.
+
+## Square grid wording
+
+Content base `960ec1bdf075db832e72242ab498e106389aa7be`. Policy and tools from cached `origin/main` at `fd6789a45314d18dbfd62e265691368c970e3779`. The sandbox denied the fetch.
+
+A separate blind solve received only the edited stems, shuffled choices, and figure data. `merge_solves.py` reported 2 matches and 0 mismatches, low-confidence answers, missing files, or invalid answers. Both answers had high confidence.
+
+- `q-geometry-practical-measurement-0012` A. A $6$ by $5$ rectangle minus a triangle with legs $2$ and $3$ leaves $27$ square units.
+- `q-geometry-practical-measurement-0016` E. P is $6\times4$ minus half of $2\times4$. Q is $5\times5$ minus half of $5\times2$. Both leave $20$ square units.
+
+Packet SHA-256 `cd3d148f83c652ae74147af211bfb53baeff5b159b8edf8e58c841f4149de9c7`. Packet, answers, and comparison are in `/private/tmp/cet-dg.P5yGDV`.
+
+Main's `approve.dart` printed `q-geometry-practical-measurement-0012: approved` and `q-geometry-practical-measurement-0016: approved`. Approval, `lesson_checks.dart`, `content_gate.dart`, and the question validator exited 0. Content diff SHA-256 `dc1c630bbcbd2e915acc7ab8e2dab12f05234c27538ea3ec82b490634ed2c97e`.
+
+Staging and asset exports exited 0 and matched byte for byte with 1,148 links and 204 tags. Export SHA-256 `306e85a1b0a2fe8f71922cef7cabf4cc55997aaf4e81dc1642544ab7843eae47`. The baseline and updated exports have the same 4,429 question IDs. After excluding timestamps, the only differences were the two stems. The validator, export, seed SQLite, and offline upload JSON contain the revised stems and the same structured figures.
+
+Custom tiers, `run_checks.dart`, the functions build, and both offline uploader modes exited 0. Uploader tests reported 33 passed and 0 failed. Dry run printed `no database was read or written`. The scratch seed and package build passed, and package verification reported `1a21b45717da383f`. No upload was performed.
+
+SVG preflight reported 436 files and 0 failures. Its 7 tests passed and all 29 intentionally invalid fixtures were rejected. Flutter candidate SVG, fixture SVG, and placeholder tests could not start because the sandbox denied the loopback socket. The legacy audit exited 1 on both baseline and candidate with identical output. Command logs are in `/private/tmp/cet-dg.P5yGDV/logs`.

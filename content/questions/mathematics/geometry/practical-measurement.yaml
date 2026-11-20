@@ -310,7 +310,7 @@ questions:
       height: 5
       vertices: [[0, 0], [6, 0], [6, 2], [4, 5], [0, 5]]
     stem: |
-      On a unit dot grid, a polygon has vertices $(0,0)$, $(6,0)$, $(6,2)$, $(4,5)$, and $(0,5)$, joined in that order. Use a surrounding rectangle to find its area in square units.
+      On a unit square grid, a polygon has vertices $(0,0)$, $(6,0)$, $(6,2)$, $(4,5)$, and $(0,5)$, joined in that order. Use a surrounding rectangle to find its area in square units.
     choices:
       - text: '$27$'
         correct: true
@@ -434,7 +434,7 @@ questions:
             - [5, 5]
             - [0, 3]
     stem: |
-      Two polygons are drawn on dot grids with the same unit spacing. Polygon P has vertices $(0,0)$, $(6,0)$, $(4,4)$, and $(0,4)$. Polygon Q has vertices $(0,0)$, $(5,0)$, $(5,5)$, and $(0,3)$. Join each list in order and close it. Which pair gives the areas of P and Q, respectively, in square units?
+      Two polygons are drawn on square grids with the same unit spacing. Polygon P has vertices $(0,0)$, $(6,0)$, $(4,4)$, and $(0,4)$. Polygon Q has vertices $(0,0)$, $(5,0)$, $(5,5)$, and $(0,3)$. Join each list in order and close it. Which pair gives the areas of P and Q, respectively, in square units?
     choices:
       - text: '$(20,20)$'
         correct: true
