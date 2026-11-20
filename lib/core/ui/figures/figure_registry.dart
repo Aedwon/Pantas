@@ -11,6 +11,7 @@ import 'package:pantas/core/ui/figures/figure_series_figure.dart';
 import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
 import 'package:pantas/core/ui/figures/gear_train_figure.dart';
 import 'package:pantas/core/ui/figures/geometry_diagram_figure.dart';
+import 'package:pantas/core/ui/figures/grid_polygon_figure.dart';
 import 'package:pantas/core/ui/figures/lever_balance_figure.dart';
 import 'package:pantas/core/ui/figures/paper_fold_figure.dart';
 import 'package:pantas/core/ui/figures/physics_energy_diagram_figure.dart';
@@ -38,6 +39,7 @@ abstract final class FigureRegistry {
       CubeNetFigure.kind => CubeNetFigure.fromSpec(spec),
       CoordinateGraphFigure.kind => CoordinateGraphFigure.fromSpec(spec),
       GeometryDiagramFigure.kind => GeometryDiagramFigure.fromSpec(spec),
+      GridPolygonFigure.kind => GridPolygonFigure.fromSpec(spec),
       ChartFigure.kind => ChartFigure.fromSpec(spec),
       ConceptDiagramFigure.kind => ConceptDiagramFigure.fromSpec(spec),
       ReadingDiagramFigure.kind => ReadingDiagramFigure.fromSpec(spec),
