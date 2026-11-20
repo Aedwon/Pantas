@@ -42,6 +42,8 @@ passages:
     Think of a student who spends most of a short break waiting and then hurries through a meal. A fairer line could give that student time to eat. Let us test a small change before asking the school to make it permanent.
 questions:
 - id: rc-tt-sp-0001
+  lesson: lesson-text-types-speech-rhetorical-devices
+  keyPoint: 1
   approved: true
   passage: rc-tt-sp-p1
   type: feature-of-form
@@ -68,6 +70,8 @@ questions:
 
     '
 - id: rc-tt-sp-0002
+  lesson: lesson-text-types-speech-audience-and-purpose
+  keyPoint: 1
   approved: true
   passage: rc-tt-sp-p1
   type: purpose-of-device
@@ -94,6 +98,8 @@ questions:
 
     '
 - id: rc-tt-sp-0003
+  lesson: lesson-text-types-speech-rhetorical-appeals
+  keyPoint: 1
   approved: true
   passage: rc-tt-sp-p1
   type: feature-of-form
@@ -120,6 +126,8 @@ questions:
 
     '
 - id: rc-tt-sp-0004
+  lesson: lesson-text-types-speech-audience-and-purpose
+  keyPoint: 2
   approved: true
   passage: rc-tt-sp-p1
   type: feature-of-form
@@ -146,6 +154,8 @@ questions:
 
     '
 - id: rc-tt-sp-0005
+  lesson: lesson-text-types-speech-audience-and-purpose
+  keyPoint: 2
   approved: true
   passage: rc-tt-sp-p1
   type: purpose-of-device
@@ -172,6 +182,8 @@ questions:
 
     '
 - id: rc-tt-sp-0006
+  lesson: lesson-text-types-speech-rhetorical-devices
+  keyPoint: 1
   approved: true
   passage: rc-tt-sp-p2
   type: feature-of-form
@@ -198,6 +210,8 @@ questions:
 
     '
 - id: rc-tt-sp-0007
+  lesson: lesson-text-types-speech-audience-and-purpose
+  keyPoint: 1
   approved: true
   passage: rc-tt-sp-p2
   type: purpose-of-device
@@ -224,6 +238,8 @@ questions:
 
     '
 - id: rc-tt-sp-0008
+  lesson: lesson-text-types-speech-rhetorical-appeals
+  keyPoint: 1
   approved: true
   passage: rc-tt-sp-p2
   type: feature-of-form
@@ -250,6 +266,8 @@ questions:
 
     '
 - id: rc-tt-sp-0009
+  lesson: lesson-text-types-speech-rhetorical-appeals
+  keyPoint: 2
   approved: true
   passage: rc-tt-sp-p2
   type: purpose-of-device
@@ -276,6 +294,8 @@ questions:
 
     '
 - id: rc-tt-sp-0010
+  lesson: lesson-text-types-speech-audience-and-purpose
+  keyPoint: 1
   approved: true
   passage: rc-tt-sp-p2
   type: feature-of-form
@@ -302,6 +322,8 @@ questions:
 
     '
 - id: q-text-types-speeches-0011
+  lesson: lesson-text-types-speech-audience-and-purpose
+  keyPoint: 2
   type: feature-of-form
   difficulty: easy
   approved: true
@@ -328,6 +350,8 @@ questions:
 
     '
 - id: q-text-types-speeches-0012
+  lesson: lesson-text-types-speech-rhetorical-appeals
+  keyPoint: 1
   type: purpose-of-device
   difficulty: medium
   approved: true
@@ -354,6 +378,8 @@ questions:
 
     '
 - id: q-text-types-speeches-0013
+  lesson: lesson-text-types-speech-rhetorical-devices
+  keyPoint: 1
   type: purpose-of-device
   difficulty: hard
   approved: true
@@ -380,6 +406,8 @@ questions:
 
     '
 - id: q-text-types-speeches-0014
+  lesson: lesson-text-types-speech-rhetorical-appeals
+  keyPoint: 1
   type: feature-of-form
   difficulty: hard
   approved: true
@@ -406,6 +434,8 @@ questions:
 
     '
 - id: q-text-types-speeches-0015
+  lesson: lesson-text-types-speech-audience-and-purpose
+  keyPoint: 2
   type: feature-of-form
   difficulty: exam
   approved: true
@@ -432,6 +462,8 @@ questions:
 
     '
 - id: q-text-types-speeches-0016
+  lesson: lesson-text-types-speech-audience-and-purpose
+  keyPoint: 2
   type: feature-of-form
   difficulty: easy
   approved: true
@@ -458,6 +490,8 @@ questions:
 
     '
 - id: q-text-types-speeches-0017
+  lesson: lesson-text-types-speech-rhetorical-appeals
+  keyPoint: 2
   type: feature-of-form
   difficulty: medium
   approved: true
@@ -484,6 +518,8 @@ questions:
 
     '
 - id: q-text-types-speeches-0018
+  lesson: lesson-text-types-speech-rhetorical-devices
+  keyPoint: 2
   type: purpose-of-device
   difficulty: hard
   approved: true
@@ -510,6 +546,8 @@ questions:
 
     '
 - id: q-text-types-speeches-0019
+  lesson: lesson-text-types-speech-rhetorical-appeals
+  keyPoint: 2
   type: purpose-of-device
   difficulty: hard
   approved: true
@@ -536,6 +574,8 @@ questions:
 
     '
 - id: q-text-types-speeches-0020
+  lesson: lesson-text-types-judging-evidence-in-speeches
+  keyPoint: 1
   type: feature-of-form
   difficulty: exam
   approved: true
@@ -561,3 +601,190 @@ questions:
   explanation: 'The speaker calls the proposal a test and asks volunteers to check both groups and staff workload. Continuing only if results justify it makes evidence part of the decision.
 
     '
+- id: "q-text-types-speeches-0021"
+  approved: true
+  lesson: "lesson-text-types-speech-context-types"
+  keyPoint: 1
+  type: "feature-of-form"
+  difficulty: "medium"
+  stem: "A speaker opens with, “Good evening to everyone tuning in on this station. Call the studio with your questions after the bulletin.” Which speech context is most clearly shown?"
+  choices:
+    - text: "Mass communication"
+      correct: true
+    - text: "Interpersonal communication"
+      rationale: "The call-in offer suggests a future conversation. Classify the words being spoken now by who hears them."
+    - text: "Public communication in a shared room"
+      rationale: "One speaker addresses a group, which can suggest public speech. Check whether the listeners are in one place."
+    - text: "Intrapersonal communication"
+      rationale: "Only one person speaks in the excerpt, so it can seem like self-talk. Check whether anyone else is being addressed."
+  explanation: "“Tuning in on this station” shows that the speaker reaches listeners through a broadcast. That is mass communication."
+- id: "q-text-types-speeches-0022"
+  approved: true
+  lesson: "lesson-text-types-speech-context-types"
+  keyPoint: 1
+  type: "feature-of-form"
+  difficulty: "medium"
+  stem: "Which excerpt most clearly shows interpersonal communication?"
+  choices:
+    - text: "“Which form did you bring?” Lito asks. “The blue one,” Tess replies."
+      correct: true
+    - text: "“Honored guests, please take your seats for the awards.”"
+      rationale: "The speaker addresses other people. Check whether there is a conversation between a few people or an address to a group."
+    - text: "“Listeners across the province, stay tuned for the weather.”"
+      rationale: "The speaker says “listeners,” which may sound like a direct exchange. “Stay tuned” tells you how the words reach that audience."
+    - text: "“Take your time,” Nina whispers to herself before opening the door."
+      rationale: "Nina uses words someone could say to a friend. Check who actually hears them."
+  explanation: "Lito asks Tess a question and Tess answers him. The two people take turns speaking to each other."
+- id: "q-text-types-speeches-0023"
+  approved: true
+  lesson: "lesson-text-types-speech-style-and-preparation"
+  keyPoint: 1
+  type: "feature-of-form"
+  difficulty: "medium"
+  stem: "A student at a help desk says, “Excuse me. Could you show me where to enter my student number?” The clerk replies and the student asks a follow-up question. Which speech style best fits the exchange?"
+  choices:
+    - text: "Consultative"
+      correct: true
+    - text: "Formal"
+      rationale: "The words are polite, so they may sound formal. Check whether a speaker addresses a group or two people take turns to exchange information."
+    - text: "Casual"
+      rationale: "The question uses everyday words, which can sound casual. Check whether the tone suggests close friends or a polite exchange with a stranger."
+    - text: "Frozen"
+      rationale: "“Excuse me” is a common set phrase. Check whether the whole exchange follows words that must stay the same each time."
+  explanation: "The student politely asks someone at the desk for information and listens to the reply. The back-and-forth exchange fits a consultative style."
+- id: "q-text-types-speeches-0024"
+  approved: true
+  lesson: "lesson-text-types-speech-style-and-preparation"
+  keyPoint: 2
+  type: "feature-of-form"
+  difficulty: "medium"
+  stem: "Which description gives the clearest evidence that a speech is extemporaneous?"
+  choices:
+    - text: "The speaker uses a list of main points and chooses the exact words while speaking."
+      correct: true
+    - text: "The speaker recites the full text memorized the day before."
+      rationale: "Speaking without a page can look spontaneous. Check whether the exact wording was set in advance."
+    - text: "The speaker reads a prepared text slowly with several pauses."
+      rationale: "The pauses may feel natural. Find out when the words themselves were chosen."
+    - text: "The speaker reads each sentence from a display instead of a printed page."
+      rationale: "The speaker has no paper, which can look unscripted. Check whether the display already gives the wording."
+  explanation: "The list gives the speaker a plan. The speaker chooses the wording in the moment, which makes the speech extemporaneous."
+- id: "q-text-types-speeches-0025"
+  approved: true
+  lesson: "lesson-text-types-speech-acts-in-context"
+  keyPoint: 1
+  type: "purpose-of-device"
+  difficulty: "medium"
+  stem: "At the start of an assembly, the host says, “Could the front row move closer to the aisle, please?” What act does the host perform by saying this?"
+  choices:
+    - text: "Requests that the front row move."
+      correct: true
+    - text: "Checks whether the people can physically move."
+      rationale: "“Could” can ask about ability. Check whether the host needs information about ability or wants the audience to act."
+    - text: "Promises to make more room near the aisle."
+      rationale: "Moving could make room, which might sound like a plan. Check who is supposed to do something."
+    - text: "Warns that the aisle is unsafe."
+      rationale: "The aisle is mentioned, so safety may come to mind. Look for any words about a risk or danger."
+  explanation: "The host’s words take the form of a question. In this setting, the host is politely asking the front row to move."
+- id: "q-text-types-speeches-0026"
+  approved: true
+  lesson: "lesson-text-types-speech-acts-in-context"
+  keyPoint: 1
+  type: "purpose-of-device"
+  difficulty: "medium"
+  stem: "Tess is looking for a ride. Her brother hands her his car keys and says, “I’ll drive you myself when you’re ready.” What is he mainly doing?"
+  choices:
+    - text: "Committing to drive Tess."
+      correct: true
+    - text: "Predicting that Tess will get a ride from someone."
+      rationale: "The statement speaks about the future, so it can sound like a prediction. Check whether he offers his own action or makes a guess."
+    - text: "Asking Tess whether she knows how to drive."
+      rationale: "The keys may make you think Tess will drive. Check who says “I’ll drive.”"
+    - text: "Announcing that the car is ready to leave right away."
+      rationale: "He mentions a future trip, which can sound like an announcement. Check the condition he puts on leaving."
+  explanation: "He says he will drive Tess himself. He makes a commitment to help when she is ready."
+- id: "q-text-types-speeches-0027"
+  approved: true
+  lesson: "lesson-text-types-judging-evidence-in-speeches"
+  keyPoint: 1
+  type: "inferencing-and-conclusions"
+  difficulty: "medium"
+  stem: "A speaker claims a new bus stop will shorten students’ walks. To support the claim, the speaker shows a survey about how many students like the colors of the bus. Which evidence check exposes the main problem?"
+  choices:
+    - text: "Relevance, because the survey does not measure or address walking distance."
+      correct: true
+    - text: "Source, because the speaker is not identified as a survey expert."
+      rationale: "Expertise can affect trust in a survey. Check whether even an expert’s color survey would speak to walking distance."
+    - text: "Method, because the survey should ask more students about their favorite colors."
+      rationale: "A larger survey can improve a result. Ask whether a more accurate answer about colors supports this claim."
+    - text: "Relevance, because a claim about a bus stop can only be supported by an official source."
+      rationale: "Official sources can be useful. Relevance depends on the connection between what the evidence shows and what the speaker claims."
+  explanation: "The survey measures color preferences. That result tells the audience nothing about how far students would walk to the new stop."
+- id: "q-text-types-speeches-0028"
+  approved: true
+  lesson: "lesson-text-types-fair-emotion-in-speeches"
+  keyPoint: 1
+  type: "inferencing-and-conclusions"
+  difficulty: "medium"
+  stem: "Which appeal to emotion is fair when asking a school to fix a broken stair rail?"
+  choices:
+    - text: "A speaker describes a student’s documented fall and shares an inspection that found the rail loose."
+      correct: true
+    - text: "A speaker describes an invented fall as though it happened and asks the school to act at once."
+      rationale: "The story makes a risk easy to imagine. Check whether the audience is told that the fall is invented."
+    - text: "A speaker plays a frightening sound and says fear alone proves the rail needs repair."
+      rationale: "Fear can draw attention to danger. Check whether the sound tells the audience anything about the rail."
+    - text: "A speaker says the next student who touches the rail will certainly be hurt without checking its condition."
+      rationale: "The claim sounds urgent. Check whether the speaker has enough evidence to promise that outcome."
+  explanation: "The documented fall shows why the issue matters to students. The inspection gives a reason to believe the repair is needed."
+- id: "q-text-types-speeches-0029"
+  approved: true
+  lesson: "lesson-text-types-fair-emotion-in-speeches"
+  keyPoint: 1
+  type: "inferencing-and-conclusions"
+  difficulty: "medium"
+  stem: "A coach gives a farewell tribute and remembers how a player helped a new teammate feel welcome. The coach asks the crowd to cheer for the player. Why is the appeal to feeling suitable?"
+  choices:
+    - text: "The memory helps the crowd honor the player, which is the tribute’s purpose."
+      correct: true
+    - text: "It proves that the player is the best athlete on the team."
+      rationale: "Praise can sound like a claim of being best. Check what the memory shows about kindness and what it shows about skill."
+    - text: "The crowd’s cheer shows the memory must be true."
+      rationale: "A cheer signals a response. Check whether it can verify what happened."
+    - text: "The coach needs the story to persuade the crowd to accept a new team policy."
+      rationale: "A request to cheer can sound like a call to action. Check whether the coach asks for any rule to change."
+  explanation: "The coach uses a personal memory to help the crowd appreciate the player. A tribute is meant to honor someone."
+- id: "q-text-types-speeches-0030"
+  approved: true
+  lesson: "lesson-text-types-speech-breakdowns-and-repairs"
+  keyPoint: 1
+  type: "inferencing-and-conclusions"
+  difficulty: "medium"
+  stem: "A speaker uses the term “fermentation.” A listener hears the word clearly but says she does not know what it means. What should the speaker do first?"
+  choices:
+    - text: "Explain the term in familiar words and give an example."
+      correct: true
+    - text: "Say “fermentation” again in a louder voice."
+      rationale: "A louder voice helps when a word is hard to hear. Check whether this listener heard it the first time."
+    - text: "Write the term on the board without explaining it."
+      rationale: "Seeing a word can help someone recognize it. Check whether seeing the same word explains its meaning."
+    - text: "Speak more slowly using exactly the same sentence."
+      rationale: "A slower pace lets a listener catch more words. Check whether the trouble is speed or an unfamiliar term."
+  explanation: "The listener already heard the word. An explanation in familiar words and an example address the part she did not understand."
+- id: "q-text-types-speeches-0031"
+  approved: true
+  lesson: "lesson-text-types-speech-breakdowns-and-repairs"
+  keyPoint: 1
+  type: "inferencing-and-conclusions"
+  difficulty: "medium"
+  stem: "A microphone cuts out just as a speaker reads the new meeting time. The audience says they heard the start of the announcement but missed the time. What repair best matches the cause?"
+  choices:
+    - text: "Check the microphone and repeat the meeting time after sound returns."
+      correct: true
+    - text: "Explain the meaning of the word “meeting.”"
+      rationale: "An explanation helps if a word is unfamiliar. Check which information the audience says it missed."
+    - text: "Ask listeners to repeat the meeting time back."
+      rationale: "Repeating back can check understanding. It works after listeners have actually heard the time."
+    - text: "Read only the start of the announcement more slowly."
+      rationale: "A slower pace can help when the speaker is hard to follow. Check which part the audience already heard."
+  explanation: "The microphone failure kept the audience from hearing the time. Restoring sound and repeating that detail gives them what they missed."

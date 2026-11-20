@@ -6,6 +6,17 @@ subject: "subject-reading-comprehension"
 topic: "topic-text-types"
 estimatedMinutes: 14
 isActive: true
+status: retired
+replacedBy:
+  - lesson-text-types-speech-audience-and-purpose
+  - lesson-text-types-speech-context-types
+  - lesson-text-types-speech-style-and-preparation
+  - lesson-text-types-speech-acts-in-context
+  - lesson-text-types-speech-rhetorical-appeals
+  - lesson-text-types-judging-evidence-in-speeches
+  - lesson-text-types-fair-emotion-in-speeches
+  - lesson-text-types-speech-rhetorical-devices
+  - lesson-text-types-speech-breakdowns-and-repairs
 ---
 ## Core Concept
 

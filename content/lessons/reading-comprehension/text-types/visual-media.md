@@ -6,6 +6,15 @@ subject: "subject-reading-comprehension"
 topic: "topic-text-types"
 estimatedMinutes: 15
 isActive: true
+status: retired
+replacedBy:
+  - lesson-text-types-reading-comic-panels
+  - lesson-text-types-interpreting-editorial-cartoons
+  - lesson-text-types-contrast-and-irony-in-cartoons
+  - lesson-text-types-reading-bar-chart-scales
+  - lesson-text-types-reading-line-chart-changes
+  - lesson-text-types-reading-pie-chart-shares
+  - lesson-text-types-matching-table-rows-and-columns
 ---
 ## Core Concept
 

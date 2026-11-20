@@ -4764,8 +4764,58 @@
               "sections": []
             },
             {
+              "title": "News Reports and Attribution",
+              "slug": "news-reports-and-attribution",
+              "sections": []
+            },
+            {
+              "title": "Editorials and Individual Opinions",
+              "slug": "editorials-and-individual-opinions",
+              "sections": []
+            },
+            {
+              "title": "Essay Purposes and Analysis",
+              "slug": "essay-purposes-and-analysis",
+              "sections": []
+            },
+            {
+              "title": "Balita at Opinyon",
+              "slug": "balita-at-opinyon",
+              "sections": []
+            },
+            {
               "title": "Short Stories and Excerpts from Novels",
               "slug": "short-stories-and-novels",
+              "sections": []
+            },
+            {
+              "title": "Story Plot and Turning Points",
+              "slug": "story-plot-and-turning-points",
+              "sections": []
+            },
+            {
+              "title": "Story Characters, Traits, and Change",
+              "slug": "story-character-traits-and-change",
+              "sections": []
+            },
+            {
+              "title": "Types of Story Conflict",
+              "slug": "story-conflict-types",
+              "sections": []
+            },
+            {
+              "title": "Narrator and Point of View",
+              "slug": "story-narrator-and-viewpoint",
+              "sections": []
+            },
+            {
+              "title": "Story Setting, Style, and Mood",
+              "slug": "story-setting-style-and-mood",
+              "sections": []
+            },
+            {
+              "title": "Story Theme from Text Evidence",
+              "slug": "story-theme-from-text-evidence",
               "sections": []
             },
             {
@@ -4774,13 +4824,118 @@
               "sections": []
             },
             {
+              "title": "Figurative Comparisons in Poems",
+              "slug": "figurative-comparisons-in-poems",
+              "sections": []
+            },
+            {
+              "title": "Line Breaks and Plain Meaning",
+              "slug": "line-breaks-and-plain-meaning",
+              "sections": []
+            },
+            {
+              "title": "Rhyme Patterns in Poems",
+              "slug": "poetry-rhyme-patterns",
+              "sections": []
+            },
+            {
+              "title": "Sound and Rhythm in Poems",
+              "slug": "poetry-sound-and-rhythm",
+              "sections": []
+            },
+            {
+              "title": "Images, Symbols, and Tone in Poems",
+              "slug": "poetry-images-symbols-and-tone",
+              "sections": []
+            },
+            {
               "title": "Speeches",
               "slug": "speeches",
               "sections": []
             },
             {
+              "title": "Speech Audience and Purpose",
+              "slug": "speech-audience-and-purpose",
+              "sections": []
+            },
+            {
+              "title": "Speech Context Types",
+              "slug": "speech-context-types",
+              "sections": []
+            },
+            {
+              "title": "Speech Style and Preparation",
+              "slug": "speech-style-and-preparation",
+              "sections": []
+            },
+            {
+              "title": "Speech Acts in Context",
+              "slug": "speech-acts-in-context",
+              "sections": []
+            },
+            {
+              "title": "Rhetorical Appeals in Speeches",
+              "slug": "speech-rhetorical-appeals",
+              "sections": []
+            },
+            {
+              "title": "Judging Evidence in Speeches",
+              "slug": "judging-evidence-in-speeches",
+              "sections": []
+            },
+            {
+              "title": "Fair Emotion in Speeches",
+              "slug": "fair-emotion-in-speeches",
+              "sections": []
+            },
+            {
+              "title": "Rhetorical Devices in Speeches",
+              "slug": "speech-rhetorical-devices",
+              "sections": []
+            },
+            {
+              "title": "Speech Breakdowns and Repairs",
+              "slug": "speech-breakdowns-and-repairs",
+              "sections": []
+            },
+            {
               "title": "Visual Media (Comic Strips, Editorial Cartoons, Charts, and Graphs)",
               "slug": "visual-media",
+              "sections": []
+            },
+            {
+              "title": "Reading Comic Panels",
+              "slug": "reading-comic-panels",
+              "sections": []
+            },
+            {
+              "title": "Interpreting Editorial Cartoons",
+              "slug": "interpreting-editorial-cartoons",
+              "sections": []
+            },
+            {
+              "title": "Contrast and Irony in Cartoons",
+              "slug": "contrast-and-irony-in-cartoons",
+              "sections": []
+            },
+            {
+              "title": "Reading Bar Chart Scales",
+              "slug": "reading-bar-chart-scales",
+              "sections": []
+            },
+            {
+              "title": "Reading Line Chart Changes",
+              "slug": "reading-line-chart-changes",
+              "sections": []
+            },
+            {
+              "title": "Reading Pie Chart Shares",
+              "slug": "reading-pie-chart-shares",
+              "sections": []
+            },
+            {
+              "title": "Matching Table Rows and Columns",
+              "slug": "matching-table-rows-and-columns",
               "sections": []
             }
           ]

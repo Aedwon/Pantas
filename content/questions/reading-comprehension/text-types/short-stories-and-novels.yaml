@@ -44,6 +44,8 @@ passages:
     Ben did not answer. At the corner he turned back. The chalk line was hidden behind the closed door, but he could still picture it. He stepped beside his neighbor and kept walking toward the shelter.
 questions:
 - id: rc-tt-sn-0001
+  lesson: lesson-text-types-story-conflict-types
+  keyPoint: 1
   approved: true
   passage: rc-tt-sn-p1
   type: feature-of-form
@@ -70,6 +72,8 @@ questions:
 
     '
 - id: rc-tt-sn-0002
+  lesson: lesson-text-types-story-plot-and-turning-points
+  keyPoint: 1
   approved: true
   passage: rc-tt-sn-p1
   type: feature-of-form
@@ -96,6 +100,8 @@ questions:
 
     '
 - id: rc-tt-sn-0003
+  lesson: lesson-text-types-story-character-traits-and-change
+  keyPoint: 1
   approved: true
   passage: rc-tt-sn-p1
   type: inferencing-and-conclusions
@@ -122,6 +128,8 @@ questions:
 
     '
 - id: rc-tt-sn-0004
+  lesson: lesson-text-types-story-plot-and-turning-points
+  keyPoint: 2
   approved: true
   passage: rc-tt-sn-p1
   type: inferencing-and-conclusions
@@ -148,6 +156,8 @@ questions:
 
     '
 - id: rc-tt-sn-0005
+  lesson: lesson-text-types-story-theme-from-text-evidence
+  keyPoint: 1
   approved: true
   passage: rc-tt-sn-p1
   type: feature-of-form
@@ -174,6 +184,8 @@ questions:
 
     '
 - id: rc-tt-sn-0006
+  lesson: lesson-text-types-story-conflict-types
+  keyPoint: 2
   approved: true
   passage: rc-tt-sn-p2
   type: feature-of-form
@@ -200,6 +212,8 @@ questions:
 
     '
 - id: rc-tt-sn-0007
+  lesson: lesson-text-types-story-setting-style-and-mood
+  keyPoint: 1
   approved: true
   passage: rc-tt-sn-p2
   type: feature-of-form
@@ -226,6 +240,8 @@ questions:
 
     '
 - id: rc-tt-sn-0008
+  lesson: lesson-text-types-story-plot-and-turning-points
+  keyPoint: 2
   approved: true
   passage: rc-tt-sn-p2
   type: inferencing-and-conclusions
@@ -252,6 +268,8 @@ questions:
 
     '
 - id: rc-tt-sn-0009
+  lesson: lesson-text-types-story-character-traits-and-change
+  keyPoint: 1
   approved: true
   passage: rc-tt-sn-p2
   type: inferencing-and-conclusions
@@ -278,6 +296,8 @@ questions:
 
     '
 - id: rc-tt-sn-0010
+  lesson: lesson-text-types-story-plot-and-turning-points
+  keyPoint: 2
   approved: true
   passage: rc-tt-sn-p2
   type: feature-of-form
@@ -304,6 +324,8 @@ questions:
 
     '
 - id: q-text-types-short-stories-and-novels-0011
+  lesson: lesson-text-types-story-conflict-types
+  keyPoint: 1
   type: feature-of-form
   difficulty: easy
   approved: true
@@ -330,6 +352,8 @@ questions:
 
     '
 - id: q-text-types-short-stories-and-novels-0012
+  lesson: lesson-text-types-story-character-traits-and-change
+  keyPoint: 2
   type: feature-of-form
   difficulty: medium
   approved: true
@@ -356,6 +380,8 @@ questions:
 
     '
 - id: q-text-types-short-stories-and-novels-0013
+  lesson: lesson-text-types-story-character-traits-and-change
+  keyPoint: 1
   type: feature-of-form
   difficulty: hard
   approved: true
@@ -382,6 +408,8 @@ questions:
 
     '
 - id: q-text-types-short-stories-and-novels-0014
+  lesson: lesson-text-types-story-theme-from-text-evidence
+  keyPoint: 1
   type: feature-of-form
   difficulty: exam
   approved: true
@@ -408,6 +436,8 @@ questions:
 
     '
 - id: q-text-types-short-stories-and-novels-0015
+  lesson: lesson-text-types-story-plot-and-turning-points
+  keyPoint: 2
   type: inferencing-and-conclusions
   difficulty: exam
   approved: true
@@ -434,6 +464,8 @@ questions:
 
     '
 - id: q-text-types-short-stories-and-novels-0016
+  lesson: lesson-text-types-story-conflict-types
+  keyPoint: 2
   type: feature-of-form
   difficulty: easy
   approved: true
@@ -460,6 +492,8 @@ questions:
 
     '
 - id: q-text-types-short-stories-and-novels-0017
+  lesson: lesson-text-types-story-character-traits-and-change
+  keyPoint: 1
   type: purpose-of-device
   difficulty: medium
   approved: true
@@ -486,6 +520,8 @@ questions:
 
     '
 - id: q-text-types-short-stories-and-novels-0018
+  lesson: lesson-text-types-story-narrator-and-viewpoint
+  keyPoint: 1
   type: feature-of-form
   difficulty: hard
   approved: true
@@ -512,6 +548,8 @@ questions:
 
     '
 - id: q-text-types-short-stories-and-novels-0019
+  lesson: lesson-text-types-story-plot-and-turning-points
+  keyPoint: 1
   type: feature-of-form
   difficulty: hard
   approved: true
@@ -538,6 +576,8 @@ questions:
 
     '
 - id: q-text-types-short-stories-and-novels-0020
+  lesson: lesson-text-types-story-plot-and-turning-points
+  keyPoint: 2
   type: inferencing-and-conclusions
   difficulty: exam
   approved: true
@@ -563,3 +603,37 @@ questions:
   explanation: 'Ben turns back and still pictures the chalk line as he leaves. He chooses safety while his thoughts remain on the shop. The excerpt does not show the flood''s final damage.
 
     '
+- id: "q-text-types-short-stories-and-novels-0021"
+  approved: true
+  lesson: "lesson-text-types-story-narrator-and-viewpoint"
+  keyPoint: 1
+  type: "feature-of-form"
+  difficulty: "medium"
+  stem: "Read the excerpt. “Mina watched Joel cross the street. She was sure he had forgotten the keys. Joel waved from the corner and walked on.” Which description of the point of view is best supported?"
+  choices:
+    - text: "An outside narrator reports Mina’s thoughts and describes Joel from the outside."
+      correct: true
+    - text: "Mina tells the story in her own voice and reports what she sees."
+      rationale: "Mina’s thoughts give her a clear voice. Check whether the narrator calls her “I” or “she.”"
+    - text: "An outside narrator tells readers what both Mina and Joel are thinking."
+      rationale: "Two characters are named, which can suggest a wide view. Check whose private thoughts the words actually show."
+    - text: "An outside narrator reports only actions that a person on the street could see."
+      rationale: "Much of the excerpt describes actions. Check whether being sure about the keys is an action someone can see."
+  explanation: "An outside narrator calls Mina “she” and tells what she believes. Joel’s thoughts are left unstated. This is third person limited."
+- id: "q-text-types-short-stories-and-novels-0022"
+  approved: true
+  lesson: "lesson-text-types-story-setting-style-and-mood"
+  keyPoint: 2
+  type: "purpose-of-device"
+  difficulty: "medium"
+  stem: "Read the excerpt. “The latch clicked. Pia stopped. From the dark stairwell came one more click.” How does the style shape the mood?"
+  choices:
+    - text: "The short sentences separate each detail and build tension around the repeated sound."
+      correct: true
+    - text: "The short sentences make the two clicks seem like part of a cheerful routine."
+      rationale: "Repeating a sound can suggest a pattern. Check how “Pia stopped” and the dark stairwell make this pattern feel."
+    - text: "The plain language tells readers who caused the sound, creating relief."
+      rationale: "The plain words make the sounds easy to picture. Check whether they identify anyone on the stairs."
+    - text: "The focus on sound makes the stairwell feel busy with people."
+      rationale: "Sound can make a place feel busy. Count the sounds the excerpt actually gives and see if anyone is shown making them."
+  explanation: "Each short sentence lets one thing happen before the next. Pia stops, then another click comes from the dark. The pauses and the sound build tension."

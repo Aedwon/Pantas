@@ -50,6 +50,9 @@ passages:
       Officials should listen to residents who worry about a longer walk from the pickup area. Their concern deserves a practical response, including help for children who need assistance. It does not justify leaving the crossing obstructed. The school should test the change and review the observations before deciding whether to keep it.
 questions:
   - id: "rc-tt-eea-0001"
+    approved: true
+    lesson: lesson-text-types-news-reports-and-attribution
+    keyPoint: 1
     passage: "rc-tt-eea-p1"
     type: "identify-text-type"
     difficulty: "easy"
@@ -70,6 +73,9 @@ questions:
     explanation: |
       The dateline introduces an event. The text attributes project details to an agency and named official, so its main function is reporting.
   - id: "rc-tt-eea-0002"
+    approved: true
+    lesson: lesson-text-types-news-reports-and-attribution
+    keyPoint: 2
     passage: "rc-tt-eea-p1"
     type: "feature-of-form"
     difficulty: "medium"
@@ -90,6 +96,9 @@ questions:
     explanation: |
       The opening reports the inauguration and names the agency press release as its source. This attribution tells readers where the information came from.
   - id: "rc-tt-eea-0003"
+    approved: true
+    lesson: lesson-text-types-news-reports-and-attribution
+    keyPoint: 1
     passage: "rc-tt-eea-p1"
     type: "feature-of-form"
     difficulty: "medium"
@@ -110,6 +119,9 @@ questions:
     explanation: |
       The passage reports the inauguration and officials' statements. Its voice presents information rather than urging a particular policy choice.
   - id: "rc-tt-eea-0004"
+    approved: true
+    lesson: lesson-text-types-news-reports-and-attribution
+    keyPoint: 2
     passage: "rc-tt-eea-p1"
     type: "feature-of-form"
     difficulty: "hard"
@@ -130,6 +142,9 @@ questions:
     explanation: |
       The text identifies the engineer as a source and names disaster records. Attribution tells readers where the reported claims come from.
   - id: "rc-tt-eea-0005"
+    approved: true
+    lesson: lesson-text-types-news-reports-and-attribution
+    keyPoint: 1
     passage: "rc-tt-eea-p1"
     type: "feature-of-form"
     difficulty: "hard"
@@ -150,6 +165,9 @@ questions:
     explanation: |
       The ending reports officials' plans for a later phase. It adds forward-looking context to the inauguration story.
   - id: "rc-tt-eea-0006"
+    approved: true
+    lesson: lesson-text-types-editorials-and-individual-opinions
+    keyPoint: 1
     passage: "rc-tt-eea-p2"
     type: "identify-text-type"
     difficulty: "easy"
@@ -170,6 +188,9 @@ questions:
     explanation: |
       The passage identifies the Community Gazette editorial board and argues for policy change. The institutional attribution makes it an editorial.
   - id: "rc-tt-eea-0007"
+    approved: true
+    lesson: lesson-text-types-editorials-and-individual-opinions
+    keyPoint: 1
     passage: "rc-tt-eea-p2"
     type: "feature-of-form"
     difficulty: "medium"
@@ -190,6 +211,9 @@ questions:
     explanation: |
       Shortsighted and crushing express the board's negative evaluation. The opening states criticism as the publication's own position.
   - id: "rc-tt-eea-0008"
+    approved: true
+    lesson: lesson-text-types-editorials-and-individual-opinions
+    keyPoint: 2
     passage: "rc-tt-eea-p2"
     type: "feature-of-form"
     difficulty: "medium"
@@ -210,6 +234,9 @@ questions:
     explanation: |
       The board says Congress must change subsidies and prices. It is using the final paragraph to urge action.
   - id: "rc-tt-eea-0009"
+    approved: true
+    lesson: lesson-text-types-editorials-and-individual-opinions
+    keyPoint: 2
     passage: "rc-tt-eea-p2"
     type: "feature-of-form"
     difficulty: "hard"
@@ -230,6 +257,9 @@ questions:
     explanation: |
       The board directly calls the policy shortsighted and inadequate. This is explicit institutional advocacy about a public issue.
   - id: "rc-tt-eea-0010"
+    approved: true
+    lesson: lesson-text-types-editorials-and-individual-opinions
+    keyPoint: 2
     passage: "rc-tt-eea-p2"
     type: "feature-of-form"
     difficulty: "hard"
@@ -250,6 +280,9 @@ questions:
     explanation: |
       Band-aid solution judges the adequacy of the support. It expresses the board's view of what the policy accomplishes.
   - id: "rc-tt-eea-0011"
+    approved: true
+    lesson: lesson-text-types-essay-purposes-and-analysis
+    keyPoint: 1
     passage: "rc-tt-eea-p3"
     type: "identify-text-type"
     difficulty: "easy"
@@ -270,6 +303,9 @@ questions:
     explanation: |
       The writer recounts a childhood experience and connects it to life at university. Personal memory and reflection organize the essay.
   - id: "rc-tt-eea-0012"
+    approved: true
+    lesson: lesson-text-types-essay-purposes-and-analysis
+    keyPoint: 1
     passage: "rc-tt-eea-p3"
     type: "feature-of-form"
     difficulty: "easy"
@@ -290,6 +326,9 @@ questions:
     explanation: |
       The essay moves from I and my grandfather to the writer's later understanding of patience. The remembered experience supports reflection.
   - id: "rc-tt-eea-0013"
+    approved: true
+    lesson: lesson-text-types-essay-purposes-and-analysis
+    keyPoint: 1
     passage: "rc-tt-eea-p3"
     type: "feature-of-form"
     difficulty: "medium"
@@ -310,6 +349,9 @@ questions:
     explanation: |
       The ending connects the grandfather's teaching with university deadlines. The writer reflects on patience as a lesson carried into later life.
   - id: "rc-tt-eea-0014"
+    approved: true
+    lesson: lesson-text-types-essay-purposes-and-analysis
+    keyPoint: 1
     passage: "rc-tt-eea-p3"
     type: "feature-of-form"
     difficulty: "medium"
@@ -330,6 +372,9 @@ questions:
     explanation: |
       The grandfather calmly undoes the flawed work. His response gives the narrator an example of patience to reflect on later.
   - id: "rc-tt-eea-0015"
+    approved: true
+    lesson: lesson-text-types-essay-purposes-and-analysis
+    keyPoint: 2
     passage: "rc-tt-eea-p3"
     type: "feature-of-form"
     difficulty: "hard"
@@ -350,6 +395,8 @@ questions:
     explanation: |
       The essay develops a personal lesson from weaving. The identified editorial presents its board's argument for changes in farming policy.
   - id: "q-text-types-essays-editorials-articles-0016"
+    lesson: lesson-text-types-editorials-and-individual-opinions
+    keyPoint: 1
     passage: "p-text-types-essays-editorials-articles-0004"
     type: "identify-text-type"
     difficulty: "easy"
@@ -371,6 +418,8 @@ questions:
       The byline identifies Rosa as writing in her personal capacity. She argues for a crossing policy, which makes this individual commentary.
     approved: true
   - id: "q-text-types-essays-editorials-articles-0017"
+    lesson: lesson-text-types-editorials-and-individual-opinions
+    keyPoint: 1
     passage: "p-text-types-essays-editorials-articles-0004"
     type: "feature-of-form"
     difficulty: "medium"
@@ -392,6 +441,8 @@ questions:
       The byline states that Rosa writes personally. It separates her argument from a publication's institutional position.
     approved: true
   - id: "q-text-types-essays-editorials-articles-0018"
+    lesson: lesson-text-types-editorials-and-individual-opinions
+    keyPoint: 2
     passage: "p-text-types-essays-editorials-articles-0004"
     type: "feature-of-form"
     difficulty: "medium"
@@ -413,6 +464,8 @@ questions:
       The blocked sightlines explain why the writer recommends moving pickup farther away. Observations are used as evidence in an argument.
     approved: true
   - id: "q-text-types-essays-editorials-articles-0019"
+    lesson: lesson-text-types-editorials-and-individual-opinions
+    keyPoint: 2
     passage: "p-text-types-essays-editorials-articles-0004"
     type: "feature-of-form"
     difficulty: "hard"
@@ -434,6 +487,8 @@ questions:
       Rosa recommends a trial, acknowledges walking concerns, and asks for observation. Those choices develop a reasoned argument in a calm voice.
     approved: true
   - id: "q-text-types-essays-editorials-articles-0020"
+    lesson: lesson-text-types-news-reports-and-attribution
+    keyPoint: 1
     passage: "p-text-types-essays-editorials-articles-0004"
     type: "feature-of-form"
     difficulty: "exam"
@@ -454,3 +509,37 @@ questions:
     explanation: |
       Straight reporting could describe Rosa's proposal as her position and include attributed responses. The reporter's task would be presenting those developments.
     approved: true
+  - id: "q-text-types-essays-editorials-articles-0021"
+    approved: true
+    lesson: "lesson-text-types-balita-at-opinyon"
+    keyPoint: 1
+    type: "identify-text-type"
+    difficulty: "medium"
+    stem: "Alin ang siping ang pangunahing layunin ay magbalita?"
+    choices:
+      - text: "Ayon sa abiso ng paaralan, sa Biyernes gaganapin ang paligsahan sa bulwagan."
+        correct: true
+      - text: "Dapat ilipat sa Biyernes ang paligsahan para mas maraming makadalo."
+        rationale: "May petsa kaya mistulang abiso. Ang salitang “dapat” ay nagpapakita na may mungkahi. Hanapin kung alin ang nag-uulat ng pasiya."
+      - text: "Mas makabuluhan ang paligsahan kung magbubukas ito sa lahat ng baitang."
+        rationale: "Naglalarawan ito ng paligsahan kaya mukhang nagbibigay ng detalye. Ang “mas makabuluhan” ay sariling hatol. Tingnan kung ano ang aktuwal nang nangyari."
+      - text: "Naaalala ko pa kung paano ako kinabahan bago magsimula ang paligsahan."
+        rationale: "May pangyayaring binanggit kaya maaaring isipin na balita ito. Ang “naaalala ko” ay tanda ng personal na alaala. Tingnan kung nagbabalita o nagbabalik-tanaw ang sumulat."
+    explanation: "Iniuulat ng sipi ang araw at lugar ng paligsahan. Sinasabi rin nito na mula sa abiso ng paaralan ang detalye."
+  - id: "q-text-types-essays-editorials-articles-0022"
+    approved: true
+    lesson: "lesson-text-types-balita-at-opinyon"
+    keyPoint: 2
+    type: "feature-of-form"
+    difficulty: "medium"
+    stem: "Basahin ang sipi. “Nagbukas kahapon ang bagong palaruan, ayon sa munisipyo. Sinabi ng magulang na si Ana Cruz na dapat sana ay naglagay rin ng bubong.” Kaninong pananaw ang pahayag tungkol sa bubong?"
+    choices:
+      - text: "Kay Ana Cruz, na nagsabi na dapat may bubong."
+        correct: true
+      - text: "Sa munisipyo, na nagbigay ng balita tungkol sa pagbubukas."
+        rationale: "Nabanggit ang munisipyo bago ang puna. Tingnan kung sino ang tuwirang pinangalanan bago ang pahayag tungkol sa bubong."
+      - text: "Sa sumulat, dahil isinama niya ang puna sa balita."
+        rationale: "Pinili ng sumulat na isama ang puna kaya maaaring magmukhang sang-ayon siya. Hanapin muna kung kanino tuwirang iniugnay ang sinabi."
+      - text: "Sa lahat ng magulang na gumamit ng palaruan."
+        rationale: "Magulang si Ana kaya maaaring isipin na boses siya ng lahat. Tingnan kung isa o maraming tao ang pinangalanan sa sipi."
+    explanation: "Ipinakikilala ng “Sinabi ng magulang na si Ana Cruz” kung kanino galing ang puna tungkol sa bubong."

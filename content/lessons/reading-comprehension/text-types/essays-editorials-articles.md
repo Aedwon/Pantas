@@ -6,6 +6,12 @@ subject: "subject-reading-comprehension"
 topic: "topic-text-types"
 estimatedMinutes: 11
 isActive: true
+status: retired
+replacedBy:
+  - lesson-text-types-news-reports-and-attribution
+  - lesson-text-types-editorials-and-individual-opinions
+  - lesson-text-types-essay-purposes-and-analysis
+  - lesson-text-types-balita-at-opinyon
 ---
 ## Core Concept
 

@@ -44,6 +44,9 @@ passages:
     In the final panel, Gio asks Mara where to find the timetable. She points at the pile of posters without speaking. His expression changes from confidence to embarrassment.
 questions:
 - id: rc-tt-vm-0001
+  approved: true
+  lesson: lesson-text-types-reading-pie-chart-shares
+  keyPoint: 1
   passage: rc-tt-vm-p1
   type: feature-of-form
   difficulty: easy
@@ -69,6 +72,9 @@ questions:
 
     '
 - id: rc-tt-vm-0002
+  approved: true
+  lesson: lesson-text-types-reading-comic-panels
+  keyPoint: 2
   passage: rc-tt-vm-p1
   type: purpose-of-device
   difficulty: medium
@@ -94,6 +100,9 @@ questions:
 
     '
 - id: rc-tt-vm-0003
+  approved: true
+  lesson: lesson-text-types-reading-comic-panels
+  keyPoint: 2
   passage: rc-tt-vm-p1
   type: purpose-of-device
   difficulty: medium
@@ -119,6 +128,9 @@ questions:
 
     '
 - id: rc-tt-vm-0004
+  approved: true
+  lesson: lesson-text-types-reading-comic-panels
+  keyPoint: 2
   passage: rc-tt-vm-p1
   type: purpose-of-device
   difficulty: hard
@@ -144,6 +156,8 @@ questions:
 
     '
 - id: rc-tt-vm-0005
+  lesson: lesson-text-types-reading-comic-panels
+  keyPoint: 2
   approved: true
   passage: rc-tt-vm-p1
   type: feature-of-form
@@ -170,6 +184,9 @@ questions:
 
     '
 - id: rc-tt-vm-0006
+  approved: true
+  lesson: lesson-text-types-interpreting-editorial-cartoons
+  keyPoint: 1
   passage: rc-tt-vm-p2
   type: feature-of-form
   difficulty: easy
@@ -195,6 +212,9 @@ questions:
 
     '
 - id: rc-tt-vm-0007
+  approved: true
+  lesson: lesson-text-types-interpreting-editorial-cartoons
+  keyPoint: 1
   passage: rc-tt-vm-p2
   type: purpose-of-device
   difficulty: medium
@@ -220,6 +240,9 @@ questions:
 
     '
 - id: rc-tt-vm-0008
+  approved: true
+  lesson: lesson-text-types-contrast-and-irony-in-cartoons
+  keyPoint: 1
   passage: rc-tt-vm-p2
   type: purpose-of-device
   difficulty: medium
@@ -245,6 +268,9 @@ questions:
 
     '
 - id: rc-tt-vm-0009
+  approved: true
+  lesson: lesson-text-types-interpreting-editorial-cartoons
+  keyPoint: 1
   passage: rc-tt-vm-p2
   type: purpose-of-device
   difficulty: hard
@@ -270,6 +296,9 @@ questions:
 
     '
 - id: rc-tt-vm-0010
+  approved: true
+  lesson: lesson-text-types-interpreting-editorial-cartoons
+  keyPoint: 1
   passage: rc-tt-vm-p2
   type: purpose-of-device
   difficulty: hard
@@ -295,6 +324,8 @@ questions:
 
     '
 - id: q-text-types-visual-media-0011
+  lesson: lesson-text-types-reading-bar-chart-scales
+  keyPoint: 1
   type: feature-of-form
   difficulty: easy
   approved: true
@@ -321,6 +352,8 @@ questions:
 
     '
 - id: q-text-types-visual-media-0012
+  lesson: lesson-text-types-reading-bar-chart-scales
+  keyPoint: 2
   type: purpose-of-device
   difficulty: medium
   approved: true
@@ -347,6 +380,8 @@ questions:
 
     '
 - id: q-text-types-visual-media-0013
+  lesson: lesson-text-types-reading-bar-chart-scales
+  keyPoint: 1
   type: feature-of-form
   difficulty: hard
   approved: true
@@ -373,6 +408,8 @@ questions:
 
     '
 - id: q-text-types-visual-media-0014
+  lesson: lesson-text-types-reading-line-chart-changes
+  keyPoint: 1
   type: feature-of-form
   difficulty: exam
   approved: true
@@ -399,6 +436,8 @@ questions:
 
     '
 - id: q-text-types-visual-media-0015
+  lesson: lesson-text-types-reading-bar-chart-scales
+  keyPoint: 2
   type: purpose-of-device
   difficulty: exam
   approved: true
@@ -425,6 +464,8 @@ questions:
 
     '
 - id: q-text-types-visual-media-0016
+  lesson: lesson-text-types-reading-comic-panels
+  keyPoint: 1
   type: purpose-of-device
   difficulty: easy
   approved: true
@@ -451,6 +492,8 @@ questions:
 
     '
 - id: q-text-types-visual-media-0017
+  lesson: lesson-text-types-reading-comic-panels
+  keyPoint: 1
   type: feature-of-form
   difficulty: medium
   approved: true
@@ -477,6 +520,8 @@ questions:
 
     '
 - id: q-text-types-visual-media-0018
+  lesson: lesson-text-types-reading-comic-panels
+  keyPoint: 2
   type: purpose-of-device
   difficulty: hard
   approved: true
@@ -503,6 +548,8 @@ questions:
 
     '
 - id: q-text-types-visual-media-0019
+  lesson: lesson-text-types-reading-comic-panels
+  keyPoint: 1
   type: purpose-of-device
   difficulty: hard
   approved: true
@@ -529,6 +576,8 @@ questions:
 
     '
 - id: q-text-types-visual-media-0020
+  lesson: lesson-text-types-reading-comic-panels
+  keyPoint: 1
   type: purpose-of-device
   difficulty: exam
   approved: true
@@ -554,3 +603,88 @@ questions:
   explanation: 'Mara points to the pile that hides the timetable. The image supplies the answer and allows Gio''s embarrassed expression to carry the joke.
 
     '
+- id: "q-text-types-visual-media-0021"
+  approved: true
+  lesson: "lesson-text-types-contrast-and-irony-in-cartoons"
+  keyPoint: 2
+  type: "purpose-of-device"
+  difficulty: "medium"
+  stem: "A cartoon shows a desk with a banner that says “Paperless Office.” The worker at the desk is buried up to her neck in printed forms. What makes the cartoon ironic?"
+  choices:
+    - text: "The banner promises an office without paper while the scene shows a pile of it."
+      correct: true
+    - text: "The pile of forms is higher than a real worker could handle."
+      rationale: "An outsized pile is an exaggeration. Check how the scene also conflicts with the written message."
+    - text: "The banner gives the office a label that tells the reader its name."
+      rationale: "A label helps readers identify a place. Check whether the words agree with what is pictured."
+    - text: "The worker is the only person in the drawing."
+      rationale: "A lone figure can focus attention. Check what happens when you compare the words with the visible forms."
+  explanation: "The banner makes readers expect an office that uses little or no paper. The huge pile of forms shows the opposite."
+- id: "q-text-types-visual-media-0022"
+  approved: true
+  lesson: "lesson-text-types-reading-line-chart-changes"
+  keyPoint: 1
+  type: "feature-of-form"
+  difficulty: "medium"
+  stem: "A line chart tracks visitors in thousands. The vertical scale starts at 8. The points are Monday 10, Tuesday 14, and Wednesday 12. What changed from Monday to Wednesday?"
+  choices:
+    - text: "Visitors increased by 2,000."
+      correct: true
+    - text: "Visitors increased by 4,000."
+      rationale: "Four thousand is the first rise. Use the values on the two days named in the question."
+    - text: "Visitors decreased by 2,000."
+      rationale: "The line falls after Tuesday. Check whether Wednesday is lower than Monday as well."
+    - text: "Visitors increased by 12,000."
+      rationale: "Twelve thousand is Wednesday’s total. Subtract the starting value before reporting the change."
+  explanation: "Wednesday shows 12 thousand visitors and Monday shows 10 thousand. Subtracting gives an increase of 2 thousand."
+- id: "q-text-types-visual-media-0023"
+  approved: true
+  lesson: "lesson-text-types-reading-pie-chart-shares"
+  keyPoint: 2
+  type: "feature-of-form"
+  difficulty: "medium"
+  stem: "A pie chart shows how 80 club members traveled to a meeting. The bus sector covers 90 degrees. How many club members came by bus?"
+  choices:
+    - text: "20"
+      correct: true
+    - text: "25"
+      rationale: "You correctly found that 90 degrees is 25 percent of a full circle. Apply that share to the total of 80."
+    - text: "40"
+      rationale: "You may have treated 90 degrees as half a turn. Compare 90 with all 360 degrees."
+    - text: "90"
+      rationale: "You read the right angle, which is a good first step. The number is in degrees. Convert it to a share before counting club members."
+  explanation: "A sector of 90 degrees is one fourth of 360 degrees. One fourth of 80 club members is 20."
+- id: "q-text-types-visual-media-0024"
+  approved: true
+  lesson: "lesson-text-types-matching-table-rows-and-columns"
+  keyPoint: 1
+  type: "feature-of-form"
+  difficulty: "medium"
+  stem: "A table lists books borrowed from each branch on Tuesday and Wednesday, in that order. The East row reads 18 and 23. The West row reads 27 and 24. Which statement matches the table?"
+  choices:
+    - text: "West lent 3 fewer books on Wednesday than on Tuesday."
+      correct: true
+    - text: "West lent 4 more books on Wednesday than on Tuesday."
+      rationale: "You may have compared West on Tuesday with East on Wednesday. Use only entries from the West row."
+    - text: "East lent 5 fewer books on Wednesday than on Tuesday."
+      rationale: "Five is the difference for East. Check which of its two days has the larger value."
+    - text: "West lent 9 more books on Wednesday than East did that day."
+      rationale: "Nine is the difference between the two Tuesday entries. Check the second column for both branches."
+  explanation: "The West row gives 27 for Tuesday and 24 for Wednesday. The total went down by 3 books."
+- id: "q-text-types-visual-media-0025"
+  approved: true
+  lesson: "lesson-text-types-matching-table-rows-and-columns"
+  keyPoint: 1
+  type: "feature-of-form"
+  difficulty: "medium"
+  stem: "A table of water use has a heading that says “Liters.” Its morning and afternoon columns read 12 and 20 for Garden A, and 16 and 18 for Garden B. Which statement is supported?"
+  choices:
+    - text: "Garden B used 18 liters in the afternoon."
+      correct: true
+    - text: "Garden B used 20 liters in the afternoon."
+      rationale: "Twenty comes from the correct column. Follow that column down to the Garden B row."
+    - text: "Garden B used 16 liters in the afternoon."
+      rationale: "Sixteen is in the correct row. Check which column gives the afternoon value."
+    - text: "Garden B used 18 gallons in the afternoon."
+      rationale: "The row and column give 18. Check the heading before naming the unit."
+  explanation: "The Garden B row and the afternoon column meet at 18. The heading gives the unit as liters."

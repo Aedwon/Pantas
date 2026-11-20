@@ -1,0 +1,431 @@
+{
+  "outline": [
+    {
+      "original": "lesson-text-types-essays-editorials-articles",
+      "parts": [
+        {
+          "slug": "news-reports-and-attribution",
+          "title": "News Reports and Attribution"
+        },
+        {
+          "slug": "editorials-and-individual-opinions",
+          "title": "Editorials and Individual Opinions"
+        },
+        {
+          "slug": "essay-purposes-and-analysis",
+          "title": "Essay Purposes and Analysis"
+        },
+        {
+          "slug": "balita-at-opinyon",
+          "title": "Balita at Opinyon"
+        }
+      ]
+    },
+    {
+      "original": "lesson-text-types-poetry",
+      "parts": [
+        {
+          "slug": "figurative-comparisons-in-poems",
+          "title": "Figurative Comparisons in Poems"
+        },
+        {
+          "slug": "line-breaks-and-plain-meaning",
+          "title": "Line Breaks and Plain Meaning"
+        },
+        {
+          "slug": "poetry-rhyme-patterns",
+          "title": "Rhyme Patterns in Poems"
+        },
+        {
+          "slug": "poetry-sound-and-rhythm",
+          "title": "Sound and Rhythm in Poems"
+        },
+        {
+          "slug": "poetry-images-symbols-and-tone",
+          "title": "Images, Symbols, and Tone in Poems"
+        }
+      ]
+    },
+    {
+      "original": "lesson-text-types-short-stories-and-novels",
+      "parts": [
+        {
+          "slug": "story-plot-and-turning-points",
+          "title": "Story Plot and Turning Points"
+        },
+        {
+          "slug": "story-character-traits-and-change",
+          "title": "Story Characters, Traits, and Change"
+        },
+        {
+          "slug": "story-conflict-types",
+          "title": "Types of Story Conflict"
+        },
+        {
+          "slug": "story-narrator-and-viewpoint",
+          "title": "Narrator and Point of View"
+        },
+        {
+          "slug": "story-setting-style-and-mood",
+          "title": "Story Setting, Style, and Mood"
+        },
+        {
+          "slug": "story-theme-from-text-evidence",
+          "title": "Story Theme from Text Evidence"
+        }
+      ]
+    },
+    {
+      "original": "lesson-text-types-speeches",
+      "parts": [
+        {
+          "slug": "speech-audience-and-purpose",
+          "title": "Speech Audience and Purpose"
+        },
+        {
+          "slug": "speech-context-types",
+          "title": "Speech Context Types"
+        },
+        {
+          "slug": "speech-style-and-preparation",
+          "title": "Speech Style and Preparation"
+        },
+        {
+          "slug": "speech-acts-in-context",
+          "title": "Speech Acts in Context"
+        },
+        {
+          "slug": "speech-rhetorical-appeals",
+          "title": "Rhetorical Appeals in Speeches"
+        },
+        {
+          "slug": "judging-evidence-in-speeches",
+          "title": "Judging Evidence in Speeches"
+        },
+        {
+          "slug": "fair-emotion-in-speeches",
+          "title": "Fair Emotion in Speeches"
+        },
+        {
+          "slug": "speech-rhetorical-devices",
+          "title": "Rhetorical Devices in Speeches"
+        },
+        {
+          "slug": "speech-breakdowns-and-repairs",
+          "title": "Speech Breakdowns and Repairs"
+        }
+      ]
+    },
+    {
+      "original": "lesson-text-types-visual-media",
+      "parts": [
+        {
+          "slug": "reading-comic-panels",
+          "title": "Reading Comic Panels"
+        },
+        {
+          "slug": "interpreting-editorial-cartoons",
+          "title": "Interpreting Editorial Cartoons"
+        },
+        {
+          "slug": "contrast-and-irony-in-cartoons",
+          "title": "Contrast and Irony in Cartoons"
+        },
+        {
+          "slug": "reading-bar-chart-scales",
+          "title": "Reading Bar Chart Scales"
+        },
+        {
+          "slug": "reading-line-chart-changes",
+          "title": "Reading Line Chart Changes"
+        },
+        {
+          "slug": "reading-pie-chart-shares",
+          "title": "Reading Pie Chart Shares"
+        },
+        {
+          "slug": "matching-table-rows-and-columns",
+          "title": "Matching Table Rows and Columns"
+        }
+      ]
+    }
+  ],
+  "prerequisites": {
+    "lesson-text-types-news-reports-and-attribution": [],
+    "lesson-text-types-editorials-and-individual-opinions": [
+      {
+        "lesson": "lesson-text-types-news-reports-and-attribution",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-projections-and-forecasts",
+        "strength": "helpful",
+        "reason": "Separating checkable claims from judgments helps students distinguish reporting from argument. This lesson explains enough to classify its examples independently."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments",
+        "strength": "helpful",
+        "reason": "Separating checkable claims from judgments helps students distinguish reporting from argument. This lesson explains enough to classify its examples independently."
+      }
+    ],
+    "lesson-text-types-essay-purposes-and-analysis": [
+      {
+        "lesson": "lesson-text-types-editorials-and-individual-opinions",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-sentence-cues-and-meaning",
+        "strength": "helpful",
+        "reason": "Distinguishing the dominant purpose from individual statements makes mixed text types easier to classify. This lesson provides its own method."
+      }
+    ],
+    "lesson-text-types-balita-at-opinyon": [
+      {
+        "lesson": "lesson-text-types-essay-purposes-and-analysis",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-figurative-comparisons-in-poems": [
+      {
+        "lesson": "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis",
+        "strength": "helpful",
+        "reason": "Recognizing figurative comparisons and repeated sounds makes poetic interpretation easier. Poetry defines each device before applying it."
+      }
+    ],
+    "lesson-text-types-line-breaks-and-plain-meaning": [
+      {
+        "lesson": "lesson-text-types-figurative-comparisons-in-poems",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-poetry-rhyme-patterns": [
+      {
+        "lesson": "lesson-text-types-line-breaks-and-plain-meaning",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-poetry-sound-and-rhythm": [
+      {
+        "lesson": "lesson-text-types-poetry-rhyme-patterns",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-poetry-images-symbols-and-tone": [
+      {
+        "lesson": "lesson-text-types-poetry-sound-and-rhythm",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-story-plot-and-turning-points": [
+      {
+        "lesson": "lesson-comprehension-skills-connecting-clues",
+        "strength": "helpful",
+        "reason": "Use clues in the excerpt to decide which events the ending leaves open."
+      }
+    ],
+    "lesson-text-types-story-character-traits-and-change": [
+      {
+        "lesson": "lesson-text-types-story-plot-and-turning-points",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-story-conflict-types": [
+      {
+        "lesson": "lesson-text-types-story-character-traits-and-change",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-story-narrator-and-viewpoint": [
+      {
+        "lesson": "lesson-text-types-story-conflict-types",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-authors-main-purpose",
+        "strength": "helpful",
+        "reason": "Narration, point of view, and author motivation are covered here in brief. The author's purpose lesson treats them in more depth."
+      }
+    ],
+    "lesson-text-types-story-setting-style-and-mood": [
+      {
+        "lesson": "lesson-text-types-story-narrator-and-viewpoint",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-story-theme-from-text-evidence": [
+      {
+        "lesson": "lesson-text-types-story-setting-style-and-mood",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-connecting-clues",
+        "strength": "helpful",
+        "reason": "Story analysis needs inferences that stay inside the evidence. This lesson explains inference briefly, and the inference lesson teaches how strong each claim can be."
+      }
+    ],
+    "lesson-text-types-speech-audience-and-purpose": [
+      {
+        "lesson": "lesson-comprehension-skills-authors-main-purpose",
+        "strength": "helpful",
+        "reason": "A speech's purpose and viewpoint are also taught as general reading skills. This lesson defines purpose itself, so the link is optional."
+      }
+    ],
+    "lesson-text-types-speech-context-types": [
+      {
+        "lesson": "lesson-text-types-speech-audience-and-purpose",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-speech-style-and-preparation": [
+      {
+        "lesson": "lesson-text-types-speech-context-types",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-speech-acts-in-context": [
+      {
+        "lesson": "lesson-text-types-speech-style-and-preparation",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-speech-rhetorical-appeals": [
+      {
+        "lesson": "lesson-text-types-speech-acts-in-context",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments",
+        "strength": "helpful",
+        "reason": "Check what an example supports before treating it as proof of what will happen."
+      }
+    ],
+    "lesson-text-types-judging-evidence-in-speeches": [
+      {
+        "lesson": "lesson-text-types-speech-rhetorical-appeals",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-checkable-claims-and-judgments",
+        "strength": "helpful",
+        "reason": "Judging evidence draws on telling facts, opinions, and forecasts apart. This lesson sets out its own checks for evidence."
+      }
+    ],
+    "lesson-text-types-fair-emotion-in-speeches": [
+      {
+        "lesson": "lesson-text-types-judging-evidence-in-speeches",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-speech-rhetorical-devices": [
+      {
+        "lesson": "lesson-text-types-fair-emotion-in-speeches",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-speech-breakdowns-and-repairs": [
+      {
+        "lesson": "lesson-text-types-speech-rhetorical-devices",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-reading-comic-panels": [
+      {
+        "lesson": "lesson-comprehension-skills-connecting-clues",
+        "strength": "helpful",
+        "reason": "Use actions and details from several panels to support an inference."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-evidence-and-claim-strength",
+        "strength": "helpful",
+        "reason": "Keep conclusions about the comic within what its details show."
+      }
+    ],
+    "lesson-text-types-interpreting-editorial-cartoons": [
+      {
+        "lesson": "lesson-text-types-reading-comic-panels",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-paghatol-at-ebidensya",
+        "strength": "helpful",
+        "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-connecting-clues",
+        "strength": "helpful",
+        "reason": "Matching conclusions to evidence helps students interpret cartoons without adding unsupported claims. Visual Media explains this principle itself."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-evidence-and-claim-strength",
+        "strength": "helpful",
+        "reason": "Matching a claim to the evidence helps students reject unsupported promises and conclusions."
+      }
+    ],
+    "lesson-text-types-contrast-and-irony-in-cartoons": [
+      {
+        "lesson": "lesson-text-types-interpreting-editorial-cartoons",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-reading-bar-chart-scales": [
+      {
+        "lesson": "lesson-text-types-contrast-and-irony-in-cartoons",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-comprehension-skills-evidence-and-claim-strength",
+        "strength": "helpful",
+        "reason": "Use the chart to support a claim about its values and check what it cannot predict."
+      }
+    ],
+    "lesson-text-types-reading-line-chart-changes": [
+      {
+        "lesson": "lesson-text-types-reading-bar-chart-scales",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ],
+    "lesson-text-types-reading-pie-chart-shares": [
+      {
+        "lesson": "lesson-text-types-reading-line-chart-changes",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      },
+      {
+        "lesson": "lesson-arithmetic-number-sense-successive-percentages-and-increases",
+        "strength": "helpful",
+        "reason": "The numerical examples require fraction simplification, fraction multiplication, and conversion to decimals. This lesson supplies formulas but does not teach those operations. Lead review: downgraded from required; the arithmetic is incidental to this lesson's teaching."
+      }
+    ],
+    "lesson-text-types-matching-table-rows-and-columns": [
+      {
+        "lesson": "lesson-text-types-reading-pie-chart-shares",
+        "strength": "required",
+        "reason": "Read the previous part first."
+      }
+    ]
+  }
+}

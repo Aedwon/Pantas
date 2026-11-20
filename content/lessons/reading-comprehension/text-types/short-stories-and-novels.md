@@ -6,6 +6,14 @@ subject: "subject-reading-comprehension"
 topic: "topic-text-types"
 estimatedMinutes: 12
 isActive: true
+status: retired
+replacedBy:
+  - lesson-text-types-story-plot-and-turning-points
+  - lesson-text-types-story-character-traits-and-change
+  - lesson-text-types-story-conflict-types
+  - lesson-text-types-story-narrator-and-viewpoint
+  - lesson-text-types-story-setting-style-and-mood
+  - lesson-text-types-story-theme-from-text-evidence
 ---
 ## Core Concept
 

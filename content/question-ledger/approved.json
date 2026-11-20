@@ -23042,242 +23042,380 @@
   "q-text-types-essays-editorials-articles-0016": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "35e0e1025e2a9975b4bf8f433a9a955e7d24ca8ad60f3b0a9e25576d3b0296c8",
-    "lesson": "lesson-text-types-essays-editorials-articles"
+    "hash": "417ac95d270debc934ef3b9efc55b74e9e51173e2be7890f4bc2d0a966a73e15",
+    "lesson": "lesson-text-types-editorials-and-individual-opinions"
   },
   "q-text-types-essays-editorials-articles-0017": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "21f4710921be3e4fd12cdf80f2c8dbbcdc2b8af916f7a5209015cff3923ec53f",
-    "lesson": "lesson-text-types-essays-editorials-articles"
+    "hash": "7934267ecebec930926d45105b9b32772cecddf9cb6edc06527301f6b29f0aba",
+    "lesson": "lesson-text-types-editorials-and-individual-opinions"
   },
   "q-text-types-essays-editorials-articles-0018": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "baa4eda0c75391a07a860c48b1943af6a5d1918ee0543a40cd8e365924dd9e36",
-    "lesson": "lesson-text-types-essays-editorials-articles"
+    "hash": "ad90720665878df75aaf986521ebbbf365e27061a5b9bd46a7270075f8c30527",
+    "lesson": "lesson-text-types-editorials-and-individual-opinions"
   },
   "q-text-types-essays-editorials-articles-0019": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "03b0b9237aabb1fb5ab819786572e1349bd411b9dbb0d0effa90e4073685d660",
-    "lesson": "lesson-text-types-essays-editorials-articles"
+    "hash": "99c72c3e706fe57f1a436e924bfe37bfb237742749f71476dab6639f2af80940",
+    "lesson": "lesson-text-types-editorials-and-individual-opinions"
   },
   "q-text-types-essays-editorials-articles-0020": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "2be580b549d359d6cd36a3b9f0c79af8607cdbe7384ac798beee55ac02e181d4",
-    "lesson": "lesson-text-types-essays-editorials-articles"
+    "hash": "a60b258bc309aa03037c954048cfa2641a132df032bf9b3085e9c889229630fc",
+    "lesson": "lesson-text-types-news-reports-and-attribution"
+  },
+  "q-text-types-essays-editorials-articles-0021": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "3c1c1495c9a3c5c76956bd1c7db97105a620c711cc24f3ac7e29c721a529bdc5",
+    "lesson": "lesson-text-types-balita-at-opinyon"
+  },
+  "q-text-types-essays-editorials-articles-0022": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "429af09b9b130c48411ce4324f60414669f401fc547bbb7e83b06ae7b846f561",
+    "lesson": "lesson-text-types-balita-at-opinyon"
   },
   "q-text-types-poetry-0016": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "703d4cc5d8b3464c49183ed4a9ec185fb36a114404ae41841c66bc4ed8b6a1d4",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "00748545d0574374a8e82aed50f4b09b70adfbf5e80667ce6a660370c6fd16d6",
+    "lesson": "lesson-text-types-poetry-sound-and-rhythm"
   },
   "q-text-types-poetry-0017": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "82a26daaea38505a6e4b295eeba48e10f2f4763e0acf7ea2cb7a5a3c3edfec81",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "cd88432a580a6bbc47a867ec17707965c7e9d2b137a14564cc82db7d914b2cf0",
+    "lesson": "lesson-text-types-figurative-comparisons-in-poems"
   },
   "q-text-types-poetry-0018": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "a47fd8cd69701e01719181f706ab3678320d069522d2f1ee2477570097f842f8",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "9be7ee33005cce04afa4db393347513ae592e57cf62b3cc4883a0be61a7e74fb",
+    "lesson": "lesson-text-types-poetry-rhyme-patterns"
   },
   "q-text-types-poetry-0019": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "a97dfe469944bde143d182dff52c855f1123732c35b01c4f2e661c4ac1a5c681",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "a10e5c17542fbab453cf8238c29a011767c2220558c88d650278eccd21366014",
+    "lesson": "lesson-text-types-poetry-images-symbols-and-tone"
   },
   "q-text-types-poetry-0020": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "7f489112e86bd0498e4b8ecb51129d473eaf7c4aecd204b29a9eadeddb54ad5f",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "808182be60d28eb8ca11f733ade2483d66a464298500343fdeb8df2d755cb174",
+    "lesson": "lesson-text-types-line-breaks-and-plain-meaning"
+  },
+  "q-text-types-poetry-0021": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "af563914f12c3afff8bf51c9f49078d6b2d577583318a88a170bb75da4d603e0",
+    "lesson": "lesson-text-types-line-breaks-and-plain-meaning"
+  },
+  "q-text-types-poetry-0022": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "335a05ec5d909eba61243643e77adc3dc321af468fff8a98a433e0560042373b",
+    "lesson": "lesson-text-types-poetry-rhyme-patterns"
+  },
+  "q-text-types-poetry-0023": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "5cfe53f959974acb1a67cd7aa29ea2403b38071c7968f00549c6b8c5ebf6875e",
+    "lesson": "lesson-text-types-poetry-sound-and-rhythm"
   },
   "q-text-types-short-stories-and-novels-0011": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "4128281e66c4ee45baa63947fabb1bb318e953db43919b4affe76912ae5409e0",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "869a0e6da756060c59475d123a4f718bb107190ab8d9a609c9997f727832207f",
+    "lesson": "lesson-text-types-story-conflict-types"
   },
   "q-text-types-short-stories-and-novels-0012": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "88471b39ab575aac27e1574ac1971f2d56b3fb10f9d13b08f93d3dffbb4e7e06",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "0edf0a98a4ecffa4a82eb5f50b512502912f0b58c696d63e612683eef36659d5",
+    "lesson": "lesson-text-types-story-character-traits-and-change"
   },
   "q-text-types-short-stories-and-novels-0013": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "a8128daedfec442bd7ce28cac4ad0da33e3fdd14a38dc066df6b9bce9dd53a46",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "30bb6e90dc05a26ad80b881bd3d5264379ea1657c4d133198e4e998d68ea248a",
+    "lesson": "lesson-text-types-story-character-traits-and-change"
   },
   "q-text-types-short-stories-and-novels-0014": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "b4fd9aa5b9e95326cebf775aa29f4b79a2146458045387ef9796e970b2238f59",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "15e0fe60b50f773b9d61e9ad8de9361c694dea6d8cf6a889185129be6935fc9c",
+    "lesson": "lesson-text-types-story-theme-from-text-evidence"
   },
   "q-text-types-short-stories-and-novels-0015": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "e50b7d7a1150bdc47a639820836f05119682970a3123a8248cc80ea20e5d5602",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "78020733b96f7e6b7ab75697778f67edcd6214d27d36c24e06e2fb266324632c",
+    "lesson": "lesson-text-types-story-plot-and-turning-points"
   },
   "q-text-types-short-stories-and-novels-0016": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "831d2db0ffffb4a8f49b55363243324dbd3df8f0cbd8a58fbedbaf44080c5eb9",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "2cf789ef9bfcc1a58d2d673528338da0ecfcb8c5c838dbe9a5947587c876f7d1",
+    "lesson": "lesson-text-types-story-conflict-types"
   },
   "q-text-types-short-stories-and-novels-0017": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "dbdc7d39d2487260e90dec156320ae9e1bfd5e23ead7ee34842405f93a587699",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "68b8fb81c53cb8434246171b80b3b224e42c87203b35cde880aeb45f40cd5e75",
+    "lesson": "lesson-text-types-story-character-traits-and-change"
   },
   "q-text-types-short-stories-and-novels-0018": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "4cde07d43a547c3bfd702ec2ea55a9a6a6b7f2864d6d76b775f3177252d5e31b",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "bab8bfdedfee17c1e30523172c68ccc97b307f73c60450c62463444844f008b9",
+    "lesson": "lesson-text-types-story-narrator-and-viewpoint"
   },
   "q-text-types-short-stories-and-novels-0019": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "d34277d7b469c2907a9834b363d65d21923827324b121c96ba4793d7eed210f5",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "bf6a8319831f27e4cad50cbb5b5ed5d65aaf5549eb30115d6f4731133a6b12d4",
+    "lesson": "lesson-text-types-story-plot-and-turning-points"
   },
   "q-text-types-short-stories-and-novels-0020": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "89db72d7fe59d9768a1b41e2b1fc01a5c72225120a1625dac0c1641de47f6132",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "b569af968b9669c487a39db835a5dfb1112181e05b3a42a5bcd56084e498a578",
+    "lesson": "lesson-text-types-story-plot-and-turning-points"
+  },
+  "q-text-types-short-stories-and-novels-0021": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "75732e7efbfa77ab7adf70f100dd541b7b16186917133161383ca0b77d1afcf0",
+    "lesson": "lesson-text-types-story-narrator-and-viewpoint"
+  },
+  "q-text-types-short-stories-and-novels-0022": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "ace5203f59f877bb1a972616008ab781a9748b7edef322cc5ce709cb8adb6aa6",
+    "lesson": "lesson-text-types-story-setting-style-and-mood"
   },
   "q-text-types-speeches-0011": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "5c69a73226068cec1d2298ad874be107bdbb44d8a793e3cdeba7014c5107e750",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "1db16ec098229b4bbbcd88507fc2f8d3253f9279a1f5f4e698fab56e3e57c67a",
+    "lesson": "lesson-text-types-speech-audience-and-purpose"
   },
   "q-text-types-speeches-0012": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "078b6c1e2c4b9d6ec391219bccc243a86692d9477a308fc7f4e878873a9bb2ca",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "fa363ac577aab89c509dee861a5daf9022f0d8a525011107c16d335417c0b9c2",
+    "lesson": "lesson-text-types-speech-rhetorical-appeals"
   },
   "q-text-types-speeches-0013": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "d11a491d191f4d5e09bd472644f8bd6789a8e8bbe743d0652287fe5226da4735",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "aff9f6b53496f9b09ada650722eaa31b3b34b66f48a6afeecd792bcb8a941b1b",
+    "lesson": "lesson-text-types-speech-rhetorical-devices"
   },
   "q-text-types-speeches-0014": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "6f55fdb89ba4ca8fc73f339709ab8005be8c937392dcd8721a66e1d340893e8a",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "7d89429af069f9620c67bbba302b7a96fc5413f735d93c28c5e4e8badce1adda",
+    "lesson": "lesson-text-types-speech-rhetorical-appeals"
   },
   "q-text-types-speeches-0015": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "0241fe057451c9644752725e5fe6676681468b4f276892f8f8c7b581d5e88796",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "4c305cd096580474a90474db89cee6de5109b270ef191685492cd72e47904292",
+    "lesson": "lesson-text-types-speech-audience-and-purpose"
   },
   "q-text-types-speeches-0016": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "63a7b5e2e83137485b396169562e704d8bb4ceffd1ffade362319a8360ce417d",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "52c17a0e84185642816319ff4ebae4c2cdd2c03aa759eced91dd651d0d1d181b",
+    "lesson": "lesson-text-types-speech-audience-and-purpose"
   },
   "q-text-types-speeches-0017": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "74a2b255fa4b5b7905f36c8a087d9304361a3f17d22078c5da5a555d4d4eade2",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "6df58213ff9da66707c12be731d78c813c2ccc0b34632c7f0126835ae6595b3d",
+    "lesson": "lesson-text-types-speech-rhetorical-appeals"
   },
   "q-text-types-speeches-0018": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "86ef41cb79040785bd4bc08c1637e4f28b12d0f1064a6b919439d1785f6b444c",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "338c5edc75d5122ed37c9324f48c58622a9b9b179297d2255e12456f1fa51db0",
+    "lesson": "lesson-text-types-speech-rhetorical-devices"
   },
   "q-text-types-speeches-0019": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "a91d39690f514d558ea91d0d6e9ea2ab3dc28a13e28c8ac68ca867699718e3f4",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "d15ea7963776e0fdad222babef440eef56cd2f2b0b967e15436ccc06954adaac",
+    "lesson": "lesson-text-types-speech-rhetorical-appeals"
   },
   "q-text-types-speeches-0020": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "b0d07baf08a4d59ca3c01c106989980233b59b9bed096219bb02eb2d559f5828",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "30e025dae9df3fe80f90dfe9fee741bcff0f337840ee87bc35478104efeec842",
+    "lesson": "lesson-text-types-judging-evidence-in-speeches"
+  },
+  "q-text-types-speeches-0021": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "23d1e3865b12aac08f8dedd6a7e6c8052cd4094143307bd76eb98d035f4e883b",
+    "lesson": "lesson-text-types-speech-context-types"
+  },
+  "q-text-types-speeches-0022": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "1338d455d0f4d2efd9492fc8bcdaa24403ec7cbc519ca93f428303e09ddc1b98",
+    "lesson": "lesson-text-types-speech-context-types"
+  },
+  "q-text-types-speeches-0023": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "bbe7f3a522cfb875beffc3b34774c5f481300ca26a7d975c8599693508166ebb",
+    "lesson": "lesson-text-types-speech-style-and-preparation"
+  },
+  "q-text-types-speeches-0024": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "950f6c52de140a6ac9389fbc237cac1dbbfd36f3d866b91875412e7142da0870",
+    "lesson": "lesson-text-types-speech-style-and-preparation"
+  },
+  "q-text-types-speeches-0025": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "737144c2a927dbf8fac46d5b520d83bef7978dd5614cdda0a2d176b70d4fc7f6",
+    "lesson": "lesson-text-types-speech-acts-in-context"
+  },
+  "q-text-types-speeches-0026": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "c52e2c53ef5063479af7a0c490491271ffda4d39ce2a632b1e18a364f709e1e7",
+    "lesson": "lesson-text-types-speech-acts-in-context"
+  },
+  "q-text-types-speeches-0027": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "c72fd7e21b7174fd046374e22028ed5887c16193e36489f1b990a59347dbd5e2",
+    "lesson": "lesson-text-types-judging-evidence-in-speeches"
+  },
+  "q-text-types-speeches-0028": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "839d81956fab18a254527d1420cc94859f0d683cf6802728ec3d2cebfcd08691",
+    "lesson": "lesson-text-types-fair-emotion-in-speeches"
+  },
+  "q-text-types-speeches-0029": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "2225d34cf6d88a471055f9be49060dbfbac6273a46b78a04743e345bc268dfeb",
+    "lesson": "lesson-text-types-fair-emotion-in-speeches"
+  },
+  "q-text-types-speeches-0030": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "fcd19c5266a79ce39263892a5bed49d284b896f51cea59322ca627a69fb8647a",
+    "lesson": "lesson-text-types-speech-breakdowns-and-repairs"
+  },
+  "q-text-types-speeches-0031": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "23bae4daf98084b80a45c6632e358e014fa20ff6cd96465c2577bc379c782ddb",
+    "lesson": "lesson-text-types-speech-breakdowns-and-repairs"
   },
   "q-text-types-visual-media-0011": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "436e420451f018cf9194152d459f59d8ff7a1ec882877e9688ddd2e3a9a3ca12",
-    "lesson": "lesson-text-types-visual-media"
+    "hash": "0457ad02bc71ee41afcde88501c8b188cb7b3afac55c6974131723b84ea23a25",
+    "lesson": "lesson-text-types-reading-bar-chart-scales"
   },
   "q-text-types-visual-media-0012": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "31dd45af8866c0d4d1a33827384453a87ec4271d44a135c87a5f972ae04eb2b4",
-    "lesson": "lesson-text-types-visual-media"
+    "hash": "0e5ab3863299fca94abd78e7a425acbdfcabe30a65fdabb5167f7a60f030288c",
+    "lesson": "lesson-text-types-reading-bar-chart-scales"
   },
   "q-text-types-visual-media-0013": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "0cbf8d7c9b42c97a969097e488ebe5177af7d7b22d73cbfc1cdc8d285aa6b9a9",
-    "lesson": "lesson-text-types-visual-media"
+    "hash": "cca6535aadb48dc13342991af8406c3554d323f20e54cabb9f42108f54a51e5f",
+    "lesson": "lesson-text-types-reading-bar-chart-scales"
   },
   "q-text-types-visual-media-0014": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "432d4abd91549a5366c892982394053a39a4bf513b9b7463a49dd540342a903a",
-    "lesson": "lesson-text-types-visual-media"
+    "hash": "97f74c9f2505d170bc9b565d3986342d47a4c61d33ae980a4b61262dfe85567c",
+    "lesson": "lesson-text-types-reading-line-chart-changes"
   },
   "q-text-types-visual-media-0015": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "03ca65bb6ef7940f604e3cb8618b523efe7babd3c831af9a55deaa632ecd14ab",
-    "lesson": "lesson-text-types-visual-media"
+    "hash": "2c7efabe308cb0f780079b24568db76583e317f1408140cd13f261e75b1a0b69",
+    "lesson": "lesson-text-types-reading-bar-chart-scales"
   },
   "q-text-types-visual-media-0016": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "3a0a0d25345354bac818e3a941ee21a0a4601df66f4c34ef7b35d7d4399e6436",
-    "lesson": "lesson-text-types-visual-media"
+    "hash": "5b84db3e8a3c230573d6de7ef65fdab9204295e40bfd4650c99c3797ddf7689b",
+    "lesson": "lesson-text-types-reading-comic-panels"
   },
   "q-text-types-visual-media-0017": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "9b3396ecf6ee13d9e785e85f760b8f15c42bc74d7fefa9f14fcb6a411c623590",
-    "lesson": "lesson-text-types-visual-media"
+    "hash": "233125dad08a700a59b49e0c13c05cb04e83871c353a0a213654c56858b6fa7f",
+    "lesson": "lesson-text-types-reading-comic-panels"
   },
   "q-text-types-visual-media-0018": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "902c26ec7046d379ca803fd6d2103959e1a279755d4a096c82e61658f066f4b9",
-    "lesson": "lesson-text-types-visual-media"
+    "hash": "d85c64e672aa359c877708138503c0614045c9e4d51e83fdcb65851f630241cb",
+    "lesson": "lesson-text-types-reading-comic-panels"
   },
   "q-text-types-visual-media-0019": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "7f5ed3cb1669ddc7e7f381ff8cc282f48372fce99ab55700434db888e5f50285",
-    "lesson": "lesson-text-types-visual-media"
+    "hash": "f5beb4c210fc1dfc1ea84809b19e21d72811224bafdc61358c919fe5c89f4dee",
+    "lesson": "lesson-text-types-reading-comic-panels"
   },
   "q-text-types-visual-media-0020": {
     "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "fcbc9dc666dfcca9f8c81673114e69fe65f9d190e2adfdd9a8f095fa3de095a9",
-    "lesson": "lesson-text-types-visual-media"
+    "hash": "f80c162882fdcf723eb0c84333d49bf016ae7fac364ec6da547b7a325af6702f",
+    "lesson": "lesson-text-types-reading-comic-panels"
+  },
+  "q-text-types-visual-media-0021": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "805a6b2a3a1dcd6f8104cf1fe3dec78f431bec9dd281f8f16a0f0121eeeed60d",
+    "lesson": "lesson-text-types-contrast-and-irony-in-cartoons"
+  },
+  "q-text-types-visual-media-0022": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "f4821c8b45fc37baa32d4149e786b2abcffe1866e767e2625ecefc6a6afc4a7b",
+    "lesson": "lesson-text-types-reading-line-chart-changes"
+  },
+  "q-text-types-visual-media-0023": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "331797f07846d2165ce0336073111da71ea5d19df7561f1bf26ac3d1d77a0a72",
+    "lesson": "lesson-text-types-reading-pie-chart-shares"
+  },
+  "q-text-types-visual-media-0024": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "fd64b740cadea65c0cf31196a5a7880d5c8b0f315383e0152b127e8bb59f9108",
+    "lesson": "lesson-text-types-matching-table-rows-and-columns"
+  },
+  "q-text-types-visual-media-0025": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "8e491a7b3b16f0b914c1145ea6612566d5c8827b92336d5c9c559e405a7b5fb6",
+    "lesson": "lesson-text-types-matching-table-rows-and-columns"
   },
   "q-trigonometry-angles-and-radian-measure-0001": {
     "approvedAt": "2026-11-19",
@@ -26063,220 +26201,364 @@
     "hash": "c8c850d4c048612debc140853cf38926983a8124557f1ae843fabf979d2edb63",
     "lesson": "lesson-comprehension-skills-event-verb-forms"
   },
-  "rc-tt-po-0001": {
-    "approvedAt": "2026-11-19",
+  "rc-tt-eea-0001": {
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "e8ecf1f56d8a72eecc4df0afb53f7edcf946ab9920705bebcd86e4eb131e0248",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "58badfd3ce033628b32e2b5f920963fb89e9715248b496111717a89ef4c5ac20",
+    "lesson": "lesson-text-types-news-reports-and-attribution"
+  },
+  "rc-tt-eea-0002": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "0709ee7fcd18ba484fb98551ad04739d22268f0e61416dae5232f55cda90ad3b",
+    "lesson": "lesson-text-types-news-reports-and-attribution"
+  },
+  "rc-tt-eea-0003": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "17982318a58288c779f50c2d40c9a746021db5d4e9de9c170bf8476787c76b42",
+    "lesson": "lesson-text-types-news-reports-and-attribution"
+  },
+  "rc-tt-eea-0004": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "8218480ff6f6df9196a39aab04ef2f325ed4daca3a88e14a38b05070d375f08c",
+    "lesson": "lesson-text-types-news-reports-and-attribution"
+  },
+  "rc-tt-eea-0005": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "9e57deef9b9cdb98f03f279c4423756abf30e6df93f6869ca9198954c1808fde",
+    "lesson": "lesson-text-types-news-reports-and-attribution"
+  },
+  "rc-tt-eea-0006": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "2ab5b3426310099d0ab69b38b3bdf8a4438ef2be84d6c62082ebb5005ad7eb89",
+    "lesson": "lesson-text-types-editorials-and-individual-opinions"
+  },
+  "rc-tt-eea-0007": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "44c26aacbc5b9006ba68bbbee7fdc1f60fb58b783a5f86b0488d13c69a91c2a9",
+    "lesson": "lesson-text-types-editorials-and-individual-opinions"
+  },
+  "rc-tt-eea-0008": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "044700fb482dbd805a9b33e9d144e41b8df4ce35620eeedb886584e66004a6fb",
+    "lesson": "lesson-text-types-editorials-and-individual-opinions"
+  },
+  "rc-tt-eea-0009": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "21546fd8dde5dc04eadd074e28bf301a6722e8267351d90d97abecc54ecc3347",
+    "lesson": "lesson-text-types-editorials-and-individual-opinions"
+  },
+  "rc-tt-eea-0010": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "271614d6958100e5f8171a4c8be5b01c3e6a7afe4abe1619030c270f99319ae1",
+    "lesson": "lesson-text-types-editorials-and-individual-opinions"
+  },
+  "rc-tt-eea-0011": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "d6b99e517332ee6f2c2b8899d802ccdab347d5cf6da3280260757518bc165ecc",
+    "lesson": "lesson-text-types-essay-purposes-and-analysis"
+  },
+  "rc-tt-eea-0012": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "d0fe8674ff5f5f0255758eaf9c81f8d323e7ea7938b5841018c71ff8b358a187",
+    "lesson": "lesson-text-types-essay-purposes-and-analysis"
+  },
+  "rc-tt-eea-0013": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "3f1e7533696d987d24fe9d9b9e46a81c02639554996138da3646b13380dab6ba",
+    "lesson": "lesson-text-types-essay-purposes-and-analysis"
+  },
+  "rc-tt-eea-0014": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "fc2632eeba18dfe3944ede293a5d4a5add80fcffde7ecbf26eb9233e9394e46a",
+    "lesson": "lesson-text-types-essay-purposes-and-analysis"
+  },
+  "rc-tt-eea-0015": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "58c4d7a84c8392090f8e409e042df02d8d0d206504d8d3afbb94d8aab8c1cf73",
+    "lesson": "lesson-text-types-essay-purposes-and-analysis"
+  },
+  "rc-tt-po-0001": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "4a6da859aecea67192630c7928733c90fb7784bb9bd0daf185c25d74fcd8039e",
+    "lesson": "lesson-text-types-poetry-rhyme-patterns"
   },
   "rc-tt-po-0002": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "d7d919457282aee50d424eaff230917dcfee3ca823d4f7984ca05c3ebfb2dfd3",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "7b41a367b86487c03ce93b076b0faa6c34731310b18f1106cbc19997a5cf1897",
+    "lesson": "lesson-text-types-figurative-comparisons-in-poems"
   },
   "rc-tt-po-0003": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "22ab07b92cb9ccad1505014bfea9ff89bbb5833903ff210942606caf8fb83e0e",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "e13b1657108c4379eacce50d4d1e8ed8caf4bf7bef971e2367cbdc0268d018d3",
+    "lesson": "lesson-text-types-figurative-comparisons-in-poems"
   },
   "rc-tt-po-0004": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "a759b938a3d141307781e426ead299c5ad7133889a1a363eb8c741484ecdf8d4",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "569750f01d5a5b30dadb8ee48d74562e481e905854773fe9001467faf0416649",
+    "lesson": "lesson-text-types-poetry-images-symbols-and-tone"
   },
   "rc-tt-po-0005": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "16611f7ed5ba32596a763ae76b0036ae812fbf510eb288ff08f8ce02b47e4e21",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "0780e826c502cb6e06124ee8f35f326c270c2bdc0cf31c65011e782e2da94359",
+    "lesson": "lesson-text-types-poetry-images-symbols-and-tone"
   },
   "rc-tt-po-0006": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "e8f6f60d6722e9a6a87627e086e043031e844ba909a763217d7d92f0cb9f86fe",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "a1a721457710648d1a1103f4d5b75705ec560b749ab0913f69187167758e52c9",
+    "lesson": "lesson-text-types-figurative-comparisons-in-poems"
   },
   "rc-tt-po-0007": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "b48ddbf96cfeb132122f01edeb9787f066e263787def13e4e4ad86254601ec1a",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "6dbe8731aa12d780c96139f2aced55968ab8ae954c3e4f07a6c5e6da8e870c95",
+    "lesson": "lesson-text-types-figurative-comparisons-in-poems"
   },
   "rc-tt-po-0008": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "4229d67f6601151d952f6916a2982b87d20a3f47a78ec2e4508c590867305c3f",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "377ec91944d0c87f3658240e13a1e2a4bf4f480b2da4f3b891dd04a535d3521f",
+    "lesson": "lesson-text-types-poetry-rhyme-patterns"
   },
   "rc-tt-po-0009": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "e00d439332c3fe70e349685e512409297081f3aace61e2d7b3ed40021267eefc",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "fa1193a74016f84b26f2940c69be3f7ee03082aec3560fb3cda7489ff39ae3b0",
+    "lesson": "lesson-text-types-poetry-images-symbols-and-tone"
   },
   "rc-tt-po-0010": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "43614007dc9e859b0d923d3b47a75158d38c2e32d5ae2131e04e7316417cddc9",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "518df0d908449db7abb3e3e369723b0927bd1476614a41d7e5119acd174752b2",
+    "lesson": "lesson-text-types-poetry-images-symbols-and-tone"
   },
   "rc-tt-po-0011": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "08ef038a119fcbb09e01f50f37c155d81bcb5293ba952144e1c38a5d12ab3087",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "4aac90fb0de9c9d3b6d822179ce92a3382ec9f9143faae183b76a81a0e636f02",
+    "lesson": "lesson-text-types-figurative-comparisons-in-poems"
   },
   "rc-tt-po-0012": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "68082400f26468cb6fe4e70905902089fc656590703916fc590c4305e3048d96",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "e6ae4a3887d5e8fd18e3a079e3c4227b15cc7f5630a770fb6b9a4aa0734af55a",
+    "lesson": "lesson-text-types-poetry-images-symbols-and-tone"
   },
   "rc-tt-po-0013": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "cc3e035c05768fb3a8fe0e25293ebd287d8bd548e5c8a37ddf0a8d1402210a51",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "3eeadb74f4ff6a47e0a941fde1885e4b84faf7be66e864a3b05e04dceff1db9b",
+    "lesson": "lesson-text-types-poetry-images-symbols-and-tone"
   },
   "rc-tt-po-0014": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "c813773b64f7cb79f3686f4b17b233dfaddf725f8c1e87c26333801672ba01dc",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "cde77a1c7619e465b02775027486eb292160994fa5d6443a435ca0436d4acef5",
+    "lesson": "lesson-text-types-poetry-images-symbols-and-tone"
   },
   "rc-tt-po-0015": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "5d620d70a415a775cca20c8146fd985b766015e006ec7ff326eec448d23fdfc7",
-    "lesson": "lesson-text-types-poetry"
+    "hash": "637d990421881105881e20193acab30b44de9e23a553e2402a7bf97968d41196",
+    "lesson": "lesson-text-types-poetry-images-symbols-and-tone"
   },
   "rc-tt-sn-0001": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "adc8ba29f0f41cdf328e5fa262ace1f05ede949f793294220b5424db55e0c828",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "7c722e3397a87824c0c3a7a49334263110107e2d74eaa6128057c16b7f6e0e23",
+    "lesson": "lesson-text-types-story-conflict-types"
   },
   "rc-tt-sn-0002": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "5723f585ff93f2d707ea54ee7fb46add487e29623ac50918765d44c29ff361f0",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "f100cce64649003a5b15e3b6383f1ef8bb1aa7bdc0f646866b98293ff4dea861",
+    "lesson": "lesson-text-types-story-plot-and-turning-points"
   },
   "rc-tt-sn-0003": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "fcf7b8b320591fe71dac2b1e0a502c0328cae329d69250c6a66b259f5dc733c2",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "4deeafc490829a532db727f44d9424fab8524c3a8da8fe5b14791521d7e828c5",
+    "lesson": "lesson-text-types-story-character-traits-and-change"
   },
   "rc-tt-sn-0004": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "874255c895aa00e0ed48617bf2010ffec895defb23dae64638386a753943cb7b",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "0740abbfcca5b51c4328021df4025c964a87534c5d4e7ce857998aa3a5d1db22",
+    "lesson": "lesson-text-types-story-plot-and-turning-points"
   },
   "rc-tt-sn-0005": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "68cebab516017f588341743c45598d6ae6f0f0d4cb3a5e15e17e0f59ab35e35c",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "411a4a110520a72cafef7e7d0ff8e13b76b8f1f227b4595bfdea327bb290fc69",
+    "lesson": "lesson-text-types-story-theme-from-text-evidence"
   },
   "rc-tt-sn-0006": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "f25f984265065076316af37554a0f8dfd317d0397f7af2626c5df55e1dcbec1a",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "243a7fc8257b7d90925958f49481397f79104540348bdd7026a231577206727c",
+    "lesson": "lesson-text-types-story-conflict-types"
   },
   "rc-tt-sn-0007": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "8378eb1c3c92d938e76d9deb07f5a5c803b06eea7d245cc18b30db1fb635e39d",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "0c83a985fa3b61e437b9b8cc5980a75fce1b3c60a6fd5d77709d79f2ac6995c3",
+    "lesson": "lesson-text-types-story-setting-style-and-mood"
   },
   "rc-tt-sn-0008": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "aaa0c0bb23ff2806766a99594154221245270d33925b487a9b9d437878b89119",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "c9c4ec8175fdbb98707d10163c27b6398492fd2651b534af2609312fc2928673",
+    "lesson": "lesson-text-types-story-plot-and-turning-points"
   },
   "rc-tt-sn-0009": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "70f422c204d717a4114d3149732f842ff0825ca16ecb171337195b22fbca658e",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "cbc5fb6e948e2ba33404968777a50d5d5d0ca2e1913e71ba92b08cd1b15e4943",
+    "lesson": "lesson-text-types-story-character-traits-and-change"
   },
   "rc-tt-sn-0010": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "9371181901c5d05fc2820d330a19c0a7f631b3394a68a8322daa2d74edee7220",
-    "lesson": "lesson-text-types-short-stories-and-novels"
+    "hash": "8f73dd7ea3b3d0e2dbdd02b13f3462d60d58dce6fb902bb3fb0f86b2f1589c83",
+    "lesson": "lesson-text-types-story-plot-and-turning-points"
   },
   "rc-tt-sp-0001": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "91801d14c55dfb844c4d3195cfee4253f8f739527d17c89cd6735b0ce0bd6a29",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "e7cb59827cb3d7c66b7c74cc0f6bcbe439a749b1ad4aa76261f5ffef4ec73c39",
+    "lesson": "lesson-text-types-speech-rhetorical-devices"
   },
   "rc-tt-sp-0002": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "82d437273c01924b1c9a97f0614cb698eb1edafc3c2716a3005c8f9956723d5c",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "6c602ba81b9e28aa0481a638dc9b8391d7b637c518c23b66ea18ba4d052b8232",
+    "lesson": "lesson-text-types-speech-audience-and-purpose"
   },
   "rc-tt-sp-0003": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "5d1b5a4b8c612f2f7507b82f07df88a8026246b84c9eb1115f36cf358a29a18d",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "bd940bccd79f35660296f78a7bb45795cc720886ab14041e2835319e5528fd9f",
+    "lesson": "lesson-text-types-speech-rhetorical-appeals"
   },
   "rc-tt-sp-0004": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "d6a7e3aafdba4ba87556587d2271e5b45d5e4973f112d6e21d4ec5bfeec20461",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "113a48a840f1a0f19a28fefea23ae52920d6a379be066c8111e4f847eded9d7f",
+    "lesson": "lesson-text-types-speech-audience-and-purpose"
   },
   "rc-tt-sp-0005": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "78122cacbdff0ca4bdbadee68d22247ba6d0d1d40fed37cf4e0689d69a9dbb54",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "6cc8e4c5a23f6405c8dd765508953919db74eff70290a31921591a2092e1d54c",
+    "lesson": "lesson-text-types-speech-audience-and-purpose"
   },
   "rc-tt-sp-0006": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "eefe79aeffe1cc1cf1d3bd9a22cd8f1d3fe768373bc8a2abfa7fb204aae0d041",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "1b87b23ced4d7c5eb4d78bfce10216766eab91ab261d98044298ba618c276ac5",
+    "lesson": "lesson-text-types-speech-rhetorical-devices"
   },
   "rc-tt-sp-0007": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "eca7f33b7d3f9d14d964c2ca013dcc2da7701ac0ca507909928570f218f3cf9f",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "abd210abda22a885098efa00d667a2d202150a12eb007fc0df3ce9b7f084c548",
+    "lesson": "lesson-text-types-speech-audience-and-purpose"
   },
   "rc-tt-sp-0008": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "078273dcfcc72e42072407bb418dbf9126c65e2b61d72cd6d89ee624569037cb",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "72f064a165d3960e9f3198108d3b49b14550789e801dfdc01ce1969de2ba09b4",
+    "lesson": "lesson-text-types-speech-rhetorical-appeals"
   },
   "rc-tt-sp-0009": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "7ff4f2ea3fc2ca10e149020edd2bbade471de7f191c15b1af1cfe95c3efc6fe3",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "839b5e1f341082c2d3c30c1f521a7637f423ecd96f2fa13be694d975e6807d46",
+    "lesson": "lesson-text-types-speech-rhetorical-appeals"
   },
   "rc-tt-sp-0010": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "f407258081aa21c2d67436a433225bfa28b9c0de4b4d3daf876c3db1043a7083",
-    "lesson": "lesson-text-types-speeches"
+    "hash": "09bb60215a9459eafbffbf9efbc29979fd9aebf167c657bce9381b65b25528fd",
+    "lesson": "lesson-text-types-speech-audience-and-purpose"
+  },
+  "rc-tt-vm-0001": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "12cbc907d60f137fd9e43d72ae6d8ecf18b31dad1f442ba524a722f1c43dc55e",
+    "lesson": "lesson-text-types-reading-pie-chart-shares"
+  },
+  "rc-tt-vm-0002": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "14236d0629b3727e1c119f3b0735cddb96c16b9035956908ef92e61b6d884657",
+    "lesson": "lesson-text-types-reading-comic-panels"
+  },
+  "rc-tt-vm-0003": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "90e8a0b1239a8c5e51e78a75f7d82064d20b9b922deac6723c5dc434cdba7b00",
+    "lesson": "lesson-text-types-reading-comic-panels"
+  },
+  "rc-tt-vm-0004": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "96badf69bffdbd89f7a85f75d2ed47d973255b62a10d6733aa100026a75125d2",
+    "lesson": "lesson-text-types-reading-comic-panels"
   },
   "rc-tt-vm-0005": {
-    "approvedAt": "2026-11-19",
+    "approvedAt": "2026-11-20",
     "evidence": "docs/content/verification/cet-split.md",
-    "hash": "0453fa7d6a73368e113083d0264ce353a4dec579b8bae2e1f156fca7a8080821",
-    "lesson": "lesson-text-types-visual-media"
+    "hash": "a07f3696f0b5f11b5190923dfc943c8706fc681b00f9d732d23c46555d57dcfa",
+    "lesson": "lesson-text-types-reading-comic-panels"
+  },
+  "rc-tt-vm-0006": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "c9fcd8dac88b9fc0b4456190c02a2672176cc6544200f2969e9632b895ec5b25",
+    "lesson": "lesson-text-types-interpreting-editorial-cartoons"
+  },
+  "rc-tt-vm-0007": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "41a89e9895dc15f0cf6d23775c48caf0454f51ace34f05f555213a20be23f169",
+    "lesson": "lesson-text-types-interpreting-editorial-cartoons"
+  },
+  "rc-tt-vm-0008": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "5df40df8bf3b2ad143d9c7ecc6349bfa4262cfbc8a5b619476900e377e4929ce",
+    "lesson": "lesson-text-types-contrast-and-irony-in-cartoons"
+  },
+  "rc-tt-vm-0009": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "b837b25002fa5bc81c854b7e76009583de123e1940ef40b2cc7b5242ea2996d6",
+    "lesson": "lesson-text-types-interpreting-editorial-cartoons"
+  },
+  "rc-tt-vm-0010": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "2f4bd22db5a7470a184fc94ca1722b338a90234df8cf9f410664b9e930be75d8",
+    "lesson": "lesson-text-types-interpreting-editorial-cartoons"
   }
 }

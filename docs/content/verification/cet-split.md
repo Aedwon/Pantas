@@ -79,3 +79,136 @@ A separate solver answered the 12 new questions from shuffled blind packets. All
 - `q-spatial-abstract-reasoning-matching-dots-outside-a-shape-0002`: C. The distance must exceed 6 cm and be below 8 cm. The choice 7 cm fits.
 - `q-spatial-abstract-reasoning-matching-two-dots-0001`: C. The part of A beyond B fits P. The overlap fits Q. The frame encloses both regions.
 - `q-spatial-abstract-reasoning-matching-two-dots-0002`: D. Two crossing circles each have a region outside the other circle, so both placements fit.
+
+## Text Types split re-approval (November 20, 2026)
+
+Policy revision: `546613581`. Three independent solvers received shuffled passages, stems, and choices without keys or explanations. All 100 existing questions matched. The solution rationale for each question follows. The items retain their original wording.
+
+- `rc-tt-eea-0001` C. The report gives the inauguration details and attributes information to officials and records.
+- `rc-tt-eea-0002` A. The lead identifies the agency press release as its source.
+- `rc-tt-eea-0003` A. The report names its sources and describes the plans in a neutral voice.
+- `rc-tt-eea-0004` C. Paragraph two names Engineer Cruz and the municipal disaster office records.
+- `rc-tt-eea-0005` D. The paragraph reports plans for a second phase pending clearance.
+- `rc-tt-eea-0006` D. The passage explicitly presents the fictional newspaper editorial board's position.
+- `rc-tt-eea-0007` B. The opening identifies the criticism as the board's own position.
+- `rc-tt-eea-0008` C. The board calls for fertilizer subsidies and floor prices for palay.
+- `rc-tt-eea-0009` A. The board directly judges the policy and argues for changes.
+- `rc-tt-eea-0010` D. The band-aid comparison expresses the board's judgment about emergency aid.
+- `rc-tt-eea-0011` C. The narrator connects a childhood memory to a lesson for adult life.
+- `rc-tt-eea-0012` C. The narrator recalls learning the craft and reflects on its lasting value.
+- `rc-tt-eea-0013` B. The patience learned from weaving helps the narrator approach university deadlines.
+- `rc-tt-eea-0014` B. The grandfather calmly undoes the work and models the patience he teaches.
+- `rc-tt-eea-0015` A. The essay reflects on a personal lesson, while the editorial calls for policy changes.
+- `q-text-types-essays-editorials-articles-0016` B. Rosa Manuel is named and presents a proposal in her personal capacity.
+- `q-text-types-essays-editorials-articles-0017` C. The byline identifies Rosa as the person making the argument.
+- `q-text-types-essays-editorials-articles-0018` D. Blocked sightlines give Rosa a reason to move the pickup area.
+- `q-text-types-essays-editorials-articles-0019` A. Rosa proposes a trial with observation and addresses the concern about walking farther.
+- `q-text-types-essays-editorials-articles-0020` B. Attributing the proposal to Rosa and reporting responses would turn the proposal into the subject of the report.
+- `rc-tt-po-0001` A. Shore rhymes with oar, and gray rhymes with day.
+- `rc-tt-po-0002` B. The line uses like to compare the sea to a mother.
+- `rc-tt-po-0003` D. The ocean is said to whisper, a human action.
+- `rc-tt-po-0004` B. The gold imagery and the bountiful reward suggest appreciation.
+- `rc-tt-po-0005` A. The rising sunlight makes the sea look gold.
+- `rc-tt-po-0006` A. Like makes the comparison between flowing threads and a mountain stream explicit.
+- `rc-tt-po-0007` D. The shuttle is said to dance, a human action.
+- `rc-tt-po-0008` C. Room rhymes with bloom, and hour rhymes with power.
+- `rc-tt-po-0009` C. The image suggests the weaver carries forward skills from earlier generations.
+- `rc-tt-po-0010` D. The floral pattern shows simple cotton becoming a work of art.
+- `rc-tt-po-0011` A. Like makes the comparison between the rain and a silver cloak explicit.
+- `rc-tt-po-0012` B. The steady beat describes the sound of the rain.
+- `rc-tt-po-0013` A. Heavy clouds open the poem, and sunlight and hope close it.
+- `rc-tt-po-0014` D. The image describes rainwater shining as it runs over the pavement.
+- `rc-tt-po-0015` D. The clearing skies accompany a shift from worry to hope.
+- `q-text-types-poetry-0016` A. Each repetition asks people to make way for others using the market.
+- `q-text-types-poetry-0017` D. As means when or while here and signals when to leave room.
+- `q-text-types-poetry-0018` B. The line endings follow no fixed rhyme pattern.
+- `q-text-types-poetry-0019` C. The smell of ginger adds a sensory detail to the market scene.
+- `q-text-types-poetry-0020` C. All of them refers to the market users just listed, and the final line calls for an open passage.
+- `rc-tt-sn-0001` D. Pride makes Mateo swing too fast for the work.
+- `rc-tt-sn-0002` A. The crack ends his attempt and prompts Tomas to step in.
+- `rc-tt-sn-0003` D. Tomas uses the broken blade to teach patience.
+- `rc-tt-sn-0004` D. Tomas brings fresh steel and tells Mateo to heat it.
+- `rc-tt-sn-0005` A. Tomas's advice connects patience with learning the craft.
+- `rc-tt-sn-0006` A. The rules call for action, but the wet ladder makes reaching the latch dangerous.
+- `rc-tt-sn-0007` B. Rain, darkness, and slick surfaces make the task hazardous.
+- `rc-tt-sn-0008` B. Securing the harness shows that he is getting ready to climb.
+- `rc-tt-sn-0009` D. He takes steps to secure the latch despite the storm.
+- `rc-tt-sn-0010` B. The excerpt ends before he reaches or secures the latch.
+- `q-text-types-short-stories-and-novels-0011` C. Her hesitation over the chair shows her struggle to acknowledge Noel's absence.
+- `q-text-types-short-stories-and-novels-0012` D. She makes space for the empty chair and starts dialing Noel's number.
+- `q-text-types-short-stories-and-novels-0013` A. Her hesitation shows mixed feelings, and her decision to call shows change.
+- `q-text-types-short-stories-and-novels-0014` A. Lina sees that her accounts are correct and that her words still caused hurt.
+- `q-text-types-short-stories-and-novels-0015` A. She starts dialing, and the excerpt ends before any response.
+- `q-text-types-short-stories-and-novels-0016` C. Water entering the shop shows the immediate flood threat.
+- `q-text-types-short-stories-and-novels-0017` A. The photo reminds him that his father owned the shop and why finishing matters to him.
+- `q-text-types-short-stories-and-novels-0018` A. The narration follows Ben and tells us how leaving a job unfinished feels to him.
+- `q-text-types-short-stories-and-novels-0019` D. He leaves for safety even though he wants to finish the repair.
+- `q-text-types-short-stories-and-novels-0020` C. He looks back and can still picture the flood line as he leaves.
+- `rc-tt-sp-0001` C. Three clauses start with “We” and follow the same pattern.
+- `rc-tt-sp-0002` D. The direct address makes the graduates part of the call to serve.
+- `rc-tt-sp-0003` C. Firsthand care for injured neighbors establishes credibility.
+- `rc-tt-sp-0004` A. The speaker urges graduates to serve their communities and lead the country.
+- `rc-tt-sp-0005` C. The graduates' past effort shows what they can carry into future work.
+- `rc-tt-sp-0006` B. Repeating “Together we” makes restoration a shared responsibility.
+- `rc-tt-sp-0007` B. The greeting identifies the listeners and places the speaker in their community.
+- `rc-tt-sp-0008` B. Thirty-five years of fishing gives the speaker firsthand knowledge of the bay.
+- `rc-tt-sp-0009` B. The reference to children draws on concern for future generations.
+- `rc-tt-sp-0010` C. The speaker addresses listeners directly and asks them to act together.
+- `q-text-types-speeches-0011` C. The speech opens the archive and asks visitors to share what they know.
+- `q-text-types-speeches-0012` B. Working as the school librarian gives the speaker relevant experience with records.
+- `q-text-types-speeches-0013` D. The repetition thanks those who helped and asks listeners to keep sharing.
+- `q-text-types-speeches-0014` A. The archive labels details that are uncertain.
+- `q-text-types-speeches-0015` A. The speech welcomes visitors, explains the archive, and asks for contributions.
+- `q-text-types-speeches-0016` C. The speaker asks for a trial of separate pickup times for packed lunches.
+- `q-text-types-speeches-0017` D. The speaker reasons that separating ready orders could ease congestion at the main counter.
+- `q-text-types-speeches-0018` A. The question underlines the need to check whether the trial helps.
+- `q-text-types-speeches-0019` C. A student rushing through a meal shows what waiting costs a person.
+- `q-text-types-speeches-0020` B. The speaker makes any continuation depend on the trial results.
+- `rc-tt-vm-0001` A. Ten of twenty entries are uncovered water drums, the largest count.
+- `rc-tt-vm-0002` B. The icons show concrete actions people can take to prevent dengue.
+- `rc-tt-vm-0003` A. Yellow contrasts with the blue background and draws attention to the warning.
+- `rc-tt-vm-0004` A. The headline urges prevention and the icons show how to act.
+- `rc-tt-vm-0005` D. The bottom banner names the school health desk.
+- `rc-tt-vm-0006` D. The boulder is labeled as fuel price increases and burdens the driver.
+- `rc-tt-vm-0007` B. The importers watch calmly from the safety of the mountaintop.
+- `rc-tt-vm-0008` D. The huge cost boulder and tiny empty purse show costs overwhelming earnings.
+- `rc-tt-vm-0009` C. The clouds above the commuter skyline suggest commuters also face trouble.
+- `rc-tt-vm-0010` C. The sign points away from the uphill route the driver is taking.
+- `q-text-types-visual-media-0011` A. February's seventy is below April's ninety and above March's sixty and January's fifty.
+- `q-text-types-visual-media-0012` A. Starting the bars at forty makes the gap take up more of their visible lengths.
+- `q-text-types-visual-media-0013` C. Sales fall from seventy in February to sixty in March, then reach ninety in April.
+- `q-text-types-visual-media-0014` B. The clearly labeled nonzero axis helps emphasize changes over time.
+- `q-text-types-visual-media-0015` D. Showing the same figures at different scales reveals how scale changes the visual comparison.
+- `q-text-types-visual-media-0016` B. Gio needs the timetable after his club poster helped set off the crowding that hid it. Wording flag: B says “his posters,” but the passage only confirms Gio fastens one poster. B is still the single best answer.
+- `q-text-types-visual-media-0017` C. The earlier panels show the decisions that lead to Gio's embarrassment.
+- `q-text-types-visual-media-0018` C. The poster's larger lettering pulls attention away from the timetable.
+- `q-text-types-visual-media-0019` D. Students each add a poster until the official timetable is hidden.
+- `q-text-types-visual-media-0020` D. The pile of posters visibly answers where the timetable went.
+
+### Text Types pool-gap questions
+
+A separate solver received only the 23 new questions with shuffled choices. `merge_solves.py` recorded 23 matches, zero mismatches, and zero low-confidence answers.
+
+- `q-text-types-essays-editorials-articles-0021` C. Iniuulat nito ang araw at lugar ng paligsahan batay sa abiso ng paaralan.
+- `q-text-types-essays-editorials-articles-0022` D. Tahasang sinabi ni Ana Cruz na dapat sana ay may bubong.
+- `q-text-types-poetry-0021` B. The first two lines say when and where the speaker left the key.
+- `q-text-types-poetry-0022` C. “Light” and “bright” rhyme within the first line.
+- `q-text-types-poetry-0023` A. “Blue,” “beads,” and “brushed” all start with the consonant sound /b/.
+- `q-text-types-short-stories-and-novels-0021` A. The narrator tells what Mina is sure of and shows Joel through his outward actions.
+- `q-text-types-short-stories-and-novels-0022` B. Short sentences isolate the two clicks and build tension around the unexplained sound.
+- `q-text-types-speeches-0021` C. A radio station sends the bulletin to a listening audience.
+- `q-text-types-speeches-0022` D. Lito and Tess talk directly to one another.
+- `q-text-types-speeches-0023` B. The student asks a clerk for help in a polite two-way exchange.
+- `q-text-types-speeches-0024` D. The speaker prepares the main points and decides how to phrase them during delivery.
+- `q-text-types-speeches-0025` C. The host uses a polite question to ask the front row to move.
+- `q-text-types-speeches-0026` A. The brother commits to driving Tess when she is ready.
+- `q-text-types-speeches-0027` A. A survey on bus colors gives no evidence about how far students walk.
+- `q-text-types-speeches-0028` C. The documented fall can evoke concern and the inspection gives evidence about the rail.
+- `q-text-types-speeches-0029` D. The memory helps the crowd honor the player during the tribute.
+- `q-text-types-speeches-0030` C. Familiar words and an example give the listener the meaning she is missing.
+- `q-text-types-speeches-0031` C. Restoring the sound and repeating the time supplies what the audience missed.
+- `q-text-types-visual-media-0021` C. The “Paperless Office” label sets an expectation that the pile of printed forms contradicts.
+- `q-text-types-visual-media-0022` C. The number rose from 10,000 on Monday to 12,000 on Wednesday.
+- `q-text-types-visual-media-0023` B. Ninety degrees is one quarter of the circle, and one quarter of 80 is 20.
+- `q-text-types-visual-media-0024` B. West went from 27 on Tuesday to 24 on Wednesday, a drop of three.
+- `q-text-types-visual-media-0025` B. The afternoon entry for Garden B is 18, and the unit in the heading is liters.

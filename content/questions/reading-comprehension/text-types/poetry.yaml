@@ -82,6 +82,8 @@ passages:
       Keep the passage open.
 questions:
   - id: "rc-tt-po-0001"
+    lesson: lesson-text-types-poetry-rhyme-patterns
+    keyPoint: 1
     approved: true
     passage: "rc-tt-po-p1"
     type: "feature-of-form"
@@ -103,6 +105,8 @@ questions:
     explanation: |
       Shore and oar rhyme in lines one and three. Gray and day rhyme in lines two and four. Assigning the repeated sounds gives abab.
   - id: "rc-tt-po-0002"
+    lesson: lesson-text-types-figurative-comparisons-in-poems
+    keyPoint: 1
     approved: true
     passage: "rc-tt-po-p1"
     type: "purpose-of-device"
@@ -124,6 +128,8 @@ questions:
     explanation: |
       The line compares the sea to a mother using like. Comparing these unlike things explicitly makes it a simile.
   - id: "rc-tt-po-0003"
+    lesson: lesson-text-types-figurative-comparisons-in-poems
+    keyPoint: 2
     approved: true
     passage: "rc-tt-po-p1"
     type: "purpose-of-device"
@@ -145,6 +151,8 @@ questions:
     explanation: |
       Whispering is an action associated with human speech. Giving that action to the ocean is personification.
   - id: "rc-tt-po-0004"
+    lesson: lesson-text-types-poetry-images-symbols-and-tone
+    keyPoint: 2
     approved: true
     passage: "rc-tt-po-p1"
     type: "purpose-of-device"
@@ -166,6 +174,8 @@ questions:
     explanation: |
       The fisherman trusts the water, returns with fish, and receives a bountiful reward. These details present his labor with appreciation.
   - id: "rc-tt-po-0005"
+    lesson: lesson-text-types-poetry-images-symbols-and-tone
+    keyPoint: 1
     approved: true
     passage: "rc-tt-po-p1"
     type: "purpose-of-device"
@@ -187,6 +197,8 @@ questions:
     explanation: |
       The rising sun is the subject of the line. Its light makes the water appear golden, adding visual brightness to the return.
   - id: "rc-tt-po-0006"
+    lesson: lesson-text-types-figurative-comparisons-in-poems
+    keyPoint: 1
     approved: true
     passage: "rc-tt-po-p2"
     type: "purpose-of-device"
@@ -208,6 +220,8 @@ questions:
     explanation: |
       The line compares flowing threads with a mountain stream using like. It is an explicit figurative comparison.
   - id: "rc-tt-po-0007"
+    lesson: lesson-text-types-figurative-comparisons-in-poems
+    keyPoint: 2
     approved: true
     passage: "rc-tt-po-p2"
     type: "purpose-of-device"
@@ -229,6 +243,8 @@ questions:
     explanation: |
       Dancing is presented as the shuttle's action. The tool's movement is described in human terms, which personifies it.
   - id: "rc-tt-po-0008"
+    lesson: lesson-text-types-poetry-rhyme-patterns
+    keyPoint: 1
     approved: true
     passage: "rc-tt-po-p2"
     type: "feature-of-form"
@@ -250,6 +266,8 @@ questions:
     explanation: |
       Room rhymes with bloom, and hour rhymes with power. The recurring sounds alternate, giving abab.
   - id: "rc-tt-po-0009"
+    lesson: lesson-text-types-poetry-images-symbols-and-tone
+    keyPoint: 1
     approved: true
     passage: "rc-tt-po-p2"
     type: "purpose-of-device"
@@ -271,6 +289,8 @@ questions:
     explanation: |
       The ancient loom and the mention of generations connect present weaving with skills passed down over time. The image suggests inherited tradition supporting the work.
   - id: "rc-tt-po-0010"
+    lesson: lesson-text-types-poetry-images-symbols-and-tone
+    keyPoint: 1
     approved: true
     passage: "rc-tt-po-p2"
     type: "purpose-of-device"
@@ -292,6 +312,8 @@ questions:
     explanation: |
       Simple cotton becomes a floral design in the tapestry. The image shows the beauty created through weaving skill.
   - id: "rc-tt-po-0011"
+    lesson: lesson-text-types-figurative-comparisons-in-poems
+    keyPoint: 1
     approved: true
     passage: "rc-tt-po-p3"
     type: "purpose-of-device"
@@ -313,6 +335,8 @@ questions:
     explanation: |
       The line compares rain with a cloak using like. That explicit comparison is a simile.
   - id: "rc-tt-po-0012"
+    lesson: lesson-text-types-poetry-images-symbols-and-tone
+    keyPoint: 1
     approved: true
     passage: "rc-tt-po-p3"
     type: "purpose-of-device"
@@ -334,6 +358,8 @@ questions:
     explanation: |
       Beat suggests a repeated sound. The line invites the reader to hear the rhythm of rain.
   - id: "rc-tt-po-0013"
+    lesson: lesson-text-types-poetry-images-symbols-and-tone
+    keyPoint: 2
     approved: true
     passage: "rc-tt-po-p3"
     type: "purpose-of-device"
@@ -355,6 +381,8 @@ questions:
     explanation: |
       Heavy, dark clouds shape the opening. The final stanza names fresh hope and a clearer day. Those details support a shift toward hope.
   - id: "rc-tt-po-0014"
+    lesson: lesson-text-types-poetry-images-symbols-and-tone
+    keyPoint: 1
     approved: true
     passage: "rc-tt-po-p3"
     type: "purpose-of-device"
@@ -376,6 +404,8 @@ questions:
     explanation: |
       The surrounding lines describe rain and urban streets. Silver rivers pictures bright streams of rainwater flowing along the stone.
   - id: "rc-tt-po-0015"
+    lesson: lesson-text-types-poetry-images-symbols-and-tone
+    keyPoint: 2
     approved: true
     passage: "rc-tt-po-p3"
     type: "purpose-of-device"
@@ -397,6 +427,8 @@ questions:
     explanation: |
       The poem connects cooling rain with relief from worry and ends with fresh hope. Its weather changes accompany a sense of renewal.
   - id: "q-text-types-poetry-0016"
+    lesson: lesson-text-types-poetry-sound-and-rhythm
+    keyPoint: 2
     passage: "p-text-types-poetry-0004"
     type: "purpose-of-device"
     difficulty: "easy"
@@ -418,6 +450,8 @@ questions:
       The repeated request is followed by people who need the path. It emphasizes keeping shared space open for them.
     approved: true
   - id: "q-text-types-poetry-0017"
+    lesson: lesson-text-types-figurative-comparisons-in-poems
+    keyPoint: 1
     passage: "p-text-types-poetry-0004"
     type: "purpose-of-device"
     difficulty: "medium"
@@ -439,6 +473,8 @@ questions:
       Here as means when: the request is placed at dawn. The line does not compare two unlike things.
     approved: true
   - id: "q-text-types-poetry-0018"
+    lesson: lesson-text-types-poetry-rhyme-patterns
+    keyPoint: 1
     passage: "p-text-types-poetry-0004"
     type: "feature-of-form"
     difficulty: "medium"
@@ -460,6 +496,8 @@ questions:
       Market, ribbon, stalls, and the other endings do not follow a recurring end-rhyme scheme. The poem uses repetition and line breaks to organize its language.
     approved: true
   - id: "q-text-types-poetry-0019"
+    lesson: lesson-text-types-poetry-images-symbols-and-tone
+    keyPoint: 1
     passage: "p-text-types-poetry-0004"
     type: "purpose-of-device"
     difficulty: "hard"
@@ -481,6 +519,8 @@ questions:
       Scent appeals to smell and locates a familiar market experience near the entrance. It gives the scene a sensory detail.
     approved: true
   - id: "q-text-types-poetry-0020"
+    lesson: lesson-text-types-line-breaks-and-plain-meaning
+    keyPoint: 1
     passage: "p-text-types-poetry-0004"
     type: "purpose-of-device"
     difficulty: "exam"
@@ -501,3 +541,54 @@ questions:
     explanation: |
       The ending says the morning belongs to all the people named and asks readers to keep the passage open. It states the shared-access point directly.
     approved: true
+  - id: "q-text-types-poetry-0021"
+    approved: true
+    lesson: "lesson-text-types-line-breaks-and-plain-meaning"
+    keyPoint: 1
+    type: "feature-of-form"
+    difficulty: "medium"
+    stem: "Read the lines. “At dusk I left the key / beneath the flowerpot. / Come home whenever you can.” What do the first two lines say directly?"
+    choices:
+      - text: "The speaker put the key under the flowerpot at dusk."
+        correct: true
+      - text: "The speaker picked up a key when it got dark."
+        rationale: "You may treat “left” as walking away. Read across the break to see where the speaker left the key."
+      - text: "The speaker stood beneath the flowerpot while holding a key."
+        rationale: "The second line gives a location, so you might attach it to the speaker. Read the whole first sentence to see what was placed there."
+      - text: "The speaker left home because the visitor had lost the key."
+        rationale: "The invitation can make you imagine a reason. Check what the first sentence actually says happened."
+    explanation: "The sentence continues after “key.” “Beneath the flowerpot” says where the speaker left it."
+  - id: "q-text-types-poetry-0022"
+    approved: true
+    lesson: "lesson-text-types-poetry-rhyme-patterns"
+    keyPoint: 2
+    type: "feature-of-form"
+    difficulty: "medium"
+    stem: "Read the lines. “The light shone bright across the lake. / We watched the reeds begin to shake. / A little boat was tied with rope. / We climbed aboard and tried to sleep.” Which pair makes an internal rhyme?"
+    choices:
+      - text: "light and bright"
+        correct: true
+      - text: "lake and shake"
+        rationale: "The ending sounds do match. Check where the words sit. They end two different lines."
+      - text: "rope and sleep"
+        rationale: "Their final consonant sound matches, which can suggest rhyme. Listen to the vowel sounds and check whether the words fall on the same line."
+      - text: "aboard and tied"
+        rationale: "Both words end with a similar consonant sound. Listen from the stressed vowel to see whether the endings fully match."
+    explanation: "“Light” and “bright” end with the same sound. They appear inside the same line."
+  - id: "q-text-types-poetry-0023"
+    approved: true
+    lesson: "lesson-text-types-poetry-sound-and-rhythm"
+    keyPoint: 1
+    type: "feature-of-form"
+    difficulty: "medium"
+    stem: "Read the line. “Blue beads brushed the wooden bowl.” Which feature of sound stands out in “blue beads brushed”?"
+    choices:
+      - text: "Nearby words begin with the same consonant sound."
+        correct: true
+      - text: "Nearby words repeat the same stressed vowel sound."
+        rationale: "The repeated first letter may sound like a repeated vowel to you. Say each word aloud and listen to its middle sound."
+      - text: "The words share a matching ending sound."
+        rationale: "You noticed that something repeats, which can suggest rhyme. Listen to where the repeated sound occurs."
+      - text: "The three words end with the same consonant sound."
+        rationale: "You might be hearing the repeated consonant correctly. Check whether it comes at the beginning or end of each word."
+    explanation: "“Blue,” “beads,” and “brushed” all start with the sound of b. Repeated consonant sounds at the start of nearby words are alliteration."

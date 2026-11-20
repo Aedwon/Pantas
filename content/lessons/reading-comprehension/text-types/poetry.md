@@ -6,6 +6,13 @@ subject: "subject-reading-comprehension"
 topic: "topic-text-types"
 estimatedMinutes: 13
 isActive: true
+status: retired
+replacedBy:
+  - lesson-text-types-figurative-comparisons-in-poems
+  - lesson-text-types-line-breaks-and-plain-meaning
+  - lesson-text-types-poetry-rhyme-patterns
+  - lesson-text-types-poetry-sound-and-rhythm
+  - lesson-text-types-poetry-images-symbols-and-tone
 ---
 ## Core Concept
 
