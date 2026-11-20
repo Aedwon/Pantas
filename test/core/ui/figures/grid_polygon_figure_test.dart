@@ -207,6 +207,34 @@ void main() {
     });
   });
 
+  testWidgets('panels share one cell size, the smallest that fits', (
+    tester,
+  ) async {
+    await pumpDs(
+      tester,
+      dsCells.first,
+      SizedBox(
+        width: 358,
+        child: FigureRegistry.build(_specs['q0016-comparison']!),
+      ),
+    );
+    final cells = tester
+        .widgetList<CustomPaint>(
+          find.descendant(
+            of: find.byType(GridPolygonFigure),
+            matching: find.byType(CustomPaint),
+          ),
+        )
+        .map((p) => p.painter)
+        .whereType<GridPolygonPainter>()
+        .map((p) => p.cell)
+        .toList();
+    expect(cells.length, 2);
+    expect(cells[0], cells[1]);
+    // P is 6 wide in a 171 wide panel: (171 - 16) / 6.
+    expect(cells[0], closeTo(25.83, 0.01));
+  });
+
   testWidgets('a question draws the figure from its JSON spec', (tester) async {
     await pumpDs(
       tester,

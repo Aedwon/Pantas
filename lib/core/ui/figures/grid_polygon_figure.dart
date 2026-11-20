@@ -68,6 +68,19 @@ class GridPolygonFigure extends StatelessWidget {
     return GridPolygonFigure(panels: panels);
   }
 
+  /// The one cell size, in pixels, every panel is drawn with.
+  static double sharedCell(List<GridPolygonPanel> panels, double panelWidth) {
+    return panels
+        .map(
+          (p) => math.min(
+            _maxCell,
+            math.max(1, (panelWidth - 2 * _pad) / p.width),
+          ),
+        )
+        .reduce(math.min)
+        .toDouble();
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
@@ -92,6 +105,8 @@ class GridPolygonFigure extends StatelessWidget {
           // Panels share the width. A gap of 16 separates them.
           final panelWidth =
               (available - 16 * (panels.length - 1)) / panels.length;
+          // Panels share one unit scale: the smallest cell that fits any.
+          final cell = sharedCell(panels, panelWidth);
           return Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -103,6 +118,7 @@ class GridPolygonFigure extends StatelessWidget {
                   child: _PanelView(
                     panel: panels[i],
                     width: panelWidth,
+                    cell: cell,
                     accent: colors.accent,
                     ink: colors.label,
                     gridColor: colors.fill,
@@ -242,6 +258,7 @@ class _PanelView extends StatelessWidget {
   const _PanelView({
     required this.panel,
     required this.width,
+    required this.cell,
     required this.accent,
     required this.ink,
     required this.gridColor,
@@ -251,6 +268,7 @@ class _PanelView extends StatelessWidget {
 
   final GridPolygonPanel panel;
   final double width;
+  final double cell;
   final Color accent;
   final Color ink;
   final Color gridColor;
@@ -259,10 +277,6 @@ class _PanelView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cell = math.min(
-      _maxCell,
-      math.max(1, (width - 2 * _pad) / panel.width),
-    );
     final height =
         panel.height * cell + 2 * _pad + (panel.xTicks.isEmpty ? 0 : _tickRow);
     final title = panel.title;
@@ -281,6 +295,7 @@ class _PanelView extends StatelessWidget {
             size: Size(width, height),
             painter: GridPolygonPainter(
               panel: panel,
+              cell: cell,
               accent: accent,
               ink: ink,
               gridColor: gridColor,
@@ -297,6 +312,7 @@ class _PanelView extends StatelessWidget {
 class GridPolygonPainter extends CustomPainter {
   GridPolygonPainter({
     required this.panel,
+    required this.cell,
     required this.accent,
     required this.ink,
     required this.gridColor,
@@ -304,6 +320,9 @@ class GridPolygonPainter extends CustomPainter {
   });
 
   final GridPolygonPanel panel;
+
+  /// Pixels per unit, shared by every panel of the figure.
+  final double cell;
   final Color accent;
   final Color ink;
   final Color gridColor;
@@ -311,10 +330,6 @@ class GridPolygonPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final cell = math.min(
-      _maxCell,
-      math.max(1, (size.width - 2 * _pad) / panel.width),
-    );
     final gridWidth = cell * panel.width;
     final left = (size.width - gridWidth) / 2;
     const top = _pad;
@@ -413,5 +428,6 @@ class GridPolygonPainter extends CustomPainter {
       old.ink != ink ||
       old.gridColor != gridColor ||
       old.labelStyle != labelStyle ||
+      old.cell != cell ||
       old.panel != panel;
 }
