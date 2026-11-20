@@ -1,0 +1,226 @@
+meta:
+  subject: 'mathematics'
+  topic: 'statistics-and-probability'
+  subtopic: 'normal-distribution-areas'
+  exams: ['dlsucet']
+questions:
+- id: 'q-statistics-and-probability-normal-distribution-areas-0001'
+  approved: false
+  lesson: lesson-statistics-and-probability-normal-distribution-areas
+  keyPoint: 1
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    Let $X$ be the waiting time, in minutes, for a shuttle. Its cumulative distribution function satisfies $F(6)=0.27$. Which statement follows?
+  choices:
+  - text: 'The probability of waiting at most $6$ minutes is $0.27$.'
+    correct: true
+  - text: 'The probability of waiting at least $6$ minutes is $0.27$.'
+    rationale: |
+      This uses the given area on the right side. The same cutoff marks both sides. Check which side goes with “at most.”
+  - text: 'The probability of waiting exactly $6$ minutes is $0.27$.'
+    rationale: |
+      The input $6$ can look like a single outcome. Check that $F$ counts all times up to that input.
+  - text: 'The probability of waiting at most $6$ minutes is $0.73$.'
+    rationale: |
+      This takes the area left over after $0.27$. Both areas use the same cutoff. Check which side $F$ already gives.
+  explanation: |
+    $F(6)$ gives the chance of waiting $6$ minutes or less. That chance is $0.27$.
+- id: 'q-statistics-and-probability-normal-distribution-areas-0002'
+  approved: false
+  lesson: lesson-statistics-and-probability-normal-distribution-areas
+  keyPoint: 2
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    Package weights follow a normal distribution with a mean of $500$ grams and a standard deviation of $12$ grams. By the empirical rule, approximately what percentage of packages weigh between $488$ and $512$ grams?
+  choices:
+  - text: '$68\%$'
+    correct: true
+  - text: '$95\%$'
+    rationale: |
+      The whole band is $24$ grams wide, or two steps of $12$. Count the steps from the mean to each edge.
+  - text: '$34\%$'
+    rationale: |
+      This gives half of the one-step band. That half lies on one side of the mean. Check that the range crosses the mean.
+  - text: '$32\%$'
+    rationale: |
+      This is the share outside the one-step band. The same cutoffs mark it. Check whether the question asks for the middle or the tails.
+  explanation: |
+    Each edge is $12$ grams from $500$. That is one standard deviation on each side. The rule puts about $68\%$ in this band.
+- id: 'q-statistics-and-probability-normal-distribution-areas-0003'
+  approved: false
+  lesson: lesson-statistics-and-probability-normal-distribution-areas
+  keyPoint: 3
+  type: 'direct-computation'
+  difficulty: 'easy'
+  stem: |
+    The mean of a set of test scores is $76$ and the standard deviation is $8$. What is the z-score of a score of $64$?
+  choices:
+  - text: '$-1.5$'
+    correct: true
+  - text: '$+1.5$'
+    rationale: |
+      The score is $1.5$ steps from the mean. That distance can look like the answer. Check that a score below the mean has a minus sign.
+  - text: '$-12.0$'
+    rationale: |
+      This gives the gap in points. The first step does give $-12$. Divide that gap by the standard deviation to change units.
+  - text: '$+8.0$'
+    rationale: |
+      This divides the score by the standard deviation. That uses the right step size. Start by finding the gap from the mean.
+  explanation: |
+    The score is $64-76=-12$ points from the mean. Divide by the standard deviation to get $z=\dfrac{-12}{8}=-1.5$.
+- id: 'q-statistics-and-probability-normal-distribution-areas-0004'
+  approved: false
+  lesson: lesson-statistics-and-probability-normal-distribution-areas
+  keyPoint: 4
+  type: 'which-is-true'
+  difficulty: 'easy'
+  stem: |
+    In a left-area standard normal table, the entry at row $0.9$ and column $0.05$ is $0.8289$. Which probability does this entry represent?
+  choices:
+  - text: '$P(Z\le 0.95)$'
+    correct: true
+  - text: '$P(Z\ge 0.95)$'
+    rationale: |
+      This uses the right cutoff on the other side of the curve. Check the table heading for the side it gives.
+  - text: '$P(0\le Z\le 0.95)$'
+    rationale: |
+      Some tables start at zero, so this interval may look familiar. A left-area table starts at the far left.
+  - text: '$P(Z\le 0.90)$'
+    rationale: |
+      This reads the row label alone. It gives the first digits. Use the column to get the last digit.
+  explanation: |
+    Row $0.9$ and column $0.05$ give $z=0.95$. The entry gives the chance of $Z$ being $0.95$ or less.
+- id: 'q-statistics-and-probability-normal-distribution-areas-0005'
+  approved: false
+  lesson: lesson-statistics-and-probability-normal-distribution-areas
+  keyPoint: 1
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    The fill volume $X$ of a bottle has cumulative probabilities $F(490)=0.18$ and $F(505)=0.71$. What is the probability that a randomly selected bottle contains more than $490$ mL but at most $505$ mL?
+  choices:
+  - text: '$0.53$'
+    correct: true
+  - text: '$0.71$'
+    rationale: |
+      This uses the area up to the higher cutoff. That area includes the target range. Remove the area up to the lower cutoff.
+  - text: '$0.29$'
+    rationale: |
+      This gives the area beyond the higher cutoff. Taking a complement works for that tail. Check that the target ends at $505$ mL.
+  - text: '$0.89$'
+    rationale: |
+      This adds both given areas. Both cutoffs matter, but the higher area already includes the lower area. Subtract their overlap.
+  explanation: |
+    The area up to $505$ mL includes the area up to $490$ mL. Take that smaller area away to get $0.71-0.18=0.53$.
+- id: 'q-statistics-and-probability-normal-distribution-areas-0006'
+  approved: false
+  lesson: lesson-statistics-and-probability-normal-distribution-areas
+  keyPoint: 2
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A machine produces rods whose lengths are normally distributed with a mean of $80$ mm and a standard deviation of $3$ mm. Rods shorter than $71$ mm are rejected. Using the empirical rule, approximately what percentage of rods are rejected?
+  choices:
+  - text: '$0.15\%$'
+    correct: true
+  - text: '$0.30\%$'
+    rationale: |
+      This gives both tails beyond three steps. A short rod lies in the lower tail alone. Split the outside share in half.
+  - text: '$2.50\%$'
+    rationale: |
+      This gives one tail beyond two steps. Using one tail makes sense here. Divide the $9$ mm gap by $3$ mm to check the step count.
+  - text: '$49.85\%$'
+    rationale: |
+      This gives the area from the cutoff up to the mean. Both values help locate the cutoff. Check that rejected rods lie below it.
+  explanation: |
+    The cutoff is $9$ mm below the mean, or three standard deviations. About $99.7\%$ lies in the middle band. The two equal tails share $0.3\%$, so the lower tail has about $0.15\%$.
+- id: 'q-statistics-and-probability-normal-distribution-areas-0007'
+  approved: false
+  lesson: lesson-statistics-and-probability-normal-distribution-areas
+  keyPoint: 3
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A delivery time has a z-score of $-0.75$. If the mean delivery time is $34$ minutes and the standard deviation is $8$ minutes, what was the delivery time?
+  choices:
+  - text: '$28$ minutes'
+    correct: true
+  - text: '$40$ minutes'
+    rationale: |
+      This moves six minutes from the mean in the upper direction. The gap is right. Use the minus sign to choose the lower direction.
+  - text: '$26$ minutes'
+    rationale: |
+      This moves a full step down. The standard deviation gives one step. The z-score calls for only three quarters of that step.
+  - text: '$6.0$ minutes'
+    rationale: |
+      This gives the size of the gap from the mean. You do need that gap. Start at $34$ minutes and move down by it.
+  explanation: |
+    Three quarters of $8$ minutes is $6$ minutes. The minus sign puts the time below the mean. The time was $34-6=28$ minutes.
+- id: 'q-statistics-and-probability-normal-distribution-areas-0008'
+  approved: false
+  lesson: lesson-statistics-and-probability-normal-distribution-areas
+  keyPoint: 4
+  type: 'direct-computation'
+  difficulty: 'medium'
+  stem: |
+    A left-area standard normal table gives $0.9332$ at $z=1.50$. What is $P(Z>1.50)$?
+  choices:
+  - text: '$0.0668$'
+    correct: true
+  - text: '$0.9332$'
+    rationale: |
+      This copies the table entry for the right cutoff. The entry gives the left side. Subtract it from the whole area to get the right side.
+  - text: '$0.4332$'
+    rationale: |
+      This takes away the left half and keeps the area from zero to the cutoff. Check that the desired area starts at the cutoff and extends right.
+  - text: '$0.1336$'
+    rationale: |
+      This doubles the right tail to include its mirror. The curve does have two equal tails at these distances. Count only the one named in the question.
+  explanation: |
+    The table gives $0.9332$ to the left of $1.50$. The whole area is $1$, so the area to the right is $1-0.9332=0.0668$.
+- id: 'q-statistics-and-probability-normal-distribution-areas-0009'
+  approved: false
+  lesson: lesson-statistics-and-probability-normal-distribution-areas
+  keyPoint: 1
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    A ceramic tile passes inspection if its thickness $X$ satisfies $7.8<X\le 8.2$ mm. The cumulative distribution function of $X$ gives $F(7.8)=0.09$ and $F(8.2)=0.82$. What proportion of tiles fail inspection?
+  choices:
+  - text: '$0.27$'
+    correct: true
+  - text: '$0.73$'
+    rationale: |
+      This finds the area between the two limits. That area matches the rule for passing. Take the rest to get the share that fails.
+  - text: '$0.18$'
+    rationale: |
+      This gives the share above the upper limit. Those tiles do fail. Add the share at or below the lower limit too.
+  - text: '$0.91$'
+    rationale: |
+      This adds the two given left areas. Both limits matter, but the left areas overlap. Use the left area at the lower limit and the right area at the upper limit.
+  explanation: |
+    The share at or below $7.8$ mm is $0.09$. The share above $8.2$ mm is $1-0.82=0.18$. These two groups do not overlap, so the share that fails is $0.09+0.18=0.27$.
+- id: 'q-statistics-and-probability-normal-distribution-areas-0010'
+  approved: false
+  lesson: lesson-statistics-and-probability-normal-distribution-areas
+  keyPoint: 4
+  type: 'word-problem'
+  difficulty: 'hard'
+  stem: |
+    The mass $X$ of a sealed bag is normally distributed with a mean of $250$ g and a standard deviation of $8$ g. A left-area standard normal table gives $0.4013$ at $z=-0.25$ and $0.8944$ at $z=1.25$. What proportion of bags have masses from $248$ g to $260$ g?
+  choices:
+  - text: '$0.4931$'
+    correct: true
+  - text: '$0.5069$'
+    rationale: |
+      This adds the areas in both tails. Those tails share the question's cutoffs. Keep the area between the cutoffs.
+  - text: '$0.3944$'
+    rationale: |
+      This gives the area from the mean to the upper cutoff. That is part of the range. Include the strip below the mean as well.
+  - text: '$0.8944$'
+    rationale: |
+      This gives all the area up to the upper cutoff. It includes the bags in the target range. Subtract the area below the lower cutoff.
+  explanation: |
+    The two z-scores are $\dfrac{248-250}{8}=-0.25$ and $\dfrac{260-250}{8}=1.25$. Start with the left area at $1.25$. Remove the part to the left of $-0.25$ to get $0.8944-0.4013=0.4931$.

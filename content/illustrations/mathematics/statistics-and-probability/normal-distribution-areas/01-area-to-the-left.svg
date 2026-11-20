@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 206" width="360" height="206">
+  <title>Cumulative area under a normal curve</title>
+  <defs>
+    <linearGradient id="bg">
+      <stop offset="0" stop-color="#030303"/>
+      <stop offset="1" stop-color="#030303"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="206" rx="14" fill="url(#bg)"/>
+  <path d="M24 158 C80 158 104 146 128 112 C149 80 159 43 180 43 C201 43 211 80 232 112 L232 158 Z" fill="#050505" fill-opacity="0.45"/>
+  <path d="M24 158 C80 158 104 146 128 112 C149 80 159 43 180 43 C201 43 211 80 232 112 C256 146 280 158 336 158" fill="none" stroke="#010101" stroke-width="2.2" stroke-linecap="round"/>
+  <line x1="24" y1="158" x2="336" y2="158" fill="none" stroke="#020202" stroke-width="1.6"/>
+  <line x1="232" y1="112" x2="232" y2="164" fill="none" stroke="#050505" stroke-width="2"/>
+  <text x="179" y="129" fill="#010101" font-family="Geist, sans-serif" font-size="16" text-anchor="middle"><tspan font-family="KaTeX_Math, serif" font-weight="400">F</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">(</tspan><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan><tspan font-family="KaTeX_Main, serif" font-weight="400">)</tspan></text>
+  <text x="232" y="184" fill="#010101" font-family="Geist, sans-serif" font-size="16" text-anchor="middle"><tspan font-family="KaTeX_Math, serif" font-weight="400">x</tspan></text>
+</svg>

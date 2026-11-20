@@ -6840,6 +6840,13 @@
     "reason": "Read the previous part first."
    }
   ],
+  "lesson-statistics-and-probability-normal-distribution-areas": [
+   {
+    "lesson": "lesson-statistics-and-probability-population-variance-and-standard-deviation",
+    "strength": "helpful",
+    "reason": "Standard deviation measures spread. This lesson uses it to find z-scores."
+   }
+  ],
   "lesson-statistics-and-probability-expected-value-and-variance": [
    {
     "lesson": "lesson-statistics-and-probability-effects-of-shifting-and-scaling-data",
