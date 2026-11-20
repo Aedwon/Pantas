@@ -278,11 +278,11 @@ For whole rectangles, keep the whole-number part of each side count before multi
 
 ## Traps to Watch For
 
-### #1: Counting Dots as Area
+### #1: Counting Grid Corners as Area
 
-> Count square spaces, not dots.
+> Count square spaces to find the area.
 
-Dots show positions. They do not fill the polygon. A slanted boundary may cut through squares, so count those pieces by their areas.
+Grid corners show positions. They do not fill the polygon. A slanted boundary may cut through squares, so count those pieces by their areas.
 
 ### #2: Using an Area Limit as a Layout
 
