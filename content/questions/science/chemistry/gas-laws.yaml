@@ -647,3 +647,26 @@ questions:
           Low pressure spreads particles out. Low temperature slows them, giving attractions more effect.
     explanation: |
       At low pressure particles are far apart. At high temperature they move fast. Their size and attractions have less effect.
+
+  - id: q-chemistry-gas-laws-0029
+    approved: false
+    lesson: lesson-chemistry-avogadros-volume-mole-law
+    keyPoint: 1
+    type: 'simple-quantitative'
+    difficulty: 'medium'
+    stem: |
+      A cylinder with a movable piston holds $0.60$ mol of gas in $12$ L. Some gas escapes, and the piston settles at a volume of $8$ L. The gas pressure and temperature are unchanged. How much gas remains?
+    choices:
+      - text: '$0.40$ mol'
+        correct: true
+      - text: '$0.90$ mol'
+        rationale: |
+          This flips the volume ratio. Both volumes belong in the ratio, so the setup can look right. Check that a smaller volume goes with less gas here.
+      - text: '$0.20$ mol'
+        rationale: |
+          This finds how much gas escaped. The lost gas takes up the missing $4$ L at the same pressure and temperature. Find the amount that fills the remaining $8$ L.
+      - text: '$0.60$ mol'
+        rationale: |
+          This keeps the starting amount. The pressure and temperature stay the same, so it may seem that the amount does too. Check whether any gas left the cylinder.
+    explanation: |
+      At the same pressure and temperature, gas takes up the same number of liters per mole. The new volume is $\dfrac{8}{12}=\dfrac{2}{3}$ of the old volume. So $\dfrac{2}{3}\times0.60=0.40$ mol remains.

@@ -447,3 +447,25 @@ questions:
   explanation: |
     The denominator at $1$ is $3$, which is nonzero. A rational function is continuous wherever its denominator is nonzero, so substitution is valid.
   approved: true
+- id: 'q-precalculus-basic-calculus-limits-and-continuity-0021'
+  lesson: lesson-precalculus-basic-calculus-direct-substitution-for-limits
+  keyPoint: 1
+  type: 'which-is-true'
+  difficulty: 'medium'
+  stem: |
+    As $x$ approaches $4$ from below, $f(x)$ approaches $7$. As $x$ approaches $4$ from above, $f(x)$ also approaches $7$. If $f(4)=9$, what is $\lim_{x\to4}f(x)$?
+  choices:
+  - text: '$7$'
+    correct: true
+  - text: '$9$'
+    rationale: |
+      This uses the value at $4$. That is the value given by $f(4)$. For the limit, check where the values near $4$ are heading.
+  - text: '$4$'
+    rationale: |
+      This uses the input as the answer because $x$ heads toward $4$. Check what $f(x)$ heads toward.
+  - text: 'The limit does not exist.'
+    rationale: |
+      The value at $4$ differs from the nearby target. That can look like a break in the limit. Check whether the two sides head toward the same value.
+  explanation: |
+    The values of $f(x)$ head toward $7$ on both sides of $4$. That shared value is the limit.
+  approved: false

@@ -463,3 +463,26 @@ questions:
     explanation: |
       First find the image distance. $\dfrac{1}{d_i}=\dfrac{1}{10}-\dfrac{1}{15}=\dfrac{1}{30}$, so $d_i=30$ cm. Then $m=-\dfrac{30}{15}=-2$. The image is $2\times6.0=12$ cm tall. The minus sign means it is inverted.
     approved: true
+
+  - id: q-physics-light-and-optics-0036
+    lesson: lesson-physics-converging-and-diverging-lenses
+    keyPoint: 2
+    type: "compare-contrast"
+    difficulty: "exam"
+    stem: |
+      A student uses a magnifying glass in air to view a printed letter inside the focal length. The student then replaces the magnifying glass with a concave glass lens at the same position. How do the two images compare with the printed letter?
+    choices:
+      - text: "Both are upright and virtual. Only the first is enlarged."
+        correct: true
+      - text: "Both are upright and virtual. Both are enlarged compared with the letter."
+        rationale: |
+          Both lenses make an upright image here. That shared feature can make the sizes seem alike too. Check what a concave lens does to image size.
+      - text: "The first is real, inverted, and larger. The second is virtual, upright, and smaller."
+        rationale: |
+          A magnifying glass can make a real image when the object is farther away. Check where the letter sits compared with the focal point.
+      - text: "The first is virtual, upright, and smaller. The second is virtual, upright, and larger."
+        rationale: |
+          Both images are virtual and upright, but their sizes are swapped. Check which lens helps you see small details by making them look bigger.
+    explanation: |
+      The letter is inside the focal length of the magnifying glass, so it looks upright and bigger. The concave lens makes it look upright and smaller. Both images are virtual. The rays only look as if they come from the image.
+    approved: false

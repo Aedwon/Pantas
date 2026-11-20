@@ -459,3 +459,25 @@ questions:
   explanation: |
     The mode is the category with the highest frequency. It can identify the most common color without assigning numbers to the colors.
   approved: true
+- id: 'q-statistics-and-probability-measures-of-central-tendency-0021'
+  lesson: lesson-statistics-and-probability-arithmetic-mean-and-missing-values
+  keyPoint: 1
+  type: 'word-problem'
+  difficulty: 'medium'
+  stem: |
+    A library recorded $34$, $36$, $37$, $39$, and $49$ book returns over five days. What was the mean number of returns per day?
+  choices:
+  - text: '$39$'
+    correct: true
+  - text: '$37$'
+    rationale: |
+      This picks the middle count. It looks like a good center because two counts are on each side. Use all five counts to find the mean.
+  - text: '$41.5$'
+    rationale: |
+      This averages the smallest and largest counts. Those two counts show the full spread. Check that the sum for the mean includes the three other counts too.
+  - text: '$36.5$'
+    rationale: |
+      This leaves out the busiest day because its count is much higher. That gives a mean for four days. Count all five days in the record.
+  explanation: |
+    Add the five counts to get $34+36+37+39+49=195$. Divide by $5$ days. The mean is $39$ returns per day.
+  approved: false
