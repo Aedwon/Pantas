@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 /// A polygon traced on a unit square grid, for area questions.
 ///
@@ -112,7 +113,7 @@ class GridPolygonFigure extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               for (var i = 0; i < panels.length; i++) ...[
-                if (i > 0) const SizedBox(width: 16),
+                if (i > 0) const SizedBox(width: PantasSpace.s16),
                 SizedBox(
                   width: panelWidth,
                   child: _PanelView(
@@ -285,7 +286,7 @@ class _PanelView extends StatelessWidget {
       children: [
         if (title != null)
           Padding(
-            padding: const EdgeInsets.only(bottom: 4),
+            padding: const EdgeInsets.only(bottom: PantasSpace.s4),
             child: Text(title, style: titleStyle),
           ),
         SizedBox(
