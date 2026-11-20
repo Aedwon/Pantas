@@ -131,6 +131,16 @@ class _MockSetupPageState extends State<MockSetupPage> {
                               _simulationTitle(blueprint),
                               style: type.pageTitle,
                             ),
+                            if (mockPracticeLabelFor(blueprint.name)
+                                case final label?) ...[
+                              const SizedBox(height: PantasSpace.s2),
+                              Text(
+                                label,
+                                style: PantasType.phoneCallout.copyWith(
+                                  color: colors.textSecondary,
+                                ),
+                              ),
+                            ],
                             const SizedBox(height: PantasSpace.s4),
                             Text(
                               '$plannedTotal total items · ${_duration(blueprint.durationMinutes)}',
@@ -404,6 +414,14 @@ class _MockSetupPageState extends State<MockSetupPage> {
             ),
             const SizedBox(height: PantasSpace.s6),
             Text(_simulationTitle(blueprint), style: t.h1),
+            if (mockPracticeLabelFor(blueprint.name) case final label?) ...[
+              const SizedBox(height: PantasSpace.s2),
+              Text(
+                label,
+                style: PantasType.webLead
+                    .copyWith(color: t.colors.secondaryLabel),
+              ),
+            ],
             const SizedBox(height: PantasSpace.s6),
             Text(
               '$total total items · ${_duration(blueprint.durationMinutes)}',
