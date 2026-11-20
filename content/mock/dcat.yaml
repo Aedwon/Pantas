@@ -1,0 +1,101 @@
+_id: mock_blueprint_dlsucet
+schemaVersion: 2
+isActive: true
+exam: exam_dlsucet
+name: 'DCAT (Pantas practice exam, not the official format)'
+durationMinutes: 218
+sectionalTiming: sectional
+source: reported
+sourceNote: >-
+  Pantas practice exam, not the official format.
+  DLSU's admissions page confirms the test but gives no section counts or times:
+  https://old.dlsu.edu.ph/admissions/undergraduate/freshmen-procedures/.
+  A firsthand report on the 2019 DCAT gives these sections and figures
+  (questions/minutes): Mental Ability 40/40, Reading Comprehension 25/30,
+  Writing Skills 40/30, General Mathematics 45/50, Statistics and Probability
+  45/50, Science Proficiency 50/30.
+  https://www.chinoy.tv/chinoytips-for-college-entrance-tests/.
+  More recent coverage reports Reading Comprehension and Statistics:
+  https://prepph.com/blog/dcat-coverage. EdgePrep groups them under English and
+  Mathematics and reports a different total time: https://edgeprep.ph/dcat-exam-guide.
+  Pantas-set Reading Comprehension is scaled to 15 questions and 18 minutes.
+  It draws 1 comprehension question from a single-question passage and 14
+  vocabulary questions. The approved text-types pool has one question, and larger
+  comprehension draws can come up short with mixed-size passage groups.
+  The Pantas-set paper totals 235 questions and 218 minutes. Topic weights
+  are Pantas-set. Writing Skills uses multiple-choice questions.
+sections:
+  - id: sec_dcat_mental_ability
+    name: Mental Ability
+    questionCount: 40
+    suggestedMinutes: 40
+    sectionalMinutes: 40
+    topicIds:
+      - topic_upcat_logical_verbal_reasoning
+      - topic_upcat_spatial_abstract_reasoning
+      - topic_upcat_verbal_logic
+    topicWeights:
+      topic_upcat_logical_verbal_reasoning: 0.3333333333333333
+      topic_upcat_spatial_abstract_reasoning: 0.3333333333333333
+      topic_upcat_verbal_logic: 0.3333333333333334
+  - id: sec_dcat_reading_comprehension
+    name: Reading Comprehension
+    questionCount: 15
+    suggestedMinutes: 18
+    sectionalMinutes: 18
+    topicIds:
+      - topic_upcat_vocabulary
+      - topic_upcat_comprehension_skills
+    topicWeights:
+      topic_upcat_vocabulary: 0.9333333333333333
+      topic_upcat_comprehension_skills: 0.0666666666666667
+  - id: sec_dcat_writing_skills
+    name: Writing Skills
+    questionCount: 40
+    suggestedMinutes: 30
+    sectionalMinutes: 30
+    topicIds:
+      - topic_upcat_grammar_and_structure
+      - topic_upcat_language_application
+    topicWeights:
+      topic_upcat_grammar_and_structure: 0.5
+      topic_upcat_language_application: 0.5
+  - id: sec_dcat_general_mathematics
+    name: General Mathematics
+    questionCount: 45
+    suggestedMinutes: 50
+    sectionalMinutes: 50
+    topicIds:
+      - topic_upcat_arithmetic_number_sense
+      - topic_upcat_algebra
+      - topic_upcat_geometry
+    topicWeights:
+      topic_upcat_arithmetic_number_sense: 0.3333333333333333
+      topic_upcat_algebra: 0.3333333333333333
+      topic_upcat_geometry: 0.3333333333333334
+  - id: sec_dcat_statistics_and_probability
+    name: Statistics and Probability
+    questionCount: 45
+    suggestedMinutes: 50
+    sectionalMinutes: 50
+    topicIds:
+      - topic_upcat_statistics_and_probability
+      - topic_upcat_data_interpretation
+    topicWeights:
+      topic_upcat_statistics_and_probability: 0.5
+      topic_upcat_data_interpretation: 0.5
+  - id: sec_dcat_science_proficiency
+    name: Science Proficiency
+    questionCount: 50
+    suggestedMinutes: 30
+    sectionalMinutes: 30
+    topicIds:
+      - topic_upcat_earth_science_astronomy
+      - topic_upcat_biology
+      - topic_upcat_chemistry
+      - topic_upcat_physics
+    topicWeights:
+      topic_upcat_earth_science_astronomy: 0.25
+      topic_upcat_biology: 0.25
+      topic_upcat_chemistry: 0.25
+      topic_upcat_physics: 0.25
