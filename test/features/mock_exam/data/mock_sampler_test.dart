@@ -166,12 +166,13 @@ void main() {
         seed: seed,
       );
       expect(
-          sample.sections.single.questionIds,
-          unorderedEquals([
-            ...first,
-            ...second,
-          ]),
-          reason: 'seed $seed');
+        sample.sections.single.questionIds,
+        unorderedEquals([
+          ...first,
+          ...second,
+        ]),
+        reason: 'seed $seed',
+      );
     }
   });
 
@@ -188,12 +189,13 @@ void main() {
     );
 
     expect(
-        sample.sections.single.questionIds,
-        unorderedEquals([
-          ...unseen,
-          ...recent,
-          'solo',
-        ]));
+      sample.sections.single.questionIds,
+      unorderedEquals([
+        ...unseen,
+        ...recent,
+        'solo',
+      ]),
+    );
   });
 
   test('retains a partial result of whole sets when no exact fit exists', () {
@@ -226,12 +228,13 @@ void main() {
     );
 
     expect(
-        sample.sections.single.questionIds,
-        unorderedEquals([
-          ...four,
-          ...three,
-          'solo',
-        ]));
+      sample.sections.single.questionIds,
+      unorderedEquals([
+        ...four,
+        ...three,
+        'solo',
+      ]),
+    );
   });
 }
 
@@ -245,7 +248,7 @@ MockSample _samplePassages({
   return MockSampler().sample(
     sections: [_singleTopicSection(questionCount: count)],
     poolsByTopic: {
-      'topic': [...sets.values.expand((set) => set), ...standalone]
+      'topic': [...sets.values.expand((set) => set), ...standalone],
     },
     recentlySampledQuestionIds: recentlySampled,
     passageSetsByTopic: {'topic': sets},
