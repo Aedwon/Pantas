@@ -36,9 +36,21 @@ function poolsFor(examId) {
 
 const blueprint = name => parse(readFileSync(new URL(`mock/${name}.yaml`, contentDir), 'utf8'));
 
-// Every section fills its count from the current bank. Numerical Ability weights arithmetic 0.6
-// and algebra 0.4, because the bank holds only 20 CSE algebra questions.
-const knownShortfall = {};
+// Give leftover slots to the largest fractional quotas, breaking ties by topic ID.
+function expectedSlots(section) {
+  const {topicIds, topicWeights, questionCount} = section;
+  const totalWeight = topicIds.reduce((sum, topicId) => sum + topicWeights[topicId], 0);
+  const quotas = [...topicIds].sort().map(topicId => {
+    const exact = questionCount * (topicWeights[topicId] / totalWeight);
+    const whole = Math.floor(exact);
+    return {topicId, whole, remainder: exact - whole};
+  });
+  const leftover = questionCount - quotas.reduce((sum, quota) => sum + quota.whole, 0);
+  quotas.sort((a, b) => b.remainder - a.remainder);
+  return new Map(quotas.map(({topicId, whole}, index) => [
+    topicId, whole + (index < leftover ? 1 : 0),
+  ]));
+}
 
 const expected = {
   exam_cse_pro: {file: 'cse-pro', minutes: 190, total: 155, counts: {
@@ -63,11 +75,14 @@ for (const [examId, want] of Object.entries(expected)) {
       for (const topicId of section.topicIds) assert.ok(topicId.startsWith(`topic_${examId.replace(/^exam_/, '')}_`), topicId);
       const weights = Object.values(section.topicWeights);
       assert.equal(weights.length, section.topicIds.length);
-      assert.ok(Math.abs(weights.reduce((a, b) => a + b, 0) - 1) < 1e-9);
+      for (const topicId of section.topicIds) {
+        const weight = section.topicWeights[topicId];
+        assert.ok(Number.isFinite(weight) && weight > 0, `${topicId} must have a positive weight`);
+      }
+      assert.ok(Math.abs(weights.reduce((a, b) => a + b, 0) - 1) < 1e-9, `${section.id} weights must sum to 1`);
       if (section.id === 'sec_cse_pro_numerical_ability') {
+        // The bank holds only 20 CSE algebra questions.
         assert.deepEqual(section.topicWeights, {topic_cse_pro_arithmetic_number_sense: 0.6, topic_cse_pro_algebra: 0.4});
-      } else {
-        assert.ok(Math.max(...weights) - Math.min(...weights) < 1e-9, 'even weights');
       }
     }
     const item = blueprintItem(doc);
@@ -78,21 +93,28 @@ for (const [examId, want] of Object.entries(expected)) {
   test(`${examId} sampler builds a paper from the real tagged pools`, () => {
     const doc = blueprint(want.file);
     const pools = poolsFor(examId);
+    const topicByQuestionId = new Map(Object.entries(pools).flatMap(([topicId, ids]) =>
+      ids.map(id => [id, topicId])));
     const sectionsJson = blueprintItem(doc).data.sectionsJson;
     for (const seed of [1, 2, 3, 42, 2027]) {
       const paper = JSON.parse(core().sampleMock(JSON.stringify({
         sectionsJson, poolsByTopic: pools, passageSetsByTopic: {}, recentlySampledQuestionIds: [], seed})));
+      assert.equal(paper.expectedQuestionCount, want.total);
       assert.deepEqual(paper.sections.map(s => s.sectionId), doc.sections.map(s => s.id));
       const seen = new Set();
       for (const section of paper.sections) {
         const def = doc.sections.find(s => s.id === section.sectionId);
-        const allowed = new Set(def.topicIds.flatMap(t => pools[t] ?? []));
-        assert.equal(section.questionIds.length, knownShortfall[section.sectionId] ?? def.questionCount, section.sectionId);
+        const slots = expectedSlots(def);
+        const sampledSlots = new Map(def.topicIds.map(topicId => [topicId, 0]));
+        assert.equal(section.questionIds.length, def.questionCount, section.sectionId);
         for (const id of section.questionIds) {
-          assert.ok(allowed.has(id), `${id} is outside ${section.sectionId}`);
+          const topicId = topicByQuestionId.get(id);
+          assert.ok(sampledSlots.has(topicId), `${id} is outside ${section.sectionId}`);
+          sampledSlots.set(topicId, sampledSlots.get(topicId) + 1);
           assert.ok(!seen.has(id), `${id} repeats`);
           seen.add(id);
         }
+        assert.deepEqual(sampledSlots, slots, `${section.sectionId} topic allocations`);
       }
     }
   });
