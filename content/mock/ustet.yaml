@@ -1,0 +1,85 @@
+_id: mock_blueprint_ustet
+schemaVersion: 2
+isActive: true
+exam: exam_ustet
+name: 'USTET (Pantas practice exam, not the official format)'
+durationMinutes: 165
+sectionalTiming: sectional
+source: reported
+sourceNote: >-
+  Pantas practice exam, not the official format.
+  UST publishes the four college subtest names in its admissions FAQ:
+  https://ustet.ust.edu.ph/.
+  Reported counts from prepPH are Mental Ability 80, English 80, Mathematics 60,
+  and Science 80, for 300 questions: https://prepph.com/blog/ustet-coverage.
+  EdgePrep reports separate timers of 30, 45, 45, and 45 minutes, respectively,
+  which add up to 165 minutes of test time in this practice paper. It gives a different
+  count for English (45), so the reports disagree on that size.
+  https://edgeprep.ph/ustet-exam-guide.
+  Topic weights are Pantas-set. Mental Ability draws 20 spatial and abstract
+  reasoning questions from a pool of 22. English draws 1 comprehension
+  question from a single-question passage. Larger draws can come up short
+  with mixed-size passage groups.
+sections:
+  - id: sec_ustet_mental_ability
+    name: Mental Ability
+    questionCount: 80
+    suggestedMinutes: 30
+    sectionalMinutes: 30
+    topicIds:
+      - topic_upcat_logical_verbal_reasoning
+      - topic_upcat_spatial_abstract_reasoning
+      - topic_upcat_verbal_logic
+    topicWeights:
+      topic_upcat_logical_verbal_reasoning: 0.375
+      topic_upcat_spatial_abstract_reasoning: 0.25
+      topic_upcat_verbal_logic: 0.375
+  - id: sec_ustet_english
+    name: English
+    questionCount: 80
+    suggestedMinutes: 45
+    sectionalMinutes: 45
+    topicIds:
+      - topic_upcat_vocabulary
+      - topic_upcat_grammar_and_structure
+      - topic_upcat_language_application
+      - topic_upcat_comprehension_skills
+    topicWeights:
+      topic_upcat_vocabulary: 0.3375
+      topic_upcat_grammar_and_structure: 0.325
+      topic_upcat_language_application: 0.325
+      topic_upcat_comprehension_skills: 0.0125
+  - id: sec_ustet_mathematics
+    name: Mathematics
+    questionCount: 60
+    suggestedMinutes: 45
+    sectionalMinutes: 45
+    topicIds:
+      - topic_upcat_arithmetic_number_sense
+      - topic_upcat_algebra
+      - topic_upcat_geometry
+      - topic_upcat_trigonometry
+      - topic_upcat_statistics_and_probability
+      - topic_upcat_data_interpretation
+    topicWeights:
+      topic_upcat_arithmetic_number_sense: 0.1666666666666667
+      topic_upcat_algebra: 0.1666666666666667
+      topic_upcat_geometry: 0.1666666666666667
+      topic_upcat_trigonometry: 0.1666666666666667
+      topic_upcat_statistics_and_probability: 0.1666666666666666
+      topic_upcat_data_interpretation: 0.1666666666666666
+  - id: sec_ustet_science
+    name: Science
+    questionCount: 80
+    suggestedMinutes: 45
+    sectionalMinutes: 45
+    topicIds:
+      - topic_upcat_earth_science_astronomy
+      - topic_upcat_biology
+      - topic_upcat_chemistry
+      - topic_upcat_physics
+    topicWeights:
+      topic_upcat_earth_science_astronomy: 0.25
+      topic_upcat_biology: 0.25
+      topic_upcat_chemistry: 0.25
+      topic_upcat_physics: 0.25
