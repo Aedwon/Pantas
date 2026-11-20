@@ -657,7 +657,7 @@ questions:
       The record gives an action and its order: the supervisor reviewed the request, then approved it. That supports the stated sequence. No reason for the approval is recorded.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0029
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-needed-assumptions
     keyPoint: 1
     type: single_choice
@@ -680,7 +680,7 @@ questions:
       The paper uses the students' needs and the written recipes to back one point. It wants the canteen to show what is in each dish.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0030
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-negating-assumptions
     keyPoint: 1
     type: single_choice
@@ -703,7 +703,7 @@ questions:
       The guide says every jar passes the same test. One jar with a label you cannot read breaks that claim.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0031
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-negating-assumptions
     keyPoint: 1
     type: single_choice
@@ -726,7 +726,7 @@ questions:
       The treasurer's claim needs even one unsigned receipt. If every receipt is signed, there is no such receipt.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0032
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-compound-assumptions
     keyPoint: 1
     type: single_choice
@@ -749,7 +749,7 @@ questions:
       The sack needs a good seal and a clear code. A torn seal fails one of those tests. One failure is enough.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0033
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-none-and-may
     keyPoint: 1
     type: single_choice
@@ -772,7 +772,7 @@ questions:
       The two lists share no plants. If a plant is for sale and on loan, it would be on both lists.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0034
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-none-and-may
     keyPoint: 2
     type: single_choice
@@ -795,7 +795,7 @@ questions:
       The notice leaves a shift online open. The word “possible” keeps that meaning.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0035
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-best-supported-conclusions
     keyPoint: 1
     type: single_choice
@@ -818,7 +818,7 @@ questions:
       The booking log contains requests in English and requests in Filipino. That is enough to show that the shop received both kinds.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0036
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-unsupported-causes-and-motives
     keyPoint: 1
     type: single_choice
@@ -841,7 +841,7 @@ questions:
       The report puts the move and the closure on the same morning. The edit keeps that fact and leaves the reason open.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0037
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-recognizing-bias
     keyPoint: 1
     type: single_choice
@@ -864,7 +864,7 @@ questions:
       “Real work” gives the clubs the credit. “Stalls again” makes the council sound like it is wasting time. Those words take sides.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0038
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-recognizing-bias
     keyPoint: 1
     type: single_choice
@@ -887,7 +887,7 @@ questions:
       The revision says what the plan is and whom it serves. It leaves people free to judge the plan for themselves.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0039
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-must-be-true-conclusions
     keyPoint: 2
     type: single_choice
@@ -910,7 +910,7 @@ questions:
       Start with any shell in the tray. Every item there is cataloged, so that shell is cataloged too. This gives at least one cataloged shell.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0040
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-negating-assumptions
     keyPoint: 1
     type: single_choice
@@ -933,7 +933,7 @@ questions:
       The report rules out even one rejected sample listed as accepted. Finding a single case makes the claim false.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0041
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-compound-assumptions
     keyPoint: 1
     type: single_choice
@@ -956,7 +956,7 @@ questions:
       The note allows the barrel alone, the cistern alone, or both. It fails only when the sample comes from neither.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0042
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-compound-assumptions
     keyPoint: 1
     type: single_choice
@@ -979,7 +979,7 @@ questions:
       The claim needs two things. The bridge crosses the creek, but it misses the school path. That is enough to make the full claim false.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0043
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-none-and-may
     keyPoint: 2
     type: single_choice
@@ -1002,7 +1002,7 @@ questions:
       The health center said a Friday restart was possible. The host used “will,” which says the restart is set.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0044
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-best-supported-conclusions
     keyPoint: 1
     type: single_choice
@@ -1025,7 +1025,7 @@ questions:
       The record counts more checkouts for print. That is enough to compare the loan totals.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0045
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-best-supported-conclusions
     keyPoint: 1
     type: single_choice
@@ -1048,7 +1048,7 @@ questions:
       The bakery junction appeared on more of the returned maps than any other place. That makes it the most often marked location.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0046
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-unsupported-causes-and-motives
     keyPoint: 1
     type: single_choice
@@ -1071,7 +1071,7 @@ questions:
       The plants got a new watering schedule and more light at the same time. Either change could have helped them grow faster.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0047
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-unsupported-causes-and-motives
     keyPoint: 1
     type: single_choice
@@ -1094,7 +1094,7 @@ questions:
       Mariel gives her own reason for taking the poster down. Her change of mind is now backed by what she says.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0048
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-recognizing-bias
     keyPoint: 1
     type: single_choice
@@ -1117,7 +1117,7 @@ questions:
       The two groups have worked for about as long. The paper praises one group's skill and makes the other group sound selfish.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0049
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-recognizing-bias
     keyPoint: 1
     type: single_choice
@@ -1140,7 +1140,7 @@ questions:
       Only students in the group against the fee were asked. Even correct quotes can give a one-sided picture when all the voices come from one side.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0050
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-negating-assumptions
     keyPoint: 1
     type: single_choice
@@ -1163,7 +1163,7 @@ questions:
       The claim is about each form the advisers returned. Take away every parent signature from just one of those forms and the claim fails.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0051
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-compound-assumptions
     keyPoint: 1
     type: single_choice
@@ -1186,7 +1186,7 @@ questions:
       A good battery is needed. Room on even one card is enough for the other part. The claim fails if the battery fails or if both cards lack room.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0052
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-none-and-may
     keyPoint: 1
     type: single_choice
@@ -1209,7 +1209,7 @@ questions:
       At least one observer is a judge. Judges cannot be speakers, so that observer is outside the speakers' list.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0053
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-best-supported-conclusions
     keyPoint: 1
     type: single_choice
@@ -1232,7 +1232,7 @@ questions:
       Slotted crates led on long routes. Solid crates led on short routes. The lead changed with the route length.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0054
-    approved: false
+    approved: true
     lesson: lesson-verbal-logic-unsupported-causes-and-motives
     keyPoint: 1
     type: single_choice

@@ -34,3 +34,7 @@ After the independent Sol audit, fixes changed 77 questions. All 1,097 questions
 ## Re-check fix (November 20, 2026)
 
 The independent re-check changed one question's wording (q-chemistry-stoichiometry-0004, "molar mass" for a g/mol value). The file was solved blind again by a separate GPT 6.2 Sol run (24 of 24 matched, 0 low confidence). The question is re-approved on that solve.
+
+## ACET verbal logic pool (November 20, 2026)
+
+GPT 6.2 Sol wrote 26 new questions (ids 0029 to 0054 in `reasoning/verbal-logic/assumptions-and-conclusions.yaml`) so the pool reaches 54 for the 45 ACET slots. A separate GPT 6.2 Sol run solved the file blind: 34 of 34 solved questions matched, including all 26 new ones, 0 mismatches, 0 low confidence. The 26 are approved on that solve.

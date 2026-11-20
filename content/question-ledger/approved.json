@@ -24221,6 +24221,162 @@
     "hash": "1b26ea87caca044a01b91cad1abad0fa6402155f30a31e470059ab6f079def33",
     "lesson": "lesson-verbal-logic-unsupported-causes-and-motives"
   },
+  "q-verbal-logic-assumptions-and-conclusions-0029": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "771df8c42893ecc18a96c620477dd604e2a191ff2a60043ac36160e3536c3071",
+    "lesson": "lesson-verbal-logic-needed-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0030": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "7dd33a83ee49c4dd249d37dfe33228989437c7fe44e4993e7404c135a70decdc",
+    "lesson": "lesson-verbal-logic-negating-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0031": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "21ed4a0d0d95f9b6aab894c506ab98a3626980a2d87b945e842e2b462fc8a865",
+    "lesson": "lesson-verbal-logic-negating-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0032": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "44a87cf74aafd2911a792d09c0c9e79c991a888b490a28be4dca5cdfe7e99d7e",
+    "lesson": "lesson-verbal-logic-compound-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0033": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "1ad3f07972139254e863fa6f043c9649640c3850f40d877b9cf2984d08ae9632",
+    "lesson": "lesson-verbal-logic-none-and-may"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0034": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "1670f3d0609d68bfd6372f086796b7314698b090fddbe7a2f83d9edf15d25472",
+    "lesson": "lesson-verbal-logic-none-and-may"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0035": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "a555559eb576b83c86e4ba6263a1dd1a654e9e669f3fc31885f8748e6e7df972",
+    "lesson": "lesson-verbal-logic-best-supported-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0036": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "f93a0b73c718d853fea6690a150267d61c5570a62959585e6426dc272a15862b",
+    "lesson": "lesson-verbal-logic-unsupported-causes-and-motives"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0037": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "2781a3f8e1de9dab53db50b16333b0ca19e87f86a9a6c65b159ce5b6fb1cd51a",
+    "lesson": "lesson-verbal-logic-recognizing-bias"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0038": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "2425f1897a537972ed05de32978cf14427751407b0c0d65490df4262a71415fb",
+    "lesson": "lesson-verbal-logic-recognizing-bias"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0039": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "f2556396b5f229ac34ba037783616336963bb5928f7955f81e863713d50629be",
+    "lesson": "lesson-verbal-logic-must-be-true-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0040": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "c1464db6ea374fbac0430aef4c3c18c93b891386569f1d6e44149641a684d0a6",
+    "lesson": "lesson-verbal-logic-negating-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0041": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "681ee688e3f78a65e5e57344ab6b6e6d6427ce849bd4ddad0af79d5b4cd0ee8b",
+    "lesson": "lesson-verbal-logic-compound-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0042": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "464e01e9bfc192f8670938889186bde54c97b1fa1f4955695fd4fff85b22e65e",
+    "lesson": "lesson-verbal-logic-compound-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0043": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "a07ebb73cf795e1d149e09300aebe5768854b5fa8059783d24a1b14a29982499",
+    "lesson": "lesson-verbal-logic-none-and-may"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0044": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "6d9ca95e2f442f3e942cb7edba378d82267ed720cb77d6d9b0b0aa21feefa015",
+    "lesson": "lesson-verbal-logic-best-supported-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0045": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "64deef616767e555402e309282502c3d5eee21c67c29a264da88ad1f692c97bd",
+    "lesson": "lesson-verbal-logic-best-supported-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0046": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "bf57697b8d77fbf6b8a8cc9f6c69479166787a89cdb8af13823125053f660230",
+    "lesson": "lesson-verbal-logic-unsupported-causes-and-motives"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0047": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "f8ed24486af12444a885f40c7f5b5bd3341101e6c9a2a5ef7e8e72286be0fe1b",
+    "lesson": "lesson-verbal-logic-unsupported-causes-and-motives"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0048": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "f199be3635ec81f9ded4b4bb8b1bb8abd11c0be3502f4cf98631f3f3a97f0a68",
+    "lesson": "lesson-verbal-logic-recognizing-bias"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0049": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "c704cd0831aee7d1ce707a934c368c0983774917d6f70c40d7b4948ef5a5a0f1",
+    "lesson": "lesson-verbal-logic-recognizing-bias"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0050": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "607f6fac194be210a976321cae5e891ee1bf7f124f49419f85cbcea4aa7dab6d",
+    "lesson": "lesson-verbal-logic-negating-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0051": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "942259c65dde22db6c3918298b6034339b565db54aab347a8ff71c071626460b",
+    "lesson": "lesson-verbal-logic-compound-assumptions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0052": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "8ba80ba73a13d98a7a103a63b140a19c1a64aaad53f6a388b1774ad05b498dea",
+    "lesson": "lesson-verbal-logic-none-and-may"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0053": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "5ada96404bc2a15c60eb7dcd3d5877ee3cb132780b81cee8ed4a1783f5a65d5f",
+    "lesson": "lesson-verbal-logic-best-supported-conclusions"
+  },
+  "q-verbal-logic-assumptions-and-conclusions-0054": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/verification/cet-split.md",
+    "hash": "f4c4d615c45515db0d70c244e3394062915dd6e6517bff23a5ca6957b09e4e15",
+    "lesson": "lesson-verbal-logic-unsupported-causes-and-motives"
+  },
   "q-vocabulary-confusing-words-0001": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-exam-tags.md",
