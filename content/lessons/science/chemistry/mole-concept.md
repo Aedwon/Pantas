@@ -87,8 +87,6 @@ To go from mass to entities, use both relations: mass to moles with $M$, then mo
 
 Moles are the middle step because $M$ and $N_A$ both connect to them. You can write the steps as one line of **dimensional analysis**, which means arranging conversion factors so the unwanted units cancel.
 
-<!-- ILLUSTRATION: conversion map with three boxes in a row: "mass m (g)", "amount n (mol)", "number of entities N". Arrow from mass to amount labeled "divide by M (g/mol)", arrow back labeled "multiply by M". Arrow from amount to entities labeled "multiply by N_A (6.022 x 10^23 per mol)", arrow back labeled "divide by N_A". -->
-
 ### Significant Figures
 
 **Significant figures** are the digits of a measured number that carry meaning. Two rules cover most work here.

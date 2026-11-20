@@ -41,16 +41,12 @@ Each chromosome becomes two identical DNA copies that stay stuck together, joine
 
 Two sister chromatids joined at one centromere still count as one chromosome. To count chromosomes, count centromeres. When the sister chromatids pull apart, each one is then counted as its own chromosome.
 
-<!-- ILLUSTRATION: one chromosome drawn as a single rod before copying, then the same chromosome after copying as two identical rods (labeled "sister chromatid") joined at a dot labeled "centromere", with the label "1 chromosome, 2 chromatids" -->
-
 Keep these two pairs of words apart:
 
 - **Sister chromatids** are the two copies of one chromosome, made by replication.
 - **Homologs** are the two chromosomes of a pair, one from each parent.
 
 Sister chromatids are identical copies, apart from rare copying errors. One exception is meiosis, where crossing over can swap pieces between a chromatid and a chromatid of its homolog. After that swap, sister chromatids are no longer identical.
-
-<!-- ILLUSTRATION: a cell with 2n = 4. Two homologous pairs, one long pair and one short pair. In each pair one chromosome is colored red (from the mother) and one is blue (from the father). Show each pair before copying (4 single rods) and after copying (4 chromosomes, each with 2 sister chromatids), with labels "homologous pair" and "sister chromatids" -->
 
 ### The Cell Cycle
 

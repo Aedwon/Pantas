@@ -108,7 +108,6 @@ A stool stands on a level floor with one foot touching at each corner of a squar
 3. On two legs, the only contact points are the two feet. The base shrinks to the line segment joining them. Real feet that touch over an area can give a thin strip instead.
 4. For two points, the weight line must land on that segment. A tiny shift to either side puts it outside, so the stool is very hard to hold.
 
-<!-- ILLUSTRATION: a stool on a floor drawn twice, once on four legs with the square base of support shaded between the feet, and once tilted onto two legs with a thin line shaded between the two feet and the weight line marked -->
 ### #2: Locating the Center of Gravity
 
 A uniform metal sheet is a rectangle $40$ cm long and $20$ cm wide. A uniform flat triangle plate has a base of $30$ cm and a height of $30$ cm. Both plates have the same thickness all over. A uniform ring with the same shape all the way around has an empty hole in the middle. Where is the center of gravity of each?
@@ -120,7 +119,6 @@ A uniform metal sheet is a rectangle $40$ cm long and $20$ cm wide. A uniform fl
 3. The ring is the same on all sides. The center of gravity is at the middle of the ring.
 4. That point is in the empty hole, so it lies outside the material.
 
-<!-- ILLUSTRATION: three flat shapes with the center of gravity marked: a 40 cm by 20 cm rectangle with a dot 20 cm from each short end, a triangle plate with base 30 cm and height 30 cm with a dot 10 cm above the base, and a ring with a dot in the empty middle -->
 ### #3: Loads High or Low
 
 A cabinet of mass $30$ kg is $1.2$ m tall. Its own center of gravity is $0.6$ m above the floor. It holds $90$ kg of books, centered side to side. The books' center of gravity is $0.2$ m up when they are on the bottom shelf, or $0.9$ m up when they are on the top shelf. Find the height of the combined center of gravity in each case. Which loading is harder to tip?
@@ -138,7 +136,6 @@ $$y = \dfrac{30(0.6) + 90(0.9)}{30 + 90} = \dfrac{99}{120} = 0.825 \text{ m}$$
 3. The base is the same in both cases, so $d$ is the same. A smaller $h_c$ gives a larger $\tan\theta$.
 4. Books on the bottom shelf are harder to tip.
 
-<!-- ILLUSTRATION: a tall cabinet 1.2 m high drawn twice, once with 90 kg of books on the bottom shelf and once on the top shelf, with a dot at 0.30 m and a dot at 0.825 m showing the combined center of gravity -->
 ### #4: A Load That Sticks Out
 
 A crate has a base $1.0$ m wide and a mass of $40$ kg. Its center of gravity is $0.5$ m from the left edge. A $120$ kg load is fastened on top and sticks out to the right. The load's center of gravity is $1.3$ m from the left edge. Does the crate stay down?
@@ -153,7 +150,6 @@ $$x = \dfrac{40(0.5) + 120(1.3)}{40 + 120} = \dfrac{176}{160} = 1.1 \text{ m}$$
 3. The weight line is at $1.1$ m, which is past the right edge at $1.0$ m.
 4. It is outside the base, so the crate tips to the right.
 
-<!-- ILLUSTRATION: a crate with a base 1.0 m wide from 0 to 1.0 m, a 120 kg load sticking out on the right, a dot at 1.1 m for the combined center of gravity, and a weight line landing past the right edge -->
 ### #5: Comparing Static Tipping
 
 A short, wide uniform object and a tall, narrow uniform object have comparable shapes and material. Which is harder to tip slowly on a level surface?
@@ -192,7 +188,6 @@ $$\tan\theta = \dfrac{0.4}{0.2} = 2 \quad\Rightarrow\quad \theta \approx 63.4^\c
 
 4. The box lying down needs a much larger tilt, so it is harder to tip.
 
-<!-- ILLUSTRATION: a box 0.4 m wide and 0.8 m tall tilted about its bottom edge, with the angle 26.6 degrees at the edge, beside the same box lying on its side, 0.8 m wide and 0.4 m tall, with the angle 63.4 degrees -->
 ### #8: Where to Push a Crate
 
 A uniform crate has a mass of $60$ kg, a width of $0.6$ m and a height of $1.2$ m. It rests on level ground. A person pushes it with a horizontal force. Find the tipping threshold for a push at the top edge and for a push at the middle of the side. Assume the crate does not slide.
@@ -211,7 +206,6 @@ $$F > \dfrac{176.4}{0.6} = 294 \text{ N}$$
 
 5. The thresholds are $147$ N at the top and $294$ N at the middle. Tipping starts just above each threshold.
 
-<!-- ILLUSTRATION: a crate 0.6 m wide and 1.2 m tall with two arrows pointing sideways, one at the top edge at height 1.2 m labeled 147 N and one at the middle at height 0.6 m labeled 294 N -->
 ### #9: Cargo in a Turning Truck
 
 The same truck carries the same mass of cargo either stacked high or secured lower in the vehicle. Which arrangement generally improves rollover resistance in a turn?

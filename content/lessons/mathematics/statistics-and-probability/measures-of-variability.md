@@ -19,8 +19,6 @@ replacedBy:
 
 Two data sets can have the same mean and very different spreads. The **mean** is the sum of the values divided by how many values there are. **Measures of variability** tell how far apart the values are.
 
-<!-- ILLUSTRATION: two dot plots on the same number line from 0 to 10; Set A has dots at 3, 4, 5, 6, 7; Set B has dots at 1, 3, 5, 7, 9; a vertical line marks the mean 5 on both plots -->
-
 Compare Set A: $3,4,5,6,7$ and Set B: $1,3,5,7,9$. Both sets have mean $5$. Set B is more spread out.
 
 ### Population and sample

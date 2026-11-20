@@ -92,8 +92,6 @@ A single-celled organism is one cell and one organism at once. It has no tissues
 
 Some books add one more level above the ecosystem, the biosphere, which is all of Earth's living things and their surroundings.
 
-<!-- ILLUSTRATION: ladder of levels from bottom to top: cell, tissue, organ, organ system, organism, population, community, ecosystem; example labels: muscle cell, muscle tissue, heart, circulatory system, one person, all the Nile tilapia in a lake, all the fish, plants and microbes in the lake, the lake with its water, sunlight and soil -->
-
 ## Examples
 
 ### #1: Direct and Inferred Properties

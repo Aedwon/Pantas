@@ -46,8 +46,6 @@ Soaked-in water can sink deeper and become **groundwater**, which is water held 
 
 <!-- FIGURE: {"kind":"earth-science-diagram","type":"water-cycle","illustrationKey":"science/earth-science-astronomy/water-cycle-oceanography#1","steps":["Sun heats ocean","evaporation","water vapor rises","condensation into clouds","precipitation over mountains","runoff to ocean","groundwater to ocean"]} -->
 
-<!-- ILLUSTRATION: water-cycle diagram with the Sun, ocean, a mountain, a tree, and a river; arrows labeled evaporation (ocean up), transpiration (tree up), condensation (cloud), precipitation (down onto the mountain and the ocean), runoff (river to ocean), infiltration (into the soil), groundwater (underground to the ocean) -->
-
 ### What decides infiltration or runoff
 
 The same rain can split between the two paths. More water soaks in when the soil is sandy or loose, dry, flat, or covered with plants. More water runs off when the ground is steep, already soaked, packed hard, or paved. Very heavy rain also runs off, because the soil cannot take in water as fast as it arrives.
@@ -75,8 +73,6 @@ A **current** is a steady flow of ocean water. There are two main kinds.
 **Deep currents** are driven by differences in density. Near the poles, surface water gets very cold, and sea ice formation leaves extra salt in the water below. This cold, salty water is dense and sinks. It then spreads slowly along the ocean floor, and other water flows in to replace it.
 
 Currents carry heat. A warm current, such as the Kuroshio that flows north past Taiwan and Japan, carries heat from the tropics toward higher latitudes. A cold current, such as the Humboldt Current off western South America, brings cool water toward the tropics.
-
-<!-- ILLUSTRATION: world map of subtropical gyres with the North Pacific and North Atlantic gyres drawn as clockwise loops, the South Pacific and South Atlantic gyres as counterclockwise loops, warm currents in red and cold currents in blue, labels Kuroshio and Gulf Stream -->
 
 ### Tides
 
@@ -227,8 +223,6 @@ Place the Sun, Moon, and Earth for each phase.
 4. The two tidal effects then partly offset each other, so the tidal range is smaller. These are neap tides.
 
 The answer: spring tides at new moon and full moon, neap tides at first and third quarter.
-
-<!-- ILLUSTRATION: two top-view diagrams of Sun, Earth, and Moon. Left: Sun, Moon, and Earth in a line (new moon) and Sun, Earth, Moon in a line (full moon), labeled "spring tide: large range". Right: Moon at a right angle to the Sun-Earth line (first quarter), labeled "neap tide: small range" -->
 
 ## Speed Tricks & Shortcuts
 

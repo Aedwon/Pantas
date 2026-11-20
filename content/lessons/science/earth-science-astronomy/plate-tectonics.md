@@ -130,7 +130,6 @@ Why can an oceanic plate sinking beneath another plate cause volcanoes above the
 
 The rock layers on either side of a tilted fault no longer line up. The hanging wall has moved down relative to the footwall. What type of fault is this, and what kind of stress caused it?
 
-<!-- ILLUSTRATION: side view of a tilted fault; the labeled hanging wall has moved down, the labeled footwall has not, arrows pointing apart -->
 **Solution:**
 
 1. The hanging wall moved down, so this is a normal fault.
@@ -140,7 +139,6 @@ The rock layers on either side of a tilted fault no longer line up. The hanging 
 
 A map shows two belts of earthquakes. Belt A curves beside a deep trench, with volcanoes on its inland side. The points where the earthquakes start are $20$ km deep near the trench and $250$ km deep farthest inland. Belt B is a straight line across land where the earthquakes start at shallow depths and no volcanoes. What boundary lies along each belt, and which way does the plate dip under belt A?
 
-<!-- ILLUSTRATION: map of belt A, a curved line of earthquake dots labeled 20 km near a trench and 250 km farthest inland, with volcano triangles inland; belt B, a straight line of shallow dots across land with no volcanoes -->
 **Solution:**
 
 1. Earthquakes and volcanoes gather in narrow belts along plate boundaries.

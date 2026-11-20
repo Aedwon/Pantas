@@ -106,7 +106,6 @@ This form needs both forces along the motion.
 
 A student pulls a sled $10\ \text{m}$ along level ground with a rope. The rope pulls with $50\ \text{N}$ at $60^\circ$ above the ground. (a) Find the work done by the rope. (b) Find the work done by gravity on the sled.
 
-<!-- ILLUSTRATION: sled on level ground pulled to the right by a rope at 60 degrees above the ground, pull labeled 50 N, distance labeled 10 m -->
 **Solution:**
 
 1. The rope's force is not along the motion, so use the angle.
@@ -160,7 +159,6 @@ $$v^2 = 25 \quad\Rightarrow\quad v = 5.0\ \text{m/s}$$
 
 A $3.0\ \text{kg}$ crate rests on a rough floor. A worker pushes it $6.0\ \text{m}$ with a horizontal force of $40\ \text{N}$. Friction acts against the motion with a force of $15\ \text{N}$. Find the final speed.
 
-<!-- ILLUSTRATION: crate on a floor moving right, 40 N push arrow to the right, 15 N friction arrow to the left, distance labeled 6.0 m -->
 **Solution:**
 
 1. The push points along the motion, so $\theta=0^\circ$. Friction points against it, so $\theta=180^\circ$.
@@ -206,7 +204,6 @@ Check the mass. Writing $mgh=\dfrac{1}{2}mv^2$, the $m$ cancels, so a lighter ch
 
 A $2.0\ \text{kg}$ block slides from rest down a rough ramp. It starts $1.5\ \text{m}$ above the bottom. At the bottom its speed is $3.0\ \text{m/s}$. Find the work done by friction. Use $g = 9.8\ \text{m/s}^2$.
 
-<!-- ILLUSTRATION: ramp with a 2.0 kg block at the top, height labeled 1.5 m, speed 3.0 m/s labeled at the bottom -->
 **Solution:**
 Friction is the only nonconservative force that does work. The ramp's support force is perpendicular to the motion and does none. Choose the bottom as $PE=0$.
 
@@ -250,7 +247,6 @@ $$P = (4900)(0.20) = 980\ \text{W}$$
 
 A worker lifts a $50\ \text{kg}$ load by $2.0\ \text{m}$ with a pulley system. The worker pulls the rope with a steady $350\ \text{N}$ force through $4.0\ \text{m}$. Find the efficiency. Use $g = 9.8\ \text{m/s}^2$.
 
-<!-- ILLUSTRATION: movable pulley supporting a 50 kg load, load rising 2.0 m, rope end pulled 4.0 m with a 350 N effort -->
 **Solution:**
 
 1. The load force is its weight.

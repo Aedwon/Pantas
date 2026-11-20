@@ -89,8 +89,6 @@ Four groups spread into a tetrahedral arrangement with ideal angles of $109.5^\c
 
 Lone pairs push harder than bonds, so bond angles are usually a little smaller than these ideal angles.
 
-<!-- ILLUSTRATION: Lewis structure of CO2 with every lone pair drawn, O=C=O, each oxygen with two lone pairs, carbon with none -->
-
 ### Molecular Polarity and Attractions Between Molecules
 
 A molecule is **polar** if its bond dipoles do not cancel. Look at the shape.
@@ -153,8 +151,6 @@ $$O=C=O$$
 
 Each oxygen keeps two lone pairs. Every atom has an octet.
 
-<!-- ILLUSTRATION: complete Lewis structure of CO2, O=C=O, with two lone pairs drawn on each oxygen -->
-
 ### #4: Lewis Structure of $NH_3$
 
 Draw the Lewis structure of $NH_3$.
@@ -190,8 +186,6 @@ $$FC_{O}=6-6-\dfrac{2}{2}=-1$$
 7. The total is $0+0-1-1=-2$, which matches the ion.
 8. Any of the three oxygens can be the double-bond one. So there are three resonance structures, and the real ion has three equal $C-O$ bonds, because the structures are equivalent.
 
-<!-- ILLUSTRATION: three resonance Lewis structures of CO3 2-, carbon in the center, each with one C=O double bond on a different oxygen, the other two oxygens with a single bond, three lone pairs and a charge of -1, double-headed arrows between the structures, square brackets with a 2- charge -->
-
 ### #6: Shapes of $CH_4$, $NH_3$, and $H_2O$
 
 Find the molecular shape of each.
@@ -202,8 +196,6 @@ Find the molecular shape of each.
 2. $NH_3$: $5+3(1)=8$ electrons. Nitrogen has three bonds and one lone pair. The four groups are tetrahedral, but the shape is trigonal pyramidal.
 3. $H_2O$: $6+2(1)=8$ electrons. Oxygen has two bonds and two lone pairs, so the shape is bent.
 4. For $NH_3$ and $H_2O$ the electron-group geometry is tetrahedral, but the shapes are different. Lone pairs push harder than bonds, so the H-O-H angle is smaller than $109.5^\circ$.
-
-<!-- ILLUSTRATION: three ball-and-stick models side by side, CH4 tetrahedral with 109.5 degree H-C-H angle, NH3 trigonal pyramidal with one lone pair on N, H2O bent with two lone pairs on O -->
 
 ### #7: Shapes of $BF_3$ and $SO_2$
 
@@ -216,8 +208,6 @@ Find the molecular shape of each.
 3. $SO_2$: $6+2(6)=18$ electrons. Sulfur is the center with two single bonds, and each oxygen has three lone pairs. That uses $16$ electrons, so the last $2$ go on sulfur as a lone pair.
 4. Move a lone pair from one oxygen to make an $S=O$ double bond. Sulfur still has two bonds and one lone pair.
 5. A double bond counts as one group, so sulfur has three groups. One is a lone pair, so the shape is bent. The O-S-O angle is a little less than $120^\circ$.
-
-<!-- ILLUSTRATION: two ball-and-stick models side by side, BF3 trigonal planar with 120 degree F-B-F angles and no lone pair on B, SO2 bent with one lone pair on S and a little less than 120 degrees between the two S-O bonds -->
 
 ### #8: Is the Molecule Polar?
 

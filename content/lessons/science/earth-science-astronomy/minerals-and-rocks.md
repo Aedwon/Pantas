@@ -48,8 +48,6 @@ Some minerals also show a special property. Calcite fizzes in a drop of dilute a
 
 No single test names every mineral. Use two or three tests together.
 
-<!-- ILLUSTRATION: a Mohs hardness ladder with ten rungs labeled $1$ talc, $2$ gypsum, $3$ calcite, $4$ fluorite, $5$ apatite, $6$ orthoclase, $7$ quartz, $8$ topaz, $9$ corundum, $10$ diamond, with a fingernail marked at $2.5$ and a glass plate at $5.5$ -->
-
 ### Weathering, Erosion, and Deposition
 
 **Weathering** breaks rock down where it sits. It does not move the pieces away. **Physical weathering** breaks rock into smaller pieces without changing the minerals. An example is frost wedging: water gets in a crack, freezes, expands, and pushes the crack wider. **Chemical weathering** changes the minerals. Rainwater with dissolved carbon dioxide is slightly acidic and slowly dissolves limestone. Iron-bearing minerals can rust when oxygen and water reach them.

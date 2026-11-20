@@ -114,8 +114,6 @@ In **sympatric speciation**, a new species forms without a physical barrier. In 
 
 They share a common ancestor and now differ in beaks and food. Their history also includes some interbreeding between species, so it is not a simple one-island-one-food story.
 
-<!-- ILLUSTRATION: two panels. Panel 1: one population of beetles on land, then a river splitting it into Population A and Population B, with an arrow labeled "gene flow stops". Panel 2: the river removed, A and B meet but do not interbreed, labeled "reproductive isolation: two species" -->
-
 ## Examples
 
 ### #1: Frequency of an Allele

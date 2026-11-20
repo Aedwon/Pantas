@@ -90,8 +90,6 @@ $$1\ \text{m}^2 = (100\ \text{cm})^2 = 10{,}000\ \text{cm}^2$$
 
 $$1\ \text{m}^3 = (100\ \text{cm})^3 = 1{,}000{,}000\ \text{cm}^3$$
 
-<!-- ILLUSTRATION: a square 1 m by 1 m. Each side labeled "1 m = 100 cm". The square is divided into a grid of small squares 1 cm by 1 cm. A label says "1 m² = 100 × 100 = 10,000 cm²" -->
-
 The liter ($\text{L}$) is defined as $1\ \text{L} = 1000\ \text{cm}^3$.
 
 ### Dimensions: Checking an Equation
@@ -129,8 +127,6 @@ Round once, at the end of the whole calculation, not after every step. The examp
 
 No measurement is perfectly exact. The **uncertainty** is the amount by which the true value might differ from your reading. It is written with a plus-or-minus sign: $15.3 \pm 0.1\ \text{cm}$ means the true length is likely between $15.2\ \text{cm}$ and $15.4\ \text{cm}$.
 
-<!-- ILLUSTRATION: a pencil lying along a ruler marked in millimeters. The pencil tip is at 15.3 cm. A label reads "15.3 cm ± 0.1 cm" with the range 15.2 to 15.4 cm marked on the ruler -->
-
 The uncertainty often comes from the instrument's smallest division. A common choice is half a division or one division. The question or lab method says which one to use.
 
 The **percent uncertainty** compares the uncertainty with the reading:
@@ -140,8 +136,6 @@ $$\text{percent uncertainty} = \dfrac{\text{uncertainty}}{\text{measured value}}
 **Accuracy** and **precision** are different. A measurement is **accurate** when it is close to the true value.
 
 A set of repeated measurements is **precise** when the readings are close to each other. A set can be precise but not accurate, if a scale is set wrong and gives the same wrong reading each time.
-
-<!-- ILLUSTRATION: two targets. Left target: three dots tightly grouped far from the center, labeled "precise, not accurate". Right target: three dots spread around the center, labeled "accurate on average, not precise" -->
 
 ## Examples
 

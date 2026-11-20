@@ -59,8 +59,6 @@ $$\Delta U = Q - W$$
 
 where $\Delta U$ is the change in internal energy. If heat leaves the system, $Q<0$. If the surroundings do work on the system, such as squeezing a gas, $W<0$. Some books define $W$ as work done on the system and write $\Delta U=Q+W$. Always check which convention a question uses.
 
-<!-- ILLUSTRATION: gas in a cylinder with a movable piston, an arrow labeled "Q in" at the base and an arrow labeled "W out" at the piston, labeled "ΔU = Q − W" -->
-
 **Second Law**: natural processes have a preferred direction. Heat flows by itself from a hotter body to a colder one. To move heat from cold to hot, something else must change too. For example, an electric refrigerator uses work to run its compressor.
 
 **Entropy** is a measure of how many ways the particles of a system can be arranged and share energy. More spread-out energy and more possible arrangements mean higher entropy. The second law also says that the total entropy of an isolated system does not decrease. An **isolated system** exchanges no heat, work, or matter with its surroundings.
@@ -92,8 +90,6 @@ $$|Q| = mL$$
 Here $L_f$ is the latent heat of **fusion** (melting or freezing), and $L_v$ is the latent heat of **vaporization** (boiling or condensing). For water, $L_f\approx 3.34\times10^{5}\text{ J/kg}$ and $L_v\approx 2.26\times10^{6}\text{ J/kg}$.
 
 Melting and boiling take in energy, so $Q>0$. Freezing and condensing give out the same amount, so $Q<0$. Use $Q=mc\Delta T$ for the parts where the temperature changes, and $|Q|=mL$ for the part where the phase changes. Give each stage the right sign before adding.
-
-<!-- ILLUSTRATION: heating curve graph, temperature on the vertical axis from -10 °C to 20 °C, heat added on the horizontal axis; sloped segment from -10 °C to 0 °C labeled "ice warms", flat segment at 0 °C labeled "ice melts", sloped segment from 0 °C to 20 °C labeled "water warms" -->
 
 ## Examples
 

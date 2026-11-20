@@ -27,8 +27,6 @@ An **organ** is made of several tissues working as one unit. An **organ system**
 
 Think of bricks, walls, rooms, and a house. The cells are the bricks, the tissues are the walls, the organs are the rooms, and the system is the whole house plan. The body has four basic tissue types: epithelial (covers surfaces and lines spaces), connective (supports and joins), muscle (contracts), and nervous (carries signals).
 
-<!-- ILLUSTRATION: five-step ladder from cell to tissue to organ to organ system to organism, using the heart as the example: cardiac muscle cell, cardiac muscle tissue, heart, circulatory system, human body -->
-
 The heart shows the levels. Cardiac muscle cells form cardiac muscle tissue. That tissue, with connective and nervous tissue, forms the heart. The heart and blood vessels form the circulatory system.
 
 Many textbooks also list the integumentary system (skin, hair, nails) separately.
@@ -58,8 +56,6 @@ The respiratory system moves air in and out and exchanges gases. Air passes thro
 Alveolar air has more oxygen than the blood arriving in the lung capillaries, so oxygen diffuses into the blood. The arriving blood has more carbon dioxide than the alveolar air, so carbon dioxide diffuses out.
 
 The exchange is fast because the alveolus wall and the capillary wall are each very thin, and many alveoli give a huge surface. Most oxygen then travels inside red blood cells, bound to a protein called **hemoglobin**.
-
-<!-- ILLUSTRATION: one alveolus beside a capillary, arrows showing $O_2$ moving from alveolar air into blood and $CO_2$ moving from blood into alveolar air, labels "alveolus", "capillary", "red blood cell" -->
 
 ### Cardiovascular / Circulatory System
 

@@ -86,8 +86,6 @@ Positron emission and electron capture give the same daughter. In positron emiss
 
 The element does not change in gamma emission. Gamma emission often follows another decay, because that decay can leave the daughter excited. An excited nucleus that lasts long enough is marked with an $m$, as in technetium-$99$m.
 
-<!-- ILLUSTRATION: a diagram of four boxes in a row labeled alpha, beta-minus, positron or electron capture, gamma, each showing the change in Z and A: alpha Z minus 2 and A minus 4; beta-minus Z plus 1 and A same; positron or electron capture Z minus 1 and A same; gamma Z same and A same -->
-
 ### How Far Each Radiation Travels
 
 Radiation can knock electrons off the atoms it hits. This is called **ionizing** radiation, and it can damage living cells.
@@ -95,8 +93,6 @@ Radiation can knock electrons off the atoms it hits. This is called **ionizing**
 Alpha particles are heavy and stopped by a sheet of paper or by the outer layer of dead skin. Beta particles go farther and can be stopped by a thick enough sheet of aluminum. Gamma rays go much farther. Thick lead or concrete **attenuates** them, which means it reduces their intensity. More shielding means less gamma, but some gamma rays can still get through.
 
 Low penetration does not mean low hazard. An alpha emitter that is inhaled or swallowed sits next to living cells and can damage them. Outside the body, the skin shields most of the alpha particles.
-
-<!-- ILLUSTRATION: three penetration diagrams side by side, alpha particle stopped by a sheet of paper, beta particle stopped by a thick enough aluminum sheet, gamma ray passing through paper and aluminum but greatly reduced by a thick lead block -->
 
 ### Fission
 

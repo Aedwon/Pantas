@@ -140,8 +140,6 @@ $$a_c=\omega^2r.$$
 
 All points on a rigid spinning object have the same $\omega$. But points farther from the axis have a larger $v$ and a larger $a_c$.
 
-<!-- ILLUSTRATION: top view of a circular platform turning at 12 rpm, with rider A at r = 2.0 m and rider B at r = 4.0 m on the same radius line, each with a tangent velocity arrow, B's arrow drawn twice as long as A's -->
-
 ## Examples
 
 ### #1: Launch Components
@@ -224,8 +222,6 @@ $$x=v_{x0}t=(8.66)(2.33)\approx20.2\,\mathrm m.$$
 
 The level-ground range formula would give only about $8.8$ m here. It does not apply, because the ball lands lower than it was launched.
 
-<!-- ILLUSTRATION: side view of a 15 m cliff with a ball launched from the top at 10 m/s, 30° above horizontal, a parabola landing on the ground at x = ? from the cliff base, with the dashed launch-height line above the landing point -->
-
 ### #5: Period, Angular Speed, and Centripetal Acceleration
 
 A rider sits $3.0$ m from the center of a merry-go-round that makes one full turn every $4.0$ s. Find the angular speed, the rider's speed, and the rider's centripetal acceleration.
@@ -277,8 +273,6 @@ A $0.50$ kg ball on a string moves in a horizontal circle of radius $0.80$ m on 
 2. So the tension is the net inward force:
 
 $$F_T=\dfrac{mv^2}{r}=\dfrac{(0.50)(4.0)^2}{0.80}=10\,\mathrm N.$$
-
-<!-- ILLUSTRATION: top view of a $0.50$ kg ball moving counterclockwise on a circle of radius $0.80$ m at $4.0$ m/s, with a tangent velocity arrow and a tension arrow along the string toward the center -->
 
 ### #8: Friction Supplies the Inward Force
 

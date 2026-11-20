@@ -34,8 +34,6 @@ A balance measures grams, but the equation works in moles. So a mass problem has
 
 Here $n$ is moles, $m$ is mass, and $M$ is molar mass. If the problem gives moles, skip step $1$. If it asks for moles, skip step $3$.
 
-<!-- ILLUSTRATION: four boxes in a row joined by arrows: "grams of A", "moles of A", "moles of B", "grams of B"; the arrows are labeled "divide by molar mass of A", "multiply by mole ratio from the equation", "multiply by molar mass of B" -->
-
 ### Limiting and Excess Reactants
 
 Reactants are often not supplied in the exact ratio of the equation. The **limiting reactant** is the one that runs out first. It stops the reaction and sets how much product can form.
@@ -120,8 +118,6 @@ $$9\text{ mol }H_2\times\dfrac{2\text{ mol }NH_3}{3\text{ mol }H_2}=6\text{ mol 
 2. $H_2$ gives the smaller amount, so $H_2$ is limiting and $6$ mol $NH_3$ can form.
 3. All $9$ mol $H_2$ react with $3$ mol $N_2$, because the ratio is $1:3$.
 4. The excess left is $4-3=1$ mol $N_2$.
-
-<!-- ILLUSTRATION: two bars of reactant amounts for N2 + 3H2 -> 2NH3, with N2 = 4 mol and H2 = 9 mol; show 3 mol N2 reacting with 9 mol H2, the used part shaded and 1 mol N2 left unshaded -->
 
 ### #4: Limiting Reactant from Masses
 

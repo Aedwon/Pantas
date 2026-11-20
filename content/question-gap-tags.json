@@ -23,16 +23,16 @@
    "$x=20$": "lesson-algebra-rates-and-consecutive-integers"
   },
   "q-algebra-functions-and-relations-0005": {
-   "$x\\le2$": "lesson-algebra-linear-equations-inequalities"
+   "$x\\le2$": "lesson-algebra-one-variable-inequalities"
   },
   "q-algebra-functions-and-relations-0009": {
-   "$\\dfrac{5x-3}{2}$": "lesson-algebra-linear-equations-inequalities"
+   "$\\dfrac{5x-3}{2}$": "lesson-algebra-solving-linear-equations"
   },
   "q-algebra-functions-and-relations-0012": {
-   "$\\dfrac{5}{3}$": "lesson-algebra-linear-equations-inequalities"
+   "$\\dfrac{5}{3}$": "lesson-algebra-solving-linear-equations"
   },
   "q-algebra-functions-and-relations-0013": {
-   "$x\\le-1,\\ x\\ne2$": "lesson-algebra-linear-equations-inequalities"
+   "$x\\le-1,\\ x\\ne2$": "lesson-algebra-one-variable-inequalities"
   },
   "q-algebra-linear-equations-inequalities-0005": {
    "$\\dfrac{5}{7}$": "lesson-algebra-simplifying-and-evaluating-expressions"
@@ -49,23 +49,20 @@
   "q-algebra-polynomials-0012": {
    "$2x(2x+4)$": "lesson-arithmetic-number-sense-greatest-common-factor"
   },
-  "q-algebra-quadratic-equations-0005": {
-   "$x=0\\text{ or }x=-4$": "lesson-algebra-polynomials"
-  },
   "q-algebra-radicals-and-rationalization-0008": {
-   "$6xy^4\\sqrt{2x}$": "lesson-algebra-exponents-and-logarithms"
+   "$6xy^4\\sqrt{2x}$": "lesson-algebra-fractional-powers-and-exponent-equations"
   },
   "q-algebra-systems-of-equations-0002": {
-   "$(3, -2)$": "lesson-algebra-linear-equations-inequalities"
+   "$(3, -2)$": "lesson-algebra-solving-linear-equations"
   },
   "q-algebra-systems-of-equations-0007": {
    "$1$": "lesson-algebra-quadratic-equations"
   },
   "q-algebra-systems-of-equations-0012": {
-   "$-3$": "lesson-algebra-linear-equations-inequalities"
+   "$-3$": "lesson-algebra-solving-linear-equations"
   },
   "q-algebra-systems-of-equations-0019": {
-   "No step is incorrect.": "lesson-algebra-linear-equations-inequalities"
+   "No step is incorrect.": "lesson-algebra-solving-linear-equations"
   },
   "q-algebra-types-of-functions-0011": {
    "No horizontal asymptote": "lesson-algebra-polynomial-terms-and-degree"
@@ -117,39 +114,33 @@
    "Rough endoplasmic reticulum": "lesson-biology-cell-biology",
    "Nucleus": "lesson-biology-cell-biology"
   },
-  "q-biology-cellular-metabolism-0012": {
-   "They use the same reaction sequence in opposite directions.": "lesson-biology-cellular-metabolism"
-  },
-  "q-biology-cellular-metabolism-0018": {
-   "Light-dependent reactions continue; aerobic respiration must stop.": "lesson-biology-cellular-metabolism"
-  },
   "q-biology-cellular-metabolism-0019": {
-   "It captures sunlight to make new glucose for glycolysis.": "lesson-biology-cellular-metabolism"
+   "It captures sunlight to make new glucose for glycolysis.": "lesson-biology-photosynthesis-inputs-and-products"
   },
   "q-biology-cellular-reproduction-0002": {
    "Mitosis": "lesson-biology-cellular-reproduction"
   },
   "q-biology-cellular-reproduction-0003": {
-   "2 nuclei, 46 chromosomes each": "lesson-biology-cellular-reproduction"
+   "2 nuclei, 46 chromosomes each": "lesson-biology-counting-chromosomes-through-mitosis"
   },
   "q-biology-genetics-and-heredity-0014": {
-   "Their location removes one allele during fertilization.": "lesson-biology-meiosis-and-genetic-variation"
+   "Their location removes one allele during fertilization.": "lesson-biology-crossing-over-and-fertilization"
   },
   "q-biology-human-anatomy-physiology-0013": {
-   "Bile; digestive enzymes": "lesson-biology-human-anatomy-physiology",
-   "Bile; stored urine": "lesson-biology-human-anatomy-physiology"
+   "Bile; digestive enzymes": "lesson-biology-digestion-and-nutrient-absorption",
+   "Bile; stored urine": "lesson-biology-digestion-and-nutrient-absorption"
   },
   "q-biology-meiosis-and-genetic-variation-0006": {
-   "Metaphase of mitosis": "lesson-biology-cellular-reproduction"
+   "Metaphase of mitosis": "lesson-biology-mitosis-phases-and-results"
   },
   "q-chemistry-periodic-table-0018": {
-   "Helium has eight electrons in a $1s^8$ configuration.": "lesson-chemistry-quantum-numbers-electron-configuration"
+   "Helium has eight electrons in a $1s^8$ configuration.": "lesson-chemistry-ground-state-electron-filling"
   },
   "q-chemistry-solutions-0012": {
    "29.25 M": "lesson-chemistry-mole-concept"
   },
   "q-chemistry-stoichiometry-0015": {
-   "Compare gram masses, choose smaller.": "lesson-chemistry-mole-concept"
+   "Compare gram masses, choose smaller.": "lesson-chemistry-converting-mass-and-moles"
   },
   "q-code-of-conduct-ra-6713-penalties-and-enforcement-0012": {
    "Section 1": "lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles",
@@ -176,7 +167,7 @@
    "Burning fuel with atmospheric oxygen": "lesson-chemistry-nuclear-chemistry"
   },
   "q-earth-science-astronomy-layers-of-the-earth-0012": {
-   "S waves travel through the outer core faster than through rock.": "lesson-physics-waves-and-sound"
+   "S waves travel through the outer core faster than through rock.": "lesson-earth-science-astronomy-evidence-from-seismic-waves"
   },
   "q-earth-science-astronomy-layers-of-the-earth-0018": {
    "It becomes an S wave that crosses the liquid freely.": "lesson-physics-waves-and-sound"
@@ -185,19 +176,11 @@
    "Pieces of the crust alone": "lesson-earth-science-astronomy-layers-of-the-earth",
    "Pieces of liquid mantle material": "lesson-earth-science-astronomy-layers-of-the-earth"
   },
-  "q-earth-science-astronomy-plate-tectonics-0012": {
-   "S waves (secondary waves)": "lesson-earth-science-astronomy-layers-of-the-earth"
-  },
-  "q-earth-science-astronomy-plate-tectonics-0013": {
-   "P waves (primary waves)": "lesson-earth-science-astronomy-layers-of-the-earth"
-  },
   "q-earth-science-astronomy-plate-tectonics-0019": {
-   "S waves travel through both solids and liquids equally, so their disappearance must be caused by something other than the outer core.": "lesson-earth-science-astronomy-layers-of-the-earth",
-   "The shadow zone shows that the outer core is solid, not liquid.": "lesson-earth-science-astronomy-layers-of-the-earth"
+   "Direct S waves speed up in liquid and pass the stations too quickly to be recorded.": "lesson-earth-science-astronomy-evidence-from-seismic-waves"
   },
   "q-earth-science-astronomy-weather-and-climate-0013": {
-   "Its particles have very low kinetic energy.": "lesson-physics-thermodynamics",
-   "Gas temperature determines contact heating regardless of density.": "lesson-physics-thermodynamics"
+   "Its particles have very low kinetic energy.": "lesson-physics-heat-temperature-and-internal-energy"
   },
   "q-environment-management-environmental-problems-and-climate-change-0004": {
    "Source segregation, because stored water is separated from waste": "lesson-environment-management-source-segregation-and-waste-types"
@@ -217,17 +200,6 @@
   "q-geometry-coordinate-geometry-0001": {
    "$14$": "lesson-geometry-triangles"
   },
-  "q-geometry-coordinate-geometry-0005": {
-   "$-\\dfrac{5}{4}$": "lesson-algebra-linear-equations-inequalities",
-   "$\\dfrac{4}{5}$": "lesson-algebra-linear-equations-inequalities"
-  },
-  "q-geometry-coordinate-geometry-0007": {
-   "$-\\dfrac{3}{4}$": "lesson-algebra-linear-equations-inequalities",
-   "$\\dfrac{4}{3}$": "lesson-algebra-linear-equations-inequalities"
-  },
-  "q-geometry-coordinate-geometry-0019": {
-   "$y=2x$ and $y=-2x$.": "lesson-algebra-linear-equations-inequalities"
-  },
   "q-geometry-measurement-0007": {
    "$104\\pi\\text{ cm}^2$": "lesson-algebra-simplifying-and-evaluating-expressions"
   },
@@ -235,10 +207,10 @@
    "$22^\\circ$": "lesson-geometry-basic-geometric-concepts"
   },
   "q-geometry-parallel-perpendicular-lines-0002": {
-   "$25^\\circ$": "lesson-geometry-basic-geometric-concepts"
+   "$25^\\circ$": "lesson-geometry-complementary-and-supplementary-angles"
   },
   "q-geometry-parallel-perpendicular-lines-0019": {
-   "$2x+30+3x-10=90$": "lesson-geometry-basic-geometric-concepts"
+   "$2x+30+3x-10=90$": "lesson-geometry-complementary-and-supplementary-angles"
   },
   "q-grammar-and-structure-modifiers-0009": {
    "While approaching the gate, the barking of a dog startled Liza.": "lesson-grammar-and-structure-finite-verbs-and-ing-groups"
@@ -304,17 +276,17 @@
    "4.3 m/s^2": "lesson-physics-scalars-and-vectors"
   },
   "q-physics-fluid-mechanics-0020": {
-   "$12000\\,\\mathrm{Pa}$": "lesson-physics-work-energy-power"
+   "$12000\\,\\mathrm{Pa}$": "lesson-physics-kinetic-and-gravitational-potential-energy"
   },
   "q-physics-friction-tension-and-inclines-0004": {
-   "$10\\,\\mathrm{N}$": "lesson-physics-dynamics"
+   "$10\\,\\mathrm{N}$": "lesson-physics-mass-and-weight"
   },
   "q-physics-friction-tension-and-inclines-0006": {
-   "It equals the weight.": "lesson-physics-dynamics"
+   "It equals the weight.": "lesson-physics-normal-force-and-contact"
   },
   "q-physics-friction-tension-and-inclines-0014": {
-   "$2.37\\,\\mathrm{m/s^2}$": "lesson-physics-dynamics",
-   "$1.41\\,\\mathrm{m/s^2}$": "lesson-physics-dynamics"
+   "$2.37\\,\\mathrm{m/s^2}$": "lesson-physics-normal-force-and-contact",
+   "$1.41\\,\\mathrm{m/s^2}$": "lesson-physics-resolving-vector-components"
   },
   "q-physics-light-and-optics-0003": {
    "In parallel with no change from their original direction": "lesson-physics-light-and-optics"
@@ -323,13 +295,13 @@
    "Wavelength": "lesson-physics-waves-and-sound"
   },
   "q-physics-light-and-optics-0020": {
-   "$1.67\\times10^6\\,\\mathrm m$": "lesson-physics-waves-and-sound"
+   "$1.67\\times10^6\\,\\mathrm m$": "lesson-physics-wave-speed-frequency-and-wavelength"
   },
   "q-physics-light-and-optics-0032": {
-   "It brings them together because air has a lower n than water": "lesson-physics-light-and-optics"
+   "It brings them together because air has a lower n than water": "lesson-physics-refraction-and-snells-law"
   },
   "q-physics-light-and-optics-0045": {
-   "$0.50\\,\\mathrm m$": "lesson-physics-waves-and-sound"
+   "$0.50\\,\\mathrm m$": "lesson-physics-wave-speed-frequency-and-wavelength"
   },
   "q-physics-scalars-and-vectors-0008": {
    "$(10,10\\sqrt3)\\,\\mathrm N$": "lesson-trigonometry-basic-trigonometric-ratios"
@@ -349,11 +321,7 @@
    "The full speed of $25\\,\\mathrm{m/s}$ in both equations": "lesson-physics-scalars-and-vectors"
   },
   "q-physics-waves-and-sound-0013": {
-   "Yes, pitch is another name for propagation speed": "lesson-physics-waves-and-sound"
-  },
-  "q-physics-waves-and-sound-0025": {
-   "Sound has a higher frequency than light, so it bends more at the corner": "lesson-physics-waves-and-sound",
-   "Sound travels faster than light, so it turns the corner first": "lesson-physics-waves-and-sound"
+   "Yes, pitch is another name for propagation speed": "lesson-physics-sound-speed-pitch-and-loudness"
   },
   "q-spatial-abstract-reasoning-figure-matrices-0002": {
    "Circle with four dots": "lesson-spatial-abstract-reasoning-figure-counts-and-fills",
@@ -430,23 +398,23 @@
    "It guarantees that Gio will never post another club notice.": "lesson-comprehension-skills-evidence-and-claim-strength"
   },
   "q-trigonometry-basic-trigonometric-ratios-0004": {
-   "$\\sqrt{194}$": "lesson-geometry-triangles"
+   "$\\sqrt{194}$": "lesson-geometry-pythagorean-theorem-and-triples"
   },
   "q-trigonometry-basic-trigonometric-ratios-0011": {
-   "$\\dfrac{7}{\\sqrt{2}}$": "lesson-geometry-triangles"
+   "$\\dfrac{7}{\\sqrt{2}}$": "lesson-trigonometry-special-angle-side-lengths"
   },
   "q-trigonometry-laws-of-sines-and-cosines-0008": {
    "No step is incorrect.": "lesson-trigonometry-unit-circle"
   },
   "q-trigonometry-laws-of-sines-and-cosines-0018": {
-   "The third side is longer in the first triangle.": "lesson-trigonometry-unit-circle"
+   "The third side is longer in the first triangle.": "lesson-trigonometry-reference-angles-and-quadrant-signs"
   },
   "q-trigonometry-solving-right-triangles-0001": {
-   "$20\\sqrt{3}$ meters": "lesson-trigonometry-basic-trigonometric-ratios",
-   "$10$ meters": "lesson-trigonometry-basic-trigonometric-ratios"
+   "$20\\sqrt{3}$ meters": "lesson-trigonometry-special-angle-side-lengths",
+   "$10$ meters": "lesson-trigonometry-reading-right-triangle-ratios"
   },
   "q-trigonometry-solving-right-triangles-0006": {
-   "$30^\\circ$": "lesson-trigonometry-basic-trigonometric-ratios"
+   "$30^\\circ$": "lesson-trigonometry-special-angle-side-lengths"
   },
   "q-trigonometry-solving-right-triangles-0008": {
    "$\\cos 35^\\circ$": "lesson-trigonometry-basic-trigonometric-ratios",
@@ -471,20 +439,13 @@
    "No step is wrong.": "lesson-trigonometry-unit-circle"
   },
   "q-trigonometry-trigonometric-identities-0012": {
-   "$-\\sqrt{5}$": "lesson-trigonometry-unit-circle"
+   "$-\\sqrt{5}$": "lesson-trigonometry-reference-angles-and-quadrant-signs"
   },
   "q-trigonometry-trigonometric-identities-0020": {
    "$\\dfrac{5}{3}$": "lesson-trigonometry-unit-circle"
   },
-  "q-trigonometry-unit-circle-0001": {
-   "$\\dfrac{\\sqrt{3}}{2}$": "lesson-trigonometry-basic-trigonometric-ratios"
-  },
-  "q-trigonometry-unit-circle-0002": {
-   "$\\dfrac{1}{2}$": "lesson-trigonometry-basic-trigonometric-ratios",
-   "$\\dfrac{\\sqrt{2}}{2}$": "lesson-trigonometry-basic-trigonometric-ratios"
-  },
   "q-trigonometry-unit-circle-0017": {
-   "$-\\dfrac{3}{4}$": "lesson-trigonometry-basic-trigonometric-ratios"
+   "$-\\dfrac{3}{4}$": "lesson-trigonometry-reading-right-triangle-ratios"
   },
   "q-verbal-logic-assumptions-and-conclusions-0003": {
    "Maria has already been appointed to civil service.": "lesson-logical-verbal-reasoning-invalid-conditional-forms"

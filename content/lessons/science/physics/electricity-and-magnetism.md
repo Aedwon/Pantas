@@ -341,8 +341,6 @@ The north pole of a bar magnet moves toward a closed loop. Which way does the in
 
 A coil spins in a magnetic field and lights a bulb. Why is there an emf?
 
-<!-- ILLUSTRATION: A rectangular coil between a north and a south magnet pole, shown at three angles, 0 degrees, 45 degrees and 90 degrees to the field and a bulb connected to the coil -->
-
 **Solution:**
 
 As the coil turns, the angle $\theta$ between its perpendicular line and the field changes, so $\cos\theta$ and the flux change. By Faraday's law, a changing flux induces an emf.

@@ -71,8 +71,6 @@ All of the oxygen gas comes from water, not from carbon dioxide. Check the atoms
 
 A chloroplast is wrapped in two membranes, an outer one and an inner one. Inside are flat sacs called **thylakoids**, stacked in piles. The fluid around them is the **stroma**.
 
-<!-- ILLUSTRATION: chloroplast cut open, labeled outer and inner membranes, thylakoid stacks (site of the light reactions), stroma (site of the Calvin cycle), with arrows for light, water in, oxygen out, carbon dioxide in, sugar out -->
-
 Photosynthesis has two linked stages.
 
 1. **Light reactions** happen in the thylakoid membranes of a chloroplast. The green pigment **chlorophyll** (a colored molecule) absorbs light, mostly red and blue light. The energy splits water, which releases oxygen gas. It also makes ATP and an electron carrier called **NADPH**.
@@ -81,8 +79,6 @@ Photosynthesis has two linked stages.
 The Calvin cycle does not use light directly. It still stops soon in the dark, because the light reactions stop making ATP and NADPH.
 
 The places named above are for plants and algae. Cyanobacteria have no chloroplasts and no stroma, so they run both stages inside the cell.
-
-<!-- ILLUSTRATION: two boxes side by side, "Light reactions (thylakoid membranes)" and "Calvin cycle (stroma)"; arrows: light and water into the first box, oxygen out; ATP and NADPH from the first box to the second; carbon dioxide into the second box, sugar out; ADP and NADP+ returning from the second box to the first -->
 
 ## Examples
 

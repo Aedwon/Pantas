@@ -48,8 +48,6 @@ A **natural satellite**, or moon, is a natural object that orbits a planet, dwar
 
 Many moons are not plain rocky balls. Europa, a moon of Jupiter, has an icy shell over a rocky interior and is thought to hide a salty ocean under the ice. Titan, Saturn's largest moon, has a thick atmosphere. Io, another moon of Jupiter, has many active volcanoes. Mars has two small moons, Phobos and Deimos, which are lumpy and not round.
 
-<!-- ILLUSTRATION: line-up of the Sun and the eight planets in order from the Sun, labeled Mercury, Venus, Earth, Mars (brace "terrestrial planets"), Jupiter, Saturn (brace "gas giants"), Uranus, Neptune (brace "ice giants"), with the main asteroid belt marked between Mars and Jupiter -->
-
 ### Asteroids and Comets
 
 An **asteroid** is a small rocky or metallic body that orbits the Sun and gives off no tail in its normal state. Most asteroids are found in the **main asteroid belt** between Mars and Jupiter, but asteroids also orbit elsewhere. Some come close to Earth, and some share the orbit of a planet, such as the Trojan asteroids of Jupiter.

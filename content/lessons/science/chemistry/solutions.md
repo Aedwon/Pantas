@@ -55,8 +55,6 @@ Gases behave differently. In liquids, the solubility of a gas usually falls as t
 
 A **solubility curve** is a graph of solubility against temperature. Each point on the curve is a saturated solution. A point below the curve is unsaturated. A point above it is supersaturated, or has undissolved solute.
 
-<!-- ILLUSTRATION: solubility curve for a made-up solid X, temperature in degrees Celsius on the horizontal axis from 0 to 80, grams of X per 100 g of water on the vertical axis from 0 to 60, a rising line through (20, 30) and (60, 50), with the region below the line labeled unsaturated, the line labeled saturated, and the region above the line labeled supersaturated or undissolved solute -->
-
 ### Concentration Measures
 
 **Concentration** tells how much solute is in a certain amount of solution or solvent. Read the denominator of each measure with care. Each one divides by something different.

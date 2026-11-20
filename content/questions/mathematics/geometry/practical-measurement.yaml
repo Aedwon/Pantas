@@ -526,3 +526,29 @@ questions:
           This takes half the circle's area. Half is the right fraction of a turn. Check that travel uses circumference, measured in length units.
     explanation: |
       From $9{:}00$ a.m. to $3{:}00$ p.m. is $6$ hours. The hour hand makes $\dfrac{6}{12}=\dfrac{1}{2}$ turn. Its tip travels $\dfrac{1}{2}\times2\pi(8)=8\pi$ cm.
+
+  - id: q-geometry-practical-measurement-0021
+    approved: true
+    lesson: lesson-geometry-areas-on-a-grid
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A sign is cut from a rectangle that is $7$ squares wide and $5$ squares tall on a square grid. One corner is clipped off to remove a right triangle with legs $3$ squares and $2$ squares long. A $2$-by-$2$ square is cut from the opposite corner. If the grid lines are $2$ cm apart, what is the area of the sign?
+    choices:
+      - text: '$112\text{ cm}^2$'
+        correct: true
+      - text: '$28\text{ cm}^2$'
+        rationale: |
+          This gives the correct area in grid squares. The question asks for square centimeters. Check how much area one grid square covers.
+      - text: '$56\text{ cm}^2$'
+        rationale: |
+          This doubles the area in grid squares. Each square is $2$ cm wide. Check that it is also $2$ cm tall.
+      - text: '$100\text{ cm}^2$'
+        rationale: |
+          This counts the clipped corner as a full rectangle. Its legs do span three squares and two squares. Check that the cut removes only half of that rectangle.
+      - text: '$128\text{ cm}^2$'
+        rationale: |
+          This removes the triangular corner only. The triangle is one of the cuts. Check what was cut from the opposite corner.
+    explanation: |
+      The full rectangle covers $7\times5=35$ grid squares. The triangle takes up $\dfrac{3\times2}{2}=3$ squares. The other cut takes out $2\times2=4$ squares. That leaves $35-3-4=28$ squares. Each square covers $2\times2=4$ square centimeters, so the sign covers $28\times4=112$ square centimeters.

@@ -49,8 +49,6 @@ A typical plant cell also has structures that a typical animal cell lacks:
 - **Chloroplasts**, in cells that do photosynthesis. Photosynthesis uses light to make sugar.
 - A large **central vacuole**. It stores materials, breaks down large molecules, and keeps the cell firm.
 
-<!-- ILLUSTRATION: side-by-side plant cell and animal cell, each labeled with nucleus, mitochondria, plasma membrane; the plant cell also labeled cell wall, chloroplast, large central vacuole; the animal cell also labeled lysosome and centrosome -->
-
 These clues are not unique to plants. Fungi and most bacteria also have cell walls, made of other materials. Many algae have chloroplasts.
 
 A typical animal cell has a centrosome with centrioles, which help organize cell division. It commonly uses lysosomes for digestion. Most plant cells have no centrioles, and their central vacuole does much of the digesting.
@@ -82,8 +80,6 @@ In **exocytosis**, a vesicle joins the plasma membrane and releases its contents
 - **Hypotonic** solution: a lower concentration of solute outside than inside the cell. Water enters.
 - **Hypertonic** solution: a higher concentration of solute outside than inside the cell. Water leaves.
 - **Isotonic** solution: the same concentration of solute inside and out. Water moves both ways at the same rate, so there is no net change in volume.
-
-<!-- ILLUSTRATION: three beakers labeled hypotonic, isotonic, hypertonic, each with an animal cell and arrows for water: arrows into the cell, equal arrows both ways, arrows out of the cell; the cell is swollen, normal, shrunken -->
 
 An animal cell has no wall. In a hypotonic solution it swells and may burst, which is called **lysis**. In a hypertonic solution it shrinks.
 

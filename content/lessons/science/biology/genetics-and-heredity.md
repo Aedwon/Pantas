@@ -50,8 +50,6 @@ A **Punnett square** shows the possible gametes of each parent along its sides. 
 
 In this model, each parent passes on either allele with an equal chance. The parents pass on their alleles independently, so all pairs in the square are equally likely. Then the chance of a trait is the number of cells with it divided by the total number of cells.
 
-<!-- ILLUSTRATION: 2 by 2 Punnett square for Tt x Tt, top row labeled T and t, left column labeled T and t, cells TT, Tt, Tt, tt -->
-
 For two independent genes, multiply their separate probabilities. Two parents who are $TtRr$ each make four kinds of gametes: $TR$, $Tr$, $tR$, and $tr$. With complete dominance for both genes, their offspring show a $9:3:3:1$ phenotype ratio.
 
 ### Beyond Simple Dominance
@@ -109,8 +107,6 @@ These clues work when the trait is rare, comes from one gene, and always shows w
 - X-linked recessive: more males are affected. An affected son can have unaffected parents, and an affected daughter needs an affected father.
 
 A pedigree gives a best fit, not proof. A small family can fit more than one pattern.
-
-<!-- ILLUSTRATION: pedigree with two generations: Generation I, unaffected male square and unaffected female circle joined by a line; Generation II, one shaded circle labeled "affected daughter" and one unshaded square labeled "unaffected son" -->
 
 ## Examples
 

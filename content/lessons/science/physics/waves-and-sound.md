@@ -58,8 +58,6 @@ Inside visible light, red has the longest wavelength and violet the shortest. Vi
 
 Because $c=f\lambda$ in a vacuum, a wave with a longer wavelength has a lower frequency. The optics lesson covers light in more depth.
 
-<!-- ILLUSTRATION: horizontal electromagnetic spectrum bar in order radio, microwave, infrared, visible, ultraviolet, X-ray, gamma ray; arrow "wavelength gets longer" pointing toward radio and arrow "frequency gets higher" pointing toward gamma ray; visible band shown as red at the long end to violet at the short end, about 700 nm to 400 nm -->
-
 ### Transverse vs. Longitudinal Waves
 
 These words describe how the disturbance moves compared with the direction the wave travels.
@@ -73,8 +71,6 @@ Sound in air and in other fluids (gases and liquids) is longitudinal. A solid ca
 Water-surface waves are a mix. Each bit of water moves in a small loop, up and down and also back and forth.
 
 Electromagnetic waves are called transverse because their electric and magnetic fields point at right angles to the travel direction. No matter moves sideways.
-
-<!-- ILLUSTRATION: two stacked diagrams. Top, a rope wave labeled "Transverse": particle motion arrow up and down, wave travel arrow to the right. Bottom, a spring toy wave labeled "Longitudinal": coils shown with compression and rarefaction labeled, particle motion arrow left and right, wave travel arrow to the right -->
 
 ### Sound
 
@@ -123,8 +119,6 @@ Classify each wave: (a) sound traveling through air; (b) sunlight traveling thro
 ### #4: Transverse or Longitudinal?
 
 Classify each wave by its disturbance and travel direction: (a) a rope is flicked up and down and a pulse runs along the rope; (b) a speaker pushes the air back and forth along the line to a listener; (c) visible light.
-
-<!-- ILLUSTRATION: three small sketches labeled (a) a rope pulse with a hand flicking it up and down, (b) a speaker pushing air toward a listener with compressions along the line, (c) a ray of light -->
 
 **Solution:**
 

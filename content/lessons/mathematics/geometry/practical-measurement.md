@@ -124,8 +124,6 @@ The answer is $6$ cm, not $6\text{ cm}^3$. We found a length.
 
 A garden plan is drawn on a square grid with spacing of $1$ unit. Its bottom side is $6$ units long. Its left side rises straight up $2$ units. The top side runs $4$ units to the right, then a slanted side joins it to the bottom-right corner. Find the area in square units using three methods.
 
-<!-- ILLUSTRATION: Unit square grid with polygon vertices at (0,0), (6,0), (4,2), and (0,2), joined in that order. Label bottom 6 units, left height 2 units, and top 4 units. Do not label any areas or shade counted pieces. -->
-
 **Solution:**
 
 1. Count full squares. The bottom row contains $5$ full squares. The top row contains $4$. Each row also has a half-square beside the slanted edge.

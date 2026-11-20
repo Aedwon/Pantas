@@ -85,8 +85,6 @@ When two miscible liquids are mixed, both give off vapor. The vapor is often ric
 
 Distillation has limits. Some liquid pairs form an **azeotrope**: a mixture at one particular composition whose vapor has the same composition as the liquid. Boiling it cannot change the composition, so ordinary distillation stops improving the purity there.
 
-<!-- ILLUSTRATION: distillation setup showing a flask being heated, vapor rising and traveling through a cooling tube, then dripping into a separate collection container -->
-
 ### Chromatography
 
 **Chromatography** separates the parts of a mixture as a moving liquid or gas carries them across or through a solid or other fixed material. The fixed material is the **stationary phase**. The moving fluid is the **mobile phase**. Each part spends a different share of its time held by the stationary phase and carried by the mobile phase. So the parts travel at different speeds.
@@ -108,8 +106,6 @@ For a spot, the **retention factor** compares the distance it moved with the dis
 $$R_f = \dfrac{\text{distance moved by the spot}}{\text{distance moved by the solvent front}}$$
 
 The value is between $0$ and $1$. It is the same for the same substance, solvent, paper, and conditions. It changes when the solvent or conditions change.
-
-<!-- ILLUSTRATION: paper chromatogram with a pencil baseline, a solvent front line $6.0$ cm above it, and spots A at $1.5$ cm, B at $3.0$ cm, and C at $4.5$ cm above the baseline -->
 
 ## Examples
 

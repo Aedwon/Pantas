@@ -33,8 +33,6 @@ A **valence electron** is an electron in the outermost shell. These electrons ta
 
 Groups $3$ to $12$ form the **$d$ block**. They fill the $d$ subshell, and their group number does not give a simple count of valence electrons. Many of them form more than one kind of ion, such as iron forming $\text{Fe}^{2+}$ and $\text{Fe}^{3+}$.
 
-<!-- ILLUSTRATION: periodic table outline with groups 1 to 18 numbered across the top and periods 1 to 7 down the side; group 1 labeled alkali metals, group 2 alkaline-earth metals, group 17 halogens, group 18 noble gases, groups 3 to 12 labeled transition metals, hydrogen drawn separately above group 1 -->
-
 ### Named Families
 
 Some groups have names. Elements in a family act alike because they have the same number of valence electrons.

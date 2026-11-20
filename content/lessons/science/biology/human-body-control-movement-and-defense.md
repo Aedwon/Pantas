@@ -30,8 +30,6 @@ A **stimulus** is a change that the body can detect. A **receptor** is a cell or
 
 A **reflex** is a fast, automatic response. In a reflex, the signal can turn around in the spinal cord without waiting for the brain. The brain is told at the same time, so you feel the touch just after you pull away.
 
-<!-- ILLUSTRATION: reflex arc with a hand touching a hot object, arrows from receptor in skin to sensory neuron to spinal cord to motor neuron to arm muscle, labeled "stimulus", "receptor", "sensory neuron", "spinal cord", "motor neuron", "effector" -->
-
 The **cerebrum** handles perception, thinking, language, memory, and voluntary movement. The **cerebellum** helps with coordination, timing, and balance. The **brain stem** has centers that control breathing and blood pressure.
 
 Motor control has two branches. **Somatic** control moves skeletal muscle and is usually voluntary, but reflexes such as pulling a hand from a hot pan also use it. **Autonomic** control is automatic and adjusts the heart, smooth muscle, and glands. The heart has a built-in **pacemaker** that sends the signal to start each beat. Autonomic nerves can speed up or slow down the heart.
@@ -43,8 +41,6 @@ Endocrine glands release **hormones**, which are chemical messengers carried by 
 A **negative feedback loop** keeps a body condition near a set level. When the condition moves away from the level, the body responds in the direction that reverses the change. This is how the body keeps steady conditions, a state called **homeostasis**. In **positive feedback**, the response increases the change instead, as in the contractions of childbirth.
 
 Blood glucose shows a loop. After a meal, blood glucose rises. The pancreas releases **insulin**, which helps cells take in glucose and helps the liver store it as glycogen. Glucose falls, so less insulin is released. If glucose falls too low, the pancreas releases **glucagon**, which makes the liver release stored glucose into the blood.
-
-<!-- ILLUSTRATION: two-loop feedback diagram for blood glucose: "blood glucose rises" → "pancreas releases insulin" → "glucose falls"; and "blood glucose falls" → "pancreas releases glucagon" → "glucose rises" -->
 
 The **pituitary** gland sits under the brain. It is nicknamed the "master gland" because its anterior (front) part releases hormones that control the thyroid, the adrenal glands, and the **gonads** (the testes and ovaries). But the **hypothalamus**, a brain region above it, controls the pituitary. Feedback from the target glands also adjusts the pituitary.
 

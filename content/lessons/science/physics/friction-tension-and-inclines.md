@@ -51,14 +51,12 @@ $$f_k=\mu_kN.$$
 
 Here $N$ is the normal force, not necessarily the weight. For most pairs of dry surfaces $\mu_s$ is larger than $\mu_k$, so it takes more force to start a slide than to keep it going.
 
-<!-- ILLUSTRATION: graph of friction force f against applied horizontal force F; a straight line at 45 degrees (f = F) rising to a peak labeled "f_s,max = mu_s N", then dropping to a flat horizontal line labeled "f_k = mu_k N"; regions labeled "at rest" and "sliding" -->
 The model is a good guide, not an exact law. Real friction also depends on temperature, surface condition, and lubrication. In the model, the size of the friction does not depend on the contact area.
 
 ### Forces on an Incline
 
 On a slope with angle $\theta$ above the horizontal, the weight splits into two parts. One part, $mg\sin\theta$, points down along the slope. The other, $mg\cos\theta$, presses into the slope.
 
-<!-- ILLUSTRATION: block on an incline of angle theta = 30 degrees above the horizontal; arrows: weight mg straight down, normal force N perpendicular to the slope, friction f_k up the slope; dashed components of the weight: mg sin(theta) down the slope and mg cos(theta) into the slope; axes drawn along and perpendicular to the slope -->
 ## Examples
 
 ### #1: Reading Friction From Motion
@@ -117,7 +115,6 @@ $$20-8=12=3\times 4.$$
 
 The tension is $8\,\mathrm N$, smaller than the $20\,\mathrm N$ pull.
 
-<!-- ILLUSTRATION: top view of block A (3 kg) and block B (2 kg) joined by a rope on a frictionless table; a 20 N arrow pulls A to the right; separate free-body diagrams: A with 20 N right and T left, B with T right -->
 ### #4: Tension in a Hanging Cable
 
 A $4\,\mathrm{kg}$ lamp hangs from an ideal cable. Use $g=9.8\,\mathrm{m/s^2}$. Find the tension when the lamp hangs at rest. Then find the tension when the lamp is pulled upward with an acceleration of $2\,\mathrm{m/s^2}$.
@@ -209,8 +206,6 @@ $$T=19.6+2\times 1.96=23.52\,\mathrm N.$$
 6. Check with A: $29.4-23.52=5.88=3\times 1.96$.
 
 The tension is $23.52\,\mathrm N$, between the two weights. The acceleration is not $9.8\,\mathrm{m/s^2}$, because the rope holds each block back.
-
-<!-- ILLUSTRATION: block A (3 kg) and block B (2 kg) hanging from the two ends of a rope over a fixed pulley; A moves down, B moves up; separate free-body diagrams: A with weight 29.4 N down and T up, B with weight 19.6 N down and T up -->
 
 ## Speed Tricks & Shortcuts
 

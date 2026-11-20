@@ -63,8 +63,6 @@ First, cut a square along its diagonal. This gives a $45$-$45$-$90$ triangle. Ta
 
 Second, cut an equilateral triangle with side $2$ down the middle. This gives a $30$-$60$-$90$ triangle. The short leg is $1$, the hypotenuse is $2$, and the long leg is $\sqrt{2^2 - 1^2} = \sqrt{3}$. The short leg is across the $30^\circ$ angle. The long leg is across the $60^\circ$ angle.
 
-<!-- ILLUSTRATION: Two triangles side by side. Left: a 45-45-90 triangle with both legs labeled 1 and the hypotenuse labeled √2. Right: a 30-60-90 triangle with the short leg labeled 1 (across 30°), the long leg labeled √3 (across 60°), and the hypotenuse labeled 2. -->
-
 Reading the ratios from these two triangles gives the values to memorize:
 
 - $\sin 30^\circ = \dfrac{1}{2}$, $\cos 30^\circ = \dfrac{\sqrt{3}}{2}$, $\tan 30^\circ = \dfrac{1}{\sqrt{3}} = \dfrac{\sqrt{3}}{3}$

@@ -46,8 +46,6 @@ Scientists also sort stars into the spectral classes O, B, A, F, G, K, and M, fr
 
 Apparent brightness depends on luminosity and on distance. A faraway star with high luminosity can look as bright as a nearby star with low luminosity. Luminosity grows with the star's surface temperature and with its size, so a cool red giant can still be very luminous because it is so large.
 
-<!-- ILLUSTRATION: two stars side by side, a small blue-white star labeled "hot surface, small" and a huge red star labeled "cool surface, very large", each with a horizontal arrow of the same length to Earth, and a note "apparent brightness depends on distance and luminosity" -->
-
 ### How Stars Change
 
 A star is born inside a **nebula**, a cloud of gas and dust. Gravity pulls part of the cloud into a hot, dense ball called a protostar. When the core becomes hot enough, fusion begins and a star is born.
@@ -119,8 +117,6 @@ Star X has about the same mass as the Sun. Star Y has many times the mass of the
 2. Star X ends as a red giant, then sheds a planetary nebula and leaves a white dwarf.
 3. Star Y can become a supergiant, explode as a supernova, and leave a neutron star or a black hole. Some stars like Y collapse into black holes without a bright explosion.
 4. Star Y also uses its fuel faster, so it lives a shorter time.
-
-<!-- ILLUSTRATION: flow diagram from "nebula" to "protostar" to "main-sequence star", then two branches: "star like the Sun: red giant, planetary nebula, white dwarf" and "common path for a massive star: supergiant, supernova, neutron star or black hole" -->
 
 ## Speed Tricks & Shortcuts
 

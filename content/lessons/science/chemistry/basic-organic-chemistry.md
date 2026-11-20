@@ -29,8 +29,6 @@ Carbon forms four covalent bonds. It also bonds strongly to other carbon atoms.
 
 Think of each carbon as a building block with four connectors. The blocks join into chains, rings and branches.
 
-<!-- ILLUSTRATION: a carbon atom drawn as a block with four connectors, then a straight chain, a branched chain and a six-carbon ring built from such blocks -->
-
 ### Hydrocarbons
 
 A **hydrocarbon** contains only carbon and hydrogen. A **saturated** hydrocarbon has no carbon-carbon double or triple bonds. An **unsaturated** hydrocarbon has at least one.
@@ -50,8 +48,6 @@ The alkene and alkyne formulas hold for acyclic molecules with exactly one doubl
 A ring removes two hydrogens. A cycloalkane with $n$ carbons is $C_nH_{2n}$, the same formula as an acyclic alkene. So a formula alone cannot always tell them apart.
 
 Benzene, $C_6H_6$, is a hydrocarbon with a special ring of shared electrons. It belongs to a separate family called aromatic hydrocarbons, so this lesson's alkane, alkene and alkyne rules do not cover it.
-
-<!-- ILLUSTRATION: three line drawings: ethane CH3-CH3 with a single bond, ethene CH2=CH2 with a double bond, ethyne CH≡CH with a triple bond, each labeled with its formula and family -->
 
 ### Functional Groups
 
@@ -118,8 +114,6 @@ Number the chain from the end that gives the group or bond the lowest number.
 
 Older school books choose the chain that contains the double or triple bond. This lesson follows IUPAC 2013, which chooses the longest chain first.
 
-<!-- ILLUSTRATION: the carbon skeleton of CH3-CH(CH3)-CH2-CH3 with the four-carbon chain highlighted, numbered 1 to 4 from the left, and the methyl branch on carbon 2 labeled -->
-
 ### Carbon Compounds of Living Things
 
 Living things contain **biomolecules**. These range from small molecules, like glucose, to large **polymers**. Polymers are long molecules made by joining small units called **monomers**. Their functional groups explain their structure and behavior.
@@ -177,8 +171,6 @@ Name the straight four-carbon alkane. Then write the formula of an isomer with a
 2. Move one carbon to a branch: three carbons in the chain and a methyl group on carbon $2$.
 3. This is $2$-methylpropane, $CH_3-CH(CH_3)-CH_3$. It also has the formula $C_4H_{10}$, so it is an isomer of butane.
 
-<!-- ILLUSTRATION: line drawings of butane (four carbons in a row) and 2-methylpropane (three carbons with a methyl branch on the middle one), both labeled C4H10 -->
-
 ### #5: Why Cyclohexane Is Saturated
 
 Cyclohexane is $C_6H_{12}$. Acyclic hexane is $C_6H_{14}$. Is cyclohexane unsaturated?
@@ -202,8 +194,6 @@ Name the main functional group of each: $CH_3CH_2OH$, $CH_3CH_2CHO$, $CH_3COCH_3
 3. $CH_3COCH_3$ has $C=O$ between two carbons: a ketone.
 4. $CH_3COOH$ has $C=O$ with an $-OH$ on the same carbon: a carboxylic acid.
 5. $CH_3NH_2$ has nitrogen bonded to carbon and two hydrogens: a primary amine.
-
-<!-- ILLUSTRATION: five structures side by side with the functional group circled and labeled: CH3CH2OH (alcohol), CH3CH2CHO (aldehyde), CH3COCH3 (ketone), CH3COOH (carboxylic acid), CH3NH2 (amine) -->
 
 ### #7: Aldehyde or Ketone
 
@@ -274,8 +264,6 @@ Name the alcohol with this skeleton: a central carbon bonded to $CH_2OH$, to $CH
 4. The ethyl branch is on carbon $2$.
 
 The name is $2$-ethylpentan-$1$-ol.
-
-<!-- ILLUSTRATION: the skeleton of 2-ethylpentan-1-ol with the six-carbon chain shaded in one color and the five-carbon chain that contains the CH2OH carbon shaded in another, carbons 1 to 5 numbered on the second chain -->
 
 ### #13: Functional Groups in Biomolecules
 

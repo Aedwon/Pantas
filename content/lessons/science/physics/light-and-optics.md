@@ -82,8 +82,6 @@ Two conditions must both hold. The light must start in the medium with the large
 
 Total internal reflection is how an optical fiber works. Light stays inside the glass core because the core has a higher $n$ than the layer around it, and the light hits the wall at large angles.
 
-<!-- ILLUSTRATION: three ray diagrams of a ray going from glass (n = 1.50) up into air at a flat boundary with a normal line: incidence 30 degrees refracts away from the normal with a weak reflected ray, incidence 41.8 degrees refracts along the boundary, incidence 50 degrees reflects fully with equal angles -->
-
 ### The Electromagnetic Spectrum
 
 Light is an **electromagnetic wave**: a transverse wave that needs no medium and can cross a vacuum. Sound is not an electromagnetic wave and cannot cross a vacuum.
@@ -141,8 +139,6 @@ $$\theta_2=\sin^{-1}(0.333)\approx19.5^\circ$$
 
 The ray bends toward the normal, as expected for entering a larger $n$.
 
-<!-- ILLUSTRATION: ray going from air (n = 1.00) into glass (n = 1.50) at a flat boundary, normal drawn, incident angle 30 degrees in air, the angle in the glass marked with a question mark -->
-
 ### #3: Bending Into a Faster Medium
 
 A ray in glass ($n=1.50$) meets a glass-air boundary at $20^\circ$ from the normal. Find the angle of refraction in air ($n=1.00$).
@@ -162,8 +158,6 @@ $$\sin\theta_2\approx0.513$$
 $$\theta_2\approx30.9^\circ$$
 
 The ray bends away from the normal, as expected for entering a smaller $n$.
-
-<!-- ILLUSTRATION: ray going from glass (n = 1.50) up into air (n = 1.00) at a flat boundary, normal drawn, incident angle 20 degrees in glass, the angle in the air marked with a question mark -->
 
 ### #4: Speed and Wavelength in Glass
 
@@ -188,8 +182,6 @@ Check in glass: $\dfrac{2.00\times10^{8}}{400\times10^{-9}}=5.0\times10^{14}$ Hz
 ### #5: Critical Angle and Total Internal Reflection
 
 A ray inside glass ($n=1.50$) travels toward a glass-air boundary at an angle of incidence of $45^\circ$. Will it leave the glass?
-
-<!-- ILLUSTRATION: ray in glass (n = 1.50) hitting the glass-air (n = 1.00) boundary at 45 degrees from the normal, normal drawn, what happens to the ray at the boundary marked with a question mark -->
 
 **Solution:**
 
@@ -218,8 +210,6 @@ A straw partly in water looks bent where it meets the surface when seen from the
 ### #7: Ordering the Electromagnetic Spectrum
 
 Arrange X-rays, radio waves, visible light, and gamma rays from longest to shortest wavelength. Then find the wavelength of a radio wave of frequency $100$ MHz in vacuum.
-
-<!-- ILLUSTRATION: four unordered labels, X-rays, radio waves, visible light and gamma rays, and a separate radio wave of frequency 100 MHz with its wavelength marked with a question mark -->
 
 **Solution:**
 

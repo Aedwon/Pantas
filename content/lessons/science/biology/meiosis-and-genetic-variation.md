@@ -55,8 +55,6 @@ The cell does not copy its DNA again between meiosis I and meiosis II.
 - In anaphase II, the sister chromatids separate.
 - After cytokinesis, there are four haploid cells in total. Each chromosome is now a single chromatid.
 
-<!-- ILLUSTRATION: meiosis of a cell with 2n = 4, in four rows: (1) after copying, one cell with 2 homologous pairs, red and blue, each chromosome with 2 chromatids; (2) metaphase I, the 2 pairs lined up as pairs; (3) after meiosis I, 2 cells each with 2 chromosomes of 2 chromatids; (4) after meiosis II, 4 cells each with 2 single-chromatid chromosomes. Label "n = 2" on the final cells -->
-
 For a human germ cell, the numbers are:
 
 - Before meiosis, after S phase: $46$ chromosomes and $92$ chromatids.

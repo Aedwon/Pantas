@@ -62,8 +62,6 @@ The class of a lever depends on which of the three is in the middle. The ideal M
 - **Second class:** the load is in the middle, as on a wheelbarrow. The effort arm is longer, so the MA is more than $1$.
 - **Third class:** the effort is in the middle, as on tweezers. The MA is less than $1$, but the load moves farther than the effort.
 
-<!-- ILLUSTRATION: three levers on triangle fulcrums labeled First class (fulcrum in the middle), Second class (load in the middle), Third class (effort in the middle), each with effort, load and fulcrum marked -->
-
 ### Torque and Balance
 
 **Torque** ($\tau$) is the turning effect of a force about the fulcrum, in newton-meters ($\text{N}\cdot\text{m}$). The **moment arm** is the shortest distance from the fulcrum to the line along which the force acts. If the force pushes at a right angle ($90^\circ$) to the lever, the moment arm is just the distance along the lever, and $\tau=F\,d$.
@@ -139,8 +137,6 @@ $$F_\text{effort}=\dfrac{900}{2}=450\text{ N}$$
 
 3. The rope moves twice as far as the load: $2\times0.5=1\text{ m}$.
 
-<!-- ILLUSTRATION: a 900 N load on one movable pulley; the rope is tied to the ceiling, runs under the movable pulley, over a fixed pulley and down to a hand; the two segments on the movable pulley are marked 1 and 2, the hand segment "not counted" -->
-
 ### #4: Three Supporting Segments
 
 A $900\text{ N}$ load hangs from a frame that holds one movable pulley. One end of the rope is tied to the frame. The rope goes up and over a fixed pulley on the ceiling, down and under the movable pulley, then straight up to a person who pulls that end upward. Ignore friction and the weight of the pulleys and frame. What effort is needed, and how much rope must be pulled to raise the load $0.4\text{ m}$?
@@ -154,8 +150,6 @@ $$F_\text{effort}=\dfrac{900}{3}=300\text{ N}$$
 
 3. The rope moves three times as far as the load: $3\times0.4=1.2\text{ m}$.
 
-<!-- ILLUSTRATION: a 900 N load on a frame with one movable pulley; one rope end tied to the frame, going up over a fixed ceiling pulley, down under the movable pulley, then up to a hand pulling up; the three segments on the frame marked 1, 2 and 3 -->
-
 ### #5: Four Supporting Segments
 
 A block and tackle has two pulleys in a fixed upper block and two pulleys in a movable lower block. One continuous rope is tied to the upper block. It runs down around a lower pulley, up around an upper pulley, down around the other lower pulley and up around the other upper pulley. The free end then hangs down to the hand. The lower block carries a $1600\text{ N}$ load. Ignore friction and the weight of the blocks. What effort is needed to raise the load $0.75\text{ m}$, and how much rope is pulled?
@@ -168,8 +162,6 @@ A block and tackle has two pulleys in a fixed upper block and two pulleys in a m
 $$F_\text{effort}=\dfrac{1600}{4}=400\text{ N}$$
 
 3. The rope moves four times as far as the load: $4\times0.75=3\text{ m}$.
-
-<!-- ILLUSTRATION: a block and tackle with two pulleys in an upper fixed block and two in a lower movable block carrying a 1600 N load; the rope is tied to the upper block; the four segments touching the lower block are marked 1 to 4, and the hand segment is marked "not counted" -->
 
 ### #6: Lever Balance
 
@@ -204,8 +196,6 @@ $$(30g)(2.0)=(40g)\,d$$
 
 $$d=\dfrac{(30)(2.0)}{40}=1.5\text{ m}$$
 
-<!-- ILLUSTRATION: a balanced seesaw on a central fulcrum; a 30 kg child 2.0 m to the left; a 40 kg child an unknown distance d to the right -->
-
 ### #8: Finding the Class of a Lever
 
 A wheelbarrow carries a load of $600\text{ N}$. The load acts $0.5\text{ m}$ from the axle of the wheel. The handles are lifted straight up at $1.5\text{ m}$ from the axle. What class of lever is this?
@@ -213,8 +203,6 @@ A wheelbarrow carries a load of $600\text{ N}$. The load acts $0.5\text{ m}$ fro
 **Solution:**
 
 The axle is the fulcrum. The load is between the fulcrum and the effort, so this is a second-class lever.
-
-<!-- ILLUSTRATION: a wheelbarrow with the axle marked fulcrum, a 600 N load arrow 0.5 m from the axle, and an upward effort arrow at the handles 1.5 m from the axle -->
 
 ### #9: An Angled Effort
 
@@ -233,8 +221,6 @@ $$\tau_\text{effort}=F_e(2\text{ m})\sin30^\circ=F_e(1\text{ m})$$
 3. Set $F_e(1\text{ m})=300\text{ N}\cdot\text{m}$. The effort is $F_e=300\text{ N}$.
 
 A right-angle push would need only $150\text{ N}$, because $F_e(2)=300$.
-
-<!-- ILLUSTRATION: a horizontal lever on a central fulcrum; a 600 N load arrow pointing down at 0.5 m to the left of the fulcrum; an effort arrow F pointing down and slanted at 2 m to the right of the fulcrum, with the 30 degree angle between the arrow's line and the lever marked -->
 
 ## Speed Tricks & Shortcuts
 

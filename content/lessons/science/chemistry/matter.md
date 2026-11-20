@@ -58,8 +58,6 @@ The parts of a mixture can be separated by **physical methods**. These are metho
 
 Each method works only when the parts differ in the property the method uses. A compound cannot be separated by these methods. It needs a chemical reaction.
 
-<!-- ILLUSTRATION: flow chart "Matter" splitting into "Pure substance" (branches "Element: O2" and "Compound: H2O") and "Mixture" (branches "Homogeneous: salt water" and "Heterogeneous: sand and iron filings") -->
-
 ### States of Matter
 
 The three common states are solid, liquid, and gas. The **particle model** explains each state with three ideas: how close the particles are, how they move, and how strongly they attract each other.
@@ -123,8 +121,6 @@ A change that gives off heat is **exothermic**. One that takes in heat is **endo
 
 Signs of a chemical change include a new color, a new gas, a solid forming in a liquid, a new smell, and heat or light given off. These signs are only clues. Boiling water makes bubbles and ice melting takes in heat, yet both are physical. The real test is whether a new substance forms.
 
-<!-- ILLUSTRATION: two-column picture with left heading "Physical change: substance stays the same" showing ice melting to water and right heading "Chemical change: new substance forms" showing iron rusting -->
-
 ## Examples
 
 ### #1: Classifying a Sample
@@ -186,8 +182,6 @@ A pure sample of ice at $-10^\circ\text{C}$ is heated steadily at normal air pre
 2. At $0^\circ\text{C}$ it melts. The temperature stays at $0^\circ\text{C}$ until all the ice is liquid.
 3. The energy added during melting loosens the attractions that hold particles in place, so it does not raise the temperature.
 4. After all the ice has melted, the liquid warms above $0^\circ\text{C}$.
-
-<!-- ILLUSTRATION: heating curve graph, x-axis "energy added", y-axis "temperature in degrees Celsius", water from ice below 0 degrees C: slanted line labeled "ice warming", flat line at 0 degrees C labeled "melting", slanted line labeled "liquid water warming", flat line at 100 degrees C labeled "boiling", slanted line labeled "steam warming" -->
 
 ### #7: Sublimation
 

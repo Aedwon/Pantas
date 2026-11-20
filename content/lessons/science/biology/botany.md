@@ -69,8 +69,6 @@ The female part is the **pistil**. It has three regions. The **stigma** is the s
 
 Inside the ovary are one or more **ovules**. An ovule holds the female gamete, the **egg cell**. Many flowers also have petals, which can attract animals, and sepals, which protect the bud.
 
-<!-- ILLUSTRATION: cross-section of one flower, with these parts labeled: petal, sepal, stamen (made of anther and filament), pistil (made of stigma, style and ovary), and an ovule inside the ovary -->
-
 ### Pollination, Fertilization, Seed and Fruit
 
 Reproduction in a flowering plant is a chain of steps. Each step has its own name.

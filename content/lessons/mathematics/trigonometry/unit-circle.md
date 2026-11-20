@@ -236,8 +236,6 @@ $$\tan180^\circ=\dfrac{0}{-1}=0$$
 
 4. At $270^\circ$ the point is $(0,-1)$. The denominator is $0$, so $\tan270^\circ$ is undefined.
 
-<!-- ILLUSTRATION: unit circle with the four axis points (1,0), (0,1), (-1,0) and (0,-1) labeled 0°, 90°, 180° and 270° -->
-
 ### #7: Angles Beyond One Turn
 
 Find the exact values of $\cos780^\circ$ and $\tan(-135^\circ)$.
@@ -258,8 +256,6 @@ $$-135+360=225$$
 
 $$\tan(-135^\circ)=1$$
 
-<!-- ILLUSTRATION: unit circle showing 780° as two full turns plus 60° and -135° as a clockwise turn ending at 225°, both with their terminal sides in the labeled quadrants -->
-
 ### #8: Converting Between Degrees and Radians
 
 Convert $\dfrac{5\pi}{6}$ radians to degrees and $240^\circ$ to radians. Then find $\cos240^\circ$.
@@ -276,8 +272,6 @@ $$240\times\dfrac{\pi}{180}=\dfrac{4\pi}{3}$$
 3. $240^\circ$ is in Quadrant III. Its reference angle is $240-180=60$, and cosine is negative there.
 
 $$\cos240^\circ=-\dfrac12$$
-
-<!-- ILLUSTRATION: unit circle with 5π/6 marked at 150° in Quadrant II and 4π/3 marked at 240° in Quadrant III, each with its degree and radian label -->
 
 ### #9: Values at Radian Angles
 
@@ -301,8 +295,6 @@ $$\dfrac{13\pi}{6}-\dfrac{12\pi}{6}=\dfrac\pi6$$
 
 $$\cos\dfrac{13\pi}{6}=\dfrac{\sqrt3}{2}$$
 
-<!-- ILLUSTRATION: unit circle with 7π/6 marked at 210° in Quadrant III and 13π/6 drawn as one full turn plus π/6, ending where π/6 ends -->
-
 ### #10: Finding the Angle from a Value
 
 Find all angles $\theta$ with $0^\circ\leq\theta<360^\circ$ such that $\cos\theta=-\dfrac{\sqrt2}{2}$.
@@ -314,8 +306,6 @@ Find all angles $\theta$ with $0^\circ\leq\theta<360^\circ$ such that $\cos\thet
 4. In Quadrant III, the angle is $180+45=225$.
 
 $$\theta=135^\circ \text{ or } 225^\circ$$
-
-<!-- ILLUSTRATION: unit circle with the x-coordinate -√2/2 marked as a vertical line, meeting the circle at the 135° point in Quadrant II and the 225° point in Quadrant III -->
 
 ### #11: Using the Identity with a Quadrant
 
@@ -334,8 +324,6 @@ $$\cos\theta=-\dfrac45$$
 
 $$\tan\theta=\dfrac{3/5}{-4/5}=-\dfrac34$$
 
-<!-- ILLUSTRATION: unit circle with a point in Quadrant II at height 3/5 and x-coordinate -4/5 -->
-
 ### #12: Polar to Rectangular
 
 A point has polar coordinates $r=4$ and $\theta=210^\circ$. Find its rectangular coordinates.
@@ -349,8 +337,6 @@ $$x=4\left(-\dfrac{\sqrt3}{2}\right)=-2\sqrt3$$
 $$y=4\left(-\dfrac12\right)=-2$$
 
 The point is $(-2\sqrt3,-2)$.
-
-<!-- ILLUSTRATION: coordinate plane with a circle of radius 4 and the point at 210° with coordinates (-2√3, -2) -->
 
 ### #13: Rectangular to Polar
 
@@ -368,8 +354,6 @@ $$\theta=180-60=120$$
 
 The polar coordinates are $(2,120^\circ)$, which is $\left(2,\dfrac{2\pi}{3}\right)$.
 
-<!-- ILLUSTRATION: coordinate plane with the point (-1, √3), a segment of length 2 from the origin, and the angle 120° from the positive x-axis -->
-
 ### #14: Reading the Graphs
 
 For $0\leq x\leq2\pi$, find the greatest and least values of $y=\cos x$ and where they happen. Then find where $y=\tan x$ is undefined.
@@ -378,8 +362,6 @@ For $0\leq x\leq2\pi$, find the greatest and least values of $y=\cos x$ and wher
 1. The greatest value of cosine is $1$. It happens at $x=0$ and $x=2\pi$.
 2. The least value is $-1$. It happens at $x=\pi$.
 3. Tangent is undefined where $\cos x=0$. This happens at $x=\dfrac\pi2$ and $x=\dfrac{3\pi}{2}$, where the tangent graph has its asymptotes.
-
-<!-- ILLUSTRATION: graphs of y = cos x and y = tan x for x from 0 to 2π, with cos x reaching 1 at 0 and 2π and -1 at π, and tan x with vertical asymptotes at π/2 and 3π/2 -->
 
 ## Speed Tricks & Shortcuts
 

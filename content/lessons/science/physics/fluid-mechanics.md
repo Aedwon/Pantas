@@ -54,8 +54,6 @@ Look at what the formula contains. It has the fluid's density, $g$, and the dept
 
 Two points at the same depth in the same connected liquid at rest have the same pressure, even if one container is wide and the other is narrow. The formula assumes the density stays constant, so it is good for liquids over small depth ranges. For a tall column of gas, density changes with height and this formula does not hold.
 
-<!-- ILLUSTRATION: three connected containers of different shapes (narrow tube, wide tank, slanted tube) all filled with water to the same level, with a horizontal dashed line at depth h below the surface marked in each container and the label "same depth h, same pressure" -->
-
 ### Pascal's Principle and Hydraulic Systems
 
 **Pascal's principle** says that when you change the pressure on an enclosed fluid at rest, the change is passed on, by the same amount, to each part of the fluid and to the container walls. The fluid must be incompressible, which means it cannot be squeezed into a smaller volume. Liquids behave this way very closely.
@@ -75,8 +73,6 @@ $$A_1 d_1 = A_2 d_2$$
 Here $d_1$ and $d_2$ are the distances moved. In the ideal case, the work done on each piston, force times distance, comes out equal. For circular pistons, the area ratio equals the square of the ratio of their diameters.
 
 The formula $\dfrac{F_1}{A_1} = \dfrac{F_2}{A_2}$ assumes an ideal system: no friction, no trapped air, and both pistons at the same height. If the pistons are at different heights, the liquid's weight adds a pressure of $\rho gh$ between them. In real machines, friction and trapped air make the output force smaller.
-
-<!-- ILLUSTRATION: hydraulic lift with a small piston of area A1 on the left and a large piston of area A2 on the right joined by a liquid-filled tube; arrows show force F1 pushing down on the small piston and force F2 pushing up on the large piston; distances d1 (large) and d2 (small) labeled -->
 
 ### Archimedes' Principle and Buoyancy
 

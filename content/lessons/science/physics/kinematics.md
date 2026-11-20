@@ -208,8 +208,6 @@ $$\Delta y=\dfrac{19.6+0}{2}(2.0)=19.6\text{ m}$$
 
 A velocity-time graph is a straight line from $0\,\mathrm{m/s}$ at $0$ s to $8\,\mathrm{m/s}$ at $4$ s. It stays at $8\,\mathrm{m/s}$ until $10$ s. Then it falls in a straight line to $0\,\mathrm{m/s}$ at $12$ s. Find the acceleration in each part and the total displacement.
 
-<!-- ILLUSTRATION: velocity-time graph, time axis 0 to 12 s, velocity axis 0 to 8 m/s; straight line from (0, 0) to (4, 8), flat to (10, 8), straight down to (12, 0) -->
-
 **Solution:**
 
 1. From $0$ to $4$ s: slope $=\dfrac{8-0}{4}=2\,\mathrm{m/s^2}$.
@@ -222,8 +220,6 @@ $$\dfrac12(4)(8)+(6)(8)+\dfrac12(2)(8)=16+48+8=72\text{ m}$$
 ### #9: Velocity-Time Graph with a Reversal
 
 A velocity-time graph is one straight line from $+6\,\mathrm{m/s}$ at $0$ s to $-6\,\mathrm{m/s}$ at $6$ s. Find the acceleration, the time of the turnaround, the displacement, and the distance.
-
-<!-- ILLUSTRATION: velocity-time graph with a straight line from 6 m/s at 0 s to -6 m/s at 6 s. Shade the area between the line and the time axis on each side of the crossing. -->
 
 **Solution:**
 
@@ -239,8 +235,6 @@ $$a=\dfrac{-6-6}{6}=-2\,\mathrm{m/s^2}$$
 ### #10: Position-Time Graph
 
 A position-time graph is a straight line from $0$ m at $0$ s to $8$ m at $4$ s. It is flat from $4$ s to $6$ s. Then it falls in a straight line to $0$ m at $10$ s. Find the velocity in each part and the average velocity for the whole $10$ s.
-
-<!-- ILLUSTRATION: position-time graph, time axis 0 to 10 s, position axis 0 to 8 m; straight line from (0, 0) to (4, 8), flat to (6, 8), straight down to (10, 0) -->
 
 **Solution:**
 

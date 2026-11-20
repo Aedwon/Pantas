@@ -94,8 +94,6 @@ The four corner triangles are congruent by SAS, because each has legs $a$ and $b
 
 At each corner of the middle shape, the corner angle and the two acute angles of the triangles next to it lie along a straight side of the big square, so they add to $180^\circ$. Going around the square the same way each time puts the two different acute angles of a triangle at each marked point, and these add to $90^\circ$. So each corner is $90^\circ$, and the middle shape is a square of side $c$.
 
-<!-- ILLUSTRATION: square of side a + b, four right triangles (legs a, b) in the corners, tilted square of side c in the middle -->
-
 The big square equals four triangles plus the middle square. Each triangle has area $\dfrac{1}{2}ab$.
 
 $$(a+b)^2 = 4 \cdot \dfrac{1}{2}ab + c^2$$
@@ -120,8 +118,6 @@ Two **special right triangles** are common:
 
 The angles of a triangle are in the ratio $1 : 2 : 3$. Find the angles and classify the triangle.
 
-<!-- ILLUSTRATION: a triangle with its three angles in the ratio 1 : 2 : 3, labeled x, 2x, and 3x -->
-
 **Solution:**
 The angles are $x$, $2x$, and $3x$.
 
@@ -139,8 +135,6 @@ $$6x = 180 \quad\Rightarrow\quad x = 30$$
 
 Two sides of a triangle measure $5$ and $9$. How many whole-number lengths are possible for the third side?
 
-<!-- ILLUSTRATION: a triangle with two sides labeled 5 and 9 and the third side labeled ? -->
-
 **Solution:**
 The third side $s$ must be less than the sum and greater than the difference.
 
@@ -154,8 +148,6 @@ $$9 - 5 < s < 5 + 9$$
 ### #3: Ordering Sides by Angles
 
 In $\triangle ABC$, $\angle A = 50^\circ$ and $\angle B = 60^\circ$. Which side is the longest, and which is the shortest?
-
-<!-- ILLUSTRATION: triangle ABC with angle A = 50°, angle B = 60°, angle C = ? -->
 
 **Solution:**
 Find the third angle first.
@@ -192,13 +184,9 @@ The $50^\circ$ angle is either a base angle or the angle between the equal sides
 
 The angles are $50^\circ$, $50^\circ$, $80^\circ$ or $50^\circ$, $65^\circ$, $65^\circ$.
 
-<!-- ILLUSTRATION: two isosceles triangles side by side; left has two base angles 50° and apex ?; right has apex 50° and two base angles ? -->
-
 ### #6: Matching Parts and Choosing the Rule
 
 In $\triangle ABC$ and $\triangle DEF$, $\angle A = \angle D$, $\angle B = \angle E$, and $BC = EF$. Which congruence rule applies, and which side of $\triangle DEF$ equals $AC$?
-
-<!-- ILLUSTRATION: triangles ABC and DEF; angles A and D one arc, angles B and E two arcs, sides BC and EF one tick -->
 
 **Solution:**
 Check where the equal side sits.
@@ -223,8 +211,6 @@ Find the equal parts first, including the ones the figure hides.
 4. Point $B$ matches $D$, so $\angle D = \angle B = 100^\circ$.
 
 The answers are (a) $BD = 7$ and (b) $\angle D = 100^\circ$.
-
-<!-- ILLUSTRATION: (a) segments AB and CD crossing at O, with OA = OB and OC = OD marked by ticks, AC = 7; (b) quadrilateral ABCD with diagonal AC, AB = AD one tick, CB = CD two ticks, angle B = 100° -->
 
 ### #8: The Shadow Problem (Similarity)
 
@@ -263,8 +249,6 @@ The ladder reaches $12$ feet up the wall.
 ### #10: Special Right Triangles
 
 Find the missing sides: (a) a $45^\circ$-$45^\circ$-$90^\circ$ triangle with a leg of $5$; (b) a $30^\circ$-$60^\circ$-$90^\circ$ triangle with a hypotenuse of $12$.
-
-<!-- ILLUSTRATION: (a) a 45°-45°-90° triangle with a leg of 5; (b) a 30°-60°-90° triangle with a hypotenuse of 12 -->
 
 **Solution:**
 Use the fixed side patterns.

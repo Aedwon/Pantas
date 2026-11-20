@@ -96,8 +96,6 @@ Rutherford explained the results in $1911$. Only a strong force from a concentra
 - all of the atom's positive charge and nearly all of its mass are in a very small nucleus, which is positive because the atom is neutral and its electrons are negative;
 - most of the atom's volume is empty space with the light electrons in it.
 
-<!-- ILLUSTRATION: gold foil experiment: alpha source on the left, thin gold foil in the middle, circular screen around it; most arrows go straight through, a few bend at large angles, one bounces back; label "alpha particles", "gold foil", "screen" -->
-
 Rutherford's model had a limit. It did not explain why atoms give off light of only certain colors. Drawings often show electrons moving around the nucleus like planets, but this is not the modern picture.
 
 ### Bohr and Quantized Hydrogen Levels
@@ -109,8 +107,6 @@ In $1913$, **Niels Bohr** added a new idea to the nuclear atom: an electron in a
 In Bohr's model, an electron in a level does not give off light.
 
 When it drops to a lower level, it gives off a photon whose energy equals the difference between the two levels. When it absorbs a photon of exactly that energy, it rises to a higher level. Only certain energy differences exist, so only certain colors appear. This matches the lines of hydrogen.
-
-<!-- ILLUSTRATION: energy level diagram for hydrogen with levels n = 1, 2, 3, 4 stacked upward, and downward arrows from n = 3 to n = 2 labeled "red line", and from n = 4 to n = 2 labeled "blue-green line" -->
 
 The Bohr model works well for hydrogen and for ions with one electron, such as He$^+$. An **ion** is an atom or group of atoms with an electric charge, and an atom becomes one by gaining or losing electrons. It does not correctly describe atoms with many electrons. It also treats electrons as particles on fixed circular paths, which the later model replaced.
 
@@ -125,8 +121,6 @@ Because of this, an electron has no fixed path. The model gives an **orbital**: 
 The picture called the **electron cloud** is a shaded drawing of this probability. It is darker where the electron is more likely to be. It is not a real fuzzy cloud of material.
 
 The idea of energy levels from Bohr stayed in the model. The fixed circular paths did not. The exact equations can be solved only for hydrogen-like atoms. For atoms with more electrons, scientists use approximations.
-
-<!-- ILLUSTRATION: three small panels: "Bohr orbit" as a circle with an electron on it, "s orbital" as a shaded sphere that is darker near the nucleus, "p orbital" as a two-lobed dumbbell shape; each with a dot for the nucleus at the center -->
 
 ## Examples
 

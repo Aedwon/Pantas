@@ -124,8 +124,6 @@ $$\theta=\cos^{-1}\left(\dfrac12\right)=60^\circ$$
 
 A ramp rises $3$ meters over a horizontal distance of $8$ meters. What angle does the ramp make with the ground? Give the answer to the nearest tenth of a degree.
 
-<!-- ILLUSTRATION: A right triangle that models a ramp. The vertical side is labeled "Rise = 3 m", the horizontal side is labeled "Horizontal distance = 8 m", and the angle between the ramp and the ground is labeled "Angle = ?". -->
-
 **Solution:**
 The rise is opposite the wanted angle and the horizontal distance is adjacent, so use tangent.
 
@@ -165,8 +163,6 @@ $$d=\dfrac{50}{\tan30^\circ}=\dfrac{150}{\sqrt3}=50\sqrt3$$
 ### #5: Adding the Observer's Eye Height
 
 A student whose eyes are $1.6$ meters above level ground stands $40$ meters from a flagpole. The angle of elevation of the top of the pole, measured from the student's eyes, is $35^\circ$. How tall is the flagpole? Give the answer to the nearest tenth of a meter.
-
-<!-- ILLUSTRATION: A level ground line with a student on the left and a vertical flagpole on the right. The student's eyes are labeled 1.6 m above the ground. The distance between the student and the pole is labeled 40 m. A line of sight from the student's eyes to the top of the pole makes a 35° angle of elevation. The pole height is labeled "Pole height = ?". -->
 
 **Solution:**
 The angle is measured from eye level. The triangle gives only the part of the pole above the student's eyes.
@@ -210,8 +206,6 @@ $$b=40\cos35^\circ\approx40(0.8192)\approx32.8$$
 ### #7: Solving the Whole Triangle From Two Legs
 
 In right triangle $ABC$, the right angle is at $C$, leg $a=6$, and leg $b=8$. Find the hypotenuse and the angles $A$ and $B$. Give angles to the nearest tenth of a degree.
-
-<!-- ILLUSTRATION: Right triangle ABC with the right angle at C. Leg a is labeled 6 and leg b is labeled 8. The hypotenuse is labeled "c = ?", angle A is labeled "A = ?", and angle B is labeled "B = ?". -->
 
 **Solution:**
 1. Find the hypotenuse with the Pythagorean theorem.

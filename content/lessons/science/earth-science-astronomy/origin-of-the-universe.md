@@ -42,8 +42,6 @@ Here $\lambda$ (the Greek letter lambda) stands for wavelength. A larger $z$ mea
 
 In the 1920s, astronomers found that most galaxies are redshifted. Edwin Hubble showed in $1929$ that, on large scales, farther galaxies have larger redshifts. This is what an expanding universe predicts. The light of a distant galaxy travels for a long time, and the space it crosses stretches meanwhile, so its wavelengths stretch too.
 
-<!-- ILLUSTRATION: two spectra of the same spectral line stacked, the top as measured in a laboratory at $600$ nm and the bottom from a distant galaxy shifted to $660$ nm, arrow labeled "stretched toward red" -->
-
 This rule has limits. Galaxies that are close together are held by gravity, and gravity beats the expansion at that scale. The Andromeda galaxy is blueshifted because it is moving toward the Milky Way. The expansion is not seen inside a galaxy, inside the Solar System, or between neighbors that gravity binds.
 
 ### Evidence 2: The Cosmic Microwave Background
@@ -53,8 +51,6 @@ Early on, the universe was so hot that matter was a glowing mix of charged parti
 That light is still arriving from every direction. It is called the **cosmic microwave background (CMB)**. Expansion has stretched its wavelengths so much that it is now microwaves, with a temperature of about $2.7$ K. Two features matter: it is almost the same in every direction, and its spectrum matches the glow of a hot, dense early universe that has cooled.
 
 Arno Penzias and Robert Wilson found the CMB by accident in $1965$. Maps later showed tiny differences in temperature, about one part in $100{,}000$. Gravity later pulled matter together at the slightly denser spots, and these became galaxies.
-
-<!-- ILLUSTRATION: oval sky map of the CMB in blue, green, and red patches, caption "tiny temperature differences, about 1 part in 100,000" -->
 
 ### Evidence 3: Light Elements
 

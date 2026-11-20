@@ -33,8 +33,6 @@ This is why you hear a person talking around a corner but cannot see them. Speec
 
 Light shows both interference and diffraction, which is evidence that light behaves as a wave.
 
-<!-- ILLUSTRATION: two panels of overlapping waves. Left panel, two identical waves in phase adding to a wave of double height, labeled "Constructive". Right panel, two identical waves exactly opposite adding to a flat line, labeled "Destructive". Below, a wave arriving at a wide gap passes mostly straight, and at a narrow gap about one wavelength wide it spreads out in a half circle, labeled "Diffraction" -->
-
 ### The Doppler Effect
 
 The **Doppler effect** is a change in the frequency an observer receives because the source and the observer move relative to each other. The siren itself does not change its pitch. The listener hears a different pitch.
@@ -80,8 +78,6 @@ $$\lambda=\dfrac{343}{343}=1.00\text{ m}$$
 ### #2: Diffraction Around an Opening
 
 Sound of wavelength $1\text{ m}$ and light of wavelength $5\times10^{-7}\text{ m}$ both reach a doorway $1\text{ m}$ wide. Which wave spreads out more after the doorway?
-
-<!-- ILLUSTRATION: top view of a doorway 1 m wide in a wall, with a wave source on each side of the wall: one labeled "sound, wavelength 1 m" and one labeled "light, wavelength 5 x 10^-7 m". Draw only the wall, the doorway and the labels, with no wave pattern beyond the doorway -->
 
 **Solution:**
 

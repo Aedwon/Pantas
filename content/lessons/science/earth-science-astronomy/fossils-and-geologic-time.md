@@ -44,8 +44,6 @@ This law has limits. Folding can turn layers upside down, and a fault can push o
 
 Fossils can also be eroded out of an old layer and buried again in a younger one. This is called **reworking**. Geologists therefore check the field evidence before they trust any one clue.
 
-<!-- ILLUSTRATION: side view of four horizontal rock layers labeled W (bottom), X, Y, Z (top), with an arrow on the left pointing up labeled "younger" and an arrow pointing down labeled "older" -->
-
 ### Numerical Dating
 
 **Numerical dating** gives an age in years. The main method is **radiometric dating**, which uses radioactive decay.
@@ -91,7 +89,6 @@ Life in the Precambrian:
 
 Calling Mesozoic mammals "small shrew-like animals" oversimplifies them. They were more varied than that.
 
-<!-- ILLUSTRATION: one horizontal bar for Earth's history from 4.54 billion years ago to today, split into Precambrian (long, about 88%) and Phanerozoic (short, about 12%), with the Phanerozoic enlarged below into Paleozoic (539 to 252 million years ago), Mesozoic (252 to 66 million years ago), and Cenozoic (66 million years ago to today) -->
 ## Examples
 
 ### #1: Relative Age from Superposition
@@ -120,7 +117,6 @@ A cliff shows four horizontal sedimentary layers: P at the bottom, then Q, R, an
 
 The order is P, Q, R, then the fault, then S, then the dike.
 
-<!-- ILLUSTRATION: cliff face with horizontal layers P (bottom), Q, R, S (top); a slanted fault line through P, Q, and R that is cut off by the eroded surface below S; a vertical dark dike running from the bottom of P up through the top of S -->
 ### #3: Using an Index Fossil Carefully
 
 The same index fossil is found in two undisturbed sedimentary beds that are hundreds of kilometers apart. What can geologists infer, and what can they not infer?

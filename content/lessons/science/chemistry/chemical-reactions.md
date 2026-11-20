@@ -202,8 +202,6 @@ $$N_2+3H_2\rightarrow2NH_3$$
 
 The coefficients $1:3:2$ cannot be divided further, so this is the simplest form.
 
-<!-- ILLUSTRATION: Particle picture of N2 + 3H2 -> 2NH3 with 2 N atoms and 6 H atoms drawn on the left, and the same 2 N atoms and 6 H atoms regrouped into 2 NH3 molecules on the right -->
-
 ### #2: Balancing Iron(III) Oxide Formation
 
 Balance:
@@ -348,8 +346,6 @@ The full equation, with state symbols, is below. Read it in two lines.
 $$Pb(NO_3)_2(aq)+2KI(aq)$$
 
 $$\rightarrow PbI_2(s)+2KNO_3(aq)$$
-
-<!-- ILLUSTRATION: Two beakers labeled Pb(NO3)2(aq) and KI(aq) pouring into one beaker that shows yellow solid PbI2(s) at the bottom, with K+ and NO3- labeled as spectator ions in the liquid -->
 
 ### #11: Is There a Driving Force?
 

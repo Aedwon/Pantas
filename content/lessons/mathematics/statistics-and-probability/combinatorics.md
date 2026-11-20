@@ -52,8 +52,6 @@ $$\text{outcomes in group A or group B}=\text{A}+\text{B}-\text{both}$$
 
 If no outcome is in both groups, "both" is $0$ and the rule is plain addition.
 
-<!-- ILLUSTRATION: two overlapping circles labeled "Basketball: 12 students" and "Volleyball: 9 students", with the overlap labeled "Both: 5 students" and a question mark labeled "Students in at least one sport" -->
-
 ### Permutations
 
 A **permutation** is an ordered selection: the same objects in a different order count as a different outcome. To choose and arrange $r$ of $n$ distinct objects, with no object used twice, there are $n$ choices for the first place, then $n-1$ for the second, and so on for $r$ places.

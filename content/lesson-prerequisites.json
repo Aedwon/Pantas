@@ -3087,7 +3087,13 @@
     "reason": "Use the same operation on both sides to find an unknown."
    }
   ],
-  "lesson-algebra-functions-domain-and-range": [],
+  "lesson-algebra-functions-domain-and-range": [
+   {
+    "lesson": "lesson-algebra-one-variable-inequalities",
+    "strength": "helpful",
+    "reason": "Review when an inequality flips while you solve it."
+   }
+  ],
   "lesson-algebra-evaluating-and-composing-functions": [
    {
     "lesson": "lesson-algebra-functions-domain-and-range",
@@ -3105,6 +3111,11 @@
     "lesson": "lesson-algebra-evaluating-and-composing-functions",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-solving-linear-equations",
+    "strength": "helpful",
+    "reason": "Review how to undo a step and keep both sides equal."
    }
   ],
   "lesson-algebra-one-variable-inequalities": [
@@ -3206,12 +3217,23 @@
     "reason": "Continue from the preceding part of this lesson."
    }
   ],
-  "lesson-algebra-systems-substitution-and-word-problems": [],
+  "lesson-algebra-systems-substitution-and-word-problems": [
+   {
+    "lesson": "lesson-algebra-solving-linear-equations",
+    "strength": "helpful",
+    "reason": "Review how to undo a step and keep both sides equal."
+   }
+  ],
   "lesson-algebra-systems-elimination": [
    {
     "lesson": "lesson-algebra-systems-substitution-and-word-problems",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-solving-linear-equations",
+    "strength": "helpful",
+    "reason": "Review how to undo a step and keep both sides equal."
    }
   ],
   "lesson-algebra-systems-graphs-and-solution-counts": [
@@ -3619,6 +3641,11 @@
     "lesson": "lesson-biology-respiration-in-cells",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-photosynthesis-inputs-and-products",
+    "strength": "helpful",
+    "reason": "Review which process uses light to make sugar."
    }
   ],
   "lesson-biology-photosynthesis-and-respiration-together": [
@@ -3821,6 +3848,11 @@
     "lesson": "lesson-biology-segregation-and-punnett-squares",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-crossing-over-and-fertilization",
+    "strength": "helpful",
+    "reason": "Review how fertilization restores chromosome pairs."
    }
   ],
   "lesson-biology-incomplete-dominance-and-codominance": [
@@ -3915,6 +3947,11 @@
     "lesson": "lesson-biology-nerves-reflexes-and-brain-control",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-digestion-and-nutrient-absorption",
+    "strength": "helpful",
+    "reason": "Review which organs make bile and digestive enzymes."
    }
   ],
   "lesson-biology-the-pituitary-and-its-hormones": [
@@ -3979,6 +4016,11 @@
     "lesson": "lesson-biology-chromosome-sets-in-mitosis-and-meiosis",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-mitosis-phases-and-results",
+    "strength": "helpful",
+    "reason": "Compare how chromosomes line up in mitosis."
    }
   ],
   "lesson-biology-counting-chromosomes-after-meiosis": [
@@ -3986,6 +4028,11 @@
     "lesson": "lesson-biology-meiosis-i-and-meiosis-ii",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-biology-counting-chromosomes-through-mitosis",
+    "strength": "helpful",
+    "reason": "Compare the number of cells and chromosome sets after mitosis."
    }
   ],
   "lesson-biology-spores-eggs-and-sperm": [
@@ -4724,6 +4771,11 @@
     "lesson": "lesson-chemistry-periodic-groups-periods-and-valence",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-chemistry-ground-state-electron-filling",
+    "strength": "helpful",
+    "reason": "Review how many electrons the first orbital holds."
    }
   ],
   "lesson-chemistry-periodic-element-families": [
@@ -4839,6 +4891,11 @@
     "lesson": "lesson-chemistry-mole-ratios-and-reaction-masses",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-chemistry-converting-mass-and-moles",
+    "strength": "helpful",
+    "reason": "Review how to use molar mass to convert grams to moles."
    }
   ],
   "lesson-chemistry-theoretical-and-percent-yield": [
@@ -5403,6 +5460,11 @@
     "lesson": "lesson-earth-science-astronomy-weather-versus-climate",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-heat-temperature-and-internal-energy",
+    "strength": "helpful",
+    "reason": "Review what temperature tells you about the energy of particles."
    }
   ],
   "lesson-earth-science-astronomy-coastal-breezes-and-rising-air": [
@@ -5633,6 +5695,11 @@
     "lesson": "lesson-geometry-perpendicular-height-in-area-formulas",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-algebra-simplifying-and-evaluating-expressions",
+    "strength": "helpful",
+    "reason": "Review which terms can be combined."
    }
   ],
   "lesson-geometry-rectangular-prism-measurements": [
@@ -5675,6 +5742,11 @@
     "lesson": "lesson-geometry-transversals-and-angle-positions",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-geometry-complementary-and-supplementary-angles",
+    "strength": "helpful",
+    "reason": "Review the totals for complementary and supplementary angles."
    }
   ],
   "lesson-geometry-perpendicular-transversals": [
@@ -5973,6 +6045,11 @@
     "lesson": "lesson-physics-bernoullis-equation-and-height",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-kinetic-and-gravitational-potential-energy",
+    "strength": "helpful",
+    "reason": "Review the one-half factor in the kinetic energy formula."
    }
   ],
   "lesson-physics-gauge-and-absolute-pressure": [
@@ -6057,6 +6134,11 @@
     "lesson": "lesson-physics-tension-over-pulleys",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-mass-and-weight",
+    "strength": "helpful",
+    "reason": "Review how mass and gravity give a weight in newtons."
    }
   ],
   "lesson-physics-kinetic-friction-and-angled-pulls": [
@@ -6064,6 +6146,16 @@
     "lesson": "lesson-physics-static-friction-and-its-limit",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-normal-force-and-contact",
+    "strength": "helpful",
+    "reason": "Review how other forces affect the push from a surface."
+   },
+   {
+    "lesson": "lesson-physics-resolving-vector-components",
+    "strength": "helpful",
+    "reason": "Review how sine and cosine give the parts of a force."
    }
   ],
   "lesson-physics-weight-components-on-an-incline": [
@@ -6106,6 +6198,11 @@
     "lesson": "lesson-physics-diffraction-at-edges-and-openings",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-sound-speed-pitch-and-loudness",
+    "strength": "helpful",
+    "reason": "Review the difference between the speed and pitch of a sound."
    }
   ],
   "lesson-physics-doppler-frequency-from-a-moving-source": [
@@ -6198,6 +6295,11 @@
     "lesson": "lesson-physics-critical-angle-and-total-internal-reflection",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-physics-wave-speed-frequency-and-wavelength",
+    "strength": "helpful",
+    "reason": "Review the formula connecting wave speed, frequency, and wavelength."
    }
   ],
   "lesson-physics-curved-mirrors-and-image-types": [
@@ -7013,6 +7115,11 @@
     "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-geometry-pythagorean-theorem-and-triples",
+    "strength": "helpful",
+    "reason": "Review how to find a missing leg from the hypotenuse and the other leg."
    }
   ],
   "lesson-trigonometry-flipping-trigonometric-ratios": [
@@ -7093,6 +7200,11 @@
     "lesson": "lesson-trigonometry-law-of-sines-surveys",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-trigonometry-reference-angles-and-quadrant-signs",
+    "strength": "helpful",
+    "reason": "Review how a quadrant fixes the sign of a trigonometric value."
    }
   ],
   "lesson-trigonometry-law-of-cosines-for-angles": [
@@ -7133,6 +7245,11 @@
     "lesson": "lesson-trigonometry-finding-sides-in-right-triangles",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-trigonometry-special-angle-side-lengths",
+    "strength": "helpful",
+    "reason": "Review the side lengths and ratios for special right triangles."
    }
   ],
   "lesson-trigonometry-solving-a-whole-right-triangle": [
@@ -7147,6 +7264,16 @@
     "lesson": "lesson-trigonometry-solving-a-whole-right-triangle",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-trigonometry-special-angle-side-lengths",
+    "strength": "helpful",
+    "reason": "Review the side lengths and ratios for special right triangles."
+   },
+   {
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+    "strength": "helpful",
+    "reason": "Review which sides form each trigonometric ratio."
    }
   ],
   "lesson-trigonometry-adjusting-for-eye-height": [
@@ -7187,6 +7314,11 @@
     "lesson": "lesson-trigonometry-pythagorean-identity-and-signs",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-trigonometry-reference-angles-and-quadrant-signs",
+    "strength": "helpful",
+    "reason": "Review how a quadrant fixes the sign of a trigonometric value."
    }
   ],
   "lesson-trigonometry-simplifying-trigonometric-expressions": [
@@ -7262,6 +7394,11 @@
     "lesson": "lesson-trigonometry-unit-circle-values-in-radians",
     "strength": "required",
     "reason": "Read the previous part first."
+   },
+   {
+    "lesson": "lesson-trigonometry-reading-right-triangle-ratios",
+    "strength": "helpful",
+    "reason": "Review which sides form each trigonometric ratio."
    }
   ],
   "lesson-trigonometry-polar-and-rectangular-coordinates": [
@@ -7389,6 +7526,13 @@
     "lesson": "lesson-mechanical-technical-reasoning-pushing-an-object-over",
     "strength": "required",
     "reason": "Read the previous part first."
+   }
+  ],
+  "lesson-algebra-simplifying-and-combining-radicals": [
+   {
+    "lesson": "lesson-algebra-fractional-powers-and-exponent-equations",
+    "strength": "helpful",
+    "reason": "Review how a root changes the exponent of a power."
    }
   ]
  }

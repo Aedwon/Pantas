@@ -535,7 +535,7 @@ questions:
     type: "context-clues-in-passages"
     difficulty: "exam"
     stem: |
-      As used in the passage, the word in bold most nearly means
+      As used in the passage, which phrase is closest in meaning to "inconclusive"?
     choices:
       - text: "not settling the issue"
         correct: true
@@ -558,7 +558,7 @@ questions:
     type: "context-clues-in-passages"
     difficulty: "exam"
     stem: |
-      Which meaning of the first word in bold is supported by its negative prefix and the surrounding description?
+      Which meaning of "illegible" is supported by its negative prefix and the surrounding description?
     choices:
       - text: "unable to be read"
         correct: true
@@ -581,7 +581,7 @@ questions:
     type: "context-clues-in-passages"
     difficulty: "exam"
     stem: |
-      What does the second word in bold mean in this notice?
+      What does "relabel" mean in this notice?
     choices:
       - text: "put labels on again"
         correct: true
@@ -604,7 +604,7 @@ questions:
     type: "context-clues-in-passages"
     difficulty: "exam"
     stem: |
-      Ano ang pinakamalapit na kahulugan ng unang salitang naka-bold batay sa talata?
+      Ano ang pinakamalapit na kahulugan ng "masinop" batay sa talata?
     choices:
       - text: "maingat at maayos"
         correct: true
@@ -627,7 +627,7 @@ questions:
     type: "context-clues-in-passages"
     difficulty: "exam"
     stem: |
-      Ano ang ipinahihiwatig ng ikalawang salitang naka-bold sa salaysay?
+      Ano ang ibig sabihin ng "sinuyod" sa salaysay?
     choices:
       - text: "masusing hinalughog"
         correct: true

@@ -90,8 +90,6 @@ For a converging **concave mirror** or a **convex lens** in air (so $f>0$), the 
 
 For a diverging **convex mirror** or a **concave lens** in air ($f<0$) with a real object, the image is always virtual, upright and smaller. This is true at every object distance.
 
-<!-- ILLUSTRATION: ray diagram of a concave mirror, focal point F at 10 cm and center of curvature C at 20 cm on the principal axis, with an arrow object at 30 cm and its real inverted image at 15 cm, three principal rays drawn -->
-
 ### Optical Instruments
 
 Simple instruments use the same image rules.

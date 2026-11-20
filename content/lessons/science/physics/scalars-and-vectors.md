@@ -218,7 +218,6 @@ $$R^2=9+25+15=49.$$
 
 $$R=7\,\mathrm N.$$
 
-<!-- ILLUSTRATION: two arrows drawn from one point, a 3 N arrow along the positive x-axis and a 5 N arrow at 60 degrees above it, with the 60 degree angle between them labeled and a dashed resultant labeled 7 N -->
 ### #6: Components
 
 A $10\,\mathrm N$ force acts $30^\circ$ above the positive horizontal axis. Find its horizontal and vertical components.
@@ -253,7 +252,6 @@ $$F_y=50\cos40^\circ\approx 38.3\,\mathrm N.$$
 
 Here the formulas are swapped compared with Example #1, because the angle is measured from the vertical.
 
-<!-- ILLUSTRATION: a 50 N arrow pointing up and to the right, a vertical dashed line from its tail with the 40 degree angle between the dashed line and the arrow labeled, and the horizontal component 50 sin 40 and vertical component 50 cos 40 marked -->
 ### #8: Several Vectors and the Quadrant
 
 A $20\,\mathrm N$ force acts at $150^\circ$ from the positive $x$-axis, measured counterclockwise. A $12\,\mathrm N$ force acts straight down. Find the magnitude and direction of the resultant.
@@ -283,7 +281,6 @@ $$\theta=180^\circ+6.6^\circ=186.6^\circ.$$
 
 The resultant is about $17.4\,\mathrm N$ at $186.6^\circ$ from the positive $x$-axis. That is $6.6^\circ$ below the negative $x$-axis. A calculator's $\tan^{-1}\!\left(\dfrac{-2}{-17.32}\right)$ would show only $6.6^\circ$, which points into quadrant I and is wrong.
 
-<!-- ILLUSTRATION: x-y axes with a 20 N arrow at 150 degrees from the positive x-axis, a 12 N arrow pointing straight down, and the resultant of 17.4 N at 186.6 degrees in quadrant III with the 6.6 degree angle below the negative x-axis labeled -->
 ## Speed Tricks & Shortcuts
 
 First read the name of the quantity. Speed and distance are scalars. Velocity and displacement are vectors.

@@ -92,8 +92,6 @@ A **polyatomic ion** is a group of bonded atoms with a net charge, such as $\tex
 
 Some polyatomic ions form another way. Ammonia, $\text{NH}_3$, picks up a hydrogen ion $\text{H}^{+}$ (a proton) to make $\text{NH}_4^{+}$. The group gains a proton, so its proton count rises by $1$.
 
-<!-- ILLUSTRATION: two labeled panels comparing "isotopes of one element" (two atoms, each with 17 protons, one with 18 neutrons and one with 20 neutrons, both with 17 electrons) and "ion of one atom" (the 18-neutron atom again, but with 18 electrons and charge 1-), to show that isotopes differ in neutrons and ions differ in electrons -->
-
 ## Examples
 
 ### #1: Subatomic Particle Counts

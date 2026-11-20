@@ -60,8 +60,6 @@ Bernoulli's equation helps explain the pressure around a wing. Do not explain li
 
 Real lift comes from the pressure pattern around the wing and from the wing pushing air downward. Angle of attack, wing shape, and viscosity matter too.
 
-<!-- ILLUSTRATION: horizontal pipe that narrows from a wide section (point 1, area A1, slow arrows, speed v1) to a narrow section (point 2, area A2, fast arrows, speed v2), with two vertical pressure gauges above points 1 and 2 where the gauge at point 2 shows a lower liquid column -->
-
 ## Examples
 
 In exam questions, "neglect" or "ignore" means leave that effect out of your calculation. Use $g = 9.8 \text{ m/s}^2$ and water density $1000 \text{ kg/m}^3$ in the examples below unless a question gives other values.

@@ -146,7 +146,6 @@ The water adds $\rho gh=1000\times 9.8\times 10=98{,}000$ Pa.
 
 Then $P=101{,}000+98{,}000=199{,}000$ Pa. The pressure is **about $199{,}000$ Pa**, almost twice the surface pressure.
 
-<!-- ILLUSTRATION: An open tank of water with a point marked 10 m below the surface. The pressure at that point is marked with a question mark. -->
 ### #6: Depth Is Not Enough
 
 Point X is $1$ m deep in a sealed tank of water. The gas above the water has a pressure of $150{,}000$ Pa. Point Y is $3$ m deep in an open tank of water. Which point has the greater pressure?
@@ -161,7 +160,6 @@ Y: $101{,}000+1000\times 9.8\times 3=130{,}400$ Pa.
 
 **X** has the greater pressure, although it is shallower.
 
-<!-- ILLUSTRATION: Two water tanks side by side. Tank X is sealed, with gas above the water at 150,000 Pa and Point X marked 1 m below the water surface. Tank Y is open to the air, with Point Y marked 3 m below the water surface. -->
 ### #7: Two Different Liquids
 
 A U-tube is open at both ends. It holds water. A light oil, with density $800\ \text{kg/m}^3$, is poured into one arm. The water surface in the other arm is $10$ cm above the oil-water boundary. How high is the oil above that boundary?
@@ -176,7 +174,6 @@ $800\,h_{\text{oil}}=1000\times 10$, so $h_{\text{oil}}=12.5$ cm.
 
 The oil column is **$12.5$ cm** high. The lighter liquid stands higher, so the levels are not equal.
 
-<!-- ILLUSTRATION: An open U-tube holding water and oil (density 800 kg/m3). One arm has an oil column above the oil-water boundary. The other arm has a water surface 10 cm above the boundary level. The height of the oil is marked with a question mark. -->
 ### #8: Hydraulic Lift
 
 A hydraulic lift has a small piston of area $10\ \text{cm}^2$ and a large piston of area $200\ \text{cm}^2$. A $50$ N force pushes on the small piston. What force can the large piston support? Assume the pistons are level and ignore friction.
@@ -187,7 +184,6 @@ $$F_2=F_1\dfrac{A_2}{A_1}=50\times\dfrac{200}{10}=1000\ \text{N}.$$
 
 The large piston supports **$1000$ N**. It moves only $\dfrac{1}{20}$ as far as the small piston, so the work stays the same.
 
-<!-- ILLUSTRATION: A hydraulic lift with a small piston of area 10 cm2 pushed by a 50 N force and a large piston of area 200 cm2 joined by one liquid-filled chamber at the same height. The force on the large piston is marked with a question mark. -->
 ### #9: A Pipe That Splits
 
 Water flows steadily at $2$ m/s in a pipe of cross-section $10\ \text{cm}^2$. The pipe splits into two identical branches, each with a cross-section of $4\ \text{cm}^2$. The outlets are at the same height and pressure. What is the speed in each branch?
@@ -199,8 +195,6 @@ The flow rate in is $10\times 2=20\ \text{cm}^2\text{m/s}$. The branches are ide
 $$v=\dfrac{10}{4}=2.5\ \text{m/s}.$$
 
 Each branch has a speed of **$2.5$ m/s**. Different branches can split the flow unequally. Pipe sizes alone do not tell you the speeds.
-
-<!-- ILLUSTRATION: A pipe of cross-section 10 cm2 with water at 2 m/s that splits into two identical branches of cross-section 4 cm2 each. The branch speeds are marked with a question mark. -->
 
 The diagram shows the pipes from above. Both outlets are at the same height.
 ### #10: Height and Speed Both Matter
@@ -215,7 +209,6 @@ In the rising part, the width and speed stay the same. Only the height term chan
 
 The pressure falls by **$16{,}000$ Pa**, then by **$49{,}000$ Pa**.
 
-<!-- ILLUSTRATION: A horizontal pipe narrowing so the water speed rises from 2 m/s to 6 m/s, then a section of the same narrow width that rises 5 m. The pressure changes in the two stages are marked with question marks. -->
 ## Speed Tricks & Shortcuts
 
 **Hydrostatics:** compare depth only after confirming the same fluid and the same surface pressure.

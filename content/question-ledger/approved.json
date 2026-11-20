@@ -9024,33 +9024,33 @@
     "lesson": "lesson-comprehension-skills-definition-and-example-clues"
   },
   "q-comprehension-skills-context-clues-in-passages-0021": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/comprehension-skills.md",
-    "hash": "fd51751342fcd76d3c605122ad599d1d1e31b92c0c0ddb41269d87a19d001b8f",
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/bite-sized/cet/export-fix-summary.md",
+    "hash": "81e5e298ff858acf1a69e1238ff9202ec9bd9f9a6d64472b2dd55dc51b861d69",
     "lesson": "lesson-comprehension-skills-contrast-and-cause-clues"
   },
   "q-comprehension-skills-context-clues-in-passages-0022": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/comprehension-skills.md",
-    "hash": "786fcf7ff0e24fee4afba37a8a78c04354321de2f9162b7a6a1608cbb881e535",
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/bite-sized/cet/export-fix-summary.md",
+    "hash": "4c573bda320f7d2cd0855b8ad59c691043112efab30d8b0c57ad267e9429c255",
     "lesson": "lesson-comprehension-skills-word-parts-in-passages"
   },
   "q-comprehension-skills-context-clues-in-passages-0023": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/comprehension-skills.md",
-    "hash": "9b37357e3c5a1a568505da14cf8a136cde34c80c2494586571032fccc9d908ba",
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/bite-sized/cet/export-fix-summary.md",
+    "hash": "fbc4ca8e4ce607066929113f100ae6837de8ab4be6b35b7e43917b77893c0849",
     "lesson": "lesson-comprehension-skills-word-parts-in-passages"
   },
   "q-comprehension-skills-context-clues-in-passages-0024": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/comprehension-skills.md",
-    "hash": "6ffcdde224da65006e72b0075a002891a2c3e4596bec4ab63609fec36f6f5f3f",
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/bite-sized/cet/export-fix-summary.md",
+    "hash": "4258880e4cbfac0db8a56801b3a0df9ea885cbd6b52a877ba708e1cfe85390f2",
     "lesson": "lesson-comprehension-skills-filipino-meaning-clues"
   },
   "q-comprehension-skills-context-clues-in-passages-0025": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/comprehension-skills.md",
-    "hash": "2987f99a9c8c73df0742e9d815e429750fa823663bb57d2b9b3c30ff25ed70f4",
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/bite-sized/cet/export-fix-summary.md",
+    "hash": "879f81c72280ec285cdd0865592303ed4cd56beb74823991661218314a6e3c8a",
     "lesson": "lesson-comprehension-skills-filipino-meaning-clues"
   },
   "q-comprehension-skills-context-clues-in-passages-0026": {
@@ -13048,6 +13048,12 @@
     "evidence": "docs/content/verification/cet-split.md",
     "hash": "4e18b9dbf79b50a59d6e5d3cf24af06af8b789e36327127d4fd26a9f9e4ee5fc",
     "lesson": "lesson-geometry-distance-traveled-around-a-circle"
+  },
+  "q-geometry-practical-measurement-0021": {
+    "approvedAt": "2026-11-20",
+    "evidence": "docs/content/bite-sized/cet/export-fix-summary.md",
+    "hash": "bc0091c579f8d500b8341efbff43bf9136a85fe497ce516ad0b40be2d6162fd1",
+    "lesson": "lesson-geometry-areas-on-a-grid"
   },
   "q-geometry-quadrilaterals-and-polygons-0001": {
     "approvedAt": "2026-11-19",

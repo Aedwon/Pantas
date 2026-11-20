@@ -45,8 +45,6 @@ The **Kinetic Molecular Theory** is a model of an **ideal gas**, an imagined gas
 
 Pressure comes from these collisions. Billions of particles hit the wall every second, and the many small pushes add up to a steady force.
 
-<!-- ILLUSTRATION: a rigid box of gas particles drawn as dots with short arrows showing random straight-line motion, with a few arrows hitting the right wall and the label "collisions with the wall make pressure" -->
-
 ### Kelvin: The Absolute Temperature Scale
 
 The **kelvin** scale starts at **absolute zero**, the lowest possible temperature, written $0$ K. Celsius puts its zero at the freezing point of water, which is not a true zero of temperature, so Celsius values can be negative. To convert, use:

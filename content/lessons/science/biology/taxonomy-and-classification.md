@@ -38,8 +38,6 @@ For example, the lion is classified like this:
 
 **Eukarya → Animalia → Chordata → Mammalia → Carnivora → Felidae → *Panthera* → *Panthera leo***
 
-<!-- ILLUSTRATION: nested boxes from Domain Eukarya on the outside to Species Panthera leo on the inside, each box labeled with its rank and the lion's group name: Eukarya, Animalia, Chordata, Mammalia, Carnivora, Felidae, Panthera, Panthera leo -->
-
 ### Domains and Kingdoms
 
 The **three-domain system** has $3$ domains: Bacteria, Archaea, and Eukarya. Bacteria and Archaea are **prokaryotes**. Their cells have no nucleus, which is a membrane-bound compartment that holds the DNA.
@@ -78,8 +76,6 @@ Two organisms share a **common ancestor** when both descend from the same earlie
 A **clade** is a group made of one ancestor and all of its descendants. A clade is also called a **monophyletic** group. A group that leaves out some descendants of its ancestor, or that mixes in organisms from other lineages, is not monophyletic.
 
 Scientists show ancestry in a branching tree. Each branch point stands for a common ancestor. Two groups that meet at a branch point more recently are more closely related than two groups that meet further back.
-
-<!-- ILLUSTRATION: a branching tree with four tips labeled A, B, C, D from left to right; A and B join at node X, C joins the A-B branch at node Y, D joins at the root node Z; nodes X, Y, Z are labeled -->
 
 Similar looks do not always mean close ancestry. In **convergent evolution**, unrelated lineages end up with similar traits because they live in similar ways. The wings of a bat and a bird are an example. Both fly, but the two lineages gained wings separately.
 

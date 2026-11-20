@@ -73,8 +73,6 @@ Eclipses do not happen every month, even though a new moon and a full moon do. T
 
 So the Moon usually passes above or below the line from the Sun through Earth. An eclipse needs a new moon or full moon near a node.
 
-<!-- ILLUSTRATION: Moon's orbit tilted about 5 degrees from the plane of Earth's orbit, with the two points where the Moon's path crosses the plane labeled "nodes" -->
-
 ## Examples
 
 ### #1: Naming a Moon Phase
@@ -124,10 +122,6 @@ Work out the alignment first.
 2. The Moon's shadow on Earth makes a solar eclipse.
 
 The answer is new moon, solar eclipse.
-
-<!-- ILLUSTRATION: solar eclipse, left to right: Sun, Moon labeled "new moon", Earth; Moon shadow cones labeled "umbra" and "penumbra" reach a small spot on Earth -->
-
-<!-- ILLUSTRATION: lunar eclipse, left to right: Sun, Earth, Moon labeled "full moon"; Earth shadow cones labeled "umbra" and "penumbra" cover the Moon -->
 
 ### #5: Lunar Eclipse Alignment
 
