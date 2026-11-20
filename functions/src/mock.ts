@@ -7,7 +7,7 @@ import {assertNamedUser} from './_audit.js';
 import {allowAtMost} from './_limits.js';
 import {checkAnswers, checkDuration, type Answer} from './_answers.js';
 import {core} from './_core.js';
-import {applyScope, loadCorpusCached, loadExamContent} from './_examContent.js';
+import {applyScope, loadCorpusCached, loadExamContent, topicIdFor} from './_examContent.js';
 import {coversStudyExam, customExclusions, customTrackRef, isCustomExamId, isStudyExamId, paperTier} from './_customTrack.js';
 import {mockCoverage} from './mockAccess.js';
 import {checkPaperAnswers, recordMockAnswers} from './mockAnswers.js';
@@ -122,6 +122,7 @@ async function findOpen(db: Firestore, uid: string) {
 type Assembled = {paper: Paper; limitMs: number; sectionMinutes: number[] | null;
   customScope?: {excludedTopicIds: string[]; corpusTopicIds: string[]}};
 const notEnough = () => new HttpsError('failed-precondition', 'There are not enough questions for this mock yet.');
+const sharedCetMockTopics = new Set(['exam_dlsucet', 'exam_ustet', 'exam_acet']);
 
 /** The ids of the student's last two submitted papers for this exam, which a new paper avoids. */
 async function recentQuestionIds(db: Firestore, uid: string, examId: string): Promise<string[]> {
@@ -137,10 +138,14 @@ export async function assemblePaper(db: Firestore, uid: string, examId: string, 
   const poolsByTopic: Record<string, string[]> = {};
   const passageSetsByTopic: Record<string, Record<string, string[]>> = {};
   const setOf = new Map<string, string>();
+  // CET blueprints use the shared UPCAT topic IDs. The content load still filters by exam tag.
+  const examTopicPrefix = topicIdFor(examId, '');
+  const mockTopicPrefix = sharedCetMockTopics.has(examId) ? topicIdFor('exam_upcat', '') : null;
   for (const question of content.questions) {
-    (poolsByTopic[question.topicId] ??= []).push(question.id);
+    const topicId = mockTopicPrefix === null ? question.topicId : mockTopicPrefix + question.topicId.slice(examTopicPrefix.length);
+    (poolsByTopic[topicId] ??= []).push(question.id);
     setOf.set(question.id, question.setId);
-    if (question.passageId) ((passageSetsByTopic[question.topicId] ??= {})[question.passageId] ??= []).push(question.id);
+    if (question.passageId) ((passageSetsByTopic[topicId] ??= {})[question.passageId] ??= []).push(question.id);
   }
   // Avoid both of the student's last two submitted papers when the bank has enough others.
   const recent = await recentQuestionIds(db, uid, examId);
