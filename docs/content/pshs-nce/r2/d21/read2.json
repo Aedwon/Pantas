@@ -1,0 +1,61 @@
+{
+  "round": 2,
+  "findings": [
+    {
+      "lesson": "lesson-language-application-excited-and-nervous-about",
+      "severity": "Blocker",
+      "quote": "Choose the best word. “Paolo is excited ______ his first trip to the planetarium next week.”\n\n(A) at\n\n(B) about",
+      "problem": "Choice A can also express excitement at a future plan. The words “next week” establish when the trip happens and still allow that reading. [Cambridge Dictionary](https://dictionary.cambridge.org/dictionary/english/excited-at)",
+      "fix": "Replace “at” with a choice that cannot express Paolo’s excitement about the trip."
+    },
+    {
+      "lesson": "lesson-grammar-and-structure-did-not-and-the-base-verb",
+      "severity": "Major",
+      "quote": "**Before recess**, **Luz did not** **closed the window**. (No error)",
+      "problem": "The last two answer choices look like one bold phrase when rendered. The student has no visible way to tell where one choice ends and the next begins. This happens in all three examples.",
+      "fix": "Give each bold part a visible letter label and use those labels in the solutions."
+    },
+    {
+      "lesson": "lesson-grammar-and-structure-interrupted-dialogue",
+      "severity": "Major",
+      "quote": "### #2: A Split Question\n\nWhich sentence is punctuated correctly?",
+      "problem": "The heading tells the student that the spoken words are a question. That gives away the step the student needs to decide where the question mark goes.",
+      "fix": "Name the example after Tomas or the seedlings. Let the solution show how to identify the spoken question."
+    },
+    {
+      "lesson": "lesson-chemistry-reading-a-phase-diagram",
+      "severity": "Major",
+      "quote": "R is on the Solid and Gas boundary. V is on the Solid and Liquid boundary. T sits where the three lines meet.",
+      "problem": "Example 3 gives the phase pairs at R and V before asking the student to read them. The heading also signals that the meeting point belongs in the answer.",
+      "fix": "Use a neutral heading. Describe the positions of R and V and give the region labels separately. Read the labels beside each point in the solution."
+    },
+    {
+      "lesson": "lesson-chemistry-reading-a-phase-diagram",
+      "severity": "Major",
+      "quote": "At the far end of the liquid-gas line, called the **critical point**, liquid and gas become alike and no longer form two separate phases.",
+      "problem": "The lesson teaches the critical point as an exception to the two-phase rule. No worked example shows what to do when the point being tested is that endpoint.",
+      "fix": "In Example 2, also ask about the dot at the end of the line. Work through why the two-phase answer applies at M and why the dot has only one phase."
+    },
+    {
+      "lesson": "lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map",
+      "severity": "Major",
+      "quote": "Shore and Inland share a latitude. Winds often reach Shore from the sea and Inland from dry land. What could explain why Shore gets more rain?",
+      "problem": "The heading “Winds From the Sea” identifies the cause before the student reads the question. Choice B is the only choice about wind.",
+      "fix": "Use a neutral heading that names the two towns. Keep the wind directions in the givens."
+    },
+    {
+      "lesson": "lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map",
+      "severity": "Major",
+      "quote": "**Altitude** means height above sea level. High places tend to be cooler.",
+      "problem": "The lesson uses sea level to define altitude and compare the towns in Example 2. It never explains what sea level means.",
+      "fix": "Explain that sea level is the usual height of the sea’s surface. Then show how it serves as the starting height for measuring altitude."
+    },
+    {
+      "lesson": "lesson-biology-how-mangroves-protect-coral-reefs",
+      "severity": "Minor",
+      "quote": "Other pollutants can still reach the reef. Follow the route the runoff takes to see whether it passes through the mangroves.",
+      "problem": "This is the end of a four-sentence paragraph. The last sentence switches from what happens to pollutants to how to read the route.",
+      "fix": "Start a new paragraph with the instruction to follow the runoff."
+    }
+  ]
+}

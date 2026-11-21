@@ -14,44 +14,44 @@ keyPoints:
 
 A **verb** can tell what someone does. Its **base form** is the plain form, such as *open*, *bring*, or *want*.
 
-To say that a past action did not happen, use *did not* plus the base form. *Did* already shows past time. “Lina opened the gate” becomes “Lina did not open the gate.”
+“Lina opened the gate” uses the simple past form *opened*. To say she did not do that action, write “Lina did not open the gate.” *Did* shows past time, so *open* stays in its base form.
 
 The same rule works when the past form changes in a different way. “Milo brought his lunch” becomes “Milo did not bring his lunch.” *Didn't* is short for *did not*, so “Milo didn't bring his lunch” also works.
 
 ## Examples
 
-### #1: A Past Form That Ends in Ed
+### #1: The Window
 
 Which part in bold contains an error? Choose “No error” if the sentence is correct.
 
-**Before recess**, **Luz did not** **closed the window**. (No error)
+(A) **Before recess**, (B) **Luz did not** (C) **closed the window**. (D) No error
 
 **Solution:**
 
-1. Find *did not*. The next verb must be in its base form.
-2. The error is in **closed the window**. Write “Before recess, Luz did not close the window.”
+1. Check the verb that goes with *did not* or *didn't*. It must be in its base form.
+2. *Closed* is a past form that ends in *-ed*. Choose (C), **closed the window**. Write “Before recess, Luz did not close the window.”
 
-### #2: A Past Form That Changes Spelling
+### #2: The Bus Route
 
 Which part in bold contains an error? Choose “No error” if the sentence is correct.
 
-**On Friday**, **the bus driver didn't** **took the usual route**. (No error)
+(A) **On Friday**, (B) **the bus driver didn't** (C) **took the usual route**. (D) No error
 
 **Solution:**
 
-1. Read *didn't* as *did not*. The verb that follows needs its base form.
-2. The base form of *took* is *take*. The error is in **took the usual route**.
+1. Check the verb that goes with *did not* or *didn't*. It must be in its base form.
+2. The past form *took* changes spelling. Its base form is *take*. Choose (C), **took the usual route**.
 
 ### #3: A Sentence With Two Past Actions
 
 Which part in bold contains an error? Choose “No error” if the sentence is correct.
 
-**Nilo checked the list**, but **he did not** **find his name**. (No error)
+(A) **Nilo checked the list**, but (B) **he did not** (C) **find his name**. (D) No error
 
 **Solution:**
 
 1. *Checked* tells what Nilo did. It is in a separate part of the sentence.
-2. *Find* is the base form after *did not*. Choose “No error.”
+2. *Find* is the base form after *did not*. Choose (D), “No error.”
 
 ## Speed Tricks & Shortcuts
 

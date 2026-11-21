@@ -2117,5 +2117,124 @@
    }
   ],
   "count": 13
+ },
+ "d21:language-proficiency/grammar-and-structure/did-not-and-the-base-verb": {
+  "qfile": "content/questions/language-proficiency/grammar-and-structure/did-not-and-the-base-verb-pshs.yaml",
+  "parts": [
+   {
+    "id": "lesson-grammar-and-structure-did-not-and-the-base-verb",
+    "path": "content/lessons/language-proficiency/grammar-and-structure/did-not-and-the-base-verb.md",
+    "keyPoints": 1,
+    "quizSize": 2,
+    "existingPshs": 0,
+    "target": 3,
+    "items": [
+     "II-16"
+    ]
+   }
+  ],
+  "count": 3
+ },
+ "d21:language-proficiency/grammar-and-structure/interrupted-dialogue": {
+  "qfile": "content/questions/language-proficiency/grammar-and-structure/interrupted-dialogue-pshs.yaml",
+  "parts": [
+   {
+    "id": "lesson-grammar-and-structure-interrupted-dialogue",
+    "path": "content/lessons/language-proficiency/grammar-and-structure/interrupted-dialogue.md",
+    "keyPoints": 2,
+    "quizSize": 2,
+    "existingPshs": 0,
+    "target": 3,
+    "items": [
+     "II-10"
+    ]
+   }
+  ],
+  "count": 3
+ },
+ "d21:language-proficiency/language-application/excited-and-nervous-about": {
+  "qfile": "content/questions/language-proficiency/language-application/excited-and-nervous-about-pshs.yaml",
+  "parts": [
+   {
+    "id": "lesson-language-application-excited-and-nervous-about",
+    "path": "content/lessons/language-proficiency/language-application/excited-and-nervous-about.md",
+    "keyPoints": 2,
+    "quizSize": 2,
+    "existingPshs": 0,
+    "target": 3,
+    "items": [
+     "II-14"
+    ]
+   }
+  ],
+  "count": 3
+ },
+ "d21:language-proficiency/language-application/with-for-companionship": {
+  "qfile": "content/questions/language-proficiency/language-application/with-for-companionship-pshs.yaml",
+  "parts": [
+   {
+    "id": "lesson-language-application-with-for-companionship",
+    "path": "content/lessons/language-proficiency/language-application/with-for-companionship.md",
+    "keyPoints": 1,
+    "quizSize": 2,
+    "existingPshs": 0,
+    "target": 3,
+    "items": [
+     "II-13"
+    ]
+   }
+  ],
+  "count": 3
+ },
+ "d21:science/biology/how-mangroves-protect-coral-reefs": {
+  "qfile": "content/questions/science/biology/how-mangroves-protect-coral-reefs-pshs.yaml",
+  "parts": [
+   {
+    "id": "lesson-biology-how-mangroves-protect-coral-reefs",
+    "path": "content/lessons/science/biology/how-mangroves-protect-coral-reefs.md",
+    "keyPoints": 2,
+    "quizSize": 2,
+    "existingPshs": 0,
+    "target": 3,
+    "items": [
+     "III-15"
+    ]
+   }
+  ],
+  "count": 3
+ },
+ "d21:science/chemistry/reading-a-phase-diagram": {
+  "qfile": "content/questions/science/chemistry/reading-a-phase-diagram-pshs.yaml",
+  "parts": [
+   {
+    "id": "lesson-chemistry-reading-a-phase-diagram",
+    "path": "content/lessons/science/chemistry/reading-a-phase-diagram.md",
+    "keyPoints": 3,
+    "quizSize": 3,
+    "existingPshs": 0,
+    "target": 4,
+    "items": [
+     "III-10"
+    ]
+   }
+  ],
+  "count": 4
+ },
+ "d21:science/earth-science-astronomy/comparing-climate-on-a-latitude-map": {
+  "qfile": "content/questions/science/earth-science-astronomy/comparing-climate-on-a-latitude-map-pshs.yaml",
+  "parts": [
+   {
+    "id": "lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map",
+    "path": "content/lessons/science/earth-science-astronomy/comparing-climate-on-a-latitude-map.md",
+    "keyPoints": 2,
+    "quizSize": 2,
+    "existingPshs": 0,
+    "target": 3,
+    "items": [
+     "III-12"
+    ]
+   }
+  ],
+  "count": 3
  }
 }

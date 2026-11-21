@@ -25,9 +25,9 @@ keyPoints:
 
 ### #1: Looking Forward to an Event
 
-Choose the best word. “Paolo is excited ______ his first trip to the planetarium.”
+Choose the best word. “Paolo is excited ______ his first trip to the planetarium next week.”
 
-(A) at
+(A) to
 
 (B) about
 
@@ -35,23 +35,23 @@ Choose the best word. “Paolo is excited ______ his first trip to the planetari
 
 **Solution:**
 
-1. Paolo looks forward to the trip.
-2. The blank names what excites him. Choose (B), *excited about*.
+1. The trip is next week. Looking forward to it makes Paolo feel excited.
+2. Use *about* to link his feeling to what causes it. Choose (B), *excited about*.
 
-### #2: Worrying About a Task
+### #2: The Welcome Speech
 
-Choose the best word. “Mia is nervous ______ giving the welcome speech.”
+Choose the best word. “Mia is nervous ______ whether she will remember her welcome speech.”
 
 (A) about
 
-(B) with
+(B) of
 
 (C) on
 
 **Solution:**
 
-1. Giving the speech is what worries Mia.
-2. Use *nervous about*. Choose (A).
+1. Mia worries that she might forget her speech. Use *about* before *whether* to show what she is unsure of.
+2. *Nervous of* can name something a person fears, such as large dogs. Use *nervous about whether* for Mia's worry. Choose (A).
 
 ### #3: Two Feelings
 

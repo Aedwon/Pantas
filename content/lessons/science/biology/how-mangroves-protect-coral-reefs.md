@@ -13,11 +13,15 @@ keyPoints:
 ---
 ## Core Concept
 
-**Mangroves** are trees and shrubs that grow along some coasts in salty water. A **coral reef** is a hard structure built by tiny animals called corals.
+**Mangroves** are trees and shrubs that can grow in salty water. They often grow along coasts. A **coral reef** is a hard structure built by tiny animals called corals.
 
-**Runoff** is water that flows over land. After rain it can carry **sediment**, bits of soil or sand, into the sea. When runoff flows through mangroves, the roots can slow the water. Some sediment settles to the bottom near the roots. Less can reach the reef, where too much sediment can cover and harm corals.
+**Runoff** is water that flows over land. After rain it can carry **sediment**, bits of soil or sand, into the sea.
 
-**Pollutants** are substances that can harm living things or their surroundings. Some stick to bits of soil and settle with them. Other pollutants can still reach the reef. Follow the route the runoff takes to see whether it passes through the mangroves.
+When runoff flows through mangroves, the roots can slow the water. Some sediment settles to the bottom near the roots. Less can reach the reef, where too much sediment can cover and harm corals.
+
+**Pollutants** are substances that can harm living things or their surroundings. Some stick to bits of soil and settle with them. Other pollutants can still reach the reef.
+
+Follow the route the runoff takes to see whether it passes through the mangroves.
 
 ## Examples
 
@@ -55,15 +59,17 @@ Water from a garden carries a harmful chemical stuck to bits of soil. The water 
 1. Some bits of soil settle near the roots.
 2. The chemical stuck to those bits settles with them. That keeps some of it from reaching the corals. Choose (B).
 
-### #3: A Route Around the Roots
+### #3: The Shore Map
 
-<!-- ILLUSTRATION: overhead coast map with land above sea, a strip labeled Mangroves on the west shore, a Drain Outlet on the east shore outside the strip, and a Coral Reef offshore; show a Runoff arrow from the drain straight to the reef, clear of the strip -->
+<!-- ILLUSTRATION: overhead coast map with west on the left and east on the right; place Mangroves on the west shore, Drain Outlet on the east shore, and Coral Reef directly offshore from the drain; show Runoff arrows going straight out to sea from the east-side drain to the reef, staying on the east side -->
 
-A drain carries muddy runoff straight to the reef without passing the mangrove roots. Can those roots trap mud from this flow before it arrives?
+The map shows mangroves on the west shore and a drain on the east shore. The reef is directly offshore from the drain. Arrows show muddy runoff going straight out to sea from the east-side drain to the reef. The arrows stay on the east side.
+
+Can the mangrove roots trap mud from this flow before it reaches the reef?
 
 **Solution:**
 
-1. Trace the water from the drain to the reef.
+1. Follow the arrows from the drain on the east shore to the reef. The roots are on the west shore.
 2. The flow misses the roots. The roots cannot trap mud from that flow on its way to the reef.
 
 ## Speed Tricks & Shortcuts

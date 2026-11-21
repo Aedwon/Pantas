@@ -1,0 +1,47 @@
+{
+  "round": 3,
+  "findings": [
+    {
+      "lesson": "lesson-grammar-and-structure-interrupted-dialogue",
+      "severity": "Major",
+      "quote": "### #1: A Split Statement\n\nWhich sentence is punctuated correctly?",
+      "problem": "The heading tells the student that the two pieces form one statement. That gives away the first step in deciding whether the word after the speaker tag needs a capital.",
+      "fix": "Name the example after Lena or the path. Let the student join the spoken pieces to check whether they form one sentence."
+    },
+    {
+      "lesson": "lesson-biology-how-mangroves-protect-coral-reefs",
+      "severity": "Blocker",
+      "quote": "**Mangroves** are trees and shrubs that grow along some coasts in salty water.",
+      "problem": "The definition makes salty coastal water sound like a requirement. A red mangrove forest grows in fresh water far inland along the San Pedro Mártir River. [Field study](https://pubmed.ncbi.nlm.nih.gov/34607943/)",
+      "fix": "Say that mangroves are trees and shrubs that can grow in salty water and often grow along coasts."
+    },
+    {
+      "lesson": "lesson-biology-how-mangroves-protect-coral-reefs",
+      "severity": "Major",
+      "quote": "The reef is directly offshore from the drain. Arrows show muddy runoff flowing from the drain to the reef.",
+      "problem": "The prose gives the start and end of the flow. It leaves out the route between them. The marker also leaves the route open. The solution depends on the flow staying on the east side.",
+      "fix": "Say that the arrows lead straight out to sea from the east-side drain. Give the same direction in the illustration marker."
+    },
+    {
+      "lesson": "lesson-chemistry-reading-a-phase-diagram",
+      "severity": "Blocker",
+      "quote": "A **phase diagram** shows which forms a substance can have at different temperatures and pressures.",
+      "problem": "The definition treats temperature and pressure as the variables for every phase diagram. Some phase diagrams hold pressure fixed and show how phases change with temperature and the amounts of the substances in a mixture. [IUPAC definition](https://goldbook.iupac.org/terms/view/15346)",
+      "fix": "Limit the temperature and pressure explanation to the kind of phase diagram used in this lesson."
+    },
+    {
+      "lesson": "lesson-chemistry-reading-a-phase-diagram",
+      "severity": "Major",
+      "quote": "Pressure tells how much push there is on a given area.",
+      "problem": "The definition leaves out how the size of the area changes pressure. The same push on a smaller area gives more pressure. [IUPAC definition](https://goldbook.iupac.org/terms/view/P04819/plain)",
+      "fix": "Explain pressure as how much push there is for each bit of area. Show how the same push gives more pressure when it acts on a smaller area."
+    },
+    {
+      "lesson": "lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map",
+      "severity": "Major",
+      "quote": "P and Q are closest in latitude, so they are likely to have the most similar sunlight patterns. Choose (A).",
+      "problem": "The question asks for evidence of similar climates. The solution stops after comparing sunlight and skips how that comparison supports the answer.",
+      "fix": "Add the last step. Explain that similar sunlight patterns give P and Q the strongest clue for similar climates when the map provides no other climate information."
+    }
+  ]
+}

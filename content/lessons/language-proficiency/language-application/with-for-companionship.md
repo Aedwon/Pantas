@@ -14,7 +14,7 @@ keyPoints:
 
 A **preposition** is a word that shows how one part of a sentence connects to another. Use *with* to show who joins someone in an action. In “I painted the sign with Niko,” both people took part in painting.
 
-*For* can show who the action helps. “I painted the sign for Niko” says I did it for his benefit. *To* can show where someone is going or who gets something. “I handed the sign to Niko” tells who got it.
+*For* can show who the action helps. In “I painted the sign for Niko,” the sign was meant for him. *To* can show where someone is going or who gets something. “I handed the sign to Niko” tells who got it.
 
 ## Examples
 
@@ -54,7 +54,7 @@ Ana and Luis built a kite together. Ben was the judge. Choose the best pair of w
 
 ### #3: Two Blanks in One Sentence
 
-Sari and her aunt sorted donations together. Choose the best pair of words.
+Sari and her aunt both packed the books. Choose the best pair of words.
 
 “Sari packed books ______ her aunt, ______ they finished before noon.”
 

@@ -15,13 +15,13 @@ keyPoints:
 
 A **speaker tag** tells who spoke. *Lena said* and *Tomas asked* are speaker tags. Keep the tag outside the quotation marks that hold the words spoken.
 
-When a tag splits one spoken sentence, put a comma inside the first closing quotation mark and another after the tag. Start the second piece with a lowercase letter unless the word needs a capital, as a name does.
+When a tag splits one spoken sentence, check where the first piece ends. If it has no other punctuation to show the break, put a comma inside the first closing quotation mark and another after the tag. Start the second piece with a lowercase letter unless the word needs a capital, as a name does.
 
 In American dialogue, a period that ends the spoken sentence goes inside the closing quotation mark. Put a question mark there if the speaker asks the question. If the question comes from the person writing the sentence and the quoted words are a statement, the question mark goes outside.
 
 ## Examples
 
-### #1: A Split Statement
+### #1: Lena and the Path
 
 Which sentence is punctuated correctly?
 
@@ -29,12 +29,15 @@ Which sentence is punctuated correctly?
 
 (B) “The path,” Lena said, “leads to the falls.”
 
+(C) “The path,” Lena said, “Leads to the falls.”
+
 **Solution:**
 
 1. Join the spoken words. “The path leads to the falls” is one sentence.
-2. Choose (B). The tag has a comma on each side. The first comma and the final period sit inside the quotes.
+2. The word *leads* comes in the middle of that sentence, so it starts with a lowercase letter.
+3. Choose (B). The tag has a comma on each side. The first comma and the final period sit inside the quotes.
 
-### #2: A Split Question
+### #2: Tomas and the Seedlings
 
 Which sentence is punctuated correctly?
 
@@ -47,7 +50,7 @@ Which sentence is punctuated correctly?
 1. Put the spoken pieces together. Tomas asks, “Can we move the seedlings outside?”
 2. The question mark goes inside because it ends his question. Choose (A).
 
-### #3: A Question About a Statement
+### #3: Nena and the Jars
 
 Which sentence is punctuated correctly?
 
