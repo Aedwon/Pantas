@@ -1,0 +1,78 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: interrupted-dialogue-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-grammar-and-structure-interrupted-dialogue-pshs-0001
+    lesson: lesson-grammar-and-structure-interrupted-dialogue
+    keyPoint: 1
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Which sentence correctly shows Mara speaking?
+    choices:
+      - text: “If the field is wet”, Mara said, “we can practice in the gym.”
+        rationale: |
+          The comma looks like it belongs with the tag because it comes right before Mara's name. Check where the first part of her speech ends. The comma goes inside that closing quote.
+      - text: “If the field is wet,” Mara said “we can practice in the gym.”
+        rationale: |
+          The opening quote may look like enough to show that Mara starts speaking again. Check the end of the tag. It needs a comma before her words pick up again.
+      - text: “If the field is wet,” Mara said, “we can practice in the gym.”
+        correct: true
+      - text: “If the field is wet,” Mara said, “We can practice in the gym.”
+        rationale: |
+          “We can practice in the gym” can stand on its own, so a capital may look right. Read it with the part that starts with “If.” The word “we” is still in the same sentence.
+      - text: “If the field is wet,” “Mara said,” “we can practice in the gym.”
+        rationale: |
+          Quoting each piece may seem like a clear way to show the breaks. Check which words Mara says aloud. Leave the tag outside the quotes.
+    explanation: |
+      Mara speaks one sentence. Put a comma inside the first closing quote and another after “said.” Keep “we” lowercase because her sentence goes on.
+  - id: q-grammar-and-structure-interrupted-dialogue-pshs-0002
+    lesson: lesson-grammar-and-structure-interrupted-dialogue
+    keyPoint: 2
+    type: punctuation
+    difficulty: hard
+    stem: |
+      Paolo made a statement about a key. The writer asks whether Paolo made that statement. Which sentence is punctuated correctly?
+    choices:
+      - text: Did Paolo say, “The key is in the drawer”?
+        correct: true
+      - text: Did Paolo say, “The key is in the drawer?”
+        rationale: |
+          You may put the question mark inside because many marks go inside closing quotes. Read Paolo's words alone. He is making a statement.
+      - text: Did Paolo say, “The key is in the drawer.”?
+        rationale: |
+          You may want a period for Paolo's statement and a question mark for the writer's question. Check what ends the full sentence. Use only the writer's question mark here.
+      - text: Did Paolo say, “The key is in the drawer.”
+        rationale: |
+          The period fits Paolo's words by themselves. Read from “Did Paolo say” to hear the writer's question, which needs its own ending.
+      - text: Did Paolo say, “The key is in the drawer”.
+        rationale: |
+          You may leave the period outside so the quote holds just Paolo's words. Read the whole line and check whether the writer asks something. The final mark must show that question.
+    explanation: |
+      Paolo says where the key is. The writer asks if he said it. Put the question mark after the closing quote because it ends the writer's question.
+  - id: q-grammar-and-structure-interrupted-dialogue-pshs-0003
+    lesson: lesson-grammar-and-structure-interrupted-dialogue
+    keyPoint: 2
+    type: punctuation
+    difficulty: exam
+    stem: |
+      Which sentence is punctuated and capitalized correctly?
+    choices:
+      - text: “Could we meet,” Rafi asked, “Friday after rehearsal”?
+        rationale: |
+          Putting the question mark at the very end may seem right because the whole line ends there. Read just Rafi's words. He asks the question, so the mark belongs inside his closing quote.
+      - text: “Could we meet,” Rafi asked, “Friday after rehearsal?”?
+        rationale: |
+          You may want one question mark for the quote and another for the whole sentence. Check who asks a question. Only Rafi does, so use one mark inside the quote.
+      - text: “Could we meet,” Rafi asked, “friday after rehearsal?”
+        rationale: |
+          A lowercase letter usually fits when a tag splits one sentence. Check which word follows the tag here. The name of a day keeps its capital letter.
+      - text: “Could we meet,” Rafi asked, “Friday after rehearsal?”
+        correct: true
+      - text: “Could we meet,” Rafi asked, “Friday after rehearsal.”
+        rationale: |
+          The last few words sound like a simple time phrase, so a period may seem right. Read from “Could we meet” to hear the full question.
+    explanation: |
+      Rafi asks one question about meeting on Friday. Commas set off “Rafi asked.” “Friday” keeps its capital letter, and the question mark goes inside the closing quote.
