@@ -1,0 +1,130 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: ratio-and-proportion-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-arithmetic-number-sense-ratio-and-proportion-pshs-0001
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 1
+    type: word-problem
+    difficulty: easy
+    stem: |
+      Eight equal stacks contain a total of 96 sheets of paper. Which group has the same number of sheets per stack?
+    choices:
+      - text: "5 stacks with 60 sheets"
+        correct: true
+      - text: "5 stacks with 93 sheets"
+        rationale: |
+          Both counts fall by three, which may seem to keep the groups in step. Check how many sheets you lose when you take away one full stack.
+      - text: "12 stacks with 64 sheets"
+        rationale: |
+          This multiplies the stack count by one and a half and divides the sheet count by the same factor. Both counts use the same factor. Check that adding full stacks increases the total sheets.
+      - text: "15 stacks with 120 sheets"
+        rationale: |
+          This puts eight sheets in each stack. Eight is given in the problem, so it may look like the rate. Check what the eight counts.
+      - text: "16 stacks with 384 sheets"
+        rationale: |
+          This doubles the sheet count twice. There are twice as many stacks, so doubling looks right. Check how many times the stack count was doubled.
+    explanation: |
+      Each stack has $96\div8=12$ sheets. Five stacks of that size have $5\times12=60$ sheets.
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-pshs-0002
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A cyclist covers 18 kilometers in 24 minutes at a steady speed. What is the cyclist's speed in kilometers per hour?
+    choices:
+      - text: "0.75"
+        rationale: |
+          Dividing 18 by 24 gives the distance in one minute. This is a speed, so it may look right. Check which unit of time the question asks for.
+      - text: "30"
+        rationale: |
+          This uses the 36 minutes left in an hour as the travel time. Subtracting from 60 does involve hours and minutes. Check which minutes the cyclist spent riding.
+      - text: "45"
+        correct: true
+      - text: "75"
+        rationale: |
+          This treats 24 minutes as $0.24$ hour. The digits match the time given in minutes. Check by dividing the minutes by 60.
+      - text: "80"
+        rationale: |
+          This divides time by distance and then multiplies by 60. Multiplying by 60 makes sense if you start with kilometers per minute. Which number should come first when you divide to find kilometers per minute?
+    explanation: |
+      Twenty-four minutes is $\dfrac{24}{60}=0.4$ hour. Divide the distance by the time. The speed is $18\div0.4=45$ kilometers per hour.
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-pshs-0003
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      An art club used 90 centimeters of ribbon to cut six equal strips with no ribbon left over. The club needs to cut 14 new strips of the same length and has 120 centimeters of uncut ribbon for them. How many more centimeters of ribbon does the club need?
+    choices:
+      - text: "6 cm"
+        rationale: |
+          The uncut ribbon makes eight of the 14 new strips, so six more strips are needed. Check how many centimeters are in each of those six strips.
+      - text: "30 cm"
+        rationale: |
+          This subtracts 90 from 120. Both numbers are lengths of ribbon, so the difference is also a length. Check that the length you need is enough for 14 strips.
+      - text: "90 cm"
+        correct: true
+      - text: "120 cm"
+        rationale: |
+          This finds the length of eight strips, the increase from six to 14. That would work if the club had enough ribbon for just six strips. Check how many strips the club can cut from 120 centimeters.
+      - text: "210 cm"
+        rationale: |
+          This finds the length needed for all 14 strips. That total is a step in the solution. Check how much ribbon the club already has.
+    explanation: |
+      Each strip is $90\div6=15$ centimeters long. Fourteen strips need $14\times15=210$ centimeters. The club has 120 centimeters, so it needs $210-120=90$ more centimeters.
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-pshs-0004
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A print shop enlarges a poster by multiplying its height and width by the same number. The height goes from 18 centimeters to 30 centimeters. If the enlarged poster is 60 centimeters wide, how wide was the original poster?
+    choices:
+      - text: "100 cm"
+        rationale: |
+          This multiplies 60 by $\dfrac{30}{18}$. That factor makes the original poster larger. Check which way you need to go to find the width before the change.
+      - text: "30 cm"
+        rationale: |
+          This uses half the enlarged width. The enlarged width is twice the enlarged height, so halving may seem right. Check the ratio of the original height to the enlarged height.
+      - text: "36 cm"
+        correct: true
+      - text: "40 cm"
+        rationale: |
+          This multiplies 60 by $\dfrac{30-18}{18}$. The fraction tells how much the height grew compared with the original height. Check which fraction takes an enlarged length back to its original size.
+      - text: "48 cm"
+        rationale: |
+          This subtracts 12 from 60 because the height grew by 12 centimeters. That amount is the change in height. Check whether the two sides grow by the same amount or by the same factor.
+    explanation: |
+      Let $w$ be the original width in centimeters. Put the original size on top in both ratios. This gives $\dfrac{18}{30}=\dfrac{w}{60}$. Cross-multiply to get $30w=18\times60=1080$. Divide by 30 to get $w=36$ centimeters.
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-pshs-0005
+    lesson: lesson-arithmetic-number-sense-direct-proportion-and-travel
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A van has 1 hour and 35 minutes to complete an 84-kilometer trip. It has covered 52 kilometers in the first 55 minutes. At what constant speed, in kilometers per hour, must the van travel for the rest of the trip to arrive exactly on time?
+    choices:
+      - text: "0.8"
+        rationale: |
+          This divides the remaining 32 kilometers by 40 minutes. That gives the distance the van covers in one minute. Check how many minutes are in the unit the question asks for.
+      - text: "48"
+        correct: true
+      - text: "78"
+        rationale: |
+          This uses the 52 kilometers already traveled with the 40 minutes left. The time left is right. Check which distance the van still needs to cover.
+      - text: "80"
+        rationale: |
+          This treats 40 minutes as 0.4 hour because the digits look alike. Check what fraction of 60 minutes is 40 minutes.
+      - text: "126"
+        rationale: |
+          This uses the full 84 kilometers with the time left. The 84 kilometers is the whole trip. Check how much of that distance the van has already covered.
+    explanation: |
+      The van has $84-52=32$ kilometers left. The time allowed is $60+35=95$ minutes, so it has $95-55=40$ minutes left. That is $\dfrac{40}{60}=\dfrac{2}{3}$ of an hour. The van must travel at $32\div\dfrac{2}{3}=48$ kilometers per hour.
