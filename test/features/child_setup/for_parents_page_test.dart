@@ -11,6 +11,7 @@ import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/notice_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/child_setup/application/child_account_closer.dart';
 import 'package:pantas/features/child_setup/application/child_setup_providers.dart';
 import 'package:pantas/features/child_setup/domain/guardian_gate.dart';
@@ -301,6 +302,7 @@ void main() {
     testWidgets('the list is asked again each time the page opens',
         (tester) async {
       await pump(tester);
+      await tester.pumpWidget(const SizedBox());
       await pump(tester);
       verify(auth.listChildren).called(2);
     });

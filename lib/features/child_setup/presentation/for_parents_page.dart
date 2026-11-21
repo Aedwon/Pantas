@@ -134,7 +134,7 @@ class _ForParentsPageState extends ConsumerState<ForParentsPage> {
       // The stricter wording covers it.
     }
     final open = widget.confirmOnOpen;
-    if (open != null && mounted) await _ask(open);
+    if (open != null && mounted) unawaited(_ask(open));
   }
 
   /// This child's nickname from the server's list, or the one the child set up
