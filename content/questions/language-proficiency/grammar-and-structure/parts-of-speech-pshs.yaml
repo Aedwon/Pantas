@@ -1,0 +1,82 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: parts-of-speech-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-grammar-and-structure-parts-of-speech-pshs-0001
+    lesson: lesson-grammar-and-structure-joining-words-phrases-and-clauses
+    keyPoint: 1
+    type: parts-of-speech-identification
+    difficulty: medium
+    stem: |
+      “Ah! The missing screw rolled beneath the workbench and stopped against a leg.”
+      Which words serve as an interjection, a preposition, and a conjunction, in that order?
+    choices:
+      - text: "Ah, beneath, and"
+        correct: true
+      - text: "Ah, stopped, against"
+        rationale: |
+          “Stopped” and “against” sit next to each other, so they may look like a pair of linking words. Find the action in “stopped against a leg.” Then check which word joins that action to “rolled.”
+      - text: "Ah, stopped, and"
+        rationale: |
+          This treats “stopped” as a place word because it comes just before “against a leg.” Ask which word tells what the screw did and which word starts the group that tells where.
+      - text: "Missing, stopped, and"
+        rationale: |
+          “Missing” hints at why the speaker reacts. It describes the screw. “Ah” shows the speaker’s reaction. Ask where the screw stopped. “Stopped” tells what the screw did. “Against a leg” tells where it stopped.
+      - text: "Ah, beneath, against"
+        rationale: |
+          “Against” might look like a link between actions because it follows “stopped.” Check what comes after it. “Against a leg” tells where the screw stopped and shows that it touched the leg.
+    explanation: |
+      “Ah” shows the speaker’s reaction. “Beneath” tells where the screw rolled in relation to the workbench. “And” joins the actions “rolled” and “stopped.”
+
+  - id: q-grammar-and-structure-parts-of-speech-pshs-0002
+    lesson: lesson-grammar-and-structure-joining-words-phrases-and-clauses
+    keyPoint: 2
+    type: parts-of-speech-identification
+    difficulty: hard
+    stem: |
+      In which sentence does “before” act as a preposition in traditional school grammar?
+    choices:
+      - text: "We placed the mats before the first match."
+        correct: true
+      - text: "Before the first match began, we placed the mats."
+        rationale: |
+          The opening group starts with “before the first match,” which can be a phrase on its own. Read through “began” and check what the match did.
+      - text: "We placed the mats before the players from the visiting team arrived."
+        rationale: |
+          The long name for the group of players can hide the verb. Read all the way to “arrived” and ask who arrived.
+      - text: "Before we opened the gym, we placed the mats."
+        rationale: |
+          The opening group may look like a phrase because it cannot stand alone. Check whether “we” has its own verb in that group.
+      - text: "We placed the mats before it was time to warm up."
+        rationale: |
+          The word “time” makes this look like a phrase that names a time. Start right after “before” and look for the subject “it” and its verb “was.”
+    explanation: |
+      “Before” introduces “the first match” to tell when we placed the mats. The match is named in that group of words. There is no verb paired with it.
+
+  - id: q-grammar-and-structure-parts-of-speech-pshs-0003
+    lesson: lesson-grammar-and-structure-joining-words-phrases-and-clauses
+    keyPoint: 2
+    type: parts-of-speech-identification
+    difficulty: exam
+    stem: |
+      “Before the start of the exhibit, the staff tested the lights.”
+      Which revision keeps the order of events and uses “before” as a subordinating conjunction?
+    choices:
+      - text: "The staff tested the lights before the exhibit opened."
+        correct: true
+      - text: "The exhibit opened before the staff tested the lights."
+        rationale: |
+          This puts a subject and verb after “before,” so the grammar fits. The two events have switched places. Check which event happens first in each sentence.
+      - text: "The staff tested the lights before the opening of the exhibit."
+        rationale: |
+          This keeps the right order, and “opening” sounds like a word for an action. Check whether it has its own subject or names the event after “the.”
+      - text: "The staff tested the lights before opening time, and the exhibit began on schedule."
+        rationale: |
+          This keeps the events in order and uses “before.” Check the words that follow it. “Opening time” names a time, so “before” is a preposition. “And” joins the two clauses.
+      - text: "Before the exhibit began, the staff planned to test the lights."
+        rationale: |
+          The opening group has a subject and a verb, and the sentence mentions a test. Check what took place before the exhibit. A plan to test the lights leaves the time of the test open.
+    explanation: |
+      The staff tested the lights first. The exhibit opened later. In “before the exhibit opened,” the subject is “the exhibit” and the verb is “opened.” So “before” links that clause to the rest of the sentence.
