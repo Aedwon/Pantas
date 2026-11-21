@@ -134,6 +134,11 @@ test('staging read budget (Nov 16 ruling): above 40,000 reads or 16,000 writes a
   assert.equal(status(data(heavy(45000, 100)), 'Firestore daily operations'), 'OK');
 });
 
+test('Firestore daily operations show the last 24 hours, for the pre-run count (rule 7, Nov 21)', () => {
+  const recent = {firestore: {schedules: 0, backups: 0, daily: [...days(6), {day: '2026-11-21', reads: 12345, writes: 678, deletes: 0}]}};
+  assert.match(find(rows(data({}, recent)), 'Firestore daily operations').detail, /staging: last 24 h 12345 reads, 678 writes/);
+});
+
 test('both billing-cutoff functions must exist, and no service keeps a minimum instance', () => {
   assert.equal(status(data(), 'billing-cutoff'), 'OK');
   const missing = {services: [{name: 'exportdata', minInstances: 0}]};

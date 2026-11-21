@@ -127,7 +127,9 @@ export function judge(data, {waivers, now}) {
     const overBudget = isStaging(id) && (r.value > STAGING_BUDGET.readsPerDay || wr.value > STAGING_BUDGET.writesPerDay);
     opsStatus.push(over ? (isStaging(id) ? 'OVER' : 'WARN') : overBudget ? 'WARN' : 'OK');
     const budget = isStaging(id) ? `, staging budget ${STAGING_BUDGET.readsPerDay} reads and ${STAGING_BUDGET.writesPerDay} writes` : '';
-    opsText.push(`${short(id)}: max ${r.value} reads on ${r.day} (free ${FREE.firestoreReadsPerDay}), ${wr.value} writes on ${wr.day} (free ${FREE.firestoreWritesPerDay}${budget})`);
+    // The newest window is the last 24 hours: the "already used today" figure for a pre-run count.
+    const last = p.firestore.daily.at(-1) ?? {reads: 0, writes: 0};
+    opsText.push(`${short(id)}: last 24 h ${last.reads} reads, ${last.writes} writes; max ${r.value} reads on ${r.day} (free ${FREE.firestoreReadsPerDay}), ${wr.value} writes on ${wr.day} (free ${FREE.firestoreWritesPerDay}${budget})`);
   }
   add(worst(opsStatus), 'Firestore daily operations, last 7 days', opsText.join('; '));
 
