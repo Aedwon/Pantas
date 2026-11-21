@@ -1,7 +1,0 @@
-Wrote nine questions in [earths-motions-pshs.yaml](/Users/aedwon/.t3/worktrees/Pantas/content-pshs-nce-r1-15add0003f0bf1f9/content/questions/science/earth-science-astronomy/earths-motions-pshs.yaml).
-
-- Axial Tilt and Seasons — 3
-- Latitude and Daylight — 3
-- Solstices and Equinoxes — 3
-
-The validator returned `exit: 0` when run directly with the installed Dart SDK. The requested `dart run` command returned `exit: 1` because the launcher could not write to the Flutter cache.

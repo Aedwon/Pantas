@@ -1,8 +1,10 @@
 #!/bin/zsh
 # usage: QC_SCRATCH=<dir> run-group.sh <group key, e.g. science/biology/ecology>. Resumable through marker files.
 R0=${0:A:h:h:h:h:h}; cd $R0
-D=docs/content/pshs-nce/r2; g=$1; n=${g//\//__}; M=$D/runs/$n; mkdir -p $M
-S=${QC_SCRATCH:?}/q-$n; mkdir -p $S
+# All state (markers, logs, packets, keys, answers, reads) lives outside the worktree and /tmp, where no Codex sandbox can write.
+ST=$HOME/.local/state/pantas/pshs-r2
+D=docs/content/pshs-nce/r2; g=$1; n=${g//\//__}; M=$ST/runs/$n; mkdir -p $M
+S=$M/scratch; mkdir -p $S
 info() { python3 -I $D/ginfo.py $D/groups.json $g $1; }
 Q=$(info q); C=$(info c)
 [[ $C == 0 ]] && { echo "$g nothing to write"; touch $M/clean; exit 0; }
@@ -12,10 +14,10 @@ PROT=($D/*.sh $D/*.py $D/*.md $D/groups.json $D/lane*.txt $D/qc/*.py docs/conten
 SUM0=$(shasum -a 256 $PROT | shasum -a 256)
 # After each Codex step: pipeline files unchanged, and changes only in question files, new lesson parts, run outputs and lane logs.
 # Runs alone in its own worktree (one pipeline per worktree), so the guard can allow only this group's own files:
-# its question file, its run folder and the lane log. Anything else, including another group's markers, stops the run.
+# its question file. Anything else stops the run.
 guard() { local bad
   [[ $(shasum -a 256 $PROT | shasum -a 256) == $SUM0 ]] || { echo "pipeline files changed; stopping $g"; exit 3; }
-  bad=$(git status --porcelain --untracked-files=all | awk '{print $NF}' | grep -vxF -e "$Q" | grep -vE "^($M/.*|$D/lane[0-9][.]log)$")
+  bad=$(git status --porcelain --untracked-files=all | awk '{print $NF}' | grep -vxF -e "$Q")
   [[ -z $bad ]] || { echo "unexpected changes; stopping $g:"; echo "$bad"; exit 3; }; }
 val() { dart run tools/import_questions/import_questions.dart --root $(dirname $Q) >/dev/null 2>&1; }
 cx() { CODEX_PICK_PARALLEL=1 ~/.local/bin/codex-pick exec --skip-git-repo-check "$@" < /dev/null; local e=$?; [[ $e == 75 ]] && { echo "CODEX_FULL $g"; exit 75; }; return $e; }
@@ -28,10 +30,10 @@ fi
 for r in 1 2 3; do
   [[ -f $M/clean ]] && break
   if [[ ! -f $M/solve$r.done ]]; then
-    rm -rf $S/r$r; mkdir -p $S/r$r/solve $S/r$r/ans
+    rm -rf $S/r$r $M/solve$r; mkdir -p $S/r$r/solve $S/r$r/ans
     python3 -I $D/qc/build_packets.py --out $S/r$r --files $Q > $M/packets$r.log 2>&1
     f=$(ls $S/r$r/packets/*.md | head -1); fid=$(basename $f .md); cp $f $S/r$r/solve/packet.md
-    (cd $S/r$r/solve && cx $H -C $S/r$r/solve -o $S/r$r/ans/$fid.json "$(cat $R0/docs/content/pshs-nce/solve-brief.md)" > $R0/$M/solve$r.log 2>&1)
+    (cd $S/r$r/solve && cx $H -C $S/r$r/solve -o $S/r$r/ans/$fid.json "$(cat $R0/docs/content/pshs-nce/solve-brief.md)" > $M/solve$r.log 2>&1)
     python3 -I $D/qc/merge_solves.py --keys $S/r$r/keys --answers $S/r$r/ans --out $M/solve$r > $M/merge$r.log 2>&1 && touch $M/solve$r.done || { echo "solve failed $g r$r"; exit 1; }
   fi
   if [[ ! -s $M/fit$r.json ]]; then
