@@ -1,6 +1,7 @@
 import {setTestSecrets} from './_secrets-helper.mjs';
 import '../lib/index.js';
 import assert from 'node:assert/strict';
+import {createHmac} from 'node:crypto';
 import test, {beforeEach} from 'node:test';
 import {getAuth} from 'firebase-admin/auth';
 import {getFirestore} from 'firebase-admin/firestore';
@@ -31,7 +32,7 @@ let clock;
 let sent;
 let open;
 let n;
-const deps = (over = {}) => ({db, auth, now: () => clock, open: () => open, allow: async () => true, dailyCap: 100,
+const deps = (over = {}) => ({db, auth, evidenceKey: KEY, now: () => clock, open: () => open, allow: async () => true, dailyCap: 100,
   linkOrigin: 'https://app.example.test/', mailer: {send: async m => { sent.push(m); }}, ...over});
 
 const wipeUser = async uid => {
@@ -186,6 +187,7 @@ test('the first child writes the exact link documents, the consent record, claim
   assert.equal(e.method, 'guardian_held');
   assert.equal(e.holderUid, HOLDER);
   assert.equal(e.childUid, childUid);
+  assert.equal(e.guardianEmailHash, createHmac('sha256', KEY).update(`email\0${EMAIL}`).digest('hex'));
   assert.deepEqual(e.link, {holderUid: HOLDER, childUid});
   assert.equal(e.decidedAt, T0);
   assert.deepEqual(e.documentVersions, {...GUARDIAN_DOCUMENT_VERSIONS, child: CHILD_NOTICE_VERSION});
@@ -239,6 +241,20 @@ test('the receipt shares the guardian daily cap: when it is full setup still wor
   assert.ok(childUid);
   assert.equal(sent.length, 0);
   assert.equal((await db.doc('guardianLimits/global-2026-11-19').get()).get('count'), 3);
+});
+
+test('an unverified holder email leaves the receipt pending', async () => {
+  const {childUid} = await setup(HOLDER);
+  const email = 'replacement.setup@example.test';
+  await auth.updateUser(HOLDER, {email, emailVerified: false});
+  const nickname = as(childUid, {childId: childUid, nickname: 'Ana'});
+  await setNickname(nickname, deps());
+  assert.equal(sent.length, 0);
+  assert.equal((await entryOf(HOLDER, childUid)).receiptSentAt, undefined);
+  assert.equal((await db.doc('guardianLimits/global-2026-11-19').get()).get('count') ?? 0, 0);
+  await auth.updateUser(HOLDER, {emailVerified: true});
+  await setNickname(nickname, deps());
+  assert.deepEqual(sent.map(message => message.to), [email]);
 });
 
 test('nicknames are trimmed, 1 to 30 characters, with no markup, links, addresses or control characters', async () => {

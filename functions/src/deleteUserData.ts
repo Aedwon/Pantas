@@ -1,6 +1,7 @@
 import type {Auth} from 'firebase-admin/auth';
 import {FieldValue, type Firestore} from 'firebase-admin/firestore';
 import {getStorage} from 'firebase-admin/storage';
+import {HttpsError} from 'firebase-functions/v2/https';
 import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
 import {childEntryPath, childrenPath, holderForChild} from './childLinks.js';
@@ -43,7 +44,13 @@ export async function deleteUserData(
   // Capture the holder before recursive deletion removes the child's link. Retries reuse it.
   const linkedHolder = await holderForChild(db, uid);
   const attempt = await db.runTransaction(async tx => {
-    const earlier = await tx.get(task);
+    const [earlier, holder] = await Promise.all([tx.get(task), tx.get(userRef.collection('server').doc('holder'))]);
+    if (holder.exists) {
+      const active = await tx.get(db.collection(childrenPath(uid)).where('active', '==', true).limit(1));
+      if (!active.empty) {
+        throw new HttpsError('permission-denied', 'Close each child account first.', {reason: 'holder-has-children'});
+      }
+    }
     // A custom token can recreate a deleted Auth UID. An empty document permanently closes it.
     if (earlier.exists && Object.keys(earlier.data() ?? {}).length === 0) return null;
     if (typeof earlier.get('closedUntil') === 'number') {

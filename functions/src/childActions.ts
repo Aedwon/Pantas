@@ -5,7 +5,7 @@ import {assertAccountActive, onAccountCall as onCall} from './_accountAccess.js'
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {appSecrets} from './_secrets.js';
-import {childEntryPath, holderForChild} from './childLinks.js';
+import {canManageChild, childEntryPath, holderForChild} from './childLinks.js';
 import {deleteUserData} from './deleteUserData.js';
 import {consumeGuardianProof} from './guardianCodeGate.js';
 import {ACCOUNT_DELETION_MAX_INSTANCES} from './_options.js';
@@ -22,7 +22,7 @@ async function childHolder(db: Firestore, caller: string, childId: unknown): Pro
     throw new HttpsError('invalid-argument', 'Name the child.');
   }
   const holder = await holderForChild(db, childId);
-  if (!holder || (caller !== holder && caller !== childId)) throw notLinked();
+  if (!holder || !canManageChild(caller, holder, childId)) throw notLinked();
   await Promise.all([assertAccountActive(db, childId), assertAccountActive(db, holder)]);
   return holder;
 }

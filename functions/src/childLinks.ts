@@ -37,6 +37,10 @@ export const childLinkPath = (childUid: string): string => `users/${childUid}/se
 export const childrenPath = (holderUid: string): string => `users/${holderUid}/server/children/items`;
 export const childEntryPath = (holderUid: string, childUid: string): string => `${childrenPath(holderUid)}/${childUid}`;
 
+/** Parent actions target the caller's own child session or a child of the signed-in holder. */
+export const canManageChild = (callerUid: string, holderUid: string, childUid: string): boolean =>
+  callerUid === holderUid || callerUid === childUid;
+
 /**
  * The holder of an active linked child, or null. Both sides must agree: the child's link names the
  * holder, and the holder's list holds an active entry for that child. Anything else is "not linked".

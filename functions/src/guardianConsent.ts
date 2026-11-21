@@ -127,6 +127,7 @@ function requireCaller(request: AppRequest): string {
 }
 
 const consentRef = (db: Firestore, uid: string) => db.doc(`users/${uid}/server/guardianConsent`);
+const holderRef = (db: Firestore, uid: string) => db.doc(`users/${uid}/server/holder`);
 const tokenRef = (db: Firestore, hash: string) => db.doc(`guardianTokens/${hash}`);
 
 function publicStatus(data: FirebaseFirestore.DocumentData | undefined, now: number): PublicStatus {
@@ -199,12 +200,13 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
   const globalLimit = deps.db.doc(`guardianLimits/global-${day}`);
 
   const dayFull = await deps.db.runTransaction(async (tx): Promise<'full' | 'full-already-logged' | 'became-full' | 'ok'> => {
-    const [current, limit, global, openManage, deletion] = await Promise.all([tx.get(consent), tx.get(emailLimit), tx.get(globalLimit),
+    const [current, limit, global, openManage, deletion, holder] = await Promise.all([tx.get(consent), tx.get(emailLimit), tx.get(globalLimit),
       tx.get(deps.db.collection('guardianTokens').where('uid', '==', uid).where('kind', '==', 'manage').where('state', '==', 'open')),
-      tx.get(deps.db.doc(`accountDeletions/${uid}`))]);
+      tx.get(deps.db.doc(`accountDeletions/${uid}`)), tx.get(holderRef(deps.db, uid))]);
     const before = current.data();
     // A pending deletion also closes this door when the consent record is already gone.
     if (deletion.exists) throw accountClosed();
+    if (holder.exists) throw new HttpsError('failed-precondition', 'This account is managed by a parent or guardian.');
     if (before?.status === 'confirmed') {
       throw new HttpsError('failed-precondition', 'Already confirmed.');
     }
@@ -374,7 +376,9 @@ export async function answerRequest(request: AppRequest, deps: ConsentDeps): Pro
     if (row.state !== 'open') return {state: 'unknown'};
     if (now >= row.expiresAt) return {state: 'expired'};
     const consent = consentRef(deps.db, row.uid as string);
-    const current = (await tx.get(consent)).data();
+    const [snapshot, holder] = await Promise.all([tx.get(consent), tx.get(holderRef(deps.db, row.uid as string))]);
+    if (holder.exists) return {state: 'unknown'};
+    const current = snapshot.data();
     if (current?.status !== 'pending' || current.tokenHash !== hash) return {state: 'used'};
     const status: ConsentStatus = decision === 'confirm' ? 'confirmed' : 'declined';
     tx.set(tokenRef(deps.db, hash), {state: 'used', usedAt: now}, {merge: true});
@@ -414,7 +418,9 @@ async function manageView(get: (ref: DocumentReference) => Promise<DocumentSnaps
   // A manage token has no expiry. Revoked, deleted and confirm-kind rows all read as unknown.
   if (!row || row.kind !== 'manage' || row.state !== 'open' || typeof row.uid !== 'string') return unknown;
   const uid = row.uid;
-  const consent = (await get(consentRef(deps.db, uid))).data();
+  const [snapshot, holder] = await Promise.all([get(consentRef(deps.db, uid)), get(holderRef(deps.db, uid))]);
+  if (holder.exists) return unknown;
+  const consent = snapshot.data();
   // The emailed manage link belongs to the 13 to 17 flow only. Adult, child and unknown groups read as unknown.
   if (!consent || (consent.ageGroup !== undefined && consent.ageGroup !== 'minor')) return unknown;
   if (consent.status === 'confirmed') return {state: 'active', uid, sharingAllowed: consent.sharingAllowed === true};
@@ -685,11 +691,13 @@ async function purgeLegacyCounters(db: Firestore, name: string, rows: Query, exp
 
 async function purgeRateLimits(db: Firestore, now: number): Promise<void> {
   const cutoff = new Date(now);
+  const legacyCutoff = new Date(now - RATE_LIMIT_MAX_AGE_MS);
   const limits = db.collectionGroup('limits');
   await deleteDueRows(db, [
     limits.where('purgeAt', '<=', cutoff),
-    limits.where('windowStartedAt', '<=', new Date(now - RATE_LIMIT_MAX_AGE_MS)),
+    limits.where('windowStartedAt', '<=', legacyCutoff),
   ]);
+  await deleteDueRows(db, [limits.where('lastStagedAt', '<=', legacyCutoff)]);
   // The guardian-code limit already has an indexed expiry sweep above.
   for (const [name, expiry] of [
     ['guardianLimits', 'purgeAt'],
