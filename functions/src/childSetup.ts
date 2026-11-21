@@ -9,10 +9,11 @@ import {phDay} from './_phDate.js';
 import {appSecrets, secret} from './_secrets.js';
 import {timed} from './_timed.js';
 import {childEntryPath, childLinkPath, childrenOfHolder, childrenPath, holderForChild} from './childLinks.js';
-import {consumeGuardianProof} from './guardianCodeGate.js';
+import {cancelPendingGuardianCode, consumeGuardianProof} from './guardianCodeGate.js';
 import {CHILD_DOCUMENT_VERSIONS, CHILD_NOTICE_VERSION, GUARDIAN_DOCUMENT_VERSIONS, GUARDIAN_TICK_TEXT_VERSIONS,
   GUARDIAN_WINDOW_MS, guardianDailyCap, guardianLinkOrigin, guardianMailFrom, maskEmail} from './guardianConsent.js';
 import {expiryLabel, mailerFor, type GuardianMailer, type GuardianMessage} from './guardianMail.js';
+import {isValidPublicId} from './publicId.js';
 
 /**
  * Holder and child accounts: the setup callable and the callables a child session uses.
@@ -200,7 +201,8 @@ async function hasAccountData(db: Firestore, uid: string, claims: {[key: string]
   if (claims && (claims.pro !== undefined || claims.proUntil !== undefined)) return true;
   const userRef = db.doc(`users/${uid}`);
   const root = await userRef.get();
-  if (root.exists && Object.keys(root.data() ?? {}).some(key => key !== 'createdAt' && key !== 'lastSeenAt')) return true;
+  if (Object.entries(root.data() ?? {}).some(([key, value]) =>
+    key !== 'createdAt' && key !== 'lastSeenAt' && (key !== 'publicId' || !isValidPublicId(value)))) return true;
   if ((await db.doc(CONSENT_PATH(uid)).get()).exists) return true;
   const serverDocs = await userRef.collection('server').listDocuments();
   if (serverDocs.some(ref => !BENIGN_SERVER_DOCS.has(ref.id))) return true;
@@ -221,7 +223,8 @@ export async function setupChild(request: Req, deps: SetupDeps): Promise<{childU
     throw new HttpsError('failed-precondition', 'Child accounts are not open yet.', {reason: 'child-accounts-closed'});
   }
   const data = (request.data ?? {}) as Record<string, unknown>;
-  if (data.tick1TextVersion !== GUARDIAN_TICK_TEXT_VERSIONS.tick1 || data.tick2TextVersion !== GUARDIAN_TICK_TEXT_VERSIONS.tick2 ||
+  if (data.tick1Accepted !== true || data.tick2Accepted !== true ||
+      data.tick1TextVersion !== GUARDIAN_TICK_TEXT_VERSIONS.tick1 || data.tick2TextVersion !== GUARDIAN_TICK_TEXT_VERSIONS.tick2 ||
       data.termsVersion !== GUARDIAN_DOCUMENT_VERSIONS.terms || data.childNoticeVersion !== CHILD_NOTICE_VERSION) throw stale();
   const nickname = data.nickname === undefined || data.nickname === null || data.nickname === '' ? '' : cleanNickname(data.nickname);
 
@@ -281,6 +284,7 @@ export async function setupChild(request: Req, deps: SetupDeps): Promise<{childU
       tx.set(deps.db.collection(`guardianConsentEvidence/${childUid}/responses`).doc(), {
         action: 'child_setup', ageGroup: 'child', method: 'guardian_held', holderUid: uid, childUid,
         link: {holderUid: uid, childUid}, documentVersions: CHILD_DOCUMENT_VERSIONS,
+        ticksAccepted: {tick1: data.tick1Accepted, tick2: data.tick2Accepted},
         tickTextVersions: {tick1: GUARDIAN_TICK_TEXT_VERSIONS.tick1, tick2: GUARDIAN_TICK_TEXT_VERSIONS.tick2},
         decidedAt: now});
     });
@@ -353,20 +357,24 @@ export async function openSession(request: Req, deps: Pick<SetupDeps, 'db' | 'au
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
   await assertSignInTargetActive(deps.db, childId, uid);
-  if (!isHolder && uid !== childId) {
+  const switching = !isHolder && uid !== childId;
+  if (switching) {
     const entry = await deps.db.doc(childEntryPath(holderUid, childId)).get();
     if (entry.get('siblingOpenWithoutCode') !== true) {
       await consumeGuardianProof(data.guardianProofId, holderUid, childId, 'switchInto',
         {db: deps.db, now: deps.now});
     }
   }
+  let customToken: string;
   try {
-    return {customToken: await deps.auth.createCustomToken(childId)};
+    customToken = await deps.auth.createCustomToken(childId);
   } catch (error) {
     // Usually the runtime service account lacks the Service Account Token Creator role.
     logger.error('Could not create a custom token', {message: error instanceof Error ? error.message : 'unknown'});
     throw new HttpsError('unavailable', 'Sign-in is unavailable. Try again soon.');
   }
+  if (switching) await cancelPendingGuardianCode(deps.db, holderUid);
+  return {customToken};
 }
 
 // ------------------------------------------------------------- deployment

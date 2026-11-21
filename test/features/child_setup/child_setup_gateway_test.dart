@@ -32,7 +32,7 @@ void main() {
     gateway = CallableChildSetupGateway(client);
   });
 
-  test('setup sends the text versions and reads the child and token', () async {
+  test('setup sends both affirmations and text versions', () async {
     client.reply = {'childUid': 'child-1', 'customToken': 'token-1'};
     final result = await gateway.setupChildAccount();
     expect(result.childUid, 'child-1');
@@ -40,6 +40,8 @@ void main() {
     final (name, data) = client.calls.single;
     expect(name, 'setupChildAccount');
     expect(data, {
+      'tick1Accepted': true,
+      'tick2Accepted': true,
       'tick1TextVersion': ChildSetupVersions.tick1,
       'tick2TextVersion': ChildSetupVersions.tick2,
       'termsVersion': '2026-11-20',

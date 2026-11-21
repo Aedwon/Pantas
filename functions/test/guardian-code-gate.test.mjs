@@ -227,6 +227,29 @@ test('a mail failure gives the places back and leaves no pending code', async ()
   assert.equal(holderDay[1].count, 0);
 });
 
+test('a failed delivery releases its quota and leaves the later delivery intact', async () => {
+  const deliveryStarted = Promise.withResolvers();
+  const firstDelivery = Promise.withResolvers();
+  let deliveries = 0;
+  const r = rig({mailer: {send: async () => {
+    deliveries += 1;
+    if (deliveries === 1) {
+      deliveryStarted.resolve();
+      await firstDelivery.promise;
+    }
+  }}});
+  const first = err(r.ask('kidA', del));
+  await deliveryStarted.promise;
+  const next = {action: 'switchInto', childId: 'kidB'};
+  await r.ask('kidA', next);
+  firstDelivery.reject(new Error('provider down'));
+  assert.equal((await first).code, 'unavailable');
+  assert.equal(r.db.rows.get('guardianLimits/global-2026-11-19').count, 1);
+  assert.equal(r.db.rows.get('guardianCodeLimits/h1-2026-11-19').count, 1);
+  assert.equal(codeRow(r)?.childId, 'kidB');
+  assert.ok((await r.check('kidA', {...next, code: '000043'})).proof);
+});
+
 // ----------------------------------------------------------------- verify
 
 test('a right code returns a short-lived proof bound to holder, child and action, and uses the code up', async () => {

@@ -163,6 +163,10 @@ async function resolveHolder(db: Firestore, callerUid: string, childId: string |
 }
 
 const codePath = (holderUid: string): string => `guardianCodes/${holderUid}`;
+export async function cancelPendingGuardianCode(db: Firestore, holderUid: string): Promise<void> {
+  await db.doc(codePath(holderUid)).delete();
+}
+
 const proofPath = (id: string): string => `guardianCodeProofs/${id}`;
 const PROOF_ID = /^[0-9a-f]{32}$/;
 
@@ -206,6 +210,7 @@ export async function sendGuardianCode(request: Req, deps: SendDeps):
   const globalRef = deps.db.doc(`guardianLimits/global-${day}`);
   const random = deps.random ?? (() => randomInt(0, 1_000_000));
 
+  const reservationId = randomBytes(16).toString('hex');
   const slot = await deps.db.runTransaction<Slot>(async tx => {
     const [pending, holderDay, global] = await Promise.all([tx.get(codeRef), tx.get(holderDayRef), tx.get(globalRef)]);
     const sentAt = millis(pending.get('sentAt'));
@@ -228,7 +233,7 @@ export async function sendGuardianCode(request: Req, deps: SendDeps):
       ...(becameFull ? {fullLogged: true} : {})}, {merge: true});
     tx.set(holderDayRef, {count: holderCount + 1, purgeAt: new Date(at + DAY_MS + PURGE_MARGIN_MS)});
     // Replacing the document is what cancels a pending code for another child or action.
-    tx.set(codeRef, {holderUid, childId, action, codeHash: hashGuardianCode(deps.key, holderUid, childId, action, code),
+    tx.set(codeRef, {holderUid, childId, action, reservationId, codeHash: hashGuardianCode(deps.key, holderUid, childId, action, code),
       attempts: 0, sentAt: at, expiresAt: new Date(at + GUARDIAN_CODE_TTL_MS),
       purgeAt: new Date(at + GUARDIAN_CODE_TTL_MS + PURGE_MARGIN_MS)});
     return {kind: 'stored', code, becameFull};
@@ -253,8 +258,8 @@ export async function sendGuardianCode(request: Req, deps: SendDeps):
     logger.warn('Guardian code email failed', {message: error instanceof Error ? error.message : 'unknown'});
     // Remove the unsent code and give both places back, so a failing mailer cannot use up a cap.
     await deps.db.runTransaction(async tx => {
-      const [global, holderDay] = await Promise.all([tx.get(globalRef), tx.get(holderDayRef)]);
-      tx.delete(codeRef);
+      const [global, holderDay, pending] = await Promise.all([tx.get(globalRef), tx.get(holderDayRef), tx.get(codeRef)]);
+      if (pending.get('reservationId') === reservationId) tx.delete(codeRef);
       if (global.exists) tx.set(globalRef, {count: Math.max(0, Number(global.get('count') ?? 0) - 1),
         purgeAt: new Date(at + DAY_MS + GUARDIAN_WINDOW_MS)}, {merge: true});
       if (holderDay.exists) tx.set(holderDayRef, {count: Math.max(0, Number(holderDay.get('count') ?? 0) - 1),

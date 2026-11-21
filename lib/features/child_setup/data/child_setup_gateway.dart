@@ -6,7 +6,8 @@ import 'package:pantas/features/legal/domain/legal_document.dart';
 
 /// The two callables of parent-held child setup.
 abstract interface class ChildSetupGateway {
-  /// Records both ticks and creates the child. Throws [ChildSetupException].
+  /// Records both ticks and creates the child. Call after both ticks are set.
+  /// Throws [ChildSetupException].
   Future<ChildSetupResult> setupChildAccount({
     String? nickname,
     String? guardianProofId,
@@ -69,6 +70,8 @@ class CallableChildSetupGateway implements ChildSetupGateway {
     final Object? raw;
     try {
       raw = await _client.call('setupChildAccount', {
+        'tick1Accepted': true,
+        'tick2Accepted': true,
         'tick1TextVersion': ChildSetupVersions.tick1,
         'tick2TextVersion': ChildSetupVersions.tick2,
         'termsVersion': guardianDocumentVersions['terms'],
