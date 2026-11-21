@@ -1,0 +1,448 @@
+meta:
+  subject: language-proficiency
+  topic: language-application
+  subtopic: paragraph-organization-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-language-application-paragraph-organization-pshs-0001
+    lesson: lesson-language-application-openings-and-reference-links
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: medium
+    stem: |
+      Which sentence should open the paragraph below?
+
+      "The mark showed where the water had once reached. Below it, Joel spotted a row of small shells lodged between the stones."
+    choices:
+      - text: "Joel noticed a dark line across the wall by the river."
+        correct: true
+      - text: "Joel showed the shells he had gathered."
+        rationale: |
+          The shells seem like a good lead because they appear at the end. This opening leaves "the mark" unexplained. Check what the next sentence needs you to know.
+      - text: "The villagers remembered the river spilling over the road during the last storm."
+        rationale: |
+          The flood gives background for the water level. It leaves out the mark itself. Look for an opening that shows something Joel can see on the wall.
+      - text: "Joel asked where the stones came from."
+        rationale: |
+          The stones are part of the scene, so a question about them could start a story. This question leaves "the mark" unexplained. Check what the next sentence points to.
+      - text: "Joel studied an old photo that showed how wide the river once was."
+        rationale: |
+          The old photo could show a change in the river's size. It leaves the mark in the next sentence unexplained. Check what Joel finds at the river itself.
+    explanation: |
+      Joel sees a dark line on the wall. "The mark" names that line, and "below it" tells where Joel finds the shells.
+  - id: q-language-application-paragraph-organization-pshs-0002
+    lesson: lesson-language-application-cause-and-effect-order
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: medium
+    stem: |
+      Read this fictional report: "In the afternoon, the neighborhood market used to fill its aisles with crates of vegetables waiting to be unpacked. Shoppers often had to squeeze past them. Last month, vendors began unpacking their deliveries before the market opened. As a result, fewer crates were left in the aisles during shopping hours, and shoppers could move around more easily."
+
+      What change made it easier for shoppers to move around?
+    choices:
+      - text: "Vendors unpacked deliveries before opening."
+        correct: true
+      - text: "Vendors moved the crates."
+        rationale: |
+          Moving the crates could open up the aisles. This answer assumes the location changed. Check when the vendors now unpack.
+      - text: "Shoppers came earlier."
+        rationale: |
+          The report mentions a change in timing, so an earlier trip may sound right. Check whose routine changed.
+      - text: "Vendors ordered fewer crates of vegetables for the afternoon."
+        rationale: |
+          There were fewer crates in the aisles, which can sound like fewer crates arrived. Check what the vendors changed about unpacking.
+      - text: "Shoppers followed a route that kept them away from the crates."
+        rationale: |
+          A new route could make walking easier. This answer adds a change that the report leaves out. Look right before "as a result" for the cause.
+    explanation: |
+      The vendors unpacked the crates before shoppers arrived. That left fewer crates in the aisles, so shoppers had more room to walk.
+  - id: q-language-application-paragraph-organization-pshs-0003
+    lesson: lesson-language-application-details-and-supported-inferences
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: medium
+    stem: |
+      Read this fictional notice: "Students who signed up for the town hall tour should gather beside the flagpole. Families on the same tour should meet the guide in the lobby. Because the front steps are being repaired, both groups will leave the building through the side gate. School bags may be left with the guard at the lobby desk."
+
+      Where should a student on the tour go at the start?
+    choices:
+      - text: "Beside the flagpole"
+        correct: true
+      - text: "At the gate"
+        rationale: |
+          The side gate is for both groups, so it sounds like a place to meet. Check whether the notice gives it as a meeting place or an exit.
+      - text: "With the guide in the lobby"
+        rationale: |
+          This is a meeting place for the same tour. Check which group is told to go there.
+      - text: "At the guard's desk"
+        rationale: |
+          Students with bags may need the desk, so it sounds like a place to report. Check what the notice says the desk is for.
+      - text: "By the front steps"
+        rationale: |
+          The front steps would be a familiar place to gather. Check why the notice mentions them and where it tells students to meet.
+    explanation: |
+      The notice tells students to gather beside the flagpole. That is where the student group meets before the tour.
+  - id: q-language-application-paragraph-organization-pshs-0004
+    lesson: lesson-language-application-time-and-step-order
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: medium
+    stem: |
+      A student is arranging these instructions for a class exhibit.
+
+      1. Check the number on each tagged item against its entry in the exhibit list.
+      2. Write the numbers from the finished exhibit list on blank tags.
+      3. Attach each tag to the item named beside its number in the list.
+      4. List the items for the exhibit.
+      5. After checking the matches, set the labeled items out for display.
+      6. Give each item on the list a number.
+
+      Which step should immediately follow the writing of the tags?
+    choices:
+      - text: "Attach each tag to its item."
+        correct: true
+      - text: "Check the tagged items against the list."
+        rationale: |
+          The list is ready, so checking may sound like the next task. This skips putting the tags on. Check what must happen before an item can be checked by its tag.
+      - text: "Give each item a number on the list."
+        rationale: |
+          Numbering and writing tags belong together, so this sounds close. Check where the numbers on the tags came from.
+      - text: "Put the labeled items out on display."
+        rationale: |
+          The tags have been written, so the items may seem ready to show. Check which steps must be done before the items count as labeled and checked.
+      - text: "List the exhibit items."
+        rationale: |
+          A list is needed to keep track of the tags. Check whether the instructions say the list is already finished when the tags are written.
+    explanation: |
+      The tags get their numbers from the finished list. Once the tags are written, put them on the matching items. Then the tags can be checked against the list.
+  - id: q-language-application-paragraph-organization-pshs-0005
+    lesson: lesson-language-application-transition-links
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: medium
+    stem: |
+      Read this fictional report: "The club offered to lend its folding tables to the school fair. However, the tables were too wide for the entrance to the fair hall. The club set them up in the courtyard instead."
+
+      Which two ideas does "however" connect?
+    choices:
+      - text: "The offer to lend the tables and the problem with getting them inside."
+        correct: true
+      - text: "The problem with getting the tables inside and the decision to use the courtyard."
+        rationale: |
+          The doorway problem does lead to the courtyard setup, so this pair fits the story. Check the ideas on either side of "however."
+      - text: "The club's decision to lend the tables and its choice of a place to set them up."
+        rationale: |
+          Both actions are taken by the club, so they seem linked. This answer skips the problem that "however" introduces. Read the full sentence that starts with it.
+      - text: "The size of the hall and the space in the courtyard."
+        rationale: |
+          The two locations make a comparison seem possible. The issue in the second sentence is the entrance. Check which feature of the hall caused trouble.
+      - text: "The school's need for tables and the club's offer."
+        rationale: |
+          A need for tables could explain the offer. This pair treats the link as a reason for lending. Check what the next sentence says about using the tables.
+    explanation: |
+      The club offers tables for the fair. "However" brings up a problem with that plan. The tables cannot fit through the entrance.
+  - id: q-language-application-paragraph-organization-pshs-0006
+    lesson: lesson-language-application-openings-and-reference-links
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: hard
+    stem: |
+      Read these sentences from a fictional account.
+
+      1. Pilar carried a cloth bag and a woven basket to the riverbank.
+      2. ___
+      3. She tied the lid onto it so none of the sample jars could fall out.
+      4. With the jars secure, she carried the basket back to the school.
+
+      Which sentence best fills the blank and makes the reference in sentence 3 clear?
+    choices:
+      - text: "She put jars of river water in the basket."
+        correct: true
+      - text: "She packed the jars in the bag."
+        rationale: |
+          Both containers are named in the opening, so the bag seems possible. This leaves the jars in the wrong place. Check which container holds them when she returns to school.
+      - text: "She tied a strip of cloth to each jar for a label."
+        rationale: |
+          Labeling the jars makes sense before a trip. This introduces the jars without showing which container "it" means. Check where the jars need to be packed.
+      - text: "She set the lid beside the jars."
+        rationale: |
+          Naming the lid seems helpful because the next sentence uses it. This leaves the jars beside the lid. Look for a sentence that puts the jars in a container.
+      - text: "She used the basket to carry the cloth bag and her notebook."
+        rationale: |
+          This brings the basket into focus, so "it" may seem clear. The sentence names what she puts inside and leaves out the jars. Check what the lid keeps from falling out.
+    explanation: |
+      Pilar puts the jars in the basket. The word "it" points back to the basket she has just filled. The lid keeps the jars inside.
+  - id: q-language-application-paragraph-organization-pshs-0007
+    lesson: lesson-language-application-cause-and-effect-order
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: hard
+    stem: |
+      Read this fictional account: "The art club moved its paper lantern display from the covered court to the hallway. The reason for the move was simple. Gusts kept blowing across the open sides of the court and tangling the hanging lanterns. The hallway was narrow, so the club hung the lanterns in a row along one wall."
+
+      Which two events form the cause and effect introduced by "The reason for the move"?
+    choices:
+      - text: "The wind tangled the lanterns, so the club moved them."
+        correct: true
+      - text: "The club moved the lanterns, so the wind tangled their strings."
+        rationale: |
+          This follows the order in which the events are told. It swaps the cause and the result. Check which event explains why the club moved.
+      - text: "The narrow hallway made the club move the display there."
+        rationale: |
+          The hallway's width does explain a decision in the account. Check whether it explains the move or how the lanterns were hung after the move.
+      - text: "The club hung the lanterns in a row, so the strings tangled."
+        rationale: |
+          The arrangement of strings could affect whether they tangle. This puts the row in the wrong place. Check where the club hung the lanterns in a row.
+      - text: "Moving the lanterns made the hallway too narrow."
+        rationale: |
+          A display could take up space in a hallway. This treats the narrow space as a result of the move. Check what the account says about the hallway's width.
+    explanation: |
+      The first sentence tells what the club did. The reason comes later. Wind tangled the lanterns in the court, so the club moved them to the hallway.
+  - id: q-language-application-paragraph-organization-pshs-0008
+    lesson: lesson-language-application-details-and-supported-inferences
+    keyPoint: 2
+    type: sentence-ordering
+    difficulty: hard
+    stem: |
+      Read this fictional account: "At lunch, Emil stopped beside the cloth banner his class had hung for the school fair. The corner nearest the door sagged whenever the door swung open. Emil waited for the hall to clear, opened the door slowly, and watched the top of the door brush against the corner. He went back to the classroom and asked for a stool."
+
+      What will Emil most likely do with the stool?
+    choices:
+      - text: "Raise the banner's loose corner."
+        correct: true
+      - text: "Prop the door open."
+        rationale: |
+          He has been watching the door, so holding it open may sound like his goal. Check what the door hits and what a stool would help him reach.
+      - text: "Take the whole banner down for the day."
+        rationale: |
+          A stool would help him reach the banner. This guess goes beyond the trouble he checked. Look at how much of the banner the door touches.
+      - text: "Check the top of the door for damage."
+        rationale: |
+          A stool would help Emil see the top of the door where it brushes the cloth. Check what sags when the door opens. The loose banner corner is what he needs to reach.
+      - text: "Use it to keep the banner from touching the floor."
+        rationale: |
+          The word "sagged" can make you picture the banner dropping far. Check where the corner gets caught.
+    explanation: |
+      The door brushes the loose corner of the banner. Emil asks for a stool right after he sees that happen. The stool would help him reach the corner and lift it out of the way.
+  - id: q-language-application-paragraph-organization-pshs-0009
+    lesson: lesson-language-application-time-and-step-order
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: hard
+    stem: |
+      Read these events from a fictional school newsletter.
+
+      1. At dismissal, the class collected the finished bookmarks.
+      2. Just after recess, Liza set the printed sheets on the drying rack.
+      3. Before the first bell, the craft club brought paper to the classroom.
+      4. Just before lunch, the teacher took the dry sheets off the rack.
+      5. During lunch, volunteers cut the sheets into bookmarks.
+
+      Which statement gives the correct order of two consecutive events?
+    choices:
+      - text: "The teacher took the sheets off the rack before volunteers cut them."
+        correct: true
+      - text: "The class collected the bookmarks before volunteers cut them."
+        rationale: |
+          Collection comes first in the list, so it may look like an early event. Check the time of collection against the time of cutting.
+      - text: "Liza set out the sheets just before the paper arrived."
+        rationale: |
+          Both steps lead to the finished bookmarks. This puts the printed sheets on the rack before the paper arrives. Compare the first bell and recess.
+      - text: "The volunteers cut the sheets just before the teacher took them off the rack."
+        rationale: |
+          Cutting and taking the sheets off the rack both happen near lunchtime. Check which happened before lunch and which happened during lunch.
+      - text: "The craft club brought the paper immediately before the teacher took the sheets off the rack."
+        rationale: |
+          The paper does arrive before the teacher takes down the sheets. This skips a step in between. Find what Liza did after recess.
+    explanation: |
+      The teacher took the sheets off the rack just before lunch. The volunteers cut them during lunch. None of the events in the list happened between those two steps.
+  - id: q-language-application-paragraph-organization-pshs-0010
+    lesson: lesson-language-application-transition-links
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: hard
+    stem: |
+      Read this draft paragraph.
+
+      1. The school fair offers several ways for visitors to try a craft for themselves.
+      2. At some stalls, including the woodworker's, visitors can begin as soon as they arrive.
+      3. However, some stalls ask visitors to watch the whole demonstration before joining in.
+      4. At the weaving stall, visitors first watch the weaver finish a row.
+
+      Where should the following sentence go?
+
+      "The clay stall is another place where visitors can start right away by pressing a design into a tile."
+    choices:
+      - text: "After the sentence about the woodworker."
+        correct: true
+      - text: "Before the opening sentence."
+        rationale: |
+          Working with clay might make a lively opening. Here, "another place" has nothing to refer back to. Look for the first stall where visitors can start right away.
+      - text: "After the sentence about watching first but before the weaving example."
+        rationale: |
+          A general statement followed by an example often reads well. This spot would make the clay stall an example of watching first. Do visitors at the clay stall start right away or watch a demonstration first?
+      - text: "After the sentence about the weaving stall at the end."
+        rationale: |
+          Both sentences describe particular stalls, so they seem to belong together. The clay stall shows a different way to join in. Check which examples belong before the contrast.
+      - text: "Right after the opening sentence."
+        rationale: |
+          The opening introduces crafts that visitors can try, so a clay example might fit there. Check where the paragraph first names a stall where visitors can start right away.
+    explanation: |
+      The woodworker's stall is the first place where visitors can start right away. "Another place" adds the clay stall to the same group. "However" then moves on to stalls where visitors have to watch first.
+  - id: q-language-application-paragraph-organization-pshs-0011
+    lesson: lesson-language-application-time-and-step-order
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: exam
+    stem: |
+      A class is making a booklet from folded sheets. Read the instructions.
+
+      1. Stack the folded sheets so the page numbers are in order.
+      2. Number the pages of the folded sheets lightly in pencil.
+      3. Fasten the stack along its folded edge.
+      4. Fold each sheet in half.
+      5. Trim any uneven edges once the stack is fastened.
+
+      Which statement correctly describes the order of the steps?
+    choices:
+      - text: "Number the pages after folding and before stacking."
+        correct: true
+      - text: "Stack the sheets before numbering them."
+        rationale: |
+          The numbers are needed before fastening, so this may seem early enough. The sheets must already have numbers when they are stacked in page order. Check what guides the stacking.
+      - text: "Stack the sheets after folding and trim them before fastening."
+        rationale: |
+          Folding does come before stacking. This moves trimming too early. Check what must hold the stack together when the edges are trimmed.
+      - text: "Fasten the folded sheets before numbering the pages and trimming the edges."
+        rationale: |
+          A fastened booklet would be easy to keep in order while writing. Check when the numbers must be ready for the page order check.
+      - text: "Number the pages before folding, then stack and fasten the folded sheets."
+        rationale: |
+          It can seem easier to write on a flat sheet. The instructions say to number the pages after the folds are made. Check which step creates the pages that get numbered.
+    explanation: |
+      Fold the sheets to make the pages. Number the pages so the stack can be put in order. Then fasten the stack and trim the edges.
+  - id: q-language-application-paragraph-organization-pshs-0012
+    lesson: lesson-language-application-openings-and-reference-links
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: exam
+    stem: |
+      Read these sentences from an account of a school performance.
+
+      1. The stage crew built a wooden frame for the painted backdrop.
+      2. A pair of braces held the frame upright during rehearsal.
+      3. A student pointed to the brace nearest the curtain and said the frame leaned whenever someone brushed against that brace.
+      4. After tightening that joint, the crew moved the braces away from the path to the wings.
+      5. That change let actors reach the stage without bumping into the supports.
+
+      The writer wants to add this sentence.
+
+      "The crew checked the brace the student had pointed out and found a loose joint."
+
+      Where does the new sentence best fit?
+    choices:
+      - text: "Between the student's observation and the crew's move."
+        correct: true
+      - text: "Between the opening about the wooden frame and the introduction of the braces."
+        rationale: |
+          A fault in the frame's support sounds like part of the setup. This spot mentions a brace before the reader knows about the pair. Check where the braces first appear.
+      - text: "Between sentences 2 and 3."
+        rationale: |
+          Putting the loose joint first gives the cause before the wobble. The new sentence refers to a brace the student has already pointed to. Check where the student points to that brace.
+      - text: "Between the crew's move and the statement about how it helped the actors."
+        rationale: |
+          The reader might still want to know why the brace wobbled. This spot introduces the loose joint after the crew tightens "that joint." Check what the reader needs to know before the crew acts.
+      - text: "After the final sentence."
+        rationale: |
+          The loose joint could sound like a closing detail. Here it brings back the problem after the account has turned to the outcome. Check where the paragraph is still explaining what the student saw.
+    explanation: |
+      The student points to the brace nearest the curtain. The new sentence shows that the crew finds a loose joint on that brace. The words "that joint" then tell us which joint the crew tightens.
+  - id: q-language-application-paragraph-organization-pshs-0013
+    lesson: lesson-language-application-cause-and-effect-order
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: exam
+    stem: |
+      The following draft describes a rehearsal.
+
+      1. For the first time that afternoon, the actors at the back heard the cue clearly.
+      2. ___
+      3. With all the fans still running, the cue carried across the stage this time instead of into the wings.
+      4. As a result, they entered as soon as the recording ended.
+
+      Which sentence should fill the blank to explain the result in sentence 1 and support the link to sentence 3?
+    choices:
+      - text: "The crew had turned the speaker toward the stage."
+        correct: true
+      - text: "The actors had moved closer to the speaker."
+        rationale: |
+          Moving closer could make the cue easier to hear. The cue itself now travels across the stage. Check what could send the sound in a new direction.
+      - text: "The crew had switched off the fans nearest the back of the stage."
+        rationale: |
+          Switching off nearby fans could make the cue easier to hear. Check whether any fans were turned off when the cue traveled across the stage.
+      - text: "The actors had been told to wait until the recording ended."
+        rationale: |
+          The last sentence mentions the end of the recording, so the timing seems relevant. An instruction to wait would tell the actors when to enter. Check what changed the direction of the sound.
+      - text: "The crew had chosen a clearer recording."
+        rationale: |
+          A clearer recording could make the cue easier to hear. The cue now travels across the stage instead of into the wings. Check what could change where the sound goes.
+    explanation: |
+      The crew turns the speaker toward the stage. The cue now carries across the stage to the actors at the back. They can hear it clearly and enter as soon as the recording ends.
+  - id: q-language-application-paragraph-organization-pshs-0014
+    lesson: lesson-language-application-details-and-supported-inferences
+    keyPoint: 2
+    type: sentence-ordering
+    difficulty: exam
+    stem: |
+      Read this fictional account: "On her way home, Ina passed a shop that repaired umbrellas. She usually went straight past the counter to watch the owner work. One day, he spread two torn umbrellas on the bench. He checked the spokes of one, took a patch of cloth from the other, and set the patch beside his needle. Ina slipped a broken umbrella out of her bag and asked, 'If I bring this in tomorrow, may I sit beside you while you fix it?'"
+
+      What most likely makes Ina want to sit beside the owner?
+    choices:
+      - text: "She wants to see how he makes the repair."
+        correct: true
+      - text: "She wants him to use new cloth."
+        rationale: |
+          Seeing the owner take cloth from another umbrella could make Ina wonder what cloth he would use. Check what she asks to do while he fixes her umbrella.
+      - text: "She wants to ask whether the owner will trade umbrellas with her."
+        rationale: |
+          The owner works with parts from two umbrellas, so a trade may come to mind. Check what Ina asks permission to do during the repair.
+      - text: "She wants to stop him from taking the spokes off her umbrella."
+        rationale: |
+          Ina sees him check the spokes of another umbrella, so she could have a question about hers. Check whether she objects to any of his work.
+      - text: "She wants a place to wait until the shop closes for the day."
+        rationale: |
+          Sitting beside the owner involves staying for a while. This answer adds a reason to wait until closing. Check what Ina usually stops to do and when she asks to sit beside him.
+    explanation: |
+      Ina often stops to watch the owner work. She asks to sit beside him while he fixes her own umbrella. Both clues show that she wants to see how he does it.
+  - id: q-language-application-paragraph-organization-pshs-0015
+    lesson: lesson-language-application-transition-links
+    keyPoint: 1
+    type: sentence-ordering
+    difficulty: exam
+    stem: |
+      Read these sentences from a fictional article.
+
+      1. The school began leaving a box of clean paper scraps beside the art room door.
+      2. Students used the scraps for rough sketches before starting their final drawings.
+      3. In addition, teachers used leftover strips as labels for trays of art supplies.
+      4. However, scraps too small to draw on or write on kept piling up.
+      5. Therefore, the class placed a separate bin nearby for those pieces.
+
+      Which description best follows the links in the paragraph?
+    choices:
+      - text: "It gives uses for the scraps, then a problem and a response."
+        correct: true
+      - text: "It compares two uses for the scraps and picks one."
+        rationale: |
+          The paragraph names two uses, so a comparison seems possible. "In addition" adds a use. Check whether either use is judged to be better.
+      - text: "It describes two problems with the scraps, then gives a solution for each problem."
+        rationale: |
+          The new bin deals with a problem, so a problem and solution pattern does appear. Check whether making labels is a problem or another use.
+      - text: "It gives examples of scraps the class could use after it added a separate bin."
+        rationale: |
+          The sketches and labels are examples of using scraps, so this choice may sound right. Check the order. The paragraph describes sketching and labeling before it introduces the separate bin.
+      - text: "It explains a problem caused by the separate bin and how students put the scraps to use."
+        rationale: |
+          The bin and the pile of scraps are linked, so it is easy to swap their roles. Look for the issue right before "therefore" and the action that follows it.
+    explanation: |
+      Students sketch on the scraps, and teachers use them as labels. "In addition" joins these uses. "However" introduces the pile of tiny scraps. "Therefore" shows how the class dealt with that pile.
