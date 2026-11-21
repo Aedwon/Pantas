@@ -1,0 +1,324 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: matter-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-chemistry-matter-pshs-0001
+    lesson: lesson-chemistry-phase-change-directions
+    keyPoint: 1
+    type: process-ordering
+    difficulty: medium
+    stem: |
+      In a cold chamber, water vapor first forms droplets in the air.
+      As the air cools further, those droplets turn into ice grains.
+      Which sequence describes what happened to the water?
+    choices:
+      - text: Condensation followed by freezing
+        correct: true
+      - text: Freezing followed by condensation
+        rationale: |
+          Both changes can happen as water cools. Check whether drops
+          have to form before they can freeze.
+      - text: Condensation followed by sublimation
+        rationale: |
+          Condensation fits the first step. Sublimation involves a solid,
+          so it may seem to fit the ice grains. Check whether a solid is
+          the starting or ending state in sublimation.
+      - text: Deposition followed by freezing
+        rationale: |
+          Deposition may seem to fit because vapor and ice are both present
+          at different times. Check whether the vapor first forms a liquid.
+      - text: Evaporation followed by deposition
+        rationale: |
+          These steps would link liquid water to ice through a gas.
+          Check whether the chamber starts with liquid water or vapor.
+    explanation: |
+      The vapor becomes liquid drops by condensation. The drops then
+      become solid ice by freezing.
+
+  - id: q-chemistry-matter-pshs-0002
+    lesson: lesson-chemistry-physical-separation-of-matter
+    keyPoint: 1
+    type: identify
+    difficulty: medium
+    stem: |
+      A sample of cloudy water contains fine clay and iron filings.
+      The clay and iron particles are about the same size. A student
+      wants to remove only the iron and leave the clay in the water.
+      Which method should the student use?
+    choices:
+      - text: Dip a magnet into the sample, then lift it out.
+        correct: true
+      - text: Pour the sample through a fine paper filter.
+        rationale: |
+          A fine filter can catch iron particles. Check whether it
+          would also catch clay particles of the same size.
+      - text: Warm the sample until the water evaporates.
+        rationale: |
+          Drying the sample would leave the iron behind. Check what
+          would happen to the water that should hold the clay.
+      - text: Boil the water and collect it by cooling the vapor.
+        rationale: |
+          Distillation would let the student keep the water. Check
+          whether the clay would travel with the vapor into the new
+          container.
+      - text: Add water and stir until the sample is less cloudy.
+        rationale: |
+          Adding water can spread out the particles so they are harder
+          to see. Check whether it removes the iron from the water.
+    explanation: |
+      A magnet pulls on the iron filings. The clay and water stay
+      in the sample.
+
+  - id: q-chemistry-matter-pshs-0003
+    lesson: lesson-chemistry-phase-change-directions
+    keyPoint: 2
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A student keeps a tile warm as a thin film of water dries on it.
+      Which statement describes the energy transfer between the tile
+      and the film that helps the water evaporate?
+    choices:
+      - text: The film takes in energy from the tile.
+        correct: true
+      - text: The film gives energy to the tile.
+        rationale: |
+          The film can cool as it dries, which may look like a sign that
+          it gave energy to the tile. Check what the water needs to escape
+          as vapor.
+      - text: The film takes in energy only at a boil.
+        rationale: |
+          Boiling takes in energy and produces vapor. Check whether water
+          can also gain enough energy to leave from the surface.
+      - text: The film first takes in energy, then gives it back.
+        rationale: |
+          The tile can warm the film at first. If the film cools as it
+          dries, it may seem to give heat back to the tile. Where do the
+          water particles get the energy they need to leave the liquid?
+      - text: The film stops exchanging energy with the tile.
+        rationale: |
+          The water is still the same substance, so the change may seem
+          to need no energy. Check what must happen to the attractions
+          between water particles leaving the surface.
+    explanation: |
+      Water particles need energy to escape from the liquid. The warm
+      tile supplies energy as the film turns into vapor.
+
+  - id: q-chemistry-matter-pshs-0004
+    lesson: lesson-chemistry-physical-separation-of-matter
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      A student pours equal amounts of a well-stirred salt solution into
+      two dishes and warms them gently. One dish is heated until dry.
+      The other still has liquid when heating stops. Which choice gives
+      the correct comparison of the amounts of salt left and the correct
+      reason?
+    choices:
+      - text: They hold equal amounts because only water evaporates.
+        correct: true
+      - text: The dry dish holds more because only visible salt is still there.
+        rationale: |
+          Salt is easy to see in the dry dish, so you might think the salt
+          you cannot see is gone. Does the wet dish still hold dissolved salt?
+      - text: The wet dish holds more because heating to dryness drives salt into the air.
+        rationale: |
+          More water leaves the dish heated until dry. That may make it
+          seem like more salt leaves too. Check what goes into the air.
+      - text: They hold equal amounts because both lose the same amount of salt to the air.
+        rationale: |
+          Both dishes lose water, so it may seem like both lose salt as
+          well. Check whether salt goes with the water when it evaporates.
+      - text: The dry dish holds more because some water turns into salt as it dries.
+        rationale: |
+          Salt crystals appear as the dish dries. That may look like new
+          salt forming. Check where the salt was before heating.
+    explanation: |
+      Both dishes start with the same amount of salt. The water leaves
+      as vapor, and the salt stays behind. The dishes still hold the
+      same amount of salt.
+
+  - id: q-chemistry-matter-pshs-0005
+    lesson: lesson-chemistry-temperature-during-phase-changes
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      Two pots of pure water are boiling at the same constant air
+      pressure. One heater transfers energy to its pot of water faster.
+      While both pots still contain boiling liquid, how do their
+      temperatures compare?
+    choices:
+      - text: The water in both pots has the same temperature.
+        correct: true
+      - text: The liquid receiving energy faster is hotter.
+        rationale: |
+          Faster heating can bring cold water to a boil sooner. Check
+          where the added energy goes once both liquids are boiling.
+      - text: The liquid losing water faster is cooler.
+        rationale: |
+          Evaporation can cool water that is left to dry. Here the heaters
+          keep both pots boiling. Check what sets the boiling temperature.
+      - text: The liquid with less water left is hotter.
+        rationale: |
+          A smaller amount of water can warm up faster. Check whether
+          the amount of liquid left changes its boiling point at the
+          same pressure.
+      - text: The temperature difference grows as boiling continues.
+        rationale: |
+          One heater supplies more energy in the same time, so a growing
+          gap may seem likely. Check what that energy does during boiling.
+    explanation: |
+      Both pots boil at the same temperature because the air pressure
+      is the same. The added energy helps water particles pull away
+      from each other and become vapor.
+
+  - id: q-chemistry-matter-pshs-0006
+    lesson: lesson-chemistry-phase-change-directions
+    keyPoint: 2
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      Frost forms directly from water vapor on a freezer shelf. Later,
+      some of that frost changes straight into vapor. How does the water
+      exchange energy with its surroundings during these two changes?
+    choices:
+      - text: It gives out energy first and takes it in later.
+        correct: true
+      - text: It takes in energy first and gives it out later.
+        rationale: |
+          The two changes are opposites, so opposite energy transfers
+          make sense. Check which change forms attractions between
+          particles and which loosens them.
+      - text: It gives out energy during both changes.
+        rationale: |
+          The freezer stays cold during both changes. Check whether
+          particles need energy to escape from the solid.
+      - text: It takes in energy during both changes.
+        rationale: |
+          Making vapor takes in energy, and both steps change the
+          water's state. Check what happens to energy as particles
+          join the solid.
+      - text: It gives out energy first and exchanges no energy later.
+        rationale: |
+          Frost can shrink without leaving a puddle, so the second
+          change may look like it needs no energy. Check what lets
+          the particles leave the solid.
+    explanation: |
+      Water gives out energy when its vapor forms frost. Attractions
+      form between the particles. Later, the frost takes in energy so
+      particles can pull away from each other and become vapor.
+
+  - id: q-chemistry-matter-pshs-0007
+    lesson: lesson-chemistry-temperature-during-phase-changes
+    keyPoint: 1
+    type: cause-effect
+    difficulty: hard
+    stem: |
+      A pure solid is heated at constant pressure. At the first reading,
+      some solid remains and the temperature is steady. At the second
+      reading, all the material is liquid and the temperature is rising.
+      What changed about how the sample uses the added energy?
+    choices:
+      - text: It first loosens attractions, then increases particle motion.
+        correct: true
+      - text: It first increases particle motion, then loosens attractions.
+        rationale: |
+          Heating can make particles move faster, and melting loosens
+          their attractions. Check which of the two readings shows
+          that the particles are moving faster on average.
+      - text: It speeds particles up at both readings, slowly at first.
+        rationale: |
+          The solid and liquid are both being heated. Even a slow rise
+          in average motion would raise the first temperature. Check
+          what changed while that reading was steady.
+      - text: It starts entering only after the last of the solid melts.
+        rationale: |
+          A steady temperature can look like a sign that heating has
+          stopped. Check what is still happening to the solid during
+          the first reading.
+      - text: It first loosens attractions in the solid, then does so in the liquid.
+        rationale: |
+          Heat loosens attractions as the solid melts, so it may seem
+          to work the same way on the liquid. Check what the rising
+          temperature says about particle motion.
+    explanation: |
+      During melting, the added energy loosens the pull between
+      particles. Their average motion stays steady. Once the sample
+      is all liquid, more heat makes the particles move faster on
+      average, so the temperature rises.
+
+  - id: q-chemistry-matter-pshs-0008
+    lesson: lesson-chemistry-physical-separation-of-matter
+    keyPoint: 1
+    type: process-ordering
+    difficulty: exam
+    stem: |
+      A student receives water mixed with sand and dissolved salt. The
+      student needs to collect the water as a liquid and keep the sand
+      and salt in separate containers. Which sequence meets all three
+      goals?
+    choices:
+      - text: Filter out the sand, then distill the salt solution.
+        correct: true
+      - text: Filter out the sand, then evaporate the water in an open dish.
+        rationale: |
+          This would leave the sand and salt apart. Check whether the
+          water that leaves the open dish is collected as a liquid.
+      - text: Distill the mixture, then filter the collected water.
+        rationale: |
+          The first step saves the water. Check where the sand and salt
+          stay when the water leaves as vapor.
+      - text: Filter out the sand, then pass the liquid through ordinary filter paper.
+        rationale: |
+          The first filter catches sand grains, so another filter may seem
+          able to catch the salt. Check what the paper can catch. Dissolved
+          salt passes through ordinary filter paper with the water.
+      - text: Evaporate the water, then sort the dry solids with a filter.
+        rationale: |
+          A filter sorts by size, so it may seem useful for sorting
+          the dry sand and salt. How would this plan collect the water?
+    explanation: |
+      The filter catches the sand. The salt goes through with the
+      water. Distillation turns the water into vapor and cools it
+      back to liquid in another container. The salt stays behind.
+
+  - id: q-chemistry-matter-pshs-0009
+    lesson: lesson-chemistry-temperature-during-phase-changes
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      Two teams heat pure water in open pots. One team is at sea level,
+      and the other is high on a mountain where air pressure is lower.
+      Air pressure stays steady at each site. Which set of thermometer
+      readings should the teams expect while both samples are boiling?
+    choices:
+      - text: Both stay steady, with the mountain reading lower.
+        correct: true
+      - text: Both stay steady at the same temperature.
+        rationale: |
+          Both pots contain pure water, so one boiling temperature may
+          seem to fit both. Check how lowering the pressure affects
+          the boiling point.
+      - text: Both stay steady, with the mountain reading higher.
+        rationale: |
+          The pressure difference does change the boiling point. Check
+          which direction the boiling point moves as pressure falls.
+      - text: Both rise, with the mountain reading lower.
+        rationale: |
+          Both heaters are still adding energy. Check whether that
+          energy makes the liquid hotter while it boils.
+      - text: The sea-level reading holds, and the mountain reading falls.
+        rationale: |
+          Lower pressure gives a lower boiling point, so the mountain
+          reading may seem to fall. Check whether the pressure changes
+          during boiling at that site.
+    explanation: |
+      Lower air pressure lets water boil at a lower temperature.
+      At each site the pressure stays the same. While the water
+      boils, added energy helps particles escape as vapor, so each
+      thermometer holds steady.
