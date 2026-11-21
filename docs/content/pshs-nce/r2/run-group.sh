@@ -8,7 +8,11 @@ Q=$(info q); C=$(info c)
 [[ $C == 0 ]] && { echo "$g nothing to write"; touch $M/clean; exit 0; }
 P=$(info p); [[ -n $P && -n $Q ]] || { echo "empty task $g"; exit 4; }
 TASK="Question file: $Q. Parts: $P."
-guard() { local bad; bad=$(git status --porcelain --untracked-files=all | grep -vE '^\?\? content/lessons/' | awk '{print $NF}' | grep -vE '^(content/questions/|docs/content/pshs-nce/)'); [[ -z $bad ]] || { echo "unexpected changes; stopping $g:"; echo "$bad"; exit 3; }; }
+PROT=($D/*.sh $D/*.py $D/*.md $D/groups.json $D/lane*.txt $D/qc/*.py docs/content/pshs-nce/solve-brief.md docs/content/pshs-nce/fit-brief.md)
+SUM0=$(shasum -a 256 $PROT | shasum -a 256)
+# After each Codex step: pipeline files unchanged, and changes only in question files, new lesson parts, run outputs and lane logs.
+guard() { local bad; [[ $(shasum -a 256 $PROT | shasum -a 256) == $SUM0 ]] || { echo "pipeline files changed; stopping $g"; exit 3; }
+  bad=$(git status --porcelain --untracked-files=all | grep -vE '^\?\? content/lessons/.*\.md$' | awk '{print $NF}' | grep -vE '^(content/questions/.*-pshs(-q|-2)?\.yaml|docs/content/pshs-nce/r2/runs/.*|docs/content/pshs-nce/r2/lane[0-9]\.log|docs/content/pshs-nce/r2/d21/.*\.(json|log|out|done|txt))$'); [[ -z $bad ]] || { echo "unexpected changes; stopping $g:"; echo "$bad"; exit 3; }; }
 val() { dart run tools/import_questions/import_questions.dart --root $(dirname $Q) >/dev/null 2>&1; }
 cx() { CODEX_PICK_PARALLEL=1 ~/.local/bin/codex-pick exec --skip-git-repo-check "$@" < /dev/null; local e=$?; [[ $e == 75 ]] && { echo "CODEX_FULL $g"; exit 75; }; return $e; }
 W=(-m gpt-6.2-sol -c model_reasoning_effort=medium -s workspace-write)
