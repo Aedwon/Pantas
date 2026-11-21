@@ -2,7 +2,7 @@ import {randomUUID, createHash} from 'node:crypto';
 import {getFirestore, type DocumentReference, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {assertAccountActive, onAccountCall as onCall} from './_accountAccess.js';
+import {assertAccountActive, onAccountCall as onCall, PSHS_NCE_EXAM} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {holderForChild} from './childLinks.js';
@@ -18,7 +18,6 @@ import {examCatalog, sittingFor, type CatalogExam, type Sitting} from './revenue
 import {timed} from './_timed.js';
 
 export const CHECKOUT_BOX_TEXT_VERSION = '2026-11-20';
-const PSHS_NCE_EXAM = 'exam_pshs_nce';
 
 const CHECKOUTS_PER_WINDOW = 10;
 const WINDOW_MS = 10 * 60_000;

@@ -1,7 +1,7 @@
 import {createHash, randomInt} from 'node:crypto';
 import {getFirestore, type Firestore, type Transaction} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {onStudyAccountCall as onCall} from './_accountAccess.js';
+import {onExamStudyAccountCall, onStudyAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {allowAtMost} from './_limits.js';
@@ -463,7 +463,7 @@ export async function recordMock(auth: Auth, data: unknown, deps: MockDeps): Pro
   });
 }
 
-export const startMock = onCall(
+export const startMock = onExamStudyAccountCall(
   {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck},
   timed('startMock', request => {
     assertFreshAppCheck(request);

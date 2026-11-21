@@ -1,5 +1,5 @@
 import {setTestSecrets} from './_secrets-helper.mjs';
-import '../lib/index.js';
+import {deleteAccount} from '../lib/index.js';
 import assert from 'node:assert/strict';
 import test, {beforeEach} from 'node:test';
 import {getAuth} from 'firebase-admin/auth';
@@ -359,4 +359,36 @@ test('a holder cannot check out, and nothing is reserved', async () => {
   assert.equal(e.code, 'permission-denied');
   assert.equal(reasonOf(e), 'holder-cannot-buy');
   assert.equal((await db.collection(`users/${HOLDER}/pendingCheckouts`).get()).size, 0);
+});
+
+test('first-child setup and self-deletion cannot both commit for a new holder', async t => {
+  const deletion = uid => {
+    const request = as(uid, {});
+    request.auth.token.auth_time = Math.floor(Date.now() / 1000);
+    return deleteAccount.run(request);
+  };
+  const runTransaction = db.runTransaction.bind(db);
+  const beforeNextTransaction = step => {
+    const interceptor = t.mock.method(db, 'runTransaction', async (...args) => {
+      interceptor.mock.restore();
+      await step();
+      return runTransaction(...args);
+    });
+  };
+
+  let childUid;
+  beforeNextTransaction(async () => {
+    ({childUid} = await setup(HOLDER));
+  });
+  await assert.rejects(deletion(HOLDER), {code: 'permission-denied', details: {reason: 'holder-has-children'}});
+  assert.equal((await db.doc(`accountDeletions/${HOLDER}`).get()).exists, false);
+  assert.equal((await entryOf(HOLDER, childUid)).active, true);
+  assert.equal((await auth.getUser(HOLDER)).uid, HOLDER);
+
+  const other = 'cs-holder-two';
+  beforeNextTransaction(() => deletion(other));
+  await assert.rejects(setup(other), {code: 'permission-denied', details: {reason: 'account-closed'}});
+  assert.equal((await db.doc(`accountDeletions/${other}`).get()).exists, true);
+  assert.equal((await itemsOf(other).get()).empty, true);
+  await db.doc(`accountDeletions/${other}`).delete();
 });

@@ -1,6 +1,6 @@
 import {logger} from 'firebase-functions';
 import {HttpsError, type CallableRequest} from 'firebase-functions/v2/https';
-import {onStudyAccountCall as onCall} from './_accountAccess.js';
+import {onReportingAccountCall as onCall} from './_accountAccess.js';
 import {enforceAppCheck} from './_appCheck.js';
 import {RateLimiter} from './clientTelemetry.js';
 import {SCREEN_IDS} from './_screenIds.js';
@@ -76,4 +76,4 @@ export function processUsageVisit(
 }
 
 export const reportUsageVisit = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
-  timed('reportUsageVisit', (request: CallableRequest) => processUsageVisit(request.auth, request.data)));
+  timed('reportUsageVisit', (request: CallableRequest) => processUsageVisit(request.auth, request.data)), true);

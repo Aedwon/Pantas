@@ -3,7 +3,7 @@ import {loadCorpusCached} from './_examContent.js';
 import {enforceAppCheck} from './_appCheck.js';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {onStudyAccountCall as onCall} from './_accountAccess.js';
+import {onExamStudyAccountCall, onStudyAccountCall as onCall} from './_accountAccess.js';
 import {allowAtMost} from './_limits.js';
 import {MAX_CUSTOM_TRACKS, customTier, customTrackRef, isCustomExamId, tierDisplayName} from './_customTrack.js';
 import {assertStudyOwner} from './studyObservations.js';
@@ -64,5 +64,5 @@ export async function removeCustomTrack(auth: Auth, data: unknown, deps: Deps): 
 
 export const getCustomTracks = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
   timed('getCustomTracks', request => readCustomTracks(request.auth, request.data, {db: getFirestore()})));
-export const deleteCustomTrack = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
+export const deleteCustomTrack = onExamStudyAccountCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
   timed('deleteCustomTrack', request => removeCustomTrack(request.auth, request.data, {db: getFirestore()})));

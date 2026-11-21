@@ -23,13 +23,10 @@ export const deleteAccount = onCall(
     assertFreshAppCheck(request);
     const uid = assertNamedUser(request.auth);
     const db = getFirestore();
-    const [consent, link, holder] = await db.getAll(db.doc(`users/${uid}/server/guardianConsent`),
-      db.doc(childLinkPath(uid)), db.doc(`users/${uid}/server/holder`));
+    const [consent, link] = await db.getAll(db.doc(`users/${uid}/server/guardianConsent`),
+      db.doc(childLinkPath(uid)));
     if (request.auth?.token.ageGroup === 'child' || consent.get('ageGroup') === 'child' || link.exists) {
       return closeChild(uid, uid, request.data?.guardianProofId, 'delete');
-    }
-    if (holder.exists) {
-      throw new HttpsError('permission-denied', 'Close each child account first.', {reason: 'holder-has-children'});
     }
     const authTimeSeconds = request.auth?.token.auth_time ?? 0;
     const authAgeSeconds = Math.floor(Date.now() / 1000) - authTimeSeconds;
@@ -41,7 +38,7 @@ export const deleteAccount = onCall(
       );
     }
 
-    await deleteUserData(db, getAuth(), uid, 'user_request', { requestAuth: request.auth });
+    await deleteUserData(db, getAuth(), uid, 'user_request', {requestAuth: request.auth, refuseHolder: true});
 
     return { deletedAt: new Date().toISOString() };
   }),

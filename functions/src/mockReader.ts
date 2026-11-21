@@ -1,6 +1,6 @@
 import {FieldPath, getFirestore, type Firestore, type Transaction} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {onStudyAccountCall as onCall} from './_accountAccess.js';
+import {onExamStudyAccountCall, onStudyAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {allowAtMost} from './_limits.js';
@@ -160,7 +160,7 @@ export async function writeMockReview(auth: Auth, data: unknown, deps: Deps) {
 }
 
 const options = {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck};
-export const getMockAvailability = onCall(options, timed('getMockAvailability', request => serveMockAvailability(request.auth, request.data, {db: getFirestore()})));
+export const getMockAvailability = onExamStudyAccountCall(options, timed('getMockAvailability', request => serveMockAvailability(request.auth, request.data, {db: getFirestore()})));
 export const getMockResults = onCall(options, timed('getMockResults', request => serveMockResults(request.auth, request.data, {db: getFirestore()})));
 export const getMockHistory = onCall(options, timed('getMockHistory', request => serveMockHistory(request.auth, request.data, {db: getFirestore()})));
 export const updateMockReview = onCall({...options, consumeAppCheckToken: enforceAppCheck}, timed('updateMockReview', request => {

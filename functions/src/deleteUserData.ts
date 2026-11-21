@@ -1,5 +1,6 @@
 import type {Auth} from 'firebase-admin/auth';
 import {FieldValue, type Firestore} from 'firebase-admin/firestore';
+import {HttpsError} from 'firebase-functions/v2/https';
 import {getStorage} from 'firebase-admin/storage';
 import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
@@ -18,6 +19,8 @@ export type DeletionReason = 'user_request' | 'guardian_withdrawal' | 'inactive_
 export type DeletionOptions = {
   /** The caller's own token, when the user asked. Server jobs omit it and the Auth record is read. */
   requestAuth?: Parameters<typeof assertNamedUser>[0];
+  /** A self-deletion cannot remove a holder that appeared during the request. */
+  refuseHolder?: boolean;
   now?: () => number;
 };
 
@@ -44,6 +47,9 @@ export async function deleteUserData(
   const linkedHolder = await holderForChild(db, uid);
   const attempt = await db.runTransaction(async tx => {
     const earlier = await tx.get(task);
+    if (options.refuseHolder && (await tx.get(userRef.collection('server').doc('holder'))).exists) {
+      throw new HttpsError('permission-denied', 'Close each child account first.', {reason: 'holder-has-children'});
+    }
     // A custom token can recreate a deleted Auth UID. An empty document permanently closes it.
     if (earlier.exists && Object.keys(earlier.data() ?? {}).length === 0) return null;
     if (typeof earlier.get('closedUntil') === 'number') {

@@ -2,8 +2,8 @@ import '../lib/index.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
-import {build, saveExamSettings, readStudyRoadmap} from '../lib/roadmap.js';
-import {recordSession} from '../lib/ingestSession.js';
+import {build, saveExamSettings, readStudyRoadmap, setExamSettings, getRoadmap} from '../lib/roadmap.js';
+import {recordSession, ingestSession} from '../lib/ingestSession.js';
 import {blueprintItem, lessonItem, questionSetItems, writeContent} from '../lib/contentUpload.js';
 import {clearExamContentCache} from '../lib/_examContent.js';
 import {phDay} from '../lib/_phDate.js';
@@ -254,4 +254,19 @@ test('totals: an account from before this change is backfilled once, by a rebuil
     }
     await sameRoadmap(uid, day(3), true, via);
   }
+});
+
+test('only PSHS-NCE can be selected or requested at exam-scoped child callables', async () => {
+  const uid = 'r-guardian-child';
+  const auth = named(uid);
+  await db.doc(`users/${uid}/server/guardianConsent`).set({ageGroup: 'child'});
+  const call = (fn, examId, data = {}) => fn.run({auth, data: {expectedUid: uid, examId, ...data}});
+
+  for (const examId of [EXAM, 'exam_custom_00000000-0000-4000-8000-000000000000']) {
+    await assert.rejects(call(setExamSettings, examId, {studyDays: [1]}), {code: 'permission-denied'});
+  }
+  assert.equal((await db.doc(`users/${uid}/server/settings`).get()).exists, false);
+  await assert.rejects(call(getRoadmap, EXAM), {code: 'permission-denied'});
+  await assert.rejects(call(ingestSession, EXAM, {origin: 'drill'}), {code: 'permission-denied'});
+  assert.deepEqual(await call(setExamSettings, 'exam_pshs_nce', {studyDays: [1]}), {stored: true});
 });

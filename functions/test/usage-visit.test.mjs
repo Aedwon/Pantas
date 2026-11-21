@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import {initializeApp} from 'firebase-admin/app';
+import {getFirestore} from 'firebase-admin/firestore';
 import {RateLimiter} from '../lib/clientTelemetry.js';
 import {
   SCREEN_IDS, processUsageVisit, validateUsageVisit, reportUsageVisit,
@@ -139,4 +141,32 @@ test('the callable is deployed in asia-southeast1', () => {
   const endpoint = reportUsageVisit.__endpoint;
   assert.ok(endpoint.callableTrigger);
   assert.deepEqual(endpoint.region, ['asia-southeast1']);
+});
+
+
+test('the callable refuses usage reports for restricted age records or claims', async t => {
+  const db = getFirestore(initializeApp({projectId: 'demo-pantas-test'}));
+  let consent;
+  const snapshot = data => ({exists: data !== undefined, get: key => data?.[key]});
+  t.mock.method(db, 'getAll', async (...refs) =>
+    refs.map(ref => snapshot(ref.path.endsWith('/guardianConsent') ? consent : undefined)));
+  t.mock.method(Object.getPrototypeOf(db.doc('users/fake/server/holder')), 'get',
+    async () => snapshot(undefined));
+  const uid = 'fake-usage-user';
+  const run = token => reportUsageVisit.run({auth: {uid, token}, data: valid()});
+
+  for (const [record, token] of [
+    [{ageGroup: 'child'}, {}],
+    [{ageGroup: 'unknown'}, {ageGroup: 'adult'}],
+    [{status: 'confirmed'}, {}],
+    [undefined, {ageGroup: 'unknown'}],
+    [undefined, {holder: 'fake-holder'}],
+  ]) {
+    consent = record;
+    await assert.rejects(run(token), {code: 'permission-denied'});
+  }
+  consent = {ageGroup: 'adult'};
+  assert.deepEqual(await run({}), {ok: true});
+  consent = undefined;
+  assert.deepEqual(await run({}), {ok: true});
 });

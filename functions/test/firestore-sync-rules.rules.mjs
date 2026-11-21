@@ -626,3 +626,22 @@ test('AC-3 all client access to the server entitlement namespace is denied', asy
   await assertFails(getDoc(doc(db,'users/pro/server/entitlement')));
   await assertFails(setDoc(doc(db,'users/pro/server/entitlement'),{pro:true,version:1}));
 });
+
+test('an active holder with live Pro cannot create a user root or write study data', async () => {
+  const rootlessHolder = 'sync-rootless-holder';
+  await testEnv.withSecurityRulesDisabled(async context => {
+    const db = context.firestore();
+    for (const uid of ['pro', rootlessHolder]) {
+      await setDoc(doc(db, `users/${uid}/server/holder`), {createdAt: new Date()});
+    }
+  });
+  const claims = {firebase: {sign_in_provider: 'google.com'}, pro: true};
+  const holder = context('pro', claims);
+  const rootless = context(rootlessHolder, claims);
+
+  await assertFails(setDoc(doc(rootless, `users/${rootlessHolder}`), {createdAt: serverTimestamp()}));
+  await assertFails(updateDoc(doc(holder, 'users/pro'), {preferences: {exam: 'fake-exam'}}));
+  await assertFails(updateDoc(doc(holder, 'users/pro/sync_generations/active'), {preferences: {exam: 'fake-exam'}}));
+  await assertFails(setDoc(doc(holder, 'users/pro/sync_generations/active/lesson_progress/holder-lesson'),
+    rowData({lessonId: 'holder-lesson'})));
+});

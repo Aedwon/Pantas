@@ -23,6 +23,15 @@ service cloud.firestore {
       return isNamedUser() && request.auth.uid == uid;
     }
 
+    function isStudyOwner(uid) {
+      return isOwner(uid)
+          && !exists(/databases/$(database)/documents/users/$(uid)/server/holder);
+    }
+
+    function isProStudyWriter(uid) {
+      return isStudyOwner(uid) && hasLivePro();
+    }
+
     function hasLivePro() {
       return request.auth.token.pro == true
           && request.auth.token.proUntil is number
@@ -118,7 +127,7 @@ service cloud.firestore {
     }
 
     function canWriteSyncRow(uid, generationId, fields) {
-      return isProOwner(uid)
+      return isProStudyWriter(uid)
           && generationNotDeleting(uid, generationId)
           && (
             isActiveGeneration(uid, generationId)
@@ -149,11 +158,11 @@ service cloud.firestore {
 
     match /users/{uid} {
       allow read: if isOwner(uid);
-      allow create: if isOwner(uid)
+      allow create: if isStudyOwner(uid)
           && request.resource.data.keys().hasAll(['createdAt'])
           && request.resource.data.keys().hasOnly(['createdAt'])
           && request.resource.data.createdAt == request.time;
-      allow update: if isOwner(uid)
+      allow update: if isStudyOwner(uid)
           && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
             'displayName',
             'photoUrl',
@@ -195,14 +204,14 @@ service cloud.firestore {
 
       match /limits/{key} {
         allow create, update: if key == 'syncGeneration'
-            && isProOwner(uid) && validStageLimit(uid);
+            && isProStudyWriter(uid) && validStageLimit(uid);
         allow read, delete: if false;
       }
 
       match /sync_generations/{generationId} {
         allow read: if isProOwner(uid) && generationNotDeleting(uid, generationId);
 
-        allow create: if isProOwner(uid)
+        allow create: if isProStudyWriter(uid)
             && stageAuthorized(uid, generationId)
             && request.resource.data.keys().hasAll([
               'status',
@@ -226,7 +235,7 @@ service cloud.firestore {
             && request.resource.data.createdByDeviceId.size() <= 128
             && validGenerationPreferences();
 
-        allow update: if isProOwner(uid)
+        allow update: if isProStudyWriter(uid)
             && (
               resource.data.status == 'active'
               || resource.data.status == 'staging'
