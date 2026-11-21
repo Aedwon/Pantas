@@ -127,9 +127,9 @@ export function judge(data, {waivers, now}) {
     const overBudget = isStaging(id) && (r.value > STAGING_BUDGET.readsPerDay || wr.value > STAGING_BUDGET.writesPerDay);
     opsStatus.push(over ? (isStaging(id) ? 'OVER' : 'WARN') : overBudget ? 'WARN' : 'OK');
     const budget = isStaging(id) ? `, staging budget ${STAGING_BUDGET.readsPerDay} reads and ${STAGING_BUDGET.writesPerDay} writes` : '';
-    // The newest window is the last 24 hours: the "already used today" figure for a pre-run count.
-    const last = p.firestore.daily.at(-1) ?? {reads: 0, writes: 0};
-    opsText.push(`${short(id)}: last 24 h ${last.reads} reads, ${last.writes} writes; max ${r.value} reads on ${r.day} (free ${FREE.firestoreReadsPerDay}), ${wr.value} writes on ${wr.day} (free ${FREE.firestoreWritesPerDay}${budget})`);
+    // What the project has used in the current quota day: the "already used" figure for a pre-run count.
+    const today = p.firestore.today ?? {since: '-', reads: 0, writes: 0};
+    opsText.push(`${short(id)}: quota day since ${today.since} ${today.reads} reads, ${today.writes} writes; max ${r.value} reads on ${r.day} (free ${FREE.firestoreReadsPerDay}), ${wr.value} writes on ${wr.day} (free ${FREE.firestoreWritesPerDay}${budget})`);
   }
   add(worst(opsStatus), 'Firestore daily operations, last 7 days', opsText.join('; '));
 
@@ -177,6 +177,15 @@ async function inBatches(items, size, fn) {
   return results;
 }
 
+/** The latest midnight in America/Los_Angeles at or before `at`, when Firestore's free quota resets. */
+export function pacificMidnight(at) {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', {timeZone: 'America/Los_Angeles', hourCycle: 'h23',
+    year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'})
+    .formatToParts(at).map((p) => [p.type, p.value]));
+  const sinceMidnight = ((Number(parts.hour) * 60 + Number(parts.minute)) * 60 + Number(parts.second)) * 1000 + at.getUTCMilliseconds();
+  return new Date(at.getTime() - sinceMidnight);
+}
+
 const series = (api, project, metric, query) =>
   api(`https://monitoring.googleapis.com/v3/projects/${project}/timeSeries?filter=${encodeURIComponent(`metric.type="${metric}"`)}&${query}`, project)
     .then((body) => body?.timeSeries ?? []);
@@ -209,6 +218,14 @@ async function collectProject(api, project) {
   for (const db of databases) schedules += (await pages(api, `https://firestore.googleapis.com/v1/${db.name}/backupSchedules`, project, 'backupSchedules')).length;
   const backups = (await pages(api, `https://firestore.googleapis.com/v1/projects/${project}/locations/-/backups`, project, 'backups')).length;
 
+  // The current quota day: Firestore's free quota resets at midnight Pacific time. One bucket from then to now.
+  const since = pacificMidnight(end);
+  const today = {since: iso(since), reads: 0, writes: 0};
+  const sinceQuery = `interval.startTime=${iso(since)}&interval.endTime=${iso(end)}&aggregation.alignmentPeriod=${Math.max(60, Math.ceil((end - since) / 1000))}s&aggregation.perSeriesAligner=ALIGN_SUM&aggregation.crossSeriesReducer=REDUCE_SUM`;
+  for (const [key, metric] of [['reads', 'read_count'], ['writes', 'write_count']]) {
+    for (const s of await series(api, project, `firestore.googleapis.com/document/${metric}`, sinceQuery)) today[key] += s.points.reduce((t, p) => t + num(p.value), 0);
+  }
+
   const ops = {};
   for (const [key, metric] of [['reads', 'read_count'], ['writes', 'write_count'], ['deletes', 'delete_count']]) {
     // Rolling 24-hour windows ending now. Google's free quota resets at Pacific midnight, so a window
@@ -236,7 +253,7 @@ async function collectProject(api, project) {
   const services = (await pages(api, `https://run.googleapis.com/v2/projects/${project}/locations/-/services?pageSize=100`, project, 'services'))
     .map((s) => ({name: s.name.split('/').pop(), minInstances: Math.max(s.scaling?.minInstanceCount ?? 0, s.template?.scaling?.minInstanceCount ?? 0)}));
 
-  return {scheduler: {jobs}, secretVersions, registry, hostingEgress24h, firestore: {schedules, backups, daily: Object.values(ops).sort((a, b) => a.day.localeCompare(b.day))},
+  return {scheduler: {jobs}, secretVersions, registry, hostingEgress24h, firestore: {schedules, backups, today, daily: Object.values(ops).sort((a, b) => a.day.localeCompare(b.day))},
     buckets, apis, alerts, recaptchaCap, services};
 }
 
