@@ -107,6 +107,7 @@ class QuizCompletionCoordinator {
               chosenChoiceId: outcome.chosenChoiceId,
               correctChoiceId: outcome.correctChoiceId,
               responseMs: outcome.responseMs,
+              variantIndex: outcome.variantIndex,
             ),
           )
           .toList(growable: false),

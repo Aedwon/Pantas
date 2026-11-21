@@ -87,6 +87,21 @@ void main() {
     explanation: 'e',
   );
 
+  test('a variant answer records its index and updates served state', () async {
+    final now = DateTime.utc(2026, 11, 21);
+    final outcome = await useCase(
+      question: question,
+      variantIndex: 0,
+      chosenChoiceId: 'c_b',
+      responseMs: 500,
+      now: now,
+    );
+    expect(outcome.variantIndex, 0);
+    final state = verify(() => repo.upsert(captureAny()))
+        .captured.single as ReviewState;
+    expect(state.servedVariants, {0: now});
+  });
+
   test('correct answer → outcome.isCorrect=true and ReviewState upserted',
       () async {
     final outcome = await useCase(

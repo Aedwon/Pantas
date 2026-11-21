@@ -94,6 +94,7 @@ void main() {
       startedAt: start,
       attemptId: 'assessment-stable',
       responseMs: {'q1': 1234},
+      variantIndexes: {'q1': 0},
     );
     await useCase.call(
       session: session,
@@ -107,6 +108,8 @@ void main() {
     final attempt = await attemptsRepo.byId('assessment-stable');
     expect(attempt!.startedAt, start);
     expect(attempt.items.single.responseMs, 1234);
+    expect(attempt.items.single.variantIndex, 0);
+    expect(before?.servedVariants, {0: start.add(const Duration(minutes: 2))});
     expect(attempt.completedAt, start.add(const Duration(minutes: 2)));
     expect((await reviewRepo.byQuestionId('q1'))!.reps, before!.reps);
   });

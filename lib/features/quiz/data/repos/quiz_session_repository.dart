@@ -41,6 +41,7 @@ class QuizSessionRepository {
     required ExamId examId,
     required SessionOrigin origin,
     required List<QuestionId> questionIds,
+    Map<QuestionId, int> variantIndexes = const {},
     required DateTime startedAt,
     TopicId? topicId,
     SubtopicId? subtopicId,
@@ -52,6 +53,7 @@ class QuizSessionRepository {
       examId: examId,
       origin: origin,
       questionIds: questionIds,
+      variantIndexes: variantIndexes,
       startedAt: startedAt,
       topicId: topicId,
       subtopicId: subtopicId,
@@ -69,6 +71,7 @@ class QuizSessionRepository {
     required ExamId examId,
     required SessionOrigin origin,
     required List<QuestionId> questionIds,
+    Map<QuestionId, int> variantIndexes = const {},
     required DateTime startedAt,
     required FutureOr<bool> Function() canPersist,
     TopicId? topicId,
@@ -98,6 +101,7 @@ class QuizSessionRepository {
                 subtopicId: Value(subtopicId),
                 lessonId: Value(lessonId),
                 questionIdsJson: jsonEncode(questionIds),
+                variantIndexesJson: Value(jsonEncode(variantIndexes)),
                 startedAt: startedAt,
               ),
             );
@@ -109,6 +113,28 @@ class QuizSessionRepository {
       return false;
     }
   }
+
+  /// Stores choices for legacy sessions. Existing pins always win on retry.
+  Future<void> pinVariants(
+    String sessionId,
+    Map<QuestionId, int> candidates,
+  ) =>
+      _db.transaction(() async {
+        final row = await (_db.select(_db.quizSessions)
+              ..where((r) => r.id.equals(sessionId)))
+            .getSingleOrNull();
+        if (row == null) return;
+        final pins = {
+          for (final id in row.questionIds)
+            if (candidates[id] case final index?) id: index,
+          ...row.variantIndexes,
+        };
+        await (_db.update(_db.quizSessions)
+              ..where((r) => r.id.equals(sessionId)))
+            .write(QuizSessionsCompanion(
+          variantIndexesJson: Value(jsonEncode(pins)),
+        ));
+      });
 
   Future<QuizSessionLocalRow?> activeFor({
     required String userId,
@@ -214,6 +240,10 @@ class QuizSessionRepository {
             .write(
           QuizSessionsCompanion(
             questionIdsJson: Value(jsonEncode(ids)),
+            variantIndexesJson: Value(jsonEncode({
+              for (final entry in row.variantIndexes.entries)
+                if (kept.contains(entry.key)) entry.key: entry.value,
+            })),
             outcomesJson:
                 Value(jsonEncode(answers.map(encodeOutcome).toList())),
           ),
@@ -399,6 +429,9 @@ extension QuizSessionLocalRowQuestionIds on QuizSessionLocalRow {
   List<QuestionId> get questionIds =>
       (jsonDecode(questionIdsJson) as List).cast<QuestionId>();
 
+  Map<QuestionId, int> get variantIndexes =>
+      (jsonDecode(variantIndexesJson) as Map).cast<QuestionId, int>();
+
   List<AnswerOutcome> get outcomes {
     final decoded = jsonDecode(outcomesJson);
     if (decoded is! List) {
@@ -419,6 +452,7 @@ Map<String, Object> encodeOutcome(AnswerOutcome outcome) => {
       'chosenChoiceId': outcome.chosenChoiceId,
       'correctChoiceId': outcome.correctChoiceId,
       'responseMs': outcome.responseMs,
+      if (outcome.variantIndex case final index?) 'variantIndex': index,
       'derivedRating': outcome.derivedRating.grade,
       'nextReviewIntervalDays': outcome.nextReviewIntervalDays,
     };
@@ -429,6 +463,7 @@ AnswerOutcome _decodeOutcome(Map<String, Object?> json) => AnswerOutcome(
       chosenChoiceId: json['chosenChoiceId']! as String,
       correctChoiceId: json['correctChoiceId']! as String,
       responseMs: json['responseMs']! as int,
+      variantIndex: json['variantIndex'] as int?,
       derivedRating: Rating.fromGrade(json['derivedRating']! as int),
       nextReviewIntervalDays: json['nextReviewIntervalDays']! as int,
     );

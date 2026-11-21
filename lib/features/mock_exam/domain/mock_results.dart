@@ -16,10 +16,12 @@ class MockAnswer {
     this.missReason,
     this.blankReason,
     this.reasonNote,
+    this.variantIndex,
   });
 
   final int selectedIndex;
   final int atSec;
+  final int? variantIndex;
   final MissReason? missReason;
   final BlankReason? blankReason;
   final String? reasonNote;
@@ -29,6 +31,7 @@ class MockAnswer {
     return other is MockAnswer &&
         other.selectedIndex == selectedIndex &&
         other.atSec == atSec &&
+        other.variantIndex == variantIndex &&
         other.missReason == missReason &&
         other.blankReason == blankReason &&
         other.reasonNote == reasonNote;
@@ -36,7 +39,7 @@ class MockAnswer {
 
   @override
   int get hashCode =>
-      Object.hash(selectedIndex, atSec, missReason, blankReason, reasonNote);
+      Object.hash(selectedIndex, atSec, variantIndex, missReason, blankReason, reasonNote);
 }
 
 class MockResults {

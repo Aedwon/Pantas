@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -18,7 +20,13 @@ class ReviewStateRepository {
         collection: 'fsrs_cards',
         rowId: state.questionId,
         op: SyncLocalMutationOp.upsert,
-        mutate: () => _db.into(_db.reviewStateLocal).insertOnConflictUpdate(
+        mutate: () async {
+          final old = await byQuestionId(state.questionId);
+          var merged = state;
+          for (final entry in (old?.servedVariants ?? const <int, DateTime>{}).entries) {
+            merged = merged.withServedVariant(entry.key, entry.value);
+          }
+          await _db.into(_db.reviewStateLocal).insertOnConflictUpdate(
               ReviewStateLocalCompanion.insert(
                 questionId: state.questionId,
                 questionVersion: state.questionVersion,
@@ -31,9 +39,14 @@ class ReviewStateRepository {
                 lapses: state.lapses,
                 elapsedDays: state.elapsedDays,
                 scheduledDays: state.scheduledDays,
+                servedVariantsJson: Value(jsonEncode({
+                  for (final entry in merged.servedVariants.entries)
+                    entry.key.toString(): entry.value.toUtc().toIso8601String(),
+                })),
                 dirty: const Value(true),
               ),
-            ),
+            );
+        },
       );
 
   Future<ReviewState?> byQuestionId(QuestionId id) async {
@@ -94,6 +107,12 @@ class ReviewStateRepository {
         lapses: r.lapses,
         elapsedDays: r.elapsedDays,
         scheduledDays: r.scheduledDays,
+        servedVariants: {
+          for (final entry in (jsonDecode(r.servedVariantsJson) as Map)
+              .cast<String, String>()
+              .entries)
+            int.parse(entry.key): DateTime.parse(entry.value),
+        },
       );
 
   String _stageToRaw(ReviewStage s) => switch (s) {

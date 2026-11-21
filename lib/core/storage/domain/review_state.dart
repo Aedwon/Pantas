@@ -17,6 +17,8 @@ enum ReviewStage {
 
 @freezed
 abstract class ReviewState with _$ReviewState {
+  const ReviewState._();
+
   const factory ReviewState({
     required QuestionId questionId,
     required int questionVersion,
@@ -29,10 +31,22 @@ abstract class ReviewState with _$ReviewState {
     required int lapses,
     required double elapsedDays,
     required double scheduledDays,
+    @JsonKey(includeFromJson: false, includeToJson: false)
+    @Default(<int, DateTime>{})
+    Map<int, DateTime> servedVariants,
   }) = _ReviewState;
 
   factory ReviewState.fromJson(Map<String, dynamic> json) =>
       _$ReviewStateFromJson(json);
+
+  ReviewState withServedVariant(int? variantIndex, DateTime answeredAt) {
+    if (variantIndex == null) return this;
+    final previous = servedVariants[variantIndex];
+    if (previous != null && !answeredAt.isAfter(previous)) return this;
+    return copyWith(
+      servedVariants: {...servedVariants, variantIndex: answeredAt.toUtc()},
+    );
+  }
 
   factory ReviewState.seed({
     required QuestionId questionId,

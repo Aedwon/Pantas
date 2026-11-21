@@ -9,12 +9,14 @@ class AssessmentSession {
     this.startedAt,
     this.attemptId,
     this.responseMs = const {},
+    this.variantIndexes = const {},
   });
 
   final ExamId examId;
   final DateTime? startedAt;
   final String? attemptId;
   final Map<String, int> responseMs;
+  final Map<String, int> variantIndexes;
   final List<AssessmentQuestion> questions;
 
   /// questionId → chosen choiceId; null means unanswered
@@ -31,6 +33,7 @@ class AssessmentSession {
       attemptId: attemptId,
       responseMs: {...responseMs, if (elapsedMs != null) questionId: elapsedMs},
       questions: questions,
+      variantIndexes: variantIndexes,
       answers: Map.of(answers)..[questionId] = chosenChoiceId,
     );
   }

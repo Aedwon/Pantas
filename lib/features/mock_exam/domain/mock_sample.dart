@@ -20,9 +20,11 @@ class SampledMockSection {
     required this.sectionId,
     required this.name,
     required this.questionIds,
+    this.variantIndexes = const {},
   });
 
   final String sectionId;
   final String name;
   final List<String> questionIds;
+  final Map<String, int> variantIndexes;
 }

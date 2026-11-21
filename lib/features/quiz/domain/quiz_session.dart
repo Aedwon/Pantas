@@ -19,6 +19,7 @@ abstract class AnswerOutcome with _$AnswerOutcome {
     required ChoiceId chosenChoiceId,
     required ChoiceId correctChoiceId,
     required int responseMs,
+    int? variantIndex,
     @Default(Rating.good) Rating derivedRating,
     @Default(1) int nextReviewIntervalDays,
   }) = _AnswerOutcome;

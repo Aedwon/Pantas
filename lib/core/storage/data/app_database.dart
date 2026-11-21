@@ -113,7 +113,7 @@ class AppDatabase extends _$AppDatabase {
   }
 
   @override
-  int get schemaVersion => 26;
+  int get schemaVersion => 27;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -237,6 +237,52 @@ class AppDatabase extends _$AppDatabase {
           if (from < 26) {
             await m.createTable(cachedContent);
           }
+          if (from < 27) {
+            await m.addColumn(
+              reviewStateLocal,
+              reviewStateLocal.servedVariantsJson,
+            );
+            if (from >= 7) {
+              await m.addColumn(quizSessions, quizSessions.variantIndexesJson);
+            }
+            await rebuildServedVariants();
+          }
         },
       );
+
+  /// Rebuilds the local cache after a migration or a completed answer pull.
+  Future<void> rebuildServedVariants() => customStatement("""
+    WITH answers(question_id, variant_index, answered_at) AS (
+      SELECT item.value ->> 'questionId', item.value ->> 'variantIndex',
+             COALESCE(attempt.completed_at, attempt.started_at)
+        FROM attempts_local AS attempt,
+             json_each(CASE WHEN json_valid(attempt.items_json)
+                       THEN attempt.items_json ELSE '[]' END) AS item
+       WHERE item.type = 'object'
+      UNION ALL
+      SELECT answer.key, answer.value ->> 'variantIndex',
+             mock.started_at + (answer.value ->> 'atSec')
+        FROM mock_attempts AS mock,
+             json_each(CASE WHEN json_valid(mock.answers_json)
+                       THEN mock.answers_json ELSE '{}' END) AS answer
+       WHERE mock.status IN ('completed', 'forfeited')
+         AND mock.submitted_at IS NOT NULL
+         AND answer.type = 'object'
+         AND (answer.value ->> 'selectedIndex') >= 0
+    ), latest AS (
+      SELECT question_id, variant_index, MAX(answered_at) AS answered_at
+        FROM answers
+       WHERE typeof(variant_index) = 'integer'
+         AND variant_index >= 0 AND answered_at IS NOT NULL
+       GROUP BY question_id, variant_index
+    )
+    UPDATE review_state_local AS review
+       SET served_variants_json = (
+         SELECT json_group_object(
+           variant_index, strftime('%Y-%m-%dT%H:%M:%SZ', answered_at, 'unixepoch')
+         )
+           FROM latest
+          WHERE latest.question_id = review.question_id
+       )
+    """);
 }

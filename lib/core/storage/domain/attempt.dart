@@ -23,6 +23,7 @@ abstract class AttemptItem with _$AttemptItem {
     @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
     MistakeTag? mistakeTag,
     String? mistakeNote,
+    @JsonKey(includeIfNull: false) int? variantIndex,
   }) = _AttemptItem;
 
   factory AttemptItem.fromJson(Map<String, dynamic> json) =>

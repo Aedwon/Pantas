@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/features/mock_exam/mock_exam.dart';
+import 'package:pantas/features/mock_exam/domain/mock_results.dart';
+import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
+import 'package:pantas/features/mock_exam/domain/mock_session_snapshot.dart';
 
 void main() {
   test('snapshot round-trip keeps answers flags and sectional clock', () {
@@ -11,6 +13,7 @@ void main() {
           sectionId: 's1',
           name: 'Part 1',
           questionIds: ['q1', 'q2'],
+          variantIndexes: {'q1': 0, 'q2': 6},
         ),
         SampledMockSection(
           sectionId: 's2',
@@ -20,7 +23,7 @@ void main() {
       ],
     );
     const answers = {
-      'q1': MockAnswer(selectedIndex: 1, atSec: 42),
+      'q1': MockAnswer(selectedIndex: 1, atSec: 42, variantIndex: 0),
     };
     final backgroundedAt = DateTime.utc(2026, 9, 4, 12);
 
@@ -51,6 +54,9 @@ void main() {
     );
 
     expect(restored.sample.sections[1].questionIds, ['q3']);
+    expect(restored.sample.sections.first.variantIndexes, {'q1': 0, 'q2': 6});
+    expect(restored.sample.sections.last.variantIndexes, isEmpty);
+    expect(restored.answers['q1']?.variantIndex, 0);
     expect(restored.answers, answers);
     expect(restored.flags, {'q2'});
     expect(restored.currentPartIndex, 1);

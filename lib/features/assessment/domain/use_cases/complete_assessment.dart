@@ -74,6 +74,7 @@ class CompleteAssessment {
         AttemptItem(
           questionId: aq.question.id,
           questionVersion: aq.question.version,
+          variantIndex: session.variantIndexes[aq.question.id],
           chosenChoiceId: chosen,
           correctChoiceId: correct.id,
           responseMs: session.responseMs[aq.question.id] ?? 0,
@@ -128,7 +129,9 @@ class CompleteAssessment {
               now: now,
             );
         await _reviewRepo.upsert(
-          _scheduler.next(prev: prev, rating: rating, now: now),
+          _scheduler
+              .next(prev: prev, rating: rating, now: now)
+              .withServedVariant(session.variantIndexes[aq.question.id], now),
         );
       }
 

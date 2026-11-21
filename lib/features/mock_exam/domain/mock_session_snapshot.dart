@@ -75,6 +75,8 @@ class MockSessionSnapshotCodec {
           'sectionId': sample.sections[index].sectionId,
           'name': sample.sections[index].name,
           'questionIds': sample.sections[index].questionIds,
+          if (sample.sections[index].variantIndexes.isNotEmpty)
+            'variantIndexes': sample.sections[index].variantIndexes,
           if (index == 0)
             '_session': {
               'currentPartIndex': currentPartIndex,
@@ -104,6 +106,7 @@ class MockSessionSnapshotCodec {
         entry.key: {
           'selectedIndex': entry.value.selectedIndex,
           'atSec': entry.value.atSec,
+          if (entry.value.variantIndex case final index?) 'variantIndex': index,
           if (entry.value.missReason != null)
             'missReason': entry.value.missReason!.name,
           if (entry.value.blankReason != null)
@@ -146,11 +149,15 @@ class MockSessionSnapshotCodec {
       if (ids.length != questionIds.length || ids.isEmpty) {
         throw const FormatException('invalid sampled question ids');
       }
+      final pins = section['variantIndexes'];
       sections.add(
         SampledMockSection(
           sectionId: sectionId,
           name: name,
           questionIds: List.unmodifiable(ids),
+          variantIndexes: pins == null
+              ? const {}
+              : Map.unmodifiable(_map(pins, 'variant indexes').cast<String, int>()),
         ),
       );
 
@@ -204,6 +211,7 @@ class MockSessionSnapshotCodec {
       answers[entry.key] = MockAnswer(
         selectedIndex: selectedIndex,
         atSec: atSec,
+        variantIndex: answer['variantIndex'] as int?,
         missReason: _reason(answer['missReason'], MissReason.values),
         blankReason: _reason(answer['blankReason'], BlankReason.values),
         reasonNote: answer['reasonNote'] as String?,

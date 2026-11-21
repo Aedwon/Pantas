@@ -37,6 +37,7 @@ class CompleteQuiz {
               chosenChoiceId: o.chosenChoiceId,
               correctChoiceId: o.correctChoiceId,
               responseMs: o.responseMs,
+              variantIndex: o.variantIndex,
             ),
           )
           .toList(),

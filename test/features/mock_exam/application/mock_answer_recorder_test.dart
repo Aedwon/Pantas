@@ -78,6 +78,7 @@ void main() {
     required MockAttemptStatus status,
     required Map<String, int> answers,
     DateTime? submitted,
+    int? variantIndex,
   }) async {
     final started =
         (submitted ?? submittedAt).subtract(const Duration(hours: 1));
@@ -96,6 +97,7 @@ void main() {
                 'sectionId': 'sec1',
                 'name': 'Numerical',
                 'questionIds': ['q1', 'q2', 'q3'],
+                if (variantIndex != null) 'variantIndexes': {'q1': variantIndex},
               },
             ]),
             answersJson: Value(
@@ -111,6 +113,43 @@ void main() {
           ),
         );
   }
+
+  test('a historical mock resolves the pin and preserves a newer review',
+      () async {
+    final question = (await content.questionById('q1'))!;
+    final resolved = <int>[];
+    recorder = MockAnswerRecorder(
+      mocks: MockAttemptRepo(db),
+      attempts: attempts,
+      reviews: reviews,
+      content: content,
+      scheduler: const FsrsScheduler(),
+      resolvePinnedQuestion: (id, index) async {
+        expect(id, 'q1');
+        resolved.add(index);
+        return question;
+      },
+    );
+    final later = submittedAt.add(const Duration(days: 1));
+    await reviews.upsert(
+      ReviewState.seed(questionId: 'q1', questionVersion: 1, now: later),
+    );
+    await insertMock(
+      id: 'pinned',
+      status: MockAttemptStatus.completed,
+      submitted: submittedAt,
+      answers: {'q1': await indexOf('q1', correct: true)},
+      variantIndex: 0,
+    );
+    expect(await recorder.record('pinned'), isTrue);
+    expect(resolved, [0]);
+    expect((await attempts.byId('pinned'))?.items.single.variantIndex, 0);
+    final state = await reviews.byQuestionId('q1');
+    expect(state?.lastReview, later);
+    expect(state?.servedVariants, {
+      0: submittedAt.subtract(const Duration(minutes: 59, seconds: 30)),
+    });
+  });
 
   test('a completed mock records answered items as untimed mock answers',
       () async {

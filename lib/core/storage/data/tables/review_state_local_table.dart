@@ -14,6 +14,8 @@ class ReviewStateLocal extends Table {
   IntColumn get lapses => integer()();
   RealColumn get elapsedDays => real()();
   RealColumn get scheduledDays => real()();
+  TextColumn get servedVariantsJson =>
+      text().withDefault(const Constant('{}'))();
   BoolColumn get dirty => boolean().withDefault(const Constant(true))();
 
   @override

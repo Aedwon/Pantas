@@ -39,6 +39,7 @@ class SubmitAnswer {
     required String chosenChoiceId,
     required int responseMs,
     required DateTime now,
+    int? variantIndex,
     String? sessionId,
     String? userId,
     ExamId? examId,
@@ -79,7 +80,7 @@ class SubmitAnswer {
         RatingHeuristic.from(isCorrect: isCorrect, responseMs: responseMs);
     final next = _scheduler.next(prev: prev, rating: rating, now: now);
     final nextIntervalDays = next.scheduledDays.ceil();
-    await _reviewRepo.upsert(next);
+    await _reviewRepo.upsert(next.withServedVariant(variantIndex, now));
 
     // Written with the state as it was before this review, and with the exact
     // rating the scheduler was handed. A row recording anything else is worse
@@ -106,6 +107,7 @@ class SubmitAnswer {
     final outcome = AnswerOutcome(
       questionId: question.id,
       questionVersion: question.version,
+      variantIndex: variantIndex,
       chosenChoiceId: chosenChoiceId,
       correctChoiceId: correctId,
       responseMs: responseMs,

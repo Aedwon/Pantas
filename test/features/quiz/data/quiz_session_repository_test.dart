@@ -7,6 +7,26 @@ import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import '../../../helpers/in_memory_database.dart';
 
 void main() {
+  test('pruning and resuming preserve pinned quiz variants', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final repo = QuizSessionRepository(db);
+    await repo.create(
+      sessionId: 's1',
+      userId: 'user',
+      examId: 'exam',
+      origin: SessionOrigin.todayTopic,
+      questionIds: const ['q1', 'qt-first', 'qt-second'],
+      variantIndexes: const {'qt-first': 0, 'qt-second': 7},
+      startedAt: DateTime.utc(2026, 5, 18),
+    );
+    await repo.keepQuestions('s1', ['q1', 'qt-first']);
+    await repo.pinVariants('s1', {'q1': 4, 'qt-first': 9});
+    final row = await repo.activeFor(userId: 'user', examId: 'exam');
+    expect(row?.questionIds, ['q1', 'qt-first']);
+    expect(row?.variantIndexes, {'q1': 4, 'qt-first': 0});
+  });
+
   test('create stores active session with currentIndex zero', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
