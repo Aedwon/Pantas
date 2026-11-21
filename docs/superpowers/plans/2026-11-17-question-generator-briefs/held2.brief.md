@@ -17,3 +17,6 @@ Part B, matrix-ray-intersection (audit-w2 Blocker: diagonal directional selectio
 Part C, every type: re-run the checker, including the merged-source check, for all 28 active types and the two held ones against the current root d97de9415 and the grown library. Do not change an approved type. Report each failure under "Needs the lead" with type, index and check.
 
 Report in FINDINGS-held2.md as you go: per type, what changed, the enumerated counts, checker output, and anything for the lead.
+
+Resume note (Nov 21, 16:16 UTC): the earlier fix stage was killed when Aedwon's Mac ran out of memory. Its partial work is committed in 2c476a159 and is in this worktree. Continue from it; do not restart. Read FINDINGS-held2.md first.
+Machine cap, binding: do not run any `flutter` command (test, analyze, build, pub), `dart test`, or `build_runner`. You may run `dart run` on the checker and tool scripts (tool/generator/bin/*.dart, tool/checks/run_checks.dart, tool/check_no_ai_attribution.dart, tool/check_layering.dart) and `dart format`. Write and update tests, but do not run them; end your report with the exact Flutter test and analyze commands the lead should run.
