@@ -1,0 +1,194 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: heavenly-bodies-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-earth-science-astronomy-heavenly-bodies-pshs-0001
+    lesson: lesson-earth-science-astronomy-planet-families
+    keyPoint: 2
+    type: identify
+    difficulty: easy
+    stem: |
+      One label describes a rocky planet that spins backward compared with most planets.
+      A second label describes a planet tipped on its side. Which planets match
+      these labels, in order?
+    choices:
+      - text: 'Venus and Uranus'
+        correct: true
+      - text: 'Uranus and Venus'
+        rationale: |
+          You picked the right planets but switched their labels.
+          Check which clue is about the direction of spin and which is about tilt.
+      - text: 'Venus and Neptune'
+        rationale: |
+          You matched Venus to its backward spin. Neptune and Uranus are both ice giants.
+          Check which one is tipped on its side.
+      - text: 'Mercury and Uranus'
+        rationale: |
+          You matched Uranus to its tilt. Mercury and Venus are both rocky planets with no moons.
+          Check which one spins backward compared with most planets.
+      - text: 'Venus and Saturn'
+        rationale: |
+          You matched Venus to its backward spin. Saturn's rings can make its tilt easy to notice.
+          Check which giant planet is tipped on its side.
+    explanation: |
+      Venus spins backward compared with most planets.
+      Uranus is tipped on its side.
+
+  - id: q-earth-science-astronomy-heavenly-bodies-pshs-0002
+    lesson: lesson-earth-science-astronomy-natural-satellites
+    keyPoint: 1
+    type: classify
+    difficulty: medium
+    stem: |
+      A probe finds a lumpy piece of rock that formed on its own. The rock goes around
+      an asteroid as the asteroid goes around the Sun. Which conclusion is supported?
+    choices:
+      - text: 'The rock is a moon of the asteroid.'
+        correct: true
+      - text: 'The asteroid is a moon of the rock.'
+        rationale: |
+          You saw that one body goes around the other but switched their roles.
+          Check which one follows a path around the other.
+      - text: 'The rock is a moon of the Sun.'
+        rationale: |
+          The rock travels around the Sun along with the asteroid.
+          Check what the rock circles during that trip.
+      - text: 'The rock needs a round shape to be a moon.'
+        rationale: |
+          Earth's Moon looks round, so you might expect the same shape for other moons.
+          Check the shapes of the two moons of Mars.
+      - text: 'The rock needs to orbit a planet to be a moon.'
+        rationale: |
+          Many familiar moons orbit planets.
+          Check whether a moon can also orbit an asteroid.
+    explanation: |
+      The rock formed on its own and goes around an asteroid.
+      A natural object that orbits an asteroid is a moon of that asteroid.
+
+  - id: q-earth-science-astronomy-heavenly-bodies-pshs-0003
+    lesson: lesson-earth-science-astronomy-planet-families
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Saturn and Uranus belong to different planet families.
+      Which comparison explains why?
+    choices:
+      - text: 'The main materials inside each planet'
+        correct: true
+      - text: 'Whether each planet has a set of rings'
+        rationale: |
+          Saturn's rings are easy to remember, so rings may seem like its own family's trait.
+          Check whether Uranus has rings as well.
+      - text: 'Whether each planet has a solid surface'
+        rationale: |
+          A solid surface helps tell rocky planets from giant planets.
+          Check whether either of these two giants has a solid surface.
+      - text: 'Whether each planet is larger than Earth'
+        rationale: |
+          Size helps tell giant planets from small rocky planets.
+          Check whether both planets are giants.
+      - text: 'The order of the planets from the Sun'
+        rationale: |
+          The rocky planets are closer to the Sun than the giant planets.
+          Check what makes the two kinds of giant planets different.
+    explanation: |
+      Saturn is mostly hydrogen and helium. That makes it a gas giant.
+      Uranus has more water, ammonia, and methane in a thick layer around its core.
+      That makes it an ice giant.
+
+  - id: q-earth-science-astronomy-heavenly-bodies-pshs-0004
+    lesson: lesson-earth-science-astronomy-natural-satellites
+    keyPoint: 1
+    type: identify
+    difficulty: medium
+    stem: |
+      A display has one model of a moon with a thick atmosphere and another of a moon
+      with many active volcanoes. Which names should be placed on the models, in order?
+    choices:
+      - text: 'Titan and Io'
+        correct: true
+      - text: 'Io and Titan'
+        rationale: |
+          You chose both moons but switched their features.
+          Check which moon has the thick layer of air.
+      - text: 'Europa and Io'
+        rationale: |
+          Europa has a shell around its rocky interior. That shell may sound like an atmosphere.
+          Check whether it is made of ice or gas.
+      - text: 'Titan and Europa'
+        rationale: |
+          You matched the thick atmosphere to Titan. Europa is also a moon of Jupiter, like Io.
+          Check which of the two has many active volcanoes.
+      - text: 'Ganymede and Io'
+        rationale: |
+          Ganymede and Titan are both the largest moons of their planets.
+          Check which of them is known for its thick atmosphere.
+    explanation: |
+      Titan has a thick layer of air, called an atmosphere.
+      Io has many active volcanoes.
+
+  - id: q-earth-science-astronomy-heavenly-bodies-pshs-0005
+    lesson: lesson-earth-science-astronomy-planet-families
+    keyPoint: 2
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A catalog lists Mercury and Venus as possible names for a planet without moons.
+      Mercury is closer to the Sun, but a new note says the planet has the hottest surface.
+      How should the editor use the new note?
+    choices:
+      - text: 'Choose Venus. Its surface is hotter.'
+        correct: true
+      - text: 'Choose Mercury. Its surface is hotter.'
+        rationale: |
+          Being closer to the Sun may seem like enough to make Mercury hotter.
+          Check which planet has thick air that traps heat at its surface.
+      - text: 'Keep both names because both planets have solid surfaces.'
+        rationale: |
+          Mercury and Venus are rocky planets with solid surfaces.
+          Check which surface gets hotter.
+      - text: 'Keep both names because neither of the planets has moons.'
+        rationale: |
+          The first note fits both planets, so it leaves two choices.
+          Check whether the new clue also fits both planets.
+      - text: 'Drop both names because the hottest planet must be a gas giant.'
+        rationale: |
+          The thick air that traps heat on Venus may sound like the gas in a gas giant.
+          Check whether a rocky planet can also have thick air.
+    explanation: |
+      Venus has the hottest surface. Its thick air traps heat.
+      Venus also has no moons, so both notes fit Venus.
+
+  - id: q-earth-science-astronomy-heavenly-bodies-pshs-0006
+    lesson: lesson-earth-science-astronomy-natural-satellites
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A student says any object at least as wide as Mercury should be called a planet.
+      Which classification of Mercury and Ganymede shows the problem with this rule?
+    choices:
+      - text: 'Mercury as a planet and Ganymede as a moon'
+        correct: true
+      - text: 'Mercury as a moon and Ganymede as a planet'
+        rationale: |
+          Ganymede is wider, so it may seem like the one that should be called a planet.
+          Check what Ganymede goes around.
+      - text: 'Both as planets because each is at least as wide as Mercury'
+        rationale: |
+          Both objects are at least as wide as Mercury.
+          Check whether a moon can be wider than a planet.
+      - text: 'Both as moons because each is smaller than Jupiter'
+        rationale: |
+          You used Jupiter's size to decide what counts as a moon.
+          Check which of the two bodies actually goes around Jupiter.
+      - text: 'Mercury as a planet and Ganymede as both a planet and a moon'
+        rationale: |
+          Ganymede is wider than Mercury and also orbits Jupiter.
+          Check whether being wide alone puts Ganymede in the planet group.
+    explanation: |
+      Mercury is a planet. Ganymede orbits Jupiter, so Ganymede is a moon.
+      Ganymede is wider than Mercury. A moon can be wider than a planet.
