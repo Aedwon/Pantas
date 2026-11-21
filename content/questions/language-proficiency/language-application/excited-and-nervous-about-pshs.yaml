@@ -1,0 +1,84 @@
+meta:
+  subject: language-proficiency
+  topic: language-application
+  subtopic: excited-and-nervous-about-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-language-application-excited-and-nervous-about-pshs-0001
+    lesson: lesson-language-application-excited-and-nervous-about
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: easy
+    stem: |
+      Tess will paddle across the bay while Jo stays on shore. Jo has packed binoculars because she can't wait to look for birds from the dock.
+      Choose the phrase that completes the sentence with what Jo looks forward to doing.
+      "Jo is excited ________."
+    choices:
+      - text: for Tess and her chance to spot birds
+        rationale: |
+          This makes Jo happy for Tess. Spotting birds is part of the plan, so this choice may sound right. Check who wants to spot birds.
+      - text: about spotting birds
+        correct: true
+      - text: about learning to paddle
+        rationale: |
+          This makes Jo eager to learn to paddle. Paddling is part of the story, so the choice may sound right. Check what Jo wants to do with her binoculars.
+      - text: about watching Tess leave the dock
+        rationale: |
+          This puts Jo's focus on Tess. Jo could see Tess leave from the dock. Check what Jo can't wait to look for.
+      - text: about hearing what Tess saw
+        rationale: |
+          This has Jo wait for Tess's news. Tess may see things out on the bay. Check who plans to look for birds.
+    explanation: |
+      Jo wants to spot birds from the dock. "Excited about spotting birds" names what she looks forward to doing.
+
+  - id: q-language-application-excited-and-nervous-about-pshs-0002
+    lesson: lesson-language-application-excited-and-nervous-about
+    keyPoint: 2
+    type: sentence-construction
+    difficulty: medium
+    stem: |
+      Nina put the ice cream away before leaving home. On the way to school, she wondered if she had shut the freezer door all the way.
+      Which sentence best states Nina's worry?
+    choices:
+      - text: Nina was nervous of whether the door was shut.
+        rationale: |
+          This names the right worry, and "nervous of" can name something a person fears. Check which word goes before "whether" to show what Nina is unsure of.
+      - text: Nina was nervous about leaving for school.
+        rationale: |
+          This makes the trip to school the cause of her worry. Nina thinks of the door on her way there. Check whether the trip is what she is unsure about.
+      - text: Nina was nervous about whether the door was shut.
+        correct: true
+      - text: Nina was nervous about the ice cream that had already melted.
+        rationale: |
+          This treats melting as something Nina knows has happened. Ice cream can melt if a freezer door stays open. Check what Nina knows about the door.
+      - text: Nina was nervous about having put the ice cream in the wrong place.
+        rationale: |
+          This gives Nina a different worry about putting the ice cream away. She is thinking back to what she did with it. Check which part of the task she may have missed.
+    explanation: |
+      Nina wonders if she shut the freezer door. Use "nervous about whether" to introduce what she is unsure of.
+
+  - id: q-language-application-excited-and-nervous-about-pshs-0003
+    lesson: lesson-language-application-excited-and-nervous-about
+    keyPoint: 1
+    type: sentence-construction
+    difficulty: exam
+    stem: |
+      Kai earned a place on the school team. Mina is glad he made it. Later, Kai tells Mina that he can't wait to see the list of towns the team will visit.
+      Which sentence states what Kai looks forward to and whose good news Mina is happy about?
+    choices:
+      - text: Kai is excited about making the team, and Mina is excited for Kai.
+        rationale: |
+          This gets Mina's feeling right but points to Kai's good news from earlier. Making the team is a good reason to be excited. Check what Kai says he can't wait to see.
+      - text: Kai is excited about learning which towns the team will visit, and Mina is excited about reading the list herself.
+        rationale: |
+          This gives Mina the same reason for being excited as Kai. The list may interest them both. Check whose good news makes Mina happy.
+      - text: Kai is excited about visiting Mina's town, and Mina is excited about showing him around.
+        rationale: |
+          This assumes the team will visit Mina's town and that she wants to show Kai around. A list of towns can make you think about the places Kai might go. Check what Kai wants to see and why Mina is glad.
+      - text: Kai is excited about seeing the list, and Mina is excited for him.
+        correct: true
+      - text: Kai is excited about joining the school team, and Mina is excited about finding out where it will go.
+        rationale: |
+          This gives Kai the good news as his reason and gives Mina his reason for looking forward to the list. Both details come from the story. Check who wants to see the list and who is happy about the team spot.
+    explanation: |
+      Kai can't wait to see the list, so he is excited about seeing it. Mina is excited for Kai because she is happy he made the team.
