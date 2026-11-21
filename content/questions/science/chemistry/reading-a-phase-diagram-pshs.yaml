@@ -1,0 +1,142 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: reading-a-phase-diagram-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-chemistry-reading-a-phase-diagram-pshs-0001
+    lesson: lesson-chemistry-reading-a-phase-diagram
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      A sample is a gas at its first temperature and pressure. A student
+      changes both settings. The new point and the first point both lie
+      inside the same region of the sample's phase diagram. What should
+      the student expect at the new settings?
+    choices:
+      - text: Gas alone
+        correct: true
+      - text: Liquid alone
+        rationale: |
+          A change in pressure can turn gas into liquid. Check whether the
+          new point has reached the liquid region.
+      - text: Solid alone
+        rationale: |
+          A change in temperature can turn a gas into a solid. Check
+          whether the new point has reached the solid region.
+      - text: Gas and liquid together
+        rationale: |
+          The gas might seem to be turning into liquid because the settings
+          changed. Check whether the new point lies on a boundary.
+      - text: Any one of the three phases
+        rationale: |
+          Changing both settings may make the result seem hard to predict.
+          Which phase does the first point show? Use that same phase for
+          the new point in the same region.
+    explanation: |
+      The first point shows that this is the gas region. The new point is
+      inside that same region, so it also shows gas alone.
+
+  - id: q-chemistry-reading-a-phase-diagram-pshs-0002
+    lesson: lesson-chemistry-reading-a-phase-diagram
+    keyPoint: 2
+    type: classify
+    difficulty: medium
+    stem: |
+      A sealed chamber holds a pure substance. At a steady temperature and
+      pressure, some of it stays solid and some stays gas. These are the only
+      phases that can exist at these settings. Where should the student plot
+      this result on the substance's phase diagram?
+    choices:
+      - text: On the solid-gas boundary
+        correct: true
+      - text: On the solid-liquid boundary
+        rationale: |
+          Seeing a solid may make you think of melting. Which other phase
+          is present with the solid?
+      - text: On the liquid-gas boundary
+        rationale: |
+          Gas often forms from a liquid, so the liquid-gas line may seem
+          to fit. Check which phase stayed in the chamber along with the gas.
+      - text: Well inside the solid region
+        rationale: |
+          The solid is easy to see, so it may seem to be enough to pick
+          the region. Check whether a point inside a region can show two phases.
+      - text: Where all three boundaries meet
+        rationale: |
+          Seeing more than one phase may make the meeting point seem right.
+          Check how many phases can exist at that point.
+    explanation: |
+      A boundary between two regions shows where both phases can exist
+      together. The two phases here are solid and gas. That puts the point
+      on the line between the solid and gas regions.
+
+  - id: q-chemistry-reading-a-phase-diagram-pshs-0003
+    lesson: lesson-chemistry-reading-a-phase-diagram
+    keyPoint: 2
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A lab team tests a pure substance at two settings. At the first, only
+      liquid and gas can exist, and they are separate phases. The second
+      setting is the critical point. How many distinct phases can exist at
+      the first and second settings, in that order?
+    choices:
+      - text: Two, then one
+        correct: true
+      - text: Two, then two
+        rationale: |
+          Both settings are on the liquid-gas line, so the same count may
+          seem to fit. Check what happens to the two phases at the far end.
+      - text: Two, then three
+        rationale: |
+          A special point may bring to mind the triple point. Check
+          whether three boundaries meet at the critical point.
+      - text: One, then two
+        rationale: |
+          One substance may seem to start as one phase, and the critical
+          point may seem to split it. Check which setting has separate
+          liquid and gas phases.
+      - text: One, then one
+        rationale: |
+          There is just one substance at both settings. Check whether one
+          substance can be liquid and gas at the same time.
+    explanation: |
+      At the first setting, liquid and gas can exist as two separate
+      phases. At the critical point, they become alike and form one phase.
+
+  - id: q-chemistry-reading-a-phase-diagram-pshs-0004
+    lesson: lesson-chemistry-reading-a-phase-diagram
+    keyPoint: 3
+    type: identify
+    difficulty: exam
+    stem: |
+      A group is testing a pure substance to find where its three phase
+      boundaries meet. They can change the temperature and pressure between
+      runs and hold both steady during each run. Which result would pinpoint
+      the meeting point?
+    choices:
+      - text: All three phases persist in one run.
+        correct: true
+      - text: All three phases appear in separate runs.
+        rationale: |
+          The group has seen every phase, so the search may seem done.
+          Check whether the phases were present at the same settings.
+      - text: Solid and liquid persist together at the same settings.
+        rationale: |
+          Two phases at once show that the run has reached part of the
+          diagram where phases can share the same settings. Check whether
+          gas can exist at those settings too.
+      - text: Liquid and gas become alike and form one phase.
+        rationale: |
+          This marks the end of one boundary, so it may seem like the place
+          where the lines join. Check how many phases can exist there.
+      - text: Each of the three pairs of phases persists in a different run.
+        rationale: |
+          Finding all three pairs may seem like finding the place where they
+          meet. Check whether the runs used the same settings.
+    explanation: |
+      One run holds temperature and pressure steady. If solid, liquid, and
+      gas all stay present in that run, all three can exist at the same
+      settings. This is the triple point, where the three lines meet.
