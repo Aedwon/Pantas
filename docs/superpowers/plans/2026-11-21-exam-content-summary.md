@@ -106,3 +106,9 @@ The builder stopped on three gaps; all three were real.
 
 Builder environment note: run `npm ci` in `functions/` and at the repo root before starting if
 `node_modules` is missing or broken; the lead preinstalled both for the rerun.
+4. **Built by the lead (Nov 22 UTC).** Codex had no free slot under the machine-wide cap, so the lead
+   built it (manager: "Use no Codex"). One file outside the table: the pure builder and summary constants
+   moved to `functions/src/_examContentBuild.ts`, because `_examContent.ts` imports server modules that
+   start a Firebase app on load, which broke the upload tool once `contentUpload.ts` imported it. A test
+   now loads the upload module and starts its own app (failed on the broken import first).
+   `_examContent.ts` re-exports the moved names, so no other caller changed.

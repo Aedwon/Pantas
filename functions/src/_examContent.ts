@@ -1,100 +1,76 @@
 import {lessonCredit} from './_lessonCredit.js';
 import type {Firestore} from 'firebase-admin/firestore';
+import {logger} from 'firebase-functions';
 import {HttpsError} from 'firebase-functions/v2/https';
 import {inCustomCorpus, isCustomExamId} from './_customTrack.js';
+import {BANK_MARKER_ID, BUILDER_VERSION, SUMMARY_COLLECTION, buildExamContent, examSlug, lessonResolver, summaryPartId, titleCase, topicIdFor,
+  type AliasLesson, type ExamContent, type LessonRef, type QuestionRef} from './_examContentBuild.js';
 
-export type QuestionRef = {id: string; setId: string; topicId: string; lessonId: string | null; passageId: string | null};
-export type LessonRef = {id: string; topicId: string; ordering: number};
-export type ExamContent = {
-  retiredReplacements?: Record<string,string[]>;
-  topics: {id: string; name: string}[];
-  questions: QuestionRef[];
-  lessons: LessonRef[];
-};
-
-type AliasLesson = {id: string; status?: string; replacedBy?: string[]};
-function lessonResolver(lessons: AliasLesson[]): (id: string | null, explicit?: boolean) => string | null {
-  const byId = new Map(lessons.map(l => [l.id, l]));
-  const visiting = new Set<string>(), visited = new Set<string>();
-  const visit = (id: string): void => {
-    if (visiting.has(id)) throw contentUnavailable(`replacedBy cycle at ${id}`);
-    if (visited.has(id)) return;
-    const lesson = byId.get(id);
-    if (!lesson) throw contentUnavailable(`unknown lesson ${id}`);
-    if (lesson.status === 'retired' && !lesson.replacedBy?.length) throw contentUnavailable(`empty replacedBy at ${id}`);
-    visiting.add(id);
-    for (const next of lesson.replacedBy ?? []) visit(next);
-    visiting.delete(id);
-    visited.add(id);
-  };
-  for (const lesson of lessons) visit(lesson.id);
-  return (id, explicit = false) => {
-    if (id === null) return null;
-    if (!byId.has(id)) {
-      if (explicit) throw contentUnavailable(`unknown lesson ${id}`);
-      return id; // Preserve legacy derived links for catalogs with no matching lesson.
-    }
-    while (byId.get(id)?.status === 'retired') id = byId.get(id)!.replacedBy![0];
-    return id;
-  };
-}
+export {BANK_MARKER_ID, BUILDER_VERSION, SUMMARY_COLLECTION, buildExamContent, examSlug, summaryPartId, topicIdFor} from './_examContentBuild.js';
+export type {BankLesson, BankSet, ExamContent, LessonRef, QuestionRef} from './_examContentBuild.js';
 
 const TTL_MS = 5 * 60_000;
 const cache = new Map<string, {at: number; value: ExamContent}>();
 
-/** `exam_dost_sei` is `dost-sei` in a question set's `meta.exams`. */
-export const examSlug = (examId: string): string => examId.replace(/^exam_/, '').replace(/_/g, '-');
+/** The exam's summary if it matches the stored bank, or the reason it cannot be used. */
+async function readSummary(db: Firestore, examId: string): Promise<{value: ExamContent} | {reason: string}> {
+  const [marker, head] = await db.getAll(db.doc(`${SUMMARY_COLLECTION}/${BANK_MARKER_ID}`), db.doc(`${SUMMARY_COLLECTION}/${examId}`));
+  const bank: unknown = marker.exists ? marker.get('bankVersion') : undefined;
+  if (typeof bank !== 'string' || bank === '' || bank.startsWith('writing:') || bank.startsWith('partial:')) return {reason: `marker ${String(bank ?? 'absent')}`};
+  if (!head.exists) return {reason: 'missing'};
+  if (head.get('bankVersion') !== bank) return {reason: 'bank version differs'};
+  if (head.get('builderVersion') !== BUILDER_VERSION) return {reason: `builder ${String(head.get('builderVersion'))}`};
+  const parts: unknown = head.get('parts');
+  if (typeof parts !== 'number' || !Number.isInteger(parts) || parts < 1) return {reason: 'part count unreadable'};
+  const chunks: unknown[] = [head.get('payload')];
+  if (parts > 1) {
+    const rest = await db.getAll(...Array.from({length: parts - 1}, (_, i) => db.doc(`${SUMMARY_COLLECTION}/${summaryPartId(examId, i + 1)}`)));
+    for (const part of rest) {
+      if (!part.exists || part.get('bankVersion') !== bank) return {reason: 'part missing or stale'};
+      chunks.push(part.get('payload'));
+    }
+  }
+  if (chunks.some(c => typeof c !== 'string')) return {reason: 'unreadable payload'};
+  try {
+    const value = JSON.parse(chunks.join('')) as ExamContent;
+    if (!Array.isArray(value.topics) || !Array.isArray(value.questions) || !Array.isArray(value.lessons)) return {reason: 'unreadable shape'};
+    return {value};
+  } catch {
+    return {reason: 'unreadable payload'};
+  }
+}
 
-/** The topic id the app's seed and the mock blueprints use: `topic_<exam>_<topic>`. */
-export const topicIdFor = (examId: string, topic: string): string =>
-  `topic_${examId.replace(/^exam_/, '')}_${topic.replace(/-/g, '_')}`;
-
-const titleCase = (slug: string): string => slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+/** The whole-bank scan: every lesson and question set (about 1,460 reads on Nov 20, 2026 content). */
+async function scanExamContent(db: Firestore, examId: string): Promise<ExamContent> {
+  const lessons = (await db.collection('content/lessons/items')
+    .select('topic', 'status', 'replacedBy', 'ordering', 'isActive').get()).docs.map(doc => ({
+      id: doc.id, topic: doc.get('topic'), status: doc.get('status'), replacedBy: doc.get('replacedBy'),
+      ordering: doc.get('ordering'), isActive: doc.get('isActive'),
+    }));
+  const sets = (await db.collection('content/questions/items').get()).docs.map(doc => ({id: doc.id, payload: doc.get('payload')}));
+  return buildExamContent(examId, lessons, sets);
+}
 
 /**
- * Reads the exam's questions and lessons from the server-only content collections. The result is
- * kept in this instance's memory for a few minutes, because a roadmap recompute or a mock start
- * would otherwise read the whole bank each time.
+ * Reads the exam's questions and lessons. It uses the exam's summary when it matches the stored bank
+ * (2 or 3 reads) and otherwise scans the whole bank and logs why. The result is kept in this
+ * instance's memory for a few minutes either way, as before the summaries existed.
  */
 export async function loadExamContent(db: Firestore, examId: string, now: number): Promise<ExamContent> {
   const hit = cache.get(examId);
   if (hit && now - hit.at < TTL_MS && now >= hit.at) return hit.value;
-  const slug = examSlug(examId);
-  const lessonDocs = (await db.collection('content/lessons/items')
-    .select('topic', 'status', 'replacedBy', 'ordering', 'isActive').get()).docs.map(doc => ({
-      id: doc.id, topic: String(doc.get('topic') ?? '').replace(/^topic-/, ''),
-      status: doc.get('status') as string | undefined, replacedBy: doc.get('replacedBy') as string[] | undefined,
-      ordering: Number(doc.get('ordering') ?? 0), isActive: doc.get('isActive') as boolean | undefined,
-    }));
-  const resolveLesson = lessonResolver(lessonDocs);
-  const questions: QuestionRef[] = [];
-  const topicSlugs = new Set<string>();
-  for (const doc of (await db.collection('content/questions/items').get()).docs) {
-    let set: {meta?: {topic?: string; subtopic?: string; exams?: string[]}; questions?: {id: string; lesson?: string; passage?: unknown; isActive?: boolean; figure?: unknown; figureSpec?: unknown}[]};
-    try {
-      set = JSON.parse(String(doc.get('payload')));
-    } catch {
-      continue; // A malformed document must not break every roadmap and mock for the exam.
-    }
-    const topic = set.meta?.topic;
-    if (typeof topic !== 'string' || !set.meta?.exams?.includes(slug)) continue;
-    topicSlugs.add(topic);
-    for (const question of set.questions ?? []) {
-      if (question.isActive === false || question.figure != null && String(question.figure).trim() !== '' && question.figureSpec == null) continue;
-      questions.push({id: question.id, setId: doc.id, topicId: topicIdFor(examId, topic),
-        lessonId: resolveLesson(question.lesson ?? (typeof set.meta.subtopic === 'string' ? `lesson-${topic}-${set.meta.subtopic}` : null), question.lesson != null),
-        passageId: typeof question.passage === 'string' ? question.passage : null});
-    }
+  let summary: {value: ExamContent} | {reason: string};
+  try {
+    summary = await readSummary(db, examId);
+  } catch (error) {
+    summary = {reason: `read failed: ${error instanceof Error ? error.message : String(error)}`};
   }
-  const lessons: LessonRef[] = lessonDocs
-    .filter(l => topicSlugs.has(l.topic) && (l.status ?? 'active') === 'active' && l.isActive !== false)
-    .sort((a, b) => a.ordering - b.ordering || a.id.localeCompare(b.id))
-    .map(l => ({id: l.id, topicId: topicIdFor(examId, l.topic), ordering: l.ordering}));
-  const value: ExamContent = {
-    topics: [...topicSlugs].sort().map(topic => ({id: topicIdFor(examId, topic), name: titleCase(topic)})),
-    questions, lessons,
-    ...(lessonDocs.some(l=>l.status==='retired')?{retiredReplacements: Object.fromEntries(lessonDocs.filter(l=>l.status==='retired').map(l=>[l.id,l.replacedBy??[]]))}:{}),
-  };
+  let value: ExamContent;
+  if ('value' in summary) value = summary.value;
+  else {
+    logger.warn(`exam content summary unusable: ${summary.reason} ${examId}`);
+    value = await scanExamContent(db, examId);
+  }
   cache.set(examId, {at: now, value});
   return value;
 }

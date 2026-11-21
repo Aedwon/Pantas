@@ -188,4 +188,4 @@ const {initializeApp} = require('firebase-admin/app');
 const {getFirestore} = require('firebase-admin/firestore');
 initializeApp({projectId: option('--project', process.env.GCLOUD_PROJECT ?? 'demo-pantas-test')});
 const result = await writeContent(getFirestore(), items, pros, {dryRun});
-console.log(`${dryRun ? 'dry run: would write' : 'wrote'} ${JSON.stringify(result.counts)}, pro documents changed: ${result.proWritten}`);
+console.log(`${dryRun ? 'dry run: would write' : 'wrote'} ${JSON.stringify(result.counts)}, pro documents changed: ${result.proWritten}, exam summaries: ${result.summaries}`);

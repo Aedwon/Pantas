@@ -1,5 +1,6 @@
 import {createHash} from 'node:crypto';
 import type {Firestore} from 'firebase-admin/firestore';
+import {BANK_MARKER_ID, BUILDER_VERSION, SUMMARY_COLLECTION, buildExamContent, summaryPartId} from './_examContentBuild.js';
 
 export type ContentKind = 'lessons' | 'questions' | 'mocks' | 'catalog' | 'gaps';
 export type ContentItem = {kind: ContentKind; id: string; data: Record<string, unknown> & {version: string}};
@@ -240,13 +241,67 @@ export function planWrites(items: ContentItem[], existing: Map<string, string>):
   return {counts, changed};
 }
 
+// ---- exam summaries ---------------------------------------------------------------------------
+// One document per exam with what `loadExamContent` would build from the whole bank, so the server
+// reads 2 or 3 documents instead of every lesson and question set. Plan:
+// docs/superpowers/plans/2026-11-21-exam-content-summary.md.
+
+export const SUMMARY_SPLIT_CHARS = 700_000;
+const SUMMARY_HARD_LIMIT_BYTES = 1_000_000;
+const BANK_KINDS = new Set<ContentKind>(['lessons', 'questions']);
+const byId = <T extends {id: string}>(a: T, b: T): number => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+
+/** A digest of every lesson and question-set id and version in `items`: the bank they make up. */
+export function bankVersionOf(items: ContentItem[]): string {
+  return digest(items.filter((item) => BANK_KINDS.has(item.kind)).map((item) => `${item.kind}/${item.id}:${item.data.version}`).sort());
+}
+
+/**
+ * The exam summaries for a bank made of exactly these lesson and question-set items, in parts of at
+ * most SUMMARY_SPLIT_CHARS characters. Exams come from the sets' `meta.exams`.
+ */
+export function summaryItems(items: ContentItem[]): {id: string; data: Record<string, unknown>}[] {
+  const bankVersion = bankVersionOf(items);
+  // Document id order, as the scan reads them from Firestore.
+  const lessons = items.filter((item) => item.kind === 'lessons').sort(byId).map((item) => ({...item.data, id: item.id}));
+  const sets = items.filter((item) => item.kind === 'questions').sort(byId).map((item) => ({id: item.id, payload: item.data.payload}));
+  const slugs = new Set<string>();
+  for (const set of sets) {
+    try {
+      const exams = (JSON.parse(String(set.payload)) as {meta?: {exams?: unknown}}).meta?.exams;
+      if (Array.isArray(exams)) for (const slug of exams) if (typeof slug === 'string' && slug) slugs.add(slug);
+    } catch {
+      // The builder skips a malformed set too.
+    }
+  }
+  const out: {id: string; data: Record<string, unknown>}[] = [];
+  for (const slug of [...slugs].sort()) {
+    const examId = `exam_${underscore(slug)}`;
+    const payload = JSON.stringify(buildExamContent(examId, lessons, sets));
+    const chunks: string[] = [];
+    for (let start = 0; start < payload.length; start += SUMMARY_SPLIT_CHARS) chunks.push(payload.slice(start, start + SUMMARY_SPLIT_CHARS));
+    if (!chunks.length) chunks.push('');
+    for (const chunk of chunks) {
+      if (Buffer.byteLength(chunk, 'utf8') > SUMMARY_HARD_LIMIT_BYTES) throw new Error(`exam summary ${examId} part is over ${SUMMARY_HARD_LIMIT_BYTES} bytes`);
+    }
+    out.push({id: examId, data: {kind: 'summaries', id: examId, bankVersion, builderVersion: BUILDER_VERSION, parts: chunks.length, payload: chunks[0]}});
+    chunks.slice(1).forEach((chunk, i) => {
+      const id = summaryPartId(examId, i + 1);
+      out.push({id, data: {kind: 'summaries', id, bankVersion, part: i + 1, payload: chunk}});
+    });
+  }
+  return out;
+}
+
+export type SummaryResult = 'written' | 'unchanged' | 'partial' | 'not touched';
+
 /**
  * Idempotent upload to `content/{kind}/items/{id}` and `contentPro/{id}`. A dry run reads and
  * plans but writes nothing. The caller chooses the target; the CLI points it at the emulator
  * unless `--live` is given.
  */
 export async function writeContent(db: Firestore, items: ContentItem[], pros: ProItem[],
-  options: {dryRun?: boolean}): Promise<{counts: PlanCounts; proWritten: number}> {
+  options: {dryRun?: boolean}): Promise<{counts: PlanCounts; proWritten: number; summaries: SummaryResult}> {
   const existing = new Map<string, string>();
   for (const kind of ['lessons', 'questions', 'mocks', 'catalog', 'gaps'] as const) {
     const snapshot = await db.collection(`content/${kind}/items`).select('version').get();
@@ -255,7 +310,29 @@ export async function writeContent(db: Firestore, items: ContentItem[], pros: Pr
   const {counts, changed} = planWrites(items, existing);
   const changedQuestionIds = new Set(changed.filter((item) => item.kind === 'questions').map((item) => item.id));
   const proChanged = pros.filter((pro) => changedQuestionIds.has(pro.id));
+  // Exam summaries are written only when this upload holds the whole stored bank (every stored lesson
+  // and question set), because writes never delete: a partial upload cannot know the bank's full state.
+  const markerRef = db.doc(`${SUMMARY_COLLECTION}/${BANK_MARKER_ID}`);
+  const marker = await markerRef.get();
+  const inputBank = new Set(items.filter((item) => BANK_KINDS.has(item.kind)).map((item) => `${item.kind}/${item.id}`));
+  const covered = [...existing.keys()].filter((key) => key.startsWith('lessons/') || key.startsWith('questions/')).every((key) => inputBank.has(key));
+  const bankChanging = changed.some((item) => BANK_KINDS.has(item.kind));
+  const bankVersion = covered ? bankVersionOf(items) : null;
+  // An upload with no lessons or question sets (only catalog, mocks or gaps) leaves summaries alone.
+  const summariesDue = covered && inputBank.size > 0 && (bankChanging || !marker.exists || marker.get('bankVersion') !== bankVersion
+    || marker.get('builderVersion') !== BUILDER_VERSION);
+  const summaries: SummaryResult = summariesDue ? 'written' : covered && inputBank.size > 0 ? 'unchanged' : bankChanging ? 'partial' : 'not touched';
+  const commitAll = async (writes: {ref: FirebaseFirestore.DocumentReference; data: Record<string, unknown>}[]): Promise<void> => {
+    for (let start = 0; start < writes.length; start += 400) {
+      const batch = db.batch();
+      for (const write of writes.slice(start, start + 400)) batch.set(write.ref, write.data);
+      await batch.commit();
+    }
+  };
   if (!options.dryRun) {
+    // The marker goes invalid before any lesson or question changes and turns valid only after the
+    // summaries, so a stop at any point leaves readers scanning the bank.
+    if (bankChanging || summariesDue) await commitAll([{ref: markerRef, data: {bankVersion: `writing:${Date.now()}`}}]);
     // Pro first: a client never sees a free version whose notes are not yet stored.
     const writes: {ref: FirebaseFirestore.DocumentReference; data: Record<string, unknown>}[] = [
       ...proChanged.map((pro) => ({ref: db.doc(`contentPro/${pro.id}`), data: pro.data})),
@@ -274,6 +351,12 @@ export async function writeContent(db: Firestore, items: ContentItem[], pros: Pr
       for (const id of staleIds.slice(start, start + 400)) batch.delete(db.doc(`contentPro/${id}`));
       await batch.commit();
     }
+    if (summariesDue) {
+      await commitAll(summaryItems(items).map((summary) => ({ref: db.doc(`${SUMMARY_COLLECTION}/${summary.id}`), data: summary.data})));
+      await commitAll([{ref: markerRef, data: {bankVersion, builderVersion: BUILDER_VERSION}}]);
+    } else if (bankChanging) {
+      await commitAll([{ref: markerRef, data: {bankVersion: `partial:${Date.now()}`}}]);
+    }
   }
-  return {counts, proWritten: proChanged.length};
+  return {counts, proWritten: proChanged.length, summaries};
 }
