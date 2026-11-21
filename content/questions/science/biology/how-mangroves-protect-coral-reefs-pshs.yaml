@@ -1,0 +1,107 @@
+meta:
+  subject: science
+  topic: biology
+  subtopic: how-mangroves-protect-coral-reefs-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-biology-how-mangroves-protect-coral-reefs-pshs-0001
+    lesson: lesson-biology-how-mangroves-protect-coral-reefs
+    keyPoint: 1
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      After a storm, students see fresh mud on the bottom among mangrove roots.
+      They want to know if the roots helped keep mud from reaching a nearby reef.
+      Which other observation best supports their idea?
+    choices:
+      - text: Runoff carried less mud out of the roots than into them.
+        correct: true
+      - text: Runoff carried more mud out of the roots than into them.
+        rationale: |
+          This treats mud leaving the roots as mud they caught. The outgoing mud
+          does show that the storm moved soil. Check which way the mud is going.
+      - text: Runoff carried the same amount of mud into and out of the roots.
+        rationale: |
+          The fresh mud makes it look like the roots helped. That can make it
+          easy to miss that the amounts are equal. Compare how much mud entered
+          the roots with how much left.
+      - text: Runoff carried less mud after it flowed past the reef.
+        rationale: |
+          This puts the drop in mud too late. Clearer water may look like a good
+          sign. Check whether the drop happened before the water reached the reef.
+      - text: Runoff slowed down just after it left the roots.
+        rationale: |
+          This treats slow water as proof that the roots caught mud. Slow water
+          can let mud settle. Check where the water slows and where the mud settles.
+    explanation: |
+      The roots slow the runoff, so some mud settles among them. The water
+      leaves the roots with less mud to carry to the reef.
+
+  - id: q-biology-how-mangroves-protect-coral-reefs-pshs-0002
+    lesson: lesson-biology-how-mangroves-protect-coral-reefs
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: hard
+    stem: |
+      Muddy runoff from a road flows through mangrove roots on its way to a
+      reef. A new pipe will carry the same runoff around the roots and empty
+      just beyond them. If the rain and the amount of mud washed off the
+      road stay the same, what change at the reef is most likely?
+    choices:
+      - text: Less mud will arrive because the pipe keeps it away from the roots.
+        rationale: |
+          This assumes that moving water away from the roots moves it away from
+          the reef. The pipe does change the route. Check where its outlet leads.
+      - text: The same amount of mud will arrive because the reef stays in place.
+        rationale: |
+          This uses the same endpoint to predict the same amount of mud. Both routes
+          do lead to the reef. Check where mud can settle along each route.
+      - text: More mud will arrive because the runoff skips the roots.
+        correct: true
+      - text: More mud will arrive because the pipe washes old mud out of the roots.
+        rationale: |
+          This assumes the pipe washes away mud that already settled. The outlet
+          is close to the roots. Check whether the runoff still flows through them.
+      - text: The same amount of mud will arrive because the same amount starts out.
+        rationale: |
+          This assumes all the mud stays in the runoff. The starting amount is the
+          same, so the answer may seem right. Check what can settle along the way.
+    explanation: |
+      The pipe sends the runoff past the roots. Less mud settles along the
+      way, so more can reach the reef.
+
+  - id: q-biology-how-mangroves-protect-coral-reefs-pshs-0003
+    lesson: lesson-biology-how-mangroves-protect-coral-reefs
+    keyPoint: 2
+    type: compare-contrast
+    difficulty: exam
+    stem: |
+      In a jar of runoff from a farm, a brown pollutant sticks to bits of soil.
+      A yellow pollutant stays mixed into the water even after the soil settles.
+      The same kind of runoff flows through mangrove roots toward a reef.
+      Which result best fits both the jar test and what the roots do?
+    choices:
+      - text: Some brown pollutant settles with the soil, and some yellow pollutant flows on.
+        correct: true
+      - text: Some yellow pollutant settles with the soil, and some brown pollutant flows on.
+        rationale: |
+          This swaps the roles of the two pollutants. Both are carried by the
+          same runoff. Check which one sticks to the soil in the jar.
+      - text: Both pollutants settle with the soil because both are carried by the same runoff.
+        rationale: |
+          This assumes that both pollutants stick to soil because they are in
+          the same water. Settling can catch one of them. Check what happens to
+          the yellow pollutant in the jar after the soil settles.
+      - text: All of the brown pollutant flows on because water can still pass through the roots.
+        rationale: |
+          This assumes that everything in the runoff moves with the water.
+          Water does flow past the roots. Check what can settle out of that flow.
+      - text: Some soil settles near the roots, but the brown pollutant washes off and flows on.
+        rationale: |
+          This assumes that slowing the water frees the brown pollutant from the
+          soil. The soil does settle in slow water. Check whether the jar test
+          shows the brown pollutant leaving the soil.
+    explanation: |
+      The roots slow the runoff and let some soil settle. The brown pollutant
+      stuck to that soil settles with it. The yellow pollutant stays in the
+      water and can travel on to the reef.
