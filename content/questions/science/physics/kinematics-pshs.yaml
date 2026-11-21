@@ -1,0 +1,232 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: kinematics-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-physics-kinematics-pshs-0001
+    lesson: lesson-physics-position-time-graph-slope
+    keyPoint: 1
+    type: identify
+    difficulty: easy
+    stem: |
+      The graph shows the position of a toy train along a straight track.
+      During which interval was the train at rest the whole time?
+    figureSpec:
+      kind: chart
+      type: line
+      labels: ['0 s', '2 s', '4 s', '6 s', '8 s', '10 s']
+      values: [0, 4, 4, 8, 4, 2]
+      yAxis:
+        label: Position (m)
+    choices:
+      - text: From 2 s to 4 s
+        correct: true
+      - text: From 0 s to 2 s
+        rationale: |
+          This treats the starting position of zero as rest. Zero can look
+          like no motion. Check whether the position stays the same.
+      - text: From 4 s to 6 s
+        rationale: |
+          This extends the stop into the next interval. The two intervals
+          share the point at 4 s. Follow the line after that point.
+      - text: From 6 s to 8 s
+        rationale: |
+          This treats a return to an earlier position as rest. At 8 s the
+          train is back at the height of the flat line. Check whether it
+          stays at that height from 6 s to 8 s.
+      - text: From 8 s to 10 s
+        rationale: |
+          This reads a gentle slope as flat. The last segment is less steep
+          than the one before it. Check whether the two ends are at the same height.
+    explanation: |
+      The line is flat from 2 s to 4 s. The train stays in the same place,
+      so it is at rest during that whole interval.
+
+  - id: q-physics-kinematics-pshs-0002
+    lesson: lesson-physics-position-displacement-and-velocity
+    keyPoint: 1
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A robot starts at the +8 m mark on a straight track. It rolls to the
+      -4 m mark, turns, and stops at the +2 m mark. What are its total distance
+      and signed displacement, in that order?
+    choices:
+      - text: 18 m and -6 m
+        correct: true
+      - text: 6 m and -6 m
+        rationale: |
+          This uses the gap between the start and finish as the distance.
+          That gap gives the size of the displacement. Check both legs of the trip.
+      - text: 18 m and +6 m
+        rationale: |
+          This gives the displacement the sign of the return leg.
+          The robot does end moving in the positive direction. Compare its
+          final position with its starting position.
+      - text: 6 m and +6 m
+        rationale: |
+          This subtracts the return leg from the first leg and uses $12-6=6$
+          for both answers. The legs do go in opposite directions. Check
+          which leg is negative and add both lengths for distance.
+      - text: 14 m and -10 m
+        rationale: |
+          This counts the return leg as 2 m because the robot stops at +2 m.
+          That mark is 2 m from zero, which gives $12+2=14$ m for distance
+          and $-12+2=-10$ m for displacement. Check where the return leg started.
+    explanation: |
+      The robot rolls 12 m to reach -4 m. It then rolls 6 m to reach +2 m.
+      Its total distance is $12+6=18$ m. Its displacement is $2-8=-6$ m.
+
+  - id: q-physics-kinematics-pshs-0003
+    lesson: lesson-physics-position-time-graph-slope
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      The graph shows a cart's position on a straight track. Which interval
+      has the same velocity as the interval from 0 s to 2 s?
+    figureSpec:
+      kind: chart
+      type: line
+      labels: ['0 s', '2 s', '4 s', '6 s', '8 s', '10 s']
+      values: [2, 4, 0, 2, 6, 4]
+      yAxis:
+        label: Position (m)
+    choices:
+      - text: From 4 s to 6 s
+        correct: true
+      - text: From 2 s to 4 s
+        rationale: |
+          This matches the intervals because they share the point at 2 s.
+          The position is the same where the segments meet. Check how their
+          slopes differ on either side of that point.
+      - text: From 6 s to 8 s
+        rationale: |
+          This matches the direction of travel. Both segments rise.
+          Compare how much the two lines rise in the same amount of time.
+      - text: From 8 s to 10 s
+        rationale: |
+          This matches the steepness and drops the sign. Both segments change
+          by the same amount in 2 s. Check which segment falls.
+      - text: From 6 s to 10 s
+        rationale: |
+          This compares only the start and end of the interval. The overall
+          change matches the rise from 0 s to 2 s. Check the longer time
+          and the turn in between.
+    explanation: |
+      From 0 s to 2 s and from 4 s to 6 s, the line rises by the same amount
+      in 2 seconds. Both slopes are the same and positive. The cart has the
+      same velocity in those two intervals.
+
+  - id: q-physics-kinematics-pshs-0004
+    lesson: lesson-physics-position-displacement-and-velocity
+    keyPoint: 2
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A swimmer goes 18 m south in 4 s, then turns and goes 6 m north along
+      the same lane in 2 s. North is positive. What are the swimmer's average
+      speed and average velocity for the full 6 s, in that order?
+    choices:
+      - text: 4 m/s and -2 m/s
+        correct: true
+      - text: 2 m/s and -2 m/s
+        rationale: |
+          This uses the 12 m net change for both rates. It gives $12/6=2$
+          m/s for speed and $-12/6=-2$ m/s for velocity. Add both path lengths
+          to find the distance for speed.
+      - text: 4 m/s and +2 m/s
+        rationale: |
+          This uses $(18+6)/6=4$ m/s for speed and gives the 12 m net change
+          the sign of the last leg, so $+12/6=+2$ m/s. The last leg goes north.
+          Check where the swimmer ends up compared with the starting point.
+      - text: 2 m/s and +2 m/s
+        rationale: |
+          This takes south as positive and uses $(18-6)/6=2$ m/s for both
+          rates. Subtracting gives the gap because the legs go in opposite
+          directions. Check which way is positive and add both legs for speed.
+      - text: 3.75 m/s and -0.75 m/s
+        rationale: |
+          This averages the two leg speeds, $(4.5+3)/2=3.75$ m/s, and the
+          two leg velocities, $(-4.5+3)/2=-0.75$ m/s. The rates come from
+          $18/4=4.5$ m/s south and $6/2=3$ m/s north. Check the times. The
+          swimmer spends twice as long on the first leg.
+    explanation: |
+      The swimmer travels $18+6=24$ m in 6 s. The average speed is
+      $24/6=4$ m/s. The signed change in position is $-18+6=-12$ m.
+      The average velocity is $-12/6=-2$ m/s.
+
+  - id: q-physics-kinematics-pshs-0005
+    lesson: lesson-physics-position-time-graph-slope
+    keyPoint: 1
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      The graph shows part of a lift's trip. Each labeled point gives the
+      time in seconds first and the lift's position in meters second.
+      What is the lift's velocity during the part shown?
+    figureSpec:
+      kind: coordinate-graph
+      type: line
+      points: [[1, 4], [3, -2]]
+    choices:
+      - text: -3 m/s
+        correct: true
+      - text: +3 m/s
+        rationale: |
+          This gives the size of the slope. The lift moves 6 m in 2 s.
+          Check the direction of the change in position.
+      - text: -2 m/s
+        rationale: |
+          This divides the position change by 3 s. The last clock reading
+          is 3 s. Subtract the first clock reading to find the time taken.
+      - text: -6 m/s
+        rationale: |
+          This gives the full change in position. The graph does drop by
+          6 m. Check how many seconds that drop takes.
+      - text: -12 m/s
+        rationale: |
+          This multiplies the position change by the time. Both changes
+          are needed. For meters per second, divide meters by seconds.
+    explanation: |
+      The lift's position changes by $-2-4=-6$ m. The time taken is
+      $3-1=2$ s. The slope is $-6/2=-3$ m/s. That is the lift's velocity.
+
+  - id: q-physics-kinematics-pshs-0006
+    lesson: lesson-physics-position-displacement-and-velocity
+    keyPoint: 2
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      Mina and Joel start at the same gate and finish at the same bench to its
+      east. They take the same total time. Mina walks straight to the bench.
+      Joel walks past the bench and then turns back to it. Which statement
+      describes their average speeds and average velocities?
+    choices:
+      - text: Joel has a higher average speed. Their average velocities match.
+        correct: true
+      - text: Joel has a higher average speed. He also has a higher average velocity.
+        rationale: |
+          This uses Joel's longer path for both rates. A longer path in the
+          same time does give a higher average speed. For average velocity,
+          compare where they start and finish.
+      - text: Mina has a higher average speed. She also has a higher average velocity.
+        rationale: |
+          This assumes the more direct route gives a higher rate. A shorter
+          route can save time. Here their times match. Check who covers
+          more distance in that time.
+      - text: Their average speeds match. Joel has a lower average velocity than Mina.
+        rationale: |
+          This uses the shared endpoints for speed and counts the westward
+          leg against Joel's velocity. That leg does bring Joel back toward
+          the gate. Check both walkers' full paths and where they end up.
+      - text: They have the same average speed. They have the same average velocity.
+        rationale: |
+          This gives both rates the same result because the times and
+          endpoints match. Those facts give equal average velocities.
+          Check the total path length for each walker.
+    explanation: |
+      Joel walks farther in the same time, so his average speed is higher.
+      Both walkers have the same change in position and take the same time.
+      Their average velocities are equal.
