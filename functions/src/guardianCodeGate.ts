@@ -9,7 +9,7 @@ import {allowAtMost} from './_limits.js';
 import {phDay} from './_phDate.js';
 import {appSecrets, secret} from './_secrets.js';
 import {timed} from './_timed.js';
-import {childrenOfHolder, holderForChild, type ChildLink} from './childLinks.js';
+import {canManageChild, childrenOfHolder, holderForChild, type ChildLink} from './childLinks.js';
 import {GUARDIAN_WINDOW_MS, guardianDailyCap, guardianMailFrom, maskEmail} from './guardianConsent.js';
 import {mailerFor, type GuardianMailer, type GuardianMessage} from './guardianMail.js';
 import {key as signInCodeKey} from './signInCode.js';
@@ -28,7 +28,7 @@ import {key as signInCodeKey} from './signInCode.js';
 export const GUARDIAN_CODE_ACTIONS = ['addChild', 'dataCopy', 'withdraw', 'delete', 'siblingOptIn', 'switchInto'] as const;
 export type GuardianCodeAction = typeof GUARDIAN_CODE_ACTIONS[number];
 
-/** Decision 9 item 6 is a proposal: this number may change. Counted per holder per UTC day. */
+/** Decision 9 item 6, accepted in Decision 10. Counted per holder per Philippine day. */
 export const GUARDIAN_CODES_PER_HOLDER_PER_DAY = 10;
 export const GUARDIAN_CODE_TTL_MS = 10 * 60_000;
 export const GUARDIAN_PROOF_TTL_MS = 5 * 60_000;
@@ -151,18 +151,23 @@ const notLinked = (): HttpsError => new HttpsError('permission-denied', 'This ac
  * The named child must be one of that holder's active children. Adding a child needs a holder that
  * already has one: the gate is entered inside a child's session.
  */
-async function resolveHolder(db: Firestore, callerUid: string, childId: string | null):
+async function resolveHolder(db: Firestore, callerUid: string, action: GuardianCodeAction, childId: string | null):
   Promise<{holderUid: string; child: ChildLink | null}> {
   const holderUid = await holderForChild(db, callerUid) ?? callerUid;
   const children = await childrenOfHolder(db, holderUid);
   if (children.length === 0) throw notLinked();
   if (childId === null) return {holderUid, child: null};
+  if (action !== 'switchInto' && !canManageChild(callerUid, holderUid, childId)) throw notLinked();
   const child = children.find(row => row.childUid === childId);
   if (!child) throw notLinked();
   return {holderUid, child};
 }
 
 const codePath = (holderUid: string): string => `guardianCodes/${holderUid}`;
+export async function cancelPendingGuardianCode(db: Firestore, holderUid: string): Promise<void> {
+  await db.doc(codePath(holderUid)).delete();
+}
+
 const proofPath = (id: string): string => `guardianCodeProofs/${id}`;
 const PROOF_ID = /^[0-9a-f]{32}$/;
 
@@ -183,13 +188,14 @@ export async function sendGuardianCode(request: Req, deps: SendDeps):
   const {action, childId} = parseTarget(request.data);
   const now = deps.now ?? Date.now;
   const allow = deps.allow ?? allowAtMost;
-  const {holderUid, child} = await resolveHolder(deps.db, uid, childId);
+  const {holderUid, child} = await resolveHolder(deps.db, uid, action, childId);
   if (!await allow(uid, 'guardianCodeSend', SENDS_PER_CALLER_PER_HOUR, HOUR_MS)) {
     throw new HttpsError('resource-exhausted', 'Too many codes requested. Try again later.');
   }
   let email: string | undefined;
   try {
-    email = (await deps.auth.getUser(holderUid)).email;
+    const holder = await deps.auth.getUser(holderUid);
+    if (holder.emailVerified === true) email = holder.email;
   } catch (error) {
     logger.warn('Guardian code holder lookup failed', {message: error instanceof Error ? error.message : 'unknown'});
   }
@@ -198,14 +204,14 @@ export async function sendGuardianCode(request: Req, deps: SendDeps):
 
   const cap = deps.dailyCap ?? 500;
   const at = now();
-  const utcDay = new Date(at).toISOString().slice(0, 10);
   const day = phDay(at);
   const codeRef = deps.db.doc(codePath(holderUid));
-  const holderDayRef = deps.db.doc(`guardianCodeLimits/${holderUid}-${utcDay}`);
+  const holderDayRef = deps.db.doc(`guardianCodeLimits/${holderUid}-${day}`);
   // The same counter guardian consent mail uses, so there is one daily cap for all guardian mail.
   const globalRef = deps.db.doc(`guardianLimits/global-${day}`);
   const random = deps.random ?? (() => randomInt(0, 1_000_000));
 
+  const reservationId = randomBytes(16).toString('hex');
   const slot = await deps.db.runTransaction<Slot>(async tx => {
     const [pending, holderDay, global] = await Promise.all([tx.get(codeRef), tx.get(holderDayRef), tx.get(globalRef)]);
     const sentAt = millis(pending.get('sentAt'));
@@ -228,7 +234,7 @@ export async function sendGuardianCode(request: Req, deps: SendDeps):
       ...(becameFull ? {fullLogged: true} : {})}, {merge: true});
     tx.set(holderDayRef, {count: holderCount + 1, purgeAt: new Date(at + DAY_MS + PURGE_MARGIN_MS)});
     // Replacing the document is what cancels a pending code for another child or action.
-    tx.set(codeRef, {holderUid, childId, action, codeHash: hashGuardianCode(deps.key, holderUid, childId, action, code),
+    tx.set(codeRef, {holderUid, childId, action, reservationId, codeHash: hashGuardianCode(deps.key, holderUid, childId, action, code),
       attempts: 0, sentAt: at, expiresAt: new Date(at + GUARDIAN_CODE_TTL_MS),
       purgeAt: new Date(at + GUARDIAN_CODE_TTL_MS + PURGE_MARGIN_MS)});
     return {kind: 'stored', code, becameFull};
@@ -253,8 +259,8 @@ export async function sendGuardianCode(request: Req, deps: SendDeps):
     logger.warn('Guardian code email failed', {message: error instanceof Error ? error.message : 'unknown'});
     // Remove the unsent code and give both places back, so a failing mailer cannot use up a cap.
     await deps.db.runTransaction(async tx => {
-      const [global, holderDay] = await Promise.all([tx.get(globalRef), tx.get(holderDayRef)]);
-      tx.delete(codeRef);
+      const [global, holderDay, pending] = await Promise.all([tx.get(globalRef), tx.get(holderDayRef), tx.get(codeRef)]);
+      if (pending.get('reservationId') === reservationId) tx.delete(codeRef);
       if (global.exists) tx.set(globalRef, {count: Math.max(0, Number(global.get('count') ?? 0) - 1),
         purgeAt: new Date(at + DAY_MS + GUARDIAN_WINDOW_MS)}, {merge: true});
       if (holderDay.exists) tx.set(holderDayRef, {count: Math.max(0, Number(holderDay.get('count') ?? 0) - 1),
@@ -284,7 +290,7 @@ export async function checkGuardianCode(request: Req, deps: GateDeps):
   if (typeof code !== 'string' || !/^\d{6}$/.test(code)) throw new HttpsError('invalid-argument', 'Enter the 6-digit code.');
   const now = deps.now ?? Date.now;
   const allow = deps.allow ?? allowAtMost;
-  const {holderUid} = await resolveHolder(deps.db, uid, childId);
+  const {holderUid} = await resolveHolder(deps.db, uid, action, childId);
   if (!await allow(uid, 'guardianCodeVerify', VERIFIES_PER_CALLER, 10 * 60_000)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }

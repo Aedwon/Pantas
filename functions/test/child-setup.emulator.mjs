@@ -1,6 +1,7 @@
 import {setTestSecrets} from './_secrets-helper.mjs';
 import '../lib/index.js';
 import assert from 'node:assert/strict';
+import {createHmac} from 'node:crypto';
 import test, {beforeEach} from 'node:test';
 import {getAuth} from 'firebase-admin/auth';
 import {getFirestore} from 'firebase-admin/firestore';
@@ -8,6 +9,7 @@ import {CHILD_LIMIT, listChildrenFor, openSession, setNickname, setupChild} from
 import {checkGuardianCode, sendGuardianCode} from '../lib/guardianCodeGate.js';
 import {CHILD_NOTICE_VERSION, GUARDIAN_DOCUMENT_VERSIONS, GUARDIAN_TICK_TEXT_VERSIONS} from '../lib/guardianConsent.js';
 import {createCheckout} from '../lib/paymongoCheckout.js';
+import {recordSignInEvent} from '../lib/recordSignInEvent.js';
 
 setTestSecrets();
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
@@ -23,14 +25,14 @@ const as = (uid, data, provider) => ({auth: named(uid, provider), app, data});
 const rejected = async promise => { try { await promise; return null; } catch (e) { return e; } };
 const reasonOf = e => e?.details?.reason;
 
-const versions = {tick1TextVersion: GUARDIAN_TICK_TEXT_VERSIONS.tick1, tick2TextVersion: GUARDIAN_TICK_TEXT_VERSIONS.tick2,
+const versions = {tick1Accepted: true, tick2Accepted: true, tick1TextVersion: GUARDIAN_TICK_TEXT_VERSIONS.tick1, tick2TextVersion: GUARDIAN_TICK_TEXT_VERSIONS.tick2,
   termsVersion: GUARDIAN_DOCUMENT_VERSIONS.terms, childNoticeVersion: CHILD_NOTICE_VERSION};
 
 let clock;
 let sent;
 let open;
 let n;
-const deps = (over = {}) => ({db, auth, now: () => clock, open: () => open, allow: async () => true, dailyCap: 100,
+const deps = (over = {}) => ({db, auth, evidenceKey: KEY, now: () => clock, open: () => open, allow: async () => true, dailyCap: 100,
   linkOrigin: 'https://app.example.test/', mailer: {send: async m => { sent.push(m); }}, ...over});
 
 const wipeUser = async uid => {
@@ -134,15 +136,32 @@ test('an account with a profile, study data, a pass or a consent record is refus
   }
 });
 
-test('an empty named account becomes the holder; a root document with only createdAt, rate limits and a Google sign-in still count as empty', async () => {
+test('an empty named account becomes the holder; sign-in bookkeeping does not make it an existing student account', async () => {
   await db.doc(`users/${HOLDER}`).set({createdAt: T0, lastSeenAt: T0});
   await db.doc(`users/${HOLDER}/limits/setupChildAccount`).set({count: 1});
   const result = await setup(HOLDER);
   assert.equal(typeof result.childUid, 'string');
   assert.equal((await db.doc(`users/${HOLDER}/server/holder`).get()).get('createdAt'), T0);
-  const viaGoogle = await setup('cs-holder-two', {}, {});
+  const googleHolder = 'cs-holder-two';
+  await recordSignInEvent.run(as(googleHolder, {}, 'google.com'));
+  const audited = await db.doc(`users/${googleHolder}`).get();
+  assert.match(audited.get('publicId'), /^\d{9}$/);
+  const viaGoogle = await setupChild(as(googleHolder, versions, 'google.com'), deps());
+  createdChildren.push(viaGoogle.childUid);
   assert.ok(viaGoogle.childUid);
   assert.equal((await db.doc('users/cs-holder-two/server/holder').get()).exists, true);
+});
+
+test('setup requires both explicit affirmations', async () => {
+  for (const field of ['tick1Accepted', 'tick2Accepted']) {
+    for (const value of [undefined, false]) {
+      const data = {...versions, [field]: value};
+      if (value === undefined) delete data[field];
+      const result = await rejected(setupChild(as(HOLDER, data), deps()));
+      assert.equal(reasonOf(result), 'stale-consent-text', field);
+      assert.equal((await itemsOf(HOLDER).get()).empty, true);
+    }
+  }
 });
 
 test('the first child writes the exact link documents, the consent record, claims and evidence, and returns a token', async () => {
@@ -168,9 +187,11 @@ test('the first child writes the exact link documents, the consent record, claim
   assert.equal(e.method, 'guardian_held');
   assert.equal(e.holderUid, HOLDER);
   assert.equal(e.childUid, childUid);
+  assert.equal(e.guardianEmailHash, createHmac('sha256', KEY).update(`email\0${EMAIL}`).digest('hex'));
   assert.deepEqual(e.link, {holderUid: HOLDER, childUid});
   assert.equal(e.decidedAt, T0);
   assert.deepEqual(e.documentVersions, {...GUARDIAN_DOCUMENT_VERSIONS, child: CHILD_NOTICE_VERSION});
+  assert.deepEqual(e.ticksAccepted, {tick1: true, tick2: true});
   assert.deepEqual(e.tickTextVersions, {tick1: GUARDIAN_TICK_TEXT_VERSIONS.tick1, tick2: GUARDIAN_TICK_TEXT_VERSIONS.tick2});
   assert.ok(!JSON.stringify(e).includes(EMAIL));
   const user = await auth.getUser(childUid);
@@ -220,6 +241,20 @@ test('the receipt shares the guardian daily cap: when it is full setup still wor
   assert.ok(childUid);
   assert.equal(sent.length, 0);
   assert.equal((await db.doc('guardianLimits/global-2026-11-19').get()).get('count'), 3);
+});
+
+test('an unverified holder email leaves the receipt pending', async () => {
+  const {childUid} = await setup(HOLDER);
+  const email = 'replacement.setup@example.test';
+  await auth.updateUser(HOLDER, {email, emailVerified: false});
+  const nickname = as(childUid, {childId: childUid, nickname: 'Ana'});
+  await setNickname(nickname, deps());
+  assert.equal(sent.length, 0);
+  assert.equal((await entryOf(HOLDER, childUid)).receiptSentAt, undefined);
+  assert.equal((await db.doc('guardianLimits/global-2026-11-19').get()).get('count') ?? 0, 0);
+  await auth.updateUser(HOLDER, {emailVerified: true});
+  await setNickname(nickname, deps());
+  assert.deepEqual(sent.map(message => message.to), [email]);
 });
 
 test('nicknames are trimmed, 1 to 30 characters, with no markup, links, addresses or control characters', async () => {

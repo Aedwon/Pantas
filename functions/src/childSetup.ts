@@ -9,10 +9,11 @@ import {phDay} from './_phDate.js';
 import {appSecrets, secret} from './_secrets.js';
 import {timed} from './_timed.js';
 import {childEntryPath, childLinkPath, childrenOfHolder, childrenPath, holderForChild} from './childLinks.js';
-import {consumeGuardianProof} from './guardianCodeGate.js';
+import {cancelPendingGuardianCode, consumeGuardianProof} from './guardianCodeGate.js';
 import {CHILD_DOCUMENT_VERSIONS, CHILD_NOTICE_VERSION, GUARDIAN_DOCUMENT_VERSIONS, GUARDIAN_TICK_TEXT_VERSIONS,
-  GUARDIAN_WINDOW_MS, guardianDailyCap, guardianLinkOrigin, guardianMailFrom, maskEmail} from './guardianConsent.js';
+  GUARDIAN_WINDOW_MS, guardianDailyCap, guardianLinkOrigin, guardianMailFrom, hashValue, maskEmail} from './guardianConsent.js';
 import {expiryLabel, mailerFor, type GuardianMailer, type GuardianMessage} from './guardianMail.js';
+import {isValidPublicId} from './publicId.js';
 
 /**
  * Holder and child accounts: the setup callable and the callables a child session uses.
@@ -165,9 +166,9 @@ async function sendReceipt(deps: SetupDeps, holderUid: string, childUid: string)
     }
     if (claim.becameFull) logger.error(`Mail cap full: guardian bucket, ${day}.`, {event: 'mail_cap_full', bucket: 'guardian', day, cap});
     try {
-      const email = (await deps.auth.getUser(holderUid)).email;
+      const {email, emailVerified} = await deps.auth.getUser(holderUid);
       const origin = deps.linkOrigin.replace(/\/+$/, '');
-      if (!email || !origin) throw new Error('no address or link origin');
+      if (!email || emailVerified !== true || !origin) throw new Error('no verified address or link origin');
       await deps.mailer.send(childReceiptMessage({to: email, nickname: claim.nickname,
         date: expiryLabel(claim.createdAt || at), noticeVersion: claim.noticeVersion,
         deleteLink: `${origin}/parents/delete?child=${encodeURIComponent(childUid)}`}));
@@ -200,7 +201,8 @@ async function hasAccountData(db: Firestore, uid: string, claims: {[key: string]
   if (claims && (claims.pro !== undefined || claims.proUntil !== undefined)) return true;
   const userRef = db.doc(`users/${uid}`);
   const root = await userRef.get();
-  if (root.exists && Object.keys(root.data() ?? {}).some(key => key !== 'createdAt' && key !== 'lastSeenAt')) return true;
+  if (Object.entries(root.data() ?? {}).some(([key, value]) =>
+    key !== 'createdAt' && key !== 'lastSeenAt' && (key !== 'publicId' || !isValidPublicId(value)))) return true;
   if ((await db.doc(CONSENT_PATH(uid)).get()).exists) return true;
   const serverDocs = await userRef.collection('server').listDocuments();
   if (serverDocs.some(ref => !BENIGN_SERVER_DOCS.has(ref.id))) return true;
@@ -213,15 +215,19 @@ async function hasAccountData(db: Firestore, uid: string, claims: {[key: string]
 
 const stale = (): HttpsError => new HttpsError('failed-precondition', 'Reload to review the current terms.',
   {reason: 'stale-consent-text'});
+const emailHasAccount = (): HttpsError => new HttpsError('failed-precondition',
+  'This email already has a Pantas account. Use another email.', {reason: 'email-has-account'});
 
-export async function setupChild(request: Req, deps: SetupDeps): Promise<{childUid: string; customToken: string}> {
+export async function setupChild(request: Req, deps: SetupDeps & {evidenceKey: string}):
+  Promise<{childUid: string; customToken: string}> {
   const {uid, provider} = assertCaller(request);
   const now = (deps.now ?? Date.now)();
   if (!(deps.open ?? childAccountsOpen)()) {
     throw new HttpsError('failed-precondition', 'Child accounts are not open yet.', {reason: 'child-accounts-closed'});
   }
   const data = (request.data ?? {}) as Record<string, unknown>;
-  if (data.tick1TextVersion !== GUARDIAN_TICK_TEXT_VERSIONS.tick1 || data.tick2TextVersion !== GUARDIAN_TICK_TEXT_VERSIONS.tick2 ||
+  if (data.tick1Accepted !== true || data.tick2Accepted !== true ||
+      data.tick1TextVersion !== GUARDIAN_TICK_TEXT_VERSIONS.tick1 || data.tick2TextVersion !== GUARDIAN_TICK_TEXT_VERSIONS.tick2 ||
       data.termsVersion !== GUARDIAN_DOCUMENT_VERSIONS.terms || data.childNoticeVersion !== CHILD_NOTICE_VERSION) throw stale();
   const nickname = data.nickname === undefined || data.nickname === null || data.nickname === '' ? '' : cleanNickname(data.nickname);
 
@@ -249,9 +255,9 @@ export async function setupChild(request: Req, deps: SetupDeps): Promise<{childU
     if (active.length >= CHILD_LIMIT) throw childLimit();
     needsProof = active.length >= 1;
   } else if (await hasAccountData(deps.db, uid, user.customClaims)) {
-    throw new HttpsError('failed-precondition', 'This email already has a Pantas account. Use another email.',
-      {reason: 'email-has-account'});
+    throw emailHasAccount();
   }
+  const guardianEmailHash = hashValue(deps.evidenceKey, 'email', user.email.trim().toLowerCase());
   // Every refusal above happens before the proof is used up.
   if (needsProof) await consumeGuardianProof(data.guardianProofId, uid, null, 'addChild', {db: deps.db, now: () => now});
 
@@ -269,7 +275,11 @@ export async function setupChild(request: Req, deps: SetupDeps): Promise<{childU
       if (count >= CHILD_LIMIT) throw childLimit();
       // Another setup finished first on an account that had no children: this call holds no proof.
       if (!needsProof && count > 0) throw new HttpsError('aborted', 'Another setup was running. Try again.');
-      if (!holder.exists) tx.set(holderRef, {createdAt: now});
+      if (!holder.exists) {
+        // Teen enrollment also reads the holder marker in its transaction.
+        if ((await tx.get(deps.db.doc(CONSENT_PATH(uid)))).exists) throw emailHasAccount();
+        tx.set(holderRef, {createdAt: now});
+      }
       tx.set(deps.db.doc(childEntryPath(uid, childUid)),
         {childUid, nickname, active: true, siblingOpenWithoutCode: false, createdAt: now});
       tx.set(deps.db.doc(childLinkPath(childUid)), {holderUid: uid});
@@ -277,10 +287,11 @@ export async function setupChild(request: Req, deps: SetupDeps): Promise<{childU
       tx.set(deps.db.doc(CONSENT_PATH(childUid)), {ageGroup: 'child', method: 'guardian_held', status: 'confirmed',
         holderUid: uid, decidedAt: now, sharingAllowed: false, termsVersion: GUARDIAN_DOCUMENT_VERSIONS.terms,
         childNoticeVersion: CHILD_NOTICE_VERSION});
-      // Outside the user tree, so deletion keeps it. Holds no email, name or nickname.
+      // Outside the user tree, so deletion keeps it. The email is represented only by its keyed hash.
       tx.set(deps.db.collection(`guardianConsentEvidence/${childUid}/responses`).doc(), {
-        action: 'child_setup', ageGroup: 'child', method: 'guardian_held', holderUid: uid, childUid,
+        action: 'child_setup', ageGroup: 'child', method: 'guardian_held', holderUid: uid, childUid, guardianEmailHash,
         link: {holderUid: uid, childUid}, documentVersions: CHILD_DOCUMENT_VERSIONS,
+        ticksAccepted: {tick1: data.tick1Accepted, tick2: data.tick2Accepted},
         tickTextVersions: {tick1: GUARDIAN_TICK_TEXT_VERSIONS.tick1, tick2: GUARDIAN_TICK_TEXT_VERSIONS.tick2},
         decidedAt: now});
     });
@@ -345,28 +356,28 @@ export async function openSession(request: Req, deps: Pick<SetupDeps, 'db' | 'au
   const data = (request.data ?? {}) as {childId?: unknown; guardianProofId?: unknown};
   if (typeof data.childId !== 'string' || !ID.test(data.childId)) throw new HttpsError('invalid-argument', 'Name the child.');
   const childId = data.childId;
-  const holderUid = await holderForChild(deps.db, childId);
-  if (!holderUid) throw notLinked();
-  const isHolder = uid === holderUid;
-  if (!isHolder && uid !== childId && await holderForChild(deps.db, uid) !== holderUid) throw notLinked();
+  const holderUid = await holderForChild(deps.db, uid) ?? uid;
   if (!await (deps.allow ?? allowAtMost)(uid, 'openChildSession', OPENS_PER_HOUR, HOUR_MS)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
+  const entry = await deps.db.doc(childEntryPath(holderUid, childId)).get();
+  if (entry.get('active') !== true ||
+      (await deps.db.doc(childLinkPath(childId)).get()).get('holderUid') !== holderUid) throw notLinked();
   await assertSignInTargetActive(deps.db, childId, uid);
-  if (!isHolder && uid !== childId) {
-    const entry = await deps.db.doc(childEntryPath(holderUid, childId)).get();
-    if (entry.get('siblingOpenWithoutCode') !== true) {
-      await consumeGuardianProof(data.guardianProofId, holderUid, childId, 'switchInto',
-        {db: deps.db, now: deps.now});
-    }
+  const switching = uid !== holderUid && uid !== childId;
+  if (switching && entry.get('siblingOpenWithoutCode') !== true) {
+    await consumeGuardianProof(data.guardianProofId, holderUid, childId, 'switchInto', {db: deps.db, now: deps.now});
   }
+  let customToken: string;
   try {
-    return {customToken: await deps.auth.createCustomToken(childId)};
+    customToken = await deps.auth.createCustomToken(childId);
   } catch (error) {
     // Usually the runtime service account lacks the Service Account Token Creator role.
     logger.error('Could not create a custom token', {message: error instanceof Error ? error.message : 'unknown'});
     throw new HttpsError('unavailable', 'Sign-in is unavailable. Try again soon.');
   }
+  if (switching) await cancelPendingGuardianCode(deps.db, holderUid);
+  return {customToken};
 }
 
 // ------------------------------------------------------------- deployment
@@ -382,7 +393,8 @@ function runtimeDeps(): SetupDeps {
 export const setupChildAccount = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
   consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]}, timed('setupChildAccount', request => {
   assertFreshAppCheck(request);
-  return setupChild(request, runtimeDeps());
+  return setupChild(request, {...runtimeDeps(),
+    evidenceKey: secret('GUARDIAN_HMAC_KEY', {emulatorStandIn: 'guardian-emulator-only-key'})});
 }));
 
 export const setChildNickname = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,

@@ -30,6 +30,9 @@ test('one hourly run purges due and legacy rate limits while retaining fresh cou
   const expired = {
     'users/retention-old/limits/stamped': overdue,
     'users/retention-old/limits/legacy': {count: 1, windowStartedAt: Timestamp.fromMillis(old)},
+    'users/retention-old/limits/syncGeneration': {
+      lastStagedAt: Timestamp.fromMillis(now - 29 * day), generationId: 'old-generation',
+    },
     'guardianLimits/global-2026-10-01': {count: 1},
     'guardianLimits/retention-email': {count: 1, windowStartedAt: old},
     'guardianCodeLimits/retention-old-2026-10-01': {count: 1},
@@ -46,6 +49,9 @@ test('one hourly run purges due and legacy rate limits while retaining fresh cou
   const kept = {
     'users/retention-fresh/limits/stamped': fresh,
     'users/retention-fresh/limits/legacy': {count: 1, windowStartedAt: Timestamp.fromMillis(now)},
+    'users/retention-fresh/limits/syncGeneration': {
+      lastStagedAt: Timestamp.fromMillis(now - 29 * day + 1), generationId: 'fresh-generation',
+    },
     'guardianLimits/global-2026-11-20': {count: 1},
     'guardianCodeLimits/retention-fresh-2026-11-20': {count: 1},
     'signInLimits/retention-fresh': fresh,

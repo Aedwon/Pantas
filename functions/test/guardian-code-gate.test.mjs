@@ -13,7 +13,7 @@ const entry = (childUid, nickname, over = {}) =>
 const caller = uid => ({uid, token: {firebase: {sign_in_provider: 'custom'}}});
 const err = promise => promise.then(() => assert.fail('expected a refusal'), e => e);
 
-function rig({users, send = {}, verify = {}, mailer} = {}) {
+function rig({users, send = {}, verify = {}, mailer, start = T0} = {}) {
   const db = fakeFirestore({
     'users/h1/server/children/items/kidA': entry('kidA', 'Ana'),
     'users/h1/server/children/items/kidB': entry('kidB', 'Ben'),
@@ -24,15 +24,18 @@ function rig({users, send = {}, verify = {}, mailer} = {}) {
     'users/h2/server/children/items/kidZ': entry('kidZ', 'Zed'),
     'users/kidZ/server/childLink': {holderUid: 'h2'},
   });
-  const accounts = users ?? {h1: {uid: 'h1', email: HOLDER_EMAIL}, h2: {uid: 'h2', email: 'other@example.com'},
-    lonely: {uid: 'lonely', email: 'lonely@example.com'}};
+  const accounts = users ?? {
+    h1: {uid: 'h1', email: HOLDER_EMAIL, emailVerified: true},
+    h2: {uid: 'h2', email: 'other@example.com', emailVerified: true},
+    lonely: {uid: 'lonely', email: 'lonely@example.com', emailVerified: true},
+  };
   const auth = {getUser: async uid => {
     if (!accounts[uid]) throw Object.assign(new Error('nope'), {code: 'auth/user-not-found'});
     return accounts[uid];
   }};
   const sent = [];
   const mail = mailer ?? {send: async m => { sent.push(m); }};
-  let t = T0;
+  let t = start;
   let n = 0;
   let c = 41;
   const clock = {now: () => t, advance: ms => { t += ms; }};
@@ -115,6 +118,26 @@ test('unlinked callers and unlinked children are refused and nothing is mailed',
   assert.equal(codeRow(r), undefined);
 });
 
+test('sibling callers can request a switch code and are refused for another child’s parent actions', async () => {
+  for (const action of ['delete', 'withdraw', 'dataCopy', 'siblingOptIn']) {
+    const r = rig();
+    const target = {action, childId: 'kidA'};
+    const sendError = await err(r.ask('kidB', target));
+    assert.equal(sendError.details.reason, 'not-linked', action);
+    assert.equal(r.sent.length, 0);
+
+    await r.ask('h1', target);
+    const verifyError = await err(r.check('kidB', {...target, code: '000000'}));
+    assert.equal(verifyError.details.reason, 'not-linked', action);
+    assert.equal(codeRow(r).attempts, 0);
+  }
+
+  const r = rig();
+  const target = {action: 'switchInto', childId: 'kidB'};
+  await r.ask('kidA', target);
+  assert.ok((await r.check('kidA', {...target, code: '000042'})).proof);
+});
+
 test('bad input is refused', async () => {
   const r = rig();
   for (const data of [undefined, {}, {action: 'nope', childId: 'kidA'}, {action: 5, childId: 'kidA'},
@@ -123,16 +146,41 @@ test('bad input is refused', async () => {
   }
 });
 
-test('sign-in and App Check are required', async () => {
+test('sign-in is required for guardian code requests and verification', async () => {
   const r = rig();
   assert.equal((await err(sendGuardianCode({data: del, app: {appId: 'a'}}, r.deps))).code, 'unauthenticated');
   assert.equal((await err(checkGuardianCode({data: {...del, code: '000042'}, app: {appId: 'a'}}, r.vdeps))).code, 'unauthenticated');
+});
+
+test('guardian code requests require fresh App Check', async () => {
+  const r = rig();
+  for (const app of [undefined, {appId: 'a', alreadyConsumed: true}]) {
+    await assert.rejects(r.ask('kidA', del, {app}), {code: 'unauthenticated'});
+    assert.equal(r.sent.length, 0);
+  }
+});
+
+test('guardian code verification requires fresh App Check', async () => {
+  const r = rig();
+  await r.ask('kidA', del);
+  for (const app of [undefined, {appId: 'a', alreadyConsumed: true}]) {
+    await assert.rejects(r.check('kidA', {...del, code: '000042'}, {app}), {code: 'unauthenticated'});
+    assert.equal(codeRow(r).attempts, 0);
+    assert.equal([...r.db.rows.keys()].some(path => path.startsWith('guardianCodeProofs/')), false);
+  }
 });
 
 test('a holder with no email on file cannot get a code', async () => {
   const r = rig({users: {h1: {uid: 'h1'}}});
   assert.equal((await err(r.ask('h1', del))).code, 'failed-precondition');
   assert.equal(r.sent.length, 0);
+});
+
+test('guardian codes only go to a verified holder email', async () => {
+  const r = rig({users: {h1: {uid: 'h1', email: 'replacement@example.test', emailVerified: false}}});
+  await assert.rejects(r.ask('kidA', del), {code: 'failed-precondition'});
+  assert.equal(r.sent.length, 0);
+  assert.equal(codeRow(r), undefined);
 });
 
 test('the per-caller limit refuses before anything is stored', async () => {
@@ -169,16 +217,16 @@ test('a request for a different child or action cancels the pending code at once
   for (const next of [{action: 'delete', childId: 'kidB'}, {action: 'withdraw', childId: 'kidA'}, {action: 'addChild'}]) {
     const r = rig();
     await r.ask('kidA', del);
-    await r.ask('kidA', next);
+    await r.ask('h1', next);
     assert.equal(r.sent.length, 2);
     const e = await err(r.check('kidA', {...del, code: '000042'}));
     assert.equal(e.code, 'not-found');
     assert.equal(e.details.reason, 'expired');
-    assert.ok((await r.check('kidA', {...next, code: '000043'})).proof);
+    assert.ok((await r.check('h1', {...next, code: '000043'})).proof);
   }
 });
 
-test('the per-holder daily limit is a named constant of 10 and counts per UTC day', async () => {
+test('each holder can send up to ten codes per day', async () => {
   assert.equal(GUARDIAN_CODES_PER_HOLDER_PER_DAY, 10);
   const r = rig();
   for (let i = 0; i < 10; i += 1) {
@@ -195,10 +243,35 @@ test('the per-holder daily limit is a named constant of 10 and counts per UTC da
   // Another holder is unaffected.
   await r.ask('kidZ', {action: 'delete', childId: 'kidZ'});
   assert.equal(r.sent.length, 11);
-  // The next UTC day starts a new count.
+  // The next day starts a new count.
   r.clock.advance(24 * 3_600_000);
   await r.ask('kidA', del);
   assert.equal(r.sent.length, 12);
+});
+
+test('the holder limit resets at Philippine midnight', async () => {
+  const start = Date.parse('2026-11-19T23:48:00+08:00');
+  const r = rig({start});
+  for (let i = 0; i < 10; i += 1) {
+    await r.ask('kidA', del);
+    r.clock.advance(61_000);
+  }
+  assert.equal((await err(r.ask('kidA', del))).details.reason, 'guardian-code-daily-limit');
+  r.clock.advance(Date.parse('2026-11-20T00:00:00+08:00') - r.clock.now());
+  await r.ask('kidA', del);
+  assert.equal(r.sent.length, 11);
+});
+
+test('UTC midnight does not give the holder a new Philippine day allowance', async () => {
+  const start = Date.parse('2026-11-20T07:48:00+08:00');
+  const r = rig({start});
+  for (let i = 0; i < 10; i += 1) {
+    await r.ask('kidA', del);
+    r.clock.advance(61_000);
+  }
+  r.clock.advance(Date.parse('2026-11-20T08:00:00+08:00') - r.clock.now());
+  assert.equal((await err(r.ask('kidA', del))).details.reason, 'guardian-code-daily-limit');
+  assert.equal(r.sent.length, 10);
 });
 
 test('the guardian daily mail cap is shared with guardian consent mail', async () => {
@@ -227,6 +300,29 @@ test('a mail failure gives the places back and leaves no pending code', async ()
   assert.equal(holderDay[1].count, 0);
 });
 
+test('a failed delivery releases its quota and leaves the later delivery intact', async () => {
+  const deliveryStarted = Promise.withResolvers();
+  const firstDelivery = Promise.withResolvers();
+  let deliveries = 0;
+  const r = rig({mailer: {send: async () => {
+    deliveries += 1;
+    if (deliveries === 1) {
+      deliveryStarted.resolve();
+      await firstDelivery.promise;
+    }
+  }}});
+  const first = err(r.ask('kidA', del));
+  await deliveryStarted.promise;
+  const next = {action: 'switchInto', childId: 'kidB'};
+  await r.ask('kidA', next);
+  firstDelivery.reject(new Error('provider down'));
+  assert.equal((await first).code, 'unavailable');
+  assert.equal(r.db.rows.get('guardianLimits/global-2026-11-19').count, 1);
+  assert.equal(r.db.rows.get('guardianCodeLimits/h1-2026-11-19').count, 1);
+  assert.equal(codeRow(r)?.childId, 'kidB');
+  assert.ok((await r.check('kidA', {...next, code: '000043'})).proof);
+});
+
 // ----------------------------------------------------------------- verify
 
 test('a right code returns a short-lived proof bound to holder, child and action, and uses the code up', async () => {
@@ -253,7 +349,7 @@ test('a code cannot be used for another child or action, and that does not spend
   await r.ask('kidA', del);
   for (const data of [{action: 'delete', childId: 'kidB', code: '000042'}, {action: 'withdraw', childId: 'kidA', code: '000042'},
     {action: 'addChild', code: '000042'}]) {
-    const e = await err(r.check('kidA', data));
+    const e = await err(r.check('h1', data));
     assert.equal(e.code, 'not-found', JSON.stringify(data));
     assert.equal(e.details.reason, 'expired');
   }
