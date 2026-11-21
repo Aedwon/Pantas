@@ -60,19 +60,19 @@ questions:
     stem: |
       Which sentence is punctuated and capitalized correctly?
     choices:
-      - text: “Could we meet,” Rafi asked, “Friday after rehearsal”?
+      - text: “Could we meet,” Rafi asked, “Mara after rehearsal”?
         rationale: |
           Putting the question mark at the very end may seem right because the whole line ends there. Read just Rafi's words. He asks the question, so the mark belongs inside his closing quote.
-      - text: “Could we meet,” Rafi asked, “Friday after rehearsal?”?
+      - text: “Could we meet,” Rafi asked, “Mara after rehearsal?”?
         rationale: |
           You may want one question mark for the quote and another for the whole sentence. Check who asks a question. Only Rafi does, so use one mark inside the quote.
-      - text: “Could we meet,” Rafi asked, “friday after rehearsal?”
+      - text: “Could we meet,” Rafi asked, “mara after rehearsal?”
         rationale: |
-          A lowercase letter usually fits when a tag splits one sentence. Check which word follows the tag here. The name of a day keeps its capital letter.
-      - text: “Could we meet,” Rafi asked, “Friday after rehearsal?”
+          A lowercase letter usually fits when a tag splits one sentence. Check which word follows the tag here. A person's name starts with a capital letter.
+      - text: “Could we meet,” Rafi asked, “Mara after rehearsal?”
         correct: true
-      - text: “Could we meet,” Rafi asked, “Friday after rehearsal.”
+      - text: “Could we meet,” Rafi asked, “Mara after rehearsal.”
         rationale: |
           The last few words sound like a simple time phrase, so a period may seem right. Read from “Could we meet” to hear the full question.
     explanation: |
-      Rafi asks one question about meeting on Friday. Commas set off “Rafi asked.” “Friday” keeps its capital letter, and the question mark goes inside the closing quote.
+      Rafi asks one question about meeting Mara. Commas set off “Rafi asked.” “Mara” starts with a capital letter because it is a person's name. The question mark goes inside the closing quote because it ends Rafi's question.
