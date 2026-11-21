@@ -17,12 +17,14 @@ abstract interface class ChildAccountCloser {
   /// Erases the closed child's records from this device, signs out, and puts
   /// the device back at the start, as Delete Account does.
   ///
+  /// The closed child's own store file is deleted too, not only emptied.
+  ///
   /// [holderSession] is true when the parent's own sign-in (the receipt link)
   /// did the closing. The sign-out then erases everything the parent's session
   /// left on the device (rule 4d), the way sign-out does. With the child's own
   /// session the child's own store is erased here first, because a child's
   /// sign-out keeps its store for the next time that child opens.
-  Future<void> finish({required bool holderSession});
+  Future<void> finish({required bool holderSession, required String childId});
 }
 
 final childAccountCloserProvider = Provider<ChildAccountCloser>(
@@ -35,7 +37,10 @@ class _DeviceChildAccountCloser implements ChildAccountCloser {
   final Ref _ref;
 
   @override
-  Future<void> finish({required bool holderSession}) async {
+  Future<void> finish({
+    required bool holderSession,
+    required String childId,
+  }) async {
     final notifications = _ref.read(notificationServiceProvider);
     await notifications.cancelAll();
     if (!holderSession) {
@@ -49,6 +54,13 @@ class _DeviceChildAccountCloser implements ChildAccountCloser {
       ).wipeAll();
     }
     await _ref.read(authRepositoryProvider).signOut();
+    // The account is gone, so its store file goes too. A failure to remove it
+    // does not undo the closing: the file holds nothing the server needs.
+    try {
+      await _ref.read(childStoreDeleterProvider)(childId);
+    } on Object {
+      // The rows were already erased above for the child's own session.
+    }
     // The same reset Delete Account does, on the shared device store.
     final preferences = _ref.read(appPreferencesRepositoryProvider);
     await preferences.setCompletedOnboarding(value: false);

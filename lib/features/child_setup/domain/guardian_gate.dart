@@ -135,6 +135,8 @@ abstract final class GuardianGateCopy {
   // Existing sign-in wording, reused (email_sign_in_page.dart).
   static const rateLimited = 'Too many tries. Try again later.';
   static const sendFailed = "We couldn't send the code. Try again.";
+  static String waitingToResend(String clock) =>
+      "Didn't get it? You can resend in $clock.";
   static String waitToResend(String clock) =>
       'You can request a code in $clock.';
 
@@ -199,10 +201,10 @@ abstract final class ParentsCopy {
   /// return it.
   static const nicknameFallback = 'your child';
 
-  // Existing Delete Account wording, with withdrawal alongside.
-  static String closeFailed(ParentsAction action) =>
-      'We could not complete ${action == ParentsAction.delete ? 'deletion' : 'withdrawal'}. '
-      'Try again or contact our DPO at ${GuardianGateCopy.dpoEmail}.';
+  // Lead ruling: the same sentence for a failed withdrawal and a failed
+  // deletion.
+  static const closeFailed = 'We could not close this account. Try again, or '
+      'write to ${GuardianGateCopy.dpoEmail}.';
 
   // The receipt link (lead ruling).
   static const otherAccount = 'This link is for another account. Sign in with '

@@ -15,6 +15,7 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
 /// Space between the blocks of a phone screen (`.phone-screen` gap, 24).
+// ds-board: under-13 boards, `.phone-screen` gap between blocks
 const double childStepGap = PantasSpace.s24;
 
 /// A phone page with no Back row, for the under-13 boards that have none: the

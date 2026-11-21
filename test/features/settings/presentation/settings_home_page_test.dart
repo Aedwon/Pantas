@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
@@ -98,8 +101,39 @@ void main() {
     });
   }
 
-  testWidgets('the For parents row opens the For parents page',
-      (tester) async {
+  for (final (name, override) in [
+    (
+      'unrecognized',
+      ageGroupProvider.overrideWith((ref) async => AgeGroup.unrecognized)
+    ),
+    (
+      'an error',
+      ageGroupProvider.overrideWith((ref) async => throw StateError('x'))
+    ),
+    (
+      'loading',
+      ageGroupProvider.overrideWith((ref) => Completer<AgeGroup>().future)
+    ),
+  ]) {
+    testWidgets('For parents is hidden on $name', (tester) async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await tester.pumpAppWithProviders(
+        const SettingsHomePage(),
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          userSettingsProvider
+              .overrideWith((ref) async => UserSettings.defaults()),
+          isAnonymousProvider.overrideWith((ref) async => false),
+          override,
+        ],
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('For parents'), findsNothing);
+    });
+  }
+
+  testWidgets('the For parents row opens the For parents page', (tester) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
     await AppPreferencesRepository(db).setAgeGroup('child');

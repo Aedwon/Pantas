@@ -14,7 +14,12 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Space between the blocks of a phone screen (`.phone-screen` gap, 24).
+// ds-board: under-13 boards, `.phone-screen` gap between blocks
 const double parentsGap = PantasSpace.s24;
+
+/// Draws a [ParentsFrame] another way on wide web. The app passes one that
+/// puts the page in the Settings pane, so these pages never import Settings.
+typedef ParentsWideFrame = Widget Function(ParentsFrame frame);
 
 /// The page of the guardian code gate and the For parents screens. A phone
 /// draws the design system page (Back, large title, lead, body); wide web draws
@@ -29,6 +34,7 @@ class ParentsFrame extends StatelessWidget {
     this.backLabel = 'Back',
     this.bottom,
     this.settingsStyle = false,
+    this.wideFrame,
     super.key,
   });
 
@@ -45,9 +51,12 @@ class ParentsFrame extends StatelessWidget {
   /// scrolls as a whole, as the other Settings pages do.
   final bool settingsStyle;
 
+  /// How wide web draws this page. Null draws the centered column.
+  final ParentsWideFrame? wideFrame;
+
   @override
   Widget build(BuildContext context) {
-    if (context.wideWeb) return _wide(context);
+    if (context.wideWeb) return wideFrame?.call(this) ?? _wide(context);
     if (settingsStyle) {
       return PantasPage(
         title: title,
@@ -86,14 +95,18 @@ class ParentsFrame extends StatelessWidget {
       onBack: onBack,
       bottom: bottom,
       bodyGap: parentsGap,
+      // The page the sign-in code boxes are drawn on: white in light, the
+      // page gray in dark.
+      surfaceBackground: Theme.of(context).brightness != Brightness.dark,
       children: children,
     );
   }
 
   Widget _wide(BuildContext context) {
     final t = context.webTokens;
+    final dark = Theme.of(context).brightness == Brightness.dark;
     return Material(
-      color: t.colors.background,
+      color: dark || settingsStyle ? t.colors.background : t.colors.surface,
       child: Column(
         children: [
           const OnboardingTopBar(),

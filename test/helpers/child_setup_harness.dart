@@ -113,9 +113,16 @@ class FakeChildAccountCloser implements ChildAccountCloser {
   /// One entry per call: whether the parent's own session closed the account.
   final finished = <bool>[];
 
+  /// The child each call closed.
+  final children = <String>[];
+
   @override
-  Future<void> finish({required bool holderSession}) async {
+  Future<void> finish({
+    required bool holderSession,
+    required String childId,
+  }) async {
     finished.add(holderSession);
+    children.add(childId);
   }
 }
 

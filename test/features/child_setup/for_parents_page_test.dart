@@ -7,11 +7,11 @@ import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/notice_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/child_setup/application/child_account_closer.dart';
 import 'package:pantas/features/child_setup/application/child_setup_providers.dart';
 import 'package:pantas/features/child_setup/domain/guardian_gate.dart';
@@ -140,7 +140,9 @@ void main() {
       expect(find.text('For parents'), findsOneWidget);
       expect(find.text('Settings'), findsOneWidget);
       expect(
-          find.text('These actions apply to this child only.'), findsOneWidget);
+        find.text('These actions apply to this child only.'),
+        findsOneWidget,
+      );
       expect(find.text('Read the Child Notice'), findsOneWidget);
       expect(find.text("Get a copy of your child's data"), findsOneWidget);
       expect(
@@ -335,6 +337,7 @@ void main() {
       expect(gates.single.actionPhrase, 'withdrawal');
       expect(gateway.closed, [(GuardianAction.withdraw, 'child-1', 'proof-1')]);
       expect(closer.finished, [false]);
+      expect(closer.children, ['child-1']);
       expect(closed, 1);
     });
 
@@ -376,7 +379,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(
         find.text(
-          'We could not complete deletion. Try again or contact our DPO at '
+          'We could not close this account. Try again, or write to '
           'dpo@pantas.study.',
         ),
         findsOneWidget,
@@ -395,7 +398,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(
         find.text(
-          'We could not complete withdrawal. Try again or contact our DPO at '
+          'We could not close this account. Try again, or write to '
           'dpo@pantas.study.',
         ),
         findsOneWidget,
@@ -421,6 +424,7 @@ void main() {
       expect(gateway.closed, [(GuardianAction.delete, 'child-2', 'proof-1')]);
       // The parent's session cleared the device the way sign-out does.
       expect(closer.finished, [true]);
+      expect(closer.children, ['child-2']);
     });
 
     testWidgets('a child the parent does not hold is reported', (tester) async {

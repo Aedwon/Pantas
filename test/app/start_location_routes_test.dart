@@ -43,6 +43,10 @@ const _honored = <String>{
   '/onboarding/child/sign-in',
   '/onboarding/child/sign-in/email',
   '/onboarding/child/setup',
+  '/parents/delete',
+  '/parents/delete/sign-in',
+  '/parents/delete/sign-in/email',
+  '/settings/parents',
   '/guardian',
   '/guardian/manage',
   '/guardian/waiting',
@@ -90,6 +94,7 @@ const _mapped = <String, String>{
   '/onboarding/custom/subjects': '/onboarding',
   '/assessment/:examId': '/home',
   '/guardian/contact': '/guardian/waiting',
+  '/parents/code': '/settings/parents',
   '/wrapped/:artifactId': '/home',
 };
 

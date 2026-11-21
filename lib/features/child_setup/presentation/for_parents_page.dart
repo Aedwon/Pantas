@@ -45,6 +45,7 @@ class ForParentsPage extends ConsumerStatefulWidget {
     this.onOpenGate,
     this.onClosed,
     this.onNotHeld,
+    this.wideFrame,
     super.key,
   });
 
@@ -74,6 +75,9 @@ class ForParentsPage extends ConsumerStatefulWidget {
 
   /// A parent's session that does not hold this child (holder sessions only).
   final VoidCallback? onNotHeld;
+
+  /// How wide web draws the page (the Settings pane). Null is the default.
+  final ParentsWideFrame? wideFrame;
 
   @override
   ConsumerState<ForParentsPage> createState() => _ForParentsPageState();
@@ -112,6 +116,15 @@ class _ForParentsPageState extends ConsumerState<ForParentsPage> {
   /// Asks the server for the parent's children when the page opens. A failure
   /// is not shown: the confirms then use the stricter last-child wording.
   Future<void> _load() async {
+    if (widget.childId == null) {
+      // The signed-in child is read from the session, which may still be
+      // loading when the page opens.
+      try {
+        await ref.read(authStateProvider.future);
+      } on Object {
+        // No session: the page has no child to act on.
+      }
+    }
     try {
       final result = await ref.read(authRepositoryProvider).listChildren();
       if (!mounted) return;
@@ -224,6 +237,8 @@ class _ForParentsPageState extends ConsumerState<ForParentsPage> {
     setState(() => _failed = null);
     final nickname = _nickname;
     final withdraw = action == ParentsAction.withdraw;
+    final body =
+        withdraw ? ParentsCopy.withdrawBody(nickname) : ParentsCopy.deleteBody;
     final last = _lastChild ? ' ${ParentsCopy.lastChild}' : '';
     final confirmed = await showPantasDialog<bool>(
       context: context,
@@ -233,8 +248,7 @@ class _ForParentsPageState extends ConsumerState<ForParentsPage> {
         title: withdraw
             ? ParentsCopy.withdrawTitle(nickname)
             : ParentsCopy.deleteTitle,
-        message:
-            '${withdraw ? ParentsCopy.withdrawBody(nickname) : ParentsCopy.deleteBody}$last',
+        message: '$body$last',
         primaryLabel:
             withdraw ? ParentsCopy.withdrawButton : ParentsCopy.deleteButton,
         secondaryLabel: ParentsCopy.cancel,
@@ -285,7 +299,7 @@ class _ForParentsPageState extends ConsumerState<ForParentsPage> {
       // The server has closed the account. Only now does the device change.
       await ref
           .read(childAccountCloserProvider)
-          .finish(holderSession: widget.holderSession);
+          .finish(holderSession: widget.holderSession, childId: id);
       final custom = widget.onClosed;
       if (custom != null) return custom();
       router?.go('/onboarding');
@@ -302,6 +316,7 @@ class _ForParentsPageState extends ConsumerState<ForParentsPage> {
   Widget build(BuildContext context) {
     final failed = _failed;
     return ParentsFrame(
+      wideFrame: widget.wideFrame,
       settingsStyle: true,
       title: ParentsCopy.title,
       lead: ParentsCopy.lead,
@@ -310,7 +325,7 @@ class _ForParentsPageState extends ConsumerState<ForParentsPage> {
       children: [
         if (failed != null && !_dismissed) ...[
           ParentsNotice(
-            title: ParentsCopy.closeFailed(failed),
+            title: ParentsCopy.closeFailed,
             onClose: () => setState(() => _dismissed = true),
           ),
           const SizedBox(height: parentsGap),

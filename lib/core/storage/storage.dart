@@ -35,6 +35,13 @@ final appDatabaseProvider = Provider<AppDatabase>(
 
 final activeChildDatabaseProvider = StateProvider<AppDatabase?>((ref) => null);
 
+/// Deletes one child's own on-device store (the file, not only its rows),
+/// closing it first when it is open and not the active one. The app bootstrap
+/// supplies the real one; the default does nothing.
+final childStoreDeleterProvider = Provider<Future<void> Function(String uid)>(
+  (ref) => (uid) async {},
+);
+
 final contentRepositoryProvider = Provider<ContentRepository>(
   (ref) => ContentRepository(
     ref.watch(contentDatabaseProvider),

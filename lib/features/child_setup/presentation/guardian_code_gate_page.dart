@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/app/sign_in/email_sign_in_page.dart' show signInHold;
 import 'package:pantas/app/sign_in/sign_in_parts.dart';
 import 'package:pantas/core/ui/components/pantas_field.dart';
 import 'package:pantas/core/ui/ds.dart';
@@ -22,7 +23,7 @@ const String guardianGatePath = '/parents/code';
 const _wrongHold = Duration(milliseconds: 1440);
 const _wrongFade = Duration(milliseconds: 240);
 
-enum _Phase { sending, entering, verifying, wrong, wrongFading, dead }
+enum _Phase { sending, entering, verifying, ok, wrong, wrongFading, dead }
 
 enum _Note {
   wrong,
@@ -43,9 +44,16 @@ enum _Note {
 /// the sixth digit, wrong-code beat and resend cooldown. It serves any action;
 /// the caller names the action phrase.
 class GuardianCodeGatePage extends ConsumerStatefulWidget {
-  const GuardianCodeGatePage({required this.request, super.key});
+  const GuardianCodeGatePage({
+    required this.request,
+    this.wideFrame,
+    super.key,
+  });
 
   final GuardianGateRequest request;
+
+  /// How wide web draws the page (the Settings pane). Null is the default.
+  final ParentsWideFrame? wideFrame;
 
   @override
   ConsumerState<GuardianCodeGatePage> createState() =>
@@ -72,6 +80,7 @@ class _GuardianCodeGatePageState extends ConsumerState<GuardianCodeGatePage> {
   // ignored.
   int _flow = 0;
   Timer? _wrongTimer;
+  Timer? _holdTimer;
   Timer? _tick;
 
   @override
@@ -85,6 +94,7 @@ class _GuardianCodeGatePageState extends ConsumerState<GuardianCodeGatePage> {
   void dispose() {
     _code.removeListener(_keepCursorAtEnd);
     _wrongTimer?.cancel();
+    _holdTimer?.cancel();
     _tick?.cancel();
     _dpoTap.dispose();
     _code.dispose();
@@ -162,7 +172,7 @@ class _GuardianCodeGatePageState extends ConsumerState<GuardianCodeGatePage> {
       if (!mounted) return;
       _waitLeft--;
       if (_waitLeft <= 0) timer.cancel();
-      if (_note == _Note.wait) setState(() {});
+      setState(() {});
     });
   }
 
@@ -212,7 +222,11 @@ class _GuardianCodeGatePageState extends ConsumerState<GuardianCodeGatePage> {
                 code: code,
               );
       if (!mounted || flow != _flow) return;
-      Navigator.of(context).pop(proof);
+      // The sign-in's own beat: the boxes ring, then the page leaves.
+      setState(() => _phase = _Phase.ok);
+      _holdTimer = Timer(signInHold, () {
+        if (mounted) Navigator.of(context).pop(proof);
+      });
     } on GuardianGateException catch (error) {
       if (mounted && flow == _flow) _refused(error);
     } on Object {
@@ -257,6 +271,7 @@ class _GuardianCodeGatePageState extends ConsumerState<GuardianCodeGatePage> {
   // ------------------------------------------------------------------ view
 
   CodeTone get _tone => switch (_phase) {
+        _Phase.ok => CodeTone.ok,
         _Phase.wrong => CodeTone.bad,
         _Phase.wrongFading => CodeTone.fadingBad,
         _ => CodeTone.normal,
@@ -349,6 +364,7 @@ class _GuardianCodeGatePageState extends ConsumerState<GuardianCodeGatePage> {
       nickname: request.nickname,
     );
     return ParentsFrame(
+      wideFrame: widget.wideFrame,
       title: GuardianGateCopy.title(
         action: request.actionPhrase,
         nickname: request.nickname,
@@ -373,7 +389,9 @@ class _GuardianCodeGatePageState extends ConsumerState<GuardianCodeGatePage> {
               formatter: _formatter,
               tone: _tone,
               shakeTick: _shake,
-              locked: _phase == _Phase.verifying || _phase == _Phase.sending,
+              locked: _phase == _Phase.verifying ||
+                  _phase == _Phase.ok ||
+                  _phase == _Phase.sending,
               dimmed: dead,
               onChanged: _onChanged,
               onSubmitted: () => unawaited(_verify()),
@@ -385,11 +403,20 @@ class _GuardianCodeGatePageState extends ConsumerState<GuardianCodeGatePage> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ParentsButton(
-              label: GuardianGateCopy.sendNewCode,
-              text: true,
-              onPressed: _limitReached ? null : _resend,
-            ),
+            // The sign-in's resend control: its countdown line while the
+            // cooldown runs, the button once it is over or the code is dead.
+            if (_waitLeft > 0 && !dead && !_limitReached)
+              Text(
+                GuardianGateCopy.waitingToResend(_clock(_waitLeft)),
+                textAlign: TextAlign.center,
+                style: style.small,
+              )
+            else
+              ParentsButton(
+                label: GuardianGateCopy.sendNewCode,
+                text: true,
+                onPressed: _limitReached ? null : _resend,
+              ),
             const SizedBox(height: PantasSpace.s6),
             _finePrint(),
           ],

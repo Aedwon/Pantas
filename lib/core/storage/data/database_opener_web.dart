@@ -46,6 +46,23 @@ Future<AppDatabase> openEncryptedDatabase({
   }
 }
 
+/// Deletes the database [databaseName] from browser storage. One that is not
+/// there is not an error. The arguments after the name are for tests.
+Future<void> deleteEncryptedDatabase({
+  required String databaseName,
+  Uri? sqlite3Uri,
+  Uri? driftWorkerUri,
+}) async {
+  final probe = await WasmDatabase.probe(
+    sqlite3Uri: sqlite3Uri ?? Uri.base.resolve('sqlite3.wasm'),
+    driftWorkerUri: driftWorkerUri ?? Uri.base.resolve('drift_worker.js'),
+    databaseName: databaseName,
+  );
+  for (final existing in probe.existingDatabases) {
+    if (existing.$2 == databaseName) await probe.deleteDatabase(existing);
+  }
+}
+
 Future<AppDatabase> _openOnce(String name, Uri wasm, Uri worker) async {
   final opened = await WasmDatabase.open(
     databaseName: name,

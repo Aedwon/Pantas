@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
@@ -21,6 +22,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
+import 'package:pantas/features/child_setup/domain/guardian_gate.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/beta_pro_row.dart';
 import 'package:pantas/features/settings/settings.dart';
@@ -156,6 +158,7 @@ class SettingsPanePage extends StatelessWidget {
                 'Appearance' => _grayGlyph(t, PantasIcons.appearance),
                 'Accessibility' => _grayGlyph(t, Icon(PantasIcons.keyboard)),
                 'About' => _grayGlyph(t, PantasIcons.about),
+                'For parents' => _grayGlyph(t, Icon(PantasIcons.profile)),
                 _ => null,
               }
         : Icon(icon, size: 32, color: t.colors.accent);
@@ -557,6 +560,32 @@ class SettingsNavigation extends ConsumerWidget {
           ),
         ),
         const SizedBox(height: PantasSpace.s18),
+        // Board ST4B, on wide web. Only a known child account shows it.
+        if (ref.watch(resolvedAgeGroupProvider).isChild) ...[
+          WebCard(
+            child: row(
+              ParentsCopy.settingsRow,
+              '/settings/parents',
+              _grayGlyph(t, Icon(PantasIcons.profile)),
+              divider: false,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s6,
+              PantasSpace.s16,
+              PantasSpace.s0,
+            ),
+            child: Text(
+              ParentsCopy.managedLine,
+              style: PantasType.webSmall.copyWith(
+                color: t.colors.textSecondary,
+              ),
+            ),
+          ),
+          const SizedBox(height: PantasSpace.s18),
+        ],
         WebCard(
           child:
               row('About', '/settings/about', _grayGlyph(t, PantasIcons.about)),

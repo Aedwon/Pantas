@@ -134,7 +134,11 @@ void main() {
         findsOneWidget,
       );
       expect(find.text('6-digit code'), findsOneWidget);
-      expect(find.text('Send a New Code'), findsOneWidget);
+      // The resend button replaces the countdown once the cooldown is over.
+      expect(
+        find.text("Didn't get it? You can resend in 1:00."),
+        findsOneWidget,
+      );
       expect(
         find.text(
           "Can't reach that email? Write to dpo@pantas.study for another way "
@@ -187,6 +191,8 @@ void main() {
         gateway.codeChecks,
         [(GuardianAction.withdraw, 'child-1', '123456')],
       );
+      await tester.pump(const Duration(seconds: 2));
+      await tester.pumpAndSettle();
       expect(popped, 'proof-1');
     });
 
@@ -251,6 +257,8 @@ void main() {
       expect(tester.widget<EditableText>(codeField()).controller.text, '7');
       await type(tester, '765432');
       await tester.pumpAndSettle();
+      await tester.pump(const Duration(seconds: 2));
+      await tester.pumpAndSettle();
       expect(popped, 'proof-1');
     });
 
@@ -296,25 +304,35 @@ void main() {
       await type(tester, '123456');
       await tester.pumpAndSettle();
       expect(
-          find.text("We couldn't check the code. Try again."), findsOneWidget);
+        find.text("We couldn't check the code. Try again."),
+        findsOneWidget,
+      );
     });
   });
 
   group('a new code', () {
-    testWidgets('asking inside the cooldown does not mail again',
+    testWidgets('inside the cooldown the sign-in countdown shows, no button',
         (tester) async {
       await pump(tester);
-      await tester.tap(find.text('Send a New Code'));
-      await tester.pumpAndSettle();
+      expect(
+        find.text("Didn't get it? You can resend in 1:00."),
+        findsOneWidget,
+      );
+      expect(find.text('Send a New Code'), findsNothing);
+      await tester.pump(const Duration(seconds: 5));
+      expect(
+        find.text("Didn't get it? You can resend in 0:55."),
+        findsOneWidget,
+      );
       expect(gateway.codeRequests, hasLength(1));
-      expect(find.text('You can request a code in 1:00.'), findsOneWidget);
     });
 
-    testWidgets('after the cooldown it sends a new code and says so',
+    testWidgets('after the cooldown the button sends a new code and says so',
         (tester) async {
       await pump(tester);
       await type(tester, '123');
       await tester.pump(const Duration(seconds: 61));
+      expect(find.textContaining("Didn't get it?"), findsNothing);
       await tester.tap(find.text('Send a New Code'));
       await tester.pumpAndSettle();
       expect(gateway.codeRequests, hasLength(2));
@@ -323,6 +341,20 @@ void main() {
       final field = tester.widget<EditableText>(codeField());
       expect(field.controller.text, isEmpty);
       expect(confirmEnabled(tester), isFalse);
+    });
+
+    testWidgets(
+        'a dead code shows the button, and asking early repeats the wait',
+        (tester) async {
+      gateway.verifyError =
+          const GuardianGateException(GuardianGateFailure.expired);
+      await pump(tester);
+      await type(tester, '123456');
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Send a New Code'));
+      await tester.pumpAndSettle();
+      expect(gateway.codeRequests, hasLength(1));
+      expect(find.text('You can request a code in 1:00.'), findsOneWidget);
     });
 
     testWidgets('a new code reopens a dead one', (tester) async {
@@ -338,6 +370,8 @@ void main() {
       expect(find.text('We sent a new code.'), findsOneWidget);
       await type(tester, '111111');
       await tester.pumpAndSettle();
+      await tester.pump(const Duration(seconds: 2));
+      await tester.pumpAndSettle();
       expect(popped, 'proof-1');
     });
 
@@ -347,12 +381,30 @@ void main() {
           const GuardianGateException(GuardianGateFailure.sendFailed);
       await pump(tester);
       expect(
-          find.text("We couldn't send the code. Try again."), findsOneWidget);
+        find.text("We couldn't send the code. Try again."),
+        findsOneWidget,
+      );
       gateway.requestError = null;
       await tester.tap(find.text('Send a New Code'));
       await tester.pumpAndSettle();
       expect(gateway.codeRequests, hasLength(2));
       expect(find.text('We sent a new code.'), findsOneWidget);
+    });
+  });
+
+  group('the success beat', () {
+    testWidgets('the page holds for the sign-in beat, then leaves',
+        (tester) async {
+      await pump(tester);
+      await type(tester, '123456');
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 600));
+      expect(popped, isNull);
+      expect(popCount, 0);
+      await tester.pump(const Duration(milliseconds: 700));
+      await tester.pumpAndSettle();
+      expect(popped, 'proof-1');
+      expect(popCount, 1);
     });
   });
 
