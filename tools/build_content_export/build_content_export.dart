@@ -14,10 +14,8 @@ import '../content/markdown_portable_text.dart';
 const _examId = 'exam_upcat';
 const _keepExamId = 'exam_cse_pro';
 
-// The post-launch expansion roster from the foundation spec §1.2, carried in
-// the export so exam-list surfaces have realistic data to hold. They ship
-// `isActive: true` so all built-in exams are available in the onboarding
-// picker.
+// Additional built-in exam records. The catalog controls picker availability
+// through its comingSoon flag.
 const _rosterExams = <Map<String, Object?>>[
   {
     'id': 'exam_dost_sei',
@@ -32,6 +30,14 @@ const _rosterExams = <Map<String, Object?>>[
     'code': 'SM_FOUNDATION',
     'name': 'SM Foundation College Scholarship',
     'shortName': 'SM',
+    'language': 'en',
+    'isActive': true,
+  },
+  {
+    'id': 'exam_pshs_nce',
+    'code': 'PSHS_NCE',
+    'name': 'PSHS National Competitive Examination',
+    'shortName': 'PSHS-NCE',
     'language': 'en',
     'isActive': true,
   },

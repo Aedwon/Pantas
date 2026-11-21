@@ -58,8 +58,7 @@ void main() {
     }
   });
 
-  test('available catalog exams have export rows including both scholarships',
-      () async {
+  test('available catalog exams and PSHS-NCE have export rows', () async {
     final dir = Directory.systemTemp.createTempSync('pantas_catalog_');
     addTearDown(() => dir.deleteSync(recursive: true));
     final output = '${dir.path}/export.json';
@@ -71,17 +70,30 @@ void main() {
     expect(result.exitCode, 0, reason: result.stderr.toString());
     final export =
         jsonDecode(File(output).readAsStringSync()) as Map<String, dynamic>;
-    final ids = (export['exam'] as List<dynamic>)
-        .map((e) => (e as Map<String, dynamic>)['_id'])
-        .toSet();
-    expect(ids, containsAll(['exam_dost_sei', 'exam_sm_foundation']));
+    final exams = {
+      for (final exam
+          in (export['exam'] as List<dynamic>).cast<Map<String, dynamic>>())
+        exam['_id'] as String: exam,
+    };
+    expect(exams.keys, containsAll(['exam_dost_sei', 'exam_sm_foundation']));
+    expect(
+      exams.keys,
+      contains('exam_pshs_nce'),
+      reason: 'The export must include the exam row for PSHS-NCE questions',
+    );
+    final pshsNce = exams['exam_pshs_nce']!;
+    expect(pshsNce['code'], 'PSHS_NCE');
+    expect(pshsNce['name'], 'PSHS National Competitive Examination');
+    expect(pshsNce['shortName'], 'PSHS-NCE');
+    expect(pshsNce['language'], 'en');
+    expect(pshsNce['isActive'], isTrue);
     final catalog =
         (jsonDecode(File('content/exams/catalog.json').readAsStringSync())
                 as List<dynamic>)
             .cast<Map<String, dynamic>>();
     for (final entry in catalog) {
       if (entry['comingSoon'] == false && entry['id'] != 'exam_sm_foundation') {
-        expect(ids, contains(entry['id']));
+        expect(exams.keys, contains(entry['id']));
       }
     }
   });
