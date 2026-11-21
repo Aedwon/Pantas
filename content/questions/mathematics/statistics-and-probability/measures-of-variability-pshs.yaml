@@ -1,0 +1,146 @@
+meta:
+  subject: mathematics
+  topic: statistics-and-probability
+  subtopic: measures-of-variability-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-statistics-and-probability-measures-of-variability-pshs-0001
+    lesson: lesson-statistics-and-probability-range-and-spread
+    keyPoint: 1
+    type: word-problem
+    difficulty: easy
+    stem: |
+      Two teams count the shells they find on each of four beach visits.
+      One team records $12, 21, 7, 18$. The other records $15, 9, 11, 13$.
+      What is the difference between the ranges of the two sets of counts?
+    choices:
+      - text: '$8$'
+        correct: true
+      - text: '$2$'
+        rationale: |
+          This subtracts the two lowest counts. Each low count helps set its
+          team's range. Find each team's range before comparing them.
+      - text: '$6$'
+        rationale: |
+          This gives the second team's range. The subtraction $15-9$ is
+          correct. Find the first team's range too, then subtract the ranges.
+      - text: '$14$'
+        rationale: |
+          This gives the first team's range. The subtraction $21-7$ is
+          correct. Find the second team's range too, then subtract the ranges.
+      - text: '$20$'
+        rationale: |
+          This adds the two ranges. Both ranges are needed, but the question
+          asks how far apart they are. Subtract the smaller range from the larger.
+    explanation: |
+      The first team's range is $21-7=14$. The second team's range is $15-9=6$.
+      The difference is $14-6=8$.
+
+  - id: q-statistics-and-probability-measures-of-variability-pshs-0002
+    lesson: lesson-statistics-and-probability-range-and-spread
+    keyPoint: 2
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      A school garden log lists four seedling heights in centimeters:
+      $6, 8, 13, 17$. Which single change would leave the range unchanged?
+    choices:
+      - text: 'Replace $6$ with $7$.'
+        rationale: |
+          This treats a small change as too slight to affect the range.
+          The height only goes up by $1$ cm. Check that $7$ is now the smallest height.
+      - text: 'Replace $8$ with $9$.'
+        correct: true
+      - text: 'Replace $17$ with $16$.'
+        rationale: |
+          This assumes the range stays the same if the tallest seedling
+          stays tallest. That seedling still has the largest height.
+          Use its new height of $16$ cm when you subtract.
+      - text: 'Replace $13$ with $18$.'
+        rationale: |
+          This assumes a height in the middle can be replaced by any value.
+          The old height lies between the endpoints. Check that $18$ is above the old maximum.
+      - text: 'Replace $8$ with $5$.'
+        rationale: |
+          This keeps using $6$ as the smallest height because it was the
+          smallest before the change. Compare $5$ with $6$ to find the new minimum.
+    explanation: |
+      The new height, $9$ cm, lies between $6$ cm and $17$ cm.
+      The smallest and largest heights stay the same, so the range is still $17-6=11$ cm.
+
+  - id: q-statistics-and-probability-measures-of-variability-pshs-0003
+    lesson: lesson-statistics-and-probability-range-and-spread
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      On four school days, Liza timed her walk to school. She wrote down
+      $14$, $22$, $19$, and $16$ minutes. Her walk on the fifth day took
+      longer than any of those walks. The range of all five times was twice
+      the range of the first four. How many minutes longer was the fifth walk
+      than the longest of the first four?
+    choices:
+      - text: '$3$'
+        rationale: |
+          This subtracts $19$ from $22$. That gives the gap between
+          the two longest times. Check that $14$ is the shortest time.
+      - text: '$5$'
+        rationale: |
+          This subtracts $14$ from $19$. It uses the shortest time,
+          but it skips $22$. Check which time is longest.
+      - text: '$8$'
+        correct: true
+      - text: '$6$'
+        rationale: |
+          This subtracts the last time on the list, $16$, from the longest
+          time, $22$. If the first range were $6$, doubling it would add $6$
+          minutes to the range. Check all four times to find the shortest.
+      - text: '$22$'
+        rationale: |
+          This gives the longest of the first four times. That is one end of
+          the gap asked for. Find how much the range grew when the longest
+          time went up.
+    explanation: |
+      The first range was $22-14=8$ minutes. The new range was $2\times8=16$
+      minutes. The shortest time stayed at $14$ minutes, so the fifth walk took
+      $14+16=30$ minutes. It was $30-22=8$ minutes longer.
+
+  - id: q-statistics-and-probability-measures-of-variability-pshs-0004
+    lesson: lesson-statistics-and-probability-range-and-spread
+    keyPoint: 2
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      Two teams each timed five laps on the same track. Their times, in seconds,
+      are listed from shortest to longest.
+
+      Pine: $11, 15, 16, 17, 21$
+
+      Narra: $11, 12, 16, 20, 21$
+
+      Both teams had a mean lap time of $16$ seconds. Which statement correctly
+      compares their ranges and their three middle times?
+    choices:
+      - text: "The ranges are equal. The middle times are equally close to the mean in both teams."
+        rationale: |
+          This uses equal ranges to infer equal spread among the middle
+          times. The endpoints do match. Compare how far $15$ and $12$ are from $16$.
+      - text: "The ranges are equal. Narra's middle times are closer to the mean."
+        rationale: |
+          This reverses the comparison. Both teams have a middle time of
+          $16$ seconds, so that time gives a tie. Also check the distances from $16$
+          for the other two middle times.
+      - text: "Pine has a smaller range because its middle times are closer to the mean."
+        rationale: |
+          This uses the middle times to compare the ranges. Pine's middle
+          times do cluster more closely. Use the shortest and longest times for range.
+      - text: "The ranges are equal. Pine's middle times are closer to the mean."
+        correct: true
+      - text: "Narra has a smaller range because its middle times are closer to the shortest and longest times."
+        rationale: |
+          This treats small gaps near the ends as a smaller range. Narra's
+          $12$ and $20$ are close to the endpoints. Subtract the endpoints themselves.
+    explanation: |
+      Both teams have a range of $21-11=10$ seconds. Pine's three middle
+      times are all within $1$ second of $16$. Two of Narra's middle times,
+      $12$ and $20$, are each $4$ seconds away.
