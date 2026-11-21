@@ -112,6 +112,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Staging read budget broken again by a release proof (Nov 21)
+
+- His words: none; found by the security and billing lead's live free-tier check. Repeat of the Nov 15 overage (rule 7).
+- Wrong: staging read 137,500 Firestore documents on Nov 20 (Pacific day), almost three times the 50,000 free. A headless CET staging proof made about 800 server calls in 80 minutes; settings saves, new lesson reads and mock starts each rescan the whole lesson and question bank (about 1,460 reads) on a cold instance or after the 5-minute cache. A prod-and-staging count comparison read about 55,000 more.
+- Why it got through: the Nov 16 budget ruling (40,000 reads a day, plan reads before a run, no whole-collection verification) lived only in the launch log, not in the release checklist the integrator follows, and the live check never warned at the budget.
+- Fix: a required step in `docs/deploy-prod.md` ("Staging read budget"), with measured costs per step; and a check: `tool/checks/free_tier_live.mjs` warns when a staging day passes the budget (test in `free_tier_live.test.mjs`, failing first). A code change to remove the whole-bank scan goes to the manager with its free-tier count before any build.
+
 ### A brief's judgment stated as fact: "no gated exam can sell before mid-2027" (Nov 17)
 
 - His words: "actually correction, PSHS-NCE can still sell"

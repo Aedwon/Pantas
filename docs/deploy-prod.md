@@ -422,6 +422,37 @@ and their ceiling cannot rise. `node tool/checks/free_tier_live.mjs` is read-onl
 schedule, weekly and after every deploy. It reads the live billing account (every project on it) and
 exits 1 when any item is over its free limit.
 
+### Staging read budget: plan the reads before every staging release or proof (rule 7, Nov 21, 2026)
+
+Staging has no real users, so every staging read is ours. Firestore's free quota is 50,000 document
+reads and 20,000 writes a day per project, reset at midnight Pacific time (08:00 UTC in November).
+**The staging budget is 40,000 reads and 16,000 writes per Pacific day, shared by every lane**
+(security lead ruling, Nov 16). Staging went over twice from release proofs: 56,748 reads on Nov 15
+and 137,500 on Nov 20 (CET staging proof, about 110,000 reads in 80 minutes).
+
+Before the run, write the expected reads in the release note, using these measured costs
+(code audit Nov 21 on main c6feb916b, findings in the security lane):
+
+| Step | Reads |
+|---|---|
+| Content upload plan or re-plan against the database | about 1,500 each |
+| Content export and the CLI dry run (no database) | 0; use it for source-only checks |
+| **A whole-bank scan** (every lesson and question set): the first exam-settings save, new lesson read, mock setup preview or mock start on a server instance, and again after its 5-minute cache ends | **about 1,460 each** |
+| getContent, one item | 7 to 58 |
+| getRoadmap, getStudyInsights, getCarryableCount, getWebEntitlement, getBetaAccess, plain mock availability | 4 to 25 each |
+| Counting every question set, question or retired lesson by reading the collections | about 24,000 on prod and 31,000 on staging; do not run it (below) |
+
+Rules for the run:
+
+1. If the plan passes 40,000 reads, split the run across Pacific days or cut steps.
+2. In a browser proof, count about 1,500 reads for each exam switch, settings save, mock start and
+   first lesson read on an exam, and for each 5 minutes the proof runs. Do one exam at a time,
+   finish each exam's steps inside 5 minutes, and use one test account.
+3. Prove content equality from the upload re-plan ("0 differences") and the export manifest, not by
+   reading whole collections on either project. The same applies to prod verification.
+4. After the run, run `node tool/checks/free_tier_live.mjs`. A staging day above the budget is a rule 7
+   defect for the lane that ran it: log it in the launch log with the cause.
+
 ## 16. The two secrets: `PANTAS_PAYMENT_SECRETS` and `PANTAS_APP_SECRETS` (Aedwon-only)
 
 Why: Secret Manager bills $0.06 per active version a month after 6 free per billing account. Eight

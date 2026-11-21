@@ -35,6 +35,9 @@ export const FREE = {
   firestoreWritesPerDay: 20000,
   firestoreDeletesPerDay: 20000,
 };
+// Staging has no real users: its budget is 80% of the free quota, shared by every lane (security lead
+// ruling, Nov 16, 2026; docs/deploy-prod.md "Staging read budget").
+const STAGING_BUDGET = {readsPerDay: 40000, writesPerDay: 16000};
 const FREE_REGIONS = new Set(['us-east1', 'us-west1', 'us-central1']);
 const PAID_ON_USE_API = /^(bigquery[a-z]*|dataform|dataplex|analyticshub|cloudaicompanion|deploymentmanager|containerregistry|source|sql-component)\.googleapis\.com$/;
 const ALERTING_SERVICE = '58CD-E7C3-72CA';
@@ -121,8 +124,10 @@ export function judge(data, {waivers, now}) {
     const top = (key) => p.firestore.daily.reduce((a, d) => (d[key] > a.value ? {value: d[key], day: d.day} : a), {value: 0, day: '-'});
     const [r, wr, d] = [top('reads'), top('writes'), top('deletes')];
     const over = r.value > FREE.firestoreReadsPerDay || wr.value > FREE.firestoreWritesPerDay || d.value > FREE.firestoreDeletesPerDay;
-    opsStatus.push(over ? (isStaging(id) ? 'OVER' : 'WARN') : 'OK');
-    opsText.push(`${short(id)}: max ${r.value} reads on ${r.day} (free ${FREE.firestoreReadsPerDay}), ${wr.value} writes on ${wr.day} (free ${FREE.firestoreWritesPerDay})`);
+    const overBudget = isStaging(id) && (r.value > STAGING_BUDGET.readsPerDay || wr.value > STAGING_BUDGET.writesPerDay);
+    opsStatus.push(over ? (isStaging(id) ? 'OVER' : 'WARN') : overBudget ? 'WARN' : 'OK');
+    const budget = isStaging(id) ? `, staging budget ${STAGING_BUDGET.readsPerDay} reads and ${STAGING_BUDGET.writesPerDay} writes` : '';
+    opsText.push(`${short(id)}: max ${r.value} reads on ${r.day} (free ${FREE.firestoreReadsPerDay}), ${wr.value} writes on ${wr.day} (free ${FREE.firestoreWritesPerDay}${budget})`);
   }
   add(worst(opsStatus), 'Firestore daily operations, last 7 days', opsText.join('; '));
 
