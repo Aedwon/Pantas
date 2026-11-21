@@ -1,0 +1,215 @@
+meta:
+  subject: mathematics
+  topic: statistics-and-probability
+  subtopic: data-analysis-graphs-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-statistics-and-probability-data-analysis-graphs-pshs-0001
+    lesson: lesson-statistics-and-probability-reading-bar-graph-scales
+    keyPoint: 1
+    type: word-problem
+    difficulty: easy
+    stem: |
+      The graph shows how many seedlings each class planted. How many
+      seedlings does one space between neighboring horizontal lines represent?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [Maya, Pugo, Lawin, Pipit]
+      values: [24, 8, 32, 16]
+      yAxis:
+        label: Seedlings planted
+    choices:
+      - text: "8"
+        correct: true
+      - text: "4"
+        rationale: |
+          The gap from Pugo to Maya is 16 seedlings. Dividing by all four
+          spaces in the graph gives 4. Count just the spaces between the
+          tops of Pugo's and Maya's bars.
+      - text: "16"
+        rationale: |
+          Sixteen is the gap from Pugo to Maya. The bar tops give two
+          clear points to compare. Count how many spaces they span.
+      - text: "24"
+        rationale: |
+          Twenty-four is the gap from Pugo to Lawin. Those bars show the
+          full spread of the counts. Count the spaces in that spread.
+      - text: "32"
+        rationale: |
+          Lawin reaches the top of the scale, so 32 gives the full height.
+          Find the value of just one space.
+    explanation: |
+      The tops of the Pugo and Maya bars are two spaces apart. Their counts
+      differ by $24-8=16$. One space stands for $16\div2=8$ seedlings.
+
+  - id: q-statistics-and-probability-data-analysis-graphs-pshs-0002
+    lesson: lesson-statistics-and-probability-reading-bar-graph-scales
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      The graph shows how much paper five teams collected. A team meets
+      the goal if its bar reaches at least two full grid spaces above
+      Talisay's. Which team met the goal with the least paper?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [Talisay, Yakal, Acacia, Ipil, Narra]
+      values: [16, 56, 48, 32, 64]
+      yAxis:
+        label: Paper collected (kg)
+    choices:
+      - text: Acacia
+        correct: true
+      - text: Narra
+        rationale: |
+          Narra has the tallest bar and clears the goal. Check which
+          qualifying bar is shortest.
+      - text: Talisay
+        rationale: |
+          Talisay collected the least paper overall. Check which teams
+          reached the goal before picking the one with the least paper.
+      - text: Yakal
+        rationale: |
+          Yakal is the next team above the cutoff. It fits if you read
+          the goal as strictly above two spaces. The words "at least"
+          include a bar that reaches the cutoff exactly.
+      - text: Ipil
+        rationale: |
+          Ipil reaches the second grid line above the bottom. The two
+          spaces must start at the top of Talisay's bar. Check the gap
+          between those two bars.
+    explanation: |
+      Each grid space stands for 16 kg. Two spaces above Talisay's 16 kg
+      gives $16+2\times16=48$ kg. Acacia collected 48 kg, the least
+      amount that meets the goal.
+
+  - id: q-statistics-and-probability-data-analysis-graphs-pshs-0003
+    lesson: lesson-statistics-and-probability-reading-bar-graph-scales
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      The bars show how many liters of water were used in four trials.
+      A fifth trial used 18 liters more than Trial 1. On the same scale,
+      how many grid spaces higher than Trial 1 would its bar end?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: ['1', '2', '3', '4']
+      values: [24, 30, 36, 48]
+      yAxis:
+        label: Water used (liters)
+    choices:
+      - text: "1.5"
+        correct: true
+      - text: "0.75"
+        rationale: |
+          The gap from Trial 1 to Trial 4 is 24 liters. If you count it
+          as one space, $18\div24=0.75$. Count the spaces in that gap.
+          It covers two spaces, so each space stands for 12 liters.
+      - text: "2"
+        rationale: |
+          Counting the last half space as a full space gives 2. Check where
+          the new bar ends. It ends at 42 liters, halfway from 36 to 48.
+      - text: "3"
+        rationale: |
+          The 6-liter gap between Trials 1 and 2 divides 18 into
+          three equal parts. Check that each part spans only half of
+          a full grid space.
+      - text: "3.5"
+        rationale: |
+          The new bar would be 3.5 spaces tall from the bottom. This
+          is the whole bar. Measure the gap above Trial 1's bar.
+    explanation: |
+      Trials 1 and 3 are one grid space apart, so one space is
+      $36-24=12$ liters. An extra 18 liters fills one 12-liter space
+      and half of the next space. The bar ends 1.5 spaces higher.
+
+  - id: q-statistics-and-probability-data-analysis-graphs-pshs-0004
+    lesson: lesson-statistics-and-probability-reading-bar-graph-scales
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      The two graphs show the same scores for the Red and Gold teams.
+      To the nearest whole percent, how much higher is Gold's score
+      than Red's?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [Red, Gold]
+      values: [85, 88]
+      compareZero: true
+    choices:
+      - text: '4%'
+        correct: true
+      - text: '3%'
+        rationale: |
+          Gold scored 3 more points. That gap is the first step.
+          Divide it by Red's score to find the percent.
+      - text: '38%'
+        rationale: |
+          This divides the 3-point gap by Gold's bar length of 8 on
+          the left. Both can be read on that graph. Use Red's full
+          score as the starting amount.
+      - text: '60%'
+        rationale: |
+          This divides 3 by the 5 points in Red's bar above 80.
+          That gives the percent change in drawn length on the left.
+          Use all 85 points for Red's score.
+      - text: '104%'
+        rationale: |
+          This gives Gold's whole score as a percent of Red's.
+          The question asks how much higher it is. Find the
+          extra points before dividing.
+    explanation: |
+      The scores are 85 and 88 in both graphs. Gold scored $88-85=3$
+      more points. Divide by Red's 85 points and turn it into a percent.
+      $\dfrac{3}{85}\times100\%$ is about $4\%$ to the nearest whole percent.
+
+  - id: q-statistics-and-probability-data-analysis-graphs-pshs-0005
+    lesson: lesson-statistics-and-probability-reading-bar-graph-scales
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A library redraws this graph so that both bars start at the same
+      higher number. The counts at the tops of the bars stay the same.
+      At what number should the new scale start so that the longer bar
+      is exactly twice as long as the shorter bar?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [June, July]
+      values: [20, 32]
+      yAxis:
+        label: Books borrowed
+    choices:
+      - text: "8"
+        correct: true
+      - text: "10"
+        rationale: |
+          Ten is half of June's count, so it may seem like a good
+          starting point. Subtract 10 from both counts and see whether
+          the two lengths are in the right ratio.
+      - text: "12"
+        rationale: |
+          The shorter bar needs to be 12 units long. Using that length as
+          the start of the scale gives this choice. Check what both bar
+          lengths would be if the scale started at 12.
+      - text: "16"
+        rationale: |
+          Sixteen is half of July's full count. The new July bar starts
+          above zero. Find its new length before taking half.
+      - text: "6"
+        rationale: |
+          You might halve the 12-book gap because July's bar needs to
+          be twice as long. If you start at 6, the bars are 14 and 26
+          units long. Check whether 26 is twice 14.
+    explanation: |
+      The two bars differ by $32-20=12$. When one bar is twice as
+      long, the gap equals the shorter bar's length. The shorter bar
+      must be 12 units long, so the scale starts at $20-12=8$.
+      On that scale the lengths are $20-8=12$ and $32-8=24$.
