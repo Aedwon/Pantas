@@ -59,7 +59,7 @@
     },
     {
       "id": "accumulate-fill",
-      "note": "This fills the whole figure. Both partial fills are visible. Check the repeated levels instead of adding them."
+      "note": "This treats the two fills as parts to add. They can look like steps that build on each other. Check which fill level repeats next."
     }
   ],
   "mergedQuestions": [

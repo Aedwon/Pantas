@@ -68,6 +68,55 @@ import '../../model.dart';
 import '../rule.dart';
 import 'sources.dart';
 
+// The intersection contract has only one single-ray distractor, the
+// second input's exclusive ray. Other matrix patterns require different
+// features or input ray counts.
+bool _hasDirectionalDistractor(
+  List<String> forms,
+  List<int> shared,
+  List<int> firstExclusive,
+  List<int> secondExclusive,
+) {
+  const directions = [0, 45, 90, 135, 180, 225, 270, 315];
+  for (final useTip in [false, true]) {
+    for (final direction in directions) {
+      double score(int row, int ray) =>
+          cos((ray - direction) * pi / 180) *
+          (useTip ? _normalizedReach(forms[row], ray) : 1);
+      bool wins(int row, int ray, int otherA, int otherB) =>
+          score(row, ray) - max(score(row, otherA), score(row, otherB)) > 1e-9;
+      if (wins(0, shared[0], firstExclusive[0], secondExclusive[0]) &&
+          wins(1, secondExclusive[1], shared[1], firstExclusive[1])) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+// Use the two vertices bracketing the ray and the sine rule to find how
+// much of the nominal radius the outline allows.
+double _normalizedReach(String form, int ray) {
+  if (form == 'circle' || form == 'square') return 1;
+  final sides = switch (form) {
+    'triangle' => 3,
+    'pentagon' => 5,
+    'star' => 10,
+    _ => throw StateError('Unsupported ray outline: $form'),
+  };
+  final wedge = ray * sides / 360;
+  final leftIndex = wedge.floor();
+  final sector = 2 * pi / sides;
+  final leftAngle = (wedge - leftIndex) * sector;
+  final leftRadius = form == 'star' && leftIndex.isOdd ? 0.42 : 1.0;
+  final rightRadius = form == 'star' && leftIndex.isEven ? 0.42 : 1.0;
+  return min(
+    1,
+    sin(sector) /
+        (sin(sector - leftAngle) / leftRadius + sin(leftAngle) / rightRadius),
+  );
+}
+
 const matrixPatterns = [
   'ray-turn',
   'size-columns',
@@ -165,6 +214,16 @@ class MatrixRule implements Rule {
             (pattern == 'ray-intersection' &&
                 [pairA[i], pairB[i]].contains(shared[i])),
       )) {
+        continue;
+      }
+      if (!fixed &&
+          pattern == 'ray-intersection' &&
+          _hasDirectionalDistractor(
+            forms,
+            shared,
+            pairA,
+            pairB,
+          )) {
         continue;
       }
       final inputs = List.generate(
@@ -535,40 +594,6 @@ class MatrixRule implements Rule {
         if ([90, 180, 270, 360].any((axis) => (axis - from) % 360 == to)) {
           continue;
         }
-      }
-      // Directional selection must not offer a competing answer. Integer
-      // compass projections preserve ties instead of breaking them arbitrarily.
-      if (!fixed && pattern == 'ray-intersection') {
-        var ambiguous = false;
-        for (final projection in [
-          [2, 1, 0, -1, -2, -1, 0, 1],
-          [-2, -1, 0, 1, 2, 1, 0, -1],
-          [0, -1, -2, -1, 0, 1, 2, 1],
-          [0, 1, 2, 1, 0, -1, -2, -1],
-        ]) {
-          num? extreme(int row) {
-            final values = {...rays(at(row, 0)), ...rays(at(row, 1))};
-            final selected = values
-                .where(
-                  (v) => values.every(
-                    (other) => projection[v ~/ 45] >= projection[other ~/ 45],
-                  ),
-                )
-                .toList();
-            return selected.length == 1 ? selected.single : null;
-          }
-
-          if (extreme(0) == at(0, 2)['line']) {
-            final target = extreme(1);
-            if (target != null &&
-                figures.skip(1).any(
-                      (f) => rays(f).length == 1 && rays(f).single == target,
-                    )) {
-              ambiguous = true;
-            }
-          }
-        }
-        if (ambiguous) continue;
       }
       if (!fixed &&
           pattern == 'size-dots' &&
