@@ -21425,18 +21425,6 @@
     "hash": "4b700ab5a8167a081099dc0f9f739e8d5be215c5c276f2dab67d45e01dc8703b",
     "lesson": "lesson-precalculus-basic-calculus-direct-substitution-for-limits"
   },
-  "q-spatial-abstract-reasoning-dots-on-shape-boundaries-0001": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "3d3f723ec1f4eae3d99c5b24423d845763324c67511fee1ae0ca45ab4b49c5b5",
-    "lesson": "lesson-spatial-abstract-reasoning-dots-on-shape-boundaries"
-  },
-  "q-spatial-abstract-reasoning-dots-on-shape-boundaries-0002": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "40b203f92fd7e7e7fbfea8e30fddf48b865b1dbbd2a760948d7633a657f6dd96",
-    "lesson": "lesson-spatial-abstract-reasoning-dots-on-shape-boundaries"
-  },
   "q-spatial-abstract-reasoning-figure-grouping-0001": {
     "approvedAt": "2026-11-19",
     "evidence": "docs/content/verification/cet-exam-tags.md",
@@ -21808,66 +21796,6 @@
     "evidence": "docs/content/verification/cet-exam-tags.md",
     "hash": "191ed70349c0219cc2204b28e21c45023316e787c0652a083fc441404eb1102e",
     "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns"
-  },
-  "q-spatial-abstract-reasoning-labeling-overlap-regions-0001": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "8941f41bcdb26235e4cd1808bf23de6e99ce71a8fe2f5cb257d6afcd4c9d1727",
-    "lesson": "lesson-spatial-abstract-reasoning-labeling-overlap-regions"
-  },
-  "q-spatial-abstract-reasoning-labeling-overlap-regions-0002": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "1bacfbd9ad2978538873a5d9f3cf232dfa8caea9d74374921db991f10d6436ef",
-    "lesson": "lesson-spatial-abstract-reasoning-labeling-overlap-regions"
-  },
-  "q-spatial-abstract-reasoning-labeling-three-shape-regions-0001": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "33251dcec9e679911cf6e09364a5b649806ddf79b1ed0cdbb7b163039014068f",
-    "lesson": "lesson-spatial-abstract-reasoning-labeling-three-shape-regions"
-  },
-  "q-spatial-abstract-reasoning-labeling-three-shape-regions-0002": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "d84aba936c9ba9d997fb60482d8380754f2ae64684b1123b2567ae2e2e6d42b8",
-    "lesson": "lesson-spatial-abstract-reasoning-labeling-three-shape-regions"
-  },
-  "q-spatial-abstract-reasoning-matching-dot-placement-0001": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "2b77418aae997c24a2584809d1d60d423ac4da789923f7318d54b54c819d53aa",
-    "lesson": "lesson-spatial-abstract-reasoning-matching-dot-placement"
-  },
-  "q-spatial-abstract-reasoning-matching-dot-placement-0002": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "a514d83817de6261bd991531507113f562a82c23a8380cd175149bc6c4481532",
-    "lesson": "lesson-spatial-abstract-reasoning-matching-dot-placement"
-  },
-  "q-spatial-abstract-reasoning-matching-dots-outside-a-shape-0001": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "46d82c230c6e8c36d4b46525b3916beffc29444f8d9ec2c5b952224a34f6c8ff",
-    "lesson": "lesson-spatial-abstract-reasoning-matching-dots-outside-a-shape"
-  },
-  "q-spatial-abstract-reasoning-matching-dots-outside-a-shape-0002": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "73f889ae17cf7f47998564b72687ec5603cbbb2aedf8b62b3a08c271639d7ecc",
-    "lesson": "lesson-spatial-abstract-reasoning-matching-dots-outside-a-shape"
-  },
-  "q-spatial-abstract-reasoning-matching-two-dots-0001": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "c27edf890d7020abe5fa12ec2726016430e9cc1df3d70048868bc3b6b920cff4",
-    "lesson": "lesson-spatial-abstract-reasoning-matching-two-dots"
-  },
-  "q-spatial-abstract-reasoning-matching-two-dots-0002": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "8dbb64ee1b3b4e1ae9a81b50d0883d703869de73d96496e689854f3879c2b7bd",
-    "lesson": "lesson-spatial-abstract-reasoning-matching-two-dots"
   },
   "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001": {
     "approvedAt": "2026-11-15",

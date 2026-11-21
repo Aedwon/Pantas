@@ -1,0 +1,1089 @@
+{
+ "lesson-algebra-counting-venn-diagram-regions": {
+  "path": "content/lessons/mathematics/algebra/counting-venn-diagram-regions.md",
+  "kp": 2,
+  "quizSize": 4,
+  "pshs": 0,
+  "items": [
+   "III-3"
+  ]
+ },
+ "lesson-algebra-line-slopes-and-intercepts": {
+  "path": "content/lessons/mathematics/algebra/line-slopes-and-intercepts.md",
+  "kp": 3,
+  "quizSize": 5,
+  "pshs": 0,
+  "items": [
+   "III-14"
+  ]
+ },
+ "lesson-algebra-set-membership-and-operations": {
+  "path": "content/lessons/mathematics/algebra/set-membership-and-operations.md",
+  "kp": 2,
+  "quizSize": 4,
+  "pshs": 0,
+  "items": [
+   "III-3"
+  ]
+ },
+ "lesson-algebra-three-set-inclusion-exclusion": {
+  "path": "content/lessons/mathematics/algebra/three-set-inclusion-exclusion.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "IV-13",
+   "IV-14"
+  ]
+ },
+ "lesson-arithmetic-number-sense-direct-proportion-and-travel": {
+  "path": "content/lessons/mathematics/arithmetic-number-sense/direct-proportion-and-travel.md",
+  "kp": 2,
+  "quizSize": 4,
+  "pshs": 0,
+  "items": [
+   "III-6"
+  ]
+ },
+ "lesson-biology-biodiversity-and-conservation": {
+  "path": "content/lessons/science/biology/biodiversity-and-conservation.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-15"
+  ]
+ },
+ "lesson-biology-carbon-and-water-cycles": {
+  "path": "content/lessons/science/biology/carbon-and-water-cycles.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-5"
+  ]
+ },
+ "lesson-biology-evidence-for-life-processes": {
+  "path": "content/lessons/science/biology/evidence-for-life-processes.md",
+  "kp": 4,
+  "quizSize": 4,
+  "pshs": 0,
+  "items": [
+   "III-13"
+  ]
+ },
+ "lesson-biology-food-chains-and-food-webs": {
+  "path": "content/lessons/science/biology/food-chains-and-food-webs.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-5"
+  ]
+ },
+ "lesson-biology-hormones-and-blood-glucose-feedback": {
+  "path": "content/lessons/science/biology/hormones-and-blood-glucose-feedback.md",
+  "kp": 3,
+  "quizSize": 3,
+  "pshs": 0,
+  "items": [
+   "III-13"
+  ]
+ },
+ "lesson-biology-phosphorus-cycling": {
+  "path": "content/lessons/science/biology/phosphorus-cycling.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-5"
+  ]
+ },
+ "lesson-chemistry-bonding-and-material-properties": {
+  "path": "content/lessons/science/chemistry/bonding-and-material-properties.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-3"
+  ]
+ },
+ "lesson-chemistry-evidence-and-atomic-models": {
+  "path": "content/lessons/science/chemistry/evidence-and-atomic-models.md",
+  "kp": 3,
+  "quizSize": 3,
+  "pshs": 0,
+  "items": [
+   "III-2",
+   "III-4",
+   "III-7"
+  ]
+ },
+ "lesson-chemistry-factors-that-change-reaction-rate": {
+  "path": "content/lessons/science/chemistry/factors-that-change-reaction-rate.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-4",
+   "III-7"
+  ]
+ },
+ "lesson-chemistry-fair-tests-of-reaction-rate": {
+  "path": "content/lessons/science/chemistry/fair-tests-of-reaction-rate.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-2",
+   "III-4",
+   "III-7"
+  ]
+ },
+ "lesson-chemistry-phase-change-directions": {
+  "path": "content/lessons/science/chemistry/phase-change-directions.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-10"
+  ]
+ },
+ "lesson-chemistry-physical-separation-of-matter": {
+  "path": "content/lessons/science/chemistry/physical-separation-of-matter.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-3",
+   "III-6"
+  ]
+ },
+ "lesson-chemistry-recovering-dissolved-solids": {
+  "path": "content/lessons/science/chemistry/recovering-dissolved-solids.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-6"
+  ]
+ },
+ "lesson-chemistry-separating-immiscible-liquids": {
+  "path": "content/lessons/science/chemistry/separating-immiscible-liquids.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-20"
+  ]
+ },
+ "lesson-chemistry-solution-percent-by-mass": {
+  "path": "content/lessons/science/chemistry/solution-percent-by-mass.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-6"
+  ]
+ },
+ "lesson-chemistry-temperature-during-phase-changes": {
+  "path": "content/lessons/science/chemistry/temperature-during-phase-changes.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-10"
+  ]
+ },
+ "lesson-chemistry-variables-in-gas-investigations": {
+  "path": "content/lessons/science/chemistry/variables-in-gas-investigations.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-2",
+   "III-4",
+   "III-7"
+  ]
+ },
+ "lesson-comprehension-skills-connecting-clues": {
+  "path": "content/lessons/reading-comprehension/comprehension-skills/connecting-clues.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-24",
+   "II-30"
+  ]
+ },
+ "lesson-comprehension-skills-contrast-and-cause-clues": {
+  "path": "content/lessons/reading-comprehension/comprehension-skills/contrast-and-cause-clues.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-2",
+   "II-27"
+  ]
+ },
+ "lesson-comprehension-skills-definition-and-example-clues": {
+  "path": "content/lessons/reading-comprehension/comprehension-skills/definition-and-example-clues.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-27"
+  ]
+ },
+ "lesson-comprehension-skills-event-time-words": {
+  "path": "content/lessons/reading-comprehension/comprehension-skills/event-time-words.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-22",
+   "II-23"
+  ]
+ },
+ "lesson-comprehension-skills-evidence-and-claim-strength": {
+  "path": "content/lessons/reading-comprehension/comprehension-skills/evidence-and-claim-strength.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-24",
+   "II-30",
+   "III-18"
+  ]
+ },
+ "lesson-comprehension-skills-old-and-current-details": {
+  "path": "content/lessons/reading-comprehension/comprehension-skills/old-and-current-details.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-12"
+  ]
+ },
+ "lesson-comprehension-skills-scanning-exact-details": {
+  "path": "content/lessons/reading-comprehension/comprehension-skills/scanning-exact-details.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-28",
+   "II-29",
+   "II-30"
+  ]
+ },
+ "lesson-comprehension-skills-skimming-and-meaning-matches": {
+  "path": "content/lessons/reading-comprehension/comprehension-skills/skimming-and-meaning-matches.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-28",
+   "II-29",
+   "II-30"
+  ]
+ },
+ "lesson-comprehension-skills-visual-data-conclusions": {
+  "path": "content/lessons/reading-comprehension/comprehension-skills/visual-data-conclusions.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-1",
+   "III-16",
+   "III-18"
+  ]
+ },
+ "lesson-comprehension-skills-word-parts-in-passages": {
+  "path": "content/lessons/reading-comprehension/comprehension-skills/word-parts-in-passages.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-27"
+  ]
+ },
+ "lesson-data-interpretation-chart-scales-and-differences": {
+  "path": "content/lessons/mathematics/data-interpretation/chart-scales-and-differences.md",
+  "kp": 2,
+  "quizSize": 3,
+  "pshs": 0,
+  "items": [
+   "III-1"
+  ]
+ },
+ "lesson-data-interpretation-table-values-and-totals": {
+  "path": "content/lessons/mathematics/data-interpretation/table-values-and-totals.md",
+  "kp": 2,
+  "quizSize": 4,
+  "pshs": 0,
+  "items": [
+   "III-8",
+   "III-13",
+   "III-20"
+  ]
+ },
+ "lesson-data-interpretation-unit-rates-and-direct-proportion": {
+  "path": "content/lessons/mathematics/data-interpretation/unit-rates-and-direct-proportion.md",
+  "kp": 2,
+  "quizSize": 4,
+  "pshs": 0,
+  "items": [
+   "III-6"
+  ]
+ },
+ "lesson-earth-science-astronomy-axial-tilt-and-seasons": {
+  "path": "content/lessons/science/earth-science-astronomy/axial-tilt-and-seasons.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-12"
+  ]
+ },
+ "lesson-earth-science-astronomy-earths-living-sphere": {
+  "path": "content/lessons/science/earth-science-astronomy/earths-living-sphere.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-5",
+   "III-15"
+  ]
+ },
+ "lesson-earth-science-astronomy-identifying-moon-phases": {
+  "path": "content/lessons/science/earth-science-astronomy/identifying-moon-phases.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-17"
+  ]
+ },
+ "lesson-earth-science-astronomy-latitude-and-daylight": {
+  "path": "content/lessons/science/earth-science-astronomy/latitude-and-daylight.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-12"
+  ]
+ },
+ "lesson-earth-science-astronomy-mineral-hardness-and-streak": {
+  "path": "content/lessons/science/earth-science-astronomy/mineral-hardness-and-streak.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-8"
+  ]
+ },
+ "lesson-earth-science-astronomy-moon-phase-cycle": {
+  "path": "content/lessons/science/earth-science-astronomy/moon-phase-cycle.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-17"
+  ]
+ },
+ "lesson-earth-science-astronomy-natural-satellites": {
+  "path": "content/lessons/science/earth-science-astronomy/natural-satellites.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-6"
+  ]
+ },
+ "lesson-earth-science-astronomy-planet-families": {
+  "path": "content/lessons/science/earth-science-astronomy/planet-families.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-6"
+  ]
+ },
+ "lesson-earth-science-astronomy-seawater-density-and-layers": {
+  "path": "content/lessons/science/earth-science-astronomy/seawater-density-and-layers.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-20"
+  ]
+ },
+ "lesson-earth-science-astronomy-solstices-and-equinoxes": {
+  "path": "content/lessons/science/earth-science-astronomy/solstices-and-equinoxes.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-12"
+  ]
+ },
+ "lesson-earth-science-astronomy-variables-in-a-cooling-test": {
+  "path": "content/lessons/science/earth-science-astronomy/variables-in-a-cooling-test.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-2",
+   "III-4",
+   "III-7"
+  ]
+ },
+ "lesson-environment-management-species-habitats-and-ecosystems": {
+  "path": "content/lessons/general-information/environment-management/species-habitats-and-ecosystems.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-15"
+  ]
+ },
+ "lesson-geometry-coordinate-slope-and-line-forms": {
+  "path": "content/lessons/mathematics/geometry/coordinate-slope-and-line-forms.md",
+  "kp": 2,
+  "quizSize": 3,
+  "pshs": 0,
+  "items": [
+   "III-9",
+   "III-14"
+  ]
+ },
+ "lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes": {
+  "path": "content/lessons/language-proficiency/grammar-and-structure/capital-letters-in-names-titles-and-quotes.md",
+  "kp": 3,
+  "quizSize": 3,
+  "pshs": 0,
+  "items": [
+   "II-10"
+  ]
+ },
+ "lesson-grammar-and-structure-commas-in-lists-and-joined-clauses": {
+  "path": "content/lessons/language-proficiency/grammar-and-structure/commas-in-lists-and-joined-clauses.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-11",
+   "II-13"
+  ]
+ },
+ "lesson-grammar-and-structure-finite-verbs-and-ing-groups": {
+  "path": "content/lessons/language-proficiency/grammar-and-structure/finite-verbs-and-ing-groups.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-16"
+  ]
+ },
+ "lesson-grammar-and-structure-joining-words-phrases-and-clauses": {
+  "path": "content/lessons/language-proficiency/grammar-and-structure/joining-words-phrases-and-clauses.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-13"
+  ]
+ },
+ "lesson-grammar-and-structure-past-events-and-future-meaning": {
+  "path": "content/lessons/language-proficiency/grammar-and-structure/past-events-and-future-meaning.md",
+  "kp": 3,
+  "quizSize": 3,
+  "pshs": 0,
+  "items": [
+   "II-18"
+  ]
+ },
+ "lesson-grammar-and-structure-past-perfect-earlier-completion": {
+  "path": "content/lessons/language-proficiency/grammar-and-structure/past-perfect-earlier-completion.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-15",
+   "II-17"
+  ]
+ },
+ "lesson-grammar-and-structure-present-perfect-links-to-now": {
+  "path": "content/lessons/language-proficiency/grammar-and-structure/present-perfect-links-to-now.md",
+  "kp": 3,
+  "quizSize": 3,
+  "pshs": 0,
+  "items": [
+   "II-12"
+  ]
+ },
+ "lesson-grammar-and-structure-semicolons-and-comma-splices": {
+  "path": "content/lessons/language-proficiency/grammar-and-structure/semicolons-and-comma-splices.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-11"
+  ]
+ },
+ "lesson-language-application-cause-and-effect-order": {
+  "path": "content/lessons/language-proficiency/language-application/cause-and-effect-order.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-28"
+  ]
+ },
+ "lesson-language-application-completion-articles-and-lists": {
+  "path": "content/lessons/language-proficiency/language-application/completion-articles-and-lists.md",
+  "kp": 3,
+  "quizSize": 3,
+  "pshs": 0,
+  "items": [
+   "II-14"
+  ]
+ },
+ "lesson-language-application-completion-meaning-clues": {
+  "path": "content/lessons/language-proficiency/language-application/completion-meaning-clues.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-2",
+   "II-3",
+   "II-13",
+   "II-21"
+  ]
+ },
+ "lesson-language-application-completion-natural-phrases": {
+  "path": "content/lessons/language-proficiency/language-application/completion-natural-phrases.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-14",
+   "II-19",
+   "II-20",
+   "II-21"
+  ]
+ },
+ "lesson-language-application-completion-past-time": {
+  "path": "content/lessons/language-proficiency/language-application/completion-past-time.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-15",
+   "II-17"
+  ]
+ },
+ "lesson-language-application-details-and-supported-inferences": {
+  "path": "content/lessons/language-proficiency/language-application/details-and-supported-inferences.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-24",
+   "II-28",
+   "II-30"
+  ]
+ },
+ "lesson-language-application-openings-and-reference-links": {
+  "path": "content/lessons/language-proficiency/language-application/openings-and-reference-links.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-22",
+   "II-23"
+  ]
+ },
+ "lesson-language-application-past-time-checks": {
+  "path": "content/lessons/language-proficiency/language-application/past-time-checks.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-15",
+   "II-17"
+  ]
+ },
+ "lesson-language-application-time-and-step-order": {
+  "path": "content/lessons/language-proficiency/language-application/time-and-step-order.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-22",
+   "II-23"
+  ]
+ },
+ "lesson-language-application-transition-links": {
+  "path": "content/lessons/language-proficiency/language-application/transition-links.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-22"
+  ]
+ },
+ "lesson-logical-verbal-reasoning-analogy-functions-users-and-work": {
+  "path": "content/lessons/reasoning/logical-verbal-reasoning/analogy-functions-users-and-work.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-7"
+  ]
+ },
+ "lesson-logical-verbal-reasoning-analogy-parts-types-and-products": {
+  "path": "content/lessons/reasoning/logical-verbal-reasoning/analogy-parts-types-and-products.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-6",
+   "II-8",
+   "II-9"
+  ]
+ },
+ "lesson-logical-verbal-reasoning-deductive-group-arguments": {
+  "path": "content/lessons/reasoning/logical-verbal-reasoning/deductive-group-arguments.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-3"
+  ]
+ },
+ "lesson-mechanical-technical-reasoning-classes-of-levers": {
+  "path": "content/lessons/reasoning/mechanical-technical-reasoning/classes-of-levers.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-11"
+  ]
+ },
+ "lesson-physics-conduction-convection-and-radiation": {
+  "path": "content/lessons/science/physics/conduction-convection-and-radiation.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-3"
+  ]
+ },
+ "lesson-physics-electric-charge-and-charging": {
+  "path": "content/lessons/science/physics/electric-charge-and-charging.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-3"
+  ]
+ },
+ "lesson-physics-kinetic-and-gravitational-potential-energy": {
+  "path": "content/lessons/science/physics/kinetic-and-gravitational-potential-energy.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-19"
+  ]
+ },
+ "lesson-physics-latent-heat-and-phase-changes": {
+  "path": "content/lessons/science/physics/latent-heat-and-phase-changes.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-10"
+  ]
+ },
+ "lesson-physics-mechanical-energy-conservation": {
+  "path": "content/lessons/science/physics/mechanical-energy-conservation.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-19"
+  ]
+ },
+ "lesson-physics-mechanical-energy-with-friction": {
+  "path": "content/lessons/science/physics/mechanical-energy-with-friction.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-19"
+  ]
+ },
+ "lesson-physics-position-displacement-and-velocity": {
+  "path": "content/lessons/science/physics/position-displacement-and-velocity.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-9"
+  ]
+ },
+ "lesson-physics-position-time-graph-slope": {
+  "path": "content/lessons/science/physics/position-time-graph-slope.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-9",
+   "III-14"
+  ]
+ },
+ "lesson-physics-specific-heat-and-temperature-change": {
+  "path": "content/lessons/science/physics/specific-heat-and-temperature-change.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-2",
+   "III-4",
+   "III-7"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-closed-surfaces-in-solids": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/closed-surfaces-in-solids.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 2,
+  "items": [
+   "IV-5"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/combined-and-mixed-figure-patterns.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "IV-1",
+   "IV-2",
+   "IV-3",
+   "IV-4"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-comparing-counts-in-figures": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/comparing-counts-in-figures.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 7,
+  "items": [
+   "IV-6",
+   "IV-8"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-figure-counts-and-fills": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-counts-and-fills.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "IV-2",
+   "IV-3"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-figure-turns-and-positions": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/figure-turns-and-positions.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "IV-1",
+   "IV-2",
+   "IV-3",
+   "IV-4",
+   "IV-9"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-folding-a-triangular-prism-net": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/folding-a-triangular-prism-net.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 2,
+  "items": [
+   "IV-19"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/folding-and-checking-cube-nets.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "IV-19",
+   "IV-20"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/grouping-outlines-and-symmetry.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "IV-6",
+   "IV-7",
+   "IV-8"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/grouping-regions-and-inside-details.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "IV-6",
+   "IV-7"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-matching-edges-of-pattern-pieces": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/matching-edges-of-pattern-pieces.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 2,
+  "items": [
+   "IV-10"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/matrix-row-and-column-rules.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "IV-11",
+   "IV-12"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-matrix-turns-and-counts": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/matrix-turns-and-counts.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "IV-9",
+   "IV-10",
+   "IV-18"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-one-of-each-rules-in-figure-grids": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/one-of-each-rules-in-figure-grids.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 11,
+  "items": [
+   "IV-11",
+   "IV-12"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-testing-a-figure-group-rule": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/testing-a-figure-group-rule.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "IV-5",
+   "IV-6",
+   "IV-7",
+   "IV-8"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-transferring-rules-in-visual-analogies": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/transferring-rules-in-visual-analogies.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 3,
+  "items": [
+   "II-8",
+   "IV-17",
+   "IV-18"
+  ]
+ },
+ "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips": {
+  "path": "content/lessons/reasoning/spatial-abstract-reasoning/turning-solids-without-mirror-flips.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "IV-20"
+  ]
+ },
+ "lesson-statistics-and-probability-range-and-spread": {
+  "path": "content/lessons/mathematics/statistics-and-probability/range-and-spread.md",
+  "kp": 2,
+  "quizSize": 3,
+  "pshs": 0,
+  "items": [
+   "III-13"
+  ]
+ },
+ "lesson-statistics-and-probability-reading-bar-graph-scales": {
+  "path": "content/lessons/mathematics/statistics-and-probability/reading-bar-graph-scales.md",
+  "kp": 2,
+  "quizSize": 4,
+  "pshs": 0,
+  "items": [
+   "III-1"
+  ]
+ },
+ "lesson-text-types-matching-table-rows-and-columns": {
+  "path": "content/lessons/reading-comprehension/text-types/matching-table-rows-and-columns.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-8",
+   "III-13",
+   "III-20"
+  ]
+ },
+ "lesson-text-types-reading-bar-chart-scales": {
+  "path": "content/lessons/reading-comprehension/text-types/reading-bar-chart-scales.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-1"
+  ]
+ },
+ "lesson-text-types-reading-line-chart-changes": {
+  "path": "content/lessons/reading-comprehension/text-types/reading-line-chart-changes.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "III-16",
+   "III-18"
+  ]
+ },
+ "lesson-text-types-story-character-traits-and-change": {
+  "path": "content/lessons/reading-comprehension/text-types/story-character-traits-and-change.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-3"
+  ]
+ },
+ "lesson-text-types-story-plot-and-turning-points": {
+  "path": "content/lessons/reading-comprehension/text-types/story-plot-and-turning-points.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-22"
+  ]
+ },
+ "lesson-text-types-story-setting-style-and-mood": {
+  "path": "content/lessons/reading-comprehension/text-types/story-setting-style-and-mood.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-25"
+  ]
+ },
+ "lesson-text-types-story-theme-from-text-evidence": {
+  "path": "content/lessons/reading-comprehension/text-types/story-theme-from-text-evidence.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-26"
+  ]
+ },
+ "lesson-vocabulary-checking-longer-spellings": {
+  "path": "content/lessons/language-proficiency/vocabulary/checking-longer-spellings.md",
+  "kp": 1,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-1"
+  ]
+ },
+ "lesson-vocabulary-contrast-and-inference-clues": {
+  "path": "content/lessons/language-proficiency/vocabulary/contrast-and-inference-clues.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-2",
+   "II-3",
+   "II-4",
+   "II-5"
+  ]
+ },
+ "lesson-vocabulary-definitions-examples-and-synonyms": {
+  "path": "content/lessons/language-proficiency/vocabulary/definitions-examples-and-synonyms.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-27"
+  ]
+ },
+ "lesson-vocabulary-feeling-strength-and-formality": {
+  "path": "content/lessons/language-proficiency/vocabulary/feeling-strength-and-formality.md",
+  "kp": 3,
+  "quizSize": 3,
+  "pshs": 0,
+  "items": [
+   "II-2"
+  ]
+ },
+ "lesson-vocabulary-idioms-and-literal-meanings": {
+  "path": "content/lessons/language-proficiency/vocabulary/idioms-and-literal-meanings.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-19",
+   "II-20",
+   "II-21"
+  ]
+ },
+ "lesson-vocabulary-meaning-and-grammar-in-context": {
+  "path": "content/lessons/language-proficiency/vocabulary/meaning-and-grammar-in-context.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-3",
+   "II-4",
+   "II-5"
+  ]
+ },
+ "lesson-vocabulary-similar-and-opposite-meanings": {
+  "path": "content/lessons/language-proficiency/vocabulary/similar-and-opposite-meanings.md",
+  "kp": 3,
+  "quizSize": 3,
+  "pshs": 0,
+  "items": [
+   "II-4",
+   "II-14"
+  ]
+ },
+ "lesson-vocabulary-word-partners-feeling-and-grammar": {
+  "path": "content/lessons/language-proficiency/vocabulary/word-partners-feeling-and-grammar.md",
+  "kp": 2,
+  "quizSize": 2,
+  "pshs": 0,
+  "items": [
+   "II-2",
+   "II-5"
+  ]
+ }
+}
