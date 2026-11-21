@@ -86,6 +86,12 @@ pass 15, retire or merge one first.
    against the free tier and does not ship it if the account would go over. If it already
    bills, it is a defect to fix at once, not a cost to accept. His words (Nov 15): "that is absurd, i should never have been billed in the first place with just testing traffic and scheduled jobs. make this a strict standing rule. this should never happen again. the only thing that should bill us is due to users, and that's justifiable and by then we should be already able to cover the costs. i am disappointed." This rule retires when the free-tier
    check (see the entry below) covers every item.
+   Runs count too, not only config (Nov 21). Before any run against a hosted project
+   (a proof, journey, headless check, count comparison or load of content), the agent
+   writes down its expected reads, writes and egress from the per-step costs in the
+   release checklist, adds what that project already used today, and does not start it
+   if the total would pass the free tier. If the cost is unknown, it measures one small
+   step first. His words (Nov 21): ">:( how many times should I mention this".
 
 8. Emails to testers and users follow the shape of Aedwon's own Nov 15 rewrite. Subject:
    a short plain label ("Pantas beta extension"), no claim. Body: a greeting, then two or
@@ -112,12 +118,15 @@ pass 15, retire or merge one first.
 
 ## Entries
 
-### Staging read budget broken again by a release proof (Nov 21)
+### Staging proof read past the free tier again (Nov 21)
 
-- His words: none; found by the security and billing lead's live free-tier check. Repeat of the Nov 15 overage (rule 7).
-- Wrong: staging read 137,500 Firestore documents on Nov 20 (Pacific day), almost three times the 50,000 free. A headless CET staging proof made about 800 server calls in 80 minutes; settings saves, new lesson reads and mock starts each rescan the whole lesson and question bank (about 1,460 reads) on a cold instance or after the 5-minute cache. A prod-and-staging count comparison read about 55,000 more.
-- Why it got through: the Nov 16 budget ruling (40,000 reads a day, plan reads before a run, no whole-collection verification) lived only in the launch log, not in the release checklist the integrator follows, and the live check never warned at the budget.
-- Fix: a required step in `docs/deploy-prod.md` ("Staging read budget"), with measured costs per step; and a check: `tool/checks/free_tier_live.mjs` warns when a staging day passes the budget (test in `free_tier_live.test.mjs`, failing first). A code change to remove the whole-bank scan goes to the manager with its free-tier count before any build.
+- His words: ">:( how many times should I mention this", after reading that a Nov 20 staging proof cost money.
+- Wrong: on Nov 20 (09:15 to 10:35 UTC) the integrator's headless CET staging proof made about 800 calls and read about 110,000 Firestore documents. A count comparison read 31,000 more on staging and 24,000 on prod. Staging passed its 50,000 free daily reads and billed about $0.05. Rule 7 forbids exactly this, and he had already said it on Nov 15.
+- Why it got through: rule 7's pre-check was written for changes that add a fixed item (a job, a secret, an instance). Agents read a proof run as testing, not as a change, so nobody counted its reads before starting. The free-tier check counts config, not traffic. The 40,000-read staging budget set on Nov 16 lived in a note, not in a required step. Settings saves, new lesson reads, mock previews and mock starts rescan the whole bank (1,460 reads) on a cold server, so every proof step was far costlier than it looked.
+- Fix:
+  1. Rule 7 now covers runs: count expected reads, writes and egress before any run against a hosted project, and do not start it if the day would pass the free tier (applied Nov 21).
+  2. The per-step costs and the staging budget are a required release-checklist step, and the live free-tier check warns above the budget (security and billing lead, PR #80).
+  3. Root cause in code: the four calls read one small summary document per exam instead of rescanning the bank, so a cold scan drops from 1,460 reads to under 10 (security and billing lead, approved Nov 21; prod after his "ship it"). This also protects prod once real users arrive.
 
 ### A brief's judgment stated as fact: "no gated exam can sell before mid-2027" (Nov 17)
 
