@@ -26,9 +26,10 @@ class CenteredDialog extends StatefulWidget {
     required this.title,
     required this.message,
     required this.primaryLabel,
-    required this.secondaryLabel,
     required this.onConfirm,
-    required this.onCancel,
+    this.secondaryLabel,
+    this.onCancel,
+    this.messageSpan,
     this.destructive = false,
     this.inlineActions = false,
     this.content,
@@ -41,9 +42,16 @@ class CenteredDialog extends StatefulWidget {
   final String title;
   final String message;
   final String primaryLabel;
-  final String secondaryLabel;
+
+  /// The safe button. Null draws a dialog with the one button (the design
+  /// system allows one or two); the Escape key then does the main action.
+  final String? secondaryLabel;
   final VoidCallback onConfirm;
-  final VoidCallback onCancel;
+  final VoidCallback? onCancel;
+
+  /// The message with a tappable part, such as an email address. It takes the
+  /// place of [message], which stays the plain text of the same words.
+  final InlineSpan? messageSpan;
   final bool destructive;
 
   /// Kept for callers. The phone pair is always side by side now.
@@ -67,6 +75,10 @@ class CenteredDialog extends StatefulWidget {
   /// The inset that moves a centered card by one unit of [lift].
   static const double _liftSpread = PantasSpace.s2;
 
+  Widget _message(TextStyle style) => messageSpan == null
+      ? Text(message, style: style)
+      : Text.rich(TextSpan(style: style, children: [messageSpan!]));
+
   @override
   State<CenteredDialog> createState() => _CenteredDialogState();
 
@@ -74,7 +86,7 @@ class CenteredDialog extends StatefulWidget {
     final colors = context.colors;
     final shortcuts = <ShortcutActivator, VoidCallback>{
       if (allowEscape)
-        const SingleActivator(LogicalKeyboardKey.escape): onCancel,
+        const SingleActivator(LogicalKeyboardKey.escape): onCancel ?? onConfirm,
     };
     // Moving the card up by `lift` takes `lift` off the top and puts twice
     // that on the bottom, since the dialog centers in what is left.
@@ -125,9 +137,8 @@ class CenteredDialog extends StatefulWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Text(
-                                message,
-                                style: PantasType.webBody
+                              _message(
+                                PantasType.webBody
                                     .copyWith(color: colors.textSecondary),
                               ),
                               if (content != null) ...[
@@ -146,14 +157,15 @@ class CenteredDialog extends StatefulWidget {
                           spacing: PantasSpace.s8,
                           runSpacing: PantasSpace.s8,
                           children: [
-                            order(
-                              WebButton(
-                                label: secondaryLabel,
-                                variant: WebButtonVariant.tertiary,
-                                onPressed: onCancel,
+                            if (secondaryLabel != null)
+                              order(
+                                WebButton(
+                                  label: secondaryLabel!,
+                                  variant: WebButtonVariant.tertiary,
+                                  onPressed: onCancel,
+                                ),
+                                main: false,
                               ),
-                              main: false,
-                            ),
                             order(
                               WebButton(
                                 label: primaryLabel,
@@ -223,9 +235,8 @@ class CenteredDialog extends StatefulWidget {
                       .copyWith(color: colors.textPrimary),
                 ),
                 const SizedBox(height: PantasSpace.s8),
-                Text(
-                  message,
-                  style: PantasType.phoneExplanation
+                _message(
+                  PantasType.phoneExplanation
                       .copyWith(color: colors.textSecondary),
                 ),
                 if (content != null) ...[
@@ -235,27 +246,38 @@ class CenteredDialog extends StatefulWidget {
                 const SizedBox(height: PantasSpace.s12),
                 FocusTraversalGroup(
                   policy: OrderedTraversalPolicy(),
-                  child: ButtonPair(
-                    gap: actionGap,
-                    primary: order(
-                      pill(
-                        primaryLabel,
-                        onConfirm,
-                        variant: destructive
-                            ? PantasButtonVariant.destructive
-                            : PantasButtonVariant.primary,
-                      ),
-                      main: true,
-                    ),
-                    secondary: order(
-                      pill(
-                        secondaryLabel,
-                        onCancel,
-                        variant: PantasButtonVariant.neutral,
-                      ),
-                      main: false,
-                    ),
-                  ),
+                  child: secondaryLabel == null
+                      ? order(
+                          pill(
+                            primaryLabel,
+                            onConfirm,
+                            variant: destructive
+                                ? PantasButtonVariant.destructive
+                                : PantasButtonVariant.primary,
+                          ),
+                          main: true,
+                        )
+                      : ButtonPair(
+                          gap: actionGap,
+                          primary: order(
+                            pill(
+                              primaryLabel,
+                              onConfirm,
+                              variant: destructive
+                                  ? PantasButtonVariant.destructive
+                                  : PantasButtonVariant.primary,
+                            ),
+                            main: true,
+                          ),
+                          secondary: order(
+                            pill(
+                              secondaryLabel!,
+                              onCancel!,
+                              variant: PantasButtonVariant.neutral,
+                            ),
+                            main: false,
+                          ),
+                        ),
                 ),
               ],
             ),
