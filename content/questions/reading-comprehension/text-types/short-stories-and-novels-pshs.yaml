@@ -1,0 +1,279 @@
+meta:
+  subject: reading-comprehension
+  topic: text-types
+  subtopic: short-stories-and-novels-pshs
+  exams: [pshs-nce]
+passages:
+  - id: p-text-types-short-stories-and-novels-pshs-0001
+    title: Across the Road
+    body: |
+      On market mornings, buses stopped right in front of the bakery. Before school, Lea helped her aunt sell rolls through the window. Aunt Celia could add up an order in her head while teasing a driver about his singing. She saved the softest rolls for the street sweeper, but she counted every coin twice before she let Lea put it away.
+
+      That Saturday a road crew dug up the lane by the bakery. By the time the rolls came out of the oven, the bus stop had moved across the road. Lea filled a tray and set it by the window as usual. The first bus emptied on the other side. Its passengers walked straight to the market. The same thing happened with the next bus.
+
+      Lea asked if she could set up beside the new stop. Her aunt pointed out that they had no spare table. Lea took an empty flour crate and turned it upside down by the waiting shed. As soon as she set the tray on it, a passenger stopped to buy breakfast. By the time the next bus arrived, she had to wave to her aunt for more rolls.
+
+      At closing time Aunt Celia set aside a soft roll for the sweeper, joked about the crate being their finest piece of furniture, and counted every coin twice. Lea heard someone hammering outside. A worker was putting up the new bus stop sign. The crate had already been put away. Lea reached for a pencil and began to draw a folding stand on the back of a flour sack.
+  - id: p-text-types-short-stories-and-novels-pshs-0002
+    title: The Spare Key
+    body: |
+      During lunch, Omar kept the key to the school garden in his pocket. He liked finding new leaves before anyone else did, and he knew which seedlings needed shade. When Jun offered to water them on Friday, Omar said he would do it himself. He did not want anyone guessing how much water to pour. An hour later, his teacher asked him to carry books to another room. By the time he got to the garden, the smallest seedlings had curled in the sun.
+
+      On Monday, Inez asked to borrow the key at lunch. Omar told her to wait for him. He had a meeting that ran late. When he reached the gate, Inez had already gone back to class. The soil was dry and the watering can sat full inside.
+
+      On Tuesday, clouds gathered while Omar was hanging up drawings in the hall. With each gust, the loose window frame clapped against the wall. Rain was close. The trays. The open sky. He set down his stack of drawings and turned to Jun. He pressed the spare key into Jun's palm and asked him to move the trays under the roof.
+
+      When Omar reached the garden, rain was rattling on the roof. Jun had set the last tray on a dry shelf. Omar checked the soil with his thumb, then showed Jun how to tell when it needed water. The next morning, he wrote a watering schedule and clipped it to the gate. When Inez arrived, he showed her where they would keep the spare key.
+questions:
+  - id: q-text-types-short-stories-and-novels-pshs-0001
+    lesson: lesson-text-types-story-setting-style-and-mood
+    keyPoint: 1
+    passage: p-text-types-short-stories-and-novels-pshs-0001
+    type: feature-of-form
+    difficulty: medium
+    stem: |
+      How does the change in setting affect Lea's work that Saturday?
+    choices:
+      - text: She must find a new place to sell to bus riders.
+        correct: true
+      - text: She must wait to bake until the work is done.
+        rationale: The crew disrupts the morning, so it may seem to delay work in the bakery. Check when the rolls come out of the oven.
+      - text: She must sell the rolls inside the market.
+        rationale: The passengers go straight to the market, so following them there seems possible. Check where Lea actually sets up her tray.
+      - text: She must find a way to get the buses to stop at the bakery again.
+        rationale: The old stop helped her make sales, so getting it back could solve the problem. Check whether Lea changes the bus route or her own routine.
+      - text: She must rely on people who already know where to find the bakery.
+        rationale: Regular customers may still come to the window after the stop moves. Check how Lea makes it easier for passing riders to buy from her.
+    explanation: |
+      The buses now leave passengers across the road. They no longer pass the bakery window on their way to the market. Lea moves her tray to the new stop to reach them.
+  - id: q-text-types-short-stories-and-novels-pshs-0002
+    lesson: lesson-text-types-story-character-traits-and-change
+    keyPoint: 1
+    passage: p-text-types-short-stories-and-novels-pshs-0001
+    type: feature-of-form
+    difficulty: medium
+    stem: |
+      What trait does Lea show when her aunt says there is no spare table?
+    choices:
+      - text: She makes good use of what is at hand.
+        correct: true
+      - text: She waits for things to improve.
+        rationale: She watches two buses go by, so waiting may seem like her plan. Check how she responds once her aunt points out the problem.
+      - text: She seeks approval at each step.
+        rationale: She asks about moving to the new stop, which shows she listens to her aunt. Check whether she asks again before setting up the crate.
+      - text: She believes that following a familiar routine is safest.
+        rationale: She first sets the tray in its usual spot. Check what she does when the old routine fails.
+      - text: She wants to show that she can manage the bakery on her own.
+        rationale: Lea sets up a place to sell by herself, which shows some independence. Check what she asks her aunt to do as sales pick up.
+    explanation: |
+      Lea needs a place to set the tray. She turns an empty crate into a table and starts selling.
+  - id: q-text-types-short-stories-and-novels-pshs-0003
+    lesson: lesson-text-types-story-plot-and-turning-points
+    keyPoint: 1
+    passage: p-text-types-short-stories-and-novels-pshs-0001
+    type: feature-of-form
+    difficulty: medium
+    stem: |
+      Which event is the turning point in Lea's effort to sell the rolls that morning?
+    choices:
+      - text: Lea makes her first sale beside the waiting shed.
+        correct: true
+      - text: The crew digs up the lane by the bakery.
+        rationale: The roadwork changes where buses stop, so it is a major event. Check whether it starts the sales problem or turns sales around.
+      - text: The first passengers go straight to the market.
+        rationale: This is when the lost sales become clear. Check whether Lea has found a way to reach the passengers by then.
+      - text: Aunt Celia tells Lea that the bakery has no spare table.
+        rationale: Her reply shapes Lea's next move, so it sounds like the deciding event. Check when selling at the new stop first works.
+      - text: Lea waves to her aunt to ask for more rolls from the bakery.
+        rationale: Her wave for more rolls shows that sales have already picked up. Check when the new place first draws a buyer.
+    explanation: |
+      Lea has lost the buyers who used to pass the window. When a passenger buys a roll at the shed, her plan starts to work and sales pick up.
+  - id: q-text-types-short-stories-and-novels-pshs-0004
+    lesson: lesson-text-types-story-setting-style-and-mood
+    keyPoint: 2
+    passage: p-text-types-short-stories-and-novels-pshs-0002
+    type: purpose-of-device
+    difficulty: medium
+    stem: |
+      What is the effect of the phrases "The trays. The open sky."?
+    choices:
+      - text: They make Omar's need to protect the trays feel urgent.
+        correct: true
+      - text: They make the open sky seem peaceful.
+        rationale: The words "open sky" can suggest a peaceful view on their own. Check what the clouds and the clapping window frame tell Omar.
+      - text: They make the noise in the hall seem more distracting than the rain.
+        rationale: The window frame makes a sound just before these phrases. Check where Omar's thoughts go as soon as he hears it.
+      - text: They give a sense of relief that the trays have been moved.
+        rationale: The short phrases may sound like the final notes in a list. Check where the trays are when Omar thinks of them.
+      - text: They create a playful rhythm as Omar returns to his drawings.
+        rationale: Short bursts of words can sound playful. Check what Omar fears might happen to the trays and what he does with the drawings.
+    explanation: |
+      The short phrases let us follow Omar's quick thoughts. He thinks of the trays sitting out where rain can hit them. That makes the moment feel urgent.
+  - id: q-text-types-short-stories-and-novels-pshs-0005
+    lesson: lesson-text-types-story-plot-and-turning-points
+    keyPoint: 2
+    passage: p-text-types-short-stories-and-novels-pshs-0001
+    type: feature-of-form
+    difficulty: hard
+    stem: |
+      Which question about Lea's plan does the ending leave unanswered?
+    choices:
+      - text: Will Lea build the folding stand she starts to sketch?
+        correct: true
+      - text: Does anyone buy a roll while Lea uses the crate that morning?
+        rationale: The sketch may seem like her first attempt to sell across the road. Check what happened when she put the tray on the crate.
+      - text: Will she think of a way to sell without the crate?
+        rationale: The crate is already put away, so it looks as if Lea still needs an idea. Check what she starts drawing.
+      - text: Will she need her aunt to bring her more rolls that morning?
+        rationale: The story moves quickly from the first sale to closing time. Check what Lea does when the next bus arrives.
+      - text: What does Lea use to hold her tray at the new stop?
+        rationale: The missing table makes it seem like Lea still needs a place for the tray. Check what she does with the empty flour crate.
+    explanation: |
+      Lea has started drawing a folding stand. The story ends while she is still drawing. We have yet to see her build it.
+  - id: q-text-types-short-stories-and-novels-pshs-0006
+    lesson: lesson-text-types-story-character-traits-and-change
+    keyPoint: 2
+    passage: p-text-types-short-stories-and-novels-pshs-0001
+    type: feature-of-form
+    difficulty: hard
+    stem: |
+      Which statement about Aunt Celia's traits is best supported by her actions at the start and at closing time?
+    choices:
+      - text: She has several sides, and she shows the same traits all day.
+        correct: true
+      - text: She shows only one trait and stays careful with money.
+        rationale: Counting the coins twice stands out because she does it again. Check what her jokes and the roll for the sweeper also show.
+      - text: She has several sides, and she grows more generous by closing time.
+        rationale: Setting aside a roll at the end shows kindness, so it might look like a new trait. Check how she treats the sweeper at the start.
+      - text: Her humor is her only clear trait, and she loses it when sales drop.
+        rationale: Her teasing at the window makes her humor easy to spot. Check what she says about the crate and what her other actions show.
+      - text: She has several sides, and she becomes less careful when sales improve.
+        rationale: A good end to the day may sound like a reason to relax. Check how she handles the money at closing time.
+    explanation: |
+      Aunt Celia jokes with people, gives food to the sweeper, and checks the money with care. She shows all three sides at the start and again at closing time.
+  - id: q-text-types-short-stories-and-novels-pshs-0007
+    lesson: lesson-text-types-story-plot-and-turning-points
+    keyPoint: 1
+    passage: p-text-types-short-stories-and-novels-pshs-0002
+    type: feature-of-form
+    difficulty: hard
+    stem: |
+      At which moment does the problem of caring for the garden change direction?
+    choices:
+      - text: Omar gives Jun the key and asks for help.
+        correct: true
+      - text: Omar sees the seedlings that curled in the sun.
+        rationale: The damage makes the cost of waiting clear. Check whether Omar shares the work when Inez asks on Monday.
+      - text: Wind makes the loose window frame clap against the wall.
+        rationale: The noise makes the threat feel close. Check what Omar does next that allows someone to help.
+      - text: Omar sees the last tray sitting on a dry shelf.
+        rationale: The tray shows that the plants have been moved to safety. Check which choice made that possible.
+      - text: Omar clips a watering schedule to the garden gate.
+        rationale: The schedule makes the new way of working clear. Check when Omar first lets someone else care for the plants.
+    explanation: |
+      Until then, the plants have to wait for Omar. Giving Jun the key lets Jun move them right away. From that point, Omar shares the work.
+  - id: q-text-types-short-stories-and-novels-pshs-0008
+    lesson: lesson-text-types-story-setting-style-and-mood
+    keyPoint: 2
+    passage: p-text-types-short-stories-and-novels-pshs-0002
+    type: purpose-of-device
+    difficulty: hard
+    stem: |
+      What mood does the writer create by placing the "rattling" rain beside the image of the "dry shelf"?
+    choices:
+      - text: Relief that Jun got the plants under cover.
+        correct: true
+      - text: Dread that a tray is still outside.
+        rationale: The loud rain keeps the threat easy to imagine. Check where Omar finds the last tray.
+      - text: Disappointment that the rain has missed the plants that need water.
+        rationale: The earlier scenes show dry seedlings, so rain might seem welcome. Check why Omar wants the trays moved before it falls.
+      - text: Pride that Omar beats the rain.
+        rationale: Omar rushes to act once he notices the clouds. Check what he hears when he reaches the garden and who moved the trays.
+      - text: Unease that Omar thinks Jun has put the trays in the wrong place.
+        rationale: Omar checks the soil, which can read as doubt about Jun's work. Check what the dry shelf tells us about whether Jun followed his request.
+    explanation: |
+      We hear the rain hit the roof while the tray sits dry below it. The plants are safe in time, which gives the reader a sense of relief.
+  - id: q-text-types-short-stories-and-novels-pshs-0009
+    lesson: lesson-text-types-story-character-traits-and-change
+    keyPoint: 2
+    passage: p-text-types-short-stories-and-novels-pshs-0002
+    type: feature-of-form
+    difficulty: hard
+    stem: |
+      Which detail shows how someone else can now get into the garden to help without waiting for Omar?
+    choices:
+      - text: He shows Inez where they will keep the spare key.
+        correct: true
+      - text: He clips a sheet of paper to the garden gate the next morning.
+        rationale: The paper shows that Omar made a plan for watering. Check which detail shows how another person can get through the gate to help.
+      - text: He checks the soil with his thumb when he reaches the garden.
+        rationale: This takes place after Jun moves the trays, so it may seem to show a new habit. Check what Omar already knew about caring for seedlings.
+      - text: He talks with Inez when she arrives.
+        rationale: Talking with Inez may seem like a sign that Omar is ready to work with her. Check what he shows her so she can get in on her own.
+      - text: He sees the last tray on a dry shelf.
+        rationale: Jun's success gives Omar a reason to trust him. Check what Omar does later that shows he acts on that trust.
+    explanation: |
+      After the rain has passed, Omar gives Inez a way to get into the garden. He is ready to share the work on ordinary days too.
+  - id: q-text-types-short-stories-and-novels-pshs-0010
+    lesson: lesson-text-types-story-theme-from-text-evidence
+    keyPoint: 1
+    passage: p-text-types-short-stories-and-novels-pshs-0001
+    type: feature-of-form
+    difficulty: exam
+    stem: |
+      Which theme is best supported by what happens after the bus stop moves?
+    choices:
+      - text: Finding a new way to work can keep a business going.
+        correct: true
+      - text: Patience pays off when people stick to a routine.
+        rationale: Selling through the window used to work on market mornings. Check what happens both times Lea waits by the window.
+      - text: A business grows by offering more kinds of goods.
+        rationale: Lea waves for more rolls once people start buying, which can look like an increase in what she offers. Check whether she changes what she sells or where she sells it.
+      - text: People are more likely to solve a problem when they wait for expert help.
+        rationale: Workers deal with the road and the sign, so it may seem as if their help solves the problem. Check who finds a way to sell before the new sign goes up.
+      - text: A sudden setback shows who can succeed by working without help.
+        rationale: Lea takes the lead when sales fall. Check who helps her when she needs more rolls.
+    explanation: |
+      Waiting by the window brings Lea no buyers. Moving her tray to the shed brings them back. Her new way of selling works when the old way stops working.
+  - id: q-text-types-short-stories-and-novels-pshs-0011
+    lesson: lesson-text-types-story-theme-from-text-evidence
+    keyPoint: 1
+    passage: p-text-types-short-stories-and-novels-pshs-0002
+    type: feature-of-form
+    difficulty: exam
+    stem: |
+      Which statement best expresses an idea developed through Omar's choices?
+    choices:
+      - text: Sharing responsibility can help people care for something they value.
+        correct: true
+      - text: Being responsible means seeing every task through on your own.
+        rationale: Omar watches the garden closely and takes his work seriously. Check what happens to the plants on Friday and Monday while they wait for Omar.
+      - text: People are most helpful when they solve a problem without being asked.
+        rationale: Jun has the last tray on a dry shelf by the time Omar arrives. Check what Omar asked Jun to do before that.
+      - text: A setback can show that a job should go to the person with the most experience.
+        rationale: Omar knows how to care for seedlings and later teaches Jun. Check whose work keeps the trays safe when Omar shares the key.
+      - text: People should keep their promises even when a better plan comes along.
+        rationale: Omar says he will water the garden himself and tries to follow through. Check whether keeping that plan is what helps the plants.
+    explanation: |
+      The plants go without water while they wait for Omar. They reach shelter in time when he lets Jun help. Omar then makes it easier for others to care for them too.
+  - id: q-text-types-short-stories-and-novels-pshs-0012
+    lesson: lesson-text-types-story-theme-from-text-evidence
+    keyPoint: 1
+    passage: p-text-types-short-stories-and-novels-pshs-0001
+    type: feature-of-form
+    difficulty: exam
+    stem: |
+      Which pair of details best supports the idea that people can adapt to change and still keep a habit that matters to them?
+    choices:
+      - text: Lea sells at the new stop, and Aunt Celia saves a roll for the sweeper as usual.
+        correct: true
+      - text: Lea waits by the window as the first bus empties, and she waits there for the next bus too.
+        rationale: Lea follows the same routine twice, so this looks like an example of keeping a habit. Check whether she keeps selling that way once she adapts.
+      - text: Lea turns a flour crate into a table, and later she draws a plan for a folding stand.
+        rationale: Both ideas show how Lea adapts to selling across the road. Check whether either idea is a habit from before the bus stop moved.
+      - text: A crew digs up the lane, and a worker puts up the new stop sign at closing.
+        rationale: The two jobs explain the change in the bakery's day. Check whether either job shows a character keeping a habit.
+      - text: Aunt Celia adds up orders in her head, and she teases a driver about his singing.
+        rationale: These actions show what Aunt Celia often does. Check whether this pair shows her carrying a habit over after the stop moves.
+    explanation: |
+      Lea changes where she sells the rolls when the bus stop moves. Aunt Celia keeps her habit of saving a soft roll for the sweeper.
