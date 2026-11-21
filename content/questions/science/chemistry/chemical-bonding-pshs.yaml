@@ -1,0 +1,114 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: chemical-bonding-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-chemistry-chemical-bonding-pshs-0001
+    lesson: lesson-chemistry-bonding-and-material-properties
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      A fabric sample has two stains. One is made of polar molecules, and the
+      other is made of nonpolar molecules. A student rinses the fabric with
+      water to remove one stain while leaving most of the other behind. Which
+      result is most likely?
+    choices:
+      - text: 'More of the polar stain dissolves.'
+        correct: true
+      - text: 'More of the nonpolar stain dissolves.'
+        rationale: |
+          This uses water as if it were nonpolar. Water has no overall charge,
+          so it may seem nonpolar. Check which kind of molecule has an uneven
+          spread of charge, even when its total charge is zero.
+      - text: 'Both stains dissolve equally well in water.'
+        rationale: |
+          This treats both stains the same because both are made of molecules.
+          Check how strongly each kind of molecule is drawn to water.
+      - text: 'Both stains stay because their molecules have bonds.'
+        rationale: |
+          This assumes the bonds inside each molecule must break. The stain
+          does have to come apart. Check whether whole molecules can spread
+          through the water with their bonds still intact.
+      - text: 'Both stains stay because they are made of neutral molecules.'
+        rationale: |
+          This assumes that only ions can dissolve in water. Water does attract
+          ions. Check whether it can also attract the charged ends of a polar
+          molecule whose total charge is zero.
+    explanation: |
+      Water is polar. Its molecules attract the polar stain molecules and pull
+      them into the water. The nonpolar stain tends to stay on the fabric.
+
+  - id: q-chemistry-chemical-bonding-pshs-0002
+    lesson: lesson-chemistry-bonding-and-material-properties
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'hard'
+    stem: |
+      Pure water gives no reading on a conductivity tester. A student dissolves
+      an ionic crystal in the water and gets a reading. After all the water
+      evaporates, the dry crystal gives no reading. What best explains the
+      difference between the solution and the dry crystal?
+    choices:
+      - text: 'Ions move in the solution.'
+        correct: true
+      - text: 'Water gives the ions their electric charge.'
+        rationale: |
+          The reading starts when water is added, so water may seem to give the
+          ions their charge. Check whether the particles in the dry crystal
+          already have charge.
+      - text: 'Electrons leave the ions and move through the water.'
+        rationale: |
+          Electrons carry charge in metals, so they may seem like the carriers
+          here too. Check which charged particles the water frees from the
+          crystal.
+      - text: 'Ions lose their electric charge when the crystal forms again.'
+        rationale: |
+          The dry crystal gives no reading, so it may seem that its particles
+          lost their charge. Check whether charged particles can stay in place
+          in a solid.
+      - text: 'Water molecules carry the charge through the solution.'
+        rationale: |
+          Water molecules move and are polar, so they may seem to carry the
+          current. Check what the tester showed for water alone.
+    explanation: |
+      The ions can move through the water and carry charge. When the crystal
+      forms again, the ions are held in place. The tester gives a reading only
+      when charge can move through the sample.
+
+  - id: q-chemistry-chemical-bonding-pshs-0003
+    lesson: lesson-chemistry-bonding-and-material-properties
+    keyPoint: 1
+    type: 'structure-function'
+    difficulty: 'hard'
+    stem: |
+      A team needs a strip that carries electric current and can be bent into
+      shape without cracking. Which structure best fits both needs while the
+      strip is solid?
+    choices:
+      - text: 'Layers of metal ions with free electrons'
+        correct: true
+      - text: 'Layers of alternating positive and negative ions'
+        rationale: |
+          Ions have charge and are arranged in layers, so this may seem to fit
+          both needs. Check whether the ions can move through the solid and
+          what happens when ions of the same charge line up as layers shift.
+      - text: 'A network of atoms linked by strong covalent bonds'
+        rationale: |
+          Strong bonds may seem ideal for keeping the strip in one piece.
+          Check whether layers in the network can slide past one another
+          without breaking those bonds.
+      - text: 'Separate polar molecules with weak forces between them'
+        rationale: |
+          Weak forces may make the strip seem easy to shape. The molecules
+          have uneven charge, which may seem enough to carry current. Check
+          for charges that can move freely through the solid.
+      - text: 'Fixed metal ions with electrons held tightly by each ion'
+        rationale: |
+          Metals are used in wires, so a structure with metal ions may seem
+          to fit. Check whether electrons can travel through the strip if each
+          ion holds them in place.
+    explanation: |
+      Free electrons move through the metal and carry charge. The layers of
+      metal ions can slide while the metal stays bonded, so the strip can bend.
