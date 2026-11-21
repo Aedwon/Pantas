@@ -1,0 +1,112 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: water-cycle-oceanography-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-earth-science-astronomy-water-cycle-oceanography-pshs-0001
+    lesson: lesson-earth-science-astronomy-seawater-density-and-layers
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Two seawater samples contain the same mass of dissolved salt and are at
+      the same temperature. Sample P has a greater total mass than sample Q.
+      How do their salinity and density compare?
+    choices:
+      - text: 'Q is saltier and denser.'
+        correct: true
+      - text: 'P is saltier and denser.'
+        rationale: |
+          A larger sample might seem to hold more salt. Here the salt masses
+          match. Check which sample has more salt per gram of seawater.
+      - text: 'Q is saltier, but P is denser.'
+        rationale: |
+          P has more total mass, which can make it seem denser. Check how
+          saltiness affects the mass in equal volumes at the same temperature.
+      - text: 'The samples are equally salty, but P is denser.'
+        rationale: |
+          Matching salt masses may suggest matching salinity. Check the share
+          of each sample made up of salt before comparing their densities.
+      - text: 'Q is saltier, but the samples are equally dense.'
+        rationale: |
+          The matching temperatures remove one cause of a density difference.
+          Check what higher salinity does when temperature stays the same.
+    explanation: |
+      The same amount of salt makes up a larger share of Q because Q has less
+      seawater. That makes Q saltier. At the same temperature, saltier seawater
+      is denser.
+
+  - id: q-earth-science-astronomy-water-cycle-oceanography-pshs-0002
+    lesson: lesson-earth-science-astronomy-seawater-density-and-layers
+    keyPoint: 2
+    type: classify
+    difficulty: hard
+    stem: |
+      A probe descends through the open ocean. In the first stretch, it records
+      sunlight and a steady, warm temperature. In the middle stretch, the
+      temperature drops quickly. In the last stretch, the water is dark and
+      the temperature stays cold and changes very little.
+      Which stretch or pair of stretches makes up the thermocline?
+    choices:
+      - text: 'The middle stretch only'
+        correct: true
+      - text: 'The first stretch only'
+        rationale: |
+          Sunlight warms the surface, so you might expect the temperature to
+          change most there. Check whether the probe records a drop there.
+      - text: 'The last stretch only'
+        rationale: |
+          The coldest water can seem like the clearest sign of a thermocline.
+          Check where the temperature changes fastest, even before it reaches
+          its lowest reading.
+      - text: 'The middle and last stretches'
+        rationale: |
+          Both stretches are cooler than the surface. Check whether the
+          temperature still falls quickly in the last stretch.
+      - text: 'The first and middle stretches'
+        rationale: |
+          The warm water may seem like the start of the cooling layer.
+          Check where the temperature first starts to drop quickly.
+    explanation: |
+      The thermocline is where the water gets colder quickly as you go deeper.
+      That happens in the middle stretch.
+
+  - id: q-earth-science-astronomy-water-cycle-oceanography-pshs-0003
+    lesson: lesson-earth-science-astronomy-seawater-density-and-layers
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: exam
+    stem: |
+      A student fills a tank with seawater and prepares three more seawater
+      samples. Compared with the water in the tank, sample P is colder and
+      equally salty, sample Q is warmer and saltier, and sample R has the same
+      temperature and is less salty. The student gently releases each sample
+      at the surface in a separate trial. Which pair of predictions follows
+      from these facts alone?
+    choices:
+      - text: 'P will sink. R will stay above the tank water.'
+        correct: true
+      - text: 'Q will sink. R will stay above the tank water.'
+        rationale: |
+          Q has more salt per gram of seawater. That raises density at the
+          same temperature. Check how Q's higher temperature affects its
+          density.
+      - text: 'P will sink. Q will stay above the tank water.'
+        rationale: |
+          Warmer seawater is less dense at the same salinity, and Q is warmer.
+          Check how Q's higher salinity affects its density as well.
+      - text: 'P will stay above the tank water. R will sink.'
+        rationale: |
+          Floating ice can make cold water seem less dense. Check the rule for
+          cold liquid seawater. Then check what less salt does to R.
+      - text: 'P will stay at the surface. R will neither rise nor sink.'
+        rationale: |
+          P matches the tank in salinity, and R matches it in temperature.
+          One matching property can suggest no density change. Check the
+          property that differs for each sample.
+    explanation: |
+      P has the same salinity as the tank water. It is colder, so it is denser
+      and sinks. R is at the same temperature as the tank water. It has less
+      salt per gram of seawater, so it is less dense and stays above the tank
+      water.
