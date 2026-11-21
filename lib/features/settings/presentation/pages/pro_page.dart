@@ -30,6 +30,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
+import 'package:pantas/features/legal/domain/legal_document.dart';
 import 'package:pantas/features/paywall/application/custom_subject_tiers.dart';
 import 'package:pantas/features/paywall/application/custom_track_tier.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
@@ -113,6 +114,15 @@ class ProPage extends ConsumerStatefulWidget {
 
 const _guardianBoxLabel = 'I am the parent or guardian and accept the Terms.';
 
+/// The exam whose purchase always takes the checkout box (the server checks
+/// the same exam id on the product).
+const _pshsExamId = 'exam_pshs_nce';
+
+/// How the page finds a product. The client table has no PSHS-NCE product
+/// yet, so a test replaces this with one that does.
+final proPageProductLookupProvider =
+    Provider<ProductDefinition? Function(String)>((ref) => productForId);
+
 class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   bool _awaitingCheckout = false;
   bool _wasCurrent = true;
@@ -123,8 +133,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   bool _restoring = false;
   bool _trialUnavailable = false;
 
-  /// The parent or guardian box on a minor's checkout (boards CB_*).
-  bool _guardianTicked = false;
+  /// The parent or guardian box on a checkout (boards CB_*): the text the
+  /// buyer ticked, or null. A tick belongs to the text shown, so it does not
+  /// carry over when the page shows the other box.
+  String? _tickedBox;
 
   /// Opens the Terms from the link inside the box's label.
   final TapGestureRecognizer _termsTap = TapGestureRecognizer();
@@ -398,34 +410,37 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
 
   /// Boards CB_Wide, CB_Ph: the box in its own card under the plans. Terms
   /// opens the Terms and does not tick the box.
-  Widget _guardianBoxCard(BuildContext context) {
+  Widget _guardianBoxCard(BuildContext context, String text) {
     final wide = context.wideWeb;
     final style = PantasType.webRowTitleSettings
         .copyWith(color: context.colors.textPrimary);
+    final termsAt = text.lastIndexOf('Terms');
     final row = CheckboxRow(
-      title: _guardianBoxLabel,
-      selected: _guardianTicked,
+      title: text,
+      selected: _tickedBox == text,
       gap: PantasSpace.s14,
       standardDensity: true,
       squareEdges: wide,
       interactiveContent: true,
       onTap: _busy
           ? null
-          : () => setState(() => _guardianTicked = !_guardianTicked),
+          : () => setState(
+                () => _tickedBox = _tickedBox == text ? null : text,
+              ),
       // One text flow, so the sentence wraps as one. The link is a span, and
       // a tap on it opens the Terms without ticking the box.
       content: Text.rich(
         TextSpan(
           style: style,
           children: [
-            const TextSpan(text: 'I am the parent or guardian and accept the '),
+            TextSpan(text: text.substring(0, termsAt)),
             TextSpan(
               text: 'Terms',
               style: style.copyWith(color: context.webTokens.colors.accent),
               recognizer: _termsTap,
               mouseCursor: SystemMouseCursors.click,
             ),
-            const TextSpan(text: '.'),
+            TextSpan(text: text.substring(termsAt + 'Terms'.length)),
           ],
         ),
       ),
@@ -461,6 +476,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     ExamCatalogEntry exam, {
     required bool allowTrial,
     bool guardianAttested = false,
+    bool checkoutBoxAttested = false,
   }) async {
     if (_busy || (package == null && pass == null)) return;
     final telemetry = ref.read(telemetryProvider);
@@ -554,11 +570,13 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 exam: exam,
                 beforeRedirect: beforeRedirect,
                 guardianAttested: guardianAttested,
+                checkoutBoxAttested: checkoutBoxAttested,
               )
             : await gateway.purchase(
                 package!,
                 beforeRedirect: beforeRedirect,
                 guardianAttested: guardianAttested,
+                checkoutBoxAttested: checkoutBoxAttested,
               );
         status = result.status;
         if (status != PaymentOperationStatus.operationAlreadyInProgress) {
@@ -729,7 +747,13 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         <PaywallPackage>[])
       ..sort((a, b) => a.sku.index.compareTo(b.sku.index));
     final passes = offering.valueOrNull?.passPackages
-            .where((p) => productForId(p.productId)?.examId == exam?.id)
+            .where(
+              (p) =>
+                  ref
+                      .watch(proPageProductLookupProvider)(p.productId)
+                      ?.examId ==
+                  exam?.id,
+            )
             .toList() ??
         <PaywallPassPackage>[];
     final selectedPackage = packages
@@ -838,11 +862,28 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         !(web && anonymous) &&
         exam != null &&
         (selectedPackage != null || selectedPass != null);
+    final ageGroup = ref.watch(ageGroupProvider).valueOrNull;
+    // Every PSHS-NCE purchase takes the checkout box, for any age group. The
+    // product's exam id decides, as it does on the server.
+    final chosenProductId =
+        selectedPass?.productId ?? selectedPackage?.productId;
+    final pshsPurchase = buyShown &&
+        chosenProductId != null &&
+        ref.watch(proPageProductLookupProvider)(chosenProductId)?.examId ==
+            _pshsExamId;
     final guardianBox = buyShown &&
-        (ref.watch(ageGroupProvider).valueOrNull?.needsPurchaseAttestation ??
-            false) &&
+        (pshsPurchase || (ageGroup?.needsPurchaseAttestation ?? false)) &&
         !(trial && !lapsed);
-    final buyLocked = _busy || (guardianBox && !_guardianTicked);
+    final boxText = pshsPurchase ? checkoutBoxText : _guardianBoxLabel;
+    // The pass is for the child whose session this is. Their own profile name
+    // is on the device already; the parent's details never are.
+    final passFor = pshsPurchase && (ageGroup?.isChild ?? false)
+        ? ref.watch(userSettingsProvider).valueOrNull?.name?.trim()
+        : null;
+    final passForLine = passFor == null || passFor.isEmpty
+        ? null
+        : 'This pass is for $passFor.';
+    final buyLocked = _busy || (guardianBox && _tickedBox != boxText);
     final purchaseLabel = selectedPass != null
         ? 'Buy Season Pass'
         : selectedPackage == null
@@ -922,7 +963,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                           selectedPass,
                                           exam,
                                           allowTrial: trial && !lapsed,
-                                          guardianAttested: guardianBox,
+                                          guardianAttested:
+                                              guardianBox && !pshsPurchase,
+                                          checkoutBoxAttested:
+                                              guardianBox && pshsPurchase,
                                         ),
                               ),
                           if (showOffers &&
@@ -951,6 +995,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                       )} '
                                         'a month. '
                                         'Cancel any time.',
+                                textAlign: TextAlign.right,
+                                style: context.webTokens.sm,
+                              ),
+                            ),
+                          if (showOffers && passForLine != null)
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: PantasSpace.s4),
+                              child: Text(
+                                passForLine,
                                 textAlign: TextAlign.right,
                                 style: context.webTokens.sm,
                               ),
@@ -1006,7 +1060,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                       selectedPass,
                                       exam,
                                       allowTrial: trial && !lapsed,
-                                      guardianAttested: guardianBox,
+                                      guardianAttested:
+                                          guardianBox && !pshsPurchase,
+                                      checkoutBoxAttested:
+                                          guardianBox && pshsPurchase,
                                     ),
                           ),
                         if (selectedPass != null && sitting != null) ...[
@@ -1026,6 +1083,14 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                     '${_money(selectedPackage.priceString)} '
                                     'a month. '
                                     'Cancel any time in Google Play.',
+                            textAlign: TextAlign.center,
+                            style: context.type.footnote,
+                          ),
+                        ],
+                        if (passForLine != null) ...[
+                          const SizedBox(height: PantasSpace.s4),
+                          Text(
+                            passForLine,
                             textAlign: TextAlign.center,
                             style: context.type.footnote,
                           ),
@@ -1380,7 +1445,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             SizedBox(
               height: context.wideWeb ? PantasSpace.s28 : PantasSpace.s24,
             ),
-            _guardianBoxCard(context),
+            _guardianBoxCard(context, boxText),
           ],
           // The wide page adds its own 24 px before the Restore row.
           SizedBox(

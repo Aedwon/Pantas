@@ -46,6 +46,9 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/onboarding/application/exam_picker_availability.dart';
+import 'package:pantas/features/onboarding/domain/age_policy.dart';
+import 'package:pantas/features/onboarding/presentation/child/parent_setup_screen.dart';
+import 'package:pantas/features/onboarding/presentation/child_question_dialog.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_skeletons.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
@@ -174,6 +177,27 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             cseOnly: widget.cseOnly,
           ) ==
       ExamPickerAvailability.selectable;
+
+  /// Whether a row can be tapped: an exam this account can pick, or PSHS-NCE
+  /// on an adult account where a tap asks the child question (board 3A).
+  bool _tappable(ExamCatalogEntry entry) =>
+      _selectable(entry) ||
+      ref.read(examPickerPolicyProvider).asksChildQuestion(
+            entry,
+            cseOnly: widget.cseOnly,
+          );
+
+  /// Why an exam is closed to this account, when the reason is the age rather
+  /// than the release ("For ages 13 and up", board 5). Null otherwise.
+  String? _ageNote(ExamCatalogEntry entry) {
+    final availability = ref.read(examPickerPolicyProvider).availability(
+          entry,
+          cseOnly: widget.cseOnly,
+        );
+    return availability == ExamPickerAvailability.ageRestricted
+        ? availability.reason
+        : null;
+  }
 
   bool get _customExams =>
       widget.customExams &&
@@ -352,11 +376,57 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   }
 
   void _pick(ExamCatalogEntry entry, String? active) {
-    if (_saving || !_selectable(entry) || (_settings && active == entry.id)) {
+    if (_saving || !_tappable(entry) || (_settings && active == entry.id)) {
       return;
     }
+    if (ref.read(examPickerPolicyProvider).asksChildQuestion(
+          entry,
+          cseOnly: widget.cseOnly,
+        )) {
+      unawaited(_askChildQuestion(entry));
+      return;
+    }
+    _choose(entry);
+  }
+
+  void _choose(ExamCatalogEntry entry) {
     setState(() => _selectedId = entry.id);
     if (_settings) unawaited(_save());
+  }
+
+  /// Board 3A. No carries on as a normal pick, when the exam can be picked.
+  /// Yes starts the parent setup in onboarding, and in Settings explains that
+  /// an account with study records cannot hold a child.
+  Future<void> _askChildQuestion(ExamCatalogEntry entry) async {
+    final isChild = await showChildQuestionDialog(context);
+    if (isChild == null || !mounted) return;
+    if (!isChild) {
+      if (_selectable(entry)) _choose(entry);
+      return;
+    }
+    if (_settings) {
+      await showUseAnotherEmailDialog(context);
+      return;
+    }
+    await _startParentSetup();
+  }
+
+  /// "Yes" in onboarding. The device takes the state an under-13 age answer
+  /// gives it (guardian setup needed), then the parent signs in. The stored
+  /// providers are left alone, as the age step leaves them, so the screen on
+  /// top is not replaced.
+  Future<void> _startParentSetup() async {
+    final telemetry = ref.read(telemetryProvider);
+    try {
+      await ref
+          .read(appPreferencesRepositoryProvider)
+          .setBlockedMinimumAge(AgePolicy.forExam(null).minimumAge);
+    } on Object catch (error, stack) {
+      unawaited(telemetry.recordError(error, stack));
+      if (mounted) setState(() => _failed = true);
+      return;
+    }
+    if (mounted) unawaited(context.push<void>(childSignInPath));
   }
 
   /// "Your own exam", the small line under each own exam.
@@ -562,9 +632,11 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
             ListRow.exam(
               key: ValueKey('exam-${entry.id}'),
               title: entry.shortName,
-              subtitle: _organizations[entry.id] ?? entry.name,
+              subtitle:
+                  _ageNote(entry) ?? _organizations[entry.id] ?? entry.name,
               selected: selected == entry.id,
-              comingSoon: !_selectable(entry),
+              comingSoon: !_tappable(entry),
+              comingSoonLabel: _ageNote(entry) == null ? 'Coming soon' : null,
               settingsMode: _settings,
               divider: index + 1 < entries.length,
               onTap: () => _pick(entry, active),
@@ -587,8 +659,9 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         t,
         key: ValueKey('exam-${entry.id}'),
         title: entry.shortName,
-        subtitle: _organizations[entry.id] ?? entry.name,
-        enabled: _selectable(entry),
+        subtitle: _ageNote(entry) ?? _organizations[entry.id] ?? entry.name,
+        enabled: _tappable(entry),
+        soon: _ageNote(entry) == null,
         chosen: chosen,
         onTap: onTap,
       );
@@ -605,6 +678,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     required VoidCallback? onTap,
     Widget? leading,
     bool accentTitle = false,
+    bool soon = true,
   }) {
     return Opacity(
       opacity: enabled ? 1 : PantasOpacity.disabled,
@@ -682,9 +756,9 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                     ],
                   ),
                 ),
-                if (!enabled)
+                if (!enabled && soon)
                   const PantasTag('Coming soon', tone: PantasTagTone.gray)
-                else if (chosen)
+                else if (chosen && enabled)
                   Icon(
                     PantasIcons.check,
                     size: PantasSpace.s16,
@@ -709,8 +783,9 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
       _webRow(
         key: ValueKey('exam-${entry.id}'),
         title: entry.shortName,
-        subtitle: _organizations[entry.id] ?? entry.name,
-        enabled: _selectable(entry),
+        subtitle: _ageNote(entry) ?? _organizations[entry.id] ?? entry.name,
+        enabled: _tappable(entry),
+        soon: _ageNote(entry) == null,
         chosen: chosen,
         onTap: () => _pick(entry, active),
       );
@@ -723,6 +798,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
     required bool enabled,
     required bool chosen,
     required VoidCallback onTap,
+    bool soon = true,
   }) {
     final tile = SelectableTile(
       key: key,
@@ -730,13 +806,13 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
       sub: subtitle,
       selected: chosen,
       single: true,
-      tag: enabled ? null : 'Coming soon',
+      tag: enabled || !soon ? null : 'Coming soon',
       tagTone: PantasTagTone.gray,
       onTap: _saving || !enabled ? null : onTap,
     );
     // A tag hangs half its height above its tile, so the row makes room.
     final halfTag = SelectableTile.tagHeight(context) / 2;
-    return enabled
+    return enabled || !soon
         ? tile
         : Padding(padding: EdgeInsets.only(top: halfTag), child: tile);
   }
@@ -1071,7 +1147,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                                                 entry,
                                                 chosen: selected == entry.id,
                                                 onTap: _saving ||
-                                                        !_selectable(entry)
+                                                        !_tappable(entry)
                                                     ? null
                                                     : () =>
                                                         _pick(entry, active),

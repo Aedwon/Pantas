@@ -57,6 +57,23 @@ class ExamPickerPolicy {
     }
     return ExamPickerAvailability.selectable;
   }
+
+  /// Whether a tap on [entry] first asks "Is this for a child under 13?"
+  /// (under-13 board 3A): an adult or teen account tapping PSHS-NCE where the
+  /// exam is shown. While PSHS-NCE is still coming soon, the question opens
+  /// only on a build with [pshsForChildren] on, so the path can be tested.
+  /// A child, an unset and an unrecognized group never see it.
+  bool asksChildQuestion(ExamCatalogEntry entry, {bool cseOnly = false}) {
+    if (entry.id != 'exam_pshs_nce') return false;
+    if (ageGroup != AgeGroup.adult && ageGroup != AgeGroup.minor) return false;
+    return switch (availability(entry, cseOnly: cseOnly)) {
+      ExamPickerAvailability.selectable => true,
+      ExamPickerAvailability.comingSoon => pshsForChildren,
+      ExamPickerAvailability.hidden ||
+      ExamPickerAvailability.ageRestricted =>
+        false,
+    };
+  }
 }
 
 final examPickerPolicyProvider = Provider<ExamPickerPolicy>((ref) {
