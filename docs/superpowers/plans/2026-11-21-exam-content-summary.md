@@ -83,3 +83,26 @@ content. Reads drop from 1,460 to 2 or 3 per cold load on both projects.
 `~/Documents/Projects/agent-standards/server-caching.md` (written for this plan): a validator on every
 copy (CACHE-VALIDATE), never serving a stale copy and falling back to the source (CACHE-STALE), and
 Firestore read billing and document size (CACHE-FS-READS, CACHE-FS-SIZE).
+
+## Lead rulings (Nov 21, after the builder's stop)
+
+The builder stopped on three gaps; all three were real.
+
+1. **Freshness window.** The in-memory cache keeps today's 5-minute window for both paths. The scan path
+   already serves a cached result for up to 5 minutes after an upload, so the summary path is no worse.
+   The marker and version checks run whenever the cache is filled. Do not read the marker on cache hits.
+2. **Parts.** The reader reads the marker and the summary in one `getAll`. The summary records its part
+   count; if it has parts, a second `getAll` reads them. Any missing part means fall back to the scan.
+3. **Partial uploads.** `writeContent` upserts and never deletes, and uploads may be partial
+   (`--skip-invalid`, a subset of files). So:
+   - `bankVersion` is a digest of the **stored** inventory after the write: every id and version in
+     `content/lessons/items` and `content/questions/items` (the existing `select('version')` snapshot that
+     planning already reads, updated with the written items). It is never a digest of the input alone.
+   - Summaries are written only when the upload's input covers that whole stored inventory (every stored
+     lesson and question-set id is in the input, with the same version after the write). Otherwise the
+     upload writes no summaries and sets the marker to `partial:<timestamp>`, so readers log the warning
+     and scan. Add a test for this case (a stored set missing from the input).
+   - The scan keeps including every stored document, as today.
+
+Builder environment note: run `npm ci` in `functions/` and at the repo root before starting if
+`node_modules` is missing or broken; the lead preinstalled both for the rerun.
