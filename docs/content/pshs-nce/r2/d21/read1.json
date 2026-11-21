@@ -1,0 +1,159 @@
+{
+  "round": 1,
+  "findings": [
+    {
+      "lesson": "lesson-grammar-and-structure-did-not-and-the-base-verb",
+      "severity": "Blocker",
+      "quote": "To say that a past action did not happen, use *did not* plus the base form.",
+      "problem": "This rule is too broad. A sentence like “She was not running” also describes an action that was not happening in the past. [Cambridge Grammar](https://dictionary.cambridge.org/grammar/british-grammar/do)",
+      "fix": "Teach the change from a simple past action verb to its negative form, using the example with opened and did not open."
+    },
+    {
+      "lesson": "lesson-grammar-and-structure-did-not-and-the-base-verb",
+      "severity": "Blocker",
+      "quote": "The next verb must be in its base form.",
+      "problem": "The rule applies to the verb that goes with did not. In “I did not, because I was tired,” the next verb is was and the sentence is correct. [Cambridge Grammar](https://dictionary.cambridge.org/grammar/british-grammar/not)",
+      "fix": "Say to check the verb that goes with did not or didn't. Use the same wording in both error-identification solutions."
+    },
+    {
+      "lesson": "lesson-grammar-and-structure-did-not-and-the-base-verb",
+      "severity": "Major",
+      "quote": "### #1: A Past Form That Ends in Ed\n\nWhich part in bold contains an error?",
+      "problem": "The heading identifies closed as the error before the student checks the sentence. The second example likewise points to took by announcing a past form that changes spelling.",
+      "fix": "Name the examples after the window and the bus route. Explain the two types of past forms in the solutions."
+    },
+    {
+      "lesson": "lesson-grammar-and-structure-interrupted-dialogue",
+      "severity": "Blocker",
+      "quote": "When a tag splits one spoken sentence, put a comma inside the first closing quotation mark and another after the tag.",
+      "problem": "The rule treats the first comma as required in every split sentence. American dialogue can omit that comma when the first spoken piece ends in an ellipsis. [Chicago Manual of Style](https://www.chicagomanualofstyle.org/help-tools/what-s-new.html)",
+      "fix": "Scope the comma rule to the simple split sentences taught here, where the first piece has no other punctuation marking a break."
+    },
+    {
+      "lesson": "lesson-grammar-and-structure-interrupted-dialogue",
+      "severity": "Major",
+      "quote": "Start the second piece with a lowercase letter unless the word needs a capital, as a name does.",
+      "problem": "The capitalization rule is explained, but all the split-dialogue choices use the same capitalization. The student can finish the worked examples without applying that part of the first key point.",
+      "fix": "Include a choice that wrongly capitalizes the start of the second piece. In the solution, join the two pieces and explain why that word stays lowercase."
+    },
+    {
+      "lesson": "lesson-grammar-and-structure-interrupted-dialogue",
+      "severity": "Major",
+      "quote": "### #3: A Question About a Statement\n\nWhich sentence is punctuated correctly?",
+      "problem": "The heading tells the student that the writer is asking a question about a spoken statement. Deciding who asks the question is the step that determines where the question mark goes.",
+      "fix": "Use a heading about Nena or the jars. Explain who asks the question in the solution."
+    },
+    {
+      "lesson": "lesson-language-application-excited-and-nervous-about",
+      "severity": "Blocker",
+      "quote": "Choose the best word. “Paolo is excited ______ his first trip to the planetarium.”",
+      "problem": "The stem does not say when the trip takes place. About fits if the trip is the cause of his excitement. On also makes a grammatical sentence if he is already on the trip. The solution assumes Paolo is looking forward to it.",
+      "fix": "Put the trip in the future in the stem. Explain that about links the feeling to the thing causing it."
+    },
+    {
+      "lesson": "lesson-language-application-excited-and-nervous-about",
+      "severity": "Major",
+      "quote": "*Nervous of* can mean afraid of something, as in “nervous of large dogs.”",
+      "problem": "The brief calls for a contrast between nervous about and nervous of. The lesson names both uses, but none of the worked questions asks the student to tell them apart.",
+      "fix": "Work through a question about an uncertain outcome, such as whether something will happen. Explain why nervous about fits that wording."
+    },
+    {
+      "lesson": "lesson-language-application-with-for-companionship",
+      "severity": "Major",
+      "quote": "Sari and her aunt sorted donations together. Choose the best pair of words.",
+      "problem": "The stem says both people sorted donations. The blank asks who packed the books with Sari. The solution assumes her aunt helped with that specific action.",
+      "fix": "State that Sari and her aunt both packed the books."
+    },
+    {
+      "lesson": "lesson-language-application-with-for-companionship",
+      "severity": "Minor",
+      "quote": "says I did it for his benefit.",
+      "problem": "For his benefit is less direct than the plain-language explanation just before it.",
+      "fix": "Say how painting the sign helped Niko or that the sign was meant for him."
+    },
+    {
+      "lesson": "lesson-biology-how-mangroves-protect-coral-reefs",
+      "severity": "Major",
+      "quote": "A drain carries muddy runoff straight to the reef without passing the mangrove roots.",
+      "problem": "The stem tells the student that the flow misses the roots. That is the result the student is supposed to get by tracing the path in the first solution step. The heading also gives it away.",
+      "fix": "Use a neutral heading and give the locations of the drain, mangroves, and reef. Show the path with arrows and let the student trace it."
+    },
+    {
+      "lesson": "lesson-biology-how-mangroves-protect-coral-reefs",
+      "severity": "Minor",
+      "quote": "**Runoff** is water that flows over land.",
+      "problem": "This paragraph runs for five sentences and covers both what runoff carries and how roots protect the reef.",
+      "fix": "Start a new paragraph when the runoff reaches the mangroves."
+    },
+    {
+      "lesson": "lesson-chemistry-reading-a-phase-diagram",
+      "severity": "Blocker",
+      "quote": "The same reading rule works for the other pairs.",
+      "problem": "The rule needs a limit at the critical point. At that endpoint of the liquid-gas boundary, the two phases become indistinguishable. [OpenStax phase diagrams](https://openstax.org/books/chemistry-atoms-first-2e/pages/10-4-phase-diagrams)",
+      "fix": "Apply the two-phase rule to ordinary points along a boundary. Keep the examples on the part of the liquid-gas boundary before its endpoint and handle the triple point separately."
+    },
+    {
+      "lesson": "lesson-chemistry-reading-a-phase-diagram",
+      "severity": "Major",
+      "quote": "Point K lies inside the region labeled Liquid. Which phase does K show?",
+      "problem": "The stem names Liquid, which is the answer. The student can choose it without locating K or reading the diagram.",
+      "fix": "Ask the student to locate K and read its region label. In the text description, give K's position and the region labels separately."
+    },
+    {
+      "lesson": "lesson-chemistry-reading-a-phase-diagram",
+      "severity": "Major",
+      "quote": "Point M is on the line between Liquid and Gas, away from the place where the three lines meet. Which phases can exist together at M?",
+      "problem": "The stem gives Liquid and Gas together before asking for the pair. This skips the step of reading the labels on the two sides of the line.",
+      "fix": "Identify M by its position on a line. Give the region labels separately and join those clues in the solution."
+    },
+    {
+      "lesson": "lesson-chemistry-reading-a-phase-diagram",
+      "severity": "Minor",
+      "quote": "A **phase** is a form of matter, such as solid, liquid, or gas.",
+      "problem": "The opening paragraph has four sentences. The paragraph about boundaries has five.",
+      "fix": "Give temperature and pressure their own short paragraph. Start a new paragraph for the triple point."
+    },
+    {
+      "lesson": "lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map",
+      "severity": "Blocker",
+      "quote": "Places at similar latitudes on the same side of the equator have similar day lengths and Sun heights at the same time of year.",
+      "problem": "The sentence states a tendency as a guarantee. Near the Arctic Circle, one place can get a few hours of daylight while another nearby latitude gets no sunrise that day. Sun height also depends on the local time of day. [NOAA Arctic FAQ](https://www.pmel.noaa.gov/arctic-zone/faq.html), [NOAA solar position calculations](https://www.gml.noaa.gov/grad/solcalc/solareqns.PDF)",
+      "fix": "Say that nearby latitudes usually have similar amounts of daylight and similar Sun heights around local midday at the same time of year. Mention that daylight can change sharply near the poles."
+    },
+    {
+      "lesson": "lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map",
+      "severity": "Major",
+      "quote": "P and Q lie on $15^\\circ$ N.",
+      "problem": "The lesson explains what latitude means, but it never explains how to read the degree symbol or the N on the map. The student needs those labels to use the method. [NOAA latitude guide](https://oceanservice.noaa.gov/facts/latitude.html)",
+      "fix": "Show how to read the label aloud as 15 degrees north of the equator. Explain that S means south."
+    },
+    {
+      "lesson": "lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map",
+      "severity": "Major",
+      "quote": "On a map with latitude lines, read the line at each place or find the lines it lies between.",
+      "problem": "The examples only compare places on the same line. They never show how to compare places between lines or decide that two different latitudes are close. That is the map-reading case in the official sample.",
+      "fix": "Work through a map with two points near the same latitude line and a third farther away. Show how to use the nearby labels to compare them."
+    },
+    {
+      "lesson": "lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map",
+      "severity": "Major",
+      "quote": "Low Town lies on a plain. Hill Town lies high on a mountain.",
+      "problem": "The solution says Hill Town is higher, but a plain can sit at a high altitude. The terrain descriptions alone leave the towns' heights unclear.",
+      "fix": "Say that Low Town is near sea level and Hill Town is well above it."
+    },
+    {
+      "lesson": "lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map",
+      "severity": "Major",
+      "quote": "The sea can keep coastal temperatures from changing as much as those far inland.",
+      "problem": "The key point includes nearness to the sea. The coastal example works through rain brought by winds and leaves the sea's effect on temperature without a worked example.",
+      "fix": "Compare two towns of similar latitude and altitude, one by the sea and one inland. Work through which town would usually have smaller temperature changes."
+    },
+    {
+      "lesson": "lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map",
+      "severity": "Minor",
+      "quote": "**Altitude** means height above sea level.",
+      "problem": "This four-sentence paragraph covers three separate climate factors.",
+      "fix": "Give height its own short paragraph. Group the sea and winds in a second paragraph."
+    }
+  ]
+}

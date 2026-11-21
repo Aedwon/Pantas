@@ -1,0 +1,297 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: earths-motions-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-earth-science-astronomy-earths-motions-pshs-0001
+    lesson: lesson-earth-science-astronomy-latitude-and-daylight
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'easy'
+    stem: |
+      A field station records a summer day when the Sun never sets and a winter day
+      when it never rises. Where could the station be?
+    choices:
+      - text: 'Inside a polar circle'
+        correct: true
+      - text: 'At the edge of the tropics'
+        rationale: |
+          The edges of the tropics mark a limit for the overhead Sun. That limit may
+          seem important for daylight too. Check which boundary is tied to days
+          without a sunrise or sunset.
+      - text: 'On the equator itself'
+        rationale: |
+          The equator gets sunlight all year, so it may seem like a good place to
+          look for a day without sunset. Check how long a day near the equator lasts.
+      - text: 'Halfway from the equator to a pole'
+        rationale: |
+          Day length changes with the seasons there. Check whether that place is far
+          enough from the equator to have a day when the Sun never rises.
+      - text: 'Anywhere in the Southern Hemisphere'
+        rationale: |
+          A station near the South Pole can see this pattern. Check whether the
+          pattern extends to places in the same hemisphere near the equator.
+    explanation: |
+      Places inside a polar circle can have a full day of sunlight in summer and a
+      full day without sunlight in winter.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0002
+    lesson: lesson-earth-science-astronomy-axial-tilt-and-seasons
+    keyPoint: 2
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      Two students shine identical beams onto flat sheets. One beam hits its sheet
+      straight on. The other beam hits its sheet at a low angle. Both sheets are
+      large enough to catch the whole beam. How does the lit patch made by the
+      beam at a low angle compare with the other patch?
+    choices:
+      - text: 'It covers more area.'
+        correct: true
+      - text: 'It covers less area.'
+        rationale: |
+          A shallow beam may seem to hit just one edge of the sheet. Check how far
+          the whole beam spreads once it lands.
+      - text: 'It covers the same area because the beams match.'
+        rationale: |
+          The beams start out alike, so equal patches may seem likely. Check whether
+          equal beams still make equal patches when they land at different angles.
+      - text: 'It covers less area unless the lamp is moved farther away.'
+        rationale: |
+          Moving a lamp farther away can make its light spread. Check what changing
+          the angle alone does to the area the beam lights up.
+      - text: 'It covers more area only if the lamp is made brighter.'
+        rationale: |
+          A brighter lamp might make a patch easier to see. Check whether a beam
+          needs more light to spread over a larger area at a low angle.
+    explanation: |
+      A beam hitting at a low angle spreads its light over more of the sheet.
+      Sunlight spreads out in the same way when it hits the ground at a low angle.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0003
+    lesson: lesson-earth-science-astronomy-axial-tilt-and-seasons
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'medium'
+    stem: |
+      To model Earth's orbit, Ana carries a tilted globe around a lamp. She starts
+      with the top of the globe's axis pointing toward a distant mountain.
+      What should she do as she moves from one side of the lamp to the other?
+    choices:
+      - text: 'Keep the axis tilted toward the mountain.'
+        correct: true
+      - text: 'Turn the axis so its top always leans toward the lamp.'
+        rationale: |
+          The lamp stands for the Sun, so it may seem like the best guide. Check
+          whether Earth's axis follows the Sun as Earth moves.
+      - text: 'Reverse the tilt so the top points away from the mountain.'
+        rationale: |
+          The hemisphere that leans toward the Sun changes during the orbit.
+          Check whether moving across the lamp can do that without turning the axis.
+      - text: 'Keep the axis upright while moving and tilt it again at the end.'
+        rationale: |
+          A model can show Earth at separate stops, so tilt might seem important
+          only at those stops. Check whether Earth stays tilted on the way.
+      - text: 'Point the top of the axis in the direction she is walking.'
+        rationale: |
+          Ana changes direction as she goes around the lamp. Check whether Earth's
+          axis turns to follow the path of its orbit.
+    explanation: |
+      Earth's axis stays tilted and points almost the same way in space as Earth
+      travels around the Sun. In this model, the mountain gives Ana a fixed
+      direction to aim the axis.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0004
+    lesson: lesson-earth-science-astronomy-solstices-and-equinoxes
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      A coastal town in the Northern Hemisphere has its longest day around June 21.
+      Its hottest weather usually comes weeks later. What best explains the delay?
+    choices:
+      - text: 'The land and sea take time to warm up.'
+        correct: true
+      - text: 'The days keep getting longer after the June solstice.'
+        rationale: |
+          More hours of sunlight can heat the town for longer. Check whether the
+          longest day has already passed.
+      - text: 'The Sun reaches the equator at noon just after the June solstice.'
+        rationale: |
+          An overhead Sun gives strong sunlight where it occurs. Check when the
+          Sun is overhead at the equator and where this town is.
+      - text: 'The Northern Hemisphere starts leaning toward the Sun after June 21.'
+        rationale: |
+          Leaning toward the Sun helps warm the north. Check when the north leans
+          most toward the Sun.
+      - text: 'The land and sea warm as soon as the day is longest, then cool right away.'
+        rationale: |
+          The longest day may seem like the best time for the highest temperature.
+          Check whether the land and sea heat up and cool down at once.
+    explanation: |
+      The land and sea warm up slowly. They can keep warming after the longest
+      day, so the hottest weather can come later.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0005
+    lesson: lesson-earth-science-astronomy-latitude-and-daylight
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      A class in the Philippines records nearly the same number of daylight hours
+      in the wet and dry seasons. Which explanation best fits the records?
+    choices:
+      - text: 'Day length changes little, but winds and rainfall patterns change.'
+        correct: true
+      - text: 'The wet season starts when daylight hours drop sharply across the tropics.'
+        rationale: |
+          Short days mark some seasons at higher latitudes. Check how much day
+          length actually changes in the class records.
+      - text: 'The dry season starts when daylight lasts much longer than it does in the wet season.'
+        rationale: |
+          Long days can mark summer far from the equator. Check whether the class
+          sees a large gain in daylight during the dry season.
+      - text: 'The two seasons differ only in how high the noon Sun climbs in the sky.'
+        rationale: |
+          The Sun's height can change even when day length changes little. Check
+          what happens to winds and rainfall when the seasons change.
+      - text: 'Rainy days have fewer hours between sunrise and sunset because clouds block the Sun.'
+        rationale: |
+          Clouds make a day darker, which can feel like less daylight. Check
+          whether the clouds change when the Sun rises and sets.
+    explanation: |
+      Places near the equator have close to 12 hours of daylight all year.
+      In the Philippines, changes in winds and rain bring the wet and dry seasons.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0006
+    lesson: lesson-earth-science-astronomy-solstices-and-equinoxes
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'hard'
+    stem: |
+      For a project, a student at a town well south of the equator needs photos taken
+      on the longest and shortest days of the year. Which dates should the student
+      use, with the longest day listed first?
+    choices:
+      - text: 'Around December 21, then around June 21'
+        correct: true
+      - text: 'Around June 21, then around December 21'
+        rationale: |
+          These dates do mark the two extremes. Check whether this order fits a
+          town in the north or one in the south.
+      - text: 'Around December 21, then around September 22'
+        rationale: |
+          December gives the right date for the longest day. Check whether day
+          and night are nearly equal in September.
+      - text: 'Around March 20, then around June 21'
+        rationale: |
+          June gives the right date for the shortest day. Check whether the
+          March equinox can give the other extreme.
+      - text: 'Around September 22, then around March 20'
+        rationale: |
+          These events occur about half a year apart, as the solstices do. Check
+          how day and night compare on both dates.
+    explanation: |
+      The Southern Hemisphere leans most toward the Sun at the December solstice.
+      That gives the town its longest day. At the June solstice it leans away,
+      giving the town its shortest day.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0007
+    lesson: lesson-earth-science-astronomy-latitude-and-daylight
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'hard'
+    stem: |
+      An observer at Station P sees the Sun straight overhead at noon once during
+      the year. An observer at Station Q watches the Sun stay above the horizon
+      for an entire day. Which pair of locations fits both reports?
+    choices:
+      - text: 'P is in the tropics. Q is inside a polar circle.'
+        correct: true
+      - text: 'P is inside a polar circle. Q is in the belt between the tropics.'
+        rationale: |
+          Both stations show a striking sunlight pattern, so the locations are
+          easy to swap. Check which region can have the Sun directly overhead.
+      - text: 'P and Q are both in the tropics, but Q is nearer the equator.'
+        rationale: |
+          The tropics fit the first report, and the equator gets sunlight all
+          year. Check the length of a single day near the equator.
+      - text: 'P and Q are both inside polar circles, but P is closer to its pole.'
+        rationale: |
+          A polar station fits the report from Q. Check whether getting closer
+          to a pole can bring the noon Sun straight overhead.
+      - text: 'P is just outside the tropics. Q is well inside one of the polar circles.'
+        rationale: |
+          A place just outside the tropics can see the Sun high in the sky.
+          Check whether the Sun can reach the point straight overhead there.
+    explanation: |
+      The Sun can be straight overhead at noon only in the tropics. Places
+      inside the polar circles can have a full day with no sunset.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0008
+    lesson: lesson-earth-science-astronomy-axial-tilt-and-seasons
+    keyPoint: 2
+    type: 'compare-contrast'
+    difficulty: 'exam'
+    stem: |
+      A model keeps Earth the same distance from the Sun throughout its orbit.
+      The axis stays tilted and points in the same direction. When the Northern
+      Hemisphere leans away from the Sun, what happens at a town well south of
+      the equator compared with its conditions half an orbit earlier?
+    choices:
+      - text: 'The Sun climbs higher at noon, and days are longer.'
+        correct: true
+      - text: 'The Sun stays lower at noon, and days also become shorter.'
+        rationale: |
+          A hemisphere leaning away does get lower sunlight and shorter days.
+          Check the tilt of the south when the north leans away.
+      - text: 'The Sun climbs higher at noon, but the hours of daylight stay the same.'
+        rationale: |
+          Tilting the ground toward the Sun affects the angle of the light. Check
+          whether tilt also changes how long the town stays in sunlight each day.
+      - text: 'The days get longer, but the height of the noon Sun stays the same.'
+        rationale: |
+          The town does spend more time in sunlight. Check what leaning toward
+          the Sun does to the angle of the light at noon.
+      - text: 'Both the height of the noon Sun and the day length stay the same because the distance is fixed.'
+        rationale: |
+          It may seem that fixed distance keeps all sunlight conditions the same.
+          Check how the southern half of Earth faces the Sun at each point.
+    explanation: |
+      When the north leans away from the Sun, the south leans toward it.
+      Half an orbit earlier the south leaned away. Leaning toward the Sun
+      gives the town a higher noon Sun and more hours of daylight.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0009
+    lesson: lesson-earth-science-astronomy-solstices-and-equinoxes
+    keyPoint: 1
+    type: 'process-ordering'
+    difficulty: 'exam'
+    stem: |
+      A student at a town well north of the equator starts a daylight log on the
+      town's shortest day. The student writes a new entry at each solstice and
+      equinox. Which three observations should come next, in order?
+    choices:
+      - text: 'Nearly equal day and night, longest day, nearly equal day and night'
+        correct: true
+      - text: 'Longest day, nearly equal day and night, another nearly equal day and night'
+        rationale: |
+          The longest day is the next solstice. Check whether an equinox comes
+          before it.
+      - text: 'Nearly equal day and night, another nearly equal day and night, longest day'
+        rationale: |
+          There are two equinoxes each year. Check which solstice comes between
+          the March and September equinoxes.
+      - text: 'Nearly equal day and night, shortest day again, nearly equal day and night'
+        rationale: |
+          An equinox does come next. Check which of the year's two solstices
+          follows the March equinox.
+      - text: 'Longest day, shortest day again, then nearly equal day and night the following year'
+        rationale: |
+          The longest and shortest days take turns. Check which entries the
+          student also makes between those two events.
+    explanation: |
+      The shortest day in the north is at the December solstice. The March
+      equinox comes next, with nearly equal day and night. Then comes the
+      longest day in June, followed by another equinox in September.

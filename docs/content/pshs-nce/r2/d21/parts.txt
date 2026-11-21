@@ -1,0 +1,7 @@
+content/lessons/language-proficiency/grammar-and-structure/did-not-and-the-base-verb.md
+content/lessons/language-proficiency/grammar-and-structure/interrupted-dialogue.md
+content/lessons/language-proficiency/language-application/excited-and-nervous-about.md
+content/lessons/language-proficiency/language-application/with-for-companionship.md
+content/lessons/science/biology/how-mangroves-protect-coral-reefs.md
+content/lessons/science/chemistry/reading-a-phase-diagram.md
+content/lessons/science/earth-science-astronomy/comparing-climate-on-a-latitude-map.md

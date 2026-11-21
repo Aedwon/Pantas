@@ -1,0 +1,7 @@
+Added nine questions to [word-problems-pshs-q.yaml](/Users/aedwon/.t3/worktrees/Pantas/content-pshs-nce-r1-15add0003f0bf1f9/content/questions/mathematics/algebra/word-problems-pshs-q.yaml).
+
+- Coin and Digit Problems — 3
+- Motion Problems (Chase) — 3
+- Motion Problems (Meeting and Moving Apart) — 3
+
+I solved each answer two ways. The validator returned exit code `0` using the installed Dart SDK with `CI=true`.

@@ -1,0 +1,3 @@
+# Fix brief: PSHS-NCE question file
+
+Read `docs/content/pshs-nce/r2/questions-brief.md` for the rules. Fix the question file named in your task for every finding in the findings file named, and every blind-solve mismatch in the mismatch file named. A mismatch means a separate solver chose a different answer: decide whether the key is wrong, the stem is ambiguous, or the solver erred. If the key or stem is the problem, fix the question so it has one defensible answer. Change only what the findings name, plus anything a fix makes untrue. Keep ids. Run the validator until exit 0. Final message: one line per finding or mismatch, what you did and why.
