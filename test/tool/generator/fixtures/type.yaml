@@ -1,0 +1,19 @@
+id: qt-spatial-abstract-reasoning-turn-step
+lesson: lesson-spatial-abstract-reasoning-figure-turns-and-positions
+keyPoint: 1
+difficulty: easy
+exams: [acet, ustet, dost-sei, cse-pro]
+format: figure-series
+rule: figureSeriesTurnStep
+ruleVersion: 1
+choiceCount: 4
+choiceKind: figure
+enabled: true
+params: { stepDegrees: [45, 90], length: [3, 4], forms: [square, circle] }
+stem: Which figure best continues the simplest consistent pattern shown?
+explanation: The line turns {dir} by {step} degrees each time. One more equal step points {answerText}.
+mistakes:
+  - id: double-turn
+    note: This doubles the last turn to {wrongStep} degrees. An extra turn may look right. Check the equal steps already shown.
+mergedQuestions:
+  - { id: q-spatial-abstract-reasoning-figure-series-0001, index: 0 }

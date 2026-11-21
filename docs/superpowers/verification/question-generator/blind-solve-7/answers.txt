@@ -1,0 +1,105 @@
+qt-spatial-abstract-reasoning-series-dots-size#0 B sure dots +1, size alternates
+qt-spatial-abstract-reasoning-series-dots-size#3 A sure dots +1, size alternates
+qt-spatial-abstract-reasoning-series-dots-size#23 D sure dots +1, size alternates
+qt-spatial-abstract-reasoning-series-dots-size#40 A sure dots +1, size alternates
+qt-spatial-abstract-reasoning-series-dots-size#57 D sure dots +1, size alternates
+qt-spatial-abstract-reasoning-series-fill-ray-dots#0 B sure fill and line alternate
+qt-spatial-abstract-reasoning-series-fill-ray-dots#14 D sure fill and line alternate
+qt-spatial-abstract-reasoning-series-fill-ray-dots#28 C sure fill and line alternate
+qt-spatial-abstract-reasoning-series-fill-ray-dots#41 A sure fill and line alternate
+qt-spatial-abstract-reasoning-series-fill-ray-dots#87 B sure fill and line alternate
+qt-spatial-abstract-reasoning-series-four-tracks#0 B sure edge +1, form/size alternate, line +90
+qt-spatial-abstract-reasoning-series-four-tracks#50 B sure edge +1, form/size alternate, line +90
+qt-spatial-abstract-reasoning-series-four-tracks#61 A sure edge +1, form/size alternate, line +90
+qt-spatial-abstract-reasoning-series-four-tracks#87 D sure edge +1, form/size alternate, line +90
+qt-spatial-abstract-reasoning-series-four-tracks#94 D sure edge +1, form/size alternate, line +90
+qt-spatial-abstract-reasoning-series-interleaved-count#0 D sure circles 1,2,3 interleaved with constant square
+qt-spatial-abstract-reasoning-series-interleaved-count#8 C sure triangles 0,1,2
+qt-spatial-abstract-reasoning-series-interleaved-count#24 B sure circles 2,3,4
+qt-spatial-abstract-reasoning-series-interleaved-count#71 B sure squares 0,1,2
+qt-spatial-abstract-reasoning-series-interleaved-count#88 D sure triangles 0,1,2
+qt-spatial-abstract-reasoning-series-size-corner-ray#0 C sure corner clockwise 4-cycle, size/line alternate
+qt-spatial-abstract-reasoning-series-size-corner-ray#4 D sure corner clockwise 4-cycle, size/line alternate
+qt-spatial-abstract-reasoning-series-size-corner-ray#6 C sure corner clockwise 4-cycle, size/line alternate
+qt-spatial-abstract-reasoning-series-size-corner-ray#19 B sure corner clockwise 4-cycle, size/line alternate
+qt-spatial-abstract-reasoning-series-size-corner-ray#27 D sure corner clockwise 4-cycle, size/line alternate
+qt-spatial-abstract-reasoning-series-transfer-count#0 C sure dots+1 edge-1
+qt-spatial-abstract-reasoning-series-transfer-count#5 D sure dots+1 edge-1
+qt-spatial-abstract-reasoning-series-transfer-count#36 C sure dots+1 edge-1
+qt-spatial-abstract-reasoning-series-transfer-count#38 D sure dots+1 edge-1
+qt-spatial-abstract-reasoning-series-transfer-count#43 D sure dots+1 edge-1
+qt-spatial-abstract-reasoning-series-binary-fill#0 D sure black/white alternate
+qt-spatial-abstract-reasoning-series-binary-fill#2 D sure black/white alternate
+qt-spatial-abstract-reasoning-series-binary-fill#13 A sure black/white alternate
+qt-spatial-abstract-reasoning-series-binary-fill#15 A sure black/white alternate
+qt-spatial-abstract-reasoning-series-binary-fill#16 B sure black/white alternate
+qt-spatial-abstract-reasoning-series-ray-step#0 C sure +45
+qt-spatial-abstract-reasoning-series-ray-step#32 B sure +135
+qt-spatial-abstract-reasoning-series-ray-step#50 A sure +45
+qt-spatial-abstract-reasoning-series-ray-step#52 B sure +45 wraps to up
+qt-spatial-abstract-reasoning-series-ray-step#96 B sure +135 wraps to 90
+qt-spatial-abstract-reasoning-matrix-dot-sum#0 B sure row sum
+qt-spatial-abstract-reasoning-matrix-dot-sum#18 A sure row sum
+qt-spatial-abstract-reasoning-matrix-dot-sum#37 C sure row sum
+qt-spatial-abstract-reasoning-matrix-dot-sum#47 B sure row sum
+qt-spatial-abstract-reasoning-matrix-dot-sum#86 C sure row sum
+qt-spatial-abstract-reasoning-matrix-fill-union#0 A sure row union of halves is black
+qt-spatial-abstract-reasoning-matrix-fill-union#3 C sure row union of halves is black
+qt-spatial-abstract-reasoning-matrix-fill-union#8 D sure row union of halves is black
+qt-spatial-abstract-reasoning-matrix-fill-union#9 B sure row union of halves is black
+qt-spatial-abstract-reasoning-matrix-fill-union#22 B sure row union of halves is black
+qt-spatial-abstract-reasoning-matrix-ray-union#0 C sure union 45+135
+qt-spatial-abstract-reasoning-matrix-ray-union#70 D sure union 270+315
+qt-spatial-abstract-reasoning-matrix-ray-union#75 B sure union 225+90
+qt-spatial-abstract-reasoning-matrix-ray-union#87 B sure union 225+90
+qt-spatial-abstract-reasoning-matrix-ray-union#92 A sure union 90+0
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#0 D sure union, size by row
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#16 A sure union, size by row
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#17 A sure union, size by row
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#28 B sure union, size by row
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#39 C sure union, size by row
+qt-spatial-abstract-reasoning-matrix-ray-intersection#0 A sure row intersection 135
+qt-spatial-abstract-reasoning-matrix-ray-intersection#30 D sure row intersection 225
+qt-spatial-abstract-reasoning-matrix-ray-intersection#56 B sure row intersection 270
+qt-spatial-abstract-reasoning-matrix-ray-intersection#62 A sure row intersection 315
+qt-spatial-abstract-reasoning-matrix-ray-intersection#95 C sure row intersection 135
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#0 A sure rows repeat B W B
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#3 A sure rows repeat pattern
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#4 B sure rows repeat pattern
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#5 B sure rows repeat pattern
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#23 B sure rows repeat pattern
+qt-spatial-abstract-reasoning-matrix-form-ray#0 D sure form by row, line by column
+qt-spatial-abstract-reasoning-matrix-form-ray#21 B sure form by row, line by column
+qt-spatial-abstract-reasoning-matrix-form-ray#25 B sure form by row, line by column
+qt-spatial-abstract-reasoning-matrix-form-ray#34 B sure form by row, line by column
+qt-spatial-abstract-reasoning-matrix-form-ray#85 D sure form by row, line by column
+qt-spatial-abstract-reasoning-matrix-size-dots#0 C sure size by row, dots by column
+qt-spatial-abstract-reasoning-matrix-size-dots#14 B sure size by row, dots by column
+qt-spatial-abstract-reasoning-matrix-size-dots#25 D sure size by row, dots by column
+qt-spatial-abstract-reasoning-matrix-size-dots#29 D sure size by row, dots by column
+qt-spatial-abstract-reasoning-matrix-size-dots#45 B sure size by row, dots by column
+qt-spatial-abstract-reasoning-matrix-size-transfer#0 D sure
+qt-spatial-abstract-reasoning-matrix-size-transfer#36 D sure
+qt-spatial-abstract-reasoning-matrix-size-transfer#44 D sure
+qt-spatial-abstract-reasoning-matrix-size-transfer#82 B sure
+qt-spatial-abstract-reasoning-matrix-size-transfer#98 C sure
+qt-spatial-abstract-reasoning-matrix-arrow-column#0 A sure row constant, rotate per row
+qt-spatial-abstract-reasoning-matrix-arrow-column#4 C sure row constant, rotate per row
+qt-spatial-abstract-reasoning-matrix-arrow-column#12 C sure row constant, rotate per row
+qt-spatial-abstract-reasoning-matrix-arrow-column#17 C sure row constant, rotate per row
+qt-spatial-abstract-reasoning-matrix-arrow-column#24 B sure row constant, rotate per row
+qt-spatial-abstract-reasoning-matrix-corner-reflection#0 A sure mirror left-right; same as 180 rotation of column
+qt-spatial-abstract-reasoning-matrix-corner-reflection#24 C sure mirror
+qt-spatial-abstract-reasoning-matrix-corner-reflection#35 C sure mirror
+qt-spatial-abstract-reasoning-matrix-corner-reflection#51 A sure mirror
+qt-spatial-abstract-reasoning-matrix-corner-reflection#74 A sure mirror
+qt-spatial-abstract-reasoning-matrix-growing-turn#0 C sure row step grows 45,90,135
+qt-spatial-abstract-reasoning-matrix-growing-turn#33 D sure row step grows
+qt-spatial-abstract-reasoning-matrix-growing-turn#38 C sure row step grows
+qt-spatial-abstract-reasoning-matrix-growing-turn#58 C sure row step 90,180,270
+qt-spatial-abstract-reasoning-matrix-growing-turn#61 A sure row step grows
+qt-spatial-abstract-reasoning-matrix-ray-turn#0 D sure row/col turn consistent
+qt-spatial-abstract-reasoning-matrix-ray-turn#46 A sure row/col turn consistent
+qt-spatial-abstract-reasoning-matrix-ray-turn#55 D sure row/col turn consistent
+qt-spatial-abstract-reasoning-matrix-ray-turn#63 B sure row/col turn consistent
+qt-spatial-abstract-reasoning-matrix-ray-turn#75 D sure row/col turn consistent, form from row

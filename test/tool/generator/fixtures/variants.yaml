@@ -1,0 +1,13 @@
+problemType: qt-spatial-abstract-reasoning-turn-step
+generator: { tool: 1, ruleVersion: 1, seed: 20261117 }
+variants:
+  - index: 0
+    source: q-spatial-abstract-reasoning-figure-series-0001
+    slots: { dir: clockwise, step: 45, answerText: lower-right }
+    figureSpec: { kind: figure-series, items: [{shape: square, rotation: 0}], blank: true }
+    choices:
+      - { correct: true, text: Line pointing lower-right, figure: {shape: line, rotation: 135} }
+      - { mistake: double-turn, text: Line pointing down, figure: {shape: line, rotation: 180}, slots: { wrongStep: 90 } }
+    ruleKey: example-rule-key
+    cosmetics: {fill: white}
+    signature: 394a1d33b3ffec99c3b5e094e3c6ed9f20d1de4683e120d54b1193e5ad290b62

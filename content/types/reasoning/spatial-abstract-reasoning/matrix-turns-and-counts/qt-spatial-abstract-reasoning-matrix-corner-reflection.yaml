@@ -1,0 +1,107 @@
+{
+  "id": "qt-spatial-abstract-reasoning-matrix-corner-reflection",
+  "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-matrix",
+  "rule": "matrix-corner-reflection",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "rays": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "dots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edgeLines": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sumInputs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "growingSteps": [
+      45,
+      90
+    ]
+  },
+  "stem": "Which figure completes the blank cell under the simplest consistent row and column rules?\n",
+  "explanation": "The dot switches left and right across each row. Its height and the row outline stay the same. The blank needs {answerText}.",
+  "mistakes": [
+    {
+      "id": "copy-example-location",
+      "note": "This copies the completed row's final dot. That dot shows the result for its own row. Switch the target row's dot between left and right."
+    },
+    {
+      "id": "hold-dot",
+      "note": "This keeps the starting dot position. That dot is still visible in the row. Apply the dot movement shown by the completed row."
+    },
+    {
+      "id": "copy-example-form",
+      "note": "This copies the completed row's outline. The dot switches sides correctly. Keep the outline from the row with the blank."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0010",
+      "index": 0
+    }
+  ]
+}

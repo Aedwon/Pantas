@@ -1,0 +1,49 @@
+{
+  "id": "qt-spatial-abstract-reasoning-net-three-at-corner",
+  "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets",
+  "keyPoint": 1,
+  "difficulty": "exam",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "mental-rotation",
+  "rule": "net-three-at-corner",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "profiles": [
+      0
+    ],
+    "coordinateMin": 0,
+    "coordinateMax": 5,
+    "cells": 6,
+    "validNets": 11
+  },
+  "stem": "{stemText}",
+  "explanation": "{explanationText}",
+  "mistakes": [
+    {
+      "id": "opposite-side-pair",
+      "note": "{noteText}"
+    },
+    {
+      "id": "opposite-end-pair",
+      "note": "{noteText}"
+    },
+    {
+      "id": "unchecked-third-pair",
+      "note": "{noteText}"
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0019",
+      "index": 0
+    }
+  ]
+}

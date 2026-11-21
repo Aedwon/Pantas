@@ -1,0 +1,73 @@
+{
+  "id": "qt-spatial-abstract-reasoning-series-interleaved-count",
+  "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+  "keyPoint": 2,
+  "difficulty": "hard",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-series",
+  "rule": "series-interleaved-count",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "lengths": [
+      4
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      0,
+      1,
+      2
+    ]
+  },
+  "stem": "Which figure best continues the simplest consistent pattern shown?\n",
+  "explanation": "Odd positions use one outline and add one dot each time. Even positions keep the other outline and its dot count. The requested figure is: {answerText}.\n",
+  "mistakes": [
+    {
+      "id": "continue-even-track",
+      "note": "This repeats the even-position figure. It was shown last. Separate the odd and even positions."
+    },
+    {
+      "id": "count-all-positions",
+      "note": "This uses five dots from the next position number. Five follows four in counting. Compare only the odd-position dot counts."
+    },
+    {
+      "id": "repeat-odd-count",
+      "note": "This repeats the last odd-position dot count. The even-position count repeats, so repeating feels safe. Check the change between odd positions."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0017",
+      "index": 0
+    }
+  ]
+}

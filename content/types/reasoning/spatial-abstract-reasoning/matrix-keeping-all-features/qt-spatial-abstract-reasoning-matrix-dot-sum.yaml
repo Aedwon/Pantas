@@ -1,0 +1,107 @@
+{
+  "id": "qt-spatial-abstract-reasoning-matrix-dot-sum",
+  "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-matrix",
+  "rule": "matrix-dot-sum",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "rays": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "dots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edgeLines": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sumInputs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "growingSteps": [
+      45,
+      90
+    ]
+  },
+  "stem": "Which figure completes the blank cell under the simplest consistent row and column rules?\n",
+  "explanation": "Add the first two dot counts in each row to find the last count. The blank needs {answerText}.",
+  "mistakes": [
+    {
+      "id": "add-sequence-step",
+      "note": "This repeats the difference between the two inputs. Two counts can look like the start of a counting sequence. Check the addition relationship in the completed rows."
+    },
+    {
+      "id": "copy-second",
+      "note": "This repeats the second input count. It is beside the blank. Add both starting counts as the completed rows do."
+    },
+    {
+      "id": "subtract-inputs",
+      "note": "This takes the difference between the counts. Both counts are in the row. Check whether the completed rows add or subtract."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0016",
+      "index": 0
+    }
+  ]
+}

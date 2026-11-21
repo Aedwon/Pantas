@@ -1,0 +1,65 @@
+qt-spatial-abstract-reasoning-matrix-dot-sum#0 B sure row sums: third = first+second = 4
+qt-spatial-abstract-reasoning-matrix-dot-sum#70 D sure row sums: 3rd = 1st+2nd = 4
+qt-spatial-abstract-reasoning-matrix-dot-sum#75 D sure row sums: 3rd = 1st+2nd = 4
+qt-spatial-abstract-reasoning-matrix-dot-sum#87 A sure row sums: 1+1 = 2
+qt-spatial-abstract-reasoning-matrix-dot-sum#92 A sure row sums: 3+1 = 4
+qt-spatial-abstract-reasoning-matrix-ray-union#0 C sure third = union of first two
+qt-spatial-abstract-reasoning-matrix-ray-union#16 A sure third = union of first two
+qt-spatial-abstract-reasoning-matrix-ray-union#17 A sure third = union of first two
+qt-spatial-abstract-reasoning-matrix-ray-union#28 C sure third = union of first two
+qt-spatial-abstract-reasoning-matrix-ray-union#39 D sure third = union of first two
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#0 D sure union across row, size by row
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#30 C sure union across row, size by row
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#56 B sure union across row, size by row
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#62 D sure union across row, size by row
+qt-spatial-abstract-reasoning-matrix-sized-ray-union#95 A sure union across row, size by row
+qt-spatial-abstract-reasoning-matrix-ray-intersection#0 A sure third = shared ray of first two
+qt-spatial-abstract-reasoning-matrix-ray-intersection#53 C sure third = shared ray of first two
+qt-spatial-abstract-reasoning-matrix-ray-intersection#57 B sure third = shared ray of first two
+qt-spatial-abstract-reasoning-matrix-ray-intersection#75 B sure third = shared ray of first two
+qt-spatial-abstract-reasoning-matrix-ray-intersection#94 C sure third = shared ray of first two
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#0 A sure row pattern repeats (black,white,black)
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#21 C sure row pattern repeats (black,white,black)
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#25 D sure row pattern repeats (white,black,white)
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#34 C sure row pattern repeats (black,white,black)
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#85 B sure row pattern repeats (black,white,black)
+qt-spatial-abstract-reasoning-matrix-form-ray#0 D sure form by row, ray steps 0,45,90 by column
+qt-spatial-abstract-reasoning-matrix-form-ray#8 D sure form by row, ray by column (45 middle)
+qt-spatial-abstract-reasoning-matrix-form-ray#22 C sure form by row, ray by column (225 middle)
+qt-spatial-abstract-reasoning-matrix-form-ray#31 A sure form by row, ray by column (180 middle)
+qt-spatial-abstract-reasoning-matrix-form-ray#61 C sure form by row, ray by column (90 middle)
+qt-spatial-abstract-reasoning-matrix-outline-latin#0 C sure latin square
+qt-spatial-abstract-reasoning-matrix-outline-latin#7 C sure latin square
+qt-spatial-abstract-reasoning-matrix-outline-latin#11 C sure latin square
+qt-spatial-abstract-reasoning-matrix-outline-latin#27 B sure latin square
+qt-spatial-abstract-reasoning-matrix-outline-latin#32 D sure latin square
+qt-spatial-abstract-reasoning-matrix-size-dots#0 C sure dots by column, size by row
+qt-spatial-abstract-reasoning-matrix-size-dots#18 A sure dots by column, size by row
+qt-spatial-abstract-reasoning-matrix-size-dots#26 C sure dots by column, size by row
+qt-spatial-abstract-reasoning-matrix-size-dots#58 A sure dots by column, size by row
+qt-spatial-abstract-reasoning-matrix-size-dots#85 D sure dots by column, size by row
+qt-spatial-abstract-reasoning-matrix-size-latin#0 D sure latin square
+qt-spatial-abstract-reasoning-matrix-size-latin#55 C sure latin square
+qt-spatial-abstract-reasoning-matrix-size-latin#71 C sure latin square
+qt-spatial-abstract-reasoning-matrix-size-latin#76 C sure latin square
+qt-spatial-abstract-reasoning-matrix-size-latin#83 A sure latin square
+qt-spatial-abstract-reasoning-matrix-size-transfer#0 D sure dots/edges by column, size by row
+qt-spatial-abstract-reasoning-matrix-size-transfer#36 D sure dots/edges by column, size by row
+qt-spatial-abstract-reasoning-matrix-size-transfer#44 D sure dots/edges by column, size by row
+qt-spatial-abstract-reasoning-matrix-size-transfer#82 B sure dots/edges by column, size by row
+qt-spatial-abstract-reasoning-matrix-size-transfer#98 C sure dots/edges by column, size by row
+qt-spatial-abstract-reasoning-matrix-corner-reflection#0 A sure row 1 mirrors left-right; BR to BL
+qt-spatial-abstract-reasoning-matrix-corner-reflection#3 A sure row 1 mirrors left-right; TR to TL
+qt-spatial-abstract-reasoning-matrix-corner-reflection#11 B sure row 1 mirrors left-right; TL to TR
+qt-spatial-abstract-reasoning-matrix-corner-reflection#73 A sure row 1 mirrors left-right; TR to TL
+qt-spatial-abstract-reasoning-matrix-corner-reflection#74 A sure row 1 mirrors left-right; TL to TR
+qt-spatial-abstract-reasoning-matrix-corner-step#0 B sure dot steps clockwise one corner (TL to TR)
+qt-spatial-abstract-reasoning-matrix-corner-step#22 A sure dot steps clockwise one corner (BL to TL)
+qt-spatial-abstract-reasoning-matrix-corner-step#24 D sure dot steps clockwise one corner (TL to TR)
+qt-spatial-abstract-reasoning-matrix-corner-step#51 D sure dot steps clockwise one corner (BR to BL)
+qt-spatial-abstract-reasoning-matrix-corner-step#74 D sure dot steps clockwise one corner (TL to TR)
+qt-spatial-abstract-reasoning-matrix-ray-turn#0 D sure ray turns +90 per row (180 to 270)
+qt-spatial-abstract-reasoning-matrix-ray-turn#1 A sure ray turns +135 per row (225 to 0)
+qt-spatial-abstract-reasoning-matrix-ray-turn#35 C sure ray turns +135 per row (135 to 270)
+qt-spatial-abstract-reasoning-matrix-ray-turn#65 A sure ray turns +45 per row (225 to 270)
+qt-spatial-abstract-reasoning-matrix-ray-turn#93 C sure ray turns +90 per row (180 to 270)

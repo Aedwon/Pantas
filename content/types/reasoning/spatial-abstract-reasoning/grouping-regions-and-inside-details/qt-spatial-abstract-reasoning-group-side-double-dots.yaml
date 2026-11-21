@@ -1,0 +1,60 @@
+{
+  "id": "qt-spatial-abstract-reasoning-group-side-double-dots",
+  "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details",
+  "keyPoint": 2,
+  "difficulty": "hard",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "odd-figure",
+  "rule": "group-side-double-dots",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "rectangle",
+      "rhombus",
+      "parallelogram",
+      "triangle",
+      "circle",
+      "pentagon",
+      "hexagon",
+      "blob"
+    ],
+    "counts": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "stem": "{stem}",
+  "explanation": "{explanation}",
+  "mistakes": [
+    {
+      "id": "equal-lengths",
+      "note": "This selects equal side lengths instead of testing the stated rule. Equal lengths stand out. Compare side count with twice the dot count instead."
+    },
+    {
+      "id": "unequal-lengths",
+      "note": "This selects unequal side lengths instead of testing the stated rule. A stretched outline looks different. Check the side-count relation instead."
+    },
+    {
+      "id": "most-dots",
+      "note": "This selects the most dots instead of testing the stated rule. A large count stands out. Test the stated dot-count relation instead."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0018",
+      "index": 0
+    }
+  ]
+}

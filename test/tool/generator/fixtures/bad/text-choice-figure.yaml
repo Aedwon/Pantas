@@ -1,0 +1,1 @@
+{"variants": [{"index": 0, "slots": {"a": 5, "b": 3, "answer": 8}, "ruleKey": "wrong", "cosmetics": {}, "signature": "test", "choices": [{"correct": true, "text": "8", "value": "8", "figure": {"x": 3, "y": 0}}, {"mistake": "subtract", "text": "2", "value": "2"}, {"mistake": "extra-one", "text": "9", "value": "9"}, {"mistake": "missing-one", "text": "7", "value": "7"}]}]}

@@ -1,0 +1,103 @@
+{
+  "id": "qt-spatial-abstract-reasoning-matrix-corner-grid",
+  "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules",
+  "keyPoint": 1,
+  "difficulty": "hard",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-matrix",
+  "rule": "matrix-corner-grid",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "rays": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "dots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edgeLines": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sumInputs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "growingSteps": [
+      45,
+      90
+    ]
+  },
+  "stem": "Which figure completes the blank cell under the simplest consistent row and column rules?\n",
+  "explanation": "Dots move one corner clockwise across rows and one corner counterclockwise down columns. The blank needs {answerText}.",
+  "mistakes": [
+    {
+      "id": "copy-row-start",
+      "note": "This copies the row's first corner. That corner begins the row. Continue its clockwise route."
+    },
+    {
+      "id": "repeat-neighbor",
+      "note": "This repeats the adjacent corner. That dot is beside the blank. Move one further corner clockwise."
+    },
+    {
+      "id": "repeat-above",
+      "note": "This repeats the cell directly above the blank. Copying that dot looks like a column rule. Check that the dot changes down the column."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0019",
+      "index": 0
+    }
+  ]
+}

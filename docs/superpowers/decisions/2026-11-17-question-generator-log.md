@@ -741,3 +741,99 @@ Adviser rulings:
 History of the count given to Aedwon: about 55 questions (estimate, with question
 10), at most 42 (first enumeration), 28 (after the stricter checks). Option A's rule
 is unchanged; fewer patterns passed it. The adviser told him the final number.
+
+## November 17, 2026: build lead starts; wait for Codex resets
+
+Build lead (Opus 5.5) started the plan on `gen/question-generator-r1` (velocity row E-107).
+
+Rule from Aedwon for this lane, relayed verbatim by the operations manager: "wait for codex resets. this is true for lesson-generation related tasks and threads". All three Codex accounts filled their 5-hour windows at about 18:55 UTC Nov 16; the soonest reset is about 22:04 UTC.
+
+What changed: before every Codex run the lead checks `codex-pick --status` and starts nothing until an account shows 5-hour room. No Claude worker substitutes for Codex work in this lane. Plan writing continues, kept lean. One Sonnet reader (started before the rule arrived) re-verifies spec B1 for the plan; the math pilot lesson re-check waits for the first Codex window.
+
+## November 17, 2026: plan written; B1 re-verified
+
+Plan: `docs/superpowers/plans/2026-11-17-question-generator.md`. B1 evidence: `docs/superpowers/verification/2026-11-17-question-generator-b1.md` (Sonnet reader, file and line evidence; prod content 88f38e698, prod web and functions match main).
+
+B1 corrections and lead rulings (Part B only; Part A unchanged):
+
+1. Web "seen" comes from server answer totals, not review state. Ruling: the server aliases merged old ids to their type id when counting seen.
+2. Withdrawal by `isActive` cannot be authored in yaml today. Ruling: the exporter writes merged questions inactive while their type is enabled and active when it is disabled; `enabled: false` on the type is the rollback switch. Question yaml is not edited, so ledger hashes stay.
+3. `questionVersion` already exists as a content revision. Ruling: the new field is `variantIndex`.
+4. The 7-day rule is Practice only. Ruling: Drill gets never-met first and is otherwise unchanged.
+5. Abstract reasoning on prod content has 105 questions, 94 with figure data. Types are built from prod content; the 11 without figure data stay singles.
+6. The server runs app Dart compiled to JS. Ruling: any shared Dart change regenerates it and diffs a second build.
+7. Carry-over is an alias at read time, not a rewrite of stored history, so rollback restores the old ids untouched.
+8. A variant counts as served when its answer is submitted, not when shown.
+
+Math pilot candidates, checked live on prod content by the lead: discounted prices (5 questions), age word problems (4), finding number patterns (3). The math lessons branch lacks the Algebra parts, so the pilot reads prod content.
+
+Estimate: 13 to 17 days, top of the spec's 11 to 16, from the server alias and the compiled JS. Rows E-109 to E-112.
+
+## November 16, 2026 23:35 UTC: Codex sharing between lanes
+
+From 22:30 to 23:29 UTC the PSHS-NCE content lead's back-to-back runs kept codex-pick's one-run guard busy, and this lane's queued run never started. The operations manager ruled: both lanes may use `CODEX_PICK_PARALLEL=1` whenever `codex-pick --status` shows room for each run, capped at 3 runs at once across all lanes, as Aedwon allows. No turn order.
+
+Also answered for the PSHS-NCE lead: "dots inside overlapping shapes" (official reviewer IV-13 to IV-16) is not a generator figure kind. Spec B11 keeps new figure kinds out of scope, and a new kind needs a widget (UI). The lead was asked to log it as a backlog engineering item.
+
+## November 17, 2026 09:10 UTC: Phase 1 audit outcome; two matrix types held
+
+Process: Codex GPT 6.1 Sol high audited all 30 listed types (audit-a.md, audit-b.md), then re-audited after each fix round (reaudit-a.md, reaudit-b.md, reaudit-c.md). Lead rulings: `docs/superpowers/plans/2026-11-17-question-generator-briefs/fix-rulings.md` (R1 to R5).
+
+- R1 changed what counts as a new version: the shown figures, the stem slots and the correct answer; wrong choices no longer count, and grouping rows are order-free. This is stricter toward Aedwon's goal ("a student never re-encounters the same set of figures for a given problem type"). Under it, 30 listed types fell to 17.
+- Competing rules the audits found were added to the checker's rule library (doubling count tracks, left-right and up-down reflection, counting-sequence continuation, highest ray).
+- matrix-ray-turn and matrix-dot-sum: each re-audit found another equally simple rule (diagonal reflection; multiplication and column rules). Lead ruling: hold both rather than keep iterating inside Phase 1. Extending the library for them is later work. Spec B12 already names this risk: "The library must grow with each new rule, or the search proves less than it claims."
+- matrix-ray-intersection and series-interleaved-count are held because their hand-written sources admit a second rule; matrix-corner-step is held at 9 distinct tasks.
+- Accepted Minors (documented variety limits): group-polygon-replacement, matrix-corner-reflection, matrix-dot-sum (held anyway).
+
+Result: 13 active types with lists of 100, all passing the checker, the final blind solve (blind-solve-4, 75 of 75 on the then-15 types) and the audits. 45 types held.
+
+Prod content issues routed to the content lane through the operations manager: figure-series 0019 (wrong note), figure-series 0017 (two defensible answers), figure-matrices 0019 (wrong note), figure-grouping 0006 (identical figures with position-only distractors, sent at the milestone), figure-matrices 0009 (ray-intersection source admits "keep the highest ray", sent at the milestone).
+
+## November 17, 2026: source fixes landed on a content branch
+
+The operations manager reports all five source issues fixed on `content/fix-figure-series-0019` at 6c1f9402e (next ship-it bundle): series 0017, series 0019, matrices 0019, grouping 0006, matrices 0009. Every type built on them is held (series-interleaved-count, matrix-corner-grid, group-side-count-medium, matrix-ray-intersection; series 0019 had no type), so no active type is affected. Re-sync: when a held type is revisited, its index 0 is rebuilt from 6c1f9402e or its successor, and the checker's merged-source check runs against that ref.
+
+## November 17, 2026 13:30 UTC: Revision 1 release and Aedwon's delegated sheet pass
+
+Aedwon, relayed by the operations manager, verbatim: "have an opus agent + 6.1 Sol check this, not me". His sheet pass went to two independent reviewers (Claude Opus 5.5 subagent; Codex GPT 6.1 Sol high with the sheet images), each blind to the other. Results: sheet-review-opus.md and sheet-review-codex.md, 120 samples each. Both found every key the only defensible answer. Both found sheet-tool faults (dark-mode choice palette; duplicated shape-row choices), fixed in the tool. Opus alone found two real figure faults (a right ray lying along the dot row; crowded dots in small triangles), fixed in the generator by excluding those draws. Fixes regenerated 21 lists; all were re-checked (checker, R6, blind solves 7 and 8, re-audits audit-w1 and audit-w2) and 19 re-approved. Under his delegation this merged pass counts as his for the first prod release.
+
+Result: 28 active abstract reasoning types, all approved, content gate passing. Held after the final round: series-fill-ray-dots (note false for some variants) and matrix-ray-intersection (diagonal-extreme ray rule). Live-content items for the UI lane, not this build: shape-row figures show no position numbers although positional choices say "Figure 1" to "Figure 5"; the live source of series-fill-ray-dots (figure-series 0018) has a right ray along its dot row; the live source of matrix-size-dots (figure-matrices 0008) has crowded dots in a small triangle.
+
+## November 18, 2026: positional odd-one-out types and the figure-choice screen
+
+Rulings from the figure answer choices UI lead (their spec records them):
+1. group-dot-count keeps its question figure with position numbers under the shapes and text choices ("Figure 1" to "Figure 5"); no regeneration.
+2. group-boundary, group-dot-parity, group-side-double-dots keep text choices until the figure-choice screen ships, then convert to choiceKind figure (shapes[value-1] plus a shape description) in the same release as their live sources, which pass the content approval gate so index 0 still equals its source. This is a dependency of the screen release, scheduled in Phase 2 or later, not of the current ship.
+3. Until then the shape-row painter draws numbers 1 to N under the shapes (UI lane).
+4. Held group-line-count and group-center-cuts use the new form when they return.
+No change to the 28 approved types now.
+
+## November 18, 2026: app fields for figure choices
+
+Figure answer choices spec approved by Aedwon (Minimal), on spec/figure-answer-choices. Agreed interface with its UI lead: Choice.figureJson (String?, one item map, null = text choice), Question.choiceKind (text | figure, default text), Question.showQuestionFigure (bool, default true). Parent figure kind comes from the question figureSpec.kind. The UI lead adds the fields with defaults, codegen and JSON mapping (their build ships first) and sends the commit; Phase 2 Task 2.2 fills them from the variant documents and adds no competing fields. Type files gain a question-figure flag (false only for converted positional types, Task 2.9).
+
+## November 21, 2026: fresh build lead for Phase 2
+
+The operations manager replaced the Phase 1 build lead thread (too large to resume) with a fresh
+Opus 5.5 lead on `gen/question-generator-app-r1`, cut from `origin/main` 0172e8dfb. Policy read at
+`origin/main` 0172e8dfb (`AGENTS.md`, `WORKFLOW.md`, `SUBAGENTS.md`, `docs/workflow/orchestrator.md`,
+`docs/workflow/operations-manager.md`, `docs/workflow/process-improvement.md`, the Nov 21 manager
+handoff). Spec, plan and this log read from `gen/question-generator-r1` 9f551066a; Revision 1 of Part A
+and the adviser rulings that followed it were read from `origin/main`, where they were recorded.
+
+Brief from the manager (relayed Nov 21): start Phase 2 now with preparation and Codex work on this
+branch; merge nothing into main before Nov 22 16:00 UTC (the beta's credited days close at the end of
+Nov 22 PHT). Codex default is GPT 6.2 Sol. Aedwon, Nov 21, verbatim: "no no, this is the max account.
+actually you can maximize the codex use, i even have a gemini subscription now, and 4 Neon is a really
+good model as well. for codex maximize it bc it's expiring and im not renewing but i still have 1 reset
+and i'd like to use it before the expiration".
+
+Lead rulings:
+
+1. Plan Part 2 cuts this branch from main after Phase 1 merges. Phase 1 is not on main yet, so the
+   Phase 1 branch (`origin/gen/question-generator-r1` 9f551066a) is merged into this branch now. The two
+   doc conflicts (this log and the velocity log) were append-only and are resolved as the union of both
+   sides. No code conflicted. Reported to the manager with the proposed main merge method.
+2. Velocity: Phase 2 is timed as E-127, because main's E-110 belongs to another lane.
+3. Spec B9 and the plan name Codex GPT 6.1 Sol; GPT 6.2 Sol replaces it everywhere (Aedwon, Nov 19,
+   recorded in the Nov 21 manager handoff: "use 6.2 Sol as the default everywhere").

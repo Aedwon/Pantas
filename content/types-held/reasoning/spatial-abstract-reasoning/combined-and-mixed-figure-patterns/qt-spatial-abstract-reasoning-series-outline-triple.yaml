@@ -1,0 +1,72 @@
+{
+  "id": "qt-spatial-abstract-reasoning-series-outline-triple",
+  "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+  "keyPoint": 1,
+  "difficulty": "hard",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-series",
+  "rule": "series-outline-triple",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "lengths": [
+      5
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "initialDots": [
+      0,
+      1,
+      2
+    ],
+    "initialEdges": [
+      0,
+      1,
+      2
+    ]
+  },
+  "stem": "Which figure best continues the simplest consistent pattern shown?\n",
+  "explanation": "The three outlines repeat in the same order. The requested figure is: {answerText}.\n",
+  "mistakes": [
+    {
+      "id": "restart-early",
+      "note": "This returns to the first outline too soon. It begins each group. Check which position follows the last outline."
+    },
+    {
+      "id": "repeat-last",
+      "note": "This repeats the last figure. It is the most recent state. Check the full cycle before continuing."
+    },
+    {
+      "id": "increase-sides",
+      "note": "This adds a side instead of repeating the group. A larger polygon can look like progress. Check the return to the first outline."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0012",
+      "index": 0
+    }
+  ]
+}

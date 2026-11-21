@@ -1,0 +1,49 @@
+{
+  "id": "qt-spatial-abstract-reasoning-net-validity-test",
+  "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets",
+  "keyPoint": 2,
+  "difficulty": "hard",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "mental-rotation",
+  "rule": "net-validity-test",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "profiles": [
+      0
+    ],
+    "coordinateMin": 0,
+    "coordinateMax": 5,
+    "cells": 6,
+    "validNets": 11
+  },
+  "stem": "{stemText}",
+  "explanation": "{explanationText}",
+  "mistakes": [
+    {
+      "id": "count-only",
+      "note": "{noteText}"
+    },
+    {
+      "id": "connectedness-only",
+      "note": "{noteText}"
+    },
+    {
+      "id": "symmetry-only",
+      "note": "{noteText}"
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009",
+      "index": 0
+    }
+  ]
+}

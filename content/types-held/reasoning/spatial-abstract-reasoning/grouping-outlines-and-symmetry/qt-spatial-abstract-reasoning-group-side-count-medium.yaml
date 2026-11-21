@@ -1,0 +1,76 @@
+{
+  "id": "qt-spatial-abstract-reasoning-group-side-count-medium",
+  "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "odd-figure",
+  "rule": "group-side-count-medium",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "rectangle",
+      "rhombus",
+      "parallelogram",
+      "triangle",
+      "circle",
+      "pentagon",
+      "hexagon",
+      "blob"
+    ],
+    "counts": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "stem": "{stem}",
+  "explanation": "{explanation}",
+  "mistakes": [
+    {
+      "id": "choose-endpoint",
+      "note": "This chooses an endpoint in the row. The first position can look separated from the others. Count sides instead of row position.\n"
+    },
+    {
+      "id": "choose-center",
+      "note": "This chooses a matching outline because it is near the center. Its placement stands out. Count its sides instead of using its position.\n"
+    },
+    {
+      "id": "choose-last",
+      "note": "This chooses the last position as a pattern endpoint. The last figure is visually isolated at the edge. Compare its side count.\n"
+    },
+    {
+      "id": "rotated-outline",
+      "note": "This selects outline direction instead of testing the stated rule. A slanted outline looks different. Count the sides instead."
+    },
+    {
+      "id": "regularity",
+      "note": "This selects equal side lengths instead of testing the stated rule. Regular outlines attract attention. Check the side-count rule instead."
+    },
+    {
+      "id": "proportions",
+      "note": "This selects outline proportions instead of testing the stated rule. A stretched shape looks different. Count the sides instead."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0006",
+      "index": 0
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0008",
+      "index": 1
+    }
+  ]
+}

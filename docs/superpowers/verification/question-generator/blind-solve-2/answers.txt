@@ -1,0 +1,10 @@
+qt-spatial-abstract-reasoning-net-adjacent-relation#0 A sure A is opposite E, so A and B are adjacent
+qt-spatial-abstract-reasoning-net-adjacent-relation#16 B sure A is opposite E, so A and C share an edge
+qt-spatial-abstract-reasoning-net-adjacent-relation#25 C sure B is opposite D, so B and E share an edge
+qt-spatial-abstract-reasoning-net-adjacent-relation#43 A sure A is opposite C, so A and F share an edge
+qt-spatial-abstract-reasoning-net-adjacent-relation#93 A sure B is opposite D, so B and F share an edge
+qt-spatial-abstract-reasoning-net-opposite-hard#0 A sure staircase fold gives A opposite D
+qt-spatial-abstract-reasoning-net-opposite-hard#28 B sure E is opposite A
+qt-spatial-abstract-reasoning-net-opposite-hard#45 B sure back is opposite front E, which is A
+qt-spatial-abstract-reasoning-net-opposite-hard#51 C sure back is opposite front A, which is E
+qt-spatial-abstract-reasoning-net-opposite-hard#65 A sure back is opposite front F, which is A

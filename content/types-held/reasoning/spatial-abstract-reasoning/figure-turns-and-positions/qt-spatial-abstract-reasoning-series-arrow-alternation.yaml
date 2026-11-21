@@ -1,0 +1,73 @@
+{
+  "id": "qt-spatial-abstract-reasoning-series-arrow-alternation",
+  "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+  "keyPoint": 1,
+  "difficulty": "hard",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-series",
+  "rule": "series-arrow-alternation",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "lengths": [
+      4,
+      5
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "initialDots": [
+      0,
+      1,
+      2
+    ],
+    "initialEdges": [
+      0,
+      1,
+      2
+    ]
+  },
+  "stem": "Which figure best continues the simplest consistent pattern shown?\n",
+  "explanation": "The two arrow directions alternate. The requested figure is: {answerText}.\n",
+  "mistakes": [
+    {
+      "id": "assume-continuous-turn",
+      "note": "This keeps turning clockwise. The first turn is clockwise. Check the return to the first direction."
+    },
+    {
+      "id": "repeat-last",
+      "note": "This repeats the last figure. It is the most recent state. Check the full cycle before continuing."
+    },
+    {
+      "id": "invent-four-direction-cycle",
+      "note": "This adds a fourth direction. Four directions can make a familiar cycle. Check every shown transition."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0010",
+      "index": 0
+    }
+  ]
+}
