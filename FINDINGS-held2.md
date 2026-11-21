@@ -99,3 +99,58 @@ Workstream base `9f551066a` plus the unstaged worker changes below. The pre-exis
 - Remote main is e8f12c872. Its policy blobs are available locally and were used when the shared Git directory denied FETCH_HEAD writes. The three startup policy files match 80f0c8ef5. The newer process rule concerns hosted runs, and these checks run locally.
 - RED confirmed: the planted version 46 Flutter test failed because the checker returned no correctness diagnostic.
 - Added independent ray-tip ranking to the checker in all eight directions alongside angle-only selection. The generator now screens its raw draws with a separate trigonometric calculation and no checker solver calls.
+
+## Held2 resumption
+
+- Policy origin/main 9b7567092 matches remote main. The paused commit includes the version 46 regression and the independent implementations. The held matrix list still needs regeneration and a fresh production-root sweep.
+- The direct Dart checker rejects the planted version 46 for correctness. This probe did not run Flutter tests. The shared Git directory denied FETCH_HEAD writes. Remote main matched the readable local ref.
+- Regenerated the held matrix candidate at seed 20261117. The merged-source and full variant sweep against d97de9415 checked 30 types. All 28 active types and the matrix passed. Matrix has 100 distinct ruleKeys and 100 signatures. Series has 61 and 100, with only index 0 failing.
+
+### Needs the lead
+
+- series-fill-ray-dots #0 choices: choice differs from mistake accumulate-fill. The source must stay a single until the content lane resolves 0018. The 99 generated versions passed.
+
+### Fresh production-root sweep
+
+| Type | Distinct ruleKeys | Total signatures | Checker |
+|---|---:|---:|---|
+| series-dots-size | 16 | 80 | PASS |
+| series-four-tracks | 100 | 100 | PASS |
+| series-interleaved-count | 100 | 100 | PASS |
+| series-size-corner-ray | 48 | 48 | PASS |
+| series-transfer-count | 9 | 45 | PASS |
+| series-binary-fill | 6 | 24 | PASS |
+| series-ray-step | 47 | 100 | PASS |
+| net-three-at-corner | 64 | 64 | PASS |
+| group-boundary | 42 | 42 | PASS |
+| group-polygon-replacement | 100 | 100 | PASS |
+| group-dot-count | 100 | 100 | PASS |
+| group-dot-parity | 100 | 100 | PASS |
+| group-side-double-dots | 68 | 68 | PASS |
+| matrix-dot-sum | 77 | 100 | PASS |
+| matrix-fill-union | 12 | 24 | PASS |
+| matrix-ray-union | 100 | 100 | PASS |
+| matrix-sized-ray-union | 72 | 100 | PASS |
+| matrix-binary-fill-row | 32 | 32 | PASS |
+| matrix-form-ray | 100 | 100 | PASS |
+| matrix-outline-latin | 100 | 100 | PASS |
+| matrix-size-dots | 18 | 55 | PASS |
+| matrix-size-fill | 12 | 40 | PASS |
+| matrix-size-latin | 72 | 72 | PASS |
+| matrix-size-transfer | 81 | 100 | PASS |
+| matrix-arrow-column | 6 | 30 | PASS |
+| matrix-corner-reflection | 100 | 100 | PASS |
+| matrix-growing-turn | 14 | 70 | PASS |
+| matrix-ray-turn | 100 | 100 | PASS |
+| matrix-ray-intersection | 100 | 100 | PASS |
+| series-fill-ray-dots | 61 | 100 | FAIL |
+
+`Checked 30 types. 29 passed, 1 failed.`
+
+- Regeneration produced a byte-identical matrix list. The paused commit already contained the regenerated candidate.
+- PASS direct SDK format, exit 0. `Formatted 65 files (0 changed) in 0.09 seconds.`
+- PASS direct SDK attribution check, exit 0. `check_no_ai_attribution: OK`.
+- PASS direct SDK repository checks, exit 0. All 15 checks reported OK, including `OK    generated-types`, `OK    content-approval`, and `OK    legal-text-drafting`.
+- Flutter tests and analysis were left for the lead under the machine cap.
+- Fresh capacity at 10,000 draws and seed 20261117: matrix 9,961 distinct ruleKeys and 9,961 signatures, series 87 distinct ruleKeys and 345 signatures. The series capacity includes the failing reserved source.
+- `git diff --check` passed and the Git index is empty. Only the two findings files changed on resumption.

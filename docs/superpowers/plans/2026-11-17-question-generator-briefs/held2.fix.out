@@ -1,0 +1,18 @@
+The held matrix candidate passed the independent checker, including exact reproduction of live 0009. The checker rejected the planted version 46. Regeneration produced the same 100 distinct `ruleKeys` and 100 signatures already in the paused commit.
+
+The production-root sweep at `d97de9415` reported `Checked 30 types. 29 passed, 1 failed.` All 28 active types passed. The only failure was `series-fill-ray-dots #0 choices: choice differs from mistake accumulate-fill`. Its 99 generated versions passed. Live 0018 remains a single pending a source ruling because its fills add to 1.25 and its distractor offers full fill.
+
+- PASS `dart format --output=none --set-exit-if-changed tool/generator test/tool/generator` — `Formatted 65 files (0 changed) in 0.09 seconds.`
+- PASS `dart run tool/checks/run_checks.dart` — all 15 checks reported `OK`, including `generated-types` and `content-approval`.
+- PASS `dart run tool/check_no_ai_attribution.dart` — `check_no_ai_attribution: OK`.
+
+Only [FINDINGS.md](./FINDINGS.md) and [FINDINGS-held2.md](./FINDINGS-held2.md) changed on resumption. The Git index is empty. Matrix approval remains with the lead.
+
+Flutter verification remains pending under the machine cap. Lead commands:
+
+```sh
+flutter test test/tool/generator
+flutter analyze tool/generator test/tool/generator
+```
+
+STAGE-DONE
