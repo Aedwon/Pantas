@@ -1,0 +1,84 @@
+meta:
+  subject: language-proficiency
+  topic: language-application
+  subtopic: error-identification-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-language-application-error-identification-pshs-0001
+    lesson: lesson-language-application-past-time-checks
+    keyPoint: 1
+    type: error-identification
+    difficulty: medium
+    stem: |
+      Which part of the sentence contains an error? Choose "No error" if the sentence is correct.
+
+      "After the judges announced the scores yesterday, the teams packed their supplies and leave the hall before the next group arrived."
+    choices:
+      - text: "announced the scores"
+        rationale: |
+          You may look for "had announced" because the scores came first. Check whether "after" already makes the order clear.
+      - text: "packed their supplies"
+        rationale: |
+          You may expect "were packing" because packing took time. Check whether the sentence reports a finished step or an action still in progress.
+      - text: "and leave the hall"
+        correct: true
+      - text: "group arrived"
+        rationale: |
+          You may expect "arrives" because it seems to match "leave." Check how "before" puts the events in order. The group came later, and its arrival is also a past event, so "arrived" fits.
+      - text: "No error"
+        rationale: |
+          The word "packed" may make the whole list sound like it is in the past. Check the form of each verb in the list.
+    explanation: |
+      The teams packed up and left yesterday. Both actions were finished, so "leave the hall" should be "left the hall."
+  - id: q-language-application-error-identification-pshs-0002
+    lesson: lesson-language-application-past-time-checks
+    keyPoint: 1
+    type: error-identification
+    difficulty: hard
+    stem: |
+      Read both sentences. Which part of the first sentence, if any, contains an error? Choose 'No error' if the first sentence is correct.
+
+      "As the ferry approached the dock and sounded its horn, Lito had crossed the footbridge while his sister waited on the far side. He was still halfway across when he heard the horn."
+    choices:
+      - text: "As the ferry approached the dock"
+        rationale: |
+          You may expect "was approaching" because the ferry was moving. "Approached" works in the simple past. Look at how "as" tells when Lito was crossing.
+      - text: "sounded its horn"
+        rationale: |
+          You may expect "had sounded" because the horn had to make a sound for Lito to hear it. Check which event marks the moment when he was halfway across.
+      - text: "had crossed the footbridge"
+        correct: true
+      - text: "his sister waited"
+        rationale: |
+          You may expect "was waiting" because the wait took time. Check what "while" tells you. "Waited" fits because it tells what his sister did while Lito was on the bridge.
+      - text: "No error"
+        rationale: |
+          "Had crossed" is a valid form for an action that was already complete. Check whether Lito had reached the other side when he heard the horn.
+    explanation: |
+      Lito was still halfway across when the horn sounded. "Was crossing" shows that he was still on his way across at that moment.
+  - id: q-language-application-error-identification-pshs-0003
+    lesson: lesson-language-application-past-time-checks
+    keyPoint: 1
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Which part of the sentence contains an error? Choose "No error" if the sentence is correct.
+
+      "When the band reached the park after the rain stopped, the crew had wrote the set list, so the musicians knew which song to play first."
+    choices:
+      - text: "reached the park"
+        rationale: |
+          You may expect "had reached" because the band arrived after the rain stopped. Check which action the sentence uses as the point in time for the crew's work.
+      - text: "after the rain stopped"
+        rationale: |
+          You may expect "was stopping" because the rain could have eased slowly. Check whether the band arrived while it was still raining or after it stopped.
+      - text: "had wrote the set list"
+        correct: true
+      - text: "the musicians knew which song to play first"
+        rationale: |
+          You may expect "had known" because the crew's action uses "had." Check what "so" tells you. The musicians knew what to play because the list was ready.
+      - text: "No error"
+        rationale: |
+          "Wrote" works in the simple past, so it may sound right here. Check which form of "write" goes after "had."
+    explanation: |
+      The crew made the list before the band arrived. Use "had written" to show the earlier action. "Written" is the form of "write" that goes after "had."
