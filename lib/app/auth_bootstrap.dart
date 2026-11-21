@@ -1,7 +1,5 @@
 import 'dart:async';
-import 'dart:convert';
 
-import 'package:cryptography/cryptography.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/account_device_state.dart';
@@ -19,6 +17,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/child_database_name.dart';
 import 'package:pantas/core/storage/data/database_opener.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -43,7 +42,25 @@ List<Override> authRepositoryOverrides(
   LocalStateWiperBuilder? localStateWiperBuilder,
   AccountTransitionGatewayBuilder? accountTransitionGatewayBuilder,
 }) {
+  // The open per-child stores, by uid. Shared by the auth repository, which
+  // opens them, and the deleter, which removes a closed child's.
+  final children = <String, AppDatabase>{};
   return [
+    childStoreDeleterProvider.overrideWith(
+      (ref) => (uid) async {
+        final open = children.remove(uid);
+        // A store that is still the active one is left open: closing it under
+        // the running sync would fail. Its file goes either way, and the open
+        // handle goes with the app.
+        if (open != null &&
+            !identical(ref.read(activeChildDatabaseProvider), open)) {
+          await open.close();
+        }
+        await deleteEncryptedDatabase(
+          databaseName: await childDatabaseName(uid),
+        );
+      },
+    ),
     authRepositoryProvider.overrideWith((ref) {
       if (firebaseResult != FirebaseBootstrapResult.configured) {
         return buildUnavailableAuthRepository();
@@ -52,7 +69,6 @@ List<Override> authRepositoryOverrides(
       final gateway = (authGatewayBuilder ?? FirebaseAuthGateway.new)();
       const childAccounts = FirebaseChildAccountsGateway();
       final firebase = gateway is FirebaseAuthGateway ? gateway : null;
-      final children = <String, AppDatabase>{};
       if (firebase != null) {
         ref.onDispose(() {
           for (final child in children.values) {
@@ -78,11 +94,8 @@ List<Override> authRepositoryOverrides(
               openChild: (uid) async {
                 final existing = children[uid];
                 if (existing != null) return existing;
-                final digest = await Sha256().hash(utf8.encode(uid));
-                final suffix =
-                    base64Url.encode(digest.bytes).replaceAll('=', '');
                 return children[uid] = await openEncryptedDatabase(
-                  databaseName: 'pantas-child-$suffix',
+                  databaseName: await childDatabaseName(uid),
                 );
               },
               activate: (database) async {

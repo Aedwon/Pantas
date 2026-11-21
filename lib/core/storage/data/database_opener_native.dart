@@ -48,6 +48,20 @@ Future<AppDatabase> openEncryptedDatabase({
   );
 }
 
+/// Deletes the database file [databaseName] and the sidecar files SQLite keeps
+/// beside it. A store that is not there is not an error. [directory] is for
+/// tests; the app uses its documents folder.
+Future<void> deleteEncryptedDatabase({
+  required String databaseName,
+  Directory? directory,
+}) async {
+  final dir = directory ?? await getApplicationDocumentsDirectory();
+  for (final suffix in const ['', '-wal', '-shm', '-journal']) {
+    final file = File(p.join(dir.path, '$databaseName.db$suffix'));
+    if (file.existsSync()) await file.delete();
+  }
+}
+
 Future<Uint8List> _readOrCreateKey(FlutterSecureStorage storage) async {
   final existing = await storage.read(key: _keyStorageKey);
   if (existing != null) {

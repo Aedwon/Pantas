@@ -35,6 +35,7 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         '/settings/account/adult-check',
         '/settings/account/name',
         '/settings/account/delete',
+        '/settings/parents',
         '/settings/pro',
         '/settings/beta-feedback',
         '/settings/beta-feedback/survey',

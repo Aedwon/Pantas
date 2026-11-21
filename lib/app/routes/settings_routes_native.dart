@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/ds.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/app/routes/parents_settings_frame.dart';
 import 'package:pantas/app/routes/settings_account_deletion.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/auth/providers.dart';
@@ -22,6 +23,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/beta_feedback/presentation/exit_survey_page.dart';
+import 'package:pantas/features/child_setup/presentation/for_parents_page.dart';
 import 'package:pantas/features/beta_feedback/presentation/feedback_page.dart';
 import 'package:pantas/features/beta_feedback/presentation/sent_feedback_page.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
@@ -183,6 +185,15 @@ List<RouteBase> settingsRoutes(Ref ref) => [
               },
             );
           },
+        ),
+      ),
+      GoRoute(
+        path: forParentsPath,
+        builder: (_, state) => ForParentsPage(
+          wideFrame: parentsSettingsFrame,
+          confirmOnOpen: state.extra is ForParentsLaunch
+              ? (state.extra! as ForParentsLaunch).confirm
+              : null,
         ),
       ),
       GoRoute(

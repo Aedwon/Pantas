@@ -93,7 +93,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       }
       if (path == '/guardian' ||
           path == '/guardian/manage' ||
-          path.startsWith('/legal/')) {
+          path.startsWith('/legal/') ||
+          // The receipt email's delete link and the code gate work for a
+          // parent on a device that has not finished onboarding.
+          path.startsWith('/parents/')) {
         return null;
       }
       final guardianState = ref.read(guardianGateProvider);
