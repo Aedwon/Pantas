@@ -1,0 +1,130 @@
+meta:
+  subject: science
+  topic: biology
+  subtopic: characteristics-of-life-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-biology-characteristics-of-life-pshs-0001
+    lesson: lesson-biology-evidence-for-life-processes
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      Liza has a green leaf and a dead leaf from the same plant. She sees cell outlines in the green leaf under a microscope. Can she use cell outlines alone to tell whether a leaf's cells are alive?
+    choices:
+      - text: 'No, because a dead leaf still has cells.'
+        correct: true
+      - text: 'Yes, because only cells that are still working can keep their shape.'
+        rationale: |
+          This takes a visible cell shape as a sign that the cell still works. A clear outline can make a cell look intact. Check whether seeing an outline tells you what the cell is doing.
+      - text: 'No, because only the whole leaf can carry out life processes.'
+        rationale: |
+          This treats the green leaf as the basic living unit because the whole leaf works as one part of the plant. Check what smaller units Liza sees inside it.
+      - text: 'Yes, because seeing many cells together shows that the cells are working as a group.'
+        rationale: |
+          This takes cells grouped in a leaf as proof that they work together. Cells do work together in a living leaf. Check whether they could stay in place after they die.
+      - text: 'Yes, because cells with a clear outline can start working again when they get light.'
+        rationale: |
+          This treats death as a pause in cell activity. Light helps cells in a green leaf do their work, so it may seem able to restart the dead cells. Check what the description says about the second leaf.
+    explanation: |
+      A dead leaf still has cells. Seeing cell outlines tells Liza that cells are there. To tell if the cells are alive, she needs evidence that they still do the work of life.
+
+  - id: q-biology-characteristics-of-life-pshs-0002
+    lesson: lesson-biology-evidence-for-life-processes
+    keyPoint: 2
+    type: classify
+    difficulty: medium
+    stem: |
+      As a bean seed sprouts, chemical reactions release energy from its stored food. Its root then lengthens as new cells form. Which pair names the two processes described, in order?
+    choices:
+      - text: 'Metabolism, then growth of the root'
+        correct: true
+      - text: 'Growth, then energy processing'
+        rationale: |
+          This puts the two processes in reverse order. The seed uses energy as the root grows, so the events are easy to mix up. Check which event uses stored food and which one adds cells.
+      - text: 'Homeostasis, then growth of the root'
+        rationale: |
+          This treats using stored food as keeping conditions steady. The energy helps keep the seedling going, so homeostasis may sound right. Check whether the first event describes an inside condition held steady or a reaction that releases energy.
+      - text: 'Response to a stimulus, then growth of the root'
+        rationale: |
+          This labels the first event by what might start sprouting. Seeds can respond to changes around them, such as getting water. Check what the question says happens to the food already inside the seed.
+      - text: 'Metabolism, then response to a stimulus'
+        rationale: |
+          This treats root lengthening as a response to a change outside the seedling. Roots can change how they grow in response to their surroundings. Check whether the second event gives a stimulus or tells how the root gets longer.
+    explanation: |
+      The reactions that release energy from food are part of metabolism. The root gets longer by making new cells. That is growth.
+
+  - id: q-biology-characteristics-of-life-pshs-0003
+    lesson: lesson-biology-evidence-for-life-processes
+    keyPoint: 3
+    type: classify
+    difficulty: hard
+    stem: |
+      A land snail is crawling on a tray. A student wants to tell whether the snail detects a light touch. Which observation provides the best evidence?
+    choices:
+      - text: 'The snail pulls in its feelers when the student brushes them.'
+        correct: true
+      - text: 'The snail slides across the tray when the tray is tipped.'
+        rationale: |
+          This treats sliding after a change as proof that the snail sensed it. The motion starts when the tray tips. Check whether the tilt itself can make the snail slide.
+      - text: "The student's push on the shell slides the snail sideways."
+        rationale: |
+          This treats being moved by a push as a reaction to touch. The snail does change places as soon as it is touched. Check whether the student or the snail causes the motion.
+      - text: 'The snail keeps crawling at the same speed after its shell is touched.'
+        rationale: |
+          This counts continued crawling as a reaction just because it happens after a touch. Check whether the snail changes what it is doing when touched.
+      - text: 'The snail turns before the student reaches out to brush it.'
+        rationale: |
+          This links the turn to a touch because the two events are close in time. Check which event comes first.
+    explanation: |
+      The brush is a change the snail can detect. The snail responds to that touch by pulling in its feelers.
+
+  - id: q-biology-characteristics-of-life-pshs-0004
+    lesson: lesson-biology-evidence-for-life-processes
+    keyPoint: 2
+    type: classify
+    difficulty: hard
+    stem: |
+      Water leaves an animal's body in its urine. After losing water on a dry day, the animal starts passing less water in its urine. How does this change help keep the amount of water in its body within a safe range?
+    choices:
+      - text: 'Passing less water in urine slows water loss from the body.'
+        correct: true
+      - text: 'Losing less water in urine keeps the amount of water in the body exactly the same all day.'
+        rationale: |
+          This takes keeping conditions steady to mean keeping one fixed amount. Losing less water in urine limits the change, so the amount may seem constant. Check whether the animal had already lost water that day.
+      - text: 'Passing less water in urine helps the body dry out faster in the dry air.'
+        rationale: |
+          This assumes the body dries out faster because the air is dry. Check whether less water leaving in urine speeds up or slows down water loss.
+      - text: 'Passing less water in urine saves energy because the body has less work to do.'
+        rationale: |
+          Passing less water in urine may sound like less work for the body. Check whether the question gives any information about energy use.
+      - text: 'Passing less water in urine replaces the water the animal already lost.'
+        rationale: |
+          This treats saving water as the same as replacing it. Both can help keep water levels steady. Check whether the change adds water to the body or slows the loss of water.
+    explanation: |
+      When less water leaves in urine, more of the water the animal still has stays in its body. This helps keep the amount of water in its body within a safe range.
+
+  - id: q-biology-characteristics-of-life-pshs-0005
+    lesson: lesson-biology-evidence-for-life-processes
+    keyPoint: 4
+    type: compare-contrast
+    difficulty: exam
+    stem: |
+      A student's notes say that a fly larva used nutrients from its food for energy, became longer, and pulled back when touched. Later, it changed into an adult fly. Which statement about the larva must be inferred from what we know about animals?
+    choices:
+      - text: 'Its body was made of cells.'
+        correct: true
+      - text: 'It used nutrients to get energy.'
+        rationale: |
+          This treats energy use as a fact missing from the notes because the reactions inside the larva are hard to see. Check whether the notes already say what the larva did with its food.
+      - text: 'It responded to being touched.'
+        rationale: |
+          This treats the response as a guess because the notes do not name it as a response. Check what the larva did when it was touched.
+      - text: 'Its body increased in length.'
+        rationale: |
+          This treats growth as a guess because the notes give no measurements. Check whether they still tell you how its length changed.
+      - text: 'It changed from a larva into an adult fly.'
+        rationale: |
+          This treats the adult stage as a prediction because larvae and adults look different. Check whether the notes report what the larva became.
+    explanation: |
+      A fly larva is an animal. Animals are made of cells, so we can infer that the larva's body was made of cells.
