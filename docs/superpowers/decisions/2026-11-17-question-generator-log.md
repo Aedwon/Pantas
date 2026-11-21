@@ -837,3 +837,9 @@ Lead rulings:
 2. Velocity: Phase 2 is timed as E-127, because main's E-110 belongs to another lane.
 3. Spec B9 and the plan name Codex GPT 6.1 Sol; GPT 6.2 Sol replaces it everywhere (Aedwon, Nov 19,
    recorded in the Nov 21 manager handoff: "use 6.2 Sol as the default everywhere").
+
+## November 21, 2026: Phase 2 rulings from the code map
+
+Map: `docs/superpowers/verification/question-generator/p2-map.md` (Codex GPT 6.2 Sol, read-only; 28 enabled types, 2,094 variants on this branch). The lead's rulings L1 to L10 are at its end. The one that changes Part B: L4, served state is derived from the answer records that already sync, with a local cache column, instead of a new `servedVariants` field on `fsrs_cards`. Reason: the map found that older clients rewrite those documents whole, so a new field there could be erased by a phone not yet updated, and answers already merge as a union. Part A is unchanged.
+
+Manager instructions, Nov 21 (relayed): no Claude workers in this lane, because Aedwon's Claude 5-hour usage was burning too fast. Blind solves run on Codex GPT 6.2 Sol at high effort, as a run separate from the builder. The only alternative is Gemini 4 Neon through Antigravity, never Gemini 3.8 Flash, which is for verified bulk work only and never answer correctness. This replaces plan Task 1.4's Sonnet blind solves.

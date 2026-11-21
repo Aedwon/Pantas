@@ -1,0 +1,12 @@
+Completed [p2-map.md](/Users/aedwon/.t3/worktrees/Pantas/gen-question-generator--6f7c45c092bc295d/docs/superpowers/verification/question-generator/p2-map.md), the only file I edited. Nothing was staged or committed.
+
+The branch contains **28 enabled types and 2,094 variants**. The main lead decisions are how to preserve `variantIndex` through resume and review, prevent older clients from erasing served state, and coordinate rollback across the separate native and web content pipelines.
+
+- Map validation passed. Nine sections, 330 valid citation ranges, four valid JSON examples.
+- Layering passed. `check_layering: OK`
+- Attribution passed. `check_no_ai_attribution: OK`
+- Format failed on existing files. `Formatted 2499 files (6 changed)` in check-only mode.
+- `flutter analyze --no-pub` was blocked. The analysis server could not create its plugin cache inside the sandbox.
+- Flutter tests and Functions plain and emulator tests were outside the scope of this Markdown-only change.
+
+STAGE-DONE
