@@ -1,0 +1,355 @@
+meta:
+  subject: language-proficiency
+  topic: language-application
+  subtopic: sentence-completion-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-language-application-sentence-completion-pshs-0001
+    lesson: lesson-language-application-completion-natural-phrases
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: medium
+    stem: |
+      Choose the best completion.
+      "When rain started during the picnic, the class had to ________ a decision about whether to move indoors."
+    choices:
+      - text: perform
+        rationale: |
+          The class has to act, and "perform" can mean carry out an action. Check which verb fits the act of deciding.
+      - text: reach for
+        rationale: |
+          You can "reach a decision," so "reach for" may sound right. Check whether adding "for" still gives the phrase that means deciding.
+      - text: carry out
+        rationale: |
+          You can "carry out a decision" once it has been made. Check whether the class has already chosen where to go.
+      - text: make
+        correct: true
+      - text: draw
+        rationale: |
+          You can "draw a conclusion" from the weather you see. Check which verb goes with "a decision" about where to have the picnic.
+    explanation: |
+      "Make a decision" means choose what to do. The class needs to choose whether to move indoors.
+
+  - id: q-language-application-sentence-completion-pshs-0002
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: medium
+    stem: |
+      Choose the word that best completes the sentence.
+      "Although the stage crew had rehearsed the scene changes, their first change in front of an audience was ________. They started and finished on cue, but they brought out the wrong bench and knocked over a lamp."
+    choices:
+      - text: clumsy
+        correct: true
+      - text: unfinished
+        rationale: |
+          The wrong bench might make it seem like the crew still had work to do. Check whether the crew finished the change.
+      - text: late
+        rationale: |
+          Moving the wrong bench could slow a crew down. Check when this crew started and finished.
+      - text: uneventful
+        rationale: |
+          You might expect little to happen during a practiced scene change. Check whether the last sentence describes a change with no problems.
+      - text: precise
+        rationale: |
+          Rehearsal can help a crew place each prop exactly where it belongs. Check whether the crew even brought out the right prop.
+    explanation: |
+      "Clumsy" describes a movement or action done awkwardly. "Although" signals a change from what you expect. The crew had practiced, but they still moved the wrong bench and knocked over a lamp.
+
+  - id: q-language-application-sentence-completion-pshs-0003
+    lesson: lesson-language-application-completion-past-time
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: medium
+    stem: |
+      Choose the form that best completes the sentence.
+      "During yesterday's relay, Jessa ________ the baton from her teammate and crossed the finish line."
+    choices:
+      - text: takes
+        rationale: |
+          A sports announcer might say "takes" while a race is happening. Check whether the sentence reports a race happening now or one that ended yesterday.
+      - text: took
+        correct: true
+      - text: was taking
+        rationale: |
+          "Was taking" puts the action in the past and shows it in progress. Check whether the sentence stops during the handoff or reports it as a finished step in the race.
+      - text: has taken
+        rationale: |
+          "Has taken" shows a finished action linked to the present. Check whether the sentence gives a finished time in the past for the handoff.
+      - text: had taken
+        rationale: |
+          Taking the baton came first, which may make "had taken" seem useful. Check how the sentence joins two finished steps in order with "and."
+    explanation: |
+      "Took" shows a finished action in the past. Jessa took the baton and then crossed the finish line in yesterday's race.
+
+  - id: q-language-application-sentence-completion-pshs-0004
+    lesson: lesson-language-application-completion-articles-and-lists
+    keyPoint: 2
+    type: fill-in-the-blank
+    difficulty: medium
+    stem: |
+      Choose the pair that best completes the sentence.
+      "During the exhibit, Bea was responsible ________ the model. She was also interested ________ learning how its paper wings moved."
+    choices:
+      - text: of, in
+        rationale: |
+          "Interested in" fits the second blank. "In charge of" also makes sense when someone looks after a model. Check which word goes with "responsible."
+      - text: to, in
+        rationale: |
+          "Interested in" fits the second blank. You can be responsible to a person you report to. Check whether the model is someone Bea reports to or something in her care.
+      - text: for, about
+        rationale: |
+          "Responsible for" fits the first blank. Bea is curious about the wings, so "about" may sound right. Check which word follows "interested."
+      - text: for, at
+        rationale: |
+          "Responsible for" fits the first blank. "Good at learning" uses "at" before an activity. Check which word goes after "interested" to show what Bea wants to learn.
+      - text: for, in
+        correct: true
+    explanation: |
+      "Responsible for" names what Bea must look after. "Interested in" tells what she wants to learn.
+
+  - id: q-language-application-sentence-completion-pshs-0005
+    lesson: lesson-language-application-completion-articles-and-lists
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: hard
+    stem: |
+      Choose the articles that best complete the sentences.
+      "A new display opened at school. ________ display includes ________ uniform and ________ old map, both loaned by local families."
+    choices:
+      - text: A, a, an
+        rationale: |
+          "A uniform" and "an old map" fit the sounds. "A display" works when you first bring it up. Check whether the first sentence has already named the display.
+      - text: The, an, an
+        rationale: |
+          "The display" and "an old map" fit. The letter "u" may make you choose "an" for "uniform." Say "uniform" aloud and listen for the "y" sound at the start.
+      - text: The, a, an
+        correct: true
+      - text: The, a, a
+        rationale: |
+          The first two articles fit. You might repeat "a" because both objects are new to the reader. Say "old" aloud and check its first sound.
+      - text: The, the, an
+        rationale: |
+          "The display" and "an old map" fit. You might use "the" for the uniform because it is part of the display. Check whether the reader has been told which uniform it is.
+    explanation: |
+      "The display" points to the display in the first sentence. The uniform and map are new to the reader. "Uniform" starts with a "y" sound, so use "a." "Old" starts with a vowel sound, so use "an."
+
+  - id: q-language-application-sentence-completion-pshs-0006
+    lesson: lesson-language-application-completion-past-time
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: hard
+    stem: |
+      Choose the form that best completes the sentence.
+      "Nico started wiping the last shelf while the lights were still on. He ________ the shelf when the lights went out, and he stopped at once. Once the lights came back on, he finished wiping it."
+    choices:
+      - text: was wiping
+        correct: true
+      - text: had wiped
+        rationale: |
+          "Had wiped" puts the job before the lights went out. You might notice that Nico started before then. Check whether he had also finished by then.
+      - text: wiped
+        rationale: |
+          "Wiped" puts the action in the past, which fits the story. Check whether Nico started wiping when the lights went out or was already doing it.
+      - text: would be wiping
+        rationale: |
+          "Would be wiping" can describe an action someone expected to happen later. Both forms can show an action that takes time. Check what Nico was already doing when the lights went out.
+      - text: has been wiping
+        rationale: |
+          "Has been wiping" shows an action that goes on for some time. It links it to the present. Check whether the story is about now or about the time the lights went out.
+    explanation: |
+      "Was wiping" shows that Nico was still at work when the lights went out. He finished later, after the lights came back on.
+
+  - id: q-language-application-sentence-completion-pshs-0007
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: hard
+    stem: |
+      Choose the phrase that best connects the ideas.
+      "Labels can help a visitor notice details in an exhibit. ________, a label beside a woven mat might point out where the maker changed the pattern."
+    choices:
+      - text: As a result
+        rationale: |
+          Labels can have an effect on visitors, so a result may sound right. Check whether the second sentence gives an effect of the first idea or a case that shows it.
+      - text: In contrast
+        rationale: |
+          The second sentence shifts from exhibits in general to a woven mat. A change in topic can sound like a contrast. Check whether the mat label goes against the first claim.
+      - text: In other words
+        rationale: |
+          The second sentence makes the first idea easier to picture. This phrase usually restates an idea. Check whether the new sentence repeats the claim or shows it with one label.
+      - text: Instead
+        rationale: |
+          The second sentence shifts to a specific label, so the change may sound like a replacement. "Instead" introduces a replacement. Check whether the mat label replaces the first idea or shows it in one case.
+      - text: For example
+        correct: true
+    explanation: |
+      "For example" introduces one case of a general idea. The label beside the mat shows how a label can help someone spot a detail.
+
+  - id: q-language-application-sentence-completion-pshs-0008
+    lesson: lesson-language-application-completion-articles-and-lists
+    keyPoint: 3
+    type: fill-in-the-blank
+    difficulty: hard
+    stem: |
+      Which phrase uses the same form as the first two items in the list?
+      "The radio club's guide covers setting up the microphone, testing the sound, and ________."
+    choices:
+      - text: the recording of an interview
+        rationale: |
+          This names the right job and can follow "covers" on its own. Check whether it starts with an action like "setting up" and "testing."
+      - text: how to record an interview
+        rationale: |
+          A guide can cover how to do a job. Check whether the earlier items start with "how to" or use actions ending in "-ing."
+      - text: recording an interview
+        correct: true
+      - text: tips for recording an interview
+        rationale: |
+          A guide can offer tips, and this phrase even uses "recording." Check what the list item starts with. Here it starts with "tips."
+      - text: to record an interview
+        rationale: |
+          "To record" names the same action and would fit after a word like "plans." Check which form matches "setting up" and "testing" in this list.
+    explanation: |
+      "Setting up" and "testing" name actions in the "-ing" form. "Recording" names the last action the same way.
+
+  - id: q-language-application-sentence-completion-pshs-0009
+    lesson: lesson-language-application-completion-natural-phrases
+    keyPoint: 2
+    type: fill-in-the-blank
+    difficulty: hard
+    stem: |
+      Choose the expression that best completes the sentence.
+      "No one at the workshop knew anyone else, so the host asked everyone an easy question to ________ before the group work began."
+
+      clear the air (talk through a disagreement)
+      break the ice (help people feel at ease and start talking)
+      get to the bottom of things (find out what really happened)
+      cut to the chase (get straight to the main point)
+      break the news (tell someone important news)
+    choices:
+      - text: clear the air
+        rationale: |
+          This means talk through bad feelings or a problem. The room may feel tense because people are strangers. Check whether there is a past disagreement to clear up.
+      - text: break the ice
+        correct: true
+      - text: get to the bottom of things
+        rationale: |
+          This means find out what really happened. Asking a question can help you do that. Check whether the host is looking for facts or helping people start talking.
+      - text: cut to the chase
+        rationale: |
+          This means get straight to the main point. The host asks everyone a question, so it might seem like the main task has begun. Check when the group work starts.
+      - text: break the news
+        rationale: |
+          A host might share news at the start of a workshop. Check whether this host makes an announcement or helps people start talking.
+    explanation: |
+      "Break the ice" means help people feel at ease and start talking. The easy question gives the strangers something to say to each other.
+
+  - id: q-language-application-sentence-completion-pshs-0010
+    lesson: lesson-language-application-completion-articles-and-lists
+    keyPoint: 3
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Which phrase names the second way to school in the same form as "walking along the river"?
+      "Dan has two ways to get to school. He prefers walking along the river to ________."
+    choices:
+      - text: ride the bus along the main road
+        rationale: |
+          "Prefers to ride" can name an activity Dan likes. Here "to" links two options. Check what form matches "walking."
+      - text: riding the bus on the main road
+        correct: true
+      - text: a seat on the bus
+        rationale: |
+          A seat on the bus is part of the trip, so it fits the setting. Check whether Dan is comparing a walk with a seat or with another way to get to school.
+      - text: oncoming buses on the main road
+        rationale: |
+          "Oncoming" ends in "-ing," so it looks like "walking." Check whether it names what Dan does or describes the buses.
+      - text: the bus route running along the main road
+        rationale: |
+          The route is where the bus goes, and "running" looks like it matches "walking." Check whether "running" describes the route or names what Dan does.
+    explanation: |
+      Dan is comparing two ways to get to school. "Riding the bus" names an action in the same form as "walking along the river."
+
+  - id: q-language-application-sentence-completion-pshs-0011
+    lesson: lesson-language-application-completion-meaning-clues
+    keyPoint: 2
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the pair that best completes the sentence.
+      "The notice made people think that the library had closed for good. The librarian explained that the reading room would reopen on Monday. The closure was therefore ________, and only the reading room itself was ________. Readers could still borrow books at the front desk."
+    choices:
+      - text: temporary, overcrowded
+        rationale: |
+          "Temporary" fits the idea that the room will open again. A crowded room could lead to a closure, but the last part tells what people could still use. Check what changed for readers.
+      - text: permanent, inaccessible
+        rationale: |
+          "Inaccessible" fits a room readers cannot enter. "Permanent" repeats what people first thought. Check when the librarian says the room will reopen.
+      - text: indefinite, off-limits
+        rationale: |
+          "Off-limits" fits the room. "Indefinite" can describe a closure with no set end date. Check whether the librarian gives a day for the room to reopen.
+      - text: temporary, off-limits
+        correct: true
+      - text: temporary, available
+        rationale: |
+          "Temporary" fits the length of the closure. Books were still available, so that word may seem right. Check whether the second blank describes the books or the room.
+    explanation: |
+      A "temporary" closure will end. The room is "off-limits," which means people cannot go into it. They can still get books at the front desk.
+
+  - id: q-language-application-sentence-completion-pshs-0012
+    lesson: lesson-language-application-completion-natural-phrases
+    keyPoint: 2
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the expression that best completes the sentence.
+      "Mila thought the broken lid would ruin her display. It turned out to ________ because making a new lid gave her a way to show how the hinge worked."
+
+      be a blessing in disguise (be a problem that leads to something good)
+      add fuel to the fire (make a bad situation worse)
+      be the last straw (be the final problem that makes someone lose patience)
+      be the calm before the storm (be a quiet time before trouble starts)
+      bring her back to square one (make her start again from the beginning)
+    choices:
+      - text: be a blessing in disguise
+        correct: true
+      - text: add fuel to the fire
+        rationale: |
+          This means make a bad situation worse. The broken lid seemed bad at first. Check whether the new lid made the display worse or gave Mila something more to show.
+      - text: be the last straw
+        rationale: |
+          A broken lid is a setback, and the last straw is a final problem that makes someone lose patience. Check what the break led to in Mila's case.
+      - text: be the calm before the storm
+        rationale: |
+          This means a quiet time before trouble. The sentence has a change in what Mila expects, which can make the phrase seem right. Check whether the trouble came before or after the good result.
+      - text: bring her back to square one
+        rationale: |
+          This means make her start again from the beginning. Mila did have to make a new lid. Check whether the sentence is about starting over or getting an unexpected benefit.
+    explanation: |
+      A "blessing in disguise" seems bad at first but turns out to help. The broken lid gives Mila a chance to show how the hinge works.
+
+  - id: q-language-application-sentence-completion-pshs-0013
+    lesson: lesson-language-application-completion-past-time
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Choose the form that best completes the sentence.
+      "When the museum opened for the day, the guide ________ the signs for the new exhibit. The ink was already dry, and the signs were ready to hang."
+    choices:
+      - text: was writing
+        rationale: |
+          "Was writing" shows a job in progress when the museum opened. An opening can give the time of an ongoing job. Check what the dry ink tells you about when the writing ended.
+      - text: had wrote
+        rationale: |
+          "Had" can show that the work happened earlier, and "wrote" works by itself to show past time. Check which form of "write" goes after "had."
+      - text: had written
+        correct: true
+      - text: would be writing
+        rationale: |
+          "Would be writing" could describe work someone expected to be in progress when the museum opened. Check what the dry ink and finished signs tell you about when the guide stopped writing.
+      - text: has been writing
+        rationale: |
+          This form can describe recent work that matters now. Check whether the sentence looks back from today or from the moment the museum opened.
+    explanation: |
+      The dry ink shows the guide finished before the museum opened. "Had written" shows that earlier action. "Written" is the form of "write" that goes after "had."
