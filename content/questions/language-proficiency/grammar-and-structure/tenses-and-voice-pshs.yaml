@@ -1,0 +1,286 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: tenses-and-voice-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-grammar-and-structure-tenses-and-voice-pshs-0001
+    lesson: lesson-grammar-and-structure-past-events-and-future-meaning
+    keyPoint: 1
+    type: tense
+    difficulty: medium
+    stem: |
+      Complete the sentence so that both actions took place during yesterday's repair.
+      "The workers ___ the loose boards and ___ them to the shed."
+    choices:
+      - text: "lifted / carried"
+        correct: true
+      - text: "lifting / carried"
+        rationale: |
+          "Lifting" names what the workers did, so it may sound right. It needs a helping verb to tell when it happened. Check the simple past form of "lift."
+      - text: "lift / carried"
+        rationale: |
+          This puts the first action in the present. "Carried" may make the whole line sound like a past event. Check when the workers lifted the boards.
+      - text: "lifted / carry"
+        rationale: |
+          This shifts the second action to the present. "Lifted" gets the first action right. Check whether the workers also carried the boards yesterday.
+      - text: "will lift / will carry"
+        rationale: |
+          This reads the steps as a plan. Repair tasks often come in a set order. Check whether the repair is planned or already over.
+    explanation: |
+      Both actions took place yesterday. "Lifted" and "carried" are the simple past forms of "lift" and "carry."
+
+  - id: q-grammar-and-structure-tenses-and-voice-pshs-0002
+    lesson: lesson-grammar-and-structure-past-events-and-future-meaning
+    keyPoint: 2
+    type: tense
+    difficulty: medium
+    stem: |
+      Lea has just decided to do two jobs at tomorrow's fair. She starts to write, "I will brought the labels and checked the list." Which revision corrects the verb forms and keeps both actions in the future?
+    choices:
+      - text: "I will bring the labels and check the list."
+        correct: true
+      - text: "I will bring the labels and checked the list."
+        rationale: |
+          This puts the second action in the past. "Will bring" makes the start sound right. Check that "will" goes with both actions and both verbs use their base forms.
+      - text: "I will brought the labels and check the list."
+        rationale: |
+          This puts a past form after "will." "Brought" is a form of the right verb. Check which form of "bring" can follow "will."
+      - text: "I will bringing the labels and checking the list."
+        rationale: |
+          This puts two -ing forms right after "will." The matching endings can sound right together. Check which forms can go right after "will."
+      - text: "I brought the labels and will check the list."
+        rationale: |
+          This treats bringing the labels as finished. The second half does give a plan. Check whether both tasks are for tomorrow.
+    explanation: |
+      Lea plans to do both jobs tomorrow. "Will" goes with both "bring" and "check." They are both base forms.
+
+  - id: q-grammar-and-structure-tenses-and-voice-pshs-0003
+    lesson: lesson-grammar-and-structure-present-perfect-links-to-now
+    keyPoint: 1
+    type: tense
+    difficulty: medium
+    stem: |
+      The contest is still going on. Which pair of verb groups completes the sentence in the present perfect?
+      "So far, the judges ___ the entries, and the host ___ a list of finalists."
+    choices:
+      - text: "have reviewed / has prepared"
+        correct: true
+      - text: "has reviewed / has prepared"
+        rationale: |
+          This uses "has" for both groups. It fits "the host," so it may seem right in both places. Check whether "the judges" means one person or more than one.
+      - text: "have review / has prepared"
+        rationale: |
+          This uses the base form after "have." "Have" fits "the judges." Check which form of "review" follows "have."
+      - text: "have reviewed / have prepared"
+        rationale: |
+          This carries "have" over to the second group. It works with "the judges." Check the subject of the second verb group on its own.
+      - text: "have reviewed / has preparing"
+        rationale: |
+          This uses an -ing form after "has." The contest is still going on, so that ending may seem right. Check which form of "prepare" follows "has."
+    explanation: |
+      "The judges" takes "have," and "the host" takes "has." Add the past participles "reviewed" and "prepared" to make the present perfect.
+
+  - id: q-grammar-and-structure-tenses-and-voice-pshs-0004
+    lesson: lesson-grammar-and-structure-present-perfect-links-to-now
+    keyPoint: 3
+    type: tense
+    difficulty: medium
+    stem: |
+      The gate is still locked. The guard put the lock on at dusk last night. Which report gives the exact time the guard did this?
+    choices:
+      - text: "I locked the gate at dusk last night."
+        correct: true
+      - text: "I have locked the gate at dusk last night."
+        rationale: |
+          This uses present perfect with a finished past time. The locked gate still matters now. Check whether the report names when the guard locked it.
+      - text: "I have kept the gate locked since dusk last night."
+        rationale: |
+          This reports how long the gate has stayed locked. It uses the same time clue as the report. Check whether the sentence states when the guard first locked it.
+      - text: "I had locked the gate by dusk last night."
+        rationale: |
+          "By dusk" means the gate was locked no later than dusk. That sounds close to "at dusk." Check which phrase gives the time the guard locked it.
+      - text: "I will lock the gate at dusk tonight."
+        rationale: |
+          This promises to lock the gate in the future. "At dusk" still names the same time of day. Check which night the guard is talking about.
+    explanation: |
+      "At dusk last night" names a finished past time. "Locked" is simple past, so it tells what the guard did at that time.
+
+  - id: q-grammar-and-structure-tenses-and-voice-pshs-0005
+    lesson: lesson-grammar-and-structure-past-perfect-earlier-completion
+    keyPoint: 1
+    type: tense
+    difficulty: medium
+    stem: |
+      When the bus arrived at the museum, the teacher found the tickets in her bag. A student is writing about the packing as an action already complete at the time of arrival. Which verb group does that job?
+      "The teacher ___ the tickets in her bag."
+    choices:
+      - text: had packed
+        correct: true
+      - text: had pack
+        rationale: |
+          This uses the base form after "had." "Had" points to an earlier action. Check which form of "pack" follows it.
+      - text: has packed
+        rationale: |
+          This ties the packing to now. The tickets were ready when the teacher needed them. Check whether the point you are looking back from is now or the past arrival.
+      - text: would pack
+        rationale: |
+          This can describe a plan from a point in the past. The trip took place in the past, so the form may seem to fit. Check whether packing was still ahead or already done at arrival.
+      - text: was packing
+        rationale: |
+          This makes the packing an action in progress. It fits the general past setting. Check whether packing was still going on when the bus arrived.
+    explanation: |
+      The tickets were already in the bag when the bus arrived. "Had" plus the past participle "packed" shows the packing was complete by then.
+
+  - id: q-grammar-and-structure-tenses-and-voice-pshs-0006
+    lesson: lesson-grammar-and-structure-past-events-and-future-meaning
+    keyPoint: 3
+    type: tense
+    difficulty: hard
+    stem: |
+      Yesterday's closure lasted all day. Hikers can use the trail again. Which notice states both facts directly?
+    choices:
+      - text: "The trail was closed yesterday but is open now."
+        correct: true
+      - text: "The trail was closed yesterday but will be open now."
+        rationale: |
+          This makes the open state sound like a prediction. The first half gets yesterday right. Check whether the notice gives a fact about the trail now.
+      - text: "The trail is closed yesterday but is open now."
+        rationale: |
+          This uses "is" for both states. It fits the trail now. Check which form belongs with "yesterday."
+      - text: "The trail was closed yesterday but was open now."
+        rationale: |
+          This makes both states past. Keeping both verbs alike can seem safer. Check whether the second half needs to describe the trail now.
+      - text: "The trail will be closed yesterday but is open now."
+        rationale: |
+          This uses "will be" for the closed state. It may sound like the kind of update a notice gives. Check whether the closure is still ahead.
+    explanation: |
+      "Was closed" describes yesterday. "Is open" describes the trail now. The change in verb form shows the change in time.
+
+  - id: q-grammar-and-structure-tenses-and-voice-pshs-0007
+    lesson: lesson-grammar-and-structure-past-perfect-earlier-completion
+    keyPoint: 2
+    type: tense
+    difficulty: hard
+    stem: |
+      Read the two sentences.
+      1. Before Rosa hung the lantern, she lit it.
+      2. Before Rosa hung the lantern, she had lit it.
+      How do the two sentences describe the order of events?
+    choices:
+      - text: "Both place the lighting first."
+        correct: true
+      - text: "Only the second places the lighting first."
+        rationale: |
+          This treats "had lit" as the only way to mark the first event. It does stress that the lighting was complete. Check what "before" already tells you in the first sentence.
+      - text: "Only the first places the lighting first."
+        rationale: |
+          This reads "had lit" as a change in order. The form does change the way the earlier act is shown. Check if it changes the meaning of "before."
+      - text: "Both place the hanging of the lantern first."
+        rationale: |
+          This takes the first action mentioned as the first to happen. The sentences do name the hanging first. Check which action "before" puts later.
+      - text: "Neither tells which of the two actions came first."
+        rationale: |
+          This looks for clock times to put the actions in order. Neither sentence gives a clock time. Check whether "before" is enough to tell which act came first.
+    explanation: |
+      "Before Rosa hung the lantern" tells when she lit it. The lighting came first in both sentences. "Had lit" stresses that the lighting was already done.
+
+  - id: q-grammar-and-structure-tenses-and-voice-pshs-0008
+    lesson: lesson-grammar-and-structure-present-perfect-links-to-now
+    keyPoint: 2
+    type: tense
+    difficulty: hard
+    stem: |
+      A school started its book drive on Monday. It is Wednesday, and donations will keep coming in through Friday. Which update covers the whole drive up to now?
+    choices:
+      - text: "We have received several boxes of books since Monday."
+        correct: true
+      - text: "We have received several boxes of books since this morning."
+        rationale: |
+          This counts boxes up to now, but it starts the count this morning. Check which day the drive began.
+      - text: "We received several boxes of books on Monday."
+        rationale: |
+          This reports what happened on one finished day. Monday is part of the drive. Check whether the update is for Monday alone or for the drive up to now.
+      - text: "We will receive several boxes of books by Friday."
+        rationale: |
+          This predicts what will arrive by the end of the drive. Friday is the last day. Check whether the update is about expected books or books already received.
+      - text: "We receive several boxes of books each week."
+        rationale: |
+          This describes a weekly habit. The drive does run for part of the week. Check whether the update is meant to count what has come in during this drive.
+    explanation: |
+      The drive started on Monday. "Since Monday" gives the start of the count. "Have received" carries the count up to now.
+
+  - id: q-grammar-and-structure-tenses-and-voice-pshs-0009
+    lesson: lesson-grammar-and-structure-past-perfect-earlier-completion
+    keyPoint: 1
+    type: tense
+    difficulty: exam
+    stem: |
+      In a story, the lights went out just as the dancers stepped onto the stage. The crowd took their seats earlier. Which sentence uses the past perfect to show that the crowd was already seated when the lights went out?
+    choices:
+      - text: "The crowd had settled into their seats when the lights went out."
+        correct: true
+      - text: "The crowd was about to settle into their seats when the lights went out."
+        rationale: |
+          This says the crowd was getting ready to sit. It links the two events closely. Check whether the crowd still needed to take their seats when the lights went out.
+      - text: "The crowd settled into their seats when the lights went out."
+        rationale: |
+          This uses simple past to place both actions at the same time. Both actions are in the past. Check which one was already complete when the lights went out.
+      - text: "The crowd was settling into their seats when the lights went out."
+        rationale: |
+          This shows people still taking their seats. It correctly uses the lights going out as a time clue. Check whether the crowd was still sitting down at that point.
+      - text: "The crowd had settle into their seats when the lights went out."
+        rationale: |
+          This puts the base form "settle" after "had." The helper does point to an earlier action. Check which form of "settle" follows "had."
+    explanation: |
+      The crowd was seated before the lights went out. "Had" plus the past participle "settled" shows that the action was already done.
+
+  - id: q-grammar-and-structure-tenses-and-voice-pshs-0010
+    lesson: lesson-grammar-and-structure-past-events-and-future-meaning
+    keyPoint: 3
+    type: tense
+    difficulty: exam
+    stem: |
+      The team finished painting its booth yesterday. The booth needs no more work today. The team plans to hang its sign tomorrow. Which update gives all three details?
+    choices:
+      - text: "We painted it yesterday. It is ready now, and we will put up the sign tomorrow."
+        correct: true
+      - text: "We painted it yesterday. It was ready now, and we had put up the sign tomorrow."
+        rationale: |
+          This puts all three details in the past. The first verb does fit yesterday. Check which forms fit "now" and "tomorrow."
+      - text: "We painted it yesterday. It is ready now, and we have put up the sign tomorrow."
+        rationale: |
+          This treats the sign as already in place. The first two details match the team's report. Check the day the team plans to put up the sign.
+      - text: "We will paint it yesterday. It is ready now, and we will put up the sign tomorrow."
+        rationale: |
+          This uses "will" for both actions. It fits the plan to put up the sign. Check if it also fits work that happened yesterday.
+      - text: "We painted it yesterday. It will be ready now, and we will put up the sign tomorrow."
+        rationale: |
+          This makes the booth's ready state sound like a prediction. "Will" fits the plan for the sign. Check which form states that the booth is ready now.
+    explanation: |
+      "Painted" puts the painting yesterday. "Is ready" describes the booth now. "Will put up" places the sign work tomorrow. Each verb fits its own time.
+
+  - id: q-grammar-and-structure-tenses-and-voice-pshs-0011
+    lesson: lesson-grammar-and-structure-present-perfect-links-to-now
+    keyPoint: 2
+    type: tense
+    difficulty: exam
+    stem: |
+      Nico is about to try rowing for the first time. Which reply uses the present perfect to tell his coach this is his first time?
+    choices:
+      - text: "I have never rowed a boat."
+        correct: true
+      - text: "I had never rowed a boat before the trip."
+        rationale: |
+          This looks back from a past trip. "Never rowed" sounds like it matches Nico's lack of experience. Check whether the time limit is a past event or the present moment.
+      - text: "I did not row a boat during our last trip."
+        rationale: |
+          This talks about one finished trip. Skipping rowing then fits what we know. Check whether the reply covers all of Nico's experience up to now.
+      - text: "I have not rowed a boat since last summer."
+        rationale: |
+          This limits the claim to the time since last summer. It uses present perfect, so the form may seem right. Check whether it rules out rowing before last summer.
+      - text: "I will not row a boat until the trip ends."
+        rationale: |
+          This gives a plan for the future. It may sound like Nico has yet to row. Check whether the reply tells the coach what Nico has done in his life so far.
+    explanation: |
+      "Have never rowed" covers Nico's whole life up to now. It tells his coach that this will be his first time rowing.
