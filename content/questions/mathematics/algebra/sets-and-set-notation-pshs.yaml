@@ -1,0 +1,256 @@
+meta:
+  subject: mathematics
+  topic: algebra
+  subtopic: sets-and-set-notation-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-algebra-sets-and-set-notation-pshs-0001
+    lesson: lesson-algebra-set-membership-and-operations
+    keyPoint: 1
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      A library lists each edition of a book separately. One list shows editions in Filipino. Another list shows audio editions. A student wants to listen to a book in Filipino. Which edition should the student choose?
+    choices:
+      - text: An edition on both lists
+        correct: true
+      - text: An edition on the Filipino list only
+        rationale: |
+          This checks the language. That is one of the two conditions. Look for the same edition on the audio list too.
+      - text: An edition on the audio list only
+        rationale: |
+          This checks the format. An audio edition could still be in another language. Look for the same edition on the Filipino list too.
+      - text: An edition on either list, even if it is on just one
+        rationale: |
+          This uses the union. An edition on one list can meet one part of the request. Would a Filipino print edition let the student listen?
+      - text: An edition outside both lists
+        rationale: |
+          This treats both lists as lists of editions to skip. That makes an edition off both lists seem like a good choice. Does the student want an edition that meets both conditions?
+    explanation: |
+      The student needs an audio edition in Filipino. An edition on both lists meets both conditions. It is in the intersection of the lists.
+
+  - id: q-algebra-sets-and-set-notation-pshs-0002
+    lesson: lesson-algebra-set-membership-and-operations
+    keyPoint: 1
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      The school has games labeled $P$, $Q$, $R$, $S$, and $T$. Only $P$, $Q$, $R$, and $S$ are in the game room. Let $U$ be the games in the room and let $A=\{P,R\}$ be the games already in use. What is $A'$ relative to $U$?
+    choices:
+      - text: '$\{Q,S\}$'
+        correct: true
+      - text: '$\{Q,S,T\}$'
+        rationale: |
+          This removes the games in use from the school list. The school list names every game, so it can look like the starting set. Check which games are in $U$.
+      - text: '$\{P,R\}$'
+        rationale: |
+          This keeps the games named in $A$. Those games are in the room. Check what the prime mark asks you to leave out.
+      - text: '$\{P,Q,R,S\}$'
+        rationale: |
+          This uses the right starting set. All four games are in the room. Cross out the games that are already in use.
+      - text: '$\{T\}$'
+        rationale: |
+          This finds the game outside the room. A complement does look for items outside a set. Check which set has the prime mark.
+    explanation: |
+      Start with the games in the room. Remove $P$ and $R$ because those games are in use. The games left in $U$ are $Q$ and $S$.
+
+  - id: q-algebra-sets-and-set-notation-pshs-0003
+    lesson: lesson-algebra-counting-venn-diagram-regions
+    keyPoint: 1
+    type: word-problem
+    difficulty: easy
+    stem: |
+      During a school fair, $7$ students helped at the ticket table and $6$ helped at the prize table. Of these students, $4$ helped at both tables. How many different students helped at these tables?
+    choices:
+      - text: '9'
+        correct: true
+      - text: '13'
+        rationale: |
+          This adds both table counts. Each count is correct on its own. Check how often that sum counts a student who helped at both tables.
+      - text: '3'
+        rationale: |
+          This finds $7-4$, the ticket-only group. It is one group of helpers. Check for helpers at the prize table.
+      - text: '2'
+        rationale: |
+          This finds $6-4$, the prize-only group. It counts each of those helpers once. Check for helpers at the ticket table.
+      - text: '5'
+        rationale: |
+          This adds the two groups that helped at just one table. Those groups have no students in common. Add in the students who helped at both tables once.
+    explanation: |
+      Adding $7+6$ counts the helpers at both tables twice. Subtract those $4$ extra counts. There were $7+6-4=9$ different helpers.
+
+  - id: q-algebra-sets-and-set-notation-pshs-0004
+    lesson: lesson-algebra-set-membership-and-operations
+    keyPoint: 1
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      In a card game, set $A$ contains all cards with a star and set $B$ contains all cards with a triangle. A player claims that every card in $A$ also belongs to $A\cap B$. Which card would prove that claim false?
+    choices:
+      - text: A card with a star only
+        correct: true
+      - text: A card with a star and a triangle
+        rationale: |
+          This starts with a card in $A$. The star puts it there. Check whether the triangle also puts it in $B$.
+      - text: A card with neither a star nor a triangle
+        rationale: |
+          This picks a card outside the intersection. It may look like an exception for that reason. Check that the claim only covers cards in $A$.
+      - text: A card with a star, a triangle, and a square
+        rationale: |
+          This treats the square as a reason to leave the card out of the intersection. The square adds a feature. Check whether the card still meets both rules.
+      - text: A card with a triangle only
+        rationale: |
+          This starts with a card in $B$. The triangle is one of the shapes used to find the intersection. Check whether the card is in $A$, where the claim starts.
+    explanation: |
+      The star puts the card in $A$. The card needs a triangle too to be in $A\cap B$. The card with only a star proves the claim false.
+
+  - id: q-algebra-sets-and-set-notation-pshs-0005
+    lesson: lesson-algebra-counting-venn-diagram-regions
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A teacher checks the reading logs of $26$ students. The logs show that $13$ read a poem, $11$ read a comic, and $5$ read both. How many students read neither a poem nor a comic?
+    choices:
+      - text: '7'
+        correct: true
+      - text: '2'
+        rationale: |
+          This subtracts $13+11$ from $26$. The two reading counts look like separate groups. Check how often the students who read both were counted.
+      - text: '19'
+        rationale: |
+          This finds $13+11-5=19$. It counts the students who read at least one kind of text. How many of the $26$ students are left?
+      - text: '12'
+        rationale: |
+          This subtracts the overlap from each reading count before taking away the readers. That leaves the two groups who read just one kind of text. Check that the readers of both still need to be taken away.
+      - text: '13'
+        rationale: |
+          This removes the students who read a poem from the full class. The students left did miss one kind of text. Check whether any of them read a comic.
+    explanation: |
+      There are $13+11-5=19$ students who read at least one of the two kinds of text. Take them away from the class total. That leaves $26-19=7$ students.
+
+  - id: q-algebra-sets-and-set-notation-pshs-0006
+    lesson: lesson-algebra-set-membership-and-operations
+    keyPoint: 2
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      At a school fair, $A$ is the set of students who signed up for the poster contest and $B$ is the set who signed up for the quiz. The teacher sends a reminder to students in $A'\cap B'$. What can you conclude about a student who gets this reminder?
+    choices:
+      - text: The student signed up for neither event.
+        correct: true
+      - text: The student signed up for the quiz only.
+        rationale: |
+          This checks $A'$ alone. A student who signed up only for the quiz is off the poster contest list. Check that the reminder also requires $B'$.
+      - text: The student signed up for the poster contest only.
+        rationale: |
+          This checks $B'$ alone. A student who signed up only for the poster contest is off the quiz list. Check that the reminder also requires $A'$.
+      - text: The student signed up for both of the events.
+        rationale: |
+          This drops the prime marks. The intersection of the original lists does contain students on both lists. Check which lists are used for the reminder.
+      - text: The student could still be on one sign-up list.
+        rationale: |
+          This uses the union of $A'$ and $B'$. Missing one sign-up would be enough for that group. Check which symbol the reminder uses.
+    explanation: |
+      The intersection $A'\cap B'$ is the same as $(A\cup B)'$. A student in $A'$ did not sign up for the poster contest. A student in $B'$ did not sign up for the quiz. In the intersection, both statements are true.
+
+  - id: q-algebra-sets-and-set-notation-pshs-0007
+    lesson: lesson-algebra-set-membership-and-operations
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A stamp game has five players, $J$, $K$, $L$, $M$, and $N$. Players $J$, $K$, and $L$ have a sun stamp. Players $J$, $K$, and $M$ have a moon stamp. A player can enter a round unless they have both stamps. Which set lists all players who can enter?
+    choices:
+      - text: '$\{L,M,N\}$'
+        correct: true
+      - text: '$\{N\}$'
+        rationale: |
+          This keeps only the player with no stamps. That player can enter. Check whether missing just one stamp is enough.
+      - text: '$\{L,M\}$'
+        rationale: |
+          This keeps players with exactly one stamp. They are allowed to enter. Check whether a player with no stamps also meets the rule.
+      - text: '$\{J,K\}$'
+        rationale: |
+          This finds the players in both stamp sets. They are the ones named by the condition after "unless." Check whether the rule lets those players enter.
+      - text: '$\{J,K,L,M\}$'
+        rationale: |
+          This keeps every player with a stamp. It can look like a stamp is needed to enter a stamp game. Check what the rule says about players with both stamps.
+    explanation: |
+      A player can enter if they lack a sun stamp or lack a moon stamp. $M$ and $N$ lack a sun stamp. $L$ and $N$ lack a moon stamp. The union of these two groups is $\{L,M,N\}$.
+
+  - id: q-algebra-sets-and-set-notation-pshs-0008
+    lesson: lesson-algebra-counting-venn-diagram-regions
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A cleanup team has $32$ students. Every student works in the garden or on the playground, and some work in both places. There are $21$ garden workers and $17$ playground workers. How many students work in both places?
+    choices:
+      - text: '6'
+        correct: true
+      - text: '38'
+        rationale: |
+          This adds the two work lists. Both lists are needed, so the sum is a useful start. Check what the extra entries above the team size represent.
+      - text: '15'
+        rationale: |
+          This subtracts $17$ from $32$. That finds students outside the playground group. Check whether those garden-only students are the requested group.
+      - text: '11'
+        rationale: |
+          This subtracts $21$ from $32$. That finds students outside the garden group. Check whether those playground-only students are the requested group.
+      - text: '4'
+        rationale: |
+          This subtracts the smaller work list from the larger one. The difference tells how much larger one group is. Check it against the number counted twice in the two lists.
+    explanation: |
+      The two lists have $21+17=38$ entries. All $32$ students are on at least one list. Each student on both lists adds one extra entry. There are $38-32=6$ such entries.
+
+  - id: q-algebra-sets-and-set-notation-pshs-0009
+    lesson: lesson-algebra-counting-venn-diagram-regions
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      At a workshop, $9$ students used both glue and tape, $8$ used both tape and string, and $7$ used both glue and string. These counts each include the $5$ students who used all three supplies. How many students used exactly two of the three supplies?
+    choices:
+      - text: '9'
+        correct: true
+      - text: '24'
+        rationale: |
+          This adds the three pair counts. Those counts do cover everyone who used exactly two supplies. Check that each count also includes students who used all three.
+      - text: '19'
+        rationale: |
+          This subtracts the all-three group once from the sum of the pair counts. The right group is being removed. Check how many times it appears in the sum.
+      - text: '14'
+        rationale: |
+          This subtracts two copies of the all-three group. That leaves each of those students counted once. Check whether exactly two allows any students from the center.
+      - text: '4'
+        rationale: |
+          This finds $9-5$, the group that used glue and tape only. This is one of the right regions. Check for the other pairs of supplies.
+    explanation: |
+      Take the $5$ students who used all three out of each pair. $9-5=4$ students used only glue and tape. $8-5=3$ students used only tape and string. $7-5=2$ students used only glue and string. Add the three groups to get $4+3+2=9$ students.
+
+  - id: q-algebra-sets-and-set-notation-pshs-0010
+    lesson: lesson-algebra-counting-venn-diagram-regions
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Of $40$ students at camp, $18$ earned a red badge, $16$ earned a green badge, and $14$ earned a blue badge. Red and green were earned by $7$ students, green and blue by $6$, and blue and red by $5$. Each pair count includes the $3$ students who earned all three badges. How many students earned none of these badges?
+    choices:
+      - text: '7'
+        correct: true
+      - text: '10'
+        rationale: |
+          This uses $40-(18+16+14-7-6-5)$ to fix the double counts. Adding the badge totals counts each student with three badges three times. Subtracting the pair totals removes all three counts. How many times should each of those students be added back?
+      - text: '4'
+        rationale: |
+          This adds the center twice after subtracting the pairs, then takes the result away from $40$. The center does need to be added back. Check how many times it should appear in the count of students with a badge.
+      - text: '22'
+        rationale: |
+          This subtracts only the red badge group from $40$. It gives the number who missed red. Check whether any of those students earned green or blue.
+      - text: '19'
+        rationale: |
+          This subtracts the $21$ students with exactly one badge from $40$. Those students are all inside the badge groups. Check for students who earned two or three badges too.
+    explanation: |
+      Three students earned all three badges. Take those $3$ out of each pair count. There are $7-3=4$ students with only red and green, $6-3=3$ with only green and blue, and $5-3=2$ with only blue and red.
+      Red alone has $18-4-2-3=9$. Green alone has $16-4-3-3=6$. Blue alone has $14-3-2-3=6$. Add the separate groups to count $3+4+3+2+9+6+6=33$ students with a badge. That leaves $40-33=7$ students without a badge.
