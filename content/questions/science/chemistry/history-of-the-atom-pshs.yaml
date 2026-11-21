@@ -1,0 +1,148 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: history-of-the-atom-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-chemistry-history-of-the-atom-pshs-0001
+    lesson: lesson-chemistry-evidence-and-atomic-models
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A student studies light given off by hydrogen and reads Bohr's model to
+      explain the result. Which statement belongs in the observations section
+      of the student's report?
+    choices:
+      - text: 'The light forms separate bright lines.'
+        correct: true
+      - text: 'The electrons in hydrogen have set energy levels.'
+        rationale: |
+          The bright lines are evidence for set energy levels, so the levels
+          may seem like something the student saw. Check what the student
+          could see in the light itself.
+      - text: 'The positive charge is held in a small nucleus.'
+        rationale: |
+          The nucleus is part of the model used to explain hydrogen, so it
+          may seem like part of the result. Check whether the light shows the
+          nucleus itself.
+      - text: 'The energy levels explain the pattern of bright lines.'
+        rationale: |
+          This mentions the lines the student saw. Check whether the statement
+          records their pattern or gives a reason for it.
+      - text: 'The model would give the same pattern in a repeat test.'
+        rationale: |
+          A repeat test may well give the same pattern. This statement says
+          what is expected. Check whether it reports a result from a test
+          that has already happened.
+    explanation: |
+      The student can see the separate bright lines in the light from
+      hydrogen. That makes the lines an observation.
+
+  - id: q-chemistry-history-of-the-atom-pshs-0002
+    lesson: lesson-chemistry-evidence-and-atomic-models
+    keyPoint: 3
+    type: 'process-ordering'
+    difficulty: 'medium'
+    stem: |
+      A science exhibit shows the main atomic models from earliest to latest.
+      Rutherford's model of the nucleus is in the right place, but the models
+      just before and just after it are missing. Which pair fills the gaps in
+      that order?
+    choices:
+      - text: 'Electrons in spread-out positive charge, then set energy levels'
+        correct: true
+      - text: 'Set energy levels, then electrons in spread-out positive charge'
+        rationale: |
+          These are the two models on either side, so the pair looks right.
+          Check which model was in use before the nucleus was proposed.
+      - text: 'Dalton’s theory of atoms, then Bohr’s model with set energy levels'
+        rationale: |
+          Dalton came before Rutherford and Bohr came after him. Check which
+          model came between Dalton's theory and the model of the nucleus.
+      - text: 'Electrons in spread-out positive charge, then orbitals in the quantum model'
+        rationale: |
+          The first model is in the right place, and the quantum model came
+          later. Check which model used set energy levels before the quantum
+          model used orbitals.
+      - text: 'Dalton’s theory of atoms, then Thomson’s model with embedded electrons'
+        rationale: |
+          These two models do follow each other. Check whether either one
+          came after the model of the nucleus.
+    explanation: |
+      Thomson put electrons in spread-out positive charge. Rutherford came
+      next with a small nucleus. Bohr's model with set energy levels came
+      after Rutherford's.
+
+  - id: q-chemistry-history-of-the-atom-pshs-0003
+    lesson: lesson-chemistry-evidence-and-atomic-models
+    keyPoint: 2
+    type: 'compare-contrast'
+    difficulty: 'hard'
+    stem: |
+      A group sees more alpha particles turn sharply with thick silver foil
+      than with thin gold foil. They want to find out whether thickness makes
+      a difference. Which comparison would let them test thickness on its own?
+    choices:
+      - text: 'Thin and thick gold foil with the same source and screen'
+        correct: true
+      - text: 'Equally thick gold and silver foil with the same source and screen'
+        rationale: |
+          The source and screen stay the same, so this is a fair way to
+          compare metals. Check whether the thickness changes between runs.
+      - text: 'Two pieces of thin gold foil with the same source and screen'
+        rationale: |
+          A repeat can help show if a result holds up. Check whether using
+          two matching pieces tells you what happens with thicker foil.
+      - text: 'Thin gold and thick silver foil with the same source and a new screen'
+        rationale: |
+          A new screen might make flashes easier to see. Check whether both
+          the metal and the thickness still change between runs.
+      - text: 'Thin and thick gold foil with two different sources and the same screen'
+        rationale: |
+          Using gold in both runs fixes the change in metal. Check what else
+          changes along with the foil thickness.
+    explanation: |
+      Both pieces are gold. The group uses the same source and screen each
+      time. Only the thickness changes, so the group can see what effect it has.
+
+  - id: q-chemistry-history-of-the-atom-pshs-0004
+    lesson: lesson-chemistry-evidence-and-atomic-models
+    keyPoint: 2
+    type: 'compare-contrast'
+    difficulty: 'exam'
+    stem: |
+      Models X and Y both predict that most alpha particles will pass straight
+      through thin gold foil. For thick gold foil, Model X predicts that the
+      foil will stop every particle. Model Y predicts that some particles
+      will pass straight through, but fewer than with thin foil.
+
+      Students run repeated tests with the same source and screen.
+      Most particles reach the center of the screen with the thin foil. With
+      the thick foil, a smaller group reaches the center. Particles that pass
+      straight through hit the center of the screen. Which result favors one
+      model over the other?
+    choices:
+      - text: 'The thick foil result favors Model Y.'
+        correct: true
+      - text: 'The thick foil result favors Model X.'
+        rationale: |
+          Fewer particles pass straight through thick foil, so it may seem
+          that it stops them all. Check whether any still reach the screen
+          straight ahead.
+      - text: 'The thin foil result favors Model Y over Model X.'
+        rationale: |
+          Model Y does fit the thin foil result. Check whether Model X makes
+          the same prediction for thin foil.
+      - text: 'Neither result favors a model because both models fit both tests.'
+        rationale: |
+          Both models fit the thin foil result, so it may seem they both fit
+          the whole test. Check whether Model X fits the thick foil result.
+      - text: 'Neither result favors a model because the thick foil rules out both.'
+        rationale: |
+          The smaller group might seem like a surprise for both models.
+          Check what Model Y predicted for thick foil.
+    explanation: |
+      Both models predict the same result for thin foil. Fewer particles
+      reach the center with thick foil, and some still get there. This
+      matches Model Y. Model X predicts that none will get through.
