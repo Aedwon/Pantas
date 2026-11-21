@@ -1,0 +1,156 @@
+meta:
+  subject: mathematics
+  topic: algebra
+  subtopic: linear-equations-inequalities-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-algebra-linear-equations-inequalities-pshs-0001
+    lesson: lesson-algebra-line-slopes-and-intercepts
+    keyPoint: 3
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      The points $(-4,-8)$ and $(1,-8)$ lie on a line. What is the slope of the line?
+    choices:
+      - text: '$0$'
+        correct: true
+      - text: Undefined
+        rationale: |
+          Swapping rise and run puts the zero change in $y$ on the bottom. The repeated coordinate can make the line seem vertical. Check which coordinate stays fixed on a vertical line.
+      - text: '$5$'
+        rationale: |
+          This uses the horizontal change $1-(-4)=5$ as the slope. That is the right distance across. Check how much the line rises over that distance.
+      - text: '$-8$'
+        rationale: |
+          This uses the common $y$-value as the slope. Both points are at that height. Check how much their heights differ.
+      - text: '$2$'
+        rationale: |
+          Dividing $-8$ by $-4$ gives the slope from the origin to the first point. That works for a line through the origin. Check the change between the two points given.
+    explanation: |
+      The change in $y$ is $-8-(-8)=0$. The change in $x$ is $1-(-4)=5$. The slope is $\dfrac{0}{5}=0$.
+
+  - id: q-algebra-linear-equations-inequalities-pshs-0002
+    lesson: lesson-algebra-line-slopes-and-intercepts
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      On the line $-6x+3y=15$, what is the change in $y$ when $x$ increases by $1$?
+    choices:
+      - text: '$2$'
+        correct: true
+      - text: '$-2$'
+        rationale: |
+          Dividing $-6$ by $3$ uses the two right coefficients. It keeps the sign of $-6x$ from the original side. Add $6x$ to both sides and check the new sign.
+      - text: '$\dfrac{1}{2}$'
+        rationale: |
+          Dividing $3$ by $6$ uses the right numbers and gives a positive slope. It puts the factors in reverse order. Check what you divide $6x$ by when you solve for $y$.
+      - text: '$5$'
+        rationale: |
+          Dividing $15$ by $3$ gives the value of $y$ at $x=0$. That value appears in slope-intercept form. Check which term in that form gives the slope.
+      - text: '$6$'
+        rationale: |
+          This reads $6$ as the slope after moving the $x$ term. Its sign is right. Check whether $y$ still has a factor of $3$.
+    explanation: |
+      Add $6x$ to both sides to get $3y=6x+15$. Divide by $3$ to get $y=2x+5$. The slope is $2$, so $y$ goes up by $2$ for each step of $1$ in $x$.
+
+  - id: q-algebra-linear-equations-inequalities-pshs-0003
+    lesson: lesson-algebra-line-slopes-and-intercepts
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A line crosses the $y$-axis at $(0,8)$ and has slope $-3$. What is the $y$-coordinate of its point with $x=5$?
+    choices:
+      - text: '$-7$'
+        correct: true
+      - text: '$-15$'
+        rationale: |
+          Multiplying $-3$ by $5$ gives the right change in height. It also gives the final height for a line through the origin. Check the height where this line starts at $x=0$.
+      - text: '$23$'
+        rationale: |
+          Adding $3$ for each step to the right uses the right step size. The negative slope makes each step go down. Check the sign of the change in height.
+      - text: '$7$'
+        rationale: |
+          Subtracting $8$ from $15$ gives the distance below the $x$-axis. That distance is positive. Check the sign of the coordinate below the axis.
+      - text: '$8$'
+        rationale: |
+          This uses the height where the line crosses the $y$-axis. That is the starting height. Check how the slope changes the height by the time $x$ reaches $5$.
+    explanation: |
+      At $x=0$, the height is $8$. Moving $5$ units right changes the height by $5(-3)=-15$. The new height is $8-15=-7$.
+
+  - id: q-algebra-linear-equations-inequalities-pshs-0004
+    lesson: lesson-algebra-line-slopes-and-intercepts
+    keyPoint: 3
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Lines $L$ and $M$ both pass through $(-2,3)$. Line $L$ has slope $0$ and line $M$ has undefined slope. Which equations describe $L$ and $M$, in that order?
+    choices:
+      - text: '$y=3$ and $x=-2$'
+        correct: true
+      - text: '$x=-2$ and $y=3$'
+        rationale: |
+          Both equations pass through the given point. Their order puts the vertical line first. Check which line keeps $y$ fixed as $x$ changes.
+      - text: '$y=-2$ and $x=3$'
+        rationale: |
+          This puts the horizontal line first but swaps the coordinates of the given point. Both numbers belong to the point. Check that $x$ comes first in $(-2,3)$.
+      - text: '$y=0$ and $x=-2$'
+        rationale: |
+          This uses the slope of $L$ as its height. The $x$-axis does have slope $0$. Check whether the given point lies on that axis.
+      - text: '$y=3$ and $2x=-2$'
+        rationale: |
+          The second equation has only an $x$ term and shows $-2$ on the right. That makes it look like the vertical line through the given point. Divide both sides by $2$ to find its actual $x$-value.
+    explanation: |
+      Line $L$ is horizontal, so every point on it has the same $y$ as $(-2,3)$. Its equation is $y=3$. Line $M$ is vertical, so every point on it has the same $x$ as $(-2,3)$. Its equation is $x=-2$.
+
+  - id: q-algebra-linear-equations-inequalities-pshs-0005
+    lesson: lesson-algebra-line-slopes-and-intercepts
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      One line passes through $(-2,7)$ and $(4,-5)$. The line $ax+3y=18$ has the same slope. What is the value of $a$?
+    choices:
+      - text: '$6$'
+        correct: true
+      - text: '$-6$'
+        rationale: |
+          Multiplying the slope by $3$ gives the right size for $a$. It misses the sign change when the $x$ term moves across the equation. Solve for $y$ and check the sign of its $x$ term.
+      - text: '$-2$'
+        rationale: |
+          This reports the slope found from the two points. That is the value both lines share. Check how the slope of $ax+3y=18$ depends on $a$.
+      - text: '$2$'
+        rationale: |
+          Changing the sign of the slope gives the right sign for $a$. It leaves out the factor of $3$ on $y$. Check what happens to the $x$ term when both sides are divided by $3$.
+      - text: '$12$'
+        rationale: |
+          This uses the size of the drop from $7$ to $-5$ as the coefficient. The drop is part of finding the slope. Check the run of $6$ before using the slope in the second equation.
+    explanation: |
+      The first line has slope $\dfrac{-5-7}{4-(-2)}=\dfrac{-12}{6}=-2$.
+      The slope of $ax+3y=18$ is $-\dfrac{a}{3}$. Set $-\dfrac{a}{3}=-2$ and multiply both sides by $-3$ to get $a=6$.
+
+  - id: q-algebra-linear-equations-inequalities-pshs-0006
+    lesson: lesson-algebra-line-slopes-and-intercepts
+    keyPoint: 2
+    type: which-is-true
+    difficulty: exam
+    stem: |
+      A line crosses the $x$-axis at $(-3,0)$ and the $y$-axis at $(0,6)$. Which equation describes the line?
+    choices:
+      - text: '$2x-y=-6$'
+        correct: true
+      - text: '$2x+y=6$'
+        rationale: |
+          This gives the right $y$-intercept but makes the line fall to the right. The slope has the right size. Set $y=0$ and check the sign of the $x$-intercept.
+      - text: '$x-2y=-12$'
+        rationale: |
+          The line rises to the right and has the right $y$-intercept. Swapping rise and run gives a slope of $\dfrac{1}{2}$. Check how much $y$ changes for a run of $3$.
+      - text: '$2x-y=6$'
+        rationale: |
+          This keeps the rise of $2$ for each step right. It gives the constant the same sign as the $y$-intercept even though the equation has $-y$. Set $x=0$ and check the value of $y$.
+      - text: '$2x-y=-3$'
+        rationale: |
+          This uses the given $x$-intercept as the constant on the right. The number $-3$ is the right value of $x$ at the crossing. Set $y=0$ and check what $2x$ equals there.
+    explanation: |
+      Put $(-3,0)$ into $2x-y$ to get $2(-3)-0=-6$. Put $(0,6)$ into it to get $2(0)-6=-6$. So $2x-y=-6$ passes through both points.
