@@ -259,3 +259,17 @@ Relayed by the manager. Aedwon, verbatim: "Accept all". The four items he answer
 - Each child account keeps its own on-device study store (Decision 9 item 1), on web and native. The switching
   fix goes to the Codex 6.2 Sol High review with T2 to T5.
 - T7's exam picker state is logic only; board 5 is built with the T9 screens.
+
+## Codex review of T2 to T6, and lead rulings on the open findings (Nov 22)
+
+Codex GPT 6.2 Sol High reviewed the server and switching code in three parts (Nov 21): 17 findings on setup and the code gate, 15 on parent actions, checkout and deletion, 13 on client switching. A separate Codex Sol run fixed the first part test-first (12 fixed, merged 00658427b after lead review; server 758 unit and 915 emulator tests pass). The fix adds one single-field collection-group index (`limits.lastStagedAt`); deploy the indexes before the functions that use it. The parts on parent actions and switching are paused mid-fix on `u13/fix-r2` and `u13/fix-r3`.
+
+Lead rulings on the five findings the fixer returned (Fable was not consulted, to save usage; these are final):
+
+- F4, holder conversion race: re-read inside the setup transaction the same profile and study documents the pre-check reads, and refuse if any now holds data. No new write boundary; once the holder marker exists, study calls already refuse the holder.
+- F5, receipt retry: write `receiptSentAt` only after the mail provider accepts. Keep a pending marker and retry on the child's next session open or child list call, inside the shared daily cap, with the provider idempotency key `receipt-<childUid>` so an ambiguous send cannot mail twice. No scheduled job.
+- F6, a child account gaining its own sign-in: the email-code and Google sign-in paths refuse a child UID, and the shared account-call wrapper plus the Firestore and Storage rules refuse a token that carries the child claim unless its sign-in provider is `custom`. No Auth blocking functions (they need Identity Platform, outside the free-tier rule).
+- F7, a sibling token issued before opt-out: no change. The device exchanges the custom token at once and never shows or stores it, and revoking the child's sessions would also sign out the device the parent is using. Residual risk, recorded: a sibling who captures the raw token could still exchange it within its one-hour life after opt-out.
+- F9, lost setup response: retry on the current screen only. The client sends an attempt id held in memory; the server stores it on the child entry and returns that child's session for the same holder and attempt instead of creating another child. After a reload or on a new device, the parent signs in and opens the child from the existing list, which needs no code.
+
+Found while merging: the build branch CI was already red at f9c1a70e6 (12 Flutter tests: the index layout test, the no-FCM-token legal scope test, the notification permission rationale design sheets; and the design lint on `child_step_frame.dart`). These are fixed before T13.
