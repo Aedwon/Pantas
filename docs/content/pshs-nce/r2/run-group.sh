@@ -20,7 +20,8 @@ guard() { local bad
   bad=$(git status --porcelain --untracked-files=all | awk '{print $NF}' | grep -vxF -e "$Q")
   [[ -z $bad ]] || { echo "unexpected changes; stopping $g:"; echo "$bad"; exit 3; }; }
 val() { dart run tools/import_questions/import_questions.dart --root $(dirname $Q) >/dev/null 2>&1; }
-cx() { CODEX_PICK_PARALLEL=1 ~/.local/bin/codex-pick exec --skip-git-repo-check "$@" < /dev/null; local e=$?; [[ $e == 75 ]] && { echo "CODEX_FULL $g"; exit 75; }; return $e; }
+gate() { local l m; while :; do l=$(sysctl -n vm.loadavg | awk '{print int($2)}'); m=$(memory_pressure | awk -F': ' '/free percentage/{print int($2)}'); (( l <= 12 && m >= 30 )) && return; echo "waiting: load $l, free $m%"; sleep 120; done; }
+cx() { gate; CODEX_PICK_PARALLEL=1 ~/.local/bin/codex-pick exec --skip-git-repo-check "$@" < /dev/null; local e=$?; [[ $e == 75 ]] && { echo "CODEX_FULL $g"; exit 75; }; return $e; }
 W=(-m gpt-6.2-sol -c model_reasoning_effort=medium -s workspace-write)
 H=(-m gpt-6.2-sol -c model_reasoning_effort=high -s read-only)
 if [[ ! -f $M/write.done ]]; then

@@ -3,7 +3,8 @@
 R0=${0:A:h:h:h:h:h:h}; cd $R0; D=docs/content/pshs-nce/r2/d21
 # Markers, the parts list, reads and logs live outside the worktree and /tmp, where no Codex sandbox can write.
 ST=$HOME/.local/state/pantas/pshs-r2/d21; mkdir -p $ST
-cx() { CODEX_PICK_PARALLEL=1 ~/.local/bin/codex-pick exec --skip-git-repo-check "$@" < /dev/null; local e=$?; [[ $e == 75 ]] && { echo "CODEX_FULL d21"; exit 75; }; return $e; }
+gate() { local l m; while :; do l=$(sysctl -n vm.loadavg | awk '{print int($2)}'); m=$(memory_pressure | awk -F': ' '/free percentage/{print int($2)}'); (( l <= 12 && m >= 30 )) && return; echo "waiting: load $l, free $m%"; sleep 120; done; }
+cx() { gate; CODEX_PICK_PARALLEL=1 ~/.local/bin/codex-pick exec --skip-git-repo-check "$@" < /dev/null; local e=$?; [[ $e == 75 ]] && { echo "CODEX_FULL d21"; exit 75; }; return $e; }
 W=(-m gpt-6.2-sol -c model_reasoning_effort=medium -s workspace-write); H=(-m gpt-6.2-sol -c model_reasoning_effort=high -s read-only)
 PROT=($D/*.sh $D/*.md); SUM0=$(shasum -a 256 $PROT | shasum -a 256)
 # Runs alone in its own worktree. Before the parts list exists, only new lesson files may appear; after, only the listed parts.
