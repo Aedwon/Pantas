@@ -43,6 +43,31 @@ void main() {
     expect(q.choices.firstWhere((c) => c.id == 'q-1_a').isCorrect, isTrue);
   });
 
+  test('current-main mapper ignores the type metadata in a new set', () {
+    final questions = questionsFromSet({
+      ...data,
+      'types': [
+        {
+          'id': 'qt-1',
+          'lesson': 'lesson-language-application-paragraph-organization',
+          'topic': 'topic_upcat_language_application',
+          'keyPoint': 1,
+          'difficulty': 'medium',
+          'exams': ['upcat'],
+          'type': 'figure-series',
+          'language': 'en',
+          'questionVersion': 1,
+          'isActive': true,
+          'variantCount': 20,
+          'choiceKind': 'figure',
+          'showQuestionFigure': true,
+          'mergedQuestions': <Object>[],
+        },
+      ],
+    });
+    expect(questions.map((question) => question.id), ['q-1']);
+  });
+
   test('keeps a drawn figure spec as JSON', () {
     final questions = questionsFromSet({
       ...data,

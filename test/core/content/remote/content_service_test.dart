@@ -74,6 +74,45 @@ void main() {
   });
   tearDown(() => db.close());
 
+  test('caches variants separately and strips their notes at sign-out',
+      () async {
+    final remote = FakeRemote((kind, ids, known) {
+      expect(kind.wire, 'variants');
+      expect(known, isEmpty);
+      return ok('pro', 'v1.p', 'qt-1', {
+        'variants': [
+          {
+            'variantIndex': 0,
+            'choices': [
+              {'text': 'Key', 'correct': true},
+              {'text': 'Wrong', 'rationale': 'Private note'},
+            ],
+          },
+        ],
+      });
+    });
+    final service = ContentService(remote: remote, cache: cache);
+    addTearDown(service.dispose);
+    final item = await service.read(ContentKind.variants, 'qt-1');
+    expect(item!.tier, 'pro');
+    expect(await service.stored(ContentKind.questions, 'qt-1'), isNull);
+    await service.onSignedOut();
+    final free = await service.stored(ContentKind.variants, 'qt-1');
+    expect(free!.version, 'v1.f');
+    expect(free.data, {
+      'id': 'qt-1',
+      'variants': [
+        {
+          'variantIndex': 0,
+          'choices': [
+            {'text': 'Key', 'correct': true},
+            {'text': 'Wrong'},
+          ],
+        },
+      ],
+    });
+  });
+
   test('returns the cached item first, then updates it and notifies', () async {
     await cache.put(
       const ContentItem(

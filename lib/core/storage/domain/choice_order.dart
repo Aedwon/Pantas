@@ -15,10 +15,16 @@ const _labels = ['A', 'B', 'C', 'D', 'E', 'F'];
 /// the same places in the quiz, the reveal and the review, so nothing has to
 /// carry the order between them. Scoring compares choice ids, never positions,
 /// so reordering here cannot change whether an answer is right.
-List<Choice> orderChoicesFor(String questionId, List<Choice> choices) {
+List<Choice> orderChoicesFor(
+  String questionId,
+  List<Choice> choices, {
+  int? variantIndex,
+}) {
   if (choices.isEmpty) return choices;
 
-  final ordered = [...choices]..shuffle(Random(_seedFrom(questionId)));
+  final seedKey =
+      variantIndex == null ? questionId : '$questionId#$variantIndex';
+  final ordered = [...choices]..shuffle(Random(_seedFrom(seedKey)));
 
   return [
     for (var i = 0; i < ordered.length; i++)

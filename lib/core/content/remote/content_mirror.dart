@@ -135,6 +135,7 @@ class ContentMirror implements ContentFetchHook {
         ContentKind.catalog => item.id == catalogIndexId ? 0 : 1,
         ContentKind.lessons => 2,
         ContentKind.questions => 3,
+        ContentKind.variants => 4,
       };
 
   /// Completes when no refresh, fetch or write is running.
@@ -173,11 +174,13 @@ class ContentMirror implements ContentFetchHook {
   /// (or removes them), then the catalog. Lessons are checked when opened.
   Future<void> onAccessChanged() async {
     _revalidated.clear();
-    final sets = [
-      for (final item in await _service.storedItems())
-        if (item.kind == ContentKind.questions) item.id,
-    ];
-    if (sets.isNotEmpty) await _service.refresh(ContentKind.questions, sets);
+    final items = await _service.storedItems();
+    for (final kind in [ContentKind.questions, ContentKind.variants]) {
+      await _service.refresh(kind, [
+        for (final item in items)
+          if (item.kind == kind) item.id,
+      ]);
+    }
     await refreshCatalog();
   }
 
@@ -321,6 +324,7 @@ class ContentMirror implements ContentFetchHook {
   }
 
   Future<void> _apply(ContentItem item) async {
+    if (item.kind == ContentKind.variants) return;
     final key = '${item.kind.wire}/${item.id}';
     if (_applied[key] == item.version) return;
     try {
@@ -337,6 +341,8 @@ class ContentMirror implements ContentFetchHook {
             await _applyLesson(item.id, item.data);
           case ContentKind.questions:
             await _applyQuestionSet(item.id, item.data);
+          case ContentKind.variants:
+            break;
         }
       });
       // Remembered only once the transaction committed, so a rolled back
@@ -577,11 +583,13 @@ class ContentMirror implements ContentFetchHook {
         continue;
       }
       final id = question['id']! as String;
+      final isActive = question['isActive'];
       ids.add(id);
       questions.add(
         ContentQuestionsCompanion.insert(
           id: id,
           schemaVersion: 1,
+          isActive: isActive is bool ? Value(isActive) : const Value.absent(),
           updatedAt: now,
           topicId: 'topic_upcat_${topicSlug.replaceAll('-', '_')}',
           subtopicId: Value('subtopic_$subtopicSlug'),
@@ -673,6 +681,14 @@ class ContentMirror implements ContentFetchHook {
           links,
           mode: InsertMode.insertOrIgnore,
         );
+      for (final question in questions) {
+        if (!question.isActive.present) continue;
+        batch.update(
+          _db.contentQuestions,
+          ContentQuestionsCompanion(isActive: question.isActive),
+          where: (row) => row.id.equals(question.id.value),
+        );
+      }
     });
     _passagesReady.addAll(passages.map((p) => p.id.value));
     for (final id in ids) {

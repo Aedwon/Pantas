@@ -506,6 +506,31 @@ void main() {
     expect(question.stemJson, isNot('[]'));
   });
 
+  test('a set applies explicit withdrawal and restoration of a single',
+      () async {
+    await mirror.start();
+    await mirror.idle;
+    final set = _set();
+    final questions = set['questions']! as List<Map<String, Object?>>;
+    const setId = 'qs-biology__cells';
+
+    for (final active in [false, true]) {
+      remote
+        ..version = 'activation-$active'
+        ..docs['questions/$setId'] = {
+          ...set,
+          'questions': [
+            {...questions.first, 'isActive': active},
+            ...questions.skip(1),
+          ],
+        };
+      await service.refresh(ContentKind.questions, [setId], force: true);
+      await mirror.idle;
+      final rows = await contentDb.select(contentDb.contentQuestions).get();
+      expect(rows.singleWhere((row) => row.id == 'bio-1').isActive, active);
+    }
+  });
+
   test('a new version of a set replaces its choices', () async {
     await mirror.start();
     await mirror.idle;

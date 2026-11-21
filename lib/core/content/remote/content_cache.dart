@@ -66,9 +66,11 @@ class ContentCache {
         id: item.id,
         version: version,
         tier: 'free',
-        data: item.kind == ContentKind.questions
-            ? _withoutNotes(item.data)
-            : item.data,
+        data: switch (item.kind) {
+          ContentKind.questions => _withoutNotes(item.data, 'questions'),
+          ContentKind.variants => _withoutNotes(item.data, 'variants'),
+          _ => item.data,
+        },
       );
       await put(free);
       changed.add(free);
@@ -84,13 +86,16 @@ class ContentCache {
         data: (jsonDecode(row.dataJson) as Map).cast<String, Object?>(),
       );
 
-  Map<String, Object?> _withoutNotes(Map<String, Object?> data) {
-    final questions = data['questions'];
-    if (questions is! List) return data;
+  Map<String, Object?> _withoutNotes(
+    Map<String, Object?> data,
+    String listKey,
+  ) {
+    final entries = data[listKey];
+    if (entries is! List) return data;
     return {
       ...data,
-      'questions': [
-        for (final raw in questions)
+      listKey: [
+        for (final raw in entries)
           if (raw is Map && raw['choices'] is List)
             {
               ...raw.cast<String, Object?>(),

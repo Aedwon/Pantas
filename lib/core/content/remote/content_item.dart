@@ -3,6 +3,7 @@ import 'package:meta/meta.dart';
 enum ContentKind {
   lessons,
   questions,
+  variants,
 
   /// The structure of the content (exams, subjects, topics, lesson rows
   /// without text, question index rows). Ids and format: `web/README.md`.

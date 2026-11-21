@@ -47,7 +47,7 @@ class _Remote implements ContentRemote {
               'estimatedMinutes': 3,
               'body': 'Hello.',
             },
-          ContentKind.questions => {'id': id},
+          ContentKind.questions || ContentKind.variants => {'id': id},
         };
     return ContentFetch(
       tier: 'free',
