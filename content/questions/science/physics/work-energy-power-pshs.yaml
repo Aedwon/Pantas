@@ -1,0 +1,230 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: work-energy-power-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-physics-work-energy-power-pshs-0001
+    lesson: lesson-physics-kinetic-and-gravitational-potential-energy
+    keyPoint: 2
+    type: simple-quantitative
+    difficulty: easy
+    stem: |
+      A 5 kg bag sits on a platform 4 m above the floor. A shelf 2 m above the floor is chosen as the zero level. What is the bag's gravitational potential energy? Use $g=9.8\,\mathrm{m/s^2}$.
+    choices:
+      - text: '98 J'
+        correct: true
+      - text: '196 J'
+        rationale: |
+          This uses the full 4 m because the floor is where the heights are measured from. Check which level the question sets to zero.
+      - text: '49 J'
+        rationale: |
+          This stops at $5\times9.8$, which gives the bag's weight. Check what you still need to multiply by that weight.
+      - text: '294 J'
+        rationale: |
+          This adds the two heights because both are given above the floor. Check the gap between the shelf and the platform.
+      - text: '19.6 J'
+        rationale: |
+          This multiplies gravity by the 2 m gap. That gives the energy for each kilogram. Check how many kilograms are in the bag.
+    explanation: |
+      The bag is $4-2=2$ m above the shelf. Multiply mass, gravity, and this height. The result is $5\times9.8\times2=98$ J.
+
+  - id: q-physics-work-energy-power-pshs-0002
+    lesson: lesson-physics-kinetic-and-gravitational-potential-energy
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      A 4 kg cart moves at 3 m/s. A 2 kg cart moves at 6 m/s. How does the kinetic energy of the 2 kg cart compare with that of the 4 kg cart?
+    choices:
+      - text: Twice as much
+        correct: true
+      - text: Four times as much
+        rationale: |
+          Doubling speed gives four times the kinetic energy at the same mass. Check how the mass changes too.
+      - text: The same amount
+        rationale: |
+          Half the mass and twice the speed cancel when you multiply mass by speed. Check what happens when you square the speed first.
+      - text: Half as much
+        rationale: |
+          The 2 kg cart has half the mass, so it would have half the energy at the same speed. Check whether the speeds are the same.
+      - text: Eight times as much
+        rationale: |
+          This multiplies the speed factor of four by two because the masses differ by a factor of two. Check which cart has the smaller mass.
+    explanation: |
+      For the 4 kg cart, $KE=\dfrac{1}{2}\times4\times3^2=18$ J. For the 2 kg cart, $KE=\dfrac{1}{2}\times2\times6^2=36$ J. That's twice as much.
+
+  - id: q-physics-work-energy-power-pshs-0003
+    lesson: lesson-physics-mechanical-energy-conservation
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      A ball passes a window on its way up after being tossed straight up. It passes the same window on its way down. Ignore air resistance. Which statement compares the ball's energy at the same height on the two trips?
+    choices:
+      - text: Its kinetic energy is the same both times.
+        correct: true
+      - text: Its kinetic energy is greater on the way down.
+        rationale: |
+          Gravity speeds the ball up as it falls. Check how much potential energy the ball gains and then gives back between the two passes.
+      - text: Its kinetic energy is greater on the way up.
+        rationale: |
+          The ball starts with energy from the toss. Check whether gravity restores the kinetic energy that the ball loses as it rises above the window.
+      - text: Its potential energy is greater on the way up.
+        rationale: |
+          The ball is heading toward a greater height on its way up. Check its height at the moment it passes the window each time.
+      - text: Its mechanical energy is greater on the way down.
+        rationale: |
+          The ball gains kinetic energy as it falls. Check what happens to its potential energy at the same time.
+    explanation: |
+      Only gravity does work between the two passes, so the total of the two energies stays the same. The ball has the same height both times, so its potential energy is the same. That leaves the same amount of kinetic energy.
+
+  - id: q-physics-work-energy-power-pshs-0004
+    lesson: lesson-physics-mechanical-energy-with-friction
+    keyPoint: 1
+    type: classify
+    difficulty: medium
+    stem: |
+      A moving belt grips a bag and speeds it up on a level surface. The bag moves with the belt without slipping. What work does the belt's friction do on the bag while the bag speeds up?
+    choices:
+      - text: Positive work
+        correct: true
+      - text: Negative work
+        rationale: |
+          Sliding friction often slows things down. Check whether the belt slows this bag down or speeds it up.
+      - text: Zero work because the bag does not slip
+        rationale: |
+          Friction that stops slipping does no work when the surface is at rest. Check whether this belt is at rest.
+      - text: Zero work because the height is fixed
+        rationale: |
+          The fixed height keeps gravitational potential energy the same. Check whether the bag's kinetic energy also stays the same.
+      - text: The sign depends on the weight of the bag
+        rationale: |
+          Weight can affect how hard the bag presses on the belt. Check whether the bag's mechanical energy rises or falls as it speeds up.
+    explanation: |
+      The belt's friction speeds up the bag, so the bag gains kinetic energy. Its height stays the same. Its mechanical energy goes up, so friction does positive work.
+
+  - id: q-physics-work-energy-power-pshs-0005
+    lesson: lesson-physics-kinetic-and-gravitational-potential-energy
+    keyPoint: 1
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A 5 kg cart travels at 4 m/s. A 2 kg cart travels at 7 m/s. How much more or less kinetic energy does the 2 kg cart have than the 5 kg cart?
+    choices:
+      - text: '9 J more'
+        correct: true
+      - text: '9 J less'
+        rationale: |
+          This gets the size of the difference. The lighter cart has less mass, so less energy might seem right. Check which cart has 49 J and which has 40 J.
+      - text: '18 J more'
+        rationale: |
+          This subtracts the two values of mass times speed squared. Squaring each speed is right. Check the factor of one-half for both carts.
+      - text: '33 J less'
+        rationale: |
+          This uses 7 J for the lighter cart and compares it with 40 J. The half of 2 kg is right. Check whether to use 7 or $7^2$ for the speed part.
+      - text: '49 J more'
+        rationale: |
+          This finds the lighter cart's kinetic energy. Check how much energy the heavier cart has before finding the difference.
+    explanation: |
+      The 5 kg cart has $\dfrac{1}{2}\times5\times4^2=40$ J. The 2 kg cart has $\dfrac{1}{2}\times2\times7^2=49$ J. The 2 kg cart has $49-40=9$ J more.
+
+  - id: q-physics-work-energy-power-pshs-0006
+    lesson: lesson-physics-mechanical-energy-conservation
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: hard
+    stem: |
+      Two balls of different masses are released from rest. The heavier ball's speed is measured after it falls 2 m. The lighter ball's speed is measured after it falls 4 m. Ignore air resistance. Which statement about the measured speeds is correct?
+    choices:
+      - text: The lighter ball is faster because it falls farther.
+        correct: true
+      - text: The heavier ball is faster because it weighs more.
+        rationale: |
+          A heavier ball loses more potential energy per meter. Check whether it also needs more kinetic energy to reach the same speed.
+      - text: Both balls are equally fast because gravity acts on both.
+        rationale: |
+          Gravity changes their speeds by the same amount each second. Check whether the balls have been falling for the same amount of time after drops of different heights.
+      - text: Both balls are equally fast because both start from rest.
+        rationale: |
+          The balls start at the same speed. Check how the different drops change their speeds from that starting value.
+      - text: The speeds cannot be compared because the masses are unknown.
+        rationale: |
+          Mass appears in both energy formulas. Check what happens to that factor when you set the lost potential energy equal to the gained kinetic energy.
+    explanation: |
+      Each ball turns the potential energy it loses into kinetic energy. The mass cancels from both sides of $mgh=\dfrac{1}{2}mv^2$. This leaves $v^2=2gh$, so the lighter ball is faster because it falls farther.
+
+  - id: q-physics-work-energy-power-pshs-0007
+    lesson: lesson-physics-mechanical-energy-with-friction
+    keyPoint: 1
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A moving sled has 36 J of kinetic energy at the top of a hill. It loses 49 J of gravitational potential energy on the way to the bottom. Friction does $-18$ J of work. Only gravity and friction do work. What is the sled's kinetic energy at the bottom?
+    choices:
+      - text: '67 J'
+        correct: true
+      - text: '85 J'
+        rationale: |
+          This adds all 49 J to the starting kinetic energy. That would work on a smooth hill with no friction. Check what friction does here.
+      - text: '103 J'
+        rationale: |
+          This adds 18 J because friction changes the sled's energy. Check the minus sign on friction's work.
+      - text: '31 J'
+        rationale: |
+          This finds the gain in kinetic energy. The lost potential energy and friction's work both affect that gain. Check how much kinetic energy the sled had at the top.
+      - text: '18 J'
+        rationale: |
+          This lowers the starting kinetic energy by the amount friction takes away. Check what happens to the 49 J of potential energy the sled loses.
+    explanation: |
+      The drop frees up 49 J, and friction takes away 18 J. The sled gains $49-18=31$ J of kinetic energy. Add that to the 36 J it started with to get 67 J.
+
+  - id: q-physics-work-energy-power-pshs-0008
+    lesson: lesson-physics-mechanical-energy-conservation
+    keyPoint: 1
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      A 2 kg ball is tossed upward at 6 m/s. Ignore air resistance. How much kinetic energy does the ball have when it is 1.5 m above the point where it left the thrower's hand? Use $g=9.8\,\mathrm{m/s^2}$.
+    choices:
+      - text: '6.6 J'
+        correct: true
+      - text: '29.4 J'
+        rationale: |
+          This finds the energy the ball stores by rising 1.5 m. Check how much of the starting energy is still energy of motion.
+      - text: '21.3 J'
+        rationale: |
+          This takes away 14.7 J, which is the energy gained for each kilogram. Check how many kilograms gain that amount.
+      - text: '36 J'
+        rationale: |
+          This keeps the starting kinetic energy because the ball's mechanical energy stays the same. Check what the ball gains as it rises.
+      - text: '65.4 J'
+        rationale: |
+          This adds the increase in potential energy to the starting kinetic energy. The potential energy does rise. Check how kinetic energy must change to keep the sum fixed.
+    explanation: |
+      The ball starts with $\dfrac{1}{2}\times2\times6^2=36$ J of kinetic energy. It gains $2\times9.8\times1.5=29.4$ J of potential energy. Only gravity does work, so its kinetic energy drops by the same amount. It has $36-29.4=6.6$ J left.
+
+  - id: q-physics-work-energy-power-pshs-0009
+    lesson: lesson-physics-mechanical-energy-with-friction
+    keyPoint: 1
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      A motor pulls a crate up a rough slope. The crate moves at the same speed at the top as it did at the bottom. It gains 49 J of gravitational potential energy, and friction does $-36$ J of work. Only gravity, the motor's pull, and friction do work. How much work does the motor do on the crate?
+    choices:
+      - text: '85 J'
+        correct: true
+      - text: '13 J'
+        rationale: |
+          This subtracts 36 J from 49 J because friction reduces the energy. Check how much extra work the motor must do to make up for that loss.
+      - text: '49 J'
+        rationale: |
+          This is the work the motor would need if the slope were smooth. Check the work needed to make up for friction on the rough slope.
+      - text: '36 J'
+        rationale: |
+          This gives enough work to make up for friction. Check what energy the crate gains as the motor lifts it.
+      - text: '134 J'
+        rationale: |
+          This adds 36 J for friction, then counts 49 J for lifting and another 49 J for gaining height. Check whether lifting and gaining height are the same gain.
+    explanation: |
+      The crate has the same speed at the top and bottom, so its kinetic energy is the same at both points. It gains 49 J of mechanical energy from height. The motor also has to make up for the 36 J taken away by friction. It does $49+36=85$ J of work.
