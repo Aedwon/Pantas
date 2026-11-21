@@ -1,0 +1,86 @@
+meta:
+  subject: language-proficiency
+  topic: language-application
+  subtopic: with-for-companionship-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-language-application-with-for-companionship-pshs-0001
+    lesson: lesson-language-application-with-for-companionship
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: easy
+    stem: |
+      Ella and her cousin picked guavas to give to their neighbors.
+      Choose the phrase that completes the sentence and tells who joined Ella.
+      "Ella picked guavas ________."
+    choices:
+      - text: with her cousin
+        correct: true
+      - text: for her neighbors
+        rationale: |
+          The neighbors are part of the plan, and this phrase tells who will get the guavas. Check who helped pick them.
+      - text: for her cousin
+        rationale: |
+          This names the cousin, who did help. "For" makes it sound like the guavas were meant for the cousin. Check whether the cousin helped pick them or waited to get them.
+      - text: with her neighbors
+        rationale: |
+          "With" can show who joined Ella. This phrase puts the neighbors in that role. Check whether they helped pick the guavas or were going to get them.
+      - text: with a long picking pole
+        rationale: |
+          A picking pole can help someone reach fruit. This phrase tells what tool Ella could use. Check whether the blank asks for a tool or a person.
+    explanation: |
+      Ella and her cousin both picked guavas. "With her cousin" shows that her cousin joined her.
+
+  - id: q-language-application-with-for-companionship-pshs-0002
+    lesson: lesson-language-application-with-for-companionship
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: medium
+    stem: |
+      Rosa and her father used a tape measure to check how wide a shelf was. The shelf was for the school library. Rosa wrote down the width and handed the slip to the librarian.
+      Which phrase completes the sentence and shows who helped Rosa measure the shelf?
+      "Rosa measured the shelf ________."
+    choices:
+      - text: with a tape measure
+        rationale: |
+          The tape measure helped Rosa do the job. Check what the phrase names. A tape measure is the tool she used.
+      - text: for her father
+        rationale: |
+          This phrase names her father, who helped. "For" makes it sound like Rosa did the job for him. Check whether her father helped measure or asked Rosa to do it for him.
+      - text: with her father
+        correct: true
+      - text: for the school library
+        rationale: |
+          The library is part of the plan. "For the school library" tells who the job was for. Check who worked with Rosa.
+      - text: to the librarian
+        rationale: |
+          The librarian got the slip, so "to the librarian" fits the handoff. Check who helped Rosa measure the shelf.
+    explanation: |
+      Rosa and her father measured the shelf together. "With her father" shows who joined Rosa.
+
+  - id: q-language-application-with-for-companionship-pshs-0003
+    lesson: lesson-language-application-with-for-companionship
+    keyPoint: 1
+    type: fill-in-the-blank
+    difficulty: exam
+    stem: |
+      Lira and Paolo sorted the contest entries together. Ms. Reyes asked for the list of finalists. Lira handed her the list.
+      Choose the pair that shows who helped Lira sort and who got the list.
+      "Lira sorted the entries ________ Paolo and handed the list ________ Ms. Reyes."
+    choices:
+      - text: for, to
+        rationale: |
+          "To" shows who got the list. "For Paolo" makes it sound like Lira did the sorting on his behalf. Check who took part in the sorting.
+      - text: with, for
+        rationale: |
+          "With" shows that Paolo helped sort. "For Ms. Reyes" can sound right because the list was meant for her. Check which word tells who got the list from Lira.
+      - text: near, to
+        rationale: |
+          Paolo would likely be close to Lira. "Near" tells where she was while she sorted. Check whether the sentence needs to say where Paolo stood or that he helped.
+      - text: with, with
+        rationale: |
+          The first "with" fits because Paolo helped sort. Using it both times makes it sound like Ms. Reyes helped hand over the list. Check who got the list.
+      - text: with, to
+        correct: true
+    explanation: |
+      Use "with Paolo" because he helped Lira sort the entries. Use "to Ms. Reyes" because she got the list from Lira.
