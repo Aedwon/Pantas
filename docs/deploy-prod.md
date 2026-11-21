@@ -430,9 +430,9 @@ the pre-run count in the release note, and do not start the run if it fails:
 
 1. **Expected use:** reads, writes and Hosting egress for every step, from the table below. If a step's
    cost is unknown, run one small step first and measure it from the project's metrics.
-2. **Already used:** run `node tool/checks/free_tier_live.mjs` and take each project's "last 24 h"
-   reads and writes (a rolling 24 hours, which is at least the current quota day) and its Hosting
-   egress for the last 24 hours.
+2. **Already used:** run `node tool/checks/free_tier_live.mjs` and take each project's "quota day since"
+   reads and writes (the use since the last midnight Pacific time, when Firestore's free quota resets)
+   and its Hosting egress for the last 24 hours.
 3. **Total against the limit:** expected plus already used, per project, must stay under:
    - pantas-staging: the staging budget of 40,000 reads, 16,000 writes and 288 MB egress a day (80% of
      the free tier; security lead ruling, Nov 16). Staging has no real users, so every staging read is ours.

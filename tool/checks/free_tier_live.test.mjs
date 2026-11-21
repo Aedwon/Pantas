@@ -2,7 +2,7 @@
 // cloud login, so it runs by hand (see the header of free_tier_live.mjs).
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {judge, formatRow} from './free_tier_live.mjs';
+import {judge, formatRow, pacificMidnight} from './free_tier_live.mjs';
 import {loadWaivers} from './free_tier.mjs';
 
 const waivers = {...loadWaivers(), secrets: {ceiling: 16, expires: '2026-11-24', reference: 'test waiver'}};
@@ -134,9 +134,15 @@ test('staging read budget (Nov 16 ruling): above 40,000 reads or 16,000 writes a
   assert.equal(status(data(heavy(45000, 100)), 'Firestore daily operations'), 'OK');
 });
 
-test('Firestore daily operations show the last 24 hours, for the pre-run count (rule 7, Nov 21)', () => {
-  const recent = {firestore: {schedules: 0, backups: 0, daily: [...days(6), {day: '2026-11-21', reads: 12345, writes: 678, deletes: 0}]}};
-  assert.match(find(rows(data({}, recent)), 'Firestore daily operations').detail, /staging: last 24 h 12345 reads, 678 writes/);
+test('Firestore daily operations show the current Pacific quota day, for the pre-run count (rule 7, Nov 21)', () => {
+  const recent = {firestore: {schedules: 0, backups: 0, daily: days(7), today: {since: '2026-11-21T08:00:00Z', reads: 12345, writes: 678}}};
+  assert.match(find(rows(data({}, recent)), 'Firestore daily operations').detail, /staging: quota day since 2026-11-21T08:00:00Z 12345 reads, 678 writes/);
+});
+
+test('the quota day starts at midnight Pacific time, in both standard and daylight time', () => {
+  assert.equal(pacificMidnight(new Date('2026-11-22T00:30:00Z')).toISOString(), '2026-11-21T08:00:00.000Z');
+  assert.equal(pacificMidnight(new Date('2026-11-21T07:59:00Z')).toISOString(), '2026-11-20T08:00:00.000Z');
+  assert.equal(pacificMidnight(new Date('2026-07-01T12:00:00Z')).toISOString(), '2026-07-01T07:00:00.000Z');
 });
 
 test('both billing-cutoff functions must exist, and no service keeps a minimum instance', () => {

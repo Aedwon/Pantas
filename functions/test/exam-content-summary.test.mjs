@@ -4,7 +4,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {loadExamContent, clearExamContentCache, buildExamContent, BUILDER_VERSION} from '../lib/_examContent.js';
-import {lessonItem, questionSetItems, summaryItems, writeContent} from '../lib/contentUpload.js';
+import {lessonItem, questionSetItems, splitUtf8, summaryItems, writeContent} from '../lib/contentUpload.js';
 
 const EXAM = 'exam_cse_pro';
 const lessonFronts = [
@@ -238,4 +238,68 @@ test('the upload module loads without starting a Firebase app (the upload tool s
   const script = "const m = require('./lib/contentUpload.js'); const {initializeApp} = require('firebase-admin/app');"
     + " initializeApp({projectId: 'upload-tool-check'}); if (typeof m.summaryItems !== 'function') process.exit(2);";
   execFileSync(process.execPath, ['-e', script], {cwd: new URL('..', import.meta.url), stdio: 'pipe'});
+});
+
+test('review: duplicate lesson or set ids in one upload write no summaries (the stored bank keeps one copy)', async () => {
+  const db = await uploaded();
+  const items = [...bank(), lessonItem({_id: 'lesson-algebra-a', topic: 'topic-algebra', ordering: 9}, 'dup')];
+  const result = await writeContent(db, items, [], {});
+  assert.equal(result.summaries, 'partial');
+  assert.match(db.docs.get('content/summaries/items/_bank').bankVersion, /^partial:/);
+  const warn = captureWarnings();
+  try {
+    clearExamContentCache();
+    assert.deepEqual(await loadExamContent(db, EXAM, 0), await scanOf(db));
+  } finally { warn.restore(); }
+});
+
+test('review: content that does not survive a JSON round trip gets no summary for that exam', async () => {
+  const items = bank().map(i => i.id === 'lesson-algebra-b' ? {...i, data: {...i.data, ordering: 'not a number'}} : i);
+  const db = await uploaded(items);
+  assert.equal(db.docs.has(`content/summaries/items/${EXAM}`), false);
+  const warn = captureWarnings();
+  try {
+    clearExamContentCache();
+    assert.deepEqual(await loadExamContent(db, EXAM, 0), await scanOf(db));
+  } finally { warn.restore(); }
+});
+
+test('review: parts split on byte size and never inside a character', () => {
+  const text = '€'.repeat(400_000) + '😀'.repeat(200_000);
+  const parts = splitUtf8(text, 700_000);
+  assert.equal(parts.join(''), text);
+  for (const part of parts) {
+    assert.ok(Buffer.byteLength(part, 'utf8') <= 700_000);
+    assert.equal(Buffer.from(part, 'utf8').toString('utf8'), part, 'no broken surrogate pair');
+  }
+});
+
+test('review: a bank the builder rejects fails the upload before anything is written', async () => {
+  const db = await uploaded();
+  db.stats.writes = [];
+  const items = bank().map(i => i.id === 'lesson-algebra-old' ? lessonItem({_id: 'lesson-algebra-old', topic: 'topic-algebra', status: 'retired', replacedBy: ['lesson-missing']}, 'x') : i);
+  await assert.rejects(writeContent(db, items, [], {}), /unknown lesson/);
+  assert.deepEqual(db.stats.writes, []);
+});
+
+test('review: a dry run against an existing bank writes nothing and reports the summary plan', async () => {
+  const db = await uploaded();
+  db.stats.writes = [];
+  const items = bank().map(i => i.id === 'lesson-algebra-b' ? lessonItem({_id: 'lesson-algebra-b', topic: 'topic-algebra', ordering: 7}, 'b2') : i);
+  const result = await writeContent(db, items, [], {dryRun: true});
+  assert.equal(result.summaries, 'written');
+  assert.deepEqual(db.stats.writes, []);
+});
+
+test('review: an exam with no sets, and a failed summary read, both fall back to the scan', async () => {
+  const db = await uploaded();
+  const warn = captureWarnings();
+  try {
+    clearExamContentCache();
+    assert.deepEqual(await loadExamContent(db, 'exam_none', 0), await scanOf(db, 'exam_none'));
+    db.getAll = async () => { throw new Error('offline'); };
+    clearExamContentCache();
+    assert.deepEqual(await loadExamContent(db, EXAM, 0), await scanOf(db));
+    assert.ok(warn.lines.some(l => l.includes('read failed: offline')));
+  } finally { warn.restore(); }
 });

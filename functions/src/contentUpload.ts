@@ -1,4 +1,5 @@
 import {createHash} from 'node:crypto';
+import {isDeepStrictEqual} from 'node:util';
 import type {Firestore} from 'firebase-admin/firestore';
 import {BANK_MARKER_ID, BUILDER_VERSION, SUMMARY_COLLECTION, buildExamContent, summaryPartId} from './_examContentBuild.js';
 
@@ -246,8 +247,7 @@ export function planWrites(items: ContentItem[], existing: Map<string, string>):
 // reads 2 or 3 documents instead of every lesson and question set. Plan:
 // docs/superpowers/plans/2026-11-21-exam-content-summary.md.
 
-export const SUMMARY_SPLIT_CHARS = 700_000;
-const SUMMARY_HARD_LIMIT_BYTES = 1_000_000;
+export const SUMMARY_SPLIT_BYTES = 700_000;
 const BANK_KINDS = new Set<ContentKind>(['lessons', 'questions']);
 const byId = <T extends {id: string}>(a: T, b: T): number => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
 
@@ -256,9 +256,26 @@ export function bankVersionOf(items: ContentItem[]): string {
   return digest(items.filter((item) => BANK_KINDS.has(item.kind)).map((item) => `${item.kind}/${item.id}:${item.data.version}`).sort());
 }
 
+/** Splits text into parts of at most `maxBytes` UTF-8 bytes, never inside a character. */
+export function splitUtf8(text: string, maxBytes: number): string[] {
+  const parts: string[] = [];
+  let start = 0;
+  while (start < text.length) {
+    let end = Math.min(text.length, start + maxBytes);
+    while (Buffer.byteLength(text.slice(start, end), 'utf8') > maxBytes) end = start + Math.floor((end - start) * 0.9);
+    // Do not end a part between the two halves of a surrogate pair.
+    if (end < text.length && /[\uD800-\uDBFF]/.test(text[end - 1])) end -= 1;
+    parts.push(text.slice(start, end));
+    start = end;
+  }
+  return parts.length ? parts : [''];
+}
+
 /**
- * The exam summaries for a bank made of exactly these lesson and question-set items, in parts of at
- * most SUMMARY_SPLIT_CHARS characters. Exams come from the sets' `meta.exams`.
+ * The exam summaries for a bank made of exactly these lesson and question-set items (no duplicate ids),
+ * in parts of at most SUMMARY_SPLIT_BYTES. Exams come from the sets' `meta.exams`. An exam whose content
+ * would not read back identically from JSON gets no summary, so the server scans for it. Throws when the
+ * builder rejects the bank (for example a replacedBy cycle), which the scan would also reject.
  */
 export function summaryItems(items: ContentItem[]): {id: string; data: Record<string, unknown>}[] {
   const bankVersion = bankVersionOf(items);
@@ -277,13 +294,10 @@ export function summaryItems(items: ContentItem[]): {id: string; data: Record<st
   const out: {id: string; data: Record<string, unknown>}[] = [];
   for (const slug of [...slugs].sort()) {
     const examId = `exam_${underscore(slug)}`;
-    const payload = JSON.stringify(buildExamContent(examId, lessons, sets));
-    const chunks: string[] = [];
-    for (let start = 0; start < payload.length; start += SUMMARY_SPLIT_CHARS) chunks.push(payload.slice(start, start + SUMMARY_SPLIT_CHARS));
-    if (!chunks.length) chunks.push('');
-    for (const chunk of chunks) {
-      if (Buffer.byteLength(chunk, 'utf8') > SUMMARY_HARD_LIMIT_BYTES) throw new Error(`exam summary ${examId} part is over ${SUMMARY_HARD_LIMIT_BYTES} bytes`);
-    }
+    const content = buildExamContent(examId, lessons, sets);
+    const payload = JSON.stringify(content);
+    if (!isDeepStrictEqual(JSON.parse(payload), content)) continue;
+    const chunks = splitUtf8(payload, SUMMARY_SPLIT_BYTES);
     out.push({id: examId, data: {kind: 'summaries', id: examId, bankVersion, builderVersion: BUILDER_VERSION, parts: chunks.length, payload: chunks[0]}});
     chunks.slice(1).forEach((chunk, i) => {
       const id = summaryPartId(examId, i + 1);
@@ -315,12 +329,17 @@ export async function writeContent(db: Firestore, items: ContentItem[], pros: Pr
   const markerRef = db.doc(`${SUMMARY_COLLECTION}/${BANK_MARKER_ID}`);
   const marker = await markerRef.get();
   const inputBank = new Set(items.filter((item) => BANK_KINDS.has(item.kind)).map((item) => `${item.kind}/${item.id}`));
-  const covered = [...existing.keys()].filter((key) => key.startsWith('lessons/') || key.startsWith('questions/')).every((key) => inputBank.has(key));
+  const bankItems = items.filter((item) => BANK_KINDS.has(item.kind));
+  // Duplicate ids: Firestore keeps one copy, so the input is not the stored bank.
+  const covered = inputBank.size === bankItems.length
+    && [...existing.keys()].filter((key) => key.startsWith('lessons/') || key.startsWith('questions/')).every((key) => inputBank.has(key));
   const bankChanging = changed.some((item) => BANK_KINDS.has(item.kind));
   const bankVersion = covered ? bankVersionOf(items) : null;
   // An upload with no lessons or question sets (only catalog, mocks or gaps) leaves summaries alone.
   const summariesDue = covered && inputBank.size > 0 && (bankChanging || !marker.exists || marker.get('bankVersion') !== bankVersion
     || marker.get('builderVersion') !== BUILDER_VERSION);
+  // Built before any write, dry run included, so a bank the builder rejects fails the upload untouched.
+  const summaryDocs = summariesDue ? summaryItems(items) : [];
   const summaries: SummaryResult = summariesDue ? 'written' : covered && inputBank.size > 0 ? 'unchanged' : bankChanging ? 'partial' : 'not touched';
   const commitAll = async (writes: {ref: FirebaseFirestore.DocumentReference; data: Record<string, unknown>}[]): Promise<void> => {
     for (let start = 0; start < writes.length; start += 400) {
@@ -352,7 +371,7 @@ export async function writeContent(db: Firestore, items: ContentItem[], pros: Pr
       await batch.commit();
     }
     if (summariesDue) {
-      await commitAll(summaryItems(items).map((summary) => ({ref: db.doc(`${SUMMARY_COLLECTION}/${summary.id}`), data: summary.data})));
+      await commitAll(summaryDocs.map((summary) => ({ref: db.doc(`${SUMMARY_COLLECTION}/${summary.id}`), data: summary.data})));
       await commitAll([{ref: markerRef, data: {bankVersion, builderVersion: BUILDER_VERSION}}]);
     } else if (bankChanging) {
       await commitAll([{ref: markerRef, data: {bankVersion: `partial:${Date.now()}`}}]);
