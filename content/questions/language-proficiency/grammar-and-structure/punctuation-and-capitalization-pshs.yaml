@@ -20,9 +20,9 @@ questions:
       - text: Our boat reached bohol before lunch. We ate near the port.
         rationale: |
           Both sentences start with capitals, so the line can look correct. Find the place name. “Bohol” needs a capital too.
-      - text: The crew tied the Ferry to a post. We waited with our bags.
+      - text: The crew tied the boat to a Post. We waited with our bags.
         rationale: |
-          The writer has one ferry in mind, so “Ferry” may look like its name. Check whether the word gives the boat a name or tells what kind of boat it is.
+          “Post” sits at the end of the sentence and may look like an important word. Check whether it names one special place or thing. Here it is an ordinary word for a pole.
       - text: We took the bus with mila. She showed us where to get off.
         rationale: |
           “Mila” appears in the middle of a sentence, where most words stay lowercase. Check whose name it is. A person's name starts with a capital anywhere in the sentence.
@@ -132,18 +132,18 @@ questions:
     stem: |
       Which line uses capital letters correctly in the quoted text?
     choices:
-      - text: Nina wrote, “The trail is steep.” She circled “steep” on the page.
+      - text: Nina wrote, “The trail is steep.” She circled “steep,” her last word.
         correct: true
-      - text: Nina wrote, “the trail is steep.” She circled “steep” on the page.
+      - text: Nina wrote, “the trail is steep.” She circled “steep,” her last word.
         rationale: |
           A quote in the middle of a line can look like part of the outer sentence. Check whether the quoted words can stand alone. “The trail is steep” is a full sentence.
-      - text: Nina wrote, “The path is narrow.” She circled “Narrow” on the page.
+      - text: Nina wrote, “The path is narrow.” She circled “Narrow,” her last word.
         rationale: |
           A capital on the first word of the full quote may make you want one in both quotes. Check what the second quote holds. It is the single word “narrow.”
-      - text: Nina wrote, “The Trail is steep.” She underlined “steep” on the page.
+      - text: Nina wrote, “The Trail is steep.” She underlined “steep,” her last word.
         rationale: |
           You may give “Trail” a capital because it is the topic of the note. Check whether it names a specific trail. Here it is an ordinary word inside the quoted sentence.
-      - text: Nina wrote, “the path gets muddy.” She underlined “Muddy” on the page.
+      - text: Nina wrote, “the path gets muddy.” She underlined “Muddy,” her last word.
         rationale: |
           “Muddy” may look like a label because it is underlined, while the earlier quote comes after a comma. Read both quotes on their own. The full sentence starts with a capital, and the single word stays lowercase.
     explanation: |

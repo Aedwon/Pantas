@@ -14,9 +14,9 @@ questions:
       Choose the phrase that completes the sentence with what Jo looks forward to doing.
       "Jo is excited ________."
     choices:
-      - text: for Tess and her chance to spot birds
+      - text: for Tess to paddle across the bay
         rationale: |
-          This makes Jo happy for Tess. Spotting birds is part of the plan, so this choice may sound right. Check who wants to spot birds.
+          This makes Jo happy for Tess and names Tess's trip. The bay crossing is part of the plan, so this choice may sound right. Check what Jo herself wants to do.
       - text: about spotting birds
         correct: true
       - text: about learning to paddle

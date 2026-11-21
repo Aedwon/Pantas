@@ -1,0 +1,5 @@
+# Question files the lead fixed after three rounds left them open. Each needs a fresh blind solve and fit read before approval.
+content/questions/language-proficiency/language-application/excited-and-nervous-about-pshs.yaml  0001 choice A could name Jo's own wish; now names Tess's trip
+content/questions/science/chemistry/reading-a-phase-diagram-pshs.yaml  0003 stem gave away the first count; now the point lies on the liquid-gas line
+content/questions/science/chemistry/chemical-bonding-pshs.yaml  0001 explanation stated polarity as certain; now a tendency, as the lesson teaches
+content/questions/language-proficiency/grammar-and-structure/punctuation-and-capitalization-pshs.yaml  0001 "the Ferry" could be a boat's name; 0006 the circled word's source was open

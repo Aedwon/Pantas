@@ -78,9 +78,9 @@ questions:
     type: compare-contrast
     difficulty: hard
     stem: |
-      A lab team tests a pure substance at two settings. At the first, only
-      liquid and gas can exist, and they are separate phases. The second
-      setting is the critical point. How many distinct phases can exist at
+      A lab team tests a pure substance at two settings. On its phase
+      diagram, the first setting lies on the line between the liquid and
+      gas regions. The second setting is the critical point. How many distinct phases can exist at
       the first and second settings, in that order?
     choices:
       - text: Two, then one
@@ -103,7 +103,8 @@ questions:
           There is just one substance at both settings. Check whether one
           substance can be liquid and gas at the same time.
     explanation: |
-      At the first setting, liquid and gas can exist as two separate
+      A point on the line between two regions is where those two phases
+      can exist together, so the first setting has liquid and gas: two
       phases. At the critical point, they become alike and form one phase.
 
   - id: q-chemistry-reading-a-phase-diagram-pshs-0004

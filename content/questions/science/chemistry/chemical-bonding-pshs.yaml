@@ -37,8 +37,10 @@ questions:
           ions. Check whether it can also attract the slightly positive and
           slightly negative ends of a polar molecule whose total charge is zero.
     explanation: |
-      Water is polar. Its molecules attract the polar stain molecules and pull
-      them into the water. This makes the polar stain easier to dissolve.
+      Water is polar. Polar substances tend to dissolve in polar water,
+      because water molecules attract polar molecules and pull them in.
+      Nonpolar molecules are not pulled in this way, so the polar stain is
+      the one likely to dissolve more easily.
 
   - id: q-chemistry-chemical-bonding-pshs-0002
     lesson: lesson-chemistry-bonding-and-material-properties
