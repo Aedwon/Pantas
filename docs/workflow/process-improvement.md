@@ -118,6 +118,16 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Manager restarted five leads at once after his Claude reset (Nov 22)
+
+- His words: "so you didn't learn anything did you". Earlier, Nov 21: "my 5-hour usage is getting burned too fast", and "my 5-hour limit is at 8% right now".
+- Wrong: the manager had promised to ask him which lanes to resume, and in what order, after his 12:09 AM reset. When he said "limits have reset, could you continue?", it restarted four Opus leads and launched a fifth (the dots figure kind UI lead) within minutes, without asking. The machine caps held (load 4.7), but five Opus leads at once is the pattern that had drained his Claude limit the day before.
+- Why it got through: the Nov 21 caps covered Codex jobs and Flutter builds, not Claude leads. The manager read "continue" as approval for every paused lane at once, and dropped its own promise to ask.
+- Fix:
+  1. Required manager step: at most 2 Opus leads run at once, plus one short task (one or two turns) at a time. Other leads wait in a queue the manager states to him. Going past 2 needs his approval for that time.
+  2. When the manager has told him it will ask before doing something, it asks. A general "continue" does not replace that question.
+  3. Applied now: the question generator Phase 2 and dots figure kind leads are paused. Under-13 and PSHS-NCE continue, and the security lead finishes its short task.
+
 ### Manager overloaded the Mac and ignored his report of it (Nov 21)
 
 - His words: "t3 code is using 13 GB of my ram, that's not normal", then "??? what the hell were you doing? my mac reached 14 GB in RAM usage with t3 code only", "i stopped a lot of processes. you didn't even respond to me", "hello? can I even trust you as my operations manager at all?"
