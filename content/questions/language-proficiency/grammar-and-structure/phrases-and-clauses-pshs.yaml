@@ -1,0 +1,88 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: phrases-and-clauses-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-grammar-and-structure-phrases-and-clauses-pshs-0001
+    lesson: lesson-grammar-and-structure-finite-verbs-and-ing-groups
+    keyPoint: 1
+    type: phrase-clause-identification
+    difficulty: medium
+    stem: |
+      Hoping to avoid slipping on the wet tiles, Bea walked slowly while carrying the tray.
+
+      Which verb form must change to put the sentence in the present tense?
+    choices:
+      - text: "Hoping"
+        rationale: |
+          The first action may seem to set the tense for the whole sentence. Read the sentence with "walks" and check whether "hoping" still fits.
+      - text: "to avoid"
+        rationale: |
+          This group tells why Bea walked slowly, so it may seem to control the action. Check whether "to avoid" has a past or present form here.
+      - text: "slipping"
+        rationale: |
+          Slipping is the event Bea wants to avoid, so it may seem to be the action to change. Does "slipping" need to change when "walked" becomes "walks"?
+      - text: "walked"
+        correct: true
+      - text: "carrying"
+        rationale: |
+          Bea carries the tray during the walk, so the two actions may seem to need the same change. Check whether "carrying" works with both "walked" and "walks."
+    explanation: |
+      "Walked" puts Bea's walk in the past. Change it to "walks" to put the walk in the present. "Walked" is the finite verb because it carries tense.
+
+  - id: q-grammar-and-structure-phrases-and-clauses-pshs-0002
+    lesson: lesson-grammar-and-structure-finite-verbs-and-ing-groups
+    keyPoint: 2
+    type: correct-usage
+    difficulty: hard
+    stem: |
+      Which entry from a student's report can stand alone as a complete sentence?
+    choices:
+      - text: "The team sorting the books by size and color."
+        rationale: |
+          This entry names the team and its task, so it may sound complete. Check whether "sorting" has a helper such as "was" to show tense.
+      - text: "The team was sorting books by size."
+        correct: true
+      - text: "Sorting the books by size before the break."
+        rationale: |
+          "Before the break" gives a time for the sorting, so the entry may sound like a full report. Does "sorting" show tense by itself?
+      - text: "The team ready to sort books after the break."
+        rationale: |
+          "Ready" describes the team, so it may seem to finish the statement. Check for a form such as "was" before "ready."
+      - text: "The books on the cart waiting to be sorted."
+        rationale: |
+          This entry names the books and includes "to be sorted," which may look like a full verb group. Check whether "to be" shows tense here.
+    explanation: |
+      "The team" is the subject. In "was sorting," the verb "was" shows past tense. Together they make a complete statement about what the team was doing.
+
+  - id: q-grammar-and-structure-phrases-and-clauses-pshs-0003
+    lesson: lesson-grammar-and-structure-finite-verbs-and-ing-groups
+    keyPoint: 2
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Which bold part needs a change so that each line is a complete sentence? Choose "No error" if all three lines are complete.
+
+      Paolo **waited for his turn** **near the gate**.
+
+      His teammates **practicing their lines** by the stairs to prepare for the show.
+
+      Their teacher **was checking the stage props**.
+    choices:
+      - text: "waited for his turn"
+        rationale: |
+          "Was waiting" could also describe what Paolo did, so a helper might seem needed here. Check whether "waited" already shows past tense.
+      - text: "practicing their lines"
+        correct: true
+      - text: "near the gate"
+        rationale: |
+          This group has no verb, so it may look incomplete. Read the whole line and look for the verb that shows what Paolo did.
+      - text: "was checking the stage props"
+        rationale: |
+          The word "checking" ends in -ing, which can make the group look incomplete. Check whether a helper already shows tense.
+      - text: "No error"
+        rationale: |
+          All three lines name people and tell what they were doing, so they may sound complete. Read the middle line alone and look for a verb that shows tense.
+    explanation: |
+      Add "were" before "practicing" to form "His teammates were practicing their lines by the stairs to prepare for the show." "Were" shows past tense and makes the sentence complete.
