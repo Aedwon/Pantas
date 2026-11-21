@@ -1,0 +1,105 @@
+meta:
+  subject: mathematics
+  topic: geometry
+  subtopic: coordinate-geometry-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-geometry-coordinate-geometry-pshs-0001
+    lesson: lesson-geometry-coordinate-slope-and-line-forms
+    keyPoint: 1
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      A straight line passes through $(-2,9)$ and $(1,-3)$. What is its slope?
+    choices:
+      - text: '$4$'
+        rationale: |
+          You get $4$ if you subtract the $x$ values in the opposite order from the $y$ values. Both differences use the right coordinates. Start with the same point in both.
+      - text: '$-4$'
+        correct: true
+      - text: '$-\dfrac{1}{4}$'
+        rationale: |
+          You get this by dividing the run by the rise. Both changes are right. Put the change in $y$ on top.
+      - text: '$-12$'
+        rationale: |
+          The change in $y$ is $-12$. Divide it by the change in $x$ to find the slope.
+      - text: '$12$'
+        rationale: |
+          You get $12$ if you use $1-2$ for the run. The first $x$ value has a magnitude of $2$, so the minus sign is easy to miss. Check that $1-(-2)=3$.
+    explanation: |
+      The change in $y$ is $-3-9=-12$. The change in $x$ is $1-(-2)=3$. Divide the change in $y$ by the change in $x$ to get $\dfrac{-12}{3}=-4$.
+
+  - id: q-geometry-coordinate-geometry-pshs-0002
+    lesson: lesson-geometry-coordinate-slope-and-line-forms
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      At what value of $y$ does the line $6x-3y=15$ cross the $y$-axis?
+    choices:
+      - text: '$5$'
+        rationale: |
+          You get $5$ if you divide $15$ by $3$. The size of the divisor is right. Check the minus sign in $-3y$.
+      - text: '$15$'
+        rationale: |
+          This uses the number on the right as the intercept. That works when $y$ is alone at $x=0$. Check what multiplies $y$ here.
+      - text: '$-5$'
+        correct: true
+      - text: '$-15$'
+        rationale: |
+          You get $-15$ if you change the sign in $-3y=15$ and stop at $3y=-15$. The sign is right. Divide by $3$ to find $y$.
+      - text: '$2$'
+        rationale: |
+          This is the slope, which you can also read from the line's equation. Check which number gives $y$ when $x=0$.
+    explanation: |
+      On the $y$-axis, $x=0$. Put $0$ in for $x$ to get $-3y=15$. Divide by $-3$ to get $y=-5$.
+
+  - id: q-geometry-coordinate-geometry-pshs-0003
+    lesson: lesson-geometry-coordinate-slope-and-line-forms
+    keyPoint: 1
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Each segment joins $P(2,3)$ to one of the points below. Which point gives the segment that rises most steeply from left to right?
+    choices:
+      - text: '$(8,15)$'
+        rationale: |
+          This point is highest above $P$, so the segment has the largest rise. Check how far it goes right as well. Its slope is $\dfrac{12}{6}=2$.
+      - text: '$(3,5)$'
+        rationale: |
+          Of the points to the right of $P$, this one has the shortest run. A short run can make a line steep. Check the rise too. The slope here is $\dfrac{2}{1}=2$.
+      - text: '$(12,6)$'
+        rationale: |
+          This segment reaches farthest to the right, so it may look like the biggest change. Check the rise per unit of run. It rises only $3$ in $10$ units.
+      - text: '$(4,9)$'
+        correct: true
+      - text: '$(1,8)$'
+        rationale: |
+          This segment looks steep because $y$ changes by $5$ in just $1$ unit of horizontal distance. Read it from left to right. It goes down from $8$ to $3$.
+    explanation: |
+      From $P$ to $(4,9)$, the segment rises $6$ units in $2$ units of run. Its slope is $\dfrac{6}{2}=3$. Every other rising segment rises at most $2$ units for each unit it goes right. So $3$ is the greatest slope.
+
+  - id: q-geometry-coordinate-geometry-pshs-0004
+    lesson: lesson-geometry-coordinate-slope-and-line-forms
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Which equation in standard form represents the line through $(-3,4)$ and $(3,0)$?
+    choices:
+      - text: '$2x+3y=6$'
+        correct: true
+      - text: '$2x+3y=18$'
+        rationale: |
+          You get $18$ if you put $(3,4)$ into $2x+3y$. The two coordinate sizes are right. Keep the minus sign in $(-3,4)$ when you plug in $x$.
+      - text: '$2x-3y=6$'
+        rationale: |
+          This line passes through $(3,0)$, and its slope has the right size. Check the sign of its slope. The given line goes down from left to right.
+      - text: '$3x+2y=9$'
+        rationale: |
+          This line passes through $(3,0)$ and has a negative slope. It uses run over rise to get $-\dfrac{3}{2}$. Check that the change in $x$ goes on the bottom.
+      - text: '$2x+3y=-6$'
+        rationale: |
+          You get this constant if you find the intercept by adding $mx$ to $y$. The slope is right. In $y=mx+b$, subtract $mx$ to find $b$.
+    explanation: |
+      The slope is $\dfrac{0-4}{3-(-3)}=-\dfrac{2}{3}$. Use $(3,0)$ to write $y=-\dfrac{2}{3}(x-3)$. Multiply by $3$ to get $3y=-2x+6$. Add $2x$ to both sides to get $2x+3y=6$.
