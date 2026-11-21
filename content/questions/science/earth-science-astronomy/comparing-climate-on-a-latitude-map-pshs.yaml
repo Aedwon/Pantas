@@ -1,0 +1,117 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: comparing-climate-on-a-latitude-map-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-earth-science-astronomy-comparing-climate-on-a-latitude-map-pshs-0001
+    lesson: lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      Two stations at $15^\circ$ N are far apart from east to west. Students at
+      both stations record the length of daylight and the height of the Sun at
+      local midday on the same dates. Which result should they expect?
+    choices:
+      - text: Similar daylight lengths but a higher midday Sun at the eastern station
+        rationale: |
+          This uses the direction of sunrise to predict a higher Sun in the east.
+          The Sun comes up in that direction. Check its height at local midday.
+      - text: Similar daylight lengths and similar Sun heights at local midday
+        correct: true
+      - text: Longer daylight at the western station but similar midday Sun heights
+        rationale: |
+          This treats a later sunset on the clock as extra daylight. The western
+          station can reach sunset later. Check the time from sunrise to sunset.
+      - text: Shorter daylight and a lower midday Sun at the eastern station
+        rationale: |
+          If you look at both stations at once, the Sun can be lower in the
+          east. An earlier sunset can make the day there seem shorter. Check
+          the Sun at each station's own midday. For day length, count the hours
+          from sunrise to sunset at each station.
+      - text: Similar daylight lengths but a lower midday Sun at the cloudier station
+        rationale: |
+          This treats cloud cover as a change in the Sun's height. Clouds can
+          hide the Sun. Check whether they change where it is in the sky.
+    explanation: |
+      Both stations are the same distance north of the equator. On the same
+      date, their days are about the same length. The Sun also reaches about
+      the same height at local midday.
+
+  - id: q-earth-science-astronomy-comparing-climate-on-a-latitude-map-pshs-0002
+    lesson: lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map
+    keyPoint: 2
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A coastal town and an inland town share a latitude and are both near sea
+      level. Over many years, the coastal town has had smaller changes in
+      temperature between seasons and more rain. Winds often reach it from the
+      sea. Which explanation fits both patterns?
+    choices:
+      - text: The sea heats up quickly, and spray from waves supplies the coast's extra rain.
+        rationale: |
+          Sunlight warms water, and waves can send drops into the air. Check
+          how fast the sea changes temperature and what winds carry from it.
+      - text: Cool sea breezes keep temperatures steady, and dry inland winds bring rain.
+        rationale: |
+          A cool breeze can make a hot day feel cooler. Check what slows
+          temperature changes across seasons and whether dry winds supply
+          moisture for rain.
+      - text: The sea slows temperature changes, and its winds bring moist air.
+        correct: true
+      - text: Daylight hours vary less at the coast, and weaker sunlight makes it rain more.
+        rationale: |
+          Daylight can affect temperature, and rainy days often look dark.
+          Check the towns' latitudes and where the air gets its moisture.
+      - text: Higher ground keeps the town cooler, and rising air there brings more rain.
+        rationale: |
+          High places are often cooler, and air can rise over hills. Check
+          both towns' heights and whether cooler means smaller changes
+          from season to season.
+    explanation: |
+      The sea warms and cools more slowly than land. This helps keep the
+      coastal town's temperatures steadier. Wind from the sea carries moist
+      air, which can bring more rain.
+
+  - id: q-earth-science-astronomy-comparing-climate-on-a-latitude-map-pshs-0003
+    lesson: lesson-earth-science-astronomy-comparing-climate-on-a-latitude-map
+    keyPoint: 2
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A weather station on a high ridge lies far inland at $30^\circ$ N.
+      Winds often reach it from dry land. A student wants to use years of
+      temperature records to find out how much difference altitude makes.
+      All the inland choices are about the same distance from the sea as the
+      ridge. Which station would give the best comparison with the ridge?
+    choices:
+      - text: 'An inland station at ridge height at $30^\circ$ N with winds from dry land'
+        rationale: |
+          This matches the other conditions but also matches altitude. That
+          makes the sites look like a fair pair. Check which feature needs to
+          differ to test its effect.
+      - text: 'A low coastal station at $30^\circ$ N with winds off the sea'
+        rationale: |
+          This matches latitude and changes altitude. That may look like a fair
+          test. Check how the sea and the change in winds could also affect
+          the climate.
+      - text: 'A low inland station at $15^\circ$ N with winds from the same dry land'
+        rationale: |
+          This keeps both stations inland with similar winds. That leaves a
+          clear change in altitude. Check whether the change in latitude could
+          also change the sunlight pattern.
+      - text: 'A low inland station at $30^\circ$ N with winds from dry land'
+        correct: true
+      - text: 'A low inland station at $30^\circ$ S with winds from a similar dry area'
+        rationale: |
+          This matches the distance from the equator and changes altitude.
+          Both latitudes show the same number. Check which side of the
+          equator each station is on. They can get different hours of daylight
+          on the same dates, which can also affect their temperatures.
+    explanation: |
+      The low inland station is on the same latitude line and gets winds
+      from dry land too. Both sites are about the same distance from the sea.
+      The main difference is height, so the temperature records can help show
+      the effect of altitude.
