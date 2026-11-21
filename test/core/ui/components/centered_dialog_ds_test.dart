@@ -5,12 +5,12 @@ import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_shadow.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 import '../../../helpers/ds_matrix.dart';
 

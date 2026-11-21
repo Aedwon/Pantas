@@ -865,7 +865,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final ageGroup = ref.watch(ageGroupProvider).valueOrNull;
     // Every PSHS-NCE purchase takes the checkout box, for any age group. The
     // product's exam id decides, as it does on the server.
-    final chosenProductId = selectedPass?.productId ?? selectedPackage?.productId;
+    final chosenProductId =
+        selectedPass?.productId ?? selectedPackage?.productId;
     final pshsPurchase = buyShown &&
         chosenProductId != null &&
         ref.watch(proPageProductLookupProvider)(chosenProductId)?.examId ==

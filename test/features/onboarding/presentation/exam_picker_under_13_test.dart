@@ -1,14 +1,11 @@
 // Under-13 boards 3A (the child question) and 5 (the picker on a child),
 // in onboarding and in Settings.
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
-import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';

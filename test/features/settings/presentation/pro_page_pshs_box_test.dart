@@ -2,7 +2,6 @@
 // group, and the child's name under the buy button. The client table has no
 // PSHS-NCE product yet, so these tests give the page a fake one.
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/providers.dart';
@@ -20,8 +19,6 @@ import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
 import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:pantas/features/paywall/paywall.dart';
-import 'package:pantas/features/settings/domain/session_ordering.dart';
-import 'package:pantas/features/settings/domain/user_settings.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/settings/settings.dart';
 
@@ -85,7 +82,6 @@ ProductDefinition? _lookup(String id) => id == _pshsPass
 
 void main() {
   late _RecordingGateway gateway;
-  setUp(() => gateway = _RecordingGateway());
 
   Future<void> pumpPro(
     WidgetTester tester, {
@@ -107,6 +103,7 @@ void main() {
     });
     final db = inMemoryDatabase();
     addTearDown(db.close);
+    gateway = _RecordingGateway();
     await gateway.logIn('owner');
     final day = DateTime.now().add(const Duration(days: 40));
     final sittingDay = DateTime.utc(day.year, day.month, day.day);
@@ -199,7 +196,7 @@ void main() {
     final tile = find.text('Season Pass').first;
     await tester.ensureVisible(tile);
     await tester.tap(tile);
-    await tester.pump();
+    await tester.pumpAndSettle();
   }
 
   Future<void> chooseMonthly(WidgetTester tester) async {
@@ -228,8 +225,11 @@ void main() {
     await tester.pump();
   }
 
-  Future<void> buy(WidgetTester tester, String label,
-      {required bool wide}) async {
+  Future<void> buy(
+    WidgetTester tester,
+    String label, {
+    required bool wide,
+  }) async {
     await tester.tap(
       wide
           ? find.widgetWithText(WebButton, label)
