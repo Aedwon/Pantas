@@ -1,0 +1,80 @@
+meta:
+  subject: mathematics
+  topic: algebra
+  subtopic: three-set-inclusion-exclusion-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-algebra-three-set-inclusion-exclusion-pshs-0001
+    lesson: lesson-algebra-three-set-inclusion-exclusion
+    keyPoint: 1
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A teacher checks 120 envelopes for three kinds of stickers. Of these envelopes, 75 contain exactly one kind, 29 contain exactly two kinds, and 9 contain all three kinds. How many envelopes contain none of the three kinds?
+    choices:
+      - text: '7'
+        correct: true
+      - text: '16'
+        rationale: |
+          The first two groups leave $120-75-29=16$ envelopes. That looks like the number left over. Check the 9 envelopes with all three kinds.
+      - text: '36'
+        rationale: |
+          Subtracting $75+9$ counts the groups at both ends of the list. Check the 29 envelopes in the group with exactly two kinds.
+      - text: '45'
+        rationale: |
+          Subtracting 75 leaves every envelope outside the first group. That group is the largest, so it is easy to focus on it. Check which of the remaining envelopes still contain stickers.
+      - text: '113'
+        rationale: |
+          Adding the three groups gives the number with at least one kind. That is a step in the solution. Check how many envelopes are left after you remove those 113.
+    explanation: |
+      Each envelope with stickers is in one of the three groups. Add the groups to get $75+29+9=113$. Subtract from the full count. There are $120-113=7$ envelopes with none of the three kinds.
+
+  - id: q-algebra-three-set-inclusion-exclusion-pshs-0002
+    lesson: lesson-algebra-three-set-inclusion-exclusion
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      At a school workshop, 23 students made paper boats. Of those students, 11 also made paper fans and 9 also made paper kites. Four students made all three crafts. How many students made boats only?
+    choices:
+      - text: '3'
+        rationale: |
+          Subtracting both group counts gives $23-11-9=3$. Both groups need to be removed from the boat total. Check how many times this removes each student who made all three crafts.
+      - text: '7'
+        correct: true
+      - text: '12'
+        rationale: |
+          Subtracting 11 removes all boat makers who also made fans. That clears one of the two overlaps. Check for boat makers who made kites without making fans.
+      - text: '14'
+        rationale: |
+          Subtracting 9 removes all boat makers who also made kites. That clears one of the two overlaps. Check for boat makers who made fans without making kites.
+      - text: '19'
+        rationale: |
+          Subtracting 4 removes the students who made all three. They do belong outside the boats-only group. Check the boat makers who made exactly two crafts as well.
+    explanation: |
+      Of the boat makers, $11-4=7$ made fans but no kites, and $9-4=5$ made kites but no fans. Another 4 made all three crafts. Take those three groups out of the boat total. That leaves $23-7-5-4=7$ students who made boats only.
+
+  - id: q-algebra-three-set-inclusion-exclusion-pshs-0003
+    lesson: lesson-algebra-three-set-inclusion-exclusion
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A library asked 92 readers which kinds of stories they borrowed last month. The counts were 47 for mysteries, 42 for comics, and 36 for folktales. Of the readers, 21 borrowed both mysteries and comics, 17 borrowed both comics and folktales, and 16 borrowed both mysteries and folktales. Each of these counts for two kinds includes readers who borrowed all three. Thirteen readers borrowed none of these kinds. How many borrowed all three kinds?
+    choices:
+      - text: '21'
+        rationale: |
+          Using 92 as the number who borrowed at least one kind gives $92-71=21$. The 92 counts everyone in the survey. Check how many borrowed none of the three kinds.
+      - text: '46'
+        rationale: |
+          Subtracting the number of readers from the number of times they were counted gives $125-79=46$. This finds extra counts from readers in more than one group. Check that readers who borrowed exactly two kinds also add to that difference.
+      - text: '8'
+        correct: true
+      - text: '4'
+        rationale: |
+          Dividing 8 by 2 assumes each reader in all three groups needs to be added back twice. The same readers do appear in several counts. Check that each of them was added three times and then subtracted three times.
+      - text: '54'
+        rationale: |
+          Adding the three counts for pairs gives $21+17+16=54$. Each pair does include readers who borrowed all three kinds. Check that it also includes readers who borrowed just those two kinds.
+    explanation: |
+      There are $92-13=79$ readers who borrowed at least one kind. Add the three totals and subtract the three counts for pairs. This gives $47+42+36-21-17-16=71$. Each reader who borrowed all three was added three times and taken out three times. Count each of those readers once to bring 71 up to 79. There are $79-71=8$ of them.
