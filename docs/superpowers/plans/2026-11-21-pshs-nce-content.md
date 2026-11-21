@@ -32,7 +32,9 @@ Controlling documents: bite-sized spec `docs/superpowers/specs/2026-11-13-bite-s
 3. Questions for the 112 parts (R1 to R7): about 16 Sol jobs of about 25 questions, grouped by topic, each followed by the validator. Then blind solve (Sol high, about 4 jobs of 100), fit read (Sol high, about 8 jobs of 50), fix rounds, re-solve of fixed items. The lead rules on each mismatch and approves through main's approval tool with an evidence file.
 4. Gates, with main's tools on the content root: validator, approval gate, lesson pool check (per exam), size and split checks, attribution, em dash 0, lesson audit for the new parts. Export before and after: CSE and CET lesson lists, pools and mocks identical (D21 condition 3).
 5. D22 content, after the kind renders on staging: 15 to 20 dots questions, blind-solved from the rendered figure.
-6. Hand the root to the integrator for staging; prod content after Aedwon's "ship it". Opening PSHS-NCE for sale is a separate decision.
+6. Mock (Aedwon, Nov 21, "go with 2"; launch log): `content/mock/pshs-nce.yaml`, four sectional tests of 60 minutes and 50 items (quantitative, verbal, science, abstract), 240 minutes in all, named and noted as a Pantas practice exam, not the official format, following the UPCAT and DCAT files. Topic weights inside a test are an even split and are never shown. Codex Sol writes it after the pools exist; the mock topic check and a fill probe on several seeds pass.
+7. Pool sizing: 150 PSHS-NCE questions per test, so three attempts run before a repeat. Abstract needs about 90 more than step 3 plans (60 to 150), written to drawable kinds in separate `-pshs-2` files once the abstract files are clean, same loop. Verbal reaches about 150 with D21; science about 186. Quantitative has 62 and needs about 88 more: outside this lane until the manager names an owner.
+8. Hand the root to the integrator for staging; prod content after Aedwon's "ship it". Opening PSHS-NCE for sale is a separate decision.
 
 Each Codex run is sized to one account's 5-hour window, writes findings to a file as it goes, runs only when `codex-pick --status` shows 5-hour room, and uses `CODEX_PICK_PARALLEL=1` for parallel jobs. On exit 75: commit work in progress, tell the manager which accounts are full.
 
@@ -40,6 +42,11 @@ Each Codex run is sized to one account's 5-hour window, writes findings to a fil
 
 Lead active about 6 h; wall about 3 days (Nov 21 to Nov 24) for steps 1 to 4 and 6; step 5 about half a day after the D22 kind lands. Codex does all writing, reading and solving. Uncertain: Sol high solve speed, and how many science parts in D21 need a figure.
 
+## Estimate change (Nov 21, mock option 2)
+
+Added: about 90 abstract questions (about 4 Codex jobs) and the mock file. Plus about 1.5 h of lead time; wall to about Nov 25. Quantitative +88 not counted.
+
 ## Progress
 
 - Nov 21: branch fast-forwarded; 12 text-only dots questions deleted; re-map done (58be251da).
+- Nov 21: Aedwon chose mock option 2; lanes 1 to 3, D21 lessons and the exporter fix running.
