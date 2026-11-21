@@ -1,0 +1,155 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: thermodynamics-and-kinetics-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-chemistry-thermodynamics-and-kinetics-pshs-0001
+    lesson: lesson-chemistry-factors-that-change-reaction-rate
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      A liquid reactant is split into equal portions. A student adds each portion to the same volume of a second liquid reactant. One sample of the second liquid is more concentrated than the other. Both mixtures are at the same temperature. The mixture with the more concentrated sample changes color sooner. Which statement best explains this result?
+    choices:
+      - text: 'Each collision gives the particles more energy.'
+        rationale: |
+          A faster change can make the collisions seem stronger. Check what stayed the same. The mixtures are at the same temperature.
+      - text: 'Particles have more room to move.'
+        rationale: |
+          More particles might make you picture a bigger container. Check the volumes. The particles are packed into the same amount of space.
+      - text: 'Each particle needs less energy to react.'
+        rationale: |
+          A faster reaction can make it seem like each pair needs less energy. Check what changed. There are more particles of the same reactant. They still need the same energy to react.
+      - text: 'The reacting particles collide more often.'
+        correct: true
+      - text: 'Each successful collision makes more colored substance.'
+        rationale: |
+          The color builds up faster, so it might seem like each collision makes more. Check what happens in one successful collision. It still makes the same amount of colored substance.
+    explanation: |
+      The more concentrated liquid has more reacting particles in the same space. The particles bump into each other more often, so the color changes sooner.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-pshs-0002
+    lesson: lesson-chemistry-fair-tests-of-reaction-rate
+    keyPoint: 1
+    type: 'identify'
+    difficulty: 'medium'
+    stem: |
+      To test how the concentration of a liquid affects a gas-producing reaction, Carlo puts equal volumes of the liquid into identical flasks. Each flask has a different concentration. He adds identical metal strips and measures the volume of gas each flask produces in the first minute. Which pair gives the factor he changes and the result he measures, in that order?
+    choices:
+      - text: 'Gas volume and liquid concentration'
+        rationale: |
+          This names the right quantities in reverse order. Gas volumes can differ, so gas might seem to be what he changes. Check which value he sets before the reaction starts.
+      - text: 'Liquid concentration and gas volume'
+        correct: true
+      - text: 'Liquid concentration and gas collection time'
+        rationale: |
+          This picks the right change. Time is often measured in a rate test. Here each collection lasts one minute. Check what Carlo records at the end of it.
+      - text: 'Strip size and gas collection time'
+        rationale: |
+          Strip size can affect a reaction, and timing can help measure rate. Check the strips and the collection time. Carlo keeps both the same.
+      - text: 'Liquid volume and gas volume'
+        rationale: |
+          This picks the right result and the wrong liquid property. Both volume and concentration describe the liquid. Check which one differs between flasks.
+    explanation: |
+      Carlo chooses a different liquid concentration for each flask. After one minute, he measures the volume of gas each flask has made.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-pshs-0003
+    lesson: lesson-chemistry-factors-that-change-reaction-rate
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'hard'
+    stem: |
+      An enzyme helps a liquid react and give off a gas. Equal samples of the liquid get equal amounts of the enzyme. As the temperature rises from cool to warm, the gas forms faster. In a much hotter sample, the gas forms more slowly than in the warm sample. Which change best explains the slowdown in the hottest sample?
+    choices:
+      - text: 'Less enzyme was added to that sample.'
+        rationale: |
+          A sample with less enzyme could react more slowly. Check how the samples were prepared. Each got the same amount.
+      - text: 'The heat gives the liquid particles less energy.'
+        rationale: |
+          A slower reaction can make it seem like the particles lost energy. Heating makes the particles move faster. Check what happens to the enzyme. Too much heat can change its shape and make it work less well.
+      - text: 'The heat makes the particles collide less often.'
+        rationale: |
+          Fewer collisions could explain a slower rate. Check how heat affects motion. Faster particles generally collide more often.
+      - text: 'The heat makes the liquid particles move slower.'
+        rationale: |
+          A slower reaction can make it seem like the particles slowed down. Check the temperature. Heating usually makes particles move faster.
+      - text: 'The heat changes the shape of the enzyme.'
+        correct: true
+    explanation: |
+      Too much heat can change an enzyme's shape. The changed enzyme helps the reaction less, so the gas forms more slowly.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-pshs-0004
+    lesson: lesson-chemistry-fair-tests-of-reaction-rate
+    keyPoint: 1
+    type: 'compare-contrast'
+    difficulty: 'hard'
+    stem: |
+      Bea wants to see whether adding a catalyst changes how fast a reaction makes gas. In her test run, she mixes the reactants, adds the catalyst, and measures how much gas forms in the first minute. Which run should she use as her control?
+    choices:
+      - text: 'Leave out the catalyst and warm the mixture.'
+        rationale: |
+          Leaving out the catalyst gives the planned comparison. Warming might seem like a way to make up for its absence. Check whether both runs start at the same temperature.
+      - text: 'Leave out one of the reactants.'
+        rationale: |
+          Leaving something out can make a control. Check which substance Bea wants to test. Both reactants belong in each run.
+      - text: 'Repeat the run with no catalyst added.'
+        correct: true
+      - text: 'Keep the catalyst and collect gas longer.'
+        rationale: |
+          A longer run may make it easier to collect gas. Check whether this gives a reading without the catalyst over the same time.
+      - text: 'Repeat the run with less of the same catalyst.'
+        rationale: |
+          Using less catalyst could help test how its amount matters. Check Bea's question. She needs a run with no catalyst at all.
+    explanation: |
+      The run without the catalyst shows how much gas forms on its own in the first minute. Bea can compare it with the run that has the catalyst because the rest of the setup stays the same.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-pshs-0005
+    lesson: lesson-chemistry-factors-that-change-reaction-rate
+    keyPoint: 1
+    type: 'predict-outcome'
+    difficulty: 'exam'
+    stem: |
+      Calcium carbonate chalk gives off gas when it reacts with dilute hydrochloric acid. Two pieces of this chalk start with the same mass. One piece is broken into small bits, and all the bits go into a beaker of acid. The other piece goes whole into a second beaker. Both beakers start with the same volume and concentration of acid at the same temperature. Each has enough acid to react with all its chalk. How will the broken chalk compare with the whole piece?
+    choices:
+      - text: 'Gas forms faster at first, with the same total.'
+        correct: true
+      - text: 'Gas forms more slowly at first, with the same total.'
+        rationale: |
+          The totals are equal, and a small bit makes less gas on its own than a whole piece. Check all the bits together. More chalk surface touches acid at once.
+      - text: 'Gas forms faster at first, with a larger total.'
+        rationale: |
+          The broken chalk can make more gas early on. Check how much chalk can react by the end. Both beakers started with the same mass of chalk.
+      - text: 'Gas forms faster at first, with a smaller total.'
+        rationale: |
+          The small bits may be gone sooner, which can make it seem like less gas was made. Check the starting mass. Every bit went into the acid.
+      - text: 'Gas forms at the same rate at first, with equal totals.'
+        rationale: |
+          Equal masses do give equal totals here. Check how much of each piece touches acid at the start. Breaking the chalk exposes more surface.
+    explanation: |
+      Breaking the chalk lets acid touch more of its surface at once. Gas forms faster at the start. The same mass of chalk reacts in each beaker, so both make the same total amount of gas.
+
+  - id: q-chemistry-thermodynamics-and-kinetics-pshs-0006
+    lesson: lesson-chemistry-fair-tests-of-reaction-rate
+    keyPoint: 1
+    type: 'compare-contrast'
+    difficulty: 'exam'
+    stem: |
+      Niko wants to know whether temperature affects how fast a metal reacts with acid. He uses identical metal strips and equal volumes of acid. In his first run he uses cool, dilute acid. In his second run he uses warm, concentrated acid. He plans to keep the acid volume the same in a new run and measure the gas made in the first minute of each run. Which new run can he compare with his first run to test the effect of temperature alone?
+    choices:
+      - text: 'Use warm, concentrated acid with an identical strip.'
+        rationale: |
+          This gives a warm run and keeps the strip the same. Check the acid in the first run. It was both cooler and more dilute.
+      - text: 'Use cool, dilute acid with a thicker strip of that metal.'
+        rationale: |
+          This keeps the acid alike, as a fair test often does. Check which factor Niko needs to change. A thicker strip tests a change to the metal while the temperature stays fixed.
+      - text: 'Use cool, concentrated acid with a matching strip.'
+        rationale: |
+          This changes only one factor. Check which one. The acid is still cool, and only the concentration changes.
+      - text: 'Use warm, dilute acid with an identical strip.'
+        correct: true
+      - text: 'Use warm, dilute acid with a thicker strip of that metal.'
+        rationale: |
+          The acid has the right temperature and concentration. A strip of the same metal may seem like a match. Check its size, which also changes.
+    explanation: |
+      The first run used cool, dilute acid. With warm, dilute acid and an identical strip, only the temperature changes. Niko can compare the gas made in the first minute of each run.
