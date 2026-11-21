@@ -64,6 +64,7 @@ class ListRow extends StatelessWidget {
         _checkbox = false,
         _exam = false,
         comingSoon = false,
+        comingSoonLabel = null,
         settingsMode = false;
   const ListRow.checkbox({
     required this.title,
@@ -88,6 +89,7 @@ class ListRow extends StatelessWidget {
         divider = false,
         _exam = false,
         comingSoon = false,
+        comingSoonLabel = null,
         settingsMode = false,
         titleColor = null,
         richTitle = null,
@@ -110,6 +112,7 @@ class ListRow extends StatelessWidget {
     required this.selected,
     required this.onTap,
     this.comingSoon = false,
+    this.comingSoonLabel = 'Coming soon',
     this.settingsMode = false,
     this.divider = false,
     super.key,
@@ -145,6 +148,11 @@ class ListRow extends StatelessWidget {
         leadingGap = PantasSpace.s12;
   final bool _exam;
   final bool comingSoon;
+
+  /// What a [comingSoon] row says beside its title. Null shows no label: the
+  /// row is disabled and its subtitle already says why (for example "For
+  /// ages 13 and up").
+  final String? comingSoonLabel;
   final bool settingsMode;
   final bool _checkbox;
   final bool mutuallyExclusive;
@@ -239,6 +247,7 @@ class ListRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.colors;
     final wide = context.wideWeb;
+    final soonLabel = comingSoon ? comingSoonLabel : null;
     final titleBase =
         (wide ? PantasType.webRowTitle : PantasType.phoneBody).copyWith(
       color: c.textPrimary,
@@ -255,8 +264,8 @@ class ListRow extends StatelessWidget {
         (wide ? PantasLayout.rowPadY : PantasLayout.rowPadY - PantasSpace.s2);
     final padX = wide ? PantasLayout.rowInset : PantasSpace.s16;
     if (_exam && settingsMode && !context.wideWeb) {
-      final stackComingSoon =
-          comingSoon && MediaQuery.textScalerOf(context).scale(17) > 25.5;
+      final stackComingSoon = soonLabel != null &&
+          MediaQuery.textScalerOf(context).scale(17) > 25.5;
       // ST_ExamPick: a plain 62 px row, the check at the right, and a gray
       // "Coming soon" for an exam that is not out yet.
       return Column(
@@ -267,7 +276,8 @@ class ListRow extends StatelessWidget {
             checked: selected,
             inMutuallyExclusiveGroup: true,
             enabled: !comingSoon,
-            label: '$title, $subtitle${comingSoon ? ', coming soon' : ''}',
+            label:
+                '$title, $subtitle${soonLabel != null ? ', coming soon' : ''}',
             excludeSemantics: true,
             child: ColoredBox(
               color: Colors.transparent,
@@ -311,7 +321,7 @@ class ListRow extends StatelessWidget {
                           ),
                           if (stackComingSoon)
                             Text(
-                              'Coming soon',
+                              soonLabel,
                               style: subBase.copyWith(
                                 fontWeight: FontWeight.w500,
                                 color: c.textDisabled,
@@ -320,9 +330,9 @@ class ListRow extends StatelessWidget {
                         ],
                       ),
                     ),
-                    if (comingSoon && !stackComingSoon)
+                    if (soonLabel != null && !stackComingSoon)
                       Text(
-                        'Coming soon',
+                        soonLabel,
                         style: subBase.copyWith(
                           fontWeight: FontWeight.w500,
                           color: c.textDisabled,
@@ -362,8 +372,8 @@ class ListRow extends StatelessWidget {
           _exam || mutuallyExclusive || variant == ListRowVariant.radio;
       // At large text sizes "Coming soon" no longer fits beside the title, so
       // it moves under the subtitle (same 1.5x threshold as the rows below).
-      final stackComingSoon =
-          comingSoon && MediaQuery.textScalerOf(context).scale(17) > 25.5;
+      final stackComingSoon = soonLabel != null &&
+          MediaQuery.textScalerOf(context).scale(17) > 25.5;
       final body = content ??
           Column(
             mainAxisSize: MainAxisSize.min,
@@ -387,7 +397,7 @@ class ListRow extends StatelessWidget {
               if (footer != null) footer!,
               if (stackComingSoon)
                 Text(
-                  'Coming soon',
+                  soonLabel,
                   style: subBase.copyWith(
                     fontWeight: FontWeight.w500,
                     color: c.textSecondary,
@@ -410,14 +420,14 @@ class ListRow extends StatelessWidget {
               padding: padding,
               // O_Picker: the label sits inside the row's 16 px right inset,
               // 8 px after the text, in medium-weight tertiary gray.
-              trailing: comingSoon && !stackComingSoon
+              trailing: soonLabel != null && !stackComingSoon
                   ? Padding(
                       padding: const EdgeInsets.only(
                         left: PantasSpace.s8,
                         right: PantasSpace.s16,
                       ),
                       child: Text(
-                        'Coming soon',
+                        soonLabel,
                         style: subBase.copyWith(
                           fontWeight: FontWeight.w500,
                           color: c.textDisabled,

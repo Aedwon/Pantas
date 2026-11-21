@@ -15,6 +15,7 @@ Future<void> _pump(
   required bool settingsMode,
   double textScale = 1,
   Brightness brightness = Brightness.light,
+  String? comingSoonLabel = 'Coming soon',
 }) =>
     pumpAccessibilitySurface(
       tester,
@@ -24,6 +25,7 @@ Future<void> _pump(
           subtitle: _long,
           selected: false,
           comingSoon: comingSoon,
+          comingSoonLabel: comingSoonLabel,
           settingsMode: settingsMode,
           onTap: () {},
         ),
@@ -81,4 +83,30 @@ void main() {
     expect(text.maxLines, isNull);
     expect(find.text('Coming soon'), findsOneWidget);
   });
+
+  for (final settingsMode in [false, true]) {
+    testWidgets(
+        'a disabled row with no label says nothing beside the title'
+        ' settings $settingsMode', (tester) async {
+      var taps = 0;
+      await pumpAccessibilitySurface(
+        tester,
+        ListRow.exam(
+          title: 'UPCAT',
+          subtitle: 'For ages 13 and up',
+          selected: false,
+          comingSoon: true,
+          comingSoonLabel: null,
+          settingsMode: settingsMode,
+          onTap: () => taps++,
+        ),
+        viewportSize: const Size(390, 844),
+        disableAnimations: true,
+      );
+      expect(find.text('For ages 13 and up'), findsOneWidget);
+      expect(find.text('Coming soon'), findsNothing);
+      await tester.tap(find.text('UPCAT'), warnIfMissed: false);
+      expect(taps, 0);
+    });
+  }
 }

@@ -82,4 +82,66 @@ void main() {
     );
     expect(policy.availability(_pshs), ExamPickerAvailability.selectable);
   });
+
+  group('the child question (board 3A)', () {
+    const open = ExamCatalogEntry(
+      id: 'exam_pshs_nce',
+      name: 'PSHS-NCE',
+      shortName: 'PSHS-NCE',
+      priceTier: 'test',
+      group: 'High school',
+      comingSoon: false,
+      publishedSittings: [],
+      hasContent: true,
+    );
+
+    for (final group in [AgeGroup.adult, AgeGroup.minor]) {
+      test('${group.name} is asked when PSHS-NCE can be picked', () {
+        final policy = ExamPickerPolicy(ageGroup: group, isWeb: true);
+        expect(policy.asksChildQuestion(open), isTrue);
+      });
+      test('${group.name} is asked while coming soon only with the flag', () {
+        expect(
+          ExamPickerPolicy(ageGroup: group, isWeb: true)
+              .asksChildQuestion(_pshs),
+          isFalse,
+        );
+        expect(
+          ExamPickerPolicy(ageGroup: group, isWeb: true, pshsForChildren: true)
+              .asksChildQuestion(_pshs),
+          isTrue,
+        );
+      });
+    }
+
+    for (final group in [
+      AgeGroup.child,
+      AgeGroup.unset,
+      AgeGroup.unrecognized,
+    ]) {
+      test('${group.name} is never asked', () {
+        final policy = ExamPickerPolicy(
+          ageGroup: group,
+          isWeb: true,
+          pshsForChildren: true,
+        );
+        expect(policy.asksChildQuestion(open), isFalse);
+        expect(policy.asksChildQuestion(_pshs), isFalse);
+      });
+    }
+
+    test('another exam does not ask', () {
+      const policy = ExamPickerPolicy(ageGroup: AgeGroup.adult, isWeb: true);
+      expect(policy.asksChildQuestion(_cse), isFalse);
+    });
+
+    test('Android does not ask, because PSHS-NCE is hidden', () {
+      const policy = ExamPickerPolicy(
+        ageGroup: AgeGroup.adult,
+        platform: TargetPlatform.android,
+        pshsForChildren: true,
+      );
+      expect(policy.asksChildQuestion(open), isFalse);
+    });
+  });
 }

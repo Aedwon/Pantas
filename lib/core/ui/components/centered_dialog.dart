@@ -41,7 +41,10 @@ class CenteredDialog extends StatefulWidget {
   final String title;
   final String message;
   final String primaryLabel;
-  final String secondaryLabel;
+
+  /// The safe button. Null leaves one button, the main one, for a notice that
+  /// asks nothing; [onCancel] still closes it (Esc and the system Back).
+  final String? secondaryLabel;
   final VoidCallback onConfirm;
   final VoidCallback onCancel;
   final bool destructive;
@@ -146,14 +149,15 @@ class CenteredDialog extends StatefulWidget {
                           spacing: PantasSpace.s8,
                           runSpacing: PantasSpace.s8,
                           children: [
-                            order(
-                              WebButton(
-                                label: secondaryLabel,
-                                variant: WebButtonVariant.tertiary,
-                                onPressed: onCancel,
+                            if (secondaryLabel != null)
+                              order(
+                                WebButton(
+                                  label: secondaryLabel!,
+                                  variant: WebButtonVariant.tertiary,
+                                  onPressed: onCancel,
+                                ),
+                                main: false,
                               ),
-                              main: false,
-                            ),
                             order(
                               WebButton(
                                 label: primaryLabel,
@@ -235,27 +239,38 @@ class CenteredDialog extends StatefulWidget {
                 const SizedBox(height: PantasSpace.s12),
                 FocusTraversalGroup(
                   policy: OrderedTraversalPolicy(),
-                  child: ButtonPair(
-                    gap: actionGap,
-                    primary: order(
-                      pill(
-                        primaryLabel,
-                        onConfirm,
-                        variant: destructive
-                            ? PantasButtonVariant.destructive
-                            : PantasButtonVariant.primary,
-                      ),
-                      main: true,
-                    ),
-                    secondary: order(
-                      pill(
-                        secondaryLabel,
-                        onCancel,
-                        variant: PantasButtonVariant.neutral,
-                      ),
-                      main: false,
-                    ),
-                  ),
+                  child: secondaryLabel == null
+                      ? order(
+                          pill(
+                            primaryLabel,
+                            onConfirm,
+                            variant: destructive
+                                ? PantasButtonVariant.destructive
+                                : PantasButtonVariant.primary,
+                          ),
+                          main: true,
+                        )
+                      : ButtonPair(
+                          gap: actionGap,
+                          primary: order(
+                            pill(
+                              primaryLabel,
+                              onConfirm,
+                              variant: destructive
+                                  ? PantasButtonVariant.destructive
+                                  : PantasButtonVariant.primary,
+                            ),
+                            main: true,
+                          ),
+                          secondary: order(
+                            pill(
+                              secondaryLabel!,
+                              onCancel,
+                              variant: PantasButtonVariant.neutral,
+                            ),
+                            main: false,
+                          ),
+                        ),
                 ),
               ],
             ),
