@@ -1,0 +1,110 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: electricity-and-magnetism-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-physics-electricity-and-magnetism-pshs-0001
+    lesson: lesson-physics-electric-charge-and-charging
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      A student tests three round, charged beads in pairs. She finds that
+      bead P repels bead Q and bead Q attracts bead R. The beads do not
+      touch or gain or lose charge. The charge on each bead stays evenly
+      spread over its surface during all three tests. What will happen
+      when she brings bead P near bead R?
+    choices:
+      - text: 'They will attract because their signs differ.'
+        correct: true
+      - text: 'They will repel because P repelled Q in the first test.'
+        rationale: |
+          P did repel another bead, so it may seem to always repel. Check
+          how R compares with Q before using the first result.
+      - text: 'They will repel because they have the same sign as Q.'
+        rationale: |
+          P and Q do have the same sign. Check what the pull between Q
+          and R tells you about the sign of R.
+      - text: 'They will exert no force because opposite signs cancel.'
+        rationale: |
+          Equal amounts of opposite charge can add up to zero. Check
+          how two separate beads with opposite charges act on each other.
+      - text: 'They will attract only if P is the bead with a positive charge.'
+        rationale: |
+          A positive bead can pull a negative bead. Check whether the
+          pull still happens when P is negative and R is positive.
+    explanation: |
+      P and Q push apart, so their signs match. Q and R pull together,
+      so their signs differ. That means P and R have opposite signs and
+      will pull toward each other.
+
+  - id: q-physics-electricity-and-magnetism-pshs-0002
+    lesson: lesson-physics-electric-charge-and-charging
+    keyPoint: 2
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A strip and a piece of cloth are both neutral before they are rubbed
+      together. After rubbing, the strip has a positive charge. Only
+      electrons can move, and they can move only between the strip and
+      the cloth. What happened to the cloth?
+    choices:
+      - text: 'It gained electrons and became negative.'
+        correct: true
+      - text: 'It lost electrons and became positively charged.'
+        rationale: |
+          Losing electrons does make an object positive. Check which object
+          is positive here and where its electrons went.
+      - text: 'It became negative, but the amount of charge was smaller than on the strip.'
+        rationale: |
+          You may expect different materials to end up with different amounts
+          of charge. Check whether each electron the strip loses adds the same
+          amount of negative charge to the cloth.
+      - text: 'It stayed neutral because only the strip picked up charge.'
+        rationale: |
+          The strip is the only object whose final charge is given. Check
+          whether the strip can lose electrons without the cloth gaining them.
+      - text: 'It gained electrons but stayed neutral because its protons stayed in place.'
+        rationale: |
+          The protons do stay in place. Compare the charges on the cloth
+          before and after extra electrons arrive.
+    explanation: |
+      The strip became positive when it lost electrons to the cloth.
+      The extra electrons made the cloth negative.
+
+  - id: q-physics-electricity-and-magnetism-pshs-0003
+    lesson: lesson-physics-electric-charge-and-charging
+    keyPoint: 2
+    type: predict-outcome
+    difficulty: hard
+    stem: |
+      Two identical balls are made of the same metal. One is positively
+      charged and the other is neutral. The balls touch and then separate.
+      Neither ball exchanges charge with anything else. Which statement
+      describes what happened to the ball that started out neutral?
+    choices:
+      - text: 'It gave up electrons and became positive.'
+        correct: true
+      - text: 'It gained electrons from the charged ball and became negative.'
+        rationale: |
+          Touching gives electrons a path to move, so it may seem like the
+          charged ball must give some away. Check which ball starts with
+          fewer electrons than it has protons.
+      - text: 'It took protons from the charged ball and became positive.'
+        rationale: |
+          Gaining protons sounds like a way to become positive. Check
+          which particles can move from one metal ball to the other.
+      - text: 'It gave up electrons and became negatively charged.'
+        rationale: |
+          Electrons are negative, so the sign of the moving particles may
+          seem to give the sign of the ball. Check what losing electrons
+          does to the balance of charge on the ball.
+      - text: 'It stayed neutral because the two balls were separated again.'
+        rationale: |
+          Separating the balls ends the contact. Check whether it also sends
+          the electrons that already moved back to where they came from.
+    explanation: |
+      The positive ball has fewer electrons than protons. When the balls
+      touch, electrons move to it from the neutral ball. The ball that
+      started neutral now has fewer electrons than protons, so it is positive.
