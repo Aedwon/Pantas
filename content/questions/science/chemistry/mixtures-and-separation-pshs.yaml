@@ -1,0 +1,226 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: mixtures-and-separation-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-chemistry-mixtures-and-separation-pshs-0001
+    lesson: lesson-chemistry-recovering-dissolved-solids
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      A student makes two hot solutions, each holding almost as much
+      solid as the water can dissolve. Solid P dissolves much less in
+      cold water than in hot water. Water can dissolve just as much
+      solid Q hot or cold. Which result is most likely if both
+      solutions cool without losing water?
+    choices:
+      - text: Q forms more crystals than P.
+        rationale: |
+          You might expect Q to form more crystals because it still
+          dissolves well in cold water. How much of the dissolved Q
+          can the cold water still hold?
+      - text: Both form about the same amount of crystals.
+        rationale: |
+          Both solutions start nearly full, so they may seem likely to
+          behave alike. Check how much each solid's ability to dissolve
+          changes on cooling.
+      - text: Neither forms crystals until all the water is gone.
+        rationale: |
+          Drying can leave dissolved solids behind. Check whether cold
+          water can still hold all the P that hot water held.
+      - text: P forms more crystals than Q.
+        correct: true
+      - text: Neither forms crystals because both started out dissolved.
+        rationale: |
+          A clear hot solution can look like it will stay clear. Check
+          whether the same amount of solid can stay dissolved when it
+          cools.
+    explanation: |
+      The cold water can hold much less P, so some P comes out as
+      crystals. The cold water can still hold all the dissolved Q,
+      so no Q crystals form.
+
+  - id: q-chemistry-mixtures-and-separation-pshs-0002
+    lesson: lesson-chemistry-separating-immiscible-liquids
+    keyPoint: 1
+    type: identify
+    difficulty: medium
+    stem: |
+      A student can choose only one pair of liquids to separate with a
+      separating funnel. Each pair has been shaken in its own jar and
+      left to stand. Which observation gives the best reason to choose
+      that pair?
+    choices:
+      - text: The liquids remain one clear layer after standing.
+        rationale: |
+          A clear liquid can flow easily through the tap. Check whether
+          there is a separate lower layer for the tap to drain.
+      - text: The liquids settle into two clear layers.
+        correct: true
+      - text: Tiny drops stay spread throughout the mixture.
+        rationale: |
+          The drops show that one liquid is still present inside the
+          other. Check whether those drops gather into a layer that can
+          be drained on its own.
+      - text: The liquids have different colors before mixing.
+        rationale: |
+          Different colors may make two liquids easy to tell apart.
+          Check whether the liquids are still separate after mixing.
+      - text: Equal volumes of the two liquids have different masses.
+        rationale: |
+          Different masses for equal volumes mean different densities.
+          Check whether the liquids also stay in separate layers.
+    explanation: |
+      Two layers show that the liquids stay separate. The tap can
+      drain the bottom layer while the top layer stays in the funnel.
+
+  - id: q-chemistry-mixtures-and-separation-pshs-0003
+    lesson: lesson-chemistry-recovering-dissolved-solids
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A student dissolves a white solid and a small amount of blue
+      impurity in hot water. As the solution cools in a closed jar,
+      white crystals form. The student lifts out the crystals and
+      lets the remaining blue liquid dry in a dish. White and blue
+      grains are mixed together in the dish. What do these results
+      show about the solids collected?
+    choices:
+      - text: All of the white solid was collected before drying.
+        rationale: |
+          The blue liquid may look as if it holds only the blue
+          impurity. Check what color grains appear when it dries.
+      - text: The first crystals had to be pure because they looked white.
+        rationale: |
+          The crystals look like the original white solid. Check
+          whether you could see a tiny amount of impurity in them.
+      - text: The white crystals in the jar formed because water escaped.
+        rationale: |
+          Drying the liquid in the dish left solid grains. You might
+          expect the same thing in the jar. Check whether water
+          could escape from the closed jar.
+      - text: Drying separated the blue grains from the white grains.
+        rationale: |
+          You can see grains of both colors after drying. Check
+          whether the two kinds of grains are still mixed together.
+      - text: Drying recovered white solid left dissolved after cooling.
+        correct: true
+    explanation: |
+      Some of the white solid formed crystals as the solution cooled.
+      The blue liquid still held some of both solids. When the water
+      left as vapor, the white and blue grains stayed in the dish.
+
+  - id: q-chemistry-mixtures-and-separation-pshs-0004
+    lesson: lesson-chemistry-separating-immiscible-liquids
+    keyPoint: 1
+    type: cause-effect
+    difficulty: hard
+    stem: |
+      Red and clear liquids settle into two layers in a separating
+      funnel. The red liquid is on top. A student opens the tap over a
+      beaker. Clear liquid comes out first, followed by red liquid.
+      What best explains why both liquids are now in the beaker?
+    choices:
+      - text: The tap stayed open past the layer boundary.
+        correct: true
+      - text: The tap was opened before the two layers had settled.
+        rationale: |
+          Opening the tap too soon can let a mixed portion drain. Check
+          whether the layers had already formed before the tap opened.
+      - text: The red liquid sank below the clear liquid during draining.
+        rationale: |
+          Red liquid did reach the bottom tap. Check whether it had to
+          sink through the clear layer or could follow it after it left.
+      - text: Opening the tap wide pulled the red layer through the clear layer.
+        rationale: |
+          A wide opening lets liquid flow faster. It may seem that
+          faster flow lets the red layer get past the clear layer.
+          Check where the boundary is when the red layer reaches the tap.
+      - text: The liquids mixed into tiny drops before entering the tap.
+        rationale: |
+          Tiny drops can carry one liquid along with the other. Check
+          whether the tap gave one mixed stream or one liquid followed
+          by the other.
+    explanation: |
+      The clear liquid drains first because it starts at the bottom.
+      When the boundary reaches the tap, the red liquid is next. It
+      flows into the same beaker if the tap stays open.
+
+  - id: q-chemistry-mixtures-and-separation-pshs-0005
+    lesson: lesson-chemistry-recovering-dissolved-solids
+    keyPoint: 1
+    type: process-ordering
+    difficulty: exam
+    stem: |
+      A first batch of crystals still has a little impurity. The
+      desired solid dissolves much better in hot water than in cold
+      water. The impurity stays dissolved when the solution cools.
+      It also stays behind if all the water boils away.
+      The student has just enough hot water to dissolve the batch.
+      Which second treatment should give a purer batch?
+    choices:
+      - text: Dissolve in hot water, cool, and dry the crystals and liquid together.
+        rationale: |
+          Cooling makes new crystals, so the first steps look right.
+          Check where the impurity ends up if the leftover liquid
+          dries in the same dish.
+      - text: Dissolve in hot water and boil off all the water without cooling.
+        rationale: |
+          Boiling off the water can recover the solid. Check whether
+          the dissolved impurity also stays behind in the dry dish.
+      - text: Dissolve in hot water, cool, and keep the new crystals.
+        correct: true
+      - text: Dissolve in hot water, cool, and keep only the remaining liquid.
+        rationale: |
+          Some desired solid can still be dissolved after cooling.
+          Check which part has the newly formed crystals and which
+          still holds the impurity.
+      - text: Chill the dry crystals, then let them warm slowly before storing.
+        rationale: |
+          Cooling is part of growing new crystals. Check whether the
+          dry crystals have been dissolved so the impurity can stay
+          behind in a liquid.
+    explanation: |
+      Hot water dissolves the crystals. When the water cools, the
+      desired solid forms crystals again. The impurity stays in the
+      leftover liquid. Keeping the new crystals gives a purer batch.
+
+  - id: q-chemistry-mixtures-and-separation-pshs-0006
+    lesson: lesson-chemistry-separating-immiscible-liquids
+    keyPoint: 1
+    type: process-ordering
+    difficulty: exam
+    stem: |
+      Each pair of liquids P, Q, and R forms separate layers. In one
+      funnel, P floats on Q. In a second funnel, R comes out of the
+      tap before Q. A student now lets P and R settle together in a
+      third funnel. How should the student collect P in its own
+      beaker with as little R as possible?
+    choices:
+      - text: Drain P first, then collect R in a fresh beaker.
+        rationale: |
+          P was on top in the first funnel, so it may seem easier to
+          collect first. Check which layer reaches the bottom tap.
+      - text: Drain R and P into the same beaker, then let them settle.
+        rationale: |
+          Both layers could form again in the beaker. Check whether
+          this gives the student a separate sample of P.
+      - text: Pour R out of the top before collecting P from the tap.
+        rationale: |
+          Pouring can collect the top layer. Check which layer is
+          really on top after comparing P and R with Q.
+      - text: Drain R to the boundary, shut the tap, and pour off P.
+        correct: true
+      - text: Switch to a fresh beaker as soon as R starts to drain.
+        rationale: |
+          Using a fresh beaker keeps the portions separate if the
+          timing is right. Check how much R is still in the funnel
+          just after it starts to flow.
+    explanation: |
+      P floats on Q, so P is less dense than Q. R drains before Q,
+      so R is denser than Q. That puts R below P in the third
+      funnel. Drain R until the boundary reaches the tap. Close the
+      tap and pour P out of the top into a fresh beaker.
