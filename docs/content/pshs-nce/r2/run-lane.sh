@@ -9,7 +9,7 @@ for g in $(cat $1); do
   Q=$(python3 -I $D/ginfo.py $D/groups.json $g q)
   $D/run-group.sh $g; e=$?
   if (( e == 0 )); then
-    [[ -f $Q ]] && { git add -- $Q && git commit -q -m "PSHS-NCE questions: $g (pipeline run; see state folder for reads)" -- $Q || { echo "LANE STOP commit failed $g"; exit 3; }; }
+    [[ -n $(git status --porcelain -- $Q) ]] && { git add -- $Q && git commit -q -m "PSHS-NCE questions: $g (pipeline run; see state folder for reads)" -- $Q || { echo "LANE STOP commit failed $g"; exit 3; }; }
     continue
   fi
   if (( e == 1 )); then
