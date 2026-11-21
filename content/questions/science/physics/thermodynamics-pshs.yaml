@@ -1,0 +1,310 @@
+meta:
+  subject: science
+  topic: physics
+  subtopic: thermodynamics-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-physics-thermodynamics-pshs-0001
+    lesson: lesson-physics-conduction-convection-and-radiation
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: easy
+    stem: |
+      A student puts a cold pack against a warm container. She can place either
+      a sheet of metal or a sheet of wool of the same thickness between them.
+      Both sheets cover the same area on the pack and the container. Which
+      prediction best explains how the choice of sheet affects cooling?
+    choices:
+      - text: 'The metal sheet carries heat to the pack faster.'
+        correct: true
+      - text: 'The wool sheet carries heat faster by trapping air.'
+        rationale: |
+          Trapped air can affect heat flow. Check how well air and wool conduct
+          heat compared with metal.
+      - text: 'Both sheets carry heat equally fast at the same thickness.'
+        rationale: |
+          Thickness can affect heat flow, so matching it helps. Check whether
+          the two materials conduct heat equally well.
+      - text: 'The metal sheet carries cold to the container.'
+        rationale: |
+          The container cools, which can make it seem like cold moves into it.
+          Check which object gives up heat.
+      - text: 'The wool sheet stops heat from reaching the pack.'
+        rationale: |
+          Wool slows heat transfer, so it may seem to block it completely.
+          Check the difference between conducting poorly and stopping heat.
+    explanation: |
+      Heat moves from the warm container to the cold pack through the sheet.
+      Metal conducts heat better than wool, so it passes heat to the pack faster.
+
+  - id: q-physics-thermodynamics-pshs-0002
+    lesson: lesson-physics-conduction-convection-and-radiation
+    keyPoint: 1
+    type: classify
+    difficulty: medium
+    stem: |
+      A pump sends warm water down a pipe from a rooftop tank. At the bottom
+      of the pipe, the water is still warmer than its surroundings. How does
+      the moving water carry heat down the pipe?
+    choices:
+      - text: 'By forced convection'
+        correct: true
+      - text: 'By natural convection'
+        rationale: |
+          Water can circulate on its own when its density changes. Check what
+          moves the warm water downward in this setup.
+      - text: 'By conduction along the solid pipe wall'
+        rationale: |
+          The pipe wall can conduct heat. Check whether the question follows
+          heat through the wall or along with the moving water.
+      - text: 'By radiation'
+        rationale: |
+          Warm objects give off radiation. Check what travels down the pipe
+          and is still warm when it arrives.
+      - text: 'By conduction from one water particle to the next'
+        rationale: |
+          Water particles can pass energy to each other. Check which process
+          carries heat when the water itself moves down the pipe.
+    explanation: |
+      The pump pushes the warm water down the pipe. The moving water carries
+      heat with it. This is forced convection.
+
+  - id: q-physics-thermodynamics-pshs-0003
+    lesson: lesson-physics-latent-heat-and-phase-changes
+    keyPoint: 2
+    type: classify
+    difficulty: medium
+    stem: |
+      A student adds heat to a pure substance at constant pressure. It starts
+      as a liquid below its boiling point. First, the liquid gets warmer.
+      Then it boils at a steady temperature. Which calculation uses the
+      right equation in each stage?
+    choices:
+      - text: 'Use $mc\Delta T$ for warming and $mL_v$ for boiling.'
+        correct: true
+      - text: 'Use $mc\Delta T$ for both warming and boiling.'
+        rationale: |
+          The heater adds energy during both stages, so one formula may seem
+          enough. Check what happens to the temperature while the liquid boils.
+      - text: 'Use $mL_v$ for both warming and boiling.'
+        rationale: |
+          The liquid eventually boils, so it may seem like all the heat goes
+          into boiling. Check whether the liquid changes phase as it warms.
+      - text: 'Use $mc\Delta T$ for warming and $mL_f$ for boiling.'
+        rationale: |
+          Both latent heats describe a change of phase. Check which one
+          applies when a liquid turns into a gas.
+      - text: 'Use $mL_v$ as the liquid warms and $mc\Delta T$ as it boils.'
+        rationale: |
+          These are the two equations needed for the whole process. Check
+          which stage changes the temperature and which stage changes phase.
+    explanation: |
+      The liquid first warms up, so use $mc\Delta T$. Then the liquid turns
+      into gas at a steady temperature, so use $mL_v$.
+
+  - id: q-physics-thermodynamics-pshs-0004
+    lesson: lesson-physics-specific-heat-and-temperature-change
+    keyPoint: 2
+    type: classify
+    difficulty: medium
+    stem: |
+      Two students compare the specific heats of two liquids. The samples
+      start at the same temperature, absorb equal amounts of heat, and stay
+      liquid. Each liquid's specific heat stays nearly the same as it warms.
+      The students poured equal volumes, but one sample has more mass.
+      In the new test, both samples must still absorb the same amount of heat.
+      What should they change so they can compare specific heats using only
+      the temperature rises?
+    choices:
+      - text: 'Measure out the same mass of each liquid.'
+        correct: true
+      - text: 'Pour equal volumes into smaller containers.'
+        rationale: |
+          Smaller containers can make the samples easier to heat. Check
+          whether pouring equal volumes fixes the difference in mass.
+      - text: 'Give more heat to the heavier sample.'
+        rationale: |
+          More mass needs more heat for the same rise if the material is the
+          same. Check the rule for the new test. Both samples must absorb
+          the same amount of heat.
+      - text: 'Heat both samples to the same final temperature.'
+        rationale: |
+          A common final temperature could be used in a test that compares
+          heat input. Check what the students want to measure in this test.
+      - text: 'Repeat with the same samples and average the rises.'
+        rationale: |
+          Repeating a test can reduce the effect of small errors in readings.
+          Check whether it fixes the difference in sample mass.
+    explanation: |
+      Use the same mass of each liquid and give both the same heat. Then
+      the liquid with the greater specific heat warms up less.
+
+  - id: q-physics-thermodynamics-pshs-0005
+    lesson: lesson-physics-latent-heat-and-phase-changes
+    keyPoint: 1
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      At constant pressure, 0.50 kg of water vapor turns completely into
+      liquid at its condensation temperature. The latent heat of vaporization
+      is 2260 kJ/kg, and the latent heat of fusion is 334 kJ/kg. What is $Q$
+      for the water? Use a negative value if heat leaves the water.
+    choices:
+      - text: '−1,130 kJ'
+        correct: true
+      - text: '+1,130 kJ'
+        rationale: |
+          This gives the right amount of heat. Check whether heat enters or
+          leaves the water as the vapor becomes liquid.
+      - text: '−2,260 kJ'
+        rationale: |
+          This uses the heat released by a full kilogram. Check the mass
+          that turns into liquid.
+      - text: '−167 kJ'
+        rationale: |
+          This uses half a kilogram and the sign for heat leaving. Check
+          which latent heat applies to a change from gas to liquid.
+      - text: '−1,130,000 kJ'
+        rationale: |
+          This is the heat released in joules. Check that the number and
+          the unit both use kilojoules.
+    explanation: |
+      Each kilogram gives off 2260 kJ as it turns from gas to liquid.
+      Half a kilogram gives off $2260 \div 2 = 1130$ kJ.
+      Heat leaves the water, so $Q$ is −1,130 kJ.
+
+  - id: q-physics-thermodynamics-pshs-0006
+    lesson: lesson-physics-conduction-convection-and-radiation
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A hot metal plate faces a cooler metal plate across a gap in a chamber.
+      The plates do not touch. A pump removes all the air from the chamber.
+      Which statement describes heat transfer directly across the gap after
+      the pump is turned off?
+    choices:
+      - text: 'Radiation carries heat as waves across the empty gap.'
+        correct: true
+      - text: 'Conduction carries heat across the gap because both plates are metal.'
+        rationale: |
+          Metal conducts heat well, so heat can move through each plate.
+          Check whether there is any material connecting the plates across the gap.
+      - text: 'Natural convection carries heat from the hotter plate.'
+        rationale: |
+          A hot plate could warm nearby air and make it rise. Check what
+          fluid is left in the chamber after the air is removed.
+      - text: 'Forced convection carries heat after the pump removes the air.'
+        rationale: |
+          A pump can make a fluid move and carry heat. Check whether the
+          pump is still moving a fluid between the plates.
+      - text: 'Heat stops crossing the gap once the air is gone.'
+        rationale: |
+          An empty gap stops conduction and convection across it, so it
+          may seem to stop all heat. Check whether radiation needs matter.
+    explanation: |
+      The hot plate gives off energy as waves. These waves can cross empty
+      space and reach the cooler plate.
+
+  - id: q-physics-thermodynamics-pshs-0007
+    lesson: lesson-physics-specific-heat-and-temperature-change
+    keyPoint: 1
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A container holds 0.50 kg of water at 25°C. The water gives off 20,930 J
+      of heat and stays liquid. The specific heat of water is
+      4186 J/(kg·°C). What is its final temperature?
+    choices:
+      - text: '15°C'
+        correct: true
+      - text: '35°C'
+        rationale: |
+          This uses the right size for the change. Check whether giving off
+          heat makes the water warmer or cooler.
+      - text: '20°C'
+        rationale: |
+          Dividing the heat by the specific heat gives the drop for 1 kg.
+          Check how much heat half a kilogram gives off per degree.
+      - text: '10°C'
+        rationale: |
+          This is the size of the temperature drop. Check what reading
+          the water drops from.
+      - text: '22.5°C'
+        rationale: |
+          Multiplying the drop for 1 kg by 0.50 makes the drop smaller.
+          Check whether the same heat loss cools a smaller mass by more degrees.
+    explanation: |
+      Half a kilogram of water gives off $4186 \div 2 = 2093$ J for each
+      degree it cools. Divide 20,930 by 2093 to get a drop of 10°C.
+      Subtract 10°C from 25°C to get 15°C.
+
+  - id: q-physics-thermodynamics-pshs-0008
+    lesson: lesson-physics-specific-heat-and-temperature-change
+    keyPoint: 2
+    type: compare-contrast
+    difficulty: exam
+    stem: |
+      Equal masses of two liquids absorb the same amount of heat. Liquid X
+      warms from 25°C to 32°C. Liquid Y warms from 10°C to 20°C. Neither
+      changes phase, and each liquid's specific heat is nearly constant over
+      the temperatures tested. Which conclusion follows from the results?
+    choices:
+      - text: 'X has the higher specific heat because it warmed less with the same heat.'
+        correct: true
+      - text: 'Y has the higher specific heat because it warmed more with the same heat.'
+        rationale: |
+          Y did warm by more degrees. Check which liquid needs more heat
+          to warm by one degree.
+      - text: 'Y has the higher specific heat because it ended cooler.'
+        rationale: |
+          The lower final reading could show a smaller rise if the liquids
+          had started at the same temperature. Check each rise from its own
+          starting temperature.
+      - text: 'The specific heats are equal because both samples absorbed the same heat.'
+        rationale: |
+          Equal heat and equal mass make the test fair. Check whether the
+          two temperatures rose by the same number of degrees.
+      - text: 'The comparison is invalid because the samples started at different temperatures.'
+        rationale: |
+          Matching the starting readings would let you compare the final
+          readings directly. Check whether you can find the rise for each
+          liquid by subtracting its own starting reading.
+    explanation: |
+      X warmed by 7°C and Y warmed by 10°C. Both had the same mass and
+      took in the same heat. X warmed less, so it needs more heat per
+      kilogram for each degree it warms.
+
+  - id: q-physics-thermodynamics-pshs-0009
+    lesson: lesson-physics-latent-heat-and-phase-changes
+    keyPoint: 2
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      A freezer cools 0.10 kg of liquid water from 20°C to 0°C, then freezes
+      all of it at 0°C. Use 4186 J/(kg·°C) for the specific heat of liquid
+      water and 334,000 J/kg for its latent heat of fusion. How much heat
+      does the freezer remove from the water in all?
+    choices:
+      - text: '41,772 J'
+        correct: true
+      - text: '8,372 J'
+        rationale: |
+          This counts the heat lost as the water cools to 0°C. Check what
+          happens to heat while the water freezes at that temperature.
+      - text: '33,400 J'
+        rationale: |
+          This counts the heat lost during freezing. Check what happens
+          before the water reaches its freezing point.
+      - text: '25,028 J'
+        rationale: |
+          This subtracts the cooling energy from the freezing energy.
+          Check whether heat leaves or enters the water in each stage.
+      - text: '117,120 J'
+        rationale: |
+          This uses the heat needed to cool 1 kg of water but only freezes
+          0.10 kg. Check that both stages use the same mass.
+    explanation: |
+      Cooling the water removes $0.10 \times 4186 \times 20 = 8372$ J.
+      Freezing it removes $0.10 \times 334{,}000 = 33{,}400$ J.
+      Both steps remove heat. Add the amounts to get 41,772 J.
