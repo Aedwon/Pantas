@@ -1,0 +1,103 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: solutions-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-chemistry-solutions-pshs-0001
+    lesson: lesson-chemistry-solution-percent-by-mass
+    keyPoint: 1
+    type: simple-quantitative
+    difficulty: medium
+    stem: |
+      A student needs to make 120 g of a solution that is 20% sugar by mass.
+      The solution will contain only sugar and water. How much water is needed?
+    choices:
+      - text: '96 g'
+        correct: true
+      - text: '24 g'
+        rationale: |
+          Taking 20% of 120 g is a good first step. That gives the sugar mass.
+          Check how much of the 120 g is left for water.
+      - text: '80 g'
+        rationale: |
+          Water makes up 80% of the solution, so 80 g would fit a 100 g batch.
+          Check the mass of the batch the student needs to make.
+      - text: '100 g'
+        rationale: |
+          Subtracting 20 from 120 looks like a way to find the rest. The 20 is
+          a percent. Find the sugar mass in grams before you subtract.
+      - text: '120 g'
+        rationale: |
+          The question gives 120 g as the target mass. If you start with that
+          much water, check what happens to the total when you add the sugar.
+    explanation: |
+      Find the sugar mass first. It is $0.20\times120=24$ g. Water makes up
+      the rest of the 120 g, so you need $120-24=96$ g of water.
+
+  - id: q-chemistry-solutions-pshs-0002
+    lesson: lesson-chemistry-solution-percent-by-mass
+    keyPoint: 1
+    type: simple-quantitative
+    difficulty: hard
+    stem: |
+      A student dissolves 24 g of sugar in 216 g of water. No sugar or water
+      is lost. What is the percent by mass of sugar in the solution? Round
+      to the nearest tenth of a percent if needed.
+    choices:
+      - text: '0.1%'
+        rationale: |
+          Dividing 24 by 240 gives 0.1. That is the decimal share of sugar.
+          Multiply by 100 to write it as a percent.
+      - text: '10%'
+        correct: true
+      - text: '11.1%'
+        rationale: |
+          You might divide by 216 g because that is the mass of the water.
+          The whole solution includes the sugar too.
+      - text: '24%'
+        rationale: |
+          A solution with 24 g of sugar would be 24% sugar if it weighed
+          100 g. Check the total mass of the solution.
+      - text: '90%'
+        rationale: |
+          Dividing 216 g by 240 g gives the percent of the solution made up
+          of water. Check which part of the solution the question asks about.
+    explanation: |
+      Add the sugar and water masses to get $24+216=240$ g of solution.
+      Sugar makes up $\dfrac{24}{240}\times100\%=10\%$ of that mass.
+
+  - id: q-chemistry-solutions-pshs-0003
+    lesson: lesson-chemistry-solution-percent-by-mass
+    keyPoint: 1
+    type: simple-quantitative
+    difficulty: exam
+    stem: |
+      Batch 1 is a 60 g solution made from 12 g of sugar and water only.
+      Batch 2 was made by dissolving 15 g of sugar in 85 g of water.
+      No sugar or water was lost. Which pair gives the percent by mass of
+      sugar in each batch, in order? Round to the nearest tenth of a percent
+      if needed.
+    choices:
+      - text: '25% and 15%'
+        rationale: |
+          Dividing by 48 g may seem right because that is the mass of the
+          water in Batch 1. Use all 60 g on the bottom of the fraction.
+      - text: '20% and 17.6%'
+        rationale: |
+          Using 85 g for Batch 2 may seem right because it is the given mass
+          of water. Add the 15 g of sugar to get the mass of the whole batch.
+      - text: '20% and 15%'
+        correct: true
+      - text: '25% and 17.6%'
+        rationale: |
+          These values come from dividing the sugar mass by the water mass
+          in each batch. Use the mass of the whole batch under each fraction.
+      - text: '80% and 85%'
+        rationale: |
+          Both numbers give the share of water in the whole batch. Check that
+          the mass on top of each fraction is for sugar.
+    explanation: |
+      Batch 1 contains 12 g of sugar out of 60 g, so it is
+      $\dfrac{12}{60}\times100\%=20\%$ sugar. Batch 2 weighs $15+85=100$ g.
+      Its sugar makes up $\dfrac{15}{100}\times100\%=15\%$ of its mass.
