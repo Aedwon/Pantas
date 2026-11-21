@@ -11,18 +11,18 @@ questions:
     difficulty: 'medium'
     stem: |
       A fabric sample has two stains. One is made of polar molecules, and the
-      other is made of nonpolar molecules. A student rinses the fabric with
-      water to remove one stain while leaving most of the other behind. Which
-      result is most likely?
+      other is made of nonpolar molecules. A student rinses both stains with
+      water under the same conditions. Which stain is likely to dissolve more
+      easily?
     choices:
-      - text: 'More of the polar stain dissolves.'
+      - text: 'The polar stain dissolves more easily.'
         correct: true
-      - text: 'More of the nonpolar stain dissolves.'
+      - text: 'The nonpolar stain dissolves more easily.'
         rationale: |
           This uses water as if it were nonpolar. Water has no overall charge,
           so it may seem nonpolar. Check which kind of molecule has an uneven
           spread of charge, even when its total charge is zero.
-      - text: 'Both stains dissolve equally well in water.'
+      - text: 'Both stains dissolve equally easily in water.'
         rationale: |
           This treats both stains the same because both are made of molecules.
           Check how strongly each kind of molecule is drawn to water.
@@ -34,11 +34,11 @@ questions:
       - text: 'Both stains stay because they are made of neutral molecules.'
         rationale: |
           This assumes that only ions can dissolve in water. Water does attract
-          ions. Check whether it can also attract the charged ends of a polar
-          molecule whose total charge is zero.
+          ions. Check whether it can also attract the slightly positive and
+          slightly negative ends of a polar molecule whose total charge is zero.
     explanation: |
       Water is polar. Its molecules attract the polar stain molecules and pull
-      them into the water. The nonpolar stain tends to stay on the fabric.
+      them into the water. This makes the polar stain easier to dissolve.
 
   - id: q-chemistry-chemical-bonding-pshs-0002
     lesson: lesson-chemistry-bonding-and-material-properties
@@ -48,30 +48,31 @@ questions:
     stem: |
       Pure water gives no reading on a conductivity tester. A student dissolves
       an ionic crystal in the water and gets a reading. After all the water
-      evaporates, the dry crystal gives no reading. What best explains the
-      difference between the solution and the dry crystal?
+      evaporates, the dry crystal gives no reading. Why does the tester give
+      a reading after the crystal dissolves?
     choices:
-      - text: 'Ions move in the solution.'
+      - text: 'Dissolved ions move and carry charge.'
         correct: true
       - text: 'Water gives the ions their electric charge.'
         rationale: |
-          The reading starts when water is added, so water may seem to give the
-          ions their charge. Check whether the particles in the dry crystal
-          already have charge.
+          The reading starts after the crystal dissolves, so water may seem to
+          give the ions their charge. Check whether the ions already have charge
+          in the dry crystal.
       - text: 'Electrons leave the ions and move through the water.'
         rationale: |
           Electrons carry charge in metals, so they may seem like the carriers
           here too. Check which charged particles the water frees from the
           crystal.
-      - text: 'Ions lose their electric charge when the crystal forms again.'
+      - text: 'The ions stay in place but pass charge from one to the next.'
         rationale: |
-          The dry crystal gives no reading, so it may seem that its particles
-          lost their charge. Check whether charged particles can stay in place
-          in a solid.
+          The ions sit close together in the crystal, so it may seem they can
+          pass charge along without moving. Check whether the ions still sit in
+          fixed spots after the crystal dissolves.
       - text: 'Water molecules carry the charge through the solution.'
         rationale: |
           Water molecules move and are polar, so they may seem to carry the
-          current. Check what the tester showed for water alone.
+          current. Water molecules are neutral overall. Check whether a
+          particle with zero net charge can carry charge through the solution.
     explanation: |
       The ions can move through the water and carry charge. When the crystal
       forms again, the ions are held in place. The tester gives a reading only
@@ -94,11 +95,11 @@ questions:
           Ions have charge and are arranged in layers, so this may seem to fit
           both needs. Check whether the ions can move through the solid and
           what happens when ions of the same charge line up as layers shift.
-      - text: 'A network of atoms linked by strong covalent bonds'
+      - text: 'A diamond network of atoms linked by strong covalent bonds'
         rationale: |
           Strong bonds may seem ideal for keeping the strip in one piece.
-          Check whether layers in the network can slide past one another
-          without breaking those bonds.
+          Check whether atoms in the diamond network can shift past one
+          another without breaking covalent bonds.
       - text: 'Separate polar molecules with weak forces between them'
         rationale: |
           Weak forces may make the strip seem easy to shape. The molecules
