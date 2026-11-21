@@ -1,0 +1,84 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: did-not-and-the-base-verb-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-grammar-and-structure-did-not-and-the-base-verb-pshs-0001
+    lesson: lesson-grammar-and-structure-did-not-and-the-base-verb
+    keyPoint: 1
+    type: error-identification
+    difficulty: medium
+    stem: |
+      Which part of the sentence contains an error? Choose “No error” if the sentence is correct.
+
+      During rehearsal, the drummer did not repeated the opening rhythm.
+    choices:
+      - text: During rehearsal,
+        rationale: |
+          You may expect “the” before “rehearsal.” Read the phrase as a time clue, like “during class.” Then check the verb that goes with “did not.”
+      - text: the drummer did not
+        rationale: |
+          You may think “did” should change because “repeated” already shows past time. Keep “did” to show the past and check the form of the verb after “not.”
+      - text: repeated
+        correct: true
+      - text: the opening rhythm.
+        rationale: |
+          “Opening” looks like a verb with an extra ending. Check what it does here. It describes the rhythm.
+      - text: No error
+        rationale: |
+          “Repeated” sounds right for an action during rehearsal. Look for “did not” and check that the action verb has its plain form.
+    explanation: |
+      “Did” already shows past time. Use the plain form “repeat” after “did not.”
+  - id: q-grammar-and-structure-did-not-and-the-base-verb-pshs-0002
+    lesson: lesson-grammar-and-structure-did-not-and-the-base-verb
+    keyPoint: 1
+    type: correct-usage
+    difficulty: hard
+    stem: |
+      Which choice best completes the sentence?
+
+      I read the note twice, but I didn't quite ___ what it meant.
+    choices:
+      - text: understood
+        rationale: |
+          The note was read in the past, so “understood” may seem to fit. Check which word already shows past time in the second part of the sentence.
+      - text: understand
+        correct: true
+      - text: understands
+        rationale: |
+          “Understands” may sound like the plain form because it has no past ending. Check for the extra “s.”
+      - text: understanding
+        rationale: |
+          You might pick “understanding” if you picture someone still trying to make sense of the note. Check whether the verb after “didn't quite” has an ending added to its plain form.
+      - text: to understand
+        rationale: |
+          “To understand” sounds right after verbs like “try.” Check what comes before the blank here. “Didn't quite” takes the plain verb on its own.
+    explanation: |
+      “Didn't” shows past time. The word “quite” can come before the plain verb “understand.”
+  - id: q-grammar-and-structure-did-not-and-the-base-verb-pshs-0003
+    lesson: lesson-grammar-and-structure-did-not-and-the-base-verb
+    keyPoint: 1
+    type: error-identification
+    difficulty: exam
+    stem: |
+      Which part of the sentence contains an error? Choose “No error” if the sentence is correct.
+
+      The team packed up, but the coach didn't unlock the gate until the rain stopped.
+    choices:
+      - text: packed up
+        rationale: |
+          You may want to change “packed” to “pack” when you see “didn't” later. Check who did each action. The team packed, and “didn't” goes with the coach's action.
+      - text: the coach didn't
+        rationale: |
+          You may think “didn't” should be “doesn't” because “unlock” has no past ending. Check which word shows past time. “Did” in “didn't” already does that.
+      - text: unlock the gate
+        rationale: |
+          “Unlocked” may sound right because the team already packed up. Check the verb that goes with “didn't.” It stays in its plain form, “unlock.”
+      - text: the rain stopped.
+        rationale: |
+          You may want to change “stopped” to “stop” because it comes after “didn't” in the sentence. Check the subject of “stopped.” It tells what the rain did.
+      - text: No error
+        correct: true
+    explanation: |
+      The coach's action uses the plain verb “unlock” after “didn't.” “Packed” tells what the team did, and “stopped” tells what the rain did. Both use the past form.
