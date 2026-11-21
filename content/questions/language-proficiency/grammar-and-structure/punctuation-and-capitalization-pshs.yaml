@@ -1,0 +1,250 @@
+meta:
+  subject: language-proficiency
+  topic: grammar-and-structure
+  subtopic: punctuation-and-capitalization-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-grammar-and-structure-punctuation-and-capitalization-pshs-0001
+    lesson: lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes
+    keyPoint: 1
+    type: punctuation
+    difficulty: easy
+    stem: |
+      Which line from a trip journal uses capital letters correctly?
+    choices:
+      - text: We boarded the ferry before dawn. It left for Bohol.
+        correct: true
+      - text: We reached the port before sunrise. the ferry was still there.
+        rationale: |
+          The first sentence opens with a capital, so the line may look right at first. Check the word after the period. “The” starts a new sentence.
+      - text: Our boat reached bohol before lunch. We ate near the port.
+        rationale: |
+          Both sentences start with capitals, so the line can look correct. Find the place name. “Bohol” needs a capital too.
+      - text: The crew tied the Ferry to a post. We waited with our bags.
+        rationale: |
+          The writer has one ferry in mind, so “Ferry” may look like its name. Check whether the word gives the boat a name or tells what kind of boat it is.
+      - text: We took the bus with mila. She showed us where to get off.
+        rationale: |
+          “Mila” appears in the middle of a sentence, where most words stay lowercase. Check whose name it is. A person's name starts with a capital anywhere in the sentence.
+    explanation: |
+      “We” and “It” start sentences. “Bohol” names a place. All three words start with capital letters.
+  - id: q-grammar-and-structure-punctuation-and-capitalization-pshs-0002
+    lesson: lesson-grammar-and-structure-commas-in-lists-and-joined-clauses
+    keyPoint: 1
+    type: punctuation
+    difficulty: easy
+    stem: |
+      The club needs three supplies. The yarn must be red. The club skips the comma before “and” in a simple list. Which line on its supply sheet follows that rule and uses the other commas correctly?
+    choices:
+      - text: Pack red yarn, tape and scrap paper.
+        correct: true
+      - text: Pack red yarn, tape, and scrap paper.
+        rationale: |
+          A comma before “and” is correct in some styles. Check the club's rule. This list ends with “tape and scrap paper.”
+      - text: Pack red, yarn, tape and scrap paper.
+        rationale: |
+          The comma makes “red” look like a list item. Check what “red” describes. Keep it with “yarn.”
+      - text: Pack red yarn tape, and scrap paper.
+        rationale: |
+          The comma before “and” may look like enough to show a list. Say each item on its own. “Red yarn” and “tape” need a comma between them.
+      - text: Pack, red yarn, tape and scrap paper.
+        rationale: |
+          A pause before a list may sound natural when you read the line aloud. Check what the verb “pack” goes with. The list tells what to pack, so it follows the verb without a comma.
+    explanation: |
+      “Red yarn,” “tape,” and “scrap paper” are the three items. The comma after “yarn” sets off the first item. The club's rule leaves out the comma before “and.”
+  - id: q-grammar-and-structure-punctuation-and-capitalization-pshs-0003
+    lesson: lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes
+    keyPoint: 2
+    type: punctuation
+    difficulty: medium
+    stem: |
+      The school paper capitalizes a formal title directly before a name. It uses lowercase for a general job label inside a sentence. Which line follows both rules?
+    choices:
+      - text: We asked Mayor Lim to thank the coach.
+        correct: true
+      - text: We asked mayor Lim to thank the coach.
+        rationale: |
+          Job labels often stay lowercase, so “mayor” may look right. Check the word right after it. Here “Mayor” is a title before a name.
+      - text: We asked Mayor Lim to thank the Coach.
+        rationale: |
+          “Coach” can be a title before a name, so a capital may seem right. Look for a name after “coach.” Here it just tells what the person does.
+      - text: We asked mayor Lim to thank the Coach.
+        rationale: |
+          You may give the coach a capital because the coach is being thanked. Look at which role comes right before a name. Capitalize “Mayor” and keep “coach” lowercase.
+      - text: We asked the Mayor to thank coach Dizon.
+        rationale: |
+          A mayor may seem to deserve a capital because the job is important. Look for the job word right before a name. Write “the mayor” and “Coach Dizon.”
+    explanation: |
+      “Mayor” is a formal title right before “Lim.” The words “the coach” tell what someone does. Under the paper's rules, “Mayor” starts with a capital and “coach” stays lowercase.
+  - id: q-grammar-and-structure-punctuation-and-capitalization-pshs-0004
+    lesson: lesson-grammar-and-structure-commas-in-lists-and-joined-clauses
+    keyPoint: 2
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Which sentence uses a comma before a joining word that connects two complete sentences?
+    choices:
+      - text: The gym was full by noon, so we waited at the gate.
+        correct: true
+      - text: The gym was already full so, we waited near the gate.
+        rationale: |
+          This puts the comma near the place where the ideas meet, so it can look right. Check which word joins the ideas. The comma goes before “so.”
+      - text: We reached the gym early, and waited near the gate.
+        rationale: |
+          You may put a comma before every “and.” Read “waited near the gate” by itself. It leaves out who waited.
+      - text: The gym, was full by noon so we waited near the gate.
+        rationale: |
+          A pause after “The gym” may seem to set up what comes next. Check what goes with “The gym.” Keep it with “was full by noon” and place the comma before “so.”
+      - text: The gym was full so we, waited near the gate for our turn.
+        rationale: |
+          The comma is near the start of the second idea, but it splits “we waited.” Read both complete thoughts and put the comma before the word that joins them.
+    explanation: |
+      “The gym was full by noon” and “we waited at the gate” can each stand alone. “So” joins them. The comma goes right before “so.”
+  - id: q-grammar-and-structure-punctuation-and-capitalization-pshs-0005
+    lesson: lesson-grammar-and-structure-semicolons-and-comma-splices
+    keyPoint: 1
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Which sentence correctly uses a semicolon to join two closely related statements?
+    choices:
+      - text: The kite tore; it fell into the grass.
+        correct: true
+      - text: The kite tore; sending it into the grass.
+        rationale: |
+          The words after the mark tell what happened next, so they may sound complete. Read “sending it into the grass” alone. It needs the first part to make a sentence.
+      - text: The kite tore; because it hit a tree branch.
+        rationale: |
+          “It hit a tree branch” can stand alone, so a semicolon may seem right. Read the whole part after the mark, starting with “because.” That part still needs a main idea.
+      - text: The kite; tore and fell into the grass beside us.
+        rationale: |
+          “The kite” tells what the sentence is about, so that may feel like a place to pause. Check which words tell what the kite did. Keep them with “The kite.”
+      - text: We watched the kite tear and; fall into the grass.
+        rationale: |
+          A semicolon may seem helpful because the kite does two things. Ask what the kite did. Both “tear” and “fall” tell what it did. “And” joins those actions without a semicolon.
+    explanation: |
+      “The kite tore” and “it fell into the grass” are both complete sentences. They tell what happened to the same kite. A semicolon can join them.
+  - id: q-grammar-and-structure-punctuation-and-capitalization-pshs-0006
+    lesson: lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes
+    keyPoint: 3
+    type: punctuation
+    difficulty: medium
+    stem: |
+      Which line uses capital letters correctly in the quoted text?
+    choices:
+      - text: Nina wrote, “The trail is steep.” She circled “steep” on the page.
+        correct: true
+      - text: Nina wrote, “the trail is steep.” She circled “steep” on the page.
+        rationale: |
+          A quote in the middle of a line can look like part of the outer sentence. Check whether the quoted words can stand alone. “The trail is steep” is a full sentence.
+      - text: Nina wrote, “The path is narrow.” She circled “Narrow” on the page.
+        rationale: |
+          A capital on the first word of the full quote may make you want one in both quotes. Check what the second quote holds. It is the single word “narrow.”
+      - text: Nina wrote, “The Trail is steep.” She underlined “steep” on the page.
+        rationale: |
+          You may give “Trail” a capital because it is the topic of the note. Check whether it names a specific trail. Here it is an ordinary word inside the quoted sentence.
+      - text: Nina wrote, “the path gets muddy.” She underlined “Muddy” on the page.
+        rationale: |
+          “Muddy” may look like a label because it is underlined, while the earlier quote comes after a comma. Read both quotes on their own. The full sentence starts with a capital, and the single word stays lowercase.
+    explanation: |
+      “The trail is steep” is a full sentence, so “The” starts with a capital. The second quote gives just the word “steep,” which stays lowercase.
+  - id: q-grammar-and-structure-punctuation-and-capitalization-pshs-0007
+    lesson: lesson-grammar-and-structure-commas-in-lists-and-joined-clauses
+    keyPoint: 2
+    type: punctuation
+    difficulty: hard
+    stem: |
+      For this note, put a comma before a joining word if it joins two complete sentences. Leave out the comma if it joins two actions with the same subject. Which line follows this rule?
+    choices:
+      - text: Dina set out the cups and filled the jug, but we still needed ice.
+        correct: true
+      - text: Dina set out the cups, and filled the jug, but we still needed ice.
+        rationale: |
+          “Filled the jug” gives a second action, so it may look like a second sentence. Ask who filled it. Both actions use “Dina” as their subject, so there is no comma before “and.”
+      - text: Dina set out the cups, and filled the jug but we still needed ice.
+        rationale: |
+          “But” already signals a change, so it may seem fine without a comma. Check what each joining word connects. Dina does both actions, so “and” needs no comma. Both parts joined by “but” can stand as sentences, so the rule calls for a comma before “but.”
+      - text: Dina set out the cups and filled the jug but, we still needed ice.
+        rationale: |
+          A comma right before “we” may seem to mark where the next sentence starts. Check where the word “but” sits. The comma belongs before the joining word.
+      - text: Dina set out the cups and filled the jug but we still needed ice.
+        rationale: |
+          Since “and” needs no comma here, you may want to leave the comma out before “but” too. Check whether “we still needed ice” has its own subject and verb. It does.
+    explanation: |
+      Dina does both jobs, so “and” joins two actions with the same subject. “We still needed ice” can stand alone. Put a comma before “but” to join it to the first part.
+  - id: q-grammar-and-structure-punctuation-and-capitalization-pshs-0008
+    lesson: lesson-grammar-and-structure-semicolons-and-comma-splices
+    keyPoint: 1
+    type: punctuation
+    difficulty: hard
+    stem: |
+      Read the draft sentence.
+
+      The ink was still wet, the print left a mark on the next page.
+
+      Which edit fixes the punctuation and keeps the draft as one sentence?
+    choices:
+      - text: The ink was still wet; the print left a mark on the next page.
+        correct: true
+      - text: The ink was still wet. The print left a mark on the next page.
+        rationale: |
+          A period can fix the comma splice. Count the sentences after the edit. This makes two, and the task asks you to keep one.
+      - text: The ink was still wet, so, the print left a mark on the next page.
+        rationale: |
+          “So” explains how the ideas are linked, and a pause after it may sound natural. Check the commas around “so.” A comma goes before the joining word here.
+      - text: The ink was still wet, the print left a mark on the next page.
+        rationale: |
+          The ideas are linked, and the comma shows where the first ends. Try each part as a sentence. A comma alone cannot join the two complete sentences.
+      - text: The ink was still wet; which left a mark on the next page.
+        rationale: |
+          The words after the mark tell what happened, so they may sound like a full thought. Read them from “which.” They still need the first part to make sense.
+    explanation: |
+      “The ink was still wet” and “the print left a mark on the next page” each make sense on their own. A semicolon joins them in one sentence.
+  - id: q-grammar-and-structure-punctuation-and-capitalization-pshs-0009
+    lesson: lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes
+    keyPoint: 2
+    type: punctuation
+    difficulty: exam
+    stem: |
+      The town bulletin capitalizes the title when it stands alone and refers to the town's own mayor. It uses lowercase for the job in general. It also capitalizes a formal title right before a name. The town's mayor met with a visiting mayor whose last name is Sy. Which line about the meeting follows the bulletin's rules?
+    choices:
+      - text: The Mayor greeted Mayor Sy and spoke about the work of a mayor.
+        correct: true
+      - text: The mayor greeted Mayor Sy and spoke about the work of a mayor.
+        rationale: |
+          A job label used alone often stays lowercase. Check who greeted Mayor Sy. The bulletin makes an exception for its own mayor.
+      - text: The Mayor greeted mayor Sy and spoke about the work of a mayor.
+        rationale: |
+          The special rule draws attention to the first “Mayor.” Check the word right before “Sy” as well. That title also starts with a capital.
+      - text: The Mayor greeted Mayor Sy and spoke about the work of a Mayor.
+        rationale: |
+          The first two uses take capitals, so doing the same for the last one may seem consistent. Check “a mayor.” That means anyone with the job.
+      - text: The mayor greeted Mayor Sy and spoke about what a Mayor does each day.
+        rationale: |
+          You may follow the usual lowercase rule for “the mayor” and give the job in the talk a capital. Check who each title refers to. “The Mayor” refers to the town's own mayor and takes a capital. “A mayor” can mean anyone with that job, so “mayor” stays lowercase.
+    explanation: |
+      “The Mayor” refers to the town's own mayor. The bulletin gives that use a capital. “Mayor Sy” has a title right before a name. “A mayor” refers to the job in general, so it stays lowercase.
+  - id: q-grammar-and-structure-punctuation-and-capitalization-pshs-0010
+    lesson: lesson-grammar-and-structure-semicolons-and-comma-splices
+    keyPoint: 2
+    type: punctuation
+    difficulty: exam
+    stem: |
+      For a class exhibit, Liza is in charge of maps, Niko is in charge of photos, and Tess is in charge of labels. In the list, the class writes each job first, then a comma and the student's name. Which line follows the class's rule and uses the right punctuation between the pairs?
+    choices:
+      - text: 'Exhibit jobs: maps, Liza; photos, Niko; and labels, Tess.'
+        correct: true
+      - text: 'Exhibit jobs: maps, Liza, photos, Niko, and labels, Tess.'
+        rationale: |
+          Commas work for simple lists, so using them at every break may seem right. Find each job with its name first. The larger breaks between those pairs need semicolons.
+      - text: 'Exhibit jobs: maps; Liza, photos; Niko, and labels; Tess.'
+        rationale: |
+          This uses both marks, which a list like this needs. Read “maps” with “Liza.” The semicolon splits the two words that belong in the same item.
+      - text: 'Exhibit jobs: maps Liza; photos Niko; and labels Tess.'
+        rationale: |
+          The semicolons group the pairs, so the list may look finished. Look inside each pair. A comma should separate each job from the name that follows it.
+      - text: 'Exhibit jobs: maps, Liza; photos, Niko; and, labels, Tess.'
+        rationale: |
+          You may put a comma after “and” to show where the last pair starts. Check the break after “Niko.” The semicolon already marks it, and “and” goes straight before the last pair.
+    explanation: |
+      Each item groups one job and one name with a comma. Semicolons after “Liza” and “Niko” show where the first two pairs end.
