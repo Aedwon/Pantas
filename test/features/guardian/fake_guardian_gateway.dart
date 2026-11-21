@@ -11,9 +11,11 @@ class FakeGuardianGateway implements GuardianGateway {
   final sent = <({String name, String email, String? ageCheckNoticeVersion})>[];
   Exception? adultFailure;
   int adultCalls = 0;
+  int statusCalls = 0;
 
   @override
   Future<GuardianStatus> status() async {
+    statusCalls++;
     if (failure != null) throw failure!;
     return current;
   }

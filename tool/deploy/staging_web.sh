@@ -8,6 +8,7 @@ cd "$(dirname "$0")/../.."
 dart run build_runner build --delete-conflicting-outputs
 flutter build web --release -t lib/main_staging.dart \
   --dart-define=APP_CHECK_WEB_SITE_KEY=6Lcp8xUuAAAAAICQRMX8-J2JYzU5dxKsj8Qp3sQa \
+  --dart-define=PANTAS_PSHS_FOR_CHILDREN=true \
   --dart-define=BUILD_NUMBER="$(git rev-list --count HEAD)"
 node tool/web/stamp_worker_version.mjs build/web
 firebase deploy --config firebase.staging.json --only hosting:app --project pantas-staging --non-interactive

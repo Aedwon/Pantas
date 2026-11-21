@@ -1,4 +1,5 @@
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/domain/age_group.dart';
 
 class AppPreferencesRepository {
   AppPreferencesRepository(this._db);
@@ -47,16 +48,22 @@ class AppPreferencesRepository {
     return legacyRow?.value;
   }
 
-  Future<void> setSelectedExamId(String examId) async {
-    await _db.into(_db.devicePrefs).insertOnConflictUpdate(
-          DevicePrefsCompanion.insert(
-            key: _selectedExamIdKey,
-            value: examId,
-          ),
-        );
-  }
+  Future<void> setSelectedExamId(String examId) => _db.transaction(() async {
+        final group = await readAgeGroup();
+        if (group.hasChildLimits &&
+            (!group.isChild || examId != 'exam_pshs_nce')) {
+          throw StateError('This exam is unavailable for this account.');
+        }
+        await _db.into(_db.devicePrefs).insertOnConflictUpdate(
+              DevicePrefsCompanion.insert(
+                key: _selectedExamIdKey,
+                value: examId,
+              ),
+            );
+      });
 
   Future<bool> hasPassedAgeGate() async {
+    if (await needsGuardianSetup()) return false;
     final row = await (_db.select(_db.devicePrefs)
           ..where((p) => p.key.equals(_passedAgeGateKey)))
         .getSingleOrNull();
@@ -77,8 +84,18 @@ class AppPreferencesRepository {
         );
   }
 
-  /// `minor` or `adult`. Only the group is kept, never the age.
+  /// `minor`, `adult` or `child`. Only the group is kept, never the age.
   Future<String?> ageGroup() => _deviceValue('age_group');
+
+  /// [ageGroup] as a typed value. An age-check record also makes a missing
+  /// group restricted.
+  Future<AgeGroup> readAgeGroup() async {
+    final stored = await ageGroup();
+    if (stored == null && await ageCheckNoticeVersion() != null) {
+      return AgeGroup.unrecognized;
+    }
+    return AgeGroup.parse(stored);
+  }
 
   Future<void> setAgeGroup(String group) => _setDeviceValue('age_group', group);
 
@@ -108,6 +125,15 @@ class AppPreferencesRepository {
   Future<int?> blockedMinimumAge() async {
     final raw = await _deviceValue('age_blocked_minimum');
     return raw == null ? null : int.tryParse(raw);
+  }
+
+  /// Existing under-13 blocks now lead to guardian setup.
+  Future<bool> needsGuardianSetup() async => await blockedMinimumAge() != null;
+
+  Future<void> clearGuardianSetup() async {
+    await (_db.delete(_db.devicePrefs)
+          ..where((row) => row.key.equals('age_blocked_minimum')))
+        .go();
   }
 
   Future<void> setBlockedMinimumAge(int minimumAge) =>

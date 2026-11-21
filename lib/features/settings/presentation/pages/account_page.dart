@@ -97,7 +97,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       );
     }
     final user = ref.watch(currentUserProvider).valueOrNull;
-    final minor = ref.watch(ageGroupProvider).valueOrNull == 'minor';
+    final minor =
+        ref.watch(ageGroupProvider).valueOrNull?.canSelfSwitchToAdult ?? false;
     final settings =
         ref.watch(userSettingsProvider).valueOrNull ?? UserSettings.defaults();
     final id = ref.watch(publicIdProvider).valueOrNull ??

@@ -64,7 +64,7 @@ void main() {
     expect(lines.join('\n'), isNot(contains('—')));
   });
 
-  test('teens, privacy and the replaced Terms sections match the review', () {
+  test('unchanged legal sections match the prior signed review', () {
     final teens = _reviewSections(lines, '## A.', '## B.');
     final subscriptions = _reviewSections(lines, '## B.', '## C.');
     final privacy = _reviewSections(lines, '## D.', '## E.');
@@ -84,6 +84,7 @@ void main() {
     expect(docs['terms']!.sections.map((s) => s.heading), [
       'Use of the app',
       ...subscriptions.keys,
+      'Accounts held for a child under 13',
       'Study content and results',
       'Changes, suspension and ending',
       'Limits of responsibility',
@@ -92,15 +93,52 @@ void main() {
       'Changes to these Terms',
     ]);
 
+    const revisedPrivacySections = {
+      'Who this is for',
+      'Who runs Pantas',
+      'Why we ask your age',
+      'Why we may use your data',
+    };
+    teens.removeWhere(
+      (heading, _) =>
+          revisedPrivacySections.contains(heading) ||
+          heading == 'Payments for minors',
+    );
+    privacy.removeWhere(
+      (heading, _) => revisedPrivacySections.contains(heading),
+    );
+    terms
+      ..remove('Use of the app')
+      ..remove('Governing law and disputes');
     final differences = [
       ..._differences('teens', docs['teens']!.sections, teens),
       ..._differences('privacy', docs['privacy']!.sections, privacy),
-      ..._differences(
-        'terms',
-        docs['terms']!.sections,
-        {...subscriptions, ...terms},
-      ),
+      ..._differences('terms', docs['terms']!.sections, terms),
     ];
     expect(differences, isEmpty);
+  });
+
+  test('under-13 Terms use the approved draft wording', () {
+    final draft = File(
+      'docs/legal/drafts/2026-11-17-under-13-legal-draft.md',
+    ).readAsStringSync();
+    final terms = legalDocumentFallbacks['terms']!.sections;
+    final section = draft
+        .split('### 2.3 New section:')
+        .last
+        .split('Drafting note, not for publication:')
+        .first;
+    final body = section
+        .split('> **Accounts held for a child under 13**')
+        .last
+        .split('\n')
+        .where((line) => line.startsWith('>'))
+        .map((line) => line.substring(1))
+        .join('\n')
+        .replaceAll('[PENDING AEDWON DECISION 3]', '');
+    final published = terms.singleWhere(
+      (section) => section.heading == 'Accounts held for a child under 13',
+    );
+    expect(_normalize(published.body), _normalize(body));
   });
 }

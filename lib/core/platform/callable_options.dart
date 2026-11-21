@@ -12,6 +12,9 @@ const replayProtectedCallables = <String>{
   'setBetaPro',
   'getBetaAccess',
   'deleteAccount',
+  'deleteChild',
+  'setSiblingOpen',
+  'withdrawChild',
   'exportData',
   'recomputePassEnds',
   'startMock',
@@ -28,6 +31,11 @@ const replayProtectedCallables = <String>{
   'submitBetaSurvey',
   'activateBetaReward',
   'getBetaReward',
+  'requestGuardianCode',
+  'verifyGuardianCode',
+  'setupChildAccount',
+  'setChildNickname',
+  'openChildSession',
 };
 
 /// Options for calling [name]: limited-use App Check tokens for the callables

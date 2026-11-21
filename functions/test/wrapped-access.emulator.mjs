@@ -1,6 +1,7 @@
 import '../lib/index.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import {getAuth} from 'firebase-admin/auth';
 import {getFirestore} from 'firebase-admin/firestore';
 import {getStorage} from 'firebase-admin/storage';
 import {renderWrappedPage} from '../lib/renderWrappedPage.js';
@@ -12,6 +13,7 @@ async function read(suffix = '/card.png') {
   return result;
 }
 test('share reader ignores forged stored paths and refuses invalid owners and revoked shares', async () => {
+  await getAuth().createUser({uid: ownerUid});
   const bucket = getStorage().bucket('demo-pantas-test.appspot.com');
   const ref = getFirestore().doc(`wrapped_shares/${id}`);
   await bucket.file('private/known-secret.png').save(Buffer.from('SECRET'));
@@ -26,13 +28,14 @@ test('share reader ignores forged stored paths and refuses invalid owners and re
   assert.equal((await read()).body.toString().includes('OWN'), false);
 });
 
-for (const state of ['withdrawn', 'deleting', 'closed']) {
+for (const state of ['withdrawn', 'deleting', 'closed', 'child']) {
   for (const suffix of ['', '/card.png']) {
     test(`Wrapped ${suffix || 'page'} refuses owner ${state}`, async () => {
       const db = getFirestore(), uid = `wrapped-blocked-${state}`;
       await db.doc(`wrapped_shares/${id}`).set({ownerUid: uid, archetypeId: 'secret_archetype'});
       await getStorage().bucket().file(`wrapped/${uid}/${id}.png`).save(Buffer.from('PRIVATE_CARD'));
       if (state === 'withdrawn') await db.doc(`users/${uid}/server/guardianConsent`).set({status: 'withdrawn'});
+      else if (state === 'child') await db.doc(`users/${uid}/server/guardianConsent`).set({ageGroup: 'child'});
       else await db.doc(`accountDeletions/${uid}`).set(state === 'closed' ? {} : {reason: 'guardian_withdrawal'});
       const out = await read(suffix);
       assert.doesNotMatch(out.body.toString(), /PRIVATE_CARD|Secret Archetype|og:image/);
@@ -43,4 +46,17 @@ for (const state of ['withdrawn', 'deleting', 'closed']) {
 test('live Wrapped page and image cannot be cached across withdrawal', async () => {
   await getFirestore().doc(`wrapped_shares/${id}`).set({ownerUid});
   for (const suffix of ['', '/card.png']) assert.equal((await read(suffix)).headers['Cache-Control'], 'no-store');
+});
+
+
+test('the public renderer also refuses a child with only an Auth age claim', async () => {
+  const uid = 'wrapped-claim-child';
+  const auth = getAuth();
+  await auth.createUser({uid});
+  await auth.setCustomUserClaims(uid, {ageGroup: 'child'});
+  await getFirestore().doc(`wrapped_shares/${id}`).set({ownerUid: uid, archetypeId: 'child_archetype'});
+  await getStorage().bucket().file(`wrapped/${uid}/${id}.png`).save(Buffer.from('CHILD_CARD'));
+  for (const suffix of ['', '/card.png']) {
+    assert.doesNotMatch((await read(suffix)).body.toString(), /Child Archetype|CHILD_CARD|og:image/);
+  }
 });

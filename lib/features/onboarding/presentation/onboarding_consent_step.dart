@@ -46,8 +46,8 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
   bool _failed = false;
 
   /// Under 18 the student cannot turn sharing on, so the usage row is not
-  /// offered.
-  bool get _minor => ref.watch(ageGroupProvider).valueOrNull == 'minor';
+  /// offered. A child and an unrecognized stored group count as under 18.
+  bool get _minor => ref.watch(resolvedAgeGroupProvider).isRestricted;
 
   @override
   void initState() {
@@ -85,8 +85,14 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
       final repo = ref.read(settingsRepositoryProvider);
       // Acceptance is the resume marker. Write it only once both choices save.
       // Under 18, sharing stays off until the guardian allows it.
-      final minor = ref.read(ageGroupProvider).valueOrNull == 'minor';
-      await repo.updateHelpImproveApp(enabled: _acceptedUsage && !minor);
+      final group = await ref.read(ageGroupProvider.future);
+      await repo.updateHelpImproveApp(
+        enabled: _acceptedUsage && !group.isRestricted,
+      );
+      // A child's speed and error reports are off too, and stay off.
+      if (group.hasChildLimits) {
+        await repo.updateSpeedReportsEnabled(enabled: false);
+      }
       await ref
           .read(appPreferencesRepositoryProvider)
           .setSetupAcceptanceVersion(SetupAcceptance.version);

@@ -46,7 +46,12 @@ enum _Phase { entering, verifying, signedIn, wrong, wrongFading, expired }
 
 /// The sign-in screens: email, six-digit code, and "not on the beta list".
 class EmailSignInPage extends ConsumerStatefulWidget {
-  const EmailSignInPage({this.beta = false, this.denied = false, super.key});
+  const EmailSignInPage({
+    this.beta = false,
+    this.denied = false,
+    this.returnTo,
+    super.key,
+  });
 
   /// True on the beta gate, which also shows the BETA mark and goes back to
   /// the gate after sign-in.
@@ -54,6 +59,10 @@ class EmailSignInPage extends ConsumerStatefulWidget {
 
   /// Signed in, but not selected for the beta.
   final bool denied;
+
+  /// Where signing in leads instead of Home or the beta gate. The parent
+  /// sign-in of a child setup returns to the setup screen this way.
+  final String? returnTo;
 
   @override
   ConsumerState<EmailSignInPage> createState() => _EmailSignInPageState();
@@ -483,7 +492,7 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
 
   void _leave() {
     ref.invalidate(betaAccessProvider);
-    context.go(widget.beta ? '/beta' : '/home');
+    context.go(widget.returnTo ?? (widget.beta ? '/beta' : '/home'));
   }
 
   // ------------------------------------------------------------------ view

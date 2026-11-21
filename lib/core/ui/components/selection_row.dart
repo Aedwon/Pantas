@@ -33,11 +33,16 @@ class CheckboxRow extends StatelessWidget {
     this.standardDensity = false,
     this.round = false,
     this.squareEdges = false,
+    this.alignTop = false,
     super.key,
   });
   final String title;
   final bool selected;
   final bool mixed;
+
+  /// The box lines up with the first line of a long label, 2 below its top
+  /// (board 2A), instead of centering on every line.
+  final bool alignTop;
 
   /// Wide web, for a row inside a card that clips its own corners: the hover
   /// fill runs edge to edge with square corners, as the web boards draw it.
@@ -73,6 +78,7 @@ class CheckboxRow extends StatelessWidget {
         markSize: markSize,
         round: round,
         squareEdges: squareEdges,
+        alignTop: alignTop,
         title: title,
         selected: selected,
         mixed: mixed,
@@ -150,7 +156,9 @@ class _SelectionRow extends StatefulWidget {
     this.standardDensity = false,
     this.round = false,
     this.squareEdges = false,
+    this.alignTop = false,
   });
+  final bool alignTop;
   final bool squareEdges;
   final bool round;
   final bool standardDensity;
@@ -250,21 +258,29 @@ class _SelectionRowState extends State<_SelectionRow> {
                 const SizedBox(height: PantasSpace.s12),
               ],
               Row(
+                crossAxisAlignment: w.alignTop
+                    ? CrossAxisAlignment.start
+                    : CrossAxisAlignment.center,
                 children: [
                   if (w.showMark) ...[
                     ExcludeSemantics(
-                      child: ListenableBuilder(
-                        listenable: _states,
-                        builder: (context, _) => _SelectionMark(
-                          size: w.markSize,
-                          selected: w.selected,
-                          mixed: w.mixed,
-                          radio: w.radio || (w.round && !context.wideWeb),
-                          hovered: enabled &&
-                              _states.value.contains(WidgetState.hovered),
-                          pressed: enabled &&
-                              _states.value.contains(WidgetState.pressed),
-                          focused: enabled && webKeyboardFocus(_states.value),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          top: w.alignTop ? PantasSpace.s2 : PantasSpace.s0,
+                        ),
+                        child: ListenableBuilder(
+                          listenable: _states,
+                          builder: (context, _) => _SelectionMark(
+                            size: w.markSize,
+                            selected: w.selected,
+                            mixed: w.mixed,
+                            radio: w.radio || (w.round && !context.wideWeb),
+                            hovered: enabled &&
+                                _states.value.contains(WidgetState.hovered),
+                            pressed: enabled &&
+                                _states.value.contains(WidgetState.pressed),
+                            focused: enabled && webKeyboardFocus(_states.value),
+                          ),
                         ),
                       ),
                     ),

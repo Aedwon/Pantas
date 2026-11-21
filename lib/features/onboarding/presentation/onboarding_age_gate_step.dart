@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/dev/local_onboarding_presets.dart';
 import 'package:pantas/core/error/state_patterns.dart';
@@ -34,6 +35,7 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
 import 'package:pantas/features/onboarding/domain/age_policy.dart';
+import 'package:pantas/features/onboarding/presentation/child/under_thirteen_screen.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
 
@@ -200,10 +202,19 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
           _blocked = true;
           _blockedMinimum = minimum;
         });
+        _openGuardianScreen();
       }
     } on Object catch (error, stack) {
       unawaited(ref.read(telemetryProvider).recordError(error, stack));
     }
+  }
+
+  /// Under 13: the device goes to the guardian screen (under-13 board 1A) and
+  /// stays there. Without a router the step shows the old block in place.
+  // TODO(T6): the age fork state (needsGuardianSetup) replaces this block.
+  void _openGuardianScreen() {
+    if (widget.recheck) return;
+    GoRouter.maybeOf(context)?.go(underThirteenPath);
   }
 
   Future<void> _continue() async {
@@ -247,6 +258,7 @@ class _OnboardingAgeGateStepState extends ConsumerState<OnboardingAgeGateStep>
               _blocked = true;
               _blockedMinimum = policy.minimumAge;
             });
+            _openGuardianScreen();
           }
         case AgeOutcome.minor:
           // Only the group is kept, never the age.

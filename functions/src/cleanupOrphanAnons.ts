@@ -2,6 +2,7 @@ import { getAuth, type Auth, type UserRecord } from 'firebase-admin/auth';
 import { getFirestore, type Firestore } from 'firebase-admin/firestore';
 import { logger } from 'firebase-functions';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
+import { holderForChild } from './childLinks.js';
 import { deleteGuardianRecords } from './guardianConsent.js';
 
 function isOldAnonymous(user: UserRecord, cutoff: number): boolean {
@@ -71,6 +72,8 @@ export async function runOrphanAnonCleanup(deps: OrphanAnonDeps): Promise<{scann
     for (const user of page.users) {
       scanned += 1;
       if (!isOldAnonymous(user, cutoff)) continue;
+      // A linked child is an emailless custom-token user, so it looks like an orphan. It is never one.
+      if (await holderForChild(db, user.uid)) continue;
       const root = db.doc(`users/${user.uid}`);
       if ((await root.get()).exists || !(await onlyDisposableData(db, user.uid))) continue;
       const shares = await db.collection('wrapped_shares').where('ownerUid', '==', user.uid).limit(1).get();

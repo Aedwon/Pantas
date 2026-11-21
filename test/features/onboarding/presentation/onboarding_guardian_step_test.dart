@@ -139,6 +139,21 @@ void main() {
     }
   });
 
+  testWidgets('the guardian form opens blank with a stored contact',
+      (tester) async {
+    await tester.runAsync(
+      () => AppPreferencesRepository(db).setGuardianContact(
+        name: 'Previous guardian',
+        email: 'previous@example.com',
+      ),
+    );
+    await pump(tester);
+    await tester.pumpAndSettle();
+    expect(find.text('Previous guardian'), findsNothing);
+    expect(find.text('previous@example.com'), findsNothing);
+    expect(sendButton(tester).onPressed, isNull);
+  });
+
   testWidgets('Send Link waits for a name and a plausible email',
       (tester) async {
     await pump(tester);
@@ -237,18 +252,6 @@ void main() {
     expect(name.focusNode!.hasPrimaryFocus, isTrue);
     await tester.enterText(find.byType(TextField).first, 'Maria');
     expect(find.text('Maria'), findsOneWidget);
-  });
-
-  testWidgets('the contact kept on this device is filled in again',
-      (tester) async {
-    await AppPreferencesRepository(db).setGuardianContact(
-      name: 'Maria',
-      email: 'maria@gmail.com',
-    );
-    await pump(tester);
-    await tester.pumpAndSettle();
-    expect(find.text('Maria'), findsOneWidget);
-    expect(find.text('maria@gmail.com'), findsOneWidget);
   });
 
   testWidgets('wide: a placeholder never repeats the label drawn above it',

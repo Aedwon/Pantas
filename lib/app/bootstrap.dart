@@ -17,6 +17,7 @@ import 'package:pantas/app/startup_gates.dart';
 import 'package:pantas/app/sync_runtime_bootstrap.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/app/theme.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/bundle/protected_content_installer.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/content_database_memory.dart';
@@ -35,6 +36,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/platform/install/install_providers.dart';
 import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
@@ -265,8 +267,8 @@ Future<void> _bootstrap(
     // and is awaited where the flags are used. It never throws: a failure or
     // a timeout yields the fallback flags.
     final remoteFlags = bootstrapRemoteFlagsOverrides();
-    // Web only, always on, sends no identity. Never blocks startup.
-    ClientReporter.startForWeb();
+    // A page can be hidden before auth restores its age group.
+    ClientReporter.startForWeb()?.enabled = false;
     await activateAppCheck(flavor);
     PerfTimeline.mark('boot.appcheck');
 
@@ -350,6 +352,9 @@ Future<void> _bootstrap(
     onContainerReady(container);
 
     await bootstrapAuthSession(container, firebaseResult);
+    if (firebaseResult == FirebaseBootstrapResult.configured) {
+      await container.read(authStateProvider.future);
+    }
     PerfTimeline.mark('boot.auth');
     // The beta check is a server call. Start it now so it runs beside the
     // content restore, consent and sync steps. The router reuses its result.
@@ -483,11 +488,16 @@ Future<void> applyPersistedTelemetryConsent(
     final controller = container.read(
       telemetryConsentControllerProvider.notifier,
     );
-    ClientReporter.active?.enabled = settings.speedReportsEnabled;
+    // A child's speed and error reports stay off whatever the stored switch
+    // says, from the first moment.
+    final group = await container.read(ageGroupProvider.future);
+    ClientReporter.active?.enabled =
+        settings.speedReportsEnabled && !group.hasChildLimits;
     await controller.applyStartupConsent(
-      enabled: settings.helpImproveApp,
+      enabled: settings.helpImproveApp && !group.hasChildLimits,
     );
   } catch (error, stack) {
+    ClientReporter.active?.enabled = false;
     debugPrint('Failed to apply persisted telemetry consent: $error\n$stack');
   }
 }

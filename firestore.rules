@@ -419,6 +419,7 @@ service cloud.firestore {
     match /wrapped_shares/{shareId} {
       allow read: if false;
       allow create: if isSignedIn()
+          && request.auth.token.get('ageGroup', null) != 'child'
           && request.auth.token.firebase.sign_in_provider != 'anonymous'
           && request.resource.data.ownerUid == request.auth.uid
           && shareId.matches('^[0-9a-f]{32}$')
@@ -438,6 +439,7 @@ service cloud.firestore {
           && (!('createdAt' in request.resource.data)
               || request.resource.data.createdAt is timestamp);
       allow update: if isSignedIn()
+          && request.auth.token.get('ageGroup', null) != 'child'
           && resource.data.ownerUid == request.auth.uid
           && request.resource.data.diff(resource.data)
               .affectedKeys().hasOnly(['revoked'])

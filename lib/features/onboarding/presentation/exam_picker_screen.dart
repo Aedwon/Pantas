@@ -13,6 +13,7 @@ import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -44,6 +45,7 @@ import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
+import 'package:pantas/features/onboarding/application/exam_picker_availability.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_skeletons.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
 
@@ -161,14 +163,22 @@ class ExamPickerScreen extends ConsumerStatefulWidget {
 
   /// Whether to offer "My exam isn't listed" and "Set Up My Own Exam".
   final bool customExams;
-  bool selectable(ExamCatalogEntry entry) =>
-      entry.isSelectable &&
-      (!cseOnly || entry.id == 'exam_cse_pro' || entry.id == 'exam_cse_sub');
   @override
   ConsumerState<ExamPickerScreen> createState() => _ExamPickerScreenState();
 }
 
 class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
+  bool _selectable(ExamCatalogEntry entry) =>
+      ref.read(examPickerPolicyProvider).availability(
+            entry,
+            cseOnly: widget.cseOnly,
+          ) ==
+      ExamPickerAvailability.selectable;
+
+  bool get _customExams =>
+      widget.customExams &&
+      ref.read(examPickerPolicyProvider).allowsCustomExams;
+
   String? _selectedId;
   String? _group;
   String _query = '';
@@ -197,13 +207,15 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
       final saved =
           await ref.read(appPreferencesRepositoryProvider).selectedExamId();
       if (saved == null) return;
+      await ref.read(ageGroupProvider.future);
+      if (!mounted) return;
       final entries = await ref.read(examPickerCatalogProvider.future);
       if (!mounted || _selectedId != null) return;
-      if (entries.any((e) => e.id == saved && widget.selectable(e))) {
+      if (entries.any((e) => e.id == saved && _selectable(e))) {
         setState(() => _selectedId = saved);
         return;
       }
-      if (!widget.customExams || !isCustomExamId(saved)) return;
+      if (!_customExams || !isCustomExamId(saved)) return;
       final mine = await ref.read(_localCustomTracksProvider.future);
       if (mounted &&
           _selectedId == null &&
@@ -274,6 +286,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   /// so the steps are Settings pages. They come back with the new exam's id,
   /// and it is saved as any pick is.
   Future<void> _custom() async {
+    if (!_customExams) return;
     if (widget.onCustom != null) {
       widget.onCustom!();
     } else if (!_settings) {
@@ -302,6 +315,15 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   Future<void> _save() async {
     final id = _selectedId;
     if (id == null || _saving) return;
+    if (isCustomExamId(id)) {
+      if (!_customExams) return;
+    } else {
+      final entries = ref.read(examPickerCatalogProvider).valueOrNull;
+      if (entries == null ||
+          !entries.any((entry) => entry.id == id && _selectable(entry))) {
+        return;
+      }
+    }
     final telemetry = ref.read(telemetryProvider);
     setState(() {
       _saving = true;
@@ -330,9 +352,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   }
 
   void _pick(ExamCatalogEntry entry, String? active) {
-    if (_saving ||
-        !widget.selectable(entry) ||
-        (_settings && active == entry.id)) {
+    if (_saving || !_selectable(entry) || (_settings && active == entry.id)) {
       return;
     }
     setState(() => _selectedId = entry.id);
@@ -492,7 +512,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   /// left out. Typing in the search narrows them as it does the listed exams.
   /// Null while the device's own list is still being read.
   List<_YourExam>? _yourExams() {
-    if (!widget.customExams) return null;
+    if (!_customExams) return null;
     final local = ref.watch(_localCustomTracksProvider);
     if (local.isLoading && !local.hasValue) return null;
     final mine = local.valueOrNull ?? const <_YourExam>[];
@@ -509,15 +529,15 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
   }
 
   List<ExamCatalogEntry> _orderedEntries(List<ExamCatalogEntry> entries) => [
-        ...entries.where(widget.selectable),
-        ...entries.where((entry) => !widget.selectable(entry)),
+        ...entries.where(_selectable),
+        ...entries.where((entry) => !_selectable(entry)),
       ];
 
   List<(String, String, String)> _orderedGroups(
     List<ExamCatalogEntry> entries,
   ) {
     bool available((String, String, String) group) => entries.any(
-          (entry) => entry.group == group.$1 && widget.selectable(entry),
+          (entry) => entry.group == group.$1 && _selectable(entry),
         );
     return [
       ..._groups.where(available),
@@ -544,7 +564,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
               title: entry.shortName,
               subtitle: _organizations[entry.id] ?? entry.name,
               selected: selected == entry.id,
-              comingSoon: !widget.selectable(entry),
+              comingSoon: !_selectable(entry),
               settingsMode: _settings,
               divider: index + 1 < entries.length,
               onTap: () => _pick(entry, active),
@@ -568,7 +588,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         key: ValueKey('exam-${entry.id}'),
         title: entry.shortName,
         subtitle: _organizations[entry.id] ?? entry.name,
-        enabled: widget.selectable(entry),
+        enabled: _selectable(entry),
         chosen: chosen,
         onTap: onTap,
       );
@@ -690,7 +710,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
         key: ValueKey('exam-${entry.id}'),
         title: entry.shortName,
         subtitle: _organizations[entry.id] ?? entry.name,
-        enabled: widget.selectable(entry),
+        enabled: _selectable(entry),
         chosen: chosen,
         onTap: () => _pick(entry, active),
       );
@@ -723,7 +743,14 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final catalog = ref.watch(examPickerCatalogProvider);
+    final policy = ref.watch(examPickerPolicyProvider);
+    final catalog = ref.watch(examPickerCatalogProvider).whenData(
+          (entries) => [
+            for (final entry in entries)
+              if (policy.availability(entry) != ExamPickerAvailability.hidden)
+                entry,
+          ],
+        );
     firstScreenReady(context, ref, ready: !catalog.isLoading);
     final active = _settings
         ? ref.watch(activeExamFocusProvider).valueOrNull?.exam?.id
@@ -756,8 +783,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
               ),
         children: [
           catalog.when(
-            loading: () =>
-                ExamPickerWebSkeleton(customCard: widget.customExams),
+            loading: () => ExamPickerWebSkeleton(customCard: _customExams),
             error: (error, stack) => Padding(
               padding: const EdgeInsets.symmetric(vertical: PantasSpace.s56),
               child: Column(
@@ -793,12 +819,12 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                       ),
                       const SizedBox(height: PantasSpace.s6),
                       Text(
-                        widget.customExams
+                        _customExams
                             ? 'Check back soon, or set up your own exam.'
                             : 'Check back soon.',
                         style: t.sub,
                       ),
-                      if (widget.customExams) ...[
+                      if (_customExams) ...[
                         const SizedBox(height: PantasSpace.s20),
                         WebButton(
                           label: 'Set Up My Own Exam',
@@ -988,7 +1014,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                                 )
                                 .toList();
                             if (all.isEmpty) {
-                              return widget.customExams
+                              return _customExams
                                   ? StateView(
                                       message: 'No exams available right now.',
                                       detail: 'Check back soon, or set up '
@@ -1045,8 +1071,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                                                 entry,
                                                 chosen: selected == entry.id,
                                                 onTap: _saving ||
-                                                        !widget
-                                                            .selectable(entry)
+                                                        !_selectable(entry)
                                                     ? null
                                                     : () =>
                                                         _pick(entry, active),
@@ -1149,7 +1174,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
           }
           final all = _orderedEntries(catalogEntries);
           if (all.isEmpty) {
-            return widget.customExams
+            return _customExams
                 ? StateView(
                     message: 'No exams available right now.',
                     detail: 'Check back soon, or set up your own exam.',

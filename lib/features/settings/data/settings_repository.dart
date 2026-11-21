@@ -1,5 +1,6 @@
 import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/settings/domain/session_ordering.dart';
@@ -155,6 +156,10 @@ class DriftSettingsRepository {
   }
 
   Future<void> updateHelpImproveApp({required bool enabled}) async {
+    if (enabled &&
+        (await AppPreferencesRepository(_db).readAgeGroup()).hasChildLimits) {
+      return;
+    }
     if (!enabled) {
       _analytics.closeTelemetryGate();
 
@@ -206,6 +211,10 @@ class DriftSettingsRepository {
   }
 
   Future<void> updateSpeedReportsEnabled({required bool enabled}) async {
+    if (enabled &&
+        (await AppPreferencesRepository(_db).readAgeGroup()).hasChildLimits) {
+      return;
+    }
     await _writeAccountPrefs({
       SettingsPrefKeys.speedReportsEnabled: enabled ? 'true' : 'false',
       SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),

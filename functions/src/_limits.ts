@@ -1,5 +1,12 @@
 import { getFirestore, Timestamp } from 'firebase-admin/firestore';
 
+// Leave headroom for the hourly purge and retries. Current callers use at most a day.
+export const RATE_LIMIT_MAX_AGE_MS = 29 * 86_400_000;
+
+function windowEnd(start: Timestamp, windowMs: number): Timestamp {
+  return Timestamp.fromMillis(start.toMillis() + Math.min(windowMs, RATE_LIMIT_MAX_AGE_MS));
+}
+
 export async function allowAtMost(
   uid: string,
   key: string,
@@ -15,11 +22,13 @@ export async function allowAtMost(
     const startedAt: unknown = snapshot.get('windowStartedAt');
     const oldCount: unknown = snapshot.get('count');
     const withinWindow = startedAt instanceof Timestamp
-      && now.toMillis() - startedAt.toMillis() < windowMs;
+      && now.toMillis() < windowEnd(startedAt, windowMs).toMillis();
+    const start = withinWindow ? startedAt : now;
     const count = withinWindow && typeof oldCount === 'number' ? oldCount : 0;
     if (count + cost > max) return false;
     transaction.set(ref, {
-      windowStartedAt: withinWindow ? startedAt : now,
+      windowStartedAt: start,
+      purgeAt: windowEnd(start, windowMs),
       count: count + cost,
     });
     return true;
@@ -48,12 +57,14 @@ export async function takeAtMost(
     const startedAt: unknown = snapshot.get('windowStartedAt');
     const oldCount: unknown = snapshot.get('count');
     const withinWindow = startedAt instanceof Timestamp
-      && now.toMillis() - startedAt.toMillis() < windowMs;
+      && now.toMillis() < windowEnd(startedAt, windowMs).toMillis();
+    const start = withinWindow ? startedAt : now;
     const count = withinWindow && typeof oldCount === 'number' ? oldCount : 0;
     const granted = Math.max(0, Math.min(wanted, max - count));
     if (granted > 0) {
       transaction.set(ref, {
-        windowStartedAt: withinWindow ? startedAt : now,
+        windowStartedAt: start,
+        purgeAt: windowEnd(start, windowMs),
         count: count + granted,
       });
     }

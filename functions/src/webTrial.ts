@@ -3,7 +3,7 @@ import {appSecrets, secret} from './_secrets.js';
 import {FieldValue, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {onAccountCall as onCall} from './_accountAccess.js';
+import {onStudyAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {canonicalEmail} from './_email.js';
@@ -12,6 +12,7 @@ import {claimsFromInputs, entitlementWrite, readEntitlementInputs, type Entitlem
 import {DAY_MS, TRIAL_DAYS, TRIAL_PRODUCT, type Grant} from './grants.js';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import {timed} from './_timed.js';
+import {holderForChild} from './childLinks.js';
 
 /** Only Firebase-verified token identities are used, never caller data. */
 export function identityMarkers(auth: Parameters<typeof assertNamedUser>[0], db: Firestore) {
@@ -58,7 +59,10 @@ const markerRefs = (db: Firestore, key: string, values: string[]) =>
  * nothing when the record holds no verified identity (the callable refuses that case instead).
  */
 export function identityMarkersForUser(user: Pick<UserRecord, 'email' | 'emailVerified' | 'providerData'>, db: Firestore) {
-  const key = secret('TRIAL_IDENTITY_HMAC_KEY');
+  return markerRefs(db, secret('TRIAL_IDENTITY_HMAC_KEY'), userIdentityValues(user));
+}
+
+function userIdentityValues(user: Pick<UserRecord, 'email' | 'emailVerified' | 'providerData'>): string[] {
   const values: string[] = [];
   if (user.emailVerified && typeof user.email === 'string') {
     values.push(...[user.email.toLowerCase(), canonicalEmail(user.email)].map(email => JSON.stringify(['email', email])));
@@ -68,7 +72,42 @@ export function identityMarkersForUser(user: Pick<UserRecord, 'email' | 'emailVe
     if (info.providerId === 'password' || !info.uid) continue;
     values.push(JSON.stringify(['provider', info.providerId, info.uid]));
   }
-  return markerRefs(db, key, values);
+  return values;
+}
+
+type UserLookup = Pick<Auth, 'getUser'>;
+
+/** A child signs in by custom token with no email: the holder's markers stand in for it. */
+export const isEmaillessCustom = (auth: Parameters<typeof assertNamedUser>[0]): boolean =>
+  auth?.token.firebase?.sign_in_provider === 'custom' &&
+  !(auth.token.email_verified === true && typeof auth.token.email === 'string');
+
+/**
+ * The trial markers of a linked child: one trial per parent email. They are the holder's own markers
+ * (verified email, both forms, and linked providers) plus one for the holder's uid, so the second
+ * child of a holder is not eligible once the holder or any child has used the trial. Null when the
+ * user is not a linked child.
+ */
+export async function childTrialMarkers(db: Firestore, adminAuth: UserLookup, childUid: string) {
+  const holderUid = await holderForChild(db, childUid);
+  if (!holderUid) return null;
+  const values = [JSON.stringify(['holder', holderUid])];
+  try {
+    values.push(...userIdentityValues(await adminAuth.getUser(holderUid)));
+  } catch (error) {
+    // A holder already gone still leaves its uid marker.
+    if ((error as {code?: string} | null)?.code !== 'auth/user-not-found') throw error;
+  }
+  return markerRefs(db, secret('TRIAL_IDENTITY_HMAC_KEY'), values);
+}
+
+/** `identityMarkers` for a request, resolving a linked child through its holder. */
+export async function identityMarkersFor(auth: Parameters<typeof assertNamedUser>[0], db: Firestore, adminAuth: UserLookup) {
+  if (auth && isEmaillessCustom(auth)) {
+    const markers = await childTrialMarkers(db, adminAuth, auth.uid);
+    if (markers) return markers;
+  }
+  return identityMarkers(auth, db);
 }
 
 export type TrialDeps = {db: Firestore; auth: Pick<Auth, 'getUser' | 'setCustomUserClaims'>;
@@ -86,9 +125,9 @@ function neverHadPro(inputs: EntitlementInputs): boolean {
 }
 
 /** Read-only eligibility. The creation transaction checks again before granting. */
-export async function trialEligible(auth: Parameters<typeof assertNamedUser>[0], db: Firestore): Promise<boolean> {
+export async function trialEligible(auth: Parameters<typeof assertNamedUser>[0], db: Firestore, adminAuth?: UserLookup): Promise<boolean> {
   if (!auth || auth.token.firebase?.sign_in_provider === 'anonymous') return false;
-  const identities = identityMarkers(auth, db);
+  const identities = await identityMarkersFor(auth, db, adminAuth ?? getAuth());
   return db.runTransaction(async transaction => {
     const used = await transaction.getAll(...identities);
     const marker = await transaction.get(db.doc(`users/${auth.uid}/server/trial`));
@@ -109,7 +148,7 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
   if (!await (deps.allow ?? (id => allowAtMost(id, 'webTrial', 5, 60 * 60_000)))(uid)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
-  const identities = identityMarkers(auth, deps.db);
+  const identities = await identityMarkersFor(auth, deps.db, deps.auth);
   const trial = deps.db.doc(`users/${uid}/server/trial`);
   const result = await deps.db.runTransaction(async transaction => {
     const used = await transaction.getAll(...identities);

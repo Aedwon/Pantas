@@ -25,9 +25,17 @@ export async function assertSignInTargetActive(db: Firestore, targetUid: string,
 }
 
 /** Shared dispatch boundary. Internal Admin cleanup deliberately does not use it. */
-export function accountHandler<T = any, R = unknown>(handler: (request: CallableRequest<T>) => R | Promise<R>) {
+export function accountHandler<T = any, R = unknown>(handler: (request: CallableRequest<T>) => R | Promise<R>, study = false) {
   return async (request: CallableRequest<T>): Promise<R> => {
-    if (request.auth) await assertAccountActive(getFirestore(), request.auth.uid);
+    if (request.auth) {
+      const db = getFirestore();
+      const {uid} = request.auth;
+      await assertAccountActive(db, uid);
+      if (study && (await db.doc(`users/${uid}/server/holder`).get()).exists) {
+        throw new HttpsError('permission-denied', 'Open your child’s account to study.',
+          {reason: 'holder-cannot-study'});
+      }
+    }
     return handler(request);
   };
 }
@@ -36,4 +44,10 @@ export function accountHandler<T = any, R = unknown>(handler: (request: Callable
 export function onAccountCall<T = any, R = unknown>(options: CallableOptions<T>,
   handler: (request: CallableRequest<T>) => R | Promise<R>) {
   return firebaseOnCall(options, accountHandler(handler));
+}
+
+/** Study endpoints share the account gate and refuse holder sign-ins. */
+export function onStudyAccountCall<T = any, R = unknown>(options: CallableOptions<T>,
+  handler: (request: CallableRequest<T>) => R | Promise<R>) {
+  return firebaseOnCall(options, accountHandler(handler, true));
 }

@@ -2,7 +2,7 @@ import {enforceAppCheck} from './_appCheck.js';
 import {setCoveredByTags} from './_setCoverage.js';
 import {getFirestore, type DocumentSnapshot, type Firestore} from 'firebase-admin/firestore';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {onAccountCall as onCall} from './_accountAccess.js';
+import {onStudyAccountCall as onCall} from './_accountAccess.js';
 import {getAuth} from 'firebase-admin/auth';
 import {contentPool, sharedCeiling, type Ceiling} from './_contentCeiling.js';
 import {allowAtMost, takeAtMost} from './_limits.js';

@@ -7,6 +7,7 @@ import {guardianLinkOrigin, guardianMailFrom} from './guardianConsent.js';
 import {appSecrets, secret} from './_secrets.js';
 import {inactivityWarningMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
 import {hasLiveProClaim} from './_pro.js';
+import {childEntryPath, holderForChild} from './childLinks.js';
 
 const DAY_MS = 86_400_000;
 
@@ -199,9 +200,28 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
     const last = lastActivity(user);
     if (last === null || now - last < WARN_DAYS * DAY_MS) return;
     if (await proRunning(deps.db, user, now)) return;
+    // The children set the holder's lifetime, regardless of the holder's last sign-in.
+    if ((await deps.db.doc(`users/${user.uid}/server/holder`).get()).exists) return;
     const idleLongEnough = now - last >= INACTIVE_DAYS * DAY_MS;
 
-    if (!user.email || !user.emailVerified) {
+    // The address the warning goes to: the account's own verified one or, for a linked child, its holder's.
+    let warnTo = user.email && user.emailVerified ? user.email : null;
+    let childNickname: string | undefined;
+    const holderUid = warnTo === null || user.customClaims?.ageGroup === 'child'
+      ? await holderForChild(deps.db, user.uid) : null;
+    if (user.customClaims?.ageGroup === 'child' && holderUid === null) return;
+    if (holderUid !== null) {
+      const holder = await deps.auth.getUser(holderUid).catch((error: unknown) => {
+        if (isMissing(error)) return null;
+        throw error;
+      });
+      if (!holder?.email || !holder.emailVerified) return;
+      warnTo = holder.email;
+      const entry = await deps.db.doc(childEntryPath(holderUid, user.uid)).get();
+      const nickname: unknown = entry.get('nickname');
+      childNickname = typeof nickname === 'string' ? nickname : '';
+    }
+    if (warnTo === null) {
       // No address to warn: a guest, or an address Google never verified (a Google sign-in can
       // leave one). Mailing an unverified address could reach someone else, so these accounts
       // end at 24 months without a warning, as the privacy texts say.
@@ -219,8 +239,8 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
     }
     if (result.warned >= warningCap) return;
     try {
-      await deps.mailer.send(inactivityWarningMessage({email: user.email,
-        deleteOn: now + WARNING_GRACE_DAYS * DAY_MS, origin: deps.linkOrigin}));
+      await deps.mailer.send(inactivityWarningMessage({email: warnTo,
+        deleteOn: now + WARNING_GRACE_DAYS * DAY_MS, origin: deps.linkOrigin, childNickname}));
     } catch (error) {
       // Record nothing, so the next run tries again. Not-configured mail lands here too.
       logger.error('Inactivity warning not sent', {uid: user.uid, error: String(error)});

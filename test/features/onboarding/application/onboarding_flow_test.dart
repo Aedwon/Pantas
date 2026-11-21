@@ -1,5 +1,9 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/onboarding/application/onboarding_flow.dart';
+
+import '../../../helpers/in_memory_database.dart';
 
 void main() {
   test('resume stops at the first unanswered storage preference', () {
@@ -93,10 +97,14 @@ void main() {
     );
   });
 
-  test('a blocked student resumes at the age step, which shows the block', () {
+  test('a stored age block requires guardian setup even after another age', () {
     expect(
-      OnboardingProgress(ageBlocked: true).resumeStep,
+      OnboardingProgress(needsGuardianSetup: true, agePassed: true).resumeStep,
       OnboardingStep.age,
+    );
+    expect(
+      OnboardingProgress(needsGuardianSetup: true, agePassed: true).complete,
+      isFalse,
     );
   });
 
@@ -172,5 +180,29 @@ void main() {
       OnboardingFlow(OnboardingStep.reminders).back(),
       OnboardingStep.name,
     );
+  });
+
+  group('the age group on the device decides the teen guardian step', () {
+    Future<bool> awaiting(String group) async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await AppPreferencesRepository(db).setAgeGroup(group);
+      final container = ProviderContainer(
+        overrides: [appDatabaseProvider.overrideWithValue(db)],
+      );
+      addTearDown(container.dispose);
+      return (await container.read(onboardingProgressProvider.future))
+          .minorAwaitingGuardian;
+    }
+
+    test('a minor and an unrecognized group wait for a guardian', () async {
+      expect(await awaiting('minor'), isTrue);
+      expect(await awaiting('teen'), isTrue);
+    });
+
+    test('a child and an adult do not take the teen guardian step', () async {
+      expect(await awaiting('child'), isFalse);
+      expect(await awaiting('adult'), isFalse);
+    });
   });
 }

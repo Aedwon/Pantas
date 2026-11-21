@@ -32,6 +32,14 @@ void main() {
       reason: 'the start is not also the wait',
     );
   });
+  test('web reports start off until the restored age is known', () {
+    final reporter = at('ClientReporter.startForWeb()?.enabled = false;');
+    final auth = at('await bootstrapAuthSession(container, firebaseResult)');
+    final consent = at('await applyPersistedTelemetryConsent(container)');
+    expect(reporter, lessThan(auth));
+    expect(auth, lessThan(consent));
+  });
+
   test('the beta check starts right after the account session', () {
     final auth = at('await bootstrapAuthSession(container, firebaseResult)');
     final check = at('startBetaAccessCheck(container)');
