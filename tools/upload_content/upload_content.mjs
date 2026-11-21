@@ -72,7 +72,7 @@ if (lessonChecks.status !== 0) {
   process.exit(1);
 }
 
-const {blueprintItem, catalogItems, gapItem, lessonItem, lessonQuizSize, questionSetItems, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
+const {blueprintItem, catalogItems, gapItem, lessonItem, lessonQuizSize, questionSetItems, variantItems, withProblemTypes, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
 const items = [];
 const pros = [];
 const invalid = [];
@@ -87,9 +87,18 @@ for (const file of existsSync(sourcesRoot) ? walk(sourcesRoot, '.yaml') : []) {
   }
 }
 
-const suppliedExport = option('--export', undefined);
-const exportedLessons = new Map((suppliedExport
-  ? JSON.parse(readFileSync(suppliedExport, 'utf8')).lesson ?? [] : []).map(l => [l._id, l]));
+const exported = loadExport();
+const exportedLessons = new Map((exported?.lesson ?? []).map(l => [l._id, l]));
+const mergedActivity = exported?.mergedQuestionActivity ?? {};
+const typesByLesson = new Map();
+for (const {question, free, pro: notes} of exported?.problemTypes ?? []) {
+  const {item, pro} = variantItems(free, notes);
+  items.push(item);
+  pros.push(pro);
+  const types = typesByLesson.get(question.lesson) ?? [];
+  types.push(question);
+  typesByLesson.set(question.lesson, types);
+}
 const lessonKeys = new Set();
 for (const file of walk(join(root, 'lessons'), '.md')) {
   lessonKeys.add(relative(join(root, 'lessons'), file).split('\\').join('/').replace(/\.md$/, ''));
@@ -114,11 +123,25 @@ for (const file of walk(questionsRoot, '.yaml')) {
   try {
     const doc = parse(readFileSync(file, 'utf8'));
     if (!doc?.meta || !Array.isArray(doc.questions)) throw new Error('needs meta and questions');
-    const {item, pro} = questionSetItems(doc, relative(questionsRoot, file));
+    const source = withProblemTypes(doc, [], mergedActivity);
+    const {item, pro} = questionSetItems(source, relative(questionsRoot, file));
     items.push(item);
-    setSources.push({source: doc, relativePath: relative(questionsRoot, file)});
+    setSources.push({source, relativePath: relative(questionsRoot, file)});
     if (pro) pros.push(pro);
   } catch (error) { invalid.push(`${relative(root, file)}: ${error.message.split('\n')[0]}`); }
+}
+
+for (const [lesson, types] of typesByLesson) {
+  const topic = types[0].topic.replace(/^topic_upcat_/, '').replaceAll('_', '-');
+  const subtopic = lesson.replace(`lesson-${topic}-`, '');
+  const source = {
+    meta: {topic, subtopic, lesson, exams: [...new Set(types.flatMap(type => type.exams))]},
+    questions: [],
+    problemTypes: types,
+  };
+  const relativePath = `types/${lesson}.yaml`;
+  items.push(questionSetItems(source, relativePath).item);
+  setSources.push({source, relativePath});
 }
 
 const mockRoot = join(root, 'mock');
@@ -127,10 +150,10 @@ for (const file of existsSync(mockRoot) ? walk(mockRoot, '.yaml') : []) {
   catch (error) { invalid.push(`${relative(root, file)}: ${error.message.split('\n')[0]}`); }
 }
 
-function loadStructure() {
+function loadExport() {
   let file = option('--export', undefined);
   // A plain dry run only reads the sources; building the export needs dart and takes a while.
-  if (!file && dryRun && !outDir) { console.log('catalog: skipped (pass --export FILE to include it in a dry run)'); return null; }
+  if (!file && dryRun && !outDir && !existsSync(join(root, 'types'))) { console.log('catalog: skipped (pass --export FILE to include it in a dry run)'); return null; }
   if (!file) {
     file = join(mkdtempSync(join(tmpdir(), 'content-export-')), 'export.json');
     const built = spawnSync('dart', ['run', join(here, '../build_content_export/build_content_export.dart'), file, resolve(root, '..')], {encoding: 'utf8'});
@@ -139,15 +162,12 @@ function loadStructure() {
       process.exit(1);
     }
   }
-  const exported = JSON.parse(readFileSync(file, 'utf8'));
-  return {exam: exported.exam, subject: exported.subject, topic: exported.topic,
-    mockBlueprint: exported.mockBlueprint, diagnosticSet: exported.diagnosticSet,
-    lessonLink: exported.lessonLink ?? [], gapTag: exported.gapTag ?? []};
+  return JSON.parse(readFileSync(file, 'utf8'));
 }
-const structure = invalid.length > 0 && !skipInvalid ? null : loadStructure();
+const structure = invalid.length > 0 && !skipInvalid ? null : exported;
 const catalog = structure ? catalogItems({structure, links: structure.lessonLink, lessons: lessonFronts, sets: setSources}) : [];
 items.push(...catalog);
-if (structure) items.push(gapItem(structure.gapTag));
+if (structure) items.push(gapItem(structure.gapTag ?? []));
 
 const ids = new Set();
 for (const item of items) {
@@ -162,6 +182,7 @@ if (invalid.length > 0) {
 
 console.log(`lessons: ${items.filter(i => i.kind === 'lessons').length}`);
 console.log(`question sets: ${items.filter(i => i.kind === 'questions').length}`);
+console.log(`variant documents: ${items.filter(i => i.kind === 'variants').length}`);
 console.log(`mock blueprints: ${items.filter(i => i.kind === 'mocks').length}`);
 console.log(`catalog documents: ${catalog.length}`);
 console.log(`gap documents: ${items.filter(i => i.kind === 'gaps').length}`);
@@ -169,7 +190,7 @@ console.log(`pro documents: ${pros.length}`);
 
 if (outDir) {
   // Each file holds the `data` getContent serves for that id to a Free account.
-  for (const item of items.filter(i => i.kind === 'catalog' || i.kind === 'questions' || i.kind === 'lessons')) {
+  for (const item of items.filter(i => i.kind === 'catalog' || i.kind === 'questions' || i.kind === 'variants' || i.kind === 'lessons')) {
     const dir = join(resolve(outDir), item.kind);
     mkdirSync(dir, {recursive: true});
     const {kind: _kind, version: _version, payload, count: _count, ...fields} = item.data;

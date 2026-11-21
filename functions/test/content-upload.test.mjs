@@ -391,3 +391,30 @@ test('catalog keeps retired aliases and per-question lesson and key point withou
   assert.equal(exam.lessons.some(l => l.id === 'lesson-algebra-off'), false);
   assert.deepEqual(exam.sets[0].questions, [{id: 'q', lesson: 'lesson-biology-cells', keyPoint: 2}]);
 });
+
+test('variant upload separates notes and includes them in the digest', () => {
+  assert.equal(typeof upload.variantItems, 'function');
+  const free = {id: 'qt-a', exams: ['cse-pro'], variants: [{variantIndex: 0,
+    choices: [{text: 'A', correct: true}, {text: 'B', correct: false}]}]};
+  const first = upload.variantItems(free, {rationales: {0: [null, 'first note']}});
+  const second = upload.variantItems(free, {rationales: {0: [null, 'second note']}});
+  assert.equal(first.item.kind, 'variants');
+  assert.deepEqual(JSON.parse(first.item.data.payload), free);
+  assert.equal(first.pro.data.version, first.item.data.version);
+  assert.notEqual(first.item.data.version, second.item.data.version);
+  assert.throws(() => upload.variantItems({...free, variants: ['é'.repeat(100000)]}, {}), /200,?000/);
+});
+
+test('web sets keep problem type rows behind a separate key and apply alias activity', () => {
+  assert.equal(typeof upload.withProblemTypes, 'function');
+  for (const enabled of [true, false]) {
+    const type = {id: 'qt-example', topic: 'topic_upcat_biology', lesson: 'lesson-biology-botany',
+      exams: ['cse-pro'], isActive: enabled, variantCount: 20};
+    const source = upload.withProblemTypes(set, [type], {q1: !enabled});
+    const {item} = questionSetItems(source, 'botany.yaml');
+    const served = JSON.parse(item.data.payload);
+    assert.deepEqual(served.problemTypes, [type]);
+    assert.deepEqual(served.questions.map(q => q.id), ['q1', 'q2']);
+    assert.equal(served.questions[0].isActive, !enabled);
+  }
+});

@@ -1,7 +1,7 @@
 import {createHash} from 'node:crypto';
 import type {Firestore} from 'firebase-admin/firestore';
 
-export type ContentKind = 'lessons' | 'questions' | 'mocks' | 'catalog' | 'gaps';
+export type ContentKind = 'lessons' | 'questions' | 'variants' | 'mocks' | 'catalog' | 'gaps';
 export type ContentItem = {kind: ContentKind; id: string; data: Record<string, unknown> & {version: string}};
 export type ProItem = {id: string; data: Record<string, unknown> & {version: string}};
 export type PlanCounts = {create: number; update: number; unchanged: number};
@@ -67,8 +67,30 @@ export function blueprintItem(doc: Record<string, unknown>): ContentItem {
   return {kind: 'mocks', id: examId, data: {kind: 'mocks', id: examId, ...fields, version: digest(fields)}};
 }
 
+export function variantItems(free: {id: string}, notes: Record<string, unknown>):
+  {item: ContentItem; pro: ProItem} {
+  const {id} = free;
+  const payload = JSON.stringify(free);
+  const proPayload = JSON.stringify(notes);
+  const version = digest({payload, proPayload});
+  const data = {kind: 'variants', id, version, payload};
+  if (Buffer.byteLength(JSON.stringify(data)) >= 200_000) {
+    throw new Error(`${id}: Free variant document must be under 200,000 bytes`);
+  }
+  return {item: {kind: 'variants', id, data}, pro: {id, data: {id, version, payload: proPayload}}};
+}
+
 export type QuestionSource = {meta: Record<string, unknown>; questions: Record<string, unknown>[];
-  passages?: {id: string; title?: string; body?: string}[]};
+  passages?: {id: string; title?: string; body?: string}[];
+  problemTypes?: Record<string, unknown>[]};
+
+export function withProblemTypes(source: QuestionSource, problemTypes: Record<string, unknown>[],
+  mergedActivity: Record<string, boolean>): QuestionSource {
+  return {...source, problemTypes, questions: source.questions.map(question => {
+    const id = String(question.id);
+    return Object.hasOwn(mergedActivity, id) ? {...question, isActive: mergedActivity[id]} : question;
+  })};
+}
 
 /**
  * One question set. Wrong-choice notes (`rationale` on a choice) move to the Pro document as
@@ -101,7 +123,9 @@ export function questionSetItems(source: QuestionSource, relativePath: string): 
     return {id: passageId, topic: `topic_upcat_${topic}`, title: String(found.title ?? ''), body: found.body,
       language: 'en', wordCount: found.body.trim().split(/\s+/).length};
   });
-  const payload = JSON.stringify({meta: source.meta, questions, ...(served.length > 0 ? {passages: served} : {})});
+  const payload = JSON.stringify({meta: source.meta, questions,
+    ...(source.problemTypes?.length ? {problemTypes: source.problemTypes} : {}),
+    ...(served.length > 0 ? {passages: served} : {})});
   const proPayload = Object.keys(notes).length > 0 ? JSON.stringify(notes) : undefined;
   const version = digest({payload, proPayload});
   const item: ContentItem = {kind: 'questions', id, data: {kind: 'questions', id, version, count: questions.length, payload}};
@@ -173,7 +197,8 @@ export function catalogItems(input: CatalogInput, options: {splitAbove?: number;
     const subtopic = String(meta.subtopic);
     return {
       id: `qs-${relativePath.replace(/\.ya?ml$/, '').split('/').join('__')}`,
-      topic: `topic_upcat_${underscore(topic)}`, subtopic: `subtopic_${subtopic}`, lesson: `lesson-${topic}-${subtopic}`,
+      topic: `topic_upcat_${underscore(topic)}`, subtopic: `subtopic_${subtopic}`, lesson: String(source.meta.lesson ?? `lesson-${topic}-${subtopic}`),
+      ...(source.problemTypes?.length ? {problemTypes: source.problemTypes} : {}),
       exams: (Array.isArray(meta.exams) ? meta.exams : []).map(code => `exam_${underscore(String(code))}`), language: 'en',
       questions: source.questions
         // Same rule as the bundled build: a figure that is not drawn yet is held back.
@@ -181,7 +206,8 @@ export function catalogItems(input: CatalogInput, options: {splitAbove?: number;
         .map(q => ({id: String(q.id), ...(typeof q.passage === 'string' ? {passage: q.passage} : {}),
           ...(q.figureSpec != null ? {figure: true} : {}),
           ...(typeof q.lesson === 'string' ? {lesson: q.lesson} : {}),
-          ...(q.keyPoint != null ? {keyPoint: q.keyPoint} : {})})),
+          ...(q.keyPoint != null ? {keyPoint: q.keyPoint} : {}),
+          ...(typeof q.isActive === 'boolean' ? {isActive: q.isActive} : {})})),
     };
   });
 
@@ -248,12 +274,13 @@ export function planWrites(items: ContentItem[], existing: Map<string, string>):
 export async function writeContent(db: Firestore, items: ContentItem[], pros: ProItem[],
   options: {dryRun?: boolean}): Promise<{counts: PlanCounts; proWritten: number}> {
   const existing = new Map<string, string>();
-  for (const kind of ['lessons', 'questions', 'mocks', 'catalog', 'gaps'] as const) {
+  for (const kind of ['lessons', 'questions', 'variants', 'mocks', 'catalog', 'gaps'] as const) {
     const snapshot = await db.collection(`content/${kind}/items`).select('version').get();
     for (const doc of snapshot.docs) existing.set(`${kind}/${doc.id}`, String(doc.get('version')));
   }
   const {counts, changed} = planWrites(items, existing);
-  const changedQuestionIds = new Set(changed.filter((item) => item.kind === 'questions').map((item) => item.id));
+  const changedQuestionIds = new Set(changed
+    .filter(({kind}) => kind === 'questions' || kind === 'variants').map(({id}) => id));
   const proChanged = pros.filter((pro) => changedQuestionIds.has(pro.id));
   if (!options.dryRun) {
     // Pro first: a client never sees a free version whose notes are not yet stored.

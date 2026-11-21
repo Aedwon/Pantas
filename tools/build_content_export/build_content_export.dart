@@ -9,6 +9,7 @@ import '../../tool/content/content_gate.dart';
 import '../../tool/content/lesson_checks.dart';
 import '../content/lesson_asset_map.dart';
 import '../content/markdown_portable_text.dart';
+import 'problem_types.dart';
 
 // Copying some constants and logic from build_dev_seed.dart
 const _examId = 'exam_upcat';
@@ -384,6 +385,11 @@ void _export(List<String> arguments) {
       question['lesson'] = {'_ref': resolver.resolve(ref['_ref']! as String)};
     }
   }
+  final problemTypes = exportProblemTypes(root, topicIdBySlug);
+  for (final question in questions) {
+    final isActive = problemTypes.mergedActivity[question['_id']];
+    if (isActive != null) question['isActive'] = isActive;
+  }
   final lessonLinks = buildLessonLinks(root, lessons);
   final gapTags = buildGapTags(
     root,
@@ -408,6 +414,8 @@ void _export(List<String> arguments) {
     'topic': topics,
     'passage': passagesOutput,
     'question': questions,
+    'problemTypes': problemTypes.records,
+    'mergedQuestionActivity': problemTypes.mergedActivity,
     'lesson': lessons,
     'mockBlueprint': mockBlueprints,
     'lessonLink': lessonLinks,
