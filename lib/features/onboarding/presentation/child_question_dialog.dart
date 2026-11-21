@@ -32,7 +32,6 @@ Future<void> showUseAnotherEmailDialog(BuildContext context) =>
         message: 'This account already has study records. To set up a child '
             'under 13, sign out, then sign in with another email.',
         primaryLabel: 'Got It',
-        secondaryLabel: null,
         onConfirm: () => Navigator.of(dialogContext).pop(),
         onCancel: () => Navigator.of(dialogContext).pop(),
       ),

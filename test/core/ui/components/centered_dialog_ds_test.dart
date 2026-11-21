@@ -188,7 +188,6 @@ void main() {
               title: 'Use another email',
               message: 'Body.',
               primaryLabel: 'Got It',
-              secondaryLabel: null,
               onConfirm: () => confirmed++,
               onCancel: () => cancelled++,
             ),
