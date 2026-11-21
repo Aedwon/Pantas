@@ -1,0 +1,78 @@
+meta:
+  subject: reasoning
+  topic: mechanical-technical-reasoning
+  subtopic: pulleys-and-levers-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-mechanical-technical-reasoning-pulleys-and-levers-pshs-0001
+    lesson: lesson-mechanical-technical-reasoning-classes-of-levers
+    keyPoint: 1
+    type: pulley-lever
+    difficulty: medium
+    stem: |
+      A hinged lid lifts a small bag by a strap. The strap is attached halfway from the hinge to the lid's free edge. A student lifts the lid at the free edge. Ignore the lid's own weight. Which statement correctly describes the lid as a lever?
+    choices:
+      - text: First class, with the hinge between the two forces.
+        rationale: |
+          The hinge is the fulcrum, as it is on a pair of scissors. That can make first class look right. Check whether the strap and the hand are on opposite sides of the hinge.
+      - text: Second class, with the load in the middle.
+        correct: true
+      - text: Third class, with the strap applying the effort.
+        rationale: |
+          The strap pulls at the middle, so it may look like the effort. Check which force the student applies to lift the bag.
+      - text: First class, with the strap acting as the fulcrum.
+        rationale: |
+          The strap is in the middle, where the fulcrum would be in a first-class lever. Check whether the lid turns about the strap or the hinge.
+      - text: The class depends on how much the bag weighs.
+        rationale: |
+          A heavier bag does take more effort to lift, so its weight may seem important. Check whether a heavier bag would change the order of the three points.
+    explanation: |
+      The lid turns about the hinge. The bag pulls on the lid at the strap, and the student lifts at the free edge. The load is between the fulcrum and the effort, so the lid is a second-class lever.
+  - id: q-mechanical-technical-reasoning-pulleys-and-levers-pshs-0002
+    lesson: lesson-mechanical-technical-reasoning-classes-of-levers
+    keyPoint: 1
+    type: pulley-lever
+    difficulty: hard
+    stem: |
+      A student builds a lever with a bar, a movable pivot, a handle, and a hook that holds the load. The handle is to the left of the hook, and the pivot is between them. The bar extends beyond both the handle and the hook. Where should the student move only the pivot to make a third-class lever?
+    choices:
+      - text: To the right of the hook, beyond both attachments.
+        rationale: |
+          An outside pivot does put both forces on the same side. With the pivot on the right, the hook is between it and the handle. Check which class has the load in the middle.
+      - text: Between the handle and the hook but closer to the handle.
+        rationale: |
+          This gives the handle a shorter arm, which a third-class lever has. Check which part is still in the middle.
+      - text: To the left of the handle.
+        correct: true
+      - text: Directly under the point where the handle is attached.
+        rationale: |
+          Putting the pivot at the handle may seem close enough to putting the effort in the middle. Check whether the handle is between two separate points in this setup.
+      - text: Between the handle and the hook but closer to the hook.
+        rationale: |
+          Moving the pivot toward the hook gives the load a shorter arm. That can seem helpful when lifting, but check whether the pivot is still between the handle and the hook.
+    explanation: |
+      From left to right, the new order is pivot, handle, then hook. The handle is where the student applies the effort. With the effort in the middle, the lever is third class.
+  - id: q-mechanical-technical-reasoning-pulleys-and-levers-pshs-0003
+    lesson: lesson-mechanical-technical-reasoning-classes-of-levers
+    keyPoint: 1
+    type: pulley-lever
+    difficulty: exam
+    stem: |
+      Two levers each have an effort arm shorter than the load arm. On Lever X, the effort and the load act on opposite sides of the fulcrum. On Lever Y, they act on the same side. What are the classes of Lever X and Lever Y, respectively?
+    choices:
+      - text: First class and first class
+        rationale: |
+          The effort arm is shorter on both levers, so they may seem to have the same class. Check whether the fulcrum is between the forces on Lever Y.
+      - text: Third class and third class
+        rationale: |
+          A third-class lever has a shorter effort arm, so this fits the arm lengths. Check whether the effort can be in the middle when the forces act on opposite sides of the fulcrum.
+      - text: Third class and first class
+        rationale: |
+          Both classes fit one of the levers, so this pair can look right if you switch their order. Check which lever has the fulcrum between the forces.
+      - text: First class and second class
+        rationale: |
+          The forces on Lever Y act on the same side, as they do in a second-class lever. Check which force is closer to the fulcrum.
+      - text: First class and third class
+        correct: true
+    explanation: |
+      On Lever X, the fulcrum is between the forces. That makes it first class. On Lever Y, both forces are on the same side. The effort is closer to the fulcrum than the load is, so the effort is in the middle. That makes it third class.
