@@ -118,6 +118,16 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Manager overloaded the Mac and ignored his report of it (Nov 21)
+
+- His words: "t3 code is using 13 GB of my ram, that's not normal", then "??? what the hell were you doing? my mac reached 14 GB in RAM usage with t3 code only", "i stopped a lot of processes. you didn't even respond to me", "hello? can I even trust you as my operations manager at all?"
+- Wrong: the new manager launched four leads at once and told each to run Codex jobs in parallel wherever accounts had room ("burn it" was about quota, not the machine). Each Codex job and Claude worker built and tested Flutter in its own worktree, so a dozen heavy processes stacked up: load average 63, about 14 GB used. Aedwon had to kill processes himself. When he first reported the RAM, the manager took his message for a lead's "ok" and replied "Nothing new since my last message".
+- Why it got through: the standing rule "One build per session" (operations-manager.md) was never turned into a number the leads could follow, and the manager never checked machine load before allowing parallel work. Quota room was treated as the only limit. The manager did not check who sent a message before answering it.
+- Fix:
+  1. Machine-wide cap, in force now: at most 2 Codex jobs at once across all lanes, and at most one Flutter build, test or analyze at a time on the Mac. Leads ask the manager before going past it.
+  2. Required manager step: before starting or allowing parallel work, run `uptime` and `memory_pressure`. If the 1-minute load is above 12 or free memory is under 30%, start nothing new.
+  3. Messages from Aedwon are answered first and directly. A short message is read as his unless it carries a lead's thread label.
+
 ### Staging proof read past the free tier again (Nov 21)
 
 - His words: ">:( how many times should I mention this", after reading that a Nov 20 staging proof cost money.
