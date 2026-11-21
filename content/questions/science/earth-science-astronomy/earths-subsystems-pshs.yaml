@@ -1,0 +1,107 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: earths-subsystems-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-earth-science-astronomy-earths-subsystems-pshs-0001
+    lesson: lesson-earth-science-astronomy-earths-living-sphere
+    keyPoint: 1
+    type: classify
+    difficulty: medium
+    stem: |
+      On a field trip to a pond, students list what they find at the water's
+      edge. Which pair should they record in the biosphere column if each
+      item is sorted by what it mainly is?
+    choices:
+      - text: Frogs and pondweed
+        correct: true
+      - text: Frog eggs and pond water
+        rationale: |
+          This groups the eggs with the water because the eggs develop there.
+          Check which item is water itself.
+      - text: Snails and the pebbles under them
+        rationale: |
+          This groups the snails with the surface they crawl on. Check which
+          item is rock.
+      - text: Algae and the mud beneath it
+        rationale: |
+          You might group the algae with the mud because they are close
+          together. Check what each item mainly is.
+      - text: Reeds and the air between their stems
+        rationale: |
+          This includes the air because the reeds need gases to live.
+          Check which item is a plant and which is a mix of gases.
+    explanation: |
+      Frogs and pondweed are both living things. They are part of the
+      biosphere.
+
+  - id: q-earth-science-astronomy-earths-subsystems-pshs-0002
+    lesson: lesson-earth-science-astronomy-earths-living-sphere
+    keyPoint: 2
+    type: identify
+    difficulty: medium
+    stem: |
+      A bean plant makes sugar in its leaves during photosynthesis. Which
+      statement explains how the leaves make the sugar?
+    choices:
+      - text: The leaves use sunlight to make sugar from carbon dioxide and water.
+        correct: true
+      - text: The leaves use sunlight to make sugar from oxygen and water.
+        rationale: |
+          Plants use oxygen to release energy from sugar, so it may seem
+          like they also use it to make sugar. Check which gas supplies
+          the carbon in sugar.
+      - text: The leaves use energy from water to make sugar from carbon dioxide.
+        rationale: |
+          Leaves need water to make sugar, so it may seem like water
+          supplies the energy. Check what gives the leaves energy during
+          photosynthesis.
+      - text: The leaves use sunlight to make sugar from carbon dioxide and oxygen.
+        rationale: |
+          Both gases are involved in photosynthesis. It is easy to mix up
+          what goes in and what comes out. Check which material the roots
+          take up for the leaves to use.
+      - text: The leaves use sunlight to turn water into sugar and carbon dioxide.
+        rationale: |
+          Plants can release carbon dioxide, so it may seem like they
+          release it when they make sugar. Check where the carbon in the
+          sugar comes from.
+    explanation: |
+      Sunlight gives the leaves energy to make sugar from carbon dioxide
+      and water. The carbon in the sugar comes from carbon dioxide in
+      the air.
+
+  - id: q-earth-science-astronomy-earths-subsystems-pshs-0003
+    lesson: lesson-earth-science-astronomy-earths-living-sphere
+    keyPoint: 2
+    type: process-ordering
+    difficulty: hard
+    stem: |
+      Carbon from burned wood enters the air. Some of it dissolves in
+      seawater, becomes part of shells, and later ends up in limestone.
+      Which pair names the spheres that hold the carbon when it is in
+      seawater and when it is in limestone, in that order?
+    choices:
+      - text: Hydrosphere to geosphere
+        correct: true
+      - text: Hydrosphere to biosphere
+        rationale: |
+          This ends the path at the shell stage because living things make
+          shells. Check what the shells become at the end.
+      - text: Atmosphere to geosphere
+        rationale: |
+          This starts with the air because the fire released carbon there.
+          Check where the question asks you to start.
+      - text: Atmosphere to hydrosphere
+        rationale: |
+          This follows the first transfer after the fire, so it fits the
+          start of the story. Check where the carbon ends up after it
+          passes through the shells.
+      - text: Geosphere to hydrosphere
+        rationale: |
+          This reverses the order. Both spheres hold the carbon at some
+          point. Check which one holds it first.
+    explanation: |
+      When the carbon is in seawater, it is in the hydrosphere. Later, it
+      is in limestone. Limestone is rock, so it is part of the geosphere.
