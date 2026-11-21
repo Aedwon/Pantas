@@ -1,0 +1,105 @@
+meta:
+  subject: science
+  topic: biology
+  subtopic: human-body-control-movement-and-defense-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-biology-human-body-control-movement-and-defense-pshs-0001
+    lesson: lesson-biology-hormones-and-blood-glucose-feedback
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      The blood carries two hormones, P and Q, to cells in a tissue. The cells have receptors for both hormones at first. Later, the cells lose all their receptors for P. How will the cells respond when the blood brings both hormones again?
+    choices:
+      - text: 'They will respond to Q alone.'
+        correct: true
+      - text: 'They will respond weakly to P and as before to Q.'
+        rationale: |
+          A weak response to P might make sense if some of its receptors were left. Check whether the cells lost some or all of their receptors for P.
+      - text: 'They will still respond to both hormones.'
+        rationale: |
+          Both hormones still reach the cells, so it may seem that both messages get through. Check what a cell needs to respond after a hormone arrives.
+      - text: 'They will stop responding to both hormones.'
+        rationale: |
+          Losing a receptor can block a message, so it may seem that both messages are blocked. Check whether the cells lost receptors for Q as well as P.
+      - text: 'They will respond to whichever hormone arrives first.'
+        rationale: |
+          It may seem that the first hormone to arrive gets to use the remaining receptors. Check whether a receptor for Q can also receive a message from P.
+    explanation: |
+      The cells still have receptors that match Q. Those receptors let the cells get the message from Q.
+
+  - id: q-biology-human-body-control-movement-and-defense-pshs-0002
+    lesson: lesson-biology-hormones-and-blood-glucose-feedback
+    keyPoint: 2
+    type: classify
+    difficulty: medium
+    stem: |
+      A student tracks the strength of contractions during childbirth. Which pattern would show positive feedback?
+    choices:
+      - text: 'Each contraction starts a response that makes the next one weaker.'
+        rationale: |
+          A contraction still sets off a response, so this does describe feedback. Check whether the response adds to the change or works against it.
+      - text: 'The contractions get stronger after a signal unrelated to earlier contractions.'
+        rationale: |
+          The contractions get stronger, which sounds like positive feedback. Check whether a contraction itself helps make the next one stronger.
+      - text: 'The contractions return to their earlier strength after each brief increase.'
+        rationale: |
+          There is an increase each time, so the word positive may seem to fit. Check what happens after that increase. A return to the earlier strength reverses it.
+      - text: 'Each contraction starts a response that strengthens the next one.'
+        correct: true
+      - text: 'The contractions follow one another without any change in their strength.'
+        rationale: |
+          A repeated pattern may look like a loop. Check whether each contraction leads to an increase in the strength of the next one.
+    explanation: |
+      A contraction sets off a response that makes the next one stronger. The response adds to the change, so this is positive feedback.
+
+  - id: q-biology-human-body-control-movement-and-defense-pshs-0003
+    lesson: lesson-biology-hormones-and-blood-glucose-feedback
+    keyPoint: 3
+    type: cause-effect
+    difficulty: hard
+    stem: |
+      Between meals, a person's blood glucose falls below its usual level. The pancreas releases glucagon, but the liver fails to respond. Which step in bringing blood glucose back up is directly affected?
+    choices:
+      - text: 'The liver stores more glucose as glycogen.'
+        rationale: |
+          The liver does store glucose, so this may seem like the right liver action. Check whether storing glucose would move it into or out of the blood.
+      - text: 'The liver releases stored glucose.'
+        correct: true
+      - text: 'The pancreas releases more insulin into the blood.'
+        rationale: |
+          Insulin helps control blood glucose, so another release may seem helpful. Check whether insulin raises glucose and whether this step happens in the liver.
+      - text: 'Body cells take more glucose out of the blood.'
+        rationale: |
+          Taking in glucose is part of the body's response to a meal. Check whether taking more out would help when blood glucose is already too low.
+      - text: 'The blood carries glucagon from the pancreas to the liver.'
+        rationale: |
+          A liver that fails to respond may seem to have missed the signal. Check the difference between blood carrying a hormone to the liver and the liver acting on it.
+    explanation: |
+      Glucagon tells the liver to send stored glucose into the blood. That step raises blood glucose when it gets too low.
+
+  - id: q-biology-human-body-control-movement-and-defense-pshs-0004
+    lesson: lesson-biology-hormones-and-blood-glucose-feedback
+    keyPoint: 3
+    type: predict-outcome
+    difficulty: hard
+    stem: |
+      A meal causes blood glucose and insulin release to rise. Blood glucose then starts to fall toward its usual level. If the pancreas kept releasing insulin at the higher rate, what would the extra insulin tend to do?
+    choices:
+      - text: 'Make the liver release stored glucose into the blood.'
+        rationale: |
+          Releasing glucose could help as its level falls, so it may seem like insulin would do this. Check which hormone tells the liver to release stored glucose.
+      - text: 'Make the liver store less glucose as glycogen.'
+        rationale: |
+          Slowing storage could leave more glucose in the blood as it falls. Check whether insulin signals the liver to slow down or increase glucose storage.
+      - text: 'Slow the movement of glucose from the blood into cells.'
+        rationale: |
+          As blood glucose returns toward its usual level, the body needs less insulin, so slower uptake may seem likely. Check what happens to uptake if the insulin signal stays strong.
+      - text: 'Switch from lowering blood glucose to raising it.'
+        rationale: |
+          The body can respond differently when blood glucose is high or low. Check whether insulin changes its job or the pancreas uses a different hormone to raise glucose.
+      - text: 'Keep moving glucose out of the blood.'
+        correct: true
+    explanation: |
+      Insulin helps cells take in glucose and helps the liver store it. If the insulin signal stays strong, these steps keep taking glucose out of the blood.
