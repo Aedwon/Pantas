@@ -1,0 +1,305 @@
+meta:
+  subject: science
+  topic: biology
+  subtopic: ecology-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-biology-ecology-pshs-0001
+    lesson: lesson-biology-food-chains-and-food-webs
+    keyPoint: 2
+    type: classify
+    difficulty: easy
+    stem: |
+      Beetles chew dead bark into small pieces. Fungi grow on the pieces and break down the material. Which role best describes the fungi in this case?
+    choices:
+      - text: 'Primary consumers'
+        rationale: |
+          Bark comes from a producer, so this role may seem to fit. Check how the fungi get their food. They break down dead bark as it decays.
+      - text: 'Decomposers'
+        correct: true
+      - text: 'Secondary consumers'
+        rationale: |
+          The fungi grow where beetles have been, which can suggest a feeding link. Check what the fungi break down.
+      - text: 'Detritivores'
+        rationale: |
+          Both organisms help break down the bark. Check which one chews it into pieces and which one breaks down the material as it grows.
+      - text: 'Primary producers'
+        rationale: |
+          The fungi grow in place, as many plants do. Check whether their food comes from making it with light or from breaking down bark.
+    explanation: |
+      The fungi break down the dead bark as they grow. That is the role of a decomposer.
+
+  - id: q-biology-ecology-pshs-0002
+    lesson: lesson-biology-phosphorus-cycling
+    keyPoint: 1
+    type: identify
+    difficulty: easy
+    stem: |
+      A bare slope has exposed rock that contains phosphorus. There is no waste or dead plant material on the slope. Which process can release phosphate from the rock?
+    choices:
+      - text: 'Decay'
+        rationale: |
+          Decay can release phosphorus, so it may seem to explain any release. Check what holds the phosphorus on this slope.
+      - text: 'Settling'
+        rationale: |
+          Phosphorus can collect in sediment. Check whether settling frees phosphate from the slope or stores material after it has moved.
+      - text: 'Evaporation'
+        rationale: |
+          Rainwater can help move phosphate, and evaporation moves water. Check which process breaks down the rock itself.
+      - text: 'Root uptake'
+        rationale: |
+          Roots do move phosphate into plants. Check what has to free phosphate before roots can take it up.
+      - text: 'Weathering'
+        correct: true
+    explanation: |
+      Weathering breaks down the exposed rock. This releases phosphate into the soil or water.
+
+  - id: q-biology-ecology-pshs-0003
+    lesson: lesson-biology-carbon-and-water-cycles
+    keyPoint: 2
+    type: process-ordering
+    difficulty: medium
+    stem: |
+      Water taken up by a seedling's roots leaves its leaves as vapor. Some of that vapor later forms drops on the inside of a cool cover above the seedling. Which processes move the water from the leaves to the drops?
+    choices:
+      - text: 'Transpiration, then condensation'
+        correct: true
+      - text: 'Condensation, then transpiration'
+        rationale: |
+          Both processes occur in the setup, so the names can look right in either order. Check which one first moves water out of the leaves.
+      - text: 'Runoff from leaves, then evaporation'
+        rationale: |
+          Liquid water can run off wet leaves and later turn to vapor. Check the state of the water when it leaves this seedling and when it reaches the cover.
+      - text: 'Evaporation from soil, then condensation'
+        rationale: |
+          Water from soil can also form vapor and make drops. Check where the question says this water entered the air.
+      - text: 'Transpiration, then precipitation'
+        rationale: |
+          Rain and the drops on the cover are both liquid water. Check whether the second step is drops forming or drops falling.
+    explanation: |
+      The leaves release water vapor by transpiration. The vapor cools at the cover and turns into liquid drops by condensation.
+
+  - id: q-biology-ecology-pshs-0004
+    lesson: lesson-biology-biodiversity-and-conservation
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      Two native plant species compete for space on a rocky bank. One species disappears from the bank. All other conditions stay the same. What is a likely effect on the plant species that remains?
+    choices:
+      - text: 'Its growth stays the same because its needs stay the same.'
+        rationale: |
+          The remaining species still needs the same things, so its growth may seem fixed. Check whether the amount of space available to meet those needs has changed.
+      - text: 'It has fewer plants of its own kind at first.'
+        rationale: |
+          Fewer plants on the bank can sound like a drop for both species. Check which species disappeared and which one is still there.
+      - text: 'It faces more competition because the bank stays the same size.'
+        rationale: |
+          The bank has the same area, so space is still limited. Check how many species are using that space now.
+      - text: 'It has more space to grow because competition drops.'
+        correct: true
+      - text: 'It has less space because both species used the bank.'
+        rationale: |
+          Losing plants may seem like losing part of the growing area. The bank stays the same size. Check what happens to the space the missing species used. It is now open for the plants that remain.
+    explanation: |
+      Both species used space on the bank. When one species disappears, the other has less competition and more room to grow.
+
+  - id: q-biology-ecology-pshs-0005
+    lesson: lesson-biology-carbon-and-water-cycles
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      A goat eats leaves from a shrub. Other leaves fall from the same shrub and rot on the ground. Which statement correctly traces carbon in both sets of leaves?
+    choices:
+      - text: 'The goat gets carbon from its food, while the fallen leaves keep all their carbon as they rot.'
+        rationale: |
+          The feeding step is right, and carbon starts out in the fallen leaves. Check what happens to the carbon as the leaves break down.
+      - text: 'The goat sends leaf carbon straight into the air as it eats, and the rotting leaves release carbon.'
+        rationale: |
+          A goat can later release carbon dioxide by respiration. Check where carbon in its food moves during feeding itself.
+      - text: 'Feeding moves carbon into the goat, and decay returns carbon to the environment.'
+        correct: true
+      - text: 'The eaten leaves lose their carbon as heat, and the fallen leaves take in carbon from the air.'
+        rationale: |
+          Feeding gives the goat energy, and growing leaves can take in carbon from the air. Check where the carbon goes when the goat eats and whether rotting leaves still make food.
+      - text: 'Carbon moves from the goat to the shrub, while some carbon from the rotting leaves goes into the soil.'
+        rationale: |
+          Both the goat and the shrub contain carbon, and decay does release carbon. Check which way carbon moves when the goat eats the leaves.
+    explanation: |
+      The goat takes in carbon when it eats leaves. Decay breaks down the fallen leaves and returns carbon from them to the environment.
+
+  - id: q-biology-ecology-pshs-0006
+    lesson: lesson-biology-phosphorus-cycling
+    keyPoint: 1
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      During a heavy rain, some phosphate in hillside soil dissolves in rainwater. After the storm, the lake below the hill contains more phosphate. How does the dissolved phosphate reach the lake?
+    choices:
+      - text: 'Rock weathering'
+        rationale: |
+          Weathering can explain how phosphate got into the soil. Check which step moves phosphate from that soil to the lake.
+      - text: 'Settling into sediment'
+        rationale: |
+          Phosphate can collect at the bottom of a lake. Check whether settling adds phosphate to the water above or takes some out of it.
+      - text: 'Plant root uptake'
+        rationale: |
+          Roots can remove phosphate from soil, so this could seem to explain where it went. Check whether root uptake moves phosphate into plants or into the lake.
+      - text: 'Dissolving in rainwater'
+        rationale: |
+          Dissolving puts phosphate into the rainwater. Check what moves that water from the hill to the lake.
+      - text: 'Surface runoff'
+        correct: true
+    explanation: |
+      Rainwater flows downhill as runoff. The phosphate dissolved in that water travels with it into the lake.
+
+  - id: q-biology-ecology-pshs-0007
+    lesson: lesson-biology-food-chains-and-food-webs
+    keyPoint: 1
+    type: process-ordering
+    difficulty: medium
+    stem: |
+      In a pond, mosquito larvae eat algae. Small fish eat both the larvae and the algae. A kingfisher eats the small fish. Which path takes energy from algae to the kingfisher through the larvae?
+    choices:
+      - text: 'Algae → mosquito larvae → kingfisher → small fish'
+        rationale: |
+          The first step is right, and both remaining animals are predators. Check which one eats the larvae.
+      - text: 'Algae → mosquito larvae → small fish → kingfisher'
+        correct: true
+      - text: 'Algae → small fish → mosquito larvae → kingfisher'
+        rationale: |
+          Small fish do get some energy directly from algae. Check whether the larvae can get energy back by eating the fish.
+      - text: 'Kingfisher → small fish → mosquito larvae → algae'
+        rationale: |
+          This follows what each animal eats, starting with the bird. Check which way energy moves when one organism eats another.
+      - text: 'Mosquito larvae → algae → small fish → kingfisher'
+        rationale: |
+          The last two links fit one path in the web. Check whether the larvae get energy from algae or give energy to algae.
+    explanation: |
+      Larvae get energy from algae. Small fish get some of that energy when they eat the larvae. The kingfisher gets energy when it eats the fish.
+
+  - id: q-biology-ecology-pshs-0008
+    lesson: lesson-biology-biodiversity-and-conservation
+    keyPoint: 2
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A plant brought in from outside an island spreads through a meadow and crowds out native plants. The meadow is protected from building and has clean water. Which action most directly addresses the decline of native plants?
+    choices:
+      - text: 'Put tighter limits on what people can harvest.'
+        rationale: |
+          Harvest limits can help a shrinking population recover. Check whether collecting plants is the stated cause of the decline.
+      - text: 'Check native plant numbers each year.'
+        rationale: |
+          Counts can show whether a population is recovering. Check whether counting the plants slows the spread of the introduced plant.
+      - text: 'Control the spread of the introduced plant.'
+        correct: true
+      - text: 'Set aside more land where building is banned.'
+        rationale: |
+          Banning construction can protect habitats. Check what is already taking space from native plants inside the protected meadow.
+      - text: 'Treat the water entering the meadow.'
+        rationale: |
+          Cleaner water can help an ecosystem recover from pollution. Check whether the water or a competing plant is harming the native plants here.
+    explanation: |
+      The introduced plant takes up space that native plants need. Slowing its spread helps keep it from taking more of the space where native plants still grow.
+
+  - id: q-biology-ecology-pshs-0009
+    lesson: lesson-biology-carbon-and-water-cycles
+    keyPoint: 1
+    type: process-ordering
+    difficulty: hard
+    stem: |
+      A stove burns coal near a garden. A tomato plant in the garden later uses some carbon from that coal to make food. Which pair of processes explains how the carbon moves from coal into the plant?
+    choices:
+      - text: 'The stove gives off carbon dioxide, and the plant takes it in during respiration.'
+        rationale: |
+          Burning releases the right gas, and respiration uses gases from the air. Check whether respiration takes in or gives off carbon dioxide.
+      - text: 'Coal dust settles on the leaves, and photosynthesis uses the dust to make food.'
+        rationale: |
+          Photosynthesis happens in leaves, so carbon on the leaf may seem ready to use. Check what form of carbon the plant takes in to make food.
+      - text: 'Decay in the stove releases a gas that the plant uses to make food.'
+        rationale: |
+          Decay can return carbon to the environment, and the uptake step is right. Check what actually happens to the coal in the stove.
+      - text: 'Carbon from the smoke settles into the soil and enters through the roots.'
+        rationale: |
+          Roots take in water and minerals, so they may seem like a way for carbon from the coal to enter. Check where the plant gets the carbon dioxide it uses to make food.
+      - text: 'Burning releases carbon dioxide, and photosynthesis takes it up.'
+        correct: true
+    explanation: |
+      Burning coal sends stored carbon into the air as carbon dioxide. The plant uses that carbon dioxide to make food by photosynthesis.
+
+  - id: q-biology-ecology-pshs-0010
+    lesson: lesson-biology-food-chains-and-food-webs
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: hard
+    stem: |
+      In a field, mice feed only on seeds. Small lizards feed only on insects. Owls hunt both mice and lizards. If the seed supply drops, why might the owls lose only part of their food supply?
+    choices:
+      - text: 'Lizards can feed on mice that leave the seed patches.'
+        rationale: |
+          Lizards and mice share the field and both are prey for owls. Check whether the web gives lizards a feeding link to mice.
+      - text: 'Lizards can still find food because they eat insects.'
+        correct: true
+      - text: 'Mice can switch from seeds to insects.'
+        rationale: |
+          A second food source can help when the first runs low. Check which animal in this field eats insects.
+      - text: 'Mice and lizards can both feed on the seeds that remain.'
+        rationale: |
+          Some seeds may still be available, which might help mice. Check whether seeds supply food to both kinds of prey.
+      - text: 'Owls can switch from hunting to eating seeds.'
+        rationale: |
+          Seeds supply energy to part of this web, so they may seem like a backup for any animal. Check what the owls eat.
+    explanation: |
+      Fewer seeds can leave mice with less food. The lizards have a separate food source, insects. The owls can still get energy by eating lizards.
+
+  - id: q-biology-ecology-pshs-0011
+    lesson: lesson-biology-phosphorus-cycling
+    keyPoint: 1
+    type: process-ordering
+    difficulty: hard
+    stem: |
+      A fish in a pond contains phosphorus. After the fish dies, some of that phosphorus eventually becomes part of rock on the pond bottom. Which sequence can explain this change?
+    choices:
+      - text: 'Plants take up phosphate before the fish decays, then sediment collects and forms rock.'
+        rationale: |
+          Plant roots can take up phosphate from pond water. Check whether decay has released the phosphorus from the dead fish yet.
+      - text: 'Decay returns phosphorus to the pond, and weathering turns the bottom sediment into rock.'
+        rationale: |
+          Weathering is a rock process in this cycle, so it may seem to fit the last step. Check whether it breaks rock down or forms rock.
+      - text: 'Decay releases phosphate, then evaporation carries it into the air before rock forms.'
+        rationale: |
+          Decay releases phosphate, and pond water can evaporate. Dissolved phosphate stays in the pond when water turns into vapor. Check which material goes into the air.
+      - text: 'Decay returns phosphorus to the pond, and sediment that holds it later forms rock.'
+        correct: true
+      - text: 'Decay releases phosphate for plants to take up, then rock forms before sediment collects.'
+        rationale: |
+          Plants can take up phosphate after decay releases it. Check whether the sediment must collect before it can become rock.
+    explanation: |
+      As the fish decays, phosphorus returns to the pond. Some of it settles in sediment on the bottom. Over time, that sediment can become rock.
+
+  - id: q-biology-ecology-pshs-0012
+    lesson: lesson-biology-biodiversity-and-conservation
+    keyPoint: 2
+    type: cause-effect
+    difficulty: hard
+    stem: |
+      Frogs in a pond breed in shallow areas with native plants. Some of those areas were filled in. Dirty water from a nearby work site also flows into the pond. Which plan addresses both causes of damage?
+    choices:
+      - text: 'Restore planted shallows and stop the dirty water at its source.'
+        correct: true
+      - text: 'Move the frogs into deep water and divert the work site drainage away from the pond.'
+        rationale: |
+          Diverting the dirty water can protect the pond, and deep water may seem like extra space. Check where these frogs breed.
+      - text: 'Reopen the filled shallows, replant native plants there, and ban frog catching.'
+        rationale: |
+          Restoring shallows helps with habitat loss, and harvest limits can protect some populations. Check whether catching frogs or dirty water is the second cause described.
+      - text: 'Test the pond water for pollution and fence off the remaining breeding areas.'
+        rationale: |
+          Tests can show how dirty the water is, and a fence can protect the habitat that is left. Check what stops more dirty water from flowing in and what replaces the lost shallows.
+      - text: 'Plant native plants along the bank and pick up litter around the pond.'
+        rationale: |
+          Planting and picking up litter can help a pond. Check whether this plan restores the shallows and stops dirty water from the work site.
+    explanation: |
+      Restoring planted shallows gives frogs places to breed again. Stopping the dirty water at the work site keeps that pollution out of the pond.
