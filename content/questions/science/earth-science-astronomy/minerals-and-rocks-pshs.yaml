@@ -1,0 +1,222 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: minerals-and-rocks-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-earth-science-astronomy-minerals-and-rocks-pshs-0001
+    lesson: lesson-earth-science-astronomy-mineral-hardness-and-streak
+    keyPoint: 1
+    type: identify
+    difficulty: medium
+    stem: |
+      An unknown mineral scratches fluorite, but fluorite cannot scratch
+      it. A glass plate scratches the sample, but the sample cannot
+      scratch the glass. Which mineral could the unknown sample be?
+    choices:
+      - text: Apatite
+        correct: true
+      - text: Fluorite
+        rationale: |
+          Fluorite gives the lower limit, so its rank may look like a
+          match. If the two had the same hardness, fluorite could
+          scratch the sample too. Check what happened when it was tried.
+      - text: Calcite
+        rationale: |
+          Calcite is softer than glass, so it fits the glass test.
+          Check whether it is hard enough to scratch fluorite.
+      - text: Orthoclase feldspar
+        rationale: |
+          Orthoclase feldspar can scratch fluorite, so it fits one test.
+          Check whether glass is hard enough to scratch it.
+      - text: Quartz
+        rationale: |
+          Quartz is a common mineral and can scratch fluorite. Check
+          which way the scratch would go between quartz and glass.
+    explanation: |
+      The sample scratches fluorite, and fluorite cannot scratch it.
+      The sample is harder than fluorite, which ranks $4$. Glass
+      scratches the sample, and the sample cannot scratch glass.
+      The sample is softer than glass, which ranks about $5.5$.
+      Apatite ranks $5$, between fluorite and glass.
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-pshs-0002
+    lesson: lesson-earth-science-astronomy-variables-in-a-cooling-test
+    keyPoint: 1
+    type: identify
+    difficulty: medium
+    stem: |
+      Mara divides a warm salt solution equally between identical glass
+      dishes. She sets one dish in an ice bath and one on a lab bench.
+      She starts a timer when she sets each dish down and stops it as
+      soon as she sees crystals in that dish. What is the dependent variable?
+    choices:
+      - text: Time until crystals first appear
+        correct: true
+      - text: Amount of solution in each dish
+        rationale: |
+          The amount of solution could affect how soon crystals appear.
+          Check whether Mara keeps that amount the same in both dishes.
+      - text: Place where each dish is set
+        rationale: |
+          The place can affect when crystals appear and is different in
+          the two trials. Check whether Mara chooses it or measures it.
+      - text: Temperature of the solution at the start
+        rationale: |
+          Starting temperature matters in a cooling test. Check whether
+          Mara reads a temperature or a time to get her result.
+      - text: Size of the crystals when the test ends
+        rationale: |
+          Crystal size can be measured in a cooling test. Check what
+          Mara reads when she first sees crystals.
+    explanation: |
+      The dependent variable is the result Mara measures. She uses
+      the timer to find how long it takes for crystals to appear.
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-pshs-0003
+    lesson: lesson-earth-science-astronomy-mineral-hardness-and-streak
+    keyPoint: 2
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A pale mineral leaves a gray line when rubbed on an unglazed
+      porcelain plate. Wiping the plate reveals a groove and no loose
+      powder. The same sample scratches glass. Which result can
+      the student use to help identify the mineral?
+    choices:
+      - text: The glass scratch gives a clue about hardness.
+        correct: true
+      - text: The gray line gives the color of the mineral's powder.
+        rationale: |
+          A real streak can have a different color from the sample.
+          Check whether the gray line is powder or a groove in the plate.
+      - text: The pale surface gives the color of the mineral's powder.
+        rationale: |
+          The surface and powder can be the same color, so the pale
+          surface may seem like a clue to streak. Check whether any
+          powder from the mineral was found.
+      - text: The groove shows that the plate is harder than the mineral.
+        rationale: |
+          The plate is used to wear down some minerals, so it may seem
+          harder. Check which material was scratched in this test.
+      - text: The glass scratch shows that the mineral has the same hardness as glass.
+        rationale: |
+          Materials of the same hardness can scratch each other, so
+          glass may seem like a match. The mineral also cut a groove
+          in the porcelain plate, which is harder than glass. Check
+          whether a mineral as hard as glass could cut that groove.
+    explanation: |
+      The sample scratches glass, so it is at least as hard as glass.
+      This gives a lower limit for its hardness.
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-pshs-0004
+    lesson: lesson-earth-science-astronomy-mineral-hardness-and-streak
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: hard
+    stem: |
+      Vera suspects that a clear sample is either calcite or quartz.
+      The two look alike to her. Which test would tell them apart?
+    choices:
+      - text: Try to scratch glass with the sample.
+        correct: true
+      - text: Try to scratch the sample with a piece of talc.
+        rationale: |
+          Talc is a reference mineral, so it seems like a good test
+          tool. Check whether talc is hard enough to scratch either
+          calcite or quartz.
+      - text: Try to scratch a piece of gypsum with the sample.
+        rationale: |
+          Gypsum is softer than calcite, so the test would show that
+          calcite is harder. Check whether quartz would give the same
+          result.
+      - text: Try to scratch the sample with a piece of topaz.
+        rationale: |
+          Topaz is harder than quartz, so it can leave a clear scratch
+          on quartz. Check whether it can also scratch calcite.
+      - text: Try to scratch the sample with a fingernail.
+        rationale: |
+          A fingernail works on some soft minerals, so it may seem
+          useful for testing calcite. Check the rank of calcite against
+          the hardness of a fingernail.
+    explanation: |
+      Glass has a hardness of about $5.5$. Calcite ranks $3$, so it
+      cannot scratch glass. Quartz ranks $7$, so it can scratch glass.
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-pshs-0005
+    lesson: lesson-earth-science-astronomy-variables-in-a-cooling-test
+    keyPoint: 1
+    type: cause-effect
+    difficulty: hard
+    stem: |
+      Nico wants to find out whether setting dishes in different places
+      to cool affects crystal size. He pours equal amounts from the
+      same warm salt solution into identical dishes. At the same time,
+      he puts one dish in a cool room and the other in a warm room.
+      He measures the crystals in the cool room that afternoon and
+      the crystals in the warm room the next morning. Why is it hard
+      to tell if the room caused a difference in crystal size?
+    choices:
+      - text: He waited different lengths of time.
+        correct: true
+      - text: He used the same amount of solution in both dishes.
+        rationale: |
+          A larger amount might make a difference easier to see.
+          Check how keeping the amount the same helps Nico test
+          the effect of the room.
+      - text: He started both dishes at the same solution temperature.
+        rationale: |
+          The two rooms have different temperatures, so it might seem
+          right to start with different solution temperatures too.
+          Check which temperature Nico meant to change.
+      - text: He measured the size of the crystals in each dish.
+        rationale: |
+          Cooling time may seem like the result to measure because
+          the dishes are cooling. Check which result Nico set out
+          to compare.
+      - text: He put the solution in two identical dishes.
+        rationale: |
+          The dish can affect cooling, so identical dishes may seem to
+          make both tests the same. Check what can still differ when
+          the dishes are in different rooms.
+    explanation: |
+      The dish in the warm room sat longer before Nico measured it.
+      He changed both the room and the wait time. To test the effect
+      of the room, he should measure both dishes after the same wait.
+
+  - id: q-earth-science-astronomy-minerals-and-rocks-pshs-0006
+    lesson: lesson-earth-science-astronomy-variables-in-a-cooling-test
+    keyPoint: 1
+    type: classify
+    difficulty: exam
+    stem: |
+      A class tests whether the amount of warm salt solution in a dish
+      affects the size of crystals that form as it cools. The solution
+      comes from one warm batch, and the dishes are identical.
+      Students measure crystal size after the same amount of time
+      unless noted. Which pair of trials tests the effect of the
+      amount of solution?
+    choices:
+      - text: A full dish and a half-full dish, both on the same bench
+        correct: true
+      - text: A full dish and a half-full dish, one in an ice bath and one on the bench
+        rationale: |
+          The different amounts fit the question. Check whether the
+          places where the dishes cool also differ.
+      - text: Two equally full dishes, one on a warm shelf and one in an ice bath
+        rationale: |
+          The cooling conditions are different, so the crystals might
+          differ. Check whether the amounts of solution differ too.
+      - text: Two half-full dishes on the same bench, measured at different times
+        rationale: |
+          Both dishes cool in the same place, which helps make a fair
+          test. Check whether this pair changes the amount of solution
+          or the time of measurement.
+      - text: Two full dishes on the same bench, each measured at the same time
+        rationale: |
+          Keeping the place and time the same is good for a fair test.
+          Check whether this pair uses different amounts of solution.
+    explanation: |
+      The full dish holds more solution than the half-full dish. Both
+      cool in the same place. The class changes the amount of solution
+      and measures the size of the crystals.
