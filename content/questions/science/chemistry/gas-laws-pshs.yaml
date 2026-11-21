@@ -1,0 +1,110 @@
+meta:
+  subject: science
+  topic: chemistry
+  subtopic: gas-laws-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-chemistry-gas-laws-pshs-0001
+    lesson: lesson-chemistry-variables-in-gas-investigations
+    keyPoint: 1
+    type: identify
+    difficulty: medium
+    stem: |
+      Mara traps air in a cylinder with a sliding piston. For each trial,
+      she sets the air pressure by placing a different load on the piston.
+      She waits until the air returns to room temperature and reads the
+      volume. Which pair lists the independent variable followed by the
+      dependent variable?
+    choices:
+      - text: 'Pressure, volume'
+        correct: true
+      - text: 'Volume, pressure'
+        rationale: |
+          The piston moves, so it may look as if Mara sets the volume.
+          Check which quantity she sets with the load and which she reads.
+      - text: 'Temperature, volume'
+        rationale: |
+          Mara waits for the air to cool or warm before reading its volume.
+          Check whether she uses a new temperature for each reading.
+      - text: 'Amount of air, volume'
+        rationale: |
+          A change in the space the air fills can look like a change in the
+          amount of air. Check whether any air enters or leaves the cylinder.
+      - text: 'Pressure, temperature'
+        rationale: |
+          Mara checks the temperature before taking a reading. Check which
+          quantity she records to see the effect of the new pressure.
+    explanation: |
+      Mara sets the pressure with the load, so pressure is independent.
+      She reads the volume to see the effect, so volume is dependent.
+
+  - id: q-chemistry-gas-laws-pshs-0002
+    lesson: lesson-chemistry-variables-in-gas-investigations
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      Two students test the effect of temperature on trapped air. One
+      warms air in a sealed metal tank whose walls cannot move. The other
+      warms air in a sealed cylinder with a piston that slides to keep
+      pressure constant. Each student tracks the gas quantity that responds
+      to warming. What role does volume play in the two tests?
+    choices:
+      - text: 'Controlled in the tank, dependent in the cylinder'
+        correct: true
+      - text: 'Dependent in the tank, controlled in the cylinder'
+        rationale: |
+          One setup fixes volume and the other lets it change. Check which
+          setup has a wall that can move.
+      - text: 'Controlled in the tank, controlled in the cylinder'
+        rationale: |
+          Both setups are sealed, so the amount of air stays the same.
+          Check whether the seal stops the cylinder's piston from moving.
+      - text: 'Dependent in the tank, dependent in the cylinder'
+        rationale: |
+          Warming can change how much space air takes up in the cylinder.
+          Check whether the walls of the tank let its air take up more space.
+      - text: 'Independent in the tank, dependent in the cylinder'
+        rationale: |
+          The tank sets the space available for the air, so volume may look
+          like the quantity the student changes. Check what the student
+          changes by warming the tank.
+    explanation: |
+      The tank walls keep the volume fixed, so it is controlled. In the
+      cylinder, the piston moves as the air warms. The student measures the
+      change in volume, so it is dependent.
+
+  - id: q-chemistry-gas-laws-pshs-0003
+    lesson: lesson-chemistry-variables-in-gas-investigations
+    keyPoint: 1
+    type: identify
+    difficulty: exam
+    stem: |
+      Luis plans to test how the amount of air affects its volume. He will
+      add air to a cylinder with a sliding piston. Before each volume
+      reading, he will let the air reach the temperature of a water bath.
+      He plans to use a warmer bath and a heavier load on the piston for
+      each new reading. Which change would make the test fair?
+    choices:
+      - text: 'Use the same bath temperature and load.'
+        correct: true
+      - text: 'Use the same bath temperature and keep adding to the load.'
+        rationale: |
+          Keeping the bath the same controls temperature. Check whether a
+          heavier load also changes the air pressure.
+      - text: 'Use the same load and keep raising the bath temperature.'
+        rationale: |
+          Keeping the load the same controls pressure. Check whether the
+          warmer bath also changes the air temperature.
+      - text: 'Use the same bath temperature and lock the piston in place.'
+        rationale: |
+          Locking the piston may seem like a way to keep the setup steady.
+          Check whether the air can change volume if the piston cannot move.
+      - text: 'Use the same amount of air and keep raising the bath temperature.'
+        rationale: |
+          A fixed amount of air makes sense when you test the effect of
+          temperature. Check which quantity Luis wants to test here.
+    explanation: |
+      The same bath temperature keeps the air at the same temperature.
+      The same load keeps its pressure steady. Luis can then add air and
+      measure how its volume changes when only the amount of air is changed.
