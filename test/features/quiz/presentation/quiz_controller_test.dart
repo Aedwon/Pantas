@@ -123,6 +123,66 @@ void main() {
     expect((state as QuizRunning).session.questions, hasLength(1));
   });
 
+  test('a mounted quiz cannot write into a newly active store', () async {
+    final childA = inMemoryDatabase();
+    final childB = inMemoryDatabase();
+    addTearDown(childA.close);
+    addTearDown(childB.close);
+    final container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWith(
+          (ref) => ref.watch(activeChildDatabaseProvider) ?? childA,
+        ),
+        authStateProvider.overrideWith(
+          (_) => Stream.value(const AuthState.anonymous(uid: 'test')),
+        ),
+        activeExamFocusProvider.overrideWith(
+          (_) async => ActiveExamFocus.selected(buildExam(id: 'e')),
+        ),
+        startQuickQuizProvider.overrideWithValue(start),
+      ],
+    );
+    addTearDown(container.dispose);
+    await container.read(authStateProvider.future);
+    await container.read(activeExamFocusProvider.future);
+    container.listen(quizControllerProvider, (_, __) {});
+    when(
+      () => start(
+        examId: any(named: 'examId'),
+        count: any(named: 'count'),
+        now: any(named: 'now'),
+        randomSeed: any(named: 'randomSeed'),
+      ),
+    ).thenAnswer(
+      (_) async => QuizSession.start(
+        sessionId: 'child-a-quiz',
+        examId: 'e',
+        questions: const [q1],
+        startedAt: DateTime.utc(2026, 5, 9),
+      ),
+    );
+    final controller = container.read(quizControllerProvider.notifier);
+    await controller.start(examId: 'e', count: 1);
+    expect(container.read(quizControllerProvider), isA<QuizRunning>());
+    controller.markQuestionReady(sessionId: 'child-a-quiz', questionIndex: 0);
+    controller.pick(chosenChoiceId: 'c1a');
+
+    container.read(activeChildDatabaseProvider.notifier).state = childB;
+    StateError? writeError;
+    try {
+      await controller.check();
+    } on StateError catch (error) {
+      writeError = error;
+    }
+
+    expect(
+      await container.read(reviewStateRepositoryProvider).byQuestionId('q1'),
+      isNull,
+    );
+    expect(writeError, isNull);
+    expect(container.read(quizControllerProvider), isA<QuizIdle>());
+  });
+
   test('answer() records and stays, and next() ends the session', () async {
     final session = QuizSession.start(
       sessionId: 'sess',

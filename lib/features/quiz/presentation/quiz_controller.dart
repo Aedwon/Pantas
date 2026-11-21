@@ -9,7 +9,10 @@ import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart'
-    show appDatabaseProvider, contentRepositoryProvider;
+    show
+        activeChildDatabaseProvider,
+        appDatabaseProvider,
+        contentRepositoryProvider;
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/features/quiz/application/quiz_launch_coordinator.dart';
@@ -81,13 +84,44 @@ class QuizNothingToResume extends QuizFailure {
 
 final quizControllerProvider =
     StateNotifierProvider<QuizController, QuizControllerState>(
-  QuizController.new,
+  (ref) {
+    ref.watch(activeChildDatabaseProvider);
+    final uid = ref.watch(
+      authStateProvider.select(
+        (value) => switch (value.valueOrNull) {
+          AnonymousAuthState(:final uid) => uid,
+          SignedInAuthState(:final user) => user.uid,
+          _ => null,
+        },
+      ),
+    );
+    final auth = ref.read(authRepositoryProvider);
+    final gatewayUid = auth.currentSession?.uid;
+    return QuizController(
+      ref,
+      isOwnerCurrent: () =>
+          auth.currentSession?.uid == gatewayUid &&
+          (gatewayUid == null || gatewayUid == uid),
+    );
+  },
 );
 
 class QuizController extends StateNotifier<QuizControllerState> {
-  QuizController(this._ref) : super(const QuizIdle());
+  QuizController(this._ref, {bool Function()? isOwnerCurrent})
+      : _isOwnerCurrent = isOwnerCurrent,
+        _container = _ref.container,
+        super(const QuizIdle());
 
   final Ref _ref;
+  final ProviderContainer _container;
+  final bool Function()? _isOwnerCurrent;
+
+  // Read through the container so a pending provider rebuild is observed before
+  // an action can resolve any repositories against the next account's store.
+  bool get _active =>
+      mounted &&
+      identical(_container.read(quizControllerProvider.notifier), this) &&
+      (_isOwnerCurrent?.call() ?? true);
 
   String? _startedSessionId;
   String? _finishedSessionId;
@@ -147,10 +181,12 @@ class QuizController extends StateNotifier<QuizControllerState> {
     int count = 10,
     int? randomSeed,
   }) async {
-    if (!mounted) return;
+    if (!_active) return;
     state = const QuizLoading();
     try {
       final guard = await captureLaunchGuard(examId: examId);
+      if (!_active) return;
+      final sessions = _ref.read(quizSessionRepositoryProvider);
       final startedAt = _ref.read(nowProvider)();
       final session = await _ref.read(startQuickQuizProvider)(
         examId: examId,
@@ -159,7 +195,6 @@ class QuizController extends StateNotifier<QuizControllerState> {
         now: startedAt,
         randomSeed: randomSeed,
       );
-      final sessions = _ref.read(quizSessionRepositoryProvider);
       final created = await sessions.createGuarded(
         sessionId: session.sessionId,
         userId: quizLocalUserId,
@@ -182,9 +217,9 @@ class QuizController extends StateNotifier<QuizControllerState> {
       if (!created || !await guard()) {
         throw StateError('Quick quiz launch is no longer available');
       }
-      state = QuizRunning(session: session, persisted: true);
+      if (_active) state = QuizRunning(session: session, persisted: true);
     } catch (e) {
-      if (mounted) state = QuizFailure(e.toString());
+      if (_active) state = QuizFailure(e.toString());
     }
   }
 
@@ -194,6 +229,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     TodaySessionPlan? plan,
     PreparedTodaySession? prepared,
   }) async {
+    if (!_active) return;
     state = const QuizLoading();
     try {
       final request = QuizPreparationRequest(
@@ -205,6 +241,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
             request,
             prepared: prepared,
           );
+      if (!_active) return;
       switch (result) {
         case QuizLaunchStarted(:final session):
           state = QuizRunning(
@@ -224,13 +261,14 @@ class QuizController extends StateNotifier<QuizControllerState> {
           }
       }
     } catch (e) {
-      state = QuizFailure(e.toString());
+      if (_active) state = QuizFailure(e.toString());
     }
   }
 
   /// Picks up the session already open for this exam. Never creates one: if
   /// there is nothing to resume the panel should not have offered the button.
   Future<void> resumeToday({required ExamId examId}) async {
+    if (!_active) return;
     state = const QuizLoading();
     try {
       final session =
@@ -240,6 +278,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
                   examId: examId,
                 ),
               );
+      if (!_active) return;
       if (session == null) {
         state = const QuizNothingToResume();
         return;
@@ -249,7 +288,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
         persisted: true,
       );
     } catch (e) {
-      state = QuizFailure(e.toString());
+      if (_active) state = QuizFailure(e.toString());
     }
   }
 
@@ -258,7 +297,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
   Future<Future<bool> Function()> captureLaunchGuard({
     required ExamId examId,
   }) =>
-      captureQuizLaunchGuard(_ref, examId: examId, isAlive: () => mounted);
+      captureQuizLaunchGuard(_ref, examId: examId, isAlive: () => _active);
 
   /// One session built from many picked units, each drawing [perUnit] from
   /// its own pool. Distinct from [startDrill], which draws one topic.
@@ -269,11 +308,12 @@ class QuizController extends StateNotifier<QuizControllerState> {
     Map<String, int> countsByUnit = const {},
     Future<bool> Function()? canPersist,
   }) async {
-    if (!mounted) return;
+    if (!_active) return;
     state = const QuizLoading();
     try {
       final guard = canPersist ?? await captureLaunchGuard(examId: examId);
       if (!await guard()) throw StateError('Quiz account changed');
+      if (!_active) return;
       final now = _ref.read(nowProvider)();
       final result = await _ref.read(startPracticeProvider)(
         userId: quizLocalUserId,
@@ -285,6 +325,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
         canPersist: guard,
       );
       if (!await guard()) throw StateError('Quiz account changed');
+      if (!_active) return;
       switch (result) {
         case StartPracticeStarted(:final session):
           state = QuizRunning(
@@ -295,7 +336,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
           state = QuizFailure(message);
       }
     } catch (e) {
-      if (mounted) state = QuizFailure(e.toString());
+      if (_active) state = QuizFailure(e.toString());
     }
   }
 
@@ -305,7 +346,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     SessionOrigin origin = SessionOrigin.drill,
     Future<bool> Function()? canPersist,
   }) async {
-    if (!mounted) return;
+    if (!_active) return;
     state = const QuizLoading();
     try {
       final guard = canPersist ??
@@ -315,6 +356,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
       if (guard != null && !await guard()) {
         throw StateError('Flagged quiz account changed');
       }
+      if (!_active) return;
       final now = _ref.read(nowProvider)();
       final result = await _ref.read(startPracticeProvider).fromQuestionIds(
             userId: quizLocalUserId,
@@ -327,6 +369,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
       if (guard != null && !await guard()) {
         throw StateError('Flagged quiz account changed');
       }
+      if (!_active) return;
       switch (result) {
         case StartPracticeStarted(:final session):
           state = QuizRunning(
@@ -337,14 +380,14 @@ class QuizController extends StateNotifier<QuizControllerState> {
           state = QuizFailure(message);
       }
     } catch (e) {
-      if (mounted) state = QuizFailure(e.toString());
+      if (_active) state = QuizFailure(e.toString());
     }
   }
 
   /// Explicit continuation retains the completed screen until a real next row
   /// commits. A repeated call preserves any pick already made on that row.
   Future<void> continueReviews(QuizSession completed) async {
-    if (!mounted || completed.reviewBatch == null || !completed.isComplete) {
+    if (!_active || completed.reviewBatch == null || !completed.isComplete) {
       throw StateError('Completed Reviews session is unavailable');
     }
     final originalState = state;
@@ -359,7 +402,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
       _ => null,
     };
     bool current() {
-      if (!mounted) return false;
+      if (!_active) return false;
       final visible = state;
       final sameNext = visible is QuizRunning &&
           visible.session.reviewBatch?.batchId == position.batchId &&
@@ -423,6 +466,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     required TopicId topicId,
     int requestedLength = 10,
   }) async {
+    if (!_active) return;
     state = const QuizLoading();
     try {
       final now = _ref.read(nowProvider)();
@@ -433,6 +477,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
         requestedLength: requestedLength,
         now: now,
       );
+      if (!_active) return;
       switch (result) {
         case StartDrillStarted(:final session):
           state = QuizRunning(
@@ -443,11 +488,12 @@ class QuizController extends StateNotifier<QuizControllerState> {
           state = QuizFailure(message);
       }
     } catch (e) {
-      state = QuizFailure(e.toString());
+      if (_active) state = QuizFailure(e.toString());
     }
   }
 
   Future<void> startRetake({required ExamId examId}) async {
+    if (!_active) return;
     state = const QuizLoading();
     try {
       final now = _ref.read(nowProvider)();
@@ -456,6 +502,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
         examId: examId,
         now: now,
       );
+      if (!_active) return;
       switch (result) {
         case StartRetakeStarted(:final session):
           state = QuizRunning(
@@ -466,7 +513,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
           state = QuizFailure(message);
       }
     } catch (e) {
-      state = QuizFailure(e.toString());
+      if (_active) state = QuizFailure(e.toString());
     }
   }
 
@@ -474,6 +521,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     required ExamId examId,
     required LessonId lessonId,
   }) async {
+    if (!_active) return;
     state = const QuizLoading();
     try {
       final now = _ref.read(nowProvider)();
@@ -483,6 +531,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
         lessonId: lessonId,
         now: now,
       );
+      if (!_active) return;
       switch (result) {
         case StartInlineLessonQuizStarted(:final session):
           state = QuizRunning(
@@ -493,7 +542,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
           state = QuizQuestionsUnavailable(message);
       }
     } catch (e) {
-      state = QuizFailure(e.toString());
+      if (_active) state = QuizFailure(e.toString());
     }
   }
 
@@ -501,6 +550,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     required String sessionId,
     required int questionIndex,
   }) {
+    if (!_active) return;
     final s = state;
     if (s is! QuizRunning ||
         s.session.sessionId != sessionId ||
@@ -521,6 +571,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
     required String sessionId,
     required int questionIndex,
   }) {
+    if (!_active) return;
     final s = state;
     if (s is! QuizRunning ||
         s.session.sessionId != sessionId ||
@@ -539,6 +590,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
   }
 
   void pick({required ChoiceId chosenChoiceId}) {
+    if (!_active) return;
     final s = state;
     if (s is! QuizRunning ||
         s.questionShownAt == null ||
@@ -557,6 +609,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
 
   // Retained for the old renderer until its Task 9 removal.
   Future<void> answer({required ChoiceId chosenChoiceId}) async {
+    if (!_active) return;
     final s = state;
     if (s is! QuizRunning) {
       throw StateError('answer() called when controller is not running');
@@ -570,6 +623,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
   }
 
   Future<void> check() async {
+    if (!_active) return;
     final s = state;
     if (s is! QuizRunning ||
         s.checking ||
@@ -600,7 +654,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
         origin: s.session.origin.storageValue,
       );
 
-      if (!mounted) return;
+      if (!_active) return;
       final current = state;
       if (current is! QuizRunning || !identical(current.session, s.session)) {
         return;
@@ -611,7 +665,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
         persisted: s.persisted,
       );
     } catch (_) {
-      if (mounted) {
+      if (_active) {
         final current = state;
         if (current is QuizRunning && identical(current.session, s.session)) {
           state = QuizRunning(
@@ -629,6 +683,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
   /// Leaves the reveal for the next question, or ends the session when the
   /// last one has been answered.
   Future<void> next() async {
+    if (!_active) return;
     final s = state;
     if (s is! QuizRunning) {
       throw StateError('next() called when controller is not running');
@@ -646,7 +701,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
                 persisted: s.persisted,
               );
       // Saving may finish after navigation or a replacement session starts.
-      if (!mounted ||
+      if (!_active ||
           !identical(state, s) ||
           updates.quizRevision != quizRevision) {
         return;
@@ -674,6 +729,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
   /// jumping ahead would skip questions the scheduler has not been told
   /// about.
   Future<void> goTo(int index) async {
+    if (!_active) return;
     final s = state;
     clearQuestionPreparation();
     if (s is! QuizRunning || s.checking) return;
@@ -687,6 +743,7 @@ class QuizController extends StateNotifier<QuizControllerState> {
   }
 
   void reset() {
+    if (!_active) return;
     clearQuestionPreparation();
     state = const QuizIdle();
   }
