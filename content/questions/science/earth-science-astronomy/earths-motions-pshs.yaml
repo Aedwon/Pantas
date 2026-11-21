@@ -1,0 +1,324 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: earths-motions-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-earth-science-astronomy-earths-motions-pshs-0001
+    lesson: lesson-earth-science-astronomy-axial-tilt-and-seasons
+    keyPoint: 1
+    type: predict-outcome
+    difficulty: medium
+    stem: |
+      A globe starts on one side of a lamp that represents the Sun. The
+      globe's north end leans toward the lamp and points toward a distant
+      wall beyond both globe positions. To model Earth's motion six months
+      later, a student moves the globe to the opposite side of the lamp.
+      How should the student set the globe's axis?
+    choices:
+      - text: Keep the same tilt and aim the north end toward the same wall.
+        correct: true
+      - text: Keep the same tilt and aim the north end toward the opposite wall.
+        rationale: |
+          The globe moves to the other side of the lamp, so it may seem that
+          its axis must turn too. Check what the north end points toward in
+          space as Earth moves.
+      - text: Keep the same tilt and turn the north end to lean toward the lamp.
+        rationale: |
+          The lamp may look like the point the axis should follow. Check
+          what distant point Earth's north end keeps facing during its orbit.
+      - text: Set the axis upright so neither end of the axis leans to the side.
+        rationale: |
+          The tilt toward the Sun changes over the year, so it may seem that
+          the globe should lose its tilt. Check how the axis leans from the
+          upright line.
+      - text: Increase the tilt while keeping the north end pointed toward the same wall.
+        rationale: |
+          The difference between seasons may make a bigger tilt seem needed.
+          Check how Earth's angle from upright changes over one orbit.
+    explanation: |
+      Earth's axis stays tilted by about the same amount. Its north end
+      keeps pointing nearly the same way in space. The same wall stands for
+      that direction in the model. On the other side of the lamp, the
+      north end still points toward that wall and now leans away from the lamp.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0002
+    lesson: lesson-earth-science-astronomy-axial-tilt-and-seasons
+    keyPoint: 2
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A class shines the same beam of light on a sheet of paper. The beam
+      covers a small patch when it strikes the sheet steeply and a larger
+      patch when it strikes at a low angle. What does this show about
+      sunlight in the hemisphere tilted away from the Sun?
+    choices:
+      - text: Each bit of ground gets more light because the beam covers more ground.
+        rationale: |
+          A larger bright patch can look like a gain in light. Check how the
+          same beam is shared across the larger patch.
+      - text: Each bit of ground gets less light because the beam spreads out.
+        correct: true
+      - text: Each bit of ground gets the same light because the beam has the same strength.
+        rationale: |
+          The beam itself stays the same, so the light at any spot may seem
+          unchanged. Check how much area shares that beam at each angle.
+      - text: Each bit of ground gets less light because Earth moves farther from the Sun.
+        rationale: |
+          A distant lamp can give weaker light, so distance may seem like
+          the cause. Check what changed between the two trials.
+      - text: Each bit of ground gets less light because the beam shines for less time.
+        rationale: |
+          Shorter days do reduce the time that sunlight can warm the ground.
+          Check whether this setup tests hours of light or how widely it spreads.
+    explanation: |
+      Sunlight hits the hemisphere tilted away at a low angle. The same beam
+      spreads over more ground, so each bit of ground gets less light.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0003
+    lesson: lesson-earth-science-astronomy-latitude-and-daylight
+    keyPoint: 1
+    type: cause-effect
+    difficulty: medium
+    stem: |
+      A student links the Philippines' wet and dry seasons to large swings
+      in the number of daylight hours. Which finding best shows why the
+      student should look for another cause?
+    choices:
+      - text: Daylight lasts much longer through the wet season than through the dry season.
+        rationale: |
+          Rainy days and sunny days can feel very different. Check whether
+          this finding would support the claim of a large change in day length.
+      - text: Daylight hours change little between the wet and dry seasons.
+        correct: true
+      - text: The day with the most rain comes before the longest day of the year.
+        rationale: |
+          Different dates can make the two patterns seem unrelated. Check
+          whether comparing two dates tells how much day length changes.
+      - text: Dark clouds block sunlight on many afternoons in the wet season.
+        rationale: |
+          Heavy clouds can make daylight seem shorter. Check whether clouds
+          change the time between sunrise and sunset.
+      - text: The noon Sun reaches different heights in different months of the year.
+        rationale: |
+          Sun height can affect how strongly the ground warms. Check whether
+          a change in height shows a large change in daylight hours.
+    explanation: |
+      The Philippines is near the equator, where days stay close to the same
+      length all year. Winds and rain patterns do more to shape the wet and
+      dry seasons.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0004
+    lesson: lesson-earth-science-astronomy-solstices-and-equinoxes
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: medium
+    stem: |
+      On the September equinox, two towns far from the equator have nearly
+      equal hours of day and night. One is north of the equator and the other
+      is south. How will their daylight hours on the December solstice
+      compare with their own September equinox records?
+    choices:
+      - text: The northern town gains daylight and the southern town loses it.
+        rationale: |
+          These changes fit a period when the north tilts toward the Sun.
+          Check which half of Earth leans toward the Sun in December.
+      - text: Both towns gain daylight as Earth heads toward the December solstice.
+        rationale: |
+          December brings longer days in the south. It may seem that the
+          whole planet gains daylight. Check how the two halves lean.
+      - text: The northern town loses daylight and the southern town gains it.
+        correct: true
+      - text: Both towns lose daylight as Earth heads toward the December solstice.
+        rationale: |
+          December brings shorter days in the north. The same month may seem
+          to bring shorter days in both places. Check the tilt in the south.
+      - text: Both towns still have nearly equal hours of day and night.
+        rationale: |
+          This fits the first date, when neither half leans toward the Sun.
+          Check whether that is still true at the solstice.
+    explanation: |
+      At the equinox, each town has close to half a day of light. By the
+      December solstice, the north leans away from the Sun and the south
+      leans toward it. The northern day gets shorter and the southern day
+      gets longer.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0005
+    lesson: lesson-earth-science-astronomy-axial-tilt-and-seasons
+    keyPoint: 2
+    type: predict-outcome
+    difficulty: hard
+    stem: |
+      A model Earth has the same tilt as Earth, and its axis keeps pointing
+      the same way. The model travels in a circle with the Sun at its center.
+      A northern town where the Sun rises and sets every day starts on
+      its longest day of the year. What will the town see half an orbit
+      later?
+    choices:
+      - text: Shorter days and sunlight striking at a lower angle at noon.
+        correct: true
+      - text: Shorter days and sunlight striking at a steeper angle at noon.
+        rationale: |
+          You may expect the Sun to shine more steeply during a shorter day.
+          Check how tilting away affects both the time in sunlight and its angle.
+      - text: Longer days and sunlight striking at a shallower angle at noon.
+        rationale: |
+          The lower angle fits a tilt away. It may seem that a day lasts
+          longer when the Sun stays low. Check how long the town is in the light.
+      - text: The same day length and the same noon angle because the distance stays fixed.
+        rationale: |
+          The circle keeps the distance fixed. That might seem to keep the
+          sunlight pattern fixed too. Check which way the north leans after
+          the town travels to the other side of the Sun.
+      - text: The same day length but a lower noon angle as the town tilts away.
+        rationale: |
+          A change in the noon angle is easy to picture. Day length may seem
+          fixed because Earth still turns. Check how much of a turn the town
+          spends in sunlight.
+    explanation: |
+      The town starts on the half of Earth that leans toward the Sun. Half
+      an orbit later, that half leans away. The Sun stays lower at noon, and
+      the town spends less of each turn in daylight.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0006
+    lesson: lesson-earth-science-astronomy-latitude-and-daylight
+    keyPoint: 1
+    type: classify
+    difficulty: hard
+    stem: |
+      On one clear day, a station reports that the Sun is directly overhead
+      at noon. A second station reports that the Sun stays above the
+      horizon all day and all night. Which pair of locations could match
+      these reports?
+    choices:
+      - text: Both stations are within the tropics.
+        rationale: |
+          Strong tropical sunlight may make a day seem very long. Check
+          where daylight can last through an entire night.
+      - text: Both stations are inside the polar circles.
+        rationale: |
+          The Sun can stay up through the night near a pole. Check whether
+          the Sun can ever pass straight overhead inside a polar circle.
+      - text: The first is inside a polar circle and the second is within the tropics.
+        rationale: |
+          Both are unusual sunlight patterns, so it is easy to swap them.
+          Check where the Sun can pass straight overhead and where it can
+          stay up all night.
+      - text: The first is in the tropics and the second is inside a polar circle.
+        correct: true
+      - text: The first is between the tropics and a polar circle and the second is inside a polar circle.
+        rationale: |
+          The Sun climbs high in summer outside the tropics too. Check where
+          it can reach the point straight above an observer.
+    explanation: |
+      The Sun can be straight overhead at noon in the tropics. Inside a
+      polar circle, the Sun can stay up for a whole day and night. The two
+      reports fit those two places.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0007
+    lesson: lesson-earth-science-astronomy-latitude-and-daylight
+    keyPoint: 1
+    type: compare-contrast
+    difficulty: hard
+    stem: |
+      A station at $40^\circ$ N records more daylight in June than in
+      December. The station manager claims that the extra daylight means
+      the Sun must pass directly overhead at noon on some day in June.
+      Which response best evaluates the claim?
+    choices:
+      - text: The claim holds because the Sun passes overhead wherever days grow longer.
+        rationale: |
+          Longer days often come with a higher noon Sun. Check whether
+          higher in the sky means straight overhead.
+      - text: The claim fails because the station lies outside the tropics.
+        correct: true
+      - text: The claim holds because the tropics extend farther north in summer.
+        rationale: |
+          The place where the Sun shines straight down moves over the year.
+          Check whether the northern edge of the tropics moves with it.
+      - text: The claim fails because the noon Sun can be overhead only at the equator.
+        rationale: |
+          The Sun can pass directly overhead at the equator. Check how far
+          north and south it can also pass overhead.
+      - text: The claim fails because the noon Sun is always lower when days are longer.
+        rationale: |
+          A longer day adds time when the Sun is low near sunrise and sunset.
+          Check how high it can climb in the middle of the day.
+    explanation: |
+      Tilting toward the Sun can give the station longer days. The Sun can
+      pass straight overhead only as far north as $23.4^\circ$ N. The station
+      is farther north than that.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0008
+    lesson: lesson-earth-science-astronomy-solstices-and-equinoxes
+    keyPoint: 1
+    type: identify
+    difficulty: hard
+    stem: |
+      A town well north of the equator and south of the Arctic Circle
+      tracks daylight throughout the year in a weather log. A page with no
+      date records the longest day of the year. A later page shows that the
+      warmest weather came several weeks after that day. Which conclusion
+      fits these observations?
+    choices:
+      - text: The page is from the March equinox, and longer spring days warmed the ground.
+        rationale: |
+          The north often warms after March. Check whether the equinox has
+          the most daylight or nearly equal day and night.
+      - text: The page is from the December solstice, and the sea took weeks to warm up.
+        rationale: |
+          December does bring the longest day to one half of Earth. Check
+          which half leans most toward the Sun then.
+      - text: The page is from the June solstice, and land and sea kept warming.
+        correct: true
+      - text: The page is from the September equinox, and the sea kept warming into fall.
+        rationale: |
+          September is a time of seasonal change. Check whether daylight on
+          that date is close to the length of night or at its yearly peak.
+      - text: The page is from July, and the ground kept warming into August.
+        rationale: |
+          July is often warm in the north, so it may seem to have the
+          longest day too. Check when the north gets the most daylight.
+    explanation: |
+      The longest day in the north comes at the June solstice. Land and sea
+      keep warming for a time after that day. The warmest weather can come
+      weeks later.
+
+  - id: q-earth-science-astronomy-earths-motions-pshs-0009
+    lesson: lesson-earth-science-astronomy-solstices-and-equinoxes
+    keyPoint: 1
+    type: process-ordering
+    difficulty: hard
+    stem: |
+      Starting at the December solstice, a class plans to collect three
+      reports in order. It will first record which hemisphere leans most
+      toward the Sun. It will then record where the Sun is directly
+      overhead at noon at the next equinox. Finally, it will record which
+      hemisphere leans most toward the Sun at the next solstice.
+      Which list gives the three reports in order?
+    choices:
+      - text: Southern Hemisphere, equator, Northern Hemisphere
+        correct: true
+      - text: Northern Hemisphere, equator, Southern Hemisphere
+        rationale: |
+          This has the equator for the equinox and changes hemispheres at
+          the solstices. Check which solstice starts the sequence.
+      - text: Southern Hemisphere, equator, Southern Hemisphere
+        rationale: |
+          December favors the south, and the Sun is over the equator at
+          the next equinox. Check which hemisphere leans toward the Sun
+          when Earth reaches the opposite solstice.
+      - text: Southern Hemisphere, south of the equator, Northern Hemisphere
+        rationale: |
+          The south starts out leaning toward the Sun, so that lean may
+          seem to last until June. Check whether either half leans toward
+          the Sun at the equinox.
+      - text: Northern Hemisphere, north of the equator, Southern Hemisphere
+        rationale: |
+          Starting in June and keeping the northward lean until December
+          might seem to fit a change of seasons. Check the starting month
+          and what happens between solstices.
+    explanation: |
+      In December the south leans most toward the Sun. At the next equinox,
+      the noon Sun is straight over the equator. At the June solstice,
+      the north leans most toward the Sun.
