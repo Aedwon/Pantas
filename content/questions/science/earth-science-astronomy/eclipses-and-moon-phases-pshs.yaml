@@ -1,0 +1,210 @@
+meta:
+  subject: science
+  topic: earth-science-astronomy
+  subtopic: eclipses-and-moon-phases-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-earth-science-astronomy-eclipses-and-moon-phases-pshs-0001
+    lesson: lesson-earth-science-astronomy-identifying-moon-phases
+    keyPoint: 1
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      A Moon log shows one-fourth of the visible face lit. Its label reads
+      "quarter moon." Which note correctly updates the label?
+    choices:
+      - text: 'Use crescent because less than half the face is lit.'
+        correct: true
+      - text: 'Keep quarter because the lit part takes up one-fourth of the face.'
+        rationale: |
+          One-fourth is a quarter, so the name sounds right. Check what
+          fraction of the visible face is lit at first or last quarter.
+      - text: 'Use gibbous because more than half the face is in darkness.'
+        rationale: |
+          Most of the face is dark, so the larger part may catch your eye.
+          Check the size of the lit part when you name the shape.
+      - text: 'Use new moon because the face is mostly in darkness.'
+        rationale: |
+          A new moon looks dark, so a mostly dark face may seem close.
+          Check whether you can still see a sunlit part.
+      - text: 'Use waxing crescent because a small lit part is starting to grow.'
+        rationale: |
+          A waxing crescent has a small lit part. One entry shows its size.
+          Check whether the log also tells you that the lit part is growing.
+    explanation: |
+      A crescent has a visible lit part smaller than half the face.
+      One-fourth of the face is lit, so the Moon is a crescent.
+
+  - id: q-earth-science-astronomy-eclipses-and-moon-phases-pshs-0002
+    lesson: lesson-earth-science-astronomy-moon-phase-cycle
+    keyPoint: 1
+    type: 'cause-effect'
+    difficulty: 'medium'
+    stem: |
+      A lamp across the room stands in for the Sun. A student holds a ball
+      at arm's length and turns in place, keeping the ball out of her
+      shadow. The ball goes from mostly dark to mostly lit in her view.
+      What causes the change she sees?
+    choices:
+      - text: 'She sees more of the half lit by the lamp.'
+        correct: true
+      - text: 'The lamp lights a larger share of the whole ball.'
+        rationale: |
+          More of the ball looks bright to her, so it may seem like the
+          lamp lights more of it. The lamp lights about half the ball the
+          whole time. How much of that lit half can she see before and after
+          she turns?
+      - text: 'Her body stops blocking the lamp as the ball moves.'
+        rationale: |
+          A shadow could darken the ball if she stood in the light's path.
+          Check where she kept the ball during the demonstration.
+      - text: 'The same part of the ball grows brighter as it moves.'
+        rationale: |
+          Mostly lit can sound like brighter light. Check whether she saw a
+          change in the size of the lit part or in how bright that part was.
+      - text: 'The ball starts to give off more light as it moves.'
+        rationale: |
+          The ball may look like it is glowing as more of it comes into
+          view. Check where the light that hits the ball comes from.
+    explanation: |
+      The lamp lights the half of the ball facing it. As the ball moves
+      around the student, she sees more of that lit half. From Earth, we see
+      the lit part of the Moon change in the same way as the Moon orbits us.
+
+  - id: q-earth-science-astronomy-eclipses-and-moon-phases-pshs-0003
+    lesson: lesson-earth-science-astronomy-identifying-moon-phases
+    keyPoint: 2
+    type: 'classify'
+    difficulty: 'medium'
+    stem: |
+      Lino tracks the dark part of the Moon's visible face. It gets larger
+      each night until the face is half dark and half lit. What phase does
+      Lino see on the night the two parts are equal?
+    choices:
+      - text: 'Last quarter'
+        correct: true
+      - text: 'First quarter'
+        rationale: |
+          First quarter is also half lit. It would fit if the lit part were
+          getting larger. Check which part Lino says is growing.
+      - text: 'Waning gibbous'
+        rationale: |
+          The lit part of a waning gibbous Moon is shrinking.
+          Check whether the lit part still covers more than half the face.
+      - text: 'Waning crescent'
+        rationale: |
+          A waning crescent follows last quarter, so it fits the direction
+          of the change. Check whether the lit part is smaller than half yet.
+      - text: 'Waxing crescent'
+        rationale: |
+          A crescent can have a large dark part, so the name may seem to fit
+          Lino's focus on darkness. Check which part grows when the Moon waxes
+          and how much of the face is lit at the end.
+    explanation: |
+      As the dark part grows, the lit part shrinks. A half-lit Moon with a
+      shrinking lit part is at last quarter.
+
+  - id: q-earth-science-astronomy-eclipses-and-moon-phases-pshs-0004
+    lesson: lesson-earth-science-astronomy-moon-phase-cycle
+    keyPoint: 2
+    type: 'process-ordering'
+    difficulty: 'hard'
+    stem: |
+      A class records the Moon as a crescent, then misses several nights.
+      By the next clear night, the class sees a crescent again. During
+      the gap, the Moon's sunlit half faced away from Earth. Which sequence
+      fits the class record?
+    choices:
+      - text: 'Waning crescent, new moon, waxing crescent'
+        correct: true
+      - text: 'Waxing crescent, new moon, waning crescent'
+        rationale: |
+          Both phases are crescents near new moon, so swapping them may
+          seem fine. Check when the lit part shrinks and when it grows.
+      - text: 'Waning crescent, last quarter, waxing crescent'
+        rationale: |
+          Last quarter is near a waning crescent in the cycle. Check which
+          one comes first and which phase must pass before waxing starts.
+      - text: 'Waning crescent, full moon, waxing crescent'
+        rationale: |
+          Full moon is when the lit part stops growing, so it may seem
+          like the place where direction changes. Check which direction
+          comes first here and which phase ends it.
+      - text: 'Waxing crescent, first quarter, waning crescent'
+        rationale: |
+          First quarter does follow waxing crescent. Check whether the
+          lit part starts shrinking at first quarter or keeps growing.
+    explanation: |
+      At new moon, the sunlit half faces away from Earth. The crescent
+      gets thinner before new moon, so it is waning. The lit part grows
+      again after new moon, so the next crescent is waxing.
+
+  - id: q-earth-science-astronomy-eclipses-and-moon-phases-pshs-0005
+    lesson: lesson-earth-science-astronomy-identifying-moon-phases
+    keyPoint: 2
+    type: 'compare-contrast'
+    difficulty: 'hard'
+    stem: |
+      Mara and Joel keep Moon logs on different dates. Mara first sees a
+      Moon that is less than half lit. Joel first sees a full moon. A few
+      days later in each log, more than half of the Moon's face is lit and
+      part of it is still dark. The lit part changes in only one direction
+      in each log. How do their final phases compare?
+    choices:
+      - text: 'Mara sees a waxing phase, and Joel sees a waning phase.'
+        correct: true
+      - text: 'Mara sees a waning phase, and Joel sees a waxing phase.'
+        rationale: |
+          Looking from the last entry back to the first makes Mara's lit part
+          seem to shrink and Joel's seem to grow. Read each log in date order.
+      - text: 'Both see a waxing phase because more than half of each face is lit.'
+        rationale: |
+          More than half lit can look like a sign of growth. Check whether
+          Joel now sees more or less light on the face than at full moon.
+      - text: 'Both see a waning phase because some of each face is still dark.'
+        rationale: |
+          A dark part can look like a sign that the lit part shrank. Check
+          whether the lit part in Mara's set grew from its earlier size.
+      - text: 'Their phases cannot be compared because each saw the same final shape.'
+        rationale: |
+          The final shape alone leaves both directions open. Check what the
+          earlier view in each set tells you about how the lit part changed.
+    explanation: |
+      Mara goes from less than half lit to more than half lit, so her Moon
+      is waxing. Joel sees less of the lit part than he saw at full moon,
+      so his Moon is waning.
+
+  - id: q-earth-science-astronomy-eclipses-and-moon-phases-pshs-0006
+    lesson: lesson-earth-science-astronomy-moon-phase-cycle
+    keyPoint: 2
+    type: 'simple-quantitative'
+    difficulty: 'hard'
+    stem: |
+      A student logs a new moon, misses the next one, and logs the new moon
+      after that. The two entries are 59 days apart. How should the student
+      use the entries to estimate the length of one phase cycle?
+    choices:
+      - text: 'Divide 59 days by two.'
+        correct: true
+      - text: 'Divide 59 days by three.'
+        rationale: |
+          Three new moons occur from the first entry through the last.
+          Check how many gaps there are between those three new moons.
+      - text: 'Use all 59 days as one cycle.'
+        rationale: |
+          One cycle does begin and end at new moon, so using both entries
+          may seem right. Check for a new moon between the entries.
+      - text: 'Multiply 59 days by two.'
+        rationale: |
+          There are two cycles in the time shown, which can make you
+          think of multiplying by two. Check whether one cycle should
+          take more or less time than both cycles together.
+      - text: 'Divide 59 days by four.'
+        rationale: |
+          Each cycle has a new moon and a full moon, so it may seem like
+          both should count. From one new moon to the next, check whether
+          the full moon ends a cycle or falls inside it.
+    explanation: |
+      From the first new moon to the missed one is one cycle. From the
+      missed new moon to the last one is another cycle. Divide 59 days
+      by two to get 29.5 days for one cycle.
