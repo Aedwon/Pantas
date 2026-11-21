@@ -288,6 +288,7 @@ test('review: a dry run against an existing bank writes nothing and reports the 
   const items = bank().map(i => i.id === 'lesson-algebra-b' ? lessonItem({_id: 'lesson-algebra-b', topic: 'topic-algebra', ordering: 7}, 'b2') : i);
   const result = await writeContent(db, items, [], {dryRun: true});
   assert.equal(result.summaries, 'written');
+  assert.equal(result.bankChanges, 1);
   assert.deepEqual(db.stats.writes, []);
 });
 

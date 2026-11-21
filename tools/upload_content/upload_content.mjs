@@ -10,7 +10,8 @@
 // The approval gate and lesson checks run before document construction in every mode, including --dry-run,
 // --live, --out-dir and emulator runs. --skip-invalid does not bypass it.
 // --out-dir DIR writes every document to files and touches no database.
-// Without FIRESTORE_EMULATOR_HOST the tool refuses to write unless --live is given.
+// Without FIRESTORE_EMULATOR_HOST the tool refuses to write unless --live is given; --dry-run --live
+// reads the live project to plan and writes nothing.
 // Build the functions first (npm --prefix functions run build): this reads functions/lib.
 import {existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, statSync, writeFileSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
@@ -180,7 +181,9 @@ if (outDir) {
   process.exit(0);
 }
 
-if (dryRun && !process.env.FIRESTORE_EMULATOR_HOST) {
+// --dry-run --live plans against the live project: it reads every stored version (about 1,500 reads) and
+// writes nothing. Count those reads before running it (docs/deploy-prod.md, "Count before every hosted run").
+if (dryRun && !process.env.FIRESTORE_EMULATOR_HOST && !live) {
   console.log('dry run: no database was read or written');
   process.exit(0);
 }
@@ -188,4 +191,4 @@ const {initializeApp} = require('firebase-admin/app');
 const {getFirestore} = require('firebase-admin/firestore');
 initializeApp({projectId: option('--project', process.env.GCLOUD_PROJECT ?? 'demo-pantas-test')});
 const result = await writeContent(getFirestore(), items, pros, {dryRun});
-console.log(`${dryRun ? 'dry run: would write' : 'wrote'} ${JSON.stringify(result.counts)}, pro documents changed: ${result.proWritten}, exam summaries: ${result.summaries}`);
+console.log(`${dryRun ? 'dry run: would write' : 'wrote'} ${JSON.stringify(result.counts)}, pro documents changed: ${result.proWritten}, lesson and question-set changes: ${result.bankChanges}, exam summaries: ${result.summaries}`);

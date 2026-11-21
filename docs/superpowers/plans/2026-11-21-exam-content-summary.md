@@ -112,3 +112,21 @@ Builder environment note: run `npm ci` in `functions/` and at the repo root befo
    start a Firebase app on load, which broke the upload tool once `contentUpload.ts` imported it. A test
    now loads the upload module and starts its own app (failed on the broken import first).
    `_examContent.ts` re-exports the moved names, so no other caller changed.
+
+## Staging proof: pre-run count (rule 7, written before the run, Nov 22 00:40 UTC)
+
+Already used on pantas-staging this quota day (since Nov 21 08:00 UTC, live check): 0 reads, 0 writes;
+Hosting egress last 24 hours 0 MiB. Budget: 40,000 reads, 16,000 writes, 288 MB egress.
+
+| Step | Reads | Writes | Egress |
+|---|---|---|---|
+| Functions deploy from this branch (pinned CLI), then staging image cleanup | 0 | 0 | 0 |
+| Live plan first (`--dry-run --live`, added on this branch: reads only) | about 1,482 | 0 | 0 |
+| Content upload, live, the tree prod serves (`content/cet-bite-r1` d97de9415 plus main's `content/mock/acet.yaml`, `content/exams/custom_subject_tiers.json`, `content/illustrations/sources/pantas.yaml`): version scans of 5 kinds plus the marker | about 1,482 | about 15 (marker twice, 8 to 10 summaries, up to 3 catalog documents) | 0 |
+| Summary check on staging data with this branch's loader (8 exams, 2 reads each plus parts) and one bank scan for parity | about 1,480 | 0 | 0 |
+| Deployed check: one throwaway account with a short-lived debug token, then exam settings save, roadmap, mock setup preview and mock start | up to 400 | up to 40 | 0 |
+| Total, with 50% margin | **about 7,300** | **about 85** | **0** |
+
+Expected day total: about 7,300 reads (18% of the budget). Go. Stop rule: if the live plan shows any
+lesson or question-set create or update, do not upload; report instead (staging would then differ from
+prod).

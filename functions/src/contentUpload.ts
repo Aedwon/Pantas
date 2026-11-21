@@ -315,7 +315,7 @@ export type SummaryResult = 'written' | 'unchanged' | 'partial' | 'not touched';
  * unless `--live` is given.
  */
 export async function writeContent(db: Firestore, items: ContentItem[], pros: ProItem[],
-  options: {dryRun?: boolean}): Promise<{counts: PlanCounts; proWritten: number; summaries: SummaryResult}> {
+  options: {dryRun?: boolean}): Promise<{counts: PlanCounts; proWritten: number; summaries: SummaryResult; bankChanges: number}> {
   const existing = new Map<string, string>();
   for (const kind of ['lessons', 'questions', 'mocks', 'catalog', 'gaps'] as const) {
     const snapshot = await db.collection(`content/${kind}/items`).select('version').get();
@@ -377,5 +377,5 @@ export async function writeContent(db: Firestore, items: ContentItem[], pros: Pr
       await commitAll([{ref: markerRef, data: {bankVersion: `partial:${Date.now()}`}}]);
     }
   }
-  return {counts, proWritten: proChanged.length, summaries};
+  return {counts, proWritten: proChanged.length, summaries, bankChanges: changed.filter((item) => BANK_KINDS.has(item.kind)).length};
 }
