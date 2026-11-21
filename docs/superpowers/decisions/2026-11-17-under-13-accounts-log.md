@@ -273,3 +273,15 @@ Lead rulings on the five findings the fixer returned (Fable was not consulted, t
 - F9, lost setup response: retry on the current screen only. The client sends an attempt id held in memory; the server stores it on the child entry and returns that child's session for the same holder and attempt instead of creating another child. After a reload or on a new device, the parent signs in and opens the child from the existing list, which needs no code.
 
 Found while merging: the build branch CI was already red at f9c1a70e6 (12 Flutter tests: the index layout test, the no-FCM-token legal scope test, the notification permission rationale design sheets; and the design lint on `child_step_frame.dart`). These are fixed before T13.
+
+## Lead rulings for T9 (Nov 22)
+
+- The guardian code gate (board 8A) is built in T9, not T10, because withdraw and delete need it. It is shared by every guarded action.
+- Code gate: Aedwon's "use the same code interface for beta login" means the beta sign-in code step 1:1, including its page and box surface, the success beat and the resend cooldown line ("Didn't get it? You can resend in M:SS."). The board's title, body and DPO line stay.
+- Copy settled under rule 4: action words "withdrawal" and "deletion"; "Too many wrong tries. Send a new code."; "This code has expired. Send a new code."; "You have reached today's code limit. Try again tomorrow, or write to dpo@pantas.study for another way to verify."; the data copy dialog ("Get a copy of your child's data", "Write to dpo@pantas.study from the email you used to set up this account. We will check it is you and send the copy.", "Got It"); close failure "We could not close this account. Try again, or write to dpo@pantas.study."; "This link is for another account. Sign in with the email that set up this child."; "your child" when the server returns no nickname.
+- "Get a copy of your child's data" routes to the data protection officer, since the export callable is a stub (spec B2 rule 12). No code is asked on that route because nothing is released in the app.
+- For parents shows only when the resolved age group is child (hidden while loading, on error and when unrecognized); parent controls are not a restriction.
+- For parents is reachable on wide web in the existing wide Settings pattern, since the child path is web only. No board covers wide web.
+- Closing a child also deletes its on-device study store.
+- Board 4B decides the For parents group and its line. The rest of Settings keeps its approved layout. On a child account, the Switch Child row with the nickname (board ST4B, built in T10) replaces the profile card, which otherwise reads "Not signed in" for an emailless child.
+- The receipt's delete link (`/parents/delete?child=`): in that child's session it opens the delete confirm; otherwise the parent signs in first (T8 screen), then sees the same confirm; another account gets the wrong-account notice.
