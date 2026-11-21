@@ -1,0 +1,367 @@
+meta:
+  subject: reading-comprehension
+  topic: text-types
+  subtopic: visual-media-pshs
+  exams: [pshs-nce]
+
+questions:
+  - id: q-text-types-visual-media-pshs-0001
+    lesson: lesson-text-types-matching-table-rows-and-columns
+    keyPoint: 1
+    type: feature-of-form
+    difficulty: medium
+    stem: |
+      The table gives practice measurements for three trays. Which statement
+      correctly compares the amounts added to the two trays named?
+
+      $\begin{array}{l|r|r}
+      \text{Tray}&\text{Added (mL)}&\text{Drained (mL)}\\ \hline
+      \text{Sand}&30&24\\
+      \text{Soil}&27&18\\
+      \text{Gravel}&28&32
+      \end{array}$
+    choices:
+      - text: Sand received 3 mL more than soil.
+        correct: true
+      - text: Sand received 6 mL more than soil.
+        rationale: |
+          Six is the gap between the two values in the sand row. Both values
+          describe sand. Use the Added column for both trays.
+      - text: Sand received 3 mL less than soil.
+        rationale: |
+          Three is the right gap, so this can look right. Check which tray
+          has the larger entry in the Added column.
+      - text: Sand received 12 mL more than soil.
+        rationale: |
+          Twelve comes from comparing 30 with 18. Both rows are right.
+          Check which column holds the 18.
+      - text: Sand received 3 L more than soil.
+        rationale: |
+          The gap is three, so the number looks right. Check the unit in
+          the Added heading.
+    explanation: |
+      In the Added column, sand has 30 mL and soil has 27 mL.
+      Sand received $30-27=3$ mL more.
+
+  - id: q-text-types-visual-media-pshs-0002
+    lesson: lesson-text-types-reading-bar-chart-scales
+    keyPoint: 1
+    type: feature-of-form
+    difficulty: medium
+    stem: |
+      The chart gives the amounts on five sample orders for a school fair.
+      Which pair has the second-highest and second-lowest amounts, in that order?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [Rice, Juice, Bread, Fruit, Eggs]
+      values: [50, 90, 60, 40, 70]
+      yAxis:
+        label: Order amount (pesos)
+    choices:
+      - text: Eggs, rice
+        correct: true
+      - text: Juice, fruit
+        rationale: |
+          These bars are the easiest to spot because they are the tallest
+          and shortest. Look one place in from each end of the ranking.
+      - text: Rice, eggs
+        rationale: |
+          Both items are one place in from an end of the ranking. Check
+          which item comes second when you start with the greatest value.
+      - text: Juice, bread
+        rationale: |
+          These are second and third from the left. That order is easy
+          to follow. Sort the amounts before picking the pair.
+      - text: Bread, rice
+        rationale: |
+          Rice is right for the second-lowest amount. Bread is above
+          rice, so it may look like the other choice. Check how many
+          bars reach higher than bread.
+    explanation: |
+      From greatest to least, the orders are juice at 90 pesos, eggs at
+      70, bread at 60, rice at 50, and fruit at 40. Eggs are second from
+      the top. Rice is second from the bottom.
+
+  - id: q-text-types-visual-media-pshs-0003
+    lesson: lesson-text-types-reading-line-chart-changes
+    keyPoint: 1
+    type: feature-of-form
+    difficulty: medium
+    stem: |
+      The graph shows a sample record of the water level in a tub. Starting
+      on which day did the level fall the next day and rise above its
+      starting height the day after that?
+    figureSpec:
+      kind: chart
+      type: line
+      labels: [Mon, Tue, Wed, Thu, Fri, Sat, Sun]
+      values: [50, 60, 45, 55, 50, 65, 55]
+      yMin: 40
+      yAxis:
+        label: Water level (cm)
+    choices:
+      - text: Thursday
+        correct: true
+      - text: Monday
+        rationale: |
+          The first two segments go in different directions. Check their
+          order. The Monday to Tuesday segment rises before the line falls.
+      - text: Tuesday
+        rationale: |
+          The level falls on Wednesday and rises on Thursday. That fits
+          the order. Compare Thursday's point with Tuesday's point to
+          see whether it rose far enough.
+      - text: Wednesday
+        rationale: |
+          Friday is higher than Wednesday, so the end fits. Check which
+          direction the line moves first after Wednesday.
+      - text: Friday
+        rationale: |
+          Sunday ends higher than Friday, so the end fits. Follow the
+          line through Saturday to see which direction it moves first.
+    explanation: |
+      Start at Thursday. The level is lower on Friday. The Saturday
+      point is higher than the Thursday point, so the rise goes past
+      the starting height.
+
+  - id: q-text-types-visual-media-pshs-0004
+    lesson: lesson-text-types-matching-table-rows-and-columns
+    keyPoint: 1
+    type: feature-of-form
+    difficulty: hard
+    stem: |
+      A practice log lists the weights of paper and cans collected on two days.
+      The weights are in kilograms. Which team collected less paper than
+      cans on both days?
+
+      $\begin{array}{l|r|r|r|r}
+      &\text{Tue}&\text{Tue}&\text{Wed}&\text{Wed}\\
+      \text{Team}&\text{Paper}&\text{Cans}&\text{Paper}&\text{Cans}\\ \hline
+      \text{Acacia}&18&24&30&27\\
+      \text{Bamboo}&28&27&18&24\\
+      \text{Narra}&24&27&28&32\\
+      \text{Balete}&30&27&32&28\\
+      \text{Molave}&18&24&27&27
+      \end{array}$
+    choices:
+      - text: Narra
+        correct: true
+      - text: Acacia
+        rationale: |
+          Acacia did collect less paper on Tuesday. Both days matter.
+          Check which entry is greater in its Wednesday pair.
+      - text: Bamboo
+        rationale: |
+          Bamboo fits on Wednesday. Its Tuesday weights are close,
+          so reread the two Tuesday entries in column order.
+      - text: Balete
+        rationale: |
+          Balete shows the same pattern on both days. Check which
+          material weighs less in each pair.
+      - text: Molave
+        rationale: |
+          Molave fits on Tuesday and its paper weight stays at or below
+          its can weight. Check whether the Wednesday entries are equal.
+    explanation: |
+      In the Narra row, 24 kg of paper is less than 27 kg of cans on
+      Tuesday. On Wednesday, 28 kg of paper is less than 32 kg of cans.
+
+  - id: q-text-types-visual-media-pshs-0005
+    lesson: lesson-text-types-reading-bar-chart-scales
+    keyPoint: 2
+    type: purpose-of-device
+    difficulty: hard
+    stem: |
+      Both charts show the same practice totals for two teams. How many
+      times as long is Yellow's bar as Blue's in the chart that starts at 80?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [Blue, Yellow]
+      values: [82, 86]
+      compareZero: true
+    choices:
+      - text: "3"
+        correct: true
+      - text: "4"
+        rationale: |
+          Four is the gap between the totals. The gap is real.
+          Find each drawn length and divide to compare them.
+      - text: "6"
+        rationale: |
+          Six is Yellow's drawn length from 80. Use it as the first step.
+          Check how many Blue bar lengths fit into it.
+      - text: About 1.05
+        rationale: |
+          Dividing 86 by 82 compares the totals. That fits the chart
+          starting at zero. Subtract 80 from each total first.
+      - text: One third
+        rationale: |
+          This compares the two drawn lengths with the shorter one first.
+          Both lengths use the correct scale. Put Yellow's length on top.
+    explanation: |
+      At 80, the Yellow bar is $86-80=6$ units long and the Blue bar is
+      $82-80=2$ units long. Yellow's bar is $6\div2=3$ times as long.
+
+  - id: q-text-types-visual-media-pshs-0006
+    lesson: lesson-text-types-reading-line-chart-changes
+    keyPoint: 1
+    type: feature-of-form
+    difficulty: hard
+    stem: |
+      The chart shows a practice record of water depth. The bottom line is
+      40 cm, and each step between horizontal lines is 5 cm. How did the
+      depth change from 9 a.m. to noon?
+    figureSpec:
+      kind: chart
+      type: line
+      labels: ['8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', Noon]
+      values: [45, 55, 50, 60, 50]
+      yMin: 40
+      yAxis:
+        label: Water depth (cm)
+    choices:
+      - text: It fell by 5 cm.
+        correct: true
+      - text: It rose by 5 cm.
+        rationale: |
+          Five is the gap between the two points. Check which point
+          comes later and whether it is above or below the earlier one.
+      - text: It fell by 10 cm.
+        rationale: |
+          This uses the sharp drop right before noon. That drop is easy
+          to spot. Start at 9 a.m. to find the full change asked for.
+      - text: It fell by 15 cm.
+        rationale: |
+          This counts both drops. Each drop is part of the record.
+          Include the rise between them when finding the full change.
+      - text: It rose by 10 cm.
+        rationale: |
+          The noon point is 10 cm above the bottom line. That line helps
+          you read the level. Compare noon with the point at 9 a.m.
+    explanation: |
+      The 9 a.m. point is three 5 cm steps above 40 cm, at 55 cm.
+      Noon is two steps above 40 cm, at 50 cm. The depth fell by
+      $55-50=5$ cm.
+
+  - id: q-text-types-visual-media-pshs-0007
+    lesson: lesson-text-types-matching-table-rows-and-columns
+    keyPoint: 1
+    type: feature-of-form
+    difficulty: exam
+    stem: |
+      The table is a practice record for a seed sale. Which statement
+      correctly compares the price gap between the small and large packets?
+
+      $\begin{array}{l|r|r}
+      \text{Seeds}&\text{Small (pesos)}&\text{Large (pesos)}\\ \hline
+      \text{Pechay}&18&30\\
+      \text{Okra}&24&32\\
+      \text{Sitaw}&27&28
+      \end{array}$
+    choices:
+      - text: Pechay has the largest gap.
+        correct: true
+      - text: Okra has the largest gap.
+        rationale: |
+          Okra has the highest large-packet price. That price can
+          draw your eye. Subtract the small price in the same row.
+      - text: Sitaw has the largest gap.
+        rationale: |
+          Sitaw has the highest small-packet price. That is only one
+          of its prices. Compare the differences across rows.
+      - text: Okra's gap is 2 pesos more than pechay's.
+        rationale: |
+          Two is the difference between their large prices. Both rows
+          are needed. Find the gap within each row before comparing.
+      - text: Sitaw's gap is 3 pesos more than okra's.
+        rationale: |
+          Small sitaw packets cost $27-24=3$ pesos more than small okra
+          packets. To find each gap, subtract the small price from the
+          large price in the same row.
+    explanation: |
+      The large price minus the small price gives 12 pesos for pechay
+      ($30-18$), 8 for okra ($32-24$), and 1 for sitaw ($28-27$).
+      Pechay has the largest gap.
+
+  - id: q-text-types-visual-media-pshs-0008
+    lesson: lesson-text-types-reading-bar-chart-scales
+    keyPoint: 2
+    type: purpose-of-device
+    difficulty: exam
+    stem: |
+      Two charts show sample scores. Green's bar looks much longer than
+      Red's in the left chart. How many points separate the scores in the
+      left chart and in the right chart, in that order?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [Red, Green]
+      values: [84, 88]
+      compareZero: true
+    choices:
+      - text: 4 points, 4 points
+        correct: true
+      - text: 8 points, 4 points
+        rationale: |
+          The right gap is 4. On the left, Green's bar extends 8 points
+          above 80. Measure the gap from the top of Red's bar.
+      - text: 8 points, 8 points
+        rationale: |
+          The 8-point span from 80 to Green's score looks like a gap
+          you could use for both charts. Subtract Red's score from
+          Green's score in each chart.
+      - text: 8 points, 88 points
+        rationale: |
+          These are the lengths of Green's bars on the two scales.
+          To find the score gap, use the tops of both bars in each chart.
+      - text: 2 points, 2 points
+        rationale: |
+          Green's bar is twice as long as Red's on the left. That 2
+          comes from dividing the lengths. Subtract the scores in
+          each chart to find the gaps.
+    explanation: |
+      Both charts label Red at 84 and Green at 88. The score gap is
+      $88-84=4$ points in each chart. Starting at 80 makes the lengths
+      4 and 8, so Green's bar looks twice as long on the left.
+
+  - id: q-text-types-visual-media-pshs-0009
+    lesson: lesson-text-types-reading-line-chart-changes
+    keyPoint: 1
+    type: feature-of-form
+    difficulty: exam
+    stem: |
+      The chart shows how much water is in a container at five checks. The
+      fourth check is at 60 L. The horizontal lines are 5 L apart. Which
+      of these intervals ends with 10 L less water than it started with?
+    figureSpec:
+      kind: chart
+      type: line
+      labels: ['Check 1', 'Check 2', 'Check 3', 'Check 4', 'Check 5']
+      values: [65, 45, 55, 60, 50]
+      yMin: 45
+      yAxis:
+        label: Water (L)
+    choices:
+      - text: Check 1 to check 3
+        correct: true
+      - text: Check 1 to check 2
+        rationale: |
+          This picks the large first drop. The line does fall. Count
+          the full height of the drop before choosing.
+      - text: Check 2 to check 3
+        rationale: |
+          These points are 10 L apart. That matches the size. Read them
+          in order to see whether the amount rises or falls.
+      - text: Check 1 to check 5
+        rationale: |
+          This uses the whole record because the question asks for a
+          net change. Compare the first and last readings to check its size.
+      - text: Check 3 to check 5
+        rationale: |
+          The line falls 10 L just before check 5. That drop fits the size.
+          Include the rise from check 3 to check 4 when finding the net loss.
+    explanation: |
+      Check 1 is one 5 L step above check 4, at 65 L. Check 3 is one
+      step below check 4, at 55 L. The net loss is $65-55=10$ L.
