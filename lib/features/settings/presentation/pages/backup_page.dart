@@ -30,7 +30,8 @@ String backupLabel(
     return 'Backing up';
   }
   if (status is SyncOffline) return 'Offline';
-  // M4b: the server paused this account's sync for today; nothing to retry until it ends.
+  // M4b: the server paused this account's sync; nothing to retry until the
+  // pause ends.
   if (status is SyncPaused) return 'Paused';
   if (failed ||
       status is SyncError ||
