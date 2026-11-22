@@ -107,9 +107,11 @@ A change with no board goes to Aedwon as Claude Design options first (rule 3).
 
 | Level | Scope | Lead estimate (active) | Wall time |
 |---|---|---|---|
-| Minimal | His six findings (1, 2 after his pick, 3, 5, 6) and the launch items above; S17 to S21 | 1.5 days | 3 days |
-| **Balanced (recommended)** | Minimal, plus the save and sync items a CSE web student can hit (S1, S3, S5, S6, S10) and every web major in UI (U5, U17, U18, U20, U44, U45, U68 to U70, U74), plus C1 | 3 days | 5 working days |
-| Hardened | Balanced, plus all 76 minors, native-phone-only items, and the server and sync defensive fixes (S7 to S9, S11 to S16) | 6 days | 8 to 10 working days |
+| Minimal | His six findings (1, 2 after his pick, 3, 5, 6) and the launch items above; S17 to S21; legal gates D1, D2 and D3, D7 | 4 days | 5 working days |
+| **Balanced (recommended)** | Minimal, plus the save and sync items a CSE web student can hit (S1, S3, S5, S6, S10) and every web major in UI (U5, U17, U18, U20, U44, U45, U68 to U70, U74) | 5.5 days | 7 working days |
+| Hardened | Balanced, plus all 76 minors, native-phone-only items, the server and sync defensive fixes (S7 to S9, S11 to S16), and C1 | 8.5 days | 10 to 12 working days |
+
+Revised Nov 22 to add the legal launch gates ruled that day (`docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md`, "Nov 22, legal package D1 to D8"): D1 delete the under-18 record when a guardian request fails (0.5 day), D2 and D3 the Pro checkout declaration, policy link and seller line (1.5 days; his tick or no-tick pick is on the CSE Release Picks board), D7 trial-code dates with a 730-day expiry (0.5 day). D1 and D7 are server-only and run beside the UI work. C1 moved to hardened: the manager ruled the audit tool does not gate launch.
 
 Estimates are uncalibrated for this kind of work; recent velocity rows ran 0.1 to 0.6 of the
 estimate. Wall time includes CI, the one-Flutter-job machine cap, Codex weekly room (about 7%
