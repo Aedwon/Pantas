@@ -121,7 +121,10 @@ Expected day total: well under every budget. Go.
 - Prod ship: the same method with the files `app.pantas.study` serves, then `compare.mjs`; rollback is a
   redeploy of the previous Worker version (`wrangler rollback`).
 3. Worker headers (prod), ordering (manager, Nov 22): if Aedwon approves both, the CSE release QA lead's web
-   ship (build 2026318751) goes first. The QA lead tells this lane when its Worker deploy is checked; this lane
-   then copies the files the prod Worker serves at that moment, deploys only `_headers`, `worker.mjs` and its
-   config, and runs `compare.mjs` (every path must match the QA build). Until PR #84 is merged to main, any
+   ship (build 2026318751-32e9b98f07ec, main 47ac60058) goes first. The QA lead tells this lane when its Worker
+   deploy is checked (live build id and Worker version); this lane then runs `deploy.sh prod
+   /Users/aedwon/.t3/worktrees/Pantas/prod-web-47ac600/build/web` (the QA lead's unchanged build folder; read only,
+   nothing downloaded), runs `compare.mjs` against that folder, and sends the QA lead its Worker version. The QA
+   lead's rollback (Worker fc99d322-c623-4dc0-9c7b-67761bc8c216, Hosting 5ef0949e785c7c87) would drop the headers,
+   so the QA lead warns this lane before using it. Until PR #84 is merged to main, any
    later Worker deploy must come from a tree that includes this branch, or this lane re-applies.
