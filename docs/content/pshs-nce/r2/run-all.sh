@@ -8,4 +8,5 @@ pinned; $D/d21/run.sh >> $ST/d21.log 2>&1; e=$?; (( e == 0 )) || { echo "STOP d2
 for i in 5 1 2 3 4; do
   pinned; $D/run-lane.sh $D/lane$i.txt >> $ST/lane$i.log 2>&1; e=$?; (( e == 0 )) || { echo "STOP lane $i exit $e"; exit $e; }
 done
+pinned; $D/run-leadfix.sh >> $ST/leadfix.log 2>&1; e=$?; (( e == 0 )) || { echo "STOP leadfix exit $e"; exit $e; }
 echo "ALL DONE"
