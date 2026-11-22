@@ -7,6 +7,7 @@
 // test/tool/checks/, and a line in allChecks.
 import 'dart:io';
 
+import 'analytics_never_blocks.dart';
 import 'bold_stem.dart';
 
 import 'check.dart';
@@ -21,6 +22,7 @@ import 'lesson_size_check.dart';
 import 'lesson_split_coverage_check.dart';
 import 'letter_shortcut_gate.dart';
 import 'mock_blueprint_topics.dart';
+import 'question_id_limits.dart';
 import 'shell_route_push.dart';
 import 'sync_mutations_typed_read.dart';
 
@@ -39,6 +41,8 @@ const allChecks = <Check>[
   CustomSubjectTiersCheck(),
   LetterShortcutGateCheck(),
   LegalTextDraftingCheck(),
+  AnalyticsNeverBlocksCheck(),
+  QuestionIdLimitsCheck(),
 ];
 
 void main() {
