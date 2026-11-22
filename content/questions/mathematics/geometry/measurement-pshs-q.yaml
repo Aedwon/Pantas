@@ -1,0 +1,530 @@
+meta:
+  subject: mathematics
+  topic: geometry
+  subtopic: measurement-pshs-q
+  exams: [pshs-nce]
+questions:
+  - id: q-geometry-measurement-pshs-q-0001
+    lesson: lesson-geometry-combined-areas-and-units
+    keyPoint: 1
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A rectangular board is 16 cm long and 12 cm wide. Two square pieces, each 7 cm on a side, are cut from it. How many square centimeters of the board remain?
+    choices:
+      - text: '94'
+        correct: true
+      - text: '98'
+        rationale: |
+          This adds the areas of the two squares. That gives the amount cut out. Take it away from the area of the whole board.
+      - text: '143'
+        rationale: |
+          This subtracts one square from the board. The area of one square is 49. Check how many pieces were cut.
+      - text: '178'
+        rationale: |
+          This takes away two lengths of 7 cm. Those lengths are sides of the pieces. Square each side length before subtracting the areas.
+      - text: '192'
+        rationale: |
+          This finds the area of the board before cutting. That is the starting area. Remove both square areas from it.
+    explanation: |
+      The board starts with $16(12)=192$ square centimeters. Each square takes away $7(7)=49$ square centimeters. That leaves $192-2(49)=94$ square centimeters.
+
+  - id: q-geometry-measurement-pshs-q-0002
+    lesson: lesson-geometry-cone-and-pyramid-measurements
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A prism has a volume of 84 cubic centimeters. Two identical pyramids each have the same base area and perpendicular height as the prism. What is the combined volume of the pyramids in cubic centimeters?
+    choices:
+      - text: '56'
+        correct: true
+      - text: '28'
+        rationale: |
+          This finds the volume of one pyramid. One third of 84 is 28. Count both pyramids.
+      - text: '42'
+        rationale: |
+          This halves the prism volume because there are two pyramids. The two pyramids are being added. Find one third of 84 for each one.
+      - text: '84'
+        rationale: |
+          This gives the volume of the prism. The bases and heights match. Check how many matching pyramids it takes to make up one prism volume.
+      - text: '168'
+        rationale: |
+          This gives each pyramid the full prism volume. Matching base areas and heights make that product the same. Divide it by three for each pyramid.
+    explanation: |
+      Each pyramid has one third of the prism's volume. One pyramid holds $84\div3=28$ cubic centimeters. The two pyramids have a total volume of $2(28)=56$ cubic centimeters.
+
+  - id: q-geometry-measurement-pshs-q-0003
+    lesson: lesson-geometry-cylinder-and-sphere-measurements
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A closed cylindrical tin has a radius of 4 cm and a height of 9 cm. By how many square centimeters does its curved surface area exceed the combined area of its two circular ends?
+    choices:
+      - text: '$40\pi$'
+        correct: true
+      - text: '$32\pi$'
+        rationale: |
+          This finds the area of the two ends. Their total is needed for the comparison. Take it away from the curved area.
+      - text: '$56\pi$'
+        rationale: |
+          This subtracts the area of just one end from the curved area. One end has area $16\pi$. Include both circular ends.
+      - text: '$72\pi$'
+        rationale: |
+          This finds only the curved area. Unrolling the side gives that area. Compare it with the combined area of the ends.
+      - text: '$104\pi$'
+        rationale: |
+          This adds the curved area and both ends to find the total surface area. All three surfaces count toward that total. Subtract the two ends from the curved area to find the difference.
+    explanation: |
+      The curved surface unrolls into a rectangle with width $2\pi(4)=8\pi$ and height 9. Its area is $72\pi$. The two ends have area $2\pi(4^2)=32\pi$. The difference is $72\pi-32\pi=40\pi$ square centimeters.
+
+  - id: q-geometry-measurement-pshs-q-0004
+    lesson: lesson-geometry-perimeter-and-area-formulas
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A frame shop makes two rectangular frames. One is 8 cm by 12 cm, and the other is 6 cm by 16 cm. How many more centimeters of trim are needed to go all the way around the second frame than around the first?
+    choices:
+      - text: '4'
+        correct: true
+      - text: '0'
+        rationale: |
+          The rectangles each have an area of 96 square centimeters. Equal areas can make the frames seem the same size. Check the sums of their side lengths.
+      - text: '2'
+        rationale: |
+          This subtracts $8+12$ from $6+16$. Each sum counts one length and one width. Count both pairs of sides.
+      - text: '8'
+        rationale: |
+          This counts the two long sides gaining 4 cm each. The long sides do get longer. Count the 2 cm lost on each short side too.
+      - text: '12'
+        rationale: |
+          This adds the 8 cm gained on the long sides and the 4 cm lost on the short sides. Both pairs change. Subtract the loss from the gain.
+    explanation: |
+      The first frame needs $2(8+12)=40$ cm of trim. The second needs $2(6+16)=44$ cm. The difference is $44-40=4$ cm.
+
+  - id: q-geometry-measurement-pshs-q-0005
+    lesson: lesson-geometry-perpendicular-height-in-area-formulas
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A parallelogram has sides 14 cm and 12 cm long. The height perpendicular to a 14 cm side is 6 cm. What is the height perpendicular to a 12 cm side, in centimeters?
+    choices:
+      - text: '7'
+        correct: true
+      - text: '6'
+        rationale: |
+          This keeps the given height. It gives the area when paired with the 14 cm base. Check which height matches the 12 cm base.
+      - text: '3.5'
+        rationale: |
+          This halves the area before dividing by 12. That first step would find a triangle's area. Use the whole parallelogram area.
+      - text: '12'
+        rationale: |
+          This uses the 12 cm side as the height. That side can serve as the new base. Find the distance perpendicular to it.
+      - text: '14'
+        rationale: |
+          This uses the old base as the new height. It meets the 12 cm side at a corner. Check that a height must meet the base at a right angle.
+    explanation: |
+      The 14 cm base and its 6 cm height give an area of $14(6)=84$ square centimeters. With a base of 12 cm, divide the same area by 12. The height is $84\div12=7$ cm.
+
+  - id: q-geometry-measurement-pshs-q-0006
+    lesson: lesson-geometry-rectangular-prism-measurements
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A rectangular tank has an inside base 5 cm by 8 cm and holds 320 cubic centimeters when full. It now contains 200 cubic centimeters of water. How many centimeters below the top of the tank is the water surface?
+    choices:
+      - text: '3'
+        correct: true
+      - text: '5'
+        rationale: |
+          This divides the water volume by the base area. That gives the depth of the water. Find the height of the empty space above it.
+      - text: '8'
+        rationale: |
+          This divides the full capacity by the base area. That gives the full height. Subtract the depth of the water.
+      - text: '24'
+        rationale: |
+          This divides the empty volume by 5 alone. The 5 cm side is part of the base. Multiply it by the 8 cm side to get the full base area.
+      - text: '120'
+        rationale: |
+          This subtracts the water volume from the full capacity. That gives the empty volume. Divide it by the base area to get a height.
+    explanation: |
+      The tank has $320-200=120$ cubic centimeters of empty space. Its base area is $5(8)=40$ square centimeters. The height of the empty space is $120\div40=3$ cm.
+
+  - id: q-geometry-measurement-pshs-q-0007
+    lesson: lesson-geometry-scaling-length-area-and-volume
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A solid model has a volume of 216 cubic centimeters. Each length on a smaller copy is one third of the matching length on the model. What is the smaller copy's volume in cubic centimeters?
+    choices:
+      - text: '8'
+        correct: true
+      - text: '24'
+        rationale: |
+          This divides by 3 twice. That works for an area. Use three factors of one third for volume.
+      - text: '27'
+        rationale: |
+          Cubing 3 gives 27. Divide 216 by 27 to get the smaller volume.
+      - text: '72'
+        rationale: |
+          This divides the original volume by 3 once. One division works for length. Divide by 3 for each of the three dimensions.
+      - text: '5832'
+        rationale: |
+          This multiplies 216 by 27. The cube of 3 belongs in the work, but multiplying makes the copy bigger. Divide by 27.
+    explanation: |
+      Volume uses three lengths. Each is divided by 3. Divide the original volume by $3(3)(3)=27$ to get $216\div27=8$ cubic centimeters.
+
+  - id: q-geometry-measurement-pshs-q-0008
+    lesson: lesson-geometry-combined-areas-and-units
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A school display uses two rectangular pieces of cloth. One is 1.5 m by 80 cm, and the other is 2 m by 35 cm. The pieces do not overlap. How many square meters of cloth do they cover in all?
+    choices:
+      - text: '1.9'
+        correct: true
+      - text: '0.7'
+        rationale: |
+          This gives the area of the second piece after converting 35 cm. That piece counts. Add the area of the first piece too.
+      - text: '1.2'
+        rationale: |
+          This gives the area of the first piece after converting 80 cm. That piece counts. Add the area of the second piece too.
+      - text: '19'
+        rationale: |
+          This moves the decimal point one place when changing centimeters to meters. A metric conversion does move the point. Divide by 100 for centimeters to meters.
+      - text: '19000'
+        rationale: |
+          This converts both measurements in each pair to centimeters, then reports the total in square meters. That total is in square centimeters. Convert the lengths to meters before multiplying.
+    explanation: |
+      Change 80 cm to 0.8 m and 35 cm to 0.35 m. The areas are $1.5(0.8)=1.2$ and $2(0.35)=0.7$ square meters. Together they cover $1.2+0.7=1.9$ square meters.
+
+  - id: q-geometry-measurement-pshs-q-0009
+    lesson: lesson-geometry-cone-and-pyramid-measurements
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Two right circular cones are each 12 cm high. Their bases have radii of 5 cm and 9 cm. By how many centimeters does the slant height of the wider cone exceed that of the narrower cone?
+    choices:
+      - text: '2'
+        correct: true
+      - text: '4'
+        rationale: |
+          This subtracts the radii. Both radii help find the slant heights. Find the longest side of each right triangle before subtracting.
+      - text: '$\sqrt{56}$'
+        rationale: |
+          This subtracts the squared slant heights before taking a square root. The square root helps find a length. Take the square root for each cone first, then subtract.
+      - text: '28'
+        rationale: |
+          This finds both slant heights and adds them. That gives their combined length. Subtract to find how much longer one is.
+      - text: '56'
+        rationale: |
+          This subtracts the squares of the slant heights. Those squares come from the right triangles. Take the square roots before comparing the lengths.
+    explanation: |
+      Each radius meets the 12 cm height at a right angle. The slant heights are $\sqrt{5^2+12^2}=13$ cm and $\sqrt{9^2+12^2}=15$ cm. The difference is $15-13=2$ cm.
+
+  - id: q-geometry-measurement-pshs-q-0010
+    lesson: lesson-geometry-cylinder-and-sphere-measurements
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Two solid balls have radii of 6 cm and 3 cm. How many more cubic centimeters does the larger ball occupy than the smaller one?
+    choices:
+      - text: '$252\pi$'
+        correct: true
+      - text: '$36\pi$'
+        rationale: |
+          This finds the volume of the smaller ball using its 3 cm radius. Subtract its volume from the larger ball's volume.
+      - text: '$108\pi$'
+        rationale: |
+          This subtracts the surface areas. Both surface areas use the radii. Check that volume needs the cube of each radius.
+      - text: '$288\pi$'
+        rationale: |
+          This finds the volume of the larger ball. That is the starting value. Take away the smaller ball's volume.
+      - text: '$2268\pi$'
+        rationale: |
+          This multiplies by both 4 and 3 in the volume formula. Both numbers appear in the formula. Multiply by 4 and divide by 3.
+    explanation: |
+      The radii are 6 cm and 3 cm. The volumes are $\dfrac{4}{3}\pi(6^3)=288\pi$ and $\dfrac{4}{3}\pi(3^3)=36\pi$ cubic centimeters. The difference is $288\pi-36\pi=252\pi$ cubic centimeters.
+
+  - id: q-geometry-measurement-pshs-q-0011
+    lesson: lesson-geometry-perimeter-and-area-formulas
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A circular tray has a circumference of $10\pi$ cm. A second circular tray has a diameter of 6 cm. How many more square centimeters does the first tray cover than the second?
+    choices:
+      - text: '$16\pi$'
+        correct: true
+      - text: '$4\pi$'
+        rationale: |
+          This subtracts the radii and squares the result. Both radii belong in the work. Square them separately before subtracting.
+      - text: '$100\pi$'
+        rationale: |
+          This uses the first tray's diameter as its radius and finds an area for that tray alone. The circumference gives a diameter of 10 cm. Halve it before squaring and include the second tray in the comparison.
+      - text: '$34\pi$'
+        rationale: |
+          This adds the two tray areas. That gives their total. Subtract to find how much more the first covers.
+      - text: '$64\pi$'
+        rationale: |
+          This squares both diameters. The first diameter can be found from its circumference. Halve both diameters to get the radii for area.
+    explanation: |
+      Divide $10\pi$ by $2\pi$ to get a radius of 5 cm for the first tray. The second has a radius of $6\div2=3$ cm. The difference in area is $\pi(5^2)-\pi(3^2)=16\pi$ square centimeters.
+
+  - id: q-geometry-measurement-pshs-q-0012
+    lesson: lesson-geometry-perpendicular-height-in-area-formulas
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A trapezoid has an area of 72 square centimeters. Its parallel sides are 6 cm apart, and the shorter of those sides is 9 cm long. How long is the longer parallel side, in centimeters?
+    choices:
+      - text: '15'
+        correct: true
+      - text: '3'
+        rationale: |
+          This finds the gap from 9 cm to the average base length. That gap is useful. Add it to the average to reach the longer base.
+      - text: '135'
+        rationale: |
+          This doubles 72 and subtracts 9. Doubling is part of finding the sum of the bases. First divide 72 by the perpendicular height to get the average base length.
+      - text: '12'
+        rationale: |
+          This divides the area by the height and gives the average of the two bases. The longer base must lie above that average. Double the average and take away 9.
+      - text: '24'
+        rationale: |
+          This doubles the average to get the sum of both bases. It is the right total. Subtract the shorter base to find the longer one.
+    explanation: |
+      The parallel sides are 6 cm apart, so the height is 6 cm. Divide the area by the height to get the average base length, $72\div6=12$ cm. The two bases add to $2(12)=24$ cm. The longer one is $24-9=15$ cm.
+
+  - id: q-geometry-measurement-pshs-q-0013
+    lesson: lesson-geometry-rectangular-prism-measurements
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Two rectangular blocks have equal volumes. One measures 6 cm by 4 cm by 6 cm. The other has a base 9 cm by 2 cm. What is the height of the second block, in centimeters?
+    choices:
+      - text: '8'
+        correct: true
+      - text: '6'
+        rationale: |
+          This keeps the first block's height because the volumes are equal. The blocks have different base areas. Divide the common volume by the second base area.
+      - text: '12'
+        rationale: |
+          This divides the common volume by $6(2)$. The 2 cm width belongs to the second block, but 6 cm comes from the first. Use both sides from the second base.
+      - text: '16'
+        rationale: |
+          This divides the common volume by 9. The 9 cm side helps find the base area. Include the 2 cm side as well.
+      - text: '18'
+        rationale: |
+          This multiplies 9 by 2 and stops. The result is the base area. Use it to divide the volume and get the height.
+    explanation: |
+      The first block has volume $6(4)(6)=144$ cubic centimeters. The second base has area $9(2)=18$ square centimeters. Its height is $144\div18=8$ cm.
+
+  - id: q-geometry-measurement-pshs-q-0014
+    lesson: lesson-geometry-scaling-length-area-and-volume
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Two similar rectangular signs have areas of 81 and 144 square centimeters. The larger sign has a perimeter of 52 cm. What is the perimeter of the smaller sign, in centimeters?
+    choices:
+      - text: '39'
+        correct: true
+      - text: '13'
+        rationale: |
+          The smaller perimeter is one fourth less, so 13 is the difference. Subtract that difference from 52 to get the full smaller perimeter.
+      - text: '29.25'
+        rationale: |
+          This multiplies 52 by the area ratio. Both areas help find the scale factor. Take the square root of their ratio to scale a length.
+      - text: '52'
+        rationale: |
+          This keeps the same perimeter because the shapes are similar. Their shapes match, but their sizes differ. Use the areas to find the length factor.
+      - text: '$\dfrac{208}{3}$'
+        rationale: |
+          This grows the perimeter by a factor of four thirds. That factor would scale from the smaller sign to the larger one. Use three fourths to go the other way.
+    explanation: |
+      The areas are $9^2$ and $12^2$. The matching lengths have ratio $9:12$, or $3:4$. Perimeter follows the same ratio. The smaller perimeter is $52\cdot\dfrac{3}{4}=39$ cm.
+
+  - id: q-geometry-measurement-pshs-q-0015
+    lesson: lesson-geometry-combined-areas-and-units
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Two rectangular mats are laid partly on top of each other. One measures 9 m by 8 m, and the other measures 7 m by 6 m. The part where they overlap measures 5 m by 4 m. How many square meters of floor are covered by at least one mat?
+    choices:
+      - text: '94'
+        correct: true
+      - text: '52'
+        rationale: |
+          This keeps only the first mat's area outside the overlap. That area is covered. Include the overlap and the part covered only by the other mat.
+      - text: '74'
+        rationale: |
+          This removes the overlap from each mat before adding. That finds the floor covered by exactly one mat. Include the shared part once.
+      - text: '114'
+        rationale: |
+          This adds the two mat areas. Each mat counts, but that sum includes the same shared floor twice. Subtract one overlap area.
+      - text: '134'
+        rationale: |
+          This adds the overlap to the sum of the mat areas. The shared part is already in both mat areas. Subtract one copy of it.
+    explanation: |
+      The mats have areas of $9(8)=72$ and $7(6)=42$ square meters. The sum counts the $5(4)=20$ square meters of overlap twice. Subtract one copy to get $72+42-20=94$ square meters.
+
+  - id: q-geometry-measurement-pshs-q-0016
+    lesson: lesson-geometry-cone-and-pyramid-measurements
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A pyramid with a square base 6 cm on each side is 10 cm high. A second pyramid with a rectangular base measuring 15 cm by 8 cm has the same volume. What is the perpendicular height of the second pyramid, in centimeters?
+    choices:
+      - text: '3'
+        correct: true
+      - text: '1'
+        rationale: |
+          This divides the first pyramid's volume by the second base area. That would find the height of a prism. A pyramid holds one third as much as that prism.
+      - text: '9'
+        rationale: |
+          This starts with the square base area times height and treats it as the pyramid's volume. That is the matching prism's volume. Divide by three before using the volume of the second pyramid.
+      - text: '10'
+        rationale: |
+          This carries the first height over because the volumes match. The base areas are different. Check what height gives the same product of base area and height.
+      - text: '30'
+        rationale: |
+          This multiplies the first height by three because the formula uses thirds. Both shapes are pyramids. Check how changing the base area affects the height.
+    explanation: |
+      The first pyramid has volume $\dfrac{6^2(10)}{3}=120$ cubic centimeters. The second base has area $15(8)=120$ square centimeters. One third of 120 is 40, so each centimeter of height gives 40 cubic centimeters of volume. The height is $120\div40=3$ cm.
+
+  - id: q-geometry-measurement-pshs-q-0017
+    lesson: lesson-geometry-cylinder-and-sphere-measurements
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A closed right circular cylinder has a total surface area of $156\pi$ square centimeters. Its radius is 6 cm. What is its height, in centimeters?
+    choices:
+      - text: '7'
+        correct: true
+      - text: '6'
+        rationale: |
+          This uses the radius as the height because both are dimensions of the same cylinder. Check how much of the surface area is left for the curved side.
+      - text: '10'
+        rationale: |
+          This subtracts the area of one circular end. That removes one base, but the cylinder is closed at both ends. Subtract two base areas.
+      - text: '13'
+        rationale: |
+          This divides the full surface area by the base circumference. That division finds height if the area is just the curved side. Remove both ends first.
+      - text: '14'
+        rationale: |
+          This divides the curved area by $6\pi$. The radius is 6, but the curved side wraps around the entire base. Use $2\pi(6)$ for the distance around it.
+    explanation: |
+      The ends take up $2\pi(6^2)=72\pi$ square centimeters. The curved side has area $156\pi-72\pi=84\pi$ square centimeters. It wraps $2\pi(6)=12\pi$ cm around the base. Divide $84\pi$ by $12\pi$ to get a height of 7 cm.
+
+  - id: q-geometry-measurement-pshs-q-0018
+    lesson: lesson-geometry-perimeter-and-area-formulas
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A student can cut either one circular disk with radius 6 cm or two circular disks with diameters 10 cm and 6 cm. By how many square centimeters does the single disk's area exceed the combined area of the other two?
+    choices:
+      - text: '$2\pi$'
+        correct: true
+      - text: '$11\pi$'
+        rationale: |
+          This subtracts only the 10 cm disk's area. That disk takes away $25\pi$ square centimeters from the difference. Include the other disk too.
+      - text: '$34\pi$'
+        rationale: |
+          This finds the two smaller areas and adds them. Their total is needed. Subtract it from the single disk's area.
+      - text: '$70\pi$'
+        rationale: |
+          This adds all three areas. Each area is part of the comparison. Subtract the pair's total from the single disk's area.
+      - text: '$100\pi$'
+        rationale: |
+          This uses both given diameters as radii and finds a gap of $100\pi$. The diameter runs across the circle. Halve each diameter before finding its disk's area.
+    explanation: |
+      The single disk has area $\pi(6^2)=36\pi$. The other two have radii of 5 cm and 3 cm. Their areas add to $\pi(5^2)+\pi(3^2)=34\pi$. The difference is $36\pi-34\pi=2\pi$ square centimeters.
+
+  - id: q-geometry-measurement-pshs-q-0019
+    lesson: lesson-geometry-perpendicular-height-in-area-formulas
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      One triangular plot has a base of 14 m, a slanted side of 10 m, and a perpendicular height of 6 m to that base. Another has a base of 12 m, a slanted side of 9 m, and a perpendicular height of 8 m to that base. What is the difference between their areas, in square meters?
+    choices:
+      - text: '6'
+        correct: true
+      - text: '12'
+        rationale: |
+          This compares the two base times height products. Each product is twice a triangle's area. Halve the products before comparing.
+      - text: '16'
+        rationale: |
+          This uses both slanted sides as heights. These sides do reach a vertex. Check which distances meet the bases at right angles.
+      - text: '20'
+        rationale: |
+          This pairs the heights with the other plot's base. Both lengths in each pair are given. Check that each height belongs to the same plot as the base.
+      - text: '22'
+        rationale: |
+          This uses the 10 m slanted side as the first plot's height and 8 m as the second plot's height. The 8 m height is correct. Check that the first height meets its base at a right angle too.
+    explanation: |
+      Use each base with the height that meets it at a right angle. The first plot has area $\dfrac{14(6)}{2}=42$ square meters. The second has area $\dfrac{12(8)}{2}=48$ square meters. The difference is $48-42=6$ square meters.
+
+  - id: q-geometry-measurement-pshs-q-0020
+    lesson: lesson-geometry-rectangular-prism-measurements
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A closed rectangular box has a 6 cm by 2 cm base and a volume of 36 cubic centimeters. What is its total surface area, in square centimeters?
+    choices:
+      - text: '72'
+        correct: true
+      - text: '36'
+        rationale: |
+          This adds one copy of each of the three face areas. Each face has a matching face opposite it. Count both faces in each pair.
+      - text: '54'
+        rationale: |
+          This counts the top, bottom, both short walls, and one long wall. The first long wall measures 6 cm by 3 cm. Count the matching wall on the other side.
+      - text: '60'
+        rationale: |
+          This counts the two base-size faces and the two long walls. All four faces are part of the box. Include both short walls too.
+      - text: '120'
+        rationale: |
+          This divides 36 by 6 to get a height of 6 cm, then finds the surface area. The 6 cm length belongs in the base area, but so does the 2 cm width. Divide by the full base area.
+    explanation: |
+      The base area is $6(2)=12$ square centimeters, so the height is $36\div12=3$ cm. The three face sizes have areas $6(2)=12$, $6(3)=18$, and $2(3)=6$. There are two of each. The total area is $2(12+18+6)=72$ square centimeters.
+
+  - id: q-geometry-measurement-pshs-q-0021
+    lesson: lesson-geometry-scaling-length-area-and-volume
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Two similar solids have volumes of 8 and 27 cubic centimeters. The larger solid has a surface area of 90 square centimeters. What is the surface area of the smaller solid, in square centimeters?
+    choices:
+      - text: '40'
+        correct: true
+      - text: '$\dfrac{80}{3}$'
+        rationale: |
+          This multiplies 90 by the volume ratio. That ratio accounts for three length factors. Surface area uses two.
+      - text: '60'
+        rationale: |
+          This multiplies 90 by the length ratio. That works for a single length. Use the length factor twice for area.
+      - text: '90'
+        rationale: |
+          This keeps the area the same because the shapes match. Similar solids can have different sizes. Check how the areas change with the lengths.
+      - text: '202.5'
+        rationale: |
+          This squares the length ratio from small to large. That would increase the area. Use the smaller length divided by the larger length.
+    explanation: |
+      The volumes are $2^3$ and $3^3$. The smaller solid's lengths are two thirds of the larger solid's lengths. Area uses two length factors. The smaller surface area is $90\cdot\dfrac{2}{3}\cdot\dfrac{2}{3}=40$ square centimeters.
