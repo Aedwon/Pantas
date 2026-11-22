@@ -32,18 +32,7 @@ class RestartSession {
     await _sessions.quit(sessionId: row.id, quitAt: now);
     final sessionId = _newSessionId();
     final origin = SessionOrigin.fromStorage(row.origin);
-    await _sessions.create(
-      sessionId: sessionId,
-      userId: userId,
-      examId: examId,
-      origin: origin,
-      topicId: row.topicId,
-      subtopicId: row.subtopicId,
-      lessonId: row.lessonId,
-      questionIds: questions.map((question) => question.id).toList(),
-      startedAt: now,
-    );
-    return QuizSession.start(
+    final session = QuizSession.start(
       sessionId: sessionId,
       examId: examId,
       questions: questions,
@@ -53,6 +42,20 @@ class RestartSession {
       subtopicId: row.subtopicId,
       lessonId: row.lessonId,
     );
+    await _sessions.create(
+      sessionId: session.sessionId,
+      userId: userId,
+      examId: examId,
+      origin: origin,
+      topicId: row.topicId,
+      subtopicId: row.subtopicId,
+      lessonId: row.lessonId,
+      // The order on screen, after passage grouping, or a split passage's
+      // second answer fails its save.
+      questionIds: session.questions.map((question) => question.id).toList(),
+      startedAt: now,
+    );
+    return session;
   }
 
   Future<List<Question>> _hydrateQuestions(List<QuestionId> ids) {

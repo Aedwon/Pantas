@@ -23,6 +23,7 @@ import 'lesson_split_coverage_check.dart';
 import 'letter_shortcut_gate.dart';
 import 'mock_blueprint_topics.dart';
 import 'question_id_limits.dart';
+import 'session_stored_order.dart';
 import 'shell_route_push.dart';
 import 'sync_mutations_typed_read.dart';
 
@@ -43,6 +44,7 @@ const allChecks = <Check>[
   LegalTextDraftingCheck(),
   AnalyticsNeverBlocksCheck(),
   QuestionIdLimitsCheck(),
+  SessionStoredOrderCheck(),
 ];
 
 void main() {

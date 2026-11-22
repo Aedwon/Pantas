@@ -141,7 +141,9 @@ class StartTodaySession {
       examId: examId,
       origin: origin,
       topicId: namedTopicId,
-      questionIds: resolved.questions.map((question) => question.id).toList(),
+      // The order on screen, after passage grouping, or a split passage's
+      // second answer fails its save.
+      questionIds: session.questions.map((question) => question.id).toList(),
       startedAt: now,
       canPersist: canPersist,
     );
