@@ -1,6 +1,7 @@
 import { logger } from 'firebase-functions';
 import { defineBoolean } from 'firebase-functions/params';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 const warmupEnabled = defineBoolean('WARMUP_ENABLED', { default: false });
 /**
@@ -51,6 +52,6 @@ export async function runKeepCallablesWarm(options: {
 }
 
 export const keepCallablesWarm = onSchedule(
-  { schedule: 'every 5 minutes', region: 'asia-southeast1', serviceAccount: 'pantas-jobs@' },
+  { schedule: 'every 5 minutes', region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-jobs') },
   async () => runKeepCallablesWarm(),
 );

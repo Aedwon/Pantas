@@ -1,6 +1,7 @@
 import { getFirestore, Timestamp } from 'firebase-admin/firestore';
 import { logger } from 'firebase-functions';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 /** The task body, for the combined daily job and the manual runner. */
 export async function runPurgeOldAuditLogs(): Promise<{ deleted: number }> {
@@ -21,7 +22,7 @@ export async function runPurgeOldAuditLogs(): Promise<{ deleted: number }> {
 }
 
 export const purgeOldAuditLogs = onSchedule(
-  { schedule: 'every day 03:30', timeZone: 'Asia/Singapore', region: 'asia-southeast1', serviceAccount: 'pantas-jobs@' },
+  { schedule: 'every day 03:30', timeZone: 'Asia/Singapore', region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-jobs') },
   async () => {
     await runPurgeOldAuditLogs();
   },

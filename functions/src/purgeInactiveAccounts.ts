@@ -7,6 +7,7 @@ import {guardianLinkOrigin, guardianMailFrom} from './guardianConsent.js';
 import {appSecrets, secret} from './_secrets.js';
 import {inactivityWarningMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
 import {hasLiveProClaim} from './_pro.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 const DAY_MS = 86_400_000;
 
@@ -359,7 +360,7 @@ export async function runPurgeInactiveAccounts(): Promise<void> {
 }
 
 export const purgeInactiveAccounts = onSchedule(
-  {schedule: 'every day 04:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', serviceAccount: 'pantas-jobs@', timeoutSeconds: 540,
+  {schedule: 'every day 04:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-jobs'), timeoutSeconds: 540,
     secrets: purgeInactiveSecrets},
   async () => runPurgeInactiveAccounts(),
 );

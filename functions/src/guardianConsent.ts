@@ -13,6 +13,7 @@ import {logger} from 'firebase-functions/logger';
 import {deleteUserData} from './deleteUserData.js';
 import {guardianMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
 import {timed} from './_timed.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 /**
  * Guardian consent for students under 18.
@@ -605,7 +606,7 @@ export async function runPurgeOldGuardianRecords(): Promise<void> {
 }
 
 export const purgeOldGuardianRecords = onSchedule(
-  {schedule: 'every 60 minutes', timeZone: 'Asia/Manila', region: 'asia-southeast1', serviceAccount: 'pantas-jobs@'},
+  {schedule: 'every 60 minutes', timeZone: 'Asia/Manila', region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-jobs')},
   async () => runPurgeOldGuardianRecords(),
 );
 
@@ -626,15 +627,15 @@ function runtimeDeps(): ConsentDeps {
   };
 }
 
-const readOptions = {region: 'asia-southeast1', serviceAccount: 'pantas-identity@', enforceAppCheck: enforceAppCheck, secrets: [appSecrets]};
+const readOptions = {region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-identity'), enforceAppCheck: enforceAppCheck, secrets: [appSecrets]};
 
-export const sendGuardianLink = onCall({region: 'asia-southeast1', serviceAccount: 'pantas-identity@', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
+export const sendGuardianLink = onCall({region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-identity'), enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
   secrets: [appSecrets]}, timed('sendGuardianLink', accountHandler((request) => {
   assertFreshAppCheck(request);
   return sendLink(request, runtimeDeps());
 })));
 
-export const answerGuardianRequest = onCall({region: 'asia-southeast1', serviceAccount: 'pantas-identity@', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
+export const answerGuardianRequest = onCall({region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-identity'), enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
   secrets: [appSecrets]}, timed('answerGuardianRequest', (request) => {
   assertFreshAppCheck(request);
   return answerRequest(request, runtimeDeps());
@@ -646,13 +647,13 @@ export const getGuardianRequest = onCall(readOptions, timed('getGuardianRequest'
 
 export const getGuardianManage = onCall(readOptions, timed('getGuardianManage', (request) => readManage(request, runtimeDeps())));
 
-export const setGuardianSharing = onCall({region: 'asia-southeast1', serviceAccount: 'pantas-identity@', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
+export const setGuardianSharing = onCall({region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-identity'), enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
   secrets: [appSecrets]}, timed('setGuardianSharing', (request) => {
   assertFreshAppCheck(request);
   return setSharing(request, runtimeDeps());
 }));
 
-export const withdrawGuardianPermission = onCall({region: 'asia-southeast1', serviceAccount: 'pantas-identity@', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
+export const withdrawGuardianPermission = onCall({region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-identity'), enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck,
   secrets: [appSecrets]}, timed('withdrawGuardianPermission', (request) => {
   assertFreshAppCheck(request);
   return withdraw(request, runtimeDeps());

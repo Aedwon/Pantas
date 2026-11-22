@@ -10,6 +10,7 @@ import {allowAtMost} from './_limits.js';
 import {priceCentavos, webProduct, webProductIds, type Prepaid} from './paymongoPolicy.js';
 import {examCatalog, sittingFor, type CatalogExam} from './revenuecatPasses.js';
 import {timed} from './_timed.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 /** One web plan. The price is the one checkout charges, from products.json. */
 export type WebPlan = {product: string; priceCentavos: number; priceString: string;
@@ -73,5 +74,5 @@ async function googlePlayRenews(db: Firestore, uid: string, at: number): Promise
     typeof source.productId === 'string');
 }
 
-export const listWebPlans = onCall({region: 'asia-southeast1', serviceAccount: 'pantas-identity@', enforceAppCheck: enforceAppCheck, secrets: [appSecrets]},
+export const listWebPlans = onCall({region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-identity'), enforceAppCheck: enforceAppCheck, secrets: [appSecrets]},
   timed('listWebPlans', request => listPlans(request.auth)));

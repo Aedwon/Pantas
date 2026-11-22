@@ -9,6 +9,7 @@ import {commitPaymongoGrant, resolvePaymongoDispute, revokePaymongoPayment} from
 import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
 import {normalizePaymongoEvent, priceCentavos, verifyPaymongoSignature, webProduct} from './paymongoPolicy.js';
 import {WEBHOOK_MAX_INSTANCES} from './_options.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 const MAX_EVENTS_PER_MINUTE = 30;
 const PAID = 'checkout_session.payment.paid';
@@ -229,7 +230,7 @@ async function copyIfPending(deps: PaymongoWebhookDeps, uid: string) {
   }
 }
 
-export const paymongoWebhook = onRequest({region: 'asia-southeast1', serviceAccount: 'pantas-payments@', maxInstances: WEBHOOK_MAX_INSTANCES, secrets: [paymentSecrets]},
+export const paymongoWebhook = onRequest({region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-payments'), maxInstances: WEBHOOK_MAX_INSTANCES, secrets: [paymentSecrets]},
   async (req, res) => {
     if (req.method !== 'POST') {res.status(405).json({ok: false}); return;}
     const key = secret('PAYMONGO_SECRET_KEY');

@@ -8,11 +8,12 @@ import { deleteUserData } from './deleteUserData.js';
 import {appSecrets} from './_secrets.js';
 import { ACCOUNT_DELETION_MAX_INSTANCES } from './_options.js';
 import {timed} from './_timed.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 export const deleteAccount = onCall(
   {
     region: 'asia-southeast1',
-    serviceAccount: 'pantas-identity@',
+    serviceAccount: serviceAccountEmail('pantas-identity'),
     maxInstances: ACCOUNT_DELETION_MAX_INSTANCES,
     enforceAppCheck: enforceAppCheck,
     consumeAppCheckToken: enforceAppCheck,

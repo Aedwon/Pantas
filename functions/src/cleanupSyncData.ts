@@ -12,6 +12,7 @@ import {
   STAGING_RETENTION_DAYS,
   TOMBSTONE_RETENTION_DAYS,
 } from './syncGenerationPolicy.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 const SYNC_COLLECTIONS = [
   'quiz_attempts',
@@ -189,7 +190,7 @@ export const cleanupSyncData = onSchedule(
     schedule: 'every day 04:00',
     timeZone: 'Asia/Singapore',
     region: 'asia-southeast1',
-    serviceAccount: 'pantas-jobs@',
+    serviceAccount: serviceAccountEmail('pantas-jobs'),
   },
   async () => {
     await runCleanupSyncData();

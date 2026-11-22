@@ -2,6 +2,7 @@ import { getFirestore, type Firestore } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { logger } from 'firebase-functions';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 /** A run stops starting new pages after this long, leaving room under the 540 second timeout. */
 const RUN_BUDGET_MS = 450_000;
@@ -86,7 +87,7 @@ export async function runCleanupWrappedOrphans(): Promise<{scanned: number; dele
 }
 
 export const cleanupWrappedOrphans = onSchedule(
-  { schedule: 'every day 04:15', timeZone: 'Asia/Singapore', region: 'asia-southeast1', serviceAccount: 'pantas-jobs@', timeoutSeconds: 540 },
+  { schedule: 'every day 04:15', timeZone: 'Asia/Singapore', region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-jobs'), timeoutSeconds: 540 },
   async () => {
     await runCleanupWrappedOrphans();
   },

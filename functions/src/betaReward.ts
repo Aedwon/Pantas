@@ -22,6 +22,7 @@ import type {Grant} from './grants.js';
 import {claimsFromInputs, entitlementWrite, nativeCoverageRows, readEntitlementInputs} from './entitlementInputs.js';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import {selectedBetaApplication} from './betaAccess.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 type Request = Pick<CallableRequest, 'auth' | 'app' | 'data'>;
 type Deps = {db: Firestore; now?: () => number; allow?: (uid: string) => Promise<boolean>;
@@ -47,7 +48,7 @@ async function guard(request: Request, deps: Deps, uid: string, key: string, max
 }
 const options = {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck};
 // The two reward functions that refresh claims run as the entitlements account, not the default one.
-const entitlementOptions = {region: 'asia-southeast1', serviceAccount: 'pantas-entitlements@', enforceAppCheck: enforceAppCheck,
+const entitlementOptions = {region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-entitlements'), enforceAppCheck: enforceAppCheck,
   consumeAppCheckToken: enforceAppCheck};
 const types = ['image/png', 'image/jpeg', 'image/webp'];
 export const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
