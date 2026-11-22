@@ -58,3 +58,18 @@ proof is counted before it runs and logged with its actual use.
 OWASP Secure Headers Project and MDN's CSP guidance (report-only before enforcement); least privilege for
 service accounts follows Google Cloud IAM's "use service accounts with minimal permissions" guidance. No
 sheet exists yet for application security; one is to be written before part B's spec.
+
+## Staging proof, service accounts and headers: pre-run count (rule 7, written before the run, Nov 22)
+
+Already used on pantas-staging this quota day (since Nov 22 08:00 UTC): 0 reads, 0 writes. Budget: 40,000
+reads, 16,000 writes, 288 MB egress.
+
+| Step | Reads | Writes | Egress |
+|---|---|---|---|
+| Functions deploy with the five accounts, image cleanup | 0 | 0 | 0 |
+| Calls as a throwaway account with a short-lived debug token, one per account: mock setup (app), web entitlement (entitlements), web plans (identity, reads the app secret), a RevenueCat webhook with a wrong key (payments, reads the payment secret) | up to 300 | up to 40 | 0 |
+| Worker files mirrored from Firebase Hosting for the headers deploy (about 40 MB from pantas-staging-app.web.app) | 0 | 0 | about 40 MB |
+| Headless page load of staging.pantas.study to collect CSP reports and check headers | up to 300 | up to 20 | about 10 MB (served by Cloudflare, not Firebase) |
+| Total, with 50% margin | **about 900** | **about 90** | **about 75 MB** |
+
+Expected day total: well under every budget. Go.
