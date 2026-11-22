@@ -1,0 +1,108 @@
+meta:
+  subject: reading-comprehension
+  topic: comprehension-skills
+  subtopic: sequencing-of-events-pshs
+  exams: [pshs-nce]
+
+passages:
+  - id: p-comprehension-skills-sequencing-of-events-pshs-0001
+    title: An Announcement for the Fair
+    body: |
+      At noon, the class sent the fair announcement to the school office.
+      Earlier, the group looked over the sample flyers before agreeing on
+      a title. Tess checked the fair date with the adviser right after the
+      group chose the title. After checking the date, she read the draft
+      aloud. The class then added a line about where to buy tickets.
+  - id: p-comprehension-skills-sequencing-of-events-pshs-0002
+    title: Getting the Hall Ready
+    body: |
+      The hall doors opened after both crews finished their work.
+      Earlier, Cora's crew was still setting out chairs. Meanwhile,
+      Dan's crew was still hanging the welcome sign. Dan's crew finished
+      first. Cora's crew then set out the last row of chairs. Finally,
+      the guard opened the doors.
+  - id: p-comprehension-skills-sequencing-of-events-pshs-0003
+    title: The Kite Display
+    body: |
+      The team set the kite beside its display label at the end of the
+      workshop. Before setting it out, they tied a blue ribbon to its tail.
+      Earlier, they had trimmed a set of paper strips. After trimming the
+      strips, they tested the bamboo frame. Next, they glued the paper cover
+      to the frame. They waited for the glue to dry before tying the ribbon.
+
+questions:
+  - id: q-comprehension-skills-sequencing-of-events-pshs-0001
+    lesson: lesson-comprehension-skills-event-time-words
+    keyPoint: 1
+    passage: p-comprehension-skills-sequencing-of-events-pshs-0001
+    type: sequencing-of-events
+    difficulty: medium
+    stem: |
+      What happened after the group agreed on a title but before Tess read the draft aloud?
+    choices:
+      - text: Tess checked the fair date.
+        correct: true
+      - text: The group looked over the sample flyers.
+        rationale: |
+          This puts the flyer review too late. Looking over samples may sound like a way to check a title the group has chosen. Look for "before" in the sentence about the flyers.
+      - text: The class added a line about where to buy tickets.
+        rationale: |
+          This puts the edit before Tess read aloud. An edit can happen before a reading. The word 'then' tells you the class added the line after Tess read aloud.
+      - text: Tess read the draft aloud.
+        rationale: |
+          This picks the event that ends the time period. Reading the draft did come after the title choice. Check which action came before the reading.
+      - text: The class sent the announcement to the school office.
+        rationale: |
+          The passage starts with the class sending the announcement at noon. That exact time may make the event stand out. Check what Tess did after the group chose a title and before she read the draft aloud.
+    explanation: |
+      Tess checked the date right after the group chose a title. She read the draft aloud after checking the date.
+  - id: q-comprehension-skills-sequencing-of-events-pshs-0002
+    lesson: lesson-comprehension-skills-event-time-words
+    keyPoint: 1
+    passage: p-comprehension-skills-sequencing-of-events-pshs-0002
+    type: sequencing-of-events
+    difficulty: hard
+    stem: |
+      Which statement about the two crews' work is supported by the passage?
+    choices:
+      - text: Cora's crew started work before Dan's crew did.
+        rationale: |
+          This treats the order of the names as the order in which the crews started. Cora's crew is named first. Check whether "meanwhile" tells you which crew started first.
+      - text: Both crews were working at the same time.
+        correct: true
+      - text: Dan's crew started work before Cora's crew did.
+        rationale: |
+          This uses the finish order as the start order. Dan's crew did finish first. Check whether the passage also tells you when that crew started.
+      - text: Both crews finished as the guard opened the doors.
+        rationale: |
+          This puts both finishes at the moment the doors opened. The opening sentence links the doors to both jobs. Check whether it says after or at the same time.
+      - text: Cora's crew finished work before Dan's crew did.
+        rationale: |
+          You might think Dan's crew was still hanging the sign when Cora's crew set out the last row. The crews were working at the same time earlier. Check what Dan's crew had already finished by the time Cora's crew set out the last row.
+    explanation: |
+      "Meanwhile" shows that the two jobs were happening at the same time. Cora's crew was still setting out chairs as Dan's crew was hanging the sign.
+  - id: q-comprehension-skills-sequencing-of-events-pshs-0003
+    lesson: lesson-comprehension-skills-event-time-words
+    keyPoint: 1
+    passage: p-comprehension-skills-sequencing-of-events-pshs-0003
+    type: sequencing-of-events
+    difficulty: exam
+    stem: |
+      Which choice lists three events in the order they happened, from first to last?
+    choices:
+      - text: Set out the kite, trim the strips, test the frame.
+        rationale: |
+          This starts with the display because the passage mentions it first. The trimming and testing do follow each other. Check what "at the end of the workshop" tells you about the display.
+      - text: Trim the strips, glue on the paper cover, test the frame.
+        rationale: |
+          This puts testing after the cover goes on. Testing a finished kite may sound natural. Check which step comes right before the word "Next."
+      - text: Tie the ribbon, test the frame, glue on the paper cover.
+        rationale: |
+          This puts the ribbon before the frame test. The ribbon appears near the start of the passage. Use "Earlier" to find the work the team did before tying it.
+      - text: Test the frame, set out the kite, glue on the paper cover.
+        rationale: |
+          This puts the display before gluing on the cover. Testing does come before the display. Check when the glue had to dry and what the team did before setting out the kite.
+      - text: Trim the strips, test the frame, tie the ribbon.
+        correct: true
+    explanation: |
+      The team tested the frame after trimming the strips. They glued on the cover next and tied the ribbon after the glue dried. Of the three events listed, trimming came first, then testing, then tying.
