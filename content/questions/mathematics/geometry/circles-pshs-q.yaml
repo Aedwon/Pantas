@@ -1,0 +1,380 @@
+meta:
+  subject: mathematics
+  topic: geometry
+  subtopic: circles-pshs-q
+  exams: [pshs-nce]
+questions:
+  - id: q-geometry-circles-pshs-q-0001
+    lesson: lesson-geometry-circle-parts-and-measures
+    keyPoint: 1
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      A straight strip joins two points on the rim of a round sign. The strip is 18 cm long, and the sign has a radius of 9 cm. Which description fits the strip?
+    choices:
+      - text: A diameter
+        correct: true
+      - text: A single radius
+        rationale: |
+          The strip spans the circle, so it may look like a radius drawn across it. Check the ends of a radius. One end must be at the center.
+      - text: An off-center chord
+        rationale: |
+          Both ends are on the rim, so the strip is a chord. Check its length against the longest possible chord, which passes through the center.
+      - text: An extended secant
+        rationale: |
+          A secant meets the rim twice, just as the strip does. Check where the strip ends. A secant line keeps going past those points.
+      - text: A tangent segment
+        rationale: |
+          A tangent also meets the rim. Count the points where the strip meets the rim. A tangent touches it just once.
+    explanation: |
+      The diameter is $2(9)=18$ cm. It is the longest chord. The strip joins two points on the rim and has that full length, so it is a diameter.
+
+  - id: q-geometry-circles-pshs-q-0002
+    lesson: lesson-geometry-central-and-inscribed-angles
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      A central angle is $38^\circ$ greater than an inscribed angle that intercepts the same arc. What is the measure of the arc?
+    choices:
+      - text: '$19^\circ$'
+        rationale: |
+          Halving is part of the inscribed-angle rule, but $38^\circ$ is a gap. Check what the gap is when one angle is twice the other.
+      - text: '$38^\circ$'
+        rationale: |
+          The gap gives the inscribed angle, so $38^\circ$ belongs in the work. Check which angle has the same measure as the arc.
+      - text: '$76^\circ$'
+        correct: true
+      - text: '$114^\circ$'
+        rationale: |
+          Adding the two angles gives $38^\circ+76^\circ$. Both angles share the arc. Check whether the arc equals their sum or just the central angle.
+      - text: '$152^\circ$'
+        rationale: |
+          Doubling $76^\circ$ uses the factor of two again. Check that $76^\circ$ is already the central angle.
+    explanation: |
+      The central angle is twice the inscribed angle. Their gap is one copy of the inscribed angle, so that angle is $38^\circ$. The arc equals the central angle, which is $2(38^\circ)=76^\circ$.
+
+  - id: q-geometry-circles-pshs-q-0003
+    lesson: lesson-geometry-chord-lengths-and-segments
+    keyPoint: 3
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Chords $AB$ and $CD$ cross at $P$ inside a circle. Angle $APC$ measures $68^\circ$. The arc from $A$ to $C$ cut off by this angle measures $54^\circ$. What is the measure of the arc cut off by the vertical angle $BPD$?
+    choices:
+      - text: '$14^\circ$'
+        rationale: |
+          This subtracts the known arc from the angle. The angle is the average of the two arcs. Double it before subtracting.
+      - text: '$28^\circ$'
+        rationale: |
+          This doubles the gap between the known arc and the angle. That gives the gap between the two arcs. Add it to $54^\circ$ to find the larger arc.
+      - text: '$82^\circ$'
+        correct: true
+      - text: '$95^\circ$'
+        rationale: |
+          This averages $136^\circ$ and $54^\circ$. The first number is the sum of both arcs. Take away the known arc to find the missing one.
+      - text: '$122^\circ$'
+        rationale: |
+          This adds $54^\circ$ to the angle. That would use the angle as the gap between the two arcs. Check that the angle is their average.
+    explanation: |
+      The angle is half the sum of the two arcs. Their sum is $2(68^\circ)=136^\circ$. The missing arc measures $136^\circ-54^\circ=82^\circ$.
+
+  - id: q-geometry-circles-pshs-q-0004
+    lesson: lesson-geometry-outside-secants-and-tangents
+    keyPoint: 3
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Two secants form a $27^\circ$ angle at a point outside a circle. The arc between the nearer intersections measures $36^\circ$. What is the measure of the arc between the farther intersections cut off by the same secants?
+    choices:
+      - text: '$18^\circ$'
+        rationale: |
+          Subtracting $36^\circ$ from $54^\circ$ treats the doubled angle as the sum of the arcs. Check that outside secants use the difference.
+      - text: '$54^\circ$'
+        rationale: |
+          Doubling the angle gives the gap between the arcs. Add the near arc to that gap to find the far arc.
+      - text: '$63^\circ$'
+        rationale: |
+          This adds the near arc and the outside angle. The angle gives only half the gap. Double it before adding.
+      - text: '$90^\circ$'
+        correct: true
+      - text: '$126^\circ$'
+        rationale: |
+          This adds the near arc twice by doubling $27^\circ+36^\circ$. Check that only the outside angle needs to be doubled.
+    explanation: |
+      The outside angle is half the gap between the arcs. The gap is $2(27^\circ)=54^\circ$. Add the near arc to get $54^\circ+36^\circ=90^\circ$.
+
+  - id: q-geometry-circles-pshs-q-0005
+    lesson: lesson-geometry-circle-parts-and-measures
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A rope measuring $18\pi$ meters fits exactly once around the rim of a circular garden. How many square meters does the garden cover?
+    choices:
+      - text: '$9\pi$'
+        rationale: |
+          This finds the radius and multiplies it by $\pi$. The radius belongs in the area formula. Square it first.
+      - text: '$81\pi$'
+        correct: true
+      - text: '$18\pi$'
+        rationale: |
+          This gives the length around the garden. Both area and circumference use $\pi$. Check whether the question asks for length or space inside.
+      - text: '$162\pi$'
+        rationale: |
+          This multiplies the radius by the diameter and by $\pi$. The two lengths are related. Check that both factors in $r^2$ are the radius.
+      - text: '$324\pi$'
+        rationale: |
+          This uses the diameter in place of the radius and gives $\pi(18^2)=324\pi$. Dividing the circumference by $\pi$ gives the diameter. Halve it before squaring.
+    explanation: |
+      The rope gives the circumference. Divide $18\pi$ by $2\pi$ to get a radius of 9 meters. The garden covers $\pi(9^2)=81\pi$ square meters.
+
+  - id: q-geometry-circles-pshs-q-0006
+    lesson: lesson-geometry-circle-tangent-lengths
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Point $P$ is 29 cm from the center of a circle. The tangent segment from $P$ to the circle is 20 cm long. What is the radius of the circle in centimeters?
+    choices:
+      - text: '9'
+        rationale: |
+          This subtracts 20 from 29 to find the missing length. The given lengths are sides of a right triangle. Square 20 and 29 before subtracting. Then take the square root.
+      - text: '21'
+        correct: true
+      - text: '42'
+        rationale: |
+          This doubles 21 to get the distance across the circle. The right triangle gives the distance from the center to the rim. Check which distance the question asks for.
+      - text: '441'
+        rationale: |
+          This subtracts the squares and stops. The result is the radius squared. Take the square root to find the length.
+      - text: '$\sqrt{1241}$'
+        rationale: |
+          This adds the squares of the two given lengths. Adding the squares finds the longest side. Check that the 29 cm side is already the longest.
+    explanation: |
+      The tangent and radius meet at a right angle. The side from the center to $P$ is the longest side. The radius squared is $29^2-20^2=841-400=441$. The radius is $\sqrt{441}=21$ cm.
+
+  - id: q-geometry-circles-pshs-q-0007
+    lesson: lesson-geometry-central-and-inscribed-angles
+    keyPoint: 2
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      A triangle has all three vertices on a circle. One side is a diameter of 25 cm. A second side is 7 cm long. How long is the third side in centimeters?
+    choices:
+      - text: '24'
+        correct: true
+      - text: '18'
+        rationale: |
+          This subtracts 7 from 25 to find the missing side. Those sides belong to a right triangle. Subtract their squares before taking the square root.
+      - text: '32'
+        rationale: |
+          This adds 7 and 25 to get a third length. That total gives the distance along the two known sides. Check that the third side must be shorter than the 25 cm side across from the right angle.
+      - text: '576'
+        rationale: |
+          This subtracts the squares and gets the square of the missing side. Take the square root to get the side length.
+      - text: '$\sqrt{674}$'
+        rationale: |
+          This adds the squares as if the given sides were both legs. The diameter is across from the right angle. Subtract the square of the 7 cm leg from the square of the diameter.
+    explanation: |
+      The angle across from the diameter is a right angle. The diameter is the longest side. The square of the missing side is $25^2-7^2=625-49=576$. The missing side is $\sqrt{576}=24$ cm long.
+
+  - id: q-geometry-circles-pshs-q-0008
+    lesson: lesson-geometry-chord-lengths-and-segments
+    keyPoint: 1
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      A chord on a round tabletop is 30 cm long. Its perpendicular distance from the center is 8 cm. What is the radius of the tabletop in centimeters?
+    choices:
+      - text: '15'
+        rationale: |
+          This halves the chord and uses that length as the radius. The half-chord is one leg of a right triangle. Use the 8 cm leg too.
+      - text: '23'
+        rationale: |
+          This adds 15 and 8 to get the radius. These lengths are the legs of a right triangle. Add their squares before taking the square root.
+      - text: '17'
+        correct: true
+      - text: '34'
+        rationale: |
+          This doubles 17 to get the full distance across the center. The right triangle gives the distance from the center to the rim. Check which distance the question asks for.
+      - text: '$\sqrt{964}$'
+        rationale: |
+          This uses all 30 cm as a leg of the right triangle. The perpendicular cuts the chord into two equal pieces. Use 15 cm for the leg.
+    explanation: |
+      The perpendicular cuts the chord in half. One half is 15 cm. It forms a right triangle with the 8 cm distance and the radius. The radius squared is $15^2+8^2=289$. The radius is $\sqrt{289}=17$ cm.
+
+  - id: q-geometry-circles-pshs-q-0009
+    lesson: lesson-geometry-chord-lengths-and-segments
+    keyPoint: 2
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Chords $AB$ and $CD$ meet at $P$ inside a circle. Point $P$ is the midpoint of $CD$. If $AP=4$ cm and $PB=25$ cm, how long is $CD$ in centimeters?
+    choices:
+      - text: '10'
+        rationale: |
+          The square root gives the length of one piece of $CD$. Check that $P$ splits $CD$ into two pieces.
+      - text: '20'
+        correct: true
+      - text: '29'
+        rationale: |
+          Adding 4 and 25 gives the full length of $AB$. Both chords pass through $P$. Check that the rule makes their piece products equal, not their lengths.
+      - text: '50'
+        rationale: |
+          This doubles $PB$. Doubling does give $CD$ if you start with one of its halves. Check which chord contains the 25 cm piece.
+      - text: '100'
+        rationale: |
+          This multiplies the two parts of $AB$ and stops. That product equals the square of half of $CD$. Take the square root and count both halves.
+    explanation: |
+      The parts of $AB$ have product $4\cdot25=100$. The two parts of $CD$ are equal and have the same product. Each is 10 cm since $10\cdot10=100$. The full chord is $10+10=20$ cm.
+
+  - id: q-geometry-circles-pshs-q-0010
+    lesson: lesson-geometry-circle-tangent-lengths
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Two straight paths lead from a gate to a circular pond. Each path ends where it is tangent to the pond. The paths total 48 meters in length, and the pond has a radius of 10 meters. How far is the gate from the center of the pond, in meters?
+    choices:
+      - text: '14'
+        rationale: |
+          This uses 24 and 10 in a subtraction. Both are lengths in the right triangle. The center-to-gate distance is the longest side, so it must exceed 24.
+      - text: '24'
+        rationale: |
+          This correctly splits the path total in half. Check what the question asks for. The path ends at the rim, and the needed distance ends at the center.
+      - text: '26'
+        correct: true
+      - text: '34'
+        rationale: |
+          This adds the 24-meter path to the 10-meter radius. That measures a trip with a turn. Use the right triangle to find the straight distance.
+      - text: '$\sqrt{2404}$'
+        rationale: |
+          This uses both paths together as one leg. The total is given, but one right triangle uses only one path. Halve 48 first.
+    explanation: |
+      Tangents from the same gate have equal lengths. Each path is $48\div2=24$ meters. One path and the 10-meter radius meet at a right angle. The square of the straight distance is $24^2+10^2=676$. The distance is 26 meters.
+
+  - id: q-geometry-circles-pshs-q-0011
+    lesson: lesson-geometry-outside-secants-and-tangents
+    keyPoint: 2
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      From a point outside a circle, a tangent segment is 12 cm long. A secant from the same point has an outside part one fourth as long as its whole length. What is the whole secant length in centimeters?
+    choices:
+      - text: '6'
+        rationale: |
+          This is the outside length once the product matches $12^2$. Check that the whole length has four of these parts.
+      - text: '12'
+        rationale: |
+          This sets the whole secant equal to the tangent. Both start at the same point. Check the product of the outside and whole lengths against $12^2$.
+      - text: '18'
+        rationale: |
+          This gives the part inside the circle after removing the 6 cm outside part. The whole length includes both parts. Add them back together.
+      - text: '24'
+        correct: true
+      - text: '144'
+        rationale: |
+          Squaring 12 gives the product you need. The product includes the outside length and the whole length. Use the one-fourth rule to find the two factors.
+    explanation: |
+      The outside length times the whole length equals $12^2=144$. If the outside length is $x$, the whole length is $4x$. So $4x^2=144$ and $x^2=36$. The outside part is 6 cm and the whole length is $4(6)=24$ cm.
+
+  - id: q-geometry-circles-pshs-q-0012
+    lesson: lesson-geometry-central-and-inscribed-angles
+    keyPoint: 1
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Points $A$, $B$, and $C$ lie on a circle. If angle $ACB$ measures $138^\circ$, what is the measure of the arc it cuts off?
+    choices:
+      - text: '$69^\circ$'
+        rationale: |
+          This halves the given angle. The rule uses a half when finding an angle from its arc. Double the angle to find its arc.
+      - text: '$138^\circ$'
+        rationale: |
+          This uses the rule for an angle at the center. Check where $C$ lies. An angle on the circle measures half the arc it cuts off.
+      - text: '$84^\circ$'
+        rationale: |
+          This doubles the angle and then subtracts from a full turn. That gives the other arc. Check which arc has half its measure equal to $138^\circ$.
+      - text: '$276^\circ$'
+        correct: true
+      - text: '$222^\circ$'
+        rationale: |
+          This subtracts $138^\circ$ from a full turn as if the given angle measured the rest of the circle. Check that the inscribed angle is half the arc it cuts off.
+    explanation: |
+      Angle $ACB$ has its vertex on the circle. It measures half the arc it cuts off. Double the angle to get $2(138^\circ)=276^\circ$.
+
+  - id: q-geometry-circles-pshs-q-0013
+    lesson: lesson-geometry-circle-parts-and-measures
+    keyPoint: 3
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Two students paint separate sectors on a circular sign with radius 12 cm. The sectors do not overlap. Their central angles are $135^\circ$ and $165^\circ$. How many square centimeters of the sign are still unpainted?
+    choices:
+      - text: '$24\pi$'
+        correct: true
+      - text: '$48\pi$'
+        rationale: |
+          This divides the remaining $60^\circ$ by $180^\circ$. A half turn is $180^\circ$. Compare the angle to a full turn to find its share of the sign.
+      - text: '$54\pi$'
+        rationale: |
+          This uses the $135^\circ$ sector. That is part of the sign, but it is painted. Check the angle left after both students paint.
+      - text: '$90\pi$'
+        rationale: |
+          This takes away the $135^\circ$ sector only. It gives the area left after the first student. Remove the other student's sector too.
+      - text: '$120\pi$'
+        rationale: |
+          This uses the two angles added together. Their sum gives the painted part. Subtract that angle from the full turn before finding the area.
+    explanation: |
+      The painted sectors cover $135^\circ+165^\circ=300^\circ$. The rest is $360^\circ-300^\circ=60^\circ$, or one sixth of the circle. The full sign has area $\pi(12^2)=144\pi$. One sixth of it is $24\pi$ square centimeters.
+
+  - id: q-geometry-circles-pshs-q-0014
+    lesson: lesson-geometry-circle-tangent-lengths
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Two posts are 20 meters and 37 meters from the center of a circular pond, respectively. The pond has a radius of 12 meters. A rope runs from each post to a point where the rope is tangent to the pond. By how many meters does the longer rope exceed the shorter rope?
+    choices:
+      - text: '9'
+        rationale: |
+          This subtracts the 16-meter rope from $37-12=25$. The 25 meters measures a radial gap to the rim. Use the right triangle for the longer rope too.
+      - text: '17'
+        rationale: |
+          This subtracts the two distances to the center. Those distances are the longest sides of the two right triangles. First find the rope lengths.
+      - text: '19'
+        correct: true
+      - text: '27'
+        rationale: |
+          This subtracts $20-12=8$ from the 35-meter rope. The 8 meters is a gap along the radius line. Find the shorter rope using the squares of the sides.
+      - text: '969'
+        rationale: |
+          This subtracts $256$ from $1225$. Those are the squares of the rope lengths. Take each square root before you subtract.
+    explanation: |
+      Each rope makes a right angle with the radius at the rim. The shorter rope is $\sqrt{20^2-12^2}=16$ meters long. The longer rope is $\sqrt{37^2-12^2}=35$ meters long. The difference is $35-16=19$ meters.
+
+  - id: q-geometry-circles-pshs-q-0015
+    lesson: lesson-geometry-outside-secants-and-tangents
+    keyPoint: 1
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Two secants start at the same point outside a circle. The first has an outside part of 3 cm. The second has an outside part of 5 cm. Inside the circle, the first secant's part is twice as long as the second's. How many centimeters of the second secant are inside the circle?
+    choices:
+      - text: '2'
+        rationale: |
+          This makes the whole lengths equal. The secants share a starting point, but their outside parts differ. Compare the outside length times the whole length for each one.
+      - text: '16'
+        correct: true
+      - text: '21'
+        rationale: |
+          This gives the second secant's whole length. It includes the given 5 cm outside part. Take that away to get the inside length.
+      - text: '32'
+        rationale: |
+          This doubles the 16 cm part and gets the first secant's inside length. Check which secant the question asks about.
+      - text: '105'
+        rationale: |
+          This gives the common product of the outside and whole lengths. Divide by the second outside length to get the second whole length. Then remove the outside part.
+    explanation: |
+      Call the second inside length $x$. The first is $2x$. Each whole length includes its outside part, so $3(3+2x)=5(5+x)$. This gives $9+6x=25+5x$, so $x=16$. The second inside length is 16 cm.
