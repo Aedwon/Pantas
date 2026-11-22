@@ -1,0 +1,82 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: order-of-operations-pshs-q
+  exams: [pshs-nce]
+questions:
+  - id: q-arithmetic-number-sense-order-of-operations-pshs-q-0001
+    lesson: lesson-arithmetic-number-sense-signed-integers-and-substitution
+    keyPoint: 1
+    type: word-problem
+    difficulty: easy
+    stem: |
+      At dawn, the temperature was $-4$ degrees Celsius. It fell by $7$ degrees, then rose by $9$ degrees. What was the temperature in degrees Celsius after the rise?
+    choices:
+      - text: '$-2$'
+        correct: true
+      - text: '$-20$'
+        rationale: |
+          This subtracts both changes. The first change is a drop, so subtraction works for that step. Check which way the temperature moves during the rise.
+      - text: '$12$'
+        rationale: |
+          This adds both changes. The changes are given as positive amounts. Check what the word "fell" tells you to do with $7$.
+      - text: '$6$'
+        rationale: |
+          This starts at $4$ degrees. The size of the starting temperature is $4$. Check whether it starts above or below zero.
+      - text: '$-11$'
+        rationale: |
+          This stops at the temperature after the drop. That is the right value before the rise. Check what happens when you add $9$.
+    explanation: |
+      Subtract $7$ for the drop. The temperature is now $-4-7=-11$ degrees. Add $9$ for the rise. The final temperature is $-11+9=-2$ degrees Celsius.
+
+  - id: q-arithmetic-number-sense-order-of-operations-pshs-q-0002
+    lesson: lesson-arithmetic-number-sense-signed-integers-and-substitution
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the value of $|-12+7|-(-24)\div(-6)$?
+    choices:
+      - text: '$1$'
+        correct: true
+      - text: '$-9$'
+        rationale: |
+          This uses $-5$ as the absolute value. The sum inside the bars is $-5$. Check how far $-5$ is from zero.
+      - text: '$9$'
+        rationale: |
+          This treats the quotient as $-4$. Both numbers in the division are negative, so it is easy to carry a minus sign into the result. Check the sign of a quotient when the two signs match.
+      - text: '$15$'
+        rationale: |
+          This adds $12$ and $7$ to get $19$ inside the bars. Absolute value gives a positive distance here, so it can be tempting to drop the minus sign at the start. Check the sum inside the bars first.
+      - text: '$5$'
+        rationale: |
+          This stops after finding the absolute value. That gives the first part of the expression. Check what you still need to subtract.
+    explanation: |
+      Inside the bars, $-12+7=-5$. Its distance from zero is $5$. The quotient $(-24)\div(-6)$ is $4$ because the signs match. Subtract to get $5-4=1$.
+
+  - id: q-arithmetic-number-sense-order-of-operations-pshs-q-0003
+    lesson: lesson-arithmetic-number-sense-signed-integers-and-substitution
+    keyPoint: 2
+    type: direct-computation
+    difficulty: exam
+    stem: |
+      Find the value of $x^2+2x$ when $x=-4$. Then subtract its value when $x=-3$. What is the result?
+    choices:
+      - text: '$5$'
+        correct: true
+      - text: '$-5$'
+        rationale: |
+          This subtracts the first value from the second. Both values are correct. Check which value the question asks you to subtract.
+      - text: '$-9$'
+        rationale: |
+          This uses $-16$ and $-9$ for the squares. Both values of $x$ are negative, so it can be tempting to keep the minus signs after squaring. Put each value in parentheses before squaring it.
+      - text: '$11$'
+        rationale: |
+          This adds the two values. Adding does combine both results. Check which operation the question gives for the last step.
+      - text: '$7$'
+        rationale: |
+          This subtracts the squares and skips the $2x$ terms. Taking the difference of the squares uses both values of $x$. Check that you use both terms of the expression each time.
+    explanation: |
+      When $x=-4$, the value is $(-4)^2+2(-4)=16-8=8$.
+      When $x=-3$, the value is $(-3)^2+2(-3)=9-6=3$.
+      Subtract the second value from the first. The result is $8-3=5$.
