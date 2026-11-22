@@ -1,0 +1,84 @@
+meta:
+  subject: language-proficiency
+  topic: vocabulary
+  subtopic: idioms-and-figures-of-speech-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-vocabulary-idioms-and-figures-of-speech-pshs-0001
+    lesson: lesson-vocabulary-idioms-and-literal-meanings
+    keyPoint: 2
+    type: idiom-meaning
+    difficulty: medium
+    stem: |
+      Nang maubusan ng papel ang mga bata sa kabilang pangkat, kumuha si Liza ng papel mula sa sarili niyang gamit para sa kanila. "Papalitan ko bukas ang papel," sabi ng isang bata. "Hindi na kailangan," sagot ni Liza. Sinabi ng guro na **bukas-palad** si Liza. Ano ang ibig sabihin ng sawikain?
+    choices:
+      - text: Handang magpahiram
+        rationale: |
+          Maaaring isipin na hiram ang papel dahil nag-alok ang bata na palitan ito. Tingnan kung pumayag si Liza na palitan ang papel.
+      - text: Handang magbigay
+        correct: true
+      - text: Marunong magtipid
+        rationale: |
+          Maaaring isipin na pinuri si Liza dahil may natira pa siyang papel. Tingnan kung ano ang ginawa niya sa papel para sa ibang bata.
+      - text: Mahusay magplano
+        rationale: |
+          Maaaring isipin na nagdala si Liza ng sobrang papel dahil handa siya. Tingnan kung ang pinansin ng guro ay ang paghahanda o ang pagtulong niya.
+      - text: Masunurin sa guro
+        rationale: |
+          Maaaring isipin na may ipinagawa ang guro dahil siya ang nagsalita. Tingnan kung sino ang nagkusang kumuha ng papel.
+    explanation: |
+      Bukas-palad means ready to give. Liza used her own paper to help the group. She said they did not need to replace it.
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-pshs-0002
+    lesson: lesson-vocabulary-idioms-and-literal-meanings
+    keyPoint: 1
+    type: idiom-meaning
+    difficulty: hard
+    stem: |
+      Rene agreed to bring the sign-up sheet to the club booth. When the fair opened, the sheet was still on his desk at home. The club president said that Rene had **dropped the ball**. What does the phrase mean here?
+    choices:
+      - text: He gave up his place in the club.
+        rationale: |
+          You might take one missed duty as a sign that Rene quit. Check whether the president is talking about his club membership or the job he agreed to do.
+      - text: He left the job to another member.
+        rationale: |
+          A club member can ask someone else to cover a task. Check whether Rene passed the job to anyone before the fair.
+      - text: He lost the sheet on the way.
+        rationale: |
+          The word "dropped" may make you picture something falling. Check where the sheet was when the fair opened.
+      - text: He failed to do his part.
+        correct: true
+      - text: He turned down the job at the booth.
+        rationale: |
+          Refusing a job could leave the group without help. Check what Rene said he would do before the fair.
+    explanation: |
+      "Dropped the ball" means Rene failed to do his part. He agreed to bring the sheet, but it was still at home when the fair opened.
+
+  - id: q-vocabulary-idioms-and-figures-of-speech-pshs-0003
+    lesson: lesson-vocabulary-idioms-and-literal-meanings
+    keyPoint: 1
+    type: idiom-meaning
+    difficulty: exam
+    stem: |
+      During club practice, Ina and Paolo disagreed about the ending, but they were **on the same page** of the script.
+
+      At the next practice, they had different copies of the script, but they were **on the same page** about how the play should end.
+
+      What does the phrase in bold mean in each sentence, in order?
+    choices:
+      - text: They agreed on the ending. They were reading the same page.
+        rationale: |
+          You might focus on the ending in the first sentence and the script copies in the second. Check what they disagreed about in the first sentence and what they were on the same page about in the second.
+      - text: They were reading the same page. They were using copies with matching page numbers.
+        rationale: |
+          Both sentences mention a script, so you might read the phrase literally both times. Check what "about how the play should end" tells you in the second sentence.
+      - text: They agreed on the ending at both practices.
+        rationale: |
+          You might use the familiar meaning of "on the same page" both times. Check what "of the script" tells you and where Ina and Paolo disagreed.
+      - text: They were sharing one copy. They were using copies with different endings.
+        rationale: |
+          Talk of pages and copies can draw your attention to the scripts. Check whether the first sentence says they shared a copy or the second says the copies had different endings.
+      - text: They were reading the same page. They agreed on the ending.
+        correct: true
+    explanation: |
+      In the first sentence, Ina and Paolo are reading the same page of the script. In the second, "on the same page" means they agree about the ending.
