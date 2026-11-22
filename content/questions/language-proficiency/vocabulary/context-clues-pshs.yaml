@@ -1,0 +1,327 @@
+meta:
+  subject: language-proficiency
+  topic: vocabulary
+  subtopic: context-clues-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-vocabulary-context-clues-pshs-0001
+    lesson: lesson-vocabulary-definitions-examples-and-synonyms
+    keyPoint: 1
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      The exhibit contains **replicas**, or copies made to look like the original objects. Visitors may handle them during the tour.
+
+      What does **replicas** most nearly mean?
+    choices:
+      - text: "Models"
+        correct: true
+      - text: "Originals"
+        rationale: |
+          This takes "original objects" as the name of what is on display.
+          The phrase names the objects that were copied. Read the words
+          just after "or."
+      - text: "Fragments"
+        rationale: |
+          This takes the items to be pieces of old objects. Museums often
+          show broken objects. Check whether the items were made to look
+          like the originals or broke off from them.
+      - text: "Prototypes"
+        rationale: |
+          This puts the copies before the originals. A prototype can look
+          like the finished object. Check which objects were made first.
+      - text: "Restorations"
+        rationale: |
+          This assumes the original objects were repaired. Museum staff
+          often fix damaged items for display. Check whether the text says
+          the originals were fixed or copied.
+    explanation: |
+      The words after "or" tell what replicas are. They are models made
+      to look like the original objects.
+
+  - id: q-vocabulary-context-clues-pshs-0002
+    lesson: lesson-vocabulary-definitions-examples-and-synonyms
+    keyPoint: 2
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      The trail crew packed **provisions** for the climb, including drinking water, dried bananas, and crackers. Each member carried a share.
+
+      Which phrase is closest in meaning to **provisions**?
+    choices:
+      - text: "Food and drink"
+        correct: true
+      - text: "Emergency gear"
+        rationale: |
+          This treats the list as gear for an accident. Crews do pack
+          such gear before a climb. Check what each listed item is used for.
+      - text: "Maps and travel directions"
+        rationale: |
+          This treats getting ready as planning the route. Climbers may
+          carry a map or directions. Check whether any example tells them
+          where to go.
+      - text: "Climbing equipment"
+        rationale: |
+          This focuses on the word "climb." A crew might take ropes
+          and helmets. Check whether the examples help the crew climb or
+          give them something to eat and drink.
+      - text: "Cooking supplies"
+        rationale: |
+          This assumes the crew will make meals. Some trips do include
+          cooking. The listed items are ready to eat or drink. What does
+          the passage suggest the crew will do with them on the climb?
+    explanation: |
+      Water is a drink. Bananas and crackers are food. The examples
+      show what the crew packed to eat and drink on the climb.
+
+  - id: q-vocabulary-context-clues-pshs-0003
+    lesson: lesson-vocabulary-contrast-and-inference-clues
+    keyPoint: 1
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      The front row was easy to see from the stage. The rear seats, however, were **obscured** by a wide pillar.
+
+      What does **obscured** most nearly mean?
+    choices:
+      - text: "Hidden"
+        correct: true
+      - text: "Distant"
+        rationale: |
+          This treats being far away as the main clue. Rear seats are
+          farther from the stage. Check what the pillar does to the view.
+      - text: "Dimmed"
+        rationale: |
+          This treats the pillar as a source of shade. A pillar can
+          cast a shadow. Check whether the contrast is about light or
+          about what can be seen from the stage.
+      - text: "Separated"
+        rationale: |
+          This reads the pillar as a divider between seating areas.
+          A pillar may stand between rows. Check where the view in
+          the first sentence starts.
+      - text: "Supported"
+        rationale: |
+          This uses the usual job of a pillar in a building. Pillars
+          hold up parts of a room. Check whether the sentence is about
+          what holds the seats up or what blocks the view.
+    explanation: |
+      "However" points to a change. The front seats were easy to see.
+      The pillar blocked the view of the rear seats, so they were hidden.
+
+  - id: q-vocabulary-context-clues-pshs-0004
+    lesson: lesson-vocabulary-word-partners-feeling-and-grammar
+    keyPoint: 1
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      All teams must **observe** the contest rules, even before the judges enter the room.
+
+      Which word could replace **observe** without changing the meaning?
+    choices:
+      - text: "Follow"
+        correct: true
+      - text: "Notice"
+        rationale: |
+          This uses the sense of seeing something. Teams may see the
+          rules on a poster. Put "notice" in the sentence and check what
+          teams must do even when the judges are away.
+      - text: "Study"
+        rationale: |
+          This treats reading the rules closely as enough. Teams often
+          read the rules before a contest. Check what is expected of
+          them as they take part.
+      - text: "Enforce"
+        rationale: |
+          This gives the teams the judges' job. A judge can make sure
+          others keep the rules. Check who is being told to act and
+          whose conduct the rules guide.
+      - text: "Establish"
+        rationale: |
+          This treats the rules as something the teams need to set.
+          Teams may help plan some contests. Check whether the sentence
+          gives them rules or asks them to make rules.
+    explanation: |
+      Here, the word partner is "rules." To observe rules is to follow
+      them. The teams must do what the rules say even when no judge is there.
+
+  - id: q-vocabulary-context-clues-pshs-0005
+    lesson: lesson-vocabulary-definitions-examples-and-synonyms
+    keyPoint: 2
+    type: word-in-context
+    difficulty: hard
+    stem: |
+      The first calls for cleaner water were **sporadic**. These occasional complaints reached the town office for months before residents began to speak up every week.
+
+      Which phrase is closest in meaning to **sporadic**?
+    choices:
+      - text: "Off and on"
+        correct: true
+      - text: "Spread across town"
+        rationale: |
+          This reads the clue as a detail about place. The town office
+          might hear from many streets. Check what "occasional" says
+          about when the calls came in.
+      - text: "Steady over time"
+        rationale: |
+          This treats lasting for months as proof of a steady pattern.
+          The issue did last a long time. Check which complaints the
+          word "occasional" describes.
+      - text: "Growing in number"
+        rationale: |
+          This reads the later weekly calls into the early months. The
+          calls did come more often later. Check whether "sporadic"
+          describes the first calls or the later ones.
+      - text: "Shared by few people"
+        rationale: |
+          This takes rare complaints as proof that few people cared.
+          A low number of calls can suggest that. Check whether
+          "occasional" tells how often people spoke up or how many did.
+    explanation: |
+      The next sentence calls the first complaints "occasional."
+      They came off and on. That is what "sporadic" means here.
+
+  - id: q-vocabulary-context-clues-pshs-0006
+    lesson: lesson-vocabulary-contrast-and-inference-clues
+    keyPoint: 2
+    type: word-in-context
+    difficulty: hard
+    stem: |
+      When the music stand broke before the recital, Lani had to ______. She balanced her sheet music on a stack of empty boxes and began to play.
+
+      Which word best completes the passage?
+    choices:
+      - text: "improvise"
+        correct: true
+      - text: "rehearse"
+        rationale: |
+          This treats playing the music as practice. A musician may
+          play before a recital to warm up. Check why Lani stacks the
+          boxes.
+      - text: "postpone"
+        rationale: |
+          This assumes a broken stand will make the recital start
+          later. Broken equipment can cause a delay. Check what Lani
+          does as soon as her music is in place.
+      - text: "investigate"
+        rationale: |
+          This treats the broken stand as a problem Lani needs to
+          look into. She may want to know why it broke. Check
+          whether she looks for a cause or finds a way to play.
+      - text: "reassemble"
+        rationale: |
+          This assumes Lani puts the old stand back together. A
+          broken stand might come apart. Check what she uses to hold
+          the sheet music.
+    explanation: |
+      Lani has to think of a fix on the spot when the stand breaks.
+      She uses the boxes to hold her music. That's what it means to improvise.
+
+  - id: q-vocabulary-context-clues-pshs-0007
+    lesson: lesson-vocabulary-contrast-and-inference-clues
+    keyPoint: 2
+    type: word-in-context
+    difficulty: hard
+    stem: |
+      After the school lost the match, Noel stayed to help the winners gather their gear. When asked about the game, he praised their teamwork and shook their captain's hand.
+
+      Which word best describes Noel's response to the loss?
+    choices:
+      - text: "Gracious"
+        correct: true
+      - text: "Resentful"
+        rationale: |
+          This assumes losing made Noel angry. A close match can leave
+          a player upset. Check what Noel says about the other team.
+      - text: "Indifferent"
+        rationale: |
+          This treats his calm response as a lack of care. Someone who
+          is fine with losing may stay calm. Check what Noel goes out
+          of his way to do after the match.
+      - text: "Apologetic"
+        rationale: |
+          This reads the handshake as a way to say sorry. A handshake
+          can help end a fight. Check whether Noel says he did
+          something wrong or praises the winners.
+      - text: "Submissive"
+        rationale: |
+          This treats helping the other team as giving in to them.
+          He did stay to help them. What does Noel do that shows kindness
+          after losing? Does anything show that he gives in to the winners?
+    explanation: |
+      Noel helps the winners, says they worked well as a team,
+      and shakes their captain's hand. He treats them kindly after
+      losing. This shows he is gracious.
+
+  - id: q-vocabulary-context-clues-pshs-0008
+    lesson: lesson-vocabulary-word-partners-feeling-and-grammar
+    keyPoint: 2
+    type: word-in-context
+    difficulty: hard
+    stem: |
+      Nina called Ben **nosy** after he read the names on her letters and kept asking who had sent them.
+
+      Which word best keeps both the meaning of **nosy** and Nina's disapproval?
+    choices:
+      - text: "Intrusive"
+        correct: true
+      - text: "Inquisitive"
+        rationale: |
+          This treats his questions as a wish to learn. He did ask
+          for more details. Check how Nina feels about questions
+          about her private mail.
+      - text: "Persistent"
+        rationale: |
+          This focuses on how long Ben kept asking. He did keep
+          going. Check what makes his questions unwelcome to Nina.
+      - text: "Observant"
+        rationale: |
+          This treats Ben's notice of the names as a skill. He did
+          spot details. Check whether Nina is praising him for that.
+      - text: "Suspicious"
+        rationale: |
+          Ben's questions might make him seem suspicious. "Suspicious"
+          can mean he doubts someone or that his actions make Nina doubt
+          him. "Intrusive" means he gets into her private business.
+          Check what Nina's word says about his interest in her mail.
+    explanation: |
+      Ben looks at Nina's private mail and keeps asking about it.
+      "Intrusive" shows that his interest goes too far.
+
+  - id: q-vocabulary-context-clues-pshs-0009
+    lesson: lesson-vocabulary-word-partners-feeling-and-grammar
+    keyPoint: 2
+    type: word-in-context
+    difficulty: exam
+    stem: |
+      A library notice reads, "The board will **entertain** requests to use the hall after regular hours. It will post its decisions next week."
+
+      Which word can replace **entertain** without changing the meaning?
+    choices:
+      - text: "consider"
+        correct: true
+      - text: "amuse"
+        rationale: |
+          This uses the common meaning of making someone laugh or
+          keeping them interested. The hall might host a show.
+          Put "amuse" after "will" and check what the board is
+          dealing with.
+      - text: "approve"
+        rationale: |
+          This takes the offer to consider requests as a promise to say
+          yes. The notice lets people ask to use the hall. Does it promise
+          that anyone will get permission?
+      - text: "encourage"
+        rationale: |
+          This treats the notice as an effort to get more people to
+          apply. A public notice can invite interest. Check what the board
+          will do about the requests before it posts its decisions.
+      - text: "announce"
+        rationale: |
+          This gives the act of posting to the wrong part of
+          the notice. The board will make something public. Check
+          whether it will post the requests or its decisions.
+    explanation: |
+      The board will look at each request before it makes a
+      decision. "Consider" means to think about the requests. It
+      fits after "will" in the notice.
