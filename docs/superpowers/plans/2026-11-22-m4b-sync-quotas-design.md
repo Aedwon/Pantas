@@ -105,3 +105,19 @@ and stays far inside the staging budget; counted again before it runs.
 6. App message (later, Flutter slot): on a sync refusal while paused, the Backup page's approved status card shows
    headline "Backup paused" and subtitle "You synced a lot today. Backup starts again tomorrow, and your progress
    stays safe on this device." (rule 4: copy inside an approved layout; the card's existing no-action state).
+
+## Staging proof: pre-run count (rule 7, written before the run)
+
+Staging caps for the test: 50 rows an hour, 200 a day (functions/.env.pantas-staging). One throwaway Pro account
+(custom claims set by admin, short-lived App Check debug token, both deleted after) writes up to 80 lesson-progress
+rows one at a time through the Firestore REST API, until the rules refuse.
+
+| Step | Reads | Writes |
+|---|---|---|
+| Rules, indexes (TTL) and functions deploy | 0 | 0 |
+| Account setup (sync_state and generation documents by admin) | 0 | 3 |
+| 80 row writes: each rule check reads about 3 documents; each row adds 1 counter write; 1 in 20 adds a counter read | about 250 | about 165 |
+| Checks and cleanup (read pause flags, delete the account's documents) | about 90 | about 90 deletes |
+| Total, with 50% margin | **about 500** | **about 400** |
+
+Already used today on staging is read from the live check before the run. Well under the budget. Go.
