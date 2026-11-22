@@ -120,3 +120,8 @@ Expected day total: well under every budget. Go.
   `'strict-dynamic'` or `'unsafe-inline'` for script elements only), from the week's reports.
 - Prod ship: the same method with the files `app.pantas.study` serves, then `compare.mjs`; rollback is a
   redeploy of the previous Worker version (`wrangler rollback`).
+3. Worker headers (prod), ordering (manager, Nov 22): if Aedwon approves both, the CSE release QA lead's web
+   ship (build 2026318751) goes first. The QA lead tells this lane when its Worker deploy is checked; this lane
+   then copies the files the prod Worker serves at that moment, deploys only `_headers`, `worker.mjs` and its
+   config, and runs `compare.mjs` (every path must match the QA build). Until PR #84 is merged to main, any
+   later Worker deploy must come from a tree that includes this branch, or this lane re-applies.
