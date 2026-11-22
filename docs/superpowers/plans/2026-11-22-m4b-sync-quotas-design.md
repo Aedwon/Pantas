@@ -121,3 +121,17 @@ rows one at a time through the Firestore REST API, until the rules refuse.
 | Total, with 50% margin | **about 500** | **about 400** |
 
 Already used today on staging is read from the live check before the run. Well under the budget. Go.
+
+## Staging proof results (Nov 22, 11:50 to 11:55 UTC)
+
+- Deployed to staging from the branch: rules, indexes (the `limits.purgeAt` TTL) and functions (57; `countSyncWrites`
+  runs as pantas-jobs). Preflight OK. Staging images deleted.
+- Abuse run (throwaway Pro account, debug token; both deleted with all the account's documents): with the staging cap of
+  50 rows an hour, 56 rows were accepted and row 57 was refused (403). The pause was set on both `sync_state/current`
+  and the generation, until 12:00 UTC (the next hour). Overshoot of 6 rows matches the 1-in-20 check.
+- Refund: with the pause cleared and `proUntil` set in the past (what the mirror writes on a refund), the next write
+  was refused (403).
+- Trigger log: one warning `sync paused hourly` with the public id only (`none` for this account); 110 trigger runs,
+  all successful (56 writes and the cleanup deletes, which it ignores).
+- Not covered on staging: the entitlement mirror from real payment paths (covered by emulator tests) and the app's
+  "Backup paused" message (needs the Flutter slot).
