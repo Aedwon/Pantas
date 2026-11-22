@@ -128,3 +128,10 @@ Expected day total: well under every budget. Go.
    lead's rollback (Worker fc99d322-c623-4dc0-9c7b-67761bc8c216, Hosting 5ef0949e785c7c87) would drop the headers,
    so the QA lead warns this lane before using it. Until PR #84 is merged to main, any
    later Worker deploy must come from a tree that includes this branch, or this lane re-applies.
+4. Part B (M4b), server side, with step 2's functions deploy: `firebase deploy --only firestore,functions` (rules, the
+   `limits.purgeAt` TTL index, `countSyncWrites`). Prod uses the code's caps (10,000 rows an hour, 30,000 a day,
+   50 MB a day); only staging sets lower ones. Watch: the trigger's error log and any `sync paused` warning for
+   24 hours. Rollback: release main's rules and redeploy functions from main.
+5. Part B, app side ("Paused" on the Backup row, no pushes while paused): ships in the next prod web build after
+   this branch is on main (it needs a Flutter build). Until then, a paused account's app retries and is refused,
+   which is harmless. The optional explanation line waits for Aedwon's pick on the CSE Release Picks canvas.
