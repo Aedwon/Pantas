@@ -73,3 +73,34 @@ reads, 16,000 writes, 288 MB egress.
 | Total, with 50% margin | **about 900** | **about 90** | **about 75 MB** |
 
 Expected day total: well under every budget. Go.
+
+## Staging proof results (Nov 22, 11:00 to 11:20 UTC)
+
+- Part A: firestore.rules released on staging (compiled). Staging has no sync rows; all 79 real-app rows from
+  prod pass the new rules in a local emulator replay (data deleted after). Rules tests 140/140.
+- Part 2: `function_service_accounts.sh pantas-staging` applied (rerun is a no-op). The first deploy stopped
+  with HTTP 400 before changing anything: the pinned CLI expands `name@` when it deploys but not when it grants
+  secret access; accounts are now written in full (test fails on the short form). Second deploy: 56 updated;
+  services by account: pantas-app 32, pantas-identity 14, pantas-entitlements 5, pantas-payments 3, pantas-jobs 2
+  (scheduled jobs are off on staging), none on the default compute account. Preflight OK.
+- Live calls as a throwaway account with a short-lived debug token (both deleted): getMockAvailability with
+  setup 200 (155 questions); getWebEntitlement 200; listWebPlans 200 (reads the app secret); paymongoWebhook with
+  a bad signature 401 (reads the payment secret). revenuecatWebhook 500 is staging's missing RevenueCat
+  configuration, the same answer as before the change. No permission errors in staging logs since the deploy.
+- Policy Troubleshooter (enabled on staging; free): pantas-identity CAN signBlob on itself; pantas-jobs CAN invoke
+  Cloud Run and receive Eventarc events; pantas-identity CAN delete Auth users; pantas-payments CAN read the payment
+  secret. pantas-app CANNOT signBlob, delete users, read the payment secret, or set project IAM.
+- Not proven live: custom-token minting (needs a real email or Google sign-in) and the three scheduled jobs (off on
+  staging). Both are checked on prod right after the ship, with rollback ready.
+- Headers: need a local web build to deploy (the Firebase mirror is emergency-only, rule 7 ruling 2), so they
+  wait for the Flutter slot.
+- Staging use this quota day: under 1,000 reads (pre-run count about 900).
+
+## Prod ship steps (on Aedwon's "ship it")
+
+1. Part A: `firebase deploy --only firestore:rules --project pantas-prod` (pinned CLI); watch Pro sync for 24 h.
+   Rollback: release main's rules.
+2. Part 2: `tool/deploy/function_service_accounts.sh pantas-prod`, then the IAM preflight, then the functions
+   deploy (pinned CLI). Right after: one email sign-in (custom token), the next scheduled run of each of the 3
+   jobs, and the error log. Rollback: redeploy functions from main (the default compute account keeps Editor
+   until a clean day passes; removing it is a separate logged step).
