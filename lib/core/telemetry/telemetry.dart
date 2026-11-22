@@ -71,7 +71,11 @@ const _forbiddenKeys = {
 };
 
 /// The longest identifier a property may carry: the analytics provider's
-/// limit on an event parameter value (100 characters). The old limit, 64, had
+/// limit on an event parameter value (100 characters: "String parameter values
+/// can be up to 100 characters long",
+/// https://firebase.google.com/docs/analytics/flutter/events, and "Length of
+/// event parameter value: 100 characters",
+/// https://support.google.com/analytics/answer/9267744). The old limit, 64, had
 /// no source; prod question ids run past it, and on Nov 22 2026 every answer to
 /// those 261 questions failed to save because this check threw.
 const kMaxPropertyIdentifierLength = 100;
