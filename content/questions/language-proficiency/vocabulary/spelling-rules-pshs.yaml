@@ -1,0 +1,101 @@
+meta:
+  subject: language-proficiency
+  topic: vocabulary
+  subtopic: spelling-rules-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-vocabulary-spelling-rules-pshs-0001
+    lesson: lesson-vocabulary-checking-longer-spellings
+    keyPoint: 1
+    type: spelling-correction
+    difficulty: medium
+    stem: |
+      "The ranger ______ the hikers to cross the bridge."
+      Which spelling correctly gives the past tense of "permit"?
+    choices:
+      - text: "permitted"
+        correct: true
+      - text: "permited"
+        rationale: |
+          This keeps one t. Many verbs take -ed without doubling a
+          letter. Say "permit" and listen for stress on the last syllable.
+      - text: "purmitted"
+        rationale: |
+          This changes the first e to u. The first syllable can sound
+          like "pur" in quick speech. Check the first vowel in "permit."
+      - text: "permittd"
+        rationale: |
+          This drops the e in -ed. The ending has no separate vowel
+          sound. Check that the written ending has both letters.
+      - text: "permittted"
+        rationale: |
+          This adds two extra t letters. You may count the doubled t
+          as two new letters. Check that doubling leaves two t letters.
+    explanation: |
+      Start with "permit." The stress falls on "mit." Double the final
+      t and add -ed to make "permitted."
+
+  - id: q-vocabulary-spelling-rules-pshs-0002
+    lesson: lesson-vocabulary-checking-longer-spellings
+    keyPoint: 1
+    type: spelling-correction
+    difficulty: hard
+    stem: |
+      "The judges ______ with one another before announcing the winner."
+      Which spelling correctly gives the past tense of "confer"?
+    choices:
+      - text: "conferred"
+        correct: true
+      - text: "confered"
+        rationale: |
+          This keeps one r. Many verbs take -ed with no change to the base.
+          Say "confer" aloud and listen for the stress on the last syllable.
+      - text: "confurred"
+        rationale: |
+          This changes the e in the base to u. The last part of "confer"
+          sounds like "fur." Check the vowel in the written base.
+      - text: "conferrd"
+        rationale: |
+          This leaves out the e from -ed. You hear only a d sound at the
+          end. Check that the written ending still has both letters.
+      - text: "confferred"
+        rationale: |
+          This adds a second f. A word with a similar sound, "offer," has
+          two f letters. Check how many f letters are in "confer."
+    explanation: |
+      Say "confer" aloud. The last syllable is stressed. Double the final
+      r and add -ed to get "conferred."
+
+  - id: q-vocabulary-spelling-rules-pshs-0003
+    lesson: lesson-vocabulary-checking-longer-spellings
+    keyPoint: 1
+    type: spelling-correction
+    difficulty: exam
+    stem: |
+      Which pair correctly completes the sentence?
+      "The science club is ______ new members and ______ the final list on Friday."
+    choices:
+      - text: "admitting, submitting"
+        correct: true
+      - text: "admiting, submitting"
+        rationale: |
+          This keeps one t in "admit." You hear one t sound when you
+          say the word. Say "admit" and listen for stress on "mit."
+      - text: "admitting, submiting"
+        rationale: |
+          This keeps one t in "submit." Adding -ing to the base as
+          written works for many verbs. Check where the stress falls
+          in "submit."
+      - text: "admiting, submiting"
+        rationale: |
+          This adds -ing to both bases without doubling. The words
+          follow the same pattern, which can make the pair look right.
+          Say both bases aloud and check their last syllables for stress.
+      - text: "admitting, submittting"
+        rationale: |
+          This writes three t letters in "submitting." You may think
+          doubling means adding two t letters to the base. Count two
+          t letters before -ing.
+    explanation: |
+      Say "admit" and "submit." Both have stress on "mit." Double the
+      final t in each base and add -ing to get "admitting" and "submitting."
