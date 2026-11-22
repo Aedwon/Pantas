@@ -229,7 +229,7 @@ async function copyIfPending(deps: PaymongoWebhookDeps, uid: string) {
   }
 }
 
-export const paymongoWebhook = onRequest({region: 'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets: [paymentSecrets]},
+export const paymongoWebhook = onRequest({region: 'asia-southeast1', serviceAccount: 'pantas-payments@', maxInstances: WEBHOOK_MAX_INSTANCES, secrets: [paymentSecrets]},
   async (req, res) => {
     if (req.method !== 'POST') {res.status(405).json({ok: false}); return;}
     const key = secret('PAYMONGO_SECRET_KEY');

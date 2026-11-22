@@ -12,6 +12,7 @@ import {timed} from './_timed.js';
 export const deleteAccount = onCall(
   {
     region: 'asia-southeast1',
+    serviceAccount: 'pantas-identity@',
     maxInstances: ACCOUNT_DELETION_MAX_INSTANCES,
     enforceAppCheck: enforceAppCheck,
     consumeAppCheckToken: enforceAppCheck,

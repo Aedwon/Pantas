@@ -107,7 +107,7 @@ export async function runCleanupOrphanAnons(): Promise<{scanned: number; deleted
 }
 
 export const cleanupOrphanAnons = onSchedule(
-  { schedule: 'every day 03:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', timeoutSeconds: 540 },
+  { schedule: 'every day 03:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', serviceAccount: 'pantas-jobs@', timeoutSeconds: 540 },
   async () => {
     await runCleanupOrphanAnons();
   },

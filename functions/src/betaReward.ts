@@ -46,6 +46,9 @@ async function guard(request: Request, deps: Deps, uid: string, key: string, max
   }
 }
 const options = {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck};
+// The two reward functions that refresh claims run as the entitlements account, not the default one.
+const entitlementOptions = {region: 'asia-southeast1', serviceAccount: 'pantas-entitlements@', enforceAppCheck: enforceAppCheck,
+  consumeAppCheckToken: enforceAppCheck};
 const types = ['image/png', 'image/jpeg', 'image/webp'];
 export const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 function optionalText(data: Record<string, unknown>, key: string, max: number): Record<string, string> {
@@ -136,7 +139,7 @@ export async function rewardStatus(request: Request, deps: Deps) {
   });
 }
 export const recordBetaDay = onCall(options, timed('recordBetaDay', request => recordDay(request, {db: getFirestore()})));
-export const getBetaReward = onCall(options, timed('getBetaReward', request => rewardStatus(request, {db: getFirestore(), auth: getAuth()})));
+export const getBetaReward = onCall(entitlementOptions, timed('getBetaReward', request => rewardStatus(request, {db: getFirestore(), auth: getAuth()})));
 
 export async function submitSurvey(request: Request, deps: Deps) {
   const uid = caller(request), data = object(request.data), answers = object(data.answers);
@@ -224,4 +227,4 @@ export async function activateReward(request: Request, deps: Deps) {
   if (deps.auth) await refreshRewardClaims(deps.db, deps.auth, uid, (deps.now ?? Date.now)());
   return result;
 }
-export const activateBetaReward = onCall(options, timed('activateBetaReward', request => activateReward(request, {db: getFirestore(), auth: getAuth()})));
+export const activateBetaReward = onCall(entitlementOptions, timed('activateBetaReward', request => activateReward(request, {db: getFirestore(), auth: getAuth()})));

@@ -73,5 +73,5 @@ async function googlePlayRenews(db: Firestore, uid: string, at: number): Promise
     typeof source.productId === 'string');
 }
 
-export const listWebPlans = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, secrets: [appSecrets]},
+export const listWebPlans = onCall({region: 'asia-southeast1', serviceAccount: 'pantas-identity@', enforceAppCheck: enforceAppCheck, secrets: [appSecrets]},
   timed('listWebPlans', request => listPlans(request.auth)));

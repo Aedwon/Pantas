@@ -64,7 +64,7 @@ export async function changeBetaPro(request: Pick<CallableRequest, 'auth' | 'app
   await copyEntitlementClaims(deps.db, deps.auth, uid);
   return result;
 }
-export const setBetaPro = onCall({region:'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck},
+export const setBetaPro = onCall({region:'asia-southeast1', serviceAccount: 'pantas-entitlements@', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck},
   timed('setBetaPro', request => {
     assertFreshAppCheck(request);
     return changeBetaPro(request, {db:getFirestore(), auth:getAuth()});

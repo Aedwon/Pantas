@@ -51,6 +51,6 @@ export async function runKeepCallablesWarm(options: {
 }
 
 export const keepCallablesWarm = onSchedule(
-  { schedule: 'every 5 minutes', region: 'asia-southeast1' },
+  { schedule: 'every 5 minutes', region: 'asia-southeast1', serviceAccount: 'pantas-jobs@' },
   async () => runKeepCallablesWarm(),
 );

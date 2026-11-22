@@ -21,7 +21,7 @@ export async function runPurgeOldAuditLogs(): Promise<{ deleted: number }> {
 }
 
 export const purgeOldAuditLogs = onSchedule(
-  { schedule: 'every day 03:30', timeZone: 'Asia/Singapore', region: 'asia-southeast1' },
+  { schedule: 'every day 03:30', timeZone: 'Asia/Singapore', region: 'asia-southeast1', serviceAccount: 'pantas-jobs@' },
   async () => {
     await runPurgeOldAuditLogs();
   },

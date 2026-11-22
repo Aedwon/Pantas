@@ -30,7 +30,7 @@ export async function webEntitlement(auth: Parameters<typeof assertNamedUser>[0]
  */
 export const WEB_ENTITLEMENT_PER_HOUR = 120;
 
-export const getWebEntitlement = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
+export const getWebEntitlement = onCall({region: 'asia-southeast1', serviceAccount: 'pantas-entitlements@', enforceAppCheck: enforceAppCheck},
   timed('getWebEntitlement', async request => {
     if (!request.auth) throw new HttpsError('unauthenticated', 'Authentication is required.');
     if (request.data?.uid !== request.auth.uid) {

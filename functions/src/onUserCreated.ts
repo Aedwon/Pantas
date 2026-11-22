@@ -5,6 +5,7 @@ export const onUserCreated = onDocumentCreated(
   {
     document: 'users/{uid}',
     region: 'asia-southeast1',
+    serviceAccount: 'pantas-jobs@',
   },
   async (event) => {
     await writeAuditLog({

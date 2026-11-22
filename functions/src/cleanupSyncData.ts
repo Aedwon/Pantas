@@ -189,6 +189,7 @@ export const cleanupSyncData = onSchedule(
     schedule: 'every day 04:00',
     timeZone: 'Asia/Singapore',
     region: 'asia-southeast1',
+    serviceAccount: 'pantas-jobs@',
   },
   async () => {
     await runCleanupSyncData();

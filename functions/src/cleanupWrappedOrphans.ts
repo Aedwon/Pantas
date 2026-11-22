@@ -86,7 +86,7 @@ export async function runCleanupWrappedOrphans(): Promise<{scanned: number; dele
 }
 
 export const cleanupWrappedOrphans = onSchedule(
-  { schedule: 'every day 04:15', timeZone: 'Asia/Singapore', region: 'asia-southeast1', timeoutSeconds: 540 },
+  { schedule: 'every day 04:15', timeZone: 'Asia/Singapore', region: 'asia-southeast1', serviceAccount: 'pantas-jobs@', timeoutSeconds: 540 },
   async () => {
     await runCleanupWrappedOrphans();
   },

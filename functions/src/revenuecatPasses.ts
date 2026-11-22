@@ -184,7 +184,7 @@ export async function clearPassOwnership(db: Firestore, uid: string): Promise<vo
   }
 }
 
-export const recomputePassEnds = onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck,consumeAppCheckToken: enforceAppCheck},
+export const recomputePassEnds = onCall({region:'asia-southeast1', serviceAccount: 'pantas-entitlements@',enforceAppCheck: enforceAppCheck,consumeAppCheckToken: enforceAppCheck},
   timed('recomputePassEnds', async request => {
     assertFreshAppCheck(request);
     await requireAdmin(request);

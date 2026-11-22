@@ -275,7 +275,7 @@ export async function checkGoogleSignIn(request: Req, deps: GoogleSignInDeps): P
   }
 }
 
-export const exchangeGoogleSignIn = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
+export const exchangeGoogleSignIn = onCall({region: 'asia-southeast1', serviceAccount: 'pantas-identity@', enforceAppCheck: enforceAppCheck,
   consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]}, timed('exchangeGoogleSignIn', request => {
   assertFreshAppCheck(request);
   return checkGoogleSignIn(request, {auth: getAuth(), db: getFirestore(), key: signInKey(), clientId: googleWebClientId.value(),

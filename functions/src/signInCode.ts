@@ -489,7 +489,7 @@ export function key(): string {
   return secret('SIGN_IN_CODE_KEY', {emulatorStandIn: 'sign-in-code-emulator-only-key'});
 }
 
-export const requestSignInCode = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
+export const requestSignInCode = onCall({region: 'asia-southeast1', serviceAccount: 'pantas-identity@', enforceAppCheck: enforceAppCheck,
   consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]}, timed('requestSignInCode', request => {
   assertFreshAppCheck(request);
   return sendSignInCode(request, {db: getFirestore(), auth: getAuth(), key: key(),
@@ -500,7 +500,7 @@ export const requestSignInCode = onCall({region: 'asia-southeast1', enforceAppCh
       {apiKey: () => secret('GUARDIAN_MAIL_API_KEY'), from: () => guardianMailFrom.value()}).send(message)}});
 }));
 
-export const verifySignInCode = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
+export const verifySignInCode = onCall({region: 'asia-southeast1', serviceAccount: 'pantas-identity@', enforceAppCheck: enforceAppCheck,
   consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]}, timed('verifySignInCode', request => {
   assertFreshAppCheck(request);
   return checkSignInCode(request, {db: getFirestore(), auth: getAuth(), key: key()});

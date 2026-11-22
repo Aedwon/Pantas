@@ -137,7 +137,7 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
 }
 
 export const startWebTrial = onCall(
-  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]},
+  {region: 'asia-southeast1', serviceAccount: 'pantas-identity@', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]},
   timed('startWebTrial', request => {
     assertFreshAppCheck(request);
     return startTrial(request.auth, {db: getFirestore(), auth: getAuth()});

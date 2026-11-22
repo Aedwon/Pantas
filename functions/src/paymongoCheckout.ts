@@ -172,7 +172,7 @@ async function releaseReservation(db: Firestore, pending: DocumentReference, ref
 }
 
 export const createPaymongoCheckout = onCall(
-  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [paymentSecrets]},
+  {region: 'asia-southeast1', serviceAccount: 'pantas-payments@', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [paymentSecrets]},
   timed('createPaymongoCheckout', request => {
     assertFreshAppCheck(request);
     return createCheckout(request.auth, request.data, {

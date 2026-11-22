@@ -359,7 +359,7 @@ export async function runPurgeInactiveAccounts(): Promise<void> {
 }
 
 export const purgeInactiveAccounts = onSchedule(
-  {schedule: 'every day 04:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', timeoutSeconds: 540,
+  {schedule: 'every day 04:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', serviceAccount: 'pantas-jobs@', timeoutSeconds: 540,
     secrets: purgeInactiveSecrets},
   async () => runPurgeInactiveAccounts(),
 );
