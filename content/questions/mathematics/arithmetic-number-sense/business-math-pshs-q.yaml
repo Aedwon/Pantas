@@ -1,0 +1,80 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: business-math-pshs-q
+  exams: [pshs-nce]
+questions:
+  - id: q-arithmetic-number-sense-business-math-pshs-q-0001
+    lesson: lesson-arithmetic-number-sense-discounted-prices
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Each of two school bags has a listed price of ₱560. A coupon takes $25\%$ off one bag, and the other bag is sold at its listed price. How much do the two bags cost in all?
+    choices:
+      - text: '₱980'
+        correct: true
+      - text: '₱840'
+        rationale: |
+          This takes $25\%$ off both bags because they have the same listed price. Check how many bags the coupon covers.
+      - text: '₱1,120'
+        rationale: |
+          This adds the two listed prices. That gives the bill before the coupon. Check how much the coupon takes off.
+      - text: '₱700'
+        rationale: |
+          This adds the ₱140 saved to the listed price of the other bag. The savings are part of the math. Subtract them from ₱560 to find the price of the first bag.
+      - text: '₱1,260'
+        rationale: |
+          This adds ₱140 to the bill. The ₱140 is the right size for the discount. Check whether the coupon makes the bill go up or down.
+    explanation: |
+      The coupon takes off one fourth of ₱560, or ₱140. The first bag costs ₱420 after the discount. Add ₱560 for the other bag. The total is ₱980.
+
+  - id: q-arithmetic-number-sense-business-math-pshs-q-0002
+    lesson: lesson-arithmetic-number-sense-discounted-prices
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A shop marks down a ₱1,500 rain jacket by $20\%$. At checkout, a voucher takes another $25\%$ off the marked-down price. What is the final price of the jacket?
+    choices:
+      - text: '₱900'
+        correct: true
+      - text: '₱825'
+        rationale: |
+          Adding the two discounts gives $45\%$. Both rates do lower the price. Check which price the voucher uses to find its $25\%$ discount.
+      - text: '₱1,200'
+        rationale: |
+          This is the price after the shop's markdown. It is the right price to use at the start of checkout. Check what the voucher takes off that price.
+      - text: '₱1,125'
+        rationale: |
+          This takes the voucher's $25\%$ off the listed price. The voucher does come last. Apply the shop's markdown before using it.
+      - text: '₱600'
+        rationale: |
+          This adds the amounts taken off by the shop and the voucher. That gives the total saved. Check how much of the listed price is left to pay.
+    explanation: |
+      The shop takes $20\%$ of ₱1,500 off, which is ₱300. The new price is ₱1,200. The voucher takes one fourth of ₱1,200 off, which is also ₱300. The final price is ₱900.
+
+  - id: q-arithmetic-number-sense-business-math-pshs-q-0003
+    lesson: lesson-arithmetic-number-sense-discounted-prices
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Two stores list the same bicycle helmet at ₱2,400. One store takes $30\%$ off the listed price and then takes $15\%$ off the reduced price. The other store takes $38\%$ off the listed price. What is the difference between the two sale prices?
+    choices:
+      - text: '₱60'
+        correct: true
+      - text: '₱168'
+        rationale: |
+          Adding $30\%$ and $15\%$ makes the discount gap look like $7$ percentage points. Check that the $15\%$ is taken from the reduced price.
+      - text: '₱192'
+        rationale: |
+          This compares $30\%$ off with $38\%$ off. Both of those rates use the listed price. Check the extra discount at the first store before comparing the prices.
+      - text: '₱108'
+        rationale: |
+          This finds how much less the $15\%$ discount takes off when it uses the reduced price. That tells you how much adding the two rates would overstate the savings. Check the price at the other store too.
+      - text: '₱552'
+        rationale: |
+          This compares $15\%$ off with $38\%$ off. Both rates appear at the end of their store's offer. Check what happens to the price before the $15\%$ is taken off.
+    explanation: |
+      After $30\%$ off, the first store charges $0.70\times 2{,}400=1{,}680$ pesos. Take another $15\%$ off that price. This leaves $0.85\times 1{,}680=1{,}428$ pesos. The other store charges $0.62\times 2{,}400=1{,}488$ pesos. The difference is $1{,}488-1{,}428=60$ pesos.
