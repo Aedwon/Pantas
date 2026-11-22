@@ -1,0 +1,338 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: figure-grouping-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-spatial-abstract-reasoning-figure-grouping-pshs-0001
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 1
+    type: odd-one-out
+    difficulty: medium
+    figure: figure-grouping-pshs-01
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: blob
+        - form: triangle
+        - form: circle
+        - form: hexagon
+        - form: pentagon
+    stem: |
+      Which pair must be removed so that every remaining outline is made only of straight sides?
+    choices:
+      - text: First and third
+        correct: true
+      - text: First and fourth
+        rationale: |
+          The first outline is curved, and the fourth is wider than the other polygons. Trace the fourth outline. Each side is straight.
+      - text: Second and third
+        rationale: |
+          The second and third figures lack the short sides seen farther right. Check the second figure's slanting sides. They are straight.
+      - text: Second and fifth
+        rationale: |
+          These two figures both have a point at the top. Follow the sides that meet at each point. Both outlines are made of straight sides.
+      - text: Third and fourth
+        rationale: |
+          Both figures look round from a distance. Look closely at the fourth figure's corners. The sides between them are straight.
+    explanation: |
+      The first and third outlines are curved. Take them away and the three outlines left are all made of straight sides.
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-pshs-0002
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 2
+    type: odd-one-out
+    difficulty: medium
+    figure: figure-grouping-pshs-02
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: hexagon
+        - form: parallelogram
+        - form: circle
+        - form: rectangle
+        - form: blob
+    stem: |
+      In which pair does neither outline have a fold line that makes matching halves?
+    choices:
+      - text: Second and fifth
+        correct: true
+      - text: First and second
+        rationale: |
+          Both outlines have slanting sides, which may seem hard to line up. Try a vertical fold through the first outline. Its slanting sides match.
+      - text: Second and fourth
+        rationale: |
+          A diagonal fold fails to match the halves of both four-sided figures. Try a fold across the middle of the fourth figure, parallel to one of its sides.
+      - text: Third and fifth
+        rationale: |
+          Both outlines curve and have no corners to line up. Try folding the third figure along any line through its center. Its curved edges match.
+      - text: Fourth and fifth
+        rationale: |
+          The fourth outline is much wider than it is tall. That can make it seem unbalanced. Try a vertical fold through the middle and compare its two ends.
+    explanation: |
+      Each long side of the second outline must land on a long side. Only a fold straight across or straight up and down keeps those sides horizontal. A fold across the middle makes the long sides miss because one sits farther to the right. A fold up and down would have to pass through the middle of both long sides. Those midpoints sit one to the side of the other. The fifth outline has uneven curves, so no fold makes its halves match.
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-pshs-0003
+    lesson: lesson-spatial-abstract-reasoning-testing-a-figure-group-rule
+    keyPoint: 1
+    type: odd-one-out
+    difficulty: medium
+    figure: figure-grouping-pshs-03
+    figureSpec:
+      kind: figure-series
+      blank: false
+      items:
+        - form: triangle
+          fill: black
+        - form: circle
+          size: small
+          fill: black
+        - form: square
+          fill: black
+        - form: pentagon
+          size: small
+          fill: black
+        - form: square
+    stem: |
+      Which rule fits exactly four of the five figures?
+    choices:
+      - text: Has a shaded interior
+        correct: true
+      - text: Has a closed outer boundary
+        rationale: |
+          Every outline makes a loop, so this looks like a good shared rule. Trace the outline of the unshaded square too. This rule leaves out no figure.
+      - text: Has exactly four straight sides
+        rationale: |
+          The two squares make a clear group. Count the sides of the triangle and pentagon too. Only the squares fit this rule.
+      - text: Has one of the larger outlines
+        rationale: |
+          The larger figures stand out as a group. Check the second and fourth figures. This rule leaves out both of them.
+      - text: Has shading and a smaller outline
+        rationale: |
+          The second and fourth figures share both traits. Check the larger shaded figures too. This rule leaves out three figures.
+    explanation: |
+      The first four figures are shaded inside. Only the square at the right is unshaded. The shading rule fits exactly four figures.
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-pshs-0004
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 1
+    type: odd-one-out
+    difficulty: medium
+    figure: figure-grouping-pshs-04
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: circle
+        - form: circle
+          lines: 1
+        - form: circle
+          lines: 3
+        - form: circle
+          lines: 2
+        - form: circle
+          lines: 4
+    stem: |
+      Which pair has the same total number of enclosed regions as the rightmost circle?
+    choices:
+      - text: Second and third
+        correct: true
+      - text: First and third
+        rationale: |
+          Counting the rim of the first circle as a region would give this pair eight. Count only the areas inside. The uncut circle adds one region, so the total is seven.
+      - text: Second and fourth
+        rationale: |
+          The two circles together have six regions, which matches the third circle. Count the regions in the rightmost circle. It has eight.
+      - text: Third and fourth
+        rationale: |
+          The third circle gives six regions. Adding two for the fourth may seem right because it has two cuts. Count the four spaces made by those crossing cuts.
+      - text: First and fourth
+        rationale: |
+          This pair gives five regions, the number four separate cuts would make if they never crossed. Look at the rightmost circle. The cuts meet and make eight spaces.
+    explanation: |
+      Count the spaces inside each circle. The second has two and the third has six. Together they have eight, the same as the rightmost circle.
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-pshs-0005
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
+    type: odd-one-out
+    difficulty: medium
+    figure: figure-grouping-pshs-05
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: square
+          dots: 2
+        - form: hexagon
+          dots: 1
+        - form: circle
+          dots: 4
+        - form: rectangle
+          dots: 3
+        - form: pentagon
+          dots: 2
+    stem: |
+      Which rule groups the first, third, and fifth figures and leaves out the other two?
+    choices:
+      - text: Has an even dot count
+        correct: true
+      - text: Contains exactly two dots
+        rationale: |
+          The first and fifth figures have two dots each. Count the dots in the third figure too. It has four and must also fit.
+      - text: Contains fewer than three dots
+        rationale: |
+          A low dot count fits the first and fifth figures. Check the second figure. Its one dot would put it in the group.
+      - text: Contains at least two dots
+        rationale: |
+          All three named figures have two or more dots. Check the fourth figure as well. Its three dots would put it in the group.
+      - text: Has a straight-sided outline
+        rationale: |
+          The first and fifth figures have straight sides. Trace the third outline too. It is curved, so this rule leaves it out.
+    explanation: |
+      The first, third, and fifth figures have two, four, and two dots. These counts can all be split into pairs. The other figures have one and three dots, so each has a dot left over.
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-pshs-0006
+    lesson: lesson-spatial-abstract-reasoning-testing-a-figure-group-rule
+    keyPoint: 1
+    type: odd-one-out
+    difficulty: hard
+    figure: figure-grouping-pshs-06
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: circle
+        - form: rectangle
+        - form: triangle
+        - form: square
+        - form: rhombus
+        - form: parallelogram
+    stem: |
+      One figure will be removed. In the new row, the leftmost figure must be the only one that fails the rule "has four sides." Which figure should be removed?
+    choices:
+      - text: Third figure
+        correct: true
+      - text: First figure
+        rationale: |
+          The circle breaks the rule now, so it might seem like the figure to remove. Check which figure would then be leftmost. The rectangle has four sides and must stay in the group.
+      - text: Second figure
+        rationale: |
+          The rectangle looks different from the square because it is wider. Count its four sides. Removing it would leave both the circle and triangle outside the group.
+      - text: Fifth figure
+        rationale: |
+          The fifth figure is smaller than the square beside it, so it may stand out. Count its four sides. Removing it would leave both the circle and the triangle, and both fail the rule.
+      - text: Sixth figure
+        rationale: |
+          The parallelogram leans, which makes its outline stand out. Count the two slanted sides and the top and bottom. It fits the rule and should stay.
+    explanation: |
+      The circle and triangle both fail the rule. The circle must stay at the far left. Removing the triangle leaves four figures with four sides and only the circle outside the group.
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-pshs-0007
+    lesson: lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry
+    keyPoint: 2
+    type: odd-one-out
+    difficulty: exam
+    figure: figure-grouping-pshs-07
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: hexagon
+        - form: rectangle
+        - form: triangle
+        - form: square
+        - form: circle
+    stem: |
+      A fold straight down the middle makes matching halves in all five outlines. Which outline fails to match when folded straight across the middle?
+    choices:
+      - text: Third figure
+        correct: true
+      - text: Leftmost figure
+        rationale: |
+          The points at the left and right may draw your eye to the sides. Fold across the line through those points. The top and bottom edges meet.
+      - text: Second figure
+        rationale: |
+          The wide outline may make a fold down the middle look like the better fit. Fold across the middle and check where the top two corners land. They meet the bottom two corners.
+      - text: Fourth figure
+        rationale: |
+          A diagonal fold works on this outline, so you might check that fold first. Try the fold across the middle too. The top and bottom halves match.
+      - text: Rightmost figure
+        rationale: |
+          With no corners to line up, it may be hard to see where to fold. Fold straight across the center. The top and bottom curves match.
+    explanation: |
+      The third outline has a point at the top and a flat side at the bottom. When you fold across the middle, the point and flat side cannot line up.
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-pshs-0008
+    lesson: lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details
+    keyPoint: 2
+    type: odd-one-out
+    difficulty: exam
+    figure: figure-grouping-pshs-08
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: square
+          dots: 1
+        - form: circle
+          dots: 2
+        - form: circle
+          dots: 1
+        - form: square
+          dots: 3
+        - form: hexagon
+          dots: 2
+    stem: |
+      Remove one figure so the remaining four can be split into two pairs. The figures in each pair must have the same number of dots. Which figure should be removed?
+    choices:
+      - text: Fourth figure
+        correct: true
+      - text: Leftmost figure
+        rationale: |
+          The other square has a different number of dots, so this square may seem to have no match. Look at the third figure. Both have one dot.
+      - text: Second figure
+        rationale: |
+          The two circles have different dot counts, so you might drop the circle with more dots. Count the dots in the last figure. It has two dots, just like the second figure.
+      - text: Third figure
+        rationale: |
+          Removing this figure leaves an even total of eight dots. Check the counts on the separate figures. The first figure would be the only one left with one dot.
+      - text: Rightmost figure
+        rationale: |
+          This is the only figure with six sides, so it may look like the odd one out. Count its dots. It has two, the same as the second figure.
+    explanation: |
+      The first and third figures have one dot each. The second and fifth have two dots each. Only the fourth has three dots, so remove it to leave the two pairs.
+
+  - id: q-spatial-abstract-reasoning-figure-grouping-pshs-0009
+    lesson: lesson-spatial-abstract-reasoning-testing-a-figure-group-rule
+    keyPoint: 1
+    type: odd-one-out
+    difficulty: exam
+    figure: figure-grouping-pshs-09
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: circle
+          dots: 2
+        - form: rectangle
+          dots: 2
+        - form: pentagon
+          dots: 3
+        - form: square
+          dots: 2
+        - form: hexagon
+          dots: 2
+    stem: |
+      The rule "has only straight sides" leaves out the circle. Which other rule fits exactly four figures and leaves out a different figure?
+    choices:
+      - text: Has exactly two dots
+        correct: true
+      - text: Has two dots and four straight sides
+        rationale: |
+          The rectangle and square share both traits. Check the circle and hexagon. Each has two dots, but neither has four straight sides. Only two figures fit this rule.
+      - text: Has four or more straight sides
+        rationale: |
+          This does fit four figures. Check which one fails it. The circle is still the only one left out.
+      - text: Has at least two dots inside
+        rationale: |
+          The circle now fits the rule because it has two dots. Check the remaining figures. They all have two or more dots, so no figure is left out.
+      - text: Has more dots than the circle
+        rationale: |
+          The pentagon stands out because it has three dots. Count the dots in the other figures. They each have two, just like the circle. Only the pentagon fits this rule.
+    explanation: |
+      The circle, rectangle, square, and hexagon each have two dots. The pentagon has three. The two-dot rule fits exactly four figures and leaves out the pentagon.
