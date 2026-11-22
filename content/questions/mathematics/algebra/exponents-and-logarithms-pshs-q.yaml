@@ -1,0 +1,80 @@
+meta:
+  subject: mathematics
+  topic: algebra
+  subtopic: exponents-and-logarithms-pshs-q
+  exams: [pshs-nce]
+questions:
+  - id: q-algebra-exponents-and-logarithms-pshs-q-0001
+    lesson: lesson-algebra-fractional-powers-and-exponent-equations
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      The cube root of $n$ is $7$. What is the value of $n^{\dfrac{2}{3}}$?
+    choices:
+      - text: "49"
+        correct: true
+      - text: "7"
+        rationale: |
+          This uses the cube root given in the question. The $3$ in the exponent does call for a cube root. Check what the $2$ tells you to do next.
+      - text: "14"
+        rationale: |
+          This doubles $7$ to use the $2$ in the exponent. The $2$ does tell you what to do with $7$. Check that squaring means $7 \times 7$.
+      - text: "343"
+        rationale: |
+          This cubes $7$ to find $n$. That works for finding the original number. Check if the question asks for $n$ or for a power of $n$.
+      - text: "117649"
+        rationale: |
+          This finds $n=343$ and squares it. The $2$ does call for a square. Check that the $3$ also calls for a cube root.
+    explanation: |
+      The $3$ in the exponent tells you to take the cube root. That gives $7$. The $2$ tells you to square it, so the answer is $7 \times 7=49$.
+
+  - id: q-algebra-exponents-and-logarithms-pshs-q-0002
+    lesson: lesson-algebra-fractional-powers-and-exponent-equations
+    keyPoint: 2
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      If $9^x=27^2$, what is the value of $3^{x+1}$?
+    choices:
+      - text: "81"
+        correct: true
+      - text: "27"
+        rationale: |
+          This uses $x=3$ to find $3^x$. Finding $x$ is part of the work. Check that the exponent in the question is $x+1$.
+      - text: "28"
+        rationale: |
+          This uses $x=3$ and adds $1$ to $3^3$ to get $28$. The $1$ does need to be added. Check that it is part of the exponent.
+      - text: "243"
+        rationale: |
+          This reads $27$ as $3^4$, which gives $2x=8$ and then $x=4$. The $27$ is a power of $3$. Check how many factors of $3$ make $27$.
+      - text: "729"
+        rationale: |
+          This uses $3^6$, the value of both sides of the given equation. The $6$ is the exponent when $27^2$ is written as a power of $3$. Check that $2x=6$ and that the question asks for $3^{x+1}$.
+    explanation: |
+      Write $9$ as $3^2$ and $27$ as $3^3$. The equation becomes $3^{2x}=3^6$. The bases are both $3$, so $2x=6$ and $x=3$. Then $3^{x+1}=3^4=81$.
+
+  - id: q-algebra-exponents-and-logarithms-pshs-q-0003
+    lesson: lesson-algebra-fractional-powers-and-exponent-equations
+    keyPoint: 1
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      What is the value of $54 \times 81^{-\dfrac{3}{4}}$?
+    choices:
+      - text: "2"
+        correct: true
+      - text: "1458"
+        rationale: |
+          This finds $81^{\dfrac{3}{4}}=27$ and multiplies by $54$. The root and the cube are both right. Check the minus sign and see whether you should multiply by $27$ or by its reciprocal.
+      - text: "-1458"
+        rationale: |
+          This reads the minus in the exponent as a minus in front of $27$. A minus in front of a number changes its sign. Check that a negative exponent tells you to take a reciprocal.
+      - text: "18"
+        rationale: |
+          This uses the reciprocal of the fourth root, so it divides $54$ by $3$. The $4$ does call for a fourth root. Check that the $3$ in the exponent tells you to cube that root.
+      - text: '$\dfrac{1}{2}$'
+        rationale: |
+          This divides $27$ by $54$. Division is the right operation when you multiply by a reciprocal. Check which number goes on the bottom in $54 \times \dfrac{1}{27}$.
+    explanation: |
+      Since $3^4=81$, the fourth root of $81$ is $3$. Cube that root to get $3^3=27$. The negative exponent gives $\dfrac{1}{27}$. Multiply by $54$ to get $\dfrac{54}{27}=2$.
