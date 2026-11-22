@@ -87,13 +87,13 @@ questions:
     type: tense
     difficulty: medium
     stem: |
-      The gate is still locked. The guard put the lock on at dusk last night. Which report gives the exact time the guard did this?
+      The gate is still locked. The guard put the lock on at dusk last night. Which report uses the correct verb form and gives the exact time the guard locked the gate?
     choices:
       - text: "I locked the gate at dusk last night."
         correct: true
       - text: "I have locked the gate at dusk last night."
         rationale: |
-          This uses present perfect with a finished past time. The locked gate still matters now. Check whether the report names when the guard locked it.
+          "Have locked" may sound right because the gate is still locked. "At dusk last night" puts the action at a finished past time. Check the simple past form of "lock."
       - text: "I have kept the gate locked since dusk last night."
         rationale: |
           This reports how long the gate has stayed locked. It uses the same time clue as the report. Check whether the sentence states when the guard first locked it.
@@ -191,16 +191,16 @@ questions:
     type: tense
     difficulty: hard
     stem: |
-      A school started its book drive on Monday. It is Wednesday, and donations will keep coming in through Friday. Which update covers the whole drive up to now?
+      A school started its book drive on Monday. It is Wednesday, and donations will keep coming in through Friday. Which update uses the correct verb form and covers the whole drive up to now?
     choices:
       - text: "We have received several boxes of books since Monday."
         correct: true
       - text: "We have received several boxes of books since this morning."
         rationale: |
           This counts boxes up to now, but it starts the count this morning. Check which day the drive began.
-      - text: "We received several boxes of books on Monday."
+      - text: "We had received several boxes of books since Monday."
         rationale: |
-          This reports what happened on one finished day. Monday is part of the drive. Check whether the update is for Monday alone or for the drive up to now.
+          "Since Monday" gives the right start. "Had received" needs a later point in the past to look back from. Check whether the update goes up to a past point or up to now.
       - text: "We will receive several boxes of books by Friday."
         rationale: |
           This predicts what will arrive by the end of the drive. Friday is the last day. Check whether the update is about expected books or books already received.
@@ -216,24 +216,24 @@ questions:
     type: tense
     difficulty: exam
     stem: |
-      In a story, the lights went out just as the dancers stepped onto the stage. The crowd took their seats earlier. Which sentence uses the past perfect to show that the crowd was already seated when the lights went out?
+      Which sentence shows that the crowd had finished taking their seats before the game began?
     choices:
-      - text: "The crowd had settled into their seats when the lights went out."
+      - text: "The crowd had taken their seats when the game began."
         correct: true
-      - text: "The crowd was about to settle into their seats when the lights went out."
+      - text: "The crowd was about to take their seats when the game began."
         rationale: |
-          This says the crowd was getting ready to sit. It links the two events closely. Check whether the crowd still needed to take their seats when the lights went out.
-      - text: "The crowd settled into their seats when the lights went out."
+          This says the crowd was getting ready to sit. It links the two events closely. Check whether the crowd still needed to take their seats when the game began.
+      - text: "The crowd took their seats when the game began."
         rationale: |
-          This uses simple past to place both actions at the same time. Both actions are in the past. Check which one was already complete when the lights went out.
-      - text: "The crowd was settling into their seats when the lights went out."
+          This puts both actions in the past. "When" places the crowd taking their seats at the start of the game. Check whether the crowd was already seated by then.
+      - text: "The crowd was taking their seats when the game began."
         rationale: |
-          This shows people still taking their seats. It correctly uses the lights going out as a time clue. Check whether the crowd was still sitting down at that point.
-      - text: "The crowd had settle into their seats when the lights went out."
+          This shows people still taking their seats. It uses the start of the game as a time clue. Check whether the crowd was still sitting down at that point.
+      - text: "The crowd had started taking their seats when the game began."
         rationale: |
-          This puts the base form "settle" after "had." The helper does point to an earlier action. Check which form of "settle" follows "had."
+          "Had started" shows that people began to sit before the game. That gets the order of the start right. Check whether the sentence also shows that everyone was seated.
     explanation: |
-      The crowd was seated before the lights went out. "Had" plus the past participle "settled" shows that the action was already done.
+      "Had taken" shows that the crowd was already seated when the game began.
 
   - id: q-grammar-and-structure-tenses-and-voice-pshs-0010
     lesson: lesson-grammar-and-structure-past-events-and-future-meaning
