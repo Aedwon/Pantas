@@ -1,0 +1,332 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: figure-series-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-spatial-abstract-reasoning-figure-series-pshs-0001
+    lesson: lesson-spatial-abstract-reasoning-figure-counts-and-fills
+    keyPoint: 1
+    type: figure-series
+    difficulty: hard
+    figure: figure-series-pshs-01
+    figureSpec:
+      kind: figure-series
+      items:
+        - {form: circle, dots: 1}
+        - {form: circle, dots: 2}
+        - {form: circle, dots: 3}
+        - {form: circle, dots: 4}
+      blank: true
+    stem: |
+      How many dots should appear in the next figure?
+    choices:
+      - text: One
+        rationale: |
+          This starts over at one. The first circle does have one dot. Check whether the count ever goes back to the start.
+      - text: Two
+        rationale: |
+          This gives the change from the second circle to the fourth. The count goes up by two across those steps. Check whether the question asks for a change or a dot count.
+      - text: Three
+        rationale: |
+          This takes one dot away from four. The count changes by one each time. Check whether each circle gains a dot or loses one.
+      - text: Four
+        rationale: |
+          This counts the circles instead of the dots. There are four circles before the blank. Count the dots inside each circle to see what changes.
+      - text: Five
+        correct: true
+    explanation: |
+      The dot counts are one, two, three, and four. Each circle has one
+      more dot than the one before it. Add one to four to get five dots.
+  - id: q-spatial-abstract-reasoning-figure-series-pshs-0002
+    lesson: lesson-spatial-abstract-reasoning-figure-counts-and-fills
+    keyPoint: 2
+    type: figure-series
+    difficulty: hard
+    figure: figure-series-pshs-02
+    figureSpec:
+      kind: figure-series
+      items:
+        - {form: square, fill: 0.5}
+        - {form: square, fill: white}
+        - {form: square, fill: 0.5}
+        - {form: square, fill: black}
+        - {form: square, fill: 0.5}
+      blank: true
+    stem: |
+      Which fill should come next in the series?
+    choices:
+      - text: Empty
+        correct: true
+      - text: Half full
+        rationale: |
+          This keeps the fill at the level that appears most often. Half full shows up three times. Check what happens right after each earlier half-full square.
+      - text: Completely full
+        rationale: |
+          This repeats the most recent move from half full to full. That move did happen once. Check the fill in the second and fourth positions together.
+      - text: One-quarter full
+        rationale: |
+          This moves toward empty by taking away half the current fill. The direction fits the start of the cycle. Check how much fill the first square loses in one step.
+      - text: Three-quarters full
+        rationale: |
+          This moves partway toward full. The series does rise to full in the middle. Check if it uses a step between half full and full.
+    explanation: |
+      Read the fills in groups of four. The first group goes half full,
+      empty, half full, full. The fifth square starts the group again at
+      half full. The next square is empty.
+  - id: q-spatial-abstract-reasoning-figure-series-pshs-0003
+    lesson: lesson-spatial-abstract-reasoning-figure-turns-and-positions
+    keyPoint: 1
+    type: figure-series
+    difficulty: hard
+    figure: figure-series-pshs-03
+    figureSpec:
+      kind: figure-series
+      items:
+        - {form: circle, arrow: up, rotation: 90}
+        - {form: circle, arrow: up, rotation: 45}
+        - {form: circle, arrow: up}
+        - {form: circle, arrow: up, rotation: 315}
+      blank: false
+    stem: |
+      In which direction will the arrow point two figures after the last one shown?
+    choices:
+      - text: Lower left
+        correct: true
+      - text: Straight left
+        rationale: |
+          This takes one turn. Left is the direction just after upper left. Check how many new figures the question asks you to add.
+      - text: Straight down
+        rationale: |
+          This takes three turns. Down is the next main direction after left. Count the diagonal step between left and down.
+      - text: Upper right
+        rationale: |
+          This counts two turns in the opposite direction. Upper right is two steps back from upper left. Follow the arrow from right through up to check the way it turns.
+      - text: Lower right
+        rationale: |
+          This moves diagonally across the circle in a half turn. The last arrow is on a diagonal. Compare that jump with the small turn from right to upper right.
+    explanation: |
+      Each arrow turns one eighth of a turn counterclockwise.
+      From upper left, one more turn points left. A second turn
+      points lower left.
+  - id: q-spatial-abstract-reasoning-figure-series-pshs-0004
+    lesson: lesson-spatial-abstract-reasoning-figure-turns-and-positions
+    keyPoint: 2
+    type: figure-series
+    difficulty: hard
+    figure: figure-series-pshs-04
+    figureSpec:
+      kind: figure-series
+      items:
+        - {form: square, dot: top-left}
+        - {form: square, dot: bottom-right}
+        - {form: square, dot: bottom-left}
+        - {form: square, dot: top-right}
+        - {form: square, dot: top-left}
+      blank: true
+    stem: |
+      Where should the dot appear in the next square?
+    choices:
+      - text: Lower right
+        correct: true
+      - text: Lower left
+        rationale: |
+          This moves straight down along the left side. The dot does move to a neighboring corner on some steps. Check where it went the first time it left the upper left.
+      - text: Upper right
+        rationale: |
+          This reverses the last move. Upper right is just one corner away. Check how the dot moves after each visit to the left side.
+      - text: Upper left
+        rationale: |
+          This holds the dot in the first corner to begin another round. The dot has already returned to that corner. Check which move opened the round.
+      - text: Center of the square
+        rationale: |
+          This starts the diagonal jump but stops halfway. Check where the first jump from the upper left ended.
+    explanation: |
+      The dot jumps to the opposite corner, then moves left along an edge.
+      It does this twice and returns to the upper left. The next jump
+      goes across the square to the lower right.
+  - id: q-spatial-abstract-reasoning-figure-series-pshs-0005
+    lesson: lesson-spatial-abstract-reasoning-figure-counts-and-fills
+    keyPoint: 1
+    type: figure-series
+    difficulty: exam
+    figure: figure-series-pshs-05
+    figureSpec:
+      kind: figure-series
+      items:
+        - {form: circle, dots: 3}
+        - {form: circle, dots: 2}
+        - {form: circle, dots: 4}
+        - {form: circle, dots: 3}
+        - {form: circle, dots: 2}
+      blank: false
+    stem: |
+      How many dots will be in the third figure after the last one shown?
+    choices:
+      - text: Two
+        correct: true
+      - text: Five
+        rationale: |
+          This adds the counts of the last two circles. Both counts are part of the pattern. Check what followed the first circle with two dots.
+      - text: Three
+        rationale: |
+          This stops at the second new circle. Three does follow four. Count one more circle.
+      - text: Four
+        rationale: |
+          This gives the count in the very next circle. Four follows two. Keep going until you have counted three new circles.
+      - text: One
+        rationale: |
+          This takes one dot away from the last count. The last step did take away one dot. Check what happened after the first circle with two dots.
+    explanation: |
+      The counts repeat in groups of three circles. In each group, the dot
+      counts are three, two, and four. The next three counts are four,
+      three, and two.
+      The third new circle has two dots.
+  - id: q-spatial-abstract-reasoning-figure-series-pshs-0006
+    lesson: lesson-spatial-abstract-reasoning-figure-turns-and-positions
+    keyPoint: 1
+    type: figure-series
+    difficulty: exam
+    figure: figure-series-pshs-06
+    figureSpec:
+      kind: figure-series
+      items:
+        - {form: circle, arrow: up, rotation: 225}
+        - {form: circle, arrow: up, rotation: 270}
+        - {form: circle, arrow: up}
+        - {form: circle, arrow: up, rotation: 135}
+        - {form: circle, arrow: up, rotation: 315}
+      blank: true
+    stem: |
+      The arrow turns clockwise at each step. In which direction will it point next?
+    choices:
+      - text: Down
+        correct: true
+      - text: Lower right
+        rationale: |
+          This repeats the last half turn. The last two arrows point in opposite directions. Check how much the turns grow at each step.
+      - text: Right
+        rationale: |
+          This uses the next turn size but goes counterclockwise. Check which way the question says to turn.
+      - text: Up
+        rationale: |
+          This uses a 45-degree turn. That was the size of the first turn. Check how the turns have changed since then.
+      - text: Lower left
+        rationale: |
+          This turns 270 degrees by adding two 45-degree steps to the last turn. The turns are getting bigger. Check how many 45-degree steps each turn adds.
+    explanation: |
+      The clockwise turns are 45, 90, 135, and 180 degrees.
+      Each turn grows by 45 degrees, so the next turn is 225 degrees.
+      From upper left, a half turn points lower right. Turn 45 degrees
+      more in the same direction to point down.
+  - id: q-spatial-abstract-reasoning-figure-series-pshs-0007
+    lesson: lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns
+    keyPoint: 1
+    type: figure-series
+    difficulty: exam
+    figure: figure-series-pshs-07
+    figureSpec:
+      kind: figure-series
+      items:
+        - {form: circle, size: small, arrow: up, rotation: 45}
+        - {form: circle, size: medium, arrow: up, rotation: 90}
+        - {form: circle, size: large, arrow: up, rotation: 135}
+        - {form: circle, size: medium, arrow: up, rotation: 180}
+        - {form: circle, size: small, arrow: up, rotation: 225}
+      blank: true
+    stem: |
+      What circle size and arrow direction should come next?
+    choices:
+      - text: Medium, left
+        correct: true
+      - text: Medium, upper left
+        rationale: |
+          This gets the size right and skips to the next diagonal. The last arrow is also diagonal. Count one turn of 45 degrees from lower left.
+      - text: Large, left
+        rationale: |
+          This gets the direction right and jumps from small to large. The circles grew to large earlier. Check which size they passed on the way.
+      - text: Large, lower left
+        rationale: |
+          This jumps to the largest circle and keeps the last arrow. The circles are due to grow again, so a larger circle looks right. Check the next size and turn one step from lower left.
+      - text: Small, lower left
+        rationale: |
+          This repeats the last circle and arrow. The size has just returned to small, which may look like a stopping point. Check what followed the first small circle and how the arrow changed.
+    explanation: |
+      The sizes go from small to medium to large and back down to small.
+      The next circle is medium. The arrow turns 45 degrees clockwise each
+      time. From lower left it turns to point left.
+  - id: q-spatial-abstract-reasoning-figure-series-pshs-0008
+    lesson: lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns
+    keyPoint: 1
+    type: figure-series
+    difficulty: exam
+    figure: figure-series-pshs-08
+    figureSpec:
+      kind: figure-series
+      items:
+        - {form: square, dot: bottom-left, arrow: right}
+        - {form: square, dot: top-right, arrow: up}
+        - {form: square, dot: bottom-left, arrow: left}
+        - {form: square, dot: top-right, arrow: down}
+        - {form: square, dot: bottom-left, arrow: right}
+      blank: true
+    stem: |
+      Which arrow direction and dot position complete the series?
+    choices:
+      - text: Up, upper right
+        correct: true
+      - text: Up, lower left
+        rationale: |
+          This turns the arrow correctly and keeps the last dot position. Both details are easy to spot in the row. Check the two corners the dot uses in turn.
+      - text: Left, upper right
+        rationale: |
+          This moves the dot correctly and sends the arrow straight across. The dot does jump to its opposite corner. Check if the arrow also makes a half turn.
+      - text: Down, lower left
+        rationale: |
+          This turns the arrow the other way and leaves the dot in place. Down is a quarter turn from right, and the dot is now in the lower left. Check both changes from the first square to the second.
+      - text: Down, lower right
+        rationale: |
+          This turns the arrow the other way and slides the dot along the bottom. The dot does move to the right. Check which way the arrow turns and which right-hand corner the dot visits.
+    explanation: |
+      The arrow turns a quarter turn counterclockwise each time.
+      It points up after right. The dot switches between the lower left
+      and upper right. From the lower left it goes to the upper right.
+  - id: q-spatial-abstract-reasoning-figure-series-pshs-0009
+    lesson: lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns
+    keyPoint: 2
+    type: figure-series
+    difficulty: exam
+    figure: figure-series-pshs-09
+    figureSpec:
+      kind: figure-series
+      items:
+        - {form: circle, arrow: up}
+        - {form: square, arrow: up}
+        - {form: circle, arrow: right}
+        - {form: square, arrow: down}
+        - {form: circle, arrow: down}
+      blank: false
+    stem: |
+      The arrows in circles turn by the same amount from one circle to the next.
+      The arrows in squares follow their own fixed turn.
+      Which pair gives the directions of the next two arrows in order?
+    choices:
+      - text: Up, left
+        correct: true
+      - text: Down, left
+        rationale: |
+          This gets the circle right and repeats the last square. The last square did point down. Check how the arrow changed from the first square to the second.
+      - text: Up, up
+        rationale: |
+          This gets the square right and gives the circle a half turn too. Both shapes have arrows that turn. Check the size of the turn from one circle to the next.
+      - text: Down, right
+        rationale: |
+          This repeats the last square and turns the circle the other way. The last square points down, and right is a quarter turn from down. Check what turn each shape uses.
+      - text: Left, up
+        rationale: |
+          This finds both directions but lists the circle first. The row starts with a circle. Check which shape comes after the last circle.
+    explanation: |
+      Read the circles on their own. Their arrows turn a quarter turn
+      clockwise from up to right to down. The next circle points left.
+      The square arrows turn halfway around from up to down. Another half
+      turn points up. A square comes next, then a circle.
