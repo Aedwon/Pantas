@@ -1,0 +1,346 @@
+meta:
+  subject: reading-comprehension
+  topic: comprehension-skills
+  subtopic: inferencing-and-conclusions-pshs
+  exams: [pshs-nce]
+
+passages:
+  - id: p-comprehension-skills-inferencing-and-conclusions-pshs-0001
+    title: A Place for the Repair Table
+    body: |
+      The school repair club set up near the stage during the fair. Students
+      could bring in a bag with a torn strap or a shirt with a loose button.
+      Ana threaded needles while Lito showed visitors how to make a stitch.
+      When the band started playing, a boy asked Lito to repeat the same step.
+      Lito raised his voice. The boy leaned closer but still held out his
+      needle for Lito to thread.
+
+      During a break, Ana carried scraps of cloth and two chairs into the
+      hallway. She told Lito to stay by the stage and say the instructions
+      in his usual voice. From the hallway, she could see his lips move.
+      Then she called him over. He spoke again in his usual voice, and Ana
+      repeated his words back to him.
+
+      Later, the librarian let the club borrow a table in the reading room.
+      The band was still playing when the boy came back. This time, he
+      followed Lito's spoken directions and threaded his own needle. A girl
+      asked for the scissors, and Ana heard her from the other end of the
+      table. At closing time, Lito stacked most of the chairs by the stage.
+      Ana left two chairs beside the reading room table and asked the
+      librarian when the room would open the next morning.
+
+questions:
+  - id: q-comprehension-skills-inferencing-and-conclusions-pshs-0001
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
+    passage: p-comprehension-skills-inferencing-and-conclusions-pshs-0001
+    type: inferencing-and-conclusions
+    difficulty: medium
+    stem: |
+      Why did Ana have Lito speak in his usual voice in both places?
+    choices:
+      - text: She wanted to compare how well she could hear him.
+        correct: true
+      - text: She wanted to practice teaching the steps herself.
+        rationale: |
+          Ana repeats his words, which can look like practice. Check why
+          she first watches him speak from the hallway and then calls him over.
+      - text: She wanted to see if she could follow Lito by sight.
+        rationale: |
+          Ana watches Lito's lips move, so she might seem to be following
+          the steps by sight. Check what she repeats when he comes closer.
+      - text: She wanted to find out if Lito knew each step by heart.
+        rationale: |
+          Asking Lito to speak twice can seem like a memory test. Check
+          where he stands the first time and where he stands the second time.
+      - text: She wanted Lito to practice speaking louder near the stage.
+        rationale: |
+          Lito had raised his voice to help the boy. Check whether he
+          speaks any louder during the break when he comes closer.
+    explanation: |
+      Lito speaks at the same volume both times. Ana can repeat his words
+      when he comes closer. She is checking where she can hear him clearly.
+
+  - id: q-comprehension-skills-inferencing-and-conclusions-pshs-0002
+    lesson: lesson-comprehension-skills-evidence-and-claim-strength
+    keyPoint: 1
+    passage: p-comprehension-skills-inferencing-and-conclusions-pshs-0001
+    type: inferencing-and-conclusions
+    difficulty: medium
+    stem: |
+      Which claim about the boy is best supported by his return to the club?
+    choices:
+      - text: He could follow the directions in the reading room.
+        correct: true
+      - text: He had learned to fix a strap himself.
+        rationale: |
+          Threading a needle can be part of fixing a strap. Check where the
+          boy's work ends in the passage.
+      - text: He had practiced threading needles during the break.
+        rationale: |
+          He did better after he came back, so practice seems possible.
+          Look for any detail about what he did while he was away.
+      - text: He came back to try threading the needle by himself.
+        rationale: |
+          He threads the needle himself after he returns, so that might
+          seem like his goal. Check whether the passage gives his reason
+          for coming back.
+      - text: He could follow the directions just as well beside the stage.
+        rationale: |
+          The boy succeeded at the same task in the reading room. Check
+          what he did when Lito gave directions beside the stage.
+    explanation: |
+      In the reading room, the boy listens to Lito and threads his own
+      needle. His work shows that he could follow the directions there.
+
+  - id: q-comprehension-skills-inferencing-and-conclusions-pshs-0003
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
+    passage: p-comprehension-skills-inferencing-and-conclusions-pshs-0001
+    type: inferencing-and-conclusions
+    difficulty: medium
+    stem: |
+      What will Ana most likely do when the reading room opens the next morning?
+    choices:
+      - text: Set up the repair club there again.
+        correct: true
+      - text: Move the borrowed table to the stage.
+        rationale: |
+          The club borrowed the table, so moving it may sound reasonable.
+          Check where Ana leaves the chairs and whose opening time she asks about.
+      - text: Return the borrowed table right away.
+        rationale: |
+          The club borrowed the table, so Ana might plan to return it.
+          Check what she leaves beside it at closing time.
+      - text: Move the remaining stage chairs to the hallway.
+        rationale: |
+          Ana carried chairs into the hallway earlier. Check the last place
+          where she puts them.
+      - text: Put away the reading room chairs.
+        rationale: |
+          Lito stacks chairs at closing time, so Ana might seem likely to
+          do the same. Check where she leaves her chairs and what she asks
+          the librarian.
+    explanation: |
+      Ana leaves two chairs beside the repair table. She also asks when
+      the room opens. Together, these clues suggest she plans to use that
+      spot again.
+
+  - id: q-comprehension-skills-inferencing-and-conclusions-pshs-0004
+    lesson: lesson-comprehension-skills-connecting-clues
+    keyPoint: 1
+    passage: p-comprehension-skills-inferencing-and-conclusions-pshs-0001
+    type: inferencing-and-conclusions
+    difficulty: hard
+    stem: |
+      What do the boy's second attempt and the girl's request for scissors
+      suggest about the reading room?
+    choices:
+      - text: People there could hear each other more easily.
+        correct: true
+      - text: Club members there could give each visitor more time.
+        rationale: |
+          The boy follows the directions, and Ana hears the girl ask for
+          scissors. Extra time might seem to explain why the exchanges went
+          well. Check whether the passage says how long either visit took.
+      - text: Visitors there had more sewing experience.
+        rationale: |
+          The boy threads a needle there, which can look like a sign of past
+          skill. Check whether he is a new visitor or the same boy as before.
+      - text: The club brought more tools there than it had by the stage.
+        rationale: |
+          Both a needle and scissors appear in the room. Check whether the
+          passage compares the tools in the two places.
+      - text: The club showed visitors each step by hand.
+        rationale: |
+          Lito shows visitors how to stitch at the fair. Check what kind of
+          directions the boy follows in the reading room.
+    explanation: |
+      By the stage, the boy asks Lito to repeat a step. In the reading room,
+      he follows Lito's spoken directions, and Ana hears the girl across the
+      table. These clues suggest people can hear each other more easily
+      in the reading room.
+
+  - id: q-comprehension-skills-inferencing-and-conclusions-pshs-0005
+    lesson: lesson-comprehension-skills-evidence-and-claim-strength
+    keyPoint: 1
+    passage: p-comprehension-skills-inferencing-and-conclusions-pshs-0001
+    type: inferencing-and-conclusions
+    difficulty: hard
+    stem: |
+      A club member says, "Ana carried chairs into the hallway because the
+      librarian had already offered the club a table."
+      Which detail best shows why this claim is wrong?
+    choices:
+      - text: The librarian offered the table after Ana moved the chairs.
+        correct: true
+      - text: Ana took scraps of cloth into the hallway with the chairs.
+        rationale: |
+          The scraps help show what Ana took with her. Check when the
+          librarian offered the table to see what happened first.
+      - text: The reading room was where the club used the borrowed table.
+        rationale: |
+          The room may seem important because Ana took the chairs to a
+          different place. Check whether the claim is about where the
+          table stood or when the librarian offered it.
+      - text: Ana asked Lito to speak from two different places during the break.
+        rationale: |
+          Having Lito speak gives a clue about Ana's plan in the hallway.
+          Check which detail directly shows that the table offer came later.
+      - text: Lito stacked most of the chairs by the stage.
+        rationale: |
+          This shows where most chairs ended up. Check what happened before
+          the librarian offered the table. Lito stacked the chairs at closing time.
+    explanation: |
+      Ana took the chairs into the hallway during a break. The librarian
+      offered the table later. That offer could not have prompted Ana to
+      move the chairs earlier.
+
+  - id: q-comprehension-skills-inferencing-and-conclusions-pshs-0006
+    lesson: lesson-comprehension-skills-evidence-and-claim-strength
+    keyPoint: 1
+    passage: p-comprehension-skills-inferencing-and-conclusions-pshs-0001
+    type: inferencing-and-conclusions
+    difficulty: hard
+    stem: |
+      Which conclusion about the librarian's role stays within the evidence?
+    choices:
+      - text: She helped the club find a place for its work.
+        correct: true
+      - text: She moved the club after visitors complained to her about the band.
+        rationale: |
+          The boy has trouble hearing by the stage, so a complaint might
+          seem likely. Check whom he asks to repeat a step.
+      - text: She agreed to open the room early for the club.
+        rationale: |
+          Ana asks about the opening time, which might sound like a request
+          to change it. Check what Ana asks and whether the librarian agrees
+          to a new time.
+      - text: She helped Ana test how far Lito's voice carried.
+        rationale: |
+          The voice test and the loan both help the club choose a spot.
+          Check who takes part in the test during the break.
+      - text: She offered the club the same table for future school fairs.
+        rationale: |
+          The loan might seem like an offer the club can count on again.
+          Check whether the librarian makes any promise about future fairs.
+    explanation: |
+      The librarian lets the club borrow a table in the reading room.
+      The club uses that table to help visitors during the fair.
+
+  - id: q-comprehension-skills-inferencing-and-conclusions-pshs-0007
+    lesson: lesson-comprehension-skills-visual-data-conclusions
+    keyPoint: 1
+    type: inferencing-and-conclusions
+    difficulty: hard
+    stem: |
+      The chart shows sample amounts of paper collected by four groups.
+      Which statement correctly compares two groups?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [Maya, Tamaraw, Pawikan, Butanding]
+      values: [20, 30, 15, 25]
+      yAxis:
+        label: Paper (kg)
+    choices:
+      - text: Butanding collected 10 kg more than Pawikan.
+        correct: true
+      - text: Butanding collected 10 kg less than Pawikan.
+        rationale: |
+          The gap is 10 kg, so the number looks right. Check which of the
+          two bars is taller.
+      - text: Tamaraw collected 10 kg more than Butanding did.
+        rationale: |
+          Tamaraw did collect 10 kg more than one group. Check whether the
+          bar that is 10 kg shorter belongs to Butanding or Maya.
+      - text: Pawikan collected 15 kg less than Butanding.
+        rationale: |
+          Fifteen is on Pawikan's bar, so it may look like the answer.
+          Subtract the two amounts to find the gap.
+      - text: Maya trails Pawikan by 10 kg.
+        rationale: |
+          Maya did collect 10 kg less than the group with the tallest bar.
+          Check which group that bar belongs to before comparing.
+    explanation: |
+      Butanding's bar shows 25 kg. Pawikan's bar shows 15 kg.
+      The difference is $25-15=10$ kg. Butanding collected more.
+
+  - id: q-comprehension-skills-inferencing-and-conclusions-pshs-0008
+    lesson: lesson-comprehension-skills-visual-data-conclusions
+    keyPoint: 2
+    type: inferencing-and-conclusions
+    difficulty: hard
+    stem: |
+      The chart gives sample loan counts at a book fair. A note says every
+      booth that lent at least 25 books earned a sign for its table.
+      Which statement identifies all the booths that earned signs?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [East, North, West, South]
+      values: [25, 15, 30, 20]
+      yAxis:
+        label: Books lent
+    choices:
+      - text: East and West earned signs.
+        correct: true
+      - text: North and South earned signs.
+        rationale: |
+          North and South each lent fewer than 25 books. You might pick
+          them if you read the rule backward. Check what "at least" means.
+      - text: East and South earned signs.
+        rationale: |
+          East is right, and South is close to the cutoff. Check which
+          booth reaches 30 and which one reaches only 20.
+      - text: West alone qualified.
+        rationale: |
+          West is the only booth above 25, so it fits a stricter rule.
+          Check whether "at least" includes exactly 25.
+      - text: East, West, and South earned signs.
+        rationale: |
+          These are the three highest bars. Check whether the shortest
+          of those three reaches the cutoff.
+    explanation: |
+      East lent 25 books and West lent 30. A booth needs 25 books or more
+      to earn a sign. Both counts meet that rule.
+
+  - id: q-comprehension-skills-inferencing-and-conclusions-pshs-0009
+    lesson: lesson-comprehension-skills-visual-data-conclusions
+    keyPoint: 2
+    type: inferencing-and-conclusions
+    difficulty: exam
+    stem: |
+      The chart shows sample sign-ups for four craft sessions. Each session
+      gets 20 kits, and each person who signed up needs one kit.
+      Which statement about the supply of kits is supported by the chart?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [Clay, Paper folding, Beads, Weaving]
+      values: [20, 15, 10, 25]
+      yAxis:
+        label: People signed up
+    choices:
+      - text: Weaving alone needs more than its 20 kits.
+        correct: true
+      - text: Clay needs more kits, but Weaving has enough.
+        rationale: |
+          These are the two tallest bars, so their counts are easy to mix
+          up. Check which bar shows 25 sign-ups.
+      - text: Paper folding and Beads both need more kits.
+        rationale: |
+          These bars fall below 20, which can look like a shortage.
+          Check whether the bar shows kits on hand or people who need kits.
+      - text: Both Clay and Weaving need more kits.
+        rationale: |
+          Neither session has kits left over. Check whether Clay has enough
+          when the number of sign-ups equals the number of kits.
+      - text: Every session can give a kit to each person.
+        rationale: |
+          Three bars are at or below 20, so the supply may look big enough.
+          Check the tallest bar against the kit limit too.
+    explanation: |
+      Clay needs 20 kits, Paper folding needs 15, and Beads needs 10.
+      Each has enough with 20 kits. Weaving needs 25, which is more
+      than its supply of 20.
