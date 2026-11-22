@@ -640,7 +640,9 @@ const JSON_MAX = 200000;
 const JSON_BIG_MAX = 500000;
 
 const S = (max = ID_MAX) => ({ ok: 'value-1', wrong: [1, 1.5, true, null, ['a'], { a: 1 }], over: 'x'.repeat(max + 1) });
-const ISO_FIELD = { ok: ISO, wrong: ['yesterday', '2026-11-22', 20261122, true, null, new Date(), `${ISO}x`], over: `${ISO}${' '.repeat(40)}` };
+const ISO_FIELD = { ok: ISO, iso: true, alsoOk: ['2026-11-22T10:00:00.123456Z', '2026-11-22T10:00:00Z'],
+  wrong: ['yesterday', '2026-11-22', 20261122, true, null, new Date(), `${ISO}x`, '2026-11-22T10:00:00.000+00:00', '2026-11-22T10:00:00.1234567Z'],
+  over: `${ISO}${' '.repeat(40)}` };
 const INT = { ok: 3, wrong: ['3', 1.5, true, null, [3]] };
 const NUM = { ok: 1.5, wrong: ['1.5', true, null, [1.5]] };
 const BOOL = { ok: true, wrong: ['true', 1, null] };
@@ -726,6 +728,15 @@ for (const syncCase of syncRowCases) {
     });
   }
 
+  const dateNames = Object.entries(fields).filter(([, kind]) => kind.iso).map(([name]) => name);
+  if (dateNames.length > 0) {
+    test(`sync row ${label}: native 6-digit and whole-second UTC dates pass`, async () => {
+      for (const name of dateNames) for (const value of ISO_FIELD.alsoOk) {
+        await assertSucceeds(setDoc(ref(), live({ [name]: value })), `${name} = ${value}`);
+      }
+    });
+  }
+
   test(`sync row ${label}: an unknown field fails`, async () => {
     await assertFails(setDoc(ref(), live({ extraField: 'x' })));
   });
@@ -749,10 +760,10 @@ for (const syncCase of syncRowCases) {
       if (kind.over === undefined) continue;
       await assertFails(setDoc(ref(), live({ [name]: kind.over })), `${name} oversize`);
     }
-    const capped = Object.entries(fields).find(([, kind]) => kind.over !== undefined && kind.ok === 'value-1');
-    if (capped) {
-      const [name, kind] = capped;
-      await assertSucceeds(setDoc(ref(), live({ [name]: kind.over.slice(1) })));
+    // Every string field at exactly its cap passes (dates are checked by format instead).
+    for (const [name, kind] of Object.entries(fields)) {
+      if (kind.over === undefined || kind.iso) continue;
+      await assertSucceeds(setDoc(ref(), live({ [name]: kind.over.slice(1) })), `${name} at its cap`);
     }
   });
 
@@ -780,4 +791,6 @@ test('sync row track_scope: each kind keeps to its own fields', async () => {
   const scope = syncRowCases.find((item) => item.label === 'track_scope (hidden topic)').fields;
   await assertFails(setDoc(doc(db, syncRowPath('track_scope', 'meta.x')), rowData(syncRowPayload(meta, { topicId: 'topic-1' }))));
   await assertFails(setDoc(doc(db, syncRowPath('track_scope', 'scope.x.y')), rowData(syncRowPayload(scope, { name: 'A name' }))));
+  // With no kind, a row may not carry both kinds' fields.
+  await assertFails(setDoc(doc(db, syncRowPath('track_scope', 'nokind.x')), rowData({ examId: 'exam_cse_pro', name: 'A name', topicId: 'topic-1' })));
 });

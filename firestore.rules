@@ -230,7 +230,8 @@ service cloud.firestore {
           && (!('kind' in d) || d.kind == 'custom_track' || d.kind == 'scope')
           && syncStr(d, 'name', 200) && syncStr(d, 'topicId', 200)
           && !('kind' in d && d.kind == 'custom_track' && 'topicId' in d)
-          && !('kind' in d && d.kind == 'scope' && 'name' in d);
+          && !('kind' in d && d.kind == 'scope' && 'name' in d)
+          && !('name' in d && 'topicId' in d);
     }
 
     function validCustomBlueprintRow(d) {
