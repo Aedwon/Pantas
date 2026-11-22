@@ -104,3 +104,19 @@ Expected day total: well under every budget. Go.
    deploy (pinned CLI). Right after: one email sign-in (custom token), the next scheduled run of each of the 3
    jobs, and the error log. Rollback: redeploy functions from main (the default compute account keeps Editor
    until a clean day passes; removing it is a separate logged step).
+
+## Headers on staging (Nov 22, about 11:40 UTC)
+
+- No Flutter build: the staging Worker was redeployed with the exact 84 files it already served, listed from
+  the live Firebase release (metadata only) and downloaded from the Worker itself (Cloudflare, no billed
+  egress). Staging's app build is unchanged (2354145730-76cfbf733ec9). `compare.mjs`: 92 of 92 match,
+  headers included. `/__/csp-report` answers 204.
+- Headless Chromium load (mock keychain, closed after): the app boots, no page errors. First load reported 5
+  sources; the four real ones (Cloudflare's analytics beacon, fonts.gstatic.com, Google Identity Services,
+  Google's analytics tag) are now allowed. Still reported: inline scripts created at run time by
+  `main.dart.js` (9 distinct hashes on one load), so hashing them one by one will not hold. Reports reach
+  Workers Logs as compact lines (origin and path only).
+- Decision before enforcing (after the prod week): how to allow the app's run-time inline scripts (for example
+  `'strict-dynamic'` or `'unsafe-inline'` for script elements only), from the week's reports.
+- Prod ship: the same method with the files `app.pantas.study` serves, then `compare.mjs`; rollback is a
+  redeploy of the previous Worker version (`wrangler rollback`).
