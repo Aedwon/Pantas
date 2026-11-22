@@ -30,6 +30,8 @@ String backupLabel(
     return 'Backing up';
   }
   if (status is SyncOffline) return 'Offline';
+  // M4b: the server paused this account's sync for today; nothing to retry until it ends.
+  if (status is SyncPaused) return 'Paused';
   if (failed ||
       status is SyncError ||
       status is SyncPartialFailure ||
@@ -106,7 +108,7 @@ class _BackupPageState extends ConsumerState<BackupPage> {
     final pro =
         ref.watch(entitlementProvider).valueOrNull?.proIsActive ?? false;
     final runtime = ref.watch(syncRuntimeProvider);
-    final offline = status is SyncOffline;
+    final cannotFlush = status is SyncOffline || status is SyncPaused;
     final busy = _busy || status is Syncing || status is SyncActivating;
     final failed = _failed ||
         status is SyncError ||
@@ -120,7 +122,7 @@ class _BackupPageState extends ConsumerState<BackupPage> {
     );
     final canFlush = !anonymous &&
         pro &&
-        !offline &&
+        !cannotFlush &&
         !busy &&
         runtime.runtimeKind == SyncRuntimeKind.configured;
     // One row and one footer in every state, so nothing moves while the
