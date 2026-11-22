@@ -1,0 +1,232 @@
+meta:
+  subject: mathematics
+  topic: algebra
+  subtopic: word-problems-pshs-q
+  exams: [pshs-nce]
+questions:
+  - id: q-algebra-word-problems-pshs-q-0001
+    lesson: lesson-algebra-motion-chase-problems
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A ferry is $76$ km ahead of a patrol boat. Both are traveling in the same direction along a straight route. The ferry keeps a speed of $22$ km/h, and the patrol boat keeps a speed of $38$ km/h. How many hours from now will the patrol boat catch the ferry?
+    choices:
+      - text: '$4.75\text{ hours}$'
+        correct: true
+      - text: '$2\text{ hours}$'
+        rationale: |
+          This divides the gap by the patrol boat's speed. That would work if the ferry stayed still. Check how fast the boat gains while the ferry moves.
+      - text: '$4\text{ hours}$'
+        rationale: |
+          This counts only the whole hours in the answer. Four hours closes most of the gap. Check whether $16(4)$ covers all $76$ km.
+      - text: '$1\dfrac{4}{15}\text{ hours}$'
+        rationale: |
+          This adds the speeds before dividing the gap by $60$. Adding works when the boats head toward each other. Check which way both boats are going.
+      - text: '$47.5\text{ hours}$'
+        rationale: |
+          This moves the decimal point one place too far right when dividing $76$ by $16$. The digits look right. Check by multiplying $47.5$ by $16$.
+    explanation: |
+      The patrol boat gains $38-22=16$ km each hour. It must gain all $76$ km to catch the ferry. That takes $76\div 16=4.75$ hours.
+
+  - id: q-algebra-word-problems-pshs-q-0002
+    lesson: lesson-algebra-motion-meeting-and-separation
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A cyclist rides for $0.75$ hours at a steady speed of $24$ km/h. How many kilometers does the cyclist travel in that time?
+    choices:
+      - text: '$18\text{ km}$'
+        correct: true
+      - text: '$180\text{ km}$'
+        rationale: |
+          This multiplies by $7.5$ hours. The digits match the given time, but the decimal point has moved. A ride that lasts less than an hour must cover less than $24$ km.
+      - text: '$24\text{ km}$'
+        rationale: |
+          This gives the distance ridden in one hour. The speed tells you that distance. Check how much of an hour the cyclist rides.
+      - text: '$6\text{ km}$'
+        rationale: |
+          This uses the $0.25$ hours left after subtracting the ride time from one hour. That tells how much of the hour is left. Check how long the cyclist actually rides.
+      - text: '$32\text{ km}$'
+        rationale: |
+          This divides the speed by the time in hours. Division is useful when you know the distance and need the speed. Check which value you need to find here.
+    explanation: |
+      Multiply the speed by the time in hours. The cyclist travels $24\times 0.75=18$ km.
+
+  - id: q-algebra-word-problems-pshs-q-0003
+    lesson: lesson-algebra-coin-and-digit-problems
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A cashier puts all $16$ coins from a tray into two stacks, one for five-peso coins and one for ten-peso coins. The coins are worth $110$ pesos in all. How many pesos is the stack of five-peso coins worth?
+    choices:
+      - text: '$50\text{ pesos}$'
+        correct: true
+      - text: '$60\text{ pesos}$'
+        rationale: |
+          This gives the value of the ten-peso stack. That stack also has to be counted to make the total. Check which stack the question asks for.
+      - text: '$80\text{ pesos}$'
+        rationale: |
+          This values all $16$ coins at five pesos each. That is a useful starting total. Check that some of the coins go in the other stack.
+      - text: '$30\text{ pesos}$'
+        rationale: |
+          This gives the extra value over a tray of all five-peso coins. That extra value helps find how many ten-peso coins there are. Check the value of the coins left in the five-peso stack.
+      - text: '$100\text{ pesos}$'
+        rationale: |
+          This finds ten five-peso coins and values each at ten pesos. Both coin values are used in the problem. Check the value of each coin in the requested stack.
+    explanation: |
+      If all $16$ coins were worth five pesos each, they would total $80$ pesos. The real total is $110-80=30$ pesos higher. Each ten-peso coin adds five pesos to that starting total, so there are $30\div 5=6$ ten-peso coins. The other $16-6=10$ coins are worth $10(5)=50$ pesos.
+
+  - id: q-algebra-word-problems-pshs-q-0004
+    lesson: lesson-algebra-coin-and-digit-problems
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A two-digit number has a tens digit that is twice its units digit. The number and its reverse add up to $132$. What is the units digit of the original number?
+    choices:
+      - text: '$4$'
+        correct: true
+      - text: '$8$'
+        rationale: |
+          This gives the tens digit. Both digits are needed to check the sum. Check which digit is in the units place of the original number.
+      - text: '$3$'
+        rationale: |
+          This counts three copies of the units digit. The units place gives one copy and the tens digit gives two. Divide the digit sum of $12$ by $3$ to find the value of one copy.
+      - text: '$2$'
+        rationale: |
+          This uses the number in the phrase “twice its units digit” as the digit itself. The $2$ tells how the digits are related. Check whether $42+24$ gives the stated total.
+      - text: '$6$'
+        rationale: |
+          This splits the digit sum into two equal parts. That works when the digits are the same. Check whether the tens digit is twice the units digit.
+    explanation: |
+      In the two numbers, each digit is used once in the tens place and once in the units place. So the total is $11$ times the sum of the digits. The digits add to $132\div 11=12$. The tens digit is two copies of the units digit. Three copies of the units digit make $12$, so that digit is $12\div 3=4$.
+
+  - id: q-algebra-word-problems-pshs-q-0005
+    lesson: lesson-algebra-motion-meeting-and-separation
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Two cyclists leave a checkpoint together and ride in opposite directions along a straight road. One rides at a steady $14$ km/h, and the other at a steady $22$ km/h. How far apart are they after $2.5$ hours?
+    choices:
+      - text: '$90\text{ km}$'
+        correct: true
+      - text: '$20\text{ km}$'
+        rationale: |
+          This uses the difference in their speeds. That would give the change in the gap if they were riding in the same direction. Check whether each cyclist adds to the gap.
+      - text: '$55\text{ km}$'
+        rationale: |
+          This gives the faster cyclist's distance from the checkpoint. That distance is part of the gap. Check how far the other cyclist rides on the other side.
+      - text: '$45\text{ km}$'
+        rationale: |
+          This multiplies the average speed by $2.5$ hours. Since both cyclists ride for the same time, this gives the average of their two distances. Does the gap use the average of the distances or their sum?
+      - text: '$102\text{ km}$'
+        rationale: |
+          This reads $2.5$ hours as two hours and fifty minutes. The decimal looks like a clock reading. Check how many minutes are in half an hour.
+    explanation: |
+      Each cyclist adds to the gap. In one hour the gap grows by $14+22=36$ km. In $2.5$ hours it grows by $36(2.5)=90$ km.
+
+  - id: q-algebra-word-problems-pshs-q-0006
+    lesson: lesson-algebra-motion-chase-problems
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Two runners travel in the same direction along a straight track. The runner in front is $28$ meters ahead and runs at a steady $5$ meters per second. The runner behind runs at a steady $9$ meters per second. How many seconds from now will the runner behind catch up?
+    choices:
+      - text: '$7\text{ seconds}$'
+        correct: true
+      - text: '$2\text{ seconds}$'
+        rationale: |
+          This adds the two speeds and divides $28$ by $14$. Adding works for runners moving toward each other. Check the direction each runner is going.
+      - text: '$5.6\text{ seconds}$'
+        rationale: |
+          This divides $28$ by the front runner's speed. That gives the time the front runner takes to cover $28$ meters. Check how many meters the runner behind gains each second.
+      - text: '$4\text{ seconds}$'
+        rationale: |
+          This gives the difference between the speeds. That is how many meters the gap shrinks each second. Use it to find how many seconds it takes to close the whole gap.
+      - text: '$3\dfrac{1}{9}\text{ seconds}$'
+        rationale: |
+          This divides $28$ by the faster runner's speed. That would work if the front runner stood still. Check how far the front runner moves each second.
+    explanation: |
+      The runner behind gains $9-5=4$ meters each second. To catch up, that runner must gain all $28$ meters. This takes $28\div 4=7$ seconds.
+
+  - id: q-algebra-word-problems-pshs-q-0007
+    lesson: lesson-algebra-motion-meeting-and-separation
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Two buses start $180$ km apart and drive toward each other along a straight highway. They start at the same time and meet $1.5$ hours later. One bus keeps a speed of $48$ km/h. What is the constant speed of the other bus?
+    choices:
+      - text: '$72\text{ km/h}$'
+        correct: true
+      - text: '$120\text{ km/h}$'
+        rationale: |
+          This gives the rate at which the whole gap closes. Dividing the gap by the time gives a speed. Take out the speed of the bus whose speed is already given.
+      - text: '$60\text{ km/h}$'
+        rationale: |
+          This divides the closing rate equally between the two buses. They do drive for the same amount of time. Check whether a bus going $48$ km/h is moving at half the closing rate.
+      - text: '$88\text{ km/h}$'
+        rationale: |
+          This subtracts $48$ from $180$ as if the first bus traveled $48$ km. A rate of $48$ km/h gives its distance in one hour. Use its full travel time before finding the other bus's distance.
+      - text: '$168\text{ km/h}$'
+        rationale: |
+          This adds $48$ km/h to the closing rate. Adding the two bus speeds gives the closing rate in the first place. Ask what speed added to $48$ gives $120$.
+    explanation: |
+      The buses close $180$ km in $1.5$ hours, so together they close $180\div 1.5=120$ km each hour. One bus covers $48$ of those kilometers each hour. The other covers $120-48=72$ km each hour.
+
+  - id: q-algebra-word-problems-pshs-q-0008
+    lesson: lesson-algebra-coin-and-digit-problems
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A two-digit number and the number formed by reversing its digits have a sum of $154$ and a difference of $18$. What is the units digit of the larger number?
+    choices:
+      - text: '$6$'
+        correct: true
+      - text: '$8$'
+        rationale: |
+          This gives the tens digit of the larger number. It is also the units digit of the smaller number. Check where the larger digit must go to make the larger number.
+      - text: '$2$'
+        rationale: |
+          This gives the difference between the digits. That difference comes from dividing the difference of the two numbers by nine. Use the digit sum too to find the units digit.
+      - text: '$7$'
+        rationale: |
+          This splits the digit sum of $14$ into equal parts. That correctly finds the amount halfway between the digits. Check how far apart the digits must be for the two numbers to differ by $18$.
+      - text: '$5$'
+        rationale: |
+          This halves the digit sum of $14$ to get $7$, then subtracts the full digit difference of $2$. The smaller digit is below $7$. Check how far each digit must be from $7$ for the two digits to be $2$ apart.
+    explanation: |
+      The tens place counts a digit ten times. The units place counts it once. Each digit appears once in each place across the two numbers. So $154$ is eleven times the sum of the digits. The digits add to $154\div 11=14$.
+      In the larger number, the larger digit is in the tens place. Moving it from units to tens adds nine times its value. Moving the smaller digit from tens to units takes away nine times its value. So the larger number is greater by nine times the difference between the digits. The digits differ by $18\div 9=2$.
+      The larger digit is $2$ more than the smaller digit. Subtract $2$ from $14$ to get two copies of the smaller digit. Divide $12$ by $2$ to get $6$. The larger digit is $6+2=8$. The larger number is $86$, with the smaller digit, $6$, in the units place.
+
+  - id: q-algebra-word-problems-pshs-q-0009
+    lesson: lesson-algebra-motion-chase-problems
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Two vans drive in the same direction along a straight highway at constant speeds. The front van is $27$ km ahead and travels at $84$ km/h. The van behind catches up in $1.5$ hours. How fast is the van behind traveling?
+    choices:
+      - text: '$102\text{ km/h}$'
+        correct: true
+      - text: '$18\text{ km/h}$'
+        rationale: |
+          This gives the rate at which the van behind gains on the one ahead. That rate is the difference between the two speeds. Add it to the front van's speed to get the speed of the van behind.
+      - text: '$66\text{ km/h}$'
+        rationale: |
+          This subtracts the closing rate from the front van's speed. Subtraction finds the slower speed when the faster speed is known. Check which van must be faster for the gap to shrink.
+      - text: '$111\text{ km/h}$'
+        rationale: |
+          This adds $27$ to the front van's speed. The gap is the total distance gained. Divide it by the time to find the gain in one hour.
+      - text: '$124.5\text{ km/h}$'
+        rationale: |
+          This multiplies $27$ by $1.5$ to find the closing speed. Multiplying by time gives distance when you know the speed. Check which operation gives speed when you know the distance.
+    explanation: |
+      The van behind gains all $27$ km in $1.5$ hours. It gains $27\div 1.5=18$ km each hour. Its speed is $84+18=102$ km/h.
