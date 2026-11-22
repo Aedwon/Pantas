@@ -1,0 +1,50 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: matching-edges-of-pattern-pieces-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-spatial-abstract-reasoning-matching-edges-of-pattern-pieces-pshs-0001
+    lesson: lesson-spatial-abstract-reasoning-matching-edges-of-pattern-pieces
+    keyPoint: 2
+    type: mental-rotation
+    difficulty: exam
+    figure: matching-edges-of-pattern-pieces-pshs-01
+    figureSpec:
+      kind: figure-series
+      items:
+        - {form: square, edgeLines: 3, rotation: 270}
+        - {form: square, edgeLines: 3, rotation: 270}
+        - {form: square, edgeLines: 1, rotation: 180}
+        - {form: square, edgeLines: 2}
+        - {form: square, edgeLines: 3, rotation: 90}
+      blank: false
+    stem: |
+      Count the tiles from left to right. The first tile stays as shown.
+      Place one of the other tiles directly to its right. Every short line
+      must join a line across the seam. Which of these moves makes the tiles fit?
+    choices:
+      - text: Second tile, no turn
+        rationale: |
+          Both tiles have the same line pattern. Their marked edges face
+          the same way. Check which edge of the second tile touches the first.
+      - text: Second tile, half-turn
+        correct: true
+      - text: Third tile, quarter-turn counterclockwise
+        rationale: |
+          The line moves to the left edge and joins the middle line.
+          Check for a join above and below it too.
+      - text: Fourth tile, quarter-turn clockwise
+        rationale: |
+          Both lines move to the left edge. They sit on either side of the
+          middle, like the outer pair on the first tile. Compare their
+          distance from the middle.
+      - text: Fifth tile, half-turn
+        rationale: |
+          The three lines already face the seam. A half-turn may seem to
+          put the lines where they are needed. Follow the left edge through
+          the turn to see where it lands.
+    explanation: |
+      A half-turn moves the second tile's three lines to its left edge.
+      All three line up with the first tile's lines. Each join makes one
+      straight line, and the outer edges stay clear.
