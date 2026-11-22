@@ -1,0 +1,102 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: real-imaginary-numbers-pshs-q
+  exams: [pshs-nce]
+questions:
+  - id: q-arithmetic-number-sense-real-imaginary-numbers-pshs-q-0001
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 1
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Which complex number has a real part equal to twice its imaginary part?
+    choices:
+      - text: '$-6-3i$'
+        correct: true
+      - text: '$-3-6i$'
+        rationale: |
+          This doubles the real part to get the imaginary part. The two
+          numbers are related by doubling. Check which part must be doubled.
+      - text: '$6-3i$'
+        rationale: |
+          This doubles $3$ and drops the minus sign. The size of the real
+          part looks right. Check that doubling $-3$ gives a negative number.
+      - text: '$-6+3i$'
+        rationale: |
+          This uses $-3$ for the imaginary part because the real part is
+          negative. The sizes still match. Check the sign of the number next
+          to $i$.
+      - text: '$-10-8i$'
+        rationale: |
+          This makes the real part two less than the imaginary part. The word
+          "twice" points to two. Check by multiplying by $2$.
+    explanation: |
+      In $-6-3i$, the real part is $-6$. The number next to $i$ is $-3$,
+      so the imaginary part is $-3$. Twice $-3$ is $-6$.
+
+  - id: q-arithmetic-number-sense-real-imaginary-numbers-pshs-q-0002
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the smallest whole number $n$ greater than $96$ for which
+      $i^n=-i$?
+    choices:
+      - text: '97'
+        rationale: |
+          This takes the first odd exponent after $96$. Odd exponents do
+          give $i$ or $-i$. Check the sign at the first step of the cycle.
+      - text: '98'
+        rationale: |
+          This stops at the first negative value in the cycle. The second
+          step gives a negative number. Check that $i^2=-1$.
+      - text: '99'
+        correct: true
+      - text: '100'
+        rationale: |
+          This chooses the end of the next full cycle. That is an easy
+          place to count to. Check the value at the fourth step.
+      - text: '103'
+        rationale: |
+          This finds a power equal to $-i$ one cycle later. The remainder
+          is right. Check whether subtracting $4$ still leaves an exponent
+          greater than $96$.
+    explanation: |
+      Since $96=4(24)$, the cycle starts again after $96$.
+      The next three powers are $i^{97}=i$, $i^{98}=-1$, and $i^{99}=-i$.
+      The first match is at $99$.
+
+  - id: q-arithmetic-number-sense-real-imaginary-numbers-pshs-q-0003
+    lesson: lesson-arithmetic-number-sense-imaginary-unit-and-powers
+    keyPoint: 3
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      What is the value of $5-\sqrt{-25}\cdot\sqrt{-36}$?
+    choices:
+      - text: '$35$'
+        correct: true
+      - text: '$-25$'
+        rationale: |
+          This joins the two roots to get $\sqrt{900}=30$. The two numbers
+          under the roots do multiply to $900$. Check the product after
+          writing each root with $i$.
+      - text: '$5-30i$'
+        rationale: |
+          This keeps one factor of $i$ in the product. Each root has an $i$,
+          so it can be easy to carry the symbol along. Check what $i\cdot i$
+          equals.
+      - text: '$5+30i$'
+        rationale: |
+          This turns $i^2$ into $-i$ and then subtracts the product.
+          The square does give a minus sign. Check that the square is the
+          real number $-1$.
+      - text: '$-35$'
+        rationale: |
+          This subtracts $5$ from the product $-30$. It uses the right
+          product. Check which number comes first in the subtraction.
+    explanation: |
+      Write $\sqrt{-25}=5i$ and $\sqrt{-36}=6i$. Their product is
+      $30i^2=-30$. Subtract it from $5$ to get $5-(-30)=35$.
