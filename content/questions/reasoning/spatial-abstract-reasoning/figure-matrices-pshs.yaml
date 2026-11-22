@@ -1,0 +1,229 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: figure-matrices-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-spatial-abstract-reasoning-figure-matrices-pshs-0001
+    lesson: lesson-spatial-abstract-reasoning-matrix-turns-and-counts
+    keyPoint: 2
+    type: figure-matrix
+    difficulty: medium
+    figure: figure-matrices-pshs-01
+    figureSpec:
+      kind: figure-matrix
+      rows: 2
+      cols: 3
+      cells:
+        - {form: circle, dots: 5}
+        - {form: circle, dots: 3}
+        - {form: circle, dots: 1}
+        - blank
+        - {form: circle, dots: 2}
+        - {form: circle}
+    stem: |
+      How many dots belong in the missing circle?
+    choices:
+      - text: Four
+        correct: true
+      - text: Three
+        rationale: |
+          This adds one to the two dots beside the blank. One is the change down a column. Check how many dots change at each step across a row.
+      - text: Five
+        rationale: |
+          This copies the circle above the blank. The middle and right columns also look almost the same from top to bottom. Count how many dots each bottom circle loses.
+      - text: Two
+        rationale: |
+          This uses the size of the row step as the answer. The counts do change by two across a row. Take that step backward from the middle count.
+      - text: Zero
+        rationale: |
+          This takes two away from the middle count. Going right from the middle does take two away. Check which side of the middle holds the blank.
+    explanation: |
+      Each step to the right takes away two dots. The bottom row ends with two dots and then none. Go back one step from two to get four. This also gives one fewer dot than the circle above the blank.
+  - id: q-spatial-abstract-reasoning-figure-matrices-pshs-0002
+    lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+    keyPoint: 1
+    type: figure-matrix
+    difficulty: medium
+    figure: figure-matrices-pshs-02
+    figureSpec:
+      kind: figure-matrix
+      rows: 3
+      cols: 3
+      cells:
+        - {form: circle, fill: black}
+        - {form: square, fill: black}
+        - {form: circle}
+        - {form: square}
+        - {form: circle}
+        - {form: square, fill: black}
+        - {form: circle, fill: black}
+        - {form: square, fill: black}
+        - blank
+    stem: |
+      Which figure fits the blank and follows the patterns in both directions?
+    choices:
+      - text: Open circle
+        correct: true
+      - text: Solid circle
+        rationale: |
+          This matches both the shape and the fill of the first figure in the row. The end shapes do match. Check whether the end fills match in either finished row.
+      - text: Open square
+        rationale: |
+          This changes the fill but keeps the square next to the blank. The fill does change at the last step. Check whether the shape at the end matches the first or the middle figure.
+      - text: Solid square
+        rationale: |
+          This copies the square just above the blank. It is in the right column, so it may seem like a safe choice. Check what happens to shape and fill at each step down that column.
+      - text: Half-filled circle
+        rationale: |
+          This keeps the circle and expects the fill to fade in steps. The first two figures in the last column use different fills. Check whether the finished rows use a fill between open and solid.
+    explanation: |
+      The first and last shapes match in each row. The last row starts with a circle, so it ends with a circle. The fill switches from the middle to the end of each row. It also switches at each step down the last column. The missing circle is open.
+  - id: q-spatial-abstract-reasoning-figure-matrices-pshs-0003
+    lesson: lesson-spatial-abstract-reasoning-matrix-turns-and-counts
+    keyPoint: 1
+    type: figure-matrix
+    difficulty: hard
+    figure: figure-matrices-pshs-03
+    figureSpec:
+      kind: figure-matrix
+      rows: 2
+      cols: 2
+      cells:
+        - {form: square, line: 0, dot: bottom-left}
+        - {form: square, rotation: 270, line: 0, dot: bottom-left}
+        - {form: triangle, rotation: 180, dot: top}
+        - blank
+    stem: |
+      Apply the same turn in both rows. Which triangle belongs in the blank?
+    choices:
+      - text: Points right, dot near the tip
+        correct: true
+      - text: Points left, dot near the tip
+        rationale: |
+          This turns the whole triangle clockwise. The tip and dot do move together. Check which way the line turns from up to left in the top row.
+      - text: Points up, dot near the tip
+        rationale: |
+          This uses a half turn. The tip starts at the bottom, so up is its opposite. Check if the line in the top row turns halfway or just one quarter of the way.
+      - text: Points right, dot near the base
+        rationale: |
+          This turns the outline the right way but puts the dot at the other end. The base also moves when the triangle turns. Follow the dot from its starting place near the tip.
+      - text: Points up, dot near the base
+        rationale: |
+          This makes a half turn but leaves the dot where it started. The tip flips up, so the dot is now near the base. Check how far the square turns and what happens to its dot.
+    explanation: |
+      The square's line moves from up to left. Its dot moves from the lower left to the lower right. Both move one quarter turn counterclockwise. Turn the whole triangle that way. Its tip moves from down to right, and the dot stays near the tip.
+  - id: q-spatial-abstract-reasoning-figure-matrices-pshs-0004
+    lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+    keyPoint: 1
+    type: figure-matrix
+    difficulty: hard
+    figure: figure-matrices-pshs-04
+    figureSpec:
+      kind: figure-matrix
+      rows: 3
+      cols: 3
+      cells:
+        - {form: circle, size: large}
+        - {form: square, size: large}
+        - {form: triangle, size: large}
+        - {form: circle, size: medium}
+        - blank
+        - {form: triangle, size: medium}
+        - {form: circle, size: small}
+        - {form: square, size: small}
+        - {form: triangle, size: small}
+    stem: |
+      Which figure completes the center of the grid?
+    choices:
+      - text: Medium square
+        correct: true
+      - text: Small square
+        rationale: |
+          This copies the figure below the blank. It has the right shape for that column. Compare its size with the two figures in the middle row.
+      - text: Large square
+        rationale: |
+          This copies the figure above the blank. All the other figures in that column are squares. Check which row uses large figures.
+      - text: Medium triangle
+        rationale: |
+          This copies the triangle beside the blank. It matches the size of the middle row. Check which shape appears above and below the blank.
+      - text: Small circle
+        rationale: |
+          This copies the bottom-left figure. Small circles fit the bottom row and the left column. Check the row and column of the blank.
+    explanation: |
+      Each column keeps one shape. The middle column uses squares. Each row keeps one size. The circle and triangle in the middle row are both medium. The missing figure is a medium square.
+  - id: q-spatial-abstract-reasoning-figure-matrices-pshs-0005
+    lesson: lesson-spatial-abstract-reasoning-matrix-turns-and-counts
+    keyPoint: 1
+    type: figure-matrix
+    difficulty: hard
+    figure: figure-matrices-pshs-05
+    figureSpec:
+      kind: figure-matrix
+      rows: 2
+      cols: 3
+      cells:
+        - {form: square, fill: 0.5, dot: top-right}
+        - {form: square, fill: 0.5, rotation: 90, dot: top-right}
+        - {form: square, fill: 0.5, rotation: 180, dot: top-right}
+        - {form: square, fill: 0.5, rotation: 270, dot: top-left}
+        - {form: square, fill: 0.5, dot: top-left}
+        - blank
+    stem: |
+      Which shaded half and dot position complete the bottom row?
+    choices:
+      - text: Left half, top right
+        correct: true
+      - text: Bottom half, top left
+        rationale: |
+          This stops after one turn. That gives the square in the middle. Make one more turn to get to the blank.
+      - text: Right half, bottom left
+        rationale: |
+          This repeats the figure that starts the row. A square outline looks the same after two quarter turns. Check how far the shaded half and the dot move after both turns.
+      - text: Left half, bottom left
+        rationale: |
+          This turns the shaded half but copies the dot from the end of the top row. The two rows use equal turns. Check where the dot in the bottom row starts.
+      - text: Top half, top right
+        rationale: |
+          This turns the dot but copies the last shaded half in the top row. The top half is shaded after two turns from the top row's start. Check which half is shaded at the start of the bottom row.
+    explanation: |
+      Each step in the top row turns the whole square one quarter turn clockwise. In the bottom row, the shade goes from right to bottom to left. The dot goes from bottom left to top left to top right. Both moves end at the missing square.
+  - id: q-spatial-abstract-reasoning-figure-matrices-pshs-0006
+    lesson: lesson-spatial-abstract-reasoning-matrix-row-and-column-rules
+    keyPoint: 1
+    type: figure-matrix
+    difficulty: exam
+    figure: figure-matrices-pshs-06
+    figureSpec:
+      kind: figure-matrix
+      rows: 3
+      cols: 3
+      cells:
+        - {form: circle, size: medium, arrow: up}
+        - {form: circle, size: large, arrow: right}
+        - {form: circle, size: small, arrow: down}
+        - {form: circle, size: medium, arrow: left}
+        - {form: circle, size: large, arrow: up}
+        - {form: circle, size: small, arrow: right}
+        - blank
+        - {form: circle, size: large, arrow: left}
+        - {form: circle, size: small, arrow: up}
+    stem: |
+      Which circle fits the blank?
+    choices:
+      - text: Medium, arrow down
+        correct: true
+      - text: Large, arrow left
+        rationale: |
+          This copies the whole circle beside the blank. It is in the right row. Check the size above the blank and how the arrows turn across the row.
+      - text: Medium, arrow right
+        rationale: |
+          This treats the blank as the next step after the last arrow in its row. Turning clockwise from up would give right. Check that the blank comes before the other two arrows.
+      - text: Medium, arrow left
+        rationale: |
+          This keeps the direction of the arrow next to the blank. That arrow is a good place to start. Work back one quarter turn to find the arrow before it.
+      - text: Large, arrow down
+        rationale: |
+          This turns the arrow the right way but copies the size from the circle beside it. That is the closest circle in the same row. Compare the sizes above the blank.
+    explanation: |
+      Each column keeps one size. The first column uses medium circles. Arrows turn one quarter turn clockwise at each step to the right. A down arrow turns left and then up. Down also fits the first column, where each step down turns the arrow one quarter turn counterclockwise.
