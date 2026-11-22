@@ -19,10 +19,30 @@ const bare = (value) => {
 };
 const pagePath = (value) => { try { return new URL(value).pathname; } catch { return null; } };
 
+/** The body as text, or null once it passes `max` bytes (the stream is cancelled, not read to the end). */
+async function readCapped(body, max) {
+  if (!body) return '';
+  const reader = body.getReader();
+  const chunks = [];
+  let size = 0;
+  for (;;) {
+    const {done, value} = await reader.read();
+    if (done) break;
+    size += value.byteLength;
+    if (size > max) { await reader.cancel(); return null; }
+    chunks.push(value);
+  }
+  const all = new Uint8Array(size);
+  let at = 0;
+  for (const chunk of chunks) { all.set(chunk, at); at += chunk.byteLength; }
+  return new TextDecoder().decode(all);
+}
+
 async function cspReport(request) {
   if (request.method !== 'POST') return new Response(null, {status: 405});
-  const text = await request.text();
-  if (text.length > CSP_REPORT_MAX_BYTES) return new Response(null, {status: 413});
+  if (Number(request.headers.get('content-length') ?? 0) > CSP_REPORT_MAX_BYTES) return new Response(null, {status: 413});
+  const text = await readCapped(request.body, CSP_REPORT_MAX_BYTES);
+  if (text === null) return new Response(null, {status: 413});
   let parsed;
   try { parsed = JSON.parse(text); } catch { return new Response(null, {status: 400}); }
   // report-uri sends {"csp-report": {...}}; the Reporting API sends [{type, body: {...}}].

@@ -116,3 +116,13 @@ test('both header files send the enforced headers and a report-only CSP that rep
     assert.ok(!csp.includes("'unsafe-eval'") && !/script-src[^;]*'unsafe-inline'/.test(csp), `${envName}: no unsafe script sources`);
   }
 });
+
+test('an oversized CSP report is refused from its length header or while streaming, without reading it all', async () => {
+  const declared = new Request('https://app.pantas.study/__/csp-report', {method: 'POST', body: 'x', headers: {'content-length': '100000'}});
+  assert.equal((await handle(declared, env([]), async () => { throw new Error('no'); })).status, 413);
+  let pulled = 0;
+  const endless = new ReadableStream({pull(controller) { pulled += 1; controller.enqueue(new Uint8Array(4096)); if (pulled > 1000) controller.close(); }});
+  const streamed = new Request('https://app.pantas.study/__/csp-report', {method: 'POST', body: endless, duplex: 'half'});
+  assert.equal((await handle(streamed, env([]), async () => { throw new Error('no'); })).status, 413);
+  assert.ok(pulled < 10, `read ${pulled} chunks`);
+});
