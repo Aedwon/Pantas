@@ -1,0 +1,266 @@
+meta:
+  subject: reading-comprehension
+  topic: comprehension-skills
+  subtopic: noting-specific-details-pshs
+  exams: [pshs-nce]
+
+passages:
+  - id: p-comprehension-skills-noting-specific-details-pshs-0001
+    title: The School Repair Booth
+    body: |
+      The school repair booth accepts broken umbrellas on Fridays. It once used the main lobby for drop-offs. Since the lobby became a waiting area for school buses, students have left broken umbrellas on the side porch. Students pick up fixed umbrellas at the covered court. Volunteers keep spare parts in the supply room, while the security office holds any umbrellas left behind after pickup.
+
+      The volunteers divide the work. Mila Cruz writes a claim slip for each umbrella. Carla Ramos straightens bent ribs, while Leo Garcia replaces torn fabric. Ben Ong opens and closes each repaired umbrella to make sure it works. Teresa Santos collects the claim slips when students come to get their umbrellas.
+
+      Students used to return several times to ask if they could pick up their umbrellas. The volunteers now post a list of the claim numbers for finished repairs. They leave instructions for folding wet umbrellas beside the list. Students can also ask for a reminder about the next drop-off day.
+  - id: p-comprehension-skills-noting-specific-details-pshs-0002
+    title: The Garden Seed Swap
+    body: |
+      At the first garden seed swap, families chose their seeds after the planting talk. When the swap moved to the barangay hall, they began choosing during the morning break. The swap now takes place in the garden, where families make their choices as soon as they arrive. They can ask questions during the talk and pack their seeds just before they leave.
+
+      The garden group sorts donations at the welcome table. It keeps empty envelopes in a basket under the table. Donated seed packets with missing labels go in a drawer beside the sink. The group displays labeled packets on a shelf by the door. When the swap ends, unclaimed packets go into a cabinet in the tool shed.
+
+      Some families wanted their children to try planting even if they had no seeds to bring. The group set out a common tray of seeds that anyone could take from. It also put out scoops to help children fill small pots with soil. Volunteers added sample labels so families could write the plant names on their pots. Near the exit, families could borrow a guide to caring for seedlings at home.
+  - id: p-comprehension-skills-noting-specific-details-pshs-0003
+    title: The Model Boat Fair
+    body: |
+      At the model boat fair, visitors used to sign up for a turn at the pond when the gates opened. During repairs to the pond, the fair moved to the gym and visitors signed up after the welcome talk. This year the fair returned to the pond. Visitors still pick up wristbands at the gate. Since the return, however, they have signed up for a turn only after watching the safety demonstration.
+
+      The organizers set up a low table next to the pond so children can reach the models. They run the boats along the near bank so volunteers can retrieve them easily. They put the larger models in the first trial because those boats take longer to cross the pond. They leave a gap between trials so the water can settle. They end the trials before the workshop so visitors can attend both activities.
+
+      Signs at the pond explain which boats visitors may operate. A stripe on the hull shows which boats were made by students. A round tag means a boat can be borrowed for the next trial. A square tag marks boats that are drying and cannot go back in the water yet. Each boat also has a name painted on its side so its owner can find it easily.
+
+questions:
+  - id: q-comprehension-skills-noting-specific-details-pshs-0001
+    lesson: lesson-comprehension-skills-old-and-current-details
+    keyPoint: 1
+    passage: p-comprehension-skills-noting-specific-details-pshs-0001
+    type: noting-specific-details
+    difficulty: easy
+    stem: |
+      Where do students now bring umbrellas that need repair?
+    choices:
+      - text: The main lobby
+        rationale: |
+          The booth used to take umbrellas there, so it is a real drop-off spot from the passage. Check where students began leaving them when the lobby became a waiting area.
+      - text: The covered court
+        rationale: |
+          Students do go there for their umbrellas. Check whether they go there to leave broken umbrellas or to collect fixed ones.
+      - text: The side porch
+        correct: true
+      - text: The supply room
+        rationale: |
+          Spare parts are kept there, so the room is linked to repairs. Check where students are told to leave their umbrellas.
+      - text: The security office
+        rationale: |
+          The office does receive umbrellas that students leave behind. Check whether the office gets them before repair or after pickup.
+    explanation: |
+      The first paragraph says students have left broken umbrellas on the side porch since the lobby became a waiting area.
+
+  - id: q-comprehension-skills-noting-specific-details-pshs-0002
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
+    passage: p-comprehension-skills-noting-specific-details-pshs-0001
+    type: noting-specific-details
+    difficulty: easy
+    stem: |
+      Who checks that the repaired umbrellas work?
+    choices:
+      - text: Mila Cruz
+        rationale: |
+          Mila writes the slip that goes with each umbrella. That puts her in charge of a step for every repair. Check who opens and closes the umbrellas.
+      - text: Carla Ramos
+        rationale: |
+          Carla fixes bent ribs, which helps an umbrella open properly. Check who tests it once the repairs are done.
+      - text: Leo Garcia
+        rationale: |
+          Leo works on the umbrella fabric, so he handles umbrellas during repair. Check which volunteer makes sure the finished umbrella works.
+      - text: Teresa Santos
+        rationale: |
+          Teresa deals with students when the repairs are finished. That timing may make her seem like the person who checks them. Check what she collects at pickup.
+      - text: Ben Ong
+        correct: true
+    explanation: |
+      Ben Ong opens and closes each repaired umbrella to make sure it works.
+
+  - id: q-comprehension-skills-noting-specific-details-pshs-0003
+    lesson: lesson-comprehension-skills-skimming-and-meaning-matches
+    keyPoint: 1
+    passage: p-comprehension-skills-noting-specific-details-pshs-0001
+    type: noting-specific-details
+    difficulty: medium
+    stem: |
+      What lets students find out whether their umbrellas are ready without asking a volunteer?
+    choices:
+      - text: A reminder about the next drop-off
+        rationale: |
+          A reminder does tell students when to come back to the booth. Check whether it gives the next drop-off day or tells them a repair is done.
+      - text: A list of claim numbers
+        correct: true
+      - text: Instructions for folding wet umbrellas
+        rationale: |
+          The instructions are posted beside the list, so students can read them on their own. Check which notice tells students what is ready for pickup.
+      - text: A claim slip for each umbrella
+        rationale: |
+          A claim slip lets a student identify an umbrella. Check where the student can see whether that umbrella has been fixed.
+      - text: A test of each repaired umbrella
+        rationale: |
+          The test shows the volunteers whether an umbrella works. Look in the last paragraph for what tells students a repair is finished.
+    explanation: |
+      The last paragraph is about pickup. It says the volunteers post the claim numbers for finished repairs. Students can look for their own number on that list.
+
+  - id: q-comprehension-skills-noting-specific-details-pshs-0004
+    lesson: lesson-comprehension-skills-old-and-current-details
+    keyPoint: 1
+    passage: p-comprehension-skills-noting-specific-details-pshs-0002
+    type: noting-specific-details
+    difficulty: medium
+    stem: |
+      When did families choose their seeds while the swap was held at the barangay hall?
+    choices:
+      - text: After the first planting talk
+        rationale: |
+          Families chose their seeds after the talk at the first swap. Check the sentence that tells you what changed when the swap moved to the hall.
+      - text: As soon as they arrived
+        rationale: |
+          That is when families choose seeds at the garden. Check which timing goes with the hall.
+      - text: During the talk for families
+        rationale: |
+          Families can ask questions during the talk. Check when they made their seed choices at the hall.
+      - text: During the morning break
+        correct: true
+      - text: Just before they left the swap
+        rationale: |
+          The passage mentions a seed activity just before families leave. Check whether families are choosing their seeds or packing them by then.
+    explanation: |
+      The first paragraph says families began choosing seeds during the morning break when the swap moved to the barangay hall.
+
+  - id: q-comprehension-skills-noting-specific-details-pshs-0005
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
+    passage: p-comprehension-skills-noting-specific-details-pshs-0002
+    type: noting-specific-details
+    difficulty: medium
+    stem: |
+      After sorting, where does the garden group put donated seed packets with no labels?
+    choices:
+      - text: In a drawer beside the sink
+        correct: true
+      - text: In a basket under the welcome table
+        rationale: |
+          The basket holds things that could be used to pack seeds. Check whether it holds donated packets or empty envelopes.
+      - text: On a shelf by the door
+        rationale: |
+          The shelf holds donated packets, so it is easy to stop there. Check whether the packets on the shelf already have labels.
+      - text: In a cabinet in the tool shed
+        rationale: |
+          The cabinet holds packets that have been set aside. Check why those packets are put away at the end of the swap.
+      - text: At the welcome table
+        rationale: |
+          Donated seeds do pass through the welcome table. Check where packets with no labels go after the group sorts them.
+    explanation: |
+      The second paragraph says packets with missing labels go in a drawer beside the sink.
+
+  - id: q-comprehension-skills-noting-specific-details-pshs-0006
+    lesson: lesson-comprehension-skills-skimming-and-meaning-matches
+    keyPoint: 1
+    passage: p-comprehension-skills-noting-specific-details-pshs-0002
+    type: noting-specific-details
+    difficulty: hard
+    stem: |
+      What allowed children to take part in planting even if their families could not make a donation?
+    choices:
+      - text: A supply of scoops for filling pots
+        rationale: |
+          The scoops help children get their pots ready. Check what gives children something to plant if they bring nothing to the swap.
+      - text: A set of sample labels for pots
+        rationale: |
+          The labels help families keep track of what they plant. Check what gave them seeds to begin with.
+      - text: A guide to looking after seedlings at home
+        rationale: |
+          The guide helps families care for plants. Check which resource helps children who have yet to get any seeds.
+      - text: A shelf of seed packets on display
+        rationale: |
+          The shelf shows some of the seeds at the swap. Look in the paragraph about children for the seed supply specifically open to anyone.
+      - text: A tray of seeds for anyone
+        correct: true
+    explanation: |
+      Anyone could take seeds from the tray. This let children plant even if their families brought no seeds.
+
+  - id: q-comprehension-skills-noting-specific-details-pshs-0007
+    lesson: lesson-comprehension-skills-old-and-current-details
+    keyPoint: 1
+    passage: p-comprehension-skills-noting-specific-details-pshs-0003
+    type: noting-specific-details
+    difficulty: hard
+    stem: |
+      Under the current rules, when may visitors sign up for a turn with a model boat?
+    choices:
+      - text: When the gates at the pond open
+        rationale: |
+          The pond is the venue again, so the old rule may seem to apply. Check what the first paragraph says visitors do before signing up now.
+      - text: After the safety demonstration
+        correct: true
+      - text: After the fair's welcome talk
+        rationale: |
+          The welcome talk was the sign-up signal while the fair was in the gym. Check the rule that started when the fair returned to the pond.
+      - text: When they get their wristbands at the gate
+        rationale: |
+          Visitors still get wristbands at the gate, and a wristband can seem like part of signing up. Check which event visitors have to watch before they can sign up.
+      - text: After the trials have finished
+        rationale: |
+          The end of the trials is part of the current schedule. Check which event must happen before sign-up and which one happens before the workshop.
+    explanation: |
+      Since the fair returned to the pond, visitors have had to watch the safety demonstration before they can sign up for a turn.
+
+  - id: q-comprehension-skills-noting-specific-details-pshs-0008
+    lesson: lesson-comprehension-skills-scanning-exact-details
+    keyPoint: 1
+    passage: p-comprehension-skills-noting-specific-details-pshs-0003
+    type: noting-specific-details
+    difficulty: exam
+    stem: |
+      Why do the organizers send the boats along the near bank?
+    choices:
+      - text: So volunteers can retrieve them easily.
+        correct: true
+      - text: So children can reach the boats on display.
+        rationale: |
+          The fair does make the models easier for children to reach. Check whether that is the reason for the route or for the low table.
+      - text: So larger boats have more time to cross.
+        rationale: |
+          Crossing time affects how the fair runs the boats. Check whether it decides where the boats go or which trial the larger boats enter.
+      - text: So the water has time to settle before the next trial.
+        rationale: |
+          Calm water matters during the trials. Check what the organizers do between trials to let the water settle.
+      - text: So visitors can attend the trials and the workshop.
+        rationale: |
+          The fair does make it possible to attend both. Check whether that is done by choosing a route or by setting the time of the last trial.
+    explanation: |
+      The second paragraph says the boats run along the near bank so volunteers can get them back easily.
+
+  - id: q-comprehension-skills-noting-specific-details-pshs-0009
+    lesson: lesson-comprehension-skills-skimming-and-meaning-matches
+    keyPoint: 1
+    passage: p-comprehension-skills-noting-specific-details-pshs-0003
+    type: noting-specific-details
+    difficulty: exam
+    stem: |
+      Which detail tells a visitor that a particular boat is free to use in the upcoming trial?
+    choices:
+      - text: A stripe on the hull
+        rationale: |
+          A stripe is one of the fair's marks on boats. Check whether it tells who made a boat or when someone can use it.
+      - text: A square tag
+        rationale: |
+          Both tag shapes tell visitors about borrowing. Check whether a square tag means the boat is ready to borrow or is still drying.
+      - text: A round tag
+        correct: true
+      - text: A name painted on the side
+        rationale: |
+          The name helps someone pick out a particular boat. Check whose job the name makes easier.
+      - text: A place on the low table
+        rationale: |
+          The table puts models within reach of children. Check the paragraph about signs for what shows a boat is available for the next trial.
+    explanation: |
+      The last paragraph says a visitor can borrow a boat with a round tag for the next trial.
