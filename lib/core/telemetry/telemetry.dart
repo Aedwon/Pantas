@@ -70,47 +70,73 @@ const _forbiddenKeys = {
   'answer',
 };
 
+/// The longest identifier a property may carry: the analytics provider's
+/// limit on an event parameter value (100 characters: "String parameter values
+/// can be up to 100 characters long",
+/// https://firebase.google.com/docs/analytics/flutter/events, and "Length of
+/// event parameter value: 100 characters",
+/// https://support.google.com/analytics/answer/9267744). The old limit, 64, had
+/// no source; prod question ids run past it, and on Nov 22 2026 every answer to
+/// those 261 questions failed to save because this check threw.
+const kMaxPropertyIdentifierLength = 100;
+
+final _keyPattern = RegExp(r'^[a-z][a-z0-9_]*$');
+final _identifierPattern =
+    RegExp('^[a-zA-Z0-9_-]{1,$kMaxPropertyIdentifierLength}\$');
+
+/// Why a property may not be sent, or null when it may.
+String? _propertyProblem(String key, Object value) {
+  if (!_keyPattern.hasMatch(key) || _forbiddenKeys.contains(key)) {
+    return 'keys must be permitted snake_case identifiers';
+  }
+  if (value is int || value is bool) return null;
+  if (value is String) {
+    return _identifierPattern.hasMatch(value)
+        ? null
+        : 'string values must be short identifiers, never free text';
+  }
+  return 'values must be int, bool or a short identifier';
+}
+
 /// A property value must be an int, a bool, or a short identifier drawn from a
 /// closed set or identifier pattern. Throws [ArgumentError] otherwise.
+///
+/// For tests and code review only. The app sends events through
+/// [allowedProperties], which drops a bad property instead of throwing, so
+/// analytics can never stop the action that logged it.
 ///
 /// Item analytics properties (`question_id`, `is_correct`, `chosen_label`,
 /// `origin`) describe the question rather than the person and are permitted.
 ///
-/// **Still forbidden and enforced by a throw:**
+/// **Still forbidden:**
 /// - Any question or answer text
 /// - A student's name, email or any free text
 /// - Any aggregate score for a student, their accuracy, their streak, or rank
 void assertPropertiesAllowed(Map<String, Object> properties) {
-  final keyPattern = RegExp(r'^[a-z][a-z0-9_]*$');
-  final identifierPattern = RegExp(r'^[a-zA-Z0-9_-]{1,64}$');
-
   for (final entry in properties.entries) {
-    if (!keyPattern.hasMatch(entry.key) || _forbiddenKeys.contains(entry.key)) {
-      throw ArgumentError.value(
-        entry.key,
-        'properties',
-        'keys must be permitted snake_case identifiers',
-      );
+    final problem = _propertyProblem(entry.key, entry.value);
+    if (problem != null) {
+      throw ArgumentError.value(entry.key, 'properties', problem);
     }
-
-    final value = entry.value;
-    if (value is int || value is bool) continue;
-
-    if (value is String) {
-      if (identifierPattern.hasMatch(value)) continue;
-      throw ArgumentError.value(
-        entry.key,
-        'properties',
-        'string values must be short identifiers, never free text',
-      );
-    }
-
-    throw ArgumentError.value(
-      entry.key,
-      'properties',
-      'values must be int, bool or a short identifier',
-    );
   }
+}
+
+/// The properties that may be sent, in order. Each one that may not is left
+/// out and its key handed to [onDropped]; the value is never passed on, since
+/// it may be free text.
+Map<String, Object> allowedProperties(
+  Map<String, Object> properties, {
+  void Function(String key)? onDropped,
+}) {
+  final allowed = <String, Object>{};
+  for (final entry in properties.entries) {
+    if (_propertyProblem(entry.key, entry.value) == null) {
+      allowed[entry.key] = entry.value;
+    } else {
+      onDropped?.call(entry.key);
+    }
+  }
+  return allowed;
 }
 
 /// The seam. No feature imports an analytics or crash package directly, which
