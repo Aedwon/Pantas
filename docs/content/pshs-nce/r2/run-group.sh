@@ -25,8 +25,9 @@ val() { dart run tools/import_questions/import_questions.dart --root $(dirname $
 gate() { local l m; while :; do l=$(sysctl -n vm.loadavg | awk '{print int($2)}'); m=$(memory_pressure | awk -F': ' '/free percentage/{print int($2)}'); (( l <= 12 && m >= 30 )) && return; echo "waiting: load $l, free $m%"; sleep 120; done; }
 cx() { gate; CODEX_PICK_PARALLEL=1 ~/.local/bin/codex-pick exec --skip-git-repo-check "$@" < /dev/null; local e=$?; [[ $e == 75 ]] && { echo "CODEX_FULL $g"; exit 75; }; return $e; }
 # Stop the whole queue (exit 77) when an account cannot run the model, instead of failing file after file (account a, Nov 22).
+# Matches only codex's own error line (a whole line starting ERROR:), not this script's text if a run prints it.
 # guard runs first, so a write step is always checked. A model that writes this text itself can only stop the queue (fail-safe).
-chk() { guard; grep -qs "not supported when using Codex with a ChatGPT account" "$@" && { echo "STOP account cannot run the model (likely account a): $*"; exit 77; }; return 0; }
+chk() { guard; grep -qsE "^ERROR: The '[^']+' model is not supported when using Codex with a ChatGPT account[.]$" "$@" && { echo "STOP account cannot run the model (likely account a): $*"; exit 77; }; return 0; }
 W=(-m gpt-6.2-sol -c model_reasoning_effort=medium -s workspace-write)
 H=(-m gpt-6.2-sol -c model_reasoning_effort=high -s read-only)
 if [[ ! -f $M/write.done ]]; then
