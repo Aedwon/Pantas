@@ -118,6 +118,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### A Claude worker started four more workers past the 2-worker cap (Nov 22)
+
+- Words: none from Aedwon. The manager's correction: "you have 6 Claude subagents running; the brief's limit is 2 at once (his Claude usage)". The cap protects his Claude usage (Nov 19 and Nov 22 entries below).
+- Wrong: the CSE release lead started two Sonnet UI reviewers, within the cap. One of them started four more Sonnet workers of its own to split its scope. The lead counted only its own two and told the manager so.
+- Why it got through: the brief named the scope and the output file but did not forbid subagents, and a general-purpose worker may start them. The lead counted dispatches, not running workers.
+- Fix (required step for any lead): every Claude worker brief says "Do not start subagents; do the work yourself." Before reporting a worker count, the lead counts the workers each worker started too. Applied: the CSE release lead's later briefs carry the line.
+
 ### Manager restarted five leads at once after his Claude reset (Nov 22)
 
 - His words: "so you didn't learn anything did you". Earlier, Nov 21: "my 5-hour usage is getting burned too fast", and "my 5-hour limit is at 8% right now".
