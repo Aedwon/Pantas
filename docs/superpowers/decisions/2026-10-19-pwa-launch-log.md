@@ -4099,3 +4099,11 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Verification: all 9 summaries are used and equal a fresh build from prod's bank (ACET 1,978, CSE Pro 1,751, CSE Sub 1,523, DLSU-CET 2,236, DOST-SEI 2,210, PSHS-NCE 101, PUPCET 1,074, UPCAT 3,228, USTET 2,750 questions). Real call: a throwaway named account with a short-lived App Check debug token called getMockAvailability with setup for CSE Pro at 08:48:49 UTC: HTTP 200, 155 questions; the account and the token were deleted (0 debug tokens remain). No "summary unusable" warnings and no ERROR entries on prod since 08:30 UTC.
 - Actual prod use for the quota day at 08:52 UTC: 5,855 reads, 141 writes (the ship's steps about 4,500 reads).
 - Rollback (not needed): set `content/summaries/items/_bank` to `partial:<time>` (every reader scans at once), or redeploy functions from 048efc9ff; catalog documents from the backup.
+
+### Nov 22, "Could not save your progress" on prod is an app bug, not App Check (security and billing lead, r2)
+
+- Report (relayed by the manager): Aedwon's iPhone, installed app on prod, 08:49 UTC: "Could not save your progress. Try Again" on a quiz question while online; question reports do not submit.
+- App Check is not the cause: from 08:45 to 09:04 UTC prod Firestore App Check shows only ALLOW results, and Firestore rules show only ALLOW. No server call from the iPhone failed. No rollback.
+- Cause, from the phone's own error report (09:01 UTC, build 1275724943-da801388b12a): `quiz.write: Invalid argument (properties): string values must be short identifiers, never free text: "question_id"`. `submit_answer.dart` logs the `questionAnswered` event before saving the answer, and `telemetry.dart` throws when a property value fails `^[a-zA-Z0-9_-]{1,64}$`. 261 of 4,429 prod question ids are longer than 64 characters (for example `q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001`), so every answer to those questions fails and is not saved.
+- Question reports: the app queues them on the device only; `ReportQueue.sendPending` has no backend ("No approved backend endpoint"), so no report has ever reached the server. Not new.
+- Not fixed here: both are app code (Flutter), outside this lane; handed to the manager with a proposed fix.
