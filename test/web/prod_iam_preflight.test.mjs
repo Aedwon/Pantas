@@ -55,6 +55,7 @@ test('the runtime accounts in the preflight match the accounts the functions use
   const {readFileSync} = await import('node:fs');
   const {accountRoles} = await import('../../tool/deploy/prod_iam_preflight.mjs');
   const mapping = readFileSync(new URL('../../functions/src/serviceAccounts.ts', import.meta.url), 'utf8');
-  const used = [...new Set([...mapping.matchAll(/'(pantas-[a-z]+)@'/g)].map(m => m[1]))].sort();
+  // Accounts appear as keys of SERVICE_ACCOUNTS and in serviceAccountEmail('pantas-app') for the default.
+  const used = [...new Set([...mapping.matchAll(/'(pantas-[a-z]+)'/g)].map(m => m[1]))].sort();
   assert.deepEqual(Object.keys(accountRoles('p')).sort(), used);
 });
