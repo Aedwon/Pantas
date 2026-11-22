@@ -16,6 +16,7 @@ import {
   serverTimestamp,
   setDoc,
   updateDoc,
+  deleteField,
   writeBatch,
 } from 'firebase/firestore';
 
@@ -793,4 +794,94 @@ test('sync row track_scope: each kind keeps to its own fields', async () => {
   await assertFails(setDoc(doc(db, syncRowPath('track_scope', 'scope.x.y')), rowData(syncRowPayload(scope, { name: 'A name' }))));
   // With no kind, a row may not carry both kinds' fields.
   await assertFails(setDoc(doc(db, syncRowPath('track_scope', 'nokind.x')), rowData({ examId: 'exam_cse_pro', name: 'A name', topicId: 'topic-1' })));
+});
+
+// M4b: a server-owned pause flag and entitlement on sync_state/current. Same read as before (that document).
+const namedPro = () => context('pro', {firebase: {sign_in_provider: 'google.com'}, pro: true});
+const rowRef = (db, generation = 'active') =>
+  doc(db, `users/pro/sync_generations/${generation}/lesson_progress/quota-row`);
+const setState = (extra) => testEnv.withSecurityRulesDisabled(async (ctx) => {
+  await setDoc(doc(ctx.firestore(), 'users/pro/sync_state/current'), {
+    activeGenerationId: 'active', schemaVersion: 1, ...extra,
+  });
+});
+
+test('M4b a paused account is refused on the active and the staging generation', async () => {
+  await setState({suspendedUntil: new Date(Date.now() + 3_600_000)});
+  await assertFails(setDoc(rowRef(namedPro()), rowData()));
+  await assertFails(setDoc(rowRef(namedPro(), 'staging'), rowData()));
+});
+
+test('M4b a pause that has ended no longer refuses writes', async () => {
+  await setState({suspendedUntil: new Date(Date.now() - 1000)});
+  await assertSucceeds(setDoc(rowRef(namedPro()), rowData()));
+});
+
+test('M4b a mirrored proUntil in the past refuses writes even with a live token', async () => {
+  await setState({proUntil: Date.now() - 1000});
+  await assertFails(setDoc(rowRef(namedPro()), rowData()));
+  await setState({proUntil: 0});
+  await assertFails(setDoc(rowRef(namedPro()), rowData()));
+});
+
+test('M4b a mirrored proUntil in the future allows writes', async () => {
+  await setState({proUntil: Date.now() + 86_400_000, entitlementVersion: 3});
+  await assertSucceeds(setDoc(rowRef(namedPro()), rowData()));
+});
+
+test('M4b with no proUntil on sync_state the token-only path is unchanged', async () => {
+  await assertSucceeds(setDoc(rowRef(namedPro()), rowData()));
+});
+
+test('M4b with no sync_state document a staging write still works', async () => {
+  await testEnv.withSecurityRulesDisabled(async (ctx) => {
+    await ctx.firestore().doc('users/pro/sync_state/current').delete();
+  });
+  await assertSucceeds(setDoc(rowRef(namedPro(), 'staging'), rowData()));
+});
+
+test('M4b clients cannot write suspendedUntil, proUntil or the limits documents', async () => {
+  const db = namedPro();
+  await assertFails(setDoc(doc(db, 'users/pro/sync_state/current'), {activeGenerationId: 'active', suspendedUntil: new Date(0)}));
+  await assertFails(updateDoc(doc(db, 'users/pro/sync_state/current'), {suspendedUntil: new Date(0)}));
+  await assertFails(setDoc(doc(db, 'users/pro/limits/sync_20261122'), {rows: 0}));
+  await assertFails(getDoc(doc(db, 'users/pro/limits/sync_20261122')));
+});
+
+// M4b follow-up: a pause flag on the generation document, which rules already read for every row write.
+const setGeneration = (id, extra) => testEnv.withSecurityRulesDisabled(async (ctx) => {
+  await setDoc(doc(ctx.firestore(), `users/pro/sync_generations/${id}`), {
+    status: id === 'active' ? 'active' : 'staging', schemaVersion: 1, createdAt: new Date('2026-08-27T00:00:00Z'),
+    createdByDeviceId: 'seed-device', preferences: {}, ...extra,
+  });
+});
+
+test('M4b a paused staging generation refuses a first push even with no sync_state document', async () => {
+  await testEnv.withSecurityRulesDisabled(async (ctx) => { await ctx.firestore().doc('users/pro/sync_state/current').delete(); });
+  await setGeneration('staging', {suspendedUntil: new Date(Date.now() + 3_600_000)});
+  await assertFails(setDoc(rowRef(namedPro(), 'staging'), rowData()));
+});
+
+test('M4b a paused active generation refuses row writes, and an ended pause allows them', async () => {
+  await setGeneration('active', {suspendedUntil: new Date(Date.now() + 3_600_000)});
+  await assertFails(setDoc(rowRef(namedPro()), rowData()));
+  await setGeneration('active', {suspendedUntil: new Date(Date.now() - 1000)});
+  await assertSucceeds(setDoc(rowRef(namedPro()), rowData()));
+});
+
+test('M4b a paused generation can still be read by its owner', async () => {
+  await setGeneration('staging', {suspendedUntil: new Date(Date.now() + 3_600_000)});
+  await assertSucceeds(getDoc(doc(namedPro(), 'users/pro/sync_generations/staging')));
+});
+
+test('M4b clients cannot set or clear suspendedUntil on a generation, at create or update', async () => {
+  const db = namedPro();
+  await assertFails(updateDoc(doc(db, 'users/pro/sync_generations/staging'), {suspendedUntil: new Date(0)}));
+  await assertFails(updateDoc(doc(db, 'users/pro/sync_generations/active'), {suspendedUntil: new Date(0)}));
+  await setGeneration('staging', {suspendedUntil: new Date(Date.now() + 3_600_000)});
+  await assertFails(updateDoc(doc(db, 'users/pro/sync_generations/staging'), {suspendedUntil: deleteField()}));
+  await assertFails(updateDoc(doc(db, 'users/pro/sync_generations/staging'), {suspendedUntil: new Date(0), preferences: {}}));
+  await assertFails(setDoc(doc(db, 'users/pro/sync_generations/staging'), {
+    status: 'staging', schemaVersion: 1, createdAt: serverTimestamp(), createdByDeviceId: 'd', preferences: {},
+  }));
 });

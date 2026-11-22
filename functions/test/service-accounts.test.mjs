@@ -46,3 +46,7 @@ test('with the deploy project set, every account is a full address (the CLI gran
   const short = rows.filter(([, email]) => !/^pantas-[a-z]+@pantas-staging\.iam\.gserviceaccount\.com$/.test(email ?? ''));
   assert.deepEqual(short, []);
 });
+
+test('the sync write counter runs as the jobs account', () => {
+  assert.ok(SERVICE_ACCOUNTS['pantas-jobs'].includes('countSyncWrites'));
+});

@@ -2,6 +2,7 @@
 import { FieldPath, FieldValue, Timestamp, type Firestore, type Transaction } from 'firebase-admin/firestore';
 import type { Auth } from 'firebase-admin/auth';
 import {randomUUID} from 'node:crypto';
+import {mirrorEntitlementToSync} from './syncEntitlementMirror.js';
 
 type ClaimAuth = Pick<Auth, 'getUser' | 'setCustomUserClaims'>;
 
@@ -57,8 +58,10 @@ export async function copyEntitlementClaims(db: Firestore, auth: ClaimAuth, uid:
       const snapshot = await record.get();
       if (!snapshot.exists || !holdsLease(snapshot)) throw new Error('Entitlement claims lease expired');
       const version = snapshot.get('version') as number;
-      await auth.setCustomUserClaims(uid, {...user.customClaims,
-        pro:snapshot.get('pro') === true, proUntil:Number(snapshot.get('proUntil'))});
+      const pro = snapshot.get('pro') === true, proUntil = Number(snapshot.get('proUntil'));
+      // Mirror first: a refund must end sync even if the Auth write below is slow or fails.
+      await mirrorEntitlementToSync(db, uid, {pro, proUntil, version});
+      await auth.setCustomUserClaims(uid, {...user.customClaims, pro, proUntil});
       const applied = await db.runTransaction(async transaction => {
         const latest = await transaction.get(record);
         if (!latest.exists || !holdsLease(latest)) throw new Error('Entitlement claims lease lost');

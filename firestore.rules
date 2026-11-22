@@ -250,9 +250,40 @@ service cloud.firestore {
       return isProOwner(uid) && generationNotDeleting(uid, generationId);
     }
 
+    // M4b: sync_state/current is server-owned and is already read by isActiveGeneration, so these checks
+    // add no document read. suspendedUntil is set by countSyncWrites (a paused account); proUntil is
+    // mirrored from the entitlement (a refund sets it to 0). Absent fields leave the token-only path.
+    // A value of the wrong type fails closed.
+    function syncPauseEnded(data) {
+      let paused = data.get('suspendedUntil', null);
+      return paused == null || (paused is timestamp && paused <= request.time);
+    }
+
+    function syncStateOk(state) {
+      let until = state.get('proUntil', null);
+      return syncPauseEnded(state)
+          && (until == null || (until is number && until > request.time.toMillis()));
+    }
+
+    function syncStateAllows(uid) {
+      let path = /databases/$(database)/documents/users/$(uid)/sync_state/current;
+      return !exists(path) || syncStateOk(get(path).data);
+    }
+
+    // M4b: the generation document carries the same server-owned pause, so a first push (staging
+    // generation, no sync_state yet) can be stopped too. generationNotDeleting and isStagingGeneration
+    // already read this document for every row write, so this adds no read. Clients cannot write the field:
+    // generation create allows only its listed keys and update only `preferences`.
+    function generationNotPaused(uid, generationId) {
+      let path = /databases/$(database)/documents/users/$(uid)/sync_generations/$(generationId);
+      return !exists(path) || syncPauseEnded(get(path).data);
+    }
+
     function canWriteSyncRow(uid, generationId, fields) {
       return isProOwner(uid)
           && generationNotDeleting(uid, generationId)
+          && syncStateAllows(uid)
+          && generationNotPaused(uid, generationId)
           && (
             isActiveGeneration(uid, generationId)
             || isStagingGeneration(uid, generationId)

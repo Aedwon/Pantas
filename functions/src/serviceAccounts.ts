@@ -25,7 +25,7 @@ export const SERVICE_ACCOUNTS: Record<string, readonly string[]> = {
   'pantas-jobs': ['onUserCreated', 'jobsFrequent', 'jobsDailyEarly', 'jobsDailyLate', 'runScheduledTask',
     'cleanupSyncData', 'repairEntitlementClaims', 'checkRecentEntitlementClaims', 'cleanupOrphanAnons',
     'purgeOldAuditLogs', 'cleanupWrappedOrphans', 'purgeOldGuardianRecords', 'purgeInactiveAccounts',
-    'keepCallablesWarm'],
+    'keepCallablesWarm', 'countSyncWrites'],
 };
 
 /** The service account the named function runs as. */
