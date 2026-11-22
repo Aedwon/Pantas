@@ -1,0 +1,381 @@
+meta:
+  subject: reading-comprehension
+  topic: comprehension-skills
+  subtopic: context-clues-in-passages-pshs
+  exams: [pshs-nce]
+
+passages:
+  - id: p-comprehension-skills-context-clues-in-passages-pshs-0001
+    title: The Radio Audition
+    body: |
+      At the audition, Bea read a line about a boat caught in a storm.
+      Her delivery was flat. When she tried again, her voice rose as the
+      waves grew higher and fell to a whisper as the boat neared shore.
+      This time, the listeners could hear the fear turn to relief.
+
+  - id: p-comprehension-skills-context-clues-in-passages-pshs-0002
+    title: The Program
+    body: |
+      On Thursday, the printer sent the class a proof, a sample of how
+      the program would look in print. The class checked it against the
+      list of performers and found that two names had switched places.
+      The printer waited for their corrections before making copies for
+      the audience.
+
+  - id: p-comprehension-skills-context-clues-in-passages-pshs-0003
+    title: A Cart for the Book Drive
+    body: |
+      The old cart had chipped paint and a rattling handle. The librarian
+      called it serviceable and asked the volunteers to use it for the
+      book drive. They pushed it down the hall with a full load and made
+      several more trips that afternoon.
+
+  - id: p-comprehension-skills-context-clues-in-passages-pshs-0004
+    title: The Beach Patrol
+    body: |
+      The beach patrol reviewed its provisions before the holiday.
+      These included closing the far end of the beach during rough surf,
+      having volunteers work in pairs, and calling the rescue team when
+      a swimmer drifted past the buoys. The patrol asked each new
+      volunteer to explain what to do in each case.
+
+  - id: p-comprehension-skills-context-clues-in-passages-pshs-0005
+    title: Choosing a Booth
+    body: |
+      The class voted on which booth to run at the fair. The cooking
+      booth won. Some students asked the adviser to replace it with a
+      game booth. The vote was binding, so even the adviser had to go
+      ahead with the winning choice. The class spent the next meeting
+      planning what to cook.
+
+  - id: p-comprehension-skills-context-clues-in-passages-pshs-0006
+    title: Seeds for the School Garden
+    body: |
+      The gardeners saw rows of empty pots and heard a claim that mice
+      had eaten the seeds. The teacher called the claim groundless. She
+      showed the group the unopened packets. The class had filled the
+      pots with soil the day before and planned to sow the seeds that
+      morning.
+
+  - id: p-comprehension-skills-context-clues-in-passages-pshs-0007
+    title: A Visit to the Workshop
+    body: |
+      When the visitors asked Inez how she had learned to carve, she
+      gave a short answer and turned the talk back to the tools. She
+      answered questions about the tools freely. Even when a visitor
+      praised her work and asked how she felt about the show, she gave a
+      small smile and said little. Her reserve surprised the visitors
+      who had watched her lead the workshop.
+
+  - id: p-comprehension-skills-context-clues-in-passages-pshs-0008
+    title: Return Day at the Library
+    body: |
+      On return day, volunteers sorted books into piles faster than the
+      clerk could scan them. The scanner was the bottleneck. The piles
+      of sorted books grew, and the volunteers who put them back on the
+      shelves had to wait. When the librarian opened a second scanning
+      station, books reached both shelving teams without a wait.
+
+  - id: p-comprehension-skills-context-clues-in-passages-pshs-0009
+    title: After the Rain
+    body: |
+      Rain blew through a window onto a display in the hall. By morning
+      the ink had run on its list of donors. Miko hoped to recover the
+      names. He found close-up photos taken before the storm and copied
+      the names into a new list. He left the wet sheet by the window
+      to dry.
+
+questions:
+  - id: q-comprehension-skills-context-clues-in-passages-pshs-0001
+    lesson: lesson-comprehension-skills-contrast-and-cause-clues
+    keyPoint: 1
+    passage: p-comprehension-skills-context-clues-in-passages-pshs-0001
+    type: context-clues-in-passages
+    difficulty: medium
+    stem: |
+      What does "flat" mean in the account of Bea's audition?
+    choices:
+      - text: With little expression
+        correct: true
+      - text: Below the intended pitch
+        rationale: |
+          A singer can sound flat by singing too low. The line about
+          Bea's voice falling may bring pitch to mind. Check what changes
+          across the whole second reading.
+      - text: Too quiet to be heard
+        rationale: |
+          This takes the first reading as too soft. Bea does raise her
+          voice on the next try. Check what the listeners hear when she
+          lowers her voice again.
+      - text: At a hurried pace
+        rationale: |
+          This assumes Bea rushed. A story about a storm can suggest a
+          quick pace. Look for what the passage says about her voice as
+          the danger passes.
+      - text: Filled with fear
+        rationale: |
+          This gives the first reading a feeling the listeners hear on
+          the second try. The boat is in danger both times. Check when the
+          listeners can hear feelings in Bea's voice.
+    explanation: |
+      On the second try, Bea changes her voice to show fear and then
+      relief. That change shows that her first reading had little expression.
+
+  - id: q-comprehension-skills-context-clues-in-passages-pshs-0002
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
+    passage: p-comprehension-skills-context-clues-in-passages-pshs-0002
+    type: context-clues-in-passages
+    difficulty: medium
+    stem: |
+      In the passage, what is a "proof"?
+    choices:
+      - text: A test copy
+        correct: true
+      - text: A list of performers
+        rationale: |
+          The sample contains names, so it might seem to be the list.
+          Check what the class compares it with.
+      - text: Evidence of an error
+        rationale: |
+          Proof can mean evidence, and the class does spot an error.
+          Check what the phrase after "proof" says the printer sent.
+      - text: A program for the audience
+        rationale: |
+          The sample looks like the program the audience will receive.
+          Check when the printer will make those copies.
+      - text: A request to switch names
+        rationale: |
+          The class needs to ask for a change once it spots the error.
+          Check what the printer sent before the class asked for changes.
+    explanation: |
+      The words after "proof" describe a sample of the printed program.
+      The class checks this sample before the printer makes the other copies.
+
+  - id: q-comprehension-skills-context-clues-in-passages-pshs-0003
+    lesson: lesson-comprehension-skills-word-parts-in-passages
+    keyPoint: 1
+    passage: p-comprehension-skills-context-clues-in-passages-pshs-0003
+    type: context-clues-in-passages
+    difficulty: medium
+    stem: |
+      Which meaning of "serviceable" fits both the ending "-able" and
+      what the volunteers do with the cart?
+    choices:
+      - text: Still fit to use
+        correct: true
+      - text: Easy to repair
+        rationale: |
+          Service can mean work done to fix something. The rattling
+          handle may make you think of repairs. Check what the
+          volunteers do with the cart that day.
+      - text: Available to lend
+        rationale: |
+          The librarian lets others use the cart, so this may seem to
+          describe lending it. Check what the trips with the loaded
+          cart prove about its condition.
+      - text: Built to roll quietly
+        rationale: |
+          A cart in a library might be made to keep noise down. Check
+          what sound this cart makes.
+      - text: Able to look new again
+        rationale: |
+          Chipped paint can be covered with a fresh coat. Check whether
+          the volunteers work on the paint or put books on the cart.
+    explanation: |
+      Here, "-able" points to what can be done with the cart. The
+      volunteers can use it to carry full loads even though it is worn.
+
+  - id: q-comprehension-skills-context-clues-in-passages-pshs-0004
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
+    passage: p-comprehension-skills-context-clues-in-passages-pshs-0004
+    type: context-clues-in-passages
+    difficulty: hard
+    stem: |
+      What does "provisions" refer to in the passage?
+    choices:
+      - text: Safety measures
+        correct: true
+      - text: Emergency supplies
+        rationale: |
+          Provisions can mean supplies, and a beach patrol may need
+          equipment. Check whether the examples list objects or actions.
+      - text: Duties of the rescue team
+        rationale: |
+          The call to the rescue team may make you think of the team's
+          duties. Check who works in pairs in the other example.
+      - text: Signs warning about rough water
+        rationale: |
+          A beach closure might be posted on a sign. Check whether
+          working in pairs and calling for help can also be kinds of signs.
+      - text: Dangers swimmers may face
+        rationale: |
+          Rough surf and drifting past the buoys are dangers. Check
+          whether the examples name the problems or tell how to handle them.
+    explanation: |
+      Closing part of the beach, working in pairs, and calling for help
+      are steps the patrol takes to keep people safe.
+
+  - id: q-comprehension-skills-context-clues-in-passages-pshs-0005
+    lesson: lesson-comprehension-skills-contrast-and-cause-clues
+    keyPoint: 1
+    passage: p-comprehension-skills-context-clues-in-passages-pshs-0005
+    type: context-clues-in-passages
+    difficulty: hard
+    stem: |
+      What does "binding" mean as used to describe the vote?
+    choices:
+      - text: Required to be followed
+        correct: true
+      - text: Open to later review
+        rationale: |
+          Some students ask the adviser to change the result. That
+          request can make review seem possible. Check what the
+          adviser has to do.
+      - text: Supported by every voter
+        rationale: |
+          The winning choice has support, so it may seem that
+          everyone agrees. Check what some students ask for afterward.
+      - text: Decided by the adviser alone
+        rationale: |
+          The students turn to the adviser, who might seem to have the
+          final say. Check whether the adviser can choose the game booth.
+      - text: Recorded in the official minutes
+        rationale: |
+          A vote can be written down as a record. Check what the
+          result makes the adviser do after the vote.
+    explanation: |
+      The vote decides which booth the class will run. Even the
+      adviser has to follow the result.
+
+  - id: q-comprehension-skills-context-clues-in-passages-pshs-0006
+    lesson: lesson-comprehension-skills-word-parts-in-passages
+    keyPoint: 1
+    passage: p-comprehension-skills-context-clues-in-passages-pshs-0006
+    type: context-clues-in-passages
+    difficulty: hard
+    stem: |
+      The suffix "-less" means "without." When the teacher calls the claim
+      'groundless,' what does she mean the claim is without?
+    choices:
+      - text: Evidence
+        correct: true
+      - text: Suitable soil
+        rationale: |
+          This gives "ground" its meaning of soil. The passage is about
+          pots and seeds. Check what "groundless" describes.
+      - text: A serious result
+        rationale: |
+          The seeds are safe, which may make the claim seem harmless.
+          Check what the unopened packets show about the story itself.
+      - text: A clear suspect
+        rationale: |
+          Nobody sees an animal eat a seed, so it may seem that no suspect
+          is named. Check which animal the claim blames.
+      - text: An exact time
+        rationale: |
+          The claim gives no time for the supposed loss. Check whether
+          the teacher answers by giving a time or by showing the packets.
+    explanation: |
+      Here, "ground" means a reason to believe something. The packets
+      are still sealed. The claim about mice has no evidence.
+
+  - id: q-comprehension-skills-context-clues-in-passages-pshs-0007
+    lesson: lesson-comprehension-skills-definition-and-example-clues
+    keyPoint: 1
+    passage: p-comprehension-skills-context-clues-in-passages-pshs-0007
+    type: context-clues-in-passages
+    difficulty: exam
+    stem: |
+      What does "reserve" mean in the workshop passage?
+    choices:
+      - text: Reluctance to open up
+        correct: true
+      - text: Saving supplies for later use
+        rationale: |
+          A reserve can be a supply saved for later. The visitors do
+          ask about tools. Check what Inez does when asked about herself.
+      - text: Doubting the visitors' praise
+        rationale: |
+          Her small smile might make her seem unsure of the praise.
+          Check how much she shares about herself even before she is praised.
+      - text: Refusing to explain the craft
+        rationale: |
+          She says little about how she learned, so it may seem that she
+          wants to keep the craft secret. Check how she answers questions
+          about tools.
+      - text: Losing interest in the show
+        rationale: |
+          A short reply can sound like a lack of interest. Check
+          whether Inez stops talking about the work or just says little
+          about how she feels.
+    explanation: |
+      Inez talks freely about the tools. She shares little about
+      herself or how she feels. That is what "reserve" means here.
+
+  - id: q-comprehension-skills-context-clues-in-passages-pshs-0008
+    lesson: lesson-comprehension-skills-contrast-and-cause-clues
+    keyPoint: 1
+    passage: p-comprehension-skills-context-clues-in-passages-pshs-0008
+    type: context-clues-in-passages
+    difficulty: exam
+    stem: |
+      Which phrase best explains the meaning of "bottleneck" in the passage?
+    choices:
+      - text: A step that slows the work
+        correct: true
+      - text: The pile of books waiting for attention
+        rationale: |
+          This takes the pile as the bottleneck. The growing pile shows
+          that work is backing up. Check which step makes the pile grow.
+      - text: A narrow space between shelves
+        rationale: |
+          The shape of a bottle's neck suggests a narrow space. Check
+          whether adding a scanner changes the space or the rate of work.
+      - text: A place to separate books by subject
+        rationale: |
+          Sorting sends books to different shelves, so the term may
+          seem to name where the books split up. Check which task takes
+          longer than sorting.
+      - text: A machine that has stopped working
+        rationale: |
+          The second scanner helps, which can make the first seem broken.
+          Check whether the clerk has stopped scanning or is still scanning
+          at a slower rate than the volunteers can sort.
+    explanation: |
+      Books are sorted faster than they can be scanned, so they pile
+      up. Adding a scanner lets books move through that step faster.
+
+  - id: q-comprehension-skills-context-clues-in-passages-pshs-0009
+    lesson: lesson-comprehension-skills-word-parts-in-passages
+    keyPoint: 1
+    passage: p-comprehension-skills-context-clues-in-passages-pshs-0009
+    type: context-clues-in-passages
+    difficulty: exam
+    stem: |
+      The letters in "recover" might suggest "cover again." Which
+      meaning fits what Miko does in the passage?
+    choices:
+      - text: Get back lost information
+        correct: true
+      - text: Put a fresh cover on the display
+        rationale: |
+          This reads the word as "cover again." A cover could protect
+          the display from more rain. Check what Miko uses the photos for.
+      - text: Make the original sheet readable again
+        rationale: |
+          The sheet is left to dry, so it may seem that Miko is saving
+          that sheet. Check where he writes the names.
+      - text: Ask the donors for more details
+        rationale: |
+          Asking the donors would be one way to fill in missing
+          information. Check where Miko finds the missing names.
+      - text: Recall names without looking them up
+        rationale: |
+          Miko copies names that were known before the rain. It might
+          seem that he remembers them. Check what he looks at before writing.
+    explanation: |
+      The rain made the names hard to read. Miko gets them back from
+      the photos and writes them on a new list. Here, "recover" means
+      to get back something that was lost.
