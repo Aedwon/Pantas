@@ -108,6 +108,138 @@ service cloud.firestore {
           && request.resource.data.deleted is bool;
     }
 
+    // Payload field checks for synced rows. Every field may be absent (a
+    // tombstone carries none) and, when present, must have the type and size
+    // the app's mapper writes (lib/core/sync/mapping). `d` is the row, `k` the
+    // field. Caps: ids, keys, names and labels 200 characters; ISO dates the
+    // exact UTC form Dart's toIso8601String writes; JSON text 200,000
+    // characters, except quiz itemsJson and mock answersJson at 500,000
+    // because they carry student-typed notes that the app does not limit.
+    // Whole numbers are `int` (Dart writes an int); real-valued fields are
+    // `number` because the web client writes 2.0 as an integer.
+    function validSyncRowId(rowId) {
+      return rowId.size() >= 1 && rowId.size() <= 200
+          && !rowId.matches('.*[/].*');
+    }
+
+    function isSyncIso(v) {
+      return v is string && v.size() <= 40
+          && v.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}([.][0-9]{1,6})?Z$');
+    }
+
+    function syncStr(d, k, max) {
+      return !(k in d) || (d[k] is string && d[k].size() <= max);
+    }
+
+    function syncStrOrNull(d, k, max) {
+      return !(k in d) || d[k] == null || (d[k] is string && d[k].size() <= max);
+    }
+
+    function syncIso(d, k) {
+      return !(k in d) || isSyncIso(d[k]);
+    }
+
+    function syncIsoOrNull(d, k) {
+      return !(k in d) || d[k] == null || isSyncIso(d[k]);
+    }
+
+    function syncInt(d, k) {
+      return !(k in d) || d[k] is int;
+    }
+
+    function syncIntOrNull(d, k) {
+      return !(k in d) || d[k] == null || d[k] is int;
+    }
+
+    function syncNum(d, k) {
+      return !(k in d) || d[k] is number;
+    }
+
+    function syncBool(d, k) {
+      return !(k in d) || d[k] is bool;
+    }
+
+    function validQuizAttemptRow(d) {
+      return syncStr(d, 'id', 200) && syncStr(d, 'examId', 200)
+          && syncIso(d, 'startedAt') && syncIsoOrNull(d, 'completedAt')
+          && syncStr(d, 'origin', 200) && syncStr(d, 'itemsJson', 500000);
+    }
+
+    function validAssessmentRow(d) {
+      return syncStr(d, 'examId', 200) && syncIso(d, 'completedAt')
+          && syncStr(d, 'topicScoresJson', 200000);
+    }
+
+    function validFsrsCardRow(d) {
+      return syncStr(d, 'questionId', 200) && syncInt(d, 'questionVersion')
+          && syncStr(d, 'stage', 200) && syncNum(d, 'stability')
+          && syncNum(d, 'difficulty') && syncIso(d, 'due')
+          && syncIso(d, 'lastReview') && syncInt(d, 'reps')
+          && syncInt(d, 'lapses') && syncNum(d, 'elapsedDays')
+          && syncNum(d, 'scheduledDays');
+    }
+
+    function validLessonProgressRow(d) {
+      return syncStr(d, 'lessonId', 200) && syncIso(d, 'readAt');
+    }
+
+    function validLessonBookmarkRow(d) {
+      return syncStr(d, 'lessonId', 200) && syncIso(d, 'markedAt')
+          && syncIntOrNull(d, 'sortIndex');
+    }
+
+    function validQuestionFlagRow(d) {
+      return syncStr(d, 'questionId', 200) && syncIso(d, 'flaggedAt')
+          && syncIntOrNull(d, 'sortIndex');
+    }
+
+    function validMockExamAttemptRow(d) {
+      return syncStr(d, 'id', 200) && syncStr(d, 'userId', 200)
+          && syncStr(d, 'examId', 200) && syncStr(d, 'blueprintId', 200)
+          && syncStr(d, 'blueprintName', 200) && syncInt(d, 'durationMinutes')
+          && syncStr(d, 'status', 200) && syncBool(d, 'strictMode')
+          && syncStr(d, 'sampledQuestionsJson', 200000)
+          && syncInt(d, 'elapsedSeconds')
+          && syncInt(d, 'accumulatedPausedSeconds')
+          && syncBool(d, 'pausedAtLastFlush')
+          && syncStr(d, 'answersJson', 500000)
+          && syncStr(d, 'flagsJson', 200000)
+          && syncInt(d, 'currentIndex') && syncIntOrNull(d, 'scoreRaw')
+          && syncIntOrNull(d, 'scoreTotal')
+          && syncStrOrNull(d, 'sectionResultsJson', 200000)
+          && syncIntOrNull(d, 'totalTimeSeconds')
+          && syncIso(d, 'startedAt') && syncIso(d, 'lastFlushedAt')
+          && syncIsoOrNull(d, 'submittedAt')
+          && syncIso(d, 'attemptUpdatedAt');
+    }
+
+    function validReviewLogRow(d) {
+      return syncStr(d, 'id', 200) && syncStr(d, 'questionId', 200)
+          && syncInt(d, 'rating') && syncInt(d, 'state')
+          && syncIso(d, 'due') && syncNum(d, 'stability')
+          && syncNum(d, 'difficulty') && syncNum(d, 'elapsedDays')
+          && syncNum(d, 'lastElapsedDays') && syncNum(d, 'scheduledDays')
+          && syncIso(d, 'review') && syncInt(d, 'durationMs')
+          && syncBool(d, 'isCorrect') && syncInt(d, 'heuristicVersion');
+    }
+
+    // Two row shapes share this collection: the custom track's name
+    // (kind custom_track, has name) and a hidden topic (kind scope, has topicId).
+    function validTrackScopeRow(d) {
+      return syncStr(d, 'examId', 200)
+          && (!('kind' in d) || d.kind == 'custom_track' || d.kind == 'scope')
+          && syncStr(d, 'name', 200) && syncStr(d, 'topicId', 200)
+          && !('kind' in d && d.kind == 'custom_track' && 'topicId' in d)
+          && !('kind' in d && d.kind == 'scope' && 'name' in d);
+    }
+
+    function validCustomBlueprintRow(d) {
+      return syncStr(d, 'examId', 200) && syncInt(d, 'totalQuestions')
+          && syncInt(d, 'totalMinutes') && syncStr(d, 'sectionsJson', 200000)
+          && syncBool(d, 'sectionsTimedSeparately')
+          && syncIso(d, 'blueprintUpdatedAt');
+    }
+
     function generationNotDeleting(uid, generationId) {
       let path = /databases/$(database)/documents/users/$(uid)/sync_generations/$(generationId);
       return !exists(path) || get(path).data.status != 'deleting';
@@ -243,7 +375,9 @@ service cloud.firestore {
             'id', 'examId', 'startedAt', 'completedAt',
             'origin', 'itemsJson', 'updatedAt', 'originDeviceId',
             'mutationId', 'schemaVersion', 'deleted'
-          ]);
+          ])
+            && validSyncRowId(rowId)
+            && validQuizAttemptRow(request.resource.data);
           allow delete: if false;
         }
 
@@ -252,7 +386,9 @@ service cloud.firestore {
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'examId', 'completedAt', 'topicScoresJson', 'updatedAt',
             'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
-          ]);
+          ])
+            && validSyncRowId(rowId)
+            && validAssessmentRow(request.resource.data);
           allow delete: if false;
         }
 
@@ -263,7 +399,9 @@ service cloud.firestore {
             'difficulty', 'due', 'lastReview', 'reps',
             'lapses', 'elapsedDays', 'scheduledDays', 'updatedAt',
             'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
-          ]);
+          ])
+            && validSyncRowId(rowId)
+            && validFsrsCardRow(request.resource.data);
           allow delete: if false;
         }
 
@@ -272,7 +410,9 @@ service cloud.firestore {
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'lessonId', 'readAt', 'updatedAt', 'originDeviceId',
             'mutationId', 'schemaVersion', 'deleted'
-          ]);
+          ])
+            && validSyncRowId(rowId)
+            && validLessonProgressRow(request.resource.data);
           allow delete: if false;
         }
 
@@ -281,7 +421,9 @@ service cloud.firestore {
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'lessonId', 'markedAt', 'sortIndex', 'updatedAt',
             'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
-          ]);
+          ])
+            && validSyncRowId(rowId)
+            && validLessonBookmarkRow(request.resource.data);
           allow delete: if false;
         }
 
@@ -290,7 +432,9 @@ service cloud.firestore {
           allow create, update: if canWriteSyncRow(uid, generationId, [
             'questionId', 'flaggedAt', 'sortIndex', 'updatedAt',
             'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
-          ]);
+          ])
+            && validSyncRowId(rowId)
+            && validQuestionFlagRow(request.resource.data);
           allow delete: if false;
         }
 
@@ -304,7 +448,9 @@ service cloud.firestore {
             'scoreTotal', 'sectionResultsJson', 'totalTimeSeconds', 'startedAt',
             'lastFlushedAt', 'submittedAt', 'attemptUpdatedAt', 'updatedAt',
             'originDeviceId', 'mutationId', 'schemaVersion', 'deleted'
-          ]);
+          ])
+            && validSyncRowId(rowId)
+            && validMockExamAttemptRow(request.resource.data);
           allow delete: if false;
         }
 
@@ -316,7 +462,9 @@ service cloud.firestore {
             'lastElapsedDays', 'scheduledDays', 'review', 'durationMs',
             'isCorrect', 'heuristicVersion', 'updatedAt', 'originDeviceId',
             'mutationId', 'schemaVersion', 'deleted'
-          ]);
+          ])
+            && validSyncRowId(rowId)
+            && validReviewLogRow(request.resource.data);
           allow delete: if false;
         }
 
@@ -326,7 +474,9 @@ service cloud.firestore {
             'kind', 'examId', 'name', 'topicId',
             'updatedAt', 'originDeviceId', 'mutationId', 'schemaVersion',
             'deleted'
-          ]);
+          ])
+            && validSyncRowId(rowId)
+            && validTrackScopeRow(request.resource.data);
           allow delete: if false;
         }
 
@@ -336,7 +486,9 @@ service cloud.firestore {
             'examId', 'totalQuestions', 'totalMinutes', 'sectionsJson',
             'sectionsTimedSeparately', 'blueprintUpdatedAt', 'updatedAt', 'originDeviceId',
             'mutationId', 'schemaVersion', 'deleted'
-          ]);
+          ])
+            && validSyncRowId(rowId)
+            && validCustomBlueprintRow(request.resource.data);
           allow delete: if false;
         }
       }

@@ -626,3 +626,158 @@ test('AC-3 all client access to the server entitlement namespace is denied', asy
   await assertFails(getDoc(doc(db,'users/pro/server/entitlement')));
   await assertFails(setDoc(doc(db,'users/pro/server/entitlement'),{pro:true,version:1}));
 });
+
+// ---------------------------------------------------------------------------
+// Sync row payload types and sizes (M4 security pass, part A).
+// Each case lists every payload field the app's mapper writes (see
+// lib/core/sync/mapping/*.dart) with the type it writes. The push pipeline and
+// full push add the metadata and replace updatedAt with a server timestamp,
+// which rowData() does here. Payload fields are absent on tombstones.
+// ---------------------------------------------------------------------------
+const ISO = '2026-11-22T10:00:00.000Z';
+const ID_MAX = 200;
+const JSON_MAX = 200000;
+const JSON_BIG_MAX = 500000;
+
+const S = (max = ID_MAX) => ({ ok: 'value-1', wrong: [1, 1.5, true, null, ['a'], { a: 1 }], over: 'x'.repeat(max + 1) });
+const ISO_FIELD = { ok: ISO, wrong: ['yesterday', '2026-11-22', 20261122, true, null, new Date(), `${ISO}x`], over: `${ISO}${' '.repeat(40)}` };
+const INT = { ok: 3, wrong: ['3', 1.5, true, null, [3]] };
+const NUM = { ok: 1.5, wrong: ['1.5', true, null, [1.5]] };
+const BOOL = { ok: true, wrong: ['true', 1, null] };
+const JSON_TEXT = (max = JSON_MAX) => ({ ok: '[]', wrong: [1, true, null, [], {}], over: 'x'.repeat(max + 1) });
+const LITERAL = (value) => ({ ok: value, wrong: ['other', '', 1, null] });
+const nullable = (kind) => ({ ...kind, nullable: true, wrong: kind.wrong.filter((value) => value !== null) });
+
+const syncRowCases = [
+  { collection: 'quiz_attempts', rowId: 'attempt-1', fields: {
+    id: S(), examId: S(), startedAt: ISO_FIELD, completedAt: nullable(ISO_FIELD),
+    origin: S(), itemsJson: JSON_TEXT(JSON_BIG_MAX),
+  } },
+  { collection: 'assessments', rowId: 'exam_cse_pro', fields: {
+    examId: S(), completedAt: ISO_FIELD, topicScoresJson: JSON_TEXT(),
+  } },
+  { collection: 'fsrs_cards', rowId: 'question-1', fields: {
+    questionId: S(), questionVersion: INT, stage: S(), stability: NUM, difficulty: NUM,
+    due: ISO_FIELD, lastReview: ISO_FIELD, reps: INT, lapses: INT, elapsedDays: NUM, scheduledDays: NUM,
+  } },
+  { collection: 'lesson_progress', rowId: 'lesson-1', fields: { lessonId: S(), readAt: ISO_FIELD } },
+  { collection: 'lesson_bookmarks', rowId: 'lesson-1', fields: {
+    lessonId: S(), markedAt: ISO_FIELD, sortIndex: nullable(INT),
+  } },
+  { collection: 'question_flags', rowId: 'question-1', fields: {
+    questionId: S(), flaggedAt: ISO_FIELD, sortIndex: nullable(INT),
+  } },
+  { collection: 'mock_exam_attempts', rowId: 'mock-1', fields: {
+    id: S(), userId: S(), examId: S(), blueprintId: S(), blueprintName: S(),
+    durationMinutes: INT, status: S(), strictMode: BOOL,
+    sampledQuestionsJson: JSON_TEXT(), elapsedSeconds: INT, accumulatedPausedSeconds: INT,
+    pausedAtLastFlush: BOOL, answersJson: JSON_TEXT(JSON_BIG_MAX), flagsJson: JSON_TEXT(),
+    currentIndex: INT, scoreRaw: nullable(INT), scoreTotal: nullable(INT),
+    sectionResultsJson: nullable(JSON_TEXT()), totalTimeSeconds: nullable(INT),
+    startedAt: ISO_FIELD, lastFlushedAt: ISO_FIELD, submittedAt: nullable(ISO_FIELD),
+    attemptUpdatedAt: ISO_FIELD,
+  } },
+  { collection: 'review_logs', rowId: 'log-1', fields: {
+    id: S(), questionId: S(), rating: INT, state: INT, due: ISO_FIELD, stability: NUM,
+    difficulty: NUM, elapsedDays: NUM, lastElapsedDays: NUM, scheduledDays: NUM,
+    review: ISO_FIELD, durationMs: INT, isCorrect: BOOL, heuristicVersion: INT,
+  } },
+  { label: 'track_scope (custom track name)', collection: 'track_scope', rowId: 'meta.ZXhhbQ', fields: {
+    kind: LITERAL('custom_track'), examId: S(), name: S(),
+  } },
+  { label: 'track_scope (hidden topic)', collection: 'track_scope', rowId: 'scope.ZXhhbQ.dG9waWM', fields: {
+    kind: LITERAL('scope'), examId: S(), topicId: S(),
+  } },
+  { collection: 'custom_blueprints', rowId: 'exam_custom_1', fields: {
+    examId: S(), totalQuestions: INT, totalMinutes: INT, sectionsJson: JSON_TEXT(),
+    sectionsTimedSeparately: BOOL, blueprintUpdatedAt: ISO_FIELD,
+  } },
+];
+
+const syncRowPath = (collection, rowId, generation = 'active') =>
+  `users/pro/sync_generations/${generation}/${collection}/${rowId}`;
+const syncRowPayload = (fields, overrides = {}) => ({
+  ...Object.fromEntries(Object.entries(fields).map(([name, kind]) => [name, kind.ok])),
+  ...overrides,
+});
+const wrongLabel = (value) => (value instanceof Date ? 'Date' : JSON.stringify(value));
+
+for (const syncCase of syncRowCases) {
+  const { collection, rowId, fields } = syncCase;
+  const label = syncCase.label ?? collection;
+  const live = (overrides = {}) => rowData(syncRowPayload(fields, overrides));
+  const ref = (id = rowId, generation = 'active') => doc(proDb(), syncRowPath(collection, id, generation));
+
+  test(`sync row ${label}: a row shaped like the mapper output passes`, async () => {
+    await assertSucceeds(setDoc(ref(), live()));
+    await assertSucceeds(setDoc(ref(rowId, 'staging'), live()));
+  });
+
+  test(`sync row ${label}: a tombstone with no payload passes, also over a live row`, async () => {
+    await assertSucceeds(setDoc(ref(), live()));
+    await assertSucceeds(setDoc(ref(), rowData({ deleted: true })));
+    await assertSucceeds(setDoc(ref(`${rowId}-tomb`), rowData({ deleted: true })));
+  });
+
+  const nullableNames = Object.entries(fields).filter(([, kind]) => kind.nullable).map(([name]) => name);
+  if (nullableNames.length > 0) {
+    test(`sync row ${label}: nullable fields written as null pass`, async () => {
+      await assertSucceeds(setDoc(ref(), live(Object.fromEntries(nullableNames.map((name) => [name, null])))));
+    });
+  }
+
+  test(`sync row ${label}: an unknown field fails`, async () => {
+    await assertFails(setDoc(ref(), live({ extraField: 'x' })));
+  });
+
+  test(`sync row ${label}: a wrong type on any one payload field fails`, async () => {
+    for (const [name, kind] of Object.entries(fields)) {
+      for (const wrong of kind.wrong) {
+        await assertFails(setDoc(ref(), live({ [name]: wrong })), `${name} = ${wrongLabel(wrong)}`);
+      }
+    }
+  });
+
+  test(`sync row ${label}: a payload field that is present on a tombstone is still checked`, async () => {
+    const [name, kind] = Object.entries(fields)[0];
+    await assertFails(setDoc(ref(), rowData({ deleted: true, [name]: kind.wrong[0] })));
+    await assertSucceeds(setDoc(ref(), rowData({ deleted: true, [name]: kind.ok })));
+  });
+
+  test(`sync row ${label}: an oversize string on any one field fails, the cap itself passes`, async () => {
+    for (const [name, kind] of Object.entries(fields)) {
+      if (kind.over === undefined) continue;
+      await assertFails(setDoc(ref(), live({ [name]: kind.over })), `${name} oversize`);
+    }
+    const capped = Object.entries(fields).find(([, kind]) => kind.over !== undefined && kind.ok === 'value-1');
+    if (capped) {
+      const [name, kind] = capped;
+      await assertSucceeds(setDoc(ref(), live({ [name]: kind.over.slice(1) })));
+    }
+  });
+
+  test(`sync row ${label}: a row id over 200 characters, or with a slash, fails`, async () => {
+    await assertSucceeds(setDoc(ref('r'.repeat(200)), live()));
+    await assertFails(setDoc(ref('r'.repeat(201)), live()));
+    await assertFails(setDoc(ref('a/b/c'), live()));
+  });
+}
+
+test('sync row fsrs_cards and review_logs: integer-valued numbers pass in the number fields', async () => {
+  // The web client writes a whole double such as 2.0 as an integer.
+  const db = proDb();
+  const fsrs = syncRowCases.find((item) => item.collection === 'fsrs_cards').fields;
+  const logs = syncRowCases.find((item) => item.collection === 'review_logs').fields;
+  for (const [collection, fields, id] of [['fsrs_cards', fsrs, 'q-int'], ['review_logs', logs, 'l-int']]) {
+    const whole = Object.fromEntries(Object.entries(fields).filter(([, kind]) => kind === NUM).map(([name]) => [name, 2]));
+    await assertSucceeds(setDoc(doc(db, syncRowPath(collection, id)), rowData(syncRowPayload(fields, whole))));
+  }
+});
+
+test('sync row track_scope: each kind keeps to its own fields', async () => {
+  const db = proDb();
+  const meta = syncRowCases.find((item) => item.label === 'track_scope (custom track name)').fields;
+  const scope = syncRowCases.find((item) => item.label === 'track_scope (hidden topic)').fields;
+  await assertFails(setDoc(doc(db, syncRowPath('track_scope', 'meta.x')), rowData(syncRowPayload(meta, { topicId: 'topic-1' }))));
+  await assertFails(setDoc(doc(db, syncRowPath('track_scope', 'scope.x.y')), rowData(syncRowPayload(scope, { name: 'A name' }))));
+});
