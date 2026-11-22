@@ -1,0 +1,91 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: ratio-and-proportion-pshs-q
+  exams: [pshs-nce]
+questions:
+  - id: q-arithmetic-number-sense-ratio-and-proportion-pshs-q-0001
+    lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A school sorted $180$ donated books into fiction, science, and history books.
+      The numbers of books in these groups were in the ratio $2:3:10$, in that order.
+      How many of the donated books were fiction or science books?
+    choices:
+      - text: "24"
+        rationale: |
+          Two parts give $24$ fiction books. That counts the first group the question names. Include the science books too.
+      - text: "36"
+        rationale: |
+          Three parts give $36$ science books. Science is one of the groups asked for. Include the fiction books too.
+      - text: "60"
+        correct: true
+      - text: "120"
+        rationale: |
+          Ten parts give $120$ history books. That is the group left out of the requested count. Subtract it from the total to count the other two groups.
+      - text: "156"
+        rationale: |
+          Adding the two largest shares gives $156$. This counts two groups as asked. Check which groups the question names.
+    explanation: |
+      The whole collection has $2+3+10=15$ parts. Each part has $180\div15=12$ books.
+      Fiction and science together have $2+3=5$ parts. That is $5\times12=60$ books.
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-pshs-q-0002
+    lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      Three teams collected plastic bottles for a recycling drive. The numbers
+      collected by the Narra, Acacia, and Molave teams were in the ratio $2:5:8$,
+      respectively. Molave collected $27$ more bottles than Acacia. How many
+      bottles did Narra and Acacia collect in all?
+    choices:
+      - text: "45"
+        rationale: |
+          Five parts give $45$ bottles for Acacia. Acacia is one of the two teams asked for. Add Narra's share too.
+      - text: "63"
+        correct: true
+      - text: "72"
+        rationale: |
+          Eight parts give $72$ bottles for Molave. Molave helps you find the size of a part. Check which teams to count at the end.
+      - text: "135"
+        rationale: |
+          Adding all three shares gives $135$ bottles. The ratio lists all three teams. Count only Narra and Acacia in the answer.
+      - text: "189"
+        rationale: |
+          Using $27$ as the size of one part gives $7\times27=189$. The $27$ bottles do measure a gap. Check how many parts are in that gap.
+    explanation: |
+      Molave has $8-5=3$ more parts than Acacia. Each part is $27\div3=9$ bottles.
+      Narra and Acacia have $2+5=7$ parts together. They collected $7\times9=63$ bottles.
+
+  - id: q-arithmetic-number-sense-ratio-and-proportion-pshs-q-0003
+    lesson: lesson-arithmetic-number-sense-partitive-proportion-and-differences
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A school garden has $240$ seedlings spread across three beds. The numbers
+      of seedlings in the first, second, and third beds are in the ratio $2:3:7$.
+      How many more seedlings are in the third bed than in the first bed?
+    choices:
+      - text: "40"
+        rationale: |
+          Two parts give $40$ seedlings in the first bed. You need that count for the comparison. Subtract it from the third bed's count.
+      - text: "80"
+        rationale: |
+          Subtracting $3$ parts from $7$ parts gives a gap of $80$ seedlings. That compares the third bed with the second. Check which two beds the question names.
+      - text: "100"
+        correct: true
+      - text: "140"
+        rationale: |
+          Seven parts give $140$ seedlings in the third bed. That is the larger count in the comparison. Subtract the first bed's count to find the gap.
+      - text: "1,200"
+        rationale: |
+          Multiplying the $5$-part gap by $240$ gives $1,200$. The gap is $5$ parts, but $240$ is the whole garden's count. Divide by $12$ to find one part before multiplying.
+    explanation: |
+      There are $2+3+7=12$ parts, so each part has $240\div12=20$ seedlings.
+      The first bed has $2\times20=40$ seedlings. The third bed has $7\times20=140$.
+      The third bed has $140-40=100$ more seedlings than the first bed.
