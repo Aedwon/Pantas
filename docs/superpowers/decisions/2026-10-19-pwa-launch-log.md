@@ -4107,3 +4107,10 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
 - Cause, from the phone's own error report (09:01 UTC, build 1275724943-da801388b12a): `quiz.write: Invalid argument (properties): string values must be short identifiers, never free text: "question_id"`. `submit_answer.dart` logs the `questionAnswered` event before saving the answer, and `telemetry.dart` throws when a property value fails `^[a-zA-Z0-9_-]{1,64}$`. 261 of 4,429 prod question ids are longer than 64 characters (for example `q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001`), so every answer to those questions fails and is not saved.
 - Question reports: the app queues them on the device only; `ReportQueue.sendPending` has no backend ("No approved backend endpoint"), so no report has ever reached the server. Not new.
 - Not fixed here: both are app code (Flutter), outside this lane; handed to the manager with a proposed fix.
+
+### Nov 22, prod Firestore App Check watch ended clean; enforcement stays (security and billing lead, r2)
+
+- Watch: Nov 21 12:37 to Nov 22 12:40 UTC, checks every 4 hours (a T3 task bound to the lead thread, now deleted).
+- Result: prod Firestore App Check allowed 144 requests from the prod web app and refused 2, both the lead's own tokenless probes at 12:40 and 12:45 UTC Nov 21. Valid share for real clients: 100%. Sign-in (Auth) allowed 4, refused none. No App Check or permission errors in prod ERROR logs. No tester report. No rollback trigger fired.
+- Aedwon's iPhone "Could not save your progress" on Nov 22 08:49 UTC was traced to an app bug (an analytics check on question ids over 64 characters), not App Check (entry above).
+- Storage, Auth and Firestore App Check are all enforced on prod. Checklist S1 is met.
