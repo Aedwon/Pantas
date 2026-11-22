@@ -1,0 +1,283 @@
+meta:
+  subject: language-proficiency
+  topic: vocabulary
+  subtopic: synonyms-and-antonyms-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-vocabulary-synonyms-and-antonyms-pshs-0001
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 1
+    type: synonym
+    difficulty: medium
+    stem: |
+      The librarians chose a **sturdy** cart to carry stacks of books from room to room. Which word is closest in meaning to the word in bold?
+    choices:
+      - text: "strong"
+        correct: true
+      - text: "spacious"
+        rationale: |
+          This confuses strength with room for more books. Stacks of books take up space. Check whether sturdy tells how much room the cart has or how well it bears weight.
+      - text: "portable"
+        rationale: |
+          This focuses on moving the cart from room to room. The cart does need to move. Check what sturdy says about the cart's ability to carry a load without breaking.
+      - text: "balanced"
+        rationale: |
+          This focuses on whether the cart tips. Tall stacks can make a cart tip. Check whether sturdy refers mainly to how the load is spread out or how well the cart is built.
+      - text: "heavy"
+        rationale: |
+          This treats the cart's weight as a sign of strength. A well-built cart may be heavy. Check whether a light cart could still hold the books without bending.
+    explanation: |
+      A sturdy cart is strong enough to carry the stacks of books without bending or breaking. Strong keeps that meaning.
+
+  - id: q-vocabulary-synonyms-and-antonyms-pshs-0002
+    lesson: lesson-vocabulary-feeling-strength-and-formality
+    keyPoint: 2
+    type: word-in-context
+    difficulty: medium
+    stem: |
+      Choose the word that best completes the sentence.
+      Mara had been looking forward to the school fair. When she heard it had been moved to next week, she was _____, but she shrugged and went back to her game.
+    choices:
+      - text: "disappointed"
+        correct: true
+      - text: "heartbroken"
+        rationale: |
+          This treats a small letdown as deep sorrow. Mara may have wanted the fair to happen sooner. Check how easily she goes back to her game.
+      - text: "indignant"
+        rationale: |
+          This treats the change as an insult or an unfair act. A delay can upset people. Check whether Mara gives any sign of feeling wronged.
+      - text: "embarrassed"
+        rationale: |
+          This assumes the change made Mara feel foolish. A change can be awkward for someone who made plans. Check whether Mara has done anything she might feel ashamed of.
+      - text: "disillusioned"
+        rationale: |
+          This assumes Mara lost faith in the people running the fair. A broken promise can make someone lose trust. Check whether Mara shows any sign of losing trust over the delay.
+    explanation: |
+      Mara wanted to go to the fair sooner. She felt let down, but she went right back to her game. Disappointed fits how she felt.
+
+  - id: q-vocabulary-synonyms-and-antonyms-pshs-0003
+    lesson: lesson-vocabulary-meaning-and-grammar-in-context
+    keyPoint: 1
+    type: synonym
+    difficulty: medium
+    stem: |
+      Only the **fine** grains passed through the sieve. The rest stayed on top. Which word is closest in meaning to the word in bold?
+    choices:
+      - text: "excellent"
+        rationale: |
+          This uses the quality meaning of fine. People do call a high-quality product fine. Check what lets some grains pass through the holes.
+      - text: "pure"
+        rationale: |
+          This assumes that passing through the sieve proves the grains are free of other substances. Sieves can remove some unwanted pieces. Check what the sentence actually tells you about the grains that passed through.
+      - text: "refined"
+        rationale: |
+          This assumes the grains were processed. A sieve can be used when sorting grains during processing. Check which word describes the size needed to pass through the holes.
+      - text: "tiny"
+        correct: true
+      - text: "smooth"
+        rationale: |
+          This reads fine as a texture you might feel. A pile of fine grains can feel smooth. Check whether grains that are too large can pass through the holes even if they are smooth.
+    explanation: |
+      The grains that passed through had to be small enough to fit through the holes. Fine means tiny here.
+
+  - id: q-vocabulary-synonyms-and-antonyms-pshs-0004
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 2
+    type: antonym
+    difficulty: medium
+    stem: |
+      The model needed a **rigid** frame to keep its shape during transport. Which word is most nearly opposite in meaning to the word in bold?
+    choices:
+      - text: "reinforced"
+        rationale: |
+          This chooses a quality that can help a frame stay rigid. Extra support can help a frame keep its shape. Check whether the question asks for a similar meaning or an opposite.
+      - text: "lightweight"
+        rationale: |
+          This links stiffness with weight. Rigid frames can be heavy. Check whether the sentence describes how much the frame weighs or how easily it bends.
+      - text: "flexible"
+        correct: true
+      - text: "breakable"
+        rationale: |
+          This confuses bending with breaking. A frame that breaks loses its shape. Check whether a rigid object could also break under enough force.
+      - text: "lenient"
+        rationale: |
+          This takes rigid to mean strict. Lenient can be the opposite when rigid describes rules. Check what the word describes in this sentence.
+    explanation: |
+      A rigid frame keeps its shape because it resists bending. A flexible frame can bend, so flexible is the opposite here.
+
+  - id: q-vocabulary-synonyms-and-antonyms-pshs-0005
+    lesson: lesson-vocabulary-feeling-strength-and-formality
+    keyPoint: 1
+    type: synonym
+    difficulty: hard
+    stem: |
+      A science teacher praised Inez for being **inquisitive**. Her questions about the shells helped the class see details they had missed. Which word best keeps the meaning and tone of the word in bold?
+    choices:
+      - text: "observant"
+        rationale: |
+          This focuses on noticing details. The class did notice more after Inez spoke. Check whether the praise is for what she saw or for her interest in finding out more.
+      - text: "curious"
+        correct: true
+      - text: "meddlesome"
+        rationale: |
+          This makes her questions sound like unwanted interference. A person who meddles may ask many questions. Check how the teacher reacts to Inez's questions.
+      - text: "suspicious"
+        rationale: |
+          This treats the questions as signs of distrust. Someone who doubts a claim might ask for details. Check whether Inez shows distrust or a wish to learn.
+      - text: "intrusive"
+        rationale: |
+          This makes her questions sound like an invasion of privacy. Some questions do cross personal lines. Check what the questions are about and whom they help.
+    explanation: |
+      Curious means eager to find out more. It fits the teacher's praise for the way Inez helped the class learn by asking questions.
+
+  - id: q-vocabulary-synonyms-and-antonyms-pshs-0006
+    lesson: lesson-vocabulary-meaning-and-grammar-in-context
+    keyPoint: 2
+    type: synonym
+    difficulty: hard
+    stem: |
+      The judges agreed to **postpone** the announcement of the winners. Which word can replace the word in bold and keep both the meaning and the grammar?
+    choices:
+      - text: "postponement"
+        rationale: |
+          This names the act of putting something off. It shares the meaning of postpone. Check whether the sentence needs a name for the action or a verb after agreed to.
+      - text: "cancel"
+        rationale: |
+          This calls the announcement off completely. Cancel fits after agreed to and may sound right when plans change. Check whether the announcement is called off or moved to a later time.
+      - text: "defer"
+        correct: true
+      - text: "delaying"
+        rationale: |
+          This gives the right idea in a different verb form. You can say the judges were delaying the announcement. Check the form needed after agreed to.
+      - text: "withhold"
+        rationale: |
+          This focuses on keeping the announcement from the public. The two verbs fit the same spot, and both can leave people waiting. Check which verb specifically moves an event to a later time.
+    explanation: |
+      After agreed to, the sentence needs the base form of a verb. Defer is in that form and means to put something off until later.
+
+  - id: q-vocabulary-synonyms-and-antonyms-pshs-0007
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 3
+    type: word-in-context
+    difficulty: hard
+    stem: |
+      Choose the word that best completes the sentence.
+      Before handling the glass panels, the crew was told to _____ precautions against cuts.
+    choices:
+      - text: "make"
+        rationale: |
+          This borrows the verb from make preparations. Preparations and precautions can both come before a risky task. Check which verb commonly goes with precautions.
+      - text: "perform"
+        rationale: |
+          This borrows the verb from perform safety checks. A safety check can be a precaution. Check the usual verb for precautions in general.
+      - text: "carry"
+        rationale: |
+          This treats precautions like gear that the crew brings to the job. Safety gear can help prevent cuts. Check whether precautions names equipment or steps people take.
+      - text: "take"
+        correct: true
+      - text: "undertake"
+        rationale: |
+          This uses a verb that goes with jobs or tasks. A precaution can involve work. Check which verb forms the usual phrase with precautions.
+    explanation: |
+      Take precautions is the usual phrase for doing things ahead of time to stay safe. Here the crew wants to avoid cuts.
+
+  - id: q-vocabulary-synonyms-and-antonyms-pshs-0008
+    lesson: lesson-vocabulary-meaning-and-grammar-in-context
+    keyPoint: 1
+    type: synonym
+    difficulty: hard
+    stem: |
+      Grasses planted on the slope helped **check** erosion by holding the soil in place. Which word is closest in meaning to the word in bold?
+    choices:
+      - text: "curb"
+        correct: true
+      - text: "inspect"
+        rationale: |
+          This uses the meaning of check in check your work. People do inspect slopes for damage. Check what the grasses actually do to the soil.
+      - text: "confirm"
+        rationale: |
+          This reads check as making sure something is true. A bare slope might help confirm that soil has washed away. Check whether the sentence gives proof of erosion or describes how to limit it.
+      - text: "measure"
+        rationale: |
+          This treats check like checking a temperature or an amount. People can measure how much soil has washed away. Check whether the grasses give a reading or hold soil in place.
+      - text: "conceal"
+        rationale: |
+          This treats the grass as a cover that hides the damage. Plants can hide the ground from view. Check what holding the soil in place does to erosion itself.
+    explanation: |
+      The grasses hold the soil in place so less soil washes away. Curb means to hold back or limit something, which is what check means here.
+
+  - id: q-vocabulary-synonyms-and-antonyms-pshs-0009
+    lesson: lesson-vocabulary-feeling-strength-and-formality
+    keyPoint: 3
+    type: synonym
+    difficulty: exam
+    stem: |
+      A museum is updating its printed rules for visitors. Which replacement keeps the meaning of the words in bold and best fits a formal notice?
+      "Please **hang on to** your ticket until you leave the building."
+    choices:
+      - text: "hold on to"
+        rationale: |
+          This keeps the meaning but sounds like spoken advice. Someone at the door might say it. Check how the wording sounds in a printed rule.
+      - text: "stash away"
+        rationale: |
+          This treats keeping the ticket as hiding it somewhere. A visitor might tuck it into a bag. Check whether the notice tells visitors where to put the ticket.
+      - text: "retain"
+        correct: true
+      - text: "safeguard"
+        rationale: |
+          Safeguard sounds formal and means to protect. A visitor might want to keep a paper ticket from tearing. Check what the rule asks visitors to do until they leave.
+      - text: "grip tightly"
+        rationale: |
+          This takes hang on to as a direction to hold something in your hand. That sense can fit a warning about dropping something. Check whether the rule tells visitors how to hold the ticket.
+    explanation: |
+      Retain means to keep. It fits a printed rule that asks visitors to keep their tickets until they leave.
+
+  - id: q-vocabulary-synonyms-and-antonyms-pshs-0010
+    lesson: lesson-vocabulary-feeling-strength-and-formality
+    keyPoint: 2
+    type: synonym
+    difficulty: exam
+    stem: |
+      The cloth was still **damp** when Paolo took it off the line, but it left only a faint wet spot on the table. Which word is closest in meaning to the word in bold as used here?
+    choices:
+      - text: "saturated"
+        rationale: |
+          This treats a trace of wetness as the greatest possible amount. Saturated can describe cloth full of water. Check how little water came off on the table.
+      - text: "dripping"
+        rationale: |
+          This assumes there is enough water to form falling drops. Wet cloth can drip from a line. Check whether the sentence describes drops or just a faint spot.
+      - text: "clammy"
+        rationale: |
+          This adds the idea of an unpleasant, cool feeling. Damp cloth can feel that way. Check whether the sentence says how the cloth feels to the touch or only how wet it is.
+      - text: "moist"
+        correct: true
+      - text: "stained"
+        rationale: |
+          This treats the spot as a lasting mark. A wet cloth could leave a stain if it had dye on it. Check whether the spot comes from water or from a change in color.
+    explanation: |
+      Damp means a little wet. Moist keeps that same degree of wetness and fits the faint spot the cloth left.
+
+  - id: q-vocabulary-synonyms-and-antonyms-pshs-0011
+    lesson: lesson-vocabulary-similar-and-opposite-meanings
+    keyPoint: 2
+    type: antonym
+    difficulty: exam
+    stem: |
+      The committee set a **tentative** date for the exhibit while it waited to hear whether the hall was available. Which word is most nearly opposite in meaning to the word in bold?
+    choices:
+      - text: "provisional"
+        rationale: |
+          This picks a word that also means the date may change. Provisional can sound official. Check whether it means the date has been settled.
+      - text: "immediate"
+        rationale: |
+          This treats a date that is close as a date that is certain. An event coming up soon might seem settled. Check whether tentative says how soon or how certain.
+      - text: "firm"
+        correct: true
+      - text: "flexible"
+        rationale: |
+          This keeps the idea that the date can change. A flexible date may help the committee work around other bookings. Check whether the question asks for that idea or its opposite.
+      - text: "convenient"
+        rationale: |
+          This treats a date that works well for people as a date that is settled. Committees often look for a convenient date. Check whether a convenient date could still change.
+    explanation: |
+      A tentative date may still change. A firm date is settled, so firm is the opposite here.
