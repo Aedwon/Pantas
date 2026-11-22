@@ -1,0 +1,155 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: sequences-and-series-pshs-q
+  exams: [pshs-nce]
+questions:
+  - id: q-arithmetic-number-sense-sequences-and-series-pshs-q-0001
+    lesson: lesson-arithmetic-number-sense-finding-number-patterns
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      The same two operations alternate throughout the sequence $28,14,18,\square,13,6.5$. What number belongs in the blank?
+    choices:
+      - text: '$9$'
+        correct: true
+      - text: '$22$'
+        rationale: |
+          Adding $4$ to $18$ repeats the step that took $14$ to $18$. Check which operation comes after an addition.
+      - text: '$36$'
+        rationale: |
+          Doubling $18$ uses the same factor you would use to go back from $14$ to $28$. Check that the sequence moves forward from $28$ to $14$ by halving.
+      - text: '$4.5$'
+        rationale: |
+          Halving twice can seem right because halving occurs more than once in the sequence. Check how many steps it takes to go from $18$ to the blank.
+      - text: '$13$'
+        rationale: |
+          Halving $18$ and then adding $4$ gives $13$. That value is shown just after the blank. Check where the first of those two steps ends.
+    explanation: |
+      Take half of $28$ to get $14$. Then add $4$ to get $18$. Repeat those two steps. Half of $18$ is $9$, and $9+4=13$. Half of $13$ is $6.5$, so the rule fits the whole list.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-pshs-q-0002
+    lesson: lesson-arithmetic-number-sense-arithmetic-sequence-terms
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Luis cuts a set of ribbons. The first is $125$ centimeters long and the second is $116$ centimeters long. Each ribbon after the first is shorter than the one before it by the same amount. The last ribbon is $17$ centimeters long. How many ribbons are in the set?
+    choices:
+      - text: '$13$'
+        correct: true
+      - text: '$12$'
+        rationale: |
+          Dividing the total drop by $9$ gives $12$ steps. This can look like the ribbon count. Check that the first ribbon is already there before the first drop.
+      - text: '$11$'
+        rationale: |
+          Subtracting one from the step count gives the ribbons between the two end ribbons. Check that the question counts the first and last ribbons too.
+      - text: '$14$'
+        rationale: |
+          Adding two to the step count may seem right because there are two end ribbons. Check that the final step already lands on the last ribbon.
+      - text: '$108$'
+        rationale: |
+          Subtracting the last length from the first gives $108$ centimeters. This is the full drop in length. Check how many $9$-centimeter steps fit in that drop.
+    explanation: |
+      Each ribbon is $125-116=9$ centimeters shorter than the one before it. The length drops by $125-17=108$ centimeters in all. That takes $108\div9=12$ steps. Count the first ribbon too. There are $12+1=13$ ribbons.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-pshs-q-0003
+    lesson: lesson-arithmetic-number-sense-arithmetic-sequence-terms
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A set of lockers in a hallway is labeled with an arithmetic sequence. The fourth locker has label $31$, and the seventh has label $58$. What is the label of the eleventh locker?
+    choices:
+      - text: '$94$'
+        correct: true
+      - text: '$85$'
+        rationale: |
+          There are three lockers strictly between the seventh and eleventh lockers. Adding three steps reaches the last of those three lockers. Check the extra step to the eleventh locker.
+      - text: '$103$'
+        rationale: |
+          Counting lockers seven through eleven gives five lockers. Using five as the step count starts the jumps too early. Check that locker seven takes zero steps from itself.
+      - text: '$121$'
+        rationale: |
+          The gap from locker four to locker eleven is seven steps. Adding those steps to $58$ uses a later starting point. Check which label belongs to locker four.
+      - text: '$148$'
+        rationale: |
+          An eleventh term is ten steps from the first term. Using $58$ as the first term gives $148$. Check the position of the locker labeled $58$.
+    explanation: |
+      From the fourth to the seventh locker, the label increases by $58-31=27$ in $7-4=3$ steps. Each step adds $27\div3=9$. From the seventh to the eleventh locker there are $11-7=4$ steps. The label is $58+4(9)=94$.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-pshs-q-0004
+    lesson: lesson-arithmetic-number-sense-finding-number-patterns
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      In a game, the total points needed to reach levels one through five are $45,65,82,96,107$, in that order. The increases from one level to the next go down by the same amount each time. How many more points are needed to reach level seven than to reach level five?
+    choices:
+      - text: '$13$'
+        correct: true
+      - text: '$22$'
+        rationale: |
+          Using the last increase of $11$ for both new levels gives $22$. Check how much the increases shrink each time.
+      - text: '$19$'
+        rationale: |
+          Adding $11$ and $8$ gives two increases in a row. The $11$ takes you from level four to level five. Check which level the question starts from.
+      - text: '$5$'
+        rationale: |
+          The increase of $5$ takes you from level six to level seven. Check the extra points needed to reach level six from level five too.
+      - text: '$120$'
+        rationale: |
+          Adding both new increases to $107$ gives the points needed for level seven. Check whether the question asks for that total or for the difference from level five.
+    explanation: |
+      The increases are $65-45=20$, $82-65=17$, $96-82=14$, and $107-96=11$. Each increase is $3$ less than the last. Level six needs $8$ more points than level five. Level seven needs another $5$. The total increase is $8+5=13$.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-pshs-q-0005
+    lesson: lesson-arithmetic-number-sense-finding-number-patterns
+    keyPoint: 1
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      In the sequence $1,80,4,40,7,20,10,10,\ldots$, the odd-position terms increase by a fixed amount. Each even-position term is the same fraction of the previous even-position term. By how much is the ninth term greater than the tenth term?
+    choices:
+      - text: '$8$'
+        correct: true
+      - text: '$3$'
+        rationale: |
+          Comparing the ninth term with the last given even-position term gives $13-10=3$. Check that $10$ is in position eight. Find the term in position ten.
+      - text: '$18$'
+        rationale: |
+          Adding the next two terms gives $13+5=18$. Both terms are needed. Check what operation answers how much greater one term is.
+      - text: '$5$'
+        rationale: |
+          Halving $10$ gives the tenth term, which is part of the answer. Check what you still need to compare it with.
+      - text: '$13$'
+        rationale: |
+          Repeating the last drop of $10$ gives a tenth term of $0$, so the gap would be $13$. Check whether the even-position terms drop by a fixed amount or are cut in half each time.
+    explanation: |
+      The odd-position terms are $1,4,7,10$. Add $3$ to get $13$ in position nine. The even-position terms are $80,40,20,10$. Take half to get $5$ in position ten. The difference is $13-5=8$.
+
+  - id: q-arithmetic-number-sense-sequences-and-series-pshs-q-0006
+    lesson: lesson-arithmetic-number-sense-arithmetic-sequence-terms
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Numbered stickers are placed in a straight row. From left to right, their numbers form an arithmetic sequence. The first sticker shows $18$, the fifth shows $46$, and the last shows $130$. How many stickers are in the row?
+    choices:
+      - text: '$17$'
+        correct: true
+      - text: '$5$'
+        rationale: |
+          Using $46-18=28$ as one step counts the stickers you land on by jumping four places at a time. Check how many steps separate the first and fifth stickers.
+      - text: '$16$'
+        rationale: |
+          Dividing the total increase by $7$ gives the number of steps. Check whether you have counted the starting sticker.
+      - text: '$18$'
+        rationale: |
+          Adding two to the number of steps can seem right because the row has two ends. Check that the last step already puts you on the final sticker.
+      - text: '$113$'
+        rationale: |
+          Counting every integer from $18$ through $130$ includes both ends. This assumes the labels go up by $1$. Check how much they rise in the first four steps.
+    explanation: |
+      The first five stickers have four steps between them. The total increase across those steps is $46-18=28$. Each step adds $28\div4=7$. From $18$ to $130$, the increase is $130-18=112$. That takes $112\div7=16$ steps. Count the first sticker too. There are $16+1=17$ stickers.
