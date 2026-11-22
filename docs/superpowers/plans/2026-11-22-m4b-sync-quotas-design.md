@@ -135,3 +135,13 @@ Already used today on staging is read from the live check before the run. Well u
   all successful (56 writes and the cleanup deletes, which it ignores).
 - Not covered on staging: the entitlement mirror from real payment paths (covered by emulator tests) and the app's
   "Backup paused" message (needs the Flutter slot).
+
+## Optional explanation: Aedwon's pick (CSE Release Picks, Section 5)
+
+Board: https://claude.ai/artifact/PMKs9koUswojKFY27aExv8, Section 5 "Optional, can ship later" (built by the CSE
+release QA lead from ST_BackupNowOffline, phone and wide). Shipped now: option 0 (row value "Paused", Back Up Now
+disabled, no other text). Options F (sentence in the footer: Back Up Now moves 18 px on phone) and L (line under the
+row: moves 47 px on phone, 30 px on wide) both break the Nov 8 "nothing moves" rule (`w4f_backup_test`) unless the
+space is reserved in every state; whoever builds his pick reserves it and keeps that test. The board's dark versions
+are a recolor with the HANDOFF dark table, not an approved dark board. The offline board's "You need a connection to
+back up." line does not exist in the app, so nothing shows it while paused.
