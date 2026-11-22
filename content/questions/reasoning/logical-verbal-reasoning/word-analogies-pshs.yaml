@@ -1,0 +1,155 @@
+meta:
+  subject: reasoning
+  topic: logical-verbal-reasoning
+  subtopic: word-analogies-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-logical-verbal-reasoning-word-analogies-pshs-0001
+    lesson: lesson-logical-verbal-reasoning-analogy-parts-types-and-products
+    keyPoint: 1
+    type: analogy
+    difficulty: medium
+    stem: |
+      Kayak : boat :: cardigan : ______
+    choices:
+      - text: "Wool"
+        rationale: |
+          This picks what a cardigan can be made of. Many cardigans are made of wool. Check whether a kayak is made of a boat.
+      - text: "Sweater"
+        correct: true
+      - text: "Button"
+        rationale: |
+          This picks a part of a cardigan. Buttons often close the front. Check whether a boat is a part of a kayak.
+      - text: "School uniform"
+        rationale: |
+          This picks an outfit that may include a cardigan. Some schools use cardigans in their uniforms. Check whether a kayak is part of a boat.
+      - text: "Clothing rack"
+        rationale: |
+          This picks a place to keep a cardigan. A shop may hang cardigans on a rack. Check whether a kayak is stored in a boat or is a kind of boat.
+    explanation: |
+      A kayak is a type of boat. A cardigan is a type of sweater. Both pairs name a specific kind first and its larger group second.
+
+  - id: q-logical-verbal-reasoning-word-analogies-pshs-0002
+    lesson: lesson-logical-verbal-reasoning-analogy-functions-users-and-work
+    keyPoint: 1
+    type: analogy
+    difficulty: medium
+    stem: |
+      Stapler : fasten :: sieve : ______
+    choices:
+      - text: "Grate"
+        rationale: |
+          This treats a sieve like a grater. The mesh can look like the holes in a grater. Does the mesh scrape food into smaller pieces?
+      - text: "Measure"
+        rationale: |
+          This treats the sieve as a measuring cup. Both tools are used to prepare flour for baking. Check whether the holes tell you how much flour you have.
+      - text: "Sift"
+        correct: true
+      - text: "Crush"
+        rationale: |
+          This assumes the sieve breaks grains into smaller bits. The grains that pass through do look finer. Check whether the mesh breaks the grains or sorts them by size.
+      - text: "Stir"
+        rationale: |
+          This mixes up stirring and sifting. Both can be used to prepare flour. Does the mesh move the flour around or let smaller bits pass through?
+    explanation: |
+      A stapler is used to fasten things together. A sieve is used to sift. Its holes let small bits pass through and hold back larger bits.
+
+  - id: q-logical-verbal-reasoning-word-analogies-pshs-0003
+    lesson: lesson-logical-verbal-reasoning-analogy-parts-types-and-products
+    keyPoint: 1
+    type: analogy
+    difficulty: medium
+    stem: |
+      Stanza : poem :: scene : ______
+    choices:
+      - text: "Stage"
+        rationale: |
+          This picks where a scene can be acted out. A stage often holds the actors and the set. Check whether a stanza is a section of a written work or a place to perform it.
+      - text: "Actor"
+        rationale: |
+          This picks a person who takes part in a scene. An actor may appear in many scenes. Check whether a scene is one section of an actor.
+      - text: "Dialogue"
+        rationale: |
+          This reverses the parts. A scene can contain dialogue. Check which way the first pair goes by asking whether a stanza contains a poem.
+      - text: "Play"
+        correct: true
+      - text: "Rehearsal"
+        rationale: |
+          This picks an event where people can practice a scene. At rehearsal, actors may work on one scene at a time. Check whether a stanza is part of the poem itself or part of a practice session.
+    explanation: |
+      A stanza is one section of a poem. A scene is one section of a play. Each pair goes from a section to the whole work.
+
+  - id: q-logical-verbal-reasoning-word-analogies-pshs-0004
+    lesson: lesson-logical-verbal-reasoning-analogy-functions-users-and-work
+    keyPoint: 1
+    type: analogy
+    difficulty: medium
+    stem: |
+      Loom : weaver :: sewing machine : ______
+    choices:
+      - text: "Customer"
+        rationale: |
+          This picks the person who orders the work. A customer may ask for a shirt to be fixed. Check who uses the machine to do the fixing.
+      - text: "Tailor"
+        correct: true
+      - text: "Clothing model"
+        rationale: |
+          This picks a person who shows the finished clothes. A model may wear clothes made with a sewing machine. Check who actually sews the clothes.
+      - text: "Thread supplier"
+        rationale: |
+          This picks someone who provides material for the machine. A supplier may sell the thread it needs. Check whether a weaver supplies the loom or works with it.
+      - text: "Fabric dyer"
+        rationale: |
+          This picks someone who colors cloth. A fabric dyer works with cloth too. Which worker uses the machine to sew it?
+    explanation: |
+      A loom is used by a weaver to make cloth. A sewing machine is used by a tailor to sew clothes. Both pairs start with a tool and end with its user.
+
+  - id: q-logical-verbal-reasoning-word-analogies-pshs-0005
+    lesson: lesson-logical-verbal-reasoning-analogy-parts-types-and-products
+    keyPoint: 2
+    type: analogy
+    difficulty: hard
+    stem: |
+      Avalanche : buried road :: power outage : ______
+    choices:
+      - text: "Damaged power line"
+        rationale: |
+          This reverses cause and effect. A damaged power line can cause a power outage. Check whether a buried road causes an avalanche or results from it.
+      - text: "Battery flashlight"
+        rationale: |
+          This picks a tool people may use during an outage. A flashlight can help people see. Check whether the outage makes the flashlight or gives people a reason to use it.
+      - text: "Dark room"
+        correct: true
+      - text: "Utility crew"
+        rationale: |
+          This picks the people who respond. A utility crew can help restore power. Check what happens when a room's lights lose power.
+      - text: "Electric meter"
+        rationale: |
+          This picks equipment used to track power use. The meter is part of the electrical system. Check whether the outage creates the meter or changes what happens to electric lights.
+    explanation: |
+      An avalanche can bury a road in snow. A power outage can leave a room dark when its lights go out. Both pairs go from an event to what it can cause.
+
+  - id: q-logical-verbal-reasoning-word-analogies-pshs-0006
+    lesson: lesson-logical-verbal-reasoning-analogy-functions-users-and-work
+    keyPoint: 2
+    type: analogy
+    difficulty: hard
+    stem: |
+      Blueprint : architect :: oil portrait : ______
+    choices:
+      - text: "Art collector"
+        rationale: |
+          This picks the person who may buy the work. Art collectors often buy portraits. Check whether the architect buys the blueprint or draws it.
+      - text: "Portrait model"
+        rationale: |
+          This picks the person shown in the work. A model may sit for a portrait. Check who puts the image on the canvas.
+      - text: "Gallery owner"
+        rationale: |
+          This picks a person who may put the work on display. A gallery owner can show portraits to visitors. Check whether the architect shows the blueprint or makes it.
+      - text: "Painter"
+        correct: true
+      - text: "Paintbrush"
+        rationale: |
+          This picks the tool used to make the work. A paintbrush can put paint on the canvas. Check whether the second word in the first pair names a tool or a person.
+    explanation: |
+      A blueprint can be drawn by an architect. An oil portrait is made by a painter. Both pairs start with the work and end with the person who makes it.
