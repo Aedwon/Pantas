@@ -70,12 +70,12 @@ Terms, drop the beta gate. The tracker is `docs/payments/2026-11-18-paymongo-sup
 | M1 | PayMongo live activation: BIR COR, DTI business name, Sole Proprietor upgrade. | Upgrade **done** Nov 18 (tracker row 1). BIR COR and DTI name: unknown, check. On Nov 9 he had no COR (`LL:2835-2841`). | Aedwon | **HIS** |
 | M2 | GCash, Maya, Visa and Mastercard are enabled for one-time payments. Checkout defaults to card and QR Ph (`functions/src/paymongoCheckout.ts`). | **Requested** Nov 18; no reply logged (tracker rows 2 and 3). | Aedwon | **HIS** (his PayMongo account) |
 | M3 | Live secret key and live webhook secret are in the prod payment secret. The live webhook is registered for the paid and refund events. One real small payment is confirmed. | **Not started.** Prod is on test keys. Staging payment runs must disable the prod test webhook first (`LL:2831`). | Security and billing lead r2, with Aedwon | **HIS** (live keys, real charge) |
-| M4 | One security pass before live keys: narrower function permissions, security headers, Pro sync quotas. S-12 checkout fix already shipped. | S-12 shipped to prod Nov 19 (`LL:3996-4003`). The other three: **not started** (`BL:100`, D18, "trigger: before live PayMongo keys"). A Codex audit of the money path is also named (tracker "Item 7 answer", point 6); its status: unknown, check. | Security and billing lead r2 | No |
+| M4 | One security pass before live keys: narrower function permissions, security headers, Pro sync quotas. S-12 checkout fix already shipped. | S-12 shipped to prod Nov 19 (`LL:3996-4003`). **Not started**, plan and estimate below ("Security pass before live keys (M4)"). No full money-path audit is on record: only the S-12 change had a Codex review (E-119). Today the app sends only HSTS of the usual security headers. | Security and billing lead r2 | No |
 | M5 | Plan copy says "prepaid period", not "renews". | **Met for web Terms and paywall** (`LL:4012`). Pro page wording: unknown, check (`BL:52`, A19). | Integrator | No |
 | M6 | A refund path works at live: QR Ph by bank transfer plus the signed refund command. | Runbook exists and passed on staging in test mode (`docs/OPERATIONS.md`, "Manual QR Ph refund"). Live mode is untested. PayMongo's reply on QR Ph refunds: **Sent** Nov 19, no reply (tracker row 6). | Aedwon runs refunds; security lead owns runbook | **HIS** (bank transfers) |
 | M7 | A way to find a payer, refund and grant by hand exists at live. | Founder app holds this (`BL:92`, D10 merged into A5); spec **not approved**, no build (`BL:31`). The manual refund command covers refunds only. Whether launch can run without it: unknown, check. | Founder app lead | Board approvals HIS |
 | M8 | Registered invoices or receipts can be issued. | Not started; waits on BIR registration (`LL:2841`; `BL:28`, A6). | Aedwon | **HIS** |
-| M9 | CSE products and web prices match `docs/pricing.md`: Weekly ₱49, Monthly ₱149, Yearly ₱1,199, pass ₱499. | **Met in code**: `functions/src/products.json` carries `pantas_cs_weekly/monthly/yearly` and both CSE passes at those prices. The 7-day trial is on Monthly only. Pass expiry date set to the 14 Mar 2027 sitting: unknown, check (`BL:142`). | Security and billing lead r2 | No |
+| M9 | CSE products and web prices match `docs/pricing.md`: Weekly ₱49, Monthly ₱149, Yearly ₱1,199, pass ₱499. | **Met in code**: `functions/src/products.json` carries `pantas_cs_weekly/monthly/yearly` and both CSE passes at those prices. The 7-day trial is on Monthly only. **Pass expiry: met** (lead, Nov 22): a pass binds to the next published sitting at purchase (`sittingFor`, `revenuecatPasses.ts:28`; used by `paymongoGrants.ts:18`, `paymongoCheckout.ts:67`); the catalog the deployed functions carry (`lib/examCatalog.json`, from `content/exams/catalog.json`, prod functions deployed Nov 22 from main 20e8065a3) lists CSE Pro and Sub sittings 2027-03-14 and 2027-08-08 with the CSC source, so a pass bought on or before Mar 14, 2027 ends Mar 14, 2027 23:59:59 Manila. | Security and billing lead r2 | No |
 | M10 | Payment record retention matches the published text. | **Open.** The Nov 9 note says account deletion can erase payment source records before the published five-year period; no protected archive is built (`docs/legal/2026-11-09-publication-dependencies.md`). The interim text was reworded to say deletion removes Pantas's payment records (`LL:2853`). What the live text says versus the system: unknown, check. | Under-13 and legal lanes, manager | Sign-off HIS |
 
 ## 4. Legal and privacy
@@ -96,12 +96,12 @@ Terms, drop the beta gate. The tracker is `docs/payments/2026-11-18-paymongo-sup
 
 | # | Gate | State and evidence | Owner | HIS? |
 |---|---|---|---|---|
-| S1 | Prod Firestore App Check stays enforced with no real client refused. | **Enforced** Nov 21 12:37 UTC; the refused Mac browser was agents (`LL:4060-4066`). The watch ran to Nov 22 12:40 UTC; its final result is not logged: unknown, check. | Security and billing lead r2 | No |
-| S2 | The CI free-tier gate passes at and after Nov 24 00:00 Manila. | Simulated pass before, at and after the date; warm-up stops in code at Nov 23 16:00 UTC (`LL:4068`). Live check had 1 OVER (staging reads, Nov 20) that ages out of the 7-day window about Nov 27; the Nov 22 gate check result is unknown, check. | Security and billing lead r2 | No |
-| S3 | Spend caps and cutoffs are sized for public traffic so launch day cannot cut the app off for everyone. | **Unscheduled.** Today: Cloud Run spend cap $5 a month per project, prod budget cutoff $15 (Aedwon raises as users grow), reCAPTCHA 300 a day, Worker script limit 100,000 requests a day for sign-in paths (`docs/deploy-prod.md:286,297-300,392`). Prod usage alarms now cut billing (`LL:4058`). No plan to re-size at launch is on main: unknown, check. | Security and billing lead r2 | Raising a budget or cap is **HIS** (billing) |
-| S4 | Email capacity covers launch. Sign-in code mail is capped at 20 a day for non-beta addresses; Resend Free allows 100 a day shared with guardian mail and the website (`docs/deploy-prod.md:191-199`). Held-back sends look normal to the user but no mail goes out. | **Open.** Cap is raised "only after moving Resend off Free". Google sign-in is unaffected. | Security and billing lead r2 | Moving Resend to a paid plan is **HIS** (billing) |
-| S5 | Cloudflare sign-in rate limit is in place. | Ruled DO NOW: test existing access first (`BL:40`, A1). Result: unknown, check. | Security and billing lead r2 | Console click only if access tests fail |
-| S6 | The old Firebase address no longer serves the full app. | Tiny page waits on 48 clean hours plus one real Google sign-in in prod logs (`docs/deploy-prod.md:390`; `BL:41`, A2). Result: unknown, check. Firebase Hosting bills every byte (rule 7). | Integrator | Phone step only if logs show none |
+| S1 | Prod Firestore App Check stays enforced with no real client refused. | **Enforced, clean so far** (lead check Nov 22): since Nov 21 12:37 UTC prod Firestore App Check refused only the lead's 2 tokenless probes (12:40, 12:45 UTC); every real request passed, including 08:45 to 09:04 UTC Nov 22 when Aedwon's iPhone save error was traced to an app bug, not App Check (`LL`, "Nov 22, Could not save your progress"). Final result: the watch ends Nov 22 12:40 UTC and its scheduled task logs it in the launch log. | Security and billing lead r2 | No |
+| S2 | The CI free-tier gate passes at and after Nov 24 00:00 Manila. | **Pass** (lead, Nov 22 about 00:45 UTC, main 20e8065a3): `free_tier.mjs` passes now and in an `evaluate()` simulation at Nov 24 00:01 Manila and Dec 1. `free_tier_live.mjs`: 9 OK, 3 WARN (as ruled), 1 OVER = staging reads on Nov 20 (126,854), outside the CI gate, ages out about Nov 27. Warm-up stops in code at Nov 23 16:00 UTC; the lead's scheduled check re-runs both at Nov 23 14:00 UTC. | Security and billing lead r2 | No |
+| S3 | Spend caps and cutoffs are sized for public traffic so launch day cannot cut the app off for everyone. | **Open, proposal below** ("Launch sizing proposal (S3, S4)"). Measured Nov 22: prod reCAPTCHA cap is **280 a day** (not 300), App Check token lifetime 1 hour, and the beta made 3 to 21 assessments a day. At launch that cap is the first thing that breaks: past it, new App Check tokens fail and enforced sign-in and Firestore refuse everyone. Spend cap $5 a month (Cloud Run) and the $15 cutoff also bind at 5,000 sign-ups. | Security and billing lead r2 | Raising a budget or cap is **HIS** (billing) |
+| S4 | Email capacity covers launch. Sign-in code mail is capped at 20 a day for non-beta addresses; Resend Free allows 100 a day shared with guardian mail and the website (`docs/deploy-prod.md:191-199`). Held-back sends look normal to the user but no mail goes out. | **Open, proposal below.** Even 500 sign-ups in week one need about 150 code mails on the peak day: over the 20-a-day send cap and over Resend Free's 100 a day. Resend Pro is $20 a month for 50,000 mails with no daily limit (resend.com/pricing, read Nov 22). | Security and billing lead r2 | Moving Resend to a paid plan is **HIS** (billing) |
+| S5 | Cloudflare sign-in rate limit is in place. | **Met** (lead, Nov 22, read-only): Cloudflare rate-limit rule on pantas.study (Free plan), enabled: `http.host eq "app.pantas.study" and starts_with(path, "/__/")`, block above 30 requests per 10 s per IP and data center, for 10 s ("security fixes step 5, Nov 17"). Access: the Cloudflare connector reads rulesets; the stored DNS token (`~/.config/pantas/cloudflare.env`) is valid but lacks ruleset read. Limit: the sign-in code callables run on cloudfunctions.net, not behind Cloudflare; they keep their own per-account and daily caps. | Security and billing lead r2 | Console click only if access tests fail |
+| S6 | The old Firebase address no longer serves the full app. | **Not met** (lead, Nov 22, read-only): `pantas-prod.web.app` and `pantas-prod.firebaseapp.com` still serve the full app (index 15,485 B, `main.dart.js` 7,530,654 B). The tiny page waits on one real Google sign-in through Cloudflare: since Nov 14 18:00 UTC prod has 2 `exchangeGoogleSignIn` requests, both the integrator's curl probes (401, Nov 20 17:53). Old-address Hosting egress is 0 MiB a day now, so it costs nothing today. Next: Aedwon signs in with Google once on app.pantas.study (about 1 minute), then the integrator ships the tiny page. | Integrator | Phone step only if logs show none |
 | S7 | Security audit findings are closed or accepted. | Internal audit Nov 14 merged with independent validation (`LL:3212-3227`); secrets down to 4 active versions, old ones destroyed Nov 18 (`LL:4005`); main protected (`LL:3916`). The remaining pass is M4. | Security and billing lead r2 | No |
 | S8 | External penetration test. | None on record; the May plan boxes are unchecked and stale (`docs/OPERATIONS.md:253-259`). Whether launch needs one: unknown, check. | Aedwon decides | **HIS** |
 | S9 | DMARC moves from report-only to quarantine. | Report-only; trigger Nov 28 and every report aligned (`BL:98`, D16). Helps sign-in mail delivery. | Security and billing lead r2 | No |
@@ -133,6 +133,66 @@ and every prod build so far uses it (`lib/app/beta_gate.dart:14-22,36-39`; `LL:3
 | G5 | Installed copies still carrying the gate update. | Open apps take the new build at their next safe point; a copy that stays offline keeps its own gate (`LL:3710`). Not a blocker; expect stragglers. | Integrator | No |
 | G6 | First-hour watch after opening: sign-up, onboarding, quiz save, mock, one live checkout, alarm emails, 401 rate. | Pattern exists in every ship entry (for example `LL:4056`). | Integrator, then manager | Live checkout is **HIS** (real money) |
 | G7 | Rule 9 applies from the moment of opening. | See L6. | Operations manager | **HIS** |
+
+## Launch sizing proposal (S3, S4)
+
+Security and billing lead, Nov 22, read-only. **Raising any cap, budget or plan is Aedwon's call.** Nothing
+was changed.
+
+Assumptions (estimates, not measurements): the peak day has 40% of week-one sign-ups active, month one
+averages 30% of sign-ups active a day; half of new users sign in with an email code (1.5 mails on sign-up
+day, about 1 a week after); per active user a day, about 430 Firestore reads and 80 writes (modeled from
+the measured per-call costs, docs/deploy-prod.md "Count before every hosted run", with exam summaries live),
+about 30 callable requests, and 3 reCAPTCHA assessments at today's 1-hour App Check token (beta measured
+3 to 21 a day in total).
+
+| Item | Today | 500 sign-ups (peak 200 active, average 150) | 5,000 sign-ups (peak 2,000, average 1,500) |
+|---|---|---|---|
+| reCAPTCHA assessments a day (cap) | cap 280; beta 3 to 21 | peak about 600: **over the cap** | peak about 6,000: **over the cap** |
+| App Check token lifetime | 1 hour | raise to 6 hours: peak about 300, month about 6,750 (free up to 10,000) | 6 hours: peak about 3,000, month about 67,500 |
+| Proposed reCAPTCHA cap | 280 | 1,000 a day | 5,000 a day |
+| reCAPTCHA cost a month | $0 | $0 with the 6-hour token ($8 flat without it) | $8 flat (10,001 to 100,000; about $43 with the 1-hour token) |
+| Sign-in code mails, peak day | cap 20 (plus 40 beta), Resend Free 100 a day | about 150 | about 1,500 |
+| Proposed mail | | Resend Pro, send cap 500 a day | Resend Pro, send cap 3,000 a day |
+| Mail cost a month | $0 | $20 (about 1,400 mails) | $20 (about 14,000 mails, under 50,000) |
+| Firestore a day | free 50,000 reads, 20,000 writes | peak 86,000 reads, 16,000 writes; under a dollar a month | peak 860,000 reads, 160,000 writes; about $15 to $20 a month (price per 100,000 not verified for asia-southeast1) |
+| Firestore cutoff alarms | 500,000 reads or 100,000 writes an hour; 2M reads or 400,000 writes a day | no change | no change (peak day uses about 43% of the daily read alarm) |
+| Cloud Run spend cap | $5 a month a project | keep $5 (about 135,000 requests, inside the free 2M) | raise to $30: about 1.35M requests and roughly 400,000 vCPU-seconds against 180,000 free, about $5 a month, which would pause every function at $5 |
+| Prod billing cutoff | $15 a month | raise to $30 (expected Google cost under $10) | raise to $75 (expected about $30: Firestore, Cloud Run, reCAPTCHA) |
+| Worker (sign-in paths only) | Free, 100,000 requests a day | no change | no change (about 20,000 on the peak day); Workers Paid is $5 a month if ever needed |
+| Budget email | $20 a month account budget | raise to $40 | raise to $100 |
+
+Expected added cost a month: **about $20** for 500 sign-ups (Resend Pro; Google stays near $0 to $10), and
+**about $50 to $60** for 5,000 (Resend $20, Google about $30 to $40). Changes with no cost of their own: the
+token lifetime (a config change; a stolen token then lives 6 hours instead of 1), the reCAPTCHA and mail caps,
+and the cutoff amounts. Sources read Nov 22: resend.com/pricing, Cloudflare Workers pricing, Firebase pricing,
+Google Cloud free tier (Cloud Run), reCAPTCHA tier comparison. Before launch, re-measure reads and
+assessments per active user from the first real day and adjust.
+
+Also found: a held-back code mail looks normal to the user (no mail arrives, no error). At launch that is the
+worst failure mode; the app should say so. App change, not costed here.
+
+## Security pass before live keys (M4)
+
+Plan, security and billing lead, Nov 22. Trigger: before live PayMongo keys (M1 to M3). Prod needs his
+"ship it". Each part logs its own velocity row and follows rule 7 for any staging run.
+
+1. **Money-path audit (Codex GPT 6.2 Sol High, read-only, two runs):** PayMongo checkout, webhook, grants and
+   refunds (`paymongo*.ts`, `grants.ts`, about 930 lines); RevenueCat, passes and web entitlement
+   (`revenuecat*.ts`, `webPlans.ts`, `webEntitlement.ts`, `entitlementInputs.ts`, about 970 lines). Findings
+   appended as found; the lead verifies each; fixes test first. About 1 h 30 min of Codex and 1 h of lead
+   review, plus fixes as found.
+2. **Narrower function permissions:** replace the default compute account on the 60 services with about five
+   service accounts by need (content read, user data, payments, sign-in token minting, scheduled jobs), each
+   with only its roles; preflight extended to check them. About 3 h plus a staging proof. No cost.
+3. **Security headers on the Worker:** today only HSTS. Add `X-Content-Type-Options`, `Referrer-Policy`,
+   `Permissions-Policy`, `frame-ancestors 'none'`, and a Content-Security-Policy in report-only mode for one week
+   before enforcing (Flutter web, reCAPTCHA and Firebase need explicit sources). About 2 h, then the week.
+4. **Pro sync quotas:** per-account caps on sync writes and document sizes in rules and the sync callables, so
+   one account cannot write without limit. About 3 h.
+
+Estimate: about 1.5 working days of lead and worker time, plus one week of report-only CSP before the
+enforcing ship. Needs one Codex slot for part 1.
 
 ## Not gates for CSE (so nobody widens scope)
 
