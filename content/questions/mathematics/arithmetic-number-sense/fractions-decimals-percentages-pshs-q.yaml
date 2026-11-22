@@ -1,0 +1,119 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: fractions-decimals-percentages-pshs-q
+  exams: [pshs-nce]
+questions:
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-pshs-q-0001
+    lesson: lesson-arithmetic-number-sense-percentage-base-and-fraction-division
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A school sold $25\%$ of its fair tickets on Monday. There were $360$
+      tickets left at the end of the day. How many tickets did the school have
+      before the sale?
+    choices:
+      - text: '90'
+        rationale: |
+          This takes $25\%$ of $360$. The sale rate is given, so it may seem
+          like the rate to multiply by. Check that $360$ counts only the
+          tickets left.
+      - text: '120'
+        rationale: |
+          This finds the number of tickets sold. That number helps find the
+          starting total. Check that the total also includes the tickets left.
+      - text: '450'
+        rationale: |
+          This adds $25\%$ of $360$ to $360$. Adding back the tickets sold is
+          a sensible step. Check that the sale rate is based on the starting
+          total.
+      - text: '480'
+        correct: true
+      - text: '1,440'
+        rationale: |
+          This divides $360$ by $0.25$. Division can give the starting total.
+          Check that $360$ goes with the rate for the tickets left.
+    explanation: |
+      The tickets left are $100\%-25\%=75\%$ of the starting total.
+      Divide by the rate in decimal form. The school started with
+      $360\div0.75=480$ tickets.
+
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-pshs-q-0002
+    lesson: lesson-arithmetic-number-sense-percentage-base-and-fraction-division
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A pitcher held $\dfrac{7}{8}$ liter of juice. Mia poured
+      $\dfrac{7}{20}$ liter into a glass. What percent of the juice that
+      was in the pitcher did Mia pour into the glass?
+    choices:
+      - text: '$30.625\%$'
+        rationale: |
+          This multiplies the amount poured by the starting amount.
+          Multiplication may come to mind in a percent problem.
+          Check that finding the rate takes division.
+      - text: '$35\%$'
+        rationale: |
+          This turns the amount poured into a percent of one liter.
+          Both amounts are given in liters. Check that the base is the
+          amount the pitcher held at first.
+      - text: '$40\%$'
+        correct: true
+      - text: '$60\%$'
+        rationale: |
+          This gives the share left in the pitcher. The share left and the
+          share poured add up to $100\%$. Check which share went into the glass.
+      - text: '$250\%$'
+        rationale: |
+          This divides the starting amount by the amount poured.
+          Both amounts belong in the division. Check that the part goes
+          before the division sign.
+    explanation: |
+      Divide the amount Mia poured by the starting amount.
+      Flip the second fraction and multiply.
+      So $\dfrac{7}{20}\times\dfrac{8}{7}=\dfrac{8}{20}=0.4$.
+      Multiply by $100\%$ to get $40\%$.
+
+  - id: q-arithmetic-number-sense-fractions-decimals-percentages-pshs-q-0003
+    lesson: lesson-arithmetic-number-sense-percentage-base-and-fraction-division
+    keyPoint: 1
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Two teams collected the same total number of bottles. Clear bottles
+      made up $24\%$ of Team P's total and $20\%$ of Team Q's total.
+      Team P collected $48$ more clear bottles than Team Q.
+      Those $48$ bottles are $4\%$ of either team's total.
+      How many clear bottles did the two teams collect in all?
+    choices:
+      - text: '48'
+        rationale: |
+          This gives the difference between the clear bottle counts.
+          That difference helps find each team's total.
+          Check that the question asks for the two clear bottle counts added together.
+      - text: '288'
+        rationale: |
+          This finds the clear bottle count for Team P.
+          Team P's higher rate is easy to focus on.
+          Check that Team Q's clear bottles are included too.
+      - text: '528'
+        correct: true
+      - text: '1,200'
+        rationale: |
+          This stops at the total number of bottles one team collected.
+          That total is the base for both rates.
+          Check that only the clear bottles count toward the answer.
+      - text: '2,400'
+        rationale: |
+          This adds both teams' full bottle counts.
+          The question does ask for a count from both teams.
+          Check which kind of bottle to count.
+    explanation: |
+      The extra $48$ clear bottles are $4\%$ of one team's total.
+      Each team collected
+      $48\div0.04=1{,}200$ bottles. Team P collected
+      $0.24\times1{,}200=288$ clear bottles. Team Q collected
+      $0.20\times1{,}200=240$ clear bottles. Together they collected
+      $288+240=528$ clear bottles.
