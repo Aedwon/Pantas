@@ -1,0 +1,489 @@
+meta:
+  subject: mathematics
+  topic: statistics-and-probability
+  subtopic: combinatorics-pshs-q
+  exams: [pshs-nce]
+questions:
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0001
+    lesson: lesson-statistics-and-probability-counting-choices-in-stages
+    keyPoint: 1
+    type: word-problem
+    difficulty: easy
+    stem: |
+      Three roads lead from a school to the town plaza. From the plaza, a
+      cyclist can take any of the roads leading to the public market. There
+      are $18$ ways to make the trip by taking one road for each leg. How
+      many roads lead from the plaza to the market?
+    choices:
+      - text: '6'
+        correct: true
+      - text: '15'
+        rationale: |
+          This subtracts the three school roads as if the total counted
+          single roads. Each trip uses two roads. Check by pairing each
+          school road with every market road.
+      - text: '54'
+        rationale: |
+          This multiplies $18$ by $3$ as if $18$ counted market roads.
+          Multiplication does combine the two legs, but $18$ already
+          counts whole trips. Divide it into three equal groups.
+      - text: '9'
+        rationale: |
+          This divides by two because each trip has two legs. The groups
+          of trips are based on the three choices for the first leg.
+          Split the trips by their first road.
+      - text: '18'
+        rationale: |
+          This counts each trip as a different market road. Each trip
+          does use one market road. Check how many times that same
+          road is paired with a different school road.
+    explanation: |
+      Each school road can go with every market road. The $18$ trips split
+      into three equal groups, one for each school road.
+      There are $18\div3=6$ market roads.
+
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0002
+    lesson: lesson-statistics-and-probability-combinations-and-complementary-choices
+    keyPoint: 1
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A mural crew will mix three different paint colors from seven
+      available colors. Each mix uses equal amounts of its three colors.
+      How many sets of colors can the crew choose if the order of adding
+      the colors makes no difference?
+    choices:
+      - text: '35'
+        correct: true
+      - text: '210'
+        rationale: |
+          This counts each order of adding the colors. There are seven
+          choices, then six, then five. Check how many times that product
+          counts the same three colors.
+      - text: '343'
+        rationale: |
+          This gives all seven choices to each of the three scoops.
+          That works for ordered scoops with repeats. Check that the
+          three colors must be different.
+      - text: '21'
+        rationale: |
+          Multiplying $7\times3$ picks one color and one of three spots
+          for it. A full mix still needs two more colors.
+      - text: '42'
+        rationale: |
+          This picks two colors in order. The first two choice counts
+          really are seven and six. Include the third color and count
+          each set just once.
+    explanation: |
+      In order, there are $7\times6\times5=210$ ways to pick the colors.
+      Each set shows up in $3\times2\times1=6$ orders.
+      There are $210\div6=35$ sets.
+
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0003
+    lesson: lesson-statistics-and-probability-adding-counts-with-overlap
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      At a barangay fair, $54$ children tried the ring toss and $52$ tried
+      the beanbag toss. Six children tried both. How many children tried
+      at least one of the two games?
+    choices:
+      - text: '94'
+        rationale: |
+          This subtracts six from each game count because those children
+          appear in both. That leaves them out of the total. Subtract six
+          just once so each child who tried both still counts.
+      - text: '100'
+        correct: true
+      - text: '106'
+        rationale: |
+          This adds the two game counts. Both counts are needed, and
+          six children appear in both. Subtract the six extra counts.
+      - text: '48'
+        rationale: |
+          This counts only the ring toss players who skipped the beanbag
+          toss. Subtracting six from $54$ gives that group. Add all the
+          children who tried the beanbag toss.
+      - text: '46'
+        rationale: |
+          This counts only the beanbag toss players who skipped the ring
+          toss. Subtracting six from $52$ gives that group. Add all the
+          children who tried the ring toss.
+    explanation: |
+      Adding $54+52$ counts the six children who tried both games twice.
+      Subtract six once to count each of them once.
+      That gives $54+52-6=100$ children who tried at least one game.
+
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0004
+    lesson: lesson-statistics-and-probability-adding-counts-with-overlap
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A workshop visitor can book one session. In the morning, each
+      of four activities is offered at three start times. In the afternoon,
+      each of five activities is offered at two start times. How many
+      different activity and start time pairs can the visitor book?
+    choices:
+      - text: '22'
+        correct: true
+      - text: '120'
+        rationale: |
+          This multiplies the two session counts. That would count bundles
+          with one morning and one afternoon session. Check how many
+          sessions the visitor can book.
+      - text: '12'
+        rationale: |
+          This counts the four morning activities at three times each.
+          Those are all valid sessions. Add the afternoon sessions too.
+      - text: '10'
+        rationale: |
+          This counts the five afternoon activities at two times each.
+          Those are all valid sessions. Add the morning sessions too.
+      - text: '14'
+        rationale: |
+          This adds the four numbers in the question. Each tells how many
+          activities or times are offered. Pair each activity with its
+          available times before adding the two groups.
+    explanation: |
+      The morning has $4\times3=12$ activity and time pairs.
+      The afternoon has $5\times2=10$. Each booking is in just one
+      group, so there are $12+10=22$ choices.
+
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0005
+    lesson: lesson-statistics-and-probability-factorials-and-permutations
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A class hangs four identical green flags and two identical yellow
+      flags in a row. Every flag must be used. How many different color
+      orders can the row show?
+    choices:
+      - text: '15'
+        correct: true
+      - text: '720'
+        rationale: |
+          This uses $6!$ to arrange all six flags as if each had its own
+          design. Check whether swapping two green flags changes the colors
+          in the row.
+      - text: '30'
+        rationale: |
+          This divides $6!$ by $4!$ to remove the green flag swaps. The two
+          yellow flags also look alike. Check whether their swap changes
+          the row.
+      - text: '360'
+        rationale: |
+          This divides $6!$ by $2!$ to remove the yellow flag swaps.
+          The four green flags also look alike. Remove their repeated
+          orders too.
+      - text: '64'
+        rationale: |
+          This gives a free choice of either color at all six spots.
+          That allows rows such as six yellow flags. Check the number
+          of flags available in each color.
+    explanation: |
+      Imagine numbering the six flags. The numbered flags can form
+      $6!=720$ rows. For each of the $4!=24$ ways to swap the numbered
+      green flags among their spots, there are two ways to swap the
+      numbered yellow flags. All $24\times2=48$ rows look the same
+      once you take away the numbers. There are $720\div48=15$ color orders.
+
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0006
+    lesson: lesson-statistics-and-probability-combinations-and-complementary-choices
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A library has eleven different posters for a reading display. It will
+      lend nine to a school and keep the others. The school records only
+      which posters it gets. How many different sets can it receive?
+    choices:
+      - text: '55'
+        correct: true
+      - text: '110'
+        rationale: |
+          This picks the two posters to keep in order. The two posters
+          do determine which nine go. Check whether reversing the two
+          left-out posters changes the loan.
+      - text: '11'
+        rationale: |
+          This chooses just one poster to keep. Choosing what stays is
+          a shortcut, but check how many posters remain after nine are lent.
+      - text: '121'
+        rationale: |
+          This gives eleven choices for each of the two posters kept.
+          Both choices start from the library's posters, but the first
+          poster picked cannot be picked again. Count each pair once.
+      - text: '45'
+        rationale: |
+          This counts pairs from ten posters. Ten posters are left after
+          one poster is set aside, but that poster already fills one of
+          the two spots. Start with all eleven possible first choices.
+    explanation: |
+      Each set of nine is fixed by the two posters the library keeps.
+      The two posters can be picked in $11\times10$ orders. Each pair
+      appears twice, so there are $\dfrac{11\times10}{2}=55$ sets.
+
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0007
+    lesson: lesson-statistics-and-probability-factorials-and-permutations
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      A school radio show will play three different recordings from a
+      collection of eight. One recording opens the show, one plays in the
+      middle, and one closes the show. How many different playlists can
+      the school make?
+    choices:
+      - text: '336'
+        correct: true
+      - text: '56'
+        rationale: |
+          This chooses a set of three recordings. It counts which tracks
+          play, but the same set can play in several orders.
+          Check what happens if the opening and closing tracks switch places.
+      - text: '512'
+        rationale: |
+          This gives eight choices to every slot. That works if a track
+          may play again. Check that all three recordings must be different.
+      - text: '40320'
+        rationale: |
+          This arranges all eight recordings. A playlist does depend
+          on order, but only three recordings play. Stop after filling
+          the third slot.
+      - text: '168'
+        rationale: |
+          This divides the ordered count by two as if playing the same
+          tracks backward gives the same list. Both lists have the same
+          middle track. Check that the opening track changes.
+    explanation: |
+      There are eight choices to open the show. Then seven recordings are
+      left for the middle and six are left to close. The number of
+      playlists is $8\times7\times6=336$.
+
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0008
+    lesson: lesson-statistics-and-probability-counting-choices-in-stages
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A game has three stages. A player picks one challenge at each stage.
+      The stages used to offer two, three, and six choices, respectively.
+      The second stage gains two choices, and the third stage loses one.
+      If earlier picks do not limit later picks, how many complete sets
+      of picks are now possible?
+    choices:
+      - text: '50'
+        correct: true
+      - text: '36'
+        rationale: |
+          This multiplies the three old counts. Those counts work for
+          the old game. Update the second and third counts first.
+      - text: '60'
+        rationale: |
+          This adds the two new choices in stage two but keeps all six
+          choices in stage three. Subtract one from those six choices
+          before multiplying.
+      - text: '30'
+        rationale: |
+          This removes the lost choice in stage three but keeps just
+          three choices in stage two. Include the two added choices.
+      - text: '150'
+        rationale: |
+          This multiplies by both three and five for stage two.
+          Those are the counts before and after the change.
+          Use just the new count for that stage.
+    explanation: |
+      The first stage still has two choices. The second has $3+2=5$ choices,
+      and the third has $6-1=5$. One choice is needed at each stage,
+      so there are $2\times5\times5=50$ complete sets of picks.
+
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0009
+    lesson: lesson-statistics-and-probability-counting-teams-and-ordered-roles
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A school garden will grow two of five kinds of leafy vegetables
+      and two of six kinds of herbs. Each kind appears on only one of the
+      two lists. The garden will grow each chosen kind once.
+      The plan records which kinds to grow, regardless of planting order.
+      How many different planting plans are possible?
+    choices:
+      - text: '150'
+        correct: true
+      - text: '25'
+        rationale: |
+          This adds the ten vegetable pairs and the fifteen herb pairs.
+          Both pair counts are right, but every plan needs one pair from
+          each group. Multiply the pair counts.
+      - text: '330'
+        rationale: |
+          This picks any four of the eleven kinds. It counts groups of
+          four without order, but some groups have too many herbs or
+          vegetables. Count the two pairs separately.
+      - text: '600'
+        rationale: |
+          This multiplies $5\times4$ by $6\times5$. The factors track
+          the kinds left after a pick. Check that changing the order
+          within either pair leaves the same plan.
+      - text: '7920'
+        rationale: |
+          This fills four ordered spots from all eleven kinds. That
+          keeps all four picks different. Check the two kinds needed
+          from each group and count each plan once.
+    explanation: |
+      There are $\dfrac{5\times4}{2}=10$ vegetable pairs and
+      $\dfrac{6\times5}{2}=15$ herb pairs.
+      Each vegetable pair can go with any herb pair.
+      There are $10\times15=150$ plans.
+
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0010
+    lesson: lesson-statistics-and-probability-counting-choices-in-stages
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A trail marker shows three symbols in a row. Each position can
+      use any of five symbols. The old rule barred repeats. The new
+      rule allows them. How many additional markers can now be made?
+    choices:
+      - text: '65'
+        correct: true
+      - text: '60'
+        rationale: |
+          This multiplies five, four, and three. Those are the choices
+          under the old rule. Subtract that count from the new total.
+      - text: '125'
+        rationale: |
+          This counts all markers under the new rule. Every spot does
+          have five choices now. Remove the markers that were already allowed.
+      - text: '25'
+        rationale: |
+          This counts markers with matching first and second symbols.
+          The first and third spots are free in that case. Check that
+          a repeat may also use the third spot.
+      - text: '120'
+        rationale: |
+          This subtracts the five markers with all three symbols the same.
+          That finds the markers with at least two different symbols.
+          Remove the markers with three different symbols instead.
+    explanation: |
+      The new rule gives $5\times5\times5=125$ markers. Under the old
+      rule, there were $5\times4\times3=60$ because each used symbol
+      was taken out of the next choices. The new rule adds $125-60=65$ markers.
+
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0011
+    lesson: lesson-statistics-and-probability-counting-teams-and-ordered-roles
+    keyPoint: 1
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A teacher chooses three of six pupils to run a booth. One of the
+      three is the leader. The other two have the same duties, so swapping
+      those two changes nothing. How many ways can the teacher choose the
+      three pupils and name their leader?
+    choices:
+      - text: '60'
+        correct: true
+      - text: '20'
+        rationale: |
+          This chooses three pupils with no roles. It counts the possible
+          groups correctly. Check how many choices each group has for leader.
+      - text: '120'
+        rationale: |
+          This puts the pupils in three different roles. The leader
+          does have a separate role. Check whether switching the other
+          two pupils creates a new assignment.
+      - text: '90'
+        rationale: |
+          This picks one of six leaders and one of fifteen pairs from the
+          full group. Some pairs include the leader. Form the pair from the
+          five pupils who are still available.
+      - text: '216'
+        rationale: |
+          This gives six choices to each of three spots. That works
+          for ordered spots with reuse. Check that the pupils must be
+          different and the two helpers share a role.
+    explanation: |
+      The teacher can choose a set of three pupils in
+      $\dfrac{6\times5\times4}{3\times2\times1}=20$ ways.
+      Each set has three choices for leader, and the other two are helpers.
+      That gives $20\times3=60$ ways.
+
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0012
+    lesson: lesson-statistics-and-probability-adding-counts-with-overlap
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A teacher has one tile for each whole number from $1$ to $40$.
+      She sets aside every tile whose number is a multiple of $3$ or
+      a multiple of $5$. Which calculation gives the number of tiles
+      she sets aside?
+    choices:
+      - text: '$13+8-2$'
+        correct: true
+      - text: '$13+8$'
+        rationale: |
+          This adds the two lists of multiples. Thirteen and eight are
+          the right list sizes. Check whether any number appears on both lists.
+      - text: '$13-2+8-2$'
+        rationale: |
+          This takes out $15$ and $30$ from both lists. Those tiles do
+          appear twice in the sum. Take out only the extra copy of each.
+      - text: '$13-2$'
+        rationale: |
+          This keeps only the multiples of $3$ that are not multiples of
+          $5$. That avoids double counting but leaves out the whole list
+          of multiples of $5$. Include each tile that meets either rule.
+      - text: '$13+8+2$'
+        rationale: |
+          This adds two for the tiles on both lists. It spots the overlap,
+          but the sum already includes both tiles twice. Remove their
+          extra copies.
+    explanation: |
+      There are $13$ multiples of $3$ because $3\times13=39$ and
+      $3\times14=42$. There are $8$ multiples of $5$ because $5\times8=40$.
+      Only $15$ and $30$ are on both lists. Count those two tiles once each.
+      The teacher sets aside $13+8-2=19$ tiles.
+
+  - id: q-statistics-and-probability-combinatorics-pshs-q-0013
+    lesson: lesson-statistics-and-probability-combinations-and-complementary-choices
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A photo display has twelve different pictures available. One plan
+      calls for a set of nine pictures. A second plan calls for a set of
+      ten. The order of display does not affect which set is chosen.
+      How many more sets are possible under the first plan?
+    choices:
+      - text: '154'
+        correct: true
+      - text: '286'
+        rationale: |
+          This adds the counts for the two plans. Both counts are
+          needed. Subtract them to find how many more sets the first plan allows.
+      - text: '66'
+        rationale: |
+          This counts pairs of pictures left out of the ten-picture
+          display. That gives the second plan's count. Use the first plan
+          as well, then compare the counts.
+      - text: '220'
+        rationale: |
+          This counts triples of pictures left out of the nine-picture
+          display. That gives the first plan's count. Subtract the second
+          plan's count to find the gap.
+      - text: '1188'
+        rationale: |
+          This finds the difference between ordered triples and ordered
+          pairs of left-out pictures. The omitted pictures do fix each set.
+          Check that changing their order does not change the display set.
+    explanation: |
+      A set of nine leaves out three pictures. There are
+      $\dfrac{12\times11\times10}{3\times2\times1}=220$ ways to pick those three.
+      A set of ten leaves out two. There are $\dfrac{12\times11}{2}=66$ ways
+      to pick those two. The first plan allows $220-66=154$ more sets.
