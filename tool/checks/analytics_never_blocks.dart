@@ -8,9 +8,14 @@
 // on an analytics event, and no throwing property check outside telemetry.
 import 'check.dart';
 
-// `await` followed, within one expression, by `.log(` with an event.
+// `await` followed, within one statement, by an analytics `.log(`: either on
+// a receiver named like telemetry (`_telemetry?.log(`, `ref.read(
+// telemetryProvider).log(`, `Future.wait([telemetry.log(...)])`) or with an
+// event argument. Limit: a log future stored in a variable and awaited later,
+// on a receiver not named like telemetry, is not seen; the gate's own tests
+// (analytics_never_blocks_test.dart) still keep that from blocking.
 final _awaitedLog = RegExp(
-  r'\bawait\s+[\w.?!()\s]*?\.log\(\s*(?:TelemetryEvent\.|event\b)',
+  r'\bawait\b[^;]*?(?:[Tt]elemetry[^;]*?\.log\(|\.log\(\s*(?:TelemetryEvent\.|event\b))',
 );
 
 final _throwingCheck = RegExp(r'\bassertPropertiesAllowed\(');

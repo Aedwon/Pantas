@@ -10,6 +10,8 @@ void main() {
       'await telemetry.log(TelemetryEvent.mockStarted);',
       'await ref.read(telemetryProvider).log(\n  TelemetryEvent.tabOpened);',
       'await _ref.read(telemetryProvider).log(event, properties: p);',
+      'await Future.wait([save(), telemetry.log(e)]);',
+      'await _telemetry.log(\n  someEvent,\n);',
     ]) {
       expect(
         findBlockingAnalytics('lib/features/a.dart', bad),
