@@ -223,3 +223,196 @@ One new figure kind, dots inside overlapping shapes, then 15 to 20 questions wit
 - D21 said the partials would be "short added sections in existing lessons". They are now new PSHS-NCE-only parts; no shared lesson changes.
 - D22 said the dots lesson "is written with no questions". Since Nov 20 it has been six parts with 12 text-only questions (check 5 above).
 - The manager should log check 5 under `docs/workflow/process-improvement.md` if it judges the text-only questions a repeat or a costly miss; that call was not made here.
+
+## Nov 22, legal package D1 to D8
+
+Ruled by a Claude Fable 5.2 agent, acting as the review sub-agent for the operations manager, under Aedwon's delegation (Nov 14: "for things needing my decision, consult a fable 5.2 agent instead"; `docs/workflow/operations-manager.md`). The rulings are final and are not queued for his sign-off, except the items listed under "What needs Aedwon". Legal sign-off on the final texts stays his. No lawyer reviewed anything here (his Nov 9 decision, checklist row L8), and this agent is not a lawyer: where the law is unsettled, the entry says so.
+
+- Policy read at `origin/main` 16bf042a6: `AGENTS.md`, `WORKFLOW.md`, `docs/workflow/process-improvement.md` (rules 5, 6, 7, 9), `docs/workflow/operations-manager.md`, `docs/pricing.md`, `docs/superpowers/plans/2026-11-22-cse-public-release-checklist.md`.
+- Input, on `legal/public-launch-r1` bb45294e5: `docs/legal-drafts/2026-11-22-public-launch/README.md` (entries D1 to D8), `critique-2026-11-22-sol-high.md`, `terms.md`, `privacy-policy.md`, `teen-notice.md`, `change-summary.md`.
+- Earlier decision that binds D1: Nov 11, `LL:3131-3136`. Aedwon kept the current guardian flow: "\"The short answer: the current flow is legally shaky, but it isn't clearly unlawful.\" I'll take that. I don't operate in bad faith, nor would I want to design a fundamentally worse UX for users".
+- Goal used as the test: texts and behavior that lean toward Pantas as far as Philippine law allows, with no worse sign-up, at the lowest work that makes the published texts true on the day they publish.
+- "Gate" below means: must be on prod before the beta gate drops and before live payment keys (checklist G2). "Later" names its trigger.
+- Velocity: this ruling pass was not timed. It changed documents only. Sizes are estimates for one lane with tests.
+
+### What was checked against the code (main 16bf042a6)
+
+1. **The under-18 flag has one reader.** Outside the guardian functions, only checkout reads it (`functions/src/paymongoCheckout.ts:43-53`). Firestore rules read the consent record only for the `withdrawn` status (`firestore.rules:7-11`).
+2. **The flag is written when the request is sent, and kept after a decline or no answer.** `guardianConsent.ts:247-251` writes `ageGroup: 'minor'` with the pending request. The hourly cleanup trims an expired or declined request to the flag alone, with the comment "checkout's guardian box depends on it" (`guardianConsent.ts:581-585`).
+3. **An unconfirmed teen cannot reach checkout on that device.** The age gate stays closed until a guardian confirms (`lib/features/onboarding/application/onboarding_flow.dart:79-85`; `guardian_providers.dart`). Checkout also needs a named account. So the kept flag acts in one case only: a teen who answered truthfully, was declined or ignored, then sets up again as an adult on the same sign-in. A teen who uses another account, or who gives a false age the first time, never has a flag.
+4. **What the flag enforces is a tick.** Checkout only compares the Terms version sent with the tick (`paymongoCheckout.ts:47-52`). The same person can tick it.
+5. **The server holds no adult declaration at all.** The age stays on the device. For an adult buyer the order records nothing about age or authority.
+6. **The adult Pro screen shows no Terms or refund link before payment.** The Terms link exists only inside the guardian box, which shows only when the device age group is minor (`pro_page.dart:841-844`, `401-436`). The draft Terms say "A new purchase uses the Terms shown before payment" (section 12), which is not true for adults today.
+7. **The guardian box is an approved component** (boards CB_Wide, CB_Ph; approved Nov 11, `LL:3119-3121`).
+8. **The server never stores the guardian's email address.** It stores a keyed hash and a masked address, and trims both seven days after confirmation (`guardianConsent.ts:17-25`, `541-580`). A guardian cannot be emailed from Pantas records at any point.
+9. **The live Terms already promise 14 days of notice.** The Terms in the app today (version 2026-11-12) say a material change takes effect "at least 14 days ahead" after in-app notice (`lib/features/legal/domain/legal_document.dart:477-487`). Replacing them with the public-launch Terms is such a change for accounts that exist today. The README did not carry this.
+10. **Setup consent names the records.** The one tick reads "I agree to the Terms of Service and Privacy Policy, and to Pantas keeping my study records (answers, results and study times)." (`onboarding_consent_step.dart:24-27`).
+11. **Trial codes hold no date.** Each is `{used: true}` (`webTrial.ts:126`; also written at deletion, `deleteUserData.ts:60-67`). Firestore TTL policies are already in use (`firestore.indexes.json:149-150`).
+12. **A manual refund changes access only when the refund command is run.** A bank transfer alone leaves the grant untouched (`docs/OPERATIONS.md:156-188`). A refund made through PayMongo fires the webhook and shortens or revokes access (`paymongoGrants.ts:43-51`).
+13. **PayMongo holds the account ID and order reference for every web payment** (`paymongoClient.ts:36-37`), so a payment can be found there after Pantas deletes its own index.
+14. Not checked: live merchant settings, console settings, the website repository, and the two Supreme Court cases cited under D2, which are cited from memory.
+
+### D1. Ruling: keep the flow as built (his Nov 11 decision stands), and delete the under-18 record when a request fails. Gate
+
+The flow does not change: the teen enters an age, sends the request, and the server records the request. Option C is rejected, as on Nov 11. The one change is retention: when a request expires, or seven days after a decline, the cleanup deletes the whole record instead of keeping the under-18 flag. Flag-only records that exist today are deleted in the same release. This is the retention half of README option B. It was not among the options he declined on Nov 11, and it changes no screen.
+
+**Reason.** Check 3 and check 4 show the kept flag protects almost nothing: it reaches one narrow case and enforces a tick the same teen can make. A sensitive record kept forever for that purpose cannot pass the "necessary" test that Section 13(f) needs, and it is the part the critique calls hardest to justify. Deleting it costs half a day, changes nothing a user sees, and does not need D2 to ship first.
+
+**What stays, and the honest limit.** The record still exists while a request is open (seven days at most) and after a guardian confirms. The open request is the step needed to get the guardian's permission, and after confirmation the guardian's permission covers it. The guardian's own answer record, including a decline, stays as evidence: that is the specific evidence Section 13(f) fits best. No Philippine ruling decides the open-request period, so that risk is smaller, not gone.
+
+**Conditions.**
+
+1. Cleanup: an expired or declined request is deleted whole at the times cleanup already uses. No new scheduled job (rule 7).
+2. One-time removal of existing flag-only records, counted against the free tier before the run (rule 7).
+3. Tests fail first on the old trim.
+4. The text lane rewrites the matching Teen Notice paragraphs ("If the request expires...", the two retention bullets, the basis bullet): the flag is removed, not kept. Sol High critiques the changed paragraphs (rule 5).
+5. Ship before opening. After opening, a retention change needs the rule 9 email.
+
+**Size.** About 0.5 day: code and tests 2 to 3 hours, text and critique 1 to 2 hours.
+
+**Later, not ruled.** A decline-only answer record could take a shorter period than ten years. Raise it with the next text pass.
+
+### D2. Ruling: option C, in one Pro screen change with D3. Gate
+
+Every web checkout carries a declaration. The server refuses a checkout without it and records it on the order with the date, time and Terms version. Checkout stops reading the under-18 flag for accounts with no confirmed guardian.
+
+- Adult account, draft wording: "I am 18 or older. I may use the payment method I will pay with, and I accept the Terms and refund policy."
+- Account with a confirmed guardian, draft wording: "I am the parent or guardian, 18 or older. I may use the payment method I will pay with, and I accept the Terms and refund policy." The server requires this version when it holds a confirmed under-18 record.
+- "Terms and refund policy" links to the Terms. The final wording is legal text: the text lane settles it and Sol High critiques it (rule 5).
+- Native purchases are out of scope for this launch.
+
+**Reason.** Philippine cases on contracts with minors turn on whether the minor actively claimed to be of age (Mercado v. Espiritu, 1917, against Braganza v. Villa Abrille, 1959; cited from memory, to be confirmed in the next critique). Today the server holds no such statement for any adult buyer (check 5). A recorded statement at payment is the strongest cheap evidence Pantas can hold against a later claim that a minor bought alone, and against a payment dispute. It also records acceptance of the current Terms at every purchase, which the draft Terms already assert (check 6).
+
+**Form.** A required tick, reusing the approved guardian box card in its approved place. It adds one tap to every adult purchase. Because adults see no box today, this is a new screen state: it goes to Aedwon as one board state in the CSE release boards (E-135, rule 3), with a no-tick line under the Pay button as the other option. The server record is the same either way. Recommendation: the tick, because an act is better evidence than a line.
+
+**Conditions.**
+
+1. UI work goes to Claude workers, never Codex. The function change may go to Codex through `codex-pick`.
+2. The text lane updates the Terms "Students under 18" paragraph, the Privacy Policy "Payments" bullet and the Teen Notice "Payments for minors" section: the declaration is recorded for every web purchase.
+3. Ship before opening. Adding the record after opening is a change to what Pantas collects and needs the rule 9 email.
+
+**Size.** About 1 day: both wordings, the function check, the order record, tests, one board state.
+
+### D3. Ruling: option B at launch with invoices by hand (A). C later. Gate
+
+- The Pro screen links the Terms and refund policy beside the Pay button (the D2 declaration carries the link) and shows a short seller line: registered name, place of business, phone and email.
+- The website footer carries the same seller details.
+- Invoices are issued by hand until C is built. The Terms invoice sentence stays out until the invoice process exists (checklist M8).
+
+**Reason.** The seller details and the policy shown before payment are plain duties under the Internet Transactions Act and the Consumer Act, the critique lists them as must-fix, and they cost under a day. Automatic invoices need the BIR invoice format first, and that waits on his registration.
+
+**Conditions.**
+
+1. The seller line is a layout change: it rides on the same board state as D2.
+2. The footer is website copy. He approves its wording before it publishes (`WORKFLOW.md`).
+3. The seller facts are his (checklist L3). The change cannot ship with brackets.
+
+**Size.** About 0.5 day in the app, shared with D2's ship, and 0.25 day on the website.
+
+**C trigger.** When he reports that invoices by hand are a burden. The manager asks at each monthly cost check. Size 2 to 3 days.
+
+### D4. Ruling: options A and C now. B later. C is part of gate M6
+
+- A: the refund code stays. A statutory case where access must continue (for example a price reduction) is paid by bank transfer and the refund command is not run, so access is untouched (check 12). The runbook says so in one line.
+- C: the one real payment planned in M3 is made by QR Ph and refunded, to learn what the live account allows. The runbook gains a step to find a payment by its PayMongo reference when the Pantas index is gone (check 13).
+
+**Reason.** A statutory price reduction is rare, and the by-hand path already gives the right result with no code. The untested part is the live account, and that test costs nothing beyond the payment already planned.
+
+**Size.** 0.25 day, no code. The real payment and the bank transfer are his (M3, M6).
+
+**B trigger.** The first statutory case that the by-hand path cannot handle, or the first refund that must go back through PayMongo with access kept. Size 0.5 day.
+
+### D5. Ruling: option A for launch. B on a trigger. C and D rejected. Rule 9 amendment for his approval
+
+- A: each change to the Terms or to data practices is run by hand: a Home notice, the email (rules 6, 8, 9), and the manager holds the version stamp change until 14 days after the notice. The manager logs the notice date in the launch log.
+- With D2, every purchase records acceptance of the Terms in force. So every paid contract has recorded assent, and the draft Terms already keep an existing paid period on its old terms. Only Free use rests on notice and continued use, which the critique calls the more defensible case.
+- B (re-acceptance screen, with a new guardian confirmation for teen accounts): build it before the first change that makes users' position worse outside a purchase, or the first change that needs new permission. Size 2 to 3 days.
+- C rejected: a scheduler for a step the manager can hold by hand.
+- D rejected: it adds a guardian's email address to the records only to send notices. The Nov 11 and Nov 12 design keeps no guardian contact, and less data held is less to breach and to explain.
+
+**Finding that affects the launch (check 9).** The live Terms promise today's accounts 14 days of in-app notice before a material change. The launch does not need to wait. The public-launch Terms apply to new accounts from publication. For accounts created before publication they apply 14 days after the Home notice, or earlier when the user accepts them at a purchase. The text lane adds that line to the Terms and to the change notice. Today's accounts are beta testers with no real payments, so no paid period is affected.
+
+**Rule 9, amended wording, for his approval.** Not applied to `docs/workflow/process-improvement.md`. Changing a written rule is his approval. The first three sentences change. The rest is as written today.
+
+> 9. Once the app is open to the public, every change to what Pantas collects about users, why, how long it keeps it, or who receives it goes out by email to every affected user whose account has an email address, before the change takes effect. An account with no address gets the in-app notice only. For an under-18 account, Pantas keeps no guardian email address, so the guardian is not emailed: the email goes to the teen's own address, and the email and the in-app notice both ask the teen to show it to their parent or guardian. A change that needs new permission does not apply to an under-18 account until a parent or guardian confirms it through a new guardian request. Where an address exists, the in-app notice is not a substitute for the email. The email follows rules 6 and 8, and its legal text follows rule 5. During the closed beta, Aedwon may tell testers himself instead. He did this for screen counts on Nov 15. His words (Nov 15): "i already told the testers personally. you can skip this, but make it of record that changes to privacy should come with an email. this is industry practice correct? we'll do this strictly when the app has opened". No check can tell when a code change alters collection. The lead building such a change flags it in its handoff, and the manager holds the prod "ship it" until the email has gone.
+
+Two changes, which he may approve separately: (1) the guardian sentence, because the email it asks for cannot be sent (check 8); (2) the "no address" sentence, because guest accounts have no address either. If he rejects (1), the only other path is option D, about 1 to 2 days, and it must ship before opening.
+
+**After his answer.** The text lane aligns Terms section 12 ("we tell a parent or guardian too") and the Teen Notice "Changes" section with the approved wording. Both promise more than the app can do today.
+
+**Size.** No work at launch beyond the text edits. Not a gate, except that the texts must match his answer before they publish.
+
+### D6. Ruling: option A at launch. B in the first release after launch. Not a gate
+
+**Reason.** The tick already names the records (check 10), and Pantas cannot run without them, so a second required tick gives the user no new choice. The gain is a cleaner record of permission, which matters but does not justify changing sign-up in the launch week (his Nov 11 reason). The law here is not settled: the critique calls a separate tick "stronger", not required.
+
+**Conditions for B.** A board in Claude Design for his pick (rule 3). Accounts made before B are not asked again. The guardian page tick (option C) is decided on the same board.
+
+**Size.** None now. B is about 0.5 day plus the board; C about 1 day in all.
+
+### D7. Ruling: option B. The period is 730 days. Gate
+
+Each trial code gets an expiry date 730 days after the trial started. Codes that exist today take the deploy date as their start. A Firestore TTL policy removes them, so there is no cleanup job.
+
+**Reason.** A code kept forever to protect a seven-day trial of a ₱149 plan is the weakest retention claim in the package, and a date makes the legitimate-interest basis easy to defend. 730 days matches the inactive-account and audit-log periods already in the texts and covers four CSE sittings, so a trial cannot be repeated each exam season. The period is ruled here under the delegation. It appears in the texts he signs, so he can change the number at sign-off.
+
+**Conditions.**
+
+1. TTL policy on the expiry field. Count the one-time update of existing codes and the daily deletes against the free tier (rule 7).
+2. The deletion path writes the same expiry, counted from the trial's own start time when the account record has it.
+3. The text lane replaces "no scheduled expiry" in both notices with the period, and checks the Terms trial paragraph still reads true.
+4. Ship before opening, for the rule 9 reason in D1.
+
+**Size.** About 0.5 day.
+
+### D8. Ruling: options A and C. B rejected for now. Gate, no code
+
+- A: the texts stand. The business keeps its tax books, invoices, receipts and refund evidence outside the app.
+- C: a written procedure, in `docs/OPERATIONS.md`, with two parts: (1) find a payment by PayMongo reference or account ID after deletion (shared with D4); (2) once a month, export the PayMongo transaction and payout reports to a private folder he controls. The folder is not a git repository, so records can be deleted when their five years end.
+
+**Reason.** PayMongo already holds every payment, payer and refund with the Pantas account ID (check 13), so an archive in the app would copy data that exists, and the tax books and invoices are his documents whatever the app keeps. The text's claim is true only if those documents exist and outlive the PayMongo account, and the monthly export is what makes it true.
+
+**Conditions.** The procedure is written before live keys. The first export follows the first real payment. The monthly export is his step, about five minutes.
+
+**B trigger.** Two months in a row without the export. Size 0.5 day.
+
+**Size.** 0.25 day, no code.
+
+### Summary
+
+| Item | Ruling | Size | Launch |
+|---|---|---|---|
+| D1 | Flow as built (Nov 11 stands); delete the under-18 record when a request expires or is declined | 0.5 day | Gate |
+| D2 | C: recorded declaration on every web checkout, one Pro screen change with D3 | 1 day | Gate |
+| D3 | B, invoices by hand; C later | 0.5 day app, 0.25 day website | Gate |
+| D4 | A and C; B later | 0.25 day, no code | C inside gate M6 |
+| D5 | A; B on a trigger; C and D rejected; rule 9 amendment for his approval | Text only | Not a gate; texts must match his answer |
+| D6 | A; B in the first release after launch | None now | Later |
+| D7 | B, 730 days, TTL policy | 0.5 day | Gate |
+| D8 | A and C; B on a trigger | 0.25 day, no code | Gate |
+
+Gate work in total: about 3 days of lane time, one board state, and his facts.
+
+### What needs Aedwon
+
+1. Rule 9 amendment (D5): approve, change or reject the wording above.
+2. One board state (D2, D3): the adult Pro screen with the declaration and the seller line. Pick the tick or the no-tick line.
+3. Website footer wording (D3).
+4. His facts for the seller line and the texts (checklist L3, README list).
+5. The QR Ph payment and refund on the live account (D4, inside M3 and M6), and the monthly PayMongo export (D8).
+6. Legal sign-off on the final texts, after the text lane applies these rulings and Sol High critiques the changed paragraphs.
+
+### Text changes these rulings need (for the legal lane, rule 5)
+
+1. Teen Notice: expiry and decline paragraphs, two retention bullets, the basis bullet (D1).
+2. Terms "Students under 18", Privacy Policy "Payments", Teen Notice "Payments for minors": the declaration on every web purchase (D2).
+3. Trial code period in both notices; Terms trial paragraph check (D7).
+4. Terms section 12 and Teen Notice "Changes": the guardian line after his rule 9 answer, and the effective-date line for accounts made before publication (D5).
+5. Sol High critique, round 2, on the changed paragraphs through `codex-pick`, including the two case citations in D2.
+
+### Corrections found while ruling
+
+- Checklist row L2 says the minor-label flow "stays as built". That remains true of the flow. The retention of the flag changes (D1).
+- Checklist row L7 says a Terms version bump asks existing students to accept again. It does not (README, "Where the app and the text disagree"). D5 replaces that with the notice, the email and acceptance at purchase.
+- The README's D1 option B said checkout needs D2 before the flag can go. It does not (checks 3 and 4).
+- The README did not carry the live Terms' 14-day notice promise for today's accounts (check 9).
