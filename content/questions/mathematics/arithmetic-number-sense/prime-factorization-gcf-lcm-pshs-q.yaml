@@ -1,0 +1,155 @@
+meta:
+  subject: mathematics
+  topic: arithmetic-number-sense
+  subtopic: prime-factorization-gcf-lcm-pshs-q
+  exams: [pshs-nce]
+questions:
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-pshs-q-0001
+    lesson: lesson-arithmetic-number-sense-prime-factors-and-powers
+    keyPoint: 1
+    type: which-is-true
+    difficulty: easy
+    stem: |
+      Which pair consists of two prime numbers?
+    choices:
+      - text: '$1$ and $43$'
+        rationale: |
+          One is easy to mistake for a prime because it has no factor greater than one. Count its positive factors. A prime must have two.
+      - text: '$2$ and $43$'
+        correct: true
+      - text: '$17$ and $49$'
+        rationale: |
+          Both numbers are odd, but an odd number can have an odd factor. Try dividing $49$ by $7$.
+      - text: '$31$ and $91$'
+        rationale: |
+          Ninety-one ends in the same digit as the prime $31$. The last digit alone cannot show that a number is prime. Check whether $7\times13$ equals $91$.
+      - text: '$23$ and $111$'
+        rationale: |
+          A number made of ones may look like it has no small factors. Add the digits of $111$ and check that $111=3\times37$.
+    explanation: |
+      The factors of $2$ are $1$ and $2$. Two factors that are both $7$ or more give a product of at least $49$. So any pair of factors for $43$ must have a factor below $7$. None of the numbers from $2$ to $6$ divides $43$ evenly. Its only factors are $1$ and $43$. Both numbers are prime.
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-pshs-q-0002
+    lesson: lesson-arithmetic-number-sense-prime-factors-and-powers
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What number has the prime factorization $2^4\times5^3$?
+    choices:
+      - text: "120"
+        rationale: |
+          This treats each exponent as a number to multiply by its base. The exponent does tell you to multiply. Check that $2^4$ uses four copies of $2$ as factors.
+      - text: "400"
+        rationale: |
+          This uses $5^2$ in place of $5^3$. The first two factors of $5$ give $25$. Check that there is one more factor of $5$.
+      - text: "1000"
+        rationale: |
+          This pairs three factors of $2$ with three factors of $5$. That makes three factors of $10$. Check for a fourth factor of $2$ that still needs to be used.
+      - text: "2000"
+        correct: true
+      - text: "10000"
+        rationale: |
+          This makes four factors of $10$ by pairing every $2$ with a $5$. Pairing makes the multiplication easier. Check that only three factors of $5$ are given.
+    explanation: |
+      Three pairs of $2$ and $5$ give $10\times10\times10=1000$. One factor of $2$ is left. Multiply $1000$ by $2$ to get $2000$.
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-pshs-q-0003
+    lesson: lesson-arithmetic-number-sense-prime-factors-and-powers
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Which expression gives the prime factorization of $14\times70$?
+    choices:
+      - text: '$2\times5\times7^2$'
+        rationale: |
+          This counts a factor of $2$ only once because both $14$ and $70$ are even. Check that each number supplies its own factor of $2$.
+      - text: '$2^2\times5\times7^2$'
+        correct: true
+      - text: '$2^2\times5\times49$'
+        rationale: |
+          This gives the correct product but leaves $49$ as a single factor. Check that $49$ can be split into two prime factors.
+      - text: '$2^2\times5^2\times7^2$'
+        rationale: |
+          This repeats every prime twice because the product starts with two numbers. Check that $5$ comes from $70$ alone.
+      - text: '$1\times2^2\times5\times7^2$'
+        rationale: |
+          This keeps the same product because multiplying by $1$ leaves it unchanged. Check whether $1$ has the two positive factors needed to be prime.
+    explanation: |
+      Break down both numbers. We have $14=2\times7$ and $70=2\times5\times7$. There are two factors of $2$, one of $5$, and two of $7$. So the prime factorization is $2^2\times5\times7^2$.
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-pshs-q-0004
+    lesson: lesson-arithmetic-number-sense-least-common-multiple
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      What is the least common multiple of $44$, $66$, and $99$?
+    choices:
+      - text: "36"
+        rationale: |
+          This uses the largest powers of $2$ and $3$ but drops $11$ because it appears in all three numbers. The least common multiple must include a factor of $11$. Does $11$ divide $36$ evenly?
+      - text: "132"
+        rationale: |
+          This is the least common multiple of $44$ and $66$. Those are two of the given numbers. Check whether $99$ also divides $132$.
+      - text: "198"
+        rationale: |
+          This uses just one factor of $2$. That is enough for $66$ and $99$. Check that $44$ needs two factors of $2$.
+      - text: "396"
+        correct: true
+      - text: "287496"
+        rationale: |
+          This multiplies all three numbers. Their product is a common multiple. Check whether taking only the greatest power of each prime gives a smaller common multiple.
+    explanation: |
+      The prime factorizations are $44=2^2\times11$, $66=2\times3\times11$, and $99=3^2\times11$. Take the greatest power of each prime. The least common multiple is $2^2\times3^2\times11=396$.
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-pshs-q-0005
+    lesson: lesson-arithmetic-number-sense-least-common-multiple
+    keyPoint: 3
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Two positive integers have a product of $720$ and a greatest common factor of $6$. What is the sum of their greatest common factor and their least common multiple?
+    choices:
+      - text: "114"
+        rationale: |
+          This subtracts $6$ from the least common multiple. The two values are correct. Check which operation the word sum calls for.
+      - text: "120"
+        rationale: |
+          This stops after finding the least common multiple. That is one of the values you need. Check what must be added to it.
+      - text: "126"
+        correct: true
+      - text: "726"
+        rationale: |
+          This uses the product as the least common multiple. The product is divisible by both integers. Check how the greatest common factor helps you find the least common multiple.
+      - text: "4326"
+        rationale: |
+          This multiplies the product by $6$ before adding $6$. The product rule does use multiplication. Check which way to undo multiplication by $6$.
+    explanation: |
+      The greatest common factor times the least common multiple equals $720$. Divide $720$ by $6$ to get $120$. The sum is $6+120=126$.
+
+  - id: q-arithmetic-number-sense-prime-factorization-gcf-lcm-pshs-q-0006
+    lesson: lesson-arithmetic-number-sense-least-common-multiple
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      Three lights flash together when a timer starts. The red light flashes every $18$ seconds, the green light every $24$ seconds, and the blue light every $30$ seconds. How many seconds pass before all three lights flash together again?
+    choices:
+      - text: "6"
+        rationale: |
+          This uses the greatest common factor. Six divides all three intervals. Check whether each interval divides the wait time evenly.
+      - text: "72"
+        rationale: |
+          This stops at $72$ seconds, when the red and green lights first flash together again. Those two lights share that time. Check whether $30$ divides $72$ evenly.
+      - text: "90"
+        rationale: |
+          This uses just one factor of $2$. That is enough for $18$ and $30$. Check how many factors of $2$ are in $24$.
+      - text: "360"
+        correct: true
+      - text: "12960"
+        rationale: |
+          This multiplies $18\times24\times30$. All three lights do flash at that time. Check whether using the largest power of each prime gives a shorter wait.
+    explanation: |
+      Use the least common multiple to find the wait. The intervals are $18=2\times3^2$, $24=2^3\times3$, and $30=2\times3\times5$. Use the largest power of each prime. The wait is $2^3\times3^2\times5=360$ seconds.
