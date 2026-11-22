@@ -1,0 +1,282 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: mental-rotation-3d-visualization-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-pshs-0001
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 2
+    type: mental-rotation
+    difficulty: medium
+    figure: mental-rotation-3d-visualization-pshs-01
+    figureSpec:
+      kind: cube-net
+      cells: [[0, 0], [0, 1], [0, 2], [1, 2], [1, 3], [2, 2]]
+      labels: [Sun, Key, Leaf, Bell, Moon, Dot]
+    stem: |
+      Mia folds the pattern along its shared edges to try to make a cube.
+      Which two squares will overlap?
+    choices:
+      - text: Sun and Dot
+        correct: true
+      - text: Key and Moon
+        rationale: |
+          It's easy to mix up left and right after Bell turns down.
+          Check the edges again. Key folds left from Leaf, and Moon
+          folds right from Bell. They land on opposite sides.
+      - text: Sun and Leaf
+        rationale: |
+          This treats two folds in a line as a return to the first face.
+          Sun and Leaf are at the ends of one row. Fold through Key to
+          see that they end up across from each other.
+      - text: Bell and Dot
+        rationale: |
+          This folds Dot flat against its neighbor Bell. A piece of
+          paper can fold flat, but cube faces turn only a quarter turn
+          at each edge. Check the angle between Bell and Dot.
+      - text: Leaf and Moon
+        rationale: |
+          This treats a bend in the path as a return to the same face.
+          Moon is close to Leaf on paper. Follow the folds from Leaf
+          to Bell and then to Moon.
+    explanation: |
+      Hold Leaf as the front. Key folds to the left, and Sun folds
+      from Key to the back. Bell folds to the bottom, and Dot folds
+      from Bell to the back. Sun and Dot cover the same face.
+
+  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-pshs-0002
+    lesson: lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips
+    keyPoint: 1
+    type: mental-rotation
+    difficulty: medium
+    figure: mental-rotation-3d-visualization-pshs-02
+    figureSpec:
+      kind: geometry-diagram
+      type: 3d-box
+      labels:
+        - |-
+
+          Front: Sun
+        - Key
+    stem: |
+      Lea adds Leaf to the top face of the cube shown. She rolls the
+      cube one quarter turn to the right, so Leaf now faces right.
+
+      Which labels are now on the bottom and front, in that order?
+    choices:
+      - text: Key and Sun
+        correct: true
+      - text: Leaf and Sun
+        rationale: |
+          This keeps the front fixed but rolls Leaf too far. Leaf
+          would reach the bottom after another roll to the right.
+          Stop when Leaf reaches the right.
+      - text: Sun and Key
+        rationale: |
+          This sends the front face down and the right face forward.
+          Both faces can move in some turns. Track what happens when
+          the cube rolls over its right edge.
+      - text: Sun and Leaf
+        rationale: |
+          This rolls the cube toward Lea. That roll would bring the
+          top to the front. Start with Leaf moving to the right.
+      - text: Key and Leaf
+        rationale: |
+          This moves Key down correctly but also moves Leaf forward.
+          The top moves in either kind of roll. Use the same
+          rightward roll to place both labels.
+    explanation: |
+      Leaf moves from the top to the right. The old right face, Key,
+      rolls down to the bottom. Sun still faces front during this
+      roll. The labels are Key and Sun.
+
+  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-pshs-0003
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 1
+    type: mental-rotation
+    difficulty: hard
+    figure: mental-rotation-3d-visualization-pshs-03
+    figureSpec:
+      kind: cube-net
+      cells: [[0, 0], [0, 1], [1, 1], [1, 2], [1, 3], [2, 2]]
+      labels: [Sun, Key, Leaf, Bell, Moon, Dot]
+    stem: |
+      The net is folded into a cube. Which faces are opposite Sun
+      and Key, in that order?
+    choices:
+      - text: Bell and Dot
+        correct: true
+      - text: Dot and Bell
+        rationale: |
+          This finds the two faces on the far sides but switches
+          their partners. Bell and Dot are close together in the net,
+          so it is easy to mix them up. With Leaf in front, check
+          which of the two faces is on the right and which is below.
+      - text: Moon and Leaf
+        rationale: |
+          This pairs Sun with the square far from it on paper and
+          Key with the square just below it. The flat positions can
+          look like clues. Check which directions those squares face.
+      - text: Leaf and Dot
+        rationale: |
+          This treats any path with a square between its ends like a
+          straight strip. Sun and Leaf have Key between them, but
+          the path bends. Check where Sun lands after that bend.
+      - text: Bell and Moon
+        rationale: |
+          This finds Sun's partner, then uses the far end of the
+          middle row for Key. Moon closes that row, but Key folds
+          from above Leaf. Check which square folds from below Bell.
+    explanation: |
+      Hold Leaf as the front. Key folds to the top and Sun folds
+      to the left. Bell folds to the right, across from Sun. Dot
+      folds down from Bell to the bottom, across from Key.
+
+  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-pshs-0004
+    lesson: lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets
+    keyPoint: 2
+    type: mental-rotation
+    difficulty: hard
+    figure: mental-rotation-3d-visualization-pshs-04
+    figureSpec:
+      kind: cube-net
+      cells: [[0, 0], [0, 1], [1, 1], [2, 1], [2, 2], [2, 3]]
+      labels: [A, B, C, D, E, F]
+    stem: |
+      The pattern shown will not fold into a cube. Ben removes F and
+      attaches it to a free edge of one of the remaining squares.
+      Where should Ben place F so that the new pattern folds into a cube?
+    choices:
+      - text: Below D
+        correct: true
+      - text: Below A
+        rationale: |
+          The space under A looks open on paper. With A in front,
+          F folds down from A to the bottom. C folds down from B
+          to the same face, so the two squares overlap.
+      - text: Right of B
+        rationale: |
+          This extends the top row on the other end. F appears far
+          from E on paper. Fold F from B and E from D to see that
+          both go to the back when A faces front.
+      - text: Left of D
+        rationale: |
+          This puts F on the far side of D from E. The two tabs do
+          fold in different directions. Follow F to the front and
+          check which square is already there.
+      - text: Right of C
+        rationale: |
+          This moves F closer to the middle, where it may seem able
+          to close a gap. F would share edges with both C and E.
+          Check whether C, D, E, and F can all fold around the same corner.
+    explanation: |
+      Hold A at the front. B folds right, C folds to the bottom, and
+      D folds left. E folds to the back. That leaves the top open.
+      Below D, F folds over the top and fills the last face.
+
+  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-pshs-0005
+    lesson: lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips
+    keyPoint: 2
+    type: mental-rotation
+    difficulty: exam
+    figure: mental-rotation-3d-visualization-pshs-05
+    figureSpec:
+      kind: geometry-diagram
+      type: 3d-box
+      labels:
+        - |-
+
+          Top: Dot
+          Front: Sun
+        - Key
+    stem: |
+      On the cube shown, Leaf is opposite Dot and Moon is opposite Key.
+      Which list can show its top, front, and right faces, in that
+      order, after the cube is turned?
+    choices:
+      - text: Key, Dot, Sun
+        correct: true
+      - text: Sun, Dot, Key
+        rationale: |
+          This keeps the same corner and puts Dot in front. It swaps
+          Sun and Key, which looks possible since they still touch.
+          Trace the order of all three faces around that corner.
+      - text: Dot, Key, Sun
+        rationale: |
+          This keeps Sun on the right and swaps the other two faces.
+          All three still meet. Check how the front and top must move
+          together when you turn the cube around the right face.
+      - text: Key, Dot, Leaf
+        rationale: |
+          This puts Key on top and Dot in front, then puts Leaf on
+          the right. The first two moves work. Check whether Leaf
+          can share a corner with Dot when they are opposite faces.
+      - text: Moon, Dot, Key
+        rationale: |
+          This moves Dot to the front and keeps Key on the right.
+          Those two faces can touch. Check whether Moon can touch
+          Key when they are opposite faces.
+    explanation: |
+      Dot starts on top, Sun in front, and Key on the right.
+      Turn the cube so Dot moves to the front, Sun moves
+      to the right, and Key moves to the top. The faces keep the
+      same order around their corner, so the list is Key, Dot, Sun.
+
+  - id: q-spatial-abstract-reasoning-mental-rotation-3d-visualization-pshs-0006
+    lesson: lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips
+    keyPoint: 1
+    type: mental-rotation
+    difficulty: exam
+    figure: mental-rotation-3d-visualization-pshs-06
+    figureSpec:
+      kind: geometry-diagram
+      type: 3d-box
+      labels:
+        - |-
+
+          Back: Elm
+        - Oak
+        - |-
+          Left
+          Ash
+    stem: |
+      Two cubes start in the position shown, with Maple on top
+      and Cedar facing Niko.
+
+      Niko rolls the first cube toward himself, then to his right.
+      He rolls the second cube to his right, then toward himself.
+      Each roll is one quarter turn.
+
+      Which labels finish on top of the first and second cubes,
+      in that order?
+    choices:
+      - text: Ash and Elm
+        correct: true
+      - text: Elm and Ash
+        rationale: |
+          This finds both top labels but mixes up the cubes. Both
+          rolls happen on each cube, so the order is easy to mix up.
+          Track the last roll of each cube.
+      - text: Elm and Elm
+        rationale: |
+          This puts Elm on top of both cubes because both roll toward
+          Niko. That roll brings Elm up in each case. Check whether
+          another roll follows it.
+      - text: Maple and Elm
+        rationale: |
+          This counts on the two rolls to bring Maple back to the
+          top of the first cube. A second roll can undo a first roll.
+          Check whether rolling right lifts the front face.
+      - text: Oak and Cedar
+        rationale: |
+          This picks the faces that finish against the table. Those
+          faces also change on the last roll. Track which face rises
+          to the top instead of which face rolls down.
+    explanation: |
+      On the first cube, the roll toward Niko lifts Elm from the
+      back to the top. Ash stays on the left. The roll to the right
+      moves Elm to the right and lifts Ash to the top.
+      On the second cube, the roll to the right lifts Ash to the
+      top. Elm stays at the back. The roll toward Niko moves Ash
+      to the front and lifts Elm to the top.
