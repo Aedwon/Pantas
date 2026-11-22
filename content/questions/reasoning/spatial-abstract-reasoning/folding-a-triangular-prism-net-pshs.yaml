@@ -1,0 +1,54 @@
+meta:
+  subject: reasoning
+  topic: spatial-abstract-reasoning
+  subtopic: folding-a-triangular-prism-net-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-spatial-abstract-reasoning-folding-a-triangular-prism-net-pshs-0001
+    lesson: lesson-spatial-abstract-reasoning-folding-a-triangular-prism-net
+    keyPoint: 2
+    type: paper-folding
+    difficulty: exam
+    figure: folding-a-triangular-prism-net-pshs-01
+    figureSpec:
+      kind: shape-row
+      shapes:
+        - form: rectangle
+        - form: rectangle
+          dots: 1
+        - form: triangle
+        - form: rectangle
+        - form: rectangle
+    stem: |
+      Lia will join the pieces shown to make a net, then fold it into a
+      closed triangular prism. All rectangles match, and every edge of
+      each triangle fits the short edge of a rectangle.
+
+      Lia may replace one piece. She must then use all the pieces without
+      cutting them. Which change will give her a closed prism with a dot on
+      one end and no other marks?
+    choices:
+      - text: Replace the dotted rectangle with a dotted triangle.
+        correct: true
+      - text: Replace the dotted rectangle with an unmarked triangle.
+        rationale: |
+          This gives the prism the right faces. It may seem like enough
+          because both ends can close. Check where the only dot went.
+      - text: Replace an unmarked rectangle with a dotted triangle.
+        rationale: |
+          This adds the missing end and puts a dot on it. That can look
+          like a complete fix. Check the dot that is still on a side.
+      - text: Replace the unmarked triangle with a dotted triangle.
+        rationale: |
+          This puts a dot on an end without changing its shape. It may
+          look right if you check only that end. Count how many triangles
+          are left to cover the two openings.
+      - text: Replace the dotted rectangle with a dotted square.
+        rationale: |
+          This moves the dot off the long side piece. A square can cover
+          the end of a box. Check the shape of the opening on a triangular
+          prism.
+    explanation: |
+      After the swap, three rectangles wrap around to make the sides.
+      The two triangles cover the two open ends. Only the new triangle
+      has a dot, so the dot lands on one end.
