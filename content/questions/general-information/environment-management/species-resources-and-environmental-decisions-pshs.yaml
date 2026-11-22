@@ -1,0 +1,78 @@
+meta:
+  subject: general-information
+  topic: environment-management
+  subtopic: species-resources-and-environmental-decisions-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-environment-management-species-resources-and-environmental-decisions-pshs-0001
+    lesson: lesson-environment-management-species-habitats-and-ecosystems
+    keyPoint: 1
+    type: single_choice
+    difficulty: medium
+    stem: |
+      Students put underwater plants of the same kind and size in identical tanks. The tanks differ only in how much light they get. Which result shows that this nonliving part of the plants' habitat affects their growth?
+    choices:
+      - text: Plants in both tanks grow by the same amount.
+        rationale: |
+          The plants grew, so it may seem that light helped. Check how much they grew in each tank. Their growth was the same under both amounts of light.
+      - text: Plants in the brighter tank stay green as they grow.
+        rationale: |
+          Green plants may look healthy. Check whether this result tells you how much the plants grew in each tank. It gives no growth comparison.
+      - text: Plants grow more in the brighter tank.
+        correct: true
+      - text: The tanks get different amounts of light near the bottom.
+        rationale: |
+          Light near the bottom matters to underwater plants. Check what the students measured here. The result describes the light and gives no plant growth data.
+      - text: The tallest plants in each tank have the most leaves.
+        rationale: |
+          Height and leaf count can both tell you about growth. Check what this result compares. It links height to leaf count within each tank.
+    explanation: |
+      Light is a nonliving part of the plants' habitat. The amount of light was the only difference between the tanks. The plants grew more with more light.
+  - id: q-environment-management-species-resources-and-environmental-decisions-pshs-0002
+    lesson: lesson-environment-management-species-habitats-and-ecosystems
+    keyPoint: 2
+    type: single_choice
+    difficulty: hard
+    stem: |
+      A bird breeds in holes in old trees. Workers clear the old trees but leave the bushes where the birds feed. After the clearing, adults visit the bushes as often as before, but fewer young birds are seen. Which explanation best fits these observations?
+    choices:
+      - text: Adults have fewer places to build nests and raise young.
+        correct: true
+      - text: Adults have less food because they fed mainly in the old trees.
+        rationale: |
+          Clearing can remove food, so this is a possible effect in some forests. Check where these birds feed. Their feeding bushes are still there.
+      - text: Adults use the bushes as nest sites as often as they used the trees.
+        rationale: |
+          The adults still visit the bushes, which can make the bushes seem like a replacement for the trees. Check what the visits are for. The birds feed there and breed in tree holes.
+      - text: Adults reach the feeding bushes less often because clearing cut off their route.
+        rationale: |
+          Clearing can separate animals from parts of their habitat. Check how often the adults visit the bushes. They visit just as often as before.
+      - text: The remaining bushes feed the adults but provide too little food for their young.
+        rationale: |
+          Young birds need food to grow, so a food shortage could lower their numbers. Check which resource the clearing took away. It removed the trees where the birds breed.
+    explanation: |
+      The birds still have bushes where they can feed. Clearing removed the old trees with holes where the birds raise their young. With fewer nest sites, fewer young may be raised.
+  - id: q-environment-management-species-resources-and-environmental-decisions-pshs-0003
+    lesson: lesson-environment-management-species-habitats-and-ecosystems
+    keyPoint: 2
+    type: single_choice
+    difficulty: exam
+    stem: |
+      Small fish search for insects on the gravel bed of a stream. After plants are cleared from a nearby slope, heavy rain washes loose soil into the stream. A day later, the water looks clear again, but the fish take longer to find insects. Which finding best explains why the fish still have trouble finding food?
+    choices:
+      - text: The fish search the same stretch of gravel as before the rain.
+        rationale: |
+          Seeing where the fish search helps locate their feeding area. Check what this finding tells you about the gravel itself. The same stretch can still be harder to search after the rain.
+      - text: The water gets deeper during rain and returns to its usual level afterward.
+        rationale: |
+          Rising water can carry loose soil. Check what the change in depth measures. It does not show what was left on the streambed.
+      - text: A test finds harmful waste in water from the stream.
+        rationale: |
+          Waste can harm fish. The test shows that waste is in the water. Check for evidence that links it to the extra time the fish take to find insects.
+      - text: A layer of fine soil lies over the gravel.
+        correct: true
+      - text: The gravel has the same mix of large and small stones as before the rain.
+        rationale: |
+          Stone size can help describe the place where the fish feed. Check what lies on top of those stones. Soil can settle there without changing the size of the stones.
+    explanation: |
+      Rain carried loose soil into the stream. Some soil settled on the gravel. It can cover the insects there and make them harder to find even after the water clears.
