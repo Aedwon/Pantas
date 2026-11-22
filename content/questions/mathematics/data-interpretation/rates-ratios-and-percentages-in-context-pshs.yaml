@@ -1,0 +1,169 @@
+meta:
+  subject: mathematics
+  topic: data-interpretation
+  subtopic: rates-ratios-and-percentages-in-context-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-pshs-0001
+    lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
+    keyPoint: 1
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A cyclist rides $1.2$ kilometers in $8$ minutes at a steady speed.
+      One kilometer equals $1,000$ meters.
+      What is the cyclist's speed in meters per minute?
+    choices:
+      - text: '0.15'
+        rationale: |
+          Dividing $1.2$ by $8$ gives the distance for one minute in kilometers.
+          Check that the answer uses meters.
+      - text: '15'
+        rationale: |
+          Multiplying $1.2$ by $100$ shifts the decimal and gives $120$.
+          Dividing that by $8$ gives $15$. Check that a kilometer has $1,000$ meters.
+      - text: '150'
+        correct: true
+      - text: '1,200'
+        rationale: |
+          This gives the whole distance in meters. The unit change is right.
+          Divide by the number of minutes to get the distance in one minute.
+      - text: '9,600'
+        rationale: |
+          This multiplies $1,200$ by $8$. Multiplying can find a total when you
+          know the rate. Here you know the total, so divide to find the rate.
+    explanation: |
+      The cyclist rides $1.2\times1,000=1,200$ meters.
+      Divide by $8$ minutes. The speed is $1,200\div8=150$ meters per minute.
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-pshs-0002
+    lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      One shop sells $6$ meters of fabric for $108$ pesos. Another shop
+      sells $8$ meters of the same fabric for $128$ pesos. What is the
+      difference between their prices per meter, in pesos?
+    choices:
+      - text: '2'
+        correct: true
+      - text: '10'
+        rationale: |
+          Dividing the $20$-peso gap by the $2$-meter gap uses both differences.
+          Check each shop's price for one meter before finding the gap.
+      - text: '16'
+        rationale: |
+          Dividing $128$ by $8$ gives the second shop's price per meter.
+          Find the first shop's price per meter too, then subtract.
+      - text: '18'
+        rationale: |
+          Dividing $108$ by $6$ gives the first shop's price per meter.
+          Subtract the other shop's price per meter to find the difference.
+      - text: '20'
+        rationale: |
+          Subtracting the two bills gives the gap in total cost.
+          The bills cover different lengths. Find the price of one meter at each shop.
+    explanation: |
+      The first shop charges $108\div6=18$ pesos per meter.
+      The second shop charges $128\div8=16$ pesos per meter.
+      The prices differ by $18-16=2$ pesos per meter.
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-pshs-0003
+    lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      Eighteen identical paving tiles cover $6$ square meters. How many
+      tiles will cover $15$ square meters at the same number of tiles per
+      square meter?
+    choices:
+      - text: '7.2'
+        rationale: |
+          This scales $18$ by $6\div15$. The two areas give a scale factor.
+          This order shrinks the tile count. Check that the larger area needs more tiles.
+      - text: '27'
+        rationale: |
+          This adds $15-6=9$ tiles. The area does grow by $9$ square meters.
+          Check how many tiles each of those extra square meters takes.
+      - text: '36'
+        rationale: |
+          This doubles the tile count because $15$ is more than twice $6$.
+          Check the area: doubling covers only $12$ square meters.
+      - text: '45'
+        correct: true
+      - text: '270'
+        rationale: |
+          This multiplies $15$ by $18$. Multiplication works once you have the tiles
+          per square meter. First divide $18$ by the area those tiles cover.
+    explanation: |
+      Each square meter takes $18\div6=3$ tiles.
+      For $15$ square meters, use $15\times3=45$ tiles.
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-pshs-0004
+    lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      A school club has earned $180$ pesos from selling $12$ bracelets.
+      Each bracelet sells for the same price. How many more bracelets must
+      the club sell to bring its total sales to $450$ pesos?
+    choices:
+      - text: '18'
+        correct: true
+      - text: '22.5'
+        rationale: |
+          This divides the remaining $270$ pesos by $12$. The $12$ counts
+          bracelets already sold. Divide by the price in pesos for one bracelet.
+      - text: '30'
+        rationale: |
+          This gives the total number of bracelets that bring in $450$ pesos.
+          Take away the $12$ bracelets the club has already sold.
+      - text: '42'
+        rationale: |
+          This adds the $12$ already sold to the $30$ needed in all. The two
+          counts are part of the same sales goal. Check how many of the $30$ are left to sell.
+      - text: '270'
+        rationale: |
+          Subtracting the sales so far from the goal gives $270$ pesos.
+          The question asks for bracelets. Divide the gap by the price of one bracelet.
+    explanation: |
+      Each bracelet sells for $180\div12=15$ pesos. The club still needs
+      $450-180=270$ pesos. It must sell $270\div15=18$ more bracelets.
+
+  - id: q-data-interpretation-rates-ratios-and-percentages-in-context-pshs-0005
+    lesson: lesson-data-interpretation-unit-rates-and-direct-proportion
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      A banner design is $30$ centimeters wide and $12$ centimeters tall.
+      It is enlarged to a width of $75$ centimeters. Its width and height
+      are multiplied by the same factor. How many centimeters taller is
+      the enlarged banner than the display space, which is $24$ centimeters tall?
+    choices:
+      - text: '6'
+        correct: true
+      - text: '12'
+        rationale: |
+          This finds the gap between the space and the original design.
+          Both heights are given. Find the new height before comparing.
+      - text: '18'
+        rationale: |
+          This finds the increase in height from $12$ to $30$. That measures
+          how much the design grows. Compare the new height with the space.
+      - text: '30'
+        rationale: |
+          This gives the full height of the enlarged banner. You need that
+          height first. Subtract the height of the space to find the extra height.
+      - text: '33'
+        rationale: |
+          This adds the $45$-centimeter width increase to the original height,
+          then subtracts $24$. Both sides grow by the same factor. Check the
+          ratio of the new width to the old width.
+    explanation: |
+      The width is $75\div30=2.5$ times as large. Multiply the height by
+      the same number to get $12\times2.5=30$ centimeters. The banner is
+      $30-24=6$ centimeters taller than the space.
