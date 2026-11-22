@@ -1,0 +1,381 @@
+meta:
+  subject: mathematics
+  topic: data-interpretation
+  subtopic: tables-and-charts-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-data-interpretation-tables-and-charts-pshs-0001
+    lesson: lesson-data-interpretation-chart-scales-and-differences
+    keyPoint: 1
+    type: word-problem
+    difficulty: easy
+    stem: |
+      The graph shows the number of paper boats made during four club
+      meetings. How many boats were made on Wednesday?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [Mon, Tue, Wed, Thu]
+      values: [6, 12, 9, 3]
+      yAxis:
+        label: Boats made (in tens)
+    choices:
+      - text: "90"
+        correct: true
+      - text: "9"
+        rationale: |
+          The Wednesday bar is labeled 9. That is the number of tens.
+          Check the unit above the graph before giving the number of boats.
+      - text: "900"
+        rationale: |
+          Multiplying the bar label by 100 gives 900, so the unit has
+          been taken into account. Read the axis label to check how
+          many boats each unit stands for.
+      - text: "120"
+        rationale: |
+          The tallest bar stands for 120 boats. It is easy to spot.
+          Trace up from Wednesday to check which bar belongs to that day.
+      - text: "30"
+        rationale: |
+          The bar just to the right of Wednesday stands for 30 boats.
+          The scale was used correctly. Check the day under that bar.
+    explanation: |
+      The Wednesday bar shows 9 tens. Multiply by 10.
+      The club made $9\times10=90$ boats.
+
+  - id: q-data-interpretation-tables-and-charts-pshs-0002
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 1
+    type: word-problem
+    difficulty: easy
+    stem: |
+      A fruit farm packed the following numbers of seedlings, in thousands.
+
+      | Seedling | May | June | July |
+      | :--- | :--- | :--- | :--- |
+      | Calamansi | 12 | 15 | 18 |
+      | Guava | 9 | 13 | 16 |
+      | Papaya | 7 | 11 | 14 |
+
+      The farm needs the June guava count for a report. What number of
+      seedlings should it enter?
+    choices:
+      - text: "13,000"
+        correct: true
+      - text: "13"
+        rationale: |
+          Thirteen is printed where Guava and June meet. Check how many
+          seedlings each unit in the table stands for.
+      - text: "15,000"
+        rationale: |
+          Fifteen is the first entry under June. The month and unit are
+          right. Trace across the Guava row to find the right entry.
+      - text: "16,000"
+        rationale: |
+          Sixteen is in the Guava row. The count is for July, one column
+          to the right of June. Check the heading above the entry.
+      - text: "130,000"
+        rationale: |
+          Multiplying 13 by 10,000 gives 130,000. The printed entry needs
+          to be scaled up. Check that a thousand has three zeros.
+    explanation: |
+      The Guava row meets the June column at 13. Each unit in the
+      table means a thousand seedlings. Multiply $13\times1,000$
+      to get 13,000 seedlings.
+
+  - id: q-data-interpretation-tables-and-charts-pshs-0003
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 1
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      A school recorded the number of trays of cans, bottles, and cartons
+      collected by each team.
+
+      | Team | Cans | Bottles | Cartons |
+      | :--- | :--- | :--- | :--- |
+      | Mabini | 8 | 12 | 9 |
+      | Rizal | 8 | 9 | 12 |
+      | Luna | 12 | 8 | 6 |
+      | Silang | 10 | 12 | 7 |
+      | Jacinto | 12 | 10 | 8 |
+
+      Which team collected 8 trays of cans and 12 trays of bottles?
+    choices:
+      - text: Mabini
+        correct: true
+      - text: Rizal
+        rationale: |
+          Rizal has 8 trays of cans and also has a 12 in its row.
+          Look above the 12 to see which material it counts.
+      - text: Luna
+        rationale: |
+          Luna has both 8 and 12 in the two columns named. Trace both
+          column headings to check which number belongs to each material.
+      - text: Silang
+        rationale: |
+          Silang has 12 trays of bottles. That meets one condition.
+          Check whether its can count also matches.
+      - text: Jacinto
+        rationale: |
+          Jacinto's row has both numbers. The 8 is in Cartons and the
+          12 is in Cans. Check the entries under Cans and Bottles.
+    explanation: |
+      In the Mabini row, the Cans column shows 8 and the Bottles column
+      shows 12. Both counts match.
+
+  - id: q-data-interpretation-tables-and-charts-pshs-0004
+    lesson: lesson-data-interpretation-chart-scales-and-differences
+    keyPoint: 1
+    type: word-problem
+    difficulty: medium
+    stem: |
+      The graph shows the water depth in a tank. The first reading at
+      8 a.m. was 20 cm, and the noon reading was 100 cm.
+      Each step up the vertical scale stands for 20 cm.
+      What was the depth at 10 a.m.?
+    figureSpec:
+      kind: chart
+      type: line
+      labels: [8 am, 9 am, 10 am, 11 am, Noon]
+      values: [20, 40, 80, 60, 100]
+      yMin: 20
+      yAxis:
+        label: Water depth (cm)
+    choices:
+      - text: "80"
+        correct: true
+      - text: "40"
+        rationale: |
+          One 20 cm step above the starting depth gives 40 cm. That
+          is the 9 a.m. reading. Trace straight up from 10 a.m.
+      - text: "60"
+        rationale: |
+          Three 20 cm steps give a rise of 60 cm. Add that rise to
+          the 20 cm depth at the bottom of the graph.
+      - text: "100"
+        rationale: |
+          Four 20 cm steps above the starting depth give 100 cm.
+          That is the noon reading. Check the point above 10 a.m.
+      - text: "75"
+        rationale: |
+          Starting at 0 cm and splitting 100 cm into four steps gives
+          25 cm per step. Three of those steps give 75 cm. Check the
+          stated 20 cm starting depth and 20 cm step size.
+    explanation: |
+      The 10 a.m. point is three steps above the 20 cm starting depth.
+      Each step is 20 cm. The depth is $20+3\times20=80$ cm.
+
+  - id: q-data-interpretation-tables-and-charts-pshs-0005
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      The table shows the number of boxes each team packed at a food drive.
+
+      | Team | Rice | Beans | Oats |
+      | :--- | :--- | :--- | :--- |
+      | Narra | 24 | 19 | 18 |
+      | Yakal | 35 | 16 | 22 |
+      | Acacia | 27 | 20 | 26 |
+
+      A van will take the rice and oats packed by Narra and Acacia.
+      How many boxes will the van take?
+    choices:
+      - text: "95"
+        correct: true
+      - text: "99"
+        rationale: |
+          Adding Narra and Yakal gives 99 rice and oat boxes. Those
+          teams are next to each other. Check which two teams named
+          in the question are sending boxes.
+      - text: "90"
+        rationale: |
+          Adding rice and beans for Narra and Acacia gives 90 boxes.
+          Those are the first two columns. Check which two foods will
+          go in the van.
+      - text: "51"
+        rationale: |
+          Narra and Acacia packed 51 rice boxes together. That covers
+          both teams. Check whether another food also goes in the van.
+      - text: "134"
+        rationale: |
+          The two teams packed 134 boxes in all. That count includes
+          every box from the right teams. Check which food stays behind.
+    explanation: |
+      Narra packed $24+18=42$ boxes of rice and oats. Acacia packed
+      $27+26=53$. The van will take $42+53=95$ boxes.
+
+  - id: q-data-interpretation-tables-and-charts-pshs-0006
+    lesson: lesson-data-interpretation-chart-scales-and-differences
+    keyPoint: 2
+    type: word-problem
+    difficulty: medium
+    stem: |
+      The graph shows how much feed was put out for ducks over four
+      days. How many more kilograms of feed were put out on Tuesday
+      than on Thursday?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [Mon, Tue, Wed, Thu]
+      values: [16, 28, 32, 24]
+      yAxis:
+        label: Feed put out (kg)
+    choices:
+      - text: "4"
+        correct: true
+      - text: "8"
+        rationale: |
+          The two rightmost bars differ by 8 kg. Thursday is one of
+          those days. Check the label under the other bar.
+      - text: "12"
+        rationale: |
+          Tuesday's bar is 12 kg higher than Monday's. That gives a
+          difference using Tuesday. Check the other day named in the question.
+      - text: "24"
+        rationale: |
+          The Thursday bar shows 24 kg. That is the smaller amount.
+          Subtract Thursday's amount from Tuesday's to find how much
+          more feed was put out on Tuesday.
+      - text: "52"
+        rationale: |
+          Adding Tuesday and Thursday gives 52 kg. Both readings are
+          needed. Subtract Thursday's amount from Tuesday's to find
+          how much more feed was put out on Tuesday.
+    explanation: |
+      Tuesday shows 28 kg and Thursday shows 24 kg. Subtract the
+      smaller amount from the larger one. The difference is $28-24=4$ kg.
+
+  - id: q-data-interpretation-tables-and-charts-pshs-0007
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
+    type: which-is-true
+    difficulty: hard
+    stem: |
+      Five teams recorded the longest and shortest jumps made by
+      their members.
+
+      | Team | Longest jump (cm) | Shortest jump (cm) |
+      | :--- | :--- | :--- |
+      | Agila | 168 | 150 |
+      | Maya | 154 | 130 |
+      | Pugo | 146 | 125 |
+      | Lawin | 161 | 143 |
+      | Banog | 162 | 151 |
+
+      Which team had the greatest difference between its longest and
+      shortest jumps?
+    choices:
+      - text: Maya
+        correct: true
+      - text: Agila
+        rationale: |
+          Agila had the longest jump in the table. That is one end
+          of its team's spread. Subtract its shortest jump to find the gap.
+      - text: Pugo
+        rationale: |
+          Pugo had the shortest jump in the table. That low reading
+          may suggest a large gap. Compare it with Pugo's longest jump.
+      - text: Lawin
+        rationale: |
+          Subtracting Pugo's 125 cm from Lawin's 161 cm gives 36 cm.
+          That gap looks bigger than the others. Use both jumps from
+          Lawin's row.
+      - text: Banog
+        rationale: |
+          Banog has the highest reading in the Shortest jump column.
+          That reading stands out when comparing the shortest jumps.
+          Find the gap between Banog's two jumps before comparing teams.
+    explanation: |
+      Subtract each team's shortest jump from its longest jump.
+      Agila has $168-150=18$ cm, Maya has $154-130=24$ cm,
+      Pugo has $146-125=21$ cm, Lawin has $161-143=18$ cm,
+      and Banog has $162-151=11$ cm.
+      Maya has the greatest gap, 24 cm.
+
+  - id: q-data-interpretation-tables-and-charts-pshs-0008
+    lesson: lesson-data-interpretation-chart-scales-and-differences
+    keyPoint: 2
+    type: word-problem
+    difficulty: hard
+    stem: |
+      The graph shows the number of visitors at a museum booth. The
+      count fell from Monday to Tuesday and rose from Wednesday to
+      Thursday. By how many visitors was the drop larger than the rise?
+    figureSpec:
+      kind: chart
+      type: bar
+      labels: [Mon, Tue, Wed, Thu, Fri]
+      values: [64, 44, 40, 56, 80]
+      yAxis:
+        label: Visitors
+    choices:
+      - text: "4"
+        correct: true
+      - text: "20"
+        rationale: |
+          Twenty is the size of the drop. It is the first difference
+          needed. Find the size of the rise before comparing them.
+      - text: "16"
+        rationale: |
+          Sixteen is the size of the rise. It is the second difference
+          needed. Check what is left when you take it away from the drop.
+      - text: "36"
+        rationale: |
+          Adding the drop and rise gives 36. This gives the size of
+          both changes together. Subtract to find how much larger the drop was.
+      - text: "8"
+        rationale: |
+          Using Wednesday as the end of the drop gives 24. Taking
+          away the rise of 16 leaves 8. Check which day ends the drop
+          named in the question.
+    explanation: |
+      The drop was $64-44=20$ visitors. The rise was $56-40=16$
+      visitors. The drop was larger by $20-16=4$ visitors.
+
+  - id: q-data-interpretation-tables-and-charts-pshs-0009
+    lesson: lesson-data-interpretation-table-values-and-totals
+    keyPoint: 2
+    type: word-problem
+    difficulty: exam
+    stem: |
+      The table shows how many board games were borrowed and returned
+      at a school fair.
+
+      | Time | Borrowed | Returned |
+      | :--- | :--- | :--- |
+      | 10 a.m. to 11 a.m. | 38 | 20 |
+      | 11 a.m. to noon | 16 | 23 |
+      | Noon to 1 p.m. | 25 | 14 |
+      | 1 p.m. to 2 p.m. | 31 | 17 |
+
+      From 10 a.m. to 1 p.m., how many more games were borrowed
+      than returned?
+    choices:
+      - text: "22"
+        correct: true
+      - text: "11"
+        rationale: |
+          From 10 a.m. to noon, 11 more games were borrowed than
+          returned. Those are the first two rows. Check when the
+          requested period ends.
+      - text: "79"
+        rationale: |
+          The borrowed counts add to 79 for the right period. This
+          is one of the totals you need. Check the returned column too.
+      - text: "36"
+        rationale: |
+          Across all four rows, 36 more games were borrowed than returned.
+          That uses all the data shown. Check whether the final hour
+          falls inside the requested period.
+      - text: "136"
+        rationale: |
+          Combining both columns gives 136 for the requested period.
+          Both counts matter. The sum counts each loan and return.
+          Check which operation finds how many more were borrowed.
+    explanation: |
+      Use the first three rows. People borrowed $38+16+25=79$ games
+      and returned $20+23+14=57$ games. The difference is $79-57=22$
+      games.
