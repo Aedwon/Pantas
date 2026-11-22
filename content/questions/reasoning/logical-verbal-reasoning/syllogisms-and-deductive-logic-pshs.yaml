@@ -1,0 +1,90 @@
+meta:
+  subject: reasoning
+  topic: logical-verbal-reasoning
+  subtopic: syllogisms-and-deductive-logic-pshs
+  exams: [pshs-nce]
+questions:
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-pshs-0001
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
+    type: syllogism
+    difficulty: medium
+    stem: |
+      Some posters with maps are finalists at the school fair. No finalist posters are hand-drawn. Which statement must be true?
+    choices:
+      - text: "Some posters with maps are not hand-drawn."
+        correct: true
+      - text: "All posters with maps were chosen as finalists."
+        rationale: |
+          This changes some map posters to all map posters. The two groups do share posters. Check whether the first statement puts every map poster in the finalist group.
+      - text: "No hand-drawn posters have maps."
+        rationale: |
+          Some posters with maps are finalists, so the rule applies to those posters. If a poster with a map is outside the finalist group, it could still be hand-drawn.
+      - text: "Some posters with maps were not chosen as finalists."
+        rationale: |
+          This reads "some" as "some but not all." People often use it that way in conversation. Check whether the first statement still holds if every poster with a map is a finalist.
+      - text: "Some hand-drawn posters have maps."
+        rationale: |
+          A map poster outside the finalist group could be hand-drawn. This choice assumes such a poster exists. Check whether the clues say there is a hand-drawn map poster.
+    explanation: |
+      The map circle and the finalist circle share at least one poster. The finalist circle is separate from the hand-drawn circle. That shared poster has a map and is outside the hand-drawn circle.
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-pshs-0002
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 1
+    type: syllogism
+    difficulty: hard
+    stem: |
+      At a lantern display, all paper lanterns hang from hooks. Lea concludes that no paper lanterns use batteries. Which extra statement would make her conclusion follow?
+    choices:
+      - text: "No lanterns on hooks use batteries."
+        correct: true
+      - text: "Some lanterns on hooks do not use batteries."
+        rationale: |
+          This treats a rule about some lanterns as a rule about all paper lanterns. Picture two paper lanterns on hooks. One uses a battery. The other has no battery. The extra statement is true, and the lantern with a battery makes Lea's conclusion false.
+      - text: "All lanterns that use batteries hang from hooks."
+        rationale: |
+          This treats groups with the same location as separate groups. Both kinds of lanterns now have a rule about hooks. Check whether one lantern on a hook could be made of paper and use a battery.
+      - text: "No lanterns on tables use batteries."
+        rationale: |
+          This applies the rule for tables to lanterns on hooks. A rule that rules out batteries can sound like enough. Check where the stem places all the paper lanterns.
+      - text: "Some lanterns that use batteries are made of cloth."
+        rationale: |
+          This treats examples made of cloth as a rule about all lanterns with batteries. Cloth fits the idea that batteries are used in other lanterns. Check whether the statement rules out batteries in paper lanterns too.
+    explanation: |
+      The paper lanterns fit inside the group of lanterns on hooks. The extra rule keeps that whole group separate from the group that uses batteries. So no paper lanterns use batteries.
+
+  - id: q-logical-verbal-reasoning-syllogisms-and-deductive-logic-pshs-0003
+    lesson: lesson-logical-verbal-reasoning-deductive-group-arguments
+    keyPoint: 2
+    type: syllogism
+    difficulty: exam
+    stem: |
+      Every square is a rectangle. Some rectangles are not squares. Squares and rectangles are both polygons.
+
+      Use each argument’s premises to decide if its conclusion follows. Use the facts above to check if its premises are true.
+
+      I. All rectangles are squares. All squares are polygons. So all rectangles are polygons.
+
+      II. All squares are polygons. All rectangles are polygons. So all squares are rectangles.
+
+      Which statement correctly describes the two arguments?
+    choices:
+      - text: "Only I is valid. Neither is sound."
+        correct: true
+      - text: "Only I is valid. It is also sound."
+        rationale: |
+          This stops after checking that the conclusion follows. The steps in I do fit together. Check whether every rectangle really is a square.
+      - text: "Only II is valid. It is also sound."
+        rationale: |
+          This uses true statements to decide whether the steps work. Every statement in II is true. Check whether two groups inside the polygon circle have to sit inside each other.
+      - text: "Both are valid. Only II is sound."
+        rationale: |
+          This checks which argument has true premises and assumes both sets of steps work. II does have true premises. Check whether those premises alone place every square inside the rectangle group.
+      - text: "Both are valid. Both are also sound."
+        rationale: |
+          This treats two true conclusions as proof of soundness. The facts at the start do confirm both conclusions. Check each argument for a false premise or a step that does not follow.
+    explanation: |
+      In I, if rectangles were inside the square group, they would also be inside the polygon group. The steps work, so I is valid. Some rectangles are not squares, so I has a false premise and is not sound.
+
+      In II, the premises only put both groups inside the polygon group. That alone does not place the square group inside the rectangle group. So II is invalid and cannot be sound.
