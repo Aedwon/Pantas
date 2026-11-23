@@ -1,6 +1,7 @@
 import 'dart:ui' show CheckedState;
 
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -16,6 +17,7 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/legal/domain/legal_document.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
@@ -421,6 +423,67 @@ void main() {
       expect(box(), findsNothing);
       expect(guardianReads, 0);
     });
+  });
+
+  testWidgets('the link shows the design system focus ring from the keyboard',
+      (tester) async {
+    resetWebKeyboardFocus();
+    await pumpPro(tester, wide: true);
+    final ring = find.descendant(
+      of: box(),
+      matching: find.byKey(const ValueKey('focus-ring')),
+    );
+    expect(ring, findsNothing);
+    await tester.ensureVisible(box());
+    Focus.of(tester.element(find.text(_link))).requestFocus();
+    await tester.sendKeyEvent(LogicalKeyboardKey.shiftLeft);
+    await tester.pump();
+    expect(ring, findsOneWidget);
+    final decoration =
+        tester.widget<DecoratedBox>(ring).decoration as BoxDecoration;
+    final side = (decoration.border! as Border).top;
+    expect(side.width, 2);
+    expect(
+      side.color,
+      tester.element(find.text(_link)).webTokens.colors.accent,
+    );
+    // Drawn 2 px outside the link, so its 2 px line sits 4 px out in all.
+    final link = tester.getRect(find.text(_link));
+    final drawn = tester.getRect(ring);
+    expect(link.left - drawn.left, 4);
+    expect(drawn.right - link.right, 4);
+  });
+
+  testWidgets('the link goes accent to accent-hover on hover', (tester) async {
+    await pumpPro(tester, wide: true);
+    await tester.ensureVisible(box());
+    Color? color() => tester.widget<Text>(find.text(_link)).style?.color;
+    final tokens = tester.element(find.text(_link)).webTokens;
+    expect(color(), tokens.colors.accent);
+    final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+    addTearDown(mouse.removePointer);
+    await mouse.addPointer(location: Offset.zero);
+    await mouse.moveTo(tester.getCenter(find.text(_link)));
+    await tester.pump();
+    expect(color(), tokens.accentHover);
+    await mouse.moveTo(Offset.zero);
+    await tester.pump();
+    expect(color(), tokens.colors.accent);
+  });
+
+  testWidgets(
+      'wide: the seller line is fine print of Pay, right-aligned in the Pay '
+      'column and wrapping within it', (tester) async {
+    await pumpPro(tester, wide: true);
+    final seller = find.byWidgetPredicate(
+      (w) => w is RichText && w.text.toPlainText().startsWith('Sold by'),
+    );
+    final pay = tester.getRect(find.widgetWithText(WebButton, _buy));
+    final line = tester.getRect(seller);
+    expect(line.width, lessThanOrEqualTo(480));
+    expect(line.right, closeTo(pay.right, 1));
+    expect(line.top, greaterThan(pay.bottom - 1));
+    expect(line.height, greaterThan(24), reason: 'it wraps');
   });
 
   testWidgets('a tick does not carry over to another account', (tester) async {

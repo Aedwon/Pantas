@@ -964,6 +964,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                 facts: sellerFacts,
                                 style: context.webTokens.sm,
                                 textAlign: TextAlign.right,
+                                maxWidth: 480,
                                 onEmail: _emailSupport,
                               ),
                             ),

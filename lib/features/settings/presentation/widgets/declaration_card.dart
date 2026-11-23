@@ -2,9 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pantas/core/config/seller_facts.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/offset_focus_ring.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -68,36 +70,59 @@ class DeclarationCard extends StatelessWidget {
 }
 
 /// A link that tabs, shows focus, and opens on a tap or Enter. A tap on it
-/// does not reach the row, so the box does not change.
-class _TermsLink extends StatelessWidget {
+/// does not reach the row, so the box does not change. It follows the design
+/// system's `.link`: accent, `accent-hover` on hover, and the keyboard focus
+/// ring (2 px accent, offset 2) like every other control.
+class _TermsLink extends StatefulWidget {
   const _TermsLink({required this.style, required this.onOpen});
   final TextStyle style;
   final VoidCallback onOpen;
 
   @override
-  Widget build(BuildContext context) => Semantics(
-        container: true,
-        link: true,
-        label: declarationLink,
-        excludeSemantics: true,
-        onTap: onOpen,
+  State<_TermsLink> createState() => _TermsLinkState();
+}
+
+class _TermsLinkState extends State<_TermsLink> {
+  bool _hovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final tokens = context.webTokens;
+    final color = _hovered ? tokens.accentHover : tokens.colors.accent;
+    return Semantics(
+      container: true,
+      link: true,
+      label: declarationLink,
+      excludeSemantics: true,
+      onTap: widget.onOpen,
+      child: OffsetFocusRing(
+        borderRadius: BorderRadius.circular(PantasRadius.xs),
         child: FocusableActionDetector(
-          mouseCursor: SystemMouseCursors.click,
           actions: {
             ActivateIntent: CallbackAction<ActivateIntent>(
               onInvoke: (_) {
-                onOpen();
+                widget.onOpen();
                 return null;
               },
             ),
           },
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: onOpen,
-            child: Text(declarationLink, style: style),
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            onEnter: (_) => setState(() => _hovered = true),
+            onExit: (_) => setState(() => _hovered = false),
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: widget.onOpen,
+              child: Text(
+                declarationLink,
+                style: widget.style.copyWith(color: color),
+              ),
+            ),
           ),
         ),
-      );
+      ),
+    );
+  }
 }
 
 /// The seller line beside Pay (ruling D3): the proprietor, trading name, place,
@@ -109,9 +134,13 @@ class SellerLine extends StatefulWidget {
     required this.style,
     required this.textAlign,
     required this.onEmail,
+    this.maxWidth,
     super.key,
   });
 
+  /// Wide web: the width of the Pay column on the board (its 640 px column
+  /// minus Restore Purchases and the gap), so the line wraps beside Pay.
+  final double? maxWidth;
   final SellerFacts facts;
   final TextStyle style;
   final TextAlign textAlign;
@@ -137,21 +166,30 @@ class _SellerLineState extends State<SellerLine> {
   }
 
   @override
-  Widget build(BuildContext context) => Text.rich(
-        TextSpan(
-          style: widget.style,
-          children: [
-            TextSpan(text: widget.facts.lineBeforeEmail),
-            TextSpan(
-              text: sellerEmail,
-              style: widget.style.copyWith(
-                color: context.webTokens.colors.accent,
-              ),
-              recognizer: _tap,
-              mouseCursor: SystemMouseCursors.click,
+  Widget build(BuildContext context) {
+    final line = Text.rich(
+      TextSpan(
+        style: widget.style,
+        children: [
+          TextSpan(text: widget.facts.lineBeforeEmail),
+          TextSpan(
+            text: sellerEmail,
+            style: widget.style.copyWith(
+              color: context.webTokens.colors.accent,
             ),
-          ],
-        ),
-        textAlign: widget.textAlign,
-      );
+            recognizer: _tap,
+            mouseCursor: SystemMouseCursors.click,
+          ),
+        ],
+      ),
+      textAlign: widget.textAlign,
+    );
+    final max = widget.maxWidth;
+    return max == null
+        ? line
+        : ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: max),
+            child: line,
+          );
+  }
 }
