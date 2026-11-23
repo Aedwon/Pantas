@@ -93,13 +93,11 @@ void main() {
         );
         await tester.pumpAndSettle();
         expect(find.byType(LessonTextScale), findsOneWidget);
-        // Board RD_Real: the topic as a 13 px caps eyebrow (600, .04 em), then
-        // the title at 30 px on the board's numbers. No part or count line.
-        const metaText = 'EARTH SCIENCE AND ASTRONOMY';
+        // Board Polish C (RD_Real since Nov 23): the topic in one line of
+        // 15 px, then the title at 30 px. No minutes and no part label.
+        const metaText = 'Earth Science and Astronomy';
         final meta = tester.widget<Text>(find.text(metaText));
-        expect(meta.style!.fontSize, 13);
-        expect(meta.style!.fontWeight, FontWeight.w600);
-        expect(meta.style!.letterSpacing, closeTo(.52, .001));
+        expect(meta.style!.fontSize, 15);
         expectNoPartLabel();
         final title = tester.widget<Text>(
           find.text('Layers of the Earth and Composition').first,

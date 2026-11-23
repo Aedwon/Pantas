@@ -33,7 +33,6 @@ import 'package:pantas/core/ui/theme/reader_full_width.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
@@ -44,7 +43,6 @@ import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
-import 'package:pantas/features/lesson/presentation/reader_eyebrow_text.dart';
 import 'package:pantas/features/lesson/presentation/widgets/ending_content.dart';
 import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
@@ -1639,16 +1637,13 @@ class _LessonContent extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // Board (RD_Real): the topic as a 13 px caps eyebrow (600,
-                    // .04 em), then the title at 30 px. No part or count line.
-                    Semantics(
-                      label: reader.topicName,
-                      excludeSemantics: true,
-                      child: Text(
-                        readerEyebrowText(reader.topicName),
-                        style: PantasType.phoneReaderEyebrow.copyWith(
-                          color: context.colors.secondaryLabel,
-                        ),
+                    // Board (Polish C, RD_Real since Nov 23): the topic in one
+                    // line of 15 px, secondary, 8 px above the 30 px title. No
+                    // minutes (Nov 14) and no part label (Nov 23).
+                    Text(
+                      reader.topicName,
+                      style: context.type.subhead.copyWith(
+                        color: context.colors.secondaryLabel,
                       ),
                     ),
                     const SizedBox(height: PantasSpace.s8),
