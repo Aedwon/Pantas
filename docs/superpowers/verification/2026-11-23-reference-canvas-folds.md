@@ -377,3 +377,87 @@ QV_Figure (phone) had no links in the earlier version that this pass could read;
 - Web wide exam date boards (OB_Date*) and web ST_Exam* are not superseded: wide stays as is (LOG:2951).
 - Moved boards leave gaps on their old pages; other boards were not shifted.
 - canvas.json was rewritten without indentation (same content).
+
+## UX council fold (Nov 23)
+
+Folded the council-approved UX boards into both reference canvases, ahead of the build, so reviewers compare the build with the approved target. Source canvases: Lesson Reader Full Screen (https://claude.ai/artifact/Sb3f8m64ZpouMDBKjTE14K, only the "4 Held" boards) and Core Loops Best in Class (https://claude.ai/artifact/1tyuTs3m832KjUtgZdvzXZ, the B1 to B5 "After" and motion boards; the Before boards are not copied). Hand-off list: docs/superpowers/plans/2026-11-23-ux-ambition-handoff.md, "Reference boards to update after the build". Directions 1 to 3 (Margin, Pinned, Column) were rejected and are not copied. Checkout, paywall and Pro boards were not touched.
+
+Final versions: Pantas Web version 177, Pantas Redesign version 484. Source canvases were not changed. No board file was deleted.
+
+Rulings: lesson reader at docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md:468; core loops at docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md:487. Specs: docs/superpowers/specs/2026-11-23-lesson-reader-full-screen-design.md (motion values in "Motion values") and docs/superpowers/specs/2026-11-23-core-loops-polish-design.md.
+
+### Counts
+
+- Replaced: 3 (W_Reader, W_MockResults on Pantas Web; MK_Results on Pantas Redesign)
+- Edited in place with the approved change: 9 (web W_Question, W_QRight, W_QMiss, W_SessionEnd, MK_ReviewWrong; phone QV_Answer, QV_EndPro, QV_EndLastToday, MK_ReviewWrong)
+- Added: 21 (web 16 including the shared part RD_HeldPart; phone 5 including QZ_TabMotion)
+- Superseded: 3 on Pantas Web (W_ReaderDark, W_ReaderPart, RD_Focus)
+- Uncertain: see below
+
+### Method notes
+
+- Source .dc.html files were copied byte for byte. Only these changed: dc-import name R to RD_HeldPart, stylesheet paths (held/fs.css, loops/core.css, loops/mkweb.css, loops/phone.css, so no name clashes), board links (Main to W_QuizTab or W_Reader where the source canvas used Main for the Quiz tab, B4 review boards to MK_ReviewSubject).
+- Stylesheets were copied server side. reader.css was already identical on Pantas Web (same sha256).
+- Motion values are untouched in every copied motion board (QT_CardMotion, QZ_TabMotion, QS_EndMotion, QS_WrongMotion, RD_HeldMotion), and phone is the motion reference.
+- Where a source board is a static snapshot of an existing animated reference board (B5 After boards, which drop the entrance animation), the reference board was edited with the same approved change instead of replaced, so its motion stays. The same rule applies to the interactive web question boards.
+- Edits copy the source values: the answer track (10 x 4 px marks, phone 8 x 4, radius 99, 3 px gap, unanswered #D1D1D6, current #1D1D1F, teal #0B7A68, red #D70015, 200 ms color change), the notes prompt "Note why you missed each one." with its 12 px card padding, and for web W_Question the B3 timing (shake .42 s, then at 540 ms the right row rings teal, the others dim to 42% and the panel slides in .5 s; Enter or Next inside 540 ms completes the reveal).
+
+### Changes
+
+One row per change. Ruling line: R = docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md.
+
+| Reference canvas | Board | Change | Source canvas / board | Ruling |
+|---|---|---|---|---|
+| Pantas Web | W_Reader | replaced | Lesson Reader Full Screen / W4_Held | R:468 |
+| Pantas Web | W_ReaderHeldDark | added | Lesson Reader Full Screen / K1 | R:468 |
+| Pantas Web | RD_HeldReading | added | Lesson Reader Full Screen / V4 | R:468 |
+| Pantas Web | RD_HeldPush | added | Lesson Reader Full Screen / V4b | R:468 |
+| Pantas Web | RD_HeldLinked | added | Lesson Reader Full Screen / H4 | R:468 |
+| Pantas Web | RD_Held1100 | added | Lesson Reader Full Screen / M1100 | R:468 |
+| Pantas Web | RD_HeldMotion | added | Lesson Reader Full Screen / MO | R:468 |
+| Pantas Web | RD_HeldPart | added (part) | Lesson Reader Full Screen / R | R:468 |
+| Pantas Web | W_ReaderDark | superseded, see W_ReaderHeldDark | Lesson Reader Full Screen / K1 | R:468 |
+| Pantas Web | W_ReaderPart | superseded, see RD_HeldPart | Lesson Reader Full Screen / R | R:468 |
+| Pantas Web | RD_Focus | superseded, see W_Reader | Lesson Reader Full Screen / W4_Held | R:468 |
+| Pantas Web | W_Question | edited (no bar hint, answer track, B3 timing) | Core Loops Best in Class / B5_PickAfter, B2_WideBar, B3_Motion | R:487 |
+| Pantas Web | W_QRight | edited (answer track) | Core Loops Best in Class / B2_WideBar | R:487 |
+| Pantas Web | W_QMiss | edited (answer track) | Core Loops Best in Class / B3_WideWrong | R:487 |
+| Pantas Web | W_SessionEnd | edited (notes prompt text) | Core Loops Best in Class / B5_EndAfter | R:487 |
+| Pantas Web | W_MockResults | replaced | Core Loops Best in Class / B4_WideResults | R:487 |
+| Pantas Web | MK_ReviewWrong | edited (notes prompt text) | Core Loops Best in Class / B5_ReviewAfter | R:487 |
+| Pantas Web | MK_ReviewSubject | added | Core Loops Best in Class / B4_WideReview | R:487 |
+| Pantas Web | QT_CardMotion | added | Core Loops Best in Class / B1_WideMotion | R:487 |
+| Pantas Web | QS_BarTrack | added | Core Loops Best in Class / B2_WideBar | R:487 |
+| Pantas Web | QS_EndMotion | added | Core Loops Best in Class / B2_WideEnd | R:487 |
+| Pantas Web | QS_PickNoHint | added | Core Loops Best in Class / B5_PickAfter | R:487 |
+| Pantas Web | QS_PickedNoHint | added | Core Loops Best in Class / B5_PickedAfter | R:487 |
+| Pantas Web | QS_WrongMid | added | Core Loops Best in Class / B3_WideMid | R:487 |
+| Pantas Web | QS_WrongSettled | added | Core Loops Best in Class / B3_WideWrong | R:487 |
+| Pantas Web | QS_WrongMotion | added | Core Loops Best in Class / B3_Motion | R:487 |
+| Pantas Redesign | MK_Results | replaced | Core Loops Best in Class / B4_PhoneResults | R:487 |
+| Pantas Redesign | MK_ReviewSubject | added | Core Loops Best in Class / B4_PhoneReview | R:487 |
+| Pantas Redesign | MK_ReviewWrong | edited (notes prompt text) | Core Loops Best in Class / B5_PhoneReviewAfter | R:487 |
+| Pantas Redesign | QV_Answer | edited (answer track above the count) | Core Loops Best in Class / B2_PhoneBar | R:487 |
+| Pantas Redesign | QV_EndPro | edited (notes prompt text) | Core Loops Best in Class / B5_PhoneEndAfter | R:487 |
+| Pantas Redesign | QV_EndLastToday | edited (notes prompt text) | Core Loops Best in Class / B5_PhoneEndAfter | R:487 |
+| Pantas Redesign | QZ_TabMotion | added | Core Loops Best in Class / B1_PhoneMotion | R:487 |
+| Pantas Redesign | QV_BarTrack | added | Core Loops Best in Class / B2_PhoneBar | R:487 |
+| Pantas Redesign | QV_BarTrackLong | added | Core Loops Best in Class / B2_PhoneLong | R:487 |
+| Pantas Redesign | QV_WrongSettled | added | Core Loops Best in Class / B3_PhoneWrong | R:487 |
+
+### Not folded
+
+- Phone reader boards P_Light and P_Dark: the spec says the phone reader is unchanged (RD_Real stays).
+- Rejected directions: Main, W2_Pinned, W3_Column, V1 to V3, K2, K3 on the reader canvas.
+- Before boards on the core loops canvas: Main, B1_PhoneBefore, B5_*Before. The B5 After boards for the end screens and the mock review were applied as edits (see Method notes), not copied.
+- W_QuizTab and QZ_Tab: their rest state does not change. The transition is drawn in QT_CardMotion and QZ_TabMotion.
+
+### Uncertain
+
+- RD_FocusOpen (lesson list) and RD_Figure (lightbox) still draw the old left outline behind the popover and the lightbox. No approved board draws those two states over the 4 Held layout, so none was invented. A sticky on the study page says so. RD_FocusMotion also still draws the outline rail and its dot in its four scenes; its bar timing stays binding and RD_HeldMotion draws the section line and the held figure.
+- W_ReaderHeldDark shows the top of the lesson only (K1). The full-length dark reader (W_ReaderDark) was superseded, so there is no full-length dark 4 Held board.
+- QV_Last (phone) and QV_EndFree, QV_EndLastToday track and marks: the source canvas draws no phone board with the track on question 10 or the marks flying into the row on phone, so QV_Last has no track yet and the phone end boards show no marks motion. QV_EndFree has no notes prompt, so it did not change.
+- B3 timing is drawn only on wide (QS_WrongMotion and W_Question). The source has no phone motion board for it, so QV_Answer and QV_Last motion are unchanged.
+- W_SessionEnd keeps its older pop-in entrance and static 7; the approved entrance with the count-up is QS_EndMotion beside it. QS_EndMotion draws the top of the screen only (no mistakes list).
+- W_Question edits are logic and CSS written to match the B3 values; they were not run. The track marks for questions 1 to 3 and the pre-question-5 marks on W_QMiss repeat the pattern of the source boards (questions 2 and 5 wrong).
+- QS_PickedNoHint and QS_BarTrack draw the same state (both are council boards).
