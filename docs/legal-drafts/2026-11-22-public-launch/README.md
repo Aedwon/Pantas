@@ -222,7 +222,7 @@ Texts changed: the Notice for teens (flag paragraphs, guardian evidence, report 
 3. **"Only declarations made by a parent or guardian."** The tick cannot prove who ticked. The texts now say the copy is made where the buyer "said they are" a parent or legal guardian. The ruling's selection by recorded kind is unchanged.
 4. **A binding preservation order.** The cleanup cannot honor one, and no wording cures it. The ruling removes the legal-hold bracket. The general sentence now limits its longer-keeping exception to records other than guardian evidence and question reports.
 5. **Checkout claims before the build.** The texts say a tick is required on every web purchase, the wording version is recorded and the Terms open without ticking. The checked-out code does not do these yet (D2 build). Publish only after it ships.
-6. **Refund route for a guardian-denied purchase.** PayMongo refund windows can close. Pantas must be able to refund by another route (the QR Ph bank transfer path) when the window has passed.
+6. **Refund route for a guardian-denied purchase.** PayMongo's refund route can be closed for a payment (cards have a 60-day window in its refund table, and its table lists QR Ph as not refundable through the API; a separate QR Ph page describes a dashboard refund). The texts state no QR Ph window. Pantas must be able to refund by a transfer by hand to the payer when PayMongo's route is closed.
 
 ## Publish gate for claims that need a build (ruling H5)
 
@@ -253,3 +253,14 @@ The change email wording and the in-app notice are not drafted here. They follow
 ## Nov 23 round 3, Fable rulings H1 to H6 applied
 
 H1: a decline deletes the request record at once, with its guardian page links. H3: confirmed, the texts say the buyer "said they are" a guardian. H4: both notices allow one exception, a copy made by hand under a binding order, and never pause cleanup. H5: the table above. H6: the Terms refund route covers any closed original route. Open for round 4: the basis for the open request (Section 13(b) with Advisory Opinion 2017-049, against 13(f)) and RA 10175 Section 13 for the H4 sentence.
+
+## Nov 23 round 4: Sol High on the open-request basis and the court-order sentence
+
+Critique: `critique-2026-11-23c-sol-high.md` (prompt in the run, two questions only).
+
+**Applied (wording).** The Teen Notice basis bullet and the "Why we ask your age" paragraph claim no Section 13 basis for the open flag. They state its purpose and deletion plainly. Section 12(f) covers contact details, Section 13(a) the uses a guardian approves, and Section 13(f) only the separate answer record. "Court or authority" is now "a court or another authority with legal power to issue the order". The line "Choosing Continue means you agree to this check" is now "Tap Continue to run the age check", so it does not read as consent. Advisory Opinion 2017-049 concerns a teacher searching a student's phone. It is not a guardian-permission rule, and Section 13(b) does not fit.
+
+### Needs a product or code decision (round 4)
+
+1. **The flag before a guardian answers has no Section 13 basis.** Sol High's verdict: claim none. This is the risk Aedwon accepted on Nov 11, and H1 keeps it. The notice now claims no more than the purpose. Sol High's biggest risk is Section 25 exposure for unauthorized processing even when the request is deleted on time. Only guardian-first sign-up removes it.
+2. **The binding-order sentence conflicts with the H4 ruling.** Sol High says RA 10175 Section 13 requires preserving data integrity, so a hand copy may not satisfy an order that needs the live record, and cleanup must not delete it. It also notes a preservation duty can exist without an order (six months for traffic data and subscriber information, six months from an order for content data). It would replace the exception with "We may keep specific records beyond these periods when the law requires it, including under a binding order." H4 fixes the copy-by-hand wording, so it is kept. The runbook step "legal advice before the next cleanup run" is the cover.

@@ -108,3 +108,10 @@ Codex Sol High critiqued only these changes (`critique-2026-11-23b-sol-high.md`)
 - **Refund route:** the Terms say that if the original payment route is closed, we send a bank or e-wallet transfer to the payer only.
 - **Publish gate:** the README lists each claim that needs a build and says to check it live on prod first.
 - **Still open for round 4:** the legal basis for the open request, and the Cybercrime Act section behind the court-order sentence.
+
+## Nov 23 round 4 (Sol High, two checks)
+
+- **Open request:** the Notice for teens no longer claims a legal basis for the age group record while a request is open. It says what it is for and when it is deleted. Sol High found no Section 13 basis that fits. This is the risk you accepted on Nov 11.
+- **Court order:** the exception now names "a court or another authority with legal power to issue the order". Sol High warns a hand copy may not satisfy an order that needs the live record. The ruling stands. It is in the README for you.
+- **Continue button:** "Choosing Continue means you agree" is now "Tap Continue to run the age check", so it does not read as consent.
+- **Refund windows:** no text states a QR Ph refund window. Cards say 60 days only in the README note.
