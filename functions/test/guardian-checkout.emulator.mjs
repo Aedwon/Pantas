@@ -115,7 +115,21 @@ test('reusing an open checkout without a declaration is refused and leaves the r
 
 // ---- Round 2: immutable declarations, in-transaction consent, closure ---------------------------
 
-const activeClient = d => { d.client.getCheckoutSession = async id => ({id, status: 'active', payments: []}); return d; };
+/** A stateful PayMongo fake: sessions stay active until expired; expiry can refuse (400) or fail. */
+const activeClient = d => {
+  d.expired = new Set(); d.paid = new Set(); d.expireCalls = []; d.expireMode = 'ok';
+  d.client.getCheckoutSession = async id => ({id, status: d.expired.has(id) ? 'expired' : 'active',
+    payments: d.paid.has(id) ? [{id: `pay_${id}`, status: 'paid', amount: 14900, currency: 'PHP'}] : []});
+  d.client.expireCheckoutSession = async id => {
+    d.expireCalls.push(id);
+    if (d.onExpire) await d.onExpire(id);
+    if (d.expireMode === 'throw') throw new Error('network down');
+    if (d.expireMode === 'refuse') return false;
+    d.expired.add(id);
+    return true;
+  };
+  return d;
+};
 const updateTimes = async refs => Promise.all(refs.map(async ref => (await ref.get()).updateTime.toMillis()));
 
 test('reusing an open checkout never rewrites the stored declaration', async () => {
@@ -221,4 +235,63 @@ test('an account closed after the first check gets no checkout', async () => {
     await nothingWritten(uid, d);
     await db.doc(`accountDeletions/${uid}`).delete();
   }
+});
+
+// ---- Round 3: never two payable links ------------------------------------------------------------
+
+test('a replacement expires the old PayMongo link first', async () => {
+  const uid = 'gc-expire'; await reset(uid);
+  const d = activeClient(deps());
+  const first = await createCheckout(caller(uid), {product, declaration: adult}, d);
+  await db.doc(`paymongoOrders/${first.reference}`).update({'declaration.wordingVersion': 'checkout-adult-2026-11-01'});
+  const second = await createCheckout(caller(uid), {product, declaration: adult}, d);
+  assert.deepEqual(d.expireCalls, [first.sessionId]);
+  assert.ok(d.expired.has(first.sessionId));
+  assert.notEqual(second.sessionId, first.sessionId);
+  assert.equal(d.calls.length, 2);
+});
+
+test('payment racing the expiry means no replacement and no second link', async () => {
+  const uid = 'gc-race'; await reset(uid);
+  const d = activeClient(deps());
+  const first = await createCheckout(caller(uid), {product, declaration: adult}, d);
+  await db.doc(`paymongoOrders/${first.reference}`).update({declaration: FieldValue.delete()});
+  d.expireMode = 'refuse';
+  d.onExpire = async id => { d.paid.add(id); };
+  await assert.rejects(createCheckout(caller(uid), {product, declaration: adult}, d),
+    {code: 'failed-precondition', message: 'Your payment is being confirmed. Pro will appear shortly.'});
+  assert.equal(d.calls.length, 1, 'no second session');
+  assert.equal((await db.collection('paymongoOrders').where('uid', '==', uid).get()).size, 1, 'no second order');
+  assert.equal((await db.doc(`users/${uid}/pendingCheckouts/${(await db.collection(`users/${uid}/pendingCheckouts`).get()).docs[0].id}`).get()).get('reference'), first.reference,
+    'the reservation still points at the paid session');
+});
+
+test('a refused expiry for a pending payment refuses the replacement, retryably', async () => {
+  const uid = 'gc-pending'; await reset(uid);
+  const d = activeClient(deps());
+  const first = await createCheckout(caller(uid), {product, declaration: adult}, d);
+  await db.doc(`paymongoOrders/${first.reference}`).update({declaration: FieldValue.delete()});
+  d.expireMode = 'refuse';
+  await assert.rejects(createCheckout(caller(uid), {product, declaration: adult}, d), {code: 'unavailable'});
+  assert.equal(d.calls.length, 1);
+});
+
+test('an expiry that fails refuses the replacement, retryably', async () => {
+  const uid = 'gc-expire-fail'; await reset(uid);
+  const d = activeClient(deps());
+  const first = await createCheckout(caller(uid), {product, declaration: adult}, d);
+  await db.doc(`paymongoOrders/${first.reference}`).update({declaration: FieldValue.delete()});
+  d.expireMode = 'throw';
+  await assert.rejects(createCheckout(caller(uid), {product, declaration: adult}, d), {code: 'unavailable'});
+  assert.equal(d.calls.length, 1);
+});
+
+test('an already expired old session is replaced without another expire call', async () => {
+  const uid = 'gc-already-expired'; await reset(uid);
+  const d = activeClient(deps());
+  const first = await createCheckout(caller(uid), {product, declaration: adult}, d);
+  d.expired.add(first.sessionId);
+  const second = await createCheckout(caller(uid), {product, declaration: adult}, d);
+  assert.deepEqual(d.expireCalls, []);
+  assert.notEqual(second.sessionId, first.sessionId);
 });

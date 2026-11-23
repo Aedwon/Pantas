@@ -26,7 +26,8 @@ const obj = (v: unknown): Record<string, unknown> =>
   v !== null && typeof v === 'object' && !Array.isArray(v) ? v as Record<string, unknown> : {};
 
 async function audit(db: Firestore, uid: string | null, event: string, metadata: Record<string, unknown>) {
-  console.error('PayMongo webhook', {event, uid, ...metadata});
+  // The audit record below keeps the detail. The log line names the event only.
+  console.error('PayMongo webhook', {reason: event.replace(/^paymongo/, '').replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()});
   await db.collection('audit_logs').add({uid, event, timestamp: FieldValue.serverTimestamp(), metadata});
 }
 
@@ -89,8 +90,9 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
       return unfulfilled(deps.db, event.id, sessionId, 'amountMismatch', uid, paid[0]?.id);
     }
     const reference = session.metadata.reference;
-    const checkout = await deps.db.doc(reference && /^[0-9a-f-]{36}$/.test(reference)
-      ? `paymongoOrders/${reference}` : `paymongoCheckouts/${sessionId}`).get();
+    const checkoutPath = reference && /^[0-9a-f-]{36}$/.test(reference)
+      ? `paymongoOrders/${reference}` : `paymongoCheckouts/${sessionId}`;
+    const checkout = await deps.db.doc(checkoutPath).get();
     const paidAt = paid[0].paidAt;
     const bound = checkout.exists && checkout.get('uid') === uid && checkout.get('product') === productId &&
       (!checkout.get('sessionId') || checkout.get('sessionId') === sessionId);
@@ -115,18 +117,24 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
         paymentId: paid[0].id, paidAmount: paid[0].amount, product, paidAt: paidAt!, sitting: checkout.get('sitting') as Sitting | undefined}, now(), deps.catalog ?? examCatalog);
       if (outcome === 'noSitting') return 500;
     }
-    // A session made before declarations existed can still be paid. Access is granted above and
-    // never held back; the order is flagged for manual follow-up. Nothing but a reason code is logged.
-    if (!checkout.get('declaration') && typeof checkout.get('attestedAt') !== 'number') {
-      await checkout.ref.set({declarationMissing: true}, {merge: true});
-      logger.warn('Paid checkout has no declaration', {reason: 'declaration-missing'});
+    await copyIfPending(deps, uid);
+    // A session made before declarations existed can still be paid. Access is granted and the
+    // claims copied above, so a failed flag write never delays it. The order is flagged once for
+    // manual follow-up; only a reason code is logged.
+    if (!checkout.get('declaration') && typeof checkout.get('attestedAt') !== 'number' &&
+        checkout.get('declarationMissing') !== true) {
+      try {
+        await deps.db.doc(checkoutPath).update({declarationMissing: true});
+        logger.warn('Paid checkout has no declaration', {reason: 'declaration-missing'});
+      } catch {
+        logger.warn('Could not flag a paid checkout with no declaration', {reason: 'declaration-flag-failed'});
+      }
     }
     const sessionFollowUp = deps.db.doc(`paymongoFollowUps/${encodeURIComponent(sessionId)}`);
     if ((await sessionFollowUp.get()).exists) await sessionFollowUp.update({status: 'resolved'});
-    await copyIfPending(deps, uid);
     return 200;
   } catch (error) {
-    console.error('PayMongo reconciliation failed', {eventId: event.id, error});
+    console.error('PayMongo reconciliation failed', {reason: 'reconciliation-failed'});
     const sessionId = text(event.data.id);
     if (event.type === PAID && event.data.type === 'checkout_session' && sessionId) {
       return unfulfilled(deps.db, event.id, sessionId, 'reconciliationFailed');

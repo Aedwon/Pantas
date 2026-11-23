@@ -373,6 +373,25 @@ void main() {
     expect(buyPressed(tester, wide: false), isNotNull);
   });
 
+  testWidgets(
+      'a tick is not remembered: wording A, B, then A again is '
+      'unticked with Pay off', (tester) async {
+    await pumpPro(tester, wide: false);
+    await tick(tester);
+    expect(buyPressed(tester, wide: false), isNotNull);
+    final signal = ProviderScope.containerOf(
+      tester.element(find.byType(ProPage)),
+    ).read(_guardianSignal.notifier)
+      ..state = true;
+    await tester.pumpAndSettle();
+    expect(buyPressed(tester, wide: false), isNull);
+    signal.state = false;
+    await tester.pumpAndSettle();
+    expect(box(), findsOneWidget);
+    expect(tester.widget<CheckboxRow>(box()).selected, isFalse);
+    expect(buyPressed(tester, wide: false), isNull);
+  });
+
   testWidgets('a tick does not carry over to another account', (tester) async {
     await pumpPro(tester, wide: false);
     await tick(tester);

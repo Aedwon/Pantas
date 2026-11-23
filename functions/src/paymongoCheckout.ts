@@ -133,7 +133,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   });
   if (reserved) {
     if (reserved.state !== 'open') throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
-    const remote = await deps.client.getCheckoutSession(reserved.sessionId!);
+    let remote = await deps.client.getCheckoutSession(reserved.sessionId!);
     const paidAlready = remote.payments.some(p => p.status === 'paid');
     if (reserved.matches && remote.status === 'active' && !paidAlready) {
       // Declarations are written once and never rewritten: a later write could land on an order
@@ -141,18 +141,30 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
       declarationFor(await deps.db.getAll(...accountRefs(deps.db, uid)), data, now);
       return {checkoutUrl: reserved.checkoutUrl!, sessionId: reserved.sessionId!, reference: reserved.reference!};
     }
-    // An open session whose declaration differs (or is missing: made before this release) is
-    // replaced, never edited. An unpaid session needs no expiry for that.
-    if (reserved.matches && remote.status !== 'expired' && !paidAlready) {
-      throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
+    // Never two payable links. PayMongo checkout sessions do not expire on their own, so a session
+    // that is to be replaced is expired first and read again. A refused expiry (400: already
+    // paid, or a payment is pending or processing) or a failed one means the old link may still
+    // be payable: no replacement is made, and the buyer can retry.
+    if (remote.status !== 'expired' && !paidAlready) {
+      try {
+        await deps.client.expireCheckoutSession(reserved.sessionId!);
+        remote = await deps.client.getCheckoutSession(reserved.sessionId!);
+      } catch {
+        logger.warn('Checkout replacement refused: the old session could not be expired', {reason: 'expire-failed'});
+        throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
+      }
     }
     // A paid session whose webhook has not granted yet must never lead to a second session: the
     // customer could pay twice. Keep the reservation so the webhook completes the grant.
     for (const payment of remote.payments.filter(p => p.status === 'paid')) {
       if (!(await deps.db.doc(`paymongoPayments/${grantDocId(payment.id)}`).get()).exists) {
-        logger.warn('Checkout replacement refused: previous session is paid and its grant is not processed yet');
+        logger.warn('Checkout replacement refused: previous session is paid and its grant is not processed yet', {reason: 'paid-ungranted'});
         throw new HttpsError('failed-precondition', 'Your payment is being confirmed. Pro will appear shortly.');
       }
+    }
+    // Replace only a session confirmed expired, or one that was paid and already granted.
+    if (remote.status !== 'expired' && !remote.payments.some(p => p.status === 'paid')) {
+      throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
     }
     // Compare-and-swap: only one request can replace a completed/expired checkout.
     await deps.db.runTransaction(async transaction => {

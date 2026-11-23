@@ -127,6 +127,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   /// version. A tick counts only while this still matches what is shown.
   String? _tickedFor;
 
+  /// The declaration last shown. When it changes, the tick is forgotten, even
+  /// if an earlier one comes back: each wording needs its own fresh tick.
+  String? _shownFor;
+
   /// The wording the server asked for after it refused the one shown.
   DeclarationKind? _serverKind;
 
@@ -823,6 +827,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final tickKey = declaration == null
         ? null
         : '${user?.uid}|${declaration.toJson().values.join('|')}';
+    if (_shownFor != tickKey) {
+      _shownFor = tickKey;
+      _tickedFor = null;
+    }
     final declarationTicked = tickKey != null && _tickedFor == tickKey;
     final buyLocked = _busy || (declarationBox && !declarationTicked);
     final purchaseLabel = selectedPass != null

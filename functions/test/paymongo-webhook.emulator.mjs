@@ -704,3 +704,66 @@ test('declared and pre-rollout guardian orders are not flagged', async () => {
     assert.equal((await db.doc(`paymongoOrders/${reference}`).get()).get('declarationMissing'), undefined);
   }
 });
+
+// ---- Round 3: log lines carry reason codes only; the flag never delays access --------------------
+
+test('the amount-mismatch log line carries no account id and no payment data', async () => {
+  const uid = 'pm-secret-uid-amt';
+  await reset(uid);
+  const {deps} = setup(uid, 'pantas_cs_weekly', {amount: 4800, sessionId: 'cs_amt_log', paymentId: 'pay_secret_amt'});
+  let status;
+  const logs = await capturedLogs(async () => { status = await send(paidEvent({sessionId: 'cs_amt_log', uid, product: 'pantas_cs_weekly'}), deps); });
+  assert.equal(status, 500);
+  assert.match(logs, /amount-mismatch/);
+  for (const secret of [uid, 'pay_secret_amt', '4800', 'cs_amt_log']) assert.equal(logs.includes(secret), false, secret);
+  const audit = await db.collection('audit_logs').where('uid', '==', uid).get();
+  assert.equal(audit.size, 1, 'the audit record itself is kept');
+});
+
+/** Counts (and can fail) writes to one document by wrapping db.doc for the duration of `run`. */
+async function watched(path, run, {failUpdate = false} = {}) {
+  const calls = [];
+  const original = db.doc.bind(db);
+  db.doc = p => {
+    const ref = original(p);
+    if (p !== path) return ref;
+    return new Proxy(ref, {get(r, name) {
+      if (name === 'update' || name === 'set') return async (...a) => { calls.push(name); if (failUpdate) throw new Error('flag write failed'); return r[name](...a); };
+      const value = Reflect.get(r, name);
+      return typeof value === 'function' ? value.bind(r) : value;
+    }});
+  };
+  try { await run(); } finally { db.doc = original; }
+  return calls;
+}
+
+test('claims are copied before the flag is written, and a failed flag write never delays access', async () => {
+  const uid = 'pm-flag-fail';
+  await reset(uid);
+  const reference = REF(11);
+  await db.doc(`paymongoOrders/${reference}`).set({uid, product: 'pantas_cs_monthly', createdAt: 1});
+  const {deps, auth} = setup(uid, 'pantas_cs_monthly', {sessionId: 'cs_flagfail'});
+  deps.client.sessions.cs_flagfail.metadata = {uid, product: 'pantas_cs_monthly', reference};
+  let status;
+  const calls = await watched(`paymongoOrders/${reference}`, async () => {
+    status = await send(paidEvent({sessionId: 'cs_flagfail', uid, product: 'pantas_cs_monthly', metadata: {uid, product: 'pantas_cs_monthly', reference}}), deps);
+  }, {failUpdate: true});
+  assert.equal(status, 200, 'the failed flag write does not make PayMongo retry');
+  assert.equal(auth.current().pro, true, 'claims were copied');
+  assert.equal((await grants(uid)).length, 1);
+  assert.ok(calls.length >= 1, 'the flag write was attempted');
+});
+
+test('an already flagged order is not written again on a replay, and an existing order is only updated', async () => {
+  const uid = 'pm-flag-once';
+  await reset(uid);
+  const reference = REF(12);
+  await db.doc(`paymongoOrders/${reference}`).set({uid, product: 'pantas_cs_monthly', createdAt: 1});
+  const {deps} = setup(uid, 'pantas_cs_monthly', {sessionId: 'cs_flagonce'});
+  deps.client.sessions.cs_flagonce.metadata = {uid, product: 'pantas_cs_monthly', reference};
+  const body = () => paidEvent({sessionId: 'cs_flagonce', uid, product: 'pantas_cs_monthly', metadata: {uid, product: 'pantas_cs_monthly', reference}});
+  const first = await watched(`paymongoOrders/${reference}`, async () => { assert.equal(await send(body(), deps), 200); });
+  assert.deepEqual(first, ['update'], 'the first delivery updates the existing order once');
+  const replay = await watched(`paymongoOrders/${reference}`, async () => { assert.equal(await send(body(), deps), 200); });
+  assert.deepEqual(replay, [], 'the replay writes nothing');
+});
