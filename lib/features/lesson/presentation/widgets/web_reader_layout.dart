@@ -24,7 +24,6 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
-import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
@@ -625,14 +624,6 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                           color: t.colors.textPrimary,
                         ),
                       ),
-                      LessonBiteLabel(
-                        lessonId: lesson.id,
-                        part: lesson.part,
-                        partCount: lesson.partCount,
-                        style: PantasType.webSmall.copyWith(
-                          color: t.colors.textSecondary,
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -863,14 +854,10 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              LessonBiteLabel(
-                lessonId: reader.lesson.id,
-                part: reader.lesson.part,
-                partCount: reader.lesson.partCount,
-                prefix: reader.topicName,
-                style: t.sub,
-              ),
-              const SizedBox(height: PantasSpace.s8),
+              // Board (W_Reader): the topic in 15 px secondary, 6 px over the
+              // title. No part or count line.
+              Text(reader.topicName, style: t.sub),
+              const SizedBox(height: PantasSpace.s6),
               Text(
                 reader.lesson.title,
                 style: PantasType.webH1.copyWith(color: t.colors.textPrimary),
@@ -1311,7 +1298,6 @@ class WebReaderNext extends StatelessWidget {
     required this.label,
     required this.title,
     this.detail,
-    this.detailWidget,
     this.onPressed,
     this.topGap = PantasSpace.s18,
     this.pull,
@@ -1326,8 +1312,6 @@ class WebReaderNext extends StatelessWidget {
   final String title;
   final String? detail;
 
-  /// A line under the title that builds itself (the next lesson's label).
-  final Widget? detailWidget;
   final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
@@ -1387,10 +1371,6 @@ class WebReaderNext extends StatelessWidget {
                         if (detail != null) ...[
                           const SizedBox(height: PantasSpace.s2),
                           Text(detail!, style: t.sub),
-                        ],
-                        if (detailWidget != null) ...[
-                          const SizedBox(height: PantasSpace.s2),
-                          detailWidget!,
                         ],
                       ],
                     ),

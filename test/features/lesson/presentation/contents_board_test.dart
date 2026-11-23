@@ -15,13 +15,13 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
-import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
 
 import '../../../helpers/accessibility.dart';
+import '../../../helpers/no_part_label.dart';
 
 const first = StudyLesson(
   id: 'l1',
@@ -451,12 +451,9 @@ void main() {
       color: PantasColors.light.separator,
       gap: 6,
     );
-    expect(
-      tester
-          .widgetList<LessonBiteLabel>(find.byType(LessonBiteLabel))
-          .map((label) => label.topicLine),
-      ['Biology', 'Chemistry', 'Chemistry'],
-    );
+    expect(find.text('Biology'), findsOneWidget);
+    expect(find.text('Chemistry'), findsNWidgets(2));
+    expectNoPartLabel();
     expect(find.textContaining(' min'), findsNothing);
     expect(find.text('Reading'), findsOneWidget);
     expect(tester.takeException(), isNull);

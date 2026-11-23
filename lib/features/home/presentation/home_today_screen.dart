@@ -43,7 +43,6 @@ import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
-import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/domain/paused_quiz_conflict.dart';
@@ -916,11 +915,6 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               ),
               boardMetrics: true,
               divider: !last,
-              footer: LessonBiteLabel(
-                lessonId: lesson.id,
-                part: lesson.part,
-                partCount: lesson.partCount,
-              ),
               leading: HomeDrawerRing(
                 lesson.read ? 1 : lesson.fraction ?? 0,
                 done: lesson.read,
@@ -930,11 +924,6 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
             )
           : ListRow(
               title: lesson.title,
-              footer: LessonBiteLabel(
-                lessonId: lesson.id,
-                part: lesson.part,
-                partCount: lesson.partCount,
-              ),
               variant: ListRowVariant.value,
               naturalValue: true,
               // A long title is read in full, not cut with dots (Nov 3 rule).
