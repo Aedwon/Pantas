@@ -63,7 +63,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
     setState(() => _working = true);
     final BetaRewardActivation result;
     final gateway = ref.read(revenueCatGatewayProvider);
-    final uid = _signedInUid();
+    final uid = await _signedInUid();
     try {
       result = await ref.read(betaFeedbackApiProvider).activate();
     } on Exception {
@@ -76,9 +76,10 @@ class _RewardCardState extends ConsumerState<RewardCard>
     // The year is on the server now. Read the same account's coverage again
     // so this session shows Pro without a reload. If another account signed
     // in meanwhile, leave it alone.
-    if (uid != null && _signedInUid() == uid) {
+    if (uid != null && await _signedInUid() == uid && mounted) {
       unawaited(_refreshEntitlement(gateway));
     }
+    if (!mounted) return;
     setState(() {
       _result = result;
       _working = false;
@@ -91,8 +92,16 @@ class _RewardCardState extends ConsumerState<RewardCard>
     ref.invalidate(betaRewardProvider);
   }
 
-  String? _signedInUid() =>
-      ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid;
+  /// The signed-in account, waiting for the auth state if it is still
+  /// loading, so a loading moment never skips the refresh for the same
+  /// account. Unknown (an error) counts as no account.
+  Future<String?> _signedInUid() async {
+    try {
+      return (await ref.read(currentUserProvider.future))?.uid;
+    } on Object {
+      return null;
+    }
+  }
 
   Future<void> _refreshEntitlement(RevenueCatGateway gateway) async {
     try {

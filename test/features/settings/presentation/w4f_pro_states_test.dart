@@ -398,7 +398,7 @@ void main() {
         plan: EntitlementPlan.monthly,
         productId: 'pantas_pro_monthly',
         tier: PriceTier.student,
-        expiresAt: DateTime.now().add(const Duration(days: 30)),
+        expiresAt: _clock.add(const Duration(days: 30)),
       ),
     );
     expect(
@@ -434,7 +434,7 @@ void main() {
         plan: EntitlementPlan.monthly,
         productId: 'pantas_pro_monthly',
         tier: PriceTier.student,
-        expiresAt: DateTime.now().add(const Duration(days: 30)),
+        expiresAt: _clock.add(const Duration(days: 30)),
         state: EntitlementState.billingIssue,
       ),
     );

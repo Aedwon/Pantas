@@ -259,6 +259,36 @@ void main() {
       expect(reads, 2);
     });
 
+    testWidgets('an account still loading when Activate is tapped is read',
+        (tester) async {
+      var reads = 0;
+      final gateway = _gateway(() => reads++);
+      await gateway.logIn('tester');
+      expect(reads, 1);
+      final signedIn = Completer<AuthUser?>();
+      final h = _harness();
+      await h.pump(
+        tester,
+        _page,
+        overrides: [
+          revenueCatGatewayProvider.overrideWithValue(gateway),
+          currentUserProvider.overrideWith((ref) => signedIn.future),
+        ],
+      );
+      await tester.tap(_activate);
+      await tester.pump();
+      signedIn.complete(
+        const AuthUser(
+          uid: 'tester',
+          email: 'tester@example.com',
+          displayName: 'Tester',
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(reads, 2, reason: 'a loading moment must not skip the refresh');
+    });
+
     testWidgets('another account signing in before the reply is not read',
         (tester) async {
       final account = StateProvider<String>((ref) => 'a');
