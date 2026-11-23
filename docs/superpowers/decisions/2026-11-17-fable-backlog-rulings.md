@@ -428,3 +428,10 @@ Council (Aedwon, Nov 23, relayed by the manager): for a build-versus-board diffe
 - Gemini 4 Neon High: B. "Clearer student hierarchy" and "cleaner, tighter craft" at 13 px with an 8 px gap.
 - Ruling: B. Condition both named: switch to A if real topic names wrap to two lines in caps at 390 px; the T3 review checks the longest CSE topic name.
 - Applied in T3 (`qa/no-part-label-r1`). Wide web keeps the topic at 15 px per W_Reader.
+
+### C2. A long topic on the phone reader eyebrow (state no board draws): drop the parenthetical aside (Fable 5.2)
+
+- Found by the T3 board review: "Spatial & Abstract (Non-Verbal) Reasoning" in 13 px caps measures about 339 px of 342 px at 390 px, so it wraps to two lines on 360 to 375 px phones or with larger text. RD_Real never shows a topic this long.
+- Options: let it wrap; one line with an ellipsis; a shorter eyebrow name; other.
+- Fable 5.2 (high), verbatim ruling: "Option 3. Show \"SPATIAL & ABSTRACT REASONING\" on the reader eyebrow, full name elsewhere and to screen readers, no line limit, wrap as fallback, never an ellipsis." Reasons: "(NON-VERBAL)" restates "SPATIAL & ABSTRACT", matching his compress-text guidance; an ellipsis clips meaning when text is scaled (WCAG 1.4.4, 1.4.10).
+- Applied as one general rule instead of a new content field: the reader eyebrow drops a parenthetical aside (`readerEyebrowText`, `qa/no-part-label-r1` a7b10ab4a), and the full name is the semantics label.
