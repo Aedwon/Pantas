@@ -462,6 +462,21 @@ void main() {
     expect(inner.calls, ['signOut'], reason: 'nothing is pending any more');
   });
 
+  test('a slow but healthy send still lets sign-out go on', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final inner = _Inner();
+    final gateway = ReportsFirstTransitionGateway(
+      inner,
+      () => _StalledQueue(db, slowSend: const Duration(milliseconds: 1500)),
+      log: (_) {},
+    );
+
+    await gateway.prepareForSignOut();
+
+    expect(inner.calls, ['signOut']);
+  });
+
   test('delete account is not held by reports', () async {
     final (gateway, queue, sender, innerGateway, _) = await _build();
     sender.failure = Exception('offline');
@@ -576,6 +591,7 @@ class _StalledQueue extends ReportQueue {
     this.stallRefused = false,
     this.failPending = false,
     this.stallSend = false,
+    this.slowSend,
     this.slowEach,
   }) : super(account: () => 'acct-a');
 
@@ -583,11 +599,13 @@ class _StalledQueue extends ReportQueue {
   final bool stallRefused;
   final bool failPending;
   final bool stallSend;
+  final Duration? slowSend;
   final Duration? slowEach;
 
   @override
   Future<int> sendPending() async {
     if (stallSend) return Completer<int>().future;
+    if (slowSend != null) await Future<void>.delayed(slowSend!);
     if (slowEach != null) await Future<void>.delayed(slowEach!);
     return 0;
   }

@@ -23,7 +23,7 @@ class ReportsFirstTransitionGateway implements AccountTransitionGateway {
   ReportsFirstTransitionGateway(
     this._inner,
     this._queue, {
-    this.limit = const Duration(seconds: 2),
+    this.limit = const Duration(seconds: 3),
     void Function(String line)? log,
     bool Function(String uid)? isClosed,
     this.onRefused,
@@ -37,6 +37,15 @@ class ReportsFirstTransitionGateway implements AccountTransitionGateway {
   /// One limit for the whole check: the send, the pending read and the
   /// refusal read together.
   final Duration limit;
+
+  /// What the pending and refusal reads keep for themselves out of [limit].
+  static const readBudget = Duration(milliseconds: 500);
+
+  Duration get _sendLimit {
+    final rest = limit - readBudget;
+    return rest > Duration.zero ? rest : limit ~/ 2;
+  }
+
   final void Function(String line) _log;
 
   /// True when the server has closed this account (a guardian withdrew, or it
@@ -90,9 +99,10 @@ class ReportsFirstTransitionGateway implements AccountTransitionGateway {
 
   Future<void> _check(ReportQueue queue) async {
     try {
-      // Half the limit at most: a send that never answers must still leave
-      // time to read what is pending, which then decides.
-      await queue.sendPending().timeout(limit ~/ 2);
+      // The send gets all but a fixed read budget, so a slow but healthy send
+      // still finishes, and a send that never answers still leaves time to
+      // read what is pending, which then decides.
+      await queue.sendPending().timeout(_sendLimit);
     } on Object {
       // What is still pending decides, below.
     }
