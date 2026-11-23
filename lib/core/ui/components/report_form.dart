@@ -76,10 +76,6 @@ String reportDeliveryText(ReportDelivery delivery) => switch (delivery) {
       ReportDelivery.saved => "Saved. It sends when you're back online.",
     };
 
-/// How long the form waits for the server before it says the report is saved
-/// and goes on sending in the background.
-const _sendWait = Duration(seconds: 5);
-
 /// Stops typing at the longest message the server takes, with no counter.
 final _lengthLimit = <TextInputFormatter>[
   LengthLimitingTextInputFormatter(ReportQueue.maxMessageLength),
@@ -152,14 +148,18 @@ class _ReportFormState extends State<ReportForm> {
       _failed = false;
     });
     try {
-      final result = await widget.queue.add(
+      // Saves, then sends. The outcome is this report's own: a refusal (the
+      // question's reports used up, even from another device) shows the limit
+      // state and never a thank-you.
+      final submission = await widget.queue.submit(
         widget.questionId,
         _text.text,
         DateTime.now(),
         examId: widget.examId,
         questionVersion: widget.questionVersion,
       );
-      final delivery = result == ReportResult.queued ? await _deliver() : null;
+      final result = submission.result;
+      final delivery = submission.delivery;
       if (!mounted) return;
       setState(() {
         _busy = false;
@@ -187,17 +187,6 @@ class _ReportFormState extends State<ReportForm> {
           _failed = true;
         });
       }
-    }
-  }
-
-  /// Sends now. The report is already safe on the device, so a slow or failed
-  /// send only changes what the student is told.
-  Future<ReportDelivery> _deliver() async {
-    try {
-      final left = await widget.queue.sendPending().timeout(_sendWait);
-      return left == 0 ? ReportDelivery.sent : ReportDelivery.saved;
-    } on Object {
-      return ReportDelivery.saved;
     }
   }
 

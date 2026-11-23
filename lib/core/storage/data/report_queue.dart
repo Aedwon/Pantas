@@ -90,12 +90,14 @@ class ReportQueue {
     this._db, {
     ReportSender? sender,
     String? Function()? account,
+    Future<String?> Function()? dataOwner,
     this.maxAttempts = 3,
     Future<void> Function(Duration)? wait,
     String Function()? newId,
     this.retryEvery,
   })  : _sender = sender,
         _account = account ?? (() => null),
+        _dataOwner = dataOwner ?? (() async => null),
         _wait = wait ?? Future<void>.delayed,
         _newId = newId ?? (() => const Uuid().v4());
 
@@ -104,6 +106,10 @@ class ReportQueue {
 
   /// The account signed in now, or null.
   final String? Function() _account;
+
+  /// The real account the device recorded as owner of its local data. Only
+  /// that account may take over reports queued before accounts were recorded.
+  final Future<String?> Function() _dataOwner;
   final Future<void> Function(Duration) _wait;
   final String Function() _newId;
 
@@ -125,16 +131,21 @@ class ReportQueue {
   Future<void> _tail = Future<void>.value();
   Timer? _retry;
 
-  /// Reports the server has not accepted, oldest first.
+  /// Reports the signed-in account has not had accepted, oldest first.
   Future<List<QuestionReport>> pending() async => [
         for (final r in await history())
           if (r.state == ReportState.pending) r,
       ];
 
-  /// Every report ever made on this device, sent or not.
+  /// Every report the signed-in account made on this device, sent or not.
+  /// Another account's reports are not shown and not counted.
   Future<List<QuestionReport>> history() async {
+    final account = _account();
     final rows = await _rows();
-    return [for (final row in rows) _parse(row)];
+    return [
+      for (final row in rows)
+        if (row['accountId'] == account) _parse(row),
+    ];
   }
 
   Future<ReportResult?> limit(String questionId, DateTime now) async {
@@ -154,18 +165,61 @@ class ReportQueue {
     DateTime now, {
     String? examId,
     int? questionVersion,
+  }) async =>
+      (await _add(questionId, message, now, examId, questionVersion)).$1;
+
+  /// Queues a report, sends what can be sent, and says what became of this
+  /// report, not of the queue. A refusal is a limit, never a thank-you.
+  Future<ReportSubmission> submit(
+    String questionId,
+    String message,
+    DateTime now, {
+    String? examId,
+    int? questionVersion,
+    Duration wait = const Duration(seconds: 5),
   }) async {
+    final (result, id) =
+        await _add(questionId, message, now, examId, questionVersion);
+    if (result != ReportResult.queued) return ReportSubmission(result, null);
+    try {
+      await sendPending().timeout(wait);
+    } on Object {
+      // Slow or failing: the report is safe here and goes on sending.
+    }
+    final state = (await history())
+        .where((r) => r.id == id)
+        .map((r) => r.state)
+        .firstOrNull;
+    return switch (state) {
+      ReportState.sent => const ReportSubmission(
+          ReportResult.queued,
+          ReportDelivery.sent,
+        ),
+      ReportState.refused =>
+        const ReportSubmission(ReportResult.questionLimit, null),
+      _ => const ReportSubmission(ReportResult.queued, ReportDelivery.saved),
+    };
+  }
+
+  Future<(ReportResult, String?)> _add(
+    String questionId,
+    String message,
+    DateTime now,
+    String? examId,
+    int? questionVersion,
+  ) async {
     final trimmed = _cut(message.trim());
-    if (trimmed.isEmpty) return ReportResult.empty;
+    if (trimmed.isEmpty) return (ReportResult.empty, null);
     // Read before the transaction opens: the first read can start work (a
     // provider's stream) that must not run inside the transaction's zone.
     final account = _account();
     return _db.transaction(() async {
       final blocked = await limit(questionId, now);
-      if (blocked != null) return blocked;
+      if (blocked != null) return (blocked, null);
       final rows = await _rows();
+      final id = _newId();
       rows.add({
-        'id': _newId(),
+        'id': id,
         'questionId': questionId,
         'message': trimmed,
         'createdAt': now.toIso8601String(),
@@ -174,7 +228,7 @@ class ReportQueue {
         if (questionVersion != null) 'questionVersion': questionVersion,
       });
       await _write(rows);
-      return ReportResult.queued;
+      return (ReportResult.queued, id);
     });
   }
 
@@ -187,6 +241,23 @@ class ReportQueue {
     _tail = pass.then<void>((_) {}, onError: (Object _, StackTrace __) {});
     return pass;
   }
+
+  /// Stops a scheduled retry. Called when the signed-in account changes.
+  void cancelRetry() {
+    _retry?.cancel();
+    _retry = null;
+  }
+
+  /// Removes the rows of every account except [keep]. A guest who joins an
+  /// account is gone for good, and its reports can never be sent.
+  Future<void> purgeOtherAccounts(String keep) => _db.transaction(() async {
+        final rows = await _rows();
+        final kept = [
+          for (final row in rows)
+            if (row['accountId'] is! String || row['accountId'] == keep) row,
+        ];
+        if (kept.length != rows.length) await _write(kept);
+      });
 
   /// Stops a scheduled retry. The queue is not used again after this.
   void dispose() {
@@ -248,6 +319,9 @@ class ReportQueue {
       questionVersion: report.questionVersion,
     );
     for (var attempt = 1; attempt <= maxAttempts; attempt++) {
+      // Before every try, even after a wait: a student who switched accounts
+      // meanwhile must not send this report as the new account.
+      if (_account() != report.accountId) return _Outcome.unavailable;
       try {
         await sender.send(toSend);
         return _Outcome.sent;
@@ -281,9 +355,17 @@ class ReportQueue {
   /// is saved at once, so an id never changes between tries.
   Future<List<Map<String, Object?>>> _rows() async {
     final account = _account();
-    bool whole(Map<String, Object?> row) =>
-        row['id'] is String && (row['accountId'] is String || account == null);
     final stored = await _read();
+    // A report from before accounts were recorded goes to the device's
+    // recorded owner, and only when that owner is signed in. Anyone else who
+    // opens the app first leaves it alone, and it is never sent.
+    final heir = account != null &&
+            stored.any((row) => row['accountId'] is! String) &&
+            await _dataOwner() == account
+        ? account
+        : null;
+    bool whole(Map<String, Object?> row) =>
+        row['id'] is String && (row['accountId'] is String || heir == null);
     if (stored.every(whole)) return stored;
     return _db.transaction(() async {
       final rows = await _read();
@@ -293,10 +375,8 @@ class ReportQueue {
           row['id'] = _newId();
           changed = true;
         }
-        // A report from before accounts were recorded belongs to the account
-        // signed in at the first read after the upgrade.
-        if (row['accountId'] is! String && account != null) {
-          row['accountId'] = account;
+        if (row['accountId'] is! String && heir != null) {
+          row['accountId'] = heir;
           changed = true;
         }
       }
@@ -351,6 +431,14 @@ class ReportQueue {
         localA.month == localB.month &&
         localA.day == localB.day;
   }
+}
+
+/// What became of one report: [delivery] is null when it was not saved
+/// ([result] says why).
+class ReportSubmission {
+  const ReportSubmission(this.result, this.delivery);
+  final ReportResult result;
+  final ReportDelivery? delivery;
 }
 
 enum _Outcome { sent, refused, unavailable, failed }

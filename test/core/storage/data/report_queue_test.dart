@@ -30,6 +30,7 @@ ReportQueue _queue(
   AppDatabase db,
   ReportSender? sender, {
   String? Function()? account,
+  Future<String?> Function()? owner,
   int attempts = 3,
   List<Duration>? waits,
   String Function()? newId,
@@ -39,6 +40,7 @@ ReportQueue _queue(
     db,
     sender: sender,
     account: account ?? () => 'acct-a',
+    dataOwner: owner ?? () async => 'acct-a',
     maxAttempts: attempts,
     wait: (d) async => waits?.add(d),
     newId: newId ?? () => 'report-id-${n++}'.padRight(20, '0'),
@@ -282,6 +284,63 @@ void main() {
     expect(await queue.history(), hasLength(2));
   });
 
+  group('submit', () {
+    test('says sent when the server took it', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue = _queue(db, _Sender());
+      final r = await queue.submit('q', 'One', DateTime(2026, 11, 23));
+      expect(r.result, ReportResult.queued);
+      expect(r.delivery, ReportDelivery.sent);
+    });
+
+    test('says saved when it could not be sent', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue =
+          _queue(db, _Sender()..script.add(const ReportUnavailable()));
+      final r = await queue.submit('q', 'One', DateTime(2026, 11, 23));
+      expect(r.delivery, ReportDelivery.saved);
+      expect(await queue.pending(), hasLength(1));
+    });
+
+    test('never says sent for a report the server refused', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      // Another device already used this question's reports.
+      final sender = _Sender()
+        ..script.add(const ReportRefused('question-limit'));
+      final queue = _queue(db, sender);
+      final r = await queue.submit('q', 'One', DateTime(2026, 11, 23));
+      expect(r.result, ReportResult.questionLimit);
+      expect(r.delivery, isNull);
+    });
+
+    test('an older refused report does not change a new outcome', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Sender()
+        ..script.add(const ReportRefused('question-limit'));
+      final queue = _queue(db, sender);
+      await queue.add('old', 'Old', DateTime(2026, 11, 22));
+      final r = await queue.submit('q', 'New', DateTime(2026, 11, 23));
+      expect(r.delivery, ReportDelivery.sent);
+    });
+
+    test('a blank message is empty and a full question is a limit', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue = _queue(db, _Sender());
+      final blank = await queue.submit('q', ' ', DateTime(2026, 11, 23));
+      expect(blank.result, ReportResult.empty);
+      for (var i = 0; i < 3; i++) {
+        await queue.submit('q', 'C$i', DateTime(2026, 11, 23));
+      }
+      final full = await queue.submit('q', 'X', DateTime(2026, 11, 23));
+      expect(full.result, ReportResult.questionLimit);
+    });
+  });
+
   group('accounts', () {
     test('what account A queued is never sent as account B', () async {
       final db = inMemoryDatabase();
@@ -296,8 +355,9 @@ void main() {
       await queue.add('q2', 'From B', DateTime(2026, 11, 23, 10));
       expect(await queue.sendPending(), 0);
       expect(sender.sent.map((r) => r.message), ['From B']);
-      expect((await queue.pending()).map((r) => r.message), ['From A']);
+      expect((await queue.pending()).map((r) => r.message), isEmpty);
       who = 'acct-a';
+      expect((await queue.pending()).map((r) => r.message), ['From A']);
       expect(await queue.sendPending(), 0);
       expect(sender.sent.map((r) => r.message), ['From B', 'From A']);
     });
@@ -308,6 +368,59 @@ void main() {
       final queue = _queue(db, null, account: () => 'acct-a');
       await queue.add('q1', 'One', DateTime(2026, 11, 23, 10));
       expect((await queue.pending()).single.accountId, 'acct-a');
+    });
+
+    test('a retry waiting out its delay never sends under another account',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Sender()..script.addAll([Exception('offline')]);
+      String? who = 'acct-a';
+      final queue = ReportQueue(
+        db,
+        sender: sender,
+        account: () => who,
+        dataOwner: () async => 'acct-a',
+        newId: () => 'report-id-0000000000000001',
+        // The student switches accounts while the retry waits.
+        wait: (_) async => who = 'acct-b',
+      );
+      await queue.add('q1', 'From A', DateTime(2026, 11, 23, 10));
+      expect(await queue.sendPending(), 1);
+      expect(sender.calls, 1, reason: 'the second try must not run as B');
+      expect(sender.sent, isEmpty);
+      who = 'acct-a';
+      expect((await queue.pending()).single.message, 'From A');
+    });
+
+    test('history and limits count only the signed-in account', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      String? who = 'guest-1';
+      final queue = _queue(db, _Sender(), account: () => who);
+      final now = DateTime(2026, 11, 23, 10);
+      for (var i = 0; i < 3; i++) {
+        await queue.add('q', 'G$i', now);
+      }
+      expect(await queue.add('q', 'again', now), ReportResult.questionLimit);
+      who = 'acct-b';
+      expect(await queue.history(), isEmpty);
+      expect(await queue.limit('q', now), isNull);
+      expect(await queue.add('q', 'mine', now), ReportResult.queued);
+    });
+
+    test('purging the outgoing account removes its rows and keeps the rest',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      String? who = 'guest-1';
+      final queue = _queue(db, null, account: () => who);
+      await queue.add('q1', 'Guest', DateTime(2026, 11, 23, 10));
+      who = 'acct-b';
+      await queue.add('q2', 'Mine', DateTime(2026, 11, 23, 10));
+      await queue.purgeOtherAccounts('acct-b');
+      expect(await _readRaw(db), hasLength(1));
+      expect((await queue.pending()).single.message, 'Mine');
     });
 
     test('with nobody signed in nothing is sent', () async {
@@ -354,37 +467,66 @@ void main() {
       );
     });
 
-    test('they belong to the account signed in at the first read', () async {
+    test('they go to the account the device recorded as their owner', () async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       await _storeRaw(db, old);
       final sender = _Sender();
-      String? who = 'acct-a';
-      final queue = _queue(db, sender, account: () => who);
+      final queue = _queue(db, sender, owner: () async => 'acct-a');
       expect((await queue.pending()).map((r) => r.accountId), [
         'acct-a',
         'acct-a',
       ]);
-      who = 'acct-b';
-      expect(await queue.sendPending(), 0);
-      expect(sender.calls, 0);
-      who = 'acct-a';
       expect(await queue.sendPending(), 0);
       expect(sender.sent, hasLength(2));
     });
 
-    test('with nobody signed in at first read they wait for an account',
+    test('on a shared device the next account never inherits or sends them',
         () async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       await _storeRaw(db, old);
-      String? who;
       final sender = _Sender();
-      final queue = _queue(db, sender, account: () => who);
-      expect((await queue.pending()).map((r) => r.accountId), [null, null]);
-      expect(await queue.sendPending(), 2);
-      who = 'acct-b';
+      // Account A used this device. Account B opens the upgraded app first.
+      final queue = _queue(
+        db,
+        sender,
+        account: () => 'acct-b',
+        owner: () async => 'acct-a',
+      );
+      expect(await queue.pending(), isEmpty);
       expect(await queue.sendPending(), 0);
+      expect(sender.calls, 0);
+      final raw = await _readRaw(db);
+      expect(raw, hasLength(2));
+      expect(raw.every((r) => !(r as Map).containsKey('accountId')), isTrue);
+      final mine = await queue.add('q9', 'Mine', DateTime(2026, 11, 23));
+      expect(mine, ReportResult.queued);
+      await queue.sendPending();
+      expect(sender.sent.map((r) => r.message), ['Mine']);
+    });
+
+    test('with no recorded owner they are never adopted or sent', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _storeRaw(db, old);
+      final sender = _Sender();
+      final queue = _queue(db, sender, owner: () async => null);
+      expect(await queue.sendPending(), 0);
+      expect(sender.calls, 0);
+    });
+
+    test('a later read adopts them once the owner is recorded', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _storeRaw(db, old);
+      String? owner;
+      final sender = _Sender();
+      final queue = _queue(db, sender, owner: () async => owner);
+      expect(await queue.pending(), isEmpty);
+      owner = 'acct-a';
+      expect(await queue.pending(), hasLength(2));
+      await queue.sendPending();
       expect(sender.sent, hasLength(2));
     });
 

@@ -18,6 +18,12 @@ class _Accepting implements ReportSender {
   Future<void> send(QuestionReport report) async => sent.add(report);
 }
 
+class _Refusing implements ReportSender {
+  @override
+  Future<void> send(QuestionReport report) async =>
+      throw const ReportRefused('question-limit');
+}
+
 class _Offline implements ReportSender {
   @override
   Future<void> send(QuestionReport report) async =>
@@ -236,7 +242,12 @@ void main() {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       final sender = _Accepting();
-      final queue = ReportQueue(db, sender: sender, account: () => 'a');
+      final queue = ReportQueue(
+        db,
+        sender: sender,
+        account: () => 'a',
+        dataOwner: () async => 'a',
+      );
       ReportDelivery? result;
       await tester.pumpWidget(
         MaterialApp(
@@ -284,7 +295,12 @@ void main() {
       addTearDown(tester.view.reset);
       final db = inMemoryDatabase();
       addTearDown(db.close);
-      final queue = ReportQueue(db, sender: _Offline(), account: () => 'a');
+      final queue = ReportQueue(
+        db,
+        sender: _Offline(),
+        account: () => 'a',
+        dataOwner: () async => 'a',
+      );
       ReportDelivery? result;
       await tester.pumpWidget(
         MaterialApp(
@@ -316,6 +332,56 @@ void main() {
       await tester.pumpAndSettle();
       expect(result, ReportDelivery.saved);
       expect(await queue.pending(), hasLength(1));
+    });
+
+    testWidgets(
+        'a report the server refused shows the limit, never thanks '
+        '(wide=$wide)', (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = wide ? const Size(1440, 900) : const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue = ReportQueue(
+        db,
+        sender: _Refusing(),
+        account: () => 'a',
+        dataOwner: () async => 'a',
+      );
+      ReportDelivery? result;
+      var closed = false;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: Scaffold(
+            body: Builder(
+              builder: (context) => TextButton(
+                onPressed: () async {
+                  result = await openQuestionReport(context, 'q', queue: queue);
+                  closed = true;
+                },
+                child: const Text('Report'),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.text('Report'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Wrong answer key.');
+      await tester.pump();
+      await tester.tap(find.text('Save'));
+      await tester.pump();
+      await tester.pump();
+      expect(find.textContaining('Thank you'), findsNothing);
+      expect(find.textContaining('Saved.'), findsNothing);
+      expect(find.text('You reported this question before.'), findsOneWidget);
+      await tester.pump(const Duration(seconds: 3));
+      expect(closed, isFalse, reason: 'the form stays open on a refusal');
+      expect(result, isNull);
     });
 
     testWidgets('typing stops at the longest message (wide=$wide)',

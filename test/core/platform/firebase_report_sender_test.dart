@@ -5,6 +5,7 @@ import 'package:pantas/core/storage/data/report_queue.dart';
 
 QuestionReport _report({String? examId, int? version}) => QuestionReport(
       id: 'report-id-0000000001',
+      accountId: 'acct-a',
       questionId: 'cse-q-1',
       message: 'Two answers look right.',
       createdAt: DateTime(2026, 11, 23),
@@ -14,11 +15,11 @@ QuestionReport _report({String? examId, int? version}) => QuestionReport(
 
 FirebaseReportSender _sender(
   ReportCallable callable, {
-  bool account = true,
+  String? account = 'acct-a',
 }) =>
     FirebaseReportSender(
       callable: callable,
-      hasAccount: () => account,
+      currentAccount: () => account,
       build: () => '77',
     );
 
@@ -33,6 +34,7 @@ void main() {
         .send(_report(examId: 'cse-pro', version: 3));
     expect(sent, {
       'reportId': 'report-id-0000000001',
+      'accountId': 'acct-a',
       'questionId': 'cse-q-1',
       'questionVersion': 3,
       'examId': 'cse-pro',
@@ -51,12 +53,53 @@ void main() {
 
   test('with no account nothing is called', () async {
     var called = false;
-    final sender = _sender((_) async => called = true, account: false);
+    final sender = _sender((_) async => called = true, account: null);
     await expectLater(
       sender.send(_report()),
       throwsA(isA<ReportUnavailable>()),
     );
     expect(called, isFalse);
+  });
+
+  test('a report made under another account is never called for', () async {
+    var called = false;
+    final sender = _sender((_) async => called = true, account: 'acct-b');
+    await expectLater(
+      sender.send(_report()),
+      throwsA(isA<ReportUnavailable>()),
+    );
+    expect(called, isFalse);
+  });
+
+  test('a report with no account is never called for', () async {
+    var called = false;
+    final sender = _sender((_) async => called = true);
+    final orphan = QuestionReport(
+      id: 'report-id-0000000002',
+      questionId: 'q',
+      message: 'm',
+      createdAt: DateTime(2026, 11, 23),
+    );
+    await expectLater(sender.send(orphan), throwsA(isA<ReportUnavailable>()));
+    expect(called, isFalse);
+  });
+
+  test('the server saying the account differs keeps the report queued',
+      () async {
+    await expectLater(
+      _sender(
+        (_) async =>
+            throw _error('failed-precondition', {'reason': 'wrong-account'}),
+      ).send(_report()),
+      throwsA(isA<FirebaseFunctionsException>()),
+    );
+  });
+
+  test('a reused report id is a final refusal', () async {
+    await expectLater(
+      _sender((_) async => throw _error('already-exists')).send(_report()),
+      throwsA(isA<ReportRefused>()),
+    );
   });
 
   test('a malformed report and a full question are final refusals', () async {

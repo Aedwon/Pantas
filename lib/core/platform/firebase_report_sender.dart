@@ -14,24 +14,30 @@ typedef ReportCallable = Future<void> Function(Map<String, Object?> data);
 class FirebaseReportSender implements ReportSender {
   FirebaseReportSender({
     ReportCallable? callable,
-    bool Function()? hasAccount,
+    String? Function()? currentAccount,
     String Function()? build,
   })  : _callable = callable ?? _call,
-        _hasAccount = hasAccount ?? _signedIn,
+        _currentAccount = currentAccount ?? _signedInAccount,
         _build = build ?? _buildLabel;
 
   static const callableName = 'sendQuestionReport';
 
   final ReportCallable _callable;
-  final bool Function() _hasAccount;
+  final String? Function() _currentAccount;
   final String Function() _build;
 
   @override
   Future<void> send(QuestionReport report) async {
-    if (!_hasAccount()) throw const ReportUnavailable();
+    // The report goes out only under the account that wrote it. The server
+    // checks the same id against the signed-in account.
+    final account = _currentAccount();
+    if (account == null || account != report.accountId) {
+      throw const ReportUnavailable();
+    }
     try {
       await _callable({
         'reportId': report.id,
+        'accountId': account,
         'questionId': report.questionId,
         if (report.questionVersion != null)
           'questionVersion': report.questionVersion,
@@ -48,7 +54,9 @@ class FirebaseReportSender implements ReportSender {
   /// A refusal that no retry changes: a malformed report, or a question that
   /// already has its three. The daily limit lifts at midnight, so it is kept.
   static bool _isFinal(FirebaseFunctionsException e) {
-    if (e.code == 'invalid-argument') return true;
+    if (e.code == 'invalid-argument' || e.code == 'already-exists') {
+      return true;
+    }
     final details = e.details;
     return e.code == 'resource-exhausted' &&
         details is Map &&
@@ -56,8 +64,8 @@ class FirebaseReportSender implements ReportSender {
   }
 }
 
-bool _signedIn() =>
-    Firebase.apps.isNotEmpty && FirebaseAuth.instance.currentUser != null;
+String? _signedInAccount() =>
+    Firebase.apps.isEmpty ? null : FirebaseAuth.instance.currentUser?.uid;
 
 String _buildLabel() => '$kBuildNumber';
 
