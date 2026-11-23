@@ -139,7 +139,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     if (reserved.state === 'unissued') {
       // An earlier attempt made a session it could not hand out and could not expire. No new
       // link until that one is confirmed expired (or found paid).
-      await settleUnissued(deps, pending, uid, reserved.unissuedSessionId!);
+      await settleUnissued(deps, pending, reserved.unissuedSessionId!);
       return createCheckout(auth, data, deps);
     }
     if (reserved.state !== 'open') throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
@@ -288,8 +288,7 @@ async function markUnissued(db: Firestore, pending: DocumentReference, reference
  * already paid. Only a confirmed-expired session clears the reservation; anything else is a
  * retryable refusal.
  */
-async function settleUnissued(deps: CheckoutDeps, pending: DocumentReference, uid: string, sessionId: string): Promise<void> {
-  void uid;
+async function settleUnissued(deps: CheckoutDeps, pending: DocumentReference, sessionId: string): Promise<void> {
   try {
     await deps.client.expireCheckoutSession(sessionId);
   } catch {
