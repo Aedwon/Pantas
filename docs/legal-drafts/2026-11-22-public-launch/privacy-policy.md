@@ -31,7 +31,7 @@ Choosing Continue means you agree to this check. You may go back instead. Pantas
 
 - Account: an account ID, which Pantas creates even before you sign in. If you sign in with Google, we also receive your name, email address and profile photo. If you sign in with an email code, we receive your email address.
 - Study records: your study settings, answers, results, study times, bookmarked lessons and flagged questions.
-- Payments: if you buy Pro, we keep the payment reference, product, amount, payment status, refunds and access dates, linked to your account. For web purchases, PayMongo handles card payments. For QR Ph, you approve payment in your bank or wallet app. We do not see or keep your card or wallet details. For every web purchase, we also record the declaration the buyer ticks at checkout (that they are 18 or older, or the student's parent or legal guardian buying for the student, are authorized to use the payment method, and accept the Terms and refund policy), with the date, time and Terms version, to complete the order and handle disputes.
+- Payments: if you buy Pro, we keep the payment reference, product, amount, payment status, refunds and access dates, linked to your account. For web purchases, PayMongo handles card payments. For QR Ph, you approve payment in your bank or wallet app. We do not see or keep your card or wallet details. For every web purchase, we also record the declaration the buyer ticks at checkout (that they are 18 or older, or the student's parent or legal guardian buying for the student, are authorized to use the payment method, and accept the Terms and refund policy), with the date, time, Terms version and wording version, to complete the order and handle disputes.
 - Refund requests: the emails you send us about a refund, and, if we refund a QR Ph payment by transfer, the bank account details you give us so we can send the money.
 - Free trial: protected codes made from your verified sign-in details, so we can check whether a trial was already used. These codes are pseudonymous data, not anonymous data.
 - Share cards: where public sharing is available, if you choose to share a Wrapped card, we keep the card image and a public link to it. Anyone with the link can see the card. You can revoke the link.
@@ -91,6 +91,7 @@ To delete your account, open Settings, then Account, then the delete option. For
 Deleting your account does not cancel an app store subscription and is not a refund request. These records may remain after deletion, for the purposes and periods in the next section:
 
 - trial codes, which we cannot link to you without our secret key;
+- limited guardian evidence for an under-18 account: the guardian's answers and withdrawal and, for a purchase a parent or legal guardian declared, the date, time, Terms version, wording version, payment reference and product. We do not copy declarations for a buyer's own account;
 - records that prevent a deleted account from reopening, and security records;
 - limited records keyed to a payment reference, such as refund, dispute and payment-event records, which we use to verify past transactions;
 - the business's tax books and receipts, kept outside the app, which can include your payment reference and amount; and
@@ -101,17 +102,17 @@ Offline copies may remain until the device reconnects or you clear them. Backup 
 ## How long we keep data
 
 - Study records and settings: while your account exists. We normally delete an inactive account after about two years without a sign-in or session refresh. We identify inactivity from server-observed sign-in and session activity. Open Pantas while connected to keep the account active. If the account has a verified email address, we send a warning and allow at least 30 days before deletion. An account with active paid access does not count as inactive. Some abandoned guest accounts without an email address are removed sooner, without a warning.
-- Account payment records in our app (the payment reference, plan dates, refund entries and checkout declarations tied to your account): while your account exists. We delete them when you delete the account, except the limited guardian purchase evidence the Notice for teens describes.
+- Account payment records in our app (the payment reference, plan dates, refund entries and checkout declarations tied to your account): while your account exists. We delete them when you delete the account. Before deletion, we copy limited details from a checkout declaration where the buyer said they are a parent or legal guardian buying for an under-18 student. We copy the date, time, Terms version, wording version, payment reference and product into the guardian evidence that the Notice for teens describes. That evidence stays for the periods stated there. We do not copy declarations for a buyer's own account.
 - Tax books, receipts and refund records: five years, starting the day after the filing deadline of the related tax return, or on the actual filing date if the return was filed late, for the tax year of the last entry in the books. The business keeps these outside the app. They are kept even if you delete your account, because the law requires them. Records may stay longer while a tax matter is unresolved.
 - Free-trial codes: we keep a protected code that lets us check whether the same verified sign-in has already used a trial. The code remains after account deletion. It currently has no scheduled expiry. You may object to this at dpo@pantas.study.
 - Database security records: we normally clear database audit logs after 730 days, with some delay for scheduled cleanup. We keep the minimum closure record needed to prevent a deleted account from reopening.
 - Optional usage reports: Google Analytics event records are kept for the period set in our Google Analytics account [verified period, currently set to 14 months; confirm in the console]. Google begins removing phone error report data after 90 days.
 - Speed and error report logs from the web app: 30 days.
 - Share cards: where public sharing is available, our share record is scheduled to expire after about 89 days and may remain until cleanup even if you revoke the link sooner. People who received a copy may still have it. We also delete the card when your account is deleted.
-- Question reports: [Period to publish. Sol High would defend up to 90 days from receipt, sooner when the review ends. The cleanup does not exist yet, see README.] We delete them when you delete your account, including when we delete an inactive account.
+- Question reports: we delete each report within 90 days of receipt. We delete reports sooner when you delete your account, including when we delete an inactive account.
 - Messages to us, including refund requests: kept as needed to handle the matter, meet legal duties or resolve a documented claim. We use refund destination details to verify and send the refund and keep the minimum record afterward. [Period to publish once the mailbox process exists, for example "two years after the matter closes".]
 
-If the law requires it, or we need specific records for a legal claim, we may keep those records longer.
+The schedules above apply to guardian evidence and question reports. We may keep other specific records longer when the law requires it or when we need them for a legal claim.
 
 ## Why we may use your data
 

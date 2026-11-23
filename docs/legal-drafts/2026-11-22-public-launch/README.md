@@ -209,6 +209,21 @@ Text cannot fix these. Each needs a ruling. None is built.
 7. **The ten-year guardian evidence period.** Sol High notes Civil Code Article 1391 sets a four-year challenge window and does not prescribe ten years of storage for every guardian response. The period is outside this pass, which left it as drafted. Raise it with D1's text pass.
 8. **D1 text pass not done here.** D1 deletes the under-18 record when a request fails. The Teen Notice paragraphs on the flag ("We keep the under-18 group...", the retention bullets, the basis bullet) still describe the old behavior. Another pass must rewrite them. This pass did not change them.
 
+## Nov 23 round 3: rulings R1 to R7 applied
+
+Texts changed: the Notice for teens (flag paragraphs, guardian evidence, report period, payments), the Privacy Policy (report period, deletion, checkout record) and the Terms (guardian-denied refund, wording version). Codex Sol High critiqued the changed passages (`critique-2026-11-23b-sol-high.md`, prompt `critique-prompt-2026-11-23b.md`). It gave 5 must-fix, 3 should-fix and 1 nit, plus 3 items that conflict with a ruling. Every wording finding is applied except where noted below.
+
+**Civil Code.** Sol High held all four: Article 1108 (prescription runs against minors who have a guardian), Article 1144 (ten years, written contract, from accrual), Article 1146 (four years, injury to rights) and Article 1391 (four years to annul, from when guardianship ceases for a minor). It adds that none of them sets a records-retention period, that Article 1144 runs from accrual and not from the newest record, and that Article 1146 does not prove a decline-only record needs exactly four years. The texts now say the periods "answer legal claims" and use "schedule for deletion".
+
+### Needs a product or code decision (round 3)
+
+1. **The sensitive flag before a guardian confirms (the biggest risk, again).** Sol High says Section 13(f) does not support recording the under-18 group for routine routing, and wording cannot fix it. The text no longer claims 13(f) for the open request. It uses 12(f) for contact details, 13(a) after permission and 13(f) only for the guardian's answer record. D1 rules that the open request is needed to get permission. Decide whether a basis for the open-request flag is enough as ruled, or whether the flag should not be written before confirmation.
+2. **"Within 90 days of receipt" and the TTL.** Firestore deletes expired documents usually within a day and promises no maximum. The ruled text keeps the exact words and the 85-day expiry covers the delay. Sol High would say "scheduled to expire 90 days after receipt, deletion can take longer". Not applied, because the ruling fixes the words.
+3. **"Only declarations made by a parent or guardian."** The tick cannot prove who ticked. The texts now say the copy is made where the buyer "said they are" a parent or legal guardian. The ruling's selection by recorded kind is unchanged.
+4. **A binding preservation order.** The cleanup cannot honor one, and no wording cures it. The ruling removes the legal-hold bracket. The general sentence now limits its longer-keeping exception to records other than guardian evidence and question reports.
+5. **Checkout claims before the build.** The texts say a tick is required on every web purchase, the wording version is recorded and the Terms open without ticking. The checked-out code does not do these yet (D2 build). Publish only after it ships.
+6. **Refund route for a guardian-denied purchase.** PayMongo refund windows can close. Pantas must be able to refund by another route (the QR Ph bank transfer path) when the window has passed.
+
 ## Publishing steps (for the integrator, L1 and L7)
 
 1. Set the three version stamps to the publication date in both places: `guardianDocumentVersions` in the app and `GUARDIAN_DOCUMENT_VERSIONS` in the functions. Deploy together, or the guardian page refuses answers with "Reload the page".

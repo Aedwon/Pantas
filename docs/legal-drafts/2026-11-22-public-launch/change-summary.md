@@ -57,17 +57,17 @@ For Aedwon's check. Compared with the texts live in the app today (version 2026-
 ## Notice for teens
 
 - **Same changes as the Privacy Policy**, plus the points below.
-- **Age check:** same rewrite. The notice states that our servers record the under-18 group when a request is sent, before anyone answers, and keep it after a decline or no answer. This is the weakest point (D1). The basis is now Section 13(f) for claims about capacity or authorization, Section 12(f) for contact details, and the guardian's permission once given.
+- **Age check:** same rewrite. The notice states that our servers record the under-18 group when a request is sent, before anyone answers. After a decline or no answer, the whole request record, including that group record, is deleted (D1, built before opening). The basis is now Section 13(f) for claims about capacity or authorization, Section 12(f) for contact details, and the guardian's permission once given.
 - **Guardian details:** we send the guardian's name and email to our email provider. Our database keeps a masked address and protected codes. The device keeps the full details.
 - **Guardian links:** the response link accepts one answer and expires in seven days. The email and the confirmation screen can each give a separate manage link. The old "same link" line was wrong.
-- **Guardian evidence:** the ten-year cleanup counts from the latest guardian response or purchase declaration. A legal hold is not promised.
+- **Guardian evidence:** 3,653 days (ten years) for confirmations, withdrawals and guardian purchases. 1,461 days (four years) for evidence that holds only declines. Only guardian declarations are copied after deletion, never an adult's. A legal hold is not promised.
 - **Withdrawal:** we revoke sign-ins and start deletion. It can take time. Offline copies can remain.
 - **Rights and complaints:** the teen can ask Pantas for help and complain to the NPC directly. Breach notice added, including the legal representative.
 - **Purchases and guardian emails:** the purchase box wording matches the Terms. Change emails to the guardian go "when we still hold a way to reach them" (D5).
 
 ## Things you should know
 
-- **Weakest point is still the age flag** (D1). The text is now honest about it. Only a flow change removes it.
+- **The age flag risk is smaller now** (D1). It lasts at most seven days for a request that fails. It stays after a guardian confirms, which the guardian's permission covers.
 - **Version stamps do not make students accept again** (D5). The email and in-app notice are the only way existing students hear of a change.
 - **Promises that are yours to keep:** a refund reply in [5] business days, five years of tax books, invoices and receipts outside the app, and working support and privacy mailboxes.
 - **Left out on purpose:** the critique's suggestion for a short first-email notice to guardians. It belongs in the guardian email, not these texts.
@@ -85,3 +85,17 @@ Codex Sol High critiqued only these changes (`critique-2026-11-23-sol-high.md`).
 - **Age on a checkout record** now rests on Section 13(f), because age is sensitive information.
 - **Texts are true only after the app ships** the tick, the seller line and the report cleanup. Do not publish before then.
 - **Biggest open risk:** a student's session can tick the guardian box. A guardian approving the specific order is stronger. See README "Needs a product or code decision (round 2)".
+
+## Nov 23 round 3 (rulings R1 to R7)
+
+Codex Sol High critiqued only these changes (`critique-2026-11-23b-sol-high.md`). Nothing is published. The texts describe behavior that is not built yet: D1 deletion, guardian-only copy, the two evidence periods and the 90-day report deletion. Do not publish before those are on prod.
+
+- **Under-18 flag:** the Notice for teens now says a request that expires or is declined is deleted whole, including the flag. The flag stays only while a request is open and after a guardian confirms.
+- **Question reports:** both notices say "within 90 days of receipt", sooner if the account is deleted. The brackets are gone.
+- **Guardian evidence:** ten years (3,653 days) for confirmations, withdrawals and guardian purchases. Four years (1,461 days) for decline-only evidence. The reason is rewritten. The legal-hold bracket is gone.
+- **After deletion:** only guardian declarations are kept, with the date, time, Terms version, wording version, payment reference and product. Adult declarations are never kept. Both notices say this the same way.
+- **Wording version:** the checkout declaration record now includes the wording version in all three texts.
+- **Guardian-denied purchase:** the Terms and the Notice for teens say we refund it in full without contest and the access ends.
+- **No text says the buyer is the guardian.** The tick is called a declaration.
+- **Still in your hands:** the three numbers you can change at sign-off are 90 days, ten years and four years.
+- **Critique result:** 9 findings and 3 items that conflict with rulings. All wording findings applied. Open decisions are in the README under "round 3". The Civil Code articles held.

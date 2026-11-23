@@ -84,9 +84,9 @@ Pro access is personal. You cannot transfer it or exchange it for cash. Your ref
 
 **Free or promotional access.** Pantas may give free access, such as a trial, a beta period or a prize, at its choice. This access lasts only for the period we state. It can end earlier if it is misused. It does not give you a right to more access and it does not start a paid plan.
 
-**Declaration at checkout.** Every web purchase needs a tick in a box beside the Pay button. Checkout does not start without it, and you can open the Terms without ticking it. A buyer buying for their own account sees: "I'm 18+, authorized to use the payment method, and accept the Terms and refund policy." If a parent or guardian has confirmed the account, the buyer sees: "I'm 18+ and buying for this student as their parent or legal guardian. I'm authorized to use the payment method and accept the Terms and refund policy." "Terms and refund policy" links to these Terms. For every web purchase, we record the declaration with the date, time and Terms version when checkout starts.
+**Declaration at checkout.** Every web purchase needs a tick in a box beside the Pay button. Checkout does not start without it, and you can open the Terms without ticking it. A buyer buying for their own account sees: "I'm 18+, authorized to use the payment method, and accept the Terms and refund policy." If a parent or guardian has confirmed the account, the buyer sees: "I'm 18+ and buying for this student as their parent or legal guardian. I'm authorized to use the payment method and accept the Terms and refund policy." "Terms and refund policy" links to these Terms. For every web purchase, we record the declaration with the date, time, Terms version and wording version when checkout starts.
 
-**Students under 18.** If the student is under 18, a parent or legal guardian with authority to act for them must buy in their own name and use a payment method they are allowed to use. We may ask for proof of authority before or after payment. We may cancel unauthorized access. We refund as required by law and account for any payment reversal already made.
+**Students under 18.** If the student is under 18, a parent or legal guardian with authority to act for them must buy in their own name and use a payment method they are allowed to use. We may ask for proof of authority before or after payment. We may cancel unauthorized access. We refund as required by law and account for any payment reversal already made. A parent or legal guardian who did not allow a purchase for an under-18 student's account can ask for a full refund under "Purchases a parent or guardian denies" in Refunds.
 
 ## 5. Refunds
 
@@ -100,6 +100,8 @@ Pro access is personal. You cannot transfer it or exchange it for cash. Your ref
 - we made a billing error, such as charging the wrong amount.
 
 A separate purchase that adds paid time follows the ordinary rules below.
+
+**Purchases a parent or guardian denies.** If you are the parent or legal guardian of an under-18 student and did not allow a purchase for their account, email support@pantas.study. Include the payment reference if you have it. We refund the purchase in full without contest, and credit any amount already refunded. The 30-day deadline below does not apply. The access from that payment ends. Your legal rights still apply.
 
 **How to ask.** Email support@pantas.study. Include enough information for us to identify the payment, such as the date, amount, payment method and your PayMongo reference or receipt. We may ask for more information to verify your claim. If a parent or guardian paid for a student, they may write from the email address they paid with. Ask within 30 days of the payment for a voluntary refund. A later request may be declined, except where the law requires us to consider it.
 
