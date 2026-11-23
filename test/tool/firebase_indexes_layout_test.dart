@@ -142,6 +142,22 @@ void main() {
       ),
       isFalse,
     );
+    // A question report is reviewed: it is written in a transaction named tx.
+    expect(
+      _hasUnreviewedExpiry(
+        r'const report = deps.db.doc(`questionReports/${reportDocId(uid, id)}`); '
+        'tx.set(report, {accountId: uid, expireAt: timestamp});',
+      ),
+      isFalse,
+    );
+    // The same write form on an account document is still refused.
+    expect(
+      _hasUnreviewedExpiry(
+        r'const user = deps.db.doc(`users/${uid}`); '
+        'tx.set(user, {expireAt: timestamp});',
+      ),
+      isTrue,
+    );
   });
 
   test('source never writes expiry to a top-level account document', () {
@@ -162,13 +178,15 @@ void main() {
   });
 }
 
-// Fail closed: only the reviewed dedupe and rate-limit writes may use TTL.
+// Fail closed: only the reviewed dedupe, rate-limit and question-report writes
+// may use TTL.
 // New write forms or destinations need review before extending this guard.
 bool _hasUnreviewedExpiry(String source) {
   final references = RegExp(
     r'const\s+(\w+)\s*=\s*[\w.]+\.doc\(`'
     r'(webhookEvents/\$\{[^}]+\}/users/\$\{[^}]+\}|'
-    r'webhookRateLimits/[^`]+)`\);',
+    r'webhookRateLimits/[^`]+|'
+    r'questionReports/\$\{[^}]+\})`\);',
   );
   var remaining = source;
   for (final reference in references.allMatches(source)) {
@@ -181,7 +199,7 @@ bool _hasUnreviewedExpiry(String source) {
       continue;
     }
     remaining = remaining.replaceAll(
-      RegExp('transaction\\.set\\(\\s*$name\\s*,\\s*'
+      RegExp('(?:transaction|tx)\\.set\\(\\s*$name\\s*,\\s*'
           r'\{[^{}]*\bexpireAt\s*:[^{}]*\}\s*\)'),
       '',
     );

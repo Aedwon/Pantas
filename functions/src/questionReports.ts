@@ -29,7 +29,7 @@ export const MAX_REQUEST_BYTES = 4096;
 
 /**
  * Every report is deleted this long after the server received it, by a Firestore TTL policy on
- * `questionReports.expireAt` (firestore.indexes.json). The published period is "within 90 days of
+ * the report's expiry field (firestore.indexes.json). The published period is "within 90 days of
  * receipt"; the five days of room cover the delay before Firestore removes an expired document.
  * The server makes the time. A client cannot send one.
  */
