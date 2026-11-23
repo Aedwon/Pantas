@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
@@ -79,7 +80,7 @@ void main() {
           pro: pro,
           onBack: () {},
           onNote: onNote ?? (_, __, ___) async {},
-          onReport: (_) async => true,
+          onReport: (_) async => ReportDelivery.sent,
         ),
       ),
       overrides: [appDatabaseProvider.overrideWithValue(db)],

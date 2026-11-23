@@ -35,6 +35,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/platform/install/install_providers.dart';
 import 'package:pantas/core/platform/local_firebase.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
+import 'package:pantas/core/platform/report_providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
@@ -378,7 +379,12 @@ Future<void> _bootstrap(
     PerfTimeline.mark('boot.consent');
     // A named account's setup acceptance reaches the server, best effort. It
     // retries on each start until it succeeds.
-    container.read(setupAcceptanceSyncProvider);
+    container
+      ..read(setupAcceptanceSyncProvider)
+      // Question reports queued on this device go to the server when an
+      // account is signed in, and again each time the app returns to the
+      // front.
+      ..read(reportSyncProvider);
     // A minor's sharing follows the guardian's choice. It reads the server, so
     // startup does not wait for it.
     unawaited(

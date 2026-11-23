@@ -330,7 +330,7 @@ void main() {
             pro: true,
             onBack: () {},
             onNote: (_, __, ___) async {},
-            onReport: (_) async => true,
+            onReport: (_) async => ReportDelivery.sent,
           ),
           still: still,
         ),

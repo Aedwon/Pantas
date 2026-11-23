@@ -23,20 +23,27 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// Shared entry for assessment, live quizzes and the question viewer.
 /// The caller supplies its queue and recolors its icon when this returns true.
-Future<bool?> openQuestionReport(
+Future<ReportDelivery?> openQuestionReport(
   BuildContext context,
   String questionId, {
   required ReportQueue queue,
+  String? examId,
+  int? questionVersion,
 }) =>
     // The dialog motion: a rise and a fade, or a 150 ms fade in place under
     // reduced motion (Dialog README).
-    showWebOverlay<bool>(
+    showWebOverlay<ReportDelivery>(
       context: context,
       motion: WebOverlayMotion.dialog,
       barrierColor: Colors.transparent,
       barrierLabel: 'Close report',
       builder: context.wideWeb
-          ? (_) => _WebReportPanel(questionId: questionId, queue: queue)
+          ? (_) => _WebReportPanel(
+                questionId: questionId,
+                queue: queue,
+                examId: examId,
+                questionVersion: questionVersion,
+              )
           : (context) => Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
@@ -51,26 +58,49 @@ Future<bool?> openQuestionReport(
                     child: ReportForm(
                       questionId: questionId,
                       queue: queue,
+                      examId: examId,
+                      questionVersion: questionVersion,
                       onClose: () => Navigator.of(context).pop(),
-                      onSaved: () => Navigator.of(context).pop(true),
+                      onSaved: (delivery) =>
+                          Navigator.of(context).pop(delivery),
                     ),
                   ),
                 ),
               ),
     );
 
+/// What the student reads once a report is saved: the sent state, or the
+/// saved-offline state (boards QN_ReportSent and QN_ReportOffline).
+String reportDeliveryText(ReportDelivery delivery) => switch (delivery) {
+      ReportDelivery.sent => "Thank you. We'll take a look.",
+      ReportDelivery.saved => "Saved. It sends when you're back online.",
+    };
+
+/// How long the form waits for the server before it says the report is saved
+/// and goes on sending in the background.
+const _sendWait = Duration(seconds: 5);
+
+/// Stops typing at the longest message the server takes, with no counter.
+final _lengthLimit = <TextInputFormatter>[
+  LengthLimitingTextInputFormatter(ReportQueue.maxMessageLength),
+];
+
 class ReportForm extends StatefulWidget {
   const ReportForm({
     required this.questionId,
     required this.queue,
     required this.onClose,
+    this.examId,
+    this.questionVersion,
     this.onSaved,
     super.key,
   });
   final String questionId;
   final ReportQueue queue;
   final VoidCallback onClose;
-  final VoidCallback? onSaved;
+  final String? examId;
+  final int? questionVersion;
+  final ValueChanged<ReportDelivery>? onSaved;
 
   @override
   State<ReportForm> createState() => _ReportFormState();
@@ -81,7 +111,7 @@ class _ReportFormState extends State<ReportForm> {
   final _focus = FocusNode();
   bool _ready = false;
   bool _busy = false;
-  bool _saved = false;
+  ReportDelivery? _delivery;
   bool _failed = false;
   bool _reported = false;
   ReportResult? _limit;
@@ -95,7 +125,7 @@ class _ReportFormState extends State<ReportForm> {
 
   Future<void> _load() async {
     try {
-      final reports = await widget.queue.pending();
+      final reports = await widget.queue.history();
       final limit = await widget.queue.limit(widget.questionId, DateTime.now());
       if (!mounted) return;
       setState(() {
@@ -126,23 +156,28 @@ class _ReportFormState extends State<ReportForm> {
         widget.questionId,
         _text.text,
         DateTime.now(),
+        examId: widget.examId,
+        questionVersion: widget.questionVersion,
       );
+      final delivery = result == ReportResult.queued ? await _deliver() : null;
       if (!mounted) return;
       setState(() {
         _busy = false;
-        if (result == ReportResult.queued) {
-          _saved = true;
-        } else if (result != ReportResult.empty) {
+        _delivery = delivery;
+        if (result != ReportResult.queued && result != ReportResult.empty) {
           _limit = result;
         }
       });
-      if (_saved) {
+      if (delivery != null) {
         FocusScope.of(context).unfocus();
         final callback = widget.onSaved;
         if (callback != null && context.wideWeb) {
-          callback();
+          callback(delivery);
         } else if (callback != null) {
-          _closeTimer = Timer(const Duration(milliseconds: 2300), callback);
+          _closeTimer = Timer(
+            const Duration(milliseconds: 2300),
+            () => callback(delivery),
+          );
         }
       }
     } catch (_) {
@@ -152,6 +187,17 @@ class _ReportFormState extends State<ReportForm> {
           _failed = true;
         });
       }
+    }
+  }
+
+  /// Sends now. The report is already safe on the device, so a slow or failed
+  /// send only changes what the student is told.
+  Future<ReportDelivery> _deliver() async {
+    try {
+      final left = await widget.queue.sendPending().timeout(_sendWait);
+      return left == 0 ? ReportDelivery.sent : ReportDelivery.saved;
+    } on Object {
+      return ReportDelivery.saved;
     }
   }
 
@@ -166,7 +212,8 @@ class _ReportFormState extends State<ReportForm> {
   @override
   Widget build(BuildContext context) {
     if (context.wideWeb) return _web(context);
-    if (_saved) {
+    final delivery = _delivery;
+    if (delivery != null) {
       return Semantics(
         liveRegion: true,
         child: FloatingBar.content(
@@ -176,7 +223,7 @@ class _ReportFormState extends State<ReportForm> {
               vertical: PantasSpace.s10,
             ),
             child: Text(
-              'Saved on this device.',
+              reportDeliveryText(delivery),
               textAlign: TextAlign.center,
               style: context.type.subheadStrong,
             ),
@@ -235,6 +282,7 @@ class _ReportFormState extends State<ReportForm> {
                   enabled: _ready && _limit == null && !_busy,
                   multiline: true,
                   maxLines: 5,
+                  inputFormatters: _lengthLimit,
                   onChanged: (_) => setState(() {}),
                   hint: _limit == ReportResult.dailyLimit
                       ? 'Reports open again tomorrow'
@@ -275,10 +323,11 @@ class _ReportFormState extends State<ReportForm> {
 
   Widget _web(BuildContext context) {
     final t = context.webTokens;
-    if (_saved) {
+    final delivery = _delivery;
+    if (delivery != null) {
       return WebCard(
         padding: const EdgeInsets.all(PantasSpace.s20),
-        child: Text('Saved on this device.', style: t.sub),
+        child: Text(reportDeliveryText(delivery), style: t.sub),
       );
     }
     final canSend =
@@ -350,6 +399,7 @@ class _ReportFormState extends State<ReportForm> {
               enabled: _ready && _limit == null && !_busy,
               multiline: true,
               maxLines: 5,
+              inputFormatters: _lengthLimit,
               onChanged: (_) => setState(() {}),
               hint: _limit == ReportResult.dailyLimit
                   ? 'Reports open again tomorrow'
@@ -386,9 +436,16 @@ class _ReportFormState extends State<ReportForm> {
 }
 
 class _WebReportPanel extends StatefulWidget {
-  const _WebReportPanel({required this.questionId, required this.queue});
+  const _WebReportPanel({
+    required this.questionId,
+    required this.queue,
+    this.examId,
+    this.questionVersion,
+  });
   final String questionId;
   final ReportQueue queue;
+  final String? examId;
+  final int? questionVersion;
   @override
   State<_WebReportPanel> createState() => _WebReportPanelState();
 }
@@ -412,8 +469,10 @@ class _WebReportPanelState extends State<_WebReportPanel> {
                 ReportForm(
                   questionId: widget.questionId,
                   queue: widget.queue,
+                  examId: widget.examId,
+                  questionVersion: widget.questionVersion,
                   onClose: () => Navigator.of(context).pop(),
-                  onSaved: () => Navigator.of(context).pop(true),
+                  onSaved: (delivery) => Navigator.of(context).pop(delivery),
                 ),
                 Positioned(
                   left: 0,
