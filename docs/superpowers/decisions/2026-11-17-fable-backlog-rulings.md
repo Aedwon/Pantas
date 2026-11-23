@@ -676,3 +676,26 @@ Nothing new to decide. Three numbers appear in the texts he signs, and he can ch
 - Sol High's proposed report sentence promises deletion "when we finish reviewing them". No review step deletes anything (R3).
 - The Teen Notice gives one reason for ten years, "four years after that person turns 18". That reason alone gives nine years at most and does not cover a decline (R6).
 - The D1 entry left the decline period "Later, not ruled". R6 rules it.
+
+## PAY-06: a web plan bought while holding a pass for another exam (Fable 5.2 High, Nov 23, 2026)
+
+Asked by the security and billing lead (r2) under Aedwon's delegation (written rule 4), from the M4 money-path audit
+(finding PAY-06, confirmed in code: `planGrant` queues a tier-wide plan behind any active grant of the same or higher
+tier, including a pass for a different exam). Lead recommendation: option A. Ruling, verbatim:
+
+"PAY-06 ruling (Fable 5.2, under Aedwon's delegation, Nov 23, 2026): Option A, widened to all exam-only coverage.
+A tier-wide plan queues only behind live tier-wide coverage of the same or a higher tier: web plans, the trial, store
+subscriptions and promotional entitlements. Exam-only coverage (web or store passes, beta and beta reward grants) never
+delays it. Reason: C1 item 4 (docs/superpowers/plans/pwa-launch/C1-C10-ruling.md, Oct 19) queues plans 'so buying early
+never wastes days'. Behind a pass, the queue withholds paid access instead. B fails because a pass never unlocks custom
+exams, and the active exam can change after payment. No earlier ruling covers a plan behind a pass; this amends item 4.
+Aedwon's Oct 19 refund decision stands. Example: the student pays ₱149. Civil Service Monthly starts at payment and ends
+on the same date in March. Subprofessional unlocks at once. The Professional pass stays to Mar 14, 2027. The overlap
+earns no credit. Build edges: Apply the same tier-wide test to new purchases, moves after a refund, and re-anchoring
+after store or beta changes. The last two still count pass ends today. Pass bought after a queued plan: starts now,
+moves nothing. Pass refund: moves nothing. Trial: a same-tier plan bought during it starts at trial end. Plans already
+queued behind exam-only coverage, if any exist: start now, same length."
+
+Options offered: A (queue only behind coverage that covers the whole plan), B (queue behind a pass only for the exam the
+student studies now), C (keep today's behavior). Built by the security and billing lane in the money-path hardened fixes
+(group G2).
