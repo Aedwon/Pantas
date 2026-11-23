@@ -1,24 +1,21 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/config/seller_facts.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
-import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/google_sign_in_button.dart';
-import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/selectable_tile.dart';
-import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/leave_page.dart';
@@ -29,11 +26,13 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/paywall/application/custom_subject_tiers.dart';
 import 'package:pantas/features/paywall/application/custom_track_tier.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
+import 'package:pantas/features/paywall/domain/checkout_declaration.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
@@ -44,6 +43,7 @@ import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
+import 'package:pantas/features/settings/presentation/widgets/declaration_card.dart';
 import 'package:pantas/features/settings/presentation/widgets/phone_pro_hero.dart';
 import 'package:pantas/features/settings/presentation/widgets/pro_plan_tile.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
@@ -111,8 +111,6 @@ class ProPage extends ConsumerStatefulWidget {
   ConsumerState<ProPage> createState() => _ProPageState();
 }
 
-const _guardianBoxLabel = 'I am the parent or guardian and accept the Terms.';
-
 class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   bool _awaitingCheckout = false;
   bool _wasCurrent = true;
@@ -123,19 +121,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   bool _restoring = false;
   bool _trialUnavailable = false;
 
-  /// The parent or guardian box on a minor's checkout (boards CB_*).
-  bool _guardianTicked = false;
+  /// The declaration tick beside Pay on every web checkout (boards CB_*,
+  /// S4*_T).
+  bool _declarationTicked = false;
 
-  /// Opens the Terms from the link inside the box's label.
-  final TapGestureRecognizer _termsTap = TapGestureRecognizer();
+  /// The wording the server asked for after it refused the one shown.
+  DeclarationKind? _serverKind;
 
   @override
   void initState() {
     super.initState();
-    _termsTap.onTap = () {
-      final router = GoRouter.maybeOf(context);
-      if (router != null) unawaited(router.push<void>('/legal/terms'));
-    };
     WidgetsBinding.instance.addObserver(this);
     unawaited(ref.read(telemetryProvider).log(TelemetryEvent.proView));
     unawaited(ref.read(reviewPromptControllerProvider).recordPaywallSeen());
@@ -167,7 +162,6 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    _termsTap.dispose();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -378,7 +372,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   String? _message(PaymentOperationStatus status, {bool restore = false}) =>
       switch (status) {
         PaymentOperationStatus.guardianConfirmationRequired =>
-          'A parent or guardian must confirm this purchase.',
+          'Read the box again, then tick it to pay.',
         PaymentOperationStatus.success => restore ? 'Pro restored.' : null,
         PaymentOperationStatus.noActiveSubscription =>
           'No purchases found for this account.',
@@ -396,42 +390,14 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         _ => "We couldn't confirm your subscription. Try again.",
       };
 
-  /// Boards CB_Wide, CB_Ph: the box in its own card under the plans. Terms
-  /// opens the Terms and does not tick the box.
-  Widget _guardianBoxCard(BuildContext context) {
-    final wide = context.wideWeb;
-    final style = PantasType.webRowTitleSettings
-        .copyWith(color: context.colors.textPrimary);
-    final row = CheckboxRow(
-      title: _guardianBoxLabel,
-      selected: _guardianTicked,
-      gap: PantasSpace.s14,
-      standardDensity: true,
-      squareEdges: wide,
-      interactiveContent: true,
-      onTap: _busy
-          ? null
-          : () => setState(() => _guardianTicked = !_guardianTicked),
-      // One text flow, so the sentence wraps as one. The link is a span, and
-      // a tap on it opens the Terms without ticking the box.
-      content: Text.rich(
-        TextSpan(
-          style: style,
-          children: [
-            const TextSpan(text: 'I am the parent or guardian and accept the '),
-            TextSpan(
-              text: 'Terms',
-              style: style.copyWith(color: context.webTokens.colors.accent),
-              recognizer: _termsTap,
-              mouseCursor: SystemMouseCursors.click,
-            ),
-            const TextSpan(text: '.'),
-          ],
-        ),
-      ),
-    );
-    return wide ? WebCard(child: row) : GroupedSection(children: [row]);
+  /// Opens the Terms from the link in the declaration. The box is untouched.
+  void _openTerms() {
+    final router = GoRouter.maybeOf(context);
+    if (router != null) unawaited(router.push<void>('/legal/terms'));
   }
+
+  void _emailSupport() =>
+      unawaited(launchUrl(Uri(scheme: 'mailto', path: sellerEmail)));
 
   Future<void> _restore() async {
     if (_busy) return;
@@ -460,7 +426,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     PaywallPassPackage? pass,
     ExamCatalogEntry exam, {
     required bool allowTrial,
-    bool guardianAttested = false,
+    CheckoutDeclaration? declaration,
   }) async {
     if (_busy || (package == null && pass == null)) return;
     final telemetry = ref.read(telemetryProvider);
@@ -482,6 +448,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       }
     }
     PaymentOperationStatus status;
+    DeclarationKind? refusedKind;
     final gateway = ref.read(revenueCatGatewayProvider);
     if (web &&
         widget.targetExam == null &&
@@ -553,14 +520,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 pass,
                 exam: exam,
                 beforeRedirect: beforeRedirect,
-                guardianAttested: guardianAttested,
+                declaration: declaration,
               )
             : await gateway.purchase(
                 package!,
                 beforeRedirect: beforeRedirect,
-                guardianAttested: guardianAttested,
+                declaration: declaration,
               );
         status = result.status;
+        refusedKind = result.declarationKind;
         if (status != PaymentOperationStatus.operationAlreadyInProgress) {
           await _clearPendingExamSwitch(uid: uid);
         }
@@ -594,6 +562,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           status == PaymentOperationStatus.operationAlreadyInProgress;
       _busy = _awaitingCheckout;
       if (sameAccount) _feedback = _message(status);
+      // The server named the wording this account needs. Show it, unticked.
+      if (sameAccount && refusedKind != null) {
+        _serverKind = refusedKind;
+        _declarationTicked = false;
+      }
     });
   }
 
@@ -831,17 +804,21 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         : '${_periodName(pendingPackage.sku)}, '
             '${_money(pendingPackage.priceString)}. ';
     final showOffers = covered == false && !paused && !waiting;
-    // A minor's payment needs the box ticked. The server is the control; the
-    // device age group only decides whether the box shows. The free trial
-    // takes no payment, so it has no box.
+    // Every web payment needs the declaration ticked. The server is the
+    // control and tells which wording the account needs; the device only
+    // guesses it first. The free trial takes no payment, so it has no box.
     final buyShown = showOffers &&
         !(web && anonymous) &&
         exam != null &&
         (selectedPackage != null || selectedPass != null);
-    final guardianBox = buyShown &&
-        ref.watch(ageGroupProvider).valueOrNull == 'minor' &&
-        !(trial && !lapsed);
-    final buyLocked = _busy || (guardianBox && !_guardianTicked);
+    final declarationBox = web && buyShown && !(trial && !lapsed);
+    final declarationKind = _serverKind ??
+        (ref.watch(guardianConfirmedProvider).valueOrNull ?? false
+            ? DeclarationKind.guardian
+            : DeclarationKind.adult);
+    final declaration =
+        declarationBox ? CheckoutDeclaration(declarationKind) : null;
+    final buyLocked = _busy || (declarationBox && !_declarationTicked);
     final purchaseLabel = selectedPass != null
         ? 'Buy Season Pass'
         : selectedPackage == null
@@ -921,7 +898,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                           selectedPass,
                                           exam,
                                           allowTrial: trial && !lapsed,
-                                          guardianAttested: guardianBox,
+                                          declaration: declaration,
                                         ),
                               ),
                           if (showOffers &&
@@ -952,6 +929,17 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                         'Cancel any time.',
                                 textAlign: TextAlign.right,
                                 style: context.webTokens.sm,
+                              ),
+                            ),
+                          if (declarationBox)
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: PantasSpace.s8),
+                              child: SellerLine(
+                                facts: sellerFacts,
+                                style: context.webTokens.sm,
+                                textAlign: TextAlign.right,
+                                onEmail: _emailSupport,
                               ),
                             ),
                         ],
@@ -1005,7 +993,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                       selectedPass,
                                       exam,
                                       allowTrial: trial && !lapsed,
-                                      guardianAttested: guardianBox,
+                                      declaration: declaration,
                                     ),
                           ),
                         if (selectedPass != null && sitting != null) ...[
@@ -1027,6 +1015,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                     'Cancel any time in Google Play.',
                             textAlign: TextAlign.center,
                             style: context.type.footnote,
+                          ),
+                        ],
+                        if (declarationBox) ...[
+                          const SizedBox(height: PantasSpace.s8),
+                          SellerLine(
+                            facts: sellerFacts,
+                            style: context.type.footnote,
+                            textAlign: TextAlign.center,
+                            onEmail: _emailSupport,
                           ),
                         ],
                       ],
@@ -1375,11 +1372,19 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ],
             ),
           ],
-          if (guardianBox) ...[
+          if (declarationBox) ...[
             SizedBox(
               height: context.wideWeb ? PantasSpace.s28 : PantasSpace.s24,
             ),
-            _guardianBoxCard(context),
+            DeclarationCard(
+              kind: declarationKind,
+              ticked: _declarationTicked,
+              onToggle: _busy
+                  ? null
+                  : () =>
+                      setState(() => _declarationTicked = !_declarationTicked),
+              onOpenTerms: _openTerms,
+            ),
           ],
           // The wide page adds its own 24 px before the Restore row.
           SizedBox(

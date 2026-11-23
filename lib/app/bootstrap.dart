@@ -17,6 +17,7 @@ import 'package:pantas/app/startup_gates.dart';
 import 'package:pantas/app/sync_runtime_bootstrap.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/app/theme.dart';
+import 'package:pantas/core/config/seller_facts.dart';
 import 'package:pantas/core/content/bundle/protected_content_installer.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/content_database_memory.dart';
@@ -267,6 +268,14 @@ Future<void> _bootstrap(
     final remoteFlags = bootstrapRemoteFlagsOverrides();
     // Web only, always on, sends no identity. Never blocks startup.
     ClientReporter.startForWeb();
+    // A public prod web build with an unfilled seller fact must not run.
+    assertSellerFactsReady(
+      sellerFacts,
+      web: kIsWeb,
+      releaseMode: kReleaseMode,
+      betaGate: const bool.fromEnvironment('BETA_GATE'),
+      prod: flavor == Flavor.prod,
+    );
     await activateAppCheck(flavor);
     PerfTimeline.mark('boot.appcheck');
 

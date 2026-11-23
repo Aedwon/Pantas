@@ -1,3 +1,4 @@
+import 'package:pantas/features/paywall/domain/checkout_declaration.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 
 enum PaymentOperationStatus {
@@ -13,8 +14,8 @@ enum PaymentOperationStatus {
   operationAlreadyInProgress,
   unknownFailure,
 
-  /// The server refused a minor's checkout because the parent or guardian
-  /// box was not sent.
+  /// The server refused the checkout declaration: missing, or the wrong
+  /// wording for the account.
   guardianConfirmationRequired,
 }
 
@@ -31,12 +32,19 @@ class PaymentOperationResult {
   const PaymentOperationResult.authoritative({
     required this.status,
     required Entitlement entitlement,
-  }) : confirmedEntitlement = entitlement;
+  })  : confirmedEntitlement = entitlement,
+        declarationKind = null;
 
-  const PaymentOperationResult.failure({required this.status})
-      : confirmedEntitlement = null;
+  const PaymentOperationResult.failure({
+    required this.status,
+    this.declarationKind,
+  }) : confirmedEntitlement = null;
 
   final PaymentOperationStatus status;
+
+  /// With [PaymentOperationStatus.guardianConfirmationRequired]: the wording
+  /// the server holds this account to.
+  final DeclarationKind? declarationKind;
   final Entitlement? confirmedEntitlement;
 
   PaymentResult get result => switch (status) {

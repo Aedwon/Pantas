@@ -445,6 +445,39 @@ test('an attested order with no checkout record is copied, and an order with a c
   await db.doc('paymongoOrders/ref-other').delete();
 });
 
+const declared = (kind, at, extra = {}) => ({declaration: {kind, wordingVersion: `checkout-${kind}-2026-11-23`, termsVersion: '2026-11-12', at}, ...extra});
+
+test('only guardian declarations reach the ten-year evidence, with the product and the wording id', async () => {
+  const uid = 'dm-declared'; await reset(uid);
+  await auth.createUser({uid});
+  await db.doc(`guardianConsentEvidence/${uid}/responses/r1`).set({action: 'confirm', decidedAt: T0});
+  await db.doc('paymongoOrders/ref-adult').set({uid, product: 'pantas_cs_weekly', createdAt: T0, sessionId: 'cs_dm_adult_d', ...declared('adult', T0 + 1)});
+  await db.doc('paymongoCheckouts/cs_dm_adult_d').set({uid, product: 'pantas_cs_weekly', createdAt: T0, reference: 'ref-adult', ...declared('adult', T0 + 1)});
+  await db.doc('paymongoOrders/ref-guard').set({uid, product: 'pantas_cs_monthly', createdAt: T0, sessionId: 'cs_dm_guard_d', ...declared('guardian', T0 + 2)});
+  await db.doc('paymongoCheckouts/cs_dm_guard_d').set({uid, product: 'pantas_cs_monthly', createdAt: T0, reference: 'ref-guard', ...declared('guardian', T0 + 2)});
+  await db.doc('paymongoOrders/ref-guard-only').set({uid, product: 'pantas_pass_cse_pro', createdAt: T0, ...declared('guardian', T0 + 3)});
+  await deletion.deleteUserData(db, auth, uid, 'user_request', {now: () => T0 + 9});
+  const purchases = await db.collection(`guardianConsentEvidence/${uid}/purchases`).get();
+  assert.deepEqual(purchases.docs.map(d => d.id).sort(), ['cs_dm_guard_d', 'order-ref-guard-only']);
+  assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_guard_d`).get()).data(),
+    {attestedAt: T0 + 2, termsVersion: '2026-11-12', wordingVersion: 'checkout-guardian-2026-11-23',
+      reference: 'ref-guard', product: 'pantas_cs_monthly'});
+  assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/order-ref-guard-only`).get()).data(),
+    {attestedAt: T0 + 3, termsVersion: '2026-11-12', wordingVersion: 'checkout-guardian-2026-11-23',
+      reference: 'ref-guard-only', product: 'pantas_pass_cse_pro'});
+  assert.equal((await db.doc('paymongoOrders/ref-adult').get()).exists, false, 'the adult order itself still goes');
+});
+
+test('an account whose only declarations are adult leaves no evidence and no marker', async () => {
+  const uid = 'dm-adult-declared'; await reset(uid);
+  await auth.createUser({uid});
+  await db.doc('paymongoOrders/ref-adult-only').set({uid, product: 'pantas_cs_yearly', createdAt: T0, ...declared('adult', T0 + 1)});
+  await db.doc('paymongoCheckouts/cs_dm_adult_only').set({uid, product: 'pantas_cs_yearly', createdAt: T0, reference: 'ref-adult-only', ...declared('adult', T0 + 1)});
+  await deletion.deleteUserData(db, auth, uid, 'user_request', {now: () => T0 + 9});
+  assert.equal((await db.doc(`guardianConsentEvidence/${uid}`).get()).exists, false);
+  assert.equal((await db.collection(`guardianConsentEvidence/${uid}/purchases`).get()).size, 0);
+});
+
 test('markAdult revokes every manage token, switches once and ends the guardian page', async () => {
   const uid = 'dm-adult-switch'; await reset(uid);
   const h = harness();

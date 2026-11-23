@@ -266,6 +266,29 @@ test('a later purchase attestation moves the end date', async () => {
   assert.equal(await exists('ev-p'), false);
 });
 
+test('evidence that holds only declines goes after four years; any confirmation, withdrawal or purchase keeps ten', async () => {
+  await clear();
+  const decided = Date.parse('2026-11-09T10:00:00+08:00');
+  const FOUR = 1461 * DAY;
+  await db.doc('guardianConsentEvidence/ev-d').set({accountDeletedAt: decided, reason: 'user_request'});
+  await db.doc('guardianConsentEvidence/ev-d/responses/r1').set({action: 'decline', decidedAt: decided});
+  await db.doc('guardianConsentEvidence/ev-c').set({accountDeletedAt: decided, reason: 'user_request'});
+  await db.doc('guardianConsentEvidence/ev-c/responses/r1').set({action: 'confirm', decidedAt: decided});
+  await db.doc('guardianConsentEvidence/ev-w').set({accountDeletedAt: decided, reason: 'user_request'});
+  await db.doc('guardianConsentEvidence/ev-w/responses/r1').set({action: 'decline', decidedAt: decided});
+  await db.doc('guardianConsentEvidence/ev-w/responses/r2').set({action: 'withdraw', decidedAt: decided});
+  await db.doc('guardianConsentEvidence/ev-q').set({accountDeletedAt: decided, reason: 'user_request'});
+  await db.doc('guardianConsentEvidence/ev-q/responses/r1').set({action: 'decline', decidedAt: decided});
+  await db.doc('guardianConsentEvidence/ev-q/purchases/cs_1').set({attestedAt: decided, termsVersion: 'v', reference: 'r', product: 'p'});
+  await purge([], decided + FOUR - DAY);
+  assert.equal(await exists('ev-d'), true, 'four years minus a day');
+  await purge([], decided + FOUR);
+  assert.equal(await exists('ev-d'), false, 'a decline-only record goes at four years');
+  for (const uid of ['ev-c', 'ev-w', 'ev-q']) assert.equal(await exists(uid), true, `${uid} stays past four years`);
+  await purge([], evidenceNow(decided));
+  for (const uid of ['ev-c', 'ev-w', 'ev-q']) assert.equal(await exists(uid), false, `${uid} goes at ten years`);
+});
+
 test('an account that still exists keeps its evidence however old', async () => {
   await clear();
   const decided = Date.parse('2026-11-09T10:00:00+08:00');

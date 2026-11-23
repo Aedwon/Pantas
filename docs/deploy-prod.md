@@ -129,12 +129,16 @@ The upload writes server-only content paths, not `betaApplications`.
 ## 8. Build and publish the app (Aedwon-only)
 
 ```sh
-flutter build web --release -t lib/main_prod.dart --dart-define=APP_CHECK_WEB_SITE_KEY=<PROD_PUBLIC_SITE_KEY>
+flutter build web --release -t lib/main_prod.dart --dart-define=APP_CHECK_WEB_SITE_KEY=<PROD_PUBLIC_SITE_KEY> \
+  --dart-define=SELLER_TRADING_NAME="<registered business name>" \
+  --dart-define=SELLER_PLACE_OF_BUSINESS="<full place of business>" \
+  --dart-define=SELLER_PHONE="<business phone>"
 node tool/web/stamp_worker_version.mjs build/web
 firebase deploy --only hosting:app --project pantas-prod
 ```
 
 A build without the site key compiles but refuses to start in release mode.
+A public build (no `BETA_GATE=true`) also refuses to start while any `SELLER_*` fact above is missing. The seller line beside Pay shows them (ruling D3). Staging and beta builds start with brackets.
 Do not deploy that artifact. Do not use staging's key or entry point.
 
 Before any functions deploy, check the runtime account's roles (fails on a missing one):

@@ -22,6 +22,9 @@ export const WARNINGS_PER_RUN = 500;
 // Guardian answer records are kept ten years after the newest answer: 10 x 365 days plus 3 leap
 // days (2028, 2032, 2036 fall inside a ten-year span starting in late 2026).
 export const EVIDENCE_KEEP_DAYS = 3653;
+// Evidence that holds only declines, with no confirmation, withdrawal or purchase, is kept four years
+// (4 x 365 days plus the 2028 leap day). A decline makes no contract, so a claim about it runs out sooner.
+export const DECLINE_ONLY_KEEP_DAYS = 1461;
 // A pending deletion is retried by the daily run an hour after its last attempt, so a live attempt is
 // left alone. At most this many retries run per day, so failing tasks cannot use up the whole cap.
 export const RETRY_AFTER_MS = DELETION_RETRY_MS;
@@ -253,7 +256,8 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
 type EvidenceDeps = {db: Firestore; auth: Pick<Auth, 'getUser'>; now?: () => number; budget?: number};
 
 /**
- * Deletes guardian evidence ten years after its newest answer or purchase attestation, once the
+ * Deletes guardian evidence ten years after its newest answer or purchase declaration (four years
+ * when it holds only declines), once the
  * account is gone. Evidence with no deletion marker predates the marker: if its account no longer
  * exists, the marker is written now so the ten-year clock, which runs from the newest record, applies.
  *
@@ -283,13 +287,16 @@ export async function purgeExpiredEvidence(deps: EvidenceDeps): Promise<number> 
         deletedAt = now;
         await evidence.set({accountDeletedAt: now, reason: 'legacy'}, {merge: true});
       }
-      const [answers, purchases] = await Promise.all([
+      const [answers, purchases, notDeclines] = await Promise.all([
         evidence.collection('responses').orderBy('decidedAt', 'desc').limit(1).get(),
-        evidence.collection('purchases').orderBy('attestedAt', 'desc').limit(1).get()]);
+        evidence.collection('purchases').orderBy('attestedAt', 'desc').limit(1).get(),
+        evidence.collection('responses').where('action', '!=', 'decline').limit(1).get()]);
+      const declinesOnly = !answers.empty && notDeclines.empty && purchases.empty;
+      const keepDays = declinesOnly ? DECLINE_ONLY_KEEP_DAYS : EVIDENCE_KEEP_DAYS;
       const dates = [...answers.docs.map((row) => row.get('decidedAt')), ...purchases.docs.map((row) => row.get('attestedAt'))]
         .filter((value): value is number => typeof value === 'number');
       const newest = dates.length > 0 ? Math.max(...dates) : deletedAt;
-      if (now >= newest + EVIDENCE_KEEP_DAYS * DAY_MS) {
+      if (now >= newest + keepDays * DAY_MS) {
         await deps.db.recursiveDelete(evidence);
         removed += 1;
       }

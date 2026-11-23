@@ -15,6 +15,7 @@ import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/data/revenuecat_config.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
+import 'package:pantas/features/paywall/domain/checkout_declaration.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
@@ -253,15 +254,19 @@ void main() {
       expect(result.confirmedEntitlement, isNull);
     });
 
-    test('a guardian-attested purchase sends the Terms version it was shown',
+    test('a declaration is sent with its kind, wording id and Terms version',
         () async {
-      await gateway.purchase(_weekly, guardianAttested: true);
-      await gateway.purchasePass(_pass, exam: _exam(), guardianAttested: true);
+      const adult = CheckoutDeclaration(DeclarationKind.adult);
+      const guardian = CheckoutDeclaration(DeclarationKind.guardian);
+      await gateway.purchase(_weekly, declaration: adult);
+      await gateway.purchasePass(_pass, exam: _exam(), declaration: guardian);
 
       verify(
         () => callable('createPaymongoCheckout', {
           'product': 'pantas_cs_weekly',
-          'guardianAttestation': {
+          'declaration': {
+            'kind': 'adult',
+            'wordingVersion': 'checkout-adult-2026-11-23',
             'termsVersion': guardianDocumentVersions['terms'],
           },
         }),
@@ -269,11 +274,33 @@ void main() {
       verify(
         () => callable('createPaymongoCheckout', {
           'product': 'pantas_pass_cse_pro',
-          'guardianAttestation': {
+          'declaration': {
+            'kind': 'guardian',
+            'wordingVersion': 'checkout-guardian-2026-11-23',
             'termsVersion': guardianDocumentVersions['terms'],
           },
         }),
       ).called(1);
+    });
+
+    test('the server naming the wording it wants comes back as the kind',
+        () async {
+      when(() => callable('createPaymongoCheckout', any())).thenThrow(
+        FirebaseFunctionsException(
+          message: 'Confirm the declaration to continue.',
+          code: 'failed-precondition',
+          details: const {'reason': 'declaration-required', 'kind': 'guardian'},
+        ),
+      );
+      final result = await gateway.purchase(
+        _weekly,
+        declaration: const CheckoutDeclaration(DeclarationKind.adult),
+      );
+      expect(
+        result.status,
+        PaymentOperationStatus.guardianConfirmationRequired,
+      );
+      expect(result.declarationKind, DeclarationKind.guardian);
     });
 
     test('purchasePass sends the pass product id and opens the url', () async {

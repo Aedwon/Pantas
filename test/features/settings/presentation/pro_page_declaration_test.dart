@@ -3,19 +3,20 @@ import 'dart:ui' show CheckedState;
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/theme.dart';
 import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/providers.dart';
-import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/legal/domain/legal_document.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/paywall.dart';
@@ -24,8 +25,14 @@ import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
-const _label = 'I am the parent or guardian and accept the Terms.';
-const _oldLine = 'Ask your parent or guardian to complete this payment';
+const _adultLabel =
+    "I'm 18+, authorized to use the payment method, and accept the "
+    'Terms and refund policy.';
+const _guardianLabel =
+    "I'm 18+ and buying for this student as their parent or legal guardian. "
+    "I'm authorized to use the payment method and accept the "
+    'Terms and refund policy.';
+const _link = 'Terms and refund policy';
 const _buy = 'Buy 1 Month for ₱149';
 const _generic = "We couldn't confirm your subscription. Try again.";
 
@@ -40,8 +47,8 @@ void main() {
 
   Future<void> pumpPro(
     WidgetTester tester, {
-    required String? group,
     required bool wide,
+    bool guardian = false,
     bool trialEligible = false,
     bool router = false,
   }) async {
@@ -86,7 +93,7 @@ void main() {
       ),
       isAnonymousProvider.overrideWith((ref) async => false),
       paymentsOnWebProvider.overrideWithValue(true),
-      ageGroupProvider.overrideWith((ref) async => group),
+      guardianConfirmedProvider.overrideWith((ref) async => guardian),
       revenueCatGatewayProvider.overrideWithValue(gateway),
       proForActiveExamProvider.overrideWith((ref) async => false),
       activeExamFocusProvider.overrideWith(
@@ -169,47 +176,47 @@ void main() {
     }
   }
 
-  Finder box() => find.byWidgetPredicate(
-        (w) => w is CheckboxRow && w.title == _label,
+  Finder box([String label = _adultLabel]) => find.byWidgetPredicate(
+        (w) => w is CheckboxRow && w.title == label,
       );
 
-  /// The middle of the word Terms inside the label.
-  Offset termsCenter(WidgetTester tester) {
-    final text = tester.renderObject<RenderParagraph>(
-      find.descendant(of: box(), matching: find.byType(RichText)),
-    );
-    const full = 'I am the parent or guardian and accept the Terms.';
-    final start = full.indexOf('Terms');
-    final boxes = text.getBoxesForSelection(
-      TextSelection(baseOffset: start, extentOffset: start + 5),
-    );
-    return text.localToGlobal(boxes.first.toRect().center);
-  }
+  Finder anyBox() => find.byType(CheckboxRow);
 
   Future<void> tick(WidgetTester tester) async {
-    await tester.ensureVisible(box());
-    await tester.tap(box());
+    await tester.ensureVisible(anyBox());
+    await tester.tapAt(tester.getTopLeft(anyBox()) + const Offset(14, 20));
     await tester.pump();
+  }
+
+  Future<void> buy(WidgetTester tester, {required bool wide}) async {
+    await tester.tap(
+      wide
+          ? find.widgetWithText(WebButton, _buy)
+          : find.widgetWithText(PantasButton, _buy),
+    );
+    await afterBuy(tester);
   }
 
   for (final wide in [false, true]) {
     final where = wide ? 'wide web' : 'phone';
 
-    testWidgets('a minor sees the box, not the old line, on $where',
+    testWidgets('every web buyer sees the adult declaration, unticked, $where',
         (tester) async {
-      await pumpPro(tester, group: 'minor', wide: wide);
+      await pumpPro(tester, wide: wide);
       expect(box(), findsOneWidget);
-      expect(find.text(_oldLine), findsNothing);
-      expect(
-        tester.widget<CheckboxRow>(box()).selected,
-        isFalse,
-        reason: 'The box starts unticked.',
-      );
+      expect(tester.widget<CheckboxRow>(box()).selected, isFalse);
     });
 
-    testWidgets('the buy button is disabled until the box is ticked, $where',
+    testWidgets('a confirmed guardian sees the guardian wording, $where',
         (tester) async {
-      await pumpPro(tester, group: 'minor', wide: wide);
+      await pumpPro(tester, wide: wide, guardian: true);
+      expect(box(_guardianLabel), findsOneWidget);
+      expect(box(), findsNothing);
+      expect(tester.widget<CheckboxRow>(box(_guardianLabel)).selected, isFalse);
+    });
+
+    testWidgets('Pay is off until the box is ticked, $where', (tester) async {
+      await pumpPro(tester, wide: wide);
       expect(buyPressed(tester, wide: wide), isNull);
       await tick(tester);
       expect(buyPressed(tester, wide: wide), isNotNull);
@@ -217,137 +224,144 @@ void main() {
       expect(buyPressed(tester, wide: wide), isNull);
     });
 
-    testWidgets(
-        'buying sends the guardian attestation with the Terms version, '
-        '$where', (tester) async {
-      await pumpPro(tester, group: 'minor', wide: wide);
+    testWidgets('buying sends the adult declaration, $where', (tester) async {
+      await pumpPro(tester, wide: wide);
       await tick(tester);
-      final buy = wide
-          ? find.widgetWithText(WebButton, _buy)
-          : find.widgetWithText(PantasButton, _buy);
-      await tester.tap(buy);
-      await afterBuy(tester);
+      await buy(tester, wide: wide);
       expect(calls.single.$1, 'createPaymongoCheckout');
       expect(calls.single.$2, {
         'product': 'pantas_cs_monthly',
-        'guardianAttestation': {
+        'declaration': {
+          'kind': 'adult',
+          'wordingVersion': 'checkout-adult-2026-11-23',
           'termsVersion': guardianDocumentVersions['terms'],
         },
       });
     });
 
-    testWidgets('an adult sees no box and buys without an attestation, $where',
-        (tester) async {
-      await pumpPro(tester, group: 'adult', wide: wide);
-      expect(box(), findsNothing);
-      expect(find.text(_oldLine), findsNothing);
-      expect(buyPressed(tester, wide: wide), isNotNull);
-      final buy = wide
-          ? find.widgetWithText(WebButton, _buy)
-          : find.widgetWithText(PantasButton, _buy);
-      await tester.tap(buy);
-      await afterBuy(tester);
-      expect(calls.single.$2, {'product': 'pantas_cs_monthly'});
-    });
-
-    testWidgets('an unknown age group shows no box, $where', (tester) async {
-      await pumpPro(tester, group: null, wide: wide);
-      expect(box(), findsNothing);
-      expect(buyPressed(tester, wide: wide), isNotNull);
-    });
-
     testWidgets(
-        'the free trial takes no payment, so a minor sees no box, '
+        'buying with a confirmed guardian sends the guardian one, '
         '$where', (tester) async {
-      await pumpPro(tester, group: 'minor', wide: wide, trialEligible: true);
-      expect(find.text('Try 7 Days Free'), findsWidgets);
-      expect(box(), findsNothing);
-      expect(find.text(_oldLine), findsNothing);
+      await pumpPro(tester, wide: wide, guardian: true);
+      await tick(tester);
+      await buy(tester, wide: wide);
+      expect(
+        (calls.single.$2['declaration']! as Map)['kind'],
+        'guardian',
+      );
+      expect(
+        (calls.single.$2['declaration']! as Map)['wordingVersion'],
+        'checkout-guardian-2026-11-23',
+      );
     });
 
     testWidgets(
-        'the server refusing a missing attestation shows its own text, '
+        'the seller line sits beside Pay with visible placeholders, '
+        '$where', (tester) async {
+      await pumpPro(tester, wide: wide);
+      final line = find.byWidgetPredicate(
+        (w) =>
+            w is RichText &&
+            w.text.toPlainText() ==
+                'Sold by Aerol Dwayne Daños Balayon, trading as '
+                    '[registered business name] · [full place of business] · '
+                    '[business phone] · support@pantas.study',
+      );
+      expect(line, findsOneWidget);
+    });
+
+    testWidgets(
+        'the free trial takes no payment, so no box and no seller line, '
+        '$where', (tester) async {
+      await pumpPro(tester, wide: wide, trialEligible: true);
+      expect(find.text('Try 7 Days Free'), findsWidgets);
+      expect(anyBox(), findsNothing);
+      expect(find.textContaining('Sold by'), findsNothing);
+    });
+
+    testWidgets(
+        'the server naming the other wording swaps it and unticks, '
         '$where', (tester) async {
       refusal = FirebaseFunctionsException(
-        message: 'A parent or guardian must confirm this purchase.',
+        message: 'Confirm the declaration to continue.',
         code: 'failed-precondition',
-        details: const {'reason': 'guardian-attestation-required'},
+        details: const {'reason': 'declaration-required', 'kind': 'guardian'},
       );
-      await pumpPro(tester, group: 'minor', wide: wide);
+      await pumpPro(tester, wide: wide);
       await tick(tester);
-      final buy = wide
-          ? find.widgetWithText(WebButton, _buy)
-          : find.widgetWithText(PantasButton, _buy);
-      await tester.tap(buy);
-      await afterBuy(tester);
+      await buy(tester, wide: wide);
+      expect(box(_guardianLabel), findsOneWidget);
+      expect(tester.widget<CheckboxRow>(box(_guardianLabel)).selected, isFalse);
+      expect(buyPressed(tester, wide: wide), isNull);
       expect(
-        find.text('A parent or guardian must confirm this purchase.'),
+        find.text('Read the box again, then tick it to pay.'),
         findsOneWidget,
       );
       expect(find.text(_generic), findsNothing);
     });
 
-    testWidgets(
-        'any other refusal keeps the generic line, even a failed '
-        'precondition with another reason, $where', (tester) async {
+    testWidgets('any other refusal keeps the generic line, $where',
+        (tester) async {
       refusal = FirebaseFunctionsException(
         message: 'Something else.',
         code: 'failed-precondition',
         details: const {'reason': 'other'},
       );
-      await pumpPro(tester, group: 'minor', wide: wide);
+      await pumpPro(tester, wide: wide);
       await tick(tester);
-      final buy = wide
-          ? find.widgetWithText(WebButton, _buy)
-          : find.widgetWithText(PantasButton, _buy);
-      await tester.tap(buy);
-      await afterBuy(tester);
+      await buy(tester, wide: wide);
       expect(find.text(_generic), findsOneWidget);
       expect(
-        find.text('A parent or guardian must confirm this purchase.'),
+        find.text('Read the box again, then tick it to pay.'),
         findsNothing,
       );
     });
   }
 
-  testWidgets('Terms in the label opens the Terms', (tester) async {
-    await pumpPro(tester, group: 'minor', wide: false, router: true);
-    await tester.ensureVisible(box());
-    await tester.tapAt(termsCenter(tester));
-    await tester.pumpAndSettle();
-    expect(find.text('The Terms page'), findsOneWidget);
-  });
+  for (final guardian in [false, true]) {
+    final label = guardian ? _guardianLabel : _adultLabel;
+    final who = guardian ? 'guardian wording' : 'adult wording';
 
-  testWidgets('the label is one sentence on the phone and the row ticks',
+    testWidgets('a tap on the link opens the Terms and changes nothing, $who',
+        (tester) async {
+      await pumpPro(tester, wide: false, guardian: guardian, router: true);
+      await tester.ensureVisible(box(label));
+      await tester.tap(find.text(_link));
+      await tester.pumpAndSettle();
+      expect(find.text('The Terms page'), findsOneWidget);
+      // Back on the page, the box is still unticked and Pay is still off.
+      tester.element(find.text('The Terms page')).pop();
+      await tester.pumpAndSettle();
+      expect(tester.widget<CheckboxRow>(box(label)).selected, isFalse);
+      expect(buyPressed(tester, wide: false), isNull);
+    });
+
+    testWidgets(
+        'the link takes keyboard focus and Enter opens the Terms, '
+        '$who', (tester) async {
+      await pumpPro(tester, wide: false, guardian: guardian, router: true);
+      await tester.ensureVisible(box(label));
+      Focus.of(tester.element(find.text(_link))).requestFocus();
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pumpAndSettle();
+      expect(find.text('The Terms page'), findsOneWidget);
+    });
+  }
+
+  testWidgets('the label reads as one sentence and the row ticks',
       (tester) async {
-    await pumpPro(tester, group: 'minor', wide: false);
+    await pumpPro(tester, wide: false);
     await tester.ensureVisible(box());
     await tester.pump();
     final text = tester.renderObject<RenderParagraph>(
-      find.descendant(of: box(), matching: find.byType(RichText)),
+      find.descendant(of: box(), matching: find.byType(RichText)).first,
     );
-    final label = text.text.toPlainText();
-    expect(label, 'I am the parent or guardian and accept the Terms.');
-    // Group the characters by the line they sit on.
-    final byLine = <int, StringBuffer>{};
-    for (var i = 0; i < label.length; i++) {
-      final boxes = text.getBoxesForSelection(
-        TextSelection(baseOffset: i, extentOffset: i + 1),
-      );
-      if (boxes.isEmpty) continue;
-      byLine
-          .putIfAbsent(boxes.first.top.round(), StringBuffer.new)
-          .write(label[i]);
-    }
-    final rows = [
-      for (final k in byLine.keys.toList()..sort()) byLine[k].toString().trim(),
-    ];
-    expect(rows.length, greaterThanOrEqualTo(1));
-    for (final row in rows) {
-      expect(row, isNot('the'), reason: rows.join(' | '));
-      expect(row, isNot('Terms.'), reason: rows.join(' | '));
-      expect(row, isNotEmpty);
-    }
+    // The link is an inline widget, so its words are not in the paragraph.
+    expect(
+      text.text.toPlainText().replaceAll('\uFFFC', _link),
+      _adultLabel,
+    );
     expect(tester.widget<CheckboxRow>(box()).selected, isFalse);
     await tester.tapAt(tester.getTopLeft(box()) + const Offset(14, 20));
     await tester.pump();
@@ -356,20 +370,16 @@ void main() {
 
   testWidgets('a screen reader reads one label and a link', (tester) async {
     final handle = tester.ensureSemantics();
-    await pumpPro(tester, group: 'minor', wide: false);
+    await pumpPro(tester, wide: false);
     await tester.ensureVisible(box());
     await tester.pump();
-    final node = tester.getSemantics(
-      find.bySemanticsLabel(
-        'I am the parent or guardian and accept the Terms.',
-      ),
-    );
-    expect(node.label, 'I am the parent or guardian and accept the Terms.');
+    final node = tester.getSemantics(find.bySemanticsLabel(_adultLabel));
+    expect(node.label, _adultLabel);
     final checked = node.getSemanticsData().flagsCollection.isChecked;
     expect(checked, isNot(CheckedState.none));
     var links = 0;
     void walk(SemanticsNode n) {
-      if (n.label == 'Terms' &&
+      if (n.label == _link &&
           n.getSemanticsData().hasAction(SemanticsAction.tap)) {
         links++;
       }

@@ -1,5 +1,5 @@
 import type {Auth} from 'firebase-admin/auth';
-import {FieldValue, type Firestore} from 'firebase-admin/firestore';
+import {FieldValue, type DocumentSnapshot, type Firestore} from 'firebase-admin/firestore';
 import {getStorage} from 'firebase-admin/storage';
 import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
@@ -107,11 +107,31 @@ export async function deleteUserData(
   await task.set({});
 }
 
+type EvidencePurchase = Record<string, unknown>;
+
 /**
- * Marks the deletion in the guardian evidence and copies each guardian-attested purchase there,
+ * What a purchase record keeps as ten-year evidence, or null when it is not guardian evidence.
+ * Only a guardian-kind declaration qualifies (legal lane, Nov 23 pass: adult declarations are not
+ * kept). A record from before declarations existed carries `attestedAt` and was guardian-only by
+ * construction, so it keeps its old four-field shape.
+ */
+function guardianPurchase(doc: DocumentSnapshot, reference: unknown): EvidencePurchase | null {
+  const declaration = doc.get('declaration');
+  if (declaration && typeof declaration === 'object') {
+    if (declaration.kind !== 'guardian' || typeof declaration.at !== 'number') return null;
+    return {attestedAt: declaration.at, termsVersion: declaration.termsVersion ?? null,
+      wordingVersion: declaration.wordingVersion ?? null, reference, product: doc.get('product') ?? null};
+  }
+  if (typeof doc.get('attestedAt') !== 'number') return null;
+  return {attestedAt: doc.get('attestedAt'), termsVersion: doc.get('termsVersion') ?? null, reference,
+    product: doc.get('product') ?? null};
+}
+
+/**
+ * Marks the deletion in the guardian evidence and copies each guardian-declared purchase there,
  * before the user tree and the payment index go. Only an account with such evidence gets a marker,
- * so an adult with none leaves nothing behind. The copy holds the attestation time, the Terms
- * version, our own reference and the product: no email, name or payment details.
+ * so an adult with none leaves nothing behind. The copy holds the declaration time, the Terms
+ * version, the wording id, our own reference and the product: no email, name or payment details.
  */
 async function keepGuardianEvidence(db: Firestore, uid: string, reason: DeletionReason, now: number): Promise<void> {
   const evidence = db.doc(`guardianConsentEvidence/${uid}`);
@@ -123,20 +143,20 @@ async function keepGuardianEvidence(db: Firestore, uid: string, reason: Deletion
   // One purchase document per payment reference. A checkout wins over its order because its id is
   // the stable one; an order whose checkout record was never written (the last step of checkout
   // failed, yet the payment can still be fulfilled from the order) is kept under its own id.
-  const purchases = new Map<string, {id: string; attestedAt: unknown; termsVersion: unknown; reference: unknown; product: unknown}>();
+  const purchases = new Map<string, {id: string; fields: EvidencePurchase}>();
   for (const doc of checkouts.docs) {
-    if (typeof doc.get('attestedAt') !== 'number') continue;
-    purchases.set(doc.get('reference') ?? `checkout-${doc.id}`, {id: doc.id, attestedAt: doc.get('attestedAt'),
-      termsVersion: doc.get('termsVersion') ?? null, reference: doc.get('reference') ?? null, product: doc.get('product') ?? null});
+    const reference = doc.get('reference') ?? null;
+    const fields = guardianPurchase(doc, reference);
+    if (fields) purchases.set(reference ?? `checkout-${doc.id}`, {id: doc.id, fields});
   }
   for (const doc of orders.docs) {
-    if (typeof doc.get('attestedAt') !== 'number' || purchases.has(doc.id)) continue;
-    purchases.set(doc.id, {id: `order-${doc.id}`, attestedAt: doc.get('attestedAt'),
-      termsVersion: doc.get('termsVersion') ?? null, reference: doc.id, product: doc.get('product') ?? null});
+    if (purchases.has(doc.id)) continue;
+    const fields = guardianPurchase(doc, doc.id);
+    if (fields) purchases.set(doc.id, {id: `order-${doc.id}`, fields});
   }
   if (answers.empty && purchases.size === 0) return;
   const batch = db.batch();
-  for (const {id, ...fields} of purchases.values()) batch.set(evidence.collection('purchases').doc(id), fields);
+  for (const {id, fields} of purchases.values()) batch.set(evidence.collection('purchases').doc(id), fields);
   // A retry keeps the first deletion time, so the record does not drift later.
   const existing = (await evidence.get()).get('accountDeletedAt');
   if (typeof existing !== 'number') batch.set(evidence, {accountDeletedAt: now, reason}, {merge: true});
