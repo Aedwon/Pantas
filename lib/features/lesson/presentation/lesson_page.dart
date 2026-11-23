@@ -1642,9 +1642,7 @@ class _LessonContent extends StatelessWidget {
                     // .04 em), then the title at 30 px. No part or count line.
                     Text(
                       reader.topicName.toUpperCase(),
-                      style: PantasType.phoneSectionHeader.copyWith(
-                        height: 1.35,
-                        letterSpacing: 13 * 0.04,
+                      style: PantasType.phoneReaderEyebrow.copyWith(
                         color: context.colors.secondaryLabel,
                       ),
                     ),

@@ -505,6 +505,16 @@ abstract final class PantasType {
     letterSpacing: 0.26,
   );
 
+  /// Lesson reader topic eyebrow above the title. Uppercase, secondary
+  /// color, set in the component. Board RD_Real: 13/600, .04 em. (13/600)
+  static const phoneReaderEyebrow = TextStyle(
+    fontFamily: 'Geist',
+    fontSize: 13,
+    fontWeight: FontWeight.w600,
+    height: 1.35,
+    letterSpacing: 0.52,
+  );
+
   /// Caption. (12/400)
   static const phoneCaption = TextStyle(
     fontFamily: 'Geist',
