@@ -310,7 +310,7 @@ class ReportQueue {
     if (sender == null || remaining == 0) return remaining;
     var networkFailure = false;
     for (final report in queued) {
-      final outcome = await _deliver(sender, report);
+      final (outcome, reason) = await _deliver(sender, report);
       if (outcome == _Outcome.failed) {
         networkFailure = true;
         break;
@@ -319,6 +319,7 @@ class ReportQueue {
       await _settle(
         report.id,
         outcome == _Outcome.sent ? ReportState.sent : ReportState.refused,
+        reason: reason,
       );
       remaining--;
     }
@@ -337,11 +338,15 @@ class ReportQueue {
     }
   }
 
-  Future<_Outcome> _deliver(ReportSender sender, QuestionReport report) async {
+  Future<(_Outcome, String?)> _deliver(
+    ReportSender sender,
+    QuestionReport report,
+  ) async {
     final toSend = QuestionReport(
       id: report.id,
       questionId: report.questionId,
-      message: _cut(report.message),
+      // Older reports are cleaned the same way a new one is.
+      message: _cut(_clean(report.message)),
       createdAt: report.createdAt,
       accountId: report.accountId,
       examId: report.examId,
@@ -350,35 +355,57 @@ class ReportQueue {
     for (var attempt = 1; attempt <= maxAttempts; attempt++) {
       // Before every try, even after a wait: a student who switched accounts
       // meanwhile must not send this report as the new account.
-      if (_account() != report.accountId) return _Outcome.unavailable;
+      if (_account() != report.accountId) return (_Outcome.unavailable, null);
       try {
         await sender.send(toSend);
-        return _Outcome.sent;
-      } on ReportRefused {
-        return _Outcome.refused;
+        return (_Outcome.sent, null);
+      } on ReportRefused catch (refusal) {
+        return (_Outcome.refused, refusal.reason);
       } on ReportUnavailable {
-        return _Outcome.unavailable;
+        return (_Outcome.unavailable, null);
       } on Object {
-        if (attempt == maxAttempts) return _Outcome.failed;
+        if (attempt == maxAttempts) return (_Outcome.failed, null);
         await _wait(Duration(seconds: attempt * attempt * 2));
       }
     }
-    return _Outcome.failed;
+    return (_Outcome.failed, null);
   }
 
-  /// Marks one report done and drops its message. Reads the list again, so a
-  /// report added during the pass is kept.
-  Future<void> _settle(String id, ReportState state) =>
+  /// Marks one report done. A sent report and one the server refused for
+  /// quota lose their message; one the server rejected as malformed keeps its
+  /// text, with the reason, until the next wipe, so unsent words are never
+  /// erased silently. Reads the list again, so a report added during the pass
+  /// is kept.
+  Future<void> _settle(String id, ReportState state, {String? reason}) =>
       _db.transaction(() async {
         final rows = await _rows();
         for (final row in rows) {
           if (row['id'] != id) continue;
-          row
-            ..['state'] = state.name
-            ..['message'] = '';
+          row['state'] = state.name;
+          if (reason != null) row['reason'] = reason;
+          if (!_keepsText(state, reason)) row['message'] = '';
         }
         await _write(rows);
       });
+
+  static bool _keepsText(ReportState state, String? reason) =>
+      state == ReportState.refused &&
+      (reason == 'invalid-argument' || reason == 'already-exists');
+
+  /// How many of the signed-in account's reports the server refused for good,
+  /// by reason. They are not pending, and the wipe discards them.
+  Future<Map<String, int>> refusedReasons() async {
+    final counts = <String, int>{};
+    final account = _account();
+    if (account == null) return counts;
+    for (final row in await _rows()) {
+      if (row['accountId'] != account) continue;
+      if (row['state'] != ReportState.refused.name) continue;
+      final reason = (row['reason'] as String?) ?? 'unknown';
+      counts[reason] = (counts[reason] ?? 0) + 1;
+    }
+    return counts;
+  }
 
   /// The stored list. A list written before reports had ids gets them here and
   /// is saved at once, so an id never changes between tries.

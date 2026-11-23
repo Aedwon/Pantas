@@ -541,6 +541,79 @@ void main() {
     });
   });
 
+  group('a message the server cannot take', () {
+    final stored = {
+      'id': 'report-id-0000000000000001',
+      'accountId': 'acct-a',
+      'questionId': 'q1',
+      'message': 'Two answers\u0001 look right.',
+      'createdAt': DateTime(2026, 11, 20, 9).toIso8601String(),
+    };
+
+    test('an older report is cleaned the same way when it is retried',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _storeRaw(db, [stored]);
+      final sender = _Sender();
+      await _queue(db, sender).sendPending();
+      expect(sender.sent.single.message, 'Two answers look right.');
+    });
+
+    test('a rejection keeps the text, with its reason, until the wipe',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _storeRaw(db, [stored]);
+      final sender = _Sender()
+        ..script.add(const ReportRefused('invalid-argument'));
+      final queue = _queue(db, sender);
+
+      expect(await queue.sendPending(), 0);
+
+      expect(await queue.pending(), isEmpty, reason: 'it does not block');
+      final raw = (await _readRaw(db)).single as Map;
+      expect(raw['state'], 'refused');
+      expect(raw['reason'], 'invalid-argument');
+      expect(raw['message'], 'Two answers\u0001 look right.');
+      expect(await queue.refusedReasons(), {'invalid-argument': 1});
+    });
+
+    test('a refusal for a full question drops the text and keeps the reason',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _storeRaw(db, [stored]);
+      final sender = _Sender()
+        ..script.add(const ReportRefused('question-limit'));
+      final queue = _queue(db, sender);
+
+      await queue.sendPending();
+
+      final raw = (await _readRaw(db)).single as Map;
+      expect(raw['state'], 'refused');
+      expect(raw['reason'], 'question-limit');
+      expect(raw['message'], '');
+      expect(await queue.refusedReasons(), {'question-limit': 1});
+    });
+
+    test("reasons count only this account's refused reports", () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _storeRaw(db, [
+        {...stored, 'state': 'refused', 'reason': 'question-limit'},
+        {
+          ...stored,
+          'id': 'report-id-0000000000000002',
+          'accountId': 'acct-b',
+          'state': 'refused',
+          'reason': 'question-limit',
+        },
+      ]);
+      expect(await _queue(db, null).refusedReasons(), {'question-limit': 1});
+    });
+  });
+
   group('what a message may hold', () {
     test('control characters and lone surrogates are removed, text kept',
         () async {

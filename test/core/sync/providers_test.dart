@@ -55,9 +55,6 @@ class RecordingRuntimeSurface implements SyncRuntimeSurface {
   Stream<SyncStatus> get statuses => Stream.value(currentStatus);
 
   @override
-  Future<void> resume() async {}
-
-  @override
   Future<void> forceFlush() async {
     forceFlushCalls += 1;
   }

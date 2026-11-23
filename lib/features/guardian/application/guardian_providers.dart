@@ -46,7 +46,7 @@ Future<void> _closeAccount(Ref ref, String? uid) async {
   ref.read(accountAccessProvider).close(uid);
   if (auth.currentSession?.uid != uid) return;
   try {
-    await auth.signOutClosedAccount(uid);
+    await auth.signOut();
   } on Object {
     // Keep the end state even if local cleanup or sign-out is unavailable.
   }

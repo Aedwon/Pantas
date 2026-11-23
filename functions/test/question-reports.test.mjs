@@ -238,13 +238,13 @@ test('the 21st report in one Manila day is refused, and the next day works', asy
   await storeQuestionReport(request({...valid(), reportId: 'report-id-number-y', questionId: 'qx'}), f.deps());
 });
 
-test('a valid request over the daily limit is refused after three reads, over the question limit after four', async () => {
+test('a valid request over the daily limit is refused after four reads, over the question limit after four', async () => {
   const f = fixture();
   for (let i = 0; i < 20; i++) await storeQuestionReport(request({...valid(), reportId: `report-id-number-${i}`, questionId: `q${i}`}), f.deps());
   f.log.reads = 0; f.log.writes = 0;
   await assert.rejects(storeQuestionReport(request({...valid(), reportId: 'report-id-number-new', questionId: 'qnew'}), f.deps()),
     (e) => e.details?.reason === 'daily-limit');
-  assert.deepEqual(f.log, {reads: 3, writes: 0});
+  assert.deepEqual(f.log, {reads: 4, writes: 0});
   const g = fixture();
   for (let i = 0; i < 3; i++) await storeQuestionReport(request({...valid(), reportId: `report-id-number-${i}`}), g.deps());
   g.log.reads = 0; g.log.writes = 0;
@@ -267,25 +267,60 @@ test('a retry of a report accepted at the limit is still acknowledged', async ()
     (e) => e.code === 'already-exists');
 });
 
-test('a rejected request reads nothing: bad input, wrong account, signed out, over the burst limit', async () => {
+test('the largest valid request is accepted, and the cap is exactly its size', () => {
+  // Worst case in every field: a message of 3-byte characters, an account id of 128 control
+  // characters (each one a 6-byte escape in JSON), the longest ids, the largest version.
+  const worst = {
+    reportId: 'r'.repeat(64), accountId: '\u0001'.repeat(128), questionId: 'q'.repeat(128), questionVersion: Number.MAX_SAFE_INTEGER,
+    examId: 'e'.repeat(64), message: '\u20ac'.repeat(MAX_REPORT_MESSAGE), build: 'b'.repeat(40),
+  };
+  const bytes = Buffer.byteLength(JSON.stringify(worst));
+  assert.equal(MAX_REQUEST_BYTES, bytes);
+  assert.deepEqual(validateQuestionReport(worst).accountId, worst.accountId);
+  assert.throws(() => validateQuestionReport({...worst, message: `${worst.message}x`}), (e) => e.code === 'invalid-argument');
+});
+
+test('a rejected request reads nothing: bad input, wrong account, signed out', async () => {
   const f = fixture();
   await assert.rejects(storeQuestionReport({auth: undefined, data: valid()}, f.deps()), (e) => e.code === 'unauthenticated');
   await assert.rejects(storeQuestionReport(request({...valid(), message: ''}), f.deps()), (e) => e.code === 'invalid-argument');
   await assert.rejects(storeQuestionReport(request({...valid(), message: ' '.repeat(5000)}), f.deps()), (e) => e.code === 'invalid-argument');
   await assert.rejects(storeQuestionReport(request(valid(), 'u1', 'u2'), f.deps()),
     (e) => e.code === 'failed-precondition' && e.details?.reason === 'wrong-account');
-  const limiter = new RateLimiter(1);
-  await storeQuestionReport(request(valid()), f.deps({limiter}));
-  const before = {...f.log};
-  await assert.rejects(storeQuestionReport(request({...valid(), reportId: 'report-id-number-2'}), f.deps({limiter})),
-    (e) => e.code === 'resource-exhausted');
-  assert.deepEqual(f.log, before, 'the burst-limited call read nothing');
   const g = fixture();
   for (const bad of [{message: ''}, {questionId: 'a/b'}]) {
     await assert.rejects(storeQuestionReport(request({...valid(), ...bad}), g.deps()));
   }
   await assert.rejects(storeQuestionReport(request(valid(), 'u1', 'other'), g.deps()));
   assert.deepEqual(g.log, {reads: 0, writes: 0});
+});
+
+test('a burst-limited call reads only the closure, and a closed account hears so first', async () => {
+  const f = fixture();
+  const limiter = new RateLimiter(1);
+  await storeQuestionReport(request(valid()), f.deps({limiter}));
+  f.log.reads = 0; f.log.writes = 0;
+  await assert.rejects(storeQuestionReport(request({...valid(), reportId: 'report-id-number-2'}), f.deps({limiter})),
+    (e) => e.code === 'resource-exhausted' && !e.details?.reason);
+  assert.deepEqual(f.log, {reads: 2, writes: 0}, 'the two closure reads, nothing else');
+  f.rows.set('accountDeletions/u1', {reason: 'user_request'});
+  await assert.rejects(storeQuestionReport(request({...valid(), reportId: 'report-id-number-3'}), f.deps({limiter})),
+    (e) => e.code === 'permission-denied' && e.details?.reason === 'account-closed');
+});
+
+test('a retry of an expired report is acknowledged even when today\'s quota is full', async () => {
+  const f = fixture(Date.parse('2026-11-23T12:00:00+08:00'));
+  await storeQuestionReport(request({...valid(), reportId: 'report-id-yesterday', questionId: 'qy'}), f.deps());
+  // The next Manila day: 20 other reports fill it. Yesterday's report has expired.
+  f.state.at = Date.parse('2026-11-24T12:00:00+08:00');
+  for (let i = 0; i < 20; i++) await storeQuestionReport(request({...valid(), reportId: `report-id-number-${i}`, questionId: `q${i}`}), f.deps());
+  f.rows.delete(`questionReports/${reportDocId('u1', 'report-id-yesterday')}`);
+  f.log.writes = 0;
+  assert.deepEqual(await storeQuestionReport(request({...valid(), reportId: 'report-id-yesterday', questionId: 'qy'}), f.deps()),
+    {ok: true, reportId: 'report-id-yesterday'});
+  assert.equal(f.log.writes, 0);
+  await assert.rejects(storeQuestionReport(request({...valid(), reportId: 'report-id-new-reports', questionId: 'qnew'}), f.deps()),
+    (e) => e.details?.reason === 'daily-limit');
 });
 
 test('a closed account is refused inside the transaction, with nothing written', async () => {

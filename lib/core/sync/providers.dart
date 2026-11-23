@@ -23,9 +23,6 @@ abstract interface class SyncRuntimeSurface implements SyncRuntimeLifecycle {
 
   Future<void> forceFlush();
 
-  /// Starts Sync again for the same account after a refused sign-out.
-  Future<void> resume();
-
   /// Back Up Now and Try Again: flushes, or starts Sync again after it
   /// stopped on an error while starting.
   Future<void> retry();
@@ -57,9 +54,6 @@ class DisabledSyncRuntimeSurface implements SyncRuntimeSurface {
 
   @override
   Future<void> forceFlush() async {}
-
-  @override
-  Future<void> resume() async {}
 
   @override
   Future<void> retry() async {}
@@ -104,9 +98,6 @@ class ConfiguredSyncRuntimeSurface implements SyncRuntimeSurface {
   Future<void> forceFlush() => _engine.forceFlush();
 
   @override
-  Future<void> resume() => _controller.resume();
-
-  @override
   Future<void> retry() => _controller.retry();
 
   @override
@@ -142,9 +133,6 @@ class FakeSyncEngine implements SyncRuntimeSurface {
   Future<void> forceFlush() async {
     forceFlushCalls += 1;
   }
-
-  @override
-  Future<void> resume() async {}
 
   @override
   Future<void> retry() => forceFlush();

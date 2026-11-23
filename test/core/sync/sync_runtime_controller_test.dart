@@ -302,36 +302,6 @@ void main() {
     expect(h.runtime.status, isA<SyncOff>());
   });
 
-  test('resume starts Sync again on the same generation after a quiesce',
-      () async {
-    final h = _Harness();
-    addTearDown(h.close);
-    await h.runtime.update(
-      identity: const SyncIdentity(uid: 'user-1'),
-      entitlement: SyncEntitlement.pro,
-    );
-    h.seedGeneration(uid: 'user-1', generationId: 'gen-user-1-1');
-    final startedBefore = h.coordinator.pushCalls;
-    await h.runtime.quiesce(flush: false);
-    expect(h.runtime.status, isA<SyncOff>());
-
-    await h.runtime.resume();
-
-    expect(h.runtime.status, isNot(isA<SyncOff>()));
-    expect(
-      h.coordinator.pushCalls,
-      startedBefore,
-      reason: 'the same generation is reused: no new full upload',
-    );
-  });
-
-  test('resume with no account yet does nothing', () async {
-    final h = _Harness();
-    addTearDown(h.close);
-    await h.runtime.resume();
-    expect(h.runtime.status, isA<SyncOff>());
-  });
-
   test('anonymous Pro is off without claim or progress reads', () async {
     final h = _Harness();
     addTearDown(h.close);

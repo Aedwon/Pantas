@@ -327,12 +327,8 @@ class AuthRepository implements EmailCodeAuth {
   }) async {
     bool wanted({required bool signedOut}) =>
         valid?.call(signedOut: signedOut) ?? true;
+    await _accountTransitionGateway.prepareForAccountSwitch();
     if (!wanted(signedOut: false)) return const SignInResult.cancelled();
-    final real = await _leaveCurrentAccount();
-    if (!wanted(signedOut: false)) {
-      if (real) await _resumeSyncQuietly();
-      return const SignInResult.cancelled();
-    }
     await beforeIdentityChange?.call();
     if (!wanted(signedOut: false)) return const SignInResult.cancelled();
     try {
@@ -445,104 +441,11 @@ class AuthRepository implements EmailCodeAuth {
     return _exclusive(_signOut);
   }
 
-  /// Wraps the sign-out wipe so the app can check for unsent data in the same
-  /// transaction as the wipe. It throws to refuse. Unset, the wipe runs as is.
-  Future<void> Function(Future<void> Function() wipe)? signOutWipeGuard;
-
-  /// Stops Sync without flushing and waits for any push or pull in flight, so
-  /// nothing can write data back after the wipe. Set by the app.
-  Future<void> Function()? stopSyncForWipe;
-
-  /// Starts Sync again for the same account after a refused sign-out.
-  Future<void> Function()? resumeSync;
-
-  /// The longest Sync may take to stop. Slower is a refusal.
-  Duration syncStopLimit = const Duration(seconds: 5);
-
-  /// Steps 2 to 4 of a sign-out or an account switch away from a real account:
-  /// send what is waiting, stop Sync, then check for unsent data and wipe in
-  /// one transaction. Any refusal restarts Sync and leaves Pro state, data and
-  /// session as they were. [send] is the transition gateway's send.
-  Future<void> _guardedLocalCleanup(Future<void> Function() send) async {
-    await send();
-    var stopAttempted = false;
-    try {
-      final stop = stopSyncForWipe;
-      if (stop != null) {
-        stopAttempted = true;
-        await stop().timeout(
-          syncStopLimit,
-          onTimeout: () =>
-              throw const AuthGatewayException('network-request-failed'),
-        );
-      }
-      final guard = signOutWipeGuard;
-      if (guard == null) {
-        await _localStateWiper.wipeAll();
-      } else {
-        await guard(_localStateWiper.wipeAll);
-      }
-    } on Object {
-      if (stopAttempted) await _resumeSyncQuietly();
-      rethrow;
-    }
-  }
-
-  /// Before an account switch signs in to another account. A real account
-  /// goes through the guarded cleanup (send, stop Sync, check and wipe in one
-  /// transaction); a refusal ends the switch with Sync running. A guest keeps
-  /// its progress for the account it joins, so nothing is wiped. The caller
-  /// clears Pro state only after this went through. True for a real account.
-  Future<bool> _leaveCurrentAccount() async {
-    final session = _gateway.currentSession;
-    final real = session != null && !session.isAnonymous;
-    if (real) {
-      await _guardedLocalCleanup(
-        _accountTransitionGateway.prepareForAccountSwitch,
-      );
-    } else {
-      await _accountTransitionGateway.prepareForAccountSwitch();
-    }
-    return real;
-  }
-
-  Future<void> _resumeSyncQuietly() async {
-    try {
-      await resumeSync?.call();
-    } on Object {
-      // The refusal is what the student sees.
-    }
-  }
-
-  /// Signs out [uid] when the server has closed that account (a guardian
-  /// withdrew permission or the account is being deleted). Nothing of it can
-  /// be sent, so unsent data does not hold the sign-out, and its private data
-  /// must not stay on the device. Ignored unless [uid] is the signed-in
-  /// account.
-  Future<void> signOutClosedAccount(String uid) {
-    _identityEpoch++;
-    return _exclusive(() async {
-      if (_gateway.currentSession?.uid != uid) return;
-      // Stop Sync first so a pull in flight cannot write the revoked account's
-      // data back after the wipe. Nothing here is held for unsent data.
-      try {
-        await stopSyncForWipe?.call().timeout(syncStopLimit);
-      } on Object {
-        // Wipe anyway: the account is closed.
-      }
-      await beforeIdentityChange?.call();
-      await _localStateWiper.wipeAll();
-      await _gateway.signOut();
-      await _signOutGoogleBestEffort();
-      await ensureAnonymous();
-    });
-  }
-
   Future<void> _signOut() async {
     cancelEmailLink();
-    await _guardedLocalCleanup(_accountTransitionGateway.prepareForSignOut);
-    // Only after the wipe: Pro state is cleared once nothing can be refused.
+    await _accountTransitionGateway.prepareForSignOut();
     await beforeIdentityChange?.call();
+    await _localStateWiper.wipeAll();
     await _gateway.signOut();
     await _signOutGoogleBestEffort();
     await ensureAnonymous();
@@ -581,7 +484,7 @@ class AuthRepository implements EmailCodeAuth {
   Future<SignInResult> _switchToExistingGoogleAccount(
     GoogleAuthTokens tokens,
   ) async {
-    await _leaveCurrentAccount();
+    await _accountTransitionGateway.prepareForAccountSwitch();
     await beforeIdentityChange?.call();
     try {
       await _gateway.signOut();

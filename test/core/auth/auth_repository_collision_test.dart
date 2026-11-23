@@ -75,113 +75,6 @@ void main() {
     expect(wiper.wipeCalls, 0);
   });
 
-  group('switching away from a real account', () {
-    AuthRepository build(
-      CollisionAuthGateway gateway, {
-      Future<void> Function(Future<void> Function() wipe)? guard,
-    }) {
-      final ops = gateway.operations;
-      return AuthRepository(
-        gateway: gateway,
-        googleGateway: OneTokenGoogleGateway(),
-        functionsGateway: CountingFunctionsGateway(operations: ops),
-        accountTransitionGateway: RecordingAccountTransitionGateway(ops),
-        localStateWiper: OrderedWiper(ops),
-      )
-        ..beforeIdentityChange = () async {
-          ops.add('clearPayment');
-        }
-        ..stopSyncForWipe = () async {
-          ops.add('stopSync');
-        }
-        ..resumeSync = () async {
-          ops.add('resumeSync');
-        }
-        ..signOutWipeGuard = guard ??
-            (wipe) async {
-              ops.add('guard-start');
-              await wipe();
-              ops.add('guard-end');
-            };
-    }
-
-    test('sends, stops Sync, wipes once under the guard, then signs in',
-        () async {
-      final gateway = CollisionAuthGateway(
-        session: const AuthSession(uid: 'user-a'),
-      );
-
-      final result = await build(gateway).signInWithGoogle();
-
-      expect(gateway.operations, [
-        'link',
-        'prepareForAccountSwitch',
-        'stopSync',
-        'guard-start',
-        'wipeAll',
-        'guard-end',
-        'clearPayment',
-        'signOut',
-        'signInWithCredential',
-        'recordSignInEvent',
-      ]);
-      expect(result, const SignInResult.switchedToExisting());
-    });
-
-    test('an unsent report refuses the switch: data and Sync stay', () async {
-      final gateway = CollisionAuthGateway(
-        session: const AuthSession(uid: 'user-a'),
-      );
-      final repo = build(
-        gateway,
-        guard: (wipe) async {
-          gateway.operations.add('guard-start');
-          throw const AuthGatewayException('network-request-failed');
-        },
-      );
-
-      await expectLater(
-        repo.signInWithGoogle(),
-        throwsA(isA<AuthGatewayException>()),
-      );
-
-      expect(gateway.operations, [
-        'link',
-        'prepareForAccountSwitch',
-        'stopSync',
-        'guard-start',
-        'resumeSync',
-      ]);
-      expect(gateway.currentSession?.uid, 'user-a');
-    });
-
-    test('if the new account then fails to sign in, it ends as a guest',
-        () async {
-      final gateway = CollisionAuthGateway(
-        session: const AuthSession(uid: 'user-a'),
-        failFallbackSignIn: true,
-      );
-
-      final result = await build(gateway).signInWithGoogle();
-
-      expect(result, const SignInResult.failed(reason: 'fallback-failed'));
-      expect(gateway.operations.last, 'signInAnonymously');
-      expect(
-        gateway.operations.indexOf('wipeAll'),
-        lessThan(gateway.operations.indexOf('signOut')),
-      );
-      expect(gateway.currentSession?.isAnonymous, isTrue);
-    });
-
-    test('a guest keeps its progress for the account it joins: no wipe',
-        () async {
-      final gateway = CollisionAuthGateway();
-      await build(gateway).signInWithGoogle();
-      expect(gateway.operations, isNot(contains('wipeAll')));
-      expect(gateway.operations, isNot(contains('stopSync')));
-    });
-  });
-
   test('collision stops before signOut when switch preparation fails',
       () async {
     final gateway = CollisionAuthGateway();
@@ -201,17 +94,14 @@ void main() {
 }
 
 class CollisionAuthGateway implements AuthGateway {
-  CollisionAuthGateway({
-    this.failFallbackSignIn = false,
-    AuthSession? session,
-  }) : currentSession =
-            session ?? const AuthSession(uid: 'anon-1', isAnonymous: true);
+  CollisionAuthGateway({this.failFallbackSignIn = false});
 
   final bool failFallbackSignIn;
   final operations = <String>[];
 
   @override
-  AuthSession? currentSession;
+  AuthSession? currentSession =
+      const AuthSession(uid: 'anon-1', isAnonymous: true);
 
   @override
   Stream<AuthSession?> get authStateChanges => Stream.value(currentSession);
@@ -331,19 +221,5 @@ class RecordingLocalStateWiper implements LocalStateWiper {
   @override
   Future<void> wipeAll() async {
     wipeCalls += 1;
-  }
-}
-
-class OrderedWiper implements LocalStateWiper {
-  OrderedWiper(this.operations);
-
-  final List<String> operations;
-
-  @override
-  Future<bool> hasMeaningfulProgress() async => false;
-
-  @override
-  Future<void> wipeAll() async {
-    operations.add('wipeAll');
   }
 }

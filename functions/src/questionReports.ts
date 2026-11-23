@@ -26,13 +26,16 @@ export const MAX_REPORT_MESSAGE = 1000;
 export const MAX_PER_QUESTION = 3;
 export const MAX_PER_DAY = 20;
 /**
- * Every field is already bounded; this caps the sum, and refuses a huge request before any field is
- * looked at. It must accept every valid request. The message holds at most 1000 UTF-16 units and no
- * control characters except tab, line feed and carriage return, and no lone surrogates, so JSON
- * spends at most 3 bytes on a unit (a 3-byte character, a pair at 2 per unit, an escaped quote or
- * backslash at 2, a newline at 2). That is 3000 bytes. The other fields add at most about 550.
+ * The size of the largest valid request, computed from the field rules: a message of 1000 units of
+ * 3 bytes each, an account id of 128 control characters (a Firebase uid may hold any character, and
+ * JSON writes each control character as a 6-byte escape), the longest ids, the largest version.
+ * Every valid request fits, and a request over this is refused before any field is looked at.
  */
-export const MAX_REQUEST_BYTES = 3600;
+export const MAX_REQUEST_BYTES = Buffer.byteLength(JSON.stringify({
+  reportId: 'r'.repeat(64), accountId: '\u0001'.repeat(128), questionId: 'q'.repeat(128),
+  questionVersion: Number.MAX_SAFE_INTEGER, examId: 'e'.repeat(64), message: '\u20ac'.repeat(MAX_REPORT_MESSAGE),
+  build: 'b'.repeat(40),
+}));
 
 /**
  * Every report is deleted this long after the server received it, by a Firestore TTL policy on
@@ -121,11 +124,12 @@ const limiter = new RateLimiter(30);
  * The counters keep the ids they accepted (at most 20 for the day, 3 per question), so a retry is
  * known without reading the report, and a valid request over a limit is refused early.
  *
- * Firestore cost. Rejected before any read (bad input, wrong account, signed out, over the burst
- * limit): 0 reads, 0 writes. Every other request first reads the deletion marker and the consent
- * (2 reads), so a closed account is always told so. Then over the daily limit: 3 reads in all.
- * Over a question's limit: 4. A retry of an accepted report: 5, 0 writes. A new report: 5 reads
- * (marker, consent, day, question, report) and 3 writes (the report and both counters).
+ * Firestore cost. Rejected before any read (bad input, wrong account, signed out): 0 reads, 0
+ * writes. Every other request first reads the deletion marker and the consent (2 reads), so a
+ * closed account is always told so, even when it is over the burst limit: a burst-limited request
+ * costs those 2 reads. Over the daily limit or a question's limit: 4 reads in all. A retry of an
+ * accepted report: 5 reads, 0 writes. A new report: 5 reads (marker, consent, day, question,
+ * report) and 3 writes (the report and both counters).
  */
 export async function storeQuestionReport(request: Pick<CallableRequest, 'auth' | 'data'>, deps: Deps) {
   if (!request.auth) throw new HttpsError('unauthenticated', 'Authentication is required.');
@@ -134,41 +138,49 @@ export async function storeQuestionReport(request: Pick<CallableRequest, 'auth' 
   if (report.accountId !== uid) {
     throw new HttpsError('failed-precondition', 'This report belongs to another account.', {reason: 'wrong-account'});
   }
-  if (!(deps.limiter ?? limiter).allow(uid, (deps.now ?? Date.now)())) {
-    throw new HttpsError('resource-exhausted', 'Too many reports. Try again later.');
-  }
   const reportRef = deps.db.doc(`questionReports/${reportDocId(uid, report.reportId)}`);
   const questionRef = deps.db.doc(`users/${uid}/questionReportCounts/${questionCounterId(report.questionId)}`);
   const dayRef = deps.db.doc(`users/${uid}/server/questionReportDay`);
   const ids = (value: unknown): string[] => Array.isArray(value) ? value.filter((id): id is string => typeof id === 'string') : [];
+  let burstChecked = false;
   await deps.db.runTransaction(async tx => {
     // First, before any answer: a closed account gets that answer and nothing else, whatever its
-    // quota or retries would have said.
+    // burst limit, quota or retries would have said.
     const [deletion, consent] = await tx.getAll(deps.db.doc(`accountDeletions/${uid}`),
       deps.db.doc(`users/${uid}/server/guardianConsent`));
     if (deletion.exists || consent.get('status') === 'withdrawn') throw accountClosed();
+    // Then the per-instance burst limit, once however often the transaction retries.
+    if (!burstChecked) {
+      burstChecked = true;
+      if (!(deps.limiter ?? limiter).allow(uid, (deps.now ?? Date.now)())) {
+        throw new HttpsError('resource-exhausted', 'Too many reports. Try again later.');
+      }
+    }
     const now = (deps.now ?? Date.now)(), today = manilaDate(now);
     const day = await tx.get(dayRef);
     const sameDay = day.get('day') === today;
     const dayIds = sameDay ? ids(day.get('ids')) : [];
     const dayCount = sameDay && typeof day.get('count') === 'number' ? day.get('count') as number : 0;
-    const knownToday = dayIds.includes(report.reportId);
-    if (dayCount >= MAX_PER_DAY && !knownToday) refuse('daily-limit', 'Too many reports today. Try again tomorrow.');
     const question = await tx.get(questionRef);
     const questionIds = ids(question.get('ids'));
     const asked = typeof question.get('count') === 'number' ? question.get('count') as number : 0;
-    const known = knownToday || questionIds.includes(report.reportId);
-    if (asked >= MAX_PER_QUESTION && !known) refuse('question-limit', 'This question already has the most reports allowed.');
-    const stored = await tx.get(reportRef);
-    if (stored.exists) {
-      const same = stored.get('questionId') === report.questionId && stored.get('message') === report.message &&
-        stored.get('examId') === report.examId && stored.get('questionVersion') === report.questionVersion;
-      if (!same) throw new HttpsError('already-exists', 'This report id was used for another report.', {reason: 'report-id-reused'});
+    // A report accepted before is answered before any quota is looked at, so a retry of one whose
+    // document has expired is acknowledged even when today's quota is full.
+    const known = dayIds.includes(report.reportId) || questionIds.includes(report.reportId);
+    if (known) {
+      const stored = await tx.get(reportRef);
+      if (stored.exists) {
+        const same = stored.get('questionId') === report.questionId && stored.get('message') === report.message &&
+          stored.get('examId') === report.examId && stored.get('questionVersion') === report.questionVersion;
+        if (!same) throw new HttpsError('already-exists', 'This report id was used for another report.', {reason: 'report-id-reused'});
+      }
+      // The document may be gone (the TTL or the sweep removed it): answered, never rewritten.
       return;
     }
-    // Accepted before, and the document is gone (the TTL or the sweep removed it): the retry is
-    // answered, and nothing is written back.
-    if (known) return;
+    if (dayCount >= MAX_PER_DAY) refuse('daily-limit', 'Too many reports today. Try again tomorrow.');
+    if (asked >= MAX_PER_QUESTION) refuse('question-limit', 'This question already has the most reports allowed.');
+    const stored = await tx.get(reportRef);
+    if (stored.exists) throw new HttpsError('already-exists', 'This report id was used for another report.', {reason: 'report-id-reused'});
     tx.set(reportRef, {
       accountId: uid, questionId: report.questionId, questionVersion: report.questionVersion,
       examId: report.examId, message: report.message, build: report.build, createdAt: Timestamp.fromMillis(now),

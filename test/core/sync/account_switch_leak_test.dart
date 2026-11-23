@@ -14,7 +14,6 @@ import 'package:pantas/app/sync_runtime_bootstrap.dart';
 import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
-import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/eligibility/sync_claim_gateway.dart';
 import 'package:pantas/core/sync/eligibility/sync_entitlement.dart';
@@ -26,8 +25,6 @@ import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/runtime/production_sync_runtime_engine.dart';
 import 'package:pantas/core/sync/runtime/sync_account_transition_gateway.dart';
 import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
-import 'package:pantas/core/sync/sync_status.dart';
-import 'package:pantas/core/sync/unsent_sync_data.dart';
 
 import '../../helpers/in_memory_database.dart';
 
@@ -300,62 +297,10 @@ void main() {
     expect(h.paths(_accountA), contains(endsWith('/a-attempt-2')));
     expect(await h.localRowsOf(['a-attempt-2']), isEmpty);
   });
-
-  test('a refused Sign Out leaves A signed in, with Sync running again',
-      () async {
-    final h = await _Harness.open();
-    addTearDown(h.close);
-
-    h.auth.session = const AuthSession(uid: _accountA);
-    await _seedAnswers(h.db);
-    await h.syncCurrentSession(pro: true);
-    expect(h.paths(_accountA), isNotEmpty);
-    // Something is unsent when the guard looks (offline, a late write).
-    h.unsent.forced = true;
-
-    await expectLater(
-      h.repository.signOut(),
-      throwsA(isA<AuthGatewayException>()),
-    );
-
-    expect(h.auth.session?.uid, _accountA);
-    expect(await h.localRowsOf(['a-attempt-1']), isNotEmpty);
-    expect(h.runtime.currentStatus, isNot(isA<SyncOff>()));
-    // Sync is alive: a change made now is uploaded.
-    h.unsent.forced = false;
-    final stamp = DateTime.utc(2026, 11, 18, 2);
-    await LocalSyncMutationRecorder.forDatabase(h.db).runRecorded<void>(
-      collection: 'quiz_attempts',
-      rowId: 'a-attempt-3',
-      op: SyncLocalMutationOp.upsert,
-      mutate: () => h.db.into(h.db.attemptsLocal).insert(
-            AttemptsLocalCompanion.insert(
-              id: 'a-attempt-3',
-              examId: 'cse',
-              startedAt: stamp,
-              completedAt: Value(stamp),
-              itemsJson: '[]',
-            ),
-          ),
-    );
-    // The fake cloud keeps no active-generation record, so the restart here
-    // may open a new generation; what matters is that Sync is alive.
-    for (var i = 0; i < 20; i++) {
-      await h.runtime.forceFlush();
-      if (h.paths(_accountA).any((p) => p.endsWith('/a-attempt-3'))) break;
-      await Future<void>.delayed(const Duration(milliseconds: 50));
-    }
-    expect(h.paths(_accountA), contains(endsWith('/a-attempt-3')));
-  });
-}
-
-class _Unsent {
-  bool forced = false;
 }
 
 class _Harness {
   _Harness._({
-    required this.unsent,
     required this.db,
     required this.contentDb,
     required this.container,
@@ -383,40 +328,16 @@ class _Harness {
       deviceId: 'shared-browser',
     );
     final auth = _FakeAuth();
-    final reports = ReportQueue(db, account: () => auth.session?.uid);
-    final unsent = _Unsent();
     final repository = AuthRepository(
       gateway: auth,
       functionsGateway: const _Functions(),
       emailCodeGateway: const _Codes(),
       customTokenGateway: auth,
       // As auth bootstrap builds them in the app.
-      accountTransitionGateway: SyncAccountTransitionGateway(
-        () => runtime,
-        flushNow: runtime.forceFlush,
-        hasUnsentData: () => hasUnsentForSignOut(
-          db,
-          canUploadStudyData: true,
-          reports: reports,
-        ),
-      ),
+      accountTransitionGateway: SyncAccountTransitionGateway(() => runtime),
       localStateWiper: SyncLocalStateWiper(db),
-    )
-      ..stopSyncForWipe = (() => runtime.quiesce(flush: false))
-      ..resumeSync = runtime.resume
-      ..signOutWipeGuard = ((wipe) => wipeUnlessUnsent(
-            db,
-            hasUnsent: () async =>
-                unsent.forced ||
-                await hasUnsentForSignOut(
-                  db,
-                  canUploadStudyData: true,
-                  reports: reports,
-                ),
-            wipe: wipe,
-          ));
+    );
     return _Harness._(
-      unsent: unsent,
       db: db,
       contentDb: contentDb,
       container: container,
@@ -427,7 +348,6 @@ class _Harness {
     );
   }
 
-  final _Unsent unsent;
   final AppDatabase db;
   final ContentDatabase contentDb;
   final ProviderContainer container;
