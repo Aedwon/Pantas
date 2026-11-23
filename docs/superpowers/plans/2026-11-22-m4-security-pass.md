@@ -134,4 +134,4 @@ Expected day total: well under every budget. Go.
    24 hours. Rollback: release main's rules and redeploy functions from main.
 5. Part B, app side ("Paused" on the Backup row, no pushes while paused): ships in the next prod web build after
    this branch is on main (it needs a Flutter build). Until then, a paused account's app retries and is refused,
-   which is harmless. The optional explanation line waits for Aedwon's pick on the CSE Release Picks canvas.
+   which is harmless. The optional explanation line was ruled out (option 0, manager, Nov 22).

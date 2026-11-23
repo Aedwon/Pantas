@@ -136,7 +136,10 @@ Already used today on staging is read from the live check before the run. Well u
 - Not covered on staging: the entitlement mirror from real payment paths (covered by emulator tests) and the app's
   "Backup paused" message (needs the Flutter slot).
 
-## Optional explanation: Aedwon's pick (CSE Release Picks, Section 5)
+## Optional explanation (CSE Release Picks, Section 5): settled, option 0
+
+Ruled option 0 by the manager on Nov 22 (the plain "Paused" value, no explanation; recorded in the CSE release
+phase 2 plan). Nothing goes to Aedwon. The notes below are kept for reference only.
 
 Board: https://claude.ai/artifact/PMKs9koUswojKFY27aExv8, Section 5 "Optional, can ship later" (built by the CSE
 release QA lead from ST_BackupNowOffline, phone and wide). Shipped now: option 0 (row value "Paused", Back Up Now
