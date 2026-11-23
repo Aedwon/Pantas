@@ -82,15 +82,22 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
     const paid = session.payments.filter(p => p.status === 'paid');
     // PayMongo may report the payment a moment after the event: retry rather than lose it.
     if (paid.length === 0) return unfulfilled(deps.db, event.id, sessionId, 'paymentNotYetPaid', uid);
-    if (paid.length !== 1 || !paid[0].id || paid[0].currency !== 'PHP' || paid[0].amount !== priceCentavos(product)) {
-      await audit(deps.db, uid, 'paymongoAmountMismatch', {eventId: event.id, sessionId, productId,
-        payments: paid.map(p => ({id: p.id, amount: p.amount, currency: p.currency}))});
-      return unfulfilled(deps.db, event.id, sessionId, 'amountMismatch', uid, paid[0]?.id);
-    }
     const reference = session.metadata.reference;
     const checkout = await deps.db.doc(reference && /^[0-9a-f-]{36}$/.test(reference)
       ? `paymongoOrders/${reference}` : `paymongoCheckouts/${sessionId}`).get();
     const paidAt = paid[0].paidAt;
+    const validPayment = paid.length === 1 && !!paid[0].id && paid[0].currency === 'PHP' &&
+      Number.isSafeInteger(paid[0].amount) && paid[0].amount > 0;
+    const refundIfDeleted = async () => (await commitPaymongoGrant(deps.db, {uid, eventId: event.id, sessionId,
+      paymentId: paid[0].id, paidAmount: paid[0].amount, product, paidAt: paidAt ?? 0, deletionOnly: true},
+    now(), deps.catalog ?? examCatalog)) === 'accountDeleted';
+    if (validPayment && (await deps.db.doc(`accountDeletions/${uid}`).get()).exists && await refundIfDeleted()) return 200;
+    const quotedAmount = checkout.get('amountCentavos') ?? priceCentavos(product);
+    if (!validPayment || paid[0].amount !== quotedAmount) {
+      await audit(deps.db, uid, 'paymongoAmountMismatch', {eventId: event.id, sessionId, productId,
+        payments: paid.map(p => ({id: p.id, amount: p.amount, currency: p.currency}))});
+      return unfulfilled(deps.db, event.id, sessionId, 'amountMismatch', uid, paid[0]?.id);
+    }
     const bound = checkout.exists && checkout.get('uid') === uid && checkout.get('product') === productId &&
       (!checkout.get('sessionId') || checkout.get('sessionId') === sessionId);
     if (!bound || !Number.isSafeInteger(paidAt) || paidAt! <= 0 || paidAt! > now() || paidAt! < Math.floor(Number(checkout.get('createdAt')) / 1000) * 1000) {
@@ -101,6 +108,7 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
     try { await deps.auth.getUser(uid); }
     catch (error) {
       if (!isUnresolvedFirebaseIdentityError(error)) throw error;
+      if (await refundIfDeleted()) return 200;
       await audit(deps.db, uid, 'paymongoPaidUnknownAccount', {eventId: event.id, sessionId, paymentId: paid[0].id});
       return unfulfilled(deps.db, event.id, sessionId, 'unknownAccount', uid, paid[0].id);
     }
@@ -113,6 +121,7 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
       const outcome = await commitPaymongoGrant(deps.db, {uid, eventId: event.id, sessionId,
         paymentId: paid[0].id, paidAmount: paid[0].amount, product, paidAt: paidAt!, sitting: checkout.get('sitting') as Sitting | undefined}, now(), deps.catalog ?? examCatalog);
       if (outcome === 'noSitting') return 500;
+      if (outcome === 'accountDeleted') return 200;
     }
     const sessionFollowUp = deps.db.doc(`paymongoFollowUps/${encodeURIComponent(sessionId)}`);
     if ((await sessionFollowUp.get()).exists) await sessionFollowUp.update({status: 'resolved'});

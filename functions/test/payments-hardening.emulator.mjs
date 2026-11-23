@@ -29,7 +29,7 @@ const catalog = [{id: 'exam_cse_pro', publishedSittings: [sitting, {...sitting, 
 const paidAt = Date.parse('2027-03-14T15:59:00Z');
 async function grant(uid, product, id, extra = {}) {
   return commitPaymongoGrant(db, {uid, eventId: `evt_${id}`, sessionId: `cs_${id}`, paymentId: `pay_${id}`,
-    paidAmount: product.includes('pass') ? 49900 : 14900, product: webProduct(product), paidAt, sitting, ...extra}, paidAt + 120000, catalog);
+    paidAmount: product.includes('pass') ? 49900 : 14900, product: webProduct(product), paidAt, sitting, ...extra}, paidAt + 30000, catalog);
 }
 test('delayed pass delivery keeps the checkout sitting and PayMongo payment time', async () => {
   const uid = 'hard-delayed';
@@ -57,6 +57,7 @@ test('duplicate pass adds no coverage and flags only the unused payment for refu
   const second = (await db.doc(`users/${uid}/grants/pay_second`).get()).data();
   assert.equal(first.state, 'active'); assert.equal(second.state, 'revoked');
   assert.equal(second.unusedDuplicateOf, 'pay_first');
+  assert.equal(second.endsAt, paidAt);
   assert.equal((await db.doc('paymongoFollowUps/pay_second').get()).get('reason'), 'unusedDuplicatePass');
   assert.equal((await db.doc('paymongoFollowUps/pay_second').get()).get('refundRequired'), true);
   assert.equal((await db.doc('paymongoFollowUps/pay_first').get()).exists, false);
@@ -175,8 +176,10 @@ test('a lost checkout response can still grant from its prewritten order', async
   // No session-index fixture: the order saved before the provider call must suffice.
   delete client.sessions;
   assert.equal(await send(paidEvent({id: 'evt_lost_webhook', sessionId: 'cs_lost', uid, product: 'pantas_pass_cse_pro'}),
-    {db, auth: fakeAuth(), client, signingSecret: SECRET, livemode: false, now: () => paidAt + 120000}), 200);
-  assert.deepEqual((await db.doc(`users/${uid}/grants/pay_lost_webhook`).get()).get('sitting'), sitting);
+    {db, auth: fakeAuth(), client, signingSecret: SECRET, livemode: false, now: () => paidAt + 30000}), 200);
+  const granted = await db.doc(`users/${uid}/grants/pay_lost_webhook`).get();
+  assert.equal(granted.get('state'), 'active');
+  assert.deepEqual(granted.get('sitting'), sitting);
 });
 
 test('real account deletion removes payment bindings but keeps only hashed trial markers', async () => {
@@ -186,10 +189,13 @@ test('real account deletion removes payment bindings but keeps only hashed trial
   await getAuth().createUser({uid});
   const caller = named(uid, 'real-delete-provider', 'delete@example.test');
   await startTrial(caller, deps);
+  const reservation = db.doc(`users/${uid}/pendingCheckouts/open_test`);
+  await reservation.set({state: 'open', sessionId: 'cs_delete_test'});
   for (const collection of ['paymongoOrders', 'paymongoCheckouts', 'paymongoFollowUps']) {
     await db.doc(`${collection}/delete_test`).set({uid});
   }
   await deleteAccount.run({data: {}, auth: {...caller, token: {...caller.token, auth_time: Math.floor(Date.now() / 1000)}}, app: {appId: 'demo-app'}});
+  assert.equal((await reservation.get()).exists, false);
   for (const collection of ['paymongoOrders', 'paymongoCheckouts', 'paymongoFollowUps']) {
     assert.equal((await db.doc(`${collection}/delete_test`).get()).exists, false);
   }

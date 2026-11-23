@@ -71,6 +71,8 @@ export async function deleteUserData(
   await task.set({destructiveAt: earlier.get('destructiveAt') ?? now}, {merge: true});
   await retirePublicId(db, uid);
   await deleteGuardianRecords(db, uid);
+  // Close pending checkout reservations with the rest of the user tree. The PayMongo
+  // client cannot expire hosted links. A payment on one still reaches the refund queue.
   await db.recursiveDelete(userRef);
   await clearPassOwnership(db, uid);
   // The payment-to-account index is account data; the grant ledger went with the user tree.

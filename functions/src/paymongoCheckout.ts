@@ -79,10 +79,12 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   const pending = deps.db.doc(`users/${uid}/pendingCheckouts/${key}`);
   const referenceNumber = randomUUID();
   const order = deps.db.doc(`paymongoOrders/${referenceNumber}`);
-  const binding = {uid, product: product.id, createdAt: now, ...attestation,
+  const amountCentavos = priceCentavos(product);
+  const binding = {uid, product: product.id, createdAt: now, amountCentavos, ...attestation,
     ...(sitting ? {examId: product.examId, sitting} : {})};
   const reserved = await deps.db.runTransaction(async transaction => {
-    const previous = await transaction.get(pending);
+    const [previous, deletion] = await transaction.getAll(pending, deps.db.doc(`accountDeletions/${uid}`));
+    if (deletion.exists) throw new HttpsError('failed-precondition', 'This account is closed.');
     if (previous.exists) {
       const data = previous.data()!;
       const lapsed = data.state === 'creating' && !(now - Number(data.createdAt) < CREATING_LEASE_MS);
@@ -98,7 +100,8 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   if (reserved) {
     if (reserved.state !== 'open') throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
     const remote = await deps.client.getCheckoutSession(reserved.sessionId as string);
-    if (remote.status === 'active' && !remote.payments.some(p => p.status === 'paid')) {
+    const open = remote.status === 'active' && !remote.payments.some(p => p.status === 'paid');
+    if (open && reserved.amountCentavos === amountCentavos) {
       // A minor's current confirmation must reach the records this session is paid against.
       if (attestation.attestedAt !== undefined) {
         const update = deps.db.batch();
@@ -108,7 +111,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
       }
       return {checkoutUrl: reserved.checkoutUrl as string, sessionId: reserved.sessionId as string, reference: reserved.reference as string};
     }
-    if (remote.status !== 'expired' && !remote.payments.some(p => p.status === 'paid')) {
+    if (!open && remote.status !== 'expired' && !remote.payments.some(p => p.status === 'paid')) {
       throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
     }
     // A paid session whose webhook has not granted yet must never lead to a second session: the
@@ -119,9 +122,10 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
         throw new HttpsError('failed-precondition', 'Your payment is being confirmed. Pro will appear shortly.');
       }
     }
-    // Compare-and-swap: only one request can replace a completed/expired checkout.
+    // Compare-and-swap: only one request can replace a completed, expired or stale-price checkout.
     await deps.db.runTransaction(async transaction => {
-      const current = await transaction.get(pending);
+      const [current, deletion] = await transaction.getAll(pending, deps.db.doc(`accountDeletions/${uid}`));
+      if (deletion.exists) throw new HttpsError('failed-precondition', 'This account is closed.');
       if (current.get('reference') !== reserved.reference) throw new HttpsError('aborted', 'Checkout changed. Try again.');
       transaction.set(pending, {state: 'creating', reference: referenceNumber, product: product.id, createdAt: now});
       transaction.create(order, binding);
@@ -137,21 +141,21 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   // therefore safe.
   try {
     const session = await deps.client.createCheckoutSession({uid, product: product.id,
-      name: NAMES[product.id] ?? product.id, amountCentavos: priceCentavos(product),
+      name: NAMES[product.id] ?? product.id, amountCentavos,
       successUrl: `${deps.origin}/pro?checkout=success&ref=${referenceNumber}`, cancelUrl: `${deps.origin}/pro?checkout=cancelled&ref=${referenceNumber}`,
       paymentMethodTypes: deps.methods, referenceNumber});
     const result = {checkoutUrl: session.checkoutUrl, sessionId: session.id, reference: referenceNumber};
     // Guarded final write: a slow attempt must not overwrite a newer one. If the reservation is no
     // longer ours, this session is discarded and no link is returned.
     await deps.db.runTransaction(async transaction => {
-      const current = await transaction.get(pending);
+      const [current, deletion] = await transaction.getAll(pending, deps.db.doc(`accountDeletions/${uid}`));
+      if (deletion.exists) throw new HttpsError('failed-precondition', 'This account is closed.');
       if (current.get('state') !== 'creating' || current.get('reference') !== referenceNumber) {
         throw new HttpsError('aborted', 'Checkout creation was superseded. Try again.');
       }
-      transaction.set(deps.db.doc(`paymongoCheckouts/${session.id}`), {uid, product: product.id, createdAt: now,
-        reference: referenceNumber, ...attestation, ...(sitting ? {examId: product.examId, sitting} : {})});
+      transaction.set(deps.db.doc(`paymongoCheckouts/${session.id}`), {...binding, reference: referenceNumber});
       transaction.update(order, {sessionId: session.id});
-      transaction.set(pending, {...result, state: 'open', product: product.id, createdAt: now});
+      transaction.set(pending, {...result, state: 'open', product: product.id, createdAt: now, amountCentavos});
     });
     return result;
   } catch (error) {

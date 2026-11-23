@@ -13,8 +13,8 @@ export async function commitRevenueCatAnswer(db: Firestore, uid: string, eventId
   const record = db.doc(`users/${uid}/server/entitlement`);
   const event = db.doc(`webhookEvents/${eventId}/users/${uid}`);
   return db.runTransaction(async transaction => {
-    const [previous, dedupe] = await transaction.getAll(record, event);
-    if (dedupe.exists) return false;
+    const [previous, dedupe, deletion] = await transaction.getAll(record, event, db.doc(`accountDeletions/${uid}`));
+    if (dedupe.exists || deletion.exists) return false;
     if (previous.exists && previous.get('answerAt') > answerAt) {
       transaction.set(event, {eventId,answerAt,version:Number(previous.get('version')),
         expireAt:Timestamp.fromMillis(Date.now()+30*86400000)}); return false;
