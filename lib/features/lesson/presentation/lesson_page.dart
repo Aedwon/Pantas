@@ -44,6 +44,7 @@ import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/data/repos/reader_position_repository.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_ending.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
+import 'package:pantas/features/lesson/presentation/reader_eyebrow_text.dart';
 import 'package:pantas/features/lesson/presentation/widgets/ending_content.dart';
 import 'package:pantas/features/lesson/presentation/widgets/lesson_contents_sheet.dart';
 import 'package:pantas/features/lesson/presentation/widgets/pull_to_advance.dart';
@@ -1640,10 +1641,14 @@ class _LessonContent extends StatelessWidget {
                   children: [
                     // Board (RD_Real): the topic as a 13 px caps eyebrow (600,
                     // .04 em), then the title at 30 px. No part or count line.
-                    Text(
-                      reader.topicName.toUpperCase(),
-                      style: PantasType.phoneReaderEyebrow.copyWith(
-                        color: context.colors.secondaryLabel,
+                    Semantics(
+                      label: reader.topicName,
+                      excludeSemantics: true,
+                      child: Text(
+                        readerEyebrowText(reader.topicName),
+                        style: PantasType.phoneReaderEyebrow.copyWith(
+                          color: context.colors.secondaryLabel,
+                        ),
                       ),
                     ),
                     const SizedBox(height: PantasSpace.s8),
