@@ -53,10 +53,15 @@ pass 15, retire or merge one first.
    the approved screens in the Pantas Web and Pantas Redesign canvases (exported copies in
    `web-design/pantas-handoff/`). Never hand-draw a local HTML board or redraw a screen from
    widget code. No check can judge fidelity: he does the visual check.
-4. Do not ask Aedwon to decide in-app copy that sits in a layout or component he already
-   approved (a Dialog's title and text, a caption, a button label). The lead settles it under
-   his delegation (D191), following the voice rules in `AGENTS.md`, records it, and tells him
-   the wording. Website copy stays his. No check can tell a copy choice from a layout choice.
+4. Do not ask Aedwon anything an approved board, spec or ruling already answers. That
+   includes layout, motion, controls, and in-app copy inside an approved layout (a Dialog's
+   title and text, a caption, a button label). Build to the board. The lead settles copy
+   under his delegation (D191), following the voice rules in `AGENTS.md`, records it, and
+   tells him the wording. A state no board draws goes to a Fable 5.2 ruling first. It goes
+   to him only if it is a new screen state or is reserved to him. Website copy stays his.
+   Before a lead or the manager puts any question to him, they search the boards, the specs
+   and the rulings files for an answer and name what they searched. No check can tell a
+   decided question from an open one.
 
 5. Never ask Aedwon to write legal or policy text (terms, privacy notices, legal bases,
    consent or refund wording). First search `docs/legal/`, `docs/legal-drafts/`, the app's
@@ -120,10 +125,10 @@ pass 15, retire or merge one first.
 
 ### Boards built as options for questions the approved boards already answered (Nov 23)
 
-- His words (relayed by the manager): "why are you asking me things that have been decided before?" and "isn't there a reference/boards already for the UI? including animations? are you kidding me?"
-- Wrong: the CSE release lead turned three settled UI questions into picks on the "CSE Release Picks" canvas: the report bar morph (the approved QN_Report boards already draw it, with timing), borderless Cancel and Close (the boards already draw the sizes and where no Close exists; option A was simply "match the boards"), and the checkout tick (a Fable D2 ruling already recommended it, matching the approved guardian box). It then sent them up again as open picks.
+- His words (relayed by the manager): "why are you asking me things that have been decided before?" and "isn't there a reference/boards already for the UI? including animations? are you kidding me?" Then: "i spent a lot of time going through those boards. every single animation. every single detail. and then it was not implemented properly, and now you're asking me again to decide?"
+- Wrong: the CSE release lead turned three settled UI questions into picks on the "CSE Release Picks" canvas: the report bar morph (the approved QN_Report boards already draw it, with timing), borderless Cancel and Close (the boards already draw the sizes and where no Close exists; option A was simply "match the boards"), and the checkout tick (a Fable D2 ruling already recommended it, matching the approved guardian box). It then sent them up again as open picks, and the manager relayed them to him twice without checking.
 - Why it got through: the manager's request said "options for him to pick", and the lead built options without first asking whether an approved board, spec or ruling already decided each one. His findings were that the build does not match the boards, so the boards were the answer, not a question.
-- Fix (required step for any lead, before any UI question reaches Aedwon): check the approved boards (Pantas Redesign, Pantas Web, later approved canvases), the spec and the rulings. If any of them answers it, build to it and say which source in one line. Only a state that no board draws is escalated, and it goes to a Fable 5.2 ruling first, not to Aedwon. Applied: sections 2, 3 and 4 are built to the boards and the D2 ruling.
+- Fix (required step for any lead, before any UI question reaches Aedwon): check the approved boards (Pantas Redesign, Pantas Web, later approved canvases), the spec and the rulings. If any of them answers it, build to it and say which source in one line. Only a state that no board draws is escalated, and it goes to a Fable 5.2 ruling first, not to Aedwon. The same search is a required manager step before relaying any question, and written rule 4 now covers layout and motion, not only copy. Applied: sections 2, 3 and 4 are built to the boards and the D2 ruling.
 
 ### A Claude worker started four more workers past the 2-worker cap (Nov 22)
 
