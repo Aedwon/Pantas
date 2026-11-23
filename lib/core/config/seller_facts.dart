@@ -36,7 +36,12 @@ class SellerFacts {
         if (_missing(phone)) 'SELLER_PHONE',
       ];
 
-  bool _missing(String value) => value.trim().isEmpty || value.contains('[');
+  /// A bracket or an angle-bracket placeholder (the deploy guide's `<...>`)
+  /// is not a fact.
+  bool _missing(String value) =>
+      value.trim().isEmpty ||
+      value.contains('[') ||
+      RegExp('<[^>]*>').hasMatch(value);
 }
 
 /// The facts this build was made with. A missing one stays a bracket.

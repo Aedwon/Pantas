@@ -123,7 +123,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
 
   /// The declaration tick beside Pay on every web checkout (boards CB_*,
   /// S4*_T).
-  bool _declarationTicked = false;
+  /// What the tick was given for: account, wording kind and version, Terms
+  /// version. A tick counts only while this still matches what is shown.
+  String? _tickedFor;
 
   /// The wording the server asked for after it refused the one shown.
   DeclarationKind? _serverKind;
@@ -565,7 +567,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       // The server named the wording this account needs. Show it, unticked.
       if (sameAccount && refusedKind != null) {
         _serverKind = refusedKind;
-        _declarationTicked = false;
+        _tickedFor = null;
       }
     });
   }
@@ -818,7 +820,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             : DeclarationKind.adult);
     final declaration =
         declarationBox ? CheckoutDeclaration(declarationKind) : null;
-    final buyLocked = _busy || (declarationBox && !_declarationTicked);
+    final tickKey = declaration == null
+        ? null
+        : '${user?.uid}|${declaration.toJson().values.join('|')}';
+    final declarationTicked = tickKey != null && _tickedFor == tickKey;
+    final buyLocked = _busy || (declarationBox && !declarationTicked);
     final purchaseLabel = selectedPass != null
         ? 'Buy Season Pass'
         : selectedPackage == null
@@ -1378,11 +1384,12 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             ),
             DeclarationCard(
               kind: declarationKind,
-              ticked: _declarationTicked,
+              ticked: declarationTicked,
               onToggle: _busy
                   ? null
-                  : () =>
-                      setState(() => _declarationTicked = !_declarationTicked),
+                  : () => setState(
+                        () => _tickedFor = declarationTicked ? null : tickKey,
+                      ),
               onOpenTerms: _openTerms,
             ),
           ],

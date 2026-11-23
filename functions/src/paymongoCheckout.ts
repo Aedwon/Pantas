@@ -1,8 +1,8 @@
 import {randomUUID, createHash} from 'node:crypto';
-import {getFirestore, type DocumentReference, type Firestore} from 'firebase-admin/firestore';
+import {getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {onAccountCall as onCall} from './_accountAccess.js';
+import {accountClosed, onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {paymentSecrets, secret} from './_secrets.js';
@@ -51,17 +51,22 @@ export type DeclarationKind = keyof typeof CHECKOUT_DECLARATION_WORDING;
 /** What is stored on the order and the checkout record for every web purchase. */
 export type CheckoutDeclaration = {kind: DeclarationKind; wordingVersion: string; termsVersion: string; at: number};
 
+/** The records that decide the wording and whether the account may still buy. */
+const accountRefs = (db: Firestore, uid: string) =>
+  [db.doc(`accountDeletions/${uid}`), db.doc(`users/${uid}/server/guardianConsent`)] as const;
+
 /**
  * Every web checkout carries a declaration (ruling D2, option C). An account with a confirmed
  * guardian must send the guardian wording. Every other account sends the adult wording: a
  * pending, declined or withdrawn request, or only the under-18 flag, no longer changes the
- * wording. The device's age group only drives the screen; this check is the control.
- * Runs before any reservation write. One read, as before.
+ * wording. A closed account buys nothing. The device's age group only drives the screen; this
+ * check is the control. It is read twice (early, then inside each transaction that reserves or
+ * finishes a checkout) so a consent or closure that lands mid-call is caught.
  */
-async function checkoutDeclaration(db: Firestore, uid: string, data: unknown, now: number):
-  Promise<CheckoutDeclaration> {
-  const consent = (await db.doc(`users/${uid}/server/guardianConsent`).get()).data();
-  const kind: DeclarationKind = consent?.status === 'confirmed' && consent.ageGroup === 'minor' ? 'guardian' : 'adult';
+function declarationFor(snaps: DocumentSnapshot[], data: unknown, now: number): CheckoutDeclaration {
+  const [deletion, consent] = snaps;
+  if (deletion.exists || consent.get('status') === 'withdrawn') throw accountClosed();
+  const kind: DeclarationKind = consent.get('status') === 'confirmed' && consent.get('ageGroup') === 'minor' ? 'guardian' : 'adult';
   const given = (data as {declaration?: unknown} | null)?.declaration;
   const sent = given && typeof given === 'object' ? given as Record<string, unknown> : {};
   if (sent.kind !== kind || sent.wordingVersion !== CHECKOUT_DECLARATION_WORDING[kind] ||
@@ -72,6 +77,12 @@ async function checkoutDeclaration(db: Firestore, uid: string, data: unknown, no
   return {kind, wordingVersion: CHECKOUT_DECLARATION_WORDING[kind], termsVersion: GUARDIAN_DOCUMENT_VERSIONS.terms, at: now};
 }
 
+/** A stored declaration is reusable only when it says what the buyer must declare now. */
+const sameDeclaration = (stored: unknown, now: CheckoutDeclaration): boolean => {
+  const d = stored && typeof stored === 'object' ? stored as Record<string, unknown> : {};
+  return d.kind === now.kind && d.wordingVersion === now.wordingVersion && d.termsVersion === now.termsVersion;
+};
+
 export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0], data: unknown,
   deps: CheckoutDeps): Promise<{checkoutUrl: string; sessionId: string; reference: string}> {
   const uid = assertNamedUser(auth);
@@ -79,7 +90,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   const product = typeof requested === 'string' ? webProduct(requested) : undefined;
   if (!product) throw new HttpsError('invalid-argument', 'This product is not sold on the web.');
   const now = (deps.now ?? Date.now)();
-  const declaration = await checkoutDeclaration(deps.db, uid, data, now);
+  let declaration = declarationFor(await deps.db.getAll(...accountRefs(deps.db, uid)), data, now);
   const allowed = await (deps.allow ?? (id => allowAtMost(id, 'paymongoCheckout', CHECKOUTS_PER_WINDOW, WINDOW_MS)))(uid);
   if (!allowed) throw new HttpsError('resource-exhausted', 'Too many checkout attempts. Try again later.');
   let sitting: Sitting | undefined;
@@ -98,34 +109,41 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   const pending = deps.db.doc(`users/${uid}/pendingCheckouts/${key}`);
   const referenceNumber = randomUUID();
   const order = deps.db.doc(`paymongoOrders/${referenceNumber}`);
-  const binding = {uid, product: product.id, createdAt: now, declaration,
-    ...(sitting ? {examId: product.examId, sitting} : {})};
-  const reserved = await deps.db.runTransaction(async transaction => {
-    const previous = await transaction.get(pending);
+  const bindingFor = (d: CheckoutDeclaration) => ({uid, product: product.id, createdAt: now, declaration: d,
+    ...(sitting ? {examId: product.examId, sitting} : {})});
+  type Held = {state?: string; sessionId?: string; checkoutUrl?: string; reference?: string; matches: boolean};
+  const reserved = await deps.db.runTransaction(async (transaction): Promise<Held | null> => {
+    const [previous, ...account] = await transaction.getAll(pending, ...accountRefs(deps.db, uid));
+    declaration = declarationFor(account, data, now);
     if (previous.exists) {
-      const data = previous.data()!;
-      const lapsed = data.state === 'creating' && !(now - Number(data.createdAt) < CREATING_LEASE_MS);
-      if (!lapsed) return data;
+      const held = previous.data()!;
+      const lapsed = held.state === 'creating' && !(now - Number(held.createdAt) < CREATING_LEASE_MS);
+      if (!lapsed) {
+        const stored = held.state === 'open' && typeof held.reference === 'string'
+          ? (await transaction.get(deps.db.doc(`paymongoOrders/${held.reference}`))).get('declaration') : undefined;
+        return {...held, matches: sameDeclaration(stored, declaration)} as Held;
+      }
       transaction.set(pending, {state: 'creating', reference: referenceNumber, product: product.id, createdAt: now});
-      transaction.create(order, binding);
+      transaction.create(order, bindingFor(declaration));
       return null;
     }
     transaction.create(pending, {state: 'creating', reference: referenceNumber, product: product.id, createdAt: now});
-    transaction.create(order, binding);
+    transaction.create(order, bindingFor(declaration));
     return null;
   });
   if (reserved) {
     if (reserved.state !== 'open') throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
-    const remote = await deps.client.getCheckoutSession(reserved.sessionId as string);
-    if (remote.status === 'active' && !remote.payments.some(p => p.status === 'paid')) {
-      // The declaration just made must reach the records this session is paid against.
-      const update = deps.db.batch();
-      update.update(deps.db.doc(`paymongoCheckouts/${reserved.sessionId as string}`), {declaration});
-      update.update(deps.db.doc(`paymongoOrders/${reserved.reference as string}`), {declaration});
-      await update.commit();
-      return {checkoutUrl: reserved.checkoutUrl as string, sessionId: reserved.sessionId as string, reference: reserved.reference as string};
+    const remote = await deps.client.getCheckoutSession(reserved.sessionId!);
+    const paidAlready = remote.payments.some(p => p.status === 'paid');
+    if (reserved.matches && remote.status === 'active' && !paidAlready) {
+      // Declarations are written once and never rewritten: a later write could land on an order
+      // that was paid in the meantime. Reuse needs the same declaration; nothing is written.
+      declarationFor(await deps.db.getAll(...accountRefs(deps.db, uid)), data, now);
+      return {checkoutUrl: reserved.checkoutUrl!, sessionId: reserved.sessionId!, reference: reserved.reference!};
     }
-    if (remote.status !== 'expired' && !remote.payments.some(p => p.status === 'paid')) {
+    // An open session whose declaration differs (or is missing: made before this release) is
+    // replaced, never edited. An unpaid session needs no expiry for that.
+    if (reserved.matches && remote.status !== 'expired' && !paidAlready) {
       throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
     }
     // A paid session whose webhook has not granted yet must never lead to a second session: the
@@ -138,10 +156,11 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     }
     // Compare-and-swap: only one request can replace a completed/expired checkout.
     await deps.db.runTransaction(async transaction => {
-      const current = await transaction.get(pending);
+      const [current, ...account] = await transaction.getAll(pending, ...accountRefs(deps.db, uid));
+      declaration = declarationFor(account, data, now);
       if (current.get('reference') !== reserved.reference) throw new HttpsError('aborted', 'Checkout changed. Try again.');
       transaction.set(pending, {state: 'creating', reference: referenceNumber, product: product.id, createdAt: now});
-      transaction.create(order, binding);
+      transaction.create(order, bindingFor(declaration));
     });
   }
   // From here this attempt owns the `creating` reservation under `referenceNumber`. Any failure
@@ -161,10 +180,12 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     // Guarded final write: a slow attempt must not overwrite a newer one. If the reservation is no
     // longer ours, this session is discarded and no link is returned.
     await deps.db.runTransaction(async transaction => {
-      const current = await transaction.get(pending);
+      const [current, ...account] = await transaction.getAll(pending, ...accountRefs(deps.db, uid));
       if (current.get('state') !== 'creating' || current.get('reference') !== referenceNumber) {
         throw new HttpsError('aborted', 'Checkout creation was superseded. Try again.');
       }
+      // Consent or closure may have changed while the session was made: no link then.
+      declarationFor(account, data, now);
       transaction.set(deps.db.doc(`paymongoCheckouts/${session.id}`), {uid, product: product.id, createdAt: now,
         reference: referenceNumber, declaration, ...(sitting ? {examId: product.examId, sitting} : {})});
       transaction.update(order, {sessionId: session.id});

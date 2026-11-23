@@ -301,7 +301,7 @@ export async function purgeExpiredEvidence(deps: EvidenceDeps): Promise<number> 
         removed += 1;
       }
     } catch (error) {
-      logger.error('Evidence purge failed for one record', {uid: evidence.id, error: String(error)});
+      logger.error('Evidence purge failed for one record', {reason: 'evidence-purge-failed'});
     }
   };
 
@@ -325,7 +325,7 @@ export async function purgeExpiredEvidence(deps: EvidenceDeps): Promise<number> 
       // A marked parent belongs to pass one.
       if (typeof (await parent.get()).get('accountDeletedAt') === 'number') continue;
     } catch (error) {
-      logger.error('Evidence purge failed for one record', {uid: parent.id, error: String(error)});
+      logger.error('Evidence purge failed for one record', {reason: 'evidence-purge-failed'});
       continue;
     }
     await purgeParent(parent);

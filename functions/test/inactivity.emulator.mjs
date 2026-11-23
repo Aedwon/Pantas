@@ -289,6 +289,25 @@ test('evidence that holds only declines goes after four years; any confirmation,
   for (const uid of ['ev-c', 'ev-w', 'ev-q']) assert.equal(await exists(uid), false, `${uid} goes at ten years`);
 });
 
+test('a failed evidence purge logs a reason code and no account id', async () => {
+  await clear();
+  const decided = Date.parse('2026-11-09T10:00:00+08:00');
+  await db.doc('guardianConsentEvidence/ev-secret-uid').set({accountDeletedAt: decided, reason: 'x'});
+  await db.doc('guardianConsentEvidence/ev-secret-uid/responses/r1').set({action: 'confirm', decidedAt: decided});
+  const lines = [];
+  const out = process.stdout.write.bind(process.stdout), err = process.stderr.write.bind(process.stderr);
+  process.stdout.write = (c, ...r) => { lines.push(String(c)); return out(c, ...r); };
+  process.stderr.write = (c, ...r) => { lines.push(String(c)); return err(c, ...r); };
+  try {
+    await inactive.purgeExpiredEvidence({db, now: () => evidenceNow(decided) + DAY,
+      auth: {getUser: async () => { throw new Error('boom for ev-secret-uid'); }}});
+  } finally { process.stdout.write = out; process.stderr.write = err; }
+  const logs = lines.join('');
+  assert.match(logs, /evidence-purge-failed/);
+  assert.equal(logs.includes('ev-secret-uid'), false);
+  assert.equal(logs.includes('boom'), false);
+});
+
 test('an account that still exists keeps its evidence however old', async () => {
   await clear();
   const decided = Date.parse('2026-11-09T10:00:00+08:00');

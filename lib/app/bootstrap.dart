@@ -249,6 +249,25 @@ Future<FirebaseBootstrapResult> bootstrapFirebaseForStartup(
   return result;
 }
 
+/// Refuses to start a public prod web release build whose seller facts are
+/// still placeholders (see [assertSellerFactsReady]). The arguments are the
+/// build's own values; tests pass others.
+@visibleForTesting
+void checkLaunchConfigAtStartup(
+  Flavor flavor, {
+  SellerFacts? facts,
+  bool web = kIsWeb,
+  bool releaseMode = kReleaseMode,
+  bool betaGate = const bool.fromEnvironment('BETA_GATE'),
+}) =>
+    assertSellerFactsReady(
+      facts ?? sellerFacts,
+      web: web,
+      releaseMode: releaseMode,
+      betaGate: betaGate,
+      prod: flavor == Flavor.prod,
+    );
+
 Future<void> _bootstrap(
   Flavor flavor,
   void Function(ProviderContainer) onContainerReady,
@@ -260,6 +279,9 @@ Future<void> _bootstrap(
   rememberLocalStudentUrl();
   rememberLocalAccount();
   try {
+    // First: a public prod web build with an unfilled seller fact must not
+    // run.
+    checkLaunchConfigAtStartup(flavor);
     final firebaseResult = await bootstrapFirebaseForStartup(flavor);
     PerfTimeline.mark('boot.firebase');
     // The flags fetch only needs Firebase, so it runs beside the steps below
@@ -268,14 +290,6 @@ Future<void> _bootstrap(
     final remoteFlags = bootstrapRemoteFlagsOverrides();
     // Web only, always on, sends no identity. Never blocks startup.
     ClientReporter.startForWeb();
-    // A public prod web build with an unfilled seller fact must not run.
-    assertSellerFactsReady(
-      sellerFacts,
-      web: kIsWeb,
-      releaseMode: kReleaseMode,
-      betaGate: const bool.fromEnvironment('BETA_GATE'),
-      prod: flavor == Flavor.prod,
-    );
     await activateAppCheck(flavor);
     PerfTimeline.mark('boot.appcheck');
 

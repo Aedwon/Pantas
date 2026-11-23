@@ -36,6 +36,9 @@ const _link = 'Terms and refund policy';
 const _buy = 'Buy 1 Month for ₱149';
 const _generic = "We couldn't confirm your subscription. Try again.";
 
+final _guardianSignal = StateProvider<bool>((ref) => false);
+final _accountSignal = StateProvider<String>((ref) => 'owner');
+
 void main() {
   late List<(String, Map<String, Object?>)> calls;
   Exception? refusal;
@@ -85,15 +88,17 @@ void main() {
     final overrides = [
       appDatabaseProvider.overrideWithValue(db),
       currentUserProvider.overrideWith(
-        (ref) async => const AuthUser(
-          uid: 'owner',
+        (ref) async => AuthUser(
+          uid: ref.watch(_accountSignal),
           email: 'o@example.com',
           displayName: 'Owner',
         ),
       ),
       isAnonymousProvider.overrideWith((ref) async => false),
       paymentsOnWebProvider.overrideWithValue(true),
-      guardianConfirmedProvider.overrideWith((ref) async => guardian),
+      guardianConfirmedProvider.overrideWith(
+        (ref) async => guardian || ref.watch(_guardianSignal),
+      ),
       revenueCatGatewayProvider.overrideWithValue(gateway),
       proForActiveExamProvider.overrideWith((ref) async => false),
       activeExamFocusProvider.overrideWith(
@@ -348,6 +353,37 @@ void main() {
       expect(find.text('The Terms page'), findsOneWidget);
     });
   }
+
+  testWidgets(
+      'a tick belongs to the wording it was given for: a changed '
+      'wording unticks and turns Pay off', (tester) async {
+    await pumpPro(tester, wide: false);
+    await tick(tester);
+    expect(buyPressed(tester, wide: false), isNotNull);
+    final container = ProviderScope.containerOf(
+      tester.element(find.byType(ProPage)),
+    );
+    container.read(_guardianSignal.notifier).state = true;
+    await tester.pumpAndSettle();
+    expect(box(_guardianLabel), findsOneWidget);
+    expect(tester.widget<CheckboxRow>(box(_guardianLabel)).selected, isFalse);
+    expect(buyPressed(tester, wide: false), isNull);
+    // The same box ticked again works for the new wording.
+    await tick(tester);
+    expect(buyPressed(tester, wide: false), isNotNull);
+  });
+
+  testWidgets('a tick does not carry over to another account', (tester) async {
+    await pumpPro(tester, wide: false);
+    await tick(tester);
+    expect(buyPressed(tester, wide: false), isNotNull);
+    ProviderScope.containerOf(tester.element(find.byType(ProPage)))
+        .read(_accountSignal.notifier)
+        .state = 'someone-else';
+    await tester.pumpAndSettle();
+    expect(tester.widget<CheckboxRow>(box()).selected, isFalse);
+    expect(buyPressed(tester, wide: false), isNull);
+  });
 
   testWidgets('the label reads as one sentence and the row ticks',
       (tester) async {

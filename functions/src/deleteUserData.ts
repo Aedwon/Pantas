@@ -113,7 +113,7 @@ type EvidencePurchase = Record<string, unknown>;
  * What a purchase record keeps as ten-year evidence, or null when it is not guardian evidence.
  * Only a guardian-kind declaration qualifies (legal lane, Nov 23 pass: adult declarations are not
  * kept). A record from before declarations existed carries `attestedAt` and was guardian-only by
- * construction, so it keeps its old four-field shape.
+ * construction. It has no wording id, so that field is null: every copy has the same five fields.
  */
 function guardianPurchase(doc: DocumentSnapshot, reference: unknown): EvidencePurchase | null {
   const declaration = doc.get('declaration');
@@ -123,7 +123,7 @@ function guardianPurchase(doc: DocumentSnapshot, reference: unknown): EvidencePu
       wordingVersion: declaration.wordingVersion ?? null, reference, product: doc.get('product') ?? null};
   }
   if (typeof doc.get('attestedAt') !== 'number') return null;
-  return {attestedAt: doc.get('attestedAt'), termsVersion: doc.get('termsVersion') ?? null, reference,
+  return {attestedAt: doc.get('attestedAt'), termsVersion: doc.get('termsVersion') ?? null, wordingVersion: null, reference,
     product: doc.get('product') ?? null};
 }
 

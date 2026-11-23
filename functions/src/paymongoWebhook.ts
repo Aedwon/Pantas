@@ -1,5 +1,6 @@
 import {FieldValue, Timestamp, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {getAuth, type Auth} from 'firebase-admin/auth';
+import {logger} from 'firebase-functions';
 import {paymentSecrets, secret} from './_secrets.js';
 import {onRequest} from 'firebase-functions/v2/https';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
@@ -113,6 +114,12 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
       const outcome = await commitPaymongoGrant(deps.db, {uid, eventId: event.id, sessionId,
         paymentId: paid[0].id, paidAmount: paid[0].amount, product, paidAt: paidAt!, sitting: checkout.get('sitting') as Sitting | undefined}, now(), deps.catalog ?? examCatalog);
       if (outcome === 'noSitting') return 500;
+    }
+    // A session made before declarations existed can still be paid. Access is granted above and
+    // never held back; the order is flagged for manual follow-up. Nothing but a reason code is logged.
+    if (!checkout.get('declaration') && typeof checkout.get('attestedAt') !== 'number') {
+      await checkout.ref.set({declarationMissing: true}, {merge: true});
+      logger.warn('Paid checkout has no declaration', {reason: 'declaration-missing'});
     }
     const sessionFollowUp = deps.db.doc(`paymongoFollowUps/${encodeURIComponent(sessionId)}`);
     if ((await sessionFollowUp.get()).exists) await sessionFollowUp.update({status: 'resolved'});

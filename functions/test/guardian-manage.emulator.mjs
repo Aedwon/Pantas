@@ -96,7 +96,7 @@ test('attested checkouts are copied with four fields only; others are not', asyn
   await db.doc('paymongoCheckouts/cs_dm_other').set({uid: 'someone-else', attestedAt: T0, termsVersion: 'v', reference: 'r', product: 'p'});
   await deletion.deleteUserData(db, auth, uid, 'guardian_withdrawal', {now: () => T0 + 9});
   assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_a`).get()).data(),
-    {attestedAt: T0 + 5, termsVersion: '2026-11-12', reference: 'ref-a', product: 'pantas_cs_monthly'});
+    {attestedAt: T0 + 5, termsVersion: '2026-11-12', wordingVersion: null, reference: 'ref-a', product: 'pantas_cs_monthly'});
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_b`).get()).exists, false);
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_other`).get()).exists, false);
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}`).get()).get('reason'), 'guardian_withdrawal');
@@ -438,9 +438,9 @@ test('an attested order with no checkout record is copied, and an order with a c
   const purchases = await db.collection(`guardianConsentEvidence/${uid}/purchases`).get();
   assert.deepEqual(purchases.docs.map(d => d.id).sort(), ['cs_dm_both', 'order-ref-only']);
   assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/order-ref-only`).get()).data(),
-    {attestedAt: T0 + 7, termsVersion: '2026-11-12', reference: 'ref-only', product: 'pantas_cs_weekly'});
+    {attestedAt: T0 + 7, termsVersion: '2026-11-12', wordingVersion: null, reference: 'ref-only', product: 'pantas_cs_weekly'});
   assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_both`).get()).data(),
-    {attestedAt: T0 + 5, termsVersion: '2026-11-12', reference: 'ref-both', product: 'pantas_cs_monthly'});
+    {attestedAt: T0 + 5, termsVersion: '2026-11-12', wordingVersion: null, reference: 'ref-both', product: 'pantas_cs_monthly'});
   assert.equal((await db.doc('paymongoOrders/ref-only').get()).exists, false, 'the order itself still goes');
   await db.doc('paymongoOrders/ref-other').delete();
 });
