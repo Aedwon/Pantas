@@ -3,7 +3,7 @@ import {createHmac, randomBytes} from 'node:crypto';
 import {defineInt, defineString} from 'firebase-functions/params';
 import {appSecrets, secret} from './_secrets.js';
 import {getAuth, type Auth} from 'firebase-admin/auth';
-import {FieldPath, FieldValue, getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore, type Query, type QueryDocumentSnapshot} from 'firebase-admin/firestore';
+import {FieldPath, FieldValue, getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore, type Query, type QueryDocumentSnapshot, type QuerySnapshot, type Transaction} from 'firebase-admin/firestore';
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
 import {onSchedule} from 'firebase-functions/v2/scheduler';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
@@ -120,6 +120,30 @@ function requireCaller(request: AppRequest): string {
 
 const consentRef = (db: Firestore, uid: string) => db.doc(`users/${uid}/server/guardianConsent`);
 const tokenRef = (db: Firestore, hash: string) => db.doc(`guardianTokens/${hash}`);
+
+/**
+ * When the cleanup next has work on this account's guardian record. Set where a request is sent or
+ * answered, and absent once nothing is left to clean. The hourly cleanup queries it, so it reads only
+ * records that are due and no other document of any account.
+ */
+export const CLEANUP_DUE_FIELD = 'guardianDueAt';
+
+/** Every link row that names the account. Read it before the first write of the transaction. */
+export const requestLinksQuery = (db: Firestore, uid: string): Query => db.collection('guardianTokens').where('uid', '==', uid);
+
+/**
+ * Deletes a request's guardian page links and open answer link, and takes the account off its used or
+ * revoked answer links. Those keep their seven days, so a guardian who opens one still sees "used".
+ * After this, and with the request record deleted, only the guardian's answer in the evidence names the account.
+ * `keep` is a link the caller writes itself in the same transaction.
+ */
+export function dropRequestLinks(tx: Transaction, links: QuerySnapshot, keep?: DocumentReference): void {
+  for (const link of links.docs) {
+    if (link.ref.path === keep?.path) continue;
+    if (link.get('kind') === 'manage' || link.get('state') === 'open') tx.delete(link.ref);
+    else tx.set(link.ref, {uid: FieldValue.delete()}, {merge: true});
+  }
+}
 
 function publicStatus(data: FirebaseFirestore.DocumentData | undefined, now: number): PublicStatus {
   // A trimmed record holds only the age group: no request is open.
@@ -247,7 +271,7 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     tx.set(tokenRef(deps.db, manageHash), {kind: 'manage', uid, state: 'open', createdAt: now});
     tx.set(consent, {
       status: 'pending', ageGroup: 'minor', emailHash, maskedEmail, tokenHash,
-      createdAt: before?.createdAt ?? now, sentAt: now, expiresAt,
+      createdAt: before?.createdAt ?? now, sentAt: now, expiresAt, [CLEANUP_DUE_FIELD]: expiresAt,
       ...(noticeVersion === undefined ? {} : {ageCheckNoticeVersion: noticeVersion}),
     });
     return becameFull ? 'became-full' : 'ok';
@@ -267,7 +291,7 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     await deps.mailer.send(guardianMessage({guardianName, guardianEmail: rawEmail, link, manageLink, expiresAt}));
   } catch (error) {
     // The student can retry. The unsent link stays valid only for this window.
-    console.error('Guardian mail failed', {uid, error: String(error)});
+    logger.error('Guardian mail failed.', {event: 'guardian_mail_failed', reason: error instanceof Error ? error.name : 'unknown'});
     // Give the place back so a failing mailer cannot use up the cap.
     await deps.db.runTransaction(async (tx) => {
       const count = ((await tx.get(globalLimit)).get('count') as number | undefined) ?? 0;
@@ -289,9 +313,9 @@ async function lookup(deps: ConsentDeps, token: unknown, now: number) {
   if (!row) return {state: 'unknown' as const};
   if (row.kind === 'manage') return {state: 'unknown' as const};
   if (row.state === 'used') return {state: 'used' as const};
-  if (row.state !== 'open') return {state: 'unknown' as const};
+  if (row.state !== 'open' || typeof row.uid !== 'string') return {state: 'unknown' as const};
   if (now >= row.expiresAt) return {state: 'expired' as const};
-  return {state: 'open' as const, hash, uid: row.uid as string, expiresAt: row.expiresAt as number};
+  return {state: 'open' as const, hash, uid: row.uid, expiresAt: row.expiresAt as number};
 }
 
 function requireVisitor(request: AppRequest): string {
@@ -357,14 +381,22 @@ export async function answerRequest(request: AppRequest, deps: ConsentDeps): Pro
     const row = (await tx.get(tokenRef(deps.db, hash))).data();
     if (!row || row.kind === 'manage') return {state: 'unknown'};
     if (row.state === 'used') return {state: 'used'};
-    if (row.state !== 'open') return {state: 'unknown'};
+    if (row.state !== 'open' || typeof row.uid !== 'string') return {state: 'unknown'};
     if (now >= row.expiresAt) return {state: 'expired'};
-    const consent = consentRef(deps.db, row.uid as string);
+    const uid = row.uid;
+    const consent = consentRef(deps.db, uid);
     const current = (await tx.get(consent)).data();
     if (current?.status !== 'pending' || current.tokenHash !== hash) return {state: 'used'};
-    const status: ConsentStatus = decision === 'confirm' ? 'confirmed' : 'declined';
-    tx.set(tokenRef(deps.db, hash), {state: 'used', usedAt: now}, {merge: true});
-    tx.set(consent, {status, decidedAt: now, ...(decision === 'confirm' ? {sharingAllowed: allowSharing} : {})}, {merge: true});
+    // A decline deletes the request in this same write, so every read comes first.
+    const links = decision === 'decline' ? await tx.get(requestLinksQuery(deps.db, uid)) : undefined;
+    tx.set(tokenRef(deps.db, hash), {state: 'used', usedAt: now, ...(links ? {uid: FieldValue.delete()} : {})}, {merge: true});
+    if (links) {
+      dropRequestLinks(tx, links, tokenRef(deps.db, hash));
+      tx.delete(consent);
+    } else {
+      // The record is trimmed seven days after the answer.
+      tx.set(consent, {status: 'confirmed', decidedAt: now, sharingAllowed: allowSharing, [CLEANUP_DUE_FIELD]: now + GUARDIAN_WINDOW_MS}, {merge: true});
+    }
     // Separate from the user tree so deletion keeps only the response evidence.
     // Never copy the contact, email hash, masked address, or study answers here.
     tx.set(deps.db.doc(`guardianConsentEvidence/${row.uid}/responses/${hash}`), {
@@ -474,7 +506,9 @@ export async function withdraw(request: AppRequest, deps: ConsentDeps): Promise<
       const earlier = await tx.get(task);
       tx.set(task, {reason: earlier.get('reason') ?? 'guardian_withdrawal', startedAt: earlier.get('startedAt') ?? now,
         nextRetryAt: now, reasons: FieldValue.arrayUnion('guardian_withdrawal')}, {merge: true});
-      tx.set(consentRef(deps.db, found.uid), {status: 'withdrawn', withdrawnAt: now, sharingAllowed: false}, {merge: true});
+      // A withdrawn record is left alone until the deletion removes it, so the cleanup need not visit it.
+      tx.set(consentRef(deps.db, found.uid), {status: 'withdrawn', withdrawnAt: now, sharingAllowed: false,
+        [CLEANUP_DUE_FIELD]: FieldValue.delete()}, {merge: true});
       const entry = evidenceEntry(deps.db, found.uid, 'withdraw', now);
       tx.set(entry.ref, entry.data);
     }
@@ -563,8 +597,13 @@ export async function purgeGuardianRecords(db: Firestore, now: number): Promise<
       if (typeof due === 'number' && now >= due) tx.delete(row.ref);
     });
   });
-  await visitGuardianRows(db.collectionGroup('server').orderBy(FieldPath.documentId()), async (row) => {
+  // Only guardian records that are due. This query never reads another account document.
+  let deleted = 0;
+  let trimmed = 0;
+  await visitGuardianRows(db.collectionGroup('server').where(CLEANUP_DUE_FIELD, '<=', now).orderBy(CLEANUP_DUE_FIELD), async (row) => {
     if (row.id !== 'guardianConsent') return;
+    const uid = /^users\/([^/]+)\/server\/guardianConsent$/.exec(row.ref.path)?.[1];
+    if (!uid) return;
     await db.runTransaction(async (tx) => {
       const data = (await tx.get(row.ref)).data();
       if (!data) return;
@@ -579,13 +618,17 @@ export async function purgeGuardianRecords(db: Firestore, now: number): Promise<
         // facts, without contact data (email hash, masked address, link hash, send and expiry times).
         const kept = Object.fromEntries(KEPT_CONSENT_FIELDS.filter((key) => data[key] !== undefined).map((key) => [key, data[key]]));
         tx.set(row.ref, {...kept, ageGroup: data.ageGroup ?? 'minor'});
+        trimmed++;
       } else {
-        // An unanswered or declined request loses its contact data and status, but the server
-        // must still know the account is under 18: checkout's guardian box depends on it.
-        tx.set(row.ref, {ageGroup: data.ageGroup ?? 'minor'});
+        // An unanswered or declined request is deleted whole, with its guardian page links.
+        // The account is then no longer tied to a guardian request.
+        dropRequestLinks(tx, await tx.get(requestLinksQuery(db, uid)));
+        tx.delete(row.ref);
+        deleted++;
       }
     });
   });
+  if (deleted || trimmed) logger.info('Guardian cleanup.', {event: 'guardian_cleanup', deleted, trimmed});
   await visitGuardianRows(db.collection('guardianLimits').orderBy(FieldPath.documentId()), async (row) => {
     await db.runTransaction(async (tx) => {
       const data = (await tx.get(row.ref)).data();
