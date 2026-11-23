@@ -34,7 +34,18 @@ const NAMES: Record<string, string> = {
 };
 
 export type CheckoutDeps = {client: PaymongoClient; db: Firestore; origin: string; methods: string[];
-  allow?: (uid: string) => Promise<boolean>; catalog?: CatalogExam[]; now?: () => number};
+  allow?: (uid: string) => Promise<boolean>; catalog?: CatalogExam[]; now?: () => number;
+  /** True while prod runs a test key: see checkoutClosed. */
+  closedForTestMode?: boolean};
+
+/**
+ * Prod takes no web payments until its PayMongo key is live (audit PAY-13, Nov 23, 2026): with a test key, any
+ * signed-in account could pay with a public test card and get real Pro, because the beta gate is client-only.
+ * An account holding the admin claim may still check out, for an owner test on prod.
+ */
+export function checkoutClosed(project: string | undefined, secretKey: string): boolean {
+  return project === 'pantas-prod' && !secretKey.startsWith('sk_live_');
+}
 
 /**
  * An account the server knows as a minor can only buy with a parent or guardian's confirmation
@@ -56,6 +67,9 @@ async function guardianAttestation(db: Firestore, uid: string, data: unknown, no
 export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0], data: unknown,
   deps: CheckoutDeps): Promise<{checkoutUrl: string; sessionId: string; reference: string}> {
   const uid = assertNamedUser(auth);
+  if (deps.closedForTestMode && (auth?.token as {admin?: unknown} | undefined)?.admin !== true) {
+    throw new HttpsError('failed-precondition', 'Purchases are not open yet.', {reason: 'checkout-closed'});
+  }
   const requested = (data as {product?: unknown} | null)?.product;
   const product = typeof requested === 'string' ? webProduct(requested) : undefined;
   if (!product) throw new HttpsError('invalid-argument', 'This product is not sold on the web.');
@@ -178,6 +192,7 @@ export const createPaymongoCheckout = onCall(
     assertFreshAppCheck(request);
     return createCheckout(request.auth, request.data, {
       client: httpPaymongoClient(secret('PAYMONGO_SECRET_KEY')), db: getFirestore(),
+      closedForTestMode: checkoutClosed(process.env.GCLOUD_PROJECT, secret('PAYMONGO_SECRET_KEY')),
       origin: process.env.PANTAS_APP_ORIGIN ?? 'https://app.pantas.study',
       methods: process.env.PAYMONGO_PAYMENT_METHODS?.split(',').map(m => m.trim()).filter(Boolean) ?? DEFAULT_METHODS,
     });
