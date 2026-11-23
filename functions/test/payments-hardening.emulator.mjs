@@ -18,7 +18,7 @@ test('trial identity marker survives deletion and blocks provider or verified em
   }
   const markers = await db.collection('trialUsedIdentities').get();
   assert.ok(markers.size >= 2);
-  for (const doc of markers.docs) {assert.match(doc.id, /^[0-9a-f]{64}$/); assert.deepEqual(doc.data(), {used: true});}
+  for (const doc of markers.docs) {assert.match(doc.id, /^[0-9a-f]{64}$/); assert.equal(doc.get('used'), true); assert.equal(doc.get('expireAt').toMillis(), doc.get('startedAt') + 730 * 86400000);}
 });
 
 import {commitPaymongoGrant} from '../lib/paymongoGrants.js';

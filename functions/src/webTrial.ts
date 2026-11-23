@@ -13,6 +13,7 @@ import {DAY_MS, TRIAL_DAYS, TRIAL_PRODUCT, type Grant} from './grants.js';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import {timed} from './_timed.js';
 import {serviceAccountEmail} from './serviceAccounts.js';
+import {trialMarker} from './trialMarker.js';
 
 /** Only Firebase-verified token identities are used, never caller data. */
 export function identityMarkers(auth: Parameters<typeof assertNamedUser>[0], db: Firestore) {
@@ -124,7 +125,7 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
       startsAt: now, endsAt: now + TRIAL_DAYS * DAY_MS, state: 'active', createdAt: now};
     const grants = new Map(inputs.grants).set('trial', grant);
     transaction.set(trial, {usedAt: now, grantId: 'trial'});
-    for (const ref of identities) transaction.set(ref, {used: true});
+    for (const ref of identities) transaction.set(ref, trialMarker(now));
     transaction.set(deps.db.doc(`users/${uid}/grants/trial`), grant);
     transaction.set(inputs.record.ref, {...entitlementWrite(inputs, claimsFromInputs(inputs, now, grants))}, {merge: true});
     transaction.create(deps.db.collection('audit_logs').doc(), {uid, event: 'webTrialStarted',

@@ -5,6 +5,7 @@ import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
 import {retirePublicId} from './publicId.js';
 import {clearPassOwnership} from './revenuecatPasses.js';
+import {trialMarker} from './trialMarker.js';
 import {identityMarkers, identityMarkersForUser} from './webTrial.js';
 
 /** A pending deletion is retried by the daily run once this long has passed since its last attempt. */
@@ -57,12 +58,17 @@ export async function deleteUserData(
 
   // Older trials have only an account-local record. Preserve eligibility before
   // deleting that record, including when an earlier deletion attempt is retried.
-  if ((await userRef.collection('server').doc('trial').get()).exists) {
+  const trial = await userRef.collection('server').doc('trial').get();
+  if (trial.exists) {
+    // The code expires 730 days after the trial's own start (D7), not after this deletion. An old
+    // record without a start time counts from now. A retry rewrites the same values.
+    const usedAt = trial.get('usedAt');
+    const startedAt = typeof usedAt === 'number' && Number.isFinite(usedAt) ? usedAt : now;
     const markers = options.requestAuth
       ? identityMarkers(options.requestAuth, db)
       : identityMarkersForUser(await auth.getUser(uid), db);
     const batch = db.batch();
-    for (const marker of markers) batch.set(marker, {used: true});
+    for (const marker of markers) batch.set(marker, trialMarker(startedAt));
     await batch.commit();
   }
   await keepGuardianEvidence(db, uid, reason, now);

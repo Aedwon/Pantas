@@ -67,7 +67,7 @@ void main() {
         as Map<String, dynamic>;
     final overrides = (config['fieldOverrides'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
-    expect(overrides, hasLength(5));
+    expect(overrides, hasLength(6));
     for (final field in ['claimsPending', 'updatedAt']) {
       final matches = overrides.where(
         (entry) =>
@@ -104,12 +104,17 @@ void main() {
     });
   });
 
-  test('Firebase config keeps both expiry TTL overrides without indexes', () {
+  test('Firebase config keeps the expiry TTL overrides without indexes', () {
     final config = jsonDecode(File('firestore.indexes.json').readAsStringSync())
         as Map<String, dynamic>;
     final overrides = (config['fieldOverrides'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
-    for (final group in ['users', 'webhookRateLimits']) {
+    // trialUsedIdentities: trial codes expire 730 days after the trial (D7).
+    for (final group in [
+      'users',
+      'webhookRateLimits',
+      'trialUsedIdentities',
+    ]) {
       final matches = overrides.where(
         (entry) =>
             entry['collectionGroup'] == group &&
@@ -153,6 +158,20 @@ void main() {
       ),
       isFalse,
     );
+    // The one reviewed trial-code writer (D7). Its destination is fixed.
+    expect(
+      _hasUnreviewedExpiry(
+        "const expireAt = Timestamp.fromMillis(startedAt + TRIAL_CODE_DAYS * DAY_MS); "
+        "return {used: true, startedAt, expireAt};",
+      ),
+      isFalse,
+    );
+    expect(
+      _hasUnreviewedExpiry(
+        r'db.doc(`trialUsedIdentities/${id}`).set({expireAt: timestamp});',
+      ),
+      isTrue,
+    );
     expect(
       _hasUnreviewedExpiry(
         r'const rate = deps.db.doc(`webhookRateLimits/${uid}_${bucket}`); '
@@ -188,7 +207,14 @@ bool _hasUnreviewedExpiry(String source) {
     r'(webhookEvents/\$\{[^}]+\}/users/\$\{[^}]+\}|'
     r'webhookRateLimits/[^`]+)`\);',
   );
-  var remaining = source;
+  // The only reviewed writer of trial-code expiry, in trialMarker.ts.
+  var remaining = source.replaceAll(
+    RegExp(
+      r'const expireAt = Timestamp\.fromMillis\(startedAt \+ TRIAL_CODE_DAYS \* DAY_MS\);'
+      r'\s*return \{used: true, startedAt, expireAt\};',
+    ),
+    '',
+  );
   for (final reference in references.allMatches(source)) {
     final name = RegExp.escape(reference.group(1)!);
     // A repeated binding could refer to an account in another scope.
