@@ -4124,3 +4124,18 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
   "QA web ship verified". Then: rules and indexes, the IAM script, preflight and functions, then the Worker from the
   QA lead's build folder. Each step is verified on prod and has its own rollback (plan on the branch,
   docs/superpowers/plans/2026-11-22-m4-security-pass.md, "Prod ship steps").
+
+### Nov 23, save-fix web ship to prod, and Aedwon's CSE release decisions (CSE release lead)
+
+- Approval, Aedwon (relayed by the manager), verbatim: "ship it on all items requiring ship it".
+- Shipped: web build 2026318751-32e9b98f07ec from main 47ac60058 (PR #82, analytics never blocks a save; PR #83, sessions stored in screen order). Built Nov 22 with lib/main_prod.dart, the prod App Check site key, BETA_GATE=true and SCREEN_COUNTS=true. App code differs from the previous prod build (048efc9ff) only by #82 and #83. No functions, content, rules or Worker code change.
+- Firebase Hosting (pinned CLI 15.32.1) released 09:55:58 UTC; prod Worker version f911373a-775c-4123-867d-14ebcc1a05f9 at 09:56:16 UTC; compare.mjs 92 of 92. Both hosts serve the new build id; the served main.dart.js equals the build byte for byte. Prod logs: no ERROR since 09:55 UTC; no quiz.write reports after the Nov 22 ones.
+- Not proven by the lead: a real Check on prod (a headless browser cannot pass prod App Check and the beta gate). Aedwon's phone check closes it.
+- Rollback (not used): Hosting version 5ef0949e785c7c87 (release 1795197413081000, build 1275724943-da801388b12a) and Worker fc99d322-c623-4dc0-9c7b-67761bc8c216. After the security lead's M4 Worker redeploy, a rollback must re-apply its headers (agreed with that lane).
+- Handoff sent to the security and billing lead: "QA web ship verified, build 2026318751-32e9b98f07ec, proceed with M4 in your stated order."
+- Decisions (Aedwon, Nov 23, relayed by the manager), verbatim:
+  - Part label: "i preferred the no labels. for me the labels are unnecessary information that the user does not need to know. we can keep it backend but UI/UX wise it does not help with the learning of the users. in fact, I would argue it just adds noise". Action: remove "Part X of Y · N questions" from the UI; keep the data.
+  - Report sending: "build sending, this should be obvious. why would I have it included in the UI boards if it didn't have a purpose". Action: build it, free-tier count first (rule 7).
+  - Scope: "go hardened. i do not want any risks when I release this app." Action: Part C hardened list of `docs/superpowers/plans/2026-11-22-cse-release-qa-phase1-report.md`.
+  - New gate: "please ensure the core loops and functions are actually functioning properly for every content, every quiz every mock etc. please be efficient about this. do the minimum that can verify something works ... i want to be fully ready before i post a single thing leading users to the app". Manager's reading applied: (a) every item through the app's real Dart logic with no UI, made a permanent CI check (tooling approved in that message); (b) one browser run per distinct loop per exam and mode, reads counted first.
+- Velocity E-137: 6 min 16 s (timer).
