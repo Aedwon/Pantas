@@ -13,8 +13,10 @@ void main() {
   });
 
   test('a name with no aside is only upper-cased', () {
-    expect(readerEyebrowText('Philippine Constitution'),
-        'PHILIPPINE CONSTITUTION');
+    expect(
+      readerEyebrowText('Philippine Constitution'),
+      'PHILIPPINE CONSTITUTION',
+    );
   });
 
   test('a name that is only an aside keeps its text', () {
