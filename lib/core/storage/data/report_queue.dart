@@ -70,7 +70,16 @@ class ReportUnavailable implements Exception {
   const ReportUnavailable();
 }
 
-enum ReportResult { queued, empty, questionLimit, dailyLimit }
+enum ReportResult {
+  queued,
+  empty,
+  questionLimit,
+  dailyLimit,
+
+  /// Nobody is signed in, or a draft opened under one account was saved after
+  /// the account changed (another tab). Nothing is stored or sent.
+  accountChanged,
+}
 
 /// What the student is told once a report is saved.
 enum ReportDelivery {
@@ -131,6 +140,9 @@ class ReportQueue {
   Future<void> _tail = Future<void>.value();
   Timer? _retry;
 
+  /// The account signed in now, or null. A draft binds to this when it opens.
+  String? get currentAccount => _account();
+
   /// Reports the signed-in account has not had accepted, oldest first.
   Future<List<QuestionReport>> pending() async => [
         for (final r in await history())
@@ -141,6 +153,7 @@ class ReportQueue {
   /// Another account's reports are not shown and not counted.
   Future<List<QuestionReport>> history() async {
     final account = _account();
+    if (account == null) return [];
     final rows = await _rows();
     return [
       for (final row in rows)
@@ -165,8 +178,17 @@ class ReportQueue {
     DateTime now, {
     String? examId,
     int? questionVersion,
+    String? expectedAccount,
   }) async =>
-      (await _add(questionId, message, now, examId, questionVersion)).$1;
+      (await _add(
+        questionId,
+        message,
+        now,
+        examId,
+        questionVersion,
+        expectedAccount,
+      ))
+          .$1;
 
   /// Queues a report, sends what can be sent, and says what became of this
   /// report, not of the queue. A refusal is a limit, never a thank-you.
@@ -177,9 +199,16 @@ class ReportQueue {
     String? examId,
     int? questionVersion,
     Duration wait = const Duration(seconds: 5),
+    String? expectedAccount,
   }) async {
-    final (result, id) =
-        await _add(questionId, message, now, examId, questionVersion);
+    final (result, id) = await _add(
+      questionId,
+      message,
+      now,
+      examId,
+      questionVersion,
+      expectedAccount,
+    );
     if (result != ReportResult.queued) return ReportSubmission(result, null);
     try {
       await sendPending().timeout(wait);
@@ -207,12 +236,19 @@ class ReportQueue {
     DateTime now,
     String? examId,
     int? questionVersion,
+    String? expectedAccount,
   ) async {
     final trimmed = _cut(message.trim());
     if (trimmed.isEmpty) return (ReportResult.empty, null);
-    // Read before the transaction opens: the first read can start work (a
-    // provider's stream) that must not run inside the transaction's zone.
-    final account = _account();
+    // A draft belongs to the account that opened it. Another tab may have
+    // switched since, and nothing is kept for the new account.
+    final signedIn = _account();
+    if (signedIn == null ||
+        (expectedAccount != null && expectedAccount != signedIn)) {
+      return (ReportResult.accountChanged, null);
+    }
+    // [signedIn] was read before the transaction opens: the first read can
+    // start work (a provider's stream) that must not run inside its zone.
     return _db.transaction(() async {
       final blocked = await limit(questionId, now);
       if (blocked != null) return (blocked, null);
@@ -223,7 +259,7 @@ class ReportQueue {
         'questionId': questionId,
         'message': trimmed,
         'createdAt': now.toIso8601String(),
-        if (account != null) 'accountId': account,
+        'accountId': signedIn,
         if (examId != null) 'examId': examId,
         if (questionVersion != null) 'questionVersion': questionVersion,
       });
@@ -248,13 +284,17 @@ class ReportQueue {
     _retry = null;
   }
 
-  /// Removes the rows of every account except [keep]. A guest who joins an
-  /// account is gone for good, and its reports can never be sent.
+  /// Forgets the sent and refused reports of every account except [keep]. An
+  /// unsent report is never removed here: another tab may have switched the
+  /// account, and the report still belongs to the one that wrote it. The
+  /// sign-out wipe removes what is left.
   Future<void> purgeOtherAccounts(String keep) => _db.transaction(() async {
         final rows = await _rows();
         final kept = [
           for (final row in rows)
-            if (row['accountId'] is! String || row['accountId'] == keep) row,
+            if (row['accountId'] == keep ||
+                (row['state'] ?? 'pending') == ReportState.pending.name)
+              row,
         ];
         if (kept.length != rows.length) await _write(kept);
       });
@@ -267,17 +307,11 @@ class ReportQueue {
 
   Future<int> _pass() async {
     final sender = _sender;
-    final account = _account();
-    final all = await pending();
-    // Only the account that made a report sends it. A report of another
-    // account stays, untouched, until that account is signed in again or the
-    // sign-out wipe removes it.
-    final queued = [
-      for (final r in all)
-        if (r.accountId == account) r,
-    ];
+    // Only the signed-in account's own reports are read, so another
+    // account's stay untouched until it is signed in again or the sign-out
+    // wipe removes them.
+    final queued = await pending();
     var remaining = queued.length;
-    if (account == null) return all.length;
     if (sender == null || remaining == 0) return remaining;
     var networkFailure = false;
     for (final report in queued) {
@@ -354,33 +388,33 @@ class ReportQueue {
   /// The stored list. A list written before reports had ids gets them here and
   /// is saved at once, so an id never changes between tries.
   Future<List<Map<String, Object?>>> _rows() async {
-    final account = _account();
     final stored = await _read();
-    // A report from before accounts were recorded goes to the device's
-    // recorded owner, and only when that owner is signed in. Anyone else who
-    // opens the app first leaves it alone, and it is never sent.
-    final heir = account != null &&
-            stored.any((row) => row['accountId'] is! String) &&
-            await _dataOwner() == account
-        ? account
-        : null;
     bool whole(Map<String, Object?> row) =>
-        row['id'] is String && (row['accountId'] is String || heir == null);
+        row['id'] is String &&
+        (row['accountId'] is String || row['orphan'] == true);
     if (stored.every(whole)) return stored;
     return _db.transaction(() async {
       final rows = await _read();
-      var changed = false;
+      String? owner;
+      var ownerRead = false;
       for (final row in rows) {
-        if (row['id'] is! String) {
-          row['id'] = _newId();
-          changed = true;
+        if (row['id'] is! String) row['id'] = _newId();
+        if (row['accountId'] is String || row['orphan'] == true) continue;
+        // A report from before accounts were recorded goes to the account the
+        // device recorded as owner of its data at this first read, and is
+        // stamped with it for good. Nobody who claims the device later can
+        // take it over. With no owner recorded it is never sent.
+        if (!ownerRead) {
+          owner = await _dataOwner();
+          ownerRead = true;
         }
-        if (row['accountId'] is! String && heir != null) {
-          row['accountId'] = heir;
-          changed = true;
+        if (owner != null) {
+          row['accountId'] = owner;
+        } else {
+          row['orphan'] = true;
         }
       }
-      if (changed) await _write(rows);
+      await _write(rows);
       return rows;
     });
   }

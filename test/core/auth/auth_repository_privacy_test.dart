@@ -144,6 +144,103 @@ void main() {
     ]);
   });
 
+  test('data that became unsent after the check stops the wipe and sign-out',
+      () async {
+    final operations = <String>[];
+    final gateway = PrivacyAuthGateway(
+      operations: operations,
+      currentSession: const AuthSession(uid: 'user-1'),
+    );
+    final repo = AuthRepository(
+      gateway: gateway,
+      googleGateway: PrivacyGoogleGateway(operations: operations),
+      functionsGateway: PrivacyFunctionsGateway(operations: operations),
+      accountTransitionGateway: RecordingAccountTransitionGateway(operations),
+      localStateWiper: RecordingLocalStateWiper(operations),
+    )..signOutWipeGuard = (wipe) async {
+        operations.add('recheck');
+        throw const AuthGatewayException('network-request-failed');
+      };
+
+    await expectLater(
+      repo.signOut(),
+      throwsA(isA<AuthGatewayException>()),
+    );
+
+    expect(operations, ['recheck']);
+    expect(gateway.currentSession?.uid, 'user-1');
+  });
+
+  test('the wipe runs inside the guard on a normal sign-out', () async {
+    final operations = <String>[];
+    final repo = AuthRepository(
+      gateway: PrivacyAuthGateway(
+        operations: operations,
+        currentSession: const AuthSession(uid: 'user-1'),
+      ),
+      googleGateway: PrivacyGoogleGateway(operations: operations),
+      functionsGateway: PrivacyFunctionsGateway(operations: operations),
+      accountTransitionGateway: RecordingAccountTransitionGateway(operations),
+      localStateWiper: RecordingLocalStateWiper(operations),
+    )..signOutWipeGuard = (wipe) async {
+        operations.add('guard-start');
+        await wipe();
+        operations.add('guard-end');
+      };
+
+    await repo.signOut();
+
+    expect(operations.take(3), ['guard-start', 'wipeAll', 'guard-end']);
+  });
+
+  group('a closed account', () {
+    test('is signed out and wiped even when data is unsent', () async {
+      final operations = <String>[];
+      final gateway = PrivacyAuthGateway(
+        operations: operations,
+        currentSession: const AuthSession(uid: 'closed-1'),
+      );
+      final repo = AuthRepository(
+        gateway: gateway,
+        googleGateway: PrivacyGoogleGateway(operations: operations),
+        functionsGateway: PrivacyFunctionsGateway(operations: operations),
+        accountTransitionGateway: BlockedSignOutGateway(operations),
+        localStateWiper: RecordingLocalStateWiper(operations),
+      )..signOutWipeGuard = (wipe) async {
+          throw const AuthGatewayException('network-request-failed');
+        };
+
+      await repo.signOutClosedAccount('closed-1');
+
+      expect(operations, [
+        'wipeAll',
+        'signOut',
+        'googleSignOut',
+        'signInAnonymously',
+      ]);
+      expect(gateway.currentSession?.isAnonymous, isTrue);
+    });
+
+    test('is ignored when another account is signed in', () async {
+      final operations = <String>[];
+      final gateway = PrivacyAuthGateway(
+        operations: operations,
+        currentSession: const AuthSession(uid: 'someone-else'),
+      );
+      final repo = AuthRepository(
+        gateway: gateway,
+        googleGateway: PrivacyGoogleGateway(operations: operations),
+        functionsGateway: PrivacyFunctionsGateway(operations: operations),
+        localStateWiper: RecordingLocalStateWiper(operations),
+      );
+
+      await repo.signOutClosedAccount('closed-1');
+
+      expect(operations, isEmpty);
+      expect(gateway.currentSession?.uid, 'someone-else');
+    });
+  });
+
   test(
       'offline with nothing unsent: the wipe runs before the network step, '
       'so a retry finishes the sign-out', () async {

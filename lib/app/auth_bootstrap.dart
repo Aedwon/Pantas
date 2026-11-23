@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/core/auth/account_transition_gateway.dart';
 import 'package:pantas/core/auth/auth_repository.dart';
+import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/email_code_auth.dart';
 import 'package:pantas/core/auth/email_link_auth.dart';
 import 'package:pantas/core/auth/firebase_auth_functions_gateway.dart';
@@ -14,6 +15,7 @@ import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/platform/report_providers.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/sync/eligibility/sync_entitlement.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/runtime/sync_account_transition_gateway.dart';
@@ -42,6 +44,16 @@ List<Override> authRepositoryOverrides(
       }
 
       final gateway = (authGatewayBuilder ?? FirebaseAuthGateway.new)();
+      // Study changes upload only for a real account with Pro sync on. For a
+      // Free or guest account they can never upload, so they never hold a
+      // sign-out. This account's own pending reports always do.
+      Future<bool> unsent() => hasUnsentForSignOut(
+            ref.read(appDatabaseProvider),
+            canUploadStudyData: ref.read(syncEntitlementProvider) ==
+                    SyncEntitlement.pro &&
+                ref.read(authStateProvider).valueOrNull is SignedInAuthState,
+            reports: ref.read(reportQueueProvider),
+          );
       return AuthRepository(
         gateway: gateway,
         emailLinkGateway: kIsWeb && gateway is EmailLinkAuthGateway
@@ -68,9 +80,7 @@ List<Override> authRepositoryOverrides(
               flushNow: () => ref.read(syncRuntimeProvider).forceFlush(),
               // Sign-out and an account switch wipe this device. They stop
               // while study changes or reports are still unsent.
-              hasUnsentData: () async =>
-                  await hasUnsentSyncData(ref.read(appDatabaseProvider)) ||
-                  (await ref.read(reportQueueProvider).pending()).isNotEmpty,
+              hasUnsentData: unsent,
             ),
         localStateWiper: localStateWiperBuilder?.call(ref) ??
             SyncLocalStateWiper(
@@ -79,7 +89,14 @@ List<Override> authRepositoryOverrides(
               clearCustomExams: () =>
                   deleteCustomContentExams(ref.read(contentDatabaseProvider)),
             ),
-      );
+      )
+        // Checked again inside the wipe's own transaction, so nothing written
+        // after the first check can be deleted.
+        ..signOutWipeGuard = (wipe) => wipeUnlessUnsent(
+              ref.read(appDatabaseProvider),
+              hasUnsent: unsent,
+              wipe: wipe,
+            );
     }),
   ];
 }

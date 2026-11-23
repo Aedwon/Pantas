@@ -113,9 +113,14 @@ class _ReportFormState extends State<ReportForm> {
   ReportResult? _limit;
   Timer? _closeTimer;
 
+  /// The account this draft was opened under. Another tab may switch accounts
+  /// before Save, and the draft must not be sent as the new account.
+  late final String? _openedUnder;
+
   @override
   void initState() {
     super.initState();
+    _openedUnder = widget.queue.currentAccount;
     unawaited(_load());
   }
 
@@ -157,8 +162,18 @@ class _ReportFormState extends State<ReportForm> {
         DateTime.now(),
         examId: widget.examId,
         questionVersion: widget.questionVersion,
+        expectedAccount: _openedUnder,
       );
       final result = submission.result;
+      if (result == ReportResult.accountChanged) {
+        // The account changed under this draft. Nothing was sent or kept, so
+        // the form closes and says nothing.
+        if (mounted) {
+          setState(() => _busy = false);
+          widget.onClose();
+        }
+        return;
+      }
       final delivery = submission.delivery;
       if (!mounted) return;
       setState(() {

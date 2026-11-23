@@ -38,7 +38,7 @@ void main() {
           (tester) async {
         final db = inMemoryDatabase();
         addTearDown(db.close);
-        final queue = ReportQueue(db);
+        final queue = ReportQueue(db, account: () => 'a');
         await pumpAccessibilitySurface(
           tester,
           ReportForm(
@@ -98,7 +98,7 @@ void main() {
               onPressed: () => openQuestionReport(
                 context,
                 'entry-q',
-                queue: ReportQueue(db),
+                queue: ReportQueue(db, account: () => 'a'),
               ),
               child: const Text('Report'),
             ),
@@ -112,7 +112,8 @@ void main() {
     await tester.pump();
     await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
-    expect((await ReportQueue(db).pending()).single.questionId, 'entry-q');
+    final pending = await ReportQueue(db, account: () => 'a').pending();
+    expect(pending.single.questionId, 'entry-q');
   });
 
   // Design system 4.0: the form is built from the system's components.
@@ -121,7 +122,7 @@ void main() {
     final semantics = tester.ensureSemantics();
     final db = inMemoryDatabase();
     addTearDown(db.close);
-    final queue = ReportQueue(db);
+    final queue = ReportQueue(db, account: () => 'a');
     var closed = 0;
     await pumpAccessibilitySurface(
       tester,
@@ -191,7 +192,7 @@ void main() {
     addTearDown(tester.view.reset);
     final db = inMemoryDatabase();
     addTearDown(db.close);
-    final queue = ReportQueue(db);
+    final queue = ReportQueue(db, account: () => 'a');
     await tester.pumpWidget(
       MaterialApp(
         theme: buildLightTheme(web: true),
@@ -384,6 +385,56 @@ void main() {
       expect(result, isNull);
     });
 
+    testWidgets(
+        'a draft opened under one account is not sent after a switch '
+        '(wide=$wide)', (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = wide ? const Size(1440, 900) : const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Accepting();
+      var who = 'a';
+      final queue = ReportQueue(
+        db,
+        sender: sender,
+        account: () => who,
+        dataOwner: () async => 'a',
+      );
+      var closed = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: Scaffold(
+            body: ReportForm(
+              questionId: 'q',
+              queue: queue,
+              onClose: () => closed++,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Typed as A.');
+      await tester.pump();
+      // Another tab signed in as B.
+      who = 'b';
+      await tester.tap(find.text('Save'));
+      await tester.pump();
+      await tester.pump();
+      expect(find.textContaining('Thank you'), findsNothing);
+      expect(find.textContaining('Saved.'), findsNothing);
+      expect(closed, 1, reason: 'the form closes and shows nothing was sent');
+      expect(sender.sent, isEmpty);
+      who = 'a';
+      expect(await queue.history(), isEmpty);
+      who = 'b';
+      expect(await queue.history(), isEmpty);
+    });
+
     testWidgets('typing stops at the longest message (wide=$wide)',
         (tester) async {
       debugWebPlatformOverride = wide;
@@ -400,7 +451,7 @@ void main() {
           home: Scaffold(
             body: ReportForm(
               questionId: 'q',
-              queue: ReportQueue(db),
+              queue: ReportQueue(db, account: () => 'a'),
               onClose: () {},
             ),
           ),
@@ -426,7 +477,7 @@ void main() {
       addTearDown(tester.view.reset);
       final db = inMemoryDatabase();
       addTearDown(db.close);
-      final queue = ReportQueue(db);
+      final queue = ReportQueue(db, account: () => 'a');
       await tester.pumpWidget(
         MaterialApp(
           theme: wide ? buildLightTheme(web: true) : buildLightTheme(),

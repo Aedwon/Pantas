@@ -441,11 +441,37 @@ class AuthRepository implements EmailCodeAuth {
     return _exclusive(_signOut);
   }
 
+  /// Wraps the sign-out wipe so the app can check for unsent data in the same
+  /// transaction as the wipe. It throws to refuse. Unset, the wipe runs as is.
+  Future<void> Function(Future<void> Function() wipe)? signOutWipeGuard;
+
+  /// Signs out [uid] when the server has closed that account (a guardian
+  /// withdrew permission or the account is being deleted). Nothing of it can
+  /// be sent, so unsent data does not hold the sign-out, and its private data
+  /// must not stay on the device. Ignored unless [uid] is the signed-in
+  /// account.
+  Future<void> signOutClosedAccount(String uid) {
+    _identityEpoch++;
+    return _exclusive(() async {
+      if (_gateway.currentSession?.uid != uid) return;
+      await beforeIdentityChange?.call();
+      await _localStateWiper.wipeAll();
+      await _gateway.signOut();
+      await _signOutGoogleBestEffort();
+      await ensureAnonymous();
+    });
+  }
+
   Future<void> _signOut() async {
     cancelEmailLink();
     await _accountTransitionGateway.prepareForSignOut();
     await beforeIdentityChange?.call();
-    await _localStateWiper.wipeAll();
+    final guard = signOutWipeGuard;
+    if (guard == null) {
+      await _localStateWiper.wipeAll();
+    } else {
+      await guard(_localStateWiper.wipeAll);
+    }
     await _gateway.signOut();
     await _signOutGoogleBestEffort();
     await ensureAnonymous();

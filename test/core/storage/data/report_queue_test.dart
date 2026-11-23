@@ -409,28 +409,72 @@ void main() {
       expect(await queue.add('q', 'mine', now), ReportResult.queued);
     });
 
-    test('purging the outgoing account removes its rows and keeps the rest',
+    test("purging forgets other accounts' sent reports, never pending ones",
         () async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
-      String? who = 'guest-1';
-      final queue = _queue(db, null, account: () => who);
-      await queue.add('q1', 'Guest', DateTime(2026, 11, 23, 10));
+      String? who = 'acct-a';
+      final sender = _Sender();
+      final queue = _queue(db, sender, account: () => who);
+      await queue.add('q1', 'Sent', DateTime(2026, 11, 23, 10));
+      await queue.sendPending();
+      await queue.add('q2', 'Still pending', DateTime(2026, 11, 23, 10));
+      // Another tab switched the account. A's unsent report must survive.
       who = 'acct-b';
-      await queue.add('q2', 'Mine', DateTime(2026, 11, 23, 10));
+      await queue.add('q3', 'Mine', DateTime(2026, 11, 23, 10));
       await queue.purgeOtherAccounts('acct-b');
-      expect(await _readRaw(db), hasLength(1));
-      expect((await queue.pending()).single.message, 'Mine');
+      final raw = await _readRaw(db);
+      expect(raw.map((r) => (r as Map)['accountId']), ['acct-a', 'acct-b']);
+      who = 'acct-a';
+      expect((await queue.pending()).single.message, 'Still pending');
     });
 
-    test('with nobody signed in nothing is sent', () async {
+    test('with nobody signed in a report is refused and nothing is sent',
+        () async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       final sender = _Sender();
       final queue = _queue(db, sender, account: () => null);
-      await queue.add('q1', 'One', DateTime(2026, 11, 23, 10));
-      expect(await queue.sendPending(), 1);
+      expect(
+        await queue.add('q1', 'One', DateTime(2026, 11, 23, 10)),
+        ReportResult.accountChanged,
+      );
+      expect(await queue.sendPending(), 0);
       expect(sender.calls, 0);
+      expect(await db.select(db.devicePrefs).get(), isEmpty);
+    });
+
+    test('a draft opened under A is refused after the account changed',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Sender();
+      String? who = 'acct-b';
+      final queue = _queue(db, sender, account: () => who);
+      final r = await queue.submit(
+        'q',
+        'Drafted as A',
+        DateTime(2026, 11, 23),
+        expectedAccount: 'acct-a',
+      );
+      expect(r.result, ReportResult.accountChanged);
+      expect(r.delivery, isNull);
+      who = 'acct-a';
+      expect(await queue.history(), isEmpty);
+      expect(sender.calls, 0);
+    });
+
+    test('a draft under the signed-in account goes through', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue = _queue(db, _Sender());
+      final r = await queue.submit(
+        'q',
+        'Mine',
+        DateTime(2026, 11, 23),
+        expectedAccount: 'acct-a',
+      );
+      expect(r.delivery, ReportDelivery.sent);
     });
   });
 
@@ -497,9 +541,10 @@ void main() {
       expect(await queue.pending(), isEmpty);
       expect(await queue.sendPending(), 0);
       expect(sender.calls, 0);
+      // Stamped with the owner as recorded at the first read, not with B.
       final raw = await _readRaw(db);
       expect(raw, hasLength(2));
-      expect(raw.every((r) => !(r as Map).containsKey('accountId')), isTrue);
+      expect(raw.every((r) => (r as Map)['accountId'] == 'acct-a'), isTrue);
       final mine = await queue.add('q9', 'Mine', DateTime(2026, 11, 23));
       expect(mine, ReportResult.queued);
       await queue.sendPending();
@@ -516,18 +561,54 @@ void main() {
       expect(sender.calls, 0);
     });
 
-    test('a later read adopts them once the owner is recorded', () async {
+    test('the owner is frozen at the first read: a later claim adopts nothing',
+        () async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       await _storeRaw(db, old);
       String? owner;
       final sender = _Sender();
-      final queue = _queue(db, sender, owner: () async => owner);
+      String? who = 'acct-a';
+      final queue = _queue(
+        db,
+        sender,
+        account: () => who,
+        owner: () async => owner,
+      );
+      // First read after the upgrade: no owner was recorded.
       expect(await queue.pending(), isEmpty);
+      // Account B signs in and claims the device. Then account A, too.
+      owner = 'acct-b';
+      who = 'acct-b';
+      expect(await queue.pending(), isEmpty);
+      expect(await queue.sendPending(), 0);
       owner = 'acct-a';
+      who = 'acct-a';
+      expect(await queue.pending(), isEmpty);
+      expect(await queue.sendPending(), 0);
+      expect(sender.calls, 0);
+    });
+
+    test('an owner recorded at the first read is kept when the owner changes',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _storeRaw(db, old);
+      String? owner = 'acct-a';
+      String? who = 'acct-a';
+      final sender = _Sender();
+      final queue = _queue(
+        db,
+        sender,
+        account: () => who,
+        owner: () async => owner,
+      );
       expect(await queue.pending(), hasLength(2));
-      await queue.sendPending();
-      expect(sender.sent, hasLength(2));
+      owner = 'acct-b';
+      who = 'acct-b';
+      expect(await queue.pending(), isEmpty);
+      who = 'acct-a';
+      expect(await queue.pending(), hasLength(2));
     });
 
     test('they send, once, then keep counting', () async {

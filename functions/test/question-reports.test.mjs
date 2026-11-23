@@ -68,11 +68,15 @@ test('the raw message is bounded before trimming, so padding cannot hide size', 
   refuses((d) => { d.message = ` ${'m'.repeat(MAX_REPORT_MESSAGE)}`; });
 });
 
-test('the whole request is bounded in bytes', () => {
-  assert.ok(MAX_REQUEST_BYTES <= 8192);
-  refuses((d) => { d.questionId = 'q'; d.extraPadding = 'x'.repeat(MAX_REQUEST_BYTES); });
-  refuses((d) => { d.message = 'é'.repeat(MAX_REPORT_MESSAGE); d.examId = 'e'.repeat(64); d.build = 'b'.repeat(40);
-    d.reportId = 'r'.repeat(64); d.questionId = 'q'.repeat(128); d.accountId = 'u'.repeat(128); d.pad = 'x'.repeat(8000); });
+test('the whole request is bounded in bytes, with only allowed fields', () => {
+  assert.ok(MAX_REQUEST_BYTES <= 2560);
+  // Every field is valid on its own; only the total is too big (3 bytes per character).
+  const big = {...valid(), message: '\u20ac'.repeat(MAX_REPORT_MESSAGE), examId: 'e'.repeat(64), build: 'b'.repeat(40),
+    reportId: 'r'.repeat(64), questionId: 'q'.repeat(128), accountId: 'u'.repeat(128)};
+  assert.ok(Buffer.byteLength(JSON.stringify(big)) > MAX_REQUEST_BYTES);
+  assert.throws(() => validateQuestionReport(big), (e) => e.code === 'invalid-argument' && /too large/.test(e.message));
+  // A long accented message is still fine (2 bytes per character).
+  assert.doesNotThrow(() => validateQuestionReport({...valid(), message: '\u00e9'.repeat(MAX_REPORT_MESSAGE)}));
 });
 
 test('build is 1 to 40 safe characters', () => {
@@ -192,8 +196,8 @@ test('counters stay one small document per question, never one growing document'
   for (let i = 0; i < 10; i++) await storeQuestionReport(request({...valid(), questionId: `q${i}`, reportId: `report-id-number-${i}`}), f.deps());
   const counters = [...f.rows.keys()].filter((k) => k.startsWith('users/u1/questionReportCounts/'));
   assert.equal(counters.length, 10);
-  for (const key of counters) assert.deepEqual(Object.keys(f.rows.get(key)), ['count']);
-  assert.deepEqual(Object.keys(f.rows.get('users/u1/server/questionReportDay')).sort(), ['count', 'day']);
+  for (const key of counters) assert.deepEqual(Object.keys(f.rows.get(key)).sort(), ['count', 'ids']);
+  assert.deepEqual(Object.keys(f.rows.get('users/u1/server/questionReportDay')).sort(), ['count', 'day', 'ids']);
 });
 
 test('the 21st report in one Manila day is refused, and the next day works', async () => {
@@ -203,6 +207,35 @@ test('the 21st report in one Manila day is refused, and the next day works', asy
     (e) => e.code === 'resource-exhausted' && e.details?.reason === 'daily-limit');
   f.state.at = Date.parse('2026-11-24T00:05:00+08:00');
   await storeQuestionReport(request({...valid(), reportId: 'report-id-number-y', questionId: 'qx'}), f.deps());
+});
+
+test('a valid request over the daily limit is refused after one read, over the question limit after two', async () => {
+  const f = fixture();
+  for (let i = 0; i < 20; i++) await storeQuestionReport(request({...valid(), reportId: `report-id-number-${i}`, questionId: `q${i}`}), f.deps());
+  f.log.reads = 0; f.log.writes = 0;
+  await assert.rejects(storeQuestionReport(request({...valid(), reportId: 'report-id-number-new', questionId: 'qnew'}), f.deps()),
+    (e) => e.details?.reason === 'daily-limit');
+  assert.deepEqual(f.log, {reads: 1, writes: 0});
+  const g = fixture();
+  for (let i = 0; i < 3; i++) await storeQuestionReport(request({...valid(), reportId: `report-id-number-${i}`}), g.deps());
+  g.log.reads = 0; g.log.writes = 0;
+  await assert.rejects(storeQuestionReport(request({...valid(), reportId: 'report-id-number-new'}), g.deps()),
+    (e) => e.details?.reason === 'question-limit');
+  assert.deepEqual(g.log, {reads: 2, writes: 0});
+});
+
+test('a retry of a report accepted at the limit is still acknowledged', async () => {
+  const f = fixture();
+  for (let i = 0; i < 20; i++) await storeQuestionReport(request({...valid(), reportId: `report-id-number-${i}`, questionId: `q${i}`}), f.deps());
+  f.log.reads = 0; f.log.writes = 0;
+  const again = await storeQuestionReport(request({...valid(), reportId: 'report-id-number-19', questionId: 'q19'}), f.deps());
+  assert.deepEqual(again, {ok: true, reportId: 'report-id-number-19'});
+  assert.deepEqual(f.log, {reads: 3, writes: 0});
+  const g = fixture();
+  for (let i = 0; i < 3; i++) await storeQuestionReport(request({...valid(), reportId: `report-id-number-${i}`}), g.deps());
+  assert.deepEqual(await storeQuestionReport(request({...valid(), reportId: 'report-id-number-2'}), g.deps()), {ok: true, reportId: 'report-id-number-2'});
+  await assert.rejects(storeQuestionReport(request({...valid(), reportId: 'report-id-number-2', message: 'changed'}), g.deps()),
+    (e) => e.code === 'already-exists');
 });
 
 test('a rejected request reads nothing: bad input, wrong account, signed out, over the burst limit', async () => {

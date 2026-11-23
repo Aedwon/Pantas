@@ -68,13 +68,10 @@ class SyncAccountTransitionGateway implements AccountTransitionGateway {
   Future<void> _refuseIfUnsent() async {
     final check = hasUnsentData;
     if (check == null) return;
-    bool unsent;
-    try {
-      unsent = await check();
-    } on Object {
-      // Not knowing is not a reason to delete.
-      unsent = true;
-    }
+    // Not knowing (an error, or no answer in time) is not a reason to delete.
+    final unsent = await check()
+        .then<bool>((value) => value, onError: (Object _) => true)
+        .timeout(signOutFlushLimit, onTimeout: () => true);
     if (unsent) throw const AuthGatewayException('network-request-failed');
   }
 

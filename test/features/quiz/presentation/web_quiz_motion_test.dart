@@ -430,7 +430,7 @@ void main() {
       wide(tester);
       final db = inMemoryDatabase();
       addTearDown(db.close);
-      final queue = ReportQueue(db);
+      final queue = ReportQueue(db, account: () => 'a');
       await tester.pumpWidget(
         app(
           Scaffold(

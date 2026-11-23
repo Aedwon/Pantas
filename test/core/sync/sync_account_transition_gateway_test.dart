@@ -144,6 +144,21 @@ void main() {
       );
     });
 
+    test('a check that stalls fails closed at the limit', () async {
+      final gateway = SyncAccountTransitionGateway(
+        RecordingRuntimeLifecycle.new,
+        signOutFlushLimit: const Duration(milliseconds: 50),
+        hasUnsentData: () => Completer<bool>().future,
+      );
+      await expectLater(
+        gateway.prepareForSignOut().timeout(const Duration(seconds: 2)),
+        throwsA(
+          isA<AuthGatewayException>()
+              .having((e) => e.code, 'code', 'network-request-failed'),
+        ),
+      );
+    });
+
     test('a flush that hangs still ends at the limit, then checks', () async {
       var checked = false;
       final gateway = SyncAccountTransitionGateway(

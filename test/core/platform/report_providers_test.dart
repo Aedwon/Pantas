@@ -89,7 +89,7 @@ void main() {
     expect(sender.sent, ['Queued before start', 'Queued later']);
   });
 
-  test('a guest who becomes another account leaves no reports behind',
+  test('a guest who becomes another account keeps its unsent reports hidden',
       () async {
     final (container, sender, auth) = await start(
       const AnonymousAuthState(uid: 'guest'),
@@ -106,11 +106,13 @@ void main() {
     );
     await _flush();
     final queue = container.read(reportQueueProvider);
-    expect(await queue.history(), isEmpty);
+    expect(await queue.history(), isEmpty, reason: 'scoped to the account');
     expect(sender.sent, ['Queued before start']);
+    // The guest's unsent report is not deleted because the account changed
+    // (another tab may have switched it); only the sign-out wipe removes it.
     auth.add(const AnonymousAuthState(uid: 'guest'));
     await _flush();
-    expect(await queue.history(), isEmpty, reason: 'the guest rows are gone');
+    expect(sender.sent, ['Queued before start', 'Guest second']);
   });
 
   test('old reports go only to the account the device recorded as owner',

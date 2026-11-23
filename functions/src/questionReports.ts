@@ -25,7 +25,12 @@ import {timed} from './_timed.js';
 export const MAX_REPORT_MESSAGE = 1000;
 export const MAX_PER_QUESTION = 3;
 export const MAX_PER_DAY = 20;
-export const MAX_REQUEST_BYTES = 4096;
+/**
+ * Every field is already bounded; this caps the sum. A valid request is at most about 530 bytes of
+ * fixed fields plus the message, so messages up to 1000 characters of 2 bytes each fit, and a
+ * message of 3-byte characters (for example CJK) fits up to about 670 characters.
+ */
+export const MAX_REQUEST_BYTES = 2560;
 
 /**
  * Every report is deleted this long after the server received it, by a Firestore TTL policy on
@@ -107,10 +112,14 @@ const limiter = new RateLimiter(30);
  * Stores one report. A retry with the same report id and the same content changes nothing and
  * succeeds, so the app can send until it hears back; the same id with other content is refused.
  *
- * Firestore cost. A rejected request (bad input, wrong account, signed out, over the burst
- * limit): 0 reads, 0 writes. A retry of a stored report: 3 reads, 0 writes. A new report: 5 reads
- * (deletion marker, consent, the report, the question counter, the day counter) and 3 writes (the
- * report and both counters). A report over a limit: 5 reads, 0 writes.
+ * The counters keep the ids they accepted (at most 20 for the day, 3 per question), so a retry is
+ * known without reading the report, and a valid request over a limit is refused early.
+ *
+ * Firestore cost. Rejected before any read (bad input, wrong account, signed out, over the burst
+ * limit): 0 reads, 0 writes. Over the daily limit: 1 read (the day counter). Over a question's
+ * limit: 2 reads (day, question). A retry of a stored report: 3 reads (day, question, report), 0
+ * writes. A new report: 5 reads (day, question, report, deletion marker, consent) and 3 writes
+ * (the report and both counters).
  */
 export async function storeQuestionReport(request: Pick<CallableRequest, 'auth' | 'data'>, deps: Deps) {
   if (!request.auth) throw new HttpsError('unauthenticated', 'Authentication is required.');
@@ -125,10 +134,20 @@ export async function storeQuestionReport(request: Pick<CallableRequest, 'auth' 
   const reportRef = deps.db.doc(`questionReports/${reportDocId(uid, report.reportId)}`);
   const questionRef = deps.db.doc(`users/${uid}/questionReportCounts/${questionCounterId(report.questionId)}`);
   const dayRef = deps.db.doc(`users/${uid}/server/questionReportDay`);
+  const ids = (value: unknown): string[] => Array.isArray(value) ? value.filter((id): id is string => typeof id === 'string') : [];
   await deps.db.runTransaction(async tx => {
-    const [deletion, consent] = await tx.getAll(deps.db.doc(`accountDeletions/${uid}`),
-      deps.db.doc(`users/${uid}/server/guardianConsent`));
-    if (deletion.exists || consent.get('status') === 'withdrawn') throw accountClosed();
+    const now = (deps.now ?? Date.now)(), today = manilaDate(now);
+    const day = await tx.get(dayRef);
+    const sameDay = day.get('day') === today;
+    const dayIds = sameDay ? ids(day.get('ids')) : [];
+    const dayCount = sameDay && typeof day.get('count') === 'number' ? day.get('count') as number : 0;
+    const knownToday = dayIds.includes(report.reportId);
+    if (dayCount >= MAX_PER_DAY && !knownToday) refuse('daily-limit', 'Too many reports today. Try again tomorrow.');
+    const question = await tx.get(questionRef);
+    const questionIds = ids(question.get('ids'));
+    const asked = typeof question.get('count') === 'number' ? question.get('count') as number : 0;
+    const known = knownToday || questionIds.includes(report.reportId);
+    if (asked >= MAX_PER_QUESTION && !known) refuse('question-limit', 'This question already has the most reports allowed.');
     const stored = await tx.get(reportRef);
     if (stored.exists) {
       const same = stored.get('questionId') === report.questionId && stored.get('message') === report.message &&
@@ -136,19 +155,16 @@ export async function storeQuestionReport(request: Pick<CallableRequest, 'auth' 
       if (!same) throw new HttpsError('already-exists', 'This report id was used for another report.', {reason: 'report-id-reused'});
       return;
     }
-    const [question, day] = await tx.getAll(questionRef, dayRef);
-    const now = (deps.now ?? Date.now)(), today = manilaDate(now);
-    const asked = typeof question.get('count') === 'number' ? question.get('count') as number : 0;
-    if (asked >= MAX_PER_QUESTION) refuse('question-limit', 'This question already has the most reports allowed.');
-    const dayCount = day.get('day') === today && typeof day.get('count') === 'number' ? day.get('count') as number : 0;
-    if (dayCount >= MAX_PER_DAY) refuse('daily-limit', 'Too many reports today. Try again tomorrow.');
+    const [deletion, consent] = await tx.getAll(deps.db.doc(`accountDeletions/${uid}`),
+      deps.db.doc(`users/${uid}/server/guardianConsent`));
+    if (deletion.exists || consent.get('status') === 'withdrawn') throw accountClosed();
     tx.set(reportRef, {
       accountId: uid, questionId: report.questionId, questionVersion: report.questionVersion,
       examId: report.examId, message: report.message, build: report.build, createdAt: Timestamp.fromMillis(now),
       expireAt: Timestamp.fromMillis(now + REPORT_RETENTION_DAYS * 86_400_000),
     });
-    tx.set(questionRef, {count: asked + 1});
-    tx.set(dayRef, {day: today, count: dayCount + 1});
+    tx.set(questionRef, {count: asked + 1, ids: [...questionIds, report.reportId]});
+    tx.set(dayRef, {day: today, count: dayCount + 1, ids: [...dayIds, report.reportId]});
   });
   return {ok: true, reportId: report.reportId};
 }
