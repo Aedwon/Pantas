@@ -175,6 +175,8 @@ below; those steps still apply to the transfer itself.
 5. **The full amount.** Pantas pays the transfer fee.
 6. **Run the refund command** (below) so access ends and the refund is on the account's records. If
    the account is already deleted, skip the command and find the payment by its PayMongo reference.
+   Running it by mistake for a deleted account is harmless: it prints `HTTP 200 sent`, writes only a
+   refund note with no account id, and recreates no grant or Pro; the grant check then finds nothing.
 7. **Record it** with the business's refund records outside the app: date, account ID or public ID,
    `pay_` ID, amount, route and reference, how the payer was matched, the command label, the reason.
 
@@ -229,7 +231,8 @@ later queued plans move earlier. Tested on staging, 9 November 2026.
    unset PAYMONGO_WEBHOOK_SECRET
    ```
 
-   `HTTP 200 recorded` means it applied. The label is the refund's id: sending the same label
+   `HTTP 200` means the request was accepted, not that the refund applied: an unmatched payment id
+   also returns 200. Step 5 is the proof. The label is the refund's id: sending the same label
    again changes nothing, so a retry is safe. **Never reuse a label for a different refund.**
 5. **Check** `users/<uid>/grants/<pay_ id>`: `refunds` lists `manual_<label>`, and `state` is
    `revoked` (full) or `endsAt` moved earlier (partial).
