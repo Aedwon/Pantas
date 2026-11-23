@@ -81,6 +81,9 @@ content, lib or tools, and in the content upload's gate. Existing checks reused,
 
 ## Verification
 
+UI tasks (T3 to T10 and every hardened minor), required (Aedwon confirmed the spec, Nov 23: "this is exactly why I wanted you to do the QA pass. get things moving properly please, and be more conscientious next time."): the spec is Pantas Web, Pantas Redesign and Guardian Manage and Minor Checkout. The worker names the boards it built from. Before the task counts as done, a reviewer who did not build it compares the build side by side with those boards at phone and wide widths, including motion timing and easing. Every difference is a defect, not a judgment call. A screen no board covers goes to a Fable ruling.
+
+
 Each task: tests first and shown failing, focused tests while working, `run_checks.dart`, CI on
 the branch by full SHA, one headless render sheet per changed screen (Nov 9 exception), a fresh
 review for UI and for money, student data or security, then merge to main. Prod ships in batches
