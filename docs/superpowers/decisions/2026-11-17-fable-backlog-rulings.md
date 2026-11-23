@@ -463,3 +463,20 @@ Ruling: 4 Held, with the placement rules and motion values in `docs/superpowers/
 Schema check (manager, Nov 23): the linked words use the existing `labels` in lesson FIGURE specs only. 70 of 241 lesson figures have at least one label named in their own passage (160 of 453 labels); elsewhere the text stays plain.
 
 Risk named by Fable: Flutter web has no CSS sticky. The hold must be driven in layout or paint in the same frame as the scroll. If it cannot be made smooth, ship direction 1 (figures at rest) and report it; never direction 2.
+
+## Nov 23, core loops polish (UX design lead)
+
+Brief (operations manager, for Aedwon): the 5 to 8 changes with the most impact on lesson, quiz, mock, results and review; boards in Claude Design; the same council; approved motion untouched unless improved; reduced motion respected.
+
+Shortlist and the schema check. The first list had try-first choices in lesson examples and linked words in question figures. The manager asked for a content check against HANDOFF.md ("Never add features that need content the schema doesn't have"). Counted: 38 of 629 lesson examples list choices, none has a structured correct answer and only 15 state the letter in parseable text; 193 questions have a figureSpec and none has text labels. Both dropped. A lesson sheet from "From the lesson" was also dropped before boards: Aedwon left that link out on Nov 5. Replacements use existing fields only.
+
+Canvas: "Core Loops Best in Class", https://claude.ai/artifact/1tyuTs3m832KjUtgZdvzXZ (built from W_Question, W_QRight, W_QMiss, W_SessionEnd, W_QuizTab, W_MockResults and the phone QV_, QZ_ and MK_ boards).
+
+Council (Gemini 4 Neon High, Fable 5.2 high):
+- Round 1: both kept all five. B1 needed fixes (white wipe, square corners). Ranks: Fable B2, B4, B3, B5, B1; Gemini B4, B2, B3, B5, B1. Split on B3 timing: Gemini wanted the reveal at 300 ms with no pause; Fable kept the 120 ms pause. Fable's call stands.
+- Round 2: both found all five right; fixes were spec and board mismatches only (B1 reverse timing, the B2 end timing wording, two stale boards). During round 1 fixes the board worker shortened the approved 1.4 s ring fill to 480 ms to meet a 1.2 s target; the lead restored 1.4 s (rule 2) and moved the target to the marks.
+- Round 3: Gemini "No clear improvement"; Fable confirmed, with two spec clarifications for sessions over 20 questions and the Done button, now in the spec.
+
+Ruling: build B2, B4, B3, B5, B1 in that order per `docs/superpowers/specs/2026-11-23-core-loops-polish-design.md`. Copy in B5 settled by the lead under D191: the two bar hints removed; "Tell Pantas why you got each one wrong. The better your notes, the more every review helps." becomes "Note why you missed each one." in the session end and the mock review; "Finish the Notes" stays (July 27 choice).
+
+Process note: the board worker hit the Claude 5-hour limit mid-task (Nov 23, about 7:25 PM to 9:40 PM Manila) and was resumed after the reset; no work was lost.
