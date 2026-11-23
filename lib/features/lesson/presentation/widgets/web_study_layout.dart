@@ -26,7 +26,6 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/bookmark_providers.dart';
-import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
@@ -1194,11 +1193,6 @@ class _WideStudyLessonRowState extends State<_WideStudyLessonRow> {
                         ),
                       )
                     : null,
-                footer: LessonBiteLabel(
-                  lessonId: lesson.id,
-                  part: lesson.part,
-                  partCount: lesson.partCount,
-                ),
                 value: value,
                 trailing: Icon(
                   PantasIcons.next,

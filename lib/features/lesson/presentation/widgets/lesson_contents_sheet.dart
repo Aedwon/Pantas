@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
+import 'package:pantas/core/ui/components/lesson_label.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
@@ -10,7 +11,6 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
-import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
@@ -197,12 +197,7 @@ class LessonContentsSheet extends ConsumerWidget {
               lesson.isRead && !current ? colors.secondaryLabel : colors.label,
         ),
       ),
-      footer: LessonBiteLabel(
-        lessonId: lesson.id,
-        part: lesson.part,
-        partCount: lesson.partCount,
-        topicLine: item.topicName,
-      ),
+      footer: lessonTopicFooter(context, item.topicName),
       leading: SizedBox(
         width: PantasSpace.s24,
         child: lesson.isRead

@@ -33,11 +33,11 @@ import 'package:pantas/core/ui/theme/reader_full_width.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/domain/lesson_day_context.dart';
-import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
@@ -1419,14 +1419,6 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
                   title: widget.endingTarget is DayFinished
                       ? 'Finish today'
                       : widget.destinationTitle ?? reader.topicName,
-                  detailWidget: next == null
-                      ? null
-                      : LessonBiteLabel(
-                          lessonId: next.lesson.id,
-                          part: next.lesson.part,
-                          partCount: next.lesson.partCount,
-                          style: context.webTokens.sub,
-                        ),
                   pull: pull,
                   onPressed: widget.onPull == null ? null : pull.commit,
                 ),
@@ -1485,17 +1477,6 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
                     ? const AlwaysStoppedAnimation(true)
                     : _isAtEnd,
                 nextTitle: widget.destinationTitle,
-                nextLabel: next == null
-                    ? null
-                    : LessonBiteLabel(
-                        lessonId: next.lesson.id,
-                        part: next.lesson.part,
-                        partCount: next.lesson.partCount,
-                        textAlign: TextAlign.center,
-                        style: context.type.footnote.copyWith(
-                          color: context.colors.secondaryLabel,
-                        ),
-                      ),
                 lessonId: reader.lesson.id,
                 contentKey: ending == null
                     ? reader.lesson.id
@@ -1657,14 +1638,13 @@ class _LessonContent extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // The design's title block: the topic and the time in
-                    // one line of 15 px, then the title at 30 px.
-                    LessonBiteLabel(
-                      lessonId: reader.lesson.id,
-                      part: reader.lesson.part,
-                      partCount: reader.lesson.partCount,
-                      prefix: reader.topicName,
-                      style: context.type.subhead.copyWith(
+                    // Board (RD_Real): the topic as a 13 px caps eyebrow (600,
+                    // .04 em), then the title at 30 px. No part or count line.
+                    Text(
+                      reader.topicName.toUpperCase(),
+                      style: PantasType.phoneSectionHeader.copyWith(
+                        height: 1.35,
+                        letterSpacing: 13 * 0.04,
                         color: context.colors.secondaryLabel,
                       ),
                     ),
