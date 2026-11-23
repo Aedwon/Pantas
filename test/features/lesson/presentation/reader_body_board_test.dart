@@ -14,6 +14,7 @@ import 'package:pantas/features/lesson/presentation/lesson_page.dart';
 import '../../../helpers/accessibility.dart';
 import '../../../helpers/ds_matrix.dart' show loadDsFonts;
 import '../../../helpers/in_memory_database.dart';
+import '../../../helpers/no_part_label.dart';
 
 void main() {
   // The title steps down only when a word would not fit, so the test needs
@@ -46,6 +47,8 @@ void main() {
             title: 'Layers of the Earth and Composition',
             summary: '',
             estimatedMinutes: 10,
+            part: 2,
+            partCount: 9,
             bodyJson: [
               {
                 '_type': 'block',
@@ -90,12 +93,12 @@ void main() {
         );
         await tester.pumpAndSettle();
         expect(find.byType(LessonTextScale), findsOneWidget);
-        // The approved reader design (QA 2F-23): the topic and the time in one
-        // line of 15 px, then the title at 30 px on the design's numbers.
+        // Board Polish C (RD_Real since Nov 23): the topic in one line of
+        // 15 px, then the title at 30 px. No minutes and no part label.
         const metaText = 'Earth Science and Astronomy';
         final meta = tester.widget<Text>(find.text(metaText));
         expect(meta.style!.fontSize, 15);
-        expect(meta.style!.fontWeight, FontWeight.w400);
+        expectNoPartLabel();
         final title = tester.widget<Text>(
           find.text('Layers of the Earth and Composition').first,
         );

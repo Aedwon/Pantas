@@ -15,7 +15,6 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 
@@ -216,11 +215,6 @@ class StudyLessonRow extends StatelessWidget {
         naturalValue: !context.wideWeb,
         divider: divider,
         dividerInset: 70,
-        footer: LessonBiteLabel(
-          lessonId: lesson.id,
-          part: lesson.part,
-          partCount: lesson.partCount,
-        ),
         valueWidget: isToday
             ? Wrap(
                 spacing: 8,

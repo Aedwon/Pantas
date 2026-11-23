@@ -480,3 +480,199 @@ Council (Gemini 4 Neon High, Fable 5.2 high):
 Ruling: build B2, B4, B3, B5, B1 in that order per `docs/superpowers/specs/2026-11-23-core-loops-polish-design.md`. Copy in B5 settled by the lead under D191: the two bar hints removed; "Tell Pantas why you got each one wrong. The better your notes, the more every review helps." becomes "Note why you missed each one." in the session end and the mock review; "Finish the Notes" stays (July 27 choice).
 
 Process note: the board worker hit the Claude 5-hour limit mid-task (Nov 23, about 7:25 PM to 9:40 PM Manila) and was resumed after the reset; no work was lost.
+
+### C3. Sign-out with unsent data (state no board draws) (Fable 5.2, Nov 23)
+
+- Found by the Codex audit of report sending (PR #86): sign-out runs a send bounded to 2 seconds, then the local wipe; anything unsent "is lost with the wipe, as before". The dialog says only "Sign out? Your progress is saved to your account."
+- Ruling, verbatim: "Block sign-out before the wipe when unsent data cannot be sent, reusing the existing connection message; defer option 4 and any \"sign out anyway\" escape to a board. Fix the Free-tier dialog copy before launch, because it is untrue."
+- Reasons: silent loss fails "no risks"; blocking is recoverable, lost answers are not; the existing line "You need a connection to sign out." needs no new board. Possible worse bug to confirm: the wipe may run before the network steps, so offline sign-out could delete data and then show the error.
+- Applied in T2 (`qa/report-send-r1`), with the Free-tier copy settled by the lead under rule 4.
+
+## Nov 23, legal round 2 product decisions
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation ("for things not needing me have another Fable 5.2 agent decide on my behalf"). The rulings are final and are not queued for his sign-off. Legal sign-off on the final texts, "ship it", billing purchases and physical steps stay his. This agent wrote no legal text: wording named below goes to the text lane and to Sol High (rule 5). No lawyer reviewed anything here, and this agent is not a lawyer: where the law is unsettled, the entry says so.
+
+- Policy read at `origin/main` 26b7183d9: `AGENTS.md`, `docs/workflow/process-improvement.md` (rules 4, 5, 7, 9), and the section "Nov 22, legal package D1 to D8" above.
+- Input, on `legal/public-launch-r1` a989972e3: `README.md` section "Needs a product or code decision (round 2)", `critique-2026-11-23-sol-high.md`, `change-summary.md`, `teen-notice.md`, `privacy-policy.md`.
+- Code read: main 26b7183d9 (`functions/src/paymongoCheckout.ts`, `deleteUserData.ts`, `purgeInactiveAccounts.ts`, `guardianConsent.ts`, `scheduledJobs.ts`, `firestore.indexes.json`, `pro_page.dart`) and PR #86, `qa/report-send-r1` daef9e944 (`functions/src/questionReports.ts`, `deleteUserData.ts`, `lib/core/ui/components/report_form.dart`).
+- Board read: Guardian Manage and Minor Checkout, boards CB_Wide, CB_Ph and the as-built notes.
+- Test used: no risk at release, inside the hardened scope of about 12 to 14 working days. Texts and behavior lean toward Pantas as far as Philippine law allows. Every published sentence is true on the day it publishes.
+- "Gate" means on prod before the beta gate drops and before live payment keys (checklist G2), as in the Nov 22 section.
+- Standards applied: Data Privacy Act Sections 11(e) and (f) (proportionality, retention), 13(f), 16(a) and (b); Civil Code Articles 1108, 1144, 1146, 1390, 1391; RA 8792 Section 16; NPC Advisory 2024-03; WCAG 2.1.1 and 4.1.2 for the Terms link. The Civil Code articles are cited from memory and go to the round 3 critique for confirmation.
+- Velocity: this ruling pass was not timed. It changed documents only. Sizes are estimates for one lane with tests.
+
+### What was checked against the code
+
+1. **The guardian's only verified channel is the manage link.** It is made when the request email is sent and when the guardian confirms, and it has no expiry (`guardianConsent.ts:245-247`, `354-379`). The server holds no guardian address (Nov 22 check 8), so it cannot send a guardian a request about one order.
+2. **The deletion copy selects by time alone.** `keepGuardianEvidence` copies every checkout and order whose `attestedAt` is a number (`deleteUserData.ts:126-136`). Today only under-18 accounts write that field (`paymongoCheckout.ts:43-53`). Once D2 writes a declaration for adults, the same code would keep adult declarations for ten years. The copy already holds the product.
+3. **Evidence is kept 3,653 days from its newest record, for every kind of record,** and only once the account is gone (`purgeInactiveAccounts.ts:24`, `276-296`). A decline counts the same as a confirmation.
+4. **The server never learns a student's age.** It holds the under-18 group only. So it cannot compute a date such as "four years after this student turns 18".
+5. **Reports have no expiry.** A report holds `createdAt` as a Firestore timestamp and nothing removes it except account deletion (`questionReports.ts:137-140`, `deleteUserData.ts:94-97` on the PR branch). No report is on a server yet: before PR #86 reports stay on the device (checklist P2).
+6. **Two Firestore TTL policies already exist,** both on a field named `expireAt` (`firestore.indexes.json:149-150`). Prod runs nine tasks from three scheduler jobs, the free limit (`scheduledJobs.ts:14-18`).
+7. **The Terms link already opens the Terms without ticking the box.** The label is one text flow, and the link is a span with its own tap handler (`pro_page.dart`, `_guardianBoxCard`). Board CB_Ph draws "Terms" as a link inside the label.
+8. **The report form has a title, one line under it, the field, and Cancel and Save.** The line reads "Something wrong or unclear? Tell us and we'll check it." The field hint reads "What did you notice?". The button reads Save, not Send.
+9. **Abandoned checkout attempts are never cleaned up.** An order record is written before payment and stays until the account is deleted.
+10. Not checked: the Firestore TTL delay (stated from Google's documentation, from memory), the QN_Report board, live console settings.
+
+### R1. Guardian approval of the specific order: not built for launch. The D2 record plus the guardian's account confirmation stand. Not a gate
+
+Nov 22 ruling D2 stands and is not re-ruled. A guardian-approved order is built later, on a trigger.
+
+**Reason.** The only verified guardian channel is the manage link (check 1). A real order approval is therefore a purchase path on the guardian page: new screen states for his pick, a second checkout entry authorized by a manage token, and new payment return handling. That is about 3 to 4 days plus a board round, on the payment path, inside the launch window. It fails the "no risks at release" test. What it would add is small: a purchase for a minor can be annulled whether or not a tick exists, and the most Pantas loses in one case is one plan price.
+
+**What Pantas holds at launch.** The guardian's own confirmation of the account, answered through a link sent to the guardian's address, kept as evidence. The recorded declaration on the order (D2). PayMongo's record of the payer. The Terms right to ask for proof and to cancel. The honest limit, as Sol High says: the tick proves what the student's session submitted, not that a guardian bought.
+
+**Conditions at launch.**
+
+1. The texts describe a declaration. They never state as fact that the buyer is the guardian. The README says round 2 applied this. The text lane rechecks the Terms "Students under 18" paragraph and the Teen Notice "Payments for minors" section.
+2. One line in `docs/OPERATIONS.md`: when a parent or guardian says they did not allow a purchase on an under-18 account, refund it in full by the D4 path, run the refund command so access ends, and do not contest. This keeps the open risk at the price of one plan. He can change this default.
+
+**Trigger for the build.** The first refund demand or bank dispute on an under-18 account where the guardian or payer denies the purchase, or before native purchases open to under-18 accounts, whichever comes first. The manager checks at each monthly cost check. Direction when built: the guardian buys from the guardian page, so no guardian address is stored (consistent with D5, option D rejected).
+
+**Size.** 0.1 day now, no code. Later: 3 to 4 days plus one board round.
+
+### R2. Deletion copy: guardian declarations only, selected by the kind recorded at purchase. The product stays. Code change confirmed. Gate, inside the D2 build
+
+- The D2 build records, on the order and on the checkout record, which declaration was made (adult or guardian) and the wording version, beside the time and the Terms version. The server sets the kind from what it holds when checkout starts: guardian when it holds a confirmed under-18 record, adult otherwise. The client does not choose it.
+- The deletion copy keeps a purchase only when its kind is guardian. A record with a declaration time and no kind was written before the D2 build, when only under-18 accounts wrote one, so it counts as guardian.
+- The copy holds: time, Terms version, wording version, payment reference, product. The product stays, because without it the record cannot show which purchase was approved.
+- The kind is fixed at purchase. A student who later turns 18 keeps earlier guardian copies. Later adult purchases are never copied.
+
+**Reason.** The texts promise guardian declarations only (Teen Notice "Guardian evidence", Privacy Policy "Account payment records"). Check 2 shows the code would break that promise on the day D2 ships. An adult declaration kept ten years after deletion has no basis under Section 13(f).
+
+**Tests, failing first.** An adult declaration on an account that has guardian evidence is not copied. An adult account with no evidence leaves nothing. A guardian declaration is copied with the five fields. A legacy record with no kind is copied.
+
+**Text lane.** Add the wording version to the field list in the Teen Notice "Guardian evidence" bullet. The product is already listed there.
+
+**Size.** 0.25 day inside T10. It ships with D2, before opening.
+
+### R3. Question reports: deleted within 90 days of receipt, by a Firestore TTL policy. No scheduled job. Gate, inside PR #86
+
+- Each report is written with `expireAt`, 85 days after the server receives it. A TTL policy on `questionReports.expireAt` removes it. The published period is "within 90 days of receipt". The five days cover the TTL delay: Firestore removes an expired document usually within a day and does not promise a time (check 10; the worker confirms it in Google's documentation).
+- Account deletion still removes reports sooner, as built.
+- No deletion at "review end" at launch. No review tool exists, so that promise would be untrue. The text lane drops Sol High's clause "when we finish reviewing them".
+- A fix made from a report is recorded with the question ID and what changed. It never holds the message or the account ID.
+- The report counts stay with the account, as built and as the texts say.
+
+**Reason.** 90 days is the longest period Sol High would defend, and it is enough: a report on a question is useful for weeks, not years, and question versions change. A TTL policy is the D7 pattern, adds no scheduler job (rule 7, check 6), and its deletes are ordinary document deletes. The period is ruled here under the delegation. It appears in texts he signs, so he can change the number at sign-off.
+
+**Conditions.**
+
+1. The change goes into PR #86 before it merges, so no report is ever stored without an expiry (check 5). A test fails if a stored report lacks `expireAt`.
+2. `firestore.indexes.json` gains the policy in the same form as the two that exist. Deploy it to prod and staging.
+3. Rule 7: count the TTL deletes against the free tier. They cannot exceed the report writes, which are capped at 20 per account per day.
+4. Staging reports written before this change have no expiry. Delete them once, counted.
+5. An unread report is lost after 90 days. The manager adds "read question reports" to the monthly cost check.
+6. Ship before opening. After opening, a retention change needs the rule 9 email.
+
+**Text lane.** Replace the bracket in both notices with the period, and keep "sooner if the account is deleted".
+
+**Size.** 0.25 day.
+
+### R4. Report form: no separate privacy line and no link. One instruction is required, folded into the line the form already has. Gate, with the report form
+
+- Not required: a privacy line beside the button, or a "See how we use reports" link. The Privacy Policy and the Notice for teens name question reports, their use, their period and the rights. A student has them before the first report, which is what Section 16 asks.
+- Required: the form tells the student to leave out personal details, in every state where the field accepts text. It replaces words. It adds no line and no control.
+- Suggested, for the lead to settle under rule 4: the line under the title becomes "Tell us what's wrong. Leave out personal details." That is eight words where the form has ten today. The "reported before" state carries the same instruction in its own line. The hint and the buttons stay as built.
+
+**Reason.** The message is free text, and Pantas has no legal basis to keep sensitive details a student types into it. Sol High moved the warning out of the notices and onto the form, so the form is now the only place that says it. That one instruction does real work. The link does not: NPC Advisory 2024-03 recommends a short notice at the point of collection for children, but it is guidance, the layered notice already exists, and no approved report board draws a link. His guidance is to compress text.
+
+**The honest limit.** Sol High asked for the link. Leaving it out is a small accepted risk for accounts aged 13 to 17. Review it when under-13 accounts ship (E-124), where child-oriented notice weighs more.
+
+**Conditions.** UI strings go to Claude workers (T4). The copy sits inside an approved layout, so it needs no new board (rule 4). The lead records the final wording and tells him.
+
+**Size.** 0.1 day.
+
+### R5. Checkout: the Terms open without ticking the box. Confirmed, already built. No separate "Payment help" link. Gate, inside the D2 and D3 build
+
+- Confirmed. Both declaration wordings keep the behavior the guardian box has today (check 7): "Terms and refund policy" is a link inside the label, a tap on it opens the Terms, and the box does not change. The link takes keyboard focus by itself, and Enter opens it.
+- A test fails if a tap on the link ticks the box or enables Pay.
+- The link opens the Terms at the refund section if the in-app Terms page can open at a section with about an hour of work. Otherwise it opens at the top. This part is not a gate.
+- No separate "Payment help" link. The seller line beside Pay already shows support@pantas.study (D3). Make that address a link that opens an email. One line serves both duties.
+
+**Reason.** A buyer who must tick before reading has not been shown the terms, which weakens the assent the tick records (RA 8792 Section 16) and the D2 evidence with it. The behavior exists, so the cost is a test. A second support link repeats the seller line.
+
+**Size.** No added size. It is part of the D2 and D3 build in T10.
+
+### R6. Guardian evidence period: ten years stays for confirmations, withdrawals and guardian purchase declarations. Evidence that holds only declines drops to four years. Gate
+
+- Evidence with a confirmation, a withdrawal or a guardian purchase declaration: 3,653 days from its newest record, once the account is gone. Unchanged.
+- Evidence that holds only declines, with no confirmation, withdrawal or purchase: 1,461 days from its newest record, once the account is gone.
+- Adult declarations never enter the evidence (R2).
+- No legal-hold exception. The cleanup cannot honor one, so the text lane removes the bracket.
+- This closes the question left open under D1 ("Later, not ruled").
+
+**Reason.** Sol High is right that Article 1391 does not say "ten years". The period is still defensible for a contract record, for two reasons the text does not give today. First, Article 1391 gives four years from the day guardianship ends. The youngest account is 13, and the server never learns the age (check 4), so the only safe period is the worst case: five years to 18, then four more, nine years in all. Second, an action on a written contract prescribes in ten years (Article 1144). A decline creates no contract. Its record defends only a claim that Pantas kept using a minor's data after a guardian said no, and such a claim prescribes in four years (Article 1146; Article 1108 lets time run against a minor who has a guardian). Ten years for a decline cannot pass the "necessary" test.
+
+**The honest limit.** No Philippine ruling fixes either period. The numbers are ruled under the delegation, and he can change them at sign-off.
+
+**Conditions.**
+
+1. The evidence cleanup picks the period from what the evidence holds. Tests fail first on a decline-only record at four years.
+2. Ship before opening, for the rule 9 reason in D1. Nothing can be deleted by this change for four years, so it changes nothing a user sees.
+3. Under-13 accounts (E-124) need their own ruling on this period before they ship. For an account younger than 12, the Article 1391 worst case passes ten years.
+
+**Text lane.** In the Teen Notice "Guardian evidence" bullet: state both periods and their starting event, and replace the reason sentence with the two reasons above. Sol High critiques it in round 3 and confirms Articles 1108, 1144, 1146 and 1391.
+
+**Size.** 0.25 day.
+
+### R7. D1 text pass: confirmed. The text lane rewrites the Teen Notice flag paragraphs. Already ruled, D1 condition 4. Gate for publishing
+
+Not re-ruled. D1 condition 4 and item 1 of "Text changes these rulings need" above already order it. Round 2 did not do it (README round 2, item 8). The paragraphs, on a989972e3:
+
+1. "Why we ask your age": "We keep the under-18 group until your account is updated to 18 or older, or your account is deleted."
+2. "How long we keep data": "Your under-18 group remains until your account is updated to 18 or older, or your account is deleted."
+3. The basis bullet "Under-18 group record and guardian evidence": "We rely on this basis before your guardian answers, including if they decline or do not answer." After D1, the record exists only while a request is open and after a guardian confirms.
+4. `change-summary.md`, "Notice for teens", the "Age check" bullet, and "Weakest point is still the age flag" under "Things you should know".
+
+The new text says the whole record is deleted when a request expires, and seven days after a decline. The guardian's own answer record stays as evidence (R6). Sol High critiques the changed paragraphs in round 3 (rule 5). The texts publish only after the D1 build is on prod.
+
+**Size.** 1 to 2 hours of text and critique, already counted in D1.
+
+### R8. Added while ruling: abandoned checkout attempts keep today's rule at launch. The wording version is stored now. Not a gate
+
+README round 2, item 3, was not in the request but is open. The wording version is stored in the D2 build (R2). A shorter life for an unpaid attempt waits: expiring order records touches the payment path in the launch window, and a paid order deleted by mistake would lose the evidence D2 exists to keep (check 9). The texts already say checkout declarations stay "while your account exists", which is true. Trigger: the first release after launch, with D6 option B, in one rule 9 email. Size then: 0.5 day.
+
+### Summary
+
+| Item | Ruling | Size | Launch |
+|---|---|---|---|
+| R1 | No guardian order approval at launch. D2 record plus account confirmation stand. Runbook: refund a guardian-denied purchase without contest | 0.1 day, no code. Later 3 to 4 days | Not a gate |
+| R2 | Deletion copy keeps guardian declarations only, by the kind recorded at purchase. Product and wording version kept | 0.25 day in T10 | Gate |
+| R3 | Reports deleted within 90 days of receipt. TTL policy on `expireAt`, set 85 days after receipt. No job | 0.25 day in PR #86 | Gate |
+| R4 | No privacy line or link on the report form. "Leave out personal details" folded into the existing line | 0.1 day in T4 | Gate |
+| R5 | Terms open without ticking, already built, kept with a test. Support address in the seller line is a link. No "Payment help" link | No added size | Gate |
+| R6 | Ten years for confirmations, withdrawals, guardian purchases. Four years for decline-only evidence. No legal hold | 0.25 day | Gate |
+| R7 | Text lane rewrites the Teen Notice flag paragraphs (D1 condition 4) | Counted in D1 | Gate for publishing |
+| R8 | Abandoned attempts unchanged at launch. Wording version stored now | None now | Later |
+
+Gate work added by this section: about 1 day of lane time. No new board. No new scheduled job.
+
+### Build items (for the CSE release lead)
+
+1. T10, D2 build: record the declaration kind (set by the server) and the wording version on the order and the checkout record (R2).
+2. T10, deletion: the evidence copy keeps guardian declarations only, legacy records with no kind count as guardian, and the copy adds the wording version. Four tests, failing first (R2).
+3. T2, PR #86, before merge: `expireAt` at receipt plus 85 days, the TTL policy, the test, the free-tier count, the one-time staging cleanup (R3).
+4. T4, report form: the "leave out personal details" instruction in every state where the field accepts text. No link, no new line (R4).
+5. T10, D2 and D3 UI: keep the Terms link behavior for both wordings, add the test, open at the refund section if cheap, make the support address in the seller line a link (R5).
+6. Evidence cleanup: four years for decline-only evidence, tests failing first (R6).
+7. `docs/OPERATIONS.md`: the guardian-denied purchase line (R1). The manager adds "read question reports" to the monthly cost check (R3).
+
+### Text changes these rulings need (for the legal lane, rule 5)
+
+1. Report period in both notices: "within 90 days of receipt", sooner on account deletion. Drop any "when we finish reviewing" clause (R3).
+2. Teen Notice "Guardian evidence": both periods, the corrected reason, the wording version in the field list, no legal-hold bracket (R2, R6).
+3. Teen Notice flag paragraphs and `change-summary.md` (R7).
+4. Recheck that no sentence states the buyer is the guardian as fact (R1).
+5. Sol High critique, round 3, on the changed paragraphs through `codex-pick`, including Articles 1108, 1144, 1146 and 1391.
+
+### What needs Aedwon
+
+Nothing new to decide. Three numbers appear in the texts he signs, and he can change them at sign-off: 90 days for reports (R3), ten years and four years for guardian evidence (R6). The refund default in R1 is his to change.
+
+### Corrections found while ruling
+
+- README round 2, item 5, places the report string "beside Send". The built form's button reads Save (check 8).
+- Sol High's proposed report sentence promises deletion "when we finish reviewing them". No review step deletes anything (R3).
+- The Teen Notice gives one reason for ten years, "four years after that person turns 18". That reason alone gives nine years at most and does not cover a decline (R6).
+- The D1 entry left the decline period "Later, not ruled". R6 rules it.

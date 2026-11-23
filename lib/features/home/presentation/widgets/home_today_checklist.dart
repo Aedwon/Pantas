@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/lesson_label.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
@@ -17,7 +18,6 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/domain/home_today_lesson.dart';
 import 'package:pantas/features/home/domain/home_today_view.dart';
-import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 
 export 'package:pantas/features/home/domain/home_today_lesson.dart';
 
@@ -321,13 +321,7 @@ class HomeTodayChecklist extends StatelessWidget {
           boardMetrics: true,
           chevron: upNext ? WebRowChevron.none : WebRowChevron.hover,
           title: l.title,
-          footer: LessonBiteLabel(
-            lessonId: l.id,
-            part: l.part,
-            partCount: l.partCount,
-            topicLine: l.subject,
-            topicMaxLines: 1,
-          ),
+          footer: lessonTopicFooter(context, l.subject, maxLines: 1),
           titleColor: l.read ? t.colors.textSecondary : null,
           titleSuffix: !upNext
               ? null
@@ -584,12 +578,10 @@ class HomeTodayChecklist extends StatelessWidget {
   }) =>
       ListRow(
         title: lesson.title,
-        footer: LessonBiteLabel(
-          lessonId: lesson.id,
-          part: lesson.part,
-          partCount: lesson.partCount,
-          topicLine: upNext ? 'Up next · ${lesson.subject}' : lesson.subject,
-          topicMaxLines: 1,
+        footer: lessonTopicFooter(
+          context,
+          upNext ? 'Up next · ${lesson.subject}' : lesson.subject,
+          maxLines: 1,
         ),
         // Board (HE_LongTitle): a long title and subject are cut, never
         // wrapped.
