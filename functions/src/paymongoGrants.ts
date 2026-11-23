@@ -74,8 +74,7 @@ function replanBehind(grants: ReadonlyMap<string, Grant>, changedId: string, thr
   const moving = new Set(movers.map(([id]) => id));
   let cursor = Math.max(now, nativeEnd);
   for (const [id, g] of out) {
-    if (moving.has(id) || !anchorsPlan(g, changed.tier, now) ||
-        (id !== changedId && g.startsAt >= threshold)) continue;
+    if (moving.has(id) || !anchorsPlan(g, changed.tier, now)) continue;
     cursor = Math.max(cursor, g.endsAt);
   }
   for (const [id, g] of movers) {
@@ -343,6 +342,13 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
     // The payment index and the tombstone are read and written in one transaction, so a
     // refund and a paid event for the same payment cannot both miss each other.
     const [paid, follow] = await transaction.getAll(payment, followUp);
+    // Records the refunds on the refund task and closes it when they reach the amount paid.
+    const noteRefunds = (refunds: Record<string, number>, paidAmount: unknown) => {
+      if (follow.get('status') !== 'pending' || follow.get('refundRequired') !== true) return;
+      const total = Object.values(refunds).reduce((sum, amount) => sum + amount, 0);
+      const closed = typeof paidAmount === 'number' && paidAmount > 0 && total >= paidAmount;
+      transaction.update(followUp, {refunds, ...(closed ? {status: 'refunded'} : {})});
+    };
     const closeRefund = (total: number, paidAmount: unknown) => {
       if (follow.get('status') === 'pending' && follow.get('refundRequired') === true &&
           typeof paidAmount === 'number' && paidAmount > 0 && total >= paidAmount) {
@@ -363,7 +369,7 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
         disputed: existing.get('disputed') === true || input.dispute === true});
       // Refunds copied onto the task when the account was deleted count toward the balance.
       const counted = {...(follow.get('refunds') as Record<string, number> | undefined), ...refunds};
-      closeRefund(Object.values(counted).reduce((sum, amount) => sum + amount, 0), follow.get('paidAmount'));
+      noteRefunds(counted, follow.get('paidAmount'));
       return {outcome: 'unmatched' as const};
     };
     if (!paid.exists || typeof uid !== 'string') return unmatched();
@@ -379,8 +385,11 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
     const grant = inputs.grants.get(id);
     const version = Number(inputs.record.get('version') ?? 0);
     if (dedupe.exists) return {outcome: 'duplicate' as const, uid};
+    // While the account is being deleted, every refund also goes onto the refund task, because
+    // deletion removes the grant and the refund recorded on it.
+    const deleting = (await transaction.get(db.doc(`accountDeletions/${uid}`))).exists;
     // Deletion removed the grant but has not yet cleared the index uid: the refund counts like a no-uid one.
-    if (!grant && (await transaction.get(db.doc(`accountDeletions/${uid}`))).exists) return unmatched();
+    if (!grant && deleting) return unmatched();
     if (input.disputeLost && grant?.state === 'revoked' && grant.disputeId === input.disputeId &&
         !grant.disputeResolved) {
       transaction.update(db.doc(`users/${uid}/grants/${id}`), {disputeResolved: true});
@@ -401,7 +410,11 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
     }
     let next: Grant = input.dispute ? {...grant, state: 'revoked'} : grant;
     for (const r of input.refunds ?? []) next = applyRefund(next, r.id, r.amount, now);
-    if (input.refunds?.length) closeRefund(refundedTotal(next), next.paidAmount);
+    if (input.refunds?.length) {
+      if (deleting) noteRefunds({...(follow.get('refunds') as Record<string, number> | undefined), ...next.refunds},
+        follow.get('paidAmount') ?? next.paidAmount);
+      else closeRefund(refundedTotal(next), next.paidAmount);
+    }
     if (next === grant) {transaction.set(revokeEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)}); return {outcome: 'duplicate' as const, uid};}
     const changed = new Map(inputs.grants).set(id, next);
     const native = nativeCoverageRows(inputs, now);
@@ -430,16 +443,17 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
 }
 
 /**
- * After a dispute win, puts the same-tier tier-wide plans back behind the restored grant. A
- * candidate is a plan this dispute moved, or a live plan whose start is at or after the restored
- * start (for example bought while the dispute was open). A moved plan that still has exactly its
- * moved schedule uses its pre-dispute start and length; any other uses its current ones. Candidates
- * are placed in order of intended start, each at the later of the cursor and its intended start,
- * keeping its length. Exam-only rows never move and never advance the cursor. Returns a new map;
- * unchanged grants keep their identity.
+ * After a dispute win, rebuilds the whole same-tier chain of tier-wide plans: every live plan of
+ * the tier (the restored one included) plus any plan this dispute moved. A plan this dispute
+ * moved that still has exactly its moved schedule uses its pre-dispute start and length; any
+ * other uses its current schedule. The chain is sorted by intended start (then createdAt, id).
+ * A plan that is already running keeps the later of the cursor and its start; a queued plan goes
+ * at the later of the cursor and the end of coverage outside the chain (higher tiers, native
+ * rows, or now). Every plan keeps its length. Exam-only rows never move and never join the chain.
+ * Returns a new map; unchanged grants keep their identity.
  */
 export function rechainAfterWin(grants: ReadonlyMap<string, Grant>, restoredId: string,
-  disputeId: string, now: number): Map<string, Grant> {
+  disputeId: string, now: number, native: readonly Grant[] = []): Map<string, Grant> {
   const out = new Map(grants);
   const restored = grants.get(restoredId);
   if (!restored) return out;
@@ -449,14 +463,19 @@ export function rechainAfterWin(grants: ReadonlyMap<string, Grant>, restoredId: 
       ? {start: move.startsAt, length: move.endsAt - move.startsAt}
       : {start: g.startsAt, length: g.endsAt - g.startsAt};
   };
-  const candidates = [...grants].filter(([id, g]) => id !== restoredId && g.state === 'active' &&
-    tierWide(g) && stackable(g) && g.tier === restored.tier &&
-    (g.disputeMoves?.[disputeId] !== undefined || (g.endsAt > now && intended(g).start >= restored.startsAt)))
+  const chain = [...grants].filter(([id, g]) => g.state === 'active' && tierWide(g) && stackable(g) &&
+    g.tier === restored.tier && (id === restoredId || g.endsAt > now || g.disputeMoves?.[disputeId] !== undefined))
     .map(([id, g]) => ({id, g, ...intended(g)}))
     .sort((a, b) => a.start - b.start || a.g.createdAt - b.g.createdAt || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
-  let cursor = restored.endsAt;
-  for (const {id, g, start: wanted, length} of candidates) {
-    const start = Math.max(cursor, wanted);
+  const inChain = new Set(chain.map(row => row.id));
+  let anchorEnd = now;
+  for (const [id, g] of grants) {
+    if (!inChain.has(id) && anchorsPlan(g, restored.tier, now)) anchorEnd = Math.max(anchorEnd, g.endsAt);
+  }
+  for (const row of native) if (anchorsPlan(row, restored.tier, now)) anchorEnd = Math.max(anchorEnd, row.endsAt);
+  let cursor = -Infinity;
+  for (const {id, g, start: wanted, length} of chain) {
+    const start = Math.max(cursor, wanted <= now ? wanted : anchorEnd);
     const {[disputeId]: _gone, ...rest} = g.disputeMoves ?? {};
     const {disputeMoves: _old, ...bare} = g;
     const placed: Grant = {...bare, startsAt: start, endsAt: start + length,
@@ -505,9 +524,10 @@ export async function resolvePaymongoDispute(db: Firestore, input: {eventId: str
       ...(restore ? {state: 'active', revokedReason: FieldValue.delete(), revokedAt: FieldValue.delete()} : {})});
     if (restore) {
       const grants = new Map(inputs.grants).set(id, next);
+      const native = nativeCoverageRows(inputs, now);
       if (stackable(grant) && tierWide(grant)) {
         // Re-chain the same-tier plans behind the restored grant (see rechainAfterWin).
-        const rechained = rechainAfterWin(grants, id, input.disputeId, now);
+        const rechained = rechainAfterWin(grants, id, input.disputeId, now, native);
         for (const [otherId, placed] of rechained) {
           const row = grants.get(otherId)!;
           if (placed === row) continue;
@@ -523,7 +543,6 @@ export async function resolvePaymongoDispute(db: Firestore, input: {eventId: str
       // Rewards this dispute pulled earlier go back behind the restored coverage.
       const pulled = new Set([...grants].filter(([, row]) => row.source === 'beta_reward' && row.state === 'active' &&
         row.disputeMoves?.[input.disputeId] !== undefined).map(([rewardId]) => rewardId));
-      const native = nativeCoverageRows(inputs, now);
       for (const [rewardId, row] of rechainRewards(grants, native, now, pulled)) {
         if (!pulled.has(rewardId)) continue;
         const move = row.disputeMoves![input.disputeId];

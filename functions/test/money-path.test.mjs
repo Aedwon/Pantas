@@ -532,51 +532,117 @@ function seeded(seed) {
   };
 }
 
-test('property: after a dispute win no live plan overlaps, lengths are kept and nothing starts before its purchase', async () => {
+test('a win rebuilds the chain: a plan bought after the queue emptied keeps running and the restored plan follows it', async () => {
   const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
-  const HOUR = 3_600_000;
-  for (let n = 0; n < 600; n++) {
+  const DAY = 86_400_000;
+  const db = firestore();
+  await buy(db, 'a', weekly, now);
+  await buy(db, 'b', monthly, now);
+  const bLength = grantRow(db, 'b').endsAt - grantRow(db, 'b').startsAt;
+  assert.equal(grantRow(db, 'b').startsAt, grantRow(db, 'a').endsAt);
+  await revokePaymongoPayment(db, {eventId: 'evt_open', paymentId: 'pay_b', disputeId: 'disp_b', dispute: true,
+    reason: 'dispute.created'}, now + 2 * DAY);
+  await revokePaymongoPayment(db, {eventId: 'evt_ref', paymentId: 'pay_a', reason: 'payment.refunded',
+    refunds: [{id: 'full', amount: priceCentavos(weekly)}]}, now + 3 * DAY);
+  await buy(db, 'c', weekly, now + 4 * DAY);
+  assert.equal(grantRow(db, 'c').startsAt, now + 4 * DAY);
+  await resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: 'pay_b', disputeId: 'disp_b', won: true}, now + 5 * DAY);
+  assert.equal(grantRow(db, 'c').startsAt, now + 4 * DAY);
+  assert.equal(grantRow(db, 'c').endsAt - grantRow(db, 'c').startsAt, WEEK);
+  assert.equal(grantRow(db, 'b').startsAt, grantRow(db, 'c').endsAt);
+  assert.equal(grantRow(db, 'b').endsAt - grantRow(db, 'b').startsAt, bLength);
+});
+
+test('rechainAfterWin leaves an already contiguous chain unchanged', async () => {
+  const {rechainAfterWin} = await import('../lib/paymongoGrants.js');
+  const row = (id, startsAt, endsAt, createdAt) => [id, {id, state: 'active', tier: 'civilService', source: 'web',
+    product: 'pantas_cs_monthly', startsAt, endsAt, createdAt}];
+  const grants = new Map([row('a', now - 1000, now + 1000, 1), row('b', now + 1000, now + 5000, 2), row('c', now + 5000, now + 9000, 3)]);
+  const out = rechainAfterWin(grants, 'a', 'disp_x', now);
+  for (const [id, g] of grants) assert.equal(out.get(id), g, id);
+});
+
+const HOUR_MS = 3_600_000;
+const liveOf = (db, ids, at) => ids.map(id => grantRow(db, id)).filter(row => row.state === 'active' && row.endsAt > at);
+const snapshot = (db, ids) => new Map(ids.map(id => [id, {...grantRow(db, id)}]));
+
+test('property: random purchases, refunds, revokes and disputes keep the chain whole after every step', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  for (let n = 0; n < 1200; n++) {
     const seed = 1000 + n;
     const rand = seeded(seed);
     const pick = (max) => Math.floor(rand() * max);
-    const fail = (message) => assert.fail(`seed ${seed}: ${message}`);
     const db = firestore();
-    const plans = [];
+    const ids = [];
+    const boughtAt = new Map();
+    const disputes = []; // {id, target, open}
     let at = now;
-    for (let i = 0, count = 1 + pick(4); i < count; i++) {
-      at += pick(20 * 24) * HOUR;
-      await buy(db, `p${i}`, rand() < 0.5 ? weekly : monthly, at);
-      plans.push({id: `p${i}`, boughtAt: at});
-    }
-    for (const plan of plans) {
-      const row = grantRow(db, plan.id);
-      plan.startsAt = row.startsAt; plan.endsAt = row.endsAt; plan.length = row.endsAt - row.startsAt;
-    }
-    const target = plans[pick(plans.length)];
-    const opened = at + pick(10 * 24) * HOUR;
-    await revokePaymongoPayment(db, {eventId: 'evt_open', paymentId: `pay_${target.id}`, disputeId: 'disp_p',
-      dispute: true, reason: 'dispute.created'}, opened);
-    let during = opened;
-    for (let i = 0, count = pick(3); i < count; i++) {
-      during += (1 + pick(5 * 24)) * HOUR;
-      await buy(db, `d${i}`, rand() < 0.5 ? weekly : monthly, during);
-      const row = grantRow(db, `d${i}`);
-      plans.push({id: `d${i}`, boughtAt: during, startsAt: row.startsAt, endsAt: row.endsAt, length: row.endsAt - row.startsAt});
-    }
-    const won = during + (1 + pick(5 * 24)) * HOUR;
-    await resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: `pay_${target.id}`, disputeId: 'disp_p', won: true}, won);
-    const restored = grantRow(db, target.id);
-    if (restored.state !== 'active') fail('restored grant is not active');
-    if (restored.startsAt !== target.startsAt || restored.endsAt !== target.endsAt) fail('restored grant schedule changed');
-    for (const plan of plans) {
-      const row = grantRow(db, plan.id);
-      if (row.endsAt - row.startsAt !== plan.length) fail(`${plan.id} length changed`);
-      if (row.startsAt < plan.boughtAt) fail(`${plan.id} starts before its purchase`);
-    }
-    const live = plans.map(plan => grantRow(db, plan.id)).filter(row => row.state === 'active' && row.endsAt > won)
-      .sort((a, b) => a.startsAt - b.startsAt);
-    for (let i = 1; i < live.length; i++) {
-      if (Math.max(live[i].startsAt, won) < live[i - 1].endsAt) fail(`overlap after the win between ${i - 1} and ${i}`);
+    let step = 0;
+    const history = [];
+    const fail = (message) => assert.fail(`seed ${seed} step ${step}: ${message}${process.env.DEBUG_SEED ? `\n${history.join('\n')}` : ''}`);
+    const live = () => ids.filter(id => grantRow(db, id).state === 'active');
+    const stepCount = 1 + pick(6);
+    for (step = 0; step < stepCount; step++) {
+      at += pick(12 * 24) * HOUR_MS + HOUR_MS;
+      const before = snapshot(db, ids);
+      let target; let kind;
+      const choices = ['buy', 'buy'];
+      if (live().length) choices.push('partial', 'full', 'dispute');
+      if (disputes.some(d => d.open)) choices.push('win', 'lose', 'win');
+      const choice = ids.length === 0 ? 'buy' : choices[pick(choices.length)];
+      if (choice === 'buy') {
+        target = `p${ids.length}`; kind = 'buy';
+        await buy(db, target, rand() < 0.5 ? weekly : monthly, at);
+        ids.push(target); boughtAt.set(target, at);
+      } else if (choice === 'partial' || choice === 'full') {
+        target = live()[pick(live().length)]; kind = choice;
+        const paid = grantRow(db, target).paidAmount;
+        const amount = choice === 'full' ? paid : Math.max(1, Math.floor(paid * (0.1 + 0.6 * rand())));
+        await revokePaymongoPayment(db, {eventId: `evt_r${step}`, paymentId: `pay_${target}`, reason: 'payment.refunded',
+          refunds: [{id: `ref_${step}`, amount}]}, at);
+      } else if (choice === 'dispute') {
+        const candidates = live().filter(id => !disputes.some(d => d.target === id));
+        if (!candidates.length || disputes.length >= 2) {step--; continue;}
+        target = candidates[pick(candidates.length)]; kind = 'dispute';
+        disputes.push({id: `disp_${step}`, target, open: true});
+        await revokePaymongoPayment(db, {eventId: `evt_d${step}`, paymentId: `pay_${target}`, disputeId: `disp_${step}`,
+          dispute: true, reason: 'dispute.created'}, at);
+      } else {
+        const open = disputes.filter(d => d.open);
+        const dispute = open[pick(open.length)];
+        dispute.open = false; target = dispute.target; kind = choice;
+        await resolvePaymongoDispute(db, {eventId: `evt_w${step}`, paymentId: `pay_${target}`, disputeId: dispute.id,
+          won: choice === 'win'}, at);
+      }
+      const label = `${kind} on ${target}`;
+      const after = snapshot(db, ids);
+      history.push(`t=${((at - now) / HOUR_MS / 24).toFixed(2)}d ${label}: ` + ids.map(id => {
+        const r = after.get(id);
+        return `${id}[${r.state[0]}${Object.keys(r.refunds ?? {}).length ? 'r' : ''} ${((r.startsAt - now) / HOUR_MS / 24).toFixed(2)}-${((r.endsAt - now) / HOUR_MS / 24).toFixed(2)}]`;
+      }).join(' '));
+      for (const id of ids) {
+        const was = before.get(id); const row = after.get(id);
+        if (!was) {
+          if (row.startsAt < boughtAt.get(id)) fail(`${label}: ${id} starts before its purchase`);
+          continue;
+        }
+        if (row.startsAt < boughtAt.get(id)) fail(`${label}: ${id} starts before its purchase`);
+        if (id === target) continue;
+        if (row.state !== was.state) fail(`${label}: ${id} changed state without its own event`);
+        // A monthly plan is a calendar month, so moving it to another month changes its days by up to 3.
+        const slack = row.product === 'pantas_cs_monthly' ? 3 * 86_400_000 : 0;
+        if (row.endsAt - row.startsAt < was.endsAt - was.startsAt - slack) fail(`${label}: ${id} length was cut`);
+      }
+      if (kind === 'win') {
+        const was = before.get(target); const row = after.get(target);
+        if (row.state === 'active' && (row.endsAt - row.startsAt !== was.endsAt - was.startsAt)) fail(`${label}: restored length changed`);
+      }
+      const running = liveOf(db, ids, at).sort((a, b) => a.startsAt - b.startsAt);
+      for (let i = 1; i < running.length; i++) {
+        if (Math.max(running[i].startsAt, at) < running[i - 1].endsAt) fail(`${label}: overlap after now`);
+      }
+      const queued = running.some(row => row.startsAt > at);
+      if (queued && !running.some(row => row.startsAt <= at)) fail(`${label}: a plan is queued with nothing covering now`);
     }
   }
 });

@@ -341,3 +341,22 @@ test('a balance refund arriving after deletion removed the grant but before the 
   const task = (await db.doc('paymongoFollowUps/pay_mid_del').get()).data();
   assert.equal(task.status, 'refunded');
 });
+
+test('a partial refund after deletion copied the task but before the grant went is kept on the task, so the balance refund closes it', async () => {
+  const {revokePaymongoPayment} = await import('../lib/paymongoGrants.js');
+  const uid = 'hard-refund-race';
+  const afterSitting = Date.parse('2027-03-15T10:00:00Z');
+  assert.equal(await commitPaymongoGrant(db, {uid, eventId: 'evt_race', sessionId: 'cs_race', paymentId: 'pay_race',
+    paidAmount: 49900, product: webProduct('pantas_pass_cse_pro'), paidAt: afterSitting, sitting}, afterSitting + 1000, catalog), 'paidAfterSitting');
+  // Deletion has started and copied the task without the uid; the grant still exists.
+  await db.doc(`accountDeletions/${uid}`).set({destructiveAt: afterSitting});
+  await db.doc('paymongoFollowUps/pay_race').set({paymentId: 'pay_race', status: 'pending', refundRequired: true,
+    paidAmount: 49900, createdAt: afterSitting});
+  await revokePaymongoPayment(db, {eventId: 'evt_race_part', paymentId: 'pay_race', reason: 'payment.refunded',
+    refunds: [{id: 'ref_a', amount: 10000}]}, afterSitting + 2000);
+  assert.deepEqual((await db.doc('paymongoFollowUps/pay_race').get()).get('refunds'), {ref_a: 10000});
+  await db.recursiveDelete(db.doc(`users/${uid}`));
+  await revokePaymongoPayment(db, {eventId: 'evt_race_rest', paymentId: 'pay_race', reason: 'payment.refunded',
+    refunds: [{id: 'ref_b', amount: 39900}]}, afterSitting + 3000);
+  assert.equal((await db.doc('paymongoFollowUps/pay_race').get()).get('status'), 'refunded');
+});
