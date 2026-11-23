@@ -532,14 +532,20 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   }
 
   Future<void> _confirmSignOut() async {
+    // Only Pro backs study history up. A Free student's history lives on this
+    // device and sign-out deletes it, so the dialog says that and the
+    // confirm is the destructive one.
+    final pro = ref.read(entitlementProvider).valueOrNull?.proIsActive ?? false;
     final confirmed = await showPantasDialog<bool>(
       context: context,
       barrierColor: context.colors.scrim,
       builder: (context) => CenteredDialog(
         title: 'Sign out?',
         inlineActions: true,
-        message: 'Your progress is saved to your account. '
-            'It comes back when you sign in again.',
+        destructive: !pro,
+        message: pro
+            ? 'Your progress is saved to your account.'
+            : 'Your study history on this device will be deleted.',
         primaryLabel: 'Sign Out',
         secondaryLabel: 'Cancel',
         onConfirm: () => Navigator.of(context).pop(true),

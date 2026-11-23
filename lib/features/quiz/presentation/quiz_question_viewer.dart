@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
@@ -15,6 +16,7 @@ import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/question_choices.dart';
+import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -70,7 +72,7 @@ class QuizQuestionViewer extends StatefulWidget {
   final VoidCallback onBack;
   final VoidCallback? onReload;
   final Future<void> Function(String id, MistakeTag? tag, String? note) onNote;
-  final Future<bool?> Function(String id) onReport;
+  final Future<ReportDelivery?> Function(Question question) onReport;
   final int initialIndex;
   final String backLabel;
   @override
@@ -83,6 +85,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
   final Map<String, AttemptItem> _updates = {};
   final Set<String> _reported = {};
   String? _reportStatus;
+  ReportDelivery _reportDelivery = ReportDelivery.saved;
   bool _reportOpen = false;
   Timer? _reportTimer;
   final Set<String> _dismissedNotes = {};
@@ -138,19 +141,22 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
     });
   }
 
-  Future<void> _report(String id) async {
+  Future<void> _report(Question question) async {
+    final id = question.id;
     setState(() => _reportOpen = true);
-    final bool? saved;
+    ReportDelivery? delivery;
     try {
-      saved = await widget.onReport(id);
+      delivery = await widget.onReport(question);
     } finally {
       if (mounted) setState(() => _reportOpen = false);
     }
-    if (mounted && (saved ?? false)) {
+    final shown = delivery;
+    if (mounted && shown != null) {
       _reportTimer?.cancel();
       setState(() {
         _reported.add(id);
         _reportStatus = id;
+        _reportDelivery = shown;
       });
       _reportTimer = Timer(const Duration(seconds: 4), () {
         if (mounted) setState(() => _reportStatus = null);
@@ -231,7 +237,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                             padding:
                                 const EdgeInsets.only(right: PantasSpace.s8),
                             child: Text(
-                              'Saved on this device.',
+                              reportDeliveryText(_reportDelivery),
                               style: PantasType.webRowSub
                                   .copyWith(color: t.colors.textSecondary),
                             ),
@@ -246,7 +252,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                           ),
                           child: PantasIconButton(
                             tooltip: 'Report a question',
-                            onPressed: () => unawaited(_report(question.id)),
+                            onPressed: () => unawaited(_report(question)),
                             icon: PantasIcons.report,
                             accent: _reported.contains(question.id),
                           ),
@@ -386,7 +392,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                   ),
                   PantasIconButton(
                     tooltip: 'Report a question',
-                    onPressed: () => unawaited(_report(question.id)),
+                    onPressed: () => unawaited(_report(question)),
                     icon: PantasIcons.report,
                     accent: _reported.contains(question.id),
                   ),

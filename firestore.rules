@@ -583,6 +583,11 @@ service cloud.firestore {
       allow read, write: if false;
     }
 
+    // Question reports from students: server only. The send callable writes them.
+    match /questionReports/{reportId} {
+      allow read, write: if false;
+    }
+
     match /audit_logs/{logId} {
       allow read, write: if false;
     }

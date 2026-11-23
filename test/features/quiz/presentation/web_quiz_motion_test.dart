@@ -330,7 +330,7 @@ void main() {
             pro: true,
             onBack: () {},
             onNote: (_, __, ___) async {},
-            onReport: (_) async => true,
+            onReport: (_) async => ReportDelivery.sent,
           ),
           still: still,
         ),
@@ -430,7 +430,7 @@ void main() {
       wide(tester);
       final db = inMemoryDatabase();
       addTearDown(db.close);
-      final queue = ReportQueue(db);
+      final queue = ReportQueue(db, account: () => 'a');
       await tester.pumpWidget(
         app(
           Scaffold(

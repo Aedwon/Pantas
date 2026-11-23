@@ -114,7 +114,7 @@ void main() {
                     constraints: const BoxConstraints(maxWidth: 416),
                     child: ReportForm(
                       questionId: 'q',
-                      queue: ReportQueue(db),
+                      queue: ReportQueue(db, account: () => 'a'),
                       onClose: () {},
                     ),
                   ),

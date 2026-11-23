@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
@@ -184,6 +186,10 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          // A report is made under the signed-in account.
+          authStateProvider.overrideWith(
+            (ref) => Stream.value(const AnonymousAuthState(uid: 'student')),
+          ),
           if (telemetry != null) telemetryProvider.overrideWithValue(telemetry),
           if (preferences != null)
             appPreferencesRepositoryProvider.overrideWithValue(preferences(db)),
@@ -638,7 +644,9 @@ void main() {
 
   testWidgets('report opens the existing form and recolors after queued send',
       (tester) async {
-    await pump(tester);
+    final container = await pump(tester);
+    // The app listens to the account from start; here the form reads it.
+    await container.read(authStateProvider.future);
     await tester.tap(find.byTooltip('Report a question'));
     await tester.pumpAndSettle();
     await tester.enterText(

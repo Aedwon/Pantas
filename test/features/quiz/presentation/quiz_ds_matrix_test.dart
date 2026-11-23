@@ -9,6 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -257,7 +258,7 @@ void main() {
         pro: pro,
         onBack: () {},
         onNote: (_, __, ___) async {},
-        onReport: (_) async => true,
+        onReport: (_) async => ReportDelivery.sent,
       ),
     );
   }
