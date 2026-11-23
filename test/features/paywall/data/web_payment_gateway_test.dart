@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:fake_async/fake_async.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -1098,17 +1099,29 @@ void main() {
       final rows = [reward('exam_cse_pro', ends: ends)];
       final during = entitlementFromGrants(rows, at: _now);
 
-      expect(during.proIsActive, isTrue);
+      expect(during.coverage(at: _now).hasKnownCoverage, isTrue);
       expect(
-        during.coversExam('exam_cse_pro', examTier: PriceTier.civilService),
+        during.coversExam(
+          'exam_cse_pro',
+          examTier: PriceTier.civilService,
+          at: _now,
+        ),
         isTrue,
       );
       expect(
-        during.coversExam('exam_cse_sub', examTier: PriceTier.civilService),
+        during.coversExam(
+          'exam_cse_sub',
+          examTier: PriceTier.civilService,
+          at: _now,
+        ),
         isFalse,
       );
       expect(
-        during.coversExam('exam_nce', examTier: PriceTier.civilService),
+        during.coversExam(
+          'exam_nce',
+          examTier: PriceTier.civilService,
+          at: _now,
+        ),
         isFalse,
       );
       expect(
@@ -1188,10 +1201,145 @@ void main() {
       final stale = await first;
 
       expect(gateway.cachedEntitlement?.proIsActive, isTrue);
-      expect(
-        stale.status,
-        PaymentOperationStatus.operationAlreadyInProgress,
+      // The dropped reply answers with the newer state it lost to.
+      expect(stale.status, PaymentOperationStatus.success);
+      expect(stale.confirmedEntitlement, gateway.cachedEntitlement);
+    });
+
+    test('a failed newer read never discards a valid older reply', () async {
+      final older = Completer<List<Map<String, dynamic>>>();
+      final newer = Completer<List<Map<String, dynamic>>>();
+      final replies = [
+        Future.value(<Map<String, dynamic>>[]),
+        older.future,
+        newer.future,
+      ];
+      var call = 0;
+      final gateway = WebPaymentGateway(
+        callable: (_, __) async => null,
+        readGrants: (_) => replies[call++],
+        refreshClaims: (_) async {},
+        openUrl: (_) async => true,
+        now: () => _now,
       );
+      await gateway.logIn('u1');
+
+      final first = gateway.restorePurchases();
+      final second = gateway.restorePurchases();
+      newer.completeError(StateError('offline'));
+      await second;
+      older.complete([
+        _grant(
+          'pantas_cs_monthly',
+          ends: _now.add(const Duration(days: 30)),
+        ),
+      ]);
+      final result = await first;
+
+      expect(result.status, PaymentOperationStatus.success);
+      expect(gateway.cachedEntitlement?.plan, EntitlementPlan.monthly);
+    });
+
+    test('an old restore cannot cancel the next account login read', () async {
+      final refreshGate = Completer<void>();
+      final readB = Completer<List<Map<String, dynamic>>>();
+      final reads = <String>[];
+      final gateway = WebPaymentGateway(
+        callable: (_, __) async => null,
+        readGrants: (uid) {
+          reads.add(uid);
+          return uid == 'b'
+              ? readB.future
+              : Future.value([
+                  _grant(
+                    'pantas_cs_monthly',
+                    ends: _now.add(const Duration(days: 30)),
+                  ),
+                ]);
+        },
+        refreshClaims: (uid) =>
+            uid == 'a' ? refreshGate.future : Future.value(),
+        openUrl: (_) async => true,
+        now: () => _now,
+      );
+      await gateway.logIn('a');
+      final restore = gateway.restorePurchases();
+      await gateway.clearIdentity();
+      final loginB = gateway.logIn('b');
+      await Future<void>.delayed(Duration.zero);
+
+      refreshGate.complete();
+      await restore;
+      readB.complete([
+        _grant(
+          'pantas_cs_weekly',
+          ends: _now.add(const Duration(days: 7)),
+        ),
+      ]);
+      await loginB;
+
+      expect(reads, ['a', 'b']);
+      expect(gateway.cachedEntitlement?.productId, 'pantas_cs_weekly');
+    });
+
+    test('an open tab follows queued starts and ends on the clock', () {
+      fakeAsync((async) {
+        final start = DateTime.utc(2026, 11, 2, 4);
+        DateTime clock() => start.add(async.elapsed);
+        const hour = Duration(hours: 1);
+        final gateway = WebPaymentGateway(
+          callable: (_, __) async => null,
+          readGrants: (_) async => [
+            // A reward queued one hour out, for one exam.
+            {
+              ..._grant(
+                'beta_reward',
+                starts: start.add(hour),
+                ends: start.add(hour * 2),
+              ),
+              'source': 'beta_reward',
+              'examId': 'exam_cse_pro',
+            },
+            // A pass now, and a plan queued behind it.
+            _grant('pantas_pass_cse_sub', ends: start.add(hour * 3)),
+            _grant(
+              'pantas_cs_monthly',
+              starts: start.add(hour * 3),
+              ends: start.add(hour * 4),
+            ),
+          ],
+          refreshClaims: (_) async {},
+          openUrl: (_) async => true,
+          now: clock,
+          followClock: true,
+        );
+        bool rewardCovers() =>
+            gateway.cachedEntitlement!.coversExam(
+              'exam_cse_pro',
+              examTier: PriceTier.civilService,
+              at: clock(),
+            ) &&
+            gateway.cachedEntitlement!.betaPasses.containsKey('exam_cse_pro');
+
+        unawaited(gateway.logIn('u1'));
+        async.flushMicrotasks();
+        expect(gateway.cachedEntitlement!.betaPasses, isEmpty);
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.free);
+
+        async.elapse(hour);
+        expect(rewardCovers(), isTrue);
+
+        async.elapse(hour);
+        expect(gateway.cachedEntitlement!.betaPasses, isEmpty);
+
+        async.elapse(hour);
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.monthly);
+
+        async.elapse(hour);
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.free);
+        unawaited(gateway.clearIdentity());
+        async.flushMicrotasks();
+      });
     });
   });
 }

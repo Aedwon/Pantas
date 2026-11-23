@@ -626,4 +626,23 @@ void main() {
     expect(find.text('Renews'), findsNothing);
     expect(find.text('Manage in Google Play'), findsNothing);
   });
+  testWidgets(
+      'a reward shows the selected exam end, as a Manila date, '
+      'not another exam end', (tester) async {
+    // 17:00 UTC on Dec 31 is Jan 1 in Manila. The other exam ends later.
+    await _pump(
+      tester,
+      entitlement: Entitlement(
+        plan: EntitlementPlan.free,
+        betaPasses: {
+          'exam_cse_pro': DateTime.utc(2027, 12, 31, 17),
+          'exam_cse_sub': DateTime.utc(2028, 6, 30, 17),
+        },
+      ),
+    );
+    expect(find.text('Ends'), findsOneWidget);
+    expect(find.text('Jan 1, 2028'), findsOneWidget);
+    expect(find.text('Jul 1, 2028'), findsNothing);
+    expect(find.text('Jun 30, 2028'), findsNothing);
+  });
 }

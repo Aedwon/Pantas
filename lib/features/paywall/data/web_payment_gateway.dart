@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
@@ -204,7 +206,9 @@ class WebPaymentGateway implements RevenueCatPassGateway {
     required WebUrlOpener openUrl,
     PaymentEntitlementState? entitlementState,
     DateTime Function()? now,
-  })  : _callable = callable,
+    bool followClock = false,
+  })  : _followClock = followClock,
+        _callable = callable,
         _readGrants = readGrants,
         _refreshClaims = refreshClaims,
         _openUrl = openUrl,
@@ -218,9 +222,21 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   final WebUrlOpener _openUrl;
   final PaymentEntitlementState _state;
   final DateTime Function() _now;
+
+  /// True in the app: the state is recomputed when a queued grant starts or
+  /// a held one ends. Off by default so a test has no timer left running.
+  final bool _followClock;
   String? _uid;
   int _identityRevision = 0;
   int _readRequest = 0;
+
+  /// The newest request whose reply was published for this identity.
+  int _publishedRequest = 0;
+
+  /// The ledger rows behind the published state, kept so the state can be
+  /// recomputed when a queued grant starts or a held one ends.
+  List<Map<String, dynamic>> _rows = const [];
+  Timer? _boundary;
   bool _googlePlayPlanRenews = false;
 
   /// True only after an owner-bound server reply confirms Play renewal.
@@ -243,13 +259,14 @@ class WebPaymentGateway implements RevenueCatPassGateway {
     await initialize();
     if (_uid != uid) {
       _identityRevision++;
+      _forgetReads();
       _googlePlayPlanRenews = false;
     }
     if ((_uid ?? await _state.readOwner()) != uid) await _state.clear();
     _uid = uid;
     await _state.writeOwner(uid);
     try {
-      await _readEntitlement(uid);
+      await _readEntitlement(uid, _identityRevision);
     } catch (_) {
       // A failed read is no news. Keep what was confirmed before.
     }
@@ -259,12 +276,20 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   Future<void> clearIdentity() async {
     _uid = null;
     _identityRevision++;
+    _forgetReads();
     _googlePlayPlanRenews = false;
     await _state.clear();
   }
 
   @override
   Future<void> logOut() => clearIdentity();
+
+  void _forgetReads() {
+    _boundary?.cancel();
+    _boundary = null;
+    _publishedRequest = 0;
+    _rows = const [];
+  }
 
   /// Reads real end dates without turning past access into current coverage.
   Future<List<WebGrantHistory>> grantHistory() async {
@@ -338,6 +363,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   @override
   Future<PaymentOperationResult> restorePurchases() async {
     final uid = _uid;
+    final revision = _identityRevision;
     if (uid == null) {
       return const PaymentOperationResult.failure(
         status: PaymentOperationStatus.configurationFailure,
@@ -350,7 +376,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
       // a token that stays behind.
     }
     try {
-      final entitlement = await _readEntitlement(uid);
+      final entitlement = await _readEntitlement(uid, revision);
       if (entitlement == null) {
         return const PaymentOperationResult.failure(
           status: PaymentOperationStatus.operationAlreadyInProgress,
@@ -432,17 +458,79 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   }
 
   /// Reads the ledger for [uid] and keeps it as the confirmed entitlement.
-  /// Returns null when the signed-in account changed while reading.
-  /// Also returns null when a newer read started, so a slow older reply
-  /// cannot replace a newer one.
-  Future<Entitlement?> _readEntitlement(String uid) async {
+  /// Returns null when the account changed since [revision] was taken.
+  ///
+  /// The newest reply that succeeds wins. A reply is dropped only when a
+  /// newer one was already published, and it then answers with that newer
+  /// state. A failed read publishes nothing and drops no other reply.
+  Future<Entitlement?> _readEntitlement(String uid, int revision) async {
+    bool sameAccount() => _uid == uid && _identityRevision == revision;
+    if (!sameAccount()) return null;
     final request = ++_readRequest;
-    bool current() => _uid == uid && request == _readRequest;
     final rows = await _readGrants(uid);
-    if (!current()) return null;
+    if (!sameAccount()) return null;
+    if (request < _publishedRequest) return _state.current;
+    _publishedRequest = request;
+    _rows = rows;
     final entitlement = entitlementFromGrants(rows, at: _now());
-    await _state.acceptAuthoritative(entitlement, shouldContinue: current);
-    return current() ? entitlement : null;
+    _scheduleBoundary();
+    await _state.acceptAuthoritative(
+      entitlement,
+      shouldContinue: () => sameAccount() && request >= _publishedRequest,
+    );
+    if (!sameAccount()) return null;
+    return request >= _publishedRequest ? entitlement : _state.current;
+  }
+
+  /// A longest wait, so a long timer never overflows and a changed clock is
+  /// noticed within a day.
+  static const _longestWait = Duration(days: 1);
+
+  /// Wakes at the next start or end among the kept rows, then recomputes.
+  void _scheduleBoundary() {
+    _boundary?.cancel();
+    _boundary = null;
+    if (!_followClock) return;
+    final at = _now();
+    DateTime? next;
+    for (final row in _rows) {
+      if (row['state'] != 'active') continue;
+      for (final key in const ['startsAt', 'endsAt']) {
+        final value = row[key];
+        if (value is! int) continue;
+        final moment = DateTime.fromMillisecondsSinceEpoch(value, isUtc: true);
+        if (moment.isAfter(at) && (next == null || moment.isBefore(next))) {
+          next = moment;
+        }
+      }
+    }
+    if (next == null) return;
+    var wait = next.difference(at);
+    if (wait > _longestWait) wait = _longestWait;
+    if (wait < const Duration(milliseconds: 1)) {
+      wait = const Duration(milliseconds: 1);
+    }
+    final uid = _uid;
+    final revision = _identityRevision;
+    final request = _publishedRequest;
+    _boundary = Timer(wait, () {
+      if (_uid != uid ||
+          _identityRevision != revision ||
+          _publishedRequest != request) {
+        return;
+      }
+      final entitlement = entitlementFromGrants(_rows, at: _now());
+      _scheduleBoundary();
+      unawaited(
+        _state.acceptAuthoritative(
+          entitlement,
+          shouldContinue: () =>
+              _uid == uid &&
+              _identityRevision == revision &&
+              _publishedRequest == request,
+        ),
+      );
+    });
   }
 
   @override

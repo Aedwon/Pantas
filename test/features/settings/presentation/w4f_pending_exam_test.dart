@@ -199,6 +199,13 @@ void main() {
           scenario == 'missing reference' ||
           scenario == 'malformed') {
         expect(await prefs.deviceValue('checkout_exam_v1:owner'), isNotEmpty);
+      } else if ([
+        'unconfirmed',
+        'student coverage only',
+        'abandoned then purchase',
+      ].contains(scenario)) {
+        // Not confirmed for this exam yet: keep the intent for the return.
+        expect(await prefs.deviceValue('checkout_exam_v1:owner'), isNotEmpty);
       } else if (!['other account', 'owner loading'].contains(scenario)) {
         expect(await prefs.deviceValue('checkout_exam_v1:owner'), isEmpty);
       }

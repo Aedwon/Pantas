@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
 import 'package:pantas/features/beta_feedback/presentation/feedback_page.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 
 import 'beta_feedback_fakes.dart';
 import 'feedback_harness.dart';
@@ -206,6 +208,34 @@ void main() {
         find.byKey(const ValueKey('title-earned')),
       );
       expect(old.opacity, 0);
+    });
+
+    testWidgets('turning it on reads the signed-in account entitlement again',
+        (tester) async {
+      var reads = 0;
+      final gateway = WebPaymentGateway(
+        callable: (_, __) async => null,
+        readGrants: (_) async {
+          reads++;
+          return [];
+        },
+        refreshClaims: (_) async {},
+        openUrl: (_) async => true,
+        now: () => DateTime.utc(2026, 11, 20),
+      );
+      await gateway.logIn('tester');
+      expect(reads, 1);
+      final h = _harness();
+      await h.pump(
+        tester,
+        _page,
+        overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
+      );
+      await tester.tap(_activate);
+      await tester.pumpAndSettle();
+
+      expect(find.text('Pro is on until Nov 20, 2027'), findsOneWidget);
+      expect(reads, 2);
     });
 
     testWidgets('the crown swings once', (tester) async {

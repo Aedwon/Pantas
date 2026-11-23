@@ -99,6 +99,7 @@ final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
       refreshClaims: refreshPaymentClaimToken,
       openUrl: openInThisTab,
       entitlementState: entitlementState,
+      followClock: true,
     );
     ref.onDispose(() => unawaited(gateway.clearIdentity()));
     return gateway;

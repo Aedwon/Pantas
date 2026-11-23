@@ -13,6 +13,8 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
+import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 
 /// The whole turn-on motion runs on one clock of this length (the crown's
 /// swing is the last thing to finish: 550 ms in, then 1.3 s).
@@ -59,6 +61,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
     if (_working || _on) return;
     setState(() => _working = true);
     final BetaRewardActivation result;
+    final gateway = ref.read(revenueCatGatewayProvider);
     try {
       result = await ref.read(betaFeedbackApiProvider).activate();
     } on Exception {
@@ -67,6 +70,9 @@ class _RewardCardState extends ConsumerState<RewardCard>
       showPantasToast(context, 'Could not turn it on. Try again.');
       return;
     }
+    // The year is on the server now. Read the account's coverage again so
+    // this session shows Pro without a reload.
+    unawaited(_refreshEntitlement(gateway));
     if (!mounted) return;
     setState(() {
       _result = result;
@@ -78,6 +84,14 @@ class _RewardCardState extends ConsumerState<RewardCard>
       unawaited(_clock.forward(from: 0));
     }
     ref.invalidate(betaRewardProvider);
+  }
+
+  Future<void> _refreshEntitlement(RevenueCatGateway gateway) async {
+    try {
+      await gateway.restorePurchases();
+    } on Object {
+      // No news. The next read of the account picks the reward up.
+    }
   }
 
   /// Progress, 0 to 1, of a piece that starts [start] ms in and takes [ms].

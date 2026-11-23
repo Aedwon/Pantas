@@ -298,6 +298,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     if (raw == null || raw.isEmpty || !_sameAccount(uid)) return;
     Map<String, dynamic> pending;
     PriceTier tier;
+    var matched = false;
+    Future<void> consume() => prefs.setDeviceValue(key, '');
     try {
       final decoded = jsonDecode(raw);
       if (decoded is! Map<String, dynamic>) {
@@ -310,9 +312,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           decoded['reference'] != reference) {
         return;
       }
-      // Only this checkout may consume its pending switch.
-      await prefs.setDeviceValue(key, '');
-      if (!_sameAccount(uid)) return;
+      // Only this checkout may consume its pending switch, and only once the
+      // checkout is confirmed or can no longer be (cancelled, invalid, old).
+      matched = true;
       if (decoded['uid'] is! String ||
           decoded['examId'] is! String ||
           decoded['count'] is! bool ||
@@ -328,6 +330,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       tier = PriceTier.values.byName(pending['tier'] as String);
     } catch (error, stack) {
       unawaited(ref.read(telemetryProvider).recordError(error, stack));
+      if (matched) await consume();
       return;
     }
     final target = widget.targetExam ??
@@ -344,6 +347,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         tier != PriceTier.fromCatalog(target.priceTier) ||
         age.isNegative ||
         age > const Duration(hours: 24)) {
+      await consume();
+      return;
+    }
+    if (operation.status == PaymentOperationStatus.userCancelled) {
+      await consume();
       return;
     }
     final entitlement = operation.confirmedEntitlement;
@@ -351,10 +359,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     if (operation.status != PaymentOperationStatus.success ||
         entitlement == null ||
         !entitlement.coverage(at: DateTime.now()).coversExam(examId, tier)) {
+      // Not confirmed for this exam yet (the webhook can lag, or other
+      // coverage hides it). Keep the intent for the next return.
       return;
     }
     final from = await prefs.selectedExamId();
-    if (!_sameAccount(uid) || from != pending['fromExamId']) return;
+    if (!_sameAccount(uid)) return;
+    if (from != pending['fromExamId']) {
+      await consume();
+      return;
+    }
     final publish =
         await ref.read(studySettingsCaptureProvider)(examId: examId);
     if (!_sameAccount(uid)) return;
@@ -760,19 +774,27 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         : ownedPasses?.valueOrNull ?? const <String, ExamCatalogEntry>{};
     final fallbackPlanEnd =
         entitlement.passes.isEmpty ? entitlement.endsAt : null;
-    final planDate = entitlement.plan != EntitlementPlan.free
-        ? (entitlement.isTrial
-                ? entitlement.chargesAt
-                : entitlement.willRenew
-                    ? entitlement.renewsAt
-                    : entitlement.expiresAt) ??
-            entitlement.expiresAt ??
-            fallbackPlanEnd
-        : entitlement.promotions.isNotEmpty
-            ? entitlement.promotions
-                .map((p) => p.endsAt)
-                .reduce((a, b) => a.isAfter(b) ? a : b)
-            : entitlement.expiresAt ?? fallbackPlanEnd;
+    // A reward ends per exam: show this exam's end, as a Manila date.
+    final rewardOnly = entitlement.plan == EntitlementPlan.free &&
+        entitlement.passes.isEmpty &&
+        entitlement.promotions.isEmpty &&
+        entitlement.betaPasses.isNotEmpty;
+    final rewardEnd = exam == null ? null : entitlement.betaPasses[exam.id];
+    final planDate = rewardOnly
+        ? rewardEnd?.toUtc().add(const Duration(hours: 8))
+        : entitlement.plan != EntitlementPlan.free
+            ? (entitlement.isTrial
+                    ? entitlement.chargesAt
+                    : entitlement.willRenew
+                        ? entitlement.renewsAt
+                        : entitlement.expiresAt) ??
+                entitlement.expiresAt ??
+                fallbackPlanEnd
+            : entitlement.promotions.isNotEmpty
+                ? entitlement.promotions
+                    .map((p) => p.endsAt)
+                    .reduce((a, b) => a.isAfter(b) ? a : b)
+                : entitlement.expiresAt ?? fallbackPlanEnd;
     final past = web
         ? ref
             .watch(webGrantHistoryProvider)
