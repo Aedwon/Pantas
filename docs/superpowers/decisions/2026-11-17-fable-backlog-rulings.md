@@ -878,3 +878,81 @@ Nothing new to decide. For his information: the risk he accepted on Nov 11 (H1) 
 - D1 kept the seven-day wait after a decline as "the times cleanup already uses". The wait serves no screen and has no basis (check 3).
 - The Nov 9 test-mode finding that QR Ph cannot be refunded through PayMongo conflicts with PayMongo's current documentation (check 9). The live test decides.
 - The runbook's manual refund section is titled for QR Ph but works for any payment (check 8).
+
+## Nov 23, under-18 flag risk: options for Aedwon
+
+Framed by a Claude Fable 5.2 agent, acting as the design sub-agent. **This is not a ruling.** It is a legal risk acceptance, so the choice is Aedwon's. H1 above stays in force until he chooses. No lawyer reviewed anything here (his Nov 9 decision, checklist row L8), and this agent is not a lawyer.
+
+- Why it returns to him. On Nov 11 he kept the flow ("legally shaky, but it isn't clearly unlawful ... nor would I want to design a fundamentally worse UX for users", `LL:3131-3136`). On Nov 23 he set the release test: "go hardened. i do not want any risks when I release this app." and "i want to be fully ready before i post a single thing leading users to the app". The same day Sol High rated this item the biggest legal risk in the package. H1 treated the Nov 11 acceptance as still standing. His Nov 23 words are newer, so the acceptance is put to him again.
+- Policy read at `origin/main` 5cfe4a0fa: `AGENTS.md`, `WORKFLOW.md`, `SUBAGENTS.md`, sections D1 and H1 above, `docs/superpowers/plans/2026-11-22-cse-public-release-checklist.md`, `docs/superpowers/plans/2026-11-23-cse-release-phase2-plan.md` (T10, T18).
+- Input: `critique-2026-11-23c-sol-high.md` and `README.md` round 4, on `legal/public-launch-r1` 5a50ef3bd. `docs/legal/research/2026-11-11-minor-label-lawful-basis.md`. The under-13 spec on `claude/under-13-build-386afc` (`docs/superpowers/specs/2026-11-17-under-13-accounts-design.md`, draft PR #76).
+- Standards applied: Data Privacy Act Sections 3(l), 13 and 25; NPC Advisory Opinion 2017-049 and Advisory 2024-03 (as read in the critique and the Nov 11 research); the CSC age rule (CS Form 100, Revised 2023, through a web search on Nov 23; see check 3); Civil Code Articles 1327 and 1390 (as cited in the Nov 11 research). No sheet exists in `agent-standards` for privacy law.
+- Velocity: this pass was not timed. It changed documents only. Every size below is this agent's estimate, not a measurement. Estimates in this area have grown before: the under-13 build went from 2 to 3 days to 8.5 to 10.
+
+### The finding in one paragraph
+
+When a student under 18 sends the guardian request, the server writes "under 18" against the account before the guardian answers (`functions/src/guardianConsent.ts:249`). Age is sensitive personal information (Section 3(l)). Sol High, round 4: no Section 13 ground covers that write. A guardian's later yes cannot cover an earlier write. Section 13(b) and Advisory Opinion 2017-049 do not fit. Section 13(f) fits only the separate answer record. The draft Teen Notice therefore claims no basis for it. Section 25(b) is the exposure: unauthorized processing of sensitive personal information, three to six years and a fine of ₱500,000 to ₱4,000,000 as the Act is written. No Philippine ruling decides this exact design, so the chance of a case is low and not measurable. D1 and H1 shorten the life of the record. They do not supply a basis for the first write.
+
+### What was checked
+
+1. **Only the two CSE exams can be picked at launch.** Checklist row C5: "Only CSE is open to the public. Other exams stay 'Coming soon' or hidden", met on prod, and opening any other exam is his. An exam is selectable only when it is not marked coming soon and its content is on the server (`lib/core/content/data/exam_catalog_repository.dart:39`). The custom exam row is hidden (backlog E6). Main's own catalog file marks the college entrance exams as open, so what prod serves is what holds them closed (`LL:4046`: "CET exams stay 'Coming soon'"). Not checked: the live prod picker. The release lead confirms it on the gate-off build.
+2. **A minor can pick CSE today.** The age step comes before the exam picker (`onboarding_flow.dart:130-133`), and the minimum age is 13 for every exam, CSE included (`age_policy.dart:30-33`). A 13 to 17-year-old who gets a guardian's yes continues to the picker and can choose CSE.
+3. **The CSC takes CSE applications only from people 18 or older.** CS Form 100 (Revised 2023), as quoted by a web search: "Must be at least 18 years of age on the date of filing of application". News reports of CSC announcements say the same. The CSC site refused direct reads on Nov 23, so the wording was not read on the CSC page itself. The next sittings in the catalog are March 14 and August 8, 2027. A secondary source puts the start of filing for March at November 2, 2026; that date was not confirmed on the CSC site. So the under-18 CSE audience is people who study before their 18th birthday. Nobody under 18 can sit the exam.
+4. **A block for an age below the minimum already exists and sends nothing.** The age stays in memory, the device stores only the block, and no server call is made (`onboarding_age_gate_step.dart:243-250`). The blocked page is an approved board (OB_Age_Blocked) and prints the minimum from a variable: "Sorry, this app isn't available for users under 13." The block lasts on that device and only support clears it (`:193`).
+5. **Old installed copies can still send a guardian request.** A PWA copy that stays offline keeps its old code (checklist G5). So closing sign-up in the app alone is not enough. The server function that sends the request (`sendGuardianLink`, `guardianConsent.ts:632`) must refuse too.
+6. **Under-18 beta testers: one on record.** The beta had 19 testers. One is under 18, and that tester's guardian confirmed in the app (private beta digest; counts only, this repository is public). Not measured: unconfirmed or flag-only guardian records on prod. T18's one-time removal counts them before it runs.
+7. **The under-13 build is already guardian-first.** In the approved under-13 spec the parent signs in with their own email and ticks consent before any record of the child exists. The same spec says "The 13 to 17 emailed guardian link stays as it is". That build was sized at 8.5 to 10 working days and is an open draft (PR #76). Its target is the PSHS-NCE pass on sale by mid-December. Besides T18, the under-13 branches are the only work that edits the guardian server file (H1, check 1).
+8. **Exams for minors are close behind CSE.** PSHS-NCE is on January 30, 2027, and some takers are 13. The ACET is on January 16, 2027 ("Still his", item 6 above). College entrance takers are mostly 16 to 18.
+
+### The options
+
+"Days" are lane days with tests. "Risk left" is about Section 25 for the under-18 record only.
+
+| | Option | Build | What students lose | Risk left |
+|---|---|---|---|---|
+| A | Keep the flow, accept the risk again. D1 and H1 ship as ruled (T18) | 0 new days. T18 is about 0.75 to 1 day and is already queued | Nothing | The finding stays whole for every new under-18 sign-up. The record lives seven days at most, but the write has no basis. The notice says so in public by claiming none |
+| B | Guardian-first for 13 to 17 before opening: a parent or guardian signs in and gives permission, and only then is the under-18 record written | 4 to 6 days if built on the under-13 parent setup after PR #76 merges. 5 to 8 days if built alone now, and it would edit the same server file as PR #76. Plus boards for his pick, a text round and a Sol High round. Moves the opening by one to two weeks | A teen can no longer start alone and wait for an emailed link. A parent has to act first, and may hold the sign-in. This is the "worse UX" he declined on Nov 11 | The finding is removed for new sign-ups. Left: the guardian is not verified ("said they are"), the age check still runs on the device, and a sign-up flow rebuilt inside the launch window is its own product risk |
+| C | Close under-18 sign-up at the CSE opening. Reopen it when B exists | About 1 day: the minimum age becomes 18 so the approved blocked page shows (0.25), the server refuses new guardian requests behind a switch (0.25), handling for devices caught mid-request (0.25), texts and a Sol High round (0.25). T18 still ships | Anyone 13 to 17 cannot create an account at the opening. For CSE that is only people studying ahead of their 18th birthday (check 3). No "tell me when it opens" list: taking a teen's email for that recreates the problem. A blocked 17-year-old who turns 18 emails support to unlock (check 4). UPCAT, the other college tests and 13-year-old PSHS-NCE takers stay shut out until B ships | The finding is removed for new sign-ups: the server writes nothing about an under-18 student. Left: see "What C does not remove" |
+| D | Guardian ticks on the teen's own device. No email. The record is written only with the tick | 2 to 3 days, one new board for his pick, a text round | The emailed link, and with it the guardian's own page for managing or withdrawing | The pre-permission write is removed. The proof becomes weaker than today: the teen can tick the box, and no second person or device is involved. If the teen ticked it, Pantas holds an under-18 record with no real permission behind it |
+
+Looked at and dropped. A signed link that keeps nothing on the server before the answer: H1 already rejected it, and Sol High's point is about processing, not storage. A study mode with no account for teens: a build of three days or more, and Pantas would still knowingly process a minor's study records with no guardian. A lawyer's opinion on Section 13(f): his Nov 9 decision stands and is not reopened. A request to the NPC for an advisory opinion: free, but it takes months and cannot decide a launch.
+
+### What C does not remove
+
+No option reaches zero. C is the lowest of the four.
+
+1. **Records already written.** The beta's guardian requests happened. T18 deletes the unconfirmed ones. Deleting ends the holding and cannot undo the write. The scale is small (check 6).
+2. **A teen who enters a false age.** Pantas then holds no age information about that person, and the Terms say 18 or older. Every 18-and-over service is in this position. The money side (a minor's purchase can be undone, Civil Code Article 1390) is covered by the adult declaration at checkout (D2), not by this item.
+3. **The age check itself on a teen's device.** A teen who answers truthfully has the age checked on the device, and the device keeps the block. Nothing reaches Pantas. The Nov 11 research said an on-device check "reduces exposure, but does not automatically remove the legal question". This is the smallest item. Sol High should rate it in the next round.
+4. **Accounts a guardian already confirmed** continue under that guardian's permission (Section 13(a)). Their pages, the guardian wording at checkout and the "I'm 18 now" check stay as built.
+
+### Recommendation: C now, with B as a gate before any exam for under-18 students opens
+
+- His Nov 11 reason was the experience of his users. At a CSE-only opening, the users C turns away cannot sit the only exam on sale. The reason that justified the risk on Nov 11 is mostly absent on opening day.
+- C costs about 1 day and adds no board. B costs 4 to 8 days, boards, and one to two weeks of delay, for the same legal result on opening day.
+- C is a number and a server switch. It is reversed by one release when B ships.
+- A fails his Nov 23 test as he worded it. If he picks A, the record should show that he accepted this risk again with the Section 25 exposure named.
+- D trades a risk for weaker evidence. It is not better than today on the day a dispute arrives.
+
+C does not make B optional. PSHS-NCE and the college tests need 13 to 17-year-olds. B should be built on the under-13 parent setup, and it must be on prod before PSHS-NCE opens, or 13-year-old takers are shut out of a pass sold for their exam.
+
+### What needs Aedwon
+
+One choice: A, B, C or D. Nothing is built until he chooses. H1 and T18 proceed unchanged in every case.
+
+### If he chooses C (for the CSE release lead and the text lane; not started)
+
+1. App: the minimum age is 18. The approved blocked page shows with "under 18". No guardian step for new students.
+2. Server: `sendGuardianLink` refuses new requests while under-18 sign-up is closed, behind a server switch that is closed on prod. Answers to a request that is already open still work until it ends. Tests fail first.
+3. Devices caught between the age step and a guardian's answer: the lead settles the state, with no new board.
+4. Confirmed under-18 accounts are untouched. The lead counts them on prod with T18's count (rule 7).
+5. Text lane (rule 5): Terms and Privacy Policy say an account needs age 18 or older for now. The Teen Notice covers only accounts a guardian already confirmed, and its open-request paragraphs say new requests are closed. Sol High round 5 critiques the changed paragraphs and rates item 3 of "What C does not remove".
+6. Website copy is his. Any line there that invites students under 18 conflicts with C until B ships. Not checked: the website repository.
+7. New gate for the checklist: no exam whose takers are under 18 opens before guardian-first sign-up for 13 to 17 is on prod. The under-13 lead is told, because PR #76 changes what the under-13 block does and must leave 13 to 17 closed until B.
+8. Reopening later adds collection for new students. The lead checks rule 9 before that release.
+
+### Corrections found while framing
+
+- H1 says "It is not a new decision for him." That was true against his Nov 11 words. It does not hold against his Nov 23 release test, which is newer.
+- Checklist row L9 says "CSE is 13+". That is the app's minimum age. The CSC's own minimum for filing is 18 (check 3).
+- The manager's Nov 11 advice was "no change during the beta" and option D "before live payments" (`LL:3131-3136`). The beta has ended and live payments are next, so the point he was advised to revisit has arrived.
