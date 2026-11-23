@@ -135,7 +135,8 @@ export function reanchorQueued(grants: ReadonlyMap<string, Grant>, native: reado
     if (cursor < g.startsAt) out.set(id, startAt(g, cursor));
     waiting.delete(id);
   }
-  return out;
+  // A queued reward follows the same shrinking coverage, per exam.
+  return rechainRewards(out, native, now);
 }
 
 /**
@@ -360,14 +361,18 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
         createdAt: existing.get('createdAt') ?? now, refunds, ...(resolutions ? {resolutions} : {}),
         ...(input.disputeId ?? existing.get('disputeId') ? {disputeId: input.disputeId ?? existing.get('disputeId')} : {}),
         disputed: existing.get('disputed') === true || input.dispute === true});
-      closeRefund(Object.values(refunds).reduce((sum, amount) => sum + amount, 0), follow.get('paidAmount'));
+      // Refunds copied onto the task when the account was deleted count toward the balance.
+      const counted = {...(follow.get('refunds') as Record<string, number> | undefined), ...refunds};
+      closeRefund(Object.values(counted).reduce((sum, amount) => sum + amount, 0), follow.get('paidAmount'));
       return {outcome: 'unmatched' as const};
     }
     const revokeEventRef = db.doc(`webhookEvents/${eventId}/users/${uid}`);
     const dedupe = await transaction.get(revokeEventRef);
     // A resolution that arrived before this dispute.created is applied now.
+    const earlier = input.dispute && input.disputeId ? await transaction.get(tombstone) : undefined;
+    const earlierResolutions = earlier?.get('resolutions') as Resolutions | undefined;
     const recorded = input.disputeLost ? 'lost' : input.dispute && input.disputeId
-      ? ((await transaction.get(tombstone)).get('resolutions') as Resolutions | undefined)?.[input.disputeId] : undefined;
+      ? earlierResolutions?.[input.disputeId] : undefined;
     const inputs = await readEntitlementInputs(transaction, db, uid);
     const id = grantDocId(paymentId);
     const grant = inputs.grants.get(id);
@@ -378,9 +383,16 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
       transaction.update(db.doc(`users/${uid}/grants/${id}`), {disputeResolved: true});
     }
     if (!grant || (grant.state !== 'active' && input.dispute)) {transaction.set(revokeEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)}); return {outcome: 'duplicate' as const, uid};}
-    if (recorded === 'won') {
-      // Already won: the grant is never revoked. Only the dispute is noted on it.
+    // A win recorded before the tombstone existed: the grant is active with this dispute resolved.
+    const legacyWin = input.dispute && !input.disputeLost && grant.state === 'active' &&
+      grant.disputeId === input.disputeId && grant.disputeResolved === true;
+    if (recorded === 'won' || legacyWin) {
+      // Already won: the grant is never revoked. Only the dispute is noted on it, and the win is kept.
       transaction.update(db.doc(`users/${uid}/grants/${id}`), {disputeId: input.disputeId, disputeResolved: true});
+      if (legacyWin && recorded !== 'won') {
+        transaction.set(tombstone, {createdAt: earlier?.get('createdAt') ?? now,
+          resolutions: {...earlierResolutions, [input.disputeId!]: 'won'}}, {merge: true});
+      }
       transaction.set(revokeEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)});
       return {outcome: 'duplicate' as const, uid};
     }
@@ -452,14 +464,20 @@ export async function resolvePaymongoDispute(db: Firestore, input: {eventId: str
       if (stackable(grant) && tierWide(grant)) {
         // Put every grant this dispute pulled earlier back behind the restored grant, including
         // grants that ended while it was open. A grant a later change already moved again keeps
-        // its current length; any other keeps the length it had before the dispute.
+        // its current length; any other keeps the length it had before the dispute. A live plan of
+        // the same tier bought while the dispute was open overlaps the restored grant too: it
+        // follows with its own length, so no paid day is lost.
         let cursor = next.endsAt;
+        const bought = [...inputs.grants].filter(([otherId, row]) => otherId !== id && row.state === 'active' &&
+          row.disputeMoves?.[input.disputeId] === undefined && row.tier === grant.tier && tierWide(row) && stackable(row) &&
+          row.endsAt > now && row.startsAt < next.endsAt && row.endsAt > next.startsAt)
+          .sort(([, a], [, b]) => a.startsAt - b.startsAt);
         const moved = [...inputs.grants].filter(([otherId, row]) => otherId !== id && row.state === 'active' &&
           row.disputeMoves?.[input.disputeId] !== undefined)
           .sort(([, a], [, b]) => a.disputeMoves![input.disputeId].startsAt - b.disputeMoves![input.disputeId].startsAt);
-        for (const [otherId, row] of moved) {
-          const move = row.disputeMoves![input.disputeId];
-          const again = row.startsAt !== move.movedStartsAt || row.endsAt !== move.movedEndsAt;
+        for (const [otherId, row] of [...moved, ...bought]) {
+          const move = row.disputeMoves?.[input.disputeId];
+          const again = !move || row.startsAt !== move.movedStartsAt || row.endsAt !== move.movedEndsAt;
           const length = again ? row.endsAt - row.startsAt : move.endsAt - move.startsAt;
           const rest = {...row.disputeMoves};
           delete rest[input.disputeId];
@@ -470,7 +488,7 @@ export async function resolvePaymongoDispute(db: Firestore, input: {eventId: str
           transaction.update(db.doc(`users/${uid}/grants/${otherId}`), {
             startsAt: placed.startsAt, endsAt: placed.endsAt,
             ...(placed.fullEndsAt === undefined ? {} : {fullEndsAt: placed.fullEndsAt}),
-            disputeMoves: Object.keys(rest).length ? rest : FieldValue.delete(),
+            ...(move ? {disputeMoves: Object.keys(rest).length ? rest : FieldValue.delete()} : {}),
           });
         }
       }

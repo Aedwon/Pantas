@@ -1,7 +1,7 @@
 import '../lib/index.js';
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {getFirestore} from 'firebase-admin/firestore';
+import {FieldValue, getFirestore} from 'firebase-admin/firestore';
 import {startTrial, trialEligible} from '../lib/webTrial.js';
 import {fakeAuth} from './_paymongo-helpers.mjs';
 const db = getFirestore();
@@ -221,8 +221,8 @@ test('deleting an account keeps a minimal payment record and any pending refund 
   const owed = (await db.doc('paymongoFollowUps/pay_keep_owed').get()).data();
   assert.equal(owed.refundRequired, true);
   assert.equal(owed.status, 'pending');
-  assert.equal('uid' in owed, false);
-  assert.equal('activeGrantId' in owed, false);
+  const allowed = ['paymentId', 'sessionId', 'eventId', 'paidAmount', 'refunds', 'reason', 'status', 'refundRequired', 'createdAt'];
+  for (const key of Object.keys(owed)) assert.ok(allowed.includes(key), `unexpected field ${key}`);
   assert.equal((await db.doc('paymongoFollowUps/pay_keep_done').get()).exists, false);
   assert.equal((await db.doc('paymongoFollowUps/pay_keep_noref').get()).exists, false);
 });
@@ -296,4 +296,28 @@ test('deleting an account with a pre-hardening trial preserves its used identity
   const caller = named(uid, 'legacy-delete-sub', 'legacy-delete@example.test');
   await deleteAccount.run({data: {}, auth: {...caller, token: {...caller.token, auth_time: Math.floor(Date.now() / 1000)}}, app: {appId: 'demo-app'}});
   assert.equal(await trialEligible(named('hard-legacy-recreated', 'legacy-delete-sub', 'legacy-delete@example.test'), db), false);
+});
+
+test('a late pass with a partial refund, then account deletion, then the balance refunded, closes the task', async () => {
+  const {getAuth} = await import('firebase-admin/auth');
+  const {deleteAccount} = await import('../lib/deleteAccount.js');
+  const {revokePaymongoPayment} = await import('../lib/paymongoGrants.js');
+  const uid = 'hard-late-delete';
+  await getAuth().createUser({uid});
+  const afterSitting = Date.parse('2027-03-15T10:00:00Z');
+  assert.equal(await commitPaymongoGrant(db, {uid, eventId: 'evt_late_del', sessionId: 'cs_late_del', paymentId: 'pay_late_del',
+    paidAmount: 49900, product: webProduct('pantas_pass_cse_pro'), paidAt: afterSitting, sitting}, afterSitting + 1000, catalog), 'paidAfterSitting');
+  // An older task without the amount paid: deletion fills it in from the grant.
+  await db.doc('paymongoFollowUps/pay_late_del').update({paidAmount: FieldValue.delete(), uid, extra: 'x'});
+  await revokePaymongoPayment(db, {eventId: 'evt_late_part', paymentId: 'pay_late_del', reason: 'payment.refunded',
+    refunds: [{id: 'ref_part', amount: 10000}]}, afterSitting + 2000);
+  const caller = named(uid, 'late-delete-provider', 'late@example.test');
+  await deleteAccount.run({data: {}, auth: {...caller, token: {...caller.token, auth_time: Math.floor(Date.now() / 1000)}}, app: {appId: 'demo-app'}});
+  const kept = (await db.doc('paymongoFollowUps/pay_late_del').get()).data();
+  assert.equal(kept.paidAmount, 49900);
+  assert.deepEqual(kept.refunds, {ref_part: 10000});
+  for (const key of ['uid', 'product', 'extra', 'activeGrantId']) assert.equal(key in kept, false, key);
+  await revokePaymongoPayment(db, {eventId: 'evt_late_rest', paymentId: 'pay_late_del', reason: 'payment.refunded',
+    refunds: [{id: 'ref_rest', amount: 39900}]}, afterSitting + 3000);
+  assert.equal((await db.doc('paymongoFollowUps/pay_late_del').get()).get('status'), 'refunded');
 });

@@ -4,6 +4,7 @@ import {getStorage} from 'firebase-admin/storage';
 import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
 import {retirePublicId} from './publicId.js';
+import {webProduct} from './paymongoPolicy.js';
 import {clearPassOwnership} from './revenuecatPasses.js';
 import {identityMarkers, identityMarkersForUser} from './webTrial.js';
 
@@ -19,6 +20,27 @@ export type DeletionOptions = {
   requestAuth?: Parameters<typeof assertNamedUser>[0];
   now?: () => number;
 };
+
+const owesRefund = (doc: {get(field: string): unknown}) => doc.get('status') === 'pending' && doc.get('refundRequired') === true;
+
+/**
+ * Rewrites a refund task with only the fields below: no uid, product, exam or other personal
+ * detail. The paid amount and refunds come from the grant when it still exists.
+ */
+async function keepRefundTask(doc: FirebaseFirestore.QueryDocumentSnapshot, now: number,
+  grant: {paidAmount?: unknown; refunds?: unknown} | undefined): Promise<void> {
+  const refunds = {...(grant?.refunds as Record<string, number> | undefined),
+    ...(doc.get('refunds') as Record<string, number> | undefined)};
+  const price = webProduct(doc.get('product'))?.webPricePhp;
+  const paidAmount = doc.get('paidAmount') ?? grant?.paidAmount ?? (price ? price * 100 : undefined);
+  const fields: Record<string, unknown> = {paymentId: doc.get('paymentId') ?? doc.id,
+    sessionId: doc.get('sessionId'), eventId: doc.get('eventId'),
+    paidAmount: typeof paidAmount === 'number' && Number.isFinite(paidAmount) ? paidAmount : undefined,
+    refunds: Object.keys(refunds).length ? refunds : undefined, reason: doc.get('reason'),
+    status: 'pending', refundRequired: true, createdAt: doc.get('createdAt') ?? now};
+  for (const key of Object.keys(fields)) if (fields[key] === undefined) delete fields[key];
+  await doc.ref.set(fields);
+}
 
 /**
  * Deletes everything held for one account, then the Auth user last so that a failed cleanup leaves
@@ -71,6 +93,13 @@ export async function deleteUserData(
   await task.set({destructiveAt: earlier.get('destructiveAt') ?? now}, {merge: true});
   await retirePublicId(db, uid);
   await deleteGuardianRecords(db, uid);
+  // A refund still owed is written first, with the paid amount and the refunds so far, so the
+  // grant ledger can go without losing it. A stop partway leaves the task complete and uid-free.
+  for (const doc of (await db.collection('paymongoFollowUps').where('uid', '==', uid).get()).docs) {
+    if (!owesRefund(doc)) continue;
+    const grant = await userRef.collection('grants').doc(doc.id).get();
+    await keepRefundTask(doc, now, grant.data());
+  }
   // Close pending checkout reservations with the rest of the user tree. The PayMongo
   // client cannot expire hosted links. A payment on one still reaches the refund queue.
   await db.recursiveDelete(userRef);
@@ -82,9 +111,7 @@ export async function deleteUserData(
     const rows = await db.collection(collection).where('uid', '==', uid).get();
     await Promise.all(rows.docs.map((doc) => {
       if (collection === 'paymongoPayments') return doc.ref.set({accountDeleted: true, deletedAt: now});
-      if (collection === 'paymongoFollowUps' && doc.get('status') === 'pending' && doc.get('refundRequired') === true) {
-        return doc.ref.update({uid: FieldValue.delete(), activeGrantId: FieldValue.delete()});
-      }
+      if (collection === 'paymongoFollowUps' && owesRefund(doc)) return keepRefundTask(doc, now, undefined);
       return doc.ref.delete();
     }));
   }

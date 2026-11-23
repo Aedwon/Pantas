@@ -444,3 +444,37 @@ test('a dispute pulls a queued reward forward and a win puts it back', async () 
   assert.equal(reward.startsAt, monthEnd);
   assert.equal(reward.endsAt - reward.startsAt, YEAR);
 });
+
+test('a plan bought while a same-tier plan is disputed is re-chained behind it on a win', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await commitPaymongoGrant(db, payment, now, []);
+  const monthEnd = db.rows.get(`users/${uid}/grants/pay_test`).endsAt;
+  await revokePaymongoPayment(db, {eventId: 'evt_open', paymentId: payment.paymentId, disputeId: 'disp_test',
+    dispute: true, reason: 'dispute.created'}, now + 1000);
+  await commitPaymongoGrant(db, {...payment, eventId: 'evt_week', paymentId: 'pay_week', product: weekly,
+    paidAmount: priceCentavos(weekly), paidAt: now + 2000}, now + 2000, []);
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_week`).startsAt, now + 2000);
+  await resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: payment.paymentId, disputeId: 'disp_test',
+    won: true}, now + 3000);
+  const week = db.rows.get(`users/${uid}/grants/pay_week`);
+  assert.equal(week.startsAt, monthEnd);
+  assert.equal(week.endsAt - week.startsAt, WEEK);
+  assert.equal(coverageEnd(db), monthEnd + WEEK);
+});
+
+test('a dispute won before this branch never revokes and the win is persisted', async () => {
+  const {revokePaymongoPayment} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await commitPaymongoGrant(db, payment, now, []);
+  const path = `users/${uid}/grants/pay_test`;
+  db.rows.set(path, {...db.rows.get(path), disputeId: 'disp_old', disputeResolved: true});
+  await revokePaymongoPayment(db, {eventId: 'evt_open', paymentId: payment.paymentId, disputeId: 'disp_old',
+    dispute: true, reason: 'dispute.created'}, now + 1);
+  assert.equal(db.rows.get(path).state, 'active');
+  assert.equal(db.rows.get(`paymongoRevocations/pay_test`).resolutions.disp_old, 'won');
+  db.rows.delete(`webhookEvents/evt_open/users/${uid}`);
+  await revokePaymongoPayment(db, {eventId: 'evt_open', paymentId: payment.paymentId, disputeId: 'disp_old',
+    dispute: true, reason: 'dispute.created'}, now + 2);
+  assert.equal(db.rows.get(path).state, 'active');
+});

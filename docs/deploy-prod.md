@@ -121,6 +121,10 @@ the launch log:
    has finished. Only then count the PayMongo grants on prod (`users/*/grants` with a PayMongo source). Every one of
    them is a test-mode payment. Save the list privately (account ids are tester data). A count taken earlier can miss
    a test payment that was fulfilled after it.
+1b. **Follow-up alert, before the key switch**: on staging, make one log-based alert in Cloud Logging on the message
+   `payment follow-up created` (severity ERROR). Send it by email to the owner. Trigger it once on staging, for
+   example with a late pass payment through the test webhook. Confirm the email arrives, and log the proof in the
+   launch log. Then make the same alert on prod. Do not do step 2 until both are done.
 2. **Set the live keys** (`PANTAS_PAYMENT_SECRETS`: `sk_live_` key and the live webhook's signing secret), then deploy
    functions with the pinned CLI. The checkout opens by itself once the key is live.
 3. **Revoke the test-mode grants** from step 1 through the grant revocation path (never in the Firestore console),
@@ -136,10 +140,7 @@ the launch log:
    webhook log, and re-deliver it with the signed re-delivery command (`tool/payments/redeliver_payment.mjs`, built in
    the money-path fixes). A payment with no account or a closed account goes to the refund follow-ups. Each morning,
    list open payment follow-ups (`paymongoFollowUps` with status `pending`) and clear each one.
-   Set up the alert once before the first real payment. In Cloud Logging on prod, make one log-based alert on the
-   message `payment follow-up created` (severity ERROR). Send it by email to the owner. Prove it once on staging:
-   create a follow-up there (for example a late pass payment through the test webhook) and confirm the email arrives.
-   Do not go live until the proof is logged in the launch log.
+   The follow-up alert from step 1b must already be live on prod.
 7. **Chargebacks without dispute events**: if step 4 could not register them, check the dashboard's disputes daily
    and revoke a lost dispute's grant through the refund path, as for a manual refund.
 8. **After**: watch the webhook log and the follow-ups for 24 hours.
