@@ -99,14 +99,12 @@ class ReportQueue {
     this._db, {
     ReportSender? sender,
     String? Function()? account,
-    Future<String?> Function()? dataOwner,
     this.maxAttempts = 3,
     Future<void> Function(Duration)? wait,
     String Function()? newId,
     this.retryEvery,
   })  : _sender = sender,
         _account = account ?? (() => null),
-        _dataOwner = dataOwner ?? (() async => null),
         _wait = wait ?? Future<void>.delayed,
         _newId = newId ?? (() => const Uuid().v4());
 
@@ -116,9 +114,6 @@ class ReportQueue {
   /// The account signed in now, or null.
   final String? Function() _account;
 
-  /// The real account the device recorded as owner of its local data. Only
-  /// that account may take over reports queued before accounts were recorded.
-  final Future<String?> Function() _dataOwner;
   final Future<void> Function(Duration) _wait;
   final String Function() _newId;
 
@@ -238,7 +233,7 @@ class ReportQueue {
     int? questionVersion,
     String? expectedAccount,
   ) async {
-    final trimmed = _cut(message.trim());
+    final trimmed = _cut(_clean(message).trim());
     if (trimmed.isEmpty) return (ReportResult.empty, null);
     // A draft belongs to the account that opened it. Another tab may have
     // switched since, and nothing is kept for the new account.
@@ -395,24 +390,12 @@ class ReportQueue {
     if (stored.every(whole)) return stored;
     return _db.transaction(() async {
       final rows = await _read();
-      String? owner;
-      var ownerRead = false;
       for (final row in rows) {
         if (row['id'] is! String) row['id'] = _newId();
-        if (row['accountId'] is String || row['orphan'] == true) continue;
-        // A report from before accounts were recorded goes to the account the
-        // device recorded as owner of its data at this first read, and is
-        // stamped with it for good. Nobody who claims the device later can
-        // take it over. With no owner recorded it is never sent.
-        if (!ownerRead) {
-          owner = await _dataOwner();
-          ownerRead = true;
-        }
-        if (owner != null) {
-          row['accountId'] = owner;
-        } else {
-          row['orphan'] = true;
-        }
+        // A report from before accounts were recorded has no proven owner. It
+        // is never sent, to anyone, and stays on the device until the next
+        // wipe: privacy over recovery.
+        if (row['accountId'] is! String) row['orphan'] = true;
       }
       await _write(rows);
       return rows;
@@ -448,6 +431,31 @@ class ReportQueue {
           orElse: () => ReportState.pending,
         ),
       );
+
+  /// Drops what the server refuses in a message: control characters other
+  /// than tab, line feed and carriage return, and unpaired surrogates.
+  static String _clean(String message) {
+    final units = message.codeUnits;
+    final out = StringBuffer();
+    for (var i = 0; i < units.length; i++) {
+      final unit = units[i];
+      if (unit < 0x20 && unit != 0x09 && unit != 0x0a && unit != 0x0d) continue;
+      if (unit == 0x7f) continue;
+      if (unit >= 0xd800 && unit <= 0xdbff) {
+        final paired = i + 1 < units.length &&
+            units[i + 1] >= 0xdc00 &&
+            units[i + 1] <= 0xdfff;
+        if (!paired) continue;
+        out
+          ..writeCharCode(unit)
+          ..writeCharCode(units[++i]);
+        continue;
+      }
+      if (unit >= 0xdc00 && unit <= 0xdfff) continue;
+      out.writeCharCode(unit);
+    }
+    return out.toString();
+  }
 
   /// At most [maxMessageLength] UTF-16 units, never ending inside a pair.
   static String _cut(String message) {

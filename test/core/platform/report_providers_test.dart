@@ -115,7 +115,7 @@ void main() {
     expect(sender.sent, ['Queued before start', 'Guest second']);
   });
 
-  test('old reports go only to the account the device recorded as owner',
+  test('old reports are never sent, even to the account that owned the device',
       () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -147,7 +147,7 @@ void main() {
     expect(sender.sent, isEmpty);
     auth.add(const AnonymousAuthState(uid: 'owner-a'));
     await _flush();
-    expect(sender.sent, ['Old']);
+    expect(sender.sent, isEmpty);
   });
 
   test('after the container is gone, returning to the app does nothing',

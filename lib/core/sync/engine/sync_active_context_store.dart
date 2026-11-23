@@ -126,6 +126,20 @@ class SyncActiveContextStore {
     });
   }
 
+  /// Puts back a context that [clearStable] forgot, suspended and with its old
+  /// token, so Sync can start again on the same generation instead of making
+  /// a new one. Used when a sign-out that had stopped Sync was refused.
+  Future<void> restoreSuspended(SyncActiveContextSnapshot snapshot) async {
+    final owner = snapshot.rememberedContext;
+    if (owner == null) return;
+    await _writeEnvelope(<String, Object?>{
+      'token': snapshot.token,
+      'uid': owner.uid,
+      'generationId': owner.generationId,
+      'suspended': true,
+    });
+  }
+
   /// Clears the context. A context that is already cleared keeps its token:
   /// every entitlement refresh calls this, and a new token would make
   /// guards that Home and Quiz captured from it fail with no real change.

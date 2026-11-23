@@ -156,13 +156,22 @@ class _ReportFormState extends State<ReportForm> {
       // Saves, then sends. The outcome is this report's own: a refusal (the
       // question's reports used up, even from another device) shows the limit
       // state and never a thank-you.
+      final opened = _openedUnder;
+      if (opened == null) {
+        // Opened with nobody signed in: it can never be submitted.
+        if (mounted) {
+          setState(() => _busy = false);
+          widget.onClose();
+        }
+        return;
+      }
       final submission = await widget.queue.submit(
         widget.questionId,
         _text.text,
         DateTime.now(),
         examId: widget.examId,
         questionVersion: widget.questionVersion,
-        expectedAccount: _openedUnder,
+        expectedAccount: opened,
       );
       final result = submission.result;
       if (result == ReportResult.accountChanged) {

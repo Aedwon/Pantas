@@ -247,7 +247,6 @@ void main() {
         db,
         sender: sender,
         account: () => 'a',
-        dataOwner: () async => 'a',
       );
       ReportDelivery? result;
       await tester.pumpWidget(
@@ -300,7 +299,6 @@ void main() {
         db,
         sender: _Offline(),
         account: () => 'a',
-        dataOwner: () async => 'a',
       );
       ReportDelivery? result;
       await tester.pumpWidget(
@@ -350,7 +348,6 @@ void main() {
         db,
         sender: _Refusing(),
         account: () => 'a',
-        dataOwner: () async => 'a',
       );
       ReportDelivery? result;
       var closed = false;
@@ -402,7 +399,6 @@ void main() {
         db,
         sender: sender,
         account: () => who,
-        dataOwner: () async => 'a',
       );
       var closed = 0;
       await tester.pumpWidget(
@@ -432,6 +428,47 @@ void main() {
       who = 'a';
       expect(await queue.history(), isEmpty);
       who = 'b';
+      expect(await queue.history(), isEmpty);
+    });
+
+    testWidgets(
+        'a form opened with nobody signed in cannot be saved later '
+        '(wide=$wide)', (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = wide ? const Size(1440, 900) : const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Accepting();
+      String? who;
+      final queue = ReportQueue(db, sender: sender, account: () => who);
+      var closed = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: Scaffold(
+            body: ReportForm(
+              questionId: 'q',
+              queue: queue,
+              onClose: () => closed++,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Typed with nobody in.');
+      await tester.pump();
+      // An account signs in (another tab) before Save.
+      who = 'b';
+      await tester.tap(find.text('Save'));
+      await tester.pump();
+      await tester.pump();
+      expect(find.textContaining('Thank you'), findsNothing);
+      expect(closed, 1);
+      expect(sender.sent, isEmpty);
       expect(await queue.history(), isEmpty);
     });
 

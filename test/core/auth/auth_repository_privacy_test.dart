@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth.dart';
 
@@ -87,132 +89,170 @@ void main() {
     );
   });
 
-  test('sign-out blocked by unsent data wipes nothing and signs nobody out',
-      () async {
-    final operations = <String>[];
-    final gateway = PrivacyAuthGateway(
-      operations: operations,
-      currentSession: const AuthSession(uid: 'user-1'),
-    );
-    final repo = AuthRepository(
-      gateway: gateway,
-      googleGateway: PrivacyGoogleGateway(operations: operations),
-      functionsGateway: PrivacyFunctionsGateway(operations: operations),
-      accountTransitionGateway: BlockedSignOutGateway(operations),
-      localStateWiper: RecordingLocalStateWiper(operations),
-    )..beforeIdentityChange = () async {
-        operations.add('clearPayment');
-      };
+  group('sign-out sequence', () {
+    AuthRepository build(
+      List<String> ops, {
+      PrivacyAuthGateway? gateway,
+      Future<void> Function(Future<void> Function() wipe)? guard,
+      Future<void> Function()? stop,
+      Duration limit = const Duration(seconds: 1),
+      AccountTransitionGateway? transition,
+    }) {
+      return AuthRepository(
+        gateway: gateway ??
+            PrivacyAuthGateway(
+              operations: ops,
+              currentSession: const AuthSession(uid: 'user-1'),
+            ),
+        googleGateway: PrivacyGoogleGateway(operations: ops),
+        functionsGateway: PrivacyFunctionsGateway(operations: ops),
+        accountTransitionGateway: transition ?? SendingTransitionGateway(ops),
+        localStateWiper: RecordingLocalStateWiper(ops),
+      )
+        ..beforeIdentityChange = () async {
+          ops.add('clearPayment');
+        }
+        ..stopSyncForWipe = stop ?? _noting(ops, 'stopSync')
+        ..resumeSync = _noting(ops, 'resumeSync')
+        ..syncStopLimit = limit
+        ..signOutWipeGuard = guard ??
+            (wipe) async {
+              ops.add('guard-start');
+              await wipe();
+              ops.add('guard-end');
+            };
+    }
 
-    await expectLater(
-      repo.signOut(),
-      throwsA(
-        isA<AuthGatewayException>()
-            .having((e) => e.code, 'code', 'network-request-failed'),
-      ),
-    );
+    test('send, stop Sync without flushing, guarded wipe, then the rest',
+        () async {
+      final ops = <String>[];
+      await build(ops).signOut();
+      expect(ops, [
+        'prepareForSignOut',
+        'stopSync',
+        'guard-start',
+        'wipeAll',
+        'guard-end',
+        'clearPayment',
+        'signOut',
+        'googleSignOut',
+        'signInAnonymously',
+      ]);
+    });
 
-    expect(operations, ['prepareForSignOut']);
-    expect(gateway.currentSession?.uid, 'user-1');
-  });
-
-  test('online sign-out still wipes, signs out and signs in as a guest',
-      () async {
-    final operations = <String>[];
-    final gateway = PrivacyAuthGateway(
-      operations: operations,
-      currentSession: const AuthSession(uid: 'user-1'),
-    );
-    final repo = AuthRepository(
-      gateway: gateway,
-      googleGateway: PrivacyGoogleGateway(operations: operations),
-      functionsGateway: PrivacyFunctionsGateway(operations: operations),
-      accountTransitionGateway: RecordingAccountTransitionGateway(operations),
-      localStateWiper: RecordingLocalStateWiper(operations),
-    )..beforeIdentityChange = () async {
-        operations.add('clearPayment');
-      };
-
-    await repo.signOut();
-
-    expect(operations, [
-      'clearPayment',
-      'wipeAll',
-      'signOut',
-      'googleSignOut',
-      'signInAnonymously',
-    ]);
-  });
-
-  test('data that became unsent after the check stops the wipe and sign-out',
-      () async {
-    final operations = <String>[];
-    final gateway = PrivacyAuthGateway(
-      operations: operations,
-      currentSession: const AuthSession(uid: 'user-1'),
-    );
-    final repo = AuthRepository(
-      gateway: gateway,
-      googleGateway: PrivacyGoogleGateway(operations: operations),
-      functionsGateway: PrivacyFunctionsGateway(operations: operations),
-      accountTransitionGateway: RecordingAccountTransitionGateway(operations),
-      localStateWiper: RecordingLocalStateWiper(operations),
-    )..signOutWipeGuard = (wipe) async {
-        operations.add('recheck');
-        throw const AuthGatewayException('network-request-failed');
-      };
-
-    await expectLater(
-      repo.signOut(),
-      throwsA(isA<AuthGatewayException>()),
-    );
-
-    expect(operations, ['recheck']);
-    expect(gateway.currentSession?.uid, 'user-1');
-  });
-
-  test('the wipe runs inside the guard on a normal sign-out', () async {
-    final operations = <String>[];
-    final repo = AuthRepository(
-      gateway: PrivacyAuthGateway(
-        operations: operations,
+    test('a refused wipe restarts Sync, leaves Pro alone and signs nobody out',
+        () async {
+      final ops = <String>[];
+      final gateway = PrivacyAuthGateway(
+        operations: ops,
         currentSession: const AuthSession(uid: 'user-1'),
-      ),
-      googleGateway: PrivacyGoogleGateway(operations: operations),
-      functionsGateway: PrivacyFunctionsGateway(operations: operations),
-      accountTransitionGateway: RecordingAccountTransitionGateway(operations),
-      localStateWiper: RecordingLocalStateWiper(operations),
-    )..signOutWipeGuard = (wipe) async {
-        operations.add('guard-start');
-        await wipe();
-        operations.add('guard-end');
-      };
+      );
+      final repo = build(
+        ops,
+        gateway: gateway,
+        guard: (wipe) async {
+          ops.add('guard-start');
+          throw const AuthGatewayException('network-request-failed');
+        },
+      );
 
-    await repo.signOut();
+      await expectLater(
+        repo.signOut(),
+        throwsA(
+          isA<AuthGatewayException>()
+              .having((e) => e.code, 'code', 'network-request-failed'),
+        ),
+      );
 
-    expect(operations.take(3), ['guard-start', 'wipeAll', 'guard-end']);
+      expect(ops, [
+        'prepareForSignOut',
+        'stopSync',
+        'guard-start',
+        'resumeSync',
+      ]);
+      expect(ops, isNot(contains('clearPayment')), reason: 'Pro is untouched');
+      expect(gateway.currentSession?.uid, 'user-1');
+    });
+
+    test('Sync that will not stop in time refuses, restarts and wipes nothing',
+        () async {
+      final ops = <String>[];
+      final repo = build(
+        ops,
+        stop: () {
+          ops.add('stopSync');
+          return Completer<void>().future;
+        },
+        limit: const Duration(milliseconds: 50),
+      );
+
+      await expectLater(
+        repo.signOut(),
+        throwsA(
+          isA<AuthGatewayException>()
+              .having((e) => e.code, 'code', 'network-request-failed'),
+        ),
+      );
+
+      expect(ops, ['prepareForSignOut', 'stopSync', 'resumeSync']);
+    });
+
+    test('a failure while sending leaves Sync alone: nothing was stopped',
+        () async {
+      final ops = <String>[];
+      final repo = build(
+        ops,
+        transition: BlockedSignOutGateway(ops),
+      );
+      await expectLater(repo.signOut(), throwsA(isA<AuthGatewayException>()));
+      expect(ops, ['prepareForSignOut']);
+    });
+
+    test('Free or Pro, a wipe the guard allowed is followed by sign-out',
+        () async {
+      final ops = <String>[];
+      final gateway = PrivacyAuthGateway(
+        operations: ops,
+        currentSession: const AuthSession(uid: 'user-1'),
+      );
+      await build(ops, gateway: gateway).signOut();
+      expect(gateway.currentSession?.isAnonymous, isTrue);
+    });
   });
 
   group('a closed account', () {
-    test('is signed out and wiped even when data is unsent', () async {
-      final operations = <String>[];
-      final gateway = PrivacyAuthGateway(
-        operations: operations,
-        currentSession: const AuthSession(uid: 'closed-1'),
-      );
-      final repo = AuthRepository(
+    AuthRepository build(
+      List<String> ops,
+      PrivacyAuthGateway gateway, {
+      LocalStateWiper? wiper,
+      Future<void> Function()? stop,
+    }) {
+      return AuthRepository(
         gateway: gateway,
-        googleGateway: PrivacyGoogleGateway(operations: operations),
-        functionsGateway: PrivacyFunctionsGateway(operations: operations),
-        accountTransitionGateway: BlockedSignOutGateway(operations),
-        localStateWiper: RecordingLocalStateWiper(operations),
-      )..signOutWipeGuard = (wipe) async {
+        googleGateway: PrivacyGoogleGateway(operations: ops),
+        functionsGateway: PrivacyFunctionsGateway(operations: ops),
+        accountTransitionGateway: BlockedSignOutGateway(ops),
+        localStateWiper: wiper ?? RecordingLocalStateWiper(ops),
+      )
+        ..stopSyncForWipe = stop ?? _noting(ops, 'stopSync')
+        ..resumeSync = _noting(ops, 'resumeSync')
+        ..signOutWipeGuard = (wipe) async {
           throw const AuthGatewayException('network-request-failed');
         };
+    }
 
-      await repo.signOutClosedAccount('closed-1');
+    test('stops Sync first, then wipes and signs out despite unsent data',
+        () async {
+      final ops = <String>[];
+      final gateway = PrivacyAuthGateway(
+        operations: ops,
+        currentSession: const AuthSession(uid: 'closed-1'),
+      );
 
-      expect(operations, [
+      await build(ops, gateway).signOutClosedAccount('closed-1');
+
+      expect(ops, [
+        'stopSync',
         'wipeAll',
         'signOut',
         'googleSignOut',
@@ -221,22 +261,48 @@ void main() {
       expect(gateway.currentSession?.isAnonymous, isTrue);
     });
 
-    test('is ignored when another account is signed in', () async {
-      final operations = <String>[];
-      final gateway = PrivacyAuthGateway(
-        operations: operations,
-        currentSession: const AuthSession(uid: 'someone-else'),
-      );
-      final repo = AuthRepository(
-        gateway: gateway,
-        googleGateway: PrivacyGoogleGateway(operations: operations),
-        functionsGateway: PrivacyFunctionsGateway(operations: operations),
-        localStateWiper: RecordingLocalStateWiper(operations),
+    test('a pull that finishes while Sync stops leaves no data behind',
+        () async {
+      final ops = <String>[];
+      final data = <String>['progress'];
+      final pull = Completer<void>();
+      final wiper = ClearingWiper(ops, data);
+      final repo = build(
+        ops,
+        PrivacyAuthGateway(
+          operations: ops,
+          currentSession: const AuthSession(uid: 'closed-1'),
+        ),
+        wiper: wiper,
+        stop: () async {
+          ops.add('stopSync');
+          // The stop waits for the pull in flight, which writes the revoked
+          // account's data back before it ends.
+          unawaited(
+            Future<void>.delayed(const Duration(milliseconds: 20), () {
+              data.add('restored by the pull');
+              pull.complete();
+            }),
+          );
+          await pull.future;
+        },
       );
 
       await repo.signOutClosedAccount('closed-1');
 
-      expect(operations, isEmpty);
+      expect(data, isEmpty);
+    });
+
+    test('is ignored when another account is signed in', () async {
+      final ops = <String>[];
+      final gateway = PrivacyAuthGateway(
+        operations: ops,
+        currentSession: const AuthSession(uid: 'someone-else'),
+      );
+
+      await build(ops, gateway).signOutClosedAccount('closed-1');
+
+      expect(ops, isEmpty);
       expect(gateway.currentSession?.uid, 'someone-else');
     });
   });
@@ -508,3 +574,43 @@ class OfflineAnonymousGateway extends PrivacyAuthGateway {
     return super.signInAnonymously();
   }
 }
+
+class SendingTransitionGateway implements AccountTransitionGateway {
+  SendingTransitionGateway(this.operations);
+
+  final List<String> operations;
+
+  @override
+  Future<void> prepareForAccountSwitch() async {
+    operations.add('prepareForAccountSwitch');
+  }
+
+  @override
+  Future<void> prepareForDeleteAccount() async {}
+
+  @override
+  Future<void> prepareForSignOut() async {
+    operations.add('prepareForSignOut');
+  }
+}
+
+class ClearingWiper implements LocalStateWiper {
+  ClearingWiper(this.operations, this.data);
+
+  final List<String> operations;
+  final List<String> data;
+
+  @override
+  Future<bool> hasMeaningfulProgress() async => data.isNotEmpty;
+
+  @override
+  Future<void> wipeAll() async {
+    operations.add('wipeAll');
+    data.clear();
+  }
+}
+
+Future<void> Function() _noting(List<String> operations, String what) =>
+    () async {
+      operations.add(what);
+    };

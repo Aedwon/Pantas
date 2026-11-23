@@ -30,7 +30,6 @@ ReportQueue _queue(
   AppDatabase db,
   ReportSender? sender, {
   String? Function()? account,
-  Future<String?> Function()? owner,
   int attempts = 3,
   List<Duration>? waits,
   String Function()? newId,
@@ -40,7 +39,6 @@ ReportQueue _queue(
     db,
     sender: sender,
     account: account ?? () => 'acct-a',
-    dataOwner: owner ?? () async => 'acct-a',
     maxAttempts: attempts,
     wait: (d) async => waits?.add(d),
     newId: newId ?? () => 'report-id-${n++}'.padRight(20, '0'),
@@ -380,7 +378,6 @@ void main() {
         db,
         sender: sender,
         account: () => who,
-        dataOwner: () async => 'acct-a',
         newId: () => 'report-id-0000000000000001',
         // The student switches accounts while the retry waits.
         wait: (_) async => who = 'acct-b',
@@ -478,7 +475,7 @@ void main() {
     });
   });
 
-  group('reports queued before this change', () {
+  group('reports queued before accounts were recorded', () {
     final old = [
       {
         'questionId': 'q1',
@@ -492,152 +489,91 @@ void main() {
       },
     ];
 
-    test('they read, get ids that stay, and count as pending', () async {
-      final db = inMemoryDatabase();
-      addTearDown(db.close);
-      await _storeRaw(db, old);
-      final queue = _queue(db, null);
-      final first = await queue.pending();
-      expect(first.map((r) => r.message), ['Old one', 'Old two']);
-      expect(first.map((r) => r.id).toSet(), hasLength(2));
-      expect(first.every((r) => r.examId == null), isTrue);
-      expect(first.every((r) => r.questionVersion == null), isTrue);
-      // A second queue on the same data sees the same ids: they were stored.
-      final again = await _queue(db, null).pending();
-      expect(again.map((r) => r.id), first.map((r) => r.id));
-      expect(
-        (await _readRaw(db)).every((r) => (r as Map).containsKey('id')),
-        isTrue,
-      );
-    });
-
-    test('they go to the account the device recorded as their owner', () async {
+    test('no account, in any order, ever sends them', () async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       await _storeRaw(db, old);
       final sender = _Sender();
-      final queue = _queue(db, sender, owner: () async => 'acct-a');
-      expect((await queue.pending()).map((r) => r.accountId), [
-        'acct-a',
-        'acct-a',
-      ]);
-      expect(await queue.sendPending(), 0);
-      expect(sender.sent, hasLength(2));
-    });
-
-    test('on a shared device the next account never inherits or sends them',
-        () async {
-      final db = inMemoryDatabase();
-      addTearDown(db.close);
-      await _storeRaw(db, old);
-      final sender = _Sender();
-      // Account A used this device. Account B opens the upgraded app first.
-      final queue = _queue(
-        db,
-        sender,
-        account: () => 'acct-b',
-        owner: () async => 'acct-a',
-      );
-      expect(await queue.pending(), isEmpty);
-      expect(await queue.sendPending(), 0);
+      String? who;
+      final queue = _queue(db, sender, account: () => who);
+      for (final next in [null, 'acct-a', 'acct-b', 'acct-a', null]) {
+        who = next;
+        expect(await queue.pending(), isEmpty, reason: '$next');
+        expect(await queue.sendPending(), 0, reason: '$next');
+        await queue.purgeOtherAccounts(next ?? 'acct-a');
+      }
       expect(sender.calls, 0);
-      // Stamped with the owner as recorded at the first read, not with B.
+    });
+
+    test('they stay on the device, with ids, until the wipe', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _storeRaw(db, old);
+      final queue = _queue(db, _Sender());
+      await queue.pending();
       final raw = await _readRaw(db);
       expect(raw, hasLength(2));
-      expect(raw.every((r) => (r as Map)['accountId'] == 'acct-a'), isTrue);
-      final mine = await queue.add('q9', 'Mine', DateTime(2026, 11, 23));
-      expect(mine, ReportResult.queued);
-      await queue.sendPending();
-      expect(sender.sent.map((r) => r.message), ['Mine']);
-    });
-
-    test('with no recorded owner they are never adopted or sent', () async {
-      final db = inMemoryDatabase();
-      addTearDown(db.close);
-      await _storeRaw(db, old);
-      final sender = _Sender();
-      final queue = _queue(db, sender, owner: () async => null);
-      expect(await queue.sendPending(), 0);
-      expect(sender.calls, 0);
-    });
-
-    test('the owner is frozen at the first read: a later claim adopts nothing',
-        () async {
-      final db = inMemoryDatabase();
-      addTearDown(db.close);
-      await _storeRaw(db, old);
-      String? owner;
-      final sender = _Sender();
-      String? who = 'acct-a';
-      final queue = _queue(
-        db,
-        sender,
-        account: () => who,
-        owner: () async => owner,
+      expect(raw.every((r) => (r as Map)['id'] is String), isTrue);
+      expect(raw.every((r) => !(r as Map).containsKey('accountId')), isTrue);
+      expect(raw.map((r) => (r as Map)['message']), ['Old one', 'Old two']);
+      // Stable: a second queue sees the same ids.
+      final again = await _readRaw(db);
+      await _queue(db, null).pending();
+      expect(
+        (await _readRaw(db)).map((r) => (r as Map)['id']),
+        again.map((r) => (r as Map)['id']),
       );
-      // First read after the upgrade: no owner was recorded.
-      expect(await queue.pending(), isEmpty);
-      // Account B signs in and claims the device. Then account A, too.
-      owner = 'acct-b';
-      who = 'acct-b';
-      expect(await queue.pending(), isEmpty);
-      expect(await queue.sendPending(), 0);
-      owner = 'acct-a';
-      who = 'acct-a';
-      expect(await queue.pending(), isEmpty);
-      expect(await queue.sendPending(), 0);
-      expect(sender.calls, 0);
     });
 
-    test('an owner recorded at the first read is kept when the owner changes',
-        () async {
-      final db = inMemoryDatabase();
-      addTearDown(db.close);
-      await _storeRaw(db, old);
-      String? owner = 'acct-a';
-      String? who = 'acct-a';
-      final sender = _Sender();
-      final queue = _queue(
-        db,
-        sender,
-        account: () => who,
-        owner: () async => owner,
-      );
-      expect(await queue.pending(), hasLength(2));
-      owner = 'acct-b';
-      who = 'acct-b';
-      expect(await queue.pending(), isEmpty);
-      who = 'acct-a';
-      expect(await queue.pending(), hasLength(2));
-    });
-
-    test('they send, once, then keep counting', () async {
+    test('they do not count against a new report or block it', () async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       await _storeRaw(db, old);
       final sender = _Sender();
       final queue = _queue(db, sender);
-      expect(await queue.sendPending(), 0);
-      expect(sender.sent.map((r) => r.message), ['Old one', 'Old two']);
-      expect(sender.sent.first.examId, isNull);
-      final at = DateTime(2026, 11, 20, 11);
-      expect(await queue.add('q1', 'new', at), ReportResult.queued);
-      expect(await queue.add('q1', 'new', at), ReportResult.questionLimit);
+      final now = DateTime(2026, 11, 20, 11);
+      for (var i = 0; i < 3; i++) {
+        expect(await queue.add('q1', 'new $i', now), ReportResult.queued);
+      }
+      expect(await queue.add('q1', 'fourth', now), ReportResult.questionLimit);
+      await queue.sendPending();
+      expect(sender.sent.map((r) => r.message), ['new 0', 'new 1', 'new 2']);
     });
+  });
 
-    test('an old message over the maximum is cut when it is sent', () async {
+  group('what a message may hold', () {
+    test('control characters and lone surrogates are removed, text kept',
+        () async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
-      await _storeRaw(db, [
-        {
-          'questionId': 'q1',
-          'message': 'x' * 3000,
-          'createdAt': DateTime(2026, 11, 20, 9).toIso8601String(),
-        },
-      ]);
-      final sender = _Sender();
-      await _queue(db, sender).sendPending();
-      expect(sender.sent.single.message, hasLength(1000));
+      final queue = _queue(db, null);
+      await queue.add(
+        'q',
+        'Two\u0000 answers\u0001 look\u007f right\ud800.\nLine\ttwo',
+        DateTime(2026, 11, 23),
+      );
+      expect(
+        (await queue.pending()).single.message,
+        'Two answers look right.\nLine\ttwo',
+      );
+    });
+
+    test('a message that is only control characters is empty', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue = _queue(db, null);
+      expect(
+        await queue.add('q', '\u0000\u0001 ', DateTime(2026, 11, 23)),
+        ReportResult.empty,
+      );
+    });
+
+    test('emoji and combining marks are kept', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue = _queue(db, null);
+      await queue.add('q', 'ok \u{1F600} e\u0301', DateTime(2026, 11, 23));
+      expect((await queue.pending()).single.message, 'ok \u{1F600} e\u0301');
     });
   });
 }

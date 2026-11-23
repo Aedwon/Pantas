@@ -644,7 +644,9 @@ void main() {
 
   testWidgets('report opens the existing form and recolors after queued send',
       (tester) async {
-    await pump(tester);
+    final container = await pump(tester);
+    // The app listens to the account from start; here the form reads it.
+    await container.read(authStateProvider.future);
     await tester.tap(find.byTooltip('Report a question'));
     await tester.pumpAndSettle();
     await tester.enterText(

@@ -26,11 +26,13 @@ export const MAX_REPORT_MESSAGE = 1000;
 export const MAX_PER_QUESTION = 3;
 export const MAX_PER_DAY = 20;
 /**
- * Every field is already bounded; this caps the sum. A valid request is at most about 530 bytes of
- * fixed fields plus the message, so messages up to 1000 characters of 2 bytes each fit, and a
- * message of 3-byte characters (for example CJK) fits up to about 670 characters.
+ * Every field is already bounded; this caps the sum, and refuses a huge request before any field is
+ * looked at. It must accept every valid request. The message holds at most 1000 UTF-16 units and no
+ * control characters except tab, line feed and carriage return, and no lone surrogates, so JSON
+ * spends at most 3 bytes on a unit (a 3-byte character, a pair at 2 per unit, an escaped quote or
+ * backslash at 2, a newline at 2). That is 3000 bytes. The other fields add at most about 550.
  */
-export const MAX_REQUEST_BYTES = 2560;
+export const MAX_REQUEST_BYTES = 3600;
 
 /**
  * Every report is deleted this long after the server received it, by a Firestore TTL policy on
@@ -40,6 +42,7 @@ export const MAX_REQUEST_BYTES = 2560;
  */
 export const REPORT_RETENTION_DAYS = 85;
 
+const LONE_SURROGATE = /[\ud800-\udbff](?![\udc00-\udfff])|(?<![\ud800-\udbff])[\udc00-\udfff]/;
 const REPORT_ID = /^[A-Za-z0-9_-]{16,64}$/;
 const BUILD = /^[A-Za-z0-9._-]{1,40}$/;
 const KEYS = ['reportId', 'accountId', 'questionId', 'questionVersion', 'examId', 'message', 'build'];
@@ -77,6 +80,9 @@ export function validateQuestionReport(data: unknown): QuestionReportInput {
   if (d.examId !== undefined && (typeof d.examId !== 'string' || d.examId.length > 64 || !ID_PATTERN.test(d.examId))) bad('examId');
   // The raw length is checked first: trimming must not let padding hide the size.
   if (typeof d.message !== 'string' || d.message.length > MAX_REPORT_MESSAGE) bad('message');
+  // No control characters but tab, line feed and carriage return, and no lone surrogates: JSON would
+  // spend 6 bytes on each, and none belongs in a student's note.
+  if (/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(d.message as string) || LONE_SURROGATE.test(d.message as string)) bad('message');
   const message = (d.message as string).trim();
   if (message.length < 1) bad('message');
   if (typeof d.build !== 'string' || !BUILD.test(d.build)) bad('build');
@@ -116,10 +122,10 @@ const limiter = new RateLimiter(30);
  * known without reading the report, and a valid request over a limit is refused early.
  *
  * Firestore cost. Rejected before any read (bad input, wrong account, signed out, over the burst
- * limit): 0 reads, 0 writes. Over the daily limit: 1 read (the day counter). Over a question's
- * limit: 2 reads (day, question). A retry of a stored report: 3 reads (day, question, report), 0
- * writes. A new report: 5 reads (day, question, report, deletion marker, consent) and 3 writes
- * (the report and both counters).
+ * limit): 0 reads, 0 writes. Every other request first reads the deletion marker and the consent
+ * (2 reads), so a closed account is always told so. Then over the daily limit: 3 reads in all.
+ * Over a question's limit: 4. A retry of an accepted report: 5, 0 writes. A new report: 5 reads
+ * (marker, consent, day, question, report) and 3 writes (the report and both counters).
  */
 export async function storeQuestionReport(request: Pick<CallableRequest, 'auth' | 'data'>, deps: Deps) {
   if (!request.auth) throw new HttpsError('unauthenticated', 'Authentication is required.');
@@ -136,6 +142,11 @@ export async function storeQuestionReport(request: Pick<CallableRequest, 'auth' 
   const dayRef = deps.db.doc(`users/${uid}/server/questionReportDay`);
   const ids = (value: unknown): string[] => Array.isArray(value) ? value.filter((id): id is string => typeof id === 'string') : [];
   await deps.db.runTransaction(async tx => {
+    // First, before any answer: a closed account gets that answer and nothing else, whatever its
+    // quota or retries would have said.
+    const [deletion, consent] = await tx.getAll(deps.db.doc(`accountDeletions/${uid}`),
+      deps.db.doc(`users/${uid}/server/guardianConsent`));
+    if (deletion.exists || consent.get('status') === 'withdrawn') throw accountClosed();
     const now = (deps.now ?? Date.now)(), today = manilaDate(now);
     const day = await tx.get(dayRef);
     const sameDay = day.get('day') === today;
@@ -155,9 +166,9 @@ export async function storeQuestionReport(request: Pick<CallableRequest, 'auth' 
       if (!same) throw new HttpsError('already-exists', 'This report id was used for another report.', {reason: 'report-id-reused'});
       return;
     }
-    const [deletion, consent] = await tx.getAll(deps.db.doc(`accountDeletions/${uid}`),
-      deps.db.doc(`users/${uid}/server/guardianConsent`));
-    if (deletion.exists || consent.get('status') === 'withdrawn') throw accountClosed();
+    // Accepted before, and the document is gone (the TTL or the sweep removed it): the retry is
+    // answered, and nothing is written back.
+    if (known) return;
     tx.set(reportRef, {
       accountId: uid, questionId: report.questionId, questionVersion: report.questionVersion,
       examId: report.examId, message: report.message, build: report.build, createdAt: Timestamp.fromMillis(now),

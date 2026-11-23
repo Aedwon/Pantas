@@ -224,6 +224,9 @@ class RecordingSurface implements SyncRuntimeSurface {
   }
 
   @override
+  Future<void> resume() async {}
+
+  @override
   Future<void> forceFlush() async {
     forceFlushCalls += 1;
     if (failFlush) throw StateError('offline');

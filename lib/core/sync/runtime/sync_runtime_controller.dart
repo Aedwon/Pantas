@@ -112,6 +112,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
   int? _awaitingClaimToken;
   bool _activeSync = false;
   Timer? _bootstrapRetry;
+  SyncActiveContextSnapshot? _resumeSnapshot;
 
   SyncStatus get status => _status;
 
@@ -189,6 +190,7 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     bool forceClaim = true,
   }) async {
     final token = ++_transitionToken;
+    _resumeSnapshot = null;
     _identity = identity;
     _entitlement = entitlement;
     _cancelBootstrapRetry();
@@ -234,6 +236,31 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         forceClaim: forceClaim,
       );
     });
+  }
+
+  /// Starts Sync again for the account it last ran for, after [quiesce] stopped
+  /// it for a sign-out that was then refused. With no account yet it does
+  /// nothing.
+  Future<void> resume() {
+    final identity = _identity;
+    final entitlement = _entitlement;
+    if (identity == null || entitlement == null) return Future<void>.value();
+    final held = _resumeSnapshot;
+    _resumeSnapshot = null;
+    return _resumeFrom(held, identity, entitlement);
+  }
+
+  Future<void> _resumeFrom(
+    SyncActiveContextSnapshot? held,
+    SyncIdentity identity,
+    SyncEntitlement entitlement,
+  ) async {
+    if (held != null) await _activeContextStore.restoreSuspended(held);
+    return _restart(
+      identity: identity,
+      entitlement: entitlement,
+      forceClaim: false,
+    );
   }
 
   /// Back Up Now and Try Again. A running Sync flushes. A Sync that stopped
@@ -291,6 +318,9 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
     final shouldFlush = flush && _activeSync;
     _pendingReconciliation = null;
     _emit(const SyncOff());
+    // Kept so [resume] can start on the same generation if the sign-out that
+    // stopped Sync is refused.
+    _resumeSnapshot = await _activeContextStore.readSnapshot();
     await _activeContextStore.clearStable();
 
     return _enqueue(() async {

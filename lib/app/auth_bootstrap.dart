@@ -78,8 +78,6 @@ List<Override> authRepositoryOverrides(
               // wrote them before its data is wiped.
               flushReports: () => ref.read(reportQueueProvider).sendPending(),
               flushNow: () => ref.read(syncRuntimeProvider).forceFlush(),
-              // Sign-out and an account switch wipe this device. They stop
-              // while study changes or reports are still unsent.
               hasUnsentData: unsent,
             ),
         localStateWiper: localStateWiperBuilder?.call(ref) ??
@@ -90,8 +88,13 @@ List<Override> authRepositoryOverrides(
                   deleteCustomContentExams(ref.read(contentDatabaseProvider)),
             ),
       )
-        // Checked again inside the wipe's own transaction, so nothing written
-        // after the first check can be deleted.
+        // Sync stops, without flushing, before the wipe; it starts again for
+        // the same account if sign-out or a switch is refused.
+        ..stopSyncForWipe =
+            (() => ref.read(syncRuntimeProvider).quiesce(flush: false))
+        ..resumeSync = (() => ref.read(syncRuntimeProvider).resume())
+        // The unsent check and the wipe share one transaction, so nothing
+        // written after the check can be deleted.
         ..signOutWipeGuard = (wipe) => wipeUnlessUnsent(
               ref.read(appDatabaseProvider),
               hasUnsent: unsent,
