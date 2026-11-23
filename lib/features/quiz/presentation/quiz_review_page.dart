@@ -273,6 +273,7 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
             ),
             onReload: _retry,
             onBack: _back,
+            examId: _examId,
             onNote: _save,
             onReport: (question) => openQuestionReport(
               context,
@@ -314,6 +315,7 @@ class FlaggedQuestionViewerPage extends ConsumerWidget {
         }
         return QuizQuestionViewer(
           key: ValueKey('$examId:$questionId'),
+          examId: examId,
           questions: [for (final row in rows) row.question],
           items: const [],
           subjectNames: {

@@ -18,6 +18,7 @@ import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/report_bar.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -646,9 +647,12 @@ void main() {
       'This choice is missing a unit.',
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Save'));
+    await tester.tap(find.text('Send'));
     await tester.pumpAndSettle();
-    await tester.pump(const Duration(milliseconds: 2300));
+    // The bar thanks the student, then gives the bar back; the icon turns
+    // teal as the bar returns.
+    await tester.pump(reportNoticeHold);
+    await tester.pump(const Duration(milliseconds: 700));
     await tester.pumpAndSettle();
     final report = find.byTooltip('Report a question');
     final theme = tester.widget<IconTheme>(
