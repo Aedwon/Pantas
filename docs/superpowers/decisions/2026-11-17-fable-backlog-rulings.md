@@ -438,6 +438,13 @@ Council (Aedwon, Nov 23, relayed by the manager): for a build-versus-board diffe
 
 - Superseded, Nov 23 (CSE release lead): C1 and C2 were judged against the Nov 1 export of RD_Real. The same day the reference canvases were updated (`docs/superpowers/verification/2026-11-23-reference-canvas-folds.md`): the approved reader Polish C replaced RD_Real and W_Reader. Polish C draws the topic as one 15 px secondary line in sentence case, 8 px above the title, which is the build's "A". The build follows Polish C; the caps eyebrow and the shortened topic are removed (`qa/no-part-label-r1` 3119169d5). Mistake: the lead had the workers build from the Nov 1 export instead of the live canvases. Fix: every brief now points at the live Pantas Web and Pantas Redesign canvases and says to re-read the board before building.
 
+### C3. Sign-out with unsent data (state no board draws) (Fable 5.2, Nov 23)
+
+- Found by the Codex audit of report sending (PR #86): sign-out runs a send bounded to 2 seconds, then the local wipe; anything unsent "is lost with the wipe, as before". The dialog says only "Sign out? Your progress is saved to your account."
+- Ruling, verbatim: "Block sign-out before the wipe when unsent data cannot be sent, reusing the existing connection message; defer option 4 and any \"sign out anyway\" escape to a board. Fix the Free-tier dialog copy before launch, because it is untrue."
+- Reasons: silent loss fails "no risks"; blocking is recoverable, lost answers are not; the existing line "You need a connection to sign out." needs no new board. Possible worse bug to confirm: the wipe may run before the network steps, so offline sign-out could delete data and then show the error.
+- Applied in T2 (`qa/report-send-r1`), with the Free-tier copy settled by the lead under rule 4.
+
 ## Nov 23, lesson reader full screen on wide web (UX design lead)
 
 Brief: the operations manager, for Aedwon (away, decisions delegated). His words, Nov 23: "I trust you, please do not disappoint me. be ambitious with the UI/UX for it to deliver the best experience in its category" and "in the full screen for lesson view, you might want to hide completely the sections on the left, and use the entire width. you can also reposition some figures, like say, illustrations, to be on a separate column at the right immediately to its connected line of explanatory text. this is just an idea though. you could have better ideas. hill climb on this". Standing: "i do not like wordy UI. if you can compress text, do it. I like clean, intuitive, elegant, and satisfying (in terms of motion and animations) UI/UX".
@@ -480,13 +487,6 @@ Council (Gemini 4 Neon High, Fable 5.2 high):
 Ruling: build B2, B4, B3, B5, B1 in that order per `docs/superpowers/specs/2026-11-23-core-loops-polish-design.md`. Copy in B5 settled by the lead under D191: the two bar hints removed; "Tell Pantas why you got each one wrong. The better your notes, the more every review helps." becomes "Note why you missed each one." in the session end and the mock review; "Finish the Notes" stays (July 27 choice).
 
 Process note: the board worker hit the Claude 5-hour limit mid-task (Nov 23, about 7:25 PM to 9:40 PM Manila) and was resumed after the reset; no work was lost.
-
-### C3. Sign-out with unsent data (state no board draws) (Fable 5.2, Nov 23)
-
-- Found by the Codex audit of report sending (PR #86): sign-out runs a send bounded to 2 seconds, then the local wipe; anything unsent "is lost with the wipe, as before". The dialog says only "Sign out? Your progress is saved to your account."
-- Ruling, verbatim: "Block sign-out before the wipe when unsent data cannot be sent, reusing the existing connection message; defer option 4 and any \"sign out anyway\" escape to a board. Fix the Free-tier dialog copy before launch, because it is untrue."
-- Reasons: silent loss fails "no risks"; blocking is recoverable, lost answers are not; the existing line "You need a connection to sign out." needs no new board. Possible worse bug to confirm: the wipe may run before the network steps, so offline sign-out could delete data and then show the error.
-- Applied in T2 (`qa/report-send-r1`), with the Free-tier copy settled by the lead under rule 4.
 
 ## Nov 23, legal round 2 product decisions
 
