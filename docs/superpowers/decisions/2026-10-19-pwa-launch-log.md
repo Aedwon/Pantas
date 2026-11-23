@@ -4183,3 +4183,9 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
   fixes, a cutover step for test-mode grants, and dispute-event registration or a chargeback runbook); seven groups in
   the hardened scope before public launch; native-billing items before any store build. One item needs a Fable ruling
   (how a plan queues behind a pass for another exam). Fixes go to the CSE release lead (build owner).
+
+### Nov 23, prod warm-up stopped on time (security and billing lead, r2)
+
+- The keep-warm job's last warm-up calls to the 11 callables were at 15:58 UTC; none after the 16:00 UTC stop in code
+  (prod request logs, OPTIONS from 15:30 UTC to 19:30 UTC). The scheduled job still runs and returns early, as designed.
+- `node tool/checks/free_tier.mjs` at main 5fe25ecf4: passed.
