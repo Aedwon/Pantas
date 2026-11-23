@@ -416,3 +416,15 @@ Gate work in total: about 3 days of lane time, one board state, and his facts.
 - Checklist row L7 says a Terms version bump asks existing students to accept again. It does not (README, "Where the app and the text disagree"). D5 replaces that with the notice, the email and acceptance at purchase.
 - The README's D1 option B said checkout needs D2 before the flag can go. It does not (checks 3 and 4).
 - The README did not carry the live Terms' 14-day notice promise for today's accounts (check 9).
+
+## Nov 23, CSE release UX council rulings
+
+Council (Aedwon, Nov 23, relayed by the manager): for a build-versus-board difference where it is unclear which is better, Gemini 4 Neon High (through agy) and a Fable 5.2 high agent judge independently, given the board, the build at phone and wide widths, and his guidance: "i do not like wordy UI. if you can compress text, do it. I like clean, intuitive, elegant, and satisfying (in terms of motion and animations) UI/UX". If they agree, that is the ruling; if they split, Fable's call is final.
+
+### C1. Phone lesson reader topic line: B, the board's eyebrow (RD_Real)
+
+- Question: above the lesson title, A (the build since Nov 5: topic in sentence case, 15 px, regular, gray) or B (board RD_Real: 13 px all caps, weight 600, .04 em, 8 px above the title). No record of Aedwon approving A exists; a Nov 5 test comment cites "QA 2F-23" with no source.
+- Fable 5.2: B. "Clearer hierarchy with less visual weight" (A reads like a second, weaker title); B is the approved design.
+- Gemini 4 Neon High: B. "Clearer student hierarchy" and "cleaner, tighter craft" at 13 px with an 8 px gap.
+- Ruling: B. Condition both named: switch to A if real topic names wrap to two lines in caps at 390 px; the T3 review checks the longest CSE topic name.
+- Applied in T3 (`qa/no-part-label-r1`). Wide web keeps the topic at 15 px per W_Reader.
