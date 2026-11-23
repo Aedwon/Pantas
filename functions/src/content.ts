@@ -9,6 +9,7 @@ import {allowAtMost, takeAtMost} from './_limits.js';
 import {mockCoverage} from './mockAccess.js';
 import {examCatalog} from './revenuecatPasses.js';
 import {timed} from './_timed.js';
+import {mergeProNotes} from './_proNotes.js';
 
 /**
  * Limits on getContent. Aedwon approved this design on 2 November 2026; the numbers may be tuned.
@@ -185,14 +186,7 @@ async function build(db: Firestore, kind: 'lessons' | 'questions' | 'catalog', c
     const proSnapshot = await db.doc(`contentPro/${id}`).get();
     if (proSnapshot.exists) {
       const notes = JSON.parse(String(proSnapshot.get('payload'))) as Record<string, (string | null)[]>;
-      for (const question of set.questions) {
-        const forQuestion = notes[question.id];
-        if (!forQuestion || !question.choices) continue;
-        question.choices.forEach((choice, index) => {
-          const note = forQuestion[index];
-          if (typeof note === 'string') choice.rationale = note;
-        });
-      }
+      mergeProNotes(set.questions, notes);
     }
   }
   return {status: 'ok', version, data: {id, meta: set.meta, questions: set.questions, passages: set.passages ?? []}};

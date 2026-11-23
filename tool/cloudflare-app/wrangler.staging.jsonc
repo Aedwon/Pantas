@@ -15,5 +15,6 @@
     "run_worker_first": ["/__/*"]
   },
   // Staging's firebaseapp.com host is the Wrapped site, which has no web app config; the app site is.
+  "observability": {"enabled": true, "head_sampling_rate": 1},
   "vars": {"FIREBASE_ORIGIN": "https://pantas-staging-app.web.app"}
 }

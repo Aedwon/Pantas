@@ -53,10 +53,15 @@ pass 15, retire or merge one first.
    the approved screens in the Pantas Web and Pantas Redesign canvases (exported copies in
    `web-design/pantas-handoff/`). Never hand-draw a local HTML board or redraw a screen from
    widget code. No check can judge fidelity: he does the visual check.
-4. Do not ask Aedwon to decide in-app copy that sits in a layout or component he already
-   approved (a Dialog's title and text, a caption, a button label). The lead settles it under
-   his delegation (D191), following the voice rules in `AGENTS.md`, records it, and tells him
-   the wording. Website copy stays his. No check can tell a copy choice from a layout choice.
+4. Do not ask Aedwon anything an approved board, spec or ruling already answers. That
+   includes layout, motion, controls, and in-app copy inside an approved layout (a Dialog's
+   title and text, a caption, a button label). Build to the board. The lead settles copy
+   under his delegation (D191), following the voice rules in `AGENTS.md`, records it, and
+   tells him the wording. A state no board draws goes to a Fable 5.2 ruling first. It goes
+   to him only if it is a new screen state or is reserved to him. Website copy stays his.
+   Before a lead or the manager puts any question to him, they search the boards, the specs
+   and the rulings files for an answer and name what they searched. No check can tell a
+   decided question from an open one.
 
 5. Never ask Aedwon to write legal or policy text (terms, privacy notices, legal bases,
    consent or refund wording). First search `docs/legal/`, `docs/legal-drafts/`, the app's
@@ -117,6 +122,20 @@ pass 15, retire or merge one first.
    holds the prod "ship it" until the email has gone.
 
 ## Entries
+
+### Claude 5-hour limit hit with three Opus leads running (Nov 23)
+
+- Words: none from Aedwon. His standing words: "mind my usage, limits in my PC" (Nov 22). The limit message: "You've hit your 5-hour limit · resets 9:40pm (Asia/Manila)".
+- Wrong: at 7:25 PM Manila, every lead stopped. Three Opus leads were working (CSE release, UX ambition, and security running the money-path audit with a Fable verifier). The manager's own Sonnet workers and a Fable ruling ran at the same time. About 2 hours 15 minutes of work stopped.
+- Why it got through: the manager counted the security lead as "the short task" after giving it the audit, which is not short. The manager did not count its own workers against the cap.
+- Fix (required manager step): at most 2 Opus leads do real work at once. A third lead waits until one is idle or has handed off. The manager's own workers and Fable rulings count as the one short task. After a limit stop, the heartbeat resumes each lead once the reset time passes, and checks its workers for partial changes.
+
+### Boards built as options for questions the approved boards already answered (Nov 23)
+
+- His words (relayed by the manager): "why are you asking me things that have been decided before?" and "isn't there a reference/boards already for the UI? including animations? are you kidding me?" Then: "i spent a lot of time going through those boards. every single animation. every single detail. and then it was not implemented properly, and now you're asking me again to decide?"
+- Wrong: the CSE release lead turned three settled UI questions into picks on the "CSE Release Picks" canvas: the report bar morph (the approved QN_Report boards already draw it, with timing), borderless Cancel and Close (the boards already draw the sizes and where no Close exists; option A was simply "match the boards"), and the checkout tick (a Fable D2 ruling already recommended it, matching the approved guardian box). It then sent them up again as open picks, and the manager relayed them to him twice without checking.
+- Why it got through: the manager's request said "options for him to pick", and the lead built options without first asking whether an approved board, spec or ruling already decided each one. His findings were that the build does not match the boards, so the boards were the answer, not a question.
+- Fix (required step for any lead, before any UI question reaches Aedwon): check the approved boards (Pantas Redesign, Pantas Web, later approved canvases), the spec and the rulings. If any of them answers it, build to it and say which source in one line. Only a state that no board draws is escalated, and it goes to a Fable 5.2 ruling first, not to Aedwon. The same search is a required manager step before relaying any question, and written rule 4 now covers layout and motion, not only copy. Second required step, for "not implemented properly": every UI task names the boards it built from, and before it counts as done a reviewer compares the build side by side with them at phone and wide widths, including motion timing and easing. Each difference is classed (his Nov 23 refinement): build worse, fix it to the board; build better, keep it and update the reference canvas; unsure, a council of Gemini 4 Neon High (or GPT 6.2 Sol High through codex-pick) and Fable 5.2 decides, with Fable final on a split. His guidance for the council: no wordy UI, compress text, clean, intuitive, elegant, satisfying motion. The approved spec is Pantas Web (https://claude.ai/artifact/4mUpC5apRsMhtQDg5VVjx8), Pantas Redesign (https://claude.ai/artifact/M1hptDwMLUcuGxSAGescHi) and, for checkout, Guardian Manage and Minor Checkout (https://claude.ai/artifact/VhNW1aCxSs5sF48XMQZLAQ). Applied: sections 2, 3 and 4 are built to the boards and the D2 ruling.
 
 ### A Claude worker started four more workers past the 2-worker cap (Nov 22)
 

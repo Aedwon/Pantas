@@ -62,7 +62,7 @@ for (const state of Object.keys(fixtures)) {
     const db = context(state).firestore(), batch = writeBatch(db);
     // Enough rows to expose uncached per-write access calls exceeding the 20-call batch budget.
     for (let i = 0; i < 10; i++) batch.set(doc(db, `users/${uidFor(state)}/sync_generations/active/lesson_progress/new-${i}`), {
-      lessonId: `lesson-${i}`, readAt: new Date(), updatedAt: serverTimestamp(), originDeviceId: 'device',
+      lessonId: `lesson-${i}`, readAt: new Date().toISOString(), updatedAt: serverTimestamp(), originDeviceId: 'device',
       mutationId: `mutation-${i}`, schemaVersion: 1, deleted: false,
     });
     await check(batch.commit());

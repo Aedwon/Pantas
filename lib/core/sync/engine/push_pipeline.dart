@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart' show FirebaseException;
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/engine/pending_queue.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
@@ -24,6 +25,7 @@ class PushPipeline {
     required SyncPayloadLoader loadPayload,
     required PushResultHandler handleResult,
     DateTime Function()? now,
+    this.onPermissionDenied,
   })  : _queue = queue,
         _gateway = gateway,
         _uid = uid,
@@ -43,6 +45,12 @@ class PushPipeline {
   final SyncPayloadLoader _loadPayload;
   final PushResultHandler _handleResult;
   final DateTime Function() _now;
+
+  /// Asked when a push is refused with permission-denied. Returns true when
+  /// the server has paused this account's sync: the flush then stops quietly,
+  /// leaving the rows in the outbox. Without it, or when it returns false, a
+  /// refusal is handled as any other failure.
+  final Future<bool> Function()? onPermissionDenied;
 
   Future<void>? _activeFlush;
 
@@ -96,7 +104,11 @@ class PushPipeline {
             },
           );
           await _handleResult(row, result);
+        } on FirebaseException catch (error) {
+          if (error.code == 'permission-denied' && await _paused()) return;
+          rethrow;
         } on SyncGatewayException catch (error) {
+          if (error.code == 'permission-denied' && await _paused()) return;
           hadFailure = true;
           await _queue.markFailure(
             [identity],
@@ -108,6 +120,11 @@ class PushPipeline {
 
       if (hadFailure || rows.length < batchSize) return;
     }
+  }
+
+  Future<bool> _paused() async {
+    final ask = onPermissionDenied;
+    return ask != null && await ask();
   }
 
   String _rowPath(PendingSyncRow row) =>

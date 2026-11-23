@@ -20,7 +20,12 @@ function memoryDb() {
   let nextId = 0;
   const snapshot = ref => ({ref, id: ref.path.split('/').at(-1), exists: rows.has(ref.path),
     get: key => rows.get(ref.path)?.[key], data: () => rows.get(ref.path)});
-  const doc = path => ({path, get: async () => snapshot(doc(path))});
+  // update() fails with NOT_FOUND (5) on a missing document, like Firestore: the sync_state mirror relies on it.
+  const doc = path => ({path, get: async () => snapshot(doc(path)),
+    update: async value => {
+      if (!rows.has(path)) throw Object.assign(new Error('not found'), {code: 5});
+      rows.set(path, {...rows.get(path), ...value});
+    }});
   const collection = path => ({path, collection: true, doc: () => doc(`${path}/${++nextId}`),
     where: (field, op, value) => ({get: async () => ({docs: [...rows.entries()]
       .filter(([key, row]) => key.startsWith(`${path}/`) && row[field] === value)

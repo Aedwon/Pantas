@@ -155,6 +155,8 @@ These cannot be scripted in this repo and must be redone if the relevant config 
 
 ## Manual QR Ph refund
 
+If a parent or guardian denies a purchase on an under-18 account: refund in full by the D4 path (below; a QR Ph payment by bank transfer), run the refund command so access matches, and do not contest (Fable legal round 2, R1, Nov 23 2026).
+
 PayMongo's refund API refuses QR Ph payments ("Refunds are not allowed for payments with source
 type qrph", test mode, 9 November 2026). Aedwon's ruling: refund QR Ph buyers by bank transfer,
 then record the refund so access matches. Report:

@@ -11,7 +11,6 @@ class PullToAdvance extends StatefulWidget {
     required this.onAdvance,
     required this.isAtEnd,
     required this.lessonId,
-    this.nextLabel,
     this.child,
     this.contentBuilder,
     this.incomingChild,
@@ -45,7 +44,6 @@ class PullToAdvance extends StatefulWidget {
   final String? nextTitle;
 
   /// The next lesson's label, under its title in the pull-up line.
-  final Widget? nextLabel;
   final VoidCallback? onAdvance;
   final String lessonId;
   final ValueListenable<bool> isAtEnd;
@@ -271,10 +269,6 @@ class _PullToAdvanceState extends State<PullToAdvance>
                   color: armed ? colors.accent : colors.label,
                 ),
               ),
-              if (widget.nextLabel != null) ...[
-                const SizedBox(height: PantasSpace.s4),
-                widget.nextLabel!,
-              ],
             ],
           ],
         );

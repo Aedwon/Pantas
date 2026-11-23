@@ -14,6 +14,7 @@ import {isSquatter, replaceSquatter, type SquatterAuth} from './_squatter.js';
 import {appSecrets} from './_secrets.js';
 import {key as signInKey} from './signInCode.js';
 import {timed} from './_timed.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 /**
  * Google sign-in for an address that already has an account.
@@ -275,7 +276,7 @@ export async function checkGoogleSignIn(request: Req, deps: GoogleSignInDeps): P
   }
 }
 
-export const exchangeGoogleSignIn = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck,
+export const exchangeGoogleSignIn = onCall({region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-identity'), enforceAppCheck: enforceAppCheck,
   consumeAppCheckToken: enforceAppCheck, secrets: [appSecrets]}, timed('exchangeGoogleSignIn', request => {
   assertFreshAppCheck(request);
   return checkGoogleSignIn(request, {auth: getAuth(), db: getFirestore(), key: signInKey(), clientId: googleWebClientId.value(),
