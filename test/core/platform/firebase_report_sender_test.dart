@@ -118,10 +118,22 @@ void main() {
     );
   });
 
-  test('the daily limit, a lost network and a server fault are retried later',
+  test('both quota refusals are final', () async {
+    for (final reason in ['daily-limit', 'question-limit']) {
+      await expectLater(
+        _sender(
+          (_) async => throw _error('resource-exhausted', {'reason': reason}),
+        ).send(_report()),
+        throwsA(
+          isA<ReportRefused>().having((e) => e.reason, 'reason', reason),
+        ),
+      );
+    }
+  });
+
+  test('a lost network, a server fault and a burst limit are retried later',
       () async {
     for (final error in [
-      _error('resource-exhausted', {'reason': 'daily-limit'}),
       _error('resource-exhausted'),
       _error('unavailable'),
       _error('internal'),

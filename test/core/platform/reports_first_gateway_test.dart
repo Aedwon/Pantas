@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth.dart';
+import 'package:pantas/core/auth/email_link_auth.dart';
 import 'package:pantas/core/platform/reports_first_gateway.dart';
+import 'package:pantas/core/platform/restorable_email_link_store.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 
 import '../../helpers/in_memory_database.dart';
@@ -44,6 +46,8 @@ Future<
       List<String>
     )> _build({
   Duration limit = const Duration(seconds: 2),
+  bool closed = false,
+  void Function()? onRefused,
 }) async {
   final db = inMemoryDatabase();
   addTearDown(db.close);
@@ -62,6 +66,8 @@ Future<
     () => queue,
     limit: limit,
     log: logs.add,
+    isClosed: (uid) => closed && uid == 'acct-a',
+    onRefused: onRefused,
   );
   return (gateway, queue, sender, inner, logs);
 }
@@ -221,6 +227,201 @@ void main() {
     });
   });
 
+  group('a closed account', () {
+    test('is not held by its reports: they are discarded and counted',
+        () async {
+      final (gateway, queue, sender, innerGateway, logs) =
+          await _build(closed: true);
+      sender.failure = Exception('offline');
+      await queue.add('q', 'A concern', _now);
+      await queue.add('q2', 'Another', _now);
+
+      await gateway.prepareForSignOut();
+
+      expect(innerGateway.calls, ['signOut']);
+      expect(
+        sender.sent,
+        isEmpty,
+        reason: 'nothing is sent for a closed account',
+      );
+      expect(logs.single, contains('account-closed'));
+      expect(logs.single, contains('2'));
+    });
+
+    test('proceeds even if the queue cannot be read', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final inner = _Inner();
+      final gateway = ReportsFirstTransitionGateway(
+        inner,
+        () => _StalledQueue(db, stallPending: true),
+        limit: const Duration(milliseconds: 80),
+        isClosed: (_) => true,
+        log: (_) {},
+      );
+
+      await gateway.prepareForSignOut().timeout(const Duration(seconds: 2));
+
+      expect(inner.calls, ['signOut']);
+    });
+
+    test('the real sign-out wipes although a report waits', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final ops = <String>[];
+      final sender = _Sender()..failure = Exception('offline');
+      final queue = ReportQueue(
+        db,
+        sender: sender,
+        account: () => 'acct-a',
+        maxAttempts: 1,
+        wait: (_) async {},
+      );
+      await queue.add('q', 'A concern', _now);
+      final repository = AuthRepository(
+        gateway: _Gw(ops),
+        googleGateway: _Google(ops),
+        functionsGateway: _Functions(),
+        accountTransitionGateway: ReportsFirstTransitionGateway(
+          _Inner(),
+          () => queue,
+          isClosed: (uid) => uid == 'acct-a',
+          log: (_) {},
+        ),
+        localStateWiper: _Wiper(ops),
+      );
+
+      await repository.signOut();
+
+      expect(ops, contains('wipeAll'));
+      expect(ops, contains('signOut'));
+    });
+  });
+
+  group('the whole check shares one bound', () {
+    for (final stall in ['pending', 'refusedReasons']) {
+      test('a stalled $stall read refuses at the limit', () async {
+        final db = inMemoryDatabase();
+        addTearDown(db.close);
+        final inner = _Inner();
+        final gateway = ReportsFirstTransitionGateway(
+          inner,
+          () => _StalledQueue(
+            db,
+            stallPending: stall == 'pending',
+            stallRefused: stall == 'refusedReasons',
+          ),
+          limit: const Duration(milliseconds: 80),
+          log: (_) {},
+        );
+
+        await expectLater(
+          gateway.prepareForSignOut().timeout(const Duration(seconds: 2)),
+          _connectionError,
+        );
+
+        expect(inner.calls, isEmpty);
+      });
+    }
+
+    test('a read that fails refuses', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final gateway = ReportsFirstTransitionGateway(
+        _Inner(),
+        () => _StalledQueue(db, failPending: true),
+        log: (_) {},
+      );
+      await expectLater(gateway.prepareForSignOut(), _connectionError);
+    });
+
+    test('a slow send and slow reads together stop at one limit', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final gateway = ReportsFirstTransitionGateway(
+        _Inner(),
+        () => _StalledQueue(db, slowEach: const Duration(milliseconds: 150)),
+        limit: const Duration(milliseconds: 250),
+        log: (_) {},
+      );
+      final started = DateTime.now();
+      await expectLater(gateway.prepareForSignOut(), _connectionError);
+      expect(
+        DateTime.now().difference(started),
+        lessThan(const Duration(milliseconds: 420)),
+      );
+    });
+  });
+
+  group('a refused sign-out', () {
+    test('leaves a pending email-link sign-in as it was', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final ops = <String>[];
+      final sender = _Sender()..failure = Exception('offline');
+      final queue = ReportQueue(
+        db,
+        sender: sender,
+        account: () => 'acct-a',
+        maxAttempts: 1,
+        wait: (_) async {},
+      );
+      await queue.add('q', 'A concern', _now);
+      final store = RestorableEmailLinkStore(_MemoryLinkStore('a@b.example'));
+      final repository = AuthRepository(
+        gateway: _Gw(ops),
+        googleGateway: _Google(ops),
+        functionsGateway: _Functions(),
+        emailLinkStore: store,
+        accountTransitionGateway: ReportsFirstTransitionGateway(
+          _Inner(),
+          () => queue,
+          onRefused: store.restore,
+          log: (_) {},
+        ),
+        localStateWiper: _Wiper(ops),
+      );
+
+      await expectLater(repository.signOut(), _connectionError);
+
+      expect(repository.pendingEmailLinkEmail, 'a@b.example');
+      expect(ops, isEmpty);
+    });
+
+    test('a sign-out that goes through still clears it', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final ops = <String>[];
+      final queue = ReportQueue(db, account: () => 'acct-a');
+      final store = RestorableEmailLinkStore(_MemoryLinkStore('a@b.example'));
+      final repository = AuthRepository(
+        gateway: _Gw(ops),
+        googleGateway: _Google(ops),
+        functionsGateway: _Functions(),
+        emailLinkStore: store,
+        accountTransitionGateway: ReportsFirstTransitionGateway(
+          _Inner(),
+          () => queue,
+          onRefused: store.restore,
+          log: (_) {},
+        ),
+        localStateWiper: _Wiper(ops),
+      );
+
+      await repository.signOut();
+
+      expect(repository.pendingEmailLinkEmail, isNull);
+    });
+
+    test('a new link started later is not overwritten by a restore', () {
+      final store = RestorableEmailLinkStore(_MemoryLinkStore('old@b.example'))
+        ..email = null
+        ..email = 'new@b.example'
+        ..restore();
+      expect(store.email, 'new@b.example');
+    });
+  });
+
   test('delete account is not held by reports', () async {
     final (gateway, queue, sender, innerGateway, _) = await _build();
     sender.failure = Exception('offline');
@@ -314,4 +515,52 @@ class _Wiper implements LocalStateWiper {
 
   @override
   Future<void> wipeAll() async => ops.add('wipeAll');
+}
+
+class _MemoryLinkStore implements EmailLinkStore {
+  _MemoryLinkStore(this._email);
+  String? _email;
+
+  @override
+  String? get email => _email;
+
+  @override
+  set email(String? value) => _email = value;
+}
+
+/// A queue whose reads can stall, fail or be slow.
+class _StalledQueue extends ReportQueue {
+  _StalledQueue(
+    super.db, {
+    this.stallPending = false,
+    this.stallRefused = false,
+    this.failPending = false,
+    this.slowEach,
+  }) : super(account: () => 'acct-a');
+
+  final bool stallPending;
+  final bool stallRefused;
+  final bool failPending;
+  final Duration? slowEach;
+
+  @override
+  Future<int> sendPending() async {
+    if (slowEach != null) await Future<void>.delayed(slowEach!);
+    return 0;
+  }
+
+  @override
+  Future<List<QuestionReport>> pending() async {
+    if (failPending) throw StateError('db');
+    if (stallPending) return Completer<List<QuestionReport>>().future;
+    if (slowEach != null) await Future<void>.delayed(slowEach!);
+    return [];
+  }
+
+  @override
+  Future<Map<String, int>> refusedReasons() async {
+    if (stallRefused) return Completer<Map<String, int>>().future;
+    if (slowEach != null) await Future<void>.delayed(slowEach!);
+    return {};
+  }
 }

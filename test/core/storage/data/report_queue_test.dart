@@ -579,6 +579,19 @@ void main() {
       expect(await queue.refusedReasons(), {'invalid-argument': 1});
     });
 
+    test('a refused report shows the daily limit when the daily quota refused',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Sender()..script.add(const ReportRefused('daily-limit'));
+      final queue = _queue(db, sender);
+      final r = await queue.submit('q', 'One', DateTime(2026, 11, 24));
+      expect(r.result, ReportResult.dailyLimit);
+      expect(r.delivery, isNull);
+      expect(await queue.pending(), isEmpty);
+      expect(await queue.refusedReasons(), {'daily-limit': 1});
+    });
+
     test('a refusal for a full question drops the text and keeps the reason',
         () async {
       final db = inMemoryDatabase();

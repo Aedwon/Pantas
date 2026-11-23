@@ -25,14 +25,26 @@ class ReportsFirstTransitionGateway implements AccountTransitionGateway {
     this._queue, {
     this.limit = const Duration(seconds: 2),
     void Function(String line)? log,
-  }) : _log = log ?? debugPrint;
+    bool Function(String uid)? isClosed,
+    this.onRefused,
+  })  : _log = log ?? debugPrint,
+        _isClosed = isClosed ?? ((_) => false);
 
   final AccountTransitionGateway _inner;
   final ReportQueue Function() _queue;
 
-  /// The longest the send waits.
+  /// One limit for the whole check: the send, the pending read and the
+  /// refusal read together.
   final Duration limit;
   final void Function(String line) _log;
+
+  /// True when the server has closed this account (a guardian withdrew, or it
+  /// is being deleted). Its reports can never be sent.
+  final bool Function(String uid) _isClosed;
+
+  /// Runs when this check refuses, so anything sign-out cleared before it
+  /// asked (a pending email-link sign-in) can be put back.
+  final void Function()? onRefused;
 
   @override
   Future<void> prepareForSignOut() async {
@@ -52,28 +64,54 @@ class ReportsFirstTransitionGateway implements AccountTransitionGateway {
 
   Future<void> _sendFirst() async {
     final queue = _queue();
-    try {
-      await queue.sendPending().timeout(limit);
-    } on Object {
-      // Slow or failing: what is still pending decides, below.
+    final uid = queue.currentAccount;
+    if (uid != null && _isClosed(uid)) {
+      // A closed account's reports can never be sent. They are discarded with
+      // the wipe, and main's closed-account cleanup runs without delay.
+      await _logDiscarded(queue).timeout(limit, onTimeout: () {});
+      return;
     }
-    // Not knowing what is pending is not a reason to wipe.
-    final List<QuestionReport> pending;
-    final Map<String, int> refused;
     try {
-      pending = await queue.pending();
-      refused = await queue.refusedReasons();
+      await _check(queue).timeout(limit);
     } on Object {
+      // Any failure, a stall included, is a refusal: not knowing what is
+      // pending is not a reason to wipe.
+      onRefused?.call();
       throw const AuthGatewayException('network-request-failed');
     }
+  }
+
+  Future<void> _check(ReportQueue queue) async {
+    try {
+      await queue.sendPending();
+    } on Object {
+      // What is still pending decides, below.
+    }
+    final pending = await queue.pending();
     if (pending.isNotEmpty) {
       throw const AuthGatewayException('network-request-failed');
     }
+    final refused = await queue.refusedReasons();
     if (refused.isNotEmpty) {
-      final reasons = [
-        for (final entry in refused.entries) '${entry.key}=${entry.value}',
-      ].join(' ');
-      _log('question reports discarded at sign-out: $reasons');
+      _logCounts(refused);
     }
+  }
+
+  Future<void> _logDiscarded(ReportQueue queue) async {
+    try {
+      final counts = <String, int>{...await queue.refusedReasons()};
+      final pending = (await queue.pending()).length;
+      if (pending > 0) counts['account-closed'] = pending;
+      if (counts.isNotEmpty) _logCounts(counts);
+    } on Object {
+      // Counting is for the log only; the closure goes on.
+    }
+  }
+
+  void _logCounts(Map<String, int> counts) {
+    final reasons = [
+      for (final entry in counts.entries) '${entry.key}=${entry.value}',
+    ].join(' ');
+    _log('question reports discarded at sign-out: $reasons');
   }
 }

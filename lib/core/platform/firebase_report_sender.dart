@@ -46,13 +46,22 @@ class FirebaseReportSender implements ReportSender {
         'build': _build(),
       });
     } on FirebaseFunctionsException catch (e) {
-      if (_isFinal(e)) throw ReportRefused(e.code);
+      if (_isFinal(e)) throw ReportRefused(_reason(e));
       rethrow;
     }
   }
 
-  /// A refusal that no retry changes: a malformed report, or a question that
-  /// already has its three. The daily limit lifts at midnight, so it is kept.
+  /// The code, or for a quota refusal the server's own reason
+  /// (`daily-limit` or `question-limit`).
+  static String _reason(FirebaseFunctionsException e) {
+    final details = e.details;
+    final reason = details is Map ? details['reason'] : null;
+    return e.code == 'resource-exhausted' && reason is String ? reason : e.code;
+  }
+
+  /// A refusal that no retry changes: a malformed report, a question that
+  /// already has its three, or a full day. A held-back report would block
+  /// sign-out, so a quota refusal is final: it is discarded and logged.
   static bool _isFinal(FirebaseFunctionsException e) {
     if (e.code == 'invalid-argument' || e.code == 'already-exists') {
       return true;
@@ -60,7 +69,8 @@ class FirebaseReportSender implements ReportSender {
     final details = e.details;
     return e.code == 'resource-exhausted' &&
         details is Map &&
-        details['reason'] == 'question-limit';
+        (details['reason'] == 'question-limit' ||
+            details['reason'] == 'daily-limit');
   }
 }
 

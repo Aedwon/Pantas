@@ -28,6 +28,7 @@ class QuestionReport {
     this.examId,
     this.questionVersion,
     this.state = ReportState.pending,
+    this.refusalReason,
   });
 
   /// Made on this device when the report is queued. The server stores one
@@ -45,6 +46,9 @@ class QuestionReport {
   final String? examId;
   final int? questionVersion;
   final ReportState state;
+
+  /// Why the server refused it, for a refused report.
+  final String? refusalReason;
 }
 
 /// Sends one report to the server. Returns when the server has accepted it.
@@ -210,17 +214,19 @@ class ReportQueue {
     } on Object {
       // Slow or failing: the report is safe here and goes on sending.
     }
-    final state = (await history())
-        .where((r) => r.id == id)
-        .map((r) => r.state)
-        .firstOrNull;
-    return switch (state) {
+    final mine = (await history()).where((r) => r.id == id).firstOrNull;
+    final reason = mine?.refusalReason;
+    return switch (mine?.state) {
       ReportState.sent => const ReportSubmission(
           ReportResult.queued,
           ReportDelivery.sent,
         ),
-      ReportState.refused =>
-        const ReportSubmission(ReportResult.questionLimit, null),
+      ReportState.refused => ReportSubmission(
+          reason == 'daily-limit'
+              ? ReportResult.dailyLimit
+              : ReportResult.questionLimit,
+          null,
+        ),
       _ => const ReportSubmission(ReportResult.queued, ReportDelivery.saved),
     };
   }
@@ -457,6 +463,7 @@ class ReportQueue {
           (s) => s.name == row['state'],
           orElse: () => ReportState.pending,
         ),
+        refusalReason: row['reason'] as String?,
       );
 
   /// Drops what the server refuses in a message: control characters other
