@@ -59,3 +59,13 @@ test('reward starts after connected queued coverage and ignores a disconnected l
  await reward.activateReward(request(),d);
  assert.equal(d.rows.get(`users/${uid}/grants/beta_reward_exam_cse_pro`).startsAt,now+2000);
 });
+
+test('activation refuses a closed account and writes nothing', async () => {
+ for (const marker of [{}, {startedAt: 1}]) {
+  const d=ready();d.rows.set(`accountDeletions/${uid}`,marker);
+  const before=d.rows.size;
+  await assert.rejects(reward.activateReward(request(),d),{code:'failed-precondition'});
+  assert.equal(d.rows.size,before);
+  assert.equal([...d.rows.keys()].some(p=>p.includes('/grants/')),false);
+ }
+});

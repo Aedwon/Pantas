@@ -115,8 +115,12 @@ Until the switch, prod refuses web checkout while its PayMongo key is a test key
 the admin claim. The switch itself waits for Aedwon's live keys (checklist M1 to M3). Do these in order, each logged in
 the launch log:
 
-1. **Before**: count the PayMongo grants on prod (`users/*/grants` with a PayMongo source). Every one of them is a
-   test-mode payment. Save the list privately (account ids are tester data).
+0. **Guard first**: the test-checkout guard (PR #89) must be live on prod before anything else here. Check it by
+   asking prod for a checkout with a test key as an ordinary account. The answer must be a refusal.
+1. **Before**: confirm again that prod refuses test checkouts, then wait 5 minutes so every webhook already in flight
+   has finished. Only then count the PayMongo grants on prod (`users/*/grants` with a PayMongo source). Every one of
+   them is a test-mode payment. Save the list privately (account ids are tester data). A count taken earlier can miss
+   a test payment that was fulfilled after it.
 2. **Set the live keys** (`PANTAS_PAYMENT_SECRETS`: `sk_live_` key and the live webhook's signing secret), then deploy
    functions with the pinned CLI. The checkout opens by itself once the key is live.
 3. **Revoke the test-mode grants** from step 1 through the grant revocation path (never in the Firestore console),
@@ -131,8 +135,11 @@ the launch log:
 6. **Paid but no Pro**: if a student paid and has no access, find the payment in the dashboard, confirm it in the
    webhook log, and re-deliver it with the signed re-delivery command (`tool/payments/redeliver_payment.mjs`, built in
    the money-path fixes). A payment with no account or a closed account goes to the refund follow-ups. Each morning,
-   list open payment follow-ups (`paymongoFollowUps` with status `pending`) and clear each one; a log-based alert emails
-   Aedwon when a follow-up is created.
+   list open payment follow-ups (`paymongoFollowUps` with status `pending`) and clear each one.
+   Set up the alert once before the first real payment. In Cloud Logging on prod, make one log-based alert on the
+   message `payment follow-up created` (severity ERROR). Send it by email to the owner. Prove it once on staging:
+   create a follow-up there (for example a late pass payment through the test webhook) and confirm the email arrives.
+   Do not go live until the proof is logged in the launch log.
 7. **Chargebacks without dispute events**: if step 4 could not register them, check the dashboard's disputes daily
    and revoke a lost dispute's grant through the refund path, as for a manual refund.
 8. **After**: watch the webhook log and the follow-ups for 24 hours.

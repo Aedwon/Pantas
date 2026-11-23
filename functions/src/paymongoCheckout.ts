@@ -101,7 +101,10 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     if (reserved.state !== 'open') throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
     const remote = await deps.client.getCheckoutSession(reserved.sessionId as string);
     const open = remote.status === 'active' && !remote.payments.some(p => p.status === 'paid');
-    if (open && reserved.amountCentavos === amountCentavos) {
+    // An open, unpaid session is always reused, even if the price changed since it was created: the
+    // payer pays the price the session shows, and the webhook checks the order's quoted amount.
+    // Legacy orders without a quoted amount are moot: prod has test keys only and test grants are revoked at the live switch.
+    if (open) {
       // A minor's current confirmation must reach the records this session is paid against.
       if (attestation.attestedAt !== undefined) {
         const update = deps.db.batch();
@@ -122,7 +125,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
         throw new HttpsError('failed-precondition', 'Your payment is being confirmed. Pro will appear shortly.');
       }
     }
-    // Compare-and-swap: only one request can replace a completed, expired or stale-price checkout.
+    // Compare-and-swap: only one request can replace a completed or expired checkout.
     await deps.db.runTransaction(async transaction => {
       const [current, deletion] = await transaction.getAll(pending, deps.db.doc(`accountDeletions/${uid}`));
       if (deletion.exists) throw new HttpsError('failed-precondition', 'This account is closed.');

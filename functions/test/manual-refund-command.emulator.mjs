@@ -265,7 +265,7 @@ test('8. an account already deleted: the command creates no grant, no user, no P
     firebase: {sign_in_provider: 'google.com', identities: {'google.com': ['mr-deleted-sub']}}}};
   await deleteAccount.run({data: {}, auth: {...caller, token: {...caller.token, auth_time: Math.floor(Date.now() / 1000)}}, app: {appId: 'demo-app'}});
   assert.equal((await db.doc(`accountDeletions/${uid}`).get()).exists, true);
-  assert.equal((await db.doc('paymongoPayments/pay_mrdeleted').get()).exists, false);
+  assert.deepEqual(Object.keys((await db.doc('paymongoPayments/pay_mrdeleted').get()).data()).sort(), ['accountDeleted', 'deletedAt']);
   const before = new Set(await paths());
   const {stdout} = await refundCommand({paymentId: 'pay_mrdeleted', amount: 14900, label: 'deleted_1'});
   const written = (await paths()).filter(p => !before.has(p));

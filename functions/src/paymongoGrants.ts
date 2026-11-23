@@ -1,6 +1,6 @@
 import {FieldValue, Timestamp, type Firestore} from 'firebase-admin/firestore';
 import {claimsFromInputs, nativeCoverageRows, entitlementWrite, readEntitlementInputs} from './entitlementInputs.js';
-import {DAY_MS, TIER_ORDER, shortenedEnd, type Grant} from './grants.js';
+import {DAY_MS, TIER_ORDER, rewardStart, shortenedEnd, type Grant} from './grants.js';
 import {addPrepaid, webProduct, type WebProduct} from './paymongoPolicy.js';
 import {endOfSitting, sittingFor, type CatalogExam, type Sitting} from './revenuecatPasses.js';
 
@@ -97,6 +97,24 @@ function startAt(g: Grant, start: number): Grant {
 }
 
 /**
+ * Beta rewards queue per exam behind the paid coverage that covers that exam. When that coverage
+ * shrinks, each queued reward moves earlier to the end of what still covers its exam, keeping its
+ * length. With `only` it recomputes just those rewards, later or earlier, for a restored dispute win.
+ */
+function rechainRewards(grants: ReadonlyMap<string, Grant>, native: readonly Grant[], now: number,
+  only?: ReadonlySet<string>): Map<string, Grant> {
+  const out = new Map(grants);
+  const cover = [...out.values()].filter(g => g.source !== 'beta' && g.source !== 'beta_reward').concat(native);
+  for (const [id, g] of out) {
+    if (g.source !== 'beta_reward' || g.state !== 'active' || !g.examId || (only ? !only.has(id) : g.startsAt <= now)) continue;
+    const start = rewardStart(g.tier, g.examId, cover, now);
+    if (only ? start === g.startsAt : start >= g.startsAt) continue;
+    out.set(id, {...g, startsAt: start, endsAt: start + (g.endsAt - g.startsAt)});
+  }
+  return out;
+}
+
+/**
  * After native (store or promotional) coverage changes, web grants that were queued behind
  * coverage that no longer exists start earlier, in order: no later than the end of whatever
  * coverage is still live, and never later than before. Each keeps its paid length.
@@ -120,8 +138,15 @@ export function reanchorQueued(grants: ReadonlyMap<string, Grant>, native: reado
   return out;
 }
 
-/** One-time repair for an account. Only move plans whose historical anchor moved or was exam-only. */
-export function repairExamOnlyQueuedPlans(db: Firestore, uid: string, now = Date.now()): Promise<number> {
+/**
+ * One-time repair for an account. Only move plans whose historical anchor moved or was exam-only.
+ * An exam-only anchor that is live at the plan's start counts even when its end is later than the
+ * plan's start: a postponed pass moved its end after the plan was queued at the old end. A plan
+ * still moves only to the end of the tier-wide coverage that really precedes it. With `dryRun` it
+ * counts and writes nothing.
+ */
+export function repairExamOnlyQueuedPlans(db: Firestore, uid: string, now = Date.now(),
+  options: {dryRun?: boolean} = {}): Promise<number> {
   return db.runTransaction(async transaction => {
     const inputs = await readEntitlementInputs(transaction, db, uid);
     const native = nativeCoverageRows(inputs, now);
@@ -131,9 +156,10 @@ export function repairExamOnlyQueuedPlans(db: Firestore, uid: string, now = Date
     const queued = [...inputs.grants].sort(([, a], [, b]) => a.startsAt - b.startsAt);
     for (const [id, grant] of queued) {
       if (grant.startsAt <= now || !anchorsPlan(grant, grant.tier, now) || !stackable(grant) ||
-          !original.some(anchor => anchor.state === 'active' && anchor.endsAt === grant.startsAt &&
-          (affected.has(anchor) || !tierWide(anchor)) &&
-          TIER_ORDER.indexOf(anchor.tier) >= TIER_ORDER.indexOf(grant.tier))) continue;
+          !original.some(anchor => anchor.state === 'active' &&
+          TIER_ORDER.indexOf(anchor.tier) >= TIER_ORDER.indexOf(grant.tier) &&
+          ((anchor.endsAt === grant.startsAt && (affected.has(anchor) || !tierWide(anchor))) ||
+            (!tierWide(anchor) && anchor.startsAt <= grant.startsAt && anchor.endsAt > grant.startsAt)))) continue;
       const prior = [...native, ...grants.values()].filter(row =>
         row.startsAt < grant.startsAt && anchorsPlan(row, grant.tier, now));
       const startsAt = Math.max(now, ...prior.map(row => row.endsAt));
@@ -143,10 +169,10 @@ export function repairExamOnlyQueuedPlans(db: Firestore, uid: string, now = Date
         ...(grant.fullEndsAt === undefined ? {} : {fullEndsAt: grant.fullEndsAt + shift})};
       grants.set(id, moved);
       affected.add(grant);
-      transaction.update(db.doc(`users/${uid}/grants/${id}`), {startsAt, endsAt: moved.endsAt,
+      if (!options.dryRun) transaction.update(db.doc(`users/${uid}/grants/${id}`), {startsAt, endsAt: moved.endsAt,
         ...(moved.fullEndsAt === undefined ? {} : {fullEndsAt: moved.fullEndsAt})});
     }
-    if (affected.size) {
+    if (affected.size && !options.dryRun) {
       transaction.set(inputs.record.ref, entitlementWrite(inputs, claimsFromInputs(inputs, now, grants)), {merge: true});
     }
     return affected.size;
@@ -235,7 +261,7 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
     const unusable = duplicatePass ? {reason: 'unusedDuplicatePass'}
       : late ? {reason: 'paidAfterSitting'} : undefined;
     const flagRefund = () => {followUpReason = unusable!.reason; transaction.set(followUp, {uid, paymentId, product: product.id, sessionId: input.sessionId,
-      reason: unusable!.reason, status: 'pending', refundRequired: true,
+      reason: unusable!.reason, status: 'pending', refundRequired: true, paidAmount: input.paidAmount,
       ...(duplicatePass ? {activeGrantId: duplicatePass[0]} : {})});};
     if (early && (disputeLive || earlyRefunds >= input.paidAmount)) {
       const grant: Grant = {...binding, source: 'paymongo', product: product.id, tier: product.tier,
@@ -264,6 +290,8 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
       const unused: Grant = {...binding, source: 'paymongo', product: product.id, tier: product.tier,
         startsAt: Math.min(input.paidAt, plan.endsAt), endsAt: Math.min(input.paidAt, plan.endsAt), paymentId,
         paidAmount: input.paidAmount, state: 'revoked', createdAt: now,
+        // A partial refund that arrived first counts toward the balance still owed.
+        ...(early?.refunds ? {refunds: early.refunds} : {}),
         ...(duplicatePass ? {unusedDuplicateOf: duplicatePass[0]} : {unusableReason: unusable.reason})};
       transaction.set(grantRef, unused);
       transaction.set(payment, {uid, grantId: grantDocId(paymentId), sessionId: input.sessionId, createdAt: now});
@@ -361,8 +389,10 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
     if (input.refunds?.length) closeRefund(refundedTotal(next), next.paidAmount);
     if (next === grant) {transaction.set(revokeEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)}); return {outcome: 'duplicate' as const, uid};}
     const changed = new Map(inputs.grants).set(id, next);
-    const replanned = next.state === 'revoked' || next.endsAt !== grant.endsAt
-      ? replanBehind(changed, id, grant.endsAt, now, Math.max(now, ...nativeCoverageRows(inputs, now).filter(g => anchorsPlan(g, grant.tier, now)).map(g => g.endsAt))) : changed;
+    const native = nativeCoverageRows(inputs, now);
+    const shrunk = next.state === 'revoked' || next.endsAt !== grant.endsAt;
+    const replanned = shrunk
+      ? rechainRewards(replanBehind(changed, id, grant.endsAt, now, Math.max(now, ...native.filter(g => anchorsPlan(g, grant.tier, now)).map(g => g.endsAt))), native, now) : changed;
     const ref = (gid: string) => db.doc(`users/${uid}/grants/${gid}`);
     transaction.update(ref(id), {state: next.state, endsAt: next.endsAt, refunds: next.refunds ?? {},
       ...(next.fullEndsAt !== undefined ? {fullEndsAt: next.fullEndsAt} : {}),
@@ -371,8 +401,11 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
     for (const [otherId, other] of replanned) {
       const before = inputs.grants.get(otherId);
       if (otherId !== id && before && (before.startsAt !== other.startsAt || before.endsAt !== other.endsAt)) {
+        const moves = input.dispute && input.disputeId && recorded !== 'lost' ? {disputeMoves: {...before.disputeMoves,
+          [input.disputeId]: {startsAt: before.startsAt, endsAt: before.endsAt,
+            movedStartsAt: other.startsAt, movedEndsAt: other.endsAt}}} : {};
         transaction.update(ref(otherId), {startsAt: other.startsAt, endsAt: other.endsAt,
-          ...(other.fullEndsAt !== undefined ? {fullEndsAt: other.fullEndsAt} : {})});
+          ...(other.fullEndsAt !== undefined ? {fullEndsAt: other.fullEndsAt} : {}), ...moves});
       }
     }
     transaction.set(revokeEventRef, {eventId, version: version + 1, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)});
@@ -402,9 +435,12 @@ export async function resolvePaymongoDispute(db: Firestore, input: {eventId: str
         [input.disputeId]: input.won ? 'won' : 'lost'}}, {merge: true});
     if (!uid) {record(); return undefined;}
     const inputs = await readEntitlementInputs(transaction, db, uid);
+    // The win is kept in the tombstone whatever the grant looks like, so an opening event that
+    // arrives later, even after its dedupe marker expired, never revokes. Written after every read.
+    record();
     const id = grantDocId(input.paymentId);
     const grant = inputs.grants.get(id);
-    if (grant?.state === 'active' && grant.disputeId !== input.disputeId) {record(); return uid;}
+    if (grant?.state === 'active' && grant.disputeId !== input.disputeId) return uid;
     if (!grant || grant.state !== 'revoked' || grant.revokedReason !== 'dispute.created' ||
         grant.disputeId !== input.disputeId || grant.disputeResolved) return uid;
     const restore = input.won && refundedTotal(grant) === 0 && !grant.unusedDuplicateOf && !grant.unusableReason;
@@ -413,22 +449,46 @@ export async function resolvePaymongoDispute(db: Firestore, input: {eventId: str
       ...(restore ? {state: 'active', revokedReason: FieldValue.delete(), revokedAt: FieldValue.delete()} : {})});
     if (restore) {
       const grants = new Map(inputs.grants).set(id, next);
-      const revokedAt = (grant as Grant & {revokedAt?: number}).revokedAt ?? now;
-      if (stackable(grant) && anchorsPlan(next, grant.tier, now)) {
+      if (stackable(grant) && tierWide(grant)) {
+        // Put every grant this dispute pulled earlier back behind the restored grant, including
+        // grants that ended while it was open. A grant a later change already moved again keeps
+        // its current length; any other keeps the length it had before the dispute.
         let cursor = next.endsAt;
-        const queued = [...inputs.grants].filter(([otherId, row]) => otherId !== id &&
-          row.tier === grant.tier && anchorsPlan(row, grant.tier, now) && stackable(row) &&
-          row.startsAt >= revokedAt).sort(([, a], [, b]) => a.startsAt - b.startsAt);
-        for (const [otherId, row] of queued) {
-          if (row.startsAt >= cursor) break;
-          const moved = startAt(row, cursor);
-          grants.set(otherId, moved);
-          cursor = moved.endsAt;
+        const moved = [...inputs.grants].filter(([otherId, row]) => otherId !== id && row.state === 'active' &&
+          row.disputeMoves?.[input.disputeId] !== undefined)
+          .sort(([, a], [, b]) => a.disputeMoves![input.disputeId].startsAt - b.disputeMoves![input.disputeId].startsAt);
+        for (const [otherId, row] of moved) {
+          const move = row.disputeMoves![input.disputeId];
+          const again = row.startsAt !== move.movedStartsAt || row.endsAt !== move.movedEndsAt;
+          const length = again ? row.endsAt - row.startsAt : move.endsAt - move.startsAt;
+          const rest = {...row.disputeMoves};
+          delete rest[input.disputeId];
+          const placed: Grant = {...row, startsAt: cursor, endsAt: cursor + length,
+            ...(row.fullEndsAt === undefined ? {} : {fullEndsAt: row.fullEndsAt + (cursor - row.startsAt)})};
+          grants.set(otherId, placed);
+          cursor = placed.endsAt;
           transaction.update(db.doc(`users/${uid}/grants/${otherId}`), {
-            startsAt: moved.startsAt, endsAt: moved.endsAt,
-            ...(moved.fullEndsAt === undefined ? {} : {fullEndsAt: moved.fullEndsAt}),
+            startsAt: placed.startsAt, endsAt: placed.endsAt,
+            ...(placed.fullEndsAt === undefined ? {} : {fullEndsAt: placed.fullEndsAt}),
+            disputeMoves: Object.keys(rest).length ? rest : FieldValue.delete(),
           });
         }
+      }
+      // Rewards this dispute pulled earlier go back behind the restored coverage.
+      const pulled = new Set([...grants].filter(([, row]) => row.source === 'beta_reward' && row.state === 'active' &&
+        row.disputeMoves?.[input.disputeId] !== undefined).map(([rewardId]) => rewardId));
+      const native = nativeCoverageRows(inputs, now);
+      for (const [rewardId, row] of rechainRewards(grants, native, now, pulled)) {
+        if (!pulled.has(rewardId)) continue;
+        const move = row.disputeMoves![input.disputeId];
+        const again = grants.get(rewardId)!.startsAt !== move.movedStartsAt || grants.get(rewardId)!.endsAt !== move.movedEndsAt;
+        const length = again ? row.endsAt - row.startsAt : move.endsAt - move.startsAt;
+        const rest = {...row.disputeMoves};
+        delete rest[input.disputeId];
+        const placed = {...row, endsAt: row.startsAt + length};
+        grants.set(rewardId, placed);
+        transaction.update(db.doc(`users/${uid}/grants/${rewardId}`), {startsAt: placed.startsAt, endsAt: placed.endsAt,
+          disputeMoves: Object.keys(rest).length ? rest : FieldValue.delete()});
       }
       transaction.set(inputs.record.ref, entitlementWrite(inputs, claimsFromInputs(inputs, now, grants)), {merge: true});
     }

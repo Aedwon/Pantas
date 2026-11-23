@@ -115,6 +115,9 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
   const result = await deps.db.runTransaction(async transaction => {
     const used = await transaction.getAll(...identities);
     const marker = await transaction.get(trial);
+    if ((await transaction.get(deps.db.doc(`accountDeletions/${uid}`))).exists) {
+      throw new HttpsError('failed-precondition', 'This account is closed.');
+    }
     const inputs = await readEntitlementInputs(transaction, deps.db, uid);
     if (marker.exists || used.some(row => row.exists)) throw new HttpsError('failed-precondition', 'The free trial was already used.');
     if (!neverHadPro(inputs)) {

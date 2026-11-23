@@ -64,3 +64,15 @@ test('bad arguments, an unpaid session and a failed delivery print no secret', a
   }
   assert.equal(calls.length, 0);
 });
+
+test('a malformed secret payload prints a fixed message with no part of the payload', async () => {
+  const {readSecretsFromGcloud} = await import('./redeliver_payment.mjs');
+  const payload = `{"PAYMONGO_SECRET_KEY": "${SECRET_KEY}" "PAYMONGO_WEBHOOK_SECRET": "${WEBHOOK_SECRET}"`;
+  assert.throws(() => readSecretsFromGcloud('pantas-staging', () => payload), error => {
+    assert.equal(error.message, 'The payment secrets could not be read as JSON. Check the secret version.');
+    assert.equal(String(error.stack).includes('SECRETKEYVALUE'), false);
+    assert.equal(String(error.stack).includes('SECRETWEBHOOKVALUE'), false);
+    assert.equal(error.cause, undefined);
+    return true;
+  });
+});

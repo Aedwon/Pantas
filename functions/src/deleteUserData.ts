@@ -75,10 +75,18 @@ export async function deleteUserData(
   // client cannot expire hosted links. A payment on one still reaches the refund queue.
   await db.recursiveDelete(userRef);
   await clearPassOwnership(db, uid);
-  // The payment-to-account index is account data; the grant ledger went with the user tree.
+  // The payment-to-account index keeps one minimal record per payment, with no uid, so a later
+  // redelivery of a fulfilled payment is a duplicate and opens no refund task. A follow-up that
+  // still owes a refund keeps its payment details without the uid; every other follow-up goes.
   for (const collection of ['paymongoPayments', 'paymongoOrders', 'paymongoCheckouts', 'paymongoFollowUps']) {
-    const payments = await db.collection(collection).where('uid', '==', uid).get();
-    await Promise.all(payments.docs.map((doc) => doc.ref.delete()));
+    const rows = await db.collection(collection).where('uid', '==', uid).get();
+    await Promise.all(rows.docs.map((doc) => {
+      if (collection === 'paymongoPayments') return doc.ref.set({accountDeleted: true, deletedAt: now});
+      if (collection === 'paymongoFollowUps' && doc.get('status') === 'pending' && doc.get('refundRequired') === true) {
+        return doc.ref.update({uid: FieldValue.delete(), activeGrantId: FieldValue.delete()});
+      }
+      return doc.ref.delete();
+    }));
   }
   // trialUsedIdentities contains only keyed hashes and deliberately survives deletion.
 

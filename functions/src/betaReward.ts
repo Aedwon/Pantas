@@ -18,7 +18,7 @@ import {assertNamedUser} from './_audit.js';
 import {allowAtMost} from './_limits.js';
 import {examCatalog} from './revenuecatPasses.js';
 import type {PriceTier} from './revenuecatCoverage.js';
-import type {Grant} from './grants.js';
+import {rewardStart, type Grant} from './grants.js';
 import {claimsFromInputs, entitlementWrite, nativeCoverageRows, readEntitlementInputs} from './entitlementInputs.js';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import {selectedBetaApplication} from './betaAccess.js';
@@ -189,7 +189,10 @@ export async function activateReward(request: Request, deps: Deps) {
   await guard(request, deps, uid, 'betaRewardActivate', 20);
   const result = await deps.db.runTransaction(async tx => {
     const ref = deps.db.doc(`users/${uid}/betaReward/state`);
-    const state = (await tx.get(ref)).data() as RewardState | undefined ?? {};
+    const deletion = await tx.get(deps.db.doc(`accountDeletions/${uid}`));
+    const snapshot = await tx.get(ref);
+    if (deletion.exists) throw new HttpsError('failed-precondition', 'This account is closed.');
+    const state = snapshot.data() as RewardState | undefined ?? {};
     if (state.activatedAt !== undefined) return {startsAt: state.rewardStartsAt!, endsAt: state.rewardEndsAt!, exams: state.exams!};
     const now = (deps.now ?? Date.now)();
     if (now >= ACTIVATION_DEADLINE) throw new HttpsError('failed-precondition', 'The activation deadline has passed.');
@@ -206,14 +209,7 @@ export async function activateReward(request: Request, deps: Deps) {
     for (const exam of examCatalog) {
       const tier = tiers[(exam as typeof exam & {priceTier: string}).priceTier];
       if (!tier) throw new Error(`Unknown catalog tier for ${exam.id}`);
-      let start = now;
-      for (const row of existing) {
-        if (row.state !== 'active' || row.startsAt > start || row.endsAt <= start) continue;
-        const covered = row.examId ? row.examId === exam.id :
-          row.tier === 'nce' ? tier === 'nce' : tier !== 'nce' &&
-          ['student', 'civilService', 'licensure'].indexOf(row.tier) >= ['student', 'civilService', 'licensure'].indexOf(tier);
-        if (covered) start = Math.max(start, row.endsAt);
-      }
+      const start = rewardStart(tier, exam.id, existing, now);
       const grant: Grant = {source: 'beta_reward', product: 'beta_reward', tier, examId: exam.id,
         startsAt: start, endsAt: calendarYearEnd(start), state: 'active', createdAt: now};
       grants.set(`beta_reward_${exam.id}`, grant);

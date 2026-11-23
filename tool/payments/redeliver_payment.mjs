@@ -13,13 +13,15 @@ import {pathToFileURL} from 'node:url';
 const PROJECT = /^pantas-(prod|staging)$/;
 const SESSION = /^cs_[A-Za-z0-9_]+$/;
 
-function readSecretsFromGcloud(project) {
+export function readSecretsFromGcloud(project, run = (command, args, options) => execFileSync(command, args, options)) {
   let text;
   try {
-    text = execFileSync('gcloud', ['secrets', 'versions', 'access', 'latest', '--secret', 'PANTAS_PAYMENT_SECRETS',
+    text = run('gcloud', ['secrets', 'versions', 'access', 'latest', '--secret', 'PANTAS_PAYMENT_SECRETS',
       '--project', project], {encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore']});
   } catch { throw new Error('Could not read the payment secrets. Run `gcloud auth login` and check access.'); }
-  return JSON.parse(text);
+  // A parse error can quote part of the payload, so it is never kept or printed.
+  try { return JSON.parse(text); }
+  catch { throw new Error('The payment secrets could not be read as JSON. Check the secret version.'); }
 }
 
 const obj = value => value !== null && typeof value === 'object' && !Array.isArray(value) ? value : {};

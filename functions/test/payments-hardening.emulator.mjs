@@ -202,6 +202,31 @@ test('real account deletion removes payment bindings but keeps only hashed trial
   assert.equal(await trialEligible(named('hard-after-delete', 'real-delete-provider', 'delete@example.test'), db), false);
 });
 
+test('deleting an account keeps a minimal payment record and any pending refund task without the uid', async () => {
+  const {getAuth} = await import('firebase-admin/auth');
+  const {deleteAccount} = await import('../lib/deleteAccount.js');
+  const uid = 'hard-keep-refund';
+  await getAuth().createUser({uid});
+  const caller = named(uid, 'keep-refund-provider', 'keep@example.test');
+  await db.doc('paymongoPayments/pay_keep').set({uid, grantId: 'pay_keep', sessionId: 'cs_keep', createdAt: 1});
+  await db.doc('paymongoFollowUps/pay_keep_owed').set({uid, paymentId: 'pay_keep_owed', product: 'pantas_pass_cse_pro',
+    sessionId: 'cs_owed', reason: 'paidAfterSitting', status: 'pending', refundRequired: true, activeGrantId: 'x'});
+  await db.doc('paymongoFollowUps/pay_keep_done').set({uid, paymentId: 'pay_keep_done', status: 'resolved'});
+  await db.doc('paymongoFollowUps/pay_keep_noref').set({uid, paymentId: 'pay_keep_noref', status: 'pending'});
+  await deleteAccount.run({data: {}, auth: {...caller, token: {...caller.token, auth_time: Math.floor(Date.now() / 1000)}}, app: {appId: 'demo-app'}});
+  const payment = (await db.doc('paymongoPayments/pay_keep').get()).data();
+  assert.equal(payment.accountDeleted, true);
+  assert.equal(typeof payment.deletedAt, 'number');
+  assert.deepEqual(Object.keys(payment).sort(), ['accountDeleted', 'deletedAt']);
+  const owed = (await db.doc('paymongoFollowUps/pay_keep_owed').get()).data();
+  assert.equal(owed.refundRequired, true);
+  assert.equal(owed.status, 'pending');
+  assert.equal('uid' in owed, false);
+  assert.equal('activeGrantId' in owed, false);
+  assert.equal((await db.doc('paymongoFollowUps/pay_keep_done').get()).exists, false);
+  assert.equal((await db.doc('paymongoFollowUps/pay_keep_noref').get()).exists, false);
+});
+
 test('a duplicate payment for the original sitting stays unused after its pass is postponed', async () => {
   const uid = 'hard-postponed-duplicate';
   await native(uid);

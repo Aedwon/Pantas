@@ -18,6 +18,11 @@ export interface Grant {
   revokedReason?: string;
   disputeId?: string;
   disputeResolved?: boolean;
+  /**
+   * Dispute id to this grant's schedule before that dispute pulled it earlier, and where the
+   * dispute put it. A win uses it to put the grant back behind the restored grant.
+   */
+  disputeMoves?: Record<string, {startsAt: number; endsAt: number; movedStartsAt: number; movedEndsAt: number}>;
   /** Centavos paid (paymongo only). Needed to size partial refunds. */
   paidAmount?: number;
   /** Refund id to centavos. Keyed by id so a replayed refund changes nothing. */
@@ -42,4 +47,22 @@ export function shortenedEnd(startsAt: number, fullEndsAt: number, refunded: num
   if (refunded <= 0) return fullEndsAt;
   const ms = Math.floor((fullEndsAt - startsAt) * Math.max(paid - refunded, 0) / paid);
   return startsAt + Math.floor(ms / 1000) * 1000;
+}
+
+const REWARD_TIERS: PriceTier[] = ['student', 'civilService', 'licensure'];
+
+/**
+ * Where a beta reward for one exam starts: at `now`, or after the live coverage that already covers
+ * that exam and connects to it. Pass the paid, trial and store rows only, never beta or reward rows.
+ * An exam pass covers only its own exam; a National Competitive Exam row covers only that tier.
+ */
+export function rewardStart(tier: PriceTier, examId: string, rows: Iterable<Grant>, now: number): number {
+  let start = now;
+  for (const row of [...rows].sort((a, b) => a.startsAt - b.startsAt)) {
+    if (row.state !== 'active' || row.startsAt > start || row.endsAt <= start) continue;
+    const covered = row.examId ? row.examId === examId : row.tier === 'nce' ? tier === 'nce' :
+      tier !== 'nce' && REWARD_TIERS.indexOf(row.tier) >= REWARD_TIERS.indexOf(tier);
+    if (covered) start = Math.max(start, row.endsAt);
+  }
+  return start;
 }

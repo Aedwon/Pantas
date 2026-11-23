@@ -244,3 +244,16 @@ test('a code sign-in also counts the providers linked to the account', async () 
   // Without the link the same code sign-in is a different person.
   assert.equal(await trialEligible(codeUser('c2', {email: 'new@example.com'}), db), true);
 });
+
+for (const marker of [{}, {startedAt: 1}]) {
+  test(`trial and beta grants refuse a closed account and write nothing: ${JSON.stringify(marker)}`, async () => {
+    const db = memoryDb();
+    db.rows.set('accountDeletions/tester', marker);
+    const before = db.rows.size;
+    const d = {...deps(db), until: () => BETA_CUTOFF};
+    await assert.rejects(startTrial(named('tester'), d), {code: 'failed-precondition'});
+    await assert.rejects(changeBetaPro({auth: named('tester'), app: {appId: 'test'},
+      data: {enabled: true, examId: 'exam_cse_pro'}}, d), {code: 'failed-precondition'});
+    assert.equal(db.rows.size, before);
+  });
+}
