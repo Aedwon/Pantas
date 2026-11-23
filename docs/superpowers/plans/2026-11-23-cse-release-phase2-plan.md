@@ -32,13 +32,13 @@ Aedwon's "ship it".
 | T1 | Content gate layer (a): every shipped question, quiz, mock and lesson part through the app's real Dart logic, no UI, no network; a permanent CI check | none | Sonnet worker |
 | T2 | Report sending: server callable, rules, client sender for queued reports, tests, free-tier count | none | Sonnet worker |
 | T3 | Part label removed from every UI site (board option A); data kept | none | Sonnet worker |
-| T4 | Report bar morph (QN_Report and states), phone; wide drop-down form as boards | his Section 2 confirmation, T2 | Sonnet worker |
-| T5 | Borderless buttons and the sheet guidance (finding 3) | his Section 3 pick | Sonnet worker |
+| T4 | Report bar morph (QN_Report and states), phone; wide drop-down form as boards | T2 | Sonnet worker |
+| T5 | Borderless buttons and the sheet guidance (finding 3), board option A | none | Sonnet worker |
 | T6 | Study and Quiz title offset (finding 1, U3) and the layout majors and minors | none | Sonnet worker |
 | T7 | Save and sync: S1, S3, S5, S6, S10, S7 to S9, S11 to S16 | none | Sonnet worker; Codex Sol High audit |
 | T8 | Awaited side effects S17 to S21 (same class as PR #82), with the analytics-never-blocks check widened to notifications and crash reporting | none | Sonnet worker |
 | T9 | Remaining web and phone UI majors and all minors (consolidated U-items) | boards where needed | Sonnet workers |
-| T10 | Legal gates: D1 under-18 record deletion (server), D7 trial-code dates and expiry (server), D2 and D3 checkout declaration (UI) | D2 and D3: his Section 4 pick and the text lane's wording | Sonnet workers |
+| T10 | Legal gates: D1 under-18 record deletion (server), D7 trial-code dates and expiry (server), D2 and D3 checkout declaration (UI) | D2 and D3 (tick, option T): the text lane's wording | Sonnet workers |
 | T11 | Launch items: beta surfaces (G4) removed or reworded, P10 ruling (no Subprofessional section counts; practice-exam line on both CSE mocks) | public build plan (integrator) | Sonnet worker |
 | T12 | C1: the lesson audit tool runs clean on the content prod serves | none | Sonnet worker |
 | T13 | Content gate layer (b): one browser run per distinct loop, per open exam (CSE Pro, CSE Sub) and mode | T1, the fix batches | Lead |
@@ -92,7 +92,16 @@ Hardened scope 8.5 days active plus the content gate (layer a about 1 day, layer
 about 10.5 days active, 12 to 14 working days wall with two workers and one Flutter slot. Recent
 velocity rows ran 0.1 to 0.6 of their estimates. Velocity rows E-138 onward.
 
-## Picks still needed from Aedwon
+## Rulings that settle the boards (Nov 23, final)
 
-Section 2 (confirm the report morph), Section 3 (A or B), Section 4 (tick or no tick). T4, T5 and
-the D2 and D3 part of T10 wait for them. Nothing else does.
+The approved boards are the spec (manager, relaying Aedwon: "why are you asking me things that have
+been decided before?"). Build to them; escalate only a state no board draws, to Fable 5.2 first.
+
+- Section 1, part label: A, no label in the UI; the data stays.
+- Section 2, report: exactly as the approved boards draw it: QN_Report phone frames with the
+  0.42 s morph and its states; the wide drop-down form. T4 is unblocked.
+- Section 3, Cancel and Close: A, match the boards; no Close where the board draws none. T5 is
+  unblocked.
+- Section 4, checkout: T, the required tick in the approved guardian box card (Fable D2). The D2
+  and D3 part of T10 waits only on the text lane's final wording.
+- Section 5, Backup paused: 0.
