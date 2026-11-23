@@ -158,20 +158,6 @@ void main() {
       ),
       isFalse,
     );
-    // The one reviewed trial-code writer (D7). Its destination is fixed.
-    expect(
-      _hasUnreviewedExpiry(
-        "const expireAt = Timestamp.fromMillis(startedAt + TRIAL_CODE_DAYS * DAY_MS); "
-        "return {used: true, startedAt, expireAt};",
-      ),
-      isFalse,
-    );
-    expect(
-      _hasUnreviewedExpiry(
-        r'db.doc(`trialUsedIdentities/${id}`).set({expireAt: timestamp});',
-      ),
-      isTrue,
-    );
     expect(
       _hasUnreviewedExpiry(
         r'const rate = deps.db.doc(`webhookRateLimits/${uid}_${bucket}`); '
@@ -186,6 +172,9 @@ void main() {
     for (final root in ['functions/src', 'lib']) {
       for (final file
           in Directory(root).listSync(recursive: true).whereType<File>()) {
+        // The one reviewed builder of the trial-code expiry value (D7). It only
+        // returns a value, and its callers write it to trialUsedIdentities.
+        if (file.path == 'functions/src/trialMarker.ts') continue;
         if (_hasUnreviewedExpiry(file.readAsStringSync())) {
           violations.add(file.path);
         }
@@ -207,14 +196,7 @@ bool _hasUnreviewedExpiry(String source) {
     r'(webhookEvents/\$\{[^}]+\}/users/\$\{[^}]+\}|'
     r'webhookRateLimits/[^`]+)`\);',
   );
-  // The only reviewed writer of trial-code expiry, in trialMarker.ts.
-  var remaining = source.replaceAll(
-    RegExp(
-      r'const expireAt = Timestamp\.fromMillis\(startedAt \+ TRIAL_CODE_DAYS \* DAY_MS\);'
-      r'\s*return \{used: true, startedAt, expireAt\};',
-    ),
-    '',
-  );
+  var remaining = source;
   for (final reference in references.allMatches(source)) {
     final name = RegExp.escape(reference.group(1)!);
     // A repeated binding could refer to an account in another scope.

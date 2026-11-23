@@ -66,3 +66,20 @@ test('D7 script: dry run counts only, live sets deploy date + 730 days on codes 
   assert.equal((await col.doc('c'.repeat(64)).get()).get('expireAt').toMillis(), keep.toMillis());
   assert.deepEqual(await addTrialCodeExpiry({db, live: true, deployAt: deployAt + DAY}), {reads: 3, missing: 0, writes: 0});
 });
+
+test('D7 deletion path never moves an existing code expiry earlier', async () => {
+  const uid = 'tce-keep'; await reset(uid); await auth.createUser({uid}).catch(() => {});
+  await db.doc(`users/${uid}/server/trial`).set({usedAt: T0, grantId: 'trial'});
+  const who = caller(uid, 'tce-keep-sub');
+  const [later, earlier, legacy] = identityMarkers(who, db);
+  const keep = Timestamp.fromMillis(T0 + 900 * DAY), early = Timestamp.fromMillis(T0 + 10 * DAY);
+  await later.set({used: true, startedAt: T0 + 170 * DAY, expireAt: keep});
+  await earlier.set({used: true, startedAt: T0 - 720 * DAY, expireAt: early});
+  if (legacy) await legacy.set({used: true});
+  await deleteUserData(db, auth, uid, 'user_request', {requestAuth: who, now: () => T0 + 20 * DAY});
+  const got = async ref => (await ref.get()).data();
+  assert.deepEqual(await got(later), {used: true, startedAt: T0 + 170 * DAY, expireAt: keep});
+  const raised = await got(earlier);
+  assert.equal(raised.expireAt.toMillis(), T0 + 730 * DAY);
+  if (legacy) assert.equal((await got(legacy)).expireAt.toMillis(), T0 + 730 * DAY);
+});

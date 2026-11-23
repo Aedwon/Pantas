@@ -5,7 +5,7 @@ import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
 import {retirePublicId} from './publicId.js';
 import {clearPassOwnership} from './revenuecatPasses.js';
-import {trialMarker} from './trialMarker.js';
+import {keepsStoredExpiry, trialMarker} from './trialMarker.js';
 import {identityMarkers, identityMarkersForUser} from './webTrial.js';
 
 /** A pending deletion is retried by the daily run once this long has passed since its last attempt. */
@@ -67,9 +67,16 @@ export async function deleteUserData(
     const markers = options.requestAuth
       ? identityMarkers(options.requestAuth, db)
       : identityMarkersForUser(await auth.getUser(uid), db);
-    const batch = db.batch();
-    for (const marker of markers) batch.set(marker, trialMarker(startedAt));
-    await batch.commit();
+    // A code's expiry only moves later, never earlier, so a deletion cannot free a code sooner than
+    // the trial that set it. A code with no expiry yet (an old one) is filled in.
+    const row = trialMarker(startedAt);
+    await db.runTransaction(async transaction => {
+      const current = markers.length ? await transaction.getAll(...markers) : [];
+      current.forEach((existing, i) => {
+        if (keepsStoredExpiry(existing, row)) return;
+        transaction.set(markers[i], row);
+      });
+    });
   }
   await keepGuardianEvidence(db, uid, reason, now);
   await writeAuditLog({uid, event: 'accountDeleted', metadata: {reason}});
