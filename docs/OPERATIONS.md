@@ -153,7 +153,54 @@ These cannot be scripted in this repo and must be redone if the relevant config 
 - [ ] Sanity 2FA enforcement at org level enabled — Plan 1 Task 19 step 4
 - [ ] GitHub branch protection on `main` — Plan 1 Task 28 step 2
 
+## Refund after PayMongo's window, every payment method
+
+Fable legal round 3, H6 (Nov 23, 2026): one route for every payment method. It widens the QR Ph steps
+below; those steps still apply to the transfer itself.
+
+1. **PayMongo first.** While PayMongo's own refund works for the payment, use it. Cards: 60 days
+   (https://docs.paymongo.com/docs/payment-acceptance-refunds, checked Nov 23, 2026). QR Ph: the same
+   page lists it as not refundable, the API refused a QR Ph refund on Nov 9, 2026, and a separate page
+   describes a dashboard refund (https://docs.paymongo.com/docs/qrph-refunds); try the dashboard once,
+   and if it refuses, go to step 2. The ruling's "QR Ph 30 days" is not in PayMongo's docs. The money
+   returns by itself and the webhook changes access.
+2. **Otherwise a transfer by hand,** when PayMongo refuses the refund or its window has closed. Bank
+   transfer by default; an e-wallet transfer only when the payer has no bank account.
+3. **To the payer only.** The receiving account's name must match the payer on PayMongo's payment
+   record. If the record shows no usable name, the claimant sends the payer's own bank or wallet
+   receipt for that payment, and the transfer goes to that payer. Never transfer to anyone else.
+4. **Card payments: check for a dispute first.** If a bank dispute is open, do not transfer; the
+   dispute returns the money and Pantas accepts it. If a dispute arrives after a transfer, contest it
+   with the transfer proof.
+5. **The full amount.** Pantas pays the transfer fee.
+6. **Run the refund command** (below) so access ends and the refund is on the account's records. If
+   the account is already deleted, skip the command and find the payment by its PayMongo reference.
+7. **Record it** with the business's refund records outside the app: date, account ID or public ID,
+   `pay_` ID, amount, route and reference, how the payer was matched, the command label, the reason.
+
+## A binding order to keep records
+
+Fable legal round 3, H4 (Nov 23, 2026). There is no hold switch in any cleanup job or TTL policy.
+
+1. Log when the order arrived, who issued it, and which accounts and records it names.
+2. The same day, copy the named records to a private folder outside the app and outside git. The
+   fastest clocks: an open guardian request (seven days at most), a question report (85 days) and an
+   account deletion already under way. Record paths:
+   - Guardian request and status: `users/{uid}/server/guardianConsent`; its links: `guardianTokens/{hash}`.
+   - Guardian evidence (answers, purchase declarations): `guardianConsentEvidence/{uid}` and its
+     `responses` subcollection.
+   - Question reports: `questionReports/{encodedUid}.{reportId}` (query by account id).
+   - Payments: `paymongoOrders`, `paymongoCheckouts` (by account id), `paymongoFollowUps`,
+     `users/{uid}/server/entitlement`.
+   - An account deletion under way: `accountDeletions/{uid}`.
+3. Never pause a cleanup job or a TTL policy; that would break the published periods for every user.
+4. Keep the copy only as long as the order requires. Then delete it and log the date.
+5. If the order requires the live record itself to stay in place, Aedwon gets legal advice before the
+   next cleanup run.
+
 ## Manual QR Ph refund
+
+If a parent or guardian denies a purchase on an under-18 account: refund in full by the D4 path (below; a QR Ph payment by bank transfer), run the refund command so access matches, and do not contest (Fable legal round 2, R1, Nov 23 2026).
 
 PayMongo's refund API refuses QR Ph payments ("Refunds are not allowed for payments with source
 type qrph", test mode, 9 November 2026). Aedwon's ruling: refund QR Ph buyers by bank transfer,

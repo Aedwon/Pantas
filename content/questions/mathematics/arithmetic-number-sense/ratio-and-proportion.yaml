@@ -352,8 +352,7 @@ questions:
     stem: |
       Two quantities have values $(x,y)=(2,8)$ and $(4,6)$. A student says they are inversely proportional because y decreases as x increases. Which check disproves the claim?
     choices:
-      - text: '$2(8)
-e4(6)$'
+      - text: '$2(8)\ne 4(6)$'
         correct: true
       - text: '$\dfrac{8}{2}\ne\dfrac{6}{4}$'
         rationale: |
@@ -366,7 +365,7 @@ e4(6)$'
           This compares equal changes instead of products. The quantities change by the same magnitude. Check whether that alone keeps xy constant.
     explanation: |
       Inverse proportion requires the product xy to stay constant. The first product is $2(8)=16$, and the second is $4(6)=24$. The unequal products disprove the claim.
-    approved: false
+    approved: true
 
   - id: q-arithmetic-number-sense-ratio-and-proportion-0019
     type: word-problem
