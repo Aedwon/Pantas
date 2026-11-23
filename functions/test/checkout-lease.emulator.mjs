@@ -17,6 +17,7 @@ function setup({create, now = () => T0, database = db} = {}) {
   return {created, db: database, origin: 'https://pantas.test', methods: ['card'], allow: async () => true, now,
     client: {
       getCheckoutSession: async id => ({id, status: 'expired', metadata: {}, payments: []}),
+      expireCheckoutSession: async () => true,
       createCheckoutSession: async input => {
         created.push(input);
         if (create) return create(input, created.length);

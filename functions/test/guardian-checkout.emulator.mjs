@@ -331,3 +331,71 @@ test('an already expired old session is replaced without another expire call', a
   assert.deepEqual(d.expireCalls, []);
   assert.notEqual(second.sessionId, first.sessionId);
 });
+
+// ---- Round 5: reuse re-checks grant state; a failed unissued cleanup blocks the next link ----------
+
+test('payment and webhook completing after the first provider read on reuse means already paid, no second link', async () => {
+  const uid = 'gc-reuse-race'; await reset(uid);
+  const d = activeClient(deps());
+  const first = await createCheckout(caller(uid), {product, declaration: adult}, d);
+  const read = d.client.getCheckoutSession;
+  d.client.getCheckoutSession = async id => {
+    const out = await read(id);
+    // The buyer pays and the webhook grants right after this read returns "unpaid".
+    await db.doc('paymongoPayments/pay_reuse_race').set({uid, grantId: 'pay_reuse_race', sessionId: id, createdAt: NOW});
+    return out;
+  };
+  await assert.rejects(createCheckout(caller(uid), {product, declaration: adult}, {...d, now: () => NOW + 1000}),
+    {code: 'already-exists', details: {reason: 'already-paid'}});
+  assert.equal(d.calls.length, 1, 'no second session and no link handed out');
+});
+
+test('a payment visible at the provider on the reuse re-read means already paid, granted or not', async () => {
+  const uid = 'gc-reuse-paid-unlinked'; await reset(uid);
+  const d = activeClient(deps());
+  const first = await createCheckout(caller(uid), {product, declaration: adult}, d);
+  const read = d.client.getCheckoutSession;
+  let reads = 0;
+  d.client.getCheckoutSession = async id => { reads++; if (reads >= 2) d.paid.add(id); return read(id); };
+  await assert.rejects(createCheckout(caller(uid), {product, declaration: adult}, {...d, now: () => NOW + 1000}),
+    {code: 'already-exists', details: {reason: 'already-paid'}});
+  assert.equal(d.calls.length, 1);
+});
+
+const failedUnissued = async uid => {
+  await reset(uid);
+  const d = activeClient(deps());
+  const make = d.client.createCheckoutSession;
+  d.client.createCheckoutSession = async input => { const out = await make(input); await consent(uid, 'minor'); return out; };
+  d.expireMode = 'throw';
+  await assert.rejects(createCheckout(caller(uid), {product, declaration: adult}, d), {details: {reason: 'declaration-required', kind: 'guardian'}});
+  d.client.createCheckoutSession = make;
+  const row = (await db.collection(`users/${uid}/pendingCheckouts`).get()).docs[0];
+  return {d, row, sessionId: `cs_gc_1_${uid}`};
+};
+
+test('after a failed cleanup the unissued session is recorded on the reservation and blocks a new link until expired', async () => {
+  const uid = 'gc-unissued-block';
+  const {d, row, sessionId} = await failedUnissued(uid);
+  assert.equal(row.get('state'), 'unissued');
+  assert.equal(row.get('unissuedSessionId'), sessionId);
+  // Retry while expiry still fails: refused, retryably, no new session.
+  await assert.rejects(createCheckout(caller(uid), {product, declaration: guardian}, d), {code: 'unavailable'});
+  assert.equal(d.calls.length, 1);
+  // Expiry works again: the old session is expired first, then the new link is made.
+  d.expireMode = 'ok';
+  const out = await createCheckout(caller(uid), {product, declaration: guardian}, d);
+  assert.ok(d.expired.has(sessionId));
+  assert.equal(d.calls.length, 2);
+  assert.notEqual(out.sessionId, sessionId);
+});
+
+test('a retry that finds the unissued session paid returns already paid and makes no link', async () => {
+  const uid = 'gc-unissued-paid';
+  const {d, sessionId} = await failedUnissued(uid);
+  d.expireMode = 'refuse';
+  d.paid.add(sessionId);
+  await assert.rejects(createCheckout(caller(uid), {product, declaration: guardian}, d),
+    {code: 'already-exists', details: {reason: 'already-paid'}});
+  assert.equal(d.calls.length, 1);
+});

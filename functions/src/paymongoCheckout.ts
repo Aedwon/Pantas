@@ -77,6 +77,10 @@ function declarationFor(snaps: DocumentSnapshot[], data: unknown, now: number): 
   return {kind, wordingVersion: CHECKOUT_DECLARATION_WORDING[kind], termsVersion: GUARDIAN_DOCUMENT_VERSIONS.terms, at: now};
 }
 
+/** The buyer's payment for the session in question exists. No new link is issued. */
+const alreadyPaid = () => new HttpsError('already-exists', 'Your payment was received. Pro will appear shortly.',
+  {reason: 'already-paid'});
+
 /** A stored declaration is reusable only when it says what the buyer must declare now. */
 const sameDeclaration = (stored: unknown, now: CheckoutDeclaration): boolean => {
   const d = stored && typeof stored === 'object' ? stored as Record<string, unknown> : {};
@@ -111,7 +115,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   const order = deps.db.doc(`paymongoOrders/${referenceNumber}`);
   const bindingFor = (d: CheckoutDeclaration) => ({uid, product: product.id, createdAt: now, declaration: d,
     ...(sitting ? {examId: product.examId, sitting} : {})});
-  type Held = {state?: string; sessionId?: string; checkoutUrl?: string; reference?: string; matches: boolean};
+  type Held = {state?: string; unissuedSessionId?: string; sessionId?: string; checkoutUrl?: string; reference?: string; matches: boolean};
   const reserved = await deps.db.runTransaction(async (transaction): Promise<Held | null> => {
     const [previous, ...account] = await transaction.getAll(pending, ...accountRefs(deps.db, uid));
     declaration = declarationFor(account, data, now);
@@ -132,13 +136,31 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     return null;
   });
   if (reserved) {
+    if (reserved.state === 'unissued') {
+      // An earlier attempt made a session it could not hand out and could not expire. No new
+      // link until that one is confirmed expired (or found paid).
+      await settleUnissued(deps, pending, uid, reserved.unissuedSessionId!);
+      return createCheckout(auth, data, deps);
+    }
     if (reserved.state !== 'open') throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
     let remote = await deps.client.getCheckoutSession(reserved.sessionId!);
     const paidAlready = remote.payments.some(p => p.status === 'paid');
     if (reserved.matches && remote.status === 'active' && !paidAlready) {
-      // Declarations are written once and never rewritten: a later write could land on an order
-      // that was paid in the meantime. Reuse needs the same declaration; nothing is written.
-      declarationFor(await deps.db.getAll(...accountRefs(deps.db, uid)), data, now);
+      // Payment and its webhook may have completed since the read above. Read the provider again,
+      // then decide inside a transaction that also reads the grant index and the account state.
+      // A paid session, granted or not, gets no link: the app refreshes the entitlement.
+      const again = await deps.client.getCheckoutSession(reserved.sessionId!);
+      if (again.payments.some(p => p.status === 'paid')) throw alreadyPaid();
+      await deps.db.runTransaction(async transaction => {
+        const [current, ...account] = await transaction.getAll(pending, ...accountRefs(deps.db, uid));
+        declarationFor(account, data, now);
+        const grants = await transaction.get(deps.db.collection('paymongoPayments')
+          .where('sessionId', '==', reserved.sessionId!).limit(1));
+        if (!grants.empty) throw alreadyPaid();
+        if (current.get('reference') !== reserved.reference || current.get('state') !== 'open') {
+          throw new HttpsError('aborted', 'Checkout changed. Try again.');
+        }
+      });
       return {checkoutUrl: reserved.checkoutUrl!, sessionId: reserved.sessionId!, reference: reserved.reference!};
     }
     // Never two payable links. PayMongo checkout sessions do not expire on their own, so a session
@@ -159,8 +181,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     // in this request; the app refreshes the entitlement. (A session already paid before this
     // request is handled below, as before, so a later repeat purchase still works.)
     if (!paidAlready && remote.payments.some(p => p.status === 'paid')) {
-      throw new HttpsError('already-exists', 'Your payment was received. Pro will appear shortly.',
-        {reason: 'already-paid'});
+      throw alreadyPaid();
     }
     // A paid session whose webhook has not granted yet must never lead to a second session: the
     // customer could pay twice. Keep the reservation so the webhook completes the grant.
@@ -215,8 +236,13 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     });
     return result;
   } catch (error) {
-    await releaseReservation(deps.db, pending, referenceNumber);
-    if (made) await expireUnissued(deps, uid, made);
+    if (made && !(await expireUnissued(deps, uid, made))) {
+      // The unissued session may still be payable: keep it on the reservation so a retry
+      // expires it first and makes no new link until then.
+      await markUnissued(deps.db, pending, referenceNumber, product.id, made, now);
+    } else {
+      await releaseReservation(deps.db, pending, referenceNumber);
+    }
     throw error;
   }
 }
@@ -226,9 +252,9 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
  * failed): expire it so no payable link exists that nobody holds. Best effort. If PayMongo will
  * not expire it, record a follow-up and log the reason code only (no account or session data).
  */
-async function expireUnissued(deps: CheckoutDeps, uid: string, sessionId: string): Promise<void> {
+async function expireUnissued(deps: CheckoutDeps, uid: string, sessionId: string): Promise<boolean> {
   try {
-    if (await deps.client.expireCheckoutSession(sessionId)) return;
+    if (await deps.client.expireCheckoutSession(sessionId)) return true;
   } catch {
     // Handled below, the same as a refusal.
   }
@@ -239,6 +265,48 @@ async function expireUnissued(deps: CheckoutDeps, uid: string, sessionId: string
   } catch {
     // The log line above is all that is left.
   }
+  return false;
+}
+
+/** Keeps the reservation, now naming the session that could not be expired, only while it is still ours. */
+async function markUnissued(db: Firestore, pending: DocumentReference, reference: string, productId: string,
+  sessionId: string, now: number): Promise<void> {
+  try {
+    await db.runTransaction(async transaction => {
+      const current = await transaction.get(pending);
+      if (current.get('state') === 'creating' && current.get('reference') === reference) {
+        transaction.set(pending, {state: 'unissued', reference, product: productId, createdAt: now, unissuedSessionId: sessionId});
+      }
+    });
+  } catch {
+    // The follow-up record names the session; the reservation lease lapses on its own.
+  }
+}
+
+/**
+ * Settles an unissued session left by a failed cleanup: expire it again and read it. Paid means
+ * already paid. Only a confirmed-expired session clears the reservation; anything else is a
+ * retryable refusal.
+ */
+async function settleUnissued(deps: CheckoutDeps, pending: DocumentReference, uid: string, sessionId: string): Promise<void> {
+  void uid;
+  try {
+    await deps.client.expireCheckoutSession(sessionId);
+  } catch {
+    // The re-read below decides.
+  }
+  let remote;
+  try {
+    remote = await deps.client.getCheckoutSession(sessionId);
+  } catch {
+    throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
+  }
+  if (remote.payments.some(p => p.status === 'paid')) throw alreadyPaid();
+  if (remote.status !== 'expired') throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
+  await deps.db.runTransaction(async transaction => {
+    const current = await transaction.get(pending);
+    if (current.get('state') === 'unissued' && current.get('unissuedSessionId') === sessionId) transaction.delete(pending);
+  });
 }
 
 /** Deletes the reservation only while it is still `creating` under this attempt's reference. */
