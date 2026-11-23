@@ -478,3 +478,105 @@ test('a dispute won before this branch never revokes and the win is persisted', 
     dispute: true, reason: 'dispute.created'}, now + 2);
   assert.equal(db.rows.get(path).state, 'active');
 });
+
+const monthly = product;
+async function buy(db, id, prod, at) {
+  await commitPaymongoGrant(db, {...payment, eventId: `evt_${id}`, paymentId: `pay_${id}`, product: prod,
+    paidAmount: priceCentavos(prod), paidAt: at}, at, []);
+}
+const grantRow = (db, id) => db.rows.get(`users/${uid}/grants/pay_${id}`);
+
+test('a win re-chains two plans bought during the dispute behind the restored plan, each keeping its length', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await buy(db, 'test_m1', monthly, now);
+  const first = {...grantRow(db, 'test_m1')};
+  await revokePaymongoPayment(db, {eventId: 'evt_open', paymentId: 'pay_test_m1', disputeId: 'disp_test',
+    dispute: true, reason: 'dispute.created'}, now + 1000);
+  await buy(db, 'm2', monthly, now + 2000);
+  await buy(db, 'wk', weekly, now + 3000);
+  const m2Length = grantRow(db, 'm2').endsAt - grantRow(db, 'm2').startsAt;
+  await resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: 'pay_test_m1', disputeId: 'disp_test', won: true}, now + 4000);
+  const restored = grantRow(db, 'test_m1');
+  assert.equal(restored.startsAt, first.startsAt);
+  assert.equal(restored.endsAt, first.endsAt);
+  assert.equal(grantRow(db, 'm2').startsAt, first.endsAt);
+  assert.equal(grantRow(db, 'm2').endsAt - first.endsAt, m2Length);
+  assert.equal(grantRow(db, 'wk').startsAt, grantRow(db, 'm2').endsAt);
+  assert.equal(grantRow(db, 'wk').endsAt - grantRow(db, 'wk').startsAt, WEEK);
+});
+
+test('a reward pulled forward by a dispute does not delay a plan bought during it', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const {db, monthEnd} = await monthlyWithQueuedReward();
+  await revokePaymongoPayment(db, {eventId: 'evt_open', paymentId: payment.paymentId, disputeId: 'disp_test',
+    dispute: true, reason: 'dispute.created'}, now + 1000);
+  await buy(db, 'wk', weekly, now + 2000);
+  await resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: payment.paymentId, disputeId: 'disp_test', won: true}, now + 3000);
+  const week = grantRow(db, 'wk');
+  assert.equal(week.startsAt, monthEnd);
+  assert.equal(week.endsAt - week.startsAt, WEEK);
+  const reward = db.rows.get(`users/${uid}/grants/beta_reward_exam_cse_pro`);
+  assert.equal(reward.endsAt - reward.startsAt, YEAR);
+  assert.ok(reward.startsAt >= monthEnd);
+});
+
+function seeded(seed) {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6D2B79F5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+test('property: after a dispute win no live plan overlaps, lengths are kept and nothing starts before its purchase', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const HOUR = 3_600_000;
+  for (let n = 0; n < 600; n++) {
+    const seed = 1000 + n;
+    const rand = seeded(seed);
+    const pick = (max) => Math.floor(rand() * max);
+    const fail = (message) => assert.fail(`seed ${seed}: ${message}`);
+    const db = firestore();
+    const plans = [];
+    let at = now;
+    for (let i = 0, count = 1 + pick(4); i < count; i++) {
+      at += pick(20 * 24) * HOUR;
+      await buy(db, `p${i}`, rand() < 0.5 ? weekly : monthly, at);
+      plans.push({id: `p${i}`, boughtAt: at});
+    }
+    for (const plan of plans) {
+      const row = grantRow(db, plan.id);
+      plan.startsAt = row.startsAt; plan.endsAt = row.endsAt; plan.length = row.endsAt - row.startsAt;
+    }
+    const target = plans[pick(plans.length)];
+    const opened = at + pick(10 * 24) * HOUR;
+    await revokePaymongoPayment(db, {eventId: 'evt_open', paymentId: `pay_${target.id}`, disputeId: 'disp_p',
+      dispute: true, reason: 'dispute.created'}, opened);
+    let during = opened;
+    for (let i = 0, count = pick(3); i < count; i++) {
+      during += (1 + pick(5 * 24)) * HOUR;
+      await buy(db, `d${i}`, rand() < 0.5 ? weekly : monthly, during);
+      const row = grantRow(db, `d${i}`);
+      plans.push({id: `d${i}`, boughtAt: during, startsAt: row.startsAt, endsAt: row.endsAt, length: row.endsAt - row.startsAt});
+    }
+    const won = during + (1 + pick(5 * 24)) * HOUR;
+    await resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: `pay_${target.id}`, disputeId: 'disp_p', won: true}, won);
+    const restored = grantRow(db, target.id);
+    if (restored.state !== 'active') fail('restored grant is not active');
+    if (restored.startsAt !== target.startsAt || restored.endsAt !== target.endsAt) fail('restored grant schedule changed');
+    for (const plan of plans) {
+      const row = grantRow(db, plan.id);
+      if (row.endsAt - row.startsAt !== plan.length) fail(`${plan.id} length changed`);
+      if (row.startsAt < plan.boughtAt) fail(`${plan.id} starts before its purchase`);
+    }
+    const live = plans.map(plan => grantRow(db, plan.id)).filter(row => row.state === 'active' && row.endsAt > won)
+      .sort((a, b) => a.startsAt - b.startsAt);
+    for (let i = 1; i < live.length; i++) {
+      if (Math.max(live[i].startsAt, won) < live[i - 1].endsAt) fail(`overlap after the win between ${i - 1} and ${i}`);
+    }
+  }
+});

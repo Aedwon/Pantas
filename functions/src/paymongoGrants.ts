@@ -350,7 +350,7 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
       }
     };
     const uid = paid.get('uid') as string | undefined;
-    if (!paid.exists || typeof uid !== 'string') {
+    const unmatched = async () => {
       const existing = await transaction.get(tombstone);
       const refunds = {...(existing.get('refunds') as Record<string, number> | undefined)};
       for (const r of input.refunds ?? []) if (!(r.id in refunds)) refunds[r.id] = r.amount;
@@ -365,7 +365,8 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
       const counted = {...(follow.get('refunds') as Record<string, number> | undefined), ...refunds};
       closeRefund(Object.values(counted).reduce((sum, amount) => sum + amount, 0), follow.get('paidAmount'));
       return {outcome: 'unmatched' as const};
-    }
+    };
+    if (!paid.exists || typeof uid !== 'string') return unmatched();
     const revokeEventRef = db.doc(`webhookEvents/${eventId}/users/${uid}`);
     const dedupe = await transaction.get(revokeEventRef);
     // A resolution that arrived before this dispute.created is applied now.
@@ -378,6 +379,8 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
     const grant = inputs.grants.get(id);
     const version = Number(inputs.record.get('version') ?? 0);
     if (dedupe.exists) return {outcome: 'duplicate' as const, uid};
+    // Deletion removed the grant but has not yet cleared the index uid: the refund counts like a no-uid one.
+    if (!grant && (await transaction.get(db.doc(`accountDeletions/${uid}`))).exists) return unmatched();
     if (input.disputeLost && grant?.state === 'revoked' && grant.disputeId === input.disputeId &&
         !grant.disputeResolved) {
       transaction.update(db.doc(`users/${uid}/grants/${id}`), {disputeResolved: true});
@@ -427,6 +430,47 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
 }
 
 /**
+ * After a dispute win, puts the same-tier tier-wide plans back behind the restored grant. A
+ * candidate is a plan this dispute moved, or a live plan whose start is at or after the restored
+ * start (for example bought while the dispute was open). A moved plan that still has exactly its
+ * moved schedule uses its pre-dispute start and length; any other uses its current ones. Candidates
+ * are placed in order of intended start, each at the later of the cursor and its intended start,
+ * keeping its length. Exam-only rows never move and never advance the cursor. Returns a new map;
+ * unchanged grants keep their identity.
+ */
+export function rechainAfterWin(grants: ReadonlyMap<string, Grant>, restoredId: string,
+  disputeId: string, now: number): Map<string, Grant> {
+  const out = new Map(grants);
+  const restored = grants.get(restoredId);
+  if (!restored) return out;
+  const intended = (g: Grant) => {
+    const move = g.disputeMoves?.[disputeId];
+    return move && g.startsAt === move.movedStartsAt && g.endsAt === move.movedEndsAt
+      ? {start: move.startsAt, length: move.endsAt - move.startsAt}
+      : {start: g.startsAt, length: g.endsAt - g.startsAt};
+  };
+  const candidates = [...grants].filter(([id, g]) => id !== restoredId && g.state === 'active' &&
+    tierWide(g) && stackable(g) && g.tier === restored.tier &&
+    (g.disputeMoves?.[disputeId] !== undefined || (g.endsAt > now && intended(g).start >= restored.startsAt)))
+    .map(([id, g]) => ({id, g, ...intended(g)}))
+    .sort((a, b) => a.start - b.start || a.g.createdAt - b.g.createdAt || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+  let cursor = restored.endsAt;
+  for (const {id, g, start: wanted, length} of candidates) {
+    const start = Math.max(cursor, wanted);
+    const {[disputeId]: _gone, ...rest} = g.disputeMoves ?? {};
+    const {disputeMoves: _old, ...bare} = g;
+    const placed: Grant = {...bare, startsAt: start, endsAt: start + length,
+      ...(g.fullEndsAt === undefined ? {} : {fullEndsAt: g.fullEndsAt + (start - g.startsAt)}),
+      ...(Object.keys(rest).length ? {disputeMoves: rest} : {})};
+    const same = placed.startsAt === g.startsAt && placed.endsAt === g.endsAt &&
+      placed.fullEndsAt === g.fullEndsAt && g.disputeMoves?.[disputeId] === undefined;
+    if (!same) out.set(id, placed);
+    cursor = start + length;
+  }
+  return out;
+}
+
+/**
  * A win restores only this dispute's revocation, without buying any extra time. A resolution
  * that arrives before the payment is known, or before its dispute.created, is recorded in the
  * payment's tombstone so the later event applies the final outcome.
@@ -462,33 +506,17 @@ export async function resolvePaymongoDispute(db: Firestore, input: {eventId: str
     if (restore) {
       const grants = new Map(inputs.grants).set(id, next);
       if (stackable(grant) && tierWide(grant)) {
-        // Put every grant this dispute pulled earlier back behind the restored grant, including
-        // grants that ended while it was open. A grant a later change already moved again keeps
-        // its current length; any other keeps the length it had before the dispute. A live plan of
-        // the same tier bought while the dispute was open overlaps the restored grant too: it
-        // follows with its own length, so no paid day is lost.
-        let cursor = next.endsAt;
-        const bought = [...inputs.grants].filter(([otherId, row]) => otherId !== id && row.state === 'active' &&
-          row.disputeMoves?.[input.disputeId] === undefined && row.tier === grant.tier && tierWide(row) && stackable(row) &&
-          row.endsAt > now && row.startsAt < next.endsAt && row.endsAt > next.startsAt)
-          .sort(([, a], [, b]) => a.startsAt - b.startsAt);
-        const moved = [...inputs.grants].filter(([otherId, row]) => otherId !== id && row.state === 'active' &&
-          row.disputeMoves?.[input.disputeId] !== undefined)
-          .sort(([, a], [, b]) => a.disputeMoves![input.disputeId].startsAt - b.disputeMoves![input.disputeId].startsAt);
-        for (const [otherId, row] of [...moved, ...bought]) {
-          const move = row.disputeMoves?.[input.disputeId];
-          const again = !move || row.startsAt !== move.movedStartsAt || row.endsAt !== move.movedEndsAt;
-          const length = again ? row.endsAt - row.startsAt : move.endsAt - move.startsAt;
-          const rest = {...row.disputeMoves};
-          delete rest[input.disputeId];
-          const placed: Grant = {...row, startsAt: cursor, endsAt: cursor + length,
-            ...(row.fullEndsAt === undefined ? {} : {fullEndsAt: row.fullEndsAt + (cursor - row.startsAt)})};
+        // Re-chain the same-tier plans behind the restored grant (see rechainAfterWin).
+        const rechained = rechainAfterWin(grants, id, input.disputeId, now);
+        for (const [otherId, placed] of rechained) {
+          const row = grants.get(otherId)!;
+          if (placed === row) continue;
           grants.set(otherId, placed);
-          cursor = placed.endsAt;
           transaction.update(db.doc(`users/${uid}/grants/${otherId}`), {
             startsAt: placed.startsAt, endsAt: placed.endsAt,
             ...(placed.fullEndsAt === undefined ? {} : {fullEndsAt: placed.fullEndsAt}),
-            ...(move ? {disputeMoves: Object.keys(rest).length ? rest : FieldValue.delete()} : {}),
+            ...(row.disputeMoves?.[input.disputeId] === undefined ? {}
+              : {disputeMoves: placed.disputeMoves ? placed.disputeMoves : FieldValue.delete()}),
           });
         }
       }

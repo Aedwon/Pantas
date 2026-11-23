@@ -321,3 +321,23 @@ test('a late pass with a partial refund, then account deletion, then the balance
     refunds: [{id: 'ref_rest', amount: 39900}]}, afterSitting + 3000);
   assert.equal((await db.doc('paymongoFollowUps/pay_late_del').get()).get('status'), 'refunded');
 });
+
+test('a balance refund arriving after deletion removed the grant but before the index uid cleared closes the task', async () => {
+  const {revokePaymongoPayment} = await import('../lib/paymongoGrants.js');
+  const uid = 'hard-refund-mid-delete';
+  const afterSitting = Date.parse('2027-03-15T10:00:00Z');
+  assert.equal(await commitPaymongoGrant(db, {uid, eventId: 'evt_mid_del', sessionId: 'cs_mid_del', paymentId: 'pay_mid_del',
+    paidAmount: 49900, product: webProduct('pantas_pass_cse_pro'), paidAt: afterSitting, sitting}, afterSitting + 1000, catalog), 'paidAfterSitting');
+  // Deletion has removed the grant and its record; the payment index still names the account.
+  await db.recursiveDelete(db.doc(`users/${uid}`));
+  await db.doc(`accountDeletions/${uid}`).set({destructiveAt: afterSitting});
+  assert.equal((await db.doc('paymongoPayments/pay_mid_del').get()).get('uid'), uid);
+  await revokePaymongoPayment(db, {eventId: 'evt_mid_part', paymentId: 'pay_mid_del', reason: 'payment.refunded',
+    refunds: [{id: 'ref_a', amount: 10000}]}, afterSitting + 2000);
+  assert.equal((await db.doc('paymongoFollowUps/pay_mid_del').get()).get('status'), 'pending');
+  const result = await revokePaymongoPayment(db, {eventId: 'evt_mid_rest', paymentId: 'pay_mid_del', reason: 'payment.refunded',
+    refunds: [{id: 'ref_b', amount: 39900}]}, afterSitting + 3000);
+  assert.equal(result.outcome, 'unmatched');
+  const task = (await db.doc('paymongoFollowUps/pay_mid_del').get()).data();
+  assert.equal(task.status, 'refunded');
+});
