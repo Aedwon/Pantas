@@ -402,6 +402,27 @@ void main() {
     expect(buyPressed(tester, wide: false), isNull);
   });
 
+  group('guardian status is read only when the declaration card shows', () {
+    testWidgets('web with the card reads it', (tester) async {
+      await pumpPro(tester, wide: false);
+      expect(box(), findsOneWidget);
+      expect(guardianReads, greaterThan(0));
+    });
+
+    testWidgets('native makes no read', (tester) async {
+      onWeb = false;
+      await pumpPro(tester, wide: false);
+      expect(box(), findsNothing);
+      expect(guardianReads, 0);
+    });
+
+    testWidgets('the free-trial state makes no read', (tester) async {
+      await pumpPro(tester, wide: false, trialEligible: true);
+      expect(box(), findsNothing);
+      expect(guardianReads, 0);
+    });
+  });
+
   testWidgets('a tick does not carry over to another account', (tester) async {
     await pumpPro(tester, wide: false);
     await tick(tester);
