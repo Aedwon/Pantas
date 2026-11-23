@@ -9,6 +9,8 @@ import 'package:pantas/features/home/domain/home_today_view.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
+import '../../../../helpers/no_part_label.dart';
+
 HomeTodayLesson lesson(
   int n, {
   bool read = false,
@@ -80,7 +82,8 @@ Widget harness(
     );
 
 void main() {
-  testWidgets('a lesson row shows its label and never minutes', (tester) async {
+  testWidgets('a lesson row shows no part label and never minutes',
+      (tester) async {
     await tester.pumpWidget(
       harness([
         const HomeTodayLesson(
@@ -100,9 +103,35 @@ void main() {
       ]),
     );
     await tester.pumpAndSettle();
-    expect(find.text('Part 2 of 9 · 3 questions'), findsOneWidget);
-    expect(find.text('3 questions'), findsOneWidget);
+    expectNoPartLabel();
+    expect(find.text('Bill of Rights: searches'), findsOneWidget);
+    expect(find.text('Philippine Constitution'), findsNWidgets(2));
     expect(find.textContaining(' min'), findsNothing);
+  });
+
+  testWidgets('the wide Home lesson row shows no part label', (tester) async {
+    tester.view.physicalSize = const Size(1440, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      harness(
+        [
+          const HomeTodayLesson(
+            id: 'l1',
+            title: 'Bill of Rights: searches',
+            subject: 'Philippine Constitution',
+            part: 2,
+            partCount: 9,
+            read: false,
+          ),
+        ],
+        web: true,
+      ),
+    );
+    await tester.pumpAndSettle();
+    expectNoPartLabel();
+    expect(find.text('Philippine Constitution'), findsOneWidget);
   });
   testWidgets('shows actual lesson progress and question counts',
       (tester) async {

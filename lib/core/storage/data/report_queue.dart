@@ -28,6 +28,7 @@ class QuestionReport {
     this.examId,
     this.questionVersion,
     this.state = ReportState.pending,
+    this.refusalReason,
   });
 
   /// Made on this device when the report is queued. The server stores one
@@ -45,6 +46,9 @@ class QuestionReport {
   final String? examId;
   final int? questionVersion;
   final ReportState state;
+
+  /// Why the server refused it, for a refused report.
+  final String? refusalReason;
 }
 
 /// Sends one report to the server. Returns when the server has accepted it.
@@ -70,7 +74,16 @@ class ReportUnavailable implements Exception {
   const ReportUnavailable();
 }
 
-enum ReportResult { queued, empty, questionLimit, dailyLimit }
+enum ReportResult {
+  queued,
+  empty,
+  questionLimit,
+  dailyLimit,
+
+  /// Nobody is signed in, or a draft opened under one account was saved after
+  /// the account changed (another tab). Nothing is stored or sent.
+  accountChanged,
+}
 
 /// What the student is told once a report is saved.
 enum ReportDelivery {
@@ -90,14 +103,12 @@ class ReportQueue {
     this._db, {
     ReportSender? sender,
     String? Function()? account,
-    Future<String?> Function()? dataOwner,
     this.maxAttempts = 3,
     Future<void> Function(Duration)? wait,
     String Function()? newId,
     this.retryEvery,
   })  : _sender = sender,
         _account = account ?? (() => null),
-        _dataOwner = dataOwner ?? (() async => null),
         _wait = wait ?? Future<void>.delayed,
         _newId = newId ?? (() => const Uuid().v4());
 
@@ -107,9 +118,6 @@ class ReportQueue {
   /// The account signed in now, or null.
   final String? Function() _account;
 
-  /// The real account the device recorded as owner of its local data. Only
-  /// that account may take over reports queued before accounts were recorded.
-  final Future<String?> Function() _dataOwner;
   final Future<void> Function(Duration) _wait;
   final String Function() _newId;
 
@@ -131,6 +139,9 @@ class ReportQueue {
   Future<void> _tail = Future<void>.value();
   Timer? _retry;
 
+  /// The account signed in now, or null. A draft binds to this when it opens.
+  String? get currentAccount => _account();
+
   /// Reports the signed-in account has not had accepted, oldest first.
   Future<List<QuestionReport>> pending() async => [
         for (final r in await history())
@@ -141,6 +152,7 @@ class ReportQueue {
   /// Another account's reports are not shown and not counted.
   Future<List<QuestionReport>> history() async {
     final account = _account();
+    if (account == null) return [];
     final rows = await _rows();
     return [
       for (final row in rows)
@@ -165,8 +177,17 @@ class ReportQueue {
     DateTime now, {
     String? examId,
     int? questionVersion,
+    String? expectedAccount,
   }) async =>
-      (await _add(questionId, message, now, examId, questionVersion)).$1;
+      (await _add(
+        questionId,
+        message,
+        now,
+        examId,
+        questionVersion,
+        expectedAccount,
+      ))
+          .$1;
 
   /// Queues a report, sends what can be sent, and says what became of this
   /// report, not of the queue. A refusal is a limit, never a thank-you.
@@ -177,26 +198,35 @@ class ReportQueue {
     String? examId,
     int? questionVersion,
     Duration wait = const Duration(seconds: 5),
+    String? expectedAccount,
   }) async {
-    final (result, id) =
-        await _add(questionId, message, now, examId, questionVersion);
+    final (result, id) = await _add(
+      questionId,
+      message,
+      now,
+      examId,
+      questionVersion,
+      expectedAccount,
+    );
     if (result != ReportResult.queued) return ReportSubmission(result, null);
     try {
       await sendPending().timeout(wait);
     } on Object {
       // Slow or failing: the report is safe here and goes on sending.
     }
-    final state = (await history())
-        .where((r) => r.id == id)
-        .map((r) => r.state)
-        .firstOrNull;
-    return switch (state) {
+    final mine = (await history()).where((r) => r.id == id).firstOrNull;
+    final reason = mine?.refusalReason;
+    return switch (mine?.state) {
       ReportState.sent => const ReportSubmission(
           ReportResult.queued,
           ReportDelivery.sent,
         ),
-      ReportState.refused =>
-        const ReportSubmission(ReportResult.questionLimit, null),
+      ReportState.refused => ReportSubmission(
+          reason == 'daily-limit'
+              ? ReportResult.dailyLimit
+              : ReportResult.questionLimit,
+          null,
+        ),
       _ => const ReportSubmission(ReportResult.queued, ReportDelivery.saved),
     };
   }
@@ -207,12 +237,19 @@ class ReportQueue {
     DateTime now,
     String? examId,
     int? questionVersion,
+    String? expectedAccount,
   ) async {
-    final trimmed = _cut(message.trim());
+    final trimmed = _cut(_clean(message).trim());
     if (trimmed.isEmpty) return (ReportResult.empty, null);
-    // Read before the transaction opens: the first read can start work (a
-    // provider's stream) that must not run inside the transaction's zone.
-    final account = _account();
+    // A draft belongs to the account that opened it. Another tab may have
+    // switched since, and nothing is kept for the new account.
+    final signedIn = _account();
+    if (signedIn == null ||
+        (expectedAccount != null && expectedAccount != signedIn)) {
+      return (ReportResult.accountChanged, null);
+    }
+    // [signedIn] was read before the transaction opens: the first read can
+    // start work (a provider's stream) that must not run inside its zone.
     return _db.transaction(() async {
       final blocked = await limit(questionId, now);
       if (blocked != null) return (blocked, null);
@@ -223,7 +260,7 @@ class ReportQueue {
         'questionId': questionId,
         'message': trimmed,
         'createdAt': now.toIso8601String(),
-        if (account != null) 'accountId': account,
+        'accountId': signedIn,
         if (examId != null) 'examId': examId,
         if (questionVersion != null) 'questionVersion': questionVersion,
       });
@@ -248,13 +285,17 @@ class ReportQueue {
     _retry = null;
   }
 
-  /// Removes the rows of every account except [keep]. A guest who joins an
-  /// account is gone for good, and its reports can never be sent.
+  /// Forgets the sent and refused reports of every account except [keep]. An
+  /// unsent report is never removed here: another tab may have switched the
+  /// account, and the report still belongs to the one that wrote it. The
+  /// sign-out wipe removes what is left.
   Future<void> purgeOtherAccounts(String keep) => _db.transaction(() async {
         final rows = await _rows();
         final kept = [
           for (final row in rows)
-            if (row['accountId'] is! String || row['accountId'] == keep) row,
+            if (row['accountId'] == keep ||
+                (row['state'] ?? 'pending') == ReportState.pending.name)
+              row,
         ];
         if (kept.length != rows.length) await _write(kept);
       });
@@ -267,21 +308,15 @@ class ReportQueue {
 
   Future<int> _pass() async {
     final sender = _sender;
-    final account = _account();
-    final all = await pending();
-    // Only the account that made a report sends it. A report of another
-    // account stays, untouched, until that account is signed in again or the
-    // sign-out wipe removes it.
-    final queued = [
-      for (final r in all)
-        if (r.accountId == account) r,
-    ];
+    // Only the signed-in account's own reports are read, so another
+    // account's stay untouched until it is signed in again or the sign-out
+    // wipe removes them.
+    final queued = await pending();
     var remaining = queued.length;
-    if (account == null) return all.length;
     if (sender == null || remaining == 0) return remaining;
     var networkFailure = false;
     for (final report in queued) {
-      final outcome = await _deliver(sender, report);
+      final (outcome, reason) = await _deliver(sender, report);
       if (outcome == _Outcome.failed) {
         networkFailure = true;
         break;
@@ -290,6 +325,7 @@ class ReportQueue {
       await _settle(
         report.id,
         outcome == _Outcome.sent ? ReportState.sent : ReportState.refused,
+        reason: reason,
       );
       remaining--;
     }
@@ -308,11 +344,15 @@ class ReportQueue {
     }
   }
 
-  Future<_Outcome> _deliver(ReportSender sender, QuestionReport report) async {
+  Future<(_Outcome, String?)> _deliver(
+    ReportSender sender,
+    QuestionReport report,
+  ) async {
     final toSend = QuestionReport(
       id: report.id,
       questionId: report.questionId,
-      message: _cut(report.message),
+      // Older reports are cleaned the same way a new one is.
+      message: _cut(_clean(report.message)),
       createdAt: report.createdAt,
       accountId: report.accountId,
       examId: report.examId,
@@ -321,66 +361,76 @@ class ReportQueue {
     for (var attempt = 1; attempt <= maxAttempts; attempt++) {
       // Before every try, even after a wait: a student who switched accounts
       // meanwhile must not send this report as the new account.
-      if (_account() != report.accountId) return _Outcome.unavailable;
+      if (_account() != report.accountId) return (_Outcome.unavailable, null);
       try {
         await sender.send(toSend);
-        return _Outcome.sent;
-      } on ReportRefused {
-        return _Outcome.refused;
+        return (_Outcome.sent, null);
+      } on ReportRefused catch (refusal) {
+        return (_Outcome.refused, refusal.reason);
       } on ReportUnavailable {
-        return _Outcome.unavailable;
+        return (_Outcome.unavailable, null);
       } on Object {
-        if (attempt == maxAttempts) return _Outcome.failed;
+        if (attempt == maxAttempts) return (_Outcome.failed, null);
         await _wait(Duration(seconds: attempt * attempt * 2));
       }
     }
-    return _Outcome.failed;
+    return (_Outcome.failed, null);
   }
 
-  /// Marks one report done and drops its message. Reads the list again, so a
-  /// report added during the pass is kept.
-  Future<void> _settle(String id, ReportState state) =>
+  /// Marks one report done. A sent report and one the server refused for
+  /// quota lose their message; one the server rejected as malformed keeps its
+  /// text, with the reason, until the next wipe, so unsent words are never
+  /// erased silently. Reads the list again, so a report added during the pass
+  /// is kept.
+  Future<void> _settle(String id, ReportState state, {String? reason}) =>
       _db.transaction(() async {
         final rows = await _rows();
         for (final row in rows) {
           if (row['id'] != id) continue;
-          row
-            ..['state'] = state.name
-            ..['message'] = '';
+          row['state'] = state.name;
+          if (reason != null) row['reason'] = reason;
+          if (!_keepsText(state, reason)) row['message'] = '';
         }
         await _write(rows);
       });
 
+  static bool _keepsText(ReportState state, String? reason) =>
+      state == ReportState.refused &&
+      (reason == 'invalid-argument' || reason == 'already-exists');
+
+  /// How many of the signed-in account's reports the server refused for good,
+  /// by reason. They are not pending, and the wipe discards them.
+  Future<Map<String, int>> refusedReasons() async {
+    final counts = <String, int>{};
+    final account = _account();
+    if (account == null) return counts;
+    for (final row in await _rows()) {
+      if (row['accountId'] != account) continue;
+      if (row['state'] != ReportState.refused.name) continue;
+      final reason = (row['reason'] as String?) ?? 'unknown';
+      counts[reason] = (counts[reason] ?? 0) + 1;
+    }
+    return counts;
+  }
+
   /// The stored list. A list written before reports had ids gets them here and
   /// is saved at once, so an id never changes between tries.
   Future<List<Map<String, Object?>>> _rows() async {
-    final account = _account();
     final stored = await _read();
-    // A report from before accounts were recorded goes to the device's
-    // recorded owner, and only when that owner is signed in. Anyone else who
-    // opens the app first leaves it alone, and it is never sent.
-    final heir = account != null &&
-            stored.any((row) => row['accountId'] is! String) &&
-            await _dataOwner() == account
-        ? account
-        : null;
     bool whole(Map<String, Object?> row) =>
-        row['id'] is String && (row['accountId'] is String || heir == null);
+        row['id'] is String &&
+        (row['accountId'] is String || row['orphan'] == true);
     if (stored.every(whole)) return stored;
     return _db.transaction(() async {
       final rows = await _read();
-      var changed = false;
       for (final row in rows) {
-        if (row['id'] is! String) {
-          row['id'] = _newId();
-          changed = true;
-        }
-        if (row['accountId'] is! String && heir != null) {
-          row['accountId'] = heir;
-          changed = true;
-        }
+        if (row['id'] is! String) row['id'] = _newId();
+        // A report from before accounts were recorded has no proven owner. It
+        // is never sent, to anyone, and stays on the device until the next
+        // wipe: privacy over recovery.
+        if (row['accountId'] is! String) row['orphan'] = true;
       }
-      if (changed) await _write(rows);
+      await _write(rows);
       return rows;
     });
   }
@@ -413,7 +463,33 @@ class ReportQueue {
           (s) => s.name == row['state'],
           orElse: () => ReportState.pending,
         ),
+        refusalReason: row['reason'] as String?,
       );
+
+  /// Drops what the server refuses in a message: control characters other
+  /// than tab, line feed and carriage return, and unpaired surrogates.
+  static String _clean(String message) {
+    final units = message.codeUnits;
+    final out = StringBuffer();
+    for (var i = 0; i < units.length; i++) {
+      final unit = units[i];
+      if (unit < 0x20 && unit != 0x09 && unit != 0x0a && unit != 0x0d) continue;
+      if (unit == 0x7f) continue;
+      if (unit >= 0xd800 && unit <= 0xdbff) {
+        final paired = i + 1 < units.length &&
+            units[i + 1] >= 0xdc00 &&
+            units[i + 1] <= 0xdfff;
+        if (!paired) continue;
+        out
+          ..writeCharCode(unit)
+          ..writeCharCode(units[++i]);
+        continue;
+      }
+      if (unit >= 0xdc00 && unit <= 0xdfff) continue;
+      out.writeCharCode(unit);
+    }
+    return out.toString();
+  }
 
   /// At most [maxMessageLength] UTF-16 units, never ending inside a pair.
   static String _cut(String message) {

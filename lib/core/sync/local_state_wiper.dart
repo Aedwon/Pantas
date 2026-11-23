@@ -86,8 +86,9 @@ class SyncLocalStateWiper implements LocalStateWiper {
             ..where((row) => row.key.isIn(_guardianKeys)))
           .go();
       // Question reports are the student's own words and are sent under the
-      // account that wrote them. The sign-out and switch flush sends what it
-      // can; whatever is left must not reach the next account.
+      // account that wrote them. Sign-out first sends this account's pending
+      // reports and refuses if any cannot go; whatever is left here (refused
+      // ones, a report filed in another tab) must not reach the next account.
       await (_db.delete(_db.devicePrefs)
             ..where((row) => row.key.equals(ReportQueue.storageKey)))
           .go();

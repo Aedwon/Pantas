@@ -94,7 +94,6 @@ void main() {
             db,
             sender: online ? _Accepting() : null,
             account: () => 'acct',
-            dataOwner: () async => 'acct',
           ),
         ),
       ],

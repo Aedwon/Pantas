@@ -32,16 +32,22 @@ Aedwon's "ship it".
 | T1 | Content gate layer (a): every shipped question, quiz, mock and lesson part through the app's real Dart logic, no UI, no network; a permanent CI check | none | Sonnet worker |
 | T2 | Report sending: server callable, rules, client sender for queued reports, tests, free-tier count | none | Sonnet worker |
 | T3 | Part label removed from every UI site (board option A); data kept | none | Sonnet worker |
-| T4 | Report bar morph (QN_Report and states), phone; wide drop-down form as boards | his Section 2 confirmation, T2 | Sonnet worker |
-| T5 | Borderless buttons and the sheet guidance (finding 3) | his Section 3 pick | Sonnet worker |
+| T4 | Report bar morph (QN_Report and states), phone; wide drop-down form as boards | T2 | Sonnet worker |
+| T5 | Borderless buttons and the sheet guidance (finding 3), board option A | none | Sonnet worker |
 | T6 | Study and Quiz title offset (finding 1, U3) and the layout majors and minors | none | Sonnet worker |
 | T7 | Save and sync: S1, S3, S5, S6, S10, S7 to S9, S11 to S16 | none | Sonnet worker; Codex Sol High audit |
 | T8 | Awaited side effects S17 to S21 (same class as PR #82), with the analytics-never-blocks check widened to notifications and crash reporting | none | Sonnet worker |
 | T9 | Remaining web and phone UI majors and all minors (consolidated U-items) | boards where needed | Sonnet workers |
-| T10 | Legal gates: D1 under-18 record deletion (server), D7 trial-code dates and expiry (server), D2 and D3 checkout declaration (UI) | D2 and D3: his Section 4 pick and the text lane's wording | Sonnet workers |
+| T10 | Legal gates: D1 under-18 record deletion (server), D7 trial-code dates and expiry (server), D2 and D3 checkout declaration (UI) | D2 and D3 (tick, option T): the text lane's wording | Sonnet workers |
 | T11 | Launch items: beta surfaces (G4) removed or reworded, P10 ruling (no Subprofessional section counts; practice-exam line on both CSE mocks) | public build plan (integrator) | Sonnet worker |
 | T12 | C1: the lesson audit tool runs clean on the content prod serves | none | Sonnet worker |
 | T13 | Content gate layer (b): one browser run per distinct loop, per open exam (CSE Pro, CSE Sub) and mode | T1, the fix batches | Lead |
+| T15 | Lesson reader full screen, "4 Held" (wide web; phone unchanged): spec `docs/superpowers/specs/2026-11-23-lesson-reader-full-screen-design.md`, canvas Lesson Reader Full Screen; fallback "figures at rest" (direction 1) if the held figure cannot move in the same frame as the scroll | UX hand-off a41d7102f | Sonnet worker |
+| T16 | Core loops polish B2, B4, B3, B5, B1 in that order: spec `docs/superpowers/specs/2026-11-23-core-loops-polish-design.md`, canvas Core Loops | UX hand-off a41d7102f | Sonnet workers |
+| T17 | Money-path app items from the security lead's audit (Nov 23, details private): ENT-06 (High, before live keys) map `beta_reward` grants to that exam's Pro coverage in the web payment gateway's entitlement mapper, with a test; ENT-12 (Low) drop entitlement replies older than the latest request (request counter); pass rows left out of the connected coverage list so a plan queued behind a pass does not show active early (Low, display only after the PAY-06 server fix). Fresh review of the money path | security lead hand-off | Sonnet worker; Codex Sol High review |
+| T18 | Legal D1 with H1 (Fable legal round 3): a decline deletes the request record in the same write that records the answer (decline stays in the evidence); expiry or decline also deletes the request's guardian page links and removes the account id from used or revoked answer links; one-time removal of flag-only records, waiting declined requests and their links for accounts with no confirmed guardian (free-tier count first); the hourly cleanup reads only due guardian records (measured Nov 23 on prod: it reads every `server` document, 27 today, 24 times a day, about 3.4 per account) | rulings Nov 22 D1, Nov 23 H1 | Sonnet worker; Codex Sol High review |
+| T19 | Legal D7: trial codes get a date and a 730-day expiry through a Firestore TTL policy (ruling Nov 22) | ruling D7 | Sonnet worker |
+| T20 | Ruling C3 for Pro backup rows (split out by C4): sign-out and account switch never lose unsent Pro rows and never upload A's rows under B; guarantees listed in C4. Design reviewed (Codex Sol High and Fable) before code; two audit rounds at most, then Aedwon decides | rulings C3, C4 | Sonnet worker after a lead design |
 
 ## T1 contract (content gate layer a)
 
@@ -79,7 +85,16 @@ content, lib or tools, and in the content upload's gate. Existing checks reused,
   limit. Expected use is far under 1% of the daily free writes. Staging proof: 5 reports, about
   10 writes and 5 reads.
 
+## Publish gate (Fable H5)
+
+The legal texts publish with or after the builds, never before. Before the texts go in, each row of the H5 table is checked live on prod and logged: PR #90 claims, D1 with H1 (T18), PR #86 with the 86-day sweep, D7 (T19), the refund route, the website footer.
+
 ## Verification
+
+UI tasks (T3 to T10 and every hardened minor), required (Aedwon confirmed the spec, Nov 23: "this is exactly why I wanted you to do the QA pass. get things moving properly please, and be more conscientious next time."): the spec is Pantas Web, Pantas Redesign and Guardian Manage and Minor Checkout. The worker names the boards it built from. Before the task counts as done, a reviewer who did not build it compares the build side by side with those boards at phone and wide widths, including motion timing and easing. Every difference is classified (Aedwon, Nov 23, replacing "every difference is a defect"): BUILD WORSE is fixed to the board; BUILD BETTER is kept and listed for the reference canvases (sent to the manager's board inventory); UNSURE goes to a council of Gemini 4 Neon High (through agy; GPT 6.2 Sol High through codex-pick only if Gemini is unavailable, judging only) and a Fable 5.2 high agent, each given the board, the build at phone and wide widths and his guidance; agreement rules, a split goes to Fable; each ruling is recorded in the rulings file. Copy is compressed on every touched screen without changing meaning (rule 4), before and after recorded. Motion (timing, easing, feel) is checked phone first, then wide. A screen no board covers goes to a Fable ruling.
+
+T14 (phone pass): Phase 1 has evidence for 108 of the 288 Pantas Redesign phone boards. A full per-board phone pass (Gemini 4 Neon High, read only; the lead verifies samples) classifies every board; its BUILD WORSE items join the fix tasks.
+
 
 Each task: tests first and shown failing, focused tests while working, `run_checks.dart`, CI on
 the branch by full SHA, one headless render sheet per changed screen (Nov 9 exception), a fresh
@@ -92,7 +107,16 @@ Hardened scope 8.5 days active plus the content gate (layer a about 1 day, layer
 about 10.5 days active, 12 to 14 working days wall with two workers and one Flutter slot. Recent
 velocity rows ran 0.1 to 0.6 of their estimates. Velocity rows E-138 onward.
 
-## Picks still needed from Aedwon
+## Rulings that settle the boards (Nov 23, final)
 
-Section 2 (confirm the report morph), Section 3 (A or B), Section 4 (tick or no tick). T4, T5 and
-the D2 and D3 part of T10 wait for them. Nothing else does.
+The approved boards are the spec (manager, relaying Aedwon: "why are you asking me things that have
+been decided before?"). Build to them; escalate only a state no board draws, to Fable 5.2 first.
+
+- Section 1, part label: A, no label in the UI; the data stays.
+- Section 2, report: exactly as the approved boards draw it: QN_Report phone frames with the
+  0.42 s morph and its states; the wide drop-down form. T4 is unblocked.
+- Section 3, Cancel and Close: A, match the boards; no Close where the board draws none. T5 is
+  unblocked.
+- Section 4, checkout: T, the required tick in the approved guardian box card (Fable D2). The D2
+  and D3 part of T10 waits only on the text lane's final wording.
+- Section 5, Backup paused: 0.

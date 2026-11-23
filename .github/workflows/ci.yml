@@ -176,6 +176,19 @@ jobs:
         run: npm ci --no-audit --no-fund
         working-directory: functions
 
+      - name: Package the content as the upload does
+        # The content gate (test/content_gate) checks what students receive:
+        # the upload's own packaging, written to files, no network and no
+        # database. The uploader's approval gate and lesson checks run here, so
+        # a refusal fails this step. Sources it skips are listed in invalid.txt
+        # and the gate reports each one.
+        run: |
+          mkdir -p build/served
+          npm run build --prefix functions
+          node tools/upload_content/upload_content.mjs --root content \
+            --export build/export.json --out-dir build/served --skip-invalid \
+            2> >(tee build/served/invalid.txt >&2)
+
       - name: Pick this shard's test entry points
         # Fails on an empty shard. Files are balanced on tool/ci/test_timings.json,
         # then bundled: a few generated entry files that run many test files,
@@ -188,6 +201,8 @@ jobs:
           # instead of running the export tools again.
           PANTAS_CONTENT_EXPORT: ${{ github.workspace }}/build/export.json
           PANTAS_CONTENT_SEED: ${{ github.workspace }}/assets/seed/content.db
+          # Packaged above; read by test/content_gate.
+          PANTAS_CONTENT_SERVED: ${{ github.workspace }}/build/served
         run: |
           mapfile -t files < shard-files.txt
           test "${#files[@]}" -gt 0

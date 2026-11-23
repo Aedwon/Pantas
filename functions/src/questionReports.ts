@@ -25,7 +25,17 @@ import {timed} from './_timed.js';
 export const MAX_REPORT_MESSAGE = 1000;
 export const MAX_PER_QUESTION = 3;
 export const MAX_PER_DAY = 20;
-export const MAX_REQUEST_BYTES = 4096;
+/**
+ * The size of the largest valid request, computed from the field rules: a message of 1000 units of
+ * 3 bytes each, an account id of 128 control characters (a Firebase uid may hold any character, and
+ * JSON writes each control character as a 6-byte escape), the longest ids, the largest version.
+ * Every valid request fits, and a request over this is refused before any field is looked at.
+ */
+export const MAX_REQUEST_BYTES = Buffer.byteLength(JSON.stringify({
+  reportId: 'r'.repeat(64), accountId: '\u0001'.repeat(128), questionId: 'q'.repeat(128),
+  questionVersion: Number.MAX_SAFE_INTEGER, examId: 'e'.repeat(64), message: '\u20ac'.repeat(MAX_REPORT_MESSAGE),
+  build: 'b'.repeat(40),
+}));
 
 /**
  * Every report is deleted this long after the server received it, by a Firestore TTL policy on
@@ -35,6 +45,7 @@ export const MAX_REQUEST_BYTES = 4096;
  */
 export const REPORT_RETENTION_DAYS = 85;
 
+const LONE_SURROGATE = /[\ud800-\udbff](?![\udc00-\udfff])|(?<![\ud800-\udbff])[\udc00-\udfff]/;
 const REPORT_ID = /^[A-Za-z0-9_-]{16,64}$/;
 const BUILD = /^[A-Za-z0-9._-]{1,40}$/;
 const KEYS = ['reportId', 'accountId', 'questionId', 'questionVersion', 'examId', 'message', 'build'];
@@ -72,6 +83,9 @@ export function validateQuestionReport(data: unknown): QuestionReportInput {
   if (d.examId !== undefined && (typeof d.examId !== 'string' || d.examId.length > 64 || !ID_PATTERN.test(d.examId))) bad('examId');
   // The raw length is checked first: trimming must not let padding hide the size.
   if (typeof d.message !== 'string' || d.message.length > MAX_REPORT_MESSAGE) bad('message');
+  // No control characters but tab, line feed and carriage return, and no lone surrogates: JSON would
+  // spend 6 bytes on each, and none belongs in a student's note.
+  if (/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(d.message as string) || LONE_SURROGATE.test(d.message as string)) bad('message');
   const message = (d.message as string).trim();
   if (message.length < 1) bad('message');
   if (typeof d.build !== 'string' || !BUILD.test(d.build)) bad('build');
@@ -107,10 +121,15 @@ const limiter = new RateLimiter(30);
  * Stores one report. A retry with the same report id and the same content changes nothing and
  * succeeds, so the app can send until it hears back; the same id with other content is refused.
  *
- * Firestore cost. A rejected request (bad input, wrong account, signed out, over the burst
- * limit): 0 reads, 0 writes. A retry of a stored report: 3 reads, 0 writes. A new report: 5 reads
- * (deletion marker, consent, the report, the question counter, the day counter) and 3 writes (the
- * report and both counters). A report over a limit: 5 reads, 0 writes.
+ * The counters keep the ids they accepted (at most 20 for the day, 3 per question), so a retry is
+ * known without reading the report, and a valid request over a limit is refused early.
+ *
+ * Firestore cost. Rejected before any read (bad input, wrong account, signed out): 0 reads, 0
+ * writes. Every other request first reads the deletion marker and the consent (2 reads), so a
+ * closed account is always told so, even when it is over the burst limit: a burst-limited request
+ * costs those 2 reads. Over the daily limit or a question's limit: 4 reads in all. A retry of an
+ * accepted report: 5 reads, 0 writes. A new report: 5 reads (marker, consent, day, question,
+ * report) and 3 writes (the report and both counters).
  */
 export async function storeQuestionReport(request: Pick<CallableRequest, 'auth' | 'data'>, deps: Deps) {
   if (!request.auth) throw new HttpsError('unauthenticated', 'Authentication is required.');
@@ -119,36 +138,56 @@ export async function storeQuestionReport(request: Pick<CallableRequest, 'auth' 
   if (report.accountId !== uid) {
     throw new HttpsError('failed-precondition', 'This report belongs to another account.', {reason: 'wrong-account'});
   }
-  if (!(deps.limiter ?? limiter).allow(uid, (deps.now ?? Date.now)())) {
-    throw new HttpsError('resource-exhausted', 'Too many reports. Try again later.');
-  }
   const reportRef = deps.db.doc(`questionReports/${reportDocId(uid, report.reportId)}`);
   const questionRef = deps.db.doc(`users/${uid}/questionReportCounts/${questionCounterId(report.questionId)}`);
   const dayRef = deps.db.doc(`users/${uid}/server/questionReportDay`);
+  const ids = (value: unknown): string[] => Array.isArray(value) ? value.filter((id): id is string => typeof id === 'string') : [];
+  let burstChecked = false;
   await deps.db.runTransaction(async tx => {
+    // First, before any answer: a closed account gets that answer and nothing else, whatever its
+    // burst limit, quota or retries would have said.
     const [deletion, consent] = await tx.getAll(deps.db.doc(`accountDeletions/${uid}`),
       deps.db.doc(`users/${uid}/server/guardianConsent`));
     if (deletion.exists || consent.get('status') === 'withdrawn') throw accountClosed();
-    const stored = await tx.get(reportRef);
-    if (stored.exists) {
-      const same = stored.get('questionId') === report.questionId && stored.get('message') === report.message &&
-        stored.get('examId') === report.examId && stored.get('questionVersion') === report.questionVersion;
-      if (!same) throw new HttpsError('already-exists', 'This report id was used for another report.', {reason: 'report-id-reused'});
+    // Then the per-instance burst limit, once however often the transaction retries.
+    if (!burstChecked) {
+      burstChecked = true;
+      if (!(deps.limiter ?? limiter).allow(uid, (deps.now ?? Date.now)())) {
+        throw new HttpsError('resource-exhausted', 'Too many reports. Try again later.');
+      }
+    }
+    const now = (deps.now ?? Date.now)(), today = manilaDate(now);
+    const day = await tx.get(dayRef);
+    const sameDay = day.get('day') === today;
+    const dayIds = sameDay ? ids(day.get('ids')) : [];
+    const dayCount = sameDay && typeof day.get('count') === 'number' ? day.get('count') as number : 0;
+    const question = await tx.get(questionRef);
+    const questionIds = ids(question.get('ids'));
+    const asked = typeof question.get('count') === 'number' ? question.get('count') as number : 0;
+    // A report accepted before is answered before any quota is looked at, so a retry of one whose
+    // document has expired is acknowledged even when today's quota is full.
+    const known = dayIds.includes(report.reportId) || questionIds.includes(report.reportId);
+    if (known) {
+      const stored = await tx.get(reportRef);
+      if (stored.exists) {
+        const same = stored.get('questionId') === report.questionId && stored.get('message') === report.message &&
+          stored.get('examId') === report.examId && stored.get('questionVersion') === report.questionVersion;
+        if (!same) throw new HttpsError('already-exists', 'This report id was used for another report.', {reason: 'report-id-reused'});
+      }
+      // The document may be gone (the TTL or the sweep removed it): answered, never rewritten.
       return;
     }
-    const [question, day] = await tx.getAll(questionRef, dayRef);
-    const now = (deps.now ?? Date.now)(), today = manilaDate(now);
-    const asked = typeof question.get('count') === 'number' ? question.get('count') as number : 0;
-    if (asked >= MAX_PER_QUESTION) refuse('question-limit', 'This question already has the most reports allowed.');
-    const dayCount = day.get('day') === today && typeof day.get('count') === 'number' ? day.get('count') as number : 0;
     if (dayCount >= MAX_PER_DAY) refuse('daily-limit', 'Too many reports today. Try again tomorrow.');
+    if (asked >= MAX_PER_QUESTION) refuse('question-limit', 'This question already has the most reports allowed.');
+    const stored = await tx.get(reportRef);
+    if (stored.exists) throw new HttpsError('already-exists', 'This report id was used for another report.', {reason: 'report-id-reused'});
     tx.set(reportRef, {
       accountId: uid, questionId: report.questionId, questionVersion: report.questionVersion,
       examId: report.examId, message: report.message, build: report.build, createdAt: Timestamp.fromMillis(now),
       expireAt: Timestamp.fromMillis(now + REPORT_RETENTION_DAYS * 86_400_000),
     });
-    tx.set(questionRef, {count: asked + 1});
-    tx.set(dayRef, {day: today, count: dayCount + 1});
+    tx.set(questionRef, {count: asked + 1, ids: [...questionIds, report.reportId]});
+    tx.set(dayRef, {day: today, count: dayCount + 1, ids: [...dayIds, report.reportId]});
   });
   return {ok: true, reportId: report.reportId};
 }

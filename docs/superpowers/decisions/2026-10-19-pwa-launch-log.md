@@ -4139,3 +4139,72 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
   - Scope: "go hardened. i do not want any risks when I release this app." Action: Part C hardened list of `docs/superpowers/plans/2026-11-22-cse-release-qa-phase1-report.md`.
   - New gate: "please ensure the core loops and functions are actually functioning properly for every content, every quiz every mock etc. please be efficient about this. do the minimum that can verify something works ... i want to be fully ready before i post a single thing leading users to the app". Manager's reading applied: (a) every item through the app's real Dart logic with no UI, made a permanent CI check (tooling approved in that message); (b) one browser run per distinct loop per exam and mode, reads counted first.
 - Velocity E-137: 6 min 16 s (timer).
+
+### Nov 23, M4 security pass shipped to prod (security and billing lead, r2)
+
+- Approval: Aedwon, "ship it on all items requiring ship it" (entry above). Started after the CSE release lead's "QA web
+  ship verified" (build 2026318751-32e9b98f07ec, Worker f911373a at 09:56 UTC). Rule 7 pre-run count: prod had used 56
+  reads this quota day; the ship's checks about 300.
+- 10:03:41 UTC, rules and indexes (pinned CLI): ruleset eebcd1f6 (typed sync fields; sync pause and server Pro end date),
+  and the `limits.purgeAt` TTL. Rollback: re-release ruleset df1eac57.
+- IAM: `tool/deploy/function_service_accounts.sh pantas-prod` (rerun a no-op); preflight OK, 5 runtime accounts.
+- 10:09 to 10:11:50 UTC, functions (pinned CLI, from the branch with main merged; the first try at 10:08 was refused by
+  the current-main guard because five docs commits had landed, and changed nothing): 60 updated or created, including
+  `countSyncWrites`. Services by account: pantas-app 32, pantas-identity 14, pantas-jobs 6, pantas-entitlements 5,
+  pantas-payments 3, none on the default compute account. Two Cloud Run write-quota errors during the deploy (jobsfrequent,
+  jobsdailylate), retried by the CLI; both services are on their new revisions. Previous revisions saved in
+  `Pantas-private/releases/2026-11-23-m4-prod/`.
+- Verified on prod: throwaway account with a short-lived debug token (both deleted): getMockAvailability with setup 200
+  (155 questions), getWebEntitlement 200, listWebPlans 200 (app secret), paymongoWebhook with a bad signature 401 (payment
+  secret); revenuecatWebhook 500 is the missing RevenueCat configuration on prod, as on Nov 20. jobsFrequent ran 200 at 10:13
+  UTC as pantas-jobs (the Scheduler jobs still call with the default compute account, which keeps `roles/run.invoker`). No
+  ERROR entries since the deploy other than the two quota retries.
+- 10:15 UTC, Worker 450b1105-5de3-4d29-b70c-7a04168db565 from the CSE release lead's build folder: compare.mjs 92 of 92;
+  nosniff, Referrer-Policy, Permissions-Policy, `frame-ancestors 'self'` and the report-only CSP live; `/__/csp-report`
+  answers 204. Headless load: the app boots, no page errors; only the app's own run-time inline scripts are reported.
+  Rollback: `wrangler rollback` to f911373a (after telling the CSE release lead).
+- PR #84 merged to main (5a20801de) after CI passed on its head (03c1eb026).
+- Watch: every 4 hours to Nov 24 10:20 UTC (T3 task bound to the lead thread): first real sign-in (token signing as
+  pantas-identity), the two daily jobs, sync pauses, rules refusals, CSP report volume. Still to do: remove Editor from the
+  default compute account after a clean day (keep its run.invoker or move the Scheduler jobs to pantas-jobs); decide CSP
+  enforcement after the report-only week; the Codex money-path audit after Aedwon's Codex reset; the app's "Paused" row
+  ships with the next prod web build.
+
+### Nov 23, M4 money-path audit done (security and billing lead, r2)
+
+- Two read-only Codex GPT 6.2 Sol High runs (PayMongo path; RevenueCat, passes and web entitlement), one at a time,
+  findings written as found; then an independent Fable 5.2 High verification of every finding against the code (it
+  stopped once at the Claude 5-hour limit and was resumed with its context). Lead re-read two findings in code.
+- Result: 32 findings: 27 confirmed, 3 plausible, 2 refuted (both already dropped by the auditors). After verification:
+  no Blocker, 2 High, 7 Medium, 21 Low, plus one new High operations finding. Details, the verification and the fix plan
+  are private (`Pantas-private/security/2026-11-23-money-path-audit/`), since unfixed money-path weaknesses stay out of
+  this public repo.
+- Fix plan: five items before live PayMongo keys (a "paid but no Pro" runbook and alert, two small entitlement-read
+  fixes, a cutover step for test-mode grants, and dispute-event registration or a chargeback runbook); seven groups in
+  the hardened scope before public launch; native-billing items before any store build. One item needs a Fable ruling
+  (how a plan queues behind a pass for another exam). Fixes go to the CSE release lead (build owner).
+
+### Nov 23, prod warm-up stopped on time (security and billing lead, r2)
+
+- The keep-warm job's last warm-up calls to the 11 callables were at 15:58 UTC; none after the 16:00 UTC stop in code
+  (prod request logs, OPTIONS from 15:30 UTC to 19:30 UTC). The scheduled job still runs and returns early, as designed.
+- `node tool/checks/free_tier.mjs` at main 5fe25ecf4: passed.
+
+### Nov 24, money-path hardened fixes: staging proof pre-run count (rule 7, security and billing lead, r2)
+
+Branch `fix/money-path-hardened-r1` (6d7310f88, merged with main first). Functions only; rules and indexes unchanged.
+Already used on pantas-staging this quota day (since Nov 23 08:00 UTC): 6 reads, 6 writes. Budget: 40,000 reads,
+16,000 writes, 288 MB egress.
+
+| Step | Reads | Writes | Egress |
+|---|---|---|---|
+| IAM preflight, functions deploy, image cleanup | 0 | 0 | 0 |
+| Throwaway account (admin), server entitlement and sync documents | 5 | 8 | 0 |
+| Checkout twice (second call reuses the open session) | 15 | 8 | under 1 MB |
+| One PayMongo test-card payment in headless Chromium, webhook grant, then the documented manual refund command (full) | 40 | 30 | about 5 MB (PayMongo's page, not Firebase) |
+| The manual refund command for an unknown payment id (writes only a refund note) | 5 | 3 | 0 |
+| Sync activation with and without a live server entitlement | 10 | 5 | 0 |
+| Checks and cleanup (delete the account's documents, notes and events) | 60 | 60 deletes | 0 |
+| Total, with 50% margin | **about 200** | **about 170** | **about 10 MB** |
+
+Expected day total: under 250 reads and 200 writes. Go.

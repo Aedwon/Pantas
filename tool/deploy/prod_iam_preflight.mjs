@@ -1,5 +1,5 @@
-// Run before deploying functions to production. Fails when the functions
-// runtime service account lacks a role that a feature in functions/src needs.
+// Run before deploying functions to production. Fails when a functions runtime
+// service account (functions/src/serviceAccounts.ts) lacks a role it needs.
 // Unit tests fake App Check and IAM, so a missing production role cannot fail
 // them: on Nov 6, 2026 every sign-in code request failed in production because
 // the account could not verify App Check tokens.
@@ -28,6 +28,39 @@ export function missingRoles(needed, member, projectPolicy, accountPolicy = {}) 
   return needed.filter(need => !held.has(need.role));
 }
 
+/**
+ * Roles each Cloud Functions runtime account needs (M4 part 2). Which function runs as which account is
+ * in functions/src/serviceAccounts.ts; tool/deploy/function_service_accounts.sh grants these.
+ * `scope: 'account'` means a binding on the account itself (token creator, to sign custom tokens).
+ */
+export function accountRoles(project) {
+  const custom = id => `projects/${project}/roles/${id}`;
+  const p = role => ({role, scope: 'project'});
+  return {
+    'pantas-app': [p('roles/datastore.user'), p('roles/firebaseappcheck.tokenVerifier'), p('roles/firebaseauth.viewer')],
+    'pantas-entitlements': [p('roles/datastore.user'), p('roles/firebaseappcheck.tokenVerifier'), p(custom('pantasAuthReadUpdate'))],
+    'pantas-payments': [p('roles/datastore.user'), p('roles/firebaseappcheck.tokenVerifier'), p(custom('pantasAuthReadUpdate'))],
+    'pantas-identity': [p('roles/datastore.user'), p('roles/firebaseappcheck.tokenVerifier'), p(custom('pantasAuthUsers')),
+      {role: 'roles/iam.serviceAccountTokenCreator', scope: 'account'}],
+    'pantas-jobs': [p('roles/datastore.user'), p(custom('pantasAuthJobs')), p('roles/run.invoker'), p('roles/eventarc.eventReceiver')],
+  };
+}
+
+/** Every role an account lacks. `accountPolicies` maps an account name to the IAM policy on that account. */
+export function missingAccountRoles(project, projectPolicy, accountPolicies) {
+  const holds = (policy, member, role) => (policy?.bindings ?? [])
+    .some(b => !b.condition && b.role === role && b.members?.includes(member));
+  const missing = [];
+  for (const [name, roles] of Object.entries(accountRoles(project))) {
+    const member = `serviceAccount:${name}@${project}.iam.gserviceaccount.com`;
+    for (const need of roles) {
+      const policy = need.scope === 'account' ? accountPolicies[name] : projectPolicy;
+      if (!holds(policy, member, need.role)) missing.push({account: name, role: need.role});
+    }
+  }
+  return missing;
+}
+
 function sources(dir) {
   return readdirSync(dir).filter(name => name.endsWith('.ts')).map(name => readFileSync(join(dir, name), 'utf8'));
 }
@@ -43,17 +76,30 @@ async function main() {
   const project = process.argv[2] ?? 'pantas-prod';
   const token = process.env.ACCESS_TOKEN;
   if (!token) throw new Error('Set ACCESS_TOKEN to an OAuth token that can read IAM policies.');
-  const info = await (await fetch(`https://cloudresourcemanager.googleapis.com/v1/projects/${project}`,
-    {headers: {authorization: `Bearer ${token}`}})).json();
-  const account = `${info.projectNumber}-compute@developer.gserviceaccount.com`;
-  const needed = requiredRoles(sources('functions/src'));
   const projectPolicy = await call(`https://cloudresourcemanager.googleapis.com/v1/projects/${project}:getIamPolicy`, token);
-  const accountPolicy = await call(
-    `https://iam.googleapis.com/v1/projects/${project}/serviceAccounts/${account}:getIamPolicy`, token);
-  const missing = missingRoles(needed, `serviceAccount:${account}`, projectPolicy, accountPolicy);
-  for (const need of missing) console.error(`MISSING ${need.role} on ${account} (needed for ${need.why}).`);
-  if (missing.length) process.exit(1);
-  console.log(`IAM preflight OK for ${project}: ${needed.map(need => need.role).join(', ') || 'no special roles'}.`);
+  const accountPolicies = {};
+  for (const [name, roles] of Object.entries(accountRoles(project))) {
+    if (!roles.some(r => r.scope === 'account')) continue;
+    try {
+      accountPolicies[name] = await call(
+        `https://iam.googleapis.com/v1/projects/${project}/serviceAccounts/${name}@${project}.iam.gserviceaccount.com:getIamPolicy`, token);
+    } catch (error) {
+      if (!String(error.message).endsWith('returned 404')) throw error;
+      console.error(`MISSING account ${name}@${project}.iam.gserviceaccount.com.`);
+    }
+  }
+  const missing = missingAccountRoles(project, projectPolicy, accountPolicies);
+  for (const m of missing) console.error(`MISSING ${m.role} on ${m.account}@${project}.iam.gserviceaccount.com.`);
+  if (missing.length) {
+    console.error('Run tool/deploy/function_service_accounts.sh ' + project + ' first.');
+    process.exit(1);
+  }
+  // The feature scan still guards against a new feature that needs a role no account was given.
+  const needed = requiredRoles(sources('functions/src')).map(need => need.role);
+  const given = new Set(Object.values(accountRoles(project)).flat().map(r => r.role));
+  const unplanned = needed.filter(role => !given.has(role));
+  if (unplanned.length) { console.error(`MISSING ${unplanned.join(', ')}: needed by functions/src but given to no runtime account.`); process.exit(1); }
+  console.log(`IAM preflight OK for ${project}: ${Object.keys(accountRoles(project)).length} runtime accounts hold their roles.`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

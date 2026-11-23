@@ -148,7 +148,7 @@ void main() {
 
   group('the title block (2F-1, 2F-23)', () {
     testWidgets(
-        'matches the system: 38 px title (web-h1), 8 px and 32 px of space',
+        'matches the board: 38 px title (web-h1), 6 px and 32 px of space',
         (tester) async {
       await pumpReader(tester);
       // The bar holds the same title, faded out, after the lesson's own.
@@ -160,7 +160,8 @@ void main() {
       final meta = find.text('Earth Science');
       expect(
         tester.getTopLeft(title).dy - tester.getBottomLeft(meta).dy,
-        closeTo(8, .01),
+        // Board W_Reader: the topic sits 6 px over the title.
+        closeTo(6, .01),
       );
       expect(
         tester.getTopLeft(find.text('Core Concept').last).dy -
@@ -280,7 +281,7 @@ void main() {
       // first heading is still 64 + 44 - 600 + 0 above where it began.
       expect(
         tester.getTopLeft(find.text('Layers of the Earth').first).dy,
-        closeTo(64 + 44 + 15 * 1.45 + 8 - 600, 1),
+        closeTo(64 + 44 + 15 * 1.45 + 6 - 600, 1),
       );
       scroll.jumpTo(500);
       await tester.pumpAndSettle();

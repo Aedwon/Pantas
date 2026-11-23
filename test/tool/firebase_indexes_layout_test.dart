@@ -67,7 +67,7 @@ void main() {
         as Map<String, dynamic>;
     final overrides = (config['fieldOverrides'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
-    expect(overrides, hasLength(5));
+    expect(overrides, hasLength(6));
     for (final field in ['claimsPending', 'updatedAt']) {
       final matches = overrides.where(
         (entry) =>
@@ -83,6 +83,25 @@ void main() {
         ],
       });
     }
+  });
+
+  test('Firebase config expires daily sync counters by purgeAt (M4b)', () {
+    final config = jsonDecode(File('firestore.indexes.json').readAsStringSync())
+        as Map<String, dynamic>;
+    final overrides = (config['fieldOverrides'] as List<dynamic>)
+        .cast<Map<String, dynamic>>();
+    final matches = overrides.where(
+      (entry) =>
+          entry['collectionGroup'] == 'limits' &&
+          entry['fieldPath'] == 'purgeAt',
+    );
+    expect(matches, hasLength(1));
+    expect(matches.single, {
+      'collectionGroup': 'limits',
+      'fieldPath': 'purgeAt',
+      'ttl': true,
+      'indexes': <dynamic>[],
+    });
   });
 
   test('Firebase config keeps every expiry TTL override without indexes', () {

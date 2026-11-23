@@ -38,7 +38,7 @@ void main() {
           'the delivery', (tester) async {
         final db = inMemoryDatabase();
         addTearDown(db.close);
-        final queue = ReportQueue(db);
+        final queue = ReportQueue(db, account: () => 'a');
         final saved = <ReportDelivery>[];
         await pumpAccessibilitySurface(
           tester,
@@ -86,7 +86,7 @@ void main() {
       tester,
       ReportForm(
         questionId: 'q',
-        queue: ReportQueue(db),
+        queue: ReportQueue(db, account: () => 'a'),
         onClose: () => closed++,
         onSaved: (_) {},
       ),
@@ -159,7 +159,7 @@ void main() {
     wide(tester);
     final db = inMemoryDatabase();
     addTearDown(db.close);
-    final queue = ReportQueue(db);
+    final queue = ReportQueue(db, account: () => 'a');
     await openWide(tester, queue);
     expect(find.byType(PantasField), findsOneWidget);
     expect(
@@ -202,7 +202,7 @@ void main() {
     wide(tester);
     final db = inMemoryDatabase();
     addTearDown(db.close);
-    final queue = ReportQueue(db);
+    final queue = ReportQueue(db, account: () => 'a');
     await queue.add('q', 'Earlier report', DateTime.now());
     await openWide(tester, queue);
     final line =
@@ -223,7 +223,7 @@ void main() {
     wide(tester);
     final db = inMemoryDatabase();
     addTearDown(db.close);
-    final queue = ReportQueue(db);
+    final queue = ReportQueue(db, account: () => 'a');
     for (var i = 0; i < 20; i++) {
       await queue.add('o$i', 'Report $i', DateTime.now());
     }
@@ -252,7 +252,6 @@ void main() {
       db,
       sender: sender,
       account: () => 'a',
-      dataOwner: () async => 'a',
     );
     final opened = await openWide(
       tester,
@@ -282,7 +281,6 @@ void main() {
       db,
       sender: _Offline(),
       account: () => 'a',
-      dataOwner: () async => 'a',
     );
     final opened = await openWide(tester, queue);
     await tester.enterText(find.byType(TextField), 'Wrong answer key.');
@@ -313,7 +311,6 @@ void main() {
         db,
         sender: _Refusing(),
         account: () => 'a',
-        dataOwner: () async => 'a',
       );
       final saved = <ReportDelivery>[];
       await tester.pumpWidget(
@@ -339,6 +336,95 @@ void main() {
       expect(saved, isEmpty);
     });
 
+    testWidgets(
+        'a draft opened under one account is not sent after a switch '
+        '(wide=$isWide)', (tester) async {
+      debugWebPlatformOverride = isWide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = isWide ? const Size(1440, 900) : const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Accepting();
+      var who = 'a';
+      final queue = ReportQueue(db, sender: sender, account: () => who);
+      var closed = 0;
+      final saved = <ReportDelivery>[];
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: isWide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: Scaffold(
+            body: ReportForm(
+              questionId: 'q',
+              queue: queue,
+              onClose: () => closed++,
+              onSaved: saved.add,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Typed as A.');
+      await tester.pump();
+      // Another tab signed in as B.
+      who = 'b';
+      await tester.tap(find.text('Send'));
+      await tester.pump();
+      await tester.pump();
+      expect(closed, 1, reason: 'the form closes and nothing was sent');
+      expect(saved, isEmpty);
+      expect(sender.sent, isEmpty);
+      who = 'a';
+      expect(await queue.history(), isEmpty);
+      who = 'b';
+      expect(await queue.history(), isEmpty);
+    });
+
+    testWidgets(
+        'a form opened with nobody signed in cannot be saved later '
+        '(wide=$isWide)', (tester) async {
+      debugWebPlatformOverride = isWide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = isWide ? const Size(1440, 900) : const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Accepting();
+      String? who;
+      final queue = ReportQueue(db, sender: sender, account: () => who);
+      var closed = 0;
+      final saved = <ReportDelivery>[];
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: isWide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: Scaffold(
+            body: ReportForm(
+              questionId: 'q',
+              queue: queue,
+              onClose: () => closed++,
+              onSaved: saved.add,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Typed with nobody in.');
+      await tester.pump();
+      // An account signs in (another tab) before Send.
+      who = 'b';
+      await tester.tap(find.text('Send'));
+      await tester.pump();
+      await tester.pump();
+      expect(closed, 1);
+      expect(saved, isEmpty);
+      expect(sender.sent, isEmpty);
+      expect(await queue.history(), isEmpty);
+    });
+
     testWidgets('typing stops at the longest message (wide=$isWide)',
         (tester) async {
       debugWebPlatformOverride = isWide;
@@ -355,7 +441,7 @@ void main() {
           home: Scaffold(
             body: ReportForm(
               questionId: 'q',
-              queue: ReportQueue(db),
+              queue: ReportQueue(db, account: () => 'a'),
               onClose: () {},
               onSaved: (_) {},
             ),

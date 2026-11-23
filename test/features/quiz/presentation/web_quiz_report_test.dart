@@ -20,7 +20,7 @@ void main() {
       addTearDown(tester.view.resetDevicePixelRatio);
       final db = inMemoryDatabase();
       addTearDown(db.close);
-      final queue = ReportQueue(db);
+      final queue = ReportQueue(db, account: () => 'a');
       await queue.add('q', 'Earlier report', DateTime.now());
       await tester.pumpWidget(
         MaterialApp(

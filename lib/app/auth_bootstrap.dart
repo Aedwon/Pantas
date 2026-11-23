@@ -11,13 +11,15 @@ import 'package:pantas/core/auth/firebase_google_sign_in_gateway.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/platform/account_access.dart';
 import 'package:pantas/core/platform/report_providers.dart';
+import 'package:pantas/core/platform/reports_first_gateway.dart';
+import 'package:pantas/core/platform/restorable_email_link_store.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/runtime/sync_account_transition_gateway.dart';
-import 'package:pantas/core/sync/unsent_sync_data.dart';
 
 typedef AuthGatewayBuilder = AuthGateway Function();
 typedef GoogleGatewayBuilder = GoogleSignInGateway Function();
@@ -42,8 +44,14 @@ List<Override> authRepositoryOverrides(
       }
 
       final gateway = (authGatewayBuilder ?? FirebaseAuthGateway.new)();
+      // Sign-out clears the pending email-link address before it asks the
+      // reports check; a refusal puts it back.
+      final emailLinkStore = RestorableEmailLinkStore(
+        const BrowserEmailLinkStore(),
+      );
       return AuthRepository(
         gateway: gateway,
+        emailLinkStore: emailLinkStore,
         emailLinkGateway: kIsWeb && gateway is EmailLinkAuthGateway
             ? gateway as EmailLinkAuthGateway
             : null,
@@ -59,19 +67,18 @@ List<Override> authRepositoryOverrides(
             (googleGatewayBuilder ?? FirebaseGoogleSignInGateway.new)(),
         functionsGateway:
             (functionsGatewayBuilder ?? FirebaseAuthFunctionsGateway.new)(),
-        accountTransitionGateway: accountTransitionGatewayBuilder?.call(ref) ??
-            SyncAccountTransitionGateway(
-              () => ref.read(syncRuntimeProvider),
-              // The queued question reports go out under the account that
-              // wrote them before its data is wiped.
-              flushReports: () => ref.read(reportQueueProvider).sendPending(),
-              flushNow: () => ref.read(syncRuntimeProvider).forceFlush(),
-              // Sign-out and an account switch wipe this device. They stop
-              // while study changes or reports are still unsent.
-              hasUnsentData: () async =>
-                  await hasUnsentSyncData(ref.read(appDatabaseProvider)) ||
-                  (await ref.read(reportQueueProvider).pending()).isNotEmpty,
-            ),
+        // Question reports are sent first, before any teardown, and a report
+        // that cannot be sent refuses the sign-out or switch.
+        accountTransitionGateway: ReportsFirstTransitionGateway(
+          accountTransitionGatewayBuilder?.call(ref) ??
+              SyncAccountTransitionGateway(() => ref.read(syncRuntimeProvider)),
+          () => ref.read(reportQueueProvider),
+          // A closed account's reports can never be sent: its cleanup runs
+          // without the check.
+          isClosed: accountAccess.isClosed,
+          onRefused: emailLinkStore.restore,
+          onPassed: emailLinkStore.forget,
+        ),
         localStateWiper: localStateWiperBuilder?.call(ref) ??
             SyncLocalStateWiper(
               ref.watch(appDatabaseProvider),

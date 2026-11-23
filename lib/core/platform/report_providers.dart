@@ -5,10 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/platform/firebase_report_sender.dart';
-import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
 
 /// Where queued reports go. Tests replace it.
 final reportSenderProvider = Provider<ReportSender>(
@@ -28,22 +26,11 @@ final reportQueueProvider = Provider<ReportQueue>((ref) {
       SignedInAuthState(:final user) => user.uid,
       _ => null,
     },
-    dataOwner: () => _recordedOwner(ref.read(appDatabaseProvider)),
     retryEvery: const Duration(minutes: 1),
   );
   ref.onDispose(queue.dispose);
   return queue;
 });
-
-/// The real account the device recorded as owner of its local data.
-Future<String?> _recordedOwner(AppDatabase db) async {
-  final row = await (db.select(db.syncMeta)
-        ..where(
-          (r) => r.key.equals(SyncRuntimeController.localDataOwnerKey),
-        ))
-      .getSingleOrNull();
-  return row?.value;
-}
 
 /// Sends the queued reports at the moments the app can: when it starts, when an
 /// account signs in (a guest counts), and each time it returns to the front.

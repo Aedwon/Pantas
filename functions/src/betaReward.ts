@@ -22,6 +22,7 @@ import type {Grant} from './grants.js';
 import {claimsFromInputs, entitlementWrite, nativeCoverageRows, readEntitlementInputs} from './entitlementInputs.js';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import {selectedBetaApplication} from './betaAccess.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 type Request = Pick<CallableRequest, 'auth' | 'app' | 'data'>;
 type Deps = {db: Firestore; now?: () => number; allow?: (uid: string) => Promise<boolean>;
@@ -46,6 +47,7 @@ async function guard(request: Request, deps: Deps, uid: string, key: string, max
   }
 }
 const options = {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck};
+// The two reward functions that refresh claims run as the entitlements account, not the default one.
 const types = ['image/png', 'image/jpeg', 'image/webp'];
 export const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 function optionalText(data: Record<string, unknown>, key: string, max: number): Record<string, string> {
@@ -136,7 +138,7 @@ export async function rewardStatus(request: Request, deps: Deps) {
   });
 }
 export const recordBetaDay = onCall(options, timed('recordBetaDay', request => recordDay(request, {db: getFirestore()})));
-export const getBetaReward = onCall(options, timed('getBetaReward', request => rewardStatus(request, {db: getFirestore(), auth: getAuth()})));
+export const getBetaReward = onCall({region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-entitlements'), enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck}, timed('getBetaReward', request => rewardStatus(request, {db: getFirestore(), auth: getAuth()})));
 
 export async function submitSurvey(request: Request, deps: Deps) {
   const uid = caller(request), data = object(request.data), answers = object(data.answers);
@@ -224,4 +226,4 @@ export async function activateReward(request: Request, deps: Deps) {
   if (deps.auth) await refreshRewardClaims(deps.db, deps.auth, uid, (deps.now ?? Date.now)());
   return result;
 }
-export const activateBetaReward = onCall(options, timed('activateBetaReward', request => activateReward(request, {db: getFirestore(), auth: getAuth()})));
+export const activateBetaReward = onCall({region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-entitlements'), enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck}, timed('activateBetaReward', request => activateReward(request, {db: getFirestore(), auth: getAuth()})));

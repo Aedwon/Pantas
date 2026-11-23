@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/study_topic_section.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
+import '../../../helpers/no_part_label.dart';
 import '../../../helpers/pump_app.dart';
 import 'fake_open_topic.dart';
 
@@ -296,7 +298,7 @@ void main() {
     expect(find.byType(CheckMark), findsOneWidget);
   });
 
-  testWidgets('a lesson row shows its label as a second line, read or not',
+  testWidgets('a lesson row is one line, read or not: no part label',
       (tester) async {
     const split = StudyLesson(
       id: 'p2',
@@ -354,14 +356,11 @@ void main() {
     await tester.tap(find.text('Philippine Constitution'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Part 2 of 9 · 3 questions'), findsOneWidget);
-    expect(find.text('Part 1 of 9 · 3 questions'), findsOneWidget);
-    expect(find.text('5 questions'), findsOneWidget);
+    expectNoPartLabel();
     expect(find.textContaining(' min'), findsNothing);
-    // The label sits under its title.
-    expect(
-      tester.getTopLeft(find.text('Part 2 of 9 · 3 questions')).dy,
-      greaterThan(tester.getBottomLeft(find.text(split.title)).dy - 1),
-    );
+    // Boards (ST_TopicOpen): every lesson row is its title alone, so no row
+    // carries a second line.
+    final rows = tester.widgetList<ListRow>(find.byType(ListRow)).toList();
+    expect(rows.where((r) => r.footer != null), isEmpty);
   });
 }
