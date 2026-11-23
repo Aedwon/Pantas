@@ -159,6 +159,56 @@ Each entry is something the critique found that text cannot fix. No code is chan
 
 **Recommendation.** A and C. B only if the business cannot hold the records itself.
 
+## Nov 23 pass: checkout declaration, seller line, question reports
+
+Rulings: `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md`, section "Nov 22, legal package D1 to D8" (D2, D3). The D1 to D8 entries above are the Nov 22 options. The rulings decide them. Critique: `critique-2026-11-23-sol-high.md`, prompt `critique-prompt-2026-11-23.md`.
+
+### Final checkout declaration (D2)
+
+A required tick beside the Pay button. "Terms and refund policy" links to the Terms (section 5 is the refund policy).
+
+- Adult (buyer buys for their own account): "I'm 18+, authorized to use the payment method, and accept the Terms and refund policy."
+- Guardian (the server holds a confirmed guardian for the account): "I'm 18+ and buying for this student as their parent or legal guardian. I'm authorized to use the payment method and accept the Terms and refund policy."
+
+### Seller line (D3)
+
+Beside the Pay button: "Sold by Aerol Dwayne Daños Balayon, trading as [registered business name] · [full place of business] · [business phone] · support@pantas.study"
+
+Website footer (homepage): "Aerol Dwayne Daños Balayon, trading as [registered business name] · [full place of business] · [business phone] · support@pantas.study"
+
+The brackets are facts only Aedwon has (checklist L3). Neither line ships with a bracket in it.
+
+### Data Protection Officer export procedure
+
+No procedure file exists, and the in-app export is a stub (`exportData` always answers that export is not available). Exports go through dpo@pantas.study. Steps for the Data Protection Officer:
+
+1. Verify who is asking, and the address the file goes to. For an under-18 account, also verify that the requester is the student or the student's current guardian. Accept a request from a teen in plain terms.
+2. Find the account ID.
+3. Collect, as one file, what the app holds for that account ID: study records and settings; payment records (plan, orders, refund entries and the checkout declaration); the guardian answer record for a teen; share cards; **question reports** (the `questionReports` collection, where `accountId` equals the account ID: message, question, question version, exam, build, time); and the emails in the support and privacy mailboxes about the person. Include the counts of reports, and anything Pantas still holds after account closure that is in scope. Also give the sources, uses and recipients of the data (Section 16(c)).
+4. Redact other people's data and secrets, case by case.
+5. Send the file securely to the verified address and log the date. Reply within 30 working days of the request or the documents needed to verify it. For a complex or numerous request, the NPC allows 15 more working days if we say why.
+
+Question reports are stored text the student wrote, so they belong in every export where they are still held. They are in the Privacy Policy and the Notice for teens.
+
+### Critique of this pass (round 2) and what was applied
+
+Sol High: 5 must-fix, 1 should-fix, 1 nit, plus a list of sentences that are true only once the app ships (below). All wording findings are applied. Round 2 text in the files reflects them. Changes from the Fable draft: the adult checkbox is now "I'm 18+, authorized to use the payment method, and accept the Terms and refund policy." and the guardian one now says "buying for this student" and "authorized". The seller line names the proprietor. The age statement now rests on Section 13(f) as well as 12(b) and 12(f), because age is sensitive information. The proof-of-authority and cancel sentence in the Terms no longer reads as discretion over a legal refund. The QR Ph payment sentence is fixed. The question report text names the report counts and drops "only what the report holds". The warning against personal details moves to the report form.
+
+**Sentences that are true only once T10 and the report build ship.** Sol High checked the checkout code at `cc0029392` and found these not yet true: a tick on every web purchase, the new wording and a link, recording the tick for adults, the seller line beside Pay, and the footer line. The texts describe the ruled launch state. Do not publish them before the app does what they say.
+
+### Needs a product or code decision (round 2)
+
+Text cannot fix these. Each needs a ruling. None is built.
+
+1. **Guardian approval tied to the specific order (the biggest risk).** The tick comes from the student's own session, so it proves what that session submitted, not that a guardian bought. Sol High's fix is a guardian approval of the order through a verified guardian channel. This reopens D2 option C for minors. The ruled launch (tick plus record) stays as drafted. Decide whether a guardian-approved order is built before or after launch.
+2. **Which declarations survive deletion.** The deletion code copies a purchase declaration into the ten-year guardian evidence, selecting by timestamp alone. When adult checkout writes the same field, adult declarations would be kept too. The copy must select the guardian version only, and the copy also holds the product. The texts say guardian declarations only. Needs a code change (D2 build).
+3. **Shorter life for abandoned checkout attempts, and the exact declaration wording stored.** Keep the wording version with the record, so the shown text can be proved later. Small code change in the D2 build.
+4. **Question report retention.** No ruling sets a period and the report build has no expiry. Sol High would defend up to 90 days from receipt, sooner when the review ends. Needs a ruling on the period and a TTL on the report time, per D7's pattern. Until then the notices keep a bracket and the report text cannot publish.
+5. **Report form copy.** Add beside Send: "We use your report to fix questions. Leave out names and private details. See how we use reports." This is a UI string, so it goes to Claude workers with the rest of the report form.
+6. **Checkout page.** The buyer must be able to open the Terms without ticking the box. The Terms link goes to the refund section if practical. Add a "Payment help" link to the support address.
+7. **The ten-year guardian evidence period.** Sol High notes Civil Code Article 1391 sets a four-year challenge window and does not prescribe ten years of storage for every guardian response. The period is outside this pass, which left it as drafted. Raise it with D1's text pass.
+8. **D1 text pass not done here.** D1 deletes the under-18 record when a request fails. The Teen Notice paragraphs on the flag ("We keep the under-18 group...", the retention bullets, the basis bullet) still describe the old behavior. Another pass must rewrite them. This pass did not change them.
+
 ## Publishing steps (for the integrator, L1 and L7)
 
 1. Set the three version stamps to the publication date in both places: `guardianDocumentVersions` in the app and `GUARDIAN_DOCUMENT_VERSIONS` in the functions. Deploy together, or the guardian page refuses answers with "Reload the page".

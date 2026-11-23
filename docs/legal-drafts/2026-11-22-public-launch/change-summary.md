@@ -71,3 +71,17 @@ For Aedwon's check. Compared with the texts live in the app today (version 2026-
 - **Version stamps do not make students accept again** (D5). The email and in-app notice are the only way existing students hear of a change.
 - **Promises that are yours to keep:** a refund reply in [5] business days, five years of tax books, invoices and receipts outside the app, and working support and privacy mailboxes.
 - **Left out on purpose:** the critique's suggestion for a short first-email notice to guardians. It belongs in the guardian email, not these texts.
+
+## Nov 23 pass (checkout, seller line, question reports)
+
+Codex Sol High critiqued only these changes (`critique-2026-11-23-sol-high.md`). Every wording finding is applied. Nothing is published.
+
+- **Checkout tick, adult:** "I'm 18+, authorized to use the payment method, and accept the Terms and refund policy."
+- **Checkout tick, guardian:** "I'm 18+ and buying for this student as their parent or legal guardian. I'm authorized to use the payment method and accept the Terms and refund policy."
+- **Both ticks** sit beside the Pay button, link to the Terms, and are recorded with the date, time and Terms version for every web purchase. The Terms, Privacy Policy and Notice for teens say so.
+- **Seller line beside Pay and in the website footer:** "Sold by Aerol Dwayne Daños Balayon, trading as [registered business name] · [full place of business] · [business phone] · support@pantas.study". You supply the three brackets.
+- **Question reports** are now named in the Privacy Policy and the Notice for teens: what we keep, why, and that deleting the account deletes them. The retention period is a bracket. Sol High would defend up to 90 days. Needs your ruling and a cleanup in the app.
+- **Data export:** a short procedure is in the README, and it covers question reports.
+- **Age on a checkout record** now rests on Section 13(f), because age is sensitive information.
+- **Texts are true only after the app ships** the tick, the seller line and the report cleanup. Do not publish before then.
+- **Biggest open risk:** a student's session can tick the guardian box. A guardian approving the specific order is stronger. See README "Needs a product or code decision (round 2)".
