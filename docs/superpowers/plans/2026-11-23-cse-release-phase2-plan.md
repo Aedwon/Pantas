@@ -42,6 +42,8 @@ Aedwon's "ship it".
 | T11 | Launch items: beta surfaces (G4) removed or reworded, P10 ruling (no Subprofessional section counts; practice-exam line on both CSE mocks) | public build plan (integrator) | Sonnet worker |
 | T12 | C1: the lesson audit tool runs clean on the content prod serves | none | Sonnet worker |
 | T13 | Content gate layer (b): one browser run per distinct loop, per open exam (CSE Pro, CSE Sub) and mode | T1, the fix batches | Lead |
+| T15 | Lesson reader full screen, "4 Held" (wide web; phone unchanged): spec `docs/superpowers/specs/2026-11-23-lesson-reader-full-screen-design.md`, canvas Lesson Reader Full Screen; fallback "figures at rest" (direction 1) if the held figure cannot move in the same frame as the scroll | UX hand-off a41d7102f | Sonnet worker |
+| T16 | Core loops polish B2, B4, B3, B5, B1 in that order: spec `docs/superpowers/specs/2026-11-23-core-loops-polish-design.md`, canvas Core Loops | UX hand-off a41d7102f | Sonnet workers |
 
 ## T1 contract (content gate layer a)
 
