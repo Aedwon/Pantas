@@ -118,6 +118,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Boards built as options for questions the approved boards already answered (Nov 23)
+
+- His words (relayed by the manager): "why are you asking me things that have been decided before?" and "isn't there a reference/boards already for the UI? including animations? are you kidding me?"
+- Wrong: the CSE release lead turned three settled UI questions into picks on the "CSE Release Picks" canvas: the report bar morph (the approved QN_Report boards already draw it, with timing), borderless Cancel and Close (the boards already draw the sizes and where no Close exists; option A was simply "match the boards"), and the checkout tick (a Fable D2 ruling already recommended it, matching the approved guardian box). It then sent them up again as open picks.
+- Why it got through: the manager's request said "options for him to pick", and the lead built options without first asking whether an approved board, spec or ruling already decided each one. His findings were that the build does not match the boards, so the boards were the answer, not a question.
+- Fix (required step for any lead, before any UI question reaches Aedwon): check the approved boards (Pantas Redesign, Pantas Web, later approved canvases), the spec and the rulings. If any of them answers it, build to it and say which source in one line. Only a state that no board draws is escalated, and it goes to a Fable 5.2 ruling first, not to Aedwon. Applied: sections 2, 3 and 4 are built to the boards and the D2 ruling.
+
 ### A Claude worker started four more workers past the 2-worker cap (Nov 22)
 
 - Words: none from Aedwon. The manager's correction: "you have 6 Claude subagents running; the brief's limit is 2 at once (his Claude usage)". The cap protects his Claude usage (Nov 19 and Nov 22 entries below).
