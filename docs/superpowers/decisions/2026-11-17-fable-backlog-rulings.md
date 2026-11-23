@@ -421,7 +421,7 @@ Gate work in total: about 3 days of lane time, one board state, and his facts.
 
 Council (Aedwon, Nov 23, relayed by the manager): for a build-versus-board difference where it is unclear which is better, Gemini 4 Neon High (through agy) and a Fable 5.2 high agent judge independently, given the board, the build at phone and wide widths, and his guidance: "i do not like wordy UI. if you can compress text, do it. I like clean, intuitive, elegant, and satisfying (in terms of motion and animations) UI/UX". If they agree, that is the ruling; if they split, Fable's call is final.
 
-### C1. Phone lesson reader topic line: B, the board's eyebrow (RD_Real)
+### C1. Phone lesson reader topic line: B, the board's eyebrow (RD_Real). SUPERSEDED Nov 23
 
 - Question: above the lesson title, A (the build since Nov 5: topic in sentence case, 15 px, regular, gray) or B (board RD_Real: 13 px all caps, weight 600, .04 em, 8 px above the title). No record of Aedwon approving A exists; a Nov 5 test comment cites "QA 2F-23" with no source.
 - Fable 5.2: B. "Clearer hierarchy with less visual weight" (A reads like a second, weaker title); B is the approved design.
@@ -429,9 +429,11 @@ Council (Aedwon, Nov 23, relayed by the manager): for a build-versus-board diffe
 - Ruling: B. Condition both named: switch to A if real topic names wrap to two lines in caps at 390 px; the T3 review checks the longest CSE topic name.
 - Applied in T3 (`qa/no-part-label-r1`). Wide web keeps the topic at 15 px per W_Reader.
 
-### C2. A long topic on the phone reader eyebrow (state no board draws): drop the parenthetical aside (Fable 5.2)
+### C2. A long topic on the phone reader eyebrow (state no board draws): drop the parenthetical aside (Fable 5.2). SUPERSEDED Nov 23
 
 - Found by the T3 board review: "Spatial & Abstract (Non-Verbal) Reasoning" in 13 px caps measures about 339 px of 342 px at 390 px, so it wraps to two lines on 360 to 375 px phones or with larger text. RD_Real never shows a topic this long.
 - Options: let it wrap; one line with an ellipsis; a shorter eyebrow name; other.
 - Fable 5.2 (high), verbatim ruling: "Option 3. Show \"SPATIAL & ABSTRACT REASONING\" on the reader eyebrow, full name elsewhere and to screen readers, no line limit, wrap as fallback, never an ellipsis." Reasons: "(NON-VERBAL)" restates "SPATIAL & ABSTRACT", matching his compress-text guidance; an ellipsis clips meaning when text is scaled (WCAG 1.4.4, 1.4.10).
 - Applied as one general rule instead of a new content field: the reader eyebrow drops a parenthetical aside (`readerEyebrowText`, `qa/no-part-label-r1` a7b10ab4a), and the full name is the semantics label.
+
+- Superseded, Nov 23 (CSE release lead): C1 and C2 were judged against the Nov 1 export of RD_Real. The same day the reference canvases were updated (`docs/superpowers/verification/2026-11-23-reference-canvas-folds.md`): the approved reader Polish C replaced RD_Real and W_Reader. Polish C draws the topic as one 15 px secondary line in sentence case, 8 px above the title, which is the build's "A". The build follows Polish C; the caps eyebrow and the shortened topic are removed (`qa/no-part-label-r1` 3119169d5). Mistake: the lead had the workers build from the Nov 1 export instead of the live canvases. Fix: every brief now points at the live Pantas Web and Pantas Redesign canvases and says to re-read the board before building.
