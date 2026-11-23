@@ -128,6 +128,38 @@ const tokenRef = (db: Firestore, hash: string) => db.doc(`guardianTokens/${hash}
  */
 export const CLEANUP_DUE_FIELD = 'guardianDueAt';
 
+/**
+ * When a request record is next due for the cleanup. A pending request is due when it expires; an
+ * answered one seven days after the answer. A record with neither (an old confirmation with no answer
+ * time) is due at the time the one-time script gave it, so the script and the cleanup share one deadline.
+ */
+export function consentDue(data: FirebaseFirestore.DocumentData): number | null {
+  if (data.status === 'pending') return typeof data.expiresAt === 'number' ? data.expiresAt : null;
+  if (typeof data.decidedAt === 'number') return data.decidedAt + GUARDIAN_WINDOW_MS;
+  return typeof data[CLEANUP_DUE_FIELD] === 'number' ? data[CLEANUP_DUE_FIELD] : null;
+}
+
+const CONTACT_FIELDS = ['emailHash', 'maskedEmail', 'tokenHash', 'sentAt', 'expiresAt', 'createdAt'];
+
+/** True for a record the cleanup must find by its due-time field but that has none: written before that field. */
+export function needsDueField(data: FirebaseFirestore.DocumentData): boolean {
+  if (data[CLEANUP_DUE_FIELD] !== undefined || data.status === 'withdrawn') return false;
+  if (data.status === 'confirmed') return CONTACT_FIELDS.some((key) => data[key] !== undefined);
+  return data.status === 'pending' || data.status === 'declined';
+}
+
+/**
+ * Ends a request record. An account that said it is 18 keeps only that mark, because it stops a new
+ * under-18 request; everything else is deleted. The mark is never part of the request.
+ */
+export function endRequest(tx: Transaction, ref: DocumentReference, data: FirebaseFirestore.DocumentData): void {
+  if (data.ageGroup === 'adult') {
+    tx.set(ref, {ageGroup: 'adult', ...(data.adultSince === undefined ? {} : {adultSince: data.adultSince})});
+  } else {
+    tx.delete(ref);
+  }
+}
+
 /** Every link row that names the account. Read it before the first write of the transaction. */
 export const requestLinksQuery = (db: Firestore, uid: string): Query => db.collection('guardianTokens').where('uid', '==', uid);
 
@@ -214,9 +246,10 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
   const globalLimit = deps.db.doc(`guardianLimits/global-${day}`);
 
   const dayFull = await deps.db.runTransaction(async (tx): Promise<'full' | 'full-already-logged' | 'became-full' | 'ok'> => {
-    const [current, limit, global, openManage, deletion] = await Promise.all([tx.get(consent), tx.get(emailLimit), tx.get(globalLimit),
-      tx.get(deps.db.collection('guardianTokens').where('uid', '==', uid).where('kind', '==', 'manage').where('state', '==', 'open')),
+    const [current, limit, global, allLinks, deletion] = await Promise.all([tx.get(consent), tx.get(emailLimit), tx.get(globalLimit),
+      tx.get(requestLinksQuery(deps.db, uid)),
       tx.get(deps.db.doc(`accountDeletions/${uid}`))]);
+    const openManage = allLinks.docs.filter((link) => link.get('kind') === 'manage' && link.get('state') === 'open');
     const before = current.data();
     // A pending deletion also closes this door when the consent record is already gone.
     if (deletion.exists) throw accountClosed();
@@ -262,12 +295,19 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
         `Guardian emails reached 80% of the daily cap (${sentToday + 1} of ${cap}).`);
     }
     tx.set(emailLimit, {windowStartedAt: inWindow ? startedAt : now, count: count + 1, cleanupAt: expiresAt});
-    if (typeof before?.tokenHash === 'string') {
-      tx.set(tokenRef(deps.db, before.tokenHash), {state: 'revoked', revokedAt: now}, {merge: true});
+    // An expired or declined request that the cleanup has not reached yet ends here, in the same write
+    // that starts the replacement, so nothing of it still names the account.
+    const ended = before !== undefined && (before.status === 'declined' || (before.status === 'pending' && now >= before.expiresAt));
+    if (ended) {
+      dropRequestLinks(tx, allLinks);
+    } else {
+      if (typeof before?.tokenHash === 'string') {
+        tx.set(tokenRef(deps.db, before.tokenHash), {state: 'revoked', revokedAt: now, cleanupAt: now + GUARDIAN_WINDOW_MS}, {merge: true});
+      }
+      // Only the newest email's manage link works. The manage token has no expiry of its own.
+      for (const earlier of openManage) tx.set(earlier.ref, {state: 'revoked', revokedAt: now, cleanupAt: now + GUARDIAN_WINDOW_MS}, {merge: true});
     }
-    tx.set(tokenRef(deps.db, tokenHash), {uid, state: 'open', createdAt: now, expiresAt});
-    // Only the newest email's manage link works. The manage token has no expiry of its own.
-    for (const earlier of openManage.docs) tx.set(earlier.ref, {state: 'revoked', revokedAt: now}, {merge: true});
+    tx.set(tokenRef(deps.db, tokenHash), {uid, state: 'open', createdAt: now, expiresAt, cleanupAt: expiresAt});
     tx.set(tokenRef(deps.db, manageHash), {kind: 'manage', uid, state: 'open', createdAt: now});
     tx.set(consent, {
       status: 'pending', ageGroup: 'minor', emailHash, maskedEmail, tokenHash,
@@ -371,35 +411,45 @@ export async function answerRequest(request: AppRequest, deps: ConsentDeps): Pro
   if (!await allow(visitor, 'guardianAnswer', ANSWER_LIMIT.max, ANSWER_LIMIT.windowMs)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
-  const now = (deps.now ?? Date.now)();
   const decision = data.decision;
   if (typeof data.token !== 'string' || !/^[a-f0-9]{64}$/.test(data.token)) return {state: 'unknown'};
   const hash = hashValue(deps.key, 'token', data.token);
   // The page's own manage link, handed back once. The email carries a separate one that stays valid.
   const manageToken = (deps.manageToken ?? newToken)();
+  // Read once outside the transaction, only to learn the account. The transaction then reads the
+  // request record before the links, the same order the cleanup and a resend use.
+  const first = (await tokenRef(deps.db, hash).get()).data();
+  if (!first || first.kind === 'manage') return {state: 'unknown'};
+  if (first.state === 'used') return {state: 'used'};
+  if (first.state !== 'open' || typeof first.uid !== 'string') return {state: 'unknown'};
+  const uid = first.uid;
   return deps.db.runTransaction(async (tx): Promise<AnswerResult> => {
+    // Read again on every attempt, so a retry after expiry cannot confirm.
+    const now = (deps.now ?? Date.now)();
+    const consent = consentRef(deps.db, uid);
+    const current = (await tx.get(consent)).data();
     const row = (await tx.get(tokenRef(deps.db, hash))).data();
     if (!row || row.kind === 'manage') return {state: 'unknown'};
     if (row.state === 'used') return {state: 'used'};
-    if (row.state !== 'open' || typeof row.uid !== 'string') return {state: 'unknown'};
+    if (row.state !== 'open' || row.uid !== uid) return {state: 'unknown'};
     if (now >= row.expiresAt) return {state: 'expired'};
-    const uid = row.uid;
-    const consent = consentRef(deps.db, uid);
-    const current = (await tx.get(consent)).data();
     if (current?.status !== 'pending' || current.tokenHash !== hash) return {state: 'used'};
     // A decline deletes the request in this same write, so every read comes first.
     const links = decision === 'decline' ? await tx.get(requestLinksQuery(deps.db, uid)) : undefined;
-    tx.set(tokenRef(deps.db, hash), {state: 'used', usedAt: now, ...(links ? {uid: FieldValue.delete()} : {})}, {merge: true});
+    tx.set(tokenRef(deps.db, hash), {state: 'used', usedAt: now, cleanupAt: now + GUARDIAN_WINDOW_MS,
+      ...(links ? {uid: FieldValue.delete()} : {})}, {merge: true});
     if (links) {
       dropRequestLinks(tx, links, tokenRef(deps.db, hash));
-      tx.delete(consent);
+      endRequest(tx, consent, current);
     } else {
       // The record is trimmed seven days after the answer.
       tx.set(consent, {status: 'confirmed', decidedAt: now, sharingAllowed: allowSharing, [CLEANUP_DUE_FIELD]: now + GUARDIAN_WINDOW_MS}, {merge: true});
     }
     // Separate from the user tree so deletion keeps only the response evidence.
     // Never copy the contact, email hash, masked address, or study answers here.
-    tx.set(deps.db.doc(`guardianConsentEvidence/${row.uid}/responses/${hash}`), {
+    // A decline gets its own id: the link row stays for seven days and must not lead back to the account.
+    tx.set(decision === 'confirm' ? deps.db.doc(`guardianConsentEvidence/${uid}/responses/${hash}`)
+      : deps.db.collection(`guardianConsentEvidence/${uid}/responses`).doc(), {
       documentVersions: GUARDIAN_DOCUMENT_VERSIONS,
       noticeWordingVersion: GUARDIAN_NOTICE_WORDING_VERSION,
       action: decision, agreed: data.agreed === true, decidedAt: now,
@@ -407,7 +457,7 @@ export async function answerRequest(request: AppRequest, deps: ConsentDeps): Pro
     });
     if (decision !== 'confirm') return {state: 'declined'};
     tx.set(tokenRef(deps.db, hashValue(deps.key, 'token', manageToken)),
-      {kind: 'manage', uid: row.uid as string, state: 'open', createdAt: now});
+      {kind: 'manage', uid, state: 'open', createdAt: now});
     return {state: 'confirmed', manageToken};
   });
 }
@@ -547,7 +597,7 @@ export async function markAdult(request: AppRequest, deps: ConsentDeps): Promise
     if (data.ageGroup !== 'minor' || data.adultSince !== undefined) {
       throw new HttpsError('failed-precondition', 'Already switched.');
     }
-    for (const row of openManage.docs) tx.set(row.ref, {state: 'revoked', revokedAt: now}, {merge: true});
+    for (const row of openManage.docs) tx.set(row.ref, {state: 'revoked', revokedAt: now, cleanupAt: now + GUARDIAN_WINDOW_MS}, {merge: true});
     tx.set(consent, {ageGroup: 'adult', adultSince: now}, {merge: true});
     const entry = evidenceEntry(deps.db, uid, 'became_adult', now);
     tx.set(entry.ref, {action: entry.data.action, decidedAt: now});
@@ -576,76 +626,118 @@ async function visitGuardianRows(query: Query, visit: (row: QueryDocumentSnapsho
 // What survives the trim of a confirmed record. Everything else is contact data.
 const KEPT_CONSENT_FIELDS = ['status', 'ageGroup', 'decidedAt', 'sharingAllowed', 'adultSince', 'ageCheckNoticeVersion'];
 
-/** Deletes due contacts and links. Transactions recheck sends and answers that raced the scan. */
-export async function purgeGuardianRecords(db: Firestore, now: number): Promise<void> {
-  await visitGuardianRows(db.collection('guardianTokens').orderBy(FieldPath.documentId()), async (row) => {
-    await db.runTransaction(async (tx) => {
-      const data = (await tx.get(row.ref)).data();
-      if (!data) return;
-      // A manage link has no expiry. It goes when the account goes or when it is revoked.
-      if (data.kind === 'manage' && data.state === 'open') return;
-      // A later resend must not extend the lifetime of an already used link.
-      const eventAt = data.usedAt ?? data.revokedAt;
-      if (data.state === 'revoked' && typeof eventAt !== 'number') {
-        // Legacy revoked links have no event date and no remaining use.
-        tx.delete(row.ref);
-        return;
-      }
-      const due = data.state === 'open' ? data.expiresAt
-        : typeof eventAt === 'number' ? eventAt + GUARDIAN_WINDOW_MS
-          : typeof data.expiresAt === 'number' ? data.expiresAt + GUARDIAN_WINDOW_MS : null;
-      if (typeof due === 'number' && now >= due) tx.delete(row.ref);
-    });
+export type PurgeSummary = {deleted: number; trimmed: number; undated: number};
+
+/** Deletes one link row when it is due. A manage link of an open request has no end of its own. */
+async function purgeToken(db: Firestore, ref: DocumentReference, now: number): Promise<void> {
+  await db.runTransaction(async (tx) => {
+    const data = (await tx.get(ref)).data();
+    if (!data) return;
+    // A manage link has no expiry. It goes when the account goes or when it is revoked.
+    if (data.kind === 'manage' && data.state === 'open') return;
+    // A later resend must not extend the lifetime of an already used link.
+    const eventAt = data.usedAt ?? data.revokedAt;
+    if (data.state === 'revoked' && typeof eventAt !== 'number') {
+      // Legacy revoked links have no event date and no remaining use.
+      tx.delete(ref);
+      return;
+    }
+    const due = data.state === 'open' ? data.expiresAt
+      : typeof eventAt === 'number' ? eventAt + GUARDIAN_WINDOW_MS
+        : typeof data.expiresAt === 'number' ? data.expiresAt + GUARDIAN_WINDOW_MS : null;
+    if (typeof due === 'number' && now >= due) tx.delete(ref);
   });
-  // Only guardian records that are due. This query never reads another account document.
-  let deleted = 0;
-  let trimmed = 0;
+}
+
+async function purgeLimit(db: Firestore, ref: DocumentReference, now: number): Promise<void> {
+  await db.runTransaction(async (tx) => {
+    const data = (await tx.get(ref)).data();
+    if (!data) return;
+    // Legacy daily counters contain no date field, but their ID names the day.
+    const day = /^global-(\d{4}-\d{2}-\d{2})$/.exec(ref.id)?.[1];
+    const start = data.windowStartedAt ?? (day ? Date.parse(`${day}T00:00:00+08:00`) : null);
+    const due = data.cleanupAt ?? (typeof start === 'number'
+      ? start + GUARDIAN_WINDOW_MS + (day ? DAY_MS : 0) : null);
+    if (typeof due === 'number' && now >= due) tx.delete(ref);
+  });
+}
+
+/** Locks the request record first and its links second, like an answer and a resend do. */
+async function purgeConsent(db: Firestore, ref: DocumentReference, now: number, summary: PurgeSummary): Promise<void> {
+  const uid = /^users\/([^/]+)\/server\/guardianConsent$/.exec(ref.path)?.[1];
+  if (!uid) return;
+  await db.runTransaction(async (tx) => {
+    const data = (await tx.get(ref)).data();
+    if (!data) return;
+    // A withdrawal in progress stays untouched, whatever its age: the deletion still needs it.
+    if (data.status === 'withdrawn') return;
+    const due = consentDue(data);
+    if (typeof due !== 'number' || now < due) return;
+    if (data.status === 'confirmed') {
+      if (Object.keys(data).every((key) => KEPT_CONSENT_FIELDS.includes(key))) return;
+      // Keep the gate status, the age group, the sharing choice and the minimum confirmation
+      // facts, without contact data (email hash, masked address, link hash, send and expiry times).
+      const kept = Object.fromEntries(KEPT_CONSENT_FIELDS.filter((key) => data[key] !== undefined).map((key) => [key, data[key]]));
+      tx.set(ref, {...kept, ageGroup: data.ageGroup ?? 'minor'});
+      summary.trimmed++;
+    } else {
+      // An unanswered or declined request is deleted whole, with its guardian page links.
+      // The account is then no longer tied to a guardian request.
+      dropRequestLinks(tx, await tx.get(requestLinksQuery(db, uid)));
+      endRequest(tx, ref, data);
+      summary.deleted++;
+    }
+  });
+}
+
+const isConsent = (row: QueryDocumentSnapshot): boolean => row.id === 'guardianConsent';
+
+/**
+ * Deletes due contacts and links. Each collection is read by an indexed due time, so a run with
+ * nothing due costs three reads and touches no account document. Transactions recheck sends and
+ * answers that raced the scan.
+ *
+ * `legacyScan` also reads every row of the three collections once, for rows written before the due
+ * times existed, and counts them. The runtime asks for it once a day.
+ */
+export async function purgeGuardianRecords(db: Firestore, now: number, options: {legacyScan?: boolean} = {}): Promise<PurgeSummary> {
+  const summary: PurgeSummary = {deleted: 0, trimmed: 0, undated: 0};
+  await visitGuardianRows(db.collection('guardianTokens').where('cleanupAt', '<=', now).orderBy('cleanupAt'),
+    (row) => purgeToken(db, row.ref, now));
   await visitGuardianRows(db.collectionGroup('server').where(CLEANUP_DUE_FIELD, '<=', now).orderBy(CLEANUP_DUE_FIELD), async (row) => {
-    if (row.id !== 'guardianConsent') return;
-    const uid = /^users\/([^/]+)\/server\/guardianConsent$/.exec(row.ref.path)?.[1];
-    if (!uid) return;
-    await db.runTransaction(async (tx) => {
-      const data = (await tx.get(row.ref)).data();
-      if (!data) return;
-      // A withdrawal in progress stays untouched, whatever its age: the deletion still needs it.
-      if (data.status === 'withdrawn') return;
-      const due = data.status === 'pending' ? data.expiresAt
-        : typeof data.decidedAt === 'number' ? data.decidedAt + GUARDIAN_WINDOW_MS : null;
-      if (typeof due !== 'number' || now < due) return;
-      if (data.status === 'confirmed') {
-        if (Object.keys(data).every((key) => KEPT_CONSENT_FIELDS.includes(key))) return;
-        // Keep the gate status, the age group, the sharing choice and the minimum confirmation
-        // facts, without contact data (email hash, masked address, link hash, send and expiry times).
-        const kept = Object.fromEntries(KEPT_CONSENT_FIELDS.filter((key) => data[key] !== undefined).map((key) => [key, data[key]]));
-        tx.set(row.ref, {...kept, ageGroup: data.ageGroup ?? 'minor'});
-        trimmed++;
-      } else {
-        // An unanswered or declined request is deleted whole, with its guardian page links.
-        // The account is then no longer tied to a guardian request.
-        dropRequestLinks(tx, await tx.get(requestLinksQuery(db, uid)));
-        tx.delete(row.ref);
-        deleted++;
-      }
-    });
+    if (isConsent(row)) await purgeConsent(db, row.ref, now, summary);
   });
-  if (deleted || trimmed) logger.info('Guardian cleanup.', {event: 'guardian_cleanup', deleted, trimmed});
-  await visitGuardianRows(db.collection('guardianLimits').orderBy(FieldPath.documentId()), async (row) => {
-    await db.runTransaction(async (tx) => {
-      const data = (await tx.get(row.ref)).data();
-      if (!data) return;
-      // Legacy daily counters contain no date field, but their ID names the day.
-      const day = /^global-(\d{4}-\d{2}-\d{2})$/.exec(row.id)?.[1];
-      const start = data.windowStartedAt ?? (day ? Date.parse(`${day}T00:00:00+08:00`) : null);
-      const due = data.cleanupAt ?? (typeof start === 'number'
-        ? start + GUARDIAN_WINDOW_MS + (day ? DAY_MS : 0) : null);
-      if (typeof due === 'number' && now >= due) tx.delete(row.ref);
+  await visitGuardianRows(db.collection('guardianLimits').where('cleanupAt', '<=', now).orderBy('cleanupAt'),
+    (row) => purgeLimit(db, row.ref, now));
+  if (options.legacyScan) {
+    await visitGuardianRows(db.collection('guardianTokens').orderBy(FieldPath.documentId()), async (row) => {
+      if (row.get('cleanupAt') !== undefined) return;
+      if (!(row.get('kind') === 'manage' && row.get('state') === 'open')) summary.undated++;
+      await purgeToken(db, row.ref, now);
     });
-  });
+    await visitGuardianRows(db.collectionGroup('server').orderBy(FieldPath.documentId()), async (row) => {
+      if (!isConsent(row) || !needsDueField(row.data())) return;
+      summary.undated++;
+      await purgeConsent(db, row.ref, now, summary);
+    });
+    await visitGuardianRows(db.collection('guardianLimits').orderBy(FieldPath.documentId()), async (row) => {
+      if (row.get('cleanupAt') !== undefined) return;
+      summary.undated++;
+      await purgeLimit(db, row.ref, now);
+    });
+  }
+  if (summary.deleted || summary.trimmed || summary.undated) {
+    logger.info('Guardian cleanup.', {event: 'guardian_cleanup', deleted: summary.deleted, trimmed: summary.trimmed, undated: summary.undated});
+  }
+  return summary;
 }
 
 /** The task body, for the combined hourly run and the manual runner. */
 export async function runPurgeOldGuardianRecords(): Promise<void> {
-  await purgeGuardianRecords(getFirestore(), Date.now());
+  const now = Date.now();
+  // Once a day, at 03:00 Manila, the cleanup also reads old rows that have no due time.
+  const manilaHour = new Date(now + 8 * 3_600_000).getUTCHours();
+  await purgeGuardianRecords(getFirestore(), now, {legacyScan: manilaHour === 3});
 }
 
 export const purgeOldGuardianRecords = onSchedule(

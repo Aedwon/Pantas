@@ -51,24 +51,28 @@ function store(initial = {}) {
   });
   const make = matches => query({matches, filters: [], size: Infinity});
   let transactions = 0;
+  let autoIds = 0;
   const tx = {get: async ref => ref.path ? (reads.push(ref.path), snapshot(ref)) : ref.get(),
     set: (ref, value, options) => rows.set(ref.path, options?.merge ? merged(ref.path, value) : value),
     delete: ref => rows.delete(ref.path)};
   const db = {doc,
-    collection: name => make(path => path.split('/').length === 2 && path.startsWith(`${name}/`)),
+    collection: name => ({...make(path => path.split('/').length === 2 && path.startsWith(`${name}/`)),
+      doc: () => doc(`${name}/auto${++autoIds}`)}),
     collectionGroup: name => make(path => path.split('/').at(-2) === name),
     runTransaction: async fn => { transactions++; return fn(tx); }};
   return {db, rows, reads, transactions: () => transactions};
 }
 const consentPath = 'users/student/server/guardianConsent';
 const evidencePath = hash => `guardianConsentEvidence/student/responses/${hash}`;
+/** Every evidence row of the account, whatever its id. */
+const evidenceRows = rows => [...rows].filter(([path]) => path.startsWith('guardianConsentEvidence/student/responses/'));
 function pending() {
   const token = 'a'.repeat(64);
   const hash = guardian.hashValue('key', 'token', token);
   const s = store({[consentPath]: {status: 'pending', ageGroup: 'minor',
     tokenHash: hash, emailHash: 'email-hash', maskedEmail: 'm***@g***.com',
     sentAt: T0, expiresAt: T0 + 7 * DAY, guardianDueAt: T0 + 7 * DAY},
-  [`guardianTokens/${hash}`]: {uid: 'student', state: 'open', createdAt: T0, expiresAt: T0 + 7 * DAY}});
+  [`guardianTokens/${hash}`]: {uid: 'student', state: 'open', createdAt: T0, expiresAt: T0 + 7 * DAY, cleanupAt: T0 + 7 * DAY}});
   const deps = {db: s.db, key: 'key', now: () => T0 + DAY,
     allow: async () => true, mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test'};
   return {...s, deps, token, hash};
@@ -80,13 +84,15 @@ for (const decision of ['confirm', 'decline']) {
     const data = {token: s.token, decision, agreed: decision === 'confirm',
       documentVersions: versions, noticeWordingVersion: '2026-11-12'};
     await guardian.answerRequest(request(data), s.deps);
-    assert.deepEqual(s.rows.get(evidencePath(s.hash)), {
+    assert.equal(evidenceRows(s.rows).length, 1);
+    assert.deepEqual(evidenceRows(s.rows)[0][1], {
       documentVersions: versions, noticeWordingVersion: '2026-11-12',
       action: decision, agreed: decision === 'confirm', decidedAt: T0 + DAY,
       ...(decision === 'confirm' ? {sharingAllowed: false} : {}),
     });
     await guardian.answerRequest(request(data), {...s.deps, now: () => T0 + 2 * DAY});
-    assert.equal(s.rows.get(evidencePath(s.hash)).decidedAt, T0 + DAY, 'replay cannot replace evidence');
+    assert.equal(evidenceRows(s.rows).length, 1);
+    assert.equal(evidenceRows(s.rows)[0][1].decidedAt, T0 + DAY, 'replay cannot replace evidence');
   });
 }
 
@@ -149,7 +155,7 @@ test('a decline deletes the request in the same write that records the answer', 
   assert.deepEqual(result, {state: 'declined'});
   assert.equal(s.transactions() - before, 1, 'one write records the answer and deletes the request');
   assert.equal(s.rows.has(consentPath), false, 'no seven-day wait');
-  assert.equal(s.rows.get(evidencePath(s.hash)).action, 'decline', 'the decline stays as evidence');
+  assert.equal(evidenceRows(s.rows)[0][1].action, 'decline', 'the decline stays as evidence');
   const status = await guardian.getStatus({auth: {uid: 'student'}, app, data: {}}, {...s.deps, now: () => T0 + DAY});
   assert.equal(status.status, 'none');
 });
@@ -159,7 +165,8 @@ test('after a decline the only record that links the account to a guardian reque
   assert.ok(namingStudent(s.rows).length >= 5, 'the setup has consent, two answer links and two manage links');
   await guardian.answerRequest(request({token: s.token, decision: 'decline', agreed: false,
     documentVersions: versions, noticeWordingVersion: '2026-11-12'}), {...s.deps, now: () => T0 + DAY});
-  assert.deepEqual(namingStudent(s.rows), [evidencePath(s.hash)]);
+  assert.deepEqual(namingStudent(s.rows), evidenceRows(s.rows).map(([path]) => path));
+  assert.equal(evidenceRows(s.rows).length, 1);
   // The used and revoked answer links stay for their seven days, without the account.
   assert.equal(s.rows.get(`guardianTokens/${s.hash}`).state, 'used');
   assert.equal(s.rows.get(`guardianTokens/${s.hash}`).uid, undefined);
@@ -172,8 +179,8 @@ test('after a decline the only record that links the account to a guardian reque
 test('after an expiry nothing links the account to a guardian request', async () => {
   const s = await sentTwice();
   // A link revoked late enough to outlive the request, as a legacy row can.
-  s.rows.set('guardianTokens/late', {uid: 'student', state: 'revoked', revokedAt: T0 + 6 * DAY, createdAt: T0});
-  s.rows.set('guardianTokens/open', {uid: 'student', state: 'open', createdAt: T0, expiresAt: T0 + 30 * DAY});
+  s.rows.set('guardianTokens/late', {uid: 'student', state: 'revoked', revokedAt: T0 + 6 * DAY, createdAt: T0, cleanupAt: T0 + 13 * DAY});
+  s.rows.set('guardianTokens/open', {uid: 'student', state: 'open', createdAt: T0, expiresAt: T0 + 30 * DAY, cleanupAt: T0 + 30 * DAY});
   await guardian.purgeGuardianRecords(s.db, T0 + 60_000 + 7 * DAY);
   assert.equal(s.rows.has(consentPath), false);
   assert.deepEqual(namingStudent(s.rows), []);
@@ -263,7 +270,7 @@ test('legacy replaced links and expired contact counters are removed without del
     'guardianLimits/global-2026-11-09': {count: 1},
     'users/student/server/other': {expiresAt: T0},
   });
-  await guardian.purgeGuardianRecords(s.db, T0 + 14 * DAY);
+  await guardian.purgeGuardianRecords(s.db, T0 + 14 * DAY, {legacyScan: true});
   assert.equal(s.rows.has('guardianTokens/old'), false);
   assert.equal(s.rows.has('guardianLimits/email'), false);
   assert.equal(s.rows.has('guardianLimits/global-2026-11-09'), false);
@@ -273,7 +280,7 @@ test('legacy replaced links and expired contact counters are removed without del
 
 test('cleanup pages through more than one batch and is safe to repeat', async () => {
   const initial = Object.fromEntries(Array.from({length: 405}, (_, i) => [
-    `guardianTokens/${String(i).padStart(4, '0')}`, {state: 'open', expiresAt: T0},
+    `guardianTokens/${String(i).padStart(4, '0')}`, {state: 'open', expiresAt: T0, cleanupAt: T0},
   ]));
   const s = store(initial);
   await guardian.purgeGuardianRecords(s.db, T0);
@@ -329,10 +336,10 @@ test('legacy email counters meet the response deadline and undated revoked links
     'guardianLimits/email': {windowStartedAt: T0, count: 1},
     'guardianTokens/revoked': {uid: 'student', state: 'revoked', expiresAt: T0 + 7 * DAY},
   });
-  await guardian.purgeGuardianRecords(s.db, T0);
+  await guardian.purgeGuardianRecords(s.db, T0, {legacyScan: true});
   assert.equal(s.rows.has('guardianTokens/revoked'), false);
   assert.ok(s.rows.has('guardianLimits/email'));
-  await guardian.purgeGuardianRecords(s.db, T0 + 7 * DAY);
+  await guardian.purgeGuardianRecords(s.db, T0 + 7 * DAY, {legacyScan: true});
   assert.equal(s.rows.has('guardianLimits/email'), false);
 });
 
@@ -354,7 +361,7 @@ test('trimming a confirmed record keeps the sharing choice, the adult mark and t
 test('open manage links never expire and revoked ones follow the usual seven days', async () => {
   const s = store({
     'guardianTokens/open': {kind: 'manage', uid: 'student', state: 'open', createdAt: T0},
-    'guardianTokens/revoked': {kind: 'manage', uid: 'student', state: 'revoked', createdAt: T0, revokedAt: T0 + DAY},
+    'guardianTokens/revoked': {kind: 'manage', uid: 'student', state: 'revoked', createdAt: T0, revokedAt: T0 + DAY, cleanupAt: T0 + 8 * DAY},
   });
   await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY - 1);
   assert.ok(s.rows.has('guardianTokens/revoked'));
@@ -372,4 +379,129 @@ test('a withdrawn record is left exactly as it is, so an unfinished withdrawal c
   assert.deepEqual(s.rows.get(consentPath), withdrawn);
   await guardian.purgeGuardianRecords(s.db, T0 + 400 * DAY);
   assert.deepEqual(s.rows.get(consentPath), withdrawn);
+});
+
+// ---------------------------------------------------------------- round 2
+
+test('a resend after expiry, before the cleanup, clears the expired request\'s links in the same transaction', async () => {
+  const s = await sentTwice();
+  const send = (n, now) => guardian.sendLink({auth: {uid: 'student'}, app,
+    data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}},
+  {...s.deps, now: () => now, token: () => n.repeat(64), manageToken: () => (n === 'c' ? '3' : '4').repeat(64)});
+  const later = T0 + 60_000 + 7 * DAY + 1;
+  await send('c', later);
+  const linkRows = [...s.rows].filter(([path]) => path.startsWith('guardianTokens/'));
+  const naming = linkRows.filter(([, body]) => body.uid === 'student');
+  assert.equal(naming.length, 2, 'only the replacement answer link and manage link name the account');
+  assert.deepEqual(naming.map(([, body]) => body.state), ['open', 'open']);
+  const oldManage = guardian.hashValue('key', 'token', '2'.repeat(64));
+  assert.equal(s.rows.has(`guardianTokens/${oldManage}`), false, 'the expired request\'s page link is deleted');
+  assert.equal(s.rows.has(`guardianTokens/${s.hash}`), false, 'its open answer link is deleted');
+  assert.equal(s.rows.get(consentPath).status, 'pending');
+});
+
+test('decline evidence has its own id, so a kept used link cannot be tied back to the account through it', async () => {
+  const s = await sentTwice();
+  await guardian.answerRequest(request({token: s.token, decision: 'decline', agreed: false,
+    documentVersions: versions, noticeWordingVersion: '2026-11-12'}), {...s.deps, now: () => T0 + DAY});
+  assert.equal(s.rows.has(evidencePath(s.hash)), false);
+  assert.equal(evidenceRows(s.rows).length, 1);
+  assert.ok(!evidenceRows(s.rows)[0][0].includes(s.hash));
+  assert.ok(!JSON.stringify(evidenceRows(s.rows)[0][1]).includes(s.hash));
+});
+
+test('an adult mark survives the expiry and the decline of a request, and still blocks a new minor request', async () => {
+  const adult = {status: 'pending', ageGroup: 'adult', adultSince: T0 + DAY, emailHash: 'e', maskedEmail: 'm', tokenHash: 't',
+    sentAt: T0, createdAt: T0, expiresAt: T0 + 7 * DAY, guardianDueAt: T0 + 7 * DAY};
+  const s = store({[consentPath]: adult});
+  await guardian.purgeGuardianRecords(s.db, T0 + 7 * DAY);
+  assert.deepEqual(s.rows.get(consentPath), {ageGroup: 'adult', adultSince: T0 + DAY});
+  const deps = {db: s.db, key: 'key', now: () => T0 + 8 * DAY, allow: async () => true,
+    mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test'};
+  await assert.rejects(guardian.sendLink({auth: {uid: 'student'}, app,
+    data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}}, deps), error => error.code === 'failed-precondition');
+  const d = pending();
+  d.rows.set(consentPath, {...d.rows.get(consentPath), ageGroup: 'adult', adultSince: T0 + DAY});
+  await guardian.answerRequest(request({token: d.token, decision: 'decline', agreed: false,
+    documentVersions: versions, noticeWordingVersion: '2026-11-12'}), d.deps);
+  assert.deepEqual(d.rows.get(consentPath), {ageGroup: 'adult', adultSince: T0 + DAY});
+});
+
+test('an answer that retries reads the time again, so a retry after expiry cannot confirm', async () => {
+  const s = pending();
+  const run = s.db.runTransaction;
+  // The first attempt is thrown away, as a contended transaction is; only the retry commits.
+  s.db.runTransaction = async fn => {
+    await run(async tx => fn({get: ref => tx.get(ref), set() {}, delete() {}}));
+    return run(fn);
+  };
+  let calls = 0;
+  const result = await guardian.answerRequest(request({token: s.token, decision: 'confirm', agreed: true,
+    documentVersions: versions, noticeWordingVersion: '2026-11-12'}),
+  {...s.deps, now: () => (++calls === 1 ? T0 + 7 * DAY - 1 : T0 + 7 * DAY)});
+  assert.deepEqual(result, {state: 'expired'});
+  assert.equal(s.rows.get(consentPath).status, 'pending');
+});
+
+test('the same fallback deadline: an undated confirmation scheduled by the script is trimmed by the cleanup', async () => {
+  const undated = {status: 'confirmed', ageGroup: 'minor', sharingAllowed: true, emailHash: 'e', maskedEmail: 'm', tokenHash: 't',
+    sentAt: T0, createdAt: T0, expiresAt: T0 + 7 * DAY};
+  assert.equal(guardian.consentDue(undated), null, 'no answer time and no scheduled time: no deadline of its own');
+  const due = T0 + 30 * DAY + 7 * DAY;
+  assert.equal(guardian.consentDue({...undated, guardianDueAt: due}), due, 'the scheduled time is the deadline');
+  const s = store({[consentPath]: {...undated, guardianDueAt: due}});
+  await guardian.purgeGuardianRecords(s.db, due - 1);
+  assert.equal(s.rows.get(consentPath).emailHash, 'e');
+  await guardian.purgeGuardianRecords(s.db, due);
+  assert.deepEqual(s.rows.get(consentPath), {status: 'confirmed', ageGroup: 'minor', sharingAllowed: true});
+});
+
+test('the hourly cleanup reads no token or limit row that is not due, and no manage link of a confirmed minor', async () => {
+  const initial = {};
+  for (let i = 0; i < 200; i++) {
+    initial[`guardianTokens/manage${i}`] = {kind: 'manage', uid: `u${i}`, state: 'open', createdAt: T0};
+    initial[`guardianTokens/used${i}`] = {uid: `u${i}`, state: 'used', usedAt: T0, cleanupAt: T0 + 7 * DAY};
+    initial[`guardianLimits/e${i}`] = {windowStartedAt: T0, count: 1, cleanupAt: T0 + 7 * DAY};
+  }
+  const s = store(initial);
+  const result = await guardian.purgeGuardianRecords(s.db, T0 + DAY);
+  assert.deepEqual(s.reads, ['(empty query)', '(empty query)', '(empty query)'], 'three due queries and nothing else');
+  assert.equal(result.undated, 0);
+  s.reads.length = 0;
+  await guardian.purgeGuardianRecords(s.db, T0 + 7 * DAY);
+  assert.equal(s.rows.size, 200, 'only the open manage links are left');
+  assert.ok(s.reads.every(path => !path.startsWith('guardianTokens/manage')));
+});
+
+test('the daily scan finds old rows with no due time, cleans them and counts them', async () => {
+  const s = store({
+    'guardianTokens/old': {uid: 'student', state: 'revoked', revokedAt: T0},
+    'guardianLimits/email': {windowStartedAt: T0, count: 1},
+    [consentPath]: {status: 'pending', ageGroup: 'minor', emailHash: 'e', expiresAt: T0 + 7 * DAY},
+    'users/other/server/guardianConsent': {status: 'pending', ageGroup: 'minor', emailHash: 'e', expiresAt: T0 + 30 * DAY},
+  });
+  const hourly = await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY);
+  assert.equal(s.rows.has('guardianTokens/old'), true, 'the hourly run does not look for undated rows');
+  assert.equal(hourly.undated, 0);
+  const daily = await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY, {legacyScan: true});
+  assert.equal(daily.undated, 4, 'the old token, the old limit and both requests had no due time');
+  assert.equal(s.rows.has('guardianTokens/old'), false);
+  assert.equal(s.rows.has(consentPath), false);
+  assert.ok(s.rows.has('users/other/server/guardianConsent'));
+});
+
+test('a send gives every link and counter row a cleanup time, and page links of an open request none', async () => {
+  const s = await sentTwice();
+  for (const [path, body] of s.rows) {
+    if (!path.startsWith('guardianTokens/') && !path.startsWith('guardianLimits/')) continue;
+    if (body.kind === 'manage' && body.state === 'open') assert.equal(body.cleanupAt, undefined, path);
+    else assert.equal(typeof body.cleanupAt, 'number', path);
+  }
+});
+
+test('the cleanup needs only a collection-group index on the due-time field', async () => {
+  const {readFileSync} = await import('node:fs');
+  const config = JSON.parse(readFileSync(new URL('../../firestore.indexes.json', import.meta.url)));
+  const entry = config.fieldOverrides.find(o => o.collectionGroup === 'server' && o.fieldPath === 'guardianDueAt');
+  assert.deepEqual(entry.indexes, [{order: 'ASCENDING', queryScope: 'COLLECTION_GROUP'}]);
 });

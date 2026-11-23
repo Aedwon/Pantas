@@ -351,6 +351,61 @@ test('a confirmed record is due seven days after the answer and then trimmed, no
   assert.deepEqual(await stored(uid), {status: 'confirmed', ageGroup: 'minor', decidedAt: T0 + DAY, sharingAllowed: false});
 });
 
+test('a resend after expiry, before the cleanup, leaves no earlier link naming the account', async () => {
+  const uid = 'g-r2-resend'; await reset(uid);
+  for (const row of await linksOf(uid)) await row.ref.delete();
+  const h = harness();
+  await sendLink(req(uid, body()), h.deps);
+  const first = (await stored(uid)).tokenHash;
+  h.advance(GUARDIAN_WINDOW_MS + 1);
+  await sendLink(req(uid, body({guardianEmail: 'new@mail.com'})), h.deps);
+  const rows = await linksOf(uid);
+  assert.equal(rows.length, 2, 'only the replacement answer link and page link');
+  assert.ok(rows.every(row => row.get('state') === 'open'));
+  assert.equal((await db.doc(`guardianTokens/${first}`).get()).exists, false);
+});
+
+test('a decline writes its evidence under an id of its own', async () => {
+  const uid = 'g-r2-evidence'; await reset(uid);
+  for (const row of await linksOf(uid)) await row.ref.delete();
+  const h = harness();
+  await sendLink(req(uid, body()), h.deps);
+  const {tokenHash} = await stored(uid);
+  await answerRequest(req('v', {token: tokenOf(h.sent[0]), decision: 'decline', agreed: false}), h.deps);
+  const evidence = (await db.collection(`guardianConsentEvidence/${uid}/responses`).get()).docs;
+  assert.equal(evidence.length, 1);
+  assert.notEqual(evidence[0].id, tokenHash);
+});
+
+test('an answer racing the expiry cleanup ends in one of two whole outcomes, and never a half state', async () => {
+  for (const order of ['answer first', 'cleanup first', 'together']) {
+    const uid = `g-r2-race-${order.replace(' ', '-')}`; await reset(uid);
+    for (const row of await linksOf(uid)) await row.ref.delete();
+    const h = harness();
+    await sendLink(req(uid, body()), h.deps);
+    const token = tokenOf(h.sent[0]);
+    const nearEnd = {...h.deps, now: () => T0 + GUARDIAN_WINDOW_MS - 1};
+    const answer = () => answerRequest(req('v', {token, decision: 'confirm', agreed: true}), nearEnd);
+    const clean = () => purgeGuardianRecords(db, T0 + GUARDIAN_WINDOW_MS);
+    let result;
+    if (order === 'answer first') { result = await answer(); await clean(); }
+    else if (order === 'cleanup first') { await clean(); result = await answer(); }
+    else [result] = await Promise.all([answer(), clean()]);
+    const evidence = (await db.collection(`guardianConsentEvidence/${uid}/responses`).get()).size;
+    const record = await stored(uid);
+    if (result.state === 'confirmed') {
+      assert.equal(record.status, 'confirmed', order);
+      assert.equal(evidence, 1, order);
+    } else {
+      assert.equal(record, undefined, `${order}: the expiry won, so the request is gone`);
+      assert.equal(evidence, 0, order);
+      assert.deepEqual(await linksOf(uid), [], order);
+    }
+    if (order === 'answer first') assert.equal(result.state, 'confirmed');
+    if (order === 'cleanup first') assert.notEqual(result.state, 'confirmed');
+  }
+});
+
 // ------------------------------------------------ S-10 item 5: a limit per client address
 
 const fromAddress = (uid, ip, forwarded, data = body()) => req(uid, data,
