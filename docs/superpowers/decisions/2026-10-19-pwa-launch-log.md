@@ -4183,3 +4183,28 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
   fixes, a cutover step for test-mode grants, and dispute-event registration or a chargeback runbook); seven groups in
   the hardened scope before public launch; native-billing items before any store build. One item needs a Fable ruling
   (how a plan queues behind a pass for another exam). Fixes go to the CSE release lead (build owner).
+
+### Nov 23, prod warm-up stopped on time (security and billing lead, r2)
+
+- The keep-warm job's last warm-up calls to the 11 callables were at 15:58 UTC; none after the 16:00 UTC stop in code
+  (prod request logs, OPTIONS from 15:30 UTC to 19:30 UTC). The scheduled job still runs and returns early, as designed.
+- `node tool/checks/free_tier.mjs` at main 5fe25ecf4: passed.
+
+### Nov 24, money-path hardened fixes: staging proof pre-run count (rule 7, security and billing lead, r2)
+
+Branch `fix/money-path-hardened-r1` (6d7310f88, merged with main first). Functions only; rules and indexes unchanged.
+Already used on pantas-staging this quota day (since Nov 23 08:00 UTC): 6 reads, 6 writes. Budget: 40,000 reads,
+16,000 writes, 288 MB egress.
+
+| Step | Reads | Writes | Egress |
+|---|---|---|---|
+| IAM preflight, functions deploy, image cleanup | 0 | 0 | 0 |
+| Throwaway account (admin), server entitlement and sync documents | 5 | 8 | 0 |
+| Checkout twice (second call reuses the open session) | 15 | 8 | under 1 MB |
+| One PayMongo test-card payment in headless Chromium, webhook grant, then the documented manual refund command (full) | 40 | 30 | about 5 MB (PayMongo's page, not Firebase) |
+| The manual refund command for an unknown payment id (writes only a refund note) | 5 | 3 | 0 |
+| Sync activation with and without a live server entitlement | 10 | 5 | 0 |
+| Checks and cleanup (delete the account's documents, notes and events) | 60 | 60 deletes | 0 |
+| Total, with 50% margin | **about 200** | **about 170** | **about 10 MB** |
+
+Expected day total: under 250 reads and 200 writes. Go.
