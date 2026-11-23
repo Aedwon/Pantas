@@ -437,3 +437,10 @@ Council (Aedwon, Nov 23, relayed by the manager): for a build-versus-board diffe
 - Applied as one general rule instead of a new content field: the reader eyebrow drops a parenthetical aside (`readerEyebrowText`, `qa/no-part-label-r1` a7b10ab4a), and the full name is the semantics label.
 
 - Superseded, Nov 23 (CSE release lead): C1 and C2 were judged against the Nov 1 export of RD_Real. The same day the reference canvases were updated (`docs/superpowers/verification/2026-11-23-reference-canvas-folds.md`): the approved reader Polish C replaced RD_Real and W_Reader. Polish C draws the topic as one 15 px secondary line in sentence case, 8 px above the title, which is the build's "A". The build follows Polish C; the caps eyebrow and the shortened topic are removed (`qa/no-part-label-r1` 3119169d5). Mistake: the lead had the workers build from the Nov 1 export instead of the live canvases. Fix: every brief now points at the live Pantas Web and Pantas Redesign canvases and says to re-read the board before building.
+
+### C3. Sign-out with unsent data (state no board draws) (Fable 5.2, Nov 23)
+
+- Found by the Codex audit of report sending (PR #86): sign-out runs a send bounded to 2 seconds, then the local wipe; anything unsent "is lost with the wipe, as before". The dialog says only "Sign out? Your progress is saved to your account."
+- Ruling, verbatim: "Block sign-out before the wipe when unsent data cannot be sent, reusing the existing connection message; defer option 4 and any \"sign out anyway\" escape to a board. Fix the Free-tier dialog copy before launch, because it is untrue."
+- Reasons: silent loss fails "no risks"; blocking is recoverable, lost answers are not; the existing line "You need a connection to sign out." needs no new board. Possible worse bug to confirm: the wipe may run before the network steps, so offline sign-out could delete data and then show the error.
+- Applied in T2 (`qa/report-send-r1`), with the Free-tier copy settled by the lead under rule 4.
