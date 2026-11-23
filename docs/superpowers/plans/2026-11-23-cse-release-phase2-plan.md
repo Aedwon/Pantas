@@ -44,6 +44,7 @@ Aedwon's "ship it".
 | T13 | Content gate layer (b): one browser run per distinct loop, per open exam (CSE Pro, CSE Sub) and mode | T1, the fix batches | Lead |
 | T15 | Lesson reader full screen, "4 Held" (wide web; phone unchanged): spec `docs/superpowers/specs/2026-11-23-lesson-reader-full-screen-design.md`, canvas Lesson Reader Full Screen; fallback "figures at rest" (direction 1) if the held figure cannot move in the same frame as the scroll | UX hand-off a41d7102f | Sonnet worker |
 | T16 | Core loops polish B2, B4, B3, B5, B1 in that order: spec `docs/superpowers/specs/2026-11-23-core-loops-polish-design.md`, canvas Core Loops | UX hand-off a41d7102f | Sonnet workers |
+| T17 | Money-path app items from the security lead's audit (Nov 23, details private): ENT-06 (High, before live keys) map `beta_reward` grants to that exam's Pro coverage in the web payment gateway's entitlement mapper, with a test; ENT-12 (Low) drop entitlement replies older than the latest request (request counter). Fresh review of the money path | security lead hand-off | Sonnet worker; Codex Sol High review |
 
 ## T1 contract (content gate layer a)
 
