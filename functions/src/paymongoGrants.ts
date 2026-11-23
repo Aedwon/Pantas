@@ -478,13 +478,16 @@ export function rechainAfterWin(grants: ReadonlyMap<string, Grant>, restoredId: 
     const start = Math.max(cursor, wanted <= now ? wanted : anchorEnd);
     const {[disputeId]: _gone, ...rest} = g.disputeMoves ?? {};
     const {disputeMoves: _old, ...bare} = g;
-    const placed: Grant = {...bare, startsAt: start, endsAt: start + length,
-      ...(g.fullEndsAt === undefined ? {} : {fullEndsAt: g.fullEndsAt + (start - g.startsAt)}),
+    // A plan with its natural length takes the length its product gives at the new start (a calendar
+    // month changes days); one cut by a later change keeps that cut length.
+    const natural = startAt(g, wanted).endsAt - wanted === length;
+    const placed: Grant = {...(natural ? startAt(bare, start) : {...bare, startsAt: start, endsAt: start + length,
+      ...(g.fullEndsAt === undefined ? {} : {fullEndsAt: g.fullEndsAt + (start - g.startsAt)})}),
       ...(Object.keys(rest).length ? {disputeMoves: rest} : {})};
     const same = placed.startsAt === g.startsAt && placed.endsAt === g.endsAt &&
       placed.fullEndsAt === g.fullEndsAt && g.disputeMoves?.[disputeId] === undefined;
     if (!same) out.set(id, placed);
-    cursor = start + length;
+    cursor = placed.endsAt;
   }
   return out;
 }
@@ -518,7 +521,9 @@ export async function resolvePaymongoDispute(db: Firestore, input: {eventId: str
     if (grant?.state === 'active' && grant.disputeId !== input.disputeId) return uid;
     if (!grant || grant.state !== 'revoked' || grant.revokedReason !== 'dispute.created' ||
         grant.disputeId !== input.disputeId || grant.disputeResolved) return uid;
-    const restore = input.won && refundedTotal(grant) === 0 && !grant.unusedDuplicateOf && !grant.unusableReason;
+    // A partly refunded plan comes back shortened; one refunded in full stays revoked.
+    const paidTotal = grant.paidAmount ?? (webProduct(grant.product)?.webPricePhp ?? 0) * 100;
+    const restore = input.won && paidTotal > 0 && refundedTotal(grant) < paidTotal && !grant.unusedDuplicateOf && !grant.unusableReason;
     const next: Grant = {...grant, disputeResolved: true, ...(restore ? {state: 'active'} : {})};
     transaction.update(db.doc(`users/${uid}/grants/${id}`), {disputeResolved: true,
       ...(restore ? {state: 'active', revokedReason: FieldValue.delete(), revokedAt: FieldValue.delete()} : {})});

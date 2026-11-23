@@ -181,3 +181,33 @@ test('a final write that commits but loses its acknowledgment leaves the reserva
   assert.equal(out.reference, rows[0].get('reference'));
   assert.equal(out.checkoutUrl, rows[0].get('checkoutUrl'));
 });
+
+const passId = 'pantas_pass_cse_pro';
+const firstSitting = {firstDay: '2027-03-14', lastDay: '2027-03-14', sourceUrl: 'https://example.test/s1'};
+const nextSitting = {firstDay: '2027-08-08', lastDay: '2027-08-08', sourceUrl: 'https://example.test/s2'};
+const passCatalog = [{id: 'exam_cse_pro', publishedSittings: [firstSitting, nextSitting]}];
+const beforeSitting = Date.parse('2027-03-10T10:00:00+08:00');
+const afterSitting = Date.parse('2027-03-20T10:00:00+08:00');
+
+test('a pass retried after its sitting passed returns the open session; an expired one is replaced', async () => {
+  const uid = 'lease-rollover';
+  const first = setup({now: () => beforeSitting});
+  first.catalog = passCatalog;
+  const original = await createCheckout(caller(uid), {product: passId}, first);
+  assert.equal((await pendingDocs(uid)).length, 1);
+  // The next sitting now applies, so the sitting key changes. The earlier session is still open and unpaid.
+  const retry = setup({now: () => afterSitting});
+  retry.catalog = passCatalog;
+  retry.client.getCheckoutSession = async id => ({id, status: 'active', metadata: {}, payments: []});
+  const again = await createCheckout(caller(uid), {product: passId}, retry);
+  assert.deepEqual(again, original);
+  assert.equal(retry.created.length, 0);
+  assert.equal((await pendingDocs(uid)).length, 1);
+  // Once PayMongo reports it expired, a new session is made for the next sitting.
+  const expired = setup({now: () => afterSitting});
+  expired.catalog = passCatalog;
+  const replaced = await createCheckout(caller(uid), {product: passId}, expired);
+  assert.equal(expired.created.length, 1);
+  assert.notEqual(replaced.sessionId, original.sessionId);
+  assert.equal((await db.doc(`paymongoOrders/${replaced.reference}`).get()).get('sitting').firstDay, '2027-08-08');
+});

@@ -84,7 +84,7 @@ test('an adult with no evidence and no attested purchase gets no marker document
   await db.doc(`paymongoCheckouts/cs_dm_adult`).set({uid, product: 'pantas_cs_monthly', createdAt: T0});
   await deletion.deleteUserData(db, auth, uid, 'user_request', {now: () => T0});
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}`).get()).exists, false);
-  assert.equal((await db.doc('paymongoCheckouts/cs_dm_adult').get()).exists, false, 'the payment index still goes');
+  assert.equal((await db.doc('paymongoCheckouts/cs_dm_adult').get()).get('uid'), undefined, 'the payment index keeps no uid');
 });
 
 test('attested checkouts are copied with four fields only; others are not', async () => {
@@ -100,7 +100,8 @@ test('attested checkouts are copied with four fields only; others are not', asyn
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_b`).get()).exists, false);
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_other`).get()).exists, false);
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}`).get()).get('reason'), 'guardian_withdrawal');
-  assert.equal((await db.doc('paymongoCheckouts/cs_dm_a').get()).exists, false);
+  assert.equal((await db.doc('paymongoCheckouts/cs_dm_a').get()).get('uid'), undefined);
+  assert.equal((await db.doc('paymongoCheckouts/cs_dm_a').get()).get('attestedAt'), undefined);
   await db.doc('paymongoCheckouts/cs_dm_other').delete();
 });
 
@@ -441,7 +442,7 @@ test('an attested order with no checkout record is copied, and an order with a c
     {attestedAt: T0 + 7, termsVersion: '2026-11-12', reference: 'ref-only', product: 'pantas_cs_weekly'});
   assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_both`).get()).data(),
     {attestedAt: T0 + 5, termsVersion: '2026-11-12', reference: 'ref-both', product: 'pantas_cs_monthly'});
-  assert.equal((await db.doc('paymongoOrders/ref-only').get()).exists, false, 'the order itself still goes');
+  assert.deepEqual((await db.doc('paymongoOrders/ref-only').get()).data(), {accountDeleted: true, deletedAt: T0 + 9, product: 'pantas_cs_weekly'}, 'the order keeps only its quote');
   await db.doc('paymongoOrders/ref-other').delete();
 });
 

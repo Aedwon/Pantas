@@ -196,8 +196,13 @@ test('real account deletion removes payment bindings but keeps only hashed trial
   }
   await deleteAccount.run({data: {}, auth: {...caller, token: {...caller.token, auth_time: Math.floor(Date.now() / 1000)}}, app: {appId: 'demo-app'}});
   assert.equal((await reservation.get()).exists, false);
-  for (const collection of ['paymongoOrders', 'paymongoCheckouts', 'paymongoFollowUps']) {
-    assert.equal((await db.doc(`${collection}/delete_test`).get()).exists, false);
+  assert.equal((await db.doc('paymongoFollowUps/delete_test').get()).exists, false);
+  // A checkout or order record keeps only what a payment on its link needs: no uid, no personal field.
+  for (const collection of ['paymongoOrders', 'paymongoCheckouts']) {
+    const kept = (await db.doc(`${collection}/delete_test`).get()).data();
+    assert.equal(kept.accountDeleted, true);
+    assert.equal(kept.uid, undefined);
+    assert.deepEqual(Object.keys(kept).sort(), ['accountDeleted', 'deletedAt', 'product']);
   }
   assert.equal(await trialEligible(named('hard-after-delete', 'real-delete-provider', 'delete@example.test'), db), false);
 });
@@ -359,4 +364,52 @@ test('a partial refund after deletion copied the task but before the grant went 
   await revokePaymongoPayment(db, {eventId: 'evt_race_rest', paymentId: 'pay_race', reason: 'payment.refunded',
     refunds: [{id: 'ref_b', amount: 39900}]}, afterSitting + 3000);
   assert.equal((await db.doc('paymongoFollowUps/pay_race').get()).get('status'), 'refunded');
+});
+
+test('a refund that commits between deletion reading the refund task and writing its copy is kept', async () => {
+  const {revokePaymongoPayment} = await import('../lib/paymongoGrants.js');
+  const {deleteUserData} = await import('../lib/deleteUserData.js');
+  const uid = 'hard-delete-race';
+  const afterSitting = Date.parse('2027-03-15T10:00:00Z');
+  assert.equal(await commitPaymongoGrant(db, {uid, eventId: 'evt_dr', sessionId: 'cs_dr', paymentId: 'pay_dr',
+    paidAmount: 49900, product: webProduct('pantas_pass_cse_pro'), paidAt: afterSitting, sitting}, afterSitting + 1000, catalog), 'paidAfterSitting');
+  // The hook fires once: after deletion has read the refund task, before its transaction commits.
+  let fired = 0;
+  let refund;
+  const hooked = new Proxy(db, {get(target, prop) {
+    if (prop !== 'runTransaction') {const value = target[prop]; return typeof value === 'function' ? value.bind(target) : value;}
+    return (callback, options) => target.runTransaction(async transaction => {
+      let touched = false;
+      const wrapped = new Proxy(transaction, {get(tx, name) {
+        const value = tx[name];
+        if (name !== 'get') return typeof value === 'function' ? value.bind(tx) : value;
+        return async ref => {
+          if (ref.path.startsWith('paymongoFollowUps/')) touched = true;
+          return tx.get(ref);
+        };
+      }});
+      const result = await callback(wrapped);
+      if (touched && fired++ === 0) {
+        // The refund starts now and reads the same task while deletion still holds it. The emulator
+        // locks documents a transaction has read, so the refund is not awaited here: both
+        // transactions then want to write the task, and one of them has to retry.
+        refund = revokePaymongoPayment(db, {eventId: 'evt_dr_part', paymentId: 'pay_dr', reason: 'payment.refunded',
+          refunds: [{id: 'ref_a', amount: 10000}]}, afterSitting + 2000);
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+      return result;
+    }, options);
+  }});
+  await deleteUserData(hooked, {getUser: async () => ({}), deleteUser: async () => {}}, uid, 'user_request', {now: () => afterSitting + 1500});
+  assert.equal(fired >= 1, true, 'the refund ran during deletion');
+  await refund;
+  const task = (await db.doc('paymongoFollowUps/pay_dr').get()).data();
+  assert.equal(task.uid, undefined);
+  assert.equal(task.status, 'pending');
+  assert.deepEqual(task.refunds, {ref_a: 10000});
+  assert.equal(task.paidAmount, 49900);
+  // The balance refund after deletion closes the task.
+  await revokePaymongoPayment(db, {eventId: 'evt_dr_rest', paymentId: 'pay_dr', reason: 'payment.refunded',
+    refunds: [{id: 'ref_b', amount: 39900}]}, afterSitting + 3000);
+  assert.equal((await db.doc('paymongoFollowUps/pay_dr').get()).get('status'), 'refunded');
 });

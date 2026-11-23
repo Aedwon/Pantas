@@ -1,4 +1,5 @@
 import {randomUUID, createHash} from 'node:crypto';
+import {getAuth, type Auth} from 'firebase-admin/auth';
 import {getFirestore, type DocumentReference, type Firestore} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions';
 import {HttpsError} from 'firebase-functions/v2/https';
@@ -10,7 +11,8 @@ import {GUARDIAN_DOCUMENT_VERSIONS} from './guardianConsent.js';
 import {allowAtMost} from './_limits.js';
 import type {Grant} from './grants.js';
 import {grantDocId} from './paymongoGrants.js';
-import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
+import {httpPaymongoClient, type PaymongoClient, type PaymongoPayment} from './paymongoClient.js';
+import {fulfillPaidSession} from './paymongoWebhook.js';
 import {priceCentavos, webProduct} from './paymongoPolicy.js';
 import {examCatalog, sittingFor, type CatalogExam, type Sitting} from './revenuecatPasses.js';
 import {timed} from './_timed.js';
@@ -24,6 +26,8 @@ const CREATING_LEASE_MS = 2 * 60_000;
 // Method values confirmed in PayMongo's docs. Add more (for example dob) through
 // PAYMONGO_PAYMENT_METHODS once the merchant account has them enabled.
 const DEFAULT_METHODS = ['card', 'qrph'];
+// A payment older than this with no grant has missed its webhook; the checkout call completes it.
+const HEAL_AFTER_MS = 10 * 60_000;
 
 const NAMES: Record<string, string> = {
   pantas_cs_weekly: 'Pantas Pro, Civil Service, 1 week',
@@ -34,6 +38,8 @@ const NAMES: Record<string, string> = {
 };
 
 export type CheckoutDeps = {client: PaymongoClient; db: Firestore; origin: string; methods: string[];
+  /** Needed to finish a paid session whose webhook never granted. Without it the call only reports the delay. */
+  auth?: Pick<Auth, 'getUser' | 'setCustomUserClaims'>;
   allow?: (uid: string) => Promise<boolean>; catalog?: CatalogExam[]; now?: () => number};
 
 /**
@@ -82,6 +88,28 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   const amountCentavos = priceCentavos(product);
   const binding = {uid, product: product.id, createdAt: now, amountCentavos, ...attestation,
     ...(sitting ? {examId: product.examId, sitting} : {})};
+  // A minor's current confirmation must reach the records an open session is paid against.
+  const reuse = async (open: Record<string, unknown>) => {
+    if (attestation.attestedAt !== undefined) {
+      const update = deps.db.batch();
+      update.update(deps.db.doc(`paymongoCheckouts/${open.sessionId as string}`), attestation);
+      update.update(deps.db.doc(`paymongoOrders/${open.reference as string}`), attestation);
+      await update.commit();
+    }
+    return {checkoutUrl: open.checkoutUrl as string, sessionId: open.sessionId as string, reference: open.reference as string};
+  };
+  if (sitting) {
+    // A pass retried after its sitting changed looks under every sitting key. An open, unpaid session is
+    // returned: the payer pays the price and sitting it shows, and a pass paid after its sitting is
+    // refunded by the late-pass rule. An expired or paid session is replaced as usual.
+    for (const other of (await deps.db.collection(`users/${uid}/pendingCheckouts`).where('product', '==', product.id).get()).docs) {
+      if (other.id === key || other.get('state') !== 'open' || typeof other.get('sessionId') !== 'string') continue;
+      const remote = await deps.client.getCheckoutSession(other.get('sessionId'));
+      if (remote.status === 'active' && !remote.payments.some(p => p.status === 'paid')) {
+        return reuse({sessionId: other.get('sessionId'), reference: other.get('reference'), checkoutUrl: other.get('checkoutUrl')});
+      }
+    }
+  }
   const reserved = await deps.db.runTransaction(async transaction => {
     const [previous, deletion] = await transaction.getAll(pending, deps.db.doc(`accountDeletions/${uid}`));
     if (deletion.exists) throw new HttpsError('failed-precondition', 'This account is closed.');
@@ -104,23 +132,15 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     // An open, unpaid session is always reused, even if the price changed since it was created: the
     // payer pays the price the session shows, and the webhook checks the order's quoted amount.
     // Legacy orders without a quoted amount are moot: prod has test keys only and test grants are revoked at the live switch.
-    if (open) {
-      // A minor's current confirmation must reach the records this session is paid against.
-      if (attestation.attestedAt !== undefined) {
-        const update = deps.db.batch();
-        update.update(deps.db.doc(`paymongoCheckouts/${reserved.sessionId as string}`), attestation);
-        update.update(deps.db.doc(`paymongoOrders/${reserved.reference as string}`), attestation);
-        await update.commit();
-      }
-      return {checkoutUrl: reserved.checkoutUrl as string, sessionId: reserved.sessionId as string, reference: reserved.reference as string};
-    }
+    if (open) return reuse(reserved);
     if (!open && remote.status !== 'expired' && !remote.payments.some(p => p.status === 'paid')) {
       throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
     }
     // A paid session whose webhook has not granted yet must never lead to a second session: the
     // customer could pay twice. Keep the reservation so the webhook completes the grant.
     for (const payment of remote.payments.filter(p => p.status === 'paid')) {
-      if (!(await deps.db.doc(`paymongoPayments/${grantDocId(payment.id)}`).get()).exists) {
+      const recorded = async () => (await deps.db.doc(`paymongoPayments/${grantDocId(payment.id)}`).get()).exists;
+      if (!(await recorded()) && !(remote.metadata.uid === uid && await healPaidPayment(deps, reserved.sessionId as string, payment, now) && await recorded())) {
         logger.warn('Checkout replacement refused: previous session is paid and its grant is not processed yet');
         throw new HttpsError('failed-precondition', 'Your payment is being confirmed. Pro will appear shortly.');
       }
@@ -167,6 +187,24 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   }
 }
 
+/**
+ * Completes the grant for a payment PayMongo reports paid that has no grant after HEAL_AFTER_MS,
+ * through the same function the webhook uses. The session and payment are read from PayMongo, never
+ * from the request. The event id `heal_<payment id>` makes a later real webhook a duplicate.
+ */
+async function healPaidPayment(deps: CheckoutDeps, sessionId: string, payment: PaymongoPayment, now: number): Promise<boolean> {
+  if (!deps.auth || payment.paidAt === undefined || now - payment.paidAt <= HEAL_AFTER_MS) return false;
+  try {
+    const status = await fulfillPaidSession({db: deps.db, auth: deps.auth, client: deps.client, catalog: deps.catalog},
+      `heal_${payment.id}`, sessionId, null, () => now);
+    if (status === 200) logger.warn('Checkout completed a paid session whose webhook never granted', {paymentId: payment.id});
+    return status === 200;
+  } catch (error) {
+    logger.error('Checkout could not complete a paid session', {paymentId: payment.id, error});
+    return false;
+  }
+}
+
 /** Deletes the reservation only while it is still `creating` under this attempt's reference. */
 async function releaseReservation(db: Firestore, pending: DocumentReference, reference: string): Promise<void> {
   try {
@@ -184,7 +222,7 @@ export const createPaymongoCheckout = onCall(
   timed('createPaymongoCheckout', request => {
     assertFreshAppCheck(request);
     return createCheckout(request.auth, request.data, {
-      client: httpPaymongoClient(secret('PAYMONGO_SECRET_KEY')), db: getFirestore(),
+      client: httpPaymongoClient(secret('PAYMONGO_SECRET_KEY')), db: getFirestore(), auth: getAuth(),
       origin: process.env.PANTAS_APP_ORIGIN ?? 'https://app.pantas.study',
       methods: process.env.PAYMONGO_PAYMENT_METHODS?.split(',').map(m => m.trim()).filter(Boolean) ?? DEFAULT_METHODS,
     });

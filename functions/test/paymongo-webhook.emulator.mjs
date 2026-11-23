@@ -628,11 +628,15 @@ for (const scenario of ['won', 'lost', 'partial-before', 'partial-after', 'full-
     if (scenario === 'wrong-dispute') resolution.data.attributes.data.id = 'dp_unrelated';
     assert.equal(await send(resolution, deps), 200);
     const restored = (await grants(uid))[0];
-    const shouldRestore = scenario === 'won' || scenario === 'expired';
+    // A won dispute keeps the payment: a partly refunded plan comes back with its shortened end.
+    const partial = scenario.startsWith('partial');
+    const shouldRestore = scenario === 'won' || scenario === 'expired' || partial;
     assert.equal(restored.state, shouldRestore ? 'active' : 'revoked');
     assert.ok(restored.endsAt <= original.endsAt);
     if (shouldRestore) {
-      assert.equal(restored.endsAt, original.endsAt);
+      if (partial) assert.ok(restored.endsAt < (scenario === 'partial-before' ? original.fullEndsAt : original.endsAt));
+      else assert.equal(restored.endsAt, original.endsAt);
+      if (scenario === 'partial-before') assert.equal(restored.endsAt, original.endsAt);
       assert.equal(auth.current().pro, scenario !== 'expired');
     }
     const beforeRetry = await entitlement(uid);

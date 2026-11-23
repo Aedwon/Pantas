@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import {commitPaymongoGrant} from '../lib/paymongoGrants.js';
-import {webProduct, priceCentavos} from '../lib/paymongoPolicy.js';
+import {webProduct, priceCentavos, addPrepaid} from '../lib/paymongoPolicy.js';
+import {shortenedEnd} from '../lib/grants.js';
 import {commitRevenueCatAnswer} from '../lib/revenuecatClaims.js';
 
 const uid = 'money-path-test';
@@ -486,7 +487,7 @@ async function buy(db, id, prod, at) {
 }
 const grantRow = (db, id) => db.rows.get(`users/${uid}/grants/pay_${id}`);
 
-test('a win re-chains two plans bought during the dispute behind the restored plan, each keeping its length', async () => {
+test('a win re-chains two plans bought during the dispute behind the restored plan, each with its exact length', async () => {
   const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
   const db = firestore();
   await buy(db, 'test_m1', monthly, now);
@@ -495,13 +496,13 @@ test('a win re-chains two plans bought during the dispute behind the restored pl
     dispute: true, reason: 'dispute.created'}, now + 1000);
   await buy(db, 'm2', monthly, now + 2000);
   await buy(db, 'wk', weekly, now + 3000);
-  const m2Length = grantRow(db, 'm2').endsAt - grantRow(db, 'm2').startsAt;
   await resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: 'pay_test_m1', disputeId: 'disp_test', won: true}, now + 4000);
   const restored = grantRow(db, 'test_m1');
   assert.equal(restored.startsAt, first.startsAt);
   assert.equal(restored.endsAt, first.endsAt);
   assert.equal(grantRow(db, 'm2').startsAt, first.endsAt);
-  assert.equal(grantRow(db, 'm2').endsAt - first.endsAt, m2Length);
+  // A calendar month: the length is the one the product gives at the new start.
+  assert.equal(grantRow(db, 'm2').endsAt, addPrepaid(first.endsAt, monthly.prepaid));
   assert.equal(grantRow(db, 'wk').startsAt, grantRow(db, 'm2').endsAt);
   assert.equal(grantRow(db, 'wk').endsAt - grantRow(db, 'wk').startsAt, WEEK);
 });
@@ -562,6 +563,41 @@ test('rechainAfterWin leaves an already contiguous chain unchanged', async () =>
   for (const [id, g] of grants) assert.equal(out.get(id), g, id);
 });
 
+test('a won dispute puts an expired restored plan behind the plan bought while it was disputed', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const DAY = 86_400_000;
+  const db = firestore();
+  await buy(db, 'a', weekly, now);
+  await buy(db, 'b', weekly, now);
+  assert.equal(grantRow(db, 'b').startsAt, now + WEEK);
+  await revokePaymongoPayment(db, {eventId: 'evt_open', paymentId: 'pay_b', disputeId: 'disp_b', dispute: true,
+    reason: 'dispute.created'}, now + DAY);
+  await revokePaymongoPayment(db, {eventId: 'evt_ref', paymentId: 'pay_a', reason: 'payment.refunded',
+    refunds: [{id: 'full', amount: priceCentavos(weekly)}]}, now + 2 * DAY);
+  await buy(db, 'c', monthly, now + 3 * DAY);
+  const c = {...grantRow(db, 'c')};
+  assert.equal(c.startsAt, now + 3 * DAY);
+  await resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: 'pay_b', disputeId: 'disp_b', won: true}, now + 15 * DAY);
+  assert.equal(grantRow(db, 'b').state, 'active');
+  assert.deepEqual([grantRow(db, 'c').startsAt, grantRow(db, 'c').endsAt], [c.startsAt, c.endsAt]);
+  assert.equal(grantRow(db, 'b').startsAt, c.endsAt);
+  assert.equal(grantRow(db, 'b').endsAt - c.endsAt, WEEK);
+});
+
+test('a won dispute leaves an already ended restored plan where it was when nothing overlapped it', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const DAY = 86_400_000;
+  const db = firestore();
+  await buy(db, 'a', weekly, now);
+  const before = {...grantRow(db, 'a')};
+  await revokePaymongoPayment(db, {eventId: 'evt_open', paymentId: 'pay_a', disputeId: 'disp_a', dispute: true,
+    reason: 'dispute.created'}, now + DAY);
+  await resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: 'pay_a', disputeId: 'disp_a', won: true}, now + 15 * DAY);
+  assert.equal(grantRow(db, 'a').state, 'active');
+  assert.equal(grantRow(db, 'a').startsAt, before.startsAt);
+  assert.equal(grantRow(db, 'a').endsAt, before.endsAt);
+});
+
 const HOUR_MS = 3_600_000;
 const liveOf = (db, ids, at) => ids.map(id => grantRow(db, id)).filter(row => row.state === 'active' && row.endsAt > at);
 const snapshot = (db, ids) => new Map(ids.map(id => [id, {...grantRow(db, id)}]));
@@ -579,6 +615,8 @@ test('property: random purchases, refunds, revokes and disputes keep the chain w
     let at = now;
     let step = 0;
     const history = [];
+    const wonTargets = new Set();
+    const lostTargets = new Set();
     const fail = (message) => assert.fail(`seed ${seed} step ${step}: ${message}${process.env.DEBUG_SEED ? `\n${history.join('\n')}` : ''}`);
     const live = () => ids.filter(id => grantRow(db, id).state === 'active');
     const stepCount = 1 + pick(6);
@@ -629,14 +667,36 @@ test('property: random purchases, refunds, revokes and disputes keep the chain w
         if (row.startsAt < boughtAt.get(id)) fail(`${label}: ${id} starts before its purchase`);
         if (id === target) continue;
         if (row.state !== was.state) fail(`${label}: ${id} changed state without its own event`);
-        // A monthly plan is a calendar month, so moving it to another month changes its days by up to 3.
-        const slack = row.product === 'pantas_cs_monthly' ? 3 * 86_400_000 : 0;
-        if (row.endsAt - row.startsAt < was.endsAt - was.startsAt - slack) fail(`${label}: ${id} length was cut`);
       }
-      if (kind === 'win') {
-        const was = before.get(target); const row = after.get(target);
-        if (row.state === 'active' && (row.endsAt - row.startsAt !== was.endsAt - was.startsAt)) fail(`${label}: restored length changed`);
+      // Each live plan has exactly the length the code's own start-at rule gives for its start:
+      // the full length from the product, cut by the refunded share.
+      for (const id of ids) {
+        const row = after.get(id);
+        if (row.state !== 'active' || row.endsAt <= at) continue;
+        const prepaid = webProduct(row.product).prepaid;
+        const fullEnd = addPrepaid(row.startsAt, prepaid);
+        const refunded = Object.values(row.refunds ?? {}).reduce((a, b) => a + b, 0);
+        if (row.endsAt !== shortenedEnd(row.startsAt, fullEnd, refunded, row.paidAmount)) fail(`${label}: ${id} does not have its exact length`);
       }
+      if (kind === 'win') wonTargets.add(target);
+      if (kind === 'lose') lostTargets.add(target);
+      const refundedOf = (row) => Object.values(row.refunds ?? {}).reduce((a, b) => a + b, 0);
+      // A dispute won keeps the payment: the plan is active, unless its own refund revoked it.
+      for (const id of wonTargets) {
+        const row = after.get(id);
+        if (row.state !== 'active' && refundedOf(row) < row.paidAmount) fail(`${label}: ${id} won its dispute but is not active`);
+      }
+      // Paid coverage still owed (every plan not lost, not fully refunded, not under a live dispute)
+      // is covered by the live and future coverage of the account.
+      const openTargets = new Set(disputes.filter(d => d.open).map(d => d.target));
+      const remaining = (row) => Math.max(0, row.endsAt - Math.max(row.startsAt, at));
+      let owed = 0; let covered = 0;
+      for (const id of ids) {
+        const row = after.get(id);
+        if (row.state === 'active') covered += remaining(row);
+        if (!lostTargets.has(id) && !openTargets.has(id) && refundedOf(row) < row.paidAmount) owed += remaining(row);
+      }
+      if (covered < owed) fail(`${label}: live and future coverage ${covered} is below the paid length still owed ${owed}`);
       const running = liveOf(db, ids, at).sort((a, b) => a.startsAt - b.startsAt);
       for (let i = 1; i < running.length; i++) {
         if (Math.max(running[i].startsAt, at) < running[i - 1].endsAt) fail(`${label}: overlap after now`);
