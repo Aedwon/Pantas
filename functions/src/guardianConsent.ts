@@ -178,10 +178,30 @@ export function dropRequestLinks(tx: Transaction, links: QuerySnapshot, keep?: D
     }
     // The exact answer time would join the link to the decline evidence, so only the day it ends is kept.
     const event = link.get('usedAt') ?? link.get('revokedAt');
-    tx.set(link.ref, {uid: FieldValue.delete(), usedAt: FieldValue.delete(), revokedAt: FieldValue.delete(),
-      ...(typeof event === 'number' ? {cleanupAt: coarseEnd(event)} : {})}, {merge: true});
+    tx.set(link.ref, {uid: FieldValue.delete(), usedAt: FieldValue.delete(), revokedAt: FieldValue.delete(), createdAt: FieldValue.delete(),
+      ...(typeof event === 'number' ? {cleanupAt: coarseEnd(event), expiresAt: FieldValue.delete()} : {})}, {merge: true});
   }
 }
+
+/**
+ * The per-student send count: one row per account and UTC day, under a keyed hash of the account.
+ * It holds whole days only, never an exact moment, and the cleanup deletes it three days after the
+ * day it counts, so no time on it matches another retained row.
+ */
+async function allowStudentSend(db: Firestore, key: string, uid: string, at: number): Promise<boolean> {
+  const day = Math.floor(at / DAY_MS) * DAY_MS;
+  const ref = db.doc(`guardianLimits/acct-${createHmac('sha256', key).update(`guardianLimits/acct\0${uid}`).digest('hex')}`);
+  return db.runTransaction(async (tx) => {
+    const snapshot = await tx.get(ref);
+    const count = snapshot.get('windowStartedAt') === day ? Number(snapshot.get('count') ?? 0) : 0;
+    if (count >= SEND_LIMIT.perStudent) return false;
+    tx.set(ref, {windowStartedAt: day, count: count + 1, cleanupAt: day + 3 * DAY_MS});
+    return true;
+  });
+}
+
+/** The old per-account send counter. The code no longer writes it; a request's deletion removes any left. */
+const oldSendLimiter = (db: Firestore, uid: string): DocumentReference => db.doc(`users/${uid}/limits/guardianSend`);
 
 /** When a link ends, seven days after its event, rounded up to the next midnight UTC so it names no exact moment. */
 export const coarseEnd = (eventAt: number): number => Math.ceil((eventAt + GUARDIAN_WINDOW_MS) / DAY_MS) * DAY_MS;
@@ -235,7 +255,7 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
   // so nothing named for the account outlives a declined or expired request.
   const sendAllowed = deps.allow
     ? await deps.allow(uid, 'guardianSend', SEND_LIMIT.perStudent, SEND_LIMIT.perStudentWindowMs)
-    : await allowFromAddress(deps.db, deps.key, 'guardianLimits/acct', uid, now, SEND_LIMIT.perStudent, SEND_LIMIT.perStudentWindowMs);
+    : await allowStudentSend(deps.db, deps.key, uid, now);
   if (!sendAllowed) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
@@ -316,6 +336,7 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     const ended = before !== undefined && (before.status === 'declined' || (before.status === 'pending' && at >= before.expiresAt));
     if (ended) {
       dropRequestLinks(tx, allLinks);
+      tx.delete(oldSendLimiter(deps.db, uid));
     } else {
       if (typeof before?.tokenHash === 'string') {
         tx.set(tokenRef(deps.db, before.tokenHash), {state: 'revoked', revokedAt: now, cleanupAt: now + GUARDIAN_WINDOW_MS}, {merge: true});
@@ -327,7 +348,7 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     tx.set(tokenRef(deps.db, manageHash), {kind: 'manage', uid, state: 'open', createdAt: now});
     tx.set(consent, {
       status: 'pending', ageGroup: 'minor', emailHash, maskedEmail, tokenHash,
-      createdAt: before?.createdAt ?? now, sentAt: now, expiresAt, [CLEANUP_DUE_FIELD]: expiresAt,
+      createdAt: ended ? now : before?.createdAt ?? now, sentAt: now, expiresAt, [CLEANUP_DUE_FIELD]: expiresAt,
       ...(noticeVersion === undefined ? {} : {ageCheckNoticeVersion: noticeVersion}),
     });
     return becameFull ? 'became-full' : 'ok';
@@ -440,14 +461,16 @@ export async function answerRequest(request: AppRequest, deps: ConsentDeps): Pro
   if (first.state !== 'open' || typeof first.uid !== 'string') return {state: 'unknown'};
   const uid = first.uid;
   return deps.db.runTransaction(async (tx): Promise<AnswerResult> => {
-    // Read again on every attempt, so a retry after expiry cannot confirm.
-    const now = (deps.now ?? Date.now)();
+    // Read on every attempt, and again after the reads below, so neither a retry nor a clock that
+    // crosses expiry between the reads can confirm an expired request.
+    const started = (deps.now ?? Date.now)();
     const consent = consentRef(deps.db, uid);
     const current = (await tx.get(consent)).data();
     const row = (await tx.get(tokenRef(deps.db, hash))).data();
     if (!row || row.kind === 'manage') return {state: 'unknown'};
     if (row.state === 'used') return {state: 'used'};
     if (row.state !== 'open' || row.uid !== uid) return {state: 'unknown'};
+    const now = Math.max(started, (deps.now ?? Date.now)());
     if (now >= row.expiresAt) return {state: 'expired'};
     if (current?.status !== 'pending' || current.tokenHash !== hash) return {state: 'used'};
     // A decline deletes the request in this same write, so every read comes first.
@@ -457,6 +480,7 @@ export async function answerRequest(request: AppRequest, deps: ConsentDeps): Pro
       : {state: 'used', usedAt: now, cleanupAt: now + GUARDIAN_WINDOW_MS}, {merge: true});
     if (links) {
       dropRequestLinks(tx, links, tokenRef(deps.db, hash));
+      tx.delete(oldSendLimiter(deps.db, uid));
       endRequest(tx, consent, current);
     } else {
       // The record is trimmed seven days after the answer.
@@ -703,6 +727,7 @@ async function purgeConsent(db: Firestore, ref: DocumentReference, now: number, 
       // An unanswered or declined request is deleted whole, with its guardian page links.
       // The account is then no longer tied to a guardian request.
       dropRequestLinks(tx, await tx.get(requestLinksQuery(db, uid)));
+      tx.delete(oldSendLimiter(db, uid));
       endRequest(tx, ref, data);
       summary.deleted++;
     }

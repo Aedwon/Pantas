@@ -54,7 +54,7 @@ const countLinks = links => ({
  */
 export async function removeUnconfirmedGuardianRecords({db, live = false, now = Date.now}) {
   const out = {serverDocuments: 0, guardianRecords: 0, deleted: 0, scheduled: 0, kept: 0,
-    linksRemoved: 0, linksStripped: 0, evidenceUnlinked: 0, reads: 0, writes: 0};
+    linksRemoved: 0, linksStripped: 0, evidenceUnlinked: 0, limitersRemoved: 0, reads: 0, writes: 0};
   const found = [];
   for await (const doc of db.collectionGroup('server').stream()) {
     out.serverDocuments++; out.reads++;
@@ -87,7 +87,18 @@ export async function removeUnconfirmedGuardianRecords({db, live = false, now = 
     else out.kept++;
   }
   await unlinkDeclineEvidence(db, live, out);
+  await removeOldSendLimiters(db, live, out);
   return out;
+}
+
+/** The send counter used to sit under the account. The code no longer writes it, so every one left is removed. */
+async function removeOldSendLimiters(db, live, out) {
+  for await (const doc of db.collectionGroup('limits').stream()) {
+    out.reads++;
+    if (doc.id !== 'guardianSend' || !doc.ref.path.startsWith('users/')) continue;
+    out.limitersRemoved++; out.writes++;
+    if (live) await doc.ref.delete();
+  }
 }
 
 /**
@@ -105,34 +116,46 @@ async function unlinkDeclineEvidence(db, live, out) {
     const link = await db.doc(`guardianTokens/${ref.id}`).get();
     out.reads += 2;
     if (!link.exists) continue;
-    out.evidenceUnlinked++; out.writes += 2;
-    if (!live) continue;
-    await db.runTransaction(async tx => {
+    if (!live) { out.evidenceUnlinked++; out.writes += 2; continue; }
+    const moved = await db.runTransaction(async tx => {
       const old = await tx.get(ref);
       const row = await tx.get(link.ref);
-      if (!old.exists) return;
+      // The cleanup may have deleted the link since the lookup. It is never recreated.
+      if (!old.exists || !row.exists) return false;
       tx.set(ref.parent.doc(), old.data());
       tx.delete(ref);
       // The kept link also loses its exact answer time, which would join it to the evidence.
       const event = row.get('usedAt') ?? row.get('revokedAt');
       tx.set(link.ref, {usedAt: FieldValue.delete(), revokedAt: FieldValue.delete(), uid: FieldValue.delete(),
         ...(typeof event === 'number' ? {cleanupAt: coarseEnd(event)} : {})}, {merge: true});
+      return true;
     });
+    if (moved) { out.evidenceUnlinked++; out.writes += 2; }
   }
 }
 
 /**
- * Records that still need a cleanup time. Counts only; it must be 0 after the live run. With `mark`,
- * a count of 0 also writes the marker that stops the daily scan in the hourly cleanup.
+ * Rows that still need a cleanup time: request records, link rows and counters. Counts only; all three
+ * must be 0 after the live run. With `mark`, a total of 0 also writes the marker that stops the daily
+ * scan in the hourly cleanup; any one kind above 0 keeps the scan running.
  */
 export async function countUndated({db, mark = false}) {
-  let undated = 0, reads = 0;
+  let records = 0, tokens = 0, counters = 0, reads = 0;
   for await (const doc of db.collectionGroup('server').stream()) {
     reads++;
-    if (doc.id === 'guardianConsent' && uidOf(doc.ref) && needsDueField(doc.data())) undated++;
+    if (doc.id === 'guardianConsent' && uidOf(doc.ref) && needsDueField(doc.data())) records++;
   }
+  for await (const doc of db.collection('guardianTokens').stream()) {
+    reads++;
+    if (doc.get('cleanupAt') === undefined && !(doc.get('kind') === 'manage' && doc.get('state') === 'open')) tokens++;
+  }
+  for await (const doc of db.collection('guardianLimits').stream()) {
+    reads++;
+    if (doc.get('cleanupAt') === undefined && doc.ref.path !== BACKFILL_MARKER) counters++;
+  }
+  const undated = records + tokens + counters;
   if (mark && undated === 0) await db.doc(BACKFILL_MARKER).set({verifiedAt: Date.now()});
-  return {undated, reads, marked: mark && undated === 0};
+  return {undated, records, tokens, counters, reads, marked: mark && undated === 0};
 }
 
 /** One line of counts. Reads and writes are a retry-free estimate: a retried transaction reads again. */
@@ -141,7 +164,7 @@ export function summary(project, live, r) {
   return `${live ? 'LIVE' : 'DRY RUN'} ${project}: ${r.guardianRecords} guardian records among ${r.serverDocuments} server documents; `
     + `${r.deleted} deleted${would ? ' (would be)' : ''}, ${r.scheduled} given a cleanup time${would ? ' (would be)' : ''}, ${r.kept} kept; `
     + `links: ${r.linksRemoved} deleted, ${r.linksStripped} cleared of the account${would ? ' (would be)' : ''}; `
-    + `${r.evidenceUnlinked} decline answers moved to their own id${would ? ' (would be)' : ''}; `
+    + `${r.evidenceUnlinked} decline answers moved to their own id${would ? ' (would be)' : ''}; ${r.limitersRemoved} old send counters deleted${would ? ' (would be)' : ''}; `
     + `retry-free estimate: ${r.reads} reads, ${r.writes} writes${live ? '' : ' if run live'}`;
 }
 
@@ -170,7 +193,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
     if (!getApps().length) initializeApp({projectId: project});
     if (args.verify) {
       const r = await countUndated({db: getFirestore(), mark: true});
-      console.log(`VERIFY ${project}: ${r.undated} records without a cleanup time${r.marked ? '; daily scan switched off' : ''}; retry-free estimate: ${r.reads} reads`);
+      console.log(`VERIFY ${project}: ${r.records} records, ${r.tokens} links, ${r.counters} counters without a cleanup time${r.marked ? '; daily scan switched off' : ''}; retry-free estimate: ${r.reads} reads`);
       if (r.undated) process.exit(2);
     } else {
       console.log(summary(project, args.live, await removeUnconfirmedGuardianRecords({db: getFirestore(), live: args.live})));

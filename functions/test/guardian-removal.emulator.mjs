@@ -35,7 +35,7 @@ async function seed() {
   await consent('expired').set({status: 'pending', ageGroup: 'minor', ...contact, expiresAt: T0 - DAY});
   // An open request that has not expired: kept, and given a cleanup time.
   await consent('open').set({status: 'pending', ageGroup: 'minor', ...contact, expiresAt: T0 + 3 * DAY});
-  await db.doc('guardianTokens/open-link').set({uid: 'open', state: 'open', createdAt: T0, expiresAt: T0 + 3 * DAY});
+  await db.doc('guardianTokens/open-link').set({uid: 'open', state: 'open', createdAt: T0, expiresAt: T0 + 3 * DAY, cleanupAt: T0 + 3 * DAY});
   // A confirmed guardian with contact data still on the record: kept, and given a cleanup time.
   await consent('confirmed').set({status: 'confirmed', ageGroup: 'minor', decidedAt: T0 - 2 * DAY, sharingAllowed: true, ...contact});
   await db.doc('guardianTokens/confirmed-manage').set({kind: 'manage', uid: 'confirmed', state: 'open', createdAt: T0 - 2 * DAY});
@@ -130,11 +130,57 @@ test('the verify count is above zero before the live run and the script prints o
   const before = await countUndated({db, mark: true});
   assert.equal(before.marked, false, 'no marker while records remain');
   assert.equal((await db.doc('guardianLimits/d1-backfill-verified').get()).exists, false);
-  assert.equal(before.undated, 6, 'open, confirmed, undated, declined, expired and the expired adult request');
+  assert.equal(before.undated, 8, 'six records and the two old answer links');
   await wipe();
   const run = args => spawnSync(process.execPath, ['scripts/remove_unconfirmed_guardian_records.mjs', ...args], {encoding: 'utf8'});
   const bad = run(['--project', 'secret-project-name', '--nonsense', 'maria@example.com']);
   assert.equal(bad.status, 1);
   assert.equal(bad.stderr.trim(), 'REASON usage');
   assert.ok(!bad.stderr.includes('maria') && !bad.stdout.includes('maria'));
+});
+
+test('old account-keyed send limiter rows are removed by the script and counted by the dry run', async () => {
+  await seed();
+  await db.doc('users/declined/limits/guardianSend').set({windowStartedAt: T0, count: 2});
+  await db.doc('users/old/limits/guardianSend').set({windowStartedAt: T0, count: 1});
+  await db.doc('users/old/limits/guardianStatus').set({windowStartedAt: T0, count: 1});
+  const dry = await removeUnconfirmedGuardianRecords({db, live: false, now: () => T0});
+  assert.equal(dry.limitersRemoved, 2);
+  assert.equal((await db.doc('users/old/limits/guardianSend').get()).exists, true);
+  await removeUnconfirmedGuardianRecords({db, live: true, now: () => T0});
+  assert.equal((await db.doc('users/declined/limits/guardianSend').get()).exists, false);
+  assert.equal((await db.doc('users/old/limits/guardianSend').get()).exists, false);
+  assert.equal((await db.doc('users/old/limits/guardianStatus').get()).exists, true, 'other limiters are not touched');
+  await wipe();
+});
+
+test('the marker waits for undated tokens and counters as well as undated records', async () => {
+  for (const kind of ['server', 'token', 'counter']) {
+    await seed();
+    await removeUnconfirmedGuardianRecords({db, live: true, now: () => T0});
+    // Clear everything the script and the cleanup would leave undated, except the one kind under test.
+    await db.recursiveDelete(db.collection('guardianTokens'));
+    await db.recursiveDelete(db.collection('guardianLimits'));
+    if (kind === 'server') await consent('late').set({status: 'pending', ageGroup: 'minor', ...contact, expiresAt: T0 + 3 * DAY});
+    if (kind === 'token') await db.doc('guardianTokens/legacy').set({uid: 'x', state: 'revoked', revokedAt: T0});
+    if (kind === 'counter') await db.doc('guardianLimits/legacy').set({windowStartedAt: T0, count: 1});
+    const blocked = await countUndated({db, mark: true});
+    assert.equal(blocked.marked, false, `${kind} blocks the marker`);
+    assert.equal(blocked.undated >= 1, true);
+    assert.equal((await db.doc('guardianLimits/d1-backfill-verified').get()).exists, false);
+    await wipe();
+  }
+});
+
+test('the migration skips a link that the cleanup deleted after the lookup and never recreates it', async () => {
+  await seed();
+  const real = db.doc('guardianTokens/declined-used');
+  const racing = {collectionGroup: (...a) => db.collectionGroup(...a), collection: (...a) => db.collection(...a),
+    runTransaction: (...a) => db.runTransaction(...a),
+    doc: path => path === 'guardianTokens/declined-used'
+      ? {get: async () => { const snap = await real.get(); await real.delete(); return snap; }}
+      : db.doc(path)};
+  await removeUnconfirmedGuardianRecords({db: racing, live: true, now: () => T0});
+  assert.equal((await real.get()).exists, false, 'the deleted link is not recreated');
+  await wipe();
 });

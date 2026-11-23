@@ -642,3 +642,59 @@ test('an expiry cleanup overtaken by an answer leaves the confirmed record alone
   assert.equal(s.rows.get(consentPath).status, 'confirmed');
   assert.equal(evidenceRows(s.rows).length, 1);
 });
+
+// ---------------------------------------------------------------- round 4
+
+test('the send counter keeps only days, and a replacement request does not copy the old request\'s time', async () => {
+  const s = await sentTwice();
+  await guardian.sendLink({auth: {uid: 'student'}, app, data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}},
+    {...s.deps, allow: undefined, now: () => T0 + 120_000, token: () => 'd'.repeat(64), manageToken: () => '5'.repeat(64)});
+  s.rows.set(consentPath, {...s.rows.get(consentPath), createdAt: T0});
+  const counters = [...s.rows].filter(([path]) => path.startsWith('guardianLimits/acct-'));
+  assert.equal(counters.length, 1);
+  for (const [name, value] of numbersOf(counters[0][1]).filter(([name]) => name !== 'count')) {
+    assert.equal(value % DAY, 0, `counter ${name} is a whole day, not an exact moment`);
+  }
+  const oldCreated = s.rows.get(consentPath).createdAt;
+  assert.equal(oldCreated, T0);
+  const later = T0 + 120_000 + 7 * DAY + 12_345;
+  await guardian.sendLink({auth: {uid: 'student'}, app, data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}},
+    {...s.deps, now: () => later, token: () => 'c'.repeat(64), manageToken: () => '3'.repeat(64)});
+  assert.equal(s.rows.get(consentPath).createdAt, later, 'the replacement uses its own time');
+  const retained = [...s.rows].filter(([path, body]) => path.startsWith('guardianTokens/') && body.uid === undefined);
+  assert.ok(retained.length >= 1);
+  const exact = new Set([T0, T0 + 60_000, T0 + 7 * DAY, T0 + 60_000 + 7 * DAY]);
+  for (const [path, body] of retained) {
+    for (const [name, value] of numbersOf(body)) assert.ok(!exact.has(value), `${path} ${name} keeps an exact request time`);
+  }
+});
+
+const limiterPath = 'users/student/limits/guardianSend';
+
+test('an old account-keyed send limiter row goes with the request, on decline, expiry and a resend after expiry', async () => {
+  const declined = await sentTwice();
+  declined.rows.set(limiterPath, {windowStartedAt: T0, count: 2});
+  await guardian.answerRequest(request({token: declined.token, decision: 'decline', agreed: false,
+    documentVersions: versions, noticeWordingVersion: '2026-11-12'}), {...declined.deps, now: () => T0 + DAY});
+  assert.equal(declined.rows.has(limiterPath), false);
+  const expired = await sentTwice();
+  expired.rows.set(limiterPath, {windowStartedAt: T0, count: 2});
+  await guardian.purgeGuardianRecords(expired.db, T0 + 60_000 + 7 * DAY);
+  assert.equal(expired.rows.has(limiterPath), false);
+  const resent = await sentTwice();
+  resent.rows.set(limiterPath, {windowStartedAt: T0, count: 2});
+  await guardian.sendLink({auth: {uid: 'student'}, app, data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}},
+    {...resent.deps, now: () => T0 + 60_000 + 7 * DAY + 5, token: () => 'c'.repeat(64), manageToken: () => '3'.repeat(64)});
+  assert.equal(resent.rows.has(limiterPath), false);
+});
+
+test('an answer whose clock crosses expiry between its reads is refused as expired on the first attempt', async () => {
+  const s = pending();
+  let calls = 0;
+  const result = await guardian.answerRequest(request({token: s.token, decision: 'confirm', agreed: true,
+    documentVersions: versions, noticeWordingVersion: '2026-11-12'}),
+  {...s.deps, now: () => (++calls === 1 ? T0 + 7 * DAY - 1 : T0 + 7 * DAY)});
+  assert.deepEqual(result, {state: 'expired'});
+  assert.equal(s.rows.get(consentPath).status, 'pending');
+  assert.equal(evidenceRows(s.rows).length, 0);
+});
