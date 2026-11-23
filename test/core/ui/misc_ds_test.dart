@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/error/state_patterns.dart';
+import 'package:pantas/core/storage/age_gate.dart';
+import 'package:pantas/core/storage/domain/age_group.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/gallery/component_gallery_page.dart';
@@ -121,8 +123,11 @@ void main() {
 
   dsMatrix(
     'notification permission rationale',
-    (context) => const ProviderScope(
-      child: SizedBox(
+    // The page asks for the age group, and a child never sees it, so the
+    // page is shown for an adult.
+    (context) => ProviderScope(
+      overrides: [ageGroupProvider.overrideWith((ref) async => AgeGroup.adult)],
+      child: const SizedBox(
         height: 800,
         child: PermissionRationalePage(),
       ),

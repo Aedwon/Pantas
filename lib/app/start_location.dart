@@ -117,9 +117,17 @@ String? _notHonored(List<String> segments, Uri url) {
     // The custom track steps carry state from the step before.
     case 'onboarding' when second == 'custom':
       return '/onboarding';
+    // The child's notice and nickname step follow a setup that this tab holds
+    // only in memory, so a reload cannot open them.
+    case 'onboarding'
+        when second == 'child' && (third == 'notice' || third == 'nickname'):
+      return '/onboarding';
     // Opening an assessment cold would restart it. Its results are safe.
     case 'assessment' when path.length == 2:
       return '/home';
+    // The code gate needs the request its page pushed with.
+    case 'parents' when second == 'code':
+      return '/settings/parents';
     // The contact form follows the waiting page.
     case 'guardian' when second == 'contact':
       return '/guardian/waiting';

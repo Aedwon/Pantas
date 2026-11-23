@@ -7,6 +7,8 @@ import { assertNamedUser } from './_audit.js';
 import { deleteUserData } from './deleteUserData.js';
 import {appSecrets} from './_secrets.js';
 import { ACCOUNT_DELETION_MAX_INSTANCES } from './_options.js';
+import {closeChild} from './childActions.js';
+import {childLinkPath} from './childLinks.js';
 import {timed} from './_timed.js';
 
 export const deleteAccount = onCall(
@@ -20,6 +22,15 @@ export const deleteAccount = onCall(
   timed('deleteAccount', async (request) => {
     assertFreshAppCheck(request);
     const uid = assertNamedUser(request.auth);
+    const db = getFirestore();
+    const [consent, link, holder] = await db.getAll(db.doc(`users/${uid}/server/guardianConsent`),
+      db.doc(childLinkPath(uid)), db.doc(`users/${uid}/server/holder`));
+    if (request.auth?.token.ageGroup === 'child' || consent.get('ageGroup') === 'child' || link.exists) {
+      return closeChild(uid, uid, request.data?.guardianProofId, 'delete');
+    }
+    if (holder.exists) {
+      throw new HttpsError('permission-denied', 'Close each child account first.', {reason: 'holder-has-children'});
+    }
     const authTimeSeconds = request.auth?.token.auth_time ?? 0;
     const authAgeSeconds = Math.floor(Date.now() / 1000) - authTimeSeconds;
     if (authAgeSeconds > 5 * 60) {
@@ -30,7 +41,7 @@ export const deleteAccount = onCall(
       );
     }
 
-    await deleteUserData(getFirestore(), getAuth(), uid, 'user_request', { requestAuth: request.auth });
+    await deleteUserData(db, getAuth(), uid, 'user_request', { requestAuth: request.auth });
 
     return { deletedAt: new Date().toISOString() };
   }),

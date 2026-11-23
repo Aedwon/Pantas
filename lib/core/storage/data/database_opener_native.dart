@@ -21,14 +21,15 @@ import 'package:path_provider/path_provider.dart';
 // Safe only because the emulator was the only install: a rename abandons the
 // old file rather than migrating it, so doing this after a beta would have
 // silently reset every tester's progress.
-const _dbFileName = 'pantas.db';
+const _databaseName = 'pantas';
 const _keyStorageKey = 'pantas_db_key';
 
 Future<AppDatabase> openEncryptedDatabase({
+  String databaseName = _databaseName,
   FlutterSecureStorage storage = const FlutterSecureStorage(),
 }) async {
   final dir = await getApplicationDocumentsDirectory();
-  final file = File(p.join(dir.path, _dbFileName));
+  final file = File(p.join(dir.path, '$databaseName.db'));
   final key = await _readOrCreateKey(storage);
 
   return AppDatabase(
@@ -45,6 +46,20 @@ Future<AppDatabase> openEncryptedDatabase({
       },
     ),
   );
+}
+
+/// Deletes the database file [databaseName] and the sidecar files SQLite keeps
+/// beside it. A store that is not there is not an error. [directory] is for
+/// tests; the app uses its documents folder.
+Future<void> deleteEncryptedDatabase({
+  required String databaseName,
+  Directory? directory,
+}) async {
+  final dir = directory ?? await getApplicationDocumentsDirectory();
+  for (final suffix in const ['', '-wal', '-shm', '-journal']) {
+    final file = File(p.join(dir.path, '$databaseName.db$suffix'));
+    if (file.existsSync()) await file.delete();
+  }
 }
 
 Future<Uint8List> _readOrCreateKey(FlutterSecureStorage storage) async {

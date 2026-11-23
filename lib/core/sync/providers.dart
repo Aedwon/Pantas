@@ -72,6 +72,8 @@ class ConfiguredSyncRuntimeSurface implements SyncRuntimeSurface {
   final SyncRuntimeController _controller;
   final SyncRuntimeEngine _engine;
 
+  Future<void> close() => _controller.close();
+
   @override
   SyncRuntimeKind get runtimeKind => SyncRuntimeKind.configured;
 

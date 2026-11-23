@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
@@ -50,6 +51,36 @@ void main() {
       isTrue,
     );
     expect(find.text('Home'), findsOneWidget);
+  });
+
+  testWidgets('a child skips permission rationale', (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await AppPreferencesRepository(db).setAgeGroup('child');
+    final notifications = RecordingNotificationService();
+    final router = GoRouter(
+      initialLocation: '/notifications/rationale',
+      routes: [
+        GoRoute(
+          path: '/notifications/rationale',
+          builder: (_, __) => const PermissionRationalePage(),
+        ),
+        GoRoute(path: '/home', builder: (_, __) => const Text('Home')),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        notificationServiceProvider.overrideWithValue(notifications),
+      ],
+    );
+
+    await tester.pumpAndSettle();
+    expect(find.text('Sounds good'), findsNothing);
+    expect(find.text('Home'), findsOneWidget);
+    expect(notifications.requestCount, 0);
   });
 
   testWidgets('not right now marks shown without requesting permission',
@@ -101,6 +132,7 @@ void main() {
 
     await tester.pumpWidget(
       ProviderScope(
+        overrides: [ageGroupProvider.overrideWith((_) => AgeGroup.adult)],
         child: MaterialApp(
           theme: buildLightTheme(),
           home: Builder(
@@ -116,6 +148,7 @@ void main() {
     );
     await tester.pump();
 
+    expect(find.text('Sounds good'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 }

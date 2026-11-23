@@ -133,6 +133,11 @@ class _CustomTrackSubjectsStepState
       _failed = false;
     });
     try {
+      if ((await prefs.readAgeGroup()).hasChildLimits ||
+          !mounted ||
+          generation != _generation) {
+        return;
+      }
       final included = {
         for (final name in _selected) ...subjects[name] ?? <TopicId>{},
       };

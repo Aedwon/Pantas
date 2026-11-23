@@ -437,11 +437,13 @@ class WebPaymentGateway implements RevenueCatPassGateway {
     PaywallPackage package, {
     Future<void> Function(String sessionId, String reference)? beforeRedirect,
     bool guardianAttested = false,
+    bool checkoutBoxAttested = false,
   }) =>
       _checkout(
         package.productId,
         beforeRedirect: beforeRedirect,
         guardianAttested: guardianAttested,
+        checkoutBoxAttested: checkoutBoxAttested,
       );
 
   @override
@@ -450,6 +452,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
     required ExamCatalogEntry exam,
     Future<void> Function(String sessionId, String reference)? beforeRedirect,
     bool guardianAttested = false,
+    bool checkoutBoxAttested = false,
   }) {
     if (!passAllowedForExam(package.productId, exam, at: _now())) {
       return Future.value(
@@ -462,17 +465,24 @@ class WebPaymentGateway implements RevenueCatPassGateway {
       package.productId,
       beforeRedirect: beforeRedirect,
       guardianAttested: guardianAttested,
+      checkoutBoxAttested: checkoutBoxAttested,
     );
   }
 
   /// Asks the server for a PayMongo checkout and sends this tab to it.
   ///
   /// [guardianAttested] is true when a parent or guardian ticked the box on a
-  /// minor's checkout. The server decides whether an account needs it.
+  /// minor's or child's checkout. The server decides whether an account needs
+  /// it.
+  ///
+  /// [checkoutBoxAttested] is true when the buyer ticked the checkout box on a
+  /// PSHS-NCE purchase, for any age group. It sends the version of the text
+  /// shown. The server requires it for any PSHS-NCE product and records it.
   Future<PaymentOperationResult> _checkout(
     String productId, {
     Future<void> Function(String sessionId, String reference)? beforeRedirect,
     bool guardianAttested = false,
+    bool checkoutBoxAttested = false,
   }) async {
     final uid = _uid;
     final revision = _identityRevision;
@@ -481,6 +491,8 @@ class WebPaymentGateway implements RevenueCatPassGateway {
         _checkoutCallable,
         {
           'product': productId,
+          if (checkoutBoxAttested)
+            'checkoutBoxTextVersion': checkoutBoxTextVersion,
           if (guardianAttested)
             'guardianAttestation': {
               'termsVersion': guardianDocumentVersions['terms'],
@@ -537,7 +549,8 @@ PaymentOperationStatus _statusForError(Object error) {
   if (error is! FirebaseException) {
     return PaymentOperationStatus.unknownFailure;
   }
-  // The server's refusal of a minor's checkout without the guardian box.
+  // The server's refusal of a minor's or child's checkout without the guardian
+  // box.
   if (error is FirebaseFunctionsException &&
       error.code == 'failed-precondition' &&
       error.details is Map &&

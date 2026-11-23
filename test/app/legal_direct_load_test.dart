@@ -163,6 +163,19 @@ void main() {
       expect(find.text('Who this is for'), findsOneWidget);
     });
 
+    for (final (id, title, heading) in [
+      ('child-notice', 'Child Notice', 'Who this is for'),
+      ('child-notice-kids', 'Child Notice for kids', 'Read more for kids'),
+    ]) {
+      testWidgets('$id opens the published notice', (tester) async {
+        final path = '/legal/$id';
+        final container = await openDirectly(tester, path, wide: false);
+        expect(pathOf(container), path);
+        expect(find.text(title), findsOneWidget);
+        expect(find.text(heading), findsOneWidget);
+      });
+    }
+
     testWidgets('an unknown document says so and still leads out',
         (tester) async {
       final container =

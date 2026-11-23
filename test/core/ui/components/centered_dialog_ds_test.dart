@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_shadow.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 
 import '../../../helpers/ds_matrix.dart';
 
@@ -167,6 +170,36 @@ void main() {
       );
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       expect(dismissed, 1);
+    });
+  }
+
+  for (final wide in [false, true]) {
+    testWidgets('a dialog with no secondary label has one button (wide $wide)',
+        (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      var confirmed = 0;
+      var cancelled = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(web: wide),
+          home: Scaffold(
+            body: CenteredDialog(
+              title: 'Use another email',
+              message: 'Body.',
+              primaryLabel: 'Got It',
+              onConfirm: () => confirmed++,
+              onCancel: () => cancelled++,
+            ),
+          ),
+        ),
+      );
+      await tester.pump();
+      expect(find.text('Got It'), findsOneWidget);
+      if (!wide) expect(find.byType(PantasButton), findsOneWidget);
+      await tester.tap(find.text('Got It'));
+      expect(confirmed, 1);
+      expect(cancelled, 0);
     });
   }
 }

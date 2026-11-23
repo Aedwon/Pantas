@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/app/screen_counts_providers.dart';
 import 'package:pantas/core/platform/remote_flags_providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
@@ -236,11 +237,12 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
   }
   if (server &&
       ref.watch(screenCountsFlagProvider) &&
-      settings.speedReportsEnabled) {
+      settings.speedReportsEnabled &&
+      !(await ref.watch(ageGroupProvider.future)).hasChildLimits) {
     final accountId = await ref.watch(screenCountsAccountIdProvider.future);
     final store = ref.read(screenCountsNoticeStoreProvider);
     if (accountId != null && !await store.isDismissed(accountId)) {
-      final minor = await preferences.ageGroup() == 'minor';
+      final teen = ref.watch(resolvedAgeGroupProvider).entersTeenGuardianFlow;
       candidates.add(
         HomeNotice(
           kind: HomeNoticeKind.screenCounts,
@@ -253,9 +255,8 @@ final homeNoticeProvider = FutureProvider.autoDispose<HomeNotice?>((ref) async {
           // secondary, on the left.
           primaryLabel: 'Got It',
           secondaryLabel: 'Learn More',
-          // The Teen Notice for an under-18 account. The legal pages have no
-          // section anchors, so both open at the top.
-          route: minor ? '/legal/teens' : '/legal/privacy',
+          // The legal pages have no section anchors, so both open at the top.
+          route: teen ? '/legal/teens' : '/legal/privacy',
         ),
       );
     }

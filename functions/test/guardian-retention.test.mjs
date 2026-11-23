@@ -4,7 +4,7 @@ import * as guardian from '../lib/guardianConsent.js';
 
 const DAY = 86400000;
 const T0 = Date.parse('2026-11-09T00:00:00+08:00');
-const versions = {privacy: '2026-11-12', terms: '2026-11-12', teens: '2026-11-12'};
+const versions = {privacy: '2026-11-20', terms: '2026-11-20', teens: '2026-11-20'};
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
 const request = (data) => ({auth: {uid: 'visitor'}, app, data});
 
@@ -19,7 +19,11 @@ function store(initial = {}) {
   const query = (matches, cursor = '', size = Infinity) => ({
     orderBy: () => query(matches, cursor, size),
     limit: n => query(matches, cursor, n),
-    where: (field, op, value) => query(path => matches(path) && rows.get(path)?.[field] === value, cursor, size),
+    where: (field, op, value) => query(path => {
+      if (!matches(path)) return false;
+      const actual = rows.get(path)?.[field];
+      return op === '<=' ? actual instanceof Date && actual <= value : actual === value;
+    }, cursor, size),
     startAfter: last => query(matches, last.ref.path, size),
     get: async () => {
       const docs = [...rows.keys()].sort().filter(path => path > cursor && matches(path))
@@ -55,10 +59,10 @@ for (const decision of ['confirm', 'decline']) {
   test(`${decision} records the shown versions, action and time without contact data`, async () => {
     const s = pending();
     const data = {token: s.token, decision, agreed: decision === 'confirm',
-      documentVersions: versions, noticeWordingVersion: '2026-11-12'};
+      documentVersions: versions, noticeWordingVersion: '2026-11-20'};
     await guardian.answerRequest(request(data), s.deps);
     assert.deepEqual(s.rows.get(evidencePath(s.hash)), {
-      documentVersions: versions, noticeWordingVersion: '2026-11-12',
+      documentVersions: versions, noticeWordingVersion: '2026-11-20',
       action: decision, agreed: decision === 'confirm', decidedAt: T0 + DAY,
       ...(decision === 'confirm' ? {sharingAllowed: false} : {}),
     });
@@ -68,7 +72,7 @@ for (const decision of ['confirm', 'decline']) {
 }
 
 test('missing or mismatched shown versions cannot create false evidence', async () => {
-  for (const extra of [{}, {documentVersions: {...versions, teens: 'old'}, noticeWordingVersion: '2026-11-12'},
+  for (const extra of [{}, {documentVersions: {...versions, teens: 'old'}, noticeWordingVersion: '2026-11-20'},
     {documentVersions: versions, noticeWordingVersion: 'old'}]) {
     const s = pending();
     await assert.rejects(guardian.answerRequest(request({token: s.token, decision: 'decline', ...extra}), s.deps),
@@ -92,7 +96,7 @@ for (const decision of ['confirm', 'decline']) {
   test(`${decision} removes contact and used links seven days later but retains evidence`, async () => {
     const s = pending();
     await guardian.answerRequest(request({token: s.token, decision, agreed: decision === 'confirm',
-      documentVersions: versions, noticeWordingVersion: '2026-11-12'}), s.deps);
+      documentVersions: versions, noticeWordingVersion: '2026-11-20'}), s.deps);
     await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY - 1);
     assert.ok(s.rows.has(`guardianTokens/${s.hash}`));
     await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY);
@@ -244,4 +248,20 @@ test('a withdrawn record is left exactly as it is, so an unfinished withdrawal c
   assert.deepEqual(s.rows.get(consentPath), withdrawn);
   await guardian.purgeGuardianRecords(s.db, T0 + 400 * DAY);
   assert.deepEqual(s.rows.get(consentPath), withdrawn);
+});
+
+test('cleanup keeps a child record as child and turns a missing or unknown group into minor', async () => {
+  const base = {decidedAt: T0, sharingAllowed: false, emailHash: 'e', maskedEmail: 'm', tokenHash: 't', sentAt: T0, expiresAt: T0 + 7 * DAY, createdAt: T0};
+  const child = store({[consentPath]: {status: 'confirmed', ageGroup: 'child', ...base}});
+  await guardian.purgeGuardianRecords(child.db, T0 + 8 * DAY);
+  assert.deepEqual(child.rows.get(consentPath), {status: 'confirmed', ageGroup: 'child', decidedAt: T0, sharingAllowed: false});
+  const unknown = store({[consentPath]: {status: 'confirmed', ageGroup: 'teen', ...base}});
+  await guardian.purgeGuardianRecords(unknown.db, T0 + 8 * DAY);
+  assert.equal(unknown.rows.get(consentPath).ageGroup, 'minor');
+  const blank = store({[consentPath]: {status: 'declined', decidedAt: T0, emailHash: 'e', expiresAt: T0 + 7 * DAY}});
+  await guardian.purgeGuardianRecords(blank.db, T0 + 8 * DAY);
+  assert.deepEqual(blank.rows.get(consentPath), {ageGroup: 'minor'});
+  const unanswered = store({[consentPath]: {status: 'pending', ageGroup: 'child', emailHash: 'e', expiresAt: T0 + 7 * DAY}});
+  await guardian.purgeGuardianRecords(unanswered.db, T0 + 8 * DAY);
+  assert.deepEqual(unanswered.rows.get(consentPath), {ageGroup: 'child'});
 });

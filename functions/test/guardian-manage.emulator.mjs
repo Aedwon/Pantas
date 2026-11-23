@@ -21,10 +21,10 @@ const T0 = Date.parse('2026-11-09T10:00:00+08:00');
 const DAY = 86400000;
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
-const versions = {privacy: '2026-11-12', terms: '2026-11-12', teens: '2026-11-12'};
+const versions = {privacy: '2026-11-20', terms: '2026-11-20', teens: '2026-11-20'};
 const req = (uid, data, extra = {}) => ({auth: anon(uid), app, data, ...extra});
 const answer = (token, over = {}) => ({token, decision: 'confirm', agreed: true,
-  documentVersions: versions, noticeWordingVersion: '2026-11-12', ...over});
+  documentVersions: versions, noticeWordingVersion: '2026-11-20', ...over});
 const code = async promise => { try { await promise; return 'ok'; } catch (e) { assert.equal(typeof e.code, 'string', String(e)); return e.code; } };
 const confirmTokenOf = m => /guardian\?token=([a-f0-9]{64})/.exec(m.text)[1];
 const manageTokenOf = m => /guardian\/manage\?token=([a-f0-9]{64})/.exec(m.text)[1];
@@ -64,6 +64,36 @@ async function confirmedMinor(uid, h, allowSharing) {
 }
 
 // ---- A. Deletion core -------------------------------------------------------------------------
+
+test('a holder cannot enroll in teen consent', async () => {
+  const uid = 'dm-holder-enroll'; await reset(uid);
+  const h = harness();
+  await db.doc(`users/${uid}/server/holder`).set({});
+  assert.equal(await code(guardian.sendLink(req(uid, body(), {rawRequest: {ip: '192.0.2.10'}}), h.deps)), 'failed-precondition');
+  assert.equal(h.sent.length, 0);
+  assert.equal(await stored(uid), undefined);
+});
+
+test('a legacy manage link is unavailable for a holder', async () => {
+  const uid = 'dm-holder-manage';
+  const h = harness();
+  const {pageManage} = await confirmedMinor(uid, h);
+  await db.doc(`users/${uid}/server/holder`).set({});
+  assert.deepEqual(await guardian.readManage(req('visitor', {token: pageManage}), h.deps), {state: 'unknown'});
+});
+
+test('the shared deletion path leaves holders with active children intact', async () => {
+  const uid = 'dm-holder-active'; await reset(uid);
+  await auth.createUser({uid});
+  await db.doc(`users/${uid}/server/holder`).set({});
+  const entry = db.doc(`users/${uid}/server/children/items/dm-fake-child`);
+  await entry.set({active: true});
+  await assert.rejects(deletion.deleteUserData(db, auth, uid, 'user_request'),
+    {details: {reason: 'holder-has-children'}});
+  assert.equal((await db.doc(`accountDeletions/${uid}`).get()).exists, false);
+  assert.equal((await entry.get()).exists, true);
+  assert.equal((await auth.getUser(uid)).uid, uid);
+});
 
 test('deleteUserData keeps the guardian evidence, marks the deletion and removes the account', async () => {
   const uid = 'dm-core'; await reset(uid);
@@ -261,8 +291,8 @@ test('setGuardianSharing flips the choice and records each change as evidence', 
   const log = (await rows(`guardianConsentEvidence/${uid}/responses`)).filter(r => r.action.startsWith('sharing'))
     .sort((a, b) => a.decidedAt - b.decidedAt);
   assert.deepEqual(log, [
-    {action: 'sharing_on', decidedAt: T0 + DAY, documentVersions: versions, noticeWordingVersion: '2026-11-12'},
-    {action: 'sharing_off', decidedAt: T0 + 2 * DAY, documentVersions: versions, noticeWordingVersion: '2026-11-12'}]);
+    {action: 'sharing_on', decidedAt: T0 + DAY, documentVersions: versions, noticeWordingVersion: '2026-11-20'},
+    {action: 'sharing_off', decidedAt: T0 + 2 * DAY, documentVersions: versions, noticeWordingVersion: '2026-11-20'}]);
   const pending = 'dm-share-pending'; await reset(pending);
   await guardian.sendLink(req(pending, body()), h.deps);
   assert.deepEqual(await guardian.setSharing(req('v', {token: manageTokenOf(h.sent.at(-1)), allowed: true}), h.deps), {state: 'not_confirmed'});
@@ -290,7 +320,7 @@ test('withdrawing disables, signs out, deletes the account and keeps the evidenc
   const actions = (await rows(`guardianConsentEvidence/${uid}/responses`)).map(r => r.action).sort();
   assert.deepEqual(actions, ['confirm', 'withdraw']);
   const withdraw = (await rows(`guardianConsentEvidence/${uid}/responses`)).find(r => r.action === 'withdraw');
-  assert.deepEqual(withdraw, {action: 'withdraw', decidedAt: T0 + DAY, documentVersions: versions, noticeWordingVersion: '2026-11-12'});
+  assert.deepEqual(withdraw, {action: 'withdraw', decidedAt: T0 + DAY, documentVersions: versions, noticeWordingVersion: '2026-11-20'});
   for (const token of [pageManage, emailManage]) {
     assert.deepEqual(await guardian.withdraw(req('v', {token}), h.deps), {state: 'unknown'}, 'a second call');
     assert.deepEqual(await guardian.readManage(req('v', {token}), h.deps), {state: 'unknown'});

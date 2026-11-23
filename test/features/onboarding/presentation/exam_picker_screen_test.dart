@@ -12,6 +12,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
@@ -27,6 +28,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/data/study_api.dart';
+import 'package:pantas/features/onboarding/application/exam_picker_availability.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 
 import '../../../helpers/accessibility.dart';
@@ -99,12 +101,20 @@ void main() {
     List<Override> extra = const [],
     bool customExams = kCustomExamsOffered,
     Size viewport = const Size(390, 844),
+    TargetPlatform? platform = TargetPlatform.iOS,
   }) =>
       pumpAccessibilitySurface(
         tester,
         ProviderScope(
           overrides: [
             appDatabaseProvider.overrideWithValue(db),
+            if (platform != null)
+              examPickerPolicyProvider.overrideWith((ref) {
+                return ExamPickerPolicy(
+                  ageGroup: ref.watch(resolvedAgeGroupProvider),
+                  platform: platform,
+                );
+              }),
             examPickerCatalogProvider
                 .overrideWith((ref) => data ?? Stream.value(entries)),
             activeExamFocusProvider.overrideWith(
@@ -125,6 +135,49 @@ void main() {
         viewportSize: viewport,
         disableAnimations: true,
       );
+
+  for (final mode in ExamPickerMode.values) {
+    testWidgets('Android hides PSHS in ${mode.name}', (tester) async {
+      await pump(tester, mode: mode, platform: null);
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const ValueKey('exam-exam_pshs_nce')), findsNothing);
+      expect(find.byKey(const ValueKey('exam-exam_upcat')), findsOneWidget);
+    });
+  }
+
+  testWidgets('a child can only switch to PSHS in the flagged web picker',
+      (tester) async {
+    await AppPreferencesRepository(db).setAgeGroup('child');
+    final picks = <String>[];
+    await pump(
+      tester,
+      mode: ExamPickerMode.settings,
+      picked: (id) async => picks.add(id),
+      platform: null,
+      extra: [
+        examPickerPolicyProvider.overrideWithValue(
+          const ExamPickerPolicy(
+            ageGroup: AgeGroup.child,
+            isWeb: true,
+            pshsForChildren: true,
+          ),
+        ),
+      ],
+    );
+    await tester.pumpAndSettle();
+
+    final upcat = find.byKey(const ValueKey('exam-exam_upcat'));
+    await tester.ensureVisible(upcat);
+    await tester.tap(upcat, warnIfMissed: false);
+    expect(picks, isEmpty);
+
+    final pshs = find.byKey(const ValueKey('exam-exam_pshs_nce'));
+    await tester.ensureVisible(pshs);
+    await tester.tap(pshs);
+    await tester.pumpAndSettle();
+    expect(picks, ['exam_pshs_nce']);
+  });
 
   const message = 'Daily content limit reached. Try again tomorrow.';
   final noContent = [
@@ -219,6 +272,11 @@ void main() {
             ProviderScope(
               overrides: [
                 appDatabaseProvider.overrideWithValue(db),
+                examPickerPolicyProvider.overrideWith((ref) {
+                  return ExamPickerPolicy(
+                    ageGroup: ref.watch(resolvedAgeGroupProvider),
+                  );
+                }),
                 examPickerCatalogProvider.overrideWith(
                   (ref) => Stream.value(catalog),
                 ),

@@ -109,3 +109,81 @@ class FirebaseGoogleAccountExchangeGateway
     return token;
   }
 }
+
+/// Lists linked children on demand and exchanges the server-approved choice
+/// for a Firebase custom token. The response is never persisted.
+class FirebaseChildAccountsGateway implements ChildAccountsGateway {
+  const FirebaseChildAccountsGateway({
+    AuthFunctionsCallableClient client =
+        const FirebaseFunctionsCallableClient(),
+  }) : _client = client;
+
+  final AuthFunctionsCallableClient _client;
+
+  @override
+  Future<ChildList> listChildren() async {
+    final response = await _call('listChildren');
+    final rows = response['children'];
+    final email = response['maskedHolderEmail'];
+    if (rows is! List || (email != null && email is! String)) {
+      throw const AuthGatewayException('malformed-child-response');
+    }
+    return (
+      children: [for (final Object? row in rows) _child(row)],
+      maskedHolderEmail: email as String?,
+    );
+  }
+
+  LinkedChild _child(
+    Object? row,
+  ) {
+    if (row is Map &&
+        row['childUid'] is String &&
+        (row['nickname'] == null || row['nickname'] is String) &&
+        row['siblingOpenWithoutCode'] is bool) {
+      return (
+        uid: row['childUid'] as String,
+        nickname: row['nickname'] as String?,
+        siblingOpenWithoutCode: row['siblingOpenWithoutCode'] as bool,
+      );
+    }
+    throw const AuthGatewayException('malformed-child-response');
+  }
+
+  @override
+  Future<String> openChildSession(
+    String childId, {
+    String? guardianProofId,
+  }) async {
+    final response = await _call('openChildSession', {
+      'childId': childId,
+      if (guardianProofId != null) 'guardianProofId': guardianProofId,
+    });
+    final token = response['customToken'];
+    if (token is! String || token.isEmpty) {
+      throw const AuthGatewayException('malformed-child-response');
+    }
+    return token;
+  }
+
+  Future<String?> readConsentAgeGroup() async {
+    final response =
+        await _call('getGuardianStatus', const <String, Object?>{});
+    final group = response['ageGroup'];
+    return group is String ? group : null;
+  }
+
+  Future<Map<Object?, Object?>> _call(String name, [Object? data]) async {
+    try {
+      final response = await _client.call(
+        region: FirebaseAuthFunctionsGateway.region,
+        name: name,
+        data: data,
+      );
+      if (response is Map<Object?, Object?>) return response;
+      throw const AuthGatewayException('malformed-child-response');
+    } on FirebaseFunctionsException catch (error) {
+      throw AuthGatewayException(error.code);
+    }
+  }
+}

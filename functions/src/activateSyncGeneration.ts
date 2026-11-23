@@ -2,7 +2,7 @@ import {enforceAppCheck} from './_appCheck.js';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { logger } from 'firebase-functions';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {onAccountCall as onCall} from './_accountAccess.js';
+import {onStudyAccountCall as onCall} from './_accountAccess.js';
 import {allowAtMost} from './_limits.js';
 import {timed} from './_timed.js';
 import {

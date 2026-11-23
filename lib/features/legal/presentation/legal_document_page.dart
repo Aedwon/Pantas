@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
@@ -31,8 +32,10 @@ class LegalDocumentPage extends StatelessWidget {
   /// pop to.
   final String backFallback;
   @override
-  Widget build(BuildContext context) {
-    final document = legalDocumentFallbacks[documentId];
+  Widget build(BuildContext context) =>
+      _withLegalDocument(context, documentId, _buildDocument);
+
+  Widget _buildDocument(BuildContext context, LegalDocument? document) {
     return PantasPage(
       title: documentId == 'privacy'
           ? 'Privacy Policy'
@@ -69,7 +72,7 @@ class LegalDocumentPage extends StatelessWidget {
               PantasSpace.s4,
               PantasSpace.s6,
             ),
-      children: _documentChildren(context, documentId, phone: !context.wideWeb),
+      children: _documentChildren(context, document, phone: !context.wideWeb),
     );
   }
 }
@@ -88,8 +91,10 @@ class LegalDocumentBody extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final document = legalDocumentFallbacks[documentId];
+  Widget build(BuildContext context) =>
+      _withLegalDocument(context, documentId, _buildDocument);
+
+  Widget _buildDocument(BuildContext context, LegalDocument? document) {
     if (context.wideWeb && document != null) {
       // Board `.card`: 28 px above, 32 px each side, 16 px below; 20 px
       // headings and 17 px text, 14 px apart.
@@ -119,17 +124,30 @@ class LegalDocumentBody extends StatelessWidget {
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: _documentChildren(context, documentId),
+      children: _documentChildren(context, document),
     );
   }
 }
 
+Widget _withLegalDocument(
+  BuildContext context,
+  String documentId,
+  Widget Function(BuildContext, LegalDocument?) build,
+) {
+  if (documentId == 'child-notice-kids') {
+    return Consumer(
+      builder: (context, ref, _) =>
+          build(context, ref.watch(legalDocumentProvider(documentId))),
+    );
+  }
+  return build(context, legalDocumentFallbacks[documentId]);
+}
+
 List<Widget> _documentChildren(
   BuildContext context,
-  String documentId, {
+  LegalDocument? document, {
   bool phone = false,
 }) {
-  final document = legalDocumentFallbacks[documentId];
   return [
     if (document == null)
       const StateView(message: 'Legal page not found')

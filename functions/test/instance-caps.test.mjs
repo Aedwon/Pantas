@@ -6,7 +6,7 @@ import * as functions from '../lib/index.js';
 const DEFAULT_CAP = 3;
 // The combined scheduled jobs and the manual runner run one at a time: the daily jobs send email and
 // delete data, so a second instance must never start beside a running one.
-const EXPLICIT = {paymongoWebhook: 10, revenuecatWebhook: 10, deleteAccount: 5,
+const EXPLICIT = {paymongoWebhook: 10, revenuecatWebhook: 10, deleteAccount: 5, deleteChild: 5, withdrawChild: 5,
   jobsFrequent: 1, jobsDailyEarly: 1, jobsDailyLate: 1, runScheduledTask: 1};
 
 const endpoints = Object.entries(functions).filter(([, fn]) => typeof fn === 'function').map(([name, fn]) => [name, fn.__endpoint]);

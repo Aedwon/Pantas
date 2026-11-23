@@ -276,6 +276,29 @@ void main() {
       ).called(1);
     });
 
+    test('a checkout-box purchase sends the box text version it was shown',
+        () async {
+      await gateway.purchase(_weekly, checkoutBoxAttested: true);
+      await gateway.purchasePass(
+        _pass,
+        exam: _exam(),
+        checkoutBoxAttested: true,
+      );
+
+      verify(
+        () => callable('createPaymongoCheckout', {
+          'product': 'pantas_cs_weekly',
+          'checkoutBoxTextVersion': checkoutBoxTextVersion,
+        }),
+      ).called(1);
+      verify(
+        () => callable('createPaymongoCheckout', {
+          'product': 'pantas_pass_cse_pro',
+          'checkoutBoxTextVersion': checkoutBoxTextVersion,
+        }),
+      ).called(1);
+    });
+
     test('purchasePass sends the pass product id and opens the url', () async {
       final result = await gateway.purchasePass(_pass, exam: _exam());
 

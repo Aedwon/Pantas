@@ -22,6 +22,7 @@ export 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 export 'package:pantas/core/storage/data/repos/lesson_bookmarks_repository.dart';
 export 'package:pantas/core/storage/data/repos/lesson_progress_repository.dart';
 export 'package:pantas/core/storage/data/repos/question_flags_repository.dart';
+export 'package:pantas/core/storage/domain/age_group.dart';
 export 'package:pantas/core/storage/domain/assessment_question.dart';
 export 'package:pantas/core/storage/domain/assessment_question_selector.dart';
 export 'package:pantas/core/storage/domain/passage.dart';
@@ -30,6 +31,15 @@ final appDatabaseProvider = Provider<AppDatabase>(
   (ref) => throw UnimplementedError(
     'Override appDatabaseProvider in main bootstrap or tests',
   ),
+);
+
+final activeChildDatabaseProvider = StateProvider<AppDatabase?>((ref) => null);
+
+/// Deletes one child's own on-device store (the file, not only its rows),
+/// closing it first when it is open and not the active one. The app bootstrap
+/// supplies the real one; the default does nothing.
+final childStoreDeleterProvider = Provider<Future<void> Function(String uid)>(
+  (ref) => (uid) async {},
 );
 
 final contentRepositoryProvider = Provider<ContentRepository>(
@@ -64,7 +74,11 @@ final appPreferencesRepositoryProvider = Provider<AppPreferencesRepository>(
 /// Call from main bootstrap.
 Future<List<Override>> bootstrapStorageOverrides() async {
   final db = await openEncryptedDatabase();
-  return [appDatabaseProvider.overrideWithValue(db)];
+  return [
+    appDatabaseProvider.overrideWith(
+      (ref) => ref.watch(activeChildDatabaseProvider) ?? db,
+    ),
+  ];
 }
 
 final examListProvider = FutureProvider<List<Exam>>((ref) async {

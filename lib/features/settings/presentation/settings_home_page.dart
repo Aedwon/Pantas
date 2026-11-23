@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
@@ -20,6 +21,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
+import 'package:pantas/features/child_setup/domain/guardian_gate.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/beta_pro_row.dart';
@@ -256,6 +258,7 @@ class SettingsHomePage extends ConsumerWidget {
       ),
       bottomInset: PantasLayout.reserveTabbar,
       children: [
+        // T10: the "Switch Child" group (board ST4B) goes here, first.
         GroupedSection(
           children: [
             ListRow(
@@ -330,7 +333,7 @@ class SettingsHomePage extends ConsumerWidget {
               dividerInset: 56,
               onTap: () => push('/settings/practice'),
             ),
-            if (!kIsWeb)
+            if (!kIsWeb && !ref.watch(resolvedAgeGroupProvider).hasChildLimits)
               ListRow(
                 title: 'Reminders',
                 value: settings.dailyReminderTime == null
@@ -362,6 +365,22 @@ class SettingsHomePage extends ConsumerWidget {
           ],
         ),
         const SizedBox(height: PantasSpace.s24),
+        // Board ST4B. Parent controls are not a restriction, so only a known
+        // child account shows them: hidden while loading, on error, and for
+        // an age this build does not know.
+        if (ref.watch(resolvedAgeGroupProvider).isChild) ...[
+          GroupedSection(
+            footer: ParentsCopy.managedLine,
+            children: [
+              ListRow(
+                title: ParentsCopy.settingsRow,
+                contentPadding: rowPadding,
+                onTap: () => push('/settings/parents'),
+              ),
+            ],
+          ),
+          const SizedBox(height: PantasSpace.s24),
+        ],
         GroupedSection(
           children: [
             ListRow(

@@ -33,6 +33,7 @@ import 'package:pantas/app/routes/mock_routes.dart';
 import 'package:pantas/app/routes/settings_routes.dart';
 import 'package:pantas/app/routes/onboarding_routes.dart';
 import 'package:pantas/features/onboarding/application/onboarding_browser_back.dart';
+import 'package:pantas/app/routes/child_setup_routes.dart';
 import 'package:pantas/app/routes/guardian_routes.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/app/routes/wrapped_routes.dart';
@@ -92,7 +93,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       }
       if (path == '/guardian' ||
           path == '/guardian/manage' ||
-          path.startsWith('/legal/')) {
+          path.startsWith('/legal/') ||
+          // The receipt email's delete link and the code gate work for a
+          // parent on a device that has not finished onboarding.
+          path.startsWith('/parents/')) {
         return null;
       }
       final guardianState = ref.read(guardianGateProvider);
@@ -242,6 +246,7 @@ List<RouteBase> buildAppRoutes(
     ...mockRoutes(ref),
     ...settings.where((route) => route != settingsRoot),
     ...onboardingRoutes(ref),
+    ...childSetupRoutes(ref),
     GoRoute(path: '/beta', builder: (context, state) => const BetaGatePage()),
     GoRoute(
       path: '/auth/email-link',

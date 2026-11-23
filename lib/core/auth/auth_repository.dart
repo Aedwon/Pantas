@@ -72,6 +72,13 @@ class AuthRepository implements EmailCodeAuth {
     EmailCodeGateway? emailCodeGateway,
     CustomTokenAuthGateway? customTokenGateway,
     GoogleAccountExchangeGateway? googleExchangeGateway,
+    ChildAccountsGateway? childAccounts,
+    Future<String?> Function(AuthSession session)? readAgeGroup,
+    Future<void> Function(AuthSession? session, String? ageGroup)?
+        restoreDeviceState,
+    LocalStateWiper Function()? activeStateWiper,
+    Future<void> Function()? eraseHolderState,
+    Future<void> Function()? completeGuardianSetup,
   })  : _gateway = gateway,
         _googleGateway =
             googleGateway ?? const UnconfiguredGoogleSignInGateway(),
@@ -86,7 +93,13 @@ class AuthRepository implements EmailCodeAuth {
         _googlePopupGateway = googlePopupGateway,
         _emailCodeGateway = emailCodeGateway,
         _customTokenGateway = customTokenGateway,
-        _googleExchangeGateway = googleExchangeGateway;
+        _googleExchangeGateway = googleExchangeGateway,
+        _childAccounts = childAccounts,
+        _readAgeGroup = readAgeGroup,
+        _restoreDeviceState = restoreDeviceState,
+        _activeStateWiper = activeStateWiper,
+        _eraseHolderState = eraseHolderState,
+        _completeGuardianSetup = completeGuardianSetup;
 
   final AuthGateway _gateway;
   final GoogleSignInGateway _googleGateway;
@@ -100,6 +113,16 @@ class AuthRepository implements EmailCodeAuth {
   final EmailCodeGateway? _emailCodeGateway;
   final CustomTokenAuthGateway? _customTokenGateway;
   final GoogleAccountExchangeGateway? _googleExchangeGateway;
+  final ChildAccountsGateway? _childAccounts;
+  final Future<String?> Function(AuthSession session)? _readAgeGroup;
+  final Future<void> Function(AuthSession? session, String? ageGroup)?
+      _restoreDeviceState;
+  final LocalStateWiper Function()? _activeStateWiper;
+  final Future<void> Function()? _eraseHolderState;
+  final Future<void> Function()? _completeGuardianSetup;
+  LocalStateWiper get _wiper => _activeStateWiper?.call() ?? _localStateWiper;
+  ({String? uid, bool? isAnonymous})? _restoredIdentity;
+  String? _restoredAgeGroup;
 
   /// Installed by the payment bootstrap without importing a feature into core.
   Future<void> Function()? beforeIdentityChange;
@@ -107,7 +130,126 @@ class AuthRepository implements EmailCodeAuth {
   AuthSession? get currentSession => _gateway.currentSession;
 
   Stream<AuthState> get authState {
-    return _gateway.authStateChanges.map(AuthState.fromSession);
+    if (_restoreDeviceState == null) {
+      return _gateway.authStateChanges.map(AuthState.fromSession);
+    }
+    return _gateway.authStateChanges.asyncExpand((session) async* {
+      final publish = await _exclusive(() => _restoreSession(session));
+      if (publish &&
+          _identityOf(_gateway.currentSession) == _identityOf(session)) {
+        yield AuthState.fromSession(session);
+      }
+    });
+  }
+
+  static ({String? uid, bool? isAnonymous}) _identityOf(AuthSession? session) =>
+      (uid: session?.uid, isAnonymous: session?.isAnonymous);
+
+  Future<bool> _restoreSession(AuthSession? session) async {
+    final identity = _identityOf(session);
+    bool isCurrent() => _identityOf(_gateway.currentSession) == identity;
+    if (!isCurrent()) return false;
+    if (_restoredIdentity == identity) return true;
+    final named = session != null && !session.isAnonymous;
+    final group = named ? await _readAgeGroup?.call(session) : null;
+    if (!isCurrent()) return false;
+    await _restoreDeviceState?.call(session, group);
+    _restoredIdentity = identity;
+    _restoredAgeGroup = group;
+    return isCurrent();
+  }
+
+  Future<ChildList> listChildren() {
+    final gateway = _childAccounts;
+    if (gateway == null) {
+      throw const AuthGatewayException('firebase-unavailable');
+    }
+    return gateway.listChildren();
+  }
+
+  Future<SignInResult> openChildSession(
+    String childId, {
+    String? guardianProofId,
+  }) {
+    final gateway = _childAccounts;
+    if (gateway == null) {
+      throw const AuthGatewayException('firebase-unavailable');
+    }
+    return _enterChildSession(
+      () => gateway.openChildSession(childId, guardianProofId: guardianProofId),
+    );
+  }
+
+  /// Also accepts the child's token from setup. The token stays in memory.
+  Future<SignInResult> startChildSession(String customToken) =>
+      _enterChildSession(() async => customToken, fromSetup: true);
+
+  Future<SignInResult> _enterChildSession(
+    Future<String> Function() getToken, {
+    bool fromSetup = false,
+  }) {
+    final epoch = ++_identityEpoch;
+    return _exclusive(() async {
+      if (epoch != _identityEpoch) return const SignInResult.cancelled();
+      final signIn = _customTokenGateway;
+      if (signIn == null || _restoreDeviceState == null) {
+        return const SignInResult.failed(reason: 'firebase-unavailable');
+      }
+      final source = _gateway.currentSession;
+      if (source == null || source.isAnonymous) {
+        return const SignInResult.failed(reason: 'missing-current-user');
+      }
+      final token = await getToken();
+      if (epoch != _identityEpoch ||
+          _gateway.currentSession?.uid != source.uid) {
+        return const SignInResult.cancelled();
+      }
+      final sourceGroup = await _readAgeGroup?.call(source);
+      if (epoch != _identityEpoch ||
+          _gateway.currentSession?.uid != source.uid) {
+        return const SignInResult.cancelled();
+      }
+      await beforeIdentityChange?.call();
+      if (epoch != _identityEpoch ||
+          _gateway.currentSession?.uid != source.uid) {
+        return const SignInResult.cancelled();
+      }
+      if (sourceGroup != 'child') {
+        cancelEmailLink();
+        await (_eraseHolderState?.call() ?? _wiper.wipeAll());
+        await _signOutGoogleBestEffort();
+      }
+      if (epoch != _identityEpoch ||
+          _gateway.currentSession?.uid != source.uid) {
+        return const SignInResult.cancelled();
+      }
+      await _gateway.signOut();
+      try {
+        await signIn.signInWithCustomToken(token);
+        final child = _gateway.currentSession;
+        if (child == null ||
+            child.isAnonymous ||
+            await _readAgeGroup?.call(child) != 'child') {
+          throw const AuthGatewayException('missing-child-claim');
+        }
+        if (await _undoIfCancelled(
+          epoch: epoch,
+          uidBefore: source.uid,
+          target: child.uid,
+        )) {
+          return const SignInResult.cancelled();
+        }
+        if (!await _restoreSession(child)) {
+          return const SignInResult.cancelled();
+        }
+        if (fromSetup) await _completeGuardianSetup?.call();
+        return const SignInResult.switchedToExisting();
+      } on AuthGatewayException catch (error) {
+        await _gateway.signOut();
+        await ensureAnonymous();
+        return SignInResult.failed(reason: error.code);
+      }
+    });
   }
 
   Future<void> ensureAnonymous() async {
@@ -445,7 +587,10 @@ class AuthRepository implements EmailCodeAuth {
     cancelEmailLink();
     await _accountTransitionGateway.prepareForSignOut();
     await beforeIdentityChange?.call();
-    await _localStateWiper.wipeAll();
+    final uid = _gateway.currentSession?.uid;
+    if (uid != _restoredIdentity?.uid || _restoredAgeGroup != 'child') {
+      await _wiper.wipeAll();
+    }
     await _gateway.signOut();
     await _signOutGoogleBestEffort();
     await ensureAnonymous();
@@ -475,7 +620,7 @@ class AuthRepository implements EmailCodeAuth {
     await _accountTransitionGateway.prepareForDeleteAccount();
     await _functionsGateway.deleteAccount();
     await beforeIdentityChange?.call();
-    await _localStateWiper.wipeAll();
+    await _wiper.wipeAll();
     await _gateway.signOut();
     await _signOutGoogleBestEffort();
     await ensureAnonymous();
@@ -561,4 +706,21 @@ class NoopLocalStateWiper implements LocalStateWiper {
 
   @override
   Future<void> wipeAll() async {}
+}
+
+typedef LinkedChild = ({
+  String uid,
+  String? nickname,
+  bool siblingOpenWithoutCode,
+});
+
+typedef ChildList = ({
+  List<LinkedChild> children,
+  String? maskedHolderEmail,
+});
+
+abstract interface class ChildAccountsGateway {
+  Future<ChildList> listChildren();
+
+  Future<String> openChildSession(String childId, {String? guardianProofId});
 }

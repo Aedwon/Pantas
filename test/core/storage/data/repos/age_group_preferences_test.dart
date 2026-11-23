@@ -26,11 +26,23 @@ void main() {
     );
   });
 
+  test('a child can save PSHS but cannot switch to another exam', () async {
+    await repo.setAgeGroup('child');
+    await repo.setSelectedExamId('exam_pshs_nce');
+
+    await expectLater(repo.setSelectedExamId('exam_cse_pro'), throwsStateError);
+    expect(await repo.selectedExamId(), 'exam_pshs_nce');
+  });
+
   test('the under-minimum block remembers the minimum it was set against',
       () async {
     expect(await repo.blockedMinimumAge(), isNull);
     await repo.setBlockedMinimumAge(13);
     expect(await repo.blockedMinimumAge(), 13);
+    await repo.setAgeGroup('adult');
+    await repo.setPassedAgeGate(value: true);
+    expect(await repo.needsGuardianSetup(), isTrue);
+    expect(await repo.hasPassedAgeGate(), isFalse);
   });
 
   test('guardian contact is kept for Resend and can be cleared', () async {

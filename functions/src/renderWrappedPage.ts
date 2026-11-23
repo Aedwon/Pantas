@@ -1,4 +1,5 @@
 import {assertAccountActive} from './_accountAccess.js';
+import { getAuth } from 'firebase-admin/auth';
 import { getFirestore } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 import { onRequest } from 'firebase-functions/v2/https';
@@ -49,7 +50,14 @@ export const renderWrappedPage = onRequest(
     }
 
     try {
-      await assertAccountActive(getFirestore(), data.ownerUid);
+      const db = getFirestore();
+      await assertAccountActive(db, data.ownerUid);
+      const consent = await db.doc(`users/${data.ownerUid}/server/guardianConsent`).get();
+      if (consent.get('ageGroup') === 'child' ||
+          (await getAuth().getUser(data.ownerUid)).customClaims?.ageGroup === 'child') {
+        res.status(200).set(htmlHeaders).send(genericPageHtml(ctaHref));
+        return;
+      }
     } catch {
       // Fail closed on both withdrawal and lookup failure. Never download the image.
       res.status(200).set(htmlHeaders).send(genericPageHtml(ctaHref));

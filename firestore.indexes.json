@@ -147,6 +147,31 @@
       ]
     },
     { "collectionGroup": "users", "fieldPath": "expireAt", "ttl": true, "indexes": [] },
-    { "collectionGroup": "webhookRateLimits", "fieldPath": "expireAt", "ttl": true, "indexes": [] }
+    {
+      "collectionGroup": "webhookRateLimits",
+      "fieldPath": "expireAt",
+      "ttl": true,
+      "indexes": [{ "order": "ASCENDING", "queryScope": "COLLECTION" }]
+    },
+    {
+      "collectionGroup": "limits",
+      "fieldPath": "purgeAt",
+      "indexes": [{ "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }]
+    },
+    {
+      "collectionGroup": "limits",
+      "fieldPath": "windowStartedAt",
+      "indexes": [{ "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }]
+    },
+    {
+      "collectionGroup": "limits",
+      "fieldPath": "lastStagedAt",
+      "indexes": [{ "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }]
+    },
+    {
+      "collectionGroup": "shards",
+      "fieldPath": "purgeAfter",
+      "indexes": [{ "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }]
+    }
   ]
 }

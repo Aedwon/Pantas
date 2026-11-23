@@ -3,12 +3,13 @@ import {createHmac, randomBytes} from 'node:crypto';
 import {defineInt, defineString} from 'firebase-functions/params';
 import {appSecrets, secret} from './_secrets.js';
 import {getAuth, type Auth} from 'firebase-admin/auth';
-import {FieldPath, FieldValue, getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore, type Query, type QueryDocumentSnapshot} from 'firebase-admin/firestore';
+import {FieldPath, FieldValue, getFirestore, Timestamp, type DocumentReference, type DocumentSnapshot, type Firestore, type Query, type QueryDocumentSnapshot} from 'firebase-admin/firestore';
 import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/https';
 import {onSchedule} from 'firebase-functions/v2/scheduler';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
+import {normalizeAgeGroup, type AgeGroup} from './ageGroup.js';
 import {allowFromAddress, clientBucket, type AddressRequest} from './_clientAddress.js';
-import {allowAtMost} from './_limits.js';
+import {allowAtMost, RATE_LIMIT_MAX_AGE_MS} from './_limits.js';
 import {logger} from 'firebase-functions/logger';
 import {deleteUserData} from './deleteUserData.js';
 import {guardianMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
@@ -33,12 +34,20 @@ export const GUARDIAN_WINDOW_MS = 7 * 86_400_000;
 const DAY_MS = 86_400_000;
 
 // These identify the published documents and the confirmation page wording.
-// Placeholder date: set to the real publish date in the same release as the
-// new texts, and keep equal to guardianDocumentVersions in the app (spec choice 14).
 export const GUARDIAN_DOCUMENT_VERSIONS = {
-  privacy: '2026-11-12', terms: '2026-11-12', teens: '2026-11-12',
+  privacy: '2026-11-20', terms: '2026-11-20', teens: '2026-11-20',
 } as const;
-export const GUARDIAN_NOTICE_WORDING_VERSION = '2026-11-12';
+export const GUARDIAN_NOTICE_WORDING_VERSION = '2026-11-20';
+
+/**
+ * Child account setup (under-13 build, spec B2 rules 4 and 5). The Child Notice has its own version and the
+ * two setup ticks have one each. They are kept apart from GUARDIAN_DOCUMENT_VERSIONS on purpose: the teen
+ * guardian page sends exactly that map and the server compares every key of it. Keep these versions in sync with the client.
+ */
+export const CHILD_NOTICE_VERSION = '2026-11-20';
+export const GUARDIAN_TICK_TEXT_VERSIONS = {tick1: '2026-11-20', tick2: '2026-11-20'} as const;
+/** The document versions recorded as evidence for a child account: the teen set plus the Child Notice. */
+export const CHILD_DOCUMENT_VERSIONS = {...GUARDIAN_DOCUMENT_VERSIONS, child: CHILD_NOTICE_VERSION} as const;
 /** The version of the line the age step shows above the age number. */
 export const AGE_CHECK_NOTICE_VERSION = '2026-11-12';
 
@@ -118,6 +127,7 @@ function requireCaller(request: AppRequest): string {
 }
 
 const consentRef = (db: Firestore, uid: string) => db.doc(`users/${uid}/server/guardianConsent`);
+const holderRef = (db: Firestore, uid: string) => db.doc(`users/${uid}/server/holder`);
 const tokenRef = (db: Firestore, hash: string) => db.doc(`guardianTokens/${hash}`);
 
 function publicStatus(data: FirebaseFirestore.DocumentData | undefined, now: number): PublicStatus {
@@ -128,7 +138,7 @@ function publicStatus(data: FirebaseFirestore.DocumentData | undefined, now: num
 }
 
 export type StatusResult = {status: PublicStatus; maskedEmail: string | null; expiresAt: number | null;
-  sharingAllowed: boolean; ageGroup: 'minor' | 'adult' | null};
+  sharingAllowed: boolean; ageGroup: AgeGroup | null};
 
 /** Reads the caller's own status. Expiry is worked out here, never trusted from the client. */
 export async function getStatus(request: AppRequest, deps: ConsentDeps): Promise<StatusResult> {
@@ -142,7 +152,8 @@ export async function getStatus(request: AppRequest, deps: ConsentDeps): Promise
   const status = publicStatus(data, now);
   return {status, maskedEmail: data?.maskedEmail ?? null, expiresAt: data?.expiresAt ?? null,
     sharingAllowed: data?.sharingAllowed === true,
-    ageGroup: data?.ageGroup === 'minor' || data?.ageGroup === 'adult' ? data.ageGroup : null};
+    // No record is null. A record with a missing or unknown group reads as minor: restricted by default.
+    ageGroup: data ? normalizeAgeGroup(data.ageGroup) : null};
 }
 
 /**
@@ -189,12 +200,13 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
   const globalLimit = deps.db.doc(`guardianLimits/global-${day}`);
 
   const dayFull = await deps.db.runTransaction(async (tx): Promise<'full' | 'full-already-logged' | 'became-full' | 'ok'> => {
-    const [current, limit, global, openManage, deletion] = await Promise.all([tx.get(consent), tx.get(emailLimit), tx.get(globalLimit),
+    const [current, limit, global, openManage, deletion, holder] = await Promise.all([tx.get(consent), tx.get(emailLimit), tx.get(globalLimit),
       tx.get(deps.db.collection('guardianTokens').where('uid', '==', uid).where('kind', '==', 'manage').where('state', '==', 'open')),
-      tx.get(deps.db.doc(`accountDeletions/${uid}`))]);
+      tx.get(deps.db.doc(`accountDeletions/${uid}`)), tx.get(holderRef(deps.db, uid))]);
     const before = current.data();
     // A pending deletion also closes this door when the consent record is already gone.
     if (deletion.exists) throw accountClosed();
+    if (holder.exists) throw new HttpsError('failed-precondition', 'This account is managed by a parent or guardian.');
     if (before?.status === 'confirmed') {
       throw new HttpsError('failed-precondition', 'Already confirmed.');
     }
@@ -206,6 +218,11 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     // An adult has no guardian. A new request would turn the record back into a minor.
     if (before?.ageGroup === 'adult') {
       throw new HttpsError('failed-precondition', 'This account is already an adult account.');
+    }
+    // A child account is held by a parent or guardian through setup, never through this emailed link.
+    // An unknown group is refused the same way, so no value can be rewritten to minor by accident.
+    if (before !== undefined && before.ageGroup !== undefined && before.ageGroup !== 'minor') {
+      throw new HttpsError('failed-precondition', 'This account is managed by a parent or guardian.');
     }
     if (typeof before?.sentAt === 'number' && now - before.sentAt < SEND_LIMIT.gapMs) {
       throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
@@ -224,19 +241,19 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     if (sentToday + 1 > ceiling) {
       // The day is full for this send. The first refusal of the day is flagged here and logged once outside.
       if (global.get('fullLogged') === true) return 'full-already-logged';
-      tx.set(globalLimit, {fullLogged: true}, {merge: true});
+      tx.set(globalLimit, {fullLogged: true, purgeAt: new Date(now + DAY_MS + GUARDIAN_WINDOW_MS)}, {merge: true});
       return 'full';
     }
     // The send that reaches the cap fills the day. It is logged once, like the first refusal.
     const becameFull = sentToday + 1 >= cap && global.get('fullLogged') !== true;
-    tx.set(globalLimit, {count: sentToday + 1, cleanupAt: now + DAY_MS + GUARDIAN_WINDOW_MS,
+    tx.set(globalLimit, {count: sentToday + 1, purgeAt: new Date(now + DAY_MS + GUARDIAN_WINDOW_MS),
       ...(becameFull ? {fullLogged: true} : {})}, {merge: true});
     const threshold = Math.ceil(cap * 0.8);
     if (sentToday < threshold && sentToday + 1 >= threshold) {
       (deps.alert ?? ((m: string) => console.error(m)))(
         `Guardian emails reached 80% of the daily cap (${sentToday + 1} of ${cap}).`);
     }
-    tx.set(emailLimit, {windowStartedAt: inWindow ? startedAt : now, count: count + 1, cleanupAt: expiresAt});
+    tx.set(emailLimit, {windowStartedAt: inWindow ? startedAt : now, count: count + 1, purgeAt: new Date(expiresAt)});
     if (typeof before?.tokenHash === 'string') {
       tx.set(tokenRef(deps.db, before.tokenHash), {state: 'revoked', revokedAt: now}, {merge: true});
     }
@@ -270,7 +287,7 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     // Give the place back so a failing mailer cannot use up the cap.
     await deps.db.runTransaction(async (tx) => {
       const count = ((await tx.get(globalLimit)).get('count') as number | undefined) ?? 0;
-      tx.set(globalLimit, {count: Math.max(0, count - 1)}, {merge: true});
+      if (count > 0) tx.set(globalLimit, {count: count - 1, purgeAt: new Date(now + DAY_MS + GUARDIAN_WINDOW_MS)}, {merge: true});
     });
     throw new HttpsError('unavailable', 'The email could not be sent. Try again.');
   }
@@ -359,7 +376,9 @@ export async function answerRequest(request: AppRequest, deps: ConsentDeps): Pro
     if (row.state !== 'open') return {state: 'unknown'};
     if (now >= row.expiresAt) return {state: 'expired'};
     const consent = consentRef(deps.db, row.uid as string);
-    const current = (await tx.get(consent)).data();
+    const [snapshot, holder] = await Promise.all([tx.get(consent), tx.get(holderRef(deps.db, row.uid as string))]);
+    if (holder.exists) return {state: 'unknown'};
+    const current = snapshot.data();
     if (current?.status !== 'pending' || current.tokenHash !== hash) return {state: 'used'};
     const status: ConsentStatus = decision === 'confirm' ? 'confirmed' : 'declined';
     tx.set(tokenRef(deps.db, hash), {state: 'used', usedAt: now}, {merge: true});
@@ -399,8 +418,11 @@ async function manageView(get: (ref: DocumentReference) => Promise<DocumentSnaps
   // A manage token has no expiry. Revoked, deleted and confirm-kind rows all read as unknown.
   if (!row || row.kind !== 'manage' || row.state !== 'open' || typeof row.uid !== 'string') return unknown;
   const uid = row.uid;
-  const consent = (await get(consentRef(deps.db, uid))).data();
-  if (!consent || consent.ageGroup === 'adult') return unknown;
+  const [snapshot, holder] = await Promise.all([get(consentRef(deps.db, uid)), get(holderRef(deps.db, uid))]);
+  if (holder.exists) return unknown;
+  const consent = snapshot.data();
+  // The emailed manage link belongs to the 13 to 17 flow only. Adult, child and unknown groups read as unknown.
+  if (!consent || (consent.ageGroup !== undefined && consent.ageGroup !== 'minor')) return unknown;
   if (consent.status === 'confirmed') return {state: 'active', uid, sharingAllowed: consent.sharingAllowed === true};
   if (consent.status === 'withdrawn') return {state: 'withdrawn', uid};
   if (consent.status === 'pending' || consent.status === 'declined') return {state: 'not_confirmed'};
@@ -509,6 +531,10 @@ export async function markAdult(request: AppRequest, deps: ConsentDeps): Promise
     // The server never knew a minor, so there is nothing to switch and nothing to write.
     if (!data) return {state: 'adult'};
     if (data.status === 'withdrawn') throw accountClosed();
+    // A child is never switched by the account itself, and an unknown group is not guessed at.
+    if (data.ageGroup === 'child' || (data.ageGroup !== undefined && data.ageGroup !== 'minor' && data.ageGroup !== 'adult')) {
+      throw new HttpsError('failed-precondition', 'This account is managed by a parent or guardian.');
+    }
     if (data.ageGroup !== 'minor' || data.adultSince !== undefined) {
       throw new HttpsError('failed-precondition', 'Already switched.');
     }
@@ -543,6 +569,8 @@ const KEPT_CONSENT_FIELDS = ['status', 'ageGroup', 'decidedAt', 'sharingAllowed'
 
 /** Deletes due contacts and links. Transactions recheck sends and answers that raced the scan. */
 export async function purgeGuardianRecords(db: Firestore, now: number): Promise<void> {
+  await purgeExpiredCodeGateRows(db, now);
+  await purgeRateLimits(db, now);
   await visitGuardianRows(db.collection('guardianTokens').orderBy(FieldPath.documentId()), async (row) => {
     await db.runTransaction(async (tx) => {
       const data = (await tx.get(row.ref)).data();
@@ -577,26 +605,113 @@ export async function purgeGuardianRecords(db: Firestore, now: number): Promise<
         // Keep the gate status, the age group, the sharing choice and the minimum confirmation
         // facts, without contact data (email hash, masked address, link hash, send and expiry times).
         const kept = Object.fromEntries(KEPT_CONSENT_FIELDS.filter((key) => data[key] !== undefined).map((key) => [key, data[key]]));
-        tx.set(row.ref, {...kept, ageGroup: data.ageGroup ?? 'minor'});
+        tx.set(row.ref, {...kept, ageGroup: normalizeAgeGroup(data.ageGroup)});
       } else {
         // An unanswered or declined request loses its contact data and status, but the server
         // must still know the account is under 18: checkout's guardian box depends on it.
-        tx.set(row.ref, {ageGroup: data.ageGroup ?? 'minor'});
+        tx.set(row.ref, {ageGroup: normalizeAgeGroup(data.ageGroup)});
       }
     });
   });
-  await visitGuardianRows(db.collection('guardianLimits').orderBy(FieldPath.documentId()), async (row) => {
-    await db.runTransaction(async (tx) => {
-      const data = (await tx.get(row.ref)).data();
-      if (!data) return;
-      // Legacy daily counters contain no date field, but their ID names the day.
-      const day = /^global-(\d{4}-\d{2}-\d{2})$/.exec(row.id)?.[1];
-      const start = data.windowStartedAt ?? (day ? Date.parse(`${day}T00:00:00+08:00`) : null);
-      const due = data.cleanupAt ?? (typeof start === 'number'
-        ? start + GUARDIAN_WINDOW_MS + (day ? DAY_MS : 0) : null);
-      if (typeof due === 'number' && now >= due) tx.delete(row.ref);
+}
+
+/** The code-gate collections of `guardianCodeGate.ts`. Each row carries a `purgeAt` date. */
+export const CODE_GATE_COLLECTIONS = ['guardianCodes', 'guardianCodeLimits', 'guardianCodeProofs'] as const;
+const CODE_GATE_PAGE = 200;
+/** Pages per collection per run, so one run is bounded. The hourly job comes back for the rest. */
+const CODE_GATE_PAGES = 10;
+
+async function deleteDueRows(db: Firestore, queries: readonly Query[]): Promise<void> {
+  for (let page = 0; page < CODE_GATE_PAGES; page += 1) {
+    const count = await db.runTransaction(async tx => {
+      const snapshots = await Promise.all(queries.map(query => tx.get(query.limit(CODE_GATE_PAGE))));
+      const refs = new Map(snapshots.flatMap(snapshot => snapshot.docs.map(row => [row.ref.path, row.ref] as const)));
+      for (const ref of refs.values()) tx.delete(ref);
+      return refs.size;
     });
+    if (count < CODE_GATE_PAGE) break;
+  }
+}
+
+async function purgeExpiredCodeGateRows(db: Firestore, now: number): Promise<void> {
+  const cutoff = new Date(now);
+  for (const name of [...CODE_GATE_COLLECTIONS, 'signInChallenges']) {
+    const rows = db.collection(name);
+    const queries = [rows.where('purgeAt', '<=', cutoff)];
+    if (name !== 'guardianCodeLimits') queries.push(rows.where('expiresAt', '<=', cutoff));
+    await deleteDueRows(db, queries);
+  }
+}
+
+function legacyTime(value: unknown): number | undefined {
+  if (value instanceof Timestamp) return value.toMillis();
+  return typeof value === 'number' && Number.isFinite(value) ? value : undefined;
+}
+
+function legacyCounterDeadline(row: QueryDocumentSnapshot, name: string): number | undefined {
+  const id = name === 'shards' ? row.ref.parent.parent?.id ?? '' : row.id;
+  const day = /(\d{4}-\d{2}-\d{2})(?:-new)?$/.exec(id)?.[1];
+  const dayStart = day ? Date.parse(`${day}T00:00:00${name === 'guardianCodeLimits' ? 'Z' : '+08:00'}`) : NaN;
+  const dayEnd = Number.isFinite(dayStart) ? dayStart + DAY_MS : undefined;
+  const windowStart = legacyTime(row.get('windowStartedAt'));
+  if (name === 'guardianLimits') {
+    const cleanup = legacyTime(row.get('cleanupAt'));
+    if (cleanup !== undefined) return cleanup;
+    const start = row.id.startsWith('global-') ? dayEnd : windowStart;
+    if (start !== undefined) return start + GUARDIAN_WINDOW_MS;
+  }
+  if (name === 'webhookRateLimits') {
+    const minute = /_(\d+)$/.exec(id)?.[1];
+    if (minute) return (Number(minute) + 1) * 60_000 + 3_600_000;
+  }
+  if (dayEnd !== undefined) return dayEnd + 3 * DAY_MS;
+  const start = legacyTime(row.get('sentAt')) ?? windowStart ?? row.updateTime?.toMillis();
+  return start === undefined ? undefined : start + 3 * DAY_MS;
+}
+
+/** Missing fields cannot be queried. Resume the bounded legacy scan by document name. */
+async function purgeLegacyCounters(db: Firestore, name: string, rows: Query, expiry: string, now: number): Promise<void> {
+  const checkpoint = db.doc(`rateLimitPurgeCursors/${name}`);
+  await db.runTransaction(async tx => {
+    const path: unknown = (await tx.get(checkpoint)).get('path');
+    const ordered = rows.orderBy(FieldPath.documentId());
+    const query = typeof path === 'string' ? ordered.startAfter(db.doc(path)) : ordered;
+    const page = await tx.get(query.limit(CODE_GATE_PAGE));
+    for (const row of page.docs) {
+      if (name === 'shards' && row.ref.parent.parent?.parent.id !== 'contentCeiling') continue;
+      if (row.get(expiry) !== undefined) continue;
+      const deadline = legacyCounterDeadline(row, name);
+      if (deadline !== undefined && deadline <= now) tx.delete(row.ref);
+    }
+    const last = page.docs[CODE_GATE_PAGE - 1];
+    if (last) tx.set(checkpoint, {path: last.ref.path});
+    else if (typeof path === 'string') tx.delete(checkpoint);
   });
+}
+
+async function purgeRateLimits(db: Firestore, now: number): Promise<void> {
+  const cutoff = new Date(now);
+  const legacyCutoff = new Date(now - RATE_LIMIT_MAX_AGE_MS);
+  const limits = db.collectionGroup('limits');
+  await deleteDueRows(db, [
+    limits.where('purgeAt', '<=', cutoff),
+    limits.where('windowStartedAt', '<=', legacyCutoff),
+  ]);
+  await deleteDueRows(db, [limits.where('lastStagedAt', '<=', legacyCutoff)]);
+  // The guardian-code limit already has an indexed expiry sweep above.
+  for (const [name, expiry] of [
+    ['guardianLimits', 'purgeAt'],
+    ['guardianCodeLimits', 'purgeAt'],
+    ['signInLimits', 'purgeAt'],
+    ['signInCodes', 'purgeAt'],
+    ['signInRequests', 'purgeAt'],
+    ['webhookRateLimits', 'expireAt'],
+    ['shards', 'purgeAfter'],
+  ] as const) {
+    const rows = name === 'shards' ? db.collectionGroup(name) : db.collection(name);
+    if (name !== 'guardianCodeLimits') await deleteDueRows(db, [rows.where(expiry, '<=', cutoff)]);
+    await purgeLegacyCounters(db, name, rows, expiry, now);
+  }
 }
 
 /** The task body, for the combined hourly run and the manual runner. */

@@ -1,4 +1,5 @@
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/telemetry/client_report.dart';
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/settings/data/settings_repository.dart';
 
@@ -13,6 +14,10 @@ enum MinorSharing {
 
   /// A minor whose guardian allowed sharing. The student may turn it off.
   allowed,
+
+  /// A child account. Usage sharing and speed reports are off and no one on
+  /// the device can turn them on. There is no teen opt-in for a child.
+  childLocked,
 }
 
 /// Applies the guardian's sharing choice to a minor's device.
@@ -35,7 +40,22 @@ class MinorSharingGate {
   final GuardianGateway _guardian;
 
   Future<MinorSharing> sync() async {
-    if (await _prefs.ageGroup() != 'minor') return MinorSharing.notMinor;
+    final group = await _prefs.readAgeGroup();
+    if (group.isChild) {
+      // Nothing to ask the server: a child has no sharing opt-in at all.
+      if ((await _settings.readUserSettings()).helpImproveApp) {
+        await _settings.updateHelpImproveApp(enabled: false);
+      }
+      if ((await _settings.readUserSettings()).speedReportsEnabled) {
+        await _settings.updateSpeedReportsEnabled(enabled: false);
+      }
+      ClientReporter.active?.enabled = false;
+      if (await _prefs.guardianSharingApplied()) {
+        await _prefs.setGuardianSharingApplied(value: false);
+      }
+      return MinorSharing.childLocked;
+    }
+    if (!group.entersTeenGuardianFlow) return MinorSharing.notMinor;
     final applied = await _prefs.guardianSharingApplied();
     bool allowed;
     try {
