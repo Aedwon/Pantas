@@ -18,6 +18,7 @@ async function wipe() {
   await db.recursiveDelete(db.collection('users'));
   await db.recursiveDelete(db.collection('guardianTokens'));
   await db.recursiveDelete(db.collection('guardianConsentEvidence'));
+  await db.recursiveDelete(db.collection('guardianLimits'));
 }
 
 async function seed() {
@@ -82,6 +83,13 @@ test('a live run removes the leftover requests and their links and keeps everyth
   assert.deepEqual(moved.map(d => d.get('action')), ['decline']);
   assert.equal((await db.doc('guardianConsentEvidence/confirmed/responses/confirmed-answer').get()).exists, true, 'confirmations are not moved');
   assert.equal((await countUndated({db})).undated, 0, 'every open or untrimmed record now has a cleanup time');
+  const kept = (await db.doc('guardianTokens/declined-used').get()).data();
+  assert.equal(kept.usedAt, undefined, 'the kept link has no exact answer time');
+  assert.equal(kept.cleanupAt, Math.ceil((T0 - DAY + 7 * DAY) / DAY) * DAY);
+  assert.equal((await db.doc('guardianLimits/d1-backfill-verified').get()).exists, false, 'the dry count alone writes no marker');
+  const verified = await countUndated({db, mark: true});
+  assert.equal(verified.marked, true);
+  assert.equal((await db.doc('guardianLimits/d1-backfill-verified').get()).exists, true, 'zero remaining switches the daily scan off');
   for (const id of ['flag', 'declined', 'expired']) {
     assert.equal((await consent(id).get()).exists, false, id);
     assert.deepEqual((await links(id)).map(d => d.id).filter(i => i.endsWith('manage') || i === 'open-link'), [], id);
@@ -119,7 +127,10 @@ test('an undated confirmation is scheduled by the script and then trimmed by the
 
 test('the verify count is above zero before the live run and the script prints only fixed reason codes', async () => {
   await seed();
-  assert.equal((await countUndated({db})).undated, 6, 'open, confirmed, undated, declined, expired and the expired adult request');
+  const before = await countUndated({db, mark: true});
+  assert.equal(before.marked, false, 'no marker while records remain');
+  assert.equal((await db.doc('guardianLimits/d1-backfill-verified').get()).exists, false);
+  assert.equal(before.undated, 6, 'open, confirmed, undated, declined, expired and the expired adult request');
   await wipe();
   const run = args => spawnSync(process.execPath, ['scripts/remove_unconfirmed_guardian_records.mjs', ...args], {encoding: 'utf8'});
   const bad = run(['--project', 'secret-project-name', '--nonsense', 'maria@example.com']);

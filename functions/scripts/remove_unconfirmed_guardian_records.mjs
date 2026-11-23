@@ -2,6 +2,7 @@
 // One-time removal for the under-18 flag ruling (D1 and H1). Run once by the lead, never on a schedule.
 // Usage: node scripts/remove_unconfirmed_guardian_records.mjs --project <id> [--dry-run | --live | --verify]
 // --verify counts the records that still have no cleanup time (it must print 0 after the live run).
+// At 0 it also writes the marker that switches off the daily scan in the hourly cleanup.
 // Rollout order: deploy the index; wait until it is READY; deploy the functions (the old writers stop);
 // run this live; run --verify and see 0; only then rely on the due-time query. Until then the daily
 // scan in the hourly cleanup still reads the old rows and logs how many it found.
@@ -17,8 +18,8 @@
 // Dry run is the default and prints counts only. Never prints emails, names or uids.
 import {pathToFileURL} from 'node:url';
 import {initializeApp, getApps} from 'firebase-admin/app';
-import {getFirestore} from 'firebase-admin/firestore';
-import {CLEANUP_DUE_FIELD, GUARDIAN_WINDOW_MS, consentDue, dropRequestLinks, endRequest, needsDueField, requestLinksQuery} from '../lib/guardianConsent.js';
+import {FieldValue, getFirestore} from 'firebase-admin/firestore';
+import {BACKFILL_MARKER, CLEANUP_DUE_FIELD, coarseEnd, GUARDIAN_WINDOW_MS, consentDue, dropRequestLinks, endRequest, needsDueField, requestLinksQuery} from '../lib/guardianConsent.js';
 
 const CONTACT_FIELDS = ['emailHash', 'maskedEmail', 'tokenHash', 'sentAt', 'expiresAt', 'createdAt'];
 
@@ -108,21 +109,30 @@ async function unlinkDeclineEvidence(db, live, out) {
     if (!live) continue;
     await db.runTransaction(async tx => {
       const old = await tx.get(ref);
+      const row = await tx.get(link.ref);
       if (!old.exists) return;
       tx.set(ref.parent.doc(), old.data());
       tx.delete(ref);
+      // The kept link also loses its exact answer time, which would join it to the evidence.
+      const event = row.get('usedAt') ?? row.get('revokedAt');
+      tx.set(link.ref, {usedAt: FieldValue.delete(), revokedAt: FieldValue.delete(), uid: FieldValue.delete(),
+        ...(typeof event === 'number' ? {cleanupAt: coarseEnd(event)} : {})}, {merge: true});
     });
   }
 }
 
-/** Records that still need a cleanup time. Counts only; it must be 0 after the live run. */
-export async function countUndated({db}) {
+/**
+ * Records that still need a cleanup time. Counts only; it must be 0 after the live run. With `mark`,
+ * a count of 0 also writes the marker that stops the daily scan in the hourly cleanup.
+ */
+export async function countUndated({db, mark = false}) {
   let undated = 0, reads = 0;
   for await (const doc of db.collectionGroup('server').stream()) {
     reads++;
     if (doc.id === 'guardianConsent' && uidOf(doc.ref) && needsDueField(doc.data())) undated++;
   }
-  return {undated, reads};
+  if (mark && undated === 0) await db.doc(BACKFILL_MARKER).set({verifiedAt: Date.now()});
+  return {undated, reads, marked: mark && undated === 0};
 }
 
 /** One line of counts. Reads and writes are a retry-free estimate: a retried transaction reads again. */
@@ -159,8 +169,8 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
     process.env.GCLOUD_PROJECT = project;
     if (!getApps().length) initializeApp({projectId: project});
     if (args.verify) {
-      const r = await countUndated({db: getFirestore()});
-      console.log(`VERIFY ${project}: ${r.undated} records without a cleanup time; retry-free estimate: ${r.reads} reads`);
+      const r = await countUndated({db: getFirestore(), mark: true});
+      console.log(`VERIFY ${project}: ${r.undated} records without a cleanup time${r.marked ? '; daily scan switched off' : ''}; retry-free estimate: ${r.reads} reads`);
       if (r.undated) process.exit(2);
     } else {
       console.log(summary(project, args.live, await removeUnconfirmedGuardianRecords({db: getFirestore(), live: args.live})));

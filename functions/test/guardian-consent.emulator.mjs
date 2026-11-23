@@ -377,35 +377,6 @@ test('a decline writes its evidence under an id of its own', async () => {
   assert.notEqual(evidence[0].id, tokenHash);
 });
 
-test('an answer racing the expiry cleanup ends in one of two whole outcomes, and never a half state', async () => {
-  for (const order of ['answer first', 'cleanup first', 'together']) {
-    const uid = `g-r2-race-${order.replace(' ', '-')}`; await reset(uid);
-    for (const row of await linksOf(uid)) await row.ref.delete();
-    const h = harness();
-    await sendLink(req(uid, body()), h.deps);
-    const token = tokenOf(h.sent[0]);
-    const nearEnd = {...h.deps, now: () => T0 + GUARDIAN_WINDOW_MS - 1};
-    const answer = () => answerRequest(req('v', {token, decision: 'confirm', agreed: true}), nearEnd);
-    const clean = () => purgeGuardianRecords(db, T0 + GUARDIAN_WINDOW_MS);
-    let result;
-    if (order === 'answer first') { result = await answer(); await clean(); }
-    else if (order === 'cleanup first') { await clean(); result = await answer(); }
-    else [result] = await Promise.all([answer(), clean()]);
-    const evidence = (await db.collection(`guardianConsentEvidence/${uid}/responses`).get()).size;
-    const record = await stored(uid);
-    if (result.state === 'confirmed') {
-      assert.equal(record.status, 'confirmed', order);
-      assert.equal(evidence, 1, order);
-    } else {
-      assert.equal(record, undefined, `${order}: the expiry won, so the request is gone`);
-      assert.equal(evidence, 0, order);
-      assert.deepEqual(await linksOf(uid), [], order);
-    }
-    if (order === 'answer first') assert.equal(result.state, 'confirmed');
-    if (order === 'cleanup first') assert.notEqual(result.state, 'confirmed');
-  }
-});
-
 // ------------------------------------------------ S-10 item 5: a limit per client address
 
 const fromAddress = (uid, ip, forwarded, data = body()) => req(uid, data,

@@ -39,7 +39,10 @@ function store(initial = {}) {
       const docs = [...rows.keys()].filter(path => spec.matches(path)
         && spec.filters.every(([field, op, value]) => {
           const v = rows.get(path)?.[field];
-          return op === '==' ? v === value : typeof v === 'number' && v <= value;
+          if (op === '==') return v === value;
+          if (op === 'in') return value.includes(v);
+          if (op === '>') return typeof v === 'number' && v > value;
+          return typeof v === 'number' && v <= value;
         }))
         .map(path => ({path, key: keyOf(path)})).sort((a, b) => compare(a.key, b.key))
         .filter(item => !spec.after || compare(item.key, spec.after) > 0)
@@ -60,7 +63,7 @@ function store(initial = {}) {
       doc: () => doc(`${name}/auto${++autoIds}`)}),
     collectionGroup: name => make(path => path.split('/').at(-2) === name),
     runTransaction: async fn => { transactions++; return fn(tx); }};
-  return {db, rows, reads, transactions: () => transactions};
+  return {db, rows, reads, transactions: () => transactions, rawTx: tx};
 }
 const consentPath = 'users/student/server/guardianConsent';
 const evidencePath = hash => `guardianConsentEvidence/student/responses/${hash}`;
@@ -504,4 +507,138 @@ test('the cleanup needs only a collection-group index on the due-time field', as
   const config = JSON.parse(readFileSync(new URL('../../firestore.indexes.json', import.meta.url)));
   const entry = config.fieldOverrides.find(o => o.collectionGroup === 'server' && o.fieldPath === 'guardianDueAt');
   assert.deepEqual(entry.indexes, [{order: 'ASCENDING', queryScope: 'COLLECTION_GROUP'}]);
+});
+
+// ---------------------------------------------------------------- round 3
+
+/** Every number a retained token holds, with the field name. */
+const numbersOf = body => Object.entries(body).filter(([, value]) => typeof value === 'number');
+
+test('a retained token cannot be joined to the decline evidence by time', async () => {
+  const s = await sentTwice();
+  const decidedAt = T0 + DAY + 12_345;
+  await guardian.answerRequest(request({token: s.token, decision: 'decline', agreed: false,
+    documentVersions: versions, noticeWordingVersion: '2026-11-12'}), {...s.deps, now: () => decidedAt});
+  assert.equal(evidenceRows(s.rows)[0][1].decidedAt, decidedAt, 'the evidence keeps the exact time');
+  const tokens = [...s.rows].filter(([path]) => path.startsWith('guardianTokens/'));
+  assert.equal(tokens.length, 2);
+  for (const [path, body] of tokens) {
+    assert.equal(body.usedAt, undefined, path);
+    assert.equal(body.revokedAt, undefined, path);
+    for (const [name, value] of numbersOf(body)) {
+      assert.notEqual(value, decidedAt, `${path} ${name}`);
+      assert.notEqual(value, decidedAt + guardian.GUARDIAN_WINDOW_MS, `${path} ${name}`);
+      assert.notEqual(value, decidedAt - guardian.GUARDIAN_WINDOW_MS, `${path} ${name}`);
+    }
+  }
+  // The coarse time still ends the retention: the link goes within a day of the seven days.
+  const used = s.rows.get(`guardianTokens/${s.hash}`);
+  assert.ok(used.cleanupAt >= decidedAt + guardian.GUARDIAN_WINDOW_MS && used.cleanupAt < decidedAt + guardian.GUARDIAN_WINDOW_MS + DAY);
+  await guardian.purgeGuardianRecords(s.db, used.cleanupAt - 1);
+  assert.ok(s.rows.has(`guardianTokens/${s.hash}`));
+  await guardian.purgeGuardianRecords(s.db, used.cleanupAt);
+  assert.equal(s.rows.has(`guardianTokens/${s.hash}`), false);
+});
+
+test('a send counts the student under a keyed hash, and nothing under the account survives a decline', async () => {
+  const s = store();
+  const {allow: _ignored, ...rest} = {db: s.db, key: 'key', now: () => T0, allow: undefined,
+    mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test', token: () => 'a'.repeat(64)};
+  await guardian.sendLink({auth: {uid: 'student'}, app, rawRequest: {ip: '10.0.0.1'},
+    data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}}, rest);
+  assert.deepEqual(namingStudent(s.rows).filter(path => path.startsWith('users/') && path.includes('/limits/')), []);
+  assert.ok([...s.rows.keys()].some(path => path.startsWith('guardianLimits/acct-')), 'the per-student count is kept under a hash');
+  await guardian.answerRequest(request({token: 'a'.repeat(64), decision: 'decline', agreed: false,
+    documentVersions: versions, noticeWordingVersion: '2026-11-12'}), {...rest, allow: async () => true, now: () => T0 + DAY});
+  assert.deepEqual(namingStudent(s.rows), evidenceRows(s.rows).map(([path]) => path));
+  await guardian.purgeGuardianRecords(s.db, T0 + 3 * DAY);
+  assert.deepEqual([...s.rows.keys()].filter(path => path.startsWith('guardianLimits/acct-')), [], 'the count ends with its window');
+});
+
+test('a resend whose clock crosses expiry during the transaction still clears the expired request', async () => {
+  const s = await sentTwice();
+  const expiry = T0 + 60_000 + 7 * DAY;
+  let calls = 0;
+  await guardian.sendLink({auth: {uid: 'student'}, app, data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}},
+    {...s.deps, token: () => 'c'.repeat(64), manageToken: () => '3'.repeat(64),
+      now: () => (++calls === 1 ? expiry - 1 : expiry + 1)});
+  const naming = [...s.rows].filter(([path, body]) => path.startsWith('guardianTokens/') && body.uid === 'student');
+  assert.equal(naming.length, 2, 'only the replacement links name the account');
+  assert.equal(s.rows.has(`guardianTokens/${s.hash}`), false);
+});
+
+test('the daily scan stops once the backfill is verified, and never reads open manage links', async () => {
+  const initial = {'guardianLimits/d1-backfill-verified': {verifiedAt: T0}};
+  for (let i = 0; i < 100; i++) initial[`guardianTokens/manage${i}`] = {kind: 'manage', uid: `u${i}`, state: 'open', createdAt: T0};
+  const s = store(initial);
+  assert.equal(await guardian.legacyScanNeeded(s.db), false);
+  assert.deepEqual(s.reads, ['guardianLimits/d1-backfill-verified'], 'one read, then nothing');
+  const open = store({...initial, 'guardianLimits/d1-backfill-verified': undefined});
+  open.rows.delete('guardianLimits/d1-backfill-verified');
+  await guardian.purgeGuardianRecords(open.db, T0 + DAY, {legacyScan: true});
+  assert.ok(open.reads.every(path => !path.startsWith('guardianTokens/manage')), 'no open manage link is read');
+});
+
+/**
+ * Makes transactions optimistic, as Firestore's are: a commit whose reads changed since they were made
+ * runs the function again. `beforeCommit` runs once, between a transaction's reads and its commit,
+ * so a test places another operation exactly there.
+ */
+function interleave(s, beforeCommit) {
+  s.db.runTransaction = async fn => {
+    for (let attempt = 0; attempt < 5; attempt++) {
+      const reads = new Map();
+      const writes = [];
+      const view = path => JSON.stringify(s.rows.get(path) ?? null);
+      const tx = {get: async ref => {
+        if (ref.path) { reads.set(ref.path, view(ref.path)); return ref.get(); }
+        const result = await ref.get();
+        for (const d of result.docs) reads.set(d.ref.path, view(d.ref.path));
+        return result;
+      }, set: (ref, value, options) => writes.push(() => s.rawTx.set(ref, value, options)),
+      delete: ref => writes.push(() => s.rawTx.delete(ref))};
+      const result = await fn(tx);
+      await beforeCommit(reads);
+      if ([...reads].some(([path, seen]) => view(path) !== seen)) continue;
+      for (const write of writes) write();
+      return result;
+    }
+    throw new Error('too many attempts');
+  };
+}
+
+test('an answer overtaken by the expiry cleanup is refused and leaves no half state', async () => {
+  const s = await sentTwice();
+  const expiry = T0 + 60_000 + 7 * DAY;
+  let fired = false;
+  interleave(s, async reads => {
+    if (fired || !reads.has(consentPath) || !reads.has(`guardianTokens/${s.hash}`)) return;
+    fired = true;
+    await guardian.purgeGuardianRecords(s.db, expiry);
+  });
+  const result = await guardian.answerRequest(request({token: s.token, decision: 'confirm', agreed: true,
+    documentVersions: versions, noticeWordingVersion: '2026-11-12'}), {...s.deps, now: () => expiry - 1});
+  assert.ok(fired);
+  assert.notEqual(result.state, 'confirmed');
+  assert.equal(s.rows.has(consentPath), false);
+  assert.equal(evidenceRows(s.rows).length, 0);
+  assert.deepEqual(namingStudent(s.rows), []);
+});
+
+test('an expiry cleanup overtaken by an answer leaves the confirmed record alone', async () => {
+  const s = await sentTwice();
+  const expiry = T0 + 60_000 + 7 * DAY;
+  let fired = false;
+  let result;
+  interleave(s, async reads => {
+    if (fired || !reads.has(`guardianTokens/${s.hash}`)) return;
+    fired = true;
+    result = await guardian.answerRequest(request({token: s.token, decision: 'confirm', agreed: true,
+      documentVersions: versions, noticeWordingVersion: '2026-11-12'}), {...s.deps, now: () => expiry - 1});
+  });
+  await guardian.purgeGuardianRecords(s.db, expiry);
+  assert.ok(fired);
+  assert.equal(result.state, 'confirmed');
+  assert.equal(s.rows.get(consentPath).status, 'confirmed');
+  assert.equal(evidenceRows(s.rows).length, 1);
 });

@@ -172,10 +172,19 @@ export const requestLinksQuery = (db: Firestore, uid: string): Query => db.colle
 export function dropRequestLinks(tx: Transaction, links: QuerySnapshot, keep?: DocumentReference): void {
   for (const link of links.docs) {
     if (link.ref.path === keep?.path) continue;
-    if (link.get('kind') === 'manage' || link.get('state') === 'open') tx.delete(link.ref);
-    else tx.set(link.ref, {uid: FieldValue.delete()}, {merge: true});
+    if (link.get('kind') === 'manage' || link.get('state') === 'open') {
+      tx.delete(link.ref);
+      continue;
+    }
+    // The exact answer time would join the link to the decline evidence, so only the day it ends is kept.
+    const event = link.get('usedAt') ?? link.get('revokedAt');
+    tx.set(link.ref, {uid: FieldValue.delete(), usedAt: FieldValue.delete(), revokedAt: FieldValue.delete(),
+      ...(typeof event === 'number' ? {cleanupAt: coarseEnd(event)} : {})}, {merge: true});
   }
 }
+
+/** When a link ends, seven days after its event, rounded up to the next midnight UTC so it names no exact moment. */
+export const coarseEnd = (eventAt: number): number => Math.ceil((eventAt + GUARDIAN_WINDOW_MS) / DAY_MS) * DAY_MS;
 
 function publicStatus(data: FirebaseFirestore.DocumentData | undefined, now: number): PublicStatus {
   // A trimmed record holds only the age group: no request is open.
@@ -222,7 +231,12 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
   }
   const now = (deps.now ?? Date.now)();
   const allow = deps.allow ?? allowAtMost;
-  if (!await allow(uid, 'guardianSend', SEND_LIMIT.perStudent, SEND_LIMIT.perStudentWindowMs)) {
+  // The per-student count is kept under a keyed hash of the account, never under the account itself,
+  // so nothing named for the account outlives a declined or expired request.
+  const sendAllowed = deps.allow
+    ? await deps.allow(uid, 'guardianSend', SEND_LIMIT.perStudent, SEND_LIMIT.perStudentWindowMs)
+    : await allowFromAddress(deps.db, deps.key, 'guardianLimits/acct', uid, now, SEND_LIMIT.perStudent, SEND_LIMIT.perStudentWindowMs);
+  if (!sendAllowed) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
   // Children reach this step before they name an account, so the caller may be anonymous and free to
@@ -297,7 +311,9 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     tx.set(emailLimit, {windowStartedAt: inWindow ? startedAt : now, count: count + 1, cleanupAt: expiresAt});
     // An expired or declined request that the cleanup has not reached yet ends here, in the same write
     // that starts the replacement, so nothing of it still names the account.
-    const ended = before !== undefined && (before.status === 'declined' || (before.status === 'pending' && now >= before.expiresAt));
+    // The clock is read again here: it may have crossed the expiry since the call began.
+    const at = Math.max(now, (deps.now ?? Date.now)());
+    const ended = before !== undefined && (before.status === 'declined' || (before.status === 'pending' && at >= before.expiresAt));
     if (ended) {
       dropRequestLinks(tx, allLinks);
     } else {
@@ -436,8 +452,9 @@ export async function answerRequest(request: AppRequest, deps: ConsentDeps): Pro
     if (current?.status !== 'pending' || current.tokenHash !== hash) return {state: 'used'};
     // A decline deletes the request in this same write, so every read comes first.
     const links = decision === 'decline' ? await tx.get(requestLinksQuery(deps.db, uid)) : undefined;
-    tx.set(tokenRef(deps.db, hash), {state: 'used', usedAt: now, cleanupAt: now + GUARDIAN_WINDOW_MS,
-      ...(links ? {uid: FieldValue.delete()} : {})}, {merge: true});
+    tx.set(tokenRef(deps.db, hash), links
+      ? {state: 'used', uid: FieldValue.delete(), cleanupAt: coarseEnd(now)}
+      : {state: 'used', usedAt: now, cleanupAt: now + GUARDIAN_WINDOW_MS}, {merge: true});
     if (links) {
       dropRequestLinks(tx, links, tokenRef(deps.db, hash));
       endRequest(tx, consent, current);
@@ -637,14 +654,16 @@ async function purgeToken(db: Firestore, ref: DocumentReference, now: number): P
     if (data.kind === 'manage' && data.state === 'open') return;
     // A later resend must not extend the lifetime of an already used link.
     const eventAt = data.usedAt ?? data.revokedAt;
-    if (data.state === 'revoked' && typeof eventAt !== 'number') {
+    if (data.state === 'revoked' && typeof eventAt !== 'number' && typeof data.cleanupAt !== 'number') {
       // Legacy revoked links have no event date and no remaining use.
       tx.delete(ref);
       return;
     }
     const due = data.state === 'open' ? data.expiresAt
       : typeof eventAt === 'number' ? eventAt + GUARDIAN_WINDOW_MS
-        : typeof data.expiresAt === 'number' ? data.expiresAt + GUARDIAN_WINDOW_MS : null;
+        // An unlinked link keeps only the day it ends.
+        : typeof data.cleanupAt === 'number' ? data.cleanupAt
+          : typeof data.expiresAt === 'number' ? data.expiresAt + GUARDIAN_WINDOW_MS : null;
     if (typeof due === 'number' && now >= due) tx.delete(ref);
   });
 }
@@ -710,18 +729,24 @@ export async function purgeGuardianRecords(db: Firestore, now: number, options: 
   await visitGuardianRows(db.collection('guardianLimits').where('cleanupAt', '<=', now).orderBy('cleanupAt'),
     (row) => purgeLimit(db, row.ref, now));
   if (options.legacyScan) {
-    await visitGuardianRows(db.collection('guardianTokens').orderBy(FieldPath.documentId()), async (row) => {
-      if (row.get('cleanupAt') !== undefined) return;
-      if (!(row.get('kind') === 'manage' && row.get('state') === 'open')) summary.undated++;
+    // Open manage links are never read: they have no end of their own and no expiry field. Answer
+    // links all have `expiresAt`; used and revoked rows of either kind are found by their state.
+    const seen = new Set<string>();
+    const oldToken = async (row: QueryDocumentSnapshot): Promise<void> => {
+      if (row.get('cleanupAt') !== undefined || seen.has(row.id)) return;
+      seen.add(row.id);
+      summary.undated++;
       await purgeToken(db, row.ref, now);
-    });
+    };
+    await visitGuardianRows(db.collection('guardianTokens').where('state', 'in', ['used', 'revoked']).orderBy(FieldPath.documentId()), oldToken);
+    await visitGuardianRows(db.collection('guardianTokens').where('expiresAt', '>', 0).orderBy('expiresAt'), oldToken);
     await visitGuardianRows(db.collectionGroup('server').orderBy(FieldPath.documentId()), async (row) => {
       if (!isConsent(row) || !needsDueField(row.data())) return;
       summary.undated++;
       await purgeConsent(db, row.ref, now, summary);
     });
     await visitGuardianRows(db.collection('guardianLimits').orderBy(FieldPath.documentId()), async (row) => {
-      if (row.get('cleanupAt') !== undefined) return;
+      if (row.get('cleanupAt') !== undefined || row.ref.path === BACKFILL_MARKER) return;
       summary.undated++;
       await purgeLimit(db, row.ref, now);
     });
@@ -732,12 +757,21 @@ export async function purgeGuardianRecords(db: Firestore, now: number, options: 
   return summary;
 }
 
+/** Written by the one-time script's `--verify` once no record lacks a cleanup time. */
+export const BACKFILL_MARKER = 'guardianLimits/d1-backfill-verified';
+
+/** One read. False once the backfill is verified, so the daily scan stops for good. */
+export async function legacyScanNeeded(db: Firestore): Promise<boolean> {
+  return !(await db.doc(BACKFILL_MARKER).get()).exists;
+}
+
 /** The task body, for the combined hourly run and the manual runner. */
 export async function runPurgeOldGuardianRecords(): Promise<void> {
   const now = Date.now();
-  // Once a day, at 03:00 Manila, the cleanup also reads old rows that have no due time.
+  const db = getFirestore();
+  // Once a day, at 03:00 Manila, until the backfill is verified, the cleanup also reads old rows that have no due time.
   const manilaHour = new Date(now + 8 * 3_600_000).getUTCHours();
-  await purgeGuardianRecords(getFirestore(), now, {legacyScan: manilaHour === 3});
+  await purgeGuardianRecords(db, now, {legacyScan: manilaHour === 3 && await legacyScanNeeded(db)});
 }
 
 export const purgeOldGuardianRecords = onSchedule(
