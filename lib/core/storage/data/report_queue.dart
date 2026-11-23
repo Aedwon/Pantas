@@ -24,6 +24,7 @@ class QuestionReport {
     required this.questionId,
     required this.message,
     required this.createdAt,
+    this.accountId,
     this.examId,
     this.questionVersion,
     this.state = ReportState.pending,
@@ -35,6 +36,10 @@ class QuestionReport {
   final String questionId;
   final String message;
   final DateTime createdAt;
+
+  /// The account that made the report. Only that account sends it. Null for a
+  /// report queued before accounts were recorded, until an account claims it.
+  final String? accountId;
 
   /// Null for a report queued before the app recorded them.
   final String? examId;
@@ -84,16 +89,21 @@ class ReportQueue {
   ReportQueue(
     this._db, {
     ReportSender? sender,
+    String? Function()? account,
     this.maxAttempts = 3,
     Future<void> Function(Duration)? wait,
     String Function()? newId,
     this.retryEvery,
   })  : _sender = sender,
+        _account = account ?? (() => null),
         _wait = wait ?? Future<void>.delayed,
         _newId = newId ?? (() => const Uuid().v4());
 
   final AppDatabase _db;
   final ReportSender? _sender;
+
+  /// The account signed in now, or null.
+  final String? Function() _account;
   final Future<void> Function(Duration) _wait;
   final String Function() _newId;
 
@@ -104,7 +114,10 @@ class ReportQueue {
   /// long. Null in tests.
   final Duration? retryEvery;
 
-  static const _key = 'quiz_question_reports';
+  /// The device-preference key that holds the list. Sign-out and an account
+  /// switch wipe it (SyncLocalStateWiper), because it holds student text.
+  static const storageKey = 'quiz_question_reports';
+  static const _key = storageKey;
 
   /// The longest message the server takes. The form stops typing at this.
   static const maxMessageLength = 1000;
@@ -144,6 +157,9 @@ class ReportQueue {
   }) async {
     final trimmed = _cut(message.trim());
     if (trimmed.isEmpty) return ReportResult.empty;
+    // Read before the transaction opens: the first read can start work (a
+    // provider's stream) that must not run inside the transaction's zone.
+    final account = _account();
     return _db.transaction(() async {
       final blocked = await limit(questionId, now);
       if (blocked != null) return blocked;
@@ -153,6 +169,7 @@ class ReportQueue {
         'questionId': questionId,
         'message': trimmed,
         'createdAt': now.toIso8601String(),
+        if (account != null) 'accountId': account,
         if (examId != null) 'examId': examId,
         if (questionVersion != null) 'questionVersion': questionVersion,
       });
@@ -179,8 +196,17 @@ class ReportQueue {
 
   Future<int> _pass() async {
     final sender = _sender;
-    final queued = await pending();
+    final account = _account();
+    final all = await pending();
+    // Only the account that made a report sends it. A report of another
+    // account stays, untouched, until that account is signed in again or the
+    // sign-out wipe removes it.
+    final queued = [
+      for (final r in all)
+        if (r.accountId == account) r,
+    ];
     var remaining = queued.length;
+    if (account == null) return all.length;
     if (sender == null || remaining == 0) return remaining;
     var networkFailure = false;
     for (final report in queued) {
@@ -217,6 +243,7 @@ class ReportQueue {
       questionId: report.questionId,
       message: _cut(report.message),
       createdAt: report.createdAt,
+      accountId: report.accountId,
       examId: report.examId,
       questionVersion: report.questionVersion,
     );
@@ -253,15 +280,25 @@ class ReportQueue {
   /// The stored list. A list written before reports had ids gets them here and
   /// is saved at once, so an id never changes between tries.
   Future<List<Map<String, Object?>>> _rows() async {
+    final account = _account();
+    bool whole(Map<String, Object?> row) =>
+        row['id'] is String && (row['accountId'] is String || account == null);
     final stored = await _read();
-    if (stored.every((row) => row['id'] is String)) return stored;
+    if (stored.every(whole)) return stored;
     return _db.transaction(() async {
       final rows = await _read();
       var changed = false;
       for (final row in rows) {
-        if (row['id'] is String) continue;
-        row['id'] = _newId();
-        changed = true;
+        if (row['id'] is! String) {
+          row['id'] = _newId();
+          changed = true;
+        }
+        // A report from before accounts were recorded belongs to the account
+        // signed in at the first read after the upgrade.
+        if (row['accountId'] is! String && account != null) {
+          row['accountId'] = account;
+          changed = true;
+        }
       }
       if (changed) await _write(rows);
       return rows;
@@ -289,6 +326,7 @@ class ReportQueue {
         questionId: row['questionId']! as String,
         message: (row['message'] as String?) ?? '',
         createdAt: DateTime.parse(row['createdAt']! as String),
+        accountId: row['accountId'] as String?,
         examId: row['examId'] as String?,
         questionVersion: row['questionVersion'] as int?,
         state: ReportState.values.firstWhere(

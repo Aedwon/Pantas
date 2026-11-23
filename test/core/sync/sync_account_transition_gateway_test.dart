@@ -36,6 +36,39 @@ void main() {
     expect(runtime.calls, ['quiesce:true']);
   });
 
+  test('sign-out and an account switch send the queued reports first',
+      () async {
+    final runtime = RecordingRuntimeLifecycle();
+    var flushes = 0;
+    final gateway = SyncAccountTransitionGateway(
+      () => runtime,
+      flushReports: () async => flushes++,
+    );
+
+    await gateway.prepareForSignOut();
+    await gateway.prepareForAccountSwitch();
+
+    expect(flushes, 2);
+  });
+
+  test('a failing or hanging report flush never stops sign-out or a switch',
+      () async {
+    final runtime = RecordingRuntimeLifecycle();
+    final failing = SyncAccountTransitionGateway(
+      () => runtime,
+      flushReports: () async => throw StateError('offline'),
+    );
+    await failing.prepareForSignOut();
+    await failing.prepareForAccountSwitch();
+    final hanging = SyncAccountTransitionGateway(
+      () => runtime,
+      signOutFlushLimit: const Duration(milliseconds: 50),
+      flushReports: () => Completer<void>().future,
+    );
+    await hanging.prepareForSignOut().timeout(const Duration(seconds: 1));
+    await hanging.prepareForAccountSwitch().timeout(const Duration(seconds: 1));
+  });
+
   test('account switch and delete leave Sync running', () async {
     final runtime = RecordingRuntimeLifecycle();
     final gateway = SyncAccountTransitionGateway(() => runtime);

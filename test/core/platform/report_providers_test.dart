@@ -18,9 +18,8 @@ class _Sender implements ReportSender {
 }
 
 Future<void> _flush() async {
-  for (var i = 0; i < 10; i++) {
-    await Future<void>.delayed(Duration.zero);
-  }
+  // Storage answers on later turns of the event loop.
+  await Future<void>.delayed(const Duration(milliseconds: 200));
 }
 
 void main() {

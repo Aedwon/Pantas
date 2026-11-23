@@ -19,6 +19,13 @@ final reportQueueProvider = Provider<ReportQueue>((ref) {
   final queue = ReportQueue(
     ref.watch(appDatabaseProvider),
     sender: ref.watch(reportSenderProvider),
+    // Read at each use, so a report is always tied to whoever is signed in
+    // then. A guest counts as an account.
+    account: () => switch (ref.read(authStateProvider).valueOrNull) {
+      AnonymousAuthState(:final uid) => uid,
+      SignedInAuthState(:final user) => user.uid,
+      _ => null,
+    },
     retryEvery: const Duration(minutes: 1),
   );
   ref.onDispose(queue.dispose);

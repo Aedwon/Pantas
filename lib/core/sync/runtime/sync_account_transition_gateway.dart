@@ -7,7 +7,12 @@ class SyncAccountTransitionGateway implements AccountTransitionGateway {
   const SyncAccountTransitionGateway(
     this._runtime, {
     this.signOutFlushLimit = const Duration(seconds: 2),
+    this.flushReports,
   });
+
+  /// Sends the signed-in account's queued question reports. Run while that
+  /// account is still signed in, because the wipe that follows removes them.
+  final Future<void> Function()? flushReports;
 
   /// Read at each call: the app installs the configured runtime after the
   /// auth repository is built.
@@ -30,13 +35,27 @@ class SyncAccountTransitionGateway implements AccountTransitionGateway {
     } on Object {
       // A backup problem never stops Sign Out.
     }
+    await _sendReports();
   }
 
-  /// Nothing here. Sync wipes another account's data when the new account
-  /// arrives, before anything runs for it. Stopping Sync now would leave it
-  /// off for the current account if the switch is then cancelled.
+  /// Best effort and bounded, like the upload: the reports not sent in time
+  /// are removed by the wipe.
+  Future<void> _sendReports() async {
+    final send = flushReports;
+    if (send == null) return;
+    try {
+      await send().timeout(signOutFlushLimit, onTimeout: () {});
+    } on Object {
+      // Never stops Sign Out or a switch.
+    }
+  }
+
+  /// Sync is left running: it wipes another account's data when the new
+  /// account arrives, before anything runs for it. Stopping it now would leave
+  /// it off for the current account if the switch is then cancelled. Only the
+  /// queued reports are sent, while the old account is still signed in.
   @override
-  Future<void> prepareForAccountSwitch() async {}
+  Future<void> prepareForAccountSwitch() => _sendReports();
 
   /// Nothing here, as before this gateway was wired: stopping Sync now would
   /// leave it off for the account if the deletion then fails.

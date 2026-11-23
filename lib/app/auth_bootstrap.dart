@@ -11,6 +11,7 @@ import 'package:pantas/core/auth/firebase_google_sign_in_gateway.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
+import 'package:pantas/core/platform/report_providers.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
@@ -58,7 +59,12 @@ List<Override> authRepositoryOverrides(
         functionsGateway:
             (functionsGatewayBuilder ?? FirebaseAuthFunctionsGateway.new)(),
         accountTransitionGateway: accountTransitionGatewayBuilder?.call(ref) ??
-            SyncAccountTransitionGateway(() => ref.read(syncRuntimeProvider)),
+            SyncAccountTransitionGateway(
+              () => ref.read(syncRuntimeProvider),
+              // The queued question reports go out under the account that
+              // wrote them before its data is wiped.
+              flushReports: () => ref.read(reportQueueProvider).sendPending(),
+            ),
         localStateWiper: localStateWiperBuilder?.call(ref) ??
             SyncLocalStateWiper(
               ref.watch(appDatabaseProvider),

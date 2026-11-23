@@ -236,7 +236,7 @@ void main() {
       final db = inMemoryDatabase();
       addTearDown(db.close);
       final sender = _Accepting();
-      final queue = ReportQueue(db, sender: sender);
+      final queue = ReportQueue(db, sender: sender, account: () => 'a');
       ReportDelivery? result;
       await tester.pumpWidget(
         MaterialApp(
@@ -284,7 +284,7 @@ void main() {
       addTearDown(tester.view.reset);
       final db = inMemoryDatabase();
       addTearDown(db.close);
-      final queue = ReportQueue(db, sender: _Offline());
+      final queue = ReportQueue(db, sender: _Offline(), account: () => 'a');
       ReportDelivery? result;
       await tester.pumpWidget(
         MaterialApp(

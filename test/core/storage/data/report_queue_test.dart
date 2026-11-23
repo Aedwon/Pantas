@@ -29,6 +29,7 @@ class _Sender implements ReportSender {
 ReportQueue _queue(
   AppDatabase db,
   ReportSender? sender, {
+  String? Function()? account,
   int attempts = 3,
   List<Duration>? waits,
   String Function()? newId,
@@ -37,6 +38,7 @@ ReportQueue _queue(
   return ReportQueue(
     db,
     sender: sender,
+    account: account ?? () => 'acct-a',
     maxAttempts: attempts,
     wait: (d) async => waits?.add(d),
     newId: newId ?? () => 'report-id-${n++}'.padRight(20, '0'),
@@ -280,6 +282,45 @@ void main() {
     expect(await queue.history(), hasLength(2));
   });
 
+  group('accounts', () {
+    test('what account A queued is never sent as account B', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Sender();
+      String? who = 'acct-a';
+      final queue = _queue(db, sender, account: () => who);
+      await queue.add('q1', 'From A', DateTime(2026, 11, 23, 10));
+      who = 'acct-b';
+      expect(await queue.sendPending(), 0);
+      expect(sender.calls, 0);
+      await queue.add('q2', 'From B', DateTime(2026, 11, 23, 10));
+      expect(await queue.sendPending(), 0);
+      expect(sender.sent.map((r) => r.message), ['From B']);
+      expect((await queue.pending()).map((r) => r.message), ['From A']);
+      who = 'acct-a';
+      expect(await queue.sendPending(), 0);
+      expect(sender.sent.map((r) => r.message), ['From B', 'From A']);
+    });
+
+    test('each report carries the account that made it', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue = _queue(db, null, account: () => 'acct-a');
+      await queue.add('q1', 'One', DateTime(2026, 11, 23, 10));
+      expect((await queue.pending()).single.accountId, 'acct-a');
+    });
+
+    test('with nobody signed in nothing is sent', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Sender();
+      final queue = _queue(db, sender, account: () => null);
+      await queue.add('q1', 'One', DateTime(2026, 11, 23, 10));
+      expect(await queue.sendPending(), 1);
+      expect(sender.calls, 0);
+    });
+  });
+
   group('reports queued before this change', () {
     final old = [
       {
@@ -311,6 +352,40 @@ void main() {
         (await _readRaw(db)).every((r) => (r as Map).containsKey('id')),
         isTrue,
       );
+    });
+
+    test('they belong to the account signed in at the first read', () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _storeRaw(db, old);
+      final sender = _Sender();
+      String? who = 'acct-a';
+      final queue = _queue(db, sender, account: () => who);
+      expect((await queue.pending()).map((r) => r.accountId), [
+        'acct-a',
+        'acct-a',
+      ]);
+      who = 'acct-b';
+      expect(await queue.sendPending(), 0);
+      expect(sender.calls, 0);
+      who = 'acct-a';
+      expect(await queue.sendPending(), 0);
+      expect(sender.sent, hasLength(2));
+    });
+
+    test('with nobody signed in at first read they wait for an account',
+        () async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await _storeRaw(db, old);
+      String? who;
+      final sender = _Sender();
+      final queue = _queue(db, sender, account: () => who);
+      expect((await queue.pending()).map((r) => r.accountId), [null, null]);
+      expect(await queue.sendPending(), 2);
+      who = 'acct-b';
+      expect(await queue.sendPending(), 0);
+      expect(sender.sent, hasLength(2));
     });
 
     test('they send, once, then keep counting', () async {
