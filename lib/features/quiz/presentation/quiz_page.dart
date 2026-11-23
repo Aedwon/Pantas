@@ -1090,9 +1090,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             ),
           );
     return PopScope(
-      canPop: _allowPop,
+      // While the report form is open, Back closes the form (ReportBar).
+      canPop: _allowPop && !_reportOpen,
       onPopInvokedWithResult: (didPop, result) {
-        if (!didPop && !wasGridOpen && !wasPassageOpen) {
+        if (!didPop && !wasGridOpen && !wasPassageOpen && !_reportOpen) {
           unawaited(_confirmLeave());
         }
       },

@@ -484,7 +484,8 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     return PopScope<void>(
       canPop: false,
       onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) _leave();
+        // While the report form is open, Back closes the form (ReportBar).
+        if (!didPop && !_reportOpen) _leave();
       },
       child: Scaffold(
         backgroundColor: context.colors.background,

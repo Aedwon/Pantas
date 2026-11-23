@@ -240,6 +240,19 @@ class _ReportBarState extends ConsumerState<ReportBar>
   @override
   Widget build(BuildContext context) {
     final form = _phase == ReportBarPhase.form;
+    // Back (Android or browser) while the form is open closes the form like
+    // Escape; the quiz stays. During the confirmation it is held, so the
+    // thank-you is not cut off by a stray back.
+    return PopScope(
+      canPop: _phase == ReportBarPhase.rest,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _cancel();
+      },
+      child: _surface(form),
+    );
+  }
+
+  Widget _surface(bool form) {
     return FloatingBar.content(
       key: widget.surfaceKey,
       state: form ? FloatingBarState.neutral : widget.restState,

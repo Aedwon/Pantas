@@ -54,6 +54,7 @@ class QuizQuestionViewer extends StatefulWidget {
     this.initialIndex = 0,
     this.backLabel = 'All questions',
     this.examId,
+    this.onReportOpenChanged,
     super.key,
   });
   final List<Question> questions;
@@ -80,6 +81,10 @@ class QuizQuestionViewer extends StatefulWidget {
 
   /// Sent with a phone report, which the bar itself takes (ReportBar).
   final String? examId;
+
+  /// Told when the phone report form opens or closes, so a page that owns a
+  /// back handler can leave Back to the form while it is open.
+  final ValueChanged<bool>? onReportOpenChanged;
   @override
   State<QuizQuestionViewer> createState() => _QuizQuestionViewerState();
 }
@@ -412,6 +417,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                               _reportOpen = true;
                               _reportBarMounted = true;
                             });
+                            widget.onReportOpenChanged?.call(true);
                           },
                     icon: PantasIcons.report,
                     accent: _reported.contains(question.id),
@@ -658,6 +664,7 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                                   _reported.add(question.id);
                                 }
                               });
+                              widget.onReportOpenChanged?.call(false);
                               _reportBarTimer?.cancel();
                               _reportBarTimer = Timer(
                                 const Duration(milliseconds: 420),

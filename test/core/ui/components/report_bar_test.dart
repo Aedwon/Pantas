@@ -282,6 +282,18 @@ void main() {
     expect(find.byKey(const ValueKey('rest-content')), findsOneWidget);
   });
 
+  testWidgets('back closes the form like Escape', (tester) async {
+    await pump(tester);
+    open.value = true;
+    await tester.pumpAndSettle();
+    expect(find.byType(PantasField), findsOneWidget);
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(closed, [null]);
+    expect(find.byType(PantasField), findsNothing);
+    expect(find.byKey(const ValueKey('rest-content')), findsOneWidget);
+  });
+
   testWidgets('focus moves into the field and back to the button',
       (tester) async {
     await pump(tester);

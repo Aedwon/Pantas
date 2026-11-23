@@ -36,11 +36,11 @@ Future<ReportDelivery?> openQuestionReport(
   int? questionVersion,
 }) {
   assert(context.wideWeb, 'The phone report is the bar itself (ReportBar).');
-  // The dialog motion: a rise and a fade, or a 150 ms fade in place under
-  // reduced motion (Dialog README).
+  // The board's popover drop: 0.2 s ease-out from 6 px above, or a 150 ms
+  // fade in place under reduced motion.
   return showWebOverlay<ReportDelivery>(
     context: context,
-    motion: WebOverlayMotion.dialog,
+    motion: WebOverlayMotion.dropdown,
     barrierColor: Colors.transparent,
     barrierLabel: 'Close report',
     builder: (_) => _WebReportPanel(

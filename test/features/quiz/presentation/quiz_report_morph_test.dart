@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/platform/report_providers.dart';
@@ -47,7 +49,20 @@ const _items = [
 /// bar, and the report form was a dialog over the bar. The bar must be the
 /// one element that becomes the form and then the confirmation.
 void main() {
-  Future<void> pump(WidgetTester tester, {bool online = true}) async {
+  Widget viewer() => QuizQuestionViewer(
+        questions: _questions,
+        items: _items,
+        pro: false,
+        onBack: () {},
+        onNote: (_, __, ___) async {},
+        onReport: (_) async => null,
+      );
+
+  Future<void> pump(
+    WidgetTester tester, {
+    bool online = true,
+    bool pushed = false,
+  }) async {
     tester.view.physicalSize = const Size(390, 844);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -57,14 +72,20 @@ void main() {
     await tester.pumpAppWithProviders(
       MediaQuery(
         data: const MediaQueryData(size: Size(390, 844)),
-        child: QuizQuestionViewer(
-          questions: _questions,
-          items: _items,
-          pro: false,
-          onBack: () {},
-          onNote: (_, __, ___) async {},
-          onReport: (_) async => null,
-        ),
+        child: pushed
+            ? Builder(
+                builder: (context) => Scaffold(
+                  body: TextButton(
+                    onPressed: () => unawaited(
+                      Navigator.of(context).push<void>(
+                        MaterialPageRoute<void>(builder: (_) => viewer()),
+                      ),
+                    ),
+                    child: const Text('Open quiz'),
+                  ),
+                ),
+              )
+            : viewer(),
       ),
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
@@ -114,5 +135,28 @@ void main() {
     expect(find.text("Thank you. We'll take a look."), findsOneWidget);
     expect(find.byType(FloatingBar), findsOneWidget);
     expect(identical(tester.element(bar), element), isTrue);
+  });
+
+  testWidgets('back while the form is open closes the form, not the quiz',
+      (tester) async {
+    await pump(tester, pushed: true);
+    await tester.tap(find.text('Open quiz'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Report a question'));
+    await tester.pumpAndSettle();
+    expect(find.byType(PantasField), findsOneWidget);
+
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    // The form is gone and the quiz is still on screen.
+    expect(find.byType(PantasField), findsNothing);
+    expect(find.byType(QuizQuestionViewer), findsOneWidget);
+    expect(find.text('1 of 1'), findsOneWidget);
+
+    // With no form open, back leaves the quiz as before.
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+    expect(find.byType(QuizQuestionViewer), findsNothing);
+    expect(find.text('Open quiz'), findsOneWidget);
   });
 }

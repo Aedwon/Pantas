@@ -186,6 +186,8 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
         );
   }
 
+  bool _reporting = false;
+
   void _back() {
     if (widget.fromAll && context.canPop()) {
       context.pop();
@@ -246,11 +248,14 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
         }
         final start = shown.indexOf(widget.initialIndex);
         return PopScope(
-          canPop: widget.fromAll,
+          // While the phone report form is open, Back closes the form
+          // (ReportBar), not this page.
+          canPop: widget.fromAll && !_reporting,
           onPopInvokedWithResult: (didPop, _) {
-            if (!didPop) _back();
+            if (!didPop && !_reporting) _back();
           },
           child: QuizQuestionViewer(
+            onReportOpenChanged: (open) => setState(() => _reporting = open),
             questions: [for (final i in shown) all[i]],
             items: widget.mistakesOnly
                 ? [for (final i in shown) answers[i]]
