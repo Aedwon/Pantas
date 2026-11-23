@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/legal/domain/legal_document.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/application/trusted_clock.dart';
@@ -20,6 +21,8 @@ import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
+
+import '../../../helpers/in_memory_database.dart';
 
 final _now = DateTime.utc(2026, 11, 2, 4);
 const _day = Duration(days: 1);
@@ -1280,6 +1283,178 @@ void main() {
 
       expect(reads, ['a', 'b']);
       expect(gateway.cachedEntitlement?.productId, 'pantas_cs_weekly');
+    });
+
+    test('at a queued start the server is read again, not the kept rows', () {
+      fakeAsync((async) {
+        final start = DateTime.utc(2026, 11, 2, 4);
+        DateTime clock() => start.add(async.elapsed);
+        const hour = Duration(hours: 1);
+        var reads = 0;
+        final gateway = WebPaymentGateway(
+          callable: (_, __) async => null,
+          readGrants: (_) async {
+            reads++;
+            // The plan queued for hour one is refunded before it starts.
+            return reads == 1
+                ? [
+                    _grant(
+                      'pantas_cs_monthly',
+                      starts: start.add(hour),
+                      ends: start.add(hour * 2),
+                    ),
+                  ]
+                : <Map<String, dynamic>>[];
+          },
+          refreshClaims: (_) async {},
+          openUrl: (_) async => true,
+          now: clock,
+          followClock: true,
+        );
+        unawaited(gateway.logIn('u1'));
+        async.flushMicrotasks();
+        expect(reads, 1);
+
+        async.elapse(hour);
+
+        expect(reads, 2);
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.free);
+        unawaited(gateway.clearIdentity());
+        async.flushMicrotasks();
+      });
+    });
+
+    test('a failed read at a boundary keeps the state and tries at the next',
+        () {
+      fakeAsync((async) {
+        final start = DateTime.utc(2026, 11, 2, 4);
+        DateTime clock() => start.add(async.elapsed);
+        const hour = Duration(hours: 1);
+        final rows = [
+          _grant(
+            'pantas_cs_monthly',
+            starts: start.add(hour),
+            ends: start.add(hour * 3),
+          ),
+          _grant(
+            'pantas_cs_weekly',
+            starts: start.add(hour * 2),
+            ends: start.add(hour * 4),
+          ),
+        ];
+        var reads = 0;
+        final gateway = WebPaymentGateway(
+          callable: (_, __) async => null,
+          readGrants: (_) async {
+            reads++;
+            if (reads == 2) throw StateError('offline');
+            return rows;
+          },
+          refreshClaims: (_) async {},
+          openUrl: (_) async => true,
+          now: clock,
+          followClock: true,
+        );
+        unawaited(gateway.logIn('u1'));
+        async
+          ..flushMicrotasks()
+          ..elapse(hour);
+        expect(reads, 2);
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.free);
+
+        async.elapse(hour);
+        expect(reads, 3);
+        expect(gateway.cachedEntitlement!.plan, isNot(EntitlementPlan.free));
+        unawaited(gateway.clearIdentity());
+        async.flushMicrotasks();
+      });
+    });
+
+    test('one clock reading maps the rows and sets the wake-up', () {
+      fakeAsync((async) {
+        final start = DateTime.utc(2026, 11, 2, 4);
+        // The clock reads 1 ms before the plan starts, then at its start.
+        // A mapping and a wake-up that read it twice would see the start
+        // pass between them and never wake.
+        var readings = 0;
+        DateTime clock() => start.add(
+              Duration(milliseconds: readings++ == 0 ? 9 : 10) + async.elapsed,
+            );
+        final gateway = WebPaymentGateway(
+          callable: (_, __) async => null,
+          readGrants: (_) async => [
+            _grant(
+              'pantas_cs_monthly',
+              starts: start.add(const Duration(milliseconds: 10)),
+              ends: start.add(const Duration(hours: 1)),
+            ),
+          ],
+          refreshClaims: (_) async {},
+          openUrl: (_) async => true,
+          now: clock,
+          followClock: true,
+        );
+        unawaited(gateway.logIn('u1'));
+        async.flushMicrotasks();
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.free);
+
+        async.elapse(const Duration(milliseconds: 5));
+
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.monthly);
+        unawaited(gateway.clearIdentity());
+        async.flushMicrotasks();
+      });
+    });
+
+    test('sign-out and an account change cancel the pending wake-up', () {
+      fakeAsync((async) {
+        final start = DateTime.utc(2026, 11, 2, 4);
+        final gateway = WebPaymentGateway(
+          callable: (_, __) async => null,
+          readGrants: (_) async => [
+            _grant(
+              'pantas_cs_monthly',
+              starts: start.add(const Duration(hours: 1)),
+              ends: start.add(const Duration(hours: 2)),
+            ),
+          ],
+          refreshClaims: (_) async {},
+          openUrl: (_) async => true,
+          now: () => start.add(async.elapsed),
+          followClock: true,
+        );
+        unawaited(gateway.logIn('a'));
+        async.flushMicrotasks();
+        expect(async.nonPeriodicTimerCount, 1);
+
+        unawaited(gateway.clearIdentity());
+        async.flushMicrotasks();
+        expect(async.nonPeriodicTimerCount, 0);
+
+        unawaited(gateway.logIn('a'));
+        async.flushMicrotasks();
+        expect(async.nonPeriodicTimerCount, 1);
+        unawaited(gateway.logOut());
+        async.flushMicrotasks();
+        expect(async.nonPeriodicTimerCount, 0);
+      });
+    });
+
+    test('the app wires the web gateway to follow the clock', () {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          paymentsOnWebProvider.overrideWithValue(true),
+        ],
+      );
+      addTearDown(container.dispose);
+
+      final gateway = container.read(revenueCatGatewayProvider);
+
+      expect(gateway, isA<WebPaymentGateway>());
+      expect((gateway as WebPaymentGateway).followsClock, isTrue);
     });
 
     test('an open tab follows queued starts and ends on the clock', () {

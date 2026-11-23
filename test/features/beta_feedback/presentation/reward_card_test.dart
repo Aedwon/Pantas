@@ -1,7 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_user.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
 import 'package:pantas/features/beta_feedback/presentation/feedback_page.dart';
@@ -28,6 +31,32 @@ BetaReward _activated() => fakeReward(
       rewardStartsAt: ph(11, 20),
       rewardEndsAt: ph(11, 20, 12, 0, 2027),
     );
+
+WebPaymentGateway _gateway(void Function() onRead) => WebPaymentGateway(
+      callable: (_, __) async => null,
+      readGrants: (_) async {
+        onRead();
+        return [];
+      },
+      refreshClaims: (_) async {},
+      openUrl: (_) async => true,
+      now: () => DateTime.utc(2026, 11, 20),
+    );
+
+List<Override> _accountOverrides(
+  StateProvider<String> account,
+  WebPaymentGateway gateway,
+) =>
+    [
+      revenueCatGatewayProvider.overrideWithValue(gateway),
+      currentUserProvider.overrideWith(
+        (ref) async => AuthUser(
+          uid: ref.watch(account),
+          email: 'tester@example.com',
+          displayName: 'Tester',
+        ),
+      ),
+    ];
 
 FbHarness _harness({
   BetaReward? reward,
@@ -212,30 +241,58 @@ void main() {
 
     testWidgets('turning it on reads the signed-in account entitlement again',
         (tester) async {
+      final account = StateProvider<String>((ref) => 'tester');
       var reads = 0;
-      final gateway = WebPaymentGateway(
-        callable: (_, __) async => null,
-        readGrants: (_) async {
-          reads++;
-          return [];
-        },
-        refreshClaims: (_) async {},
-        openUrl: (_) async => true,
-        now: () => DateTime.utc(2026, 11, 20),
-      );
+      final gateway = _gateway(() => reads++);
       await gateway.logIn('tester');
       expect(reads, 1);
       final h = _harness();
       await h.pump(
         tester,
         _page,
-        overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
+        overrides: _accountOverrides(account, gateway),
       );
       await tester.tap(_activate);
       await tester.pumpAndSettle();
 
       expect(find.text('Pro is on until Nov 20, 2027'), findsOneWidget);
       expect(reads, 2);
+    });
+
+    testWidgets('another account signing in before the reply is not read',
+        (tester) async {
+      final account = StateProvider<String>((ref) => 'a');
+      var reads = 0;
+      final gateway = _gateway(() => reads++);
+      await gateway.logIn('b');
+      expect(reads, 1);
+      final gate = Completer<BetaRewardActivation>();
+      final api = FakeBetaFeedbackApi(reward: _eligible())..activateGate = gate;
+      final h = _harness(api: api);
+      await h.pump(
+        tester,
+        _page,
+        overrides: _accountOverrides(account, gateway),
+      );
+      await tester.tap(_activate);
+      await tester.pump();
+
+      // B signs in while A's activation is still on its way.
+      final container = ProviderScope.containerOf(
+        tester.element(find.byType(Scaffold)),
+      );
+      container.read(account.notifier).state = 'b';
+      await tester.pump();
+      await tester.pump();
+      gate.complete(
+        BetaRewardActivation(
+          startsAt: ph(11, 20),
+          endsAt: ph(11, 20, 12, 0, 2027),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(reads, 1);
     });
 
     testWidgets('the crown swings once', (tester) async {

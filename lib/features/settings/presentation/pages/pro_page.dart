@@ -172,14 +172,29 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     super.dispose();
   }
 
+  /// Drops this page's own pending switch. A page with no target exam never
+  /// owns one, and a switch for another exam stays until its checkout
+  /// confirms.
   Future<void> _clearPendingExamSwitch({String? uid}) async {
     final owner = uid ?? _checkoutUid;
-    if (owner == null) return;
+    final target = widget.targetExam;
+    if (owner == null || target == null) return;
     final telemetry = ref.read(telemetryProvider);
     try {
-      await ref
-          .read(appPreferencesRepositoryProvider)
-          .setDeviceValue('checkout_exam_v1:$owner', '');
+      final prefs = ref.read(appPreferencesRepositoryProvider);
+      final key = 'checkout_exam_v1:$owner';
+      final raw = await prefs.deviceValue(key);
+      if (raw == null || raw.isEmpty) return;
+      Object? decoded;
+      try {
+        decoded = jsonDecode(raw);
+      } on FormatException {
+        // Not an intent at all. Nothing to keep.
+      }
+      if (decoded is Map<String, dynamic> && decoded['examId'] != target.id) {
+        return;
+      }
+      await prefs.setDeviceValue(key, '');
     } catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
     }
@@ -273,6 +288,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final prefs = ref.read(appPreferencesRepositoryProvider);
     final fromExamId = await prefs.selectedExamId();
     if (!_sameAccount(uid)) return false;
+    final before = ref.read(revenueCatGatewayProvider).cachedEntitlement;
+    final now = ref.read(paywallClockProvider)();
     await prefs.setDeviceValue(
       'checkout_exam_v1:$uid',
       jsonEncode({
@@ -281,6 +298,14 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         'count': choice,
         'tier': PriceTier.fromCatalog(target.priceTier).name,
         'fromExamId': fromExamId,
+        // What the account already had for this exam, so that coverage it
+        // already held cannot confirm this checkout.
+        'coveredAtStart': before?.coverage(at: now).coversExam(
+                  target.id,
+                  PriceTier.fromCatalog(target.priceTier),
+                ) ??
+            false,
+        'endsAtBefore': before?.endsAt?.millisecondsSinceEpoch,
       }),
     );
     return _sameAccount(uid);
@@ -340,7 +365,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     if (!_sameAccount(uid)) return;
     final created =
         DateTime.fromMillisecondsSinceEpoch(pending['createdAt'] as int);
-    final age = DateTime.now().difference(created);
+    final age = ref.read(paywallClockProvider)().difference(created);
     if (target == null ||
         pending['uid'] != uid ||
         pending['examId'] != target.id ||
@@ -358,9 +383,19 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final examId = target.id;
     if (operation.status != PaymentOperationStatus.success ||
         entitlement == null ||
-        !entitlement.coverage(at: DateTime.now()).coversExam(examId, tier)) {
+        !entitlement
+            .coverage(at: ref.read(paywallClockProvider)())
+            .coversExam(examId, tier)) {
       // Not confirmed for this exam yet (the webhook can lag, or other
       // coverage hides it). Keep the intent for the next return.
+      return;
+    }
+    // Coverage the account already held for this exam proves nothing about
+    // this checkout. It confirms only if the coverage now ends later.
+    final endsBefore = pending['endsAtBefore'];
+    if (pending['coveredAtStart'] == true &&
+        (endsBefore is! int ||
+            (entitlement.endsAt?.millisecondsSinceEpoch ?? 0) <= endsBefore)) {
       return;
     }
     final from = await prefs.selectedExamId();
@@ -554,7 +589,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           final pending = jsonDecode(raw!) as Map<String, dynamic>;
           pending['sessionId'] = sessionId;
           pending['reference'] = reference;
-          pending['createdAt'] = DateTime.now().millisecondsSinceEpoch;
+          pending['createdAt'] =
+              ref.read(paywallClockProvider)().millisecondsSinceEpoch;
           await prefs.setDeviceValue(
             'checkout_exam_v1:$uid',
             jsonEncode(pending),
@@ -775,11 +811,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final fallbackPlanEnd =
         entitlement.passes.isEmpty ? entitlement.endsAt : null;
     // A reward ends per exam: show this exam's end, as a Manila date.
-    final rewardOnly = entitlement.plan == EntitlementPlan.free &&
-        entitlement.passes.isEmpty &&
-        entitlement.promotions.isEmpty &&
-        entitlement.betaPasses.isNotEmpty;
     final rewardEnd = exam == null ? null : entitlement.betaPasses[exam.id];
+    final rewardShown = rewardEnd != null &&
+        entitlement.plan == EntitlementPlan.free &&
+        entitlement.promotions.isEmpty;
+    final rewardOnly = rewardShown ||
+        (entitlement.plan == EntitlementPlan.free &&
+            entitlement.passes.isEmpty &&
+            entitlement.promotions.isEmpty &&
+            entitlement.betaPasses.isNotEmpty);
     final planDate = rewardOnly
         ? rewardEnd?.toUtc().add(const Duration(hours: 8))
         : entitlement.plan != EntitlementPlan.free
@@ -802,7 +842,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             .valueOrNull
             ?.where(
               (row) =>
-                  row.endsAt.isBefore(DateTime.now()) &&
+                  row.endsAt.isBefore(ref.read(paywallClockProvider)()) &&
                   (row.isTrial ||
                       (productForId(row.productId)?.kind ==
                               ProductKind.subscription &&
@@ -824,9 +864,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         offering.unwrapPrevious().hasValue &&
         gateway.googlePlayPlanRenews;
 
-    final lapsed =
-        covered == false && ended != null && ended.isBefore(DateTime.now());
-    final now = DateTime.now().toUtc().add(const Duration(hours: 8));
+    final lapsed = covered == false &&
+        ended != null &&
+        ended.isBefore(ref.read(paywallClockProvider)());
+    final now =
+        ref.read(paywallClockProvider)().toUtc().add(const Duration(hours: 8));
     final today = DateTime.utc(now.year, now.month, now.day);
     final sitting = exam?.publishedSittings
         .where((s) => !s.firstDay.isBefore(today) && s.sourceUrl.isNotEmpty)
@@ -1210,6 +1252,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         if (!upgrade &&
             (entitlement.proIsActive || paused) &&
             (entitlement.passes.isEmpty ||
+                rewardShown ||
                 entitlement.plan != EntitlementPlan.free ||
                 entitlement.isUnknownPlan ||
                 entitlement.promotions.isNotEmpty))

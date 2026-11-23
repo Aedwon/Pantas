@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:meta/meta.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/platform/account_access.dart';
 import 'package:pantas/core/platform/callable_options.dart';
@@ -237,6 +238,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   /// recomputed when a queued grant starts or a held one ends.
   List<Map<String, dynamic>> _rows = const [];
   Timer? _boundary;
+  int _boundaryGeneration = 0;
   bool _googlePlayPlanRenews = false;
 
   /// True only after an owner-bound server reply confirms Play renewal.
@@ -472,8 +474,11 @@ class WebPaymentGateway implements RevenueCatPassGateway {
     if (request < _publishedRequest) return _state.current;
     _publishedRequest = request;
     _rows = rows;
-    final entitlement = entitlementFromGrants(rows, at: _now());
-    _scheduleBoundary();
+    // One reading of the clock maps the rows and sets the next wake-up, so a
+    // boundary crossed in between cannot be skipped.
+    final at = _now();
+    final entitlement = entitlementFromGrants(rows, at: at);
+    _scheduleBoundary(at);
     await _state.acceptAuthoritative(
       entitlement,
       shouldContinue: () => sameAccount() && request >= _publishedRequest,
@@ -486,12 +491,18 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   /// noticed within a day.
   static const _longestWait = Duration(days: 1);
 
-  /// Wakes at the next start or end among the kept rows, then recomputes.
-  void _scheduleBoundary() {
+  /// True when the state follows the clock (see the constructor).
+  @visibleForTesting
+  bool get followsClock => _followClock;
+
+  /// Wakes at the next start or end among the kept rows, as seen at [at].
+  /// At the wake-up it reads the server again, never the kept rows: a grant
+  /// refunded or revoked since the last read must not turn on.
+  void _scheduleBoundary(DateTime at) {
     _boundary?.cancel();
     _boundary = null;
+    final generation = ++_boundaryGeneration;
     if (!_followClock) return;
-    final at = _now();
     DateTime? next;
     for (final row in _rows) {
       if (row['state'] != 'active') continue;
@@ -512,24 +523,20 @@ class WebPaymentGateway implements RevenueCatPassGateway {
     }
     final uid = _uid;
     final revision = _identityRevision;
-    final request = _publishedRequest;
-    _boundary = Timer(wait, () {
-      if (_uid != uid ||
-          _identityRevision != revision ||
-          _publishedRequest != request) {
-        return;
+    if (uid == null) return;
+    _boundary = Timer(wait, () async {
+      bool sameAccount() => _uid == uid && _identityRevision == revision;
+      if (!sameAccount()) return;
+      try {
+        await _readEntitlement(uid, revision);
+      } catch (_) {
+        // A failed read is no news. Keep what is shown.
       }
-      final entitlement = entitlementFromGrants(_rows, at: _now());
-      _scheduleBoundary();
-      unawaited(
-        _state.acceptAuthoritative(
-          entitlement,
-          shouldContinue: () =>
-              _uid == uid &&
-              _identityRevision == revision &&
-              _publishedRequest == request,
-        ),
-      );
+      // No new wake-up was set (the read failed or was dropped): look for
+      // the next boundary in the rows already kept.
+      if (sameAccount() && generation == _boundaryGeneration) {
+        _scheduleBoundary(_now());
+      }
     });
   }
 

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/theme_names.dart';
@@ -62,6 +63,7 @@ class _RewardCardState extends ConsumerState<RewardCard>
     setState(() => _working = true);
     final BetaRewardActivation result;
     final gateway = ref.read(revenueCatGatewayProvider);
+    final uid = _signedInUid();
     try {
       result = await ref.read(betaFeedbackApiProvider).activate();
     } on Exception {
@@ -70,10 +72,13 @@ class _RewardCardState extends ConsumerState<RewardCard>
       showPantasToast(context, 'Could not turn it on. Try again.');
       return;
     }
-    // The year is on the server now. Read the account's coverage again so
-    // this session shows Pro without a reload.
-    unawaited(_refreshEntitlement(gateway));
     if (!mounted) return;
+    // The year is on the server now. Read the same account's coverage again
+    // so this session shows Pro without a reload. If another account signed
+    // in meanwhile, leave it alone.
+    if (uid != null && _signedInUid() == uid) {
+      unawaited(_refreshEntitlement(gateway));
+    }
     setState(() {
       _result = result;
       _working = false;
@@ -85,6 +90,9 @@ class _RewardCardState extends ConsumerState<RewardCard>
     }
     ref.invalidate(betaRewardProvider);
   }
+
+  String? _signedInUid() =>
+      ref.read(currentUserProvider).unwrapPrevious().valueOrNull?.uid;
 
   Future<void> _refreshEntitlement(RevenueCatGateway gateway) async {
     try {

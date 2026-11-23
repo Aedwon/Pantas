@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,6 +22,9 @@ import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 import 'pro_page_payments_test.dart' show SettingsGateway;
+
+/// The one clock every test here measures against.
+final _clock = DateTime.utc(2026, 11, 24, 4);
 
 const _monthly = PaywallPackage(
   sku: PaywallSku.monthly,
@@ -62,7 +66,7 @@ Future<void> _pump(
   Entitlement entitlement = const Entitlement.free(),
   PendingPurchase? pending,
 }) async {
-  final now = DateTime.now().toUtc().add(const Duration(hours: 8));
+  final now = _clock.add(const Duration(hours: 8));
   final day =
       DateTime.utc(now.year, now.month, now.day).add(Duration(days: daysUntil));
   tester.view.physicalSize = const Size(390, 844);
@@ -112,6 +116,7 @@ Future<void> _pump(
       if (preferences != null)
         appPreferencesRepositoryProvider.overrideWithValue(preferences),
       contentDatabaseProvider.overrideWithValue(openTestContentDatabase()),
+      paywallClockProvider.overrideWithValue(() => _clock),
       if (passRead != null)
         ownedPassCatalogEntriesProvider.overrideWith(passRead),
       revenueCatGatewayProvider.overrideWithValue(
@@ -232,7 +237,10 @@ void main() {
     await tester.pumpAndSettle();
     expect(trials, 1);
     expect(preferences.nonemptyWrites, isEmpty);
-    expect(await preferences.deviceValue('checkout_exam_v1:owner'), isEmpty);
+    expect(
+      await preferences.deviceValue('checkout_exam_v1:owner') ?? '',
+      isEmpty,
+    );
   });
   testWidgets('web upgrade waits while account identity is loading',
       (tester) async {
@@ -577,7 +585,7 @@ void main() {
       pending: PendingPurchase(
         uid: 'owner',
         productId: 'pantas_cs_monthly',
-        startedAt: DateTime.now(),
+        startedAt: _clock,
       ),
     );
     expect(find.text('Waiting for your payment'), findsOneWidget);
@@ -598,7 +606,7 @@ void main() {
       pending: PendingPurchase(
         uid: 'owner',
         productId: 'pantas_cs_monthly',
-        startedAt: DateTime.now(),
+        startedAt: _clock,
       ),
     );
     expect(find.text('Waiting for your payment'), findsNothing);
@@ -644,5 +652,43 @@ void main() {
     expect(find.text('Jan 1, 2028'), findsOneWidget);
     expect(find.text('Jul 1, 2028'), findsNothing);
     expect(find.text('Jun 30, 2028'), findsNothing);
+  });
+  testWidgets('a purchase from a page with no target keeps the pending switch',
+      (tester) async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final preferences = _TrialPreferences(db);
+    final intent = jsonEncode({
+      'uid': 'owner',
+      'examId': 'exam_cse_pro',
+      'count': false,
+      'tier': 'civilService',
+      'fromExamId': 'exam_upcat',
+    });
+    await preferences.setDeviceValue('checkout_exam_v1:owner', intent);
+    await _pump(
+      tester,
+      web: true,
+      eligible: true,
+      preferences: preferences,
+    );
+    await tester.tap(find.text('Try 7 Days Free'));
+    await tester.pumpAndSettle();
+
+    expect(await preferences.deviceValue('checkout_exam_v1:owner'), intent);
+  });
+  testWidgets(
+      'a reward for the selected exam shows its end next to coverage '
+      'for another exam', (tester) async {
+    await _pump(
+      tester,
+      passRead: (_) async => const <String, ExamCatalogEntry>{},
+      entitlement: Entitlement(
+        plan: EntitlementPlan.free,
+        passes: {'exam_cse_sub': DateTime.utc(2028, 6, 30, 17)},
+        betaPasses: {'exam_cse_pro': DateTime.utc(2027, 12, 31, 17)},
+      ),
+    );
+    expect(find.text('Jan 1, 2028'), findsOneWidget);
   });
 }
