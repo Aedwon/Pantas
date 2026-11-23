@@ -4139,3 +4139,33 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
   - Scope: "go hardened. i do not want any risks when I release this app." Action: Part C hardened list of `docs/superpowers/plans/2026-11-22-cse-release-qa-phase1-report.md`.
   - New gate: "please ensure the core loops and functions are actually functioning properly for every content, every quiz every mock etc. please be efficient about this. do the minimum that can verify something works ... i want to be fully ready before i post a single thing leading users to the app". Manager's reading applied: (a) every item through the app's real Dart logic with no UI, made a permanent CI check (tooling approved in that message); (b) one browser run per distinct loop per exam and mode, reads counted first.
 - Velocity E-137: 6 min 16 s (timer).
+
+### Nov 23, M4 security pass shipped to prod (security and billing lead, r2)
+
+- Approval: Aedwon, "ship it on all items requiring ship it" (entry above). Started after the CSE release lead's "QA web
+  ship verified" (build 2026318751-32e9b98f07ec, Worker f911373a at 09:56 UTC). Rule 7 pre-run count: prod had used 56
+  reads this quota day; the ship's checks about 300.
+- 10:03:41 UTC, rules and indexes (pinned CLI): ruleset eebcd1f6 (typed sync fields; sync pause and server Pro end date),
+  and the `limits.purgeAt` TTL. Rollback: re-release ruleset df1eac57.
+- IAM: `tool/deploy/function_service_accounts.sh pantas-prod` (rerun a no-op); preflight OK, 5 runtime accounts.
+- 10:09 to 10:11:50 UTC, functions (pinned CLI, from the branch with main merged; the first try at 10:08 was refused by
+  the current-main guard because five docs commits had landed, and changed nothing): 60 updated or created, including
+  `countSyncWrites`. Services by account: pantas-app 32, pantas-identity 14, pantas-jobs 6, pantas-entitlements 5,
+  pantas-payments 3, none on the default compute account. Two Cloud Run write-quota errors during the deploy (jobsfrequent,
+  jobsdailylate), retried by the CLI; both services are on their new revisions. Previous revisions saved in
+  `Pantas-private/releases/2026-11-23-m4-prod/`.
+- Verified on prod: throwaway account with a short-lived debug token (both deleted): getMockAvailability with setup 200
+  (155 questions), getWebEntitlement 200, listWebPlans 200 (app secret), paymongoWebhook with a bad signature 401 (payment
+  secret); revenuecatWebhook 500 is the missing RevenueCat configuration on prod, as on Nov 20. jobsFrequent ran 200 at 10:13
+  UTC as pantas-jobs (the Scheduler jobs still call with the default compute account, which keeps `roles/run.invoker`). No
+  ERROR entries since the deploy other than the two quota retries.
+- 10:15 UTC, Worker 450b1105-5de3-4d29-b70c-7a04168db565 from the CSE release lead's build folder: compare.mjs 92 of 92;
+  nosniff, Referrer-Policy, Permissions-Policy, `frame-ancestors 'self'` and the report-only CSP live; `/__/csp-report`
+  answers 204. Headless load: the app boots, no page errors; only the app's own run-time inline scripts are reported.
+  Rollback: `wrangler rollback` to f911373a (after telling the CSE release lead).
+- PR #84 merged to main (5a20801de) after CI passed on its head (03c1eb026).
+- Watch: every 4 hours to Nov 24 10:20 UTC (T3 task bound to the lead thread): first real sign-in (token signing as
+  pantas-identity), the two daily jobs, sync pauses, rules refusals, CSP report volume. Still to do: remove Editor from the
+  default compute account after a clean day (keep its run.invoker or move the Scheduler jobs to pantas-jobs); decide CSP
+  enforcement after the report-only week; the Codex money-path audit after Aedwon's Codex reset; the app's "Paused" row
+  ships with the next prod web build.
