@@ -291,3 +291,89 @@ Item 12, Guardian Manage and Minor Checkout (https://claude.ai/artifact/VhNW1aCx
 - Splash hand-off: added as a record of the motion. The part boards use the source frame component, whose defaults are option C.
 - Part boards (CX_Settings, CX_SettingsPh, CX_Paper, QA_Study, QA_Picker, ST_LargeTextFrame and others) draw an unpicked default option, because every dc.html file shows on the canvas. Their titles say so.
 - Not in this pass and still possibly stale (from the inventory): hand-typed lesson minutes boards, DS4 value changes shipped Nov 11 on DK_Home, HM_BeforeAssessment, DK_Settings, ST_SignOut, QV_Flag, QV_Answer, MK_PauseA, QV_EndFree, L_ChangeExam2, BM_One, phone tab bar boards, O_Picker, HP_Free.
+
+## Consistency pass (Nov 23)
+
+Canvas versions after this pass: Pantas Web version 175, Pantas Redesign version 483. A new page named Superseded holds every outdated board, with one sticky note on each canvas that lists old board, current board and why. No board file was deleted. Each moved board has its title set to "SUPERSEDED: see <current board>".
+
+Counts: superseded 15 (phone 8, web 7); QS_Figure links restored (4); duplicates removed 0; caret added 2 mock bars (MK_PauseWarn, MK_Paper); ST_AccountPro backup row edited 1.
+
+### Step 1 and 3: superseded boards
+
+| Canvas | Old board | Current board | Why |
+|---|---|---|---|
+| Pantas Redesign (phone) | O_Age | O_AgeFinal | Birth-year wheel replaced by the age stepper (approved; build already matches, phone-pass.md row O_Age BUILD BETTER) |
+| Pantas Redesign (phone) | O_DateKnown | O_DateFinal | Approved exam date option A |
+| Pantas Redesign (phone) | O_DateChange | O_DateFinal | Same |
+| Pantas Redesign (phone) | O_DateToday | O_DateFinal | Same |
+| Pantas Redesign (phone) | ST_ExamDate | O_DateFinal | Both phone callers use the same picker (LOG:2951); listed stale in the folds record |
+| Pantas Redesign (phone) | ST_ExamMonth | O_DateFinal | Same |
+| Pantas Redesign (phone) | ST_ExamUnknown | O_DateFinal | Same |
+| Pantas Redesign (phone) | ST_LargeText | ST_LargeTextA | Approved Text size A |
+| Pantas Web (wide) | OB_Age | OB_AgeFinal | Birth-year field replaced by the age stepper |
+| Pantas Web (wide) | OB_AgeBlocked | OB_AgeFinal | Under 13 is now the guardian flow (U13_ChildNotice on the phone canvas); OB_AgeFinal has no blocked state |
+| Pantas Web (wide) | ST_AccountOut | ST_AccountOutA | Approved Staging A; the pane boards replace the page board |
+| Pantas Web (wide) | ST_LargeText | ST_LargeTextA | Approved Text size A |
+| Pantas Web (wide) | OB_CustomCover | CX_TierCover | Subjects step with the tier on the tile. CX_TierCover leaves out the app frame, so the sticky says to keep Back, top bar and steps list from the old board |
+| Pantas Web (wide) | HM_NoDate | QA_Home | QA pick b D (buttons below the text, right). QA_HomeDLight is the light version. The two differ in notice layout and sample data |
+| Pantas Web (wide) | OB_Welcome | QA_SplashBLight | QA pick e B: Welcome takes the app background (old board is white) |
+
+QA Polish Picks comparison, board by board:
+
+| Pick | Winner boards | Existing board | Result |
+|---|---|---|---|
+| a C | QA_StudyCDark, QA_StudyCLight, QA_StudyCNoBm | W_Study | Differs, but W_Study draws "the map and an open topic side by side", a state QA_Study does not draw. Kept both, not marked. See Uncertain |
+| b D | QA_Home, QA_HomeDLight | HM_NoDate | Differs. HM_NoDate marked superseded |
+| c C | QA_Tend, QA_TendCLight (phone) | none on the phone canvas | No duplicate. Web MY_Tend* boards left as they are |
+| d A | QA_Paused, QA_PausedALight | MK_Paused | Different state (one-block mock versus a mock with four parts). Kept both. See Uncertain |
+| e B | QA_Splash, QA_SplashBLight | OB_Welcome | Differs. OB_Welcome marked superseded |
+| f A | QA_PickADark, QA_PickALight (phone) | O_Picker | O_Picker holds three states (cannot load, loading, list); QA_Picker draws the list only. Kept both. See Uncertain |
+| g | QA_MockWideDark, QA_MockWideLight, QA_MockPhoneDark, QA_MockPhoneLight | W_QuizTab, QZ_Tab | Different state (new student on Free versus a normal Pro day). Kept both |
+
+No QA winner was identical to an existing board, so no board was removed.
+
+### Step 2: QS_Figure links
+
+Source: the earlier QS_Figure from the Nov 22 handoff export in Downloads (not version history; the Artifact tool cannot read an older version). Links restored on the replaced board by turning the same elements into links, no other change.
+
+| Board | Element | Links to |
+|---|---|---|
+| QS_Figure | Leave button (X) | QS_Leave |
+| QS_Figure | "4 of 10" count | QS_Grid |
+| QS_Figure | Flag button | QS_Flag |
+| QS_Figure | Check button (stays drawn disabled, aria-disabled) | W_QRight |
+
+QV_Figure (phone) had no links in the earlier version that this pass could read; none added.
+
+### Step 4: N of Y caret
+
+| Board | Change |
+|---|---|
+| MK_PauseWarn | Grid icon removed, caret added beside "14 of 60", same markup and colors as the 10 other mock bars |
+| MK_Paper | Same. The count here cross-fades between "12 of 60" and "13 of 60", so the caret sits beside that stack. Same element, different wrapper; flagged in Uncertain |
+
+### Step 6: build better rows
+
+| Board | Change |
+|---|---|
+| O_Age | Covered by step 1 (superseded by O_AgeFinal, the big-numeral age stepper) |
+| ST_AccountPro (phone) | Backup row now reads "Saved today, 7:12 PM" (phone-pass.md:243, backup_page.dart); the redundant "Last backed up" row removed. Nothing else on the board changed |
+
+### Step 5: not touched (listed only)
+
+- Custom Exam Pro page boards: SetProB, SetProBOwned, SetPhProB, SetPhProBOwned (not on the canvases; waiting for Aedwon's call on the new Pro page board)
+- Checkout and paywall boards: ST_Paywall, ST_ProCSE, ST_ProCSEPass, ST_ProLET, ST_ProNCE, ST_ProNCENoDate, ST_ProPMA, ST_ProPMAPass (web); CB_Wide, CB_Ph, CB_PhDark (Guardian canvas); S4P_T_*, S4W_T_*, S4P_G_*, S4W_G_* (CSE Release Picks)
+- CSE Release Picks content: not touched
+
+### Uncertain
+
+- O_Custom (phone) is a multi-state custom exam flow. CX_TierCover and CX_TierDialog replace only its subjects step and raise-tier dialog, so O_Custom was not moved. Needs a call.
+- W_Study (web): QA_StudyCLight is the approved head layout, but W_Study draws an open topic that QA does not. Not moved.
+- MK_Paused (web) and QA_Paused: different states, both kept. O_Picker (phone) and QA_PickALight: O_Picker keeps its can't-load and loading states, so it was not moved, though its list differs from pick f A.
+- Five-day week strip: no standalone seven-day strip board exists. The strip sits inside full Home boards (HP_*, HE_*), so nothing was marked. HP_WeekStrip's "Current phone" frame is the only drawn seven-day version.
+- Old exam-tier boards: no old board draws a tier, so there is no old tier board to mark; the new tier boards are additions.
+- MK_Paper counter wrapper differs (animated), caret placed beside it.
+- QS_Figure Check: link kept on a disabled-looking button. Old board linked the same pill the same way.
+- Web wide exam date boards (OB_Date*) and web ST_Exam* are not superseded: wide stays as is (LOG:2951).
+- Moved boards leave gaps on their old pages; other boards were not shifted.
+- canvas.json was rewritten without indentation (same content).
