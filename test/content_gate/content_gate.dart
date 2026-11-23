@@ -45,6 +45,7 @@ import 'package:pantas/features/quiz/presentation/quiz_question_viewer.dart';
 
 import '../../tool/checks/content_snapshot.dart';
 import '../../tool/checks/mock_blueprint_topics.dart';
+import 'accepted.dart';
 
 /// One failure: which item, which check, and why.
 class GateFailure {
@@ -87,18 +88,38 @@ class GateReport {
   /// Findings the existing checks already accept. Listed, never failed.
   final accepted = <String>{};
 
+  /// Set while the Pro copy is checked: its findings say so, and one the Free
+  /// copy already has is not repeated.
+  String tier = '';
+
   void fail(String id, String check, String cause) {
+    for (final a in acceptedFindings) {
+      if (a.id == id && a.check == check) {
+        accepted.add(
+          '$id [$check] $cause (accepted: ${a.reason}; owner: ${a.owner}; '
+          '${a.date})',
+        );
+        return;
+      }
+    }
+    if (tier.isNotEmpty &&
+        failures.any((f) => f.itemId == id && f.check == check)) {
+      return;
+    }
+    final text = tier.isEmpty ? cause : '$cause $tier';
     // The same finding from two mock seeds is one finding.
     if (failures.any(
-      (f) => f.itemId == id && f.check == check && f.cause == cause,
+      (f) => f.itemId == id && f.check == check && f.cause == text,
     )) {
       return;
     }
-    failures.add(GateFailure(id, check, cause));
+    failures.add(GateFailure(id, check, text));
   }
 
-  void count(String kind, [int by = 1]) =>
-      counts[kind] = (counts[kind] ?? 0) + by;
+  void count(String kind, [int by = 1]) {
+    final key = tier.isEmpty ? kind : '$kind $tier';
+    counts[key] = (counts[key] ?? 0) + by;
+  }
 
   String toMarkdown({required String title, required Duration took}) {
     final out = StringBuffer('## $title\n\n')
@@ -121,7 +142,7 @@ class GateReport {
       );
     }
     if (accepted.isNotEmpty) {
-      out.writeln('\nAccepted by the existing checks, not counted:');
+      out.writeln('\nAccepted findings, not counted:');
       for (final a in accepted) {
         out.writeln('- $a');
       }
@@ -163,9 +184,11 @@ class _Telemetry implements Telemetry {
 
 /// A [ContentRemote] that answers from the documents the upload packaged.
 class _ServedRemote implements ContentRemote {
-  _ServedRemote(Directory served) {
+  _ServedRemote(Directory served, {required this.pro}) {
     for (final kind in ContentKind.values) {
-      final dir = Directory('${served.path}/${kind.wire}');
+      final folder =
+          pro && kind == ContentKind.questions ? 'questions-pro' : kind.wire;
+      final dir = Directory('${served.path}/$folder');
       if (!dir.existsSync()) continue;
       for (final file in dir.listSync().whereType<File>()) {
         if (!file.path.endsWith('.json')) continue;
@@ -177,6 +200,7 @@ class _ServedRemote implements ContentRemote {
     }
   }
 
+  final bool pro;
   final docs = <String, Map<String, Object?>>{};
 
   @override
@@ -186,12 +210,12 @@ class _ServedRemote implements ContentRemote {
     Map<String, String> knownVersions,
   ) async =>
       ContentFetch(
-        tier: 'free',
+        tier: pro ? 'pro' : 'free',
         entries: {
           for (final id in ids)
             id: docs.containsKey('${kind.wire}/$id')
                 ? RemoteEntry.ok(
-                    version: 'gate.f',
+                    version: pro ? 'gate.p' : 'gate.f',
                     data: docs['${kind.wire}/$id'],
                   )
                 : const RemoteEntry.missing(),
@@ -213,7 +237,22 @@ Future<GateReport> runContentGate(
 }) async {
   limits ??= ServerLimits.read();
   final report = GateReport();
+  await _runTier(tester, served, limits, report, pro: false);
+  // The same app code on the Pro copy of every set: wrong-choice notes map,
+  // render, and must not break the save or the analytics.
+  report.tier = '[Pro copy]';
+  await _runTier(tester, served, limits, report, pro: true);
+  report.tier = '';
+  return report;
+}
 
+Future<void> _runTier(
+  WidgetTester tester,
+  Directory served,
+  ServerLimits limits,
+  GateReport report, {
+  required bool pro,
+}) async {
   final contentDb = ContentDatabase(NativeDatabase.memory());
   final appDb = AppDatabase(NativeDatabase.memory());
   late final ContentMirror mirror;
@@ -229,14 +268,14 @@ Future<GateReport> runContentGate(
   // 1. Load through the mirror: catalog first, then every set and lesson.
   await tester.runAsync(() async {
     final invalid = File('${served.path}/invalid.txt');
-    if (invalid.existsSync()) {
+    if (!pro && invalid.existsSync()) {
       for (final line in invalid.readAsLinesSync()) {
         final m = RegExp(r'^(\S+\.(?:yaml|md)): (.*)$').firstMatch(line);
         if (m != null) report.fail(m[1]!, 'upload', 'not packaged: ${m[2]}');
       }
     }
     service = ContentService(
-      remote: _ServedRemote(served),
+      remote: _ServedRemote(served, pro: pro),
       cache: ContentCache(appDb),
     );
     mirror = ContentMirror(db: contentDb, service: service);
@@ -419,7 +458,7 @@ Future<GateReport> runContentGate(
           }
         }
 
-        _checkPayload(attempt, limits!, fail);
+        _checkPayload(attempt, limits, fail);
       } on Object catch (e) {
         fail('save-path', '$e');
       }
@@ -428,9 +467,11 @@ Future<GateReport> runContentGate(
 
     // 4. Lessons and parts load.
     final lessonIds = [
-      for (final row in await (contentDb.select(contentDb.contentLessons)
-            ..where((l) => l.isActive.equals(true)))
-          .get())
+      for (final row in pro
+          ? const <ContentLessonRow>[]
+          : await (contentDb.select(contentDb.contentLessons)
+                ..where((l) => l.isActive.equals(true)))
+              .get())
         row.id,
     ];
     report.count('lesson part', 0);
@@ -445,6 +486,7 @@ Future<GateReport> runContentGate(
       }
     }
 
+    final mockExams = [if (!pro) ...exams];
     // 5. Mocks fill every slot.
     final blueprints = MockBlueprintRepo(contentDb);
     final container = ProviderContainer(
@@ -456,7 +498,7 @@ Future<GateReport> runContentGate(
     final unresolved = findUnresolvedTopics(
       ContentSnapshot(
         blueprints: [
-          for (final exam in exams)
+          for (final exam in mockExams)
             for (final bp in await blueprints.byExam(exam.id))
               BlueprintRow(bp.id, exam.id, [
                 for (final sec in BlueprintSection.parseList(bp.sectionsJson))
@@ -479,7 +521,7 @@ Future<GateReport> runContentGate(
       return found.isNotEmpty && found.every((v) => v.acceptedBecause != null);
     }
 
-    for (final exam in exams) {
+    for (final exam in mockExams) {
       for (final bp in await blueprints.byExam(exam.id)) {
         report.count('mock blueprint');
         report.examsOf[bp.id] = {exam.id};
@@ -616,7 +658,7 @@ Future<GateReport> runContentGate(
               ),
             ],
             passages: _renderPassages,
-            pro: false,
+            pro: pro,
             onBack: () {},
             onNote: (_, __, ___) async {},
             onReport: (_) async => false,
@@ -639,7 +681,6 @@ Future<GateReport> runContentGate(
       ContentRenderer(blocks: entry.$2, readerFigures: true),
     );
   }
-  return report;
 }
 
 void _checkPayload(

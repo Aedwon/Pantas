@@ -36,6 +36,20 @@ mock blueprints) into the packaging, and is not read by the gate directly.
   `MockSampler` and pool provider. A short section the existing
   `mock-blueprint-topics` check already accepts is listed, not failed.
 
+## Free and Pro copies
+
+Every question set is loaded twice through the mirror: the Free copy and the
+Pro copy (`questions-pro/`, built by the uploader with `functions/src/_proNotes.ts`,
+the same merge `getContent` uses). The Pro pass repeats the per-question checks
+with the viewer in Pro mode, so wrong-choice notes map, render, and do not break
+the save or the analytics. A Pro finding the Free copy already has is not repeated.
+
+## Accepted findings
+
+`accepted.dart` lists findings that are printed but never fail, each with
+reason, owner and date, in the style of `tool/checks`. Add one only on the
+lead's ruling.
+
 ## Existing checks it reuses, not repeats
 
 `question-id-limits`, `analytics-never-blocks`, `session-stored-order`,
@@ -86,7 +100,6 @@ and the good item stays clean.
 
 ## Not covered
 
-- Pro-only wrong-choice notes: the gate loads the Free copy of each set.
 - The native seed database (`assets/seed/content.db`, built from
   `export.json`): the web app never installs it (`SeedInstaller` on web
   throws), and the upload reads `export.json` only for catalog structure.

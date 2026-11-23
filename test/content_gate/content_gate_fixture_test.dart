@@ -115,7 +115,7 @@ void main() {
       ],
       'parts': <String>[],
     });
-    _write(dir, 'questions/qs-fix.json', {
+    final set = <String, Object?>{
       'id': 'qs-fix',
       'meta': {
         'topic': 'fix',
@@ -129,7 +129,10 @@ void main() {
         _question('q-no-passage', [true, false], passage: 'p-missing'),
         _question(longId, [true, false, false]),
       ],
-    });
+    };
+    // The Pro copy of the same set.
+    _write(dir, 'questions/qs-fix.json', set);
+    _write(dir, 'questions-pro/qs-fix.json', set);
 
     final report = await runContentGate(tester, dir);
     final found = {for (final f in report.failures) '${f.itemId}|${f.check}'};
