@@ -8,7 +8,6 @@ import {HttpsError, onCall, type CallableRequest} from 'firebase-functions/v2/ht
 import {onSchedule} from 'firebase-functions/v2/scheduler';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {allowFromAddress, clientBucket, type AddressRequest} from './_clientAddress.js';
-import {allowAtMost} from './_limits.js';
 import {logger} from 'firebase-functions/logger';
 import {deleteUserData} from './deleteUserData.js';
 import {guardianMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
@@ -200,6 +199,14 @@ async function allowStudentSend(db: Firestore, key: string, uid: string, at: num
   });
 }
 
+/**
+ * The rate limiters of the guardian calls. Each count sits under a keyed hash of the caller and the
+ * limiter's name, never under the account, holds no email, token or request field, and carries a
+ * cleanup time (twice its window, at most 8 days) that the cleanup deletes it by.
+ */
+const limiterFor = (deps: ConsentDeps): NonNullable<ConsentDeps['allow']> => deps.allow
+  ?? ((uid, name, max, windowMs) => allowFromAddress(deps.db, deps.key, `guardianLimits/${name}`, uid, (deps.now ?? Date.now)(), max, windowMs));
+
 /** The old per-account send counter. The code no longer writes it; a request's deletion removes any left. */
 const oldSendLimiter = (db: Firestore, uid: string): DocumentReference => db.doc(`users/${uid}/limits/guardianSend`);
 
@@ -220,7 +227,7 @@ export type StatusResult = {status: PublicStatus; maskedEmail: string | null; ex
 export async function getStatus(request: AppRequest, deps: ConsentDeps): Promise<StatusResult> {
   const uid = requireCaller(request);
   const now = (deps.now ?? Date.now)();
-  const allow = deps.allow ?? allowAtMost;
+  const allow = limiterFor(deps);
   if (!await allow(uid, 'guardianStatus', 60, 10 * 60_000)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
@@ -250,7 +257,7 @@ export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<
     throw new HttpsError('invalid-argument', 'Reload the app to review the current age check notice.');
   }
   const now = (deps.now ?? Date.now)();
-  const allow = deps.allow ?? allowAtMost;
+  const allow = limiterFor(deps);
   // The per-student count is kept under a keyed hash of the account, never under the account itself,
   // so nothing named for the account outlives a declined or expired request.
   const sendAllowed = deps.allow
@@ -404,7 +411,7 @@ function requireVisitor(request: AppRequest): string {
 /** The guardian page. Read only: opening the link never confirms anything. */
 export async function readRequest(request: AppRequest, deps: ConsentDeps): Promise<RequestResult> {
   const visitor = requireVisitor(request);
-  const allow = deps.allow ?? allowAtMost;
+  const allow = limiterFor(deps);
   if (!await allow(visitor, 'guardianAnswer', ANSWER_LIMIT.max, ANSWER_LIMIT.windowMs)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
@@ -444,7 +451,7 @@ export async function answerRequest(request: AppRequest, deps: ConsentDeps): Pro
       data.noticeWordingVersion !== GUARDIAN_NOTICE_WORDING_VERSION) {
     throw new HttpsError('failed-precondition', 'Reload the page to review the current terms.');
   }
-  const allow = deps.allow ?? allowAtMost;
+  const allow = limiterFor(deps);
   if (!await allow(visitor, 'guardianAnswer', ANSWER_LIMIT.max, ANSWER_LIMIT.windowMs)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
@@ -470,11 +477,12 @@ export async function answerRequest(request: AppRequest, deps: ConsentDeps): Pro
     if (!row || row.kind === 'manage') return {state: 'unknown'};
     if (row.state === 'used') return {state: 'used'};
     if (row.state !== 'open' || row.uid !== uid) return {state: 'unknown'};
+    // A decline deletes the request in this same write, so every read comes first, the links included,
+    // and the clock is read last: a request that expired during the reads is refused.
+    const links = decision === 'decline' ? await tx.get(requestLinksQuery(deps.db, uid)) : undefined;
     const now = Math.max(started, (deps.now ?? Date.now)());
     if (now >= row.expiresAt) return {state: 'expired'};
     if (current?.status !== 'pending' || current.tokenHash !== hash) return {state: 'used'};
-    // A decline deletes the request in this same write, so every read comes first.
-    const links = decision === 'decline' ? await tx.get(requestLinksQuery(deps.db, uid)) : undefined;
     tx.set(tokenRef(deps.db, hash), links
       ? {state: 'used', uid: FieldValue.delete(), cleanupAt: coarseEnd(now)}
       : {state: 'used', usedAt: now, cleanupAt: now + GUARDIAN_WINDOW_MS}, {merge: true});
@@ -537,7 +545,7 @@ const publicManage = (view: ManageView): ManageResult =>
 
 async function manageVisitor(request: AppRequest, deps: ConsentDeps): Promise<void> {
   const visitor = requireVisitor(request);
-  const allow = deps.allow ?? allowAtMost;
+  const allow = limiterFor(deps);
   if (!await allow(visitor, 'guardianAnswer', ANSWER_LIMIT.max, ANSWER_LIMIT.windowMs)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
@@ -562,7 +570,7 @@ export async function setSharing(request: AppRequest, deps: ConsentDeps): Promis
   const data = (request.data ?? {}) as {token?: unknown; allowed?: unknown};
   if (typeof data.allowed !== 'boolean') throw new HttpsError('invalid-argument', 'Sharing must be on or off.');
   const allowed = data.allowed;
-  const allow = deps.allow ?? allowAtMost;
+  const allow = limiterFor(deps);
   if (!await allow(visitor, 'guardianAnswer', ANSWER_LIMIT.max, ANSWER_LIMIT.windowMs)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }
@@ -620,7 +628,7 @@ const ADULT_LIMIT = {max: 5, windowMs: 60 * 60_000} as const;
  */
 export async function markAdult(request: AppRequest, deps: ConsentDeps): Promise<{state: 'adult'}> {
   const uid = requireCaller(request);
-  const allow = deps.allow ?? allowAtMost;
+  const allow = limiterFor(deps);
   if (!await allow(uid, 'guardianAdult', ADULT_LIMIT.max, ADULT_LIMIT.windowMs)) {
     throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
   }

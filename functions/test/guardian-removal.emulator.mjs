@@ -144,13 +144,19 @@ test('old account-keyed send limiter rows are removed by the script and counted 
   await db.doc('users/declined/limits/guardianSend').set({windowStartedAt: T0, count: 2});
   await db.doc('users/old/limits/guardianSend').set({windowStartedAt: T0, count: 1});
   await db.doc('users/old/limits/guardianStatus').set({windowStartedAt: T0, count: 1});
+  await db.doc('users/old/limits/guardianAdult').set({windowStartedAt: T0, count: 1});
+  await db.doc('users/old/limits/guardianAnswer').set({windowStartedAt: T0, count: 1});
+  await db.doc('users/old/limits/somethingElse').set({windowStartedAt: T0, count: 1});
   const dry = await removeUnconfirmedGuardianRecords({db, live: false, now: () => T0});
-  assert.equal(dry.limitersRemoved, 2);
+  assert.equal(dry.limitersRemoved, 5);
   assert.equal((await db.doc('users/old/limits/guardianSend').get()).exists, true);
   await removeUnconfirmedGuardianRecords({db, live: true, now: () => T0});
   assert.equal((await db.doc('users/declined/limits/guardianSend').get()).exists, false);
   assert.equal((await db.doc('users/old/limits/guardianSend').get()).exists, false);
-  assert.equal((await db.doc('users/old/limits/guardianStatus').get()).exists, true, 'other limiters are not touched');
+  for (const name of ['guardianStatus', 'guardianAdult', 'guardianAnswer']) {
+    assert.equal((await db.doc(`users/old/limits/${name}`).get()).exists, false, name);
+  }
+  assert.equal((await db.doc('users/old/limits/somethingElse').get()).exists, true, 'other limiters are not touched');
   await wipe();
 });
 

@@ -91,11 +91,12 @@ export async function removeUnconfirmedGuardianRecords({db, live = false, now = 
   return out;
 }
 
-/** The send counter used to sit under the account. The code no longer writes it, so every one left is removed. */
+/** These limiters used to sit under the account. The code no longer writes them, so every one left is removed. */
+const OLD_LIMITERS = ['guardianSend', 'guardianStatus', 'guardianAdult', 'guardianAnswer'];
 async function removeOldSendLimiters(db, live, out) {
   for await (const doc of db.collectionGroup('limits').stream()) {
     out.reads++;
-    if (doc.id !== 'guardianSend' || !doc.ref.path.startsWith('users/')) continue;
+    if (!OLD_LIMITERS.includes(doc.id) || !doc.ref.path.startsWith('users/')) continue;
     out.limitersRemoved++; out.writes++;
     if (live) await doc.ref.delete();
   }
@@ -164,7 +165,7 @@ export function summary(project, live, r) {
   return `${live ? 'LIVE' : 'DRY RUN'} ${project}: ${r.guardianRecords} guardian records among ${r.serverDocuments} server documents; `
     + `${r.deleted} deleted${would ? ' (would be)' : ''}, ${r.scheduled} given a cleanup time${would ? ' (would be)' : ''}, ${r.kept} kept; `
     + `links: ${r.linksRemoved} deleted, ${r.linksStripped} cleared of the account${would ? ' (would be)' : ''}; `
-    + `${r.evidenceUnlinked} decline answers moved to their own id${would ? ' (would be)' : ''}; ${r.limitersRemoved} old send counters deleted${would ? ' (would be)' : ''}; `
+    + `${r.evidenceUnlinked} decline answers moved to their own id${would ? ' (would be)' : ''}; ${r.limitersRemoved} old uid-keyed limiter rows deleted${would ? ' (would be)' : ''}; `
     + `retry-free estimate: ${r.reads} reads, ${r.writes} writes${live ? '' : ' if run live'}`;
 }
 

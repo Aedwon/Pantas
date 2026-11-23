@@ -698,3 +698,63 @@ test('an answer whose clock crosses expiry between its reads is refused as expir
   assert.equal(s.rows.get(consentPath).status, 'pending');
   assert.equal(evidenceRows(s.rows).length, 0);
 });
+
+// ---------------------------------------------------------------- round 5 (ruling C5)
+
+test('the status, adult and answer limiters are kept under keyed hashes with a cleanup time, and the cleanup deletes them', async () => {
+  const s = store();
+  const deps = {db: s.db, key: 'key', now: () => T0, mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test'};
+  await guardian.getStatus({auth: {uid: 'student'}, app, data: {}}, deps);
+  await guardian.markAdult({auth: {uid: 'student'}, app, data: {}}, deps);
+  await guardian.readRequest({auth: {uid: 'visitor-x'}, app, data: {token: 'a'.repeat(64)}}, deps);
+  const rows = [...s.rows];
+  assert.equal(rows.filter(([path]) => path.includes('/limits/')).length, 0, 'nothing is kept under the account');
+  const limiters = rows.filter(([path]) => path.startsWith('guardianLimits/'));
+  assert.equal(limiters.length, 3);
+  for (const [path, body] of limiters) {
+    assert.ok(!path.includes('student') && !path.includes('visitor-x'), path);
+    assert.ok(!JSON.stringify(body).includes('student') && !JSON.stringify(body).includes('visitor-x'), path);
+    assert.equal(typeof body.cleanupAt, 'number', path);
+    assert.ok(body.cleanupAt <= T0 + 8 * DAY, `${path} ends within 8 days`);
+  }
+  await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY);
+  assert.deepEqual([...s.rows.keys()].filter(path => path.startsWith('guardianLimits/')), []);
+});
+
+test('a decline whose request expired during its reads is refused as expired', async () => {
+  const s = await sentTwice();
+  const expiry = T0 + 60_000 + 7 * DAY;
+  const manageB = `guardianTokens/${guardian.hashValue('key', 'token', '2'.repeat(64))}`;
+  // The clock passes expiry only once the request's links have been read.
+  const result = await guardian.answerRequest(request({token: s.token, decision: 'decline', agreed: false,
+    documentVersions: versions, noticeWordingVersion: '2026-11-12'}),
+  {...s.deps, now: () => (s.reads.includes(manageB) ? expiry : expiry - 1)});
+  assert.deepEqual(result, {state: 'expired'});
+  assert.equal(s.rows.get(consentPath).status, 'pending');
+  assert.equal(evidenceRows(s.rows).length, 0);
+});
+
+test('C5 pass condition: after a decline or an expiry only the decline evidence names the account, and no kept link shares its id or time', async () => {
+  const sentWithDefaults = async () => {
+    const s = await sentTwice();
+    return {...s, deps: {...s.deps, allow: undefined}};
+  };
+  const declined = await sentWithDefaults();
+  const decidedAt = T0 + DAY + 4_321;
+  await guardian.answerRequest(request({token: declined.token, decision: 'decline', agreed: false,
+    documentVersions: versions, noticeWordingVersion: '2026-11-12'}), {...declined.deps, now: () => decidedAt});
+  const evidence = evidenceRows(declined.rows);
+  assert.equal(evidence.length, 1);
+  assert.deepEqual(namingStudent(declined.rows), [evidence[0][0]], 'only the evidence holds or sits under the account');
+  assert.equal([...declined.rows.keys()].filter(path => path.startsWith('users/student/')).length, 0);
+  const evidenceId = evidence[0][0].split('/').at(-1);
+  for (const [path, body] of declined.rows) {
+    if (!path.startsWith('guardianTokens/')) continue;
+    assert.notEqual(path.split('/').at(-1), evidenceId);
+    for (const [name, value] of numbersOf(body)) assert.notEqual(value, decidedAt, `${path} ${name}`);
+  }
+  const expired = await sentWithDefaults();
+  await guardian.purgeGuardianRecords(expired.db, T0 + 60_000 + 7 * DAY);
+  assert.deepEqual(namingStudent(expired.rows), []);
+  assert.equal([...expired.rows.keys()].filter(path => path.startsWith('users/student/')).length, 0);
+});
