@@ -99,3 +99,12 @@ Codex Sol High critiqued only these changes (`critique-2026-11-23b-sol-high.md`)
 - **No text says the buyer is the guardian.** The tick is called a declaration.
 - **Still in your hands:** the three numbers you can change at sign-off are 90 days, ten years and four years.
 - **Critique result:** 9 findings and 3 items that conflict with rulings. All wording findings applied. Open decisions are in the README under "round 3". The Civil Code articles held.
+
+## Nov 23 Fable round 3 (H1 to H6)
+
+- **Decline:** the Notice for teens now says a declined request is deleted when the answer is recorded, not seven days later. Its guardian page links go with it. The decline stays as guardian evidence.
+- **Purpose limit:** the notice says the open request is used only to ask your guardian and record the answer.
+- **Court order:** both notices allow one exception to the schedules. If a court or authority orders us to keep named records, we copy them by hand and never pause cleanup.
+- **Refund route:** the Terms say that if the original payment route is closed, we send a bank or e-wallet transfer to the payer only.
+- **Publish gate:** the README lists each claim that needs a build and says to check it live on prod first.
+- **Still open for round 4:** the legal basis for the open request, and the Cybercrime Act section behind the court-order sentence.

@@ -224,8 +224,24 @@ Texts changed: the Notice for teens (flag paragraphs, guardian evidence, report 
 5. **Checkout claims before the build.** The texts say a tick is required on every web purchase, the wording version is recorded and the Terms open without ticking. The checked-out code does not do these yet (D2 build). Publish only after it ships.
 6. **Refund route for a guardian-denied purchase.** PayMongo refund windows can close. Pantas must be able to refund by another route (the QR Ph bank transfer path) when the window has passed.
 
+## Publish gate for claims that need a build (ruling H5)
+
+The texts publish in the same prod release as the behavior they describe, or after it, never before. Check each row live on prod and log the check in the launch log before step 2 below. If a build slips, rewrite that sentence to the built state and have Sol High critique it again, or wait.
+
+| Claim in the texts | Build that makes it true |
+|---|---|
+| A tick on every web purchase; declaration, time, Terms version and wording version recorded; the Terms open without ticking; the seller line | D2, D3, R2, R5 (PR #90) |
+| Only guardian declarations copied at deletion; ten years and four years for evidence | R2, R6 (PR #90) |
+| A failed request is deleted whole; a decline is deleted at once; its guardian page links go with it | D1 with H1 |
+| Reports deleted within 90 days of receipt | R3 (PR #86) with H2 |
+| The trial code period (the texts say "no scheduled expiry" until it ships) | D7 |
+| A refund route when PayMongo's route is closed | H6 |
+| Seller details in the website footer | D3 |
+
+
 ## Publishing steps (for the integrator, L1 and L7)
 
+0. Texts publish with or after the D1, D2, D3 and D7 builds, and each claim is checked live on prod first (table above).
 1. Set the three version stamps to the publication date in both places: `guardianDocumentVersions` in the app and `GUARDIAN_DOCUMENT_VERSIONS` in the functions. Deploy together, or the guardian page refuses answers with "Reload the page".
 2. Put the final texts into the in-app legal documents (the Terms title there is "Terms of Service") and as public pages on pantas.study. The site has only a beta-application privacy page today.
 3. Remove every bracket first: `grep -n '\[' ` on the three texts must find none. Brackets include the retention periods, the invoice sentence and the legal-hold note. Then run the `legal-text-drafting` check, which fails on the words "draft" and "owner note" in in-app text. It does not catch brackets.
@@ -233,3 +249,7 @@ Texts changed: the Notice for teens (flag paragraphs, guardian evidence, report 
 5. Aedwon checks `change-summary.md` and signs off (L1, L2).
 
 The change email wording and the in-app notice are not drafted here. They follow rule 8 and need their own pass.
+
+## Nov 23 round 3, Fable rulings H1 to H6 applied
+
+H1: a decline deletes the request record at once, with its guardian page links. H3: confirmed, the texts say the buyer "said they are" a guardian. H4: both notices allow one exception, a copy made by hand under a binding order, and never pause cleanup. H5: the table above. H6: the Terms refund route covers any closed original route. Open for round 4: the basis for the open request (Section 13(b) with Advisory Opinion 2017-049, against 13(f)) and RA 10175 Section 13 for the H4 sentence.

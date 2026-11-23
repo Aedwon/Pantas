@@ -112,7 +112,7 @@ Offline copies may remain until the device reconnects or you clear them. Backup 
 - Question reports: we delete each report within 90 days of receipt. We delete reports sooner when you delete your account, including when we delete an inactive account.
 - Messages to us, including refund requests: kept as needed to handle the matter, meet legal duties or resolve a documented claim. We use refund destination details to verify and send the refund and keep the minimum record afterward. [Period to publish once the mailbox process exists, for example "two years after the matter closes".]
 
-The schedules above apply to guardian evidence and question reports. We may keep other specific records longer when the law requires it or when we need them for a legal claim.
+The schedules above apply to guardian evidence and question reports, with one exception. If a court or authority gives us a binding order to keep named records, we copy those records by hand and keep the copy for as long as the order requires. We never pause cleanup. We may keep other specific records longer when the law requires it or when we need them for a legal claim.
 
 ## Why we may use your data
 
