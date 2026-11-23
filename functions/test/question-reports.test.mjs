@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   MAX_REPORT_MESSAGE, MAX_PER_QUESTION, MAX_PER_DAY, MAX_REQUEST_BYTES,
-  validateQuestionReport, storeQuestionReport, reportDocId, questionCounterId,
+  validateQuestionReport, storeQuestionReport, reportDocId, questionCounterId, REPORT_RETENTION_DAYS,
 } from '../lib/questionReports.js';
 import {RateLimiter} from '../lib/clientTelemetry.js';
 
@@ -127,6 +127,20 @@ test('a new report stores the fields and costs 5 reads and 3 writes', async () =
   assert.equal(stored.build, '1293236267');
   assert.equal(stored.createdAt.toMillis(), f.state.at);
   assert.deepEqual(f.log, {reads: 5, writes: 3});
+});
+
+test('every stored report expires 85 days after the server received it', async () => {
+  assert.equal(REPORT_RETENTION_DAYS, 85);
+  const f = fixture();
+  await storeQuestionReport(request(valid()), f.deps());
+  const stored = f.rows.get(`questionReports/${reportDocId('u1', valid().reportId)}`);
+  assert.ok(stored.expireAt, 'expireAt must be stored');
+  assert.equal(stored.expireAt.toMillis(), f.state.at + 85 * 86_400_000);
+  assert.equal(stored.expireAt.toMillis() - stored.createdAt.toMillis(), 85 * 86_400_000);
+});
+
+test('the expiry is set by the server and a client cannot send one', () => {
+  refuses((d) => { d.expireAt = 1; });
 });
 
 test('a retry of the same report costs 3 reads, no writes, and counts nothing', async () => {

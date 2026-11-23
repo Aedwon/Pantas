@@ -27,6 +27,14 @@ export const MAX_PER_QUESTION = 3;
 export const MAX_PER_DAY = 20;
 export const MAX_REQUEST_BYTES = 4096;
 
+/**
+ * Every report is deleted this long after the server received it, by a Firestore TTL policy on
+ * `questionReports.expireAt` (firestore.indexes.json). The published period is "within 90 days of
+ * receipt"; the five days of room cover the delay before Firestore removes an expired document.
+ * The server makes the time. A client cannot send one.
+ */
+export const REPORT_RETENTION_DAYS = 85;
+
 const REPORT_ID = /^[A-Za-z0-9_-]{16,64}$/;
 const BUILD = /^[A-Za-z0-9._-]{1,40}$/;
 const KEYS = ['reportId', 'accountId', 'questionId', 'questionVersion', 'examId', 'message', 'build'];
@@ -137,6 +145,7 @@ export async function storeQuestionReport(request: Pick<CallableRequest, 'auth' 
     tx.set(reportRef, {
       accountId: uid, questionId: report.questionId, questionVersion: report.questionVersion,
       examId: report.examId, message: report.message, build: report.build, createdAt: Timestamp.fromMillis(now),
+      expireAt: Timestamp.fromMillis(now + REPORT_RETENTION_DAYS * 86_400_000),
     });
     tx.set(questionRef, {count: asked + 1});
     tx.set(dayRef, {day: today, count: dayCount + 1});

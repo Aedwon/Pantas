@@ -41,6 +41,20 @@ test('the callable is exported and a real Firestore transaction stores, dedupes 
   await clean();
 });
 
+test('every report stored in Firestore carries a server-made expireAt 85 days out', async () => {
+  await clean();
+  for (let n = 60; n < 63; n++) await storeQuestionReport(request(report(n, {questionId: `ttl-${n}`})), deps());
+  const stored = await mine();
+  assert.equal(stored.size, 3);
+  for (const doc of stored.docs) {
+    const expireAt = doc.get('expireAt');
+    assert.ok(expireAt, `${doc.id} has no expireAt`);
+    assert.equal(expireAt.toMillis(), doc.get('createdAt').toMillis() + 85 * 86_400_000);
+    assert.equal(expireAt.toMillis(), at + 85 * 86_400_000);
+  }
+  await clean();
+});
+
 test('the callable itself refuses a wrong account and a signed-out call before storing anything', async () => {
   await clean();
   await assert.rejects(sendQuestionReport.run({auth: {uid}, app: {appId: 'test'}, data: {...report(1), accountId: 'someone-else'}}),

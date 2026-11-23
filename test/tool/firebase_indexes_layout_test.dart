@@ -67,7 +67,7 @@ void main() {
         as Map<String, dynamic>;
     final overrides = (config['fieldOverrides'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
-    expect(overrides, hasLength(4));
+    expect(overrides, hasLength(5));
     for (final field in ['claimsPending', 'updatedAt']) {
       final matches = overrides.where(
         (entry) =>
@@ -85,12 +85,13 @@ void main() {
     }
   });
 
-  test('Firebase config keeps both expiry TTL overrides without indexes', () {
+  test('Firebase config keeps every expiry TTL override without indexes', () {
     final config = jsonDecode(File('firestore.indexes.json').readAsStringSync())
         as Map<String, dynamic>;
     final overrides = (config['fieldOverrides'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
-    for (final group in ['users', 'webhookRateLimits']) {
+    // questionReports: a student's report is deleted 85 days after receipt.
+    for (final group in ['users', 'webhookRateLimits', 'questionReports']) {
       final matches = overrides.where(
         (entry) =>
             entry['collectionGroup'] == group &&
