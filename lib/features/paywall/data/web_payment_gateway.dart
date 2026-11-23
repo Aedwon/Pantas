@@ -23,6 +23,9 @@ const _webTrialProduct = 'web_trial';
 /// takes the shape the mobile Monthly trial already has.
 const _trialAsProduct = 'pantas_cs_monthly';
 
+/// The product id the server writes on a tester reward grant.
+const _betaRewardProduct = 'beta_reward';
+
 /// Maps rows of the server grant ledger (`users/{uid}/grants`) into the
 /// app's existing [Entitlement], so no model change is needed (ruling C1
 /// item 2). A grant counts while its state is `active` and its end is after
@@ -63,10 +66,15 @@ Entitlement entitlementFromGrants(
     }
     final endsAt = DateTime.fromMillisecondsSinceEpoch(end, isUtc: true);
     if (!endsAt.isAfter(at)) continue;
-    if (row['source'] == 'beta' && productId == 'beta_pro') {
+    final isBetaPro = row['source'] == 'beta' && productId == 'beta_pro';
+    // A tester reward is per exam, for any exam the server rewards.
+    final isReward =
+        row['source'] == 'beta_reward' && productId == _betaRewardProduct;
+    if (isBetaPro || isReward) {
       final examId = row['examId'];
       if (examId is String &&
-          const {'exam_cse_pro', 'exam_cse_sub'}.contains(examId)) {
+          (isReward ||
+              const {'exam_cse_pro', 'exam_cse_sub'}.contains(examId))) {
         final previous = betaPasses[examId];
         if (previous == null || endsAt.isAfter(previous)) {
           betaPasses[examId] = endsAt;
@@ -82,7 +90,10 @@ Entitlement entitlementFromGrants(
       continue;
     }
     final product = productForId(productId);
-    if (product != null) connected.add(_Held(productId, endsAt));
+    // A pass covers its exam only, so it never connects a queued plan.
+    if (product != null && product.kind != ProductKind.pass) {
+      connected.add(_Held(productId, endsAt));
+    }
     if (product?.kind == ProductKind.subscription) {
       subscriptions.add(_Held(productId, endsAt));
     } else if (product?.kind == ProductKind.promotional) {
@@ -209,6 +220,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   final DateTime Function() _now;
   String? _uid;
   int _identityRevision = 0;
+  int _readRequest = 0;
   bool _googlePlayPlanRenews = false;
 
   /// True only after an owner-bound server reply confirms Play renewal.
@@ -421,15 +433,16 @@ class WebPaymentGateway implements RevenueCatPassGateway {
 
   /// Reads the ledger for [uid] and keeps it as the confirmed entitlement.
   /// Returns null when the signed-in account changed while reading.
+  /// Also returns null when a newer read started, so a slow older reply
+  /// cannot replace a newer one.
   Future<Entitlement?> _readEntitlement(String uid) async {
+    final request = ++_readRequest;
+    bool current() => _uid == uid && request == _readRequest;
     final rows = await _readGrants(uid);
-    if (_uid != uid) return null;
+    if (!current()) return null;
     final entitlement = entitlementFromGrants(rows, at: _now());
-    await _state.acceptAuthoritative(
-      entitlement,
-      shouldContinue: () => _uid == uid,
-    );
-    return _uid == uid ? entitlement : null;
+    await _state.acceptAuthoritative(entitlement, shouldContinue: current);
+    return current() ? entitlement : null;
   }
 
   @override

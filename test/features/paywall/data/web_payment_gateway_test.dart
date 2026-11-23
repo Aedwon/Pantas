@@ -1080,4 +1080,118 @@ void main() {
       expect(entitlement, const Entitlement.free());
     });
   });
+
+  group('beta reward, queued plans and overlapping reads', () {
+    Map<String, dynamic> reward(
+      String examId, {
+      required DateTime ends,
+      DateTime? starts,
+    }) =>
+        {
+          ..._grant('beta_reward', ends: ends, starts: starts),
+          'source': 'beta_reward',
+          'examId': examId,
+        };
+
+    test('a beta reward shows Pro for its exam until its end, then Free', () {
+      final ends = _now.add(const Duration(days: 30));
+      final rows = [reward('exam_cse_pro', ends: ends)];
+      final during = entitlementFromGrants(rows, at: _now);
+
+      expect(during.proIsActive, isTrue);
+      expect(
+        during.coversExam('exam_cse_pro', examTier: PriceTier.civilService),
+        isTrue,
+      );
+      expect(
+        during.coversExam('exam_cse_sub', examTier: PriceTier.civilService),
+        isFalse,
+      );
+      expect(
+        during.coversExam('exam_nce', examTier: PriceTier.civilService),
+        isFalse,
+      );
+      expect(
+        entitlementFromGrants(rows, at: ends).proIsActive,
+        isFalse,
+      );
+      expect(
+        entitlementFromGrants(rows, at: ends.add(_day)),
+        const Entitlement.free(),
+      );
+    });
+
+    test('a beta reward without an exam or not yet started shows nothing', () {
+      final ends = _now.add(const Duration(days: 30));
+      final entitlement = entitlementFromGrants(
+        [
+          {...reward('exam_cse_pro', ends: ends)}..remove('examId'),
+          reward('exam_cse_sub', ends: ends, starts: _now.add(_day)),
+        ],
+        at: _now,
+      );
+
+      expect(entitlement.proIsActive, isFalse);
+    });
+
+    test('a plan queued behind a pass is not active before it starts', () {
+      final passEnds = _now.add(const Duration(days: 10));
+      final entitlement = entitlementFromGrants(
+        [
+          _grant('pantas_pass_cse_pro', ends: passEnds),
+          _grant(
+            'pantas_cs_monthly',
+            starts: passEnds,
+            ends: passEnds.add(const Duration(days: 30)),
+          ),
+        ],
+        at: _now,
+      );
+
+      expect(entitlement.plan, EntitlementPlan.free);
+      expect(entitlement.subscriptions, isEmpty);
+      expect(entitlement.passes.keys, ['exam_cse_pro']);
+      expect(entitlement.proIsActive, isTrue);
+    });
+
+    test('an older reply that resolves last cannot replace a newer one',
+        () async {
+      final older = Completer<List<Map<String, dynamic>>>();
+      final newer = Completer<List<Map<String, dynamic>>>();
+      final replies = [
+        Future.value(<Map<String, dynamic>>[]),
+        older.future,
+        newer.future,
+      ];
+      var call = 0;
+      final gateway = WebPaymentGateway(
+        callable: (_, __) async => null,
+        readGrants: (_) => replies[call++],
+        refreshClaims: (_) async {},
+        openUrl: (_) async => true,
+        now: () => _now,
+      );
+      await gateway.logIn('u1');
+
+      final first = gateway.restorePurchases();
+      final second = gateway.restorePurchases();
+      newer.complete([
+        _grant(
+          'pantas_cs_monthly',
+          ends: _now.add(const Duration(days: 30)),
+        ),
+      ]);
+      await second;
+      expect(gateway.cachedEntitlement?.proIsActive, isTrue);
+
+      older.complete(<Map<String, dynamic>>[]);
+      final stale = await first;
+
+      expect(gateway.cachedEntitlement?.proIsActive, isTrue);
+      expect(
+        stale.status,
+        PaymentOperationStatus.operationAlreadyInProgress,
+      );
+    });
+  });
 }
