@@ -4169,3 +4169,17 @@ Fable 5.2 High ruled under Aedwon's standing delegation on `docs/superpowers/pla
   default compute account after a clean day (keep its run.invoker or move the Scheduler jobs to pantas-jobs); decide CSP
   enforcement after the report-only week; the Codex money-path audit after Aedwon's Codex reset; the app's "Paused" row
   ships with the next prod web build.
+
+### Nov 23, M4 money-path audit done (security and billing lead, r2)
+
+- Two read-only Codex GPT 6.2 Sol High runs (PayMongo path; RevenueCat, passes and web entitlement), one at a time,
+  findings written as found; then an independent Fable 5.2 High verification of every finding against the code (it
+  stopped once at the Claude 5-hour limit and was resumed with its context). Lead re-read two findings in code.
+- Result: 32 findings: 27 confirmed, 3 plausible, 2 refuted (both already dropped by the auditors). After verification:
+  no Blocker, 2 High, 7 Medium, 21 Low, plus one new High operations finding. Details, the verification and the fix plan
+  are private (`Pantas-private/security/2026-11-23-money-path-audit/`), since unfixed money-path weaknesses stay out of
+  this public repo.
+- Fix plan: five items before live PayMongo keys (a "paid but no Pro" runbook and alert, two small entitlement-read
+  fixes, a cutover step for test-mode grants, and dispute-event registration or a chargeback runbook); seven groups in
+  the hardened scope before public launch; native-billing items before any store build. One item needs a Fable ruling
+  (how a plan queues behind a pass for another exam). Fixes go to the CSE release lead (build owner).
