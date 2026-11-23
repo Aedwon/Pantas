@@ -422,6 +422,46 @@ void main() {
     });
   });
 
+  test('a cleared address is forgotten once a transition passes', () {
+    final store = RestorableEmailLinkStore(_MemoryLinkStore('a@b.example'))
+      ..email = null // A's sign-out clears A's address
+      ..forget() // and A's sign-out went through
+      ..email = null // later, B's sign-out clears nothing
+      ..restore(); // and is refused
+    expect(store.email, isNull, reason: "A's address must not come back");
+  });
+
+  test('a passing check tells the caller, so the cleared address is forgotten',
+      () async {
+    final (gateway, _, _, _, _) = await _build();
+    var passed = 0;
+    final watched = ReportsFirstTransitionGateway(
+      gateway,
+      () => _StalledQueue(inMemoryDatabase()),
+      log: (_) {},
+      onPassed: () => passed++,
+    );
+    await watched.prepareForSignOut();
+    expect(passed, 1);
+  });
+
+  test('a send that never answers still lets the pending read decide',
+      () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final inner = _Inner();
+    final gateway = ReportsFirstTransitionGateway(
+      inner,
+      () => _StalledQueue(db, stallSend: true),
+      limit: const Duration(milliseconds: 200),
+      log: (_) {},
+    );
+
+    await gateway.prepareForSignOut().timeout(const Duration(seconds: 2));
+
+    expect(inner.calls, ['signOut'], reason: 'nothing is pending any more');
+  });
+
   test('delete account is not held by reports', () async {
     final (gateway, queue, sender, innerGateway, _) = await _build();
     sender.failure = Exception('offline');
@@ -535,16 +575,19 @@ class _StalledQueue extends ReportQueue {
     this.stallPending = false,
     this.stallRefused = false,
     this.failPending = false,
+    this.stallSend = false,
     this.slowEach,
   }) : super(account: () => 'acct-a');
 
   final bool stallPending;
   final bool stallRefused;
   final bool failPending;
+  final bool stallSend;
   final Duration? slowEach;
 
   @override
   Future<int> sendPending() async {
+    if (stallSend) return Completer<int>().future;
     if (slowEach != null) await Future<void>.delayed(slowEach!);
     return 0;
   }

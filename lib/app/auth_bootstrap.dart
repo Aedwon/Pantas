@@ -77,6 +77,7 @@ List<Override> authRepositoryOverrides(
           // without the check.
           isClosed: accountAccess.isClosed,
           onRefused: emailLinkStore.restore,
+          onPassed: emailLinkStore.forget,
         ),
         localStateWiper: localStateWiperBuilder?.call(ref) ??
             SyncLocalStateWiper(

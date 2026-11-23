@@ -24,6 +24,11 @@ class RestorableEmailLinkStore implements EmailLinkStore {
     _inner.email = value;
   }
 
+  /// Forgets the cleared address once the sign-out or switch that cleared it
+  /// went through, so a later refused transition under another account can
+  /// never put this account's address back.
+  void forget() => _cleared = null;
+
   /// Puts back the address the last clear removed, unless a newer one was
   /// stored since.
   void restore() {

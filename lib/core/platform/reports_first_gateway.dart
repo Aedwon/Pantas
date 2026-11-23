@@ -27,6 +27,7 @@ class ReportsFirstTransitionGateway implements AccountTransitionGateway {
     void Function(String line)? log,
     bool Function(String uid)? isClosed,
     this.onRefused,
+    this.onPassed,
   })  : _log = log ?? debugPrint,
         _isClosed = isClosed ?? ((_) => false);
 
@@ -45,6 +46,10 @@ class ReportsFirstTransitionGateway implements AccountTransitionGateway {
   /// Runs when this check refuses, so anything sign-out cleared before it
   /// asked (a pending email-link sign-in) can be put back.
   final void Function()? onRefused;
+
+  /// Runs when this check lets the transition go on, so what sign-out cleared
+  /// is forgotten and can never come back under another account.
+  final void Function()? onPassed;
 
   @override
   Future<void> prepareForSignOut() async {
@@ -69,6 +74,7 @@ class ReportsFirstTransitionGateway implements AccountTransitionGateway {
       // A closed account's reports can never be sent. They are discarded with
       // the wipe, and main's closed-account cleanup runs without delay.
       await _logDiscarded(queue).timeout(limit, onTimeout: () {});
+      onPassed?.call();
       return;
     }
     try {
@@ -79,11 +85,14 @@ class ReportsFirstTransitionGateway implements AccountTransitionGateway {
       onRefused?.call();
       throw const AuthGatewayException('network-request-failed');
     }
+    onPassed?.call();
   }
 
   Future<void> _check(ReportQueue queue) async {
     try {
-      await queue.sendPending();
+      // Half the limit at most: a send that never answers must still leave
+      // time to read what is pending, which then decides.
+      await queue.sendPending().timeout(limit ~/ 2);
     } on Object {
       // What is still pending decides, below.
     }
