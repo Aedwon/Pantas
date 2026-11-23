@@ -283,6 +283,21 @@ void main() {
       ).called(1);
     });
 
+    test('an already-paid refusal comes back as its own status', () async {
+      when(() => callable('createPaymongoCheckout', any())).thenThrow(
+        FirebaseFunctionsException(
+          message: 'Your payment was received. Pro will appear shortly.',
+          code: 'already-exists',
+          details: const {'reason': 'already-paid'},
+        ),
+      );
+      final result = await gateway.purchase(
+        _weekly,
+        declaration: const CheckoutDeclaration(DeclarationKind.adult),
+      );
+      expect(result.status, PaymentOperationStatus.alreadyPaid);
+    });
+
     test('the server naming the wording it wants comes back as the kind',
         () async {
       when(() => callable('createPaymongoCheckout', any())).thenThrow(

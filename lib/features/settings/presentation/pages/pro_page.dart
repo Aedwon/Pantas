@@ -379,6 +379,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       switch (status) {
         PaymentOperationStatus.guardianConfirmationRequired =>
           'Read the box again, then tick it to pay.',
+        PaymentOperationStatus.alreadyPaid =>
+          'Your payment went through. Pro will appear shortly.',
         PaymentOperationStatus.success => restore ? 'Pro restored.' : null,
         PaymentOperationStatus.noActiveSubscription =>
           'No purchases found for this account.',
@@ -544,6 +546,13 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             : await controller.purchase(package!);
         status = result.status;
       }
+    }
+    if (status == PaymentOperationStatus.alreadyPaid && mounted) {
+      // The buyer's payment exists: read the ledger now, as Restore does.
+      await ref.read(paywallControllerProvider).restore();
+      ref
+        ..invalidate(webGrantHistoryProvider)
+        ..invalidate(unfilteredPaywallOfferingProvider);
     }
     if (!mounted) return;
     final sameAccount = web
@@ -818,8 +827,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         exam != null &&
         (selectedPackage != null || selectedPass != null);
     final declarationBox = web && buyShown && !(trial && !lapsed);
+    // The guardian status is asked only on web, and only while the card shows.
     final declarationKind = _serverKind ??
-        (ref.watch(guardianConfirmedProvider).valueOrNull ?? false
+        (declarationBox &&
+                (ref.watch(guardianConfirmedProvider).valueOrNull ?? false)
             ? DeclarationKind.guardian
             : DeclarationKind.adult);
     final declaration =

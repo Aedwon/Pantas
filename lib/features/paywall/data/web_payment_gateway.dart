@@ -554,6 +554,13 @@ PaymentOperationStatus _statusForError(Object error) {
   if (error is! FirebaseException) {
     return PaymentOperationStatus.unknownFailure;
   }
+  // The buyer already paid the link that was being replaced.
+  if (error is FirebaseFunctionsException &&
+      error.code == 'already-exists' &&
+      error.details is Map &&
+      (error.details as Map)['reason'] == 'already-paid') {
+    return PaymentOperationStatus.alreadyPaid;
+  }
   // The server's refusal of a checkout without the right declaration.
   if (_declarationKindFrom(error) != null) {
     return PaymentOperationStatus.guardianConfirmationRequired;

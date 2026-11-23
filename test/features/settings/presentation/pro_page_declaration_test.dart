@@ -41,11 +41,17 @@ final _accountSignal = StateProvider<String>((ref) => 'owner');
 
 void main() {
   late List<(String, Map<String, Object?>)> calls;
+  var grantReads = 0;
+  var guardianReads = 0;
+  var onWeb = true;
   Exception? refusal;
 
   setUp(() {
     calls = [];
     refusal = null;
+    grantReads = 0;
+    guardianReads = 0;
+    onWeb = true;
   });
 
   Future<void> pumpPro(
@@ -80,7 +86,10 @@ void main() {
           'reference': 'ref_1',
         };
       },
-      readGrants: (_) async => [],
+      readGrants: (_) async {
+        grantReads++;
+        return [];
+      },
       refreshClaims: (_) async {},
       openUrl: (_) async => true,
     );
@@ -95,10 +104,11 @@ void main() {
         ),
       ),
       isAnonymousProvider.overrideWith((ref) async => false),
-      paymentsOnWebProvider.overrideWithValue(true),
-      guardianConfirmedProvider.overrideWith(
-        (ref) async => guardian || ref.watch(_guardianSignal),
-      ),
+      paymentsOnWebProvider.overrideWithValue(onWeb),
+      guardianConfirmedProvider.overrideWith((ref) async {
+        guardianReads++;
+        return guardian || ref.watch(_guardianSignal);
+      }),
       revenueCatGatewayProvider.overrideWithValue(gateway),
       proForActiveExamProvider.overrideWith((ref) async => false),
       activeExamFocusProvider.overrideWith(

@@ -16,7 +16,9 @@ const consent = (uid, ageGroup, status = 'confirmed') =>
 function deps() {
   const calls = [];
   return {calls, db, origin: 'https://pantas.test', methods: ['card'], allow: async () => true, now: () => NOW,
+    expireCalls: [],
     client: {getCheckoutSession: async id => ({id, status: 'expired', payments: []}),
+      expireCheckoutSession: async function (id) { calls.expired = (calls.expired ?? []); calls.expired.push(id); return true; },
       createCheckoutSession: async input => { calls.push(input); return {id: `cs_gc_${calls.length}_${input.uid}`, checkoutUrl: 'https://checkout.paymongo.test/x'}; }}};
 }
 const reset = async uid => {
@@ -223,6 +225,29 @@ test('consent confirmed while the session is made is caught before the link is h
   await assert.rejects(createCheckout(caller(uid), {product, declaration: adult}, d),
     {code: 'failed-precondition', details: {reason: 'declaration-required', kind: 'guardian'}});
   assert.equal((await db.collection(`users/${uid}/pendingCheckouts`).get()).size, 0, 'the reservation is released');
+  assert.deepEqual(d.calls.expired, [`cs_gc_1_${uid}`], 'the session that was made but never handed out is expired');
+});
+
+test('an unissued session that cannot be expired leaves a reason-coded follow-up and a code-only log', async () => {
+  const uid = 'gc-unissued-secret'; await reset(uid);
+  const d = deps();
+  const make = d.client.createCheckoutSession;
+  d.client.createCheckoutSession = async input => { const out = await make(input); await consent(uid, 'minor'); return out; };
+  d.client.expireCheckoutSession = async () => { throw new Error('network down for gc-unissued-secret'); };
+  const lines = [];
+  const out = process.stdout.write.bind(process.stdout), err = process.stderr.write.bind(process.stderr);
+  process.stdout.write = (c, ...r) => { lines.push(String(c)); return out(c, ...r); };
+  process.stderr.write = (c, ...r) => { lines.push(String(c)); return err(c, ...r); };
+  try {
+    await assert.rejects(createCheckout(caller(uid), {product, declaration: adult}, d), {details: {reason: 'declaration-required', kind: 'guardian'}});
+  } finally { process.stdout.write = out; process.stderr.write = err; }
+  const row = await db.doc(`paymongoFollowUps/cs_gc_1_${uid}`).get();
+  assert.equal(row.get('reason'), 'unissuedSessionNotExpired');
+  assert.equal(row.get('status'), 'pending');
+  const logs = lines.join('');
+  assert.match(logs, /unissued-session-not-expired/);
+  assert.equal(logs.includes(uid), false);
+  assert.equal(logs.includes('network down'), false);
 });
 
 test('an account closed after the first check gets no checkout', async () => {
@@ -251,7 +276,7 @@ test('a replacement expires the old PayMongo link first', async () => {
   assert.equal(d.calls.length, 2);
 });
 
-test('payment racing the expiry means no replacement and no second link', async () => {
+test('payment racing the expiry means already paid, no replacement and no second link', async () => {
   const uid = 'gc-race'; await reset(uid);
   const d = activeClient(deps());
   const first = await createCheckout(caller(uid), {product, declaration: adult}, d);
@@ -259,11 +284,22 @@ test('payment racing the expiry means no replacement and no second link', async 
   d.expireMode = 'refuse';
   d.onExpire = async id => { d.paid.add(id); };
   await assert.rejects(createCheckout(caller(uid), {product, declaration: adult}, d),
-    {code: 'failed-precondition', message: 'Your payment is being confirmed. Pro will appear shortly.'});
+    {code: 'already-exists', details: {reason: 'already-paid'}});
   assert.equal(d.calls.length, 1, 'no second session');
   assert.equal((await db.collection('paymongoOrders').where('uid', '==', uid).get()).size, 1, 'no second order');
-  assert.equal((await db.doc(`users/${uid}/pendingCheckouts/${(await db.collection(`users/${uid}/pendingCheckouts`).get()).docs[0].id}`).get()).get('reference'), first.reference,
-    'the reservation still points at the paid session');
+});
+
+test('the webhook granting the old payment between the expiry and the re-read still means already paid', async () => {
+  const uid = 'gc-race-granted'; await reset(uid);
+  const d = activeClient(deps());
+  const first = await createCheckout(caller(uid), {product, declaration: adult}, d);
+  await db.doc(`paymongoOrders/${first.reference}`).update({declaration: FieldValue.delete()});
+  d.expireMode = 'refuse';
+  const {grantDocId} = await import('../lib/paymongoGrants.js');
+  d.onExpire = async id => { d.paid.add(id); await db.doc(`paymongoPayments/${grantDocId(`pay_${id}`)}`).set({uid, processed: true}); };
+  await assert.rejects(createCheckout(caller(uid), {product, declaration: adult}, d),
+    {code: 'already-exists', details: {reason: 'already-paid'}});
+  assert.equal(d.calls.length, 1, 'no second session, so no second payable link');
 });
 
 test('a refused expiry for a pending payment refuses the replacement, retryably', async () => {

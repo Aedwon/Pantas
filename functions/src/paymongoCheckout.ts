@@ -154,6 +154,14 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
         throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
       }
     }
+    // Paid only after the expiry attempt: the buyer paid the old link while we were replacing it.
+    // That payment is theirs whether or not the webhook has granted it yet. No new link is issued
+    // in this request; the app refreshes the entitlement. (A session already paid before this
+    // request is handled below, as before, so a later repeat purchase still works.)
+    if (!paidAlready && remote.payments.some(p => p.status === 'paid')) {
+      throw new HttpsError('already-exists', 'Your payment was received. Pro will appear shortly.',
+        {reason: 'already-paid'});
+    }
     // A paid session whose webhook has not granted yet must never lead to a second session: the
     // customer could pay twice. Keep the reservation so the webhook completes the grant.
     for (const payment of remote.payments.filter(p => p.status === 'paid')) {
@@ -183,11 +191,13 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   // but if one were somehow paid, its order is kept and the webhook still grants Pro to the bound
   // account, so the customer is not charged without Pro. A new session under a new reference is
   // therefore safe.
+  let made: string | undefined;
   try {
     const session = await deps.client.createCheckoutSession({uid, product: product.id,
       name: NAMES[product.id] ?? product.id, amountCentavos: priceCentavos(product),
       successUrl: `${deps.origin}/pro?checkout=success&ref=${referenceNumber}`, cancelUrl: `${deps.origin}/pro?checkout=cancelled&ref=${referenceNumber}`,
       paymentMethodTypes: deps.methods, referenceNumber});
+    made = session.id;
     const result = {checkoutUrl: session.checkoutUrl, sessionId: session.id, reference: referenceNumber};
     // Guarded final write: a slow attempt must not overwrite a newer one. If the reservation is no
     // longer ours, this session is discarded and no link is returned.
@@ -206,7 +216,28 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     return result;
   } catch (error) {
     await releaseReservation(deps.db, pending, referenceNumber);
+    if (made) await expireUnissued(deps, uid, made);
     throw error;
+  }
+}
+
+/**
+ * A session was made but never handed out (consent changed, account closed, the final write
+ * failed): expire it so no payable link exists that nobody holds. Best effort. If PayMongo will
+ * not expire it, record a follow-up and log the reason code only (no account or session data).
+ */
+async function expireUnissued(deps: CheckoutDeps, uid: string, sessionId: string): Promise<void> {
+  try {
+    if (await deps.client.expireCheckoutSession(sessionId)) return;
+  } catch {
+    // Handled below, the same as a refusal.
+  }
+  logger.warn('A checkout session that was never issued could not be expired', {reason: 'unissued-session-not-expired'});
+  try {
+    await deps.db.doc(`paymongoFollowUps/${encodeURIComponent(sessionId)}`).set({uid, sessionId,
+      reason: 'unissuedSessionNotExpired', status: 'pending'});
+  } catch {
+    // The log line above is all that is left.
   }
 }
 

@@ -171,6 +171,8 @@ class PaywallController {
             'back online.',
       PaymentOperationStatus.operationAlreadyInProgress =>
         'A purchase or restore is already in progress.',
+      PaymentOperationStatus.alreadyPaid =>
+        'Your payment went through. Pro will appear shortly.',
       PaymentOperationStatus.guardianConfirmationRequired =>
         'A parent or guardian must confirm this purchase.',
       PaymentOperationStatus.storeFailure =>

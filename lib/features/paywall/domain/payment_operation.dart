@@ -17,6 +17,10 @@ enum PaymentOperationStatus {
   /// The server refused the checkout declaration: missing, or the wrong
   /// wording for the account.
   guardianConfirmationRequired,
+
+  /// The server found the buyer's payment already made (they paid the link we
+  /// were replacing). No new link was issued; the entitlement is refreshed.
+  alreadyPaid,
 }
 
 enum PaymentResult {
@@ -58,6 +62,7 @@ class PaymentOperationResult {
         PaymentOperationStatus.developerFailure ||
         PaymentOperationStatus.guardianConfirmationRequired =>
           PaymentResult.storeError,
+        PaymentOperationStatus.alreadyPaid ||
         PaymentOperationStatus.noActiveSubscription ||
         PaymentOperationStatus.entitlementNotActive ||
         PaymentOperationStatus.revenueCatFailure ||
