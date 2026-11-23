@@ -177,6 +177,15 @@ if (outDir) {
     const served = payload === undefined ? fields : item.kind === 'catalog' ? JSON.parse(payload) : {id: item.id, ...JSON.parse(payload)};
     writeFileSync(join(dir, `${item.id}.json`), JSON.stringify(served));
   }
+  // The Pro copy of each question set, built the way getContent builds it (functions/src/_proNotes.ts).
+  const {mergeProNotes} = await import(pathToFileURL(join(functionsDir, 'lib/_proNotes.js')));
+  mkdirSync(join(resolve(outDir), 'questions-pro'), {recursive: true});
+  for (const item of items.filter(i => i.kind === 'questions')) {
+    const set = {id: item.id, ...JSON.parse(item.data.payload)};
+    const pro = pros.find(p => p.id === item.id);
+    if (pro) mergeProNotes(set.questions, JSON.parse(pro.data.payload));
+    writeFileSync(join(resolve(outDir), 'questions-pro', `${item.id}.json`), JSON.stringify(set));
+  }
   console.log(`wrote documents to ${resolve(outDir)}`);
   process.exit(0);
 }
