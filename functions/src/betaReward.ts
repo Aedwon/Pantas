@@ -197,7 +197,8 @@ export async function activateReward(request: Request, deps: Deps) {
     if (state.surveyAt === undefined) throw new HttpsError('failed-precondition', 'Send the survey first.');
     const inputs = await readEntitlementInputs(tx, deps.db, uid);
     const existing = [...inputs.grants.values(), ...nativeCoverageRows(inputs, now)]
-      .filter(g => g.source !== 'beta' && g.source !== 'beta_reward');
+      .filter(g => g.source !== 'beta' && g.source !== 'beta_reward')
+      .sort((a, b) => a.startsAt - b.startsAt);
     const tiers: Record<string, PriceTier> = {'Student': 'student', 'Civil Service': 'civilService', 'Licensure': 'licensure', 'PSHS-NCE': 'nce'};
     const grants = new Map(inputs.grants);
     let startsAt = Infinity, endsAt = 0;
@@ -207,7 +208,7 @@ export async function activateReward(request: Request, deps: Deps) {
       if (!tier) throw new Error(`Unknown catalog tier for ${exam.id}`);
       let start = now;
       for (const row of existing) {
-        if (row.state !== 'active' || row.startsAt > now || row.endsAt <= now) continue;
+        if (row.state !== 'active' || row.startsAt > start || row.endsAt <= start) continue;
         const covered = row.examId ? row.examId === exam.id :
           row.tier === 'nce' ? tier === 'nce' : tier !== 'nce' &&
           ['student', 'civilService', 'licensure'].indexOf(row.tier) >= ['student', 'civilService', 'licensure'].indexOf(tier);

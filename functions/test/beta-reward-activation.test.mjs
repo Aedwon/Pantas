@@ -35,17 +35,27 @@ test('rewards queue per exam and cover NCE separately, ignoring beta and unrelat
  assert.equal(live.coversExam('future_exam','student'),false);
  assert.equal(reward.calendarYearEnd(Date.parse('2028-02-29T12:00:00+08:00')),Date.parse('2029-02-28T12:00:00+08:00'));
 });
-test('NCE and exam passes queue only matching coverage and revoked or future grants do not queue',async()=>{
+test('NCE and exam passes queue only matching coverage and revoked or disconnected grants do not queue',async()=>{
  const d=ready(), now=d.now(), end=now+123456;
  const row={source:'trial',product:'web_trial',tier:'nce',startsAt:now-1,endsAt:end,state:'active',createdAt:now};
  d.rows.set(`users/${uid}/grants/nce`,row);
  d.rows.set(`users/${uid}/grants/pass`,{...row,source:'paymongo',product:'pantas_pass_cse_pro',examId:'exam_cse_pro',tier:'civilService'});
  d.rows.set(`users/${uid}/grants/revoked`,{...row,tier:'licensure',state:'revoked',endsAt:end+999});
- d.rows.set(`users/${uid}/grants/future`,{...row,tier:'licensure',startsAt:now+1,endsAt:end+999});
+ d.rows.set(`users/${uid}/grants/future`,{...row,tier:'licensure',startsAt:end+1,endsAt:end+999});
  await reward.activateReward(request(),d);
  const get=id=>d.rows.get(`users/${uid}/grants/beta_reward_${id}`);
  assert.equal(get('exam_pshs_nce').startsAt,end);
  assert.equal(get('exam_cse_pro').startsAt,end);
  assert.equal(get('exam_cse_sub').startsAt,now);
  assert.equal(get('exam_upcat').startsAt,now);
+});
+
+test('reward starts after connected queued coverage and ignores a disconnected later row', async () => {
+ const d=ready(), now=d.now();
+ const row={source:'trial',product:'web_trial',tier:'civilService',state:'active',createdAt:now};
+ for (const [id, startsAt, endsAt] of [['queued',now+1000,now+2000],['live',now-1,now+1000],['gap',now+2001,now+3000]]) {
+  d.rows.set(`users/${uid}/grants/${id}`,{...row,startsAt,endsAt});
+ }
+ await reward.activateReward(request(),d);
+ assert.equal(d.rows.get(`users/${uid}/grants/beta_reward_exam_cse_pro`).startsAt,now+2000);
 });

@@ -55,6 +55,10 @@ beforeEach(async () => {
       createdAt: new Date('2026-08-01T00:00:00Z'),
     });
 
+    await setDoc(doc(db, 'users/pro/server/entitlement'), {
+      pro: true, proUntil: Date.now() + 86400000, version: 1,
+    });
+
     await setDoc(doc(db, 'users/pro/sync_state/current'), {
       activeGenerationId: 'active',
       schemaVersion: 1,

@@ -7,6 +7,13 @@ import {endOfSitting, sittingFor, type CatalogExam, type Sitting} from './revenu
 const EVENT_KEEP_MS = 30 * DAY_MS;
 export const grantDocId = (paymentId: string) => encodeURIComponent(paymentId);
 
+const tierWide = (g: Grant) => !g.examId && g.source !== 'beta' && g.source !== 'beta_reward' &&
+  webProduct(g.product)?.kind !== 'pass';
+
+const anchorsPlan = (g: Grant, tier: Grant['tier'], now: number) =>
+  g.state === 'active' && g.endsAt > now && tierWide(g) &&
+  TIER_ORDER.indexOf(g.tier) >= TIER_ORDER.indexOf(tier);
+
 /**
  * Prepaid extension: a paid grant starts at the later of now and the latest live end
  * of this account's grants at the same or a higher tier, so buying early wastes no
@@ -20,8 +27,7 @@ export function planGrant(product: WebProduct, existing: Iterable<Grant>, now: n
   }
   let startsAt = now;
   for (const grant of existing) {
-    if (grant.state !== 'active' || grant.endsAt <= now) continue;
-    if (TIER_ORDER.indexOf(grant.tier) < TIER_ORDER.indexOf(product.tier)) continue;
+    if (!anchorsPlan(grant, product.tier, now)) continue;
     startsAt = Math.max(startsAt, grant.endsAt);
   }
   return {startsAt, endsAt: addPrepaid(startsAt, product.prepaid)};
@@ -63,14 +69,13 @@ function replanBehind(grants: ReadonlyMap<string, Grant>, changedId: string, thr
   const changed = out.get(changedId);
   if (!changed || !stackable(changed)) return out;
   const movers = [...out].filter(([id, g]) => id !== changedId && g.state === 'active' &&
-    g.tier === changed.tier && stackable(g) && g.startsAt > now && g.startsAt >= threshold)
+    g.tier === changed.tier && tierWide(g) && stackable(g) && g.startsAt > now && g.startsAt >= threshold)
     .sort((a, b) => a[1].startsAt - b[1].startsAt);
   const moving = new Set(movers.map(([id]) => id));
   let cursor = Math.max(now, nativeEnd);
   for (const [id, g] of out) {
-    if (moving.has(id) || g.state !== 'active' ||
-        (id !== changedId && g.startsAt > now) ||
-        TIER_ORDER.indexOf(g.tier) < TIER_ORDER.indexOf(changed.tier)) continue;
+    if (moving.has(id) || !anchorsPlan(g, changed.tier, now) ||
+        (id !== changedId && g.startsAt >= threshold)) continue;
     cursor = Math.max(cursor, g.endsAt);
   }
   for (const [id, g] of movers) {
@@ -99,22 +104,53 @@ function startAt(g: Grant, start: number): Grant {
 export function reanchorQueued(grants: ReadonlyMap<string, Grant>, native: readonly Grant[],
   now: number): Map<string, Grant> {
   const out = new Map(grants);
-  const movers = [...out].filter(([, g]) => g.state === 'active' && stackable(g) &&
+  const movers = [...out].filter(([, g]) => g.state === 'active' && tierWide(g) && stackable(g) &&
     g.startsAt > now && g.endsAt > g.startsAt).sort((a, b) => a[1].startsAt - b[1].startsAt);
   const waiting = new Set(movers.map(([id]) => id));
   for (const [id, g] of movers) {
-    const rank = TIER_ORDER.indexOf(g.tier);
     let cursor = now;
-    for (const row of native) if (TIER_ORDER.indexOf(row.tier) >= rank) cursor = Math.max(cursor, row.endsAt);
+    for (const row of native) if (anchorsPlan(row, g.tier, now)) cursor = Math.max(cursor, row.endsAt);
     for (const [otherId, other] of out) {
-      if (otherId === id || waiting.has(otherId) || other.state !== 'active' ||
-          TIER_ORDER.indexOf(other.tier) < rank) continue;
+      if (otherId === id || waiting.has(otherId) || !anchorsPlan(other, g.tier, now)) continue;
       cursor = Math.max(cursor, other.endsAt);
     }
     if (cursor < g.startsAt) out.set(id, startAt(g, cursor));
     waiting.delete(id);
   }
   return out;
+}
+
+/** One-time repair for an account. Only move plans whose historical anchor moved or was exam-only. */
+export function repairExamOnlyQueuedPlans(db: Firestore, uid: string, now = Date.now()): Promise<number> {
+  return db.runTransaction(async transaction => {
+    const inputs = await readEntitlementInputs(transaction, db, uid);
+    const native = nativeCoverageRows(inputs, now);
+    const original = [...native, ...inputs.grants.values()];
+    const grants = new Map(inputs.grants);
+    const affected = new Set<Grant>();
+    const queued = [...inputs.grants].sort(([, a], [, b]) => a.startsAt - b.startsAt);
+    for (const [id, grant] of queued) {
+      if (grant.startsAt <= now || !anchorsPlan(grant, grant.tier, now) || !stackable(grant) ||
+          !original.some(anchor => anchor.state === 'active' && anchor.endsAt === grant.startsAt &&
+          (affected.has(anchor) || !tierWide(anchor)) &&
+          TIER_ORDER.indexOf(anchor.tier) >= TIER_ORDER.indexOf(grant.tier))) continue;
+      const prior = [...native, ...grants.values()].filter(row =>
+        row.startsAt < grant.startsAt && anchorsPlan(row, grant.tier, now));
+      const startsAt = Math.max(now, ...prior.map(row => row.endsAt));
+      if (startsAt >= grant.startsAt) continue;
+      const shift = startsAt - grant.startsAt;
+      const moved = {...grant, startsAt, endsAt: grant.endsAt + shift,
+        ...(grant.fullEndsAt === undefined ? {} : {fullEndsAt: grant.fullEndsAt + shift})};
+      grants.set(id, moved);
+      affected.add(grant);
+      transaction.update(db.doc(`users/${uid}/grants/${id}`), {startsAt, endsAt: moved.endsAt,
+        ...(moved.fullEndsAt === undefined ? {} : {fullEndsAt: moved.fullEndsAt})});
+    }
+    if (affected.size) {
+      transaction.set(inputs.record.ref, entitlementWrite(inputs, claimsFromInputs(inputs, now, grants)), {merge: true});
+    }
+    return affected.size;
+  });
 }
 
 export const replanAfterRevoke = (grants: ReadonlyMap<string, Grant>, revokedId: string, now: number) =>
@@ -132,7 +168,9 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
   const payment = db.doc(`paymongoPayments/${grantDocId(paymentId)}`);
   const tombstone = db.doc(`paymongoRevocations/${grantDocId(paymentId)}`);
   const grantRef = db.doc(`users/${uid}/grants/${grantDocId(paymentId)}`);
-  return db.runTransaction(async transaction => {
+  let followUpReason: string | undefined;
+  const outcome = await db.runTransaction(async transaction => {
+    followUpReason = undefined;
     const [dedupe, paid, revokedEarly, deletion] = await transaction.getAll(
       grantEventRef, payment, tombstone, db.doc(`accountDeletions/${uid}`));
     if (deletion.exists) {
@@ -142,10 +180,13 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
         const refunds = revokedEarly.get('refunds') as Record<string, number> | undefined;
         const total = Object.values(refunds ?? {}).reduce((sum, amount) => sum + amount, 0);
         // Keep only payment details so the deletion sweep cannot remove this refund task.
-        if (prior.get('status') !== 'refunded' && total < input.paidAmount) transaction.set(followUp, {
-          eventId, paymentId, sessionId: input.sessionId, paidAmount: input.paidAmount,
-          reason: 'accountDeleted', status: 'pending', refundRequired: true,
-        });
+        if (prior.get('status') !== 'refunded' && total < input.paidAmount) {
+          followUpReason = 'accountDeleted';
+          transaction.set(followUp, {
+            eventId, paymentId, sessionId: input.sessionId, paidAmount: input.paidAmount,
+            reason: 'accountDeleted', status: 'pending', refundRequired: true,
+          });
+        }
       }
       return 'accountDeleted';
     }
@@ -193,9 +234,9 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
     const refundOwed = !!(duplicatePass || late) && earlyRefunds < input.paidAmount;
     const unusable = duplicatePass ? {reason: 'unusedDuplicatePass'}
       : late ? {reason: 'paidAfterSitting'} : undefined;
-    const flagRefund = () => transaction.set(followUp, {uid, paymentId, product: product.id, sessionId: input.sessionId,
+    const flagRefund = () => {followUpReason = unusable!.reason; transaction.set(followUp, {uid, paymentId, product: product.id, sessionId: input.sessionId,
       reason: unusable!.reason, status: 'pending', refundRequired: true,
-      ...(duplicatePass ? {activeGrantId: duplicatePass[0]} : {})});
+      ...(duplicatePass ? {activeGrantId: duplicatePass[0]} : {})});};
     if (early && (disputeLive || earlyRefunds >= input.paidAmount)) {
       const grant: Grant = {...binding, source: 'paymongo', product: product.id, tier: product.tier,
         startsAt: plan?.startsAt ?? now, endsAt: plan?.endsAt ?? now, paymentId, paidAmount: input.paidAmount,
@@ -250,6 +291,9 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
     transaction.set(inputs.record.ref, entitlementWrite(inputs, claimsFromInputs(inputs, now, grants)), {merge: true});
     return 'granted';
   });
+  // One ERROR line, payment id only, for a log-based alert. Logged once, after the commit.
+  if (followUpReason) console.error(`payment follow-up created ${followUpReason}`, {paymentId});
+  return outcome;
 }
 
 export type RevokeOutcome = 'revoked' | 'duplicate' | 'unmatched';
@@ -260,7 +304,7 @@ export type RevokeOutcome = 'revoked' | 'duplicate' | 'unmatched';
  * dispute flag and the cumulative refunds for the grant created later.
  */
 export async function revokePaymongoPayment(db: Firestore, input: {eventId: string; paymentId: string;
-  reason: string; dispute?: boolean; disputeId?: string; refunds?: {id: string; amount: number}[]}, now: number):
+  reason: string; dispute?: boolean; disputeId?: string; disputeLost?: boolean; refunds?: {id: string; amount: number}[]}, now: number):
   Promise<{outcome: RevokeOutcome; uid?: string}> {
   const {eventId, paymentId} = input;
   const payment = db.doc(`paymongoPayments/${grantDocId(paymentId)}`);
@@ -281,7 +325,9 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
       const existing = await transaction.get(tombstone);
       const refunds = {...(existing.get('refunds') as Record<string, number> | undefined)};
       for (const r of input.refunds ?? []) if (!(r.id in refunds)) refunds[r.id] = r.amount;
-      const resolutions = existing.get('resolutions') as Resolutions | undefined;
+      const resolutions = input.disputeLost && input.disputeId
+        ? {...existing.get('resolutions') as Resolutions | undefined, [input.disputeId]: 'lost'}
+        : existing.get('resolutions') as Resolutions | undefined;
       transaction.set(tombstone, {reason: existing.get('reason') ?? input.reason, eventId: existing.get('eventId') ?? eventId,
         createdAt: existing.get('createdAt') ?? now, refunds, ...(resolutions ? {resolutions} : {}),
         ...(input.disputeId ?? existing.get('disputeId') ? {disputeId: input.disputeId ?? existing.get('disputeId')} : {}),
@@ -292,13 +338,17 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
     const revokeEventRef = db.doc(`webhookEvents/${eventId}/users/${uid}`);
     const dedupe = await transaction.get(revokeEventRef);
     // A resolution that arrived before this dispute.created is applied now.
-    const recorded = input.dispute && input.disputeId
+    const recorded = input.disputeLost ? 'lost' : input.dispute && input.disputeId
       ? ((await transaction.get(tombstone)).get('resolutions') as Resolutions | undefined)?.[input.disputeId] : undefined;
     const inputs = await readEntitlementInputs(transaction, db, uid);
     const id = grantDocId(paymentId);
     const grant = inputs.grants.get(id);
     const version = Number(inputs.record.get('version') ?? 0);
     if (dedupe.exists) return {outcome: 'duplicate' as const, uid};
+    if (input.disputeLost && grant?.state === 'revoked' && grant.disputeId === input.disputeId &&
+        !grant.disputeResolved) {
+      transaction.update(db.doc(`users/${uid}/grants/${id}`), {disputeResolved: true});
+    }
     if (!grant || (grant.state !== 'active' && input.dispute)) {transaction.set(revokeEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)}); return {outcome: 'duplicate' as const, uid};}
     if (recorded === 'won') {
       // Already won: the grant is never revoked. Only the dispute is noted on it.
@@ -312,7 +362,7 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
     if (next === grant) {transaction.set(revokeEventRef, {eventId, version, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)}); return {outcome: 'duplicate' as const, uid};}
     const changed = new Map(inputs.grants).set(id, next);
     const replanned = next.state === 'revoked' || next.endsAt !== grant.endsAt
-      ? replanBehind(changed, id, grant.endsAt, now, Math.max(now, ...nativeCoverageRows(inputs, now).filter(g => TIER_ORDER.indexOf(g.tier) >= TIER_ORDER.indexOf(grant.tier)).map(g => g.endsAt))) : changed;
+      ? replanBehind(changed, id, grant.endsAt, now, Math.max(now, ...nativeCoverageRows(inputs, now).filter(g => anchorsPlan(g, grant.tier, now)).map(g => g.endsAt))) : changed;
     const ref = (gid: string) => db.doc(`users/${uid}/grants/${gid}`);
     transaction.update(ref(id), {state: next.state, endsAt: next.endsAt, refunds: next.refunds ?? {},
       ...(next.fullEndsAt !== undefined ? {fullEndsAt: next.fullEndsAt} : {}),
@@ -338,6 +388,11 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
  */
 export async function resolvePaymongoDispute(db: Firestore, input: {eventId: string;
   paymentId: string; disputeId: string; won: boolean}, now: number): Promise<string | undefined> {
+  if (!input.won) {
+    const result = await revokePaymongoPayment(db, {...input, reason: 'dispute.created',
+      dispute: true, disputeLost: true}, now);
+    return result.uid;
+  }
   return db.runTransaction(async transaction => {
     const tombstone = db.doc(`paymongoRevocations/${grantDocId(input.paymentId)}`);
     const [paid, existing] = await transaction.getAll(db.doc(`paymongoPayments/${grantDocId(input.paymentId)}`), tombstone);
@@ -358,6 +413,23 @@ export async function resolvePaymongoDispute(db: Firestore, input: {eventId: str
       ...(restore ? {state: 'active', revokedReason: FieldValue.delete(), revokedAt: FieldValue.delete()} : {})});
     if (restore) {
       const grants = new Map(inputs.grants).set(id, next);
+      const revokedAt = (grant as Grant & {revokedAt?: number}).revokedAt ?? now;
+      if (stackable(grant) && anchorsPlan(next, grant.tier, now)) {
+        let cursor = next.endsAt;
+        const queued = [...inputs.grants].filter(([otherId, row]) => otherId !== id &&
+          row.tier === grant.tier && anchorsPlan(row, grant.tier, now) && stackable(row) &&
+          row.startsAt >= revokedAt).sort(([, a], [, b]) => a.startsAt - b.startsAt);
+        for (const [otherId, row] of queued) {
+          if (row.startsAt >= cursor) break;
+          const moved = startAt(row, cursor);
+          grants.set(otherId, moved);
+          cursor = moved.endsAt;
+          transaction.update(db.doc(`users/${uid}/grants/${otherId}`), {
+            startsAt: moved.startsAt, endsAt: moved.endsAt,
+            ...(moved.fullEndsAt === undefined ? {} : {fullEndsAt: moved.fullEndsAt}),
+          });
+        }
+      }
       transaction.set(inputs.record.ref, entitlementWrite(inputs, claimsFromInputs(inputs, now, grants)), {merge: true});
     }
     return uid;

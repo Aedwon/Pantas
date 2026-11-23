@@ -21,8 +21,8 @@ test('beta claims have no grace; trial and paid claims retain one day', () => {
     assert.equal(claimsForRevenueCatAnswer([],{...options,grants:[beta,grant]}).proUntil,end+86400000);
   }
 });
-test('purchases queue behind beta only until its end', () => {
-  assert.equal(planGrant(webProduct('pantas_cs_monthly'),[beta],at,[]).startsAt,end);
+test('beta is exam-only coverage, so a purchase never queues behind it (PAY-06 ruling)', () => {
+  assert.equal(planGrant(webProduct('pantas_cs_monthly'),[beta],at,[]).startsAt,at);
   assert.equal(planGrant(webProduct('pantas_cs_monthly'),[beta],end+1,[]).startsAt,end+1);
 });
 test('a prepaid grant connected after beta keeps its ordinary grace', () => {

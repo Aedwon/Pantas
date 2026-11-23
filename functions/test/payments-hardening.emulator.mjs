@@ -240,7 +240,7 @@ test('second-precision paid_at can share the checkout creation second', async ()
     {db, auth: fakeAuth(), client, signingSecret: SECRET, livemode: false, now: () => paidAt + 120000}), 200);
 });
 
-test('refund replanning also preserves an existing web pass', async () => {
+test('refund replanning never queues a plan behind an existing web pass (PAY-06 ruling)', async () => {
   const uid = 'hard-web-pass-stack';
   const august = {...sitting, firstDay: '2027-08-08', lastDay: '2027-08-08'};
   await grant(uid, 'pantas_pass_cse_pro', 'webpass_stack', {sitting: august});
@@ -249,7 +249,7 @@ test('refund replanning also preserves an existing web pass', async () => {
   const {revokePaymongoPayment} = await import('../lib/paymongoGrants.js');
   await revokePaymongoPayment(db, {eventId: 'evt_webpass_refund_actual', paymentId: 'pay_webpass_month1',
     reason: 'refund.succeeded', refunds: [{id: 'ref_webpass', amount: 14900}]}, paidAt + 120000);
-  assert.equal((await db.doc(`users/${uid}/grants/pay_webpass_month2`).get()).get('startsAt'), Date.parse('2027-08-08T23:59:59.999+08:00'));
+  assert.equal((await db.doc(`users/${uid}/grants/pay_webpass_month2`).get()).get('startsAt'), paidAt + 120000);
 });
 
 test('a failed provider reread leaves an unhandled paid event and a follow-up', async () => {
