@@ -9,6 +9,7 @@ import { runKeepCallablesWarm } from './keepWarm.js';
 import { purgeInactiveSecrets, runPurgeInactiveAccounts } from './purgeInactiveAccounts.js';
 import { runPurgeOldAuditLogs } from './purgeOldAuditLogs.js';
 import { runCheckRecentEntitlementClaims, runRepairEntitlementClaims } from './revenuecatWebhook.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 /**
  * Cloud Scheduler bills per job after three free ones per billing account, and paused jobs count.
@@ -105,7 +106,7 @@ export async function runJob(
 const region = 'asia-southeast1';
 // One instance, one request at a time: the late job sends email and deletes accounts, so two runs
 // must never overlap. Cloud Scheduler delivers at least once; a duplicate waits or is refused.
-const oneAtATime = { region, maxInstances: 1, concurrency: 1 } as const;
+const oneAtATime = { region, serviceAccount: serviceAccountEmail('pantas-jobs'), maxInstances: 1, concurrency: 1 } as const;
 
 export const jobsFrequent = onSchedule(
   { ...oneAtATime, schedule: 'every 5 minutes', timeoutSeconds: JOB_TIMEOUT_SECONDS.jobsFrequent },
@@ -154,7 +155,7 @@ export async function handleRunnerRequest(
  * changes it. One request at a time, like the combined jobs.
  */
 export const runScheduledTask = onRequest(
-  { region, invoker: 'private', maxInstances: 1, concurrency: 1, timeoutSeconds: 600, secrets: purgeInactiveSecrets },
+  { region, serviceAccount: serviceAccountEmail('pantas-jobs'), invoker: 'private', maxInstances: 1, concurrency: 1, timeoutSeconds: 600, secrets: purgeInactiveSecrets },
   async (req, res) => {
     const reply = await handleRunnerRequest(req.method, req.query.task);
     res.status(reply.status).json(reply.body);

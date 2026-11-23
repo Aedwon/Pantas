@@ -45,4 +45,19 @@ void main() {
     expect(status.headline, "Couldn't back up");
     expect(status.actionLabel, 'Try Again');
   });
+
+  test('paused status says so, with no action', () {
+    final status = BackupViewState.fromSync(
+      isAnonymous: false,
+      syncStatus: SyncPaused(resumesAt: DateTime.utc(2026, 11, 23)),
+    );
+
+    expect(status.headline, 'Backup paused');
+    expect(
+      status.subtitle,
+      'You synced a lot today. Backup starts again later, and your progress '
+      'stays safe on this device.',
+    );
+    expect(status.actionLabel, isNull);
+  });
 }

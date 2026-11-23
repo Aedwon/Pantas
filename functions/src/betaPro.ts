@@ -12,6 +12,7 @@ import {reanchorQueued} from './paymongoGrants.js';
 import type {Grant} from './grants.js';
 import {selectedBetaApplication} from './betaAccess.js';
 import {timed} from './_timed.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 export const BETA_CUTOFF = Date.parse('2026-11-23T00:00:00+08:00');
 /** Missing or invalid server config disables beta; config can never extend the approved window. */
@@ -64,7 +65,7 @@ export async function changeBetaPro(request: Pick<CallableRequest, 'auth' | 'app
   await copyEntitlementClaims(deps.db, deps.auth, uid);
   return result;
 }
-export const setBetaPro = onCall({region:'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck},
+export const setBetaPro = onCall({region:'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-entitlements'), enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck},
   timed('setBetaPro', request => {
     assertFreshAppCheck(request);
     return changeBetaPro(request, {db:getFirestore(), auth:getAuth()});

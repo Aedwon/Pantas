@@ -20,6 +20,7 @@ export { revenuecatWebhook } from './revenuecatWebhook.js';
 export { recomputePassEnds } from './revenuecatPasses.js';
 export { recordSignInEvent } from './recordSignInEvent.js';
 export { onUserCreated } from './onUserCreated.js';
+export { countSyncWrites } from './countSyncWrites.js';
 export { createPaymongoCheckout } from './paymongoCheckout.js';
 export { paymongoWebhook } from './paymongoWebhook.js';
 export { startWebTrial } from './webTrial.js';

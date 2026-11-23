@@ -171,7 +171,8 @@ export const activateSyncGeneration = onCall(
           activeGenerationId: generationId,
           schemaVersion: 1,
           updatedAt: FieldValue.serverTimestamp(),
-        });
+        // Merge: keep the server-owned pause (suspendedUntil) and entitlement mirror (proUntil).
+        }, {merge: true});
 
         return {
           activeGenerationId: generationId,

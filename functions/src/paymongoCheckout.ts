@@ -14,6 +14,7 @@ import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
 import {priceCentavos, webProduct} from './paymongoPolicy.js';
 import {examCatalog, sittingFor, type CatalogExam, type Sitting} from './revenuecatPasses.js';
 import {timed} from './_timed.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 const CHECKOUTS_PER_WINDOW = 10;
 const WINDOW_MS = 10 * 60_000;
@@ -172,7 +173,7 @@ async function releaseReservation(db: Firestore, pending: DocumentReference, ref
 }
 
 export const createPaymongoCheckout = onCall(
-  {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [paymentSecrets]},
+  {region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-payments'), enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck, secrets: [paymentSecrets]},
   timed('createPaymongoCheckout', request => {
     assertFreshAppCheck(request);
     return createCheckout(request.auth, request.data, {

@@ -38,6 +38,14 @@ class SyncOffline extends SyncStatus {
   final int pendingCount;
 }
 
+/// The server paused this account's backup after a very large amount of
+/// syncing. Backup starts again at [resumesAt].
+class SyncPaused extends SyncStatus {
+  const SyncPaused({required this.resumesAt});
+
+  final DateTime resumesAt;
+}
+
 class SyncError extends SyncStatus {
   const SyncError({this.message});
 

@@ -75,6 +75,7 @@ abstract final class SettingsValueFormats {
       SyncReconciliationRequired() ||
       Syncing() ||
       SyncOffline() ||
+      SyncPaused() ||
       SyncError() ||
       SyncPartialFailure() ||
       SyncFailedSince() =>
