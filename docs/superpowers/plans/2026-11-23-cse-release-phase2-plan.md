@@ -45,6 +45,8 @@ Aedwon's "ship it".
 | T15 | Lesson reader full screen, "4 Held" (wide web; phone unchanged): spec `docs/superpowers/specs/2026-11-23-lesson-reader-full-screen-design.md`, canvas Lesson Reader Full Screen; fallback "figures at rest" (direction 1) if the held figure cannot move in the same frame as the scroll | UX hand-off a41d7102f | Sonnet worker |
 | T16 | Core loops polish B2, B4, B3, B5, B1 in that order: spec `docs/superpowers/specs/2026-11-23-core-loops-polish-design.md`, canvas Core Loops | UX hand-off a41d7102f | Sonnet workers |
 | T17 | Money-path app items from the security lead's audit (Nov 23, details private): ENT-06 (High, before live keys) map `beta_reward` grants to that exam's Pro coverage in the web payment gateway's entitlement mapper, with a test; ENT-12 (Low) drop entitlement replies older than the latest request (request counter). Fresh review of the money path | security lead hand-off | Sonnet worker; Codex Sol High review |
+| T18 | Legal D1 with H1 (Fable legal round 3): a decline deletes the request record in the same write that records the answer (decline stays in the evidence); expiry or decline also deletes the request's guardian page links and removes the account id from used or revoked answer links; one-time removal of flag-only records, waiting declined requests and their links for accounts with no confirmed guardian (free-tier count first); the hourly cleanup reads only due guardian records (measured Nov 23 on prod: it reads every `server` document, 27 today, 24 times a day, about 3.4 per account) | rulings Nov 22 D1, Nov 23 H1 | Sonnet worker; Codex Sol High review |
+| T19 | Legal D7: trial codes get a date and a 730-day expiry through a Firestore TTL policy (ruling Nov 22) | ruling D7 | Sonnet worker |
 
 ## T1 contract (content gate layer a)
 
@@ -81,6 +83,10 @@ content, lib or tools, and in the content upload's gate. Existing checks reused,
 - Free-tier count (rule 7): each report is 1 invocation, 1 to 2 writes and 1 read for the daily
   limit. Expected use is far under 1% of the daily free writes. Staging proof: 5 reports, about
   10 writes and 5 reads.
+
+## Publish gate (Fable H5)
+
+The legal texts publish with or after the builds, never before. Before the texts go in, each row of the H5 table is checked live on prod and logged: PR #90 claims, D1 with H1 (T18), PR #86 with the 86-day sweep, D7 (T19), the refund route, the website footer.
 
 ## Verification
 
