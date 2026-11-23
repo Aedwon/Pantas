@@ -389,8 +389,8 @@ Rulings: lesson reader at docs/superpowers/decisions/2026-11-17-fable-backlog-ru
 ### Counts
 
 - Replaced: 3 (W_Reader, W_MockResults on Pantas Web; MK_Results on Pantas Redesign)
-- Edited in place with the approved change: 12 (web W_Question, W_QRight, W_QMiss, W_SessionEnd, MK_ReviewWrong; phone QV_Answer, QV_EndPro, QV_EndLastToday, MK_ReviewWrong; 3 of these also carry B3 or B2 notes in the title)
-- Added: 22 (web 16 including the shared part RD_HeldPart; phone 6 including QZ_TabMotion)
+- Edited in place with the approved change: 9 (web W_Question, W_QRight, W_QMiss, W_SessionEnd, MK_ReviewWrong; phone QV_Answer, QV_EndPro, QV_EndLastToday, MK_ReviewWrong)
+- Added: 21 (web 16 including the shared part RD_HeldPart; phone 5 including QZ_TabMotion)
 - Superseded: 3 on Pantas Web (W_ReaderDark, W_ReaderPart, RD_Focus)
 - Uncertain: see below
 
