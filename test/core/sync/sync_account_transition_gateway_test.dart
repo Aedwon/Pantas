@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/sync/runtime/sync_account_transition_gateway.dart';
 import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
 
@@ -67,6 +68,96 @@ void main() {
     );
     await hanging.prepareForSignOut().timeout(const Duration(seconds: 1));
     await hanging.prepareForAccountSwitch().timeout(const Duration(seconds: 1));
+  });
+
+  group('unsent data blocks the wipe', () {
+    test('sign-out stops before it touches Sync when something is unsent',
+        () async {
+      final runtime = RecordingRuntimeLifecycle();
+      final calls = <String>[];
+      final gateway = SyncAccountTransitionGateway(
+        () => runtime,
+        flushNow: () async => calls.add('flushNow'),
+        flushReports: () async => calls.add('flushReports'),
+        hasUnsentData: () async {
+          calls.add('check');
+          return true;
+        },
+      );
+
+      await expectLater(
+        gateway.prepareForSignOut(),
+        throwsA(
+          isA<AuthGatewayException>()
+              .having((e) => e.code, 'code', 'network-request-failed'),
+        ),
+      );
+
+      expect(calls, ['flushNow', 'flushReports', 'check']);
+      expect(runtime.calls, isEmpty, reason: 'Sync keeps running');
+    });
+
+    test('an account switch stops the same way', () async {
+      final runtime = RecordingRuntimeLifecycle();
+      final gateway = SyncAccountTransitionGateway(
+        () => runtime,
+        hasUnsentData: () async => true,
+      );
+
+      await expectLater(
+        gateway.prepareForAccountSwitch(),
+        throwsA(isA<AuthGatewayException>()),
+      );
+      expect(runtime.calls, isEmpty);
+    });
+
+    test('with nothing unsent sign-out goes on as before', () async {
+      final runtime = RecordingRuntimeLifecycle();
+      final calls = <String>[];
+      final gateway = SyncAccountTransitionGateway(
+        () => runtime,
+        flushNow: () async => calls.add('flushNow'),
+        flushReports: () async => calls.add('flushReports'),
+        hasUnsentData: () async => false,
+      );
+
+      await gateway.prepareForSignOut();
+      await gateway.prepareForAccountSwitch();
+
+      expect(runtime.calls, ['quiesce:true']);
+      expect(calls, [
+        'flushNow',
+        'flushReports',
+        'flushNow',
+        'flushReports',
+      ]);
+    });
+
+    test('a failing check blocks rather than wipes', () async {
+      final gateway = SyncAccountTransitionGateway(
+        RecordingRuntimeLifecycle.new,
+        hasUnsentData: () async => throw StateError('db'),
+      );
+      await expectLater(
+        gateway.prepareForSignOut(),
+        throwsA(isA<AuthGatewayException>()),
+      );
+    });
+
+    test('a flush that hangs still ends at the limit, then checks', () async {
+      var checked = false;
+      final gateway = SyncAccountTransitionGateway(
+        RecordingRuntimeLifecycle.new,
+        signOutFlushLimit: const Duration(milliseconds: 50),
+        flushNow: () => Completer<void>().future,
+        hasUnsentData: () async => checked = true,
+      );
+      await expectLater(
+        gateway.prepareForSignOut().timeout(const Duration(seconds: 2)),
+        throwsA(isA<AuthGatewayException>()),
+      );
+      expect(checked, isTrue);
+    });
   });
 
   test('account switch and delete leave Sync running', () async {

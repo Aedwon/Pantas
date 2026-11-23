@@ -17,6 +17,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/runtime/sync_account_transition_gateway.dart';
+import 'package:pantas/core/sync/unsent_sync_data.dart';
 
 typedef AuthGatewayBuilder = AuthGateway Function();
 typedef GoogleGatewayBuilder = GoogleSignInGateway Function();
@@ -64,6 +65,12 @@ List<Override> authRepositoryOverrides(
               // The queued question reports go out under the account that
               // wrote them before its data is wiped.
               flushReports: () => ref.read(reportQueueProvider).sendPending(),
+              flushNow: () => ref.read(syncRuntimeProvider).forceFlush(),
+              // Sign-out and an account switch wipe this device. They stop
+              // while study changes or reports are still unsent.
+              hasUnsentData: () async =>
+                  await hasUnsentSyncData(ref.read(appDatabaseProvider)) ||
+                  (await ref.read(reportQueueProvider).pending()).isNotEmpty,
             ),
         localStateWiper: localStateWiperBuilder?.call(ref) ??
             SyncLocalStateWiper(
