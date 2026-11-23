@@ -1,5 +1,7 @@
 // Proves the content gate can fail: one broken item per check, each caught
-// and named. The good item must stay clean.
+// and named. The good item must stay clean. The fixture is written as the
+// documents the upload packages (catalog, question set), so the real mirror
+// loads it the way a student's app does.
 import 'dart:convert';
 import 'dart:io';
 
@@ -15,48 +17,38 @@ Map<String, Object?> _doc(String id, Map<String, Object?> fields) => {
       ...fields,
     };
 
-List<Object?> _text(String t) => [
-      {
-        '_type': 'block',
-        'style': 'normal',
-        'children': [
-          {'_type': 'span', 'text': t, 'marks': <String>[]},
-        ],
-      },
-    ];
-
 Map<String, Object?> _question(
   String id,
   List<bool> correct, {
   String? passage,
 }) =>
-    _doc(id, {
-      'topic': {'_ref': 'topic_fix'},
-      'examIds': [
-        {'_ref': 'exam_fix'},
-      ],
-      'language': 'en',
-      'stem': _text('Stem of $id'),
-      'explanation': _text('Because.'),
-      'version': 1,
-      if (passage != null) 'passage': {'_ref': passage},
+    {
+      'id': id,
+      if (passage != null) 'passage': passage,
+      'stem': 'Stem of $id',
+      'explanation': 'Because.',
       'choices': [
         for (var i = 0; i < correct.length; i++)
-          {
-            '_key': '${id}_${'abcd'[i]}',
-            'label': 'ABCD'[i],
-            'text': 'Choice $i',
-            'isCorrect': correct[i],
-          },
+          {'text': 'Choice $i', 'correct': correct[i]},
       ],
-    });
+    };
+
+void _write(Directory root, String path, Map<String, Object?> doc) {
+  File('${root.path}/$path')
+    ..createSync(recursive: true)
+    ..writeAsStringSync(jsonEncode(doc));
+}
 
 void main() {
   testWidgets('one broken item per check is caught', (tester) async {
     final longId = 'q-${'x' * 99}';
     expect(longId.length, 101);
-    final export = {
-      'exam': [
+    final dir = Directory.systemTemp.createTempSync('pantas_gate_fixture_');
+    addTearDown(() => dir.deleteSync(recursive: true));
+
+    _write(dir, 'catalog/index.json', {
+      'id': 'index',
+      'exams': [
         _doc('exam_fix', {
           'code': 'FIX',
           'name': 'Fixture',
@@ -65,28 +57,44 @@ void main() {
           'ordering': 1,
         }),
       ],
-      'subject': [
+      'subjects': [
         _doc('subj_fix', {
           'exam': {'_ref': 'exam_fix'},
           'name': 'Subject',
           'ordering': 1,
         }),
       ],
-      'topic': [
-        _doc('topic_fix', {
+      'topics': [
+        _doc('topic_upcat_fix', {
           'subject': {'_ref': 'subj_fix'},
           'name': 'Topic',
           'ordering': 1,
         }),
       ],
-      'question': [
-        _question('q-good', [true, false, false]),
-        _question('q-bad-key', [false, false, false]),
-        _question('q-two-correct', [true, true, false]),
-        _question('q-no-passage', [true, false], passage: 'p-missing'),
-        _question(longId, [true, false, false]),
+      'catalogs': ['exam_fix'],
+    });
+    final ids = [
+      'q-good',
+      'q-bad-key',
+      'q-two-correct',
+      'q-no-passage',
+      longId,
+    ];
+    _write(dir, 'catalog/exam_fix.json', {
+      'id': 'exam_fix',
+      'sets': [
+        {
+          'id': 'qs-fix',
+          'topic': 'topic_upcat_fix',
+          'subtopic': 'subtopic_s',
+          'exams': ['exam_fix'],
+          'questions': [
+            for (final id in ids)
+              {'id': id, if (id == 'q-no-passage') 'passage': 'p-missing'},
+          ],
+        },
       ],
-      'mockBlueprint': [
+      'mockBlueprints': [
         _doc('mock_blueprint_fix', {
           'schemaVersion': 2,
           'exam': {'_ref': 'exam_fix'},
@@ -99,19 +107,31 @@ void main() {
               'name': 'Section',
               'questionCount': 50,
               'suggestedMinutes': 10,
-              'topicIds': ['topic_fix'],
-              'topicWeights': {'topic_fix': 1},
+              'topicIds': ['topic_upcat_fix'],
+              'topicWeights': {'topic_upcat_fix': 1},
             },
           ],
         }),
       ],
-    };
-    final dir = Directory.systemTemp.createTempSync('pantas_gate_fixture_');
-    addTearDown(() => dir.deleteSync(recursive: true));
-    final file = File('${dir.path}/export.json')
-      ..writeAsStringSync(jsonEncode(export));
+      'parts': <String>[],
+    });
+    _write(dir, 'questions/qs-fix.json', {
+      'id': 'qs-fix',
+      'meta': {
+        'topic': 'fix',
+        'subtopic': 's',
+        'exams': ['fix'],
+      },
+      'questions': [
+        _question('q-good', [true, false, false]),
+        _question('q-bad-key', [false, false, false]),
+        _question('q-two-correct', [true, true, false]),
+        _question('q-no-passage', [true, false], passage: 'p-missing'),
+        _question(longId, [true, false, false]),
+      ],
+    });
 
-    final report = await runContentGate(tester, file);
+    final report = await runContentGate(tester, dir);
     final found = {for (final f in report.failures) '${f.itemId}|${f.check}'};
 
     expect(found, contains('q-bad-key|shape'));
