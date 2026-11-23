@@ -123,6 +123,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Claude 5-hour limit hit with three Opus leads running (Nov 23)
+
+- Words: none from Aedwon. His standing words: "mind my usage, limits in my PC" (Nov 22). The limit message: "You've hit your 5-hour limit · resets 9:40pm (Asia/Manila)".
+- Wrong: at 7:25 PM Manila, every lead stopped. Three Opus leads were working (CSE release, UX ambition, and security running the money-path audit with a Fable verifier). The manager's own Sonnet workers and a Fable ruling ran at the same time. About 2 hours 15 minutes of work stopped.
+- Why it got through: the manager counted the security lead as "the short task" after giving it the audit, which is not short. The manager did not count its own workers against the cap.
+- Fix (required manager step): at most 2 Opus leads do real work at once. A third lead waits until one is idle or has handed off. The manager's own workers and Fable rulings count as the one short task. After a limit stop, the heartbeat resumes each lead once the reset time passes, and checks its workers for partial changes.
+
 ### Boards built as options for questions the approved boards already answered (Nov 23)
 
 - His words (relayed by the manager): "why are you asking me things that have been decided before?" and "isn't there a reference/boards already for the UI? including animations? are you kidding me?" Then: "i spent a lot of time going through those boards. every single animation. every single detail. and then it was not implemented properly, and now you're asking me again to decide?"
