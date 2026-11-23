@@ -38,7 +38,7 @@ void main() {
       await tester.tap(find.text('Report'));
       await tester.pumpAndSettle();
       expect(
-        find.text(reportPrivacyLine),
+        find.text('You reported this before. Leave out personal details.'),
         findsOneWidget,
       );
       final header = find.text('Report this question');

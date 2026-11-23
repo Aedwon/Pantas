@@ -224,6 +224,9 @@ class _ReportFormState extends State<ReportForm> {
         ReportResult.dailyLimit => "You've sent a lot of reports today. "
             'You can send more tomorrow.',
         ReportResult.questionLimit => 'You reported this question before.',
+        // Rule 4: the repeat cue and the privacy instruction in one line.
+        _ when _reported => 'You reported this before. '
+            'Leave out personal details.',
         _ => reportPrivacyLine,
       };
 
@@ -231,7 +234,8 @@ class _ReportFormState extends State<ReportForm> {
       ? 'Reports open again tomorrow'
       : 'What did you notice?';
 
-  Widget _field() => PantasField.unlabeled(
+  Widget _field({bool flat = false}) => PantasField.unlabeled(
+        flat: flat,
         semanticLabel: 'What did you notice?',
         controller: _text,
         focusNode: _focus,
@@ -295,7 +299,7 @@ class _ReportFormState extends State<ReportForm> {
                           style: context.type.footnote.copyWith(height: 1.4),
                         ),
                         const SizedBox(height: PantasSpace.s12),
-                        _field(),
+                        _field(flat: true),
                         if (_failed)
                           saveFailureLine(
                             () => unawaited(_ready ? _send() : _load()),
@@ -394,14 +398,19 @@ class _ReportFormState extends State<ReportForm> {
               alignment: WrapAlignment.end,
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
+                // QN_Report: 40 px buttons. 40 is the control height token; the
+                // board's 10 px radius and 15 px label have no button token
+                // (the system gives 12 and 16).
                 WebButton(
                   label: 'Cancel',
                   kind: PantasButtonKind.tertiary,
+                  height: PantasSize.iconBtnMd,
                   onPressed: widget.onClose,
                 ),
                 const SizedBox(width: PantasSpace.s8, height: PantasSpace.s8),
                 WebButton(
                   label: 'Send',
+                  height: PantasSize.iconBtnMd,
                   // QN_ReportLimit draws Send with no key hint.
                   keyHint: _limit == null ? '$commandKeyLabel Enter' : null,
                   busy: _busy,

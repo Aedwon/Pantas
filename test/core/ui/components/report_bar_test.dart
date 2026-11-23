@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/platform/report_providers.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
@@ -9,6 +10,7 @@ import 'package:pantas/core/ui/components/pantas_field.dart';
 import 'package:pantas/core/ui/components/report_bar.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 
@@ -218,7 +220,12 @@ void main() {
     );
     open.value = true;
     await tester.pumpAndSettle();
-    expect(text(reportPrivacyLine), findsOneWidget);
+    // Rule 4: the repeat cue and the privacy instruction, one line.
+    expect(
+      text('You reported this before. Leave out personal details.'),
+      findsOneWidget,
+    );
+    expect(text(reportPrivacyLine), findsNothing);
     expect(
       tester.widget<PantasField>(find.byType(PantasField)).enabled,
       isTrue,
@@ -280,6 +287,128 @@ void main() {
     await tester.pumpAndSettle();
     expect(closed, [null, null]);
     expect(find.byKey(const ValueKey('rest-content')), findsOneWidget);
+  });
+
+  testWidgets('the field is the flat page fill, with a ring only in focus',
+      (tester) async {
+    await pump(tester);
+    open.value = true;
+    await tester.pumpAndSettle();
+    final well = find.byKey(const ValueKey('field-well'));
+    final colors = tester.element(well).colors;
+    Container box() => tester.widget<Container>(well);
+    // Focused (the form focuses it): a 2 px accent ring.
+    final focused =
+        (box().foregroundDecoration! as BoxDecoration).border! as Border;
+    expect(focused.top.width, 2);
+    expect(focused.top.color, colors.accent);
+    expect((box().decoration! as BoxDecoration).color, colors.bgPage);
+    expect(const Color(0xFFF5F5F7), colors.bgPage);
+  });
+
+  testWidgets('unfocused, the field is flat #F5F5F7 with no ring',
+      (tester) async {
+    // At the daily limit the field never takes focus.
+    await pump(
+      tester,
+      seed: (q) async {
+        for (var i = 0; i < 20; i++) {
+          await q.add('other$i', 'Report $i', DateTime.now());
+        }
+      },
+    );
+    open.value = true;
+    await tester.pumpAndSettle();
+    final well = find.byKey(const ValueKey('field-well'));
+    final colors = tester.element(well).colors;
+    final box = tester.widget<Container>(well);
+    expect((box.decoration! as BoxDecoration).color, colors.bgPage);
+    expect(colors.bgPage, const Color(0xFFF5F5F7));
+    expect(box.foregroundDecoration, isNull);
+  });
+
+  testWidgets('Send turns teal over 200 ms once there is text', (tester) async {
+    await pump(tester);
+    open.value = true;
+    await tester.pumpAndSettle();
+    final colors = tester.element(send).colors;
+    Color? fill() => tester
+        .widgetList<Material>(
+          find.descendant(of: send, matching: find.byType(Material)),
+        )
+        .map((m) => m.color)
+        .whereType<Color>()
+        .firstOrNull;
+    final off = fill();
+    await tester.enterText(find.byType(TextField), 'Two answers fit.');
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(fill(), isNot(off));
+    expect(fill(), colors.accentFill);
+  });
+
+  testWidgets('the morph starts on the first frame of an open bar',
+      (tester) async {
+    await pump(tester);
+    final opening = ValueNotifier(true);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: Scaffold(
+          body: ProviderScope(
+            overrides: [
+              reportQueueProvider.overrideWithValue(
+                ReportQueue(inMemoryDatabase()),
+              ),
+            ],
+            child: ValueListenableBuilder<bool>(
+              valueListenable: opening,
+              builder: (context, v, _) => ReportBar(
+                rest: _rest,
+                open: v,
+                questionId: 'q',
+                onClosed: (_) {},
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump(const Duration(milliseconds: 100));
+    final rest = tester.widget<Opacity>(
+      find
+          .ancestor(
+            of: find.byKey(const ValueKey('rest-content')),
+            matching: find.byType(Opacity),
+          )
+          .first,
+    );
+    expect(rest.opacity, closeTo(1 - 100 / 120, .05));
+    await tester.pumpAndSettle();
+  });
+
+  testWidgets('reduced motion: color and radius dissolve over 150 ms',
+      (tester) async {
+    await pump(tester, still: true);
+    final bar = find.byType(FloatingBar);
+    final colors = tester.element(bar).colors;
+    BoxDecoration surface() => tester
+        .widgetList<DecoratedBox>(
+          find.descendant(of: bar, matching: find.byType(DecoratedBox)),
+        )
+        .map((w) => w.decoration)
+        .whereType<BoxDecoration>()
+        .firstWhere((d) => d.color != null && d.borderRadius != null);
+    final before = surface().color;
+    open.value = true;
+    await tester.pump();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 75));
+    final mid = surface().color!;
+    expect(mid, isNot(before));
+    expect(mid, isNot(colors.surfaceCard));
+    await tester.pump(const Duration(milliseconds: 100));
+    expect(surface().color, colors.surfaceCard);
   });
 
   testWidgets('back closes the form like Escape', (tester) async {

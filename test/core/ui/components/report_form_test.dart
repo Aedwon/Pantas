@@ -183,6 +183,14 @@ void main() {
     expect(rect.width, 380);
     expect(rect.top, 60);
     expect(rect.right, 1420);
+    // Board QN_Report: 40 px buttons (the 40 px control height token).
+    for (final label in ['Cancel', 'Send']) {
+      expect(
+        tester.getSize(find.widgetWithText(WebButton, label)).height,
+        40,
+        reason: label,
+      );
+    }
     await tester.enterText(find.byType(TextField), 'Wrong answer key.');
     await tester.pump();
     await tester.tap(find.text('Send'));
@@ -197,7 +205,8 @@ void main() {
     final queue = ReportQueue(db);
     await queue.add('q', 'Earlier report', DateTime.now());
     await openWide(tester, queue);
-    final line = find.text(reportPrivacyLine);
+    final line =
+        find.text('You reported this before. Leave out personal details.');
     expect(line, findsOneWidget);
     expect(
       find.ancestor(of: line, matching: find.byType(Container)),

@@ -71,15 +71,16 @@ class _ReportBarState extends ConsumerState<ReportBar>
   (double, double) _out = (0, 120);
   (double, double) _in = (120, 360);
 
+  bool _started = false;
+
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     // A bar mounted already open (the viewer swaps its bar in when the report
-    // button is pressed) starts the morph from its first frame.
-    if (widget.open) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted && widget.open && _phase == ReportBarPhase.rest) _begin();
-      });
+    // button is pressed) starts the morph on its first frame.
+    if (!_started) {
+      _started = true;
+      if (widget.open) _begin(notify: false);
     }
   }
 
@@ -101,10 +102,10 @@ class _ReportBarState extends ConsumerState<ReportBar>
     }
   }
 
-  void _begin() {
+  void _begin({bool notify = true}) {
     _returnFocus = FocusManager.instance.primaryFocus;
     _delivered = null;
-    _go(ReportBarPhase.form);
+    _go(ReportBarPhase.form, notify: notify);
   }
 
   void _reset() {
@@ -124,7 +125,7 @@ class _ReportBarState extends ConsumerState<ReportBar>
   /// the bar's content leaves in 120 ms and the form arrives from 120 to 360;
   /// the form leaves in 140 ms and the confirmation arrives from 300 to 500;
   /// the confirmation leaves in 200 ms and the bar arrives from 200 to 420.
-  void _go(ReportBarPhase to) {
+  void _go(ReportBarPhase to, {bool notify = true}) {
     final from = _phase;
     if (from == to) return;
     if (_still) {
@@ -146,10 +147,16 @@ class _ReportBarState extends ConsumerState<ReportBar>
       _in = (120, 360);
     }
     _c.duration = Duration(milliseconds: _totalMs.round());
-    setState(() {
+    void apply() {
       _from = from;
       _phase = to;
-    });
+    }
+
+    if (notify) {
+      setState(apply);
+    } else {
+      apply();
+    }
     unawaited(
       _c.forward(from: 0).then((_) {
         if (mounted && _phase == to) setState(() => _from = null);
@@ -260,6 +267,8 @@ class _ReportBarState extends ConsumerState<ReportBar>
       inset: 0,
       transitionDuration: reportMorphDuration,
       transitionCurve: reportMorphCurve,
+      // Reduced motion: the color and radius dissolve over 150 ms.
+      reducedDuration: PantasDurations.short2,
       child: AnimatedBuilder(
         animation: _c,
         builder: (context, _) {
