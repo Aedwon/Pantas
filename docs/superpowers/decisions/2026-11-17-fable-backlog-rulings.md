@@ -445,6 +445,49 @@ Council (Aedwon, Nov 23, relayed by the manager): for a build-versus-board diffe
 - Reasons: silent loss fails "no risks"; blocking is recoverable, lost answers are not; the existing line "You need a connection to sign out." needs no new board. Possible worse bug to confirm: the wipe may run before the network steps, so offline sign-out could delete data and then show the error.
 - Applied in T2 (`qa/report-send-r1`), with the Free-tier copy settled by the lead under rule 4.
 
+## Nov 23, lesson reader full screen on wide web (UX design lead)
+
+Brief: the operations manager, for Aedwon (away, decisions delegated). His words, Nov 23: "I trust you, please do not disappoint me. be ambitious with the UI/UX for it to deliver the best experience in its category" and "in the full screen for lesson view, you might want to hide completely the sections on the left, and use the entire width. you can also reposition some figures, like say, illustrations, to be on a separate column at the right immediately to its connected line of explanatory text. this is just an idea though. you could have better ideas. hill climb on this". Standing: "i do not like wordy UI. if you can compress text, do it. I like clean, intuitive, elegant, and satisfying (in terms of motion and animations) UI/UX".
+
+Canvas: "Lesson Reader Full Screen", https://claude.ai/artifact/Sb3f8m64ZpouMDBKjTE14K, built from the approved Lesson Reader Polish option C component and stylesheet and the RD_ boards (rule 3). New standards sheets written first: `long-form-reading.md` and `instructional-design.md` in the agent-standards library.
+
+Directions offered (real lesson: Circles, two Core Concept figures, Example 1 closed, Example 4 open):
+1. Margin (his idea as stated): outline gone, 640 px text, figures in a 400 px right column level with their paragraph; they scroll with the text. Page 3,612 px against 5,186 px for one column (30% shorter).
+2. Pinned: one sticky figure stage on the right that swaps to the figure of the passage being read.
+3. Column: the approved reader without the outline, one centered 680 px column (smallest change).
+4. Held: as 1, but each figure stays in view while its passage is on screen, and the passage end pushes it away.
+
+Council (Gemini 4 Neon High through agy, Fable 5.2 high; Fable final on a split):
+- Round 1: both chose 4. Scores (clarity, focus, readability, elegance, motion): Gemini 9/9/9/9/9, Fable 9/9/9/8/9. Rejected: 1 loses the figure while the solution steps still use it; 2 keeps stale figures beside unrelated sections; 3 leaves about 760 px empty and ignores his guidance.
+- Round 2 changes from both: example figures sit in their own card; the hold ends at the passage end; the sticky line follows the top bar (92 px, 32 px); gutter 56 px; linked words (figure labels named in the text) light their part; the solution figure replaces the problem figure in place and its new mark draws in; section segments in the progress line; the approved expand button back on plates.
+- Round 3 changes from both: highlight by emphasis (the part keeps its own color, thickens; the rest dims to 35%) instead of turning teal, which broke the figure's color code; the push-off fade removed; close figures stack (option b) instead of going inline; lessons with no figures keep the centered column; tap and keyboard for linked words and section segments.
+- Round 4 (both): keep every figure inside its own passage. Then both: raise a plate within its block before adding white space. Fable: "Apply it and ship. It does not need another round." Gemini found no other clear improvement.
+
+Real-content check (A4): seven lessons with the most text, figures, tables and math (triangles, basic geometric concepts, circles, Earth's motions, truth tables, systems of equations, quantum numbers), KaTeX math, windows 650 to 900 px tall, solutions open and closed, five runs. Final run: no overlap, no overflow (widest table 558 px in the 640 px column), no figure beside the wrong passage, no inline fallback, one 18 px push, at most 59 px of added white space under one passage. Not covered: real figure proportions (placeholders were 288 and 300 px tall); the build's acceptance check 3 repeats the run with real figures.
+
+Ruling: 4 Held, with the placement rules and motion values in `docs/superpowers/specs/2026-11-23-lesson-reader-full-screen-design.md`. Phone unchanged. W4_Held is marked council-approved on the canvas.
+
+Schema check (manager, Nov 23): the linked words use the existing `labels` in lesson FIGURE specs only. 70 of 241 lesson figures have at least one label named in their own passage (160 of 453 labels); elsewhere the text stays plain.
+
+Risk named by Fable: Flutter web has no CSS sticky. The hold must be driven in layout or paint in the same frame as the scroll. If it cannot be made smooth, ship direction 1 (figures at rest) and report it; never direction 2.
+
+## Nov 23, core loops polish (UX design lead)
+
+Brief (operations manager, for Aedwon): the 5 to 8 changes with the most impact on lesson, quiz, mock, results and review; boards in Claude Design; the same council; approved motion untouched unless improved; reduced motion respected.
+
+Shortlist and the schema check. The first list had try-first choices in lesson examples and linked words in question figures. The manager asked for a content check against HANDOFF.md ("Never add features that need content the schema doesn't have"). Counted: 38 of 629 lesson examples list choices, none has a structured correct answer and only 15 state the letter in parseable text; 193 questions have a figureSpec and none has text labels. Both dropped. A lesson sheet from "From the lesson" was also dropped before boards: Aedwon left that link out on Nov 5. Replacements use existing fields only.
+
+Canvas: "Core Loops Best in Class", https://claude.ai/artifact/1tyuTs3m832KjUtgZdvzXZ (built from W_Question, W_QRight, W_QMiss, W_SessionEnd, W_QuizTab, W_MockResults and the phone QV_, QZ_ and MK_ boards).
+
+Council (Gemini 4 Neon High, Fable 5.2 high):
+- Round 1: both kept all five. B1 needed fixes (white wipe, square corners). Ranks: Fable B2, B4, B3, B5, B1; Gemini B4, B2, B3, B5, B1. Split on B3 timing: Gemini wanted the reveal at 300 ms with no pause; Fable kept the 120 ms pause. Fable's call stands.
+- Round 2: both found all five right; fixes were spec and board mismatches only (B1 reverse timing, the B2 end timing wording, two stale boards). During round 1 fixes the board worker shortened the approved 1.4 s ring fill to 480 ms to meet a 1.2 s target; the lead restored 1.4 s (rule 2) and moved the target to the marks.
+- Round 3: Gemini "No clear improvement"; Fable confirmed, with two spec clarifications for sessions over 20 questions and the Done button, now in the spec.
+
+Ruling: build B2, B4, B3, B5, B1 in that order per `docs/superpowers/specs/2026-11-23-core-loops-polish-design.md`. Copy in B5 settled by the lead under D191: the two bar hints removed; "Tell Pantas why you got each one wrong. The better your notes, the more every review helps." becomes "Note why you missed each one." in the session end and the mock review; "Finish the Notes" stays (July 27 choice).
+
+Process note: the board worker hit the Claude 5-hour limit mid-task (Nov 23, about 7:25 PM to 9:40 PM Manila) and was resumed after the reset; no work was lost.
+
 ## Nov 23, legal round 2 product decisions
 
 Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation ("for things not needing me have another Fable 5.2 agent decide on my behalf"). The rulings are final and are not queued for his sign-off. Legal sign-off on the final texts, "ship it", billing purchases and physical steps stay his. This agent wrote no legal text: wording named below goes to the text lane and to Sol High (rule 5). No lawyer reviewed anything here, and this agent is not a lawyer: where the law is unsettled, the entry says so.
