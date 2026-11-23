@@ -699,3 +699,182 @@ queued behind exam-only coverage, if any exist: start now, same length."
 Options offered: A (queue only behind coverage that covers the whole plan), B (queue behind a pass only for the exam the
 student studies now), C (keep today's behavior). Built by the security and billing lane in the money-path hardened fixes
 (group G2).
+
+## Nov 23, legal round 3 decisions
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation. The rulings are final and are not queued for his sign-off. Legal sign-off on the final texts, "ship it", billing purchases and physical steps stay his. This agent wrote no legal text: wording named below goes to the text lane and to Sol High (rule 5). No lawyer reviewed anything here, and this agent is not a lawyer: where the law is unsettled, the entry says so.
+
+- Policy read at `origin/main` 225a7e773: `AGENTS.md`, `docs/workflow/process-improvement.md` (rules 4, 5, 7, 9), the sections "Nov 22, legal package D1 to D8" and "Nov 23, legal round 2 product decisions" above, and `docs/superpowers/plans/2026-11-23-cse-release-phase2-plan.md`.
+- Input, on `legal/public-launch-r1` f004784c8: `README.md` section "Needs a product or code decision (round 3)", `critique-2026-11-23b-sol-high.md`, and the three texts.
+- Code read: main 225a7e773 (`functions/src/guardianConsent.ts`, `scheduledJobs.ts`, `lib/features/guardian/`, `docs/OPERATIONS.md`), PR #90 `qa/checkout-declaration-r1` 42d423ff5, PR #86 `qa/report-send-r1` 6fb02f70b, `fix/money-path-hardened-r1` 1ebd78528.
+- Test used: no risk at release, inside the hardened scope. Texts and behavior lean toward Pantas as far as Philippine law allows. Every published sentence is true on the day it publishes.
+- "Gate" means on prod before the beta gate drops and before live payment keys (checklist G2), as in the two sections above.
+- Standards applied: Data Privacy Act Sections 3(l), 11(e) and (f), 12(f), 13(a), (b) and (f), 16(b); NPC Advisory Opinion 2017-049 and Advisory 2024-02; Firestore TTL deletion behavior (Google's documentation, as cited in the critique); PayMongo's refund documentation (read Nov 23, page dated Sep 4, 2026); Internet Transactions Act Sections 20, 23 and 24 and Rules of Court Rule 21 (as cited in the critique); RA 10175 Section 13 (cited from memory, for the round 4 critique to confirm). No sheet exists in `agent-standards` for privacy or consumer law.
+- Velocity: this ruling pass was not timed. It changed documents only. Sizes are estimates for one lane with tests.
+- Items are numbered H1 to H6, in the order of the README round 3 list.
+
+### What was checked
+
+1. **D1 is planned and not built.** The Phase 2 plan lists it in T10 ("D1 under-18 record deletion (server)"). On main, the cleanup still trims an expired or declined request to the flag (`guardianConsent.ts:582-585`). PR #90 carries D2, D3, R2, R5 and R6 only: it changes `paymongoCheckout.ts`, `deleteUserData.ts` and `purgeInactiveAccounts.ts`, and does not touch `guardianConsent.ts` or `webTrial.ts`. So D1 and D7 are built on no CSE release branch. Only the under-13 branches change those files, for another purpose.
+2. **After D2, nothing reads an unconfirmed request except the guardian flow.** PR #90 picks the guardian wording only when the record is confirmed (`paymongoCheckout.ts:63-64` on the PR). The Firestore rules read the record only for `withdrawn`.
+3. **A declined request does nothing for seven days.** The student's waiting page shows a declined request and an expired one the same way: resend or change the email (`guardian_waiting_page.dart:15-16`). The seven-day wait is only the time the cleanup already used.
+4. **A guardian page link outlives the request.** Each request email carries a manage link stored against the account with no expiry (`guardianConsent.ts:245-247`). The cleanup skips open manage links (`:551-552`). After D1 deletes the request, that row still ties the account to a guardian request. Used and revoked answer links also hold the account ID for seven more days (`:553-563`).
+5. **The hourly guardian cleanup reads every server-side document of every account.** It scans the whole `server` collection group, about ten document kinds per account, 24 times a day (`guardianConsent.ts:566`). Counted from the code and not measured: about 200 accounts would pass the 50,000 free daily reads from this task alone.
+6. **Reports already expire.** PR #86 writes `expireAt` at 85 days and adds the TTL policy (`questionReports.ts:36`, `148`; `firestore.indexes.json:151`). TTL fields have their single-field index switched off, so a query on `expireAt` cannot run.
+7. **Scheduled tasks are free, jobs are not.** Prod runs nine tasks from three scheduler jobs. The free limit counts jobs (`scheduledJobs.ts:14-18`).
+8. **A manual refund path exists.** `docs/OPERATIONS.md`, "Manual QR Ph refund": a bank transfer, then a command that records the refund through the webhook's own refund logic, so access changes correctly. It was tested by hand on staging on Nov 9. It takes any `pay_` ID, so it is not limited to QR Ph. No automated test covers it. The money-path fixes change the webhook and the grant logic (`fix/money-path-hardened-r1`).
+9. **PayMongo's refund windows.** Card 60 days, QR Ph 30 days, GCash 180 days, GrabPay 90 days, Maya 12 months. The page says QR Ph refunds work from the dashboard and the API. The Nov 9 test-mode run refused them. The live answer comes from the QR Ph payment already planned (D4, option C). The page does not say what happens after a window closes.
+10. Not checked: live merchant settings, what PayMongo's payment record shows about a QR Ph payer, console settings, and the number of documents per account on prod.
+
+### H1. The under-18 flag before a guardian confirms: D1's design stands. The text change is as far as wording can go. Three tightenings join the D1 build. Gate
+
+- The flow and the timing of the first write do not change. A teen sends the request, and the server records it.
+- "Do not store the flag until a guardian confirms" is rejected. Moving the label to the confirmation would be cosmetic: an open guardian request tied to an account says the same thing as the label. A design that keeps nothing on the server before the answer (a signed link that carries the account) would still process the same fact to send the email, would lose "only the newest link works", and is a two to three day rewrite of a security flow in the launch window.
+- The one design that removes the problem is guardian-first sign-up. Aedwon declined it on Nov 11, knowing the flow was "legally shaky, but it isn't clearly unlawful". That decision stands and is not re-ruled.
+
+**Tightenings, inside the D1 build.**
+
+1. **Decline deletes at once.** When a guardian declines, the request record is deleted in the same write that records the answer, not seven days later. The decline stays in the guardian evidence (R6). The student then sees the contact form, the state a trimmed request already gives today, so no new screen state exists.
+2. **Nothing else ties the account to the request afterwards.** When a request is deleted (expiry or decline), its guardian page links are deleted with it, and its used or revoked answer links lose the account ID. Test: after a decline or an expiry, the only record that links the account to a guardian request is a decline answer in the evidence. Short-lived rate-limit counters are outside this test.
+3. **The one-time removal (D1 condition 2) covers the same records** for accounts with no confirmed guardian: flag-only records, declined requests still waiting, and their links. Count it against the free tier first (rule 7).
+
+**Reason.** Sol High is right that wording cannot supply a basis, and right that the wait after a decline has none. The open request cannot be designed away without changing who starts sign-up. What can be made true is that the record does one job, asking the guardian, for seven days at most, and leaves nothing behind. Check 2 makes the first part true once PR #90 ships. Checks 3 and 4 show the second part is not true yet, even after D1 as ruled.
+
+**The honest limit.** The first write still happens before a guardian answers. No Philippine ruling decides it. This is the residual risk Aedwon accepted on Nov 11, now smaller. It is not a new decision for him.
+
+**Text lane.**
+
+1. Teen Notice: a declined request is deleted when the answer is recorded. Change the two timing paragraphs ("If the request expires..." and the retention paragraph).
+2. The basis bullet states the purpose limit: the open request is used only to ask the guardian and record the answer.
+3. Round 4 question for Sol High: which basis best fits the open request. Test Section 13(b) with the NPC's guardian-permission requirement (Advisory Opinion 2017-049) against Section 13(f). If neither holds, the notice says what Pantas does and why, and claims no more than Sol High will support.
+
+**Side finding, rule 7 (check 5).** The D1 build changes this cleanup. The lead measures its daily reads on prod before the build. If the count confirms check 5, the same change makes the cleanup read only guardian records that are due. This is a rule 7 defect, not a legal item.
+
+**Size.** D1 stays about 0.5 day. The tightenings add about 0.25 day. The scan fix, if confirmed, adds about 0.25 day. Owner: the CSE release lead (T10). Text: the text lane, 1 hour plus the critique.
+
+### H2. The 90-day report period: the ruled words stay. A daily sweep makes them a hard maximum. Gate, inside PR #86
+
+- "Within 90 days of receipt" stays in both notices. Sol High's "scheduled to expire, deletion can take longer" is not used: it is always true, but it gives no maximum, and a retention period with no end is the weaker statement under Section 11(e) and (f).
+- The design changes by one piece. The 85-day TTL stays. An existing daily job gains one task that deletes any report older than 86 days that TTL has not yet removed. It is a task inside a job that already runs, so it adds no scheduler job (check 7).
+- The task finds reports by their receipt time, because the expiry field cannot be queried (check 6). It reads only overdue reports, normally none, so its cost is about one read a day. The lead counts it (rule 7).
+- A test fails if a report older than 86 days survives one run.
+
+**Reason.** A hard promise on a best-effort mechanism can become untrue with no fault of ours. Five days of margin makes that unlikely, not impossible. The sweep costs about a quarter day and makes the stronger sentence true.
+
+**Rule for other periods.** A published "within N days" needs a sweep behind the TTL. A period that rests on TTL alone is worded as a schedule. D7's trial codes rest on TTL alone, so the text lane words the 730 days as a schedule when D7 ships. Guardian evidence already uses "schedule for deletion" and is removed by a job.
+
+**Size.** About 0.25 day. Owner: the CSE release lead (T2, PR #86). No text change.
+
+### H3. Guardian identity wording, "said they are": confirmed. No build. Gate for publishing only
+
+The texts say the copy is made where the buyer "said they are" a parent or legal guardian. That is exactly what the record can prove. R2 is unchanged: the server sets the kind, and the deletion copy selects by that kind. The Teen Notice already says the tick is a declaration and does not prove who ticked. No sentence may state as fact that the buyer is the guardian (R1, condition 1).
+
+**Size.** None. Owner: the text lane, already applied.
+
+### H4. Preservation orders: a runbook step is needed. No code, no hold in the cleanup. Gate, documents only
+
+- The cleanup keeps no hold switch. R6 stands.
+- `docs/OPERATIONS.md` gains a short procedure, "A binding order to keep records":
+  1. Log when the order arrived, who issued it, and which accounts and records it names.
+  2. The same day, copy the named records to a private folder outside the app and outside git, as in D8. The fastest clocks are an open guardian request (seven days at most), a question report (85 days) and an account deletion already under way.
+  3. Never pause a cleanup job or a TTL policy. That would break the published periods for every user.
+  4. Keep the copy only as long as the order requires. Then delete it and log the date.
+  5. If the order requires the live record itself to stay in place, he gets legal advice before the next cleanup run. This is the one place where "no lawyer" (L8) cannot hold.
+- The procedure names the record paths for each kind, so a copy takes minutes.
+
+**Reason.** A binding order outranks the notice, and Sol High is right that no wording cures a system that cannot comply. A copy made by hand complies without a hold mechanism, and such an order is rare for a study app. The published sentence must then allow it: today both notices say the schedules for guardian evidence and question reports have no exception, which the procedure would make untrue.
+
+**Text lane.** In both notices, the general retention sentence allows one exception for those two kinds: a copy kept under a binding order from a court or authority, for as long as the order requires. Sol High critiques it in round 4 and confirms RA 10175 Section 13.
+
+**Size.** 0.1 day for the procedure. Owner: the CSE release lead writes it. Text: the text lane.
+
+### H5. Pre-build claims: the publish gate is confirmed. Gate
+
+The texts publish in the same prod release as the behavior they describe, or after it. Never before. Each sentence below is checked live on prod, and the check is logged in the launch log, before step 2 of the README publishing steps.
+
+| Claim in the texts | Build that makes it true | State on Nov 23 |
+|---|---|---|
+| A tick on every web purchase; the declaration, time, Terms version and wording version recorded; the Terms open without ticking; the seller line | D2, D3, R2, R5 (PR #90) | Draft PR |
+| Only guardian declarations copied at deletion; ten years and four years for evidence | R2, R6 (PR #90) | Draft PR |
+| A failed request is deleted whole; a decline is deleted at once | D1 with H1 | Not built |
+| Reports deleted within 90 days of receipt | R3 (PR #86) with H2 | Draft PR; sweep not built |
+| The trial code period | D7 | Not built. The texts say "no scheduled expiry" until it ships |
+| A refund route when PayMongo's route is closed | H6 | Path exists; runbook and test not done |
+| Seller details in the website footer | D3 | Not built |
+
+- If a build slips, its sentence is not published as written. The launch waits, because every row is already a gate. The other path is that the text lane rewrites that sentence to the built state and Sol High critiques it again.
+- Sol High's weaker replacement for the checkout sentence is not needed, because the build is a gate.
+
+**Reason.** A notice that describes behavior the app lacks is a false statement on the day it publishes, which is the one thing the test forbids.
+
+**Size.** No build. Owner: the CSE release lead holds the gate and runs the live checks. The text lane adds the table to the README publishing steps.
+
+### H6. The refund route after PayMongo's window closes: a transfer by hand to the payer, then the refund command, then a record. Gate
+
+One route for every payment method. The existing "Manual QR Ph refund" procedure is widened, not replaced. No new code.
+
+1. **PayMongo first.** While PayMongo's own refund works for the payment (check 9), use it. The money returns to the payer by itself and the webhook changes access.
+2. **Otherwise a transfer by hand,** when PayMongo refuses the refund or its window has closed. Bank transfer by default. An e-wallet transfer is allowed when the payer has no bank account.
+3. **The money goes to the payer only.** The receiving account's name matches the payer on PayMongo's payment record. If the record shows no usable name, the claimant sends the payer's own bank or wallet receipt for that payment, and the transfer goes to that payer. This identifies the payment. It does not ask a guardian to prove the denial, so "without contest" holds. Never transfer to an account named only in an email.
+4. **Card payments: check for a dispute first.** If a bank dispute is open, do not transfer: the dispute returns the money, and Pantas accepts it. If a dispute arrives after a transfer, contest it with the transfer proof, because the money was already returned.
+5. **The full amount.** Pantas pays the transfer fee.
+6. **Run the refund command** so access ends and the refund is on the account's records. If the account is already deleted, skip the command and find the payment by its PayMongo reference (D4, D8).
+7. **Record it** with the business's refund records outside the app (D8): date, account ID or public ID, `pay_` ID, amount, route and reference, how the payer was matched, the command label, the reason. His books carry the matching refund entry.
+
+**Reason.** The Terms promise a full refund with no deadline for a purchase a guardian denies. PayMongo's windows are 30 days for QR Ph and 60 for cards, so the promise needs a route that does not depend on them from the first day of live payments. The route exists and was tested for QR Ph (check 8). The gaps are that it is written for one method, has no recipient rule, and has no automated test while the money-path fixes change the code under it.
+
+**Server item, for the security and billing lead.** One emulator test of the documented command against the webhook, on the money-path fixes: a card payment and a QR Ph payment; a pass that has ended; a plan with a queued plan behind it; a payment PayMongo already refunded in part (the amounts add up, nothing is counted twice); and a payment with a live dispute. The same label sent twice changes nothing. If any case fails, that is a money-path defect to fix before live keys.
+
+**His step, already planned.** The live QR Ph payment and refund (D4, option C, in M3 and M6) also records what PayMongo shows about the payer, because rule 3 depends on it.
+
+**Text lane.** The Terms sentence about a bank transfer "with the verified payer" sits under the QR Ph bullet. Widen it to any payment whose original route is closed. Sol High critiques it in round 4.
+
+**Size.** 0.25 day for the runbook (CSE release lead). 0.25 day for the test (security and billing lead). Text: the text lane.
+
+### Summary
+
+| Item | Ruling | Size | Launch | Owner |
+|---|---|---|---|---|
+| H1 | D1's design stands. Decline deletes at once, links go with the request, the one-time removal covers them. No "flag at confirmation" change | D1 0.5 day, plus 0.25; scan fix 0.25 if confirmed | Gate | CSE release lead (T10); text lane |
+| H2 | "Within 90 days of receipt" stays. A daily sweep in an existing job backs the 85-day TTL | 0.25 day in PR #86 | Gate | CSE release lead (T2) |
+| H3 | "Said they are" confirmed | None | Gate for publishing only | Text lane, done |
+| H4 | Runbook procedure for a binding order: copy by hand, never pause cleanup. The notices allow that one exception | 0.1 day, no code | Gate, documents only | CSE release lead; text lane |
+| H5 | Texts publish with or after the builds, each claim checked live on prod | No build | Gate | CSE release lead; text lane |
+| H6 | PayMongo first; otherwise a transfer by hand to the payer, the refund command, a record | 0.25 day runbook, 0.25 day test | Gate | CSE release lead; security and billing lead; text lane |
+
+Gate work added by this section: about 1 day of lane time, or 1.25 if the scan fix is confirmed. No new board. No new scheduler job.
+
+### Build items (for the CSE release lead)
+
+1. T10, D1 (not built on any branch): build it as ruled on Nov 22, with H1's three tightenings. Tests fail first on the old trim, on the seven-day wait after a decline, and on a link row that survives the request.
+2. T10, D1: measure the hourly guardian cleanup's daily reads on prod before the build. If it reads every `server` document, make it read only due guardian records in the same change (rule 7).
+3. T10, D7 (not built on any branch): unchanged from Nov 22.
+4. T2, PR #86, before merge: the daily sweep task for reports older than 86 days, in an existing job, with its test and its free-tier count (H2).
+5. `docs/OPERATIONS.md`: the procedure "A binding order to keep records" (H4).
+6. `docs/OPERATIONS.md`: widen "Manual QR Ph refund" to every method, with H6's seven steps.
+7. Publish gate: hold the texts until each row of the H5 table is checked live on prod and logged.
+
+### Server item (for the security and billing lead)
+
+1. The emulator test of the manual refund command on the money-path fixes, with the cases in H6.
+
+### Text changes these rulings need (for the legal lane, rule 5)
+
+1. Teen Notice: decline deleted at once; the purpose limit in the basis bullet (H1).
+2. Both notices: the binding-order exception in the general retention sentence (H4).
+3. Terms: the transfer sentence covers any payment whose original route is closed (H6).
+4. The trial code period worded as a schedule when D7 ships (H2).
+5. README publishing steps: the H5 table.
+6. Sol High critique, round 4, on the changed paragraphs through `codex-pick`, including the basis for the open request (H1) and RA 10175 Section 13 (H4).
+
+### What needs Aedwon
+
+Nothing new to decide. For his information: the risk he accepted on Nov 11 (H1) remains, smaller. H4 step 5 is the one case that would need a lawyer. The transfers in H6 are his to send.
+
+### Corrections found while ruling
+
+- The Phase 2 plan lists D1 and D7 in T10, but PR #90, the T10 pull request, builds neither (check 1).
+- D1 ruled that an expired or declined request is "deleted whole". Guardian page links and used answer links would have survived it (check 4).
+- D1 kept the seven-day wait after a decline as "the times cleanup already uses". The wait serves no screen and has no basis (check 3).
+- The Nov 9 test-mode finding that QR Ph cannot be refunded through PayMongo conflicts with PayMongo's current documentation (check 9). The live test decides.
+- The runbook's manual refund section is titled for QR Ph but works for any payment (check 8).
