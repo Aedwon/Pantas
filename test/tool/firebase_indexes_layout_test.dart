@@ -185,7 +185,7 @@ bool _hasUnreviewedExpiry(String source) {
   final references = RegExp(
     r'const\s+(\w+)\s*=\s*[\w.]+\.doc\(`'
     r'(webhookEvents/\$\{[^}]+\}/users/\$\{[^}]+\}|'
-    r'webhookRateLimits/[^`]+|'
+    'webhookRateLimits/[^`]+|'
     r'questionReports/\$\{[^}]+\})`\);',
   );
   var remaining = source;
