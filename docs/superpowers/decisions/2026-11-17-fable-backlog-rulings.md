@@ -437,3 +437,29 @@ Council (Aedwon, Nov 23, relayed by the manager): for a build-versus-board diffe
 - Applied as one general rule instead of a new content field: the reader eyebrow drops a parenthetical aside (`readerEyebrowText`, `qa/no-part-label-r1` a7b10ab4a), and the full name is the semantics label.
 
 - Superseded, Nov 23 (CSE release lead): C1 and C2 were judged against the Nov 1 export of RD_Real. The same day the reference canvases were updated (`docs/superpowers/verification/2026-11-23-reference-canvas-folds.md`): the approved reader Polish C replaced RD_Real and W_Reader. Polish C draws the topic as one 15 px secondary line in sentence case, 8 px above the title, which is the build's "A". The build follows Polish C; the caps eyebrow and the shortened topic are removed (`qa/no-part-label-r1` 3119169d5). Mistake: the lead had the workers build from the Nov 1 export instead of the live canvases. Fix: every brief now points at the live Pantas Web and Pantas Redesign canvases and says to re-read the board before building.
+
+## Nov 23, lesson reader full screen on wide web (UX design lead)
+
+Brief: the operations manager, for Aedwon (away, decisions delegated). His words, Nov 23: "I trust you, please do not disappoint me. be ambitious with the UI/UX for it to deliver the best experience in its category" and "in the full screen for lesson view, you might want to hide completely the sections on the left, and use the entire width. you can also reposition some figures, like say, illustrations, to be on a separate column at the right immediately to its connected line of explanatory text. this is just an idea though. you could have better ideas. hill climb on this". Standing: "i do not like wordy UI. if you can compress text, do it. I like clean, intuitive, elegant, and satisfying (in terms of motion and animations) UI/UX".
+
+Canvas: "Lesson Reader Full Screen", https://claude.ai/artifact/Sb3f8m64ZpouMDBKjTE14K, built from the approved Lesson Reader Polish option C component and stylesheet and the RD_ boards (rule 3). New standards sheets written first: `long-form-reading.md` and `instructional-design.md` in the agent-standards library.
+
+Directions offered (real lesson: Circles, two Core Concept figures, Example 1 closed, Example 4 open):
+1. Margin (his idea as stated): outline gone, 640 px text, figures in a 400 px right column level with their paragraph; they scroll with the text. Page 3,612 px against 5,186 px for one column (30% shorter).
+2. Pinned: one sticky figure stage on the right that swaps to the figure of the passage being read.
+3. Column: the approved reader without the outline, one centered 680 px column (smallest change).
+4. Held: as 1, but each figure stays in view while its passage is on screen, and the passage end pushes it away.
+
+Council (Gemini 4 Neon High through agy, Fable 5.2 high; Fable final on a split):
+- Round 1: both chose 4. Scores (clarity, focus, readability, elegance, motion): Gemini 9/9/9/9/9, Fable 9/9/9/8/9. Rejected: 1 loses the figure while the solution steps still use it; 2 keeps stale figures beside unrelated sections; 3 leaves about 760 px empty and ignores his guidance.
+- Round 2 changes from both: example figures sit in their own card; the hold ends at the passage end; the sticky line follows the top bar (92 px, 32 px); gutter 56 px; linked words (figure labels named in the text) light their part; the solution figure replaces the problem figure in place and its new mark draws in; section segments in the progress line; the approved expand button back on plates.
+- Round 3 changes from both: highlight by emphasis (the part keeps its own color, thickens; the rest dims to 35%) instead of turning teal, which broke the figure's color code; the push-off fade removed; close figures stack (option b) instead of going inline; lessons with no figures keep the centered column; tap and keyboard for linked words and section segments.
+- Round 4 (both): keep every figure inside its own passage. Then both: raise a plate within its block before adding white space. Fable: "Apply it and ship. It does not need another round." Gemini found no other clear improvement.
+
+Real-content check (A4): seven lessons with the most text, figures, tables and math (triangles, basic geometric concepts, circles, Earth's motions, truth tables, systems of equations, quantum numbers), KaTeX math, windows 650 to 900 px tall, solutions open and closed, five runs. Final run: no overlap, no overflow (widest table 558 px in the 640 px column), no figure beside the wrong passage, no inline fallback, one 18 px push, at most 59 px of added white space under one passage. Not covered: real figure proportions (placeholders were 288 and 300 px tall); the build's acceptance check 3 repeats the run with real figures.
+
+Ruling: 4 Held, with the placement rules and motion values in `docs/superpowers/specs/2026-11-23-lesson-reader-full-screen-design.md`. Phone unchanged. W4_Held is marked council-approved on the canvas.
+
+Schema check (manager, Nov 23): the linked words use the existing `labels` in lesson FIGURE specs only. 70 of 241 lesson figures have at least one label named in their own passage (160 of 453 labels); elsewhere the text stays plain.
+
+Risk named by Fable: Flutter web has no CSS sticky. The hold must be driven in layout or paint in the same frame as the scroll. If it cannot be made smooth, ship direction 1 (figures at rest) and report it; never direction 2.
