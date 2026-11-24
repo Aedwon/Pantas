@@ -648,8 +648,10 @@ export async function markAdult(request: AppRequest, deps: ConsentDeps): Promise
     }
     for (const row of openManage.docs) tx.set(row.ref, {state: 'revoked', revokedAt: now, cleanupAt: now + GUARDIAN_WINDOW_MS}, {merge: true});
     tx.set(consent, {ageGroup: 'adult', adultSince: now}, {merge: true});
-    const entry = evidenceEntry(deps.db, uid, 'became_adult', now);
-    tx.set(entry.ref, {action: entry.data.action, decidedAt: now});
+    if (data.status === 'confirmed') {
+      const entry = evidenceEntry(deps.db, uid, 'became_adult', now);
+      tx.set(entry.ref, {action: entry.data.action, decidedAt: now});
+    }
     return {state: 'adult'};
   });
 }

@@ -465,6 +465,14 @@ test('markAdult revokes every manage token, switches once and ends the guardian 
   assert.equal((await guardian.getStatus(req(uid, {}), h.deps)).ageGroup, 'adult');
 });
 
+test('markAdult on a pending request leaves no guardian evidence', async () => {
+  const uid = 'dm-adult-pending-evidence'; await reset(uid);
+  const h = harness();
+  await guardian.sendLink(req(uid, body()), h.deps);
+  assert.deepEqual(await guardian.markAdult(req(uid, {}), h.deps), {state: 'adult'});
+  assert.deepEqual(await rows(`guardianConsentEvidence/${uid}/responses`), []);
+});
+
 test('markAdult writes nothing when the server never knew a minor, and needs the caller', async () => {
   const uid = 'dm-adult-never'; await reset(uid);
   const h = harness();
