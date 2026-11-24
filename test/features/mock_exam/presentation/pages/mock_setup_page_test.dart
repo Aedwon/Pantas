@@ -113,6 +113,30 @@ void main() {
     expect(find.textContaining('personal-information'), findsNothing);
   });
 
+  // Board MK_SetupCSE: 22 px between the title block and the table, 7 px
+  // above the rule line, and 30 px under the Start button (U12).
+  testWidgets('phone spacing follows the board', (tester) async {
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: MockSetupPage(
+          parsedBlueprint: blueprint(),
+          onStart: (_) {},
+        ),
+      ),
+    );
+    final callout = tester.getRect(find.text('250 total items · 3 hr 50 min'));
+    final table = tester.getRect(find.byType(PantasDataTable));
+    expect(table.top - callout.bottom, 22);
+    final rule =
+        tester.getRect(find.textContaining('This paper runs part by part'));
+    expect(rule.top - table.bottom, 7);
+    final start = tester.getRect(find.text('The clock starts when you tap.'));
+    expect(844 - start.bottom, 30);
+  });
+
   testWidgets('draws setup table, rules, switch and start contract',
       (tester) async {
     await tester.binding.setSurfaceSize(const Size(390, 844));
