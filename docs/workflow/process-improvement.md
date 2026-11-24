@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Discard spacing in the Quiz tab shrank after a spacing ship (Nov 25)
+
+- His words (about 3:50 AM Manila): "the space on top and bottom of discard in the quiz tab got too small though".
+- Wrong: the vertical space above and below Discard on the Quiz tab's paused card is smaller than he expects. It most likely came from the Nov 24 Discard centering or the Nov 25 Study and Quiz spacing ship, but the cause is not confirmed yet.
+- Why it got through: not confirmed yet. The UX lead building paused-session option A finds which ship changed it and whether the side-by-side board review covered that card. It writes the answer here before its handoff closes.
+- Fix (required step, already in the Nov 23 entry, now applied to spacing): a spacing change is compared side by side with the board at phone and wide for every card it touches, not only the card it targets. The UX lead adds a golden test, failing on the current spacing, for the Quiz tab paused card built to board A. If the cause shows a gap the Nov 23 step does not cover, the lead updates this fix.
+
 ### Week strip put in front of him though he never raised it and a board already answered it (Nov 25)
 
 - His words: "what was the reason why i'm being made to choose for the week strip? was it a complaint from me?"
