@@ -120,6 +120,9 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   /// The failed start was refused because another quiz is paused.
   bool _pausedBlock = false;
   bool _discarding = false;
+
+  /// Home pushed the quiz itself and reads again when it returns.
+  bool _inOwnQuiz = false;
   int _generation = 0;
   StudyAdvance? _pendingAdvance;
 
@@ -492,9 +495,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           .start(work, kind: kind, isAlive: current);
       if (!mounted || !current()) return;
       _dismiss();
-      await context
-          .push<void>('/quiz/resume/${Uri.encodeComponent(widget.examId)}');
-      if (_current()) _retry();
+      await _pushQuiz();
     } on Object catch (error, stack) {
       // A paused quiz is the student's own state, not a fault to report.
       if (error is! PausedQuizConflict) {
@@ -517,9 +518,29 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   /// Opens the paused quiz, as the Quiz tab's Resume does.
   Future<void> _resumePaused() async {
     _dismiss();
-    await context
-        .push<void>('/quiz/resume/${Uri.encodeComponent(widget.examId)}');
+    await _pushQuiz();
+  }
+
+  /// Opens the open quiz, then reads Home again for what it changed.
+  Future<void> _pushQuiz() async {
+    _inOwnQuiz = true;
+    try {
+      await context
+          .push<void>('/quiz/resume/${Uri.encodeComponent(widget.examId)}');
+    } finally {
+      _inOwnQuiz = false;
+    }
     if (_current()) _retry();
+  }
+
+  /// A quiz was left part way through from another tab. Home stays alive
+  /// behind the tab bar, so the question counts and work it holds were read
+  /// before that quiz began or moved on (Nov 24: the sheet said "0 of 11" and
+  /// "Start Reviews" for a Reviews session paused at 1 of 11). Read again;
+  /// the plan on screen stays while the read runs.
+  void _onQuizPaused() {
+    if (_inOwnQuiz || !_current()) return;
+    _retry();
   }
 
   /// Discards the paused quiz, as the Quiz tab's Discard does. The panel then
@@ -615,7 +636,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   Widget build(BuildContext context) {
     ref
       ..watch(activeExamFocusProvider)
-      ..listen(homeBoundaryProvider, (_, next) => _onBoundary(next));
+      ..listen(homeBoundaryProvider, (_, next) => _onBoundary(next))
+      ..listen(quizPausedRevisionProvider, (_, __) => _onQuizPaused());
     // The listener runs after this build when the move is first seen here, so
     // nothing built for the owner before is drawn meanwhile.
     final moved = ref.watch(homeBoundaryProvider).movedFrom(_boundary);
