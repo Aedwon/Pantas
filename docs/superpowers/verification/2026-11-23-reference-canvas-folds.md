@@ -509,3 +509,21 @@ Source: "Nov 24, T15 reader undrawn states" in `docs/superpowers/decisions/2026-
 Final versions after the follow-up: Lesson Reader Full Screen version 10, Pantas Web version 183.
 
 Not changed: the M1100 and RD_Held1100 board titles. Pointer positions were set from a headless Chrome measure with a fallback font (Geist was not available), so the owner should check them on the canvas.
+
+## T16 B2 phone bar states (Nov 24)
+
+Source: "Nov 24, T16 B2 phone bar states" in `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md` (origin/main 2e07fc7d7), rulings 1 to 6. Final version: Pantas Redesign version 491. One Fable 5.2 check of the four boards: three passed, QV_GridBack failed on invented mark states and label; fixed (marks red, teal, red, dark, then six gray; label "Question 4 of 10. Question 2 right, questions 1 and 3 wrong."), not re-checked.
+
+| Board | Canvas | Change | Source and values | Fable verdict |
+|---|---|---|---|---|
+| QV_BarTrackTwoRows | Pantas Redesign | New derived board: 20 questions, track in two rows of ten, 3 px apart | QV_BarTrack (from B2_PhoneBar); marks 8 x 4, gap 3, track 107 px; marks 1 to 4 as the base board, the rest empty | Pass |
+| QV_BarTrack320 | Pantas Redesign | New derived board at 320 wide, 20 questions | QV_BarTrack; marks 6 x 4, gap 2, rows 2 px apart, track 78 px, count padding 4 | Pass |
+| QV_Flag | Pantas Redesign | Track added above the count | Same structure and marks as QV_Answer (4 of 10: right, wrong, right, current) | Pass |
+| QV_GridBack | Pantas Redesign | Track added above the count; flag stays in the bar | Marks from the board's own grid (1 and 3 wrong, 2 right), current mark on question 4, as the build draws it | Fail, fixed |
+
+Notes:
+- D71 header flag rule: not found on the Pantas Redesign canvas (index, Z_Decisions, the QV boards and phone.css were searched), so nothing was marked retired there. The rule lives in the Pantas Design System canvas, the handoff `bundle.css` and `design-system-4/map.md`, which the ruling lists for retirement and this pass did not touch.
+- Board titles carry " (derived, Fable-checked)" on all four.
+- The other QV boards with a session bar (QV_Leave, QV_Long, QV_MissFree, QV_MissPro, QV_Grid) still draw no track. Not asked for.
+- QV_GridBack shows "2 of 10" with a label that names question 4; this follows the build, and the ruling keeps the label.
+- Both new boards draw "4 of 20" with the base board's three results, to avoid inventing answers for later questions.
