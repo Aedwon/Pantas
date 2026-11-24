@@ -4360,3 +4360,12 @@ Relayed by the operations manager. His words, verbatim:
 - 2 is the paused-session board (https://claude.ai/artifact/9MLsiFtEwsdLodfe8eHZig): option A (no sentence; the session row shows its progress; one green Resume; centered borderless "Discard this session"), on the Home Reviews sheet and the Quiz tab card, phone and wide.
 - His note on 2: the space above and below Discard on the Quiz tab card is too small. Process entry "Discard spacing in the Quiz tab shrank after a spacing ship (Nov 25)".
 - Both ship under the standing ship-it: he picked them on boards. Builder: UX design lead (E-155 follow-on); integrator: CSE release lead.
+
+## Nov 25, about 4:06 AM Manila: his note on the Reviews sheet header
+
+Relayed by the operations manager, with his phone screenshot of the dark Home Reviews sheet ("Reviews 1 of 11" header, a "Session 1 · 1 of 11" row, Resume, "Discard this session"). His words, verbatim:
+
+> oh btw i noticed here, 1 of 11 is redundant, maybe remove the overall so only the rows have one
+
+- Change: the Reviews sheet header shows only "Reviews", on phone and wide, in every state; each session row keeps its count. Folded into paused option A (UX design lead, E-155 follow-on). The New questions and Lessons sheets keep their header counts.
+- Discard spacing on the Quiz tab paused card (his 3:50 AM note): manager ruling, his call from using the app beats board A. The build restores the spacing from before Nov 24 (18 px above and 22 px below the Discard line) instead of board A's 12 and 16.
