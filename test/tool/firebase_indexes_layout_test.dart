@@ -67,7 +67,7 @@ void main() {
         as Map<String, dynamic>;
     final overrides = (config['fieldOverrides'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
-    expect(overrides, hasLength(7));
+    expect(overrides, hasLength(8));
     // The hourly guardian cleanup finds due requests across accounts (D1).
     expect(
       overrides.where(
@@ -127,7 +127,13 @@ void main() {
     final overrides = (config['fieldOverrides'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
     // questionReports: a student's report is deleted 85 days after receipt.
-    for (final group in ['users', 'webhookRateLimits', 'questionReports']) {
+    // trialUsedIdentities: trial codes expire 730 days after the trial (D7).
+    for (final group in [
+      'users',
+      'webhookRateLimits',
+      'questionReports',
+      'trialUsedIdentities',
+    ]) {
       final matches = overrides.where(
         (entry) =>
             entry['collectionGroup'] == group &&
@@ -201,6 +207,9 @@ void main() {
     for (final root in ['functions/src', 'lib']) {
       for (final file
           in Directory(root).listSync(recursive: true).whereType<File>()) {
+        // The one reviewed builder of the trial-code expiry value (D7). It only
+        // returns a value, and its callers write it to trialUsedIdentities.
+        if (file.path == 'functions/src/trialMarker.ts') continue;
         if (_hasUnreviewedExpiry(file.readAsStringSync())) {
           violations.add(file.path);
         }

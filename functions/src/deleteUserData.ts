@@ -5,6 +5,7 @@ import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
 import {retirePublicId} from './publicId.js';
 import {clearPassOwnership} from './revenuecatPasses.js';
+import {skipsMarkerWrite, trialMarker} from './trialMarker.js';
 import {identityMarkers, identityMarkersForUser} from './webTrial.js';
 
 /** A pending deletion is retried by the daily run once this long has passed since its last attempt. */
@@ -39,36 +40,56 @@ export async function deleteUserData(
   // the daily job finishes the deletion from this record, with no guardian link or caller needed.
   // The first reason and start time stay, so a retry does not look like a new request.
   const task = db.doc(`accountDeletions/${uid}`);
-  const earlier = await task.get();
-  // A custom token can recreate a deleted Auth UID with a renewable session.
-  // An empty document permanently closes that UID, without retaining task data.
-  if (earlier.exists && Object.keys(earlier.data() ?? {}).length === 0) return;
-  if (typeof earlier.get('closedUntil') === 'number') {
-    await task.set({}); // Upgrade a legacy expiring marker without reopening access.
-    return;
-  }
-  // Each attempt moves the next retry back, so a task that keeps failing goes to the end of the
-  // queue and cannot starve newer ones.
-  await task.set({reason: earlier.get('reason') ?? reason, startedAt: earlier.get('startedAt') ?? now,
-    nextRetryAt: now + DELETION_RETRY_MS, attempts: FieldValue.increment(1),
-    // Every caller's reason is kept, so a withdrawal or a user's own request is never mistaken for
-    // an inactivity deletion that may be called off.
-    reasons: FieldValue.arrayUnion(reason)}, {merge: true});
+  const attempt = await db.runTransaction(async transaction => {
+    const earlier = await transaction.get(task);
+    // A custom token can recreate a deleted Auth UID with a renewable session.
+    // An empty document permanently closes that UID, without retaining task data.
+    if (earlier.exists && Object.keys(earlier.data() ?? {}).length === 0) return null;
+    if (typeof earlier.get('closedUntil') === 'number') {
+      transaction.set(task, {}); // Upgrade a legacy expiring marker without reopening access.
+      return null;
+    }
+    // Each attempt moves the next retry back, so a task that keeps failing goes to the end of the
+    // queue and cannot starve newer ones.
+    // Recorded once: a retry keeps the first attempt's time, so it never counts as a later start.
+    const firstAt = typeof earlier.get('startedAt') === 'number' ? earlier.get('startedAt') as number : now;
+    transaction.set(task, {reason: earlier.get('reason') ?? reason, startedAt: firstAt,
+      nextRetryAt: now + DELETION_RETRY_MS, attempts: FieldValue.increment(1),
+      // Every caller's reason is kept, so a withdrawal or a user's own request is never mistaken for
+      // an inactivity deletion that may be called off.
+      reasons: FieldValue.arrayUnion(reason)}, {merge: true});
+    return {firstAt, destructiveAt: earlier.get('destructiveAt') ?? now};
+  });
+  if (attempt === null) return;
+  const {firstAt, destructiveAt} = attempt;
 
   // Older trials have only an account-local record. Preserve eligibility before
   // deleting that record, including when an earlier deletion attempt is retried.
-  if ((await userRef.collection('server').doc('trial').get()).exists) {
+  const trial = await userRef.collection('server').doc('trial').get();
+  if (trial.exists) {
+    // The code expires 730 days after the trial's own start (D7), not after this deletion. An old
+    // record without a start time counts from the first deletion attempt. A code already past its
+    // expiry is not written: the TTL policy may have removed it, and a new one would only be deleted again.
+    const usedAt = trial.get('usedAt');
+    const startedAt = typeof usedAt === 'number' && Number.isFinite(usedAt) ? usedAt : firstAt;
     const markers = options.requestAuth
       ? identityMarkers(options.requestAuth, db)
       : identityMarkersForUser(await auth.getUser(uid), db);
-    const batch = db.batch();
-    for (const marker of markers) batch.set(marker, {used: true});
-    await batch.commit();
+    // A code's expiry only moves later, never earlier, so a deletion cannot free a code sooner than
+    // the trial that set it. A code with no expiry yet (an old one) is filled in.
+    const row = trialMarker(startedAt);
+    await db.runTransaction(async transaction => {
+      const current = markers.length ? await transaction.getAll(...markers) : [];
+      current.forEach((existing, i) => {
+        if (skipsMarkerWrite(existing, row, now)) return;
+        transaction.set(markers[i], row);
+      });
+    });
   }
   await keepGuardianEvidence(db, uid, reason, now);
   await writeAuditLog({uid, event: 'accountDeleted', metadata: {reason}});
   // From here on the account loses data, so a stalled deletion must be finished, never called off.
-  await task.set({destructiveAt: earlier.get('destructiveAt') ?? now}, {merge: true});
+  await task.set({destructiveAt}, {merge: true});
   await retirePublicId(db, uid);
   await deleteGuardianRecords(db, uid);
   await db.recursiveDelete(userRef);

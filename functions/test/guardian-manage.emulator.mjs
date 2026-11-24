@@ -124,7 +124,12 @@ test('without a request token, trial markers come from the Auth record and match
   for (const path of expected) await db.doc(path).delete();
   await deletion.deleteUserData(db, auth, uid, 'inactive_24_months', {now: () => T0});
   assert.ok(expected.length >= 2);
-  for (const path of expected) assert.deepEqual((await db.doc(path).get()).data(), {used: true}, path);
+  for (const path of expected) {
+    // The trial started at T0, so the code expires 730 days after T0, not after the deletion.
+    const row = (await db.doc(path).get()).data();
+    assert.equal(row.used, true, path); assert.equal(row.startedAt, T0, path);
+    assert.equal(row.expireAt.toMillis(), T0 + 730 * 86400000, path);
+  }
 });
 
 test('the callable path still uses the request token', async () => {
