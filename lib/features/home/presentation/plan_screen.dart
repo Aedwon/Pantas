@@ -568,9 +568,7 @@ class PlanWeekScreen extends ConsumerWidget {
       // A week opened directly has no page behind it, and its parent is the
       // plan, not Home (5Q-13).
       onBack: () => _back(context, fallback: '/plan'),
-      onChange: context.wideWeb
-          ? () => unawaited(context.push<void>('/settings/exam'))
-          : null,
+      onChange: () => unawaited(context.push<void>('/settings/exam')),
       onDay: (day) => unawaited(
         context.push<void>(
           '/plan/day/${dayKey(day)}',

@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -347,6 +348,9 @@ class PlanWeekDay {
 }
 
 class PlanWeekPage extends StatelessWidget {
+  // ds-board: DP_Week footer row padding-top 7
+  static const double _footerGap = PantasSpace.s6 + PantasSpace.s2 / 2;
+
   const PlanWeekPage({
     required this.title,
     required this.days,
@@ -431,24 +435,35 @@ class PlanWeekPage extends StatelessWidget {
                   ),
               ],
             ),
+            // Board DP_Week: the study days at 13/400 and a teal 13/600
+            // Change on one baseline, 7 px under the list, 8 px apart.
             Padding(
               padding: const EdgeInsets.fromLTRB(
                 PantasSpace.s16,
-                PantasSpace.s8,
-                PantasSpace.s8,
+                _footerGap,
+                PantasSpace.s16,
                 PantasSpace.s0,
               ),
-              child: Wrap(
-                alignment: WrapAlignment.spaceBetween,
-                crossAxisAlignment: WrapCrossAlignment.center,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
                 children: [
-                  Text(studyDaysLabel, style: context.type.footnote),
-                  if (onChange != null)
-                    WebTextLink(
-                      label: 'Change',
-                      onPressed: onChange,
-                      arrow: false,
+                  Expanded(
+                    child: Text(studyDaysLabel, style: context.type.footnote),
+                  ),
+                  if (onChange != null) ...[
+                    const SizedBox(width: PantasSpace.s8),
+                    PantasTapArea(
+                      onTap: onChange,
+                      child: Text(
+                        'Change',
+                        style: context.type.footnote.copyWith(
+                          fontWeight: FontWeight.w600,
+                          color: context.colors.accent,
+                        ),
+                      ),
                     ),
+                  ],
                 ],
               ),
             ),
