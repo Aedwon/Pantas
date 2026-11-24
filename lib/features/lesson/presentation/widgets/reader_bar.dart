@@ -33,16 +33,17 @@ enum ReaderOrigin {
   /// What the back control names. It reads whether the reader has a page
   /// beneath it from the route, not from `canPop`, which turns false in the
   /// first frame of the exit and flipped the label while the page left.
-  String backLabel(BuildContext context) =>
+  String backLabel(BuildContext context, {String? dayLabel}) =>
       !(ModalRoute.of(context)?.isFirst ?? !Navigator.of(context).canPop())
-          ? switch (this) {
-              study => 'Study',
-              home => 'Home',
-              bookmarks => 'Bookmarks',
-              search => 'Search',
-              plan => 'Your plan',
-              performance => 'Your performance',
-            }
+          ? dayLabel ??
+              switch (this) {
+                study => 'Study',
+                home => 'Home',
+                bookmarks => 'Bookmarks',
+                search => 'Search',
+                plan => 'Your plan',
+                performance => 'Your performance',
+              }
           : _fallback == '/home'
               ? 'Home'
               : 'Study';
@@ -108,8 +109,8 @@ class ReaderBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final originWord = origin.backLabel(context);
     final day = dayContext;
+    final originWord = origin.backLabel(context, dayLabel: day?.backLabel);
     final dayLabel =
         day == null ? null : '${day.index + 1} of ${day.lessonIds.length}';
 

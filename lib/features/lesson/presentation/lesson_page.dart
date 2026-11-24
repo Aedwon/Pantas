@@ -276,6 +276,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       lessonIds: day.lessonIds,
       index: index,
       moreToDo: day.moreToDo,
+      backLabel: day.backLabel,
     );
   }
 

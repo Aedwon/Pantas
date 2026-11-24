@@ -470,6 +470,8 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
               lessonIds: plan.lessonIds,
               index: plan.lessonIds.indexOf(lesson.id),
               moreToDo: moreToDo,
+              // Board DP_DayRead: the back link names the day.
+              backLabel: DateFormat('EEEE', 'en_US').format(view.date),
             ),
           );
         }
