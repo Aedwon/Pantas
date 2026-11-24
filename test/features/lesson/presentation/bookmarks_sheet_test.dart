@@ -281,11 +281,15 @@ void main() {
     await pumpSheet(tester, rows: 3);
     final sheetRight = tester.getRect(find.byType(BookmarksSheet)).right;
     expect(
-        tester.getTopRight(find.text('Edit')).dx, closeTo(sheetRight - 20, 1));
+      tester.getTopRight(find.text('Edit')).dx,
+      closeTo(sheetRight - 20, 1),
+    );
     await tester.tap(find.text('Edit'));
     await tester.pumpAndSettle();
     expect(
-        tester.getTopRight(find.text('Done')).dx, closeTo(sheetRight - 20, 1));
+      tester.getTopRight(find.text('Done')).dx,
+      closeTo(sheetRight - 20, 1),
+    );
   });
 
   testWidgets('bookmark selection follows the shared 220 ms spring',

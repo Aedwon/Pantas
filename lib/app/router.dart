@@ -11,7 +11,6 @@ import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/app/web_route_shell.dart';
 import 'package:pantas/app/screen_view_tracker.dart';
 import 'package:pantas/app/telemetry_providers.dart';
-import 'package:pantas/core/ui/web/web_layout.dart';
 
 import 'package:pantas/app/build_info.dart';
 import 'package:pantas/app/start_location.dart';

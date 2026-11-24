@@ -144,7 +144,6 @@ void main() {
         cell,
         offering: const PaywallOfferingResult(
           status: PaywallOfferingStatus.available,
-          recognizedPackages: [],
           passPackages: [_pass],
         ),
       );

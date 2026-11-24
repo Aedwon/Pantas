@@ -329,7 +329,9 @@ void main() {
     await tester.pumpAndSettle();
     final sheetRight = tester.getRect(find.byType(PantasSheet)).right;
     expect(
-        tester.getTopRight(find.text('Done')).dx, closeTo(sheetRight - 20, 1));
+      tester.getTopRight(find.text('Done')).dx,
+      closeTo(sheetRight - 20, 1),
+    );
   });
 
   for (final brightness in Brightness.values) {
