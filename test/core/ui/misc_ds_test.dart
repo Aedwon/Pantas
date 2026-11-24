@@ -105,7 +105,8 @@ void main() {
       expect(
         size.height,
         greaterThanOrEqualTo(
-            cell.width >= 1024 ? PantasSize.btnSm : PantasSize.btn),
+          cell.width >= 1024 ? PantasSize.btnSm : PantasSize.btn,
+        ),
       );
     },
   );

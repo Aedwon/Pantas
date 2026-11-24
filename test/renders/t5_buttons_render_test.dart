@@ -18,21 +18,28 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_user.dart';
+import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/domain/exam_date.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/presentation/widgets/home_exam_date_sheet.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart';
+import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 
 import '../features/settings/presentation/pro_page_payments_test.dart'
     show SettingsGateway;
 import '../goldens/golden_harness.dart';
+import '../helpers/in_memory_database.dart';
 
 final _phase = Platform.environment['T5_PHASE'] ?? 'after';
 final _before = _phase == 'before';
@@ -275,10 +282,22 @@ void main() {
     for (final (name, entitlement) in [
       ('free', const Entitlement.free()),
       (
+        'lapsed',
+        Entitlement(plan: EntitlementPlan.free, expiresAt: DateTime.utc(2020)),
+      ),
+      (
+        'passhave',
+        Entitlement(
+          plan: EntitlementPlan.free,
+          passes: {'exam_cse_pro': DateTime.utc(2030)},
+        ),
+      ),
+      (
         'pro',
-        const Entitlement(
+        Entitlement(
           plan: EntitlementPlan.monthly,
           productId: 'pantas_pro_monthly',
+          expiresAt: DateTime.utc(2026, 11, 4),
         ),
       ),
     ]) {
@@ -291,11 +310,112 @@ void main() {
             width: width,
             dark: dark,
             height: 1000,
-            overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
+            overrides: [
+              revenueCatGatewayProvider.overrideWithValue(gateway),
+              entitlementProvider
+                  .overrideWith((ref) => Stream.value(entitlement)),
+              proForActiveExamProvider
+                  .overrideWith((ref) async => entitlement.proIsActive),
+              currentUserProvider.overrideWith(
+                (ref) async => const AuthUser(
+                  uid: 'owner',
+                  email: 'owner@example.com',
+                  displayName: 'Owner',
+                ),
+              ),
+              contentDatabaseProvider
+                  .overrideWithValue(openTestContentDatabase()),
+              activeProCatalogEntryProvider.overrideWith(
+                (ref) async => const ExamCatalogEntry(
+                  id: 'exam_cse_pro',
+                  name: 'CSE Professional',
+                  shortName: 'CSE Professional',
+                  priceTier: 'Civil Service',
+                  group: 'Civil service',
+                  comingSoon: false,
+                  hasContent: true,
+                  publishedSittings: [],
+                ),
+              ),
+              paywallOfferingProvider.overrideWith(
+                (ref) async => const PaywallOfferingResult(
+                  status: PaywallOfferingStatus.available,
+                  recognizedPackages: [
+                    PaywallPackage(
+                      sku: PaywallSku.monthly,
+                      productId: 'pantas_cs_monthly',
+                      priceString: '₱149',
+                      priceAmount: 149,
+                    ),
+                  ],
+                ),
+              ),
+            ],
             home: (_) => const ProPage(),
           );
         });
       }
     }
+
+    testWidgets('pro pending 390 $mode', (tester) async {
+      final gateway = SettingsGateway(initial: const Entitlement.free());
+      await shoot(
+        tester,
+        'pro-pending',
+        width: 390,
+        dark: dark,
+        height: 1000,
+        overrides: [
+          revenueCatGatewayProvider.overrideWithValue(gateway),
+          currentUserProvider.overrideWith(
+            (ref) async => const AuthUser(
+              uid: 'owner',
+              email: 'owner@example.com',
+              displayName: 'Owner',
+            ),
+          ),
+          pendingPurchaseProvider.overrideWithValue(
+            AsyncData(
+              PendingPurchase(
+                uid: 'owner',
+                productId: 'pantas_cs_monthly',
+                startedAt: DateTime.now(),
+              ),
+            ),
+          ),
+        ],
+        home: (_) => const ProPage(),
+      );
+    });
+
+    testWidgets('onboarding days buttons 1440 $mode', (tester) async {
+      await shoot(
+        tester,
+        'onboarding-days-buttons',
+        width: 1440,
+        dark: dark,
+        home: (_) => Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.all(120),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: SizedBox(
+                width: 640,
+                child: OnboardingActions(
+                  children: [
+                    OnboardingButton(label: 'Continue', onPressed: () {}),
+                    OnboardingButton(
+                      label: 'Every Day',
+                      variant: PantasButtonVariant.tertiary,
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+    });
   }
 }

@@ -6,19 +6,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/auth_user.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/web_pro_hero.dart';
 
 import 'pro_page_payments_test.dart' show SettingsGateway;
 
 Future<SettingsGateway> _pump(
   WidgetTester tester, {
   required Entitlement entitlement,
+  PendingPurchase? pending,
+  double width = 390,
+  bool web = false,
 }) async {
+  debugWebPlatformOverride = web;
+  addTearDown(() => debugWebPlatformOverride = null);
   tester.view
-    ..physicalSize = const Size(390, 844)
+    ..physicalSize = Size(width, 844)
     ..devicePixelRatio = 1;
   addTearDown(tester.view.reset);
   final gateway = SettingsGateway(initial: entitlement);
@@ -29,9 +39,17 @@ Future<SettingsGateway> _pump(
         entitlementProvider.overrideWith((ref) => Stream.value(entitlement)),
         proForActiveExamProvider
             .overrideWith((ref) async => entitlement.proIsActive),
+        currentUserProvider.overrideWith(
+          (ref) async => const AuthUser(
+            uid: 'owner',
+            email: 'owner@example.com',
+            displayName: 'Owner',
+          ),
+        ),
+        pendingPurchaseProvider.overrideWithValue(AsyncData(pending)),
       ],
       child: MaterialApp(
-        theme: buildLightTheme(),
+        theme: buildLightTheme(web: web),
         home: const ProPage(),
       ),
     ),
@@ -127,5 +145,63 @@ void main() {
     await tester.tap(row);
     await tester.pumpAndSettle();
     expect(gateway.restoreCalls, 1);
+  });
+
+  testWidgets(
+      'Pending: Open Google Play is the filled 52 button in the bar, '
+      'with the Restore line under it (ST_ProPending)', (tester) async {
+    await _pump(
+      tester,
+      entitlement: const Entitlement.free(),
+      pending: PendingPurchase(
+        uid: 'owner',
+        productId: 'pantas_cs_monthly',
+        startedAt: DateTime.now(),
+      ),
+    );
+    final open = find.widgetWithText(PantasButton, 'Open Google Play');
+    expect(open, findsOneWidget);
+    final bar = find.byKey(const ValueKey('pro-bar'));
+    expect(find.descendant(of: bar, matching: open), findsOneWidget);
+    expect(tester.getSize(open).height, 52);
+    expect(tester.widget<PantasButton>(open).kind, isNull);
+    expect(
+      tester.widget<PantasButton>(open).variant,
+      PantasButtonVariant.primary,
+    );
+    final restore = find.widgetWithText(PantasButton, 'Restore Purchases');
+    // 8 between the button and the line, which has 4 inside.
+    expect(
+      tester.getTopLeft(restore).dy - tester.getBottomLeft(open).dy,
+      closeTo(8, 1),
+    );
+  });
+
+  testWidgets('Free: the bar pads 30 under the Restore line (ST_ProFree)',
+      (tester) async {
+    await _pump(tester, entitlement: const Entitlement.free());
+    final line = find.widgetWithText(PantasButton, 'Restore Purchases');
+    expect(844 - tester.getBottomLeft(line).dy, closeTo(30, 1));
+  });
+
+  testWidgets('wide: the Restore label sits 18 in, 4 and the 14 of .btn3',
+      (tester) async {
+    await _pump(
+      tester,
+      entitlement: const Entitlement.free(),
+      width: 1440,
+      web: true,
+    );
+    final button = find.widgetWithText(TextButton, 'Restore Purchases');
+    final label = find.text('Restore Purchases');
+    expect(
+      tester.getTopLeft(label).dx - tester.getTopLeft(button).dx,
+      14,
+    );
+    final hero = find.byType(WebProHero);
+    expect(
+      tester.getTopLeft(button).dx - tester.getTopLeft(hero).dx,
+      4,
+    );
   });
 }

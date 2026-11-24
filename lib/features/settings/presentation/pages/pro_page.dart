@@ -952,7 +952,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final manageRow = !web &&
         entitlement.proIsActive &&
         entitlement.plan != EntitlementPlan.free;
-    final phoneBar = showOffers || upgrade || restoreLine || playRenews;
+    final phoneOpen = waiting && !context.wideWeb;
+    final phoneBar =
+        showOffers || upgrade || restoreLine || playRenews || phoneOpen;
     return SettingsPanePage(
       section: 'Pantas Pro',
       title: context.wideWeb ? 'Pantas Pro' : '',
@@ -963,8 +965,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Transform.translate(
-                      offset: const Offset(-PantasSpace.s14, 0),
+                    // ST_Pro: the row pads 4 and the button 14, so the label
+                    // sits 18 in.
+                    Padding(
+                      padding: const EdgeInsets.only(left: PantasSpace.s4),
                       child: WebButton(
                         label: upgrade
                             ? (widget.freeLabel ?? 'Switch on Free')
@@ -1075,13 +1079,17 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               child: SafeArea(
                 key: _barKey,
                 top: false,
+                // The boards pad the bar 14 16 30, home indicator included.
+                minimum: const EdgeInsets.only(
+                  bottom: PantasSpace.s28 + PantasSpace.s2,
+                ),
                 child: Padding(
                   key: const ValueKey('pro-bar'),
                   padding: const EdgeInsets.fromLTRB(
                     PantasSpace.s16,
                     PantasSpace.s14,
                     PantasSpace.s16,
-                    PantasSpace.s16,
+                    PantasSpace.s0,
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1151,6 +1159,12 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                           textAlign: TextAlign.center,
                           style: context.type.footnote,
                         ),
+                      // ST_ProPending: Open Google Play is the filled button.
+                      if (phoneOpen)
+                        PantasButton(
+                          label: 'Open Google Play',
+                          onPressed: _busy ? null : () => _manage(entitlement),
+                        ),
                       // ST_SwitchUpgrade draws it as the 52 full-width ghost
                       // button under the CTA.
                       if (upgrade)
@@ -1163,7 +1177,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       // The boards put 8 between the CTA, the fine print and
                       // the Restore line.
                       if (restoreLine) ...[
-                        if (showOffers || playRenews)
+                        if (showOffers || playRenews || phoneOpen)
                           const SizedBox(height: PantasSpace.s8),
                         PantasButton(
                           label: 'Restore Purchases',
@@ -1403,11 +1417,12 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       'Pro turns on as soon as Google Play confirms it.',
                       style: context.type.body,
                     ),
-                    PantasButton(
-                      label: 'Open Google Play',
-                      variant: PantasButtonVariant.tertiary,
-                      onPressed: _busy ? null : () => _manage(entitlement),
-                    ),
+                    if (context.wideWeb)
+                      PantasButton(
+                        label: 'Open Google Play',
+                        variant: PantasButtonVariant.tertiary,
+                        onPressed: _busy ? null : () => _manage(entitlement),
+                      ),
                   ],
                 ),
               ),
