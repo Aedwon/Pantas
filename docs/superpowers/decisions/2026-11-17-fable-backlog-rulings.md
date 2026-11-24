@@ -1622,3 +1622,14 @@ Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon'
 ### What needs Aedwon
 
 Nothing new. Rulings 1 and 2 replace D71, which he approved on Nov 8 for the hint line that B5 removed. The lead tells him this, and that a 20-question session shows two rows of marks. He sees both in his visual pass.
+
+## Nov 25, UX design lead: week strip chip names for CSE (finding U14)
+
+Decided by the UX design lead under written rule 4 (in-app copy inside an approved layout). Not a new look.
+
+- Searched: Pantas Redesign `HP_WeekStrip`, `HP_WeekStripLarge`, `HP_WeekFrame`, `HE_ManyLessons`; Pantas Web `HM_NoContent`; ruling D196; finding U14 (`build/audit/ui-2-findings.md` in the qa/cse-release-r1 worktree).
+- His board `HP_WeekStrip` (his pick B, D196) draws the phone chip with a short name, "CSE Pro". Live builds the chip from the catalog short name, "CSE Subprofessional", which does not fit beside the strip and wraps to three lines at 200% text.
+- Ruling: the Home week strip chip says "CSE Pro" and "CSE Subpro", on phone and wide. Every other place keeps the catalog short name. All other exams keep their catalog short name in the chip. Day count and the 200% fallback follow D196 unchanged.
+- Why "CSE Subpro": it follows the board's "CSE Pro" pattern and is the common Philippine shorthand. "CSE-SP" (`HM_NoContent`) is older and does not match the board's spelling.
+- Arithmetic (board worker, Geist metrics): "CSE Subpro" makes a 141.7 px chip block, so four days fit beside it in the 340 px strip; at 200% text the chip goes under the strip with four days.
+- Drawn: canvas "Loading, Reader Line, Week Strip", page 3 Week strip, https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec
