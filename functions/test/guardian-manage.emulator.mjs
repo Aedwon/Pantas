@@ -96,7 +96,7 @@ test('attested checkouts are copied with four fields only; others are not', asyn
   await db.doc('paymongoCheckouts/cs_dm_other').set({uid: 'someone-else', attestedAt: T0, termsVersion: 'v', reference: 'r', product: 'p'});
   await deletion.deleteUserData(db, auth, uid, 'guardian_withdrawal', {now: () => T0 + 9});
   assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_a`).get()).data(),
-    {attestedAt: T0 + 5, termsVersion: '2026-11-12', reference: 'ref-a', product: 'pantas_cs_monthly'});
+    {attestedAt: T0 + 5, termsVersion: '2026-11-12', wordingVersion: null, reference: 'ref-a', product: 'pantas_cs_monthly'});
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_b`).get()).exists, false);
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_other`).get()).exists, false);
   assert.equal((await db.doc(`guardianConsentEvidence/${uid}`).get()).get('reason'), 'guardian_withdrawal');
@@ -125,7 +125,12 @@ test('without a request token, trial markers come from the Auth record and match
   for (const path of expected) await db.doc(path).delete();
   await deletion.deleteUserData(db, auth, uid, 'inactive_24_months', {now: () => T0});
   assert.ok(expected.length >= 2);
-  for (const path of expected) assert.deepEqual((await db.doc(path).get()).data(), {used: true}, path);
+  for (const path of expected) {
+    // The trial started at T0, so the code expires 730 days after T0, not after the deletion.
+    const row = (await db.doc(path).get()).data();
+    assert.equal(row.used, true, path); assert.equal(row.startedAt, T0, path);
+    assert.equal(row.expireAt.toMillis(), T0 + 730 * 86400000, path);
+  }
 });
 
 test('the callable path still uses the request token', async () => {
@@ -239,7 +244,7 @@ test('readManage tells apart active, not confirmed and unknown', async () => {
   assert.deepEqual(await guardian.readManage(req('v', {token: manage}), h.deps), {state: 'not_confirmed'}, 'expired');
   h.advance(-guardian.GUARDIAN_WINDOW_MS);
   await guardian.answerRequest(req('v', answer(confirmTokenOf(h.sent[0]), {decision: 'decline', agreed: false})), h.deps);
-  assert.deepEqual(await guardian.readManage(req('v', {token: manage}), h.deps), {state: 'not_confirmed'}, 'declined');
+  assert.deepEqual(await guardian.readManage(req('v', {token: manage}), h.deps), {state: 'unknown'}, 'declined: the page link is deleted with the request');
   for (const token of [undefined, '', 'short', 'z'.repeat(64), 'f'.repeat(64), 5, confirmTokenOf(h.sent[0])]) {
     assert.deepEqual(await guardian.readManage(req('v', {token}), h.deps), {state: 'unknown'}, String(token));
   }
@@ -439,11 +444,45 @@ test('an attested order with no checkout record is copied, and an order with a c
   const purchases = await db.collection(`guardianConsentEvidence/${uid}/purchases`).get();
   assert.deepEqual(purchases.docs.map(d => d.id).sort(), ['cs_dm_both', 'order-ref-only']);
   assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/order-ref-only`).get()).data(),
-    {attestedAt: T0 + 7, termsVersion: '2026-11-12', reference: 'ref-only', product: 'pantas_cs_weekly'});
+    {attestedAt: T0 + 7, termsVersion: '2026-11-12', wordingVersion: null, reference: 'ref-only', product: 'pantas_cs_weekly'});
   assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_both`).get()).data(),
-    {attestedAt: T0 + 5, termsVersion: '2026-11-12', reference: 'ref-both', product: 'pantas_cs_monthly'});
+    {attestedAt: T0 + 5, termsVersion: '2026-11-12', wordingVersion: null, reference: 'ref-both', product: 'pantas_cs_monthly'});
   assert.deepEqual((await db.doc('paymongoOrders/ref-only').get()).data(), {accountDeleted: true, deletedAt: T0 + 9, product: 'pantas_cs_weekly'}, 'the order keeps only its quote');
   await db.doc('paymongoOrders/ref-other').delete();
+});
+
+const declared = (kind, at, extra = {}) => ({declaration: {kind, wordingVersion: `checkout-${kind}-2026-11-23`, termsVersion: '2026-11-12', at}, ...extra});
+
+test('only guardian declarations reach the ten-year evidence, with the product and the wording id', async () => {
+  const uid = 'dm-declared'; await reset(uid);
+  await auth.createUser({uid});
+  await db.doc(`guardianConsentEvidence/${uid}/responses/r1`).set({action: 'confirm', decidedAt: T0});
+  await db.doc('paymongoOrders/ref-adult').set({uid, product: 'pantas_cs_weekly', createdAt: T0, sessionId: 'cs_dm_adult_d', ...declared('adult', T0 + 1)});
+  await db.doc('paymongoCheckouts/cs_dm_adult_d').set({uid, product: 'pantas_cs_weekly', createdAt: T0, reference: 'ref-adult', ...declared('adult', T0 + 1)});
+  await db.doc('paymongoOrders/ref-guard').set({uid, product: 'pantas_cs_monthly', createdAt: T0, sessionId: 'cs_dm_guard_d', ...declared('guardian', T0 + 2)});
+  await db.doc('paymongoCheckouts/cs_dm_guard_d').set({uid, product: 'pantas_cs_monthly', createdAt: T0, reference: 'ref-guard', ...declared('guardian', T0 + 2)});
+  await db.doc('paymongoOrders/ref-guard-only').set({uid, product: 'pantas_pass_cse_pro', createdAt: T0, ...declared('guardian', T0 + 3)});
+  await deletion.deleteUserData(db, auth, uid, 'user_request', {now: () => T0 + 9});
+  const purchases = await db.collection(`guardianConsentEvidence/${uid}/purchases`).get();
+  assert.deepEqual(purchases.docs.map(d => d.id).sort(), ['cs_dm_guard_d', 'order-ref-guard-only']);
+  assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/cs_dm_guard_d`).get()).data(),
+    {attestedAt: T0 + 2, termsVersion: '2026-11-12', wordingVersion: 'checkout-guardian-2026-11-23',
+      reference: 'ref-guard', product: 'pantas_cs_monthly'});
+  assert.deepEqual((await db.doc(`guardianConsentEvidence/${uid}/purchases/order-ref-guard-only`).get()).data(),
+    {attestedAt: T0 + 3, termsVersion: '2026-11-12', wordingVersion: 'checkout-guardian-2026-11-23',
+      reference: 'ref-guard-only', product: 'pantas_pass_cse_pro'});
+  // This branch keeps a minimal order for the quote, so the adult order is reduced rather than removed.
+  assert.deepEqual((await db.doc('paymongoOrders/ref-adult').get()).data(), {accountDeleted: true, deletedAt: T0 + 9, product: 'pantas_cs_weekly'}, 'the adult order keeps only its quote');
+});
+
+test('an account whose only declarations are adult leaves no evidence and no marker', async () => {
+  const uid = 'dm-adult-declared'; await reset(uid);
+  await auth.createUser({uid});
+  await db.doc('paymongoOrders/ref-adult-only').set({uid, product: 'pantas_cs_yearly', createdAt: T0, ...declared('adult', T0 + 1)});
+  await db.doc('paymongoCheckouts/cs_dm_adult_only').set({uid, product: 'pantas_cs_yearly', createdAt: T0, reference: 'ref-adult-only', ...declared('adult', T0 + 1)});
+  await deletion.deleteUserData(db, auth, uid, 'user_request', {now: () => T0 + 9});
+  assert.equal((await db.doc(`guardianConsentEvidence/${uid}`).get()).exists, false);
+  assert.equal((await db.collection(`guardianConsentEvidence/${uid}/purchases`).get()).size, 0);
 });
 
 test('markAdult revokes every manage token, switches once and ends the guardian page', async () => {
@@ -464,6 +503,26 @@ test('markAdult revokes every manage token, switches once and ends the guardian 
   assert.deepEqual(became, [{action: 'became_adult', decidedAt: T0 + DAY}]);
   assert.equal(await code(guardian.markAdult(req(uid, {}), h.deps)), 'failed-precondition');
   assert.equal((await guardian.getStatus(req(uid, {}), h.deps)).ageGroup, 'adult');
+});
+
+test('markAdult on a pending request leaves no guardian evidence', async () => {
+  const uid = 'dm-adult-pending-evidence'; await reset(uid);
+  const h = harness();
+  await guardian.sendLink(req(uid, body()), h.deps);
+  assert.deepEqual(await guardian.markAdult(req(uid, {}), h.deps), {state: 'adult'});
+  assert.deepEqual(await rows(`guardianConsentEvidence/${uid}/responses`), []);
+});
+
+test('markAdult ends a pending request and refuses its answer link', async () => {
+  const uid = 'dm-adult-pending-link'; await reset(uid);
+  const h = harness();
+  await guardian.sendLink(req(uid, body()), h.deps);
+  const token = confirmTokenOf(h.sent.at(-1));
+
+  await guardian.markAdult(req(uid, {}), h.deps);
+
+  assert.deepEqual(await guardian.answerRequest(req('visitor', answer(token)), h.deps), {state: 'unknown'});
+  assert.deepEqual(await stored(uid), {ageGroup: 'adult', adultSince: T0});
 });
 
 test('markAdult writes nothing when the server never knew a minor, and needs the caller', async () => {
@@ -493,10 +552,14 @@ test('the cleanup job keeps open manage links and still clears revoked ones', as
   const {emailManage, pageManage} = await confirmedMinor(uid, h, true);
   await guardian.markAdult(req(uid, {}), h.deps);
   const open = 'dm-purge-open'; await reset(open);
-  await guardian.sendLink(req(open, body({guardianEmail: 'keep@gmail.com'})), h.deps);
-  const keep = guardian.hashValue(KEY, 'token', manageTokenOf(h.sent.at(-1)));
+  const kept = await confirmedMinor(open, h, true);
+  const keep = guardian.hashValue(KEY, 'token', kept.emailManage);
+  const unanswered = 'dm-purge-unanswered'; await reset(unanswered);
+  await guardian.sendLink(req(unanswered, body({guardianEmail: 'gone@gmail.com'})), h.deps);
+  const gone = guardian.hashValue(KEY, 'token', manageTokenOf(h.sent.at(-1)));
   await guardian.purgeGuardianRecords(db, T0 + 400 * DAY);
-  assert.equal((await db.doc(`guardianTokens/${keep}`).get()).exists, true, 'an open manage link has no expiry');
+  assert.equal((await db.doc(`guardianTokens/${keep}`).get()).exists, true, 'a confirmed guardian\'s open manage link has no expiry');
+  assert.equal((await db.doc(`guardianTokens/${gone}`).get()).exists, false, 'an expired request takes its page link with it');
   const revoked = guardian.hashValue(KEY, 'token', emailManage);
   assert.equal((await db.doc(`guardianTokens/${revoked}`).get()).exists, false, 'a revoked one follows the usual rule');
   assert.equal((await db.doc(`guardianTokens/${guardian.hashValue(KEY, 'token', pageManage)}`).get()).exists, false);
@@ -511,7 +574,7 @@ test('the cleanup job keeps the sharing choice and the adult mark when it trims 
   await guardian.markAdult(req(uid, {}), {...h.deps, now: () => T0 + 10 * DAY});
   await db.doc(`users/${uid}/server/guardianConsent`).set({status: 'confirmed', ageGroup: 'adult', adultSince: T0 + 10 * DAY,
     decidedAt: T0, sharingAllowed: false, ageCheckNoticeVersion: '2026-11-09', emailHash: 'x', maskedEmail: 'm***@g***.com',
-    tokenHash: 'y', sentAt: T0, expiresAt: T0 + 7 * DAY, createdAt: T0});
+    tokenHash: 'y', sentAt: T0, expiresAt: T0 + 7 * DAY, createdAt: T0, guardianDueAt: T0 + 7 * DAY});
   await guardian.purgeGuardianRecords(db, T0 + 20 * DAY);
   assert.deepEqual(await stored(uid), {status: 'confirmed', ageGroup: 'adult', adultSince: T0 + 10 * DAY,
     decidedAt: T0, sharingAllowed: false, ageCheckNoticeVersion: '2026-11-09'});

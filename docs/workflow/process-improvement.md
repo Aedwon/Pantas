@@ -123,6 +123,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### A brief paraphrased a ruling and dropped its scope limit (Nov 24)
+
+- Words: none from Aedwon; found by the Fable 5.2 advisor (ruling C5): "H1(b) already answers this. Its last sentence, which the T18 brief left out, reads: \"Short-lived rate-limit counters are outside this test.\""
+- Wrong: the CSE release lead's T18 brief paraphrased ruling H1(b) without its last sentence. Codex audits then held rate-limit counters to the full unlinkability test, and the lane spent about three extra build and audit rounds (Codex quota and worker usage) on counters the ruling had excluded.
+- Why it got through: briefs restated rulings in the lead's words; nothing required the ruling's exact text, so a scope limit could fall out silently, and the auditor checked against the brief.
+- Fix (required step for any lead writing a worker or audit brief that rests on a ruling): paste the ruling's operative text verbatim (or link its section and say "read it in full"), never a paraphrase, and give the auditor the same section. Applied: T18 round 5 and its final audit read ruling C5 in full.
+
 ### Claude 5-hour limit hit with three Opus leads running (Nov 23)
 
 - Words: none from Aedwon. His standing words: "mind my usage, limits in my PC" (Nov 22). The limit message: "You've hit your 5-hour limit · resets 9:40pm (Asia/Manila)".

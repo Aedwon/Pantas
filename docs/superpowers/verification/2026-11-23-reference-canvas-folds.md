@@ -485,3 +485,27 @@ Missing values, nearest approved used:
 - RD_FocusOpen and RD_Figure: first section segment filled 32 % and 64 % (old bar 4 % and 8 % of the lesson, times 8).
 - QV_Answer: the track data of the "before pick" and "after check" bar variants was swapped on the old board; fixed.
 - Reduced motion variants added on QV_Answer; the end boards show the final state at once.
+
+## T15 ruling changes (Nov 24)
+
+Source: "Nov 24, T15 reader undrawn states" in `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md` (origin/main 3931abc60), rulings 1, 3 and 6. Final versions: Lesson Reader Full Screen version 9, Pantas Web version 182.
+
+| Board | Canvas | Change | Note |
+|---|---|---|---|
+| M1100 | Lesson Reader Full Screen | Ruling 1: reading block centered at 1100, 76 px each side | Board file unchanged; the mid-width rule in `fs.css` now sets a 948 px block (600 + 48 + 300), centered, side margins at least 40 px |
+| RD_Held1100 | Pantas Web | Same | Same rule in `held/fs.css` |
+| fs.css, held/fs.css | Both | Ruling 3: expand button radius 9 to 8 | Reaches every held board |
+| H4 | Lesson Reader Full Screen | Ruling 6: pointer on `AB` in the first solution line | Scroll 1900 to 1800 so the line is in view; pointer moved to the word |
+| R | Lesson Reader Full Screen | Ruling 6: "hypotenuse" in step 1 no longer linked | `AB` in the first solution line was already linked |
+| MO (scene 3) | Lesson Reader Full Screen | Ruling 6: linked-word example moved to `AB` in a first solution line | Card now shows the problem line, the solution line, then step 1; pointer retargeted |
+| RD_HeldLinked | Pantas Web | Copy of H4 | Same change |
+| RD_HeldPart | Pantas Web | Copy of R | Same change |
+| RD_HeldMotion | Pantas Web | Copy of MO | Same change |
+| R, MO (scene 3) | Lesson Reader Full Screen | Ruling 6 follow-up: problem line links only `BC`; the `AB` and `AC` links are removed | Version 10. `BC` is already linked in R; MO draws no `BC` link and the second pointer stop still lights the AC label in the figure |
+| RD_HeldPart, RD_HeldMotion | Pantas Web | Same follow-up | Version 183 |
+| H4 | Lesson Reader Full Screen | Retitled: "4 Held, pointing at AB in the first solution line: side AB lights in the figure" | Version 10 |
+| RD_HeldLinked | Pantas Web | Retitled to match, keeping "(H4)" | Version 183 |
+
+Final versions after the follow-up: Lesson Reader Full Screen version 10, Pantas Web version 183.
+
+Not changed: the M1100 and RD_Held1100 board titles. Pointer positions were set from a headless Chrome measure with a fallback font (Geist was not available), so the owner should check them on the canvas.

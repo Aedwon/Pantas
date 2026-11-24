@@ -165,12 +165,16 @@ The upload writes server-only content paths, not `betaApplications`.
 ## 8. Build and publish the app (Aedwon-only)
 
 ```sh
-flutter build web --release -t lib/main_prod.dart --dart-define=APP_CHECK_WEB_SITE_KEY=<PROD_PUBLIC_SITE_KEY>
+flutter build web --release -t lib/main_prod.dart --dart-define=APP_CHECK_WEB_SITE_KEY=<PROD_PUBLIC_SITE_KEY> \
+  --dart-define=SELLER_TRADING_NAME="<registered business name>" \
+  --dart-define=SELLER_PLACE_OF_BUSINESS="<full place of business>" \
+  --dart-define=SELLER_PHONE="<business phone>"
 node tool/web/stamp_worker_version.mjs build/web
 firebase deploy --only hosting:app --project pantas-prod
 ```
 
 A build without the site key compiles but refuses to start in release mode.
+A public build (no `BETA_GATE=true`) also refuses to start while any `SELLER_*` fact above is missing. The seller line beside Pay shows them (ruling D3). Staging and beta builds start with brackets.
 Do not deploy that artifact. Do not use staging's key or entry point.
 
 Before any functions deploy, check the runtime account's roles (fails on a missing one):
@@ -447,6 +451,8 @@ It deletes every package in `pantas-staging`'s `gcf-artifacts` repository (asia-
 is fixed in the script and it takes no project argument. Running services keep serving, and the next
 deploy builds fresh images. Prod keeps its images for one day (Fable 5.2 rule 7 ruling 4). Do not run it
 while a deploy is still in progress.
+
+After any staging deploy that includes Firestore indexes, run `tool/deploy/staging_disable_ttl.sh` (add `--dry-run` to list first), because `firestore.indexes.json` turns TTL back on and TTL deletes have no free tier.
 
 ### The free-tier check (rule 7)
 

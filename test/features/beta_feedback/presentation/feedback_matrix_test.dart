@@ -114,8 +114,9 @@ void main() {
                     constraints: const BoxConstraints(maxWidth: 416),
                     child: ReportForm(
                       questionId: 'q',
-                      queue: ReportQueue(db),
+                      queue: ReportQueue(db, account: () => 'a'),
                       onClose: () {},
+                      onSaved: (_) {},
                     ),
                   ),
                 ),
@@ -126,7 +127,7 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
-      expect(find.text('Save'), findsOneWidget);
+      expect(find.text('Send'), findsOneWidget);
     });
   }
 }

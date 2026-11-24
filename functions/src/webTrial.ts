@@ -3,7 +3,7 @@ import {appSecrets, secret} from './_secrets.js';
 import {FieldValue, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {getAuth, type Auth, type UserRecord} from 'firebase-admin/auth';
 import {HttpsError} from 'firebase-functions/v2/https';
-import {onAccountCall as onCall} from './_accountAccess.js';
+import {accountClosed, onAccountCall as onCall} from './_accountAccess.js';
 import {assertFreshAppCheck, enforceAppCheck} from './_appCheck.js';
 import {assertNamedUser} from './_audit.js';
 import {canonicalEmail} from './_email.js';
@@ -13,6 +13,7 @@ import {DAY_MS, TRIAL_DAYS, TRIAL_PRODUCT, type Grant} from './grants.js';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import {timed} from './_timed.js';
 import {serviceAccountEmail} from './serviceAccounts.js';
+import {trialMarker} from './trialMarker.js';
 
 /** Only Firebase-verified token identities are used, never caller data. */
 export function identityMarkers(auth: Parameters<typeof assertNamedUser>[0], db: Firestore) {
@@ -115,9 +116,9 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
   const result = await deps.db.runTransaction(async transaction => {
     const used = await transaction.getAll(...identities);
     const marker = await transaction.get(trial);
-    if ((await transaction.get(deps.db.doc(`accountDeletions/${uid}`))).exists) {
-      throw new HttpsError('failed-precondition', 'This account is closed.');
-    }
+    // A request that passed the callable guard before a deletion began must not recreate the
+    // account's data after cleanup. The task is read here, in the same transaction as the writes.
+    if ((await transaction.get(deps.db.doc(`accountDeletions/${uid}`))).exists) throw accountClosed();
     const inputs = await readEntitlementInputs(transaction, deps.db, uid);
     if (marker.exists || used.some(row => row.exists)) throw new HttpsError('failed-precondition', 'The free trial was already used.');
     if (!neverHadPro(inputs)) {
@@ -127,7 +128,7 @@ export async function startTrial(auth: Parameters<typeof assertNamedUser>[0], de
       startsAt: now, endsAt: now + TRIAL_DAYS * DAY_MS, state: 'active', createdAt: now};
     const grants = new Map(inputs.grants).set('trial', grant);
     transaction.set(trial, {usedAt: now, grantId: 'trial'});
-    for (const ref of identities) transaction.set(ref, {used: true});
+    for (const ref of identities) transaction.set(ref, trialMarker(now));
     transaction.set(deps.db.doc(`users/${uid}/grants/trial`), grant);
     transaction.set(inputs.record.ref, {...entitlementWrite(inputs, claimsFromInputs(inputs, now, grants))}, {merge: true});
     transaction.create(deps.db.collection('audit_logs').doc(), {uid, event: 'webTrialStarted',

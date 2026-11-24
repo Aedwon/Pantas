@@ -6,6 +6,7 @@ import {createCheckout} from '../lib/paymongoCheckout.js';
 import {deleteUserData} from '../lib/deleteUserData.js';
 import {handlePaymongoWebhook} from '../lib/paymongoWebhook.js';
 import {fakeAuth, paidEvent, signed, SECRET} from './_paymongo-helpers.mjs';
+import {adult} from './_declaration.mjs';
 
 const db = getFirestore();
 const T0 = Date.parse('2027-02-01T10:00:00+08:00');
@@ -38,14 +39,14 @@ const grantIds = async uid => (await db.collection(`users/${uid}/grants`).get())
 test('a paid session with no grant older than 10 minutes is completed by the checkout call; under 10 minutes it is only reported', async () => {
   const uid = 'heal-paid';
   const {client, made} = paymongo({uid, paid: true, paymentId: 'pay_heal_1'});
-  await createCheckout(caller(uid), {product}, checkoutDeps(client, T0));
+  await createCheckout(caller(uid), {product, declaration: adult}, checkoutDeps(client, T0));
   const sessionId = `cs_${made[0].referenceNumber}`;
   const auth = fakeAuth();
-  await assert.rejects(createCheckout(caller(uid), {product}, checkoutDeps(client, T0 + 5 * MIN, auth)),
+  await assert.rejects(createCheckout(caller(uid), {product, declaration: adult}, checkoutDeps(client, T0 + 5 * MIN, auth)),
     error => error.message === 'Your payment is being confirmed. Pro will appear shortly.');
   assert.deepEqual(await grantIds(uid), []);
   // A request cannot supply the session or payment: the call reads both from PayMongo.
-  await createCheckout(caller(uid), {product, sessionId: 'cs_forged', paymentId: 'pay_forged'}, checkoutDeps(client, T0 + 12 * MIN, auth));
+  await createCheckout(caller(uid), {product, declaration: adult, sessionId: 'cs_forged', paymentId: 'pay_forged'}, checkoutDeps(client, T0 + 12 * MIN, auth));
   assert.deepEqual(await grantIds(uid), ['pay_heal_1']);
   assert.equal((await db.doc('paymongoPayments/pay_heal_1').get()).get('uid'), uid);
   assert.equal((await db.doc(`webhookEvents/heal_pay_heal_1/users/${uid}`).get()).exists, true);
@@ -64,7 +65,7 @@ test('a paid session with no grant older than 10 minutes is completed by the che
 test('a payment on a checkout link that outlived account deletion becomes one refund task and no grant, with no uid kept', async () => {
   const uid = 'heal-deleted';
   const {client, made} = paymongo({uid, paid: true, paymentId: 'pay_del_1'});
-  const out = await createCheckout(caller(uid), {product}, checkoutDeps(client, T0));
+  const out = await createCheckout(caller(uid), {product, declaration: adult}, checkoutDeps(client, T0));
   const reference = made[0].referenceNumber;
   await deleteUserData(db, {getUser: async () => ({}), deleteUser: async () => {}}, uid, 'user_request', {now: () => T0 + MIN});
   // The checkout and order records stay, cut down to the quote.

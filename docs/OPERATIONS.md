@@ -153,6 +153,17 @@ These cannot be scripted in this repo and must be redone if the relevant config 
 - [ ] Sanity 2FA enforcement at org level enabled — Plan 1 Task 19 step 4
 - [ ] GitHub branch protection on `main` — Plan 1 Task 28 step 2
 
+## PayMongo follow-ups (weekly, and when a student reports a stuck checkout)
+
+Read `paymongoFollowUps` and the orders flagged by the checkout code. Each record carries a reason code only:
+- `unissuedSessionNotExpired`: a checkout session was created but never handed out, and PayMongo did not
+  confirm its expiry. That account's next checkout is refused until the session is confirmed expired. Expire it
+  in the PayMongo dashboard, then check the session reads `expired`; if it shows paid, fulfil it as a paid
+  session.
+- `declarationMissing: true` on an order: a pre-rollout link was paid without the checkout declaration. Access
+  was granted. Note it in the refund and dispute records; no action unless the payer disputes.
+- Webhook follow-ups (amount mismatch and similar): handle as the record's reason says, by the refund route below.
+
 ## Refund after PayMongo's window, every payment method
 
 Fable legal round 3, H6 (Nov 23, 2026): one route for every payment method. It widens the QR Ph steps

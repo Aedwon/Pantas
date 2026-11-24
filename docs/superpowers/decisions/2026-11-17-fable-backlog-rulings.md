@@ -795,8 +795,9 @@ The texts publish in the same prod release as the behavior they describe, or aft
 | Claim in the texts | Build that makes it true | State on Nov 23 |
 |---|---|---|
 | A tick on every web purchase; the declaration, time, Terms version and wording version recorded; the Terms open without ticking; the seller line | D2, D3, R2, R5 (PR #90) | Draft PR |
-| Only guardian declarations copied at deletion; ten years and four years for evidence | R2, R6 (PR #90) | Draft PR |
+| Only guardian declarations copied at deletion; ten years and four years for evidence; sharing permission records deleted 1,461 days after the account's deletion and never the newest record | R2, R6, legal round 5 (PR #90) | Draft PR |
 | A failed request is deleted whole; a decline is deleted at once | D1 with H1 | Not built |
+| An unconfirmed account that says it is 18 leaves no evidence row (the `became_adult` row is kept only where a guardian confirmed) | Nov 24 became_adult ruling, code items 1 to 3 (added Nov 24) | Not built |
 | Reports deleted within 90 days of receipt | R3 (PR #86) with H2 | Draft PR; sweep not built |
 | The trial code period | D7 | Not built. The texts say "no scheduled expiry" until it ships |
 | A refund route when PayMongo's route is closed | H6 | Path exists; runbook and test not done |
@@ -962,3 +963,290 @@ One choice: A, B, C or D. Nothing is built until he chooses. H1 and T18 proceed 
 - Context: PR #86 (report sending) carried ruling C3's sign-out block for all unsent data. Four Codex rounds each found new must-fix defects where the sign-out and switch sequence meets the sync runtime (`build/audit/codex-t2-r4.md`).
 - Advice, taken as the lead's ruling: option 3, check first. Before any teardown (Sync stop, wipe, purchase identity change), send this account's pending reports (bounded) and count what is still pending; refuse only when reports remain after a network failure; otherwise run main's sign-out sequence unchanged. PR #86 carries no sync-runtime change against main. A server refusal (quota) does not block: those reports are discarded and the residual recorded. Accepted residual: a report filed in another tab during the send window can be lost. The Free sign-out copy fix ships now.
 - The Pro-row part of C3 moves to its own launch-gate task (T20), design reviewed before code, time-boxed to two audit rounds; if it fails, the choice goes to Aedwon: launch with the existing loss, or delay. It must guarantee: unsent Pro rows are sent or sign-out is refused with data, Sync generation and Pro state unchanged; no row written under A uploads under B, enforced inside each sync write transaction, and the owner marker is never absent while signed in; every wait is bounded and a timeout refuses, never hangs or wipes; a closed-account pull cannot restore wiped data; one wipe per transition and a failed sign-in ends signed out; tests run the production controller, with no instant fakes.
+
+### C5. How strict H1(b) is, and the stop rule for T18 (Fable 5.2 advisor, Nov 24)
+
+- Context: four Codex rounds on T18 (D1 with H1) kept finding finer correlations between closed guardian requests and rate-limit counters.
+- Ruling, verbatim: "H1(b) already answers this. Its last sentence, which the T18 brief left out, reads: \"Short-lived rate-limit counters are outside this test.\""
+  1. H1(b) covers the request record, `guardianTokens` rows and evidence only. Pass: after decline or expiry, no document except the decline evidence sits under the account's path or holds the account ID, and no retained link shares an ID or exact time with the evidence.
+  2. Limiter rule: no plain account ID in path or field, no email, token or request field, and a cleanup time on every write at most 8 days out. Exact window times are allowed. The keyed hash stands.
+  3. Move `guardianStatus`, `guardianAdult` and `guardianAnswer` to the keyed-hash form; the one-time script deletes the old uid-keyed rows of all three plus `guardianSend`, for every account.
+  4. Fix the decline after expiry: read the links before the final clock read; the test fails first.
+  5. Not required: the email counter finding. The send-counter timing should-fix is the lead's call (lead: accepted as is).
+  6. Stop rule: one more Codex round, asked only whether items 1 to 4 pass, naming a document and field for any fail. Findings that need a join across rows, the server secret or timing inference are recorded, not fixed. Merge on four passes plus the worker's green emulator run.
+  7. Residual: for at most 8 days, someone holding the server secret and the full database could join a counter to a closed request. Accepted under H1's exclusion. No lawyer reviewed this.
+- Process note (lead): the T18 brief quoted H1(b) without its last sentence; briefs now quote rulings in full.
+
+### C6. Phone Pro page: the required tick card is below the fold and Pay is off with no reason (UX design lead, Fable 5.2 agreed, Nov 24)
+
+- Asked by the CSE release lead for PR #90 (checkout declaration, D2 option T). At 390 x 844 on first view, the plans push the tick card below the fold. The fixed bar shows Pay disabled and nothing says why. Board S4P_T avoided this with a shorter plans block; the real page has five hero bullets and a yearly plan. Renders: `cse-checkout-decl` build, `render/r6/sheet_phone390_*.png`.
+- Options: (1) a one-line hint under Pay while it is off; (2) tapping the disabled Pay scrolls the card into view and focuses it; (3) move the card into the bottom bar.
+- Ruling: 1 and 2 together; 3 rejected (five lines of fixed legal text would take about 150 px of 844 and hide the plans).
+- Hint: the bar's status line (the slot that shows "Read the box again, then tick it to pay.") reads "Tick the box to pay." while Pay is off. The same words are Pay's accessibility hint. The status line's height is always reserved, so the bar never changes height. On tick the hint fades out over 150 ms. No direction words: the hint sits at the bottom of the screen.
+- Pay: keeps the approved disabled look but stays tappable and focusable; screen readers hear a button with the hint, not "dimmed". A tap or Enter while off: if the card is not fully visible, it scrolls into view to rest 16 px above the bar (400 ms, `cubic-bezier(.32,.72,0,1)`); then focus moves to the tick and the app's ring pulse plays once on it (0.7 s, ease-out), never during the scroll. If the card is already visible: focus and pulse only. Reduced motion: the scroll jumps, no pulse.
+- Fable 5.2 (high) agreed and added the reserved status line, skipping the scroll when the card is visible, and the screen reader rule.
+
+### C7. The adult mark kept after a guardian request ends is outside H1(b) (Fable 5.2 advisor, Nov 24)
+
+- Asked by the CSE release lead under the C5 stop rule. The final Codex check passed C5 items 2 to 4 and failed item 1: after decline or expiry, `users/{uid}/server/guardianConsent` can remain with `ageGroup: 'adult'` and `adultSince`.
+- Ruling, verbatim: "A. Item 1 passes and T18 merges with no code change."
+  1. Scope: H1(b) tests for a record that links the account to a guardian request. The kept mark holds no request field, only the account holder's own statement that they are 18. An adult made that statement, so H1's missing guardian basis does not apply.
+  2. Purpose: the mark stops a new under-18 request. Deleting it would reverse an earlier required fix.
+  3. Time check: `adultSince` cannot match the decline evidence (the decline reads its own clock in a later write; an expiry writes no evidence). It equals `revokedAt` on guardian page links revoked by the same act, but ending the request deletes every such link. Retained answer links keep only a coarse end day.
+  4. C5 item 1 should read "no request document".
+- Recorded, not fixed in T18:
+  - `adultSince` equals `decidedAt` on the `became_adult` evidence row (on main before T18). Both sit under the same account ID, so the time adds no link. Whether a `became_adult` row may sit in the evidence at all, against R6's "Adult declarations never enter the evidence (R2)", needs its own ruling. Sent to the legal lane through the operations manager.
+  - The mark exists only where a request once existed; dropping `adultSince` would not remove that inference.
+
+## Nov 24, became_adult evidence row
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation. The ruling is final and is not queued for his sign-off. Legal sign-off on the final texts stays his. This agent wrote no legal text: wording named below goes to the text lane and to Sol High (rule 5). No lawyer reviewed anything here, and this agent is not a lawyer.
+
+- Asked by ruling C7 ("needs its own ruling").
+- Policy read at `origin/main` 6ff6f6889: `AGENTS.md`, `docs/workflow/process-improvement.md` (rules 5, 7, 9), and in this file D1 to D8, legal rounds 2 and 3, the under-18 flag options, C5 and C7.
+- Code read: main 6ff6f6889 (`functions/src/guardianConsent.ts`, `deleteUserData.ts`, `purgeInactiveAccounts.ts`, `lib/features/onboarding/presentation/onboarding_age_gate_step.dart`), PR #90 `qa/checkout-declaration-r1` 6177b6898, PR #95 `qa/guardian-d1-r1` f021040f0.
+- Text read: `legal/public-launch-r1` 5a50ef3bd, `teen-notice.md` and `privacy-policy.md`.
+- Standards applied: Data Privacy Act Sections 11(e) and (f), 13(a) and 13(f); Civil Code Articles 1144 and 1391, as R6 used them. No sheet exists in `agent-standards` for privacy law.
+- Velocity: this pass was not timed. It changed documents only. The size below is an estimate.
+
+### What was checked
+
+1. **What the row is.** When a student in the under-18 group says they are 18, the server marks the account adult, revokes the guardian page links, and adds one row to the guardian evidence. The row holds the action `became_adult` and the time, and nothing else (`guardianConsent.ts:517-519`). PR #95 leaves this as it is (`:650-652` there).
+2. **It is written whether or not a guardian confirmed.** The only tests are: the record is in the under-18 group, has not switched before, and is not withdrawn (`:511-516`). A pending request passes. On main, a declined or flag-only record passes too. The app calls it from the age recheck (`onboarding_age_gate_step.dart:234`).
+3. **One such row keeps the evidence after deletion.** Account deletion keeps the evidence and writes its marker when any answer row exists (`deleteUserData.ts`, `keepGuardianEvidence`). So an account with no guardian answer and one `became_adult` row leaves a record under its account ID.
+4. **PR #90 counts the row as a reason for ten years.** Its period test asks for any row whose action is not `decline` (`purgeInactiveAccounts.ts` on PR #90). A decline plus a `became_adult` row is kept ten years, and so is a `became_adult` row alone. R6's words give the first case four years and do not name the second.
+5. **No other row can exist without a confirmation, except a decline.** A sharing change and a withdrawal both need a confirmed record.
+6. **After the switch, no purchase is copied.** Checkout uses the guardian wording only when the record is confirmed and still under 18 (PR #90, `paymongoCheckout.ts:69`). Later purchases carry the adult declaration, which R2 keeps out of the evidence.
+7. **The texts say the server records the statement, but no evidence list names it.** Teen Notice: "our servers record that you are 18 or older". The three lists of guardian evidence name answers, withdrawal and guardian purchase declarations only: the Teen Notice deletion paragraph, its "Guardian evidence" bullet, and the Privacy Policy line "limited guardian evidence".
+8. Not checked: how many `became_adult` rows exist on prod or staging, and live behavior. Aedwon's choice among options A to D above is not recorded on main.
+
+### Ruling
+
+1. **R6 does not cover it.** In R2 and R6, "adult declarations" means the adult declaration ticked at checkout. The `became_adult` row is not a purchase declaration: no purchase, another function, another purpose. So R6's sentence does not forbid it. R6's period list did not place it either. This ruling does.
+2. **The row stays where a guardian confirmed, unchanged. It is no longer written where no guardian confirmed, and existing rows of that kind are deleted.**
+   - With a confirmation, the row is the end date of the guardian's permission, in the account holder's own words. It shows why the guardian's links stopped, and that later purchases were the adult's own. That is the same legal-claims purpose as the rest of the evidence (Section 13(f)), and the guardian's permission covers the under-18 label it implies (Section 13(a)).
+   - With no confirmation, the row records no guardian act and no contract. Its only content is that this account once had a guardian request, kept under the account ID for ten years after deletion. That is the record D1 and H1 exist to remove, and it cannot pass the "necessary" test. The adult mark on the account already stops a new under-18 request (C7), so nothing depends on the row.
+3. **The row has no period of its own.** It follows the evidence it sits in, which always holds a confirmation: 3,653 days from the newest record, once the account is gone. It counts as a record for "newest". It never chooses the period. The statement is not verified, so it does not shorten the period, and the Article 1144 reason does not depend on age.
+4. **Rejected: text only, with the row kept in every case.** The texts would then have to describe a ten-year record with no purpose for an account no guardian answered.
+
+### Code change. Gate, about 0.25 day
+
+1. The adult switch writes the `became_adult` row only when the record's status is confirmed. Everything else in the switch is unchanged. Tests fail first: a pending record that switches leaves no evidence row; a confirmed record still gets one.
+2. The evidence period test becomes positive: ten years only when the evidence holds a confirmation, a withdrawal or a guardian purchase. Otherwise four years. Test fails first: a decline plus a `became_adult` row is released at four years. This makes the code match R6's words whatever rows exist.
+3. One-time removal: delete every `became_adult` row in evidence that holds no confirmation, and the evidence parent if nothing is left under it. Count it against the free tier first (rule 7). It joins T18's one-time removal if that has not run on prod, else it runs alone. Expected count is near zero: the beta had one under-18 tester, confirmed.
+4. PR #95 is not reopened: C7 stands and it merges as ruled. Items 1 and 3 go in a follow-up after it merges. Item 2 goes in PR #90 if it is still open, else in the same follow-up. The lead's normal review applies. No new Codex loop is required.
+5. Gate, because the change shortens what is kept: after opening it needs the rule 9 email, and the texts must be true on the day they publish (H5). Add one row to the H5 table: an unconfirmed account that says it is 18 leaves no evidence row, checked live on prod.
+
+### Text changes (for the legal lane, rule 5)
+
+1. Teen Notice, the "When you turn 18" paragraph: if a guardian had confirmed the account, the date of this statement joins the guardian evidence.
+2. The three evidence lists in check 7: add that date, for an account a guardian confirmed.
+3. No period sentence changes. After the code change every evidence set either holds a confirmation, a withdrawal or a guardian purchase (ten years) or holds only declines (four years).
+4. Sol High critiques the changed paragraphs in the next round, and confirms Section 13(f) for this row.
+5. These sentences publish only after the code change is on prod (H5).
+
+### What needs Aedwon
+
+Nothing. The ruling holds under each of options A to D. Under C the unconfirmed case can arise only for requests open at the opening.
+
+### Recorded, not ruled
+
+- After the switch on a pending request, the request stays open until it expires, and a guardian can still answer it (read in `guardianConsent.ts` on PR #95; not tested). The guardian's contact data then stays up to seven days with no use. Recommended, at the lead's call and not a gate: the switch ends an unconfirmed request the way an expiry does.
+- The same three evidence lists do not name the guardian's sharing changes, which the evidence also holds (`sharing_on`, `sharing_off`, main `guardianConsent.ts:451`). The text lane decides whether "the guardian's answers" covers them.
+- R6's line "Adult declarations never enter the evidence (R2)" should read "Adult purchase declarations". C7 read it as possibly wider.
+
+## Nov 24, legal round 5: sharing-change retention
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation. The ruling is final and is not queued for his sign-off. Legal sign-off on the final texts stays his. This agent wrote no legal text: wording named below goes to the text lane and to Sol High (rule 5). No lawyer reviewed anything here, and this agent is not a lawyer.
+
+- Asked by Sol High's round 5 verdict: ten years from the newest record is hard to justify for every older entry, "especially optional-sharing changes".
+- Read: `AGENTS.md` and `docs/workflow/process-improvement.md` (rules 5, 7, 9) at `origin/main` 5f40b1e7d; R6, H5 and "Nov 24, became_adult evidence row" in this file; `critique-2026-11-24-sol-high.md`, the README "round 5" section, `teen-notice.md` and `privacy-policy.md` at `legal/public-launch-r1` 5d895e58d.
+- Code read: main 5f40b1e7d (`functions/src/guardianConsent.ts`, `purgeInactiveAccounts.ts`, `deleteUserData.ts`, `usageVisit.ts`) and PR #90 `qa/checkout-declaration-r1` (`purgeInactiveAccounts.ts`).
+- Standards applied: Data Privacy Act Sections 3(b) (permission must be evidenced), 11(e) and (f) (proportionality, retention), 13(a) and 13(f); NPC Advisory 2024-02; Civil Code Articles 1144, 1146 and 1391, as R6 used them. The articles are cited from memory. No sheet exists in `agent-standards` for privacy law.
+- Velocity: this pass was not timed. It changed documents only. The size below is an estimate.
+
+### What was checked
+
+1. **A sharing change is one small row.** It holds the action (`sharing_on` or `sharing_off`), the time, and the document and wording versions (`guardianConsent.ts:424-427`, `:451`). Only a confirmed record can get one.
+2. **The guardian's first sharing choice sits on the confirmation row,** as the field `sharingAllowed` (`:371-376`).
+3. **A sharing change moves the clock for the whole evidence.** The cleanup takes the newest answer row of any kind as "newest record" (`purgeInactiveAccounts.ts:281-287` on main, `:291-299` on PR #90). A switch flipped five years after the confirmation keeps the confirmation five years longer.
+4. **The cleanup runs only once the account is gone,** and it holds the account's deletion date (`accountDeletedAt`). Sharing cannot happen after that date.
+5. Not checked: how long Google Analytics keeps the shared usage data (the Privacy Policy draft says 14 months, unconfirmed in the console), the filing period for an NPC complaint, and live behavior.
+
+### Ruling: option (c). Sharing permission records get four years from the account's deletion date, and never move the ten-year clock
+
+1. **While the account exists, the full sharing history stays.** Permission must be evidenced while Pantas relies on it (Section 3(b)), and each "on" row proves one stretch of permitted sharing.
+2. **After the account is deleted, every sharing permission record is deleted 1,461 days after the deletion date.** That covers `sharing_on` rows, `sharing_off` rows, and the `sharingAllowed` field on the confirmation row. The confirmation row itself stays on its own period.
+3. **A sharing row is never the "newest record" and never chooses a period.** The ten-year and four-year clocks run from the newest of: a confirmation, a decline, a withdrawal, the `became_adult` row, a guardian purchase.
+4. **Rejected: (a) keep ten years.** Both of R6's ten-year reasons are contract reasons (Articles 1144 and 1391). Sharing permission is a permission the guardian can take back, not a contract term. Its record answers only a claim that Pantas used data without permission. R6 already treats that claim as a four-year claim (Article 1146) for declines. Check 3 also has no claim behind it.
+5. **Rejected: (b) the latest state only.** Sol High's own point: the current setting cannot show the history. On, off, on, off leaves the second "on" stretch with no proof, while a claim about it is still live.
+6. **Why the clock starts at deletion, not at each row.** A row's use ends when the next row replaces it, so a per-row clock would need old rows rewritten on every change. The deletion date is the last day sharing could happen, so four years from it covers every stretch.
+
+**The honest limits.** No Philippine ruling fixes this period. A damages claim under the Data Privacy Act could be argued as an obligation created by law, ten years under Article 1144(2). R6 chose Article 1146 for the same kind of claim, and this ruling follows it. Criminal prescription under Act No. 3326 (eight or twelve years, from memory) is not used: keeping records ten years against a possible prosecution is the reasoning Section 11(e) does not allow. A self-declared adult switch does not start the clock, for the reason in the `became_adult` ruling: the statement is not verified.
+
+### Code change. Gate, about 0.5 day
+
+1. Evidence cleanup, for an account that is gone: once 1,461 days have passed since `accountDeletedAt`, delete the sharing rows and remove `sharingAllowed` from the confirmation row. Tests fail first: sharing rows survive at 1,460 days and are gone at 1,461; the confirmation row survives without the field.
+2. "Newest record" ignores sharing rows. Test fails first: a confirmation from year 0 plus a sharing change from year 5 is released ten years after year 0.
+3. A legacy parent with no marker gets its marker when first seen, as today, so its sharing clock starts then. Never shorter than ruled.
+4. Count the added reads against the free tier (rule 7). The extra reads happen only for accounts that are gone.
+5. It goes in PR #90 if that is still open, because the period test lives there. Otherwise it joins the `became_adult` follow-up. The lead's normal review applies.
+6. Gate, for R6's reason: the texts state the period, texts publish only with the behavior (H5), and after opening a change to a period needs the rule 9 email. Nothing can be deleted by this change for four years, so no user sees a difference. It joins the H5 row "ten years and four years for evidence".
+
+### Text changes (for the legal lane, rule 5)
+
+1. Teen Notice, "Guardian evidence" bullet: after the account is deleted, records of when the guardian gave or took back sharing permission, including the choice made at confirmation, are scheduled for deletion 1,461 days (four years) after the day the account was deleted.
+2. Same bullet: "its newest record" does not count a sharing change.
+3. Same bullet, the reason: sharing permission is not a contract. Its record serves only a claim about use of data, treated as a four-year claim (Article 1146), counted from the deletion date because no sharing can happen after it.
+4. The three evidence lists and the basis bullet do not change. The Privacy Policy line already points to the Teen Notice schedule.
+5. README "round 5", item 1: closed by this ruling.
+6. Sol High critiques the changed bullet in the next round, and confirms Article 1146 against Article 1144(2) for a sharing claim, and whether Act No. 3326 changes the answer.
+7. These sentences publish only after the code change is on prod (H5).
+
+### What needs Aedwon
+
+Nothing. He can change the period at legal sign-off, as with R6.
+
+### C8. Evidence that ends before its sharing records (Fable 5.2 advisor, Nov 24)
+
+- Asked by the CSE release lead while building legal round 5 in PR #90. Edge the round does not draw: evidence with a confirmation runs ten years from its newest record; sharing records run 1,461 days from the account's deletion. An account deleted more than six years after its newest non-sharing record (confirmed year 0, deleted year 8) reaches the evidence end (year 10) before the sharing end (year 12). The first sharing choice is the field `sharingAllowed` on the confirmation row.
+- Options: (A) the whole evidence waits for the sharing period; (B) at the evidence end, delete everything except the sharing records, keeping a stripped confirmation row with only the sharing choice until the sharing end; (C) delete everything at the evidence end.
+- Ruling, verbatim: "B."
+  1. Each record keeps its own period: the confirmation row "stays on its own period", sharing records run 1,461 days from deletion.
+  2. A would keep guardian purchase copies and the withdrawal, decline and adult rows up to four years past the stated ten, so the notice would be false (H5).
+  3. C deletes sharing proof while a four-year claim is still live, the gap legal round 5 rejected in its option (b), and breaks the notice's 1,461 days.
+  4. B needs no text change.
+- Build: the stripped row keeps `sharingAllowed`, its time and the two version fields, as a sharing row does. Drop `agreed`; change `action` from `confirm` (simplest: rewrite it as a `sharing_on` or `sharing_off` row) so it stops setting a clock. Keep the parent marker.
+- Tests, failing first: (1) confirmed year 0 with a sharing choice, a later sharing change and a guardian purchase copy, deleted year 8: at ten years only the sharing rows, the stripped row and the marker remain; (2) the same record is unchanged at deletion plus 1,460 days and empty at 1,461; (3) a second run after (1) changes nothing.
+
+## Rule 7: Firestore TTL deletes (security and billing lead, Nov 24, 2026)
+
+Question (CSE release lead, via the manager): Firestore TTL deletes are not in the free tier. Is that allowed on prod
+and on staging? Not a close call, so no Fable ruling.
+
+**Facts, checked Nov 24.** The quotas page lists "TTL deletes" under operations that "don't include free usage"
+(https://firebase.google.com/docs/firestore/quotas). The TTL page says they "count towards your document delete costs"
+(https://cloud.google.com/firestore/docs/ttl). Google's billing catalog: "Cloud Firestore TTL Deletes Singapore",
+$0.0123 per 100,000 from the first delete; ordinary "Entity Deletes Singapore (with free tier)" are free for the first
+20,000 a day. Both projects ran 8 TTL policies (limits, shards, signInChallenges, signInLimits, signInRequests, users
+(the webhook event markers), webhookRateLimits, wrapped_shares). TTL deletes in the last 30 days: prod 398, staging
+616 (Cloud Monitoring `document/ttl_deletion_count`).
+
+**Ruling.**
+1. Prod keeps every TTL policy, and the new ones (questionReports, trial codes) may ship. The deletes come from real
+   users, which rule 7 allows. Cost now: about $0.00005 a month. At public scale (an estimate of 5,000 TTL deletes a
+   day: sign-in records, sync counters, webhook markers, reports) about $0.02 a month.
+2. Staging runs no TTL policy, because its TTL deletes bill a nonzero amount (rule 7). This is option (b) changed: staging
+   has no scheduled jobs (prod holds the 3 free Scheduler jobs), so nothing replaces the TTL deletes. Staging test data
+   is small, and every staging proof deletes its own documents with ordinary deletes, inside the free 20,000 a day.
+   Published deletion periods apply to real users only, so they do not apply to staging.
+3. Applied Nov 24: all 8 staging TTL policies turned off. `firestore.indexes.json` turns TTL back on with any staging
+   indexes deploy, so run `tool/deploy/staging_disable_ttl.sh` after one (docs/deploy-prod.md). The live check
+   `tool/checks/free_tier_live.mjs` shows a "Firestore TTL policies" row that is OVER while staging has any.
+
+## Nov 24, T15 reader undrawn states
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation (written rule 4). The rulings are final and are not queued for his sign-off. His visual pass still gates release (`WORKFLOW.md`).
+
+- Asked by the T15 build lead (lesson reader full screen, "4 Held") through the CSE release lead: seven states no board draws, and one release question on frame times.
+- Policy read at `origin/main` c92aa65f4: `AGENTS.md`, `WORKFLOW.md`, `docs/workflow/process-improvement.md` rules 1 to 4, the UX ambition hand-off, the reader build spec, and in this file "Nov 23, lesson reader full screen".
+- Boards read on the live canvases, Nov 24. Lesson Reader Full Screen: `canvas.json`, `R`, `W4_Held`, `M1100`, `H4`, `fs.css`, `reader.css`, and the linked-word scene of `MO`. Pantas Web: `canvas.json`, `W_Reader`, `RD_Focus`, `RD_FocusOpen`, `RD_Figure`, `W_ReaderHeldDarkFull`, `RD_Held1100`. Not read: the body of `RD_FocusMotion` (no ruling here touches the bar's timing).
+- Code read: `qa/reader-4-held-r1` 600c63a31 (placement, hold, linked words, the wide-art list, the top bar). Content read: `content/lessons/mathematics/geometry/circles.md`, and a scan of every lesson's figure labels with the build's matching rules.
+- Standards applied: READ-MEASURE, READ-MARGIN, READ-FIG-NEAR, READ-FIG-SIZE (`long-form-reading.md`); ID-SPATIAL, ID-COHERE (`instructional-design.md`); WEB-M11, WEB-M13 (`web-interface-design.md`); the DS4 radius scale (`pantas_radius.dart`).
+- Velocity: this pass was not timed. It changed documents only. Build sizes below are estimates.
+
+### Rulings
+
+1. **1024 to 1279 px: center it. Change, under 0.25 day.**
+   - The text column (up to 600), the 48 px gap and the 300 px figure column are one block. Center the block in the window. Each side margin is at least 40 px: left margin = the larger of 40 and (window width minus block width) / 2.
+   - At 1024 this gives 40 px each side, as drawn. At 1100: 76 px each side (the board: 40 left, 112 right). At 1279: 165.5 px each side (the build: 40 left, 291 right).
+   - The title and the end-of-lesson block keep the text column's left edge. The top bar and the section line do not change.
+   - Why: every other reader state is centered (the 1,096 px page at 1280 and up, and the 680 px column). The board's left alignment comes from its style sheet (`width:auto; margin:0 40px`) and was drawn only at 1100, where the slack is 72 px.
+   - Rejected: letting the figure column grow with the window. It changes values the board draws at 1100 and every plate height in the real-content run.
+
+2. **Section line: 2 px. Confirmed, no change.** The spec and `fs.css` both give 2 px at rest, 4 px on hover or focus, 3 px gaps. This is wide web only. The phone keeps its approved bar.
+
+3. **Expand button radius: 8. Use the token.** `PantasRadius.sm` is the DS4 radius for controls under 40 px, and DS4 folded 7 and 10 into it on purpose. 1 px on a 34 px button cannot be seen. The board's 9 is the outlier.
+
+4. **Width control: hidden on a lesson with margin figures. Confirmed.**
+   - The held layout already uses the full width, which is what the control was for (Aedwon, Nov 3: "so they can choose to utilize more of the whole screen area or not"). Wider text there would break the 640 px measure. No held board draws the control.
+   - The saved choice is kept and applies again on lessons with the single column (680 or 800 px). No disabled state and no empty gap. The bookmark does not move.
+
+5. **Stacked figures: one unit only when they share a passage. Change, about 0.25 day.**
+   - Figures whose passages end at the same place (no text between them in the source) and that stack are one unit. They hold and leave together, 18 px apart. Rule 5's cap applies to this unit.
+   - A figure that rule 4 only pushed down from its own anchor keeps its own passage. Each such plate holds within its own passage. A held plate's bottom never comes closer than 18 px to the next plate's top.
+   - Why: the build gives a group the latest passage end of its members. The upper figure then stays in view beside text it does not explain. Council round 4: "keep every figure inside its own passage". The same fault is why direction 2 (Pinned) was rejected. Rule 5 implies a unit only for figures that are read together.
+   - Motion does not change. This is the hand-off in `MO`: the upper plate leaves at the speed of the scroll, the next plate arrives and holds.
+   - Test, failing first: two figures with different passages, the second pushed down 12 px. At every scroll position the first plate's bottom is at or above its own passage end.
+
+6. **Acceptance check 5: replace the second pair with a real one.**
+   - New text: "Linked words: in circles, 'Tangent' lights the tangent line and dims the rest. In Example 4 with the solution open, `$AB$` in the first solution line ('... and $AB$ is the hypotenuse.') lights side AB, makes its label 'AB = 10' bold and dims the rest. Keyboard: Tab reaches each linked word and each section segment, with the focus ring."
+   - Why: no figure label says "hypotenuse", so the label rule cannot link that word. `H4` drew a link the rules do not make. The real pair keeps what `H4` shows (the hypotenuse lights), and `R` already draws this link on that line.
+   - A second real pair, solution closed: `$BC$` in the problem lights side BC (label "BC = ?").
+   - Real content links fewer words in Example 4 than the board. The problem figure's labels are "Diameter AB = 10" and "AC = 6", so `$AB$` and `$AC = 6$` in the problem line do not link. That is content, not a build defect. No content change for launch (the spec adds no content).
+   - The scan estimates passages from the lesson source. The lead confirms both pairs with the build's own matcher.
+
+7. **Wide art: accept a list, with a guard. No natural size for this release. About 0.5 day.**
+   - Facts: each painter draws at a fixed height into the width it gets. There are 26 painter files and about 127 figure types in the lessons. A natural size for each is about 2 to 3 days and touches every phone figure.
+   - At 1280 and up the plate's inner width is 360 px, wider than the phone's figure (about 326 px). A figure that reads on the phone reads there. The squeeze risk is the 1024 to 1279 band (260 px inner).
+   - Required in T15:
+     1. The list is explicit, one entry per figure type, and lives with the figure registry. The reader does not match name endings ("gallery", "triptych"). A new type can miss that match without any failure; `orbital-shapes` and `atomic-models` already needed their own entries.
+     2. A check fails when a shipped lesson has a figure type that is on neither list (wide or margin). A new type cannot ship unclassified.
+     3. One pass over every figure type in the shipped lessons, not only the seven lessons of check 3. Render each at 260 px inner width, one sheet per painter (the Nov 9 screenshot exception). A Claude worker moves to the wide list any type whose labels clip or overlap, or whose parts are a row of three or more panels. This is UI, so no Codex.
+   - A natural size per painter is not scheduled. The check removes the reason for it.
+
+8. **Frame times: a real-GPU Chrome run gates the release. Safari gates it through Aedwon's visual pass.**
+   - The measured run passes on what it measured: p95 5.4 ms is a third of the 16.7 ms budget, and p99 is warm-up. It does not close acceptance check 4, which names a mid-range laptop, Chrome and Safari.
+   - Shake is not a browser risk. Flutter paints the text and the plates in the same frame in every browser, because the hold moves plates at paint time. Only the frame rate depends on the browser.
+   - Gate, agent-run, about 0.25 day: the same script in Chrome with the real GPU and the CPU slowed 4 times (this Mac is an M4; a mid-range laptop is about 2 to 3 times slower), at 1440x900 and 1100x900, first second left out. Pass: p95 at most 16.7 ms.
+   - If it fails at 4 times, do not fall back yet. Report the 2 times and 4 times numbers to this agent: the 4 times setting is harsher than the target.
+   - Safari gate: Aedwon scrolls Circles with Example 4 open in Safari on the Mac, as part of the visual pass that already gates release. An iPad in landscape counts too, if one is at hand: every iPad browser is WebKit, and the held layout starts at 1024 px. No instrumented Safari run is required. Agents do not drive Safari (no computer control). An agent may add a headless WebKit run of the same script if it needs no permission prompt. That run informs his pass and does not replace it.
+   - If Chrome passes and Safari does not: Safari and iPad get figures at rest (the spec's fallback, direction 1), Chrome keeps the hold, and the lead reports it.
+
+### Board changes (for the operations manager's reference canvas list)
+
+- Ruling 1: `M1100` (Lesson Reader Full Screen) and `RD_Held1100` (Pantas Web). Center the text and figure block. At 1100 the side margins are 76 px each (now 40 left, 112 right). The mid-width rule in `fs.css` and `held/fs.css` changes with it.
+- Ruling 3: `fs.css` (Lesson Reader Full Screen) and `held/fs.css` (Pantas Web). The expand button `.fx` radius goes from 9 to 8. This reaches every held board.
+- Ruling 6: `H4`, `R` and scene 3 of `MO` (Lesson Reader Full Screen); `RD_HeldLinked`, `RD_HeldPart` and `RD_HeldMotion` (Pantas Web).
+  - The pointer sits on `AB` in the first solution line, not on "hypotenuse" in step 1. Remove the link from "hypotenuse".
+  - In the problem line only `BC` is linked, not `AB` or `AC`.
+  - The problem figure's label reads "Diameter AB = 10", as in the lesson.
+- Rulings 2, 4, 5, 7 and 8: no board change. No board draws a stack, and no held board draws the width control.
+
+### Spec lines these rulings change (for the spec's owner)
+
+- Layout, 1024 to 1279: add "centered; side margins at least 40 px".
+- Rule 4: add the two cases of ruling 5.
+- Rule 6, last clause: "A figure type is wide when the figure registry lists it. A check fails on an unlisted type."
+- Figure plate: the expand button's radius is 8.
+- Acceptance check 5: the text in ruling 6.
+- Acceptance check 4: the two gates in ruling 8.
+
+### What needs Aedwon
+
+Nothing new. His visual pass, which already gates release, includes one scroll of the held reader in Safari (ruling 8).
+
+## PAY-07 follow-on: a grant with both a dispute and a refund (Fable 5.2 advisor, Nov 24, 2026)
+
+Asked by the security and billing lead after eight review rounds of the money-path fixes kept finding new interleavings
+of disputes and refunds on one grant. Options: (A) keep fixing every interleaving automatically; (B) never re-plan such
+a grant automatically and hand it to the owner; (C) other. Lead recommended B.
+
+**Ruling: B, with one tightening.**
+1. A grant that has a dispute and any refund, in either order, is never restored or re-planned on a win. The win is
+   recorded, the dispute is marked resolved, the grant stays as it is (revoked or shortened).
+2. One pending follow-up, reason `disputeWithRefund`, keyed by payment: paid amount, refunded total, dispute id, unused
+   days, and the later plans or rewards the dispute had pulled earlier (left where they are). The existing log alert
+   emails the owner, who settles it by hand: grant the remaining days, or refund the rest (a guardian denial is owed the
+   rest, per the Terms).
+3. A lost dispute keeps its automatic path; it adds a follow-up only when refunds plus the chargeback exceed the amount
+   paid (the owner then paid twice).
+4. A dispute that opens on an already refunded grant still revokes at once. A refund that arrives after a pure dispute
+   was won and restored is a pure refund.
+5. **Keep revoked, not restore the unrefunded part:** that calculation produced the last findings. Missing access is
+   reported by the user and cheap to fix; wrong access or a shifted later plan is seen by nobody.
+
+**Build edges.** Decide on "has a dispute id and refunds above zero", never on the stored revocation reason. Do not
+overwrite a pending refund task with the same key, and the refund-closing logic must not close this follow-up. A replayed
+win, or a win before its opening event, writes no second record and restores nothing. The property test covers both
+orders and asserts no grant changes on such a win.

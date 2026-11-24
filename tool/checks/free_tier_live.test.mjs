@@ -16,7 +16,7 @@ const project = (over = {}) => ({
   secretVersions: [],
   registry: [{name: 'gcf-artifacts', location: 'asia-southeast1', sizeBytes: 10 * MIB}],
   hostingEgress24h: 10 * MIB,
-  firestore: {schedules: 0, backups: 0, daily: days(7)},
+  firestore: {schedules: 0, backups: 0, ttl: [], daily: days(7)},
   buckets: [{name: 'b', location: 'asia-southeast1', bytes: 50 * MIB}],
   apis: ['firestore.googleapis.com', 'run.googleapis.com'],
   alerts: {policies: 0, conditions: 0},
@@ -157,4 +157,13 @@ test('a row prints on one line with its status, item and detail', () => {
   assert.equal(line, 'OVER  scheduler jobs (account): 18, free 3');
   assert.equal(formatRow({status: 'OK', item: 'x', detail: 'y'}), 'OK    x: y');
   assert.equal(formatRow({status: 'WARN', item: 'x', detail: 'y'}), 'WARN  x: y');
+});
+
+test('Firestore TTL policies: any on staging is OVER, prod keeps its own, none is OK', () => {
+  const withTtl = (ttl) => ({firestore: {schedules: 0, backups: 0, ttl, daily: days(7)}});
+  assert.equal(status(data({}, withTtl([])), 'Firestore TTL'), 'OK');
+  assert.equal(status(data({}, withTtl(['sessions.expiresAt'])), 'Firestore TTL'), 'OVER');
+  const row = find(rows(data(withTtl(['sessions.expiresAt']), withTtl([]))), 'Firestore TTL');
+  assert.equal(row.status, 'OK');
+  assert.match(row.detail, /prod 1 \(sessions\.expiresAt\), staging 0/);
 });

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
 import {createCheckout} from '../lib/paymongoCheckout.js';
+import {adult} from './_declaration.mjs';
 
 test('checkout returns its unique reference in both return URLs and the client response', async () => {
   const calls = [];
@@ -13,8 +14,8 @@ test('checkout returns its unique reference in both return URLs and the client r
       return {id: `cs_${calls.length}`, checkoutUrl: 'https://checkout.paymongo.com/test'};
     }}};
   const auth = {uid: 'owner', token: {firebase: {sign_in_provider: 'google.com'}}};
-  const first = await createCheckout(auth, {product: 'pantas_cs_monthly'}, deps);
-  const second = await createCheckout(auth, {product: 'pantas_cs_monthly'}, deps);
+  const first = await createCheckout(auth, {product: 'pantas_cs_monthly', declaration: adult}, deps);
+  const second = await createCheckout(auth, {product: 'pantas_cs_monthly', declaration: adult}, deps);
   for (const [i, out] of [first, second].entries()) {
     assert.equal(out.reference, calls[i].referenceNumber);
     assert.match(out.reference, /^[0-9a-f-]{36}$/);

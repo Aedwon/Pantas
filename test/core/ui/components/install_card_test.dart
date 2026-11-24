@@ -65,6 +65,12 @@ void main() {
     });
 
     testWidgets('wide card, native install, $theme', (tester) async {
+      // The card picks its wide copy from its own width, so the screen must be
+      // wide enough for the 1080 px host whatever an earlier test left behind.
+      tester.view
+        ..physicalSize = const Size(1440, 900)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
       await tester.pumpWidget(
         _host(
           brightness: brightness,

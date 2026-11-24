@@ -4,6 +4,7 @@ import {commitPaymongoGrant} from '../lib/paymongoGrants.js';
 import {webProduct, priceCentavos, addPrepaid} from '../lib/paymongoPolicy.js';
 import {shortenedEnd} from '../lib/grants.js';
 import {commitRevenueCatAnswer} from '../lib/revenuecatClaims.js';
+import {adult} from './_declaration.mjs';
 
 const uid = 'money-path-test';
 const now = Date.parse('2027-03-14T12:00:00Z');
@@ -14,8 +15,9 @@ function firestore(seed = {}) {
   const snapshot = ref => ({ref, id: ref.path.split('/').at(-1), exists: rows.has(ref.path),
     get: key => rows.get(ref.path)?.[key], data: () => rows.get(ref.path)});
   const doc = path => ({path, get: async () => snapshot({path}), set: async value => rows.set(path, value)});
-  const collection = path => ({path, collection: true, doc: () => doc(`${path}/audit`), add: async () => {}});
-  const get = async ref => ref.collection ? {docs: [...rows.keys()]
+  const collection = path => ({path, collection: true, doc: () => doc(`${path}/audit`), add: async () => {},
+    where: () => ({limit: () => ({query: true, path})})});
+  const get = async ref => ref.query ? {empty: true, docs: []} : ref.collection ? {docs: [...rows.keys()]
     .filter(path => path.startsWith(`${ref.path}/`) && !path.slice(ref.path.length + 1).includes('/'))
     .map(path => snapshot(doc(path)))} : snapshot(ref);
   const runTransaction = async callback => {
@@ -27,7 +29,7 @@ function firestore(seed = {}) {
     for (const write of writes) write();
     return result;
   };
-  return {doc, collection, runTransaction, rows};
+  return {doc, collection, runTransaction, rows, getAll: (...refs) => Promise.all(refs.map(get))};
 }
 
 const payment = {uid, eventId: 'evt_test', sessionId: 'cs_test', paymentId: 'pay_test',
@@ -105,13 +107,13 @@ test('checkout records its quote and reuses an open session even after the price
   const auth = {uid, token: {email: 'buyer@example.test', email_verified: true,
     firebase: {sign_in_provider: 'google.com'}}};
   const client = {createCheckoutSession: async () => ({id: `cs_quote_${++count}`, checkoutUrl: 'https://example.test'}),
-    getCheckoutSession: async () => ({status: 'active', payments: []})};
+    getCheckoutSession: async () => ({status: 'active', payments: [], metadata: {uid}})};
   const deps = {db, client, origin: 'https://example.test', methods: ['card'], now: () => now, allow: async () => true};
-  const first = await createCheckout(auth, {product: product.id}, deps);
+  const first = await createCheckout(auth, {product: product.id, declaration: adult}, deps);
   assert.equal(db.rows.get(`paymongoOrders/${first.reference}`).amountCentavos, payment.paidAmount);
   const pending = [...db.rows.keys()].find(path => path.startsWith(`users/${uid}/pendingCheckouts/`));
   db.rows.get(pending).amountCentavos = payment.paidAmount - 100;
-  const second = await createCheckout(auth, {product: product.id}, deps);
+  const second = await createCheckout(auth, {product: product.id, declaration: adult}, deps);
   assert.equal(second.reference, first.reference);
   assert.equal(second.sessionId, first.sessionId);
   assert.equal(count, 1);

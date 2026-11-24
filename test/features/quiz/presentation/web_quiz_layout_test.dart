@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -36,7 +37,7 @@ void main() {
               pro: pro,
               onBack: () {},
               onNote: (_, tag, __) async => saved = tag,
-              onReport: (_) async => false,
+              onReport: (_) async => null,
             ),
           ),
         );
@@ -154,7 +155,7 @@ void main() {
             pro: true,
             onBack: () {},
             onNote: (_, __, ___) async {},
-            onReport: (_) async => true,
+            onReport: (_) async => ReportDelivery.sent,
           ),
         ),
       );

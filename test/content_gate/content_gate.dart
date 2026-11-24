@@ -661,7 +661,7 @@ Future<void> _runTier(
             pro: pro,
             onBack: () {},
             onNote: (_, __, ___) async {},
-            onReport: (_) async => false,
+            onReport: (_) async => null,
           ),
         ),
       ),

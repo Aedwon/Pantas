@@ -83,4 +83,8 @@ abstract final class PantasDurations {
   /// Toast with an action (Undo) stays this long, paused while hovered or
   /// focused.
   static const toastAction = Duration(milliseconds: 8000);
+
+  /// The check in the sent report notice waits, then pops .4 to 1.15 to 1
+  /// (QN_Report choreography). New.
+  static const reportCheck = Duration(milliseconds: 860);
 }
