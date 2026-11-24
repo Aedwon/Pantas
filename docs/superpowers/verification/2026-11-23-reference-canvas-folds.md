@@ -501,5 +501,11 @@ Source: "Nov 24, T15 reader undrawn states" in `docs/superpowers/decisions/2026-
 | RD_HeldLinked | Pantas Web | Copy of H4 | Same change |
 | RD_HeldPart | Pantas Web | Copy of R | Same change |
 | RD_HeldMotion | Pantas Web | Copy of MO | Same change |
+| R, MO (scene 3) | Lesson Reader Full Screen | Ruling 6 follow-up: problem line links only `BC`; the `AB` and `AC` links are removed | Version 10. `BC` is already linked in R; MO draws no `BC` link and the second pointer stop still lights the AC label in the figure |
+| RD_HeldPart, RD_HeldMotion | Pantas Web | Same follow-up | Version 183 |
+| H4 | Lesson Reader Full Screen | Retitled: "4 Held, pointing at AB in the first solution line: side AB lights in the figure" | Version 10 |
+| RD_HeldLinked | Pantas Web | Retitled to match, keeping "(H4)" | Version 183 |
 
-Not changed, not asked for: the problem line's `AB` and `AC` links in R and MO (ruling 6 says only `BC` links there), and the H4 and M1100 board titles. Pointer positions were set from a headless Chrome measure with a fallback font (Geist was not available), so the owner should check them on the canvas.
+Final versions after the follow-up: Lesson Reader Full Screen version 10, Pantas Web version 183.
+
+Not changed: the M1100 and RD_Held1100 board titles. Pointer positions were set from a headless Chrome measure with a fallback font (Geist was not available), so the owner should check them on the canvas.
