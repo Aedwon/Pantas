@@ -232,4 +232,9 @@ abstract final class PantasLayout {
   /// + 14 + 440 + 80). Below it the explanation opens as a 440px Drawer
   /// over the question.
   static const double bpFocusSplit = 1134;
+
+  /// Width of the thin line that replaces the answer track marks in a
+  /// session of more than 20 questions (wide bar). The phone line is as
+  /// wide as ten phone marks. New (core loops B2).
+  static const double trackLine = 104;
 }
