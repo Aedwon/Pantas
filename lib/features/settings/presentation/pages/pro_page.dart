@@ -8,7 +8,6 @@ import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/config/seller_facts.dart';
-import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';

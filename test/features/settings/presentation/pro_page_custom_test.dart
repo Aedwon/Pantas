@@ -9,8 +9,6 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
-import 'package:pantas/core/ui/components/skeleton.dart';
-import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/paywall/application/custom_track_tier.dart';
