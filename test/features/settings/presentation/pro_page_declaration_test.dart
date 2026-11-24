@@ -43,7 +43,6 @@ final _accountSignal = StateProvider<String>((ref) => 'owner');
 
 void main() {
   late List<(String, Map<String, Object?>)> calls;
-  var grantReads = 0;
   var guardianReads = 0;
   var onWeb = true;
   Exception? refusal;
@@ -51,7 +50,6 @@ void main() {
   setUp(() {
     calls = [];
     refusal = null;
-    grantReads = 0;
     guardianReads = 0;
     onWeb = true;
   });
@@ -88,10 +86,7 @@ void main() {
           'reference': 'ref_1',
         };
       },
-      readGrants: (_) async {
-        grantReads++;
-        return [];
-      },
+      readGrants: (_) async => [],
       refreshClaims: (_) async {},
       openUrl: (_) async => true,
     );
