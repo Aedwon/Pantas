@@ -1,6 +1,6 @@
 // Design system 4.0, Quiz family: every quiz screen at 390, 1100 and 1440
 // wide, light and dark, at text scale 1.0 and 2.0, with no layout overflow.
-// The phone flag position (D71) is checked at 360 and 420 wide.
+// The phone flag is in the bar at 320, 360 and 420 wide (D71 is retired).
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -298,8 +298,12 @@ void main() {
     ],
   );
 
-  // D71: under 400 the flag leaves the bar and sits in the question header.
-  for (final (width, inHeader) in [(360.0, true), (420.0, false)]) {
+  // T16 B2 ruling: the flag stays in the bar at every phone width.
+  for (final (width, inHeader) in [
+    (320.0, false),
+    (360.0, false),
+    (420.0, false),
+  ]) {
     testWidgets(
         'phone flag is in the ${inHeader ? 'question header' : 'bar'} '
         'at $width', (tester) async {

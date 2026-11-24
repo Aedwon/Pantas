@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,6 +16,7 @@ import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_debrief_loading.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_hourglass.dart';
@@ -688,6 +690,34 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(find.text('Finish the Notes'), findsOneWidget);
+      // B5_ReviewAfter: padding 12 12 12 20, a 40 px button, 15 px text on
+      // 1.5 in the primary color.
+      final prompt = find.text('Note why you missed each one.');
+      final promptStyle = tester.widget<Text>(prompt).style!;
+      expect(promptStyle.fontSize, 15);
+      expect(promptStyle.height, 1.5);
+      expect(
+        promptStyle.color,
+        tester.element(prompt).webTokens.colors.textPrimary,
+      );
+      expect(
+        tester
+            .getSize(find.ancestor(of: prompt, matching: find.byType(WebCard)))
+            .height,
+        // 12 above and below the taller of the text and the 40 px button.
+        math.max(40, tester.getSize(prompt).height) + 24,
+      );
+      expect(
+        tester
+            .getSize(
+              find.ancestor(
+                of: find.text('Finish the Notes'),
+                matching: find.byType(WebButton),
+              ),
+            )
+            .height,
+        40,
+      );
       expect(find.text('Left blank'), findsOneWidget);
       expect(tester.getSize(find.byType(WebSegmentedControl)).width, 464);
       expect(tester.getSize(find.byType(WebRow)).width, 760);
