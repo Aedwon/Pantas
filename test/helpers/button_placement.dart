@@ -229,7 +229,8 @@ List<PlacementProblem> widePlacementProblems(
       final overlap = a.rect.left < b.rect.right && b.rect.left < a.rect.right;
       if (overlap && gap >= -0.5 && gap <= 16 && a.weight != b.weight) {
         problems.add('"${b.label}" is stacked under "${a.label}"; on a wide '
-            'screen a pair is one row at the right end, secondary first');
+            'screen a pair is one row (at the right end, or centered in a '
+            'centered layout), secondary first');
       }
     }
   }

@@ -158,6 +158,18 @@ class _ExamPageState extends ConsumerState<ExamPage>
     }
 
     if (_changedExam != null) {
+      final changeDate = PantasButton(
+        label: 'Change Exam Date',
+        onPressed: () => setState(() {
+          _changedExam = null;
+          _dateOpen = true;
+        }),
+      );
+      final done = PantasButton(
+        label: 'Done',
+        variant: PantasButtonVariant.tertiary,
+        onPressed: () => setState(() => _changedExam = null),
+      );
       return AnimatedBuilder(
         animation: _confirmation,
         builder: (context, _) {
@@ -233,24 +245,23 @@ class _ExamPageState extends ConsumerState<ExamPage>
                     ],
                   ),
                   const SizedBox(height: PantasSpace.s24),
-                  Center(
-                    child: PantasButton(
-                      label: 'Change Exam Date',
-                      onPressed: () => setState(() {
-                        _changedExam = null;
-                        _dateOpen = true;
-                      }),
-                    ),
-                  ),
-                  // Board L_ChangeExam2: 6 px between the two buttons.
-                  const SizedBox(height: PantasSpace.s6),
-                  Center(
-                    child: PantasButton(
-                      label: 'Done',
-                      variant: PantasButtonVariant.tertiary,
-                      onPressed: () => setState(() => _changedExam = null),
-                    ),
-                  ),
+                  if (context.wideWeb)
+                    // No wide board draws this state. patterns.md (Button
+                    // placement, centered layouts): the pair is one centered
+                    // row, secondary first, main last, 8 apart.
+                    Wrap(
+                      alignment: WrapAlignment.center,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: PantasSpace.s8,
+                      runSpacing: PantasSpace.s8,
+                      children: [done, changeDate],
+                    )
+                  else ...[
+                    Center(child: changeDate),
+                    // Board L_ChangeExam2: 6 px between the two buttons.
+                    const SizedBox(height: PantasSpace.s6),
+                    Center(child: done),
+                  ],
                 ],
               ),
             ),

@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
 
 import '../../../helpers/button_placement.dart';
+import '../../../helpers/ds_matrix.dart';
 
 /// The wide Quiz tab mock card (patterns.md, "Button placement"): its action
 /// sits at the right end at natural width, and the custom mock's Change the
@@ -23,6 +24,8 @@ void main() {
   ]) {
     testWidgets('wide ${state.name}: the action is at the right end',
         (tester) async {
+      // Real Geist widths: the test font's square glyphs wrap the pair.
+      await loadDsFonts();
       tester.view
         ..physicalSize = const Size(1440, 900)
         ..devicePixelRatio = 1;

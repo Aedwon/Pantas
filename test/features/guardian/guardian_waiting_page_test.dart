@@ -15,6 +15,8 @@ import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 import 'package:pantas/features/guardian/presentation/guardian_waiting_page.dart';
 
+import '../../helpers/button_placement.dart';
+import '../../helpers/ds_matrix.dart';
 import '../../helpers/in_memory_database.dart';
 import 'fake_guardian_gateway.dart';
 
@@ -185,17 +187,19 @@ void main() {
     expect(variantOf('Change Email'), PantasButtonVariant.tertiary);
   });
 
-  testWidgets('on wide web the actions sit centered under the text',
+  // patterns.md, Button placement: a stacked phone-style pair on a wide page
+  // (guardian confirm) is one right-aligned row, secondary first, main last.
+  // Until Nov 25 the three buttons were stacked and centered.
+  testWidgets('on wide web the actions are one row at the right end',
       (tester) async {
+    await loadDsFonts();
     await pump(tester, size: const Size(1440, 900), web: true);
-    final middle =
-        tester.getCenter(find.text('Waiting for your parent or guardian')).dx;
-    for (final label in ['Check Again', 'Resend Email', 'Change Email']) {
-      expect(
-        tester.getCenter(find.text(label)).dx,
-        closeTo(middle, 1),
-        reason: label,
-      );
+    expectWidePlacement(tester);
+    final check = tester.getRect(find.text('Check Again'));
+    for (final label in ['Resend Email', 'Change Email']) {
+      final other = tester.getRect(find.text(label));
+      expect(other.center.dy, closeTo(check.center.dy, 1), reason: label);
+      expect(other.right, lessThan(check.left), reason: label);
     }
   });
 
