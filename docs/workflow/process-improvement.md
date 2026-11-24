@@ -57,8 +57,11 @@ pass 15, retire or merge one first.
    includes layout, motion, controls, and in-app copy inside an approved layout (a Dialog's
    title and text, a caption, a button label). Build to the board. The lead settles copy
    under his delegation (D191), following the voice rules in `AGENTS.md`, records it, and
-   tells him the wording. A state no board draws goes to a Fable 5.2 ruling first. It goes
-   to him only if it is a new screen state or is reserved to him. Website copy stays his.
+   tells him the wording. A state no board draws is the lead's decision: the lead decides,
+   records the reason, and owns it. Fable 5.2 is an advisor only (his words, Nov 24: "Fable
+   should be an advisor only"): the lead asks Fable for advice on a genuinely hard or
+   high-stakes call, then decides itself. It goes to him only if it is a new screen state or
+   is reserved to him. Website copy stays his.
    Before a lead or the manager puts any question to him, they search the boards, the specs
    and the rulings files for an answer and name what they searched. No check can tell a
    decided question from an open one.
@@ -122,6 +125,20 @@ pass 15, retire or merge one first.
    holds the prod "ship it" until the email has gone.
 
 ## Entries
+
+### Ship report packed jargon, internal codes, and hashes into chat (Nov 24)
+
+- His words: "did you read your global instructions, agents.md workflow.md cuz none of your words made sense to me".
+- Wrong: the temporary operations manager's ship report packed raw build and commit hashes, version and alert IDs, internal task codes (`T18`, `T19`, `B2/B5`, `H5`, `PAY-06`), code and script names (`became_adult`, `compare.mjs`), scattered bold, and a 75-word sentence into a routine reply to Aedwon, breaking `WORKFLOW.md` ("Write for Aedwon").
+- Why it got through: the prompt asked for a 3-line ship report with rollbacks, and the agent compressed the technical deploy record directly into chat instead of putting IDs in the launch log and writing plain English for Aedwon.
+- Fix (required step before sending any chat reply to Aedwon): put commit hashes, version IDs, alert IDs, internal task codes, and script or function names in the launch log or private release folder, never in routine chat replies. Before sending, check that every sentence uses plain words, carries one idea in 25 words or fewer, and avoids scattered bold; describe rollbacks in plain words ("switch back to the previous app version, server code, database rules, and indexes saved in the release folder") instead of raw IDs. No automated check can judge plain-English clarity across chat messages.
+
+### Manager routed every decision to Fable (Nov 23 to 24)
+
+- His words: "i also think you're being too dependent on Fable, Fable should be an advisor only".
+- Wrong: the manager sent nearly every open question to a Fable 5.2 agent and treated its answers as final rulings: legal product decisions, retention periods, reader states, the phone bar, the under-18 framing. The leads did the same. Fable was acting as the decider, not the advisor his model-layer rule describes ("Advises; the lead still owns the conversation and final acceptance").
+- Why it got through: written rule 4 said undrawn states go "to a Fable 5.2 ruling first", and an older Nov 17 delegation let Fable decide for him. The manager read both as "Fable decides".
+- Fix (rule 4 changed): the lead (Opus) decides and owns undrawn states and product calls, with the reason recorded. Fable is asked for advice only on genuinely hard or high-stakes calls, and the lead decides after. Exceptions he set himself stay: the Gemini and Fable council for UNSURE board-versus-build UX calls, at his Nov 23 request. Rulings already made stand.
 
 ### Keychain prompt from a test browser again (Nov 24)
 
