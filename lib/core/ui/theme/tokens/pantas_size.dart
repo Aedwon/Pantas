@@ -90,9 +90,6 @@ abstract final class PantasSize {
   /// Phone floating bar height (60, every approved phone bar board).
   static const double bar = 60;
 
-  /// Wide floating bar height (64). The phone bar is [bar].
-  static const double barWide = 64;
-
   /// Week day width on every platform (44, so each day is a 44px target;
   /// size-week-day-phone folded in, 3.0.0).
   static const double weekDay = 44;

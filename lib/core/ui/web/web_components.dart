@@ -1690,7 +1690,7 @@ class WebBottomBar extends StatelessWidget {
             : state == WebBarState.neutral
                 ? PantasDurations.fade
                 : PantasDurations.flip,
-        constraints: const BoxConstraints(minHeight: PantasSize.barWide),
+        constraints: const BoxConstraints(minHeight: PantasLayout.barWide),
         padding: EdgeInsets.fromLTRB(
           PantasSpace.s8,
           stacked ? PantasSpace.s8 : PantasSpace.s0,
