@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### A new quiz bar design reached prod without his visual check (Nov 24)
+
+- His words: "where did this come from? why is there now those dashes", then "lol that looks terrible. what else did you ship that I should know?" (about the one-mark-per-question quiz bar, phone screenshot, about 7:15 PM Manila).
+- Wrong: the core loops polish spec (B2 marks in the session bar, flying into results; B5 fewer words) was designed by the UX lead while he was away, approved by a Gemini and Fable council, built, and shipped to prod in the 5:54 PM release under his standing "ship it". No board he approved draws the marks, and he never saw them before they were live.
+- Why it got through: the standing "ship it" was read as covering every merged change, including new visual designs that only a council had approved. The council path was meant for build-versus-board doubts, not for new looks. Nothing separated "built to a board he approved" from "new design he has not seen".
+- Fix (required step for the manager and every lead before a prod ship): list each user-visible UI change in the release and name the board he approved that draws it. A change with no such board (council, Fable or lead designed) does not ship to prod until he has seen it on a board and picked it; it waits behind a flag or stays off main. The standing "ship it" covers only changes built to his approved boards, server work and fixes. No check can tell an approved look from a new one.
+
 ### Ship report packed jargon, internal codes, and hashes into chat (Nov 24)
 
 - His words: "did you read your global instructions, agents.md workflow.md cuz none of your words made sense to me".
