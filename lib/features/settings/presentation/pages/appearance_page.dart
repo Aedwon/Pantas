@@ -464,7 +464,8 @@ class _TextSizeSlider extends StatelessWidget {
   }
 }
 
-/// The inside of the Text size card (boards ST_Appearance, TS_A): the slider row, a
+/// The inside of the Text size card (boards ST_Appearance, TS_A): the slider
+/// row, a
 /// hairline, then the sample on the system inset surface. The wide card pads
 /// both 18 by 16; the phone group pads both 16.
 List<Widget> _textSizeChildren({

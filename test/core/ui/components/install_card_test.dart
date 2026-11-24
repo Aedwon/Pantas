@@ -151,8 +151,7 @@ void main() {
     });
   }
 
-  testWidgets('an iPad-wide iOS card keeps the phone wording',
-      (tester) async {
+  testWidgets('an iPad-wide iOS card keeps the phone wording', (tester) async {
     await tester.pumpWidget(
       _host(
         width: 1080,

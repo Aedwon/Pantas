@@ -231,24 +231,21 @@ void main() {
       expectMatch(skeleton, sizes(tester, find.byKey(_surface)), 'record');
     });
 
-
     // PF_Subjects: the skeleton stands in for the loaded Subjects view, so
     // its list is as tall as the four subject rows and the ring sits above.
     final performance = PerformanceViewData(
-      subjects: [for (final id in ['a', 'b', 'c', 'd']) row(id)],
+      subjects: ['a', 'b', 'c', 'd'].map(row).toList(),
       topics: const [],
       lessons: const [],
       subjectCounts: const {'a': 3, 'b': 2, 'c': 5, 'd': 2},
       lessonLevelAvailable: true,
-      parentSubjectIds: const {},
     );
     testWidgets('Performance phone skeleton matches the Subjects view $mode',
         (tester) async {
       await mount(tester, const PerformanceSkeleton(), width: 390, dark: dark);
       final skeleton = sizes(tester, skeletonSections());
-      final skeletonGap =
-          tester.getTopLeft(find.byKey(_surface)).dy -
-              tester.getTopLeft(find.byType(PerformanceSkeleton)).dy;
+      final skeletonGap = tester.getTopLeft(find.byKey(_surface)).dy -
+          tester.getTopLeft(find.byType(PerformanceSkeleton)).dy;
       tester.view.physicalSize = const Size(390, 2600);
       await tester.pumpWidget(
         MaterialApp(
