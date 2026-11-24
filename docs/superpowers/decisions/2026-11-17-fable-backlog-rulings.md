@@ -795,8 +795,9 @@ The texts publish in the same prod release as the behavior they describe, or aft
 | Claim in the texts | Build that makes it true | State on Nov 23 |
 |---|---|---|
 | A tick on every web purchase; the declaration, time, Terms version and wording version recorded; the Terms open without ticking; the seller line | D2, D3, R2, R5 (PR #90) | Draft PR |
-| Only guardian declarations copied at deletion; ten years and four years for evidence | R2, R6 (PR #90) | Draft PR |
+| Only guardian declarations copied at deletion; ten years and four years for evidence; sharing permission records deleted 1,461 days after the account's deletion and never the newest record | R2, R6, legal round 5 (PR #90) | Draft PR |
 | A failed request is deleted whole; a decline is deleted at once | D1 with H1 | Not built |
+| An unconfirmed account that says it is 18 leaves no evidence row (the `became_adult` row is kept only where a guardian confirmed) | Nov 24 became_adult ruling, code items 1 to 3 (added Nov 24) | Not built |
 | Reports deleted within 90 days of receipt | R3 (PR #86) with H2 | Draft PR; sweep not built |
 | The trial code period | D7 | Not built. The texts say "no scheduled expiry" until it ships |
 | A refund route when PayMongo's route is closed | H6 | Path exists; runbook and test not done |
@@ -962,3 +963,662 @@ One choice: A, B, C or D. Nothing is built until he chooses. H1 and T18 proceed 
 - Context: PR #86 (report sending) carried ruling C3's sign-out block for all unsent data. Four Codex rounds each found new must-fix defects where the sign-out and switch sequence meets the sync runtime (`build/audit/codex-t2-r4.md`).
 - Advice, taken as the lead's ruling: option 3, check first. Before any teardown (Sync stop, wipe, purchase identity change), send this account's pending reports (bounded) and count what is still pending; refuse only when reports remain after a network failure; otherwise run main's sign-out sequence unchanged. PR #86 carries no sync-runtime change against main. A server refusal (quota) does not block: those reports are discarded and the residual recorded. Accepted residual: a report filed in another tab during the send window can be lost. The Free sign-out copy fix ships now.
 - The Pro-row part of C3 moves to its own launch-gate task (T20), design reviewed before code, time-boxed to two audit rounds; if it fails, the choice goes to Aedwon: launch with the existing loss, or delay. It must guarantee: unsent Pro rows are sent or sign-out is refused with data, Sync generation and Pro state unchanged; no row written under A uploads under B, enforced inside each sync write transaction, and the owner marker is never absent while signed in; every wait is bounded and a timeout refuses, never hangs or wipes; a closed-account pull cannot restore wiped data; one wipe per transition and a failed sign-in ends signed out; tests run the production controller, with no instant fakes.
+
+### C5. How strict H1(b) is, and the stop rule for T18 (Fable 5.2 advisor, Nov 24)
+
+- Context: four Codex rounds on T18 (D1 with H1) kept finding finer correlations between closed guardian requests and rate-limit counters.
+- Ruling, verbatim: "H1(b) already answers this. Its last sentence, which the T18 brief left out, reads: \"Short-lived rate-limit counters are outside this test.\""
+  1. H1(b) covers the request record, `guardianTokens` rows and evidence only. Pass: after decline or expiry, no document except the decline evidence sits under the account's path or holds the account ID, and no retained link shares an ID or exact time with the evidence.
+  2. Limiter rule: no plain account ID in path or field, no email, token or request field, and a cleanup time on every write at most 8 days out. Exact window times are allowed. The keyed hash stands.
+  3. Move `guardianStatus`, `guardianAdult` and `guardianAnswer` to the keyed-hash form; the one-time script deletes the old uid-keyed rows of all three plus `guardianSend`, for every account.
+  4. Fix the decline after expiry: read the links before the final clock read; the test fails first.
+  5. Not required: the email counter finding. The send-counter timing should-fix is the lead's call (lead: accepted as is).
+  6. Stop rule: one more Codex round, asked only whether items 1 to 4 pass, naming a document and field for any fail. Findings that need a join across rows, the server secret or timing inference are recorded, not fixed. Merge on four passes plus the worker's green emulator run.
+  7. Residual: for at most 8 days, someone holding the server secret and the full database could join a counter to a closed request. Accepted under H1's exclusion. No lawyer reviewed this.
+- Process note (lead): the T18 brief quoted H1(b) without its last sentence; briefs now quote rulings in full.
+
+### C6. Phone Pro page: the required tick card is below the fold and Pay is off with no reason (UX design lead, Fable 5.2 agreed, Nov 24)
+
+- Asked by the CSE release lead for PR #90 (checkout declaration, D2 option T). At 390 x 844 on first view, the plans push the tick card below the fold. The fixed bar shows Pay disabled and nothing says why. Board S4P_T avoided this with a shorter plans block; the real page has five hero bullets and a yearly plan. Renders: `cse-checkout-decl` build, `render/r6/sheet_phone390_*.png`.
+- Options: (1) a one-line hint under Pay while it is off; (2) tapping the disabled Pay scrolls the card into view and focuses it; (3) move the card into the bottom bar.
+- Ruling: 1 and 2 together; 3 rejected (five lines of fixed legal text would take about 150 px of 844 and hide the plans).
+- Hint: the bar's status line (the slot that shows "Read the box again, then tick it to pay.") reads "Tick the box to pay." while Pay is off. The same words are Pay's accessibility hint. The status line's height is always reserved, so the bar never changes height. On tick the hint fades out over 150 ms. No direction words: the hint sits at the bottom of the screen.
+- Pay: keeps the approved disabled look but stays tappable and focusable; screen readers hear a button with the hint, not "dimmed". A tap or Enter while off: if the card is not fully visible, it scrolls into view to rest 16 px above the bar (400 ms, `cubic-bezier(.32,.72,0,1)`); then focus moves to the tick and the app's ring pulse plays once on it (0.7 s, ease-out), never during the scroll. If the card is already visible: focus and pulse only. Reduced motion: the scroll jumps, no pulse.
+- Fable 5.2 (high) agreed and added the reserved status line, skipping the scroll when the card is visible, and the screen reader rule.
+
+### C7. The adult mark kept after a guardian request ends is outside H1(b) (Fable 5.2 advisor, Nov 24)
+
+- Asked by the CSE release lead under the C5 stop rule. The final Codex check passed C5 items 2 to 4 and failed item 1: after decline or expiry, `users/{uid}/server/guardianConsent` can remain with `ageGroup: 'adult'` and `adultSince`.
+- Ruling, verbatim: "A. Item 1 passes and T18 merges with no code change."
+  1. Scope: H1(b) tests for a record that links the account to a guardian request. The kept mark holds no request field, only the account holder's own statement that they are 18. An adult made that statement, so H1's missing guardian basis does not apply.
+  2. Purpose: the mark stops a new under-18 request. Deleting it would reverse an earlier required fix.
+  3. Time check: `adultSince` cannot match the decline evidence (the decline reads its own clock in a later write; an expiry writes no evidence). It equals `revokedAt` on guardian page links revoked by the same act, but ending the request deletes every such link. Retained answer links keep only a coarse end day.
+  4. C5 item 1 should read "no request document".
+- Recorded, not fixed in T18:
+  - `adultSince` equals `decidedAt` on the `became_adult` evidence row (on main before T18). Both sit under the same account ID, so the time adds no link. Whether a `became_adult` row may sit in the evidence at all, against R6's "Adult declarations never enter the evidence (R2)", needs its own ruling. Sent to the legal lane through the operations manager.
+  - The mark exists only where a request once existed; dropping `adultSince` would not remove that inference.
+
+## Nov 24, became_adult evidence row
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation. The ruling is final and is not queued for his sign-off. Legal sign-off on the final texts stays his. This agent wrote no legal text: wording named below goes to the text lane and to Sol High (rule 5). No lawyer reviewed anything here, and this agent is not a lawyer.
+
+- Asked by ruling C7 ("needs its own ruling").
+- Policy read at `origin/main` 6ff6f6889: `AGENTS.md`, `docs/workflow/process-improvement.md` (rules 5, 7, 9), and in this file D1 to D8, legal rounds 2 and 3, the under-18 flag options, C5 and C7.
+- Code read: main 6ff6f6889 (`functions/src/guardianConsent.ts`, `deleteUserData.ts`, `purgeInactiveAccounts.ts`, `lib/features/onboarding/presentation/onboarding_age_gate_step.dart`), PR #90 `qa/checkout-declaration-r1` 6177b6898, PR #95 `qa/guardian-d1-r1` f021040f0.
+- Text read: `legal/public-launch-r1` 5a50ef3bd, `teen-notice.md` and `privacy-policy.md`.
+- Standards applied: Data Privacy Act Sections 11(e) and (f), 13(a) and 13(f); Civil Code Articles 1144 and 1391, as R6 used them. No sheet exists in `agent-standards` for privacy law.
+- Velocity: this pass was not timed. It changed documents only. The size below is an estimate.
+
+### What was checked
+
+1. **What the row is.** When a student in the under-18 group says they are 18, the server marks the account adult, revokes the guardian page links, and adds one row to the guardian evidence. The row holds the action `became_adult` and the time, and nothing else (`guardianConsent.ts:517-519`). PR #95 leaves this as it is (`:650-652` there).
+2. **It is written whether or not a guardian confirmed.** The only tests are: the record is in the under-18 group, has not switched before, and is not withdrawn (`:511-516`). A pending request passes. On main, a declined or flag-only record passes too. The app calls it from the age recheck (`onboarding_age_gate_step.dart:234`).
+3. **One such row keeps the evidence after deletion.** Account deletion keeps the evidence and writes its marker when any answer row exists (`deleteUserData.ts`, `keepGuardianEvidence`). So an account with no guardian answer and one `became_adult` row leaves a record under its account ID.
+4. **PR #90 counts the row as a reason for ten years.** Its period test asks for any row whose action is not `decline` (`purgeInactiveAccounts.ts` on PR #90). A decline plus a `became_adult` row is kept ten years, and so is a `became_adult` row alone. R6's words give the first case four years and do not name the second.
+5. **No other row can exist without a confirmation, except a decline.** A sharing change and a withdrawal both need a confirmed record.
+6. **After the switch, no purchase is copied.** Checkout uses the guardian wording only when the record is confirmed and still under 18 (PR #90, `paymongoCheckout.ts:69`). Later purchases carry the adult declaration, which R2 keeps out of the evidence.
+7. **The texts say the server records the statement, but no evidence list names it.** Teen Notice: "our servers record that you are 18 or older". The three lists of guardian evidence name answers, withdrawal and guardian purchase declarations only: the Teen Notice deletion paragraph, its "Guardian evidence" bullet, and the Privacy Policy line "limited guardian evidence".
+8. Not checked: how many `became_adult` rows exist on prod or staging, and live behavior. Aedwon's choice among options A to D above is not recorded on main.
+
+### Ruling
+
+1. **R6 does not cover it.** In R2 and R6, "adult declarations" means the adult declaration ticked at checkout. The `became_adult` row is not a purchase declaration: no purchase, another function, another purpose. So R6's sentence does not forbid it. R6's period list did not place it either. This ruling does.
+2. **The row stays where a guardian confirmed, unchanged. It is no longer written where no guardian confirmed, and existing rows of that kind are deleted.**
+   - With a confirmation, the row is the end date of the guardian's permission, in the account holder's own words. It shows why the guardian's links stopped, and that later purchases were the adult's own. That is the same legal-claims purpose as the rest of the evidence (Section 13(f)), and the guardian's permission covers the under-18 label it implies (Section 13(a)).
+   - With no confirmation, the row records no guardian act and no contract. Its only content is that this account once had a guardian request, kept under the account ID for ten years after deletion. That is the record D1 and H1 exist to remove, and it cannot pass the "necessary" test. The adult mark on the account already stops a new under-18 request (C7), so nothing depends on the row.
+3. **The row has no period of its own.** It follows the evidence it sits in, which always holds a confirmation: 3,653 days from the newest record, once the account is gone. It counts as a record for "newest". It never chooses the period. The statement is not verified, so it does not shorten the period, and the Article 1144 reason does not depend on age.
+4. **Rejected: text only, with the row kept in every case.** The texts would then have to describe a ten-year record with no purpose for an account no guardian answered.
+
+### Code change. Gate, about 0.25 day
+
+1. The adult switch writes the `became_adult` row only when the record's status is confirmed. Everything else in the switch is unchanged. Tests fail first: a pending record that switches leaves no evidence row; a confirmed record still gets one.
+2. The evidence period test becomes positive: ten years only when the evidence holds a confirmation, a withdrawal or a guardian purchase. Otherwise four years. Test fails first: a decline plus a `became_adult` row is released at four years. This makes the code match R6's words whatever rows exist.
+3. One-time removal: delete every `became_adult` row in evidence that holds no confirmation, and the evidence parent if nothing is left under it. Count it against the free tier first (rule 7). It joins T18's one-time removal if that has not run on prod, else it runs alone. Expected count is near zero: the beta had one under-18 tester, confirmed.
+4. PR #95 is not reopened: C7 stands and it merges as ruled. Items 1 and 3 go in a follow-up after it merges. Item 2 goes in PR #90 if it is still open, else in the same follow-up. The lead's normal review applies. No new Codex loop is required.
+5. Gate, because the change shortens what is kept: after opening it needs the rule 9 email, and the texts must be true on the day they publish (H5). Add one row to the H5 table: an unconfirmed account that says it is 18 leaves no evidence row, checked live on prod.
+
+### Text changes (for the legal lane, rule 5)
+
+1. Teen Notice, the "When you turn 18" paragraph: if a guardian had confirmed the account, the date of this statement joins the guardian evidence.
+2. The three evidence lists in check 7: add that date, for an account a guardian confirmed.
+3. No period sentence changes. After the code change every evidence set either holds a confirmation, a withdrawal or a guardian purchase (ten years) or holds only declines (four years).
+4. Sol High critiques the changed paragraphs in the next round, and confirms Section 13(f) for this row.
+5. These sentences publish only after the code change is on prod (H5).
+
+### What needs Aedwon
+
+Nothing. The ruling holds under each of options A to D. Under C the unconfirmed case can arise only for requests open at the opening.
+
+### Recorded, not ruled
+
+- After the switch on a pending request, the request stays open until it expires, and a guardian can still answer it (read in `guardianConsent.ts` on PR #95; not tested). The guardian's contact data then stays up to seven days with no use. Recommended, at the lead's call and not a gate: the switch ends an unconfirmed request the way an expiry does.
+- The same three evidence lists do not name the guardian's sharing changes, which the evidence also holds (`sharing_on`, `sharing_off`, main `guardianConsent.ts:451`). The text lane decides whether "the guardian's answers" covers them.
+- R6's line "Adult declarations never enter the evidence (R2)" should read "Adult purchase declarations". C7 read it as possibly wider.
+
+## Nov 24, legal round 5: sharing-change retention
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation. The ruling is final and is not queued for his sign-off. Legal sign-off on the final texts stays his. This agent wrote no legal text: wording named below goes to the text lane and to Sol High (rule 5). No lawyer reviewed anything here, and this agent is not a lawyer.
+
+- Asked by Sol High's round 5 verdict: ten years from the newest record is hard to justify for every older entry, "especially optional-sharing changes".
+- Read: `AGENTS.md` and `docs/workflow/process-improvement.md` (rules 5, 7, 9) at `origin/main` 5f40b1e7d; R6, H5 and "Nov 24, became_adult evidence row" in this file; `critique-2026-11-24-sol-high.md`, the README "round 5" section, `teen-notice.md` and `privacy-policy.md` at `legal/public-launch-r1` 5d895e58d.
+- Code read: main 5f40b1e7d (`functions/src/guardianConsent.ts`, `purgeInactiveAccounts.ts`, `deleteUserData.ts`, `usageVisit.ts`) and PR #90 `qa/checkout-declaration-r1` (`purgeInactiveAccounts.ts`).
+- Standards applied: Data Privacy Act Sections 3(b) (permission must be evidenced), 11(e) and (f) (proportionality, retention), 13(a) and 13(f); NPC Advisory 2024-02; Civil Code Articles 1144, 1146 and 1391, as R6 used them. The articles are cited from memory. No sheet exists in `agent-standards` for privacy law.
+- Velocity: this pass was not timed. It changed documents only. The size below is an estimate.
+
+### What was checked
+
+1. **A sharing change is one small row.** It holds the action (`sharing_on` or `sharing_off`), the time, and the document and wording versions (`guardianConsent.ts:424-427`, `:451`). Only a confirmed record can get one.
+2. **The guardian's first sharing choice sits on the confirmation row,** as the field `sharingAllowed` (`:371-376`).
+3. **A sharing change moves the clock for the whole evidence.** The cleanup takes the newest answer row of any kind as "newest record" (`purgeInactiveAccounts.ts:281-287` on main, `:291-299` on PR #90). A switch flipped five years after the confirmation keeps the confirmation five years longer.
+4. **The cleanup runs only once the account is gone,** and it holds the account's deletion date (`accountDeletedAt`). Sharing cannot happen after that date.
+5. Not checked: how long Google Analytics keeps the shared usage data (the Privacy Policy draft says 14 months, unconfirmed in the console), the filing period for an NPC complaint, and live behavior.
+
+### Ruling: option (c). Sharing permission records get four years from the account's deletion date, and never move the ten-year clock
+
+1. **While the account exists, the full sharing history stays.** Permission must be evidenced while Pantas relies on it (Section 3(b)), and each "on" row proves one stretch of permitted sharing.
+2. **After the account is deleted, every sharing permission record is deleted 1,461 days after the deletion date.** That covers `sharing_on` rows, `sharing_off` rows, and the `sharingAllowed` field on the confirmation row. The confirmation row itself stays on its own period.
+3. **A sharing row is never the "newest record" and never chooses a period.** The ten-year and four-year clocks run from the newest of: a confirmation, a decline, a withdrawal, the `became_adult` row, a guardian purchase.
+4. **Rejected: (a) keep ten years.** Both of R6's ten-year reasons are contract reasons (Articles 1144 and 1391). Sharing permission is a permission the guardian can take back, not a contract term. Its record answers only a claim that Pantas used data without permission. R6 already treats that claim as a four-year claim (Article 1146) for declines. Check 3 also has no claim behind it.
+5. **Rejected: (b) the latest state only.** Sol High's own point: the current setting cannot show the history. On, off, on, off leaves the second "on" stretch with no proof, while a claim about it is still live.
+6. **Why the clock starts at deletion, not at each row.** A row's use ends when the next row replaces it, so a per-row clock would need old rows rewritten on every change. The deletion date is the last day sharing could happen, so four years from it covers every stretch.
+
+**The honest limits.** No Philippine ruling fixes this period. A damages claim under the Data Privacy Act could be argued as an obligation created by law, ten years under Article 1144(2). R6 chose Article 1146 for the same kind of claim, and this ruling follows it. Criminal prescription under Act No. 3326 (eight or twelve years, from memory) is not used: keeping records ten years against a possible prosecution is the reasoning Section 11(e) does not allow. A self-declared adult switch does not start the clock, for the reason in the `became_adult` ruling: the statement is not verified.
+
+### Code change. Gate, about 0.5 day
+
+1. Evidence cleanup, for an account that is gone: once 1,461 days have passed since `accountDeletedAt`, delete the sharing rows and remove `sharingAllowed` from the confirmation row. Tests fail first: sharing rows survive at 1,460 days and are gone at 1,461; the confirmation row survives without the field.
+2. "Newest record" ignores sharing rows. Test fails first: a confirmation from year 0 plus a sharing change from year 5 is released ten years after year 0.
+3. A legacy parent with no marker gets its marker when first seen, as today, so its sharing clock starts then. Never shorter than ruled.
+4. Count the added reads against the free tier (rule 7). The extra reads happen only for accounts that are gone.
+5. It goes in PR #90 if that is still open, because the period test lives there. Otherwise it joins the `became_adult` follow-up. The lead's normal review applies.
+6. Gate, for R6's reason: the texts state the period, texts publish only with the behavior (H5), and after opening a change to a period needs the rule 9 email. Nothing can be deleted by this change for four years, so no user sees a difference. It joins the H5 row "ten years and four years for evidence".
+
+### Text changes (for the legal lane, rule 5)
+
+1. Teen Notice, "Guardian evidence" bullet: after the account is deleted, records of when the guardian gave or took back sharing permission, including the choice made at confirmation, are scheduled for deletion 1,461 days (four years) after the day the account was deleted.
+2. Same bullet: "its newest record" does not count a sharing change.
+3. Same bullet, the reason: sharing permission is not a contract. Its record serves only a claim about use of data, treated as a four-year claim (Article 1146), counted from the deletion date because no sharing can happen after it.
+4. The three evidence lists and the basis bullet do not change. The Privacy Policy line already points to the Teen Notice schedule.
+5. README "round 5", item 1: closed by this ruling.
+6. Sol High critiques the changed bullet in the next round, and confirms Article 1146 against Article 1144(2) for a sharing claim, and whether Act No. 3326 changes the answer.
+7. These sentences publish only after the code change is on prod (H5).
+
+### What needs Aedwon
+
+Nothing. He can change the period at legal sign-off, as with R6.
+
+### C8. Evidence that ends before its sharing records (Fable 5.2 advisor, Nov 24)
+
+- Asked by the CSE release lead while building legal round 5 in PR #90. Edge the round does not draw: evidence with a confirmation runs ten years from its newest record; sharing records run 1,461 days from the account's deletion. An account deleted more than six years after its newest non-sharing record (confirmed year 0, deleted year 8) reaches the evidence end (year 10) before the sharing end (year 12). The first sharing choice is the field `sharingAllowed` on the confirmation row.
+- Options: (A) the whole evidence waits for the sharing period; (B) at the evidence end, delete everything except the sharing records, keeping a stripped confirmation row with only the sharing choice until the sharing end; (C) delete everything at the evidence end.
+- Ruling, verbatim: "B."
+  1. Each record keeps its own period: the confirmation row "stays on its own period", sharing records run 1,461 days from deletion.
+  2. A would keep guardian purchase copies and the withdrawal, decline and adult rows up to four years past the stated ten, so the notice would be false (H5).
+  3. C deletes sharing proof while a four-year claim is still live, the gap legal round 5 rejected in its option (b), and breaks the notice's 1,461 days.
+  4. B needs no text change.
+- Build: the stripped row keeps `sharingAllowed`, its time and the two version fields, as a sharing row does. Drop `agreed`; change `action` from `confirm` (simplest: rewrite it as a `sharing_on` or `sharing_off` row) so it stops setting a clock. Keep the parent marker.
+- Tests, failing first: (1) confirmed year 0 with a sharing choice, a later sharing change and a guardian purchase copy, deleted year 8: at ten years only the sharing rows, the stripped row and the marker remain; (2) the same record is unchanged at deletion plus 1,460 days and empty at 1,461; (3) a second run after (1) changes nothing.
+
+## Rule 7: Firestore TTL deletes (security and billing lead, Nov 24, 2026)
+
+Question (CSE release lead, via the manager): Firestore TTL deletes are not in the free tier. Is that allowed on prod
+and on staging? Not a close call, so no Fable ruling.
+
+**Facts, checked Nov 24.** The quotas page lists "TTL deletes" under operations that "don't include free usage"
+(https://firebase.google.com/docs/firestore/quotas). The TTL page says they "count towards your document delete costs"
+(https://cloud.google.com/firestore/docs/ttl). Google's billing catalog: "Cloud Firestore TTL Deletes Singapore",
+$0.0123 per 100,000 from the first delete; ordinary "Entity Deletes Singapore (with free tier)" are free for the first
+20,000 a day. Both projects ran 8 TTL policies (limits, shards, signInChallenges, signInLimits, signInRequests, users
+(the webhook event markers), webhookRateLimits, wrapped_shares). TTL deletes in the last 30 days: prod 398, staging
+616 (Cloud Monitoring `document/ttl_deletion_count`).
+
+**Ruling.**
+1. Prod keeps every TTL policy, and the new ones (questionReports, trial codes) may ship. The deletes come from real
+   users, which rule 7 allows. Cost now: about $0.00005 a month. At public scale (an estimate of 5,000 TTL deletes a
+   day: sign-in records, sync counters, webhook markers, reports) about $0.02 a month.
+2. Staging runs no TTL policy, because its TTL deletes bill a nonzero amount (rule 7). This is option (b) changed: staging
+   has no scheduled jobs (prod holds the 3 free Scheduler jobs), so nothing replaces the TTL deletes. Staging test data
+   is small, and every staging proof deletes its own documents with ordinary deletes, inside the free 20,000 a day.
+   Published deletion periods apply to real users only, so they do not apply to staging.
+3. Applied Nov 24: all 8 staging TTL policies turned off. `firestore.indexes.json` turns TTL back on with any staging
+   indexes deploy, so run `tool/deploy/staging_disable_ttl.sh` after one (docs/deploy-prod.md). The live check
+   `tool/checks/free_tier_live.mjs` shows a "Firestore TTL policies" row that is OVER while staging has any.
+
+## Nov 24, T15 reader undrawn states
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation (written rule 4). The rulings are final and are not queued for his sign-off. His visual pass still gates release (`WORKFLOW.md`).
+
+- Asked by the T15 build lead (lesson reader full screen, "4 Held") through the CSE release lead: seven states no board draws, and one release question on frame times.
+- Policy read at `origin/main` c92aa65f4: `AGENTS.md`, `WORKFLOW.md`, `docs/workflow/process-improvement.md` rules 1 to 4, the UX ambition hand-off, the reader build spec, and in this file "Nov 23, lesson reader full screen".
+- Boards read on the live canvases, Nov 24. Lesson Reader Full Screen: `canvas.json`, `R`, `W4_Held`, `M1100`, `H4`, `fs.css`, `reader.css`, and the linked-word scene of `MO`. Pantas Web: `canvas.json`, `W_Reader`, `RD_Focus`, `RD_FocusOpen`, `RD_Figure`, `W_ReaderHeldDarkFull`, `RD_Held1100`. Not read: the body of `RD_FocusMotion` (no ruling here touches the bar's timing).
+- Code read: `qa/reader-4-held-r1` 600c63a31 (placement, hold, linked words, the wide-art list, the top bar). Content read: `content/lessons/mathematics/geometry/circles.md`, and a scan of every lesson's figure labels with the build's matching rules.
+- Standards applied: READ-MEASURE, READ-MARGIN, READ-FIG-NEAR, READ-FIG-SIZE (`long-form-reading.md`); ID-SPATIAL, ID-COHERE (`instructional-design.md`); WEB-M11, WEB-M13 (`web-interface-design.md`); the DS4 radius scale (`pantas_radius.dart`).
+- Velocity: this pass was not timed. It changed documents only. Build sizes below are estimates.
+
+### Rulings
+
+1. **1024 to 1279 px: center it. Change, under 0.25 day.**
+   - The text column (up to 600), the 48 px gap and the 300 px figure column are one block. Center the block in the window. Each side margin is at least 40 px: left margin = the larger of 40 and (window width minus block width) / 2.
+   - At 1024 this gives 40 px each side, as drawn. At 1100: 76 px each side (the board: 40 left, 112 right). At 1279: 165.5 px each side (the build: 40 left, 291 right).
+   - The title and the end-of-lesson block keep the text column's left edge. The top bar and the section line do not change.
+   - Why: every other reader state is centered (the 1,096 px page at 1280 and up, and the 680 px column). The board's left alignment comes from its style sheet (`width:auto; margin:0 40px`) and was drawn only at 1100, where the slack is 72 px.
+   - Rejected: letting the figure column grow with the window. It changes values the board draws at 1100 and every plate height in the real-content run.
+
+2. **Section line: 2 px. Confirmed, no change.** The spec and `fs.css` both give 2 px at rest, 4 px on hover or focus, 3 px gaps. This is wide web only. The phone keeps its approved bar.
+
+3. **Expand button radius: 8. Use the token.** `PantasRadius.sm` is the DS4 radius for controls under 40 px, and DS4 folded 7 and 10 into it on purpose. 1 px on a 34 px button cannot be seen. The board's 9 is the outlier.
+
+4. **Width control: hidden on a lesson with margin figures. Confirmed.**
+   - The held layout already uses the full width, which is what the control was for (Aedwon, Nov 3: "so they can choose to utilize more of the whole screen area or not"). Wider text there would break the 640 px measure. No held board draws the control.
+   - The saved choice is kept and applies again on lessons with the single column (680 or 800 px). No disabled state and no empty gap. The bookmark does not move.
+
+5. **Stacked figures: one unit only when they share a passage. Change, about 0.25 day.**
+   - Figures whose passages end at the same place (no text between them in the source) and that stack are one unit. They hold and leave together, 18 px apart. Rule 5's cap applies to this unit.
+   - A figure that rule 4 only pushed down from its own anchor keeps its own passage. Each such plate holds within its own passage. A held plate's bottom never comes closer than 18 px to the next plate's top.
+   - Why: the build gives a group the latest passage end of its members. The upper figure then stays in view beside text it does not explain. Council round 4: "keep every figure inside its own passage". The same fault is why direction 2 (Pinned) was rejected. Rule 5 implies a unit only for figures that are read together.
+   - Motion does not change. This is the hand-off in `MO`: the upper plate leaves at the speed of the scroll, the next plate arrives and holds.
+   - Test, failing first: two figures with different passages, the second pushed down 12 px. At every scroll position the first plate's bottom is at or above its own passage end.
+
+6. **Acceptance check 5: replace the second pair with a real one.**
+   - New text: "Linked words: in circles, 'Tangent' lights the tangent line and dims the rest. In Example 4 with the solution open, `$AB$` in the first solution line ('... and $AB$ is the hypotenuse.') lights side AB, makes its label 'AB = 10' bold and dims the rest. Keyboard: Tab reaches each linked word and each section segment, with the focus ring."
+   - Why: no figure label says "hypotenuse", so the label rule cannot link that word. `H4` drew a link the rules do not make. The real pair keeps what `H4` shows (the hypotenuse lights), and `R` already draws this link on that line.
+   - A second real pair, solution closed: `$BC$` in the problem lights side BC (label "BC = ?").
+   - Real content links fewer words in Example 4 than the board. The problem figure's labels are "Diameter AB = 10" and "AC = 6", so `$AB$` and `$AC = 6$` in the problem line do not link. That is content, not a build defect. No content change for launch (the spec adds no content).
+   - The scan estimates passages from the lesson source. The lead confirms both pairs with the build's own matcher.
+
+7. **Wide art: accept a list, with a guard. No natural size for this release. About 0.5 day.**
+   - Facts: each painter draws at a fixed height into the width it gets. There are 26 painter files and about 127 figure types in the lessons. A natural size for each is about 2 to 3 days and touches every phone figure.
+   - At 1280 and up the plate's inner width is 360 px, wider than the phone's figure (about 326 px). A figure that reads on the phone reads there. The squeeze risk is the 1024 to 1279 band (260 px inner).
+   - Required in T15:
+     1. The list is explicit, one entry per figure type, and lives with the figure registry. The reader does not match name endings ("gallery", "triptych"). A new type can miss that match without any failure; `orbital-shapes` and `atomic-models` already needed their own entries.
+     2. A check fails when a shipped lesson has a figure type that is on neither list (wide or margin). A new type cannot ship unclassified.
+     3. One pass over every figure type in the shipped lessons, not only the seven lessons of check 3. Render each at 260 px inner width, one sheet per painter (the Nov 9 screenshot exception). A Claude worker moves to the wide list any type whose labels clip or overlap, or whose parts are a row of three or more panels. This is UI, so no Codex.
+   - A natural size per painter is not scheduled. The check removes the reason for it.
+
+8. **Frame times: a real-GPU Chrome run gates the release. Safari gates it through Aedwon's visual pass.**
+   - The measured run passes on what it measured: p95 5.4 ms is a third of the 16.7 ms budget, and p99 is warm-up. It does not close acceptance check 4, which names a mid-range laptop, Chrome and Safari.
+   - Shake is not a browser risk. Flutter paints the text and the plates in the same frame in every browser, because the hold moves plates at paint time. Only the frame rate depends on the browser.
+   - Gate, agent-run, about 0.25 day: the same script in Chrome with the real GPU and the CPU slowed 4 times (this Mac is an M4; a mid-range laptop is about 2 to 3 times slower), at 1440x900 and 1100x900, first second left out. Pass: p95 at most 16.7 ms.
+   - If it fails at 4 times, do not fall back yet. Report the 2 times and 4 times numbers to this agent: the 4 times setting is harsher than the target.
+   - Safari gate: Aedwon scrolls Circles with Example 4 open in Safari on the Mac, as part of the visual pass that already gates release. An iPad in landscape counts too, if one is at hand: every iPad browser is WebKit, and the held layout starts at 1024 px. No instrumented Safari run is required. Agents do not drive Safari (no computer control). An agent may add a headless WebKit run of the same script if it needs no permission prompt. That run informs his pass and does not replace it.
+   - If Chrome passes and Safari does not: Safari and iPad get figures at rest (the spec's fallback, direction 1), Chrome keeps the hold, and the lead reports it.
+
+### Board changes (for the operations manager's reference canvas list)
+
+- Ruling 1: `M1100` (Lesson Reader Full Screen) and `RD_Held1100` (Pantas Web). Center the text and figure block. At 1100 the side margins are 76 px each (now 40 left, 112 right). The mid-width rule in `fs.css` and `held/fs.css` changes with it.
+- Ruling 3: `fs.css` (Lesson Reader Full Screen) and `held/fs.css` (Pantas Web). The expand button `.fx` radius goes from 9 to 8. This reaches every held board.
+- Ruling 6: `H4`, `R` and scene 3 of `MO` (Lesson Reader Full Screen); `RD_HeldLinked`, `RD_HeldPart` and `RD_HeldMotion` (Pantas Web).
+  - The pointer sits on `AB` in the first solution line, not on "hypotenuse" in step 1. Remove the link from "hypotenuse".
+  - In the problem line only `BC` is linked, not `AB` or `AC`.
+  - The problem figure's label reads "Diameter AB = 10", as in the lesson.
+- Rulings 2, 4, 5, 7 and 8: no board change. No board draws a stack, and no held board draws the width control.
+
+### Spec lines these rulings change (for the spec's owner)
+
+- Layout, 1024 to 1279: add "centered; side margins at least 40 px".
+- Rule 4: add the two cases of ruling 5.
+- Rule 6, last clause: "A figure type is wide when the figure registry lists it. A check fails on an unlisted type."
+- Figure plate: the expand button's radius is 8.
+- Acceptance check 5: the text in ruling 6.
+- Acceptance check 4: the two gates in ruling 8.
+
+### What needs Aedwon
+
+Nothing new. His visual pass, which already gates release, includes one scroll of the held reader in Safari (ruling 8).
+
+## PAY-07 follow-on: a grant with both a dispute and a refund (Fable 5.2 advisor, Nov 24, 2026)
+
+Asked by the security and billing lead after eight review rounds of the money-path fixes kept finding new interleavings
+of disputes and refunds on one grant. Options: (A) keep fixing every interleaving automatically; (B) never re-plan such
+a grant automatically and hand it to the owner; (C) other. Lead recommended B.
+
+**Ruling: B, with one tightening.**
+1. A grant that has a dispute and any refund, in either order, is never restored or re-planned on a win. The win is
+   recorded, the dispute is marked resolved, the grant stays as it is (revoked or shortened).
+2. One pending follow-up, reason `disputeWithRefund`, keyed by payment: paid amount, refunded total, dispute id, unused
+   days, and the later plans or rewards the dispute had pulled earlier (left where they are). The existing log alert
+   emails the owner, who settles it by hand: grant the remaining days, or refund the rest (a guardian denial is owed the
+   rest, per the Terms).
+3. A lost dispute keeps its automatic path; it adds a follow-up only when refunds plus the chargeback exceed the amount
+   paid (the owner then paid twice).
+4. A dispute that opens on an already refunded grant still revokes at once. A refund that arrives after a pure dispute
+   was won and restored is a pure refund.
+5. **Keep revoked, not restore the unrefunded part:** that calculation produced the last findings. Missing access is
+   reported by the user and cheap to fix; wrong access or a shifted later plan is seen by nobody.
+
+**Build edges.** Decide on "has a dispute id and refunds above zero", never on the stored revocation reason. Do not
+overwrite a pending refund task with the same key, and the refund-closing logic must not close this follow-up. A replayed
+win, or a win before its opening event, writes no second record and restores nothing. The property test covers both
+orders and asserts no grant changes on such a win.
+
+### C9. BIR Registration Seal Badge placement (Fable 5.2, Nov 24)
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent for the CSE release lead, under Aedwon's delegation (written rule 4). The placement, size and treatment below are final and are not queued for his sign-off. One point is his and is not ruled: whether the badge is shown at all while the BIR's display rule is suspended (see "What needs Aedwon"). His visual pass still gates release (`WORKFLOW.md`).
+
+- Asked by the CSE release lead. Source: the operations manager, relaying page 3 of Aedwon's BIR Certificate of Registration (Form 2303), verbatim: "For taxpayers engaged in online business or with online presence, the BIR Registration Seal Badge should be prominently displayed on their website or profile page. This badge should be easily visible to the public and readily scannable that will serve as verification of their registration with the Bureau of Internal Revenue." The manager's instruction: place it where the D3 seller details go, the website footer and the Pro page. No board draws it.
+- Policy read at `origin/main` 976432809: `AGENTS.md`, `WORKFLOW.md` (website copy, visual checking), `docs/workflow/process-improvement.md` (written rules 1 to 9 and the entries), and in this file D2, D3, the H5 table, C6 and the legal rounds.
+- Velocity: this pass was not timed. It changed no code. Build sizes below are estimates.
+
+#### What was checked
+
+1. **The asset** (`build/audit/bir_badge.png`, 1160 x 380). Read with Apple's Vision decoder, confidence 1.0:
+   - The QR code holds `https://verify.bir.gov.ph/correspondence/<id> (the full address is kept out of this public repo)`.
+   - It is a version 5 code: 37 modules a side, error correction M.
+   - Its dark area is 239 x 247 source px (x 878 to 1116, y 43 to 289), so one module is about 6.5 source px.
+   - Clear paper around it: 43 px above, 44 px to the right, about 50 px down to the RSN line. The standard asks for 4 modules, 26 px.
+   - The paper is already pure white (255, 255, 255) under the pale watermark. No tone correction is needed.
+   - The left 60 px hold only watermark. The ribbon's tip starts at x 82.
+2. **The code** (`origin/main`):
+   - `lib/core/config/seller_facts.dart`: the proprietor name and email are constants; the trading name, place and phone are build inputs.
+   - `pro_page.dart` and `widgets/declaration_card.dart`: the seller line shows only while the tick card shows (web, a payment about to be taken, not the free trial).
+   - Phone: the seller line sits in the fixed bar, between Pay and Restore Purchases. The bar already holds Pay, the seller line (three lines at 390 px), Restore Purchases and C6's status line.
+   - Wide web: the seller line sits right-aligned under Pay, at most 480 px wide, inside the page's scrolling content. By the pane's width rule, the detail pane is about 460 px wide at a 1024 px window and about 750 px at 1440 (estimated, not measured).
+3. **"Website footer" today.** The app has no footer. The website is the separate `pantas-web` project (pantas.study, a Cloudflare Worker). Its footer is the `pn-founder` block ("Built by a solo developer") on seven pages; the investor page has its own. The D3 seller footer is not built. The site has no dark mode.
+4. **Boards.** Read live on Nov 24: `S4P_T_light`, `S4P_T_dark`, `S4W_T_light` (CSE Release Picks); `CB_Ph`, `CB_PhDark`, `CB_Wide` and `canvas.json` (Guardian Manage and Minor Checkout); `ST_ProCSE`, `ST_Paywall`, `ST_Pro`, `ST_About` (Pantas Web); the design system's `tokens.css` and `components/bundle.css`. No board draws a badge, a footer or any image on the Pro page. The system's Figure component draws images on a plate that stays white in dark mode (`figure-bg`), radius 12, with a 1 px `divider` ring.
+5. **The rule itself, on the web, Nov 24.** This changes the premise:
+   - The display duty comes from BIR RMC 38-2026, supplemented by RMC 64-2026 and 99-2026.
+   - **BIR RMC 113-2026, issued October 26, 2026, suspended the mandatory display "until further notice".** Sellers who hold a badge "may continue displaying them on a voluntary basis", and "no penalties shall be imposed solely due to the non-display".
+   - The reported reasons were privacy and technical complaints. Scanning a badge shows the registrant's name and TIN digits. One report says the digits are masked; another says the full TIN shows.
+   - Rules that still describe a correct display: the badge "must remain clear, readable, and completely unaltered, preserving all of its original design elements"; it may be cropped, scanned or extracted from the certificate; it must be "visible and easily accessible" to customers; a real code leads to `https://verify.bir.gov.ph/correspondence/`.
+   - RMC 64-2026 lets a taxpayer generate the badge as a digital file in ORUS.
+   - Limit: the circulars themselves were not read. These points come from Grant Thornton, KPMG and GMA News summaries (sources at the end). No lawyer reviewed this.
+6. **Scan range.** A simulation, not a field test: the badge was drawn at each size and screen density, then passed through a modeled phone camera (1920 px preview, 69 degree view, blur, 4 degree tilt, noise, lowered contrast) and decoded with Apple's Vision.
+
+   | Surface | Badge width | QR side | Per module | Farthest decode |
+   |---|---|---|---|---|
+   | Phone | 240 px | 52 px | 1.4 px | 10 cm |
+   | Phone | 300 px | 65 px | 1.8 px | 15 cm |
+   | Phone | 358 px | 78 px | 2.1 px | 20 cm |
+   | Laptop, Retina density | 480 px | 104 px | 2.8 px | 35 cm |
+   | Laptop, Retina density | 640 px | 139 px | 3.8 px | 45 cm |
+   | Desktop monitor, 96 dpi | 480 px | 104 px | 2.8 px | 40 to 45 cm |
+
+   - The range follows the physical module size: about 60 cm of range per millimeter of module.
+   - Vision is a strong decoder, so this is an upper bound. Cheaper scanners will do worse. The phone check in the build items is the proof.
+   - The code also decodes from a headless render of the draft board at 1x and at 2x.
+
+#### Standards applied
+
+- **ISO/IEC 18004 quiet zone**, as stated by Denso Wave: "QR Code requires a four-module wide margin at all sides of a symbol." Kept at every size: the crop and the plate's corner radius leave more than 4 modules clear.
+- **Module size on screen.** No standard gives an on-screen minimum (Denso Wave's figure is for print). The floor here is set from the scan-range table above and is marked as this project's own measurement.
+- **BIR RMC 38-2026**, through the KPMG summary: "clear, readable, and completely unaltered, preserving all of its original design elements"; cropping or extracting the badge alone is allowed.
+- **WCAG 2.2, 1.1.1 Non-text Content**: "If non-text content is a control or accepts user input, then it has a name that describes its purpose." Also 1.4.5 Images of Text (a seal is the essential-presentation case), 2.4.7 Focus Visible, 2.5.8 Target Size.
+- **Agent standards library**: WEB-A1, WEB-I10, WEB-C6, WEB-K6, WEB-M1 (`web-interface-design.md`); UXW-CONCISE, UXW-LINK (`ux-writing.md`).
+- **His guidance for UI councils** (process-improvement, Nov 23): "no wordy UI, compress text, clean, intuitive, elegant".
+- **AGENTS.md voice rules** for the one in-app string. **WORKFLOW.md** for website wording, which stays his.
+
+#### Options
+
+1. **In the phone's fixed bar, beside the seller line.** Rejected. The badge is 124 px tall at full width. The bar is about 230 px tall today. It would reach about 360 px of 844 and hide the plans. C6 rejected a tall bar for the same reason.
+2. **Above the plans, or between the plans and the tick card.** Rejected. It puts a government graphic in the middle of the purchase path and pushes the required tick card further below the fold, which C6 just fixed.
+3. **A small mark that opens the full badge in a sheet.** Rejected. A shrunken or redrawn mark is an altered badge, and it adds a tap and a new screen state.
+4. **The last item of the page, at a size that scans. Chosen.** It is out of the purchase path, it rests directly above the seller line when the page is scrolled to its end, and the bar does not change.
+5. **A second home in Settings, About.** Not ruled. Nobody asked for it, and the website footer is the public surface.
+
+#### Ruling
+
+1. **When it shows (app).** Web only, and only while the seller line shows: one condition, the existing one. Not on the free trial state, not for a Pro owner, not on Android. The badge and the seller line are one seller block.
+
+2. **Placement, phone (390 x 844).**
+   - The badge is the last item of the scrolling page: 24 px under the tick card, followed by the page's existing 24 px end space.
+   - The bar does not change. C6 holds as written: the status line keeps its reserved height, and a tap on the off Pay button still brings the tick card to rest 16 px above the bar. At that rest position the badge is below the fold.
+   - Nothing moves above the tick card.
+
+3. **Placement, wide web.**
+   - The badge is the last item of the page's bottom block: its own row, 16 px under the Pay row and any message line, right-aligned to the pane's right edge, under the seller line.
+   - It does not go inside the Pay column. At a 1024 px window that column is about 280 px wide (estimated), which puts the QR code under the floor in ruling 5.
+
+4. **Placement, website footer (`pantas-web`).**
+   - The badge sits directly under the D3 seller details, on the same left or right edge as that text, on every page that carries them.
+   - It ships in the same change as the D3 footer and under the same approval (D3 condition 2). It adds no visible words.
+   - The site is light only. The plate is the site's white surface with its hairline rule.
+   - The website is the public surface the certificate names. The Pro page is the point of sale. If only one can ship first, the website goes first.
+
+5. **Size.**
+   - Phone layouts, app and website: the full content width (the screen width less the two 16 px gutters). At 390 px that is 358 x 124 with a 78 px QR code. At 360 px it is 328 x 113 with a 71 px QR code.
+   - Wide layouts, app and website: 480 px wide, 166 px tall, with a 104 px QR code. If the pane or column is narrower than 480 px, the badge takes its full width.
+   - **Minimum QR side: 70 CSS px on a phone layout and 104 CSS px on a wide layout.** Hard floor on any surface: 64 CSS px, a badge 296 px wide. Below that the badge is not shown at all.
+   - The aspect ratio is fixed at 1100:380. The badge does not grow with the app's text size setting.
+   - Why these numbers: the QR code is 21.7% of the badge's width, so the badge's width sets everything. On a phone, 70 px is about 13 mm and scans from a second phone at 15 to 20 cm, the distance people hold two phones. On a laptop, 104 px scans to about 35 cm, the distance of a phone held up to a screen. Under 64 px the range falls to 10 to 15 cm and it stops being "readily scannable".
+   - Why not 640 px on wide: it adds 10 cm of range and makes the badge as large as the hero card. The link covers the rest.
+
+6. **Link.** The whole badge is one link to the address its QR code holds. It opens in a new tab and the Pro page stays open.
+   - Reason: a person on a phone cannot scan their own screen. For them the tap is the only way to verify.
+   - The link address is a constant beside the proprietor name in `seller_facts.dart`. It must equal the QR code's content, character for character.
+   - On the website: `target="_blank" rel="noopener noreferrer"`.
+   - The link sends no Pantas user data.
+
+7. **States and motion.**
+   - Keyboard focus: the app's ring, 2 px accent, offset 2, on the plate's shape. Enter opens the link. It is the last tab stop on the page.
+   - Hover: the pointer cursor only. Press: nothing. No tint, overlay, scale or opacity change is ever drawn on the badge.
+   - No motion of its own. It appears and leaves with the tick card, the way that card already does.
+   - Its box is reserved by the aspect ratio, so the page does not jump when the image arrives. If the image fails to load, the badge is absent, with no error text.
+
+8. **Text alternative.** One string, the link's name: "BIR registration seal. Opens the BIR verification page."
+   - In the app it is a link and an image for screen readers, one node.
+   - The RSN is left out of the name. A screen reader would spell 20 characters, and the page the link opens states the registration.
+   - On the website the same words are the image's `alt`. They are website wording, so he approves them with the D3 footer (`WORKFLOW.md`).
+
+9. **Light and dark.** The same plate in both: `figure-bg` (white in light and dark), `radius-md` 12, a 1 px `divider` ring, no padding. The scan's white paper is the plate.
+   - In dark mode the badge is a white plate on the dark page, as lesson figures are. It is not inverted, dimmed, tinted or blended.
+   - Reason: any dark treatment changes the badge and lowers the QR code's contrast.
+
+10. **The image: what is allowed.**
+    - Allowed: cropping empty paper (crop to x 60 to 1160, giving 1100 x 380); straightening; uniform scaling; white padding; rounding the plate's corners where they cut only empty paper; re-encoding at high quality.
+    - Not allowed: redrawing or tracing it; removing or lightening the watermark; recoloring; sharpening or thresholding the QR code; replacing the QR code with a fresh one made from its content; moving, splitting or hiding any part, the RSN included; changing the aspect ratio; drawing anything over it.
+    - File: WebP at quality 90 or higher, at most 150 KB (measured: 113 KB at quality 90, and it decodes at 358 px and 480 px). If blocks show at 3x zoom, use lossless WebP (373 KB). Web builds only (`platforms: [web]` in `pubspec.yaml`).
+    - If Aedwon downloads the digital badge from ORUS, that file replaces the scan with no layout change. The build items' checks run again.
+
+11. **Copy beside it: none.** No caption, no "Verified" label, no heading, no icon, no tooltip. The badge says "REGISTERED" and "BUREAU OF INTERNAL REVENUE" itself.
+
+12. **Gate status.** Not a launch gate. The display duty is suspended, the H5 table has no row for it, and no legal text mentions it. The legal texts must not say the badge is shown or required. If the BIR lifts the suspension before launch, the badge becomes a gate and the manager adds an H5 row. If the app is already open, it becomes a task dated to the BIR's new deadline.
+
+#### Reasons
+
+- The certificate asks for three things: prominent, visible to the public, readily scannable. The website footer gives the public view. Full-width on a phone and 480 px on wide give the scan. The link gives everyone else the same result in one tap.
+- The purchase path stays as approved: hero, plans, tick, Pay. The badge supports the seller line and does not compete with Pay.
+- The Figure plate is an existing recipe, so the badge needs no new token and no new look (WEB-K6).
+- "Unaltered" is the BIR's own test, and a badge that looks edited reads as fake. So the image gets no styling at all.
+- A badge whose code does not scan is worse than no badge. That is why the size has a floor and the build has a phone check.
+
+#### Build items (for the CSE release lead). Not a gate. Start after his answer below.
+
+App, about 0.5 day. UI work goes to Claude workers, never Codex.
+
+1. **Asset.** Crop to 1100 x 380, encode as ruled, add it for web only. Add the link constant. Tests, failing first:
+   - The constant is `https`, host `verify.bir.gov.ph`, path under `/correspondence/`.
+   - The asset's SHA-256 equals a pinned value, and the file is at most 150 KB. A changed file fails until the scan check (item 5) is run again and the pin is updated.
+2. **Widget**, beside `SellerLine`. Tests, failing first:
+   - Phone 390, payment state: the badge is the page's last item, 24 px under the tick card, 358 px wide, ratio 1100:380. The bar's height equals its height on `main`.
+   - The C6 test still passes: a tap on the off Pay button rests the tick card 16 px above the bar.
+   - Absent on the free trial state, for a Pro owner, and when `web` is false.
+   - Wide 1440: 480 px wide, right edge on the pane's right edge, under the Pay row and the message line. Wide 1024: width equals the smaller of 480 and the pane.
+   - A width under 296 px shows no badge.
+   - A tap and Enter each open the constant's address once. Neither changes the tick or starts a payment.
+   - One semantics node: a link, with the exact name in ruling 8.
+   - Dark theme: the plate is white, and the image has no color filter, blend or opacity.
+3. **Render sheets** (the Nov 9 screenshot exception): one sheet, phone 390 at the page end and wide 1440, light and dark. Compare with the board.
+4. **Free tier (rule 7).** One static file of at most 150 KB, cached by the browser. No new service, job or secret.
+5. **Scan check, a required step before it counts as done.** On the built page, scan the badge with a phone: from a second phone at phone width, and from a laptop screen at wide width, light and dark. Each scan must open the constant's address. Log the phone model, the distances and the result in the launch log.
+
+Website, about 0.25 day, inside the D3 footer change.
+
+6. Add the badge under the seller details as ruled, with `width` and `height` set. Test: every page that carries the seller details has the link with the exact address, the `rel` values and the approved `alt`. Run the scan check once on the live preview.
+
+#### Board changes (for the operations manager's reference canvas list)
+
+- A working draft of one state is at `build/audit/bir-badge-board.html`: phone 390 x 844, light, page end, box unticked. It is built from `S4P_T_light` and the design system's own two style files, unchanged, with one added block. It is not the reference. Written rule 3 applies: the state is added to the canvas in Claude Design.
+- CSE Release Picks, checkout boards: add the badge to `S4P_T_light`, `S4P_T_dark`, `S4P_G_light`, `S4P_G_dark` (phone, drawn at the page end) and `S4W_T_light`, `S4W_T_dark`, `S4W_G_light`, `S4W_G_dark` (wide, 480 px, right-aligned under the seller line). The dark boards show the white plate.
+- These boards are not folded into Pantas Web or Pantas Redesign yet (reference canvas folds, Nov 23). When they are, the badge goes with them.
+- Guardian Manage and Minor Checkout (`CB_Ph`, `CB_PhDark`, `CB_Wide`): no change. Their wording is already stale against D2.
+- `ST_Paywall`, `ST_ProCSE` and the other `ST_Pro*` boards: no change. They draw the free trial state, which shows no seller block.
+- The website has no board. The D3 footer he approves is the reference.
+
+#### What needs Aedwon
+
+1. **One yes or no: show the badge while the BIR's display rule is suspended?** This is his because the badge's link shows his own tax record.
+   - Before the manager asks, the lead opens the link once and writes down what the page shows: the name, whether the TIN is masked, and any address.
+   - Recommendation: yes, if the TIN is masked. The seller line already publishes his name, and a BIR mark is a strong trust signal for a first-time buyer from a solo seller. If the full TIN shows, recommend no until the BIR masks it.
+   - If he says no, nothing is built and nothing else changes.
+2. **Optional, his login only:** the digital badge file from ORUS. It would be sharper than the scan.
+3. Nothing else new. The website footer wording is already his under D3. His visual pass, which already gates release, sees the badge at both widths in light and dark.
+
+#### Corrections and things recorded
+
+- **The certificate's sentence is not a duty today.** The manager's relay treats it as one. RMC 113-2026 suspended it on October 26, 2026, four weeks before the Nov 22 legal package was ruled. Source and status are in check 5. This is a judgment from news and firm summaries, not from the circulars.
+- **The "26" on the badge.** If it is the year and the BIR reissues the badge each year, the file, the link constant and the pinned hash change together. Not confirmed. The manager asks at the January cost check.
+- **Google Play.** The certificate says "website or profile page". A Play listing has no place for the badge except a screenshot. Not ruled; Android checkout is out of scope for this launch (D2).
+- **Standards library.** No sheet covers a code shown on a screen. Proposed rule for `web-interface-design.md`, for the manager to add: "A QR code on a screen keeps a clear margin of 4 modules and a module of at least 2 CSS px on phones and 2.8 CSS px on wide screens (suggested, from the C9 scan table), and the same destination is offered as a link." Source to cite: Denso Wave, "QR Code requires a four-module wide margin at all sides of a symbol."
+- **Written rule 3.** The lead asked for a local HTML board. It was built from the approved board and the design system files, not from widget code, and is labeled a draft. The canvas change above is the real board work.
+
+#### Sources
+
+- Grant Thornton (P&A), "Suspension of the mandatory display of the BIR Registration Seal Badge": https://www.grantthornton.com.ph/insights/articles-and-updates1/tax-notes/suspension-of-the-mandatory-display-of-the-bir-registration-seal-badge/
+- GMA News, Oct 26, 2026, "BIR suspends mandatory display of registration seal badge for online sellers, creators": https://www.gmanetwork.com/news/money/companies/1007190/bir-suspends-mandatory-display-of-registration-seal-badge-for-online-sellers-creators/story/
+- GMA News, "Identity theft cannot be traced to BIR seal QR code alone, says privacy body": https://www.gmanetwork.com/news/topstories/content/1007263/identity-theft-cannot-be-traced-to-bir-seal-qr-code-alone-says-privacy-body/story/
+- KPMG Philippines, "The BIR's blue check: the badge for online sellers": https://kpmg.com/ph/en/insights/2026/06/the-birs-blue-check-the-badge-for-online-sellers.html
+- Denso Wave, "How to create a QR Code": https://www.qrcode.com/en/howto/code.html
+- W3C, Understanding WCAG 2.2, 1.1.1 Non-text Content: https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html
+
+## Nov 24, remaining legal brackets
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation. The four rulings are final and are not queued for his sign-off. Legal sign-off on the final texts stays his, and he can change any value below when he signs. This agent filled the brackets in the drafts with the ruled values. Codex GPT 6.2 Sol at high effort critiqued the changed passages (rule 5, `critique-2026-11-24c-sol-high.md` on the legal branch), and every wording finding is applied. It asked for no value to change. No lawyer reviewed anything here, and this agent is not a lawyer.
+
+- Asked: remove the brackets in the public-launch texts that do not need him. Four were ruled: the Google Analytics retention period, the refund reply time, the message retention period, and the invoice sentence. Two stay his and are not ruled: the publication date, and NPC registration (its bracket is already removed).
+- Policy read at `origin/main` 7f5ff14f5: `AGENTS.md`, `SUBAGENTS.md`, `docs/workflow/process-improvement.md` (rules 5, 7, 9), checklist rows M8 and L1 to L10, and in this file D3, D8, R3, H2 and the Nov 24 legal rounds.
+- Input, on `legal/public-launch-r1` e7e93dece: `terms.md`, `privacy-policy.md`, `teen-notice.md`, `README.md`, `change-summary.md`, `critique-2026-11-22-sol-high.md` (findings 3, 8, 15 and 16).
+- Code read: main 7f5ff14f5, `lib/core/telemetry/firebase_telemetry.dart` and `lib/features/legal/domain/legal_document.dart`.
+- Standards applied: Data Privacy Act Sections 11(e) and (f) (proportionality, retention) and 16; RA 11967 Sections 23(h), 23(i) and 24 and JAO 24-03 Sections 34 and 38, as Sol High cited them on Nov 22; Consumer Act Article 169 and RA 11967 Section 28 (two years, as Sol High read them on Nov 24); Google's help page "Data retention" (support.google.com/analytics/answer/7667196, read Nov 24). No sheet exists in `agent-standards` for privacy or consumer law.
+- Velocity: this pass was not timed. It changed documents only.
+
+### What was checked
+
+1. **The Google Analytics setting could not be read.** The linked property is `pantas-prod`, ID 549551450, with one Android stream and one web stream (Firebase Management API, read-only). The retention setting sits behind the Analytics Admin API. The signed-in `gcloud` account lacks the Analytics scope (403, `ACCESS_TOKEN_SCOPE_INSUFFICIENT`). No sign-in was widened to get it.
+2. **Google's page, read Nov 24.** A standard property offers 2 or 14 months, set separately for user-level data and for event data. "When data reaches the end of the retention period, it is deleted automatically on a monthly basis." "The data retention setting does not affect standard aggregated reports". "The data retention setting only affects explorations and funnel reports." The switch "Reset user data on new activity" restarts the period of the user identifier with each new event. "If you reduce the retention period, then any affected data is deleted during the next monthly process." A change applies after 24 hours.
+3. **What the app sends.** One file sends events, and only when the user turns usage sharing on. It also sets the account ID as the Analytics user ID (`firebase_telemetry.dart:54`, `:75`, `:110`). No document in the repo names an exploration, a funnel report or a BigQuery export.
+4. **The live text says "up to 14 months after your last activity"** (`legal_document.dart:214-215`). Sol High's Nov 22 finding 15 called that an overstatement of what the settings establish.
+5. **Messages are emails.** The Privacy Policy defines them as "emails you send to support@pantas.study or dpo@pantas.study". In the Notice for teens the guardian's emails count too. Question reports are a separate record (R3, 90 days). Guardian answers on the guardian page are guardian evidence (R6), not messages.
+6. **Refund records already have a period.** Both notices keep "tax books, receipts and refund records" five years outside the app (D8).
+7. **M8 is a launch gate and its note is stale.** It reads "waits on BIR registration". The registration exists: the Certificate of Registration is dated Oct 29, 2026 (checklist L3 and L10). What is left is the invoice stock and the by-hand process.
+8. Not checked: where the mailboxes are hosted and whether the host can delete by age; what BIR-approved invoice form he will use; whether the tax code lets small sales go without an invoice (Sol High's Nov 22 reading is that the Internet Transactions Act covers every sale either way); live behavior.
+
+### B1. Google Analytics retention: two months. Gate on the console setting
+
+- The property keeps user-level data and event data for 2 months, the shortest option. "Reset user data on new activity" is off, so an active user's identifier also ends at 2 months.
+- The texts say, in Sol High's wording: "Google Analytics data about individual users and events expires after two months. Google deletes expired data in a monthly cleanup. Standard reports that combine data can stay available longer."
+
+**Reason.** Two months serves the app. The setting limits only explorations and funnel reports, and Pantas uses neither. The standard reports, which hold counts and no user-level rows, keep working. Fourteen months would be chosen for year-on-year explorations, and no one has asked for one. The shorter period is also the easier one to defend under Section 11(e) and (f) for records that carry the account ID.
+
+**Conditions.**
+
+1. Before the texts publish, the console must show 2 months for both settings and the reset switch off, on property 549551450 (Admin, Data collection and modification, Data retention). The check is logged in the launch log. It is his console step, about two minutes, unless he grants an agent the Analytics scope.
+2. If the console shows 14 months, set it to 2 months. Google then deletes the older user-level and event rows at its next monthly process. Standard reports are untouched.
+3. If he wants 14 months, he changes the word in both notices at sign-off and sets the console to match.
+
+**Sol High.** Must-fix, applied: the first wording named only event records and implied Google deletes all older data. The texts now name user and event data and say the combined reports can stay longer.
+
+### B2. Refund reply time: three business days. His to confirm
+
+- The Terms say "We aim to reply within three business days."
+
+**Reason.** The law sets the real limit, not the Terms. A purchase complaint that is unresolved seven calendar days after filing counts as exhausted, and the buyer may then go to the DTI. Five business days is seven calendar days or more, so a reply on the last day arrives as that window closes. Three business days leaves at least two days to settle the matter inside it. The sentence is an aim, not a promise, so a missed day breaks no term.
+
+**What it asks of him.** Read support@pantas.study at least every second business day. Forwarding it to the inbox he already reads does this with no new habit (checklist L5).
+
+**His to change.** This is his personal commitment. He can set five at sign-off. Above five, the aim itself would pass the seven calendar days.
+
+### B3. Message retention: two periods, deleted by hand once a month. Gate on the written procedure
+
+- **Ordinary messages** (questions, account help, bug notes, feedback): deleted within 90 days after the matter closes.
+- **Messages about a payment, a refund, a purchase complaint or a privacy request:** deleted within two years after the matter closes. This class includes a guardian's email that denies a purchase, and requests to see, correct or delete data.
+- **The periods count from the date of the last email about the matter.** A matter with an unanswered request, a bank dispute, a DTI or NPC complaint, or a court case is held out of the count. The sentence already in both notices covers it: "We may keep other specific records longer when the law requires it or when we need them for a legal claim."
+- **A refund that was paid** leaves a minimum record in the refund records kept five years (D8): date, payer name, payment reference, amount, route, transfer reference, and the last four digits of the receiving account. The full account number is never copied there. It leaves with the email.
+
+**Reason.**
+
+1. Ordinary messages follow R3. A question report is deleted within 90 days because it is useful for weeks, not years. An email asking for help is the same kind of record. A lesson learned from one is written down without the person's details, as R3 requires for reports.
+2. The second class is evidence. Two years is the period for claims under the Consumer Act (Article 169) and for a damages claim or a DTI penalty case under the Internet Transactions Act (Section 28; JAO 24-03 Section 44), as Sol High read them on Nov 24. It is longer than a card dispute window. Sol High could not verify a filing deadline for an NPC complaint, so privacy requests take the same two years for one simple rule, not because a deadline sets it. The money facts live five years in the refund records, so the email does not need to.
+3. Ten years (R6) is not used. R6 keeps the proof that a guardian allowed an account, which the app records itself. An email is the conversation around a record, not the record.
+4. Risk accepted, as in round 6: a contract claim can be timely after the email is gone. The refund record and PayMongo's own records remain.
+5. Sol High's biggest risk: the sweep deletes evidence of a claim that is still open because its last email aged out. Step 2 below answers it.
+
+**Wording.** Sol High's, applied: the texts say the limits cover emails to both addresses and our replies, call the first class "other emails", and count from the last email instead of saying a matter "closes on" that day, which could read as silence ending a request. The Notice for teens adds the guardian's emails.
+
+**The mailbox process (this is what "once the mailbox process exists" means).**
+
+1. Two labels, put on the thread at the first reply: one for the second class, one named "hold" for a matter that is unanswered or under a dispute, complaint or case. Everything without a label is ordinary.
+2. Once a month, at the monthly cost check, two searches: delete unlabeled threads whose last message is older than 45 days, and second-class threads whose last message is older than 23 months. The published limits then hold even when a sweep is a month late. A thread labeled "hold" is never deleted. Answer any unanswered thread before the sweep. Remove "hold" when the dispute ends. Empty the trash.
+3. The sweep covers support@, dpo@, contact@ if it is in use, the sent replies, and any forwarded copy in his personal inbox.
+4. If the mail host can delete by age, a host rule replaces the sweep. Not checked.
+
+**Conditions.**
+
+1. The manager writes the procedure in `docs/OPERATIONS.md` before the texts publish, next to the D8 procedure, and adds "sweep the mailboxes" to the monthly cost check beside "read question reports" (R3). About 0.25 hour. The same file still names `dpo@pantas.app` (line 76); the texts say `dpo@pantas.study`. Fix it in the same change.
+2. The sweep is his step, about five minutes a month. They are his mailboxes.
+3. He can change either period at sign-off.
+
+### B4. Invoice sentence: publishes at launch, in the short form, once M8 is met
+
+- The Terms say "Pantas issues a sales invoice for each web purchase." The words "and sends it to the email you give us" are dropped.
+- If M8 is not met on the day the texts publish, the sentence is deleted before publishing and returns in the first Terms update after M8.
+
+**Reason.** D3 kept the sentence out "until the invoice process exists (checklist M8)". M8 is a launch gate, and the duty starts with the first live sale whatever the Terms say, so the by-hand process must exist at launch. The sentence is then true on the day it publishes. It restates a legal duty and adds no new promise. Publishing it at launch also avoids a second Terms version, which would ask every student to accept again (checklist L7). The short form is Sol High's own Nov 22 wording. The dropped words promised a delivery channel, and a bounced email would break them.
+
+**By hand until C (D3).** For each paid web purchase he writes the invoice from his BIR-approved stock, sends the buyer a clear photo or scan by email, and keeps the original with the books for five years. The TIN goes on the invoice and never in the repo.
+
+**Conditions.**
+
+1. M8 counts as met when he holds invoice stock the BIR accepts and has issued one real invoice for the small live payment in M3. The manager corrects the M8 note (check 7) and writes the by-hand steps in `docs/OPERATIONS.md` with the D8 procedure.
+2. D3's trigger for the automatic invoice email stands: when he reports that invoices by hand are a burden.
+
+### Publish gates added
+
+| Claim in the texts | What makes it true |
+|---|---|
+| Google Analytics user and event data expires after two months | Console shows 2 months for user-level and event data, reset switch off (B1) |
+| Emails deleted within 90 days or two years after the matter closes | The mailbox procedure is written and the two labels exist (B3) |
+| "Pantas issues a sales invoice for each web purchase." | M8 met; otherwise delete the sentence before publishing (B4) |
+
+### What needs Aedwon
+
+1. The publication date.
+2. Confirm or change "three business days" (B2). It is flagged in `change-summary.md`.
+3. The console check in B1, the monthly mailbox sweep in B3, and the invoices in B4 are his steps. None is a decision.
+4. NPC registration stays his. No text mentions it.
+
+The numbers he can change at sign-off are now: two months (B1), three business days (B2), 90 days and two years for messages (B3), plus the earlier 90 days for reports and the ten and four years for guardian evidence.
+
+## Nov 24, T16 B2 phone bar states
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation (written rule 4). The rulings are final and are not queued for his sign-off. His visual pass still gates release (`WORKFLOW.md`).
+
+- Asked by the CSE release lead for the T16 B2 build: three phone bar states no board draws (the flag under 370 px, the flag while looking back under 430 px, the count column's right padding at 4 px).
+- Policy read at `origin/main` 0931a6fe0: `AGENTS.md`, `WORKFLOW.md`, `docs/workflow/process-improvement.md` rules 1 to 4, the UX ambition hand-off, the core loops build spec (B2, B5), and in this file "Nov 23, core loops polish".
+- Boards read on the live canvases, Nov 24. Core Loops Best in Class: `canvas.json`, `B2_PhoneBar`, `B2_PhoneLong`, `B3_PhoneWrong`, `phone.css`. Pantas Redesign: `canvas.json`, `QV_Answer`, `QV_Last`, `QV_Flag`, `QV_GridBack`. `B2_PhoneBar` is on the Core Loops canvas, not on Pantas Redesign.
+- D71 read: `docs/superpowers/plans/design-system-4/map.md` line 180 and the Nov 8 quiz family entry in the PWA launch log. Under 400 px the flag moved to the question header so that the bar's hint fit on one line. Aedwon approved it on Nov 8.
+- Build read: `qa/core-loops-b2-r1` 3376c1db9 (bar code, track, tests) and the `bar_*_390_*`, `end_25_390` and `strip_25_390` renders. Widths below come from the 390 renders and from the app's Geist metrics. No Flutter run: the Mac's one Flutter slot was in use.
+- Standards applied: WEB-L5 (adapts at 320 px and to text size), WEB-K6 (same component, same look), WEB-I10 (44 px touch targets), from `web-interface-design.md`.
+
+### What the numbers say
+
+- A phone needs 120 px plus the count column's content plus the button. The 120 is the bar's insets, the count's paddings (16 and 12), the 44 px flag and the two 16 px gutters. The boards and the build both total 120.
+- Buttons: Check 86, Next 90, Finish 82, "Back to 4" 110, "Back to 20" 121, "Back to 120" 128.
+- Ten marks are 107 px. The count line ("19 of 20" and its caret) is at most 86 px with two-digit numbers and 99 px with three.
+- Twenty marks in one row are 217 px. With the flag and Check that needs a 423 px phone. The session lengths are 5, 10, 20 and all due, so a 20-question session is common. By the code, the build's one row of 20 overflows a 390 phone by about 25 px, even with the 4 px padding. No test covers it: the matrix has only 390 and 1440, and no bar test runs 11 to 20 questions.
+- So the one long row is the cause of all three questions. The flag is not.
+- With a track no wider than ten marks, every state fits at board values from 348 px up (355 for a session over 99 questions). Check, Next and Finish fit at 320.
+
+### Rulings
+
+1. **The flag stays in the bar on every phone, in every state.** It sits between the count and the button from 320 px up: before a pick, picked, checked, the last question, looking back, and the large-text stacked bar. The header flag is removed on this screen. No width threshold moves it.
+   - D71 is retired here. Its reason was the hint line, and B5 removed the hints. `QV_Flag`, `QV_Answer` and `B2_PhoneBar` draw the flag in the bar.
+   - Rejected: the header flag under 370 px. One control would sit in two places across phones.
+
+2. **Looking back keeps the same bar.** The count shows the question in view, the flag acts on that question, and the button reads "Back to N". The 430 px threshold is removed.
+   - This state is drawn: `QV_GridBack` shows it at 390 with the flag in the bar. With the threshold, the flag would jump to the header in the middle of a session on the reference phone.
+
+3. **The track is never wider than ten marks. 11 to 20 questions make two rows.**
+   - Ten marks on the first row and the rest on the second, left-aligned, in reading order. 3 px between the rows. Marks stay 8 x 4 with a 3 px gap. Colors, the 200 ms change and the spoken label do not change.
+   - The phone layout always uses ten per row, at every phone width, even where one row of 20 would fit. The wide bar keeps its one row (`B2_WideBar`).
+   - Why: the phone results row is already ten per row at 390 (`end_25_390`), so each track row lands as its own row of circles. The line over 20 questions is already "as wide as ten marks" (107 px). The bar's shape is then the same for every session length.
+   - End flight: the marks fly from their real places in both rows. Timing, stagger and its 180 ms cap do not change.
+   - Rejected: one row with narrower marks. On a 360 px phone 20 marks would be about 4 px wide, and on a 320 px phone they do not fit at all. Rejected: the line for 11 to 20. It removes the end flight from the 20-question setting.
+
+4. **Count column right padding: back to 12 at 360 px and wider.** Board values hold there with no exception. The 4 px value was needed only for the one long row.
+   - Rejected: a narrower Check or a smaller count. Neither frees enough room, and both change values the boards draw at 390.
+
+5. **Under 360 px (320 to 359, which includes the 344 px fold cover): compact values for the whole session, in every state.**
+   - Marks 6 x 4 with a 2 px gap, and 2 px between rows. Ten marks are 78 px. The line over 20 questions is 78 px.
+   - Count column right padding 4.
+   - The count text, the caret, the flag (44 px) and the button keep the board's sizes.
+   - Worst case at 320: looking back in a 20-question session needs 315 px.
+   - The values depend on the phone's width only, never on the state, so nothing in the bar changes size between pick, check and looking back.
+
+6. **Last resort: the count column scales down as one piece.** If the row still does not fit, the track and count shrink together, left-aligned, only as far as needed. The flag and the button never shrink, and nothing clips or overflows.
+   - This covers a session over 99 questions while looking back on a 320 px phone, and system text between 1.0 and 1.5 times on a narrow phone.
+   - Above 1.5 times the stacked bar applies as it does today: the count and the flag on the first line, the button below.
+
+### Checks, failing first
+
+- New bar tests at 320, 344, 360, 390 and 430 px, with 5, 10, 20 and 25 questions, in each state: before a pick, checked (Next), last question (Finish), and looking back from the last question to question 19. Each expects no overflow error, the flag inside the bar, and no flag in the header. Add 320 px at 1.3 times text.
+- The 20-question cell at 390 must fail on 3376c1db9 first. If it passes there, report the real widths to this agent before building: the two-row ruling rests on that overflow.
+- Track tests: 20 questions give two rows of ten, 13 give ten and three, and `markRects` returns the two-row places.
+- Build size, an estimate: about 0.5 day.
+
+### Board changes (for the operations manager's reference canvas list)
+
+- New derived phone board, Pantas Redesign and Core Loops: the bar in a 20-question session, two rows of ten (ruling 3). The end-flight boards need no change: they draw 10 questions.
+- New derived phone board at 320 px: compact marks 6 x 4 with a 2 px gap, and count padding 4 (ruling 5).
+- `QV_GridBack` and `QV_Flag` (Pantas Redesign) still draw the bar without the track. Add the track above the count, as on `QV_Answer`. The flag stays where they draw it. The other `QV_` boards with a session bar were not checked.
+- `B2_PhoneBar`, `B2_PhoneLong`, `QV_Answer`, `QV_Last` and `phone.css`: no change. The count column's 12 px holds.
+- Design system (the Pantas Design System canvas and the exports in `web-design/pantas-handoff/`): retire the D71 rule. That is the `bp-phone-narrow` token's use (400 px, "the quiz bar's flag moves to the question header"), the `.fbar__flag-alt` rule in `bundle.css`, and the D71 line in `design-system-4/map.md`. The new phone breakpoint is 360 px (ruling 5).
+- No wide board changes.
+
+### Spec lines these rulings change (for the spec's owner)
+
+- B2, Track: add "Phone: ten marks per row; 11 to 20 questions make two rows, 3 px apart. Under 360 px: marks 6 x 4, 2 px gaps, the line 78 px, count padding 4. The flag is in the bar at every phone width."
+- Acceptance check 3: add a 20-question session at 390 and at 320, and looking back at 320.
+
+### What needs Aedwon
+
+Nothing new. Rulings 1 and 2 replace D71, which he approved on Nov 8 for the hint line that B5 removed. The lead tells him this, and that a 20-question session shows two rows of marks. He sees both in his visual pass.

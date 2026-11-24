@@ -123,7 +123,6 @@ void main() {
       );
 
   final column = find.byKey(const ValueKey('web-reader-column'));
-  final outline = find.byKey(const ValueKey('web-reader-outline'));
   final control = find.byKey(const ValueKey('web-reader-width-control'));
 
   testWidgets('the column stays 680 px until the student widens it', (
@@ -265,61 +264,21 @@ void main() {
     await tester.pumpWidget(const SizedBox());
   });
 
-  group('the outline never overlaps the column', () {
-    // The outline margin is set by the standard 680 px layout: 220 px at the
-    // desktop layout (1280 px and up), then a 56 px gap. The column stays
-    // centered, so widening it moves the outline left by half the growth and
-    // keeps the gap.
-    double margin(double w) => ((w - 680 - 112) / 2).clamp(120.0, 220.0);
+  group('a lesson with no figures is one centered column', () {
     for (final width in [
+      1024.0,
+      1100.0,
+      1180.0,
+      1279.0,
       1280.0,
-      1431.0,
-      1432.0,
       1440.0,
       1920.0,
       2560.0,
     ]) {
       testWidgets('at $width px wide', (tester) async {
         await pump(tester, width);
-        final standardOutline = tester.getRect(outline);
-        final standardColumn = tester.getRect(column);
-        expect(standardColumn.width, lessThanOrEqualTo(680));
-        expect(standardOutline.width, margin(width));
-        expect(standardOutline.right + 56, closeTo(standardColumn.left, .01));
-        // A gutter at the window edge no smaller than the Back link's 16 px.
-        expect(standardOutline.left, greaterThanOrEqualTo(16));
-
-        await tester.tap(control);
-        await tester.pumpAndSettle();
-        final fullOutline = tester.getRect(outline);
-        final fullColumn = tester.getRect(column);
-        // The outline keeps its width and the 56 px gap to the column.
-        expect(fullOutline.width, margin(width));
-        expect(fullOutline.right + 56, closeTo(fullColumn.left, .01));
-        expect(fullOutline.left, greaterThanOrEqualTo(16));
-        // The column takes what is left after the outline, the right-hand
-        // space, the two gaps and a 16 px gutter at each edge, up to 800 px.
-        // It never grows into the outline or off the window.
-        final room = width - 2 * margin(width) - 112 - 32;
-        expect(fullColumn.width, closeTo(room < 800 ? room : 800, .01));
-        expect(fullColumn.width, greaterThanOrEqualTo(standardColumn.width));
-        expect(
-          fullColumn.right + 56 + margin(width),
-          lessThanOrEqualTo(width - 16),
-        );
-        expect(fullColumn.center.dx, closeTo(width / 2, .01));
-        expect(tester.takeException(), isNull);
-      });
-    }
-  });
-
-  group('below the desktop layout the outline is left out (2E-7)', () {
-    for (final width in [1024.0, 1100.0, 1180.0, 1279.0]) {
-      testWidgets('at $width px wide', (tester) async {
-        await pump(tester, width);
-        // No outline squeezed into a narrow margin: its labels would wrap
-        // and sit against the window edge.
-        expect(outline, findsNothing);
+        // The left outline is gone at every width.
+        expect(find.byKey(const ValueKey('web-reader-outline')), findsNothing);
         expect(find.text('IN THIS LESSON'), findsNothing);
         final standard = tester.getRect(column);
         expect(standard.width, 680);

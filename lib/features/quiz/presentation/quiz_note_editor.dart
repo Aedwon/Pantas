@@ -8,11 +8,11 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_field.dart';
 import 'package:pantas/core/ui/components/pantas_tap_area.dart';
+import 'package:pantas/core/ui/components/ready_fade.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -322,7 +322,6 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
   Widget build(BuildContext context) {
     if (context.wideWeb) return _web(context);
     final colors = context.colors;
-    final reduced = MediaQuery.disableAnimationsOf(context);
     final removeWidth = MediaQuery.textScalerOf(context).scale(70);
     final available = MediaQuery.sizeOf(context).height -
         MediaQuery.viewInsetsOf(context).bottom -
@@ -408,38 +407,8 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                 fontSize: PantasType.webButton.fontSize,
                 onPressed: _busy ? null : widget.onCancel,
               ),
-              primary: TweenAnimationBuilder<double>(
-                key: ValueKey(_actionSerial),
-                tween: Tween(begin: 0, end: 1),
-                duration:
-                    reduced ? Duration.zero : const Duration(milliseconds: 300),
-                builder: (context, progress, child) {
-                  final blend = const Interval(1 / 3, 1).transform(progress);
-                  final theme = Theme.of(context);
-                  return Theme(
-                    data: theme.copyWith(
-                      extensions: [
-                        for (final extension in theme.extensions.values)
-                          if (extension is PantasColors)
-                            colors.copyWith(
-                              accentFill: Color.lerp(
-                                colors.fill,
-                                colors.accentFill,
-                                blend,
-                              ),
-                              onAccent: Color.lerp(
-                                colors.textDisabled,
-                                colors.onAccent,
-                                blend,
-                              ),
-                            )
-                          else
-                            extension,
-                      ],
-                    ),
-                    child: child!,
-                  );
-                },
+              primary: ReadyFade(
+                serial: _actionSerial,
                 child: PantasButton(
                   label: _existing ? 'Update' : 'Add Note',
                   height: PantasSize.btn,

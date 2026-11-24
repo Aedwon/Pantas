@@ -18,6 +18,22 @@ abstract final class PantasDurations {
   /// Arrow and chevron nudge on hover.
   static const nudge = Duration(milliseconds: 200);
 
+  /// A mark of the answer track turns teal or red when its answer is
+  /// checked. New (core loops B2).
+  static const trackColor = Duration(milliseconds: 200);
+
+  /// One mark of the answer track flies from the session bar to its circle
+  /// in the results row and grows into it. New (core loops B2).
+  static const trackFly = Duration(milliseconds: 360);
+
+  /// Step between the flights of the marks at the end of a session. The
+  /// whole stagger stops at dur-track-stagger-max. New (core loops B2).
+  static const trackStagger = Duration(milliseconds: 20);
+
+  /// Cap on the whole stagger of the end flight, so 11 to 20 marks still
+  /// land together with 10. New (core loops B2).
+  static const trackStaggerMax = Duration(milliseconds: 180);
+
   /// Moves, swaps, sliding markers, thumbs, popovers, pane change (was
   /// dur-base).
   static const medium1 = Duration(milliseconds: 240);
@@ -83,4 +99,8 @@ abstract final class PantasDurations {
   /// Toast with an action (Undo) stays this long, paused while hovered or
   /// focused.
   static const toastAction = Duration(milliseconds: 8000);
+
+  /// The check in the sent report notice waits, then pops .4 to 1.15 to 1
+  /// (QN_Report choreography). New.
+  static const reportCheck = Duration(milliseconds: 860);
 }

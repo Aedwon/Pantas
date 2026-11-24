@@ -67,8 +67,27 @@ void main() {
         as Map<String, dynamic>;
     final overrides = (config['fieldOverrides'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
-    expect(overrides, hasLength(5));
-    for (final field in ['claimsPending', 'updatedAt']) {
+    expect(overrides, hasLength(9));
+    // The hourly guardian cleanup finds due requests across accounts (D1).
+    expect(
+      overrides.where(
+        (entry) =>
+            entry['collectionGroup'] == 'server' &&
+            entry['fieldPath'] == 'guardianDueAt',
+      ),
+      [
+        {
+          'collectionGroup': 'server',
+          'fieldPath': 'guardianDueAt',
+          'indexes': [
+            {'order': 'ASCENDING', 'queryScope': 'COLLECTION_GROUP'},
+          ],
+        },
+      ],
+    );
+    // claimsPending and updatedAt: the claims repair. ageGroup: the daily NPC
+    // registration count (Circular 2022-04).
+    for (final field in ['claimsPending', 'updatedAt', 'ageGroup']) {
       final matches = overrides.where(
         (entry) =>
             entry['collectionGroup'] == 'server' && entry['fieldPath'] == field,
@@ -104,12 +123,19 @@ void main() {
     });
   });
 
-  test('Firebase config keeps both expiry TTL overrides without indexes', () {
+  test('Firebase config keeps every expiry TTL override without indexes', () {
     final config = jsonDecode(File('firestore.indexes.json').readAsStringSync())
         as Map<String, dynamic>;
     final overrides = (config['fieldOverrides'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
-    for (final group in ['users', 'webhookRateLimits']) {
+    // questionReports: a student's report is deleted 85 days after receipt.
+    // trialUsedIdentities: trial codes expire 730 days after the trial (D7).
+    for (final group in [
+      'users',
+      'webhookRateLimits',
+      'questionReports',
+      'trialUsedIdentities',
+    ]) {
       final matches = overrides.where(
         (entry) =>
             entry['collectionGroup'] == group &&
@@ -160,6 +186,22 @@ void main() {
       ),
       isFalse,
     );
+    // A question report is reviewed: it is written in a transaction named tx.
+    expect(
+      _hasUnreviewedExpiry(
+        r'const report = deps.db.doc(`questionReports/${reportDocId(uid, id)}`); '
+        'tx.set(report, {accountId: uid, expireAt: timestamp});',
+      ),
+      isFalse,
+    );
+    // The same write form on an account document is still refused.
+    expect(
+      _hasUnreviewedExpiry(
+        r'const user = deps.db.doc(`users/${uid}`); '
+        'tx.set(user, {expireAt: timestamp});',
+      ),
+      isTrue,
+    );
   });
 
   test('source never writes expiry to a top-level account document', () {
@@ -167,6 +209,9 @@ void main() {
     for (final root in ['functions/src', 'lib']) {
       for (final file
           in Directory(root).listSync(recursive: true).whereType<File>()) {
+        // The one reviewed builder of the trial-code expiry value (D7). It only
+        // returns a value, and its callers write it to trialUsedIdentities.
+        if (file.path == 'functions/src/trialMarker.ts') continue;
         if (_hasUnreviewedExpiry(file.readAsStringSync())) {
           violations.add(file.path);
         }
@@ -180,13 +225,15 @@ void main() {
   });
 }
 
-// Fail closed: only the reviewed dedupe and rate-limit writes may use TTL.
+// Fail closed: only the reviewed dedupe, rate-limit and question-report writes
+// may use TTL.
 // New write forms or destinations need review before extending this guard.
 bool _hasUnreviewedExpiry(String source) {
   final references = RegExp(
     r'const\s+(\w+)\s*=\s*[\w.]+\.doc\(`'
     r'(webhookEvents/\$\{[^}]+\}/users/\$\{[^}]+\}|'
-    r'webhookRateLimits/[^`]+)`\);',
+    'webhookRateLimits/[^`]+|'
+    r'questionReports/\$\{[^}]+\})`\);',
   );
   var remaining = source;
   for (final reference in references.allMatches(source)) {
@@ -199,7 +246,7 @@ bool _hasUnreviewedExpiry(String source) {
       continue;
     }
     remaining = remaining.replaceAll(
-      RegExp('transaction\\.set\\(\\s*$name\\s*,\\s*'
+      RegExp('(?:transaction|tx)\\.set\\(\\s*$name\\s*,\\s*'
           r'\{[^{}]*\bexpireAt\s*:[^{}]*\}\s*\)'),
       '',
     );

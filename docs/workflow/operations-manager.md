@@ -52,7 +52,17 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 - Get a written brief, do one job, return a short summary (pass or fail, errors, files touched).
 - Never talk to Aedwon, never merge, and never start work outside their brief.
 
-## Lanes (current as of November 17)
+## Lanes (current as of November 24, 7 PM Manila)
+
+Manager: `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926` (took over Nov 24).
+Active: CSE release lead r2 `mcp:launch:89c734558b4268cc20e870fa5fbd7e5395d6da9eeb6c0759940bd95f7e4b7fa0`
+(legal texts, content blockers, UI open items); security and billing lead r2
+`mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5` (PR #91, audit findings).
+Queued: UX ambition lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (landing page, website footer).
+Retired for length (do not message): old CSE release lead `mcp:launch:b14e5d0e...`, old security lead
+`mcp:bc3317cf...`. The table below is the Nov 17 history.
+
+## Lanes (as of November 17)
 
 Keep this table current whenever a lane opens, closes or changes. Thread ids are T3 thread ids.
 

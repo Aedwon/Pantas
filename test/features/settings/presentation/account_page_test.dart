@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/sync_status.dart';
+import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
@@ -178,15 +180,22 @@ void main() {
     expect(find.textContaining('merge'), findsNothing);
   });
 
-  testWidgets('sign-out dialog explains account restore', (tester) async {
+  const reader = AuthUser(
+    uid: 'user-1',
+    email: 'reader@example.com',
+    displayName: 'Reader',
+  );
+  final pro = entitlementProvider.overrideWith(
+    (ref) => Stream.value(const Entitlement(plan: EntitlementPlan.monthly)),
+  );
+
+  testWidgets('the Pro sign-out dialog says progress is saved, plainly',
+      (tester) async {
     await _pumpAccount(
       tester,
       repository: SequencedAuthRepository(const []),
-      user: const AuthUser(
-        uid: 'user-1',
-        email: 'reader@example.com',
-        displayName: 'Reader',
-      ),
+      user: reader,
+      extra: [pro],
     );
 
     await tester.ensureVisible(find.text('Sign Out'));
@@ -194,13 +203,50 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      find.text(
-        'Your progress is saved to your account. '
-        'It comes back when you sign in again.',
-      ),
+      find.text('Your progress is saved to your account.'),
       findsOneWidget,
     );
-    expect(find.textContaining('restore it'), findsNothing);
+    expect(find.textContaining('comes back'), findsNothing);
+    expect(_confirm(tester).variant, isNot(PantasButtonVariant.destructive));
+  });
+
+  testWidgets('the Free sign-out dialog says what is deleted, and is red',
+      (tester) async {
+    await _pumpAccount(
+      tester,
+      repository: SequencedAuthRepository(const []),
+      user: reader,
+    );
+
+    await tester.ensureVisible(find.text('Sign Out'));
+    await tester.tap(find.text('Sign Out'));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text('Your study history on this device will be deleted.'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('saved to your account'), findsNothing);
+    expect(find.textContaining('comes back'), findsNothing);
+    expect(_confirm(tester).variant, PantasButtonVariant.destructive);
+  });
+
+  testWidgets('a sign-out blocked by unsent data shows the connection line',
+      (tester) async {
+    await _pumpAccount(
+      tester,
+      repository: BlockedSignOutRepository(),
+      user: reader,
+      extra: [pro],
+    );
+
+    await tester.ensureVisible(find.text('Sign Out'));
+    await tester.tap(find.text('Sign Out'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.widgetWithText(PantasButton, 'Sign Out'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('You need a connection to sign out.'), findsOneWidget);
   });
 }
 
@@ -228,6 +274,21 @@ Future<void> _pumpAccount(
     ),
   );
   await tester.pumpAndSettle();
+}
+
+PantasButton _confirm(WidgetTester tester) => tester.widget<PantasButton>(
+      find.descendant(
+        of: find.byType(CenteredDialog),
+        matching: find.widgetWithText(PantasButton, 'Sign Out'),
+      ),
+    );
+
+class BlockedSignOutRepository extends SequencedAuthRepository {
+  BlockedSignOutRepository() : super(const []);
+
+  @override
+  Future<void> signOut() async =>
+      throw const AuthGatewayException('network-request-failed');
 }
 
 class SequencedAuthRepository implements AuthRepository {

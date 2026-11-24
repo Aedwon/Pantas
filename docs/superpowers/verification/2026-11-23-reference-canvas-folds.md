@@ -485,3 +485,83 @@ Missing values, nearest approved used:
 - RD_FocusOpen and RD_Figure: first section segment filled 32 % and 64 % (old bar 4 % and 8 % of the lesson, times 8).
 - QV_Answer: the track data of the "before pick" and "after check" bar variants was swapped on the old board; fixed.
 - Reduced motion variants added on QV_Answer; the end boards show the final state at once.
+
+## T15 ruling changes (Nov 24)
+
+Source: "Nov 24, T15 reader undrawn states" in `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md` (origin/main 3931abc60), rulings 1, 3 and 6. Final versions: Lesson Reader Full Screen version 9, Pantas Web version 182.
+
+| Board | Canvas | Change | Note |
+|---|---|---|---|
+| M1100 | Lesson Reader Full Screen | Ruling 1: reading block centered at 1100, 76 px each side | Board file unchanged; the mid-width rule in `fs.css` now sets a 948 px block (600 + 48 + 300), centered, side margins at least 40 px |
+| RD_Held1100 | Pantas Web | Same | Same rule in `held/fs.css` |
+| fs.css, held/fs.css | Both | Ruling 3: expand button radius 9 to 8 | Reaches every held board |
+| H4 | Lesson Reader Full Screen | Ruling 6: pointer on `AB` in the first solution line | Scroll 1900 to 1800 so the line is in view; pointer moved to the word |
+| R | Lesson Reader Full Screen | Ruling 6: "hypotenuse" in step 1 no longer linked | `AB` in the first solution line was already linked |
+| MO (scene 3) | Lesson Reader Full Screen | Ruling 6: linked-word example moved to `AB` in a first solution line | Card now shows the problem line, the solution line, then step 1; pointer retargeted |
+| RD_HeldLinked | Pantas Web | Copy of H4 | Same change |
+| RD_HeldPart | Pantas Web | Copy of R | Same change |
+| RD_HeldMotion | Pantas Web | Copy of MO | Same change |
+| R, MO (scene 3) | Lesson Reader Full Screen | Ruling 6 follow-up: problem line links only `BC`; the `AB` and `AC` links are removed | Version 10. `BC` is already linked in R; MO draws no `BC` link and the second pointer stop still lights the AC label in the figure |
+| RD_HeldPart, RD_HeldMotion | Pantas Web | Same follow-up | Version 183 |
+| H4 | Lesson Reader Full Screen | Retitled: "4 Held, pointing at AB in the first solution line: side AB lights in the figure" | Version 10 |
+| RD_HeldLinked | Pantas Web | Retitled to match, keeping "(H4)" | Version 183 |
+
+Final versions after the follow-up: Lesson Reader Full Screen version 10, Pantas Web version 183.
+
+Not changed: the M1100 and RD_Held1100 board titles. Pointer positions were set from a headless Chrome measure with a fallback font (Geist was not available), so the owner should check them on the canvas.
+
+## T16 B2 phone bar states (Nov 24)
+
+Source: "Nov 24, T16 B2 phone bar states" in `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md` (origin/main 2e07fc7d7), rulings 1 to 6. Final version: Pantas Redesign version 491. One Fable 5.2 check of the four boards: three passed, QV_GridBack failed on invented mark states and label; fixed (marks red, teal, red, dark, then six gray; label "Question 4 of 10. Question 2 right, questions 1 and 3 wrong."), not re-checked.
+
+| Board | Canvas | Change | Source and values | Fable verdict |
+|---|---|---|---|---|
+| QV_BarTrackTwoRows | Pantas Redesign | New derived board: 20 questions, track in two rows of ten, 3 px apart | QV_BarTrack (from B2_PhoneBar); marks 8 x 4, gap 3, track 107 px; marks 1 to 4 as the base board, the rest empty | Pass |
+| QV_BarTrack320 | Pantas Redesign | New derived board at 320 wide, 20 questions | QV_BarTrack; marks 6 x 4, gap 2, rows 2 px apart, track 78 px, count padding 4 | Pass |
+| QV_Flag | Pantas Redesign | Track added above the count | Same structure and marks as QV_Answer (4 of 10: right, wrong, right, current) | Pass |
+| QV_GridBack | Pantas Redesign | Track added above the count; flag stays in the bar | Marks from the board's own grid (1 and 3 wrong, 2 right), current mark on question 4, as the build draws it | Fail, fixed |
+
+Notes:
+- D71 header flag rule: not found on the Pantas Redesign canvas (index, Z_Decisions, the QV boards and phone.css were searched), so nothing was marked retired there. The rule lives in the Pantas Design System canvas, the handoff `bundle.css` and `design-system-4/map.md`, which the ruling lists for retirement and this pass did not touch.
+- Board titles carry " (derived, Fable-checked)" on all four.
+- The other QV boards with a session bar (QV_Leave, QV_Long, QV_MissFree, QV_MissPro, QV_Grid) still draw no track. Not asked for.
+- QV_GridBack shows "2 of 10" with a label that names question 4; this follows the build, and the ruling keeps the label.
+- Both new boards draw "4 of 20" with the base board's three results, to avoid inventing answers for later questions.
+
+## T16 B2 consistency pass (Nov 24)
+
+Follow-up to the T16 B2 section above. Final versions: Pantas Redesign version 493, Pantas Design System version 12. One Fable 5.2 re-check of QV_GridBack and the five new tracks: all six passed, no fixes.
+
+| Board | Canvas | Change | Mark data | Fable verdict |
+|---|---|---|---|---|
+| QV_GridBack | Pantas Redesign | Re-check of the corrected marks | Red, teal, red, dark, six gray; label names question 4 as the build does | Pass |
+| QV_Leave | Pantas Redesign | Track added above the count (QV_Answer layout) | Right, wrong, right, question 4 current | Pass |
+| QV_Long | Pantas Redesign | Same | Right, wrong, right, wrong, wrong, question 6 current | Pass |
+| QV_MissFree, QV_MissPro | Pantas Redesign | Same | Right, wrong, right, wrong, wrong (question 5 is the shown miss, red) | Pass |
+| QV_Grid | Pantas Redesign | Same, on both bars (4 of 10, then 2 of 10) | Red, teal, red, dark, from the board's own grid, as QV_GridBack | Pass |
+| R320_D71QuizFlag | Pantas Design System | Retitled "RETIRED Nov 24 (T16 B2 ruling, 2e07fc7d7): ..."; sticky note added below it; board kept | n/a | n/a |
+
+Repo: `docs/superpowers/plans/design-system-4/map.md` item 8 now says D71 is retired by the Nov 24 T16 B2 ruling (2e07fc7d7): the flag sits in the session bar. Nothing deleted.
+
+Left alone, for the T16 B2 build: `design/system/tokens.json` (`bp-phone-narrow`, which feeds generated Dart and token files), `design/system/components/bundle.css` (`.fbar__flag-alt`), the FloatingBar and PageHeader READMEs, and the handoff copies of these. The ruling's new phone breakpoint is 360 px.
+
+Assumptions named by Fable, not defects:
+- QV_Grid and QV_GridBack draw question 4's history as wrong, right, wrong; QV_Answer, QV_Flag and QV_Leave draw right, wrong, right. The grid boards predate this change.
+- The miss and long boards follow QV_Answer's wrong-pick loop (question 4 wrong).
+- Mark 5 on the miss boards is drawn red at rest; QV_Answer animates dark to red.
+
+## Website footer: seller details and BIR badge (Nov 24)
+
+Source: D3 (website footer line, seller-line template on `origin/legal/public-launch-r1`) and ruling C9 rulings 4 to 11. Pantas Website version 75. One Fable 5.2 check: Fail on two points, both fixed as the check prescribed and not re-checked.
+
+| Board | Canvas | Source and values | Fable verdict |
+|---|---|---|---|
+| Footer_Wide | Pantas Website | Home board footer (`pn-founder`: tokens, Inter, row gap 28, 40 rem column); D3 line unchanged; badge 480 x 166 left-aligned under the line; white plate, 1 px `--rule` ring, radius 12 (site card radius); one link, new tab, `noopener noreferrer`, ruling 8 name; no copy beside it | Pass, one fix: hover color rule (fixed) |
+| Footer_Phone | Pantas Website | Same; badge full width. The site gutter is 20 px, so the badge is widened 4 px each side to match the ruled 358 x 124 at 390; at 360 the QR side is 71 px (floor 70); hidden under a 328 px viewport (hard floor 64 px QR) | Fail at 360 and 320, fixed |
+
+Notes:
+- The badge image is a labeled placeholder. The BIR PDF and the registration id are not used; the link omits the id.
+- Invented, named: classes `pn-f-sell` and `pn-bir`; the placeholder label (board-only); the orange draft note.
+- Whether to show the badge while the BIR display rule is suspended stays with Aedwon (ruling C9).
+- Build note: on the real page, put the ruling 8 string on the image `alt` and drop the `aria-label`.
+- The private business facts file was read for the seller line only. Its other contents (TIN, certificate numbers) are not in the repo or on the board.

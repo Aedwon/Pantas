@@ -145,6 +145,10 @@ void main() {
     expect(row.subtitle, 'Earth Science');
     await tester.scrollUntilVisible(find.text('Finish the Notes'), 300);
     expect(find.text('Finish the Notes'), findsOneWidget);
+    // B5: one short line replaces the two sentences.
+    expect(find.text('Note why you missed each one.'), findsOneWidget);
+    expect(find.textContaining('Tell Pantas'), findsNothing);
+    expect(find.textContaining('better your notes'), findsNothing);
   });
   testWidgets('perfect score omits mistakes and notes but keeps all questions',
       (tester) async {

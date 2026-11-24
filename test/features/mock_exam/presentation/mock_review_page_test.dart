@@ -341,10 +341,8 @@ void main() {
 
     expect(find.text('Wrong 11'), findsOneWidget);
     expect(find.textContaining('You flagged 12 questions'), findsNothing);
-    expect(
-      find.textContaining('Tell Pantas why you got each one wrong'),
-      findsOneWidget,
-    );
+    expect(find.text('Note why you missed each one.'), findsOneWidget);
+    expect(find.textContaining('Tell Pantas'), findsNothing);
     expect(find.text('Finish the Notes'), findsOneWidget);
 
     await tester.tap(find.text('Flagged 12'));
@@ -416,10 +414,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(
-      find.textContaining('Tell Pantas why you got each one wrong'),
-      findsNothing,
-    );
+    expect(find.text('Note why you missed each one.'), findsNothing);
     expect(find.text('Finish the Notes'), findsNothing);
   });
 

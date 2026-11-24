@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {FieldValue} from 'firebase-admin/firestore';
+import {FieldValue, Timestamp} from 'firebase-admin/firestore';
 import {listPlans} from '../lib/webPlans.js';
 import {startTrial, trialEligible} from '../lib/webTrial.js';
 import {changeBetaPro, BETA_CUTOFF} from '../lib/betaPro.js';
@@ -243,4 +243,28 @@ test('a code sign-in also counts the providers linked to the account', async () 
   await assert.rejects(startTrial(auth, deps(db)), {code: 'failed-precondition'});
   // Without the link the same code sign-in is a different person.
   assert.equal(await trialEligible(codeUser('c2', {email: 'new@example.com'}), db), true);
+});
+
+const TRIAL_CODE_MS = 730 * 86400000;
+
+test('D7: each new trial code stores the trial start and an expireAt 730 days later', async () => {
+  const db = memoryDb();
+  await startTrial(named('tester'), deps(db));
+  const rows = identityRows(db).map(path => db.rows.get(path));
+  assert.ok(rows.length >= 1);
+  for (const row of rows) {
+    assert.equal(row.used, true);
+    assert.equal(row.startedAt, NOW);
+    assert.ok(row.expireAt instanceof Timestamp);
+    assert.equal(row.expireAt.toMillis(), NOW + TRIAL_CODE_MS);
+  }
+});
+
+test('D7: a code that has not expired still refuses a second trial', async () => {
+  const db = memoryDb();
+  await startTrial(named('tester'), deps(db));
+  // A different account on the same identity, one day before the code expires.
+  const later = {...deps(db), now: () => NOW + TRIAL_CODE_MS - 86400000};
+  assert.equal(await trialEligible(named('other'), db), false);
+  await assert.rejects(startTrial(named('other'), later), {code: 'failed-precondition'});
 });

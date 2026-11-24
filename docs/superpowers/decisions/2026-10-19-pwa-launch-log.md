@@ -4208,3 +4208,52 @@ Already used on pantas-staging this quota day (since Nov 23 08:00 UTC): 6 reads,
 | Total, with 50% margin | **about 200** | **about 170** | **about 10 MB** |
 
 Expected day total: under 250 reads and 200 writes. Go.
+
+### Nov 24, test-checkout fix shipped to prod (PR #89, security and billing lead, r2)
+
+- Aedwon's "ship it" (Nov 24, Manila, relayed by the manager). #89 merged at 98288b6fc after CI (functions job green;
+  app jobs skipped as a functions-only change) and a local full run (824 unit, 1,039 emulator).
+- Deployed `createPaymongoCheckout` only, from main 98288b6fc, pinned CLI, after the IAM preflight. Revision
+  createpaymongocheckout-00020-jov; rollback is traffic back to createpaymongocheckout-00019-zoj.
+- The function also carries #90's checkout declaration code, already on main; it cannot run on prod while the guard
+  refuses every checkout (prod has 0 admin-claim accounts).
+- Verified 03:18 UTC: a throwaway student account (short-lived App Check debug token, both deleted) was refused with
+  400 FAILED_PRECONDITION, reason `checkout-closed`. No errors on the new revision.
+- Checkout on prod stays closed until the live PayMongo key is set (docs/deploy-prod.md section 6b).
+
+### Nov 24, legal sign-off and the BIR badge (Aedwon, relayed by the operations manager; recorded by the CSE release lead)
+
+- **Legal sign-off, verbatim:** "legal sign-off: approved". Checklist L1 and L2. The texts publish per the H5 publish gate: with or after the D1, D2, D3 and D7 builds, each claim checked live on prod, with the date and version stamps moved to the go-live day if it is after Nov 24.
+- **BIR Registration Seal Badge, verbatim:** "yes show the BIR badge but only on the landing page pantas-web project in domain www.pantas.study". Not in the app: ruling C9's Pro page and wide placements are dropped; C9's website placement (under the D3 seller details; the verify link on a white plate; no copy; cropped only) stands. Voluntary while BIR RMC 113-2026 suspends the mandatory display. The certificate PDF stays out of every repo. Publishing the website is a prod change and needs his "ship it". Checklist L10.
+- **Under-18 sign-up option:** still open with him.
+
+### Nov 24, main shipped to prod (temporary operations manager)
+
+- **Approval (Aedwon, Nov 24 ~4:10 PM Manila, verbatim):** "just ship it please, temporarily drop the rule, do not wait for me as the bottleneck."
+- **Source:** `main` at `7adca7bf48c153beb899db90d124d25c86c66680` (last code commit `f0301139d`, CI `45347496354` success, followed by four docs-only `[skip ci]` commits). `tool/checks/free_tier.mjs`, `tool/deploy/require_current_main.mjs`, `tool/deploy/prod_iam_preflight.mjs` (prod and staging), and `tool/check_no_ai_attribution.dart` all passed.
+- **Scope shipped (everything merged since PR #84 not yet live):** part label removal (#85), question report sending with 85-day TTL and 86-day safety sweep (#86), phone report bar morph (#96), full-screen lesson reader (#102), core loops B2/B5 (#107), web checkout declaration (#90; inert on prod while #89 refuses test-mode checkout), D1 guardian cleanup T18 (#95), became_adult (#101), D7 trial code expiry T19 (#92), NPC data subject count monitor (#106), and the staging TTL disable script (#99).
+- **Held back:** legal texts (not on `main`; publish after this ship per H5 once live claims are checked) and PR #91 money-path hardened fixes (held pending PAY-06 and security lead resume).
+- **Rule 7 counts (quota day since `2026-11-24T08:00:00Z`):**
+  - Pre-run baseline (08:14 UTC): prod 612 reads, 30 writes, 0.1 MiB egress (7-day peak 31,174 reads, 1,109 writes; headroom 18,826 reads, 18,891 writes); staging 28 reads, 9 writes, 0.1 MiB egress (budget 40,000 / 16,000 / 288 MiB).
+  - Staging actuals after full deploy, T18/T19, and browser proof (09:56 UTC): 4,395 reads, 218 writes, 0.0 MiB egress, 0 TTLs (`staging_disable_ttl.sh` disabled 5 TTLs), `staging_delete_images.sh` deleted 2 Artifact Registry packages.
+  - Prod actuals after full deploy, T18/T19, and verification (09:56 UTC): 759 reads, 37 writes reported at 09:56 UTC (plus about 490 reads and 4 writes from T18 dry-run/live/verify before the metric bucket flushes, well under 50,000 / 20,000), 0.1 MiB egress, 3 schedulers, 4 secrets, 10 prod TTLs, 0 min instances across 121 services, Artifact Registry 282.5 MiB combined (free 512.0 MiB), 18 alert policies (no alerting SKU).
+- **Staging proof (build `1329902620-28001b2c59a1`, Hosting `6fa02bf0d427c49c`, Worker `bf0eecd8-0a18-48e7-9cc3-29b4a46f3273`, `compare.mjs` 92 of 92):**
+  - Verified `runScheduledTask` HTTP 200 on staging (`npcDataSubjectCount`, `purgeOverdueQuestionReports`, `purgeOldGuardianRecords`), T18 dry-run/live/verify (56 old uid-keyed limiter rows removed, 0 remaining, daily scan switched off), and T19 dry-run/live/recheck (1 updated, 0 remaining).
+  - Headless Chromium (`--use-mock-keychain --password-store=basic`) with throwaway staging user and short-lived staging App Check debug token: verified IndexedDB `firebaseLocalStorageDb` persistence (`uid` + `refreshToken`), Home on CSE Pro with no Part label, full-screen reader (`lesson-geometry-circles`, figure rendered, no Part label), quiz Check graded and saved cleanly, question report sent and stored in Firestore with ~85-day `expireAt`, session end rendered, and staying signed in across hard reload (`ignoreCache=true`), full browser restart, and forced expired ID token silent refresh. Throwaway user, Firestore docs, report, and debug token deleted; zero staging ERROR logs.
+- **Prod rollout and verification (pinned Firebase CLI 15.32.1):**
+  - 09:02 UTC: Firestore indexes and TTLs deployed (`server.ageGroup` and `server.guardianDueAt` built to READY; `questionReports.expireAt` and `trialUsedIdentities.expireAt` ACTIVE).
+  - 09:03:10 UTC: Firestore rules deployed, ruleset `cec8866d-a113-4a85-97d0-2ea02d8e3b95` (server-only `questionReports`).
+  - 09:05:57 UTC: Cloud Monitoring log-based alert created (`projects/pantas-prod/alertPolicies/11274249366519849645`) matching `npc registration threshold near` (`severity>=ERROR`), emailing owner channel `18094815182239875498`.
+  - 09:04 to 09:06:57 UTC: 61 Cloud Functions deployed (`sendQuestionReport` created, 60 updated; two transient Cloud Run write-quota errors on `activatebetareward` and `runscheduledtask` automatically retried and succeeded).
+  - 09:51 to 09:52 UTC: T18 `remove_unconfirmed_guardian_records.mjs` on `pantas-prod`: `--dry-run` (1 kept among 27 server docs, 3 old uid-keyed limiter rows, est. 230 reads, 3 writes), `--live` (3 old limiter rows deleted), `--verify` (0 records, 0 links, 0 counters without cleanup time; 0 unconfirmed adult switch rows; daily scan switched off; 30 reads, 1 write). T19 `add_trial_code_expiry.mjs`: dry-run, `--live`, and recheck all 0 reads / 0 missing / 0 writes.
+  - 09:52 UTC: `runScheduledTask` verified HTTP 200 on prod: `npcDataSubjectCount` (`count: 1`), `purgeOverdueQuestionReports` (`deleted: 0`), `purgeOldGuardianRecords` (`result: null`). `sendQuestionReport` and `createPaymongoCheckout` verified serving (401 unauthenticated; PR #89 test-mode checkout refusal intact).
+  - 09:53:21 UTC: Prod web build `1897866242-b29b0d076659` (`lib/main_prod.dart`, prod App Check site key, `BETA_GATE=true`, `SCREEN_COUNTS=true`, `BUILD_NUMBER=5190`, private `SELLER_*` build inputs) released on Firebase Hosting release `1795514001335000` (version `dc0a4bbe72d8d304`).
+  - 09:54:08 UTC: Prod Cloudflare Worker version `e9347b49-687a-4569-a592-58a4c2ff30f5`. `compare.mjs`: 92 of 92 match; both `app.pantas.study` and `pantas-prod.web.app` serve `1897866242-b29b0d076659`; M4 security headers and `/__/csp-report` (204) verified; headless Chromium boot on `app.pantas.study` clean with 0 page errors. Zero prod ERROR logs since 09:50 UTC (earlier 09:08 UTC `paymongowebhook` 500 is a pre-existing PayMongo test webhook retry unrelated to this ship).
+- **Rollbacks per part (not used):**
+  - Hosting: version `7977d92f1bffe313` (release `1795427757731000`, build `2026318751-32e9b98f07ec`).
+  - Worker: `wrangler rollback` to `450b1105-5de3-4d29-b70c-7a04168db565`.
+  - Firestore rules: re-release ruleset `eebcd1f6-f090-40f3-913f-4e52059ccb19`.
+  - Functions: restore prior Cloud Run revisions from `Pantas-private/releases/2026-11-24-main-prod-ship/cloud-run-services-before.json` (and delete `sendQuestionReport`).
+  - Indexes and TTLs: remove `server.ageGroup`, `server.guardianDueAt`, `questionReports.expireAt`, and `trialUsedIdentities.expireAt` field overrides (pre-deploy snapshot in `Pantas-private/releases/2026-11-24-main-prod-ship/`).
+  - NPC alert: delete `projects/pantas-prod/alertPolicies/11274249366519849645`.
+  - T18 / T19 scripts: T18 removed only 3 obsolete uid-keyed limiter rows and set the `dailyScanDone` flag; T19 made 0 writes.

@@ -64,21 +64,21 @@ const double publicGap = 12;
 ''');
 
   Future<void> test_inferred_type_is_checked() => assertMarkedIn(
-    'features/a/page.dart',
-    '$importFlutter\nconst «_gap» = 12.0;\n$_use',
-  );
+        'features/a/page.dart',
+        '$importFlutter\nconst «_gap» = 12.0;\n$_use',
+      );
 
   Future<void> test_marker_on_the_same_line() => assertMarkedIn(
-    'features/a/page.dart',
-    '$importFlutter\nconst double _gap = 12; // ds-board: Home board, row gap\n'
-        '$_use',
-  );
+        'features/a/page.dart',
+        '$importFlutter\nconst double _gap = 12; // ds-board: Home board, row gap\n'
+            '$_use',
+      );
 
   Future<void> test_marker_on_the_line_above() => assertMarkedIn(
-    'features/a/page.dart',
-    '$importFlutter\n// ds-board: Home board, row gap\n'
-        'const double _gap = 12;\n$_use',
-  );
+        'features/a/page.dart',
+        '$importFlutter\n// ds-board: Home board, row gap\n'
+            'const double _gap = 12;\n$_use',
+      );
 
   Future<void> test_marker_trailing_the_previous_declaration_does_not_count() =>
       assertMarkedIn('features/a/page.dart', '''
@@ -97,9 +97,9 @@ Widget use() => const SizedBox(width: _a, height: _b);
       );
 
   Future<void> test_marker_without_a_reason_does_not_count() => assertMarkedIn(
-    'features/a/page.dart',
-    '$importFlutter\nconst double «_gap» = 12; // ds-board:\n$_use',
-  );
+        'features/a/page.dart',
+        '$importFlutter\nconst double «_gap» = 12; // ds-board:\n$_use',
+      );
 
   Future<void> test_final_and_int_and_instance_fields_are_clean() =>
       assertMarkedIn('features/a/page.dart', '''
