@@ -44,9 +44,12 @@ export {shortenedEnd} from './grants.js';
 const paidOf = (g: Grant) => g.paidAmount ?? (webProduct(g.product)?.webPricePhp ?? 0) * 100;
 const followUpId = (paymentId: string) => `paymongoFollowUps/${grantDocId(paymentId)}__dispute`;
 
-/** Milliseconds the grant ran in its current active spell, up to `until`. */
+/**
+ * Milliseconds the grant ran in its current active spell, up to `until`. A refund that shortened the end into
+ * the past (`accessCutAt`) cut access when it arrived, not at the shortened end, so the time before it counts.
+ */
 const spellCover = (g: Grant, until: number) =>
-  Math.max(0, Math.min(until, g.endsAt) - Math.max(g.startsAt, g.activeFrom ?? 0));
+  Math.max(0, Math.min(until, Math.max(g.endsAt, g.accessCutAt ?? 0), fullEndOf(g)) - Math.max(g.startsAt, g.activeFrom ?? 0));
 
 /**
  * Whole days of the paid length that the grant did not cover: its full term minus the time it was
@@ -282,10 +285,15 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
       disputed?: boolean; reason?: string; disputeId?: string; disputedAmount?: number; resolutions?: Resolutions} : undefined;
     const earlyRefunds = Object.values(early?.refunds ?? {}).reduce((a, b) => a + b, 0);
     const outcome = early?.disputeId ? early.resolutions?.[early.disputeId] : undefined;
-    const disputeLive = early?.disputed === true && outcome !== 'won';
+    const resolved = Object.entries(early?.resolutions ?? {});
+    const lostId = resolved.find(([, v]) => v === 'lost')?.[0];
+    const wonId = resolved.find(([, v]) => v === 'won')?.[0];
+    // Any dispute resolution recorded on the tombstone counts as a dispute, even when its opening never arrived.
+    const disputeLive = (early?.disputed === true && outcome !== 'won') || lostId !== undefined;
     // A dispute won before the payment was known, with refunds: the same mixed case, so the grant is born
     // revoked (as the open dispute would have left it) and the owner gets the one follow-up.
-    const mixedWon = early?.disputed === true && outcome === 'won' && earlyRefunds > 0;
+    const mixedWon = wonId !== undefined && earlyRefunds > 0;
+    const tiedId = early?.disputeId ?? lostId ?? wonId;
     const refundOwed = !!(duplicatePass || late) && earlyRefunds < input.paidAmount;
     const unusable = duplicatePass ? {reason: 'unusedDuplicatePass'}
       : late ? {reason: 'paidAfterSitting'} : undefined;
@@ -299,20 +307,21 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
         ...(refundOwed && duplicatePass ? {unusedDuplicateOf: duplicatePass[0]} : {}),
         ...(refundOwed && late ? {unusableReason: 'paidAfterSitting'} : {})};
       transaction.set(grantRef, {...grant, revokedAt: now, revokedReason: early.reason ?? 'revoked',
-        ...(early.disputeId ? {disputeId: early.disputeId} : {}),
-        ...(early.disputed && (outcome === 'lost' || mixedWon) ? {disputeResolved: true} : {})});
+        ...(tiedId ? {disputeId: tiedId} : {}),
+        ...(disputeLive && !lostId && early.disputeId ? {revokingDisputeId: early.disputeId} : {}),
+        ...(lostId !== undefined || mixedWon ? {disputeResolved: true} : {})});
       if (refundOwed) flagRefund();
       if (mixedWon && !priorDisputeFollowUp.exists) {
         disputeReason = 'disputeWithRefund';
-        transaction.set(disputeFollowUpRef, {paymentId, disputeId: early.disputeId ?? null, status: 'pending', refundRequired: false,
+        transaction.set(disputeFollowUpRef, {paymentId, disputeId: tiedId ?? null, status: 'pending', refundRequired: false,
           reason: disputeReason, paidAmount: input.paidAmount, refundedTotal: earlyRefunds,
           unusedDays: unusedDaysOf({...grant, revokedAt: now}, now), pulled: [], createdAt: now});
       }
       // A dispute lost after refunds that arrived first: the chargeback and the refunds together exceed the payment.
-      if (early.disputed && outcome === 'lost' && plan && earlyRefunds > 0 && !priorDisputeFollowUp.exists &&
+      if (lostId !== undefined && !mixedWon && plan && earlyRefunds > 0 && !priorDisputeFollowUp.exists &&
           earlyRefunds + (early.disputedAmount ?? input.paidAmount) > input.paidAmount) {
         disputeReason = 'disputeLostAfterRefund';
-        transaction.set(disputeFollowUpRef, {paymentId, disputeId: early.disputeId ?? null, status: 'pending', refundRequired: false,
+        transaction.set(disputeFollowUpRef, {paymentId, disputeId: tiedId ?? null, status: 'pending', refundRequired: false,
           reason: disputeReason, paidAmount: input.paidAmount, refundedTotal: earlyRefunds,
           unusedDays: unusedDaysOf({...grant, revokedAt: now}, now), pulled: [], createdAt: now});
       }
@@ -499,8 +508,12 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
     }
     let next: Grant = input.dispute ? {...grant, state: 'revoked'} : grant;
     for (const r of input.refunds ?? []) next = applyRefund(next, r.id, r.amount, now);
+    // A refund that cuts the end into the past stops access now, not at the shortened end.
+    if (next.state === 'active' && next.endsAt < grant.endsAt && next.endsAt <= now) next = {...next, accessCutAt: now};
     // Revoked from active: what it covered so far is fixed, so unused days count only its active time.
-    if (grant.state === 'active' && next.state === 'revoked') next = {...next, coveredMs: (grant.coveredMs ?? 0) + spellCover(grant, now)};
+    if (grant.state === 'active' && next.state === 'revoked') {
+      next = {...next, coveredMs: (grant.coveredMs ?? 0) + spellCover({...grant, accessCutAt: next.accessCutAt ?? grant.accessCutAt}, now)};
+    }
     if (input.refunds?.length) {
       if (deleting) noteRefunds({...(follow.get('refunds') as Record<string, number> | undefined), ...next.refunds},
         follow.get('paidAmount') ?? next.paidAmount);
@@ -516,7 +529,10 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
     transaction.update(ref(id), {state: next.state, endsAt: next.endsAt, refunds: next.refunds ?? {},
       ...(next.fullEndsAt !== undefined ? {fullEndsAt: next.fullEndsAt} : {}),
       ...(next.coveredMs !== grant.coveredMs ? {coveredMs: next.coveredMs} : {}),
+      ...(next.accessCutAt !== grant.accessCutAt ? {accessCutAt: next.accessCutAt} : {}),
       ...(input.dispute && input.disputeId ? {disputeId: input.disputeId, disputeResolved: recorded !== undefined} : {}),
+      // Only the dispute whose opening revoked an active grant can restore it.
+      ...(input.dispute && input.disputeId && grant.state === 'active' ? {revokingDisputeId: input.disputeId} : {}),
       ...(next.state === 'revoked' ? {revokedAt: grant.revokedAt ?? now, revokedReason: grant.revokedReason ?? input.reason} : {})});
     const pulled: string[] = [];
     for (const [otherId, other] of replanned) {
@@ -534,6 +550,7 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
       if (mixedWon) writeDisputeFollowUp('disputeWithRefund', next, refundedTotal(next), pulled.sort());
       else if (!input.dispute && input.refunds?.length && grant.disputeId && earlierResolutions?.[grant.disputeId] === 'lost') {
         // A refund after a lost resolution: the refunds and the chargeback together may now exceed the payment.
+        // A chargeback with no outcome on the tombstone cannot exist on prod (test keys only), so a loss is always found here.
         const paidAmount = paidOf(next);
         const refunded = refundedTotal(next);
         if (paidAmount > 0 && refunded + ((earlier.get('disputedAmount') as number | undefined) ?? paidAmount) > paidAmount) {
@@ -646,8 +663,10 @@ export async function resolvePaymongoDispute(db: Firestore, input: {eventId: str
       }
       return uid;
     }
-    // Only a revocation left by the dispute itself is undone (a later admin revocation stays).
-    if (grant.revokedReason !== 'dispute.created') return uid;
+    // Only a revocation left by the dispute itself is undone (a later admin revocation stays). A grant that
+    // any dispute on this payment has lost stays revoked: a win of a later dispute never gives it back.
+    const lostBefore = Object.values((existing.get('resolutions') as Resolutions | undefined) ?? {}).includes('lost');
+    if (grant.revokedReason !== 'dispute.created' || lostBefore || grant.revokingDisputeId !== input.disputeId) return uid;
     const restore = paidOf(grant) > 0 && !grant.unusedDuplicateOf && !grant.unusableReason;
     const next: Grant = {...grant, disputeResolved: true, ...(restore ? {state: 'active', activeFrom: now} : {})};
     transaction.update(db.doc(`users/${uid}/grants/${id}`), {disputeResolved: true,

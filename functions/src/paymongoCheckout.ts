@@ -141,6 +141,8 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   // The quoted amount is stored on the order: the webhook checks the payment against it.
   const bindingFor = (d: CheckoutDeclaration) => ({uid, product: product.id, createdAt: now, amountCentavos, declaration: d,
     ...(sitting ? {examId: product.examId, sitting} : {})});
+  // Earlier-sitting reservations the scan confirmed replaceable: key id to the reference it saw.
+  const replaceable = new Map<string, string>();
   if (sitting) {
     // A pass retried after its sitting changed looks under every sitting key. Another key's reservation
     // counts exactly as the same key's: `creating` within its lease is a pending attempt, and `unissued`
@@ -165,13 +167,18 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
         const reused = await reuseOpen(deps, other.ref, uid, data, now, held);
         if (reused) return reused;
       }
+      replaceable.set(other.id, held.reference);
     }
   }
   // A reservation another sitting key made between the scan above and this write is also a pending attempt.
   const assertNoOtherReservation = async (transaction: Transaction) => {
     if (!sitting) return;
     const rows = await transaction.get(deps.db.collection(`users/${uid}/pendingCheckouts`).where('product', '==', product.id));
-    if (rows.docs.some(other => other.id !== key && (liveCreating(other, now) || other.get('state') === 'unissued'))) {
+    // The scan's verdict again: an open reservation it did not confirm replaceable (new, or changed
+    // since) may hold a payable link, so no new link is issued.
+    const unconfirmedOpen = (other: DocumentSnapshot) => other.get('state') === 'open' &&
+      typeof other.get('sessionId') === 'string' && replaceable.get(other.id) !== other.get('reference');
+    if (rows.docs.some(other => other.id !== key && (liveCreating(other, now) || other.get('state') === 'unissued' || unconfirmedOpen(other)))) {
       throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
     }
   };

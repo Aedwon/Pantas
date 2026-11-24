@@ -20,6 +20,10 @@ export interface Grant {
   revokedAt?: number;
   disputeId?: string;
   disputeResolved?: boolean;
+  /** The dispute whose opening revoked this grant. Only a win of this dispute restores it. */
+  revokingDisputeId?: string;
+  /** When a refund shortened the end into the past: access stopped then, not at the shortened end. */
+  accessCutAt?: number;
   /** Milliseconds the grant actually covered in earlier active spells, fixed when it is revoked (0 if born revoked). */
   coveredMs?: number;
   /** When the current active spell began, after a dispute win restored the grant. */

@@ -489,9 +489,9 @@ test('a dispute won before this branch never revokes and the win is persisted', 
 });
 
 const monthly = product;
-async function buy(db, id, prod, at) {
+async function buy(db, id, prod, at, paidAt = at) {
   await commitPaymongoGrant(db, {...payment, eventId: `evt_${id}`, paymentId: `pay_${id}`, product: prod,
-    paidAmount: priceCentavos(prod), paidAt: at}, at, []);
+    paidAmount: priceCentavos(prod), paidAt}, at, []);
 }
 const grantRow = (db, id) => db.rows.get(`users/${uid}/grants/pay_${id}`);
 
@@ -807,7 +807,8 @@ async function modelProperty(revokePaymongoPayment, resolvePaymongoDispute, erro
     const ids = () => [...model.keys()];
     const stepCount = 1 + pick(6);
     for (step = 0; step < stepCount; step++) {
-      at += pick(12 * 24) * HOUR_MS + HOUR_MS;
+      const gap = pick(12 * 24) * HOUR_MS + HOUR_MS;
+      at += gap;
       const before = snapshot(db, ids());
       const choices = ['buy', 'buy', 'buyAfterEvents'];
       const active = ids().filter(id => model.get(id).status === 'active');
@@ -834,6 +835,7 @@ async function modelProperty(revokePaymongoPayment, resolvePaymongoDispute, erro
       if (choice === 'buy' || choice === 'buyAfterEvents') {
         const id = `p${model.size}`;
         const entry = {product: prod.id, paid, refunded: 0, status: 'active'};
+        let payAt = at;
         if (choice === 'buyAfterEvents') {
           // Any mix of an opening, a partial or full refund and a win, in any order, before the paid webhook.
           const events = [];
@@ -842,8 +844,11 @@ async function modelProperty(revokePaymongoPayment, resolvePaymongoDispute, erro
           if (events.includes('open') ? rand() < 0.45 : rand() < 0.12) events.push('win');
           for (let i = events.length - 1; i > 0; i--) { const j = pick(i + 1); [events[i], events[j]] = [events[j], events[i]]; }
           let opened = false; let won = false;
+          // The payment is often fulfilled long after it was made: events land between the two times.
+          const delay = rand() < 0.5 ? 0 : Math.floor(rand() * gap);
+          payAt = at - delay;
           for (const [i, kind] of events.entries()) {
-            const when = at - 3000 + i * 500;
+            const when = delay > 0 ? payAt + Math.floor((i + 1) * delay / (events.length + 1)) : at - 3000 + i * 500;
             if (kind === 'open') {
               await revokePaymongoPayment(db, {eventId: `evt_d${id}`, paymentId: `pay_${id}`, disputeId: `disp_${id}`,
                 dispute: true, reason: 'dispute.created'}, when);
@@ -862,11 +867,12 @@ async function modelProperty(revokePaymongoPayment, resolvePaymongoDispute, erro
           if (opened && !won) entry.status = 'disputed';
           else if (opened && won) entry.status = entry.refunded > 0 ? 'kept' : 'active';
           else if (entry.refunded >= paid) entry.status = 'full';
-          if (!opened && won) { entry.winPending = true; entry.disputeId = `disp_${id}`; }
+          // A win that arrived before its opening: with any refund it is the mixed case (born revoked, reported).
+          if (!opened && won) { entry.winPending = true; entry.disputeId = `disp_${id}`; if (entry.refunded > 0) entry.status = 'kept'; }
           // Born revoked: a live dispute, a mixed case, or refunds covering the payment.
           entry.bornRevoked = entry.status === 'disputed' || entry.status === 'kept' || entry.status === 'full';
         }
-        await buy(db, id, prod, at);
+        await buy(db, id, prod, at, payAt);
         model.set(id, entry);
         log.push(`${choice} ${id} ${entry.status} refunded ${entry.refunded}`);
       } else if (choice === 'partial' || choice === 'full') {
@@ -1193,4 +1199,69 @@ test('a refund after a lost resolution re-checks the refunds plus the chargeback
       assert.equal(more.length, 0);
     } else assert.equal(lines.length, 0);
   }
+});
+
+// Review 9 (F): every scenario with a real delay between the payment and its fulfillment.
+const TWO_DAYS = 2 * DAY_MS;
+
+test('delayed fulfillment: a refund and a win arrive first, the opening is still pending: born revoked, one follow-up', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await revokePaymongoPayment(db, {...halfRefund, refunds: [{id: 'ref_half', amount: priceCentavos(weekly) / 2}], eventId: 'evt_1'}, now + DAY_MS);
+  await resolvePaymongoDispute(db, {...winEvent, eventId: 'evt_2'}, now + DAY_MS + 1000);
+  // The paid webhook comes two days after the payment; the dispute opening has not arrived.
+  const lines = await quietly(() => commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now + TWO_DAYS, []));
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'revoked');
+  assert.equal(followUpOf(db).reason, 'disputeWithRefund');
+  assert.equal(followUpOf(db).unusedDays, 7);
+  assert.equal(mixedLines(lines).length, 1);
+  // The opening arrives later: nothing changes and no second follow-up is written.
+  const again = await quietly(() => revokePaymongoPayment(db, {...openDispute, eventId: 'evt_3'}, now + 3 * DAY_MS));
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'revoked');
+  assert.equal(again.length, 0);
+});
+
+test('delayed fulfillment: a lost resolution alone makes the grant born revoked', async () => {
+  const {resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, eventId: 'evt_1'}, now + DAY_MS));
+  await commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now + TWO_DAYS, []);
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'revoked');
+});
+
+test('unused days: six days used of a weekly grant, half refund, dispute won leaves one unused day', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  for (const order of ['refund then dispute', 'dispute then refund']) {
+    const db = firestore();
+    await commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now, []);
+    const half = {...halfRefund, refunds: [{id: 'ref_half', amount: priceCentavos(weekly) / 2}]};
+    const steps = order === 'refund then dispute' ? [half, openDispute] : [openDispute, half];
+    await revokePaymongoPayment(db, {...steps[0], eventId: 'evt_1'}, now + 6 * DAY_MS);
+    await revokePaymongoPayment(db, {...steps[1], eventId: 'evt_2'}, now + 6 * DAY_MS + 1000);
+    await quietly(() => resolvePaymongoDispute(db, {...winEvent, eventId: 'evt_win'}, now + 6 * DAY_MS + 2000));
+    assert.equal(followUpOf(db).unusedDays, 1, order);
+  }
+});
+
+test('a win on a later dispute never restores a grant that a lost dispute revoked', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now, []);
+  await revokePaymongoPayment(db, {...openDispute, disputeId: 'disp_a', eventId: 'evt_a'}, now + DAY_MS);
+  await resolvePaymongoDispute(db, {...winEvent, disputeId: 'disp_a', won: false, eventId: 'evt_lost'}, now + 2 * DAY_MS);
+  await revokePaymongoPayment(db, {...openDispute, disputeId: 'disp_b', eventId: 'evt_b'}, now + 3 * DAY_MS);
+  await resolvePaymongoDispute(db, {...winEvent, disputeId: 'disp_b', eventId: 'evt_win_b'}, now + 4 * DAY_MS);
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'revoked');
+});
+
+test('a win restores only the revocation its own dispute caused', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now, []);
+  await revokePaymongoPayment(db, {...openDispute, disputeId: 'disp_a', eventId: 'evt_a'}, now + DAY_MS);
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).revokingDisputeId, 'disp_a');
+  await resolvePaymongoDispute(db, {...winEvent, disputeId: 'disp_other', eventId: 'evt_w0'}, now + 2 * DAY_MS);
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'revoked');
+  await resolvePaymongoDispute(db, {...winEvent, disputeId: 'disp_a', eventId: 'evt_w1'}, now + 3 * DAY_MS);
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'active');
 });

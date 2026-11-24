@@ -286,6 +286,21 @@ test('a rollover finding another key creating, and an older open one, never retu
   assert.equal(retry.created.length, 0);
 });
 
+test('another key that turns open between the scan and the reservation write blocks the new link', async () => {
+  const uid = 'lease-other-opens-late';
+  // The scan finds an old open reservation whose session is expired, so it may be replaced.
+  await seedOther(uid, {state: 'open', createdAt: beforeSitting, sessionId: 'cs_old', checkoutUrl: 'https://checkout.paymongo.test/old'});
+  const retry = setup({now: () => afterSitting});
+  retry.catalog = passCatalog;
+  // Before the reservation write, that key is replaced by another live session (another request got there first).
+  retry.client.getCheckoutSession = async id => {
+    await seedOther(uid, {state: 'open', createdAt: afterSitting, sessionId: 'cs_raced', reference: 'ref_raced', checkoutUrl: 'https://checkout.paymongo.test/raced'});
+    return {id, status: 'expired', metadata: {}, payments: []};
+  };
+  await assert.rejects(createCheckout(caller(uid), {product: passId, declaration: adult}, retry), /pending/);
+  assert.equal(retry.created.length, 0);
+});
+
 test('a rollover finding another key unissued settles it first, then makes the new link', async () => {
   const uid = 'lease-other-unissued';
   await seedOther(uid, {state: 'unissued', createdAt: beforeSitting, unissuedSessionId: 'cs_unissued_old'});
