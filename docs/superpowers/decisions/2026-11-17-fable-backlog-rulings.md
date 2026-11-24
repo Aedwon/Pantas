@@ -797,6 +797,7 @@ The texts publish in the same prod release as the behavior they describe, or aft
 | A tick on every web purchase; the declaration, time, Terms version and wording version recorded; the Terms open without ticking; the seller line | D2, D3, R2, R5 (PR #90) | Draft PR |
 | Only guardian declarations copied at deletion; ten years and four years for evidence | R2, R6 (PR #90) | Draft PR |
 | A failed request is deleted whole; a decline is deleted at once | D1 with H1 | Not built |
+| An unconfirmed account that says it is 18 leaves no evidence row (the `became_adult` row is kept only where a guardian confirmed) | Nov 24 became_adult ruling, code items 1 to 3 (added Nov 24) | Not built |
 | Reports deleted within 90 days of receipt | R3 (PR #86) with H2 | Draft PR; sweep not built |
 | The trial code period | D7 | Not built. The texts say "no scheduled expiry" until it ships |
 | A refund route when PayMongo's route is closed | H6 | Path exists; runbook and test not done |
