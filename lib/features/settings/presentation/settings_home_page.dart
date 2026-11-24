@@ -274,8 +274,11 @@ class SettingsHomePage extends ConsumerWidget {
                 settings.name?.trim().isNotEmpty ?? false
                     ? settings.name!
                     : 'Add your name',
-                style: PantasType.phoneTitle2
-                    .copyWith(color: context.colors.label),
+                // Board ST_Root: the name is 22/600.
+                style: PantasType.phoneTitle2.copyWith(
+                  color: context.colors.label,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               verticalPadding: 14,
               onTap: () => push('/settings/account'),
