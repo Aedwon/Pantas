@@ -1143,3 +1143,85 @@ $0.0123 per 100,000 from the first delete; ordinary "Entity Deletes Singapore (w
 3. Applied Nov 24: all 8 staging TTL policies turned off. `firestore.indexes.json` turns TTL back on with any staging
    indexes deploy, so run `tool/deploy/staging_disable_ttl.sh` after one (docs/deploy-prod.md). The live check
    `tool/checks/free_tier_live.mjs` shows a "Firestore TTL policies" row that is OVER while staging has any.
+
+## Nov 24, T15 reader undrawn states
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation (written rule 4). The rulings are final and are not queued for his sign-off. His visual pass still gates release (`WORKFLOW.md`).
+
+- Asked by the T15 build lead (lesson reader full screen, "4 Held") through the CSE release lead: seven states no board draws, and one release question on frame times.
+- Policy read at `origin/main` c92aa65f4: `AGENTS.md`, `WORKFLOW.md`, `docs/workflow/process-improvement.md` rules 1 to 4, the UX ambition hand-off, the reader build spec, and in this file "Nov 23, lesson reader full screen".
+- Boards read on the live canvases, Nov 24. Lesson Reader Full Screen: `canvas.json`, `R`, `W4_Held`, `M1100`, `H4`, `fs.css`, `reader.css`, and the linked-word scene of `MO`. Pantas Web: `canvas.json`, `W_Reader`, `RD_Focus`, `RD_FocusOpen`, `RD_Figure`, `W_ReaderHeldDarkFull`, `RD_Held1100`. Not read: the body of `RD_FocusMotion` (no ruling here touches the bar's timing).
+- Code read: `qa/reader-4-held-r1` 600c63a31 (placement, hold, linked words, the wide-art list, the top bar). Content read: `content/lessons/mathematics/geometry/circles.md`, and a scan of every lesson's figure labels with the build's matching rules.
+- Standards applied: READ-MEASURE, READ-MARGIN, READ-FIG-NEAR, READ-FIG-SIZE (`long-form-reading.md`); ID-SPATIAL, ID-COHERE (`instructional-design.md`); WEB-M11, WEB-M13 (`web-interface-design.md`); the DS4 radius scale (`pantas_radius.dart`).
+- Velocity: this pass was not timed. It changed documents only. Build sizes below are estimates.
+
+### Rulings
+
+1. **1024 to 1279 px: center it. Change, under 0.25 day.**
+   - The text column (up to 600), the 48 px gap and the 300 px figure column are one block. Center the block in the window. Each side margin is at least 40 px: left margin = the larger of 40 and (window width minus block width) / 2.
+   - At 1024 this gives 40 px each side, as drawn. At 1100: 76 px each side (the board: 40 left, 112 right). At 1279: 165.5 px each side (the build: 40 left, 291 right).
+   - The title and the end-of-lesson block keep the text column's left edge. The top bar and the section line do not change.
+   - Why: every other reader state is centered (the 1,096 px page at 1280 and up, and the 680 px column). The board's left alignment comes from its style sheet (`width:auto; margin:0 40px`) and was drawn only at 1100, where the slack is 72 px.
+   - Rejected: letting the figure column grow with the window. It changes values the board draws at 1100 and every plate height in the real-content run.
+
+2. **Section line: 2 px. Confirmed, no change.** The spec and `fs.css` both give 2 px at rest, 4 px on hover or focus, 3 px gaps. This is wide web only. The phone keeps its approved bar.
+
+3. **Expand button radius: 8. Use the token.** `PantasRadius.sm` is the DS4 radius for controls under 40 px, and DS4 folded 7 and 10 into it on purpose. 1 px on a 34 px button cannot be seen. The board's 9 is the outlier.
+
+4. **Width control: hidden on a lesson with margin figures. Confirmed.**
+   - The held layout already uses the full width, which is what the control was for (Aedwon, Nov 3: "so they can choose to utilize more of the whole screen area or not"). Wider text there would break the 640 px measure. No held board draws the control.
+   - The saved choice is kept and applies again on lessons with the single column (680 or 800 px). No disabled state and no empty gap. The bookmark does not move.
+
+5. **Stacked figures: one unit only when they share a passage. Change, about 0.25 day.**
+   - Figures whose passages end at the same place (no text between them in the source) and that stack are one unit. They hold and leave together, 18 px apart. Rule 5's cap applies to this unit.
+   - A figure that rule 4 only pushed down from its own anchor keeps its own passage. Each such plate holds within its own passage. A held plate's bottom never comes closer than 18 px to the next plate's top.
+   - Why: the build gives a group the latest passage end of its members. The upper figure then stays in view beside text it does not explain. Council round 4: "keep every figure inside its own passage". The same fault is why direction 2 (Pinned) was rejected. Rule 5 implies a unit only for figures that are read together.
+   - Motion does not change. This is the hand-off in `MO`: the upper plate leaves at the speed of the scroll, the next plate arrives and holds.
+   - Test, failing first: two figures with different passages, the second pushed down 12 px. At every scroll position the first plate's bottom is at or above its own passage end.
+
+6. **Acceptance check 5: replace the second pair with a real one.**
+   - New text: "Linked words: in circles, 'Tangent' lights the tangent line and dims the rest. In Example 4 with the solution open, `$AB$` in the first solution line ('... and $AB$ is the hypotenuse.') lights side AB, makes its label 'AB = 10' bold and dims the rest. Keyboard: Tab reaches each linked word and each section segment, with the focus ring."
+   - Why: no figure label says "hypotenuse", so the label rule cannot link that word. `H4` drew a link the rules do not make. The real pair keeps what `H4` shows (the hypotenuse lights), and `R` already draws this link on that line.
+   - A second real pair, solution closed: `$BC$` in the problem lights side BC (label "BC = ?").
+   - Real content links fewer words in Example 4 than the board. The problem figure's labels are "Diameter AB = 10" and "AC = 6", so `$AB$` and `$AC = 6$` in the problem line do not link. That is content, not a build defect. No content change for launch (the spec adds no content).
+   - The scan estimates passages from the lesson source. The lead confirms both pairs with the build's own matcher.
+
+7. **Wide art: accept a list, with a guard. No natural size for this release. About 0.5 day.**
+   - Facts: each painter draws at a fixed height into the width it gets. There are 26 painter files and about 127 figure types in the lessons. A natural size for each is about 2 to 3 days and touches every phone figure.
+   - At 1280 and up the plate's inner width is 360 px, wider than the phone's figure (about 326 px). A figure that reads on the phone reads there. The squeeze risk is the 1024 to 1279 band (260 px inner).
+   - Required in T15:
+     1. The list is explicit, one entry per figure type, and lives with the figure registry. The reader does not match name endings ("gallery", "triptych"). A new type can miss that match without any failure; `orbital-shapes` and `atomic-models` already needed their own entries.
+     2. A check fails when a shipped lesson has a figure type that is on neither list (wide or margin). A new type cannot ship unclassified.
+     3. One pass over every figure type in the shipped lessons, not only the seven lessons of check 3. Render each at 260 px inner width, one sheet per painter (the Nov 9 screenshot exception). A Claude worker moves to the wide list any type whose labels clip or overlap, or whose parts are a row of three or more panels. This is UI, so no Codex.
+   - A natural size per painter is not scheduled. The check removes the reason for it.
+
+8. **Frame times: a real-GPU Chrome run gates the release. Safari gates it through Aedwon's visual pass.**
+   - The measured run passes on what it measured: p95 5.4 ms is a third of the 16.7 ms budget, and p99 is warm-up. It does not close acceptance check 4, which names a mid-range laptop, Chrome and Safari.
+   - Shake is not a browser risk. Flutter paints the text and the plates in the same frame in every browser, because the hold moves plates at paint time. Only the frame rate depends on the browser.
+   - Gate, agent-run, about 0.25 day: the same script in Chrome with the real GPU and the CPU slowed 4 times (this Mac is an M4; a mid-range laptop is about 2 to 3 times slower), at 1440x900 and 1100x900, first second left out. Pass: p95 at most 16.7 ms.
+   - If it fails at 4 times, do not fall back yet. Report the 2 times and 4 times numbers to this agent: the 4 times setting is harsher than the target.
+   - Safari gate: Aedwon scrolls Circles with Example 4 open in Safari on the Mac, as part of the visual pass that already gates release. An iPad in landscape counts too, if one is at hand: every iPad browser is WebKit, and the held layout starts at 1024 px. No instrumented Safari run is required. Agents do not drive Safari (no computer control). An agent may add a headless WebKit run of the same script if it needs no permission prompt. That run informs his pass and does not replace it.
+   - If Chrome passes and Safari does not: Safari and iPad get figures at rest (the spec's fallback, direction 1), Chrome keeps the hold, and the lead reports it.
+
+### Board changes (for the operations manager's reference canvas list)
+
+- Ruling 1: `M1100` (Lesson Reader Full Screen) and `RD_Held1100` (Pantas Web). Center the text and figure block. At 1100 the side margins are 76 px each (now 40 left, 112 right). The mid-width rule in `fs.css` and `held/fs.css` changes with it.
+- Ruling 3: `fs.css` (Lesson Reader Full Screen) and `held/fs.css` (Pantas Web). The expand button `.fx` radius goes from 9 to 8. This reaches every held board.
+- Ruling 6: `H4`, `R` and scene 3 of `MO` (Lesson Reader Full Screen); `RD_HeldLinked`, `RD_HeldPart` and `RD_HeldMotion` (Pantas Web).
+  - The pointer sits on `AB` in the first solution line, not on "hypotenuse" in step 1. Remove the link from "hypotenuse".
+  - In the problem line only `BC` is linked, not `AB` or `AC`.
+  - The problem figure's label reads "Diameter AB = 10", as in the lesson.
+- Rulings 2, 4, 5, 7 and 8: no board change. No board draws a stack, and no held board draws the width control.
+
+### Spec lines these rulings change (for the spec's owner)
+
+- Layout, 1024 to 1279: add "centered; side margins at least 40 px".
+- Rule 4: add the two cases of ruling 5.
+- Rule 6, last clause: "A figure type is wide when the figure registry lists it. A check fails on an unlisted type."
+- Figure plate: the expand button's radius is 8.
+- Acceptance check 5: the text in ruling 6.
+- Acceptance check 4: the two gates in ruling 8.
+
+### What needs Aedwon
+
+Nothing new. His visual pass, which already gates release, includes one scroll of the held reader in Safari (ruling 8).
