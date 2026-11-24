@@ -76,7 +76,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       final atUpdateRequired = state.matchedLocation == '/update-required';
       if (blocked && !atUpdateRequired) return '/update-required';
       if (!blocked && atUpdateRequired) return '/home';
-      if (context.wideWeb && state.uri.path.startsWith('/wrapped/')) {
+      // Wrapped is deferred (HANDOFF): a link to a reveal lands on Record at
+      // every width.
+      if (state.uri.path.startsWith('/wrapped/')) {
         return '/record';
       }
 

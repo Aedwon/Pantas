@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
@@ -237,21 +236,8 @@ class SettingsHomePage extends ConsumerWidget {
               dividerInset: 56,
               onTap: () => push('/settings/practice'),
             ),
-            if (!kIsWeb)
-              ListRow(
-                title: 'Reminders',
-                value: settings.dailyReminderTime == null
-                    ? 'Off'
-                    : TimeOfDay(
-                        hour: settings.dailyReminderTime!.hour,
-                        minute: settings.dailyReminderTime!.minute,
-                      ).format(context),
-                leading: glyph(PantasIcons.reminders, context.colors.accent),
-                contentPadding: rowPadding,
-                divider: true,
-                dividerInset: 56,
-                onTap: () => push('/settings/reminders'),
-              ),
+            // Reminders are parked for the native release; the page has no
+            // route yet, so the row stays out until it ships.
             ListRow(
               title: 'Appearance',
               value: switch (theme) {
