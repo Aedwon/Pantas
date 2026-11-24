@@ -660,32 +660,45 @@ void main() {
       );
     });
 
-    testWidgets('pressing scales each control', (tester) async {
+    testWidgets('pressing scales the contents control', (tester) async {
       await pumpBar(tester);
-      for (final target in [contents, bookmark]) {
-        final scale = find.descendant(
-          of: areaOf(target),
-          matching: find.byType(PressScale),
-        );
-        final down = await tester.startGesture(tester.getCenter(target));
-        await tester.pump();
-        await tester.pump(const Duration(milliseconds: 200));
-        // The bookmark mark draws its own .82 press; the contents control
-        // scales through the tap area.
-        final shrunk = tester
+      final scale = find.descendant(
+        of: areaOf(contents),
+        matching: find.byType(PressScale),
+      );
+      final down = await tester.startGesture(tester.getCenter(contents));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 200));
+      final shrunk = tester
+          .widget<Transform>(
+            find.descendant(of: scale, matching: find.byType(Transform)).first,
+          )
+          .transform
+          .storage[0];
+      expect(shrunk, lessThan(1));
+      await down.up();
+      await tester.pumpAndSettle();
+    });
+
+    testWidgets('pressing the bookmark scales its mark to .82 once',
+        (tester) async {
+      await pumpBar(tester);
+      final down = await tester.startGesture(tester.getCenter(bookmark));
+      // The press starts when the tap-down timer fires, then animates.
+      await tester.pump(const Duration(milliseconds: 100));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(
+        tester
             .widget<Transform>(
-              target == bookmark
-                  ? find.byKey(const ValueKey('reader-bookmark-pop'))
-                  : find
-                      .descendant(of: scale, matching: find.byType(Transform))
-                      .first,
+              find.byKey(const ValueKey('reader-bookmark-pop')),
             )
             .transform
-            .storage[0];
-        expect(shrunk, lessThan(1));
-        await down.up();
-        await tester.pumpAndSettle();
-      }
+            .storage[0],
+        closeTo(.82, .00001),
+      );
+      await down.up();
+      await tester.pumpAndSettle();
     });
 
     testWidgets('the 44 hit area holds and a tap at its corner lands',
