@@ -51,7 +51,8 @@ void main() {
 
   test('the rest of the page follows the ring', () {
     final ten = SessionEndTimeline.flight(count: 10);
-    expect(ten.later, ten.ringStart - 400);
+    // The mistakes come in as the 1.4 s ring fills, as they did before.
+    expect(ten.later, ten.ringStart + 1400 - 1600);
     expect(ten.length, greaterThanOrEqualTo(2560 + ten.later));
   });
 

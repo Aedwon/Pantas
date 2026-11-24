@@ -50,7 +50,8 @@ class SessionEndTimeline {
       ringStart: ring,
       rowStart: ring,
       detailStart: flies ? lastLand : fade + _titleFade,
-      later: ring - _stillRingStart,
+      // The mistakes follow the end of the ring, as they did before.
+      later: ring + PantasDurations.gauge.inMilliseconds - _stillRingEnd,
     );
   }
 
@@ -69,8 +70,10 @@ class SessionEndTimeline {
         doneStart = detailStart,
         phoneDoneStart = detailStart;
 
-  /// Where the ring started in the earlier timeline: its 400 ms lead.
+  /// The earlier timeline: the ring started after a 400 ms lead and was full
+  /// at 1600 ms, and the mistakes came in right after.
   static const int _stillRingStart = 400;
+  static const int _stillRingEnd = 1600;
 
   /// The title and the ring fade in over 120 ms, starting 70 ms before the
   /// ring does (board B2_WideEnd).
