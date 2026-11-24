@@ -11,9 +11,9 @@ Base: the Terms live in the app on main (versions 2026-11-12), the Oct 30 web pa
 
 ## Who we are
 
-Aerol Dwayne Daños Balayon operates Pantas as a sole proprietor under the trade name [registered business name, as on the DTI certificate; the live texts use "Pantas Online Tutorial Services"]. [DTI business name registration no.] [BIR TIN, shown only if the BIR rules for invoices require it on the page]
+Aerol Dwayne Daños Balayon operates Pantas as a sole proprietor under the trade name Pantas Online Tutorial Services. DTI Business Name No. 8567107.
 
-Place of business: [full address as on the business registration: street or sitio, building if any, barangay, municipality, province. The live texts show only "Poblacion, Norala, South Cotabato, Philippines", which names a barangay and town but not a place of business]
+Place of business: 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines
 
 For purchases and complaints: support@pantas.study or [business phone]
 For privacy questions: dpo@pantas.study
@@ -70,7 +70,7 @@ Pro access is personal. You cannot transfer it or exchange it for cash. Your ref
 - Web purchases do not renew automatically. We never charge you again unless you choose to buy again. We do not keep your payment method for later charges.
 - A web purchase does not cancel a separate store subscription.
 
-**Price.** The checkout price is the total amount Pantas charges in Philippine pesos, including applicable taxes and seller charges. [Tax statement, for example: "Prices include any tax that applies to us." Confirm VAT or percentage-tax status with the BIR registration before using it.] Beside the Pay button, checkout shows who sells the plan: our name, the trade name, our place of business, phone and email. Check the plan and the amount before you pay. We may change prices at any time. A change does not affect a payment you already made. If a billing error means you paid the wrong amount, we correct it or refund the amount due under applicable law. We do not charge you more without your agreement.
+**Price.** The checkout price is the total amount Pantas charges in Philippine pesos, including seller charges. Pantas is not registered for VAT, so the price has no VAT in it. Beside the Pay button, checkout shows who sells the plan: our name, the trade name, our place of business, phone and email. Check the plan and the amount before you pay. We may change prices at any time. A change does not affect a payment you already made. If a billing error means you paid the wrong amount, we correct it or refund the amount due under applicable law. We do not charge you more without your agreement.
 
 **Plans.** Weekly access lasts seven days. Monthly access lasts one calendar month. Yearly access lasts one calendar year. These plans give Civil Service Pro access. Monthly and Yearly access ends on the matching date at the same time in Philippine time. If that date does not exist, it ends on the last day of that month. Before you pay, the Pro screen shows the exam and the last day of the sitting a Season Pass covers. The pass ends at the close of that day in Philippine time, subject to any confirmed rescheduling.
 

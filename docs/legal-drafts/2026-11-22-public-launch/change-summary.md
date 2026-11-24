@@ -132,3 +132,11 @@ Codex Sol High critiqued only these changes (`critique-2026-11-23b-sol-high.md`)
 - **Sol High:** four years is defensible. Article 1144(2) (ten years) is a credible other reading. The criminal period under Act No. 3326 is 8 or 12 years but does not justify keeping records. The three evidence lists and the basis bullet are unchanged.
 - **Publish gate:** these sentences publish only after the code change is on prod.
 - **Open risk:** a claim can be timely after the records are deleted. The ruling accepts it.
+
+## Nov 24 business facts filled
+
+- **Filled from your DTI and BIR certificates:** the business name (Pantas Online Tutorial Services), DTI Business Name No. 8567107, and the place of business (19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508).
+- **Price line:** the Terms now say Pantas is not registered for VAT, so the price has no VAT in it. If you register for VAT later, this sentence must change.
+- **TIN:** left out of every text. The Internet Transactions Act does not require showing it on the site. Put it on invoices, not in the public repo.
+- **BIR seal badge:** added to the README publishing steps. Your certificate says online businesses must show it on the website.
+- **Still yours to fill:** business phone (the law requires one on the homepage), publication date, NPC registration.

@@ -24,10 +24,10 @@ Files:
 
 Every item is a bracket in the texts or a claim only he can confirm. Nothing is invented.
 
-1. Registered business name, exactly as on the DTI certificate. The live texts say "Pantas Online Tutorial Services". Confirm that is the registered name.
-2. DTI business name registration number.
-3. BIR registration: TIN, VAT or non-VAT (percentage tax), and the tax statement for the price line (Terms, "Price"). Also the BIR proof of registration the law requires him to display.
-4. Full place of business, as on the registration. "Poblacion, Norala, South Cotabato" names a barangay and town, not a place of business. The critique says a Terms page alone is not enough: the seller details also belong on the homepage (decision D3).
+1. Done (Nov 24): registered business name "Pantas Online Tutorial Services", from the DTI certificate.
+2. Done: DTI Business Name No. 8567107.
+3. Done: BIR registration read from the Certificate of Registration. He is not VAT-registered and uses the 8% income tax option, so the Terms say the price has no VAT in it. Watch: if gross sales pass the VAT threshold and he registers, that sentence and the price line must change. The TIN is not in any text (see the TIN note below). The BIR Registration Seal Badge is a publishing step.
+4. Done: place of business 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines (the BIR registered address). The critique says a Terms page alone is not enough: the seller details also belong on the homepage (decision D3).
 5. Business phone. Supplied Nov 18 but not recorded in the repository, so it is a bracket.
 6. Publication date. It becomes the version stamp (see "Publishing steps").
 7. NPC registration: whether the business must register. The critique says age-based access decisions and the study-style label may meet the registration test even for a sole proprietor. Confirm the classification, register if required, and add the seal after it is issued. Leave the bracket out only if not required.
@@ -172,9 +172,9 @@ A required tick beside the Pay button. "Terms and refund policy" links to the Te
 
 ### Seller line (D3)
 
-Beside the Pay button: "Sold by Aerol Dwayne Daños Balayon, trading as [registered business name] · [full place of business] · [business phone] · support@pantas.study"
+Beside the Pay button: "Sold by Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · [business phone] · support@pantas.study"
 
-Website footer (homepage): "Aerol Dwayne Daños Balayon, trading as [registered business name] · [full place of business] · [business phone] · support@pantas.study"
+Website footer (homepage): "Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · [business phone] · support@pantas.study"
 
 The brackets are facts only Aedwon has (checklist L3). Neither line ships with a bracket in it.
 
@@ -242,6 +242,7 @@ The texts publish in the same prod release as the behavior they describe, or aft
 
 ## Publishing steps (for the integrator, L1 and L7)
 
+0a. Display the BIR Registration Seal Badge (with its QR code, on page 3 of the Certificate of Registration) prominently and scannably on the website. The certificate says online businesses must.
 0. Texts publish with or after the D1, D2, D3 and D7 builds, and each claim is checked live on prod first (table above).
 1. Set the three version stamps to the publication date in both places: `guardianDocumentVersions` in the app and `GUARDIAN_DOCUMENT_VERSIONS` in the functions. Deploy together, or the guardian page refuses answers with "Reload the page".
 2. Put the final texts into the in-app legal documents (the Terms title there is "Terms of Service") and as public pages on pantas.study. The site has only a beta-application privacy page today.
@@ -284,3 +285,11 @@ Critique: `critique-2026-11-24b-sol-high.md`, the new sentences only. Wording fi
 
 1. **A timely claim can outlast the schedule.** Sol High's biggest risk: Pantas could delete evidence of a sharing permission while a claim about that use is still timely, because the deletion schedule and the legal deadline run independently, and a claim can start years before the deletion date. The ruling accepts this. The date counts from deletion, which adds a buffer. No change made.
 2. **Day count against calendar years.** "1,461 days (four years)" can differ from four calendar years by a day. The ruling fixes the day count. No change made.
+
+## Nov 24: business facts filled
+
+Filled from the private facts file (DTI and BIR certificates): registered name, DTI Business Name No. 8567107, the place of business, and the price tax statement. Still brackets, which only Aedwon can fill: business phone, publication date, NPC registration, plus the practice claims in the "Facts Aedwon supplies" list.
+
+**TIN note.** No text carries the TIN. RA 11967 Section 23(f)(1) (read on lawphil) requires an e-retailer to publish the business name, the address of the place of business, and a mobile or landline number plus a valid email. It does not mention a TIN. I could not cite a BIR rule or JAO 24-03 provision that requires a TIN on the website or in the Terms, and I did not read the JAO in full. BIR invoice rules do require a TIN on invoices (from memory, not verified here). Put the TIN on the sales invoice when the invoice process exists. Do not commit it to the public repo.
+
+**Phone.** RA 11967 Section 23(f)(1) requires a mobile or landline number on the homepage, so the phone bracket must be filled before publishing.
