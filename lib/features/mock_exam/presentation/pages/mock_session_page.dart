@@ -737,16 +737,36 @@ class _MockSessionPageState extends State<MockSessionPage> {
             _panelBottomReserve,
           ),
           children: [
-            Row(
-              children: [
-                Expanded(child: Text('Questions', style: t.h3)),
-                PantasIconButton(
-                  tooltip: 'Hide the question list',
-                  size: PantasIconButtonSize.md,
-                  icon: const MockPanelGlyph(),
-                  onPressed: () => setState(() => _widePanelOpen = false),
-                ),
-              ],
+            // Boards MK_NavMotion and MK_SubmitCSE: the hide icon first, then
+            // "Questions", in a row that sits 8 px up and 4 px short of its
+            // box, 10 px outside the panel padding. The board's icon is 36 px;
+            // the scale has 40 (md), so the row is 2 px further out on each
+            // side and the glyph and the title land where the board puts
+            // them.
+            SizedBox(
+              height: PantasSpace.s24,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Positioned(
+                    left: -(PantasSpace.s12),
+                    top: -(PantasSpace.s10),
+                    child: Row(
+                      children: [
+                        PantasIconButton(
+                          tooltip: 'Hide the question list',
+                          size: PantasIconButtonSize.md,
+                          icon: const MockPanelGlyph(),
+                          onPressed: () =>
+                              setState(() => _widePanelOpen = false),
+                        ),
+                        const SizedBox(width: PantasSpace.s4),
+                        Text('Questions', style: t.h3),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
             // Board Paper: a closed part is not listed on a paper by part.
             if (!widget.oneBlock && !_byPart && _gridSummary() != null) ...[
