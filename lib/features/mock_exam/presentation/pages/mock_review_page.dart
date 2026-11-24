@@ -515,9 +515,7 @@ class _ReviewListBody extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            'Tell Pantas why you got each one wrong. The '
-                            'better your notes, the more every review '
-                            'helps.',
+                            'Note why you missed each one.',
                             style: t.sub,
                           ),
                         ),
@@ -774,8 +772,7 @@ class _NotesPrompt extends StatelessWidget {
           children: [
             // MK_ReviewWrong: 15 px text on 22 px lines, a 44 px tinted pill.
             Text(
-              'Tell Pantas why you got each one wrong. The better your notes, '
-              'the more every review helps.',
+              'Note why you missed each one.',
               style: context.type.subhead.copyWith(height: 22 / 15),
             ),
             const SizedBox(height: PantasSpace.s10),

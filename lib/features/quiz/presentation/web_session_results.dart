@@ -345,10 +345,7 @@ class WebSessionResults extends StatelessWidget {
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              'Tell Pantas why you got each '
-                                              'one wrong. The better your '
-                                              'notes, the more every review '
-                                              'helps.',
+                                              'Note why you missed each one.',
                                               style: PantasType.webSub.copyWith(
                                                 color: t.colors.textPrimary,
                                               ),

@@ -395,9 +395,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Text(
-                                'Tell Pantas why you got each one wrong. '
-                                'The better your notes, the more every '
-                                'review helps.',
+                                'Note why you missed each one.',
                                 style: type.subhead.copyWith(
                                   color: colors.textPrimary,
                                   height: 1.45,
