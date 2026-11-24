@@ -305,6 +305,18 @@ void main() {
       await endPage(tester);
     });
 
+    testWidgets('a 900 wide tablet keeps the phone layout, as the app does',
+        (tester) async {
+      await pumpGate(tester, size: const Size(900, 1000));
+      await tester.pump(const Duration(seconds: 3));
+      expect(tester.widget<PantasLogo>(find.byType(PantasLogo)).size, 104);
+      expect(
+        tester.widget<Text>(find.text('The beta starts Nov 9')).style?.fontSize,
+        34,
+      );
+      await endPage(tester);
+    });
+
     testWidgets('dark mode uses the dark tokens', (tester) async {
       await pumpGate(tester, dark: true);
       await tester.pump(const Duration(seconds: 3));

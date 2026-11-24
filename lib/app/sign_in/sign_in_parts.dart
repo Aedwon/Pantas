@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -23,8 +24,9 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-/// The width from which the sign-in screens use the laptop boards.
-const signInWideFrom = 720.0;
+/// The width from which the sign-in screens use the laptop boards: the same
+/// 1024 as the app, so a tablet in portrait sees one layout all the way in.
+const signInWideFrom = PantasLayout.bpTabletLandscape;
 
 const supportEmail = 'support@pantas.study';
 
