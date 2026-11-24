@@ -65,15 +65,6 @@ final quizTodayCountsProvider = FutureProvider.autoDispose
   );
 });
 
-/// Space around "Discard this session" on the phone paused card, outside the
-/// line's own 24 px box (2 px above and below its 20 px text). His words
-/// (Nov 25): "the space on top and bottom of discard in the quiz tab got too
-/// small though". Board A draws 12 above and 16 below the text; the card
-/// before Nov 24 had about 18 and 22, and his call from using the app wins:
-/// 18 above the text and 22 below it.
-const double _discardAbove = 16;
-const double _discardBelow = 20;
-
 class QuizTabScreen extends ConsumerStatefulWidget {
   const QuizTabScreen({this.mockPanel, this.mockReady = true, super.key});
   final bool mockReady;
@@ -691,25 +682,26 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            if (state is SessionPanelInProgress)
-                              // Board A (wide Quiz): no sentence; Discard and
-                              // Resume at the right of the foot, 16 apart. The
-                              // foot wraps, as the board's does.
-                              Wrap(
-                                alignment: WrapAlignment.end,
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                spacing: PantasSpace.s16,
-                                runSpacing: PantasSpace.s8,
+                            if (state is SessionPanelInProgress) ...[
+                              Row(
                                 children: [
+                                  Expanded(
+                                    child: Text(
+                                      'You paused. Every answer was saved.',
+                                      style: t.sub,
+                                    ),
+                                  ),
+                                  const SizedBox(width: PantasSpace.s16),
                                   _WebDiscardButton(
                                     onPressed: _discarding
                                         ? null
                                         : () => unawaited(_discard(examId)),
                                   ),
-                                  primary,
                                 ],
-                              )
-                            else if (canStart)
+                              ),
+                              const SizedBox(height: PantasSpace.s16),
+                              primary,
+                            ] else if (canStart)
                               Row(
                                 children: [
                                   Expanded(
@@ -1158,20 +1150,32 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
               PantasSpace.s16,
               PantasSpace.s14,
               PantasSpace.s16,
-              state is SessionPanelInProgress ? _discardBelow : PantasSpace.s16,
+              state is SessionPanelInProgress
+                  ? PantasSpace.s10
+                  : PantasSpace.s16,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 if (state is SessionPanelInProgress) ...[
-                  // Board A (paused session, his pick Nov 25): no sentence;
-                  // the Reviews row shows the progress.
+                  Semantics(
+                    liveRegion: true,
+                    child: Text(
+                      'You paused. Every answer was saved.',
+                      style: PantasType.phoneExplanation
+                          .copyWith(color: context.colors.textPrimary)
+                          .copyWith(color: context.colors.textSecondary),
+                    ),
+                  ),
+                  const SizedBox(height: PantasSpace.s14),
                   PantasButton(
                     label: 'Resume',
                     onPressed: () => unawaited(_open('/quiz/resume/$examId')),
                   ),
-                  const SizedBox(height: _discardAbove),
-                  // Board A: the 15/600 line is centered under Resume.
+                  // Board (QZ_Resume): a 15/600 teal line, 12 under Resume
+                  // (8 here and 4 inside the line).
+                  const SizedBox(height: PantasSpace.s8),
+                  // Board (QZ_Resume): the line is centered under Resume.
                   Center(
                     child: PantasButton(
                       label: 'Discard this session',
