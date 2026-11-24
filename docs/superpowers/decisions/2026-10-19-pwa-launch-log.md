@@ -4257,3 +4257,8 @@ Expected day total: under 250 reads and 200 writes. Go.
   - Indexes and TTLs: remove `server.ageGroup`, `server.guardianDueAt`, `questionReports.expireAt`, and `trialUsedIdentities.expireAt` field overrides (pre-deploy snapshot in `Pantas-private/releases/2026-11-24-main-prod-ship/`).
   - NPC alert: delete `projects/pantas-prod/alertPolicies/11274249366519849645`.
   - T18 / T19 scripts: T18 removed only 3 obsolete uid-keyed limiter rows and set the `dailyScanDone` flag; T19 made 0 writes.
+
+### Nov 24, money-path batch stopped before merge (security and billing lead, r2)
+
+- Stopped on Aedwon's word, relayed by the manager ("yes they should stop"): PR #109 (server, head 6a8db4a69) and PR #91 (app, head 8f45e03eb) are pushed, reviewed and not merged; nothing shipped to prod. Staging still runs #109's functions from 2f4d22611; the staging proof passed (payment granted 7 days, refund revoked it, sync refused after).
+- Open before any merge: CI on both heads, and the review residuals (lost-dispute follow-ups, which must be fixed before live keys) listed in the private money-path audit folder, `2026-11-24-residuals-after-pr109.md`.
