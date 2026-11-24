@@ -70,16 +70,11 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   String? _copiedUid;
   Timer? _timer;
   bool _signingIn = false;
-
-  /// Sign-in worked: the button shows "Signed in" for a moment (L_SignIn).
-  bool _signedIn = false;
-  Timer? _signedInTimer;
   bool _genericFailure = false;
   bool _failedSignOut = false;
   @override
   void dispose() {
     _timer?.cancel();
-    _signedInTimer?.cancel();
     super.dispose();
   }
 
@@ -167,7 +162,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
         description: 'Your name, sign-in and backup.',
         children: [
           SettingsSection(
-            cardFooter: user != null && !_signedIn
+            cardFooter: user != null
                 ? null
                 : CardFooter(
                     caption: 'You get your own Pantas ID when you sign in.',
@@ -188,11 +183,10 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                           ),
                         GoogleSignInButton(
                           label: _signingIn
-                              ? 'Signing in'
+                              ? 'Signing in…'
                               : 'Continue with Google',
                           size: PantasButtonSize.sm,
                           busy: _signingIn,
-                          done: _signedIn,
                           onPressed: _signingIn ? null : _signIn,
                         ),
                       ],
@@ -406,12 +400,10 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           ],
         ),
         const SizedBox(height: _blockGap),
-        if (user == null || _signedIn) ...[
+        if (user == null) ...[
           GoogleSignInButton(
             expand: true,
-            label: _signingIn ? 'Signing in' : 'Continue with Google',
             busy: _signingIn,
-            done: _signedIn,
             onPressed: _signingIn ? null : _signIn,
           ),
           if (web) ...[
@@ -522,14 +514,6 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     try {
       final result = await ref.read(authRepositoryProvider).signInWithGoogle();
       if (!mounted) return;
-      if (result is LinkedExistingSignInResult ||
-          result is SwitchedToExistingSignInResult) {
-        setState(() => _signedIn = true);
-        _signedInTimer?.cancel();
-        _signedInTimer = Timer(const Duration(milliseconds: 1200), () {
-          if (mounted) setState(() => _signedIn = false);
-        });
-      }
       if (result is FailedSignInResult) {
         setState(
           () => _errorMessage = const {
