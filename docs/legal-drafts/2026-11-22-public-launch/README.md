@@ -31,9 +31,9 @@ Every item is a bracket in the texts or a claim only he can confirm. Nothing is 
 5. Done: business phone +63 968 854 2343 (supplied Nov 18).
 6. Publication date. It becomes the version stamp (see "Publishing steps").
 7. NPC registration: waits for the LGU (mayor's) permit. The texts say nothing about registration status and show no NPC seal. Under NPC Circular 2022-04 (as reported by secondary sources; the NPC site blocked automated reading of the PDF), registration is mandatory at 250 or more employees, sensitive personal information of 1,000 or more individuals, or processing likely to risk data subjects. Below those, a business files a notarized sworn declaration and undertaking of exemption. A private draft exists outside this repo.
-8. Commitments only he can keep: the refund reply within [5] business days; five years of tax books, sales invoices, receipts and refund evidence outside the app (the Privacy Policy now says the business keeps these); a working mailbox for dpo@pantas.study and support@pantas.study.
-9. Practice claims only he can confirm before publishing: "We do not sell your data"; he is the Data Protection Officer; the Google Analytics retention setting (the texts say 14 months in a bracket); the 30-day report log setting and that the report function's request logs are excluded from default log storage; Cloudflare's own request logs; the Singapore database region.
-10. Whether the Pantas sales invoice sentence in the Terms can be published (it needs the invoice workflow, decision D3), and the message retention period for the Privacy Policy and the Notice for teens (bracket).
+8. Commitments only he can keep: the refund reply within three business days (ruled Nov 24, B2; his to confirm or change at sign-off); five years of tax books, sales invoices, receipts and refund evidence outside the app (the Privacy Policy now says the business keeps these); a working mailbox for dpo@pantas.study and support@pantas.study.
+9. Practice claims only he can confirm before publishing: "We do not sell your data"; he is the Data Protection Officer; the Google Analytics retention setting (the texts say two months, ruled Nov 24, B1; the console must match before publishing); the 30-day report log setting and that the report function's request logs are excluded from default log storage; Cloudflare's own request logs; the Singapore database region.
+10. Ruled Nov 24 (B3, B4), no longer a question for him: the Terms carry the short invoice sentence, which publishes only once checklist M8 is met, and the notices give two message periods (90 days and two years after the matter closes). See "Nov 24: remaining brackets ruled" below.
 11. Whether PayMongo QR Ph is live for the launch account, and whether QR Ph refunds work there (decision D4). The texts keep card and QR Ph conditional ("may include").
 
 ## M10: payment records versus account deletion
@@ -247,7 +247,7 @@ The texts publish in the same prod release as the behavior they describe, or aft
 0. Texts publish with or after the D1, D2, D3 and D7 builds, and each claim is checked live on prod first (table above).
 1. Set the three version stamps to the publication date in both places: `guardianDocumentVersions` in the app and `GUARDIAN_DOCUMENT_VERSIONS` in the functions. Deploy together, or the guardian page refuses answers with "Reload the page".
 2. Put the final texts into the in-app legal documents (the Terms title there is "Terms of Service") and as public pages on pantas.study. The site has only a beta-application privacy page today.
-3. Remove every bracket first: `grep -n '\[' ` on the three texts must find none. Brackets include the retention periods, the invoice sentence and the legal-hold note. Then run the `legal-text-drafting` check, which fails on the words "draft" and "owner note" in in-app text. It does not catch brackets.
+3. Remove every bracket first: `grep -n '\[' ` on the three texts must find none. After the Nov 24 rulings B1 to B4 the only bracket left is the publication date. Then run the `legal-text-drafting` check, which fails on the words "draft" and "owner note" in in-app text. It does not catch brackets.
 4. Send the change email (rule 9) to existing students with an email address, and to guardians of under-18 accounts, after the self-test (rule 6).
 5. Aedwon checks `change-summary.md` and signs off (L1, L2).
 
@@ -289,8 +289,33 @@ Critique: `critique-2026-11-24b-sol-high.md`, the new sentences only. Wording fi
 
 ## Nov 24: business facts filled
 
-Filled from the private facts file (DTI and BIR certificates): registered name, DTI Business Name No. 8567107, the place of business, and the price tax statement. Business phone filled too (+63 968 854 2343, supplied Nov 18). Still brackets, which only Aedwon can fill: publication date, NPC registration, plus the practice claims in the "Facts Aedwon supplies" list.
+Filled from the private facts file (DTI and BIR certificates): registered name, DTI Business Name No. 8567107, the place of business, and the price tax statement. Business phone filled too (+63 968 854 2343, supplied Nov 18). Still a bracket, which only Aedwon can fill: the publication date. He also confirms the practice claims in the "Facts Aedwon supplies" list. (Updated Nov 24: the NPC bracket was removed and the last four brackets were ruled.)
 
 **TIN note.** No text carries the TIN. RA 11967 Section 23(f)(1) (read on lawphil) requires an e-retailer to publish the business name, the address of the place of business, and a mobile or landline number plus a valid email. It does not mention a TIN. I could not cite a BIR rule or JAO 24-03 provision that requires a TIN on the website or in the Terms, and I did not read the JAO in full. BIR invoice rules do require a TIN on invoices (from memory, not verified here). Put the TIN on the sales invoice when the invoice process exists. Do not commit it to the public repo.
 
 **Phone.** RA 11967 Section 23(f)(1) requires a mobile or landline number on the homepage. The number is filled in the texts. The website footer and the app build input must show the same number.
+
+## Nov 24: remaining brackets ruled (B1 to B4)
+
+Rulings: `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md`, section "Nov 24, remaining legal brackets". Critique: `critique-2026-11-24c-sol-high.md`. Every wording finding is applied. Sol High asked for no value to change.
+
+| Bracket | Ruled value | His to change at sign-off |
+|---|---|---|
+| Google Analytics retention | Two months for user and event data (B1) | Yes |
+| Refund reply time | Three business days (B2) | Yes. It is his commitment |
+| Message retention | Emails about a payment, refund, purchase complaint or privacy request: two years after the matter closes. Other emails: 90 days. Counted from the last email (B3) | Yes |
+| Invoice sentence | "Pantas issues a sales invoice for each web purchase." (B4) | No value to change |
+
+### Publish gate for claims that need a setting or a process
+
+Check each row before publishing and log it in the launch log, as for the build table above.
+
+| Claim in the texts | What makes it true |
+|---|---|
+| Google Analytics user and event data expires after two months | The console shows 2 months for user-level data and for event data, and "Reset user data on new activity" is off, on property 549551450. It could not be read from here: the signed-in account lacks the Analytics scope |
+| Emails deleted within 90 days or two years after the matter closes | The mailbox procedure is written in `docs/OPERATIONS.md`, the two labels exist, and the sweep is in the monthly cost check |
+| "Pantas issues a sales invoice for each web purchase." | Checklist M8 is met: he holds invoice stock the BIR accepts and has issued one real invoice. If M8 is not met on publishing day, delete the sentence and add it in the first Terms update after M8 |
+
+**Not fixed by wording.** Sol High's biggest risk is the monthly sweep deleting evidence of a matter that is still open because its last email aged out. The procedure keeps a "hold" label for those threads, and the sweep never deletes a held thread.
+
+**Still his:** the publication date. NPC registration stays his and no text mentions it.

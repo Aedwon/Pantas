@@ -78,7 +78,7 @@ Pro access is personal. You cannot transfer it or exchange it for cash. Your ref
 
 **Duplicate and failed payments.** If checkout reports a failure but your bank or e-wallet shows a debit or hold, contact us before you pay again. If Pro did not unlock after a short wait, contact us with the time, amount and payment method. We may reuse a matching unpaid checkout that is still open when you try to pay again. Please do not pay twice while a payment is pending.
 
-**Receipts.** PayMongo may send you a receipt. [Invoice sentence, to add only once the invoice workflow exists: "Pantas issues a sales invoice for each web purchase and sends it to the email you give us." Confirm after BIR registration. See README, decision D3.]
+**Receipts.** PayMongo may send you a receipt. Pantas issues a sales invoice for each web purchase.
 
 **Free trial.** You can get one seven-day free trial of Monthly Pro if you qualify. Weekly, Yearly and Season Passes have no trial. You qualify only if you are signed in with verified sign-in details and our account history and protected trial codes show no earlier trial or paid Pro. You do not enter payment details. The trial ends after seven days. It does not become a paid plan and we do not charge you. We may change or stop future trial offers. We may refuse or end a trial we reasonably suspect is being misused, for example through several accounts. Deleting your account does not give you another trial. The Privacy Policy explains how we check this.
 
@@ -105,7 +105,7 @@ A separate purchase that adds paid time follows the ordinary rules below.
 
 **How to ask.** Email support@pantas.study. Include enough information for us to identify the payment, such as the date, amount, payment method and your PayMongo reference or receipt. We may ask for more information to verify your claim. If a parent or guardian paid for a student, they may write from the email address they paid with. Ask within 30 days of the payment for a voluntary refund. A later request may be declined, except where the law requires us to consider it.
 
-**How we handle it.** We check the payment and your account records. We aim to reply within [5] business days. If a complaint covered by the Internet Transactions Act is still unresolved seven calendar days after you file it with us, our internal process is deemed exhausted and you may use the external remedies the law provides. If the request qualifies, we refund the amount due. A full refund ends the access from that payment. After a partial refund, access may change as the law and the terms of the remedy allow.
+**How we handle it.** We check the payment and your account records. We aim to reply within three business days. If a complaint covered by the Internet Transactions Act is still unresolved seven calendar days after you file it with us, our internal process is deemed exhausted and you may use the external remedies the law provides. If the request qualifies, we refund the amount due. A full refund ends the access from that payment. After a partial refund, access may change as the law and the terms of the remedy allow.
 
 - **Card and other PayMongo payments:** we use the original payment route when it is available.
 - **Any payment whose original route is closed:** if we cannot return the payment by its original route, we will arrange a bank or e-wallet transfer to the payer only. We match the receiving account to the payer on the payment record, or to the payer's own receipt for that payment. We ask only for the details needed to verify, send and document the refund.

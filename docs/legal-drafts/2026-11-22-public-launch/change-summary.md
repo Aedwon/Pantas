@@ -142,3 +142,14 @@ Codex Sol High critiqued only these changes (`critique-2026-11-23b-sol-high.md`)
 - **Business phone:** filled (+63 968 854 2343, from your Nov 18 message). The law requires one on the homepage, so the website footer must show it.
 - **NPC:** the texts no longer have an NPC registration bracket and say nothing about registration. Registration waits for the LGU permit. A private draft of the sworn declaration of exemption is outside the repo. It needs notarization, which is your step.
 - **Still yours to fill:** publication date.
+
+## Nov 24 remaining brackets (rulings B1 to B4)
+
+A Fable agent ruled the last four brackets under your delegation. Codex Sol High critiqued the changed sentences (`critique-2026-11-24c-sol-high.md`) and every wording finding is applied. Nothing is published. You can change any number below when you sign.
+
+- **Yours to confirm, refund reply time:** the Terms now say "We aim to reply within three business days." This is your personal commitment. It means reading support@pantas.study at least every second business day. You can set five. The law's limit is separate: a purchase complaint unresolved after seven calendar days may go to the DTI whatever the Terms say.
+- **Google Analytics:** both notices say data about individual users and events expires after two months, and that combined reports can stay longer. The setting could not be read from here. Before publishing, the console must show 2 months for user-level data and for event data, with "Reset user data on new activity" off. If it shows 14 months, changing it deletes the older user and event rows. Your usual reports stay.
+- **Emails to support@ and dpo@:** emails about a payment, refund, purchase complaint or privacy request are deleted within two years after the matter closes. Other emails are deleted within 90 days. Both count from the last email. A short record of each refund paid stays five years with the tax records.
+- **What the email promise asks of you:** a monthly sweep of the mailboxes, about five minutes, at the monthly cost check. The manager writes the steps in the operations file first. A thread under a dispute or with an unanswered request is held and never swept.
+- **Invoice:** the Terms now say "Pantas issues a sales invoice for each web purchase." The words about sending it by email are gone. It publishes only if you can issue registered invoices on publishing day (checklist M8). If not, the sentence is deleted and added later. Invoices stay by hand until the automatic email is built.
+- **Still yours to fill:** the publication date. NPC registration stays yours, and no text mentions it.
