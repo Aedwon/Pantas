@@ -72,9 +72,14 @@ class WebButton extends StatelessWidget {
     this.fontSize,
     this.radius,
     this.sidePadding,
+    this.reserveLabels = const [],
     super.key,
   });
   final String label;
+
+  /// Other words this button shows at other times. It keeps the width of the
+  /// widest, so what sits beside it does not move when the word changes.
+  final List<String> reserveLabels;
 
   /// Not read: the size class decides the side padding.
   final double? sidePadding;
@@ -228,7 +233,9 @@ class WebButton extends StatelessWidget {
             ),
             SizedBox(width: m.gap),
           ],
-          Flexible(child: Text(label, textAlign: TextAlign.center)),
+          Flexible(
+            child: _ReservedLabel(label: label, reserve: reserveLabels),
+          ),
           if (showKeyHint) ...[
             SizedBox(width: m.gap),
             WebKeyHint(
@@ -260,6 +267,37 @@ class WebButton extends StatelessWidget {
     return m.height < PantasSize.targetTouch
         ? TouchTarget(child: natural)
         : natural;
+  }
+}
+
+/// A button's label, at least as wide as the widest of [reserve]. It is
+/// measured in the button's own text style, rounded up so the words that are
+/// narrower fill the same width.
+class _ReservedLabel extends StatelessWidget {
+  const _ReservedLabel({required this.label, required this.reserve});
+  final String label;
+  final List<String> reserve;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Text(label, textAlign: TextAlign.center);
+    if (reserve.isEmpty) return text;
+    final style = DefaultTextStyle.of(context).style;
+    final scaler = MediaQuery.textScalerOf(context);
+    var widest = 0.0;
+    for (final word in [label, ...reserve]) {
+      final painter = TextPainter(
+        text: TextSpan(text: word, style: style),
+        textDirection: Directionality.of(context),
+        textScaler: scaler,
+      )..layout();
+      widest = math.max(widest, painter.width);
+      painter.dispose();
+    }
+    return ConstrainedBox(
+      constraints: BoxConstraints(minWidth: widest.ceilToDouble()),
+      child: text,
+    );
   }
 }
 

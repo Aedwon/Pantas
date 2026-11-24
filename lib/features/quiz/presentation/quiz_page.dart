@@ -1179,23 +1179,20 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       });
     }
 
-    // The bar keeps its width from pick to check: the button is as wide as
-    // its widest label.
-    final barButton = _WidestLabel(
-      labels: {'Check', 'Next', 'Finish', label}.toList(),
-      child: WebButton(
-        label: label,
-        pill: true,
-        expand: true,
-        keyHint: 'Enter',
-        busy: state.checking,
-        onPressed: state.checking ||
-                (!lookingBack &&
-                    outcome == null &&
-                    state.selectedChoiceId == null)
-            ? null
-            : action,
-      ),
+    // The bar keeps its width from pick to check: the button reserves room
+    // for its widest word.
+    final barButton = WebButton(
+      label: label,
+      pill: true,
+      keyHint: 'Enter',
+      reserveLabels: const ['Check', 'Next', 'Finish'],
+      busy: state.checking,
+      onPressed: state.checking ||
+              (!lookingBack &&
+                  outcome == null &&
+                  state.selectedChoiceId == null)
+          ? null
+          : action,
     );
 
     // The Leave dialog owns the keys while it is open. Its own focus keeps
@@ -1998,40 +1995,5 @@ class _PopoverState extends State<_Popover>
             child: _motion.transition(_controller, widget.builder(context)),
           );
         },
-      );
-}
-
-/// Sizes [child] to the widest of the buttons that [labels] would make, so a
-/// bar does not change width when its button's word changes (Check, Next,
-/// Finish). The copies are laid out but never drawn, focused or read.
-class _WidestLabel extends StatelessWidget {
-  const _WidestLabel({required this.labels, required this.child});
-
-  final List<String> labels;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) => Stack(
-        children: [
-          for (final label in labels)
-            Visibility(
-              visible: false,
-              maintainSize: true,
-              maintainAnimation: true,
-              maintainState: true,
-              child: ExcludeFocus(
-                child: ExcludeSemantics(
-                  child: IgnorePointer(
-                    child: WebButton(
-                      label: label,
-                      pill: true,
-                      keyHint: 'Enter',
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          Positioned.fill(child: child),
-        ],
       );
 }
