@@ -1225,3 +1225,28 @@ Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon'
 ### What needs Aedwon
 
 Nothing new. His visual pass, which already gates release, includes one scroll of the held reader in Safari (ruling 8).
+
+## PAY-07 follow-on: a grant with both a dispute and a refund (Fable 5.2 advisor, Nov 24, 2026)
+
+Asked by the security and billing lead after eight review rounds of the money-path fixes kept finding new interleavings
+of disputes and refunds on one grant. Options: (A) keep fixing every interleaving automatically; (B) never re-plan such
+a grant automatically and hand it to the owner; (C) other. Lead recommended B.
+
+**Ruling: B, with one tightening.**
+1. A grant that has a dispute and any refund, in either order, is never restored or re-planned on a win. The win is
+   recorded, the dispute is marked resolved, the grant stays as it is (revoked or shortened).
+2. One pending follow-up, reason `disputeWithRefund`, keyed by payment: paid amount, refunded total, dispute id, unused
+   days, and the later plans or rewards the dispute had pulled earlier (left where they are). The existing log alert
+   emails the owner, who settles it by hand: grant the remaining days, or refund the rest (a guardian denial is owed the
+   rest, per the Terms).
+3. A lost dispute keeps its automatic path; it adds a follow-up only when refunds plus the chargeback exceed the amount
+   paid (the owner then paid twice).
+4. A dispute that opens on an already refunded grant still revokes at once. A refund that arrives after a pure dispute
+   was won and restored is a pure refund.
+5. **Keep revoked, not restore the unrefunded part:** that calculation produced the last findings. Missing access is
+   reported by the user and cheap to fix; wrong access or a shifted later plan is seen by nobody.
+
+**Build edges.** Decide on "has a dispute id and refunds above zero", never on the stored revocation reason. Do not
+overwrite a pending refund task with the same key, and the refund-closing logic must not close this follow-up. A replayed
+win, or a win before its opening event, writes no second record and restores nothing. The property test covers both
+orders and asserts no grant changes on such a win.
