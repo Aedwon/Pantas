@@ -275,6 +275,7 @@ class _WebSidebarState extends State<WebSidebar> {
   ];
 
   /// Boards `.side`: 22 px of padding above the brand (20 below).
+  // ds-board: X_Side .side padding-top 22
   static const double _topPadding = PantasSpace.s20 + PantasSpace.s2;
   static const _iconSize = 21.0;
   static const _searchIconSize = 18.0;

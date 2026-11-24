@@ -36,7 +36,9 @@ void main() {
     // Padding 22, then the brand's own 4 px of padding.
     expect(tester.getTopLeft(brand).dy, 26);
     expect(
-        tester.widget<Text>(brand).style!.letterSpacing, closeTo(-0.44, 1e-9));
+      tester.widget<Text>(brand).style!.letterSpacing,
+      closeTo(-0.44, 1e-9),
+    );
 
     Rect rowOf(String label) => tester.getRect(
           find.ancestor(

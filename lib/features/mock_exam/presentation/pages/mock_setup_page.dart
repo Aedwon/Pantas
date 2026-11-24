@@ -41,8 +41,11 @@ class MockSetupPage extends StatefulWidget {
 }
 
 class _MockSetupPageState extends State<MockSetupPage> {
+  // ds-board: MK_SetupCSE column gap 22
   static const double _blockGap = PantasSpace.s20 + PantasSpace.s2;
+  // ds-board: MK_SetupCSE rule line padding-top 7
   static const double _footerGap = PantasSpace.s6 + PantasSpace.s2 / 2;
+  // ds-board: MK_SetupCSE bar padding-bottom 30
   static const double _barBottom = PantasSpace.s28 + PantasSpace.s2;
 
   late bool _strictMode;

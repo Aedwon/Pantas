@@ -59,6 +59,7 @@ class AccountPage extends ConsumerStatefulWidget {
 
 class _AccountPageState extends ConsumerState<AccountPage> {
   /// Board ST_Account: 22 px between the header and every card.
+  // ds-board: ST_Account column gap 22
   static const double _blockGap = PantasSpace.s20 + PantasSpace.s2;
 
   String? _errorMessage;

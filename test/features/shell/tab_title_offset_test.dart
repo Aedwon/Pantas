@@ -16,7 +16,6 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
-import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
 

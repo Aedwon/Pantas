@@ -5,14 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth.dart';
-import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
-import 'package:pantas/features/settings/settings.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_section.dart';
+import 'package:pantas/features/settings/settings.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
@@ -60,8 +59,11 @@ void main() {
     for (var i = 1; i < sections.evaluate().length; i++) {
       final above = tester.getRect(sections.at(i - 1));
       final below = tester.getRect(sections.at(i));
-      expect(below.top - above.bottom, 22,
-          reason: 'between cards ${i - 1}, $i');
+      expect(
+        below.top - above.bottom,
+        22,
+        reason: 'between cards ${i - 1}, $i',
+      );
     }
   });
 

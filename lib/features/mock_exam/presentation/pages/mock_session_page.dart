@@ -598,8 +598,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
                           ),
                         LayoutBuilder(
                           builder: (context, constraints) {
-                            // The counter stacks above the buttons when it does not
-                            // fit beside them (large text).
+                            // The counter stacks above the buttons when it
+                            // does not fit beside them (large text).
                             final counterMetrics = TextPainter(
                               text:
                                   TextSpan(text: counter, style: counterStyle),
@@ -636,8 +636,9 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                       ],
                                     ),
                                   )
-                                // MK_Paper: previous and the question list at the left,
-                                // the counter in the middle, next at the right.
+                                // MK_Paper: previous and the question list at
+                                // the left, the counter in the middle, next at
+                                // the right.
                                 : FloatingBar(
                                     left: prev,
                                     counter: counter,
@@ -749,8 +750,8 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 clipBehavior: Clip.none,
                 children: [
                   Positioned(
-                    left: -(PantasSpace.s12),
-                    top: -(PantasSpace.s10),
+                    left: -PantasSpace.s12,
+                    top: -PantasSpace.s10,
                     child: Row(
                       children: [
                         PantasIconButton(

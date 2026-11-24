@@ -40,11 +40,11 @@ class MockSetupSkeleton extends StatelessWidget {
     // The loaded phone page (MK_SetupCSE): the Quiz link row, 16 px sides, the
     // title block 4 px in, the table, the rule line and the strict card, and
     // the Start button pinned under them.
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Stack(
           children: [
-            const Column(
+            Column(
               children: [
                 MockSetupBackLink(),
                 Expanded(
@@ -68,7 +68,10 @@ class MockSetupSkeleton extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SkeletonBlock(
-                                    width: 260, height: 32, radius: 9),
+                                  width: 260,
+                                  height: 32,
+                                  radius: 9,
+                                ),
                                 SizedBox(height: PantasSpace.s4),
                                 SkeletonBlock(width: 200, height: 20),
                               ],
@@ -117,7 +120,9 @@ class MockSetupSkeleton extends StatelessWidget {
 }
 
 /// The page's 22 px column gap and 30 px bar bottom (MK_SetupCSE).
+// ds-board: MK_SetupCSE column gap 22
 const double _blockGap = PantasSpace.s20 + PantasSpace.s2;
+// ds-board: MK_SetupCSE bar padding-bottom 30
 const double _barBottom = PantasSpace.s28 + PantasSpace.s2;
 
 class _WideColumns extends StatelessWidget {
