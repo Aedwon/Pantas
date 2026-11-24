@@ -20,7 +20,6 @@ Future<void> _pump(
   int total = 10,
   int correct = 7,
   bool still = false,
-  bool ghost = false,
 }) async {
   await tester.runAsync(loadDsFonts);
   final web = width >= 1024;

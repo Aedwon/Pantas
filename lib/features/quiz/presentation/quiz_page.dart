@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/rendering.dart';
@@ -1697,7 +1698,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       final boundary = _screenKey.currentContext?.findRenderObject();
       if (boundary is RenderRepaintBoundary) {
         ghost = boundary.toImageSync(
-          pixelRatio: MediaQuery.devicePixelRatioOf(context),
+          pixelRatio: math.min(MediaQuery.devicePixelRatioOf(context), 2),
         );
       }
     } on Object {
