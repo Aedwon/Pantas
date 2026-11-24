@@ -1106,3 +1106,15 @@ Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon'
 ### What needs Aedwon
 
 Nothing. He can change the period at legal sign-off, as with R6.
+
+### C8. Evidence that ends before its sharing records (Fable 5.2 advisor, Nov 24)
+
+- Asked by the CSE release lead while building legal round 5 in PR #90. Edge the round does not draw: evidence with a confirmation runs ten years from its newest record; sharing records run 1,461 days from the account's deletion. An account deleted more than six years after its newest non-sharing record (confirmed year 0, deleted year 8) reaches the evidence end (year 10) before the sharing end (year 12). The first sharing choice is the field `sharingAllowed` on the confirmation row.
+- Options: (A) the whole evidence waits for the sharing period; (B) at the evidence end, delete everything except the sharing records, keeping a stripped confirmation row with only the sharing choice until the sharing end; (C) delete everything at the evidence end.
+- Ruling, verbatim: "B."
+  1. Each record keeps its own period: the confirmation row "stays on its own period", sharing records run 1,461 days from deletion.
+  2. A would keep guardian purchase copies and the withdrawal, decline and adult rows up to four years past the stated ten, so the notice would be false (H5).
+  3. C deletes sharing proof while a four-year claim is still live, the gap legal round 5 rejected in its option (b), and breaks the notice's 1,461 days.
+  4. B needs no text change.
+- Build: the stripped row keeps `sharingAllowed`, its time and the two version fields, as a sharing row does. Drop `agreed`; change `action` from `confirm` (simplest: rewrite it as a `sharing_on` or `sharing_off` row) so it stops setting a clock. Keep the parent marker.
+- Tests, failing first: (1) confirmed year 0 with a sharing choice, a later sharing change and a guardian purchase copy, deleted year 8: at ten years only the sharing rows, the stripped row and the marker remain; (2) the same record is unchanged at deletion plus 1,460 days and empty at 1,461; (3) a second run after (1) changes nothing.
