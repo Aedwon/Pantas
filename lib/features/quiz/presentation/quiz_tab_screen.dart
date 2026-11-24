@@ -288,6 +288,11 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         label: label,
         open: _questionSheet != null && examId != null,
         drawer: true,
+        // Reviews has no count line, so its Close X sits on the one-line
+        // title, as on Home.
+        closeTop: _questionSheet == TodayQuestionKind.reviews
+            ? HomeWebOverlay.oneLineCloseTop
+            : HomeWebOverlay.twoLineCloseTop,
         onDismiss: _dismissQuestions,
         child: _questionSheet != null && examId != null
             ? _questionsSheet(examId)
