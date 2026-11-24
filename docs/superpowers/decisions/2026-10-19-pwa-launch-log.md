@@ -4305,3 +4305,8 @@ Expected day total: under 250 reads and 200 writes. Go.
 - **Rule 7:** prod this quota day before: 6,996 reads, 854 writes. This job: about 30 reads and 21 writes.
 - **Rollback:** delete the 18 rows and rerun the claims recompute. Private record: Pantas-private/releases/2026-11-25-owner-pro-grant/.
 
+
+### Nov 25 (Manila), weekly usage reset offered (operations manager)
+
+- Aedwon, verbatim (about 1:45 AM): "okay, i will use a weekly reset when you exhaust your weekly usage so you can keep on working and get things fully ready for public release".
+- Effect: Claude weekly usage is no longer a reason to slow lanes. The 5-hour limit, the 2-Opus-lead cap and the machine caps still apply. Paused lanes (legal texts, payments, under-13, PSHS-NCE, question generator Phase 2, dots) stay paused until his word; the manager asked him which to resume.
