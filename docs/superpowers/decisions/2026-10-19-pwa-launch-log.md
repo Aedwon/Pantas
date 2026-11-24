@@ -4322,3 +4322,17 @@ Expected day total: under 250 reads and 200 writes. Go.
 - **Prod:** build 3216080452-6107606c1b0e (lib/main_prod.dart, prod App Check site key, BETA_GATE=true, SCREEN_COUNTS=true, private SELLER_* inputs); Firebase Hosting version dbd75d7b5230fec7, release 1795547862091000; Worker cdcca25c-b115-445b-b634-0dcbd4ce0ec0; compare.mjs 92 of 92; app.pantas.study and pantas-prod.web.app serve the new build id; headless boot 0 page errors; no ERROR logs 19:17 to 19:26 UTC.
 - **Rollback (not used):** Hosting version d21cd73e126d5f98 (release 1795536658683000, build 4044006759-8b699cc8f700); Worker `wrangler rollback` to 7491ad04-8001-4c45-ad89-f89231185923.
 - **Note:** tool/deploy/require_current_main.mjs refused because main had moved ahead; it guards functions deploys, and this web ship was pinned to 7c82485a4.
+
+### Nov 25, web counts tester rewards and the owner grant as Pro (ENT-06) shipped to prod (CSE release lead r5)
+
+- **Approval:** a fix under Aedwon's standing ship-it ("just ship it please, temporarily drop the rule, do not wait for me as the bottleneck"); ordered by the operations manager Nov 25 after the week strip ship.
+- **Change:** on web, an active `beta_reward` grant with an exam id counts as that exam's Pro, for any exam, from its start to its end, as the server's coverageAt does (audit ENT-06, T17; the rest of T17 is not built). This makes Aedwon's 18 owner rows (E-150) show Pro on every exam. `beta` rows keep their CSE-only limit. Review fixes: after a tester turns the reward on, the app reads Pro again at once; leaving a rewarded exam shows the pass warning instead of crashing. No board: no screen changes beyond Free becoming Pro.
+- **Review:** Codex GPT 6.2 Sol high through codex-pick, one run: FAIL with no finding against the mapper (parity with coverageAt confirmed); the three findings this change exposes were fixed; three display-only Mediums and server PAY-06 deferred (private record: Pantas-private/security/2026-11-23-money-path-audit/ent06-review-2026-11-25.md).
+- **Source:** main 61fbd1b56 (PR #119; the PR's own run went green on d839a5cb7; the green main run is on 1d4a5e579, which adds only #120). Built from 61fbd1b56 so the reader change (#120, merged after it) is not in this build. Web only: no functions, rules, indexes, storage, Worker code or content changes.
+- **Rule 7:** before (free_tier_live.mjs): staging 8,019 reads and 672 writes this quota day, prod 3,442 reads and 148 writes. Staging check was a boot only (a few reads). Prod ship read nothing from Firestore.
+- **Staging check** (build 1518480965-9c1e9031548c, compare.mjs 92 of 92; headless Chromium with the keychain flags): build id matches, reaches onboarding, 0 page errors. Not proven on a signed-in account: no staging account holds a reward; unit tests cover the callable's exact row shape.
+- **Prod:** build 451189975-7c2341db9875 (lib/main_prod.dart, prod App Check site key, BETA_GATE=true, SCREEN_COUNTS=true, private SELLER_* inputs); Firebase Hosting released 19:40 UTC; Worker 74e2f365-96cb-4b7f-adaf-45d717b1b512; compare.mjs 92 of 92; app.pantas.study and pantas-prod.web.app serve the new build id; headless boot reaches the beta gate with 0 page errors; no prod ERROR logs 19:39 to 19:42 UTC.
+- **Rollback (not used):** Hosting version dbd75d7b5230fec7 (build 3216080452-6107606c1b0e, the week strip ship); Worker `wrangler rollback` to cdcca25c-b115-445b-b634-0dcbd4ce0ec0.
+- **Still to see:** Aedwon reloads the app and sees Pro on every exam.
+- Velocity E-153: 2 h 4 min wall, 43 min active (timer).
+
