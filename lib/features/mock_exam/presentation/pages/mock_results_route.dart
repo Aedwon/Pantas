@@ -13,6 +13,7 @@ import 'package:pantas/features/mock_exam/application/mock_results_providers.dar
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
+import 'package:pantas/features/mock_exam/domain/mock_title.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_results_page.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/cse_mock_finale.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
@@ -189,7 +190,10 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
                     ),
                   ),
               ],
-              blueprintName: attempt.blueprintName,
+              blueprintName: mockResultsTitle(
+                attempt.examId,
+                attempt.blueprintName,
+              ),
               dateFormatted: PantasDates.heading(attempt.startedAt.toLocal()),
               forfeited: attempt.status == MockAttemptStatus.forfeited,
               onReviewTap: () => context.push('/mock/review/$attemptId'),
@@ -214,7 +218,10 @@ class _MockResultsRouteState extends ConsumerState<MockResultsRoute> {
             return CseMockFinale(
               key: ValueKey('cse-finale-$attemptId'),
               input: input,
-              blueprintName: attempt.blueprintName,
+              blueprintName: mockResultsTitle(
+                attempt.examId,
+                attempt.blueprintName,
+              ),
               dateFormatted: PantasDates.heading(attempt.startedAt.toLocal()),
               resultsBuilder: (context, clock) => page(clock),
             );

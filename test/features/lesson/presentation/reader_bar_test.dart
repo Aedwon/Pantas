@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -481,6 +483,47 @@ void main() {
 
     await pumpBar(tester, origin: ReaderOrigin.home);
     expect(find.text('Home'), findsOneWidget);
+  });
+
+  // Board DP_DayRead: a reader opened from a plan day names the day (P10).
+  testWidgets('a plan day names its weekday in the back link', (tester) async {
+    final day = LessonDayContext(
+      date: DateTime(2026, 10, 6),
+      lessonIds: const ['a'],
+      index: 0,
+      backLabel: 'Tuesday',
+    );
+    Widget bar() => ReaderBar(
+          title: 'T',
+          dayContext: day,
+          origin: ReaderOrigin.home,
+          isBookmarked: false,
+          onBookmark: () {},
+          onContents: () {},
+          scrollOffset: ValueNotifier(0),
+        );
+    // Alone on the stack there is no day beneath it: Home.
+    await tester.pumpApp(bar());
+    expect(find.text('Home'), findsOneWidget);
+    expect(find.text('Tuesday'), findsNothing);
+
+    late BuildContext below;
+    await tester.pumpApp(
+      Builder(
+        builder: (context) {
+          below = context;
+          return const SizedBox();
+        },
+      ),
+    );
+    unawaited(
+      Navigator.of(below).push(
+        MaterialPageRoute<void>(builder: (_) => Scaffold(body: bar())),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Tuesday'), findsOneWidget);
+    expect(find.text('Home'), findsNothing);
   });
 
   testWidgets('the title is never in the bar itself', (tester) async {

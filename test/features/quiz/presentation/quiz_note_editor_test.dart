@@ -85,15 +85,15 @@ void main() {
           .onPressed,
       isNull,
     );
-    await tester.tap(find.text('I misread'));
+    await tester.tap(find.text('I misread it'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Add Note'));
     await tester.pumpAndSettle();
     expect(saved, MistakeTag.misread);
   });
   for (final entry in [
-    ('I forgot', MistakeTag.slipped),
-    ("I didn't know", MistakeTag.unknown),
+    ('I knew it, I just slipped', MistakeTag.slipped),
+    ("I didn't know it", MistakeTag.unknown),
   ]) {
     testWidgets('${entry.$1} keeps the existing stored tag', (tester) async {
       MistakeTag? saved;
@@ -105,9 +105,9 @@ void main() {
         ),
       );
       for (final label in [
-        'I misread',
-        'I forgot',
-        "I didn't know",
+        'I misread it',
+        'I knew it, I just slipped',
+        "I didn't know it",
         'Type my own',
       ]) {
         expect(find.text(label), findsOneWidget);
@@ -164,7 +164,7 @@ void main() {
       ),
     );
     expect(find.text('Update'), findsOneWidget);
-    await tester.tap(find.text('I misread'));
+    await tester.tap(find.text('I misread it'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Update'));
     await tester.pumpAndSettle();
@@ -191,7 +191,7 @@ void main() {
         },
       ),
     );
-    await tester.tap(find.text('I misread'));
+    await tester.tap(find.text('I misread it'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Add Note'));
     await tester.pump();
@@ -215,7 +215,7 @@ void main() {
     );
     final update = find.widgetWithText(PantasButton, 'Update');
     expect(tester.widget<PantasButton>(update).onPressed, isNull);
-    await tester.tap(find.text('I misread'));
+    await tester.tap(find.text('I misread it'));
     await tester.pumpAndSettle();
     expect(tester.widget<PantasButton>(update).onPressed, isNotNull);
     await tester.tap(find.text('Type my own'));
@@ -227,10 +227,10 @@ void main() {
       (tester) async {
     await tester
         .pumpApp(QuizNoteEditor(onCancel: () {}, onSave: (_, __) async {}));
-    await tester.tap(find.text('I misread'));
+    await tester.tap(find.text('I misread it'));
     await tester.pump();
     final mark = find.descendant(
-      of: find.widgetWithText(RadioRow, 'I misread'),
+      of: find.widgetWithText(RadioRow, 'I misread it'),
       matching: find.byKey(const ValueKey('selection-scale')),
     );
     double scale() => tester.widget<Transform>(mark).transform.storage[0];
@@ -248,7 +248,7 @@ void main() {
     await tester
         .pumpApp(QuizNoteEditor(onCancel: () {}, onSave: (_, __) async {}));
     final colors = tester.element(find.byType(QuizNoteEditor)).colors;
-    await tester.tap(find.text('I misread'));
+    await tester.tap(find.text('I misread it'));
     await tester.pump();
     Color? background() => tester
         .widget<TextButton>(

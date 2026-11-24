@@ -50,6 +50,29 @@ void main() {
         );
       }
       expect(identical(rows[0], rows[1]), isFalse);
+      // Board HM_Advanced: a 24 px line icon drawn for the row, 20 px in from
+      // the card's left edge (U80).
+      for (final title in ['Your record', 'Your tendencies']) {
+        final card = find.ancestor(
+          of: find.text(title),
+          matching: find.byType(WebCard),
+        );
+        final icon = find.descendant(
+          of: card,
+          matching: find.byWidgetPredicate(
+            (w) => w is CustomPaint && w.size == const Size.square(24),
+          ),
+        );
+        expect(icon, findsOneWidget);
+        expect(
+          tester.getTopLeft(icon).dx - tester.getTopLeft(card).dx,
+          closeTo(20, 1),
+        );
+        expect(
+          find.descendant(of: card, matching: find.byIcon(Icons.show_chart)),
+          findsNothing,
+        );
+      }
       expect(tester.takeException(), isNull);
     });
   }
