@@ -70,7 +70,7 @@ class AppearancePage extends ConsumerWidget {
           ),
           const SizedBox(height: PantasSpace.s24),
           SettingsSection(
-            header: 'Lesson Text Size',
+            header: 'Text size',
             footer: 'Lessons and questions use this size. '
                 '$commandKeyLabel + and $commandKeyLabel − still zoom the '
                 'whole page.',
@@ -171,7 +171,7 @@ class AppearancePage extends ConsumerWidget {
         ),
         const SizedBox(height: PantasSpace.s20),
         SettingsSection(
-          header: 'Lesson Text Size',
+          header: 'Text size',
           footer: 'Lessons and questions use this size.',
           children: _textSizeChildren(
             scale: scale,
@@ -464,7 +464,7 @@ class _TextSizeSlider extends StatelessWidget {
   }
 }
 
-/// The inside of the Lesson Text Size card (board TS_A): the slider row, a
+/// The inside of the Text size card (boards ST_Appearance, TS_A): the slider row, a
 /// hairline, then the sample on the system inset surface. The wide card pads
 /// both 18 by 16; the phone group pads both 16.
 List<Widget> _textSizeChildren({
