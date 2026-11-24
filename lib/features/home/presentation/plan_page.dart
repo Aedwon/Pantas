@@ -134,9 +134,9 @@ class PlanPage extends StatefulWidget {
     required this.nodes,
     required this.history,
     required this.onBack,
-    required this.onToday,
     required this.onWeek,
     required this.onPro,
+    this.onToday,
     this.subtitle,
     this.left,
     this.webPane,
@@ -164,7 +164,10 @@ class PlanPage extends StatefulWidget {
   final bool loadingMore;
   final Widget? paginationError;
   final VoidCallback onBack;
-  final VoidCallback onToday;
+
+  /// The wide Today row's tap. The phone Today row draws no tap (DP_Drill),
+  /// so the phone passes none.
+  final VoidCallback? onToday;
   final ValueChanged<String> onWeek;
   final VoidCallback onPro;
   final bool hasMore;

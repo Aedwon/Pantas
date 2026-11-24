@@ -8,6 +8,7 @@ import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/features/home/application/home_boundary.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/plan_provider.dart';
@@ -354,10 +355,11 @@ void main() {
     expect(find.byType(StateView), findsNothing);
     expect(find.text('Could not load your plan.'), findsNothing);
     expect(find.text('Try Again'), findsNothing);
-    expect(
-      find.text('Your plan had not started on this day.'),
-      findsOneWidget,
-    );
+    // Ruling E-155: the PL_DayPast sub line, in the secondary color.
+    expect(find.text('No plan on this day.'), findsOneWidget);
+    expect(find.text('Your plan had not started on this day.'), findsNothing);
+    final line = tester.widget<Text>(find.text('No plan on this day.'));
+    expect(line.style?.color, PantasColors.light.textSecondary);
   });
 
   testWidgets('the week strip opens no card for a day before the plan began',
