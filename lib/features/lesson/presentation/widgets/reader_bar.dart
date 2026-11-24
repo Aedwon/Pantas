@@ -210,6 +210,8 @@ class ReaderBar extends StatelessWidget {
                             child: PantasTapArea(
                               onTap: onBookmark,
                               borderRadius: _controlRadius,
+                              // The mark draws its own .82 press (BM_MarkTeal).
+                              pressScale: false,
                               washColor: isBookmarked
                                   ? context.colors.accent
                                   : context.colors.iconMuted,

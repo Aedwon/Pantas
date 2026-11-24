@@ -9,6 +9,7 @@ import 'package:pantas/app/routes/settings_routes.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
@@ -428,6 +429,8 @@ void main() {
         overrides: resultsOverrides(found: false),
       );
       expect(find.text('Results not available'), findsOneWidget);
+      // The design system state, not bare text and a 52 px button.
+      expect(find.byType(StateView), findsOneWidget);
       await tester.tap(find.text('Back'));
       await tester.pumpAndSettle();
       expect(pathOf(router), '/quiz');

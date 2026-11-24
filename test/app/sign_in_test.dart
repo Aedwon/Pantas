@@ -804,6 +804,38 @@ void main() {
       }
     });
 
+    testWidgets('wide buttons take their natural width, phone buttons fill',
+        (tester) async {
+      await pumpPage(tester, size: _laptop);
+      double widthOf(Type type) => tester
+          .getSize(
+            find.descendant(
+              of: find.byType(type),
+              matching: find.byType(TextButton),
+            ),
+          )
+          .width;
+      final wideButton = widthOf(SignInButton);
+      final wideGoogle = widthOf(SignInTextButton);
+      expect(wideButton, lessThan(400));
+      expect(wideGoogle, lessThan(400));
+      await tester.pumpWidget(const SizedBox.shrink());
+      await pumpPage(tester);
+      expect(widthOf(SignInButton), greaterThan(_phone.width - 80));
+    });
+
+    testWidgets('an inline link line is at least 24 px high', (tester) async {
+      for (final size in [_phone, _laptop]) {
+        await pumpPage(tester, size: size);
+        expect(
+          tester.getSize(find.byType(LinkLine).first).height,
+          greaterThanOrEqualTo(24),
+          reason: '$size',
+        );
+        await tester.pumpWidget(const SizedBox.shrink());
+      }
+    });
+
     testWidgets('dark theme builds every step without overflow',
         (tester) async {
       for (final size in [_phone, _laptop]) {

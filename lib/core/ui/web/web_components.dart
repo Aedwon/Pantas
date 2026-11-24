@@ -2003,6 +2003,9 @@ class WebBarArrow extends StatelessWidget {
 /// the link, where a 10 px gap used to be.
 const double webBackLinkPadRight = PantasSpace.s10;
 
+// ds-board: OB_Days, the onboarding back link radius.
+const double _compactBackRadius = 9;
+
 /// Room inside the back link's highlight before its arrow (back link A).
 const double webBackLinkPadLeft = PantasSpace.s8;
 
@@ -2021,10 +2024,16 @@ class WebBackLink extends StatefulWidget {
     this.fontSize,
     this.tightIcon = false,
     this.nudge = true,
+    this.compact = false,
     super.key,
   });
   final String label;
   final VoidCallback onPressed;
+
+  /// The onboarding board's back link (OB_Days): 36 high, radius 9, 4 px
+  /// before the arrow and 10 px after the label, sitting 10 px left of the
+  /// column so the arrow is 6 px outside it.
+  final bool compact;
 
   /// Moves the link into the page margin so the arrow sits 6 px left of the
   /// page edge, as the board's `.back` does. A link in a top bar that already
@@ -2051,13 +2060,22 @@ class _WebBackLinkState extends State<WebBackLink> {
     // The nudge puts the link's left end outside the page's clip, so the ring
     // is drawn in the overlay (5Q-11). Without one the ring is drawn here.
     final overlayRing = widget.nudge && WebBackLinkRing.supported(context);
-    final radius = BorderRadius.circular(PantasRadius.back);
+    final radius = BorderRadius.circular(
+      widget.compact ? _compactBackRadius : PantasRadius.back,
+    );
     final style = TextButton.styleFrom(
       padding: EdgeInsets.only(
-        left: widget.nudge ? webBackLinkPadLeft : PantasSpace.s0,
+        left: widget.compact
+            ? PantasSpace.s4
+            : widget.nudge
+                ? webBackLinkPadLeft
+                : PantasSpace.s0,
         right: webBackLinkPadRight,
       ),
-      minimumSize: const Size(0, PantasSize.back),
+      minimumSize: Size(
+        0,
+        widget.compact ? PantasSpace.s32 + PantasSpace.s4 : PantasSize.back,
+      ),
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       visualDensity: VisualDensity.standard,
       textStyle: PantasType.webRowTitle,
@@ -2116,7 +2134,11 @@ class _WebBackLinkState extends State<WebBackLink> {
       alignment: Alignment.centerLeft,
       child: Transform.translate(
         offset: Offset(
-          widget.nudge ? -(PantasSpace.s6 + webBackLinkPadLeft) : 0,
+          widget.compact
+              ? -PantasSpace.s10
+              : widget.nudge
+                  ? -(PantasSpace.s6 + webBackLinkPadLeft)
+                  : 0,
           0,
         ),
         child: TouchTarget(

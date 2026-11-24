@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 
@@ -21,6 +24,7 @@ class GoogleSignInButton extends StatelessWidget {
     required this.onPressed,
     this.label = 'Continue with Google',
     this.busy = false,
+    this.done = false,
     this.expand = false,
     this.size,
     super.key,
@@ -29,6 +33,10 @@ class GoogleSignInButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   final bool busy;
+
+  /// Sign-in worked: the button turns tonal, a check pops in and the label
+  /// reads "Signed in" (board L_SignIn).
+  final bool done;
   final bool expand;
 
   /// A size class for a place the field height is too big, such as a card
@@ -36,14 +44,40 @@ class GoogleSignInButton extends StatelessWidget {
   final PantasButtonSize? size;
 
   @override
-  Widget build(BuildContext context) => WebButton(
+  Widget build(BuildContext context) {
+    final still = MediaQuery.disableAnimationsOf(context);
+    final Widget button;
+    if (done) {
+      // A no-op press keeps the tonal colors; the button has nothing to do.
+      button = WebButton(
+        key: const ValueKey('google-sign-in-done'),
+        label: 'Signed in',
+        kind: PantasButtonKind.secondary,
+        tone: PantasButtonTone.accent,
+        size: size,
+        height: size == null ? PantasSize.field : null,
+        expand: expand,
+        icon: CheckMark.glyph(size: 18, color: context.colors.accent),
+        onPressed: () {},
+      );
+    } else {
+      button = WebButton(
+        key: ValueKey(busy ? 'google-sign-in-busy' : 'google-sign-in'),
         label: label,
         variant: WebButtonVariant.white,
         size: size,
         height: size == null ? PantasSize.field : null,
         expand: expand,
-        icon: SvgPicture.string(_googleMark, width: 18, height: 18),
+        icon:
+            busy ? null : SvgPicture.string(_googleMark, width: 18, height: 18),
         busy: busy,
         onPressed: onPressed,
       );
+    }
+    // The label swaps with a 150 ms fade.
+    return AnimatedSwitcher(
+      duration: still ? Duration.zero : PantasDurations.short2,
+      child: button,
+    );
+  }
 }

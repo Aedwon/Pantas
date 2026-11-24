@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
@@ -647,9 +648,10 @@ class SignInButton extends StatelessWidget {
           ),
         ),
     };
-    return SizedBox(
+    final button = SizedBox(
       height: PantasSize.btnPhone,
-      width: double.infinity,
+      // HANDOFF: no full-width buttons on wide; they take their natural width.
+      width: style.wide ? null : double.infinity,
       child: PressScale(
         child: TextButton(
           // ds-raw: brand provider button with logo content
@@ -681,6 +683,7 @@ class SignInButton extends StatelessWidget {
         ),
       ),
     );
+    return style.wide ? Center(child: button) : button;
   }
 }
 
@@ -701,9 +704,9 @@ class SignInTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    final button = SizedBox(
       height: PantasSize.targetTouch,
-      width: double.infinity,
+      width: style.wide ? null : double.infinity,
       child: TextButton(
         // ds-raw: brand provider button with logo content
         onPressed: onPressed,
@@ -733,6 +736,7 @@ class SignInTextButton extends StatelessWidget {
           ),
         ),
         child: Row(
+          mainAxisSize: style.wide ? MainAxisSize.min : MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (icon != null) ...[
@@ -744,6 +748,7 @@ class SignInTextButton extends StatelessWidget {
         ),
       ),
     );
+    return style.wide ? Center(child: button) : button;
   }
 }
 
@@ -811,7 +816,14 @@ class _LinkLineState extends State<LinkLine> {
   @override
   Widget build(BuildContext context) => Text.rich(
         TextSpan(
-          style: widget.style.small.copyWith(height: 1.5),
+          // The line is the link's tap area: at least 24 px high
+          // (`target-pointer-min`), where 1.5 gave 19.5.
+          style: widget.style.small.copyWith(
+            height: math.max(
+              1.5,
+              PantasSize.targetPointerMin / widget.style.small.fontSize!,
+            ),
+          ),
           children: [
             TextSpan(text: widget.prefix),
             TextSpan(

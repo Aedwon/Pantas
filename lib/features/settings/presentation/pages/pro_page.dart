@@ -1551,7 +1551,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           SizedBox(
             height: context.wideWeb ? PantasSpace.s0 : PantasSpace.s24,
           ),
-          if (!offering.isLoading && packages.isEmpty)
+          // A pass-only exam has something to buy: no retry.
+          if (!offering.isLoading && packages.isEmpty && passes.isEmpty)
             PantasButton(
               label: 'Try Again',
               variant: PantasButtonVariant.secondary,

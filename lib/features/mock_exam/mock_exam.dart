@@ -30,5 +30,3 @@ export 'presentation/part_transition_page.dart';
 export 'presentation/pause_page.dart';
 export 'presentation/proctor_toast.dart';
 export 'presentation/widgets/mock_card.dart';
-export 'presentation/widgets/mock_resume_sheet.dart';
-export 'presentation/widgets/mock_status_card.dart';

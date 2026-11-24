@@ -137,28 +137,23 @@ class StateView extends StatelessWidget {
     } else if (onRetry == null) {
       action = null;
     } else {
-      // Natural width, centered under the text. An error fills the phone's
-      // width up to the text measure.
-      final button = PantasButton(
+      // Natural width, centered under the text. The phone error is a pill
+      // with 22 px sides (board DT_Error); the primary action of a blocked
+      // state keeps the pill too. A wide error keeps its rectangle.
+      final phoneError = isError && !wide && !primary;
+      action = PantasButton(
         label: actionLabel,
         variant: primary
             ? PantasButtonVariant.primary
             : PantasButtonVariant.secondary,
         height: PantasSize.btn,
         fontSize: PantasType.webLink.fontSize,
-        // The tonal retry is a rounded rectangle (ErrorState README); only
-        // the primary action of a blocked state keeps the board's pill.
-        radius: primary ? PantasRadius.full : null,
-        fullWidth: isError && !wide && !primary,
-        horizontalPadding: PantasSpace.s24,
+        radius: primary || phoneError ? PantasRadius.full : null,
+        fullWidth: false,
+        horizontalPadding:
+            phoneError ? PantasSpace.s20 + PantasSpace.s2 : PantasSpace.s24,
         onPressed: onRetry,
       );
-      action = isError && !wide && !primary
-          ? ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: _textMax),
-              child: button,
-            )
-          : button;
     }
     final content = Column(
       mainAxisSize: MainAxisSize.min,

@@ -8,6 +8,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
@@ -526,7 +527,7 @@ void main() {
         await openLeave(tester);
         final held = FocusManager.instance.primaryFocus!;
         expect(held, isNot(isA<FocusScopeNode>()));
-        expect(ModalRoute.of(held.context!), isA<DialogRoute<bool>>());
+        expect(ModalRoute.of(held.context!), isA<WebOverlayRoute<bool>>());
         await tester.sendKeyEvent(LogicalKeyboardKey.escape);
         await tester.pumpAndSettle();
         expect(find.text('Leave this session?'), findsNothing);

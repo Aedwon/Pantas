@@ -1318,7 +1318,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
     return Padding(
       padding: EdgeInsets.fromLTRB(
         PantasSpace.s20,
-        PantasSpace.s8,
+        PantasSpace.s0,
         PantasSpace.s20,
         PantasSheet.bottomRest(context),
       ),
@@ -1326,19 +1326,7 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Center(
-            child: Container(
-              width: 36,
-              height: 5,
-              decoration: BoxDecoration(
-                // Board (QZS_1b): the handle is #D1D1D6 in light mode.
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? context.colors.borderControl
-                    : context.colors.dividerStrong,
-                borderRadius: BorderRadius.circular(PantasRadius.sm),
-              ),
-            ),
-          ),
+          // The sheet shell draws the one 36 by 5 grabber.
           const SizedBox(height: PantasSpace.s12),
           Row(
             children: [
@@ -1351,12 +1339,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   ),
                 ),
               ),
-              PantasButton(
+              PantasSheetAction(
                 label: 'Done',
-                kind: PantasButtonKind.tertiary,
-                tone: PantasButtonTone.accent,
-                height: PantasSize.btn,
-                fullWidth: false,
+                strong: true,
                 onPressed: () => setState(() => _lengthOpen = false),
               ),
             ],
