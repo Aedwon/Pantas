@@ -3,7 +3,7 @@ import test from 'node:test';
 import {normalizePaymongoEvent, verifyPaymongoSignature} from '../../functions/lib/paymongoPolicy.js';
 import {redeliverPayment} from './redeliver_payment.mjs';
 
-const SECRET_KEY = 'sk_test_SECRETKEYVALUE123';
+const SECRET_KEY = 'sk_test_fake';
 const WEBHOOK_SECRET = 'whsk_SECRETWEBHOOKVALUE456';
 const now = Date.parse('2027-03-14T12:00:00Z');
 const session = {data: {id: 'cs_abc123', type: 'checkout_session', attributes: {
