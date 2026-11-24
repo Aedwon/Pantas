@@ -39,11 +39,10 @@ void main() {
           ),
         ),
       );
-      expect(find.text('Keep Pantas on your Home Screen'), findsOneWidget);
+      expect(find.text('Keep Pantas one tap away'), findsOneWidget);
       expect(
         find.text(
-          'Pantas opens faster and keeps working without internet. '
-          'Your progress stays the same.',
+          'Add it to your Home Screen. Your progress stays the same.',
         ),
         findsOneWidget,
       );
@@ -111,7 +110,7 @@ void main() {
       );
       expect(find.text('Show Me How'), findsOneWidget);
       expect(find.text('Install Pantas'), findsNothing);
-      expect(find.text('Keep Pantas on your Home Screen'), findsOneWidget);
+      expect(find.text('Keep Pantas one tap away'), findsOneWidget);
     });
 
     testWidgets('the iPhone sheet shows three steps, $theme', (tester) async {
@@ -152,7 +151,7 @@ void main() {
     });
   }
 
-  testWidgets('an iPad-wide iOS card keeps the Home Screen wording',
+  testWidgets('an iPad-wide iOS card keeps the phone wording',
       (tester) async {
     await tester.pumpWidget(
       _host(
@@ -164,7 +163,7 @@ void main() {
         ),
       ),
     );
-    expect(find.text('Keep Pantas on your Home Screen'), findsOneWidget);
+    expect(find.text('Keep Pantas one tap away'), findsOneWidget);
     expect(find.text('Show Me How'), findsOneWidget);
   });
 

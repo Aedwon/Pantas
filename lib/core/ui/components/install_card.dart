@@ -43,12 +43,11 @@ class InstallCard extends StatelessWidget {
         final desktopCopy = wide && !_ios;
         final title = desktopCopy
             ? 'Keep Pantas one click away'
-            : 'Keep Pantas on your Home Screen';
+            : 'Keep Pantas one tap away';
         final body = desktopCopy
             ? 'Install it and Pantas opens in its own window, like any app. '
                 'Your progress stays the same.'
-            : 'Pantas opens faster and keeps working without internet. '
-                'Your progress stays the same.';
+            : 'Add it to your Home Screen. Your progress stays the same.';
         final primary = WebButton(
           label: _ios ? 'Show Me How' : 'Install Pantas',
           onPressed: onPrimary,
