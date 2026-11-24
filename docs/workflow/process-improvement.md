@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Ship report packed jargon, internal codes, and hashes into chat (Nov 24)
+
+- His words: "did you read your global instructions, agents.md workflow.md cuz none of your words made sense to me".
+- Wrong: the temporary operations manager's ship report packed raw build and commit hashes, version and alert IDs, internal task codes (`T18`, `T19`, `B2/B5`, `H5`, `PAY-06`), code and script names (`became_adult`, `compare.mjs`), scattered bold, and a 75-word sentence into a routine reply to Aedwon, breaking `WORKFLOW.md` ("Write for Aedwon").
+- Why it got through: the prompt asked for a 3-line ship report with rollbacks, and the agent compressed the technical deploy record directly into chat instead of putting IDs in the launch log and writing plain English for Aedwon.
+- Fix (required step before sending any chat reply to Aedwon): put commit hashes, version IDs, alert IDs, internal task codes, and script or function names in the launch log or private release folder, never in routine chat replies. Before sending, check that every sentence uses plain words, carries one idea in 25 words or fewer, and avoids scattered bold; describe rollbacks in plain words ("switch back to the previous app version, server code, database rules, and indexes saved in the release folder") instead of raw IDs. No automated check can judge plain-English clarity across chat messages.
+
 ### Manager routed every decision to Fable (Nov 23 to 24)
 
 - His words: "i also think you're being too dependent on Fable, Fable should be an advisor only".
