@@ -964,7 +964,7 @@ class _MockReviewRow extends StatelessWidget {
                             ContentRenderer(text: entry.label),
                           if (!entry.isAnswered) ...[
                             // Boards: 1 px under the title.
-                            const SizedBox(height: 1),
+                            const SizedBox(height: PantasSpace.s2 / 2),
                             Text(
                               'Left blank',
                               style: context.type.footnote.copyWith(

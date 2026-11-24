@@ -5,8 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/custom_mock_setup_page.dart';
@@ -86,10 +86,14 @@ void main() {
         tester.getRect(find.text("We'll build it from what you tell us."));
     final questions = tester.getRect(find.text('Questions'));
     // Sub bottom to the white card: the row's own padding is 11 above the text.
-    final card = tester.getRect(find
-        .ancestor(
-            of: find.text('Questions'), matching: find.byType(GroupedSection))
-        .first);
+    final card = tester.getRect(
+      find
+          .ancestor(
+            of: find.text('Questions'),
+            matching: find.byType(GroupedSection),
+          )
+          .first,
+    );
     expect(card.top - sub.bottom, closeTo(22, 3));
     expect(questions.top, greaterThan(card.top));
 

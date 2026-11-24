@@ -839,6 +839,9 @@ class _PlanDoneRingPainter extends CustomPainter {
       old.fraction != fraction || old.track != track || old.fill != fill;
 }
 
+// ds-board: DP_History See more padding-top and bottom 13
+const double _seeMoreVertical = PantasSpace.s12 + PantasSpace.s2 / 2;
+
 /// The end of the History card: See more, or the closing line when every
 /// entry is shown. Board (DP_History): regular weight, 17 px, chevron after.
 class _HistoryFooter extends StatelessWidget {
@@ -867,7 +870,7 @@ class _HistoryFooter extends StatelessWidget {
             child: Padding(
               // ds-board: DP_History See more padding 13 16, gap 6.
               padding: const EdgeInsets.symmetric(
-                vertical: PantasSpace.s12 + 1,
+                vertical: _seeMoreVertical,
                 horizontal: PantasSpace.s16,
               ),
               child: Row(

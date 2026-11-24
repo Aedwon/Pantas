@@ -338,7 +338,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                                 subtitle: widget.subjectNames[
                                     widget.session.questions[index].topicId],
                                 leading: SizedBox(
-                                  width: 22,
+                                  width: PantasSpace.s20 + PantasSpace.s2,
                                   child: Center(
                                     child: _MissX(color: colors.dangerText),
                                   ),

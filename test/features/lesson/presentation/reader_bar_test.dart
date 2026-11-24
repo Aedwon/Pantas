@@ -477,7 +477,7 @@ void main() {
   testWidgets('a plan day names its weekday in the back link', (tester) async {
     final day = LessonDayContext(
       date: DateTime(2026, 10, 6),
-      lessonIds: ['a'],
+      lessonIds: const ['a'],
       index: 0,
       backLabel: 'Tuesday',
     );

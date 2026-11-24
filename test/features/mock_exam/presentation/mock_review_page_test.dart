@@ -577,7 +577,8 @@ void main() {
   }
 
   // Boards MK_ReviewQ, MK_ReviewQFree and QN_Correct: the counter is left of
-  // the note icon only on a wrong Pro answer; with no icon it is centered (P22).
+  // the note icon only on a wrong Pro answer; with no icon it is centered
+  // (P22).
   Finder counter() => find.byWidgetPredicate(
         (w) => w is Text && RegExp(r'^\d+ of \d+$').hasMatch(w.data ?? ''),
       );
