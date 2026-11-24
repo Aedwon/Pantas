@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math' as math;
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -15,11 +16,14 @@ import 'package:pantas/core/ui/components/google_sign_in_button.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
+import 'package:pantas/core/ui/components/ring_pulse.dart';
 import 'package:pantas/core/ui/components/selectable_tile.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
@@ -134,6 +138,14 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   /// The wording the server asked for after it refused the one shown.
   DeclarationKind? _serverKind;
 
+  /// Ruling C6: where the card and the bar are, so a tap on Pay while it is
+  /// off can bring the card to rest just above the bar.
+  final _cardKey = GlobalKey();
+  final _barKey = GlobalKey();
+  final _tickFocus = FocusNode(debugLabel: 'declaration-tick');
+  final _tickPulse = RingPulseController();
+  bool _showingTick = false;
+
   @override
   void initState() {
     super.initState();
@@ -169,7 +181,66 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    _tickFocus.dispose();
     super.dispose();
+  }
+
+  /// Ruling C6. Pay was pressed while the box is unticked: say why. A card
+  /// that is not fully visible scrolls to rest 16 px above the bar (400 ms on
+  /// the move curve). Then focus goes to the tick and the ring pulses once,
+  /// never during the scroll. Reduced motion jumps and does not pulse.
+  Future<void> _showTick() async {
+    if (_showingTick) return;
+    _showingTick = true;
+    try {
+      final still = MediaQuery.disableAnimationsOf(context);
+      final card = _cardKey.currentContext;
+      final bar = _barKey.currentContext?.findRenderObject();
+      final cardBox = card?.findRenderObject();
+      final scrollable = card == null ? null : Scrollable.maybeOf(card);
+      if (cardBox is RenderBox &&
+          bar is RenderBox &&
+          scrollable != null &&
+          cardBox.attached &&
+          bar.attached) {
+        final position = scrollable.position;
+        final viewport = scrollable.context.findRenderObject()! as RenderBox;
+        final top = cardBox.localToGlobal(Offset.zero).dy;
+        final bottom = top + cardBox.size.height;
+        final floor = viewport.localToGlobal(Offset.zero).dy;
+        final ceiling = math.min(
+          floor + viewport.size.height,
+          bar.localToGlobal(Offset.zero).dy,
+        );
+        if (top < floor || bottom > ceiling) {
+          // Rest the card's bottom 16 px above the bar; a card taller than
+          // the room keeps its top in view.
+          final move = math.min(
+            bottom - (bar.localToGlobal(Offset.zero).dy - PantasSpace.s16),
+            top - floor,
+          );
+          final target = (position.pixels + move).clamp(
+            position.minScrollExtent,
+            position.maxScrollExtent,
+          );
+          if (still) {
+            position.jumpTo(target);
+          } else {
+            await position.animateTo(
+              target,
+              // 400 ms, as ruling C6 sets it (this token's value).
+              duration: PantasDurations.drawerClose,
+              curve: PantasCurves.move,
+            );
+          }
+        }
+      }
+      if (!mounted) return;
+      _tickFocus.requestFocus();
+      if (!still) _tickPulse.play();
+    } finally {
+      _showingTick = false;
+    }
   }
 
   Future<void> _clearPendingExamSwitch({String? uid}) async {
@@ -844,6 +915,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     }
     final declarationTicked = tickKey != null && _tickedFor == tickKey;
     final buyLocked = _busy || (declarationBox && !declarationTicked);
+    // Ruling C6: on the phone Pay shows off but stays tappable, to say why.
+    final payOff = declarationBox && !declarationTicked && !_busy;
     final purchaseLabel = selectedPass != null
         ? 'Buy Season Pass'
         : selectedPackage == null
@@ -988,8 +1061,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             )
           : _FadedBar(
               child: SafeArea(
+                key: _barKey,
                 top: false,
                 child: Padding(
+                  key: const ValueKey('pro-bar'),
                   padding: const EdgeInsets.fromLTRB(
                     PantasSpace.s16,
                     PantasSpace.s14,
@@ -1012,15 +1087,19 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                           PantasButton(
                             label: purchaseLabel,
                             busy: _busy,
-                            onPressed: buyLocked
-                                ? null
-                                : () => _purchase(
-                                      selectedPackage,
-                                      selectedPass,
-                                      exam,
-                                      allowTrial: trial && !lapsed,
-                                      declaration: declaration,
-                                    ),
+                            inactive: payOff,
+                            hint: _tickHint,
+                            onPressed: payOff
+                                ? () => unawaited(_showTick())
+                                : buyLocked
+                                    ? null
+                                    : () => _purchase(
+                                          selectedPackage,
+                                          selectedPass,
+                                          exam,
+                                          allowTrial: trial && !lapsed,
+                                          declaration: declaration,
+                                        ),
                           ),
                         if (selectedPass != null && sitting != null) ...[
                           const SizedBox(height: PantasSpace.s8),
@@ -1073,7 +1152,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                           busy: _busy,
                           onPressed: _busy ? null : _restore,
                         ),
-                      if (_feedback != null)
+                      // Ruling C6: with the card on the page the line always
+                      // holds its height, so the bar never changes size.
+                      if (declarationBox)
+                        _StatusLine(
+                          message: _feedback,
+                          hint: _tickHint,
+                          showHint: payOff,
+                        )
+                      else if (_feedback != null)
                         Text(
                           _feedback!,
                           textAlign: TextAlign.center,
@@ -1403,6 +1490,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               height: context.wideWeb ? PantasSpace.s28 : PantasSpace.s24,
             ),
             DeclarationCard(
+              key: _cardKey,
+              tickFocus: _tickFocus,
+              tickPulse: _tickPulse,
               kind: declarationKind,
               ticked: declarationTicked,
               onToggle: _busy
@@ -1592,6 +1682,45 @@ String _periodName(PaywallSku sku) => switch (sku) {
 /// The phone's bottom action bar (PhoneFrame `.phone-bottom`): on the page
 /// color, with a fade from transparent so the scrolling plans do not end in a
 /// hard cut under it.
+/// What the status line and Pay's screen reader hint say while the box is
+/// unticked (ruling C6).
+const _tickHint = 'Tick the box to pay.';
+
+/// The phone bar's status line. It always takes one line of room, so the bar
+/// keeps its height. A message shows as it is; the hint fades out over 150 ms
+/// once the box is ticked.
+class _StatusLine extends StatelessWidget {
+  const _StatusLine({
+    required this.message,
+    required this.hint,
+    required this.showHint,
+  });
+  final String? message;
+  final String hint;
+  final bool showHint;
+
+  @override
+  Widget build(BuildContext context) {
+    final shown = message != null || showHint;
+    return ExcludeSemantics(
+      // Pay carries the hint for a screen reader; only a message is read here.
+      excluding: message == null,
+      child: AnimatedOpacity(
+        opacity: shown ? 1 : 0,
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : PantasDurations.short2,
+        curve: PantasCurves.fade,
+        child: Text(
+          message ?? hint,
+          textAlign: TextAlign.center,
+          style: context.type.footnote,
+        ),
+      ),
+    );
+  }
+}
+
 class _FadedBar extends StatelessWidget {
   const _FadedBar({required this.child});
   final Widget child;

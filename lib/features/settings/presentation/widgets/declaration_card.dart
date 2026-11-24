@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:pantas/core/config/seller_facts.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/offset_focus_ring.dart';
+import 'package:pantas/core/ui/components/ring_pulse.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -23,6 +24,8 @@ class DeclarationCard extends StatelessWidget {
     required this.ticked,
     required this.onToggle,
     required this.onOpenTerms,
+    this.tickFocus,
+    this.tickPulse,
     super.key,
   });
 
@@ -32,6 +35,12 @@ class DeclarationCard extends StatelessWidget {
   /// Null while a payment is in progress.
   final VoidCallback? onToggle;
   final VoidCallback onOpenTerms;
+
+  /// Lets the page move focus to the tick (ruling C6).
+  final FocusNode? tickFocus;
+
+  /// Plays the ring pulse once on the tick (ruling C6).
+  final RingPulseController? tickPulse;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +54,8 @@ class DeclarationCard extends StatelessWidget {
       standardDensity: true,
       squareEdges: wide,
       interactiveContent: true,
+      focusNode: tickFocus,
+      markPulse: tickPulse,
       onTap: onToggle,
       // One text flow, so the sentence wraps as one. The link is a span.
       content: Text.rich(

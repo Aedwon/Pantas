@@ -1,4 +1,4 @@
-import 'dart:ui' show CheckedState;
+import 'dart:ui' show CheckedState, Tristate;
 
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/gestures.dart';
@@ -179,11 +179,18 @@ void main() {
     tester.takeException();
   }
 
-  VoidCallback? buyPressed(WidgetTester tester, {required bool wide}) => wide
-      ? tester.widget<WebButton>(find.widgetWithText(WebButton, _buy)).onPressed
-      : tester
-          .widget<PantasButton>(find.widgetWithText(PantasButton, _buy))
+  /// What Pay does when pressed; null while it is off. On a phone Pay stays
+  /// tappable while off (ruling C6), so off there means `inactive`.
+  VoidCallback? buyPressed(WidgetTester tester, {required bool wide}) {
+    if (wide) {
+      return tester
+          .widget<WebButton>(find.widgetWithText(WebButton, _buy))
           .onPressed;
+    }
+    final pay =
+        tester.widget<PantasButton>(find.widgetWithText(PantasButton, _buy));
+    return pay.inactive ? null : pay.onPressed;
+  }
 
   /// A started checkout leaves the page spinning until the tab leaves, so
   /// the page never settles; a few frames are enough for the call and result.
@@ -541,5 +548,198 @@ void main() {
     walk(node);
     expect(links, 1);
     handle.dispose();
+  });
+
+  group('ruling C6: phone Pay while the box is unticked', () {
+    const hint = 'Tick the box to pay.';
+    final pulse = find.byKey(const ValueKey('ring-pulse'));
+    final payFinder = find.widgetWithText(PantasButton, _buy);
+
+    double barHeight(WidgetTester tester) =>
+        tester.getSize(find.byKey(const ValueKey('pro-bar'))).height;
+
+    double scrolled(WidgetTester tester) => tester
+        .state<ScrollableState>(find.byType(Scrollable).first)
+        .position
+        .pixels;
+
+    double barTop(WidgetTester tester) =>
+        tester.getTopLeft(find.byKey(const ValueKey('pro-bar'))).dy;
+
+    Future<void> tapPay(WidgetTester tester) async {
+      await tester.tap(payFinder);
+    }
+
+    bool focusOnTick() =>
+        FocusManager.instance.primaryFocus?.context
+            ?.findAncestorWidgetOfExactType<CheckboxRow>() !=
+        null;
+
+    testWidgets('the status line reads the hint while Pay is off',
+        (tester) async {
+      await pumpPro(tester, wide: false);
+      expect(find.text(hint), findsOneWidget);
+      expect(
+        tester
+            .widget<AnimatedOpacity>(
+              find.ancestor(
+                of: find.text(hint),
+                matching: find.byType(AnimatedOpacity),
+              ),
+            )
+            .opacity,
+        1,
+      );
+    });
+
+    testWidgets('the bar is the same height ticked and unticked',
+        (tester) async {
+      await pumpPro(tester, wide: false);
+      final off = barHeight(tester);
+      await tick(tester);
+      await tester.pumpAndSettle();
+      expect(barHeight(tester), off);
+      await tick(tester);
+      await tester.pumpAndSettle();
+      expect(barHeight(tester), off);
+    });
+
+    testWidgets('on tick the hint fades out over 150 ms', (tester) async {
+      await pumpPro(tester, wide: false);
+      double opacity() => tester
+          .widget<AnimatedOpacity>(
+            find.ancestor(
+              of: find.text(hint),
+              matching: find.byType(AnimatedOpacity),
+            ),
+          )
+          .opacity;
+      await tick(tester);
+      final animated = tester.widget<AnimatedOpacity>(
+        find.ancestor(
+          of: find.text(hint),
+          matching: find.byType(AnimatedOpacity),
+        ),
+      );
+      expect(animated.duration, const Duration(milliseconds: 150));
+      expect(opacity(), 0);
+    });
+
+    testWidgets('Pay is a button with the hint, enabled for focus',
+        (tester) async {
+      final handle = tester.ensureSemantics();
+      await pumpPro(tester, wide: false);
+      final node = tester.getSemantics(
+        find.descendant(of: payFinder, matching: find.text(_buy)),
+      );
+      final data = node.getSemanticsData();
+      expect(data.flagsCollection.isButton, isTrue);
+      expect(data.flagsCollection.isEnabled, Tristate.isTrue);
+      expect(data.hint, hint);
+      expect(data.label, contains(_buy));
+      expect(data.hasAction(SemanticsAction.tap), isTrue);
+      // Ticked: no hint, still a button.
+      await tick(tester);
+      await tester.pumpAndSettle();
+      expect(
+        tester
+            .getSemantics(
+              find.descendant(of: payFinder, matching: find.text(_buy)),
+            )
+            .getSemanticsData()
+            .hint,
+        '',
+      );
+      handle.dispose();
+    });
+
+    testWidgets(
+        'a tap while off scrolls a hidden card to rest 16 px above '
+        'the bar, then focuses the tick and pulses once', (tester) async {
+      await pumpPro(tester, wide: false);
+      expect(scrolled(tester), 0);
+      await tapPay(tester);
+      expect(calls, isEmpty);
+      // Mid-scroll: moving, no pulse, focus not yet on the tick.
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 150));
+      expect(scrolled(tester), greaterThan(0));
+      expect(pulse, findsNothing);
+      expect(focusOnTick(), isFalse);
+      // The scroll takes 400 ms.
+      await tester.pump(const Duration(milliseconds: 250));
+      await tester.pump(const Duration(milliseconds: 20));
+      await tester.pump(const Duration(milliseconds: 40));
+      final cardBottom = tester.getBottomLeft(box()).dy;
+      expect(barTop(tester) - cardBottom, closeTo(16, 1.5));
+      expect(focusOnTick(), isTrue);
+      expect(pulse, findsOneWidget);
+      // The pulse runs 0.7 s and ends.
+      await tester.pump(const Duration(milliseconds: 750));
+      expect(pulse, findsNothing);
+      expect(calls, isEmpty);
+      expect(tester.widget<CheckboxRow>(box()).selected, isFalse);
+    });
+
+    testWidgets('Enter on Pay while off does the same', (tester) async {
+      await pumpPro(tester, wide: false);
+      Focus.of(
+        tester.element(
+          find.descendant(of: payFinder, matching: find.text(_buy)),
+        ),
+      ).requestFocus();
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 450));
+      expect(scrolled(tester), greaterThan(0));
+      expect(focusOnTick(), isTrue);
+      expect(calls, isEmpty);
+    });
+
+    testWidgets('a card already fully visible: no scroll, focus and pulse',
+        (tester) async {
+      await pumpPro(tester, wide: false);
+      await tester.ensureVisible(box());
+      await tester.pumpAndSettle();
+      final before = scrolled(tester);
+      await tapPay(tester);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 20));
+      await tester.pump(const Duration(milliseconds: 40));
+      expect(scrolled(tester), before);
+      expect(focusOnTick(), isTrue);
+      expect(pulse, findsOneWidget);
+      expect(calls, isEmpty);
+    });
+
+    testWidgets('reduced motion: the scroll jumps and there is no pulse',
+        (tester) async {
+      tester.platformDispatcher.accessibilityFeaturesTestValue =
+          const FakeAccessibilityFeatures(disableAnimations: true);
+      addTearDown(
+        tester.platformDispatcher.clearAccessibilityFeaturesTestValue,
+      );
+      await pumpPro(tester, wide: false);
+      await tapPay(tester);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 16));
+      final cardBottom = tester.getBottomLeft(box()).dy;
+      expect(barTop(tester) - cardBottom, closeTo(16, 1.5));
+      expect(focusOnTick(), isTrue);
+      expect(pulse, findsNothing);
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(pulse, findsNothing);
+    });
+
+    testWidgets('ticked, Pay starts checkout and does not scroll',
+        (tester) async {
+      await pumpPro(tester, wide: false);
+      await tick(tester);
+      final before = scrolled(tester);
+      await buy(tester, wide: false);
+      expect(calls, hasLength(1));
+      expect(scrolled(tester), before);
+    });
   });
 }
