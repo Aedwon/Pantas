@@ -126,6 +126,30 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Walk-through lesson rewrite still too compressed (Nov 25)
+
+- His words: "i found some lessons could use more detail, or a sort of \"walk you through it\" type of teaching" (Signed Integers and Substitution, three screenshots), then on the manager's sample rewrite: "close, but not as detailed as I'd like. you are allowed to have numbers in core concept".
+- Wrong: the sample kept each rule to one or two worked numbers and still skipped the reasoning behind each move: why a rule works, what goes wrong without it, and checking the answer.
+- Why it got through: the lesson style guide sets the reading level (Grade 5) but no depth standard, so "plain" was read as "short". The sample also aimed at the current lesson's length.
+- Fix (required step until a depth standard is approved and added to docs/content/lesson-style-guide.md): a math lesson rewrite walks through every rule with numbers in Core Concept, shows each arithmetic and sign move on its own line, says why the move works, shows the common wrong move next to the right one, and ends worked examples with a check. The manager's next sample follows this, and his reaction sets the standard.
+
+### Wide Quiz tab paused card still breaks the button placement rule he set (Nov 25)
+
+- His words (about 4:35 AM Manila, wide dark screenshot of the Quiz tab paused card: caption and "Discard this session" on one line, Resume at the bottom left): "was this never addressed? particularly the placement of discard resume (basically the CTAs in general)? i think i've raised this before, and that's also why DS4 i believe was added / i want answers first before you change anything".
+- Wrong: he raised button placement on Nov 7 ("worth considering their placement. especially when there are two of them") and chose P2 (right end, main last). That choice is why the design system was built. On Nov 10 he raised desktop placement again ("awkward"). The design system has a rule for exactly this card (patterns.md: "A stacked phone-style pair on a wide page (guardian confirm, paused quiz notice) becomes a right-aligned row, secondary then main"). The live wide card still puts Resume at the bottom left.
+- Why it got through: builds and side-by-side reviews compared each screen only to its drawn board. This card's board (QZ_Resume, approved Oct 2) predates the Nov 7 rule. The Nov 24 borderless-buttons work and the Discard centering both matched the old board and never checked patterns.md. Nothing swept the wide screens for P2 after the system shipped.
+- Fix (required steps):
+  1. Every UI build brief and every side-by-side review checks design/system/patterns.md (placement, spacing, buttons) as well as the board. Where a board drawn before Nov 7 conflicts with a pattern, the pattern wins, and the review names the rule.
+  2. A one-time sweep of every wide screen for placement against patterns.md, results listed for the manager. It starts only after he answers; he asked for answers before changes.
+  A placement check in code may be possible later (widget tests asserting button order and alignment on wide cards); none is promised until it is shown failing on this card.
+
+### Discard spacing in the Quiz tab shrank after a spacing ship (Nov 25)
+
+- His words (about 3:50 AM Manila): "the space on top and bottom of discard in the quiz tab got too small though".
+- Wrong: the vertical space above and below Discard on the Quiz tab's paused card is smaller than he expects. It most likely came from the Nov 24 Discard centering or the Nov 25 Study and Quiz spacing ship, but the cause is not confirmed yet.
+- Why it got through: the Nov 24 borderless buttons change (commit baac08a99, shipped to prod 9:50 PM Nov 24), not the Discard centering or the Nov 25 spacing ship. It moved every phone text button to the board's text sizes. Discard on the Quiz tab paused card became the 15/600 line in a 24 px box, so the space around its text fell from 20.5 px above and 24.5 px below (a 52 px tertiary button, 6 px under Resume) to 12 and 10 (measured on headless renders of both versions, Nov 25). The new values matched the QZ_Resume board ("12 under Resume"), so the side-by-side board review passed it: the board itself draws the tighter spacing, and nothing compared the card with how it looked before. His call from using the app beats the board here (manager ruling, Nov 25): the build restores 20 above and 24 below the text and the reference canvas changes to match (the Quiz tab card is held while he answers a placement question).
+- Fix (required step, already in the Nov 23 entry, now applied to spacing): a spacing change is compared side by side with the board at phone and wide for every card it touches, not only the card it targets. Added, because the board itself was tighter than what he was used to: a change that shrinks the space around a control he already uses is also compared with the live version before it, and any loss over 4 px is shown to him on the capture sheet before it ships. Checks: `quiz_tab_paused_spacing_test` (fails on the shrunk spacing: 20 above and 24 below the Discard text) and the `quiz_tab_paused` golden sheet at 390 and 1440.
+
 ### Week strip put in front of him though he never raised it and a board already answered it (Nov 25)
 
 - His words: "what was the reason why i'm being made to choose for the week strip? was it a complaint from me?"
