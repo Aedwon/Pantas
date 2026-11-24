@@ -1,12 +1,17 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
+import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
 
 /// Audit ENT-06: the server's coverageAt counts an active `beta_reward` grant
 /// with an exam id as that exam's coverage, for any catalog exam, from its
 /// start to its end. The web mapper must agree.
 void main() {
-  final now = DateTime.parse('2026-11-25T12:00:00+08:00');
+  // The real clock, to the millisecond: proIsActive reads the wall clock.
+  final now = DateTime.fromMillisecondsSinceEpoch(
+    DateTime.now().millisecondsSinceEpoch,
+    isUtc: true,
+  );
   const day = Duration(days: 1);
 
   Map<String, dynamic> reward(
@@ -90,5 +95,43 @@ void main() {
       at: now,
     );
     expect(held.betaPasses['exam_let'], later.toUtc());
+  });
+
+  test('a reward counts from its exact start', () {
+    final held =
+        entitlementFromGrants([reward('exam_let', startsAt: now)], at: now);
+    expect(held.coversExam('exam_let', at: now), isTrue);
+  });
+
+  test('a paid plan is still the plan, and the reward adds its exam', () {
+    final held = entitlementFromGrants(
+      [
+        {
+          'source': 'paymongo',
+          'product': 'pantas_cs_monthly',
+          'tier': 'civilService',
+          'state': 'active',
+          'startsAt': now.subtract(day).millisecondsSinceEpoch,
+          'endsAt': now.add(day * 20).millisecondsSinceEpoch,
+        },
+        reward('exam_pshs_nce', tier: 'nce'),
+      ],
+      at: now,
+    );
+    expect(held.productId, 'pantas_cs_monthly');
+    expect(held.plan, EntitlementPlan.monthly);
+    expect(held.coversExam('exam_pshs_nce', at: now), isTrue);
+    expect(
+      held.coversExam(
+        'exam_cse_pro',
+        examTier: PriceTier.civilService,
+        at: now,
+      ),
+      isTrue,
+    );
+    expect(
+      held.coversExam('exam_let', examTier: PriceTier.licensure, at: now),
+      isFalse,
+    );
   });
 }
