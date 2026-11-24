@@ -533,8 +533,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   }
 
   /// A quiz was left part way through, or discarded, from another tab. Home
-  /// stays alive behind the tab bar, so the question counts and work it holds were read
-  /// before that quiz began or moved on (Nov 24: the sheet said "0 of 11" and
+  /// stays alive behind the tab bar, so the question counts and work it holds
+  /// were read before that quiz began or moved on (Nov 24: the sheet said "0 of 11" and
   /// "Start Reviews" for a Reviews session paused at 1 of 11). Read again;
   /// the plan on screen stays while the read runs.
   void _onQuizPaused() {
