@@ -473,6 +473,18 @@ test('markAdult on a pending request leaves no guardian evidence', async () => {
   assert.deepEqual(await rows(`guardianConsentEvidence/${uid}/responses`), []);
 });
 
+test('markAdult ends a pending request and refuses its answer link', async () => {
+  const uid = 'dm-adult-pending-link'; await reset(uid);
+  const h = harness();
+  await guardian.sendLink(req(uid, body()), h.deps);
+  const token = confirmTokenOf(h.sent.at(-1));
+
+  await guardian.markAdult(req(uid, {}), h.deps);
+
+  assert.deepEqual(await guardian.answerRequest(req('visitor', answer(token)), h.deps), {state: 'unknown'});
+  assert.deepEqual(await stored(uid), {ageGroup: 'adult', adultSince: T0});
+});
+
 test('markAdult writes nothing when the server never knew a minor, and needs the caller', async () => {
   const uid = 'dm-adult-never'; await reset(uid);
   const h = harness();

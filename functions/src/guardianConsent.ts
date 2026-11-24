@@ -635,9 +635,7 @@ export async function markAdult(request: AppRequest, deps: ConsentDeps): Promise
   const now = (deps.now ?? Date.now)();
   const consent = consentRef(deps.db, uid);
   return deps.db.runTransaction(async (tx): Promise<{state: 'adult'}> => {
-    const [current, openManage, deletion] = await Promise.all([tx.get(consent),
-      tx.get(deps.db.collection('guardianTokens').where('uid', '==', uid).where('kind', '==', 'manage').where('state', '==', 'open')),
-      tx.get(deps.db.doc(`accountDeletions/${uid}`))]);
+    const [current, deletion] = await Promise.all([tx.get(consent), tx.get(deps.db.doc(`accountDeletions/${uid}`))]);
     const data = current.data();
     if (deletion.exists) throw accountClosed();
     // The server never knew a minor, so there is nothing to switch and nothing to write.
@@ -646,6 +644,12 @@ export async function markAdult(request: AppRequest, deps: ConsentDeps): Promise
     if (data.ageGroup !== 'minor' || data.adultSince !== undefined) {
       throw new HttpsError('failed-precondition', 'Already switched.');
     }
+    if (data.status === 'pending') {
+      dropRequestLinks(tx, await tx.get(requestLinksQuery(deps.db, uid)));
+      endRequest(tx, consent, {ageGroup: 'adult', adultSince: now});
+      return {state: 'adult'};
+    }
+    const openManage = await tx.get(requestLinksQuery(deps.db, uid).where('kind', '==', 'manage').where('state', '==', 'open'));
     for (const row of openManage.docs) tx.set(row.ref, {state: 'revoked', revokedAt: now, cleanupAt: now + GUARDIAN_WINDOW_MS}, {merge: true});
     tx.set(consent, {ageGroup: 'adult', adultSince: now}, {merge: true});
     if (data.status === 'confirmed') {
