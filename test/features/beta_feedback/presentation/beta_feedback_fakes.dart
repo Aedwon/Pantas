@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
+import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/domain/payment_operation.dart';
 
 /// Nov 9 to 15, as the server returns them.
 const betaDays = [
@@ -80,6 +82,19 @@ class FakeBetaFeedbackApi implements BetaFeedbackApi {
       startsAt: ph(11, 20),
       endsAt: ph(11, 20, 12, 0, 2027),
     );
+  }
+}
+
+/// Counts entitlement reads, so a test can check Pro is read again.
+class CountingGateway extends DisabledRevenueCatGateway {
+  CountingGateway();
+
+  int restores = 0;
+
+  @override
+  Future<PaymentOperationResult> restorePurchases() {
+    restores++;
+    return super.restorePurchases();
   }
 }
 

@@ -25,14 +25,18 @@ Rulings and findings: `docs/superpowers/decisions/2026-11-17-fable-backlog-rulin
 - Ship gate: no board draws it; it is the removal he asked for. The manager decides whether prod waits for his look at the sheet.
 - Board page 2 renamed "2 Reader line (retired)"; options A, B and C retired.
 
-## 3. Week strip frames: fixed (board only)
+## 3. Week strip frames: dropped, page removed
+
+Manager, Nov 25: the week strip came from an agent audit (U14), not from him, and his board D196 already answers it, so it does not belong on his board (process entry "Week strip put in front of him..."). Page 3, its frames, its part and its stylesheets are removed from the board (version 8); the canvas is now titled "Loading, Reader Line". The fix below is history only.
+
+### Before the drop
 
 - Cause: the frames imported the strip part without loading its stylesheets in their own head; the canvas loads stylesheets only from the shown frame. His boards carry the links in each frame.
 - Fix: the part is now a copy of his `HP_WeekFrame` with only the chip name as input; every frame carries his three stylesheet links; the stylesheets were copied from the Pantas Redesign canvas (byte-identical to the old copies); the invented greeting line is gone. Not rendered by the lead (canvas rule); he does the visual check.
 
 ## Board
 
-https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec, version 6. Source files in the lead's scratchpad are disposable; the canvas holds them.
+https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec, version 8 (pages: 1 Loading, 2 Reader line (retired), Parts). Source files in the lead's scratchpad are disposable; the canvas holds them.
 
 ## Open
 
