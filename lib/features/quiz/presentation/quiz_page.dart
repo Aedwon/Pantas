@@ -15,6 +15,7 @@ import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/telemetry/report_failure.dart';
+import 'package:pantas/core/ui/components/answer_track.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/figure_choice_tiles.dart';
@@ -694,6 +695,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   Timer? _reportTimer;
   final LayerLink _barLink = LayerLink();
 
+  /// The answer track in the bar: where its marks are when the last answer
+  /// is checked, for the flight into the results.
+  final GlobalKey _trackKey = GlobalKey(debugLabel: 'answer track');
+
   /// The explanation Drawer is open (below 1134): the bar's main action is
   /// hidden, and closing the Drawer returns focus to it.
   bool _explanationOpen = false;
@@ -856,6 +861,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                     index,
                     session.questions.length,
                     enabled: !state.checking,
+                    track: _track(session, outcome: outcome, phone: true),
                   );
                   final flag = Semantics(
                     button: true,
@@ -908,40 +914,17 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                 : () => unawaited(_check()))
                             : () => unawaited(_next()),
                   );
-                  // The status line, read once as a status (FloatingBar):
-                  // 13 px, centered, `text-primary` once there is a result.
-                  final hint = Semantics(
-                    liveRegion: true,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: PantasSpace.s4,
-                      ),
-                      child: Text(
-                        _barHint(
-                          outcome: outcome,
-                          picked: state.selectedChoiceId != null,
-                        ),
-                        textAlign: TextAlign.center,
-                        style: PantasType.phoneFootnote.copyWith(
-                          color: outcome == null
-                              ? context.colors.textSecondary
-                              : context.colors.textPrimary,
-                        ),
-                      ),
-                    ),
-                  );
                   final barState = outcome == null
                       ? FloatingBarState.neutral
                       : outcome.isCorrect
                           ? FloatingBarState.right
                           : FloatingBarState.wrong;
                   final Widget restContent = large
-                      // Stacked (FloatingBar, ruling 5): the hint takes its
-                      // own line above the actions.
+                      // Stacked (FloatingBar, ruling 5): the count and flag
+                      // take their own line above the action.
                       ? Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            hint,
                             Row(
                               children: [
                                 Expanded(child: counter),
@@ -954,7 +937,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                       : Row(
                           children: [
                             counter,
-                            Expanded(child: hint),
+                            // The result is read once as a status; the
+                            // track already shows it.
+                            Expanded(child: _resultStatus(outcome)),
                             if (!narrow) flag,
                             action,
                           ],
@@ -1194,6 +1179,25 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       });
     }
 
+    // The bar keeps its width from pick to check: the button is as wide as
+    // its widest label.
+    final barButton = _WidestLabel(
+      labels: {'Check', 'Next', 'Finish', label}.toList(),
+      child: WebButton(
+        label: label,
+        pill: true,
+        expand: true,
+        keyHint: 'Enter',
+        busy: state.checking,
+        onPressed: state.checking ||
+                (!lookingBack &&
+                    outcome == null &&
+                    state.selectedChoiceId == null)
+            ? null
+            : action,
+      ),
+    );
+
     // The Leave dialog owns the keys while it is open. Its own focus keeps
     // them away from this page; this is the second guard, for a page that
     // gets the focus back anyway.
@@ -1367,9 +1371,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           child: CompositedTransformTarget(
                             link: _barLink,
                             child: WebBottomBar(
-                              hint: _barHint(
+                              track: _track(
+                                session,
                                 outcome: outcome,
-                                picked: state.selectedChoiceId != null,
+                                phone: false,
                               ),
                               counterChevron: true,
                               counter: '${index + 1} of $total',
@@ -1439,19 +1444,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                       child: Visibility(
                                         visible: !_explanationOpen,
                                         maintainState: true,
-                                        child: WebButton(
-                                          label: label,
-                                          pill: true,
-                                          keyHint: 'Enter',
-                                          busy: state.checking,
-                                          onPressed: state.checking ||
-                                                  (!lookingBack &&
-                                                      outcome == null &&
-                                                      state.selectedChoiceId ==
-                                                          null)
-                                              ? null
-                                              : action,
-                                        ),
+                                        child: barButton,
                                       ),
                                     ),
                                   ),
@@ -1579,18 +1572,43 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     );
   }
 
-  /// The bar's status line: read once as a status, so the result is a word
-  /// as well as a tint and a ring.
-  String _barHint({required AnswerOutcome? outcome, required bool picked}) =>
-      outcome != null
-          ? outcome.isCorrect
-              ? 'Correct'
-              : 'Not this one'
-          : picked
-              ? 'Check when you are ready'
-              : 'Pick one answer';
+  /// The result word, read once as a status. It is never drawn: the track
+  /// shows the result.
+  String? _resultWord(AnswerOutcome? outcome) => outcome == null
+      ? null
+      : outcome.isCorrect
+          ? 'Correct'
+          : 'Not this one';
 
-  Widget _counter(int index, int total, {required bool enabled}) {
+  Widget _resultStatus(AnswerOutcome? outcome) => Semantics(
+        liveRegion: true,
+        label: _resultWord(outcome),
+        child: const SizedBox.shrink(),
+      );
+
+  /// The answer track for the session bar (B2). The wide one reads the
+  /// result as a status itself; the phone's sits inside the count's button,
+  /// so the bar carries a status of its own there.
+  Widget _track(
+    QuizSession session, {
+    required AnswerOutcome? outcome,
+    required bool phone,
+  }) =>
+      AnswerTrack(
+        key: _trackKey,
+        total: session.questions.length,
+        answered: [for (final o in session.outcomes) o.isCorrect],
+        current: session.currentIndex,
+        phone: phone,
+        status: phone ? null : _resultWord(outcome),
+      );
+
+  Widget _counter(
+    int index,
+    int total, {
+    required bool enabled,
+    required Widget track,
+  }) {
     void open() => setState(() => _gridOpen = true);
     return Semantics(
       button: true,
@@ -1607,12 +1625,21 @@ class _QuizPageState extends ConsumerState<QuizPage> {
               constraints: const BoxConstraints(minHeight: 44),
               child: Center(
                 widthFactor: 1,
-                child: QuestionCount(
-                  text: '${index + 1} of $total',
-                  style: PantasType.phoneExplanation.copyWith(
-                    fontWeight: FontWeight.w600,
-                    color: context.colors.textPrimary,
-                  ),
+                // QV_Answer: the track sits above the count, 5 apart.
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    track,
+                    const SizedBox(height: PantasSpace.s5),
+                    QuestionCount(
+                      text: '${index + 1} of $total',
+                      style: PantasType.phoneExplanation.copyWith(
+                        fontWeight: FontWeight.w600,
+                        color: context.colors.textPrimary,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -1971,5 +1998,40 @@ class _PopoverState extends State<_Popover>
             child: _motion.transition(_controller, widget.builder(context)),
           );
         },
+      );
+}
+
+/// Sizes [child] to the widest of the buttons that [labels] would make, so a
+/// bar does not change width when its button's word changes (Check, Next,
+/// Finish). The copies are laid out but never drawn, focused or read.
+class _WidestLabel extends StatelessWidget {
+  const _WidestLabel({required this.labels, required this.child});
+
+  final List<String> labels;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => Stack(
+        children: [
+          for (final label in labels)
+            Visibility(
+              visible: false,
+              maintainSize: true,
+              maintainAnimation: true,
+              maintainState: true,
+              child: ExcludeFocus(
+                child: ExcludeSemantics(
+                  child: IgnorePointer(
+                    child: WebButton(
+                      label: label,
+                      pill: true,
+                      keyHint: 'Enter',
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          Positioned.fill(child: child),
+        ],
       );
 }
