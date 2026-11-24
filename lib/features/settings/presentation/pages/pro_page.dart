@@ -1069,7 +1069,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                     PantasSpace.s16,
                     PantasSpace.s14,
                     PantasSpace.s16,
-                    PantasSpace.s16,
+                    // ds-board: ST_ProFree bar padding-bottom 30
+                    PantasSpace.s28 + PantasSpace.s2,
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -1139,6 +1140,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                           textAlign: TextAlign.center,
                           style: context.type.footnote,
                         ),
+                      // ST_ProFree bar: 8 px between its rows.
+                      if (showOffers || playRenews)
+                        const SizedBox(height: PantasSpace.s8),
                       if (upgrade)
                         PantasButton(
                           label: widget.freeLabel ?? 'Switch on Free',

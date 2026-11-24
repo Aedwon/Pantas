@@ -217,4 +217,26 @@ void main() {
     }
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('the phone bar keeps the board padding 14/16/30 and an 8 px gap',
+      (tester) async {
+    await _pump(
+      tester,
+      weekly: '\u20b149.00',
+      monthly: '\u20b1149.00',
+      yearly: '\u20b11,199.00',
+    );
+    final bar = tester.getRect(find.byKey(const ValueKey('pro-bar')));
+    final pay = tester.getRect(find.byType(PantasButton).first);
+    final restore = tester.getRect(
+      find.ancestor(
+        of: find.text('Restore Purchases'),
+        matching: find.byType(PantasButton),
+      ),
+    );
+    // ST_ProFree bar: padding 14px 16px 30px, gap 8 between its rows.
+    expect(pay.top - bar.top, 14);
+    expect(bar.bottom - restore.bottom, 30);
+    expect(restore.top - pay.bottom, 8);
+  });
 }
