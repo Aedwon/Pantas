@@ -190,6 +190,18 @@ void main() {
         40,
         reason: label,
       );
+      // QN_Report: radius 10, label 15.
+      final button = find.descendant(
+        of: find.widgetWithText(WebButton, label),
+        matching: find.byType(TextButton),
+      );
+      final style = tester.widget<TextButton>(button).style!;
+      expect(
+        (style.shape!.resolve({})! as RoundedRectangleBorder).borderRadius,
+        BorderRadius.circular(10),
+        reason: label,
+      );
+      expect(style.textStyle!.resolve({})!.fontSize, 15, reason: label);
     }
     await tester.enterText(find.byType(TextField), 'Wrong answer key.');
     await tester.pump();

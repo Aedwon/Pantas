@@ -428,19 +428,17 @@ class _ReportFormState extends State<ReportForm> {
               alignment: WrapAlignment.end,
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
-                // QN_Report: 40 px buttons. 40 is the control height token; the
-                // board's 10 px radius and 15 px label have no button token
-                // (the system gives 12 and 16).
+                // QN_Report: 40 high, radius 10, 15 px label (the report size).
                 WebButton(
                   label: 'Cancel',
                   kind: PantasButtonKind.tertiary,
-                  height: PantasSize.iconBtnMd,
+                  size: PantasButtonSize.report,
                   onPressed: widget.onClose,
                 ),
                 const SizedBox(width: PantasSpace.s8, height: PantasSpace.s8),
                 WebButton(
                   label: 'Send',
-                  height: PantasSize.iconBtnMd,
+                  size: PantasButtonSize.report,
                   // QN_ReportLimit draws Send with no key hint.
                   keyHint: _limit == null ? '$commandKeyLabel Enter' : null,
                   busy: _busy,

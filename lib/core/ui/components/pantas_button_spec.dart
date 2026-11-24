@@ -54,6 +54,10 @@ enum PantasButtonSize {
 
   /// `btn--text-phone-sm`: the 15/600 line, 24 high ("Restore Purchases").
   textPhoneSm,
+
+  /// `btn--report`: 40 high, radius 10, 15/600 label (QN_Report web, the
+  /// Cancel and Send pair).
+  report,
 }
 
 /// True for the kind by tone pairs the matrix allows. Neutral and white have
@@ -183,6 +187,15 @@ PantasButtonMetrics pantasButtonMetrics(
         radius: PantasRadius.md,
         padLeft: PantasSpace.s12,
         padRight: PantasSpace.s12,
+        gap: PantasSpace.s8,
+        style: PantasType.webLink,
+        fullWidth: false,
+      ),
+    PantasButtonSize.report => PantasButtonMetrics(
+        height: PantasSize.iconBtnMd,
+        radius: PantasRadius.report,
+        padLeft: tertiary ? PantasSpace.s14 : PantasSpace.s20,
+        padRight: tertiary ? PantasSpace.s14 : PantasSpace.s20,
         gap: PantasSpace.s8,
         style: PantasType.webLink,
         fullWidth: false,
