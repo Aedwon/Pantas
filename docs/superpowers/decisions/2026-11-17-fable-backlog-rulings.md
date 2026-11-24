@@ -1439,3 +1439,111 @@ Website, about 0.25 day, inside the D3 footer change.
 - KPMG Philippines, "The BIR's blue check: the badge for online sellers": https://kpmg.com/ph/en/insights/2026/06/the-birs-blue-check-the-badge-for-online-sellers.html
 - Denso Wave, "How to create a QR Code": https://www.qrcode.com/en/howto/code.html
 - W3C, Understanding WCAG 2.2, 1.1.1 Non-text Content: https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html
+
+## Nov 24, remaining legal brackets
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation. The four rulings are final and are not queued for his sign-off. Legal sign-off on the final texts stays his, and he can change any value below when he signs. This agent filled the brackets in the drafts with the ruled values. Codex GPT 6.2 Sol at high effort critiqued the changed passages (rule 5, `critique-2026-11-24c-sol-high.md` on the legal branch), and every wording finding is applied. It asked for no value to change. No lawyer reviewed anything here, and this agent is not a lawyer.
+
+- Asked: remove the brackets in the public-launch texts that do not need him. Four were ruled: the Google Analytics retention period, the refund reply time, the message retention period, and the invoice sentence. Two stay his and are not ruled: the publication date, and NPC registration (its bracket is already removed).
+- Policy read at `origin/main` 7f5ff14f5: `AGENTS.md`, `SUBAGENTS.md`, `docs/workflow/process-improvement.md` (rules 5, 7, 9), checklist rows M8 and L1 to L10, and in this file D3, D8, R3, H2 and the Nov 24 legal rounds.
+- Input, on `legal/public-launch-r1` e7e93dece: `terms.md`, `privacy-policy.md`, `teen-notice.md`, `README.md`, `change-summary.md`, `critique-2026-11-22-sol-high.md` (findings 3, 8, 15 and 16).
+- Code read: main 7f5ff14f5, `lib/core/telemetry/firebase_telemetry.dart` and `lib/features/legal/domain/legal_document.dart`.
+- Standards applied: Data Privacy Act Sections 11(e) and (f) (proportionality, retention) and 16; RA 11967 Sections 23(h), 23(i) and 24 and JAO 24-03 Sections 34 and 38, as Sol High cited them on Nov 22; Consumer Act Article 169 and RA 11967 Section 28 (two years, as Sol High read them on Nov 24); Google's help page "Data retention" (support.google.com/analytics/answer/7667196, read Nov 24). No sheet exists in `agent-standards` for privacy or consumer law.
+- Velocity: this pass was not timed. It changed documents only.
+
+### What was checked
+
+1. **The Google Analytics setting could not be read.** The linked property is `pantas-prod`, ID 549551450, with one Android stream and one web stream (Firebase Management API, read-only). The retention setting sits behind the Analytics Admin API. The signed-in `gcloud` account lacks the Analytics scope (403, `ACCESS_TOKEN_SCOPE_INSUFFICIENT`). No sign-in was widened to get it.
+2. **Google's page, read Nov 24.** A standard property offers 2 or 14 months, set separately for user-level data and for event data. "When data reaches the end of the retention period, it is deleted automatically on a monthly basis." "The data retention setting does not affect standard aggregated reports". "The data retention setting only affects explorations and funnel reports." The switch "Reset user data on new activity" restarts the period of the user identifier with each new event. "If you reduce the retention period, then any affected data is deleted during the next monthly process." A change applies after 24 hours.
+3. **What the app sends.** One file sends events, and only when the user turns usage sharing on. It also sets the account ID as the Analytics user ID (`firebase_telemetry.dart:54`, `:75`, `:110`). No document in the repo names an exploration, a funnel report or a BigQuery export.
+4. **The live text says "up to 14 months after your last activity"** (`legal_document.dart:214-215`). Sol High's Nov 22 finding 15 called that an overstatement of what the settings establish.
+5. **Messages are emails.** The Privacy Policy defines them as "emails you send to support@pantas.study or dpo@pantas.study". In the Notice for teens the guardian's emails count too. Question reports are a separate record (R3, 90 days). Guardian answers on the guardian page are guardian evidence (R6), not messages.
+6. **Refund records already have a period.** Both notices keep "tax books, receipts and refund records" five years outside the app (D8).
+7. **M8 is a launch gate and its note is stale.** It reads "waits on BIR registration". The registration exists: the Certificate of Registration is dated Oct 29, 2026 (checklist L3 and L10). What is left is the invoice stock and the by-hand process.
+8. Not checked: where the mailboxes are hosted and whether the host can delete by age; what BIR-approved invoice form he will use; whether the tax code lets small sales go without an invoice (Sol High's Nov 22 reading is that the Internet Transactions Act covers every sale either way); live behavior.
+
+### B1. Google Analytics retention: two months. Gate on the console setting
+
+- The property keeps user-level data and event data for 2 months, the shortest option. "Reset user data on new activity" is off, so an active user's identifier also ends at 2 months.
+- The texts say, in Sol High's wording: "Google Analytics data about individual users and events expires after two months. Google deletes expired data in a monthly cleanup. Standard reports that combine data can stay available longer."
+
+**Reason.** Two months serves the app. The setting limits only explorations and funnel reports, and Pantas uses neither. The standard reports, which hold counts and no user-level rows, keep working. Fourteen months would be chosen for year-on-year explorations, and no one has asked for one. The shorter period is also the easier one to defend under Section 11(e) and (f) for records that carry the account ID.
+
+**Conditions.**
+
+1. Before the texts publish, the console must show 2 months for both settings and the reset switch off, on property 549551450 (Admin, Data collection and modification, Data retention). The check is logged in the launch log. It is his console step, about two minutes, unless he grants an agent the Analytics scope.
+2. If the console shows 14 months, set it to 2 months. Google then deletes the older user-level and event rows at its next monthly process. Standard reports are untouched.
+3. If he wants 14 months, he changes the word in both notices at sign-off and sets the console to match.
+
+**Sol High.** Must-fix, applied: the first wording named only event records and implied Google deletes all older data. The texts now name user and event data and say the combined reports can stay longer.
+
+### B2. Refund reply time: three business days. His to confirm
+
+- The Terms say "We aim to reply within three business days."
+
+**Reason.** The law sets the real limit, not the Terms. A purchase complaint that is unresolved seven calendar days after filing counts as exhausted, and the buyer may then go to the DTI. Five business days is seven calendar days or more, so a reply on the last day arrives as that window closes. Three business days leaves at least two days to settle the matter inside it. The sentence is an aim, not a promise, so a missed day breaks no term.
+
+**What it asks of him.** Read support@pantas.study at least every second business day. Forwarding it to the inbox he already reads does this with no new habit (checklist L5).
+
+**His to change.** This is his personal commitment. He can set five at sign-off. Above five, the aim itself would pass the seven calendar days.
+
+### B3. Message retention: two periods, deleted by hand once a month. Gate on the written procedure
+
+- **Ordinary messages** (questions, account help, bug notes, feedback): deleted within 90 days after the matter closes.
+- **Messages about a payment, a refund, a purchase complaint or a privacy request:** deleted within two years after the matter closes. This class includes a guardian's email that denies a purchase, and requests to see, correct or delete data.
+- **The periods count from the date of the last email about the matter.** A matter with an unanswered request, a bank dispute, a DTI or NPC complaint, or a court case is held out of the count. The sentence already in both notices covers it: "We may keep other specific records longer when the law requires it or when we need them for a legal claim."
+- **A refund that was paid** leaves a minimum record in the refund records kept five years (D8): date, payer name, payment reference, amount, route, transfer reference, and the last four digits of the receiving account. The full account number is never copied there. It leaves with the email.
+
+**Reason.**
+
+1. Ordinary messages follow R3. A question report is deleted within 90 days because it is useful for weeks, not years. An email asking for help is the same kind of record. A lesson learned from one is written down without the person's details, as R3 requires for reports.
+2. The second class is evidence. Two years is the period for claims under the Consumer Act (Article 169) and for a damages claim or a DTI penalty case under the Internet Transactions Act (Section 28; JAO 24-03 Section 44), as Sol High read them on Nov 24. It is longer than a card dispute window. Sol High could not verify a filing deadline for an NPC complaint, so privacy requests take the same two years for one simple rule, not because a deadline sets it. The money facts live five years in the refund records, so the email does not need to.
+3. Ten years (R6) is not used. R6 keeps the proof that a guardian allowed an account, which the app records itself. An email is the conversation around a record, not the record.
+4. Risk accepted, as in round 6: a contract claim can be timely after the email is gone. The refund record and PayMongo's own records remain.
+5. Sol High's biggest risk: the sweep deletes evidence of a claim that is still open because its last email aged out. Step 2 below answers it.
+
+**Wording.** Sol High's, applied: the texts say the limits cover emails to both addresses and our replies, call the first class "other emails", and count from the last email instead of saying a matter "closes on" that day, which could read as silence ending a request. The Notice for teens adds the guardian's emails.
+
+**The mailbox process (this is what "once the mailbox process exists" means).**
+
+1. Two labels, put on the thread at the first reply: one for the second class, one named "hold" for a matter that is unanswered or under a dispute, complaint or case. Everything without a label is ordinary.
+2. Once a month, at the monthly cost check, two searches: delete unlabeled threads whose last message is older than 45 days, and second-class threads whose last message is older than 23 months. The published limits then hold even when a sweep is a month late. A thread labeled "hold" is never deleted. Answer any unanswered thread before the sweep. Remove "hold" when the dispute ends. Empty the trash.
+3. The sweep covers support@, dpo@, contact@ if it is in use, the sent replies, and any forwarded copy in his personal inbox.
+4. If the mail host can delete by age, a host rule replaces the sweep. Not checked.
+
+**Conditions.**
+
+1. The manager writes the procedure in `docs/OPERATIONS.md` before the texts publish, next to the D8 procedure, and adds "sweep the mailboxes" to the monthly cost check beside "read question reports" (R3). About 0.25 hour. The same file still names `dpo@pantas.app` (line 76); the texts say `dpo@pantas.study`. Fix it in the same change.
+2. The sweep is his step, about five minutes a month. They are his mailboxes.
+3. He can change either period at sign-off.
+
+### B4. Invoice sentence: publishes at launch, in the short form, once M8 is met
+
+- The Terms say "Pantas issues a sales invoice for each web purchase." The words "and sends it to the email you give us" are dropped.
+- If M8 is not met on the day the texts publish, the sentence is deleted before publishing and returns in the first Terms update after M8.
+
+**Reason.** D3 kept the sentence out "until the invoice process exists (checklist M8)". M8 is a launch gate, and the duty starts with the first live sale whatever the Terms say, so the by-hand process must exist at launch. The sentence is then true on the day it publishes. It restates a legal duty and adds no new promise. Publishing it at launch also avoids a second Terms version, which would ask every student to accept again (checklist L7). The short form is Sol High's own Nov 22 wording. The dropped words promised a delivery channel, and a bounced email would break them.
+
+**By hand until C (D3).** For each paid web purchase he writes the invoice from his BIR-approved stock, sends the buyer a clear photo or scan by email, and keeps the original with the books for five years. The TIN goes on the invoice and never in the repo.
+
+**Conditions.**
+
+1. M8 counts as met when he holds invoice stock the BIR accepts and has issued one real invoice for the small live payment in M3. The manager corrects the M8 note (check 7) and writes the by-hand steps in `docs/OPERATIONS.md` with the D8 procedure.
+2. D3's trigger for the automatic invoice email stands: when he reports that invoices by hand are a burden.
+
+### Publish gates added
+
+| Claim in the texts | What makes it true |
+|---|---|
+| Google Analytics user and event data expires after two months | Console shows 2 months for user-level and event data, reset switch off (B1) |
+| Emails deleted within 90 days or two years after the matter closes | The mailbox procedure is written and the two labels exist (B3) |
+| "Pantas issues a sales invoice for each web purchase." | M8 met; otherwise delete the sentence before publishing (B4) |
+
+### What needs Aedwon
+
+1. The publication date.
+2. Confirm or change "three business days" (B2). It is flagged in `change-summary.md`.
+3. The console check in B1, the monthly mailbox sweep in B3, and the invoices in B4 are his steps. None is a decision.
+4. NPC registration stays his. No text mentions it.
+
+The numbers he can change at sign-off are now: two months (B1), three business days (B2), 90 days and two years for messages (B3), plus the earlier 90 days for reports and the ten and four years for guardian evidence.
