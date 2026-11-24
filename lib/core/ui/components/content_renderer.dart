@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'dart:collection';
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -9,11 +11,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/platform/figure_viewer_back.dart';
 import 'package:pantas/core/platform/figure_viewer_history.dart';
 import 'package:pantas/core/platform/route_leave_guard.dart';
+import 'package:pantas/core/ui/components/held_reader.dart';
 import 'package:pantas/core/ui/components/lesson_svg.dart';
 import 'package:pantas/core/ui/components/math_support.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/reader_blocks.dart';
+import 'package:pantas/core/ui/components/reader_figure_placement.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -25,6 +29,8 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+
+part 'content_renderer_held.dart';
 
 // Credits use secondaryLabel under the Task8b contrast ruling.
 
@@ -849,14 +855,20 @@ class ContentRenderer extends StatelessWidget {
     List<ReaderItem> items, {
     bool solution = false,
     bool choices = false,
+    Map<int, int>? sharedCounters,
   }) {
     final slots = <_Slot>[];
-    final counters = <int, int>{};
+    final counters = sharedCounters ?? <int, int>{};
     for (var index = 0; index < items.length; index++) {
       final item = items[index];
       if (item is ReaderExample) {
         counters.clear();
-        slots.add(_Slot(_exampleCard(context, item)));
+        slots.add(
+          _Slot(
+            _exampleCard(context, item),
+            kind: FlowKind.example,
+          ),
+        );
         continue;
       }
       final plain = item as ReaderPlain;
@@ -971,6 +983,13 @@ class ContentRenderer extends StatelessWidget {
           above: above,
           below: below,
           list: list.isNotEmpty,
+          kind: switch (style) {
+            'h2' || 'h3' => FlowKind.heading,
+            'blockquote' => FlowKind.note,
+            _ => FlowKind.text,
+          },
+          text: isBlock ? readerBlockText(block) : '',
+          major: style == 'h2',
         ),
       );
     }
@@ -1072,7 +1091,11 @@ class ContentRenderer extends StatelessWidget {
     );
   }
 
-  Widget _exampleCard(BuildContext context, ReaderExample example) {
+  Widget _exampleCard(
+    BuildContext context,
+    ReaderExample example, {
+    _HeldExampleHook? held,
+  }) {
     final title = _numbered(maps(example.title['children']));
     final titleStyle = _readerH3(context);
     final inline = _inline(context, title.runs, titleStyle);
@@ -1081,7 +1104,8 @@ class ContentRenderer extends StatelessWidget {
         context,
         [
           for (final block in example.stem)
-            ReaderPlain(block, ReaderSection.examples),
+            if (held == null || !held.moved.contains(block))
+              ReaderPlain(block, ReaderSection.examples),
         ],
         choices: true,
       ),
@@ -1091,7 +1115,10 @@ class ContentRenderer extends StatelessWidget {
         ? null
         : _solutionBody(
             context,
-            example.solution,
+            [
+              for (final block in example.solution)
+                if (held == null || !held.moved.contains(block)) block,
+            ],
             ReaderSection.examples,
             inCard: true,
           );
@@ -1106,6 +1133,7 @@ class ContentRenderer extends StatelessWidget {
       stem: stem.children,
       stemTail: stem.tail,
       solution: solution,
+      open: held?.open,
     );
   }
 
@@ -1188,11 +1216,23 @@ class _Slot {
     this.above = 0,
     this.below = 18,
     this.list = false,
+    this.kind = FlowKind.text,
+    this.text = '',
+    this.major = false,
   });
+
+  /// A `##` heading, which opens a section.
+  final bool major;
   final Widget child;
   final double above;
   final double below;
   final bool list;
+
+  /// What the held layout treats the block as.
+  final FlowKind kind;
+
+  /// The block's words, for the held layout's anchor rule.
+  final String text;
 }
 
 /// An example in the reader: a card with its title, its question, and a
@@ -1208,8 +1248,12 @@ class _ExampleCard extends StatefulWidget {
     required this.stem,
     required this.stemTail,
     required this.solution,
+    this.open,
     super.key,
   });
+
+  /// Told when the solution opens, so a figure beside the card can follow.
+  final ValueNotifier<bool>? open;
 
   final bool wide;
   final String label;
@@ -1239,6 +1283,7 @@ class _ExampleCardState extends State<_ExampleCard> {
     // moves to the solution instead of being lost.
     final moveFocus = _button.hasFocus;
     setState(() => _open = true);
+    widget.open?.value = true;
     if (moveFocus) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) _panel.requestFocus();
@@ -1445,7 +1490,13 @@ class _FigureFrame extends StatelessWidget {
     this.imageSemantics = true,
     this.expandable = true,
     this.labelViewer = false,
+    this.plate = false,
   });
+
+  /// A plate in the held reader's figure column (spec "Layout"): #FAFAF7,
+  /// radius 14, 14 px above and below, 20 px at the sides, and the expand
+  /// button 34 px at the top right, 10 px in. No caption or credit.
+  final bool plate;
 
   /// Height of the strip below a phone figure that holds the zoom badge.
   static const _expandStrip = PantasSpace.s40;
@@ -1524,105 +1575,169 @@ class _FigureFrame extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) => Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+  Widget _plate(BuildContext context) {
+    final c = context.colors;
+    return Container(
+      key: const ValueKey('reader-figure-plate'),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: c.readerFigureBackground,
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Stack(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(PantasRadius.md),
-            child: Container(
-              key: reader ? const ValueKey('reader-figure-frame') : null,
-              foregroundDecoration: reader
-                  ? BoxDecoration(
-                      border: Border.all(
-                        color: context.colors.separator,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+            child: Center(
+              child: Semantics(
+                label: label,
+                image: true,
+                excludeSemantics: true,
+                child: Theme(data: buildLightTheme(), child: figure),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            right: 10,
+            child: Tooltip(
+              message: 'Expand figure',
+              child: Semantics(
+                button: true,
+                label: 'Expand figure',
+                excludeSemantics: true,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => expand(context),
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: Container(
+                      width: 34,
+                      height: 34,
+                      decoration: BoxDecoration(
+                        // ds-board: fs.css .fx, #F0F0F2 on the light plate
+                        color: const Color(0xFFF0F0F2),
+                        borderRadius: BorderRadius.circular(9),
                       ),
-                      borderRadius: BorderRadius.circular(PantasRadius.md),
-                    )
-                  : null,
-              child: Stack(
-                children: [
-                  Container(
-                    width: reader && context.wideWeb ? double.infinity : null,
-                    // The zoom badge sits in the frame's bottom-right corner.
-                    // Wide web keeps it in the 22 px padding; on a phone the
-                    // frame has none, so the button gets a strip of its own
-                    // and never lands on a label of the figure.
-                    padding: reader && context.wideWeb
-                        ? const EdgeInsets.all(PantasSpace.s20)
-                        : expandable
-                            ? const EdgeInsets.only(bottom: _expandStrip)
-                            : null,
-                    alignment:
-                        reader && context.wideWeb ? Alignment.center : null,
-                    color: reader
-                        ? context.colors.readerFigureBackground
-                        : context.colors.figureBackground,
-                    child: imageSemantics
-                        ? Semantics(
-                            label: label,
-                            image: true,
-                            excludeSemantics: true,
-                            child: Theme(
-                              data: buildLightTheme(),
-                              child: figure,
-                            ),
-                          )
-                        : Theme(data: buildLightTheme(), child: figure),
+                      alignment: Alignment.center,
+                      child: Icon(
+                        PantasIcons.expandFigure,
+                        size: 16,
+                        // ds-board: fs.css .fx stroke #6E6E73
+                        color: const Color(0xFF6E6E73),
+                      ),
+                    ),
                   ),
-                  if (expandable)
-                    Positioned(
-                      right: 1,
-                      bottom: 1,
-                      child: SizedBox.square(
-                        dimension: PantasSize.targetTouch,
-                        child: IconButton(
-                          tooltip: 'Expand figure',
-                          onPressed: () => expand(context),
-                          padding: EdgeInsets.zero,
-                          icon: Container(
-                            width: PantasSize.iconBtnSm,
-                            height: PantasSize.iconBtnSm,
-                            decoration: BoxDecoration(
-                              color: context.colors.surface,
-                              borderRadius:
-                                  BorderRadius.circular(PantasRadius.sm),
-                              boxShadow: context.shadows.popover,
-                            ),
-                            alignment: Alignment.center,
-                            child: Icon(
-                              PantasIcons.magnifyingGlassPlus,
-                              size: PantasSpace.s16,
-                              color: context.colors.secondaryLabel,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) => plate
+      ? _plate(context)
+      : Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(PantasRadius.md),
+              child: Container(
+                key: reader ? const ValueKey('reader-figure-frame') : null,
+                foregroundDecoration: reader
+                    ? BoxDecoration(
+                        border: Border.all(
+                          color: context.colors.separator,
+                        ),
+                        borderRadius: BorderRadius.circular(PantasRadius.md),
+                      )
+                    : null,
+                child: Stack(
+                  children: [
+                    Container(
+                      width: reader && context.wideWeb ? double.infinity : null,
+                      // The zoom badge sits in the frame's bottom-right corner.
+                      // Wide web keeps it in the 22 px padding; on a phone the
+                      // frame has none, so the button gets a strip of its own
+                      // and never lands on a label of the figure.
+                      padding: reader && context.wideWeb
+                          ? const EdgeInsets.all(PantasSpace.s20)
+                          : expandable
+                              ? const EdgeInsets.only(bottom: _expandStrip)
+                              : null,
+                      alignment:
+                          reader && context.wideWeb ? Alignment.center : null,
+                      color: reader
+                          ? context.colors.readerFigureBackground
+                          : context.colors.figureBackground,
+                      child: imageSemantics
+                          ? Semantics(
+                              label: label,
+                              image: true,
+                              excludeSemantics: true,
+                              child: Theme(
+                                data: buildLightTheme(),
+                                child: figure,
+                              ),
+                            )
+                          : Theme(data: buildLightTheme(), child: figure),
+                    ),
+                    if (expandable)
+                      Positioned(
+                        right: 1,
+                        bottom: 1,
+                        child: SizedBox.square(
+                          dimension: PantasSize.targetTouch,
+                          child: IconButton(
+                            tooltip: 'Expand figure',
+                            onPressed: () => expand(context),
+                            padding: EdgeInsets.zero,
+                            icon: Container(
+                              width: PantasSize.iconBtnSm,
+                              height: PantasSize.iconBtnSm,
+                              decoration: BoxDecoration(
+                                color: context.colors.surface,
+                                borderRadius:
+                                    BorderRadius.circular(PantasRadius.sm),
+                                boxShadow: context.shadows.popover,
+                              ),
+                              alignment: Alignment.center,
+                              child: Icon(
+                                PantasIcons.magnifyingGlassPlus,
+                                size: PantasSpace.s16,
+                                color: context.colors.secondaryLabel,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          if (credit.isNotEmpty) ...[
-            const SizedBox(height: PantasSpace.s6),
-            Text(
-              credit,
-              style: context.type.caption.copyWith(
-                fontSize: reader
-                    ? context.wideWeb
-                        // ds-board: Figure README sets no credit size; as built
-                        ? 13
-                        // ds-board: Figure README sets no credit size; as built
-                        : 11
-                    : null,
-                fontWeight: FontWeight.w400,
-                color: context.colors.secondaryLabel,
+            if (credit.isNotEmpty) ...[
+              const SizedBox(height: PantasSpace.s6),
+              Text(
+                credit,
+                style: context.type.caption.copyWith(
+                  fontSize: reader
+                      ? context.wideWeb
+                          // ds-board: Figure README sets no credit size; as built
+                          ? 13
+                          // ds-board: Figure README sets no credit size; as built
+                          : 11
+                      : null,
+                  fontWeight: FontWeight.w400,
+                  color: context.colors.secondaryLabel,
+                ),
               ),
-            ),
+            ],
           ],
-        ],
-      );
+        );
 }
 
 class _FigureViewer extends StatefulWidget {

@@ -23,7 +23,11 @@ class HeldEntry {
     this.above = 0,
     this.below = 16,
     this.list = false,
+    this.major = false,
   });
+
+  /// A `##` heading, which opens a section.
+  final bool major;
 
   final Widget child;
   final FlowKind kind;
@@ -173,12 +177,6 @@ class RenderHeldReader extends RenderBox
     return out;
   }
 
-  RenderBox? _plateBox(int figureIndex) {
-    final all = _children;
-    final i = _entries.length + figureIndex;
-    return i < all.length ? all[i] : null;
-  }
-
   @override
   void performLayout() {
     final all = _children;
@@ -324,7 +322,7 @@ class RenderHeldReader extends RenderBox
     if (index >= _entries.length) {
       offset = _plateOffset(child, index - _entries.length, _viewportTop());
     }
-    transform.translate(offset.dx, offset.dy);
+    transform.translateByDouble(offset.dx, offset.dy, 0, 1);
   }
 
   @override
