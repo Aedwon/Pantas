@@ -52,7 +52,17 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 - Get a written brief, do one job, return a short summary (pass or fail, errors, files touched).
 - Never talk to Aedwon, never merge, and never start work outside their brief.
 
-## Lanes (current as of November 17)
+## Lanes (current as of November 24, 7 PM Manila)
+
+Manager: `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926` (took over Nov 24).
+Active: CSE release lead r2 `mcp:launch:89c734558b4268cc20e870fa5fbd7e5395d6da9eeb6c0759940bd95f7e4b7fa0`
+(legal texts, content blockers, UI open items); security and billing lead r2
+`mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5` (PR #91, audit findings).
+Queued: UX ambition lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (landing page, website footer).
+Retired for length (do not message): old CSE release lead `mcp:launch:b14e5d0e...`, old security lead
+`mcp:bc3317cf...`. The table below is the Nov 17 history.
+
+## Lanes (as of November 17)
 
 Keep this table current whenever a lane opens, closes or changes. Thread ids are T3 thread ids.
 
@@ -182,9 +192,9 @@ These are Aedwon's standing instructions. They apply until he changes them.
   users"). Testing, staging, scheduled jobs, secrets and every other fixed item stay inside the free
   tiers, counted per billing account. Before relaying or approving any change that adds such an
   item, ask the lead for its free-tier count. Written rule 7 in `process-improvement.md`.
-- Route new problems to a fresh lead (Nov 16 entry in `process-improvement.md`). Before sending a new
-  task, check the target thread's item count. If the task is outside that lead's lane, or the thread
-  has more than 1,000 items, launch a fresh lead. Say the routing reason in one line to Aedwon.
+- Every new task starts with a blank memory (Nov 24 entry in `process-improvement.md`, replacing the
+  Nov 16 1,000-item test): send it with `freshContext: true`, or launch a fresh lead for a new lane.
+  Tasks end with a handoff note in `docs/superpowers/handoffs/`; long tasks restart fresh from it.
 - Act in his interest without being asked (Aedwon, Nov 15: "do your job more proactively. it should be
   in my best interests always. that includes my interests for peak user experience decisions"). At
   takeover, at each scheduled event, and at least daily while lanes run, sweep cost, users and dates,
