@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Walk-through lesson rewrite still too compressed (Nov 25)
+
+- His words: "i found some lessons could use more detail, or a sort of \"walk you through it\" type of teaching" (Signed Integers and Substitution, three screenshots), then on the manager's sample rewrite: "close, but not as detailed as I'd like. you are allowed to have numbers in core concept".
+- Wrong: the sample kept each rule to one or two worked numbers and still skipped the reasoning behind each move: why a rule works, what goes wrong without it, and checking the answer.
+- Why it got through: the lesson style guide sets the reading level (Grade 5) but no depth standard, so "plain" was read as "short". The sample also aimed at the current lesson's length.
+- Fix (required step until a depth standard is approved and added to docs/content/lesson-style-guide.md): a math lesson rewrite walks through every rule with numbers in Core Concept, shows each arithmetic and sign move on its own line, says why the move works, shows the common wrong move next to the right one, and ends worked examples with a check. The manager's next sample follows this, and his reaction sets the standard.
+
 ### Wide Quiz tab paused card still breaks the button placement rule he set (Nov 25)
 
 - His words (about 4:35 AM Manila, wide dark screenshot of the Quiz tab paused card: caption and "Discard this session" on one line, Resume at the bottom left): "was this never addressed? particularly the placement of discard resume (basically the CTAs in general)? i think i've raised this before, and that's also why DS4 i believe was added / i want answers first before you change anything".
