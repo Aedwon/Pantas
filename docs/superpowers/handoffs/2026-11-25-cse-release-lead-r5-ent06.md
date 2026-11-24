@@ -16,10 +16,10 @@ Review: one Codex Sol High run (private: `Pantas-private/security/2026-11-23-mon
 - High, server, already tracked as PAY-06: a paid plan for an exam a reward does not cover can be queued behind the reward.
 - Rest of T17: ENT-12 (stale entitlement replies) and pass rows in the connected list.
 
-## Waiting on the manager
+## Reader dashes and UI ship r4 (prod 19:48 UTC)
 
-ux/reader-lesson-pills-r1 (PR #120, wide reader without the per-lesson dashes) is merged into main (1d4a5e579, CI green) but not on prod. The manager decides whether prod waits for Aedwon's look at `Pantas-handoffs/2026-11-25-reader-indicator/`. If go: build main from 1d4a5e579 or later, same steps as the ENT-06 entry, then fill E-154.
+The manager ruled the reader change does not wait for Aedwon (rule 4) and ordered it shipped with #117. Main 434d59940, build 3821092263-49e225b3ef28. Launch log: "Nov 25, wide reader without lesson dashes and UI ship r4". Nothing of this lane waits on prod.
 
 ## Worktrees
 
-cse-ent06 (branch qa/ent06-beta-reward-r1, merged), cse-ent06-ship (detached 61fbd1b56, holds the prod build) and cse-docs-ent06 (docs) can be removed once the reader ship is done.
+cse-ent06 (branch qa/ent06-beta-reward-r1, merged), cse-ent06-ship (detached 61fbd1b56, holds the prod build) and cse-docs-ent06 (docs) can be removed in cleanup; all their work is on main.
