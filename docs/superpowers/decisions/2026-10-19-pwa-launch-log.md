@@ -4310,3 +4310,15 @@ Expected day total: under 250 reads and 200 writes. Go.
 
 - Aedwon, verbatim (about 1:45 AM): "okay, i will use a weekly reset when you exhaust your weekly usage so you can keep on working and get things fully ready for public release".
 - Effect: Claude weekly usage is no longer a reason to slow lanes. The 5-hour limit, the 2-Opus-lead cap and the machine caps still apply. Paused lanes (legal texts, payments, under-13, PSHS-NCE, question generator Phase 2, dots) stay paused until his word; the manager asked him which to resume.
+
+### Nov 25, week strip chip names for CSE shipped to prod (CSE release lead r4)
+
+- **Approval:** Aedwon's standing ship-it, verbatim: "just ship it please, temporarily drop the rule, do not wait for me as the bottleneck"; ordered by the operations manager Nov 25 ("Ship them in this order: #118 now").
+- **Every user-visible change and the approved board that draws it:** the Home week strip chip reads "CSE Pro" and "CSE Subpro" for the two CSE exams, phone and wide (U14): HP_WeekStrip (Pantas Redesign, his pick B, D196); ruling "Nov 25, UX design lead: week strip chip names for CSE (finding U14)".
+- **Review:** independent side-by-side review at 390 (1x, 2x), 320 and 1440, light and dark (PR #118 body).
+- **Source:** main 7c82485a4 (PR #118), CI green on 00e0b80ff. Web only: empty diff since 0db28d00f for functions, rules, indexes, storage, Worker code and content.
+- **Rule 7:** before the run (free_tier_live.mjs), staging 7,075 reads and 559 writes this quota day, prod 3,433 reads and 147 writes. Staging proof used about 250 reads and 40 writes (estimated from traffic). Prod ship read nothing from Firestore.
+- **Staging proof** (build 3901619455-182715a46b69, Worker 072768a5, compare.mjs 92 of 92; headless Chromium with the keychain flags; throwaway user, its documents and the debug token deleted): app loads and the build id matches; chip reads "CSE Pro" at 390 (semantics) and at 1440 (screenshot; the wide strip is not in the semantics tree); a quiz Check saves and survives a reload.
+- **Prod:** build 3216080452-6107606c1b0e (lib/main_prod.dart, prod App Check site key, BETA_GATE=true, SCREEN_COUNTS=true, private SELLER_* inputs); Firebase Hosting version dbd75d7b5230fec7, release 1795547862091000; Worker cdcca25c-b115-445b-b634-0dcbd4ce0ec0; compare.mjs 92 of 92; app.pantas.study and pantas-prod.web.app serve the new build id; headless boot 0 page errors; no ERROR logs 19:17 to 19:26 UTC.
+- **Rollback (not used):** Hosting version d21cd73e126d5f98 (release 1795536658683000, build 4044006759-8b699cc8f700); Worker `wrangler rollback` to 7491ad04-8001-4c45-ad89-f89231185923.
+- **Note:** tool/deploy/require_current_main.mjs refused because main had moved ahead; it guards functions deploys, and this web ship was pinned to 7c82485a4.
