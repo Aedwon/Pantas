@@ -8,6 +8,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -203,5 +205,43 @@ void main() {
       tester.getTopLeft(button).dx - tester.getTopLeft(hero).dx,
       4,
     );
+  });
+
+  testWidgets(
+      'Pro: 22 between the Plan card and the last card, and a divider '
+      'between Manage and Restore (ST_ProPro)', (tester) async {
+    await _pump(
+      tester,
+      entitlement: Entitlement(
+        plan: EntitlementPlan.monthly,
+        productId: 'pantas_pro_monthly',
+        expiresAt: DateTime.utc(2026, 11, 4),
+      ),
+    );
+    GroupedSection cardOf(String text) => tester.widget<GroupedSection>(
+          find.ancestor(
+            of: find.text(text),
+            matching: find.byType(GroupedSection),
+          ),
+        );
+    expect(cardOf('Plan'), isNot(same(cardOf('Manage in Google Play'))));
+    final plan = tester.getRect(
+      find.ancestor(
+        of: find.text('Plan'),
+        matching: find.byType(GroupedSection),
+      ),
+    );
+    final last = tester.getRect(
+      find.ancestor(
+        of: find.text('Manage in Google Play'),
+        matching: find.byType(GroupedSection),
+      ),
+    );
+    expect(last.top - plan.bottom, 22);
+    ListRow row(String title) => tester.widget<ListRow>(
+          find.byWidgetPredicate((w) => w is ListRow && w.title == title),
+        );
+    expect(row('Manage in Google Play').divider, isTrue);
+    expect(row('Restore purchases').divider, isFalse);
   });
 }

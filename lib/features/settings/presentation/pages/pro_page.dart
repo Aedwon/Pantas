@@ -1335,7 +1335,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             (entitlement.passes.isEmpty ||
                 entitlement.plan != EntitlementPlan.free ||
                 entitlement.isUnknownPlan ||
-                entitlement.promotions.isNotEmpty))
+                entitlement.promotions.isNotEmpty)) ...[
           SettingsSection(
             header: 'Your plan',
             footer: web && entitlement.isTrial && planDate != null
@@ -1370,6 +1370,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 ),
             ],
           ),
+          // The phone boards put 22 between cards (ST_ProPro).
+          if (!context.wideWeb)
+            const SizedBox(height: PantasSpace.s20 + PantasSpace.s2),
+        ],
         for (final pass in entitlement.passes.entries) ...[
           SettingsSection(
             header: 'Your plan',
@@ -1397,7 +1401,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ),
             ],
           ),
-          const SizedBox(height: PantasSpace.s20),
+          SizedBox(
+            height: context.wideWeb
+                ? PantasSpace.s20
+                : PantasSpace.s20 + PantasSpace.s2,
+          ),
         ],
         if (waiting)
           SettingsSection(
@@ -1569,6 +1577,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               if (manageRow)
                 SettingsRow(
                   title: 'Manage in Google Play',
+                  divider: restoreRow,
                   onTap: _busy ? null : () => _manage(entitlement),
                 ),
               if (restoreRow)
