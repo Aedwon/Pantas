@@ -4208,3 +4208,15 @@ Already used on pantas-staging this quota day (since Nov 23 08:00 UTC): 6 reads,
 | Total, with 50% margin | **about 200** | **about 170** | **about 10 MB** |
 
 Expected day total: under 250 reads and 200 writes. Go.
+
+### Nov 24, test-checkout fix shipped to prod (PR #89, security and billing lead, r2)
+
+- Aedwon's "ship it" (Nov 24, Manila, relayed by the manager). #89 merged at 98288b6fc after CI (functions job green;
+  app jobs skipped as a functions-only change) and a local full run (824 unit, 1,039 emulator).
+- Deployed `createPaymongoCheckout` only, from main 98288b6fc, pinned CLI, after the IAM preflight. Revision
+  createpaymongocheckout-00020-jov; rollback is traffic back to createpaymongocheckout-00019-zoj.
+- The function also carries #90's checkout declaration code, already on main; it cannot run on prod while the guard
+  refuses every checkout (prod has 0 admin-claim accounts).
+- Verified 03:18 UTC: a throwaway student account (short-lived App Check debug token, both deleted) was refused with
+  400 FAILED_PRECONDITION, reason `checkout-closed`. No errors on the new revision.
+- Checkout on prod stays closed until the live PayMongo key is set (docs/deploy-prod.md section 6b).

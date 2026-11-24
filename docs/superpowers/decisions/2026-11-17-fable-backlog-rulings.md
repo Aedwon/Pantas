@@ -1250,3 +1250,192 @@ a grant automatically and hand it to the owner; (C) other. Lead recommended B.
 overwrite a pending refund task with the same key, and the refund-closing logic must not close this follow-up. A replayed
 win, or a win before its opening event, writes no second record and restores nothing. The property test covers both
 orders and asserts no grant changes on such a win.
+
+### C9. BIR Registration Seal Badge placement (Fable 5.2, Nov 24)
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent for the CSE release lead, under Aedwon's delegation (written rule 4). The placement, size and treatment below are final and are not queued for his sign-off. One point is his and is not ruled: whether the badge is shown at all while the BIR's display rule is suspended (see "What needs Aedwon"). His visual pass still gates release (`WORKFLOW.md`).
+
+- Asked by the CSE release lead. Source: the operations manager, relaying page 3 of Aedwon's BIR Certificate of Registration (Form 2303), verbatim: "For taxpayers engaged in online business or with online presence, the BIR Registration Seal Badge should be prominently displayed on their website or profile page. This badge should be easily visible to the public and readily scannable that will serve as verification of their registration with the Bureau of Internal Revenue." The manager's instruction: place it where the D3 seller details go, the website footer and the Pro page. No board draws it.
+- Policy read at `origin/main` 976432809: `AGENTS.md`, `WORKFLOW.md` (website copy, visual checking), `docs/workflow/process-improvement.md` (written rules 1 to 9 and the entries), and in this file D2, D3, the H5 table, C6 and the legal rounds.
+- Velocity: this pass was not timed. It changed no code. Build sizes below are estimates.
+
+#### What was checked
+
+1. **The asset** (`build/audit/bir_badge.png`, 1160 x 380). Read with Apple's Vision decoder, confidence 1.0:
+   - The QR code holds `https://verify.bir.gov.ph/correspondence/<id> (the full address is kept out of this public repo)`.
+   - It is a version 5 code: 37 modules a side, error correction M.
+   - Its dark area is 239 x 247 source px (x 878 to 1116, y 43 to 289), so one module is about 6.5 source px.
+   - Clear paper around it: 43 px above, 44 px to the right, about 50 px down to the RSN line. The standard asks for 4 modules, 26 px.
+   - The paper is already pure white (255, 255, 255) under the pale watermark. No tone correction is needed.
+   - The left 60 px hold only watermark. The ribbon's tip starts at x 82.
+2. **The code** (`origin/main`):
+   - `lib/core/config/seller_facts.dart`: the proprietor name and email are constants; the trading name, place and phone are build inputs.
+   - `pro_page.dart` and `widgets/declaration_card.dart`: the seller line shows only while the tick card shows (web, a payment about to be taken, not the free trial).
+   - Phone: the seller line sits in the fixed bar, between Pay and Restore Purchases. The bar already holds Pay, the seller line (three lines at 390 px), Restore Purchases and C6's status line.
+   - Wide web: the seller line sits right-aligned under Pay, at most 480 px wide, inside the page's scrolling content. By the pane's width rule, the detail pane is about 460 px wide at a 1024 px window and about 750 px at 1440 (estimated, not measured).
+3. **"Website footer" today.** The app has no footer. The website is the separate `pantas-web` project (pantas.study, a Cloudflare Worker). Its footer is the `pn-founder` block ("Built by a solo developer") on seven pages; the investor page has its own. The D3 seller footer is not built. The site has no dark mode.
+4. **Boards.** Read live on Nov 24: `S4P_T_light`, `S4P_T_dark`, `S4W_T_light` (CSE Release Picks); `CB_Ph`, `CB_PhDark`, `CB_Wide` and `canvas.json` (Guardian Manage and Minor Checkout); `ST_ProCSE`, `ST_Paywall`, `ST_Pro`, `ST_About` (Pantas Web); the design system's `tokens.css` and `components/bundle.css`. No board draws a badge, a footer or any image on the Pro page. The system's Figure component draws images on a plate that stays white in dark mode (`figure-bg`), radius 12, with a 1 px `divider` ring.
+5. **The rule itself, on the web, Nov 24.** This changes the premise:
+   - The display duty comes from BIR RMC 38-2026, supplemented by RMC 64-2026 and 99-2026.
+   - **BIR RMC 113-2026, issued October 26, 2026, suspended the mandatory display "until further notice".** Sellers who hold a badge "may continue displaying them on a voluntary basis", and "no penalties shall be imposed solely due to the non-display".
+   - The reported reasons were privacy and technical complaints. Scanning a badge shows the registrant's name and TIN digits. One report says the digits are masked; another says the full TIN shows.
+   - Rules that still describe a correct display: the badge "must remain clear, readable, and completely unaltered, preserving all of its original design elements"; it may be cropped, scanned or extracted from the certificate; it must be "visible and easily accessible" to customers; a real code leads to `https://verify.bir.gov.ph/correspondence/`.
+   - RMC 64-2026 lets a taxpayer generate the badge as a digital file in ORUS.
+   - Limit: the circulars themselves were not read. These points come from Grant Thornton, KPMG and GMA News summaries (sources at the end). No lawyer reviewed this.
+6. **Scan range.** A simulation, not a field test: the badge was drawn at each size and screen density, then passed through a modeled phone camera (1920 px preview, 69 degree view, blur, 4 degree tilt, noise, lowered contrast) and decoded with Apple's Vision.
+
+   | Surface | Badge width | QR side | Per module | Farthest decode |
+   |---|---|---|---|---|
+   | Phone | 240 px | 52 px | 1.4 px | 10 cm |
+   | Phone | 300 px | 65 px | 1.8 px | 15 cm |
+   | Phone | 358 px | 78 px | 2.1 px | 20 cm |
+   | Laptop, Retina density | 480 px | 104 px | 2.8 px | 35 cm |
+   | Laptop, Retina density | 640 px | 139 px | 3.8 px | 45 cm |
+   | Desktop monitor, 96 dpi | 480 px | 104 px | 2.8 px | 40 to 45 cm |
+
+   - The range follows the physical module size: about 60 cm of range per millimeter of module.
+   - Vision is a strong decoder, so this is an upper bound. Cheaper scanners will do worse. The phone check in the build items is the proof.
+   - The code also decodes from a headless render of the draft board at 1x and at 2x.
+
+#### Standards applied
+
+- **ISO/IEC 18004 quiet zone**, as stated by Denso Wave: "QR Code requires a four-module wide margin at all sides of a symbol." Kept at every size: the crop and the plate's corner radius leave more than 4 modules clear.
+- **Module size on screen.** No standard gives an on-screen minimum (Denso Wave's figure is for print). The floor here is set from the scan-range table above and is marked as this project's own measurement.
+- **BIR RMC 38-2026**, through the KPMG summary: "clear, readable, and completely unaltered, preserving all of its original design elements"; cropping or extracting the badge alone is allowed.
+- **WCAG 2.2, 1.1.1 Non-text Content**: "If non-text content is a control or accepts user input, then it has a name that describes its purpose." Also 1.4.5 Images of Text (a seal is the essential-presentation case), 2.4.7 Focus Visible, 2.5.8 Target Size.
+- **Agent standards library**: WEB-A1, WEB-I10, WEB-C6, WEB-K6, WEB-M1 (`web-interface-design.md`); UXW-CONCISE, UXW-LINK (`ux-writing.md`).
+- **His guidance for UI councils** (process-improvement, Nov 23): "no wordy UI, compress text, clean, intuitive, elegant".
+- **AGENTS.md voice rules** for the one in-app string. **WORKFLOW.md** for website wording, which stays his.
+
+#### Options
+
+1. **In the phone's fixed bar, beside the seller line.** Rejected. The badge is 124 px tall at full width. The bar is about 230 px tall today. It would reach about 360 px of 844 and hide the plans. C6 rejected a tall bar for the same reason.
+2. **Above the plans, or between the plans and the tick card.** Rejected. It puts a government graphic in the middle of the purchase path and pushes the required tick card further below the fold, which C6 just fixed.
+3. **A small mark that opens the full badge in a sheet.** Rejected. A shrunken or redrawn mark is an altered badge, and it adds a tap and a new screen state.
+4. **The last item of the page, at a size that scans. Chosen.** It is out of the purchase path, it rests directly above the seller line when the page is scrolled to its end, and the bar does not change.
+5. **A second home in Settings, About.** Not ruled. Nobody asked for it, and the website footer is the public surface.
+
+#### Ruling
+
+1. **When it shows (app).** Web only, and only while the seller line shows: one condition, the existing one. Not on the free trial state, not for a Pro owner, not on Android. The badge and the seller line are one seller block.
+
+2. **Placement, phone (390 x 844).**
+   - The badge is the last item of the scrolling page: 24 px under the tick card, followed by the page's existing 24 px end space.
+   - The bar does not change. C6 holds as written: the status line keeps its reserved height, and a tap on the off Pay button still brings the tick card to rest 16 px above the bar. At that rest position the badge is below the fold.
+   - Nothing moves above the tick card.
+
+3. **Placement, wide web.**
+   - The badge is the last item of the page's bottom block: its own row, 16 px under the Pay row and any message line, right-aligned to the pane's right edge, under the seller line.
+   - It does not go inside the Pay column. At a 1024 px window that column is about 280 px wide (estimated), which puts the QR code under the floor in ruling 5.
+
+4. **Placement, website footer (`pantas-web`).**
+   - The badge sits directly under the D3 seller details, on the same left or right edge as that text, on every page that carries them.
+   - It ships in the same change as the D3 footer and under the same approval (D3 condition 2). It adds no visible words.
+   - The site is light only. The plate is the site's white surface with its hairline rule.
+   - The website is the public surface the certificate names. The Pro page is the point of sale. If only one can ship first, the website goes first.
+
+5. **Size.**
+   - Phone layouts, app and website: the full content width (the screen width less the two 16 px gutters). At 390 px that is 358 x 124 with a 78 px QR code. At 360 px it is 328 x 113 with a 71 px QR code.
+   - Wide layouts, app and website: 480 px wide, 166 px tall, with a 104 px QR code. If the pane or column is narrower than 480 px, the badge takes its full width.
+   - **Minimum QR side: 70 CSS px on a phone layout and 104 CSS px on a wide layout.** Hard floor on any surface: 64 CSS px, a badge 296 px wide. Below that the badge is not shown at all.
+   - The aspect ratio is fixed at 1100:380. The badge does not grow with the app's text size setting.
+   - Why these numbers: the QR code is 21.7% of the badge's width, so the badge's width sets everything. On a phone, 70 px is about 13 mm and scans from a second phone at 15 to 20 cm, the distance people hold two phones. On a laptop, 104 px scans to about 35 cm, the distance of a phone held up to a screen. Under 64 px the range falls to 10 to 15 cm and it stops being "readily scannable".
+   - Why not 640 px on wide: it adds 10 cm of range and makes the badge as large as the hero card. The link covers the rest.
+
+6. **Link.** The whole badge is one link to the address its QR code holds. It opens in a new tab and the Pro page stays open.
+   - Reason: a person on a phone cannot scan their own screen. For them the tap is the only way to verify.
+   - The link address is a constant beside the proprietor name in `seller_facts.dart`. It must equal the QR code's content, character for character.
+   - On the website: `target="_blank" rel="noopener noreferrer"`.
+   - The link sends no Pantas user data.
+
+7. **States and motion.**
+   - Keyboard focus: the app's ring, 2 px accent, offset 2, on the plate's shape. Enter opens the link. It is the last tab stop on the page.
+   - Hover: the pointer cursor only. Press: nothing. No tint, overlay, scale or opacity change is ever drawn on the badge.
+   - No motion of its own. It appears and leaves with the tick card, the way that card already does.
+   - Its box is reserved by the aspect ratio, so the page does not jump when the image arrives. If the image fails to load, the badge is absent, with no error text.
+
+8. **Text alternative.** One string, the link's name: "BIR registration seal. Opens the BIR verification page."
+   - In the app it is a link and an image for screen readers, one node.
+   - The RSN is left out of the name. A screen reader would spell 20 characters, and the page the link opens states the registration.
+   - On the website the same words are the image's `alt`. They are website wording, so he approves them with the D3 footer (`WORKFLOW.md`).
+
+9. **Light and dark.** The same plate in both: `figure-bg` (white in light and dark), `radius-md` 12, a 1 px `divider` ring, no padding. The scan's white paper is the plate.
+   - In dark mode the badge is a white plate on the dark page, as lesson figures are. It is not inverted, dimmed, tinted or blended.
+   - Reason: any dark treatment changes the badge and lowers the QR code's contrast.
+
+10. **The image: what is allowed.**
+    - Allowed: cropping empty paper (crop to x 60 to 1160, giving 1100 x 380); straightening; uniform scaling; white padding; rounding the plate's corners where they cut only empty paper; re-encoding at high quality.
+    - Not allowed: redrawing or tracing it; removing or lightening the watermark; recoloring; sharpening or thresholding the QR code; replacing the QR code with a fresh one made from its content; moving, splitting or hiding any part, the RSN included; changing the aspect ratio; drawing anything over it.
+    - File: WebP at quality 90 or higher, at most 150 KB (measured: 113 KB at quality 90, and it decodes at 358 px and 480 px). If blocks show at 3x zoom, use lossless WebP (373 KB). Web builds only (`platforms: [web]` in `pubspec.yaml`).
+    - If Aedwon downloads the digital badge from ORUS, that file replaces the scan with no layout change. The build items' checks run again.
+
+11. **Copy beside it: none.** No caption, no "Verified" label, no heading, no icon, no tooltip. The badge says "REGISTERED" and "BUREAU OF INTERNAL REVENUE" itself.
+
+12. **Gate status.** Not a launch gate. The display duty is suspended, the H5 table has no row for it, and no legal text mentions it. The legal texts must not say the badge is shown or required. If the BIR lifts the suspension before launch, the badge becomes a gate and the manager adds an H5 row. If the app is already open, it becomes a task dated to the BIR's new deadline.
+
+#### Reasons
+
+- The certificate asks for three things: prominent, visible to the public, readily scannable. The website footer gives the public view. Full-width on a phone and 480 px on wide give the scan. The link gives everyone else the same result in one tap.
+- The purchase path stays as approved: hero, plans, tick, Pay. The badge supports the seller line and does not compete with Pay.
+- The Figure plate is an existing recipe, so the badge needs no new token and no new look (WEB-K6).
+- "Unaltered" is the BIR's own test, and a badge that looks edited reads as fake. So the image gets no styling at all.
+- A badge whose code does not scan is worse than no badge. That is why the size has a floor and the build has a phone check.
+
+#### Build items (for the CSE release lead). Not a gate. Start after his answer below.
+
+App, about 0.5 day. UI work goes to Claude workers, never Codex.
+
+1. **Asset.** Crop to 1100 x 380, encode as ruled, add it for web only. Add the link constant. Tests, failing first:
+   - The constant is `https`, host `verify.bir.gov.ph`, path under `/correspondence/`.
+   - The asset's SHA-256 equals a pinned value, and the file is at most 150 KB. A changed file fails until the scan check (item 5) is run again and the pin is updated.
+2. **Widget**, beside `SellerLine`. Tests, failing first:
+   - Phone 390, payment state: the badge is the page's last item, 24 px under the tick card, 358 px wide, ratio 1100:380. The bar's height equals its height on `main`.
+   - The C6 test still passes: a tap on the off Pay button rests the tick card 16 px above the bar.
+   - Absent on the free trial state, for a Pro owner, and when `web` is false.
+   - Wide 1440: 480 px wide, right edge on the pane's right edge, under the Pay row and the message line. Wide 1024: width equals the smaller of 480 and the pane.
+   - A width under 296 px shows no badge.
+   - A tap and Enter each open the constant's address once. Neither changes the tick or starts a payment.
+   - One semantics node: a link, with the exact name in ruling 8.
+   - Dark theme: the plate is white, and the image has no color filter, blend or opacity.
+3. **Render sheets** (the Nov 9 screenshot exception): one sheet, phone 390 at the page end and wide 1440, light and dark. Compare with the board.
+4. **Free tier (rule 7).** One static file of at most 150 KB, cached by the browser. No new service, job or secret.
+5. **Scan check, a required step before it counts as done.** On the built page, scan the badge with a phone: from a second phone at phone width, and from a laptop screen at wide width, light and dark. Each scan must open the constant's address. Log the phone model, the distances and the result in the launch log.
+
+Website, about 0.25 day, inside the D3 footer change.
+
+6. Add the badge under the seller details as ruled, with `width` and `height` set. Test: every page that carries the seller details has the link with the exact address, the `rel` values and the approved `alt`. Run the scan check once on the live preview.
+
+#### Board changes (for the operations manager's reference canvas list)
+
+- A working draft of one state is at `build/audit/bir-badge-board.html`: phone 390 x 844, light, page end, box unticked. It is built from `S4P_T_light` and the design system's own two style files, unchanged, with one added block. It is not the reference. Written rule 3 applies: the state is added to the canvas in Claude Design.
+- CSE Release Picks, checkout boards: add the badge to `S4P_T_light`, `S4P_T_dark`, `S4P_G_light`, `S4P_G_dark` (phone, drawn at the page end) and `S4W_T_light`, `S4W_T_dark`, `S4W_G_light`, `S4W_G_dark` (wide, 480 px, right-aligned under the seller line). The dark boards show the white plate.
+- These boards are not folded into Pantas Web or Pantas Redesign yet (reference canvas folds, Nov 23). When they are, the badge goes with them.
+- Guardian Manage and Minor Checkout (`CB_Ph`, `CB_PhDark`, `CB_Wide`): no change. Their wording is already stale against D2.
+- `ST_Paywall`, `ST_ProCSE` and the other `ST_Pro*` boards: no change. They draw the free trial state, which shows no seller block.
+- The website has no board. The D3 footer he approves is the reference.
+
+#### What needs Aedwon
+
+1. **One yes or no: show the badge while the BIR's display rule is suspended?** This is his because the badge's link shows his own tax record.
+   - Before the manager asks, the lead opens the link once and writes down what the page shows: the name, whether the TIN is masked, and any address.
+   - Recommendation: yes, if the TIN is masked. The seller line already publishes his name, and a BIR mark is a strong trust signal for a first-time buyer from a solo seller. If the full TIN shows, recommend no until the BIR masks it.
+   - If he says no, nothing is built and nothing else changes.
+2. **Optional, his login only:** the digital badge file from ORUS. It would be sharper than the scan.
+3. Nothing else new. The website footer wording is already his under D3. His visual pass, which already gates release, sees the badge at both widths in light and dark.
+
+#### Corrections and things recorded
+
+- **The certificate's sentence is not a duty today.** The manager's relay treats it as one. RMC 113-2026 suspended it on October 26, 2026, four weeks before the Nov 22 legal package was ruled. Source and status are in check 5. This is a judgment from news and firm summaries, not from the circulars.
+- **The "26" on the badge.** If it is the year and the BIR reissues the badge each year, the file, the link constant and the pinned hash change together. Not confirmed. The manager asks at the January cost check.
+- **Google Play.** The certificate says "website or profile page". A Play listing has no place for the badge except a screenshot. Not ruled; Android checkout is out of scope for this launch (D2).
+- **Standards library.** No sheet covers a code shown on a screen. Proposed rule for `web-interface-design.md`, for the manager to add: "A QR code on a screen keeps a clear margin of 4 modules and a module of at least 2 CSS px on phones and 2.8 CSS px on wide screens (suggested, from the C9 scan table), and the same destination is offered as a link." Source to cite: Denso Wave, "QR Code requires a four-module wide margin at all sides of a symbol."
+- **Written rule 3.** The lead asked for a local HTML board. It was built from the approved board and the design system files, not from widget code, and is labeled a draft. The canvas change above is the real board work.
+
+#### Sources
+
+- Grant Thornton (P&A), "Suspension of the mandatory display of the BIR Registration Seal Badge": https://www.grantthornton.com.ph/insights/articles-and-updates1/tax-notes/suspension-of-the-mandatory-display-of-the-bir-registration-seal-badge/
+- GMA News, Oct 26, 2026, "BIR suspends mandatory display of registration seal badge for online sellers, creators": https://www.gmanetwork.com/news/money/companies/1007190/bir-suspends-mandatory-display-of-registration-seal-badge-for-online-sellers-creators/story/
+- GMA News, "Identity theft cannot be traced to BIR seal QR code alone, says privacy body": https://www.gmanetwork.com/news/topstories/content/1007263/identity-theft-cannot-be-traced-to-bir-seal-qr-code-alone-says-privacy-body/story/
+- KPMG Philippines, "The BIR's blue check: the badge for online sellers": https://kpmg.com/ph/en/insights/2026/06/the-birs-blue-check-the-badge-for-online-sellers.html
+- Denso Wave, "How to create a QR Code": https://www.qrcode.com/en/howto/code.html
+- W3C, Understanding WCAG 2.2, 1.1.1 Non-text Content: https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html
