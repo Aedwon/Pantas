@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/offset_focus_ring.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
-import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/selection_motion.dart';
@@ -53,15 +52,10 @@ class WebShellFrame extends StatelessWidget {
     required this.onNavigate,
     required this.onSearch,
     this.web = kIsWeb,
-    this.loading = false,
     super.key,
   });
   final Widget child;
   final int activeIndex;
-
-  /// The settings have not loaded, so the name is not known yet. The sidebar
-  /// shows a skeleton in place of the picture and the name (L_Rules).
-  final bool loading;
   final String person;
   final String exam;
   final String plan;
@@ -78,7 +72,6 @@ class WebShellFrame extends StatelessWidget {
     if (tier.index < WebLayoutTier.compact.index) return child;
     return _DesktopShell(
       activeIndex: activeIndex,
-      loading: loading,
       person: person,
       exam: exam,
       plan: plan,
@@ -110,11 +103,9 @@ class _DesktopShell extends StatefulWidget {
     required this.onNavigate,
     required this.onSearch,
     required this.wide,
-    required this.loading,
   });
   final Widget child;
   final int activeIndex;
-  final bool loading;
   final String person;
   final String exam;
   final String plan;
@@ -203,7 +194,6 @@ class _DesktopShellState extends State<_DesktopShell> {
                 skipTraversal: true,
                 child: WebSidebar(
                   activeIndex: widget.activeIndex,
-                  loading: widget.loading,
                   person: widget.person,
                   exam: widget.exam,
                   plan: widget.plan,
@@ -260,13 +250,9 @@ class WebSidebar extends StatefulWidget {
     required this.onNavigate,
     required this.onSearch,
     this.entryFocus,
-    this.loading = false,
     super.key,
   });
   final int activeIndex;
-
-  /// The settings are still loading: the footer shows a skeleton.
-  final bool loading;
   final String person;
   final String exam;
   final String plan;
@@ -472,42 +458,40 @@ class _WebSidebarState extends State<WebSidebar> {
                   horizontal: PantasSpace.s12,
                   vertical: PantasSpace.s10,
                 ),
-                child: widget.loading
-                    ? const _SidebarPersonSkeleton()
-                    : Row(
+                child: Row(
+                  children: [
+                    _SidebarAvatar(person: widget.person),
+                    const SizedBox(width: PantasSpace.s10),
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          _SidebarAvatar(person: widget.person),
-                          const SizedBox(width: PantasSpace.s10),
-                          Expanded(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  widget.person,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: PantasType.webLabel.copyWith(
-                                    color: c.textPrimary,
-                                    letterSpacing: 0,
-                                  ),
-                                ),
-                                Text(
-                                  widget.plan.isEmpty
-                                      ? widget.exam
-                                      : '${widget.exam} · ${widget.plan}',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: PantasType.webCaption.copyWith(
-                                    color: c.textSecondary,
-                                    letterSpacing: 0,
-                                  ),
-                                ),
-                              ],
+                          Text(
+                            widget.person,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: PantasType.webLabel.copyWith(
+                              color: c.textPrimary,
+                              letterSpacing: 0,
+                            ),
+                          ),
+                          Text(
+                            widget.plan.isEmpty
+                                ? widget.exam
+                                : '${widget.exam} · ${widget.plan}',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: PantasType.webCaption.copyWith(
+                              color: c.textSecondary,
+                              letterSpacing: 0,
                             ),
                           ),
                         ],
                       ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -727,37 +711,6 @@ class _SidebarItemState extends State<_SidebarItem> {
       ),
     );
   }
-}
-
-/// The footer while the settings load: the picture and two lines as skeleton
-/// blocks, the same size as the loaded footer so nothing moves.
-class _SidebarPersonSkeleton extends StatelessWidget {
-  const _SidebarPersonSkeleton();
-
-  @override
-  Widget build(BuildContext context) => const SkeletonPulse(
-        key: ValueKey('sidebar-person-skeleton'),
-        child: Row(
-          children: [
-            SkeletonBlock(
-              width: PantasSize.avatar,
-              height: PantasSize.avatar,
-              radius: PantasSize.avatar / 2,
-            ),
-            SizedBox(width: PantasSpace.s10),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SkeletonBlock(width: 96, height: 12),
-                  SizedBox(height: PantasSpace.s6),
-                  SkeletonBlock(width: 64, height: 10),
-                ],
-              ),
-            ),
-          ],
-        ),
-      );
 }
 
 /// The sidebar picture (X_Side, ST_Avatars): the first letter capitalized,
