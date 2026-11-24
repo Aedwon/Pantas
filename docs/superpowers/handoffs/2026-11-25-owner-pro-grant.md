@@ -1,4 +1,4 @@
-# Owner Pro grant on prod: stopped before the write (E-150)
+# Owner Pro grant on prod (E-150)
 
 Policy: main 0ab1bd61d (AGENTS, WORKFLOW, SUBAGENTS, process-improvement rule 7). Code read on main, which is what prod serves (functions from the Nov 24 main ship; web from 0db28d00f).
 
@@ -6,7 +6,7 @@ Request (Aedwon, Nov 25 about 12:35 AM Manila, relayed by the operations manager
 
 ## Outcome
 
-No prod write. Stopped for the manager's choice because no existing grant shape gives Pro for every exam in the app that prod serves.
+Done on the manager's pick of option 1 (Nov 25): 18 `beta_reward` rows, ids `owner_<examId>`, each exam's own tier, Nov 25, 2026 to Nov 25, 2036 Manila, one transaction, claims copied. Read-back: 18 of 18 covered now and a day before the end; record and token claims Pro until Nov 25, 2036. The app shows it only after ENT-06 (T17, with the CSE release lead). Reward card and tester notices read only the reward state and beta list, so the rows cannot show them. First stop (before the pick) is kept below.
 
 ## Findings (verified on the code)
 
@@ -27,4 +27,4 @@ No prod write. Stopped for the manager's choice because no existing grant shape 
 
 Prod this quota day before the probe: 6,996 reads, 854 writes. Probe: about 5 reads. Option 1 live: about 10 reads and 20 writes plus a dry run of about 5 reads.
 
-Velocity E-150 timer paused (waiting on the manager).
+Actual: about 30 reads and 21 writes. Velocity E-150: 6 min 2 s active (timer). Script and before, dry-run, live and read-back records: Pantas-private/releases/2026-11-25-owner-pro-grant/.

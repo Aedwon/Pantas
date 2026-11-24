@@ -4297,3 +4297,11 @@ Expected day total: under 250 reads and 200 writes. Go.
 - **Left behind:** a staging App Check debug token named "money-path proof" from another lane is still registered (not this lane's; not touched).
 - Velocity E-148: 2 h 20 min (timer).
 
+### Nov 25, Pro on Aedwon's own prod account for every exam (operations manager one-off, E-150)
+
+- **His words (Nov 25, about 12:35 AM Manila, relayed by the operations manager), verbatim except the address:** "please grant highest possible Pro access to my email [his own address] on prod".
+- **Method (manager's pick, option 1 of 3):** 18 `beta_reward` grant rows on his account, one per catalog exam at that exam's own tier (11 Student, 4 Civil Service, 2 Licensure, 1 PSHS-NCE), Nov 25, 2026 to Nov 25, 2036 Manila, ids outside `beta_reward_<exam>` so a later reward activation cannot shorten them. One transaction (extend_beta_pro.mjs pattern): entitlement record recomputed, claims copied. No payment source, payment id or amount. Dry run, live, read-back: 18 of 18 exams covered now and a day before the end; record and token claims Pro until Nov 25, 2036.
+- **Not visible in the app yet:** the web app ignores `beta_reward` rows (audit ENT-06, T17, sent to the CSE release lead). Server claims already show Pro. The rows do not drive the tester reward card or notices, which read only the reward state and the beta list.
+- **Rule 7:** prod this quota day before: 6,996 reads, 854 writes. This job: about 30 reads and 21 writes.
+- **Rollback:** delete the 18 rows and rerun the claims recompute. Private record: Pantas-private/releases/2026-11-25-owner-pro-grant/.
+
