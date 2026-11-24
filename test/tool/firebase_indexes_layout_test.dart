@@ -68,7 +68,7 @@ void main() {
     final overrides = (config['fieldOverrides'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
     expect(overrides, hasLength(7));
-    // The hourly guardian cleanup finds due request records across accounts (D1).
+    // The hourly guardian cleanup finds due requests across accounts (D1).
     expect(
       overrides.where(
         (entry) =>
