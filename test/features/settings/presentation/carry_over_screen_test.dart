@@ -54,6 +54,27 @@ void main() {
     await tester.pump(const Duration(seconds: 2));
     expect(find.text("You're not starting from zero"), findsNothing);
   });
+  testWidgets('the two stacked buttons sit 8 px apart (ST_ExamSwitch, U11)',
+      (tester) async {
+    tester.view
+      ..physicalSize = const Size(390, 844)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    await tester.pumpAppWithProviders(
+      CarryOverScreen(exam: 'CSE', previous: 'UPCAT', onCounted: () {}),
+    );
+    await tester.pumpAndSettle();
+    Rect buttonOf(String label) => tester.getRect(
+          find.ancestor(
+            of: find.text(label),
+            matching: find.byType(PantasButton),
+          ),
+        );
+    expect(
+      buttonOf('Start My Numbers Fresh').top - buttonOf('Count Them').bottom,
+      8,
+    );
+  });
   test('the route finds the prompt when the web router has dropped its extra',
       () async {
     // The web router stores a pushed route's extra as JSON. An object holding

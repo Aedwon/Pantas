@@ -72,6 +72,9 @@ const _panelBottomReserve = 120.0;
 /// The tallest the question list grows before it scrolls (board height).
 const _gridMaxHeight = 560.0;
 
+// ds-board: MK_Paper header height 50
+const _headerHeight = 50.0;
+
 class MockSessionPage extends StatefulWidget {
   const MockSessionPage({
     required this.state,
@@ -193,10 +196,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
         setState(() {
           _proctorToastMinutes = threshold;
         });
-        _toastTimer = Timer(
-            context.wideWeb
-                ? const Duration(milliseconds: 2500)
-                : proctorToastDisplayDuration, () {
+        _toastTimer = Timer(proctorToastDisplayDuration, () {
           if (mounted) {
             setState(() {
               _proctorToastMinutes = null;
@@ -430,14 +430,13 @@ class _MockSessionPageState extends State<MockSessionPage> {
     );
     final header = ConstrainedBox(
       key: const ValueKey('mock-header'),
-      constraints: const BoxConstraints(minHeight: PantasLayout.focusHeadPhone),
+      // MK_Paper header: 50 high (6 above the 44 controls), 8 px sides.
+      constraints: const BoxConstraints(minHeight: _headerHeight),
       child: Padding(
-        // Phone header sides are 4 and 8 (FocusHeader, R4R-O01).
-        padding: const EdgeInsets.fromLTRB(
-          PantasSpace.s4,
-          PantasSpace.s4,
-          PantasSpace.s8,
-          PantasSpace.s4,
+        padding: const EdgeInsets.only(
+          left: PantasSpace.s8,
+          top: PantasSpace.s6,
+          right: PantasSpace.s8,
         ),
         child: Row(
           children: [
@@ -484,15 +483,19 @@ class _MockSessionPageState extends State<MockSessionPage> {
         ),
       ),
     );
-    final status = _proctorToastMinutes != null
+    // Board MK_Proctor: the call is a pill that floats above the bar and
+    // goes, so the list under it never moves. The strict line stays in the
+    // flow, and the pill sits above both.
+    final toast = _proctorToastMinutes != null
         ? ProctorToast(minutes: _proctorToastMinutes!)
-        : strictLine
-            ? Text(
-                strictMessage,
-                textAlign: TextAlign.center,
-                style: PantasType.webSmall.copyWith(color: c.textSecondary),
-              )
-            : null;
+        : null;
+    final status = strictLine
+        ? Text(
+            strictMessage,
+            textAlign: TextAlign.center,
+            style: PantasType.webSmall.copyWith(color: c.textSecondary),
+          )
+        : null;
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, _) {
@@ -579,77 +582,104 @@ class _MockSessionPageState extends State<MockSessionPage> {
                     ],
                   ),
                 ),
-                if (status != null)
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(
-                      PantasLayout.gutterPhone,
-                      PantasSpace.s0,
-                      PantasLayout.gutterPhone,
-                      PantasSpace.s8,
-                    ),
-                    child: status,
-                  ),
-                LayoutBuilder(
-                  builder: (context, constraints) {
-                    // The counter stacks above the buttons when it does not
-                    // fit beside them (large text).
-                    final counterMetrics = TextPainter(
-                      text: TextSpan(text: counter, style: counterStyle),
-                      textScaler: MediaQuery.textScalerOf(context),
-                      textDirection: Directionality.of(context),
-                    )..layout();
-                    final needed = counterMetrics.width +
-                        // Caret, its gap and the button's side padding.
-                        QuestionCount.caretSize +
-                        PantasSpace.s8 +
-                        QuestionCount.padding.horizontal +
-                        2 * PantasSize.iconBtn +
-                        2 * PantasSpace.s12;
-                    final available = constraints.maxWidth -
-                        2 * PantasLayout.gutterPhone -
-                        2 * PantasSpace.s8;
-                    counterMetrics.dispose();
-                    final bar = needed > available
-                        ? FloatingBar.content(
-                            radius: PantasRadius.xl,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                countButton,
-                                const SizedBox(height: PantasSpace.s8),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    prev,
-                                    nextButton,
-                                  ],
-                                ),
-                              ],
-                            ),
-                          )
-                        // MK_Paper: previous and the question list at the left,
-                        // the counter in the middle, next at the right.
-                        : FloatingBar(
-                            left: prev,
-                            counter: counter,
-                            counterWidget: countButton,
-                            right: nextButton,
-                          );
-                    return Padding(
-                      padding: EdgeInsets.fromLTRB(
-                        PantasLayout.gutterPhone,
-                        PantasSpace.s0,
-                        PantasLayout.gutterPhone,
-                        math.max(
-                          PantasLayout.barBottomPhone,
-                          MediaQuery.viewPaddingOf(context).bottom +
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (status != null)
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(
+                              PantasLayout.gutterPhone,
+                              PantasSpace.s0,
+                              PantasLayout.gutterPhone,
                               PantasSpace.s8,
+                            ),
+                            child: status,
+                          ),
+                        LayoutBuilder(
+                          builder: (context, constraints) {
+                            // The counter stacks above the buttons when it
+                            // does not fit beside them (large text).
+                            final counterMetrics = TextPainter(
+                              text:
+                                  TextSpan(text: counter, style: counterStyle),
+                              textScaler: MediaQuery.textScalerOf(context),
+                              textDirection: Directionality.of(context),
+                            )..layout();
+                            final needed = counterMetrics.width +
+                                // Caret, its gap and the button's side padding.
+                                QuestionCount.caretSize +
+                                PantasSpace.s8 +
+                                QuestionCount.padding.horizontal +
+                                2 * PantasSize.iconBtn +
+                                2 * PantasSpace.s12;
+                            final available = constraints.maxWidth -
+                                2 * PantasLayout.gutterPhone -
+                                2 * PantasSpace.s8;
+                            counterMetrics.dispose();
+                            final bar = needed > available
+                                ? FloatingBar.content(
+                                    radius: PantasRadius.xl,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        countButton,
+                                        const SizedBox(height: PantasSpace.s8),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            prev,
+                                            nextButton,
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                // MK_Paper: previous and the question list at
+                                // the left, the counter in the middle, next at
+                                // the right.
+                                : FloatingBar(
+                                    left: prev,
+                                    counter: counter,
+                                    counterWidget: countButton,
+                                    right: nextButton,
+                                  );
+                            return Padding(
+                              padding: EdgeInsets.fromLTRB(
+                                PantasLayout.gutterPhone,
+                                PantasSpace.s0,
+                                PantasLayout.gutterPhone,
+                                math.max(
+                                  PantasLayout.barBottomPhone,
+                                  MediaQuery.viewPaddingOf(context).bottom +
+                                      PantasSpace.s8,
+                                ),
+                              ),
+                              child: bar,
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                    if (toast != null)
+                      Positioned(
+                        left: PantasLayout.gutterPhone,
+                        right: PantasLayout.gutterPhone,
+                        top: PantasSpace.s0,
+                        child: FractionalTranslation(
+                          translation: const Offset(0, -1),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              bottom: PantasSpace.s12,
+                            ),
+                            child: toast,
+                          ),
                         ),
                       ),
-                      child: bar,
-                    );
-                  },
+                  ],
                 ),
               ],
             ),
@@ -710,16 +740,36 @@ class _MockSessionPageState extends State<MockSessionPage> {
             _panelBottomReserve,
           ),
           children: [
-            Row(
-              children: [
-                Expanded(child: Text('Questions', style: t.h3)),
-                PantasIconButton(
-                  tooltip: 'Hide the question list',
-                  size: PantasIconButtonSize.md,
-                  icon: const MockPanelGlyph(),
-                  onPressed: () => setState(() => _widePanelOpen = false),
-                ),
-              ],
+            // Boards MK_NavMotion and MK_SubmitCSE: the hide icon first, then
+            // "Questions", in a row that sits 8 px up and 4 px short of its
+            // box, 10 px outside the panel padding. The board's icon is 36 px;
+            // the scale has 40 (md), so the row is 2 px further out on each
+            // side and the glyph and the title land where the board puts
+            // them.
+            SizedBox(
+              height: PantasSpace.s24,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Positioned(
+                    left: -PantasSpace.s12,
+                    top: -PantasSpace.s10,
+                    child: Row(
+                      children: [
+                        PantasIconButton(
+                          tooltip: 'Hide the question list',
+                          size: PantasIconButtonSize.md,
+                          icon: const MockPanelGlyph(),
+                          onPressed: () =>
+                              setState(() => _widePanelOpen = false),
+                        ),
+                        const SizedBox(width: PantasSpace.s4),
+                        Text('Questions', style: t.h3),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
             // Board Paper: a closed part is not listed on a paper by part.
             if (!widget.oneBlock && !_byPart && _gridSummary() != null) ...[

@@ -161,6 +161,12 @@ class PantasPage extends StatelessWidget {
         detailLineHeight = 1.4;
   final Widget? contentBody;
 
+  /// Where every phone tab title starts, under the top of the safe area: the
+  /// boards' empty 44 px row under 6 px of padding (ST_Map, ST_Loading,
+  /// ST_Error, ST_NoExam, QZ_Tab). Study and Quiz both take this one number,
+  /// in every state.
+  static const double tabTitleTop = PantasSpace.s44 + PantasSpace.s6;
+
   /// Replaces the large title with a board hero card (Settings subpages).
   final Widget? hero;
   final EdgeInsets contentPadding;

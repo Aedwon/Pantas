@@ -563,6 +563,16 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
       expect(flagged, 1);
       expect(next, 1);
+      // Boards MK_NavMotion and MK_SubmitCSE: the hide icon comes first, 10 px
+      // outside the panel padding, and "Questions" follows 6 px after it (U13).
+      await tester.pumpAndSettle();
+      final head = tester.getRect(find.byKey(const ValueKey('web-mock-panel')));
+      final hideIcon = tester.getRect(find.byTooltip('Hide the question list'));
+      final heading = tester.getRect(find.text('Questions'));
+      expect(hideIcon.left, lessThan(heading.left));
+      expect(hideIcon.center.dx - head.left, 32);
+      expect(heading.left - head.left, 56);
+      expect(hideIcon.center.dy, closeTo(heading.center.dy, 1));
       await tester.tap(find.byTooltip('Hide the question list'));
       await tester.pump();
       expect(find.byKey(const ValueKey('web-mock-panel')), findsNothing);

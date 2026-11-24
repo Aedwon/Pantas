@@ -291,3 +291,15 @@ test('the splash group centers at 42% of the height, using dvh with a vh fallbac
   const dvh = block.indexOf('padding-bottom: 16dvh;');
   assert.ok(vh > 0 && dvh > vh, 'vh fallback comes before dvh');
 });
+
+// Aedwon, Nov 24: "i think in the endeavor to better center the logo in mobile
+// view the web view was also moved up and now web is not centered." The 16%
+// lift was written for the phone. The approved wide board (Web_B_Still) centers
+// the group on the page, so from the wide breakpoint the lift is removed.
+test('on wide web the splash group is centered, with no bottom lift', () => {
+  const html = readFileSync(new URL('../../web/index.html', import.meta.url), 'utf8');
+  const start = html.indexOf('@media (min-width: 1024px) {', html.indexOf('#pantas-splash .ps-wm {'));
+  assert.ok(start > 0, 'wide splash media block present');
+  const block = html.slice(start, html.indexOf('@keyframes ps-pop', start));
+  assert.match(block, /#pantas-splash\s*\{\s*padding-bottom:\s*0;?\s*\}/);
+});

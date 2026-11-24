@@ -58,6 +58,13 @@ class AccountPage extends ConsumerStatefulWidget {
 }
 
 class _AccountPageState extends ConsumerState<AccountPage> {
+  /// Board ST_Account: 22 px between the header and every card.
+  // ds-board: ST_Account column gap 22
+  static const double _blockGap = PantasSpace.s20 + PantasSpace.s2;
+
+  // ds-board: ST_Account name 24/700
+  static const double _nameSize = 24;
+
   String? _errorMessage;
   String? _copied;
   String? _copiedUid;
@@ -305,7 +312,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       backLabel: 'Settings',
       onBack: () => leavePage(context, fallback: '/settings'),
       children: [
-        // ST_Account: a centered 84 px avatar over a 24 px name and the email.
+        // ST_Account: a centered 84 px avatar over the name and the email, 8 px
+        // apart, then 22 px to the first card. The name is 24/700.
         Padding(
           padding: const EdgeInsets.only(
             top: PantasSpace.s10,
@@ -320,13 +328,15 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                     ? null
                     : NetworkImage(user!.photoUrl!),
               ),
-              const SizedBox(height: PantasSpace.s6),
+              const SizedBox(height: PantasSpace.s8),
               Text(
                 settings.name ?? 'Add your name',
-                style: PantasType.phoneTitle2
-                    .copyWith(color: context.colors.textPrimary),
+                style: PantasType.phoneTitle2.copyWith(
+                  color: context.colors.textPrimary,
+                  fontSize: _nameSize,
+                ),
               ),
-              const SizedBox(height: PantasSpace.s10),
+              const SizedBox(height: PantasSpace.s8),
               Text(
                 user?.email ?? 'Not signed in',
                 style: PantasType.phoneExplanation
@@ -335,7 +345,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ],
           ),
         ),
-        const SizedBox(height: PantasSpace.s20),
+        const SizedBox(height: _blockGap),
         SettingsSection(
           children: [
             SettingsRow(
@@ -352,14 +362,14 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ),
           ],
         ),
-        const SizedBox(height: PantasSpace.s20),
+        const SizedBox(height: _blockGap),
         if (minor) ...[
           SettingsSection(
             children: [
               SettingsRow(title: _adultRowTitle, onTap: _recheckAge),
             ],
           ),
-          const SizedBox(height: PantasSpace.s20),
+          const SizedBox(height: _blockGap),
         ],
         SettingsSection(
           footer: user == null
@@ -389,7 +399,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ),
           ],
         ),
-        const SizedBox(height: PantasSpace.s20),
+        const SizedBox(height: _blockGap),
         if (user == null) ...[
           GoogleSignInButton(
             expand: true,
@@ -448,7 +458,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ],
             ),
           ],
-          const SizedBox(height: PantasSpace.s20),
+          const SizedBox(height: _blockGap),
           // ST_Account: Sign Out and Delete Account are separate cards.
           SettingsSection(
             children: [
@@ -460,7 +470,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ),
             ],
           ),
-          const SizedBox(height: PantasSpace.s20),
+          const SizedBox(height: _blockGap),
           SettingsSection(
             children: [
               SettingsRow(
@@ -472,7 +482,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           ),
         ],
         if (user == null) ...[
-          const SizedBox(height: PantasSpace.s20),
+          const SizedBox(height: _blockGap),
           SettingsSection(
             children: [
               SettingsRow(

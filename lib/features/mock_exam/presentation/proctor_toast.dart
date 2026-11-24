@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
@@ -14,7 +15,8 @@ String proctorCopyFor(int minutes) {
   return '$minutes $unit left in this subject.';
 }
 
-const proctorToastDisplayDuration = Duration(seconds: 8);
+/// Board MK_Proctor: the call stays above the bar for 2.5 seconds.
+const proctorToastDisplayDuration = Duration(milliseconds: 2500);
 
 class ProctorToast extends StatefulWidget {
   const ProctorToast({
@@ -66,6 +68,9 @@ class _ProctorToastState extends State<ProctorToast> {
           ),
           boxShadow: context.shadows.popover,
         ),
+        // Board MK_Proctor: a 44 px pill, the text centered.
+        constraints: const BoxConstraints(minHeight: PantasSize.targetTouch),
+        alignment: Alignment.center,
         padding: const EdgeInsets.symmetric(
           horizontal: PantasSpace.s16,
           vertical: PantasSpace.s10,
