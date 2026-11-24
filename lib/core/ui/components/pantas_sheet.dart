@@ -627,8 +627,9 @@ class PantasSheetAction extends StatelessWidget {
         borderRadius: BorderRadius.circular(PantasRadius.md),
         child: ConstrainedBox(
           constraints: const BoxConstraints(
-              minWidth: PantasSize.targetTouch,
-              minHeight: PantasSize.targetTouch),
+            minWidth: PantasSize.targetTouch,
+            minHeight: PantasSize.targetTouch,
+          ),
           child: Align(
             alignment: Alignment.centerRight,
             widthFactor: 1,

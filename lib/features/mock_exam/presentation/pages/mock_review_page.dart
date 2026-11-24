@@ -1495,8 +1495,8 @@ class _ReasonPanelState extends State<_ReasonPanel> {
     );
     return ConstrainedBox(
       constraints: BoxConstraints(
-          maxHeight:
-              available.clamp(PantasSize.reportFormFloor, double.infinity)),
+        maxHeight: available.clamp(PantasSize.reportFormFloor, double.infinity),
+      ),
       child: SingleChildScrollView(
         child: FloatingBar.content(
           state: FloatingBarState.wrong,
