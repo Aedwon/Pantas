@@ -4398,3 +4398,8 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Prod:** build 3631191900-49999d6bbaff; Hosting version c0458f33ce518823, released 22:40 UTC; Worker 72b8cd00-679b-4e2f-9ef0-69dd3aec88f4; compare 92 of 92; both hosts serve the new build; a profile on the previous prod build updated with the percent shown and 0 page errors; no ERROR logs 22:39 to 22:46 UTC.
 - **Rollback (not used):** Hosting version 4e3092f15bec0cb1 (release 1795557795175000, build 237979584-c2bfcb9c27ec); Worker `wrangler rollback` to d31df27a-80fa-4568-a396-c575058dcbd3.
 - **Found, not changed (predates this release, UX lead and Codex):** the service worker's install can write a new build's shell and bootstrap into the old version's cache; a user who goes offline before reloading could start the new shell with the old Dart script. Listed for the manager.
+
+### Nov 25, about 7:10 AM Manila: lesson walk-through parked at spec; release with current content first (operations manager)
+
+- Aedwon, verbatim: "cool, sounds very good to me. let's spec this first. i don't think i have the proper usage to do these changes. let's prioritize release with current content first".
+- Effect: the lesson walk-through lead writes the spec (Part A for his approval) and parks; no content rewrite or app build. Release work with the current lesson content comes first. Open picks for later: lesson length, Quick Check A (tap to show) or B (type).
