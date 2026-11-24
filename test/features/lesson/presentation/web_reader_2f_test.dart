@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -147,6 +148,17 @@ void main() {
       .offset;
 
   group('the title block (2F-1, 2F-23)', () {
+    testWidgets('a short lesson starts under the bar, not centered down',
+        (tester) async {
+      await pumpReader(
+        tester,
+        reader: _reader(body: [_text('Core Concept', style: 'h2')]),
+      );
+      final short = tester.getTopLeft(find.text('Earth Science')).dy;
+      await pumpReader(tester);
+      expect(tester.getTopLeft(find.text('Earth Science')).dy, short);
+    });
+
     testWidgets(
         'matches the board: 38 px title (web-h1), 6 px and 32 px of space',
         (tester) async {
@@ -171,53 +183,98 @@ void main() {
     });
   });
 
-  group('the outline (2F-3, 2F-8)', () {
-    testWidgets('rows are 30 px apart and the heading is 37 px above',
+  group('the section line (spec "Section line")', () {
+    Finder segment(int i) => find.byKey(ValueKey(('section-segment', i)));
+    const names = ['Core Concept', 'Examples', 'Traps to Watch For'];
+
+    testWidgets('the left outline is gone and the line has one segment each',
         (tester) async {
       await pumpReader(tester);
-      final rows = [
-        for (final name in ['Core Concept', 'Examples', 'Traps to Watch For'])
-          tester.getTopLeft(
-            find
-                .descendant(
-                  of: find.byKey(const ValueKey('web-reader-outline')),
-                  matching: find.text(name),
-                )
-                .first,
-          ),
-      ];
-      expect(rows[1].dy - rows[0].dy, closeTo(30, .01));
-      expect(rows[2].dy - rows[1].dy, closeTo(30, .01));
-      final heading = tester.getTopLeft(find.text('IN THIS LESSON'));
-      expect(rows[0].dy - heading.dy, closeTo(37, .5));
+      expect(find.text('IN THIS LESSON'), findsNothing);
+      expect(find.byKey(const ValueKey('web-reader-outline')), findsNothing);
+      for (var i = 0; i < names.length; i++) {
+        expect(segment(i), findsOneWidget);
+      }
+      expect(segment(3), findsNothing);
+      // 3 px between segments, 16 px tall hit area.
+      final a = tester.getRect(segment(0));
+      final b = tester.getRect(segment(1));
+      expect(b.left - a.right, 3);
+      expect(a.height, 16);
     });
 
-    Finder outlineRow(String name) => find
-        .descendant(
-          of: find.byKey(const ValueKey('web-reader-outline')),
-          matching: find.text(name),
-        )
-        .first;
-
-    testWidgets('a click scrolls to the section with motion', (tester) async {
+    testWidgets('pointing at one thickens it and shows its name',
+        (tester) async {
       await pumpReader(tester);
-      await tester.tap(outlineRow('Traps to Watch For'));
+      expect(find.text('Examples'), findsOneWidget, reason: 'heading only');
+      final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+      await mouse.addPointer(location: Offset.zero);
+      addTearDown(mouse.removePointer);
+      await mouse.moveTo(tester.getCenter(segment(1)));
+      double tipOpacity() => tester
+          .widget<AnimatedOpacity>(
+            find.ancestor(
+              of: find.text('Examples').last,
+              matching: find.byType(AnimatedOpacity),
+            ),
+          )
+          .opacity;
+      await tester.pump(const Duration(milliseconds: 60));
+      expect(tipOpacity(), 0, reason: 'its name waits 100 ms');
+      await tester.pump(const Duration(milliseconds: 200));
+      expect(find.text('Examples'), findsNWidgets(2));
+      expect(tipOpacity(), 1);
+      final line = tester.getSize(
+        find.descendant(
+          of: segment(1),
+          matching: find.byType(AnimatedContainer),
+        ),
+      );
+      expect(line.height, 4);
+      await mouse.moveTo(const Offset(5, 400));
+      await tester.pumpAndSettle();
+      expect(find.text('Examples'), findsOneWidget);
+    });
+
+    testWidgets('a click scrolls to the section over 400 ms', (tester) async {
+      await pumpReader(tester);
+      await tester.tap(segment(2));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 120));
       final middle = scroll.offset;
       expect(middle, greaterThan(0), reason: 'it has started to move');
+      await tester.pump(const Duration(milliseconds: 260));
+      expect(scroll.offset, greaterThan(middle));
+      await tester.pump(const Duration(milliseconds: 60));
       await tester.pumpAndSettle();
-      final end = scroll.offset;
-      expect(end, greaterThan(middle), reason: 'it was not there yet');
       // The heading lands under the bar, 5 percent into the room below it.
       final heading = tester.getTopLeft(find.text('Traps to Watch For').last);
       expect(heading.dy, closeTo(64 + .05 * 836, 2));
     });
 
+    testWidgets('Tab reaches a segment and Enter scrolls to it',
+        (tester) async {
+      await pumpReader(tester);
+      Focus.of(
+        tester.element(
+          find.descendant(
+            of: segment(1),
+            matching: find.byType(GestureDetector),
+          ),
+        ),
+      ).requestFocus();
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 200));
+      expect(scroll.offset, greaterThan(0));
+      await tester.pumpAndSettle();
+    });
+
     testWidgets('with reduced motion the page is there at once',
         (tester) async {
       await pumpReader(tester, reduceMotion: true);
-      await tester.tap(outlineRow('Traps to Watch For'));
+      await tester.tap(segment(2));
       await tester.pump();
       final end = scroll.offset;
       expect(end, greaterThan(0));
