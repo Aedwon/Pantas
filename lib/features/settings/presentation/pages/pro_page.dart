@@ -19,6 +19,7 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/ring_pulse.dart';
 import 'package:pantas/core/ui/components/selectable_tile.dart';
+import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/leave_page.dart';
@@ -717,10 +718,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         section: 'Pantas Pro',
         title: 'Pantas Pro',
         children: [
-          const Text('Could not load your passes.'),
-          PantasButton(
-            label: 'Try Again',
-            onPressed: () => ref.invalidate(examCatalogRepositoryProvider),
+          errorFor(
+            'passes',
+            () => ref.invalidate(examCatalogRepositoryProvider),
+            error: ownedPasses!.error,
           ),
         ],
       );
@@ -1462,7 +1463,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           SizedBox(
             height: context.wideWeb ? PantasSpace.s6 : PantasSpace.s12,
           ),
-          if (offering.isLoading) const Text('Loading subscriptions...'),
+          if (offering.isLoading) const _PlansSkeleton(),
           if (packages.isNotEmpty)
             _plansGrid(
               context,
@@ -1562,7 +1563,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         ],
         if (customTierUnknown) ...[
           if (customTierAsync?.isLoading ?? false)
-            const Text('Loading subscriptions...')
+            const _PlansSkeleton()
           else
             PantasButton(
               label: 'Try Again',
@@ -1820,4 +1821,26 @@ class _FadedBar extends StatelessWidget {
       ],
     );
   }
+}
+
+/// Two plan tiles as skeleton blocks while the store answers (L_Rules): the
+/// weekly and the yearly tile, one under the other.
+class _PlansSkeleton extends StatelessWidget {
+  const _PlansSkeleton();
+
+  @override
+  Widget build(BuildContext context) => const SkeletonRevealScope(
+        immediate: true,
+        child: SkeletonPulse(
+          label: 'Loading subscriptions',
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SkeletonCard(height: 76),
+              SizedBox(height: PantasSpace.s10),
+              SkeletonCard(height: 76),
+            ],
+          ),
+        ),
+      );
 }
