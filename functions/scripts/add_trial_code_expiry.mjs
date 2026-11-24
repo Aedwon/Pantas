@@ -15,29 +15,34 @@ export {TRIAL_CODE_DAYS};
 const DAY = 86_400_000;
 const BATCH = 400;
 
-/** Returns {reads, missing, writes}: documents read, those without expireAt, and documents written. */
-export async function addTrialCodeExpiry({db, live = false, deployAt}) {
+/**
+ * Returns {reads, missing, writes, skipped}: documents read, those without expireAt, documents
+ * written, and documents skipped because they changed or were deleted after the scan. Each write
+ * carries the scanned update time as a precondition, so a code that gained an expiry meanwhile
+ * keeps it, a deleted code is not recreated, and one failure never aborts the rest.
+ * `afterScan` is only for tests.
+ */
+export async function addTrialCodeExpiry({db, live = false, deployAt, afterScan}) {
   if (!Number.isFinite(deployAt)) throw new Error('deployAt is required.');
   const stamp = Timestamp.fromMillis(deployAt + TRIAL_CODE_DAYS * DAY);
   const missing = [];
   let reads = 0;
   for await (const doc of db.collection('trialUsedIdentities').select('expireAt').stream()) {
     reads++;
-    if (doc.get('expireAt') === undefined) missing.push(doc.ref);
+    if (doc.get('expireAt') === undefined) missing.push({ref: doc.ref, seen: doc.updateTime});
   }
-  let writes = 0;
+  let writes = 0, skipped = 0;
   if (live) {
-    for (let i = 0; i < missing.length; i += BATCH) {
-      const batch = db.batch();
-      for (const ref of missing.slice(i, i + BATCH)) {
-        // update() fails on a code deleted since the scan, so a deletion is never undone.
-        batch.update(ref, {startedAt: deployAt, expireAt: stamp});
-      }
-      await batch.commit();
-      writes += Math.min(BATCH, missing.length - i);
-    }
+    await afterScan?.();
+    const writer = db.bulkWriter();
+    writer.onWriteError(() => false); // a failed precondition is a skip, never a retry
+    const done = missing.map(({ref, seen}) =>
+      writer.update(ref, {startedAt: deployAt, expireAt: stamp}, {lastUpdateTime: seen})
+        .then(() => { writes++; }, () => { skipped++; }));
+    await writer.close(); // flushes every queued write
+    await Promise.all(done);
   }
-  return {reads, missing: missing.length, writes};
+  return {reads, missing: missing.length, writes, skipped};
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {

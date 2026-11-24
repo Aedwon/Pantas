@@ -50,7 +50,9 @@ export async function deleteUserData(
   }
   // Each attempt moves the next retry back, so a task that keeps failing goes to the end of the
   // queue and cannot starve newer ones.
-  await task.set({reason: earlier.get('reason') ?? reason, startedAt: earlier.get('startedAt') ?? now,
+  // Recorded once: a retry keeps the first attempt's time, so it never counts as a later start.
+  const firstAt = typeof earlier.get('startedAt') === 'number' ? earlier.get('startedAt') as number : now;
+  await task.set({reason: earlier.get('reason') ?? reason, startedAt: firstAt,
     nextRetryAt: now + DELETION_RETRY_MS, attempts: FieldValue.increment(1),
     // Every caller's reason is kept, so a withdrawal or a user's own request is never mistaken for
     // an inactivity deletion that may be called off.
@@ -61,9 +63,10 @@ export async function deleteUserData(
   const trial = await userRef.collection('server').doc('trial').get();
   if (trial.exists) {
     // The code expires 730 days after the trial's own start (D7), not after this deletion. An old
-    // record without a start time counts from now. A retry rewrites the same values.
+    // record without a start time counts from the first deletion attempt. A code already past its
+    // expiry is not written: the TTL policy may have removed it, and a new one would only be deleted again.
     const usedAt = trial.get('usedAt');
-    const startedAt = typeof usedAt === 'number' && Number.isFinite(usedAt) ? usedAt : now;
+    const startedAt = typeof usedAt === 'number' && Number.isFinite(usedAt) ? usedAt : firstAt;
     const markers = options.requestAuth
       ? identityMarkers(options.requestAuth, db)
       : identityMarkersForUser(await auth.getUser(uid), db);
@@ -73,7 +76,7 @@ export async function deleteUserData(
     await db.runTransaction(async transaction => {
       const current = markers.length ? await transaction.getAll(...markers) : [];
       current.forEach((existing, i) => {
-        if (keepsStoredExpiry(existing, row)) return;
+        if (row.expireAt.toMillis() <= now || keepsStoredExpiry(existing, row)) return;
         transaction.set(markers[i], row);
       });
     });
