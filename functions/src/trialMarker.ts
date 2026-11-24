@@ -14,8 +14,13 @@ export function trialMarker(startedAt: number) {
   return {used: true, startedAt, expireAt};
 }
 
-/** True when a stored code already lasts at least as long as `row`, so a rewrite must keep it. */
-export function keepsStoredExpiry(existing: {exists: boolean; get(field: string): unknown}, row: {expireAt: Timestamp}): boolean {
+/**
+ * True when a deletion must not write `row`: the code is already past its expiry (the TTL policy
+ * may have removed it, and a new one would only be deleted again), or the stored code already
+ * lasts at least as long, so a rewrite would move its expiry earlier.
+ */
+export function skipsMarkerWrite(existing: {exists: boolean; get(field: string): unknown}, row: {expireAt: Timestamp}, now: number): boolean {
+  if (row.expireAt.toMillis() <= now) return true;
   const stored = existing.exists ? existing.get('expireAt') : undefined;
   return stored instanceof Timestamp && stored.toMillis() >= row.expireAt.toMillis();
 }

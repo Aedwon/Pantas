@@ -5,7 +5,7 @@ import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
 import {retirePublicId} from './publicId.js';
 import {clearPassOwnership} from './revenuecatPasses.js';
-import {keepsStoredExpiry, trialMarker} from './trialMarker.js';
+import {skipsMarkerWrite, trialMarker} from './trialMarker.js';
 import {identityMarkers, identityMarkersForUser} from './webTrial.js';
 
 /** A pending deletion is retried by the daily run once this long has passed since its last attempt. */
@@ -76,7 +76,7 @@ export async function deleteUserData(
     await db.runTransaction(async transaction => {
       const current = markers.length ? await transaction.getAll(...markers) : [];
       current.forEach((existing, i) => {
-        if (row.expireAt.toMillis() <= now || keepsStoredExpiry(existing, row)) return;
+        if (skipsMarkerWrite(existing, row, now)) return;
         transaction.set(markers[i], row);
       });
     });
