@@ -191,7 +191,7 @@ void main() {
               tester.getRect(find.byKey(const ValueKey('mock-grid')));
           expect(counter.center.dx, closeTo(width / 2, 12));
           if (scale == 1) {
-            expect(tester.getSize(find.byType(FloatingBar)).height, 64);
+            expect(tester.getSize(find.byType(FloatingBar)).height, 60);
           }
           final controls = ['mock-prev', 'mock-flag', 'mock-next'];
           final rectangles = [

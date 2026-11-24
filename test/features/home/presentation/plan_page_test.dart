@@ -47,7 +47,6 @@ void main() {
             ],
             history: history,
             onBack: () {},
-            onToday: () {},
             onWeek: (_) {},
             onPro: () {},
           ),

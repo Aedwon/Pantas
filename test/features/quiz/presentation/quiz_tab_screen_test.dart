@@ -85,13 +85,11 @@ void main() {
       testWidgets('paused tab at dark=$dark scale=$scale', (tester) async {
         state = const SessionPanelInProgress(position: 6, total: 10);
         await pump(tester, dark: dark, scale: scale, still: true);
-        expect(
-          find.text('You paused. Every answer was saved.'),
-          findsOneWidget,
-        );
+        // Board A (his pick Nov 25): no sentence.
+        expect(find.textContaining('You paused'), findsNothing);
         expect(find.text('6 of 10'), findsNothing);
         expect(find.text('Resume'), findsOneWidget);
-        // Board QZ_Resume: Discard is centered under the full-width Resume,
+        // Board A: Discard is centered under the full-width Resume,
         // at its natural width (a full-width box left-aligns the letters).
         final discard = tester.renderObject<RenderParagraph>(
           find.text('Discard this session'),

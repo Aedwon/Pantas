@@ -65,6 +65,17 @@ final quizTodayCountsProvider = FutureProvider.autoDispose
   );
 });
 
+/// Space around "Discard this session" on the phone paused card. His words
+/// (Nov 25): "the space on top and bottom of discard in the quiz tab got too
+/// small though". Board A draws 12 above and 16 below the text; the card
+/// before Nov 24 measured about 20 above and 24 below it, and his call from
+/// using the app wins. The line's 24 px box holds its text 4 px from the top
+/// and flush at the bottom, so 16 and 24 outside the box give 20 and 24.
+// ds-board: his Nov 25 words over board A (20 above the Discard text).
+const double _discardAbove = PantasSpace.s16;
+// ds-board: his Nov 25 words over board A (24 below the Discard text).
+const double _discardBelow = PantasSpace.s24;
+
 class QuizTabScreen extends ConsumerStatefulWidget {
   const QuizTabScreen({this.mockPanel, this.mockReady = true, super.key});
   final bool mockReady;
@@ -277,6 +288,11 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         label: label,
         open: _questionSheet != null && examId != null,
         drawer: true,
+        // Reviews has no count line, so its Close X sits on the one-line
+        // title, as on Home.
+        closeTop: _questionSheet == TodayQuestionKind.reviews
+            ? HomeWebOverlay.oneLineCloseTop
+            : HomeWebOverlay.twoLineCloseTop,
         onDismiss: _dismissQuestions,
         child: _questionSheet != null && examId != null
             ? _questionsSheet(examId)
@@ -683,24 +699,29 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             if (state is SessionPanelInProgress) ...[
-                              Row(
+                              // Board A (wide Quiz): no sentence; Discard and
+                              // Resume at the right of the foot, 16 apart. The
+                              // foot wraps, as the board's does. A quiz the
+                              // rows do not show is named above them (rule 4,
+                              // Nov 25).
+                              if (state.pausedName case final name?) ...[
+                                Text('Paused: $name', style: t.sub),
+                                const SizedBox(height: PantasSpace.s12),
+                              ],
+                              Wrap(
+                                alignment: WrapAlignment.end,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                spacing: PantasSpace.s16,
+                                runSpacing: PantasSpace.s8,
                                 children: [
-                                  Expanded(
-                                    child: Text(
-                                      'You paused. Every answer was saved.',
-                                      style: t.sub,
-                                    ),
-                                  ),
-                                  const SizedBox(width: PantasSpace.s16),
                                   _WebDiscardButton(
                                     onPressed: _discarding
                                         ? null
                                         : () => unawaited(_discard(examId)),
                                   ),
+                                  primary,
                                 ],
                               ),
-                              const SizedBox(height: PantasSpace.s16),
-                              primary,
                             ] else if (canStart)
                               Row(
                                 children: [
@@ -1150,32 +1171,32 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
               PantasSpace.s16,
               PantasSpace.s14,
               PantasSpace.s16,
-              state is SessionPanelInProgress
-                  ? PantasSpace.s10
-                  : PantasSpace.s16,
+              state is SessionPanelInProgress ? _discardBelow : PantasSpace.s16,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 if (state is SessionPanelInProgress) ...[
-                  Semantics(
-                    liveRegion: true,
-                    child: Text(
-                      'You paused. Every answer was saved.',
-                      style: PantasType.phoneExplanation
-                          .copyWith(color: context.colors.textPrimary)
-                          .copyWith(color: context.colors.textSecondary),
+                  // Board A (paused session, his pick Nov 25): no sentence;
+                  // the Reviews row shows the progress. A quiz the rows do not
+                  // show is named in the line's slot (rule 4, Nov 25).
+                  if (state.pausedName case final name?) ...[
+                    Semantics(
+                      liveRegion: true,
+                      child: Text(
+                        'Paused: $name',
+                        style: PantasType.phoneExplanation
+                            .copyWith(color: context.colors.textSecondary),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: PantasSpace.s14),
+                    const SizedBox(height: PantasSpace.s14),
+                  ],
                   PantasButton(
                     label: 'Resume',
                     onPressed: () => unawaited(_open('/quiz/resume/$examId')),
                   ),
-                  // Board (QZ_Resume): a 15/600 teal line, 12 under Resume
-                  // (8 here and 4 inside the line).
-                  const SizedBox(height: PantasSpace.s8),
-                  // Board (QZ_Resume): the line is centered under Resume.
+                  const SizedBox(height: _discardAbove),
+                  // Board A: the 15/600 line is centered under Resume.
                   Center(
                     child: PantasButton(
                       label: 'Discard this session',

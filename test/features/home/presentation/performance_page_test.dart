@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/presentation/performance_page.dart';
 
@@ -35,6 +36,44 @@ void main() {
           onBack: () {},
         ),
       );
+  testWidgets('the wide lists draw no header row (PF_Subjects, PF_Topics)',
+      (tester) async {
+    addTearDown(() => debugWebPlatformOverride = null);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    tester.view
+      ..devicePixelRatio = 1
+      ..physicalSize = const Size(1440, 900);
+    debugWebPlatformOverride = true;
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(web: true),
+        home: PerformancePage(
+          data: data,
+          pro: true,
+          paused: false,
+          onTopic: (_) {},
+          onPro: () {},
+          onBack: () {},
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    // Subjects: the name and its topic count, then the bar and the percent.
+    expect(find.byKey(const ValueKey('performance-table')), findsOneWidget);
+    for (final head in ['SUBJECT', 'ANSWERED', 'ACCURACY']) {
+      expect(find.text(head), findsNothing);
+    }
+    expect(find.text('Math'), findsWidgets);
+    await tester.tap(find.text('Topics'));
+    await tester.pumpAndSettle();
+    for (final head in ['TOPIC', 'ANSWERED', 'ACCURACY']) {
+      expect(find.text(head), findsNothing);
+    }
+    // The answered count stays as a column of its own, as PF_Topics draws it.
+    expect(find.text('2 answered'), findsOneWidget);
+  });
+
   testWidgets('a Free phone shows what the wide page shows', (tester) async {
     await tester.pumpWidget(show(pro: false));
     await tester.pumpAndSettle();

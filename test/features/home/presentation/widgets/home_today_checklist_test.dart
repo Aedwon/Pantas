@@ -438,4 +438,17 @@ void main() {
       expect(rows, 0);
     });
   });
+
+  test('the footer counts what is left, singular and plural, and skips none',
+      () {
+    expect(
+      homeLeftLine(lessons: 2, reviews: 18, newQuestions: 0),
+      '2 lessons, 18 reviews left',
+    );
+    expect(
+      homeLeftLine(lessons: 1, reviews: 1, newQuestions: 1),
+      '1 lesson, 1 review, 1 new question left',
+    );
+    expect(homeLeftLine(lessons: 0, reviews: 0, newQuestions: 0), isNull);
+  });
 }

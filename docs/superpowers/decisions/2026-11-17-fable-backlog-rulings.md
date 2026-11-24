@@ -1687,11 +1687,22 @@ New look, for his board: U24, the wide Home checklist footer band when no measur
 
 No choice now (left off the board): LI2 each timing matches its own approved board; LI9, P7, P25, U20, U27, U33, U69, U84, U85 Pro, store and charge surfaces wait on the paused payments and legal lanes; U36 the "Send speed and error reports" toggle is consent wording (legal pause); U28, U89 and U86 "I'm 18 now" wait on the paused under-13 lane. P7 and P25 were proposed as board items by the worker; the lead moved them here because both are store surfaces.
 
+### Nov 25 (later), T9 build corrections (UX lead)
+
+- U52: the wide reader end-of-part quiz button uses the design system's `neutral` grey button (the RD_End fill), not `secondary`, which is the teal tint. The ruling's word was wrong; the intended look (grey, as the phone RD_End) stands.
+- U72: kept. "Start the Paper" starts the attempt and its clock ("The clock starts when you tap"). Removing it would start a timed paper without the student's tap, which changes timing behavior, so the HANDOFF line 22 removal does not apply to this screen. No change.
+- Tokens: the phone floating bar is `size-bar` 60 and `radius-bar` 30; the wide bar keeps 64 as `layout-bar-wide` and `radius-bar-wide` 32 (the size family is at its 60-token cap); the wide report buttons use `radius-report` 10. Values edited in design/system/tokens.json and generated, not hand-edited.
+- U86: not built. The signed-in user carries no sign-in provider, so a "Signed in with" row would say "Google" for email-link users. It needs that field first; no new look and no choice for him. Left for the account lane.
+- U26: the Pro page loading state shows skeleton tiles; a failed passes load uses the shared error view with its existing "Could not load your passes." (more specific than the SY_Error line, same look).
+- U49 and U38: already matched their boards on main; tests now guard them.
+
 ### Nov 25 (later), paused option A: the Quiz tab card is held; the sheet ships
 
 - Manager hold (Nov 25): Aedwon is asking about button placement on the Quiz tab paused card, so the card (phone and wide) is held, unchanged from live. Board A draws the wide card with no caption and "Discard this session" then Resume at the right end of the foot (the patterns rule: a right-aligned row, secondary then main). Built and held on `ux/paused-review-a-r1` (with the Discard spacing from before Nov 24); the shipping branch `ux/paused-sheet-a-r1` carries only the Home and Quiz tab Reviews and New questions sheets.
 - His wide screenshot: Reviews "0 of 11" with "Questions due today" under it while paused. The paused quiz was not a Reviews session (most likely "Practice this topic" or "Practice weakest topics", which start through the older today path with no Reviews batch), so 0 of 11 is the true count. The card never says which quiz is paused: a copy gap inside board A's layout, settled under rule 4 (manager agreed): when the paused quiz is not the Reviews or New questions session, the card shows one line above Resume, "Paused: <quiz name>" ("Paused: Algebra practice", "Paused: Weakest topics practice", "Paused: Flagged questions"). No line when the rows already show the paused session. Reason: the shortest line that names the quiz Resume will open; his guidance is compressed text. Built with the held card.
 - The same case explains his 7:18 PM Home sheet (generic notice, 0 of 11): another quiz was paused. Board A's "another quiz is paused" state now covers it on the sheet: "Finish or discard your paused quiz first." over a dimmed Start.
+- Released (Nov 25): his words after the wide and phone sheets, "yes A lgtm, go ahead with it". The card ships to board A with the spacing from before Nov 24 (20 above, 24 below the Discard text) and the "Paused: <quiz name>" line, on `ux/paused-card-r2` (on top of `ux/paused-sheet-a-r1`).
+
 
 
 ## Nov 25, about 3:50 AM Manila: his picks on the loading and paused-session boards
@@ -1704,3 +1715,4 @@ His words, verbatim (relayed by the operations manager):
 - Loading board (https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec): A, Neon's centered row. The spinner and the percent share one centered row; the spinner slides back to center when the number hides. Build 1:1 to the board: real decoded bytes counted in the service worker against a size list made at build time, Reduce Motion as drawn.
 - Paused-session board (https://claude.ai/artifact/9MLsiFtEwsdLodfe8eHZig): A. Build 1:1 on the Home Reviews sheet and the Quiz tab card, phone and wide, on top of the E-155 sheet fixes. The board's "another quiz is paused" row (lead decision on that board) comes with it.
 - Discard spacing on the Quiz tab card: build to board A, compared with the version before the Nov 24 Discard centering and the Nov 25 spacing ship; a golden test guards it (process entry, Nov 25).
+- U24 (manager ruling, Nov 25; not put to him): the wide Home checklist footer slot the boards fill with "About 45 min today" shows what is left as real counts, "2 lessons, 18 reviews left" (zero kinds left out, singular for one; "The mock comes first today" on a mock day; empty when nothing is left). Reason: "Never invent a figure" already forbids the time estimate, so removing it is a fix, and the replacement line sits in the existing footer slot, so it is copy inside an approved layout, ours under rule 4 and the Nov 25 process entry. The UX lead's board (https://claude.ai/artifact/A9vWJxf5HnvrvpAtT3xYYq) was a mistake for that reason and is retired unused.

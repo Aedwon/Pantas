@@ -7,17 +7,21 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
 
 void main() {
-  Widget buildToast(int minutes) {
+  Widget buildToast(int minutes, {bool oneBlock = false}) {
     return MaterialApp(
       theme: buildLightTheme(),
       home: Scaffold(
-        body: ProctorToast(minutes: minutes),
+        body: ProctorToast(minutes: minutes, oneBlock: oneBlock),
       ),
     );
   }
 
-  Future<void> pumpToast(WidgetTester tester, {required int minutes}) async {
-    await tester.pumpWidget(buildToast(minutes));
+  Future<void> pumpToast(
+    WidgetTester tester, {
+    required int minutes,
+    bool oneBlock = false,
+  }) async {
+    await tester.pumpWidget(buildToast(minutes, oneBlock: oneBlock));
   }
 
   Color redOf(WidgetTester tester) {
@@ -35,6 +39,17 @@ void main() {
     expect(proctorCopyFor(10), '10 minutes left in this subject.');
     expect(proctorCopyFor(5), '5 minutes left in this subject.');
     expect(proctorCopyFor(1), '1 minute left in this subject.');
+  });
+
+  test('a one-block paper has no subjects, so the line drops them', () {
+    expect(proctorCopyFor(5, oneBlock: true), '5 minutes left.');
+    expect(proctorCopyFor(1, oneBlock: true), '1 minute left.');
+    expect(proctorCopyFor(10, oneBlock: true), '10 minutes left.');
+  });
+
+  testWidgets('the one-block toast shows the short line', (tester) async {
+    await pumpToast(tester, minutes: 5, oneBlock: true);
+    expect(find.text('5 minutes left.'), findsOneWidget);
   });
 
   testWidgets('it is not dismissible and carries no action or icon',

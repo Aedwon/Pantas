@@ -5,7 +5,8 @@ FloatingBar is the bar at the bottom of a question: the counter, a flag, a hint 
 - Don't use it for a general page action bar. Use PhoneFrame's bottom action or a Card footer.
 
 ## Anatomy
-- Min height 64 (`size-bar`), radius `radius-bar` (32), `surface-card`, 1px `edge-bar` ring plus `elev-bar`.
+- Phone: min height 60 (`size-bar`), radius `radius-bar` (30), as every approved phone bar board draws it. Wide: min height 64 (`size-bar-wide`), radius `radius-bar-wide` (32).
+- `surface-card`, 1px `edge-bar` ring plus `elev-bar`.
 - Counter: 46px high (`size-btn-bar`), radius `radius-full`, "3 of 10" 15/600 tabular, never wraps, opens the question list. It is a pill, as the approved boards draw it (D187).
 - Flag IconButton: 44px (`size-icon-btn`). CHANGE: it was 46.
 - Hint: 13px `text-secondary`, centered (`text-primary` in a result). Action: `btn--bar`, 46px, pill (`radius-full`, D187). A key hint follows the label on desktop only.
@@ -20,7 +21,7 @@ FloatingBar is the bar at the bottom of a question: the counter, a flag, a hint 
 - Stacked (ruling 5): at 1.5x text and above, or in a dock narrower than 17.5em, the hint takes its own line above the actions; the actions stay right-aligned with the main action last; the bar becomes a rounded rectangle (`radius-xl`). Automatic inside `.fbar-dock` (a container query); `.fbar--stack` forces it (Flutter: `textScaler` above 1.5). No icon-only buttons.
 - Flag: it stays in the bar at every phone width and in every state, on the bar's own center, with the count at the left and the button at the right (Aedwon, Nov 24). D71 (flag in the question header under 400px) is retired: B5 removed the hint it served (T16 B2 ruling, Nov 24).
 - Hint copy by state: before a pick "Pick one answer"; after a pick, before Check: "Check when you are ready" (usage gap 14); right "Correct"; wrong "Not this one".
-- Mock bar (R3-O04, usage gap 11): the counter, the hint and the main action only; the flag lives in the question header at every width. After an answer is picked (no reveal in a mock) the hint reads "Saved on this device" and the action is Next.
+- Mock bar (R3-O04, usage gap 11): the counter, the hint and the main action only; the flag lives in the question header at every width. After an answer is picked (no reveal in a mock) the action is Next. The wide bar draws no hint (MK_FiveMin, MK_LastMinute, MK_Proctor); the line was false on server mocks.
 - In a mock with the question list open the bar re-centers on the question column (the dock moves with the panel over `dur-nav-panel`, MK_NavMotion; usage gap 8).
 - Size: buttons and the counter use `size-btn-bar` (46).
 - Phone (ruling 3): `.fbar-dock--phone` is sticky at the end of the phone screen, so the stacked bar at large text takes its own height and never covers the last option.

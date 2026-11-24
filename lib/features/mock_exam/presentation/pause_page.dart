@@ -175,8 +175,8 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
             (context.wideWeb ? webMockConfirmation : CenteredDialog.new)(
           title: 'Discard this mock?',
           message: n == 0
-              ? "Nothing is answered yet. This attempt won't appear in your "
-                  "record, and it doesn't use up a mock attempt."
+              ? "You haven't answered anything yet. This attempt won't appear "
+                  "in your record, and it doesn't use up a mock attempt."
               : "Your $n $answers deleted, and this attempt won't appear "
                   "in your record. It also doesn't use up a mock attempt.",
           primaryLabel: 'Discard',
