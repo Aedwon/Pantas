@@ -124,9 +124,12 @@ void main() {
           expect(find.text('First, a short assessment'), findsOneWidget);
         }
         if (state is SessionPanelInProgress) {
+          // Board A (W_Quiz, his pick Nov 25): no sentence; Discard then
+          // Resume at the right of the foot.
+          expect(find.textContaining('You paused'), findsNothing);
           expect(
-            find.text('You paused. Every answer was saved.'),
-            findsOneWidget,
+            tester.getCenter(find.text('Discard this session')).dx,
+            lessThan(tester.getCenter(find.text('Resume')).dx),
           );
         }
         if (state is SessionPanelCaughtUp) {
