@@ -35,6 +35,11 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(() async {
     await loadGoldenFonts();
+    // The chevron and the bookmark are Material icons: without the font a
+    // sheet draws them as hollow squares, which is the capture, not the app.
+    await (FontLoader('MaterialIcons')
+          ..addFont(rootBundle.load('fonts/MaterialIcons-Regular.otf')))
+        .load();
     // Without the math fonts the formulas draw as boxes.
     for (final family in [
       'Main-Regular',

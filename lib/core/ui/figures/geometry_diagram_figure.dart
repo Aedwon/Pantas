@@ -9,8 +9,12 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 /// Height of the drawing. The design system sets no height for diagrams.
 const double _figureHeight = 190;
 
+/// In a plate of the held reader the figure is drawn at the board's size: 360
+/// by 260, with the circle of radius 95 that the board draws.
+const double _plateFigureHeight = 260;
+
 /// A labeled geometry construction whose authored labels stay in the spec.
-class GeometryDiagramFigure extends StatelessWidget {
+class GeometryDiagramFigure extends StatefulWidget {
   const GeometryDiagramFigure({
     required this.type,
     required this.labels,
@@ -85,33 +89,86 @@ class GeometryDiagramFigure extends StatelessWidget {
     return GeometryDiagramFigure(type: type, labels: labels);
   }
 
+  /// How wide a circle is across, for a drawing [size] (the circle takes 0.38
+  /// of the shorter side of the room the drawing has).
+  static double circleDiameter(Size size, {required bool inPlate}) =>
+      (inPlate
+          ? math.min(size.width - 10, size.height - 10)
+          : math.min(size.width - 48, size.height - 38)) *
+      0.76;
+
+  @override
+  State<GeometryDiagramFigure> createState() => GeometryDiagramFigureState();
+}
+
+class GeometryDiagramFigureState extends State<GeometryDiagramFigure> {
+  /// Where each label was last drawn, by the label's core, in the drawing's
+  /// own coordinates. Pointing at one lights the words that name it.
+  final labelRects = <String, Rect>{};
+
+  FigureHighlights? _highlights;
+  int _figure = -1;
+
+  void _point(Offset position) {
+    String? hit;
+    for (final entry in labelRects.entries) {
+      if (entry.value.inflate(4).contains(position)) {
+        hit = entry.key;
+        break;
+      }
+    }
+    _highlights?.set(_figure, hit);
+  }
+
+  @override
+  void dispose() {
+    _highlights?.set(_figure, null);
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
     final lit = LitLabel.maybeOf(context);
+    final marks = NewMarks.maybeOf(context);
+    final plate = lit?.plate ?? false;
+    _highlights = FigureHighlightScope.maybeOf(context);
+    _figure = lit?.figure ?? -1;
     return Semantics(
-      label: 'A $type diagram labeled ${labels.join(', ')}.',
-      child: SizedBox(
-        height: _figureHeight,
-        child: CustomPaint(
-          size: Size.infinite,
-          painter: _GeometryDiagramPainter(
-            type: type,
-            labels: labels,
-            ink: colors.label,
-            faint: colors.fill,
-            mark: colors.secondaryLabel,
-            labelStyle: context.type.subhead.copyWith(
-              color: colors.label,
+      label: 'A ${widget.type} diagram labeled ${widget.labels.join(', ')}.',
+      child: MouseRegion(
+        onHover: plate ? (e) => _point(e.localPosition) : null,
+        onExit: plate ? (_) => _highlights?.set(_figure, null) : null,
+        child: SizedBox(
+          height: plate ? _plateFigureHeight : _figureHeight,
+          child: CustomPaint(
+            size: Size.infinite,
+            painter: _GeometryDiagramPainter(
+              type: widget.type,
+              labels: widget.labels,
+              ink: colors.label,
+              faint: colors.fill,
+              mark: colors.secondaryLabel,
+              labelStyle: context.type.subhead.copyWith(
+                color: colors.label,
+              ),
+              lit: lit?.label,
+              litAmount: lit?.amount ?? 0,
+              plate: plate,
+              sink: labelRects,
+              newLabels: marks?.labels ?? const {},
+              newAmount: marks?.amount ?? 1,
             ),
-            lit: lit?.label,
-            litAmount: lit?.amount ?? 0,
           ),
         ),
       ),
     );
   }
 }
+
+/// [value] kept between 2 and [high] (at least 2).
+double _pin(double value, double high) =>
+    math.min(math.max(value, 2), math.max(high, 2));
 
 class _GeometryDiagramPainter extends CustomPainter {
   _GeometryDiagramPainter({
@@ -123,7 +180,21 @@ class _GeometryDiagramPainter extends CustomPainter {
     required this.labelStyle,
     this.lit,
     this.litAmount = 0,
+    this.plate = false,
+    this.sink,
+    this.newLabels = const {},
+    this.newAmount = 1,
   });
+
+  /// Drawn in a plate of the held reader: at the board's size.
+  final bool plate;
+
+  /// Where the labels were drawn, for the figure to find the one pointed at.
+  final Map<String, Rect>? sink;
+
+  /// Labels the problem figure did not have, and how far they have drawn in.
+  final Set<String> newLabels;
+  final double newAmount;
 
   /// The label core a word of the text is pointing at, and how far the 150 ms
   /// change has come. The named part keeps its color and thickens to 4 px, its
@@ -153,7 +224,10 @@ class _GeometryDiagramPainter extends CustomPainter {
     final fillFaint = Paint()
       ..color = faint.withValues(alpha: 0.15)
       ..style = PaintingStyle.fill;
-    final bounds = Rect.fromLTWH(24, 18, size.width - 48, size.height - 38);
+    final bounds = plate
+        ? Rect.fromLTWH(5, 5, size.width - 10, size.height - 10)
+        : Rect.fromLTWH(24, 18, size.width - 48, size.height - 38);
+    sink?.clear();
 
     final litIndex = lit == null
         ? -1
@@ -238,7 +312,7 @@ class _GeometryDiagramPainter extends CustomPainter {
       canvas.restore();
       if (litIndex >= 0) _drawLitPart(canvas, bounds, litIndex);
     }
-    _drawLabels(canvas, labels, anchors, litIndex, dimmed ? dim : 1);
+    _drawLabels(canvas, size, labels, anchors, litIndex, dimmed ? dim : 1);
   }
 
   /// The part a label names, drawn again over the dimmed figure in its own
@@ -279,16 +353,22 @@ class _GeometryDiagramPainter extends CustomPainter {
 
   void _drawLabels(
     Canvas canvas,
+    Size size,
     List<String> labels,
     List<Offset> anchors,
     int litIndex,
     double alpha,
   ) {
     if (anchors.isEmpty) return;
+    // In a plate no label sits on another or runs off the drawing: a label
+    // that would is moved down in small steps until it is clear.
+    final placed = <Rect>[];
     for (var i = 0; i < labels.length; i++) {
       final anchor = anchors[i % anchors.length];
       final isLit = i == litIndex;
-      TextPainter(
+      // A mark the problem figure did not have draws in after the figure.
+      final drawn = newLabels.contains(labels[i]) ? newAmount : 1.0;
+      final painter = TextPainter(
         text: TextSpan(
           text: labels[i],
           style: isLit
@@ -300,16 +380,29 @@ class _GeometryDiagramPainter extends CustomPainter {
                   ),
                 )
               : labelStyle.copyWith(
-                  color: labelStyle.color?.withValues(alpha: alpha),
+                  color: labelStyle.color?.withValues(alpha: alpha * drawn),
                 ),
         ),
         textDirection: TextDirection.ltr,
-      )
-        ..layout(maxWidth: 110)
-        ..paint(
-          canvas,
-          anchor + const Offset(-10, -14),
+      )..layout(maxWidth: 110);
+      var at = anchor + const Offset(-10, -14);
+      if (plate) {
+        at = Offset(
+          _pin(at.dx, size.width - painter.width - 2),
+          _pin(at.dy, size.height - painter.height - 2),
         );
+        for (var n = 0; n < 40; n++) {
+          final box = (at & painter.size).inflate(1);
+          if (!placed.any(box.overlaps)) break;
+          at += const Offset(0, 4);
+          if (at.dy + painter.height > size.height - 2) {
+            at = Offset(at.dx, 2);
+          }
+        }
+        placed.add(at & painter.size);
+      }
+      sink?.putIfAbsent(labelCore(labels[i]), () => at & painter.size);
+      if (drawn > 0) painter.paint(canvas, at);
     }
   }
 
@@ -1652,5 +1745,8 @@ class _GeometryDiagramPainter extends CustomPainter {
       oldDelegate.ink != ink ||
       oldDelegate.faint != faint ||
       oldDelegate.lit != lit ||
-      oldDelegate.litAmount != litAmount;
+      oldDelegate.litAmount != litAmount ||
+      oldDelegate.plate != plate ||
+      oldDelegate.newAmount != newAmount ||
+      !setEquals(oldDelegate.newLabels, newLabels);
 }

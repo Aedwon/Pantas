@@ -153,6 +153,12 @@ extension HeldFlowBuilder on ContentRenderer {
                     ? null
                     : _plateFor(context, solution, plateId),
                 open: signal,
+                newLabels: problem == null || solution == null
+                    ? const {}
+                    : {
+                        for (final l in _linkLabels(solution))
+                          if (!_linkLabels(problem).contains(l)) l,
+                      },
               ),
             ),
           );
@@ -211,25 +217,59 @@ extension HeldFlowBuilder on ContentRenderer {
 
 /// The plate of an example: the problem's figure, which gives way to the
 /// solution's figure in the same place when the solution opens. Problem out
-/// over 180 ms, solution in over 240 ms, on the shared ease; reduced motion
-/// is a 150 ms fade.
-class _ExamplePlate extends StatelessWidget {
+/// over 180 ms, solution in over 240 ms, on the shared ease; then the marks
+/// the solution adds draw in over 240 ms. Reduced motion is a 150 ms fade.
+class _ExamplePlate extends StatefulWidget {
   const _ExamplePlate({
     required this.problem,
     required this.solution,
     required this.open,
+    this.newLabels = const {},
   });
 
   final Widget? problem;
   final Widget? solution;
   final ValueListenable<bool> open;
 
+  /// Labels of the solution figure that the problem figure did not have.
+  final Set<String> newLabels;
+
+  @override
+  State<_ExamplePlate> createState() => _ExamplePlateState();
+}
+
+class _ExamplePlateState extends State<_ExamplePlate>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _clock;
+
+  @override
+  void initState() {
+    super.initState();
+    _clock = AnimationController(
+      vsync: this,
+      duration: markDrawDelay + markDrawDuration,
+      value: widget.open.value ? 1 : 0,
+    );
+    widget.open.addListener(_opened);
+  }
+
+  void _opened() {
+    if (widget.open.value) unawaited(_clock.forward(from: 0));
+  }
+
+  @override
+  void dispose() {
+    widget.open.removeListener(_opened);
+    _clock.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final still = MediaQuery.disableAnimationsOf(context);
     Widget layer(Widget child, {required bool shownWhenOpen}) =>
         ValueListenableBuilder<bool>(
-          valueListenable: open,
+          valueListenable: widget.open,
           child: child,
           builder: (context, isOpen, child) {
             final visible = isOpen == shownWhenOpen;
@@ -249,8 +289,23 @@ class _ExamplePlate extends StatelessWidget {
             );
           },
         );
-    final first = problem;
-    final second = solution;
+    final first = widget.problem;
+    var second = widget.solution;
+    if (second != null && first != null && widget.newLabels.isNotEmpty) {
+      final shown = second;
+      second = AnimatedBuilder(
+        animation: _clock,
+        child: shown,
+        builder: (context, child) => NewMarks(
+          labels: widget.newLabels,
+          amount: markDrawProgress(
+            _clock.duration! * _clock.value,
+            reduced: still,
+          ),
+          child: child!,
+        ),
+      );
+    }
     return RepaintBoundary(
       child: Stack(
         children: [

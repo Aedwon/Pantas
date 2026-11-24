@@ -7,6 +7,7 @@ library;
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/offset_focus_ring.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 
 /// Which part of which figure is lit, for one lesson.
@@ -45,18 +46,28 @@ class LitLabel extends InheritedWidget {
     required this.label,
     required this.amount,
     required super.child,
+    this.figure = -1,
+    this.plate = false,
     super.key,
   });
 
   final String? label;
   final double amount;
 
+  /// Which figure of the lesson this is, and whether it sits in a plate of the
+  /// figure column, where it is drawn at the board's size.
+  final int figure;
+  final bool plate;
+
   static LitLabel? maybeOf(BuildContext context) =>
       context.dependOnInheritedWidgetOfExactType<LitLabel>();
 
   @override
   bool updateShouldNotify(LitLabel oldWidget) =>
-      label != oldWidget.label || amount != oldWidget.amount;
+      label != oldWidget.label ||
+      amount != oldWidget.amount ||
+      figure != oldWidget.figure ||
+      plate != oldWidget.plate;
 }
 
 /// Tells the figure inside it which of its parts is lit, animated.
@@ -94,11 +105,48 @@ class _FigureHighlightForState extends State<FigureHighlightFor> {
       builder: (context, amount, child) => LitLabel(
         label: amount == 0 ? null : _last,
         amount: amount,
+        figure: widget.figure,
+        plate: true,
         child: child!,
       ),
       child: widget.child,
     );
   }
+}
+
+/// When the new mark of a solution figure starts to draw, after the figure's
+/// own 240 ms arrival, and how long it takes.
+const markDrawDelay = Duration(milliseconds: 240);
+const markDrawDuration = Duration(milliseconds: 240);
+
+/// How far the new mark has drawn, [elapsed] after the solution opened. With
+/// reduced motion the figure only fades in and the mark is simply there.
+double markDrawProgress(Duration elapsed, {bool reduced = false}) {
+  if (reduced) return 1;
+  final t = (elapsed - markDrawDelay).inMicroseconds /
+      markDrawDuration.inMicroseconds;
+  return PantasCurves.move.transform(t.clamp(0.0, 1.0));
+}
+
+/// The labels a solution figure has that its problem figure did not, and how
+/// far they have drawn in (0 hidden, 1 drawn).
+class NewMarks extends InheritedWidget {
+  const NewMarks({
+    required this.labels,
+    required this.amount,
+    required super.child,
+    super.key,
+  });
+
+  final Set<String> labels;
+  final double amount;
+
+  static NewMarks? maybeOf(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<NewMarks>();
+
+  @override
+  bool updateShouldNotify(NewMarks oldWidget) =>
+      amount != oldWidget.amount || labels != oldWidget.labels;
 }
 
 /// A word that names a part of the figure beside the text: a dotted underline
@@ -131,10 +179,13 @@ class _LinkedWordState extends State<LinkedWord> {
   bool _tapped = false;
   FigureHighlights? _highlights;
 
-  bool get _lit => _hover || _focus || _tapped;
+  bool _external = false;
+
+  bool get _own => _hover || _focus || _tapped;
+  bool get _lit => _own || _external;
 
   void _sync() {
-    _highlights?.set(widget.figure, _lit ? widget.label : null);
+    _highlights?.set(widget.figure, _own ? widget.label : null);
   }
 
   @override
@@ -153,6 +204,12 @@ class _LinkedWordState extends State<LinkedWord> {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    // Pointing at the label in the figure underlines its words too.
+    final scope = context
+        .dependOnInheritedWidgetOfExactType<FigureHighlightScope>()
+        ?.notifier;
+    _external =
+        scope?.of(widget.figure)?.toLowerCase() == widget.label.toLowerCase();
     final still = MediaQuery.disableAnimationsOf(context);
     final duration = still ? Duration.zero : const Duration(milliseconds: 150);
     return TapRegion(
@@ -203,7 +260,7 @@ class _LinkedWordState extends State<LinkedWord> {
                 duration: duration,
                 curve: Curves.easeOut,
                 builder: (context, color, _) => CustomPaint(
-                  foregroundPainter: _Underline(
+                  foregroundPainter: LinkUnderline(
                     color: _lit ? c.readerStrong : c.tertiaryLabel,
                     solid: _lit,
                   ),
@@ -223,8 +280,9 @@ class _LinkedWordState extends State<LinkedWord> {
 }
 
 /// 1.5 px, dotted, a few px under the baseline; solid when lit.
-class _Underline extends CustomPainter {
-  const _Underline({required this.color, required this.solid});
+@visibleForTesting
+class LinkUnderline extends CustomPainter {
+  const LinkUnderline({required this.color, required this.solid});
   final Color color;
   final bool solid;
 
@@ -245,6 +303,6 @@ class _Underline extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_Underline old) =>
+  bool shouldRepaint(LinkUnderline old) =>
       old.color != color || old.solid != solid;
 }
