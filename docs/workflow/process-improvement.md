@@ -134,7 +134,6 @@ pass 15, retire or merge one first.
 - Cost: the counts line reached prod inside #124 (7:07 AM Manila); the release lead rolled prod back at 7:11 AM, which also pulled the Quiz tab card and the T9 fixes until a reship (his question: "why do they take this long").
 - Fix (required step, manager and leads): every rule-4 ruling names the search done before it (launch log, rulings file, boards, with the terms searched) in the message that gives the ruling. A ruling that names no search is not acted on. The release lead dropped the U24 branch before shipping. No check can tell a decided question from an open one.
 
-<<<<<<< Updated upstream
 ### Walk-through lesson rewrite still too compressed (Nov 25)
 
 - His words: "i found some lessons could use more detail, or a sort of \"walk you through it\" type of teaching" (Signed Integers and Substitution, three screenshots), then on the manager's sample rewrite: "close, but not as detailed as I'd like. you are allowed to have numbers in core concept".
@@ -151,14 +150,12 @@ pass 15, retire or merge one first.
   1. Every UI build brief and every side-by-side review checks design/system/patterns.md (placement, spacing, buttons) as well as the board. Where a board drawn before Nov 7 conflicts with a pattern, the pattern wins, and the review names the rule.
   2. A one-time sweep of every wide screen for placement against patterns.md, results listed for the manager. It starts only after he answers; he asked for answers before changes.
   A placement check in code may be possible later (widget tests asserting button order and alignment on wide cards); none is promised until it is shown failing on this card.
-=======
 ### Two lead sessions shipped the same PRs at once (Nov 25)
 
 - Words: none from Aedwon. The manager's note: "Your workers already shipped ENT-06 at 19:40 UTC, and the reader with #117 at 19:48 UTC ... Don't redeploy #117."
 - Wrong: the manager's fresh-memory tasks started a second CSE release lead session (r5) on the same three PRs while the r4 session still owned them. r5 shipped ENT-06 and then #117; r4's ship worker was at the same time building ENT-06 from an older main commit. Had it reached prod, it would have rolled #117 off prod. r4 stopped it at staging after reading the launch log.
 - Why it got through: nothing tied a PR to one owning session, and a ship brief's rollback point was checked once at the start, not right before the deploy.
 - Fix (required steps): (1) a PR has one integrating session; the manager names it, and a lead that finds another session acting on its PRs stops its own ships and asks. (2) Every ship brief checks, immediately before the prod deploy, that app.pantas.study still serves the build recorded as the rollback point, and stops without deploying if it does not (in the r4 #121 brief).
->>>>>>> Stashed changes
 
 ### Discard spacing in the Quiz tab shrank after a spacing ship (Nov 25)
 
