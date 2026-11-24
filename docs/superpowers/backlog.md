@@ -25,10 +25,10 @@ Status words: LIVE (on prod and verified), BUILDING, BOARD (waiting on his look)
 |---|---|---|---|
 | Nov 25 4:58 AM | Wide-screen button placement sweep, "only after other UI things are done" | QUEUED after UI | manager, then UX lead |
 | Nov 25 4:56 AM | Sample lessons rewritten to a walk-through standard, Claude Design board with Neon's parts (Quick Check, Why?, Next step, illustrations) | BOARD in progress | lesson walk-through lead |
-| Nov 25 4:35 AM | Wide Quiz tab paused card: buttons placed per his Nov 7 rule (P2) | HELD for his answer on option A | UX lead |
+| Nov 25 4:35 AM | Wide Quiz tab paused card: buttons placed per his Nov 7 rule (P2) | BUILDING (approved 5:20 AM: "yes A lgtm, go ahead with it") | UX lead, release lead |
 | Nov 25 4:06 AM | Remove the overall count from the Reviews sheet header | BUILDING, ships with the sheet | UX lead, release lead |
 | Nov 25 3:50 AM | Loading: spinner and percent on one line, option A | BUILDING | UX lead |
-| Nov 25 3:50 AM | Paused review session option A; Discard spacing restored | Home sheet BUILDING; Quiz tab card HELD | UX lead, release lead |
+| Nov 25 3:50 AM | Paused review session option A; Discard spacing restored | BUILDING (sheet and card) | UX lead, release lead |
 | Nov 25 1:35 AM | Remove the lesson dashes at the top of the reader | LIVE Nov 25 3:48 AM | release lead |
 | Nov 25 1:35 AM | What the week strip item was | DONE (answered; short name LIVE 3:30 AM) | release lead |
 | Nov 25 12:35 AM | Full Pro on his own prod account, every exam | LIVE Nov 25 3:40 AM | release lead |
