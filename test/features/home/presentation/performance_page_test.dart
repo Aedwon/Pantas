@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/sort_cycle_button.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -37,11 +38,11 @@ void main() {
   testWidgets('a Free phone shows what the wide page shows', (tester) async {
     await tester.pumpWidget(show(pro: false));
     await tester.pumpAndSettle();
-    // The line under the title, the Pro marks on the locked views and the
-    // card that opens Pro, on the Subjects view too.
+    // The Pro marks on the locked views and the card that opens Pro, on the
+    // Subjects view too. DT_Free draws no line under the title (P13).
     expect(
       find.text("Accuracy across everything you've answered."),
-      findsOneWidget,
+      findsNothing,
     );
     expect(find.byType(ProMark), findsNWidgets(2));
     expect(find.text('Go deeper with Pro'), findsOneWidget);
@@ -145,5 +146,17 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('MATH'), findsOneWidget);
     expect(find.text('Geometry'), findsOneWidget);
+  });
+
+  // Boards DT_Free, DT_TopicsA: the ring block starts 20 px under the title,
+  // plus its own 4 px (P13).
+  testWidgets('the ring sits 24 px under the title', (tester) async {
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    await tester.pumpWidget(show(pro: false));
+    await tester.pumpAndSettle();
+    final title = tester.getRect(find.text('Your performance'));
+    final ring = tester.getRect(find.byType(HalfRingGauge));
+    expect(ring.top - title.bottom, closeTo(24, .5));
   });
 }

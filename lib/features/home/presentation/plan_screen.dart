@@ -470,6 +470,8 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
               lessonIds: plan.lessonIds,
               index: plan.lessonIds.indexOf(lesson.id),
               moreToDo: moreToDo,
+              // Board DP_DayRead: the back link names the day.
+              backLabel: DateFormat('EEEE', 'en_US').format(view.date),
             ),
           );
         }
@@ -566,9 +568,7 @@ class PlanWeekScreen extends ConsumerWidget {
       // A week opened directly has no page behind it, and its parent is the
       // plan, not Home (5Q-13).
       onBack: () => _back(context, fallback: '/plan'),
-      onChange: context.wideWeb
-          ? () => unawaited(context.push<void>('/settings/exam'))
-          : null,
+      onChange: () => unawaited(context.push<void>('/settings/exam')),
       onDay: (day) => unawaited(
         context.push<void>(
           '/plan/day/${dayKey(day)}',

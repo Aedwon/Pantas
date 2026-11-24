@@ -282,10 +282,14 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
                         style: PantasType.phoneTitle1
                             .copyWith(color: context.colors.textPrimary),
                       ),
+                      // Board QV_All: 2 px under the title, 15/400 secondary.
+                      const SizedBox(height: PantasSpace.s2),
                       Text(
                         '$correct of $total correct',
-                        style: PantasType.phoneExplanation
-                            .copyWith(color: context.colors.textPrimary),
+                        style: PantasType.phoneSubhead.copyWith(
+                          fontWeight: FontWeight.w400,
+                          color: context.colors.textSecondary,
+                        ),
                       ),
                     ],
                   ),

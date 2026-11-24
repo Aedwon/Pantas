@@ -4,6 +4,7 @@ import 'package:pantas/core/platform/app_update/update_overlay_registry.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
@@ -266,21 +267,25 @@ class CenteredDialog extends StatefulWidget {
   }
 }
 
-/// Opens a dialog over the current page: the one way a screen shows a
-/// [CenteredDialog] (or the wide-web confirmation). It passes straight to the
-/// framework's `showDialog` and changes nothing about it, so a screen never
-/// needs the raw call.
+/// Shows [builder], normally a [CenteredDialog] (or the wide-web
+/// confirmation). It opens over 420 ms and
+/// closes over 320 ms on `motion-house`, with a 24 px rise and a fade and a
+/// 300 ms linear scrim (design system motion, Overlays: Dialog), the same
+/// recipe the wide web dialogs use. Reduced motion fades it in place. A
+/// screen never needs the raw `showDialog`.
 Future<T?> showPantasDialog<T>({
   required BuildContext context,
   required WidgetBuilder builder,
   Color? barrierColor,
   bool barrierDismissible = true,
 }) =>
-    showDialog<T>(
+    showWebOverlay<T>(
       context: context,
-      builder: builder,
-      barrierColor: barrierColor,
+      motion: WebOverlayMotion.dialog,
+      barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+      barrierColor: barrierColor ?? context.colors.scrim,
       barrierDismissible: barrierDismissible,
+      builder: (dialogContext) => SafeArea(child: builder(dialogContext)),
     );
 
 class _CenteredDialogState extends State<CenteredDialog> {

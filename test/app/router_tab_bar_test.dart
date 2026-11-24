@@ -159,6 +159,11 @@ void main() {
     await settle();
     expect(find.byType(AppNavBar), findsNothing);
 
+    // Wrapped is deferred on every width: a deep link lands on Record.
+    router.go('/wrapped/w1');
+    await settle();
+    expect(router.routerDelegate.currentConfiguration.uri.path, '/record');
+
     // Wide web keeps its sidebar layout and draws no phone tab bar.
     router.go('/home');
     await settle();

@@ -23,6 +23,37 @@ void main() {
     await tester.pump(const Duration(milliseconds: 2800));
     expect(find.text('You pick up where you are'), findsOneWidget);
   });
+  testWidgets('the phone vessels are 34 radius with a 1.5 px ring and a wave',
+      (tester) async {
+    tester.view
+      ..physicalSize = const Size(390, 844)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    await tester.pumpAppWithProviders(
+      CarryOverScreen(exam: 'CSE', previous: 'UPCAT', onCounted: () {}),
+    );
+    await tester.ensureVisible(find.text('Count Them'));
+    await tester.tap(find.text('Count Them'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    // Board ST_ExamSwitchCount: 104 by 168, radius 34, inset ring 1.5 px,
+    // a wave on the rising fill.
+    for (final name in ['old', 'new']) {
+      expect(
+        find.byKey(ValueKey('transfer-wave-$name')),
+        findsOneWidget,
+        reason: name,
+      );
+    }
+    final vessels = find.byKey(const ValueKey('transfer-vessel'));
+    expect(vessels, findsNWidgets(2));
+    for (final vessel in tester.widgetList<Container>(vessels)) {
+      final box = vessel.decoration! as BoxDecoration;
+      expect(box.borderRadius, BorderRadius.circular(34));
+      final ring = (vessel.foregroundDecoration! as BoxDecoration).border!;
+      expect(ring.top.width, 1.5);
+    }
+  });
   testWidgets(
       'issue 26: carry over opens once as a screen and stays '
       'closed after returning', (tester) async {

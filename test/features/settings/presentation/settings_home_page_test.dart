@@ -39,11 +39,12 @@ void main() {
         'Pantas Pro',
         'Your exam',
         'Practice',
-        'Reminders',
         'Appearance',
         'About',
       ]),
     );
+    // Reminders are parked for the native release: no row, no dead route.
+    expect(titles, isNot(contains('Reminders')));
     expect(find.text('Home'), findsNothing);
     expect(find.text('Exam date'), findsNothing);
     expect(tester.takeException(), isNull);

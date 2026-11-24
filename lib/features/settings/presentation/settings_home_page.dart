@@ -1,7 +1,5 @@
 import 'dart:async';
-import 'dart:math' as math;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/providers.dart';
@@ -13,8 +11,6 @@ import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/own/own_icons.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
-import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
@@ -22,43 +18,12 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
-import 'package:pantas/features/settings/presentation/widgets/beta_pro_row.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 final settingsSessionLengthProvider = FutureProvider<int>((ref) async {
   return (await ref.watch(quizPreferencesRepositoryProvider).read())
       .sessionLength;
 });
-
-/// "{n} of 5 days" for the Feedback row, or null while the days load. The
-/// count stops at 5 even when more days were counted (lead ruling).
-final feedbackRowValueProvider = Provider.autoDispose<String?>((ref) {
-  if (!ref.watch(betaFeedbackVisibleProvider)) return null;
-  final reward = ref.watch(betaRewardProvider).valueOrNull;
-  if (reward == null) return null;
-  return '${math.min(5, reward.days.length)} of 5 days';
-});
-
-/// The raised BETA mark after "Feedback" (FbSettingsB): 9 px, w700, 1 px down
-/// and 4 px after the title.
-class SettingsBetaMark extends StatelessWidget {
-  const SettingsBetaMark({this.top = 1, super.key});
-  final double top;
-
-  @override
-  Widget build(BuildContext context) => ExcludeSemantics(
-        child: Padding(
-          padding: EdgeInsets.only(top: top, left: PantasSpace.s4),
-          child: Text(
-            'BETA',
-            style: PantasType.webPro.copyWith(
-              height: 1,
-              color: context.colors.accent,
-            ),
-          ),
-        ),
-      );
-}
 
 /// The chat-bubble glyph of the Feedback row, stroked on a 24 unit grid.
 class SettingsFeedbackGlyph extends StatelessWidget {
@@ -117,89 +82,33 @@ class _FeedbackGlyphPainter extends CustomPainter {
   bool shouldRepaint(_FeedbackGlyphPainter old) => old.color != color;
 }
 
-/// The day count on the Feedback row. Nothing shows while the count loads;
-/// when it arrives it fades in (quick, ease). On wide web the color follows
-/// the row's selection.
-class FeedbackRowValue extends StatelessWidget {
-  const FeedbackRowValue({
-    required this.value,
-    required this.style,
-    this.selectedColor,
-    this.selected = false,
-    super.key,
-  });
-  final String? value;
-  final TextStyle style;
-  final Color? selectedColor;
-  final bool selected;
-
-  @override
-  Widget build(BuildContext context) {
-    final value = this.value;
-    if (value == null) return const SizedBox.shrink();
-    final still = MediaQuery.disableAnimationsOf(context);
-    final color = selected && selectedColor != null
-        ? selectedColor!
-        : style.color ?? context.colors.secondaryLabel;
-    return TweenAnimationBuilder<double>(
-      tween: Tween(begin: still ? 1 : 0, end: 1),
-      duration: still ? Duration.zero : PantasDurations.short2,
-      curve: PantasCurves.fade,
-      builder: (context, opacity, child) =>
-          Opacity(opacity: opacity, child: child),
-      child: TweenAnimationBuilder<Color?>(
-        tween: ColorTween(end: color),
-        duration: still ? Duration.zero : PantasDurations.short2,
-        curve: PantasCurves.fade,
-        builder: (context, color, _) =>
-            Text(value, style: style.copyWith(color: color)),
-      ),
-    );
-  }
-}
-
-/// The phone's Feedback row (FbSettingsB): first in the first card.
-class FeedbackSettingsRow extends ConsumerWidget {
-  const FeedbackSettingsRow({required this.onTap, super.key});
+/// The phone's Beta Reward row: shown only while a reward is earned and not
+/// turned on.
+class BetaRewardSettingsRow extends StatelessWidget {
+  const BetaRewardSettingsRow({required this.onTap, super.key});
   final VoidCallback onTap;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final c = context.colors;
-    return ListRow(
-      title: 'Feedback',
-      titleWidget: Semantics(
-        label: 'Feedback, beta',
-        excludeSemantics: true,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Feedback', style: context.type.body),
-            const SettingsBetaMark(),
-          ],
+  Widget build(BuildContext context) => ListRow(
+        title: 'Beta Reward',
+        leading: SizedBox(
+          width: PantasSpace.s28,
+          height: 30,
+          child: Center(
+            child: SettingsFeedbackGlyph(
+              size: 24,
+              color: context.colors.accent,
+            ),
+          ),
         ),
-      ),
-      valueWidget: FeedbackRowValue(
-        value: ref.watch(feedbackRowValueProvider),
-        style: context.type.rowValue,
-      ),
-      leading: SizedBox(
-        width: PantasSpace.s28,
-        height: 30,
-        child: Center(
-          child: SettingsFeedbackGlyph(size: 24, color: c.accent),
+        contentPadding: const EdgeInsets.fromLTRB(
+          PantasSpace.s14,
+          PantasSpace.s0,
+          PantasSpace.s16,
+          PantasSpace.s0,
         ),
-      ),
-      contentPadding: const EdgeInsets.fromLTRB(
-        PantasSpace.s14,
-        PantasSpace.s0,
-        PantasSpace.s16,
-        PantasSpace.s0,
-      ),
-      onTap: onTap,
-    );
-  }
+        onTap: onTap,
+      );
 }
 
 class SettingsHomePage extends ConsumerWidget {
@@ -215,7 +124,6 @@ class SettingsHomePage extends ConsumerWidget {
     final theme = ref.watch(themePreferenceProvider).valueOrNull ??
         ThemePreference.system;
     final length = ref.watch(settingsSessionLengthProvider).valueOrNull ?? 10;
-    final tester = ref.watch(betaFeedbackVisibleProvider);
     void push(String path) {
       final router = GoRouter.maybeOf(context);
       if (router != null) unawaited(router.push<void>(path));
@@ -286,17 +194,14 @@ class SettingsHomePage extends ConsumerWidget {
           ],
         ),
         const SizedBox(height: PantasSpace.s24),
-        if (tester) ...[
-          // FbSettingsB: Feedback and the Beta switch share the first card.
+        if (ref.watch(betaRewardRowVisibleProvider)) ...[
           GroupedSection(
             children: [
-              FeedbackSettingsRow(
+              BetaRewardSettingsRow(
                 onTap: () => push('/settings/beta-feedback'),
               ),
-              const BetaProRow(),
             ],
           ),
-          const BetaProNote(),
           const SizedBox(height: PantasSpace.s24),
         ],
         GroupedSection(
@@ -308,10 +213,8 @@ class SettingsHomePage extends ConsumerWidget {
               contentPadding: rowPadding,
               onTap: () => push('/settings/pro'),
             ),
-            if (!tester) const BetaProRow(),
           ],
         ),
-        if (!tester) const BetaProNote(),
         const SizedBox(height: PantasSpace.s24),
         GroupedSection(
           children: [
@@ -333,21 +236,8 @@ class SettingsHomePage extends ConsumerWidget {
               dividerInset: 56,
               onTap: () => push('/settings/practice'),
             ),
-            if (!kIsWeb)
-              ListRow(
-                title: 'Reminders',
-                value: settings.dailyReminderTime == null
-                    ? 'Off'
-                    : TimeOfDay(
-                        hour: settings.dailyReminderTime!.hour,
-                        minute: settings.dailyReminderTime!.minute,
-                      ).format(context),
-                leading: glyph(PantasIcons.reminders, context.colors.accent),
-                contentPadding: rowPadding,
-                divider: true,
-                dividerInset: 56,
-                onTap: () => push('/settings/reminders'),
-              ),
+            // Reminders are parked for the native release; the page has no
+            // route yet, so the row stays out until it ships.
             ListRow(
               title: 'Appearance',
               value: switch (theme) {
