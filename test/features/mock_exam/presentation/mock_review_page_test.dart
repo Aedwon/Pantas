@@ -445,11 +445,28 @@ void main() {
     await tester.tap(find.byTooltip('Add note'));
     await tester.pumpAndSettle();
     expect(find.text('Why did you leave it blank?'), findsOneWidget);
-    // The floating bar is 64 high (design system 4.0) and covers the middle
-    // of this choice, so press its top edge.
-    await tester.tapAt(
-      tester.getTopLeft(find.text("I didn't know")) + const Offset(8, 2),
+    for (final label in const [
+      'I ran out of time',
+      'I skipped it to come back later',
+      "I didn't know it",
+      'Type my own',
+      'Cancel',
+      'Add Note',
+    ]) {
+      expect(find.text(label), findsOneWidget);
+    }
+    // MK_ReviewBlank: the reasons are picked, then Add Note saves (U73).
+    await tester.tap(find.text("I didn't know it"));
+    await tester.pumpAndSettle();
+    verifyNever(
+      () => attemptRepo.saveReviewReason(
+        attemptId: any(named: 'attemptId'),
+        questionId: any(named: 'questionId'),
+        savedAt: any(named: 'savedAt'),
+        blankReason: any(named: 'blankReason'),
+      ),
     );
+    await tester.tap(find.text('Add Note'));
     await tester.pumpAndSettle();
 
     verify(
@@ -516,7 +533,17 @@ void main() {
     await tester.tap(find.byTooltip('Add note'));
     await tester.pumpAndSettle();
     expect(find.text('Why did you miss it?'), findsOneWidget);
-    await tester.tap(find.text('I misread'));
+    expect(find.text('I knew it, I just slipped'), findsOneWidget);
+    expect(find.text("I didn't know it"), findsOneWidget);
+    // MK_ReviewQNote: Cancel closes the card and saves nothing.
+    await tester.tap(find.text('Cancel'));
+    await tester.pumpAndSettle();
+    expect(find.text('Why did you miss it?'), findsNothing);
+    await tester.tap(find.byTooltip('Add note'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('I misread it'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Add Note'));
     await tester.pumpAndSettle();
 
     verify(
@@ -548,6 +575,56 @@ void main() {
     await tester.tap(find.text('Stem for q_2'));
     await tester.pumpAndSettle();
   }
+
+  // Boards MK_ReviewQ, MK_ReviewQFree and QN_Correct: the counter is left of
+  // the note icon only on a wrong Pro answer; with no icon it is centered (P22).
+  Finder counter() => find.byWidgetPredicate(
+        (w) => w is Text && RegExp(r'^\d+ of \d+$').hasMatch(w.data ?? ''),
+      );
+
+  testWidgets('Free review bar centers the counter and has no note icon',
+      (tester) async {
+    await openFirstBlank(tester);
+    expect(find.byTooltip('Add note'), findsNothing);
+    expect(
+      tester.getCenter(counter()).dx,
+      // The board pads the bar 4 left and 8 right, so the middle is 2 left.
+      closeTo(tester.getSize(find.byType(Scaffold).first).width / 2 - 2, .5),
+    );
+  });
+
+  testWidgets('Pro review bar keeps the counter left beside the note icon',
+      (tester) async {
+    await openFirstBlank(tester, pro: true);
+    expect(find.byTooltip('Add note'), findsOneWidget);
+    expect(
+      tester.getCenter(counter()).dx,
+      lessThan(tester.getSize(find.byType(Scaffold).first).width / 2 - 100),
+    );
+  });
+
+  testWidgets('a right answer has no note icon, even on Pro', (tester) async {
+    await tester.pumpAppWithProviders(
+      const MockReviewPage(attemptId: 'attempt_1', proIsActive: true),
+      overrides: [
+        mockAttemptRepoProvider.overrideWithValue(attemptRepo),
+        contentRepositoryProvider.overrideWithValue(contentRepo),
+        questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
+        appPreferencesRepositoryProvider.overrideWithValue(prefsRepo),
+      ],
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('All 12'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Stem for q_1'));
+    await tester.pumpAndSettle();
+    expect(find.byTooltip('Add note'), findsNothing);
+    expect(
+      tester.getCenter(counter()).dx,
+      // The board pads the bar 4 left and 8 right, so the middle is 2 left.
+      closeTo(tester.getSize(find.byType(Scaffold).first).width / 2 - 2, .5),
+    );
+  });
 
   testWidgets('review keeps the passage needed to understand the question',
       (tester) async {
@@ -660,8 +737,8 @@ void main() {
       'I need more time',
     );
     await tester.enterText(find.byType(TextField), 'I will return sooner');
-    await tester.ensureVisible(find.text('Save Note'));
-    await tester.tap(find.text('Save Note'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Update'));
     await tester.pumpAndSettle();
     await tester.ensureVisible(find.byTooltip('Add note'));
     await tester.tap(find.byTooltip('Add note'));
@@ -759,8 +836,8 @@ void main() {
     await tester.tap(find.text('Type my own'));
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextField), 'My saved draft');
-    await tester.ensureVisible(find.text('Save Note'));
-    await tester.tap(find.text('Save Note'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Add Note'));
     await tester.pumpAndSettle();
     expect(tester.takeException(), isNull);
     expect(find.text('Could not save your progress.'), findsOneWidget);
