@@ -138,6 +138,6 @@ Codex Sol High critiqued only these changes (`critique-2026-11-23b-sol-high.md`)
 - **Filled from your DTI and BIR certificates:** the business name (Pantas Online Tutorial Services), DTI Business Name No. 8567107, and the place of business (19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508).
 - **Price line:** the Terms now say Pantas is not registered for VAT, so the price has no VAT in it. If you register for VAT later, this sentence must change.
 - **TIN:** left out of every text. The Internet Transactions Act does not require showing it on the site. Put it on invoices, not in the public repo.
-- **BIR seal badge:** added to the README publishing steps. Your certificate says online businesses must show it on the website.
+- **BIR seal badge:** optional. Your certificate says online businesses must show it, but BIR RMC 113-2026 (Oct 26, 2026) suspended that until further notice. It becomes a publishing gate only if the suspension is lifted before publishing. No text says it is shown.
 - **Business phone:** filled (+63 968 854 2343, from your Nov 18 message). The law requires one on the homepage, so the website footer must show it.
 - **Still yours to fill:** publication date, NPC registration.

@@ -26,7 +26,7 @@ Every item is a bracket in the texts or a claim only he can confirm. Nothing is 
 
 1. Done (Nov 24): registered business name "Pantas Online Tutorial Services", from the DTI certificate.
 2. Done: DTI Business Name No. 8567107.
-3. Done: BIR registration read from the Certificate of Registration. He is not VAT-registered and uses the 8% income tax option, so the Terms say the price has no VAT in it. Watch: if gross sales pass the VAT threshold and he registers, that sentence and the price line must change. The TIN is not in any text (see the TIN note below). The BIR Registration Seal Badge is a publishing step.
+3. Done: BIR registration read from the Certificate of Registration. He is not VAT-registered and uses the 8% income tax option, so the Terms say the price has no VAT in it. Watch: if gross sales pass the VAT threshold and he registers, that sentence and the price line must change. The TIN is not in any text (see the TIN note below). The BIR Registration Seal Badge is optional for now (step 0a).
 4. Done: place of business 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines (the BIR registered address). The critique says a Terms page alone is not enough: the seller details also belong on the homepage (decision D3).
 5. Done: business phone +63 968 854 2343 (supplied Nov 18).
 6. Publication date. It becomes the version stamp (see "Publishing steps").
@@ -242,7 +242,7 @@ The texts publish in the same prod release as the behavior they describe, or aft
 
 ## Publishing steps (for the integrator, L1 and L7)
 
-0a. Display the BIR Registration Seal Badge (with its QR code, on page 3 of the Certificate of Registration) prominently and scannably on the website. The certificate says online businesses must.
+0a. BIR seal badge: optional while RMC 113-2026 suspends the requirement. If the suspension is lifted before publishing, it becomes a gate.
 0. Texts publish with or after the D1, D2, D3 and D7 builds, and each claim is checked live on prod first (table above).
 1. Set the three version stamps to the publication date in both places: `guardianDocumentVersions` in the app and `GUARDIAN_DOCUMENT_VERSIONS` in the functions. Deploy together, or the guardian page refuses answers with "Reload the page".
 2. Put the final texts into the in-app legal documents (the Terms title there is "Terms of Service") and as public pages on pantas.study. The site has only a beta-application privacy page today.
