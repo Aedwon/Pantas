@@ -16,9 +16,14 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
+import 'package:pantas/features/quiz/presentation/quiz_end_flight.dart';
+import 'package:pantas/features/quiz/presentation/session_end_timeline.dart';
 import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
 
 export 'package:pantas/core/ui/web/web_debrief_loading.dart';
+
+// ds-board: B2_WideEnd and W_SessionEnd draw Done at least 220 wide
+const double _doneMinWidth = 220;
 
 class WebSessionResults extends StatelessWidget {
   const WebSessionResults({
@@ -39,6 +44,8 @@ class WebSessionResults extends StatelessWidget {
     this.nextBusy = false,
     this.failure,
     this.entry,
+    this.flightRun,
+    this.ringDelay,
     super.key,
   });
   final QuizSession session;
@@ -63,11 +70,21 @@ class WebSessionResults extends StatelessWidget {
 
   /// The phone's staggered entrance. Without it the page appears at once.
   final SessionEntryMotion? entry;
+
+  /// Set when the session has just ended: the marks of the answer track fly
+  /// into the row of circles (core loops B2).
+  final EndFlightRun? flightRun;
+
+  /// How long after the page appears the ring and the count-up start.
+  final Duration? ringDelay;
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
     Widget appear(Widget child, int start, int duration, {double rise = 0}) =>
         entry?.appear(child, start, duration, rise: rise) ?? child;
+    final tl = flightRun?.timeline ??
+        SessionEndTimeline.still(count: attempt.items.length);
+    final later = tl.later;
     final (correct, total) = attempt.score;
     final misses = [
       for (var i = 0; i < total; i++)
@@ -96,8 +113,8 @@ class WebSessionResults extends StatelessWidget {
             onTap: () => onQuestion(i),
             borderRadius: radius,
             child: Container(
-              width: PantasSize.qnav,
-              height: PantasSize.qnav,
+              width: PantasSize.avatar,
+              height: PantasSize.avatar,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -175,9 +192,9 @@ class WebSessionResults extends StatelessWidget {
                               ],
                             ],
                           ),
-                          100,
-                          380,
-                          rise: 6,
+                          tl.titleStart,
+                          tl.titleDuration,
+                          rise: tl.flight ? 0 : 6,
                         ),
                         const SizedBox(height: PantasSpace.s28),
                         Center(
@@ -189,11 +206,22 @@ class WebSessionResults extends StatelessWidget {
                             child: OverflowBox(
                               alignment: Alignment.topCenter,
                               maxHeight: double.infinity,
-                              child: HalfRingGauge.quizCount(
-                                web: true,
-                                correct: correct,
-                                total: total,
-                              ),
+                              child: tl.flight
+                                  ? appear(
+                                      HalfRingGauge.quizCount(
+                                        web: true,
+                                        correct: correct,
+                                        total: total,
+                                        delay: ringDelay,
+                                      ),
+                                      tl.titleStart,
+                                      tl.titleDuration,
+                                    )
+                                  : HalfRingGauge.quizCount(
+                                      web: true,
+                                      correct: correct,
+                                      total: total,
+                                    ),
                             ),
                           ),
                         ),
@@ -204,7 +232,14 @@ class WebSessionResults extends StatelessWidget {
                           runSpacing: 8,
                           children: [
                             for (var i = 0; i < total; i++)
-                              entry?.pop(i, circle(i)) ?? circle(i),
+                              flightRun != null
+                                  ? flightRun!.slot(
+                                      i,
+                                      circle(i),
+                                      size:
+                                          const Size.square(PantasSize.avatar),
+                                    )
+                                  : entry?.pop(i, circle(i)) ?? circle(i),
                           ],
                         ),
                         if (elapsed != null && !elapsed.isNegative) ...[
@@ -218,8 +253,8 @@ class WebSessionResults extends StatelessWidget {
                               style: t.sub,
                               textAlign: TextAlign.center,
                             ),
-                            1600,
-                            300,
+                            tl.detailStart,
+                            tl.flight ? SessionEndTimeline.detailDuration : 300,
                           ),
                         ],
                         const SizedBox(height: PantasSpace.s28),
@@ -229,17 +264,17 @@ class WebSessionResults extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SizedBox(
-                                width: PantasLayout.titleNarrow,
-                                child: WebButton(
-                                  label: 'Done',
-                                  large: true,
-                                  expand: true,
-                                  onPressed: nextBusy ? null : onDone,
-                                  variant: next
-                                      ? WebButtonVariant.white
-                                      : WebButtonVariant.primary,
-                                ),
+                              // B2_WideEnd: 50 high, 220 wide at least, with
+                              // the Enter hint when Enter is Done.
+                              WebButton(
+                                label: 'Done',
+                                large: true,
+                                minWidth: _doneMinWidth,
+                                keyHint: next ? null : 'Enter',
+                                onPressed: nextBusy ? null : onDone,
+                                variant: next
+                                    ? WebButtonVariant.white
+                                    : WebButtonVariant.primary,
                               ),
                               if (next) ...[
                                 const SizedBox(width: PantasSpace.s12),
@@ -253,8 +288,8 @@ class WebSessionResults extends StatelessWidget {
                               ],
                             ],
                           ),
-                          1700,
-                          300,
+                          tl.doneStart,
+                          tl.flight ? SessionEndTimeline.detailDuration : 300,
                         ),
                         if (failure != null) failure!,
                         if (debriefCards != null) ...[
@@ -292,7 +327,7 @@ class WebSessionResults extends StatelessWidget {
                                             onPressed: () =>
                                                 (onMistake ?? onQuestion)(i),
                                           ),
-                                          1700 + position * 90,
+                                          1700 + position * 90 + later,
                                           380,
                                           rise: 6,
                                         ),
@@ -316,7 +351,7 @@ class WebSessionResults extends StatelessWidget {
                                           chevron: WebRowChevron.always,
                                           onPressed: onAll,
                                         ),
-                                        2000,
+                                        2000 + later,
                                         380,
                                         rise: 10,
                                       ),
@@ -325,7 +360,7 @@ class WebSessionResults extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            1620,
+                            1620 + later,
                             380,
                             rise: 8,
                           ),
@@ -345,10 +380,7 @@ class WebSessionResults extends StatelessWidget {
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              'Tell Pantas why you got each '
-                                              'one wrong. The better your '
-                                              'notes, the more every review '
-                                              'helps.',
+                                              'Note why you missed each one.',
                                               style: PantasType.webSub.copyWith(
                                                 color: t.colors.textPrimary,
                                               ),
@@ -364,7 +396,7 @@ class WebSessionResults extends StatelessWidget {
                                         ],
                                       ),
                               ),
-                              2260,
+                              2260 + later,
                               300,
                             ),
                           ],
@@ -383,7 +415,7 @@ class WebSessionResults extends StatelessWidget {
                                 onPressed: onAll,
                               ),
                             ),
-                            2000,
+                            2000 + later,
                             380,
                             rise: 10,
                           ),

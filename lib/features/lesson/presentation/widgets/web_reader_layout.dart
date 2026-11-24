@@ -6,8 +6,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/figure_highlight.dart';
+import 'package:pantas/core/ui/components/held_reader.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/components/reader_figure_placement.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
@@ -27,49 +30,21 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/domain/models/study_map.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_bar.dart';
+import 'package:pantas/features/lesson/presentation/widgets/reader_section_line.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_pull_to_advance.dart';
 
-/// Where the outline and the lesson column sit on wide web.
+/// The lesson column on wide web.
 ///
-/// The outline margin is worked out from the standard 680 px column and does
-/// not change when the student widens the lesson, so the outline never moves
-/// or shrinks. The column takes what is left after the two margins and the
-/// two 56 px gaps, up to its own width.
-///
-/// The outline needs a 220 px margin for one line per label and a gutter at
-/// the window edge like the Back link's. Only the desktop layout (1280 px and
-/// up, the sidebar layout) has that room. Below it the outline is left out,
-/// as on the phone, and the column sits centered between its two gaps. The
-/// 1024 to 1279 px layout is the tablet one, which borrows the phone's
-/// chrome.
+/// A lesson with figures uses the held layout (`HeldMetrics`): text on the
+/// left, figures on the right. A lesson with none keeps one centered column,
+/// 680 px, or 800 px when the student chose full width.
 abstract final class WebReaderMetrics {
-  static const double gap = 56;
-
-  /// The narrowest window that shows the outline.
-  static const double outlineMinWidth = 1280;
-
-  /// Whether a window [maxWidth] wide shows the outline.
-  static bool showsOutline(double maxWidth) => maxWidth >= outlineMinWidth;
-
-  /// The outline margin on the left and the matching space on the right.
-  /// Zero where the outline is left out.
-  static double margin(double maxWidth) => showsOutline(maxWidth)
-      ? ((maxWidth - readerStandardWidth - 2 * gap) / 2).clamp(120.0, 220.0)
-      : 0;
-
-  /// The space kept at each window edge beside the outline, as the Back
-  /// link keeps 16 px.
-  static const double edge = 16;
-
-  /// The lesson column for a window [maxWidth] wide.
-  ///
-  /// Where the full width does not fit, the column is the room that is left,
-  /// after the outline's edge gutter too.
+  /// The lesson column for a window [maxWidth] wide, when the lesson has no
+  /// figures to put beside it.
   static double columnWidth(double maxWidth, {required bool fullWidth}) {
     final wanted = fullWidth ? readerFullWidthMax : readerStandardWidth;
-    final outer = showsOutline(maxWidth) ? 2 * edge : 0;
-    final room = maxWidth - 2 * margin(maxWidth) - 2 * gap - outer;
+    final room = maxWidth - 2 * 56;
     return wanted < room ? wanted : room;
   }
 }
@@ -91,9 +66,6 @@ const _contentsMotion = WebOverlayMotion(
 const double _barHeight = PantasLayout.focusHead;
 const _barCurve = PantasCurves.move;
 
-/// The thread sits on the bar's bottom edge (ReaderTopBar, `size-thread`).
-const double _threadTop = _barHeight - PantasSize.thread;
-
 /// The "Picked up where you left off" notice hangs a step under the bar.
 const double _noticeTop = _barHeight + PantasSpace.s12;
 
@@ -111,15 +83,8 @@ const double _menuInset = PantasSpace.s56 + PantasSpace.s44;
 /// The lesson title in the bar stops at this width (board value, no token).
 const double _titleMaxWidth = 400;
 
-/// An outline row: its text plus the two vertical paddings of its button.
-const double _outlineRowPad = PantasSpace.s12;
-
-/// What the outline row's padding takes from the text width: the button's
-/// sides and the indent beside the dot.
-const double _outlineTextInset = PantasSpace.s10 * 2 + PantasSpace.s16;
-
 /// How long a jump from the outline takes. It runs on the reader's shared ease.
-const _jumpDuration = Duration(milliseconds: 500);
+const _jumpDuration = Duration(milliseconds: 400);
 
 /// The owner keeps position, read marking and guarded writes.
 class WebReaderLayout extends ConsumerStatefulWidget {
@@ -188,6 +153,15 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   int _jumpToken = 0;
   final _barKey = GlobalKey();
 
+  /// The scrolling content, to measure where each section starts.
+  final _contentKey = GlobalKey();
+
+  /// The section line: each section's share of the length and how much of it
+  /// has been read.
+  List<double> _sectionWeights = const [1];
+  final _fills = ValueNotifier<List<double>>(const [0]);
+  List<String?> _headings = const [];
+
   /// True from a change of lesson until the next scroll, so the new lesson's
   /// window is in place at once instead of growing from the old one's.
   bool _instantInset = false;
@@ -241,6 +215,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
 
   @override
   void dispose() {
+    _fills.dispose();
     FocusManager.instance.removeListener(_onPrimaryFocus);
     widget.scrollOffset.removeListener(_onScroll);
     _noticeTimer?.cancel();
@@ -270,7 +245,85 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     _resumeExitTimer = _afterExit(() => _resumeMounted = false);
   }
 
+  /// The groups that open with a `##` heading. A lesson that starts before
+  /// its first heading counts that text with the first section.
+  List<int> _sectionGroups() => [
+        for (var i = 0; i < _headings.length; i++)
+          if (_headings[i] != null) i,
+      ];
+
+  List<String> _sectionTitles() {
+    final groups = _sectionGroups();
+    if (groups.isEmpty) return [widget.reader.lesson.title];
+    return [for (final g in groups) _headings[g]!];
+  }
+
+  /// Reads where each section starts and how far the page has scrolled, and
+  /// updates the section line. Runs on every scroll frame and after layout.
+  void _measure() {
+    final content = _contentKey.currentContext?.findRenderObject();
+    final groups = _sectionGroups();
+    if (content is! RenderBox ||
+        !content.attached ||
+        !content.hasSize ||
+        !widget.controller.hasClients) {
+      return;
+    }
+    final position = widget.controller.position;
+    final tops = <double>[];
+    for (final g in groups) {
+      final box = _anchors[g].currentContext?.findRenderObject();
+      if (box is! RenderBox || !box.attached) return;
+      tops.add(box.localToGlobal(Offset.zero, ancestor: content).dy);
+    }
+    if (tops.isEmpty) {
+      _fills.value = [
+        if (position.maxScrollExtent > 0) widget.progress.value else 1,
+      ];
+      return;
+    }
+    tops[0] = 0;
+    final length = content.size.height;
+    final weights = [
+      for (var i = 0; i < tops.length; i++)
+        math.max<double>(
+          1,
+          (i + 1 < tops.length ? tops[i + 1] : length) - tops[i],
+        ),
+    ];
+    final max = position.maxScrollExtent;
+    // The page offset at which each section's heading reaches the reading
+    // line, just under the bar.
+    final starts = [
+      for (final t in tops) (t - _readingLead).clamp(0.0, max),
+      max,
+    ];
+    final fills = [
+      for (var i = 0; i < tops.length; i++)
+        starts[i + 1] <= starts[i]
+            ? (position.pixels >= starts[i] ? 1.0 : 0.0)
+            : ((position.pixels - starts[i]) / (starts[i + 1] - starts[i]))
+                .clamp(0.0, 1.0),
+    ];
+    _fills.value = fills;
+    final total = weights.fold<double>(0, (a, b) => a + b);
+    var changed = weights.length != _sectionWeights.length;
+    if (!changed) {
+      final old = _sectionWeights.fold<double>(0, (a, b) => a + b);
+      for (var i = 0; i < weights.length; i++) {
+        if ((weights[i] / total - _sectionWeights[i] / old).abs() > .004) {
+          changed = true;
+        }
+      }
+    }
+    if (changed && mounted) setState(() => _sectionWeights = weights);
+  }
+
+  /// A heading is "being read" once it is this far above the page offset.
+  static const double _readingLead = 46;
+
   void _onScroll() {
+    _measure();
     final offset = widget.scrollOffset.value;
     final show = offset <= 210 || offset < _previousOffset || _menuOpen;
     _previousOffset = offset;
@@ -352,99 +405,6 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
       return !inBar;
     });
     if (inBar) setState(() => _showBar = true);
-  }
-
-  /// The "In this lesson" list, on the design's numbers: rows 32 px apart, the
-  /// heading 38 px above the first row, and a dot on the section being read.
-  Widget _outline(BuildContext context, List<String?> headings) {
-    final t = context.webTokens;
-    TextStyle rowStyle({required bool current}) =>
-        PantasType.webRowSub.copyWith(
-          fontWeight: current ? FontWeight.w600 : FontWeight.w400,
-          color: current ? t.colors.textPrimary : t.colors.textSecondary,
-        );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(
-            PantasSpace.s10,
-            PantasSpace.s0,
-            PantasSpace.s10,
-            PantasSpace.s12,
-          ),
-          child: Text('IN THIS LESSON', style: t.eb.copyWith(height: 1.45)),
-        ),
-        LayoutBuilder(
-          builder: (context, constraints) {
-            final positions = <int, double>{};
-            var top = 0.0;
-            for (var i = 0; i < headings.length; i++) {
-              if (headings[i] == null) continue;
-              positions[i] = top;
-              final text = TextPainter(
-                text: TextSpan(
-                  text: headings[i],
-                  style: rowStyle(current: _active == i),
-                ),
-                textDirection: Directionality.of(context),
-                textScaler: MediaQuery.textScalerOf(context),
-              )..layout(maxWidth: constraints.maxWidth - _outlineTextInset);
-              top += text.height + _outlineRowPad;
-              text.dispose();
-            }
-            return Stack(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    for (var i = 0; i < headings.length; i++)
-                      if (headings[i] != null)
-                        ReaderTap(
-                          onTap: () => unawaited(_jumpTo(i)),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: PantasSpace.s10,
-                              vertical: PantasSpace.s6,
-                            ),
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: PantasSpace.s16),
-                              child: Text(
-                                headings[i]!,
-                                style: rowStyle(current: _active == i),
-                              ),
-                            ),
-                          ),
-                        ),
-                  ],
-                ),
-                if (positions.containsKey(_active))
-                  AnimatedPositioned(
-                    key: const ValueKey('web-reader-outline-dot'),
-                    duration: MediaQuery.disableAnimationsOf(context)
-                        ? Duration.zero
-                        : const Duration(milliseconds: 250),
-                    curve: _barCurve,
-                    top: positions[_active]! + PantasSpace.s12,
-                    left: PantasSpace.s10,
-                    child: IgnorePointer(
-                      child: Container(
-                        width: PantasSpace.s6,
-                        height: PantasSpace.s6,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: t.colors.accent,
-                        ),
-                      ),
-                    ),
-                  ),
-              ],
-            );
-          },
-        ),
-      ],
-    );
   }
 
   Future<void> _menu() async {
@@ -839,6 +799,10 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     while (_anchors.length < groups.length) {
       _anchors.add(GlobalKey());
     }
+    _headings = headings;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _measure();
+    });
     final ending = widget.ending;
     final barShown = _showBar || _menuOpen || ending != null;
     final inset = barShown ? _barHeight : 0.0;
@@ -885,6 +849,18 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
         widget.footer,
       ],
     );
+    final held = lessonHasMarginFigures(
+      [for (final b in reader.lesson.bodyJson) b],
+    );
+    final heldBody = held
+        ? _HeldLessonBody(
+            key: ValueKey(('web-reader-held', reader.lesson.id)),
+            reader: reader,
+            groups: groups,
+            anchors: _anchors,
+            footer: widget.footer,
+          )
+        : null;
     return LetterShortcuts(
       bindings: {if (ending == null) 'b': _bookmark},
       also: {
@@ -921,52 +897,36 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                           // to the lesson's own top padding, so the text stays
                           // exactly where it was.
                           final lift = _barHeight - shown;
-                          return LayoutBuilder(
-                            builder: (context, constraints) {
-                              final margin =
-                                  WebReaderMetrics.margin(constraints.maxWidth);
-                              return Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  if (margin > 0) ...[
-                                    SizedBox(
-                                      key: const ValueKey('web-reader-outline'),
-                                      width: margin,
-                                      child: SingleChildScrollView(
-                                        padding: EdgeInsets.only(
-                                          top: _columnTop + lift,
-                                        ),
-                                        child: _outline(context, headings),
-                                      ),
-                                    ),
-                                  ],
-                                  const SizedBox(width: WebReaderMetrics.gap),
-                                  Flexible(
-                                    child: SizedBox(
-                                      key: const ValueKey('web-reader-column'),
-                                      width: WebReaderMetrics.columnWidth(
-                                        constraints.maxWidth,
-                                        fullWidth: fullWidth,
-                                      ),
-                                      child: _wheel(
-                                        SingleChildScrollView(
-                                          controller: widget.controller,
-                                          primary: false,
-                                          padding: EdgeInsets.only(
-                                            top: _columnTop + lift,
-                                            bottom: PantasSpace.s56,
-                                          ),
-                                          child: columnBody,
-                                        ),
-                                      ),
-                                    ),
+                          Widget scroll(Widget child) => _wheel(
+                                SingleChildScrollView(
+                                  key: const ValueKey('web-reader-scroll'),
+                                  controller: widget.controller,
+                                  primary: false,
+                                  padding: EdgeInsets.only(
+                                    top: _columnTop + lift,
+                                    bottom: PantasSpace.s56,
                                   ),
-                                  const SizedBox(width: WebReaderMetrics.gap),
-                                  if (margin > 0) SizedBox(width: margin),
-                                ],
+                                  child: KeyedSubtree(
+                                    key: _contentKey,
+                                    child: child,
+                                  ),
+                                ),
                               );
-                            },
+                          if (heldBody != null) return scroll(heldBody);
+                          // Top-aligned: a short lesson starts under the bar,
+                          // not centered down the window.
+                          return Align(
+                            alignment: Alignment.topCenter,
+                            child: LayoutBuilder(
+                              builder: (context, constraints) => SizedBox(
+                                key: const ValueKey('web-reader-column'),
+                                width: WebReaderMetrics.columnWidth(
+                                  constraints.maxWidth,
+                                  fullWidth: fullWidth,
+                                ),
+                                child: scroll(columnBody),
+                              ),
+                            ),
                           );
                         },
                       ),
@@ -1009,14 +969,19 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                     const SizedBox(width: PantasSpace.s12),
                                     const Spacer(),
                                     const SizedBox(width: PantasSpace.s12),
-                                    _lessonControl(context),
+                                    FocusTraversalOrder(
+                                      order: const NumericFocusOrder(1),
+                                      child: _lessonControl(context),
+                                    ),
                                     const SizedBox(width: PantasSpace.s12),
                                   ],
                                   const Spacer(),
                                   if (ending == null) ...[
                                     const SizedBox(width: PantasSpace.s12),
-                                    _widthControl(t, fullWidth: fullWidth),
-                                    const SizedBox(width: PantasSpace.s12),
+                                    if (heldBody == null) ...[
+                                      _widthControl(t, fullWidth: fullWidth),
+                                      const SizedBox(width: PantasSpace.s12),
+                                    ],
                                     PantasIconButton(
                                       tooltip: withLetterKey(
                                         context,
@@ -1062,33 +1027,19 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                         ? Duration.zero
                         : Duration(milliseconds: _showBar ? 420 : 700),
                     curve: _barCurve,
-                    top: _showBar || _menuOpen || ending != null
-                        ? _threadTop
-                        : 0,
+                    // The 16 px hit area is centered on the 2 px line.
+                    top: (_showBar || _menuOpen ? _barHeight - 2 : 0) -
+                        (ReaderSectionLine.hit - ReaderSectionLine.rest) / 2,
                     left: 0,
                     right: 0,
-                    child: ValueListenableBuilder<double>(
-                      valueListenable: widget.progress,
-                      builder: (_, value, __) => Semantics(
-                        label: 'Lesson progress',
-                        value: '${(value.clamp(0.0, 1.0) * 100).round()}%',
-                        child: ExcludeSemantics(
-                          child: SizedBox(
-                            height: PantasSize.thread,
-                            child: ColoredBox(
-                              color: t.colors.fill,
-                              child: Align(
-                                alignment: Alignment.centerLeft,
-                                child: FractionallySizedBox(
-                                  widthFactor: value.clamp(0.0, 1.0),
-                                  child: ColoredBox(
-                                    color: t.colors.accent,
-                                    child: const SizedBox.expand(),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
+                    child: FocusTraversalOrder(
+                      order: const NumericFocusOrder(2),
+                      child: ReaderSectionLine(
+                        titles: _sectionTitles(),
+                        weights: _sectionWeights,
+                        fills: _fills,
+                        onJump: (i) => unawaited(
+                          _jumpTo(_sectionGroups()[i]),
                         ),
                       ),
                     ),
@@ -1393,6 +1344,132 @@ class WebReaderNext extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// The lesson of the held layout: the topic and title, then the text and
+/// figure columns, then the footer.
+///
+/// It keeps the figures that the stack cap sent back into the text, and the
+/// signal of each example, so a rebuild of the page keeps both. It is built
+/// once for a lesson, so the bar sliding away does not rebuild the lesson.
+class _HeldLessonBody extends StatefulWidget {
+  const _HeldLessonBody({
+    required this.reader,
+    required this.groups,
+    required this.anchors,
+    required this.footer,
+    super.key,
+  });
+
+  final ReaderContext reader;
+  final List<List<Map<String, dynamic>>> groups;
+  final List<GlobalKey> anchors;
+  final Widget footer;
+
+  @override
+  State<_HeldLessonBody> createState() => _HeldLessonBodyState();
+}
+
+class _HeldLessonBodyState extends State<_HeldLessonBody> {
+  Set<int> _inline = {};
+  final _open = <int, ValueNotifier<bool>>{};
+  final _highlights = FigureHighlights();
+
+  @override
+  void dispose() {
+    _highlights.dispose();
+    for (final signal in _open.values) {
+      signal.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.webTokens;
+    final reader = widget.reader;
+    final height = MediaQuery.sizeOf(context).height;
+    return LayoutBuilder(
+      builder: (context, box) {
+        final m =
+            HeldMetrics.forWidth(box.maxWidth) ?? HeldMetrics.forWidth(1024)!;
+        // Sections are told apart by space alone, so the anchor of a section
+        // is its heading's block.
+        var group = widget.groups.isNotEmpty &&
+                widget.groups.first.isNotEmpty &&
+                widget.groups.first.first['style'] != 'h2'
+            ? 1
+            : 0;
+        final flow = ContentRenderer(
+          blocks: [for (final g in widget.groups) ...g],
+          readerFigures: true,
+        ).heldFlow(context, inline: _inline, open: _open);
+        final entries = <HeldEntry>[
+          for (final e in flow.entries)
+            if (e.major)
+              HeldEntry(
+                kind: e.kind,
+                above: e.above,
+                below: e.below,
+                list: e.list,
+                major: true,
+                child: KeyedSubtree(
+                  key: group < widget.anchors.length
+                      ? widget.anchors[group++]
+                      : null,
+                  child: e.child,
+                ),
+              )
+            else
+              e,
+        ];
+        return FigureHighlightScope(
+          highlights: _highlights,
+          child: LessonTextScale(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: m.pageLeft),
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 1000),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(reader.topicName, style: t.sub),
+                        const SizedBox(height: PantasSpace.s6),
+                        Text(
+                          reader.lesson.title,
+                          style: PantasType.webH1
+                              .copyWith(color: t.colors.textPrimary),
+                        ),
+                        const SizedBox(height: PantasSpace.s32),
+                      ],
+                    ),
+                  ),
+                ),
+                HeldReader(
+                  metrics: m,
+                  viewportHeight: height,
+                  entries: entries,
+                  figures: flow.figures,
+                  onOverCap: (ids) {
+                    if (_inline.containsAll(ids)) return;
+                    setState(() => _inline = {..._inline, ...ids});
+                  },
+                ),
+                const SizedBox(height: PantasSpace.s20),
+                Padding(
+                  padding: EdgeInsets.only(left: m.pageLeft),
+                  child: SizedBox(width: m.textWidth, child: widget.footer),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

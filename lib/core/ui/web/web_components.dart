@@ -72,9 +72,18 @@ class WebButton extends StatelessWidget {
     this.fontSize,
     this.radius,
     this.sidePadding,
+    this.reserveLabels = const [],
+    this.minWidth,
     super.key,
   });
   final String label;
+
+  /// A least width for the button, label centered.
+  final double? minWidth;
+
+  /// Other words this button shows at other times. It keeps the width of the
+  /// widest, so what sits beside it does not move when the word changes.
+  final List<String> reserveLabels;
 
   /// Not read: the size class decides the side padding.
   final double? sidePadding;
@@ -186,7 +195,7 @@ class WebButton extends StatelessWidget {
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.standard,
         minimumSize: WidgetStatePropertyAll(
-          Size(expand ? double.infinity : 0, m.height),
+          Size(expand ? double.infinity : minWidth ?? 0, m.height),
         ),
         padding: WidgetStatePropertyAll(
           EdgeInsets.only(
@@ -233,7 +242,9 @@ class WebButton extends StatelessWidget {
             ),
             SizedBox(width: m.gap),
           ],
-          Flexible(child: Text(label, textAlign: TextAlign.center)),
+          Flexible(
+            child: _ReservedLabel(label: label, reserve: reserveLabels),
+          ),
           if (showKeyHint) ...[
             SizedBox(width: m.gap),
             WebKeyHint(
@@ -265,6 +276,37 @@ class WebButton extends StatelessWidget {
     return m.height < PantasSize.targetTouch
         ? TouchTarget(child: natural)
         : natural;
+  }
+}
+
+/// A button's label, at least as wide as the widest of [reserve]. It is
+/// measured in the button's own text style, rounded up so the words that are
+/// narrower fill the same width.
+class _ReservedLabel extends StatelessWidget {
+  const _ReservedLabel({required this.label, required this.reserve});
+  final String label;
+  final List<String> reserve;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Text(label, textAlign: TextAlign.center);
+    if (reserve.isEmpty) return text;
+    final style = DefaultTextStyle.of(context).style;
+    final scaler = MediaQuery.textScalerOf(context);
+    var widest = 0.0;
+    for (final word in [label, ...reserve]) {
+      final painter = TextPainter(
+        text: TextSpan(text: word, style: style),
+        textDirection: Directionality.of(context),
+        textScaler: scaler,
+      )..layout();
+      widest = math.max(widest, painter.width);
+      painter.dispose();
+    }
+    return ConstrainedBox(
+      constraints: BoxConstraints(minWidth: widest.ceilToDouble()),
+      child: text,
+    );
   }
 }
 
@@ -1520,6 +1562,7 @@ class WebBottomBar extends StatelessWidget {
     this.onCounterPressed,
     this.leading,
     this.hint,
+    this.track,
     this.state = WebBarState.neutral,
     this.wide = false,
     this.compact = false,
@@ -1544,6 +1587,11 @@ class WebBottomBar extends StatelessWidget {
   final Widget action;
   final Widget? leading;
   final String? hint;
+
+  /// The answer track of a question session (core loops B2). It takes the
+  /// hint's place between the count and the action, and the bar then fits
+  /// its content instead of filling its width.
+  final Widget? track;
   final WebBarState state;
   final bool wide;
   final bool compact;
@@ -1694,11 +1742,23 @@ class WebBottomBar extends StatelessWidget {
                 ],
               )
             : Row(
-                mainAxisSize: compact ? MainAxisSize.min : MainAxisSize.max,
+                mainAxisSize: compact || track != null
+                    ? MainAxisSize.min
+                    : MainAxisSize.max,
                 children: [
                   if (leading != null) ...[leading!, SizedBox(width: gap)],
                   counterWidget,
-                  if (!compact || hint != null) Expanded(child: hintWidget),
+                  if (track != null)
+                    // Board `.trk`: 8 before, 14 after.
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: PantasSpace.s8,
+                        right: PantasSpace.s14,
+                      ),
+                      child: track,
+                    )
+                  else if (!compact || hint != null)
+                    Expanded(child: hintWidget),
                   if (gap > 0) SizedBox(width: gap),
                   action,
                 ],

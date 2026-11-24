@@ -171,6 +171,11 @@ void main() {
             find.text('Finish the Notes'),
             pro && correct < 10 ? findsOneWidget : findsNothing,
           );
+          expect(
+            find.text('Note why you missed each one.'),
+            pro && correct < 10 ? findsOneWidget : findsNothing,
+          );
+          expect(find.textContaining('Tell Pantas'), findsNothing);
           if (correct == 2) {
             expect(find.text('See all 8 mistakes'), findsOneWidget);
             // QS_EndLow: teal and bold; the all-questions link is plain.

@@ -4220,3 +4220,9 @@ Expected day total: under 250 reads and 200 writes. Go.
 - Verified 03:18 UTC: a throwaway student account (short-lived App Check debug token, both deleted) was refused with
   400 FAILED_PRECONDITION, reason `checkout-closed`. No errors on the new revision.
 - Checkout on prod stays closed until the live PayMongo key is set (docs/deploy-prod.md section 6b).
+
+### Nov 24, legal sign-off and the BIR badge (Aedwon, relayed by the operations manager; recorded by the CSE release lead)
+
+- **Legal sign-off, verbatim:** "legal sign-off: approved". Checklist L1 and L2. The texts publish per the H5 publish gate: with or after the D1, D2, D3 and D7 builds, each claim checked live on prod, with the date and version stamps moved to the go-live day if it is after Nov 24.
+- **BIR Registration Seal Badge, verbatim:** "yes show the BIR badge but only on the landing page pantas-web project in domain www.pantas.study". Not in the app: ruling C9's Pro page and wide placements are dropped; C9's website placement (under the D3 seller details; the verify link on a white plate; no copy; cropped only) stands. Voluntary while BIR RMC 113-2026 suspends the mandatory display. The certificate PDF stays out of every repo. Publishing the website is a prod change and needs his "ship it". Checklist L10.
+- **Under-18 sign-up option:** still open with him.

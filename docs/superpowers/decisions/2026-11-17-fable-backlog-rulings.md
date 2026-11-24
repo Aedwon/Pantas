@@ -1547,3 +1547,78 @@ Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon'
 4. NPC registration stays his. No text mentions it.
 
 The numbers he can change at sign-off are now: two months (B1), three business days (B2), 90 days and two years for messages (B3), plus the earlier 90 days for reports and the ten and four years for guardian evidence.
+
+## Nov 24, T16 B2 phone bar states
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation (written rule 4). The rulings are final and are not queued for his sign-off. His visual pass still gates release (`WORKFLOW.md`).
+
+- Asked by the CSE release lead for the T16 B2 build: three phone bar states no board draws (the flag under 370 px, the flag while looking back under 430 px, the count column's right padding at 4 px).
+- Policy read at `origin/main` 0931a6fe0: `AGENTS.md`, `WORKFLOW.md`, `docs/workflow/process-improvement.md` rules 1 to 4, the UX ambition hand-off, the core loops build spec (B2, B5), and in this file "Nov 23, core loops polish".
+- Boards read on the live canvases, Nov 24. Core Loops Best in Class: `canvas.json`, `B2_PhoneBar`, `B2_PhoneLong`, `B3_PhoneWrong`, `phone.css`. Pantas Redesign: `canvas.json`, `QV_Answer`, `QV_Last`, `QV_Flag`, `QV_GridBack`. `B2_PhoneBar` is on the Core Loops canvas, not on Pantas Redesign.
+- D71 read: `docs/superpowers/plans/design-system-4/map.md` line 180 and the Nov 8 quiz family entry in the PWA launch log. Under 400 px the flag moved to the question header so that the bar's hint fit on one line. Aedwon approved it on Nov 8.
+- Build read: `qa/core-loops-b2-r1` 3376c1db9 (bar code, track, tests) and the `bar_*_390_*`, `end_25_390` and `strip_25_390` renders. Widths below come from the 390 renders and from the app's Geist metrics. No Flutter run: the Mac's one Flutter slot was in use.
+- Standards applied: WEB-L5 (adapts at 320 px and to text size), WEB-K6 (same component, same look), WEB-I10 (44 px touch targets), from `web-interface-design.md`.
+
+### What the numbers say
+
+- A phone needs 120 px plus the count column's content plus the button. The 120 is the bar's insets, the count's paddings (16 and 12), the 44 px flag and the two 16 px gutters. The boards and the build both total 120.
+- Buttons: Check 86, Next 90, Finish 82, "Back to 4" 110, "Back to 20" 121, "Back to 120" 128.
+- Ten marks are 107 px. The count line ("19 of 20" and its caret) is at most 86 px with two-digit numbers and 99 px with three.
+- Twenty marks in one row are 217 px. With the flag and Check that needs a 423 px phone. The session lengths are 5, 10, 20 and all due, so a 20-question session is common. By the code, the build's one row of 20 overflows a 390 phone by about 25 px, even with the 4 px padding. No test covers it: the matrix has only 390 and 1440, and no bar test runs 11 to 20 questions.
+- So the one long row is the cause of all three questions. The flag is not.
+- With a track no wider than ten marks, every state fits at board values from 348 px up (355 for a session over 99 questions). Check, Next and Finish fit at 320.
+
+### Rulings
+
+1. **The flag stays in the bar on every phone, in every state.** It sits between the count and the button from 320 px up: before a pick, picked, checked, the last question, looking back, and the large-text stacked bar. The header flag is removed on this screen. No width threshold moves it.
+   - D71 is retired here. Its reason was the hint line, and B5 removed the hints. `QV_Flag`, `QV_Answer` and `B2_PhoneBar` draw the flag in the bar.
+   - Rejected: the header flag under 370 px. One control would sit in two places across phones.
+
+2. **Looking back keeps the same bar.** The count shows the question in view, the flag acts on that question, and the button reads "Back to N". The 430 px threshold is removed.
+   - This state is drawn: `QV_GridBack` shows it at 390 with the flag in the bar. With the threshold, the flag would jump to the header in the middle of a session on the reference phone.
+
+3. **The track is never wider than ten marks. 11 to 20 questions make two rows.**
+   - Ten marks on the first row and the rest on the second, left-aligned, in reading order. 3 px between the rows. Marks stay 8 x 4 with a 3 px gap. Colors, the 200 ms change and the spoken label do not change.
+   - The phone layout always uses ten per row, at every phone width, even where one row of 20 would fit. The wide bar keeps its one row (`B2_WideBar`).
+   - Why: the phone results row is already ten per row at 390 (`end_25_390`), so each track row lands as its own row of circles. The line over 20 questions is already "as wide as ten marks" (107 px). The bar's shape is then the same for every session length.
+   - End flight: the marks fly from their real places in both rows. Timing, stagger and its 180 ms cap do not change.
+   - Rejected: one row with narrower marks. On a 360 px phone 20 marks would be about 4 px wide, and on a 320 px phone they do not fit at all. Rejected: the line for 11 to 20. It removes the end flight from the 20-question setting.
+
+4. **Count column right padding: back to 12 at 360 px and wider.** Board values hold there with no exception. The 4 px value was needed only for the one long row.
+   - Rejected: a narrower Check or a smaller count. Neither frees enough room, and both change values the boards draw at 390.
+
+5. **Under 360 px (320 to 359, which includes the 344 px fold cover): compact values for the whole session, in every state.**
+   - Marks 6 x 4 with a 2 px gap, and 2 px between rows. Ten marks are 78 px. The line over 20 questions is 78 px.
+   - Count column right padding 4.
+   - The count text, the caret, the flag (44 px) and the button keep the board's sizes.
+   - Worst case at 320: looking back in a 20-question session needs 315 px.
+   - The values depend on the phone's width only, never on the state, so nothing in the bar changes size between pick, check and looking back.
+
+6. **Last resort: the count column scales down as one piece.** If the row still does not fit, the track and count shrink together, left-aligned, only as far as needed. The flag and the button never shrink, and nothing clips or overflows.
+   - This covers a session over 99 questions while looking back on a 320 px phone, and system text between 1.0 and 1.5 times on a narrow phone.
+   - Above 1.5 times the stacked bar applies as it does today: the count and the flag on the first line, the button below.
+
+### Checks, failing first
+
+- New bar tests at 320, 344, 360, 390 and 430 px, with 5, 10, 20 and 25 questions, in each state: before a pick, checked (Next), last question (Finish), and looking back from the last question to question 19. Each expects no overflow error, the flag inside the bar, and no flag in the header. Add 320 px at 1.3 times text.
+- The 20-question cell at 390 must fail on 3376c1db9 first. If it passes there, report the real widths to this agent before building: the two-row ruling rests on that overflow.
+- Track tests: 20 questions give two rows of ten, 13 give ten and three, and `markRects` returns the two-row places.
+- Build size, an estimate: about 0.5 day.
+
+### Board changes (for the operations manager's reference canvas list)
+
+- New derived phone board, Pantas Redesign and Core Loops: the bar in a 20-question session, two rows of ten (ruling 3). The end-flight boards need no change: they draw 10 questions.
+- New derived phone board at 320 px: compact marks 6 x 4 with a 2 px gap, and count padding 4 (ruling 5).
+- `QV_GridBack` and `QV_Flag` (Pantas Redesign) still draw the bar without the track. Add the track above the count, as on `QV_Answer`. The flag stays where they draw it. The other `QV_` boards with a session bar were not checked.
+- `B2_PhoneBar`, `B2_PhoneLong`, `QV_Answer`, `QV_Last` and `phone.css`: no change. The count column's 12 px holds.
+- Design system (the Pantas Design System canvas and the exports in `web-design/pantas-handoff/`): retire the D71 rule. That is the `bp-phone-narrow` token's use (400 px, "the quiz bar's flag moves to the question header"), the `.fbar__flag-alt` rule in `bundle.css`, and the D71 line in `design-system-4/map.md`. The new phone breakpoint is 360 px (ruling 5).
+- No wide board changes.
+
+### Spec lines these rulings change (for the spec's owner)
+
+- B2, Track: add "Phone: ten marks per row; 11 to 20 questions make two rows, 3 px apart. Under 360 px: marks 6 x 4, 2 px gaps, the line 78 px, count padding 4. The flag is in the bar at every phone width."
+- Acceptance check 3: add a 20-question session at 390 and at 320, and looking back at 320.
+
+### What needs Aedwon
+
+Nothing new. Rulings 1 and 2 replace D71, which he approved on Nov 8 for the hint line that B5 removed. The lead tells him this, and that a 20-question session shows two rows of marks. He sees both in his visual pass.

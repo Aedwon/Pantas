@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/figures/concept_diagram_figure.dart';
 import 'package:pantas/core/ui/figures/coordinate_graph_figure.dart';
 import 'package:pantas/core/ui/figures/cube_net_figure.dart';
 import 'package:pantas/core/ui/figures/earth_science_diagram_figure.dart';
+import 'package:pantas/core/ui/figures/figure_classes.dart';
 import 'package:pantas/core/ui/figures/figure_matrix_figure.dart';
 import 'package:pantas/core/ui/figures/figure_series_figure.dart';
 import 'package:pantas/core/ui/figures/fluid_vessel_figure.dart';
@@ -24,6 +25,15 @@ import 'package:pantas/core/ui/figures/stability_shape_figure.dart';
 
 /// The only place that maps a content figure kind to its painter module.
 abstract final class FigureRegistry {
+  /// Whether the held reader draws this figure inline at the full text width.
+  static bool isWide(Map<String, Object?> spec) =>
+      wideFigureTypes.contains(figureClassKey(spec['kind'], spec['type']));
+
+  /// Whether the held reader may put this figure in the figure column. A type
+  /// on neither list stays inline, and a check fails on it.
+  static bool isMargin(Map<String, Object?> spec) =>
+      marginFigureTypes.contains(figureClassKey(spec['kind'], spec['type']));
+
   static Widget? build(Map<String, Object?> spec) {
     return switch (spec['kind']) {
       GearTrainFigure.kind => GearTrainFigure.fromSpec(spec),

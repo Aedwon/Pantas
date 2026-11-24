@@ -58,8 +58,8 @@
 2 lib/features/lesson/presentation/widgets/web_lesson_search.dart ds_no_design_literal
 2 lib/features/lesson/presentation/widgets/web_pull_to_advance.dart ds_board_value_reason
 3 lib/features/lesson/presentation/widgets/web_pull_to_advance.dart ds_no_design_literal
-7 lib/features/lesson/presentation/widgets/web_reader_layout.dart ds_board_value_reason
-22 lib/features/lesson/presentation/widgets/web_reader_layout.dart ds_no_design_literal
+6 lib/features/lesson/presentation/widgets/web_reader_layout.dart ds_board_value_reason
+19 lib/features/lesson/presentation/widgets/web_reader_layout.dart ds_no_design_literal
 1 lib/features/lesson/presentation/widgets/web_study_layout.dart ds_board_value_reason
 19 lib/features/lesson/presentation/widgets/web_study_layout.dart ds_no_design_literal
 1 lib/features/mock_exam/presentation/pages/custom_mock_setup_page.dart ds_board_value_reason
