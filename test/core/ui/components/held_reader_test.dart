@@ -124,6 +124,10 @@ void main() {
   });
 
   testWidgets('a tap on the plate reaches it where it is held', (tester) async {
+    tester.view
+      ..physicalSize = const Size(1440, 800)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
     final controller = ScrollController();
     var taps = 0;
     await tester.pumpWidget(
