@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/platform/app_update/update_overlay_registry.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
+import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
@@ -316,7 +318,7 @@ class HomeDrawerQuestionRow extends StatelessWidget {
         ),
         boardMetrics: true,
         divider: !last,
-        value: '$total',
+        value: questionRowCount(done, total),
         compact: true,
         leading: HomeDrawerRing(
           total == 0 ? 0 : done / total,
@@ -335,8 +337,15 @@ class HomeWebQuestionsSheet extends StatelessWidget {
     this.onStart,
     this.busy = false,
     this.failure,
+    this.onDiscard,
+    this.discarding = false,
+    this.blocked = false,
+    this.showCount = true,
     super.key,
   });
+
+  /// See [TodayQuestionsSheet.showCount].
+  final bool showCount;
   final String title;
   final int done;
   final int total;
@@ -346,13 +355,21 @@ class HomeWebQuestionsSheet extends StatelessWidget {
   final bool busy;
   final Widget? failure;
 
+  /// This sheet's own session is paused: [startLabel] is Resume and Discard
+  /// sits under it (board A, his pick Nov 25).
+  final VoidCallback? onDiscard;
+  final bool discarding;
+
+  /// Another quiz is paused: the line and a dimmed Start, nothing else.
+  final bool blocked;
+
   /// Space above the title: 22.
   static const double _headTop = PantasSpace.s20 + PantasSpace.s2;
 
   @override
   Widget build(BuildContext context) => CallbackShortcuts(
         bindings: {
-          if (onStart != null && !busy)
+          if (onStart != null && !busy && !blocked)
             const SingleActivator(
               LogicalKeyboardKey.enter,
               includeRepeats: false,
@@ -375,10 +392,11 @@ class HomeWebQuestionsSheet extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     WebText(title, kind: WebTextKind.h2),
-                    Text(
-                      '$done of $total${title == 'Lessons' ? ' read' : ''}',
-                      style: context.webTokens.sub,
-                    ),
+                    if (showCount)
+                      Text(
+                        '$done of $total${title == 'Lessons' ? ' read' : ''}',
+                        style: context.webTokens.sub,
+                      ),
                   ],
                 ),
               ),
@@ -400,7 +418,7 @@ class HomeWebQuestionsSheet extends StatelessWidget {
                 ),
               ),
               if (failure != null) failure!,
-              if (onStart != null)
+              if (onStart != null || blocked)
                 Container(
                   padding: const EdgeInsets.fromLTRB(
                     PantasSpace.s16,
@@ -416,13 +434,35 @@ class HomeWebQuestionsSheet extends StatelessWidget {
                       ),
                     ),
                   ),
-                  child: WebButton(
-                    label: startLabel,
-                    keyHint: 'Enter',
-                    large: true,
-                    expand: true,
-                    onPressed: onStart,
-                    busy: busy,
+                  child: Column(
+                    children: [
+                      if (blocked) ...[
+                        Text(
+                          pausedQuizBlockLine,
+                          textAlign: TextAlign.center,
+                          style: context.webTokens.sub,
+                        ),
+                        const SizedBox(height: PantasSpace.s10),
+                      ],
+                      WebButton(
+                        label: startLabel,
+                        keyHint: blocked ? null : 'Enter',
+                        large: true,
+                        expand: true,
+                        onPressed: blocked ? null : onStart,
+                        busy: busy,
+                      ),
+                      if (onDiscard != null) ...[
+                        // Board A (W_Home): Discard 8 under Resume, centered.
+                        const SizedBox(height: PantasSpace.s8),
+                        WebButton(
+                          label: 'Discard this session',
+                          kind: PantasButtonKind.tertiary,
+                          size: PantasButtonSize.sm,
+                          onPressed: discarding ? null : onDiscard,
+                        ),
+                      ],
+                    ],
                   ),
                 ),
             ],
