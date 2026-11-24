@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/platform/app_update/update_overlay_registry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -14,6 +15,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 /// Owns the sheet surface and the page behind it. The caller supplies contents.
@@ -588,4 +590,57 @@ class PantasSheetGrabber extends StatelessWidget {
           ),
         ),
       );
+}
+
+/// The accent text action at the right of a phone sheet header ("Edit",
+/// "Done"). The text itself sits flush with the sheet's 20 px side padding
+/// (boards BM_Open and QZS_1b); the 44 high tap area reaches left of it, so
+/// the button's own side padding never moves the word inward.
+class PantasSheetAction extends StatelessWidget {
+  const PantasSheetAction({
+    required this.label,
+    required this.onPressed,
+    this.strong = false,
+    this.semanticLabel,
+    super.key,
+  });
+
+  final String label;
+  final VoidCallback? onPressed;
+
+  /// 600 when true (Done), 400 otherwise (Edit).
+  final bool strong;
+  final String? semanticLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    final enabled = onPressed != null;
+    return Semantics(
+      label: semanticLabel ?? label,
+      button: true,
+      enabled: enabled,
+      onTap: onPressed,
+      excludeSemantics: true,
+      child: PantasTapArea(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(PantasRadius.md),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minWidth: 44, minHeight: 44),
+          child: Align(
+            alignment: Alignment.centerRight,
+            widthFactor: 1,
+            child: Text(
+              label,
+              style: PantasType.phoneBody.copyWith(
+                color: enabled
+                    ? context.colors.accent
+                    : context.colors.textDisabled,
+                fontWeight: strong ? FontWeight.w600 : FontWeight.w400,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

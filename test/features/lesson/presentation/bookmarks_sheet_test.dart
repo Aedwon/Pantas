@@ -262,6 +262,32 @@ void main() {
     }
   }
 
+  testWidgets('the phone sheet draws one grabber, not two', (tester) async {
+    await pumpSheet(tester, rows: 3);
+    expect(find.byKey(const ValueKey('pantas-sheet-grabber')), findsOneWidget);
+    // The sheet shell owns the 36 by 5 handle; the content adds none.
+    final handles = find.byWidgetPredicate(
+      (w) =>
+          (w is Container &&
+              w.constraints ==
+                  const BoxConstraints.tightFor(width: 36, height: 5)) ||
+          (w is SizedBox && w.width == 36 && w.height == 5),
+    );
+    expect(handles, findsOneWidget);
+  });
+
+  testWidgets('Edit and Done text ends 20 px from the sheet edge',
+      (tester) async {
+    await pumpSheet(tester, rows: 3);
+    final sheetRight = tester.getRect(find.byType(BookmarksSheet)).right;
+    expect(
+        tester.getTopRight(find.text('Edit')).dx, closeTo(sheetRight - 20, 1));
+    await tester.tap(find.text('Edit'));
+    await tester.pumpAndSettle();
+    expect(
+        tester.getTopRight(find.text('Done')).dx, closeTo(sheetRight - 20, 1));
+  });
+
   testWidgets('bookmark selection follows the shared 220 ms spring',
       (tester) async {
     await pumpSheet(tester, rows: 3);

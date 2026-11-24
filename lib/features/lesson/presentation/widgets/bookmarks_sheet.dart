@@ -12,6 +12,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_tooltip.dart';
@@ -449,17 +450,16 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
       'Bookmarks',
       style: PantasType.phoneTitle3.copyWith(color: context.colors.label),
     );
-    final action = _action(
-      _editing ? 'Done' : 'Edit',
-      valid
+    final action = PantasSheetAction(
+      label: _editing ? 'Done' : 'Edit',
+      semanticLabel: _editing ? 'Done editing bookmarks' : 'Edit bookmarks',
+      strong: _editing,
+      onPressed: valid
           ? () => setState(() {
                 _editing = !_editing;
                 _selected.clear();
               })
           : null,
-      label: _editing ? 'Done editing bookmarks' : 'Edit bookmarks',
-      strong: _editing,
-      size: 17,
     );
     if (MediaQuery.textScalerOf(context).scale(17) > 25.5) {
       return Padding(
@@ -981,19 +981,7 @@ class _BookmarksSheetState extends ConsumerState<BookmarksSheet> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (!widget.wide) ...[
-            const SizedBox(height: PantasSpace.s8),
-            Center(
-              child: Container(
-                width: 36,
-                height: 5,
-                decoration: BoxDecoration(
-                  color: context.colors.pendingMark,
-                  borderRadius: BorderRadius.circular(PantasRadius.sm),
-                ),
-              ),
-            ),
-          ],
+          // The phone sheet shell draws the one 36 by 5 grabber.
           if (widget.wide)
             Row(
               children: [
