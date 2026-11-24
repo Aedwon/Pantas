@@ -718,10 +718,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         section: 'Pantas Pro',
         title: 'Pantas Pro',
         children: [
-          errorFor(
-            'passes',
-            () => ref.invalidate(examCatalogRepositoryProvider),
-            error: ownedPasses!.error,
+          const Text('Could not load your passes.'),
+          PantasButton(
+            label: 'Try Again',
+            onPressed: () => ref.invalidate(examCatalogRepositoryProvider),
           ),
         ],
       );
@@ -1463,7 +1463,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           SizedBox(
             height: context.wideWeb ? PantasSpace.s6 : PantasSpace.s12,
           ),
-          if (offering.isLoading) const _PlansSkeleton(),
+          if (offering.isLoading) const Text('Loading subscriptions...'),
           if (packages.isNotEmpty)
             _plansGrid(
               context,
@@ -1563,7 +1563,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         ],
         if (customTierUnknown) ...[
           if (customTierAsync?.isLoading ?? false)
-            const _PlansSkeleton()
+            const Text('Loading subscriptions...')
           else
             PantasButton(
               label: 'Try Again',
@@ -1821,26 +1821,4 @@ class _FadedBar extends StatelessWidget {
       ],
     );
   }
-}
-
-/// Two plan tiles as skeleton blocks while the store answers (L_Rules): the
-/// weekly and the yearly tile, one under the other.
-class _PlansSkeleton extends StatelessWidget {
-  const _PlansSkeleton();
-
-  @override
-  Widget build(BuildContext context) => const SkeletonRevealScope(
-        immediate: true,
-        child: SkeletonPulse(
-          label: 'Loading subscriptions',
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SkeletonCard(height: 76),
-              SizedBox(height: PantasSpace.s10),
-              SkeletonCard(height: 76),
-            ],
-          ),
-        ),
-      );
 }
