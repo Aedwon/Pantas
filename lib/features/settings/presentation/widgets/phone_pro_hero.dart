@@ -73,7 +73,11 @@ class PhoneProHero extends StatelessWidget {
             // to the heading.
             Row(
               children: [
-                Icon(PantasIcons.sparkleFill, color: c.pro, size: _eyebrowIcon),
+                Icon(
+                  PantasIcons.sparkleFill,
+                  color: c.onHeroPro,
+                  size: _eyebrowIcon,
+                ),
                 const SizedBox(width: PantasSpace.s8),
                 Opacity(
                   opacity: .85,

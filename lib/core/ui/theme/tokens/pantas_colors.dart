@@ -75,6 +75,7 @@ class PantasColors extends ThemeExtension<PantasColors> {
     required this.shareEnd,
     required this.onHero,
     required this.onHeroSecondary,
+    required this.onHeroPro,
     required this.chart1,
     required this.chart2,
     required this.chart3,
@@ -376,6 +377,9 @@ class PantasColors extends ThemeExtension<PantasColors> {
   /// on the start (icons), 4.2:1 on the middle stop. New (ruling 10).
   final Color onHeroSecondary;
 
+  /// The Pro sparkle on a teal gradient (ST_ProFree eyebrow #FFD86B).
+  final Color onHeroPro;
+
   /// Accuracy step 1: below 45%. Lighter (light) or dimmer (dark) means
   /// lower accuracy. 3.0:1 and 3.0:1 on surface-card, light and dark. The
   /// number is always printed beside it. CHANGE: new values so every step
@@ -462,6 +466,7 @@ class PantasColors extends ThemeExtension<PantasColors> {
   static const amber268 = Color(0xFFF0A35A);
   static const amber541 = Color(0xFFB25000);
   static const amber830 = Color(0xFF33281A);
+  static const gold150 = Color(0xFFFFD86B);
   static const gold296 = Color(0xFFD9A400);
   static const gray0 = Color(0xFFFFFFFF);
   static const gray14 = Color(0xFFFBFBFC);
@@ -600,6 +605,7 @@ class PantasColors extends ThemeExtension<PantasColors> {
     shareEnd: teal712,
     onHero: gray0,
     onHeroSecondary: teal88,
+    onHeroPro: gold150,
     chart1: teal385,
     chart2: teal426,
     chart3: teal466,
@@ -683,6 +689,7 @@ class PantasColors extends ThemeExtension<PantasColors> {
     shareEnd: teal712,
     onHero: gray0,
     onHeroSecondary: teal88,
+    onHeroPro: gold150,
     chart1: teal554,
     chart2: teal517,
     chart3: teal438,
@@ -767,6 +774,7 @@ class PantasColors extends ThemeExtension<PantasColors> {
     Color? shareEnd,
     Color? onHero,
     Color? onHeroSecondary,
+    Color? onHeroPro,
     Color? chart1,
     Color? chart2,
     Color? chart3,
@@ -849,6 +857,7 @@ class PantasColors extends ThemeExtension<PantasColors> {
         shareEnd: shareEnd ?? this.shareEnd,
         onHero: onHero ?? this.onHero,
         onHeroSecondary: onHeroSecondary ?? this.onHeroSecondary,
+        onHeroPro: onHeroPro ?? this.onHeroPro,
         chart1: chart1 ?? this.chart1,
         chart2: chart2 ?? this.chart2,
         chart3: chart3 ?? this.chart3,
@@ -939,6 +948,7 @@ class PantasColors extends ThemeExtension<PantasColors> {
       shareEnd: Color.lerp(shareEnd, other.shareEnd, t)!,
       onHero: Color.lerp(onHero, other.onHero, t)!,
       onHeroSecondary: Color.lerp(onHeroSecondary, other.onHeroSecondary, t)!,
+      onHeroPro: Color.lerp(onHeroPro, other.onHeroPro, t)!,
       chart1: Color.lerp(chart1, other.chart1, t)!,
       chart2: Color.lerp(chart2, other.chart2, t)!,
       chart3: Color.lerp(chart3, other.chart3, t)!,
