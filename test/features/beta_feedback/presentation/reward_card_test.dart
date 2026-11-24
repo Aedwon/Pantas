@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
 import 'package:pantas/features/beta_feedback/presentation/feedback_page.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
 
 import 'beta_feedback_fakes.dart';
 import 'feedback_harness.dart';
@@ -162,7 +163,12 @@ void main() {
       final gate = Completer<BetaRewardActivation>();
       final api = FakeBetaFeedbackApi(reward: _eligible())..activateGate = gate;
       final h = _harness(api: api);
-      await h.pump(tester, _page);
+      final gateway = CountingGateway();
+      await h.pump(
+        tester,
+        _page,
+        overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
+      );
       await tester.tap(_activate);
       await tester.pump();
       expect(find.byType(FbSpinner), findsOneWidget);
@@ -182,6 +188,8 @@ void main() {
       );
       await tester.pump();
       await tester.pump();
+      // Pro is read again at once, so it shows without a reload (ENT-06).
+      expect(gateway.restores, 1);
       // Part way: the months fill from the left, one after the other.
       await tester.pump(const Duration(milliseconds: 400));
       expect(_monthScale(tester, 0), greaterThan(0));

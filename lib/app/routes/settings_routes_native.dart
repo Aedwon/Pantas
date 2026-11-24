@@ -412,7 +412,9 @@ class _ChangeExamPageState extends ConsumerState<ChangeExamPage> {
           final outcome = switchOutcome(from, to, entitlement);
           if (!context.mounted) return;
           if (outcome.kind == SwitchKind.passWarning) {
-            final ends = entitlement.passes[from.id]!;
+            // A reward is exam-scoped like a pass (audit ENT-06).
+            final ends =
+                entitlement.passes[from.id] ?? entitlement.betaPasses[from.id]!;
             final confirmed = await _confirmSwitch(
               context,
               title: 'Your pass stays with ${from.shortName}',

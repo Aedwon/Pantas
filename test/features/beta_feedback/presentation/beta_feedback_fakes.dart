@@ -6,6 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
+import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/domain/payment_operation.dart';
 
 /// Nov 9 to 15, as the server returns them.
 const betaDays = [
@@ -201,6 +203,19 @@ class FakeBetaImageSource implements BetaImageSource {
   Stream<List<PickedImage>> dropsAndPastes() => _drops.stream;
 
   void drop(List<PickedImage> images) => _drops.add(images);
+}
+
+/// Counts entitlement reads, so a test can check Pro is read again.
+class CountingGateway extends DisabledRevenueCatGateway {
+  CountingGateway();
+
+  int restores = 0;
+
+  @override
+  Future<PaymentOperationResult> restorePurchases() {
+    restores++;
+    return super.restorePurchases();
+  }
 }
 
 /// The overrides every Feedback test needs. [now] is the beta clock.
