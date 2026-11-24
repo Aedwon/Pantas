@@ -39,7 +39,7 @@ function chunked(total, { chunks = 4, stallAfter = null, failAfter = null } = {}
 
 // Loads pantas_sw.js, exactly as it is on disk, into a fake worker. `files` maps a path to the size the network gives; `stored`
 // lists paths already in the cache.
-function load({ files = {}, stored = [], bodyOptions = {}, clientMissing = false } = {}) {
+function load({ clock = { now: 0 }, files = {}, stored = [], bodyOptions = {}, clientMissing = false } = {}) {
   const handlers = {};
   const posted = [];
   const puts = [];
@@ -60,7 +60,8 @@ function load({ files = {}, stored = [], bodyOptions = {}, clientMissing = false
   const client = { postMessage: (m) => posted.push(JSON.parse(JSON.stringify(m))) };
   const context = {
     URL, Request, Response, Headers, Promise, Set, Map, Math, Object, Array, JSON, Error, console,
-    TransformStream, ReadableStream, setTimeout, clearTimeout, Date,
+    TransformStream, ReadableStream, setTimeout, clearTimeout,
+    Date: { now: () => clock.now },
     self: {
       location: { href: ORIGIN + `pantas_sw.js?v=${VERSION}`, origin: 'https://app.test' },
       registration: { scope: ORIGIN },
@@ -257,4 +258,44 @@ test('a missing page client never breaks the response', async () => {
 test('no clone, no tee and no extra reader for counting; precache is as on main', () => {
   assert.ok(!/\.tee\(\)|getReader/.test(source));
   assert.ok(!/PRECACHE = \[[^\]]*sizes/.test(source));
+});
+
+test('chunks arriving within 100 ms post once; the final done is never throttled', async () => {
+  const t = load({ files: { 'main.dart.js': 4000 } });
+  await t.tick();
+  const { text } = await t.request('main.dart.js');
+  assert.equal(text, bytes(4000));
+  // Four chunks in the same instant: one progress message, then done.
+  assert.deepEqual(t.posted.map((m) => m.loaded), [1000, 4000]);
+  assert.deepEqual(last(t), DONE(4000));
+});
+
+test('progress is posted again once 100 ms have passed', async () => {
+  const clock = { now: 1000 };
+  const t = load({ clock, files: { 'main.dart.js': 4000 } });
+  await t.tick();
+  const response = await t.ask('main.dart.js');
+  const reader = response.body.getReader();
+  const seen = [];
+  for (let i = 0; i < 4; i++) {
+    await reader.read();
+    await t.tick();
+    seen.push(t.posted.length);
+    clock.now += 60;
+  }
+  // 60 ms apart: progress at 0 ms and 120 ms, not on every chunk, then the
+  // final done as the stream closes.
+  assert.deepEqual(seen, [1, 1, 2, 3]);
+  assert.deepEqual(t.posted.map((m) => m.loaded), [1000, 3000, 4000]);
+  assert.deepEqual(last(t), DONE(4000));
+});
+
+test('a stop is never throttled', async () => {
+  const t = load({ files: { 'main.dart.js': 4000 }, bodyOptions: { 'main.dart.js': { failAfter: 2000 } } });
+  await t.tick();
+  const response = await t.ask('main.dart.js');
+  await assert.rejects(() => response.arrayBuffer());
+  await t.tick();
+  assert.equal(t.posted.length, 2, 'one progress message, then the stop');
+  assert.deepEqual(last(t), STOP);
 });

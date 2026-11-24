@@ -260,11 +260,13 @@ async function warmDeferredParts(cache, response) {
 // A cache hit is returned as the same stored response and only posts "cached".
 //
 // A rebuilt response skips Chromium's HTTP code cache. That only affects the
-// first load after an update, which has no code cache yet; later loads come from
-// Cache Storage, untouched. Nothing is cloned, nothing waits and no worker task
+// first load after an update, which has no code cache yet, and the first load
+// after an assets-only deploy, which also misses Cache Storage and so recompiles
+// once. Later loads come from Cache Storage, untouched. Nothing is cloned, nothing waits and no worker task
 // is held open for progress.
 
 const PROGRESS_PATH = 'main.dart.js';
+const PROGRESS_MS = 100;
 const MAX_LOADS = 20;
 const loads = new Map();
 
@@ -298,11 +300,15 @@ function fail(load) {
 
 function countBody(load, body) {
   let loaded = 0;
+  let postedAt = -Infinity;
   const counter = new TransformStream({
     transform(chunk, controller) {
       controller.enqueue(chunk);
       loaded += chunk.byteLength;
-      if (!load.broken) post(load, { loaded });
+      // At most one progress message per 100 ms; done and stop are never held back.
+      if (load.broken || Date.now() - postedAt < PROGRESS_MS) return;
+      postedAt = Date.now();
+      post(load, { loaded });
     },
     flush() {
       if (!load.broken) post(load, { loaded, done: true });
