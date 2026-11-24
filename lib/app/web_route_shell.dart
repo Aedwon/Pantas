@@ -99,13 +99,17 @@ class _WebRouteShellState extends ConsumerState<WebRouteShell> {
       context.go(tabs[index]);
     }
 
-    final person = ref.watch(userSettingsProvider).valueOrNull?.name ?? '';
+    final settings = ref.watch(userSettingsProvider);
+    final person = settings.valueOrNull?.name ?? '';
     final exam = ref.watch(activeExamShortNameProvider);
     // While coverage is unknown the plan is not named: Free would be a guess.
     final pro = ref.watch(proForActiveExamProvider).valueOrNull;
     return WebShellFrame(
       web: context.webPlatform,
       activeIndex: activeIndex,
+      // The name is unknown until the first read ends, so the sidebar shows
+      // a skeleton rather than an empty gray person.
+      loading: settings.valueOrNull == null && settings.isLoading,
       person: person,
       exam: exam,
       plan: switch (pro) {
