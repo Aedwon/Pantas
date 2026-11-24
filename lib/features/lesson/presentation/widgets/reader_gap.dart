@@ -111,10 +111,10 @@ class ReaderGap extends ConsumerWidget {
               ),
             const Spacer(),
             if (canQuiz)
-              // RD_End: the grey button of the phone, natural width.
-              WebButton(
+              PantasButton(
                 label: quizLabel,
-                kind: PantasButtonKind.neutral,
+                kind: PantasButtonKind.tertiary,
+                fullWidth: false,
                 onPressed: () =>
                     startLessonQuiz(context, lessonId, examId: examId!),
               ),
@@ -131,12 +131,23 @@ class ReaderGap extends ConsumerWidget {
           SizedBox(height: MediaQuery.textScalerOf(context).scale(15) * 1.35),
         if (canQuiz) ...[
           const SizedBox(height: PantasSpace.s18),
-          PantasButton(
-            label: quizLabel,
-            variant: PantasButtonVariant.neutral,
-            onPressed: () =>
-                startLessonQuiz(context, lessonId, examId: examId!),
-          ),
+          if (context.wideWeb)
+            Align(
+              alignment: Alignment.centerLeft,
+              child: WebButton(
+                label: quizLabel,
+                variant: WebButtonVariant.white,
+                onPressed: () =>
+                    startLessonQuiz(context, lessonId, examId: examId!),
+              ),
+            )
+          else
+            PantasButton(
+              label: quizLabel,
+              variant: PantasButtonVariant.neutral,
+              onPressed: () =>
+                  startLessonQuiz(context, lessonId, examId: examId!),
+            ),
         ],
       ],
     );

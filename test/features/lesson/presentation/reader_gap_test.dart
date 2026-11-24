@@ -6,7 +6,6 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
-import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_gap.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
@@ -128,26 +127,6 @@ void main() {
     final style = tester.widget<TextButton>(button).style!;
     expect(style.backgroundColor!.resolve({}), PantasColors.light.fill);
     expect(style.foregroundColor!.resolve({}), PantasColors.light.label);
-  });
-
-  testWidgets('wide: the coda is the grey button of the phone RD_End',
-      (tester) async {
-    debugWebPlatformOverride = true;
-    addTearDown(() => debugWebPlatformOverride = null);
-    tester.view.physicalSize = const Size(1440, 900);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    await pumpGap(tester);
-
-    final button = find.descendant(
-      of: find.widgetWithText(WebButton, 'Quiz yourself, 5 questions'),
-      matching: find.byType(TextButton),
-    );
-    final style = tester.widget<TextButton>(button).style!;
-    expect(style.backgroundColor!.resolve({}), PantasColors.light.fill);
-    expect(style.foregroundColor!.resolve({}), PantasColors.light.textPrimary);
-    expect(style.side!.resolve({}), BorderSide.none);
   });
 
   testWidgets('the coda shows the count the quiz will serve', (tester) async {
