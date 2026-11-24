@@ -20,7 +20,7 @@ A thread held for an unanswered request, a bank dispute, a DTI or NPC complaint 
 ## One-time setup (5 minutes, once)
 
 1. In Gmail, create two labels: `pay-2y` and `hold`.
-2. In Gmail settings, Filters, make one filter: if the message is to `support@pantas.study` or `dpo@pantas.study`, apply no label. This is only to confirm the addresses reach this inbox. Skip it if you already see them.
+2. Send a test email to `support@pantas.study` and to `dpo@pantas.study`. Confirm both reach this inbox.
 3. Settings, Inbox: leave conversation view on. The list shows the date of the newest message in each thread, and the sweep uses that date.
 
 ## When you reply to a thread (a few seconds each)
