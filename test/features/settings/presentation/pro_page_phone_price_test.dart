@@ -5,8 +5,8 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_tag.dart';
-import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
 import 'package:pantas/features/settings/presentation/widgets/phone_pro_hero.dart';
 
@@ -246,8 +246,12 @@ void main() {
   testWidgets(
       'the eyebrow sits inside the hero, which has radius 24 (ST_ProFree)',
       (tester) async {
-    await _pump(tester,
-        weekly: '\u20b149', monthly: '\u20b1149', yearly: '\u20b11,199');
+    await _pump(
+      tester,
+      weekly: '\u20b149',
+      monthly: '\u20b1149',
+      yearly: '\u20b11,199',
+    );
     final hero = find.byKey(const ValueKey('pro-hero-phone'));
     final eyebrow = find.text('PANTAS PRO');
     expect(
@@ -262,7 +266,9 @@ void main() {
       find.text("See exactly what's losing you points."),
     );
     expect(
-        heading.top - tester.getRect(eyebrow).bottom, greaterThanOrEqualTo(20));
+      heading.top - tester.getRect(eyebrow).bottom,
+      greaterThanOrEqualTo(20),
+    );
   });
 
   testWidgets('a hero built without the eyebrow draws none (lapsed boards)',

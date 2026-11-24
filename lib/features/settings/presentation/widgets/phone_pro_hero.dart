@@ -33,8 +33,8 @@ class PhoneProHero extends StatelessWidget {
   // ds-board: ST_ProFree eyebrow label 13/700, tracking .14em, opacity .85
   static const double _eyebrowSize = 13;
 
-  // ds-board: ST_ProFree eyebrow gold sparkle #FFD86B
-  static const Color _gold = Color(0xFFFFD86B);
+  // ds-board: ST_ProFree eyebrow tracking .14em of 13
+  static const double _eyebrowTracking = 1.82;
 
   // ds-board: ST_ProPMA phone hero icons, 21px (Card README `.hero-list`)
   static const double _iconSize = 21;
@@ -73,7 +73,7 @@ class PhoneProHero extends StatelessWidget {
             // to the heading.
             Row(
               children: [
-                Icon(PantasIcons.sparkleFill, color: _gold, size: _eyebrowIcon),
+                Icon(PantasIcons.sparkleFill, color: c.pro, size: _eyebrowIcon),
                 const SizedBox(width: PantasSpace.s8),
                 Opacity(
                   opacity: .85,
@@ -83,7 +83,7 @@ class PhoneProHero extends StatelessWidget {
                       color: c.onHero,
                       fontSize: _eyebrowSize,
                       fontWeight: FontWeight.w700,
-                      letterSpacing: _eyebrowSize * .14,
+                      letterSpacing: _eyebrowTracking,
                     ),
                   ),
                 ),

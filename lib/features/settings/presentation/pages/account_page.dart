@@ -334,7 +334,6 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                 style: PantasType.phoneTitle2.copyWith(
                   color: context.colors.textPrimary,
                   fontSize: _nameSize,
-                  letterSpacing: _nameSize * -.012,
                 ),
               ),
               const SizedBox(height: PantasSpace.s8),
