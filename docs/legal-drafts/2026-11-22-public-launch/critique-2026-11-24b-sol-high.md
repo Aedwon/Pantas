@@ -1,0 +1,31 @@
+## Must-fix
+
+1. **“The same is true of sharing permission, which is not a contract.”** This imports the preceding four-year conclusion without explaining its limits. Article 1146(1) is the better reading for an independent damages claim based on unauthorized use of personal data. The claim seeks compensation for injury to a privacy right. By analogy, the Supreme Court has applied Article 1146 to injury to a legally protected right. Article 1144(2) remains plausible because Section 16(f) expressly grants a right to compensation, which a claimant could frame as enforcement of a statutory obligation. Four years is defensible. I could not verify a Philippine court or National Privacy Commission (NPC) ruling that decides this choice for Section 16(f). [Civil Code, Articles 26, 1144 and 1146](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/53360), [Arriola v. Pilipino Star Ngayon](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/57501), [Data Privacy Act, Section 16(f)](https://privacy.gov.ph/Data-Privacy-Act/)
+
+   **Replacement** “We keep these records to answer legal claims about whether we had permission to use your data for optional usage sharing.”
+
+2. **“No sharing can happen after that day.”** “That day” could mean the day the account is deleted or the day the records are due for deletion. “No sharing” also reads as a guarantee covering previously sent reports and other disclosures. The ruling concerns permission for optional usage sharing on the deleted account. I could not verify a production-wide cutoff for every device or queued report. [Pantas sharing-retention ruling](https://github.com/Aedwon/Pantas/blob/ce0f1831b24f85af88687a6803f70af93d5bfce3/docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md#nov-24-legal-round-5-sharing-change-retention), [NPC child-oriented transparency guidelines](https://privacy.gov.ph/wp-content/uploads/2024/12/Advisory-2024.12.17-Guidelines-on-Child-Oriented-Transparency-w-SGD.pdf)
+
+   **Replacement** “Your guardian’s permission for optional usage sharing ends when we delete your account.”
+
+## Should-fix
+
+3. **“After the account is deleted, we schedule the records of when your guardian gave or took back sharing permission, including the choice made at confirmation, for deletion 1,461 days (four years) after the day the account was deleted.”** Account deletion is a clear trigger for Pantas’s deletion schedule. Under Article 1150, the civil filing period ordinarily starts when the claim can first be brought. For damages, that may be when the unauthorized use causes harm, years before account deletion. Article 1155 can interrupt that period. Using the account deletion date gives Pantas a buffer for earlier uses. Section 11(e) still requires a reason to keep the older records that long. [Civil Code, Articles 1150 and 1155](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/2/53360), [NPC Advisory Opinion 2017-024](https://privacy.gov.ph/wp-content/uploads/2022/01/NPC_AdvisoryOpinionNo._2017-024.pdf)
+
+   **Replacement** “While your account exists, we keep your guardian’s first choice about optional usage sharing and every later change. We schedule those records for deletion 1,461 days after we delete your account.”
+
+4. **“A change to optional usage sharing is never counted as the newest record.”** The sentence should say which schedule it affects. The guardian’s confirmation still counts for the other evidence even though the sharing choice made at confirmation follows the sharing schedule. [Pantas sharing-retention ruling](https://github.com/Aedwon/Pantas/blob/ce0f1831b24f85af88687a6803f70af93d5bfce3/docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md#nov-24-legal-round-5-sharing-change-retention)
+
+   **Replacement** “When we look for the newest record for the other guardian evidence, we skip changes to optional usage sharing. Your guardian’s confirmation still counts.”
+
+## Nit
+
+5. **“1,461 days (four years)”** A fixed day count can differ from four calendar years. Philippine courts count legal years in calendar months. The replacement in item 3 keeps the exact product schedule. [CIR v. Primetown](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/1/44251)
+
+   **Replacement** “1,461 days”
+
+## Verdicts
+
+- **Article 1146 vs. 1144(2).** Article 1146(1) is the better reading for damages from injury to privacy. The ten-year argument under Article 1144(2) remains credible for a claim framed directly under Section 16(f). The notice should state Pantas’s recordkeeping schedule without assigning users a filing deadline.
+- **Act No. 3326.** It governs criminal prescription and leaves the independent civil damages analysis unchanged. The NPC expressly adopts it for DPA penal violations. Applying the statutory maximum prison terms, the period is **12 years** for Sections 25(b), 26(b), the sensitive-data offense in Section 28, and Section 33. It is **8 years** for the remaining offenses in Sections 25 to 32. Sections 34 to 36 address liability or penalties and add no separate period. The clock generally starts at commission, or at discovery if the violation was then unknown. Proceedings can interrupt it. Under Section 11(e), a specific, reasonably anticipated criminal defense can justify keeping necessary evidence. The abstract possibility of prosecution and the length of the criminal deadline alone do not justify blanket retention. [Act No. 3326](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/28/16616), [DPA penalties](https://privacy.gov.ph/Data-Privacy-Act/), [NPC Rules, Rule I, Section 6](https://privacy.gov.ph/wp-content/uploads/2024/03/2021-Rules-of-Procedure-of-the-NPC-As-Amended.pdf), [NPC legal-claims guidance](https://privacy.gov.ph/wp-content/uploads/2024/08/NPC-Advisory-No.-2024-02-Personal-Data-Processing-Based-on-Section-13-f.pdf)
+- **Single biggest risk.** Pantas could delete its evidence of when the guardian gave or withdrew permission while a claim about that use is still timely. The deletion schedule and the legal deadline run independently.
