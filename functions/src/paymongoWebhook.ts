@@ -59,7 +59,8 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
       if (!paymentId || !disputeId) return 500;
       if (attributes.status !== 'won' && attributes.status !== 'lost') return 500;
       const uid = await resolvePaymongoDispute(deps.db, {eventId: event.id, paymentId,
-        disputeId, won: attributes.status === 'won'}, now());
+        disputeId, won: attributes.status === 'won',
+        ...(validAmount(attributes.amount) ? {disputedAmount: attributes.amount} : {})}, now());
       if (uid) await copyIfPending(deps, uid);
       return 200;
     }

@@ -16,6 +16,8 @@ export interface Grant {
   /** Set when a payment can never give access (for example paid after its sitting ended). */
   unusableReason?: string;
   revokedReason?: string;
+  /** When the grant was first revoked. Kept through later refunds, to count the days it covered. */
+  revokedAt?: number;
   disputeId?: string;
   disputeResolved?: boolean;
   /**

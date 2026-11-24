@@ -22,8 +22,14 @@ function firestore(seed = {}) {
     .map(path => snapshot(doc(path)))} : snapshot(ref);
   const runTransaction = async callback => {
     const writes = [];
+    // A merge removes the fields set to FieldValue.delete(), as Firestore does.
+    const merged = (ref, value) => {
+      const next = {...rows.get(ref.path), ...value};
+      for (const [key, field] of Object.entries(value)) if (field?.constructor?.name === 'DeleteTransform') delete next[key];
+      return next;
+    };
     const set = (ref, value, options) => writes.push(() => rows.set(ref.path,
-      options?.merge ? {...rows.get(ref.path), ...value} : value));
+      options?.merge ? merged(ref, value) : value));
     const result = await callback({get, getAll: (...refs) => Promise.all(refs.map(get)), set,
       create: set, update: (ref, value) => set(ref, value, {merge: true})});
     for (const write of writes) write();
@@ -619,7 +625,9 @@ test('property: random purchases, refunds, revokes and disputes keep the chain w
     const history = [];
     const wonTargets = new Set();
     const lostTargets = new Set();
+    const keptTargets = new Set(); // a win on a grant with both the dispute and a refund: nothing is restored
     const fail = (message) => assert.fail(`seed ${seed} step ${step}: ${message}${process.env.DEBUG_SEED ? `\n${history.join('\n')}` : ''}`);
+    const refundedOf = (row) => Object.values(row.refunds ?? {}).reduce((a, b) => a + b, 0);
     const live = () => ids.filter(id => grantRow(db, id).state === 'active');
     const stepCount = 1 + pick(6);
     for (step = 0; step < stepCount; step++) {
@@ -651,6 +659,7 @@ test('property: random purchases, refunds, revokes and disputes keep the chain w
         const open = disputes.filter(d => d.open);
         const dispute = open[pick(open.length)];
         dispute.open = false; target = dispute.target; kind = choice;
+        if (choice === 'win' && refundedOf(grantRow(db, target)) > 0) keptTargets.add(target);
         await resolvePaymongoDispute(db, {eventId: `evt_w${step}`, paymentId: `pay_${target}`, disputeId: dispute.id,
           won: choice === 'win'}, at);
       }
@@ -682,11 +691,21 @@ test('property: random purchases, refunds, revokes and disputes keep the chain w
       }
       if (kind === 'win') wonTargets.add(target);
       if (kind === 'lose') lostTargets.add(target);
-      const refundedOf = (row) => Object.values(row.refunds ?? {}).reduce((a, b) => a + b, 0);
-      // A dispute won keeps the payment: the plan is active, unless its own refund revoked it.
+      // A win on a grant with a dispute and a refund changes no grant at all (the dispute flag aside).
+      if (kind === 'win' && keptTargets.has(target)) {
+        for (const id of ids) {
+          const was = before.get(id); const row = after.get(id);
+          if (was.state !== row.state || was.startsAt !== row.startsAt || was.endsAt !== row.endsAt) {
+            fail(`${label}: a win with a refund changed ${id}`);
+          }
+        }
+      }
+      // A dispute won keeps the payment: the plan is active, unless a refund revoked it or it had a refund when the dispute was won.
       for (const id of wonTargets) {
         const row = after.get(id);
-        if (row.state !== 'active' && refundedOf(row) < row.paidAmount) fail(`${label}: ${id} won its dispute but is not active`);
+        if (keptTargets.has(id)) {
+          if (row.state !== 'revoked') fail(`${label}: ${id} had a dispute and a refund but was restored`);
+        } else if (row.state !== 'active' && refundedOf(row) < row.paidAmount) fail(`${label}: ${id} won its dispute but is not active`);
       }
       // Paid coverage still owed (every plan not lost, not fully refunded, not under a live dispute)
       // is covered by the live and future coverage of the account.
@@ -696,7 +715,7 @@ test('property: random purchases, refunds, revokes and disputes keep the chain w
       for (const id of ids) {
         const row = after.get(id);
         if (row.state === 'active') covered += remaining(row);
-        if (!lostTargets.has(id) && !openTargets.has(id) && refundedOf(row) < row.paidAmount) owed += remaining(row);
+        if (!lostTargets.has(id) && !keptTargets.has(id) && !openTargets.has(id) && refundedOf(row) < row.paidAmount) owed += remaining(row);
       }
       if (covered < owed) fail(`${label}: live and future coverage ${covered} is below the paid length still owed ${owed}`);
       const running = liveOf(db, ids, at).sort((a, b) => a.startsAt - b.startsAt);
@@ -709,7 +728,7 @@ test('property: random purchases, refunds, revokes and disputes keep the chain w
   }
 });
 
-test('dispute, partial refund, then the paid webhook, then a win: the plan comes back with the shortened end', async () => {
+test('dispute, partial refund, then the paid webhook, then a win: stays revoked with one follow-up', async () => {
   const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
   const db = firestore();
   const paid = priceCentavos(monthly);
@@ -718,14 +737,37 @@ test('dispute, partial refund, then the paid webhook, then a win: the plan comes
   await revokePaymongoPayment(db, {eventId: 'evt_ref', paymentId: 'pay_a', reason: 'payment.refunded',
     refunds: [{id: 'half', amount: paid / 2}]}, now - 1000);
   await buy(db, 'a', monthly, now);
-  const born = grantRow(db, 'a');
+  const born = {...grantRow(db, 'a')};
   assert.equal(born.state, 'revoked');
-  assert.equal(born.endsAt, shortenedEnd(born.startsAt, addPrepaid(born.startsAt, monthly.prepaid), paid / 2, paid));
   await resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: 'pay_a', disputeId: 'disp_a', won: true}, now + 1000);
   const won = grantRow(db, 'a');
-  assert.equal(won.state, 'active');
-  assert.equal(won.endsAt, shortenedEnd(won.startsAt, addPrepaid(won.startsAt, monthly.prepaid), paid / 2, paid));
-  assert.ok(won.endsAt - won.startsAt < (addPrepaid(now, monthly.prepaid) - now) * 0.6);
+  assert.equal(won.state, 'revoked');
+  assert.equal(won.startsAt, born.startsAt);
+  assert.equal(won.endsAt, born.endsAt);
+  assert.equal(won.disputeResolved, true);
+  const followUp = db.rows.get('paymongoFollowUps/pay_a__dispute');
+  assert.equal(followUp.reason, 'disputeWithRefund');
+  assert.equal(followUp.refundRequired, false);
+  assert.equal(followUp.refundedTotal, paid / 2);
+});
+
+// Total length covered by a set of rows between two times; overlapping or contained rows count once.
+function intervalUnion(rows, from, to) {
+  const spans = rows.map(r => [Math.max(r.startsAt, from), Math.min(r.endsAt, to)]).filter(([a, b]) => b > a)
+    .sort((x, y) => x[0] - y[0]);
+  let total = 0; let end = -Infinity;
+  for (const [a, b] of spans) {
+    if (b <= end) continue; // contained in what is already counted
+    total += b - Math.max(a, end); end = b;
+  }
+  return total;
+}
+
+test('the model union counts a contained interval once', () => {
+  const row = (startsAt, endsAt) => ({startsAt, endsAt});
+  assert.equal(intervalUnion([row(0, 10), row(2, 3)], 0, Infinity), 10);
+  assert.equal(intervalUnion([row(0, 10), row(5, 15)], 0, Infinity), 15);
+  assert.equal(intervalUnion([row(0, 4), row(6, 8)], 0, Infinity), 6);
 });
 
 // An independent model: each plan's paid length, refunded share and status are tracked here, apart
@@ -734,15 +776,18 @@ test('dispute, partial refund, then the paid webhook, then a win: the plan comes
 test('property with a model ledger: coverage after now covers the time the model says is owed', async () => {
   const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
   const DAY = 86_400_000;
-  const lengths = {low: {pantas_cs_weekly: 7 * DAY, pantas_cs_monthly: 28 * DAY},
-    high: {pantas_cs_weekly: 7 * DAY, pantas_cs_monthly: 31 * DAY}};
-  const union = (rows, from, to) => {
-    const spans = rows.map(r => [Math.max(r.startsAt, from), Math.min(r.endsAt, to)]).filter(([a, b]) => b > a)
-      .sort((x, y) => x[0] - y[0]);
-    let total = 0; let end = -Infinity;
-    for (const [a, b] of spans) {total += b - Math.max(a, end); end = Math.max(end, b);}
-    return total;
+  // The paid length is worked out here, apart from the code: a week is seven days; a month is the
+  // calendar month in Manila time (UTC+8), cut to the last day of a shorter month.
+  const monthLength = start => {
+    const local = new Date(start + 8 * HOUR_MS);
+    const year = local.getUTCFullYear(); const month = local.getUTCMonth();
+    const lastDay = new Date(Date.UTC(year, month + 2, 0)).getUTCDate();
+    const end = Date.UTC(year, month + 1, Math.min(local.getUTCDate(), lastDay), local.getUTCHours(),
+      local.getUTCMinutes(), local.getUTCSeconds(), local.getUTCMilliseconds()) - 8 * HOUR_MS;
+    return end - start;
   };
+  const lengthOf = (productId, start) => productId === 'pantas_cs_weekly' ? 7 * DAY : monthLength(start);
+  const union = intervalUnion;
   for (let n = 0; n < 1200; n++) {
     const seed = 5000 + n;
     const rand = seeded(seed);
@@ -756,6 +801,7 @@ test('property with a model ledger: coverage after now covers the time the model
     const stepCount = 1 + pick(6);
     for (step = 0; step < stepCount; step++) {
       at += pick(12 * 24) * HOUR_MS + HOUR_MS;
+      const before = snapshot(db, ids());
       const choices = ['buy', 'buy', 'buyAfterEvents'];
       const active = ids().filter(id => model.get(id).status === 'active');
       const disputed = ids().filter(id => model.get(id).status === 'disputed');
@@ -763,7 +809,8 @@ test('property with a model ledger: coverage after now covers the time the model
       const refundable = active.filter(id => grantRow(db, id).endsAt > at);
       if (refundable.length) choices.push('partial', 'full');
       if (active.length) choices.push('dispute');
-      if (disputed.length) choices.push('win', 'lose', 'win');
+      // A refund on a plan whose dispute is still open (dispute first, then refund).
+      if (disputed.length) choices.push('win', 'lose', 'win', 'refundDisputed', 'refundDisputed');
       const choice = model.size === 0 ? (rand() < 0.5 ? 'buy' : 'buyAfterEvents') : choices[pick(choices.length)];
       const prod = rand() < 0.5 ? weekly : monthly;
       const paid = priceCentavos(prod);
@@ -775,7 +822,7 @@ test('property with a model ledger: coverage after now covers the time the model
           if (disputeFirst) {
             await revokePaymongoPayment(db, {eventId: `evt_d${id}`, paymentId: `pay_${id}`, disputeId: `disp_${id}`,
               dispute: true, reason: 'dispute.created'}, at - 2000);
-            entry.status = 'disputed';
+            entry.status = 'disputed'; entry.disputeId = `disp_${id}`;
           }
           if (refundFirst) {
             const amount = Math.max(1, Math.floor(paid * (0.1 + 0.6 * rand())));
@@ -795,36 +842,171 @@ test('property with a model ledger: coverage after now covers the time the model
         entry.refunded += amount;
         if (entry.refunded >= entry.paid) entry.status = 'full';
         log.push(`${choice} ${id}`);
+      } else if (choice === 'refundDisputed') {
+        const id = disputed[pick(disputed.length)]; const entry = model.get(id);
+        const amount = Math.min(Math.max(1, Math.floor(entry.paid * (0.1 + 0.4 * rand()))), entry.paid - entry.refunded - 1);
+        if (amount > 0) {
+          await revokePaymongoPayment(db, {eventId: `evt_r${step}`, paymentId: `pay_${id}`, reason: 'payment.refunded',
+            refunds: [{id: `ref_${step}`, amount}]}, at);
+          entry.refunded += amount;
+        }
+        log.push(`refundDisputed ${id}`);
       } else if (choice === 'dispute') {
         const id = active[pick(active.length)];
-        await revokePaymongoPayment(db, {eventId: `evt_d${step}`, paymentId: `pay_${id}`, disputeId: `disp_${id}`,
+        // Each dispute is a new dispute: a plan whose dispute ended can be disputed again.
+        await revokePaymongoPayment(db, {eventId: `evt_d${step}`, paymentId: `pay_${id}`, disputeId: `disp_${id}_${step}`,
           dispute: true, reason: 'dispute.created'}, at);
-        model.get(id).status = 'disputed';
+        model.get(id).status = 'disputed'; model.get(id).disputeId = `disp_${id}_${step}`;
         log.push(`dispute ${id}`);
       } else {
         const id = disputed[pick(disputed.length)];
-        await resolvePaymongoDispute(db, {eventId: `evt_w${step}`, paymentId: `pay_${id}`, disputeId: `disp_${id}`,
-          won: choice === 'win'}, at);
         const entry = model.get(id);
-        entry.status = choice === 'win' ? (entry.refunded >= entry.paid ? 'full' : 'active') : 'lost';
+        await resolvePaymongoDispute(db, {eventId: `evt_w${step}`, paymentId: `pay_${id}`, disputeId: entry.disputeId,
+          won: choice === 'win'}, at);
+        // A win on a plan with both the dispute and a refund restores nothing and moves nothing.
+        entry.status = choice === 'win' ? (entry.refunded > 0 ? 'kept' : 'active') : 'lost';
+        if (entry.status === 'kept') {
+          for (const other of ids()) {
+            const was = before.get(other); const row = grantRow(db, other);
+            if (was.state !== row.state || was.startsAt !== row.startsAt || was.endsAt !== row.endsAt) {
+              fail(`a win with a dispute and a refund changed ${other}`);
+            }
+          }
+        }
         log.push(`${choice} ${id}`);
       }
       const rows = ids().map(id => grantRow(db, id));
       const live = rows.filter(r => r.state === 'active');
       let owed = 0;
       for (const [id, entry] of model) {
-        if (entry.status !== 'active') continue;
-        const share = (entry.paid - entry.refunded) / entry.paid;
-        const low = Math.floor(lengths.low[entry.product] * share) - 1000;
+        if (entry.status !== 'active') {
+          // Disputed, lost, fully refunded and kept (dispute plus refund) plans are all revoked.
+          if (grantRow(db, id).state !== 'revoked') fail(`${id} is ${entry.status} in the model but ${grantRow(db, id).state} in the grants`);
+          continue;
+        }
         const row = grantRow(db, id);
+        const length = lengthOf(entry.product, row.startsAt);
+        const share = (entry.paid - entry.refunded) / entry.paid;
+        const low = Math.floor(length * share) - 1000;
         // A plan's term runs from its own start; what is left of its paid length after now is owed.
         owed += Math.max(0, low - Math.min(Math.max(at - row.startsAt, 0), row.endsAt - row.startsAt));
         if (row.state !== 'active') fail(`${id} is active in the model but ${row.state} in the grants`);
-        const high = lengths.high[entry.product] * share + 1000;
+        const high = length * share + 1000;
         if (row.endsAt - row.startsAt > high) fail(`${id} runs ${(row.endsAt - row.startsAt) / DAY} days, more than the ${high / DAY} it paid for`);
       }
       const after = union(live, at, Infinity);
       if (after < owed) fail(`coverage after now ${after / DAY}d is below the owed ${owed / DAY}d`);
     }
   }
+});
+
+// A grant with both a dispute and a refund, in either order: a win restores nothing and moves nothing.
+const DAY_MS = 86_400_000;
+async function quietly(run) {
+  const {mock} = await import('node:test');
+  const lines = [];
+  const spy = mock.method(console, 'error', (...args) => lines.push(args));
+  try { await run(); } finally { spy.mock.restore(); }
+  return lines;
+}
+const openDispute = {paymentId: payment.paymentId, disputeId: 'disp_test', dispute: true, reason: 'dispute.created'};
+const halfRefund = {paymentId: payment.paymentId, reason: 'payment.refunded', refunds: [{id: 'ref_half', amount: priceCentavos(product) / 2}]};
+
+for (const order of ['dispute then refund', 'refund then dispute']) {
+  test(`a win on a grant with a dispute and a refund (${order}) changes no grant and writes one follow-up`, async () => {
+    const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+    const {db} = await monthlyWithQueuedWeek();
+    const first = order === 'dispute then refund' ? [openDispute, halfRefund] : [halfRefund, openDispute];
+    await revokePaymongoPayment(db, {...first[0], eventId: 'evt_1'}, now + DAY_MS);
+    await revokePaymongoPayment(db, {...first[1], eventId: 'evt_2'}, now + 2 * DAY_MS);
+    const rows = () => JSON.stringify([...db.rows].filter(([path]) => path.startsWith(`users/${uid}/`)));
+    const grantsBefore = rows();
+    const lines = await quietly(() => resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: payment.paymentId,
+      disputeId: 'disp_test', won: true}, now + 3 * DAY_MS));
+    const grant = db.rows.get(`users/${uid}/grants/pay_test`);
+    assert.equal(grant.state, 'revoked');
+    assert.equal(grant.disputeResolved, true);
+    // Only the dispute flag changed; no grant or reward moved.
+    assert.equal(rows(), grantsBefore.replace('"disputeResolved":false', '"disputeResolved":true'));
+    const followUp = db.rows.get('paymongoFollowUps/pay_test__dispute');
+    assert.equal(followUp.reason, 'disputeWithRefund');
+    assert.equal(followUp.status, 'pending');
+    assert.equal(followUp.refundRequired, false);
+    assert.equal(followUp.refundedTotal, priceCentavos(product) / 2);
+    assert.equal(followUp.paidAmount, priceCentavos(product));
+    assert.equal(followUp.disputeId, 'disp_test');
+    assert.deepEqual(followUp.pulled, ['pay_week']);
+    assert.equal(followUp.unusedDays, order === 'dispute then refund' ? 30 : 29);
+    assert.equal(lines.length, 1);
+    assert.equal(lines[0][0], 'payment follow-up created disputeWithRefund');
+    assert.deepEqual(lines[0].slice(1), [{paymentId: 'pay_test'}]);
+    // A replayed win writes nothing new and does not log again.
+    const before = JSON.stringify([...db.rows]);
+    const again = await quietly(() => resolvePaymongoDispute(db, {eventId: 'evt_win2', paymentId: payment.paymentId,
+      disputeId: 'disp_test', won: true}, now + 4 * DAY_MS));
+    assert.equal(JSON.stringify([...db.rows]), before);
+    assert.equal(again.length, 0);
+  });
+}
+
+test('the refund task of a payment is not touched by the dispute follow-up, and the reverse', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await commitPaymongoGrant(db, payment, now, []);
+  await revokePaymongoPayment(db, {...openDispute, eventId: 'evt_1'}, now + 1);
+  await revokePaymongoPayment(db, {...halfRefund, eventId: 'evt_2'}, now + 2);
+  await quietly(() => resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: payment.paymentId, disputeId: 'disp_test', won: true}, now + 3));
+  db.rows.set('paymongoFollowUps/pay_test', {status: 'pending', refundRequired: true, paidAmount: priceCentavos(product), reason: 'unusedDuplicatePass'});
+  await revokePaymongoPayment(db, {paymentId: payment.paymentId, reason: 'payment.refunded', eventId: 'evt_3',
+    refunds: [{id: 'ref_rest', amount: priceCentavos(product) / 2}]}, now + 4);
+  assert.equal(db.rows.get('paymongoFollowUps/pay_test').status, 'refunded');
+  assert.equal(db.rows.get('paymongoFollowUps/pay_test__dispute').status, 'pending');
+});
+
+test('a lost dispute adds a follow-up only when the refunds plus the chargeback exceed the payment', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const paid = priceCentavos(product);
+  for (const [refund, disputedAmount, expected] of [[paid / 2, undefined, true], [paid / 2, paid / 2, false], [paid / 4, paid / 2, false]]) {
+    const db = firestore();
+    await commitPaymongoGrant(db, payment, now, []);
+    await revokePaymongoPayment(db, {...openDispute, eventId: 'evt_1'}, now + 1);
+    await revokePaymongoPayment(db, {...halfRefund, refunds: [{id: 'ref_a', amount: refund}], eventId: 'evt_2'}, now + 2);
+    const lines = await quietly(() => resolvePaymongoDispute(db, {eventId: 'evt_loss', paymentId: payment.paymentId,
+      disputeId: 'disp_test', won: false, ...(disputedAmount ? {disputedAmount} : {})}, now + 3));
+    const followUp = db.rows.get('paymongoFollowUps/pay_test__dispute');
+    assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'revoked');
+    assert.equal(!!followUp, expected);
+    if (expected) {
+      assert.equal(followUp.reason, 'disputeLostAfterRefund');
+      assert.equal(lines.length, 1);
+      assert.equal(lines[0][0], 'payment follow-up created disputeLostAfterRefund');
+    } else assert.equal(lines.length, 0);
+  }
+});
+
+test('a dispute opening on a partly refunded grant revokes it at once', async () => {
+  const {revokePaymongoPayment} = await import('../lib/paymongoGrants.js');
+  const {db} = await monthlyWithQueuedWeek();
+  await revokePaymongoPayment(db, {...halfRefund, eventId: 'evt_1'}, now + 1000);
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'active');
+  await revokePaymongoPayment(db, {...openDispute, eventId: 'evt_2'}, now + 2000);
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'revoked');
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_week`).startsAt, now + 2000);
+});
+
+test('a refund after a won and restored dispute is a pure refund', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await commitPaymongoGrant(db, payment, now, []);
+  await revokePaymongoPayment(db, {...openDispute, eventId: 'evt_1'}, now + 1);
+  const lines = await quietly(() => resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: payment.paymentId, disputeId: 'disp_test', won: true}, now + 2));
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'active');
+  await revokePaymongoPayment(db, {...halfRefund, eventId: 'evt_2'}, now + 3);
+  const grant = db.rows.get(`users/${uid}/grants/pay_test`);
+  assert.equal(grant.state, 'active');
+  assert.ok(grant.endsAt < grant.fullEndsAt);
+  // A replayed win now changes nothing and opens no follow-up.
+  await quietly(() => resolvePaymongoDispute(db, {eventId: 'evt_win2', paymentId: payment.paymentId, disputeId: 'disp_test', won: true}, now + 4));
+  assert.equal(db.rows.get('paymongoFollowUps/pay_test__dispute'), undefined);
+  assert.equal(lines.length, 0);
 });
