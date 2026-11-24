@@ -60,6 +60,12 @@ $$800\times0.75=600$$
 
 <!-- ILLUSTRATION: a horizontal bar labeled "Php 800 = 100%", split into a shaded left part "25%, discount, Php 200" and a right part "75%, you pay, Php 600" -->
 
+:::pair #price-not-discount
+Right: price after the discount $=800-200=600$
+Wrong: price after the discount $=200$
+Php $200$ is the money taken off. The question asks what you pay.
+:::
+
 :::why
 Why do both ways agree? The $25\%$ you take off and the $75\%$ you keep make up the whole $100\%$. Way 2 just skips finding the Php $200$ first.
 :::
@@ -85,10 +91,10 @@ $$1,000\times0.80=800$$
 
 $$800\times0.90=720$$
 
-:::pair
+:::pair #successive-discounts
 Right: $1,000\times0.80=800$, then $800\times0.90=720$
 Wrong: $20\%+10\%=30\%$, then $1,000\times0.70=700$
-The wrong way takes the $10\%$ from Php $1,000$. The second discount comes from Php $800$.
+The wrong way takes the $10\%$ from Php $1,000$. The second discount comes from Php $800$. In the same way, two $20\%$ discounts make $36\%$, not $40\%$.
 :::
 
 :::why
@@ -155,14 +161,7 @@ $$20+10-\dfrac{20\times10}{100}=28\%$$
 
 ## Traps to Watch For
 
-### #1: Adding Successive Discounts
-
-> Do not add successive discount percentages directly.
-
-A $20\%$ discount followed by another $20\%$ discount is not a $40\%$ discount. The second discount is applied to the already-reduced price, so the total is $20+20-\dfrac{20\times20}{100}=36\%$.
-
-### #2: Answering with the Discount
-
-> Read whether the question asks for the discount or the price you pay.
-
-In Example 1 you find both Php $300$ and Php $1,200$ along the way. If the question asks for the selling price, Php $300$ is wrong.
+:::checklist
+- Two discounts in a row: take the second one from the new price, so $1,000\times0.80\times0.90=720$, a $28\%$ total. {#successive-discounts}
+- Asked for the price, not the discount: subtract the discount, or multiply by the percent you still pay, so $800\times0.75=600$. {#price-not-discount}
+:::

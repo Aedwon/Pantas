@@ -21,7 +21,7 @@ Neon's new parts on one Claude Design board.
     two, as Neon proposed (group goes from 3 to 4 parts).
   - `discounted-prices.md` (CSE percent and word problem).
   - `finding-subjects-and-matching-verbs.md` (CSE grammar; tests whether the standard carries over to non-math).
-- Standard draft: `docs/superpowers/specs/2026-11-25-lesson-walkthrough-standard-draft.md` (Part A for his approval,
+- Standard draft: `docs/superpowers/specs/2026-11-25-lesson-walkthrough-standard.md` (Part A for his approval,
   Part B for agents). Not added to the lesson style guide.
 - Board: Claude Design canvas "Lesson Walk-Through Samples", https://claude.ai/artifact/7hd4pLNonSKfmrbs9kyePu
   (private until he shares it). Pages: Signed Integers (live, A, B), Discounted Prices, Finding Subjects, New parts
@@ -93,3 +93,17 @@ Neon's new parts on one Claude Design board.
   line, why, wrong next to right, a check") is applied in all four samples. His reaction sets the standard; the entry
   stays open until then.
 - Workers: 3 Sonnet runs, never more than 2 at once, no subagents of their own.
+
+## Round 2 and parking (Nov 25)
+
+- His words, relayed by the manager: "okay your reco sounds good. what does neon think of this?" (traps inline as pairs,
+  end checklist), then "cool, sounds very good to me. let's spec this first. i don't think i have the proper usage to do
+  these changes. let's prioritize release with current content first".
+- Done: the four samples now carry 2 inline pairs each, each backed by a real wrong quiz choice, and a cue-plus-right-move
+  checklist at the end. The spec is finished: `docs/superpowers/specs/2026-11-25-lesson-walkthrough-standard.md` (Part A
+  for his approval, Part B for agents, both picks with recommendations, board status).
+- Stopped on his change of plan: board round 2 (no render, no reviewer, nothing published). The board stays at version 5,
+  round-1 layout; the spec lists the frames that still show the old trap layout. Round-2 content was recomputed by the
+  lead only; an independent recompute is due on resume.
+- **Lane parked until he resumes it.** Nothing is in flight. No keep-alive is running. Scratchpad board files are
+  disposable.

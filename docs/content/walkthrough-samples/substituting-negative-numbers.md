@@ -47,7 +47,7 @@ Here the exponent applies to $3$ only. You square $3$ to get $9$, then the minus
 Why does the exponent go first in $-3^2$? Powers come before multiplying, and the minus sign in front works like multiplying by $-1$. So $-3^2$ means $-1\times3^2$, which is $-1\times9=-9$.
 :::
 
-:::pair
+:::pair #exponent-scope
 Right: if $x=-3$, then $x^2=(-3)^2=9$
 Wrong: if $x=-3$, then $x^2=-3^2=-9$
 The wrong line left out the parentheses, so the exponent applied to $3$ alone.
@@ -103,6 +103,12 @@ $$4-(-18)+(-6)$$
 
 $$4+18+(-6)$$
 
+:::pair #minus-before-negative
+Right: $4-(-18)+(-6)=4+18+(-6)$
+Wrong: $4-(-18)+(-6)=4-18+(-6)$
+The wrong line kept only one minus sign. A minus sign before $-18$ makes a plus, so the wrong line ends at $-20$ instead of $16$.
+:::
+
 7. Add from left to right.
 
 $$4+18=22$$
@@ -149,14 +155,8 @@ The answer is $14$. First $18-3=15$. Then $15+(-1)=14$.
 
 ## Traps to Watch For
 
-### #1: Negative Bases and Exponents
-
-> $-3^2$ is not the same as $(-3)^2$.
-
-In $(-3)^2$, the parentheses make $-3$ the base, so the value is $9$. In $-3^2$, the exponent applies to $3$ before the minus sign in front, so the value is $-9$.
-
-### #2: A Minus Sign Before a Negative Product
-
-> In $-3xy$ with a negative $x$ and a positive $y$, the two minus signs cancel.
-
-In Example 1, $-3xy$ became $-(-18)$, which is $+18$. Writing $-18$ there gives $-20$ instead of $16$.
+:::checklist
+- No parentheses on $-3^2$: square $3$ first, then keep the minus ($-9$). {#exponent-scope}
+- Substituting a negative value: put it in parentheses first, so $x=-3$ gives $x^2=(-3)^2=9$. {#put-a-negative-value-in-parentheses}
+- A minus sign before a negative product: the two signs make a plus, so $4-(-18)=22$. {#minus-before-negative}
+:::
