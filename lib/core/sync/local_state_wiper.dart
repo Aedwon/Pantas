@@ -1,6 +1,7 @@
 import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart'
     show customExamIdPrefix;
 
@@ -83,6 +84,13 @@ class SyncLocalStateWiper implements LocalStateWiper {
       // marker stays: it belongs to the device.
       await (_db.delete(_db.devicePrefs)
             ..where((row) => row.key.isIn(_guardianKeys)))
+          .go();
+      // Question reports are the student's own words and are sent under the
+      // account that wrote them. Sign-out first sends this account's pending
+      // reports and refuses if any cannot go; whatever is left here (refused
+      // ones, a report filed in another tab) must not reach the next account.
+      await (_db.delete(_db.devicePrefs)
+            ..where((row) => row.key.equals(ReportQueue.storageKey)))
           .go();
       await _db.delete(_db.attemptsLocal).go();
       await _db.delete(_db.assessmentResultsLocal).go();

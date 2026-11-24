@@ -1,10 +1,11 @@
 import type {Auth} from 'firebase-admin/auth';
-import {FieldValue, type Firestore} from 'firebase-admin/firestore';
+import {FieldValue, type DocumentSnapshot, type Firestore} from 'firebase-admin/firestore';
 import {getStorage} from 'firebase-admin/storage';
 import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
 import {retirePublicId} from './publicId.js';
 import {clearPassOwnership} from './revenuecatPasses.js';
+import {skipsMarkerWrite, trialMarker} from './trialMarker.js';
 import {identityMarkers, identityMarkersForUser} from './webTrial.js';
 
 /** A pending deletion is retried by the daily run once this long has passed since its last attempt. */
@@ -39,36 +40,56 @@ export async function deleteUserData(
   // the daily job finishes the deletion from this record, with no guardian link or caller needed.
   // The first reason and start time stay, so a retry does not look like a new request.
   const task = db.doc(`accountDeletions/${uid}`);
-  const earlier = await task.get();
-  // A custom token can recreate a deleted Auth UID with a renewable session.
-  // An empty document permanently closes that UID, without retaining task data.
-  if (earlier.exists && Object.keys(earlier.data() ?? {}).length === 0) return;
-  if (typeof earlier.get('closedUntil') === 'number') {
-    await task.set({}); // Upgrade a legacy expiring marker without reopening access.
-    return;
-  }
-  // Each attempt moves the next retry back, so a task that keeps failing goes to the end of the
-  // queue and cannot starve newer ones.
-  await task.set({reason: earlier.get('reason') ?? reason, startedAt: earlier.get('startedAt') ?? now,
-    nextRetryAt: now + DELETION_RETRY_MS, attempts: FieldValue.increment(1),
-    // Every caller's reason is kept, so a withdrawal or a user's own request is never mistaken for
-    // an inactivity deletion that may be called off.
-    reasons: FieldValue.arrayUnion(reason)}, {merge: true});
+  const attempt = await db.runTransaction(async transaction => {
+    const earlier = await transaction.get(task);
+    // A custom token can recreate a deleted Auth UID with a renewable session.
+    // An empty document permanently closes that UID, without retaining task data.
+    if (earlier.exists && Object.keys(earlier.data() ?? {}).length === 0) return null;
+    if (typeof earlier.get('closedUntil') === 'number') {
+      transaction.set(task, {}); // Upgrade a legacy expiring marker without reopening access.
+      return null;
+    }
+    // Each attempt moves the next retry back, so a task that keeps failing goes to the end of the
+    // queue and cannot starve newer ones.
+    // Recorded once: a retry keeps the first attempt's time, so it never counts as a later start.
+    const firstAt = typeof earlier.get('startedAt') === 'number' ? earlier.get('startedAt') as number : now;
+    transaction.set(task, {reason: earlier.get('reason') ?? reason, startedAt: firstAt,
+      nextRetryAt: now + DELETION_RETRY_MS, attempts: FieldValue.increment(1),
+      // Every caller's reason is kept, so a withdrawal or a user's own request is never mistaken for
+      // an inactivity deletion that may be called off.
+      reasons: FieldValue.arrayUnion(reason)}, {merge: true});
+    return {firstAt, destructiveAt: earlier.get('destructiveAt') ?? now};
+  });
+  if (attempt === null) return;
+  const {firstAt, destructiveAt} = attempt;
 
   // Older trials have only an account-local record. Preserve eligibility before
   // deleting that record, including when an earlier deletion attempt is retried.
-  if ((await userRef.collection('server').doc('trial').get()).exists) {
+  const trial = await userRef.collection('server').doc('trial').get();
+  if (trial.exists) {
+    // The code expires 730 days after the trial's own start (D7), not after this deletion. An old
+    // record without a start time counts from the first deletion attempt. A code already past its
+    // expiry is not written: the TTL policy may have removed it, and a new one would only be deleted again.
+    const usedAt = trial.get('usedAt');
+    const startedAt = typeof usedAt === 'number' && Number.isFinite(usedAt) ? usedAt : firstAt;
     const markers = options.requestAuth
       ? identityMarkers(options.requestAuth, db)
       : identityMarkersForUser(await auth.getUser(uid), db);
-    const batch = db.batch();
-    for (const marker of markers) batch.set(marker, {used: true});
-    await batch.commit();
+    // A code's expiry only moves later, never earlier, so a deletion cannot free a code sooner than
+    // the trial that set it. A code with no expiry yet (an old one) is filled in.
+    const row = trialMarker(startedAt);
+    await db.runTransaction(async transaction => {
+      const current = markers.length ? await transaction.getAll(...markers) : [];
+      current.forEach((existing, i) => {
+        if (skipsMarkerWrite(existing, row, now)) return;
+        transaction.set(markers[i], row);
+      });
+    });
   }
   await keepGuardianEvidence(db, uid, reason, now);
   await writeAuditLog({uid, event: 'accountDeleted', metadata: {reason}});
   // From here on the account loses data, so a stalled deletion must be finished, never called off.
-  await task.set({destructiveAt: earlier.get('destructiveAt') ?? now}, {merge: true});
+  await task.set({destructiveAt}, {merge: true});
   await retirePublicId(db, uid);
   await deleteGuardianRecords(db, uid);
   await db.recursiveDelete(userRef);
@@ -91,6 +112,11 @@ export async function deleteUserData(
     .bucket()
     .deleteFiles({ prefix: `wrapped/${uid}/` });
 
+  // Question reports hold what the student wrote and name the account. The counts that limit them
+  // sit in the user tree and went with it.
+  const reports = await db.collection('questionReports').where('accountId', '==', uid).get();
+  await Promise.all(reports.docs.map((doc) => doc.ref.delete()));
+
   // Removing objects also invalidates previously issued bearer download URLs.
   await getStorage().bucket().deleteFiles({prefix: `betaFeedback/${uid}/`});
 
@@ -107,11 +133,31 @@ export async function deleteUserData(
   await task.set({});
 }
 
+type EvidencePurchase = Record<string, unknown>;
+
 /**
- * Marks the deletion in the guardian evidence and copies each guardian-attested purchase there,
+ * What a purchase record keeps as ten-year evidence, or null when it is not guardian evidence.
+ * Only a guardian-kind declaration qualifies (legal lane, Nov 23 pass: adult declarations are not
+ * kept). A record from before declarations existed carries `attestedAt` and was guardian-only by
+ * construction. It has no wording id, so that field is null: every copy has the same five fields.
+ */
+function guardianPurchase(doc: DocumentSnapshot, reference: unknown): EvidencePurchase | null {
+  const declaration = doc.get('declaration');
+  if (declaration && typeof declaration === 'object') {
+    if (declaration.kind !== 'guardian' || typeof declaration.at !== 'number') return null;
+    return {attestedAt: declaration.at, termsVersion: declaration.termsVersion ?? null,
+      wordingVersion: declaration.wordingVersion ?? null, reference, product: doc.get('product') ?? null};
+  }
+  if (typeof doc.get('attestedAt') !== 'number') return null;
+  return {attestedAt: doc.get('attestedAt'), termsVersion: doc.get('termsVersion') ?? null, wordingVersion: null, reference,
+    product: doc.get('product') ?? null};
+}
+
+/**
+ * Marks the deletion in the guardian evidence and copies each guardian-declared purchase there,
  * before the user tree and the payment index go. Only an account with such evidence gets a marker,
- * so an adult with none leaves nothing behind. The copy holds the attestation time, the Terms
- * version, our own reference and the product: no email, name or payment details.
+ * so an adult with none leaves nothing behind. The copy holds the declaration time, the Terms
+ * version, the wording id, our own reference and the product: no email, name or payment details.
  */
 async function keepGuardianEvidence(db: Firestore, uid: string, reason: DeletionReason, now: number): Promise<void> {
   const evidence = db.doc(`guardianConsentEvidence/${uid}`);
@@ -123,20 +169,20 @@ async function keepGuardianEvidence(db: Firestore, uid: string, reason: Deletion
   // One purchase document per payment reference. A checkout wins over its order because its id is
   // the stable one; an order whose checkout record was never written (the last step of checkout
   // failed, yet the payment can still be fulfilled from the order) is kept under its own id.
-  const purchases = new Map<string, {id: string; attestedAt: unknown; termsVersion: unknown; reference: unknown; product: unknown}>();
+  const purchases = new Map<string, {id: string; fields: EvidencePurchase}>();
   for (const doc of checkouts.docs) {
-    if (typeof doc.get('attestedAt') !== 'number') continue;
-    purchases.set(doc.get('reference') ?? `checkout-${doc.id}`, {id: doc.id, attestedAt: doc.get('attestedAt'),
-      termsVersion: doc.get('termsVersion') ?? null, reference: doc.get('reference') ?? null, product: doc.get('product') ?? null});
+    const reference = doc.get('reference') ?? null;
+    const fields = guardianPurchase(doc, reference);
+    if (fields) purchases.set(reference ?? `checkout-${doc.id}`, {id: doc.id, fields});
   }
   for (const doc of orders.docs) {
-    if (typeof doc.get('attestedAt') !== 'number' || purchases.has(doc.id)) continue;
-    purchases.set(doc.id, {id: `order-${doc.id}`, attestedAt: doc.get('attestedAt'),
-      termsVersion: doc.get('termsVersion') ?? null, reference: doc.id, product: doc.get('product') ?? null});
+    if (purchases.has(doc.id)) continue;
+    const fields = guardianPurchase(doc, doc.id);
+    if (fields) purchases.set(doc.id, {id: `order-${doc.id}`, fields});
   }
   if (answers.empty && purchases.size === 0) return;
   const batch = db.batch();
-  for (const {id, ...fields} of purchases.values()) batch.set(evidence.collection('purchases').doc(id), fields);
+  for (const {id, fields} of purchases.values()) batch.set(evidence.collection('purchases').doc(id), fields);
   // A retry keeps the first deletion time, so the record does not drift later.
   const existing = (await evidence.get()).get('accountDeletedAt');
   if (typeof existing !== 'number') batch.set(evidence, {accountDeletedAt: now, reason}, {merge: true});

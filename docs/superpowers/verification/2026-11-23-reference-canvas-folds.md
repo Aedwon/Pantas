@@ -461,3 +461,51 @@ One row per change. Ruling line: R = docs/superpowers/decisions/2026-11-17-fable
 - W_SessionEnd keeps its older pop-in entrance and static 7; the approved entrance with the count-up is QS_EndMotion beside it. QS_EndMotion draws the top of the screen only (no mistakes list).
 - W_Question edits are logic and CSS written to match the B3 values; they were not run. The track marks for questions 1 to 3 and the pre-question-5 marks on W_QMiss repeat the pattern of the source boards (questions 2 and 5 wrong).
 - QS_PickedNoHint and QS_BarTrack draw the same state (both are council boards).
+
+## Derived states (Nov 23)
+
+Five states had no drawn board. Each is derived from approved boards and spec values only. Final versions: Pantas Web version 180, Pantas Redesign version 487. Board titles carry " (derived, Fable-checked)". Fable 5.2 reviewed once, found defects, fixes were published, and the re-check passed (one caption sentence on RD_FocusMotion was fixed after it, with no further check).
+
+| Board | Canvas | Source | Values used | Fable verdict |
+|---|---|---|---|---|
+| RD_FocusOpen | Web | old board (lesson list, content), W_Reader and held/fs.css (layout) | 1,096 px page, 640 text, 56 gap, 400 figure column, plate #FAFAF7, figure top = anchor + 6, section line under the bar, row min-height so the plate fits | Pass after fix (Reading label, pill colors, popover motion, hover) |
+| RD_Figure | Web | old board (lightbox), same page as RD_FocusOpen | lightbox unchanged, page height 900 | Pass after fix (page height, scrim fade) |
+| RD_FocusMotion | Web | old board (bar timing), RD_HeldMotion | bar scroll timing unchanged; plates #FAFAF7 as MO; sticky line 92 to 32 px scaled by 44/60 (mini bar 44 px) = 67.5 to 23.5; held, then pushed away at the passage end, scroll-linked | Pass after fix (keyframe name clash, caption) |
+| W_ReaderHeldDarkFull | Web | K1 and RD_HeldPart (v=4, dark) | same tokens, plates stay light, 1440 x 3612 | Pass |
+| QV_Last | Phone | QV_Answer track | track 8 x 4, radius 99, gap 3, above the count; marks 2, 5, 8 and 10 wrong (wide data pattern, question 10 wrong as the board shows) | Pass |
+| QV_EndPro, QV_EndFree, QV_EndLastToday | Phone | wide QS_EndMotion | 7 s loop; question screen 1.0 s, 180 ms fade; marks 360 ms (.32,.72,0,1), 20 ms stagger; ring and count 1.4 s (.2,.9,.3,1) from 1.70 s; title and ring fade 23.3 to 25 %, "in 9 minutes" and Done 24.6 to 28.6 %; marks start at measured track positions and land on measured slots | Pass |
+| QV_Answer | Phone | wide W_Question and QS_WrongMotion | right-answer run kept (11 s), loop now 22 s; wrong run: shake .42 s, reveal 540 ms after the check, ring .7 s ease-out, others dim to 42 %, panel slide .5 s (.2,.9,.3,1) 28 px, track mark red 200 ms | Pass after fix (reduced motion badge and fades) |
+
+Missing values, nearest approved used:
+- Phone sizes kept (marks 8 x 4 landing in 28 px circles, wrong tint #FDECEE on end boards and #FDE8EA on the wrong row) instead of wide 10 x 4 and 30 px.
+- Phone ring and count move from the old 1.2 s to 1.4 s (spec: 1.4 s as approved). The other end-screen blocks keep their approved fade-ups, shifted 1.3 s later.
+- End boards: the question screen before Finish shows QV_Last's question answered right (question 10 right), so the marks follow the row data (wrong 1, 3 and 9).
+- Reveal dim 42 % (spec) while static QV_WrongSettled draws .45.
+- RD_FocusMotion: equal section lengths in the 8-segment line (real lengths unknown); reading line 104 px decides when a section becomes current; content positions moved (Crust heading 444) so the figure is still held when the bar hides; a second figure in Crust shows the bar's return (32 to 92 px). Earth Science lesson content kept from the old boards.
+- RD_FocusOpen and RD_Figure: first section segment filled 32 % and 64 % (old bar 4 % and 8 % of the lesson, times 8).
+- QV_Answer: the track data of the "before pick" and "after check" bar variants was swapped on the old board; fixed.
+- Reduced motion variants added on QV_Answer; the end boards show the final state at once.
+
+## T15 ruling changes (Nov 24)
+
+Source: "Nov 24, T15 reader undrawn states" in `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md` (origin/main 3931abc60), rulings 1, 3 and 6. Final versions: Lesson Reader Full Screen version 9, Pantas Web version 182.
+
+| Board | Canvas | Change | Note |
+|---|---|---|---|
+| M1100 | Lesson Reader Full Screen | Ruling 1: reading block centered at 1100, 76 px each side | Board file unchanged; the mid-width rule in `fs.css` now sets a 948 px block (600 + 48 + 300), centered, side margins at least 40 px |
+| RD_Held1100 | Pantas Web | Same | Same rule in `held/fs.css` |
+| fs.css, held/fs.css | Both | Ruling 3: expand button radius 9 to 8 | Reaches every held board |
+| H4 | Lesson Reader Full Screen | Ruling 6: pointer on `AB` in the first solution line | Scroll 1900 to 1800 so the line is in view; pointer moved to the word |
+| R | Lesson Reader Full Screen | Ruling 6: "hypotenuse" in step 1 no longer linked | `AB` in the first solution line was already linked |
+| MO (scene 3) | Lesson Reader Full Screen | Ruling 6: linked-word example moved to `AB` in a first solution line | Card now shows the problem line, the solution line, then step 1; pointer retargeted |
+| RD_HeldLinked | Pantas Web | Copy of H4 | Same change |
+| RD_HeldPart | Pantas Web | Copy of R | Same change |
+| RD_HeldMotion | Pantas Web | Copy of MO | Same change |
+| R, MO (scene 3) | Lesson Reader Full Screen | Ruling 6 follow-up: problem line links only `BC`; the `AB` and `AC` links are removed | Version 10. `BC` is already linked in R; MO draws no `BC` link and the second pointer stop still lights the AC label in the figure |
+| RD_HeldPart, RD_HeldMotion | Pantas Web | Same follow-up | Version 183 |
+| H4 | Lesson Reader Full Screen | Retitled: "4 Held, pointing at AB in the first solution line: side AB lights in the figure" | Version 10 |
+| RD_HeldLinked | Pantas Web | Retitled to match, keeping "(H4)" | Version 183 |
+
+Final versions after the follow-up: Lesson Reader Full Screen version 10, Pantas Web version 183.
+
+Not changed: the M1100 and RD_Held1100 board titles. Pointer positions were set from a headless Chrome measure with a fallback font (Geist was not available), so the owner should check them on the canvas.

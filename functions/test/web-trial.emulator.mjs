@@ -5,6 +5,7 @@ import {getFirestore} from 'firebase-admin/firestore';
 import {listPlans} from '../lib/webPlans.js';
 import {startTrial} from '../lib/webTrial.js';
 import {createCheckout} from '../lib/paymongoCheckout.js';
+import {adult} from './_declaration.mjs';
 import {fakeAuth} from './_paymongo-helpers.mjs';
 
 assert.equal(process.env.GCLOUD_PROJECT, 'demo-pantas-test');
@@ -81,7 +82,7 @@ const checkoutDeps = (c, extra = {}) => ({client: c, db, origin: 'https://pantas
 
 test('checkout creates a session with uid and product metadata inputs and the web price', async () => {
   const calls = [];
-  const out = await createCheckout(named('co-ok'), {product: 'pantas_cs_monthly'}, checkoutDeps(client(calls)));
+  const out = await createCheckout(named('co-ok'), {product: 'pantas_cs_monthly', declaration: adult}, checkoutDeps(client(calls)));
   assert.deepEqual(out, {checkoutUrl: 'https://checkout.paymongo.com/abc', sessionId: 'cs_new', reference: calls[0].referenceNumber});
   assert.equal(calls[0].successUrl, `https://pantas.study/pro?checkout=success&ref=${out.reference}`);
   assert.equal(calls[0].cancelUrl, `https://pantas.study/pro?checkout=cancelled&ref=${out.reference}`);
@@ -95,24 +96,24 @@ test('checkout creates a session with uid and product metadata inputs and the we
 test('checkout refuses anonymous and signed-out callers, unknown or non-web products, and floods', async () => {
   const calls = [];
   const d = checkoutDeps(client(calls));
-  assert.equal(await code(createCheckout(anon('co-anon'), {product: 'pantas_cs_monthly'}, d)), 'permission-denied');
-  assert.equal(await code(createCheckout(undefined, {product: 'pantas_cs_monthly'}, d)), 'unauthenticated');
+  assert.equal(await code(createCheckout(anon('co-anon'), {product: 'pantas_cs_monthly', declaration: adult}, d)), 'permission-denied');
+  assert.equal(await code(createCheckout(undefined, {product: 'pantas_cs_monthly', declaration: adult}, d)), 'unauthenticated');
   for (const product of ['pantas_made_up', 'pantas_pro_monthly', 'promo_student', undefined, 5, {}]) {
-    assert.equal(await code(createCheckout(named('co-bad'), {product}, d)), 'invalid-argument');
+    assert.equal(await code(createCheckout(named('co-bad'), {product, declaration: adult}, d)), 'invalid-argument');
   }
   assert.equal(await code(createCheckout(named('co-bad'), null, d)), 'invalid-argument');
-  assert.equal(await code(createCheckout(named('co-rate'), {product: 'pantas_cs_monthly'}, {...d, allow: async () => false})), 'resource-exhausted');
+  assert.equal(await code(createCheckout(named('co-rate'), {product: 'pantas_cs_monthly', declaration: adult}, {...d, allow: async () => false})), 'resource-exhausted');
   assert.deepEqual(calls, []);
 });
 
 test('checkout for a pass needs a published sitting and refuses a pass that is already active', async () => {
   const calls = [];
-  assert.equal(await code(createCheckout(named('co-pass'), {product: 'pantas_pass_cse_pro'}, checkoutDeps(client(calls), {catalog: []}))), 'failed-precondition');
+  assert.equal(await code(createCheckout(named('co-pass'), {product: 'pantas_pass_cse_pro', declaration: adult}, checkoutDeps(client(calls), {catalog: []}))), 'failed-precondition');
   const uid = 'co-pass-active';
   await reset(uid);
   await db.doc(`users/${uid}/grants/pay_p`).set({source: 'paymongo', product: 'pantas_pass_cse_pro', tier: 'civilService', startsAt: 1, endsAt: NOW + 1000, state: 'active', createdAt: 1});
-  assert.equal(await code(createCheckout(named(uid), {product: 'pantas_pass_cse_pro'}, checkoutDeps(client(calls)))), 'already-exists');
-  assert.equal(await code(createCheckout(named(uid), {product: 'pantas_pass_cse_sub'}, checkoutDeps(client(calls)))), 'failed-precondition');
+  assert.equal(await code(createCheckout(named(uid), {product: 'pantas_pass_cse_pro', declaration: adult}, checkoutDeps(client(calls)))), 'already-exists');
+  assert.equal(await code(createCheckout(named(uid), {product: 'pantas_pass_cse_sub', declaration: adult}, checkoutDeps(client(calls)))), 'failed-precondition');
   assert.deepEqual(calls, []);
 });
 
@@ -121,8 +122,8 @@ test('the real rate limiter (users/{uid}/limits) allows 10 checkouts per window'
   await reset(uid);
   const calls = [];
   const d = {...checkoutDeps(client(calls)), allow: undefined};
-  for (let i = 0; i < 10; i++) await createCheckout(named(uid), {product: 'pantas_cs_weekly'}, d);
-  assert.equal(await code(createCheckout(named(uid), {product: 'pantas_cs_weekly'}, d)), 'resource-exhausted');
+  for (let i = 0; i < 10; i++) await createCheckout(named(uid), {product: 'pantas_cs_weekly', declaration: adult}, d);
+  assert.equal(await code(createCheckout(named(uid), {product: 'pantas_cs_weekly', declaration: adult}, d)), 'resource-exhausted');
   assert.equal(calls.length, 1);
 });
 

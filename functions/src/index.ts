@@ -82,3 +82,5 @@ export const cleanupWrappedOrphans = scheduledJobsOn && legacySchedulesOn ? lega
 export const purgeOldGuardianRecords = scheduledJobsOn && legacySchedulesOn ? legacy_purgeOldGuardianRecords : undefined;
 export const purgeInactiveAccounts = scheduledJobsOn && legacySchedulesOn ? legacy_purgeInactiveAccounts : undefined;
 export const keepCallablesWarm = scheduledJobsOn && legacySchedulesOn ? legacy_keepCallablesWarm : undefined;
+
+export {sendQuestionReport} from './questionReports.js';

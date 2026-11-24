@@ -20,12 +20,12 @@ import 'package:pantas_lints/src/source_scope.dart';
 /// reach a design parameter (a day count, a threshold) are not design values.
 class DsBoardValueReason extends AnalysisRule {
   DsBoardValueReason()
-    : super(
-        name: 'ds_board_value_reason',
-        description:
-            'A const double, Duration or Color in lib/features or lib/app '
-            'needs a ds-board reason.',
-      );
+      : super(
+          name: 'ds_board_value_reason',
+          description:
+              'A const double, Duration or Color in lib/features or lib/app '
+              'needs a ds-board reason.',
+        );
 
   static const LintCode code = LintCode(
     'ds_board_value_reason',
