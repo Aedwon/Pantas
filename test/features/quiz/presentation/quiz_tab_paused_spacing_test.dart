@@ -16,7 +16,7 @@ import '../../../helpers/in_memory_database.dart';
 
 void main() {
   testWidgets(
-      'phone paused card: 18 above and 22 below the Discard line, '
+      'phone paused card: 20 above and 24 below the Discard text, '
       'no sentence', (tester) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
@@ -43,8 +43,9 @@ void main() {
     );
     expect(find.textContaining('You paused'), findsNothing);
     final resume = tester.getRect(find.widgetWithText(PantasButton, 'Resume'));
-    // The line's 24 px box holds its 20 px text 2 px in from each edge, so
-    // 16 and 20 outside the box are 18 and 22 around the text.
+    // The line's 24 px box holds its text 4 px from the top and flush at the
+    // bottom, so 16 and 24 outside the box are 20 and 24 around the text, as
+    // the card measured before Nov 24 (20.5 and 24.5).
     final line = tester.getRect(
       find.widgetWithText(PantasButton, 'Discard this session'),
     );
@@ -58,7 +59,7 @@ void main() {
     );
     expect(line.height, moreOrLessEquals(24, epsilon: 0.5));
     expect(line.top - resume.bottom, moreOrLessEquals(16, epsilon: 0.5));
-    expect(card.bottom - line.bottom, moreOrLessEquals(20, epsilon: 0.5));
+    expect(card.bottom - line.bottom, moreOrLessEquals(24, epsilon: 0.5));
     expect(line.center.dx, moreOrLessEquals(resume.center.dx, epsilon: 1));
   });
 

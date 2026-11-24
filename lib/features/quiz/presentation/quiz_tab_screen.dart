@@ -65,16 +65,16 @@ final quizTodayCountsProvider = FutureProvider.autoDispose
   );
 });
 
-/// Space around "Discard this session" on the phone paused card, outside the
-/// line's own 24 px box (2 px above and below its 20 px text). His words
+/// Space around "Discard this session" on the phone paused card. His words
 /// (Nov 25): "the space on top and bottom of discard in the quiz tab got too
 /// small though". Board A draws 12 above and 16 below the text; the card
-/// before Nov 24 had about 18 and 22, and his call from using the app wins:
-/// 18 above the text and 22 below it.
-// ds-board: his Nov 25 words over board A (18 above the Discard text).
+/// before Nov 24 measured about 20 above and 24 below it, and his call from
+/// using the app wins. The line's 24 px box holds its text 4 px from the top
+/// and flush at the bottom, so 16 and 24 outside the box give 20 and 24.
+// ds-board: his Nov 25 words over board A (20 above the Discard text).
 const double _discardAbove = PantasSpace.s16;
-// ds-board: his Nov 25 words over board A (22 below the Discard text).
-const double _discardBelow = PantasSpace.s20;
+// ds-board: his Nov 25 words over board A (24 below the Discard text).
+const double _discardBelow = PantasSpace.s24;
 
 class QuizTabScreen extends ConsumerStatefulWidget {
   const QuizTabScreen({this.mockPanel, this.mockReady = true, super.key});
