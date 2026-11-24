@@ -72,6 +72,9 @@ const _panelBottomReserve = 120.0;
 /// The tallest the question list grows before it scrolls (board height).
 const _gridMaxHeight = 560.0;
 
+// ds-board: MK_Paper header height 50
+const _headerHeight = 50.0;
+
 class MockSessionPage extends StatefulWidget {
   const MockSessionPage({
     required this.state,
@@ -427,14 +430,14 @@ class _MockSessionPageState extends State<MockSessionPage> {
     );
     final header = ConstrainedBox(
       key: const ValueKey('mock-header'),
-      constraints: const BoxConstraints(minHeight: PantasLayout.focusHeadPhone),
+      // MK_Paper header: 50 high (6 above the 44 controls), 8 px sides.
+      constraints: const BoxConstraints(minHeight: _headerHeight),
       child: Padding(
-        // Phone header sides are 4 and 8 (FocusHeader, R4R-O01).
         padding: const EdgeInsets.fromLTRB(
-          PantasSpace.s4,
-          PantasSpace.s4,
           PantasSpace.s8,
-          PantasSpace.s4,
+          PantasSpace.s6,
+          PantasSpace.s8,
+          0,
         ),
         child: Row(
           children: [

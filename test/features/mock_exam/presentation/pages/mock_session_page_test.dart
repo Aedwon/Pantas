@@ -136,6 +136,22 @@ void main() {
     expect(find.textContaining('Correct'), findsNothing);
   });
 
+  // Board MK_Paper header: 50 high, 8 px sides, grid 44 / 1fr / 44 (U12).
+  testWidgets('the phone header is 50 high with 8 px sides', (tester) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      harness(state: stateAt(0), remainingInPart: const Duration(minutes: 9)),
+    );
+    expect(
+        tester.getSize(find.byKey(const ValueKey('mock-header'))).height, 50);
+    final pause = tester.getRect(find.byKey(const Key('mock-pause')));
+    expect(390 - pause.right, 8);
+    expect(tester.getCenter(find.text('09:00')).dx, closeTo(195, 0.5));
+  });
+
   // Board MK_Proctor: a 44 px pill that floats 12 px above the bar for 2.5
   // seconds, over the question list, which never moves (U5).
   testWidgets('a proctor warning is a 2.5 s pill over the list', (
