@@ -1664,3 +1664,15 @@ Board: https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec (version 6).
 Later the same day (manager): section 3 dropped. He never raised the week strip and D196 answers it, so page 3 was removed from the board (version 8) instead of redrawn. The U14 build is the CSE release lead's, already merged (PR #118).
 
 Later (Nov 25, about 3:15 AM Manila), his words on the loading board: "i imagined the spinner and the % text to be on the same line. get a Neon and codex opinion on this". Both advisors (relayed by the manager): one line, spinner left, percent right, 8 px gap, 13 to 14 px medium, fixed-width digits, 40 px under the wordmark. They differ at 100%: A (Gemini Neon) keeps the row centered and closes the number's width over 220 ms so the spinner glides back to center; B (Codex) keeps the spinner fixed at center with the number in a fixed slot to its right, so nothing moves (Codex's stated risk: right-heavy). Reduce Motion: A "Loading 42%" on one line; B "Loading" with "42%" beside it. Both drawn on page 1 of the board (version 10), phone and wide, light and dark, plus Reduce Motion; the stacked percent rows are retired. Waiting on his pick; nothing built.
+
+
+## Nov 25, about 3:50 AM Manila: his picks on the loading and paused-session boards
+
+His words, verbatim (relayed by the operations manager):
+
+> 1. A
+> 2. okay with A. the space on top and bottom of discard in the quiz tab got too small though
+
+- Loading board (https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec): A, Neon's centered row. The spinner and the percent share one centered row; the spinner slides back to center when the number hides. Build 1:1 to the board: real decoded bytes counted in the service worker against a size list made at build time, Reduce Motion as drawn.
+- Paused-session board (https://claude.ai/artifact/9MLsiFtEwsdLodfe8eHZig): A. Build 1:1 on the Home Reviews sheet and the Quiz tab card, phone and wide, on top of the E-155 sheet fixes. The board's "another quiz is paused" row (lead decision on that board) comes with it.
+- Discard spacing on the Quiz tab card: build to board A, compared with the version before the Nov 24 Discard centering and the Nov 25 spacing ship; a golden test guards it (process entry, Nov 25).
