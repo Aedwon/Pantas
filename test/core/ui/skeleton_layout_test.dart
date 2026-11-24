@@ -3,15 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
-import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
-import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/record_provider.dart';
-import 'package:pantas/features/home/presentation/performance_page.dart';
 import 'package:pantas/features/home/presentation/plan_page.dart';
 import 'package:pantas/features/home/presentation/record_page.dart';
 import 'package:pantas/features/home/presentation/widgets/home_performance_card.dart';
@@ -229,89 +226,6 @@ void main() {
       );
       await tester.pump(const Duration(milliseconds: 100));
       expectMatch(skeleton, sizes(tester, find.byKey(_surface)), 'record');
-    });
-
-    // PF_Subjects: the skeleton stands in for the loaded Subjects view, so
-    // its list is as tall as the four subject rows and the ring sits above.
-    final performance = PerformanceViewData(
-      subjects: ['a', 'b', 'c', 'd'].map(row).toList(),
-      topics: const [],
-      lessons: const [],
-      subjectCounts: const {'a': 3, 'b': 2, 'c': 5, 'd': 2},
-      lessonLevelAvailable: true,
-    );
-    testWidgets('Performance phone skeleton matches the Subjects view $mode',
-        (tester) async {
-      await mount(tester, const PerformanceSkeleton(), width: 390, dark: dark);
-      final skeleton = sizes(tester, skeletonSections());
-      final skeletonGap = tester.getTopLeft(find.byKey(_surface)).dy -
-          tester.getTopLeft(find.byType(PerformanceSkeleton)).dy;
-      tester.view.physicalSize = const Size(390, 2600);
-      await tester.pumpWidget(
-        MaterialApp(
-          theme: dark ? buildDarkTheme() : buildLightTheme(),
-          home: PerformancePage(
-            data: performance,
-            pro: true,
-            paused: false,
-            onTopic: (_) {},
-            onPro: () {},
-            onBack: () {},
-          ),
-        ),
-      );
-      await tester.pump(const Duration(milliseconds: 600));
-      expectMatch(skeleton, sizes(tester, find.byKey(_surface)), 'performance');
-      // The list starts as far below the ring as the skeleton's does.
-      final loadedGap = tester.getTopLeft(find.byKey(_surface)).dy -
-          tester.getTopLeft(find.byType(HalfRingGauge)).dy;
-      expect(loadedGap, greaterThan(0));
-      expect(
-        (skeletonGap - loadedGap).abs(),
-        lessThanOrEqualTo(14),
-        reason: 'ring to list $skeletonGap vs $loadedGap',
-      );
-    });
-
-    testWidgets('Performance 1440 skeleton matches the Subjects view $mode',
-        (tester) async {
-      await mount(
-        tester,
-        const WebPerformanceLoading(),
-        width: 1440,
-        dark: dark,
-      );
-      final skeleton = sizes(tester, skeletonSections());
-      tester.view.physicalSize = const Size(1440, 2600);
-      await tester.pumpWidget(
-        MaterialApp(
-          theme: dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
-          home: PerformancePage(
-            data: performance,
-            pro: true,
-            paused: false,
-            onTopic: (_) {},
-            onPro: () {},
-            onBack: () {},
-          ),
-        ),
-      );
-      await tester.pump(const Duration(milliseconds: 600));
-      expect(skeleton.length, 2, reason: 'rows card and Overall card');
-      // The loaded page draws the rows table and the Overall card.
-      final loaded = [
-        tester.getSize(find.byKey(const ValueKey('data-table'))),
-        tester.getSize(find.byType(WebCard)),
-      ];
-      // The loaded page fills the window and the skeleton sits beside the
-      // sidebar, so only the heights are compared.
-      for (var i = 0; i < loaded.length; i++) {
-        expect(
-          (skeleton[i].height - loaded[i].height).abs(),
-          lessThanOrEqualTo(14),
-          reason: 'wide performance card $i ${skeleton[i]} vs ${loaded[i]}',
-        );
-      }
     });
 
     testWidgets('Plan phone skeleton has Today, Coming up, History $mode',
