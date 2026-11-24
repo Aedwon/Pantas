@@ -29,6 +29,20 @@ final minorSharingProvider = FutureProvider<MinorSharing>(
   (ref) => ref.watch(minorSharingGateProvider).sync(),
 );
 
+/// Whether the server holds a confirmed guardian for this account, so the web
+/// checkout can show the guardian wording first. Only a device that knows a
+/// minor asks. The server still decides at checkout and corrects a wrong
+/// guess, so a failed read falls back to false.
+final guardianConfirmedProvider = FutureProvider<bool>((ref) async {
+  if (await ref.watch(ageGroupProvider.future) != 'minor') return false;
+  try {
+    final status = await ref.watch(guardianGatewayProvider).status();
+    return status.status == GuardianConsentStatus.confirmed;
+  } on Object {
+    return false;
+  }
+});
+
 final accountAccessProvider = Provider<AccountAccess>((ref) => accountAccess);
 
 /// Held before sign-out, so a failed cleanup cannot reopen the app.

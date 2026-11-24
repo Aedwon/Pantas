@@ -8,6 +8,7 @@ export 'data/payment_entitlement_state.dart';
 export 'data/revenuecat_config.dart';
 export 'data/revenuecat_gateway.dart';
 export 'data/revenuecat_sdk.dart';
+export 'domain/checkout_declaration.dart';
 export 'domain/entitlement.dart';
 export 'domain/payment_operation.dart';
 export 'domain/paywall_offering.dart';

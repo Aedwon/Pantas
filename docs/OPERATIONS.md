@@ -73,8 +73,11 @@ app name. **Do not create products from the old list.** Full setup, in order, is
 
 ### Contact, set 11 August 2026
 
-- **Privacy and data requests: `dpo@pantas.app`.** Printed on the privacy page
-  and opened by the "Contact our DPO" row.
+- **Privacy and data requests: `dpo@pantas.study`.** Printed on the privacy page
+  and opened by the "Contact our DPO" row (`lib/features/legal/domain/legal_contact.dart`).
+  Mail for `pantas.study` goes through Cloudflare Email Routing to Gmail; the
+  retention sweep is `docs/runbooks/mailbox-retention-sweep.md`. (Was `dpo@pantas.app`
+  until the domain moved; corrected Nov 24, 2026.)
 - **Play listing contact: `contact@pantas.app`.** Play requires a developer
   contact email and a community group does not satisfy it. No row in the app
   points at this address.
@@ -152,6 +155,17 @@ These cannot be scripted in this repo and must be redone if the relevant config 
 - [ ] iOS "Copy GoogleService-Info.plist" run-script phase added to Runner target — Plan 1 Task 16 step 4
 - [ ] Sanity 2FA enforcement at org level enabled — Plan 1 Task 19 step 4
 - [ ] GitHub branch protection on `main` — Plan 1 Task 28 step 2
+
+## PayMongo follow-ups (weekly, and when a student reports a stuck checkout)
+
+Read `paymongoFollowUps` and the orders flagged by the checkout code. Each record carries a reason code only:
+- `unissuedSessionNotExpired`: a checkout session was created but never handed out, and PayMongo did not
+  confirm its expiry. That account's next checkout is refused until the session is confirmed expired. Expire it
+  in the PayMongo dashboard, then check the session reads `expired`; if it shows paid, fulfil it as a paid
+  session.
+- `declarationMissing: true` on an order: a pre-rollout link was paid without the checkout declaration. Access
+  was granted. Note it in the refund and dispute records; no action unless the payer disputes.
+- Webhook follow-ups (amount mismatch and similar): handle as the record's reason says, by the refund route below.
 
 ## Refund after PayMongo's window, every payment method
 
