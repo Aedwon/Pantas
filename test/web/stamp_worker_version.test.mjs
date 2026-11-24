@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
+import {mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import test from 'node:test';
@@ -46,75 +46,65 @@ test('version metadata adds only the comparable stamped build identity', () => {
   assert.equal(stamp(dir), first);
 });
 
-// The sizes the loading percent divides by are written into the worker script
-// (UX lead, Nov 25, board A). There is no list file.
-const WORKER = [
-  "'use strict';",
-  'const VERSION = 1;',
-  'const LOAD_SIZES = null; // stamped by tool/web/stamp_worker_version.mjs',
-  'self.x = 1;',
-].join('\n');
+// The size the loading percent divides by goes into flutter_bootstrap.js, which
+// is rewritten for every build anyway. The worker script must not change with
+// the build (UX lead, Nov 25, round 4).
+const WORKER = ["'use strict';", 'const VERSION = 1;', 'self.x = 1;'].join('\n');
 
-function bigBuild({local = false, worker = WORKER} = {}) {
-  const dir = build('main code');
+function bigBuild({main = 'main code', worker = WORKER} = {}) {
+  const dir = build(main);
   writeFileSync(join(dir, 'pantas_sw.js'), worker);
-  writeFileSync(join(dir, 'flutter_bootstrap.js'),
-    'await pwa.registerWorker("213919009" /* note */);\n' +
-    `_flutter.buildConfig = {"engineRevision":"abc","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"}]${local ? ',"useLocalCanvasKit":true' : ''}};`);
-  mkdirSync(join(dir, 'canvaskit', 'chromium'), {recursive: true});
-  writeFileSync(join(dir, 'canvaskit', 'canvaskit.js'), 'full js');
-  writeFileSync(join(dir, 'canvaskit', 'canvaskit.wasm'), 'full wasm bytes');
-  writeFileSync(join(dir, 'canvaskit', 'chromium', 'canvaskit.js'), 'chromium js');
-  writeFileSync(join(dir, 'canvaskit', 'chromium', 'canvaskit.wasm'), 'chromium wasm');
   return dir;
 }
 
-function sizes(dir) {
-  const line = readFileSync(join(dir, 'pantas_sw.js'), 'utf8').split('\n').find(l => l.startsWith('const LOAD_SIZES = '));
-  return JSON.parse(line.slice('const LOAD_SIZES = '.length, line.indexOf(';')));
-}
+const total = dir => {
+  const match = readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8').match(/^window\.pantasLoadTotal = (\d+);/m);
+  return match ? Number(match[1]) : null;
+};
 
-test('every build lists main.dart.js alone, so a number can never stall below 100%', () => {
-  for (const local of [false, true]) {
-    const dir = bigBuild({local});
-    stamp(dir);
-    assert.deepEqual(sizes(dir), {'main.dart.js': 'main code'.length}, local ? 'local CanvasKit' : 'CDN CanvasKit');
-  }
+test('the worker script is byte-identical across stamps with different sizes', () => {
+  const a = bigBuild({main: 'short'});
+  const b = bigBuild({main: 'a much longer main script'});
+  stamp(a);
+  stamp(b);
+  assert.equal(readFileSync(join(a, 'pantas_sw.js'), 'utf8'), WORKER);
+  assert.equal(readFileSync(join(b, 'pantas_sw.js'), 'utf8'), WORKER);
 });
 
-test('the stamp step does not read the build config for CanvasKit', () => {
-  const dir = bigBuild({local: true});
-  writeFileSync(join(dir, 'flutter_bootstrap.js'), 'await pwa.registerWorker("1");\nnothing here');
+test('the main script size is written into the bootstrap', () => {
+  const dir = bigBuild({main: 'twelve bytes'});
   stamp(dir);
-  assert.deepEqual(Object.keys(sizes(dir)), ['main.dart.js']);
+  assert.equal(total(dir), 12);
 });
 
-test('no list file is written and the worker script keeps its other lines', () => {
-  const dir = bigBuild();
-  stamp(dir);
-  assert.equal(existsSync(join(dir, 'pantas_load_sizes.json')), false);
-  const lines = readFileSync(join(dir, 'pantas_sw.js'), 'utf8').split('\n');
-  assert.deepEqual([lines[0], lines[1], lines[3]], ["'use strict';", 'const VERSION = 1;', 'self.x = 1;']);
-});
-
-test('the sizes are not part of the build hash and stamping twice is stable', () => {
+test('stamping twice keeps one total line and the same version', () => {
   const dir = bigBuild();
   const first = stamp(dir);
-  const text = readFileSync(join(dir, 'pantas_sw.js'), 'utf8');
+  const text = readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8');
   assert.equal(stamp(dir), first);
-  assert.equal(readFileSync(join(dir, 'pantas_sw.js'), 'utf8'), text);
-  assert.equal(stamp(bigBuild()), first);
-  assert.notEqual(stamp(bigBuild({worker: WORKER + '\nself.y = 2;'})), first, 'worker code is still part of the hash');
+  assert.equal(readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8'), text);
+  assert.equal((text.match(/pantasLoadTotal/g) || []).length, 1);
 });
 
-test('a build with no main script leaves the worker unstamped', () => {
+test('a build with no main script gets no total, so the page shows the spinner only', () => {
   const dir = bigBuild();
   rmSync(join(dir, 'main.dart.js'));
   stamp(dir);
-  assert.match(readFileSync(join(dir, 'pantas_sw.js'), 'utf8'), /^const LOAD_SIZES = null;/m);
+  assert.equal(total(dir), null);
+  assert.ok(!/pantasLoadTotal/.test(readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8')));
 });
 
-test('a build with no worker script still stamps', () => {
-  const dir = build('code');
-  assert.match(stamp(dir), /^213919009-/);
+test('a stale total is removed when the main script is gone', () => {
+  const dir = bigBuild();
+  stamp(dir);
+  rmSync(join(dir, 'main.dart.js'));
+  stamp(dir);
+  assert.equal(total(dir), null);
+});
+
+test('the bootstrap keeps its worker version token and its other lines', () => {
+  const dir = bigBuild();
+  const version = stamp(dir);
+  const text = readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8');
+  assert.match(text, new RegExp(`registerWorker\\("${version}"`));
 });

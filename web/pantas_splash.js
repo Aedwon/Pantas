@@ -111,6 +111,32 @@
       closeNumber();
     }
 
+    // One message from the service worker. The worker knows no sizes: it posts
+    // the true bytes delivered, then done at the end of the stream, or stop, or
+    // cached when the file came from the device. The page holds the total the
+    // build stamped. Without a total there is no number. 100% needs done with
+    // exactly the total; any other count hides the number.
+    function message(data) {
+      if (!state.shown || state.gone || !data) return;
+      if (data.stop) {
+        stop();
+        return;
+      }
+      var total = env.loadTotal ? env.loadTotal() : null;
+      if (typeof total !== 'number' || !isFinite(total) || total <= 0) return;
+      if (data.cached) {
+        progress(total, total, true);
+        return;
+      }
+      var loaded = data.loaded;
+      if (typeof loaded !== 'number' || !isFinite(loaded) || loaded < 0) return;
+      if ((data.done === true && loaded !== total) || loaded > total) {
+        stop();
+        return;
+      }
+      progress(loaded, total, data.done === true);
+    }
+
     function removeNow() {
       // The safety timers can fire after the logo has already left.
       if (state.gone) return;
@@ -185,6 +211,7 @@
       isShown: function () {
         return state.shown;
       },
+      message: message,
       progress: progress,
       stop: stop,
       ready: ready,
@@ -227,6 +254,10 @@
         root.requestAnimationFrame(fn);
       });
     },
+    // The size of main.dart.js, written into flutter_bootstrap.js by the build.
+    loadTotal: function () {
+      return root.pantasLoadTotal;
+    },
     reducedMotion: function () {
       try {
         return root.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -240,9 +271,7 @@
   try {
     root.navigator.serviceWorker.addEventListener('message', function (event) {
       var data = event && event.data;
-      if (!data || data.type !== 'pantas-load-progress') return;
-      if (data.stop) splash.stop();
-      else splash.progress(data.loaded, data.total, data.done);
+      if (data && data.type === 'pantas-load-progress') splash.message(data);
     });
   } catch (_) {}
 })(typeof window !== 'undefined' ? window : globalThis);

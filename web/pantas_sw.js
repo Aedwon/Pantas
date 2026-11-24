@@ -25,10 +25,6 @@ const CACHE_PREFIX = 'pantas-shell-';
 const CACHE = CACHE_PREFIX + VERSION;
 const SCOPE = self.registration.scope;
 const NETWORK_TIMEOUT_MS = 4000;
-// Decoded size of each file the page loads from this origin before the first
-// frame. The build's stamp step writes it (tool/web/stamp_worker_version.mjs);
-// null means unstamped, and then the page shows no loading percent.
-const LOAD_SIZES = null; // stamped by tool/web/stamp_worker_version.mjs
 
 // Small files the app cannot start without. Fetched fresh when installing.
 const PRECACHE = [
@@ -157,8 +153,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
   if (NETWORK_FIRST.has(path)) {
-    const served = { cached: false };
-    event.respondWith(withProgress(event, path, served, networkFirst(event, request, served)));
+    event.respondWith(networkFirst(event, request));
     return;
   }
   if (isStaticPath(path)) {
@@ -205,7 +200,7 @@ async function navigate(event, request) {
   }
 }
 
-async function networkFirst(event, request, served = {}) {
+async function networkFirst(event, request) {
   const cache = await caches.open(CACHE);
   const network = fetch(request).then(async (response) => {
     if (isStorable(response)) await cache.put(request, response.clone());
@@ -216,7 +211,6 @@ async function networkFirst(event, request, served = {}) {
   } catch (_) {
     const stored = await cache.match(request, { ignoreSearch: true });
     if (stored) {
-      served.cached = true;
       event.waitUntil(network.catch(() => undefined));
       return stored;
     }
@@ -258,52 +252,33 @@ async function warmDeferredParts(cache, response) {
 }
 
 // ---- Loading progress (board A, Nov 25) -------------------------------------
-// The page shows a percent while the app's first files arrive. LOAD_SIZES is the
-// fixed list of those files and their decoded sizes, so the total is known
-// before the first byte. The worker reads no file and no cache for it.
+// The page shows a percent while main.dart.js, the biggest file, arrives. This
+// worker knows no sizes, and its bytes never depend on the build. For the
+// network response it passes the body through a counter and posts the true
+// bytes delivered to the page, then done at the end of the stream, or stop on an
+// error. The page holds the total the build stamped and decides what to show.
+// A cache hit is returned as the same stored response and only posts "cached".
 //
-// A listed file served from the cache is returned untouched (its compiled-code
-// cache must survive) and counts as received at once. A listed file from the
-// network has its body passed through a counter, so progress is bytes delivered
-// to the page. Nothing is cloned, nothing waits and no worker task is held open.
-// 100% (done) is posted only when every listed file has ended at exactly its
-// listed size. A wrong size, a failed request or an error stream posts a stop:
-// the page hides the number and shows the spinner only.
+// A rebuilt response skips Chromium's HTTP code cache. That only affects the
+// first load after an update, which has no code cache yet; later loads come from
+// Cache Storage, untouched. Nothing is cloned, nothing waits and no worker task
+// is held open for progress.
 
-const SIZES = readSizes(LOAD_SIZES);
+const PROGRESS_PATH = 'main.dart.js';
 const MAX_LOADS = 20;
 const loads = new Map();
 
-function readSizes(list) {
-  if (!list || typeof list !== 'object' || Array.isArray(list)) return null;
-  const files = new Map();
-  let total = 0;
-  for (const [name, size] of Object.entries(list)) {
-    if (!Number.isInteger(size) || size <= 0) return null;
-    files.set(name, size);
-    total += size;
-  }
-  return files.size > 0 ? { files, total } : null;
-}
-
 // Decided before any await: whether this request is counted at all.
 function pageLoad(event, path) {
-  if (!SIZES || !event.clientId || !SIZES.files.has(path)) return null;
+  if (path !== PROGRESS_PATH || !event.clientId) return null;
   let load = loads.get(event.clientId);
-  if (!load) {
-    load = {
-      seen: new Set(),
-      ended: new Set(),
-      delivered: 0,
-      lastPct: -1,
-      broken: false,
-      client: self.clients.get(event.clientId).catch(() => null),
-    };
-    loads.set(event.clientId, load);
-    if (loads.size > MAX_LOADS) loads.delete(loads.keys().next().value);
-  }
-  if (load.seen.has(path) || load.broken) return null;
-  load.seen.add(path);
+  if (load) return null;
+  load = {
+    broken: false,
+    client: self.clients.get(event.clientId).catch(() => null),
+  };
+  loads.set(event.clientId, load);
+  if (loads.size > MAX_LOADS) loads.delete(loads.keys().next().value);
   return load;
 }
 
@@ -321,41 +296,16 @@ function fail(load) {
   post(load, { stop: true });
 }
 
-function report(load) {
-  if (load.broken) return;
-  const pct = Math.min(99, Math.floor((load.delivered * 100) / SIZES.total));
-  if (pct <= load.lastPct) return;
-  load.lastPct = pct;
-  post(load, { loaded: load.delivered, total: SIZES.total, done: false });
-}
-
-// A file ended at exactly its listed size.
-function ended(load, path) {
-  if (load.broken) return;
-  load.ended.add(path);
-  if (load.ended.size === SIZES.files.size) {
-    load.lastPct = 100;
-    post(load, { loaded: SIZES.total, total: SIZES.total, done: true });
-  } else {
-    report(load);
-  }
-}
-
-function countBody(load, path, body) {
-  const size = SIZES.files.get(path);
-  let received = 0;
+function countBody(load, body) {
+  let loaded = 0;
   const counter = new TransformStream({
     transform(chunk, controller) {
       controller.enqueue(chunk);
-      received += chunk.byteLength;
-      if (received > size) return fail(load);
-      if (load.broken) return;
-      load.delivered += chunk.byteLength;
-      report(load);
+      loaded += chunk.byteLength;
+      if (!load.broken) post(load, { loaded });
     },
     flush() {
-      if (received !== size) return fail(load);
-      ended(load, path);
+      if (!load.broken) post(load, { loaded, done: true });
     },
   });
   // An error or a cancel on either side ends the numbers for this page load.
@@ -363,7 +313,7 @@ function countBody(load, path, body) {
   return counter.readable;
 }
 
-// Passes the answer to the page. Unlisted files come back as the same promise,
+// Passes the answer to the page. Other files come back as the same promise,
 // with no extra wait.
 function withProgress(event, path, served, pending) {
   const load = pageLoad(event, path);
@@ -375,15 +325,14 @@ function withProgress(event, path, served, pending) {
         return response;
       }
       if (served.cached) {
-        load.delivered += SIZES.files.get(path);
-        ended(load, path);
+        post(load, { cached: true });
         return response;
       }
       if (!response.body) {
         fail(load);
         return response;
       }
-      return new Response(countBody(load, path, response.body), {
+      return new Response(countBody(load, response.body), {
         status: response.status,
         statusText: response.statusText,
         headers: response.headers,

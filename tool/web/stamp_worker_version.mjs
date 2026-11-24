@@ -4,10 +4,9 @@
 // built file to the version in flutter_bootstrap.js, so each build gets its own
 // worker and cache.
 //
-// It also writes the decoded size of main.dart.js into pantas_sw.js, as its
-// LOAD_SIZES constant.
-// The service worker divides the bytes it delivers by that fixed total for the
-// loading percent. An unstamped worker (null) shows the spinner only.
+// It also writes the decoded size of main.dart.js into flutter_bootstrap.js, as
+// window.pantasLoadTotal, for the loading percent. The page holds the total; the
+// service worker script stays the same for every build and knows no sizes.
 //
 // Usage: node tool/web/stamp_worker_version.mjs [build/web]
 import {createHash} from 'node:crypto';
@@ -15,10 +14,8 @@ import {existsSync, readdirSync, readFileSync, statSync, writeFileSync} from 'no
 import {join, relative} from 'node:path';
 
 const BOOTSTRAP = 'flutter_bootstrap.js';
-const WORKER = 'pantas_sw.js';
 const MAIN = 'main.dart.js';
-const SIZES_LINE = /^const LOAD_SIZES = .*$/m;
-const SIZES_COMMENT = '// stamped by tool/web/stamp_worker_version.mjs';
+const TOTAL = /^window\.pantasLoadTotal = \d+;\n/m;
 const TOKEN = /registerWorker\("([^"]*)"/;
 
 function files(dir, root = dir) {
@@ -39,26 +36,9 @@ export function buildHash(dir) {
       delete metadata.pantasBuildVersion;
       bytes = JSON.stringify(metadata);
     }
-    // The stamped sizes are this hash's own output; hash the unstamped line.
-    if (name === WORKER) bytes = Buffer.from(bytes.toString().replace(SIZES_LINE, () => `const LOAD_SIZES = null; ${SIZES_COMMENT}`));
     hash.update(name).update('\0').update(bytes).update('\0');
   }
   return hash.digest('hex').slice(0, 12);
-}
-
-// Writes the size of the main script into the worker script, or null when the
-// build has none.
-export function writeLoadSizes(dir) {
-  const path = join(dir, WORKER);
-  if (!existsSync(path)) return null;
-  const size = name => (existsSync(join(dir, name)) ? statSync(join(dir, name)).size : null);
-  // Only the main script. CanvasKit comes from the CDN or from this origin,
-  // and from either folder by browser, so it is left out: a listed file that
-  // never arrives would stop the number short of 100%.
-  const sizes = size(MAIN) === null ? null : {[MAIN]: size(MAIN)};
-  const line = `const LOAD_SIZES = ${JSON.stringify(sizes)}; ${SIZES_COMMENT}`;
-  writeFileSync(path, readFileSync(path, 'utf8').replace(SIZES_LINE, () => line));
-  return sizes;
 }
 
 export function stamp(dir) {
@@ -68,8 +48,12 @@ export function stamp(dir) {
   if (!match) throw new Error(`No registerWorker("...") version in ${path}.`);
   const base = match[1].split('-')[0];
   const version = `${base}-${buildHash(dir)}`;
-  writeFileSync(path, source.replace(TOKEN, `registerWorker("${version}"`));
-  writeLoadSizes(dir);
+  // The bootstrap is left out of the hash, so its total line cannot change the
+  // version. No main script means no total, and the page shows the spinner only.
+  const main = join(dir, MAIN);
+  const total = existsSync(main) ? `window.pantasLoadTotal = ${statSync(main).size};\n` : '';
+  const stamped = source.replace(TOTAL, '').replace(TOKEN, `registerWorker("${version}"`);
+  writeFileSync(path, total + stamped);
   const metadataPath = join(dir, 'version.json');
   if (existsSync(metadataPath)) {
     const metadata = JSON.parse(readFileSync(metadataPath, 'utf8'));

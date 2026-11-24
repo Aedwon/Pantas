@@ -7,7 +7,9 @@ import { readFileSync } from 'node:fs';
 const require = createRequire(import.meta.url);
 const { create, FADE_MS, GIVE_UP_MS, NEVER_STARTED_MS, SPINNER_MS, NUMBER_CLOSE_MS } = require('../../web/pantas_splash.js');
 
-function setup({ welcomeShown = false, reduced = false } = {}) {
+function setup(opts = {}) {
+  const { welcomeShown = false, reduced = false } = opts;
+  const total = 'total' in opts ? opts.total : 1000;
   const classes = new Set();
   const timers = [];
   const links = [];
@@ -45,6 +47,7 @@ function setup({ welcomeShown = false, reduced = false } = {}) {
     onFirstFrame: (fn) => frameListeners.push(fn),
     mark: (name) => marks.push(name),
     printTiming: () => printed++,
+    loadTotal: () => total,
   });
   return {
     splash,
@@ -434,47 +437,83 @@ test('a stop before the spinner appears means no number at all', () => {
   assert.ok(!t.classes.has('ps-pct'));
 });
 
-test('the page forwards the stop message too', () => {
+test('the page forwards worker messages to the splash', () => {
   const src = readFileSync(new URL('../../web/pantas_splash.js', import.meta.url), 'utf8');
-  assert.match(src, /data\.stop/);
+  assert.match(src, /pantas-load-progress/);
+  assert.match(src, /pantasLoadTotal/);
 });
 
-test('Reduce Motion: "Loading 42%" on one line, then "Loading"', () => {
-  const t = setup({ reduced: true });
-  assert.ok(t.classes.has('ps-rm'));
+// The worker knows no sizes. It posts true byte counts; the page holds the
+// total the build stamped (UX lead, Nov 25, round 4).
+test('worker byte counts become a percent of the total the page holds', () => {
+  const t = setup({ total: 1000 });
   t.waited();
-  assert.ok(t.classes.has('ps-wait'));
-  assert.equal(t.lab.textContent, '');
-  t.splash.progress(42, 100);
-  assert.equal(t.lab.textContent, ' 42%');
+  t.splash.message({ loaded: 250 });
+  assert.equal(t.num.textContent, '25%');
+  t.splash.message({ loaded: 999 });
+  assert.equal(t.num.textContent, '99%');
   assert.ok(t.classes.has('ps-pct'));
-  t.splash.progress(100, 100, true);
+});
+
+test('100% only when done arrives with loaded exactly equal to the total', () => {
+  const t = setup({ total: 1000 });
+  t.waited();
+  t.splash.message({ loaded: 500 });
+  t.splash.message({ loaded: 1000, done: true });
+  assert.equal(t.num.textContent, '100%');
   t.closeNumber();
   assert.ok(!t.classes.has('ps-pct'));
 });
 
-test('without Reduce Motion the splash does not take the label look', () => {
-  const t = setup();
-  assert.ok(!t.classes.has('ps-rm'));
+test('a done with a different count than the total hides the number at once', () => {
+  for (const loaded of [999, 1001, 0]) {
+    const t = setup({ total: 1000 });
+    t.waited();
+    t.splash.message({ loaded: 500 });
+    assert.ok(t.classes.has('ps-pct'));
+    t.splash.message({ loaded, done: true });
+    assert.ok(!t.classes.has('ps-pct'), `done at ${loaded}`);
+    assert.ok(t.classes.has('ps-wait'));
+    t.splash.message({ loaded: 700 });
+    assert.ok(!t.classes.has('ps-pct'), 'it does not come back');
+  }
 });
 
-test('progress on a page without the splash does nothing', () => {
-  const t = setup({ welcomeShown: true });
-  t.splash.progress(42, 100);
+test('more bytes than the total, even before done, hides the number', () => {
+  const t = setup({ total: 1000 });
+  t.waited();
+  t.splash.message({ loaded: 500 });
+  t.splash.message({ loaded: 1200 });
   assert.ok(!t.classes.has('ps-pct'));
-  assert.equal(t.num.textContent, '');
 });
 
-test('progress after the splash has gone does nothing', () => {
-  const t = setup({ reduced: true });
-  t.splash.ready();
-  t.splash.progress(42, 100);
+test('with no total stamped the splash shows the spinner only', () => {
+  for (const total of [undefined, null, 0, -5, NaN, 'x']) {
+    const t = setup({ total });
+    t.waited();
+    t.splash.message({ loaded: 500 });
+    t.splash.message({ loaded: 1000, done: true });
+    assert.ok(t.classes.has('ps-wait'), String(total));
+    assert.ok(!t.classes.has('ps-pct'), String(total));
+    assert.equal(t.num.textContent, '', String(total));
+  }
+});
+
+test('a cached message means no number', () => {
+  const t = setup({ total: 1000 });
+  t.waited();
+  t.splash.message({ cached: true });
+  assert.ok(!t.classes.has('ps-pct'));
+  t.splash.message({ loaded: 500 });
   assert.ok(!t.classes.has('ps-pct'));
 });
 
-test('the page forwards the worker progress message to the splash', () => {
-  const src = readFileSync(new URL('../../web/pantas_splash.js', import.meta.url), 'utf8');
-  assert.match(src, /pantas-load-progress/);
+test('a stop message hides the number at once', () => {
+  const t = setup({ total: 1000 });
+  t.waited();
+  t.splash.message({ loaded: 500 });
+  t.splash.message({ stop: true });
+  assert.ok(!t.classes.has('ps-pct'));
 });
 
 test('the splash markup and styles match board A', () => {
