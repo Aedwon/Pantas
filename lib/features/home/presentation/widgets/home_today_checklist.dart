@@ -557,11 +557,17 @@ class HomeTodayChecklist extends StatelessWidget {
     );
   }
 
-  /// The board's time estimate is left out: no measured or published
-  /// figure gives today's minutes yet (AGENTS "Never invent a figure").
-  /// Aedwon decides.
-  String? _footerCaption(List<HomeTodayLesson> visible) =>
-      isMockDay ? 'The mock comes first today' : null;
+  /// The boards fill this slot with a time estimate ("About 45 min today").
+  /// No measured figure gives today's minutes (AGENTS "Never invent a
+  /// figure"), so it says what is left as real counts instead (U24, lead
+  /// copy under rule 4, Nov 25).
+  String? _footerCaption(List<HomeTodayLesson> visible) => isMockDay
+      ? 'The mock comes first today'
+      : homeLeftLine(
+          lessons: visible.where((l) => !l.read).length,
+          reviews: reviewsTotal - reviewsDone,
+          newQuestions: newTotal - newDone,
+        );
 
   String? get _doneDetail => switch (doneNote) {
         HomeDoneNote.reviewWeek => 'This last week is reviews only, so '
@@ -668,4 +674,20 @@ class HomeTodayHeader extends StatelessWidget {
                 ],
               ),
             );
+}
+
+/// What is left today as counts, "2 lessons, 18 reviews left". Zero kinds are
+/// left out; nothing left gives null, so the slot stays empty.
+String? homeLeftLine({
+  required int lessons,
+  required int reviews,
+  required int newQuestions,
+}) {
+  String count(int n, String one, String many) => '$n ${n == 1 ? one : many}';
+  final parts = [
+    if (lessons > 0) count(lessons, 'lesson', 'lessons'),
+    if (reviews > 0) count(reviews, 'review', 'reviews'),
+    if (newQuestions > 0) count(newQuestions, 'new question', 'new questions'),
+  ];
+  return parts.isEmpty ? null : '${parts.join(', ')} left';
 }
