@@ -13,6 +13,7 @@ import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/quiz/presentation/quiz_review_page.dart';
@@ -187,6 +188,21 @@ void main() {
         expect(
           find.text(view == 'all' ? '4 of 5 correct' : '2 of 5 correct'),
           findsOneWidget,
+        );
+        // QV_All: the score line is 15/400 secondary text, 2 px under the
+        // title (P20).
+        final scoreLine = view == 'all' ? '4 of 5 correct' : '2 of 5 correct';
+        final score = tester.widget<Text>(find.text(scoreLine));
+        expect(
+          score.style!.color,
+          tester.element(find.text(scoreLine)).colors.textSecondary,
+        );
+        final heading = tester.getRect(
+          find.text(view == 'all' ? 'All questions' : 'Your mistakes'),
+        );
+        expect(
+          tester.getRect(find.text(scoreLine)).top - heading.bottom,
+          closeTo(2, .5),
         );
         expect(find.text('3'), findsOneWidget);
         expect(find.text('1'), findsOneWidget);
