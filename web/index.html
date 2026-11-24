@@ -202,8 +202,9 @@
       display: none;
       position: fixed; inset: 0; z-index: 2147482000;
       flex-direction: column; align-items: center; justify-content: center;
-      /* Bottom padding of 16% puts the group's center at 42% of the height,
-         a little above the middle, where it reads centered. */
+      /* Phone: bottom padding of 16% puts the group's center at 42% of the
+         height, a little above the middle, where it reads centered. Wide web
+         removes it below. */
       padding-bottom: 16vh; padding-bottom: 16dvh;
       background: var(--bg); color: var(--tx);
       font-family: 'Geist', -apple-system, 'Segoe UI', sans-serif;
@@ -231,6 +232,9 @@
       animation: ps-rise .5s cubic-bezier(.2,.9,.3,1) .35s both;
     }
     @media (min-width: 1024px) {
+      /* Wide web centers the group on the page (Web_B_Still); the lift above is
+         the phone's. */
+      #pantas-splash { padding-bottom: 0; }
       #pantas-splash svg { width: 120px; height: 120px; }
       #pantas-splash .ps-wm { font-size: 42px; }
     }
