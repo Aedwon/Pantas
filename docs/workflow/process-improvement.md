@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Reader request turned into a redesign he did not ask for (Nov 25)
+
+- His words: "i don't understand the reader line, i just wanted you to maybe remove the lesson indicator on top because it gets so long when there's a lot of lessons in a certain topic, and especially so after the instruction to make the lessons bite-sized. for the thing that indicates how far along you are in the lesson itself, no changes". His original request words are not recorded on main; the manager's brief (E-149) said only "reader progress bar replacement, 2 or 3 options".
+- Wrong: the UX lead drew three options to replace the in-lesson section line on wide web. He wanted one thing removed (the lesson indicator at the top that grows with the number of lessons in a topic) and the in-lesson progress left alone.
+- Why it got through: the manager paraphrased his request into a design task, and the lead designed from the paraphrase. This is the same kind as the Nov 24 entry on a paraphrased ruling, so it moves up from "relay in his exact words" (operations-manager.md) to a required step with a stop.
+- Fix (required step, manager and every lead): every brief that carries a request from Aedwon has a line "His words:" with his exact words, pasted. A lead that gets a brief without that line asks the manager for it before starting work. The lead's first line back restates what he asked for in one plain sentence. No check can judge whether a paraphrase kept his meaning.
+
 ### Lead threads reused with large old context (Nov 24)
 
 - His words: "process improvement: you are reusing lead threads that have lots of context from previous tasks. i think that's inefficient. we should save tokens. as the operations manager it's your job to make the process efficient. propose a solution and i'll approve ot". Approved: "ok approved".
