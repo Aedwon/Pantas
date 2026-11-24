@@ -107,6 +107,11 @@ export async function deleteUserData(
     .bucket()
     .deleteFiles({ prefix: `wrapped/${uid}/` });
 
+  // Question reports hold what the student wrote and name the account. The counts that limit them
+  // sit in the user tree and went with it.
+  const reports = await db.collection('questionReports').where('accountId', '==', uid).get();
+  await Promise.all(reports.docs.map((doc) => doc.ref.delete()));
+
   // Removing objects also invalidates previously issued bearer download URLs.
   await getStorage().bucket().deleteFiles({prefix: `betaFeedback/${uid}/`});
 

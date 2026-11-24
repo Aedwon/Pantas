@@ -9,7 +9,7 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
 import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
-import 'package:pantas/core/storage/data/report_queue.dart';
+import 'package:pantas/core/platform/report_providers.dart';
 import 'package:pantas/core/storage/data/repos/assessment_repository.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -454,9 +454,11 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                         final sent = await openQuestionReport(
                           context,
                           question.id,
-                          queue: ReportQueue(ref.read(appDatabaseProvider)),
+                          queue: ref.read(reportQueueProvider),
+                          examId: widget.examId,
+                          questionVersion: question.version,
                         );
-                        if ((sent ?? false) && mounted) {
+                        if (sent != null && mounted) {
                           setState(() => _reported.add(question.id));
                         }
                       },
@@ -518,13 +520,11 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                                       final sent = await openQuestionReport(
                                         context,
                                         question.id,
-                                        queue: ReportQueue(
-                                          ref.read(
-                                            appDatabaseProvider,
-                                          ),
-                                        ),
+                                        queue: ref.read(reportQueueProvider),
+                                        examId: widget.examId,
+                                        questionVersion: question.version,
                                       );
-                                      if ((sent ?? false) && mounted) {
+                                      if (sent != null && mounted) {
                                         setState(
                                           () => _reported.add(question.id),
                                         );

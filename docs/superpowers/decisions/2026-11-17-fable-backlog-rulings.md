@@ -975,3 +975,81 @@ One choice: A, B, C or D. Nothing is built until he chooses. H1 and T18 proceed 
   6. Stop rule: one more Codex round, asked only whether items 1 to 4 pass, naming a document and field for any fail. Findings that need a join across rows, the server secret or timing inference are recorded, not fixed. Merge on four passes plus the worker's green emulator run.
   7. Residual: for at most 8 days, someone holding the server secret and the full database could join a counter to a closed request. Accepted under H1's exclusion. No lawyer reviewed this.
 - Process note (lead): the T18 brief quoted H1(b) without its last sentence; briefs now quote rulings in full.
+
+### C6. Phone Pro page: the required tick card is below the fold and Pay is off with no reason (UX design lead, Fable 5.2 agreed, Nov 24)
+
+- Asked by the CSE release lead for PR #90 (checkout declaration, D2 option T). At 390 x 844 on first view, the plans push the tick card below the fold. The fixed bar shows Pay disabled and nothing says why. Board S4P_T avoided this with a shorter plans block; the real page has five hero bullets and a yearly plan. Renders: `cse-checkout-decl` build, `render/r6/sheet_phone390_*.png`.
+- Options: (1) a one-line hint under Pay while it is off; (2) tapping the disabled Pay scrolls the card into view and focuses it; (3) move the card into the bottom bar.
+- Ruling: 1 and 2 together; 3 rejected (five lines of fixed legal text would take about 150 px of 844 and hide the plans).
+- Hint: the bar's status line (the slot that shows "Read the box again, then tick it to pay.") reads "Tick the box to pay." while Pay is off. The same words are Pay's accessibility hint. The status line's height is always reserved, so the bar never changes height. On tick the hint fades out over 150 ms. No direction words: the hint sits at the bottom of the screen.
+- Pay: keeps the approved disabled look but stays tappable and focusable; screen readers hear a button with the hint, not "dimmed". A tap or Enter while off: if the card is not fully visible, it scrolls into view to rest 16 px above the bar (400 ms, `cubic-bezier(.32,.72,0,1)`); then focus moves to the tick and the app's ring pulse plays once on it (0.7 s, ease-out), never during the scroll. If the card is already visible: focus and pulse only. Reduced motion: the scroll jumps, no pulse.
+- Fable 5.2 (high) agreed and added the reserved status line, skipping the scroll when the card is visible, and the screen reader rule.
+
+### C7. The adult mark kept after a guardian request ends is outside H1(b) (Fable 5.2 advisor, Nov 24)
+
+- Asked by the CSE release lead under the C5 stop rule. The final Codex check passed C5 items 2 to 4 and failed item 1: after decline or expiry, `users/{uid}/server/guardianConsent` can remain with `ageGroup: 'adult'` and `adultSince`.
+- Ruling, verbatim: "A. Item 1 passes and T18 merges with no code change."
+  1. Scope: H1(b) tests for a record that links the account to a guardian request. The kept mark holds no request field, only the account holder's own statement that they are 18. An adult made that statement, so H1's missing guardian basis does not apply.
+  2. Purpose: the mark stops a new under-18 request. Deleting it would reverse an earlier required fix.
+  3. Time check: `adultSince` cannot match the decline evidence (the decline reads its own clock in a later write; an expiry writes no evidence). It equals `revokedAt` on guardian page links revoked by the same act, but ending the request deletes every such link. Retained answer links keep only a coarse end day.
+  4. C5 item 1 should read "no request document".
+- Recorded, not fixed in T18:
+  - `adultSince` equals `decidedAt` on the `became_adult` evidence row (on main before T18). Both sit under the same account ID, so the time adds no link. Whether a `became_adult` row may sit in the evidence at all, against R6's "Adult declarations never enter the evidence (R2)", needs its own ruling. Sent to the legal lane through the operations manager.
+  - The mark exists only where a request once existed; dropping `adultSince` would not remove that inference.
+
+## Nov 24, became_adult evidence row
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation. The ruling is final and is not queued for his sign-off. Legal sign-off on the final texts stays his. This agent wrote no legal text: wording named below goes to the text lane and to Sol High (rule 5). No lawyer reviewed anything here, and this agent is not a lawyer.
+
+- Asked by ruling C7 ("needs its own ruling").
+- Policy read at `origin/main` 6ff6f6889: `AGENTS.md`, `docs/workflow/process-improvement.md` (rules 5, 7, 9), and in this file D1 to D8, legal rounds 2 and 3, the under-18 flag options, C5 and C7.
+- Code read: main 6ff6f6889 (`functions/src/guardianConsent.ts`, `deleteUserData.ts`, `purgeInactiveAccounts.ts`, `lib/features/onboarding/presentation/onboarding_age_gate_step.dart`), PR #90 `qa/checkout-declaration-r1` 6177b6898, PR #95 `qa/guardian-d1-r1` f021040f0.
+- Text read: `legal/public-launch-r1` 5a50ef3bd, `teen-notice.md` and `privacy-policy.md`.
+- Standards applied: Data Privacy Act Sections 11(e) and (f), 13(a) and 13(f); Civil Code Articles 1144 and 1391, as R6 used them. No sheet exists in `agent-standards` for privacy law.
+- Velocity: this pass was not timed. It changed documents only. The size below is an estimate.
+
+### What was checked
+
+1. **What the row is.** When a student in the under-18 group says they are 18, the server marks the account adult, revokes the guardian page links, and adds one row to the guardian evidence. The row holds the action `became_adult` and the time, and nothing else (`guardianConsent.ts:517-519`). PR #95 leaves this as it is (`:650-652` there).
+2. **It is written whether or not a guardian confirmed.** The only tests are: the record is in the under-18 group, has not switched before, and is not withdrawn (`:511-516`). A pending request passes. On main, a declined or flag-only record passes too. The app calls it from the age recheck (`onboarding_age_gate_step.dart:234`).
+3. **One such row keeps the evidence after deletion.** Account deletion keeps the evidence and writes its marker when any answer row exists (`deleteUserData.ts`, `keepGuardianEvidence`). So an account with no guardian answer and one `became_adult` row leaves a record under its account ID.
+4. **PR #90 counts the row as a reason for ten years.** Its period test asks for any row whose action is not `decline` (`purgeInactiveAccounts.ts` on PR #90). A decline plus a `became_adult` row is kept ten years, and so is a `became_adult` row alone. R6's words give the first case four years and do not name the second.
+5. **No other row can exist without a confirmation, except a decline.** A sharing change and a withdrawal both need a confirmed record.
+6. **After the switch, no purchase is copied.** Checkout uses the guardian wording only when the record is confirmed and still under 18 (PR #90, `paymongoCheckout.ts:69`). Later purchases carry the adult declaration, which R2 keeps out of the evidence.
+7. **The texts say the server records the statement, but no evidence list names it.** Teen Notice: "our servers record that you are 18 or older". The three lists of guardian evidence name answers, withdrawal and guardian purchase declarations only: the Teen Notice deletion paragraph, its "Guardian evidence" bullet, and the Privacy Policy line "limited guardian evidence".
+8. Not checked: how many `became_adult` rows exist on prod or staging, and live behavior. Aedwon's choice among options A to D above is not recorded on main.
+
+### Ruling
+
+1. **R6 does not cover it.** In R2 and R6, "adult declarations" means the adult declaration ticked at checkout. The `became_adult` row is not a purchase declaration: no purchase, another function, another purpose. So R6's sentence does not forbid it. R6's period list did not place it either. This ruling does.
+2. **The row stays where a guardian confirmed, unchanged. It is no longer written where no guardian confirmed, and existing rows of that kind are deleted.**
+   - With a confirmation, the row is the end date of the guardian's permission, in the account holder's own words. It shows why the guardian's links stopped, and that later purchases were the adult's own. That is the same legal-claims purpose as the rest of the evidence (Section 13(f)), and the guardian's permission covers the under-18 label it implies (Section 13(a)).
+   - With no confirmation, the row records no guardian act and no contract. Its only content is that this account once had a guardian request, kept under the account ID for ten years after deletion. That is the record D1 and H1 exist to remove, and it cannot pass the "necessary" test. The adult mark on the account already stops a new under-18 request (C7), so nothing depends on the row.
+3. **The row has no period of its own.** It follows the evidence it sits in, which always holds a confirmation: 3,653 days from the newest record, once the account is gone. It counts as a record for "newest". It never chooses the period. The statement is not verified, so it does not shorten the period, and the Article 1144 reason does not depend on age.
+4. **Rejected: text only, with the row kept in every case.** The texts would then have to describe a ten-year record with no purpose for an account no guardian answered.
+
+### Code change. Gate, about 0.25 day
+
+1. The adult switch writes the `became_adult` row only when the record's status is confirmed. Everything else in the switch is unchanged. Tests fail first: a pending record that switches leaves no evidence row; a confirmed record still gets one.
+2. The evidence period test becomes positive: ten years only when the evidence holds a confirmation, a withdrawal or a guardian purchase. Otherwise four years. Test fails first: a decline plus a `became_adult` row is released at four years. This makes the code match R6's words whatever rows exist.
+3. One-time removal: delete every `became_adult` row in evidence that holds no confirmation, and the evidence parent if nothing is left under it. Count it against the free tier first (rule 7). It joins T18's one-time removal if that has not run on prod, else it runs alone. Expected count is near zero: the beta had one under-18 tester, confirmed.
+4. PR #95 is not reopened: C7 stands and it merges as ruled. Items 1 and 3 go in a follow-up after it merges. Item 2 goes in PR #90 if it is still open, else in the same follow-up. The lead's normal review applies. No new Codex loop is required.
+5. Gate, because the change shortens what is kept: after opening it needs the rule 9 email, and the texts must be true on the day they publish (H5). Add one row to the H5 table: an unconfirmed account that says it is 18 leaves no evidence row, checked live on prod.
+
+### Text changes (for the legal lane, rule 5)
+
+1. Teen Notice, the "When you turn 18" paragraph: if a guardian had confirmed the account, the date of this statement joins the guardian evidence.
+2. The three evidence lists in check 7: add that date, for an account a guardian confirmed.
+3. No period sentence changes. After the code change every evidence set either holds a confirmation, a withdrawal or a guardian purchase (ten years) or holds only declines (four years).
+4. Sol High critiques the changed paragraphs in the next round, and confirms Section 13(f) for this row.
+5. These sentences publish only after the code change is on prod (H5).
+
+### What needs Aedwon
+
+Nothing. The ruling holds under each of options A to D. Under C the unconfirmed case can arise only for requests open at the opening.
+
+### Recorded, not ruled
+
+- After the switch on a pending request, the request stays open until it expires, and a guardian can still answer it (read in `guardianConsent.ts` on PR #95; not tested). The guardian's contact data then stays up to seven days with no use. Recommended, at the lead's call and not a gate: the switch ends an unconfirmed request the way an expiry does.
+- The same three evidence lists do not name the guardian's sharing changes, which the evidence also holds (`sharing_on`, `sharing_off`, main `guardianConsent.ts:451`). The text lane decides whether "the guardian's answers" covers them.
+- R6's line "Adult declarations never enter the evidence (R2)" should read "Adult purchase declarations". C7 read it as possibly wider.

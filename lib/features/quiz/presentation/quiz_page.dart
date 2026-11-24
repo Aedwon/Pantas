@@ -7,6 +7,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/platform/report_providers.dart';
 import 'package:pantas/core/platform/route_leave_guard.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -687,6 +688,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   final ScrollController _questionScroll = ScrollController();
   final Set<String> _reported = {};
   String? _reportStatus;
+  ReportDelivery _reportDelivery = ReportDelivery.saved;
   Timer? _reportTimer;
   final LayerLink _barLink = LayerLink();
 
@@ -837,9 +839,11 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                       final saved = await openQuestionReport(
                         context,
                         question.id,
-                        queue: ReportQueue(ref.read(appDatabaseProvider)),
+                        queue: ref.read(reportQueueProvider),
+                        examId: widget.examId,
+                        questionVersion: question.version,
                       );
-                      if ((saved ?? false) && mounted) {
+                      if (saved != null && mounted) {
                         setState(() => _reported.add(question.id));
                       }
                     },
@@ -1261,7 +1265,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                     children: [
                       if (_reportStatus == question.id)
                         Text(
-                          'Saved on this device.',
+                          reportDeliveryText(_reportDelivery),
                           style: t.sm,
                         ),
                       WebTopBarButton(
@@ -1270,15 +1274,16 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           final saved = await openQuestionReport(
                             context,
                             question.id,
-                            queue: ReportQueue(
-                              ref.read(appDatabaseProvider),
-                            ),
+                            queue: ref.read(reportQueueProvider),
+                            examId: widget.examId,
+                            questionVersion: question.version,
                           );
-                          if ((saved ?? false) && mounted) {
+                          if (saved != null && mounted) {
                             _reportTimer?.cancel();
                             setState(() {
                               _reported.add(question.id);
                               _reportStatus = question.id;
+                              _reportDelivery = saved;
                             });
                             _reportTimer = Timer(
                               const Duration(seconds: 4),
