@@ -703,6 +703,9 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                         : 'New questions',
             open: _sheet != null && data != null,
             drawer: true,
+            closeTop: _sheet == 'reviews'
+                ? HomeWebOverlay.oneLineCloseTop
+                : HomeWebOverlay.twoLineCloseTop,
             onDismiss: _dismiss,
             child: data == null ? const SizedBox.shrink() : _contents(data),
           );
