@@ -51,10 +51,8 @@ String? planHistoryText(RoadmapChange change, {required String examName}) =>
       RoadmapChangeCause.backlogCapped =>
         'More reviews were due than one day holds. '
             'The rest wait for the next days.',
-      // Board DP_History. A legacy row stored no count.
-      RoadmapChangeCause.advanced when (change.advancedCompleted ?? 0) > 0 =>
-        "You added tomorrow's lessons to today and finished both of them.",
-      RoadmapChangeCause.advanced => "You added tomorrow's lessons to today.",
+      RoadmapChangeCause.advanced when change.advancedCompleted == null =>
+        "You added tomorrow's lessons to today.",
       RoadmapChangeCause.newDay || RoadmapChangeCause.prerequisiteCycle => null,
       _ => 'Your plan changed on '
           '${DateFormat('MMM d', 'en_US').format(change.occurredAt)}.',
