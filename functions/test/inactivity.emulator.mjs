@@ -253,6 +253,60 @@ test('evidence is kept until ten years after the newest answer, then deleted', a
   assert.equal(await exists('ev-b'), false, 'ten years plus a day');
 });
 
+test('sharing expires at 1,461 days after deletion and leaves the confirmation', async () => {
+  await clear();
+  const evidence = db.doc('guardianConsentEvidence/ev-sharing');
+  const responses = evidence.collection('responses');
+  const confirmation = responses.doc('confirmation');
+  const sharing = [responses.doc('on'), responses.doc('off')];
+  const deletedAt = NOW - DAY;
+  const decidedAt = deletedAt - DAY;
+  await evidence.set({accountDeletedAt: deletedAt, reason: 'user_request'});
+  await confirmation.set({action: 'confirm', decidedAt, sharingAllowed: false});
+  await sharing[0].set({action: 'sharing_on', decidedAt: deletedAt});
+  await sharing[1].set({action: 'sharing_off', decidedAt: deletedAt});
+
+  await purge([], deletedAt + 1460 * DAY);
+  assert.deepEqual((await db.getAll(...sharing)).map(row => row.exists), [true, true]);
+  assert.equal((await confirmation.get()).get('sharingAllowed'), false);
+  await purge([], deletedAt + 1461 * DAY);
+  assert.deepEqual((await db.getAll(...sharing)).map(row => row.exists), [false, false]);
+  assert.deepEqual((await confirmation.get()).data(), {action: 'confirm', decidedAt});
+});
+
+test('a sharing change in year five leaves confirmation evidence due in year ten', async () => {
+  await clear();
+  const evidence = db.doc('guardianConsentEvidence/ev-sharing-newest');
+  const sharedAt = NOW + 1826 * DAY;
+  await evidence.set({accountDeletedAt: sharedAt, reason: 'user_request'});
+  await evidence.collection('responses').doc('confirmation').set({action: 'confirm', decidedAt: NOW});
+  await evidence.collection('responses').doc('sharing').set({action: 'sharing_on', decidedAt: sharedAt});
+
+  await purge([], evidenceNow(NOW) - 1);
+  assert.equal(await exists(evidence.id), true);
+  await purge([], evidenceNow(NOW));
+  assert.equal(await exists(evidence.id), false);
+});
+
+test('legacy sharing survives until 1,461 days after first seeing the deleted account', async () => {
+  await clear();
+  const evidence = db.doc('guardianConsentEvidence/ev-legacy-sharing');
+  const responses = evidence.collection('responses');
+  const confirmation = responses.doc('confirmation');
+  const sharing = responses.doc('sharing');
+  const decidedAt = NOW - YEARS10 - DAY;
+  await confirmation.set({action: 'confirm', decidedAt, sharingAllowed: true});
+  await sharing.set({action: 'sharing_off', decidedAt});
+
+  await purge([], NOW);
+  assert.deepEqual((await evidence.get()).data(), {accountDeletedAt: NOW, reason: 'legacy'});
+  await purge([], NOW + 1460 * DAY);
+  assert.equal((await sharing.get()).exists, true);
+  assert.equal((await confirmation.get()).get('sharingAllowed'), true);
+  await purge([], NOW + 1461 * DAY);
+  assert.equal(await exists(evidence.id), false);
+});
+
 test('a later purchase attestation moves the end date', async () => {
   await clear();
   const decided = Date.parse('2026-11-09T10:00:00+08:00');

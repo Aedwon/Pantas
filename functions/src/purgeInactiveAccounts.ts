@@ -25,6 +25,7 @@ export const EVIDENCE_KEEP_DAYS = 3653;
 // Evidence without a confirmation, withdrawal or guardian purchase is kept four years
 // (4 x 365 days plus the 2028 leap day).
 export const SHORT_EVIDENCE_KEEP_DAYS = 1461;
+const SHARING_KEEP_DAYS = 1461;
 // A pending deletion is retried by the daily run an hour after its last attempt, so a live attempt is
 // left alone. At most this many retries run per day, so failing tasks cannot use up the whole cap.
 export const RETRY_AFTER_MS = DELETION_RETRY_MS;
@@ -259,7 +260,8 @@ type EvidenceDeps = {db: Firestore; auth: Pick<Auth, 'getUser'>; now?: () => num
  * Deletes guardian evidence once the account is gone and the retention period has elapsed.
  * Confirmation, withdrawal or guardian purchase evidence sets a ten-year period. Other evidence
  * has a four-year period. The period runs from the newest record, or the deletion marker if
- * there are no dated records. If a deleted account lacks a marker, the job writes one now.
+ * there are no dated records. Sharing evidence has its own period from account deletion.
+ * If a deleted account lacks a marker, the job writes one now.
  *
  * Each run checks at most `budget` marked parents, then at most `budget` answer records to find
  * parents with no marker. A saved cursor resumes where the last run stopped and wraps to the start
@@ -287,19 +289,36 @@ export async function purgeExpiredEvidence(deps: EvidenceDeps): Promise<number> 
         deletedAt = now;
         await evidence.set({accountDeletedAt: now, reason: 'legacy'}, {merge: true});
       }
-      const [answers, purchases, confirmationsOrWithdrawals] = await Promise.all([
-        evidence.collection('responses').orderBy('decidedAt', 'desc').limit(1).get(),
-        evidence.collection('purchases').orderBy('attestedAt', 'desc').limit(1).get(),
-        evidence.collection('responses').where('action', 'in', ['confirm', 'withdraw']).limit(1).get()]);
-      const keepDays = !confirmationsOrWithdrawals.empty || !purchases.empty
+      const responses = evidence.collection('responses');
+      const [answers, purchases] = await Promise.all([
+        responses.where('action', 'in', ['confirm', 'decline', 'withdraw', 'became_adult']).get(),
+        evidence.collection('purchases').orderBy('attestedAt', 'desc').limit(1).get()]);
+      const confirmations = answers.docs.filter((row) => row.get('action') === 'confirm');
+      const keepDays = confirmations.length > 0 || !purchases.empty ||
+        answers.docs.some((row) => row.get('action') === 'withdraw')
         ? EVIDENCE_KEEP_DAYS
         : SHORT_EVIDENCE_KEEP_DAYS;
       const dates = [...answers.docs.map((row) => row.get('decidedAt')), ...purchases.docs.map((row) => row.get('attestedAt'))]
         .filter((value): value is number => typeof value === 'number');
       const newest = dates.length > 0 ? Math.max(...dates) : deletedAt;
-      if (now >= newest + keepDays * DAY_MS) {
+      const evidenceExpired = now >= newest + keepDays * DAY_MS;
+      const sharingExpired = now >= deletedAt + SHARING_KEEP_DAYS * DAY_MS;
+      const sharingChoices = confirmations.filter((row) => row.get('sharingAllowed') !== undefined);
+      const sharing = responses.where('action', 'in', ['sharing_on', 'sharing_off']);
+      if (evidenceExpired) {
+        // Keep the confirmation and any sharing rows until the sharing retention period ends.
+        if (!sharingExpired && (sharingChoices.length > 0 || !(await sharing.limit(1).get()).empty)) return;
         await deps.db.recursiveDelete(evidence);
         removed += 1;
+      } else if (sharingExpired) {
+        const changes = await sharing.get();
+        if (changes.empty && sharingChoices.length === 0) return;
+        const writer = deps.db.bulkWriter();
+        const writes = [
+          ...changes.docs.map((row) => writer.delete(row.ref)),
+          ...sharingChoices.map((row) => writer.update(row.ref, {sharingAllowed: FieldValue.delete()})),
+        ];
+        await Promise.all([...writes, writer.close()]);
       }
     } catch (error) {
       logger.error('Evidence purge failed for one record', {reason: 'evidence-purge-failed'});
