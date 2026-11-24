@@ -21,7 +21,7 @@ Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Services, a sole 
 Place of business: 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines
 
 Questions about your data: dpo@pantas.study, or by post at the address above
-Help or payment problems: support@pantas.study or [business phone]
+Help or payment problems: support@pantas.study or +63 968 854 2343
 
 ## Why we ask your age
 

@@ -28,7 +28,7 @@ Every item is a bracket in the texts or a claim only he can confirm. Nothing is 
 2. Done: DTI Business Name No. 8567107.
 3. Done: BIR registration read from the Certificate of Registration. He is not VAT-registered and uses the 8% income tax option, so the Terms say the price has no VAT in it. Watch: if gross sales pass the VAT threshold and he registers, that sentence and the price line must change. The TIN is not in any text (see the TIN note below). The BIR Registration Seal Badge is a publishing step.
 4. Done: place of business 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines (the BIR registered address). The critique says a Terms page alone is not enough: the seller details also belong on the homepage (decision D3).
-5. Business phone. Supplied Nov 18 but not recorded in the repository, so it is a bracket.
+5. Done: business phone +63 968 854 2343 (supplied Nov 18).
 6. Publication date. It becomes the version stamp (see "Publishing steps").
 7. NPC registration: whether the business must register. The critique says age-based access decisions and the study-style label may meet the registration test even for a sole proprietor. Confirm the classification, register if required, and add the seal after it is issued. Leave the bracket out only if not required.
 8. Commitments only he can keep: the refund reply within [5] business days; five years of tax books, sales invoices, receipts and refund evidence outside the app (the Privacy Policy now says the business keeps these); a working mailbox for dpo@pantas.study and support@pantas.study.
@@ -172,9 +172,9 @@ A required tick beside the Pay button. "Terms and refund policy" links to the Te
 
 ### Seller line (D3)
 
-Beside the Pay button: "Sold by Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · [business phone] · support@pantas.study"
+Beside the Pay button: "Sold by Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · +63 968 854 2343 · support@pantas.study"
 
-Website footer (homepage): "Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · [business phone] · support@pantas.study"
+Website footer (homepage): "Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · +63 968 854 2343 · support@pantas.study"
 
 The brackets are facts only Aedwon has (checklist L3). Neither line ships with a bracket in it.
 
@@ -288,8 +288,8 @@ Critique: `critique-2026-11-24b-sol-high.md`, the new sentences only. Wording fi
 
 ## Nov 24: business facts filled
 
-Filled from the private facts file (DTI and BIR certificates): registered name, DTI Business Name No. 8567107, the place of business, and the price tax statement. Still brackets, which only Aedwon can fill: business phone, publication date, NPC registration, plus the practice claims in the "Facts Aedwon supplies" list.
+Filled from the private facts file (DTI and BIR certificates): registered name, DTI Business Name No. 8567107, the place of business, and the price tax statement. Business phone filled too (+63 968 854 2343, supplied Nov 18). Still brackets, which only Aedwon can fill: publication date, NPC registration, plus the practice claims in the "Facts Aedwon supplies" list.
 
 **TIN note.** No text carries the TIN. RA 11967 Section 23(f)(1) (read on lawphil) requires an e-retailer to publish the business name, the address of the place of business, and a mobile or landline number plus a valid email. It does not mention a TIN. I could not cite a BIR rule or JAO 24-03 provision that requires a TIN on the website or in the Terms, and I did not read the JAO in full. BIR invoice rules do require a TIN on invoices (from memory, not verified here). Put the TIN on the sales invoice when the invoice process exists. Do not commit it to the public repo.
 
-**Phone.** RA 11967 Section 23(f)(1) requires a mobile or landline number on the homepage, so the phone bracket must be filled before publishing.
+**Phone.** RA 11967 Section 23(f)(1) requires a mobile or landline number on the homepage. The number is filled in the texts. The website footer and the app build input must show the same number.

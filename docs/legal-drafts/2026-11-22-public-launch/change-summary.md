@@ -139,4 +139,5 @@ Codex Sol High critiqued only these changes (`critique-2026-11-23b-sol-high.md`)
 - **Price line:** the Terms now say Pantas is not registered for VAT, so the price has no VAT in it. If you register for VAT later, this sentence must change.
 - **TIN:** left out of every text. The Internet Transactions Act does not require showing it on the site. Put it on invoices, not in the public repo.
 - **BIR seal badge:** added to the README publishing steps. Your certificate says online businesses must show it on the website.
-- **Still yours to fill:** business phone (the law requires one on the homepage), publication date, NPC registration.
+- **Business phone:** filled (+63 968 854 2343, from your Nov 18 message). The law requires one on the homepage, so the website footer must show it.
+- **Still yours to fill:** publication date, NPC registration.

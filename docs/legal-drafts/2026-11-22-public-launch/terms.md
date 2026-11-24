@@ -15,7 +15,7 @@ Aerol Dwayne Daños Balayon operates Pantas as a sole proprietor under the trade
 
 Place of business: 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines
 
-For purchases and complaints: support@pantas.study or [business phone]
+For purchases and complaints: support@pantas.study or +63 968 854 2343
 For privacy questions: dpo@pantas.study
 
 "Pantas", "we" and "us" mean the business named above. "You" means the person who uses Pantas.
