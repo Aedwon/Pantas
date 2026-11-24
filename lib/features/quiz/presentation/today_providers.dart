@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
@@ -34,6 +35,7 @@ class SessionPanelInProgress extends SessionPanelState {
     required this.total,
     this.topicName,
     this.reviewSession,
+    this.origin,
   });
 
   /// The one-based question Resume will reopen.
@@ -44,6 +46,31 @@ class SessionPanelInProgress extends SessionPanelState {
   /// and inline lesson quizzes.
   final String? topicName;
   final ({int ordinal, int total, int done, int questions})? reviewSession;
+
+  /// Where the paused quiz began. Null in presentation tests that build the
+  /// state by hand.
+  final SessionOrigin? origin;
+
+  /// The quiz Resume opens, named when the Today rows do not show it: a
+  /// practice, a flagged or mistakes quiz, a lesson quiz. Null for a Reviews
+  /// session and for New questions, whose rows carry the progress. Lead copy
+  /// under rule 4, Nov 25: his wide screenshot showed Reviews "0 of 11" with a
+  /// practice quiz paused and nothing saying which quiz Resume would open.
+  String? get pausedName {
+    if (reviewSession != null) return null;
+    final topic = topicName;
+    return switch (origin) {
+      null || SessionOrigin.newQuestions || SessionOrigin.mock => null,
+      SessionOrigin.drill => topic == null ? 'Custom quiz' : '$topic practice',
+      SessionOrigin.todayTopic ||
+      SessionOrigin.todayInterleaved =>
+        topic == null ? 'Weakest topics practice' : '$topic practice',
+      SessionOrigin.flagged => 'Flagged questions',
+      SessionOrigin.retake => 'Past mistakes',
+      SessionOrigin.inline => 'Lesson quiz',
+      SessionOrigin.assessment => 'Assessment',
+    };
+  }
 }
 
 /// Everything due, weak and new has been worked through for today.
@@ -112,6 +139,7 @@ final sessionPanelProvider =
       position: position,
       total: total,
       topicName: topic?.name,
+      origin: SessionOrigin.fromStorage(open.origin),
       reviewSession: batch == null
           ? null
           : (
