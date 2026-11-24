@@ -32,6 +32,7 @@ import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/completed_quiz_provider.dart';
 import 'package:pantas/features/quiz/presentation/questions_unavailable.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
+import 'package:pantas/features/quiz/presentation/quiz_end_flight.dart';
 import 'package:pantas/features/quiz/presentation/quiz_note_boundary.dart';
 import 'package:pantas/features/quiz/presentation/session_debrief_cards.dart';
 import 'package:pantas/features/quiz/presentation/session_end_screen.dart';
@@ -48,6 +49,7 @@ class QuizSessionEndPage extends ConsumerStatefulWidget {
     this.all = false,
     this.mistakesOnly = false,
     this.proIsActive,
+    this.flight,
     super.key,
   });
   final String attemptId;
@@ -57,6 +59,10 @@ class QuizSessionEndPage extends ConsumerStatefulWidget {
   final bool all;
   final bool mistakesOnly;
   final bool? proIsActive;
+
+  /// Set when the last Finish has just been pressed: the marks of the
+  /// answer track fly into the results (core loops B2).
+  final QuizEndFlight? flight;
   @override
   ConsumerState<QuizSessionEndPage> createState() => _QuizSessionEndPageState();
 }
@@ -428,69 +434,82 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
     final paused = widget.proIsActive == null &&
         ref.watch(entitlementProvider).valueOrNull?.state ==
             EntitlementState.paused;
+    final flight = widget.flight;
+    Widget results(BuildContext context, EndFlightRun? run) =>
+        FutureBuilder<CompletedQuizData>(
+          future: _future,
+          builder: (context, snapshot) {
+            firstScreenReady(
+              context,
+              ref,
+              ready: snapshot.connectionState == ConnectionState.done,
+            );
+            _timing.settled(
+              ready: snapshot.connectionState == ConnectionState.done &&
+                  snapshot.hasData,
+            );
+            if (snapshot.hasError || !_current()) {
+              return QuestionsUnavailable(
+                onRetry: _reload,
+                notFound: snapshot.error is CompletedQuizNotFound,
+              );
+            }
+            final data = snapshot.data;
+            if (data == null) {
+              // After the last Finish the marks wait on an empty screen.
+              if (run != null && run.controller.value < 1) {
+                return const SizedBox.expand();
+              }
+              return context.wideWeb
+                  ? const WebDebriefLoading()
+                  : const SkeletonResultsPage();
+            }
+            if (widget.all) return _list(data);
+            final misses = [
+              for (var i = 0; i < data.attempt.items.length; i++)
+                if (!data.attempt.items[i].isCorrect) i,
+            ];
+            return SessionEndBody(
+              session: data.session,
+              attempt: data.attempt,
+              subjectNames: data.subjectNames,
+              sourceLine: data.sourceLine,
+              debriefCards: _debrief(data, pro: pro, paused: paused),
+              proIsActive: pro,
+              proPaused: paused,
+              flightRun: run,
+              onDone: () => _done(data),
+              onQuestion: (index) => unawaited(_question(index)),
+              onMistake: (index) => unawaited(_question(index, mistake: true)),
+              onAll: () => unawaited(_all()),
+              onMistakes: () => unawaited(_all(mistakes: true)),
+              // The notes are for the mistakes, so the viewer steps through
+              // those only, as it does from a mistake row.
+              onNotes: () {
+                if (misses.isNotEmpty) {
+                  unawaited(
+                    _question(misses.first, notes: true, mistake: true),
+                  );
+                }
+              },
+              onNext: data.session.reviewBatch != null &&
+                      data.session.reviewBatch!.ordinal <
+                          data.session.reviewBatch!.total
+                  ? () => ref
+                      .read(quizControllerProvider.notifier)
+                      .continueReviews(data.session)
+                  : null,
+            );
+          },
+        );
     return Scaffold(
       backgroundColor: context.colors.bgPage,
-      body: FutureBuilder<CompletedQuizData>(
-        future: _future,
-        builder: (context, snapshot) {
-          firstScreenReady(
-            context,
-            ref,
-            ready: snapshot.connectionState == ConnectionState.done,
-          );
-          _timing.settled(
-            ready: snapshot.connectionState == ConnectionState.done &&
-                snapshot.hasData,
-          );
-          if (snapshot.hasError || !_current()) {
-            return QuestionsUnavailable(
-              onRetry: _reload,
-              notFound: snapshot.error is CompletedQuizNotFound,
-            );
-          }
-          final data = snapshot.data;
-          if (data == null) {
-            return context.wideWeb
-                ? const WebDebriefLoading()
-                : const SkeletonResultsPage();
-          }
-          if (widget.all) return _list(data);
-          final misses = [
-            for (var i = 0; i < data.attempt.items.length; i++)
-              if (!data.attempt.items[i].isCorrect) i,
-          ];
-          return SessionEndBody(
-            session: data.session,
-            attempt: data.attempt,
-            subjectNames: data.subjectNames,
-            sourceLine: data.sourceLine,
-            debriefCards: _debrief(data, pro: pro, paused: paused),
-            proIsActive: pro,
-            proPaused: paused,
-            onDone: () => _done(data),
-            onQuestion: (index) => unawaited(_question(index)),
-            onMistake: (index) => unawaited(_question(index, mistake: true)),
-            onAll: () => unawaited(_all()),
-            onMistakes: () => unawaited(_all(mistakes: true)),
-            // The notes are for the mistakes, so the viewer steps through
-            // those only, as it does from a mistake row.
-            onNotes: () {
-              if (misses.isNotEmpty) {
-                unawaited(
-                  _question(misses.first, notes: true, mistake: true),
-                );
-              }
-            },
-            onNext: data.session.reviewBatch != null &&
-                    data.session.reviewBatch!.ordinal <
-                        data.session.reviewBatch!.total
-                ? () => ref
-                    .read(quizControllerProvider.notifier)
-                    .continueReviews(data.session)
-                : null,
-          );
-        },
-      ),
+      body: flight == null || widget.all
+          ? results(context, null)
+          : QuizEndFlightHost(
+              flight: flight,
+              builder: results,
+            ),
     );
   }
 }

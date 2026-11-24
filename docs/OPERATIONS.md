@@ -73,8 +73,11 @@ app name. **Do not create products from the old list.** Full setup, in order, is
 
 ### Contact, set 11 August 2026
 
-- **Privacy and data requests: `dpo@pantas.app`.** Printed on the privacy page
-  and opened by the "Contact our DPO" row.
+- **Privacy and data requests: `dpo@pantas.study`.** Printed on the privacy page
+  and opened by the "Contact our DPO" row (`lib/features/legal/domain/legal_contact.dart`).
+  Mail for `pantas.study` goes through Cloudflare Email Routing to Gmail; the
+  retention sweep is `docs/runbooks/mailbox-retention-sweep.md`. (Was `dpo@pantas.app`
+  until the domain moved; corrected Nov 24, 2026.)
 - **Play listing contact: `contact@pantas.app`.** Play requires a developer
   contact email and a community group does not satisfy it. No row in the app
   points at this address.

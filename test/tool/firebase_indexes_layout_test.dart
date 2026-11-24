@@ -67,7 +67,7 @@ void main() {
         as Map<String, dynamic>;
     final overrides = (config['fieldOverrides'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
-    expect(overrides, hasLength(8));
+    expect(overrides, hasLength(9));
     // The hourly guardian cleanup finds due requests across accounts (D1).
     expect(
       overrides.where(
@@ -85,7 +85,9 @@ void main() {
         },
       ],
     );
-    for (final field in ['claimsPending', 'updatedAt']) {
+    // claimsPending and updatedAt: the claims repair. ageGroup: the daily NPC
+    // registration count (Circular 2022-04).
+    for (final field in ['claimsPending', 'updatedAt', 'ageGroup']) {
       final matches = overrides.where(
         (entry) =>
             entry['collectionGroup'] == 'server' && entry['fieldPath'] == field,

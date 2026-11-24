@@ -8,7 +8,6 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
-import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -122,7 +121,7 @@ void main() {
     }
   });
 
-  testWidgets('the margin outline still lists and scrolls to Core Concept', (
+  testWidgets('the section line still scrolls to a section', (
     tester,
   ) async {
     final db = inMemoryDatabase();
@@ -177,9 +176,9 @@ void main() {
       overrides: [appDatabaseProvider.overrideWithValue(db)],
     );
     await tester.pumpAndSettle();
-    expect(find.text('IN THIS LESSON'), findsOneWidget);
-    // One label in the outline, one heading in the lesson.
-    expect(find.text('Core Concept'), findsNWidgets(2));
+    expect(find.text('IN THIS LESSON'), findsNothing);
+    // The heading only: the section line keeps a name just while it shows.
+    expect(find.text('Core Concept'), findsOneWidget);
     expect(find.text('Traps to Watch For'), findsWidgets);
     // Sections are told apart by space alone: 104 px above a later heading.
     Finder rich(String text) => find.byWidgetPredicate(
@@ -189,13 +188,7 @@ void main() {
       rich('Paragraph 0.13 of the lesson text.').last,
     );
     expect(tester.getTopLeft(rich('Examples').last).dy - last.dy, 40);
-    final outlineEntry = find
-        .ancestor(
-          of: find.text('Traps to Watch For').first,
-          matching: find.byType(ReaderTap),
-        )
-        .first;
-    await tester.tap(outlineEntry);
+    await tester.tap(find.byKey(const ValueKey(('section-segment', 2))));
     await tester.pumpAndSettle();
     expect(scroll.offset, greaterThan(100));
   });

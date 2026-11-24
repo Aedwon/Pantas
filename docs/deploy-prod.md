@@ -338,6 +338,10 @@ What is in place:
   cap feature). New function requests pause until the next month or a lift.
 - **Bot-check cap:** reCAPTCHA assessments are limited to 300 a day per project (resets at Pacific midnight).
 - **Instance caps:** 3 per function, 10 for the payment webhooks, 5 for account deletion (in code).
+- **NPC registration alert:** the daily job counts users whose age group is on file and logs
+  `npc registration threshold near <count> of 1000` at 800 or more (NPC Circular 2022-04 makes
+  registration mandatory at 1,000). At the next functions ship, create a log-based alert on that
+  text that emails the owner.
 
 ### When the cutoff fires
 
