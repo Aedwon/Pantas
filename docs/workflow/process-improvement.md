@@ -123,6 +123,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Keychain prompt from a test browser again (Nov 24)
+
+- His words: "how many times is this now" (with a screenshot of the "Google Chrome for Testing wants to use ... Chromium Safe Storage" prompt, 2:36 PM Manila).
+- Wrong: the Nov 14 fix (below) put `--use-mock-keychain --password-store=basic` into the repo's launch scripts, but ad hoc render scripts written by workers and Fable checkers (board renders, golden checks, frame-time runs) launched Chrome for Testing without the flags. One of them also ran `pkill` on Chrome for Testing the same afternoon.
+- Why it got through: the rule lived only in the repo scripts and in one lead's briefs. The manager's own worker briefs and Fable checker briefs never carried it.
+- Fix (required step for every brief that might open a browser, manager and leads alike): the brief says "Any browser you launch must pass --use-mock-keychain and --password-store=basic, or use tool/journeys or tool/design_system launchers; never kill processes you did not start." The manager adds it to every worker and Fable brief from now on.
+
 ### A brief paraphrased a ruling and dropped its scope limit (Nov 24)
 
 - Words: none from Aedwon; found by the Fable 5.2 advisor (ruling C5): "H1(b) already answers this. Its last sentence, which the T18 brief left out, reads: \"Short-lived rate-limit counters are outside this test.\""
