@@ -6,7 +6,7 @@ import test from 'node:test';
 import {getFirestore, Timestamp} from 'firebase-admin/firestore';
 import {getAuth} from 'firebase-admin/auth';
 import {deleteUserData} from '../lib/deleteUserData.js';
-import {identityMarkers, startTrial} from '../lib/webTrial.js';
+import {identityMarkers, identityMarkersForUser, startTrial} from '../lib/webTrial.js';
 import {fakeAuth} from './_paymongo-helpers.mjs';
 import {addTrialCodeExpiry, TRIAL_CODE_DAYS} from '../scripts/add_trial_code_expiry.mjs';
 
@@ -97,6 +97,68 @@ test('D7 deletion retry: with no trial start, the code counts from the FIRST del
   const paths = identityMarkers(who, db).map(ref => ref.path);
   await deleteUserData(db, auth, uid, 'user_request', {requestAuth: who, now: () => first + 90 * DAY});
   for (const path of paths) assert.equal((await db.doc(path).get()).get('expireAt').toMillis(), first + 730 * DAY);
+});
+
+test('D7 overlapping deletions keep the first start and its code expiry', {timeout: 30_000}, async t => {
+  const uid = 'tce-overlap';
+  await reset(uid);
+  const user = {email: `${uid}@example.test`, emailVerified: true, providerData: []};
+  const markers = identityMarkersForUser(user, db);
+  for (const marker of markers) await marker.delete();
+  await db.doc(`users/${uid}/server/trial`).set({grantId: 'trial'});
+  const taskPath = `accountDeletions/${uid}`;
+  const task = db.doc(taskPath);
+  const doc = db.doc.bind(db);
+  const laterRead = Promise.withResolvers();
+  const firstRecorded = Promise.withResolvers();
+  const interrupted = new Error('first worker stopped during identity lookup');
+  let later;
+  let recordedStart;
+  const startLater = () => {
+    later ??= deleteUserData(db, {
+      getUser: async () => {
+        recordedStart = (await task.get()).get('startedAt');
+        return user;
+      },
+      deleteUser: async () => {},
+    }, uid, 'user_request', {now: () => T0 + DAY});
+    return later;
+  };
+  // If the task is read outside a transaction, force both reads to see the missing task.
+  // Let the earlier caller write first, then let the later caller act on its stale read.
+  let firstRead = true;
+  t.mock.method(db, 'doc', path => {
+    const ref = doc(path);
+    if (path === taskPath) {
+      const get = ref.get.bind(ref);
+      t.mock.method(ref, 'get', async () => {
+        const snapshot = await get();
+        if (firstRead) {
+          firstRead = false;
+          void startLater();
+          await laterRead.promise;
+        } else {
+          laterRead.resolve();
+          await firstRecorded.promise;
+        }
+        return snapshot;
+      });
+    }
+    return ref;
+  });
+  await assert.rejects(deleteUserData(db, {
+    getUser: async () => {
+      firstRecorded.resolve();
+      await startLater();
+      throw interrupted;
+    },
+    deleteUser: async () => {},
+  }, uid, 'user_request', {now: () => T0}), interrupted);
+
+  for (const marker of markers) {
+    assert.equal((await marker.get()).get('expireAt').toMillis(), T0 + 730 * DAY);
+  }
+  assert.equal(recordedStart, T0);
 });
 
 test('D7 deletion: a code whose expiry is already past is not written', async () => {

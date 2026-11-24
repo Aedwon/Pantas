@@ -40,23 +40,28 @@ export async function deleteUserData(
   // the daily job finishes the deletion from this record, with no guardian link or caller needed.
   // The first reason and start time stay, so a retry does not look like a new request.
   const task = db.doc(`accountDeletions/${uid}`);
-  const earlier = await task.get();
-  // A custom token can recreate a deleted Auth UID with a renewable session.
-  // An empty document permanently closes that UID, without retaining task data.
-  if (earlier.exists && Object.keys(earlier.data() ?? {}).length === 0) return;
-  if (typeof earlier.get('closedUntil') === 'number') {
-    await task.set({}); // Upgrade a legacy expiring marker without reopening access.
-    return;
-  }
-  // Each attempt moves the next retry back, so a task that keeps failing goes to the end of the
-  // queue and cannot starve newer ones.
-  // Recorded once: a retry keeps the first attempt's time, so it never counts as a later start.
-  const firstAt = typeof earlier.get('startedAt') === 'number' ? earlier.get('startedAt') as number : now;
-  await task.set({reason: earlier.get('reason') ?? reason, startedAt: firstAt,
-    nextRetryAt: now + DELETION_RETRY_MS, attempts: FieldValue.increment(1),
-    // Every caller's reason is kept, so a withdrawal or a user's own request is never mistaken for
-    // an inactivity deletion that may be called off.
-    reasons: FieldValue.arrayUnion(reason)}, {merge: true});
+  const attempt = await db.runTransaction(async transaction => {
+    const earlier = await transaction.get(task);
+    // A custom token can recreate a deleted Auth UID with a renewable session.
+    // An empty document permanently closes that UID, without retaining task data.
+    if (earlier.exists && Object.keys(earlier.data() ?? {}).length === 0) return null;
+    if (typeof earlier.get('closedUntil') === 'number') {
+      transaction.set(task, {}); // Upgrade a legacy expiring marker without reopening access.
+      return null;
+    }
+    // Each attempt moves the next retry back, so a task that keeps failing goes to the end of the
+    // queue and cannot starve newer ones.
+    // Recorded once: a retry keeps the first attempt's time, so it never counts as a later start.
+    const firstAt = typeof earlier.get('startedAt') === 'number' ? earlier.get('startedAt') as number : now;
+    transaction.set(task, {reason: earlier.get('reason') ?? reason, startedAt: firstAt,
+      nextRetryAt: now + DELETION_RETRY_MS, attempts: FieldValue.increment(1),
+      // Every caller's reason is kept, so a withdrawal or a user's own request is never mistaken for
+      // an inactivity deletion that may be called off.
+      reasons: FieldValue.arrayUnion(reason)}, {merge: true});
+    return {firstAt, destructiveAt: earlier.get('destructiveAt') ?? now};
+  });
+  if (attempt === null) return;
+  const {firstAt, destructiveAt} = attempt;
 
   // Older trials have only an account-local record. Preserve eligibility before
   // deleting that record, including when an earlier deletion attempt is retried.
@@ -84,7 +89,7 @@ export async function deleteUserData(
   await keepGuardianEvidence(db, uid, reason, now);
   await writeAuditLog({uid, event: 'accountDeleted', metadata: {reason}});
   // From here on the account loses data, so a stalled deletion must be finished, never called off.
-  await task.set({destructiveAt: earlier.get('destructiveAt') ?? now}, {merge: true});
+  await task.set({destructiveAt}, {merge: true});
   await retirePublicId(db, uid);
   await deleteGuardianRecords(db, uid);
   await db.recursiveDelete(userRef);
