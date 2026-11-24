@@ -74,24 +74,16 @@ function sizes(dir) {
   return JSON.parse(line.slice('const LOAD_SIZES = '.length, line.indexOf(';')));
 }
 
-test('a CDN build lists main.dart.js only, because CanvasKit does not load from this origin', () => {
-  const dir = bigBuild();
-  stamp(dir);
-  assert.deepEqual(sizes(dir), {'main.dart.js': 'main code'.length});
+test('every build lists main.dart.js alone, so a number can never stall below 100%', () => {
+  for (const local of [false, true]) {
+    const dir = bigBuild({local});
+    stamp(dir);
+    assert.deepEqual(sizes(dir), {'main.dart.js': 'main code'.length}, local ? 'local CanvasKit' : 'CDN CanvasKit');
+  }
 });
 
-test('a build with local CanvasKit also lists the files the chromium build loads', () => {
+test('the stamp step does not read the build config for CanvasKit', () => {
   const dir = bigBuild({local: true});
-  stamp(dir);
-  assert.deepEqual(sizes(dir), {
-    'main.dart.js': 'main code'.length,
-    'canvaskit/chromium/canvaskit.js': 'chromium js'.length,
-    'canvaskit/chromium/canvaskit.wasm': 'chromium wasm'.length,
-  });
-});
-
-test('a build config that does not say local counts as CDN', () => {
-  const dir = bigBuild();
   writeFileSync(join(dir, 'flutter_bootstrap.js'), 'await pwa.registerWorker("1");\nnothing here');
   stamp(dir);
   assert.deepEqual(Object.keys(sizes(dir)), ['main.dart.js']);

@@ -4,8 +4,8 @@
 // built file to the version in flutter_bootstrap.js, so each build gets its own
 // worker and cache.
 //
-// It also writes the decoded size of each file the page loads from this
-// origin before the first frame into pantas_sw.js, as its LOAD_SIZES constant.
+// It also writes the decoded size of main.dart.js into pantas_sw.js, as its
+// LOAD_SIZES constant.
 // The service worker divides the bytes it delivers by that fixed total for the
 // loading percent. An unstamped worker (null) shows the spinner only.
 //
@@ -19,13 +19,6 @@ const WORKER = 'pantas_sw.js';
 const MAIN = 'main.dart.js';
 const SIZES_LINE = /^const LOAD_SIZES = .*$/m;
 const SIZES_COMMENT = '// stamped by tool/web/stamp_worker_version.mjs';
-// The files Flutter's chromium CanvasKit build loads. Which build a browser
-// takes depends on the browser, so only a build that serves CanvasKit from its
-// own origin lists these, and then only for the chromium one.
-const CANVASKIT = [
-  'canvaskit/chromium/canvaskit.js',
-  'canvaskit/chromium/canvaskit.wasm',
-];
 const TOKEN = /registerWorker\("([^"]*)"/;
 
 function files(dir, root = dir) {
@@ -53,27 +46,16 @@ export function buildHash(dir) {
   return hash.digest('hex').slice(0, 12);
 }
 
-// True when the build config says CanvasKit is served from this build's own
-// folder (flutter build web --no-web-resources-cdn). Anything else, or a config
-// that cannot be read, counts as the CDN, which only lowers the total.
-function loadsCanvasKitLocally(dir) {
-  const path = join(dir, BOOTSTRAP);
-  return existsSync(path) && /"useLocalCanvasKit"\s*:\s*true/.test(readFileSync(path, 'utf8'));
-}
-
-// Writes the sizes of the files this build loads from its own origin before the
-// first frame into the worker script, or null when there is no main script.
+// Writes the size of the main script into the worker script, or null when the
+// build has none.
 export function writeLoadSizes(dir) {
   const path = join(dir, WORKER);
   if (!existsSync(path)) return null;
   const size = name => (existsSync(join(dir, name)) ? statSync(join(dir, name)).size : null);
-  let sizes = null;
-  if (size(MAIN) !== null) {
-    sizes = {[MAIN]: size(MAIN)};
-    if (loadsCanvasKitLocally(dir) && CANVASKIT.every(name => size(name) !== null)) {
-      for (const name of CANVASKIT) sizes[name] = size(name);
-    }
-  }
+  // Only the main script. CanvasKit comes from the CDN or from this origin,
+  // and from either folder by browser, so it is left out: a listed file that
+  // never arrives would stop the number short of 100%.
+  const sizes = size(MAIN) === null ? null : {[MAIN]: size(MAIN)};
   const line = `const LOAD_SIZES = ${JSON.stringify(sizes)}; ${SIZES_COMMENT}`;
   writeFileSync(path, readFileSync(path, 'utf8').replace(SIZES_LINE, () => line));
   return sizes;
