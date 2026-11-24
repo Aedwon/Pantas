@@ -282,6 +282,12 @@ class _PantasDataTableState extends State<PantasDataTable> {
       math.max(math.min(naturals[0], cap), math.min(headFirst, naturals[0])),
       for (var c = 1; c <= last; c++) naturals[c],
     ];
+    // A list drawn without a header (Performance) spans its card, as the
+    // boards draw it: the name column takes the room the cells leave.
+    if (!widget.showHeader && maxWidth.isFinite) {
+      final slack = maxWidth - widths.fold<double>(0, (a, b) => a + b);
+      if (slack > 0) widths[0] += slack;
+    }
     final wraps = naturals[0] > widths[0];
     double heightOf(List<Object?> row) {
       final cell = row[0];
