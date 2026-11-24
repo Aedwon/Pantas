@@ -670,11 +670,15 @@ void main() {
         final down = await tester.startGesture(tester.getCenter(target));
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 200));
+        // The bookmark mark draws its own .82 press; the contents control
+        // scales through the tap area.
         final shrunk = tester
             .widget<Transform>(
-              find
-                  .descendant(of: scale, matching: find.byType(Transform))
-                  .first,
+              target == bookmark
+                  ? find.byKey(const ValueKey('reader-bookmark-pop'))
+                  : find
+                      .descendant(of: scale, matching: find.byType(Transform))
+                      .first,
             )
             .transform
             .storage[0];
