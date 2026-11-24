@@ -1243,11 +1243,12 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           ),
           const SizedBox(height: PantasSpace.s24),
         ] else if (!upgrade) ...[
-          // The teal hero (phone, `.card--hero`, D126). ST_ProFree and
-          // ST_ProPro draw the PANTAS PRO eyebrow inside it; the lapsed
-          // state has no board hero, so it keeps the card without one.
+          // The eyebrow stays on the page: small text on the hero's light
+          // top misses 4.5:1 (Card README: body text in the lower 60%).
+          Text('PANTAS PRO', style: context.type.sectionHeader),
+          const SizedBox(height: PantasSpace.s12),
+          // The teal hero (phone, `.card--hero`, D126).
           PhoneProHero(
-            eyebrow: !lapsed,
             heading: owned
                 ? "You're on Pro."
                 : lapsed
