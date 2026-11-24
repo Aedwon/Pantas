@@ -337,10 +337,11 @@ class _SessionEndBodyState extends State<SessionEndBody>
                                     : null,
                                 subtitle: widget.subjectNames[
                                     widget.session.questions[index].topicId],
-                                leading: Icon(
-                                  PantasIcons.close,
-                                  size: 22,
-                                  color: colors.dangerText,
+                                leading: SizedBox(
+                                  width: 22,
+                                  child: Center(
+                                    child: _MissX(color: colors.dangerText),
+                                  ),
                                 ),
                                 divider: position < misses.take(3).length - 1 ||
                                     misses.length > 3,
@@ -476,4 +477,41 @@ class _SessionEndBodyState extends State<SessionEndBody>
       ),
     );
   }
+}
+
+/// Board QV_EndLowB: a bare X, 17 px, 2.6 stroke on the 24 grid, round caps.
+class _MissX extends StatelessWidget {
+  const _MissX({required this.color});
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) => SizedBox(
+        key: const ValueKey('miss-x'),
+        width: 17,
+        height: 17,
+        child: ExcludeSemantics(
+          child: CustomPaint(painter: _MissXPainter(color)),
+        ),
+      );
+}
+
+class _MissXPainter extends CustomPainter {
+  const _MissXPainter(this.color);
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2.6 * k
+      ..strokeCap = StrokeCap.round;
+    canvas
+      ..drawLine(Offset(6.5 * k, 6.5 * k), Offset(17.5 * k, 17.5 * k), paint)
+      ..drawLine(Offset(17.5 * k, 6.5 * k), Offset(6.5 * k, 17.5 * k), paint);
+  }
+
+  @override
+  bool shouldRepaint(_MissXPainter old) => old.color != color;
 }
