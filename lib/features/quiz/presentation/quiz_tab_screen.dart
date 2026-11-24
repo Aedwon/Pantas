@@ -71,7 +71,9 @@ final quizTodayCountsProvider = FutureProvider.autoDispose
 /// small though". Board A draws 12 above and 16 below the text; the card
 /// before Nov 24 had about 18 and 22, and his call from using the app wins:
 /// 18 above the text and 22 below it.
+// ds-board: his Nov 25 words over board A (18 above the Discard text).
 const double _discardAbove = PantasSpace.s16;
+// ds-board: his Nov 25 words over board A (22 below the Discard text).
 const double _discardBelow = PantasSpace.s20;
 
 class QuizTabScreen extends ConsumerStatefulWidget {
