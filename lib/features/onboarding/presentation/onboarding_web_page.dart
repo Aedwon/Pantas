@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -223,6 +224,11 @@ class OnboardingButton extends StatelessWidget {
         onPressed: onPressed,
         busy: busy,
         variant: variant,
+        // The boards (O_Days, O_Flow) draw the ghost button under Continue
+        // 52 high and full width.
+        size: variant == PantasButtonVariant.tertiary
+            ? PantasButtonSize.phone
+            : null,
       );
     }
     final primary = variant == PantasButtonVariant.primary;

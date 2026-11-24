@@ -288,7 +288,6 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
       label: label,
       open: _questionSheet != null && examId != null,
       onDismiss: _dismissQuestions,
-      closeLabel: 'Close',
       readerContents: true,
       scrollable: false,
       child: _questionSheet != null && examId != null
@@ -1160,15 +1159,20 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                     label: 'Resume',
                     onPressed: () => unawaited(_open('/quiz/resume/$examId')),
                   ),
-                  // Board (QZ_Resume): the link sits 6 px lower.
-                  const SizedBox(height: PantasSpace.s6),
-                  PantasButton(
-                    label: 'Discard this session',
-                    kind: PantasButtonKind.tertiary,
-                    tone: PantasButtonTone.accent,
-                    fullWidth: false,
-                    onPressed:
-                        _discarding ? null : () => unawaited(_discard(examId)),
+                  // Board (QZ_Resume): a 15/600 teal line, 12 under Resume
+                  // (8 here and 4 inside the line).
+                  const SizedBox(height: PantasSpace.s8),
+                  // Board (QZ_Resume): the line is centered under Resume.
+                  Center(
+                    child: PantasButton(
+                      label: 'Discard this session',
+                      kind: PantasButtonKind.tertiary,
+                      tone: PantasButtonTone.accent,
+                      size: PantasButtonSize.textPhoneSm,
+                      onPressed: _discarding
+                          ? null
+                          : () => unawaited(_discard(examId)),
+                    ),
                   ),
                   if (_saveFailed)
                     saveFailureLine(() => unawaited(_discard(examId))),

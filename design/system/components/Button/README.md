@@ -12,7 +12,8 @@ Button is the one control for every action. It has four kinds (primary, secondar
 - Height 44 by default (`size-btn`), `radius-md` 12. A button is a rounded rectangle, except `btn--bar`, `btn--dialog` and `btn--pill-sm`, which are pills as the approved boards draw them (D187, D189).
 - Radius follows height: under 40 uses `radius-sm`, 40 to 44 uses `radius-md`, 46 and up uses `radius-lg`. Exceptions drawn as pills (D187, D189): `btn--bar` (46), `btn--dialog` (46) and `btn--pill-sm` (44) use `radius-full`; the filled ones only. A tertiary `btn--bar` or `btn--dialog` keeps `radius-lg` and a tertiary `btn--pill-sm` keeps `radius-md`, because text actions and ghost buttons highlight as rounded rectangles (Principle 3).
 - Sizes: `btn--lg` 50 (`size-btn-lg`, `radius-lg`), `btn--sm` 42 (`size-btn-sm`, `radius-md`, padding 18), `btn--bar` 46 (`size-btn-bar`, `radius-full`; a tertiary one keeps `radius-lg`), `btn--phone` 52 (`size-btn-phone`, `radius-lg`, full width).
-- `btn--dialog` is 46 (`radius-full`; a tertiary one keeps `radius-lg`) and `btn--notice` is 44 (`radius-md`). Both sit as a pair of equal halves. `btn--text-phone` is a 44px text button.
+- `btn--dialog` is 46 (`radius-full`; a tertiary one keeps `radius-lg`) and `btn--notice` is 44 (`radius-md`). Both sit as a pair of equal halves.
+- Text buttons (T5, finding 3). A phone tertiary button is `btn--text-phone`: 44 high, natural width, 17/600, padding 0 8 0 4, centered where its column stretches. In Flutter that is the default of `PantasButton(kind: tertiary)` on a phone. `btn--phone btn--tertiary` (52, full width) is only the stacked ghost button under a primary one on a board that draws it (Every Day, Not Right Now, Keep My Account, Start My Numbers Fresh, Switch on Free): name `PantasButtonSize.phone`. A wide tertiary button is the boards' `.btn3`: 42 high with 14 beside the label (`btn--sm` and the default alike), and 48 with 16 on the onboarding boards (`.btn--tall`).
 - Compact pill (D189, D190), from the approved onboarding board: `btn--pill-sm` is 44 (`size-btn`, `radius-full`, 15/600 `web-link`), for the board "Retry" (the board draws it at 40; it is 44 here for the target). It takes a kind: `btn--secondary` for the main prompt action, `btn--neutral` for the rest. The board "Allow" is an Android system prompt the app does not style, and the board "Replay" chip is a board playback control, so neither has a class. The onboarding day circles and exam filter chips are toggles (`aria-pressed`), not Buttons; use SelectableTile or SegmentedControl.
 - `btn--bar` padding is 22px on both sides. If a visible key hint follows the label, the padding is 22px left and 14px right.
 - CHANGE: 42px buttons moved from radius 11 to 12 (`radius-md`).
@@ -28,7 +29,7 @@ Button is the one control for every action. It has four kinds (primary, secondar
 | Primary | `btn--primary` | `btn--primary btn--critical` | critical only for a destructive confirm |
 | Secondary | `btn--secondary` | `btn--secondary btn--critical` (class name also `btn--outline-red`): transparent, 1.5px `danger` ring, `danger-text` | |
 | Neutral | `btn--neutral` | not allowed | phone dialog secondary |
-| Tertiary | `btn--tertiary` (gray), `btn--tertiary btn--accent` (teal) | `btn--tertiary btn--critical` | list actions, Cancel |
+| Tertiary | `btn--tertiary` (gray), `btn--tertiary btn--accent` (teal) | `btn--tertiary btn--critical` | list actions, Cancel (a wide dialog) |
 | White | `btn--white` | not allowed | the white button the boards draw |
 
 - `btn--white` and `btn--outline-red` are not deprecated (lead ruling D74). CHANGE (3.0.0): the 2.0 aliases `btn--tonal`, `btn--ghost`, `btn--ghost-teal`, `btn--ghost-red` and `btn--danger` are removed; use the kind and tone classes.
@@ -36,7 +37,7 @@ Button is the one control for every action. It has four kinds (primary, secondar
 - `.btn-row` lays out a group of buttons at the right end. The consumer provides the label, the kind, and the busy and done text.
 - Use primary for the main action, including a Sign Out confirm. Use primary critical only for a destructive confirm.
 - `.btn--xs`: 36px header button (`size-btn-xs`, radius 8, 14/600, gap 8), for the mock Flag with its F hint (R3-O04). Coarse pointers pad it to 44. A pressed Flag turns `accent` and its flag glyph changes from outline to filled (`.glyph-fill-on` on the `svg`; D190), so the state is not shown by color alone; the label stays "Flag".
-- `.btn--text-phone-sm`: the 15/600 phone text button, "Restore Purchases" under the paywall CTA (ST_ProPMA, usage gap 27).
+- `.btn--text-phone-sm`: the 15/600 phone text line, "Restore Purchases" under the paywall CTA (ST_ProFree, ST_ProPending, usage gap 27): 24 high (4 above a 20 line), centered, padding 0 8, with a 44 high tap area. On Pro and lapsed the boards draw no bar for it: "Restore purchases" is a teal 17/400 row in the last card.
 - `.btn--bar` and `.btn--dialog` use `size-btn-bar` (46).
 - Fine print with its button (usage gap 22): `.cta-block` (the button and `.fine-print` under it), right-aligned on wide screens and centered below 1024px.
 

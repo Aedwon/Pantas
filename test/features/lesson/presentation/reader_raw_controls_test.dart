@@ -148,7 +148,13 @@ void main() {
       final shape = style.shape!.resolve({WidgetState.hovered});
       expect(shape, isA<RoundedRectangleBorder>());
       expect(shape, isNot(isA<StadiumBorder>()));
-      expectHitArea(tester, find.byType(PantasButton));
+      // A wide text button is the boards' 42 high `.btn3`; a mouse needs 32.
+      expectHitArea(
+        tester,
+        find.byType(PantasButton),
+        min: const Size(44, 42),
+        reason: 'wide text button, board .btn3',
+      );
     });
 
     testWidgets('a disabled one takes no wash and no tap', (tester) async {

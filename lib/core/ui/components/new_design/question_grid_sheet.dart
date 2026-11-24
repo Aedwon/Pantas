@@ -197,18 +197,16 @@ class QuestionGridSheet extends StatelessWidget {
       open: open,
       onDismiss: onDismiss,
       label: title,
-      closeLabel: 'Close',
       // MK_Sheet: the mock sheet is 664 px under 180 px of the page.
       topInset: pinned ? 272 : (mock ? 180 : 0),
       scrollable: !pinned,
       child: Padding(
-        // The sheet's Close button brings the bottom padding. A footer button
-        // above it sits 8 apart, as stacked sheet actions do.
+        // The boards pad the sheet's bottom 34 under the last control.
         padding: EdgeInsets.fromLTRB(
           PantasSpace.s20,
           PantasSpace.s8,
           PantasSpace.s20,
-          footer == null ? PantasSpace.s16 : PantasSpace.s0,
+          PantasSheet.bottomRest(context),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,

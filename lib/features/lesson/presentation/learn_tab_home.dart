@@ -292,7 +292,6 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           scrollable: false,
           open: _bookmarksOpen,
           label: 'Bookmarks',
-          closeLabel: 'Close',
           onDismiss: () => _setBookmarksOpen(open: false),
           page: PantasPage.content(
             // Board ST_Map: the Study title starts 6 px below the top.

@@ -397,12 +397,16 @@ class _PerformancePageState extends State<PerformancePage> {
     return PantasSheet(
       page: page,
       label: 'Subjects',
-      closeLabel: 'Cancel',
       open: _picker,
       onDismiss: () => setState(() => _picker = false),
       readerContents: true,
       child: Padding(
-        padding: const EdgeInsets.all(PantasSpace.s20),
+        padding: EdgeInsets.fromLTRB(
+          PantasSpace.s20,
+          PantasSpace.s20,
+          PantasSpace.s20,
+          PantasSheet.bottomRest(context),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

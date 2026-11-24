@@ -399,7 +399,6 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
         label: 'How long?',
         open: _lengthOpen,
         onDismiss: () => setState(() => _lengthOpen = false),
-        closeLabel: 'Close',
         child: _length(index, summary, pace),
       ),
     );
@@ -1317,11 +1316,11 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           ),
         );
     return Padding(
-      padding: const EdgeInsets.fromLTRB(
+      padding: EdgeInsets.fromLTRB(
         PantasSpace.s20,
         PantasSpace.s8,
         PantasSpace.s20,
-        PantasSpace.s32,
+        PantasSheet.bottomRest(context),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
