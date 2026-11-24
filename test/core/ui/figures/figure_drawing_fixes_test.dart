@@ -378,31 +378,8 @@ void main() {
     });
   });
 
+  // A single movable pulley is covered by pulley_rope_geometry_test.dart.
   group('pulleys', () {
-    testWidgets('a movable pulley hangs from the beam and carries the load', (
-      tester,
-    ) async {
-      await _pump(
-        tester,
-        const PulleySystemFigure(fixed: 0, movable: 1, comparison: false),
-      );
-      final paint = find.descendant(
-        of: find.byType(PulleySystemFigure),
-        matching: find.byType(CustomPaint),
-      );
-      final box = tester.renderObject(paint);
-      final centreX = tester.getSize(paint).width / 2;
-      // Both ropes rise to the beam, at y 12, with no gap below it.
-      expect(
-        box,
-        paints
-          ..line() // the beam
-          ..circle() // the pulley
-          ..line(p2: Offset(centreX - 15, 12))
-          ..line(p2: Offset(centreX + 15, 12)),
-      );
-    });
-
     testWidgets('a fixed pulley and a movable one do not crowd each other', (
       tester,
     ) async {
