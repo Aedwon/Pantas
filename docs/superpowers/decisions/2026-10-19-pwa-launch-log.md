@@ -4369,3 +4369,11 @@ Relayed by the operations manager, with his phone screenshot of the dark Home Re
 
 - Change: the Reviews sheet header shows only "Reviews", on phone and wide, in every state; each session row keeps its count. Folded into paused option A (UX design lead, E-155 follow-on). The New questions and Lessons sheets keep their header counts.
 - Discard spacing on the Quiz tab paused card (his 3:50 AM note): manager ruling, his call from using the app beats board A. The build restores the spacing from before Nov 24 (18 px above and 22 px below the Discard line) instead of board A's 12 and 16.
+
+## Nov 25: his approval of the held Quiz tab paused card (option A)
+
+Relayed by the operations manager, after he saw the wide card sheet (Live now beside Held option A, a paused Reviews session and a paused Algebra practice) and the phone capture sheet. His words, verbatim:
+
+> yes A lgtm, go ahead with it
+
+- Released: the Quiz tab paused card, phone and wide, to board A: no sentence; wide puts "Discard this session" then Resume at the right of the foot; the phone Discard keeps the space from before Nov 24 (20 px above and 24 px below the text); a paused quiz the Today rows do not show is named in one line, "Paused: <quiz name>". Ships under the standing ship-it (UX design lead builds, CSE release lead ships).
