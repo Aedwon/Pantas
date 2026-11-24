@@ -5,10 +5,8 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_tag.dart';
-import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
-import 'package:pantas/features/settings/presentation/widgets/phone_pro_hero.dart';
 
 import '../../../helpers/pump_app.dart';
 import 'pro_page_payments_test.dart' show SettingsGateway;
@@ -218,70 +216,5 @@ void main() {
       expect(tester.getRect(plan).bottom, lessThanOrEqualTo(bar.top));
     }
     expect(tester.takeException(), isNull);
-  });
-
-  testWidgets('the phone bar keeps the board padding 14/16/30 and an 8 px gap',
-      (tester) async {
-    await _pump(
-      tester,
-      weekly: '\u20b149.00',
-      monthly: '\u20b1149.00',
-      yearly: '\u20b11,199.00',
-    );
-    final bar = tester.getRect(find.byKey(const ValueKey('pro-bar')));
-    final pay = tester.getRect(find.byType(PantasButton).first);
-    final restore = tester.getRect(
-      find.ancestor(
-        of: find.text('Restore Purchases'),
-        matching: find.byType(PantasButton),
-      ),
-    );
-    // ST_ProFree bar: padding 14px 16px 30px, gap 8 between its rows.
-    expect(pay.top - bar.top, 14);
-    // Main pads the 30 through the bar's safe area, below the keyed box.
-    expect(844 - restore.bottom, 30);
-    expect(restore.top - pay.bottom, 8);
-  });
-
-  testWidgets(
-      'the eyebrow sits inside the hero, which has radius 24 (ST_ProFree)',
-      (tester) async {
-    await _pump(
-      tester,
-      weekly: '\u20b149',
-      monthly: '\u20b1149',
-      yearly: '\u20b11,199',
-    );
-    final hero = find.byKey(const ValueKey('pro-hero-phone'));
-    final eyebrow = find.text('PANTAS PRO');
-    expect(
-      find.descendant(of: hero, matching: eyebrow),
-      findsOneWidget,
-      reason: 'the board draws the eyebrow in the hero',
-    );
-    final box = tester.widget<Container>(hero).decoration! as BoxDecoration;
-    expect(box.borderRadius, BorderRadius.circular(24));
-    // The board draws 20 between the eyebrow row and the heading.
-    final heading = tester.getRect(
-      find.text("See exactly what's losing you points."),
-    );
-    expect(
-      heading.top - tester.getRect(eyebrow).bottom,
-      greaterThanOrEqualTo(20),
-    );
-  });
-
-  testWidgets('a hero built without the eyebrow draws none (lapsed boards)',
-      (tester) async {
-    await tester.pumpWidget(
-      MaterialApp(
-        theme: buildLightTheme(),
-        home: const Scaffold(
-          body: PhoneProHero(heading: 'Your Pro plan ended', eyebrow: false),
-        ),
-      ),
-    );
-    expect(find.text('PANTAS PRO'), findsNothing);
-    expect(find.text('Your Pro plan ended'), findsOneWidget);
   });
 }

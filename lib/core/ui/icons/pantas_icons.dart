@@ -5,8 +5,6 @@ abstract final class PantasIcons {
   // Constants, never built from a variable codepoint, so the web build can
   // still tree shake the icon fonts.
   static const IconData flagFill = IconData(0xe244, fontFamily: 'PhosphorFill');
-  static const IconData sparkleFill =
-      IconData(0xe6a2, fontFamily: 'PhosphorFill');
   static const IconData bookmarkFill =
       IconData(0xe0ea, fontFamily: 'PhosphorFill');
   static const IconData backBold = IconData(0xe138, fontFamily: 'PhosphorBold');
