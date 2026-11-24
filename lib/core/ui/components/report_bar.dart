@@ -317,11 +317,19 @@ class ReportNotice extends StatelessWidget {
         ? DecoratedBox(
             decoration: BoxDecoration(color: c.accent, shape: BoxShape.circle),
             child: SizedBox.square(
-              dimension: 26,
-              child: Icon(PantasIcons.check, size: 14, color: c.onAccent),
+              dimension: PantasSize.reportMark,
+              child: Icon(
+                PantasIcons.check,
+                size: PantasSize.reportMarkIcon,
+                color: c.onAccent,
+              ),
             ),
           )
-        : Icon(PantasIcons.pendingSend, size: 20, color: c.textSecondary);
+        : Icon(
+            PantasIcons.pendingSend,
+            size: PantasSize.icon,
+            color: c.textSecondary,
+          );
     return Semantics(
       liveRegion: true,
       child: ConstrainedBox(
@@ -338,9 +346,9 @@ class ReportNotice extends StatelessWidget {
               if (sent && !still)
                 TweenAnimationBuilder<double>(
                   tween: Tween(begin: 0, end: 1),
-                  duration: const Duration(milliseconds: 860),
+                  duration: PantasDurations.reportCheck,
                   builder: (context, p, child) {
-                    final e = p * 860;
+                    final e = p * PantasDurations.reportCheck.inMilliseconds;
                     const curve = PantasCurves.popB;
                     final scale = e < 420
                         ? .4

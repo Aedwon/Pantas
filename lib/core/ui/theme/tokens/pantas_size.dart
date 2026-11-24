@@ -195,4 +195,23 @@ abstract final class PantasSize {
 
   /// Tooltip maximum width. New (R3-O10).
   static const double tooltipMax = 240;
+
+  /// The accent disc behind the check in the sent report notice
+  /// (QN_Report). New.
+  static const double reportMark = 26;
+
+  /// The check inside size-report-mark (QN_Report). New.
+  static const double reportMarkIcon = 14;
+
+  /// Height of the phone report form: an 18px frame, the title, the line,
+  /// the 92px field (QN_Report). New.
+  static const double reportForm = 250;
+
+  /// Height kept free above the phone report form: the form never grows
+  /// past the screen minus this. New.
+  static const double reportFormClear = 80;
+
+  /// Smallest height the phone report form shrinks to when the keyboard or
+  /// large text leaves little room. New.
+  static const double reportFormFloor = 100;
 }

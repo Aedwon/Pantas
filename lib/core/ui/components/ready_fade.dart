@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 
 /// Blends a primary action from its disabled colors to its ready colors when
 /// the form behind it becomes valid: 300 ms in all, the first third held (so
@@ -21,7 +22,7 @@ class ReadyFade extends StatelessWidget {
     return TweenAnimationBuilder<double>(
       key: ValueKey(serial),
       tween: Tween(begin: 0, end: 1),
-      duration: reduced ? Duration.zero : const Duration(milliseconds: 300),
+      duration: reduced ? Duration.zero : PantasDurations.flip,
       builder: (context, progress, child) {
         final blend = const Interval(1 / 3, 1).transform(progress);
         final theme = Theme.of(context);

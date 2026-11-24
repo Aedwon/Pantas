@@ -13,6 +13,7 @@ import 'package:pantas/core/ui/components/ready_fade.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -73,9 +74,9 @@ class ReportSoftLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) => TweenAnimationBuilder<double>(
         tween: Tween(begin: 0, end: 1),
-        duration: Duration(
-          milliseconds: MediaQuery.disableAnimationsOf(context) ? 150 : 300,
-        ),
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? PantasDurations.short2
+            : PantasDurations.flip,
         builder: (context, opacity, child) =>
             Opacity(opacity: opacity, child: child),
         child: Semantics(
@@ -282,7 +283,7 @@ class _ReportFormState extends State<ReportForm> {
     final available = MediaQuery.sizeOf(context).height -
         MediaQuery.viewInsetsOf(context).bottom -
         MediaQuery.paddingOf(context).top -
-        80;
+        PantasSize.reportFormClear;
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.escape): widget.onClose,
@@ -290,12 +291,17 @@ class _ReportFormState extends State<ReportForm> {
       child: Semantics(
         liveRegion: true,
         child: ConstrainedBox(
-          constraints:
-              BoxConstraints(maxHeight: available.clamp(100, double.infinity)),
+          constraints: BoxConstraints(
+            maxHeight:
+                available.clamp(PantasSize.reportFormFloor, double.infinity),
+          ),
           child: SingleChildScrollView(
             child: ConstrainedBox(
-              constraints:
-                  BoxConstraints(minHeight: available >= 250 ? 250 : 0),
+              constraints: BoxConstraints(
+                minHeight: available >= PantasSize.reportForm
+                    ? PantasSize.reportForm
+                    : 0,
+              ),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(
                   PantasSpace.s18,
