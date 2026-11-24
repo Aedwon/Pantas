@@ -74,12 +74,6 @@ function load({ clock = { now: 0 }, files = {}, stored = [], bodyOptions = {}, c
       const url = typeof request === 'string' ? request : request.url;
       fetched.push(url);
       const path = url.replace(ORIGIN, '').split('?')[0];
-      // The worker stores a file only after version.json still names its build.
-      if (path === 'version.json' && !(path in files)) {
-        const response = new Response(JSON.stringify({ pantasBuildVersion: VERSION }), { status: 200 });
-        Object.defineProperty(response, 'type', { value: 'basic' });
-        return response;
-      }
       if (path in files) return chunked(files[path], bodyOptions[path] ?? {});
       return new Response('', { status: 404 });
     },

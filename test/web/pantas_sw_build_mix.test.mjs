@@ -7,6 +7,13 @@
 // fixtures/pantas_sw_prod_a.js is origin/main's worker on Nov 25, the one
 // already installed on phones when the fix ships.
 import test from 'node:test';
+// Parked (manager, Nov 25, option 2): these tests reproduce the build mix on
+// today's worker and fail by design. The minimal fix failed a Codex audit; the
+// real fix (per-file fingerprints bound to the build, take over only with a
+// complete boot cache) is a worker migration that the Nov 14 correction bars
+// until Aedwon lifts it. Trigger: before the beta gate drops for public launch.
+const SKIP = 'parked until the worker migration is approved (see header)';
+
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import { readFileSync } from 'node:fs';
@@ -168,13 +175,13 @@ async function deployedBUnderA(sourceA) {
   return w;
 }
 
-test('one build: online under A, B deployed, page reloaded, then offline (same worker code)', async () => {
+test('one build: online under A, B deployed, page reloaded, then offline (same worker code)', { skip: SKIP }, async () => {
   const w = await deployedBUnderA(current);
   const r = await offlineSet(w);
   assert.equal(r.mixed, false, `offline set mixes builds: ${JSON.stringify(r.ids)}`);
 });
 
-test('one build: deploy C after B is installed and in use, page reloaded, then offline', async () => {
+test('one build: deploy C after B is installed and in use, page reloaded, then offline', { skip: SKIP }, async () => {
   const w = world();
   w.build = 'B';
   const b = await activate(w, current, 'B');
@@ -187,7 +194,7 @@ test('one build: deploy C after B is installed and in use, page reloaded, then o
   assert.deepEqual(r.builds, ['B']);
 });
 
-test('online behavior is unchanged: a new deploy is seen at once under the installed worker', async () => {
+test('online behavior is unchanged: a new deploy is seen at once under the installed worker', { skip: SKIP }, async () => {
   const w = world();
   w.build = 'B';
   const b = await activate(w, current, 'B');
@@ -201,7 +208,7 @@ test('online behavior is unchanged: a new deploy is seen at once under the insta
   assert.equal((await get(w, 'main.dart.js')).id, 'B', 'Dart stays cache first');
 });
 
-test('install refuses a build that changed while it ran, and keeps no cache for it', async () => {
+test('install refuses a build that changed while it ran, and keeps no cache for it', { skip: SKIP }, async () => {
   const w = world();
   w.build = 'B';
   const late = worker(w, current, 'B');
@@ -215,7 +222,7 @@ test('install refuses a build that changed while it ran, and keeps no cache for 
   assert.equal(w.stores.has('pantas-shell-B') && w.stores.get('pantas-shell-B').size > 0, false);
 });
 
-test('Dart files fetched after a newer deploy are not stored in the older build cache', async () => {
+test('Dart files fetched after a newer deploy are not stored in the older build cache', { skip: SKIP }, async () => {
   const w = world();
   w.build = 'B';
   const b = await activate(w, current, 'B');
@@ -231,7 +238,7 @@ test('Dart files fetched after a newer deploy are not stored in the older build 
 
 // ---- Rollout from the worker already on phones (prod) to the fixed worker ----
 
-test('rollout: prod A, B deployed, page loads under A, B installs, B takes over', async () => {
+test('rollout: prod A, B deployed, page loads under A, B installs, B takes over', { skip: SKIP }, async () => {
   const w = await deployedBUnderA(prod);
   // Known window, and not fixable from B: prod A stores the new shell in its
   // own cache while it still controls the page. It lasts from that page load
@@ -259,7 +266,7 @@ test('rollout: prod A, B deployed, page loads under A, B installs, B takes over'
   assert.deepEqual(r.builds, ['B']);
 });
 
-test('rollout: prod A and a deploy that lands while B installs never leaves a mixed B cache', async () => {
+test('rollout: prod A and a deploy that lands while B installs never leaves a mixed B cache', { skip: SKIP }, async () => {
   const w = await deployedBUnderA(prod);
   const network = w.network;
   const b = worker(w, current, 'B');
