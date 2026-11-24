@@ -4347,3 +4347,33 @@ Expected day total: under 250 reads and 200 writes. Go.
 - **Rollback (not used):** Hosting: roll back to the previous release (build 451189975-7c2341db9875, the ENT-06 ship, released 19:40 UTC); Worker `wrangler rollback` to 74e2f365-96cb-4b7f-adaf-45d717b1b512.
 - Velocity E-154: 1 h 30 min wall (timer).
 
+
+
+## Nov 25, about 3:50 AM Manila: his picks on the loading and paused-session boards
+
+Relayed by the operations manager. His words, verbatim:
+
+> 1. A
+> 2. okay with A. the space on top and bottom of discard in the quiz tab got too small though
+
+- 1 is the loading board (https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec): option A, Neon's version. The spinner and the download percent sit on one centered row; when the number hides, the spinner slides back to center.
+- 2 is the paused-session board (https://claude.ai/artifact/9MLsiFtEwsdLodfe8eHZig): option A (no sentence; the session row shows its progress; one green Resume; centered borderless "Discard this session"), on the Home Reviews sheet and the Quiz tab card, phone and wide.
+- His note on 2: the space above and below Discard on the Quiz tab card is too small. Process entry "Discard spacing in the Quiz tab shrank after a spacing ship (Nov 25)".
+- Both ship under the standing ship-it: he picked them on boards. Builder: UX design lead (E-155 follow-on); integrator: CSE release lead.
+
+## Nov 25, about 4:06 AM Manila: his note on the Reviews sheet header
+
+Relayed by the operations manager, with his phone screenshot of the dark Home Reviews sheet ("Reviews 1 of 11" header, a "Session 1 · 1 of 11" row, Resume, "Discard this session"). His words, verbatim:
+
+> oh btw i noticed here, 1 of 11 is redundant, maybe remove the overall so only the rows have one
+
+- Change: the Reviews sheet header shows only "Reviews", on phone and wide, in every state; each session row keeps its count. Folded into paused option A (UX design lead, E-155 follow-on). The New questions and Lessons sheets keep their header counts.
+- Discard spacing on the Quiz tab paused card (his 3:50 AM note): manager ruling, his call from using the app beats board A. The build restores the spacing from before Nov 24 (18 px above and 22 px below the Discard line) instead of board A's 12 and 16.
+
+## Nov 25: his approval of the held Quiz tab paused card (option A)
+
+Relayed by the operations manager, after he saw the wide card sheet (Live now beside Held option A, a paused Reviews session and a paused Algebra practice) and the phone capture sheet. His words, verbatim:
+
+> yes A lgtm, go ahead with it
+
+- Released: the Quiz tab paused card, phone and wide, to board A: no sentence; wide puts "Discard this session" then Resume at the right of the foot; the phone Discard keeps the space from before Nov 24 (20 px above and 24 px below the text); a paused quiz the Today rows do not show is named in one line, "Paused: <quiz name>". Ships under the standing ship-it (UX design lead builds, CSE release lead ships).

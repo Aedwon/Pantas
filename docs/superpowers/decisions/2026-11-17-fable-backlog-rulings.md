@@ -1686,3 +1686,21 @@ Undrawn, no new look (lead decided, build): P11 remove the unused phone Today ta
 New look, for his board: U24, the wide Home checklist footer band when no measured time exists (the boards print "About 45 min today"; the build cannot, under never invent a figure).
 
 No choice now (left off the board): LI2 each timing matches its own approved board; LI9, P7, P25, U20, U27, U33, U69, U84, U85 Pro, store and charge surfaces wait on the paused payments and legal lanes; U36 the "Send speed and error reports" toggle is consent wording (legal pause); U28, U89 and U86 "I'm 18 now" wait on the paused under-13 lane. P7 and P25 were proposed as board items by the worker; the lead moved them here because both are store surfaces.
+
+### Nov 25 (later), paused option A: the Quiz tab card is held; the sheet ships
+
+- Manager hold (Nov 25): Aedwon is asking about button placement on the Quiz tab paused card, so the card (phone and wide) is held, unchanged from live. Board A draws the wide card with no caption and "Discard this session" then Resume at the right end of the foot (the patterns rule: a right-aligned row, secondary then main). Built and held on `ux/paused-review-a-r1` (with the Discard spacing from before Nov 24); the shipping branch `ux/paused-sheet-a-r1` carries only the Home and Quiz tab Reviews and New questions sheets.
+- His wide screenshot: Reviews "0 of 11" with "Questions due today" under it while paused. The paused quiz was not a Reviews session (most likely "Practice this topic" or "Practice weakest topics", which start through the older today path with no Reviews batch), so 0 of 11 is the true count. The card never says which quiz is paused: a copy gap inside board A's layout, settled under rule 4 (manager agreed): when the paused quiz is not the Reviews or New questions session, the card shows one line above Resume, "Paused: <quiz name>" ("Paused: Algebra practice", "Paused: Weakest topics practice", "Paused: Flagged questions"). No line when the rows already show the paused session. Reason: the shortest line that names the quiz Resume will open; his guidance is compressed text. Built with the held card.
+- The same case explains his 7:18 PM Home sheet (generic notice, 0 of 11): another quiz was paused. Board A's "another quiz is paused" state now covers it on the sheet: "Finish or discard your paused quiz first." over a dimmed Start.
+
+
+## Nov 25, about 3:50 AM Manila: his picks on the loading and paused-session boards
+
+His words, verbatim (relayed by the operations manager):
+
+> 1. A
+> 2. okay with A. the space on top and bottom of discard in the quiz tab got too small though
+
+- Loading board (https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec): A, Neon's centered row. The spinner and the percent share one centered row; the spinner slides back to center when the number hides. Build 1:1 to the board: real decoded bytes counted in the service worker against a size list made at build time, Reduce Motion as drawn.
+- Paused-session board (https://claude.ai/artifact/9MLsiFtEwsdLodfe8eHZig): A. Build 1:1 on the Home Reviews sheet and the Quiz tab card, phone and wide, on top of the E-155 sheet fixes. The board's "another quiz is paused" row (lead decision on that board) comes with it.
+- Discard spacing on the Quiz tab card: build to board A, compared with the version before the Nov 24 Discard centering and the Nov 25 spacing ship; a golden test guards it (process entry, Nov 25).

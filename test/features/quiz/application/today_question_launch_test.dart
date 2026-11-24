@@ -122,6 +122,16 @@ void main() {
         panel.reviewSession?.ordinal,
         kind == TodayQuestionKind.reviews ? 1 : null,
       );
+      // Board A (Nov 25): the sheet of the kind that is paused offers Resume
+      // and Discard; the other kind's sheet dims Start.
+      final paused = await launcher.load('e');
+      final other = kind == TodayQuestionKind.reviews
+          ? TodayQuestionKind.newQuestions
+          : TodayQuestionKind.reviews;
+      expect(paused.pausedHere(kind), isTrue);
+      expect(paused.pausedElsewhere(kind), isFalse);
+      expect(paused.pausedHere(other), isFalse);
+      expect(paused.pausedElsewhere(other), isTrue);
       final controller = container.read(quizControllerProvider.notifier);
       await controller.resumeToday(examId: 'e');
       for (var i = 0; i < session.questions.length; i++) {

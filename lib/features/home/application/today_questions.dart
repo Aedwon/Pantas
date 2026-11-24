@@ -30,10 +30,34 @@ class TodayQuestionStatus {
     required this.today,
     required this.storedReviews,
     required this.reviewProgress,
+    this.paused,
   });
   final RoadmapToday today;
   final StoredReviewBatch? storedReviews;
   final List<int> reviewProgress;
+
+  /// The quiz left open for this exam, if any: its id and where it began.
+  final ({String id, String origin})? paused;
+
+  /// The open quiz is this kind's own session: the sheet offers Resume and
+  /// Discard (board A, his pick Nov 25). A Reviews session is its own when it
+  /// is the stored batch's current one; a New questions session by origin.
+  bool pausedHere(TodayQuestionKind kind) {
+    final open = paused;
+    if (open == null) return false;
+    if (kind == TodayQuestionKind.newQuestions) {
+      return open.origin == SessionOrigin.newQuestions.storageValue;
+    }
+    final batch = storedReviews;
+    return batch != null &&
+        !batch.nextReady &&
+        batch.sessionIds[batch.current] == open.id;
+  }
+
+  /// Another quiz is open: this kind cannot start until it is finished or
+  /// discarded, so the sheet says so and dims Start.
+  bool pausedElsewhere(TodayQuestionKind kind) =>
+      paused != null && !pausedHere(kind);
   int get reviewsTotal => storedReviews == null
       ? today.snapshot.plan.reviewQuestionIds.length
       : storedReviews!.chunks.fold(0, (sum, c) => sum + c.length);
@@ -54,6 +78,7 @@ class TodayQuestionWork extends TodayQuestionStatus {
     required super.reviewProgress,
     required this.newRows,
     required this.guard,
+    super.paused,
   });
   final String examId;
   final PreparedReviewBatch preparedReviews;
@@ -134,6 +159,9 @@ class TodayQuestionLauncher {
     final stored =
         await ref.read(quizReviewBatchRepositoryProvider).readCurrent(scope);
     final progress = <int>[];
+    final open = await ref
+        .read(quizSessionRepositoryProvider)
+        .activeFor(userId: scope.userId, examId: scope.examId);
     if (stored != null) {
       final db = ref.read(appDatabaseProvider);
       for (final id in stored.sessionIds) {
@@ -151,6 +179,7 @@ class TodayQuestionLauncher {
       today: today,
       storedReviews: stored,
       reviewProgress: progress,
+      paused: open == null ? null : (id: open.id, origin: open.origin),
     );
   }
 
@@ -299,6 +328,7 @@ class TodayQuestionLauncher {
           stored == null ? [for (final _ in prepared.chunks) 0] : progress,
       newRows: rows,
       guard: guard,
+      paused: status.paused,
     );
   }
 
