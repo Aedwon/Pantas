@@ -348,9 +348,6 @@ class PlanWeekDay {
 }
 
 class PlanWeekPage extends StatelessWidget {
-  // ds-board: DP_Week footer row padding-top 7
-  static const double _footerGap = PantasSpace.s6 + PantasSpace.s2 / 2;
-
   const PlanWeekPage({
     required this.title,
     required this.days,
@@ -366,6 +363,8 @@ class PlanWeekPage extends StatelessWidget {
   final VoidCallback onBack;
   final ValueChanged<DateTime> onDay;
   final VoidCallback? onChange;
+  // ds-board: DP_Week footer row padding-top 7
+  static const double _footerGap = PantasSpace.s6 + PantasSpace.s2 / 2;
   @override
   Widget build(BuildContext context) => context.wideWeb
       ? _wide(context)

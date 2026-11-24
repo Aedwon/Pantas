@@ -97,6 +97,18 @@ void main() {
     expect(today.onTap, isNull);
     expect(find.byType(PantasLogo), findsOneWidget);
   });
+  // Board DP_History: See more is a row in the card, 13 px above and below a
+  // 17/400 teal label, about 49 px high (U51).
+  testWidgets('history See more is the board row', (tester) async {
+    await tester.pumpWidget(show());
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(find.text('See more'), 200);
+    final label = tester.widget<Text>(find.text('See more'));
+    expect(label.style!.fontSize, 17);
+    expect(label.style!.fontWeight, FontWeight.w400);
+    final row = find.byKey(const ValueKey('history-see-more'));
+    expect(tester.getSize(row).height, closeTo(49, .5));
+  });
   testWidgets('history starts at five, adds ten, and ends honestly',
       (tester) async {
     await tester.pumpWidget(show());
