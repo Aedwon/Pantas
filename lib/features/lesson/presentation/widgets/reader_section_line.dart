@@ -5,6 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_keyboard_focus.dart';
 
 /// The line under the top bar, split into one segment per `##` section
@@ -199,19 +202,19 @@ class _SegmentState extends State<_Segment> {
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                             color: c.label,
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius:
+                                BorderRadius.circular(PantasRadius.sm),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 9,
-                              vertical: 5,
+                              horizontal: PantasSpace.s10,
+                              vertical: PantasSpace.s6,
                             ),
                             child: Text(
                               widget.title,
                               maxLines: 1,
                               softWrap: false,
-                              style: TextStyle(
-                                fontSize: 13,
+                              style: PantasType.webSmall.copyWith(
                                 fontWeight: FontWeight.w600,
                                 color: c.background,
                               ),

@@ -184,11 +184,11 @@ class RenderHeldReader extends RenderBox
     // Plates first: their heights decide the example cards' least height.
     final plateHeights = <double>[];
     for (var i = 0; i < _figures.length; i++) {
-      final box = all[_entries.length + i];
-      box.layout(
-        BoxConstraints.tightFor(width: m.figureWidth),
-        parentUsesSize: true,
-      );
+      final box = all[_entries.length + i]
+        ..layout(
+          BoxConstraints.tightFor(width: m.figureWidth),
+          parentUsesSize: true,
+        );
       plateHeights.add(box.size.height);
     }
     final exampleHeight = <int, double>{};

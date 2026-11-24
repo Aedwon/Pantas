@@ -6,7 +6,7 @@ library;
 /// The part of a figure label that a lesson would write about: the text
 /// before " = " or ":", without "Center " or "Point ".
 String labelCore(String label) {
-  var core = label.split(RegExp(r' = |:')).first.trim();
+  var core = label.split(RegExp(' = |:')).first.trim();
   for (final prefix in ['Center ', 'Point ']) {
     if (core.startsWith(prefix)) core = core.substring(prefix.length).trim();
   }
@@ -40,7 +40,7 @@ String _mathName(String math) => math
     .replaceAll(RegExp(r'\\(angle|triangle|text|mathrm)\b'), '')
     .replaceAll(RegExp(r'[\s{}\\,]'), '');
 
-/// The links of one paragraph, given its [runs] and the label [cores] of the
+/// The links of one paragraph, given its [runs] and the label cores of the
 /// figure beside it. A label of two letters or fewer matches math that says
 /// exactly that; a longer one matches a whole bold word, in any case. Each
 /// label links its first mention only.

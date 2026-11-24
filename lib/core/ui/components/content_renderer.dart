@@ -1653,12 +1653,15 @@ class _FigureFrame extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: c.readerFigureBackground,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(PantasRadius.lg),
       ),
       child: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+            padding: const EdgeInsets.symmetric(
+              vertical: PantasSpace.s14,
+              horizontal: PantasSpace.s20,
+            ),
             child: Center(
               child: Semantics(
                 label: label,
@@ -1682,20 +1685,26 @@ class _FigureFrame extends StatelessWidget {
                   onTap: () => expand(context),
                   child: MouseRegion(
                     cursor: SystemMouseCursors.click,
-                    child: Container(
-                      width: 34,
-                      height: 34,
-                      decoration: BoxDecoration(
-                        // ds-board: fs.css .fx, #F0F0F2 on the light plate
-                        color: const Color(0xFFF0F0F2),
-                        borderRadius: BorderRadius.circular(9),
-                      ),
-                      alignment: Alignment.center,
-                      child: Icon(
-                        PantasIcons.expandFigure,
-                        size: 16,
-                        // ds-board: fs.css .fx stroke #6E6E73
-                        color: const Color(0xFF6E6E73),
+                    // The plate stays light in both themes, so its button
+                    // takes the light theme's colors.
+                    child: Theme(
+                      data: buildLightTheme(),
+                      child: Builder(
+                        builder: (context) => Container(
+                          width: 34,
+                          height: 34,
+                          decoration: BoxDecoration(
+                            color: context.colors.fill,
+                            borderRadius:
+                                BorderRadius.circular(PantasRadius.sm),
+                          ),
+                          alignment: Alignment.center,
+                          child: Icon(
+                            PantasIcons.expandFigure,
+                            size: PantasSpace.s16,
+                            color: context.colors.secondaryLabel,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -1797,9 +1806,9 @@ class _FigureFrame extends StatelessWidget {
                 style: context.type.caption.copyWith(
                   fontSize: reader
                       ? context.wideWeb
-                          // ds-board: Figure README sets no credit size; as built
+                          // ds-board: Figure README: no credit size
                           ? 13
-                          // ds-board: Figure README sets no credit size; as built
+                          // ds-board: Figure README: no credit size
                           : 11
                       : null,
                   fontWeight: FontWeight.w400,

@@ -35,7 +35,7 @@ class HeldMetrics {
     }
     // The board draws the tablet widths against the left margin: a 40 px
     // margin, then up to 600 px of text. It is not centered.
-    final text = math.min(600.0, width - 2 * 40 - 300 - 48);
+    final text = math.min<double>(600, width - 2 * 40 - 300 - 48);
     return HeldMetrics._(
       textWidth: text,
       gap: 48,
@@ -247,8 +247,9 @@ PlacementResult placeFigures({
     final bottom = placement.top + placement.height;
     if (stack && bottom - group.top > cap) overCap.add(placement.id);
     group.ids.add(placement.id);
-    group.bottom = math.max(group.bottom, bottom);
-    group.passageEnd = math.max(group.passageEnd, placement.passageEnd);
+    group
+      ..bottom = math.max(group.bottom, bottom)
+      ..passageEnd = math.max(group.passageEnd, placement.passageEnd);
     placed[placement.id] = FigurePlacement(
       id: placement.id,
       top: placement.top,
@@ -284,7 +285,7 @@ PlacementResult placeFigures({
           top = previousBottom + plateGap;
           stack = true;
         }
-        final over = math.max(0.0, top + figure.height - end);
+        final over = math.max<double>(0, top + figure.height - end);
         extra = math.max(extra, over);
         join(
           FigurePlacement(
@@ -355,6 +356,6 @@ double heldOffset({
   required double viewportTop,
 }) {
   final wanted = viewportTop + stickyLine - restTop;
-  final room = math.max(0.0, passageEnd - bottom);
+  final room = math.max<double>(0, passageEnd - bottom);
   return wanted.clamp(0.0, room);
 }

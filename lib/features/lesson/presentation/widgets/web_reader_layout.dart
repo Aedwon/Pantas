@@ -8,9 +8,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/figure_highlight.dart';
 import 'package:pantas/core/ui/components/held_reader.dart';
-import 'package:pantas/core/ui/components/reader_figure_placement.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/components/reader_figure_placement.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
@@ -277,14 +277,19 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
       tops.add(box.localToGlobal(Offset.zero, ancestor: content).dy);
     }
     if (tops.isEmpty) {
-      _fills.value = [position.maxScrollExtent > 0 ? widget.progress.value : 1];
+      _fills.value = [
+        if (position.maxScrollExtent > 0) widget.progress.value else 1,
+      ];
       return;
     }
     tops[0] = 0;
     final length = content.size.height;
     final weights = [
       for (var i = 0; i < tops.length; i++)
-        math.max(1.0, (i + 1 < tops.length ? tops[i + 1] : length) - tops[i]),
+        math.max<double>(
+          1,
+          (i + 1 < tops.length ? tops[i + 1] : length) - tops[i],
+        ),
     ];
     final max = position.maxScrollExtent;
     // The page offset at which each section's heading reaches the reading

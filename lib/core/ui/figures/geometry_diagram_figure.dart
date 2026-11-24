@@ -165,7 +165,7 @@ class _GeometryDiagramPainter extends CustomPainter {
     if (dimmed) {
       canvas.saveLayer(
         Offset.zero & size,
-        Paint()..color = Color.fromRGBO(0, 0, 0, dim),
+        Paint()..color = ink.withValues(alpha: dim),
       );
     }
     final anchors = switch (type) {

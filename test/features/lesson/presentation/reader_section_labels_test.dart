@@ -8,7 +8,6 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
-import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
 
 import '../../../helpers/in_memory_database.dart';

@@ -51,7 +51,7 @@ void main() {
     test('a long label matches a word inside a longer bold run', () {
       final links = findLinks(
         [
-          run('central angle', marks: ['strong'])
+          run('central angle', marks: ['strong']),
         ],
         ['Central'],
       );
@@ -62,34 +62,36 @@ void main() {
     test('a short label matches only inside math', () {
       final math = findLinks(
         [
-          run('AB', marks: ['latex'])
+          run('AB', marks: ['latex']),
         ],
         ['AB', 'C'],
       );
       expect(math.single.label, 'AB');
       expect(findLinks([run('AB')], ['AB']), isEmpty);
       expect(
-          findLinks([
-            run('AB', marks: ['strong'])
-          ], [
-            'AB'
-          ]),
-          isEmpty);
+        findLinks([
+          run('AB', marks: ['strong']),
+        ], [
+          'AB',
+        ]),
+        isEmpty,
+      );
     });
 
     test('math matches by what it says, not a part of it', () {
       expect(
-          findLinks([
-            run('ABC', marks: ['latex'])
-          ], [
-            'AB'
-          ]),
-          isEmpty);
+        findLinks([
+          run('ABC', marks: ['latex']),
+        ], [
+          'AB',
+        ]),
+        isEmpty,
+      );
       expect(
         findLinks([
-          run(r'\overline{AB}', marks: ['latex'])
+          run(r'\overline{AB}', marks: ['latex']),
         ], [
-          'AB'
+          'AB',
         ]),
         isNotEmpty,
       );
@@ -110,13 +112,14 @@ void main() {
 
     test('a label that is a number or empty matches nothing', () {
       expect(
-          findLinks([
-            run('x', marks: ['latex'])
-          ], [
-            '',
-            '90°'
-          ]),
-          isEmpty);
+        findLinks([
+          run('x', marks: ['latex']),
+        ], [
+          '',
+          '90°',
+        ]),
+        isEmpty,
+      );
     });
   });
 }

@@ -197,9 +197,13 @@ void main() {
         final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
         await mouse.addPointer(location: Offset.zero);
         addTearDown(mouse.removePointer);
-        await mouse.moveTo(tester.getCenter(find.byWidgetPredicate(
-          (w) => w is LinkedWord && w.text == 'Tangent',
-        )));
+        await mouse.moveTo(
+          tester.getCenter(
+            find.byWidgetPredicate(
+              (w) => w is LinkedWord && w.text == 'Tangent',
+            ),
+          ),
+        );
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 200));
         await save(tester, '1440-$name-6-linked-word-tangent');

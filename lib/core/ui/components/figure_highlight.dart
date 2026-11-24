@@ -4,10 +4,10 @@
 /// the figure dims to 35%, over 150 ms. Leaving restores it in 150 ms.
 library;
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/offset_focus_ring.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 
 /// Which part of which figure is lit, for one lesson.
 class FigureHighlights extends ChangeNotifier {
@@ -172,7 +172,7 @@ class _LinkedWordState extends State<LinkedWord> {
           _sync();
         },
         child: OffsetFocusRing(
-          borderRadius: BorderRadius.circular(4),
+          borderRadius: BorderRadius.circular(PantasRadius.xs),
           child: FocusableActionDetector(
             mouseCursor: SystemMouseCursors.basic,
             onShowFocusHighlight: (v) {

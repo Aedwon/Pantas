@@ -49,8 +49,8 @@ extension HeldFlowBuilder on ContentRenderer {
   /// the page, so a card and its plate agree across rebuilds.
   HeldFlow heldFlow(
     BuildContext context, {
-    Set<int> inline = const {},
     required Map<int, ValueNotifier<bool>> open,
+    Set<int> inline = const {},
   }) {
     final visible = blocks!.where((block) {
       if (block['_type'] != 'image') return true;
@@ -134,7 +134,6 @@ extension HeldFlowBuilder on ContentRenderer {
               held: _HeldExampleHook(moved, signal),
             ),
             kind: FlowKind.example,
-            below: 18,
           ),
         );
         if (problem != null || solution != null) {
@@ -172,7 +171,7 @@ extension HeldFlowBuilder on ContentRenderer {
         add(_Slot(dispatch(context, block), below: 16));
         continue;
       }
-      var end = entries.isEmpty ? 0 : entries.length - 1;
+      final end = entries.isEmpty ? 0 : entries.length - 1;
       var start = end;
       if (entries.isNotEmpty && entries[end].list) {
         while (start > 0 && entries[start - 1].list) {
@@ -336,7 +335,10 @@ List<String> _linkLabels(Map<String, Object?> block) {
 
   final marked = List<ReaderItem>.of(source);
   Map<String, Object?> mark(
-          Map<String, Object?> block, int id, List<String> l) =>
+    Map<String, Object?> block,
+    int id,
+    List<String> l,
+  ) =>
       block['_links'] != null || block['_type'] != 'block' || l.isEmpty
           ? block
           : {

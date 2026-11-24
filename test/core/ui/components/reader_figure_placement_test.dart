@@ -117,7 +117,7 @@ void main() {
       final entries = [text(100), text(60), heading(40), text(300)];
       final result = placeFigures(
         entries: entries,
-        figures: [prose(1, 260, anchor: 1, blockStart: 0)],
+        figures: [prose(1, 260, anchor: 1)],
         viewportHeight: 900,
       );
       final f = result.figures[1]!;
@@ -132,7 +132,7 @@ void main() {
       final entries = [heading(40), text(80), text(80), heading(40), text(50)];
       final result = placeFigures(
         entries: entries,
-        figures: [prose(1, 280, anchor: 1, blockStart: 0)],
+        figures: [prose(1, 280, anchor: 1)],
         viewportHeight: 900,
       );
       final f = result.figures[1]!;
@@ -149,7 +149,7 @@ void main() {
       final entries = [heading(40), text(400), text(60), heading(40)];
       final result = placeFigures(
         entries: entries,
-        figures: [prose(1, 200, anchor: 2, blockStart: 0)],
+        figures: [prose(1, 200, anchor: 2)],
         viewportHeight: 900,
       );
       final f = result.figures[1]!;
@@ -164,7 +164,7 @@ void main() {
       final without = _plain(entries);
       final result = placeFigures(
         entries: entries,
-        figures: [prose(1, 300, anchor: 1, blockStart: 0)],
+        figures: [prose(1, 300, anchor: 1)],
         viewportHeight: 900,
       );
       final extra = result.figures[1]!.extra;
@@ -178,7 +178,7 @@ void main() {
       final entries = [
         text(100),
         text(80),
-        const FlowEntry(kind: FlowKind.note, height: 70, below: 16),
+        const FlowEntry(kind: FlowKind.note, height: 70),
         text(100),
       ];
       final result = placeFigures(
