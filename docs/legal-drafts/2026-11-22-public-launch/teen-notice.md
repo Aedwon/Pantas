@@ -16,7 +16,7 @@ If you are 18 or older, read the Privacy Policy instead.
 
 ## Who runs Pantas
 
-Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Services, a sole proprietor, controls your data. He is also the Data Protection Officer. DTI Business Name No. 8567107. [NPC registration details and seal, if the business is registered with the National Privacy Commission]
+Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Services, a sole proprietor, controls your data. He is also the Data Protection Officer. DTI Business Name No. 8567107.
 
 Place of business: 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines
 

@@ -140,4 +140,5 @@ Codex Sol High critiqued only these changes (`critique-2026-11-23b-sol-high.md`)
 - **TIN:** left out of every text. The Internet Transactions Act does not require showing it on the site. Put it on invoices, not in the public repo.
 - **BIR seal badge:** optional. Your certificate says online businesses must show it, but BIR RMC 113-2026 (Oct 26, 2026) suspended that until further notice. It becomes a publishing gate only if the suspension is lifted before publishing. No text says it is shown.
 - **Business phone:** filled (+63 968 854 2343, from your Nov 18 message). The law requires one on the homepage, so the website footer must show it.
-- **Still yours to fill:** publication date, NPC registration.
+- **NPC:** the texts no longer have an NPC registration bracket and say nothing about registration. Registration waits for the LGU permit. A private draft of the sworn declaration of exemption is outside the repo. It needs notarization, which is your step.
+- **Still yours to fill:** publication date.

@@ -30,7 +30,7 @@ Every item is a bracket in the texts or a claim only he can confirm. Nothing is 
 4. Done: place of business 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines (the BIR registered address). The critique says a Terms page alone is not enough: the seller details also belong on the homepage (decision D3).
 5. Done: business phone +63 968 854 2343 (supplied Nov 18).
 6. Publication date. It becomes the version stamp (see "Publishing steps").
-7. NPC registration: whether the business must register. The critique says age-based access decisions and the study-style label may meet the registration test even for a sole proprietor. Confirm the classification, register if required, and add the seal after it is issued. Leave the bracket out only if not required.
+7. NPC registration: waits for the LGU (mayor's) permit. The texts say nothing about registration status and show no NPC seal. Under NPC Circular 2022-04 (as reported by secondary sources; the NPC site blocked automated reading of the PDF), registration is mandatory at 250 or more employees, sensitive personal information of 1,000 or more individuals, or processing likely to risk data subjects. Below those, a business files a notarized sworn declaration and undertaking of exemption. A private draft exists outside this repo.
 8. Commitments only he can keep: the refund reply within [5] business days; five years of tax books, sales invoices, receipts and refund evidence outside the app (the Privacy Policy now says the business keeps these); a working mailbox for dpo@pantas.study and support@pantas.study.
 9. Practice claims only he can confirm before publishing: "We do not sell your data"; he is the Data Protection Officer; the Google Analytics retention setting (the texts say 14 months in a bracket); the 30-day report log setting and that the report function's request logs are excluded from default log storage; Cloudflare's own request logs; the Singapore database region.
 10. Whether the Pantas sales invoice sentence in the Terms can be published (it needs the invoice workflow, decision D3), and the message retention period for the Privacy Policy and the Notice for teens (bracket).
@@ -242,6 +242,7 @@ The texts publish in the same prod release as the behavior they describe, or aft
 
 ## Publishing steps (for the integrator, L1 and L7)
 
+0b. NPC: register with the NPC once the number of people whose sensitive personal information we hold (age counts) approaches 1,000, or when the LGU permit is issued, whichever comes first. Until then, file the sworn declaration of exemption after the permit and notarization. Check the count at each monthly cost check. When registered, add the NPC details to the Privacy Policy and the Notice for teens only if a law requires it.
 0a. BIR seal badge: optional while RMC 113-2026 suspends the requirement. If the suspension is lifted before publishing, it becomes a gate.
 0. Texts publish with or after the D1, D2, D3 and D7 builds, and each claim is checked live on prod first (table above).
 1. Set the three version stamps to the publication date in both places: `guardianDocumentVersions` in the app and `GUARDIAN_DOCUMENT_VERSIONS` in the functions. Deploy together, or the guardian page refuses answers with "Reload the page".
