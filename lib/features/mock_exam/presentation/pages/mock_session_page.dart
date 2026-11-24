@@ -433,11 +433,10 @@ class _MockSessionPageState extends State<MockSessionPage> {
       // MK_Paper header: 50 high (6 above the 44 controls), 8 px sides.
       constraints: const BoxConstraints(minHeight: _headerHeight),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(
-          PantasSpace.s8,
-          PantasSpace.s6,
-          PantasSpace.s8,
-          0,
+        padding: const EdgeInsets.only(
+          left: PantasSpace.s8,
+          top: PantasSpace.s6,
+          right: PantasSpace.s8,
         ),
         child: Row(
           children: [

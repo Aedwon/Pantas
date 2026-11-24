@@ -145,8 +145,8 @@ void main() {
     await tester.pumpWidget(
       harness(state: stateAt(0), remainingInPart: const Duration(minutes: 9)),
     );
-    expect(
-        tester.getSize(find.byKey(const ValueKey('mock-header'))).height, 50);
+    final header = find.byKey(const ValueKey('mock-header'));
+    expect(tester.getSize(header).height, 50);
     final pause = tester.getRect(find.byKey(const Key('mock-pause')));
     expect(390 - pause.right, 8);
     expect(tester.getCenter(find.text('09:00')).dx, closeTo(195, 0.5));
