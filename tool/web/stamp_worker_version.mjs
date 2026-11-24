@@ -4,12 +4,18 @@
 // built file to the version in flutter_bootstrap.js, so each build gets its own
 // worker and cache.
 //
+// It also writes the decoded size of main.dart.js into flutter_bootstrap.js, as
+// window.pantasLoadTotal, for the loading percent. The page holds the total; the
+// service worker script stays the same for every build and knows no sizes.
+//
 // Usage: node tool/web/stamp_worker_version.mjs [build/web]
 import {createHash} from 'node:crypto';
 import {existsSync, readdirSync, readFileSync, statSync, writeFileSync} from 'node:fs';
 import {join, relative} from 'node:path';
 
 const BOOTSTRAP = 'flutter_bootstrap.js';
+const MAIN = 'main.dart.js';
+const TOTAL = /^window\.pantasLoadTotal = \d+;\n/m;
 const TOKEN = /registerWorker\("([^"]*)"/;
 
 function files(dir, root = dir) {
@@ -42,7 +48,12 @@ export function stamp(dir) {
   if (!match) throw new Error(`No registerWorker("...") version in ${path}.`);
   const base = match[1].split('-')[0];
   const version = `${base}-${buildHash(dir)}`;
-  writeFileSync(path, source.replace(TOKEN, `registerWorker("${version}"`));
+  // The bootstrap is left out of the hash, so its total line cannot change the
+  // version. No main script means no total, and the page shows the spinner only.
+  const main = join(dir, MAIN);
+  const total = existsSync(main) ? `window.pantasLoadTotal = ${statSync(main).size};\n` : '';
+  const stamped = source.replace(TOTAL, '').replace(TOKEN, `registerWorker("${version}"`);
+  writeFileSync(path, total + stamped);
   const metadataPath = join(dir, 'version.json');
   if (existsSync(metadataPath)) {
     const metadata = JSON.parse(readFileSync(metadataPath, 'utf8'));
