@@ -158,3 +158,8 @@ A Fable agent ruled the last four brackets under your delegation. Codex Sol High
 
 - **Monthly sweep:** a 10-minute Gmail routine before publishing. Support and privacy emails about a payment, refund, complaint or privacy request are deleted two years after the last email. All other emails are deleted 90 days after the last email. Steps are in the README (0c) and in a runbook on main.
 - **Mail host:** `pantas.study` uses Cloudflare Email Routing, which forwards mail and stores none. The mail sits in your Gmail, so the sweep happens there.
+
+## Nov 24 publication date
+
+- **Date:** all three texts now show Version 2026-11-24 (November 24, 2026), as you said. The version stamps in the app and functions use the same date.
+- **If the texts go live later:** change the date and stamps to the actual go-live day. A date earlier than the day users can read the text is not allowed.

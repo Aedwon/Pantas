@@ -29,7 +29,7 @@ Every item is a bracket in the texts or a claim only he can confirm. Nothing is 
 3. Done: BIR registration read from the Certificate of Registration. He is not VAT-registered and uses the 8% income tax option, so the Terms say the price has no VAT in it. Watch: if gross sales pass the VAT threshold and he registers, that sentence and the price line must change. The TIN is not in any text (see the TIN note below). The BIR Registration Seal Badge is optional for now (step 0a).
 4. Done: place of business 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines (the BIR registered address). The critique says a Terms page alone is not enough: the seller details also belong on the homepage (decision D3).
 5. Done: business phone +63 968 854 2343 (supplied Nov 18).
-6. Publication date. It becomes the version stamp (see "Publishing steps").
+6. Done: publication date November 24, 2026 (his word on Nov 24). It becomes the version stamp (see "Publishing steps").
 7. NPC registration: waits for the LGU (mayor's) permit. The texts say nothing about registration status and show no NPC seal. Under NPC Circular 2022-04 (as reported by secondary sources; the NPC site blocked automated reading of the PDF), registration is mandatory at 250 or more employees, sensitive personal information of 1,000 or more individuals, or processing likely to risk data subjects. Below those, a business files a notarized sworn declaration and undertaking of exemption. A private draft exists outside this repo.
 8. Commitments only he can keep: the refund reply within three business days (ruled Nov 24, B2; his to confirm or change at sign-off); five years of tax books, sales invoices, receipts and refund evidence outside the app (the Privacy Policy now says the business keeps these); a working mailbox for dpo@pantas.study and support@pantas.study.
 9. Practice claims only he can confirm before publishing: "We do not sell your data"; he is the Data Protection Officer; the Google Analytics retention setting (the texts say two months, ruled Nov 24, B1; the console must match before publishing); the 30-day report log setting and that the report function's request logs are excluded from default log storage; Cloudflare's own request logs; the Singapore database region.
@@ -250,9 +250,10 @@ The texts publish in the same prod release as the behavior they describe, or aft
 0b. NPC: register with the NPC once the number of people whose sensitive personal information we hold (age counts) approaches 1,000, or when the LGU permit is issued, whichever comes first. Until then, file the sworn declaration of exemption after the permit and notarization. Check the count at each monthly cost check. When registered, add the NPC details to the Privacy Policy and the Notice for teens only if a law requires it.
 0a. BIR seal badge: optional while RMC 113-2026 suspends the requirement. If the suspension is lifted before publishing, it becomes a gate.
 0. Texts publish with or after the D1, D2, D3 and D7 builds, and each claim is checked live on prod first (table above).
-1. Set the three version stamps to the publication date in both places: `guardianDocumentVersions` in the app and `GUARDIAN_DOCUMENT_VERSIONS` in the functions. Deploy together, or the guardian page refuses answers with "Reload the page".
+1. Set the three version stamps to the publication date, 2026-11-24, in both places: `guardianDocumentVersions` in the app and `GUARDIAN_DOCUMENT_VERSIONS` in the functions. Deploy together, or the guardian page refuses answers with "Reload the page".
+   If the texts go live after Nov 24, 2026, change the date and version stamps to the actual go-live day; a date earlier than the day users can read the text is not allowed.
 2. Put the final texts into the in-app legal documents (the Terms title there is "Terms of Service") and as public pages on pantas.study. The site has only a beta-application privacy page today.
-3. Remove every bracket first: `grep -n '\[' ` on the three texts must find none. After the Nov 24 rulings B1 to B4 the only bracket left is the publication date. Then run the `legal-text-drafting` check, which fails on the words "draft" and "owner note" in in-app text. It does not catch brackets.
+3. Remove every bracket first: `grep -n '\[' ` on the three texts must find none. After the Nov 24 rulings B1 to B4 and the publication date, no bracket should be left. Then run the `legal-text-drafting` check, which fails on the words "draft" and "owner note" in in-app text. It does not catch brackets.
 4. Send the change email (rule 9) to existing students with an email address, and to guardians of under-18 accounts, after the self-test (rule 6).
 5. Aedwon checks `change-summary.md` and signs off (L1, L2).
 
@@ -323,4 +324,4 @@ Check each row before publishing and log it in the launch log, as for the build 
 
 **Not fixed by wording.** Sol High's biggest risk is the monthly sweep deleting evidence of a matter that is still open because its last email aged out. The procedure keeps a "hold" label for those threads, and the sweep never deletes a held thread.
 
-**Still his:** the publication date. NPC registration stays his and no text mentions it.
+**Still his:** NPC registration, which no text mentions. The publication date is November 24, 2026.

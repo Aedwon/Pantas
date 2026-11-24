@@ -6,7 +6,7 @@ Base: the Notice for teens live in the app on main (version 2026-11-12, approved
 
 ---
 
-**Version:** [publication date, YYYY-MM-DD]
+**Version:** 2026-11-24 (November 24, 2026)
 
 ## Who this is for
 
