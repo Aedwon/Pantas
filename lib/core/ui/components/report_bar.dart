@@ -208,9 +208,15 @@ class _ReportBarState extends ConsumerState<ReportBar>
   }
 
   Widget _layer(ReportBarPhase phase) => switch (phase) {
-        ReportBarPhase.rest => Padding(
-            padding: EdgeInsets.all(widget.restInset),
-            child: widget.rest,
+        // At least the bar's height, so the row sits where it did in the
+        // plain bar (centered in 64), not pushed 2 px down by the stack's
+        // bottom alignment.
+        ReportBarPhase.rest => ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: PantasSize.bar),
+            child: Padding(
+              padding: EdgeInsets.all(widget.restInset),
+              child: widget.rest,
+            ),
           ),
         ReportBarPhase.form => ReportForm(
             questionId: widget.questionId,
