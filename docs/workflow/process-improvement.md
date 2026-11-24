@@ -126,6 +126,16 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Wide Quiz tab paused card still breaks the button placement rule he set (Nov 25)
+
+- His words (about 4:35 AM Manila, wide dark screenshot of the Quiz tab paused card: caption and "Discard this session" on one line, Resume at the bottom left): "was this never addressed? particularly the placement of discard resume (basically the CTAs in general)? i think i've raised this before, and that's also why DS4 i believe was added / i want answers first before you change anything".
+- Wrong: he raised button placement on Nov 7 ("worth considering their placement. especially when there are two of them") and chose P2 (right end, main last). That choice is why the design system was built. On Nov 10 he raised desktop placement again ("awkward"). The design system has a rule for exactly this card (patterns.md: "A stacked phone-style pair on a wide page (guardian confirm, paused quiz notice) becomes a right-aligned row, secondary then main"). The live wide card still puts Resume at the bottom left.
+- Why it got through: builds and side-by-side reviews compared each screen only to its drawn board. This card's board (QZ_Resume, approved Oct 2) predates the Nov 7 rule. The Nov 24 borderless-buttons work and the Discard centering both matched the old board and never checked patterns.md. Nothing swept the wide screens for P2 after the system shipped.
+- Fix (required steps):
+  1. Every UI build brief and every side-by-side review checks design/system/patterns.md (placement, spacing, buttons) as well as the board. Where a board drawn before Nov 7 conflicts with a pattern, the pattern wins, and the review names the rule.
+  2. A one-time sweep of every wide screen for placement against patterns.md, results listed for the manager. It starts only after he answers; he asked for answers before changes.
+  A placement check in code may be possible later (widget tests asserting button order and alignment on wide cards); none is promised until it is shown failing on this card.
+
 ### Discard spacing in the Quiz tab shrank after a spacing ship (Nov 25)
 
 - His words (about 3:50 AM Manila): "the space on top and bottom of discard in the quiz tab got too small though".
