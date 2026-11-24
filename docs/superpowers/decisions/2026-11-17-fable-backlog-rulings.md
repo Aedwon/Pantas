@@ -1686,3 +1686,9 @@ Undrawn, no new look (lead decided, build): P11 remove the unused phone Today ta
 New look, for his board: U24, the wide Home checklist footer band when no measured time exists (the boards print "About 45 min today"; the build cannot, under never invent a figure).
 
 No choice now (left off the board): LI2 each timing matches its own approved board; LI9, P7, P25, U20, U27, U33, U69, U84, U85 Pro, store and charge surfaces wait on the paused payments and legal lanes; U36 the "Send speed and error reports" toggle is consent wording (legal pause); U28, U89 and U86 "I'm 18 now" wait on the paused under-13 lane. P7 and P25 were proposed as board items by the worker; the lead moved them here because both are store surfaces.
+
+### Nov 25 (later), T9 build corrections (UX lead)
+
+- U52: the wide reader end-of-part quiz button uses the design system's `neutral` grey button (the RD_End fill), not `secondary`, which is the teal tint. The ruling's word was wrong; the intended look (grey, as the phone RD_End) stands.
+- U72: kept. "Start the Paper" starts the attempt and its clock ("The clock starts when you tap"). Removing it would start a timed paper without the student's tap, which changes timing behavior, so the HANDOFF line 22 removal does not apply to this screen. No change.
+- Tokens: the phone floating bar is `size-bar` 60 and `radius-bar` 30; the wide bar keeps 64 as `layout-bar-wide` and `radius-bar-wide` 32 (the size family is at its 60-token cap); the wide report buttons use `radius-report` 10. Values edited in design/system/tokens.json and generated, not hand-edited.
