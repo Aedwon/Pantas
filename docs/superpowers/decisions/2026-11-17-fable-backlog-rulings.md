@@ -1660,3 +1660,5 @@ Board: https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec (version 6).
 
 - Cause: each page 3 frame imported the strip part but did not load the stylesheets in its own head. The design canvas loads stylesheets only from the frame being shown, not from an imported part, so the frames fell back to the browser's default serif. His own boards (`HP_WeekStrip`, `HP_WeekStripLarge`) carry the three stylesheet links in the frame, which is why they render.
 - Fix: the strip part is now a copy of his `HP_WeekFrame` with the chip name as the only new input, and every frame carries his three stylesheet links; the stylesheets are copied server side from the Pantas Redesign canvas (they were already byte-identical). The invented greeting line under the strip is gone. No design change: the chip names follow the U14 ruling above.
+
+Later the same day (manager): section 3 dropped. He never raised the week strip and D196 answers it, so page 3 was removed from the board (version 8) instead of redrawn. The U14 build is the CSE release lead's, already merged (PR #118).
