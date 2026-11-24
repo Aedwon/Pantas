@@ -4403,3 +4403,10 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 
 - Aedwon, verbatim: "cool, sounds very good to me. let's spec this first. i don't think i have the proper usage to do these changes. let's prioritize release with current content first".
 - Effect: the lesson walk-through lead writes the spec (Part A for his approval) and parks; no content rewrite or app build. Release work with the current lesson content comes first. Open picks for later: lesson length, Quick Check A (tap to show) or B (type).
+
+### Nov 25, PR #124 reached prod for 4 minutes and was rolled back: the U24 footer was already decided (CSE release lead r4)
+
+- **What happened:** the ship worker released main a97f947ea (PR #124: Quiz tab paused card option A, T9 rows, the Quiz tab Reviews drawer Close X fix, and U24) to prod at 23:07:44 UTC (Hosting version a5676456fe3b729a, Worker eba78383-59df-43e3-8cc3-1ddb1d1c3db1, build 1562356570-e315b10b994d). At about 23:09 the manager withdrew the U24 ruling: Aedwon decided this footer on Oct 31 ("Leave it out"); it keeps only the button, plus "The mock comes first today" on mock days. U24 had put "3 lessons, 18 reviews ... left" in that slot.
+- **Rollback, 23:11 UTC:** Hosting released version c0458f33ce518823 again (the loading-row release, build 3631191900-49999d6bbaff); Worker rolled back to 72b8cd00-679b-4e2f-9ef0-69dd3aec88f4. Both app.pantas.study and pantas-prod.web.app serve 3631191900-49999d6bbaff again. Web only; no functions, rules or data changed. The ship worker's staging user and debug token were already deleted.
+- **Not done:** the worker's prod verification (compare, headless boot, log check) did not run before it was stopped; the rollback was verified by build id on both hosts.
+- **Next:** PR #125 reverts U24 on main (checklist file and Home goldens byte-identical to the live source); #124's other changes reship after its CI with the usual staging proof.
