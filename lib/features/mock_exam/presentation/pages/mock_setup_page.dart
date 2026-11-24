@@ -461,7 +461,10 @@ class _MockSetupPageState extends State<MockSetupPage> {
 /// its text sits 6 px lower than a bare 44 px row. The loading skeleton draws
 /// the same row, so the page does not shift when the paper arrives.
 class MockSetupBackLink extends StatelessWidget {
-  const MockSetupBackLink({super.key});
+  const MockSetupBackLink({this.onPressed, super.key});
+
+  /// Where the link goes. Without one it leaves the page, to the Quiz tab.
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -478,7 +481,7 @@ class MockSetupBackLink extends StatelessWidget {
         alignment: Alignment.centerLeft,
         child: GestureDetector(
           behavior: HitTestBehavior.opaque,
-          onTap: () => leavePage(context, fallback: '/quiz'),
+          onTap: onPressed ?? () => leavePage(context, fallback: '/quiz'),
           child: Semantics(
             button: true,
             label: 'Quiz',
