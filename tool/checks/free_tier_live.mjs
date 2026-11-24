@@ -13,7 +13,7 @@
 //   Cloud Scheduler jobs in every location (paused and failed ones too), secret versions by state,
 //   Artifact Registry size, last 24 h of Hosting egress, Firestore backups, bucket sizes, enabled
 //   APIs that bill on use, alert policies and whether the Cloud Billing catalog lists an alerting SKU,
-//   reCAPTCHA CreateAssessment daily caps, Firestore daily reads and writes for 7 days, minimum
+//   Firestore TTL policies (staging must have none), reCAPTCHA CreateAssessment daily caps, Firestore daily reads and writes for 7 days, minimum
 //   instances, and that each project has its billing-cutoff function.
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
@@ -92,6 +92,12 @@ export function judge(data, {waivers, now}) {
   add(worst(projects.map(([id, p]) => (p.firestore.schedules + p.firestore.backups === 0 ? 'OK' : isStaging(id) ? 'OVER' : 'WARN'))),
     'Firestore backups and schedules',
     `${perProject(data, (p) => `${p.firestore.schedules} schedules, ${p.firestore.backups} backups`)}; staging must have none, prod daily for 7 days is kept (ruling 5)`);
+
+  // Firestore TTL deletes have no free tier ($0.0123 per 100,000 from the first delete, catalog SKU
+  // "Cloud Firestore TTL Deletes Singapore"), unlike ordinary deletes (20,000 free a day). Staging may
+  // cost nothing (rule 7), so it runs no TTL policy; prod keeps its policies, because real users cause them.
+  add(worst(projects.map(([id, p]) => ((p.firestore.ttl ?? []).length && isStaging(id) ? 'OVER' : 'OK'))), 'Firestore TTL policies',
+    `${perProject(data, (p) => { const t = p.firestore.ttl ?? []; return `${t.length}${t.length ? ` (${t.join(', ')})` : ''}`; })}; staging must have none, prod's are from real users`);
 
   const bytesIn = (p, free) => p.buckets.filter((b) => FREE_REGIONS.has(b.location) === free).reduce((t, b) => t + b.bytes, 0);
   const freeBytes = sum(data, (p) => bytesIn(p, true));
@@ -217,6 +223,15 @@ async function collectProject(api, project) {
   let schedules = 0;
   for (const db of databases) schedules += (await pages(api, `https://firestore.googleapis.com/v1/${db.name}/backupSchedules`, project, 'backupSchedules')).length;
   const backups = (await pages(api, `https://firestore.googleapis.com/v1/projects/${project}/locations/-/backups`, project, 'backups')).length;
+  // TTL policies: fields that carry a ttlConfig. ACTIVE and CREATING bill; a config being removed does not.
+  const ttl = [];
+  for (const db of databases) {
+    for (const f of await pages(api, `https://firestore.googleapis.com/v1/${db.name}/collectionGroups/-/fields?filter=${encodeURIComponent('ttlConfig:*')}`, project, 'fields')) {
+      if (!['ACTIVE', 'CREATING'].includes(f.ttlConfig?.state)) continue;
+      const [, group, field] = f.name.match(/\/collectionGroups\/([^/]+)\/fields\/(.+)$/) ?? [];
+      ttl.push(`${group ?? '?'}.${field ?? f.name}`);
+    }
+  }
 
   // The current quota day: Firestore's free quota resets at midnight Pacific time. One bucket from then to now.
   const since = pacificMidnight(end);
@@ -253,7 +268,7 @@ async function collectProject(api, project) {
   const services = (await pages(api, `https://run.googleapis.com/v2/projects/${project}/locations/-/services?pageSize=100`, project, 'services'))
     .map((s) => ({name: s.name.split('/').pop(), minInstances: Math.max(s.scaling?.minInstanceCount ?? 0, s.template?.scaling?.minInstanceCount ?? 0)}));
 
-  return {scheduler: {jobs}, secretVersions, registry, hostingEgress24h, firestore: {schedules, backups, today, daily: Object.values(ops).sort((a, b) => a.day.localeCompare(b.day))},
+  return {scheduler: {jobs}, secretVersions, registry, hostingEgress24h, firestore: {schedules, backups, ttl, today, daily: Object.values(ops).sort((a, b) => a.day.localeCompare(b.day))},
     buckets, apis, alerts, recaptchaCap, services};
 }
 

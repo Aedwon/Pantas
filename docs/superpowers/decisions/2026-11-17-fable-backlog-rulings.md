@@ -1106,3 +1106,28 @@ Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon'
 ### What needs Aedwon
 
 Nothing. He can change the period at legal sign-off, as with R6.
+
+## Rule 7: Firestore TTL deletes (security and billing lead, Nov 24, 2026)
+
+Question (CSE release lead, via the manager): Firestore TTL deletes are not in the free tier. Is that allowed on prod
+and on staging? Not a close call, so no Fable ruling.
+
+**Facts, checked Nov 24.** The quotas page lists "TTL deletes" under operations that "don't include free usage"
+(https://firebase.google.com/docs/firestore/quotas). The TTL page says they "count towards your document delete costs"
+(https://cloud.google.com/firestore/docs/ttl). Google's billing catalog: "Cloud Firestore TTL Deletes Singapore",
+$0.0123 per 100,000 from the first delete; ordinary "Entity Deletes Singapore (with free tier)" are free for the first
+20,000 a day. Both projects ran 8 TTL policies (limits, shards, signInChallenges, signInLimits, signInRequests, users
+(the webhook event markers), webhookRateLimits, wrapped_shares). TTL deletes in the last 30 days: prod 398, staging
+616 (Cloud Monitoring `document/ttl_deletion_count`).
+
+**Ruling.**
+1. Prod keeps every TTL policy, and the new ones (questionReports, trial codes) may ship. The deletes come from real
+   users, which rule 7 allows. Cost now: about $0.00005 a month. At public scale (an estimate of 5,000 TTL deletes a
+   day: sign-in records, sync counters, webhook markers, reports) about $0.02 a month.
+2. Staging runs no TTL policy, because its TTL deletes bill a nonzero amount (rule 7). This is option (b) changed: staging
+   has no scheduled jobs (prod holds the 3 free Scheduler jobs), so nothing replaces the TTL deletes. Staging test data
+   is small, and every staging proof deletes its own documents with ordinary deletes, inside the free 20,000 a day.
+   Published deletion periods apply to real users only, so they do not apply to staging.
+3. Applied Nov 24: all 8 staging TTL policies turned off. `firestore.indexes.json` turns TTL back on with any staging
+   indexes deploy, so run `tool/deploy/staging_disable_ttl.sh` after one (docs/deploy-prod.md). The live check
+   `tool/checks/free_tier_live.mjs` shows a "Firestore TTL policies" row that is OVER while staging has any.
