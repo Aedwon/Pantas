@@ -1633,3 +1633,30 @@ Decided by the UX design lead under written rule 4 (in-app copy inside an approv
 - Why "CSE Subpro": it follows the board's "CSE Pro" pattern and is the common Philippine shorthand. "CSE-SP" (`HM_NoContent`) is older and does not match the board's spelling.
 - Arithmetic (board worker, Geist metrics): "CSE Subpro" makes a 141.7 px chip block, so four days fit beside it in the 340 px strip; at 200% text the chip goes under the strip with four days.
 - Drawn: canvas "Loading, Reader Line, Week Strip", page 3 Week strip, https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec
+
+## Nov 25, UX design lead: his answers to the loading, reader and week strip board
+
+His words (Nov 25, about 1:35 AM Manila, relayed by the manager in full): "i think B makes sense because the industry uses it and it's more familiar and what users expect. is it possible to add a % number?
+i don't understand the reader line, i just wanted you to maybe remove the lesson indicator on top because it gets so long when there's a lot of lessons in a certain topic, and especially so after the instruction to make the lessons bite-sized. for the thing that indicates how far along you are in the lesson itself, no changes
+also what is this in the week strip?" (with a screenshot of page 3, frames drawn as plain serif text in white boxes).
+
+Board: https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec (version 6).
+
+### 1. Loading: B picked; a real percent is possible
+
+- His pick: B, the small spinner under the wordmark from 1.5 s.
+- Finding: prod serves the app files brotli-compressed through Cloudflare with no Content-Length (checked Nov 25 on `main.dart.js`, `canvaskit/chromium/canvaskit.wasm`, `flutter.js`), so the browser alone does not know the total. Wire sizes about 2.2 MB each for the two big files; decoded 7.6 MB and 5.8 MB.
+- How a real number works: the page already waits for the app's service worker (`pantas_sw.js`) to take control before Flutter starts, so every app file passes through it. The worker can count the decoded bytes it passes on, and the build can write the decoded size of each file the loader fetches before the first frame. Percent = bytes received / that total. Both are measured, so it meets "Never invent a figure". Files already in the worker's cache count as received at once.
+- Limit he must know: the splash shows only on return visits (first visits get the Welcome screen, and the worker does not yet control a first visit). On most return visits the files are already on the device, so no number shows. The number appears on the first open after each update, or after the browser clears its stored files. It covers only the download: after 100% the app still starts up (seconds), so the number hides and the spinner stays.
+- Lead design (drawn as "B with %", page 1 rows 5 and 6): the number sits 8 px under the spinner, 13 px phone and 15 px wide, medium weight, secondary text color, tabular figures; it shows only while bytes are arriving and hides at 100%. Reduce Motion: "Loading 0%" counting up in the existing label spot, then "Loading". Waiting on his look before any build.
+
+### 2. Reader: remove the lesson dashes at the top (wide web)
+
+- What he means: the wide reader top bar draws one 18 x 4 px dash per lesson in the topic (or plan day) beside "3 of 6". It grows with the lesson count. The phone reader has no such row: its top bar shows a short "2 of 5" only for plan days, and the phone progress rail is the in-lesson progress he said not to change.
+- Ruling: remove only the dash row. Keep the lesson title that fades in on scroll, the "N of M" text, the chevron and the lesson list it opens; the "N of M" text is short and is the only way into the lesson list from the top bar. The section line under the bar (in-lesson progress) is unchanged. Phone unchanged.
+- The reader line options A, B and C are retired on the board (page renamed "2 Reader line (retired)").
+
+### 3. Week strip frames rendered unstyled
+
+- Cause: each page 3 frame imported the strip part but did not load the stylesheets in its own head. The design canvas loads stylesheets only from the frame being shown, not from an imported part, so the frames fell back to the browser's default serif. His own boards (`HP_WeekStrip`, `HP_WeekStripLarge`) carry the three stylesheet links in the frame, which is why they render.
+- Fix: the strip part is now a copy of his `HP_WeekFrame` with the chip name as the only new input, and every frame carries his three stylesheet links; the stylesheets are copied server side from the Pantas Redesign canvas (they were already byte-identical). The invented greeting line under the strip is gone. No design change: the chip names follow the U14 ruling above.
