@@ -39,9 +39,20 @@ Neon's new parts on one Claude Design board.
   minor exam-realism notes (Discounted Prices Example 1 stays the warm-up; grammar now has a third, exam-style example).
   A second pass on the changed text found no findings.
 - Style: no em dashes, no `\frac`, American spelling, numbers in math, no tables, links or code blocks.
-- Not verified: the board was not rendered by anyone (the canvas type forbids self-verification and he does the visual
-  check). Frame heights are the workers' estimates; some frames may show extra space at the bottom or clip. Nested
-  imports (frame, lesson body, figure) are untested.
+- Headless render (manager request, Nov 25): all 81 artboards rendered with the repo's board-capture approach (loopback
+  server, local Geist, the export's `support.js` runtime, `--use-mock-keychain --password-store=basic`, browser closed
+  after). Sheets, one per page: `build/walkthrough-board/sheet-{signed,discount,grammar,parts,choice}.png` in this
+  worktree (gitignored). Every frame was refit to its rendered height; final run: 81 rendered, 0 errors, 0 clipped,
+  0 with over 130 px of empty space, 0 serif fallbacks. The runtime is the export's copy, not the canvas's own, so the
+  live canvas may differ slightly.
+- Fresh Sonnet reviewer on the sheets: no blockers. One major (a Check line under "Try the last step" gave the answer
+  away) and five minor findings (Check button enabled on an empty field, tiny bullets, exponent figure minus sign and
+  border, uneven step gaps, "1." answer read as a list number), all fixed; the reviewer confirmed each on the
+  re-render and found nothing new. Accepted as is: 42 px small tertiary buttons (Next step, Show all steps), allowed
+  for section actions by patterns.md. Also fixed during the render: the Reduce Motion prop never reached the lesson
+  body (camelCase attribute), now kebab case and confirmed.
+- Content changes from the review: in each Try block the Check line moved inside the hidden answer; number answers
+  start "The answer is ...". Word and screen counts in the spec were re-measured after these changes.
 
 ## Lead decisions (recorded here and on the board)
 
@@ -58,7 +69,8 @@ Neon's new parts on one Claude Design board.
 ## Open for him (through the manager)
 
 1. Length: count only words visible before a tap and raise the cap to 900 (recommended), or keep the caps and split
-   further. The rewrites show 546 to 896 words before a tap; the live lessons are 249 to 345.
+   further. The rewrites show 515 to 875 words before a tap; the live lessons are 249 to 345. Phone screens (390 wide,
+   default text): live 2.9 to 3.0; rewrites 4.7 to 8.3 at rest, 6.9 to 10.6 with everything opened.
 2. Quick Check: A, tap to show the answer (recommended), or B, type the answer and the app checks it.
 3. Approval of Part A of the standard. After it: add the rules to the style guide, write a build spec for the renderer,
    importer and checks, then plan the rollout.

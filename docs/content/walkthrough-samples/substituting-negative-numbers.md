@@ -62,13 +62,13 @@ $$(-2)^3=(-2)\times(-2)\times(-2)=-8$$
 :::check
 If $a=-4$, find $a^2$.
 :::answer
-$16$. Substitute with parentheses: $(-4)^2=(-4)\times(-4)=16$.
+The answer is $16$. Substitute with parentheses: $(-4)^2=(-4)\times(-4)=16$.
 :::
 
 :::check
 If $a=-4$, find $-a^2$.
 :::answer
-$-16$. Substitute with parentheses: $-(-4)^2$. Square first: $(-4)^2=16$. The minus sign in front then makes it $-16$.
+The answer is $-16$. Substitute with parentheses: $-(-4)^2$. Square first: $(-4)^2=16$. The minus sign in front then makes it $-16$.
 :::
 
 ## Examples
@@ -142,10 +142,10 @@ $$18-3+(-1)$$
 :::try
 Finish the last step: $18-3+(-1)$.
 :::answer
-$14$. First $18-3=15$. Then $15+(-1)=14$.
-:::
+The answer is $14$. First $18-3=15$. Then $15+(-1)=14$.
 
 **Check:** $b^3$ had to be negative, because $-1$ was raised to an odd power. The middle part had to be taken away, because $ab$ is positive when both values are negative.
+:::
 
 ## Traps to Watch For
 

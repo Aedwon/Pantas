@@ -32,7 +32,7 @@ Both numbers are $6$ steps from $0$. They only sit on different sides.
 :::check
 What is $|-15|$?
 :::answer
-$15$. The number $-15$ is $15$ steps from $0$.
+The answer is $15$. The number $-15$ is $15$ steps from $0$.
 :::
 
 ### Adding Two Numbers with the Same Sign
@@ -53,7 +53,7 @@ $$(-5)+(-3)=-8$$
 :::check
 Find $(-9)+(-6)$.
 :::answer
-$-15$. Add $9+6=15$. Both numbers are negative, so keep the minus sign.
+The answer is $-15$. Add $9+6=15$. Both numbers are negative, so keep the minus sign.
 :::
 
 ### Adding Two Numbers with Different Signs
@@ -91,7 +91,7 @@ Why keep the sign of the number farther from $0$? The longer walk decides which 
 :::check
 Find $(-11)+5$.
 :::answer
-$-6$. Subtract $11-5=6$. The number $-11$ is farther from $0$, so the answer is negative.
+The answer is $-6$. Subtract $11-5=6$. The number $-11$ is farther from $0$, so the answer is negative.
 :::
 
 ### Subtracting a Signed Integer
@@ -124,7 +124,7 @@ The wrong line made only one change. It kept the minus sign between the numbers 
 :::check
 Find $(-3)-7$.
 :::answer
-$-10$. Change it to $(-3)+(-7)$. Both numbers are negative, so add $3+7=10$ and keep the minus sign.
+The answer is $-10$. Change it to $(-3)+(-7)$. Both numbers are negative, so add $3+7=10$ and keep the minus sign.
 :::
 
 ### Multiplying and Dividing
@@ -149,7 +149,7 @@ One more rule: you can never divide by $0$. An expression such as $5\div0$ has n
 :::check
 Find $(-36)\div4$.
 :::answer
-$-9$. First $36\div4=9$. The signs are different, so the answer is negative.
+The answer is $-9$. First $36\div4=9$. The signs are different, so the answer is negative.
 :::
 
 ## Examples
@@ -221,10 +221,10 @@ $$-15+12=-3$$
 :::try
 Finish the last step: $-3+4$.
 :::answer
-$1$. The signs are different, so subtract $4-3=1$. The number $4$ is farther from $0$, so the answer is positive.
-:::
+The answer is $1$. The signs are different, so subtract $4-3=1$. The number $4$ is farther from $0$, so the answer is positive.
 
 **Check:** The answer $1$ is small and positive. That fits, because $-15$ and the $+16$ that follows it ($12+4$) almost cancel.
+:::
 
 ## Traps to Watch For
 

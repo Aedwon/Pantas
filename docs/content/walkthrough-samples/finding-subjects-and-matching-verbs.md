@@ -125,9 +125,9 @@ Choose the correct verb: The quality of the new office chairs *(was / were)* bet
 Finish the last step: is *quality* singular or plural, and which verb matches it?
 :::answer
 *Quality* is singular, so choose *was*: "The quality of the new office chairs was better than expected."
-:::
 
 **Check:** Read the head and the verb alone: "The quality was better than expected." The plural *chairs* sits right before the verb, which is why *were* is tempting.
+:::
 
 ## Speed Tricks & Shortcuts
 

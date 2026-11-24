@@ -29,7 +29,7 @@ $$12.5\%=0.125$$
 :::check
 Write $35\%$ as a decimal.
 :::answer
-$0.35$. Divide $35$ by $100$: move the decimal point two places to the left.
+The answer is $0.35$. Divide $35$ by $100$: move the decimal point two places to the left.
 :::
 
 ### Finding the Discount
@@ -69,7 +69,7 @@ Way 2 takes one step instead of two. It saves even more time when there are two 
 :::check
 A jacket is listed at Php $1,200$ with a $15\%$ discount. What do you pay?
 :::answer
-Php $1,020$. You still pay $100\%-15\%=85\%$, and $1,200\times0.85=1,020$.
+The answer is Php $1,020$. You still pay $100\%-15\%=85\%$, and $1,200\times0.85=1,020$.
 :::
 
 ### Two Discounts in a Row
@@ -136,10 +136,10 @@ $$30,000\times0.80=24,000$$
 :::try
 Finish the last step: find $90\%$ of Php $24,000$.
 :::answer
-Php $21,600$. Multiply $24,000\times0.90=21,600$.
-:::
+The answer is Php $21,600$. Multiply $24,000\times0.90=21,600$.
 
 **Check:** The total discount is $30,000-21,600=8,400$. That is $\dfrac{8,400}{30,000}=0.28$, or $28\%$. It is less than $20\%+10\%=30\%$, as it should be.
+:::
 
 ## Speed Tricks & Shortcuts
 

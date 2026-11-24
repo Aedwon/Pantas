@@ -40,7 +40,8 @@ Every lesson walks the reader through each rule, the way a tutor would at a tabl
 
 ### Decisions for you
 
-1. **Length.** The new depth makes lessons about twice as long. Today's bite-sized rule caps a math part at 550 words. The rewrites show 546 to 896 words before any tap, plus 57 to 179 words behind taps (the live lessons are 249 to 345 words, counted the same way).
+1. **Length.** The new depth makes lessons about twice as long. Today's bite-sized rule caps a math part at 550 words. The rewrites show 515 to 875 words before any tap, plus 88 to 200 words behind taps (the live lessons are 249 to 345 words, counted the same way).
+   Phone screens at 390 width and default text size (844 px screens, measured on the board render; "at rest" = nothing tapped, "opened" = every answer, Why? and step shown): Signed Integers live 2.9; Signed Integer Operations 8.3 at rest, 10.6 opened; Substituting Negative Numbers 4.7 at rest, 6.9 opened; Discounted Prices live 3.0, rewrite 6.4 at rest, 7.1 opened; Finding Subjects live 2.9, rewrite 6.2 at rest, 7.0 opened.
    - a. (Recommended) Count only the words visible before any tap, and raise the cap to 900 for every subject (a suggested number, not from a source). The Next step button keeps each long example to one step on screen. Cost: one change to the size check.
    - b. Keep the caps and split further. "Signed Integer Operations" would become two lessons (adding and subtracting; multiplying and dividing), and most lessons would gain a part. Cost: more, shorter lessons; the number of extra parts across the bank is not measured yet.
 2. **Quick Check style** (on the board, page "One choice for you").
