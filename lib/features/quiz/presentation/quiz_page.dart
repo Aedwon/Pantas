@@ -1878,6 +1878,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   /// when there is no stack to pop: a notification tap opens the route cold.
   void _leave(BuildContext context) {
     ref.invalidate(sessionPanelProvider(widget.examId));
+    ref.read(quizPausedRevisionProvider.notifier).publishPause();
     if (context.canPop()) {
       context.pop();
     } else {
