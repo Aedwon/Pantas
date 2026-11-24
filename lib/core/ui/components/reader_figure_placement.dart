@@ -265,15 +265,15 @@ PlacementResult placeFigures({
   }) {
     var group = current;
     // Only figures that share a passage are one unit.
-    stack = stack && end == currentEnd;
-    if (!stack || group == null) {
+    final joins = stack && end == currentEnd;
+    if (!joins || group == null) {
       currentEnd = end;
       group = FigureGroup(groups.length, placement.top);
       groups.add(group);
       current = group;
     }
     final bottom = placement.top + placement.height;
-    if (stack && bottom - group.top > cap) overCap.add(placement.id);
+    if (joins && bottom - group.top > cap) overCap.add(placement.id);
     group.ids.add(placement.id);
     group
       ..bottom = math.max(group.bottom, bottom)

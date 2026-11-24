@@ -17,25 +17,13 @@ class HeldFlow {
   final List<HeldFigure> figures;
 }
 
-/// Whether [block] is a figure the held layout may put in the margin.
+/// Whether [block] is a figure the held layout may put in the margin: its
+/// type is on the registry's margin list (rule 6: wide art stays inline).
 bool _marginFigure(Map<String, Object?> block) =>
     block['_type'] == 'figureSpec' &&
     block['spec'] is Map<String, Object?> &&
-    !_wideArt(block['spec']! as Map<String, Object?>) &&
+    FigureRegistry.isMargin(block['spec']! as Map<String, Object?>) &&
     FigureRegistry.build(block['spec']! as Map<String, Object?>) != null;
-
-/// Rule 6: art much wider than it is tall (the angle gallery, the Earth's
-/// motions triptych, the orbital shapes) goes inline at the text width. The
-/// painters draw to whatever width they get, so the kinds that are built as
-/// a row of panels are the ones that read as wide.
-bool _wideArt(Map<String, Object?> spec) {
-  final type = spec['type'];
-  return type is String &&
-      (type.endsWith('gallery') ||
-          type.endsWith('triptych') ||
-          type == 'orbital-shapes' ||
-          type == 'atomic-models');
-}
 
 bool _isFigureBlock(Map<String, Object?> block) =>
     block['_type'] == 'figureSpec' || block['_type'] == 'image';

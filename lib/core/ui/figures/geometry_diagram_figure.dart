@@ -106,6 +106,11 @@ class GeometryDiagramFigureState extends State<GeometryDiagramFigure> {
   /// own coordinates. Pointing at one lights the words that name it.
   final labelRects = <String, Rect>{};
 
+  /// What the last drawing could not fix: `clip` (a label wider than the
+  /// drawing) or `overlap` (a label still on another after being moved). A type
+  /// that has either in a 260 px plate belongs on the wide list.
+  final labelProblems = <String>{};
+
   FigureHighlights? _highlights;
   int _figure = -1;
 
@@ -156,6 +161,7 @@ class GeometryDiagramFigureState extends State<GeometryDiagramFigure> {
               litAmount: lit?.amount ?? 0,
               plate: plate,
               sink: labelRects,
+              problems: labelProblems,
               newLabels: marks?.labels ?? const {},
               newAmount: marks?.amount ?? 1,
             ),
@@ -182,6 +188,7 @@ class _GeometryDiagramPainter extends CustomPainter {
     this.litAmount = 0,
     this.plate = false,
     this.sink,
+    this.problems,
     this.newLabels = const {},
     this.newAmount = 1,
   });
@@ -191,6 +198,9 @@ class _GeometryDiagramPainter extends CustomPainter {
 
   /// Where the labels were drawn, for the figure to find the one pointed at.
   final Map<String, Rect>? sink;
+
+  /// Told what the labels needed, for the figure's state.
+  final Set<String>? problems;
 
   /// Labels the problem figure did not have, and how far they have drawn in.
   final Set<String> newLabels;
@@ -228,6 +238,7 @@ class _GeometryDiagramPainter extends CustomPainter {
         ? Rect.fromLTWH(5, 5, size.width - 10, size.height - 10)
         : Rect.fromLTWH(24, 18, size.width - 48, size.height - 38);
     sink?.clear();
+    problems?.clear();
 
     final litIndex = lit == null
         ? -1
@@ -417,6 +428,10 @@ class _GeometryDiagramPainter extends CustomPainter {
       )..layout(maxWidth: 110);
       var at = anchor + const Offset(-10, -14);
       if (plate) {
+        if (painter.width > size.width - 4 ||
+            painter.height > size.height - 4) {
+          problems?.add('clip');
+        }
         at = Offset(
           _pin(at.dx, size.width - painter.width - 2),
           _pin(at.dy, size.height - painter.height - 2),
@@ -424,6 +439,7 @@ class _GeometryDiagramPainter extends CustomPainter {
         for (var n = 0; n < 40; n++) {
           final box = (at & painter.size).inflate(1);
           if (!placed.any(box.overlaps)) break;
+          if (n == 39) problems?.add('overlap');
           at += const Offset(0, 4);
           if (at.dy + painter.height > size.height - 2) {
             at = Offset(at.dx, 2);
