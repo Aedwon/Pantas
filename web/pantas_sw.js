@@ -25,6 +25,10 @@ const CACHE_PREFIX = 'pantas-shell-';
 const CACHE = CACHE_PREFIX + VERSION;
 const SCOPE = self.registration.scope;
 const NETWORK_TIMEOUT_MS = 4000;
+// Decoded size of each file the page loads from this origin before the first
+// frame. The build's stamp step writes it (tool/web/stamp_worker_version.mjs);
+// null means unstamped, and then the page shows no loading percent.
+const LOAD_SIZES = null; // stamped by tool/web/stamp_worker_version.mjs
 
 // Small files the app cannot start without. Fetched fresh when installing.
 const PRECACHE = [
@@ -39,9 +43,6 @@ const PRECACHE = [
   'favicon.png',
   'icons/Icon-192.png',
   'icons/Icon-512.png',
-  // The sizes of this build's first files, for the loading percent (see
-  // "Loading progress" below). A build without it simply shows no number.
-  'pantas_load_sizes.json',
 ];
 
 // Files that name the current build or list what it contains. They go to the
@@ -156,11 +157,13 @@ self.addEventListener('fetch', (event) => {
     return;
   }
   if (NETWORK_FIRST.has(path)) {
-    event.respondWith(withProgress(event, path, networkFirst(event, request)));
+    const served = { cached: false };
+    event.respondWith(withProgress(event, path, served, networkFirst(event, request, served)));
     return;
   }
   if (isStaticPath(path)) {
-    event.respondWith(withProgress(event, path, cacheFirst(event, request, path)));
+    const served = { cached: false };
+    event.respondWith(withProgress(event, path, served, cacheFirst(event, request, path, served)));
   }
 });
 
@@ -202,7 +205,7 @@ async function navigate(event, request) {
   }
 }
 
-async function networkFirst(event, request) {
+async function networkFirst(event, request, served = {}) {
   const cache = await caches.open(CACHE);
   const network = fetch(request).then(async (response) => {
     if (isStorable(response)) await cache.put(request, response.clone());
@@ -213,6 +216,7 @@ async function networkFirst(event, request) {
   } catch (_) {
     const stored = await cache.match(request, { ignoreSearch: true });
     if (stored) {
+      served.cached = true;
       event.waitUntil(network.catch(() => undefined));
       return stored;
     }
@@ -220,10 +224,13 @@ async function networkFirst(event, request) {
   }
 }
 
-async function cacheFirst(event, request, path) {
+async function cacheFirst(event, request, path, served = {}) {
   const cache = await caches.open(CACHE);
   const stored = await cache.match(request);
-  if (stored) return stored;
+  if (stored) {
+    served.cached = true;
+    return stored;
+  }
   const response = await fetch(request);
   if (isStorable(response)) {
     event.waitUntil(cache.put(request, response.clone()));
@@ -251,62 +258,43 @@ async function warmDeferredParts(cache, response) {
 }
 
 // ---- Loading progress (board A, Nov 25) -------------------------------------
-// The page shows a percent while the app's first files arrive. The build writes
-// pantas_load_sizes.json: the decoded size of each file the Flutter loader
-// fetches, stamped with the build's version. This worker stores it with the
-// build (PRECACHE) and reads it once, from its own cache. It is used only when
-// its version is this worker's own.
+// The page shows a percent while the app's first files arrive. LOAD_SIZES is the
+// fixed list of those files and their decoded sizes, so the total is known
+// before the first byte. The worker reads no file and no cache for it.
 //
-// For a listed file the page asks for through this worker, the response body is
-// passed through a counter. Progress is the bytes delivered to the page over
-// the sizes of the listed files the page has asked for so far, so a file that
-// never comes through this worker (CanvasKit from a CDN) is not in the total.
-// 100% is posted only when a counted stream closes at its listed size. A longer
-// body, a shorter one or an error stops the numbers for that page load, which
-// then shows the spinner only. Nothing is cloned, nothing waits, and no worker
-// task is held open for progress.
+// A listed file served from the cache is returned untouched (its compiled-code
+// cache must survive) and counts as received at once. A listed file from the
+// network has its body passed through a counter, so progress is bytes delivered
+// to the page. Nothing is cloned, nothing waits and no worker task is held open.
+// 100% (done) is posted only when every listed file has ended at exactly its
+// listed size. A wrong size, a failed request or an error stream posts a stop:
+// the page hides the number and shows the spinner only.
 
-const SIZES_PATH = 'pantas_load_sizes.json';
+const SIZES = readSizes(LOAD_SIZES);
 const MAX_LOADS = 20;
-let loadSizes = null;
 const loads = new Map();
 
 function readSizes(list) {
-  if (!list || list.v !== 1 || list.version !== VERSION) return null;
-  if (!list.files || typeof list.files !== 'object') return null;
+  if (!list || typeof list !== 'object' || Array.isArray(list)) return null;
   const files = new Map();
-  for (const [name, size] of Object.entries(list.files)) {
+  let total = 0;
+  for (const [name, size] of Object.entries(list)) {
     if (!Number.isInteger(size) || size <= 0) return null;
     files.set(name, size);
+    total += size;
   }
-  return files.size > 0 ? files : null;
+  return files.size > 0 ? { files, total } : null;
 }
-
-// Reads the stored list into memory. Requests never wait for it: until it is
-// in, nothing is counted.
-async function refreshSizes() {
-  try {
-    const cache = await caches.open(CACHE);
-    const stored = await cache.match(SCOPE + SIZES_PATH);
-    if (!stored) return;
-    loadSizes = readSizes(await stored.json());
-  } catch (_) {}
-}
-refreshSizes();
-self.addEventListener('activate', (event) => {
-  event.waitUntil(refreshSizes());
-});
 
 // Decided before any await: whether this request is counted at all.
 function pageLoad(event, path) {
-  if (!loadSizes || !event.clientId || !loadSizes.has(path)) return null;
+  if (!SIZES || !event.clientId || !SIZES.files.has(path)) return null;
   let load = loads.get(event.clientId);
   if (!load) {
     load = {
       seen: new Set(),
-      total: 0,
+      ended: new Set(),
       delivered: 0,
-      open: 0,
       lastPct: -1,
       broken: false,
       client: self.clients.get(event.clientId).catch(() => null),
@@ -319,70 +307,91 @@ function pageLoad(event, path) {
   return load;
 }
 
-function post(load, loaded, done) {
-  const message = { type: 'pantas-load-progress', loaded, total: load.total, done };
+function post(load, message) {
   load.client.then((client) => {
     try {
-      if (client) client.postMessage(message);
+      if (client) client.postMessage({ type: 'pantas-load-progress', ...message });
     } catch (_) {}
   });
 }
 
-function report(load) {
+function fail(load) {
   if (load.broken) return;
-  const loaded = Math.min(load.delivered, load.total - 1);
-  const pct = Math.floor((loaded * 100) / load.total);
-  if (pct <= load.lastPct) return;
-  load.lastPct = pct;
-  post(load, loaded, false);
+  load.broken = true;
+  post(load, { stop: true });
 }
 
-function countBody(load, size, body) {
+function report(load) {
+  if (load.broken) return;
+  const pct = Math.min(99, Math.floor((load.delivered * 100) / SIZES.total));
+  if (pct <= load.lastPct) return;
+  load.lastPct = pct;
+  post(load, { loaded: load.delivered, total: SIZES.total, done: false });
+}
+
+// A file ended at exactly its listed size.
+function ended(load, path) {
+  if (load.broken) return;
+  load.ended.add(path);
+  if (load.ended.size === SIZES.files.size) {
+    load.lastPct = 100;
+    post(load, { loaded: SIZES.total, total: SIZES.total, done: true });
+  } else {
+    report(load);
+  }
+}
+
+function countBody(load, path, body) {
+  const size = SIZES.files.get(path);
   let received = 0;
   const counter = new TransformStream({
     transform(chunk, controller) {
       controller.enqueue(chunk);
       received += chunk.byteLength;
-      if (received > size) load.broken = true;
+      if (received > size) return fail(load);
       if (load.broken) return;
       load.delivered += chunk.byteLength;
       report(load);
     },
     flush() {
-      if (load.broken) return;
-      if (received !== size) {
-        load.broken = true;
-        return;
-      }
-      load.open -= 1;
-      // Done only when every file the page has asked for has closed.
-      if (load.open === 0 && load.delivered === load.total) {
-        load.lastPct = 100;
-        post(load, load.total, true);
-      }
+      if (received !== size) return fail(load);
+      ended(load, path);
     },
   });
   // An error or a cancel on either side ends the numbers for this page load.
-  body.pipeTo(counter.writable).catch(() => {
-    load.broken = true;
-  });
+  body.pipeTo(counter.writable).catch(() => fail(load));
   return counter.readable;
 }
 
-// Passes the answer to the page, with its body counted when the file is listed.
-// Everything else is returned as it is, with no extra wait.
-function withProgress(event, path, pending) {
+// Passes the answer to the page. Unlisted files come back as the same promise,
+// with no extra wait.
+function withProgress(event, path, served, pending) {
   const load = pageLoad(event, path);
   if (!load) return pending;
-  return pending.then((response) => {
-    if (!response || response.status !== 200 || !response.body) return response;
-    const size = loadSizes.get(path);
-    load.total += size;
-    load.open += 1;
-    return new Response(countBody(load, size, response.body), {
-      status: response.status,
-      statusText: response.statusText,
-      headers: response.headers,
-    });
-  });
+  return pending.then(
+    (response) => {
+      if (!response || response.status !== 200) {
+        fail(load);
+        return response;
+      }
+      if (served.cached) {
+        load.delivered += SIZES.files.get(path);
+        ended(load, path);
+        return response;
+      }
+      if (!response.body) {
+        fail(load);
+        return response;
+      }
+      return new Response(countBody(load, path, response.body), {
+        status: response.status,
+        statusText: response.statusText,
+        headers: response.headers,
+      });
+    },
+    (error) => {
+      fail(load);
+      throw error;
+    }
+  );
 }

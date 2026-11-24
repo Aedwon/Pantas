@@ -4,27 +4,27 @@
 // built file to the version in flutter_bootstrap.js, so each build gets its own
 // worker and cache.
 //
-// It also writes pantas_load_sizes.json, stamped with that version: the decoded
-// size of each file the Flutter loader fetches before the first frame. The
-// service worker divides the bytes it delivers by these sizes for the loading
-// percent, and ignores the list if its version is not the worker's own.
+// It also writes the decoded size of each file the page loads from this
+// origin before the first frame into pantas_sw.js, as its LOAD_SIZES constant.
+// The service worker divides the bytes it delivers by that fixed total for the
+// loading percent. An unstamped worker (null) shows the spinner only.
 //
 // Usage: node tool/web/stamp_worker_version.mjs [build/web]
 import {createHash} from 'node:crypto';
-import {existsSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync} from 'node:fs';
+import {existsSync, readdirSync, readFileSync, statSync, writeFileSync} from 'node:fs';
 import {join, relative} from 'node:path';
 
 const BOOTSTRAP = 'flutter_bootstrap.js';
-export const LOAD_SIZES = 'pantas_load_sizes.json';
+const WORKER = 'pantas_sw.js';
 const MAIN = 'main.dart.js';
-// Flutter loads one canvaskit build at run time (chromium or full), from the
-// build's own folder or, in a build with the CDN on, from gstatic. Both builds
-// are listed; the worker counts only what the page asks for through it.
+const SIZES_LINE = /^const LOAD_SIZES = .*$/m;
+const SIZES_COMMENT = '// stamped by tool/web/stamp_worker_version.mjs';
+// The files Flutter's chromium CanvasKit build loads. Which build a browser
+// takes depends on the browser, so only a build that serves CanvasKit from its
+// own origin lists these, and then only for the chromium one.
 const CANVASKIT = [
   'canvaskit/chromium/canvaskit.js',
   'canvaskit/chromium/canvaskit.wasm',
-  'canvaskit/canvaskit.js',
-  'canvaskit/canvaskit.wasm',
 ];
 const TOKEN = /registerWorker\("([^"]*)"/;
 
@@ -38,8 +38,7 @@ function files(dir, root = dir) {
 export function buildHash(dir) {
   const hash = createHash('sha256');
   for (const name of files(dir)) {
-    // The list carries the version this hash makes, so it stays out of it.
-    if (name === BOOTSTRAP || name === LOAD_SIZES) continue;
+    if (name === BOOTSTRAP) continue;
     let bytes = readFileSync(join(dir, name));
     // Ignore our own output so stamping twice preserves the build identity.
     if (name === 'version.json') {
@@ -47,28 +46,37 @@ export function buildHash(dir) {
       delete metadata.pantasBuildVersion;
       bytes = JSON.stringify(metadata);
     }
+    // The stamped sizes are this hash's own output; hash the unstamped line.
+    if (name === WORKER) bytes = Buffer.from(bytes.toString().replace(SIZES_LINE, () => `const LOAD_SIZES = null; ${SIZES_COMMENT}`));
     hash.update(name).update('\0').update(bytes).update('\0');
   }
   return hash.digest('hex').slice(0, 12);
 }
 
-// Writes the size list for this build version, or removes a stale one when the
-// build has no main script. Without the list the page shows the spinner only.
-export function writeLoadSizes(dir, version) {
-  const path = join(dir, LOAD_SIZES);
-  const size = name => {
-    const file = join(dir, name);
-    return existsSync(file) ? statSync(file).size : null;
-  };
-  if (size(MAIN) === null) {
-    rmSync(path, {force: true});
-    return null;
+// True when the build config says CanvasKit is served from this build's own
+// folder (flutter build web --no-web-resources-cdn). Anything else, or a config
+// that cannot be read, counts as the CDN, which only lowers the total.
+function loadsCanvasKitLocally(dir) {
+  const path = join(dir, BOOTSTRAP);
+  return existsSync(path) && /"useLocalCanvasKit"\s*:\s*true/.test(readFileSync(path, 'utf8'));
+}
+
+// Writes the sizes of the files this build loads from its own origin before the
+// first frame into the worker script, or null when there is no main script.
+export function writeLoadSizes(dir) {
+  const path = join(dir, WORKER);
+  if (!existsSync(path)) return null;
+  const size = name => (existsSync(join(dir, name)) ? statSync(join(dir, name)).size : null);
+  let sizes = null;
+  if (size(MAIN) !== null) {
+    sizes = {[MAIN]: size(MAIN)};
+    if (loadsCanvasKitLocally(dir) && CANVASKIT.every(name => size(name) !== null)) {
+      for (const name of CANVASKIT) sizes[name] = size(name);
+    }
   }
-  const files = {[MAIN]: size(MAIN)};
-  for (const name of CANVASKIT) if (size(name) !== null) files[name] = size(name);
-  const list = {v: 1, version, files};
-  writeFileSync(path, JSON.stringify(list));
-  return list;
+  const line = `const LOAD_SIZES = ${JSON.stringify(sizes)}; ${SIZES_COMMENT}`;
+  writeFileSync(path, readFileSync(path, 'utf8').replace(SIZES_LINE, () => line));
+  return sizes;
 }
 
 export function stamp(dir) {
@@ -79,7 +87,7 @@ export function stamp(dir) {
   const base = match[1].split('-')[0];
   const version = `${base}-${buildHash(dir)}`;
   writeFileSync(path, source.replace(TOKEN, `registerWorker("${version}"`));
-  writeLoadSizes(dir, version);
+  writeLoadSizes(dir);
   const metadataPath = join(dir, 'version.json');
   if (existsSync(metadataPath)) {
     const metadata = JSON.parse(readFileSync(metadataPath, 'utf8'));

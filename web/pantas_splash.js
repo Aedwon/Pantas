@@ -78,15 +78,16 @@
       if (state.pct !== null && !state.closed) paintNumber();
     }
 
-    // Called by the service worker's count: bytes of the app's files received
-    // against the total the build wrote down. Only a count that makes sense
-    // prints a number; files that were already stored arrive as 100% at once
-    // and print nothing.
-    function progress(loaded, total) {
+    // Called by the service worker's count: bytes of the app's files delivered
+    // against the total the build wrote down. 100% comes only with done, when
+    // every file has ended at its exact size; until then the number stops at
+    // 99%. Files that were already stored arrive as done at once and print
+    // nothing. A count that makes no sense prints nothing.
+    function progress(loaded, total, done) {
       if (!state.shown || state.gone || state.closed) return;
       if (typeof loaded !== 'number' || typeof total !== 'number') return;
       if (!isFinite(loaded) || !isFinite(total) || loaded < 0 || total <= 0) return;
-      var pct = Math.floor((Math.min(loaded, total) * 100) / total);
+      var pct = done === true ? 100 : Math.min(99, Math.floor((loaded * 100) / total));
       if (state.pct !== null && pct <= state.pct) return;
       var first = state.pct === null;
       state.pct = pct;
@@ -100,6 +101,14 @@
         return;
       }
       if (state.waited) paintNumber();
+    }
+
+    // Called when the worker cannot count any more (a file that is too long, too
+    // short or failed): the number goes at once and does not come back.
+    function stop() {
+      if (!state.shown || state.gone) return;
+      state.closed = true;
+      closeNumber();
     }
 
     function removeNow() {
@@ -177,6 +186,7 @@
         return state.shown;
       },
       progress: progress,
+      stop: stop,
       ready: ready,
       started: started,
       state: state,
@@ -230,7 +240,9 @@
   try {
     root.navigator.serviceWorker.addEventListener('message', function (event) {
       var data = event && event.data;
-      if (data && data.type === 'pantas-load-progress') splash.progress(data.loaded, data.total);
+      if (!data || data.type !== 'pantas-load-progress') return;
+      if (data.stop) splash.stop();
+      else splash.progress(data.loaded, data.total, data.done);
     });
   } catch (_) {}
 })(typeof window !== 'undefined' ? window : globalThis);

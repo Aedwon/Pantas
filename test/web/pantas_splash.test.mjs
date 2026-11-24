@@ -362,7 +362,7 @@ test('at 100% the number closes after 200 ms and the spinner keeps going', () =>
   const t = setup();
   t.waited();
   t.splash.progress(42, 100);
-  t.splash.progress(100, 100);
+  t.splash.progress(100, 100, true);
   assert.equal(t.num.textContent, '100%');
   assert.ok(t.classes.has('ps-pct'));
   t.closeNumber();
@@ -376,7 +376,7 @@ test('at 100% the number closes after 200 ms and the spinner keeps going', () =>
 test('files that were already stored never print a number', () => {
   const t = setup();
   t.waited();
-  t.splash.progress(100, 100);
+  t.splash.progress(100, 100, true);
   assert.ok(!t.classes.has('ps-pct'));
   assert.equal(t.num.textContent, '');
   assert.ok(!t.timers.some((x) => x.ms === NUMBER_CLOSE_MS));
@@ -397,7 +397,46 @@ test('more bytes than the total never prints above 100%', () => {
   t.waited();
   t.splash.progress(50, 100);
   t.splash.progress(120, 100);
+  assert.equal(t.num.textContent, '99%');
+  assert.ok(t.classes.has('ps-pct'));
+});
+
+test('every byte delivered is still not 100% until the worker says done', () => {
+  const t = setup();
+  t.waited();
+  t.splash.progress(60, 100);
+  t.splash.progress(100, 100);
+  assert.equal(t.num.textContent, '99%');
+  assert.ok(!t.timers.some((x) => x.ms === NUMBER_CLOSE_MS));
+  t.splash.progress(100, 100, true);
   assert.equal(t.num.textContent, '100%');
+  assert.ok(t.timers.some((x) => x.ms === NUMBER_CLOSE_MS));
+});
+
+test('a stop from the worker hides the number at once and it never returns', () => {
+  const t = setup();
+  t.waited();
+  t.splash.progress(42, 100);
+  assert.ok(t.classes.has('ps-pct'));
+  t.splash.stop();
+  assert.ok(!t.classes.has('ps-pct'), 'the old percent does not stay on screen');
+  assert.ok(t.classes.has('ps-wait'), 'the spinner keeps going');
+  t.splash.progress(60, 100);
+  t.splash.progress(100, 100, true);
+  assert.ok(!t.classes.has('ps-pct'));
+});
+
+test('a stop before the spinner appears means no number at all', () => {
+  const t = setup();
+  t.splash.progress(42, 100);
+  t.splash.stop();
+  t.waited();
+  assert.ok(!t.classes.has('ps-pct'));
+});
+
+test('the page forwards the stop message too', () => {
+  const src = readFileSync(new URL('../../web/pantas_splash.js', import.meta.url), 'utf8');
+  assert.match(src, /data\.stop/);
 });
 
 test('Reduce Motion: "Loading 42%" on one line, then "Loading"', () => {
@@ -409,7 +448,7 @@ test('Reduce Motion: "Loading 42%" on one line, then "Loading"', () => {
   t.splash.progress(42, 100);
   assert.equal(t.lab.textContent, ' 42%');
   assert.ok(t.classes.has('ps-pct'));
-  t.splash.progress(100, 100);
+  t.splash.progress(100, 100, true);
   t.closeNumber();
   assert.ok(!t.classes.has('ps-pct'));
 });

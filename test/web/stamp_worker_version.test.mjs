@@ -3,7 +3,7 @@ import {existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync}
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import test from 'node:test';
-import {stamp, LOAD_SIZES} from '../../tool/web/stamp_worker_version.mjs';
+import {stamp} from '../../tool/web/stamp_worker_version.mjs';
 
 function build(mainJs) {
   const dir = mkdtempSync(join(tmpdir(), 'stamp-'));
@@ -46,9 +46,21 @@ test('version metadata adds only the comparable stamped build identity', () => {
   assert.equal(stamp(dir), first);
 });
 
-// The size list the loading percent divides by (UX lead, Nov 25, board A).
-function bigBuild() {
+// The sizes the loading percent divides by are written into the worker script
+// (UX lead, Nov 25, board A). There is no list file.
+const WORKER = [
+  "'use strict';",
+  'const VERSION = 1;',
+  'const LOAD_SIZES = null; // stamped by tool/web/stamp_worker_version.mjs',
+  'self.x = 1;',
+].join('\n');
+
+function bigBuild({local = false, worker = WORKER} = {}) {
   const dir = build('main code');
+  writeFileSync(join(dir, 'pantas_sw.js'), worker);
+  writeFileSync(join(dir, 'flutter_bootstrap.js'),
+    'await pwa.registerWorker("213919009" /* note */);\n' +
+    `_flutter.buildConfig = {"engineRevision":"abc","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"}]${local ? ',"useLocalCanvasKit":true' : ''}};`);
   mkdirSync(join(dir, 'canvaskit', 'chromium'), {recursive: true});
   writeFileSync(join(dir, 'canvaskit', 'canvaskit.js'), 'full js');
   writeFileSync(join(dir, 'canvaskit', 'canvaskit.wasm'), 'full wasm bytes');
@@ -57,49 +69,60 @@ function bigBuild() {
   return dir;
 }
 
-test('stamping writes the decoded size of each file the loader fetches', () => {
+function sizes(dir) {
+  const line = readFileSync(join(dir, 'pantas_sw.js'), 'utf8').split('\n').find(l => l.startsWith('const LOAD_SIZES = '));
+  return JSON.parse(line.slice('const LOAD_SIZES = '.length, line.indexOf(';')));
+}
+
+test('a CDN build lists main.dart.js only, because CanvasKit does not load from this origin', () => {
   const dir = bigBuild();
   stamp(dir);
-  const list = JSON.parse(readFileSync(join(dir, LOAD_SIZES), 'utf8'));
-  assert.equal(list.v, 1);
-  assert.deepEqual(list.files, {
+  assert.deepEqual(sizes(dir), {'main.dart.js': 'main code'.length});
+});
+
+test('a build with local CanvasKit also lists the files the chromium build loads', () => {
+  const dir = bigBuild({local: true});
+  stamp(dir);
+  assert.deepEqual(sizes(dir), {
     'main.dart.js': 'main code'.length,
-    'canvaskit/canvaskit.js': 'full js'.length,
-    'canvaskit/canvaskit.wasm': 'full wasm bytes'.length,
     'canvaskit/chromium/canvaskit.js': 'chromium js'.length,
     'canvaskit/chromium/canvaskit.wasm': 'chromium wasm'.length,
   });
 });
 
-test('the list names the build it belongs to, so a worker can refuse another build\'s list', () => {
+test('a build config that does not say local counts as CDN', () => {
   const dir = bigBuild();
-  const version = stamp(dir);
-  const list = JSON.parse(readFileSync(join(dir, LOAD_SIZES), 'utf8'));
-  assert.equal(list.version, version);
-  assert.equal(list.alternatives, undefined);
+  writeFileSync(join(dir, 'flutter_bootstrap.js'), 'await pwa.registerWorker("1");\nnothing here');
+  stamp(dir);
+  assert.deepEqual(Object.keys(sizes(dir)), ['main.dart.js']);
 });
 
-test('the list is not part of the build hash and stamping twice is stable', () => {
+test('no list file is written and the worker script keeps its other lines', () => {
+  const dir = bigBuild();
+  stamp(dir);
+  assert.equal(existsSync(join(dir, 'pantas_load_sizes.json')), false);
+  const lines = readFileSync(join(dir, 'pantas_sw.js'), 'utf8').split('\n');
+  assert.deepEqual([lines[0], lines[1], lines[3]], ["'use strict';", 'const VERSION = 1;', 'self.x = 1;']);
+});
+
+test('the sizes are not part of the build hash and stamping twice is stable', () => {
   const dir = bigBuild();
   const first = stamp(dir);
-  const text = readFileSync(join(dir, LOAD_SIZES), 'utf8');
+  const text = readFileSync(join(dir, 'pantas_sw.js'), 'utf8');
   assert.equal(stamp(dir), first);
-  assert.equal(readFileSync(join(dir, LOAD_SIZES), 'utf8'), text);
+  assert.equal(readFileSync(join(dir, 'pantas_sw.js'), 'utf8'), text);
   assert.equal(stamp(bigBuild()), first);
-  const bare = bigBuild();
-  assert.equal(stamp(bare), first);
+  assert.notEqual(stamp(bigBuild({worker: WORKER + '\nself.y = 2;'})), first, 'worker code is still part of the hash');
 });
 
-test('a build with no main script gets no list, so the page shows the spinner only', () => {
-  const dir = build('code');
+test('a build with no main script leaves the worker unstamped', () => {
+  const dir = bigBuild();
   rmSync(join(dir, 'main.dart.js'));
   stamp(dir);
-  assert.equal(existsSync(join(dir, LOAD_SIZES)), false);
+  assert.match(readFileSync(join(dir, 'pantas_sw.js'), 'utf8'), /^const LOAD_SIZES = null;/m);
 });
 
-test('only files that exist are listed', () => {
+test('a build with no worker script still stamps', () => {
   const dir = build('code');
-  stamp(dir);
-  const list = JSON.parse(readFileSync(join(dir, LOAD_SIZES), 'utf8'));
-  assert.deepEqual(Object.keys(list.files), ['main.dart.js']);
+  assert.match(stamp(dir), /^213919009-/);
 });
