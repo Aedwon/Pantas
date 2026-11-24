@@ -474,6 +474,15 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
         writeDisputeFollowUp('disputeLostAfterRefund', grant, refunded, pulledBy(inputs.grants, input.disputeId ?? ''));
       }
     }
+    // The loss came first with no amount (the whole payment was assumed), and the opening now brings the real
+    // amount: the same lost-dispute check runs once with it.
+    if (input.dispute && !input.disputeLost && input.disputeId && input.disputedAmount !== undefined && grant && !disputeFollow.exists &&
+        earlierResolutions?.[input.disputeId] === 'lost' && earlier.get('disputedAmount') === undefined) {
+      const paidAmount = paidOf(grant);
+      if (paidAmount > 0 && refundedTotal(grant) + input.disputedAmount !== paidAmount) {
+        writeDisputeFollowUp('disputeLostAfterRefund', grant, refundedTotal(grant), pulledBy(inputs.grants, input.disputeId));
+      }
+    }
     if (!grant) {markPlain(); return {outcome: 'duplicate' as const, uid};}
     if (grant.state !== 'active' && input.dispute) {
       // The grant is already revoked (a full refund, an earlier dispute, an admin). Its dispute is still

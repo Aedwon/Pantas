@@ -1258,6 +1258,19 @@ test('a lost 50% dispute with no refunds gives one follow-up; an unknown amount 
   }
 });
 
+test('a loss with no amount, then the opening with 50%: one follow-up', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now, []);
+  assert.equal((await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, eventId: 'evt_1'}, now + 1))).length, 0);
+  assert.equal(followUpOf(db), undefined);
+  const lines = await quietly(() => revokePaymongoPayment(db, {...openDispute, disputedAmount: priceCentavos(weekly) / 2, eventId: 'evt_2'}, now + 2));
+  assert.equal(followUpOf(db).reason, 'disputeLostAfterRefund');
+  assert.equal(lines.length, 1);
+  const again = await quietly(() => revokePaymongoPayment(db, {...openDispute, disputedAmount: priceCentavos(weekly) / 2, eventId: 'evt_3'}, now + 3));
+  assert.equal(again.length, 0);
+});
+
 test('unused days: six days used of a weekly grant, half refund, dispute won leaves one unused day', async () => {
   const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
   for (const order of ['refund then dispute', 'dispute then refund']) {
