@@ -412,6 +412,8 @@ is fixed in the script and it takes no project argument. Running services keep s
 deploy builds fresh images. Prod keeps its images for one day (Fable 5.2 rule 7 ruling 4). Do not run it
 while a deploy is still in progress.
 
+After any staging deploy that includes Firestore indexes, run `tool/deploy/staging_disable_ttl.sh` (add `--dry-run` to list first), because `firestore.indexes.json` turns TTL back on and TTL deletes have no free tier.
+
 ### The free-tier check (rule 7)
 
 `node tool/checks/free_tier.mjs` runs in CI (functions job). It reads the deploy config of both projects
