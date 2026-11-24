@@ -107,6 +107,7 @@ export async function fulfillPaidSession(deps: Pick<PaymongoWebhookDeps, 'db' | 
   const paidAt = paid[0].paidAt;
   const validPayment = paid.length === 1 && !!paid[0].id && paid[0].currency === 'PHP' &&
     Number.isSafeInteger(paid[0].amount) && paid[0].amount > 0;
+  // A deleted account's refund task refunds what the payer actually paid, so it uses PayMongo's amount, not the quote.
   const refundIfDeleted = async () => (await commitPaymongoGrant(deps.db, {uid, eventId, sessionId,
     paymentId: paid[0].id, paidAmount: paid[0].amount, product, paidAt: paidAt ?? 0, deletionOnly: true},
   now(), deps.catalog ?? examCatalog)) === 'accountDeleted';

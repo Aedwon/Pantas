@@ -706,3 +706,123 @@ test('property: random purchases, refunds, revokes and disputes keep the chain w
     }
   }
 });
+
+test('dispute, partial refund, then the paid webhook, then a win: the plan comes back with the shortened end', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  const paid = priceCentavos(monthly);
+  await revokePaymongoPayment(db, {eventId: 'evt_open', paymentId: 'pay_a', disputeId: 'disp_a', dispute: true,
+    reason: 'dispute.created'}, now - 2000);
+  await revokePaymongoPayment(db, {eventId: 'evt_ref', paymentId: 'pay_a', reason: 'payment.refunded',
+    refunds: [{id: 'half', amount: paid / 2}]}, now - 1000);
+  await buy(db, 'a', monthly, now);
+  const born = grantRow(db, 'a');
+  assert.equal(born.state, 'revoked');
+  assert.equal(born.endsAt, shortenedEnd(born.startsAt, addPrepaid(born.startsAt, monthly.prepaid), paid / 2, paid));
+  await resolvePaymongoDispute(db, {eventId: 'evt_win', paymentId: 'pay_a', disputeId: 'disp_a', won: true}, now + 1000);
+  const won = grantRow(db, 'a');
+  assert.equal(won.state, 'active');
+  assert.equal(won.endsAt, shortenedEnd(won.startsAt, addPrepaid(won.startsAt, monthly.prepaid), paid / 2, paid));
+  assert.ok(won.endsAt - won.startsAt < (addPrepaid(now, monthly.prepaid) - now) * 0.6);
+});
+
+// An independent model: each plan's paid length, refunded share and status are tracked here, apart
+// from the grants the real code writes. Coverage is measured on the real grants as a union of
+// intervals, so overlapping plans are never counted twice.
+test('property with a model ledger: coverage after now covers the time the model says is owed', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const DAY = 86_400_000;
+  const lengths = {low: {pantas_cs_weekly: 7 * DAY, pantas_cs_monthly: 28 * DAY},
+    high: {pantas_cs_weekly: 7 * DAY, pantas_cs_monthly: 31 * DAY}};
+  const union = (rows, from, to) => {
+    const spans = rows.map(r => [Math.max(r.startsAt, from), Math.min(r.endsAt, to)]).filter(([a, b]) => b > a)
+      .sort((x, y) => x[0] - y[0]);
+    let total = 0; let end = -Infinity;
+    for (const [a, b] of spans) {total += b - Math.max(a, end); end = Math.max(end, b);}
+    return total;
+  };
+  for (let n = 0; n < 1200; n++) {
+    const seed = 5000 + n;
+    const rand = seeded(seed);
+    const pick = max => Math.floor(rand() * max);
+    const db = firestore();
+    const model = new Map(); // id -> {product, paid, refunded, status: 'active' | 'disputed' | 'lost' | 'full'}
+    let at = now; let step = 0;
+    const log = [];
+    const fail = message => assert.fail(`seed ${seed} step ${step}: ${message}${process.env.DEBUG_SEED ? `\n${log.join('\n')}` : ''}`);
+    const ids = () => [...model.keys()];
+    const stepCount = 1 + pick(6);
+    for (step = 0; step < stepCount; step++) {
+      at += pick(12 * 24) * HOUR_MS + HOUR_MS;
+      const choices = ['buy', 'buy', 'buyAfterEvents'];
+      const active = ids().filter(id => model.get(id).status === 'active');
+      const disputed = ids().filter(id => model.get(id).status === 'disputed');
+      // A refund after a plan has fully run changes nothing it delivered, so refunds target plans still running.
+      const refundable = active.filter(id => grantRow(db, id).endsAt > at);
+      if (refundable.length) choices.push('partial', 'full');
+      if (active.length) choices.push('dispute');
+      if (disputed.length) choices.push('win', 'lose', 'win');
+      const choice = model.size === 0 ? (rand() < 0.5 ? 'buy' : 'buyAfterEvents') : choices[pick(choices.length)];
+      const prod = rand() < 0.5 ? weekly : monthly;
+      const paid = priceCentavos(prod);
+      if (choice === 'buy' || choice === 'buyAfterEvents') {
+        const id = `p${model.size}`;
+        const entry = {product: prod.id, paid, refunded: 0, status: 'active'};
+        if (choice === 'buyAfterEvents') {
+          const disputeFirst = rand() < 0.6; const refundFirst = rand() < 0.7 || !disputeFirst;
+          if (disputeFirst) {
+            await revokePaymongoPayment(db, {eventId: `evt_d${id}`, paymentId: `pay_${id}`, disputeId: `disp_${id}`,
+              dispute: true, reason: 'dispute.created'}, at - 2000);
+            entry.status = 'disputed';
+          }
+          if (refundFirst) {
+            const amount = Math.max(1, Math.floor(paid * (0.1 + 0.6 * rand())));
+            await revokePaymongoPayment(db, {eventId: `evt_r${id}`, paymentId: `pay_${id}`, reason: 'payment.refunded',
+              refunds: [{id: `ref_${id}`, amount}]}, at - 1000);
+            entry.refunded = amount;
+          }
+        }
+        await buy(db, id, prod, at);
+        model.set(id, entry);
+        log.push(`${choice} ${id} ${entry.status} refunded ${entry.refunded}`);
+      } else if (choice === 'partial' || choice === 'full') {
+        const id = refundable[pick(refundable.length)]; const entry = model.get(id);
+        const amount = choice === 'full' ? entry.paid - entry.refunded : Math.max(1, Math.floor(entry.paid * (0.1 + 0.4 * rand())));
+        await revokePaymongoPayment(db, {eventId: `evt_r${step}`, paymentId: `pay_${id}`, reason: 'payment.refunded',
+          refunds: [{id: `ref_${step}`, amount}]}, at);
+        entry.refunded += amount;
+        if (entry.refunded >= entry.paid) entry.status = 'full';
+        log.push(`${choice} ${id}`);
+      } else if (choice === 'dispute') {
+        const id = active[pick(active.length)];
+        await revokePaymongoPayment(db, {eventId: `evt_d${step}`, paymentId: `pay_${id}`, disputeId: `disp_${id}`,
+          dispute: true, reason: 'dispute.created'}, at);
+        model.get(id).status = 'disputed';
+        log.push(`dispute ${id}`);
+      } else {
+        const id = disputed[pick(disputed.length)];
+        await resolvePaymongoDispute(db, {eventId: `evt_w${step}`, paymentId: `pay_${id}`, disputeId: `disp_${id}`,
+          won: choice === 'win'}, at);
+        const entry = model.get(id);
+        entry.status = choice === 'win' ? (entry.refunded >= entry.paid ? 'full' : 'active') : 'lost';
+        log.push(`${choice} ${id}`);
+      }
+      const rows = ids().map(id => grantRow(db, id));
+      const live = rows.filter(r => r.state === 'active');
+      let owed = 0;
+      for (const [id, entry] of model) {
+        if (entry.status !== 'active') continue;
+        const share = (entry.paid - entry.refunded) / entry.paid;
+        const low = Math.floor(lengths.low[entry.product] * share) - 1000;
+        const row = grantRow(db, id);
+        // A plan's term runs from its own start; what is left of its paid length after now is owed.
+        owed += Math.max(0, low - Math.min(Math.max(at - row.startsAt, 0), row.endsAt - row.startsAt));
+        if (row.state !== 'active') fail(`${id} is active in the model but ${row.state} in the grants`);
+        const high = lengths.high[entry.product] * share + 1000;
+        if (row.endsAt - row.startsAt > high) fail(`${id} runs ${(row.endsAt - row.startsAt) / DAY} days, more than the ${high / DAY} it paid for`);
+      }
+      const after = union(live, at, Infinity);
+      if (after < owed) fail(`coverage after now ${after / DAY}d is below the owed ${owed / DAY}d`);
+    }
+  }
+});

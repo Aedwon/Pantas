@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {getFirestore} from 'firebase-admin/firestore';
 import {createCheckout} from '../lib/paymongoCheckout.js';
+import {fakeAuth} from './_paymongo-helpers.mjs';
 
 const db = getFirestore();
 const T0 = Date.parse('2026-11-10T10:00:00+08:00');
@@ -210,4 +211,45 @@ test('a pass retried after its sitting passed returns the open session; an expir
   assert.equal(expired.created.length, 1);
   assert.notEqual(replaced.sessionId, original.sessionId);
   assert.equal((await db.doc(`paymongoOrders/${replaced.reference}`).get()).get('sitting').firstDay, '2027-08-08');
+});
+
+// The earlier-sitting session found on a rollover follows the same rules as the same-key session.
+async function rolloverWith(uid, remote, extra = {}) {
+  const first = setup({now: () => beforeSitting});
+  first.catalog = passCatalog;
+  const original = await createCheckout(caller(uid), {product: passId}, first);
+  const retry = setup({now: () => afterSitting});
+  retry.catalog = passCatalog;
+  retry.client.getCheckoutSession = async id => ({id, ...remote(original)});
+  Object.assign(retry, extra);
+  return {original, retry};
+}
+
+test('a rollover finding an earlier session with an unknown status refuses and creates nothing', async () => {
+  const {retry} = await rolloverWith('lease-rollover-unknown', () => ({status: 'pending', metadata: {}, payments: []}));
+  await assert.rejects(createCheckout(caller('lease-rollover-unknown'), {product: passId}, retry),
+    error => error.message === 'Checkout status is unavailable. Try again later.');
+  assert.equal(retry.created.length, 0);
+});
+
+test('a rollover finding an earlier pass paid without a grant says it is being confirmed, and heals it after 10 minutes', async () => {
+  const uid = 'lease-rollover-paid';
+  const paid = original => ({status: 'active', metadata: {uid, product: passId, reference: original.reference},
+    payments: [{id: 'pay_roll_1', amount: 49900, currency: 'PHP', status: 'paid', paidAt: afterSitting - 2 * 60_000}]});
+  const {retry} = await rolloverWith(uid, paid);
+  // Under 10 minutes, or with no way to complete the grant, the caller is told to wait.
+  retry.auth = fakeAuth();
+  retry.now = () => afterSitting;
+  retry.catalog = passCatalog;
+  await assert.rejects(createCheckout(caller(uid), {product: passId}, retry),
+    error => error.message === 'Your payment is being confirmed. Pro will appear shortly.');
+  assert.equal(retry.created.length, 0);
+  assert.equal((await db.doc('paymongoPayments/pay_roll_1').get()).exists, false);
+  // After 10 minutes the call completes the grant through the shared path; the paid session is then replaced.
+  retry.now = () => afterSitting + 11 * 60_000;
+  const out = await createCheckout(caller(uid), {product: passId}, retry);
+  assert.equal((await db.doc('paymongoPayments/pay_roll_1').get()).get('uid'), uid);
+  assert.equal((await db.doc(`users/${uid}/grants/pay_roll_1`).get()).exists, true);
+  assert.equal(retry.created.length, 1);
+  assert.equal(out.reference, retry.created[0].referenceNumber);
 });

@@ -267,6 +267,9 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
       const grant: Grant = {...binding, source: 'paymongo', product: product.id, tier: product.tier,
         startsAt: plan?.startsAt ?? now, endsAt: plan?.endsAt ?? now, paymentId, paidAmount: input.paidAmount,
         refunds: early.refunds ?? {}, state: 'revoked', createdAt: now,
+        // Refunds that arrived first already shorten the term, so a later win restores the shortened schedule.
+        ...(plan && earlyRefunds > 0 && earlyRefunds < input.paidAmount ? {fullEndsAt: plan.endsAt,
+          endsAt: shortenedEnd(plan.startsAt, plan.endsAt, earlyRefunds, input.paidAmount)} : {}),
         ...(refundOwed && duplicatePass ? {unusedDuplicateOf: duplicatePass[0]} : {}),
         ...(refundOwed && late ? {unusableReason: 'paidAfterSitting'} : {})};
       transaction.set(grantRef, {...grant, revokedAt: now, revokedReason: early.reason ?? 'revoked',
@@ -524,9 +527,13 @@ export async function resolvePaymongoDispute(db: Firestore, input: {eventId: str
     // A partly refunded plan comes back shortened; one refunded in full stays revoked.
     const paidTotal = grant.paidAmount ?? (webProduct(grant.product)?.webPricePhp ?? 0) * 100;
     const restore = input.won && paidTotal > 0 && refundedTotal(grant) < paidTotal && !grant.unusedDuplicateOf && !grant.unusableReason;
-    const next: Grant = {...grant, disputeResolved: true, ...(restore ? {state: 'active'} : {})};
+    // The restored plan carries the same shortened end the refunds give: from its full term, never longer.
+    const fullEnd = fullEndOf(grant);
+    const next: Grant = {...grant, disputeResolved: true, ...(restore ? {state: 'active', fullEndsAt: fullEnd,
+      endsAt: shortenedEnd(grant.startsAt, fullEnd, refundedTotal(grant), paidTotal)} : {})};
     transaction.update(db.doc(`users/${uid}/grants/${id}`), {disputeResolved: true,
-      ...(restore ? {state: 'active', revokedReason: FieldValue.delete(), revokedAt: FieldValue.delete()} : {})});
+      ...(restore ? {state: 'active', fullEndsAt: next.fullEndsAt, endsAt: next.endsAt,
+        revokedReason: FieldValue.delete(), revokedAt: FieldValue.delete()} : {})});
     if (restore) {
       const grants = new Map(inputs.grants).set(id, next);
       const native = nativeCoverageRows(inputs, now);

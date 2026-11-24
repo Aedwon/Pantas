@@ -104,8 +104,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     // refunded by the late-pass rule. An expired or paid session is replaced as usual.
     for (const other of (await deps.db.collection(`users/${uid}/pendingCheckouts`).where('product', '==', product.id).get()).docs) {
       if (other.id === key || other.get('state') !== 'open' || typeof other.get('sessionId') !== 'string') continue;
-      const remote = await deps.client.getCheckoutSession(other.get('sessionId'));
-      if (remote.status === 'active' && !remote.payments.some(p => p.status === 'paid')) {
+      if (await earlierSessionVerdict(deps, uid, other.get('sessionId') as string, now) === 'reuse') {
         return reuse({sessionId: other.get('sessionId'), reference: other.get('reference'), checkoutUrl: other.get('checkoutUrl')});
       }
     }
@@ -127,24 +126,10 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   });
   if (reserved) {
     if (reserved.state !== 'open') throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
-    const remote = await deps.client.getCheckoutSession(reserved.sessionId as string);
-    const open = remote.status === 'active' && !remote.payments.some(p => p.status === 'paid');
     // An open, unpaid session is always reused, even if the price changed since it was created: the
     // payer pays the price the session shows, and the webhook checks the order's quoted amount.
     // Legacy orders without a quoted amount are moot: prod has test keys only and test grants are revoked at the live switch.
-    if (open) return reuse(reserved);
-    if (!open && remote.status !== 'expired' && !remote.payments.some(p => p.status === 'paid')) {
-      throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
-    }
-    // A paid session whose webhook has not granted yet must never lead to a second session: the
-    // customer could pay twice. Keep the reservation so the webhook completes the grant.
-    for (const payment of remote.payments.filter(p => p.status === 'paid')) {
-      const recorded = async () => (await deps.db.doc(`paymongoPayments/${grantDocId(payment.id)}`).get()).exists;
-      if (!(await recorded()) && !(remote.metadata.uid === uid && await healPaidPayment(deps, reserved.sessionId as string, payment, now) && await recorded())) {
-        logger.warn('Checkout replacement refused: previous session is paid and its grant is not processed yet');
-        throw new HttpsError('failed-precondition', 'Your payment is being confirmed. Pro will appear shortly.');
-      }
-    }
+    if (await earlierSessionVerdict(deps, uid, reserved.sessionId as string, now) === 'reuse') return reuse(reserved);
     // Compare-and-swap: only one request can replace a completed or expired checkout.
     await deps.db.runTransaction(async transaction => {
       const [current, deletion] = await transaction.getAll(pending, deps.db.doc(`accountDeletions/${uid}`));
@@ -185,6 +170,31 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     await releaseReservation(deps.db, pending, referenceNumber);
     throw error;
   }
+}
+
+/**
+ * What to do with a session an earlier attempt left open, for the same key or an earlier sitting.
+ * Open and unpaid: reuse it. Unknown status: refuse, so a link that may still be payable is never
+ * doubled. Paid without a grant: refuse as being confirmed, or heal it once it is older than
+ * HEAL_AFTER_MS. Paid with a grant, or expired: the caller replaces it.
+ */
+async function earlierSessionVerdict(deps: CheckoutDeps, uid: string, sessionId: string, now: number): Promise<'reuse' | 'replace'> {
+  const remote = await deps.client.getCheckoutSession(sessionId);
+  const paidPayments = remote.payments.filter(p => p.status === 'paid');
+  if (remote.status === 'active' && paidPayments.length === 0) return 'reuse';
+  if (remote.status !== 'expired' && paidPayments.length === 0) {
+    throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
+  }
+  // A paid session whose webhook has not granted yet must never lead to a second session: the
+  // customer could pay twice. Keep the reservation so the webhook completes the grant.
+  for (const payment of paidPayments) {
+    const recorded = async () => (await deps.db.doc(`paymongoPayments/${grantDocId(payment.id)}`).get()).exists;
+    if (!(await recorded()) && !(remote.metadata.uid === uid && await healPaidPayment(deps, sessionId, payment, now) && await recorded())) {
+      logger.warn('Checkout replacement refused: previous session is paid and its grant is not processed yet');
+      throw new HttpsError('failed-precondition', 'Your payment is being confirmed. Pro will appear shortly.');
+    }
+  }
+  return 'replace';
 }
 
 /**
