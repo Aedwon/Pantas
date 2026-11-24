@@ -241,7 +241,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      A charity foundation creates relief packages from 315 blankets (costing $\text{₱}150$ each) and 420 lanterns (costing $\text{₱}250$ each). They create the maximum number of identical packages. What is the total cost of one relief package?
+      A charity foundation creates relief packages from 315 blankets (costing $\text{₱}150$ each) and 420 lanterns (costing $\text{₱}250$ each). They use all the blankets and lanterns to make the maximum number of identical packages. What is the total cost of one relief package?
     choices:
       - text: '$\text{₱}400$'
         rationale: |

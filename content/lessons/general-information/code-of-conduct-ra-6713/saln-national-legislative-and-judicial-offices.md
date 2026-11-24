@@ -10,14 +10,16 @@ partCount: 10
 ordering: 33
 keyPoints:
   - "Match constitutional, national elective, and legislative filers to their offices."
-  - "Distinguish the filing offices for justices and judges."
+  - "Distinguish the repositories for justices and judges."
 ---
 
 ## Core Concept
 
-### Filing Offices Under RA $6713$
+### Statutory SALN Repositories
 
-Match the person's position to the statutory filing category. **Statutory** means stated in the law. These are the offices named in RA $6713$:
+File your SALN with your own agency's Human Resource Management Office or equivalent. That office sends the original to the proper repository.
+
+**Statutory** means stated in the law. RA $6713$ names the repository for each role:
 
 - **National office of the Ombudsman:** constitutional and national elective officials, with the specific destinations below for legislators and justices.
 - **Secretary of the Senate or House of Representatives:** members of the respective chamber.
@@ -27,28 +29,28 @@ Match the person's position to the statutory filing category. **Statutory** mean
 
 ### #1: Constitutional and National Elective Officials
 
-The Vice President must file financial declarations. Which statutory filing office applies?
+The Vice President must file financial declarations. Which statutory repository receives the SALN?
 
 **Solution:**
 
 1. The Vice President is a constitutional and national elective official.
-2. The filing destination is the **national office of the Ombudsman**.
+2. The statutory repository for the Vice President is the **national office of the Ombudsman**.
 
 ### #2: The Two Legislative Chambers
 
-A senator and a member of the House of Representatives must file their declarations. Where does each file under RA $6713$?
+A senator and a member of the House of Representatives must file their declarations. Which statutory repository receives each SALN?
 
 **Solution:**
 
-1. A senator files with the **Secretary of the Senate**.
-2. A House member files with the **Secretary of the House of Representatives**.
+1. The statutory repository for a senator is the **Secretary of the Senate**.
+2. The statutory repository for a House member is the **Secretary of the House of Representatives**.
 3. The specific legislative rule applies to each member's own chamber.
 
 ### #3: Justices and Judges
 
-A Supreme Court justice and a trial court judge must file their declarations. Which statutory destination applies to each?
+A Supreme Court justice and a trial court judge must file their declarations. Which statutory repository receives each SALN?
 
 **Solution:**
 
-1. The justice files with the **Clerk of Court of the Supreme Court**.
-2. The judge files with the **Court Administrator**. The two judicial destinations are distinct.
+1. The statutory repository for a justice is the **Clerk of Court of the Supreme Court**.
+2. The statutory repository for a judge is the **Court Administrator**.

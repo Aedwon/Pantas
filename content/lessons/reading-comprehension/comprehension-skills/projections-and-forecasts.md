@@ -30,7 +30,7 @@ These three statements are different:
 
 ### #1: A Projection
 
-A planning report says, “Based on current assumptions, the population is projected to reach $10$ million by $2030$.” What kind of claim is this?
+A planning model gives this forecast. “Based on current assumptions, the population will reach $10$ million by $2030$.” What kind of claim does the quoted sentence make?
 
 **Solution:**
 

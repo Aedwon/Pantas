@@ -303,13 +303,13 @@ questions:
     type: "punctuation"
     difficulty: "hard"
     stem: |
-      Only students who missed the test must report. Which sentence preserves that meaning with standard punctuation?
+      Some students missed the test. Those students, and not the others, must report today. Which sentence keeps that meaning with standard punctuation?
     choices:
       - text: "The students who missed the test must report today."
         correct: true
       - text: "The students, who missed the test, must report today."
         rationale: |
-          This makes the identifying clause extra information. Paired commas often surround relative clauses. Check: ask whether the clause identifies only part of the group.
+          The commas make "who missed the test" extra information about all the students. This says all the students missed the test and must report. Use the clause without commas to pick out only the students who missed it.
       - text: "The students who, missed the test, must report today."
         rationale: |
           This separates "who" from its verb. Two commas make the extra group look balanced. Check: keep the entire identifying clause together.
@@ -317,7 +317,7 @@ questions:
         rationale: |
           This separates the full subject from the main verb. A pause after a long subject can sound natural. Check: check whether the comma marks extra information or splits the clause.
     explanation: |
-      "Who missed the test" identifies the students who must report. This restrictive clause stays with the noun without paired commas.
+      Without commas, "who missed the test" picks out the students who must report today. It limits the group to the students who missed the test.
     approved: true
   - id: "q-grammar-and-structure-punctuation-and-capitalization-0015"
     lesson: lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions

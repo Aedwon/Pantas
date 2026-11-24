@@ -227,7 +227,7 @@ questions:
           This keeps two different activity forms. The repair changes the first item. Check: compare the two forms after the main verb.
       - text: "She enjoys hiking and swims in the lake."
         rationale: |
-          This joins an activity name to a separate action verb. Both verbs concern things she does. Check: give "enjoys" two matching activity names.
+          The subject "she" has two predicates, "enjoys hiking" and "swims in the lake." The second tells us she swims and leaves open whether she enjoys it. Keep both activities after "enjoys."
     explanation: |
       "Enjoys" is followed by the activity names "hiking" and "swimming." They share the same -ing form.
     approved: true

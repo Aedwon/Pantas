@@ -15,40 +15,40 @@ keyPoints:
 
 ## Core Concept
 
-### Filing Offices Under RA $6713$
+### Statutory SALN Repositories
 
 - **Office of the President:** national executive officials and armed-forces officers of colonel or naval captain rank and above.
 - **Deputy Ombudsman in the proper region:** regional and local officials and employees, and armed-forces officers below colonel or naval captain.
 - **CSC:** other covered public officials and employees in the law's remaining category.
 
-These are statutory destinations. Follow the filing instructions that apply when actually submitting a statement.
+File your SALN with your own agency's Human Resource Management Office or equivalent. That office sends the original to the proper repository.
 
 ## Examples
 
 ### #1: National Executive and Military Filers
 
-A national executive official, an army colonel, and an army major must file their declarations. Where does each file under the statute?
+A national executive official, an army colonel, and an army major must file their declarations. Which statutory repository receives each SALN?
 
 **Solution:**
 
-1. The national executive official files with the **Office of the President**.
-2. The colonel also files with the **Office of the President**. Colonel is included in the higher-rank category.
-3. The major is below colonel and files with the **Deputy Ombudsman in the proper region**.
+1. The statutory repository for a national executive official is the **Office of the President**.
+2. The statutory repository for a colonel is the **Office of the President**. Colonel is included in the higher-rank category.
+3. The statutory repository for a major is the **Deputy Ombudsman in the proper region**. A major ranks below a colonel.
 
 ### #2: Local and Remaining Categories
 
-A city employee and a covered employee who falls outside all the specifically named filing categories must file declarations. Which statutory offices receive them?
+A city employee and a covered employee who falls outside all the specifically named filing categories must file declarations. Which statutory repository receives each SALN?
 
 **Solution:**
 
-1. The city employee is a local government employee and files with the **Deputy Ombudsman in the proper region**.
-2. The employee in the remaining category files with the **CSC**.
-3. Do not send every covered employee to the same office.
+1. The statutory repository for a city employee is the **Deputy Ombudsman in the proper region**.
+2. The statutory repository for an employee in the remaining category is the **CSC**.
+3. The law names different repositories for different roles.
 
 
 ## Traps to Watch For
 
-### #1: Sending Every Filing to the CSC
+### #1: Treating the CSC as the Only Repository
 
 > Match the office to the filer's category.
 

@@ -31,7 +31,7 @@ The university updated ______ guidelines regarding artificial intelligence.
 A) it's  
 B) its  
 C) its'  
-D) their
+D) they’re
 
 **Solution:**
 

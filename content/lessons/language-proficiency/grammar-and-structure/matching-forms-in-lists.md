@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-**Parallelism**, or **parallel structure**, means that parts doing the same job in a sentence use matching forms. Check this in lists, paired ideas, and comparisons.
+In **parallel structure**, the parts of a list or pair do the same grammatical job. Using matching forms usually makes that job clear.
 
 “She likes *swimming, hiking,* and *reading*.” Each item uses the *-ing* form. The list is parallel.
 

@@ -71,4 +71,4 @@ $$
 
 > Only the copying period here is stated in working days.
 
-Initial and separation filings use $30$ days. April $30$ is the annual deadline. Copying begins after $10$ working days from filing.
+Initial and separation filings use $30$ days. April $30$ is the annual deadline. Under RA 6713, the copying period is $10$ working days from filing. For Ombudsman repositories, the earliest release is $10$ working days after the final agency submission deadline, once the SALN has been processed and recorded.

@@ -10,7 +10,7 @@ partCount: 3
 ordering: 43
 keyPoints:
   - "Match the parts joined by correlative conjunctions."
-  - "Use matching forms for the two sides of a comparison."
+  - "Compare the same kind of thing or the same quality on both sides."
 ---
 ## Core Concept
 
@@ -18,7 +18,7 @@ keyPoints:
 
 “She wanted *not only to travel but also to save money*.” Both joined parts use *to + verb*. In “The trip was *both short and pleasant*,” both joined words describe the trip.
 
-Comparisons need matching forms too. “Reading is more relaxing than watching television” compares two activities in the *-ing* form. The same check applies to comparisons with *as*, such as “Writing is as useful as reading.”
+In comparisons, check what each side is comparing. Matching forms often help. “Reading is more relaxing than watching television” compares two activities. “The room is as warm as it was yesterday” compares its temperature at two times.
 
 ## Examples
 
@@ -46,7 +46,7 @@ Rewrite this sentence with parallel structure: “Reading a book is more relaxin
 
 With a correlative pair, compare the joined parts. Check what follows *either...or, neither...nor, not only...but also,* or *both...and*.
 
-In comparisons with *than* or *as*, check both sides. Matching ideas should also use matching forms.
+With *than* or *as*, check that both sides compare the same kind of thing or the same quality.
 
 ## Traps to Watch For
 

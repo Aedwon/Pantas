@@ -315,7 +315,7 @@ questions:
         correct: true
       - text: "Managing"
         rationale: |
-          This keeps the silent e of "manage" before -ing. Some suffixes preserve an e, so that may seem necessary here. Check the ordinary -ing form "managing."
+          The word "manage" drops its final e before "-ing," so "managing" is spelled correctly.
       - text: "Courageous"
         rationale: |
           This assumes every vowel-starting suffix requires dropping e. That shortcut works for many -ing forms. Check the established spelling "courageous."
@@ -378,7 +378,7 @@ questions:
     type: spelling-correction
     difficulty: hard
     stem: |
-      Which is the correctly spelled word?
+      Which spelling completes the sentence? The goalkeeper lunged to ______ the ball before it crossed the line.
     choices:
       - text: "Seize"
         correct: true
@@ -387,12 +387,12 @@ questions:
           This applies i-before-e to an exception. The familiar rhyme may seem general. Check the established spelling "seize."
       - text: "Seise"
         rationale: |
-          This replaces z with s. Both can suggest a similar sound in English spelling. Check the final consonant of the word.
+          "Seise" is a legal term for giving someone possession of property. Here the goalkeeper is trying to take hold of the ball, so the word is "seize."
       - text: "Seizee"
         rationale: |
           This adds a second final e. A long vowel may seem to need an extra written vowel. Check the standard five-letter form.
     explanation: |
-      The standard spelling is "seize," with e before i and one final e. Its vowel pair is a learned exception to the limited i-before-e mnemonic.
+      To "seize" the ball means to take hold of it. Spell "seize" with e before i and one e at the end.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0018

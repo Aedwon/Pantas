@@ -429,7 +429,7 @@ questions:
     type: "error-identification"
     difficulty: "medium"
     stem: |
-      Only the recipient, Paolo, received Lina's draft. Which sentence places "only" to state that restriction clearly?
+      Lina sent the draft to Paolo and to no one else. Which sentence places "only" to state that restriction clearly?
     choices:
       - text: "Lina sent the draft to Paolo only."
         correct: true
@@ -443,7 +443,7 @@ questions:
         rationale: |
           This limits the timing of sending. "Only" is placed near Paolo. Check: check the whole phrase following the limiting word.
     explanation: |
-      "To Paolo only" restricts who received the draft. It identifies Paolo as the sole recipient.
+      "To Paolo only" limits whom Lina sent the draft to. Paolo was the only person she sent it to.
     approved: true
   - id: "q-language-application-error-identification-0018"
     lesson: lesson-language-application-modifiers-and-matching-forms

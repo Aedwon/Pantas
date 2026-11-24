@@ -80,7 +80,7 @@ questions:
     type: word-problem
     difficulty: easy
     stem: |
-      A sari-sari store owner has 10 liters of a $10\%$ sugar syrup solution. How many liters of pure sugar are in this solution?
+      A sari-sari store owner has 10 liters of a solution that is 10% vinegar by volume. How many liters of vinegar does this represent?
     choices:
       - text: '$1\text{ liter}$'
         correct: true
@@ -89,12 +89,12 @@ questions:
           This reports the decimal form of $10\%$ as a volume. Converting the percentage is a valid first step. Check that it is multiplied by the total volume.
       - text: '$9\text{ liters}$'
         rationale: |
-          This reports the nonsugar portion. Subtracting the sugar leaves another meaningful amount. Check which substance is requested.
+          This subtracts the vinegar amount from 10 liters. The question asks for the vinegar amount.
       - text: '$10\text{ liters}$'
         rationale: |
-          This reports the entire solution volume. Sugar is part of that solution. Check that only $10\%$ of the volume is sugar.
+          This reports the entire solution volume. Vinegar is part of that solution. Check that only $10\%$ of the volume is vinegar.
     explanation: |
-      Ten percent is $0.10$. Multiply the solution volume by this fraction: $10(0.10)=1$ liter of sugar.
+      Ten percent is $0.10$. Multiply the solution volume by this fraction: $10(0.10)=1$ liter of vinegar.
 
   - id: q-algebra-word-problems-0005
     approved: true

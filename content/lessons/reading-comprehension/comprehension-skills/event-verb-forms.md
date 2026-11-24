@@ -34,7 +34,7 @@ Compare “Mia left” with “Mia had left before the meeting began.” The sec
 
 ### #2: Reordering Events Presented Out of Sequence
 
-“The bridge collapsed within minutes. Engineers had warned officials about weak parts of the bridge $2$ years earlier, but repairs were delayed.” What is the actual event order?
+“The bridge collapsed within minutes. Engineers had warned officials about weak parts of the bridge $2$ years earlier. Officials first postponed repairs after that warning and before the collapse.” What is the actual event order?
 
 **Solution:**
 

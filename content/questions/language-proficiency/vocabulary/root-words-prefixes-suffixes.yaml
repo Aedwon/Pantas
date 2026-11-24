@@ -378,7 +378,7 @@ questions:
     type: root-word-affix-analysis
     difficulty: medium
     stem: |
-      The two scientists decided to *collaborate* on the project instead of working separately. Given "co-" = together and a root related to work, what does *collaborate* mean?
+      The two scientists decided to *collaborate* on the project instead of working separately. Given "col-" = together and a root related to work, what does *collaborate* mean?
     choices:
       - text: "To work jointly"
         correct: true

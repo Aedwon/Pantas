@@ -149,21 +149,21 @@ questions:
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
-      Choose the correct pronoun: Liza and Carlo finished ______ project early.
+      Liza and Carlo, who share one project, finished ______ project early.
     choices:
       - text: "Their"
         correct: true
       - text: "Her"
         rationale: |
-          This refers to Liza alone. Liza is the first name in the pair. Check: include both names joined by "and".
+          "Her" would mean the project belongs to Liza alone. Liza is named first, but the project belongs to both people. Check who owns the project.
       - text: "His"
         rationale: |
-          This refers to Carlo alone. Carlo is closest to the blank. Check: include the full compound antecedent.
-      - text: "Its"
+          "His" would mean the project belongs to Carlo alone. Carlo is named too, but the project belongs to both people. Check who owns the project.
+      - text: "Theirs"
         rationale: |
-          This treats the two people as a non-person singular unit. They are working on one shared project. Check: match the pronoun to the people, not the project.
+          "Theirs" can show that both own the project. It stands on its own in "The project is theirs." When the word comes before "project," use "their."
     explanation: |
-      "Liza and Carlo" is a compound antecedent joined by "and," making it plural, so it takes the pronoun "their."
+      Liza and Carlo share the project. Use "their" to show that it belongs to both of them.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0008"
     lesson: lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents
