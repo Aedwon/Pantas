@@ -26,6 +26,9 @@ class HomeMastheadData {
   /// Retained because the settings source owns it. Task 2 intentionally does
   /// not render the student's name in the approved Home greeting.
   final String? name;
+
+  /// The exam name in the week strip chip: [weekChipName], not always the
+  /// catalog short name.
   final String examShortName;
   final ExamDate? examDate;
 
@@ -46,10 +49,21 @@ final homeMastheadProvider = FutureProvider<HomeMastheadData>((ref) async {
   final name = settings.name?.trim();
   return HomeMastheadData(
     name: name == null || name.isEmpty ? null : name,
-    examShortName: focus.exam?.shortName ?? '',
+    examShortName: weekChipName(focus.exam?.id, focus.exam?.shortName ?? ''),
     examDate: settings.examDate,
   );
 });
+
+/// The exam name the Home week strip chip shows, on phone and wide. His board
+/// HP_WeekStrip (D196) draws "CSE Pro"; the Nov 25 UX lead ruling (U14) names
+/// the other CSE chip "CSE Subpro", since the catalog names do not fit beside
+/// the strip. Every other exam, and every other place, keeps the catalog
+/// short name.
+String weekChipName(ExamId? examId, String shortName) => switch (examId) {
+      'exam_cse_pro' => 'CSE Pro',
+      'exam_cse_sub' => 'CSE Subpro',
+      _ => shortName,
+    };
 
 @immutable
 class HomeWeekStripData {
