@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
+import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
 
 void main() {
   MockSessionInProgress stateAt(
@@ -135,9 +136,15 @@ void main() {
     expect(find.textContaining('Correct'), findsNothing);
   });
 
-  testWidgets('a proctor warning remains available for eight seconds', (
+  // Board MK_Proctor: a 44 px pill that floats 12 px above the bar for 2.5
+  // seconds, over the question list, which never moves (U5).
+  testWidgets('a proctor warning is a 2.5 s pill over the list', (
     tester,
   ) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
     final hostKey = GlobalKey<_ProctorHostState>();
     await tester.pumpWidget(
       ProviderScope(
@@ -150,16 +157,40 @@ void main() {
         ),
       ),
     );
+    final listBefore = tester.getRect(find.byType(ListView));
+    final barTop = tester.getTopLeft(find.byType(FloatingBar)).dy;
     hostKey.currentState!.setRemaining(const Duration(minutes: 10));
     await tester.pump();
     await tester.pump();
 
     expect(find.text('10:00'), findsOneWidget);
-    expect(find.text('10 minutes left in this subject.'), findsOneWidget);
-    await tester.pump(const Duration(seconds: 3));
-    expect(find.text('10 minutes left in this subject.'), findsOneWidget);
-    await tester.pump(const Duration(seconds: 5));
-    expect(find.text('10 minutes left in this subject.'), findsNothing);
+    const copy = '10 minutes left in this subject.';
+    expect(find.text(copy), findsOneWidget);
+    final box = tester.getRect(find.byType(ProctorToast));
+    // The test font is wider than Geist, so the line may wrap here; on a
+    // phone the pill is 44 high (its minimum height) with the one line.
+    expect(box.height, greaterThanOrEqualTo(44));
+    expect(
+      tester
+          .widget<Container>(
+            find.descendant(
+              of: find.byType(ProctorToast),
+              matching: find.byType(Container),
+            ),
+          )
+          .constraints!
+          .minHeight,
+      44,
+    );
+    expect(box.left, 16);
+    expect(box.right, 374);
+    expect(barTop - box.bottom, 12);
+    expect(tester.getRect(find.byType(ListView)), listBefore);
+    await tester.pump(const Duration(milliseconds: 2400));
+    expect(find.text(copy), findsOneWidget);
+    await tester.pump(const Duration(milliseconds: 200));
+    expect(find.text(copy), findsNothing);
+    expect(tester.getRect(find.byType(ListView)), listBefore);
   });
 }
 
