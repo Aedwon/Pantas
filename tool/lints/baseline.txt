@@ -5,11 +5,7 @@
 2 lib/app/routes/settings_routes_native.dart ds_no_design_literal
 18 lib/app/sign_in/email_sign_in_page.dart ds_no_design_literal
 17 lib/app/sign_in/sign_in_parts.dart ds_no_design_literal
-6 lib/features/beta_feedback/presentation/days_card.dart ds_no_design_literal
-1 lib/features/beta_feedback/presentation/exit_survey_page.dart ds_board_value_reason
-3 lib/features/beta_feedback/presentation/exit_survey_page.dart ds_no_design_literal
 6 lib/features/beta_feedback/presentation/reward_card.dart ds_no_design_literal
-4 lib/features/beta_feedback/presentation/survey_sent.dart ds_no_design_literal
 1 lib/features/guardian/presentation/guardian_screen.dart ds_board_value_reason
 1 lib/features/guardian/presentation/guardian_screen.dart ds_no_design_literal
 2 lib/features/home/presentation/home_tab.dart ds_no_design_literal
@@ -118,7 +114,6 @@
 1 lib/features/settings/presentation/pages/pro_page.dart ds_no_design_literal
 1 lib/features/settings/presentation/pages/session_building_page.dart ds_no_design_literal
 5 lib/features/settings/presentation/settings_home_page.dart ds_no_design_literal
-2 lib/features/settings/presentation/widgets/beta_pro_row.dart ds_no_design_literal
 15 lib/features/settings/presentation/widgets/settings_pane_page.dart ds_no_design_literal
 2 lib/features/settings/presentation/widgets/settings_row.dart ds_no_design_literal
 2 lib/features/settings/presentation/widgets/web_pro_hero.dart ds_no_design_literal

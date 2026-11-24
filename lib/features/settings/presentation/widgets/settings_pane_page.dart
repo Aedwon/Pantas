@@ -20,9 +20,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
-import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
-import 'package:pantas/features/settings/presentation/widgets/beta_pro_row.dart';
 import 'package:pantas/features/settings/settings.dart';
 
 /// Settings destinations share the list pane. Providers and route state stay
@@ -409,20 +407,15 @@ class SettingsNavigation extends ConsumerWidget {
       unawaited(router.push<void>(path));
     }
 
-    final tester = ref.watch(betaFeedbackVisibleProvider);
     Widget row(
       String label,
       String path,
       Widget glyph, {
       String? value,
-      Widget? titleSuffix,
-      Widget? trailing,
       bool? divider,
     }) =>
         WebRow(
           title: label,
-          titleSuffix: titleSuffix,
-          trailing: trailing,
           // The label keeps one weight, so the text does not jump while the
           // tint fades (item 17, demo 4).
           titleStyle: PantasType.webRowTitleSettings
@@ -482,32 +475,6 @@ class SettingsNavigation extends ConsumerWidget {
                 ),
         ),
         const SizedBox(height: PantasSpace.s18),
-        if (tester) ...[
-          // FbDesk: Feedback and the Beta switch share the first card.
-          WebCard(
-            child: Column(
-              children: [
-                row(
-                  'Feedback',
-                  '/settings/beta-feedback',
-                  SettingsFeedbackGlyph(size: 22, color: t.colors.accent),
-                  titleSuffix: const SettingsBetaMark(),
-                  trailing: FeedbackRowValue(
-                    value: ref.watch(feedbackRowValueProvider),
-                    style: PantasType.webRowValue
-                        .copyWith(color: t.colors.textSecondary),
-                    selectedColor: t.colors.accent,
-                    selected: selected == 'Feedback',
-                  ),
-                  divider: false,
-                ),
-                const BetaProRow(),
-              ],
-            ),
-          ),
-          const BetaProNote(),
-          const SizedBox(height: PantasSpace.s18),
-        ],
         WebCard(
           child: Column(
             children: [
@@ -517,11 +484,9 @@ class SettingsNavigation extends ConsumerWidget {
                 Icon(PantasIcons.proSettings, size: 22, color: t.colors.accent),
                 value: ref.watch(proRowValueProvider),
               ),
-              if (!tester) const BetaProRow(),
             ],
           ),
         ),
-        if (!tester) const BetaProNote(),
         const SizedBox(height: PantasSpace.s18),
         WebCard(
           child: Column(

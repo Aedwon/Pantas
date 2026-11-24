@@ -13,7 +13,6 @@ import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_text_scale.dart';
 import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_layout_theme.dart';
-import 'package:pantas/features/beta_feedback/application/beta_day_reporter.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
@@ -45,7 +44,6 @@ class App extends ConsumerWidget {
     ref
       ..watch(guardianAccountLifecycleProvider)
       ..watch(studyDeliveryLifecycleProvider)
-      ..watch(betaDayReporterProvider)
       ..watch(screenCountsGateProvider);
     final router = ref.watch(routerProvider);
     final themeMode = ref.watch(themePreferenceProvider).maybeWhen(
