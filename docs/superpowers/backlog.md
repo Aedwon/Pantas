@@ -34,7 +34,7 @@ Status words: LIVE (on prod and verified), BUILDING, BOARD (waiting on his look)
 | Nov 25 12:35 AM | Full Pro on his own prod account, every exam | LIVE Nov 25 3:40 AM | release lead |
 | Nov 24 7:40 PM | UI fixes first, shipped immediately; legal texts and payments paused | standing | manager |
 
-- Found Nov 25 (release lead): a service worker install can mix a new build's shell with the old Dart file for a user who goes offline before reloading. Predates Nov 25. Fix queued to the release lead after #124.
+- Found Nov 25 (release lead): a service worker install can mix a new build's shell with the old Dart file for a user who goes offline before reloading; also a new worker can delete the old cache before its own startup files are cached. Predates Nov 25. A minimal fix failed the Codex Sol High audit. Manager decision Nov 25: ship nothing now (the Nov 14 rule "No new worker or hosting migration ships" stands until he lifts it). DO LATER, trigger: before the beta gate drops for public launch; then his go on the fingerprint-list worker (about 1 day, two Codex audits). Owner: release lead; design in its Nov 25 handoff.
 
 ## A. Waiting on Aedwon (a decision, an approval or a physical step)
 
