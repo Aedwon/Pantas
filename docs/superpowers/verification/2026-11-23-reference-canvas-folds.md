@@ -549,3 +549,19 @@ Assumptions named by Fable, not defects:
 - QV_Grid and QV_GridBack draw question 4's history as wrong, right, wrong; QV_Answer, QV_Flag and QV_Leave draw right, wrong, right. The grid boards predate this change.
 - The miss and long boards follow QV_Answer's wrong-pick loop (question 4 wrong).
 - Mark 5 on the miss boards is drawn red at rest; QV_Answer animates dark to red.
+
+## Website footer: seller details and BIR badge (Nov 24)
+
+Source: D3 (website footer line, seller-line template on `origin/legal/public-launch-r1`) and ruling C9 rulings 4 to 11. Pantas Website version 75. One Fable 5.2 check: Fail on two points, both fixed as the check prescribed and not re-checked.
+
+| Board | Canvas | Source and values | Fable verdict |
+|---|---|---|---|
+| Footer_Wide | Pantas Website | Home board footer (`pn-founder`: tokens, Inter, row gap 28, 40 rem column); D3 line unchanged; badge 480 x 166 left-aligned under the line; white plate, 1 px `--rule` ring, radius 12 (site card radius); one link, new tab, `noopener noreferrer`, ruling 8 name; no copy beside it | Pass, one fix: hover color rule (fixed) |
+| Footer_Phone | Pantas Website | Same; badge full width. The site gutter is 20 px, so the badge is widened 4 px each side to match the ruled 358 x 124 at 390; at 360 the QR side is 71 px (floor 70); hidden under a 328 px viewport (hard floor 64 px QR) | Fail at 360 and 320, fixed |
+
+Notes:
+- The badge image is a labeled placeholder. The BIR PDF and the registration id are not used; the link omits the id.
+- Invented, named: classes `pn-f-sell` and `pn-bir`; the placeholder label (board-only); the orange draft note.
+- Whether to show the badge while the BIR display rule is suspended stays with Aedwon (ruling C9).
+- Build note: on the real page, put the ruling 8 string on the image `alt` and drop the `aria-label`.
+- The private business facts file was read for the seller line only. Its other contents (TIN, certificate numbers) are not in the repo or on the board.
