@@ -146,6 +146,13 @@
         { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
       ]
     },
+    {
+      "collectionGroup": "server",
+      "fieldPath": "guardianDueAt",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
     { "collectionGroup": "users", "fieldPath": "expireAt", "ttl": true, "indexes": [] },
     { "collectionGroup": "webhookRateLimits", "fieldPath": "expireAt", "ttl": true, "indexes": [] },
     { "collectionGroup": "questionReports", "fieldPath": "expireAt", "ttl": true, "indexes": [] },

@@ -238,7 +238,7 @@ test('readManage tells apart active, not confirmed and unknown', async () => {
   assert.deepEqual(await guardian.readManage(req('v', {token: manage}), h.deps), {state: 'not_confirmed'}, 'expired');
   h.advance(-guardian.GUARDIAN_WINDOW_MS);
   await guardian.answerRequest(req('v', answer(confirmTokenOf(h.sent[0]), {decision: 'decline', agreed: false})), h.deps);
-  assert.deepEqual(await guardian.readManage(req('v', {token: manage}), h.deps), {state: 'not_confirmed'}, 'declined');
+  assert.deepEqual(await guardian.readManage(req('v', {token: manage}), h.deps), {state: 'unknown'}, 'declined: the page link is deleted with the request');
   for (const token of [undefined, '', 'short', 'z'.repeat(64), 'f'.repeat(64), 5, confirmTokenOf(h.sent[0])]) {
     assert.deepEqual(await guardian.readManage(req('v', {token}), h.deps), {state: 'unknown'}, String(token));
   }
@@ -492,10 +492,14 @@ test('the cleanup job keeps open manage links and still clears revoked ones', as
   const {emailManage, pageManage} = await confirmedMinor(uid, h, true);
   await guardian.markAdult(req(uid, {}), h.deps);
   const open = 'dm-purge-open'; await reset(open);
-  await guardian.sendLink(req(open, body({guardianEmail: 'keep@gmail.com'})), h.deps);
-  const keep = guardian.hashValue(KEY, 'token', manageTokenOf(h.sent.at(-1)));
+  const kept = await confirmedMinor(open, h, true);
+  const keep = guardian.hashValue(KEY, 'token', kept.emailManage);
+  const unanswered = 'dm-purge-unanswered'; await reset(unanswered);
+  await guardian.sendLink(req(unanswered, body({guardianEmail: 'gone@gmail.com'})), h.deps);
+  const gone = guardian.hashValue(KEY, 'token', manageTokenOf(h.sent.at(-1)));
   await guardian.purgeGuardianRecords(db, T0 + 400 * DAY);
-  assert.equal((await db.doc(`guardianTokens/${keep}`).get()).exists, true, 'an open manage link has no expiry');
+  assert.equal((await db.doc(`guardianTokens/${keep}`).get()).exists, true, 'a confirmed guardian\'s open manage link has no expiry');
+  assert.equal((await db.doc(`guardianTokens/${gone}`).get()).exists, false, 'an expired request takes its page link with it');
   const revoked = guardian.hashValue(KEY, 'token', emailManage);
   assert.equal((await db.doc(`guardianTokens/${revoked}`).get()).exists, false, 'a revoked one follows the usual rule');
   assert.equal((await db.doc(`guardianTokens/${guardian.hashValue(KEY, 'token', pageManage)}`).get()).exists, false);
@@ -510,7 +514,7 @@ test('the cleanup job keeps the sharing choice and the adult mark when it trims 
   await guardian.markAdult(req(uid, {}), {...h.deps, now: () => T0 + 10 * DAY});
   await db.doc(`users/${uid}/server/guardianConsent`).set({status: 'confirmed', ageGroup: 'adult', adultSince: T0 + 10 * DAY,
     decidedAt: T0, sharingAllowed: false, ageCheckNoticeVersion: '2026-11-09', emailHash: 'x', maskedEmail: 'm***@g***.com',
-    tokenHash: 'y', sentAt: T0, expiresAt: T0 + 7 * DAY, createdAt: T0});
+    tokenHash: 'y', sentAt: T0, expiresAt: T0 + 7 * DAY, createdAt: T0, guardianDueAt: T0 + 7 * DAY});
   await guardian.purgeGuardianRecords(db, T0 + 20 * DAY);
   assert.deepEqual(await stored(uid), {status: 'confirmed', ageGroup: 'adult', adultSince: T0 + 10 * DAY,
     decidedAt: T0, sharingAllowed: false, ageCheckNoticeVersion: '2026-11-09'});

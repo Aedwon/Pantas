@@ -82,20 +82,21 @@ test('opening the link does not confirm; confirming needs the agreement box and 
   assert.equal((await getStatus(req(uid, {}), h.deps)).status, 'confirmed');
 });
 
-test('declining keeps the student waiting, and a new email replaces the old link', async () => {
+test('declining ends the request at once, and a new email starts a fresh one', async () => {
   const uid = 'g-decline'; await reset(uid);
   const h = harness();
   await sendLink(req(uid, body()), h.deps);
   const first = tokenOf(h.sent[0]);
   assert.deepEqual(await answerRequest(req('v', {token: first, decision: 'decline'}), h.deps), {state: 'declined'});
-  assert.equal((await getStatus(req(uid, {}), h.deps)).status, 'declined');
+  assert.equal((await getStatus(req(uid, {}), h.deps)).status, 'none', 'the student sees the contact form again');
+  assert.equal(await stored(uid), undefined, 'the request record is deleted with the answer');
   h.advance(SEND_LIMIT.gapMs + 1);
   await sendLink(req(uid, body({guardianEmail: 'other@mail.com'})), h.deps);
   assert.equal((await getStatus(req(uid, {}), h.deps)).status, 'pending');
   assert.equal((await getStatus(req(uid, {}), h.deps)).maskedEmail, 'o***@m***.com');
   const second = tokenOf(h.sent[1]);
   assert.notEqual(first, second);
-  assert.deepEqual(await answerRequest(req('v', {token: first, decision: 'confirm', agreed: true}), h.deps), {state: 'unknown'});
+  assert.deepEqual(await answerRequest(req('v', {token: first, decision: 'confirm', agreed: true}), h.deps), {state: 'used'}, 'the declined link is spent');
   assert.equal((await stored(uid)).status, 'pending', 'the old link cannot confirm');
   assert.equal((await answerRequest(req('v', {token: second, decision: 'confirm', agreed: true}), h.deps)).state, 'confirmed');
 });
@@ -293,6 +294,87 @@ test('cleanup deletes expired contact data and preserves server-only consent evi
   assert.deepEqual(await stored(uid), {status: 'confirmed', ageGroup: 'minor', decidedAt: T0 + DAY, sharingAllowed: false});
   await db.recursiveDelete(db.doc(`users/${uid}`));
   assert.equal((await evidence.get()).exists, true, 'minimum evidence survives account deletion');
+});
+
+// ------------------------------------------------ D1: delete the request, leave no link behind
+
+const linksOf = async uid => (await db.collection('guardianTokens').where('uid', '==', uid).get()).docs;
+
+test('a decline deletes the request, its page links and the account on its answer links; only the answer remains', async () => {
+  const uid = 'g-d1-decline'; await reset(uid);
+  for (const row of await linksOf(uid)) await row.ref.delete();
+  const h = harness();
+  await sendLink(req(uid, body()), h.deps);
+  h.advance(SEND_LIMIT.gapMs + 1);
+  await sendLink(req(uid, body({guardianEmail: 'other@mail.com'})), h.deps);
+  const {tokenHash} = await stored(uid);
+  assert.ok((await linksOf(uid)).length >= 4, 'two answer links and two page links');
+  assert.deepEqual(await answerRequest(req('v', {token: tokenOf(h.sent[1]), decision: 'decline', agreed: false}), h.deps), {state: 'declined'});
+  assert.equal(await stored(uid), undefined);
+  assert.deepEqual(await linksOf(uid), [], 'no link row names the account');
+  assert.equal((await db.doc(`guardianTokens/${tokenHash}`).get()).get('state'), 'used', 'the used link still reads as used');
+  assert.equal((await db.doc(`guardianTokens/${tokenHash}`).get()).get('uid'), undefined);
+  assert.equal((await db.collection(`guardianConsentEvidence/${uid}/responses`).get()).docs.map(d => d.get('action')).join(), 'decline');
+  assert.deepEqual(await readRequest(req('v', {token: tokenOf(h.sent[1])}), h.deps), {state: 'used'});
+});
+
+test('the cleanup deletes an expired request whole with its links, and reads only what is due', async () => {
+  const uid = 'g-d1-expire'; await reset(uid);
+  const later = 'g-d1-later'; await reset(later);
+  const other = 'g-d1-other'; await reset(other);
+  for (const id of [uid, later, other]) for (const row of await linksOf(id)) await row.ref.delete();
+  const h = harness();
+  await sendLink(req(uid, body()), h.deps);
+  h.advance(DAY);
+  await sendLink(req(later, body({guardianEmail: 'later@mail.com'})), h.deps);
+  await db.doc(`users/${other}/server/entitlement`).set({updatedAt: T0, expiresAt: T0});
+  assert.equal((await stored(uid)).guardianDueAt, T0 + GUARDIAN_WINDOW_MS, 'a send records when the cleanup is due');
+  await purgeGuardianRecords(db, T0 + GUARDIAN_WINDOW_MS);
+  assert.equal(await stored(uid), undefined, 'the whole request is deleted');
+  assert.deepEqual(await linksOf(uid), []);
+  assert.equal((await stored(later)).status, 'pending', 'a request that is not due stays');
+  assert.equal((await linksOf(later)).length, 2);
+  assert.deepEqual((await db.doc(`users/${other}/server/entitlement`).get()).data(), {updatedAt: T0, expiresAt: T0});
+  await purgeGuardianRecords(db, T0 + DAY + GUARDIAN_WINDOW_MS);
+  assert.equal(await stored(later), undefined);
+});
+
+test('a confirmed record is due seven days after the answer and then trimmed, not deleted', async () => {
+  const uid = 'g-d1-confirm'; await reset(uid);
+  for (const row of await linksOf(uid)) await row.ref.delete();
+  const h = harness();
+  await sendLink(req(uid, body()), h.deps);
+  h.advance(DAY);
+  await answerRequest(req('v', {token: tokenOf(h.sent[0]), decision: 'confirm', agreed: true}), h.deps);
+  assert.equal((await stored(uid)).guardianDueAt, T0 + 8 * DAY);
+  await purgeGuardianRecords(db, T0 + 8 * DAY);
+  assert.deepEqual(await stored(uid), {status: 'confirmed', ageGroup: 'minor', decidedAt: T0 + DAY, sharingAllowed: false});
+});
+
+test('a resend after expiry, before the cleanup, leaves no earlier link naming the account', async () => {
+  const uid = 'g-r2-resend'; await reset(uid);
+  for (const row of await linksOf(uid)) await row.ref.delete();
+  const h = harness();
+  await sendLink(req(uid, body()), h.deps);
+  const first = (await stored(uid)).tokenHash;
+  h.advance(GUARDIAN_WINDOW_MS + 1);
+  await sendLink(req(uid, body({guardianEmail: 'new@mail.com'})), h.deps);
+  const rows = await linksOf(uid);
+  assert.equal(rows.length, 2, 'only the replacement answer link and page link');
+  assert.ok(rows.every(row => row.get('state') === 'open'));
+  assert.equal((await db.doc(`guardianTokens/${first}`).get()).exists, false);
+});
+
+test('a decline writes its evidence under an id of its own', async () => {
+  const uid = 'g-r2-evidence'; await reset(uid);
+  for (const row of await linksOf(uid)) await row.ref.delete();
+  const h = harness();
+  await sendLink(req(uid, body()), h.deps);
+  const {tokenHash} = await stored(uid);
+  await answerRequest(req('v', {token: tokenOf(h.sent[0]), decision: 'decline', agreed: false}), h.deps);
+  const evidence = (await db.collection(`guardianConsentEvidence/${uid}/responses`).get()).docs;
+  assert.equal(evidence.length, 1);
+  assert.notEqual(evidence[0].id, tokenHash);
 });
 
 // ------------------------------------------------ S-10 item 5: a limit per client address
