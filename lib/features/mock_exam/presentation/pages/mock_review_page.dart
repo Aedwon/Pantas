@@ -554,8 +554,7 @@ class _ReviewListBody extends StatelessWidget {
                           child: Text(
                             'You flagged $markedCount '
                             "${markedCount == 1 ? 'question' : 'questions'} "
-                            'while the clock was running. Do you want to '
-                            'save them?',
+                            'during the mock. Save them?',
                             style: t.sub.copyWith(color: t.colors.label),
                           ),
                         ),

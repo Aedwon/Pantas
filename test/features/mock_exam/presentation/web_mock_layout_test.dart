@@ -724,6 +724,11 @@ void main() {
       await tester.tap(find.text('Flagged 1'));
       await tester.pump();
       expect(find.text('Save All 1'), findsOneWidget);
+      // Web MK_ReviewFlagged: the wide offer is one short sentence (U39).
+      expect(
+        find.text('You flagged 1 question during the mock. Save them?'),
+        findsOneWidget,
+      );
       final badge = tester.widget<Container>(
         find
             .ancestor(of: find.text('1'), matching: find.byType(Container))
