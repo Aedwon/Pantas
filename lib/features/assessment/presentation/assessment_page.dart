@@ -17,13 +17,13 @@ import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
-import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart'
     as passage_ui;
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/question_choices.dart';
+import 'package:pantas/core/ui/components/report_bar.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -113,6 +113,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   Future<bool> Function()? _owner;
   final _questionClock = Stopwatch();
   final Set<String> _reported = {};
+  bool _reportOpen = false;
   @override
   void initState() {
     super.initState();
@@ -483,7 +484,8 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     return PopScope<void>(
       canPop: false,
       onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) _leave();
+        // While the report form is open, Back closes the form (ReportBar).
+        if (!didPop && !_reportOpen) _leave();
       },
       child: Scaffold(
         backgroundColor: context.colors.background,
@@ -514,22 +516,9 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                             PantasIconButton(
                               tooltip: 'Report',
                               accent: _reported.contains(question.id),
-                              onPressed: _completing
+                              onPressed: _completing || _reportOpen
                                   ? null
-                                  : () async {
-                                      final sent = await openQuestionReport(
-                                        context,
-                                        question.id,
-                                        queue: ref.read(reportQueueProvider),
-                                        examId: widget.examId,
-                                        questionVersion: question.version,
-                                      );
-                                      if (sent != null && mounted) {
-                                        setState(
-                                          () => _reported.add(question.id),
-                                        );
-                                      }
-                                    },
+                                  : () => setState(() => _reportOpen = true),
                               icon: PantasIcons.report,
                             ),
                         ],
@@ -544,8 +533,8 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                   left: PantasLayout.gutterPhone,
                   right: PantasLayout.gutterPhone,
                   bottom: PantasLayout.barBottomPhone,
-                  child: FloatingBar.content(
-                    child: Row(
+                  child: ReportBar(
+                    rest: Row(
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(
@@ -570,6 +559,16 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                         ),
                       ],
                     ),
+                    open: _reportOpen && question != null,
+                    questionId: question?.id ?? '',
+                    examId: widget.examId,
+                    questionVersion: question?.version,
+                    onClosed: (delivered) => setState(() {
+                      _reportOpen = false;
+                      if (delivered != null && question != null) {
+                        _reported.add(question.id);
+                      }
+                    }),
                   ),
                 ),
             ],

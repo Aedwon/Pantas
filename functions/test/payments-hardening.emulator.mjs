@@ -24,6 +24,7 @@ test('trial identity marker survives deletion and blocks provider or verified em
 import {commitPaymongoGrant} from '../lib/paymongoGrants.js';
 import {webProduct} from '../lib/paymongoPolicy.js';
 import {createCheckout} from '../lib/paymongoCheckout.js';
+import {adult} from './_declaration.mjs';
 const sitting = {firstDay: '2027-03-14', lastDay: '2027-03-14', sourceUrl: 'https://example.test/sitting'};
 const catalog = [{id: 'exam_cse_pro', publishedSittings: [sitting, {...sitting, firstDay: '2027-08-08', lastDay: '2027-08-08'}]}];
 const paidAt = Date.parse('2027-03-14T15:59:00Z');
@@ -80,8 +81,8 @@ test('checkout binds a sitting and reuses an open checkout for that account prod
   const client = {createCheckoutSession: async () => ({id: `cs_hard_${++calls}`, checkoutUrl: 'https://checkout.paymongo.com/hard'}),
     getCheckoutSession: async id => ({id, status: 'active', payments: []})};
   const d = {db, client, origin: 'https://pantas.study', methods: ['card'], catalog, now: () => paidAt, allow: async () => true};
-  const first = await createCheckout(named(uid, uid), {product: 'pantas_pass_cse_pro'}, d);
-  const second = await createCheckout(named(uid, uid), {product: 'pantas_pass_cse_pro'}, d);
+  const first = await createCheckout(named(uid, uid), {product: 'pantas_pass_cse_pro', declaration: adult}, d);
+  const second = await createCheckout(named(uid, uid), {product: 'pantas_pass_cse_pro', declaration: adult}, d);
   assert.deepEqual(second, first); assert.equal(calls, 1);
   assert.deepEqual((await db.doc(`paymongoCheckouts/${first.sessionId}`).get()).get('sitting'), sitting);
 });
@@ -137,7 +138,7 @@ test('refund of a queued web grant preserves native coverage before the next gra
 test('checkout order survives a lost provider response with the purchased sitting', async () => {
   const uid = 'hard-lost-response';
   let captured;
-  await assert.rejects(createCheckout(named(uid, uid), {product: 'pantas_pass_cse_pro'}, {
+  await assert.rejects(createCheckout(named(uid, uid), {product: 'pantas_pass_cse_pro', declaration: adult}, {
     db, origin: 'https://pantas.study', methods: ['card'], catalog, now: () => paidAt,
     allow: async () => true, client: {createCheckoutSession: async input => {captured = input; throw new Error('lost response');}},
   }));
@@ -164,7 +165,7 @@ test('a partially refunded web pass retains its refunded share after postponemen
 test('a lost checkout response can still grant from its prewritten order', async () => {
   const uid = 'hard-lost-webhook';
   let captured;
-  await assert.rejects(createCheckout(named(uid, uid), {product: 'pantas_pass_cse_pro'}, {
+  await assert.rejects(createCheckout(named(uid, uid), {product: 'pantas_pass_cse_pro', declaration: adult}, {
     db, origin: 'https://pantas.study', methods: ['card'], catalog, now: () => paidAt - 1000,
     allow: async () => true, client: {createCheckoutSession: async input => {captured = input; throw new Error('lost response');}},
   }));

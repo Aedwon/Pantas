@@ -19,12 +19,12 @@ const _ruleNames = {
 /// `// ignore: ds_no_design_literal -- reason`.
 class DsMarkerReason extends AnalysisRule {
   DsMarkerReason()
-    : super(
-        name: 'ds_marker_reason',
-        description:
-            'ds-geometry, ds-board and ds-raw markers, and ignores of the '
-            'ds rules, need a reason.',
-      );
+      : super(
+          name: 'ds_marker_reason',
+          description:
+              'ds-geometry, ds-board and ds-raw markers, and ignores of the '
+              'ds rules, need a reason.',
+        );
 
   static const LintCode code = LintCode(
     'ds_marker_reason',

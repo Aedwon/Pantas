@@ -186,6 +186,8 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
         );
   }
 
+  bool _reporting = false;
+
   void _back() {
     if (widget.fromAll && context.canPop()) {
       context.pop();
@@ -246,11 +248,14 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
         }
         final start = shown.indexOf(widget.initialIndex);
         return PopScope(
-          canPop: widget.fromAll,
+          // While the phone report form is open, Back closes the form
+          // (ReportBar), not this page.
+          canPop: widget.fromAll && !_reporting,
           onPopInvokedWithResult: (didPop, _) {
-            if (!didPop) _back();
+            if (!didPop && !_reporting) _back();
           },
           child: QuizQuestionViewer(
+            onReportOpenChanged: (open) => setState(() => _reporting = open),
             questions: [for (final i in shown) all[i]],
             items: widget.mistakesOnly
                 ? [for (final i in shown) answers[i]]
@@ -273,6 +278,7 @@ class _QuizReviewPageState extends ConsumerState<QuizReviewPage> {
             ),
             onReload: _retry,
             onBack: _back,
+            examId: _examId,
             onNote: _save,
             onReport: (question) => openQuestionReport(
               context,
@@ -314,6 +320,7 @@ class FlaggedQuestionViewerPage extends ConsumerWidget {
         }
         return QuizQuestionViewer(
           key: ValueKey('$examId:$questionId'),
+          examId: examId,
           questions: [for (final row in rows) row.question],
           items: const [],
           subjectNames: {

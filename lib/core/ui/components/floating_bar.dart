@@ -29,6 +29,7 @@ class FloatingBar extends StatelessWidget {
         radius = PantasRadius.bar,
         inset = PantasSpace.s8,
         transitionDuration = null,
+        reducedDuration = Duration.zero,
         transitionCurve = Curves.linear;
 
   /// QN_Report and QN_WrongOpen replace the row with a growing form.
@@ -39,6 +40,7 @@ class FloatingBar extends StatelessWidget {
     this.inset = PantasSpace.s8,
     this.transitionDuration,
     this.transitionCurve = Curves.linear,
+    this.reducedDuration = Duration.zero,
     super.key,
   })  : content = child,
         beforeCounter = null,
@@ -60,6 +62,10 @@ class FloatingBar extends StatelessWidget {
   final double radius;
   final double inset;
   final Duration? transitionDuration;
+
+  /// How long the color and radius take under reduced motion (a dissolve,
+  /// not the morph). Zero by default.
+  final Duration reducedDuration;
   final Curve transitionCurve;
   final Widget left;
   final String counter;
@@ -88,7 +94,7 @@ class FloatingBar extends StatelessWidget {
     };
     return AnimatedContainer(
       duration: MediaQuery.disableAnimationsOf(context)
-          ? Duration.zero
+          ? reducedDuration
           : transitionDuration ??
               (state == FloatingBarState.neutral
                   ? PantasDurations.fade

@@ -795,8 +795,9 @@ The texts publish in the same prod release as the behavior they describe, or aft
 | Claim in the texts | Build that makes it true | State on Nov 23 |
 |---|---|---|
 | A tick on every web purchase; the declaration, time, Terms version and wording version recorded; the Terms open without ticking; the seller line | D2, D3, R2, R5 (PR #90) | Draft PR |
-| Only guardian declarations copied at deletion; ten years and four years for evidence | R2, R6 (PR #90) | Draft PR |
+| Only guardian declarations copied at deletion; ten years and four years for evidence; sharing permission records deleted 1,461 days after the account's deletion and never the newest record | R2, R6, legal round 5 (PR #90) | Draft PR |
 | A failed request is deleted whole; a decline is deleted at once | D1 with H1 | Not built |
+| An unconfirmed account that says it is 18 leaves no evidence row (the `became_adult` row is kept only where a guardian confirmed) | Nov 24 became_adult ruling, code items 1 to 3 (added Nov 24) | Not built |
 | Reports deleted within 90 days of receipt | R3 (PR #86) with H2 | Draft PR; sweep not built |
 | The trial code period | D7 | Not built. The texts say "no scheduled expiry" until it ships |
 | A refund route when PayMongo's route is closed | H6 | Path exists; runbook and test not done |
@@ -1053,3 +1054,92 @@ Nothing. The ruling holds under each of options A to D. Under C the unconfirmed 
 - After the switch on a pending request, the request stays open until it expires, and a guardian can still answer it (read in `guardianConsent.ts` on PR #95; not tested). The guardian's contact data then stays up to seven days with no use. Recommended, at the lead's call and not a gate: the switch ends an unconfirmed request the way an expiry does.
 - The same three evidence lists do not name the guardian's sharing changes, which the evidence also holds (`sharing_on`, `sharing_off`, main `guardianConsent.ts:451`). The text lane decides whether "the guardian's answers" covers them.
 - R6's line "Adult declarations never enter the evidence (R2)" should read "Adult purchase declarations". C7 read it as possibly wider.
+
+## Nov 24, legal round 5: sharing-change retention
+
+Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon's delegation. The ruling is final and is not queued for his sign-off. Legal sign-off on the final texts stays his. This agent wrote no legal text: wording named below goes to the text lane and to Sol High (rule 5). No lawyer reviewed anything here, and this agent is not a lawyer.
+
+- Asked by Sol High's round 5 verdict: ten years from the newest record is hard to justify for every older entry, "especially optional-sharing changes".
+- Read: `AGENTS.md` and `docs/workflow/process-improvement.md` (rules 5, 7, 9) at `origin/main` 5f40b1e7d; R6, H5 and "Nov 24, became_adult evidence row" in this file; `critique-2026-11-24-sol-high.md`, the README "round 5" section, `teen-notice.md` and `privacy-policy.md` at `legal/public-launch-r1` 5d895e58d.
+- Code read: main 5f40b1e7d (`functions/src/guardianConsent.ts`, `purgeInactiveAccounts.ts`, `deleteUserData.ts`, `usageVisit.ts`) and PR #90 `qa/checkout-declaration-r1` (`purgeInactiveAccounts.ts`).
+- Standards applied: Data Privacy Act Sections 3(b) (permission must be evidenced), 11(e) and (f) (proportionality, retention), 13(a) and 13(f); NPC Advisory 2024-02; Civil Code Articles 1144, 1146 and 1391, as R6 used them. The articles are cited from memory. No sheet exists in `agent-standards` for privacy law.
+- Velocity: this pass was not timed. It changed documents only. The size below is an estimate.
+
+### What was checked
+
+1. **A sharing change is one small row.** It holds the action (`sharing_on` or `sharing_off`), the time, and the document and wording versions (`guardianConsent.ts:424-427`, `:451`). Only a confirmed record can get one.
+2. **The guardian's first sharing choice sits on the confirmation row,** as the field `sharingAllowed` (`:371-376`).
+3. **A sharing change moves the clock for the whole evidence.** The cleanup takes the newest answer row of any kind as "newest record" (`purgeInactiveAccounts.ts:281-287` on main, `:291-299` on PR #90). A switch flipped five years after the confirmation keeps the confirmation five years longer.
+4. **The cleanup runs only once the account is gone,** and it holds the account's deletion date (`accountDeletedAt`). Sharing cannot happen after that date.
+5. Not checked: how long Google Analytics keeps the shared usage data (the Privacy Policy draft says 14 months, unconfirmed in the console), the filing period for an NPC complaint, and live behavior.
+
+### Ruling: option (c). Sharing permission records get four years from the account's deletion date, and never move the ten-year clock
+
+1. **While the account exists, the full sharing history stays.** Permission must be evidenced while Pantas relies on it (Section 3(b)), and each "on" row proves one stretch of permitted sharing.
+2. **After the account is deleted, every sharing permission record is deleted 1,461 days after the deletion date.** That covers `sharing_on` rows, `sharing_off` rows, and the `sharingAllowed` field on the confirmation row. The confirmation row itself stays on its own period.
+3. **A sharing row is never the "newest record" and never chooses a period.** The ten-year and four-year clocks run from the newest of: a confirmation, a decline, a withdrawal, the `became_adult` row, a guardian purchase.
+4. **Rejected: (a) keep ten years.** Both of R6's ten-year reasons are contract reasons (Articles 1144 and 1391). Sharing permission is a permission the guardian can take back, not a contract term. Its record answers only a claim that Pantas used data without permission. R6 already treats that claim as a four-year claim (Article 1146) for declines. Check 3 also has no claim behind it.
+5. **Rejected: (b) the latest state only.** Sol High's own point: the current setting cannot show the history. On, off, on, off leaves the second "on" stretch with no proof, while a claim about it is still live.
+6. **Why the clock starts at deletion, not at each row.** A row's use ends when the next row replaces it, so a per-row clock would need old rows rewritten on every change. The deletion date is the last day sharing could happen, so four years from it covers every stretch.
+
+**The honest limits.** No Philippine ruling fixes this period. A damages claim under the Data Privacy Act could be argued as an obligation created by law, ten years under Article 1144(2). R6 chose Article 1146 for the same kind of claim, and this ruling follows it. Criminal prescription under Act No. 3326 (eight or twelve years, from memory) is not used: keeping records ten years against a possible prosecution is the reasoning Section 11(e) does not allow. A self-declared adult switch does not start the clock, for the reason in the `became_adult` ruling: the statement is not verified.
+
+### Code change. Gate, about 0.5 day
+
+1. Evidence cleanup, for an account that is gone: once 1,461 days have passed since `accountDeletedAt`, delete the sharing rows and remove `sharingAllowed` from the confirmation row. Tests fail first: sharing rows survive at 1,460 days and are gone at 1,461; the confirmation row survives without the field.
+2. "Newest record" ignores sharing rows. Test fails first: a confirmation from year 0 plus a sharing change from year 5 is released ten years after year 0.
+3. A legacy parent with no marker gets its marker when first seen, as today, so its sharing clock starts then. Never shorter than ruled.
+4. Count the added reads against the free tier (rule 7). The extra reads happen only for accounts that are gone.
+5. It goes in PR #90 if that is still open, because the period test lives there. Otherwise it joins the `became_adult` follow-up. The lead's normal review applies.
+6. Gate, for R6's reason: the texts state the period, texts publish only with the behavior (H5), and after opening a change to a period needs the rule 9 email. Nothing can be deleted by this change for four years, so no user sees a difference. It joins the H5 row "ten years and four years for evidence".
+
+### Text changes (for the legal lane, rule 5)
+
+1. Teen Notice, "Guardian evidence" bullet: after the account is deleted, records of when the guardian gave or took back sharing permission, including the choice made at confirmation, are scheduled for deletion 1,461 days (four years) after the day the account was deleted.
+2. Same bullet: "its newest record" does not count a sharing change.
+3. Same bullet, the reason: sharing permission is not a contract. Its record serves only a claim about use of data, treated as a four-year claim (Article 1146), counted from the deletion date because no sharing can happen after it.
+4. The three evidence lists and the basis bullet do not change. The Privacy Policy line already points to the Teen Notice schedule.
+5. README "round 5", item 1: closed by this ruling.
+6. Sol High critiques the changed bullet in the next round, and confirms Article 1146 against Article 1144(2) for a sharing claim, and whether Act No. 3326 changes the answer.
+7. These sentences publish only after the code change is on prod (H5).
+
+### What needs Aedwon
+
+Nothing. He can change the period at legal sign-off, as with R6.
+
+### C8. Evidence that ends before its sharing records (Fable 5.2 advisor, Nov 24)
+
+- Asked by the CSE release lead while building legal round 5 in PR #90. Edge the round does not draw: evidence with a confirmation runs ten years from its newest record; sharing records run 1,461 days from the account's deletion. An account deleted more than six years after its newest non-sharing record (confirmed year 0, deleted year 8) reaches the evidence end (year 10) before the sharing end (year 12). The first sharing choice is the field `sharingAllowed` on the confirmation row.
+- Options: (A) the whole evidence waits for the sharing period; (B) at the evidence end, delete everything except the sharing records, keeping a stripped confirmation row with only the sharing choice until the sharing end; (C) delete everything at the evidence end.
+- Ruling, verbatim: "B."
+  1. Each record keeps its own period: the confirmation row "stays on its own period", sharing records run 1,461 days from deletion.
+  2. A would keep guardian purchase copies and the withdrawal, decline and adult rows up to four years past the stated ten, so the notice would be false (H5).
+  3. C deletes sharing proof while a four-year claim is still live, the gap legal round 5 rejected in its option (b), and breaks the notice's 1,461 days.
+  4. B needs no text change.
+- Build: the stripped row keeps `sharingAllowed`, its time and the two version fields, as a sharing row does. Drop `agreed`; change `action` from `confirm` (simplest: rewrite it as a `sharing_on` or `sharing_off` row) so it stops setting a clock. Keep the parent marker.
+- Tests, failing first: (1) confirmed year 0 with a sharing choice, a later sharing change and a guardian purchase copy, deleted year 8: at ten years only the sharing rows, the stripped row and the marker remain; (2) the same record is unchanged at deletion plus 1,460 days and empty at 1,461; (3) a second run after (1) changes nothing.
+
+## Rule 7: Firestore TTL deletes (security and billing lead, Nov 24, 2026)
+
+Question (CSE release lead, via the manager): Firestore TTL deletes are not in the free tier. Is that allowed on prod
+and on staging? Not a close call, so no Fable ruling.
+
+**Facts, checked Nov 24.** The quotas page lists "TTL deletes" under operations that "don't include free usage"
+(https://firebase.google.com/docs/firestore/quotas). The TTL page says they "count towards your document delete costs"
+(https://cloud.google.com/firestore/docs/ttl). Google's billing catalog: "Cloud Firestore TTL Deletes Singapore",
+$0.0123 per 100,000 from the first delete; ordinary "Entity Deletes Singapore (with free tier)" are free for the first
+20,000 a day. Both projects ran 8 TTL policies (limits, shards, signInChallenges, signInLimits, signInRequests, users
+(the webhook event markers), webhookRateLimits, wrapped_shares). TTL deletes in the last 30 days: prod 398, staging
+616 (Cloud Monitoring `document/ttl_deletion_count`).
+
+**Ruling.**
+1. Prod keeps every TTL policy, and the new ones (questionReports, trial codes) may ship. The deletes come from real
+   users, which rule 7 allows. Cost now: about $0.00005 a month. At public scale (an estimate of 5,000 TTL deletes a
+   day: sign-in records, sync counters, webhook markers, reports) about $0.02 a month.
+2. Staging runs no TTL policy, because its TTL deletes bill a nonzero amount (rule 7). This is option (b) changed: staging
+   has no scheduled jobs (prod holds the 3 free Scheduler jobs), so nothing replaces the TTL deletes. Staging test data
+   is small, and every staging proof deletes its own documents with ordinary deletes, inside the free 20,000 a day.
+   Published deletion periods apply to real users only, so they do not apply to staging.
+3. Applied Nov 24: all 8 staging TTL policies turned off. `firestore.indexes.json` turns TTL back on with any staging
+   indexes deploy, so run `tool/deploy/staging_disable_ttl.sh` after one (docs/deploy-prod.md). The live check
+   `tool/checks/free_tier_live.mjs` shows a "Firestore TTL policies" row that is OVER while staging has any.

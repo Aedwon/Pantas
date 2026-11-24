@@ -38,14 +38,14 @@ void main() {
       await tester.tap(find.text('Report'));
       await tester.pumpAndSettle();
       expect(
-        find.textContaining('You reported this question before.'),
+        find.text('You reported this before. Leave out personal details.'),
         findsOneWidget,
       );
       final header = find.text('Report this question');
       final before = tester.getTopLeft(header);
       expect(tester.getRect(find.byType(ReportForm)).top, 60);
       expect(tester.getRect(find.byType(ReportForm)).right, 1420);
-      expect(tester.getSize(find.byType(ReportForm)).width, 416);
+      expect(tester.getSize(find.byType(ReportForm)).width, 380);
       await tester.drag(header, const Offset(-100, 50));
       await tester.pumpAndSettle();
       expect(tester.getTopLeft(header).dx, lessThan(before.dx));
