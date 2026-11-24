@@ -241,7 +241,8 @@ void main() {
         find.byWidgetPredicate((w) => w is CheckboxRow && w.title == label),
       );
       expect(row.selected, isTrue);
-      expect(tester.getTopLeft(find.text('Terms and Privacy')).dy, 172);
+      // The Back link is the board's 36 high (OB_Days), 4 less than before.
+      expect(tester.getTopLeft(find.text('Terms and Privacy')).dy, 168);
       // The test font wraps the label to two lines; the hover test checks the
       // one-line board height of exactly 56.
       expect(
@@ -316,7 +317,9 @@ void main() {
       expect(find.text('Sign in to get one'), findsOneWidget);
       await tester.tap(find.text('Continue with Google'));
       await tester.pump();
-      expect(find.text('Signing in…'), findsOneWidget);
+      // The label swaps over a 150 ms fade; no ellipsis (L_SignIn).
+      await tester.pump(const Duration(milliseconds: 200));
+      expect(find.text('Signing in'), findsOneWidget);
       // The busy button shows the system spinner (Button README, Busy).
       expect(find.byType(PantasSpinner), findsOneWidget);
       expect(find.text('Name'), findsOneWidget);

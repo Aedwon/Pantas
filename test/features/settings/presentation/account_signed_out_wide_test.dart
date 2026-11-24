@@ -232,9 +232,11 @@ void main() {
     await _pump(tester, const DsCell(1440, 1, dark: false), repo: repo);
     await tester.tap(_button('Continue with Google'));
     await tester.pump();
-    expect(find.text('Signing in…'), findsOneWidget);
+    // The label swaps over a 150 ms fade (L_SignIn); no ellipsis.
+    await tester.pump(const Duration(milliseconds: 200));
+    expect(find.text('Signing in'), findsOneWidget);
     expect(find.text('Continue with Google'), findsNothing);
-    expect(tester.widget<TextButton>(_button('Signing in…')).onPressed, isNull);
+    expect(tester.widget<TextButton>(_button('Signing in')).onPressed, isNull);
     expect(
       tester.widget<TextButton>(_button('Continue with Email')).onPressed,
       isNull,

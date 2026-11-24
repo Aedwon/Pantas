@@ -166,6 +166,23 @@ void main() {
     expect(find.text('You need a connection to sign in.'), findsNothing);
   });
 
+  testWidgets('a successful Google sign-in shows Signed in for a moment',
+      (tester) async {
+    final repository = SequencedAuthRepository(
+      const [SignInResult.switchedToExisting()],
+    );
+    await _pumpAccount(tester, repository: repository, user: null);
+
+    await tester.tap(find.text('Continue with Google'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 200));
+    expect(find.text('Signed in'), findsOneWidget);
+    expect(find.text('Continue with Google'), findsNothing);
+    await tester.pump(const Duration(milliseconds: 1500));
+    await tester.pumpAndSettle();
+    expect(find.text('Signed in'), findsNothing);
+  });
+
   testWidgets('switched-to-existing is a successful no-prompt outcome',
       (tester) async {
     final repository = SequencedAuthRepository(

@@ -173,6 +173,7 @@ class OnboardingWebPage extends StatelessWidget {
             label: 'Back',
             onPressed: onBack ?? () {},
             nudge: false,
+            compact: true,
           ),
         ),
         const SizedBox(height: titleTopGap),
