@@ -95,7 +95,7 @@ void main() {
       final who = minor ? 'a minor' : 'an adult';
       final where = wide ? 'wide web' : 'phone';
       for (final (link, route, heading) in const [
-        ('Terms of Service', '/legal/terms', 'Use of the app'),
+        ('Terms of Service', '/legal/terms', '1. Use of Pantas'),
         ('Privacy Policy', '/legal/privacy', 'What we collect'),
       ]) {
         testWidgets(

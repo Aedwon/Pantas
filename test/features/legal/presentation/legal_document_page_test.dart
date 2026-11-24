@@ -35,9 +35,9 @@ void main() {
     );
 
     expect(find.text('Terms of Service'), findsWidgets);
-    expect(find.text('Use of the app'), findsOneWidget);
-    expect(find.text('Subscriptions'), findsOneWidget);
-    expect(find.text('Intellectual property'), findsOneWidget);
+    expect(find.text('1. Use of Pantas'), findsOneWidget);
+    expect(find.text('4. Payments'), findsOneWidget);
+    expect(find.text('2. Content and ownership'), findsOneWidget);
   });
 
   testWidgets('the onboarding legal page draws the system Back link',

@@ -78,7 +78,7 @@ Pro access is personal. You cannot transfer it or exchange it for cash. Your ref
 
 **Duplicate and failed payments.** If checkout reports a failure but your bank or e-wallet shows a debit or hold, contact us before you pay again. If Pro did not unlock after a short wait, contact us with the time, amount and payment method. We may reuse a matching unpaid checkout that is still open when you try to pay again. Please do not pay twice while a payment is pending.
 
-**Receipts.** PayMongo may send you a receipt. Pantas issues a sales invoice for each web purchase.
+**Receipts.** PayMongo may send you a receipt.
 
 **Free trial.** You can get one seven-day free trial of Monthly Pro if you qualify. Weekly, Yearly and Season Passes have no trial. You qualify only if you are signed in with verified sign-in details and our account history and protected trial codes show no earlier trial or paid Pro. You do not enter payment details. The trial ends after seven days. It does not become a paid plan and we do not charge you. We may change or stop future trial offers. We may refuse or end a trial we reasonably suspect is being misused, for example through several accounts. Deleting your account does not give you another trial. The Privacy Policy explains how we check this.
 

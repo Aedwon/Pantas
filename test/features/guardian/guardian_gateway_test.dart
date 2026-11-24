@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
+import 'package:pantas/features/legal/legal.dart';
 
 class _Client implements GuardianCallableClient {
   _Client(this.reply);
@@ -112,11 +113,7 @@ void main() {
       'decision': 'confirm',
       'agreed': true,
       'allowSharing': true,
-      'documentVersions': {
-        'privacy': '2026-11-12',
-        'terms': '2026-11-12',
-        'teens': '2026-11-12',
-      },
+      'documentVersions': guardianDocumentVersions,
       'noticeWordingVersion': '2026-11-12',
     });
     client.reply = (_, __) => {'state': 'declined'};
