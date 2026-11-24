@@ -89,7 +89,7 @@ class _RewardError extends StatelessWidget {
               ),
             ),
             PantasButton(
-              label: 'Try again',
+              label: 'Try Again',
               onPressed: onRetry,
               kind: PantasButtonKind.tertiary,
               tone: PantasButtonTone.accent,

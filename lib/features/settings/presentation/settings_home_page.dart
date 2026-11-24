@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/settings/presentation/pages/account_page.dart';
 import 'package:pantas/features/settings/settings.dart';
@@ -24,6 +25,92 @@ final settingsSessionLengthProvider = FutureProvider<int>((ref) async {
   return (await ref.watch(quizPreferencesRepositoryProvider).read())
       .sessionLength;
 });
+
+/// The chat-bubble glyph of the Feedback row, stroked on a 24 unit grid.
+class SettingsFeedbackGlyph extends StatelessWidget {
+  const SettingsFeedbackGlyph({
+    required this.size,
+    required this.color,
+    super.key,
+  });
+  final double size;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) => ExcludeSemantics(
+        child: CustomPaint(
+          size: Size.square(size),
+          painter: _FeedbackGlyphPainter(color),
+        ),
+      );
+}
+
+class _FeedbackGlyphPainter extends CustomPainter {
+  const _FeedbackGlyphPainter(this.color);
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    final paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.8 * k
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round
+      ..color = color;
+    canvas
+      ..drawPath(
+        Path()
+          ..moveTo(4 * k, 5.5 * k)
+          ..lineTo(20 * k, 5.5 * k)
+          ..lineTo(20 * k, 16.5 * k)
+          ..lineTo(9 * k, 16.5 * k)
+          ..lineTo(4 * k, 20.5 * k)
+          ..close(),
+        paint,
+      )
+      ..drawPath(
+        Path()
+          ..moveTo(8.5 * k, 10 * k)
+          ..lineTo(15.5 * k, 10 * k)
+          ..moveTo(8.5 * k, 13 * k)
+          ..lineTo(12.5 * k, 13 * k),
+        paint,
+      );
+  }
+
+  @override
+  bool shouldRepaint(_FeedbackGlyphPainter old) => old.color != color;
+}
+
+/// The phone's Beta Reward row: shown only while a reward is earned and not
+/// turned on.
+class BetaRewardSettingsRow extends StatelessWidget {
+  const BetaRewardSettingsRow({required this.onTap, super.key});
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) => ListRow(
+        title: 'Beta Reward',
+        leading: SizedBox(
+          width: PantasSpace.s28,
+          height: 30,
+          child: Center(
+            child: SettingsFeedbackGlyph(
+              size: 24,
+              color: context.colors.accent,
+            ),
+          ),
+        ),
+        contentPadding: const EdgeInsets.fromLTRB(
+          PantasSpace.s14,
+          PantasSpace.s0,
+          PantasSpace.s16,
+          PantasSpace.s0,
+        ),
+        onTap: onTap,
+      );
+}
 
 class SettingsHomePage extends ConsumerWidget {
   const SettingsHomePage({super.key});
@@ -108,6 +195,16 @@ class SettingsHomePage extends ConsumerWidget {
           ],
         ),
         const SizedBox(height: PantasSpace.s24),
+        if (ref.watch(betaRewardRowVisibleProvider)) ...[
+          GroupedSection(
+            children: [
+              BetaRewardSettingsRow(
+                onTap: () => push('/settings/beta-feedback'),
+              ),
+            ],
+          ),
+          const SizedBox(height: PantasSpace.s24),
+        ],
         GroupedSection(
           children: [
             ListRow(

@@ -27,3 +27,14 @@ final betaRewardProvider = FutureProvider<BetaReward?>((ref) async {
 /// The same clock as the beta gate, so tests set one time for both.
 final betaFeedbackClockProvider =
     Provider<DateTime Function()>((ref) => ref.watch(betaClockProvider));
+
+/// Whether Settings shows the Beta Reward row: the reward is earned and not
+/// yet turned on. It keeps a way to the reward after the Home notice is
+/// dismissed.
+final betaRewardRowVisibleProvider = Provider<bool>((ref) {
+  final reward = ref.watch(betaRewardProvider).valueOrNull;
+  return reward != null &&
+      reward.eligible &&
+      reward.surveySubmitted &&
+      !reward.activated;
+});

@@ -264,7 +264,7 @@ Widget feedbackFrame({
   required VoidCallback onBack,
 }) =>
     SettingsPanePage(
-      section: 'Feedback',
+      section: 'Beta Reward',
       title: title,
       backLabel: backLabel,
       onBack: onBack,

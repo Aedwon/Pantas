@@ -20,6 +20,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/settings/presentation/settings_home_page.dart';
 import 'package:pantas/features/settings/settings.dart';
 
@@ -475,6 +476,21 @@ class SettingsNavigation extends ConsumerWidget {
                 ),
         ),
         const SizedBox(height: PantasSpace.s18),
+        if (ref.watch(betaRewardRowVisibleProvider)) ...[
+          WebCard(
+            child: Column(
+              children: [
+                row(
+                  'Beta Reward',
+                  '/settings/beta-feedback',
+                  SettingsFeedbackGlyph(size: 22, color: t.colors.accent),
+                  divider: false,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: PantasSpace.s18),
+        ],
         WebCard(
           child: Column(
             children: [
