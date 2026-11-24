@@ -916,7 +916,8 @@ class _MockReviewRow extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(
-              width: PantasSpace.s44,
+              // Boards MK_ReviewAll, MK_ReviewFlagged: a 42 px column.
+              width: PantasSpace.s40 + PantasSpace.s2,
               child: Text(
                 '${entry.number}',
                 style: context.type.subheadStrong.copyWith(
@@ -963,7 +964,8 @@ class _MockReviewRow extends StatelessWidget {
                           else
                             ContentRenderer(text: entry.label),
                           if (!entry.isAnswered) ...[
-                            const SizedBox(height: PantasSpace.s4),
+                            // Boards: 1 px under the title.
+                            const SizedBox(height: 1),
                             Text(
                               'Left blank',
                               style: context.type.footnote.copyWith(

@@ -626,6 +626,27 @@ void main() {
     );
   });
 
+  // Boards MK_ReviewAll and MK_ReviewFlagged: the number sits in a 42 px column
+  // and "Left blank" is 1 px under the title (P21).
+  testWidgets('review rows use the board number column and caption gap',
+      (tester) async {
+    await tester.pumpAppWithProviders(
+      const MockReviewPage(attemptId: 'attempt_1', proIsActive: false),
+      overrides: [
+        mockAttemptRepoProvider.overrideWithValue(attemptRepo),
+        contentRepositoryProvider.overrideWithValue(contentRepo),
+        questionFlagsRepositoryProvider.overrideWithValue(flagsRepo),
+        appPreferencesRepositoryProvider.overrideWithValue(prefsRepo),
+      ],
+    );
+    await tester.pumpAndSettle();
+    final stem = tester.getRect(find.text('Stem for q_2'));
+    final blank = tester.getRect(find.text('Left blank').first);
+    final number = tester.getRect(find.text('2').first);
+    expect(stem.left - number.left, 42);
+    expect(blank.top - stem.bottom, closeTo(1, .5));
+  });
+
   testWidgets('review keeps the passage needed to understand the question',
       (tester) async {
     final original = questions['q_2']!;
