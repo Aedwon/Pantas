@@ -190,3 +190,44 @@ test('the migration skips a link that the cleanup deleted after the lookup and n
   assert.equal((await real.get()).exists, false, 'the deleted link is not recreated');
   await wipe();
 });
+
+test('the migration removes adult switch rows without a confirmation and deletes empty evidence parents', async () => {
+  await wipe();
+  const evidence = id => db.doc(`guardianConsentEvidence/${id}`);
+  for (const id of ['adult-only', 'declined', 'purchased', 'confirmed', 'missing-parent']) {
+    const parent = evidence(id);
+    if (id !== 'missing-parent') await parent.set({accountDeletedAt: T0});
+    await parent.collection('responses').doc('adult').set({action: 'became_adult', decidedAt: T0});
+  }
+  await evidence('adult-only').collection('responses').doc('earlier').set({action: 'became_adult'});
+  await evidence('declined').collection('responses').doc('decline').set({action: 'decline'});
+  await evidence('purchased').collection('purchases').doc('purchase').set({attestedAt: T0});
+  await evidence('confirmed').collection('responses').doc('confirm').set({action: 'confirm'});
+
+  const before = await countUndated({db, mark: true});
+  assert.equal(before.unconfirmedAdultRows, 5);
+  assert.equal(before.marked, false);
+  const dry = await removeUnconfirmedGuardianRecords({db});
+  assert.equal(dry.unconfirmedAdultRows, 5);
+  assert.equal(dry.emptyEvidenceParents, 1);
+  assert.equal(dry.reads, 24);
+  assert.equal(dry.writes, 6);
+  assert.equal((await evidence('adult-only').collection('responses').get()).size, 2);
+
+  const live = await removeUnconfirmedGuardianRecords({db, live: true});
+  assert.equal(live.reads, dry.reads);
+  assert.equal(live.writes, dry.writes);
+  assert.equal((await evidence('adult-only').get()).exists, false);
+  assert.equal((await evidence('adult-only').collection('responses').get()).size, 0);
+  assert.equal((await evidence('missing-parent').collection('responses').get()).size, 0);
+  assert.equal((await evidence('declined').get()).exists, true);
+  assert.deepEqual((await evidence('declined').collection('responses').get()).docs.map(d => d.id), ['decline']);
+  assert.equal((await evidence('purchased').get()).exists, true);
+  assert.equal((await evidence('purchased').collection('purchases').get()).size, 1);
+  assert.equal((await evidence('confirmed').collection('responses').doc('adult').get()).exists, true);
+  const after = await countUndated({db, mark: true});
+  assert.equal(after.unconfirmedAdultRows, 0);
+  assert.equal(after.marked, true);
+  assert.equal((await removeUnconfirmedGuardianRecords({db, live: true})).writes, 0);
+  await wipe();
+});
