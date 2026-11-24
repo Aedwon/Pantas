@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 
+import 'package:pantas/core/ui/components/figure_highlight.dart' show ease;
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
@@ -172,7 +173,7 @@ class _SegmentState extends State<_Segment> {
                   valueListenable: webKeyboardInput,
                   builder: (context, keyboard, _) => AnimatedContainer(
                     duration: quick,
-                    curve: PantasCurves.enter,
+                    curve: ease,
                     height: _active
                         ? ReaderSectionLine.hovered
                         : ReaderSectionLine.rest,
@@ -204,7 +205,7 @@ class _SegmentState extends State<_Segment> {
                       child: AnimatedOpacity(
                         opacity: _tip ? 1 : 0,
                         duration: quick,
-                        curve: PantasCurves.enter,
+                        curve: ease,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                             color: c.label,

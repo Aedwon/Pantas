@@ -148,6 +148,17 @@ void main() {
       .offset;
 
   group('the title block (2F-1, 2F-23)', () {
+    testWidgets('a short lesson starts under the bar, not centered down',
+        (tester) async {
+      await pumpReader(
+        tester,
+        reader: _reader(body: [_text('Core Concept', style: 'h2')]),
+      );
+      final short = tester.getTopLeft(find.text('Earth Science')).dy;
+      await pumpReader(tester);
+      expect(tester.getTopLeft(find.text('Earth Science')).dy, short);
+    });
+
     testWidgets(
         'matches the board: 38 px title (web-h1), 6 px and 32 px of space',
         (tester) async {

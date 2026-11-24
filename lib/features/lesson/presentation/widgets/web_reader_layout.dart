@@ -913,7 +913,10 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                 ),
                               );
                           if (heldBody != null) return scroll(heldBody);
-                          return Center(
+                          // Top-aligned: a short lesson starts under the bar,
+                          // not centered down the window.
+                          return Align(
+                            alignment: Alignment.topCenter,
                             child: LayoutBuilder(
                               builder: (context, constraints) => SizedBox(
                                 key: const ValueKey('web-reader-column'),

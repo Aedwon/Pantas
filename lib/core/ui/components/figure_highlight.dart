@@ -102,7 +102,7 @@ class _FigureHighlightForState extends State<FigureHighlightFor> {
     return TweenAnimationBuilder<double>(
       tween: Tween(end: label == null ? 0 : 1),
       duration: still ? Duration.zero : PantasDurations.short2,
-      curve: PantasCurves.enter,
+      curve: ease,
       builder: (context, amount, child) => LitLabel(
         label: amount == 0 ? null : _last,
         amount: amount,
@@ -114,6 +114,10 @@ class _FigureHighlightForState extends State<FigureHighlightFor> {
     );
   }
 }
+
+/// The spec's ease-out for a linked word and for the section line: the CSS
+/// ease-out, (0, 0, .58, 1). The design system has no ease-out token.
+const ease = Cubic(0, 0, 0.58, 1); // ds-geometry: spec motion table, ease-out
 
 /// When the new mark of a solution figure starts to draw, after the figure's
 /// own 240 ms arrival, and how long it takes.
@@ -259,7 +263,7 @@ class _LinkedWordState extends State<LinkedWord> {
                       : (widget.style.color ?? c.readerBody),
                 ),
                 duration: duration,
-                curve: PantasCurves.enter,
+                curve: ease,
                 builder: (context, color, _) => CustomPaint(
                   foregroundPainter: LinkUnderline(
                     color: _lit ? c.readerStrong : c.tertiaryLabel,

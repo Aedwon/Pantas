@@ -138,7 +138,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 75));
     final half = tester.widget<LitLabel>(find.byType(LitLabel).first).amount;
-    expect(half, inExclusiveRange(.2, 1));
+    expect(half, inExclusiveRange(.2, .95));
     await tester.pump(const Duration(milliseconds: 100));
     expect(
       tester.widget<LitLabel>(find.byType(LitLabel).first).amount,
