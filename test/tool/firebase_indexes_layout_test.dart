@@ -67,7 +67,24 @@ void main() {
         as Map<String, dynamic>;
     final overrides = (config['fieldOverrides'] as List<dynamic>)
         .cast<Map<String, dynamic>>();
-    expect(overrides, hasLength(6));
+    expect(overrides, hasLength(7));
+    // The hourly guardian cleanup finds due request records across accounts (D1).
+    expect(
+      overrides.where(
+        (entry) =>
+            entry['collectionGroup'] == 'server' &&
+            entry['fieldPath'] == 'guardianDueAt',
+      ),
+      [
+        {
+          'collectionGroup': 'server',
+          'fieldPath': 'guardianDueAt',
+          'indexes': [
+            {'order': 'ASCENDING', 'queryScope': 'COLLECTION_GROUP'},
+          ],
+        },
+      ],
+    );
     for (final field in ['claimsPending', 'updatedAt']) {
       final matches = overrides.where(
         (entry) =>
