@@ -691,4 +691,31 @@ void main() {
     );
     expect(find.text('Jan 1, 2028'), findsOneWidget);
   });
+  testWidgets('a reward for another exam only shows no plan for this exam',
+      (tester) async {
+    await _pump(
+      tester,
+      entitlement: Entitlement(
+        plan: EntitlementPlan.free,
+        betaPasses: {'exam_cse_sub': DateTime.utc(2030, 6, 30, 17)},
+      ),
+    );
+    expect(find.text('YOUR PLAN'), findsNothing);
+    expect(find.text('Jul 1, 2030'), findsNothing);
+  });
+  testWidgets('an ended reward for this exam is not shown as its plan',
+      (tester) async {
+    await _pump(
+      tester,
+      entitlement: Entitlement(
+        plan: EntitlementPlan.free,
+        betaPasses: {
+          'exam_cse_pro': DateTime.utc(2025, 1, 1, 17),
+          'exam_cse_sub': DateTime.utc(2030, 6, 30, 17),
+        },
+      ),
+    );
+    expect(find.text('YOUR PLAN'), findsNothing);
+    expect(find.text('Jan 2, 2025'), findsNothing);
+  });
 }

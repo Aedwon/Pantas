@@ -811,15 +811,19 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final fallbackPlanEnd =
         entitlement.passes.isEmpty ? entitlement.endsAt : null;
     // A reward ends per exam: show this exam's end, as a Manila date.
+    // An ended reward, or a reward for another exam only, is no plan here.
     final rewardEnd = exam == null ? null : entitlement.betaPasses[exam.id];
-    final rewardShown = rewardEnd != null &&
+    final rewardLive = rewardEnd != null &&
+        rewardEnd.isAfter(ref.read(paywallClockProvider)().toUtc());
+    final rewardShown = rewardLive &&
         entitlement.plan == EntitlementPlan.free &&
         entitlement.promotions.isEmpty;
-    final rewardOnly = rewardShown ||
-        (entitlement.plan == EntitlementPlan.free &&
-            entitlement.passes.isEmpty &&
-            entitlement.promotions.isEmpty &&
-            entitlement.betaPasses.isNotEmpty);
+    final rewardElsewhere = !rewardShown &&
+        entitlement.plan == EntitlementPlan.free &&
+        entitlement.passes.isEmpty &&
+        entitlement.promotions.isEmpty &&
+        entitlement.betaPasses.isNotEmpty;
+    final rewardOnly = rewardShown || rewardElsewhere;
     final planDate = rewardOnly
         ? rewardEnd?.toUtc().add(const Duration(hours: 8))
         : entitlement.plan != EntitlementPlan.free
@@ -1250,6 +1254,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         ],
         if (paused) const ProPausedLine(),
         if (!upgrade &&
+            !rewardElsewhere &&
             (entitlement.proIsActive || paused) &&
             (entitlement.passes.isEmpty ||
                 rewardShown ||
