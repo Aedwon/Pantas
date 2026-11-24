@@ -117,8 +117,9 @@ abstract final class PantasSize {
   /// Profile avatar in Settings (board 44, initial 19/700).
   static const double avatarLg = 44;
 
-  /// Plan task status marker on wide screens (board 26). Phone uses
-  /// size-check (24).
+  /// Status marker disc: the plan task status on wide screens (board 26;
+  /// phone uses size-check, 24) and the accent disc behind the check in the
+  /// sent report notice (QN_Report).
   static const double task = 26;
 
   /// Half gauge width (board 224 by 118).
@@ -196,11 +197,8 @@ abstract final class PantasSize {
   /// Tooltip maximum width. New (R3-O10).
   static const double tooltipMax = 240;
 
-  /// The accent disc behind the check in the sent report notice
-  /// (QN_Report). New.
-  static const double reportMark = 26;
-
-  /// The check inside size-report-mark (QN_Report). New.
+  /// The check inside the sent report notice's size-task disc (QN_Report).
+  /// New.
   static const double reportMarkIcon = 14;
 
   /// Height of the phone report form: an 18px frame, the title, the line,

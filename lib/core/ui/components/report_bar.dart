@@ -323,7 +323,7 @@ class ReportNotice extends StatelessWidget {
         ? DecoratedBox(
             decoration: BoxDecoration(color: c.accent, shape: BoxShape.circle),
             child: SizedBox.square(
-              dimension: PantasSize.reportMark,
+              dimension: PantasSize.task,
               child: Icon(
                 PantasIcons.check,
                 size: PantasSize.reportMarkIcon,
