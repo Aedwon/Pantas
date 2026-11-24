@@ -1650,5 +1650,7 @@ class _GeometryDiagramPainter extends CustomPainter {
       oldDelegate.type != type ||
       !listEquals(oldDelegate.labels, labels) ||
       oldDelegate.ink != ink ||
-      oldDelegate.faint != faint;
+      oldDelegate.faint != faint ||
+      oldDelegate.lit != lit ||
+      oldDelegate.litAmount != litAmount;
 }
