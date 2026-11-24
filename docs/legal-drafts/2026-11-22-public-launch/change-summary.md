@@ -115,3 +115,12 @@ Codex Sol High critiqued only these changes (`critique-2026-11-23b-sol-high.md`)
 - **Court order:** the exception now names "a court or another authority with legal power to issue the order". Sol High warns a hand copy may not satisfy an order that needs the live record. The ruling stands. It is in the README for you.
 - **Continue button:** "Choosing Continue means you agree" is now "Tap Continue to run the age check", so it does not read as consent.
 - **Refund windows:** no text states a QR Ph refund window. Cards say 60 days only in the README note.
+
+## Nov 24 round 5 (adult statement and sharing changes)
+
+- **When you turn 18:** the notice now says we mark the account as an adult account and rely on what the student says. If a guardian had confirmed the account, the date and time of that statement joins the guardian evidence.
+- **Sharing changes:** "the guardian's answers" did not clearly cover when a guardian turns optional sharing on or off. All three evidence lists now name it.
+- **Legal basis:** the notice claims Section 13(f) for this evidence. Sol High found it defensible for the single adult-statement date.
+- **Periods:** unchanged.
+- **Publish gate:** these sentences publish only after the code change is on prod, checked live.
+- **Open for you or Fable (round 5):** ten years from the newest record is hard to justify for old sharing changes. It stays as ruled.

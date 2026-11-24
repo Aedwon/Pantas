@@ -91,7 +91,7 @@ To delete your account, open Settings, then Account, then the delete option. For
 Deleting your account does not cancel an app store subscription and is not a refund request. These records may remain after deletion, for the purposes and periods in the next section:
 
 - trial codes, which we cannot link to you without our secret key;
-- limited guardian evidence for an under-18 account: the guardian's answers and withdrawal and, for a purchase a parent or legal guardian declared, the date, time, Terms version, wording version, payment reference and product. We do not copy declarations for a buyer's own account;
+- limited guardian evidence: the guardian's answers, when they gave or took back permission for optional usage sharing, and any withdrawal of permission to use Pantas, and, if a guardian confirmed the account, the date and time the student said they were 18 or older, and, for a purchase a parent or legal guardian declared, the date, time, Terms version, wording version, payment reference and product. We do not copy declarations for a buyer's own account;
 - records that prevent a deleted account from reopening, and security records;
 - limited records keyed to a payment reference, such as refund, dispute and payment-event records, which we use to verify past transactions;
 - the business's tax books and receipts, kept outside the app, which can include your payment reference and amount; and

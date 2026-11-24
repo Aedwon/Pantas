@@ -237,6 +237,7 @@ The texts publish in the same prod release as the behavior they describe, or aft
 | The trial code period (the texts say "no scheduled expiry" until it ships) | D7 |
 | A refund route when PayMongo's route is closed | H6 |
 | Seller details in the website footer | D3 |
+| An account that no guardian confirmed leaves no evidence row when it says it is 18; for a confirmed account, the date of that statement joins the guardian evidence (the three evidence lists, the "When you turn 18" paragraph) | The became_adult change (Fable Nov 24), checked live on prod |
 
 
 ## Publishing steps (for the integrator, L1 and L7)
@@ -264,3 +265,11 @@ Critique: `critique-2026-11-23c-sol-high.md` (prompt in the run, two questions o
 
 1. **The flag before a guardian answers has no Section 13 basis.** Sol High's verdict: claim none. This is the risk Aedwon accepted on Nov 11, and H1 keeps it. The notice now claims no more than the purpose. Sol High's biggest risk is Section 25 exposure for unauthorized processing even when the request is deleted on time. Only guardian-first sign-up removes it.
 2. **The binding-order sentence conflicts with the H4 ruling.** Sol High says RA 10175 Section 13 requires preserving data integrity, so a hand copy may not satisfy an order that needs the live record, and cleanup must not delete it. It also notes a preservation duty can exist without an order (six months for traffic data and subscriber information, six months from an order for content data). It would replace the exception with "We may keep specific records beyond these periods when the law requires it, including under a binding order." H4 fixes the copy-by-hand wording, so it is kept. The runbook step "legal advice before the next cleanup run" is the cover.
+
+## Nov 24 round 5: the became-adult date and permission changes (Fable Nov 24)
+
+Critique: `critique-2026-11-24-sol-high.md`. All wording findings applied: the "When you turn 18" paragraph says "we rely on what you tell us" and no longer says the server records that you are 18; the three evidence lists use one wording and name sharing changes plainly; the basis bullet claims Section 13(f) for the whole evidence, including the date and time of the adult statement. Sol High's verdict: Section 13(f) is defensible for the single timestamp on a guardian-confirmed account. The decision on whether "the guardian's answers" covers sharing changes: it did not, so all three lists now name them. The period sentences are unchanged.
+
+### Needs a product or code decision (round 5)
+
+1. **Ten years from the newest record for every row.** Sol High's biggest risk: justifying the full ten years for an older entry, especially optional-sharing changes, when the newest record is any one of them. R6 fixes the period, so it is not changed. A shorter period for sharing changes alone is a code and ruling question.
