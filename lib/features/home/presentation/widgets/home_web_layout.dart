@@ -146,7 +146,7 @@ class HomeWebBody extends StatelessWidget {
                     Expanded(
                       child: _MoreRow(
                         title: 'Your record',
-                        icon: Icons.show_chart,
+                        icon: const _MoreIcon.record(),
                         onPressed: onRecord!,
                       ),
                     ),
@@ -154,7 +154,7 @@ class HomeWebBody extends StatelessWidget {
                     Expanded(
                       child: _MoreRow(
                         title: 'Your tendencies',
-                        icon: Icons.auto_awesome_outlined,
+                        icon: const _MoreIcon.tendencies(),
                         onPressed: onTendencies!,
                       ),
                     ),
@@ -214,7 +214,7 @@ class _MoreRow extends StatelessWidget {
     required this.onPressed,
   });
   final String title;
-  final IconData icon;
+  final Widget icon;
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
@@ -223,7 +223,9 @@ class _MoreRow extends StatelessWidget {
       child: WebRow(
         title: title,
         titleStyle: PantasType.webLead.copyWith(color: t.colors.textPrimary),
-        leading: Icon(icon, color: t.colors.accent, size: 24),
+        leading: icon,
+        // Board HM_Advanced: card padding 18 18 18 20.
+        verticalPadding: PantasSpace.s18,
         leadingGap: PantasSpace.s14,
         chevron: WebRowChevron.always,
         divider: false,
@@ -231,6 +233,107 @@ class _MoreRow extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Board HM_Advanced: the two 24 px line icons of "More about you", stroke
+/// 1.8, teal. Record is a baseline with a rising line; tendencies is a
+/// sparkle and a small star.
+class _MoreIcon extends StatelessWidget {
+  const _MoreIcon.record() : _record = true;
+  const _MoreIcon.tendencies() : _record = false;
+  final bool _record;
+
+  @override
+  Widget build(BuildContext context) => CustomPaint(
+        size: const Size.square(24),
+        painter: _MoreIconPainter(
+          record: _record,
+          color: context.webTokens.colors.accent,
+        ),
+      );
+}
+
+class _MoreIconPainter extends CustomPainter {
+  const _MoreIconPainter({required this.record, required this.color});
+  final bool record;
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final k = size.width / 24;
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.8 * k
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+    Path poly(List<List<double>> points, {bool close = false}) {
+      final path = Path()..moveTo(points.first[0] * k, points.first[1] * k);
+      for (final p in points.skip(1)) {
+        path.lineTo(p[0] * k, p[1] * k);
+      }
+      if (close) path.close();
+      return path;
+    }
+
+    if (record) {
+      canvas
+        ..drawPath(
+          poly([
+            [4, 19.5],
+            [20, 19.5],
+          ]),
+          paint,
+        )
+        ..drawPath(
+          poly([
+            [5.5, 15],
+            [9.7, 10.6],
+            [13, 13.6],
+            [18.5, 7.5],
+          ]),
+          paint,
+        );
+    } else {
+      canvas
+        ..drawPath(
+          poly(
+            [
+              [11, 3.5],
+              [12.6, 8.4],
+              [17.5, 10],
+              [12.6, 11.6],
+              [11, 16.5],
+              [9.4, 11.6],
+              [4.5, 10],
+              [9.4, 8.4],
+            ],
+            close: true,
+          ),
+          paint,
+        )
+        ..drawPath(
+          poly(
+            [
+              [18, 15.5],
+              [18.7, 17.5],
+              [20.7, 18.2],
+              [18.7, 18.9],
+              [18, 20.9],
+              [17.3, 18.9],
+              [15.3, 18.2],
+              [17.3, 17.5],
+            ],
+            close: true,
+          ),
+          paint,
+        );
+    }
+  }
+
+  @override
+  bool shouldRepaint(_MoreIconPainter old) =>
+      old.record != record || old.color != color;
 }
 
 /// Scrolls so the whole box at [context] is in view, with the page's bottom

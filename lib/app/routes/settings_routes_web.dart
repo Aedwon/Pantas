@@ -37,8 +37,6 @@ List<RouteBase> settingsRoutes(Ref ref) => [
         '/settings/account/delete',
         '/settings/pro',
         '/settings/beta-feedback',
-        '/settings/beta-feedback/survey',
-        '/settings/beta-feedback/sent/:id',
         '/settings/backup',
         '/settings/about',
         '/settings/_debug',

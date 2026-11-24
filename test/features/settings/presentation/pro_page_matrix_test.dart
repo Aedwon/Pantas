@@ -53,6 +53,7 @@ Future<void> _pump(
   DsCell cell, {
   Entitlement entitlement = const Entitlement.free(),
   Widget? page,
+  PaywallOfferingResult? offering,
 }) async {
   tester.view
     ..physicalSize = Size(cell.width, 1400)
@@ -106,11 +107,13 @@ Future<void> _pump(
           ),
         ),
         paywallOfferingProvider.overrideWith(
-          (ref) async => const PaywallOfferingResult(
-            status: PaywallOfferingStatus.available,
-            recognizedPackages: [_weekly, _monthly, _yearly],
-            passPackages: [_pass],
-          ),
+          (ref) async =>
+              offering ??
+              const PaywallOfferingResult(
+                status: PaywallOfferingStatus.available,
+                recognizedPackages: [_weekly, _monthly, _yearly],
+                passPackages: [_pass],
+              ),
         ),
       ],
       child: MaterialApp(
@@ -134,6 +137,22 @@ void main() {
   setUpAll(loadDsFonts);
 
   for (final cell in _cells) {
+    testWidgets('a pass-only exam has a Season Pass and no Try Again ($cell)',
+        (tester) async {
+      await _pump(
+        tester,
+        cell,
+        offering: const PaywallOfferingResult(
+          status: PaywallOfferingStatus.available,
+          passPackages: [_pass],
+        ),
+      );
+      expect(tester.takeException(), isNull);
+      // The wide page draws a pass only inside the plans grid.
+      if (cell.width < 1024) expect(find.text('Season Pass'), findsOneWidget);
+      expect(find.text('Try Again'), findsNothing);
+    });
+
     testWidgets('Free with plans and the Season Pass ($cell)', (tester) async {
       await _pump(tester, cell);
       expect(tester.takeException(), isNull);
