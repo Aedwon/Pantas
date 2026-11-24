@@ -242,6 +242,8 @@ class _ExamPageState extends ConsumerState<ExamPage>
                       }),
                     ),
                   ),
+                  // Board L_ChangeExam2: 6 px between the two buttons.
+                  const SizedBox(height: PantasSpace.s6),
                   Center(
                     child: PantasButton(
                       label: 'Done',

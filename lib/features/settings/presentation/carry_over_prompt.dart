@@ -763,6 +763,8 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                                         ? null
                                         : () => _choose(count: true),
                                   ),
+                                  // Board ST_ExamSwitch: 8 px between them.
+                                  const SizedBox(height: PantasSpace.s8),
                                   PantasButton(
                                     label: 'Start My Numbers Fresh',
                                     variant: PantasButtonVariant.tertiary,

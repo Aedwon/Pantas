@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -210,6 +211,17 @@ void main() {
       findsNothing,
     );
     expect(find.text('Count Them'), findsNothing);
+    // Board L_ChangeExam2: the two stacked buttons sit 6 px apart (U11).
+    Rect buttonOf(String label) => tester.getRect(
+          find.ancestor(
+            of: find.text(label),
+            matching: find.byType(PantasButton),
+          ),
+        );
+    expect(
+      buttonOf('Done').top - buttonOf('Change Exam Date').bottom,
+      6,
+    );
     await tester.tap(find.text('Done'));
     await tester.pumpAndSettle();
     expect(find.text('Study days'), findsOneWidget);
