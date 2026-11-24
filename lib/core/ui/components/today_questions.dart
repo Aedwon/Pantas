@@ -167,9 +167,10 @@ class TodayQuestionsSheet extends StatelessWidget {
                 ),
               ],
               if (onDiscard != null) ...[
-                // Board A (P_Sheet): 16 above and below the 20 px line; the
-                // line's 24 px box holds 2 of each.
-                const SizedBox(height: PantasSpace.s14),
+                // Board A (P_Sheet): the 20 px line sits 16 below Resume and
+                // 16 above the end. The line button adds 4 above its text, so
+                // 12 here makes 16.
+                const SizedBox(height: PantasSpace.s12),
                 Center(
                   child: PantasButton(
                     label: 'Discard this session',
@@ -179,7 +180,7 @@ class TodayQuestionsSheet extends StatelessWidget {
                     onPressed: discarding ? null : onDiscard,
                   ),
                 ),
-                const SizedBox(height: PantasSpace.s14),
+                const SizedBox(height: PantasSpace.s16),
               ],
             ],
           ),

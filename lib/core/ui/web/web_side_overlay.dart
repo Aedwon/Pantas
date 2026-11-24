@@ -29,8 +29,19 @@ class HomeWebOverlay extends StatefulWidget {
     required this.label,
     this.drawer = false,
     this.dialogWidth = PantasLayout.modalWide,
+    this.closeTop = twoLineCloseTop,
     super.key,
   });
+
+  /// The drawer's Close X top for a title with a count under it (two lines).
+  static const double twoLineCloseTop = 26.5;
+
+  /// The same for a one-line title (W_Home Reviews, no count): the X centres
+  /// on the title line, 13 above the two-line spot (half the count line).
+  static const double oneLineCloseTop = 13.5;
+
+  /// Where the drawer's Close X sits from the top.
+  final double closeTop;
   final Widget page;
   final Widget child;
   final bool open;
@@ -230,7 +241,7 @@ class _HomeWebOverlayState extends State<HomeWebOverlay>
                                           // Board `.ib`: 44 px, centred on
                                           // the header's title block.
                                           Positioned(
-                                            top: 26.5,
+                                            top: held.closeTop,
                                             right: 16,
                                             child: _closeButton(colors),
                                           ),
