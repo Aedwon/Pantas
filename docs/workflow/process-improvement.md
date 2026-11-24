@@ -126,6 +126,17 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Week strip put in front of him though he never raised it and a board already answered it (Nov 25)
+
+- His words: "what was the reason why i'm being made to choose for the week strip? was it a complaint from me?"
+- Wrong: the long CSE exam name in the Home week strip was finding U14 from an agent UI audit, not his complaint. His approved week strip board (D196) already draws the short name. Even so, the manager's E-149 brief asked for "2 options". The UX lead correctly found no choice, but still drew the section on the board sent to him, and the manager opened that board for him and explained the section.
+- Why it got through: this is the same kind as the Nov 23 entry (boards built as options for questions already answered). Rule 4 made the lead search first, but nothing stopped an answered item from reaching him on a board, and the manager wrote "options" into the brief before anyone had searched.
+- Fix (required steps, moved up from the Nov 23 entry):
+  1. The manager's brief never asks for options. It asks the lead to search first and to draw options only for what no board, spec or ruling answers.
+  2. Before the manager opens a board for him or relays one, it removes every section that holds no choice for him. Answered items are built to their source and reported to him only as an outcome once they are live.
+  3. Every item put to him names where it came from: his own words (quoted), or an agent finding (named as such).
+  No check can tell an open question from an answered one.
+
 ### Reader request turned into a redesign he did not ask for (Nov 25)
 
 - His words: "i don't understand the reader line, i just wanted you to maybe remove the lesson indicator on top because it gets so long when there's a lot of lessons in a certain topic, and especially so after the instruction to make the lessons bite-sized. for the thing that indicates how far along you are in the lesson itself, no changes". His original request words are not recorded on main; the manager's brief (E-149) said only "reader progress bar replacement, 2 or 3 options".
