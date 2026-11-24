@@ -45,12 +45,21 @@ class PantasSheet extends StatefulWidget {
   /// top of the screen (MK_Sheet: the page stays visible for 180 px).
   final double topInset;
 
-  /// The label of the Close or Cancel button drawn at the end of the sheet:
-  /// "Cancel" for a sheet that edits, "Close" for one that only shows a list.
-  /// It is the keyboard route out that dragging the grabber is not (Sheet
-  /// README). Pressing it calls [onDismiss], as the scrim does. Null draws no
-  /// button, for a caller that draws its own.
+  /// The label of a Close or Cancel text button at the end of the sheet. Only
+  /// for a sheet whose board draws one: no board draws it today, so every
+  /// sheet leaves it null (finding 3, "Cancel and Close: match the boards").
+  /// Escape and a tap on the scrim already close a sheet. The button is a
+  /// 44 high text button at its natural width. Pressing it calls
+  /// [onDismiss], as the scrim does.
   final String? closeLabel;
+
+  /// `.sheet` padding-bottom (boards 34): `max(34, safe area + 20)`, so the
+  /// last control clears the home indicator. A sheet body that ends on its
+  /// own control pads its bottom with this.
+  static double bottomRest(BuildContext context) => math.max(
+        PantasSpace.s32 + PantasSpace.s2,
+        MediaQuery.viewPaddingOf(context).bottom + PantasSpace.s20,
+      );
 
   @override
   State<PantasSheet> createState() => _PantasSheetState();
@@ -398,35 +407,30 @@ class _PantasSheetState extends State<PantasSheet>
   }
 }
 
-/// The Close or Cancel button that ends a sheet. The actions stay visible
-/// while the body scrolls, and the bottom padding is `max(34, safe area + 20)`
-/// so the button clears the home indicator (Sheet README).
+/// A Close or Cancel text button that ends a sheet, for a sheet whose board
+/// draws one: 44 high at its natural width, centered (`btn--text-phone`). It
+/// stays visible while the body scrolls, and the bottom padding is
+/// [PantasSheet.bottomRest] so the button clears the home indicator.
 class _CloseAction extends StatelessWidget {
   const _CloseAction({required this.label, required this.onPressed});
 
   final String label;
   final VoidCallback onPressed;
 
-  /// `.sheet` padding-bottom: the phone board's 34.
-  static const double _rest = PantasSpace.s32 + PantasSpace.s2;
-
   @override
-  Widget build(BuildContext context) {
-    final inset = MediaQuery.viewPaddingOf(context).bottom;
-    return Padding(
-      padding: EdgeInsets.fromLTRB(
-        PantasSpace.s20,
-        PantasSpace.s8,
-        PantasSpace.s20,
-        math.max(_rest, inset + PantasSpace.s20),
-      ),
-      child: PantasButton(
-        label: label,
-        variant: PantasButtonVariant.tertiary,
-        onPressed: onPressed,
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Padding(
+        padding: EdgeInsets.fromLTRB(
+          PantasSpace.s20,
+          PantasSpace.s8,
+          PantasSpace.s20,
+          PantasSheet.bottomRest(context),
+        ),
+        child: PantasButton(
+          label: label,
+          variant: PantasButtonVariant.tertiary,
+          onPressed: onPressed,
+        ),
+      );
 }
 
 /// The sheet and its scrim on the root overlay, for wide web. It animates

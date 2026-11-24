@@ -312,7 +312,6 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           scrollable: false,
           open: _bookmarksOpen,
           label: 'Bookmarks',
-          closeLabel: 'Close',
           onDismiss: () => _setBookmarksOpen(open: false),
           page: PantasPage.content(
             // Board ST_Map: 6 px of padding, then the empty 44 px row, then

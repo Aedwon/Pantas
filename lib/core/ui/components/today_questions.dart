@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -82,12 +83,12 @@ class TodayQuestionsSheet extends StatelessWidget {
         constraints:
             BoxConstraints(maxHeight: MediaQuery.sizeOf(context).height),
         child: Padding(
-          // The sheet spec pads the bottom 34; the nearest step is 32.
-          padding: const EdgeInsets.fromLTRB(
+          // The boards pad the sheet's bottom 34 and end on the Start button.
+          padding: EdgeInsets.fromLTRB(
             PantasSpace.s20,
             PantasSpace.s0,
             PantasSpace.s20,
-            PantasSpace.s32,
+            PantasSheet.bottomRest(context),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,

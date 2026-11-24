@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -768,6 +769,9 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                                   PantasButton(
                                     label: 'Start My Numbers Fresh',
                                     variant: PantasButtonVariant.tertiary,
+                                    // ST_ExamSwitch: the 52 full-width ghost
+                                    // button.
+                                    size: PantasButtonSize.phone,
                                     onPressed: _saving
                                         ? null
                                         : () => _choose(count: false),

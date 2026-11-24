@@ -14,14 +14,14 @@ Sheet is the phone's panel from the bottom. It holds pickers, filters and short 
 - Landscape: when the height is 500px or less the sheet is centered and at most 560px wide.
 - The scrim (`scrim scrim--sheet`, no padding) is `z-overlay` 40. The sheet is `z-modal` 50.
 - CHANGE: top radius is 14 (`radius-lg`). The canvas drew 22.
-- CHANGE: a Close or Cancel button is required as the keyboard alternative to dragging.
+- CHANGE (T5, finding 3): a sheet draws no Close or Cancel button unless its board draws one. Esc and a tap on the scrim close it, as a drag does. The old rule (a required 52 high, full-width Cancel under every sheet, 94 to 114 px of extra height) is withdrawn. A board that does draw one uses `btn--text-phone` (44 high, natural width, centered, `btn--tertiary btn--accent`), never `btn--phone`.
 - Surface `surface-modal`: the card in light, one step up (#2A2A2A) in dark (usage gap 24).
 - One scrim recipe (R4-O03): the scrim is a real element that fades over `dur-switch`, closes on a tap and locks the page scroll (Drawer).
 
 ## Variants and props
 - `role="dialog"` with `aria-modal="true"`, `aria-labelledby` the title id. Add `aria-describedby` when there is body text.
 - A picker body is a `role="radiogroup"` of rows with `role="radio"` and `aria-checked`. The chosen row shows a check.
-- Buttons: `btn--phone btn--primary` then `btn--phone btn--tertiary`.
+- Buttons: the board's main action as `btn--phone btn--primary`, and nothing under it unless the board draws more.
 - The consumer provides the title, the body and the buttons.
 - Hover and press inside the sheet use `surface-modal-hover` (R3-O02), so Sort by and the exam picker rows show feedback in dark. Action pairs wrap main first at large text (R3-A12).
 - `.sheet--reader` (ruling 11, R4-O01): a sheet that shows lesson content (the phone passage, "Show Passage") keeps the lesson text scale; every other sheet resets it to 1. The app copies `--reader-scale` from the page onto the sheet, because the sheet mounts outside `.focus`.
@@ -61,7 +61,6 @@ Minimal markup, from the preview without its documentation scaffolding.
   </div>
   <div class="sheet__actions">
     <button type="button" class="btn btn--primary btn--phone">Apply</button>
-    <button type="button" class="btn btn--tertiary btn--phone">Cancel</button>
   </div>
 </div>
 ```
@@ -70,7 +69,7 @@ Minimal markup, from the preview without its documentation scaffolding.
 - Open: the sheet sits at the bottom edge over the scrim. The page behind is inert.
 - Exiting: add `.is-exiting`, wait for the animation, then unmount.
 - Initial focus: the first field, or the main action. For a destructive confirm the safe action (but use a Dialog for those).
-- Drag: dragging the grabber down closes it. Drag is a bonus; the Cancel button is the keyboard route.
+- Drag: dragging the grabber down closes it. Esc and a scrim tap are the keyboard route.
 
 ## Keyboard
 - Tab and Shift+Tab stay inside and wrap. Esc closes it. A scrim tap closes it.
@@ -90,17 +89,17 @@ Minimal markup, from the preview without its documentation scaffolding.
 
 ## Flutter
 - Reuse PantasSheet (`core/ui/components/pantas_sheet.dart`) for the surface, the grabber and the slide.
-- Add a Cancel button to every sheet. Use GroupedSection for the radio rows.
+- Draw no Close or Cancel button unless the board does (then `PantasSheet.closeLabel`, a 44 high natural-width text button). Pad the body's bottom with `PantasSheet.bottomRest(context)`, `max(34, safe area + 20)`. Use GroupedSection for the radio rows.
 - Reads `surface-modal` and `surface-modal-hover` for the sheet and its rows (R3-A10), `divider-strong`, `scrim` and `text-primary`. A reader sheet wraps its child in the lesson `TextScaler`.
 
 ## Do
 - Hide the TabBar while a sheet with a footer button is open.
-- Close on a drag down, a scrim tap, Esc and Cancel.
+- Close on a drag down, a scrim tap and Esc.
 - Keep the actions visible while the body scrolls.
 
 ## Don't
 - Don't use a sheet to confirm a destructive action. Use a centered Dialog.
-- Don't ship a sheet without a Cancel or Close button.
+- Don't add a Close or Cancel button the board does not draw.
 - Don't put a fifth action in the stack.
 
 ## Placement
@@ -114,5 +113,5 @@ Literal spacing values this component keeps, with their source (R2-O08). Every o
 `dur-switch`, `motion-fade`, `surface-modal-hover`, `z-modal`, `space-16`, `space-8`, `space-20`, `radius-lg`, `surface-modal`, `elev-sheet`, `dur-long-1`, `motion-slide`, `dur-drawer-close`, `radius-full`, `divider-strong`, `type-phone-title-3`, `tracking-phone-title-3`, `space-12`, `dur-short-2`
 
 ## Status
-Approved (from the boards); changed in 2.0: top radius 14, required Cancel button, one modal contract, safe-area padding, landscape rule, motion on `motion-slide`. Changed in 3.0: dark surface `surface-modal`. Changed in 3.1: modal hover well; reads `surface-modal` (R3-O02, R3-A10). Changed in 3.2: surface `surface-modal` in every line (R3-A10); `.sheet--reader` keeps the lesson scale (ruling 11).
+Approved (from the boards); changed in 2.0: top radius 14, required Cancel button, one modal contract, safe-area padding, landscape rule, motion on `motion-slide`. Changed in 3.0: dark surface `surface-modal`. Changed in 3.1: modal hover well; reads `surface-modal` (R3-O02, R3-A10). Changed in 3.3 (T5): no Close or Cancel unless the board draws it. Changed in 3.2: surface `surface-modal` in every line (R3-A10); `.sheet--reader` keeps the lesson scale (ruling 11).
 

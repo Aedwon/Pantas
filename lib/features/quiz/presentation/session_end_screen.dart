@@ -23,8 +23,6 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
-import 'package:pantas/features/quiz/presentation/quiz_end_flight.dart';
-import 'package:pantas/features/quiz/presentation/session_end_timeline.dart';
 import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
 import 'package:pantas/features/quiz/presentation/web_session_results.dart';
 
@@ -44,7 +42,6 @@ class SessionEndBody extends StatefulWidget {
     this.debriefCards,
     this.proPaused = false,
     this.onNext,
-    this.flightRun,
     super.key,
   });
   final QuizSession session;
@@ -64,47 +61,25 @@ class SessionEndBody extends StatefulWidget {
   final VoidCallback onMistakes;
   final VoidCallback onNotes;
   final Future<void> Function()? onNext;
-
-  /// Set when the session has just ended: the marks of the answer track fly
-  /// into the row of circles (core loops B2). Without it the result plays its
-  /// earlier entrance.
-  final EndFlightRun? flightRun;
   @override
   State<SessionEndBody> createState() => _SessionEndBodyState();
 }
 
 class _SessionEndBodyState extends State<SessionEndBody>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _entry = widget.flightRun?.controller ??
-      AnimationController(
-        vsync: this,
-        duration: Duration(
-          milliseconds:
-              math.max(2600, 820 + (widget.attempt.items.length - 1) * 90),
-        ),
-      );
-  late final SessionEndTimeline _timeline = widget.flightRun?.timeline ??
-      SessionEndTimeline.still(count: widget.attempt.items.length);
-
-  /// The ring starts this long after the page appears: the flight may have
-  /// begun before the results were ready.
-  late final Duration? _ringDelay = widget.flightRun == null
-      ? null
-      : Duration(
-          milliseconds: math.max(
-            0,
-            (_timeline.ringStart - widget.flightRun!.elapsed).round(),
-          ),
-        );
+  late final AnimationController _entry = AnimationController(
+    vsync: this,
+    duration: Duration(
+      milliseconds:
+          math.max(2600, 820 + (widget.attempt.items.length - 1) * 90),
+    ),
+  );
   bool _nextBusy = false;
   bool _nextFailed = false;
   bool? _still;
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    // After the last Finish the flight owns the clock, and its host handles
-    // reduced motion.
-    if (widget.flightRun != null) return;
     final still = MediaQuery.disableAnimationsOf(context);
     if (still == _still) return;
     _still = still;
@@ -119,7 +94,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
 
   @override
   void dispose() {
-    if (widget.flightRun == null) _entry.dispose();
+    _entry.dispose();
     super.dispose();
   }
 
@@ -168,10 +143,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
         ),
       ),
     );
-    final run = widget.flightRun;
-    return run == null
-        ? _motion.pop(index, circle)
-        : run.slot(index, circle, size: const Size.square(28));
+    return _motion.pop(index, circle);
   }
 
   @override
@@ -201,8 +173,6 @@ class _SessionEndBodyState extends State<SessionEndBody>
     }
     final next =
         widget.onNext != null && batch != null && batch.ordinal < batch.total;
-    final tl = _timeline;
-    final later = tl.later;
     if (context.wideWeb) {
       return WebSessionResults(
         session: widget.session,
@@ -220,8 +190,6 @@ class _SessionEndBodyState extends State<SessionEndBody>
         onNotes: widget.onNotes,
         onNext: next ? () => unawaited(_next()) : null,
         entry: _motion,
-        flightRun: widget.flightRun,
-        ringDelay: _ringDelay,
         nextBusy: _nextBusy,
         failure: _nextFailed ? saveFailureLine(() => unawaited(_next())) : null,
       );
@@ -274,9 +242,9 @@ class _SessionEndBodyState extends State<SessionEndBody>
                     ],
                   ],
                 ),
-                tl.titleStart,
-                tl.titleDuration,
-                rise: tl.flight ? 0 : 6,
+                100,
+                380,
+                rise: 6,
               ),
               const SizedBox(height: PantasSpace.s20),
               Padding(
@@ -286,18 +254,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                 ),
                 child: Column(
                   children: [
-                    if (tl.flight)
-                      _appear(
-                        HalfRingGauge.quizCount(
-                          correct: correct,
-                          total: total,
-                          delay: _ringDelay,
-                        ),
-                        tl.titleStart,
-                        tl.titleDuration,
-                      )
-                    else
-                      HalfRingGauge.quizCount(correct: correct, total: total),
+                    HalfRingGauge.quizCount(correct: correct, total: total),
                     const SizedBox(height: PantasSpace.s18),
                     Wrap(
                       alignment: WrapAlignment.center,
@@ -309,8 +266,8 @@ class _SessionEndBodyState extends State<SessionEndBody>
                       const SizedBox(height: PantasSpace.s10),
                       _appear(
                         Text(durationLine, style: type.footnote),
-                        tl.detailStart,
-                        tl.flight ? SessionEndTimeline.detailDuration : 300,
+                        1600,
+                        300,
                       ),
                     ],
                   ],
@@ -392,7 +349,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                                   index,
                                 ),
                               ),
-                              1700 + position * 90 + later,
+                              1700 + position * 90,
                               380,
                               rise: 6,
                             ),
@@ -406,7 +363,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                       ),
                     ],
                   ),
-                  1620 + later,
+                  1620,
                   380,
                   rise: 8,
                 ),
@@ -418,7 +375,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                     ListRow(title: 'See all questions', onTap: widget.onAll),
                   ],
                 ),
-                2000 + later,
+                2000,
                 380,
                 rise: 10,
               ),
@@ -456,7 +413,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
                             ],
                           ),
                   ),
-                  2260 + later,
+                  2260,
                   300,
                 ),
               ],
@@ -510,8 +467,8 @@ class _SessionEndBodyState extends State<SessionEndBody>
                     ),
                   ],
                 ),
-                tl.phoneDoneStart,
-                tl.flight ? SessionEndTimeline.detailDuration : 300,
+                2200,
+                300,
               ),
             ),
           ),

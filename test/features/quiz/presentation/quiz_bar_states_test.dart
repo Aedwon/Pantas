@@ -1,10 +1,11 @@
-// The phone session bar in every state, at every phone width (T16 B2 ruling
-// of Nov 24): the flag is always in the bar, the bar never overflows, and a
-// session of 11 to 20 questions makes two rows of marks.
+// The phone session bar in every state, at every phone width (Aedwon's bar,
+// Nov 24: count left, flag centered, button right, no hint, no answer track):
+// the flag is always in the bar and on its center, and the bar never overflows.
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
@@ -99,6 +100,18 @@ void _expectFlagInBar(WidgetTester tester, double width) {
   expect(flag.width, greaterThanOrEqualTo(44));
   expect(flag.height, greaterThanOrEqualTo(44));
   expect(flag.right, lessThanOrEqualTo(width));
+  expect(
+    find.byWidgetPredicate((w) => w.runtimeType.toString() == 'AnswerTrack'),
+    findsNothing,
+    reason: 'the bar draws no answer track',
+  );
+  // The flag sits on the bar's own center, not between the count and button.
+  final bar = tester.getRect(find.byType(FloatingBar));
+  expect(
+    (flag.center.dx - bar.center.dx).abs(),
+    lessThanOrEqualTo(1),
+    reason: 'flag center ${flag.center.dx} vs bar center ${bar.center.dx}',
+  );
 }
 
 void main() {
