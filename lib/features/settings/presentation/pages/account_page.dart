@@ -62,6 +62,9 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   // ds-board: ST_Account column gap 22
   static const double _blockGap = PantasSpace.s20 + PantasSpace.s2;
 
+  // ds-board: ST_Account name 24/700
+  static const double _nameSize = 24;
+
   String? _errorMessage;
   String? _copied;
   String? _copiedUid;
@@ -310,8 +313,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       onBack: () => leavePage(context, fallback: '/settings'),
       children: [
         // ST_Account: a centered 84 px avatar over the name and the email, 8 px
-        // apart, then 22 px to the first card. The board's name is 24/700; the
-        // type scale has no such style, so the name keeps title 2 (22/700).
+        // apart, then 22 px to the first card. The name is 24/700.
         Padding(
           padding: const EdgeInsets.only(
             top: PantasSpace.s10,
@@ -329,8 +331,11 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               const SizedBox(height: PantasSpace.s8),
               Text(
                 settings.name ?? 'Add your name',
-                style: PantasType.phoneTitle2
-                    .copyWith(color: context.colors.textPrimary),
+                style: PantasType.phoneTitle2.copyWith(
+                  color: context.colors.textPrimary,
+                  fontSize: _nameSize,
+                  letterSpacing: _nameSize * -.012,
+                ),
               ),
               const SizedBox(height: PantasSpace.s8),
               Text(

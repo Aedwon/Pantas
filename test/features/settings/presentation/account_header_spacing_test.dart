@@ -50,6 +50,10 @@ void main() {
     // The name is the text between the avatar and the email.
     final name = tester.getRect(find.text('Add your name').first);
     expect(name.top - avatar.bottom, 8);
+    // ST_Account: the name is 24/700.
+    final nameText = tester.widget<Text>(find.text('Add your name').first);
+    expect(nameText.style!.fontSize, 24);
+    expect(nameText.style!.fontWeight, FontWeight.w700);
     expect(email.top - name.bottom, 8);
 
     final sections = find.byType(SettingsSection);
