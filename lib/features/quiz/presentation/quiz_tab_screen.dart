@@ -13,7 +13,6 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
-import 'package:pantas/core/ui/components/paused_quiz_notice.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
@@ -854,36 +853,44 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
             }
             final sheet =
                 wide ? HomeWebQuestionsSheet.new : TodayQuestionsSheet.new;
+            // Board A (his pick Nov 25), as on Home.
+            final here = data.pausedHere(kind);
             return sheet(
               title: reviews ? 'Reviews' : 'New questions',
               done: reviews ? data.reviewsDone : data.newDone,
               total: reviews ? data.reviewsTotal : data.newTotal,
               rows: rows,
-              startLabel: reviews ? 'Start Reviews' : 'Start New Questions',
+              startLabel: here
+                  ? 'Resume'
+                  : reviews
+                      ? 'Start Reviews'
+                      : 'Start New Questions',
               busy: _startingQuestions,
-              onStart: (reviews
-                      ? data.reviewSizes.isNotEmpty
-                      : data.newQuestions.isNotEmpty)
-                  ? () => unawaited(_startQuestions(examId, kind, work: data))
-                  : null,
-              failure: !_questionFailed
+              onStart: here
+                  ? () {
+                      _dismissQuestions();
+                      unawaited(_open('/quiz/resume/$examId'));
+                    }
+                  : (reviews
+                          ? data.reviewSizes.isNotEmpty
+                          : data.newQuestions.isNotEmpty)
+                      ? () =>
+                          unawaited(_startQuestions(examId, kind, work: data))
+                      : null,
+              showCount: !reviews,
+              onDiscard: here ? () => unawaited(_discardPaused(examId)) : null,
+              discarding: _discarding,
+              blocked: !here &&
+                  (data.pausedElsewhere(kind) ||
+                      _questionFailed && _questionPaused),
+              failure: !_questionFailed || _questionPaused
                   ? null
-                  : _questionPaused
-                      ? PausedQuizNotice(
-                          onResume: () {
-                            _dismissQuestions();
-                            unawaited(_open('/quiz/resume/$examId'));
-                          },
-                          onDiscard: _discarding
-                              ? null
-                              : () => unawaited(_discardPaused(examId)),
-                        )
-                      : StateView(
-                          message: 'Could not start your quiz.',
-                          onRetry: () => unawaited(
-                            _startQuestions(examId, kind, work: data),
-                          ),
-                        ),
+                  : StateView(
+                      message: 'Could not start your quiz.',
+                      onRetry: () => unawaited(
+                        _startQuestions(examId, kind, work: data),
+                      ),
+                    ),
             );
           },
         );
@@ -898,7 +905,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
           style: PantasType.phoneCallout
               .copyWith(color: context.colors.textPrimary),
         ),
-        value: '$total',
+        value: questionRowCount(done, total),
         valueStyle: PantasType.phoneFootnote
             .copyWith(color: context.colors.textSecondary),
         contentPadding: const EdgeInsets.symmetric(vertical: PantasSpace.s8),
@@ -1219,6 +1226,9 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
     await _discard(examId);
     if (mounted && !_saveFailed) {
       setState(() => _questionFailed = _questionPaused = false);
+      // The sheet read who was paused when it opened; read it again.
+      final kind = _questionSheet;
+      if (kind != null) _showQuestions(examId, kind);
     }
   }
 
@@ -1234,6 +1244,8 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         examId: examId,
         now: ref.read(nowProvider)(),
       );
+      // Home, alive in its own tab, may be showing this quiz as paused.
+      ref.read(quizPausedRevisionProvider.notifier).publishPause();
       if (mounted) _refresh();
     } catch (_) {
       if (mounted) setState(() => _saveFailed = true);

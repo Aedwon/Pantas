@@ -199,6 +199,7 @@
   <style>
     #pantas-splash {
       --bg: #F5F5F7; --tx: #1D1D1F; --logo: #1D1D1F; --link: #0B7A68;
+      --sec: #6E6E73; --track: #E3E3E8; --arc: #6E6E73;
       display: none;
       position: fixed; inset: 0; z-index: 2147482000;
       flex-direction: column; align-items: center; justify-content: center;
@@ -211,7 +212,8 @@
       -webkit-font-smoothing: antialiased;
     }
     @media (prefers-color-scheme: dark) {
-      #pantas-splash { --bg: #151515; --tx: #F5F5F5; --logo: #F5F5F5; --link: #4CC3AC; }
+      #pantas-splash { --bg: #151515; --tx: #F5F5F5; --logo: #F5F5F5; --link: #4CC3AC;
+        --sec: #A3A3A3; --track: #303030; --arc: #A3A3A3; }
     }
     /* The app background, so a page with nothing drawn yet is never plain white. */
     html { background: #F5F5F7; }
@@ -226,17 +228,53 @@
       display: block; flex-shrink: 0; width: 104px; height: 104px;
       animation: ps-pop .6s cubic-bezier(.34,1.56,.64,1) .1s both;
     }
+    #pantas-splash .ps-wmw { position: relative; margin-top: 20px; }
     #pantas-splash .ps-wm {
-      margin-top: 20px; font-size: 34px; font-weight: 700; letter-spacing: -.03em;
+      font-size: 34px; font-weight: 700; letter-spacing: -.03em;
       line-height: 1.08;
       animation: ps-rise .5s cubic-bezier(.2,.9,.3,1) .35s both;
     }
+    /* Loading row, board A: spinner left, number right, one line, 40 px under
+       the wordmark. It appears at 1.5 s (ps-wait). The number is in the page
+       only while bytes arrive (ps-pct); at 100% it fades and its width closes
+       over 220 ms, so the spinner glides back to center. */
+    #pantas-splash .ps-ind {
+      position: absolute; left: 50%; top: 100%; margin-top: 40px;
+      transform: translateX(-50%);
+      display: flex; flex-direction: row; align-items: center;
+      opacity: 0; pointer-events: none;
+    }
+    html.ps-wait #pantas-splash .ps-ind { opacity: 1; transition: opacity .3s ease; }
+    #pantas-splash .ps-ring {
+      display: block; flex: none; width: 20px; height: 20px; border-radius: 99px;
+      border: 2px solid var(--track); border-top-color: var(--arc);
+      animation: ps-spin .9s linear infinite;
+    }
+    #pantas-splash .ps-num {
+      display: block; overflow: hidden; margin-left: 0; max-width: 0; opacity: 0;
+      font-size: 13px; font-weight: 500; line-height: 20px; color: var(--sec);
+      white-space: nowrap; font-variant-numeric: tabular-nums;
+      transition: opacity 220ms cubic-bezier(.25,.1,.25,1), max-width 220ms cubic-bezier(.25,.1,.25,1), margin-left 220ms cubic-bezier(.25,.1,.25,1);
+    }
+    html.ps-pct #pantas-splash .ps-num { margin-left: 8px; max-width: 3em; opacity: 1; }
+    /* Reduce Motion (ps-rm): no spinner. "Loading 42%" on one line. */
+    #pantas-splash .ps-ind-lab { display: none; }
+    html.ps-rm #pantas-splash .ps-ind-row { display: none; }
+    html.ps-rm #pantas-splash .ps-ind-lab { display: flex; }
+    #pantas-splash .ps-lab {
+      font-size: 15px; font-weight: 400; line-height: 1.35; color: var(--sec);
+      white-space: nowrap; font-variant-numeric: tabular-nums;
+    }
+    #pantas-splash .ps-lab-n { display: none; }
+    html.ps-pct #pantas-splash .ps-lab-n { display: inline; }
+    @keyframes ps-spin { to { transform: rotate(360deg); } }
     @media (min-width: 1024px) {
       /* Wide web centers the group on the page (Web_B_Still); the lift above is
          the phone's. */
       #pantas-splash { padding-bottom: 0; }
       #pantas-splash svg { width: 120px; height: 120px; }
       #pantas-splash .ps-wm { font-size: 42px; }
+      #pantas-splash .ps-num { font-size: 14px; }
     }
     @keyframes ps-pop {
       0% { transform: scale(.4); opacity: 0; }
@@ -271,7 +309,11 @@
   <!-- Returning-visitor splash markup (B5). Hidden unless <html> has ps-on. -->
   <div id="pantas-splash" role="img" aria-label="Pantas is loading">
     <svg aria-hidden="true" viewBox="307 309 640 640" width="104" height="104"><path class="lt" d="M887 515.69V664" stroke-width="11" stroke-linecap="round" fill="none"/><circle class="lf" cx="887" cy="682" r="20"/><path class="lf" d="M877 699 L897 699 L912 774 Q915 790 899 791 L875 791 Q859 790 862 774 Z"/><path class="ld" d="M363.97 493.76 L614.06 374.19 A30 30 0 0 1 639.94 374.19 L890.03 493.76 A18 18 0 0 1 890.03 526.24 L639.94 645.81 A30 30 0 0 1 614.06 645.81 L363.97 526.24 A18 18 0 0 1 363.97 493.76 Z"/><path class="ld" d="M443.45 593.06 L519.45 629.40 A8 8 0 0 1 524.00 636.62 L524.00 878.00 A12 12 0 0 1 512.00 890.00 L478.00 890.00 A46 46 0 0 1 432.00 844.00 L432.00 600.28 A8 8 0 0 1 443.45 593.06 Z"/><path class="ld" d="M728 638.53 Q728 632.53 734 629.63 L814 591.44 Q820 588.54 820 594.54 L820 696 A150 150 0 0 1 670 846 L584 846 A12 12 0 0 1 572 834 L572 766 A12 12 0 0 1 584 754 L670 754 A58 58 0 0 0 728 696 Z"/></svg>
-    <div class="ps-wm" aria-hidden="true">Pantas</div>
+    <div class="ps-wmw">
+      <div class="ps-wm" aria-hidden="true">Pantas</div>
+      <div class="ps-ind ps-ind-row" aria-hidden="true"><span class="ps-ring"></span><span class="ps-num" id="ps-num"></span></div>
+      <div class="ps-ind ps-ind-lab" aria-hidden="true"><span class="ps-lab">Loading<span class="ps-lab-n" id="ps-lab-n"></span></span></div>
+    </div>
   </div>
   <!--
     You can customize the "flutter_bootstrap.js" script.
