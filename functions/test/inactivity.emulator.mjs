@@ -289,6 +289,38 @@ test('evidence that holds only declines goes after four years; any confirmation,
   for (const uid of ['ev-c', 'ev-w', 'ev-q']) assert.equal(await exists(uid), false, `${uid} goes at ten years`);
 });
 
+for (const {name, actions, purchase, keepDays} of [
+  {name: 'decline and became_adult', actions: ['decline', 'became_adult'], keepDays: 1461},
+  {name: 'became_adult alone', actions: ['became_adult'], keepDays: 1461},
+  {name: 'decline and confirm', actions: ['decline', 'confirm'], keepDays: 3653},
+  {name: 'withdraw alone', actions: ['withdraw'], keepDays: 3653},
+  {name: 'guardian purchase alone', actions: [], purchase: true, keepDays: 3653},
+]) {
+  test(`evidence with ${name} expires at ${keepDays} days`, async () => {
+    await clear();
+    const decided = Date.parse('2026-11-09T10:00:00+08:00');
+    const uid = 'ev-period';
+    const evidence = db.doc(`guardianConsentEvidence/${uid}`);
+    await evidence.set({accountDeletedAt: decided, reason: 'user_request'});
+    for (const [index, action] of actions.entries()) {
+      await evidence.collection('responses').doc(`r${index}`).set({
+        action,
+        decidedAt: decided - (actions.length - index - 1) * DAY,
+      });
+    }
+    if (purchase) {
+      await evidence.collection('purchases').doc('cs_1').set({
+        attestedAt: decided, termsVersion: 'v', reference: 'r', product: 'p',
+      });
+    }
+    const expiresAt = decided + keepDays * DAY;
+    await purge([], expiresAt - 1);
+    assert.equal(await exists(uid), true, 'kept before expiration');
+    await purge([], expiresAt);
+    assert.equal(await exists(uid), false, 'deleted at expiration');
+  });
+}
+
 test('a failed evidence purge logs a reason code and no account id', async () => {
   await clear();
   const decided = Date.parse('2026-11-09T10:00:00+08:00');
