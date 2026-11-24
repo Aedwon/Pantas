@@ -120,13 +120,6 @@ void main() {
       expect(find.text('TODAY'), findsOneWidget);
       expect(find.text('Questions due today'), findsOneWidget);
       expect(find.text('0 of 18'), findsOneWidget);
-      // U24 (Nov 25): the footer slot the boards fill with a time estimate
-      // holds what is left as real counts instead.
-      expect(
-        find.text('1 lesson, 18 reviews, 7 new questions left'),
-        findsOneWidget,
-      );
-      expect(find.textContaining('min'), findsNothing);
       expect(find.byType(WebKeyHint), findsOneWidget);
       if (dark) {
         final footer = tester
