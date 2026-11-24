@@ -24,7 +24,7 @@ const double _wideAssessmentHeight = 140;
 const double _wideMockWidth = 300;
 const double _wideMockHeight = 158;
 const double _wideQuizWidth = 320;
-const double _wideQuizHeight = 150;
+const double _wideQuizHeight = 170;
 const double _largeStroke = 16;
 const double _wideMockStroke = 18;
 

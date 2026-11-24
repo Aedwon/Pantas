@@ -227,6 +227,19 @@ void main() {
     );
   });
 
+  testWidgets('the phone flag sits in the bar at 390, not in the header',
+      (tester) async {
+    await _pump(tester, const DsCell(390, 1, dark: false));
+    final flag = tester.getRect(find.byTooltip('Flag question'));
+    final bar = tester.getRect(find.byKey(const ValueKey('quiz-counter')));
+    // Beside the count column, between it and Check, 44 px target.
+    expect(flag.center.dy, closeTo(bar.center.dy, 8));
+    expect(flag.left, greaterThan(bar.right));
+    expect(flag.width, greaterThanOrEqualTo(44));
+    expect(flag.height, greaterThanOrEqualTo(44));
+    expect(tester.takeException(), isNull);
+  });
+
   for (final width in [390.0, 1440.0]) {
     testWidgets(
         'over 20 questions the bar shows a line, not marks '

@@ -73,9 +73,13 @@ class WebButton extends StatelessWidget {
     this.radius,
     this.sidePadding,
     this.reserveLabels = const [],
+    this.minWidth,
     super.key,
   });
   final String label;
+
+  /// A least width for the button, label centered.
+  final double? minWidth;
 
   /// Other words this button shows at other times. It keeps the width of the
   /// widest, so what sits beside it does not move when the word changes.
@@ -186,7 +190,7 @@ class WebButton extends StatelessWidget {
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.standard,
         minimumSize: WidgetStatePropertyAll(
-          Size(expand ? double.infinity : 0, m.height),
+          Size(expand ? double.infinity : minWidth ?? 0, m.height),
         ),
         padding: WidgetStatePropertyAll(
           EdgeInsets.only(

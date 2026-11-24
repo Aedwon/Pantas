@@ -22,6 +22,9 @@ import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
 
 export 'package:pantas/core/ui/web/web_debrief_loading.dart';
 
+// ds-board: B2_WideEnd and W_SessionEnd draw Done at least 220 wide
+const double _doneMinWidth = 220;
+
 class WebSessionResults extends StatelessWidget {
   const WebSessionResults({
     required this.session,
@@ -261,17 +264,17 @@ class WebSessionResults extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SizedBox(
-                                width: PantasLayout.titleNarrow,
-                                child: WebButton(
-                                  label: 'Done',
-                                  large: true,
-                                  expand: true,
-                                  onPressed: nextBusy ? null : onDone,
-                                  variant: next
-                                      ? WebButtonVariant.white
-                                      : WebButtonVariant.primary,
-                                ),
+                              // B2_WideEnd: 50 high, 220 wide at least, with
+                              // the Enter hint when Enter is Done.
+                              WebButton(
+                                label: 'Done',
+                                large: true,
+                                minWidth: _doneMinWidth,
+                                keyHint: next ? null : 'Enter',
+                                onPressed: nextBusy ? null : onDone,
+                                variant: next
+                                    ? WebButtonVariant.white
+                                    : WebButtonVariant.primary,
                               ),
                               if (next) ...[
                                 const SizedBox(width: PantasSpace.s12),

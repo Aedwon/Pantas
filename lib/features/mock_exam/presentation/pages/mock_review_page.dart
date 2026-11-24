@@ -45,6 +45,9 @@ import 'package:pantas/features/mock_exam/presentation/widgets/mock_tap.dart';
 /// The width of the question filter (board width; the system sets no token).
 const _filterWidth = 464.0;
 
+// ds-board: B5_ReviewAfter draws the Finish the Notes button 40 high
+const double _notesButtonHeight = 40;
+
 class MockReviewPage extends ConsumerStatefulWidget {
   const MockReviewPage({
     required this.attemptId,
@@ -507,22 +510,29 @@ class _ReviewListBody extends StatelessWidget {
                 if (proIsActive && filter == ReviewFilter.wrong) ...[
                   const SizedBox(height: PantasSpace.s20),
                   WebCard(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: PantasSpace.s20,
-                      vertical: PantasSpace.s18,
+                    // B5_ReviewAfter: padding 12 12 12 20.
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s20,
+                      PantasSpace.s12,
+                      PantasSpace.s12,
+                      PantasSpace.s12,
                     ),
                     child: Row(
                       children: [
                         Expanded(
                           child: Text(
                             'Note why you missed each one.',
-                            style: t.sub,
+                            // 15 on 1.5, the board's size and line.
+                            style: PantasType.phoneExplanation.copyWith(
+                              color: t.colors.textPrimary,
+                            ),
                           ),
                         ),
-                        const SizedBox(width: PantasSpace.s24),
+                        const SizedBox(width: PantasSpace.s18),
                         WebButton(
                           label: 'Finish the Notes',
                           variant: WebButtonVariant.secondary,
+                          height: _notesButtonHeight,
                           onPressed: onFinishNotes,
                         ),
                       ],

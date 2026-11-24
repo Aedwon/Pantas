@@ -74,6 +74,15 @@ import 'package:pantas/features/quiz/presentation/web_quiz_question.dart';
 
 enum QuizPageMode { quick, today, drill, retake, inline, resume, practice }
 
+/// The narrowest phone whose bar holds the flag beside the track.
+// ds-board: B2_PhoneBar draws the flag in the bar at 390; below this it does
+// not fit
+const double _flagInBarFrom = 370;
+
+/// The same, while looking back at an answered question (a longer button).
+// ds-board: B2_PhoneBar draws no looking-back state; "Back to 2" needs room
+const double _flagInBarLookingBack = 430;
+
 class QuizPage extends ConsumerStatefulWidget {
   const QuizPage({
     required this.examId,
@@ -428,8 +437,9 @@ final _questionTopicProvider = FutureProvider.family<String, String>(
 );
 
 /// What the phone question header carries at its trailing end (D71): the
-/// flag, on a phone narrower than 400. The question it belongs to is named, so
-/// the next question, built under a cover, does not show a second flag.
+/// flag, on a phone too narrow to hold it in the bar. The question it
+/// belongs to is named, so the next question, built under a cover, does not
+/// show a second flag.
 class _QuestionHeaderTrailing extends InheritedWidget {
   const _QuestionHeaderTrailing({
     required this.questionId,
@@ -865,10 +875,13 @@ class _QuizPageState extends ConsumerState<QuizPage> {
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   final large = MediaQuery.textScalerOf(context).scale(16) > 24;
-                  // Under 400 the flag moves from the bar into the question
-                  // header, so the bar's hint fits on one line (D71).
+                  // B2_PhoneBar puts the flag in the bar. Only a phone too
+                  // narrow for the track, the count, the flag and the button
+                  // moves it into the question header (D71).
+                  // "Back to 3" is a long word, so while looking back a phone
+                  // under 430 wide has no room for the flag either.
                   final narrow = MediaQuery.sizeOf(context).width <
-                      PantasLayout.bpPhoneNarrow;
+                      (lookingBack ? _flagInBarLookingBack : _flagInBarFrom);
                   final counter = _counter(
                     index,
                     session.questions.length,
@@ -1639,7 +1652,12 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           key: const ValueKey('quiz-counter'),
           onTap: enabled ? open : null,
           child: Padding(
-            padding: QuestionCount.padding,
+            // The flag follows at once, so the count column keeps only 4 on
+            // its right and the track still fits beside a long count.
+            padding: const EdgeInsets.only(
+              left: PantasSpace.s16,
+              right: PantasSpace.s4,
+            ),
             child: ConstrainedBox(
               constraints: const BoxConstraints(minHeight: 44),
               child: Center(

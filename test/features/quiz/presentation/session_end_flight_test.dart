@@ -4,7 +4,9 @@
 // play the same timeline.
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/half_ring_gauge.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/presentation/quiz_end_flight.dart';
 import 'package:pantas/features/quiz/presentation/session_end_screen.dart';
@@ -196,4 +198,25 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+
+  testWidgets('wide Done is 50 high, 220 wide at least, with an Enter hint',
+      (tester) async {
+    await _pump(tester, width: 1440, still: true);
+    await tester.pump();
+    final done = find.ancestor(
+      of: find.text('Done'),
+      matching: find.byType(WebButton),
+    );
+    final size = tester.getSize(done);
+    expect(size.height, 50);
+    expect(size.width, greaterThanOrEqualTo(220));
+    expect(
+      find.descendant(of: done, matching: find.text('Enter')),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('the wide ring box is 320 x 170', (tester) async {
+    expect(wideQuizDial, const Size(320, 170));
+  });
 }
