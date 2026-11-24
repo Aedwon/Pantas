@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/offset_focus_ring.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 
 /// Which part of which figure is lit, for one lesson.
@@ -100,8 +101,8 @@ class _FigureHighlightForState extends State<FigureHighlightFor> {
     final still = MediaQuery.disableAnimationsOf(context);
     return TweenAnimationBuilder<double>(
       tween: Tween(end: label == null ? 0 : 1),
-      duration: still ? Duration.zero : const Duration(milliseconds: 150),
-      curve: Curves.easeOut,
+      duration: still ? Duration.zero : PantasDurations.short2,
+      curve: PantasCurves.enter,
       builder: (context, amount, child) => LitLabel(
         label: amount == 0 ? null : _last,
         amount: amount,
@@ -211,7 +212,7 @@ class _LinkedWordState extends State<LinkedWord> {
     _external =
         scope?.of(widget.figure)?.toLowerCase() == widget.label.toLowerCase();
     final still = MediaQuery.disableAnimationsOf(context);
-    final duration = still ? Duration.zero : const Duration(milliseconds: 150);
+    final duration = still ? Duration.zero : PantasDurations.short2;
     return TapRegion(
       onTapOutside: (_) {
         if (_tapped) {
@@ -258,7 +259,7 @@ class _LinkedWordState extends State<LinkedWord> {
                       : (widget.style.color ?? c.readerBody),
                 ),
                 duration: duration,
-                curve: Curves.easeOut,
+                curve: PantasCurves.enter,
                 builder: (context, color, _) => CustomPaint(
                   foregroundPainter: LinkUnderline(
                     color: _lit ? c.readerStrong : c.tertiaryLabel,

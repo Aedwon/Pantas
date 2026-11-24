@@ -269,8 +269,10 @@ class _ExamplePlateState extends State<_ExamplePlate>
                   opacity: visible ? 1 : 0,
                   curve: PantasCurves.move,
                   duration: still
-                      ? const Duration(milliseconds: 150)
-                      : Duration(milliseconds: visible ? 240 : 180),
+                      ? PantasDurations.short2
+                      : (visible
+                          ? PantasDurations.medium1
+                          : PantasDurations.short3),
                   child: child,
                 ),
               ),

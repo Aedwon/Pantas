@@ -25,6 +25,7 @@ import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -1691,7 +1692,9 @@ class _FigureFrame extends StatelessWidget {
                       data: buildLightTheme(),
                       child: Builder(
                         builder: (context) => Container(
+                          // ds-board: fs.css .fx, the expand button is 34 px
                           width: 34,
+                          // ds-board: fs.css .fx, 34 px square
                           height: 34,
                           decoration: BoxDecoration(
                             color: context.colors.fill,

@@ -39,7 +39,9 @@ class ReaderSectionLine extends StatelessWidget {
   static const double hovered = 4;
 
   /// The hit area is 16 px tall (spec).
-  static const double hit = 16;
+  // ds-board: fs.css .prog, 16 px hit area
+  static const double hit = PantasSpace.s16;
+  // ds-board: fs.css .prog, 3 px between segments
   static const double gap = 3;
 
   @override
@@ -103,12 +105,14 @@ class _SegmentState extends State<_Segment> {
     if (_active) {
       _gone?.cancel();
       _tipMounted = true;
+      // ds-board: MO scene 4, the name shows after 100 ms
       _delay = Timer(const Duration(milliseconds: 100), () {
         if (mounted) setState(() => _tip = true);
       });
     } else {
       _tip = false;
       // The name stays in the tree only while it shows or fades out.
+      // ds-board: the name leaves over 100 ms
       _gone = Timer(const Duration(milliseconds: 100), () {
         if (mounted) setState(() => _tipMounted = false);
       });
@@ -126,7 +130,9 @@ class _SegmentState extends State<_Segment> {
   Widget build(BuildContext context) {
     final c = context.colors;
     final still = MediaQuery.disableAnimationsOf(context);
-    final quick = still ? Duration.zero : const Duration(milliseconds: 100);
+    // ds-board: MO scene 4, the segment and its name take 100 ms
+    const hover = Duration(milliseconds: 100);
+    final quick = still ? Duration.zero : hover;
     return Semantics(
       button: true,
       label: widget.title,
@@ -166,7 +172,7 @@ class _SegmentState extends State<_Segment> {
                   valueListenable: webKeyboardInput,
                   builder: (context, keyboard, _) => AnimatedContainer(
                     duration: quick,
-                    curve: Curves.easeOut,
+                    curve: PantasCurves.enter,
                     height: _active
                         ? ReaderSectionLine.hovered
                         : ReaderSectionLine.rest,
@@ -198,7 +204,7 @@ class _SegmentState extends State<_Segment> {
                       child: AnimatedOpacity(
                         opacity: _tip ? 1 : 0,
                         duration: quick,
-                        curve: Curves.easeOut,
+                        curve: PantasCurves.enter,
                         child: DecoratedBox(
                           decoration: BoxDecoration(
                             color: c.label,
