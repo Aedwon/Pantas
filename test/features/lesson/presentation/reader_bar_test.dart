@@ -197,6 +197,18 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('the bookmark mark has one press scale, not two', (tester) async {
+    await pumpBar(tester, isBookmarked: true);
+    // The mark scales to .82 on its own; the tap area adds no second scale.
+    expect(
+      find.ancestor(
+        of: find.byKey(const ValueKey('reader-bookmark-pop')),
+        matching: find.byWidgetPredicate((w) => w is PressScale && w.enabled),
+      ),
+      findsNothing,
+    );
+  });
+
   testWidgets('selected bookmark press shrinks and cancel restores it',
       (tester) async {
     await pumpBar(tester, isBookmarked: true);
