@@ -1074,11 +1074,11 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     final Widget passageSheetBody = sheetPassage == null
         ? const SizedBox.shrink()
         : Padding(
-            padding: const EdgeInsets.fromLTRB(
+            padding: EdgeInsets.fromLTRB(
               PantasSpace.s20,
               PantasSpace.s8,
               PantasSpace.s20,
-              PantasSpace.s16,
+              PantasSheet.bottomRest(context),
             ),
             // The Sheet keeps the lesson text scale (Sheet README,
             // `sheet--reader`).
@@ -1102,7 +1102,6 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       child: PantasSheet(
         open: _passageSheetOpen,
         label: 'Passage',
-        closeLabel: 'Close',
         onDismiss: () => setState(() => _passageSheetOpen = false),
         page: QuestionGridSheet(
           page: _PassageSheetHost(show: _showPassageSheet, child: page),

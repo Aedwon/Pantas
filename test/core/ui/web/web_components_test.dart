@@ -313,7 +313,11 @@ void main() {
         ),
       );
       final button = find.byType(TextButton);
-      expect(tester.getSize(button).height, 44);
+      // A wide text button is the boards' `.btn3`: 42 high.
+      expect(
+        tester.getSize(button).height,
+        variant == WebButtonVariant.tertiary ? 42 : 44,
+      );
       expect(tester.getSize(button).width, lessThan(300));
       await tester.tap(button);
       expect(calls, 1);

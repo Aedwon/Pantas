@@ -122,7 +122,10 @@ mark{padding:0 1px;border-radius:var(--radius-xs);background:var(--accent-tint);
 .btn--notice{--_h:var(--size-btn);--_r:var(--radius-md);flex:1 1 0;padding-inline:var(--space-12);font:var(--type-web-link);letter-spacing:var(--tracking-web-link)}
 .btn--text-phone{--_h:var(--size-btn);--_r:var(--radius-md);padding:0 var(--space-8) 0 var(--space-4);font:var(--type-phone-headline);letter-spacing:var(--tracking-phone-headline)}
 /* Small phone text button (gap 27): "Restore Purchases" under the paywall CTA, 15/600 teal (ST_ProPMA). */
-.btn--text-phone-sm{--_h:var(--size-btn);--_r:var(--radius-md);padding:0 var(--space-8);font:var(--type-web-link);letter-spacing:var(--tracking-web-link)}
+.btn--text-phone-sm{--_h:var(--size-target-pointer-min);--_r:var(--radius-md);padding:var(--space-4) var(--space-8) 0;font:var(--type-web-link);letter-spacing:var(--tracking-web-link)}
+/* T5 (finding 3, U45): a wide text button is the boards' .btn3, 42 high with 14 beside the label; the onboarding boards draw it 48 with 16. */
+.btn--tertiary:not(.btn--bar):not(.btn--dialog):not(.btn--pill-sm):not(.btn--notice):not(.btn--xs):not(.btn--phone):not(.btn--text-phone):not(.btn--text-phone-sm){--_h:var(--size-btn-sm);padding-inline:var(--space-14)}
+.btn--tertiary.btn--tall:not(.btn--bar):not(.btn--dialog){--_h:48px;padding-inline:var(--space-16)}
 .btn--block{width:100%}
 @media (min-width:1024px){.btn--block{width:auto}}
 .btn:is(:disabled,[aria-disabled="true"],.is-disabled):not(.is-busy):not([aria-busy="true"]){--_bg:var(--fill);--_fg:var(--text-disabled);--_bgh:var(--fill);--_fgh:var(--text-disabled);--_ring:none;cursor:default;transform:none}

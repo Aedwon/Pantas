@@ -20,7 +20,7 @@ Dialog asks one question over a scrim and offers at most two buttons.
 ## Variants and props
 - `role="dialog"` for a normal question and `role="alertdialog"` for a destructive one. Both carry `aria-modal="true"`.
 - `aria-labelledby` names the title id. `aria-describedby` names the body id.
-- Wide screens: Cancel (tertiary `btn--sm`) then the main button (primary `btn--sm`). Destructive: the safe button first, `btn--primary btn--critical` last.
+- Wide screens: Cancel (tertiary `btn--sm`, 42 high with 14 beside the label, as the boards' `.btn3`) then the main button (primary `btn--sm`). Destructive: the safe button first, `btn--primary btn--critical` last.
 - Phone pair: `btn--dialog btn--neutral` plus `btn--dialog btn--primary` (or `btn--primary btn--critical` for a destructive confirm). The pair replaces the old inline gray override.
 - A non-destructive confirm such as Sign Out uses a primary button.
 - The consumer provides the title, the body, the buttons, and the element that opened it.

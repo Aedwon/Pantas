@@ -152,7 +152,12 @@ class WebButton extends StatelessWidget {
     final c = context.webTokens.colors;
     final showKeyHint = keyHintShown(context, keyHint);
     final (pairKind, pairTone) = _pair;
-    final sizeClass = size ??
+    final named = size;
+    // The phone text sizes have no wide form: a wide text button is `.btn3`.
+    final sizeClass = (named == PantasButtonSize.textPhone ||
+                named == PantasButtonSize.textPhoneSm
+            ? PantasButtonSize.standard
+            : named) ??
         (pill
             ? PantasButtonSize.bar
             : large

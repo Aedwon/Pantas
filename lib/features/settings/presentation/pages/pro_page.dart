@@ -14,6 +14,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/google_sign_in_button.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
 import 'package:pantas/core/ui/components/ring_pulse.dart';
@@ -942,6 +943,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 : context.type.subhead
                     .copyWith(color: context.colors.textSecondary),
           );
+    // Phone Restore (boards ST_ProFree, ST_ProPending, ST_ProPro,
+    // ST_ProPassHave, ST_ProLapsed): a 24 high line in the bar while the page
+    // sells Pro; a teal row in the last card once Pro is owned or has lapsed,
+    // where the boards draw no bar for it.
+    final restoreRow = !context.wideWeb && !upgrade && (owned || lapsed);
+    final restoreLine = !context.wideWeb && !upgrade && !restoreRow;
+    final manageRow = !web &&
+        entitlement.proIsActive &&
+        entitlement.plan != EntitlementPlan.free;
+    final phoneBar = showOffers || upgrade || restoreLine || playRenews;
     return SettingsPanePage(
       section: 'Pantas Pro',
       title: context.wideWeb ? 'Pantas Pro' : '',
@@ -1060,6 +1071,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ],
             )
           : _FadedBar(
+              visible: phoneBar,
               child: SafeArea(
                 key: _barKey,
                 top: false,
@@ -1139,19 +1151,28 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                           textAlign: TextAlign.center,
                           style: context.type.footnote,
                         ),
+                      // ST_SwitchUpgrade draws it as the 52 full-width ghost
+                      // button under the CTA.
                       if (upgrade)
                         PantasButton(
                           label: widget.freeLabel ?? 'Switch on Free',
                           variant: PantasButtonVariant.tertiary,
+                          size: PantasButtonSize.phone,
                           onPressed: _busy ? null : _switchOnFree,
                         ),
-                      if (!upgrade)
+                      // The boards put 8 between the CTA, the fine print and
+                      // the Restore line.
+                      if (restoreLine) ...[
+                        if (showOffers || playRenews)
+                          const SizedBox(height: PantasSpace.s8),
                         PantasButton(
                           label: 'Restore Purchases',
                           variant: PantasButtonVariant.tertiary,
+                          size: PantasButtonSize.textPhoneSm,
                           busy: _busy,
                           onPressed: _busy ? null : _restore,
                         ),
+                      ],
                       // Ruling C6: with the card on the page the line always
                       // holds its height, so the bar never changes size.
                       if (declarationBox)
@@ -1525,9 +1546,26 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               onPressed: () => ref.invalidate(activeCustomTrackTierProvider),
             ),
         ],
-        if (!web &&
-            entitlement.proIsActive &&
-            entitlement.plan != EntitlementPlan.free)
+        if (!context.wideWeb && (manageRow || restoreRow))
+          SettingsSection(
+            // With a bar on the page the bar already says how Restore went.
+            footer: phoneBar ? null : _feedback,
+            children: [
+              if (manageRow)
+                SettingsRow(
+                  title: 'Manage in Google Play',
+                  onTap: _busy ? null : () => _manage(entitlement),
+                ),
+              if (restoreRow)
+                SettingsRow(
+                  title: 'Restore purchases',
+                  titleColor: context.colors.accent,
+                  hideChevron: true,
+                  onTap: _busy ? null : _restore,
+                ),
+            ],
+          )
+        else if (manageRow)
           SettingsRow(
             title: 'Manage in Google Play',
             onTap: _busy ? null : () => _manage(entitlement),
@@ -1722,11 +1760,15 @@ class _StatusLine extends StatelessWidget {
 }
 
 class _FadedBar extends StatelessWidget {
-  const _FadedBar({required this.child});
+  const _FadedBar({required this.child, this.visible = true});
   final Widget child;
+
+  /// False when the bar would hold nothing (Pro owned: Restore is a card row).
+  final bool visible;
 
   @override
   Widget build(BuildContext context) {
+    if (!visible) return const SizedBox.shrink();
     final page = context.colors.background;
     return Stack(
       clipBehavior: Clip.none,

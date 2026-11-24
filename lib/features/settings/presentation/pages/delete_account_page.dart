@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/steps_screen.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -276,6 +277,8 @@ class _DeleteAccountPageState extends ConsumerState<DeleteAccountPage> {
                 PantasButton(
                   label: widget.isAnonymous ? 'Cancel' : 'Keep My Account',
                   variant: PantasButtonVariant.tertiary,
+                  // ST_DeleteAccount: the 52 full-width ghost button.
+                  size: PantasButtonSize.phone,
                   onPressed: _isDeleting
                       ? null
                       : () => Navigator.of(context).maybePop(),
