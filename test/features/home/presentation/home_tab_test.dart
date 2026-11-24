@@ -317,7 +317,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    final card = find.text('Keep Pantas on your Home Screen');
+    final card = find.text('Keep Pantas one tap away');
     await tester.ensureVisible(card);
     expect(card, findsOneWidget);
     expect(find.text('Show Me How'), findsOneWidget);

@@ -75,7 +75,7 @@ void main() {
     testWidgets('the sample sits under the slider in the same card at $width',
         (tester) async {
       await _pump(tester, width: width);
-      expect(find.text('LESSON TEXT SIZE'), findsOneWidget);
+      expect(find.text('TEXT SIZE'), findsOneWidget);
       final sample = find.byKey(const ValueKey('text-size-sample'));
       final slider = find.byType(Slider);
       expect(sample, findsOneWidget);

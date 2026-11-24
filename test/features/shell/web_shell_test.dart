@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -55,6 +57,41 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+  testWidgets('the sidebar shows a skeleton for the person until settings load',
+      (tester) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(1440, 900);
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    Widget frame({required bool loading}) => MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: WebShellFrame(
+            web: true,
+            activeIndex: 0,
+            person: loading ? '' : 'Aedwon',
+            exam: 'CSE',
+            plan: 'Free',
+            loading: loading,
+            onNavigate: (_) {},
+            onSearch: () {},
+            child: const Text('Route content'),
+          ),
+        );
+    await tester.pumpWidget(frame(loading: true));
+    await tester.pump(const Duration(milliseconds: 350));
+    final footer = find.byKey(const ValueKey('sidebar-person-skeleton'));
+    // The avatar and the name are skeleton blocks, not an empty gray person.
+    expect(footer, findsOneWidget);
+    expect(
+      find.descendant(of: footer, matching: find.byType(SkeletonBlock)),
+      findsNWidgets(3),
+    );
+    expect(find.byIcon(PantasIcons.profile), findsNothing);
+    await tester.pumpWidget(frame(loading: false));
+    expect(footer, findsNothing);
+    expect(find.text('Aedwon'), findsOneWidget);
+    expect(find.text('CSE · Free'), findsOneWidget);
+  });
   testWidgets(
       'the page area reaches the window bottom and scrolling rows '
       'run to the edge (A-30)', (tester) async {

@@ -9,6 +9,8 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/ui/components/skeleton.dart';
+import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/paywall/application/custom_track_tier.dart';
@@ -58,6 +60,10 @@ Future<void> _pump(
   bool tierFails = false,
   Entitlement entitlement = const Entitlement.free(),
   Map<String, ExamCatalogEntry> ownedPasses = const {},
+  // A skeleton pulses for as long as it shows, so a page that is still
+  // loading cannot settle.
+  bool settle = true,
+  bool passesFail = false,
 }) async {
   final wide = width >= 1000;
   debugWebPlatformOverride = wide;
@@ -109,8 +115,10 @@ Future<void> _pump(
         // The catalog lists no custom track.
         activeProCatalogEntryProvider
             .overrideWith((ref) async => custom ? null : _csePro),
-        ownedPassCatalogEntriesProvider
-            .overrideWith((ref) async => ownedPasses),
+        ownedPassCatalogEntriesProvider.overrideWith((ref) async {
+          if (passesFail) throw StateError('offline');
+          return ownedPasses;
+        }),
         paywallOfferingProvider.overrideWith(
           (ref) async => const PaywallOfferingResult(
             status: PaywallOfferingStatus.available,
@@ -144,7 +152,11 @@ Future<void> _pump(
       ),
     ),
   );
-  await tester.pumpAndSettle();
+  if (settle) {
+    await tester.pumpAndSettle();
+  } else {
+    await tester.pump(const Duration(milliseconds: 400));
+  }
 }
 
 const _studentLine = '$_trackName is a Student-level exam.';
@@ -221,11 +233,32 @@ void main() {
     expect(find.textContaining('because'), findsNothing);
   });
 
+  testWidgets('passes that cannot be read use the shared error view',
+      (tester) async {
+    await _pump(
+      tester,
+      width: 390,
+      tier: Future.value(_student),
+      entitlement: Entitlement(
+        plan: EntitlementPlan.free,
+        passes: {'exam_cse_pro': DateTime.utc(2027, 3)},
+      ),
+      passesFail: true,
+    );
+    // The same StateView every other screen shows, never private details.
+    expect(find.byType(StateView), findsOneWidget);
+    expect(find.text('Could not load your passes.'), findsOneWidget);
+    expect(find.text('Try Again'), findsOneWidget);
+    expect(find.textContaining('offline'), findsNothing);
+  });
+
   testWidgets('while the tier is unknown no paywall is guessed',
       (tester) async {
     final pending = Completer<CustomTrackTier?>();
-    await _pump(tester, width: 390, tier: pending.future);
-    expect(find.text('Loading subscriptions...'), findsOneWidget);
+    await _pump(tester, width: 390, tier: pending.future, settle: false);
+    // Skeleton tiles stand in for the plans (L_Rules), not a line of text.
+    expect(find.text('Loading subscriptions...'), findsNothing);
+    expect(find.byType(SkeletonPulse), findsOneWidget);
     expect(find.textContaining('PLANS FOR'), findsNothing);
     expect(find.textContaining('₱'), findsNothing);
     expect(find.textContaining('-level exam'), findsNothing);

@@ -37,7 +37,8 @@ class TendenciesSkeleton extends StatelessWidget {
       );
 }
 
-/// Phone Your performance: gauge, level switch, then the subject rows.
+/// Phone Your performance (PF_Subjects): the ring, the Subjects switch with
+/// its sort square, then four subject rows.
 class PerformanceSkeleton extends StatelessWidget {
   const PerformanceSkeleton({super.key});
   @override
@@ -45,11 +46,17 @@ class PerformanceSkeleton extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SkeletonBlock(height: 130, radius: 14),
-            SizedBox(height: PantasSpace.s20),
-            SkeletonBlock(height: 32, radius: 9),
+            SkeletonBlock(height: 144, radius: 14),
             SizedBox(height: PantasSpace.s16),
-            SkeletonSection(height: 360, headerWidth: 90),
+            Row(
+              children: [
+                Expanded(child: SkeletonBlock(height: 48, radius: 9)),
+                SizedBox(width: PantasSpace.s8),
+                SkeletonBlock(height: 36, width: 36, radius: 9),
+              ],
+            ),
+            SizedBox(height: PantasSpace.s28),
+            SkeletonGroup(rows: 4, rowHeight: 78, headerWidth: 90),
           ],
         ),
       );
@@ -169,7 +176,7 @@ class WebPerformanceLoading extends StatelessWidget {
                   SkeletonBlock(height: 36, radius: 10),
                   SizedBox(height: PantasSpace.s16),
                   WebSkeletonEyebrow(width: 90),
-                  SkeletonCard(height: 360),
+                  SkeletonCard(height: 240),
                 ],
               ),
             ),

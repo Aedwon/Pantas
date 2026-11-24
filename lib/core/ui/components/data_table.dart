@@ -106,6 +106,7 @@ class PantasDataTable extends StatefulWidget {
     this.expandedRows = const {},
     this.onChildTap,
     this.selectedChild,
+    this.showHeader = true,
     super.key,
   }) : assert(columns.length > 0, 'A table needs a column.');
 
@@ -133,6 +134,11 @@ class PantasDataTable extends StatefulWidget {
 
   /// The child row kept tinted: (parent row, child row).
   final (int, int)? selectedChild;
+
+  /// Draws the header row. A list the board draws without one (Performance
+  /// Subjects, Topics and Lessons) passes false: the columns are then sized by
+  /// their cells alone and the labels stay only as the column count.
+  final bool showHeader;
 
   /// The caption (`web-title-sm`), also the accessible name of the table.
   final String? caption;
@@ -222,8 +228,10 @@ class _PantasDataTableState extends State<PantasDataTable> {
       for (var c = 0; c <= last; c++)
         () {
           final column = widget.columns[c];
-          var width = measure(column.label.toUpperCase(), headStyle) +
-              (column.sortable
+          var width = (widget.showHeader
+                  ? measure(column.label.toUpperCase(), headStyle)
+                  : 0) +
+              (widget.showHeader && column.sortable
                   // The sort button: 6 of padding each side, a 4 gap and
                   // the chevron.
                   ? PantasSpace.s6 * 2 +
@@ -262,8 +270,9 @@ class _PantasDataTableState extends State<PantasDataTable> {
         ? (last > 0 ? maxWidth * .6 : maxWidth)
         : double.infinity;
     // The header never wraps, so the pinned column keeps at least its width.
-    final headFirst =
-        measure(widget.columns[0].label.toUpperCase(), headStyle) +
+    final headFirst = !widget.showHeader
+        ? 0.0
+        : measure(widget.columns[0].label.toUpperCase(), headStyle) +
             (widget.columns[0].sortable
                 ? PantasSpace.s6 * 2 + PantasSize.icon
                 : 0) +
@@ -561,7 +570,7 @@ class _PantasDataTableState extends State<PantasDataTable> {
     Widget column(int c) => Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            header(c),
+            if (widget.showHeader) header(c),
             for (var r = 0; r < widget.rows.length; r++) ...[
               body(c, r),
               children(c, r),

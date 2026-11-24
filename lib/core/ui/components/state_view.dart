@@ -86,6 +86,9 @@ class StateView extends StatelessWidget {
   /// The label of the retry action of an error state.
   static const String _retryLabel = 'Try Again';
 
+  /// The picker boards (O_Picker, OB_PickerError) say Retry, as an error too.
+  static const String _retryShortLabel = 'Retry';
+
   /// The icon is a square of this size.
   static const double _markSize = PantasSpace.s40;
 
@@ -115,7 +118,8 @@ class StateView extends StatelessWidget {
         .copyWith(color: colors.textSecondary);
     // The retry action marks an error state. Any other action belongs to an
     // empty list and keeps its natural width.
-    final isError = icon == null && actionLabel == _retryLabel;
+    final isError = icon == null &&
+        (actionLabel == _retryLabel || actionLabel == _retryShortLabel);
     final mark = ExcludeSemantics(
       child: IconTheme(
         key: const ValueKey('state-icon-theme'),
