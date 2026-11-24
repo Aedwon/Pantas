@@ -34,6 +34,12 @@ import 'package:pantas/features/quiz/application/quiz_starts.dart';
 /// The gap under the search field, which the list's rows fade through.
 const double _studyListFadeHeight = 18;
 
+/// The board's empty row above the title: the shared title top less the 6 px
+/// of page padding above it.
+const double _titleRowTop = PantasPage.tabTitleTop - PantasSpace.s6;
+
+void _noop() {}
+
 class StudyTabHome extends ConsumerStatefulWidget {
   const StudyTabHome({
     this.openTopicId,
@@ -183,16 +189,30 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              // Every state starts the title at the same board height
+              // (PantasPage.tabTitleTop), so it never moves when the list
+              // arrives.
               if (loading)
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: PantasSpace.s16),
-                  child: SearchFieldBar(onCancel: () {}),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    PantasSpace.s16,
+                    PantasSpace.s6,
+                    PantasSpace.s16,
+                    PantasSpace.s0,
+                  ),
+                  child: SearchFieldBar(
+                    onCancel: _noop,
+                    titleTop: _titleRowTop,
+                  ),
                 )
               else
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: PantasSpace.s20),
+                  padding: const EdgeInsets.fromLTRB(
+                    PantasSpace.s20,
+                    PantasPage.tabTitleTop,
+                    PantasSpace.s20,
+                    PantasSpace.s0,
+                  ),
                   child: PantasTitle('Study', style: context.type.largeTitle),
                 ),
               if (loading) const SizedBox(height: PantasSpace.s24),
@@ -295,7 +315,8 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
           closeLabel: 'Close',
           onDismiss: () => _setBookmarksOpen(open: false),
           page: PantasPage.content(
-            // Board ST_Map: the Study title starts 6 px below the top.
+            // Board ST_Map: 6 px of padding, then the empty 44 px row, then
+            // the title (the row is [_titleRowTop], inside the search bar).
             padding: const EdgeInsets.fromLTRB(
               PantasSpace.s16,
               PantasSpace.s6,
@@ -306,6 +327,7 @@ class _StudyTabHomeState extends ConsumerState<StudyTabHome> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SearchFieldBar(
+                  titleTop: _titleRowTop,
                   // Skip the focus-blocking entry animation for route requests.
                   entryAnimation: !widget.searchOnOpen,
                   autofocus: widget.searchOnOpen,

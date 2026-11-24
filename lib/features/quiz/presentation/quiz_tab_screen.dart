@@ -155,11 +155,12 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         : PantasPage(
             title: 'Quiz',
             bottomInset: PantasLayout.reserveTabbar,
-            // Board QZ_Tab: the title box starts at y 50 and the Today label
-            // 14 px below it.
+            // Board QZ_Tab: the title box starts at y 50 (the same number as
+            // Study) and the Today label 14 px below it. The page scroll adds
+            // 2 px above the title.
             titlePadding: const EdgeInsets.fromLTRB(
               PantasSpace.s4,
-              PantasSpace.s44,
+              PantasPage.tabTitleTop - PantasSpace.s2,
               PantasSpace.s4,
               PantasSpace.s14,
             ),
@@ -303,7 +304,12 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const WebText('Quiz', kind: WebTextKind.h1),
+          // Board W_QuizTab: the h1 carries the same 4 px side inset as
+          // W_Study.
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: PantasSpace.s4),
+            child: WebText('Quiz', kind: WebTextKind.h1),
+          ),
           const SizedBox(height: PantasSpace.s24),
           focus.when(
             loading: () => const QuizPageSkeleton(),
