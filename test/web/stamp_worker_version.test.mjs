@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
-import {mkdtempSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
+import {existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import test from 'node:test';
-import {stamp} from '../../tool/web/stamp_worker_version.mjs';
+import {stamp, LOAD_SIZES} from '../../tool/web/stamp_worker_version.mjs';
 
 function build(mainJs) {
   const dir = mkdtempSync(join(tmpdir(), 'stamp-'));
@@ -44,4 +44,63 @@ test('version metadata adds only the comparable stamped build identity', () => {
     version: '1.0.0', build_number: '4', pantasBuildVersion: first,
   });
   assert.equal(stamp(dir), first);
+});
+
+// The size list the loading percent divides by (UX lead, Nov 25, board A).
+function bigBuild() {
+  const dir = build('main code');
+  mkdirSync(join(dir, 'canvaskit', 'chromium'), {recursive: true});
+  writeFileSync(join(dir, 'canvaskit', 'canvaskit.js'), 'full js');
+  writeFileSync(join(dir, 'canvaskit', 'canvaskit.wasm'), 'full wasm bytes');
+  writeFileSync(join(dir, 'canvaskit', 'chromium', 'canvaskit.js'), 'chromium js');
+  writeFileSync(join(dir, 'canvaskit', 'chromium', 'canvaskit.wasm'), 'chromium wasm');
+  return dir;
+}
+
+test('stamping writes the decoded size of each file the loader fetches', () => {
+  const dir = bigBuild();
+  stamp(dir);
+  const list = JSON.parse(readFileSync(join(dir, LOAD_SIZES), 'utf8'));
+  assert.equal(list.v, 1);
+  assert.deepEqual(list.files, {
+    'main.dart.js': 'main code'.length,
+    'canvaskit/canvaskit.js': 'full js'.length,
+    'canvaskit/canvaskit.wasm': 'full wasm bytes'.length,
+    'canvaskit/chromium/canvaskit.js': 'chromium js'.length,
+    'canvaskit/chromium/canvaskit.wasm': 'chromium wasm'.length,
+  });
+});
+
+test('the two canvaskit builds are listed as alternatives, not both counted', () => {
+  const dir = bigBuild();
+  stamp(dir);
+  const list = JSON.parse(readFileSync(join(dir, LOAD_SIZES), 'utf8'));
+  assert.deepEqual(list.alternatives, [[
+    ['canvaskit/chromium/canvaskit.js', 'canvaskit/chromium/canvaskit.wasm'],
+    ['canvaskit/canvaskit.js', 'canvaskit/canvaskit.wasm'],
+  ]]);
+});
+
+test('the size list is part of the build identity and stamping twice is stable', () => {
+  const dir = bigBuild();
+  const first = stamp(dir);
+  const text = readFileSync(join(dir, LOAD_SIZES), 'utf8');
+  assert.equal(stamp(dir), first);
+  assert.equal(readFileSync(join(dir, LOAD_SIZES), 'utf8'), text);
+  assert.equal(stamp(bigBuild()), first);
+});
+
+test('a build with no main script gets no list, so the page shows the spinner only', () => {
+  const dir = build('code');
+  rmSync(join(dir, 'main.dart.js'));
+  stamp(dir);
+  assert.equal(existsSync(join(dir, LOAD_SIZES)), false);
+});
+
+test('only files that exist are listed', () => {
+  const dir = build('code');
+  stamp(dir);
+  const list = JSON.parse(readFileSync(join(dir, LOAD_SIZES), 'utf8'));
+  assert.deepEqual(Object.keys(list.files), ['main.dart.js']);
+  assert.deepEqual(list.alternatives, []);
 });

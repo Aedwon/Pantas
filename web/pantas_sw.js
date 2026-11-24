@@ -153,11 +153,13 @@ self.addEventListener('fetch', (event) => {
     return;
   }
   if (NETWORK_FIRST.has(path)) {
-    event.respondWith(networkFirst(event, request));
+    const served = { cached: false };
+    event.respondWith(counted(event, path, served, networkFirst(event, request, served)));
     return;
   }
   if (isStaticPath(path)) {
-    event.respondWith(cacheFirst(event, request, path));
+    const served = { cached: false };
+    event.respondWith(counted(event, path, served, cacheFirst(event, request, path, served)));
   }
 });
 
@@ -199,7 +201,7 @@ async function navigate(event, request) {
   }
 }
 
-async function networkFirst(event, request) {
+async function networkFirst(event, request, served = {}) {
   const cache = await caches.open(CACHE);
   const network = fetch(request).then(async (response) => {
     if (isStorable(response)) await cache.put(request, response.clone());
@@ -210,6 +212,7 @@ async function networkFirst(event, request) {
   } catch (_) {
     const stored = await cache.match(request, { ignoreSearch: true });
     if (stored) {
+      served.cached = true;
       event.waitUntil(network.catch(() => undefined));
       return stored;
     }
@@ -217,10 +220,13 @@ async function networkFirst(event, request) {
   }
 }
 
-async function cacheFirst(event, request, path) {
+async function cacheFirst(event, request, path, served = {}) {
   const cache = await caches.open(CACHE);
   const stored = await cache.match(request);
-  if (stored) return stored;
+  if (stored) {
+    served.cached = true;
+    return stored;
+  }
   const response = await fetch(request);
   if (isStorable(response)) {
     event.waitUntil(cache.put(request, response.clone()));
@@ -245,4 +251,156 @@ async function warmDeferredParts(cache, response) {
       })
     );
   } catch (_) {}
+}
+
+// ---- Loading progress (board A, Nov 25) -------------------------------------
+// The page shows a percent while the app's first files arrive. The build writes
+// the decoded size of each file the Flutter loader fetches (pantas_load_sizes.json,
+// see tool/web/stamp_worker_version.mjs). This worker counts the decoded bytes of
+// those files as it passes them to the page and posts { loaded, total }. It reads
+// a copy of each response; the response the page gets, and what is stored, are
+// not touched. If the list is missing or wrong, nothing is posted and the page
+// shows the spinner only.
+
+const SIZES_PATH = 'pantas_load_sizes.json';
+const SIZES_WAIT_MS = 1000;
+const MAX_LOADS = 20;
+let sizesPromise = null;
+const loads = new Map();
+
+function readSizes(list) {
+  if (!list || list.v !== 1 || !list.files || typeof list.files !== 'object') return null;
+  const files = new Map();
+  for (const [name, size] of Object.entries(list.files)) {
+    if (!Number.isInteger(size) || size <= 0) return null;
+    files.set(name, size);
+  }
+  if (files.size === 0) return null;
+  const groups = [];
+  for (const group of Array.isArray(list.alternatives) ? list.alternatives : []) {
+    if (!Array.isArray(group) || group.length === 0) return null;
+    const variants = [];
+    for (const variant of group) {
+      if (!Array.isArray(variant) || !variant.every((name) => files.has(name))) return null;
+      variants.push(variant);
+    }
+    groups.push(variants);
+  }
+  return { files, groups };
+}
+
+function loadSizes() {
+  if (!sizesPromise) {
+    sizesPromise = (async () => {
+      try {
+        const response = await fetch(SCOPE + SIZES_PATH, { cache: 'no-store' });
+        if (!response.ok) return null;
+        return readSizes(await response.json());
+      } catch (_) {
+        return null;
+      }
+    })();
+  }
+  return sizesPromise;
+}
+// Starts as soon as the worker runs, so the list is usually in hand when the
+// first file is asked for.
+loadSizes();
+
+// Passes the response through unchanged. Counting happens on a copy.
+async function counted(event, path, served, pending) {
+  const response = await pending;
+  try {
+    if (response && response.status === 200 && event.clientId) {
+      const sizes = await Promise.race([
+        loadSizes(),
+        new Promise((resolve) => setTimeout(() => resolve(null), SIZES_WAIT_MS)),
+      ]);
+      if (sizes && sizes.files.has(path)) {
+        event.waitUntil(trackLoad(event.clientId, sizes, path, served.cached, response.clone()));
+      }
+    }
+  } catch (_) {}
+  return response;
+}
+
+function loadState(clientId, sizes) {
+  let load = loads.get(clientId);
+  if (!load) {
+    load = { sizes, seen: new Set(), loaded: 0, choice: new Map(), lastPct: -1, broken: false };
+    loads.set(clientId, load);
+    if (loads.size > MAX_LOADS) loads.delete(loads.keys().next().value);
+  }
+  return load;
+}
+
+// The total once every canvaskit choice is known, or null while one is open.
+function loadTotal(load) {
+  let total = 0;
+  const alternative = new Set(load.sizes.groups.flat(2));
+  for (const [name, size] of load.sizes.files) {
+    if (!alternative.has(name)) total += size;
+  }
+  for (let i = 0; i < load.sizes.groups.length; i++) {
+    const variant = load.choice.get(i);
+    if (variant === undefined) return null;
+    for (const name of load.sizes.groups[i][variant]) total += load.sizes.files.get(name);
+  }
+  return total;
+}
+
+// Returns true when the file belongs to this page's expected set.
+function chooseVariant(load, path) {
+  for (let i = 0; i < load.sizes.groups.length; i++) {
+    const variants = load.sizes.groups[i];
+    const index = variants.findIndex((variant) => variant.includes(path));
+    if (index === -1) continue;
+    if (!load.choice.has(i)) load.choice.set(i, index);
+    return load.choice.get(i) === index;
+  }
+  return true;
+}
+
+async function trackLoad(clientId, sizes, path, cached, copy) {
+  const load = loadState(clientId, sizes);
+  if (load.broken || load.seen.has(path)) return;
+  load.seen.add(path);
+  if (!chooseVariant(load, path)) return;
+  const size = sizes.files.get(path);
+  let client = null;
+  try {
+    client = await self.clients.get(clientId);
+  } catch (_) {}
+  if (!client) return;
+  const report = () => {
+    if (load.broken) return;
+    const total = loadTotal(load);
+    if (total === null || load.loaded > total) return;
+    const pct = Math.floor((load.loaded * 100) / total);
+    if (pct === load.lastPct) return;
+    load.lastPct = pct;
+    client.postMessage({ type: 'pantas-load-progress', loaded: load.loaded, total });
+    if (pct >= 100) loads.delete(clientId);
+  };
+  if (cached) {
+    // Already on the device: counts as received at once.
+    load.loaded += size;
+    report();
+    return;
+  }
+  let received = 0;
+  const reader = copy.body.getReader();
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    received += value.byteLength;
+    if (received > size) {
+      load.broken = true;
+      return;
+    }
+    load.loaded += value.byteLength;
+    report();
+  }
+  // A file that is not the listed size means the list is not this build's.
+  if (received !== size) load.broken = true;
 }
