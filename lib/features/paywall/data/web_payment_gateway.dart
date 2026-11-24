@@ -3,11 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/platform/account_access.dart';
 import 'package:pantas/core/platform/callable_options.dart';
-import 'package:pantas/features/legal/domain/legal_document.dart';
 import 'package:pantas/features/paywall/data/entitlement_snapshot_store.dart';
 import 'package:pantas/features/paywall/data/live_revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/data/payment_entitlement_state.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
+import 'package:pantas/features/paywall/domain/checkout_declaration.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/pass_offering.dart';
@@ -436,12 +436,12 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   Future<PaymentOperationResult> purchase(
     PaywallPackage package, {
     Future<void> Function(String sessionId, String reference)? beforeRedirect,
-    bool guardianAttested = false,
+    CheckoutDeclaration? declaration,
   }) =>
       _checkout(
         package.productId,
         beforeRedirect: beforeRedirect,
-        guardianAttested: guardianAttested,
+        declaration: declaration,
       );
 
   @override
@@ -449,7 +449,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
     PaywallPassPackage package, {
     required ExamCatalogEntry exam,
     Future<void> Function(String sessionId, String reference)? beforeRedirect,
-    bool guardianAttested = false,
+    CheckoutDeclaration? declaration,
   }) {
     if (!passAllowedForExam(package.productId, exam, at: _now())) {
       return Future.value(
@@ -461,18 +461,18 @@ class WebPaymentGateway implements RevenueCatPassGateway {
     return _checkout(
       package.productId,
       beforeRedirect: beforeRedirect,
-      guardianAttested: guardianAttested,
+      declaration: declaration,
     );
   }
 
   /// Asks the server for a PayMongo checkout and sends this tab to it.
   ///
-  /// [guardianAttested] is true when a parent or guardian ticked the box on a
-  /// minor's checkout. The server decides whether an account needs it.
+  /// [declaration] is what the buyer ticked beside Pay. The server refuses a
+  /// checkout without it, and tells which wording the account needs.
   Future<PaymentOperationResult> _checkout(
     String productId, {
     Future<void> Function(String sessionId, String reference)? beforeRedirect,
-    bool guardianAttested = false,
+    CheckoutDeclaration? declaration,
   }) async {
     final uid = _uid;
     final revision = _identityRevision;
@@ -481,10 +481,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
         _checkoutCallable,
         {
           'product': productId,
-          if (guardianAttested)
-            'guardianAttestation': {
-              'termsVersion': guardianDocumentVersions['terms'],
-            },
+          if (declaration != null) 'declaration': declaration.toJson(),
         },
       );
       if (_uid != uid || _identityRevision != revision) {
@@ -523,7 +520,10 @@ class WebPaymentGateway implements RevenueCatPassGateway {
             : PaymentOperationStatus.storeFailure,
       );
     } catch (error) {
-      return PaymentOperationResult.failure(status: _statusForError(error));
+      return PaymentOperationResult.failure(
+        status: _statusForError(error),
+        declarationKind: _declarationKindFrom(error),
+      );
     }
   }
 }
@@ -532,16 +532,37 @@ const _checkoutCallable = 'createPaymongoCheckout';
 const _trialCallable = 'startWebTrial';
 const _plansCallable = 'listWebPlans';
 
+/// The wording the server wants, when it refused the declaration sent.
+DeclarationKind? _declarationKindFrom(Object error) {
+  if (error is! FirebaseFunctionsException ||
+      error.code != 'failed-precondition') {
+    return null;
+  }
+  final details = error.details;
+  if (details is! Map || details['reason'] != 'declaration-required') {
+    return null;
+  }
+  return switch (details['kind']) {
+    'guardian' => DeclarationKind.guardian,
+    'adult' => DeclarationKind.adult,
+    _ => null,
+  };
+}
+
 /// Callable error codes the server sends, in the app's own vocabulary.
 PaymentOperationStatus _statusForError(Object error) {
   if (error is! FirebaseException) {
     return PaymentOperationStatus.unknownFailure;
   }
-  // The server's refusal of a minor's checkout without the guardian box.
+  // The buyer already paid the link that was being replaced.
   if (error is FirebaseFunctionsException &&
-      error.code == 'failed-precondition' &&
+      error.code == 'already-exists' &&
       error.details is Map &&
-      (error.details as Map)['reason'] == 'guardian-attestation-required') {
+      (error.details as Map)['reason'] == 'already-paid') {
+    return PaymentOperationStatus.alreadyPaid;
+  }
+  // The server's refusal of a checkout without the right declaration.
+  if (_declarationKindFrom(error) != null) {
     return PaymentOperationStatus.guardianConfirmationRequired;
   }
   return switch (error.code) {
