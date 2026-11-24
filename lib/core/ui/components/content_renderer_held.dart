@@ -444,18 +444,19 @@ List<String> _linkLabels(Map<String, Object?> block) {
     for (final b in item.solution) {
       if (_isFigureBlock(b) && _marginFigure(b)) solution ??= b;
     }
-    final lit = solution ?? problem;
-    if (lit == null) continue;
-    final labels = <String>{
-      if (problem != null) ..._linkLabels(problem),
-      ..._linkLabels(lit),
-    }.toList();
-    final id = ids[lit]!;
+    final shown = solution ?? problem;
+    if (shown == null) continue;
+    // The problem names parts of the problem's figure. Once the solution is
+    // open it names parts of the solution's figure, which is the one in view.
+    final id = ids[shown]!;
+    final problemLabels = problem == null ? <String>[] : _linkLabels(problem);
     marked[k] = ReaderExample(
       number: item.number,
       title: item.title,
-      stem: [for (final b in item.stem) mark(b, id, labels)],
-      solution: [for (final b in item.solution) mark(b, id, labels)],
+      stem: [for (final b in item.stem) mark(b, id, problemLabels)],
+      solution: [
+        for (final b in item.solution) mark(b, id, _linkLabels(shown)),
+      ],
     );
   }
   return (items: marked, ids: ids);

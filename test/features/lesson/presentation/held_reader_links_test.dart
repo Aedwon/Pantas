@@ -300,4 +300,73 @@ void main() {
       }
     }
   });
+
+  group('Example 4 (ruling 6)', () {
+    Finder card() => find.byKey(const ValueKey('reader-example-4'));
+    Set<String> linked(WidgetTester tester) => {
+          for (final w in tester.widgetList<LinkedWord>(
+            find.descendant(
+              of: card(),
+              matching: find.byWidgetPredicate((w) => w is LinkedWord),
+            ),
+          ))
+            w.label,
+        };
+
+    Future<void> openSolution(WidgetTester tester) async {
+      await tester.ensureVisible(card());
+      await tester.pumpAndSettle();
+      await tester.tap(
+        find.descendant(
+          of: card(),
+          matching: find.byKey(const ValueKey('reader-solution-button')),
+        ),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    testWidgets('with the solution closed only BC in the problem is linked',
+        (tester) async {
+      await pumpCircles(tester);
+      await tester.ensureVisible(card());
+      await tester.pumpAndSettle();
+      expect(linked(tester), {'BC'});
+    });
+
+    testWidgets('with it open, AB in the first solution line lights AB',
+        (tester) async {
+      await pumpCircles(tester);
+      await openSolution(tester);
+      expect(linked(tester), containsAll(['BC', 'AB']));
+      final ab = find.descendant(
+        of: card(),
+        matching: find.byWidgetPredicate(
+          (w) => w is LinkedWord && w.label == 'AB',
+        ),
+      );
+      expect(ab, findsOneWidget);
+      final mouse = await tester.createGesture(kind: PointerDeviceKind.mouse);
+      await mouse.addPointer(location: Offset.zero);
+      addTearDown(mouse.removePointer);
+      await mouse.moveTo(tester.getCenter(ab));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 200));
+      final lit = tester
+          .widgetList<LitLabel>(find.byType(LitLabel))
+          .where((l) => l.label != null)
+          .toList();
+      expect(lit.map((l) => l.label), contains('AB'));
+    });
+
+    testWidgets('"hypotenuse" is not a linked word', (tester) async {
+      await pumpCircles(tester);
+      await openSolution(tester);
+      expect(
+        find.byWidgetPredicate(
+          (w) => w is LinkedWord && w.text == 'hypotenuse',
+        ),
+        findsNothing,
+      );
+    });
+  });
 }

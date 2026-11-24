@@ -320,6 +320,10 @@ class _GeometryDiagramPainter extends CustomPainter {
   /// tied to their labels have one; for the rest the label goes bold and the
   /// rest dims.
   void _drawLitPart(Canvas canvas, Rect bounds, int index) {
+    if (type == 'circle-inscribed-triangle') {
+      _drawLitTriangleSide(canvas, bounds, index);
+      return;
+    }
     if (type != 'circle-elements') return;
     final center = bounds.center;
     final radius = math.min(bounds.width, bounds.height) * 0.38;
@@ -349,6 +353,32 @@ class _GeometryDiagramPainter extends CustomPainter {
       _ => null,
     };
     if (line != null) canvas.drawLine(line.$1, line.$2, part);
+  }
+
+  /// The side of the inscribed triangle that label [index] names: labels 3, 4
+  /// and 5 stand beside AB, AC and BC.
+  void _drawLitTriangleSide(Canvas canvas, Rect bounds, int index) {
+    final center = bounds.center;
+    final radius = math.min(bounds.width, bounds.height) * 0.4;
+    final a = Offset(center.dx - radius, center.dy);
+    final b = Offset(center.dx + radius, center.dy);
+    final c = Offset(center.dx + radius * 0.2, center.dy - radius * 0.98);
+    final side = switch (index) {
+      3 => (a, b),
+      4 => (a, c),
+      5 => (b, c),
+      _ => null,
+    };
+    if (side == null) return;
+    canvas.drawLine(
+      side.$1,
+      side.$2,
+      Paint()
+        ..color = ink
+        ..style = PaintingStyle.stroke
+        ..strokeCap = StrokeCap.round
+        ..strokeWidth = 1.2 + (4 - 1.2) * litAmount,
+    );
   }
 
   void _drawLabels(

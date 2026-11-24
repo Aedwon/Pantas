@@ -64,14 +64,16 @@ void main() {
     expect(plate.top, anchor + 6);
   });
 
-  testWidgets('1100: 600 text, 300 plate, 40 px margin', (tester) async {
+  testWidgets('1100: 600 text, 300 plate, centered with 76 px margins',
+      (tester) async {
     final controller = ScrollController();
     await tester.pumpWidget(_page(width: 1100, controller: controller));
     expect(tester.getSize(find.byKey(const ValueKey('t1'))).width, 600);
-    expect(tester.getTopLeft(find.byKey(const ValueKey('t1'))).dx, 40);
+    expect(tester.getTopLeft(find.byKey(const ValueKey('t1'))).dx, 76);
     final plate = tester.getRect(find.byKey(const ValueKey('plate')));
     expect(plate.width, 300);
-    expect(plate.left, 40 + 600 + 48);
+    expect(plate.left, 76 + 600 + 48);
+    expect(1100 - plate.right, 76);
   });
 
   testWidgets('the plate holds at 32 px from the window top in the same frame',

@@ -285,13 +285,7 @@ class RenderHeldReader extends RenderBox
   double _heldDy(int figureIndex, double viewportTop) {
     final placement = _result?.figures[_figures[figureIndex].id];
     if (placement == null || !viewportTop.isFinite) return 0;
-    final group = _result!.groups[placement.group];
-    return heldOffset(
-      restTop: group.top,
-      bottom: group.bottom,
-      passageEnd: group.passageEnd,
-      viewportTop: viewportTop,
-    );
+    return _result!.heldOffset(placement.group, viewportTop);
   }
 
   Offset _plateOffset(RenderBox child, int figureIndex, double viewportTop) {

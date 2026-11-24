@@ -27,11 +27,11 @@ Unchanged and still binding: Lesson Reader Polish option C (type, spacing, examp
 ## Layout
 
 - Width 1280 px and up: page 1,096 px centered; text column 640 px; gap 56 px; figure column 400 px.
-- 1024 to 1279 px: text up to 600 px, gap 48 px, figure column 300 px, 40 px side margins.
+- 1024 to 1279 px: text up to 600 px, gap 48 px, figure column 300 px, the block centered with side margins of at least 40 px.
 - Under 1024 px: the phone layout (figures inline, one column).
 - No figures in the lesson: the single centered 680 px column of the approved reader, at any width.
 - The left outline is gone at every width.
-- Figure plate in the figure column: background #FAFAF7 (light and dark), radius 14, padding 14 px top and bottom, 20 px sides, the approved expand button (34 px, top right, 10 px inset). No caption or credit (Nov 5).
+- Figure plate in the figure column: background #FAFAF7 (light and dark), radius 14, padding 14 px top and bottom, 20 px sides, the approved expand button (34 px, radius 8, top right, 10 px inset). No caption or credit (Nov 5).
 
 ## Placing figures (the rules, in order)
 
@@ -90,7 +90,7 @@ Reduced motion (prefers-reduced-motion): the hold still works (it is scroll posi
 2. Motion recorded at 1440 and compared with `MO` for timing and easing.
 3. Real-content run at windows 1440x650, 1440x720 and 1440x900, solutions open and closed, on: triangles, basic geometric concepts, circles, Earth's motions, truth tables, systems of equations, quantum numbers. For each: no plate overlaps another plate; no plate beside a different passage by more than 40 px; no element wider than its column (tables and math scroll inside their own box with `tabindex=0` if they ever do); every inline fallback is listed and explained by rule 5 or 6.
 4. Scrolling a held figure at 60 fps on a mid-range laptop in Chrome and Safari, no shake against the text.
-5. Linked words: in circles, "Tangent" lights the tangent line and dims the rest; "hypotenuse" in Example 4 lights AB. Keyboard: Tab reaches each linked word and each section segment, with the focus ring.
+5. Linked words: in circles, "Tangent" lights the tangent line and dims the rest. In Example 4 with the solution open, `$AB$` in the first solution line ("... and $AB$ is the hypotenuse.") lights side AB, makes its label "AB = 10" bold and dims the rest. With the solution closed, `$BC$` in the problem lights side BC (label "BC = ?"). Keyboard: Tab reaches each linked word and each section segment, with the focus ring.
 6. A lesson with no figures renders the centered 680 px column.
 7. Phone unchanged: the approved phone boards match.
 

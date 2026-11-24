@@ -47,15 +47,18 @@ void main() {
       }
     });
 
-    test('1024 to 1279: up to 600 text, 48 gap, 300 figures, 40 margins', () {
+    test('1024 to 1279: the block is centered, 40 px margins at least', () {
       final m = HeldMetrics.forWidth(1100)!;
       expect(m.textWidth, 600);
       expect(m.gap, 48);
       expect(m.figureWidth, 300);
-      expect(m.pageLeft, 40);
+      // 1100 - 948 = 152, so 76 px each side.
+      expect(m.pageLeft, 76);
+      expect(HeldMetrics.forWidth(1279)!.pageLeft, 165.5);
       final narrow = HeldMetrics.forWidth(1024)!;
       expect(narrow.textWidth, 1024 - 2 * 40 - 300 - 48);
       expect(narrow.figureWidth, 300);
+      expect(narrow.pageLeft, 40);
       final top = HeldMetrics.forWidth(1279)!;
       expect(top.textWidth, 600);
     });
@@ -280,6 +283,69 @@ void main() {
       );
       expect(result.figures[1]!.group, isNot(result.figures[2]!.group));
       expect(result.groups.length, 2);
+    });
+  });
+
+  group('stacked figures (ruling 5)', () {
+    // The first figure's passage is one block with no space under it, so its
+    // plate needs 20 px of white space; the second anchors on the next block,
+    // 6 px under that plate, and is pushed down 12 px.
+    final entries = [
+      text(100, below: 0),
+      text(300),
+      text(400),
+    ];
+    final figures = [
+      prose(1, 120, anchor: 0),
+      prose(2, 100, anchor: 1),
+    ];
+
+    test('a figure pushed down from its own anchor keeps its own passage', () {
+      final result = placeFigures(
+        entries: entries,
+        figures: figures,
+        viewportHeight: 900,
+      );
+      final a = result.figures[1]!;
+      final b = result.figures[2]!;
+      expect(b.top, a.top + 120 + 18, reason: 'pushed down 12 px');
+      expect(b.group, isNot(a.group), reason: 'a different passage');
+      expect(result.groups.length, 2);
+      expect(a.passageEnd, lessThan(b.passageEnd));
+    });
+
+    test('at every scroll position the first plate stays in its passage', () {
+      final result = placeFigures(
+        entries: entries,
+        figures: figures,
+        viewportHeight: 900,
+      );
+      final a = result.figures[1]!;
+      final b = result.figures[2]!;
+      for (var top = -200.0; top < 1200; top += 5) {
+        final dyA = result.heldOffset(a.group, top);
+        final dyB = result.heldOffset(b.group, top);
+        expect(
+          a.top + dyA + a.height,
+          lessThanOrEqualTo(a.passageEnd + .001),
+          reason: 'window top $top',
+        );
+        // A held plate never comes closer than 18 px to the next plate.
+        expect(
+          a.top + dyA + a.height + 18,
+          lessThanOrEqualTo(b.top + dyB + .001),
+          reason: 'window top $top',
+        );
+      }
+    });
+
+    test('figures that share a passage stay one unit', () {
+      final result = placeFigures(
+        entries: [text(100), text(500)],
+        figures: [prose(1, 200, anchor: 0), prose(2, 200, anchor: 0)],
+        viewportHeight: 1200,
+      );
+      expect(result.figures[1]!.group, result.figures[2]!.group);
     });
   });
 

@@ -12,7 +12,8 @@ import 'dart:math' as math;
 ///
 /// 1,280 px and up: a 1,096 px page, centered, with 640 px of text, a 56 px
 /// gap and a 400 px figure column. 1,024 to 1,279 px: up to 600 px of text, a
-/// 48 px gap, a 300 px figure column and 40 px side margins. Under 1,024 px
+/// 48 px gap, a 300 px figure column, centered with 40 px side margins at
+/// least. Under 1,024 px
 /// the phone layout applies and there is no figure column.
 class HeldMetrics {
   const HeldMetrics._({
@@ -33,14 +34,14 @@ class HeldMetrics {
         pageLeft: (width - 1096) / 2,
       );
     }
-    // The board draws the tablet widths against the left margin: a 40 px
-    // margin, then up to 600 px of text. It is not centered.
+    // The text column, the gap and the figure column are one block. It is
+    // centered, with at least 40 px at each side.
     final text = math.min<double>(600, width - 2 * 40 - 300 - 48);
     return HeldMetrics._(
       textWidth: text,
       gap: 48,
       figureWidth: 300,
-      pageLeft: 40,
+      pageLeft: math.max<double>(40, (width - (text + 48 + 300)) / 2),
     );
   }
 
@@ -161,12 +162,18 @@ class FigurePlacement {
 }
 
 /// Plates that stay together while they are held.
+///
+/// Only figures that share a passage (no text between them) are one group.
+/// A figure pushed down from its own anchor holds within its own passage.
 class FigureGroup {
   FigureGroup(this.id, this.top);
   final int id;
   final double top;
   double bottom = 0;
   double passageEnd = 0;
+
+  /// Where the next group rests; a held plate stays [plateGap] above it.
+  double nextTop = double.infinity;
   final List<int> ids = [];
 }
 
@@ -189,6 +196,19 @@ class PlacementResult {
 
   /// Figures that would break the stack cap. They go inline in the text.
   final Set<int> overCap;
+
+  /// How far group [group] sits below its place at rest, for a window whose
+  /// top is [viewportTop] in the column's coordinates.
+  double heldOffset(int group, double viewportTop) {
+    final g = groups[group];
+    return _heldOffset(
+      restTop: g.top,
+      bottom: g.bottom,
+      passageEnd: g.passageEnd,
+      viewportTop: viewportTop,
+      nextTop: g.nextTop,
+    );
+  }
 }
 
 /// The space kept clear between two plates.
@@ -236,10 +256,18 @@ PlacementResult placeFigures({
   final cap = viewportHeight - stickyLine;
   var previousBottom = double.negativeInfinity;
   FigureGroup? current;
+  var currentEnd = -1;
 
-  void join(FigurePlacement placement, {required bool stack}) {
+  void join(
+    FigurePlacement placement, {
+    required bool stack,
+    required int end,
+  }) {
     var group = current;
+    // Only figures that share a passage are one unit.
+    stack = stack && end == currentEnd;
     if (!stack || group == null) {
+      currentEnd = end;
       group = FigureGroup(groups.length, placement.top);
       groups.add(group);
       current = group;
@@ -297,6 +325,7 @@ PlacementResult placeFigures({
             group: 0,
           ),
           stack: stack,
+          end: i,
         );
       }
       y += extra;
@@ -331,8 +360,12 @@ PlacementResult placeFigures({
           group: 0,
         ),
         stack: false,
+        end: -2 - i,
       );
     }
+  }
+  for (var g = 0; g + 1 < groups.length; g++) {
+    groups[g].nextTop = groups[g + 1].top;
   }
   return PlacementResult(
     entryTops: tops,
@@ -348,14 +381,34 @@ PlacementResult placeFigures({
 ///
 /// The group holds at the sticky line while its passage is on screen. Past the
 /// end of the passage it stops, so the page carries it away at the speed of
-/// the scroll. It never rises above where it rests.
+/// the scroll. It never rises above where it rests, and never comes closer
+/// than [plateGap] to the next group's plate.
 double heldOffset({
   required double restTop,
   required double bottom,
   required double passageEnd,
   required double viewportTop,
+  double nextTop = double.infinity,
+}) =>
+    _heldOffset(
+      restTop: restTop,
+      bottom: bottom,
+      passageEnd: passageEnd,
+      viewportTop: viewportTop,
+      nextTop: nextTop,
+    );
+
+double _heldOffset({
+  required double restTop,
+  required double bottom,
+  required double passageEnd,
+  required double viewportTop,
+  required double nextTop,
 }) {
   final wanted = viewportTop + stickyLine - restTop;
-  final room = math.max<double>(0, passageEnd - bottom);
+  final room = math.max<double>(
+    0,
+    math.min(passageEnd, nextTop - plateGap) - bottom,
+  );
   return wanted.clamp(0.0, room);
 }
