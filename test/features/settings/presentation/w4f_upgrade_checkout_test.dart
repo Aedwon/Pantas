@@ -12,6 +12,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
@@ -190,6 +191,11 @@ void main() {
         expect(opened, 0);
         return;
       }
+      // Every web purchase needs the declaration ticked first.
+      final declaration = find.byType(CheckboxRow);
+      await tester.ensureVisible(declaration);
+      await tester.tapAt(tester.getTopLeft(declaration) + const Offset(14, 20));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Upgrade for ₱149 a Month'));
       await tester.pumpAndSettle();
       expect(opened, 0);

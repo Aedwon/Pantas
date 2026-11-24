@@ -253,6 +253,123 @@ test('evidence is kept until ten years after the newest answer, then deleted', a
   assert.equal(await exists('ev-b'), false, 'ten years plus a day');
 });
 
+test('sharing expires at 1,461 days after deletion and leaves the confirmation', async () => {
+  await clear();
+  const evidence = db.doc('guardianConsentEvidence/ev-sharing');
+  const responses = evidence.collection('responses');
+  const confirmation = responses.doc('confirmation');
+  const sharing = [responses.doc('on'), responses.doc('off')];
+  const deletedAt = NOW - DAY;
+  const decidedAt = deletedAt - DAY;
+  await evidence.set({accountDeletedAt: deletedAt, reason: 'user_request'});
+  await confirmation.set({action: 'confirm', decidedAt, sharingAllowed: false});
+  await sharing[0].set({action: 'sharing_on', decidedAt: deletedAt});
+  await sharing[1].set({action: 'sharing_off', decidedAt: deletedAt});
+
+  await purge([], deletedAt + 1460 * DAY);
+  assert.deepEqual((await db.getAll(...sharing)).map(row => row.exists), [true, true]);
+  assert.equal((await confirmation.get()).get('sharingAllowed'), false);
+  await purge([], deletedAt + 1461 * DAY);
+  assert.deepEqual((await db.getAll(...sharing)).map(row => row.exists), [false, false]);
+  assert.deepEqual((await confirmation.get()).data(), {action: 'confirm', decidedAt});
+});
+
+test('a sharing change in year five leaves confirmation evidence due in year ten', async () => {
+  await clear();
+  const evidence = db.doc('guardianConsentEvidence/ev-sharing-newest');
+  const sharedAt = NOW + 1826 * DAY;
+  await evidence.set({accountDeletedAt: sharedAt, reason: 'user_request'});
+  await evidence.collection('responses').doc('confirmation').set({action: 'confirm', decidedAt: NOW});
+  await evidence.collection('responses').doc('sharing').set({action: 'sharing_on', decidedAt: sharedAt});
+
+  await purge([], evidenceNow(NOW) - 1);
+  assert.equal(await exists(evidence.id), true);
+  await purge([], evidenceNow(NOW));
+  assert.equal(await exists(evidence.id), false);
+});
+
+async function seedEvidenceExpiringBeforeSharing() {
+  await clear();
+  const evidence = db.doc('guardianConsentEvidence/ev-sharing-only');
+  const responses = evidence.collection('responses');
+  const purchases = evidence.collection('purchases');
+  const deletedAt = NOW + 2922 * DAY;
+  const marker = {accountDeletedAt: deletedAt, reason: 'user_request'};
+  const versions = {documentVersions: {teenNotice: 'v1'}, noticeWordingVersion: 'v2'};
+  const originalChoice = {action: 'confirm', agreed: true, decidedAt: NOW, ...versions};
+  const sharingChange = {action: 'sharing_off', decidedAt: NOW + 1826 * DAY, ...versions};
+  await Promise.all([
+    evidence.set(marker),
+    responses.doc('allowed').set({...originalChoice, sharingAllowed: true}),
+    responses.doc('blocked').set({...originalChoice, sharingAllowed: false}),
+    responses.doc('no-choice').set(originalChoice),
+    responses.doc('sharing-change').set(sharingChange),
+    purchases.doc('older').set({attestedAt: NOW, reference: 'older'}),
+    purchases.doc('latest').set({attestedAt: NOW + DAY, reference: 'latest'}),
+  ]);
+
+  const remaining = {
+    marker,
+    responses: {
+      allowed: {action: 'sharing_on', decidedAt: NOW, sharingAllowed: true, ...versions},
+      blocked: {action: 'sharing_off', decidedAt: NOW, sharingAllowed: false, ...versions},
+      'sharing-change': sharingChange,
+    },
+    purchases: [],
+  };
+  const read = async () => ({
+    marker: (await evidence.get()).data(),
+    responses: Object.fromEntries((await responses.get()).docs.map(row => [row.id, row.data()])),
+    purchases: (await purchases.get()).docs.map(row => row.data()),
+  });
+  return {deletedAt, expiresAt: evidenceNow(NOW + DAY), remaining, read};
+}
+
+test('C8 strips expired evidence to sharing choices and the deletion marker', async () => {
+  const {expiresAt, remaining, read} = await seedEvidenceExpiringBeforeSharing();
+  await purge([], expiresAt);
+  assert.deepEqual(await read(), remaining);
+});
+
+test('C8 keeps stripped evidence through day 1,460 and deletes it on day 1,461', async () => {
+  const {deletedAt, expiresAt, remaining, read} = await seedEvidenceExpiringBeforeSharing();
+  await purge([], expiresAt);
+  const stripped = await read();
+  await purge([], deletedAt + 1460 * DAY);
+  assert.deepEqual(await read(), stripped);
+  assert.deepEqual(stripped, remaining);
+  await purge([], deletedAt + 1461 * DAY);
+  assert.deepEqual(await read(), {marker: undefined, responses: {}, purchases: []});
+});
+
+test('C8 leaves the sharing-only evidence unchanged on a second purge', async () => {
+  const {expiresAt, remaining, read} = await seedEvidenceExpiringBeforeSharing();
+  await purge([], expiresAt);
+  const stripped = await read();
+  await purge([], expiresAt);
+  assert.deepEqual(await read(), stripped);
+  assert.deepEqual(stripped, remaining);
+});
+
+test('legacy sharing survives until 1,461 days after first seeing the deleted account', async () => {
+  await clear();
+  const evidence = db.doc('guardianConsentEvidence/ev-legacy-sharing');
+  const responses = evidence.collection('responses');
+  const confirmation = responses.doc('confirmation');
+  const sharing = responses.doc('sharing');
+  const decidedAt = NOW - YEARS10 - DAY;
+  await confirmation.set({action: 'confirm', decidedAt, sharingAllowed: true});
+  await sharing.set({action: 'sharing_off', decidedAt});
+
+  await purge([], NOW);
+  assert.deepEqual((await evidence.get()).data(), {accountDeletedAt: NOW, reason: 'legacy'});
+  await purge([], NOW + 1460 * DAY);
+  assert.equal((await sharing.get()).exists, true);
+  assert.equal((await confirmation.get()).get('sharingAllowed'), true);
+  await purge([], NOW + 1461 * DAY);
+  assert.equal(await exists(evidence.id), false);
+});
+
 test('a later purchase attestation moves the end date', async () => {
   await clear();
   const decided = Date.parse('2026-11-09T10:00:00+08:00');
@@ -264,6 +381,80 @@ test('a later purchase attestation moves the end date', async () => {
   assert.equal(await exists('ev-p'), true, 'the purchase is newer');
   await purge([], evidenceNow(bought));
   assert.equal(await exists('ev-p'), false);
+});
+
+test('evidence that holds only declines goes after four years; any confirmation, withdrawal or purchase keeps ten', async () => {
+  await clear();
+  const decided = Date.parse('2026-11-09T10:00:00+08:00');
+  const FOUR = 1461 * DAY;
+  await db.doc('guardianConsentEvidence/ev-d').set({accountDeletedAt: decided, reason: 'user_request'});
+  await db.doc('guardianConsentEvidence/ev-d/responses/r1').set({action: 'decline', decidedAt: decided});
+  await db.doc('guardianConsentEvidence/ev-c').set({accountDeletedAt: decided, reason: 'user_request'});
+  await db.doc('guardianConsentEvidence/ev-c/responses/r1').set({action: 'confirm', decidedAt: decided});
+  await db.doc('guardianConsentEvidence/ev-w').set({accountDeletedAt: decided, reason: 'user_request'});
+  await db.doc('guardianConsentEvidence/ev-w/responses/r1').set({action: 'decline', decidedAt: decided});
+  await db.doc('guardianConsentEvidence/ev-w/responses/r2').set({action: 'withdraw', decidedAt: decided});
+  await db.doc('guardianConsentEvidence/ev-q').set({accountDeletedAt: decided, reason: 'user_request'});
+  await db.doc('guardianConsentEvidence/ev-q/responses/r1').set({action: 'decline', decidedAt: decided});
+  await db.doc('guardianConsentEvidence/ev-q/purchases/cs_1').set({attestedAt: decided, termsVersion: 'v', reference: 'r', product: 'p'});
+  await purge([], decided + FOUR - DAY);
+  assert.equal(await exists('ev-d'), true, 'four years minus a day');
+  await purge([], decided + FOUR);
+  assert.equal(await exists('ev-d'), false, 'a decline-only record goes at four years');
+  for (const uid of ['ev-c', 'ev-w', 'ev-q']) assert.equal(await exists(uid), true, `${uid} stays past four years`);
+  await purge([], evidenceNow(decided));
+  for (const uid of ['ev-c', 'ev-w', 'ev-q']) assert.equal(await exists(uid), false, `${uid} goes at ten years`);
+});
+
+for (const {name, actions, purchase, keepDays} of [
+  {name: 'decline and became_adult', actions: ['decline', 'became_adult'], keepDays: 1461},
+  {name: 'became_adult alone', actions: ['became_adult'], keepDays: 1461},
+  {name: 'decline and confirm', actions: ['decline', 'confirm'], keepDays: 3653},
+  {name: 'withdraw alone', actions: ['withdraw'], keepDays: 3653},
+  {name: 'guardian purchase alone', actions: [], purchase: true, keepDays: 3653},
+]) {
+  test(`evidence with ${name} expires at ${keepDays} days`, async () => {
+    await clear();
+    const decided = Date.parse('2026-11-09T10:00:00+08:00');
+    const uid = 'ev-period';
+    const evidence = db.doc(`guardianConsentEvidence/${uid}`);
+    await evidence.set({accountDeletedAt: decided, reason: 'user_request'});
+    for (const [index, action] of actions.entries()) {
+      await evidence.collection('responses').doc(`r${index}`).set({
+        action,
+        decidedAt: decided - (actions.length - index - 1) * DAY,
+      });
+    }
+    if (purchase) {
+      await evidence.collection('purchases').doc('cs_1').set({
+        attestedAt: decided, termsVersion: 'v', reference: 'r', product: 'p',
+      });
+    }
+    const expiresAt = decided + keepDays * DAY;
+    await purge([], expiresAt - 1);
+    assert.equal(await exists(uid), true, 'kept before expiration');
+    await purge([], expiresAt);
+    assert.equal(await exists(uid), false, 'deleted at expiration');
+  });
+}
+
+test('a failed evidence purge logs a reason code and no account id', async () => {
+  await clear();
+  const decided = Date.parse('2026-11-09T10:00:00+08:00');
+  await db.doc('guardianConsentEvidence/ev-secret-uid').set({accountDeletedAt: decided, reason: 'x'});
+  await db.doc('guardianConsentEvidence/ev-secret-uid/responses/r1').set({action: 'confirm', decidedAt: decided});
+  const lines = [];
+  const out = process.stdout.write.bind(process.stdout), err = process.stderr.write.bind(process.stderr);
+  process.stdout.write = (c, ...r) => { lines.push(String(c)); return out(c, ...r); };
+  process.stderr.write = (c, ...r) => { lines.push(String(c)); return err(c, ...r); };
+  try {
+    await inactive.purgeExpiredEvidence({db, now: () => evidenceNow(decided) + DAY,
+      auth: {getUser: async () => { throw new Error('boom for ev-secret-uid'); }}});
+  } finally { process.stdout.write = out; process.stderr.write = err; }
+  const logs = lines.join('');
+  assert.match(logs, /evidence-purge-failed/);
+  assert.equal(logs.includes('ev-secret-uid'), false);
+  assert.equal(logs.includes('boom'), false);
 });
 
 test('an account that still exists keeps its evidence however old', async () => {

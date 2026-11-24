@@ -46,6 +46,8 @@ class PantasButton extends StatefulWidget {
     this.disabledOpacity,
     this.disabledForeground,
     this.trailing,
+    this.inactive = false,
+    this.hint,
     super.key,
   })  : assert(
           kind != null || tone == null,
@@ -77,7 +79,9 @@ class PantasButton extends StatefulWidget {
         horizontalPadding = PantasSpace.s14,
         disabledOpacity = null,
         disabledForeground = null,
-        trailing = null;
+        trailing = null,
+        inactive = false,
+        hint = null;
   final bool _filterChip;
   final bool _chipSelected;
   final String label;
@@ -110,6 +114,14 @@ class PantasButton extends StatefulWidget {
 
   /// Phone only: drawn 2 px after the label (the question bar's Next chevron).
   final Widget? trailing;
+
+  /// Phone only: draws the disabled look but stays tappable and focusable, so
+  /// a tap can say why the action is off. Screen readers hear a button with
+  /// [hint], not a dimmed one. [onPressed] still runs.
+  final bool inactive;
+
+  /// What a screen reader adds to the label while [inactive].
+  final String? hint;
 
   bool get _pillRequest => radius != null && radius! >= PantasRadius.full;
 
@@ -207,7 +219,7 @@ class _PantasButtonState extends State<PantasButton> {
       final (kind, tone) = widget._widePair;
       return WebButton(
         label: widget.label,
-        onPressed: widget.onPressed,
+        onPressed: widget.inactive ? null : widget.onPressed,
         busy: widget.busy,
         kind: kind,
         tone: tone,
@@ -225,7 +237,7 @@ class _PantasButtonState extends State<PantasButton> {
     final webFeedback =
         Theme.of(context).splashFactory == NoSplash.splashFactory;
     final still = MediaQuery.disableAnimationsOf(context);
-    final enabled = onPressed != null || busy;
+    final enabled = (onPressed != null || busy) && !widget.inactive;
     final dimmed = !enabled && widget.disabledOpacity != null;
     final (kind, tone) =
         chip ? (PantasButtonKind.tertiary, null) : widget._phonePair;
@@ -326,30 +338,35 @@ class _PantasButtonState extends State<PantasButton> {
           shape: WidgetStatePropertyAll(shape),
           overlayColor: const WidgetStatePropertyAll(Colors.transparent),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
-          children: [
-            if (busy) ...[
-              PantasSpinner.inline(color: foreground),
-              SizedBox(width: metrics.gap),
-            ],
-            Flexible(
-              child: chip
-                  ? FadingColor(
-                      color: foreground,
-                      builder: (context, color, _) => labelText(color),
-                    )
-                  : labelText(foreground),
-            ),
-            if (widget.trailing != null) ...[
-              const SizedBox(width: PantasSpace.s2),
-              IconTheme(
-                data: IconThemeData(color: foreground, size: PantasSpace.s16),
-                child: widget.trailing!,
+        // The hint sits inside the button, so it joins the button's own node.
+        child: Semantics(
+          hint: widget.inactive ? widget.hint : null,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize:
+                widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
+            children: [
+              if (busy) ...[
+                PantasSpinner.inline(color: foreground),
+                SizedBox(width: metrics.gap),
+              ],
+              Flexible(
+                child: chip
+                    ? FadingColor(
+                        color: foreground,
+                        builder: (context, color, _) => labelText(color),
+                      )
+                    : labelText(foreground),
               ),
+              if (widget.trailing != null) ...[
+                const SizedBox(width: PantasSpace.s2),
+                IconTheme(
+                  data: IconThemeData(color: foreground, size: PantasSpace.s16),
+                  child: widget.trailing!,
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
@@ -383,7 +400,7 @@ class _PantasButtonState extends State<PantasButton> {
             ? PressScale(scale: .96, enabled: enabled, child: ringed)
             : AnimatedScale(
                 key: const ValueKey('pantas-button-scale'),
-                scale: still
+                scale: still || widget.inactive
                     ? 1
                     : _pressed
                         ? pantasPressScale
