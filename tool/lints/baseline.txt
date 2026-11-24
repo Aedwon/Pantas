@@ -73,7 +73,6 @@
 11 lib/features/mock_exam/presentation/pause_page.dart ds_no_design_literal
 3 lib/features/mock_exam/presentation/widgets/cse_mock_finale.dart ds_no_design_literal
 10 lib/features/mock_exam/presentation/widgets/mock_card.dart ds_no_design_literal
-1 lib/features/mock_exam/presentation/widgets/score_headline.dart ds_no_design_literal
 1 lib/features/mock_exam/presentation/widgets/web_mock_finale.dart ds_no_design_literal
 1 lib/features/notifications/presentation/permission_rationale_page.dart ds_no_design_literal
 1 lib/features/onboarding/presentation/exam_picker_screen.dart ds_board_value_reason
