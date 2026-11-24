@@ -32,6 +32,7 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/question_choices.dart';
 import 'package:pantas/core/ui/components/question_count.dart';
 import 'package:pantas/core/ui/components/question_navigator_grid.dart';
+import 'package:pantas/core/ui/components/report_bar.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -687,6 +688,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   Timer? _toastRemove;
   final ScrollController _questionScroll = ScrollController();
   final Set<String> _reported = {};
+  bool _reportOpen = false;
   String? _reportStatus;
   ReportDelivery _reportDelivery = ReportDelivery.saved;
   Timer? _reportTimer;
@@ -835,18 +837,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                     tooltip: 'Report a question',
                     icon: PantasIcons.report,
                     accent: _reported.contains(question.id),
-                    onPressed: () async {
-                      final saved = await openQuestionReport(
-                        context,
-                        question.id,
-                        queue: ref.read(reportQueueProvider),
-                        examId: widget.examId,
-                        questionVersion: question.version,
-                      );
-                      if (saved != null && mounted) {
-                        setState(() => _reported.add(question.id));
-                      }
-                    },
+                    onPressed: _reportOpen
+                        ? null
+                        : () => setState(() => _reportOpen = true),
                   ),
                 ],
               ),
@@ -937,36 +930,47 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                       ),
                     ),
                   );
-                  final bar = FloatingBar.content(
-                    state: outcome == null
-                        ? FloatingBarState.neutral
-                        : outcome.isCorrect
-                            ? FloatingBarState.right
-                            : FloatingBarState.wrong,
-                    child: large
-                        // Stacked (FloatingBar, ruling 5): the hint takes its
-                        // own line above the actions.
-                        ? Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              hint,
-                              Row(
-                                children: [
-                                  Expanded(child: counter),
-                                  if (!narrow) flag,
-                                ],
-                              ),
-                              action,
-                            ],
-                          )
-                        : Row(
-                            children: [
-                              counter,
-                              Expanded(child: hint),
-                              if (!narrow) flag,
-                              action,
-                            ],
-                          ),
+                  final barState = outcome == null
+                      ? FloatingBarState.neutral
+                      : outcome.isCorrect
+                          ? FloatingBarState.right
+                          : FloatingBarState.wrong;
+                  final Widget restContent = large
+                      // Stacked (FloatingBar, ruling 5): the hint takes its
+                      // own line above the actions.
+                      ? Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            hint,
+                            Row(
+                              children: [
+                                Expanded(child: counter),
+                                if (!narrow) flag,
+                              ],
+                            ),
+                            action,
+                          ],
+                        )
+                      : Row(
+                          children: [
+                            counter,
+                            Expanded(child: hint),
+                            if (!narrow) flag,
+                            action,
+                          ],
+                        );
+                  // QN_Report: the bar itself becomes the report form.
+                  final bar = ReportBar(
+                    rest: restContent,
+                    restState: barState,
+                    open: _reportOpen,
+                    questionId: question.id,
+                    examId: widget.examId,
+                    questionVersion: question.version,
+                    onClosed: (delivered) => setState(() {
+                      _reportOpen = false;
+                      if (delivered != null) _reported.add(question.id);
+                    }),
                   );
                   final scroll = SingleChildScrollView(
                     key: const ValueKey('quiz-scroll'),
@@ -1086,9 +1090,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             ),
           );
     return PopScope(
-      canPop: _allowPop,
+      // While the report form is open, Back closes the form (ReportBar).
+      canPop: _allowPop && !_reportOpen,
       onPopInvokedWithResult: (didPop, result) {
-        if (!didPop && !wasGridOpen && !wasPassageOpen) {
+        if (!didPop && !wasGridOpen && !wasPassageOpen && !_reportOpen) {
           unawaited(_confirmLeave());
         }
       },
@@ -1264,8 +1269,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       if (_reportStatus == question.id)
-                        Text(
-                          reportDeliveryText(_reportDelivery),
+                        ReportSoftLine(
+                          delivery: _reportDelivery,
                           style: t.sm,
                         ),
                       WebTopBarButton(

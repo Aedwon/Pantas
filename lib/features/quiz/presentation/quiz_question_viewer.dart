@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/question_choices.dart';
+import 'package:pantas/core/ui/components/report_bar.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -52,6 +53,8 @@ class QuizQuestionViewer extends StatefulWidget {
     this.openNotes = false,
     this.initialIndex = 0,
     this.backLabel = 'All questions',
+    this.examId,
+    this.onReportOpenChanged,
     super.key,
   });
   final List<Question> questions;
@@ -75,6 +78,13 @@ class QuizQuestionViewer extends StatefulWidget {
   final Future<ReportDelivery?> Function(Question question) onReport;
   final int initialIndex;
   final String backLabel;
+
+  /// Sent with a phone report, which the bar itself takes (ReportBar).
+  final String? examId;
+
+  /// Told when the phone report form opens or closes, so a page that owns a
+  /// back handler can leave Back to the form while it is open.
+  final ValueChanged<bool>? onReportOpenChanged;
   @override
   State<QuizQuestionViewer> createState() => _QuizQuestionViewerState();
 }
@@ -87,12 +97,18 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
   String? _reportStatus;
   ReportDelivery _reportDelivery = ReportDelivery.saved;
   bool _reportOpen = false;
+
+  /// The phone report bar stays mounted a moment after it closes, so the
+  /// bar's own fade back finishes before the note-aware bar returns.
+  bool _reportBarMounted = false;
   Timer? _reportTimer;
+  Timer? _reportBarTimer;
   final Set<String> _dismissedNotes = {};
   final FocusNode _webFocus = FocusNode();
   @override
   void dispose() {
     _reportTimer?.cancel();
+    _reportBarTimer?.cancel();
     _webFocus.dispose();
     super.dispose();
   }
@@ -236,8 +252,8 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                           Padding(
                             padding:
                                 const EdgeInsets.only(right: PantasSpace.s8),
-                            child: Text(
-                              reportDeliveryText(_reportDelivery),
+                            child: ReportSoftLine(
+                              delivery: _reportDelivery,
                               style: PantasType.webRowSub
                                   .copyWith(color: t.colors.textSecondary),
                             ),
@@ -392,7 +408,17 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                   ),
                   PantasIconButton(
                     tooltip: 'Report a question',
-                    onPressed: () => unawaited(_report(question)),
+                    onPressed: _reportOpen
+                        ? null
+                        : () {
+                            _reportBarTimer?.cancel();
+                            setState(() {
+                              _notes = false;
+                              _reportOpen = true;
+                              _reportBarMounted = true;
+                            });
+                            widget.onReportOpenChanged?.call(true);
+                          },
                     icon: PantasIcons.report,
                     accent: _reported.contains(question.id),
                   ),
@@ -619,6 +645,38 @@ class _QuizQuestionViewerState extends State<QuizQuestionViewer> {
                           ),
                         );
                         final still = MediaQuery.disableAnimationsOf(context);
+                        if (_reportBarMounted) {
+                          // QN_Report: the bar itself becomes the form, then
+                          // the confirmation, then the bar again.
+                          return ReportBar(
+                            surfaceKey: const ValueKey('quiz-viewer-surface'),
+                            rest: row,
+                            restState: barState,
+                            restInset: 0,
+                            open: _reportOpen,
+                            questionId: question.id,
+                            examId: widget.examId,
+                            questionVersion: question.version,
+                            onClosed: (delivered) {
+                              setState(() {
+                                _reportOpen = false;
+                                if (delivered != null) {
+                                  _reported.add(question.id);
+                                }
+                              });
+                              widget.onReportOpenChanged?.call(false);
+                              _reportBarTimer?.cancel();
+                              _reportBarTimer = Timer(
+                                const Duration(milliseconds: 420),
+                                () {
+                                  if (mounted && !_reportOpen) {
+                                    setState(() => _reportBarMounted = false);
+                                  }
+                                },
+                              );
+                            },
+                          );
+                        }
                         return FloatingBar.content(
                           key: const ValueKey('quiz-viewer-surface'),
                           state: notes ? FloatingBarState.neutral : barState,
