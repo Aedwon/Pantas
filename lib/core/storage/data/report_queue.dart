@@ -1,45 +1,167 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:uuid/uuid.dart';
+
+/// Where a report is in its life on this device.
+enum ReportState {
+  /// Not yet accepted by the server. Kept, with its message, until it is.
+  pending,
+
+  /// The server accepted it. Only the question and the day are kept, for the
+  /// limits. The message is gone from the device.
+  sent,
+
+  /// The server refused it for good (over its limit for the question, or a
+  /// message it cannot take). Never retried. Kept for the limits only.
+  refused,
+}
 
 class QuestionReport {
   const QuestionReport({
+    required this.id,
     required this.questionId,
     required this.message,
     required this.createdAt,
+    this.accountId,
+    this.examId,
+    this.questionVersion,
+    this.state = ReportState.pending,
+    this.refusalReason,
   });
+
+  /// Made on this device when the report is queued. The server stores one
+  /// report per id, so a retry never duplicates it.
+  final String id;
   final String questionId;
   final String message;
   final DateTime createdAt;
+
+  /// The account that made the report. Only that account sends it. Null for a
+  /// report queued before accounts were recorded, until an account claims it.
+  final String? accountId;
+
+  /// Null for a report queued before the app recorded them.
+  final String? examId;
+  final int? questionVersion;
+  final ReportState state;
+
+  /// Why the server refused it, for a refused report.
+  final String? refusalReason;
 }
 
-enum ReportResult { queued, empty, questionLimit, dailyLimit }
+/// Sends one report to the server. Returns when the server has accepted it.
+/// Throws [ReportRefused] when the server will never accept it,
+/// [ReportUnavailable] when nothing can be sent right now (no signed-in
+/// account), and anything else for a failure worth retrying.
+// Single-method interface is intentional: tests and the app swap senders.
+// ignore: one_member_abstracts
+abstract interface class ReportSender {
+  Future<void> send(QuestionReport report);
+}
 
-/// Device-local, atomic limits. Reports stay pending until a backend sender is
-/// approved. Keeping them also preserves the per-question lifetime count.
+/// The server refused the report for good. Retrying cannot help.
+class ReportRefused implements Exception {
+  const ReportRefused(this.reason);
+  final String reason;
+  @override
+  String toString() => 'ReportRefused($reason)';
+}
+
+/// Nothing can be sent now, and trying again at once would not change that.
+class ReportUnavailable implements Exception {
+  const ReportUnavailable();
+}
+
+enum ReportResult {
+  queued,
+  empty,
+  questionLimit,
+  dailyLimit,
+
+  /// Nobody is signed in, or a draft opened under one account was saved after
+  /// the account changed (another tab). Nothing is stored or sent.
+  accountChanged,
+}
+
+/// What the student is told once a report is saved.
+enum ReportDelivery {
+  /// The server has it.
+  sent,
+
+  /// It is on this device and goes out when the app can reach the server.
+  saved,
+}
+
+/// Device-local, atomic limits, and the sender that moves reports to the
+/// server. A report stays on the device until the server accepts it. Sent
+/// reports keep only their question and day, which preserves the per-question
+/// lifetime count and the daily count.
 class ReportQueue {
-  ReportQueue(this._db);
-  final AppDatabase _db;
-  static const _key = 'quiz_question_reports';
+  ReportQueue(
+    this._db, {
+    ReportSender? sender,
+    String? Function()? account,
+    this.maxAttempts = 3,
+    Future<void> Function(Duration)? wait,
+    String Function()? newId,
+    this.retryEvery,
+  })  : _sender = sender,
+        _account = account ?? (() => null),
+        _wait = wait ?? Future<void>.delayed,
+        _newId = newId ?? (() => const Uuid().v4());
 
-  Future<List<QuestionReport>> pending() async {
-    final row = await (_db.select(_db.devicePrefs)
-          ..where((p) => p.key.equals(_key)))
-        .getSingleOrNull();
-    if (row == null) return [];
-    final data = jsonDecode(row.value) as List<dynamic>;
+  final AppDatabase _db;
+  final ReportSender? _sender;
+
+  /// The account signed in now, or null.
+  final String? Function() _account;
+
+  final Future<void> Function(Duration) _wait;
+  final String Function() _newId;
+
+  /// How many times one report is tried in one pass.
+  final int maxAttempts;
+
+  /// When set, a pass that failed on a network error tries again after this
+  /// long. Null in tests.
+  final Duration? retryEvery;
+
+  /// The device-preference key that holds the list. Sign-out and an account
+  /// switch wipe it (SyncLocalStateWiper), because it holds student text.
+  static const storageKey = 'quiz_question_reports';
+  static const _key = storageKey;
+
+  /// The longest message the server takes. The form stops typing at this.
+  static const maxMessageLength = 1000;
+
+  Future<void> _tail = Future<void>.value();
+  Timer? _retry;
+
+  /// The account signed in now, or null. A draft binds to this when it opens.
+  String? get currentAccount => _account();
+
+  /// Reports the signed-in account has not had accepted, oldest first.
+  Future<List<QuestionReport>> pending() async => [
+        for (final r in await history())
+          if (r.state == ReportState.pending) r,
+      ];
+
+  /// Every report the signed-in account made on this device, sent or not.
+  /// Another account's reports are not shown and not counted.
+  Future<List<QuestionReport>> history() async {
+    final account = _account();
+    if (account == null) return [];
+    final rows = await _rows();
     return [
-      for (final item in data)
-        QuestionReport(
-          questionId: (item as Map<String, dynamic>)['questionId'] as String,
-          message: item['message'] as String,
-          createdAt: DateTime.parse(item['createdAt'] as String),
-        ),
+      for (final row in rows)
+        if (row['accountId'] == account) _parse(row),
     ];
   }
 
   Future<ReportResult?> limit(String questionId, DateTime now) async {
-    final reports = await pending();
+    final reports = await history();
     if (reports.where((r) => r.questionId == questionId).length >= 3) {
       return ReportResult.questionLimit;
     }
@@ -52,40 +174,330 @@ class ReportQueue {
   Future<ReportResult> add(
     String questionId,
     String message,
+    DateTime now, {
+    String? examId,
+    int? questionVersion,
+    String? expectedAccount,
+  }) async =>
+      (await _add(
+        questionId,
+        message,
+        now,
+        examId,
+        questionVersion,
+        expectedAccount,
+      ))
+          .$1;
+
+  /// Queues a report, sends what can be sent, and says what became of this
+  /// report, not of the queue. A refusal is a limit, never a thank-you.
+  Future<ReportSubmission> submit(
+    String questionId,
+    String message,
+    DateTime now, {
+    String? examId,
+    int? questionVersion,
+    Duration wait = const Duration(seconds: 5),
+    String? expectedAccount,
+  }) async {
+    final (result, id) = await _add(
+      questionId,
+      message,
+      now,
+      examId,
+      questionVersion,
+      expectedAccount,
+    );
+    if (result != ReportResult.queued) return ReportSubmission(result, null);
+    try {
+      await sendPending().timeout(wait);
+    } on Object {
+      // Slow or failing: the report is safe here and goes on sending.
+    }
+    final mine = (await history()).where((r) => r.id == id).firstOrNull;
+    final reason = mine?.refusalReason;
+    return switch (mine?.state) {
+      ReportState.sent => const ReportSubmission(
+          ReportResult.queued,
+          ReportDelivery.sent,
+        ),
+      ReportState.refused => ReportSubmission(
+          reason == 'daily-limit'
+              ? ReportResult.dailyLimit
+              : ReportResult.questionLimit,
+          null,
+        ),
+      _ => const ReportSubmission(ReportResult.queued, ReportDelivery.saved),
+    };
+  }
+
+  Future<(ReportResult, String?)> _add(
+    String questionId,
+    String message,
     DateTime now,
+    String? examId,
+    int? questionVersion,
+    String? expectedAccount,
   ) async {
-    final trimmed = message.trim();
-    if (trimmed.isEmpty) return ReportResult.empty;
+    final trimmed = _cut(_clean(message).trim());
+    if (trimmed.isEmpty) return (ReportResult.empty, null);
+    // A draft belongs to the account that opened it. Another tab may have
+    // switched since, and nothing is kept for the new account.
+    final signedIn = _account();
+    if (signedIn == null ||
+        (expectedAccount != null && expectedAccount != signedIn)) {
+      return (ReportResult.accountChanged, null);
+    }
+    // [signedIn] was read before the transaction opens: the first read can
+    // start work (a provider's stream) that must not run inside its zone.
     return _db.transaction(() async {
       final blocked = await limit(questionId, now);
-      if (blocked != null) return blocked;
-      final reports = await pending();
-      reports.add(
-        QuestionReport(
-          questionId: questionId,
-          message: trimmed,
-          createdAt: now,
-        ),
-      );
-      await _db.into(_db.devicePrefs).insertOnConflictUpdate(
-            DevicePrefsCompanion.insert(
-              key: _key,
-              value: jsonEncode([
-                for (final report in reports)
-                  {
-                    'questionId': report.questionId,
-                    'message': report.message,
-                    'createdAt': report.createdAt.toIso8601String(),
-                  },
-              ]),
-            ),
-          );
-      return ReportResult.queued;
+      if (blocked != null) return (blocked, null);
+      final rows = await _rows();
+      final id = _newId();
+      rows.add({
+        'id': id,
+        'questionId': questionId,
+        'message': trimmed,
+        'createdAt': now.toIso8601String(),
+        'accountId': signedIn,
+        if (examId != null) 'examId': examId,
+        if (questionVersion != null) 'questionVersion': questionVersion,
+      });
+      await _write(rows);
+      return (ReportResult.queued, id);
     });
   }
 
-  Future<void> sendPending() async {
-    // No approved backend endpoint. Never discard an unsent report.
+  /// Sends every pending report, oldest first, and returns how many are still
+  /// pending. A report leaves the device only after the server accepts it. A
+  /// failure keeps it, and ends the pass, so one outage is not hit once per
+  /// report. Passes run one after another, never together.
+  Future<int> sendPending() {
+    final pass = _tail.then((_) => _pass());
+    _tail = pass.then<void>((_) {}, onError: (Object _, StackTrace __) {});
+    return pass;
+  }
+
+  /// Stops a scheduled retry. Called when the signed-in account changes.
+  void cancelRetry() {
+    _retry?.cancel();
+    _retry = null;
+  }
+
+  /// Forgets the sent and refused reports of every account except [keep]. An
+  /// unsent report is never removed here: another tab may have switched the
+  /// account, and the report still belongs to the one that wrote it. The
+  /// sign-out wipe removes what is left.
+  Future<void> purgeOtherAccounts(String keep) => _db.transaction(() async {
+        final rows = await _rows();
+        final kept = [
+          for (final row in rows)
+            if (row['accountId'] == keep ||
+                (row['state'] ?? 'pending') == ReportState.pending.name)
+              row,
+        ];
+        if (kept.length != rows.length) await _write(kept);
+      });
+
+  /// Stops a scheduled retry. The queue is not used again after this.
+  void dispose() {
+    _retry?.cancel();
+    _retry = null;
+  }
+
+  Future<int> _pass() async {
+    final sender = _sender;
+    // Only the signed-in account's own reports are read, so another
+    // account's stay untouched until it is signed in again or the sign-out
+    // wipe removes them.
+    final queued = await pending();
+    var remaining = queued.length;
+    if (sender == null || remaining == 0) return remaining;
+    var networkFailure = false;
+    for (final report in queued) {
+      final (outcome, reason) = await _deliver(sender, report);
+      if (outcome == _Outcome.failed) {
+        networkFailure = true;
+        break;
+      }
+      if (outcome == _Outcome.unavailable) break;
+      await _settle(
+        report.id,
+        outcome == _Outcome.sent ? ReportState.sent : ReportState.refused,
+        reason: reason,
+      );
+      remaining--;
+    }
+    if (networkFailure && retryEvery != null) {
+      _retry?.cancel();
+      _retry = Timer(retryEvery!, () => unawaited(_retryPass()));
+    }
+    return remaining;
+  }
+
+  Future<void> _retryPass() async {
+    try {
+      await sendPending();
+    } on Object {
+      // The next start or return to the app tries again.
+    }
+  }
+
+  Future<(_Outcome, String?)> _deliver(
+    ReportSender sender,
+    QuestionReport report,
+  ) async {
+    final toSend = QuestionReport(
+      id: report.id,
+      questionId: report.questionId,
+      // Older reports are cleaned the same way a new one is.
+      message: _cut(_clean(report.message)),
+      createdAt: report.createdAt,
+      accountId: report.accountId,
+      examId: report.examId,
+      questionVersion: report.questionVersion,
+    );
+    for (var attempt = 1; attempt <= maxAttempts; attempt++) {
+      // Before every try, even after a wait: a student who switched accounts
+      // meanwhile must not send this report as the new account.
+      if (_account() != report.accountId) return (_Outcome.unavailable, null);
+      try {
+        await sender.send(toSend);
+        return (_Outcome.sent, null);
+      } on ReportRefused catch (refusal) {
+        return (_Outcome.refused, refusal.reason);
+      } on ReportUnavailable {
+        return (_Outcome.unavailable, null);
+      } on Object {
+        if (attempt == maxAttempts) return (_Outcome.failed, null);
+        await _wait(Duration(seconds: attempt * attempt * 2));
+      }
+    }
+    return (_Outcome.failed, null);
+  }
+
+  /// Marks one report done. A sent report and one the server refused for
+  /// quota lose their message; one the server rejected as malformed keeps its
+  /// text, with the reason, until the next wipe, so unsent words are never
+  /// erased silently. Reads the list again, so a report added during the pass
+  /// is kept.
+  Future<void> _settle(String id, ReportState state, {String? reason}) =>
+      _db.transaction(() async {
+        final rows = await _rows();
+        for (final row in rows) {
+          if (row['id'] != id) continue;
+          row['state'] = state.name;
+          if (reason != null) row['reason'] = reason;
+          if (!_keepsText(state, reason)) row['message'] = '';
+        }
+        await _write(rows);
+      });
+
+  static bool _keepsText(ReportState state, String? reason) =>
+      state == ReportState.refused &&
+      (reason == 'invalid-argument' || reason == 'already-exists');
+
+  /// How many of the signed-in account's reports the server refused for good,
+  /// by reason. They are not pending, and the wipe discards them.
+  Future<Map<String, int>> refusedReasons() async {
+    final counts = <String, int>{};
+    final account = _account();
+    if (account == null) return counts;
+    for (final row in await _rows()) {
+      if (row['accountId'] != account) continue;
+      if (row['state'] != ReportState.refused.name) continue;
+      final reason = (row['reason'] as String?) ?? 'unknown';
+      counts[reason] = (counts[reason] ?? 0) + 1;
+    }
+    return counts;
+  }
+
+  /// The stored list. A list written before reports had ids gets them here and
+  /// is saved at once, so an id never changes between tries.
+  Future<List<Map<String, Object?>>> _rows() async {
+    final stored = await _read();
+    bool whole(Map<String, Object?> row) =>
+        row['id'] is String &&
+        (row['accountId'] is String || row['orphan'] == true);
+    if (stored.every(whole)) return stored;
+    return _db.transaction(() async {
+      final rows = await _read();
+      for (final row in rows) {
+        if (row['id'] is! String) row['id'] = _newId();
+        // A report from before accounts were recorded has no proven owner. It
+        // is never sent, to anyone, and stays on the device until the next
+        // wipe: privacy over recovery.
+        if (row['accountId'] is! String) row['orphan'] = true;
+      }
+      await _write(rows);
+      return rows;
+    });
+  }
+
+  Future<List<Map<String, Object?>>> _read() async {
+    final row = await (_db.select(_db.devicePrefs)
+          ..where((p) => p.key.equals(_key)))
+        .getSingleOrNull();
+    if (row == null) return [];
+    final data = jsonDecode(row.value) as List<dynamic>;
+    return [
+      for (final item in data) Map<String, Object?>.from(item as Map),
+    ];
+  }
+
+  Future<void> _write(List<Map<String, Object?>> rows) =>
+      _db.into(_db.devicePrefs).insertOnConflictUpdate(
+            DevicePrefsCompanion.insert(key: _key, value: jsonEncode(rows)),
+          );
+
+  QuestionReport _parse(Map<String, Object?> row) => QuestionReport(
+        id: row['id']! as String,
+        questionId: row['questionId']! as String,
+        message: (row['message'] as String?) ?? '',
+        createdAt: DateTime.parse(row['createdAt']! as String),
+        accountId: row['accountId'] as String?,
+        examId: row['examId'] as String?,
+        questionVersion: row['questionVersion'] as int?,
+        state: ReportState.values.firstWhere(
+          (s) => s.name == row['state'],
+          orElse: () => ReportState.pending,
+        ),
+        refusalReason: row['reason'] as String?,
+      );
+
+  /// Drops what the server refuses in a message: control characters other
+  /// than tab, line feed and carriage return, and unpaired surrogates.
+  static String _clean(String message) {
+    final units = message.codeUnits;
+    final out = StringBuffer();
+    for (var i = 0; i < units.length; i++) {
+      final unit = units[i];
+      if (unit < 0x20 && unit != 0x09 && unit != 0x0a && unit != 0x0d) continue;
+      if (unit == 0x7f) continue;
+      if (unit >= 0xd800 && unit <= 0xdbff) {
+        final paired = i + 1 < units.length &&
+            units[i + 1] >= 0xdc00 &&
+            units[i + 1] <= 0xdfff;
+        if (!paired) continue;
+        out
+          ..writeCharCode(unit)
+          ..writeCharCode(units[++i]);
+        continue;
+      }
+      if (unit >= 0xdc00 && unit <= 0xdfff) continue;
+      out.writeCharCode(unit);
+    }
+    return out.toString();
+  }
+
+  /// At most [maxMessageLength] UTF-16 units, never ending inside a pair.
+  static String _cut(String message) {
+    if (message.length <= maxMessageLength) return message;
+    var end = maxMessageLength;
+    final last = message.codeUnitAt(end - 1);
+    if (last >= 0xD800 && last <= 0xDBFF) end--;
+    return message.substring(0, end);
   }
 
   bool _sameDay(DateTime a, DateTime b) {
@@ -96,3 +508,13 @@ class ReportQueue {
         localA.day == localB.day;
   }
 }
+
+/// What became of one report: [delivery] is null when it was not saved
+/// ([result] says why).
+class ReportSubmission {
+  const ReportSubmission(this.result, this.delivery);
+  final ReportResult result;
+  final ReportDelivery? delivery;
+}
+
+enum _Outcome { sent, refused, unavailable, failed }

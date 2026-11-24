@@ -12,6 +12,24 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import '../../../helpers/accessibility.dart';
 import '../../../helpers/in_memory_database.dart';
 
+class _Accepting implements ReportSender {
+  final sent = <QuestionReport>[];
+  @override
+  Future<void> send(QuestionReport report) async => sent.add(report);
+}
+
+class _Refusing implements ReportSender {
+  @override
+  Future<void> send(QuestionReport report) async =>
+      throw const ReportRefused('question-limit');
+}
+
+class _Offline implements ReportSender {
+  @override
+  Future<void> send(QuestionReport report) async =>
+      throw const ReportUnavailable();
+}
+
 void main() {
   for (final brightness in Brightness.values) {
     for (final scale in [1.0, 2.0]) {
@@ -20,7 +38,7 @@ void main() {
           (tester) async {
         final db = inMemoryDatabase();
         addTearDown(db.close);
-        final queue = ReportQueue(db);
+        final queue = ReportQueue(db, account: () => 'a');
         await pumpAccessibilitySurface(
           tester,
           ReportForm(
@@ -58,7 +76,7 @@ void main() {
         await tester.tap(send);
         await tester.pumpAndSettle();
         expect(
-          find.text('Saved on this device.'),
+          find.text("Saved. It sends when you're back online."),
           findsOneWidget,
         );
         expect((await queue.pending()).single.questionId, 'q');
@@ -80,7 +98,7 @@ void main() {
               onPressed: () => openQuestionReport(
                 context,
                 'entry-q',
-                queue: ReportQueue(db),
+                queue: ReportQueue(db, account: () => 'a'),
               ),
               child: const Text('Report'),
             ),
@@ -94,7 +112,8 @@ void main() {
     await tester.pump();
     await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
-    expect((await ReportQueue(db).pending()).single.questionId, 'entry-q');
+    final pending = await ReportQueue(db, account: () => 'a').pending();
+    expect(pending.single.questionId, 'entry-q');
   });
 
   // Design system 4.0: the form is built from the system's components.
@@ -103,7 +122,7 @@ void main() {
     final semantics = tester.ensureSemantics();
     final db = inMemoryDatabase();
     addTearDown(db.close);
-    final queue = ReportQueue(db);
+    final queue = ReportQueue(db, account: () => 'a');
     var closed = 0;
     await pumpAccessibilitySurface(
       tester,
@@ -156,7 +175,10 @@ void main() {
     await tester.tap(find.text('Save'));
     await tester.pumpAndSettle();
     expect((await queue.pending()).single.questionId, 'q');
-    expect(find.text('Saved on this device.'), findsOneWidget);
+    expect(
+      find.text("Saved. It sends when you're back online."),
+      findsOneWidget,
+    );
     semantics.dispose();
   });
 
@@ -170,7 +192,7 @@ void main() {
     addTearDown(tester.view.reset);
     final db = inMemoryDatabase();
     addTearDown(db.close);
-    final queue = ReportQueue(db);
+    final queue = ReportQueue(db, account: () => 'a');
     await tester.pumpWidget(
       MaterialApp(
         theme: buildLightTheme(web: true),
@@ -210,6 +232,277 @@ void main() {
   });
 
   for (final wide in [false, true]) {
+    testWidgets('a report the server accepted says so (wide=$wide)',
+        (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = wide ? const Size(1440, 900) : const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Accepting();
+      final queue = ReportQueue(
+        db,
+        sender: sender,
+        account: () => 'a',
+      );
+      ReportDelivery? result;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: Scaffold(
+            body: Builder(
+              builder: (context) => TextButton(
+                onPressed: () async => result = await openQuestionReport(
+                  context,
+                  'q',
+                  queue: queue,
+                  examId: 'cse-pro',
+                  questionVersion: 3,
+                ),
+                child: const Text('Report'),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.text('Report'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Wrong answer key.');
+      await tester.pump();
+      await tester.tap(find.text('Save'));
+      await tester.pump();
+      await tester.pump();
+      expect(find.text("Thank you. We'll take a look."), findsOneWidget);
+      expect(find.textContaining('Saved'), findsNothing);
+      await tester.pump(const Duration(seconds: 3));
+      await tester.pumpAndSettle();
+      expect(result, ReportDelivery.sent);
+      expect(sender.sent.single.examId, 'cse-pro');
+      expect(sender.sent.single.questionVersion, 3);
+      expect(await queue.pending(), isEmpty);
+    });
+
+    testWidgets('a report that could not send says it is saved (wide=$wide)',
+        (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = wide ? const Size(1440, 900) : const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue = ReportQueue(
+        db,
+        sender: _Offline(),
+        account: () => 'a',
+      );
+      ReportDelivery? result;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: Scaffold(
+            body: Builder(
+              builder: (context) => TextButton(
+                onPressed: () async => result =
+                    await openQuestionReport(context, 'q', queue: queue),
+                child: const Text('Report'),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.text('Report'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Wrong answer key.');
+      await tester.pump();
+      await tester.tap(find.text('Save'));
+      await tester.pump();
+      await tester.pump();
+      expect(
+        find.text("Saved. It sends when you're back online."),
+        findsOneWidget,
+      );
+      expect(find.textContaining('Thank you'), findsNothing);
+      await tester.pump(const Duration(seconds: 3));
+      await tester.pumpAndSettle();
+      expect(result, ReportDelivery.saved);
+      expect(await queue.pending(), hasLength(1));
+    });
+
+    testWidgets(
+        'a report the server refused shows the limit, never thanks '
+        '(wide=$wide)', (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = wide ? const Size(1440, 900) : const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final queue = ReportQueue(
+        db,
+        sender: _Refusing(),
+        account: () => 'a',
+      );
+      ReportDelivery? result;
+      var closed = false;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: Scaffold(
+            body: Builder(
+              builder: (context) => TextButton(
+                onPressed: () async {
+                  result = await openQuestionReport(context, 'q', queue: queue);
+                  closed = true;
+                },
+                child: const Text('Report'),
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.text('Report'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Wrong answer key.');
+      await tester.pump();
+      await tester.tap(find.text('Save'));
+      await tester.pump();
+      await tester.pump();
+      expect(find.textContaining('Thank you'), findsNothing);
+      expect(find.textContaining('Saved.'), findsNothing);
+      expect(find.text('You reported this question before.'), findsOneWidget);
+      await tester.pump(const Duration(seconds: 3));
+      expect(closed, isFalse, reason: 'the form stays open on a refusal');
+      expect(result, isNull);
+    });
+
+    testWidgets(
+        'a draft opened under one account is not sent after a switch '
+        '(wide=$wide)', (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = wide ? const Size(1440, 900) : const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Accepting();
+      var who = 'a';
+      final queue = ReportQueue(
+        db,
+        sender: sender,
+        account: () => who,
+      );
+      var closed = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: Scaffold(
+            body: ReportForm(
+              questionId: 'q',
+              queue: queue,
+              onClose: () => closed++,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Typed as A.');
+      await tester.pump();
+      // Another tab signed in as B.
+      who = 'b';
+      await tester.tap(find.text('Save'));
+      await tester.pump();
+      await tester.pump();
+      expect(find.textContaining('Thank you'), findsNothing);
+      expect(find.textContaining('Saved.'), findsNothing);
+      expect(closed, 1, reason: 'the form closes and shows nothing was sent');
+      expect(sender.sent, isEmpty);
+      who = 'a';
+      expect(await queue.history(), isEmpty);
+      who = 'b';
+      expect(await queue.history(), isEmpty);
+    });
+
+    testWidgets(
+        'a form opened with nobody signed in cannot be saved later '
+        '(wide=$wide)', (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = wide ? const Size(1440, 900) : const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final sender = _Accepting();
+      String? who;
+      final queue = ReportQueue(db, sender: sender, account: () => who);
+      var closed = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: Scaffold(
+            body: ReportForm(
+              questionId: 'q',
+              queue: queue,
+              onClose: () => closed++,
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'Typed with nobody in.');
+      await tester.pump();
+      // An account signs in (another tab) before Save.
+      who = 'b';
+      await tester.tap(find.text('Save'));
+      await tester.pump();
+      await tester.pump();
+      expect(find.textContaining('Thank you'), findsNothing);
+      expect(closed, 1);
+      expect(sender.sent, isEmpty);
+      expect(await queue.history(), isEmpty);
+    });
+
+    testWidgets('typing stops at the longest message (wide=$wide)',
+        (tester) async {
+      debugWebPlatformOverride = wide;
+      addTearDown(() => debugWebPlatformOverride = null);
+      tester.view
+        ..physicalSize = wide ? const Size(1440, 900) : const Size(390, 844)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: wide ? buildLightTheme(web: true) : buildLightTheme(),
+          home: Scaffold(
+            body: ReportForm(
+              questionId: 'q',
+              queue: ReportQueue(db, account: () => 'a'),
+              onClose: () {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'm' * 1500);
+      await tester.pump();
+      expect(
+        tester.widget<TextField>(find.byType(TextField)).controller!.text,
+        hasLength(ReportQueue.maxMessageLength),
+      );
+    });
+
     testWidgets(
         'reduced motion fades the report in place over 150 ms '
         '(wide=$wide)', (tester) async {
@@ -221,7 +514,7 @@ void main() {
       addTearDown(tester.view.reset);
       final db = inMemoryDatabase();
       addTearDown(db.close);
-      final queue = ReportQueue(db);
+      final queue = ReportQueue(db, account: () => 'a');
       await tester.pumpWidget(
         MaterialApp(
           theme: wide ? buildLightTheme(web: true) : buildLightTheme(),

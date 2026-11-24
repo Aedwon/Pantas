@@ -17,7 +17,11 @@ const auth = uid => ({uid, token: {firebase: {sign_in_provider: 'google.com'}, p
 // keep supporting a withdrawal retry even while the student is blocked.
 const guardianVisitors = new Set(['answerGuardianRequest', 'getGuardianRequest', 'getGuardianManage',
   'setGuardianSharing', 'withdrawGuardianPermission']);
-const callables = Object.entries(endpoints).filter(([name, fn]) => fn?.__endpoint?.callableTrigger && !guardianVisitors.has(name));
+// Reports check input and burst limits before any read, so a closed account is refused inside its
+// own write transaction instead (question-reports.test.mjs and question-reports.emulator.mjs).
+const checksInTransaction = new Set(['sendQuestionReport']);
+const callables = Object.entries(endpoints).filter(([name, fn]) => fn?.__endpoint?.callableTrigger &&
+  !guardianVisitors.has(name) && !checksInTransaction.has(name));
 assert.ok(callables.length >= 35, `Only ${callables.length} own-account callables found`);
 const uidFor = state => `withdrawn-call-${state}`;
 before(async () => {
