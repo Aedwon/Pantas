@@ -71,23 +71,23 @@ test('stamping writes the decoded size of each file the loader fetches', () => {
   });
 });
 
-test('the two canvaskit builds are listed as alternatives, not both counted', () => {
+test('the list names the build it belongs to, so a worker can refuse another build\'s list', () => {
   const dir = bigBuild();
-  stamp(dir);
+  const version = stamp(dir);
   const list = JSON.parse(readFileSync(join(dir, LOAD_SIZES), 'utf8'));
-  assert.deepEqual(list.alternatives, [[
-    ['canvaskit/chromium/canvaskit.js', 'canvaskit/chromium/canvaskit.wasm'],
-    ['canvaskit/canvaskit.js', 'canvaskit/canvaskit.wasm'],
-  ]]);
+  assert.equal(list.version, version);
+  assert.equal(list.alternatives, undefined);
 });
 
-test('the size list is part of the build identity and stamping twice is stable', () => {
+test('the list is not part of the build hash and stamping twice is stable', () => {
   const dir = bigBuild();
   const first = stamp(dir);
   const text = readFileSync(join(dir, LOAD_SIZES), 'utf8');
   assert.equal(stamp(dir), first);
   assert.equal(readFileSync(join(dir, LOAD_SIZES), 'utf8'), text);
   assert.equal(stamp(bigBuild()), first);
+  const bare = bigBuild();
+  assert.equal(stamp(bare), first);
 });
 
 test('a build with no main script gets no list, so the page shows the spinner only', () => {
@@ -102,5 +102,4 @@ test('only files that exist are listed', () => {
   stamp(dir);
   const list = JSON.parse(readFileSync(join(dir, LOAD_SIZES), 'utf8'));
   assert.deepEqual(Object.keys(list.files), ['main.dart.js']);
-  assert.deepEqual(list.alternatives, []);
 });

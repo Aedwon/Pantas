@@ -4,9 +4,10 @@
 // built file to the version in flutter_bootstrap.js, so each build gets its own
 // worker and cache.
 //
-// It also writes pantas_load_sizes.json before hashing: the decoded size of each
-// file the Flutter loader fetches before the first frame. The service worker
-// divides the bytes it has passed on by these sizes for the loading percent.
+// It also writes pantas_load_sizes.json, stamped with that version: the decoded
+// size of each file the Flutter loader fetches before the first frame. The
+// service worker divides the bytes it delivers by these sizes for the loading
+// percent, and ignores the list if its version is not the worker's own.
 //
 // Usage: node tool/web/stamp_worker_version.mjs [build/web]
 import {createHash} from 'node:crypto';
@@ -16,11 +17,14 @@ import {join, relative} from 'node:path';
 const BOOTSTRAP = 'flutter_bootstrap.js';
 export const LOAD_SIZES = 'pantas_load_sizes.json';
 const MAIN = 'main.dart.js';
-// Flutter picks one canvaskit build at run time: the chromium one on browsers
-// that support it, the full one elsewhere. The page fetches one of the two.
+// Flutter loads one canvaskit build at run time (chromium or full), from the
+// build's own folder or, in a build with the CDN on, from gstatic. Both builds
+// are listed; the worker counts only what the page asks for through it.
 const CANVASKIT = [
-  ['canvaskit/chromium/canvaskit.js', 'canvaskit/chromium/canvaskit.wasm'],
-  ['canvaskit/canvaskit.js', 'canvaskit/canvaskit.wasm'],
+  'canvaskit/chromium/canvaskit.js',
+  'canvaskit/chromium/canvaskit.wasm',
+  'canvaskit/canvaskit.js',
+  'canvaskit/canvaskit.wasm',
 ];
 const TOKEN = /registerWorker\("([^"]*)"/;
 
@@ -34,7 +38,8 @@ function files(dir, root = dir) {
 export function buildHash(dir) {
   const hash = createHash('sha256');
   for (const name of files(dir)) {
-    if (name === BOOTSTRAP) continue;
+    // The list carries the version this hash makes, so it stays out of it.
+    if (name === BOOTSTRAP || name === LOAD_SIZES) continue;
     let bytes = readFileSync(join(dir, name));
     // Ignore our own output so stamping twice preserves the build identity.
     if (name === 'version.json') {
@@ -47,9 +52,9 @@ export function buildHash(dir) {
   return hash.digest('hex').slice(0, 12);
 }
 
-// Writes the size list, or removes a stale one when the build has no main
-// script. Without the list the page shows the spinner only.
-export function writeLoadSizes(dir) {
+// Writes the size list for this build version, or removes a stale one when the
+// build has no main script. Without the list the page shows the spinner only.
+export function writeLoadSizes(dir, version) {
   const path = join(dir, LOAD_SIZES);
   const size = name => {
     const file = join(dir, name);
@@ -60,17 +65,13 @@ export function writeLoadSizes(dir) {
     return null;
   }
   const files = {[MAIN]: size(MAIN)};
-  const alternatives = [];
-  const variants = CANVASKIT.filter(group => group.every(name => size(name) !== null));
-  for (const group of variants) for (const name of group) files[name] = size(name);
-  if (variants.length > 0) alternatives.push(variants);
-  const list = {v: 1, files, alternatives};
+  for (const name of CANVASKIT) if (size(name) !== null) files[name] = size(name);
+  const list = {v: 1, version, files};
   writeFileSync(path, JSON.stringify(list));
   return list;
 }
 
 export function stamp(dir) {
-  writeLoadSizes(dir);
   const path = join(dir, BOOTSTRAP);
   const source = readFileSync(path, 'utf8');
   const match = source.match(TOKEN);
@@ -78,6 +79,7 @@ export function stamp(dir) {
   const base = match[1].split('-')[0];
   const version = `${base}-${buildHash(dir)}`;
   writeFileSync(path, source.replace(TOKEN, `registerWorker("${version}"`));
+  writeLoadSizes(dir, version);
   const metadataPath = join(dir, 'version.json');
   if (existsSync(metadataPath)) {
     const metadata = JSON.parse(readFileSync(metadataPath, 'utf8'));
