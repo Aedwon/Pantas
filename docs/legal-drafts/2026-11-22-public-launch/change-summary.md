@@ -153,3 +153,8 @@ A Fable agent ruled the last four brackets under your delegation. Codex Sol High
 - **What the email promise asks of you:** a monthly sweep of the mailboxes, about five minutes, at the monthly cost check. The manager writes the steps in the operations file first. A thread under a dispute or with an unanswered request is held and never swept.
 - **Invoice:** the Terms now say "Pantas issues a sales invoice for each web purchase." The words about sending it by email are gone. It publishes only if you can issue registered invoices on publishing day (checklist M8). If not, the sentence is deleted and added later. Invoices stay by hand until the automatic email is built.
 - **Still yours to fill:** the publication date. NPC registration stays yours, and no text mentions it.
+
+## Nov 24 mailbox sweep
+
+- **Monthly sweep:** a 10-minute Gmail routine before publishing. Support and privacy emails about a payment, refund, complaint or privacy request are deleted two years after the last email. All other emails are deleted 90 days after the last email. Steps are in the README (0c) and in a runbook on main.
+- **Mail host:** `pantas.study` uses Cloudflare Email Routing, which forwards mail and stores none. The mail sits in your Gmail, so the sweep happens there.

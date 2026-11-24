@@ -242,6 +242,11 @@ The texts publish in the same prod release as the behavior they describe, or aft
 
 ## Publishing steps (for the integrator, L1 and L7)
 
+0c. Mailbox sweep, before publishing. Once a month, about 10 minutes, in the Gmail inbox that `support@` and `dpo@` forward to (Cloudflare Email Routing stores no mail). Full runbook: `docs/runbooks/mailbox-retention-sweep.md` on main.
+   1. Setup once: create Gmail labels `pay-2y` and `hold`. Label a thread `pay-2y` when you reply to it about a payment, refund, purchase complaint or privacy request. Add `hold` while a request is unanswered or a dispute, complaint or case is open.
+   2. Each month, search `older_than:45d -label:pay-2y -label:hold -in:trash`. Check the date on each row, because it is the newest message in the thread. Delete rows dated over 45 days ago. This keeps the 90-day limit even when a sweep is a month late.
+   3. Search `label:pay-2y older_than:700d -label:hold`. Delete rows dated 700 days (about 23 months) or older. This keeps the two-year limit.
+   4. Do the same with `in:sent` added, remove `hold` from ended matters, and empty the trash.
 0b. NPC: register with the NPC once the number of people whose sensitive personal information we hold (age counts) approaches 1,000, or when the LGU permit is issued, whichever comes first. Until then, file the sworn declaration of exemption after the permit and notarization. Check the count at each monthly cost check. When registered, add the NPC details to the Privacy Policy and the Notice for teens only if a law requires it.
 0a. BIR seal badge: optional while RMC 113-2026 suspends the requirement. If the suspension is lifted before publishing, it becomes a gate.
 0. Texts publish with or after the D1, D2, D3 and D7 builds, and each claim is checked live on prod first (table above).
