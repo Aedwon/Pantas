@@ -126,6 +126,17 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Lead threads reused with large old context (Nov 24)
+
+- His words: "process improvement: you are reusing lead threads that have lots of context from previous tasks. i think that's inefficient. we should save tokens. as the operations manager it's your job to make the process efficient. propose a solution and i'll approve ot". Approved: "ok approved".
+- Wrong: the manager sent the paused-session board task to the UX lead thread, which already held about 540 items of unrelated work, and the old CSE and security leads had grown past 2,000 items. Each reply rereads that whole history, which spends his Claude usage on old context.
+- Why it got through: the Nov 16 routing rule only moved work to a fresh lead above 1,000 items or outside the lane, so a thread could carry hundreds of items of finished work into every new task.
+- Fix (required steps, manager and every lead; replaces the 1,000-item test in operations-manager.md):
+  1. Every new task starts with a blank memory: send it with `t3_thread_send` and `freshContext: true` (same thread and worktree, no old chat), or launch a new lead for a new lane. The brief carries everything the task needs.
+  2. Every task ends with a short handoff note on main in `docs/superpowers/handoffs/` (what changed, where the work is saved, what is left). The next fresh session reads the note, not the old chat.
+  3. A task that runs long (about 3 hours of steady work, or past about 300 thread items) writes its note and restarts itself with a blank memory.
+  4. The manager does the same: it restarts from a handoff note when its own thread gets long.
+
 ### A new quiz bar design reached prod without his visual check (Nov 24)
 
 - His words: "where did this come from? why is there now those dashes", then "lol that looks terrible. what else did you ship that I should know?" (about the one-mark-per-question quiz bar, phone screenshot, about 7:15 PM Manila).
