@@ -71,8 +71,8 @@ final quizTodayCountsProvider = FutureProvider.autoDispose
 /// small though". Board A draws 12 above and 16 below the text; the card
 /// before Nov 24 had about 18 and 22, and his call from using the app wins:
 /// 18 above the text and 22 below it.
-const double _discardAbove = 16;
-const double _discardBelow = 20;
+const double _discardAbove = PantasSpace.s16;
+const double _discardBelow = PantasSpace.s20;
 
 class QuizTabScreen extends ConsumerStatefulWidget {
   const QuizTabScreen({this.mockPanel, this.mockReady = true, super.key});
@@ -691,10 +691,16 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            if (state is SessionPanelInProgress)
+                            if (state is SessionPanelInProgress) ...[
                               // Board A (wide Quiz): no sentence; Discard and
                               // Resume at the right of the foot, 16 apart. The
-                              // foot wraps, as the board's does.
+                              // foot wraps, as the board's does. A quiz the
+                              // rows do not show is named above them (rule 4,
+                              // Nov 25).
+                              if (state.pausedName case final name?) ...[
+                                Text('Paused: $name', style: t.sub),
+                                const SizedBox(height: PantasSpace.s12),
+                              ],
                               Wrap(
                                 alignment: WrapAlignment.end,
                                 crossAxisAlignment: WrapCrossAlignment.center,
@@ -708,8 +714,8 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                                   ),
                                   primary,
                                 ],
-                              )
-                            else if (canStart)
+                              ),
+                            ] else if (canStart)
                               Row(
                                 children: [
                                   Expanded(
@@ -1165,7 +1171,19 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
               children: [
                 if (state is SessionPanelInProgress) ...[
                   // Board A (paused session, his pick Nov 25): no sentence;
-                  // the Reviews row shows the progress.
+                  // the Reviews row shows the progress. A quiz the rows do not
+                  // show is named in the line's slot (rule 4, Nov 25).
+                  if (state.pausedName case final name?) ...[
+                    Semantics(
+                      liveRegion: true,
+                      child: Text(
+                        'Paused: $name',
+                        style: PantasType.phoneExplanation
+                            .copyWith(color: context.colors.textSecondary),
+                      ),
+                    ),
+                    const SizedBox(height: PantasSpace.s14),
+                  ],
                   PantasButton(
                     label: 'Resume',
                     onPressed: () => unawaited(_open('/quiz/resume/$examId')),

@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
+import 'package:pantas/features/quiz/presentation/today_providers.dart';
 
 import '../../../goldens/screens/quiz_tab_golden_test.dart';
 import '../../../goldens/screens/screen_harness.dart';
@@ -58,5 +60,48 @@ void main() {
     expect(line.top - resume.bottom, moreOrLessEquals(16, epsilon: 0.5));
     expect(card.bottom - line.bottom, moreOrLessEquals(20, epsilon: 0.5));
     expect(line.center.dx, moreOrLessEquals(resume.center.dx, epsilon: 1));
+  });
+
+  test('a paused quiz the rows do not show is named; Reviews is not', () {
+    const reviews = SessionPanelInProgress(
+      position: 2,
+      total: 11,
+      reviewSession: (ordinal: 1, total: 1, done: 1, questions: 11),
+      origin: SessionOrigin.todayInterleaved,
+    );
+    expect(reviews.pausedName, isNull);
+    expect(
+      const SessionPanelInProgress(
+        position: 1,
+        total: 10,
+        origin: SessionOrigin.todayInterleaved,
+      ).pausedName,
+      'Weakest topics practice',
+    );
+    expect(
+      const SessionPanelInProgress(
+        position: 1,
+        total: 10,
+        topicName: 'Algebra',
+        origin: SessionOrigin.drill,
+      ).pausedName,
+      'Algebra practice',
+    );
+    expect(
+      const SessionPanelInProgress(
+        position: 1,
+        total: 5,
+        origin: SessionOrigin.flagged,
+      ).pausedName,
+      'Flagged questions',
+    );
+    expect(
+      const SessionPanelInProgress(
+        position: 1,
+        total: 5,
+        origin: SessionOrigin.newQuestions,
+      ).pausedName,
+      isNull,
+    );
   });
 }
