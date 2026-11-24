@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Manager ruled on the Home footer without finding his Oct 31 decision (Nov 25)
+
+- His words: "didn't we remove 2" (about the manager's list item "Home footer: About 45 min today becomes real counts").
+- Wrong: the manager ruled that the wide Home footer would show "3 lessons, 18 reviews left" in place of the time estimate, built it and queued it to ship. On Oct 31 he had already decided "Leave it out": the footer keeps only the button. The live app already matched his decision, so the change would have added something he had removed.
+- Why it got through: the manager ruled under rule 4 from the lead's summary ("used to show About 45 min today") and did not search the launch log or rulings first. This is the same kind as the Nov 23 entry (deciding or asking without searching), now on the manager's own rulings.
+- Fix (required step, manager and leads): every rule-4 ruling names the search done before it (launch log, rulings file, boards, with the terms searched) in the message that gives the ruling. A ruling that names no search is not acted on. The release lead dropped the U24 branch before shipping. No check can tell a decided question from an open one.
+
 <<<<<<< Updated upstream
 ### Walk-through lesson rewrite still too compressed (Nov 25)
 
