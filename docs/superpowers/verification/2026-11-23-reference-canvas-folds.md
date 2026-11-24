@@ -527,3 +527,25 @@ Notes:
 - The other QV boards with a session bar (QV_Leave, QV_Long, QV_MissFree, QV_MissPro, QV_Grid) still draw no track. Not asked for.
 - QV_GridBack shows "2 of 10" with a label that names question 4; this follows the build, and the ruling keeps the label.
 - Both new boards draw "4 of 20" with the base board's three results, to avoid inventing answers for later questions.
+
+## T16 B2 consistency pass (Nov 24)
+
+Follow-up to the T16 B2 section above. Final versions: Pantas Redesign version 493, Pantas Design System version 12. One Fable 5.2 re-check of QV_GridBack and the five new tracks: all six passed, no fixes.
+
+| Board | Canvas | Change | Mark data | Fable verdict |
+|---|---|---|---|---|
+| QV_GridBack | Pantas Redesign | Re-check of the corrected marks | Red, teal, red, dark, six gray; label names question 4 as the build does | Pass |
+| QV_Leave | Pantas Redesign | Track added above the count (QV_Answer layout) | Right, wrong, right, question 4 current | Pass |
+| QV_Long | Pantas Redesign | Same | Right, wrong, right, wrong, wrong, question 6 current | Pass |
+| QV_MissFree, QV_MissPro | Pantas Redesign | Same | Right, wrong, right, wrong, wrong (question 5 is the shown miss, red) | Pass |
+| QV_Grid | Pantas Redesign | Same, on both bars (4 of 10, then 2 of 10) | Red, teal, red, dark, from the board's own grid, as QV_GridBack | Pass |
+| R320_D71QuizFlag | Pantas Design System | Retitled "RETIRED Nov 24 (T16 B2 ruling, 2e07fc7d7): ..."; sticky note added below it; board kept | n/a | n/a |
+
+Repo: `docs/superpowers/plans/design-system-4/map.md` item 8 now says D71 is retired by the Nov 24 T16 B2 ruling (2e07fc7d7): the flag sits in the session bar. Nothing deleted.
+
+Left alone, for the T16 B2 build: `design/system/tokens.json` (`bp-phone-narrow`, which feeds generated Dart and token files), `design/system/components/bundle.css` (`.fbar__flag-alt`), the FloatingBar and PageHeader READMEs, and the handoff copies of these. The ruling's new phone breakpoint is 360 px.
+
+Assumptions named by Fable, not defects:
+- QV_Grid and QV_GridBack draw question 4's history as wrong, right, wrong; QV_Answer, QV_Flag and QV_Leave draw right, wrong, right. The grid boards predate this change.
+- The miss and long boards follow QV_Answer's wrong-pick loop (question 4 wrong).
+- Mark 5 on the miss boards is drawn red at rest; QV_Answer animates dark to red.
