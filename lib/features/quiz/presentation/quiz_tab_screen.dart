@@ -1162,13 +1162,17 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                   // Board (QZ_Resume): a 15/600 teal line, 12 under Resume
                   // (8 here and 4 inside the line).
                   const SizedBox(height: PantasSpace.s8),
-                  PantasButton(
-                    label: 'Discard this session',
-                    kind: PantasButtonKind.tertiary,
-                    tone: PantasButtonTone.accent,
-                    size: PantasButtonSize.textPhoneSm,
-                    onPressed:
-                        _discarding ? null : () => unawaited(_discard(examId)),
+                  // Board (QZ_Resume): the line is centered under Resume.
+                  Center(
+                    child: PantasButton(
+                      label: 'Discard this session',
+                      kind: PantasButtonKind.tertiary,
+                      tone: PantasButtonTone.accent,
+                      size: PantasButtonSize.textPhoneSm,
+                      onPressed: _discarding
+                          ? null
+                          : () => unawaited(_discard(examId)),
+                    ),
                   ),
                   if (_saveFailed)
                     saveFailureLine(() => unawaited(_discard(examId))),

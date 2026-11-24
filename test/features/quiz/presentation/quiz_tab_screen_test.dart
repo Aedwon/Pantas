@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -90,6 +91,24 @@ void main() {
         );
         expect(find.text('6 of 10'), findsNothing);
         expect(find.text('Resume'), findsOneWidget);
+        // Board QZ_Resume: Discard is centered under the full-width Resume,
+        // at its natural width (a full-width box left-aligns the letters).
+        final discard = tester.renderObject<RenderParagraph>(
+          find.text('Discard this session'),
+        );
+        expect(
+          discard.size.width,
+          lessThanOrEqualTo(
+            discard.getMaxIntrinsicWidth(double.infinity) + 1,
+          ),
+        );
+        expect(
+          tester.getCenter(find.text('Discard this session')).dx,
+          moreOrLessEquals(
+            tester.getCenter(find.text('Resume')).dx,
+            epsilon: 1,
+          ),
+        );
         expect(find.text('3 of 7'), findsOneWidget);
         final row = find.ancestor(
           of: find.text('Customize your own'),
