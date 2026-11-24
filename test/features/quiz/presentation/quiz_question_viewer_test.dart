@@ -141,7 +141,7 @@ void main() {
     expect(find.text('Wrong-choice check 1'), findsOneWidget);
     await tester.tap(find.byTooltip('Add Note'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('I misread'));
+    await tester.tap(find.text('I misread it'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Add Note'));
     await tester.pumpAndSettle();
@@ -270,7 +270,7 @@ void main() {
     await pump(tester, pro: true, reduced: false);
     await tester.tap(find.byTooltip('Add Note'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('I misread'));
+    await tester.tap(find.text('I misread it'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Add Note'));
     await tester.pump();

@@ -356,10 +356,12 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
             ),
             // QN_WrongOpen: 47 px rows with a hairline between them.
             const SizedBox(height: PantasSpace.s10),
+            // Phone boards (QN_Wrong, QN_WrongOpen, QN_OwnWords, QN_EditNote)
+            // word the reasons in full; the wide boards keep the short words.
             for (final (index, (tag, label)) in const [
-              (MistakeTag.misread, 'I misread'),
-              (MistakeTag.slipped, 'I forgot'),
-              (MistakeTag.unknown, "I didn't know"),
+              (MistakeTag.misread, 'I misread it'),
+              (MistakeTag.slipped, 'I knew it, I just slipped'),
+              (MistakeTag.unknown, "I didn't know it"),
               (MistakeTag.other, 'Type my own'),
             ].indexed) ...[
               if (index > 0)
