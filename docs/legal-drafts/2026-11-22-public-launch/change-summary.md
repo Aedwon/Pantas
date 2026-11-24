@@ -124,3 +124,11 @@ Codex Sol High critiqued only these changes (`critique-2026-11-23b-sol-high.md`)
 - **Periods:** unchanged.
 - **Publish gate:** these sentences publish only after the code change is on prod, checked live.
 - **Open for you or Fable (round 5):** ten years from the newest record is hard to justify for old sharing changes. It stays as ruled.
+
+## Nov 24 round 6 (sharing records after deletion)
+
+- **Sharing records:** the Notice for teens now says the records of when your guardian turned optional sharing on or off are deleted 1,461 days (four years) after we delete the account. Sharing changes never count as the newest record for the other evidence.
+- **Reason:** sharing permission is not a contract, so a claim about it is treated as a four-year claim (Civil Code Article 1146).
+- **Sol High:** four years is defensible. Article 1144(2) (ten years) is a credible other reading. The criminal period under Act No. 3326 is 8 or 12 years but does not justify keeping records. The three evidence lists and the basis bullet are unchanged.
+- **Publish gate:** these sentences publish only after the code change is on prod.
+- **Open risk:** a claim can be timely after the records are deleted. The ruling accepts it.

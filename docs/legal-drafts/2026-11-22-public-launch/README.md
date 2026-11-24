@@ -231,7 +231,7 @@ The texts publish in the same prod release as the behavior they describe, or aft
 | Claim in the texts | Build that makes it true |
 |---|---|
 | A tick on every web purchase; declaration, time, Terms version and wording version recorded; the Terms open without ticking; the seller line | D2, D3, R2, R5 (PR #90) |
-| Only guardian declarations copied at deletion; ten years and four years for evidence | R2, R6 (PR #90) |
+| Only guardian declarations copied at deletion; ten years and four years for evidence, and four years from the deletion date for sharing permission records | R2, R6 (PR #90), with the Nov 24 round 5 sharing-change code |
 | A failed request is deleted whole; a decline is deleted at once; its guardian page links go with it | D1 with H1 |
 | Reports deleted within 90 days of receipt | R3 (PR #86) with H2 |
 | The trial code period (the texts say "no scheduled expiry" until it ships) | D7 |
@@ -272,4 +272,15 @@ Critique: `critique-2026-11-24-sol-high.md`. All wording findings applied: the "
 
 ### Needs a product or code decision (round 5)
 
-1. **Ten years from the newest record for every row.** Sol High's biggest risk: justifying the full ten years for an older entry, especially optional-sharing changes, when the newest record is any one of them. R6 fixes the period, so it is not changed. A shorter period for sharing changes alone is a code and ruling question.
+1. **Closed (Fable Nov 24, round 5 ruling).** Sharing permission records are deleted 1,461 days after the account's deletion date and never count as the newest record. The Teen Notice "Guardian evidence" bullet says so.
+
+## Nov 24 round 6: sharing-record period (Fable round 5 ruling)
+
+Critique: `critique-2026-11-24b-sol-high.md`, the new sentences only. Wording findings applied: the notice no longer assigns users a filing deadline, says "your guardian's permission for optional usage sharing ends when we delete your account" instead of "no sharing can happen", and says the skipped records are only for the other evidence, with the guardian's confirmation still counting.
+
+**Article 1146 against Article 1144(2).** Sol High: Article 1146(1) is the better reading for damages from injury to a privacy right, and four years is defensible. Article 1144(2) (ten years, obligation created by law) stays credible if a claim is framed directly under Data Privacy Act Section 16(f). It found no Philippine court or NPC ruling that decides this. **Act No. 3326** governs criminal prescription only and leaves the civil answer unchanged. For Data Privacy Act offenses it gives 12 years (Sections 25(b), 26(b), 28 and 33) or 8 years (the other offenses in Sections 25 to 32). Under Section 11(e), the abstract chance of a prosecution does not justify keeping records. The ruling already rejects that reasoning.
+
+### Needs a product or code decision (round 6)
+
+1. **A timely claim can outlast the schedule.** Sol High's biggest risk: Pantas could delete evidence of a sharing permission while a claim about that use is still timely, because the deletion schedule and the legal deadline run independently, and a claim can start years before the deletion date. The ruling accepts this. The date counts from deletion, which adds a buffer. No change made.
+2. **Day count against calendar years.** "1,461 days (four years)" can differ from four calendar years by a day. The ruling fixes the day count. No change made.
