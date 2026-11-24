@@ -317,9 +317,10 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
           reason: disputeReason, paidAmount: input.paidAmount, refundedTotal: earlyRefunds,
           unusedDays: unusedDaysOf({...grant, revokedAt: now}, now), pulled: [], createdAt: now});
       }
-      // A dispute lost after refunds that arrived first: the chargeback and the refunds together exceed the payment.
-      if (lostId !== undefined && !mixedWon && plan && earlyRefunds > 0 && !priorDisputeFollowUp.exists &&
-          earlyRefunds + (early.disputedAmount ?? input.paidAmount) > input.paidAmount) {
+      // A dispute lost after refunds that arrived first: the chargeback and the refunds together differ from the payment
+      // (the buyer is still owed money, or the owner paid out twice).
+      if (lostId !== undefined && !mixedWon && plan && !priorDisputeFollowUp.exists &&
+          earlyRefunds + (early.disputedAmount ?? input.paidAmount) !== input.paidAmount) {
         disputeReason = 'disputeLostAfterRefund';
         transaction.set(disputeFollowUpRef, {paymentId, disputeId: tiedId ?? null, status: 'pending', refundRequired: false,
           reason: disputeReason, paidAmount: input.paidAmount, refundedTotal: earlyRefunds,
@@ -464,12 +465,12 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
         refundRequired: false, reason, paidAmount: paidOf(g), refundedTotal: refunded,
         unusedDays: unusedDaysOf({...g, revokedAt: g.revokedAt ?? now}, now), pulled, createdAt: now});
     };
-    // A lost dispute plus the refunds already made exceed the payment: the owner paid twice. The disputed
+    // A lost dispute plus the refunds already made differ from the payment: the buyer is still owed money, or the owner paid twice. The disputed
     // amount is read from the event; when it is absent the whole payment is assumed.
     if (input.disputeLost && grant && !disputeFollow.exists) {
       const paidAmount = paidOf(grant);
       const refunded = refundedTotal(grant);
-      if (paidAmount > 0 && refunded > 0 && refunded + (input.disputedAmount ?? paidAmount) > paidAmount) {
+      if (paidAmount > 0 && refunded + (input.disputedAmount ?? paidAmount) !== paidAmount) {
         writeDisputeFollowUp('disputeLostAfterRefund', grant, refunded, pulledBy(inputs.grants, input.disputeId ?? ''));
       }
     }
@@ -553,7 +554,7 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
         // A chargeback with no outcome on the tombstone cannot exist on prod (test keys only), so a loss is always found here.
         const paidAmount = paidOf(next);
         const refunded = refundedTotal(next);
-        if (paidAmount > 0 && refunded + ((earlier.get('disputedAmount') as number | undefined) ?? paidAmount) > paidAmount) {
+        if (paidAmount > 0 && refunded + ((earlier.get('disputedAmount') as number | undefined) ?? paidAmount) !== paidAmount) {
           writeDisputeFollowUp('disputeLostAfterRefund', next, refunded, []);
         }
       }
@@ -666,6 +667,8 @@ export async function resolvePaymongoDispute(db: Firestore, input: {eventId: str
     // Only a revocation left by the dispute itself is undone (a later admin revocation stays). A grant that
     // any dispute on this payment has lost stays revoked: a win of a later dispute never gives it back.
     const lostBefore = Object.values((existing.get('resolutions') as Resolutions | undefined) ?? {}).includes('lost');
+    // Grants revoked before this branch lack revokingDisputeId and so are never restored. Prod has only ever run test
+    // keys, so no such grant exists.
     if (grant.revokedReason !== 'dispute.created' || lostBefore || grant.revokingDisputeId !== input.disputeId) return uid;
     const restore = paidOf(grant) > 0 && !grant.unusedDuplicateOf && !grant.unusableReason;
     const next: Grant = {...grant, disputeResolved: true, ...(restore ? {state: 'active', activeFrom: now} : {})};

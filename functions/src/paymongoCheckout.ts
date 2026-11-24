@@ -254,6 +254,10 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
       }
       // Consent or closure may have changed while the session was made: no link then.
       declarationFor(account, data, now);
+      // Another sitting key may have been reserved or finalized while this call ran (it can outlive its lease):
+      // if one holds a creating (within its lease), open or unissued reservation that is not this call's, no
+      // link is issued. The throw sends this session down the unissued path (expire it, or mark it unissued).
+      await assertNoOtherReservation(transaction);
       transaction.set(deps.db.doc(`paymongoCheckouts/${session.id}`), {...bindingFor(declaration), reference: referenceNumber});
       transaction.update(order, {sessionId: session.id});
       transaction.set(pending, {...result, state: 'open', product: product.id, createdAt: now, amountCentavos});

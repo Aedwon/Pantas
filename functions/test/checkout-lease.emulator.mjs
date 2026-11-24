@@ -301,6 +301,31 @@ test('another key that turns open between the scan and the reservation write blo
   assert.equal(retry.created.length, 0);
 });
 
+test('an earlier-sitting call that outlives its lease cannot issue a second payable link after a rollover', async () => {
+  const uid = 'lease-outlives';
+  const earlier = setup({now: () => beforeSitting});
+  earlier.catalog = passCatalog;
+  let rolled;
+  const slow = earlier.client.createCheckoutSession;
+  earlier.client.createCheckoutSession = async input => {
+    // While the earlier call is still making its session, its lease lapses and the rollover call runs to the end.
+    const rollover = setup({now: () => afterSitting});
+    rollover.catalog = passCatalog;
+    rolled = await createCheckout(caller(uid), {product: passId, declaration: adult}, rollover);
+    return slow(input);
+  };
+  const expired = [];
+  earlier.client.expireCheckoutSession = async id => { expired.push(id); return true; };
+  earlier.client.getCheckoutSession = async id => ({id, status: 'expired', metadata: {}, payments: []});
+  await assert.rejects(createCheckout(caller(uid), {product: passId, declaration: adult}, earlier), /pending/);
+  assert.match(rolled.checkoutUrl, /^https:/);
+  assert.equal(expired.length, 1);
+  assert.notEqual(expired[0], rolled.sessionId);
+  const open = (await pendingDocs(uid)).filter(d => d.get('state') === 'open');
+  assert.equal(open.length, 1);
+  assert.equal(open[0].get('sessionId'), rolled.sessionId);
+});
+
 test('a rollover finding another key unissued settles it first, then makes the new link', async () => {
   const uid = 'lease-other-unissued';
   await seedOther(uid, {state: 'unissued', createdAt: beforeSitting, unissuedSessionId: 'cs_unissued_old'});
