@@ -207,6 +207,29 @@ void main() {
       'Your plan changed on Oct 25.',
     );
   });
+  // Board DP_History: an advance the student finished reads as one sentence
+  // (U19).
+  test('an advance says whether the student finished it', () {
+    RoadmapChange advanced(int? completed) => RoadmapChange(
+          cause: RoadmapChangeCause.advanced,
+          occurredAt: DateTime(2026, 10, 25),
+          firstTopicsBefore: const [],
+          firstTopicsAfter: const [],
+          advancedCompleted: completed,
+        );
+    expect(
+      planHistoryText(advanced(null), examName: 'CSE-P'),
+      "You added tomorrow's lessons to today.",
+    );
+    expect(
+      planHistoryText(advanced(0), examName: 'CSE-P'),
+      "You added tomorrow's lessons to today.",
+    );
+    expect(
+      planHistoryText(advanced(2), examName: 'CSE-P'),
+      "You added tomorrow's lessons to today and finished both of them.",
+    );
+  });
   test('week labels preserve Sunday boundaries and custom study days', () {
     expect(planWeekTitle(DateTime(2026, 9, 27)), 'Sep 27 – Oct 3');
     expect(planWeekTitle(DateTime(2026, 10, 4)), 'Oct 4 – 10');
