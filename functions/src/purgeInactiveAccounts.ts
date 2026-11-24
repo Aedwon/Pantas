@@ -306,8 +306,29 @@ export async function purgeExpiredEvidence(deps: EvidenceDeps): Promise<number> 
       const sharingChoices = confirmations.filter((row) => row.get('sharingAllowed') !== undefined);
       const sharing = responses.where('action', 'in', ['sharing_on', 'sharing_off']);
       if (evidenceExpired) {
-        // Keep the confirmation and any sharing rows until the sharing retention period ends.
-        if (!sharingExpired && (sharingChoices.length > 0 || !(await sharing.limit(1).get()).empty)) return;
+        if (!sharingExpired && (sharingChoices.length > 0 || !(await sharing.limit(1).get()).empty)) {
+          // Keep the marker and only the fields that record a sharing choice.
+          const purchaseCopies = await evidence.collection('purchases').get();
+          const writer = deps.db.bulkWriter();
+          const writes = [
+            ...purchaseCopies.docs.map((row) => writer.delete(row.ref)),
+            ...answers.docs.map((row) => {
+              const sharingAllowed = row.get('sharingAllowed');
+              if (row.get('action') !== 'confirm' || typeof sharingAllowed !== 'boolean') {
+                return writer.delete(row.ref);
+              }
+              const fields = Object.entries(row.data()).filter(([key]) =>
+                ['decidedAt', 'documentVersions', 'noticeWordingVersion'].includes(key));
+              return writer.set(row.ref, {
+                ...Object.fromEntries(fields),
+                action: sharingAllowed ? 'sharing_on' : 'sharing_off',
+                sharingAllowed,
+              });
+            }),
+          ];
+          await Promise.all([...writes, writer.close()]);
+          return;
+        }
         await deps.db.recursiveDelete(evidence);
         removed += 1;
       } else if (sharingExpired) {

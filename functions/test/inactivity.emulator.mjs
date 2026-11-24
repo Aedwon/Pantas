@@ -288,6 +288,69 @@ test('a sharing change in year five leaves confirmation evidence due in year ten
   assert.equal(await exists(evidence.id), false);
 });
 
+async function seedEvidenceExpiringBeforeSharing() {
+  await clear();
+  const evidence = db.doc('guardianConsentEvidence/ev-sharing-only');
+  const responses = evidence.collection('responses');
+  const purchases = evidence.collection('purchases');
+  const deletedAt = NOW + 2922 * DAY;
+  const marker = {accountDeletedAt: deletedAt, reason: 'user_request'};
+  const versions = {documentVersions: {teenNotice: 'v1'}, noticeWordingVersion: 'v2'};
+  const originalChoice = {action: 'confirm', agreed: true, decidedAt: NOW, ...versions};
+  const sharingChange = {action: 'sharing_off', decidedAt: NOW + 1826 * DAY, ...versions};
+  await Promise.all([
+    evidence.set(marker),
+    responses.doc('allowed').set({...originalChoice, sharingAllowed: true}),
+    responses.doc('blocked').set({...originalChoice, sharingAllowed: false}),
+    responses.doc('no-choice').set(originalChoice),
+    responses.doc('sharing-change').set(sharingChange),
+    purchases.doc('older').set({attestedAt: NOW, reference: 'older'}),
+    purchases.doc('latest').set({attestedAt: NOW + DAY, reference: 'latest'}),
+  ]);
+
+  const remaining = {
+    marker,
+    responses: {
+      allowed: {action: 'sharing_on', decidedAt: NOW, sharingAllowed: true, ...versions},
+      blocked: {action: 'sharing_off', decidedAt: NOW, sharingAllowed: false, ...versions},
+      'sharing-change': sharingChange,
+    },
+    purchases: [],
+  };
+  const read = async () => ({
+    marker: (await evidence.get()).data(),
+    responses: Object.fromEntries((await responses.get()).docs.map(row => [row.id, row.data()])),
+    purchases: (await purchases.get()).docs.map(row => row.data()),
+  });
+  return {deletedAt, expiresAt: evidenceNow(NOW + DAY), remaining, read};
+}
+
+test('C8 strips expired evidence to sharing choices and the deletion marker', async () => {
+  const {expiresAt, remaining, read} = await seedEvidenceExpiringBeforeSharing();
+  await purge([], expiresAt);
+  assert.deepEqual(await read(), remaining);
+});
+
+test('C8 keeps stripped evidence through day 1,460 and deletes it on day 1,461', async () => {
+  const {deletedAt, expiresAt, remaining, read} = await seedEvidenceExpiringBeforeSharing();
+  await purge([], expiresAt);
+  const stripped = await read();
+  await purge([], deletedAt + 1460 * DAY);
+  assert.deepEqual(await read(), stripped);
+  assert.deepEqual(stripped, remaining);
+  await purge([], deletedAt + 1461 * DAY);
+  assert.deepEqual(await read(), {marker: undefined, responses: {}, purchases: []});
+});
+
+test('C8 leaves the sharing-only evidence unchanged on a second purge', async () => {
+  const {expiresAt, remaining, read} = await seedEvidenceExpiringBeforeSharing();
+  await purge([], expiresAt);
+  const stripped = await read();
+  await purge([], expiresAt);
+  assert.deepEqual(await read(), stripped);
+  assert.deepEqual(stripped, remaining);
+});
+
 test('legacy sharing survives until 1,461 days after first seeing the deleted account', async () => {
   await clear();
   const evidence = db.doc('guardianConsentEvidence/ev-legacy-sharing');
