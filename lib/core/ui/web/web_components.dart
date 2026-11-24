@@ -161,7 +161,12 @@ class WebButton extends StatelessWidget {
     final c = context.webTokens.colors;
     final showKeyHint = keyHintShown(context, keyHint);
     final (pairKind, pairTone) = _pair;
-    final sizeClass = size ??
+    final named = size;
+    // The phone text sizes have no wide form: a wide text button is `.btn3`.
+    final sizeClass = (named == PantasButtonSize.textPhone ||
+                named == PantasButtonSize.textPhoneSm
+            ? PantasButtonSize.standard
+            : named) ??
         (pill
             ? PantasButtonSize.bar
             : large
@@ -1557,7 +1562,8 @@ class WebBottomBar extends StatelessWidget {
     this.onCounterPressed,
     this.leading,
     this.hint,
-    this.track,
+    this.center,
+    this.status,
     this.state = WebBarState.neutral,
     this.wide = false,
     this.compact = false,
@@ -1583,10 +1589,12 @@ class WebBottomBar extends StatelessWidget {
   final Widget? leading;
   final String? hint;
 
-  /// The answer track of a question session (core loops B2). It takes the
-  /// hint's place between the count and the action, and the bar then fits
-  /// its content instead of filling its width.
-  final Widget? track;
+  /// A control on the bar's own center, between the count and the action
+  /// (the quiz flag). It stays centered whatever the widths of the two.
+  final Widget? center;
+
+  /// A result word read once as a status. It is never drawn.
+  final String? status;
   final WebBarState state;
   final bool wide;
   final bool compact;
@@ -1736,26 +1744,26 @@ class WebBottomBar extends StatelessWidget {
                   ),
                 ],
               )
-            : Row(
-                mainAxisSize: compact || track != null
-                    ? MainAxisSize.min
-                    : MainAxisSize.max,
+            : Stack(
+                alignment: Alignment.center,
                 children: [
-                  if (leading != null) ...[leading!, SizedBox(width: gap)],
-                  counterWidget,
-                  if (track != null)
-                    // Board `.trk`: 8 before, 14 after.
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        left: PantasSpace.s8,
-                        right: PantasSpace.s14,
-                      ),
-                      child: track,
-                    )
-                  else if (!compact || hint != null)
-                    Expanded(child: hintWidget),
-                  if (gap > 0) SizedBox(width: gap),
-                  action,
+                  Row(
+                    mainAxisSize: compact ? MainAxisSize.min : MainAxisSize.max,
+                    children: [
+                      if (leading != null) ...[leading!, SizedBox(width: gap)],
+                      counterWidget,
+                      if (!compact || hint != null) Expanded(child: hintWidget),
+                      if (gap > 0) SizedBox(width: gap),
+                      action,
+                    ],
+                  ),
+                  if (status != null)
+                    Semantics(
+                      liveRegion: true,
+                      label: status,
+                      child: const SizedBox.shrink(),
+                    ),
+                  if (center != null) center!,
                 ],
               ),
       ),

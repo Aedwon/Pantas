@@ -1,11 +1,13 @@
-// The last Finish hands the end page where the marks of the answer track are
-// (core loops B2), so they can fly into the results. Next, in the middle of a
-// session, hands over nothing.
+// The quiz bar as Aedwon drew it (Nov 24): count with its chevron at the left,
+// the flag on the bar's own center, the button at the right. No answer track,
+// no flag in the question header, and no flight of marks at the session end.
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
 import 'package:pantas/features/quiz/presentation/question_flag_providers.dart';
@@ -95,42 +97,62 @@ Future<_Controller> _pump(
   return controller;
 }
 
+bool _named(Widget w, String name) => w.runtimeType.toString() == name;
+
 void main() {
   for (final width in [390.0, 1440.0]) {
     final name = width < 1024 ? 'phone' : 'wide';
 
-    testWidgets('$name: Finish hands over where the marks are', (tester) async {
-      await _pump(tester, width: width, total: 10, answered: 10);
-      final marks = [
-        for (var i = 0; i < 10; i++)
-          tester.getRect(find.byKey(ValueKey('answer-track-mark-$i'))),
-      ];
-      await tester.tap(find.text('Finish'));
-      await tester.pump();
-      final flight =
-          tester.widget<QuizSessionEndPage>(find.byType(QuizSessionEndPage));
-      expect(flight.flight, isNotNull);
-      expect(flight.flight!.from, marks);
-      expect(flight.flight!.correct, [
-        for (var i = 0; i < 10; i++) i < 7,
-      ]);
-      expect(tester.takeException(), isNull);
-    });
-
-    testWidgets('$name: over 20 questions Finish hands over no marks',
+    testWidgets('$name: no answer track, flag on the bar center',
         (tester) async {
-      await _pump(tester, width: width, total: 25, answered: 25, correct: 20);
-      await tester.tap(find.text('Finish'));
-      await tester.pump();
-      final page =
-          tester.widget<QuizSessionEndPage>(find.byType(QuizSessionEndPage));
-      expect(page.flight, isNotNull);
-      expect(page.flight!.from, isEmpty);
-      expect(page.flight!.correct.length, 25);
+      await _pump(tester, width: width, total: 10, answered: 4);
+      expect(
+        find.byWidgetPredicate((w) => _named(w, 'AnswerTrack')),
+        findsNothing,
+      );
+      final bar = tester.getRect(
+        width < 1024 ? find.byType(FloatingBar) : find.byType(WebBottomBar),
+      );
+      final flag = tester.getRect(find.byTooltip('Flag question'));
+      expect(
+        (flag.center.dx - bar.center.dx).abs(),
+        lessThanOrEqualTo(1),
+        reason: 'flag ${flag.center.dx} vs bar ${bar.center.dx}',
+      );
+      expect(flag.width, greaterThanOrEqualTo(44));
+      expect(flag.height, greaterThanOrEqualTo(44));
+      // The count is at the left of the flag, the button at its right.
+      expect(
+        tester.getRect(find.text('4 of 10')).right,
+        lessThan(flag.left),
+      );
+      expect(tester.getRect(find.text('Next')).left, greaterThan(flag.right));
+      // The flag is in the bar only: nothing above the question stem.
+      expect(find.byTooltip('Flag question'), findsOneWidget);
+      expect(flag.center.dy, greaterThan(bar.top));
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('$name: Next in the middle hands over nothing', (tester) async {
+    testWidgets('$name: no hint line in the bar', (tester) async {
+      await _pump(tester, width: width, total: 10, answered: 4);
+      expect(find.textContaining('Pick an answer'), findsNothing);
+    });
+
+    testWidgets('$name: the last Finish shows the results with no flight',
+        (tester) async {
+      await _pump(tester, width: width, total: 10, answered: 10);
+      await tester.tap(find.text('Finish'));
+      await tester.pump();
+      expect(find.byType(QuizSessionEndPage), findsOneWidget);
+      expect(
+        find.byWidgetPredicate((w) => _named(w, 'QuizEndFlightHost')),
+        findsNothing,
+      );
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('$name: Next in the middle goes on without results',
+        (tester) async {
       final controller =
           await _pump(tester, width: width, total: 10, answered: 4);
       await tester.tap(find.text('Next'));
