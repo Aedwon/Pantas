@@ -1,5 +1,14 @@
 import { getFirestore, Timestamp } from 'firebase-admin/firestore';
 
+const DAY_MS = 86_400_000;
+
+/**
+ * The limits.purgeAt TTL removes a counter one day after its window ends, so a call that races an
+ * account deletion cannot leave a uid-linked counter behind for good. A Timestamp: TTL ignores numbers.
+ */
+const purgeAt = (windowStart: Timestamp, windowMs: number) =>
+  Timestamp.fromMillis(windowStart.toMillis() + windowMs + DAY_MS);
+
 export async function allowAtMost(
   uid: string,
   key: string,
@@ -18,9 +27,11 @@ export async function allowAtMost(
       && now.toMillis() - startedAt.toMillis() < windowMs;
     const count = withinWindow && typeof oldCount === 'number' ? oldCount : 0;
     if (count + cost > max) return false;
+    const windowStartedAt = withinWindow ? startedAt : now;
     transaction.set(ref, {
-      windowStartedAt: withinWindow ? startedAt : now,
+      windowStartedAt,
       count: count + cost,
+      purgeAt: purgeAt(windowStartedAt, windowMs),
     });
     return true;
   });
@@ -52,9 +63,11 @@ export async function takeAtMost(
     const count = withinWindow && typeof oldCount === 'number' ? oldCount : 0;
     const granted = Math.max(0, Math.min(wanted, max - count));
     if (granted > 0) {
+      const windowStartedAt = withinWindow ? startedAt : now;
       transaction.set(ref, {
-        windowStartedAt: withinWindow ? startedAt : now,
+        windowStartedAt,
         count: count + granted,
+        purgeAt: purgeAt(windowStartedAt, windowMs),
       });
     }
     return granted;
