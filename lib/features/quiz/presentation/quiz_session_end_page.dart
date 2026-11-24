@@ -286,8 +286,8 @@ class _QuizSessionEndPageState extends ConsumerState<QuizSessionEndPage> {
                       const SizedBox(height: PantasSpace.s2),
                       Text(
                         '$correct of $total correct',
-                        style: PantasType.phoneExplanation.copyWith(
-                          height: 1.35,
+                        style: PantasType.phoneSubhead.copyWith(
+                          fontWeight: FontWeight.w400,
                           color: context.colors.textSecondary,
                         ),
                       ),

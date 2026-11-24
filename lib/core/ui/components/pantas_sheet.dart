@@ -14,6 +14,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -625,7 +626,9 @@ class PantasSheetAction extends StatelessWidget {
         onTap: onPressed,
         borderRadius: BorderRadius.circular(PantasRadius.md),
         child: ConstrainedBox(
-          constraints: const BoxConstraints(minWidth: 44, minHeight: 44),
+          constraints: const BoxConstraints(
+              minWidth: PantasSize.targetTouch,
+              minHeight: PantasSize.targetTouch),
           child: Align(
             alignment: Alignment.centerRight,
             widthFactor: 1,

@@ -880,8 +880,6 @@ class _HistoryFooter extends StatelessWidget {
                     'See more',
                     style: context.type.body.copyWith(
                       color: context.colors.accent,
-                      fontWeight: FontWeight.w400,
-                      height: 1.35,
                     ),
                   ),
                   const SizedBox(width: PantasSpace.s6),
@@ -889,7 +887,7 @@ class _HistoryFooter extends StatelessWidget {
                     quarterTurns: 1,
                     child: Icon(
                       PantasIcons.next,
-                      size: 14,
+                      size: PantasSpace.s14,
                       color: context.colors.accent,
                     ),
                   ),

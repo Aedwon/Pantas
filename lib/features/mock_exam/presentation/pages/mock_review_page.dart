@@ -1423,7 +1423,7 @@ class _ReasonPanelState extends State<_ReasonPanel> {
     final available = MediaQuery.sizeOf(context).height -
         MediaQuery.viewInsetsOf(context).bottom -
         MediaQuery.paddingOf(context).top -
-        80;
+        PantasSize.reportFormClear;
     final body = Padding(
       padding: const EdgeInsets.fromLTRB(
         PantasSpace.s18,
@@ -1494,8 +1494,9 @@ class _ReasonPanelState extends State<_ReasonPanel> {
       ),
     );
     return ConstrainedBox(
-      constraints:
-          BoxConstraints(maxHeight: available.clamp(100, double.infinity)),
+      constraints: BoxConstraints(
+          maxHeight:
+              available.clamp(PantasSize.reportFormFloor, double.infinity)),
       child: SingleChildScrollView(
         child: FloatingBar.content(
           state: FloatingBarState.wrong,

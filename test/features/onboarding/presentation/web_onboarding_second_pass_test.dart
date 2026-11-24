@@ -317,9 +317,7 @@ void main() {
       expect(find.text('Sign in to get one'), findsOneWidget);
       await tester.tap(find.text('Continue with Google'));
       await tester.pump();
-      // The label swaps over a 150 ms fade; no ellipsis (L_SignIn).
-      await tester.pump(const Duration(milliseconds: 200));
-      expect(find.text('Signing in'), findsOneWidget);
+      expect(find.text('Signing in…'), findsOneWidget);
       // The busy button shows the system spinner (Button README, Busy).
       expect(find.byType(PantasSpinner), findsOneWidget);
       expect(find.text('Name'), findsOneWidget);

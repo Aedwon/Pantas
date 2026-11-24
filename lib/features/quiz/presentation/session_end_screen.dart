@@ -487,7 +487,9 @@ class _MissX extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SizedBox(
         key: const ValueKey('miss-x'),
+        // ds-board: QV_EndLowB bare X is 17 px; no 17 px token
         width: 17,
+        // ds-board: QV_EndLowB bare X is 17 px; no 17 px token
         height: 17,
         child: ExcludeSemantics(
           child: CustomPaint(painter: _MissXPainter(color)),
