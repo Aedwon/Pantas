@@ -17,6 +17,13 @@
 // before it loads the app (see pantas_pwa.js), so scripts of one build are
 // never served from another build's cache. Older caches are deleted when a
 // new build takes over.
+//
+// A cache holds only its own build's files. Before any file is stored, the
+// worker asks the network for version.json and stores the file only if that
+// still names this build (the file was fetched before the check, so a match
+// means no newer deploy had happened yet). Without this, a worker that still
+// controls the page after a deploy stored the new build's shell next to its
+// own Dart files, and offline it served the two together.
 
 'use strict';
 
@@ -101,23 +108,58 @@ function isStorable(response, { allowHtml = false } = {}) {
   return true;
 }
 
+// True when a version.json response names this worker's build. An unstamped
+// local build ('dev') has no name to compare.
+async function namesThisBuild(response) {
+  if (VERSION === 'dev') return true;
+  if (!response || response.status !== 200) return false;
+  try {
+    return (await response.json()).pantasBuildVersion === VERSION;
+  } catch (_) {
+    return false;
+  }
+}
+
+// True when the network still serves this worker's build. Call it after the
+// file to store was fetched.
+async function buildIsCurrent() {
+  if (VERSION === 'dev') return true;
+  try {
+    const request = new Request(SCOPE + 'version.json', { cache: 'no-store' });
+    return await namesThisBuild(await withTimeout(fetch(request), NETWORK_TIMEOUT_MS));
+  } catch (_) {
+    return false;
+  }
+}
+
+// Stores a copy only if the file is from this worker's build.
+async function putIfCurrent(cache, request, response, path) {
+  const same = path === 'version.json' ? await namesThisBuild(response.clone()) : await buildIsCurrent();
+  if (same) await cache.put(request, response);
+}
+
 self.addEventListener('install', (event) => {
   event.waitUntil(
     (async () => {
-      const cache = await caches.open(CACHE);
-      const results = await Promise.allSettled(
+      const fetched = await Promise.allSettled(
         PRECACHE.map(async (path) => {
           const request = new Request(SCOPE + path, { cache: 'reload' });
           const response = await fetch(request);
           if (!isStorable(response, { allowHtml: path === '' })) {
             throw new Error('not storable: ' + path);
           }
-          await cache.put(request, response);
+          return [request, response];
         })
       );
       // Without the page itself there is nothing to open offline. Try again
       // on the next visit.
-      if (results[0].status === 'rejected') throw results[0].reason;
+      if (fetched[0].status === 'rejected') throw fetched[0].reason;
+      // A deploy during the install would leave files of two builds. Refuse.
+      if (!(await buildIsCurrent())) throw new Error('build changed during install');
+      const cache = await caches.open(CACHE);
+      for (const result of fetched) {
+        if (result.status === 'fulfilled') await cache.put(...result.value);
+      }
       await self.skipWaiting();
     })()
   );
@@ -184,7 +226,7 @@ async function navigate(event, request) {
   const cache = await caches.open(CACHE);
   const network = fetch(request).then(async (response) => {
     if (isStorable(response, { allowHtml: true })) {
-      await cache.put(SCOPE, response.clone());
+      event.waitUntil(putIfCurrent(cache, SCOPE, response.clone(), ''));
     }
     return response;
   });
@@ -203,7 +245,9 @@ async function navigate(event, request) {
 async function networkFirst(event, request) {
   const cache = await caches.open(CACHE);
   const network = fetch(request).then(async (response) => {
-    if (isStorable(response)) await cache.put(request, response.clone());
+    if (isStorable(response)) {
+      event.waitUntil(putIfCurrent(cache, request, response.clone(), relativePath(new URL(request.url))));
+    }
     return response;
   });
   try {
@@ -227,7 +271,7 @@ async function cacheFirst(event, request, path, served = {}) {
   }
   const response = await fetch(request);
   if (isStorable(response)) {
-    event.waitUntil(cache.put(request, response.clone()));
+    event.waitUntil(putIfCurrent(cache, request, response.clone(), path));
     if (path === 'main.dart.js') event.waitUntil(warmDeferredParts(cache, response.clone()));
   }
   return response;
@@ -240,14 +284,18 @@ async function warmDeferredParts(cache, response) {
   try {
     const text = await response.text();
     const names = new Set(text.match(/main\.dart\.js_\d+\.part\.js/g) || []);
+    const parts = [];
     await Promise.allSettled(
       [...names].map(async (name) => {
         const request = new Request(SCOPE + name);
         if (await cache.match(request)) return;
         const part = await fetch(request);
-        if (isStorable(part)) await cache.put(request, part);
+        if (isStorable(part)) parts.push([request, part]);
       })
     );
+    if (parts.length && (await buildIsCurrent())) {
+      for (const [request, part] of parts) await cache.put(request, part);
+    }
   } catch (_) {}
 }
 
