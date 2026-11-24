@@ -81,13 +81,11 @@ class AnswerTrack extends StatelessWidget {
       for (final (i, ok) in answered.indexed)
         if (!ok) i + 1,
     ];
+    String phrase(String noun, List<int> list, String verdict) =>
+        '${list.length > 1 ? '${noun}s' : noun} ${_numbers(list)} $verdict';
     final parts = [
-      if (right.isNotEmpty)
-        '${right.length > 1 ? 'Questions' : 'Question'} ${_numbers(right)} '
-            'right',
-      if (wrong.isNotEmpty)
-        '${wrong.length > 1 ? 'questions' : 'question'} ${_numbers(wrong)} '
-            'wrong',
+      if (right.isNotEmpty) phrase('Question', right, 'right'),
+      if (wrong.isNotEmpty) phrase('question', wrong, 'wrong'),
     ];
     final detail = parts.isEmpty ? '' : ' ${parts.join(', ')}.';
     return '$head$result$detail';

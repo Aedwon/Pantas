@@ -76,6 +76,7 @@ class HalfRingGauge extends StatefulWidget {
         trackOpacity = 1,
         glowOpacity = 0,
         glowScale = 1,
+        delay = null,
         assert(
           fraction >= 0 && fraction <= 1,
           'Accuracy must be between zero and one.',
@@ -100,6 +101,7 @@ class HalfRingGauge extends StatefulWidget {
         total = null,
         mockSize = true,
         decimalPlaces = 1,
+        delay = null,
         assert(fraction >= -.25 && fraction <= 1, 'Mock score must be valid.');
 
   const HalfRingGauge.quizCount({
@@ -108,6 +110,7 @@ class HalfRingGauge extends StatefulWidget {
     this.assessment = false,
     this.labelOpacity = 1,
     this.web = false,
+    this.delay,
     super.key,
   })  : assert(
           correct >= 0 && total >= correct,
@@ -129,6 +132,11 @@ class HalfRingGauge extends StatefulWidget {
 
   final bool web;
   final bool assessment;
+
+  /// The session end after the last Finish starts the fill and the count-up
+  /// this long after the gauge appears, and runs them for the gauge's own
+  /// 1.4 s. Without it the quiz gauge keeps its own lead and length.
+  final Duration? delay;
   final int? correct;
   final int? total;
   final double numberOpacity;
@@ -184,13 +192,18 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
 
   void animate(double begin, {double beginCount = 0}) {
     final quiz = widget.correct != null;
-    _controller.duration = quiz
-        ? (widget.assessment ? _assessmentDuration : _quizDuration)
-        : PantasDurations.gauge;
+    final delay = widget.delay;
+    _controller.duration = delay != null
+        ? delay + PantasDurations.gauge
+        : quiz
+            ? (widget.assessment ? _assessmentDuration : _quizDuration)
+            : PantasDurations.gauge;
     // The arc waits `dur-wait` and then fills on `motion-gauge`. The quiz
-    // result keeps its board's 400 ms lead.
-    final wait = (quiz ? _quizWait : PantasDurations.wait).inMilliseconds /
-        _controller.duration!.inMilliseconds;
+    // result keeps its board's 400 ms lead. After the last Finish the end of
+    // the session sets the wait itself (core loops B2).
+    final wait =
+        (delay ?? (quiz ? _quizWait : PantasDurations.wait)).inMilliseconds /
+            _controller.duration!.inMilliseconds;
     final curve = Interval(wait, 1, curve: PantasCurves.gauge);
     _count = _controller.drive(
       Tween(begin: beginCount, end: (widget.correct ?? 0).toDouble())
