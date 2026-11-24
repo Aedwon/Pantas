@@ -143,10 +143,12 @@ abstract final class PantasLayout {
   /// Reference phone width.
   static const double phoneFrame = 390;
 
-  /// Below this width the quiz bar's flag moves to the question header
-  /// (D71). Media queries in the bundle repeat the bp-* values; the build
-  /// script checks them.
-  static const double bpPhoneNarrow = 400;
+  /// Below this width the phone quiz bar uses compact marks (6 x 4 with 2
+  /// px gaps, a 78 px line) and the count column keeps 4 px on its right.
+  /// The flag stays in the bar at every phone width (B2 ruling, Nov 24; D71
+  /// retired). Media queries in the bundle repeat the bp-* values; the
+  /// build script checks them.
+  static const double bpPhoneNarrow = 360;
 
   /// Tablet portrait starts here: the phone layout centered in
   /// layout-tablet-column, TabBar centered at layout-tabbar-max. Below it

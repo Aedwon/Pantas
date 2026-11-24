@@ -22,6 +22,7 @@ class AnswerTrack extends StatelessWidget {
     required this.answered,
     required this.current,
     this.phone = false,
+    this.compact = false,
     this.status,
     super.key,
   });
@@ -33,12 +34,33 @@ class AnswerTrack extends StatelessWidget {
   final List<bool> answered;
   final int current;
   final bool phone;
+
+  /// A phone under 360 wide: marks 6 x 4, 2 px apart (T16 B2 ruling).
+  final bool compact;
   final String? status;
 
   bool get _line => total > maxMarks;
 
-  double get _markWidth => phone ? PantasSpace.s8 : PantasSpace.s10;
+  double get _markWidth => _width(phone: phone, compact: compact);
+  double get _gap => _gapOf(phone: phone, compact: compact);
   static const double _markHeight = PantasSpace.s4;
+
+  /// Marks per row on the phone: 11 to 20 questions make two rows.
+  static const int perRow = 10;
+
+  static double _width({required bool phone, required bool compact}) => !phone
+      ? PantasSpace.s10
+      : compact
+          ? PantasSpace.s6
+          : PantasSpace.s8;
+
+  static double _gapOf({required bool phone, required bool compact}) =>
+      compact ? PantasSpace.s2 : PantasSpace.s3;
+
+  /// As wide as ten marks: the phone's rows and its line.
+  static double _tenWidth({required bool compact}) =>
+      perRow * _width(phone: true, compact: compact) +
+      (perRow - 1) * _gapOf(phone: true, compact: compact);
 
   /// Where the marks are on screen, for the flight at the end of a session.
   /// [key] is the key this track was built with. Empty over [maxMarks]
@@ -47,17 +69,20 @@ class AnswerTrack extends StatelessWidget {
     GlobalKey key,
     int total, {
     required bool phone,
+    bool compact = false,
   }) {
     final box = key.currentContext?.findRenderObject();
     if (total > maxMarks || box is! RenderBox || !box.attached) return const [];
-    final width = phone ? PantasSpace.s8 : PantasSpace.s10;
+    final width = _width(phone: phone, compact: compact);
+    final gap = _gapOf(phone: phone, compact: compact);
     final origin = box.localToGlobal(Offset.zero);
-    final top = origin.dy + (box.size.height - _markHeight) / 2;
     return [
       for (var i = 0; i < total; i++)
         Rect.fromLTWH(
-          origin.dx + i * (width + PantasSpace.s3),
-          top,
+          origin.dx + (phone ? i % perRow : i) * (width + gap),
+          phone
+              ? origin.dy + (i ~/ perRow) * (_markHeight + gap)
+              : origin.dy + (box.size.height - _markHeight) / 2,
           width,
           _markHeight,
         ),
@@ -98,9 +123,8 @@ class AnswerTrack extends StatelessWidget {
     final duration = still ? Duration.zero : PantasDurations.trackColor;
     final Widget body;
     if (_line) {
-      final lineWidth = phone
-          ? 10 * PantasSpace.s8 + 9 * PantasSpace.s3
-          : PantasLayout.trackLine;
+      final lineWidth =
+          phone ? _tenWidth(compact: compact) : PantasLayout.trackLine;
       final fraction =
           total == 0 ? 0.0 : (answered.length / total).clamp(0.0, 1.0);
       body = Container(
@@ -133,24 +157,32 @@ class AnswerTrack extends StatelessWidget {
         return i == current ? colors.textPrimary : colors.dividerStrong;
       }
 
-      body = Row(
-        mainAxisSize: MainAxisSize.min,
-        spacing: PantasSpace.s3,
-        children: [
-          for (var i = 0; i < total; i++)
-            AnimatedContainer(
-              key: ValueKey('answer-track-mark-$i'),
-              duration: duration,
-              curve: PantasCurves.fade,
-              width: _markWidth,
-              height: _markHeight,
-              decoration: BoxDecoration(
-                color: colorOf(i),
-                borderRadius: BorderRadius.circular(PantasRadius.full),
-              ),
+      final marks = [
+        for (var i = 0; i < total; i++)
+          AnimatedContainer(
+            key: ValueKey('answer-track-mark-$i'),
+            duration: duration,
+            curve: PantasCurves.fade,
+            width: _markWidth,
+            height: _markHeight,
+            decoration: BoxDecoration(
+              color: colorOf(i),
+              borderRadius: BorderRadius.circular(PantasRadius.full),
             ),
-        ],
-      );
+          ),
+      ];
+      // The phone never goes wider than ten marks: the rest wrap, left
+      // aligned, in reading order.
+      body = phone
+          ? SizedBox(
+              width: _tenWidth(compact: compact),
+              child: Wrap(spacing: _gap, runSpacing: _gap, children: marks),
+            )
+          : Row(
+              mainAxisSize: MainAxisSize.min,
+              spacing: _gap,
+              children: marks,
+            );
     }
     return Semantics(
       label: _label,

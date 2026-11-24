@@ -74,15 +74,6 @@ import 'package:pantas/features/quiz/presentation/web_quiz_question.dart';
 
 enum QuizPageMode { quick, today, drill, retake, inline, resume, practice }
 
-/// The narrowest phone whose bar holds the flag beside the track.
-// ds-board: B2_PhoneBar draws the flag in the bar at 390; below this it does
-// not fit
-const double _flagInBarFrom = 370;
-
-/// The same, while looking back at an answered question (a longer button).
-// ds-board: B2_PhoneBar draws no looking-back state; "Back to 2" needs room
-const double _flagInBarLookingBack = 430;
-
 class QuizPage extends ConsumerStatefulWidget {
   const QuizPage({
     required this.examId,
@@ -436,30 +427,6 @@ final _questionTopicProvider = FutureProvider.family<String, String>(
       (await ref.watch(contentRepositoryProvider).topicById(id))?.name ?? '',
 );
 
-/// What the phone question header carries at its trailing end (D71): the
-/// flag, on a phone too narrow to hold it in the bar. The question it
-/// belongs to is named, so the next question, built under a cover, does not
-/// show a second flag.
-class _QuestionHeaderTrailing extends InheritedWidget {
-  const _QuestionHeaderTrailing({
-    required this.questionId,
-    required this.trailing,
-    required super.child,
-  });
-  final QuestionId questionId;
-  final Widget? trailing;
-
-  static Widget? of(BuildContext context, QuestionId questionId) {
-    final scope =
-        context.dependOnInheritedWidgetOfExactType<_QuestionHeaderTrailing>();
-    return scope?.questionId == questionId ? scope?.trailing : null;
-  }
-
-  @override
-  bool updateShouldNotify(_QuestionHeaderTrailing oldWidget) =>
-      oldWidget.questionId != questionId || oldWidget.trailing != trailing;
-}
-
 /// Opens the passage in the phone Sheet. The page owns the Sheet, because it
 /// covers the whole screen; the question asks for it through this.
 class _PassageSheetHost extends InheritedWidget {
@@ -604,7 +571,6 @@ class _QuestionContent extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           QuestionCard(
-            headerTrailing: _QuestionHeaderTrailing.of(context, question.id),
             subject: ref
                     .watch(_questionTopicProvider(question.topicId))
                     .valueOrNull ??
@@ -875,18 +841,22 @@ class _QuizPageState extends ConsumerState<QuizPage> {
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   final large = MediaQuery.textScalerOf(context).scale(16) > 24;
-                  // B2_PhoneBar puts the flag in the bar. Only a phone too
-                  // narrow for the track, the count, the flag and the button
-                  // moves it into the question header (D71).
-                  // "Back to 3" is a long word, so while looking back a phone
-                  // under 430 wide has no room for the flag either.
-                  final narrow = MediaQuery.sizeOf(context).width <
-                      (lookingBack ? _flagInBarLookingBack : _flagInBarFrom);
+                  // The flag stays in the bar at every phone width and in
+                  // every state (T16 B2 ruling; D71 is retired). A phone
+                  // under 360 wide takes the compact marks.
+                  final compact = MediaQuery.sizeOf(context).width <
+                      PantasLayout.bpPhoneNarrow;
                   final counter = _counter(
                     index,
                     session.questions.length,
                     enabled: !state.checking,
-                    track: _track(session, outcome: outcome, phone: true),
+                    track: _track(
+                      session,
+                      outcome: outcome,
+                      phone: true,
+                      compact: compact,
+                    ),
+                    compact: compact,
                   );
                   final flag = Semantics(
                     button: true,
@@ -952,8 +922,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           children: [
                             Row(
                               children: [
-                                Expanded(child: counter),
-                                if (!narrow) flag,
+                                Expanded(child: _fitCount(counter)),
+                                flag,
                               ],
                             ),
                             action,
@@ -961,11 +931,11 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                         )
                       : Row(
                           children: [
-                            counter,
+                            Expanded(child: _fitCount(counter)),
                             // The result is read once as a status; the
                             // track already shows it.
-                            Expanded(child: _resultStatus(outcome)),
-                            if (!narrow) flag,
+                            _resultStatus(outcome),
+                            flag,
                             action,
                           ],
                         );
@@ -997,14 +967,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        _QuestionHeaderTrailing(
-                          questionId: question.id,
-                          trailing: narrow ? flag : null,
-                          child: _PreparedQuestionStage(
-                            proIsActive: pro,
-                            proPaused: paused,
-                            viewIndex: _viewIndex,
-                          ),
+                        _PreparedQuestionStage(
+                          proIsActive: pro,
+                          proPaused: paused,
+                          viewIndex: _viewIndex,
                         ),
                         if (_retryWrite != null)
                           saveFailureLine(() => unawaited(_retryWrite!())),
@@ -1625,6 +1591,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     QuizSession session, {
     required AnswerOutcome? outcome,
     required bool phone,
+    bool compact = false,
   }) =>
       AnswerTrack(
         key: _trackKey,
@@ -1632,7 +1599,19 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         answered: [for (final o in session.outcomes) o.isCorrect],
         current: session.currentIndex,
         phone: phone,
+        compact: compact,
         status: phone ? null : _resultWord(outcome),
+      );
+
+  /// Last resort (ruling 6): if the count column does not fit beside the
+  /// flag and the button, it scales down as one piece. They never shrink.
+  Widget _fitCount(Widget counter) => Align(
+        alignment: Alignment.centerLeft,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          alignment: Alignment.centerLeft,
+          child: counter,
+        ),
       );
 
   Widget _counter(
@@ -1640,6 +1619,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     int total, {
     required bool enabled,
     required Widget track,
+    required bool compact,
   }) {
     void open() => setState(() => _gridOpen = true);
     return Semantics(
@@ -1652,11 +1632,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           key: const ValueKey('quiz-counter'),
           onTap: enabled ? open : null,
           child: Padding(
-            // The flag follows at once, so the count column keeps only 4 on
-            // its right and the track still fits beside a long count.
-            padding: const EdgeInsets.only(
+            // 12 on the right, as the boards draw; a phone under 360 keeps 4.
+            padding: EdgeInsets.only(
               left: PantasSpace.s16,
-              right: PantasSpace.s4,
+              right: compact ? PantasSpace.s4 : PantasSpace.s12,
             ),
             child: ConstrainedBox(
               constraints: const BoxConstraints(minHeight: 44),
@@ -1727,6 +1706,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
         _trackKey,
         session.questions.length,
         phone: !context.wideWeb,
+        compact: MediaQuery.sizeOf(context).width < PantasLayout.bpPhoneNarrow,
       ),
       correct: [for (final o in session.outcomes) o.isCorrect],
       ghost: ghost,

@@ -17,7 +17,7 @@ PageHeader opens a page: an optional back link, the title, and an optional lead 
 ## Variants and props
 - `page-head`, `page-head--root`, `page-head--pane`, `page-head--phone`.
 - The consumer provides the title, the optional lead or date, the parent name for the back link, and the trailing content.
-- `page-head--question` (quiz, mock): the overline (`page-head__overline`, subject) at the left and, on phones under 400px, the flag (`.fbar__flag-alt`) at the right end in `.page-head__trail`; the stem `h1` below (ruling 9).
+- `page-head--question` (quiz, mock): the overline (`page-head__overline`, subject) at the left and, and the stem `h1` below (ruling 9).
 - `.page-head__after`: a right-aligned line under the row (usage gap 20). Home no longer uses it: the WeekStrip legend is removed (D186).
 - Mock question header (R3-O04, HANDOFF, MK question boards): at every width the trailing slot `.page-head__trail` at the right end of `.page-head__row` holds "Flag" with its F hint: `button.btn.btn--tertiary.btn--xs` (36 high, `size-btn-xs`, 14/600, flag icon 17, gap 8) with `aria-pressed` and the name "Flag question"; pressed is teal. The quiz keeps its flag in the bar (QS_Flag) and moves it here only under 400px.
 

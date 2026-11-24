@@ -173,4 +173,95 @@ void main() {
     );
     expect(_color(tester, 0), colors.danger);
   });
+
+  Rect mark(WidgetTester tester, int i) =>
+      tester.getRect(find.byKey(ValueKey('answer-track-mark-$i')));
+
+  testWidgets('phone: 20 questions make two rows of ten, 3 px apart',
+      (tester) async {
+    await tester.pumpApp(
+      const AnswerTrack(total: 20, answered: [], current: 0, phone: true),
+    );
+    expect(mark(tester, 10).left, mark(tester, 0).left);
+    expect(mark(tester, 10).top - mark(tester, 0).top, 4 + 3);
+    expect(mark(tester, 9).top, mark(tester, 0).top);
+    expect(mark(tester, 9).right - mark(tester, 0).left, 107);
+    expect(mark(tester, 19).right, mark(tester, 9).right);
+    expect(mark(tester, 10).size, const Size(8, 4));
+  });
+
+  testWidgets('phone: 13 questions make ten and three', (tester) async {
+    await tester.pumpApp(
+      const AnswerTrack(total: 13, answered: [], current: 0, phone: true),
+    );
+    expect(mark(tester, 9).top, mark(tester, 0).top);
+    expect(mark(tester, 10).top, greaterThan(mark(tester, 0).top));
+    expect(mark(tester, 12).top, mark(tester, 10).top);
+    expect(mark(tester, 12).right, lessThan(mark(tester, 9).right));
+  });
+
+  testWidgets('phone: ten questions stay one row', (tester) async {
+    await tester.pumpApp(
+      const AnswerTrack(total: 10, answered: [], current: 0, phone: true),
+    );
+    expect(mark(tester, 9).top, mark(tester, 0).top);
+  });
+
+  testWidgets('wide: 20 questions stay one row', (tester) async {
+    await tester.pumpApp(
+      const AnswerTrack(total: 20, answered: [], current: 0),
+    );
+    expect(mark(tester, 19).top, mark(tester, 0).top);
+  });
+
+  testWidgets('compact phone: marks 6 x 4, 2 px gaps and rows, line 78',
+      (tester) async {
+    await tester.pumpApp(
+      const AnswerTrack(
+        total: 20,
+        answered: [],
+        current: 0,
+        phone: true,
+        compact: true,
+      ),
+    );
+    expect(mark(tester, 0).size, const Size(6, 4));
+    expect(mark(tester, 1).left - mark(tester, 0).right, 2);
+    expect(mark(tester, 10).top - mark(tester, 0).top, 4 + 2);
+    expect(mark(tester, 9).right - mark(tester, 0).left, 78);
+    await tester.pumpApp(
+      const AnswerTrack(
+        total: 25,
+        answered: [],
+        current: 0,
+        phone: true,
+        compact: true,
+      ),
+    );
+    expect(
+      tester.getSize(find.byKey(const ValueKey('answer-track-line'))).width,
+      78,
+    );
+  });
+
+  testWidgets('markRects returns the two-row places', (tester) async {
+    final key = GlobalKey();
+    await tester.pumpApp(
+      Align(
+        alignment: Alignment.topLeft,
+        child: AnswerTrack(
+          key: key,
+          total: 20,
+          answered: const [],
+          current: 0,
+          phone: true,
+        ),
+      ),
+    );
+    final rects = AnswerTrack.markRects(key, 20, phone: true);
+    expect(rects, hasLength(20));
+    for (var i = 0; i < 20; i++) {
+      expect(rects[i], mark(tester, i), reason: 'mark $i');
+    }
+  });
 }
