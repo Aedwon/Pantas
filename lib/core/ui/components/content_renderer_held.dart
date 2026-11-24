@@ -60,13 +60,14 @@ extension HeldFlowBuilder on ContentRenderer {
               : string(block['url']))
           .isNotEmpty;
     }).toList();
-    final items = planReaderBlocks(visible);
+    final prepared = _prepare(planReaderBlocks(visible));
+    final items = prepared.items;
+    final ids = prepared.ids;
     final entries = <HeldEntry>[];
     final texts = <String>[];
     final figures = <HeldFigure>[];
     final counters = <int, int>{};
     var run = <ReaderItem>[];
-    var nextId = 0;
 
     void add(_Slot slot) {
       entries.add(
@@ -102,21 +103,24 @@ extension HeldFlowBuilder on ContentRenderer {
         final moved = HashSet<Map<String, Object?>>.identity();
         Map<String, Object?>? problem;
         Map<String, Object?>? solution;
+        var plateId = -1;
         for (final block in item.stem) {
           if (_isFigureBlock(block) && _marginFigure(block)) {
-            final id = nextId++;
+            final id = ids[block]!;
             if (!inline.contains(id) && problem == null) {
               moved.add(block);
               problem = block;
+              plateId = id;
             }
           }
         }
         for (final block in item.solution) {
           if (_isFigureBlock(block) && _marginFigure(block)) {
-            final id = nextId++;
+            final id = ids[block]!;
             if (!inline.contains(id) && solution == null) {
               moved.add(block);
               solution = block;
+              plateId = id;
             }
           }
         }
@@ -137,15 +141,18 @@ extension HeldFlowBuilder on ContentRenderer {
           final at = entries.length - 1;
           figures.add(
             HeldFigure(
-              id: nextId - 1,
+              id: plateId,
               anchorStart: at,
               anchorEnd: at,
               blockStart: headingBefore(at),
               example: true,
               plate: _ExamplePlate(
-                problem: problem == null ? null : _plateFor(context, problem),
-                solution:
-                    solution == null ? null : _plateFor(context, solution),
+                problem: problem == null
+                    ? null
+                    : _plateFor(context, problem, plateId),
+                solution: solution == null
+                    ? null
+                    : _plateFor(context, solution, plateId),
                 open: signal,
               ),
             ),
@@ -160,7 +167,7 @@ extension HeldFlowBuilder on ContentRenderer {
         continue;
       }
       flush();
-      final id = nextId++;
+      final id = ids[block]!;
       if (!_marginFigure(block) || inline.contains(id)) {
         add(_Slot(dispatch(context, block), below: 16));
         continue;
@@ -179,7 +186,7 @@ extension HeldFlowBuilder on ContentRenderer {
           anchorStart: start,
           anchorEnd: end,
           blockStart: entries.isEmpty ? 0 : headingBefore(start),
-          plate: RepaintBoundary(child: _plateFor(context, block)),
+          plate: RepaintBoundary(child: _plateFor(context, block, id)),
         ),
       );
     }
@@ -187,12 +194,16 @@ extension HeldFlowBuilder on ContentRenderer {
     return HeldFlow(entries: entries, figures: figures);
   }
 
-  Widget _plateFor(BuildContext context, Map<String, Object?> block) {
+  Widget _plateFor(BuildContext context, Map<String, Object?> block, int id) {
     final spec = block['spec']! as Map<String, Object?>;
     return _FigureFrame(
       reader: true,
       plate: true,
-      figure: figureBuilder?.call(context, spec) ?? FigureRegistry.build(spec)!,
+      figure: FigureHighlightFor(
+        figure: id,
+        child:
+            figureBuilder?.call(context, spec) ?? FigureRegistry.build(spec)!,
+      ),
       label: string(block['semanticsLabel']),
       credit: '',
     );
@@ -257,3 +268,138 @@ class _ExamplePlate extends StatelessWidget {
 /// none keeps the single centered column.
 bool lessonHasMarginFigures(List<Map<String, Object?>> blocks) =>
     blocks.any(_marginFigure);
+
+/// The labels of a figure that a text can name. Only the geometry painter
+/// draws each label as its own part, so only its figures carry links.
+List<String> _linkLabels(Map<String, Object?> block) {
+  final spec = block['spec'];
+  if (spec is! Map<String, Object?> || spec['kind'] != 'geometry-diagram') {
+    return const [];
+  }
+  final labels = spec['labels'];
+  return labels is List<Object?> ? labels.whereType<String>().toList() : [];
+}
+
+/// Gives every figure of the lesson its number, and marks the paragraphs of
+/// each figure's passage with the labels the text can name.
+({List<ReaderItem> items, Map<Map<String, Object?>, int> ids}) _prepare(
+  List<ReaderItem> source,
+) {
+  final ids = HashMap<Map<String, Object?>, int>.identity();
+  var next = 0;
+  final figures = <int>[];
+  for (var k = 0; k < source.length; k++) {
+    final item = source[k];
+    if (item is ReaderExample) {
+      for (final b in [...item.stem, ...item.solution]) {
+        if (_isFigureBlock(b)) ids[b] = next++;
+      }
+    } else if (item is ReaderPlain && _isFigureBlock(item.block)) {
+      ids[item.block] = next++;
+      if (_marginFigure(item.block)) figures.add(k);
+    }
+  }
+
+  bool isFigure(int k) =>
+      source[k] is ReaderPlain &&
+      _isFigureBlock((source[k] as ReaderPlain).block);
+  bool listItem(int k) {
+    final item = source[k];
+    return item is ReaderPlain &&
+        item.block['_type'] == 'block' &&
+        item.block['listItem'] is String &&
+        (item.block['listItem']! as String).isNotEmpty;
+  }
+
+  // Where each figure's anchor starts and ends.
+  final anchors = <int, ({int start, int end})>{};
+  for (final k in figures) {
+    var end = k - 1;
+    while (end >= 0 && isFigure(end)) {
+      end--;
+    }
+    if (end < 0) continue;
+    var start = end;
+    if (listItem(end)) {
+      while (start > 0 && listItem(start - 1)) {
+        start--;
+      }
+      final before = start > 0 ? source[start - 1] : null;
+      if (before is ReaderPlain &&
+          readerBlockText(before.block).trimRight().endsWith(':')) {
+        start--;
+      }
+    }
+    anchors[k] = (start: start, end: end);
+  }
+  final starts = {for (final a in anchors.values) a.start};
+
+  final marked = List<ReaderItem>.of(source);
+  Map<String, Object?> mark(
+          Map<String, Object?> block, int id, List<String> l) =>
+      block['_links'] != null || block['_type'] != 'block' || l.isEmpty
+          ? block
+          : {
+              ...block,
+              '_links': <String, Object?>{'figure': id, 'labels': l},
+            };
+
+  for (final k in figures) {
+    final anchor = anchors[k];
+    final plain = source[k] as ReaderPlain;
+    final labels = _linkLabels(plain.block);
+    if (anchor == null || labels.isEmpty) continue;
+    var stop = source.length;
+    for (var t = anchor.end + 1; t < source.length; t++) {
+      final item = source[t];
+      final style = item is ReaderPlain && item.block['_type'] == 'block'
+          ? item.block['style']
+          : null;
+      if (item is ReaderExample ||
+          style == 'h2' ||
+          style == 'h3' ||
+          style == 'blockquote' ||
+          (starts.contains(t) && t > anchor.end)) {
+        stop = t;
+        break;
+      }
+    }
+    for (var t = anchor.start; t < stop; t++) {
+      final item = marked[t];
+      if (item is! ReaderPlain) continue;
+      final style = item.block['style'];
+      if (style == 'h2' || style == 'h3' || style == 'blockquote') continue;
+      marked[t] = ReaderPlain(
+        mark(item.block, ids[plain.block]!, labels),
+        item.section,
+      );
+    }
+  }
+  // An example's own figures name parts of the text of its card.
+  for (var k = 0; k < marked.length; k++) {
+    final item = marked[k];
+    if (item is! ReaderExample) continue;
+    Map<String, Object?>? problem;
+    Map<String, Object?>? solution;
+    for (final b in item.stem) {
+      if (_isFigureBlock(b) && _marginFigure(b)) problem ??= b;
+    }
+    for (final b in item.solution) {
+      if (_isFigureBlock(b) && _marginFigure(b)) solution ??= b;
+    }
+    final lit = solution ?? problem;
+    if (lit == null) continue;
+    final labels = <String>{
+      if (problem != null) ..._linkLabels(problem),
+      ..._linkLabels(lit),
+    }.toList();
+    final id = ids[lit]!;
+    marked[k] = ReaderExample(
+      number: item.number,
+      title: item.title,
+      stem: [for (final b in item.stem) mark(b, id, labels)],
+      solution: [for (final b in item.solution) mark(b, id, labels)],
+    );
+  }
+  return (items: marked, ids: ids);
+}

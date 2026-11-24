@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/figure_highlight.dart';
+import 'package:pantas/core/ui/components/reader_link_words.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// Height of the drawing. The design system sets no height for diagrams.
@@ -86,6 +88,7 @@ class GeometryDiagramFigure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    final lit = LitLabel.maybeOf(context);
     return Semantics(
       label: 'A $type diagram labeled ${labels.join(', ')}.',
       child: SizedBox(
@@ -101,6 +104,8 @@ class GeometryDiagramFigure extends StatelessWidget {
             labelStyle: context.type.subhead.copyWith(
               color: colors.label,
             ),
+            lit: lit?.label,
+            litAmount: lit?.amount ?? 0,
           ),
         ),
       ),
@@ -116,7 +121,15 @@ class _GeometryDiagramPainter extends CustomPainter {
     required this.faint,
     required this.mark,
     required this.labelStyle,
+    this.lit,
+    this.litAmount = 0,
   });
+
+  /// The label core a word of the text is pointing at, and how far the 150 ms
+  /// change has come. The named part keeps its color and thickens to 4 px, its
+  /// label goes bold, and everything else dims to 35%.
+  final String? lit;
+  final double litAmount;
 
   final String type;
   final List<String> labels;
@@ -142,6 +155,19 @@ class _GeometryDiagramPainter extends CustomPainter {
       ..style = PaintingStyle.fill;
     final bounds = Rect.fromLTWH(24, 18, size.width - 48, size.height - 38);
 
+    final litIndex = lit == null
+        ? -1
+        : labels.indexWhere(
+            (l) => labelCore(l).toLowerCase() == lit!.toLowerCase(),
+          );
+    final dimmed = lit != null && litAmount > 0;
+    final dim = 1 - .65 * litAmount;
+    if (dimmed) {
+      canvas.saveLayer(
+        Offset.zero & size,
+        Paint()..color = Color.fromRGBO(0, 0, 0, dim),
+      );
+    }
     final anchors = switch (type) {
       'basic-concepts' => _drawBasicConcepts(canvas, bounds, stroke, helper),
       'angle-gallery' => _drawAngleGallery(canvas, bounds, stroke),
@@ -208,15 +234,75 @@ class _GeometryDiagramPainter extends CustomPainter {
       _ => _drawTriangle(canvas, bounds, stroke),
     };
 
-    _drawLabels(canvas, labels, anchors);
+    if (dimmed) {
+      canvas.restore();
+      if (litIndex >= 0) _drawLitPart(canvas, bounds, litIndex);
+    }
+    _drawLabels(canvas, labels, anchors, litIndex, dimmed ? dim : 1);
   }
 
-  void _drawLabels(Canvas canvas, List<String> labels, List<Offset> anchors) {
+  /// The part a label names, drawn again over the dimmed figure in its own
+  /// color, thickened from 1.2 px to 4 px. Only the figures whose parts are
+  /// tied to their labels have one; for the rest the label goes bold and the
+  /// rest dims.
+  void _drawLitPart(Canvas canvas, Rect bounds, int index) {
+    if (type != 'circle-elements') return;
+    final center = bounds.center;
+    final radius = math.min(bounds.width, bounds.height) * 0.38;
+    final part = Paint()
+      ..color = ink
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..strokeWidth = 1.2 + (4 - 1.2) * litAmount;
+    final line = switch (index) {
+      0 => (center, Offset(center.dx + radius, center.dy)),
+      1 => (
+          Offset(center.dx - radius, center.dy),
+          Offset(center.dx + radius, center.dy),
+        ),
+      2 => (
+          Offset(center.dx - radius * 0.7, center.dy - radius * 0.7),
+          Offset(center.dx + radius * 0.7, center.dy - radius * 0.7),
+        ),
+      3 => (
+          Offset(bounds.left + 10, center.dy - radius * 0.3),
+          Offset(bounds.right - 10, center.dy + radius * 0.6),
+        ),
+      4 => (
+          Offset(center.dx + radius, bounds.top + 10),
+          Offset(center.dx + radius, bounds.bottom - 10),
+        ),
+      _ => null,
+    };
+    if (line != null) canvas.drawLine(line.$1, line.$2, part);
+  }
+
+  void _drawLabels(
+    Canvas canvas,
+    List<String> labels,
+    List<Offset> anchors,
+    int litIndex,
+    double alpha,
+  ) {
     if (anchors.isEmpty) return;
     for (var i = 0; i < labels.length; i++) {
       final anchor = anchors[i % anchors.length];
+      final isLit = i == litIndex;
       TextPainter(
-        text: TextSpan(text: labels[i], style: labelStyle),
+        text: TextSpan(
+          text: labels[i],
+          style: isLit
+              ? labelStyle.copyWith(
+                  fontWeight: FontWeight.lerp(
+                    labelStyle.fontWeight,
+                    FontWeight.w700,
+                    litAmount,
+                  ),
+                )
+              : labelStyle.copyWith(
+                  color: labelStyle.color?.withValues(alpha: alpha),
+                ),
+        ),
         textDirection: TextDirection.ltr,
       )
         ..layout(maxWidth: 110)

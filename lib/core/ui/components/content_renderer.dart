@@ -11,6 +11,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/platform/figure_viewer_back.dart';
 import 'package:pantas/core/platform/figure_viewer_history.dart';
 import 'package:pantas/core/platform/route_leave_guard.dart';
+import 'package:pantas/core/ui/components/figure_highlight.dart';
 import 'package:pantas/core/ui/components/held_reader.dart';
 import 'package:pantas/core/ui/components/lesson_svg.dart';
 import 'package:pantas/core/ui/components/math_support.dart';
@@ -18,6 +19,7 @@ import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/reader_blocks.dart';
 import 'package:pantas/core/ui/components/reader_figure_placement.dart';
+import 'package:pantas/core/ui/components/reader_link_words.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -263,14 +265,27 @@ class ContentRenderer extends StatelessWidget {
       _inline(
     BuildContext context,
     List<Map<String, Object?>> runs,
-    TextStyle type,
-  ) {
+    TextStyle type, {
+    Map<String, Object?>? links,
+  }) {
     final stemBold = _hasStemBold;
     final spans = <InlineSpan>[];
     final spoken = StringBuffer();
     var hasMath = false;
     var validSpeech = true;
-    for (final run in runs) {
+    // Words that name a part of the figure beside the text (held layout).
+    final figure = links?['figure'];
+    final linked = figure is int && links?['labels'] is List<Object?>
+        ? {
+            for (final m in findLinks(runs, [
+              for (final l in links!['labels']! as List<Object?>)
+                if (l is String) l,
+            ]))
+              m.run: m,
+          }
+        : const <int, LinkMatch>{};
+    for (var runIndex = 0; runIndex < runs.length; runIndex++) {
+      final run = runs[runIndex];
       final source = string(run['text']);
       final marks = run['marks'] is List<Object?>
           ? (run['marks']! as List<Object?>).whereType<String>().toSet()
@@ -287,13 +302,25 @@ class ContentRenderer extends StatelessWidget {
         decoration:
             marks.contains('underline') ? TextDecoration.underline : null,
       );
+      final link = linked[runIndex];
       if (marks.contains('latex')) {
+        final span = inlineMathSpan(
+          source,
+          style: runStyle,
+          onErrorFallback: readerFigures ? fallback : null,
+        );
         spans.add(
-          inlineMathSpan(
-            source,
-            style: runStyle,
-            onErrorFallback: readerFigures ? fallback : null,
-          ),
+          link != null && span is WidgetSpan
+              ? WidgetSpan(
+                  alignment: span.alignment,
+                  baseline: span.baseline,
+                  child: LinkedWord(
+                    figure: figure! as int,
+                    label: link.label,
+                    child: span.child,
+                  ),
+                )
+              : span,
         );
         final label = inlineMathExpressionSemanticsLabel(source);
         if (label == null) {
@@ -302,6 +329,43 @@ class ContentRenderer extends StatelessWidget {
           spoken.write(label);
         }
         hasMath = true;
+      } else if (link != null) {
+        // A bold word that names a part: the words around it stay as they
+        // were, and the word itself carries the dotted underline.
+        spans
+          ..addAll(
+            inlineMathSpans(
+              source.substring(0, link.start),
+              style: runStyle,
+              onErrorFallback: readerFigures ? fallback : null,
+            ),
+          )
+          ..add(
+            WidgetSpan(
+              alignment: PlaceholderAlignment.baseline,
+              baseline: TextBaseline.alphabetic,
+              child: LinkedWord(
+                figure: figure! as int,
+                label: link.label,
+                text: source.substring(link.start, link.end),
+                style: runStyle,
+              ),
+            ),
+          )
+          ..addAll(
+            inlineMathSpans(
+              source.substring(link.end),
+              style: runStyle,
+              onErrorFallback: readerFigures ? fallback : null,
+            ),
+          );
+        final label = inlineMathSemantics(source);
+        if (label == null) {
+          validSpeech = false;
+        } else {
+          spoken.write(label.label);
+          hasMath = hasMath || label.hasMath;
+        }
       } else {
         spans.addAll(
           inlineMathSpans(
@@ -421,7 +485,14 @@ class ContentRenderer extends StatelessWidget {
     final numbered = readerFigures && name.startsWith('h')
         ? _numbered(runs)
         : (number: null, runs: runs);
-    final inline = _inline(context, numbered.runs, type);
+    final inline = _inline(
+      context,
+      numbered.runs,
+      type,
+      links: block['_links'] is Map<String, Object?>
+          ? block['_links']! as Map<String, Object?>
+          : null,
+    );
     if (numbered.number != null) {
       return Row(
         crossAxisAlignment: CrossAxisAlignment.baseline,

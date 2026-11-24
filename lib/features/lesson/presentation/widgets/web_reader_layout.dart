@@ -6,6 +6,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/figure_highlight.dart';
 import 'package:pantas/core/ui/components/held_reader.dart';
 import 'package:pantas/core/ui/components/reader_figure_placement.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
@@ -1366,9 +1367,11 @@ class _HeldLessonBody extends StatefulWidget {
 class _HeldLessonBodyState extends State<_HeldLessonBody> {
   Set<int> _inline = {};
   final _open = <int, ValueNotifier<bool>>{};
+  final _highlights = FigureHighlights();
 
   @override
   void dispose() {
+    _highlights.dispose();
     for (final signal in _open.values) {
       signal.dispose();
     }
@@ -1414,45 +1417,48 @@ class _HeldLessonBodyState extends State<_HeldLessonBody> {
             else
               e,
         ];
-        return LessonTextScale(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: m.pageLeft),
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 1000),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(reader.topicName, style: t.sub),
-                      const SizedBox(height: PantasSpace.s6),
-                      Text(
-                        reader.lesson.title,
-                        style: PantasType.webH1
-                            .copyWith(color: t.colors.textPrimary),
-                      ),
-                      const SizedBox(height: PantasSpace.s32),
-                    ],
+        return FigureHighlightScope(
+          highlights: _highlights,
+          child: LessonTextScale(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: m.pageLeft),
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 1000),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(reader.topicName, style: t.sub),
+                        const SizedBox(height: PantasSpace.s6),
+                        Text(
+                          reader.lesson.title,
+                          style: PantasType.webH1
+                              .copyWith(color: t.colors.textPrimary),
+                        ),
+                        const SizedBox(height: PantasSpace.s32),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              HeldReader(
-                metrics: m,
-                viewportHeight: height,
-                entries: entries,
-                figures: flow.figures,
-                onOverCap: (ids) {
-                  if (_inline.containsAll(ids)) return;
-                  setState(() => _inline = {..._inline, ...ids});
-                },
-              ),
-              const SizedBox(height: PantasSpace.s20),
-              Padding(
-                padding: EdgeInsets.only(left: m.pageLeft),
-                child: SizedBox(width: m.textWidth, child: widget.footer),
-              ),
-            ],
+                HeldReader(
+                  metrics: m,
+                  viewportHeight: height,
+                  entries: entries,
+                  figures: flow.figures,
+                  onOverCap: (ids) {
+                    if (_inline.containsAll(ids)) return;
+                    setState(() => _inline = {..._inline, ...ids});
+                  },
+                ),
+                const SizedBox(height: PantasSpace.s20),
+                Padding(
+                  padding: EdgeInsets.only(left: m.pageLeft),
+                  child: SizedBox(width: m.textWidth, child: widget.footer),
+                ),
+              ],
+            ),
           ),
         );
       },
