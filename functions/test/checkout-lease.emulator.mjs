@@ -247,11 +247,94 @@ test('a rollover finding an earlier pass paid without a grant says it is being c
     error => error.message === 'Your payment is being confirmed. Pro will appear shortly.');
   assert.equal(retry.created.length, 0);
   assert.equal((await db.doc('paymongoPayments/pay_roll_1').get()).exists, false);
-  // After 10 minutes the call completes the grant through the shared path; the paid session is then replaced.
+  // After 10 minutes the call completes the grant through the shared path and answers already-paid: no link in that call.
   retry.now = () => afterSitting + 11 * 60_000;
-  const out = await createCheckout(caller(uid), {product: passId, declaration: adult}, retry);
+  await assert.rejects(createCheckout(caller(uid), {product: passId, declaration: adult}, retry),
+    error => error.code === 'already-exists' && error.details?.reason === 'already-paid');
   assert.equal((await db.doc('paymongoPayments/pay_roll_1').get()).get('uid'), uid);
   assert.equal((await db.doc(`users/${uid}/grants/pay_roll_1`).get()).exists, true);
+  assert.equal(retry.created.length, 0);
+});
+
+// Another sitting key's reservation counts exactly as the same key's (review 8).
+const seedOther = (uid, row) => db.doc(`users/${uid}/pendingCheckouts/earlier-sitting-key`)
+  .set({product: passId, reference: 'ref_earlier', ...row});
+
+test('a rollover finding another key still creating within its lease says pending and returns no link', async () => {
+  const uid = 'lease-other-creating';
+  await seedOther(uid, {state: 'creating', createdAt: afterSitting - 30_000});
+  const retry = setup({now: () => afterSitting});
+  retry.catalog = passCatalog;
+  await assert.rejects(createCheckout(caller(uid), {product: passId, declaration: adult}, retry), /pending/);
+  assert.equal(retry.created.length, 0);
+  // Once its lease lapses, the reservation no longer blocks.
+  const later = setup({now: () => afterSitting + LEASE});
+  later.catalog = passCatalog;
+  assert.match((await createCheckout(caller(uid), {product: passId, declaration: adult}, later)).checkoutUrl, /^https:/);
+});
+
+test('a rollover finding another key creating, and an older open one, never returns the open link', async () => {
+  const uid = 'lease-other-creating-open';
+  const first = setup({now: () => beforeSitting});
+  first.catalog = passCatalog;
+  await createCheckout(caller(uid), {product: passId, declaration: adult}, first);
+  await seedOther(uid, {state: 'creating', createdAt: afterSitting - 30_000});
+  const retry = setup({now: () => afterSitting});
+  retry.catalog = passCatalog;
+  retry.client.getCheckoutSession = async id => ({id, status: 'active', metadata: {}, payments: []});
+  await assert.rejects(createCheckout(caller(uid), {product: passId, declaration: adult}, retry), /pending/);
+  assert.equal(retry.created.length, 0);
+});
+
+test('a rollover finding another key unissued settles it first, then makes the new link', async () => {
+  const uid = 'lease-other-unissued';
+  await seedOther(uid, {state: 'unissued', createdAt: beforeSitting, unissuedSessionId: 'cs_unissued_old'});
+  const retry = setup({now: () => afterSitting});
+  retry.catalog = passCatalog;
+  const calls = [];
+  retry.client.expireCheckoutSession = async id => { calls.push(['expire', id]); return true; };
+  retry.client.getCheckoutSession = async id => { calls.push(['get', id]); return {id, status: 'expired', metadata: {}, payments: []}; };
+  const create = retry.client.createCheckoutSession;
+  retry.client.createCheckoutSession = async input => { calls.push(['create']); return create(input); };
+  await createCheckout(caller(uid), {product: passId, declaration: adult}, retry);
+  assert.deepEqual(calls[0], ['expire', 'cs_unissued_old']);
+  assert.ok(calls.findIndex(c => c[0] === 'create') > 0);
+  assert.equal((await db.doc(`users/${uid}/pendingCheckouts/earlier-sitting-key`).get()).exists, false);
+});
+
+test('a rollover finding another key unissued that is not confirmed expired makes no link', async () => {
+  const uid = 'lease-other-unissued-live';
+  await seedOther(uid, {state: 'unissued', createdAt: beforeSitting, unissuedSessionId: 'cs_unissued_live'});
+  const retry = setup({now: () => afterSitting});
+  retry.catalog = passCatalog;
+  retry.client.getCheckoutSession = async id => ({id, status: 'active', metadata: {}, payments: []});
+  await assert.rejects(createCheckout(caller(uid), {product: passId, declaration: adult}, retry),
+    error => error.message === 'Checkout status is unavailable. Try again later.');
+  assert.equal(retry.created.length, 0);
+  assert.equal((await db.doc(`users/${uid}/pendingCheckouts/earlier-sitting-key`).get()).get('state'), 'unissued');
+});
+
+test('a reused session that the second read reports expired is replaced, never returned', async () => {
+  const uid = 'lease-reuse-expired';
+  const original = await createCheckout(caller(uid), {product, declaration: adult}, setup());
+  const retry = setup();
+  let reads = 0;
+  retry.client.getCheckoutSession = async id => ({id, status: ++reads === 1 ? 'active' : 'expired', metadata: {}, payments: []});
+  const out = await createCheckout(caller(uid), {product, declaration: adult}, retry);
   assert.equal(retry.created.length, 1);
-  assert.equal(out.reference, retry.created[0].referenceNumber);
+  assert.notEqual(out.sessionId, original.sessionId);
+});
+
+test('a reused earlier-sitting session that the second read reports expired is replaced, never returned', async () => {
+  const uid = 'lease-reuse-expired-rollover';
+  const first = setup({now: () => beforeSitting});
+  first.catalog = passCatalog;
+  const original = await createCheckout(caller(uid), {product: passId, declaration: adult}, first);
+  const retry = setup({now: () => afterSitting});
+  retry.catalog = passCatalog;
+  let reads = 0;
+  retry.client.getCheckoutSession = async id => ({id, status: ++reads === 1 ? 'active' : 'expired', metadata: {}, payments: []});
+  const out = await createCheckout(caller(uid), {product: passId, declaration: adult}, retry);
+  assert.equal(retry.created.length, 1);
+  assert.notEqual(out.sessionId, original.sessionId);
 });

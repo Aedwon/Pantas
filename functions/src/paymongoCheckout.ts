@@ -1,6 +1,6 @@
 import {randomUUID, createHash} from 'node:crypto';
 import {getAuth, type Auth} from 'firebase-admin/auth';
-import {getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore} from 'firebase-admin/firestore';
+import {getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore, type Transaction} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions';
 import {HttpsError} from 'firebase-functions/v2/https';
 import {accountClosed, onAccountCall as onCall} from './_accountAccess.js';
@@ -98,6 +98,10 @@ function declarationFor(snaps: DocumentSnapshot[], data: unknown, now: number): 
 const alreadyPaid = () => new HttpsError('already-exists', 'Your payment was received. Pro will appear shortly.',
   {reason: 'already-paid'});
 
+/** A `creating` reservation still inside its lease belongs to a live attempt. */
+const liveCreating = (row: DocumentSnapshot, now: number) =>
+  row.get('state') === 'creating' && now - Number(row.get('createdAt')) < CREATING_LEASE_MS;
+
 /** A stored declaration is reusable only when it says what the buyer must declare now. */
 const sameDeclaration = (stored: unknown, now: CheckoutDeclaration): boolean => {
   const d = stored && typeof stored === 'object' ? stored as Record<string, unknown> : {};
@@ -138,22 +142,44 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   const bindingFor = (d: CheckoutDeclaration) => ({uid, product: product.id, createdAt: now, amountCentavos, declaration: d,
     ...(sitting ? {examId: product.examId, sitting} : {})});
   if (sitting) {
-    // A pass retried after its sitting changed looks under every sitting key. An open, unpaid session is
-    // returned: the payer pays the price and sitting it shows, and a pass paid after its sitting is
-    // refunded by the late-pass rule. An expired or paid session is replaced as usual.
-    for (const other of (await deps.db.collection(`users/${uid}/pendingCheckouts`).where('product', '==', product.id).get()).docs) {
-      if (other.id === key || other.get('state') !== 'open' || typeof other.get('sessionId') !== 'string') continue;
+    // A pass retried after its sitting changed looks under every sitting key. Another key's reservation
+    // counts exactly as the same key's: `creating` within its lease is a pending attempt, and `unissued`
+    // is settled first. Only then is an open, unpaid session returned: the payer pays the price and
+    // sitting it shows, and a pass paid after its sitting is refunded by the late-pass rule. An expired
+    // or paid session is replaced as usual.
+    const others = (await deps.db.collection(`users/${uid}/pendingCheckouts`).where('product', '==', product.id).get())
+      .docs.filter(other => other.id !== key);
+    for (const other of others) {
+      if (liveCreating(other, now)) throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
+    }
+    for (const other of others) {
+      if (other.get('state') === 'unissued' && typeof other.get('unissuedSessionId') === 'string') {
+        await settleUnissued(deps, other.ref, other.get('unissuedSessionId') as string);
+      }
+    }
+    for (const other of others) {
+      if (other.get('state') !== 'open' || typeof other.get('sessionId') !== 'string') continue;
       const held = {sessionId: other.get('sessionId') as string, reference: other.get('reference') as string, checkoutUrl: other.get('checkoutUrl') as string};
       const stored = (await deps.db.doc(`paymongoOrders/${held.reference}`).get()).get('declaration');
       if (await sessionVerdict(deps, uid, held.sessionId, now, sameDeclaration(stored, declaration)) === 'reuse') {
-        return reuseOpen(deps, other.ref, uid, data, now, held);
+        const reused = await reuseOpen(deps, other.ref, uid, data, now, held);
+        if (reused) return reused;
       }
     }
   }
+  // A reservation another sitting key made between the scan above and this write is also a pending attempt.
+  const assertNoOtherReservation = async (transaction: Transaction) => {
+    if (!sitting) return;
+    const rows = await transaction.get(deps.db.collection(`users/${uid}/pendingCheckouts`).where('product', '==', product.id));
+    if (rows.docs.some(other => other.id !== key && (liveCreating(other, now) || other.get('state') === 'unissued'))) {
+      throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
+    }
+  };
   type Held = {state?: string; unissuedSessionId?: string; sessionId?: string; checkoutUrl?: string; reference?: string; matches: boolean};
   const reserved = await deps.db.runTransaction(async (transaction): Promise<Held | null> => {
     const [previous, ...account] = await transaction.getAll(pending, ...accountRefs(deps.db, uid));
     declaration = declarationFor(account, data, now);
+    await assertNoOtherReservation(transaction);
     if (previous.exists) {
       const held = previous.data()!;
       const lapsed = held.state === 'creating' && !(now - Number(held.createdAt) < CREATING_LEASE_MS);
@@ -183,12 +209,14 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     // Legacy orders without a quoted amount are moot: prod has test keys only and test grants are revoked at the live switch.
     // (A session whose declaration no longer matches is the one exception: it is expired and replaced.)
     if (await sessionVerdict(deps, uid, reserved.sessionId!, now, reserved.matches) === 'reuse') {
-      return reuseOpen(deps, pending, uid, data, now, reserved as {sessionId: string; reference: string; checkoutUrl: string});
+      const reused = await reuseOpen(deps, pending, uid, data, now, reserved as {sessionId: string; reference: string; checkoutUrl: string});
+      if (reused) return reused;
     }
     // Compare-and-swap: only one request can replace a completed or expired checkout.
     await deps.db.runTransaction(async transaction => {
       const [current, ...account] = await transaction.getAll(pending, ...accountRefs(deps.db, uid));
       declaration = declarationFor(account, data, now);
+      await assertNoOtherReservation(transaction);
       if (current.get('reference') !== reserved.reference) throw new HttpsError('aborted', 'Checkout changed. Try again.');
       transaction.set(pending, {state: 'creating', reference: referenceNumber, product: product.id, createdAt: now});
       transaction.create(order, bindingFor(declaration));
@@ -270,7 +298,9 @@ async function sessionVerdict(deps: CheckoutDeps, uid: string, sessionId: string
   // customer could pay twice. Keep the reservation so the webhook completes the grant.
   for (const payment of remote.payments.filter(p => p.status === 'paid')) {
     const recorded = async () => (await deps.db.doc(`paymongoPayments/${grantDocId(payment.id)}`).get()).exists;
-    if (!(await recorded()) && !(remote.metadata?.uid === uid && await healPaidPayment(deps, sessionId, payment, now) && await recorded())) {
+    if (!(await recorded())) {
+      // A heal that just granted this payment is the buyer's payment: no link in this call.
+      if (remote.metadata?.uid === uid && await healPaidPayment(deps, sessionId, payment, now) && await recorded()) throw alreadyPaid();
       logger.warn('Checkout replacement refused: previous session is paid and its grant is not processed yet', {reason: 'paid-ungranted'});
       throw new HttpsError('failed-precondition', 'Your payment is being confirmed. Pro will appear shortly.');
     }
@@ -286,11 +316,15 @@ async function sessionVerdict(deps: CheckoutDeps, uid: string, sessionId: string
  * Hands out an open session again. Payment and its webhook may have completed since the verdict.
  * Read the provider again, then decide inside a transaction that also reads the grant index and
  * the account state. A paid session, granted or not, gets no link: the app refreshes the entitlement.
+ * Returns null when the provider now reports the session expired without a payment.
  */
 async function reuseOpen(deps: CheckoutDeps, pending: DocumentReference, uid: string, data: unknown, now: number,
-  held: {sessionId: string; reference: string; checkoutUrl: string}): Promise<{checkoutUrl: string; sessionId: string; reference: string}> {
+  held: {sessionId: string; reference: string; checkoutUrl: string}): Promise<{checkoutUrl: string; sessionId: string; reference: string} | null> {
   const again = await deps.client.getCheckoutSession(held.sessionId);
   if (again.payments.some(p => p.status === 'paid')) throw alreadyPaid();
+  // Expired since the verdict, with no payment: the old link is dead, so the caller replaces it.
+  if (again.status === 'expired') return null;
+  if (again.status !== 'active') throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
   await deps.db.runTransaction(async transaction => {
     const [current, ...account] = await transaction.getAll(pending, ...accountRefs(deps.db, uid));
     declarationFor(account, data, now);

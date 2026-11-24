@@ -20,6 +20,10 @@ export interface Grant {
   revokedAt?: number;
   disputeId?: string;
   disputeResolved?: boolean;
+  /** Milliseconds the grant actually covered in earlier active spells, fixed when it is revoked (0 if born revoked). */
+  coveredMs?: number;
+  /** When the current active spell began, after a dispute win restored the grant. */
+  activeFrom?: number;
   /**
    * Dispute id to this grant's schedule before that dispute pulled it earlier, and where the
    * dispute put it. A win uses it to put the grant back behind the restored grant.

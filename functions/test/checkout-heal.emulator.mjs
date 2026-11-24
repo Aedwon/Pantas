@@ -46,7 +46,10 @@ test('a paid session with no grant older than 10 minutes is completed by the che
     error => error.message === 'Your payment is being confirmed. Pro will appear shortly.');
   assert.deepEqual(await grantIds(uid), []);
   // A request cannot supply the session or payment: the call reads both from PayMongo.
-  await createCheckout(caller(uid), {product, declaration: adult, sessionId: 'cs_forged', paymentId: 'pay_forged'}, checkoutDeps(client, T0 + 12 * MIN, auth));
+  // After the heal the call answers already-paid and returns no link.
+  await assert.rejects(createCheckout(caller(uid), {product, declaration: adult, sessionId: 'cs_forged', paymentId: 'pay_forged'}, checkoutDeps(client, T0 + 12 * MIN, auth)),
+    error => error.code === 'already-exists' && error.details?.reason === 'already-paid');
+  assert.equal(made.length, 1);
   assert.deepEqual(await grantIds(uid), ['pay_heal_1']);
   assert.equal((await db.doc('paymongoPayments/pay_heal_1').get()).get('uid'), uid);
   assert.equal((await db.doc(`webhookEvents/heal_pay_heal_1/users/${uid}`).get()).exists, true);
