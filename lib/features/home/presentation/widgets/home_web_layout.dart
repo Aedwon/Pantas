@@ -563,7 +563,7 @@ class HomeWebNotice extends StatelessWidget {
                   const SizedBox(height: PantasSpace.s12),
                   // The buttons sit at the right edge, the quiet one first.
                   Wrap(
-                    spacing: 12,
+                    spacing: 8,
                     alignment: WrapAlignment.end,
                     children: [
                       if (secondaryLabel != null)

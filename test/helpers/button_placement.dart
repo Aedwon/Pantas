@@ -281,11 +281,11 @@ List<PlacementProblem> widePlacementProblems(
     final inset = _textInset(box, {
       for (final b in g) b.element.renderObject!,
     });
-    // A box with no text of its own (a card's foot band) has only its
-    // padding to go by: the group is at the end when it hugs the right side.
-    final atEnd = inset == null
-        ? right <= 32 && right < left
-        : (right - inset).abs() <= 2;
+    // The group is at the end when its right inset matches the box's text
+    // inset, or when it hugs the right side within a card's padding (a foot
+    // band with no text, or text pushed in by an icon at its left).
+    final hugs = right <= 32 && right < left;
+    final atEnd = hugs || inset != null && (right - inset).abs() <= 2;
     final centered = (right - left).abs() <= 2;
     if (!atEnd && !centered) {
       problems.add('$names sits ${left.round()} px from the left and '

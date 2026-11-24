@@ -441,8 +441,8 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                 Wrap(
                   alignment: single ? WrapAlignment.center : WrapAlignment.end,
                   crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: 12,
-                  runSpacing: 12,
+                  spacing: 8,
+                  runSpacing: 8,
                   children: [
                     WebButton(
                       label: 'Discard This Mock',

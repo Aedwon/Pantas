@@ -242,7 +242,7 @@ class WebSessionResults extends StatelessWidget {
                                 ),
                               ),
                               if (next) ...[
-                                const SizedBox(width: PantasSpace.s12),
+                                const SizedBox(width: PantasSpace.s8),
                                 WebButton(
                                   label: 'Start Session ${batch.ordinal + 1}',
                                   large: true,

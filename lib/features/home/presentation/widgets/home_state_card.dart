@@ -133,7 +133,7 @@ class HomeStateCard extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Wrap(
               alignment: WrapAlignment.end,
-              spacing: 12,
+              spacing: 8,
               runSpacing: 8,
               children: [
                 if (state == HomeState.passed && onSecondary != null)

@@ -85,7 +85,7 @@ class InstallCard extends StatelessWidget {
                 Expanded(child: text),
                 const SizedBox(width: PantasSpace.s18),
                 notNow,
-                const SizedBox(width: PantasSpace.s10),
+                const SizedBox(width: PantasSpace.s8),
                 primary,
               ],
             ),
