@@ -229,6 +229,7 @@ void main() {
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
         contentDatabaseProvider.overrideWithValue(contentDb),
+        recordNowProvider.overrideWithValue(DateTime(2026, 5, 16, 12)),
       ],
     );
 
@@ -258,6 +259,7 @@ void main() {
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
           contentDatabaseProvider.overrideWithValue(contentDb),
+          recordNowProvider.overrideWithValue(DateTime(2026, 10, 5, 12)),
         ],
       );
       final record = await container.read(recordProvider.future);
@@ -309,6 +311,7 @@ void main() {
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
         contentDatabaseProvider.overrideWithValue(contentDb),
+        recordNowProvider.overrideWithValue(DateTime(2026, 10, 5, 12)),
       ],
     );
     final record = await container.read(recordProvider.future);
@@ -343,6 +346,7 @@ void main() {
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
           contentDatabaseProvider.overrideWithValue(contentDb),
+          recordNowProvider.overrideWithValue(DateTime(2026, 10, 5, 12)),
         ],
       );
       final record = await container.read(recordProvider.future);
@@ -386,11 +390,59 @@ void main() {
       overrides: [
         appDatabaseProvider.overrideWithValue(db),
         contentDatabaseProvider.overrideWithValue(contentDb),
+        recordNowProvider.overrideWithValue(DateTime(2026, 10, 4, 12)),
       ],
     );
     final record = await container.read(recordProvider.future);
     expect(record.dayStreak, 2);
     expect(record.streakStartedOn, isNull);
+  });
+
+  // P10/U61: the stored streak is only rewritten when a session completes, so
+  // Record reads it against today.
+  Future<StudentRecord> readRecordOn(DateTime now) {
+    container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        recordNowProvider.overrideWithValue(now),
+      ],
+    );
+    return container.read(recordProvider.future);
+  }
+
+  Future<void> storeStreak(DateTime lastActive) =>
+      db.into(db.streakLocal).insert(
+            StreakLocalCompanion.insert(
+              id: const Value(1),
+              current: const Value(12),
+              longest: const Value(12),
+              lastActiveDate: Value(lastActive),
+            ),
+          );
+
+  test('a streak stopped three weeks ago reads zero, with no start date',
+      () async {
+    await seedContinuousHistory(DateTime(2026, 10, 24), 12);
+    await storeStreak(DateTime(2026, 11, 4));
+
+    final record = await readRecordOn(DateTime(2026, 11, 25, 9));
+
+    expect(record.dayStreak, 0);
+    expect(record.streakStartedOn, isNull);
+    expect(record.longestStreak, 12);
+    // Read only: the stored row is not touched.
+    expect((await StreakRepository(db).read()).current, 12);
+  });
+
+  test('a streak last credited yesterday still reads in full', () async {
+    await seedContinuousHistory(DateTime(2026, 10, 24), 12);
+    await storeStreak(DateTime(2026, 11, 4));
+
+    final record = await readRecordOn(DateTime(2026, 11, 5, 9));
+
+    expect(record.dayStreak, 12);
+    expect(record.streakStartedOn, DateTime(2026, 10, 24));
   });
 
   test('no streak, no start date', () async {

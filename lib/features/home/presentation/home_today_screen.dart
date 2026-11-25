@@ -865,6 +865,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           examName: data.examName,
           examShortName: data.examShortName,
           hasExamDate: data.today.snapshot.digest.examDate.isNotEmpty,
+          streakStands: data.streakStands,
           examDateLabel: passed && examDay != null
               ? DateFormat('MMMM d', 'en_US').format(examDay)
               : null,

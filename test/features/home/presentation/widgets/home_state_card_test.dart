@@ -89,6 +89,30 @@ void main() {
     expect(find.byType(Icon), findsNothing);
     expect(find.text('I Want to Advance'), findsNothing);
   });
+  // P10/U61: the streak line is only true while the streak stands today.
+  for (final stands in [true, false]) {
+    testWidgets('day off says the streak is safe only if it stands: $stands',
+        (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: buildLightTheme(),
+          home: Scaffold(
+            body: HomeStateCard(
+              state: HomeState.dayOff,
+              examName: 'CSE Professional',
+              examShortName: 'CSE-P',
+              onPrimary: null,
+              streakStands: stands,
+            ),
+          ),
+        ),
+      );
+      expect(find.textContaining('your streak is safe'),
+          stands ? findsOneWidget : findsNothing);
+      expect(find.textContaining('Nothing is planned today'), findsOneWidget);
+      expect(find.textContaining('next study day'), findsOneWidget);
+    });
+  }
   testWidgets('no content offers only Switch Exam', (tester) async {
     await show(tester, HomeState.noContent);
     expect(find.text('Switch Exam'), findsOneWidget);

@@ -1,8 +1,13 @@
 import 'package:drift/drift.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/repos/streak_repository.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/metrics/domain/metric_signal.dart';
 import 'package:pantas/features/metrics/domain/metrics_window.dart';
 import 'package:pantas/features/metrics/domain/signal_outputs.dart';
+import 'package:pantas/features/quiz/domain/streak/streak_evaluator.dart';
+
+const _studyDaysKey = 'settings.study_days';
 
 class ConsistencySignal implements Signal<StreakPattern> {
   const ConsistencySignal(this._db);
@@ -70,8 +75,27 @@ class ConsistencySignal implements Signal<StreakPattern> {
       );
     }
 
+    // The stored count is stale after missed days, so it is read against the
+    // window's end by the streak evaluator's own rule (P10/U61).
+    final studyDays = StudyDays.fromStorage(
+      (await (_db.select(_db.accountPrefs)
+                ..where((pref) => pref.key.equals(_studyDaysKey)))
+              .getSingleOrNull())
+          ?.value,
+    );
     return StreakPattern(
-      currentStreakDays: streak?.current ?? 0,
+      currentStreakDays: streak == null
+          ? 0
+          : streakOn(
+              StreakSnapshot(
+                current: streak.current,
+                longest: streak.longest,
+                lastActiveDate: streak.lastActiveDate,
+                freezesRemaining: streak.freezesRemaining,
+              ),
+              window.end.toLocal(),
+              studyDays,
+            ),
       longestStreakDays: streak?.longest ?? 0,
       weekdayCounts: Map.unmodifiable(weekdays),
     );
