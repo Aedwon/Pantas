@@ -155,10 +155,11 @@ class SettingsHomePage extends ConsumerWidget {
 
     return PantasPage(
       title: 'Settings',
-      // ST_RootPro: the title and the first card sit 12 and 21 px lower.
+      // ST_RootPro: the title and the first card sit 12 and 21 px lower. The
+      // title top is the one shared with Study and Quiz.
       titlePadding: const EdgeInsets.fromLTRB(
         PantasSpace.s4,
-        PantasSpace.s18,
+        PantasPage.tabTitleTop - PantasSpace.s2,
         PantasSpace.s4,
         PantasSpace.s24,
       ),

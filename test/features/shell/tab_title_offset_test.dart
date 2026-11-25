@@ -1,7 +1,6 @@
 // U3 and U4: the Study and Quiz tab titles start at the same height in every
-// state, 50 px under the top of the screen (boards ST_Map, ST_Loading,
-// ST_Error, ST_NoExam, ST_NoLessons and QZ_Tab: a 44 px row under 6 px of
-// padding, then the 34 px title).
+// state, 20 px under the top of the screen, the height of the Settings title
+// (his staging pass, 26 November, superseding the 50 px of the boards).
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -67,9 +66,9 @@ const _empty = StudyMap(
 );
 
 void main() {
-  const boardTitleTop = 50.0;
+  const boardTitleTop = 20.0;
 
-  test('the shared offset is the board 44 px row under 6 px', () {
+  test('the shared offset is the Settings title top', () {
     expect(PantasPage.tabTitleTop, boardTitleTop);
   });
 
