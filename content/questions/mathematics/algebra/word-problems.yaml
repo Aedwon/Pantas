@@ -80,7 +80,7 @@ questions:
     type: word-problem
     difficulty: easy
     stem: |
-      A sari-sari store owner has 10 liters of a solution that is 10% vinegar by volume. How many liters of vinegar does this represent?
+      A sari-sari store owner has 10 liters of a solution that is $10\%$ vinegar by volume. How many liters of vinegar does this represent?
     choices:
       - text: '$1\text{ liter}$'
         correct: true
