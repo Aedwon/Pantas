@@ -1805,3 +1805,18 @@ Search done before the ruling: the "Pantas beta sign-in" canvas (https://claude.
 What the boards draw: Laptop and LaptopCode draw both text buttons 44 high, full column width (420), transparent, teal 16/600, content centered with a 10 gap after the 18 px Google mark, radius 12, a light tint on hover. U46 (Nov 22) moved them to natural width under P2 ("never a full-width button on a wide screen"), but kept the zero padding the full-width version had.
 
 Ruling (rule 4, a state the board no longer draws): natural width stays (P2); the button keeps the design system's wide text button padding, 14 on each side (Button README, `.btn3`), and stays centered under Continue. Height 44, gap 10 and the hover tint are unchanged. Phone unchanged (full width, content centered). Every use of the shared sign-in text button gets it: "Use Google Instead" (email step), "Use a Different Email" (code step and expired code). No other button in the app had the same zero padding with a hover box (searched every zero-padding TextButton in lib/; the rest are inline links with no fill, fixed-size picker rows, calendar cells or icon buttons).
+
+## Nov 25, UX design lead: first-run board revision (E-176)
+
+His words (about 9:36 PM Manila): "don't call it taste finished. why even call it that - that's an internal term", "so much space unutilized" (phone "Try Pantas first"), "also please improve text copy - remove redundancies, remove unnecessary text/info", "for the choices, go with your recommendations".
+
+His picks (from the recommendations): lesson A, one fixed lesson per exam; assessment progress B, answers saved on the device as you go, Continue on Home's card.
+
+Lead rulings (rule 4; search: this rulings file's E-165 entry, the E-165 handoff, patterns.md Button placement, the canvas's own approved-board frames RD_Real, QN_Correct, QV_End and QS_End):
+- No user-visible "taste", "trial", "starter", "tutorial" or "guided"; the canvas is renamed "First Run". The overline "Try Pantas" next to Skip stays on the lesson and question screens.
+- "Try Pantas first": the eyebrow and the description line are removed (the title and the steps say it). Three numbered steps fill the screen: "Read a short lesson" (a static crop of the reader: overline, title, first Core Concept sentence), "Answer 3 questions" / "Each answer is explained." (a static crop of the question: stem and two choices, one marked right), "Get your score from the assessment on Home". No illustrations, no durations. Start and Skip stay stacked at the same width and 52 height (the Nov 25 stacked-pair rule).
+- End screen: "You finished the lesson", "2/3 correct", "Take the assessment on Home for your score and study plan."; "in 2 minutes" removed; on wide, Done top right level with the title.
+- Lesson end button: "Answer 3 Questions".
+- Home's Continue card reads "8 of 30 answered." (the leave dialog already says answers are saved on this device).
+
+Board: https://claude.ai/artifact/D3JLTrRGiN8vjnfLrbhoMN, version 1795614653-2f1d. Fresh Sonnet reviewer: one headless render, no unstyled or clipped frame, no internal term outside one exact quote of his in a note. Reviewer findings not taken: "Skip should be a filled secondary button" (patterns.md allows a ghost secondary under the main one, and it already shares width and height); differences inside his unchanged approved frames (math spacing, sample dates) stay as the boards draw them.

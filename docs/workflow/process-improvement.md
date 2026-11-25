@@ -140,6 +140,13 @@ pass 15, retire or merge one first.
 - Why it got through: (1) the Nov 22 fix for U46 made these buttons natural width but kept the zero padding that only worked while they filled the 420 column; its test checked only that the width was under 400. (2) The buttons are raw TextButtons (ds-raw, brand logo content), so they skip PantasButton's built-in padding and the wide placement check, which finds only WebButton and PantasButton and checks order, gap, width and place, never inside padding. (3) At rest the button is transparent, so a resting golden or a side-by-side review shows nothing wrong; the defect shows only on hover. (4) The sign-in board draws the button full width, so comparing with the board could not give the padding; it comes from the design system's wide text button (14 beside the label).
 - Fix (check): a sign-in test that fails on the old code (0 px inside, 14 expected), and an inside-padding rule in `test/helpers/button_placement.dart`: a wide button that paints a hover box and is not stretched must keep at least 8 px between its edges and its content. The rule covers raw TextButtons too, and the sign-in page now runs the placement check. E-170, branch `ux/google-button-padding-r1`.
 
+### An internal term reached a board he reviews ("taste finished") (Nov 25)
+
+- His words (about 9:36 PM Manila, on the guided first-run board): "don't call it taste finished. why even call it that - that's an internal term", and on the same board "also please improve text copy - remove redundancies, remove unnecessary text/info".
+- Wrong: the manager's brief called the guided first run "the taste", and the board carried that word into on-screen text ("Taste finished"). The intro screen also repeated what its own button and steps already said.
+- Why it got through: briefs used an internal shorthand, and the board review checked styling and placement but not whether every on-screen word is user language. This is the same kind as the Nov 24 entry on internal codes in chat, now in product copy.
+- Fix (required step, boards and builds): before a board reaches him or a build ships, a reviewer scans every user-visible string for internal terms (lane words such as taste, trial, starter check, T-numbers, U-numbers, ruling codes) and for sentences that repeat the screen. Briefs name the user-facing wording separately from the internal name. A check on the app's own strings for a deny list of internal terms is possible; the UX lead adds it if it can be shown failing on a real string first.
+
 ### Release lead ended its turn after a part report with the next part queued (Nov 25)
 
 - Words: none from Aedwon. The manager's note: "you reported part 1 at 2:44 PM and then stopped, with nothing running. Start part 2 now".

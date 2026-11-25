@@ -4524,3 +4524,56 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 
 - Aedwon, verbatim: "logged in with google." This is the real Google sign-in through app.pantas.study that the old Firebase address retirement waited on (checklist S6, ruling A2).
 - On the website homepage seller details (RA 11967 Sec. 23(f)), his words: "agent drafts". An agent drafts; he approves the wording before it publishes (website copy stays his).
+
+### Nov 25, about 9:20 PM Manila: invoices (checklist M8, ruling B4) (operations manager)
+
+- Aedwon, verbatim: "yes i can issue invoices from my BIR printed invoices, but note that they are physical invoices that I can take a picture of, not e-invoices".
+- Effect: M8 is met by hand-written BIR-registered invoices. The Terms sentence "Pantas issues a sales invoice for each web purchase." stays (it promises an invoice, not email or e-invoicing). Workflow: for each web purchase he writes the invoice and sends the buyer a photo; a reminder per purchase belongs in the founder tooling later.
+
+### Nov 25, about 9:25 PM Manila: legal texts approved; opening "when ready" (operations manager)
+
+- Aedwon, verbatim: "okay keep 1k then. / okay with invoices / legal is fully approved / when ready / checking the first-run board now".
+- Liability cap: the ₱1,000 floor stays (manager explained the unconscionability risk of a lower cap).
+- Legal sign-off: the public-launch texts on legal/publish-r1 are approved as they stand after round 5, including the Nov 25 business-name and option C changes.
+- Opening day and hour: "when ready". Manager reading, consistent with his 2:45 PM "i want it before launch": public sign-up opens (gate-off build to prod, legal texts and website pages published with the version stamps set to that day, link-preview image) as soon as all of these are live or approved: the guided first run (after his board picks), the website homepage seller details (his approval of the draft), and the old Firebase address retirement. This is his "ship it" for the opening; the integrator tells the manager the planned hour before shipping.
+
+### Nov 25, homepage seller details drafted for his approval (CSE release lead r7, E-172); not published
+
+- **His words (Nov 25, about 9:10 PM Manila):** "agent drafts". Website copy is his: he approves the wording before it publishes.
+- **Draft:** pantas-web `legal/homepage-seller-r1` cda02cb (from `legal/public-pages-r1` d09c782), homepage footer only, one line under the founder note: "Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · +63 968 854 2343 · support@pantas.study". Phone and email are tap links; 14 px, muted color, centered.
+- **Source:** the footer line proposed in `docs/legal-drafts/2026-11-22-public-launch/README.md` ("Seller line (D3)") on `legal/publish-r1`; the same facts as the Privacy Policy and Terms. No marketing words. His full name stays only in the Terms and Privacy Policy (Nov 25 decision; Sol High round 5 accepts the Terms carrying the owner's name).
+- **Checks:** a new website test fails without the line and checks the address and phone match the Privacy Policy and Terms; website tests 191 of 191. One headless render at 390 and 1440 (scratchpad of the r7 session).
+- **Publishes with:** the legal pages at the opening, after his "yes" on the wording.
+
+
+### Nov 25, the sales invoice sentence back in the Terms (CSE release lead r7)
+
+- **Manager, verbatim:** "for the legal texts, the invoice sentence stays. ... Keep "Pantas issues a sales invoice for each web purchase." and make sure no text promises e-invoices or an automatic email invoice." His words (9:20 PM entry): "yes i can issue invoices from my BIR printed invoices, but note that they are physical invoices that I can take a picture of, not e-invoices".
+- **Found:** the sentence was not in the texts. It was removed on Nov 24 at publishing (91ef12a72) because M8 was not met, and a website test forbade it.
+- **Changed:** "Receipts. PayMongo may send you a receipt. Pantas issues a sales invoice for each web purchase." in the signed-off `terms.md`, the app Terms (PR #110, `legal/publish-r1` 053669aca) and the website Terms (pantas-web `legal/public-pages-r1` 0cfb323, also merged into `legal/homepage-seller-r1`). README B4 row updated.
+- **Checks:** a new app test and the flipped website test require the sentence and fail if any legal text (app Terms, Privacy Policy, Notice for teens; website legal pages and homepage) promises an e-invoice, an invoice by email, or an automatic send. No such text exists today. App legal tests 37 of 37, analyze clean, attribution OK; website tests 190 of 190 (191 on the seller branch).
+
+### Nov 25, the old Firebase addresses retired: tiny page on prod (checklist S6, CSE release lead r7, E-173)
+
+- **Manager brief, verbatim:** "Confirm in prod logs that his Google sign-in went through app.pantas.study and succeeded. Then follow the "tiny page" step-5 plan ... Count against rule 7, then staging proof, then prod, under the standing ship-it."
+- **Precondition (Fable 5.2 ruling A):** his account (provider google.com) last signed in 13:10:15 UTC; `recordSignInEvent` 200 from origin https://app.pantas.study at 13:10:20 UTC, App Check and auth VALID, event `signInLinked`, outcome ok. Prod authDomain is app.pantas.study, so the sign-in pages ran through the Worker. Clean Cloudflare serving since Nov 14.
+- **Change (PR #132, merged eb1c9ebcd):** the app Hosting target deploys `hosting/retired` only: index.html (472 B) sends every path to app.pantas.study (staging's old address to staging.pantas.study); pantas_sw.js (500 B) removes an old installed service worker and its caches. Releases and `tool/deploy/staging_web.sh` publish to the Worker only. `docs/deploy-prod.md` sections 8 and 14 updated. Not touched: PR #91, PR #109 (no shared files except a different section of deploy-prod.md).
+- **Rule 7, before:** about 1 KB stored per site; about 30 small probe requests for both proofs (one 281 KB Firebase handler.js fetch each); no Firestore, no functions. After: as counted.
+- **Staging:** pantas-staging-app 079f1717da10b22f to the tiny page. `/`, `/main.dart.js`, app routes serve the page; `/__/auth/handler`, `/__/auth/iframe`, `/__/firebase/init.json` 200 on the old address and on staging.pantas.study; headless check: the old address goes to staging.pantas.study with path and query.
+- **Prod (13:29 UTC):** the live release was still 13ccf513774445d7 right before the deploy. Now pantas-prod.web.app and pantas-prod.firebaseapp.com serve 472 B for `/`, `/main.dart.js` and app routes; the reserved sign-in paths return 200 on the old address and through app.pantas.study; app.pantas.study still serves the full app from the Worker; headless check: the old address goes to app.pantas.study with path and query. A 30-minute sign-in error watch runs to 14:00 UTC.
+- **Rollback:** `firebase hosting:clone pantas-prod@13ccf513774445d7 pantas-prod:live` (server side, no download).
+- S6 met.
+
+### Nov 25, legal publish gate H5 checked read-only against prod (CSE release lead r7, E-174)
+
+- **Manager, verbatim:** "Prepare the legal publish so it can go out together with the gate-off. Tell me the planned hour before you ship."
+- **Method:** one Sonnet 5.5 worker, read-only (git ancestry against the prod web build bac838b00, the Nov 24 functions ship record at lines 4226 to 4257, one gcloud list call, no Firestore reads); lead checked the contradiction itself.
+- **Rows:** (1) purchase tick and declaration: code on prod (#90, createpaymongocheckout-00021-hop), unexercised while payments are paused; the prod seller line still reads the owner name "trading as" the business, and changes to the business name only with PR #110 and the gate-off build. (2) deletion copies, evidence periods, sharing records: hold (Nov 24 deploy). (3) failed or declined guardian request deleted whole: holds (#95). (4) reports within 90 days: holds (#86, 85-day TTL, 86-day sweep). (5) trial codes: **does not hold**: D7 is live (920375aaa; `trialUsedIdentities.expireAt` TTL ACTIVE Nov 24 09:02 UTC, line 4244), but the Privacy Policy and the Notice for teens still say "It currently has no scheduled expiry." Ruling D7 condition 3 asked the text lane to replace it with the period; it was not done. (6) refund route when PayMongo's is closed: holds as the manual process (OPERATIONS.md). (7) website footer seller details: waits on his approval of the E-172 wording. (8) became_adult evidence: holds (#101).
+- **Fix needed before publishing (H5: rewrite to the built state and have Sol High critique it again):** both notices, "It currently has no scheduled expiry." to the 730-day period. Proposed to run in one Sol High round with the D5 existing-account line if the manager chooses that option.
+- **Ships with the opening:** PR #110, the pantas-web public pages and footer, the version stamps (app and functions together, website), the gate-off build with the SELLER_* inputs.
+
+### Nov 25, about 9:36 PM Manila: guided first-run board picks and comments (operations manager)
+
+- Aedwon, verbatim: "comments on first-run board now / - don't call it taste finished. why even call it that - that's an internal term / - so much space unutilized [screenshot] also please improve text copy - remove redundancies, remove unnecessary text/info / for the choices, go with your recommendations / also i think there's a regression with the buttons? like that google one, if they're paired with each other, i think it would be more visually pleasing if they're similar in proportions/size or something idk how to best express it".
+- Picks: lesson A (one fixed starter lesson); assessment progress B (saved as you go, Continue on Home). Board revision follows (copy, internal terms, the empty intro screen) before build.
+- Buttons: paired buttons get matching proportions (same height; a stacked pair the same width), added to patterns.md and the placement check; shipped as a fix.

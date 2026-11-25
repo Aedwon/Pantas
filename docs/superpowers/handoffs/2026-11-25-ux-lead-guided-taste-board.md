@@ -49,3 +49,7 @@ the taste end screen. Taste answers enter no score or Accuracy figure; the lesso
 His picks on choices 1 and 2. Then a spec and plan under WORKFLOW.md, with a build estimate; the build needs the
 assessment selector to exclude taste questions and, if he picks 2B, on-device saving of assessment answers.
 Canvas source files: lead scratchpad `canvas/project/` (disposable; the canvas holds every file).
+
+## Revision, Nov 25 (E-176)
+
+His comments and picks are in the rulings file, "Nov 25, UX design lead: first-run board revision (E-176)". The canvas is now "First Run" (version 1795614653-2f1d): the Choices page is gone, his picks (one fixed lesson; assessment answers saved as you go with Continue on Home) are on the Flow page as frames 8b and 8c, "Try Pantas first" shows three steps with previews, and the copy is tightened. Next: a spec and plan under WORKFLOW.md with a build estimate, when the manager asks for the build.
