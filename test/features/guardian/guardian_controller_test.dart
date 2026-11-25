@@ -242,10 +242,30 @@ void main() {
     expect(gateway.sent.last.email, 'maria@gmail.com');
   });
 
-  test('offline with nothing cached, a minor is blocked', () async {
-    await container.read(appPreferencesRepositoryProvider).setAgeGroup('minor');
+  // A block lasts, so only an answer from the server saves one. Offline, a
+  // request that may still be open waits on the Waiting page, which asks the
+  // server again when it opens.
+  test('offline with nothing cached, a minor waits and is not blocked yet',
+      () async {
+    final repo = container.read(appPreferencesRepositoryProvider);
+    await repo.setAgeGroup('minor');
     gateway.failure = const GuardianGatewayException('unavailable');
+    expect(await gate(), GuardianGate.waiting);
+    expect(await repo.blockedMinimumAge(), isNull);
+    gateway.failure = null;
+    container.invalidate(guardianGateProvider);
     expect(await gate(), GuardianGate.closed);
+    expect(await repo.blockedMinimumAge(), 18);
+  });
+
+  test('offline with a declined status cached, a minor is not blocked yet',
+      () async {
+    final repo = container.read(appPreferencesRepositoryProvider);
+    await repo.setAgeGroup('minor');
+    await repo.setGuardianStatusCache('declined');
+    gateway.failure = const GuardianGatewayException('unavailable');
+    expect(await gate(), GuardianGate.waiting);
+    expect(await repo.blockedMinimumAge(), isNull);
   });
   test('withdrawn status is final, signs out, and never clears from the cache',
       () async {

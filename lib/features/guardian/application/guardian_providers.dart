@@ -168,8 +168,12 @@ final guardianGateProvider = FutureProvider<GuardianGate>((ref) async {
     return GuardianGate.closed;
   }
   GuardianConsentStatus status;
+  // Only an answer from the server may save a block, which lasts. A cached
+  // status may be stale while a request is still open.
+  var fromServer = false;
   try {
     status = (await ref.watch(guardianGatewayProvider).status()).status;
+    fromServer = true;
     if (ref.read(authRepositoryProvider).currentSession?.uid != uid) {
       return ref.read(guardianAccountClosedProvider) != null
           ? GuardianGate.withdrawn
@@ -206,6 +210,8 @@ final guardianGateProvider = FutureProvider<GuardianGate>((ref) async {
   if (!AgePolicy.minorSignupOpen &&
       _requestEnded(status) &&
       !await prefs.hasPassedAgeGate()) {
+    // Offline: the Waiting page asks the server again when it opens.
+    if (!fromServer) return GuardianGate.waiting;
     if (ref.read(authRepositoryProvider).currentSession?.uid != uid) {
       return GuardianGate.notRequired;
     }
