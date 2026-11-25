@@ -32,7 +32,7 @@
     },
     {
       "target": "app",
-      "public": "build/web",
+      "public": "hosting/retired",
       "ignore": [
         "firebase.json",
         "**/.*",
