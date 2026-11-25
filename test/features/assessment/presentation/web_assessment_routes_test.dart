@@ -121,13 +121,13 @@ void main() {
       final keep = tester.getRect(find.text('Keep Going'));
       expect(keep.left, lessThan(leave.left));
       expect(leave.center.dy, closeTo(keep.center.dy, 1));
-      // A destructive confirm: Keep Going is the safe tertiary, Leave the
-      // critical main action.
+      // Leaving keeps the answers, so it is not a destructive confirm:
+      // Keep Going is tertiary and Leave the teal main action (C2B_LeaveWide).
       expect(
         tester
             .widget<WebButton>(find.widgetWithText(WebButton, 'Leave'))
             .variant,
-        WebButtonVariant.danger,
+        WebButtonVariant.primary,
       );
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pumpAndSettle();

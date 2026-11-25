@@ -38,9 +38,13 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/assessment/application/assessment_leave_guard.dart';
+import 'package:pantas/features/assessment/application/assessment_progress_providers.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
+import 'package:pantas/features/assessment/domain/models/assessment_progress.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_session.dart';
+import 'package:pantas/features/assessment/domain/services/assessment_question_selector.dart';
 import 'package:pantas/features/assessment/domain/use_cases/complete_assessment.dart';
+import 'package:pantas/features/assessment/domain/use_cases/resume_assessment.dart';
 import 'package:pantas/features/assessment/domain/use_cases/start_assessment.dart';
 import 'package:pantas/features/assessment/presentation/assessment_results_page.dart';
 import 'package:pantas/features/assessment/presentation/web_assessment_layout.dart';
@@ -50,11 +54,15 @@ import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 
 final _startAssessmentProvider = Provider<StartAssessment>(
   (ref) => StartAssessment(
-    AssessmentQuestionSelector(
+    assessmentQuestionSelector(
       ref.watch(contentRepositoryProvider),
       ref.watch(reviewStateRepositoryProvider),
     ),
   ),
+);
+
+final _resumeAssessmentProvider = Provider<ResumeAssessment>(
+  (ref) => ResumeAssessment(ref.watch(contentRepositoryProvider)),
 );
 
 /// AS_Question draws "SUBJECT · TOPIC". The card upper-cases it.
@@ -114,6 +122,11 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
   final _questionClock = Stopwatch();
   final Set<String> _reported = {};
   bool _reportOpen = false;
+  // What is saved on the device for this attempt, who owns it, and the saves
+  // still to finish. A pick is saved when it is made, not only on Next.
+  AssessmentProgress? _progress;
+  String _progressOwner = 'local';
+  Future<void> _saves = Future<void>.value();
   @override
   void initState() {
     super.initState();
@@ -177,20 +190,57 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
       final completed =
           await ref.read(assessmentCompletedProvider(widget.examId).future);
       if (!await _owner!()) throw StateError('Assessment ownership changed');
+      final progressStore = ref.read(assessmentProgressStoreProvider);
+      final owner = await assessmentProgressOwner(db);
+      if (completed) {
+        // A result already exists, so nothing saved can be continued.
+        await progressStore.clear(owner, widget.examId);
+        if (!mounted) return;
+        ref.invalidate(assessmentProgressProvider(widget.examId));
+      }
       if (completed && mounted) {
         _exiting = true;
         context.go('/home');
         return;
       }
-      final topics = await ref.read(scopedTopicsProvider(widget.examId).future);
-      final session = await ref
-          .read(_startAssessmentProvider)
-          .call(widget.examId, topics: topics);
+      final saved = await progressStore.load(owner, widget.examId);
+      final resumed = saved == null
+          ? null
+          : await ref.read(_resumeAssessmentProvider)(saved);
+      if (saved != null && resumed == null) {
+        // Nothing saved is still in the bank: start again.
+        await progressStore.clear(owner, widget.examId);
+        ref.invalidate(assessmentProgressProvider(widget.examId));
+      }
+      final AssessmentSession session;
+      if (resumed != null) {
+        session = resumed.session;
+      } else {
+        final topics =
+            await ref.read(scopedTopicsProvider(widget.examId).future);
+        session = await ref
+            .read(_startAssessmentProvider)
+            .call(widget.examId, topics: topics);
+      }
       if (!await _owner!()) throw StateError('Assessment ownership changed');
+      _progressOwner = owner;
+      _progress = resumed?.progress ??
+          AssessmentProgress(
+            examId: widget.examId,
+            attemptId: session.attemptId!,
+            startedAt: session.startedAt!,
+            questionIds: [for (final q in session.questions) q.question.id],
+          );
+      if (resumed != null && resumed.progress != saved) {
+        // Keep the saved copy in step with the questions left in the bank.
+        _queueSave();
+      }
       setState(() {
         _session = session;
-        _index = 0;
-        _picked = null;
+        _index = resumed?.index ?? 0;
+        _picked = resumed == null
+            ? null
+            : session.answers[session.questions[resumed.index].question.id];
       });
       _questionClock
         ..reset()
@@ -221,6 +271,39 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     return valid;
   }
 
+  /// Shows the pick and saves it on the device at once.
+  void _pick(String choiceId) {
+    final session = _session;
+    final progress = _progress;
+    setState(() => _picked = choiceId);
+    if (session == null || progress == null) return;
+    _progress = progress.withPick(
+      questionId: session.questions[_index].question.id,
+      choiceId: choiceId,
+      elapsedMs: _questionClock.elapsedMilliseconds,
+    );
+    _queueSave();
+  }
+
+  /// Saves [_progress]. Saves run one after another, so the last pick wins.
+  /// A failed save never blocks the assessment: the answers are still in
+  /// memory and Next still works.
+  void _queueSave() {
+    final progress = _progress;
+    if (progress == null) return;
+    final store = ref.read(assessmentProgressStoreProvider);
+    final owner = _progressOwner;
+    final examId = widget.examId;
+    _saves = _saves.then((_) async {
+      try {
+        await store.save(owner, progress);
+        if (mounted) ref.invalidate(assessmentProgressProvider(examId));
+      } on Object catch (error, stack) {
+        unawaited(ref.read(telemetryProvider).recordError(error, stack));
+      }
+    });
+  }
+
   Future<void> _next() async {
     // Capture what this tap answers before awaiting, and ignore a second tap
     // while the owner check is pending, so no answer is recorded twice and no
@@ -238,6 +321,12 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
         chosenChoiceId: picked,
         elapsedMs: _questionClock.elapsedMilliseconds,
       );
+      _progress = _progress?.withPick(
+        questionId: session.questions[index].question.id,
+        choiceId: picked,
+        elapsedMs: _questionClock.elapsedMilliseconds,
+      );
+      _queueSave();
       _questionClock
         ..reset()
         ..start();
@@ -284,6 +373,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
             .call(session: _session!, now: DateTime.now(), canPersist: _owner),
       );
       if (!await _checkOwner()) return;
+      await _clearProgress();
       ref
         ..invalidate(assessmentResultProvider(widget.examId))
         ..invalidate(assessmentCompletedProvider(widget.examId))
@@ -318,6 +408,23 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     }
   }
 
+  /// Removes what was saved for this attempt, once the result is saved. Waits
+  /// for any save still running so it cannot bring the entry back.
+  Future<void> _clearProgress() async {
+    try {
+      await _saves;
+      _progress = null;
+      await ref
+          .read(assessmentProgressStoreProvider)
+          .clear(_progressOwner, widget.examId);
+    } on Object catch (error, stack) {
+      // The result is saved; a leftover entry is cleared the next time the
+      // assessment opens and finds a result.
+      unawaited(ref.read(telemetryProvider).recordError(error, stack));
+    }
+    if (mounted) ref.invalidate(assessmentProgressProvider(widget.examId));
+  }
+
   Future<void> _leave() async {
     if (_leaveOpen || _completing) return;
     _leaveOpen = true;
@@ -334,6 +441,11 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
     if ((leave ?? false) && mounted) {
       _generation++;
       _exiting = true;
+      // Home reads what was saved, so the last pick must be on the device
+      // before it asks.
+      await _saves;
+      if (!mounted) return;
+      ref.invalidate(assessmentProgressProvider(widget.examId));
       context.go('/home');
     }
   }
@@ -405,7 +517,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                 stateOf: (choice) => _picked == choice.id
                     ? ChoiceRowState.picked
                     : ChoiceRowState.plain,
-                onPick: (choice) => setState(() => _picked = choice.id),
+                onPick: (choice) => _pick(choice.id),
               ),
             ),
           ],
@@ -437,7 +549,7 @@ class _AssessmentPageState extends ConsumerState<AssessmentPage> {
                     chosenId: _picked,
                     passage: passage,
                     saving: _savingSlow,
-                    onPick: (id) => setState(() => _picked = id),
+                    onPick: _pick,
                     onNext: _next,
                     onLeave: _leave,
                     report: WebTopBarButton(

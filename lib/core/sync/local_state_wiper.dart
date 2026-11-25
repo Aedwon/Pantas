@@ -1,7 +1,9 @@
+import 'package:drift/drift.dart' show StringExpressionOperators;
 import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
+import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart'
     show customExamIdPrefix;
 
@@ -91,6 +93,15 @@ class SyncLocalStateWiper implements LocalStateWiper {
       // ones, a report filed in another tab) must not reach the next account.
       await (_db.delete(_db.devicePrefs)
             ..where((row) => row.key.equals(ReportQueue.storageKey)))
+          .go();
+      // A saved assessment in progress is the account's own answers. They sit
+      // in device prefs, keyed by account, so the wipe clears them by prefix.
+      await (_db.delete(_db.devicePrefs)
+            ..where(
+              (row) => row.key.like(
+                '${AppPreferencesRepository.assessmentProgressKeyPrefix}%',
+              ),
+            ))
           .go();
       await _db.delete(_db.attemptsLocal).go();
       await _db.delete(_db.assessmentResultsLocal).go();
