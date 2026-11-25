@@ -1,45 +1,52 @@
-# CSE release lead r4: pulley, tester items, T9 rows, and four prod ships (Nov 25)
+# CSE release lead r4: Nov 25 UI ships, held items, and the service worker gap
 
-Written Nov 25 by the CSE release lead r4. Read this instead of the r4 thread. Earlier notes: `2026-11-24-cse-release-lead-r2-ui-release.md`, `2026-11-25-cse-release-lead-r3-spacing-splash.md`. Policy read from main eb3b68782 and later.
+Written Nov 25, 23:58 UTC (7:58 AM Manila) by the CSE release lead r4. Read this instead of the r4 thread. Earlier notes: `2026-11-24-cse-release-lead-r2-ui-release.md`, `2026-11-25-cse-release-lead-r3-spacing-splash.md`. Policy read from main eb3b68782 and later. Velocity row E-159 (first logged as E-149, which the UX lead also used).
 
-## Shipped to prod today (launch log has each entry with board, rule 7 count, staging proof, rollback)
+## Current prod
 
-1. Week strip chip "CSE Pro" and "CSE Subpro" (PR #118, U14): shipped by r4 at about 19:20 UTC.
-2. ENT-06, web counts tester rewards and the owner grant as Pro (PR #119): shipped by a second session (r5) at 19:40 UTC.
-3. Wide reader without lesson dashes (PR #120) with UI ship r4 (PR #117): shipped by r5 at 19:48 UTC. #117 carries:
-   - Pulley figures redrawn to correct physics (re-check findings 15 and 16): fixed pulley, one rope over the wheel, load on one side, effort pulled down on the other; movable pulley, anchor on the beam, rope under the wheel, free end pulled up, load on the axle. Same style.
-   - Tester-only beta items removed (manager ruling Nov 25): day and survey Home notices, Settings Feedback row and survey pages, the expired Beta Pro switch. Kept: sign-in gate, beta and waiting screens, BETA mark on sign-in, "Pantas beta" link-preview image (a new image needs his pick), and the earned-reward notice plus a "Beta Reward" Settings row, both only for an earned, not activated reward (the server accepts activation until Jan 1, 2028). The manager's Nov 23 reward list shows 0 eligible testers, so nobody sees them today.
-   - T9 rows built to approved boards or plain correctness (map: `docs/superpowers/verification/2026-11-25-t9/t9-map.md`): P1, P3, P26, U46, U47, U48, U50, U68, U71, U75, U82, U93, U96, P24 (set A); LI5b, P6, P10, P12, P13, P18, U73, P20, P21, P22, U18, U39, U51, U80 (set B). Independent review at 390 and 1440 found them matching.
-4. Home reads its counts again after a quiz is left part way (PR #121, UX lead E-155): shipped by r4 at 21:01 UTC.
+Build 157224851-6c123c02e3d0, Hosting f3854d6641dc1dfa, Worker 1826b9f9-0042-4d77-ade3-74e6fb8f81ec, from main d4f665ec4. Rollback: Hosting c0458f33ce518823, Worker 72b8cd00-679b-4e2f-9ef0-69dd3aec88f4. Every ship below has a launch-log entry with its board, rule 7 count, staging proof and rollback.
 
-Current prod: build 36769871-950bb63789f4, Hosting c6f5b07c1f8d9538, Worker 34aa29dc-c734-41e0-b334-20005b01f694.
+## Shipped today (UTC)
 
-## In flight
+1. 19:17 Week strip "CSE Pro" and "CSE Subpro" (PR #118, U14).
+2. 19:40 ENT-06, web counts tester rewards and the owner grant as Pro (PR #119), shipped by a second lead session (r5).
+3. 19:48 Wide reader without lesson dashes (PR #120) with UI ship r4 (PR #117), by r5. #117: pulley figures to correct physics (re-check findings 15, 16); tester-only beta items removed (manager ruling; kept: sign-in gate, beta and waiting screens, BETA mark, link-preview image, and the earned-reward notice plus a Beta Reward Settings row for an earned, unactivated reward; 0 testers eligible per the manager's Nov 23 list); 28 T9 rows built to boards or plain correctness (map: `docs/superpowers/verification/2026-11-25-t9/t9-map.md`).
+4. 21:01 Home re-reads its counts after a quiz is left part way (PR #121, UX lead E-155).
+5. 22:03 Paused-session option A on the Reviews and New questions sheets (PR #122). One slip shipped: the Quiz tab wide Reviews drawer Close X sat about 11 px low (fixed in 7).
+6. 22:40 Splash loading row with a real download percent (PR #123). First-time visitors see the spinner only; returning visitors and updates see the percent.
+7. 23:07 PR #124 went out with the U24 footer counts, which the manager then withdrew (Aedwon decided the footer Oct 31: "Leave it out"). Rolled back at 23:11. PR #125 reverted U24 on main.
+8. 23:48 #124 without U24: Quiz tab paused card option A (his "yes A lgtm, go ahead with it"), the T9 rows a board or ruling answers, the drawer Close X fix.
 
-- Paused-session option A (UX lead branch `ux/paused-sheet-a-r1` at a0c1cc73e, his pick on https://claude.ai/artifact/9MLsiFtEwsdLodfe8eHZig; Reviews header count removed per his 4:06 AM words). Independent review: matches, with two build-worse items being fixed on `qa/paused-a-fixes-r1` (worktree cse-t9-a): the wide Reviews drawer Close X sits 13 px below the one-line title; phone "Discard" sits 2 px low. Lead decision (rule 4): the wide "another quiz is paused" state, which no board draws, keeps the build's line above a dimmed Start, as on phone. Next: PR, CI on current main, staging proof, prod, launch log.
-- The UX lead's loading option A (spinner with percent) and the T9 no-board rows come next from the UX lead.
+## Held, waiting on a board pick or data (not built or reverted)
 
-## Held back, with the reason
+- New looks no approved board draws: U52 grey wide reader quiz button, U78 sidebar skeleton, U26 Pro skeleton tiles, U81 Performance skeleton shapes (reverted from #124, commits on ux/t9-noboard-r1), and P9 Google sign-in button states (L_SignIn and ST_AccountOutA disagree).
+- Needs data or a pipeline change: P23 and U70 delete-progress steps (one server call), U87 backup page rows (conflicts with his Nov 8 ruling; no data), U19 "finished both of them" (only a count is stored), U86 (sign-in provider data), U72 (Start starts the clock).
+- Motion or timing with no current board: U92 wide pause timing; U94 phone finale (board changed since the motion was taken; matching means redoing approved motion).
+- LI4 figure labels over strokes (needs stroke geometry); pulley (1,1) branch (questions 0002, 0009, 0013, 0018) has the same missing anchor and arrows, outside findings 15 and 16.
+- Phone Quiz tab paused card: Discard text measured about 22 px above and 30 px below (target 20 and 24). More room, not less; for the UX lead.
 
-- P9 Google sign-in button states: L_SignIn and ST_AccountOutA draw different buttons, and the built motion did not match L_SignIn. Reverted; needs a board pick.
-- P23 and U70 delete-progress steps: the deletion is one server call, so two steps would be invented progress.
-- U87 backup page rows: the board conflicts with his Nov 8 ruling, and two rows have no data.
-- LI4 figure labels over strokes: needs stroke geometry in label placement, not a quick fix.
-- U19 plan history "finished both of them": the log stores only a finished count, not the total, so the sentence can be untrue. Reverted.
-- U92 wide pause timing: no board draws it. U94 phone finale timing: the board changed since the motion was taken from it; matching it means redoing approved motion.
-- Pulley (1,1) branch (fixed plus movable, questions 0002, 0009, 0013, 0018): same missing anchor and arrows; outside findings 15 and 16 and the re-check accepted 0013. Fix only if the content lead wants it.
-- 37 NO BOARD rows in the T9 map (LI1 to LI3, LI9, P7, P11, P17, P25, U17, U20 to U29, U32, U33, U36 to U38, U40, U49, U52, U69, U72, U78, U81, U84 to U86, U89 to U91): the UX lead has them.
+## Service worker gap (backlog, trigger: before the beta gate drops for public launch)
 
-## Open from the ENT-06 Codex review (not fixed; payments paused)
+- Defect: offline, the worker can serve one build's shell (page, flutter_bootstrap.js, pantas_pwa.js, version.json) with another build's main.dart.js. Mechanism (confirmed in a Node harness): a worker that still controls the page after a deploy stores the new build's network-first shell in its own cache, next to its own cache-first Dart files. Six tests reproduce it on today's worker; parked with skip on branch fix/sw-build-mix-r1 (commit ecdc85656; the failed minimal fix is fee671e77 below it). Not for main.
+- Codex GPT 6.2 Sol High audit of the minimal fix (store only if a fresh version.json names this build): FAIL. Blocker: a fresh version.json does not prove which build another response's bytes came from; edge skew, stale asset bytes, or a B to C to B rollback still mix builds. High (predates the fix): a new worker can activate and delete the old cache before it has its own Dart files, so going offline right then leaves the app unable to boot; an old worker can cache new metadata or parts from an open tab before the new worker takes over.
+- Option 1 design (needs Aedwon to lift the Nov 14 "No new worker or hosting migration ships"): the build stamps a list of each file's content hash into the worker or bootstrap (tool/web/stamp_worker_version.mjs already stamps); the worker stores a response only if its bytes match the hash for its own build; install precaches and verifies the complete boot set (shell, main.dart.js and parts, the database worker) before skipWaiting; activate deletes old caches only after that; runtime stores outside the list are refused. Tests: the parked six plus a real-browser rollout from today's prod worker. Phones on today's worker stay exposed until the new worker activates (needs a connection). About 1 day with two Codex audits.
+
+## ENT-06 open items (Codex review, not fixed; payments paused)
 
 A reward can defer a paid plan for another exam until the reward ends (PAY-06, security lead); checkout can report success on an unrelated reward while the bought grant is pending; Settings can show another exam's reward end; web does not refresh Pro at reward start or end. Only the owner's grant rows are affected today.
 
-## Process
+## Process (entries on main)
 
-- Entry added: "Two lead sessions shipped the same PRs at once (Nov 25)". r4's ship worker for ENT-06 was stopped at staging after r5 shipped; prod was never touched. Its staging user and debug token were deleted.
+- "Two lead sessions shipped the same PRs at once (Nov 25)": one integrating session per PR; ship briefs re-check the live build right before the prod deploy.
+- Ship briefs now say: if any staging proof check fails, stop before prod (a worker shipped #122 past one).
+- Not logged as an entry, for the manager: a stopped ship worker can still have deployed; after stopping one, check the live build and Hosting releases at once (this caught #124).
+- Two ship workers printed private values to their own tool output (the seller phone once; a throwaway staging password and short-lived token once); nothing was logged or committed; briefs now say never to print them.
+- Codex accounts a and c return 401 (logged out); only b works.
 
 ## Branches and worktrees
 
-Merged and removable: fix/pulley-figures-r1 (cse-pulley), qa/beta-tester-surfaces-r1 (cse-beta-surfaces), qa/t9-set-b-r1 (cse-t9-b), release/ui-nov25-r4 (cse-release-r4), ux/paused-review-sheet-r1 (cse-121). Still in use: cse-t9-a (paused A fixes), cse-docs-r4 (docs). Build output in each is deleted on removal.
+Merged into main and removable: qa/paused-a-fixes-r1, qa/loading-a-integrate-r1, qa/paused-card-integrate-r1, qa/t9-noboard-integrate-r1, release/ui-nov25-r6, fix/revert-u24-r1, qa/t9-set-a-r1, fix/r4-ci. Worktrees still on disk: cse-t9-a (all merged, clean; remove), cse-sw (fix/sw-build-mix-r1, parked; keep), cse-docs-r4 (docs; remove). Build output in each is deleted with the worktree.
 
-Velocity E-149.
+## Next
+
+Content fixes after the UI (manager): CSE content key fixes, velocity E-145, state in the r2 handoff, "Waiting: CSE content fixes". Start them in a fresh session from this note (this thread is past the Nov 24 restart length). Legal texts and payments stay paused by Aedwon.
