@@ -4519,3 +4519,8 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - Google Analytics, property pantas-prod (549551450), Admin, Data retention: event data 2 months, user data 2 months, "Reset on new user activity" off. Seen on his screenshot at 9:07 PM (ruling B1 condition 1).
 - Gmail: labels `hold` and `pay-2y` exist in the inbox that receives Pantas mail. Seen on his screenshot at 9:08 PM (ruling B3).
 - Also his question on longer retention: "yes i want YoY deep dives, particularly measuring how much the release of Pantas has affected/impacted the test takers' performance ... can we do 5 years? but like anonymized". Fable advised keeping GA at 2 months and measuring outcomes with Pantas's own per-sitting counts (backlog requests table, option A, waiting on his yes).
+
+### Nov 25, about 9:10 PM Manila: his Google sign-in on app.pantas.study; seller homepage copy delegated (operations manager)
+
+- Aedwon, verbatim: "logged in with google." This is the real Google sign-in through app.pantas.study that the old Firebase address retirement waited on (checklist S6, ruling A2).
+- On the website homepage seller details (RA 11967 Sec. 23(f)), his words: "agent drafts". An agent drafts; he approves the wording before it publishes (website copy stays his).
