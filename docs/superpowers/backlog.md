@@ -24,7 +24,7 @@ Status words: LIVE (on prod and verified), BUILDING, BOARD (waiting on his look)
 | Asked (Manila) | His request, short | Status | Owner |
 |---|---|---|---|
 | Nov 25 8:05 AM | Ideas noted: flashcard mode, slides mode | IDEA (backlog D5, D23) | manager |
-| Nov 25 4:58 AM | Wide-screen button placement sweep, "only after other UI things are done"; code scan only (7:25 AM: "okay proceed") | BUILDING | UX lead |
+| Nov 25 4:58 AM | Wide-screen button placement sweep, "only after other UI things are done"; code scan only (7:25 AM: "okay proceed") | Button pairs LIVE 11:16 AM; wide single full-width buttons BUILDING (manager ruling, patterns win over pre-Nov 7 boards) | UX lead, release lead r6 |
 | Nov 25 4:56 AM | Sample lessons rewritten to a walk-through standard, Claude Design board with Neon's parts (Quick Check, Why?, Next step, illustrations); traps inline (his "okay your reco sounds good") | SPEC only, lane parked (7:10 AM: "let's spec this first ... let's prioritize release with current content first"); open picks: length, Quick Check | lesson walk-through lead |
 | Nov 25 4:35 AM | Wide Quiz tab paused card: buttons placed per his Nov 7 rule (P2) | LIVE Nov 25 7:48 AM (approved 5:20 AM: "yes A lgtm, go ahead with it") | UX lead, release lead |
 | Nov 25 4:06 AM | Remove the overall count from the Reviews sheet header | LIVE | UX lead, release lead |
