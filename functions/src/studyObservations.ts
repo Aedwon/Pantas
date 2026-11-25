@@ -13,10 +13,10 @@ export function assertStudyOwner(uid: string, body: Record<string, unknown>, req
   if (body.expectedUid !== uid) throw new HttpsError('failed-precondition', 'Your account changed. Open this screen again.');
 }
 type Auth = {uid: string; token?: object} | undefined;
-type Deps = {db: Firestore; now?: () => number; allow?: (uid: string, key: string) => Promise<boolean>};
+type Deps = {db: Firestore; now?: () => number; allow?: (uid: string, key: string, cost?: number) => Promise<boolean>};
 const MAX_BATCH_READS = 200;
-const rateLimited = (deps: Deps, uid: string) =>
-  (deps.allow ?? ((id, key) => allowAtMost(id, key, 600, 3600000)))(uid, 'recordLessonRead');
+const rateLimited = (deps: Deps, uid: string, cost = 1) =>
+  (deps.allow ?? ((id, key, units) => allowAtMost(id, key, 600, 3600000, units)))(uid, 'recordLessonRead', cost);
 const validLessonId = (value: unknown): value is string =>
   typeof value === 'string' && !!value && value.length <= 128 && !value.includes('/');
 
@@ -33,7 +33,7 @@ const validLessonId = (value: unknown): value is string =>
  *        same batch whose earliest read was used);
  *      rejected: this item can never succeed (bad id, bad time, unknown lesson). It never
  *        fails the other items.
- *    One rate-limit tick, one transaction, one revision increment and one roadmap rebuild
+ *    One rate-limit charge of one unit per distinct valid lesson, one transaction, one revision increment and one roadmap rebuild
  *    per call, however many items are stored.
  */
 export async function writeLessonRead(auth: Auth, data: unknown, deps: Deps): Promise<{stored: boolean} | BatchResult> {
@@ -75,9 +75,6 @@ async function writeLessonReadBatch(uid: string, reads: unknown, deps: Deps): Pr
     throw new HttpsError('invalid-argument', `Send 1 to ${MAX_BATCH_READS} reads.`);
   }
   const now = (deps.now ?? Date.now)();
-  if (!await rateLimited(deps, uid)) {
-    throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
-  }
   const rejected: number[] = [], unchanged: number[] = [];
   // One entry per lesson. A repeat of a lesson keeps the earliest read; the other index is "unchanged".
   const groups = new Map<string, {index: number; readAt: number; others: number[]}>();
@@ -94,6 +91,11 @@ async function writeLessonReadBatch(uid: string, reads: unknown, deps: Deps): Pr
     } catch { rejected.push(index); }
   });
   const ids = [...groups.keys()];
+  // Each distinct valid lesson costs one unit of the same 600 per hour a single read costs, so
+  // batching saves calls but not allowance: one call cannot drive more work than the old loop.
+  if (ids.length > 0 && !await rateLimited(deps, uid, ids.length)) {
+    throw new HttpsError('resource-exhausted', 'Too many attempts. Try again later.');
+  }
   const stored: number[] = [], storeRejected: number[] = [];
   if (ids.length > 0) {
     await deps.db.runTransaction(async tx => {

@@ -338,7 +338,7 @@ test('batch lesson reads: duplicate lessons keep the earliest read',async()=>{
   {lessonId:'unknown-x',readAt:now-1},{lessonId:'unknown-x',readAt:now-2}]},deps);
  assert.deepEqual(none,{stored:[],unchanged:[],rejected:[0,1]},'duplicates of an unknown lesson are all rejected');
 });
-test('batch lesson reads: the envelope is validated, 200 is the limit, one rate-limit tick per call',async()=>{
+test('batch lesson reads: the envelope is validated, 200 is the limit, and the limiter is charged per lesson',async()=>{
  const m=await import('../lib/studyObservations.js');
  const uid='w4b-batch-envelope';await db.recursiveDelete(db.doc('users/'+uid));
  const read=i=>({lessonId:'batch-a',readAt:now-1000-i});
@@ -349,14 +349,28 @@ test('batch lesson reads: the envelope is validated, 200 is the limit, one rate-
  assert.equal(await bad({expectedUid:uid,reads:'nope'}),'invalid-argument');
  assert.equal(await bad({expectedUid:uid,reads:Array.from({length:201},(_,i)=>read(i))}),'invalid-argument');
  assert.equal(await revisionOf(uid),0,'a bad envelope stores nothing');
- let ticks=0;const counted={db,now:()=>now,allow:async(u,k)=>{ticks++;assert.equal(k,'recordLessonRead');return true;}};
+ let ticks=0,calls=0;const counted={db,now:()=>now,allow:async(u,k,cost)=>{calls++;ticks+=cost;assert.equal(k,'recordLessonRead');return true;}};
  const lessons=Array.from({length:200},(_,i)=>'batch-many-'+i);
  await Promise.all(lessons.map(id=>db.doc('content/lessons/items/'+id).set({title:id})));
  const out=await m.writeLessonRead(auth(uid),{expectedUid:uid,reads:lessons.map((lessonId,i)=>({lessonId,readAt:now-1000-i}))},counted);
- assert.equal(out.stored.length,200);assert.equal(ticks,1,'200 reads cost one tick');
+ assert.equal(out.stored.length,200);assert.equal(calls,1);assert.equal(ticks,200,'200 distinct lessons cost 200 units');
  assert.equal(await revisionOf(uid),1);
  const limited={db,now:()=>now,allow:async()=>false};
+ await m.writeLessonRead(auth(uid),{expectedUid:uid,reads:[{lessonId:'batch-a',readAt:now-1},{lessonId:'batch-a',readAt:now-2},{lessonId:'missing-lesson',readAt:now-1},{lessonId:'bad/id',readAt:now}]},counted);
+ assert.equal(ticks,202,'duplicates and invalid items add one unit per distinct valid lesson only (batch-a, missing-lesson)');
  assert.equal(await code(m.writeLessonRead(auth(uid),{expectedUid:uid,reads:[read(0)]},limited)),'resource-exhausted');
+});
+test('batch lesson reads: the real limiter refuses a batch that would pass 600 in the window',async()=>{
+ const m=await import('../lib/studyObservations.js');
+ const uid='w4b-batch-limit';await db.recursiveDelete(db.doc('users/'+uid));
+ const real={db,now:()=>now};
+ const lessons=Array.from({length:200},(_,i)=>'batch-many-'+i);
+ const send=()=>m.writeLessonRead(auth(uid),{expectedUid:uid,reads:lessons.map((lessonId,i)=>({lessonId,readAt:now-1000-i}))},real);
+ for(let i=0;i<3;i++)await send();
+ assert.equal((await db.doc('users/'+uid+'/limits/recordLessonRead').get()).get('count'),600);
+ assert.equal(await code(send()),'resource-exhausted');
+ assert.equal(await code(m.writeLessonRead(auth(uid),{expectedUid:uid,lessonId:'batch-a',readAt:now-1},real)),'resource-exhausted');
+ assert.equal(await revisionOf(uid),1,'the refused call stored nothing');
 });
 test('batch lesson reads: the single shape behaves as before',async()=>{
  const m=await import('../lib/studyObservations.js');
