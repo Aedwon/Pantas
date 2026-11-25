@@ -214,4 +214,41 @@ void main() {
     );
     expect(widePlacementProblems(tester), isEmpty);
   });
+
+  // Added Nov 25 (E-170): the wide "Use Google Instead" hover box hugged its
+  // content because the raw TextButton had zero padding.
+  Widget hoverText(double padding) => Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TextButton(
+            onPressed: () {},
+            style: ButtonStyle(
+              padding: WidgetStatePropertyAll(
+                EdgeInsets.symmetric(horizontal: padding),
+              ),
+              backgroundColor: WidgetStateProperty.resolveWith(
+                (states) => states.contains(WidgetState.hovered)
+                    ? const Color(0xFFDDEEFF)
+                    : Colors.transparent,
+              ),
+            ),
+            child: const Text('Use Google Instead'),
+          ),
+        ],
+      );
+
+  testWidgets('a hover-painting text button with no inside padding is named',
+      (tester) async {
+    await pump(tester, hoverText(0));
+    expect(
+      widePlacementProblems(tester),
+      [contains('"Use Google Instead" paints a hover box')],
+    );
+  });
+
+  testWidgets('a hover-painting text button with 14 px inside passes',
+      (tester) async {
+    await pump(tester, hoverText(14));
+    expect(widePlacementProblems(tester), isEmpty);
+  });
 }

@@ -42,6 +42,15 @@ import 'package:pantas/core/ui/web/web_components.dart';
 // - gap: 8 px between neighbors, except a pair listed in [boardGaps], where a
 //   board he approved after the rule draws another gap.
 //
+// - inside padding: any `TextButton` (raw "ds-raw" ones included, not only
+//   `WebButton` and `PantasButton`) that paints a hover box (its hovered
+//   background differs from its resting one) and is not stretched by tight
+//   width constraints keeps at least 8 px between its edges and its laid-out
+//   content, left and right. Added Nov 25 (E-170) after the wide "Use Google
+//   Instead" hover box hugged its content: the tint ended at the Google mark
+//   and the last letter, and the check above never looked at raw buttons or
+//   at padding.
+//
 // Known limit: a group with no painted box around it (a page-level row) is
 // checked for order, gap and width, not place, because the page column's
 // edges are not marked in the render tree.
@@ -226,6 +235,111 @@ double? _textInset(RenderBox box, Set<RenderObject> skip) {
   return least;
 }
 
+/// The least space between a hover-painting button's edge and its content.
+const double minInsidePadding = 8;
+
+/// The painted leaves under [root]: text, icons, images and custom paint
+/// (the Google mark and svg pictures).
+void _paintedLeaves(RenderObject root, List<Rect> out) {
+  void visit(RenderObject r) {
+    if (r is RenderBox && r.hasSize && r.attached) {
+      final leaf = r is RenderParagraph ||
+          r is RenderImage ||
+          r is RenderCustomPaint && r.child == null ||
+          // SvgPicture draws a RenderVectorGraphic, a package-private type.
+          r.runtimeType.toString().contains('VectorGraphic');
+      if (leaf && !r.size.isEmpty) {
+        out.add(r.localToGlobal(Offset.zero) & r.size);
+      }
+    }
+    r.visitChildren(visit);
+  }
+
+  visit(root);
+}
+
+String _textButtonLabel(Element button) {
+  final parts = <String>[];
+  void visit(Element e) {
+    final w = e.widget;
+    if (w is Text && w.data != null) parts.add(w.data!);
+    e.visitChildren(visit);
+  }
+
+  visit(button);
+  return parts.isEmpty ? '?' : parts.join(' ');
+}
+
+/// Hover-painting text buttons whose content sits closer than
+/// [minInsidePadding] to their left or right edge.
+List<PlacementProblem> _insidePaddingProblems(Finder? within) {
+  final finder = find.byType(TextButton);
+  final scoped =
+      within == null ? finder : find.descendant(of: within, matching: finder);
+  final problems = <PlacementProblem>[];
+  for (final element in scoped.evaluate()) {
+    final button = element.widget as TextButton;
+    final box = element.renderObject;
+    if (box is! RenderBox || !box.hasSize || !box.attached) continue;
+    final rect = box.localToGlobal(Offset.zero) & box.size;
+    if (rect.isEmpty) continue;
+    // Exclusion: the board's back link (`WebBackLink`). Its `.back` draws
+    // the arrow flush with the page edge, and a link that sits on a top
+    // bar's own padding (nudge off) paints its hover wash from the arrow, so
+    // the left inside is 0 by the approved board, not by oversight.
+    var backLink = false;
+    element.visitAncestorElements((a) {
+      if (a.widget is WebBackLink) backLink = true;
+      return !backLink;
+    });
+    if (backLink) continue;
+    // Only a button that paints a hover box needs room around its content.
+    final background = button.style?.backgroundColor ??
+        TextButtonTheme.of(element).style?.backgroundColor;
+    if (background == null) continue;
+    if (background.resolve({WidgetState.hovered}) ==
+        background.resolve(const {})) {
+      continue;
+    }
+    // A button stretched by tight width constraints (a full-width phone
+    // button, an Expanded half, a fixed-width row) is sized by its parent,
+    // not by its content.
+    if (box.constraints.hasTightWidth) continue;
+    Element? content;
+    void search(Element e) {
+      if (content != null) return;
+      if (identical(e.widget, button.child)) {
+        content = e;
+        return;
+      }
+      e.visitChildren(search);
+    }
+
+    element.visitChildren(search);
+    final root = content?.renderObject;
+    if (root == null) continue;
+    final leaves = <Rect>[];
+    _paintedLeaves(root, leaves);
+    if (leaves.isEmpty) continue;
+    var left = leaves.first.left;
+    var right = leaves.first.right;
+    for (final l in leaves) {
+      if (l.left < left) left = l.left;
+      if (l.right > right) right = l.right;
+    }
+    final lead = left - rect.left;
+    final trail = rect.right - right;
+    if (lead < minInsidePadding - 0.5 || trail < minInsidePadding - 0.5) {
+      problems.add('"${_textButtonLabel(element)}" paints a hover box but '
+          'its content sits ${lead.toStringAsFixed(1)} px from the left and '
+          '${trail.toStringAsFixed(1)} px from the right edge; a hover box '
+          'keeps at least ${minInsidePadding.round()} px inside (add '
+          'horizontal padding)');
+    }
+  }
+  return problems;
+}
+
 /// The placement problems on the current wide screen. Empty when every
 /// button group follows the rule.
 List<PlacementProblem> widePlacementProblems(
@@ -342,6 +456,7 @@ List<PlacementProblem> widePlacementProblems(
           'right end${inset == null ? '' : ' (${inset.round()} px in)'}');
     }
   }
+  problems.addAll(_insidePaddingProblems(within));
   return problems;
 }
 

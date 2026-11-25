@@ -14,6 +14,7 @@ import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import '../helpers/button_placement.dart';
 
 class _Gateway extends Mock implements AuthGateway {}
 
@@ -856,6 +857,16 @@ void main() {
       check('Use Google Instead', icon: true);
       await goToCode(tester);
       check('Use a Different Email');
+    });
+
+    // The shared wide placement check (E-170) also reads inside padding, so
+    // the same defect fails there for any raw text button, not only here.
+    testWidgets('the wide placement check passes on both steps',
+        (tester) async {
+      await pumpPage(tester, size: _laptop);
+      expectWidePlacement(tester);
+      await goToCode(tester);
+      expectWidePlacement(tester);
     });
 
     testWidgets('an inline link line is at least 24 px high', (tester) async {
