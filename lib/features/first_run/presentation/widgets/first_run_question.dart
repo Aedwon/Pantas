@@ -12,6 +12,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -93,12 +94,18 @@ class FirstRunQuestion extends StatelessWidget {
       choices: [
         for (final c in question.choices)
           Padding(
-            padding: const EdgeInsets.only(bottom: PantasSpace.s10),
-            child: ChoiceRow(
-              letter: c.label,
-              text: c.text,
-              state: _stateOf(c.id, c.isCorrect),
-              onTap: revealed ? null : () => onPick(c.id),
+            padding: EdgeInsets.only(
+              bottom: wide ? PantasSpace.s12 : PantasSpace.s10,
+            ),
+            child: _Dim(
+              dimmed: _stateOf(c.id, c.isCorrect) == ChoiceRowState.dimmed,
+              child: ChoiceRow(
+                letter: c.label,
+                text: c.text,
+                state: _stateOf(c.id, c.isCorrect),
+                markInBadge: true,
+                onTap: revealed ? null : () => onPick(c.id),
+              ),
             ),
           ),
       ],
@@ -107,6 +114,8 @@ class FirstRunQuestion extends StatelessWidget {
         ? AnswerReveal(
             correctLetter: correct.label,
             explanation: question.explanation,
+            // The wide card draws its own edge (frame W04).
+            ruled: !wide,
           )
         : null;
     final body = wide
@@ -139,7 +148,8 @@ class FirstRunQuestion extends StatelessWidget {
             child: Center(
               child: ConstrainedBox(
                 constraints: BoxConstraints(
-                  maxWidth: wide ? PantasLayout.contentMax : double.infinity,
+                  // ds-board: W04 groups 600 + 40 + 488
+                  maxWidth: wide ? 1128 : double.infinity,
                 ),
                 child: body,
               ),
@@ -160,31 +170,42 @@ class FirstRunQuestion extends StatelessWidget {
     }
     final colors = context.colors;
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(child: card),
-        const SizedBox(width: PantasSpace.s24),
-        SizedBox(
-          // ds-board: W04 aside card width
-          width: PantasLayout.colListMax,
-          child: _Slide(
-            child: Container(
-              padding: const EdgeInsets.all(PantasSpace.s24),
-              decoration: BoxDecoration(
-                color: colors.surfaceCard,
-                // ds-board: W04 aside radius 20
-                borderRadius:
-                    BorderRadius.circular(PantasRadius.xl + PantasSpace.s2),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  reveal,
-                  if (_right) ...[
-                    const SizedBox(height: PantasSpace.s16),
-                    _FromLesson(title: lessonTitle, onTap: onFromLesson),
+        // ds-board: W04 question column 600, gap 40, aside 488 (440 + 24x2)
+        Flexible(
+          child: ConstrainedBox(
+            // ds-board: W04 question column 600
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: card,
+          ),
+        ),
+        const SizedBox(width: PantasSpace.s40),
+        Flexible(
+          child: ConstrainedBox(
+            // ds-board: W04 aside 488
+            constraints: const BoxConstraints(maxWidth: 488),
+            child: _Slide(
+              child: Container(
+                padding: const EdgeInsets.all(PantasSpace.s24),
+                decoration: BoxDecoration(
+                  color: colors.surfaceCard,
+                  // ds-board: W04 aside radius 20
+                  borderRadius:
+                      BorderRadius.circular(PantasRadius.xl + PantasSpace.s2),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    reveal,
+                    if (_right) ...[
+                      // ds-board: W04 aside gap 18, row margin-top 4
+                      const SizedBox(height: PantasSpace.s18 + PantasSpace.s4),
+                      _FromLesson(title: lessonTitle, onTap: onFromLesson),
+                    ],
                   ],
-                ],
+                ),
               ),
             ),
           ),
@@ -203,23 +224,40 @@ class FirstRunQuestion extends StatelessWidget {
     final counter = '${index + 1} of 3';
     const inset = PantasLayout.gutterPhone;
     if (wide) {
+      // Frames W04 and W05: the compact pill, count, track, then the button.
       return Padding(
         padding: const EdgeInsets.only(bottom: PantasLayout.barBottom),
         child: Center(
           child: WebBottomBar(
             counter: counter,
-            center: _Track(outcomes: outcomes),
+            compact: true,
+            // ds-board: W04 count padding 0 6 0 18
+            counterPadding: const EdgeInsets.fromLTRB(
+              PantasSpace.s18,
+              PantasSpace.s0,
+              PantasSpace.s6,
+              PantasSpace.s0,
+            ),
             state: switch (state) {
               FloatingBarState.neutral => WebBarState.neutral,
               FloatingBarState.right => WebBarState.right,
               FloatingBarState.wrong => WebBarState.wrong,
             },
-            action: WebButton(
-              label: revealed ? 'Next' : 'Check',
-              keyHint: 'Enter',
-              onPressed: revealed || pickedChoiceId != null
-                  ? (revealed ? onNext : onCheck)
-                  : null,
+            action: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _Track(outcomes: outcomes),
+                // ds-board: W04 Next margin-left 4
+                const SizedBox(width: PantasSpace.s4),
+                WebButton(
+                  label: revealed ? 'Next' : 'Check',
+                  pill: true,
+                  keyHint: 'Enter',
+                  onPressed: revealed || pickedChoiceId != null
+                      ? (revealed ? onNext : onCheck)
+                      : null,
+                ),
+              ],
             ),
           ),
         ),
@@ -247,8 +285,13 @@ class FirstRunQuestion extends StatelessWidget {
         right: revealed
             ? PantasIconButton(
                 tooltip: 'Next question',
-                glyph: PantasIcons.next,
-                accent: true,
+                // P04: the right arrow is dark ink on light and dim on dark.
+                icon: Icon(
+                  PantasIcons.next,
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? context.colors.textSecondary
+                      : context.colors.textPrimary,
+                ),
                 onPressed: onNext,
               )
             : PantasButton(
@@ -274,6 +317,8 @@ class _Track extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
+          // ds-board: W04 track padding 0 14 0 8
+          const SizedBox(width: PantasSpace.s8),
           for (var i = 0; i < 3; i++) ...[
             if (i > 0) const SizedBox(width: PantasSpace.s6 / 2),
             Container(
@@ -291,12 +336,15 @@ class _Track extends StatelessWidget {
               ),
             ),
           ],
+          const SizedBox(width: PantasSpace.s14),
         ],
       ),
     );
   }
 }
 
+/// "From the lesson" as the board's tinted row: a book, the two lines and a
+/// chevron (frame W04).
 class _FromLesson extends StatelessWidget {
   const _FromLesson({required this.title, required this.onTap});
 
@@ -306,31 +354,79 @@ class _FromLesson extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    return PantasTapArea(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(PantasRadius.md),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: PantasSpace.s8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'From the lesson',
-              style: PantasType.phoneFootnote
-                  .copyWith(color: colors.textSecondary),
-            ),
-            Text(
-              title,
-              style: PantasType.phoneBody.copyWith(
+    return Semantics(
+      button: true,
+      label: 'From the lesson, $title',
+      excludeSemantics: true,
+      child: PantasTapArea(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(PantasRadius.lg),
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            // ds-board: W04 lesson row padding 14 16
+            vertical: PantasSpace.s14,
+            horizontal: PantasSpace.s16,
+          ),
+          decoration: BoxDecoration(
+            color: colors.bgPage,
+            borderRadius: BorderRadius.circular(PantasRadius.lg),
+          ),
+          child: Row(
+            children: [
+              Icon(
+                PantasIcons.bookOpen,
+                size: PantasSize.icon,
                 color: colors.accent,
-                fontWeight: FontWeight.w600,
               ),
-            ),
-          ],
+              const SizedBox(width: PantasSpace.s10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'From the lesson',
+                      style: PantasType.phoneCaption
+                          .copyWith(color: colors.textSecondary),
+                    ),
+                    Text(
+                      title,
+                      style: PantasType.phoneSubhead
+                          .copyWith(color: colors.textPrimary),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(
+                PantasIcons.next,
+                size: PantasSpace.s16,
+                color: colors.iconChevron,
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
+}
+
+/// Unchosen choices fade to .4 once the answer is checked, over .3 s (the
+/// boards' `.opt.dim`, `opacity .3s`). The shared rows only change color.
+class _Dim extends StatelessWidget {
+  const _Dim({required this.dimmed, required this.child});
+
+  final bool dimmed;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => AnimatedOpacity(
+        key: const ValueKey('first-run-choice-dim'),
+        opacity: dimmed ? .4 : 1,
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            // ds-board: .opt.dim opacity .3s
+            : const Duration(milliseconds: 300),
+        child: child,
+      );
 }
 
 /// The wide explanation card slides in from 28 px over 0.5 s (frame W04).

@@ -15,6 +15,11 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
+// ds-board: P06 title 30
+const double _phoneTitlePx = 30;
+// ds-board: W06 content bottom padding 64
+const double _wideBottomPx = 64;
+
 /// P06 `padding-bottom: 9px` under "/3": half of s18, on the spacing scale.
 // ds-board: P06 padding-bottom 9px under "/3"
 const double _unitLift = PantasSpace.s18 / 2;
@@ -149,8 +154,15 @@ class _FirstRunEndState extends State<FirstRunEnd>
         header: true,
         child: Text(
           'You finished the lesson',
-          textAlign: TextAlign.center,
-          style: (wide ? PantasType.webH1 : PantasType.phoneLargeTitle)
+          textAlign: wide ? TextAlign.center : TextAlign.start,
+          style: (wide
+                  ? PantasType.webH1
+                  : PantasType.phoneLargeTitle.copyWith(
+                      // ds-board: P06 title 30, tracking -.022em
+                      fontSize: _phoneTitlePx,
+                      // ds-board: P06 title tracking -.022em
+                      letterSpacing: -.022 * _phoneTitlePx,
+                    ))
               .copyWith(color: colors.textPrimary),
         ),
       ),
@@ -179,12 +191,17 @@ class _FirstRunEndState extends State<FirstRunEnd>
           child: Column(
             children: [
               _count(numeral, unit, wide: wide),
-              Text(
-                'correct',
-                style: PantasType.phoneBody.copyWith(
-                  color: colors.textSecondary,
-                  fontWeight: FontWeight.w500,
+              // P06End_min: "correct" fades in alone at 1600 ms, over 300.
+              phoneOnly(
+                Text(
+                  'correct',
+                  style: PantasType.phoneBody.copyWith(
+                    color: colors.textSecondary,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
+                1600,
+                300,
               ),
             ],
           ),
@@ -222,7 +239,12 @@ class _FirstRunEndState extends State<FirstRunEnd>
     );
     final done = phoneOnly(
       wide
-          ? WebButton(label: 'Done', keyHint: 'Enter', onPressed: widget.onDone)
+          ? WebButton(
+              label: 'Done',
+              large: true,
+              keyHint: 'Enter',
+              onPressed: widget.onDone,
+            )
           : PantasButton(
               label: 'Done',
               size: PantasButtonSize.phone,
@@ -233,38 +255,39 @@ class _FirstRunEndState extends State<FirstRunEnd>
       300,
     );
     if (wide) {
-      return Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(
-              PantasSpace.s24,
-              PantasSpace.s24,
-              PantasSpace.s24,
-              PantasSpace.s0,
-            ),
-            child: Row(
+      return SingleChildScrollView(
+        padding: const EdgeInsets.fromLTRB(
+          PantasSpace.s40,
+          // ds-board: W06 content padding 56 / 40 / 64
+          PantasSpace.s56,
+          PantasSpace.s40,
+          // ds-board: W06 content bottom padding 64
+          _wideBottomPx,
+        ),
+        child: Center(
+          child: ConstrainedBox(
+            // ds-board: W06 column 1000
+            constraints: const BoxConstraints(maxWidth: 1000),
+            child: Column(
               children: [
-                const Expanded(child: SizedBox.shrink()),
-                title,
-                Expanded(
-                  child: Align(alignment: Alignment.centerRight, child: done),
+                // ds-board: W06 grid 1fr auto 1fr, the title in the middle
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    title,
+                    Align(alignment: Alignment.centerRight, child: done),
+                  ],
+                ),
+                const SizedBox(height: PantasSpace.s32),
+                ConstrainedBox(
+                  // ds-board: W06 column 640
+                  constraints: const BoxConstraints(maxWidth: 640),
+                  child: summary,
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(PantasSpace.s24),
-              child: Center(
-                child: ConstrainedBox(
-                  constraints:
-                      const BoxConstraints(maxWidth: PantasLayout.qcolNarrow),
-                  child: summary,
-                ),
-              ),
-            ),
-          ),
-        ],
+        ),
       );
     }
     return SafeArea(
@@ -281,7 +304,7 @@ class _FirstRunEndState extends State<FirstRunEnd>
               ),
               child: Column(
                 children: [
-                  title,
+                  SizedBox(width: double.infinity, child: title),
                   const SizedBox(height: PantasSpace.s24),
                   summary,
                 ],
@@ -314,6 +337,7 @@ class _FirstRunEndState extends State<FirstRunEnd>
         curve: PantasCurves.enter,
       );
     }
+    // ds-board: P06End_miss 1620 to 2000 ms, rise 8
     return _motion.appear(block, 1620, 380, rise: 8);
   }
 
@@ -333,8 +357,14 @@ class _FirstRunEndState extends State<FirstRunEnd>
             grow: 240,
             curve: PantasCurves.spring,
           )
-        : _motion.pop(i, dot);
+        // ds-board: P06 dots pop at 400, 670 and 940 ms
+        : _motion.pop(i, dot, step: 270);
   }
+
+  /// P06End_row: each row fades and rises 6 px over 380 ms, from 1700 ms
+  /// (80 ms after the block), the next row 80 ms after that. W06 has none.
+  Widget _rowMotion(Widget row, int n, {required bool wide}) =>
+      wide ? row : _motion.appear(row, 1700 + 80 * n, 380, rise: 6);
 
   Widget _mistakes(BuildContext context, {required bool wide}) {
     final colors = context.colors;
@@ -343,22 +373,33 @@ class _FirstRunEndState extends State<FirstRunEnd>
       key: const ValueKey('end-mistakes'),
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Row(
-          children: [
-            Expanded(
-              child: Text(
-                'YOUR MISTAKES',
-                style: PantasType.phoneSectionHeader
-                    .copyWith(color: colors.textSecondary),
-              ),
-            ),
-            Text(
-              '${misses.length}',
+        if (wide)
+          // W06 draws the count after a dot and no count at the right.
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
+            child: Text(
+              'YOUR MISTAKES · ${misses.length}',
               style: PantasType.phoneSectionHeader
                   .copyWith(color: colors.textSecondary),
             ),
-          ],
-        ),
+          )
+        else
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  'YOUR MISTAKES',
+                  style: PantasType.phoneSectionHeader
+                      .copyWith(color: colors.textSecondary),
+                ),
+              ),
+              Text(
+                '${misses.length}',
+                style: PantasType.phoneSectionHeader
+                    .copyWith(color: colors.textSecondary),
+              ),
+            ],
+          ),
         const SizedBox(height: PantasSpace.s8),
         DecoratedBox(
           decoration: BoxDecoration(
@@ -367,11 +408,15 @@ class _FirstRunEndState extends State<FirstRunEnd>
           ),
           child: Column(
             children: [
-              for (final i in misses)
-                _MistakeRow(
-                  stem: widget.stems[i],
-                  subject: widget.subjectName,
-                  onTap: () => widget.onOpenMistake(i),
+              for (var n = 0; n < misses.length; n++)
+                _rowMotion(
+                  _MistakeRow(
+                    stem: widget.stems[misses[n]],
+                    subject: widget.subjectName,
+                    onTap: () => widget.onOpenMistake(misses[n]),
+                  ),
+                  n,
+                  wide: wide,
                 ),
             ],
           ),

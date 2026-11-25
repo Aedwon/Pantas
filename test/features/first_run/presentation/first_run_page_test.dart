@@ -43,7 +43,9 @@ void main() {
       final skip = tester.getRect(find.text('Skip'));
       final start = tester.getRect(find.text('Start'));
       expect(skip.left, lessThan(start.left));
-      expect(find.text('Esc'), findsOneWidget);
+      // Frame W02: Skip is bare text; only Start carries a key chip. (This
+      // line once expected an Esc chip: review finding 9.)
+      expect(find.text('Esc'), findsNothing);
       expect(find.text('Enter'), findsOneWidget);
     });
 

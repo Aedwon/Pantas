@@ -7,12 +7,23 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
+// ds-board: P03 and W04 overline 13
+const double _overlinePx = 13;
+
 /// "Try Pantas" at the left and Skip at the right (frames P03, P04, W03,
 /// W04). No back, contents, bookmark or counter.
 class FirstRunHeader extends StatelessWidget {
-  const FirstRunHeader({required this.onSkip, this.height, super.key});
+  const FirstRunHeader({
+    required this.onSkip,
+    this.height,
+    this.divider = false,
+    super.key,
+  });
 
   final VoidCallback onSkip;
+
+  /// A 1 px divider under the row (frame P03, the phone lesson).
+  final bool divider;
 
   /// The row's height. Null takes the board's: 58 on a phone, 64 wide.
   final double? height;
@@ -28,6 +39,8 @@ class FirstRunHeader extends StatelessWidget {
         // The wide board draws the overline in capitals.
         wide ? 'TRY PANTAS' : 'Try Pantas',
         style: PantasType.phoneSubhead.copyWith(
+          // ds-board: P03 and W04 overline 13
+          fontSize: _overlinePx,
           color: colors.textSecondary,
           fontWeight: FontWeight.w600,
           // ds-board: eyebrow tracking 0.8 wide, 0.3 phone
@@ -38,6 +51,13 @@ class FirstRunHeader extends StatelessWidget {
     return Container(
       // ds-board: P03 header row 58, W03 64
       height: height ?? (wide ? 64 : 58),
+      decoration: divider && !wide
+          ? BoxDecoration(
+              border: Border(
+                bottom: BorderSide(color: colors.divider),
+              ),
+            )
+          : null,
       padding: EdgeInsets.symmetric(
         horizontal: wide ? PantasSpace.s24 : PantasSpace.s16,
       ),
@@ -49,7 +69,6 @@ class FirstRunHeader extends StatelessWidget {
             WebButton(
               label: 'Skip',
               kind: PantasButtonKind.tertiary,
-              keyHint: 'Esc',
               onPressed: onSkip,
             )
           else

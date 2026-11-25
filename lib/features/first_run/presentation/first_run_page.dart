@@ -116,7 +116,10 @@ class _FirstRunPageState extends ConsumerState<FirstRunPage> {
         backgroundColor: context.colors.bgPage,
         body: CallbackShortcuts(
           bindings: wide ? _shortcuts(p, data) : const {},
+          // A new step takes the focus, so a keyboard or screen reader
+          // user starts at its heading (patterns.md, route changes).
           child: Focus(
+            key: ValueKey('first-run-focus-${p.step.name}-$_look'),
             autofocus: true,
             child: _step(context, p, dataAsync, data),
           ),

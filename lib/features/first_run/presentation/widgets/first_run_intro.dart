@@ -1,7 +1,10 @@
+import 'dart:math' as math;
+
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/ds.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
@@ -11,6 +14,28 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+
+// ds-board: P02 title 30
+const double _titlePx = 30;
+// ds-board: preview eyebrow 13
+const double _eyebrowPx = 13;
+// ds-board: preview body 16
+const double _bodyPx = 16;
+// ds-board: preview stem 21
+const double _stemPx = 21;
+// ds-board: preview option padding 13
+const double _optPadPx = 13;
+// ds-board: P02 actions padding-bottom 34 (the home bar)
+const double _homeBarPx = 34;
+
+/// What the two previews show. The board draws static crops of today's
+/// lesson and question 0001; a test keeps these equal to the content source.
+const introPreviewLessonTitle = 'Fractions, Decimals, and Percentages';
+const introPreviewLessonLine =
+    'Fractions, decimals, and percentages are three ways to represent the '
+    'same quantities.';
+const introPreviewStem = 'What is 3/8 expressed as a percentage?';
+const introPreviewChoices = ['3.75%', '37.5%'];
 
 /// "Try Pantas first" (frames P02, W02): three numbered steps, then Start
 /// and Skip.
@@ -29,6 +54,7 @@ class FirstRunIntro extends StatelessWidget {
       context.wideWeb ? _wide(context) : _phone(context);
 
   Widget _phone(BuildContext context) => SafeArea(
+        bottom: false,
         child: Column(
           children: [
             Expanded(
@@ -44,11 +70,12 @@ class FirstRunIntro extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(
+              padding: EdgeInsets.fromLTRB(
                 PantasSpace.s20,
                 PantasSpace.s12,
                 PantasSpace.s20,
-                PantasSpace.s16,
+                // ds-board: P02 actions padding-bottom 34 (the home bar)
+                math.max(_homeBarPx, MediaQuery.viewPaddingOf(context).bottom),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -102,7 +129,6 @@ class FirstRunIntro extends StatelessWidget {
                             WebButton(
                               label: 'Skip',
                               kind: PantasButtonKind.tertiary,
-                              keyHint: 'Esc',
                               onPressed: onSkip,
                             ),
                             const SizedBox(width: PantasSpace.s8),
@@ -134,7 +160,14 @@ class FirstRunIntro extends StatelessWidget {
             header: true,
             child: Text(
               'Try Pantas first',
-              style: (wide ? PantasType.webH1 : PantasType.phoneLargeTitle)
+              style: (wide
+                      ? PantasType.webH1
+                      : PantasType.phoneLargeTitle.copyWith(
+                          // ds-board: P02 title 30, tracking -.022em
+                          fontSize: _titlePx,
+                          // ds-board: P02 title tracking -.022em
+                          letterSpacing: -.022 * _titlePx,
+                        ))
                   .copyWith(color: colors.textPrimary),
             ),
           ),
@@ -225,7 +258,8 @@ class _Step extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: PantasSpace.s12),
+          // ds-board: P02 gap 12, W02 gap 16
+          SizedBox(width: wide ? PantasSpace.s16 : PantasSpace.s12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -242,7 +276,8 @@ class _Step extends StatelessWidget {
                         .copyWith(color: colors.textSecondary),
                   ),
                 if (preview != null) ...[
-                  const SizedBox(height: PantasSpace.s12),
+                  // ds-board: P02 and W02 step gap 10
+                  const SizedBox(height: PantasSpace.s10),
                   // The crop is a picture of what the step shows. It adds
                   // nothing for a screen reader.
                   ExcludeSemantics(child: preview),
@@ -256,6 +291,8 @@ class _Step extends StatelessWidget {
   }
 }
 
+/// A picture of what a step shows: the real screen laid out at the board's
+/// design width, scaled down and faded at the bottom (frames P02 and W02).
 class _Crop extends StatelessWidget {
   const _Crop({required this.wide, required this.tall, required this.child});
 
@@ -269,27 +306,44 @@ class _Crop extends StatelessWidget {
     // ds-board: previews 284x120 / 284x160 phone, 360x104 / 360x132 wide
     final width = wide ? 360.0 : 284.0;
     final height = wide ? (tall ? 132.0 : 104.0) : (tall ? 160.0 : 120.0);
+    // ds-board: preview laid out 380 wide at .747 phone, 480 at .75 wide
+    final design = wide ? 480.0 : 380.0;
+    final scale = wide ? .75 : .747;
     return ClipRRect(
       borderRadius: BorderRadius.circular(PantasRadius.md),
       child: Container(
         width: width,
-        // ds-board: previews 120/160 phone, 104/132 wide
+        // ds-board: previews 284x120 / 284x160 phone, 360x104 / 360x132 wide
         height: height,
         color: colors.bgPage,
-        padding: const EdgeInsets.all(PantasSpace.s12),
         child: ShaderMask(
           blendMode: BlendMode.dstIn,
           shaderCallback: (rect) => LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            // ds-board: bottom fade mask
-            stops: const [0.6, 1],
+            // ds-board: bottom fade mask, 45% lesson and 60% question
+            stops: [if (tall) 0.6 else 0.45, 1],
             colors: [colors.textPrimary, Colors.transparent],
           ).createShader(rect),
           child: OverflowBox(
             alignment: Alignment.topLeft,
+            minWidth: design,
+            maxWidth: design,
             maxHeight: double.infinity,
-            child: child,
+            child: Transform.scale(
+              scale: scale,
+              alignment: Alignment.topLeft,
+              child: Padding(
+                // ds-board: preview padding 16 16 0
+                padding: const EdgeInsets.fromLTRB(
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                  PantasSpace.s16,
+                  PantasSpace.s0,
+                ),
+                child: child,
+              ),
+            ),
           ),
         ),
       ),
@@ -313,24 +367,43 @@ class _LessonPreview extends StatelessWidget {
         children: [
           Text(
             'MATHEMATICS · ARITHMETIC',
-            style: PantasType.phoneCaption.copyWith(
+            style: PantasType.phoneSubhead.copyWith(
+              // ds-board: preview eyebrow 13/600, tracking .04em
+              fontSize: _eyebrowPx,
               color: colors.textSecondary,
               fontWeight: FontWeight.w600,
+              // ds-board: preview eyebrow tracking .04em
+              letterSpacing: .04 * _eyebrowPx,
+              // ds-board: preview eyebrow line-height 1.35
+              height: 1.35,
             ),
           ),
-          const SizedBox(height: PantasSpace.s4),
+          const SizedBox(height: PantasSpace.s8),
           Text(
-            'Fractions, Decimals, and Percentages',
-            style: PantasType.phoneHeadline.copyWith(
+            introPreviewLessonTitle,
+            style: PantasType.phoneLargeTitle.copyWith(
+              // ds-board: preview title 30/700, tracking -.5, line 1.08
+              fontSize: _titlePx,
+              // ds-board: preview title tracking -.5
+              letterSpacing: -.5,
+              // ds-board: preview title line-height 1.08
+              height: 1.08,
               color: colors.textPrimary,
-              fontWeight: FontWeight.w700,
             ),
           ),
-          const SizedBox(height: PantasSpace.s4),
+          // ds-board: preview title margin-bottom 14
+          const SizedBox(height: PantasSpace.s14),
           Text(
-            'Fractions, decimals, and percentages are three ways to '
-            'represent the same quantities.',
-            style: PantasType.phoneCaption.copyWith(color: colors.textPrimary),
+            introPreviewLessonLine,
+            style: PantasType.phoneBody.copyWith(
+              // ds-board: preview body 16, line 1.6, tracking -.1
+              fontSize: _bodyPx,
+              // ds-board: preview title line-height 1.08
+              height: 1.6,
+              // ds-board: preview eyebrow line-height 1.35
+              letterSpacing: -.1,
+              color: colors.textPrimary,
+            ),
           ),
         ],
       ),
@@ -346,31 +419,58 @@ class _QuestionPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    Widget choice(String letter, String text, {required bool picked}) =>
+    Widget choice(String text, String letter, {required bool picked}) =>
         Opacity(
           opacity: picked ? 1 : .45,
           child: Container(
-            margin: const EdgeInsets.only(top: PantasSpace.s6),
-            padding: const EdgeInsets.all(PantasSpace.s8),
+            // ds-board: preview option padding 13/14, radius 14, gap 12
+            padding: const EdgeInsets.symmetric(
+              vertical: _optPadPx,
+              horizontal: PantasSpace.s14,
+            ),
             decoration: BoxDecoration(
               color: picked ? colors.accentTint : colors.surfaceCard,
-              borderRadius: BorderRadius.circular(PantasRadius.md),
-              border: picked ? Border.all(color: colors.accent) : null,
+              borderRadius: BorderRadius.circular(PantasRadius.lg),
+              border:
+                  picked ? Border.all(color: colors.accent, width: 1.5) : null,
             ),
             child: Row(
               children: [
-                Text(
-                  letter,
-                  style: PantasType.phoneCaption.copyWith(
-                    color: picked ? colors.accent : colors.textSecondary,
-                    fontWeight: FontWeight.w700,
+                Container(
+                  // ds-board: preview mark 30
+                  width: 30,
+                  // ds-board: preview mark 30
+                  height: 30,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: picked ? colors.accentFill : null,
+                    border: picked
+                        ? null
+                        : Border.all(color: colors.borderControl, width: 1.5),
                   ),
+                  child: picked
+                      ? Icon(
+                          PantasIcons.check,
+                          // ds-board: preview check 15
+                          size: 15,
+                          color: colors.onAccent,
+                        )
+                      : Text(
+                          letter,
+                          style: PantasType.phoneSubhead.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: colors.textSecondary,
+                          ),
+                        ),
                 ),
-                const SizedBox(width: PantasSpace.s8),
+                const SizedBox(width: PantasSpace.s12),
                 Text(
                   text,
-                  style: PantasType.phoneCaption
-                      .copyWith(color: colors.textPrimary),
+                  style: PantasType.phoneHeadline.copyWith(
+                    fontWeight: picked ? FontWeight.w600 : FontWeight.w400,
+                    color: colors.textPrimary,
+                  ),
                 ),
               ],
             ),
@@ -384,28 +484,44 @@ class _QuestionPreview extends StatelessWidget {
         children: [
           Text(
             'MATHEMATICS',
-            style: PantasType.phoneCaption.copyWith(
+            style: PantasType.phoneSubhead.copyWith(
+              // ds-board: preview eyebrow 13/600, tracking .02em
+              fontSize: _eyebrowPx,
               color: colors.textSecondary,
               fontWeight: FontWeight.w600,
+              // ds-board: preview eyebrow tracking .02em
+              letterSpacing: .02 * _eyebrowPx,
+              // ds-board: preview eyebrow line-height 1.35
+              height: 1.35,
             ),
           ),
-          const SizedBox(height: PantasSpace.s4),
+          const SizedBox(height: PantasSpace.s8),
           Text(
-            'What is 3/8 expressed as a percentage?',
-            style: PantasType.phoneHeadline.copyWith(
-              color: colors.textPrimary,
+            introPreviewStem,
+            style: PantasType.phoneLargeTitle.copyWith(
+              // ds-board: preview stem 21/600, tracking -.012em, line 1.35
+              fontSize: _stemPx,
               fontWeight: FontWeight.w600,
+              // ds-board: preview stem tracking -.012em
+              letterSpacing: -.012 * _stemPx,
+              // ds-board: preview stem line-height 1.35
+              height: 1.35,
+              color: colors.textPrimary,
             ),
           ),
-          choice('A', '3.75%', picked: false),
-          choice('B', '37.5%', picked: true),
+          // ds-board: preview gap 14 between the stem and the choices
+          const SizedBox(height: PantasSpace.s14),
+          choice(introPreviewChoices[0], 'A', picked: false),
+          const SizedBox(height: PantasSpace.s10),
+          choice(introPreviewChoices[1], 'B', picked: true),
         ],
       ),
     );
   }
 }
 
-/// The wide section slides in 40 px and fades over 0.4 s (frame W02). Off
+/// The wide section slides in 24 px from the right and fades over 0.4 s
+/// (frame W02). Off
 /// under Reduce Motion.
 class _SlideIn extends StatelessWidget {
   const _SlideIn({required this.child});
@@ -423,7 +539,7 @@ class _SlideIn extends StatelessWidget {
       builder: (context, t, child) => Opacity(
         opacity: t.clamp(0, 1),
         child:
-            Transform.translate(offset: Offset(0, 40 * (1 - t)), child: child),
+            Transform.translate(offset: Offset(24 * (1 - t), 0), child: child),
       ),
       child: child,
     );

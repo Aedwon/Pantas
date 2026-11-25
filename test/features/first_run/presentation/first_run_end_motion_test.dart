@@ -118,6 +118,63 @@ void main() {
       expect(_opacityOf(tester, const ValueKey('end-mistakes')), 1);
     });
 
+    testWidgets('the dots start 270 ms apart, at 400, 670 and 940 ms',
+        (tester) async {
+      await _pumpEnd(tester, width: 390);
+      await tester.pump(const Duration(milliseconds: 500));
+      expect(_opacityOf(tester, const ValueKey('end-dot-1')), greaterThan(0));
+      expect(_opacityOf(tester, const ValueKey('end-dot-2')), 0);
+      await tester.pump(const Duration(milliseconds: 250));
+      expect(_opacityOf(tester, const ValueKey('end-dot-2')), greaterThan(0));
+      expect(_opacityOf(tester, const ValueKey('end-dot-3')), 0);
+      await tester.pump(const Duration(milliseconds: 250));
+      expect(_opacityOf(tester, const ValueKey('end-dot-3')), greaterThan(0));
+      await tester.pumpAndSettle();
+    });
+
+    testWidgets(
+        '"correct" fades in alone at 1600 ms, the row 80 ms behind '
+        'the block', (tester) async {
+      await _pumpEnd(tester, width: 390);
+      final correct = find.text('correct');
+      final row = find.text('Two');
+      await tester.pump(const Duration(milliseconds: 1550));
+      expect(_opacityOf(tester, const ValueKey('end-mistakes')), 0);
+      await tester.pump(const Duration(milliseconds: 100));
+      // 1650 ms: "correct" (from 1600) and the block (from 1620) have begun;
+      // the row (from 1700) has not.
+      expect(
+        tester
+            .widget<Opacity>(
+              find.ancestor(of: correct, matching: find.byType(Opacity)).first,
+            )
+            .opacity,
+        greaterThan(0),
+      );
+      expect(
+        _opacityOf(tester, const ValueKey('end-mistakes')),
+        greaterThan(0),
+      );
+      expect(
+        tester
+            .widget<Opacity>(
+              find.ancestor(of: row, matching: find.byType(Opacity)).first,
+            )
+            .opacity,
+        0,
+      );
+      await tester.pump(const Duration(milliseconds: 100));
+      expect(
+        tester
+            .widget<Opacity>(
+              find.ancestor(of: row, matching: find.byType(Opacity)).first,
+            )
+            .opacity,
+        greaterThan(0),
+      );
+      await tester.pumpAndSettle();
+    });
+
     testWidgets('Reduce Motion shows the final number at once', (tester) async {
       await _pumpEnd(tester, width: 390, still: true);
       expect(_strip(tester), -128);
