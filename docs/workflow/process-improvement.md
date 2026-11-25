@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Release lead ended its turn after a part report with the next part queued (Nov 25)
+
+- Words: none from Aedwon. The manager's note: "you reported part 1 at 2:44 PM and then stopped, with nothing running. Start part 2 now".
+- Wrong: the CSE release lead r7 shipped part 1 of a four-part brief, reported, and ended its turn with no worker, watcher or wait running, though the brief said "Do these in critical-path order" and parts 2 and 3 needed nothing from him. About 1 h 19 min passed idle.
+- Why it got through: "report to me after each part" was read as a stop point. The Nov 25 idle entry (UX lead) covered a missing watcher, not a turn ended by choice with work queued.
+- Fix (required step, every lead): a part report is not a stop. In the same turn as the report, start the next part (log its estimate, start its timer or worker) unless the brief or the manager says to wait, and say in the report what is now running. End a turn only when something is running under a registered watcher, or the next step needs Aedwon or the manager.
+
 ### Manager ruled on the Home footer without finding his Oct 31 decision (Nov 25)
 
 - His words: "didn't we remove 2" (about the manager's list item "Home footer: About 45 min today becomes real counts").
