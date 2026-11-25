@@ -24,8 +24,7 @@ void mainBase() {
     final facts = sellerFactsFromEnvironment();
     expect(
       facts.line,
-      'Sold by Aerol Dwayne Daños Balayon, trading as '
-      '[registered business name] · [full place of business] · '
+      'Sold by [registered business name] · [full place of business] · '
       '[business phone] · support@pantas.study',
     );
     expect(facts.missing, [
@@ -38,7 +37,7 @@ void mainBase() {
   test('built-in facts fill the line with no bracket', () {
     expect(
       _ready.line,
-      'Sold by Aerol Dwayne Daños Balayon, trading as Pantas Review · '
+      'Sold by Pantas Review · '
       '1 Rizal St, Quezon City · 0917 000 0000 · support@pantas.study',
     );
     expect(_ready.missing, isEmpty);

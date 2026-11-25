@@ -9,7 +9,9 @@ void main() {
     expect(document.updatedAt, legalTextsPublishedAt);
     final text =
         document.sections.map((s) => '${s.heading}\n${s.body}').join('\n');
-    expect(text, contains('This notice is for teens ages 13 to 17'));
+    expect(text, contains('This notice covers only accounts that a parent'));
+    expect(text, contains('we do not send new guardian requests'));
+    expect(text, isNot(contains('Balayon')));
     expect(
       text,
       contains('I withdraw my permission for my child to use Pantas.'),
@@ -189,5 +191,38 @@ void main() {
         }
       }
     });
+  });
+
+  test('the owner name appears only in the Privacy Policy and the Terms', () {
+    String all(String id) => legalDocumentFallbacks[id]!
+        .sections
+        .map((s) => '${s.heading}\n${s.body}')
+        .join('\n');
+    expect(all('privacy'), contains('Aerol Dwayne Daños Balayon'));
+    expect(all('terms'), contains('Aerol Dwayne Daños Balayon'));
+    expect(all('teens'), isNot(contains('Balayon')));
+    for (final id in ['privacy', 'terms', 'teens']) {
+      expect(all(id), contains('Pantas Online Tutorial Services'));
+    }
+  });
+
+  test('the Data Protection Officer is named by title and contact', () {
+    for (final id in ['privacy', 'teens']) {
+      final text =
+          legalDocumentFallbacks[id]!.sections.map((s) => s.body).join();
+      expect(text, contains('Data Protection Officer: dpo@pantas.study'));
+      expect(text, isNot(contains('He is also the Data Protection Officer')));
+    }
+  });
+
+  test('the texts say an account needs age 18 or older for now', () {
+    String all(String id) =>
+        legalDocumentFallbacks[id]!.sections.map((s) => s.body).join();
+    expect(all('terms'), contains('You must be 18 or older to create'));
+    expect(all('terms'), isNot(contains('You must be 13 or older')));
+    expect(all('privacy'), contains('An account needs age 18 or older'));
+    for (final id in ['privacy', 'teens']) {
+      expect(all(id), isNot(contains('below 13')));
+    }
   });
 }

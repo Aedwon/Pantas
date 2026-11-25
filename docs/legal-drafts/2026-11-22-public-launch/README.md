@@ -172,9 +172,9 @@ A required tick beside the Pay button. "Terms and refund policy" links to the Te
 
 ### Seller line (D3)
 
-Beside the Pay button: "Sold by Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · +63 968 854 2343 · support@pantas.study"
+Beside the Pay button: "Sold by Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · +63 968 854 2343 · support@pantas.study"
 
-Website footer (homepage): "Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · +63 968 854 2343 · support@pantas.study"
+Website footer (homepage): "Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · +63 968 854 2343 · support@pantas.study"
 
 The brackets are facts only Aedwon has (checklist L3). Neither line ships with a bracket in it.
 

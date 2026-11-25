@@ -10,26 +10,26 @@ Base: the Notice for teens live in the app on main (version 2026-11-12, approved
 
 ## Who this is for
 
-This notice is for teens ages 13 to 17 and for their parents or guardians. Pantas is for people aged 13 and older. It is not available to anyone under 13.
+This notice covers only accounts that a parent or guardian already confirmed for a teen ages 13 to 17. It is for those teens and their parents or guardians. An account needs age 18 or older for now, so we do not accept new sign-ups from anyone under 18 and we do not send new guardian requests.
 
 If you are 18 or older, read the Privacy Policy instead.
 
 ## Who runs Pantas
 
-Aerol Dwayne Daños Balayon, trading as Pantas Online Tutorial Services, a sole proprietor, controls your data. He is also the Data Protection Officer. DTI Business Name No. 8567107.
+Pantas Online Tutorial Services, a sole proprietorship registered with the Department of Trade and Industry (DTI Business Name No. 8567107), controls your data. The Privacy Policy names its owner. Pantas has designated a Data Protection Officer.
 
 Place of business: 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines
 
-Questions about your data: dpo@pantas.study, or by post at the address above
+Data Protection Officer: dpo@pantas.study, +63 968 854 2343, or by post at the address above, marked for the Data Protection Officer. We give the officer's name to you or the National Privacy Commission on request.
 Help or payment problems: support@pantas.study or +63 968 854 2343
 
 ## Why we ask your age
 
-Your device uses the age you enter to check whether you can use Pantas and whether a parent or legal guardian must confirm. Pantas keeps the number in memory during setup and does not send it to our servers. Your device saves your age group and the version of the age check notice, or a block if you enter an age below 13. If you enter an age below 13, the app blocks setup on this device. If you entered the wrong age, email support@pantas.study. Continue runs the check.
+Your device uses the age you enter to check whether you can use Pantas. Pantas keeps the number in memory during setup and does not send it to our servers. Your device saves your age group and the version of the age check notice, or a block if you enter an age below 18. If you enter an age below 18, the app blocks setup on this device. It does not ask for a guardian and sends no request. If you entered the wrong age, email support@pantas.study. Continue runs the check.
 
 Tap Continue to run the age check. You can go back before the check. Pantas requires this check before you can use it.
 
-When you send a guardian request, our servers record your age group before your guardian answers. Your exact age stays on your device. We also record the age check notice version when your app sends it. We use the open request only to ask your guardian and record their answer. After a guardian confirms, we also use the record to show the guardian version of the checkout declaration. We delete the whole request if it expires, or when we record a decline. We keep the guardian's answer separately.
+We no longer accept new guardian requests. The rest of this section covers a request sent before they closed. For such a request, our servers recorded your age group before your guardian answered. Your exact age stayed on your device. We also recorded the age check notice version when your app sent it. We use the open request only to ask your guardian and record their answer. A guardian can still answer a request that is already open until its link expires. If the request ends without a confirmation, the app shows the age block. After a guardian confirms, we also use the record to show the guardian version of the checkout declaration. We delete the whole request if it expires, or when we record a decline. We keep the guardian's answer separately.
 
 If the request expires, scheduled cleanup deletes the whole request record, including the under-18 group record. If your guardian declines, the whole request record is deleted when the answer is recorded. The request's guardian page links are deleted with it. If your guardian confirms, we keep the under-18 group record until your account is updated to 18 or older, or your account is deleted. Separate guardian-answer records and guardian page links follow the periods under "How long we keep data."
 
@@ -39,7 +39,7 @@ When you turn 18, open Settings, then Account, and choose "I'm 18 now." Enter yo
 
 • Account: an account ID, which Pantas creates even before you sign in. If you sign in with Google, we also receive your name, email address and profile photo. If you sign in with an email code, we receive your email address.
 • Study records: your study settings, answers, results, study times, bookmarked lessons and flagged questions.
-• Guardian request: your guardian's name and email address. We send them to our email provider to deliver the request. Our request database keeps the request status, its dates, a partly hidden version of the email address, and protected codes made from the email address and the link. Your device keeps the full name and email address so you can resend the request. Your device deletes them once it learns the guardian has confirmed.
+• Guardian request (sent before new requests closed): your guardian's name and email address. We send them to our email provider to deliver the request. Our request database keeps the request status, its dates, a partly hidden version of the email address, and protected codes made from the email address and the link. Your device keeps the full name and email address while the request is open. Your device deletes them once it learns the guardian has confirmed or the request has ended.
 • Guardian answer record: your guardian's answer, when it happened, which versions of our notices and terms were shown, and your account ID. It holds no name or email address. We add a line each time your guardian changes a permission or withdraws it.
 • Payments: if someone buys Pro for your account, we keep the payment reference, product, amount, payment status, refunds and access dates, linked to your account. For web purchases, PayMongo handles card payments. For QR Ph, the person paying approves the payment in their bank or wallet app. We do not see or keep your card or wallet details. For every web purchase, we also record the declaration the buyer ticks at checkout, with the date, time, Terms version and wording version. For web purchases, we record the buyer's declaration that they're your parent or legal guardian, 18 or older, authorized to use the payment method, and agree to the purchase and the Terms and refund policy.
 • Free trial: protected codes made from your verified sign-in details, so we can check whether a trial was already used. These codes are pseudonymous data, not anonymous data.
@@ -71,17 +71,17 @@ We keep the stored report logs for 30 days. These reports are on by default and 
 
 ## Why a guardian confirms
 
-If you are in the under-18 group, Pantas asks a parent or guardian to read the terms and confirm before you continue.
+For an account in the under-18 group, Pantas asked a parent or guardian to read the terms and confirm before the account could continue. New requests are closed for now.
 
 Opening the email link confirms nothing. The adult must tick the agreement box and choose Confirm. They can choose "I Don't Agree" instead.
 
-The response link expires after seven days and accepts one answer. A new request replaces the old link. The email and the confirmation screen may each give a separate link to the guardian page, where your guardian can manage permission. A guardian page link works until you confirm you are 18, or until the account is deleted.
+The response link expires after seven days and accepts one answer. We no longer send new or replacement links, so an expired link cannot be renewed. The email and the confirmation screen may each give a separate link to the guardian page, where your guardian can manage permission. A guardian page link works until you confirm you are 18, or until the account is deleted.
 
 Anyone holding these links can use them to respond or manage permission. Keep them private. The links do not independently prove someone's identity or authority. Contact us if a link is lost, shared or misused.
 
 ## What your guardian can do
 
-Your guardian can confirm or decline the request. Confirming does not give them a screen showing your results.
+If a request is still open, your guardian can confirm or decline it until the link expires. Confirming does not give them a screen showing your results.
 
 After confirming, your guardian can use the guardian page to:
 
@@ -149,7 +149,7 @@ The schedules above apply to guardian evidence and question reports, with one ex
 
 ## Why we may use your data
 
-• Age check: your device uses your age without sending it to our servers and keeps only your age group and the version of the age check notice, or a block if you are under 13. We do not rely on a teen's own agreement as the legal basis. The National Privacy Commission has said a minor cannot give valid consent alone (Advisory Opinion No. 2017-049).
+• Age check: your device uses your age without sending it to our servers and keeps only your age group and the version of the age check notice, or a block if you are under 18. The check stays on the device and no record of it reaches our servers. We do not rely on a teen's own agreement as the legal basis. The National Privacy Commission has said a minor cannot give valid consent alone (Advisory Opinion No. 2017-049).
 • Under-18 group record and guardian evidence: while your request is open, we use your age group only to ask your guardian and record their answer. The schedule for deleting it is in "How long we keep data." We use ordinary contact details to send and protect the request (Section 12(f)). If your guardian gives permission, we use your age group for the purposes they approve from then on (Section 13(a)). We keep limited guardian evidence as needed for legal claims about account permission, purchases, or optional usage sharing. This includes when a confirmed account switched to adult status based on what you told us. We rely on Section 13(f) for sensitive data in this evidence.
 • Study records: we ask your parent or legal guardian to give permission for us to use your answers, results and study records to provide study features (Section 13(a)). Answers and results can relate to education.
 • Account and contact data, and payments: we use the buyer's payment details to complete the purchase and resolve payment problems. We use ordinary account and contact data as needed to provide the service requested, answer requests and prevent fraud (Sections 12(b) and 12(f)). Where we rely on legitimate interests, we use only the data needed for those purposes.
