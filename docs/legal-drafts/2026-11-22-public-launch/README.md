@@ -310,7 +310,7 @@ Rulings: `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md`, secti
 | Google Analytics retention | Two months for user and event data (B1) | Yes |
 | Refund reply time | Three business days (B2) | Yes. It is his commitment |
 | Message retention | Emails about a payment, refund, purchase complaint or privacy request: two years after the matter closes. Other emails: 90 days. Counted from the last email (B3) | Yes |
-| Invoice sentence | "Pantas issues a sales invoice for each web purchase." (B4) | No value to change. Deleted from `terms.md` on Nov 24 at publishing: checklist M8 is not met (no BIR invoice process exists yet). Add the sentence back in the first Terms update after M8 |
+| Invoice sentence | "Pantas issues a sales invoice for each web purchase." (B4) | No value to change. Deleted from `terms.md` on Nov 24 at publishing: checklist M8 is not met (no BIR invoice process exists yet). Added back Nov 25: M8 is met by his BIR-registered printed invoices (his words: "yes i can issue invoices from my BIR printed invoices, but note that they are physical invoices that I can take a picture of, not e-invoices"). No text promises an e-invoice or an automatic email invoice; a test enforces it |
 
 ### Publish gate for claims that need a setting or a process
 

@@ -43,6 +43,9 @@ Map<String, String> _sections(List<String> lines) {
   return {for (final e in sections.entries) e.key: _normalize('${e.value}')};
 }
 
+String _text(String key) =>
+    legalDocumentFallbacks[key]!.sections.map((s) => s.body).join('\n');
+
 void main() {
   for (final entry in _files.entries) {
     group(entry.key, () {
@@ -83,4 +86,30 @@ void main() {
       });
     });
   }
+  // His words (Nov 25): "yes i can issue invoices from my BIR printed
+  // invoices, but note that they are physical invoices that I can take a
+  // picture of, not e-invoices". The Terms promise an invoice, never an
+  // e-invoice or an invoice sent automatically by email.
+  test('the Terms promise a sales invoice, and no text promises e-invoices',
+      () {
+    expect(
+      _text('terms'),
+      contains('Pantas issues a sales invoice for each web purchase.'),
+    );
+    final promise = RegExp(
+      'e-invoic|electronic invoice|invoices? (by|via|through) e-?mail|'
+      'e-?mail(s|ed)? (you )?(a |an |the |your )?(sales )?invoice|'
+      'automatic(ally)? (send|email|issue)',
+      caseSensitive: false,
+    );
+    for (final key in _files.keys) {
+      final source = File(_files[key]!).readAsStringSync();
+      expect(promise.hasMatch(source), isFalse, reason: _files[key]);
+      expect(
+        promise.hasMatch(_text(key)),
+        isFalse,
+        reason: key,
+      );
+    }
+  });
 }
