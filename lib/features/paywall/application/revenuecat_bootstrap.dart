@@ -164,15 +164,33 @@ final revenueCatAuthBindingProvider = Provider<RevenueCatAuthBinding>((ref) {
   return binding;
 });
 
+/// The gateway can be rebuilt after startup: onboarding and the exam page
+/// refresh the app preferences it depends on. The identity hook and the
+/// sign-in binding therefore always use the current one, and every rebuilt
+/// binding signs its new gateway in at once (staging, Nov 26: a Pro account
+/// showed Free after onboarding until a reload).
 Future<void> bootstrapRevenueCat(ProviderContainer container) async {
-  final bootstrapper = container.read(revenueCatBootstrapperProvider);
-  container.read(authRepositoryProvider).beforeIdentityChange =
-      bootstrapper.prepareForIdentityChange;
-  await bootstrapper.configure(container.read(revenueCatConfigProvider));
+  container.read(authRepositoryProvider).beforeIdentityChange = () =>
+      container.read(revenueCatBootstrapperProvider).prepareForIdentityChange();
+  final binding = container.read(revenueCatAuthBindingProvider);
+  container.listen<RevenueCatAuthBinding>(
+    revenueCatAuthBindingProvider,
+    (previous, next) {
+      if (!identical(previous, next)) unawaited(_startBinding(container, next));
+    },
+  );
+  await _startBinding(container, binding);
+}
 
+Future<void> _startBinding(
+  ProviderContainer container,
+  RevenueCatAuthBinding binding,
+) async {
+  await container
+      .read(revenueCatBootstrapperProvider)
+      .configure(container.read(revenueCatConfigProvider));
   try {
     final initialState = await container.read(authStateProvider.future);
-    final binding = container.read(revenueCatAuthBindingProvider);
     await binding.start(
       initialState: initialState,
       changes: container.read(authRepositoryProvider).authState,
