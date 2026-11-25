@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 
 // The wide button placement check (design/system/patterns.md, "Button
@@ -50,6 +52,16 @@ import 'package:pantas/core/ui/web/web_components.dart';
 //   Instead" hover box hugged its content: the tint ended at the Google mark
 //   and the last letter, and the check above never looked at raw buttons or
 //   at padding.
+//
+// - stacked pair: two buttons (`WebButton`, `PantasButton` or a hover-painting
+//   `TextButton`) whose horizontal extents overlap, one below the other with
+//   no other button between them and at most 64 px apart (the sign-in code
+//   step keeps a "Didn't get it?" line between them), share width and height
+//   within 1 px. His words Nov 25: "if they're paired with each other, i
+//   think it would be more visually pleasing if they're similar in
+//   proportions/size", then "sorry i meant that when they're vertically
+//   stacked". Added Nov 25 (E-175) after the wide sign-in stacked Continue
+//   over a text button of another width and height.
 //
 // Known limit: a group with no painted box around it (a page-level row) is
 // checked for order, gap and width, not place, because the page column's
@@ -340,6 +352,84 @@ List<PlacementProblem> _insidePaddingProblems(Finder? within) {
   return problems;
 }
 
+/// Hover-painting text buttons as buttons for the stacked-pair rule, left out
+/// when drawn inside a `WebButton`/`PantasButton` or a `WebBackLink` (same
+/// exclusion as the inside padding rule).
+List<_Button> _hoverTextButtons(Finder? within) {
+  final finder = find.byType(TextButton);
+  final scoped =
+      within == null ? finder : find.descendant(of: within, matching: finder);
+  final found = <_Button>[];
+  for (final element in scoped.evaluate()) {
+    final button = element.widget as TextButton;
+    final box = element.renderObject;
+    if (box is! RenderBox || !box.hasSize || !box.attached) continue;
+    final rect = box.localToGlobal(Offset.zero) & box.size;
+    if (rect.isEmpty) continue;
+    var skip = false;
+    element.visitAncestorElements((a) {
+      final w = a.widget;
+      // Exclusion: list and checkbox rows (`WebRow`, `ListRow`,
+      // `CheckboxRow`) draw a TextButton for their whole-row tap, but a row
+      // in a list is not a button of a pair; stacking rows is what a list is.
+      if (w is WebBackLink ||
+          w is WebButton ||
+          w is PantasButton ||
+          w is WebRow ||
+          w is ListRow ||
+          w is CheckboxRow) {
+        skip = true;
+      }
+      return !skip;
+    });
+    if (skip) continue;
+    final background = button.style?.backgroundColor ??
+        TextButtonTheme.of(element).style?.backgroundColor;
+    if (background == null ||
+        background.resolve({WidgetState.hovered}) ==
+            background.resolve(const {})) {
+      continue;
+    }
+    found.add(_Button(element, rect, _textButtonLabel(element), weight: 0));
+  }
+  return found;
+}
+
+String _size(Rect r) =>
+    '${r.width.toStringAsFixed(1)}x${r.height.toStringAsFixed(1)}';
+
+List<PlacementProblem> _stackedPairProblems(
+  List<_Button> buttons,
+) {
+  final problems = <PlacementProblem>[];
+  for (final a in buttons) {
+    for (final b in buttons) {
+      if (identical(a, b)) continue;
+      final gap = b.rect.top - a.rect.bottom;
+      final overlap =
+          a.rect.left < b.rect.right - 0.5 && b.rect.left < a.rect.right - 0.5;
+      if (!overlap || gap < -0.5 || gap > 64) continue;
+      final between = buttons.any(
+        (c) =>
+            !identical(c, a) &&
+            !identical(c, b) &&
+            c.rect.top >= a.rect.bottom - 0.5 &&
+            c.rect.bottom <= b.rect.top + 0.5 &&
+            c.rect.left < a.rect.right &&
+            c.rect.right > a.rect.left,
+      );
+      if (between) continue;
+      if ((a.rect.width - b.rect.width).abs() > 1 ||
+          (a.rect.height - b.rect.height).abs() > 1) {
+        problems.add('"${a.label}" (${_size(a.rect)}) is stacked above '
+            '"${b.label}" (${_size(b.rect)}); buttons stacked one above the '
+            'other share width and height');
+      }
+    }
+  }
+  return problems;
+}
+
 /// The placement problems on the current wide screen. Empty when every
 /// button group follows the rule.
 List<PlacementProblem> widePlacementProblems(
@@ -456,7 +546,9 @@ List<PlacementProblem> widePlacementProblems(
           'right end${inset == null ? '' : ' (${inset.round()} px in)'}');
     }
   }
-  problems.addAll(_insidePaddingProblems(within));
+  problems
+    ..addAll(_stackedPairProblems([...buttons, ..._hoverTextButtons(within)]))
+    ..addAll(_insidePaddingProblems(within));
   return problems;
 }
 

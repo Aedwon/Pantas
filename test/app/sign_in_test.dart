@@ -511,6 +511,18 @@ void main() {
       expect(digit('7'), findsOneWidget);
     });
 
+    testWidgets('wide expired step stacks its pair at one width and height',
+        (tester) async {
+      codes.onVerify = (_, __) async =>
+          throw const EmailCodeException(EmailCodeFailure.expired);
+      await pumpPage(tester, size: _laptop);
+      await goToCode(tester);
+      await typeCode(tester, '482139');
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(find.text('Send a New Code'), findsOneWidget);
+      expectWidePlacement(tester);
+    });
+
     testWidgets('an expired code offers a new one', (tester) async {
       codes.onVerify = (_, __) async =>
           throw const EmailCodeException(EmailCodeFailure.expired);
@@ -843,8 +855,16 @@ void main() {
             .getRect(icon ? find.byType(GoogleMark) : find.text(label))
             .left;
         final end = tester.getRect(find.text(label)).right;
-        expect(start - box.left, closeTo(PantasSpace.s14, .5), reason: label);
-        expect(box.right - end, closeTo(PantasSpace.s14, .5), reason: label);
+        expect(
+          start - box.left,
+          greaterThanOrEqualTo(PantasSpace.s14 - .5),
+          reason: label,
+        );
+        expect(
+          box.right - end,
+          greaterThanOrEqualTo(PantasSpace.s14 - .5),
+          reason: label,
+        );
         final main = tester.getRect(
           find.descendant(
             of: find.byType(SignInButton),

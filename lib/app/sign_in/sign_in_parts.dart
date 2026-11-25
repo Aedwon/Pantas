@@ -601,6 +601,7 @@ class SignInButton extends StatelessWidget {
     this.state = SignInButtonState.idle,
     this.keyHint,
     this.tonal = false,
+    this.fill = false,
     super.key,
   });
 
@@ -608,6 +609,10 @@ class SignInButton extends StatelessWidget {
   final VoidCallback onPressed;
   final SignInStyle style;
   final SignInButtonState state;
+
+  /// Wide only: fills its parent's width instead of hugging its content, for
+  /// a stacked pair inside [SignInStack], which sets the shared width.
+  final bool fill;
 
   /// A key shown on the button when a keyboard is in use (laptop boards).
   final String? keyHint;
@@ -618,7 +623,7 @@ class SignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final foreground = tonal ? style.accentTintText : style.onAccent;
-    final fill = tonal ? style.accentTint : style.accentFill;
+    final background = tonal ? style.accentTint : style.accentFill;
     final hover = tonal ? style.accentTintHover : style.accentFillHover;
     final content = switch (state) {
       SignInButtonState.idle => Row(
@@ -651,7 +656,7 @@ class SignInButton extends StatelessWidget {
     final button = SizedBox(
       height: PantasSize.btnPhone,
       // HANDOFF: no full-width buttons on wide; they take their natural width.
-      width: style.wide ? null : double.infinity,
+      width: style.wide && !fill ? null : double.infinity,
       child: PressScale(
         child: TextButton(
           // ds-raw: brand provider button with logo content
@@ -668,7 +673,7 @@ class SignInButton extends StatelessWidget {
             backgroundColor: WidgetStateProperty.resolveWith(
               (states) => style.wide && states.contains(WidgetState.hovered)
                   ? hover
-                  : fill,
+                  : background,
             ),
             foregroundColor: WidgetStatePropertyAll(foreground),
             overlayColor: const WidgetStatePropertyAll(Colors.transparent),
@@ -683,7 +688,28 @@ class SignInButton extends StatelessWidget {
         ),
       ),
     );
-    return style.wide ? Center(child: button) : button;
+    return style.wide && !fill ? Center(child: button) : button;
+  }
+}
+
+/// Wide only: buttons stacked one above the other share one width and height
+/// (E-175). The group is as wide as its widest natural button and centered in
+/// the column; buttons built with `fill` take that width. Phone lays the
+/// children out as before.
+class SignInStack extends StatelessWidget {
+  const SignInStack({required this.wide, required this.children, super.key});
+
+  final bool wide;
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    final column = Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: children,
+    );
+    return wide ? Center(child: IntrinsicWidth(child: column)) : column;
   }
 }
 
@@ -694,6 +720,7 @@ class SignInTextButton extends StatelessWidget {
     required this.onPressed,
     required this.style,
     this.icon,
+    this.fill = false,
     super.key,
   });
 
@@ -702,11 +729,15 @@ class SignInTextButton extends StatelessWidget {
   final SignInStyle style;
   final Widget? icon;
 
+  /// Wide only: fills its parent's width (see [SignInButton.fill]).
+  final bool fill;
+
   @override
   Widget build(BuildContext context) {
     final button = SizedBox(
-      height: PantasSize.targetTouch,
-      width: style.wide ? null : double.infinity,
+      // Wide, it stacks under the 52 px main button and takes its height.
+      height: style.wide ? PantasSize.btnPhone : PantasSize.targetTouch,
+      width: style.wide && !fill ? null : double.infinity,
       child: TextButton(
         // ds-raw: brand provider button with logo content
         onPressed: onPressed,
@@ -756,7 +787,7 @@ class SignInTextButton extends StatelessWidget {
         ),
       ),
     );
-    return style.wide ? Center(child: button) : button;
+    return style.wide && !fill ? Center(child: button) : button;
   }
 }
 
