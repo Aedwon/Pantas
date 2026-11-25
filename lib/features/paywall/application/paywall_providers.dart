@@ -88,6 +88,11 @@ final trustedClockProvider = Provider<TrustedClock>((ref) {
 /// A provider so tests can choose, because `kIsWeb` is fixed per platform.
 final paymentsOnWebProvider = Provider<bool>((ref) => kIsWeb);
 
+/// The time the Pro page measures against. Tests set it to a fixed clock.
+final paywallClockProvider = Provider<DateTime Function()>(
+  (ref) => DateTime.now,
+);
+
 final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
   final config = ref.watch(revenueCatConfigProvider);
   final entitlementState = ref.watch(paymentEntitlementStateProvider);
@@ -99,6 +104,7 @@ final revenueCatGatewayProvider = Provider<RevenueCatGateway>((ref) {
       refreshClaims: refreshPaymentClaimToken,
       openUrl: openInThisTab,
       entitlementState: entitlementState,
+      followClock: true,
     );
     ref.onDispose(() => unawaited(gateway.clearIdentity()));
     return gateway;

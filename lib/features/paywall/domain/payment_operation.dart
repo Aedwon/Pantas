@@ -21,6 +21,9 @@ enum PaymentOperationStatus {
   /// The server found the buyer's payment already made (they paid the link we
   /// were replacing). No new link was issued; the entitlement is refreshed.
   alreadyPaid,
+
+  /// The server does not take web payments yet (prod before the live key).
+  checkoutClosed,
 }
 
 enum PaymentResult {
@@ -60,7 +63,8 @@ class PaymentOperationResult {
         PaymentOperationStatus.storeFailure ||
         PaymentOperationStatus.configurationFailure ||
         PaymentOperationStatus.developerFailure ||
-        PaymentOperationStatus.guardianConfirmationRequired =>
+        PaymentOperationStatus.guardianConfirmationRequired ||
+        PaymentOperationStatus.checkoutClosed =>
           PaymentResult.storeError,
         PaymentOperationStatus.alreadyPaid ||
         PaymentOperationStatus.noActiveSubscription ||

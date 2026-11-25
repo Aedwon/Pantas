@@ -43,6 +43,34 @@ void main() {
     expect(result.weekdayCounts[DateTime.tuesday], 1);
     expect(result.weekdayCounts[DateTime.wednesday], 1);
   });
+
+  // P10/U61: the Home chip prints this figure, so it is read against the
+  // window's end (today), not as it was stored at the last session.
+  test('a streak stopped weeks before the window end reads zero', () async {
+    final window = ResolvedMetricsWindow(
+      window: MetricsWindow.allTime,
+      start: null,
+      end: DateTime.utc(2026, 7),
+      sessionCount: 1,
+      minSessionCount: 1,
+    );
+    await db.into(db.streakLocal).insert(
+          StreakLocalCompanion.insert(
+            current: const Value(18),
+            longest: const Value(31),
+            lastActiveDate: Value(DateTime.utc(2026, 6, 10)),
+          ),
+        );
+    await _quiz(db, id: 'q1', completedAt: DateTime.utc(2026, 6, 9));
+
+    final result = await ConsistencySignal(db).compute(
+      window: window,
+      examId: 'exam_cse',
+    );
+
+    expect(result!.currentStreakDays, 0);
+    expect(result.longestStreakDays, 31);
+  });
 }
 
 Future<void> _quiz(

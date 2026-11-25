@@ -90,3 +90,41 @@ or functions beyond one sign-in-free boot. Counted again before the staging proo
 
 Phones that stay on today's worker until they next connect keep today's exposure; the new worker reaches them
 on their next online visit.
+
+## Revision 1 (Nov 26): option A after audit 1 FAIL
+
+Authority: Aedwon, verbatim, "go with your reco" (launch log, Nov 26): option A, and yes on side effect 1.
+Audit 1 (Codex GPT 6.2 Sol High) failed with 2 Blockers, 4 High, 3 Medium; Fable 5.2 advised the design
+below. It replaces Design items 2, 5 and 6 where they differ; items 1, 3, 4, 7 and the header rule stay.
+
+1. **Build folders (closes Blocker 2).** The stamp moves every file a page loads into `b/<id>/`: the
+   `pantas_*.js` helpers, `flutter_bootstrap.js`, `flutter.js`, `main.dart.js` and parts, `drift_worker.js`,
+   `sqlite3.wasm`, `assets/`, and the renderer files. The page names those URLs (Flutter 3.44.6
+   `entrypointBaseUrl` and asset base; the Dart side resolves the database worker and wasm against the build
+   folder, not the document base). The site root keeps only the page, the worker, `version.json`,
+   `manifest.json` and icons. No Dart or helper files at the root. Today's prod worker matches bare root
+   paths only, so it can neither store nor serve a `b/` file.
+2. **Waiting worker (closes Blocker 1).** No `skipWaiting` while clients of another stamped build are open.
+   The page asks a waiting, verified worker to take over only before Flutter starts or at the existing apply
+   point, and only when it is the sole window. Old caches are deleted on activate. From today's worker
+   (no other stamped cache), the new worker takes over at once.
+3. **No page wait.** With build folders the page needs no worker to load correctly; the 4-second wait and
+   its fallback are removed.
+4. **Highs:** the build id covers final bytes and the cache name includes a hash of the list (restamp);
+   updates never unregister or delete caches, they switch to a verified waiting worker; renderer local
+   (`--no-web-resources-cdn` in the staging and prod build steps; list both renderer variants, install only
+   the one this browser uses); the deploy guard checks a required-file list on the staged folder.
+5. **Mediums:** "update available" means a verified waiting worker exists (no reload loop); install refuses
+   `private` or `no-store` responses; the worker's own 503 carries the security headers. Deferred, with a
+   limit: a headers-only deploy reaches installed phones only with a new build, so a CSP change ships with one.
+6. **`b/` files** need no `cache: 'reload'` (the hash protects them).
+7. **Side effects accepted:** the download percent rarely shows on updates (updates download in the
+   background); first visits keep the spinner. The first release with this worker rolls forward only: the
+   deploy guard refuses a build with today's worker after it, and the ship plan says so.
+8. **Proof tests (real Chromium, a build marker in every file):** Blocker 1: hold a B tab open, deploy C,
+   wait until C is installed, load a deferred part offline: it must be B's; a second tab must not let apply
+   take over. Blocker 2: today's worker with its original helper and bootstrap, warmed; B's install throttled
+   past 10 s; cut the network before, during and after takeover and on a navigation slower than 4 s: every
+   load is all A, all B, or no boot. Node: today's worker claims no `b/` path. One offline boot of a real
+   Flutter build with zero off-origin requests (the lead runs the build).
+9. **Time:** about 2 working days to a second-audit-ready branch, then audit 2 and staging.

@@ -4,13 +4,16 @@ import 'package:collection/collection.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/metrics/overall_accuracy.dart';
+import 'package:pantas/core/storage/data/repos/streak_repository.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/features/home/application/home_day_extras.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/home/domain/home_today_lesson.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
+import 'package:pantas/features/quiz/domain/streak/streak_evaluator.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
@@ -25,6 +28,7 @@ class HomeTodayData {
     this.examName = '',
     this.examShortName = '',
     this.extras = const HomeDayExtras(),
+    this.streakStands = true,
   }) : lessons = List.unmodifiable(lessons);
   final RoadmapToday today;
   final List<HomeTodayLesson> lessons;
@@ -47,7 +51,20 @@ class HomeTodayData {
   /// The calm line and the mock row, read with the same rule on every
   /// platform.
   final HomeDayExtras extras;
+
+  /// Whether the stored streak still stands today (P10/U61). Home's day-off
+  /// line claims the streak is safe only when it does.
+  final bool streakStands;
 }
+
+/// Read only: whether the student has a streak on [day] by the streak
+/// evaluator's own rule. Nothing is written.
+Future<bool> streakStandsOn(
+  StreakRepository streaks,
+  DateTime day,
+  StudyDays studyDays,
+) async =>
+    streakOn(await streaks.read(), day, studyDays) > 0;
 
 typedef HomeTodayLoader = Future<HomeTodayData> Function(
   String examId,
@@ -194,5 +211,10 @@ Future<HomeTodayData> _assemble(
     examName: exam?.name ?? '',
     examShortName: shortName,
     extras: extras,
+    streakStands: await streakStandsOn(
+      ref.read(streakRepositoryProvider),
+      today.snapshot.day,
+      settings.studyDays,
+    ),
   );
 }

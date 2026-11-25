@@ -6,7 +6,7 @@ _id: mock_blueprint_cse_pro
 schemaVersion: 2
 isActive: true
 exam: exam_cse_pro
-name: CSE Professional Practice Paper
+name: CSE Professional (Pantas practice exam, not the official format)
 durationMinutes: 190
 sectionalTiming: roamable
 unscoredItems: 20

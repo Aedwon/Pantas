@@ -25,3 +25,9 @@ const String mockPracticeLabel =
 /// blueprint opts in by carrying the label and others stay unchanged.
 String? mockPracticeLabelFor(String blueprintName) =>
     blueprintName.contains(mockPracticeLabel) ? mockPracticeLabel : null;
+
+/// A blueprint name without its practice label, for a line that sits next to
+/// the exam name and would otherwise repeat the label (the preparation screen
+/// and the name saved on a phone attempt).
+String mockNameWithoutLabel(String blueprintName) =>
+    blueprintName.replaceAll(' ($mockPracticeLabel)', '');

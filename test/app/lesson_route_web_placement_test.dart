@@ -21,11 +21,13 @@ void main() {
     expect(holdsLesson(shell), isFalse);
   });
 
-  test('on web only the lesson and what it pushes are out of the shell', () {
+  test('on web only the lesson, first run and its pushes are out of the shell',
+      () {
     final flat = buildAppRoutes(_RouteRef());
     final routes = buildAppRoutes(_RouteRef(), web: true);
     final shell = routes.whereType<ShellRoute>().single;
-    final lifted = 1 + webRoutesAboveLesson.length;
+    // The lesson and the first run (/try) each cover the whole window.
+    final lifted = 2 + webRoutesAboveLesson.length;
 
     expect(shell.routes.length, flat.length - lifted);
     expect(routes.length, 1 + lifted);

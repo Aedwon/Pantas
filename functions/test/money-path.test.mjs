@@ -962,7 +962,9 @@ async function modelProperty(revokePaymongoPayment, resolvePaymongoDispute, erro
     // Exactly one owner follow-up per mixed or double-paid grant, and none otherwise; each logged once.
     for (const [id, entry] of model) {
       const followUp = db.rows.get(`paymongoFollowUps/pay_${id}__dispute`);
-      const expected = entry.status === 'kept' ? 'disputeWithRefund' : entry.status === 'lost' && entry.refunded > 0 ? 'disputeLostAfterRefund' : undefined;
+      const expected = entry.status === 'kept' ? 'disputeWithRefund' : undefined;
+      const lostRows = [...db.rows.entries()].filter(([path, row]) => path.startsWith(`paymongoFollowUps/pay_${id}__lost_`) && row.reason === 'disputeLost');
+      if (lostRows.length !== (entry.status === 'lost' ? 1 : 0)) fail(`${id} (${entry.status}) has ${lostRows.length} lost-dispute follow-ups`);
       if (followUp?.reason !== expected) fail(`${id} (${entry.status}, refunded ${entry.refunded}) has follow-up ${followUp?.reason}, expected ${expected}`);
       if (entry.status === 'kept' && entry.bornRevoked) {
         const row = grantRow(db, id);
@@ -972,7 +974,7 @@ async function modelProperty(revokePaymongoPayment, resolvePaymongoDispute, erro
     const logged = reason => errorLines.filter(line => line[0] === `payment follow-up created ${reason}` && ids().some(id => line[1].paymentId === `pay_${id}`)).length;
     const count = status => [...model.values()].filter(entry => status(entry)).length;
     if (logged('disputeWithRefund') !== count(entry => entry.status === 'kept')) fail('a mixed follow-up was not logged exactly once');
-    if (logged('disputeLostAfterRefund') !== count(entry => entry.status === 'lost' && entry.refunded > 0)) fail('a lost-after-refund follow-up was not logged exactly once');
+    if (logged('disputeLost') !== count(entry => entry.status === 'lost')) fail('a lost-dispute follow-up was not logged exactly once');
     errorLines.length = 0;
   }
 }
@@ -1040,23 +1042,25 @@ test('the refund task of a payment is not touched by the dispute follow-up, and 
   assert.equal(db.rows.get('paymongoFollowUps/pay_test__dispute').status, 'pending');
 });
 
-test('a lost dispute adds a follow-up whenever the refunds plus the chargeback differ from the payment', async () => {
+test('every lost dispute adds one owner follow-up, whatever the refunds and the chargeback amount', async () => {
   const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
   const paid = priceCentavos(product);
-  for (const [refund, disputedAmount, expected] of [[paid / 2, undefined, true], [paid / 2, paid / 2, false], [paid / 4, paid / 2, true]]) {
+  for (const [refund, disputedAmount, expected] of [[paid / 2, undefined, true], [paid / 2, paid / 2, true], [paid / 4, paid / 2, true]]) {
     const db = firestore();
     await commitPaymongoGrant(db, payment, now, []);
     await revokePaymongoPayment(db, {...openDispute, eventId: 'evt_1'}, now + 1);
     await revokePaymongoPayment(db, {...halfRefund, refunds: [{id: 'ref_a', amount: refund}], eventId: 'evt_2'}, now + 2);
     const lines = await quietly(() => resolvePaymongoDispute(db, {eventId: 'evt_loss', paymentId: payment.paymentId,
       disputeId: 'disp_test', won: false, ...(disputedAmount ? {disputedAmount} : {})}, now + 3));
-    const followUp = db.rows.get('paymongoFollowUps/pay_test__dispute');
+    const followUp = lostOf(db);
     assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'revoked');
     assert.equal(!!followUp, expected);
     if (expected) {
-      assert.equal(followUp.reason, 'disputeLostAfterRefund');
+      assert.equal(followUp.reason, 'disputeLost');
+      assert.equal(followUp.disputedAmount, disputedAmount ?? null);
+      assert.equal(followUp.refundedTotal, undefined);
       assert.equal(lines.length, 1);
-      assert.equal(lines[0][0], 'payment follow-up created disputeLostAfterRefund');
+      assert.equal(lines[0][0], 'payment follow-up created disputeLost');
     } else assert.equal(lines.length, 0);
   }
 });
@@ -1094,6 +1098,7 @@ const weeklyPayment = {...payment, product: weekly, paidAmount: priceCentavos(we
 const fullRefund = {paymentId: payment.paymentId, reason: 'payment.refunded', refunds: [{id: 'ref_all', amount: paidAll}]};
 const winEvent = {eventId: 'evt_win', paymentId: payment.paymentId, disputeId: 'disp_test', won: true};
 const followUpOf = db => db.rows.get('paymongoFollowUps/pay_test__dispute');
+const lostOf = (db, disputeId = 'disp_test') => db.rows.get(`paymongoFollowUps/pay_test__lost_${disputeId}`);
 const mixedLines = lines => lines.filter(line => line[0] === 'payment follow-up created disputeWithRefund');
 
 test('a full refund, then the dispute opening, then its win: the dispute is kept and one follow-up is written', async () => {
@@ -1179,29 +1184,19 @@ test('unused days count only the time the grant was active', async () => {
   assert.equal(followUpOf(db).unusedDays, 5);
 });
 
-test('a refund after a lost resolution re-checks the refunds plus the chargeback against the payment (differ, either direction)', async () => {
+test('a lost resolution writes the one follow-up; a refund after it writes no second', async () => {
   const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
-  for (const [disputedAmount, refund, expected] of [[undefined, paidAll / 4, true], [paidAll / 2, paidAll / 4, true],
-    [paidAll / 2, paidAll / 2, false], [paidAll / 2, paidAll * 3 / 4, true]]) {
+  for (const [disputedAmount, refund] of [[undefined, paidAll / 4], [paidAll / 2, paidAll / 4],
+    [paidAll / 2, paidAll / 2], [paidAll / 2, paidAll * 3 / 4]]) {
     const db = firestore();
     await commitPaymongoGrant(db, payment, now, []);
     const lost = await quietly(() => resolvePaymongoDispute(db, {...winEvent, eventId: 'evt_loss', won: false,
       ...(disputedAmount ? {disputedAmount} : {})}, now + 1));
-    // A partial chargeback differs from the payment, so the loss itself already writes the one follow-up.
-    assert.equal(!!followUpOf(db), disputedAmount !== undefined);
-    assert.equal(lost.length, disputedAmount !== undefined ? 1 : 0);
+    assert.equal(lostOf(db).reason, 'disputeLost');
+    assert.equal(lost.length, 1);
     const lines = await quietly(() => revokePaymongoPayment(db, {...halfRefund, eventId: 'evt_ref', refunds: [{id: 'ref_late', amount: refund}]}, now + 2));
-    if (disputedAmount !== undefined) {
-      assert.equal(followUpOf(db).reason, 'disputeLostAfterRefund');
-      assert.equal(lines.length, 0);
-    } else if (expected) {
-      assert.equal(followUpOf(db).reason, 'disputeLostAfterRefund');
-      assert.equal(lines.length, 1);
-      // A later refund does not write a second follow-up.
-      const more = await quietly(() => revokePaymongoPayment(db, {...halfRefund, eventId: 'evt_ref2', refunds: [{id: 'ref_later', amount: 1}]}, now + 3));
-      assert.equal(more.length, 0);
-    } else assert.equal(lines.length, 0);
-    if (disputedAmount === undefined) assert.equal(!!followUpOf(db), expected, `disputed ${disputedAmount} refund ${refund}`);
+    assert.equal(lostOf(db).reason, 'disputeLost');
+    assert.equal(lines.length, 0, `disputed ${disputedAmount} refund ${refund}`);
   }
 });
 
@@ -1238,35 +1233,40 @@ test('a 25% refund and a lost 50% dispute before fulfillment: born revoked, one 
   const db = firestore();
   const paid = priceCentavos(weekly);
   await revokePaymongoPayment(db, {...halfRefund, refunds: [{id: 'ref_q', amount: paid / 4}], eventId: 'evt_1'}, now + 1000);
-  await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, disputedAmount: paid / 2, eventId: 'evt_2'}, now + 2000));
+  // The loss arrives before the payment record, so it writes and logs the follow-up itself.
+  const lost = await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, disputedAmount: paid / 2, eventId: 'evt_2'}, now + 2000));
   const lines = await quietly(() => commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now + 3000, []));
   assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'revoked');
-  assert.equal(followUpOf(db).reason, 'disputeLostAfterRefund');
-  assert.equal(lines.filter(l => l[0] === 'payment follow-up created disputeLostAfterRefund').length, 1);
+  assert.equal(lostOf(db).reason, 'disputeLost');
+  assert.equal(lostOf(db).disputedAmount, paid / 2);
+  assert.equal(lost.filter(l => l[0] === 'payment follow-up created disputeLost').length, 1);
+  assert.equal(lines.filter(l => l[0].startsWith('payment follow-up created')).length, 0);
 });
 
-test('a lost 50% dispute with no refunds gives one follow-up; an unknown amount gives none', async () => {
+test('a lost dispute with no refunds gives one follow-up, with or without an amount', async () => {
   const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
-  for (const [disputedAmount, expected] of [[priceCentavos(weekly) / 2, true], [undefined, false]]) {
+  for (const [disputedAmount, expected] of [[priceCentavos(weekly) / 2, true], [undefined, true], [priceCentavos(weekly), true]]) {
     const db = firestore();
     await commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now, []);
     await revokePaymongoPayment(db, {...openDispute, eventId: 'evt_1'}, now + 1);
     const lines = await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, eventId: 'evt_2',
       ...(disputedAmount ? {disputedAmount} : {})}, now + 2));
-    assert.equal(followUpOf(db)?.reason, expected ? 'disputeLostAfterRefund' : undefined);
+    assert.equal(lostOf(db)?.reason, expected ? 'disputeLost' : undefined);
     assert.equal(lines.length, expected ? 1 : 0);
   }
 });
 
-test('a loss with no amount, then the opening with 50%: one follow-up', async () => {
+test('a loss with no amount, then the opening with 50%: one follow-up, and the amount is added to it', async () => {
   const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
   const db = firestore();
   await commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now, []);
-  assert.equal((await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, eventId: 'evt_1'}, now + 1))).length, 0);
-  assert.equal(followUpOf(db), undefined);
+  assert.equal((await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, eventId: 'evt_1'}, now + 1))).length, 1);
+  assert.equal(lostOf(db).reason, 'disputeLost');
+  assert.equal(lostOf(db).disputedAmount, null);
   const lines = await quietly(() => revokePaymongoPayment(db, {...openDispute, disputedAmount: priceCentavos(weekly) / 2, eventId: 'evt_2'}, now + 2));
-  assert.equal(followUpOf(db).reason, 'disputeLostAfterRefund');
-  assert.equal(lines.length, 1);
+  assert.equal(lostOf(db).reason, 'disputeLost');
+  assert.equal(lostOf(db).disputedAmount, priceCentavos(weekly) / 2);
+  assert.equal(lines.length, 0);
   const again = await quietly(() => revokePaymongoPayment(db, {...openDispute, disputedAmount: priceCentavos(weekly) / 2, eventId: 'evt_3'}, now + 3));
   assert.equal(again.length, 0);
 });
@@ -1306,4 +1306,106 @@ test('a win restores only the revocation its own dispute caused', async () => {
   assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'revoked');
   await resolvePaymongoDispute(db, {...winEvent, disputeId: 'disp_a', eventId: 'evt_w1'}, now + 3 * DAY_MS);
   assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'active');
+});
+
+// Nov 25 review residuals: every lost dispute reaches the owner, whatever order the events come in.
+test('webhook: a dispute opening carries its amount to the follow-up of a loss that came first', async () => {
+  const {resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const {handlePaymongoWebhook} = await import('../lib/paymongoWebhook.js');
+  const {signed, resourceEvent, SECRET} = await import('./_paymongo-helpers.mjs');
+  const db = firestore();
+  await commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now, []);
+  await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, eventId: 'evt_loss'}, now + 1));
+  assert.equal(lostOf(db).disputedAmount, null);
+  const half = priceCentavos(weekly) / 2;
+  const {raw, header} = signed(resourceEvent({id: 'evt_open', type: 'dispute.created', resource: 'dispute',
+    resourceId: 'disp_test', attributes: {payment_id: payment.paymentId, amount: half, status: 'open'}}), {now: now + 2});
+  let status;
+  await quietly(async () => {status = await handlePaymongoWebhook(raw, header, {db, client: {}, auth: {getUser: async () => ({customClaims: {}}),
+    setCustomUserClaims: async () => {}}, signingSecret: SECRET, livemode: false, now: () => now + 2});});
+  assert.equal(lostOf(db).reason, 'disputeLost');
+  assert.equal(lostOf(db).disputedAmount, half);
+  assert.equal(status, 200);
+});
+
+test('a lost dispute on a payment with no record yet still writes the owner follow-up', async () => {
+  const {resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  const lines = await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, eventId: 'evt_loss',
+    disputedAmount: 100}, now + 1));
+  assert.equal(lostOf(db).reason, 'disputeLost');
+  assert.equal(lostOf(db).disputedAmount, 100);
+  assert.equal(lines.filter(l => l[0] === 'payment follow-up created disputeLost').length, 1);
+  // The paid event arrives later: the grant is born revoked and no second follow-up is written.
+  const later = await quietly(() => commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now + 2, []));
+  assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'revoked');
+  assert.equal(later.filter(l => l[0].startsWith('payment follow-up created')).length, 0);
+});
+
+test('two lost disputes on one payment keep two follow-ups; a redelivered loss writes nothing new', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  for (const fulfilledFirst of [true, false]) {
+    const db = firestore();
+    if (fulfilledFirst) await commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now, []);
+    await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, eventId: 'evt_l1', disputedAmount: 50}, now + 1));
+    await quietly(() => revokePaymongoPayment(db, {...openDispute, disputeId: 'disp_two', eventId: 'evt_o2'}, now + 2));
+    const lines = await quietly(() => resolvePaymongoDispute(db, {...winEvent, disputeId: 'disp_two', won: false, eventId: 'evt_l2'}, now + 3));
+    assert.equal(lines.filter(l => l[0] === 'payment follow-up created disputeLost').length, 1);
+    assert.equal(lostOf(db).disputedAmount, 50);
+    assert.equal(lostOf(db, 'disp_two').disputedAmount, null);
+    assert.equal(lostOf(db).status, 'pending');
+    // The first loss again, after its event marker expired: nothing is overwritten or logged.
+    const again = await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, eventId: 'evt_l1b'}, now + 4));
+    assert.equal(again.filter(l => l[0].startsWith('payment follow-up created')).length, 0);
+    assert.equal(lostOf(db).disputedAmount, 50);
+    if (!fulfilledFirst) {
+      const later = await quietly(() => commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now + 5, []));
+      assert.equal(later.filter(l => l[0] === 'payment follow-up created disputeLost').length, 0);
+    }
+  }
+});
+
+test('a won dispute with a refund and a lost second dispute before fulfillment give both follow-ups', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await revokePaymongoPayment(db, {...halfRefund, refunds: [{id: 'ref_h', amount: priceCentavos(weekly) / 2}], eventId: 'evt_1'}, now + 1);
+  await resolvePaymongoDispute(db, {...winEvent, eventId: 'evt_2'}, now + 2);
+  await quietly(() => resolvePaymongoDispute(db, {...winEvent, disputeId: 'disp_two', won: false, eventId: 'evt_3'}, now + 3));
+  await quietly(() => commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now + 4, []));
+  assert.equal(followUpOf(db)?.reason, 'disputeWithRefund');
+  assert.equal(followUpOf(db)?.disputeId, 'disp_test');
+  assert.equal(lostOf(db, 'disp_two')?.reason, 'disputeLost');
+  assert.equal(lostOf(db, 'disp_two')?.disputeId, 'disp_two');
+});
+
+test('an opening amount survives a refund that arrives before the payment record', async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await revokePaymongoPayment(db, {...openDispute, disputedAmount: 300, eventId: 'evt_o'}, now + 1);
+  await revokePaymongoPayment(db, {...halfRefund, refunds: [{id: 'ref_x', amount: 100}], eventId: 'evt_r'}, now + 2);
+  await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, eventId: 'evt_l'}, now + 3));
+  assert.equal(lostOf(db).disputedAmount, 300);
+});
+
+test('a later loss event that names the amount fills an empty follow-up', async () => {
+  const {resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now, []);
+  await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, eventId: 'evt_l1'}, now + 1));
+  assert.equal(lostOf(db).disputedAmount, null);
+  const lines = await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, disputedAmount: 400, eventId: 'evt_l2'}, now + 2));
+  assert.equal(lostOf(db).disputedAmount, 400);
+  assert.equal(lines.filter(l => l[0].startsWith('payment follow-up created')).length, 0);
+});
+
+test("another dispute's amount on the tombstone never fills this dispute's follow-up", async () => {
+  const {revokePaymongoPayment, resolvePaymongoDispute} = await import('../lib/paymongoGrants.js');
+  const db = firestore();
+  await commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now, []);
+  await revokePaymongoPayment(db, {...openDispute, disputedAmount: 500, eventId: 'evt_o1'}, now + 1);
+  await resolvePaymongoDispute(db, {...winEvent, eventId: 'evt_w1'}, now + 2);
+  await quietly(() => resolvePaymongoDispute(db, {...winEvent, disputeId: 'disp_two', won: false, eventId: 'evt_l2'}, now + 3));
+  assert.equal(lostOf(db, 'disp_two').disputedAmount, null);
+  await quietly(() => revokePaymongoPayment(db, {...openDispute, disputeId: 'disp_two', disputedAmount: 250, eventId: 'evt_o2'}, now + 4));
+  assert.equal(lostOf(db, 'disp_two').disputedAmount, 250);
 });

@@ -21,6 +21,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/assessment/application/assessment_progress_providers.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
 import 'package:pantas/features/home/application/home_notices.dart';
 import 'package:pantas/features/home/application/home_today.dart';
@@ -363,18 +364,27 @@ class _SelectedExamHomeState extends ConsumerState<_SelectedExamHome> {
 
 /// Before the assessment Home shows only the week, the greeting and this card:
 /// no Today, no performance, no quick quiz (D-64, HE_BeforeAssessment).
-class _AssessmentCard extends StatelessWidget {
+class _AssessmentCard extends ConsumerWidget {
   const _AssessmentCard({required this.examId});
 
   final ExamId examId;
 
   @override
-  Widget build(BuildContext context) => HomeStateCard(
-        state: HomeState.assessment,
-        examName: '',
-        examShortName: '',
-        onPrimary: () => unawaited(context.push<void>('/assessment/$examId')),
-      );
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Answers saved on this device turn Start into Continue. The previous
+    // value stays while it reloads, so the card does not flicker.
+    final progress = ref.watch(assessmentProgressProvider(examId)).valueOrNull;
+    return HomeStateCard(
+      state: progress == null
+          ? HomeState.assessment
+          : HomeState.continueAssessment,
+      answered: progress?.answered ?? 0,
+      total: progress?.total ?? 0,
+      examName: '',
+      examShortName: '',
+      onPrimary: () => unawaited(context.push<void>('/assessment/$examId')),
+    );
+  }
 }
 
 /// Board (HP_Free, HP_Pro): a 22 px outline icon in a 30 px column.

@@ -15,8 +15,12 @@ class AnswerReveal extends StatelessWidget {
     this.pickedLetter,
     this.wrongPick,
     this.onShowPassage,
+    this.ruled = true,
     super.key,
   });
+
+  /// False inside a card that draws its own edge: no rule, no top padding.
+  final bool ruled;
   final String correctLetter;
   final String explanation;
   final String? pickedLetter;
@@ -34,15 +38,18 @@ class AnswerReveal extends StatelessWidget {
   }) =>
       DecoratedBox(
         decoration: BoxDecoration(
-          border: Border(
-            top: BorderSide(
-              color: context.colors.divider,
-              width: PantasBorder.hairline,
-            ),
-          ),
+          border: ruled
+              ? Border(
+                  top: BorderSide(
+                    color: context.colors.divider,
+                    width: PantasBorder.hairline,
+                  ),
+                )
+              : null,
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: PantasSpace.s12),
+          padding:
+              EdgeInsets.only(top: ruled ? PantasSpace.s12 : PantasSpace.s0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

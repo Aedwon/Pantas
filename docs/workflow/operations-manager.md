@@ -52,13 +52,16 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 - Get a written brief, do one job, return a short summary (pass or fail, errors, files touched).
 - Never talk to Aedwon, never merge, and never start work outside their brief.
 
-## Lanes (current as of November 25, 8 AM Manila)
+## Lanes (current as of November 26, 2 AM Manila)
 
-Manager: `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926` (restarted blank Nov 25).
-Active: CSE release lead r6, integrator, content fixes then ships `mcp:launch:55d23bdfde1cbdbac9638f0f42400f367a941a688ddb9d6bea85cda3646e2cd2`;
-UX lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (wide button placement sweep, code only).
-Parked: lesson walk-through lead `mcp:launch:6fcf82ba3dd0d64d320c20b9d5b7dff27f1315495e1704252607c246f86f05dd` (spec done; waits on his picks).
-Paused by him: security and billing lead r2 `mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5`; legal texts, payments, under-13, PSHS-NCE, QG Phase 2, dots.
+Manager: `mcp:launch:00976645432b2f793e42bfeeea73583c727484762376837beea722b8a3c65b8d` (restarted blank Nov 26 from `docs/superpowers/handoffs/2026-11-26-operations-manager.md`; bound schedules rebound to it).
+Old manager, retired (do not message): `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926`.
+Active: CSE release lead r8, integrator, service worker fix, P12 loop runs, payment PR merges, then the opening ship `mcp:launch:55d23bdfde1cbdbac9638f0f42400f367a941a688ddb9d6bea85cda3646e2cd2`;
+UX lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (idle; guided first run handed to the release lead Nov 26);
+security and billing lead r2 `mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5` (alert email confirmed 1:22 AM; live PayMongo key Nov 26 9 AM, first real payment).
+Lesson walk-through CSE build, Gemini 4 Neon xhigh lead with Gemini subagents, Codex checkpoint audits only (Aedwon, Nov 26) `mcp:launch:b7636146c2e66e268cb6e853fade6c2d585c3fa734c80ae1f6ecaaec1648308c`, branch `content/lesson-walkthrough-cse-r1`.
+Retired: old Claude lesson walk-through lead `mcp:launch:6fcf82ba3dd0d64d320c20b9d5b7dff27f1315495e1704252607c246f86f05dd` (spec and samples on `content/lesson-walkthrough-r1`).
+Paused by him: under-13 (keep 13 to 17 closed), PSHS-NCE (go/no-go Dec 8), QG Phase 2, dots.
 Retired for length (do not message): CSE release lead r2 to r5 `mcp:launch:89c734558b...`, old CSE release lead `mcp:launch:b14e5d0e...`, old security lead `mcp:bc3317cf...`.
 The table below is the Nov 17 history.
 
@@ -183,7 +186,7 @@ These are Aedwon's standing instructions. They apply until he changes them.
 - Screenshots and app captures are headless. No control of his computer.
 - If the laptop overheats, pause the lanes. One build per session.
 - Codex runs only through `codex-pick`, one run at a time across all lanes unless `codex-pick --status` shows room for each (process-improvement entry, Nov 11). Size a long run against one account's 5-hour window and split it.
-- Never route UI work to Codex: building, changing or reviewing screens, components, layout or styling goes to a Claude worker (Aedwon, Nov 12: "if it's UI, never use codex").
+- Never route UI work to Codex: building, changing or reviewing screens, components, layout or styling goes to a Claude worker (Aedwon, Nov 12: "if it's UI, never use codex"). The same holds for Gemini: Gemini models may rewrite lesson content, never UI (Aedwon, Nov 26: "just to be sure i'm authorizing gemini models for rewriting the lessons, not the UI itself. as a rule, Claude is still on UI").
 - Before work starts, log the estimate in the velocity log and start the task timer
   (`tool/velocity/timer.py`). Actuals come only from the timer's output. Status reports carry a
   time estimate.

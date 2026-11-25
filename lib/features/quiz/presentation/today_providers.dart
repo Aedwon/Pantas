@@ -4,6 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/features/assessment/application/assessment_progress_providers.dart';
+import 'package:pantas/features/assessment/domain/models/assessment_progress.dart';
+import 'package:pantas/features/assessment/domain/services/assessment_question_selector.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
@@ -21,11 +24,15 @@ sealed class SessionPanelState {
 
 /// Nothing has been assessed yet, so there is no basis for a session.
 class SessionPanelNeedsAssessment extends SessionPanelState {
-  const SessionPanelNeedsAssessment(this.questionCount);
+  const SessionPanelNeedsAssessment(this.questionCount, {this.progress});
 
   /// The length `AssessmentQuestionSelector` will actually produce. Never a
   /// constant: it is 21 with seven contributing topics and 18 with eighteen.
   final int questionCount;
+
+  /// Answers saved on this device from an assessment left part way. When set,
+  /// the card offers Continue instead of Start.
+  final AssessmentProgress? progress;
 }
 
 /// A session was left part way through. It is still open and still counted.
@@ -154,8 +161,12 @@ final sessionPanelProvider =
   final assessed =
       await ref.watch(assessmentRepositoryProvider).hasCompletedForExam(examId);
   if (!assessed) {
+    final saved = await ref.watch(assessmentProgressProvider(examId).future);
+    if (saved != null) {
+      return SessionPanelNeedsAssessment(saved.total, progress: saved);
+    }
     final scopedTopics = await ref.watch(scopedTopicsProvider(examId).future);
-    final questions = await AssessmentQuestionSelector(
+    final questions = await assessmentQuestionSelector(
       ref.watch(contentRepositoryProvider),
       ref.watch(reviewStateRepositoryProvider),
     ).select(examId, topics: scopedTopics);

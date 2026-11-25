@@ -7,6 +7,7 @@ import 'package:pantas/core/ui/components/data_table.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/components/placeholder_figure.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_page.dart';
@@ -284,6 +285,107 @@ void main() {
       ),
       findsOneWidget,
     );
+  });
+
+  // P10/U58: the CSC publishes no per-area counts for the Subprofessional
+  // level, so the setup screen never prints one.
+  ParsedMockBlueprint subBlueprint() => blueprint(
+        examId: 'exam_cse_sub',
+        name: 'CSE Subprofessional Practice Paper',
+        timing: SectionalTiming.roamable,
+        durationMinutes: 160,
+        totalPublishedItems: null,
+        unscoredItems: 20,
+        sections: const [
+          BlueprintSection(
+            id: 'v',
+            name: 'Verbal Ability',
+            questionCount: 36,
+            suggestedMinutes: 160,
+            topicIds: [],
+            topicWeights: {},
+          ),
+          BlueprintSection(
+            id: 'n',
+            name: 'Numerical Ability',
+            questionCount: 36,
+            suggestedMinutes: 160,
+            topicIds: [],
+            topicWeights: {},
+          ),
+          BlueprintSection(
+            id: 'c',
+            name: 'Clerical Ability',
+            questionCount: 36,
+            suggestedMinutes: 160,
+            topicIds: [],
+            topicWeights: {},
+          ),
+          BlueprintSection(
+            id: 'g',
+            name: 'General Information',
+            questionCount: 37,
+            suggestedMinutes: 160,
+            topicIds: [],
+            topicWeights: {},
+          ),
+        ],
+      );
+
+  for (final wide in [false, true]) {
+    testWidgets(
+        'Subprofessional setup prints no per-section counts '
+        '(${wide ? 'wide' : 'phone'})', (tester) async {
+      if (wide) {
+        debugWebPlatformOverride = true;
+        tester.view.physicalSize = const Size(1440, 900);
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        addTearDown(() => debugWebPlatformOverride = null);
+      }
+      await pump(tester, parsed: subBlueprint());
+      for (final name in [
+        'Verbal Ability',
+        'Numerical Ability',
+        'Clerical Ability',
+        'General Information',
+      ]) {
+        expect(find.text(name), findsOneWidget);
+      }
+      expect(find.text('36'), findsNothing);
+      expect(find.text('37'), findsNothing);
+      expect(find.text('ITEMS'), findsNothing);
+      expect(find.text('145 total items · 2 hr 40 min'), findsOneWidget);
+      expect(
+        find.textContaining('20 personal-information items'),
+        findsOneWidget,
+      );
+    });
+  }
+
+  testWidgets('Professional setup still prints its section counts',
+      (tester) async {
+    await pump(
+      tester,
+      parsed: blueprint(
+        examId: 'exam_cse_pro',
+        name: 'CSE Professional Practice Paper',
+        timing: SectionalTiming.roamable,
+        sections: const [
+          BlueprintSection(
+            id: 'g',
+            name: 'General Information',
+            questionCount: 20,
+            suggestedMinutes: 190,
+            topicIds: [],
+            topicWeights: {},
+          ),
+        ],
+      ),
+    );
+    expect(find.text('20'), findsOneWidget);
+    expect(find.text('ITEMS'), findsOneWidget);
   });
 
   testWidgets('DCAT names excluded essay and personality test', (tester) async {
