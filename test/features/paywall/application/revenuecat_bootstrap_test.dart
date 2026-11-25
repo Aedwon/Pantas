@@ -218,6 +218,8 @@ void main() {
         changes: changes.stream,
       ),
     ]);
+    expect(changes.hasListener, isTrue);
+    expect(gateway.loggedInUids, ['anon_a']);
     await binding.dispose();
 
     expect(changes.hasListener, isFalse);
