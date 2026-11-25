@@ -1,7 +1,9 @@
 #!/bin/bash
 # Build the web app and publish it to staging (https://staging.pantas.study, project pantas-staging).
-# Staging has its own data and sign-in; prod is not touched. firebase.staging.json serves only the
-# app target and adds X-Robots-Tag: noindex. The App Check key is staging's public reCAPTCHA key.
+# Staging has its own data and sign-in; prod is not touched. The Cloudflare Worker serves the app
+# (headers.staging adds X-Robots-Tag: noindex). Firebase Hosting keeps only the tiny page in
+# hosting/retired (checklist S6), so this script never deploys Hosting.
+# The App Check key is staging's public reCAPTCHA key.
 # Usage: tool/deploy/staging_web.sh
 set -euo pipefail
 cd "$(dirname "$0")/../.."
@@ -10,4 +12,4 @@ flutter build web --release -t lib/main_staging.dart \
   --dart-define=APP_CHECK_WEB_SITE_KEY=6Lcp8xUuAAAAAICQRMX8-J2JYzU5dxKsj8Qp3sQa \
   --dart-define=BUILD_NUMBER="$(git rev-list --count HEAD)"
 node tool/web/stamp_worker_version.mjs build/web
-firebase deploy --config firebase.staging.json --only hosting:app --project pantas-staging --non-interactive
+tool/cloudflare-app/deploy.sh staging build/web
