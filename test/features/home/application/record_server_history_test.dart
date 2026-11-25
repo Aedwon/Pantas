@@ -64,6 +64,8 @@ void main() {
                     sectionId: 's',
                     name: 'Science',
                     correct: 8,
+                    wrong: 1,
+                    blank: 1,
                     total: 10,
                     retiredCount: 0,
                     timeSeconds: 600,
@@ -80,10 +82,12 @@ void main() {
     );
     addTearDown(scope.dispose);
     final record = await scope.read(recordProvider.future);
-    expect(record.questionsAnswered, 10);
+    // 8 right and 1 wrong were answered; the 1 blank was not.
+    expect(record.questionsAnswered, 9);
     expect(record.sessionMinutes, 10);
     expect(record.bestMockPercent, 80);
     expect(record.mocks.single.blueprintName, 'CSE simulation');
+    expect(record.mocks.single.takenOn.isUtc, isFalse);
     expect(record.daysActive, 1);
     expect(await db.select(db.mockAttempts).get(), isEmpty);
     final previous = MockAttempt.fromRow(
@@ -115,6 +119,8 @@ void main() {
                     sectionId: 's',
                     name: 'Science',
                     correct: 8,
+                    wrong: 1,
+                    blank: 1,
                     total: 10,
                     retiredCount: 0,
                     timeSeconds: 600,

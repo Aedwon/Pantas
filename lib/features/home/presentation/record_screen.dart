@@ -77,7 +77,7 @@ class RecordScreen extends ConsumerWidget {
             RecordMockRow(
               id: entry.attempt.id,
               name: entry.attempt.blueprintName,
-              date: entry.attempt.submittedAt!,
+              date: entry.attempt.submittedAt!.toLocal(),
               percent: entry.results.percent.round(),
             ),
       ],

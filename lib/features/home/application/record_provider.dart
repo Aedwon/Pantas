@@ -117,6 +117,8 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
         ..where((s) => s.id.equals(1)))
       .getSingleOrNull();
   final mockAccuracy = <String, ({int correct, int total})>{};
+  // Items the student answered in each mock. A blank is not an answer.
+  final mockAnswered = <String, int>{};
   final List<MockAttempt> mockAttemptsRows;
   if (ref.watch(mockUsesServerProvider)) {
     // A mock is one exam's paper: only the current exam's mocks count.
@@ -131,6 +133,11 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
         mockAccuracy[entry.attempt.id] = (
           correct: sections.fold(0, (sum, s) => sum + s.correct),
           total: sections.fold(0, (sum, s) => sum + s.total)
+        );
+        // The server checks that correct + wrong + blank equals the total.
+        mockAnswered[entry.attempt.id] = sections.fold(
+          0,
+          (sum, s) => sum + s.correct + (s.wrong ?? 0),
         );
       }
     }
@@ -161,6 +168,8 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
         total += section['total']! as int;
       }
       if (total > 0) mockAccuracy[mock.id] = (correct: correct, total: total);
+      mockAnswered[mock.id] = _answeredInMock(data['sections']! as List) ??
+          _answersGiven(mock.answersJson);
     }
   }
   // Skip a mirrored answer only when its completed mock is counted below.
@@ -289,16 +298,8 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   }
 
   for (final row in mockAttemptsRows) {
-    if (row.scoreTotal != null && row.scoreTotal! > 0) {
-      questionsAnswered += row.scoreTotal!;
-    } else if (row.answersJson.isNotEmpty) {
-      try {
-        final decoded = jsonDecode(row.answersJson);
-        if (decoded is Map) {
-          questionsAnswered += decoded.length;
-        }
-      } catch (_) {}
-    }
+    // Only items the student answered count. The paper size includes blanks.
+    questionsAnswered += mockAnswered[row.id] ?? _answersGiven(row.answersJson);
     if (row.submittedAt != null) {
       totalSessionSeconds += row.elapsedSeconds;
     }
@@ -344,7 +345,7 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
         }
         mocksList.add(
           (
-            takenOn: row.submittedAt!,
+            takenOn: row.submittedAt!.toLocal(),
             percent: pct,
             blueprintName: row.blueprintName,
           ),
@@ -419,3 +420,36 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
     mocks: mocksList,
   );
 });
+
+/// Answered items from saved section counts, or null when a section predates
+/// the wrong count and the answers must be read instead.
+int? _answeredInMock(List<dynamic> sections) {
+  var answered = 0;
+  for (final section in sections) {
+    if (section is! Map ||
+        section['correct'] is! int ||
+        section['wrong'] is! int) {
+      return null;
+    }
+    answered += (section['correct']! as int) + (section['wrong']! as int);
+  }
+  return answered;
+}
+
+/// Answers the student gave, read from the saved selections. A blank is
+/// saved with a selected index below zero and is not an answer.
+int _answersGiven(String answersJson) {
+  try {
+    final decoded = jsonDecode(answersJson);
+    if (decoded is! Map) return 0;
+    var answered = 0;
+    for (final answer in decoded.values) {
+      if (answer is Map && answer['selectedIndex'] is int) {
+        if ((answer['selectedIndex']! as int) >= 0) answered++;
+      }
+    }
+    return answered;
+  } catch (_) {
+    return 0;
+  }
+}
