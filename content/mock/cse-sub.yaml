@@ -6,28 +6,27 @@ _id: mock_blueprint_cse_sub
 schemaVersion: 2
 isActive: true
 exam: exam_cse_sub
-name: CSE Subprofessional Practice Paper
+name: CSE Subprofessional (Pantas practice exam, not the official format)
 durationMinutes: 160
 sectionalTiming: roamable
 unscoredItems: 20
 source: reported
-sourceNote: 'No totalPublishedItems: the mock setup screen shows that
-  field as the paper size and would report the test items as a shortfall;
-  Aedwon chose to show the test items only (October 19, 2026). Placeholder split. Total of 145 test items comes from a 2020 CSC
-  advisory (150 test items plus 20 descriptive questionnaire items for the
-  Professional level, 145 plus 20 for the Subprofessional level); whether that
-  still holds is unconfirmed. The 165 items for the whole paper (145 plus 20)
-  and the time of 2 hours 40 minutes (160) are as relayed in reports by the PIA
-  and by CSC-relaying outlets. The Civil Service Commission publishes no
-  per-area item counts: the split of 36 Verbal, 36 Numerical, 36 Clerical and
-  37 General Information is an even division chosen here until a taker of this
-  level supplies the real counts. The topic weights within each section are
-  also an even split chosen here, except Verbal Ability. Verbal Ability assigns
-  5 of 36 questions to comprehension skills so five-question passage groups fit
-  exactly. The other Verbal topics share the remaining 31 questions in their
-  current proportions. The CSC publishes no topic weights. These weights are a
-  sampling parameter never printed to a
-  student. One booklet, no sectional timing.'
+sourceNote: 'CSC Examination Advisory No. 10, s. 2026 (School Assignment and
+  Important Reminders for the 09 August 2026 CSE-PPT), page 7, lists 145 Test
+  Proper items, 20 Examinee Descriptive Questionnaire items, and a time limit
+  of 2 hours 40 minutes (160 minutes) for the Subprofessional level. No
+  totalPublishedItems: the mock setup screen shows that field as the paper
+  size and would report the test items as a shortfall; Aedwon chose to show
+  the test items only (October 19, 2026). The advisory lists the four areas
+  but gives no per-area item counts, so the setup screen prints none. The
+  split of 36 Verbal, 36 Numerical, 36 Clerical and 37 General Information is
+  an even division chosen here as a sampling parameter, never printed to a
+  student. The topic weights within each section are also an even split chosen
+  here, except Verbal Ability. Verbal Ability assigns 5 of 36 questions to
+  comprehension skills so five-question passage groups fit exactly. The other
+  Verbal topics share the remaining 31 questions in their current proportions.
+  The CSC publishes no topic weights. These weights are a sampling parameter
+  never printed to a student. One booklet, no sectional timing.'
 sections:
   - id: sec_cse_sub_verbal_ability
     name: Verbal Ability
