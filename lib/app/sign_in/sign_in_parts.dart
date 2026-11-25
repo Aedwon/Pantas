@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -707,10 +708,37 @@ class SignInStack extends StatelessWidget {
     final column = Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: children,
+      children: wide
+          ? [
+              for (final child in children)
+                child is SignInButton || child is SignInTextButton
+                    ? child
+                    : _NoIntrinsicWidth(child: child),
+            ]
+          : children,
     );
     return wide ? Center(child: IntrinsicWidth(child: column)) : column;
   }
+}
+
+/// Keeps a text line between stacked buttons from setting the group's width:
+/// it reports no intrinsic width, so only the buttons size the group, and the
+/// line then wraps inside that width. Without it the resend countdown (wider
+/// than the column) stretched the pair to the full 420 column.
+class _NoIntrinsicWidth extends SingleChildRenderObjectWidget {
+  const _NoIntrinsicWidth({required Widget super.child});
+
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      _RenderNoIntrinsicWidth();
+}
+
+class _RenderNoIntrinsicWidth extends RenderProxyBox {
+  @override
+  double computeMinIntrinsicWidth(double height) => 0;
+
+  @override
+  double computeMaxIntrinsicWidth(double height) => 0;
 }
 
 /// The boards' quiet 44 px text button.

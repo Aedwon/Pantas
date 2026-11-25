@@ -881,6 +881,53 @@ void main() {
 
     // The shared wide placement check (E-170) also reads inside padding, so
     // the same defect fails there for any raw text button, not only here.
+    // Integrator finding (Nov 25, CSE release lead r7): the resend countdown
+    // line under Continue reported a natural width wider than the column, so
+    // the stacked pair stretched to the full 420. Only the buttons size it.
+    testWidgets(
+        'a wide stacked pair is as wide as its widest button, '
+        'with a countdown line showing', (tester) async {
+      void expectPair(String main, String secondary) {
+        Finder button(String label) => find.ancestor(
+              of: find.textContaining(label),
+              matching: find.byType(TextButton),
+            );
+        double natural(String label) => tester
+            .renderObject<RenderBox>(button(label))
+            .getMaxIntrinsicWidth(double.infinity);
+        final widest =
+            [natural(main), natural(secondary)].reduce((a, b) => a > b ? a : b);
+        for (final label in [main, secondary]) {
+          expect(
+            tester.getSize(button(label)).width,
+            closeTo(widest, .5),
+            reason: label,
+          );
+        }
+        expect(widest, lessThan(400), reason: '$main / $secondary');
+      }
+
+      await pumpPage(tester, size: _laptop);
+      codes
+        ..issuesChallenge = false
+        ..resendAfter = 42;
+      await tester.enterText(find.byType(TextField), 'juan@gmail.com');
+      await tester.tap(find.text('Continue'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(find.textContaining('You can request a code in'), findsOneWidget);
+      expectPair('Continue', 'Use Google Instead');
+
+      await tester.pumpWidget(const SizedBox.shrink());
+      codes
+        ..issuesChallenge = true
+        ..resendAfter = 42;
+      await pumpPage(tester, size: _laptop);
+      await goToCode(tester);
+      expect(find.textContaining('You can resend in'), findsOneWidget);
+      expectPair('Continue', 'Use a Different Email');
+    });
+
     testWidgets('the wide placement check passes on both steps',
         (tester) async {
       await pumpPage(tester, size: _laptop);
