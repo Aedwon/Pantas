@@ -20,6 +20,11 @@ import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
 
 export 'package:pantas/core/ui/web/web_debrief_loading.dart';
 
+/// Side padding of the title, so a long title never runs under Done at the
+/// top right (Done is about 100 px wide; the same room is kept at the left
+/// so the title stays centered).
+const double _doneClearance = 136;
+
 class WebSessionResults extends StatelessWidget {
   const WebSessionResults({
     required this.session,
@@ -157,12 +162,42 @@ class WebSessionResults extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Text(
-                                misses.isEmpty
-                                    ? 'Perfect!'
-                                    : 'Session finished.',
-                                style: t.h1,
-                                textAlign: TextAlign.center,
+                              // Wide button placement (patterns.md): a results
+                              // page puts Done top right, level with the
+                              // title. The title stays centered; its side
+                              // padding keeps a long title clear of Done.
+                              Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: _doneClearance,
+                                    ),
+                                    child: Text(
+                                      misses.isEmpty
+                                          ? 'Perfect!'
+                                          : 'Session finished.',
+                                      style: t.h1,
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.centerRight,
+                                    child: appear(
+                                      WebButton(
+                                        key: const ValueKey('results-done'),
+                                        label: 'Done',
+                                        large: true,
+                                        onPressed: nextBusy ? null : onDone,
+                                        variant: next
+                                            ? WebButtonVariant.white
+                                            : WebButtonVariant.primary,
+                                      ),
+                                      1700,
+                                      300,
+                                    ),
+                                  ),
+                                ],
                               ),
                               if (line != null) ...[
                                 const SizedBox(height: PantasSpace.s8),
@@ -222,40 +257,25 @@ class WebSessionResults extends StatelessWidget {
                             300,
                           ),
                         ],
-                        const SizedBox(height: PantasSpace.s28),
-                        // The phone's button bar fades in last. Here it sits
-                        // above the lists, so it follows the duration line.
-                        appear(
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: PantasLayout.titleNarrow,
-                                child: WebButton(
-                                  label: 'Done',
-                                  large: true,
-                                  expand: true,
-                                  onPressed: nextBusy ? null : onDone,
-                                  variant: next
-                                      ? WebButtonVariant.white
-                                      : WebButtonVariant.primary,
-                                ),
+                        if (next) ...[
+                          const SizedBox(height: PantasSpace.s28),
+                          // The phone's button bar fades in last. Here Start
+                          // Session sits above the lists, after the duration
+                          // line; Done is at the top, by the title.
+                          appear(
+                            Center(
+                              child: WebButton(
+                                label: 'Start Session ${batch.ordinal + 1}',
+                                large: true,
+                                keyHint: 'Enter',
+                                busy: nextBusy,
+                                onPressed: onNext,
                               ),
-                              if (next) ...[
-                                const SizedBox(width: PantasSpace.s8),
-                                WebButton(
-                                  label: 'Start Session ${batch.ordinal + 1}',
-                                  large: true,
-                                  keyHint: 'Enter',
-                                  busy: nextBusy,
-                                  onPressed: onNext,
-                                ),
-                              ],
-                            ],
+                            ),
+                            1700,
+                            300,
                           ),
-                          1700,
-                          300,
-                        ),
+                        ],
                         if (failure != null) failure!,
                         if (debriefCards != null) ...[
                           const SizedBox(height: PantasSpace.s32),
