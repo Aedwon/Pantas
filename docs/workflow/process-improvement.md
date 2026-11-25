@@ -130,8 +130,9 @@ pass 15, retire or merge one first.
 
 - His words (about 3:35 AM Manila, phone screenshots of staging): "done checking, looks good / some refinements: / - premature newline after privaxy policy link / - Study and Quiz headers have the same spacing from the topmost, but they are both wrong. please align them to look equal to Settings".
 - Wrong: on Terms and Privacy, ", and to Pantas keeping my study records ..." starts on a new line right after the "Privacy Policy" link. The Study and Quiz page titles sit lower from the top than the Settings title.
-- Why it got through: not yet known; the CSE release lead r8 reports the cause for each with its fix, and this entry is updated then.
-- Fix (checks, release lead r8): a test that fails on today's code for each: the consent sentence has no forced break after the link, and the Study, Quiz and Settings titles share one top position at phone and wide (Home checked too). Shown failing first.
+- Why it got through: (1) Consent: since Jul 30 the sentence was separate widgets in a wrap, harmless while the text after the link was only "."; the Nov 11 merge made it a long clause, which then started its own line. Only an image golden covered the step, and on Nov 25 the phone golden was re-accepted with the break visible. A golden re-accept checks that an image changed on purpose, not that the text reads right. (2) Titles: Nov 24 set Study and Quiz to their boards' title top (50) with a test comparing Study to Quiz only; Settings was set to 20 on Nov 2 from another board. The boards disagreed, and no test or review compared the three tabs with each other.
+- Fix (checks, release lead r8, PR #146, both shown failing first): one test holds the Study, Quiz and Settings titles at one top position at phone and wide (Home has a different masthead layout and is unchanged); the consent sentence is one rich text with inline links, and its test fails if the text after a link is a separate widget. His call from using the app makes Settings the reference; the reference canvas should match it.
+- Required step added: before re-accepting a golden that changes text layout, the reviewer reads the new image for line breaks and alignment against its siblings, not only against its board.
 
 ### A Codex audit waited on input and ran nothing, again (Nov 26)
 
