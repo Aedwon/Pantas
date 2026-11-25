@@ -198,7 +198,7 @@ void main() {
       FirebaseFunctionsException(
         message: 'New guardian requests are closed.',
         code: 'failed-precondition',
-        details: {'reason': 'minor-signup-closed'},
+        details: const {'reason': 'minor-signup-closed'},
       ),
     );
     expect(closed, isA<GuardianSignupClosedException>());

@@ -309,7 +309,7 @@ void main() {
       for (final target in [
         '/guardian/waiting',
         '/guardian/contact',
-        '/home'
+        '/home',
       ]) {
         container.read(routerProvider).go(target);
         await tester.pumpAndSettle();
