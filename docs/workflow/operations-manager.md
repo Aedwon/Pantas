@@ -57,9 +57,10 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 Manager: `mcp:launch:00976645432b2f793e42bfeeea73583c727484762376837beea722b8a3c65b8d` (restarted blank Nov 26 from `docs/superpowers/handoffs/2026-11-26-operations-manager.md`; bound schedules rebound to it).
 Old manager, retired (do not message): `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926`.
 Active: CSE release lead r8, integrator, service worker fix, P12 loop runs, payment PR merges, then the opening ship `mcp:launch:55d23bdfde1cbdbac9638f0f42400f367a941a688ddb9d6bea85cda3646e2cd2`;
-UX lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (guided first run and the support@ Settings row);
-security and billing lead r2 `mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5` (alert email test, live PayMongo key Nov 26 morning, first real payment; handoff PR #140).
-Parked: lesson walk-through lead `mcp:launch:6fcf82ba3dd0d64d320c20b9d5b7dff27f1315495e1704252607c246f86f05dd` (approved; starts when a lead slot frees).
+UX lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (idle; guided first run handed to the release lead Nov 26);
+security and billing lead r2 `mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5` (alert email confirmed 1:22 AM; live PayMongo key Nov 26 9 AM, first real payment).
+Lesson walk-through CSE build, Gemini 4 Neon xhigh lead with Gemini subagents, Codex checkpoint audits only (Aedwon, Nov 26) `mcp:launch:b7636146c2e66e268cb6e853fade6c2d585c3fa734c80ae1f6ecaaec1648308c`, branch `content/lesson-walkthrough-cse-r1`.
+Retired: old Claude lesson walk-through lead `mcp:launch:6fcf82ba3dd0d64d320c20b9d5b7dff27f1315495e1704252607c246f86f05dd` (spec and samples on `content/lesson-walkthrough-r1`).
 Paused by him: under-13 (keep 13 to 17 closed), PSHS-NCE (go/no-go Dec 8), QG Phase 2, dots.
 Retired for length (do not message): CSE release lead r2 to r5 `mcp:launch:89c734558b...`, old CSE release lead `mcp:launch:b14e5d0e...`, old security lead `mcp:bc3317cf...`.
 The table below is the Nov 17 history.

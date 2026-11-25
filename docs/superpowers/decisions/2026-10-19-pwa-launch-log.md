@@ -4665,3 +4665,9 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Rule 7:** no fixed item; no functions deploy (`/try` reports as `other`); assessment progress stays on the device.
 - **Hand-off note:** `docs/superpowers/handoffs/2026-11-26-ux-lead-first-run-build.md`. Ships to prod before the opening under the standing ship-it; his visual pass on the live build applies.
 
+## 2026-11-26 3:10 AM Manila: three decisions from Aedwon (manager)
+
+- Asked (manager, about 2:45 AM): (1) service worker fix scope after the Codex audit FAIL: A full fix before the opening (about 3 days; opening about 1 to 2 days later), B open on today's worker and fix after, C partial fix (about 1 day), plus side effect 1 (the approved loading percent will rarely show on updates); recommended A and yes. (2) Start the lesson walk-through lane now in the freed lead slot; recommended yes. (3) Make `codex-pick` close input for `exec` runs itself (about 5 lines; Codex audits stalled on open input Nov 7 and Nov 26); recommended yes.
+- Aedwon, verbatim: "go with your reco / for lesson walk through, have it completed fully by Gemini 4 Neon Xhigh as lead and its own Gemini subagents. it can use codex for checkpoint audits."
+- Result: (1) A, yes on side effect 1, relayed to CSE release lead r8 (builds it after the mock navigation bug fix). (2) A new lead on Gemini 4 Neon xhigh (Antigravity) with Gemini subagents, Codex GPT 6.2 Sol high for checkpoint audits only, branch `content/lesson-walkthrough-cse-r1` from main; the old Claude walk-through lead is retired. (3) `codex-pick` changed and tested; process-improvement entry of Nov 26 updated.
+

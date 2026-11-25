@@ -132,6 +132,7 @@ pass 15, retire or merge one first.
 - Wrong: the service worker fix's first Codex Sol High audit started in the background through `codex-pick exec` with its input left open. Codex waited to read a prompt from that input, did no work, and the lane lost about 1 hour on the path to the opening ship.
 - Why it got through: this already happened on Nov 7 (launch log: "the first Astra runs stalled waiting on stdin and produced nothing"). The fix then lived only in one audit brief ("Run with no stdin"), not in any rule, brief template or in `codex-pick`, so later briefs and leads did not carry it.
 - Fix (required step, every lead and the manager, until a tool fix lands): every non-interactive `codex-pick exec` run closes its input (`< /dev/null`), and every Codex brief or command shape says so. A repeat moves this up the order: the tool fix is to make `codex-pick` close input itself for `exec` runs started without a terminal (a few lines in `~/.local/bin/codex-pick`), which needs Aedwon's yes because it changes shared tooling.
+- Done (Nov 26, about 3:15 AM Manila; his words: "go with your reco"): `codex-pick` now gives `exec` runs closed input unless the arguments include `-` (a piped prompt) or `CODEX_PICK_KEEP_STDIN=1`. Tested with a held-open input: the run no longer waits. The `< /dev/null` step stays harmless and is no longer required.
 
 ### Wide stacked sign-in buttons did not match in size (Nov 25)
 
