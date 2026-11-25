@@ -202,3 +202,12 @@ Codex Sol High critiqued the Nov 25 changes (`critique-2026-11-25-sol-high.md`).
 - **Minor, duplicate instruction: applied.** "Continue runs the check." is deleted.
 - **Version stamps and dates:** unchanged (set at go-live).
 - **Biggest remaining risk:** a legacy open request holds an under-18 flag before any consent, and no clear Section 13 basis fits that interval. Wording cannot cure it under the ruling. Prod had 0 open requests at the Nov 25 ship, so no live record is affected.
+
+## Round 6 (Nov 25): trial code period and accounts made before publication
+
+Why: the H5 publish check found the notices still said trial codes have "no scheduled expiry", but codes have expired after 730 days on prod since Nov 24 (ruling D7). Ruling D5 also asked for a line on when the new Terms apply to accounts made before publication. Manager, Nov 25: "yes, run the one Sol High round now." Critique: `critique-2026-11-25b-sol-high.md` (prompt `critique-prompt-2026-11-25b.md`, codex-pick account b): 1 Blocker, 1 Major, 1 Minor, all applied with Sol High's wording.
+
+- **Privacy Policy and Notice for teens, Free-trial codes:** now "The code can stay after account deletion. We schedule it for deletion 730 days after your trial starts. If we have no trial start date, we count from our first attempt to delete your account. We keep any later deletion date already set. Automatic cleanup can take longer."
+- **Terms section 12, new last paragraph:** "If you already had an account when we published these Terms, your earlier Terms apply until you accept these Terms. Where this section allows acceptance by continued use, you accept by using Pantas after 14 days have passed since we first showed you the notice in the app. A new web purchase uses the Terms the buyer expressly accepts at checkout."
+- **Terms section 4, Free trial:** "Deleting your account does not give you another trial." is now "Any future trial is subject to the eligibility checks above, including after account deletion."
+- **What this needs after publishing (not a gate for opening):** a one-time in-app notice of the new Terms for accounts made before publication, with the date it was first shown recorded per account (Sol High: show it when they return, not only on Home). Until an existing account sees it, its earlier Terms apply. New accounts get these Terms from the start.

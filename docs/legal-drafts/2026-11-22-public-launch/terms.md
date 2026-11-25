@@ -80,7 +80,7 @@ Pro access is personal. You cannot transfer it or exchange it for cash. Your ref
 
 **Receipts.** PayMongo may send you a receipt. Pantas issues a sales invoice for each web purchase.
 
-**Free trial.** You can get one seven-day free trial of Monthly Pro if you qualify. Weekly, Yearly and Season Passes have no trial. You qualify only if you are signed in with verified sign-in details and our account history and protected trial codes show no earlier trial or paid Pro. You do not enter payment details. The trial ends after seven days. It does not become a paid plan and we do not charge you. We may change or stop future trial offers. We may refuse or end a trial we reasonably suspect is being misused, for example through several accounts. Deleting your account does not give you another trial. The Privacy Policy explains how we check this.
+**Free trial.** You can get one seven-day free trial of Monthly Pro if you qualify. Weekly, Yearly and Season Passes have no trial. You qualify only if you are signed in with verified sign-in details and our account history and protected trial codes show no earlier trial or paid Pro. You do not enter payment details. The trial ends after seven days. It does not become a paid plan and we do not charge you. We may change or stop future trial offers. We may refuse or end a trial we reasonably suspect is being misused, for example through several accounts. Any future trial is subject to the eligibility checks above, including after account deletion. The Privacy Policy explains how we check this.
 
 **Free or promotional access.** Pantas may give free access, such as a trial, a beta period or a prize, at its choice. This access lasts only for the period we state. It can end earlier if it is misused. It does not give you a right to more access and it does not start a paid plan.
 
@@ -177,7 +177,7 @@ We may update these Terms. We give advance notice in the app of a material chang
 
 We ask you, or the adult who contracts for a teen, to accept a material change that makes your position worse before it applies to your agreement. A new purchase uses the Terms shown before payment. The terms of an existing paid period continue to apply to that purchase. If you do not accept a change, stop using Pantas and delete your account. For a minor change, such as a correction, a new feature or a change that helps you, using Pantas after the change takes effect means you accept it, except where the law requires your new permission.
 
-If you created your account before the version date at the top, the earlier Terms keep applying to you until 14 days after we first show you a notice of these Terms in the app. These Terms apply to you sooner if you accept them, for example when you buy.
+If you already had an account when we published these Terms, your earlier Terms apply until you accept these Terms. Where this section allows acceptance by continued use, you accept by using Pantas after 14 days have passed since we first showed you the notice in the app. A new web purchase uses the Terms the buyer expressly accepts at checkout.
 
 ## 13. General
 
