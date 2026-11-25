@@ -162,7 +162,8 @@ Rulings of Nov 17 are in **bold** on each line. Item numbers are unchanged, so t
 - Nov 24 00:00 PHT | exit survey closes; old secrets must be destroyed before this | `LL:3715,3908` | Aedwon, security fixes lead
 - Nov 30 | beta reward appeal window | `LL:2639` | Aedwon
 - Nov 25 sweep: no code, config, schedule or test date fires Nov 25 to Dec 9 (tests use injected clocks). Prod still sets WARMUP_ENABLED=true; harmless, the warm-up stops in code since Nov 24 | manager
-- Nov 28 | D16 DMARC trigger (two weeks of reports); the security lane is paused by him, so the manager runs it as a short task if every report aligned | manager
+- Nov 28 | D16 DMARC trigger (two weeks of reports); a one-shot schedule (Nov 28 10:00 Manila) sends it to the security and billing lead, now active again | manager
+- Nov 26 sweep: no code, config, schedule or test date fires Nov 26 to Dec 10; cost clean (the only OVER is staging's Nov 20 proof day, aging out about Nov 27); dpo@, contact@, support@ forward to his Gmail (L5 met) | manager
 - Dec 1 02:00 UTC | monthly cost check (alarm pricing, last bill) | `MH:38` | operations manager
 - Dec 8, 2026 | PSHS-NCE go/no-go. D21 and D22 were ruled Nov 21 (both option A); D22 is not a gate for it | operations manager ruling, Nov 17; Fable ruling, Nov 21 | operations manager
 - Dec 12, 2026 | ACET filing deadline, current cycle (test Jan 16, 2027) | `next-exam-brief.md:28` | Aedwon (information)
