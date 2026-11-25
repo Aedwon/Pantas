@@ -270,15 +270,52 @@ void main() {
       expect(pathOf(tester), '/guardian/waiting');
     });
 
-    testWidgets('a minor with no request yet resumes at the guardian form',
+    testWidgets('a minor with no request yet lands on the blocked page',
         (tester) async {
       await AppPreferencesRepository(db).setAgeGroup('minor');
       await pumpApp(tester, guardian: FakeGuardianGateway());
       expect(pathOf(tester), '/onboarding');
+      expect(find.text("Pantas isn't available yet"), findsOneWidget);
       expect(
-        find.text('A parent or guardian needs to agree first'),
+        find.text("Sorry, this app isn't available for users under 18."),
         findsOneWidget,
       );
+      expect(
+          find.text('A parent or guardian needs to agree first'), findsNothing);
+      expect(await AppPreferencesRepository(db).blockedMinimumAge(), 18);
+    });
+
+    for (final status in [
+      GuardianConsentStatus.declined,
+      GuardianConsentStatus.expired,
+    ]) {
+      testWidgets('a minor whose request is $status lands on the blocked page',
+          (tester) async {
+        await AppPreferencesRepository(db).setAgeGroup('minor');
+        final guardian = FakeGuardianGateway()
+          ..current = GuardianStatus(status: status);
+        await pumpApp(tester, guardian: guardian);
+        expect(pathOf(tester), '/onboarding');
+        expect(find.text("Pantas isn't available yet"), findsOneWidget);
+      });
+    }
+
+    testWidgets('a blocked device cannot reach Waiting or the contact form',
+        (tester) async {
+      await AppPreferencesRepository(db).setAgeGroup('minor');
+      await pumpApp(tester, guardian: FakeGuardianGateway());
+      final container =
+          ProviderScope.containerOf(tester.element(find.byType(App)));
+      for (final target in [
+        '/guardian/waiting',
+        '/guardian/contact',
+        '/home'
+      ]) {
+        container.read(routerProvider).go(target);
+        await tester.pumpAndSettle();
+        expect(pathOf(tester), '/onboarding', reason: target);
+        expect(find.text("Pantas isn't available yet"), findsOneWidget);
+      }
     });
 
     testWidgets('a confirmed minor goes on to Terms', (tester) async {

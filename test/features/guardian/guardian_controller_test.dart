@@ -52,9 +52,55 @@ void main() {
     expect(await gate(), GuardianGate.notRequired);
   });
 
-  test('a minor with no request needs to give a contact', () async {
-    await container.read(appPreferencesRepositoryProvider).setAgeGroup('minor');
-    expect(await gate(), GuardianGate.needsContact);
+  // Option C (Nov 25): under-18 sign-up is closed, so nobody is asked for a
+  // guardian contact. A device that was already in the flow lands on the
+  // blocked page, and the block is saved.
+  test('a minor with no request is blocked, and the block is saved', () async {
+    final repo = container.read(appPreferencesRepositoryProvider);
+    await repo.setAgeGroup('minor');
+    expect(await gate(), GuardianGate.closed);
+    expect(await repo.blockedMinimumAge(), 18);
+  });
+
+  test('a saved block keeps the device closed without asking the server',
+      () async {
+    final repo = container.read(appPreferencesRepositoryProvider);
+    await repo.setAgeGroup('minor');
+    await repo.setBlockedMinimumAge(18);
+    gateway.current = const GuardianStatus(
+      status: GuardianConsentStatus.pending,
+    );
+    expect(await gate(), GuardianGate.closed);
+  });
+
+  test('a send the server refuses as closed ends on the saved block', () async {
+    final repo = container.read(appPreferencesRepositoryProvider);
+    await repo.setAgeGroup('minor');
+    await repo.setGuardianContact(name: 'Maria', email: 'maria@gmail.com');
+    gateway.failure = const GuardianSignupClosedException();
+    await expectLater(
+      container.read(guardianControllerProvider).sendLink(
+            guardianName: 'Maria',
+            guardianEmail: 'maria@gmail.com',
+          ),
+      throwsA(isA<GuardianSignupClosedException>()),
+    );
+    expect(await repo.blockedMinimumAge(), 18);
+    expect(await repo.guardianContact(), isNull);
+    gateway.failure = null;
+    expect(await gate(), GuardianGate.closed);
+  });
+
+  test('Resend refused as closed also ends on the saved block', () async {
+    final repo = container.read(appPreferencesRepositoryProvider);
+    await repo.setAgeGroup('minor');
+    await repo.setGuardianContact(name: 'Maria', email: 'maria@gmail.com');
+    gateway.failure = const GuardianSignupClosedException();
+    await expectLater(
+      container.read(guardianControllerProvider).resend(),
+      throwsA(isA<GuardianSignupClosedException>()),
+    );
+    expect(await repo.blockedMinimumAge(), 18);
   });
 
   test('sending a link keeps the contact, caches the status and waits',
@@ -100,19 +146,33 @@ void main() {
       throwsA(isA<GuardianRateLimitedException>()),
     );
     expect(await repo.guardianContact(), isNull);
-    expect(await gate(), GuardianGate.needsContact);
+    expect(await repo.blockedMinimumAge(), isNull, reason: 'nothing decided');
   });
 
-  test('declined and expired stay on Waiting', () async {
+  test('a pending request keeps its waiting page', () async {
     await container.read(appPreferencesRepositoryProvider).setAgeGroup('minor');
+    gateway.current = const GuardianStatus(
+      status: GuardianConsentStatus.pending,
+    );
+    expect(await gate(), GuardianGate.waiting);
+  });
+
+  test('a declined or expired request, or none, ends on the saved block',
+      () async {
     for (final status in [
       GuardianConsentStatus.declined,
       GuardianConsentStatus.expired,
-      GuardianConsentStatus.pending,
+      GuardianConsentStatus.none,
     ]) {
+      final repo = container.read(appPreferencesRepositoryProvider);
+      await repo.setAgeGroup('minor');
+      await repo.setGuardianContact(name: 'Maria', email: 'maria@gmail.com');
       gateway.current = GuardianStatus(status: status);
       container.invalidate(guardianGateProvider);
-      expect(await gate(), GuardianGate.waiting, reason: '$status');
+      expect(await gate(), GuardianGate.closed, reason: '$status');
+      expect(await repo.blockedMinimumAge(), 18, reason: '$status');
+      expect(await repo.guardianContact(), isNull, reason: '$status');
+      await db.delete(db.devicePrefs).go();
     }
   });
 
@@ -182,11 +242,10 @@ void main() {
     expect(gateway.sent.last.email, 'maria@gmail.com');
   });
 
-  test('offline with nothing cached, a minor still needs to give a contact',
-      () async {
+  test('offline with nothing cached, a minor is blocked', () async {
     await container.read(appPreferencesRepositoryProvider).setAgeGroup('minor');
     gateway.failure = const GuardianGatewayException('unavailable');
-    expect(await gate(), GuardianGate.needsContact);
+    expect(await gate(), GuardianGate.closed);
   });
   test('withdrawn status is final, signs out, and never clears from the cache',
       () async {

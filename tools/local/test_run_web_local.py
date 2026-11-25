@@ -101,7 +101,7 @@ class LocalPanelTest(unittest.TestCase):
     def test_emulator_cannot_stop_to_ask_for_params(self):
         source = Path('tools/local/run_web_local.py').read_text()
         self.assertIn('stdin=subprocess.DEVNULL', source)
-        for name in ('GUARDIAN_MAIL_FROM', 'GUARDIAN_LINK_ORIGIN', 'GUARDIAN_DAILY_SEND_CAP', 'GUARDIAN_REQUESTS_OPEN'):
+        for name in ('GUARDIAN_MAIL_FROM', 'GUARDIAN_LINK_ORIGIN', 'GUARDIAN_DAILY_SEND_CAP'):
             self.assertIn(name + '=', source)
 
     def test_a_new_run_clears_what_the_browser_saved(self):

@@ -34,6 +34,7 @@ void main() {
   late _Sink sink;
   var changed = 0;
   var cleared = 0;
+  var blocked = 0;
   setUp(() {
     db = inMemoryDatabase();
     gateway = FakeGuardianGateway()
@@ -45,6 +46,7 @@ void main() {
     sink = _Sink();
     changed = 0;
     cleared = 0;
+    blocked = 0;
   });
   tearDown(() => db.close());
 
@@ -54,6 +56,7 @@ void main() {
     Size size = const Size(390, 844),
     bool web = false,
     double scale = 1,
+    bool? signupOpen,
   }) async {
     if (web) {
       debugWebPlatformOverride = true;
@@ -87,6 +90,8 @@ void main() {
             home: GuardianWaitingPage(
               onChangeEmail: () => changed++,
               onCleared: () => cleared++,
+              onBlocked: () => blocked++,
+              signupOpen: signupOpen,
             ),
           ),
         ),
@@ -133,8 +138,9 @@ void main() {
           );
           expect(find.text(body), findsOneWidget);
           expect(find.text('Check Again'), findsOneWidget);
-          expect(find.text('Resend Email'), findsOneWidget);
-          expect(find.text('Change Email'), findsOneWidget);
+          // Option C (Nov 25): the server refuses both, so they are hidden.
+          expect(find.text('Resend Email'), findsNothing);
+          expect(find.text('Change Email'), findsNothing);
           expect(find.text('Back'), findsNothing);
           expect(tester.takeException(), isNull);
         });
@@ -178,7 +184,7 @@ void main() {
 
   testWidgets('Check Again is the tint button and the others are text buttons',
       (tester) async {
-    await pump(tester);
+    await pump(tester, signupOpen: true);
     PantasButtonVariant variantOf(String label) => tester
         .widget<PantasButton>(find.widgetWithText(PantasButton, label))
         .variant;
@@ -193,7 +199,12 @@ void main() {
   testWidgets('on wide web the actions are one row at the right end',
       (tester) async {
     await loadDsFonts();
-    await pump(tester, size: const Size(1440, 900), web: true);
+    await pump(
+      tester,
+      size: const Size(1440, 900),
+      web: true,
+      signupOpen: true,
+    );
     expectWidePlacement(tester);
     final check = tester.getRect(find.text('Check Again'));
     for (final label in ['Resend Email', 'Change Email']) {
@@ -239,7 +250,12 @@ void main() {
   }
 
   testWidgets('a feedback line moves nothing else on the page', (tester) async {
-    await pump(tester, size: const Size(1440, 900), web: true);
+    await pump(
+      tester,
+      size: const Size(1440, 900),
+      web: true,
+      signupOpen: true,
+    );
     Offset at(String text) => tester.getTopLeft(find.text(text));
     final before = {
       for (final text in [
@@ -258,14 +274,50 @@ void main() {
     }
   });
 
-  testWidgets('declined and expired keep the same screen', (tester) async {
+  for (final status in [
+    GuardianConsentStatus.declined,
+    GuardianConsentStatus.expired,
+    GuardianConsentStatus.none,
+  ]) {
+    testWidgets('a $status request ends on the saved block', (tester) async {
+      await AppPreferencesRepository(db).setGuardianContact(
+        name: 'Maria',
+        email: 'maria@gmail.com',
+      );
+      gateway.current = GuardianStatus(
+        status: status,
+        maskedEmail: 'm***@g***.com',
+      );
+      await pump(tester);
+      expect(blocked, 1);
+      final repo = AppPreferencesRepository(db);
+      expect(await repo.blockedMinimumAge(), 18);
+      expect(await repo.guardianContact(), isNull);
+      expect(find.text('Change Email'), findsNothing);
+    });
+  }
+
+  testWidgets('Check Again after a decline ends on the saved block',
+      (tester) async {
+    await pump(tester);
+    expect(blocked, 0);
     gateway.current = const GuardianStatus(
       status: GuardianConsentStatus.declined,
-      maskedEmail: 'm***@g***.com',
     );
+    await tester.tap(find.text('Check Again'));
+    await tester.pumpAndSettle();
+    expect(blocked, 1);
+    expect(await AppPreferencesRepository(db).blockedMinimumAge(), 18);
+  });
+
+  testWidgets('a pending request keeps Check Again and nothing else',
+      (tester) async {
     await pump(tester);
-    expect(find.text('Waiting for your parent or guardian'), findsOneWidget);
-    expect(find.text('Change Email'), findsOneWidget);
+    expect(blocked, 0);
+    expect(find.text('Check Again'), findsOneWidget);
+    expect(find.text('Resend Email'), findsNothing);
+    expect(find.text('Change Email'), findsNothing);
+    expect(await AppPreferencesRepository(db).blockedMinimumAge(), isNull);
   });
 
   testWidgets('Check Again moves on once a guardian confirmed', (tester) async {
@@ -282,7 +334,7 @@ void main() {
 
   testWidgets('Check Again while still pending stays and reads the server',
       (tester) async {
-    await pump(tester);
+    await pump(tester, signupOpen: true);
     await tester.tap(find.text('Check Again'));
     await tester.pumpAndSettle();
     expect(cleared, 0);
@@ -291,7 +343,7 @@ void main() {
     // The line sits under the buttons.
     expect(
       tester.getTopLeft(find.text('Not confirmed yet.')).dy,
-      greaterThan(tester.getBottomLeft(find.text('Change Email')).dy),
+      greaterThan(tester.getBottomLeft(find.text('Check Again')).dy),
     );
   });
 
@@ -320,7 +372,7 @@ void main() {
       name: 'Maria',
       email: 'maria@gmail.com',
     );
-    await pump(tester);
+    await pump(tester, signupOpen: true);
     await tester.tap(find.text('Resend Email'));
     await tester.pumpAndSettle();
     expect(gateway.sent.single.email, 'maria@gmail.com');
@@ -331,7 +383,7 @@ void main() {
 
   testWidgets('Resend Email with no saved contact opens Change Email',
       (tester) async {
-    await pump(tester);
+    await pump(tester, signupOpen: true);
     await tester.tap(find.text('Resend Email'));
     await tester.pumpAndSettle();
     expect(gateway.sent, isEmpty);
@@ -339,7 +391,7 @@ void main() {
   });
 
   testWidgets('Change Email opens the contact form', (tester) async {
-    await pump(tester);
+    await pump(tester, signupOpen: true);
     await tester.tap(find.text('Change Email'));
     await tester.pumpAndSettle();
     expect(changed, 1);
@@ -363,7 +415,7 @@ void main() {
       name: 'Maria',
       email: 'maria@gmail.com',
     );
-    await pump(tester);
+    await pump(tester, signupOpen: true);
     gateway.failure = const GuardianRateLimitedException();
     await tester.tap(find.text('Resend Email'));
     await tester.pumpAndSettle();

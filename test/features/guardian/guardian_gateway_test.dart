@@ -1,3 +1,4 @@
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
@@ -190,5 +191,35 @@ void main() {
       malformed.status(),
       throwsA(isA<GuardianGatewayException>()),
     );
+  });
+
+  test('the closed refusal becomes its own typed error', () {
+    final closed = guardianFailureFrom(
+      FirebaseFunctionsException(
+        message: 'New guardian requests are closed.',
+        code: 'failed-precondition',
+        details: {'reason': 'minor-signup-closed'},
+      ),
+    );
+    expect(closed, isA<GuardianSignupClosedException>());
+    expect(closed.code, 'minor-signup-closed');
+  });
+
+  test('other failed-precondition refusals stay generic', () {
+    for (final details in <Object?>[
+      null,
+      const {'reason': 'something-else'},
+      'minor-signup-closed',
+    ]) {
+      final error = guardianFailureFrom(
+        FirebaseFunctionsException(
+          message: 'no',
+          code: 'failed-precondition',
+          details: details,
+        ),
+      );
+      expect(error, isNot(isA<GuardianSignupClosedException>()));
+      expect(error.code, 'failed-precondition');
+    }
   });
 }

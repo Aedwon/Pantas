@@ -137,6 +137,13 @@ final routerProvider = Provider<GoRouter>((ref) {
             ? null
             : '/guardian/waiting';
       }
+      if (guardian == GuardianGate.closed) {
+        // Under-18 sign-up is closed and this device is blocked. Onboarding
+        // resumes on the saved blocked page, and nothing else is reachable.
+        return path == '/onboarding' || path.startsWith('/onboarding/')
+            ? null
+            : '/onboarding';
+      }
       if (path.startsWith('/guardian/')) {
         return guardian == GuardianGate.needsContact ? '/onboarding' : '/home';
       }
