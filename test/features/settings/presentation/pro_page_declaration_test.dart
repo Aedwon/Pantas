@@ -36,7 +36,8 @@ const _guardianLabel =
     'Terms and refund policy.';
 const _link = 'Terms and refund policy';
 const _buy = 'Buy 1 Month for ₱149';
-const _generic = "We couldn't confirm your subscription. Try again.";
+// Web plans are prepaid, so web never says "subscription" (integrator ruling, Nov 26).
+const _generic = "We couldn't start your payment. Try again.";
 
 final _guardianSignal = StateProvider<bool>((ref) => false);
 final _accountSignal = StateProvider<String>((ref) => 'owner');
@@ -330,10 +331,26 @@ void main() {
       await tick(tester);
       await buy(tester, wide: wide);
       expect(find.text(_generic), findsOneWidget);
+      expect(find.textContaining('subscription'), findsNothing);
       expect(
         find.text('Read the box again, then tick it to pay.'),
         findsNothing,
       );
+    });
+
+    testWidgets('checkout closed on the server says payments open soon, $where',
+        (tester) async {
+      refusal = FirebaseFunctionsException(
+        message: 'Purchases are not open yet.',
+        code: 'failed-precondition',
+        details: const {'reason': 'checkout-closed'},
+      );
+      await pumpPro(tester, wide: wide);
+      await tick(tester);
+      await buy(tester, wide: wide);
+      expect(find.text('Payments open soon.'), findsOneWidget);
+      expect(find.text(_generic), findsNothing);
+      expect(find.textContaining('subscription'), findsNothing);
     });
   }
 

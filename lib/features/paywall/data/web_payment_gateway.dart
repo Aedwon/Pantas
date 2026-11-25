@@ -672,6 +672,13 @@ PaymentOperationStatus _statusForError(Object error) {
   if (_declarationKindFrom(error) != null) {
     return PaymentOperationStatus.guardianConfirmationRequired;
   }
+  // The server does not take payments yet.
+  if (error is FirebaseFunctionsException &&
+      error.code == 'failed-precondition' &&
+      error.details is Map &&
+      (error.details as Map)['reason'] == 'checkout-closed') {
+    return PaymentOperationStatus.checkoutClosed;
+  }
   return switch (error.code) {
     'invalid-argument' ||
     'failed-precondition' =>

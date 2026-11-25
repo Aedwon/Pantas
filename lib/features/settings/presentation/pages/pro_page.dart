@@ -513,10 +513,16 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         PaymentOperationStatus.entitlementNotActive =>
           "We found a purchase, but Pro couldn't be confirmed yet. "
               'Try again in a moment.',
+        PaymentOperationStatus.checkoutClosed => 'Payments open soon.',
+        // Web plans are prepaid: a web checkout never says "subscription".
         PaymentOperationStatus.storeFailure => ref.read(paymentsOnWebProvider)
-            ? "We couldn't confirm your subscription. Try again."
+            ? (restore
+                ? "We couldn't confirm your subscription. Try again."
+                : "We couldn't start your payment. Try again.")
             : "Google Play couldn't complete this purchase. Try again.",
-        _ => "We couldn't confirm your subscription. Try again.",
+        _ => ref.read(paymentsOnWebProvider) && !restore
+            ? "We couldn't start your payment. Try again."
+            : "We couldn't confirm your subscription. Try again.",
       };
 
   /// Opens the Terms from the link in the declaration. The box is untouched.
