@@ -4587,3 +4587,7 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Checks:** CI green on b7af9296e (goldens on the CI image); sign-in and placement tests 62 locally; staging Worker 670f339c compare 92 of 92.
 - **Prod (14:11 UTC, 10:11 PM Manila):** the Worker was still bbda6fe1 (build 3320840764-ac70997d11f9) right before. Build 1824832603-617874ea88d2 from main 744c3b4c5 (lib/main_prod.dart, prod site key, BETA_GATE=true, SCREEN_COUNTS=true, SELLER_* loaded privately, lengths only); Worker 9db02156-d557-4285-8436-e26098d16ca3; compare 92 of 92; headless 1440 dark render of the live sign-in page matches. Web ships now go to the Worker only (PR #132). 30-minute watch to 14:41 UTC.
 - **Rollback:** `npx -y wrangler@4.162.0 rollback bbda6fe1-4273-4d76-bb4e-d007bc9cc341 -c tool/cloudflare-app/wrangler.prod.jsonc` (also in `Pantas-private/releases/2026-11-25-signin-buttons/rollback.md`).
+
+### Nov 25, about 10:20 PM Manila: homepage seller line approved (operations manager)
+
+- Aedwon, verbatim: "yes on that", to the footer line under the founder note: "Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · +63 968 854 2343 · support@pantas.study" (pantas-web legal/homepage-seller-r1). Publishes with the legal pages at the opening.
