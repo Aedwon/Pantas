@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/remote/content_limit.dart';
+import 'package:pantas/features/first_run/application/first_run_data.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/features/first_run/domain/first_run_progress.dart';
 
+import '../../../helpers/button_placement.dart';
 import '../first_run_harness.dart';
 
 void main() {
+  errorAndPlacementTests();
   group('intro', () {
     testWidgets('phone shows the strings and a stacked pair of 52',
         (tester) async {
@@ -318,6 +322,77 @@ void main() {
         'question3',
         'end',
       ]);
+    });
+  });
+}
+
+void errorAndPlacementTests() {
+  group('errors', () {
+    testWidgets('a lesson that will not load shows the connection state',
+        (tester) async {
+      await pumpFirstRun(
+        tester,
+        progressJson: '{"uid":"u1","examId":"exam_upcat","step":"lesson",'
+            '"picks":{},"checked":[]}',
+        extra: [
+          firstRunDataProvider.overrideWith(
+            (ref, examId) async => throw StateError('offline'),
+          ),
+        ],
+      );
+      expect(find.text('This needs a connection.'), findsOneWidget);
+      expect(find.text('Try Again'), findsOneWidget);
+      expect(find.text('Skip'), findsOneWidget);
+    });
+
+    testWidgets('the daily limit shows its own message', (tester) async {
+      await pumpFirstRun(
+        tester,
+        progressJson: '{"uid":"u1","examId":"exam_upcat","step":"lesson",'
+            '"picks":{},"checked":[]}',
+        extra: [
+          contentLimitReachedProvider.overrideWith((ref) => true),
+          firstRunDataProvider.overrideWith(
+            (ref, examId) async => throw StateError('limit'),
+          ),
+        ],
+      );
+      expect(find.text(contentLimitMessage), findsOneWidget);
+    });
+
+    testWidgets('Skip works from the error state', (tester) async {
+      final rig = await pumpFirstRun(
+        tester,
+        progressJson: '{"uid":"u1","examId":"exam_upcat","step":"lesson",'
+            '"picks":{},"checked":[]}',
+        extra: [
+          firstRunDataProvider.overrideWith(
+            (ref, examId) async => throw StateError('offline'),
+          ),
+        ],
+      );
+      await tester.tap(find.text('Skip'));
+      await tester.pumpAndSettle();
+      expect(rig.location, '/home');
+    });
+  });
+
+  group('wide placement', () {
+    testWidgets('intro', (tester) async {
+      await pumpFirstRun(tester, width: 1440);
+      expectWidePlacement(tester);
+    });
+
+    testWidgets('end', (tester) async {
+      await pumpFirstRun(
+        tester,
+        width: 1440,
+        progressJson: '{"uid":"u1","examId":"exam_upcat","step":"end",'
+            '"picks":{"q1":"q1-c1","q2":"q2-c1","q3":"q3-c1"},'
+            '"checked":["q1","q2","q3"]}',
+      );
+      await tester.pumpAndSettle(const Duration(seconds: 4));
+      expectWidePlacement(tester);
     });
   });
 }
