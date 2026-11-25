@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 
@@ -71,6 +72,21 @@ void main() {
     await settle();
 
     expect(gateways, hasLength(2));
+    expect(identical(current, gateways.last), isTrue);
+    expect(gateways.last.loggedInUids, ['pro-user']);
+  });
+
+  test('an exam change in Settings keeps the account on the gateway', () async {
+    auth.current = const AuthSession(uid: 'pro-user', email: 'p@example.test');
+    await bootstrapRevenueCat(container);
+
+    // What the exam page does after an exam change (exam_page.dart).
+    container
+      ..invalidate(appPreferencesRepositoryProvider)
+      ..invalidate(activeExamFocusProvider);
+    final current = container.read(revenueCatGatewayProvider);
+    await settle();
+
     expect(identical(current, gateways.last), isTrue);
     expect(gateways.last.loggedInUids, ['pro-user']);
   });
