@@ -35,6 +35,8 @@ export const FREE = {
   firestoreWritesPerDay: 20000,
   firestoreDeletesPerDay: 20000,
 };
+// Prod's reCAPTCHA daily cap may rise to this for real users (his "yes", Nov 25, launch limits at 500 sign-ups).
+const PROD_RECAPTCHA_DAILY_CEILING = 1000;
 // Staging has no real users: its budget is 80% of the free quota, shared by every lane (security lead
 // ruling, Nov 16, 2026; docs/deploy-prod.md "Staging read budget").
 const STAGING_BUDGET = {readsPerDay: 40000, writesPerDay: 16000};
@@ -121,8 +123,14 @@ export function judge(data, {waivers, now}) {
   const caps = projects.filter(([, p]) => p.recaptchaCap !== null);
   const unlimited = caps.some(([, p]) => p.recaptchaCap < 0);
   const month = caps.reduce((t, [, p]) => t + Math.max(p.recaptchaCap, 0) * 31, 0);
-  add(unlimited || month > FREE.recaptchaPerMonth ? 'OVER' : 'OK', 'reCAPTCHA CreateAssessment caps',
-    `${unlimited ? 'a project has no cap' : month} in a 31-day month (${caps.map(([id, p]) => `${short(id)} ${p.recaptchaCap < 0 ? 'none' : p.recaptchaCap} a day`).join(', ')}), free ${FREE.recaptchaPerMonth}`);
+  // Staging is a fixed item and must fit the free tier alone. Prod's cap is for real users, up to the
+  // ceiling Aedwon approved (launch limits, Nov 25: 1,000 a day); past the free tier only users can cost.
+  const capOf = (id) => caps.find(([name]) => name === id)?.[1].recaptchaCap ?? 0;
+  const stagingOver = Math.max(capOf('pantas-staging'), 0) * 31 > FREE.recaptchaPerMonth;
+  const prodOver = capOf('pantas-prod') > PROD_RECAPTCHA_DAILY_CEILING;
+  const recaptchaStatus = unlimited || stagingOver || prodOver ? 'OVER' : month > FREE.recaptchaPerMonth ? 'WARN' : 'OK';
+  add(recaptchaStatus, 'reCAPTCHA CreateAssessment caps',
+    `${unlimited ? 'a project has no cap' : month} in a 31-day month (${caps.map(([id, p]) => `${short(id)} ${p.recaptchaCap < 0 ? 'none' : p.recaptchaCap} a day`).join(', ')}), free ${FREE.recaptchaPerMonth}; prod ceiling ${PROD_RECAPTCHA_DAILY_CEILING} a day for users`);
 
   const opsStatus = [];
   const opsText = [];

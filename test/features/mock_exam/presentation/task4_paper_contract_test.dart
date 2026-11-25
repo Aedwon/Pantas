@@ -82,7 +82,7 @@ void main() {
       expect(tester.getSize(find.byType(PantasProgressBar)).height, 5);
     });
     testWidgets(
-        'last-minute clock keeps the warning color, never red, '
+        'last-minute clock turns red (MK_LastMinute), '
         'dark=$dark', (tester) async {
       await tester.pumpWidget(
         paper(
@@ -94,8 +94,7 @@ void main() {
       );
       final context = tester.element(find.byType(MockSessionPage));
       final text = tester.widget<Text>(find.text('00:58'));
-      expect(text.style!.color, context.colors.warningText);
-      expect(text.style!.color, isNot(context.colors.dangerText));
+      expect(text.style!.color, context.colors.dangerText);
       final a = text.style!.color!.computeLuminance();
       final b = context.colors.bgPage.computeLuminance();
       expect(
@@ -117,7 +116,30 @@ void main() {
             .warning,
         isTrue,
       );
-      expect(find.text('5 min left'), findsOneWidget);
+      expect(find.text('5 min left'), findsNothing);
+    });
+    testWidgets('last-minute clock and bar turn red, dark=$dark',
+        (tester) async {
+      await tester.pumpWidget(
+        paper(
+          theme: theme,
+          remaining: const Duration(seconds: 40),
+          still: true,
+        ),
+      );
+      await tester.pump();
+      final colors = tester.element(find.byType(PantasProgressBar)).colors;
+      final fill = tester.widget<DecoratedBox>(
+        find.byKey(const ValueKey('progress-bar-fill')),
+      );
+      expect((fill.decoration as BoxDecoration).color, colors.danger);
+      expect(
+        tester
+            .widget<Text>(find.byKey(const ValueKey('timer-time')))
+            .style!
+            .color,
+        colors.dangerText,
+      );
     });
   }
 }

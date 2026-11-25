@@ -63,10 +63,15 @@ Entitlement entitlementFromGrants(
     }
     final endsAt = DateTime.fromMillisecondsSinceEpoch(end, isUtc: true);
     if (!endsAt.isAfter(at)) continue;
-    if (row['source'] == 'beta' && productId == 'beta_pro') {
+    // A tester's reward (and the owner's grant) covers its own exam, for any
+    // exam, as the server's coverageAt does (audit ENT-06).
+    final isReward = row['source'] == 'beta_reward';
+    if (isReward || (row['source'] == 'beta' && productId == 'beta_pro')) {
       final examId = row['examId'];
       if (examId is String &&
-          const {'exam_cse_pro', 'exam_cse_sub'}.contains(examId)) {
+          examId.isNotEmpty &&
+          (isReward ||
+              const {'exam_cse_pro', 'exam_cse_sub'}.contains(examId))) {
         final previous = betaPasses[examId];
         if (previous == null || endsAt.isAfter(previous)) {
           betaPasses[examId] = endsAt;

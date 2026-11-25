@@ -276,6 +276,7 @@ class _LessonPageState extends ConsumerState<LessonPage> {
       lessonIds: day.lessonIds,
       index: index,
       moreToDo: day.moreToDo,
+      backLabel: day.backLabel,
     );
   }
 
@@ -1428,7 +1429,6 @@ class _ReaderBodyState extends ConsumerState<_ReaderBody>
     }
     return PantasSheet(
       label: 'Contents',
-      closeLabel: 'Close',
       readerContents: true,
       scrollable: false,
       open: _contentsOpen,

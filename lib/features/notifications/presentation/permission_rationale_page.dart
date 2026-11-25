@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -77,6 +78,8 @@ class _PermissionRationalePageState
                           PantasButton(
                             label: 'Not right now',
                             variant: PantasButtonVariant.tertiary,
+                            // O_Notify: the 52 full-width ghost button.
+                            size: PantasButtonSize.phone,
                             onPressed: _isSaving
                                 ? null
                                 : () => _continue(requestPermission: false),

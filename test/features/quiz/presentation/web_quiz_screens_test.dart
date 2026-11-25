@@ -124,9 +124,12 @@ void main() {
           expect(find.text('First, a short assessment'), findsOneWidget);
         }
         if (state is SessionPanelInProgress) {
+          // Board A (W_Quiz, his pick Nov 25): no sentence; Discard then
+          // Resume at the right of the foot.
+          expect(find.textContaining('You paused'), findsNothing);
           expect(
-            find.text('You paused. Every answer was saved.'),
-            findsOneWidget,
+            tester.getCenter(find.text('Discard this session')).dx,
+            lessThan(tester.getCenter(find.text('Resume')).dx),
           );
         }
         if (state is SessionPanelCaughtUp) {
@@ -188,7 +191,18 @@ void main() {
           final close = find.byKey(const ValueKey('results-close'));
           expect(tester.getSize(close), const Size(44, 44));
           expect(tester.getTopLeft(close), const Offset(20, 10));
-          expect(tester.getTopLeft(find.text('Done')).dy, greaterThan(400));
+          // Button placement: Done is top right, level with the title.
+          final title = find.text(
+            correct == 10 ? 'Perfect!' : 'Session finished.',
+          );
+          expect(
+            tester.getCenter(find.text('Done')).dy,
+            closeTo(tester.getCenter(title).dy, 1),
+          );
+          expect(
+            tester.getTopLeft(find.text('Done')).dx,
+            greaterThan(tester.getTopRight(title).dx),
+          );
           expect(tester.takeException(), isNull);
         });
       }

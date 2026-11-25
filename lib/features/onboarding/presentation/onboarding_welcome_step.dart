@@ -21,9 +21,6 @@ import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart
 const double _logoWide = 120;
 const double _logoPhone = 104;
 
-/// Wide web: the Get Started button's width, as the HTML welcome has it.
-const double _buttonWidth = 260;
-
 /// Phone: space above the mark, which sets the title at the board's height.
 const double _phoneLogoTop = 180;
 
@@ -89,17 +86,14 @@ class OnboardingWelcomeStep extends StatelessWidget {
                         .copyWith(color: t.colors.textSecondary),
                   ),
                   const SizedBox(height: PantasSpace.s44),
-                  // The HTML welcome the first visit shows has a 260 px button
-                  // (OB_Welcome). This step, shown after Back, matches it.
-                  SizedBox(
-                    width: _buttonWidth,
-                    child: WebButton(
-                      label: 'Get Started',
-                      large: true,
-                      expand: true,
-                      keyHint: 'Enter',
-                      onPressed: onAdvance,
-                    ),
+                  // Wide button placement (patterns.md): a centered layout
+                  // centers its single action at natural width. The HTML
+                  // welcome the first visit shows is a separate page.
+                  WebButton(
+                    label: 'Get Started',
+                    large: true,
+                    keyHint: 'Enter',
+                    onPressed: onAdvance,
                   ),
                 ],
               ),

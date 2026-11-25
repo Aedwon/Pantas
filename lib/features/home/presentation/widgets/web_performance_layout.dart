@@ -505,6 +505,8 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     return KeyedSubtree(
       key: const ValueKey('performance-table'),
       child: PantasDataTable(
+        // Boards PF_Subjects, PF_Topics, PF_Lessons draw no header row.
+        showHeader: false,
         columns: columns,
         rows: [for (final row in rows) cells(row)],
         childRows: {

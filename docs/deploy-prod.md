@@ -170,8 +170,11 @@ flutter build web --release -t lib/main_prod.dart --dart-define=APP_CHECK_WEB_SI
   --dart-define=SELLER_PLACE_OF_BUSINESS="<full place of business>" \
   --dart-define=SELLER_PHONE="<business phone>"
 node tool/web/stamp_worker_version.mjs build/web
-firebase deploy --only hosting:app --project pantas-prod
+tool/cloudflare-app/deploy.sh prod build/web
 ```
+
+The Cloudflare Worker serves the app (section 14). Firebase Hosting serves only the tiny page in
+`hosting/retired`, so a release never deploys Hosting.
 
 A build without the site key compiles but refuses to start in release mode.
 A public build (no `BETA_GATE=true`) also refuses to start while any `SELLER_*` fact above is missing. The seller line beside Pay shows them (ruling D3). Staging and beta builds start with brackets.
@@ -319,11 +322,11 @@ passes about $20 a month across both projects. Private detail (ids, exact rollba
 
 What is in place:
 
-- **Budget email:** one $20-a-month budget on the whole billing account (prod and staging). Email at
-  $10, at 100% actual and at 100% forecast.
+- **Budget email:** one $40-a-month budget on the whole billing account (prod and staging). Email at
+  $20, at 100% actual and at 100% forecast. Raised from $20 on Nov 25 (launch limits at 500 sign-ups, his "yes").
 - **Automatic cutoff:** a `billing-cutoff` Cloud Run function in each project, on the `billing-cutoff`
   Pub/Sub topic. It removes the billing account from its own project when either:
-  - that project's cutoff budget passes its amount (staging $5; prod $15, which Aedwon raises as the
+  - that project's cutoff budget passes its amount (staging $5; prod $30 since Nov 25, was $15, which Aedwon raises as the
     user base grows), or
   - a usage alarm named `billing-cutoff: ...` opens (Hosting bytes, Storage egress, Firestore reads,
     Firestore writes, each per hour and per day). Alarms react within minutes; budget data lags hours.
@@ -333,10 +336,16 @@ What is in place:
   ruling, Nov 14). On Nov 21, compare them with a week of prod peaks, then wire each one: rename it to
   `billing-cutoff: ...` and add a Pub/Sub notification channel for the `billing-cutoff` topic (first
   grant the project's Monitoring notification agent `roles/pubsub.publisher` on the topic; the agent
-  exists once a Pub/Sub channel is created). Prod's budget cutoff ($15) is live now.
+  exists once a Pub/Sub channel is created). Prod's budget cutoff ($30 since Nov 25; was $15) is live now.
 - **Spend caps:** each project pauses Cloud Run and Cloud Run functions at $5 a month (Google's spend
   cap feature). New function requests pause until the next month or a lift.
-- **Bot-check cap:** reCAPTCHA assessments are limited to 300 a day per project (resets at Pacific midnight).
+- **Bot-check cap:** reCAPTCHA assessments are limited per project per day (resets at Pacific midnight): prod 1,000
+  (Nov 25, launch limits; was 280), staging 40. Prod's App Check token lives 6 hours (Nov 25; was 1 hour), so a
+  signed-in student needs about 4 assessments a day at most. Free up to 10,000 a month, then $8 flat to 100,000.
+- **Sign-in mail:** Resend Free, 100 a day across sign-in, guardian and the website. Prod caps (Nov 25): open 60,
+  reserved 30; guardian mail is closed (option C). Above 80 sign-in mails in a Philippine day the function logs
+  `Sign-in emails passed 80 today`, and the prod alert "Sign-in mail above 80 a day" emails the owner. Moving to
+  Resend Pro ($20 a month) is his call.
 - **Instance caps:** 3 per function, 10 for the payment webhooks, 5 for account deletion (in code).
 - **NPC registration alert:** the daily job counts users whose age group is on file and logs
   `npc registration threshold near <count> of 1000` at 800 or more (NPC Circular 2022-04 makes
@@ -412,11 +421,11 @@ of Firebase Hosting, which bills every byte (security audit S-01). Code and tool
   Firebase (prod: `pantas-prod.firebaseapp.com`; staging: `pantas-staging-app.web.app`). Everything else
   is a static file, with `index.html` for app routes. Headers match what Firebase sent (`headers.prod`,
   `headers.staging`).
-- **Every web deploy now has two parts, and the Worker part never downloads from Firebase.** Firebase
-  Hosting bills every byte it sends (rule 7; the Nov 14 mirror runs billed egress with no users). Deploy
-  to Firebase Hosting as before, then publish the same local build to the Worker:
+- **Every web deploy goes to the Worker only, and never downloads from Firebase.** Firebase Hosting
+  bills every byte it sends (rule 7; the Nov 14 mirror runs billed egress with no users). Since Nov 25,
+  Firebase Hosting holds only the tiny page (below), so publish the local build to the Worker:
   1. `tool/cloudflare-app/deploy.sh prod|staging build/web` (wrangler login on Aedwon's Mac). It
-     publishes from the local build folder only, the same files the Firebase deploy uploaded.
+     publishes from the local build folder only, the output of the usual build and stamp step.
   2. Wait a minute: right after a Worker deploy, some files can return 404 for under a minute while
      Cloudflare's servers update. Then run
      `node tool/cloudflare-app/compare.mjs https://<host> build/web <web api key>`
@@ -426,13 +435,22 @@ of Firebase Hosting, which bills every byte (security audit S-01). Code and tool
   `mirror.mjs` (copy the live Firebase release) is for emergencies only, for example a lost local
   build. It downloads about 50 MB from Firebase, which is billed. The free-tier check allows it as the
   one named exception. Do not put it in a deploy.
-  A Firebase-only deploy no longer reaches users.
+  A Firebase Hosting deploy (`firebase deploy --only hosting:app`) now publishes only the tiny page.
 - **Rollback** (about a minute): detach the Worker's custom domain (Cloudflare Workers, the Worker,
   Settings, Domains; or the API), then add back the DNS-only CNAME `app.pantas.study` →
   `pantas-prod.web.app` (staging: `staging.pantas.study` → `pantas-staging-app.web.app`), TTL auto.
-  Firebase still holds the full build until the tiny page below.
-- **The tiny Firebase page** (closes S-01 on `pantas-prod.web.app`): only after 48 clean hours and one
-  confirmed real Google sign-in on prod from the logs (Fable 5.2 ruling A). The integrator deploys it.
+  Firebase holds only the tiny page now, so first put the full build back on Firebase from the same
+  local build: `firebase deploy --only hosting:app --public build/web --project pantas-prod` (staging:
+  add `--config firebase.staging.json`, project `pantas-staging`). The last full-build prod release
+  before the tiny page is Hosting version 13ccf513774445d7 (Nov 25); while it is still current,
+  `firebase hosting:clone pantas-prod@13ccf513774445d7 pantas-prod:live` restores it server side with
+  no download (staging: `pantas-staging-app@079f1717da10b22f`).
+- **The tiny Firebase page** (closes S-01 on `pantas-prod.web.app` and `pantas-prod.firebaseapp.com`;
+  checklist S6; live since Nov 25, after his real Google sign-in through app.pantas.study at 13:10 UTC,
+  Fable 5.2 ruling A). `hosting/retired` holds `index.html` (sends every path on to app.pantas.study)
+  and `pantas_sw.js` (removes an old installed service worker and its caches). The app target's
+  `public` in `firebase.json` and `firebase.staging.json` points at it. Firebase's `/__/` sign-in paths
+  are reserved and keep working, so the Worker's forwarding is unchanged.
 - **Free-plan limit:** requests that run the Worker script (`/__/*` only) count against 100,000 a day;
   above that, new sign-ins fail with 429 until midnight UTC. Static files are unaffected.
 

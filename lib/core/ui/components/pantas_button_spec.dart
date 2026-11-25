@@ -45,8 +45,19 @@ enum PantasButtonSize {
   /// `btn--pill-sm`: 44, a pill when filled.
   pillSm,
 
-  /// `btn--phone`: 52, full width.
+  /// `btn--phone`: 52, full width. A filled button, or the stacked ghost
+  /// button under it where a board draws one (Every Day, Not Right Now).
   phone,
+
+  /// `btn--text-phone`: 44, natural width, 17/600. The phone tertiary button.
+  textPhone,
+
+  /// `btn--text-phone-sm`: the 15/600 line, 24 high ("Restore Purchases").
+  textPhoneSm,
+
+  /// `btn--report`: 40 high, radius 10, 15/600 label (QN_Report web, the
+  /// Cancel and Send pair).
+  report,
 }
 
 /// True for the kind by tone pairs the matrix allows. Neutral and white have
@@ -124,20 +135,21 @@ PantasButtonMetrics pantasButtonMetrics(
         style: PantasType.webLabel,
         fullWidth: false,
       ),
-    PantasButtonSize.standard => const PantasButtonMetrics(
-        height: PantasSize.btn,
+    // A wide text button is the boards' `.btn3`: 42 high, 14 beside the label.
+    PantasButtonSize.standard => PantasButtonMetrics(
+        height: tertiary ? PantasSize.btnSm : PantasSize.btn,
         radius: PantasRadius.md,
-        padLeft: PantasSpace.s20,
-        padRight: PantasSpace.s20,
+        padLeft: tertiary ? PantasSpace.s14 : PantasSpace.s20,
+        padRight: tertiary ? PantasSpace.s14 : PantasSpace.s20,
         gap: PantasSpace.s8,
         style: PantasType.webButton,
         fullWidth: false,
       ),
-    PantasButtonSize.sm => const PantasButtonMetrics(
+    PantasButtonSize.sm => PantasButtonMetrics(
         height: PantasSize.btnSm,
         radius: PantasRadius.md,
-        padLeft: PantasSpace.s18,
-        padRight: PantasSpace.s18,
+        padLeft: tertiary ? PantasSpace.s14 : PantasSpace.s18,
+        padRight: tertiary ? PantasSpace.s14 : PantasSpace.s18,
         gap: PantasSpace.s8,
         style: PantasType.webButton,
         fullWidth: false,
@@ -179,6 +191,15 @@ PantasButtonMetrics pantasButtonMetrics(
         style: PantasType.webLink,
         fullWidth: false,
       ),
+    PantasButtonSize.report => PantasButtonMetrics(
+        height: PantasSize.iconBtnMd,
+        radius: PantasRadius.report,
+        padLeft: tertiary ? PantasSpace.s14 : PantasSpace.s20,
+        padRight: tertiary ? PantasSpace.s14 : PantasSpace.s20,
+        gap: PantasSpace.s8,
+        style: PantasType.webLink,
+        fullWidth: false,
+      ),
     PantasButtonSize.pillSm => PantasButtonMetrics(
         height: PantasSize.btn,
         radius: tertiary ? PantasRadius.md : PantasRadius.full,
@@ -197,13 +218,35 @@ PantasButtonMetrics pantasButtonMetrics(
         style: PantasType.phoneHeadline,
         fullWidth: true,
       ),
+    PantasButtonSize.textPhone => const PantasButtonMetrics(
+        height: PantasSize.btn,
+        radius: PantasRadius.md,
+        padLeft: PantasSpace.s4,
+        padRight: PantasSpace.s8,
+        gap: PantasSpace.s8,
+        style: PantasType.phoneHeadline,
+        fullWidth: false,
+      ),
+    PantasButtonSize.textPhoneSm => const PantasButtonMetrics(
+        height: PantasSize.targetPointerMin,
+        radius: PantasRadius.md,
+        padLeft: PantasSpace.s8,
+        padRight: PantasSpace.s8,
+        gap: PantasSpace.s8,
+        style: PantasType.webLink,
+        fullWidth: false,
+      ),
   };
   if (h == null || h == base.height) return base;
+  // The onboarding boards draw the wide text button 48 high with 16 beside.
+  final tall = tertiary &&
+      (size == PantasButtonSize.standard || size == PantasButtonSize.sm) &&
+      h == PantasSize.btn + PantasSpace.s4;
   return PantasButtonMetrics(
     height: h,
     radius: base.pill ? base.radius : pantasButtonRadiusForHeight(h),
-    padLeft: base.padLeft,
-    padRight: base.padRight,
+    padLeft: tall ? PantasSpace.s16 : base.padLeft,
+    padRight: tall ? PantasSpace.s16 : base.padRight,
     gap: base.gap,
     style: base.style,
     fullWidth: base.fullWidth,

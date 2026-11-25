@@ -101,7 +101,13 @@ void main() {
       final size = tester.getSize(
         find.ancestor(of: retry, matching: find.byType(Material)).first,
       );
-      expect(size.height, greaterThanOrEqualTo(PantasSize.btn));
+      // A wide text button is 42 high (the boards' `.btn3`).
+      expect(
+        size.height,
+        greaterThanOrEqualTo(
+          cell.width >= 1024 ? PantasSize.btnSm : PantasSize.btn,
+        ),
+      );
     },
   );
 

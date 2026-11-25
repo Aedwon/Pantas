@@ -227,6 +227,15 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
       });
 
   /// What a search that finds no exam says, worded as the Study search is.
+  /// The phone load failure, as boards O_Picker and OB_PickerError draw it:
+  /// "Could not load exams." and a Retry pill. The error stays unrendered.
+  Widget _loadError(Object error) => StateView(
+        message: 'Could not load exams.',
+        error: error,
+        actionLabel: 'Retry',
+        onRetry: () => ref.invalidate(examPickerCatalogProvider),
+      );
+
   Widget _noMatch(BuildContext context) {
     final wide = context.wideWeb;
     final t = context.webTokens;
@@ -967,11 +976,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
                             rowHeight: PantasSize.optMin,
                             headerWidth: 110,
                           ),
-                          error: (error, _) => errorFor(
-                            'exams',
-                            () => ref.invalidate(examPickerCatalogProvider),
-                            error: error,
-                          ),
+                          error: (error, _) => _loadError(error),
                           data: (catalogEntries) {
                             if (_limitBlocks(catalogEntries)) {
                               return const StateView(
@@ -1138,11 +1143,7 @@ class _ExamPickerScreenState extends ConsumerState<ExamPickerScreen> {
           rowHeight: PantasSize.optMin,
           headerWidth: 110,
         ),
-        error: (error, _) => errorFor(
-          'exams',
-          () => ref.invalidate(examPickerCatalogProvider),
-          error: error,
-        ),
+        error: (error, _) => _loadError(error),
         data: (catalogEntries) {
           if (_limitBlocks(catalogEntries)) {
             return const StateView(message: contentLimitMessage);

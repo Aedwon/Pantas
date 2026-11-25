@@ -7,7 +7,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import '../../../helpers/accessibility.dart';
 import '../../../helpers/ds_matrix.dart';
 
-/// Explanation README, `.xpl-phone`: a 30px accent-fill key, the label
+/// Explanation README, `.xpl-phone`: a 30px bare-letter key, the label
 /// "Correct answer", and a 15/1.5 body in the primary text color.
 void main() {
   setUpAll(loadDsFonts);
@@ -32,13 +32,17 @@ void main() {
         expect(find.text('Your pick'), findsOneWidget);
         final key = find.byKey(const ValueKey('answer-reveal-key')).first;
         expect(tester.getSize(key), const Size(30, 30));
+        // The boards draw a bare letter, no circle (QV_MissPro, MK_ReviewQ).
         expect(
-          (tester.widget<DecoratedBox>(key).decoration as BoxDecoration).color,
-          colors.accentFill,
+          find.descendant(of: key, matching: find.byType(DecoratedBox)),
+          findsNothing,
         );
-        final letter = tester.widget<Text>(find.text('B'));
-        expect(letter.style!.color, colors.onAccent);
-        expect(letter.style!.fontWeight, FontWeight.w700);
+        for (final l in ['B', 'C']) {
+          final letter = tester.widget<Text>(find.text(l));
+          expect(letter.style!.color, colors.textSecondary, reason: l);
+          expect(letter.style!.fontWeight, FontWeight.w700, reason: l);
+          expect(letter.style!.fontSize, 15, reason: l);
+        }
         final body = tester.widget<MathText>(
           find.widgetWithText(
             MathText,

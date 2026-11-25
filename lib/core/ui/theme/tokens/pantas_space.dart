@@ -11,16 +11,8 @@ abstract final class PantasSpace {
   /// Component internals: label stacks, dot gaps, optical alignment.
   static const double s2 = 2;
 
-  /// Gap between the marks of the answer track in the session bar. New
-  /// (core loops B2).
-  static const double s3 = 3;
-
   /// Inline gaps, week strip gap, side padding of eyebrows.
   static const double s4 = 4;
-
-  /// Gap between the answer track and the count above it in the phone
-  /// session bar. New (core loops B2).
-  static const double s5 = 5;
 
   /// Component internal only (optical alignment, label stacks). Never a gap
   /// between blocks. Back link to title, tight icon gaps. Component

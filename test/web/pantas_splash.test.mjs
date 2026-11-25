@@ -5,9 +5,11 @@ import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
 
 const require = createRequire(import.meta.url);
-const { create, FADE_MS, GIVE_UP_MS, NEVER_STARTED_MS } = require('../../web/pantas_splash.js');
+const { create, FADE_MS, GIVE_UP_MS, NEVER_STARTED_MS, SPINNER_MS, NUMBER_CLOSE_MS } = require('../../web/pantas_splash.js');
 
-function setup({ welcomeShown = false, reduced = false } = {}) {
+function setup(opts = {}) {
+  const { welcomeShown = false, reduced = false } = opts;
+  const total = 'total' in opts ? opts.total : 1000;
   const classes = new Set();
   const timers = [];
   const links = [];
@@ -16,6 +18,8 @@ function setup({ welcomeShown = false, reduced = false } = {}) {
   const marks = [];
   let printed = 0;
   let splashRemoved = false;
+  const num = { textContent: '' };
+  const lab = { textContent: '' };
   const doc = {
     head: { appendChild: (link) => links.push(link) },
     createElement: () => ({}),
@@ -26,10 +30,13 @@ function setup({ welcomeShown = false, reduced = false } = {}) {
         remove: (...names) => names.forEach((n) => classes.delete(n)),
       },
     },
-    getElementById: (id) =>
-      id === 'pantas-splash' && !splashRemoved
+    getElementById: (id) => {
+      if (id === 'ps-num') return num;
+      if (id === 'ps-lab-n') return lab;
+      return id === 'pantas-splash' && !splashRemoved
         ? { remove: () => (splashRemoved = true) }
-        : null,
+        : null;
+    },
   };
   const splash = create({
     document: doc,
@@ -40,6 +47,7 @@ function setup({ welcomeShown = false, reduced = false } = {}) {
     onFirstFrame: (fn) => frameListeners.push(fn),
     mark: (name) => marks.push(name),
     printTiming: () => printed++,
+    loadTotal: () => total,
   });
   return {
     splash,
@@ -51,6 +59,11 @@ function setup({ welcomeShown = false, reduced = false } = {}) {
     marks,
     printed: () => printed,
     removed: () => splashRemoved,
+    num,
+    lab,
+    // Runs the 1.5 s timer, the way the clock would.
+    waited: () => timers.find((x) => x.ms === SPINNER_MS).fn(),
+    closeNumber: () => timers.find((x) => x.ms === NUMBER_CLOSE_MS).fn(),
   };
 }
 
@@ -290,4 +303,229 @@ test('the splash group centers at 42% of the height, using dvh with a vh fallbac
   const vh = block.indexOf('padding-bottom: 16vh;');
   const dvh = block.indexOf('padding-bottom: 16dvh;');
   assert.ok(vh > 0 && dvh > vh, 'vh fallback comes before dvh');
+});
+
+// Aedwon, Nov 24: "i think in the endeavor to better center the logo in mobile
+// view the web view was also moved up and now web is not centered." The 16%
+// lift was written for the phone. The approved wide board (Web_B_Still) centers
+// the group on the page, so from the wide breakpoint the lift is removed.
+test('on wide web the splash group is centered, with no bottom lift', () => {
+  const html = readFileSync(new URL('../../web/index.html', import.meta.url), 'utf8');
+  const start = html.indexOf('@media (min-width: 1024px) {', html.indexOf('#pantas-splash .ps-wm {'));
+  assert.ok(start > 0, 'wide splash media block present');
+  const block = html.slice(start, html.indexOf('@keyframes ps-pop', start));
+  assert.match(block, /#pantas-splash\s*\{\s*padding-bottom:\s*0;?\s*\}/);
+});
+
+// Loading row, board A (UX lead, Nov 25): spinner under the wordmark from 1.5 s,
+// the percent beside it only while bytes arrive, the number closes at 100%.
+
+test('before 1.5 s the splash shows no spinner row', () => {
+  const t = setup();
+  assert.equal(SPINNER_MS, 1500);
+  assert.ok(t.timers.some((x) => x.ms === SPINNER_MS));
+  assert.ok(!t.classes.has('ps-wait'));
+  assert.ok(!t.classes.has('ps-pct'));
+});
+
+test('a number that arrives before 1.5 s waits for the spinner', () => {
+  const t = setup();
+  t.splash.progress(30, 100);
+  assert.ok(!t.classes.has('ps-wait'));
+  assert.ok(!t.classes.has('ps-pct'));
+  t.waited();
+  assert.ok(t.classes.has('ps-wait'));
+  assert.ok(t.classes.has('ps-pct'));
+  assert.equal(t.num.textContent, '30%');
+});
+
+test('at 1.5 s with nothing downloading, only the spinner shows', () => {
+  const t = setup();
+  t.waited();
+  assert.ok(t.classes.has('ps-wait'));
+  assert.ok(!t.classes.has('ps-pct'));
+  assert.equal(t.num.textContent, '');
+});
+
+test('spinner and percent: the number follows the bytes and never goes back', () => {
+  const t = setup();
+  t.waited();
+  t.splash.progress(42, 100);
+  assert.ok(t.classes.has('ps-pct'));
+  assert.equal(t.num.textContent, '42%');
+  t.splash.progress(10, 100);
+  assert.equal(t.num.textContent, '42%');
+  t.splash.progress(5_700_000, 13_400_000);
+  assert.equal(t.num.textContent, '42%');
+  t.splash.progress(7, 8);
+  assert.equal(t.num.textContent, '87%');
+});
+
+test('at 100% the number closes after 200 ms and the spinner keeps going', () => {
+  const t = setup();
+  t.waited();
+  t.splash.progress(42, 100);
+  t.splash.progress(100, 100, true);
+  assert.equal(t.num.textContent, '100%');
+  assert.ok(t.classes.has('ps-pct'));
+  t.closeNumber();
+  assert.ok(!t.classes.has('ps-pct'));
+  assert.ok(t.classes.has('ps-wait'));
+  assert.equal(NUMBER_CLOSE_MS, 200);
+  t.splash.progress(50, 100);
+  assert.ok(!t.classes.has('ps-pct'), 'a closed number never comes back');
+});
+
+test('files that were already stored never print a number', () => {
+  const t = setup();
+  t.waited();
+  t.splash.progress(100, 100, true);
+  assert.ok(!t.classes.has('ps-pct'));
+  assert.equal(t.num.textContent, '');
+  assert.ok(!t.timers.some((x) => x.ms === NUMBER_CLOSE_MS));
+});
+
+test('a count the page cannot trust prints no number', () => {
+  const t = setup();
+  t.waited();
+  for (const bad of [[1, 0], [-1, 100], [NaN, 100], [1, Infinity], ['1', '2'], [null, null], [undefined, 100]]) {
+    t.splash.progress(...bad);
+  }
+  assert.ok(!t.classes.has('ps-pct'));
+  assert.equal(t.num.textContent, '');
+});
+
+test('more bytes than the total never prints above 100%', () => {
+  const t = setup();
+  t.waited();
+  t.splash.progress(50, 100);
+  t.splash.progress(120, 100);
+  assert.equal(t.num.textContent, '99%');
+  assert.ok(t.classes.has('ps-pct'));
+});
+
+test('every byte delivered is still not 100% until the worker says done', () => {
+  const t = setup();
+  t.waited();
+  t.splash.progress(60, 100);
+  t.splash.progress(100, 100);
+  assert.equal(t.num.textContent, '99%');
+  assert.ok(!t.timers.some((x) => x.ms === NUMBER_CLOSE_MS));
+  t.splash.progress(100, 100, true);
+  assert.equal(t.num.textContent, '100%');
+  assert.ok(t.timers.some((x) => x.ms === NUMBER_CLOSE_MS));
+});
+
+test('a stop from the worker hides the number at once and it never returns', () => {
+  const t = setup();
+  t.waited();
+  t.splash.progress(42, 100);
+  assert.ok(t.classes.has('ps-pct'));
+  t.splash.stop();
+  assert.ok(!t.classes.has('ps-pct'), 'the old percent does not stay on screen');
+  assert.ok(t.classes.has('ps-wait'), 'the spinner keeps going');
+  t.splash.progress(60, 100);
+  t.splash.progress(100, 100, true);
+  assert.ok(!t.classes.has('ps-pct'));
+});
+
+test('a stop before the spinner appears means no number at all', () => {
+  const t = setup();
+  t.splash.progress(42, 100);
+  t.splash.stop();
+  t.waited();
+  assert.ok(!t.classes.has('ps-pct'));
+});
+
+test('the page forwards worker messages to the splash', () => {
+  const src = readFileSync(new URL('../../web/pantas_splash.js', import.meta.url), 'utf8');
+  assert.match(src, /pantas-load-progress/);
+  assert.match(src, /pantasLoadTotal/);
+});
+
+// The worker knows no sizes. It posts true byte counts; the page holds the
+// total the build stamped (UX lead, Nov 25, round 4).
+test('worker byte counts become a percent of the total the page holds', () => {
+  const t = setup({ total: 1000 });
+  t.waited();
+  t.splash.message({ loaded: 250 });
+  assert.equal(t.num.textContent, '25%');
+  t.splash.message({ loaded: 999 });
+  assert.equal(t.num.textContent, '99%');
+  assert.ok(t.classes.has('ps-pct'));
+});
+
+test('100% only when done arrives with loaded exactly equal to the total', () => {
+  const t = setup({ total: 1000 });
+  t.waited();
+  t.splash.message({ loaded: 500 });
+  t.splash.message({ loaded: 1000, done: true });
+  assert.equal(t.num.textContent, '100%');
+  t.closeNumber();
+  assert.ok(!t.classes.has('ps-pct'));
+});
+
+test('a done with a different count than the total hides the number at once', () => {
+  for (const loaded of [999, 1001, 0]) {
+    const t = setup({ total: 1000 });
+    t.waited();
+    t.splash.message({ loaded: 500 });
+    assert.ok(t.classes.has('ps-pct'));
+    t.splash.message({ loaded, done: true });
+    assert.ok(!t.classes.has('ps-pct'), `done at ${loaded}`);
+    assert.ok(t.classes.has('ps-wait'));
+    t.splash.message({ loaded: 700 });
+    assert.ok(!t.classes.has('ps-pct'), 'it does not come back');
+  }
+});
+
+test('more bytes than the total, even before done, hides the number', () => {
+  const t = setup({ total: 1000 });
+  t.waited();
+  t.splash.message({ loaded: 500 });
+  t.splash.message({ loaded: 1200 });
+  assert.ok(!t.classes.has('ps-pct'));
+});
+
+test('with no total stamped the splash shows the spinner only', () => {
+  for (const total of [undefined, null, 0, -5, NaN, 'x']) {
+    const t = setup({ total });
+    t.waited();
+    t.splash.message({ loaded: 500 });
+    t.splash.message({ loaded: 1000, done: true });
+    assert.ok(t.classes.has('ps-wait'), String(total));
+    assert.ok(!t.classes.has('ps-pct'), String(total));
+    assert.equal(t.num.textContent, '', String(total));
+  }
+});
+
+test('a cached message means no number', () => {
+  const t = setup({ total: 1000 });
+  t.waited();
+  t.splash.message({ cached: true });
+  assert.ok(!t.classes.has('ps-pct'));
+  t.splash.message({ loaded: 500 });
+  assert.ok(!t.classes.has('ps-pct'));
+});
+
+test('a stop message hides the number at once', () => {
+  const t = setup({ total: 1000 });
+  t.waited();
+  t.splash.message({ loaded: 500 });
+  t.splash.message({ stop: true });
+  assert.ok(!t.classes.has('ps-pct'));
+});
+
+test('the splash markup and styles match board A', () => {
+  const html = readFileSync(new URL('../../web/index.html', import.meta.url), 'utf8');
+  const css = html.slice(html.indexOf('#pantas-splash {'));
+  assert.match(html, /id="ps-num"/);
+  assert.match(html, /id="ps-lab-n"/);
+  assert.match(css, /\.ps-ind \{[^}]*margin-top: 40px/);
+  assert.match(css, /\.ps-ring \{[^}]*width: 20px[^}]*height: 20px[^}]*border: 2px solid var\(--track\)[^}]*animation: ps-spin \.9s linear infinite/);
+  assert.match(css, /\.ps-num \{[^}]*font-size: 13px[^}]*font-weight: 500[^}]*font-variant-numeric: tabular-nums/);
+  assert.match(css, /\.ps-num \{[^}]*220ms cubic-bezier\(\.25, ?\.1, ?\.25, ?1\)/);
+  assert.match(css, /html\.ps-pct #pantas-splash \.ps-num \{[^}]*margin-left: 8px[^}]*max-width: 3em/);
+  assert.match(css, /\.ps-num \{ font-size: 14px/);
+  assert.match(css, /--sec: #6E6E73[\s\S]*--sec: #A3A3A3/);
 });

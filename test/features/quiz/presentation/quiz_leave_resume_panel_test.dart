@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mocktail/mocktail.dart';
@@ -144,5 +145,11 @@ void main() {
     expect(find.text('Resume'), findsOneWidget);
     expect(find.text('Start'), findsNothing);
     expect(panelReads, greaterThan(1));
+    // Home, alive in its own tab, reads its question counts again on this.
+    expect(
+      ProviderScope.containerOf(tester.element(find.byType(QuizTabScreen)))
+          .read(quizPausedRevisionProvider),
+      1,
+    );
   });
 }
