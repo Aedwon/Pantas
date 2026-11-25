@@ -55,102 +55,165 @@
     emit();
   });
 
-  // Registers pantas_sw.js for this build and resolves once that exact build
-  // controls the page, so no file is read through an older cache. Never
-  // rejects and never waits long: without a worker the app loads from the
-  // network as before.
+  // The page loads its own build's files from b/<id>/, so it needs no worker to run
+  // the right code. This only registers the worker (in the background, for the
+  // next visit and for offline) and, before Flutter starts, does one quick local
+  // check: if an update is already installed and waiting, and this is the only
+  // window, the worker takes over and the page reloads into the new build.
+  // Resolves true when that reload is under way (the caller must not start
+  // Flutter), false otherwise. Never rejects and never waits long.
   function registerWorker(version) {
     buildVersion = version;
     window.pantasUpdate.currentVersion = version;
     scheduleUpdateCheck();
-    return registerForBuild(version).then(function (result) {
+    var swapping;
+    if (!('serviceWorker' in navigator)) {
+      swapping = Promise.resolve(false);
+    } else {
+      try {
+        navigator.serviceWorker
+          .register('pantas_sw.js?v=' + encodeURIComponent(version))
+          .catch(function () {});
+      } catch (_) {}
+      swapping = withTimeout(registration().then(swap), STARTUP_SWAP_MS, false);
+    }
+    return swapping.then(function (result) {
       mark('page.worker');
       return result;
     });
   }
 
-  function registerForBuild(version) {
-    if (!('serviceWorker' in navigator)) return Promise.resolve(false);
-    var script = 'pantas_sw.js?v=' + encodeURIComponent(version);
-    // First visit: no worker controls the page, so nothing stale can be
-    // served. Register in the background and start the app at once.
-    if (!navigator.serviceWorker.controller) {
-      navigator.serviceWorker.register(script).catch(function () {});
-      return Promise.resolve(false);
-    }
-    var timeout = new Promise(function (resolve) {
-      setTimeout(function () {
-        resolve(false);
-      }, 4000);
+  var STARTUP_SWAP_MS = 2500;
+  var ASK_MS = 3000;
+
+  // The result of `promise`, or `fallback` when it is slower than `ms`. A
+  // rejection counts as the fallback too.
+  function withTimeout(promise, ms, fallback) {
+    return new Promise(function (resolve) {
+      var timer = setTimeout(function () {
+        resolve(fallback);
+      }, ms);
+      promise.then(
+        function (value) {
+          clearTimeout(timer);
+          resolve(value);
+        },
+        function () {
+          clearTimeout(timer);
+          resolve(fallback);
+        }
+      );
     });
-    var ready = navigator.serviceWorker
-      .register(script)
-      .then(function (registration) {
-        // The worker serves this page from its own cache, so a new build reaches
-        // the page only through a new worker. Ask for it now, not at the next
-        // timer; the browser would otherwise check once a day.
-        registration.update().catch(function () {});
-        return new Promise(function (resolve) {
-          function active() {
-            var worker = registration.active;
-            return worker && worker.scriptURL.indexOf('?v=' + encodeURIComponent(version)) !== -1
-              ? worker
-              : null;
-          }
-          function check() {
-            if (active() && navigator.serviceWorker.controller) {
-              if (navigator.serviceWorker.controller.scriptURL === active().scriptURL) {
-                resolve(true);
-                return true;
-              }
-            }
-            return false;
-          }
-          if (check()) return;
-          navigator.serviceWorker.addEventListener('controllerchange', check);
-          var pending = registration.installing || registration.waiting;
-          if (pending) pending.addEventListener('statechange', check);
-          registration.addEventListener('updatefound', function () {
-            if (registration.installing) {
-              registration.installing.addEventListener('statechange', check);
-            }
-          });
-        });
-      })
-      .catch(function () {
-        return false;
-      });
-    return Promise.race([ready, timeout]);
   }
 
-  // Detection only. The app chooses a safe point and flushes local writes
-  // before calling apply. The production worker keeps its existing lifecycle.
+  // This browser's registration for the app, from local storage (no network).
+  function registration() {
+    if (!('serviceWorker' in navigator) || !navigator.serviceWorker.getRegistration) return Promise.resolve(null);
+    return navigator.serviceWorker.getRegistration().then(
+      function (found) {
+        return found || null;
+      },
+      function () {
+        return null;
+      }
+    );
+  }
+
+  // Sends one message to a worker and resolves with its reply, or null.
+  function ask(worker, message) {
+    return new Promise(function (resolve) {
+      var done = false;
+      function finish(value) {
+        if (done) return;
+        done = true;
+        clearTimeout(timer);
+        resolve(value);
+      }
+      var timer = setTimeout(function () {
+        finish(null);
+      }, ASK_MS);
+      try {
+        var channel = new MessageChannel();
+        channel.port1.onmessage = function (event) {
+          finish(event.data || null);
+        };
+        worker.postMessage(message, [channel.port2]);
+      } catch (_) {
+        finish(null);
+      }
+    });
+  }
+
+  // An installed worker waits only after it stored and verified its whole build,
+  // so a waiting worker is an update that is ready. Resolves with its build id
+  // when it is a different build from this page's, otherwise null.
+  function readyBuild(found) {
+    var waiting = found && found.waiting;
+    if (!waiting) return Promise.resolve(null);
+    return ask(waiting, {type: 'pantas-build-id'}).then(function (reply) {
+      var id = reply && typeof reply.id === 'string' && reply.id ? reply.id : null;
+      return id && id !== buildVersion ? id : null;
+    });
+  }
+
+  // Asks the waiting worker to take over and reloads into the new build. The
+  // worker agrees only when this is the only window of the app, because it
+  // deletes the older build's files when it activates. Resolves true when a
+  // reload is under way.
+  function swap(found) {
+    return readyBuild(found).then(function (id) {
+      if (!id) return false;
+      var reloading = false;
+      function reload() {
+        if (reloading) return;
+        reloading = true;
+        window.location.reload();
+      }
+      navigator.serviceWorker.addEventListener('controllerchange', reload);
+      return ask(found.waiting, {type: 'pantas-take-over'}).then(function (reply) {
+        if (!reply || reply.ok !== true) {
+          navigator.serviceWorker.removeEventListener('controllerchange', reload);
+          return false;
+        }
+        // The worker is activating. Reload when it controls this page, or anyway if
+        // that takes too long.
+        setTimeout(reload, 5000);
+        return true;
+      });
+    });
+  }
+
+  // Detection only. The app chooses a safe point and flushes local writes before
+  // calling apply. An update is available when a worker that verified its whole
+  // build is waiting, never merely because the server names a newer build: a
+  // build whose install failed must not make the page reload again and again.
   var checkingUpdate = null;
   var updateTimer = null;
   function checkUpdate() {
     if (checkingUpdate) return checkingUpdate;
     if (buildVersion === null) return Promise.resolve({available: false, version: null});
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistration().then(function (registration) {
-        if (registration) return registration.update();
-      }).catch(function () {});
-    }
-    var controller = new AbortController();
     var timeout;
     checkingUpdate = Promise.race([
-      fetch('version.json', {cache: 'no-store', signal: controller.signal})
-        .then(function (response) {
-          if (!response.ok) throw new Error('Version check failed');
-          return response.json();
-        }).then(function (data) {
-          var version = data.pantasBuildVersion;
-          if (typeof version !== 'string' || !version) throw new Error('Missing build version');
-          return {available: version !== buildVersion, version: version};
+      registration()
+        .then(function (found) {
+          if (!found) return null;
+          // Ask the browser to look for a new worker now; it would otherwise check once a day.
+          return Promise.resolve(found.update()).then(
+            function () {
+              return found;
+            },
+            function () {
+              return found;
+            }
+          );
+        })
+        .then(readyBuild)
+        .then(function (id) {
+          return {available: id !== null, version: id};
         }),
       new Promise(function (_, reject) {
         timeout = setTimeout(function () {
           reject(new Error('Version check timed out'));
-          controller.abort();
         }, 4000);
       }),
     ]).finally(function () {
@@ -170,7 +233,11 @@
   window.pantasUpdate = {
     currentVersion: null,
     check: checkUpdate,
-    apply: function () { window.location.reload(); },
+    // Takes over into the waiting build when this is the only window. With another
+    // window open it does nothing: that window may still be running this build.
+    apply: function () {
+      return registration().then(swap);
+    },
   };
   if (window.document) {
     document.addEventListener('visibilitychange', function () {
@@ -210,45 +277,26 @@
     buildVersion: function () {
       return buildVersion;
     },
-    // Forced update: removes this browser's worker and cached app files, then
-    // reloads so the next load comes from the network. Always reloads.
+    // Forced update: asks the browser for the newest worker, takes over into it
+    // when one is ready and this is the only window, and reloads. It never
+    // unregisters the worker or deletes a cache, so a lost connection leaves the
+    // installed build bootable. Always reloads.
     updateNow: function () {
-      var work = [];
-      try {
-        if ('serviceWorker' in navigator) {
-          work.push(
-            navigator.serviceWorker.getRegistrations().then(function (list) {
-              return Promise.all(
-                list.map(function (registration) {
-                  return registration.unregister();
-                })
-              );
-            })
-          );
-        }
-        if (window.caches) {
-          work.push(
-            caches.keys().then(function (names) {
-              return Promise.all(
-                names
-                  .filter(function (name) {
-                    return name.indexOf('pantas-') === 0;
-                  })
-                  .map(function (name) {
-                    return caches.delete(name);
-                  })
-              );
-            })
-          );
-        }
-      } catch (_) {}
-      return Promise.all(
-        work.map(function (job) {
-          return job.catch(function () {});
+      return registration()
+        .then(function (found) {
+          if (!found) return false;
+          return Promise.resolve(found.update())
+            .catch(function () {})
+            .then(function () {
+              return swap(found);
+            });
         })
-      ).then(function () {
-        window.location.reload();
-      });
+        .catch(function () {
+          return false;
+        })
+        .then(function (reloading) {
+          if (!reloading) window.location.reload();
+        });
     },
   };
 })();

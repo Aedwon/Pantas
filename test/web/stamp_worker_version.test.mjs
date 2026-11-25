@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-import {mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
+import {existsSync, mkdtempSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import test from 'node:test';
@@ -11,12 +11,20 @@ const SHIPPED = readFileSync(new URL('../../web/pantas_sw.js', import.meta.url),
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const stampedOf = dir => JSON.parse(
   /\/\*pantas-build\*\/ (.*?) \/\*end-pantas-build\*\//s.exec(readFileSync(join(dir, 'pantas_sw.js'), 'utf8'))[1]);
+const folderOf = dir => `b/${stampedOf(dir).id}/`;
+const bootstrapOf = dir => join(dir, folderOf(dir), 'flutter_bootstrap.js');
+const read = (dir, name) => readFileSync(join(dir, name), 'utf8');
 
 function build(mainJs) {
   const dir = mkdtempSync(join(tmpdir(), 'stamp-'));
   mkdirSync(join(dir, 'icons'));
   writeFileSync(join(dir, 'pantas_sw.js'), SHIPPED);
-  writeFileSync(join(dir, 'index.html'), '<html>page</html>');
+  writeFileSync(join(dir, 'index.html'),
+    '<html><link rel="manifest" href="manifest.json"><link rel="icon" href="favicon.png">' +
+    '<script src="pantas_pwa.js"></script><script src="flutter_bootstrap.js" async></script></html>');
+  writeFileSync(join(dir, 'pantas_pwa.js'), 'pwa');
+  writeFileSync(join(dir, 'manifest.json'), '{}');
+  writeFileSync(join(dir, 'favicon.png'), 'fav');
   writeFileSync(join(dir, 'main.dart.js'), mainJs);
   writeFileSync(join(dir, 'icons', 'Icon-192.png'), 'png');
   writeFileSync(join(dir, 'flutter_bootstrap.js'),
@@ -36,7 +44,7 @@ test('the same build always gets the same version, and stamping twice is stable'
   const first = stamp(dir);
   assert.equal(stamp(dir), first);
   assert.equal(stamp(build('same code')), first);
-  assert.match(readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8'), new RegExp(`registerWorker\\("${first}"`));
+  assert.match(readFileSync(bootstrapOf(dir), 'utf8'), new RegExp(`registerWorker\\("${first}"`));
 });
 
 test('a bootstrap without the version token is refused', () => {
@@ -49,78 +57,132 @@ test('version metadata adds only the comparable stamped build identity', () => {
   const dir = build('code');
   writeFileSync(join(dir, 'version.json'), '{"version":"1.0.0","build_number":"4"}');
   const first = stamp(dir);
-  assert.deepEqual(JSON.parse(readFileSync(join(dir, 'version.json'), 'utf8')), {
+  assert.deepEqual(JSON.parse(read(dir, 'version.json')), {
     version: '1.0.0', build_number: '4', pantasBuildVersion: first,
   });
   assert.equal(stamp(dir), first);
 });
 
-// The size the loading percent divides by goes into flutter_bootstrap.js, which
-// is rewritten for every build anyway.
-function bigBuild({main = 'main code'} = {}) {
-  return build(main);
-}
-
+// The size the loading percent divides by goes into the bootstrap, which is
+// rewritten for every build anyway.
 const total = dir => {
-  const match = readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8').match(/^window\.pantasLoadTotal = (\d+);/m);
+  const match = readFileSync(bootstrapOf(dir), 'utf8').match(/^window\.pantasLoadTotal = (\d+);/m);
   return match ? Number(match[1]) : null;
 };
 
 test('the main script size is written into the bootstrap', () => {
-  const dir = bigBuild({main: 'twelve bytes'});
+  const dir = build('twelve bytes');
   stamp(dir);
   assert.equal(total(dir), 12);
 });
 
-test('stamping twice keeps one total line and the same version', () => {
-  const dir = bigBuild();
+test('stamping twice keeps one total line, one base line and the same version', () => {
+  const dir = build('main code');
   const first = stamp(dir);
-  const text = readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8');
+  const text = readFileSync(bootstrapOf(dir), 'utf8');
   assert.equal(stamp(dir), first);
-  assert.equal(readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8'), text);
+  assert.equal(readFileSync(bootstrapOf(dir), 'utf8'), text);
   assert.equal((text.match(/pantasLoadTotal/g) || []).length, 1);
+  assert.equal((text.match(/pantasBuildBase/g) || []).length, 1);
 });
 
 test('a build with no main script gets no total, so the page shows the spinner only', () => {
-  const dir = bigBuild();
+  const dir = build('main code');
   rmSync(join(dir, 'main.dart.js'));
   stamp(dir);
   assert.equal(total(dir), null);
-  assert.ok(!/pantasLoadTotal/.test(readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8')));
+  assert.ok(!/pantasLoadTotal/.test(readFileSync(bootstrapOf(dir), 'utf8')));
 });
 
 test('a stale total is removed when the main script is gone', () => {
-  const dir = bigBuild();
+  const dir = build('main code');
   stamp(dir);
-  rmSync(join(dir, 'main.dart.js'));
+  rmSync(join(dir, folderOf(dir), 'main.dart.js'));
   stamp(dir);
   assert.equal(total(dir), null);
 });
 
 test('the bootstrap keeps its worker version token and its other lines', () => {
-  const dir = bigBuild();
+  const dir = build('main code');
   const version = stamp(dir);
-  const text = readFileSync(join(dir, 'flutter_bootstrap.js'), 'utf8');
-  assert.match(text, new RegExp(`registerWorker\\("${version}"`));
+  assert.match(readFileSync(bootstrapOf(dir), 'utf8'), new RegExp(`registerWorker\\("${version}"`));
+});
+
+// ---- Build folders (Revision 1, item 1) ----
+
+test('every file a page loads moves into b/<id>/, and the root keeps only the page, worker, metadata and icons', () => {
+  const dir = build('code');
+  mkdirSync(join(dir, 'assets/assets'), {recursive: true});
+  writeFileSync(join(dir, 'assets/FontManifest.json'), '[]');
+  writeFileSync(join(dir, 'assets/assets/x.png'), 'x');
+  writeFileSync(join(dir, 'drift_worker.js'), 'worker');
+  writeFileSync(join(dir, 'sqlite3.wasm'), 'wasm');
+  writeFileSync(join(dir, 'main.dart.js_1.part.js'), 'part');
+  writeFileSync(join(dir, 'version.json'), '{}');
+  writeFileSync(join(dir, 'og-image.png'), 'og');
+  const version = stamp(dir);
+  const folder = `b/${version}/`;
+  const root = readdirSync(dir).sort();
+  assert.deepEqual(root, ['b', 'favicon.png', 'icons', 'index.html', 'manifest.json', 'og-image.png', 'pantas_sw.js', 'version.json']);
+  for (const name of ['flutter_bootstrap.js', 'pantas_pwa.js', 'main.dart.js', 'main.dart.js_1.part.js', 'drift_worker.js',
+    'sqlite3.wasm', 'assets/FontManifest.json', 'assets/assets/x.png']) {
+    assert.ok(existsSync(join(dir, folder, name)), `${folder}${name}`);
+    assert.ok(!existsSync(join(dir, name)), `${name} is not at the root`);
+  }
+  assert.deepEqual(readdirSync(join(dir, 'b')), [version]);
+});
+
+test('the page names the build folder for every script it loads and nothing else', () => {
+  const dir = build('code');
+  const version = stamp(dir);
+  const page = read(dir, 'index.html');
+  assert.match(page, new RegExp(`<script src="b/${version}/pantas_pwa\\.js">`));
+  assert.match(page, new RegExp(`<script src="b/${version}/flutter_bootstrap\\.js" async>`));
+  assert.match(page, /<link rel="manifest" href="manifest\.json">/);
+  assert.match(page, /<link rel="icon" href="favicon\.png">/);
+});
+
+test('the bootstrap tells the page and the app where the build folder is', () => {
+  const dir = build('code');
+  const version = stamp(dir);
+  assert.match(readFileSync(bootstrapOf(dir), 'utf8'), new RegExp(`^window\\.pantasBuildBase = "b/${version}/";$`, 'm'));
+});
+
+test('restamping a build changed inside its folder moves it back and stamps it again', () => {
+  const dir = build('code');
+  const first = stamp(dir);
+  writeFileSync(join(dir, folderOf(dir), 'main.dart.js'), 'edited code');
+  const second = stamp(dir);
+  assert.notEqual(second, first);
+  assert.deepEqual(readdirSync(join(dir, 'b')), [second]);
+  assert.equal(read(dir, `b/${second}/main.dart.js`), 'edited code');
+  assert.match(read(dir, 'index.html'), new RegExp(`b/${second}/pantas_pwa\\.js`));
+  assert.ok(!read(dir, 'index.html').includes(first));
 });
 
 // ---- The fingerprint list (service worker build mix, E-184) ----
 
-test('the stamp writes the build id and the SHA-256 of every startup file, keyed by path', () => {
-  const dir = bigBuild();
+test('the stamp writes the build id and the SHA-256 of every startup file, keyed by final path', () => {
+  const dir = build('main code');
   writeFileSync(join(dir, 'main.dart.js_1.part.js'), 'part one');
-  writeFileSync(join(dir, 'pantas_pwa.js'), 'pwa');
   const version = stamp(dir);
   const {id, files} = stampedOf(dir);
+  const folder = `b/${version}/`;
   assert.equal(id, version);
-  for (const path of ['', 'index.html', 'flutter_bootstrap.js', 'main.dart.js', 'main.dart.js_1.part.js', 'pantas_pwa.js', 'icons/Icon-192.png']) {
-    const file = path === '' ? 'index.html' : path;
+  const expected = {
+    '': 'index.html', 'index.html': 'index.html', 'manifest.json': 'manifest.json', 'favicon.png': 'favicon.png',
+    'icons/Icon-192.png': 'icons/Icon-192.png',
+  };
+  for (const name of ['flutter_bootstrap.js', 'main.dart.js', 'main.dart.js_1.part.js', 'pantas_pwa.js']) {
+    expected[folder + name] = folder + name;
+  }
+  for (const [path, file] of Object.entries(expected)) {
     assert.equal(files[path], sha(readFileSync(join(dir, file))), path || 'the page');
   }
 });
 
 test('the startup set leaves out version.json, the worker itself and files the first frame does not need', () => {
-  const dir = bigBuild();
+  const dir = build('main code');
   mkdirSync(join(dir, 'assets'), {recursive: true});
   writeFileSync(join(dir, 'assets/NOTICES'), 'licenses');
   writeFileSync(join(dir, 'assets/FontManifest.json'), '[]');
@@ -128,70 +190,104 @@ test('the startup set leaves out version.json, the worker itself and files the f
   for (const name of ['og-image.png', 'README.md', 'flutter_service_worker.js', '.last_build_id', 'other.txt']) {
     writeFileSync(join(dir, name), name);
   }
-  stamp(dir);
+  const version = stamp(dir);
   const paths = Object.keys(stampedOf(dir).files);
-  for (const left of ['version.json', 'pantas_sw.js', 'og-image.png', 'README.md', 'flutter_service_worker.js', '.last_build_id', 'other.txt', 'assets/NOTICES']) {
+  for (const left of ['version.json', 'pantas_sw.js', 'og-image.png', 'README.md', 'flutter_service_worker.js', '.last_build_id',
+    'other.txt', `b/${version}/other.txt`, `b/${version}/assets/NOTICES`]) {
     assert.ok(!paths.includes(left), `${left} is not in the set`);
   }
-  assert.ok(paths.includes('assets/FontManifest.json'));
+  assert.ok(paths.includes(`b/${version}/assets/FontManifest.json`));
 });
 
-test('canvaskit files join the set only when the build serves them itself', () => {
-  const cdn = bigBuild();
-  mkdirSync(join(cdn, 'canvaskit'));
-  writeFileSync(join(cdn, 'canvaskit/canvaskit.wasm'), 'wasm');
+function withCanvasKit({local}) {
+  const dir = build('main code');
+  for (const name of ['canvaskit.js', 'canvaskit.wasm', 'canvaskit.js.symbols', 'skwasm.wasm', 'chromium/canvaskit.js',
+    'chromium/canvaskit.wasm', 'chromium/canvaskit.js.symbols']) {
+    mkdirSync(join(dir, 'canvaskit', name.includes('/') ? 'chromium' : '.'), {recursive: true});
+    writeFileSync(join(dir, 'canvaskit', name), name);
+  }
+  if (local) {
+    writeFileSync(join(dir, 'flutter_bootstrap.js'),
+      '_flutter.buildConfig = {"useLocalCanvasKit":true};\nawait pwa.registerWorker("1" /* note */);');
+  }
+  return dir;
+}
+
+test('canvaskit joins the set, both variants, only when the build serves it itself', () => {
+  const cdn = withCanvasKit({local: false});
   stamp(cdn);
-  assert.ok(!Object.keys(stampedOf(cdn).files).some(path => path.startsWith('canvaskit/')));
-  const local = bigBuild();
-  mkdirSync(join(local, 'canvaskit'));
-  writeFileSync(join(local, 'canvaskit/canvaskit.wasm'), 'wasm');
-  writeFileSync(join(local, 'canvaskit/canvaskit.js.symbols'), 'symbols');
-  writeFileSync(join(local, 'flutter_bootstrap.js'),
-    '_flutter.buildConfig = {"useLocalCanvasKit":true};\nawait pwa.registerWorker("1" /* note */);');
-  stamp(local);
-  const paths = Object.keys(stampedOf(local).files);
-  assert.ok(paths.includes('canvaskit/canvaskit.wasm'));
-  assert.ok(!paths.includes('canvaskit/canvaskit.js.symbols'));
+  assert.ok(!Object.keys(stampedOf(cdn).files).some(path => path.includes('canvaskit/')));
+  assert.equal(stampedOf(cdn).variants, undefined);
+  const local = withCanvasKit({local: true});
+  const version = stamp(local);
+  const folder = `b/${version}/canvaskit/`;
+  const {files, variants} = stampedOf(local);
+  assert.deepEqual(variants, {
+    standard: [`${folder}canvaskit.js`, `${folder}canvaskit.wasm`],
+    chromium: [`${folder}chromium/canvaskit.js`, `${folder}chromium/canvaskit.wasm`],
+  });
+  for (const path of [...variants.standard, ...variants.chromium]) assert.ok(path in files, path);
+  for (const left of ['canvaskit.js.symbols', 'skwasm.wasm', 'chromium/canvaskit.js.symbols']) {
+    assert.ok(!(folder + left in files), `${left} is not in the set`);
+  }
 });
 
 test('the list matches the build output after the bootstrap is stamped', () => {
-  const dir = bigBuild();
+  const dir = build('main code');
   stamp(dir);
-  const {files} = stampedOf(dir);
-  assert.equal(files['flutter_bootstrap.js'], sha(readFileSync(join(dir, 'flutter_bootstrap.js'))));
+  assert.equal(stampedOf(dir).files[folderOf(dir) + 'flutter_bootstrap.js'], sha(readFileSync(bootstrapOf(dir))));
 });
 
-test('running the stamp twice gives the same worker bytes, bootstrap and list', () => {
-  const dir = bigBuild();
+test('running the stamp twice gives the same worker bytes, bootstrap, page and list', () => {
+  const dir = build('main code');
   stamp(dir);
-  const first = ['pantas_sw.js', 'flutter_bootstrap.js'].map(name => readFileSync(join(dir, name), 'utf8'));
+  const names = ['pantas_sw.js', 'index.html', `${folderOf(dir)}flutter_bootstrap.js`];
+  const first = names.map(name => read(dir, name));
   stamp(dir);
-  assert.deepEqual(['pantas_sw.js', 'flutter_bootstrap.js'].map(name => readFileSync(join(dir, name), 'utf8')), first);
+  assert.deepEqual(names.map(name => read(dir, name)), first);
 });
 
 test('the worker bytes differ for each build, so the browser installs a new worker', () => {
-  const a = bigBuild({main: 'one'});
-  const b = bigBuild({main: 'two'});
+  const a = build('one');
+  const b = build('two');
   stamp(a);
   stamp(b);
-  assert.notEqual(readFileSync(join(a, 'pantas_sw.js'), 'utf8'), readFileSync(join(b, 'pantas_sw.js'), 'utf8'));
+  assert.notEqual(read(a, 'pantas_sw.js'), read(b, 'pantas_sw.js'));
 });
 
 test('a change to the worker source alone changes the build id', () => {
-  const a = bigBuild();
-  const b = bigBuild();
+  const a = build('main code');
+  const b = build('main code');
   writeFileSync(join(b, 'pantas_sw.js'), SHIPPED + '\n// changed\n');
   assert.notEqual(stamp(a), stamp(b));
 });
 
+test('a change to the bootstrap alone changes the build id, the cache name and the list hash (restamp)', () => {
+  const a = build('main code');
+  const b = build('main code');
+  writeFileSync(join(b, 'flutter_bootstrap.js'), 'await pwa.registerWorker("213919009" /* note */);\n// other line');
+  const first = stamp(a);
+  const second = stamp(b);
+  assert.notEqual(first, second);
+  assert.notEqual(stampedOf(a).list, stampedOf(b).list);
+});
+
+test('the build constant carries a short hash of its own list', () => {
+  const dir = build('main code');
+  stamp(dir);
+  const {files, list} = stampedOf(dir);
+  assert.match(list, /^[0-9a-f]{12}$/);
+  assert.equal(list, sha(JSON.stringify(files)).slice(0, 12));
+});
+
 test('a worker without the build markers is refused', () => {
-  const dir = bigBuild();
+  const dir = build('main code');
   writeFileSync(join(dir, 'pantas_sw.js'), "'use strict';\nconst VERSION = 1;\n");
   assert.throws(() => stamp(dir), /build constant/);
 });
 
 test('a build without a page is refused', () => {
-  const dir = bigBuild();
+  const dir = build('main code');
   rmSync(join(dir, 'index.html'));
   assert.throws(() => stamp(dir), /index\.html/);
 });

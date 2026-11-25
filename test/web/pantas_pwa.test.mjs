@@ -1,56 +1,14 @@
 // Run with: node --test test/web/pantas_pwa.test.mjs
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import vm from 'node:vm';
-import { readFileSync } from 'node:fs';
+import { loadPage } from './fixtures/fake_page.mjs';
 
-const source = readFileSync(new URL('../../web/pantas_pwa.js', import.meta.url), 'utf8');
-
-// Runs pantas_pwa.js in a fake page. `controller` is the worker script URL that
-// controlled the page at load, or null for a page no worker controlled.
-function load({ controller = null, supported = true, registerFails = false, noPerformance = false } = {}) {
-  const marks = [];
-  const listeners = {};
-  const registration = {
-    active: null,
-    installing: null,
-    waiting: null,
-    addEventListener() {},
-  };
-  const sw = {
-    controller: controller ? { scriptURL: controller } : null,
-    register(script) {
-      if (registerFails) return Promise.reject(new Error('blocked'));
-      const worker = {
-        scriptURL: 'https://app.example/' + script,
-        addEventListener() {},
-      };
-      registration.active = worker;
-      sw.controller = { scriptURL: worker.scriptURL };
-      return Promise.resolve(registration);
-    },
-    addEventListener() {},
-  };
-  const navigator = supported ? { serviceWorker: sw } : {};
-  const window = {
-    addEventListener: (name, fn) => (listeners[name] = fn),
-    location: { reload() {} },
-    performance: noPerformance
-      ? undefined
-      : { mark: (name) => marks.push(name) },
-  };
-  const context = vm.createContext({
-    window,
-    navigator,
-    setTimeout: (fn) => {
-      void fn;
-      return 0;
-    },
-    Promise,
-    encodeURIComponent,
-  });
-  vm.runInContext(source, context);
-  return { pwa: window.pantasPwa, marks };
+// Runs pantas_pwa.js in a fake page (fixtures/fake_page.mjs). `controller` is the
+// worker script URL that controlled the page at load, or null for a page no worker
+// controlled.
+function load(options = {}) {
+  const page = loadPage(options);
+  return {pwa: page.pwa, marks: page.marks, page};
 }
 
 test('a page no worker controlled is a first visit', () => {
@@ -106,4 +64,60 @@ test('a missing performance API never breaks the worker step', async () => {
   const { pwa, marks } = load({ controller: null, noPerformance: true });
   assert.equal(await pwa.registerWorker('abc123'), false);
   assert.deepEqual(marks, []);
+});
+
+// ---- Registration without a page wait (Revision 1, item 3) ----
+
+test('the page registers the worker for this build and does not wait for it', async () => {
+  const { pwa, page } = load({ controller: 'https://app.example/pantas_sw.js?v=old' });
+  // A registration that never settles must not hold the page.
+  page.sw.register = (script) => {
+    page.registered.push(script);
+    return new Promise(() => {});
+  };
+  assert.equal(await pwa.registerWorker('abc123'), false);
+  assert.deepEqual(page.registered, ['pantas_sw.js?v=abc123']);
+  assert.equal(page.timers.some((t) => t.ms === 4000), false, 'no four-second wait for the worker');
+});
+
+test('a page with a worker already controlling it starts at once when nothing is waiting', async () => {
+  const { pwa, page } = load({ controller: 'https://app.example/pantas_sw.js?v=abc123' });
+  assert.equal(await pwa.registerWorker('abc123'), false);
+  assert.equal(page.reloads(), 0);
+  assert.deepEqual(page.posted, []);
+});
+
+test('an update already installed and waiting takes over before Flutter starts, when this is the only window', async () => {
+  const { pwa, page } = load({
+    controller: 'https://app.example/pantas_sw.js?v=old', waiting: { id: 'next' }, waitingAtLoad: true,
+  });
+  assert.equal(await pwa.registerWorker('old'), true, 'the caller must not start Flutter');
+  assert.deepEqual(page.posted.map((m) => m.type), ['pantas-build-id', 'pantas-take-over']);
+  await Promise.resolve();
+  assert.equal(page.reloads(), 1);
+});
+
+test('with another window open the page starts Flutter on the build it has', async () => {
+  const { pwa, page } = load({
+    controller: 'https://app.example/pantas_sw.js?v=old', waiting: { id: 'next', windowsOk: false }, waitingAtLoad: true,
+  });
+  assert.equal(await pwa.registerWorker('old'), false);
+  assert.equal(page.reloads(), 0);
+});
+
+test('a worker that never answers cannot hold the start longer than the limit', async () => {
+  const { pwa, page } = load({
+    controller: 'https://app.example/pantas_sw.js?v=old', waiting: { id: 'next' }, silentWaiting: true, waitingAtLoad: true,
+  });
+  const starting = pwa.registerWorker('old');
+  await new Promise((done) => setImmediate(done));
+  page.fire(2500);
+  assert.equal(await starting, false);
+});
+
+test('a registration that exists but is not waiting costs nothing and a missing one neither', async () => {
+  for (const options of [{ hasRegistration: false }, { waiting: null }]) {
+    const { pwa } = load({ controller: null, ...options });
+    assert.equal(await pwa.registerWorker('abc123'), false);
+  }
 });

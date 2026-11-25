@@ -4,6 +4,7 @@ import 'dart:js_interop';
 import 'package:drift/wasm.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/durable_writes.dart';
+import 'package:pantas/core/storage/data/web_build_files_web.dart';
 // The browser API package is already locked through Flutter's web plugins.
 // ignore: depend_on_referenced_packages
 import 'package:web/web.dart' as web;
@@ -28,8 +29,8 @@ Future<AppDatabase> openEncryptedDatabase({
   Uri? sqlite3Uri,
   Uri? driftWorkerUri,
 }) async {
-  final wasm = sqlite3Uri ?? Uri.base.resolve('sqlite3.wasm');
-  final worker = driftWorkerUri ?? Uri.base.resolve('drift_worker.js');
+  final wasm = sqlite3Uri ?? webBuildFile('sqlite3.wasm');
+  final worker = driftWorkerUri ?? webBuildFile('drift_worker.js');
   try {
     return await _openOnce(databaseName, wasm, worker);
   } on _UnreadableDatabase catch (unreadable) {

@@ -1,9 +1,7 @@
 import 'package:drift/wasm.dart';
 import 'package:pantas/core/content/content_database.dart';
+import 'package:pantas/core/storage/data/web_build_files_web.dart';
 import 'package:sqlite3/wasm.dart';
-// The browser API package is already locked through Flutter's web plugins.
-// ignore: depend_on_referenced_packages
-import 'package:web/web.dart' as web;
 
 /// The web content database: the content tables in memory, no worker and no
 /// storage. The content mirror fills it at each start. It uses the same
@@ -11,7 +9,7 @@ import 'package:web/web.dart' as web;
 /// cipher is selected.
 Future<ContentDatabase> openInMemoryContentDatabase() async {
   final sqlite = await WasmSqlite3.loadFromUrlString(
-    web.URL('sqlite3.wasm', web.document.baseURI).href,
+    webBuildFile('sqlite3.wasm').toString(),
   );
   sqlite.registerVirtualFileSystem(InMemoryFileSystem(), makeDefault: true);
   return ContentDatabase(WasmDatabase.inMemory(sqlite));

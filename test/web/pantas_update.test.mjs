@@ -1,97 +1,169 @@
+// Run with: node --test test/web/pantas_update.test.mjs
+// Update detection and apply (Revision 1, items 2 and 5). An update is available
+// only when a worker that verified its whole build is waiting; apply takes over into
+// it only when this is the only window; nothing here deletes a cache or unregisters.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import vm from 'node:vm';
-import {readFileSync} from 'node:fs';
+import {loadPage} from './fixtures/fake_page.mjs';
 
-const source = readFileSync('web/pantas_pwa.js', 'utf8');
-function page({version = 'next', failure = false, hang = false, updateFails = false} = {}) {
-  const calls = [], timers = [], events = {};
-  let reloads = 0, updates = 0;
-  const document = {visibilityState: 'visible', addEventListener: (n, f) => events[n] = f};
-  const registration = {update: async () => {updates++; if (updateFails) throw Error('worker offline');}};
-  const window = {document, addEventListener() {}, performance: {mark() {}}, location: {reload: () => reloads++}};
-  const config = {version, failure, hang};
-  vm.runInNewContext(source, {
-    window, document, navigator: {serviceWorker: {
-      controller: null, register: async () => registration, getRegistration: async () => registration,
-    }}, Promise, AbortController,
-    setTimeout: (f, ms) => {timers.push({f, ms}); return timers.length;}, clearTimeout() {},
-    fetch: async (url, options) => {
-      calls.push({url, options});
-      if (config.failure) throw Error('offline');
-      if (config.hang) return new Promise(() => {});
-      return {ok: true, json: async () => ({pantasBuildVersion: config.version})};
-    },
-  });
-  return {window, document, config, calls, timers, events, reloads: () => reloads, updates: () => updates};
-}
+// A page that started on build 'running'. The update, if any, finishes installing after the start.
 async function started(options) {
-  const p = page(options);
-  await p.window.pantasPwa.registerWorker('running');
-  return p;
+  const page = loadPage({controller: 'https://app.test/pantas_sw.js?v=running', ...options});
+  await page.pwa.registerWorker('running');
+  page.arrive();
+  return page;
 }
-test('check detects a new version with no-store and refreshes the existing registration', async () => {
-  const p = await started();
-  assert.equal(p.window.pantasUpdate.currentVersion, 'running');
-  const result = await p.window.pantasUpdate.check();
-  assert.equal(result.available, true);
-  assert.equal(result.version, 'next');
-  assert.equal(p.calls[0].url, 'version.json');
-  assert.equal(p.calls[0].options.cache, 'no-store');
+
+test('check finds a verified waiting worker of another build and asks the browser to look for it', async () => {
+  const p = await started({waiting: {id: 'next'}});
+  assert.equal(p.update.currentVersion, 'running');
+  const result = await p.update.check();
+  assert.deepEqual({...result}, {available: true, version: 'next'});
   assert.equal(p.updates(), 1);
   assert.equal(p.reloads(), 0);
 });
-test('check reports no update for the page startup version', async () => {
-  const p = await started({version: 'running'});
-  assert.equal((await p.window.pantasUpdate.check()).available, false);
+
+test('with no waiting worker nothing is available, even if the server names a newer build', async () => {
+  const p = await started();
+  assert.deepEqual({...(await p.update.check())}, {available: false, version: null});
+  assert.equal(p.updates(), 1, 'the browser was still asked to look');
 });
-test('network failure remains retryable and still requests worker refresh', async () => {
-  const p = await started({failure: true});
-  await assert.rejects(p.window.pantasUpdate.check(), /offline/);
-  p.config.failure = false;
-  assert.equal((await p.window.pantasUpdate.check()).available, true);
+
+test('a waiting worker of the running build is not an update', async () => {
+  const p = await started({waiting: {id: 'running'}});
+  assert.equal((await p.update.check()).available, false);
+});
+
+test('a worker that does not answer is not an update, and the check ends', async () => {
+  const p = await started({waiting: {id: 'next'}, silentWaiting: true});
+  const checking = p.update.check();
+  await new Promise((done) => setImmediate(done));
+  p.fire(3000); // the page gives up on the worker's answer
+  assert.equal((await checking).available, false);
+});
+
+test('a failed worker look-up does not hide a worker that is already waiting', async () => {
+  const p = await started({waiting: {id: 'next'}, updateFails: true});
+  assert.equal((await p.update.check()).available, true);
+});
+
+test('no registration is no update', async () => {
+  const p = await started({hasRegistration: false});
+  assert.equal((await p.update.check()).available, false);
+});
+
+test('a slow check times out and the next safe point retries', async () => {
+  const p = await started({waiting: {id: 'next'}, silentWaiting: true});
+  const checking = p.update.check();
+  const rejected = assert.rejects(checking, /timed out/);
+  p.fire(4000);
+  await rejected;
+  assert.equal(p.timers.some((t) => t.ms === 4000 && t.cleared), true);
+  const again = p.update.check();
+  assert.notEqual(again, checking);
+  await new Promise((done) => setImmediate(done));
+  p.fireAll(3000); // the worker stays silent, so the page gives up on it
+  assert.equal((await again).available, false);
+});
+
+test('overlapping checks share one look-up', async () => {
+  const p = await started({waiting: {id: 'next'}});
+  const first = p.update.check();
+  const second = p.update.check();
+  assert.equal(first, second);
+  await first;
+  assert.equal(p.updates(), 1);
+});
+
+test('checks before bootstrap do not claim a running version', async () => {
+  const p = loadPage({controller: null});
+  assert.deepEqual({...(await p.update.check())}, {available: false, version: null});
+  assert.equal(p.update.currentVersion, null);
+});
+
+test('apply asks the waiting worker to take over and reloads when it controls the page', async () => {
+  const p = await started({waiting: {id: 'next'}});
+  const applying = p.update.apply();
+  await applying;
+  assert.deepEqual(p.posted.map((m) => m.type), ['pantas-build-id', 'pantas-take-over']);
+  await Promise.resolve();
+  assert.equal(p.reloads(), 1, 'reloaded once the worker took control');
+});
+
+test('apply does nothing when another window is open: the worker refuses', async () => {
+  const p = await started({waiting: {id: 'next', windowsOk: false}});
+  await p.update.apply();
+  assert.equal(p.reloads(), 0);
+  assert.equal(p.listening(), 0, 'the page stopped waiting for a takeover that will not come');
+  p.controllerChange();
+  assert.equal(p.reloads(), 0);
+});
+
+test('apply with nothing waiting does not reload', async () => {
+  const p = await started();
+  await p.update.apply();
+  assert.equal(p.reloads(), 0);
+  assert.deepEqual(p.posted, []);
+});
+
+test('a takeover that never reports control still reloads, after five seconds', async () => {
+  const p = await started({waiting: {id: 'next'}});
+  p.sw.addEventListener = () => {};
+  await p.update.apply();
+  assert.equal(p.reloads(), 0);
+  p.fire(5000);
+  assert.equal(p.reloads(), 1);
+});
+
+test('a reload happens once even if the worker reports control twice', async () => {
+  const p = await started({waiting: {id: 'next'}});
+  await p.update.apply();
+  p.controllerChange();
+  p.controllerChange();
+  assert.equal(p.reloads(), 1);
+});
+
+test('visibility return and five-minute polling check without reloading', async () => {
+  const p = await started({waiting: {id: 'next'}});
+  await p.listeners.visibilitychange();
+  assert.equal(p.updates(), 1);
+  await p.fire(300000)?.valueOf();
+  await new Promise((done) => setImmediate(done));
+  assert.equal(p.updates(), 2);
+  p.document.visibilityState = 'hidden';
+  await p.listeners.visibilitychange();
   assert.equal(p.updates(), 2);
   assert.equal(p.reloads(), 0);
 });
-test('a slow check times out and the next safe point retries', async () => {
-  const p = await started({hang: true});
-  const checking = p.window.pantasUpdate.check();
-  const rejected = assert.rejects(checking, /timed out/);
-  p.timers.find(t => t.ms === 4000).f();
-  await rejected;
-  p.config.hang = false;
-  assert.equal((await p.window.pantasUpdate.check()).available, true);
+
+test('the page never unregisters the worker or deletes a cache', async () => {
+  const p = await started({waiting: {id: 'next'}});
+  p.sw.getRegistrations = () => assert.fail('getRegistrations');
+  p.registration.unregister = () => assert.fail('unregister');
+  await p.update.check();
+  await p.update.apply();
+  await p.pwa.updateNow();
 });
-test('worker refresh failure does not hide version availability', async () => {
-  const p = await started({updateFails: true});
-  assert.equal((await p.window.pantasUpdate.check()).available, true);
+
+test('updateNow takes over into a waiting build and does not reload twice', async () => {
+  const p = await started({waiting: {id: 'next'}});
+  await p.pwa.updateNow();
+  await Promise.resolve();
+  assert.equal(p.reloads(), 1, 'one reload, from the takeover');
 });
-test('missing version is rejected rather than treated as an update', async () => {
-  const p = await started({version: undefined});
-  p.config.version = undefined;
-  await assert.rejects(p.window.pantasUpdate.check(), /Missing build version/);
-});
-test('checks before bootstrap do not claim a running version', async () => {
-  const p = page();
-  assert.equal((await p.window.pantasUpdate.check()).available, false);
-  assert.equal(p.window.pantasUpdate.currentVersion, null);
-});
-test('apply only reloads, without fetching or worker operations', async () => {
+
+test('updateNow with nothing waiting asks the browser to look and reloads', async () => {
   const p = await started();
-  p.window.pantasUpdate.apply();
+  await p.pwa.updateNow();
+  assert.equal(p.updates(), 1);
   assert.equal(p.reloads(), 1);
-  assert.equal(p.calls.length, 0);
-  assert.equal(p.updates(), 0);
 });
-test('visibility return and five-minute polling check without reloading', async () => {
-  const p = await started();
-  await p.events.visibilitychange();
-  assert.equal(p.calls.length, 1);
-  await p.timers.find(t => t.ms === 300000).f();
-  assert.equal(p.calls.length, 2);
-  p.document.visibilityState = 'hidden';
-  await p.events.visibilitychange();
-  await p.timers.filter(t => t.ms === 300000).at(-1).f();
-  assert.equal(p.calls.length, 2);
-  assert.equal(p.reloads(), 0);
+
+test('updateNow still reloads when the worker refuses or the browser has no registration', async () => {
+  const refused = await started({waiting: {id: 'next', windowsOk: false}});
+  await refused.pwa.updateNow();
+  assert.equal(refused.reloads(), 1);
+  const none = await started({hasRegistration: false});
+  await none.pwa.updateNow();
+  assert.equal(none.reloads(), 1);
 });

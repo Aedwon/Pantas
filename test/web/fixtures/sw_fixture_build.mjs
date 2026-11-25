@@ -3,11 +3,13 @@
 // build a body came from. The page, bootstrap, main script and its part also push
 // "<id>:<name>" onto window.__boot, which the real-browser rollout test reads.
 //
-// A build is stamped by the real stamp tool, with the real web/pantas_sw.js and
-// the real web/pantas_pwa.js. `prod: true` leaves today's production worker
+// A build is stamped by the real stamp tool, with the real web/pantas_sw.js, the
+// real web/pantas_pwa.js and the real web/flutter_bootstrap.js (Flutter's own
+// loader is a small stand-in that loads main.dart.js from the build folder, the
+// way Flutter's entrypointBaseUrl does). `prod: true` leaves today's production worker
 // (fixtures/pantas_sw_prod_a.js) in place and stamps nothing, like a build that
 // shipped before the fingerprint list.
-import {mkdirSync, readFileSync, writeFileSync} from 'node:fs';
+import {mkdirSync, readFileSync, readdirSync, statSync, writeFileSync} from 'node:fs';
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {stamp} from '../../../tool/web/stamp_worker_version.mjs';
@@ -19,22 +21,34 @@ export const buildOf = text => /@build:([A-Za-z0-9]+)@/.exec(text)?.[1] ?? null;
 
 const push = (id, name) => `(window.__boot=window.__boot||[]).push(${JSON.stringify(`${id}:${name}`)});`;
 
+const stubLoader = `window._flutter = {loader: {load: function (options) {
+  var config = (options && options.config) || {};
+  var s = document.createElement('script'); s.src = (config.entrypointBaseUrl || '') + 'main.dart.js'; document.head.appendChild(s);
+}}};`;
+// `prod` builds carry the page helper and bootstrap that ship today (copied from
+// origin/main on Nov 26), because those are the ones already on phones.
+function bootstrap(id, prod) {
+  const source = prod ? join(here, 'flutter_bootstrap_prod_a.js') : join(repo, 'web/flutter_bootstrap.js');
+  return `// ${marker(id)}\n${push(id, 'bootstrap')}\n` + readFileSync(source, 'utf8')
+    .replace('{{flutter_js}}', stubLoader).replace('{{flutter_build_config}}', '')
+    .replace('{{flutter_service_worker_version}}', `"1-${id}"`);
+}
+
 // The files a build holds. Paths in `startup` are part of the startup set; the
 // rest are in the build output but left out of it.
-export function buildFiles(id) {
+export function buildFiles(id, prod = false) {
   const m = marker(id);
   const base = `// ${m}\n`;
   return {
     'index.html': `<!doctype html><!-- ${m} --><script>${push(id, 'index')}</script>` +
       `<script src="pantas_pwa.js"></script><script src="flutter_bootstrap.js"></script>`,
-    'flutter_bootstrap.js': `${base}${push(id, 'bootstrap')}\n(async function () {\n` +
-      `  await window.pantasPwa.registerWorker("1-${id}" /* note */);\n` +
-      `  var s = document.createElement('script'); s.src = 'main.dart.js'; document.head.appendChild(s);\n})();\n`,
+    'flutter_bootstrap.js': bootstrap(id, prod),
     'flutter.js': `${base}`,
+    // Like dart2js: a deferred part is found next to the script that asks for it.
     'main.dart.js': `${base}${push(id, 'main')}\n` +
-      `var p = document.createElement('script'); p.src = 'main.dart.js_1.part.js'; document.head.appendChild(p);\n`,
+      `var p = document.createElement('script'); p.src = document.currentScript.src.replace(/main\\.dart\\.js.*$/, '') + 'main.dart.js_1.part.js'; document.head.appendChild(p);\n`,
     'main.dart.js_1.part.js': `${base}${push(id, 'part')}\n`,
-    'pantas_pwa.js': `${readFileSync(join(repo, 'web/pantas_pwa.js'), 'utf8')}\n// ${m}\n${push(id, 'pwa')}\n`,
+    'pantas_pwa.js': `${readFileSync(prod ? join(here, 'pantas_pwa_prod_a.js') : join(repo, 'web/pantas_pwa.js'), 'utf8')}\n// ${m}\n${push(id, 'pwa')}\n`,
     'pantas_history.js': base,
     'pantas_splash.js': base,
     'pantas_welcome.js': base,
@@ -57,23 +71,20 @@ export function buildFiles(id) {
   };
 }
 
-export const STARTUP = [
-  'flutter_bootstrap.js', 'flutter.js', 'main.dart.js', 'main.dart.js_1.part.js', 'pantas_pwa.js',
-  'pantas_history.js', 'pantas_splash.js', 'pantas_welcome.js', 'drift_worker.js', 'sqlite3.wasm',
-  'manifest.json', 'favicon.png', 'icons/Icon-192.png', 'assets/AssetManifest.bin',
-  'assets/AssetManifest.bin.json', 'assets/FontManifest.json', 'assets/fonts/MaterialIcons-Regular.otf',
-  'assets/assets/fonts/Geist-Regular.ttf', 'index.html',
-];
-
 // Writes one build to `dir` and stamps it (or leaves today's worker for `prod`).
 // Returns the build's files as served: path -> text, with '' for the page.
-export function writeBuild(dir, id, {prod = false, files = {}} = {}) {
-  const all = {...buildFiles(id), ...files};
+export function writeBuild(dir, id, {prod = false, files = {}, localCanvasKit = false} = {}) {
+  const all = {...buildFiles(id, prod), ...files};
   all['pantas_sw.js'] = readFileSync(
     join(prod ? here : join(repo, 'web'), prod ? 'pantas_sw_prod_a.js' : 'pantas_sw.js'), 'utf8');
   for (const [path, body] of Object.entries(all)) {
     mkdirSync(dirname(join(dir, path)), {recursive: true});
     writeFileSync(join(dir, path), body);
+  }
+  if (localCanvasKit) {
+    // The line Flutter's build config writes when the build ships CanvasKit itself.
+    const path = join(dir, 'flutter_bootstrap.js');
+    writeFileSync(path, `_flutter.buildConfig = {"useLocalCanvasKit":true};\n${readFileSync(path, 'utf8')}`);
   }
   if (prod) {
     // Today's production build: its version rides on the bootstrap token only.
@@ -83,10 +94,22 @@ export function writeBuild(dir, id, {prod = false, files = {}} = {}) {
   } else {
     stamp(dir);
   }
+  // Everything the build serves, by final path ('' is the page).
   const served = {};
-  for (const path of [...Object.keys(all), 'version.json']) {
-    served[path] = readFileSync(join(dir, path), 'utf8');
-  }
+  const walk = (folder, prefix = '') => {
+    for (const name of readdirSync(folder)) {
+      const path = prefix + name;
+      if (statSync(join(folder, name)).isDirectory()) walk(join(folder, name), path + '/');
+      else served[path] = readFileSync(join(folder, name), 'utf8');
+    }
+  };
+  walk(dir);
   served[''] = served['index.html'];
   return served;
+}
+
+/** The stamped constant of a served build, or null for today's production worker. */
+export function constantOf(served) {
+  const match = /\/\*pantas-build\*\/ (\{.*?\}) \/\*end-pantas-build\*\//s.exec(served['pantas_sw.js']);
+  return match ? JSON.parse(match[1]) : null;
 }
