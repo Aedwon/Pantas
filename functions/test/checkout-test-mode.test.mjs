@@ -31,3 +31,8 @@ test('a closed checkout still lets an admin-claim account through (it reaches th
 test('an open checkout is not refused for being closed', async () => {
   await assert.rejects(createCheckout(student, {product: 'pantas_cs_monthly'}, deps(false)), /must not be touched/);
 });
+
+test('checkout offers QR Ph only unless the environment names other methods', async () => {
+  const {DEFAULT_METHODS} = await import('../lib/paymongoCheckout.js');
+  assert.deepEqual(DEFAULT_METHODS, ['qrph']);
+});

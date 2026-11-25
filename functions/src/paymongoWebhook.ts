@@ -202,7 +202,6 @@ function refundsIn(type: string, data: Record<string, unknown>): RefundEntry[] {
 
 async function handleRevoke(event: {id: string; type: string; data: Record<string, unknown>},
   attributes: Record<string, unknown>, deps: PaymongoWebhookDeps, now: () => number): Promise<number> {
-  void attributes;
   const paymentId = paymentIdOf(event.data);
   if (!paymentId) {
     // Fail so PayMongo retries and the log alerts; never guess which grant to revoke.
@@ -211,7 +210,8 @@ async function handleRevoke(event: {id: string; type: string; data: Record<strin
   }
   let outcome;
   if (event.type === 'dispute.created') {
-    outcome = await revokePaymongoPayment(deps.db, {eventId: event.id, paymentId, reason: event.type, dispute: true, disputeId: text(event.data.id) ?? undefined}, now());
+    outcome = await revokePaymongoPayment(deps.db, {eventId: event.id, paymentId, reason: event.type, dispute: true, disputeId: text(event.data.id) ?? undefined,
+      ...(validAmount(attributes.amount) ? {disputedAmount: attributes.amount} : {})}, now());
   } else {
     const entries = refundsIn(event.type, event.data);
     if (entries.length === 0) {

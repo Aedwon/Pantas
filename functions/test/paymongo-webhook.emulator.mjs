@@ -639,6 +639,10 @@ for (const scenario of ['won', 'lost', 'partial-before', 'partial-after', 'full-
       assert.equal(auth.current().pro, scenario !== 'expired');
     }
     const followUp = await db.doc(`paymongoFollowUps/${paymentId}__dispute`).get();
+    // Every lost dispute gets its own owner follow-up (lead ruling, Nov 25).
+    const lostRows = await db.collection('paymongoFollowUps').where('paymentId', '==', paymentId)
+      .where('reason', '==', 'disputeLost').get();
+    assert.equal(lostRows.size, scenario === 'lost' ? 1 : 0);
     const withRefund = partial || scenario === 'full-after';
     assert.equal(followUp.exists, withRefund);
     if (withRefund) {
