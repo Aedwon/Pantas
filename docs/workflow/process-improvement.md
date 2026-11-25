@@ -134,6 +134,13 @@ pass 15, retire or merge one first.
 - Cost: the counts line reached prod inside #124 (7:07 AM Manila); the release lead rolled prod back at 7:11 AM, which also pulled the Quiz tab card and the T9 fixes until a reship (his question: "why do they take this long").
 - Fix (required step, manager and leads): every rule-4 ruling names the search done before it (launch log, rulings file, boards, with the terms searched) in the message that gives the ruling. A ruling that names no search is not acted on. The release lead dropped the U24 branch before shipping. No check can tell a decided question from an open one.
 
+### UX lead sat idle on a finished CI step with no live watcher (Nov 25)
+
+- Words: none from Aedwon. The manager's note: "you've been idle since 7:58 AM. You ended your turn while the CI goldens ran, with no watcher."
+- Wrong: the lead started `gh run watch` in the background and ended its turn without registering it with the thread (T3 `t3_background_wait`). The session ended, the watcher stopped with it, and the goldens run finished unseen; about 1 h 37 min passed before the manager asked.
+- Why it got through: a background command looked like a watcher, but in T3 only a registered wait keeps the thread alive to hear it finish.
+- Fix (required step): before ending a turn on CI, a goldens run or any other background wait, start the watcher in the background and register it with `t3_background_wait` in the same turn; the turn's last line names the run and that a registered watcher is on it.
+
 ### Walk-through lesson rewrite still too compressed (Nov 25)
 
 - His words: "i found some lessons could use more detail, or a sort of \"walk you through it\" type of teaching" (Signed Integers and Substitution, three screenshots), then on the manager's sample rewrite: "close, but not as detailed as I'd like. you are allowed to have numbers in core concept".
@@ -150,6 +157,7 @@ pass 15, retire or merge one first.
   1. Every UI build brief and every side-by-side review checks design/system/patterns.md (placement, spacing, buttons) as well as the board. Where a board drawn before Nov 7 conflicts with a pattern, the pattern wins, and the review names the rule.
   2. A one-time sweep of every wide screen for placement against patterns.md, results listed for the manager. It starts only after he answers; he asked for answers before changes.
   A placement check in code may be possible later (widget tests asserting button order and alignment on wide cards); none is promised until it is shown failing on this card.
+- Done (Nov 25, UX lead, E-158): step 2 ran as a code-only scan at his request ("isn't there a faster way to determine that without using screenshots", then "okay proceed"). Check added, as this entry asked: `test/helpers/button_placement.dart` (on `ux/button-placement-r1`) fails a wide pair that is out of order, off 8 px (board exceptions listed with his approval), stretched, neither at the right end nor centered, or stacked phone-style; it runs on every wide screen golden. Shown failing on the old mock card, guardian and exam-change screens before their fixes. Results and rulings: the rulings file, "Nov 25, UX design lead: wide button placement, code only (E-158)".
 
 ### Two lead sessions shipped the same PRs at once (Nov 25)
 
