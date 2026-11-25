@@ -4678,3 +4678,9 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Aedwon, verbatim:** "go with your reco". Manager reading: option A, and yes on side effect 1.
 - **Effect:** the CSE release lead builds A after the mock navigation hotfix, with a second Codex Sol High audit and a staging proof; the ship plan notes the one-way first release. Remaining limit, once per phone: on the first visit after the release, if the phone goes offline before the new worker finishes installing, the app will not open offline instead of opening mixed.
 
+
+## 2026-11-26 about 3:45 AM Manila: walk-through lane rulings (manager, rule 4)
+
+- Searched: the walk-through spec (Markup proposal, "Board status", "On resume" sequence), this log at line 4640 (prod content root `content/cse-key-fixes-r1` a7cc22b6b, confirmed on origin), process-improvement Nov 24 "A new quiz bar design reached prod without his visual check", and the Nov 26 UI rule in operations-manager.md.
+- Found by the Gemini lead: main holds the old unsplit CSE tree (43 lessons); the live tree has 416 bite-sized CSE lessons. The reader, importer and checks do not support the spec's walk-through blocks, and board round 2 was never rendered or published.
+- Rulings: (1) the Gemini lane rebases on `content/cse-key-fixes-r1` a7cc22b6b and rewrites the 416 live CSE lessons; (2) it rewrites in parallel and also updates the non-UI content checks (900 words before a tap, split coverage, structure audit, a pair-cites-a-quiz-wrong-choice check); the UX lead (Claude, fresh session) builds board round 2 for his look, then the renderer and importer after his approval; no walk-through lesson reaches the integrator before both land; (3) splits as the lead proposed, question text never edited; (4) existing figure markers kept, new figures go to a worklist, no assets from the Gemini lane.
