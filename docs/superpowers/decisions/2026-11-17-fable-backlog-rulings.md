@@ -1784,3 +1784,14 @@ Open for him on the board: (a) which lesson the taste uses (a fixed starter less
 Problem found in code (main at the time of this entry): the assessment holds answers in memory and saves only after the last question. Leaving through the dialog ("Your answers so far won't be kept. You can start again from Home."), browser Back, a reload or closing the app loses every answer. With the assessment as the one gate to the score, this is put to him as a choice: keep, or save answers on the device and resume from Home's card (recommended).
 
 Board (E-165): https://claude.ai/artifact/D3JLTrRGiN8vjnfLrbhoMN (private until he shares it). Refinement of ruling 4 after review: the intro screen's Skip is the ghost button under Start (phone) or before Start (wide); the header Skip is on the lesson and question screens only, so no screen shows two Skips. The wide Home frames and the wide leave dialog follow patterns.md and the live app (assessment button at the right end; Keep Going, then red Leave), not the pre-Nov 7 board order.
+
+## Nov 25, link-preview image without the beta mark (UX design lead, E-169)
+
+Manager brief: replace the link-preview image's beta mark; the manager ruled Nov 25 that a replacement is a new look and needs his pick.
+
+Searched before the rulings below: Pantas Web and Pantas Redesign (all board titles; SP_Splash, SP_WebBStill, SP_PhoneBFade, QA_Splash, QA_SplashBLight, O_Launch, WR_Share), Splash Hand-off, Home Screen Icon, Pantas beta sign-in, Pantas Website, the handoff exports, the launch log, this file and the CSE release checklist (G4 row 18). No board draws a link preview or a 1200 x 630 frame; SP_Splash draws the approved brand lockup, which fits.
+
+Lead rulings (rule 4): the image is the SP_Splash lockup at twice its wide size (mark 240, gap 40, wordmark 84) centered on #F5F5F7; no tagline; alt text "The Pantas logo". Single design, for his pick.
+
+Board: https://claude.ai/artifact/8emGUsKPxKrkpqd1rHi2sw (private until he shares it). Handoff: docs/superpowers/handoffs/2026-11-25-link-preview-image-board.md.
+
