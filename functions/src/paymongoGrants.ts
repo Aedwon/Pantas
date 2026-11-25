@@ -330,7 +330,8 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
       if (refundOwed) flagRefund();
       if (mixedWon && !priorDisputeFollowUp.exists) {
         disputeReason = 'disputeWithRefund';
-        transaction.set(disputeFollowUpRef, {paymentId, disputeId: tiedId ?? null, status: 'pending', refundRequired: false,
+        // The mixed case belongs to the won dispute, even when another dispute was lost later.
+        transaction.set(disputeFollowUpRef, {paymentId, disputeId: wonId ?? tiedId ?? null, status: 'pending', refundRequired: false,
           reason: disputeReason, paidAmount: input.paidAmount, refundedTotal: earlyRefunds,
           unusedDays: unusedDaysOf({...grant, revokedAt: now}, now), pulled: [], createdAt: now});
       }
@@ -427,7 +428,7 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
         lostLogged = true;
         const known = input.disputedAmount ?? (typeof tombstoneAmount === 'number' ? tombstoneAmount : undefined);
         transaction.set(lostRef, lostFollowUp(paymentId, input.disputeId!, known, now));
-      } else if (!input.disputeLost && input.disputedAmount !== undefined && lostSnap.exists &&
+      } else if (input.disputedAmount !== undefined && lostSnap.exists &&
           lostSnap.get('status') === 'pending' && lostSnap.get('disputedAmount') == null) {
         transaction.update(lostRef, {disputedAmount: input.disputedAmount});
       }
@@ -458,9 +459,10 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
         ...(input.disputeId ?? existing.get('disputeId') ? {disputeId: input.disputeId ?? existing.get('disputeId')} : {}),
         ...(input.disputedAmount !== undefined || existing.get('disputedAmount') !== undefined
           ? {disputedAmount: input.disputedAmount ?? existing.get('disputedAmount')} : {}),
-        // Each dispute's own amount, so one dispute's amount never stands for another's.
-        ...(input.disputeId && input.disputedAmount !== undefined ? {disputedAmounts: {
-          ...existing.get('disputedAmounts') as Record<string, number> | undefined, [input.disputeId]: input.disputedAmount}} : {}),
+        // Each dispute's own amount, kept through every rewrite of the tombstone.
+        ...(existing.get('disputedAmounts') !== undefined || (input.disputeId && input.disputedAmount !== undefined)
+          ? {disputedAmounts: {...existing.get('disputedAmounts') as Record<string, number> | undefined,
+            ...(input.disputeId && input.disputedAmount !== undefined ? {[input.disputeId]: input.disputedAmount} : {})}} : {}),
         disputed: existing.get('disputed') === true || input.dispute === true});
       // Refunds copied onto the task when the account was deleted count toward the balance.
       const counted = {...(follow.get('refunds') as Record<string, number> | undefined), ...refunds};
