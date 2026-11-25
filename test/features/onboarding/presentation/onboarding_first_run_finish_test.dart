@@ -7,7 +7,6 @@ import 'package:pantas/app/router.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/core/ui/components/loading_shapes.dart';
 import 'package:pantas/features/first_run/application/first_run_providers.dart';
 import 'package:pantas/features/first_run/domain/first_run_progress.dart';
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';

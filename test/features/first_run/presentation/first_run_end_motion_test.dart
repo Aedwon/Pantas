@@ -67,8 +67,7 @@ double _scaleOf(WidgetTester tester, Key key) => tester
 
 void main() {
   group('phone (P06)', () {
-    testWidgets(
-        'the count rolls as a vertical strip of 64 px rows, 400 ms then 1200 ms',
+    testWidgets('the count rolls 64 px rows, 400 ms then 1200 ms',
         (tester) async {
       await _pumpEnd(tester, width: 390);
       expect(find.byKey(const ValueKey('quiz-count-strip')), findsOneWidget);
