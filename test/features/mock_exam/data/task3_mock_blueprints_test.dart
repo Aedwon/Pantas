@@ -15,7 +15,7 @@ void main() {
     expect(pro['exam'], 'exam_cse_pro');
     expect(pro['sectionalTiming'], 'roamable');
     expect(pro['totalPublishedItems'], isNull);
-    expect(pro['unscoredItems'], 15);
+    expect(pro['unscoredItems'], 20);
     expect((pro['sections'] as YamlList).length, 4);
 
     expect(sub['exam'], 'exam_cse_sub');
