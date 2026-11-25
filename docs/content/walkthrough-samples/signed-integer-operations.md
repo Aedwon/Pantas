@@ -115,7 +115,7 @@ $$(-4)-(-9)=(-4)+9=5$$
 Why does taking away $-2$ add $2$? Look at this pattern. $5-2=3$, then $5-1=4$, then $5-0=5$. Each time you take away $1$ less, the answer goes up by $1$. Keep going: $5-(-1)=6$ and $5-(-2)=7$.
 :::
 
-:::pair
+:::pair #subtract-negative
 Right: $5-(-2)=5+2=7$
 Wrong: $5-(-2)=5-2=3$
 The wrong line made only one change. It kept the minus sign between the numbers and dropped the minus sign on $2$. Always make both changes.
@@ -133,6 +133,12 @@ Work out the number first. Then decide the sign.
 
 - Same signs give a positive answer: $(-4)\times(-5)=20$ and $(-12)\div(-3)=4$.
 - Different signs give a negative answer: $(-4)\times5=-20$ and $12\div(-3)=-4$.
+
+:::pair #quotient-sign
+Right: $(-28)\div7=-4$
+Wrong: $(-28)\div7=4$
+The signs are different, so the answer must be negative. The wrong line worked out the number and forgot the sign.
+:::
 
 When you multiply more than two numbers, count the negative signs. An even count gives a positive answer. An odd count gives a negative answer.
 
@@ -228,14 +234,8 @@ The answer is $1$. The signs are different, so subtract $4-3=1$. The number $4$ 
 
 ## Traps to Watch For
 
-### #1: Dropping the Double Negative
-
-> $a-(-b)$ means $a+b$, never $a-b$.
-
-In Example 1, writing $18-18$ instead of $18+18$ gives $-4$ instead of $32$. When a minus sign sits right before a negative number, change both signs to plus.
-
-### #2: Choosing the Sign by Size
-
-> When adding, take the sign of the number farther from $0$, not the larger number.
-
-In $(-7)+4$, the number $4$ is larger than $-7$, but $-7$ is farther from $0$. Taking the sign of the larger number gives $3$, which is wrong. The answer is $-3$.
+:::checklist
+- A minus sign right before a negative number: change both signs to plus, so $18-(-18)=18+18=36$. {#subtract-negative}
+- Different signs in a product or quotient: the answer is negative, so $(-28)\div7=-4$. {#quotient-sign}
+- Adding numbers with different signs: take the sign of the number farther from $0$, so $(-7)+4=-3$. {#adding-two-numbers-with-different-signs}
+:::

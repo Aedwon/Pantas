@@ -804,15 +804,18 @@ void main() {
       expect(find.text('CSE Professional simulation'), findsOneWidget);
       expect(find.text('The clock starts when you click.'), findsOneWidget);
       expect(find.byType(WebButton), findsWidgets);
-      // MK_SetupCSE: the button fills the right column; the line is centered.
+      // Wide placement (patterns.md): Start is at natural width at the right
+      // end of the column; the line is right-aligned under it.
       final start = tester.getRect(
         find.widgetWithText(WebButton, 'Start the Mock Exam'),
       );
-      final caption = tester.getCenter(
+      final caption = tester.getRect(
         find.text('The clock starts when you click.'),
       );
-      expect(start.width, greaterThan(300));
-      expect(caption.dx, closeTo(start.center.dx, 1));
+      final column = tester.getRect(find.byType(WebCard).first);
+      expect(start.width, lessThan(column.width));
+      expect(start.right, closeTo(column.right, 1));
+      expect(caption.right, closeTo(start.right, 1));
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       expect(strict, false);
     });

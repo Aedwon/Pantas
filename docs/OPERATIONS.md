@@ -268,7 +268,7 @@ if (!/^pantas-(prod|staging)$/.test(project ?? '') || !/^pay_[A-Za-z0-9]+$/.test
   process.exit(2);
 }
 const refundId = `manual_${label}`;
-const body = JSON.stringify({data: {id: `evt_${refundId}`, type: 'event', attributes: {
+const body = JSON.stringify({data: {id: `evt_manual_${paymentId}_${label}`, type: 'event', attributes: {
   type: 'payment.refunded', livemode, data: {id: paymentId, type: 'payment', attributes: {
     refunds: [{id: refundId, attributes: {amount, status: 'succeeded'}}]}}}}});
 const t = Math.floor(Date.now() / 1000);
@@ -276,7 +276,7 @@ const mac = createHmac('sha256', secret).update(`${t}.${body}`).digest('hex');
 const signature = livemode ? `t=${t},te=,li=${mac}` : `t=${t},te=${mac},li=`;
 const response = await fetch(`https://asia-southeast1-${project}.cloudfunctions.net/paymongoWebhook`,
   {method: 'POST', headers: {'Content-Type': 'application/json', 'Paymongo-Signature': signature}, body});
-console.log(`${refundId}: HTTP ${response.status}`, response.status === 200 ? 'recorded' : 'NOT recorded, see the function log');
+console.log(`${refundId}: HTTP ${response.status}`, response.status === 200 ? 'sent; confirm in step 5' : 'request failed, see the function log');
 ```
 
 If PayMongo support later confirms a way to refund QR Ph through PayMongo, use that instead: its

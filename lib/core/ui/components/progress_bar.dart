@@ -21,6 +21,7 @@ class PantasProgressBar extends StatelessWidget {
     this.valueText,
     this.semanticValue,
     this.warning = false,
+    this.danger = false,
     super.key,
   }) : assert(value >= 0 && value <= 1, 'Value must be from 0 to 1.');
 
@@ -38,6 +39,9 @@ class PantasProgressBar extends StatelessWidget {
 
   /// Colors the fill `warning-text`.
   final bool warning;
+
+  /// Colors the fill `danger` (the clock's last minute). Wins over [warning].
+  final bool danger;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +65,11 @@ class PantasProgressBar extends StatelessWidget {
                 child: DecoratedBox(
                   key: const ValueKey('progress-bar-fill'),
                   decoration: BoxDecoration(
-                    color: warning ? colors.warningText : colors.accent,
+                    color: danger
+                        ? colors.danger
+                        : warning
+                            ? colors.warningText
+                            : colors.accent,
                     borderRadius: BorderRadius.circular(PantasRadius.full),
                   ),
                   child: const SizedBox.expand(),

@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -601,6 +603,7 @@ class SignInButton extends StatelessWidget {
     this.state = SignInButtonState.idle,
     this.keyHint,
     this.tonal = false,
+    this.fill = false,
     super.key,
   });
 
@@ -608,6 +611,10 @@ class SignInButton extends StatelessWidget {
   final VoidCallback onPressed;
   final SignInStyle style;
   final SignInButtonState state;
+
+  /// Wide only: fills its parent's width instead of hugging its content, for
+  /// a stacked pair inside [SignInStack], which sets the shared width.
+  final bool fill;
 
   /// A key shown on the button when a keyboard is in use (laptop boards).
   final String? keyHint;
@@ -618,7 +625,7 @@ class SignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final foreground = tonal ? style.accentTintText : style.onAccent;
-    final fill = tonal ? style.accentTint : style.accentFill;
+    final background = tonal ? style.accentTint : style.accentFill;
     final hover = tonal ? style.accentTintHover : style.accentFillHover;
     final content = switch (state) {
       SignInButtonState.idle => Row(
@@ -651,7 +658,7 @@ class SignInButton extends StatelessWidget {
     final button = SizedBox(
       height: PantasSize.btnPhone,
       // HANDOFF: no full-width buttons on wide; they take their natural width.
-      width: style.wide ? null : double.infinity,
+      width: style.wide && !fill ? null : double.infinity,
       child: PressScale(
         child: TextButton(
           // ds-raw: brand provider button with logo content
@@ -668,7 +675,7 @@ class SignInButton extends StatelessWidget {
             backgroundColor: WidgetStateProperty.resolveWith(
               (states) => style.wide && states.contains(WidgetState.hovered)
                   ? hover
-                  : fill,
+                  : background,
             ),
             foregroundColor: WidgetStatePropertyAll(foreground),
             overlayColor: const WidgetStatePropertyAll(Colors.transparent),
@@ -683,8 +690,152 @@ class SignInButton extends StatelessWidget {
         ),
       ),
     );
-    return style.wide ? Center(child: button) : button;
+    return style.wide && !fill ? Center(child: button) : button;
   }
+}
+
+/// Wide only: buttons stacked one above the other share one width and height
+/// (E-175). The buttons take the widest button's natural width, centered in
+/// the column; buttons built with `fill` take that width. Text lines between
+/// them (the countdowns, Resend Code) keep the full column width, so they stay
+/// on one line as before. Phone lays the children out as a plain column.
+class SignInStack extends StatelessWidget {
+  const SignInStack({required this.wide, required this.children, super.key});
+
+  final bool wide;
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!wide) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: children,
+      );
+    }
+    return _SharedWidthStack(
+      paired: [
+        for (final child in children)
+          child is SignInButton || child is SignInTextButton,
+      ],
+      children: children,
+    );
+  }
+}
+
+/// A column whose paired children (the buttons) share the widest one's
+/// natural width, centered, while the other children take the full width.
+/// IntrinsicWidth could not do this: it gives every child one width, so a
+/// countdown line either widened the pair or wrapped at the pair's width.
+class _SharedWidthStack extends MultiChildRenderObjectWidget {
+  const _SharedWidthStack({required this.paired, required super.children});
+
+  final List<bool> paired;
+
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      _RenderSharedWidthStack(paired);
+
+  @override
+  void updateRenderObject(
+    BuildContext context,
+    _RenderSharedWidthStack renderObject,
+  ) =>
+      renderObject.paired = paired;
+}
+
+class _SharedWidthParentData extends ContainerBoxParentData<RenderBox> {}
+
+class _RenderSharedWidthStack extends RenderBox
+    with
+        ContainerRenderObjectMixin<RenderBox, _SharedWidthParentData>,
+        RenderBoxContainerDefaultsMixin<RenderBox, _SharedWidthParentData> {
+  _RenderSharedWidthStack(this._paired);
+
+  List<bool> _paired;
+  List<bool> get paired => _paired;
+  set paired(List<bool> value) {
+    if (listEquals(value, _paired)) return;
+    _paired = value;
+    markNeedsLayout();
+  }
+
+  bool _isPaired(int index) => index < _paired.length && _paired[index];
+
+  @override
+  void setupParentData(RenderBox child) {
+    if (child.parentData is! _SharedWidthParentData) {
+      child.parentData = _SharedWidthParentData();
+    }
+  }
+
+  double _sharedWidth(double available) {
+    var shared = 0.0;
+    var index = 0;
+    for (var child = firstChild; child != null; child = childAfter(child)) {
+      if (_isPaired(index++)) {
+        shared = math.max(shared, child.getMaxIntrinsicWidth(double.infinity));
+      }
+    }
+    return math.min(shared, available);
+  }
+
+  @override
+  void performLayout() {
+    final shared = _sharedWidth(constraints.maxWidth);
+    final full = constraints.hasBoundedWidth ? constraints.maxWidth : shared;
+    var y = 0.0;
+    var index = 0;
+    for (var child = firstChild; child != null; child = childAfter(child)) {
+      final width = _isPaired(index++) ? shared : full;
+      child.layout(BoxConstraints.tightFor(width: width), parentUsesSize: true);
+      (child.parentData! as _SharedWidthParentData).offset =
+          Offset((full - width) / 2, y);
+      y += child.size.height;
+    }
+    size = constraints.constrain(Size(full, y));
+  }
+
+  @override
+  double computeMinIntrinsicWidth(double height) {
+    var width = 0.0;
+    for (var child = firstChild; child != null; child = childAfter(child)) {
+      width = math.max(width, child.getMinIntrinsicWidth(double.infinity));
+    }
+    return width;
+  }
+
+  @override
+  double computeMaxIntrinsicWidth(double height) {
+    var width = 0.0;
+    for (var child = firstChild; child != null; child = childAfter(child)) {
+      width = math.max(width, child.getMaxIntrinsicWidth(double.infinity));
+    }
+    return width;
+  }
+
+  double _height(double width) {
+    var height = 0.0;
+    for (var child = firstChild; child != null; child = childAfter(child)) {
+      height += child.getMinIntrinsicHeight(width);
+    }
+    return height;
+  }
+
+  @override
+  double computeMinIntrinsicHeight(double width) => _height(width);
+
+  @override
+  double computeMaxIntrinsicHeight(double width) => _height(width);
+
+  @override
+  void paint(PaintingContext context, Offset offset) =>
+      defaultPaint(context, offset);
+
+  @override
+  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) =>
+      defaultHitTestChildren(result, position: position);
 }
 
 /// The boards' quiet 44 px text button.
@@ -694,6 +845,7 @@ class SignInTextButton extends StatelessWidget {
     required this.onPressed,
     required this.style,
     this.icon,
+    this.fill = false,
     super.key,
   });
 
@@ -702,18 +854,30 @@ class SignInTextButton extends StatelessWidget {
   final SignInStyle style;
   final Widget? icon;
 
+  /// Wide only: fills its parent's width (see [SignInButton.fill]).
+  final bool fill;
+
   @override
   Widget build(BuildContext context) {
     final button = SizedBox(
-      height: PantasSize.targetTouch,
-      width: style.wide ? null : double.infinity,
+      // Wide, it stacks under the 52 px main button and takes its height.
+      height: style.wide ? PantasSize.btnPhone : PantasSize.targetTouch,
+      width: style.wide && !fill ? null : double.infinity,
       child: TextButton(
         // ds-raw: brand provider button with logo content
         onPressed: onPressed,
         style: ButtonStyle(
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           minimumSize: const WidgetStatePropertyAll(Size.zero),
-          padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+          // Wide, the button hugs its content, so it keeps the design
+          // system's 14 beside the label (Button README, .btn3); without it
+          // the hover tint ends at the G and the last letter. Phone fills
+          // the column and centers its content, so it needs none.
+          padding: WidgetStatePropertyAll(
+            style.wide
+                ? const EdgeInsets.symmetric(horizontal: PantasSpace.s14)
+                : EdgeInsets.zero,
+          ),
           animationDuration: MediaQuery.disableAnimationsOf(context)
               ? Duration.zero
               : PantasDurations.short2,
@@ -748,7 +912,7 @@ class SignInTextButton extends StatelessWidget {
         ),
       ),
     );
-    return style.wide ? Center(child: button) : button;
+    return style.wide && !fill ? Center(child: button) : button;
   }
 }
 

@@ -24,6 +24,8 @@ import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
 import 'package:pantas/features/settings/presentation/pages/exam_page.dart';
 import 'package:pantas/features/settings/settings.dart';
 
+import '../../../helpers/button_placement.dart';
+import '../../../helpers/ds_matrix.dart';
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
@@ -225,6 +227,50 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Study days'), findsOneWidget);
     expect(find.text("You're now studying for DOST"), findsNothing);
+  });
+
+  // patterns.md, Button placement (centered layouts): on wide the pair is
+  // one centered row, Done first and Change Exam Date last. Until Nov 25 the
+  // phone's stack showed on wide too, main first.
+  testWidgets('wide: Done then Change Exam Date, one centered row',
+      (tester) async {
+    await loadDsFonts();
+    tester.view
+      ..physicalSize = const Size(1440, 900)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    final router = GoRouter(
+      initialLocation: '/settings/exam',
+      routes: [
+        settingsCarryOverRoute(),
+        GoRoute(path: '/settings/exam', builder: (_, __) => const ExamPage()),
+        GoRoute(
+          path: '/settings/exam/change',
+          builder: (_, __) => const ChangeExamPage(),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        ...createOverrides(),
+        carryableCountProvider.overrideWith((ref, id) async => 0),
+      ],
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Exam'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('DOST'));
+    await tester.pumpAndSettle();
+    expect(find.text("You're now studying for DOST"), findsOneWidget);
+    expectWidePlacement(tester);
+    final done = tester.getRect(find.text('Done'));
+    final change = tester.getRect(find.text('Change Exam Date'));
+    expect(done.center.dy, closeTo(change.center.dy, 1));
+    expect(done.right, lessThan(change.left));
   });
 
   testWidgets('the exam page has the active exam and four setting rows',

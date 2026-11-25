@@ -455,7 +455,10 @@ class HomeWebQuestionsSheet extends StatelessWidget {
                         ),
                         const SizedBox(height: PantasSpace.s10),
                       ],
+                      // Board A, his pick Nov 25: full width kept over
+                      // patterns.md.
                       WebButton(
+                        key: const ValueKey('drawer-foot-start'),
                         label: startLabel,
                         keyHint: blocked ? null : 'Enter',
                         large: true,

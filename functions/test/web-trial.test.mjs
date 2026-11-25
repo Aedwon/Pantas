@@ -245,6 +245,20 @@ test('a code sign-in also counts the providers linked to the account', async () 
   assert.equal(await trialEligible(codeUser('c2', {email: 'new@example.com'}), db), true);
 });
 
+for (const marker of [{}, {startedAt: 1}]) {
+  test(`trial and beta grants refuse a closed account and write nothing: ${JSON.stringify(marker)}`, async () => {
+    const db = memoryDb();
+    db.rows.set('accountDeletions/tester', marker);
+    const before = db.rows.size;
+    const d = {...deps(db), until: () => BETA_CUTOFF};
+    // Main's shared account-closed error (permission-denied) replaced this branch's failed-precondition for trials.
+    await assert.rejects(startTrial(named('tester'), d), {code: 'permission-denied'});
+    await assert.rejects(changeBetaPro({auth: named('tester'), app: {appId: 'test'},
+      data: {enabled: true, examId: 'exam_cse_pro'}}, d), {code: 'failed-precondition'});
+    assert.equal(db.rows.size, before);
+  });
+}
+
 const TRIAL_CODE_MS = 730 * 86400000;
 
 test('D7: each new trial code stores the trial start and an expireAt 730 days later', async () => {

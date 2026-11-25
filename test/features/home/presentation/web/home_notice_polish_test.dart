@@ -83,11 +83,11 @@ void main() {
       expect(add.width, tester.getSize(find.text('Add Exam Date')).width + 40);
       expect(later.width, tester.getSize(find.text('Later')).width + 28);
       expect(add.width, closeTo(156, 1.5));
-      // 14 px of Later's padding and the 12 px gap: 26 from its text.
+      // 14 px of Later's padding and the 8 px gap: 22 from its text.
       expect(
         tester.getTopLeft(find.widgetWithText(WebButton, 'Add Exam Date')).dx -
             tester.getTopRight(find.text('Later')).dx,
-        closeTo(26, .01),
+        closeTo(22, .01),
       );
     });
 

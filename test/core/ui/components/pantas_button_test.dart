@@ -290,7 +290,7 @@ void main() {
       ),
       check: (tester, cell) async {
         // The two phone text sizes have no wide form: they draw as standard.
-        final minimums = [36, 44, 42, 50, 46, 46, 44, 44, 52, 44, 44];
+        final minimums = [36, 44, 42, 50, 46, 46, 44, 44, 52, 44, 44, 40];
         for (var i = 0; i < PantasButtonSize.values.length; i++) {
           final h = tester.getSize(find.byType(TextButton).at(i)).height;
           // The height is a minimum: it grows when the label wraps.

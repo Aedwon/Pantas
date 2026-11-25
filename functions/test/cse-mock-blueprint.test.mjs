@@ -53,9 +53,9 @@ function expectedSlots(section) {
 }
 
 const expected = {
-  exam_cse_pro: {file: 'cse-pro', minutes: 190, total: 155, counts: {
+  exam_cse_pro: {file: 'cse-pro', minutes: 190, total: 150, counts: {
     sec_cse_pro_general_information: 20, sec_cse_pro_verbal_ability: 55,
-    sec_cse_pro_analytical_ability: 35, sec_cse_pro_numerical_ability: 45}},
+    sec_cse_pro_analytical_ability: 35, sec_cse_pro_numerical_ability: 40}},
   exam_cse_sub: {file: 'cse-sub', minutes: 160, total: 145, counts: {
     sec_cse_sub_verbal_ability: 36, sec_cse_sub_numerical_ability: 36,
     sec_cse_sub_clerical_ability: 36, sec_cse_sub_general_information: 37}},

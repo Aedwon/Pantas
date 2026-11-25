@@ -126,7 +126,49 @@ pass 15, retire or merge one first.
 
 ## Entries
 
-<<<<<<< Updated upstream
+### Wide stacked sign-in buttons did not match in size (Nov 25)
+
+- His words (about 9:36 PM Manila): "also i think there's a regression with the buttons? like that google one, if they're paired with each other, i think it would be more visually pleasing if they're similar in proportions/size or something idk how to best express it", then "sorry i meant that when they're vertically stacked".
+- Wrong: on wide sign-in, Continue (52 high) sat above "Use Google Instead" (44 high), and each took its own natural width, so the stacked pair had two sizes.
+- Why it got through: the placement sweeps (E-158, E-162) and their reviews checked position, order, gap and full width. They never checked that two buttons in one group match each other in size. No rule in patterns.md asked for it, and the sign-in buttons were outside the check (raw TextButtons).
+- Fix (check): patterns.md, Button placement, "Paired buttons stacked one above the other share width and height". The placement check fails a stacked pair whose widths or heights differ by more than 1 px, and the sign-in page runs that check. It was shown failing on the old sign-in. E-175, branch `ux/google-button-padding-r1`.
+
+### Wide "Use Google Instead" hover box hugged its content (Nov 25)
+
+- His words (about 9:10 PM Manila, wide dark sign-in screenshot, the button hovered): "also i saw this, tell me if you can see the problem".
+- Wrong: on wide web the sign-in text buttons ("Use Google Instead", "Use a Different Email") had no inside padding. The hover tint started at the Google mark's left edge and ended at the last letter. Centering was correct.
+- Why it got through: (1) the Nov 22 fix for U46 made these buttons natural width but kept the zero padding that only worked while they filled the 420 column; its test checked only that the width was under 400. (2) The buttons are raw TextButtons (ds-raw, brand logo content), so they skip PantasButton's built-in padding and the wide placement check, which finds only WebButton and PantasButton and checks order, gap, width and place, never inside padding. (3) At rest the button is transparent, so a resting golden or a side-by-side review shows nothing wrong; the defect shows only on hover. (4) The sign-in board draws the button full width, so comparing with the board could not give the padding; it comes from the design system's wide text button (14 beside the label).
+- Fix (check): a sign-in test that fails on the old code (0 px inside, 14 expected), and an inside-padding rule in `test/helpers/button_placement.dart`: a wide button that paints a hover box and is not stretched must keep at least 8 px between its edges and its content. The rule covers raw TextButtons too, and the sign-in page now runs the placement check. E-170, branch `ux/google-button-padding-r1`.
+
+### An internal term reached a board he reviews ("taste finished") (Nov 25)
+
+- His words (about 9:36 PM Manila, on the guided first-run board): "don't call it taste finished. why even call it that - that's an internal term", and on the same board "also please improve text copy - remove redundancies, remove unnecessary text/info".
+- Wrong: the manager's brief called the guided first run "the taste", and the board carried that word into on-screen text ("Taste finished"). The intro screen also repeated what its own button and steps already said.
+- Why it got through: briefs used an internal shorthand, and the board review checked styling and placement but not whether every on-screen word is user language. This is the same kind as the Nov 24 entry on internal codes in chat, now in product copy.
+- Fix (required step, boards and builds): before a board reaches him or a build ships, a reviewer scans every user-visible string for internal terms (lane words such as taste, trial, starter check, T-numbers, U-numbers, ruling codes) and for sentences that repeat the screen. Briefs name the user-facing wording separately from the internal name. A check on the app's own strings for a deny list of internal terms is possible; the UX lead adds it if it can be shown failing on a real string first.
+
+### Release lead ended its turn after a part report with the next part queued (Nov 25)
+
+- Words: none from Aedwon. The manager's note: "you reported part 1 at 2:44 PM and then stopped, with nothing running. Start part 2 now".
+- Wrong: the CSE release lead r7 shipped part 1 of a four-part brief, reported, and ended its turn with no worker, watcher or wait running, though the brief said "Do these in critical-path order" and parts 2 and 3 needed nothing from him. About 1 h 19 min passed idle.
+- Why it got through: "report to me after each part" was read as a stop point. The Nov 25 idle entry (UX lead) covered a missing watcher, not a turn ended by choice with work queued.
+- Fix (required step, every lead): a part report is not a stop. In the same turn as the report, start the next part (log its estimate, start its timer or worker) unless the brief or the manager says to wait, and say in the report what is now running. End a turn only when something is running under a registered watcher, or the next step needs Aedwon or the manager.
+
+### Manager ruled on the Home footer without finding his Oct 31 decision (Nov 25)
+
+- His words: "didn't we remove 2" (about the manager's list item "Home footer: About 45 min today becomes real counts").
+- Wrong: the manager ruled that the wide Home footer would show "3 lessons, 18 reviews left" in place of the time estimate, built it and queued it to ship. On Oct 31 he had already decided "Leave it out": the footer keeps only the button. The live app already matched his decision, so the change would have added something he had removed.
+- Why it got through: the manager ruled under rule 4 from the lead's summary ("used to show About 45 min today") and did not search the launch log or rulings first. This is the same kind as the Nov 23 entry (deciding or asking without searching), now on the manager's own rulings.
+- Cost: the counts line reached prod inside #124 (7:07 AM Manila); the release lead rolled prod back at 7:11 AM, which also pulled the Quiz tab card and the T9 fixes until a reship (his question: "why do they take this long").
+- Fix (required step, manager and leads): every rule-4 ruling names the search done before it (launch log, rulings file, boards, with the terms searched) in the message that gives the ruling. A ruling that names no search is not acted on. The release lead dropped the U24 branch before shipping. No check can tell a decided question from an open one.
+
+### UX lead sat idle on a finished CI step with no live watcher (Nov 25)
+
+- Words: none from Aedwon. The manager's note: "you've been idle since 7:58 AM. You ended your turn while the CI goldens ran, with no watcher."
+- Wrong: the lead started `gh run watch` in the background and ended its turn without registering it with the thread (T3 `t3_background_wait`). The session ended, the watcher stopped with it, and the goldens run finished unseen; about 1 h 37 min passed before the manager asked.
+- Why it got through: a background command looked like a watcher, but in T3 only a registered wait keeps the thread alive to hear it finish.
+- Fix (required step): before ending a turn on CI, a goldens run or any other background wait, start the watcher in the background and register it with `t3_background_wait` in the same turn; the turn's last line names the run and that a registered watcher is on it.
+
 ### Walk-through lesson rewrite still too compressed (Nov 25)
 
 - His words: "i found some lessons could use more detail, or a sort of \"walk you through it\" type of teaching" (Signed Integers and Substitution, three screenshots), then on the manager's sample rewrite: "close, but not as detailed as I'd like. you are allowed to have numbers in core concept".
@@ -143,14 +185,14 @@ pass 15, retire or merge one first.
   1. Every UI build brief and every side-by-side review checks design/system/patterns.md (placement, spacing, buttons) as well as the board. Where a board drawn before Nov 7 conflicts with a pattern, the pattern wins, and the review names the rule.
   2. A one-time sweep of every wide screen for placement against patterns.md, results listed for the manager. It starts only after he answers; he asked for answers before changes.
   A placement check in code may be possible later (widget tests asserting button order and alignment on wide cards); none is promised until it is shown failing on this card.
-=======
+- Done (Nov 25, UX lead, E-158): step 2 ran as a code-only scan at his request ("isn't there a faster way to determine that without using screenshots", then "okay proceed"). Check added, as this entry asked: `test/helpers/button_placement.dart` (on `ux/button-placement-r1`) fails a wide pair that is out of order, off 8 px (board exceptions listed with his approval), stretched, neither at the right end nor centered, or stacked phone-style; it runs on every wide screen golden. Shown failing on the old mock card, guardian and exam-change screens before their fixes. Results and rulings: the rulings file, "Nov 25, UX design lead: wide button placement, code only (E-158)".
+
 ### Two lead sessions shipped the same PRs at once (Nov 25)
 
 - Words: none from Aedwon. The manager's note: "Your workers already shipped ENT-06 at 19:40 UTC, and the reader with #117 at 19:48 UTC ... Don't redeploy #117."
 - Wrong: the manager's fresh-memory tasks started a second CSE release lead session (r5) on the same three PRs while the r4 session still owned them. r5 shipped ENT-06 and then #117; r4's ship worker was at the same time building ENT-06 from an older main commit. Had it reached prod, it would have rolled #117 off prod. r4 stopped it at staging after reading the launch log.
 - Why it got through: nothing tied a PR to one owning session, and a ship brief's rollback point was checked once at the start, not right before the deploy.
 - Fix (required steps): (1) a PR has one integrating session; the manager names it, and a lead that finds another session acting on its PRs stops its own ships and asks. (2) Every ship brief checks, immediately before the prod deploy, that app.pantas.study still serves the build recorded as the rollback point, and stops without deploying if it does not (in the r4 #121 brief).
->>>>>>> Stashed changes
 
 ### Discard spacing in the Quiz tab shrank after a spacing ship (Nov 25)
 

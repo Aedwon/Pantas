@@ -957,13 +957,17 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   saveFailureLine(_save),
               ],
               SizedBox(height: summary.isEmpty ? 14 : 16),
-              WebButton(
-                label: 'Start',
-                large: true,
-                expand: true,
-                keyHint: 'Enter',
-                onPressed: canStart ? start : null,
-                busy: _starting,
+              // Wide button placement (patterns.md): a side panel's action sits
+              // at its bottom right at natural width.
+              Align(
+                alignment: Alignment.centerRight,
+                child: WebButton(
+                  label: 'Start',
+                  large: true,
+                  keyHint: 'Enter',
+                  onPressed: canStart ? start : null,
+                  busy: _starting,
+                ),
               ),
             ],
           ),

@@ -41,6 +41,12 @@ Three verbs have their own forms in the present.
 
 Most other verbs follow one rule. With a singular third-person subject, add *-s* or *-es* to the verb: *she works*, *he watches*. With every other subject, use the plain verb: *I work*, *they watch*.
 
+:::pair #verb-s
+Right: The dog barks every morning.
+Wrong: The dog bark every morning.
+*The dog* is one thing, talked about, so the verb takes *-s*.
+:::
+
 :::why
 Why does a singular subject get the *-s*? English puts the plural *-s* on the noun and the singular *-s* on the verb. So with most nouns, only one word in the pair ends in *-s*: "The dog barks." "The dogs bark."
 :::
@@ -68,7 +74,7 @@ Find the head in four moves:
 
 In "The basket of apples is heavy," the thing that is heavy is the basket. Set aside *of apples*. Read "The basket is heavy." *Basket* is singular, so *is* is correct.
 
-:::pair
+:::pair #nearest-noun
 Right: The basket of apples is heavy.
 Wrong: The basket of apples are heavy.
 The wrong sentence matched the verb to *apples*, the nearest noun. *Apples* is only part of an added detail.
@@ -137,8 +143,7 @@ One exception: after *some*, *most*, *all*, *half*, or *a lot*, the noun after *
 
 ## Traps to Watch For
 
-### #1: Matching the Nearest Noun
-
-> A nearby noun may only add a detail about the subject.
-
-"The box of chocolates is on the table" agrees with *box*. The chocolates do not control the verb.
+:::checklist
+- One person or thing as the subject, in the present: add *-s* to the verb, as in "The dog barks." {#verb-s}
+- A phrase between the subject and the verb: cover it and match the head, as in "The box of chocolates is on the table." {#nearest-noun}
+:::

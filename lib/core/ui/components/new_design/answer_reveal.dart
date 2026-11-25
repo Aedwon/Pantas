@@ -46,26 +46,19 @@ class AnswerReveal extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Key column 30 (`size-opt-badge-phone`): the letter on an
-              // `accent-fill` circle, 15/700 in `on-accent` (Explanation
-              // README, `.xpl-phone__key`).
-              DecoratedBox(
+              // Key column 30 (`size-opt-badge-phone`): a bare letter, 15/700 in
+              // `text-secondary`, no circle (QV_MissPro, MK_ReviewQ, QV_Last).
+              SizedBox.square(
                 key: const ValueKey('answer-reveal-key'),
-                decoration: BoxDecoration(
-                  color: context.colors.accentFill,
-                  shape: BoxShape.circle,
-                ),
-                child: SizedBox.square(
-                  dimension: PantasSize.optBadgePhone,
-                  child: Center(
-                    child: Text(
-                      letter,
-                      style: PantasType.phoneExplanation.copyWith(
-                        fontWeight: FontWeight.w700,
-                        // ds-board: README type: web-glyph leading 1
-                        height: 1,
-                        color: context.colors.onAccent,
-                      ),
+                dimension: PantasSize.optBadgePhone,
+                child: Center(
+                  child: Text(
+                    letter,
+                    style: PantasType.phoneExplanation.copyWith(
+                      fontWeight: FontWeight.w700,
+                      // ds-board: README type: web-glyph leading 1
+                      height: 1,
+                      color: context.colors.textSecondary,
                     ),
                   ),
                 ),

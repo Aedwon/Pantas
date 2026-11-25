@@ -1,4 +1,5 @@
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:flutter/foundation.dart';
 import 'package:pantas/core/platform/account_access.dart';
 import 'package:pantas/core/platform/callable_options.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
@@ -16,6 +17,35 @@ class GuardianGatewayException implements Exception {
 /// The server refused because too many links were requested.
 class GuardianRateLimitedException extends GuardianGatewayException {
   const GuardianRateLimitedException() : super('resource-exhausted');
+}
+
+/// The server refused a new guardian request because under-18 sign-up is
+/// closed (option C, Nov 25). Nothing was written.
+class GuardianSignupClosedException extends GuardianGatewayException {
+  const GuardianSignupClosedException() : super(guardianSignupClosedCode);
+}
+
+/// The code of [GuardianSignupClosedException].
+const guardianSignupClosedCode = 'minor-signup-closed';
+
+/// Maps a callable failure to the typed error the screens act on.
+@visibleForTesting
+GuardianGatewayException guardianFailureFrom(
+  FirebaseFunctionsException error,
+) {
+  if (error.code == 'resource-exhausted') {
+    return const GuardianRateLimitedException();
+  }
+  if (isAccountClosedError(error)) {
+    return const GuardianGatewayException('account-closed');
+  }
+  final details = error.details;
+  if (error.code == 'failed-precondition' &&
+      details is Map &&
+      details['reason'] == guardianSignupClosedCode) {
+    return const GuardianSignupClosedException();
+  }
+  return GuardianGatewayException(error.code);
 }
 
 /// The server's single source of truth for guardian consent.
@@ -76,13 +106,7 @@ class FirebaseGuardianCallableClient implements GuardianCallableClient {
           : callable.callForAccount<Object?>(data));
       return result.data;
     } on FirebaseFunctionsException catch (error) {
-      if (error.code == 'resource-exhausted') {
-        throw const GuardianRateLimitedException();
-      }
-      if (isAccountClosedError(error)) {
-        throw const GuardianGatewayException('account-closed');
-      }
-      throw GuardianGatewayException(error.code);
+      throw guardianFailureFrom(error);
     }
   }
 }

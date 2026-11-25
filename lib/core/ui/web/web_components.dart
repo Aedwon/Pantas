@@ -1690,7 +1690,7 @@ class WebBottomBar extends StatelessWidget {
             : state == WebBarState.neutral
                 ? PantasDurations.fade
                 : PantasDurations.flip,
-        constraints: const BoxConstraints(minHeight: PantasSize.bar),
+        constraints: const BoxConstraints(minHeight: PantasLayout.barWide),
         padding: EdgeInsets.fromLTRB(
           PantasSpace.s8,
           stacked ? PantasSpace.s8 : PantasSpace.s0,
@@ -1704,7 +1704,7 @@ class WebBottomBar extends StatelessWidget {
             WebBarState.wrong => c.dangerBar
           },
           borderRadius: BorderRadius.circular(
-            stacked ? PantasRadius.xl : PantasRadius.bar,
+            stacked ? PantasRadius.xl : PantasRadius.barWide,
           ),
           border: Border.all(
             color: switch (state) {

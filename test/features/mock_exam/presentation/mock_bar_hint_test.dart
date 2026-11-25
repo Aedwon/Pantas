@@ -1,11 +1,12 @@
-// Mock bar (FloatingBar README, R3-O04): after an answer is picked there is
-// no reveal, so the hint reads "Saved on this device".
+// Mock bar (MK_FiveMin, MK_LastMinute, MK_Proctor): the wide compact bar reads
+// "N of M" with no hint, answered or not, so its width never changes.
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
@@ -25,6 +26,8 @@ const _question = Question(
 );
 
 void main() {
+  final barWidths = <double>[];
+  tearDownAll(() => expect(barWidths.toSet().length, 1));
   for (final answered in [false, true]) {
     testWidgets('wide mock bar hint, answered=$answered', (tester) async {
       debugWebPlatformOverride = true;
@@ -77,10 +80,8 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      expect(
-        find.text('Saved on this device'),
-        answered ? findsOneWidget : findsNothing,
-      );
+      expect(find.text('Saved on this device'), findsNothing);
+      barWidths.add(tester.getSize(find.byType(WebBottomBar)).width);
       expect(tester.takeException(), isNull);
     });
   }

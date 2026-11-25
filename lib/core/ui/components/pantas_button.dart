@@ -85,6 +85,9 @@ class PantasButton extends StatefulWidget {
         inactive = false,
         hint = null;
   final bool _filterChip;
+
+  /// Whether this is a filter chip (a choice, not an action).
+  bool get isFilterChip => _filterChip;
   final bool _chipSelected;
   final String label;
   final VoidCallback? onPressed;

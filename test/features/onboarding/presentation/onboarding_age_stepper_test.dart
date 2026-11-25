@@ -371,18 +371,18 @@ void main() {
         await tester.pumpAndSettle();
       });
 
-      testWidgets('12 is blocked and the block persists', (tester) async {
+      testWidgets('17 is blocked and the block persists', (tester) async {
         await layout.value(tester);
-        await type(tester, '12');
+        await type(tester, '17');
         await tester.tap(find.text('Continue'));
         await tester.pumpAndSettle();
         expect(find.text("Pantas isn't available yet"), findsOneWidget);
         expect(
-          find.text("Sorry, this app isn't available for users under 13."),
+          find.text("Sorry, this app isn't available for users under 18."),
           findsOneWidget,
         );
         final repo = AppPreferencesRepository(db);
-        expect(await repo.blockedMinimumAge(), 13);
+        expect(await repo.blockedMinimumAge(), 18);
         expect(await repo.hasPassedAgeGate(), isFalse);
         await layout.value(tester);
         await tester.pumpAndSettle();
@@ -390,7 +390,7 @@ void main() {
       });
 
       for (final minor in ['13', '17']) {
-        testWidgets('$minor goes to the guardian flow and saves "minor"',
+        testWidgets('$minor is blocked: no guardian flow, no "minor" saved',
             (tester) async {
           var passed = 0;
           var guardian = 0;
@@ -407,9 +407,10 @@ void main() {
           await tester.tap(find.text('Continue'));
           await tester.pumpAndSettle();
           expect(passed, 0);
-          expect(guardian, 1);
+          expect(guardian, 0);
           final repo = AppPreferencesRepository(db);
-          expect(await repo.ageGroup(), 'minor');
+          expect(await repo.ageGroup(), isNull);
+          expect(await repo.blockedMinimumAge(), 18);
           expect(await repo.hasPassedAgeGate(), isFalse);
         });
       }

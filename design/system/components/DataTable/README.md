@@ -15,6 +15,7 @@ DataTable lays out results in rows and columns: Record (past mocks) and Performa
 
 ## Variants and props
 - Sortable or plain headers. The consumer provides the columns, the rows, the sort state and the caption.
+- A list the board draws without a header row (Performance Subjects, Topics and Lessons: PF_Subjects, PF_Topics, PF_Lessons) passes `showHeader: false`. The columns are then sized by their cells alone.
 
 ## Markup
 Minimal markup, from the preview without its documentation scaffolding.

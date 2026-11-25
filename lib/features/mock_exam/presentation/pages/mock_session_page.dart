@@ -307,11 +307,12 @@ class _MockSessionPageState extends State<MockSessionPage> {
   }
 
   /// The clock, in the system Timer. Under five minutes it takes the warning
-  /// look (time and bar in `warning-text`, a visible tag); red stays for wrong
-  /// answers. [inline] puts the time and a short bar on one line (the wide
+  /// look (time and bar in `warning-text`, no tag); in the last minute it turns
+  /// red (MK_LastMinute, DECISIONS: amber under 5, red in the last minute).
+  /// [inline] puts the time and a short bar on one line (the wide
   /// header, D151).
   Widget _timer({required bool inline}) {
-    final warning = urgencyFor(widget.remainingInPart) != ClockUrgency.ample;
+    final urgency = urgencyFor(widget.remainingInPart);
     // A node of its own, so the clock keeps its name beside the title.
     return Semantics(
       container: true,
@@ -325,7 +326,11 @@ class _MockSessionPageState extends State<MockSessionPage> {
           partLength: widget.effectivePartLength,
           remaining: widget.remainingInPart,
         ),
-        state: warning ? PantasTimerState.warning : PantasTimerState.running,
+        state: switch (urgency) {
+          ClockUrgency.ample => PantasTimerState.running,
+          ClockUrgency.closing => PantasTimerState.warning,
+          ClockUrgency.last => PantasTimerState.last,
+        },
       ),
     );
   }
@@ -487,7 +492,10 @@ class _MockSessionPageState extends State<MockSessionPage> {
     // goes, so the list under it never moves. The strict line stays in the
     // flow, and the pill sits above both.
     final toast = _proctorToastMinutes != null
-        ? ProctorToast(minutes: _proctorToastMinutes!)
+        ? ProctorToast(
+            minutes: _proctorToastMinutes!,
+            oneBlock: widget.oneBlock,
+          )
         : null;
     final status = strictLine
         ? Text(
@@ -853,12 +861,13 @@ class _MockSessionPageState extends State<MockSessionPage> {
               ],
             if (widget.oneBlock && !widget.state.strictMode) ...[
               const SizedBox(height: PantasSpace.s28),
-              // MK_SubmitCSE: the button fills the panel's width.
-              SizedBox(
-                width: double.infinity,
+              // MK_SubmitCSE drew the button at the panel's full width. The
+              // wide pattern wins (patterns.md, Nov 7 rule): a side panel's
+              // action sits at its bottom right at natural width.
+              Align(
+                alignment: Alignment.centerRight,
                 child: WebButton(
                   label: 'Submit the Exam',
-                  expand: true,
                   onPressed: () => _confirmEndPartEarly(context),
                 ),
               ),
@@ -950,7 +959,10 @@ class _MockSessionPageState extends State<MockSessionPage> {
                 _timer(inline: true),
                 Text(
                   proctor
-                      ? proctorCopyFor(_proctorToastMinutes!)
+                      ? proctorCopyFor(
+                          _proctorToastMinutes!,
+                          oneBlock: widget.oneBlock,
+                        )
                       : widget.partStarted
                           ? 'Part $part started'
                           : widget.oneBlock
@@ -1140,14 +1152,6 @@ class _MockSessionPageState extends State<MockSessionPage> {
                                             ),
                                           WebBottomBar(
                                             compact: true,
-                                            // After an answer is picked a mock
-                                            // has no reveal: the hint says it
-                                            // is saved (FloatingBar README).
-                                            hint: _isAnswered(
-                                              widget.state.currentQuestionId,
-                                            )
-                                                ? 'Saved on this device'
-                                                : null,
                                             gap: PantasSpace.s6,
                                             counterPadding:
                                                 const EdgeInsets.symmetric(

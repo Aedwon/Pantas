@@ -168,8 +168,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                     caption: 'You get your own Pantas ID when you sign in.',
                     actionMinWidth: _pairWidth(context),
                     action: Wrap(
-                      spacing: PantasSpace.s12,
-                      runSpacing: PantasSpace.s12,
+                      spacing: PantasSpace.s8,
+                      runSpacing: PantasSpace.s8,
                       alignment: WrapAlignment.end,
                       children: [
                         if (web)
