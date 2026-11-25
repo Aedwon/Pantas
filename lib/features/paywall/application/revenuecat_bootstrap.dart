@@ -76,12 +76,21 @@ class RevenueCatAuthBinding {
   AuthState? _latestState;
   AuthState? _associatedState;
 
+  /// Set once by [dispose]: a discarded binding never subscribes, signs in
+  /// or signs out again, even when a start was already waiting.
+  bool _disposed = false;
+  int _startGeneration = 0;
+
   Future<void> start({
     required AuthState initialState,
     required Stream<AuthState> changes,
   }) async {
+    if (_disposed) return;
+    // Only the latest start subscribes, so two starts at once leave one.
+    final generation = ++_startGeneration;
     await _subscription?.cancel();
     _subscription = null;
+    if (_disposed || generation != _startGeneration) return;
 
     _latestState = initialState;
     _subscription = changes.listen(_queue);
@@ -89,6 +98,7 @@ class RevenueCatAuthBinding {
   }
 
   Future<void> dispose() async {
+    _disposed = true;
     await _subscription?.cancel();
     _subscription = null;
     await _pending;
@@ -102,6 +112,7 @@ class RevenueCatAuthBinding {
   }
 
   void _queue(AuthState state) {
+    if (_disposed) return;
     final previous = _latestState;
     _latestState = state;
     // Clear synchronously before the next queued SDK association. An old
@@ -117,7 +128,9 @@ class RevenueCatAuthBinding {
   }
 
   Future<void> _associate(AuthState state) async {
-    if (state != _latestState || state is UnknownAuthState) return;
+    if (_disposed || state != _latestState || state is UnknownAuthState) {
+      return;
+    }
     final uid =
         _currentFirebaseUid == null ? _uidFor(state) : _currentFirebaseUid();
     await _bootstrapper.associateUid(

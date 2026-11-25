@@ -186,6 +186,43 @@ void main() {
     expect(gateway.loggedInUids, ['anon_uid', 'named_uid']);
   });
 
+  test('a disposed binding never subscribes or signs in', () async {
+    final gateway = BootstrapGateway();
+    final binding = RevenueCatAuthBinding(RevenueCatBootstrapper(gateway));
+    final changes = StreamController<AuthState>.broadcast();
+    addTearDown(changes.close);
+
+    await binding.dispose();
+    await binding.start(
+      initialState: const AuthState.anonymous(uid: 'anon_late'),
+      changes: changes.stream,
+    );
+
+    expect(changes.hasListener, isFalse);
+    expect(gateway.attemptedUids, isEmpty);
+  });
+
+  test('two starts at once leave one auth subscription', () async {
+    final gateway = BootstrapGateway();
+    final binding = RevenueCatAuthBinding(RevenueCatBootstrapper(gateway));
+    final changes = StreamController<AuthState>.broadcast();
+    addTearDown(changes.close);
+
+    await Future.wait([
+      binding.start(
+        initialState: const AuthState.anonymous(uid: 'anon_a'),
+        changes: changes.stream,
+      ),
+      binding.start(
+        initialState: const AuthState.anonymous(uid: 'anon_a'),
+        changes: changes.stream,
+      ),
+    ]);
+    await binding.dispose();
+
+    expect(changes.hasListener, isFalse);
+  });
+
   test('failed initial uid association remains retryable on the auth stream',
       () async {
     final gateway = BootstrapGateway(failLogInAttempts: 1);
