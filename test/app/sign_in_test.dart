@@ -13,6 +13,8 @@ import 'package:pantas/app/theme.dart';
 import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import '../helpers/button_placement.dart';
 
 class _Gateway extends Mock implements AuthGateway {}
 
@@ -509,6 +511,18 @@ void main() {
       expect(digit('7'), findsOneWidget);
     });
 
+    testWidgets('wide expired step stacks its pair at one width and height',
+        (tester) async {
+      codes.onVerify = (_, __) async =>
+          throw const EmailCodeException(EmailCodeFailure.expired);
+      await pumpPage(tester, size: _laptop);
+      await goToCode(tester);
+      await typeCode(tester, '482139');
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(find.text('Send a New Code'), findsOneWidget);
+      expectWidePlacement(tester);
+    });
+
     testWidgets('an expired code offers a new one', (tester) async {
       codes.onVerify = (_, __) async =>
           throw const EmailCodeException(EmailCodeFailure.expired);
@@ -822,6 +836,119 @@ void main() {
       await tester.pumpWidget(const SizedBox.shrink());
       await pumpPage(tester);
       expect(widthOf(SignInButton), greaterThan(_phone.width - 80));
+    });
+
+    // His Nov 25 screenshot: on hover the wide "Use Google Instead" tint
+    // hugged the G and the label with no inside padding. A wide text button
+    // keeps the design system's 14 beside its content (Button README, .btn3)
+    // and stays centered under the main button.
+    testWidgets('wide text buttons keep 14 px inside and stay centered',
+        (tester) async {
+      await pumpPage(tester, size: _laptop);
+      void check(String label, {bool icon = false}) {
+        final button = find.ancestor(
+          of: find.text(label),
+          matching: find.byType(TextButton),
+        );
+        final box = tester.getRect(button);
+        final start = tester
+            .getRect(icon ? find.byType(GoogleMark) : find.text(label))
+            .left;
+        final end = tester.getRect(find.text(label)).right;
+        expect(
+          start - box.left,
+          greaterThanOrEqualTo(PantasSpace.s14 - .5),
+          reason: label,
+        );
+        expect(
+          box.right - end,
+          greaterThanOrEqualTo(PantasSpace.s14 - .5),
+          reason: label,
+        );
+        final main = tester.getRect(
+          find.descendant(
+            of: find.byType(SignInButton),
+            matching: find.byType(TextButton),
+          ),
+        );
+        expect(box.center.dx, closeTo(main.center.dx, .5), reason: label);
+      }
+
+      check('Use Google Instead', icon: true);
+      await goToCode(tester);
+      check('Use a Different Email');
+    });
+
+    // The shared wide placement check (E-170) also reads inside padding, so
+    // the same defect fails there for any raw text button, not only here.
+    // Integrator finding (Nov 25, CSE release lead r7): the resend countdown
+    // line under Continue reported a natural width wider than the column, so
+    // the stacked pair stretched to the full 420. Only the buttons size it.
+    testWidgets(
+        'a wide stacked pair is as wide as its widest button, '
+        'with a countdown line showing', (tester) async {
+      void expectPair(String main, String secondary) {
+        Finder button(String label) => find.ancestor(
+              of: find.textContaining(label),
+              matching: find.byType(TextButton),
+            );
+        double natural(String label) => tester
+            .renderObject<RenderBox>(button(label))
+            .getMaxIntrinsicWidth(double.infinity);
+        final widest =
+            [natural(main), natural(secondary)].reduce((a, b) => a > b ? a : b);
+        for (final label in [main, secondary]) {
+          expect(
+            tester.getSize(button(label)).width,
+            closeTo(widest, .5),
+            reason: label,
+          );
+        }
+        expect(widest, lessThan(400), reason: '$main / $secondary');
+      }
+
+      // Integrator finding 2: the countdown keeps the column's width, as on
+      // prod; only the buttons take the pair's width. (A one-line check is
+      // not possible here: the test font draws every glyph 13 px wide.)
+      void expectOneLine(String text) {
+        final line = find.textContaining(text);
+        final column = tester.getSize(find.byType(SignInStack)).width;
+        expect(
+          tester.getSize(line).width,
+          closeTo(column, 1),
+          reason: '$text takes the column width',
+        );
+      }
+
+      await pumpPage(tester, size: _laptop);
+      codes
+        ..issuesChallenge = false
+        ..resendAfter = 42;
+      await tester.enterText(find.byType(TextField), 'juan@gmail.com');
+      await tester.tap(find.text('Continue'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(find.textContaining('You can request a code in'), findsOneWidget);
+      expectPair('Continue', 'Use Google Instead');
+      expectOneLine('You can request a code in');
+
+      await tester.pumpWidget(const SizedBox.shrink());
+      codes
+        ..issuesChallenge = true
+        ..resendAfter = 42;
+      await pumpPage(tester, size: _laptop);
+      await goToCode(tester);
+      expect(find.textContaining('You can resend in'), findsOneWidget);
+      expectPair('Continue', 'Use a Different Email');
+      expectOneLine('You can resend in');
+    });
+
+    testWidgets('the wide placement check passes on both steps',
+        (tester) async {
+      await pumpPage(tester, size: _laptop);
+      expectWidePlacement(tester);
+      await goToCode(tester);
+      expectWidePlacement(tester);
     });
 
     testWidgets('an inline link line is at least 24 px high', (tester) async {

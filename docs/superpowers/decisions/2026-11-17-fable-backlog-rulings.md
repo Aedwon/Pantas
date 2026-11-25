@@ -1795,6 +1795,17 @@ Lead rulings (rule 4): the image is the SP_Splash lockup at twice its wide size 
 
 Board: https://claude.ai/artifact/8emGUsKPxKrkpqd1rHi2sw (private until he shares it). Handoff: docs/superpowers/handoffs/2026-11-25-link-preview-image-board.md.
 
+
+## Nov 25, UX design lead: wide "Use Google Instead" inside padding (E-170)
+
+His words (about 9:10 PM Manila, wide dark sign-in screenshot): "also i saw this, tell me if you can see the problem".
+
+Search done before the ruling: the "Pantas beta sign-in" canvas (https://claude.ai/artifact/EDnTTuSJPmCFPcDR3acEeJ, boards Laptop and LaptopCode, the only laptop sign-in boards; BDesktop is a superseded option), the handoff export `web-design/pantas-handoff/` (OB_SignIn, ST_AccountOut, ST_AccountOutPart, ST_AccountOffline; none draws "Use Google Instead"), the "Beta results email review" canvas (no sign-in boards now), patterns.md and the Button README, this rulings file, `docs/ui-audit.md`, the launch log and the Nov 22 QA findings, for: Use Google Instead, Use a Different Email, SignInTextButton, U46, natural width, .btn3, text button padding.
+
+What the boards draw: Laptop and LaptopCode draw both text buttons 44 high, full column width (420), transparent, teal 16/600, content centered with a 10 gap after the 18 px Google mark, radius 12, a light tint on hover. U46 (Nov 22) moved them to natural width under P2 ("never a full-width button on a wide screen"), but kept the zero padding the full-width version had.
+
+Ruling (rule 4, a state the board no longer draws): natural width stays (P2); the button keeps the design system's wide text button padding, 14 on each side (Button README, `.btn3`), and stays centered under Continue. Height 44, gap 10 and the hover tint are unchanged. Phone unchanged (full width, content centered). Every use of the shared sign-in text button gets it: "Use Google Instead" (email step), "Use a Different Email" (code step and expired code). No other button in the app had the same zero padding with a hover box (searched every zero-padding TextButton in lib/; the rest are inline links with no fill, fixed-size picker rows, calendar cells or icon buttons).
+
 ## Nov 25, UX design lead: first-run board revision (E-176)
 
 His words (about 9:36 PM Manila): "don't call it taste finished. why even call it that - that's an internal term", "so much space unutilized" (phone "Try Pantas first"), "also please improve text copy - remove redundancies, remove unnecessary text/info", "for the choices, go with your recommendations".

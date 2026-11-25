@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
@@ -213,5 +214,90 @@ void main() {
       ),
     );
     expect(widePlacementProblems(tester), isEmpty);
+  });
+
+  // Added Nov 25 (E-170): the wide "Use Google Instead" hover box hugged its
+  // content because the raw TextButton had zero padding.
+  Widget hoverText(double padding) => Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TextButton(
+            onPressed: () {},
+            style: ButtonStyle(
+              padding: WidgetStatePropertyAll(
+                EdgeInsets.symmetric(horizontal: padding),
+              ),
+              backgroundColor: WidgetStateProperty.resolveWith(
+                (states) => states.contains(WidgetState.hovered)
+                    ? const Color(0xFFDDEEFF)
+                    : Colors.transparent,
+              ),
+            ),
+            child: const Text('Use Google Instead'),
+          ),
+        ],
+      );
+
+  testWidgets('a hover-painting text button with no inside padding is named',
+      (tester) async {
+    await pump(tester, hoverText(0));
+    expect(
+      widePlacementProblems(tester),
+      [contains('"Use Google Instead" paints a hover box')],
+    );
+  });
+
+  testWidgets('a hover-painting text button with 14 px inside passes',
+      (tester) async {
+    await pump(tester, hoverText(14));
+    expect(widePlacementProblems(tester), isEmpty);
+  });
+
+  // Added Nov 25 (E-175): buttons stacked one above the other share width
+  // and height.
+  testWidgets('a stacked pair of different size is named', (tester) async {
+    await pump(
+      tester,
+      Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          WebButton(label: 'Continue', onPressed: () {}),
+          const SizedBox(height: 8),
+          WebButton(
+            label: 'Use Google Instead',
+            kind: PantasButtonKind.tertiary,
+            size: PantasButtonSize.sm,
+            onPressed: () {},
+          ),
+        ],
+      ),
+    );
+    expect(
+      widePlacementProblems(tester),
+      [contains('"Continue"'), contains('"Use Google Instead"')],
+    );
+  });
+
+  testWidgets('a stacked pair of one width and height passes', (tester) async {
+    await pump(
+      tester,
+      SizedBox(
+        width: 300,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            WebButton(label: 'Continue', expand: true, onPressed: () {}),
+            const SizedBox(height: 8),
+            WebButton(
+              label: 'Use Google Instead',
+              expand: true,
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
+    );
+    final problems = widePlacementProblems(tester);
+    expect(problems.where((p) => p.contains('stacked above')), isEmpty);
   });
 }
