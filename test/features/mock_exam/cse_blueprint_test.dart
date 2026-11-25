@@ -50,7 +50,7 @@ void main() {
       for (final bp in exported['mockBlueprint']! as List<Object?>)
         (bp! as Map<String, Object?>)['_id']: bp as Map<String, Object?>,
     };
-    expect(blueprints['mock_blueprint_cse_pro']!['unscoredItems'], 15);
+    expect(blueprints['mock_blueprint_cse_pro']!['unscoredItems'], 20);
     expect(blueprints['mock_blueprint_cse_sub']!['unscoredItems'], 20);
   });
 
@@ -106,10 +106,10 @@ void main() {
         'General Information': 20,
         'Verbal Ability': 55,
         'Analytical Ability': 35,
-        'Numerical Ability': 45,
+        'Numerical Ability': 40,
       },
     );
-    expect(sections.fold<int>(0, (n, s) => n + s.questionCount), 155);
+    expect(sections.fold<int>(0, (n, s) => n + s.questionCount), 150);
     expect(sections.every((s) => s.sectionalMinutes == null), isTrue);
     for (final s in sections) {
       expectEvenWeights(s, 'cse_pro');
