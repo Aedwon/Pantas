@@ -907,6 +907,19 @@ void main() {
         expect(widest, lessThan(400), reason: '$main / $secondary');
       }
 
+      // Integrator finding 2: the countdown keeps the column's width, as on
+      // prod; only the buttons take the pair's width. (A one-line check is
+      // not possible here: the test font draws every glyph 13 px wide.)
+      void expectOneLine(String text) {
+        final line = find.textContaining(text);
+        final column = tester.getSize(find.byType(SignInStack)).width;
+        expect(
+          tester.getSize(line).width,
+          closeTo(column, 1),
+          reason: '$text takes the column width',
+        );
+      }
+
       await pumpPage(tester, size: _laptop);
       codes
         ..issuesChallenge = false
@@ -917,6 +930,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 400));
       expect(find.textContaining('You can request a code in'), findsOneWidget);
       expectPair('Continue', 'Use Google Instead');
+      expectOneLine('You can request a code in');
 
       await tester.pumpWidget(const SizedBox.shrink());
       codes
@@ -926,6 +940,7 @@ void main() {
       await goToCode(tester);
       expect(find.textContaining('You can resend in'), findsOneWidget);
       expectPair('Continue', 'Use a Different Email');
+      expectOneLine('You can resend in');
     });
 
     testWidgets('the wide placement check passes on both steps',

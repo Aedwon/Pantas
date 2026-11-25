@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -694,9 +695,10 @@ class SignInButton extends StatelessWidget {
 }
 
 /// Wide only: buttons stacked one above the other share one width and height
-/// (E-175). The group is as wide as its widest natural button and centered in
-/// the column; buttons built with `fill` take that width. Phone lays the
-/// children out as before.
+/// (E-175). The buttons take the widest button's natural width, centered in
+/// the column; buttons built with `fill` take that width. Text lines between
+/// them (the countdowns, Resend Code) keep the full column width, so they stay
+/// on one line as before. Phone lays the children out as a plain column.
 class SignInStack extends StatelessWidget {
   const SignInStack({required this.wide, required this.children, super.key});
 
@@ -705,40 +707,135 @@ class SignInStack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final column = Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: wide
-          ? [
-              for (final child in children)
-                child is SignInButton || child is SignInTextButton
-                    ? child
-                    : _NoIntrinsicWidth(child: child),
-            ]
-          : children,
+    if (!wide) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: children,
+      );
+    }
+    return _SharedWidthStack(
+      paired: [
+        for (final child in children)
+          child is SignInButton || child is SignInTextButton,
+      ],
+      children: children,
     );
-    return wide ? Center(child: IntrinsicWidth(child: column)) : column;
   }
 }
 
-/// Keeps a text line between stacked buttons from setting the group's width:
-/// it reports no intrinsic width, so only the buttons size the group, and the
-/// line then wraps inside that width. Without it the resend countdown (wider
-/// than the column) stretched the pair to the full 420 column.
-class _NoIntrinsicWidth extends SingleChildRenderObjectWidget {
-  const _NoIntrinsicWidth({required Widget super.child});
+/// A column whose paired children (the buttons) share the widest one's
+/// natural width, centered, while the other children take the full width.
+/// IntrinsicWidth could not do this: it gives every child one width, so a
+/// countdown line either widened the pair or wrapped at the pair's width.
+class _SharedWidthStack extends MultiChildRenderObjectWidget {
+  const _SharedWidthStack({required this.paired, required super.children});
+
+  final List<bool> paired;
 
   @override
   RenderObject createRenderObject(BuildContext context) =>
-      _RenderNoIntrinsicWidth();
+      _RenderSharedWidthStack(paired);
+
+  @override
+  void updateRenderObject(
+    BuildContext context,
+    _RenderSharedWidthStack renderObject,
+  ) =>
+      renderObject.paired = paired;
 }
 
-class _RenderNoIntrinsicWidth extends RenderProxyBox {
-  @override
-  double computeMinIntrinsicWidth(double height) => 0;
+class _SharedWidthParentData extends ContainerBoxParentData<RenderBox> {}
+
+class _RenderSharedWidthStack extends RenderBox
+    with
+        ContainerRenderObjectMixin<RenderBox, _SharedWidthParentData>,
+        RenderBoxContainerDefaultsMixin<RenderBox, _SharedWidthParentData> {
+  _RenderSharedWidthStack(this._paired);
+
+  List<bool> _paired;
+  List<bool> get paired => _paired;
+  set paired(List<bool> value) {
+    if (listEquals(value, _paired)) return;
+    _paired = value;
+    markNeedsLayout();
+  }
+
+  bool _isPaired(int index) => index < _paired.length && _paired[index];
 
   @override
-  double computeMaxIntrinsicWidth(double height) => 0;
+  void setupParentData(RenderBox child) {
+    if (child.parentData is! _SharedWidthParentData) {
+      child.parentData = _SharedWidthParentData();
+    }
+  }
+
+  double _sharedWidth(double available) {
+    var shared = 0.0;
+    var index = 0;
+    for (var child = firstChild; child != null; child = childAfter(child)) {
+      if (_isPaired(index++)) {
+        shared = math.max(shared, child.getMaxIntrinsicWidth(double.infinity));
+      }
+    }
+    return math.min(shared, available);
+  }
+
+  @override
+  void performLayout() {
+    final shared = _sharedWidth(constraints.maxWidth);
+    final full = constraints.hasBoundedWidth ? constraints.maxWidth : shared;
+    var y = 0.0;
+    var index = 0;
+    for (var child = firstChild; child != null; child = childAfter(child)) {
+      final width = _isPaired(index++) ? shared : full;
+      child.layout(BoxConstraints.tightFor(width: width), parentUsesSize: true);
+      (child.parentData! as _SharedWidthParentData).offset =
+          Offset((full - width) / 2, y);
+      y += child.size.height;
+    }
+    size = constraints.constrain(Size(full, y));
+  }
+
+  @override
+  double computeMinIntrinsicWidth(double height) {
+    var width = 0.0;
+    for (var child = firstChild; child != null; child = childAfter(child)) {
+      width = math.max(width, child.getMinIntrinsicWidth(double.infinity));
+    }
+    return width;
+  }
+
+  @override
+  double computeMaxIntrinsicWidth(double height) {
+    var width = 0.0;
+    for (var child = firstChild; child != null; child = childAfter(child)) {
+      width = math.max(width, child.getMaxIntrinsicWidth(double.infinity));
+    }
+    return width;
+  }
+
+  double _height(double width) {
+    var height = 0.0;
+    for (var child = firstChild; child != null; child = childAfter(child)) {
+      height += child.getMinIntrinsicHeight(width);
+    }
+    return height;
+  }
+
+  @override
+  double computeMinIntrinsicHeight(double width) => _height(width);
+
+  @override
+  double computeMaxIntrinsicHeight(double width) => _height(width);
+
+  @override
+  void paint(PaintingContext context, Offset offset) =>
+      defaultPaint(context, offset);
+
+  @override
+  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) =>
+      defaultHitTestChildren(result, position: position);
 }
 
 /// The boards' quiet 44 px text button.
