@@ -48,10 +48,12 @@ export type CheckoutDeps = {client: PaymongoClient; db: Firestore; origin: strin
 /**
  * Prod takes no web payments until its PayMongo key is live (audit PAY-13, Nov 23, 2026): with a test key, any
  * signed-in account could pay with a public test card and get real Pro, because the beta gate is client-only.
- * An account holding the admin claim may still check out, for an owner test on prod.
+ * With the live key, checkout still stays closed until the opening ship sets PAYMONGO_CHECKOUT_OPEN=true
+ * (lead ruling, Nov 26, 2026), so the owner's real test payment can run before the public can pay.
+ * An account holding the admin claim may always check out, for an owner test on prod.
  */
-export function checkoutClosed(project: string | undefined, secretKey: string): boolean {
-  return project === 'pantas-prod' && !secretKey.startsWith('sk_live_');
+export function checkoutClosed(project: string | undefined, secretKey: string, openFlag: string | undefined): boolean {
+  return project === 'pantas-prod' && (!secretKey.startsWith('sk_live_') || openFlag !== 'true');
 }
 
 /**
@@ -447,7 +449,7 @@ export const createPaymongoCheckout = onCall(
     assertFreshAppCheck(request);
     return createCheckout(request.auth, request.data, {
       client: httpPaymongoClient(secret('PAYMONGO_SECRET_KEY')), db: getFirestore(), auth: getAuth(),
-      closedForTestMode: checkoutClosed(process.env.GCLOUD_PROJECT, secret('PAYMONGO_SECRET_KEY')),
+      closedForTestMode: checkoutClosed(process.env.GCLOUD_PROJECT, secret('PAYMONGO_SECRET_KEY'), process.env.PAYMONGO_CHECKOUT_OPEN),
       origin: process.env.PANTAS_APP_ORIGIN ?? 'https://app.pantas.study',
       methods: process.env.PAYMONGO_PAYMENT_METHODS?.split(',').map(m => m.trim()).filter(Boolean) ?? DEFAULT_METHODS,
     });
