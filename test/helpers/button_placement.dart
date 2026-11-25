@@ -32,6 +32,13 @@ import 'package:pantas/core/ui/web/web_components.dart';
 // screen a button never spans its box (`btn--block` works only below 1024).
 // Filter chips are choices, not actions, and are left out.
 //
+// - full width: no button is built with `expand: true` (its width then comes
+//   from its parent: a whole column, a panel, or a fixed box), except a button
+//   keyed in [boardFullWidth]. Added Nov 25 (E-162) because the painted-box
+//   test above missed five: the mock setup column, the practice picker panel
+//   and the mock paper's Submit have no painted box, and Get Started and Done
+//   were stretched to a fixed 260 and 192 px box.
+//
 // - gap: 8 px between neighbors, except a pair listed in [boardGaps], where a
 //   board he approved after the rule draws another gap.
 //
@@ -47,6 +54,16 @@ const Map<(String, String), double> boardGaps = {
   // the foot, 16 apart". Released by him Nov 25: "yes A lgtm, go ahead with
   // it".
   ('Discard this session', 'Resume'): 16,
+};
+
+/// Buttons a board he approved after the rule draws full width on a wide
+/// screen, by the value of their `ValueKey<String>`. His decision wins over the pattern; each entry names the
+/// board and his approval.
+const Set<String> boardFullWidth = {
+  // Board A, the Reviews and New questions drawer foot: full-width Start or
+  // Resume with Discard centered under it. His pick Nov 25: "yes A lgtm, go
+  // ahead with it".
+  'drawer-foot-start',
 };
 
 /// One placement problem, in words a reviewer can act on.
@@ -95,6 +112,26 @@ int _weight(Widget w) {
     PantasButtonKind.neutral => 1,
     PantasButtonKind.tertiary => 0,
   };
+}
+
+/// Whether the button takes its width from its parent (`expand: true`). A
+/// `PantasButton` on a wide screen draws a `WebButton`, so look inside it.
+bool _expanded(Element element) {
+  final w = element.widget;
+  if (w is WebButton) return w.expand;
+  var expand = false;
+  void visit(Element e) {
+    if (expand) return;
+    final inner = e.widget;
+    if (inner is WebButton) {
+      expand = inner.expand;
+      return;
+    }
+    e.visitChildren(visit);
+  }
+
+  element.visitChildren(visit);
+  return expand;
 }
 
 String _label(Widget w) => switch (w) {
@@ -234,6 +271,17 @@ List<PlacementProblem> widePlacementProblems(
       }
     }
   }
+  for (final b in buttons) {
+    final key = b.element.widget.key;
+    final exempt =
+        key is ValueKey<String> && boardFullWidth.contains(key.value);
+    if (_expanded(b.element) && !exempt) {
+      problems.add('"${b.label}" is full width '
+          '(${b.rect.width.round()} px, set by its parent); a wide button is '
+          'at natural width, at the right end of its card or panel, or '
+          'centered in a centered layout');
+    }
+  }
   for (final g in groups) {
     final names = g.map((b) => '"${b.label}"').join(' then ');
     final span = g.first.rect.expandToInclude(g.last.rect);
@@ -241,7 +289,8 @@ List<PlacementProblem> widePlacementProblems(
 
     if (g.length == 1) {
       final b = g.single;
-      if (box != null) {
+      // A full-width button is named once, above.
+      if (box != null && !_expanded(b.element)) {
         final inset = _textInset(box, {b.element.renderObject!});
         if (inset != null &&
             b.rect.width >= box.size.width - 2 * inset - 1 &&

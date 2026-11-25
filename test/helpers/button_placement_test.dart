@@ -160,6 +160,58 @@ void main() {
       tester,
       card(WebButton(label: 'Resume', expand: true, onPressed: () {})),
     );
-    expect(widePlacementProblems(tester), [contains('spans its box')]);
+    expect(widePlacementProblems(tester), [contains('is full width')]);
+  });
+
+  testWidgets('a full-width button in a column with no painted box is named',
+      (tester) async {
+    // The mock setup column and the practice picker panel, before E-162.
+    await pump(
+      tester,
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Text('Strict mode'),
+          WebButton(label: 'Start', expand: true, onPressed: () {}),
+        ],
+      ),
+    );
+    expect(
+      widePlacementProblems(tester),
+      [contains('"Start" is full width (600 px')],
+    );
+  });
+
+  testWidgets('a button stretched to a fixed box is named', (tester) async {
+    // Get Started in its 260 px box and Done in its 192 px box, before E-162.
+    await pump(
+      tester,
+      Center(
+        child: SizedBox(
+          width: 260,
+          child:
+              WebButton(label: 'Get Started', expand: true, onPressed: () {}),
+        ),
+      ),
+    );
+    expect(
+      widePlacementProblems(tester),
+      [contains('"Get Started" is full width (260 px')],
+    );
+  });
+
+  testWidgets('the board A drawer Start is kept full width', (tester) async {
+    await pump(
+      tester,
+      card(
+        WebButton(
+          key: const ValueKey('drawer-foot-start'),
+          label: 'Start',
+          expand: true,
+          onPressed: () {},
+        ),
+      ),
+    );
+    expect(widePlacementProblems(tester), isEmpty);
   });
 }
