@@ -4563,6 +4563,7 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Prod (13:29 UTC):** the live release was still 13ccf513774445d7 right before the deploy. Now pantas-prod.web.app and pantas-prod.firebaseapp.com serve 472 B for `/`, `/main.dart.js` and app routes; the reserved sign-in paths return 200 on the old address and through app.pantas.study; app.pantas.study still serves the full app from the Worker; headless check: the old address goes to app.pantas.study with path and query. A 30-minute sign-in error watch runs to 14:00 UTC.
 - **Rollback:** `firebase hosting:clone pantas-prod@13ccf513774445d7 pantas-prod:live` (server side, no download).
 - S6 met.
+- **Watch, 13:29 to 14:00 UTC:** no ERROR or 5xx on exchangegooglesignin, recordsigninevent, verifysignincode or requestsignincode; no sign-ins in the window; at 14:00 the old address still serves 472 B and app.pantas.study/__/auth/iframe returns 200.
 
 ### Nov 25, legal publish gate H5 checked read-only against prod (CSE release lead r7, E-174)
 
