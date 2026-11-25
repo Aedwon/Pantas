@@ -665,6 +665,22 @@ void main() {
             sampledQuestionsJson: jsonEncode([]),
             scoreRaw: const Value(3),
             scoreTotal: const Value(4),
+            sectionResultsJson: Value(
+              jsonEncode({
+                'sections': [
+                  {
+                    'sectionId': 's',
+                    'name': 'Science',
+                    'correct': 3,
+                    'wrong': 1,
+                    'blank': 0,
+                    'total': 4,
+                    'retiredCount': 0,
+                    'timeSeconds': 60,
+                  },
+                ],
+              }),
+            ),
             startedAt: taken,
             lastFlushedAt: taken,
             submittedAt: Value(taken),
@@ -703,6 +719,112 @@ void main() {
 
     final record = await container.read(recordProvider.future);
     expect(record.questionsAnswered, 4);
+  });
+
+  test('a mock counts only the questions the student answered', () async {
+    // A 145-item paper with 15 right, 5 wrong and 125 left blank is 20
+    // answered, not 145. The 7 quiz answers are counted on their own.
+    final taken = DateTime(2026, 11, 20);
+    await db.into(db.mockAttempts).insert(
+          MockAttemptsCompanion.insert(
+            id: 'mock_1',
+            userId: 'local',
+            examId: 'exam_upcat',
+            blueprintId: 'bp_1',
+            blueprintName: 'Full UPCAT Simulation',
+            durationMinutes: 120,
+            status: 'completed',
+            strictMode: false,
+            sampledQuestionsJson: jsonEncode([]),
+            scoreRaw: const Value(15),
+            scoreTotal: const Value(145),
+            sectionResultsJson: Value(
+              jsonEncode({
+                'sections': [
+                  {
+                    'sectionId': 's',
+                    'name': 'Science',
+                    'correct': 15,
+                    'wrong': 5,
+                    'blank': 125,
+                    'total': 145,
+                    'retiredCount': 0,
+                    'timeSeconds': 600,
+                  },
+                ],
+              }),
+            ),
+            startedAt: taken,
+            lastFlushedAt: taken,
+            submittedAt: Value(taken.add(const Duration(minutes: 10))),
+            updatedAt: taken,
+          ),
+        );
+    await db.into(db.attemptsLocal).insert(
+          AttemptsLocalCompanion.insert(
+            id: 'quiz_1',
+            examId: 'exam_upcat',
+            origin: const Value('today_topic'),
+            startedAt: taken,
+            completedAt: Value(taken.add(const Duration(minutes: 5))),
+            itemsJson: jsonEncode(
+              List.generate(
+                7,
+                (i) => {
+                  'questionId': 'q_$i',
+                  'questionVersion': 1,
+                  'chosenChoiceId': 'c1',
+                  'correctChoiceId': 'c1',
+                  'responseMs': 0,
+                },
+              ),
+            ),
+          ),
+        );
+    container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
+    );
+
+    final record = await container.read(recordProvider.future);
+
+    expect(record.questionsAnswered, 27);
+  });
+
+  test('a mock keeps its local calendar day in the record', () async {
+    final taken = DateTime(2026, 11, 26, 23, 30);
+    await db.into(db.mockAttempts).insert(
+          MockAttemptsCompanion.insert(
+            id: 'mock_1',
+            userId: 'local',
+            examId: 'exam_upcat',
+            blueprintId: 'bp_1',
+            blueprintName: 'Full UPCAT Simulation',
+            durationMinutes: 120,
+            status: 'completed',
+            strictMode: false,
+            sampledQuestionsJson: jsonEncode([]),
+            scoreRaw: const Value(3),
+            scoreTotal: const Value(4),
+            startedAt: taken,
+            lastFlushedAt: taken,
+            submittedAt: Value(taken),
+            updatedAt: taken,
+          ),
+        );
+    container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
+    );
+
+    final record = await container.read(recordProvider.future);
+
+    expect(record.mocks.single.takenOn, taken);
+    expect(record.mocks.single.takenOn.isUtc, isFalse);
   });
 
   test('mocks are newest first', () async {
