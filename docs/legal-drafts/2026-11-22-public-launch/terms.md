@@ -177,6 +177,8 @@ We may update these Terms. We give advance notice in the app of a material chang
 
 We ask you, or the adult who contracts for a teen, to accept a material change that makes your position worse before it applies to your agreement. A new purchase uses the Terms shown before payment. The terms of an existing paid period continue to apply to that purchase. If you do not accept a change, stop using Pantas and delete your account. For a minor change, such as a correction, a new feature or a change that helps you, using Pantas after the change takes effect means you accept it, except where the law requires your new permission.
 
+If you created your account before the version date at the top, the earlier Terms keep applying to you until 14 days after we first show you a notice of these Terms in the app. These Terms apply to you sooner if you accept them, for example when you buy.
+
 ## 13. General
 
 We may transfer our rights under these Terms as part of a sale or reorganization of Pantas, and we will tell you. You may not transfer yours. If we do not enforce a part of these Terms at once, we do not give up that right. These Terms and the documents they name are the full agreement between you and us about Pantas.
