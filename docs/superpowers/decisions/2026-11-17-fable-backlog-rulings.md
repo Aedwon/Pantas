@@ -1782,3 +1782,5 @@ Lead rulings (rule 4):
 Open for him on the board: (a) which lesson the taste uses (a fixed starter lesson, recommended, or the learner picks a subject); (b) leaving the assessment loses progress (below).
 
 Problem found in code (main at the time of this entry): the assessment holds answers in memory and saves only after the last question. Leaving through the dialog ("Your answers so far won't be kept. You can start again from Home."), browser Back, a reload or closing the app loses every answer. With the assessment as the one gate to the score, this is put to him as a choice: keep, or save answers on the device and resume from Home's card (recommended).
+
+Board (E-165): https://claude.ai/artifact/D3JLTrRGiN8vjnfLrbhoMN (private until he shares it). Refinement of ruling 4 after review: the intro screen's Skip is the ghost button under Start (phone) or before Start (wide); the header Skip is on the lesson and question screens only, so no screen shows two Skips. The wide Home frames and the wide leave dialog follow patterns.md and the live app (assessment button at the right end; Keep Going, then red Leave), not the pre-Nov 7 board order.
