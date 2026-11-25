@@ -153,6 +153,7 @@ pass 15, retire or merge one first.
 - Wrong: the manager's brief called the guided first run "the taste", and the board carried that word into on-screen text ("Taste finished"). The intro screen also repeated what its own button and steps already said.
 - Why it got through: briefs used an internal shorthand, and the board review checked styling and placement but not whether every on-screen word is user language. This is the same kind as the Nov 24 entry on internal codes in chat, now in product copy.
 - Fix (required step, boards and builds): before a board reaches him or a build ships, a reviewer scans every user-visible string for internal terms (lane words such as taste, trial, starter check, T-numbers, U-numbers, ruling codes) and for sentences that repeat the screen. Briefs name the user-facing wording separately from the internal name. A check on the app's own strings for a deny list of internal terms is possible; the UX lead adds it if it can be shown failing on a real string first.
+- Check added (Nov 26, E-179): `internal-terms` in `tool/checks/` fails a presentation string literal with a lane word (taste, tutorial, guided, starter, first run) or a decision code (E-, D, U, T-, R-O); shown failing on "Taste finished". On branch `ux/first-run-r1` until it merges.
 
 ### Release lead ended its turn after a part report with the next part queued (Nov 25)
 

@@ -1824,3 +1824,15 @@ Board: https://claude.ai/artifact/D3JLTrRGiN8vjnfLrbhoMN, version 1795614653-2f1
 ## Nov 25, UX design lead: first-run build, states no board draws (E-179)
 
 Board approved Nov 25 about 10:50 PM Manila ("okay lgtm!", revision E-176). The 19 lead rulings for undrawn states (where the run starts, who sees it, the fixed lesson and questions 0001, 0003, 0002, the shown lesson sections, Check before the explanation, Back, Skip and Esc, resume after reload, offline, Pro, the wide lesson link, the wide mistake row, nothing recorded, assessment progress saved on each pick, the Continue card on every surface, the teal non-destructive Leave, stacked pairs, Reduce Motion, screen names) and the searches behind them are in `docs/superpowers/plans/2026-11-25-first-run-build.md`, "Lead rulings for states no board draws". Board wording kept where the manager's brief paraphrased it: the end count reads "2/3 correct" as drawn, not "2 of 3 right".
+
+## Nov 25, UX design lead: support email row in Settings (E-179, manager request)
+
+His "ok" (relayed by the manager) to support@pantas.study shown in Settings as the support channel; the in-app Feedback row was removed Nov 25 (5ee53ce56).
+
+Searched: every Settings board in `docs/design/boards/` (ST_*, 74 files) for "support", "contact", "help", "mailto" and "pantas.study"; hits only ST_About ("Get in touch": Send feedback, Facebook group; "Contact our data protection officer", which opens the mail app) and ST_Privacy (points to that officer row). No board draws a support row.
+
+Ruling (rule 4): About, first row of the board's "Get in touch" group, above Send feedback: "Email support", value "support@pantas.study", the same value row as Send feedback, opening the mail app with an empty message like the officer row (external icon on the phone, none on wide, as both rows do). Why: the plainest existing row style, in the group the board already uses for contact, with no new component. The address comes from the seller facts constant, so it stays the one address the app shows elsewhere.
+
+### Nov 26, UX design lead: side-by-side review rulings (E-179)
+
+A fresh Sonnet reviewer rendered every board frame headless at 390 and 1440 and compared it with the CI goldens: 18 must-fix and 9 minor. All must-fix and minor M1, M2, M5 and the focus move were fixed. Kept by lead ruling: the explanation label "Correct answer" (the design system's Explanation README governs over the board's lowercase, which copied an older board); the Home Continue button keeps the live card's size (same component as the live "Start Assessment" card); the leave dialog keeps the shared dialog's width; the intro previews stay static crops as drawn, with a test that ties them to the content source. Phone bar right arrow in dark uses the dim text color, since the board's #1D1D1F on the dark page fails contrast.

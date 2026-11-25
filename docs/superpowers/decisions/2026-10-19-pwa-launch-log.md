@@ -4657,3 +4657,11 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - First staging test (synthetic log line, 17:10:51 UTC) sent no email: it arrived 18 seconds after the policy was made, before the new policy was evaluating. Second test 17:21:32 UTC: email received. Aedwon, verbatim: "yes" (Google Cloud Alerting, 1:22 AM Manila, Inbox, pantas-staging).
 - Rule 7: two log entries and one email, no cost; alert policies are outside any billing SKU (live free-tier check).
 - Next: live PayMongo key at about 9 AM Manila, then the live-key deploy and the owner's real QR Ph payment.
+
+### Nov 26, first-run build handed to the CSE release lead r8 (UX lead, E-179)
+
+- **His words (Nov 25, about 10:50 PM Manila):** "okay lgtm!" on the first-run board (revision E-176); support row: his "ok" to support@pantas.study in Settings (relayed by the manager).
+- **Candidate:** `ux/first-run-r1` e8deced0c, CI green (run 45669505337). Built 1:1 to the board at 390 and 1440, light and dark, with Reduce Motion; 19 undrawn-state rulings in the plan; side-by-side review fixed; internal-term scan clean, and a new `internal-terms` check guards it.
+- **Rule 7:** no fixed item; no functions deploy (`/try` reports as `other`); assessment progress stays on the device.
+- **Hand-off note:** `docs/superpowers/handoffs/2026-11-26-ux-lead-first-run-build.md`. Ships to prod before the opening under the standing ship-it; his visual pass on the live build applies.
+
