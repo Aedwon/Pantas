@@ -12,17 +12,31 @@
 //   * Requests carrying credentials headers, ranges or `no-store` answers are
 //     passed through untouched.
 //
-// Each build gets its own cache, named by the `v` value in this file's URL
-// (set by flutter_bootstrap.js). The page waits for the matching worker
-// before it loads the app (see pantas_pwa.js), so scripts of one build are
-// never served from another build's cache. Older caches are deleted when a
-// new build takes over.
+// Two modes, told apart by the build constant below.
+//
+// Stamped (every release build; tool/web/stamp_worker_version.mjs writes the
+// constant after `flutter build web`): the constant holds this build's id and the
+// SHA-256 of every file in the startup set. Install fetches the whole set from the
+// network, checks every hash, stores it in this build's cache, and only then takes
+// over. Activate deletes every other Pantas cache. Files in the set are served
+// from this build's cache only, online or offline, so a page never boots one
+// build's shell with another build's Dart code. Nothing outside the set is stored.
+// A new build reaches the page through a new worker, which carries its own list.
+//
+// Unstamped (dev, where the constant is null): the older network-first and
+// cache-first behavior below, kept so a local run needs no stamp. Release scripts
+// refuse an unstamped worker (tool/deploy/check_worker_stamp.mjs).
 
 'use strict';
 
+const BUILD = /*pantas-build*/ null /*end-pantas-build*/;
 const VERSION = new URL(self.location.href).searchParams.get('v') || 'dev';
 const CACHE_PREFIX = 'pantas-shell-';
-const CACHE = CACHE_PREFIX + VERSION;
+// The stamped id, not the URL, names the cache: the browser may run this build's
+// bytes under another build's URL when it checks for an update.
+const CACHE = CACHE_PREFIX + (BUILD ? BUILD.id : VERSION);
+// Written last, so a cache that has it holds the whole verified set.
+const COMPLETE = 'pantas-build-complete';
 const SCOPE = self.registration.scope;
 const NETWORK_TIMEOUT_MS = 4000;
 
@@ -102,6 +116,10 @@ function isStorable(response, { allowHtml = false } = {}) {
 }
 
 self.addEventListener('install', (event) => {
+  if (BUILD) {
+    event.waitUntil(installBuild());
+    return;
+  }
   event.waitUntil(
     (async () => {
       const cache = await caches.open(CACHE);
@@ -124,6 +142,10 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('activate', (event) => {
+  if (BUILD) {
+    event.waitUntil(activateBuild());
+    return;
+  }
   event.waitUntil(
     (async () => {
       const names = await caches.keys();
@@ -148,6 +170,10 @@ self.addEventListener('fetch', (event) => {
   const path = relativePath(url);
   if (path === null || isBypassPath(path)) return;
 
+  if (BUILD) {
+    handleBuild(event, request, path);
+    return;
+  }
   if (request.mode === 'navigate') {
     event.respondWith(navigate(event, request));
     return;
@@ -161,6 +187,118 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(withProgress(event, path, served, cacheFirst(event, request, path, served)));
   }
 });
+
+// ---- Stamped mode ------------------------------------------------------------
+
+async function sha256(bytes) {
+  const digest = await crypto.subtle.digest('SHA-256', bytes);
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
+const INSTALL_PARALLEL = 6;
+
+// One file of the set, fetched past every HTTP cache and checked against the
+// list. Anything else fails the install.
+async function fetchVerified(path) {
+  const response = await fetch(new Request(SCOPE + path, { cache: 'reload' }));
+  if (response.status !== 200 || response.type !== 'basic') {
+    throw new Error('not available: ' + path);
+  }
+  const bytes = await response.arrayBuffer();
+  if ((await sha256(bytes)) !== BUILD.files[path]) throw new Error('hash mismatch: ' + path);
+  return { path, bytes, type: response.headers.get('Content-Type') };
+}
+
+// Stores the whole set or nothing, and takes over only after that. A failure
+// throws, so the browser keeps the worker it has and tries again at the next
+// update check.
+async function installBuild() {
+  if (await caches.has(CACHE)) {
+    const existing = await caches.open(CACHE);
+    if (await existing.match(SCOPE + COMPLETE)) {
+      await self.skipWaiting();
+      return;
+    }
+    await caches.delete(CACHE); // left by an install that did not finish
+  }
+  const paths = Object.keys(BUILD.files);
+  const verified = [];
+  let next = 0;
+  let failed = false;
+  const lane = async () => {
+    while (!failed && next < paths.length) {
+      const path = paths[next++];
+      try {
+        verified.push(await fetchVerified(path));
+      } catch (error) {
+        failed = true;
+        throw error;
+      }
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(INSTALL_PARALLEL, paths.length) }, lane));
+  try {
+    const cache = await caches.open(CACHE);
+    for (const { path, bytes, type } of verified) {
+      await cache.put(SCOPE + path, new Response(bytes, { status: 200, headers: type ? { 'Content-Type': type } : {} }));
+    }
+    await cache.put(SCOPE + COMPLETE, new Response('1'));
+  } catch (error) {
+    await caches.delete(CACHE);
+    throw error;
+  }
+  await self.skipWaiting();
+}
+
+async function activateBuild() {
+  await self.clients.claim();
+  const names = await caches.keys();
+  await Promise.all(
+    names.filter((name) => name.startsWith('pantas-') && name !== CACHE).map((name) => caches.delete(name))
+  );
+}
+
+function hasOwn(path) {
+  return Object.prototype.hasOwnProperty.call(BUILD.files, path);
+}
+
+// Files in the set come from this build's cache. Everything else is left to the
+// network, untouched and unstored (version.json among them).
+function handleBuild(event, request, path) {
+  const page =
+    request.mode === 'navigate' &&
+    (path === '' || path === 'index.html' || !/\.[A-Za-z0-9]+$/.test(path));
+  if (page) {
+    event.respondWith(fromBuild(request, ''));
+    return;
+  }
+  if (!hasOwn(path)) return;
+  const served = { cached: false };
+  event.respondWith(withProgress(event, path, served, fromBuild(request, path, served)));
+}
+
+async function fromBuild(request, path, served = {}) {
+  const cache = await caches.open(CACHE);
+  const stored = await cache.match(SCOPE + path);
+  if (stored) {
+    served.cached = true;
+    return stored;
+  }
+  // Not expected after a finished install. Answer from the network only when the
+  // bytes are this build's, and store nothing.
+  const response = await fetch(new Request(SCOPE + path, { cache: 'reload' }));
+  if (
+    response.status === 200 &&
+    response.type === 'basic' &&
+    (await sha256(await response.clone().arrayBuffer())) === BUILD.files[path]
+  ) {
+    return response;
+  }
+  return new Response('The app changed. Reload this page.', {
+    status: 503,
+    headers: { 'Cache-Control': 'no-store' },
+  });
+}
 
 function withTimeout(promise, ms) {
   return new Promise((resolve, reject) => {

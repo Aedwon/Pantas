@@ -315,7 +315,7 @@ test('rollout: prod A and a deploy that lands while B installs never leaves a mi
   };
   await assert.rejects(b.install());
   w.network = network;
-  assert.equal(w.events.some((e) => e.event === 'skipWaiting'), false);
+  assert.equal(w.events.some((e) => e.event === 'skipWaiting' && e.version === 'B'), false);
   const cached = w.stores.get(cacheOf('B'));
   assert.ok(!cached || cached.size === 0, 'a failed install stores nothing');
 });
