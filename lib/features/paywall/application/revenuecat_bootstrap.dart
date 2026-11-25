@@ -172,25 +172,35 @@ final revenueCatAuthBindingProvider = Provider<RevenueCatAuthBinding>((ref) {
 Future<void> bootstrapRevenueCat(ProviderContainer container) async {
   container.read(authRepositoryProvider).beforeIdentityChange = () =>
       container.read(revenueCatBootstrapperProvider).prepareForIdentityChange();
-  final binding = container.read(revenueCatAuthBindingProvider);
-  container.listen<RevenueCatAuthBinding>(
+  // Startup can run twice on one container (the local sample student): one
+  // listener only, so a rebuilt binding is started once.
+  _bindingListeners[container]?.close();
+  _bindingListeners[container] = container.listen<RevenueCatAuthBinding>(
     revenueCatAuthBindingProvider,
     (previous, next) {
       if (!identical(previous, next)) unawaited(_startBinding(container, next));
     },
   );
-  await _startBinding(container, binding);
+  await _startBinding(container, container.read(revenueCatAuthBindingProvider));
 }
+
+final _bindingListeners =
+    Expando<ProviderSubscription<RevenueCatAuthBinding>>('payment sign-in');
 
 Future<void> _startBinding(
   ProviderContainer container,
   RevenueCatAuthBinding binding,
 ) async {
-  await container
-      .read(revenueCatBootstrapperProvider)
-      .configure(container.read(revenueCatConfigProvider));
+  // A binding replaced while it was being set up is never started: only the
+  // binding of the current gateway may sign in or out.
+  bool current() =>
+      identical(container.read(revenueCatAuthBindingProvider), binding);
   try {
+    await container
+        .read(revenueCatBootstrapperProvider)
+        .configure(container.read(revenueCatConfigProvider));
     final initialState = await container.read(authStateProvider.future);
+    if (!current()) return;
     await binding.start(
       initialState: initialState,
       changes: container.read(authRepositoryProvider).authState,

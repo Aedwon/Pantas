@@ -20,6 +20,7 @@ void main() {
   late _Auth auth;
   late ProviderContainer container;
   late List<_RecordingGateway> gateways;
+  Completer<void>? nextHold;
 
   setUp(() {
     sessions = StreamController<AuthSession?>.broadcast();
@@ -33,7 +34,8 @@ void main() {
         // The real gateway depends on the preferences the same way.
         revenueCatGatewayProvider.overrideWith((ref) {
           ref.watch(appPreferencesRepositoryProvider);
-          final gateway = _RecordingGateway();
+          final gateway = _RecordingGateway()..holdSetup = nextHold;
+          nextHold = null;
           gateways.add(gateway);
           ref.onDispose(() => unawaited(gateway.clearIdentity()));
           return gateway;
@@ -91,6 +93,38 @@ void main() {
     expect(gateways.last.loggedInUids, ['pro-user']);
   });
 
+  test('startup run twice still signs a rebuilt gateway in once', () async {
+    auth.current = const AuthSession(uid: 'pro-user', email: 'p@example.test');
+    await bootstrapRevenueCat(container);
+    await bootstrapRevenueCat(container);
+    container
+      ..invalidate(appPreferencesRepositoryProvider)
+      ..read(revenueCatGatewayProvider);
+    await settle();
+
+    expect(gateways.last.loggedInUids, ['pro-user']);
+  });
+
+  test('a binding replaced while it is set up never signs in', () async {
+    auth.current = const AuthSession(uid: 'pro-user', email: 'p@example.test');
+    await bootstrapRevenueCat(container);
+    final hold = nextHold = Completer<void>();
+    container
+      ..invalidate(appPreferencesRepositoryProvider)
+      ..read(revenueCatGatewayProvider);
+    await settle();
+    final replaced = gateways.last;
+    container
+      ..invalidate(appPreferencesRepositoryProvider)
+      ..read(revenueCatGatewayProvider);
+    await settle();
+    hold.complete();
+    await settle();
+
+    expect(replaced.loggedInUids, isEmpty);
+    expect(gateways.last.loggedInUids, ['pro-user']);
+  });
+
   test('an account switch after a refresh signs out the gateway in use',
       () async {
     auth.current = const AuthSession(uid: 'pro-user', email: 'p@example.test');
@@ -117,6 +151,12 @@ void main() {
 class _RecordingGateway extends DisabledRevenueCatGateway {
   final loggedInUids = <String>[];
   int clearCount = 0;
+
+  /// Set to hold this gateway's setup until a test completes it.
+  Completer<void>? holdSetup;
+
+  @override
+  Future<void> initialize() async => holdSetup?.future;
 
   @override
   Future<void> logIn(String uid) async => loggedInUids.add(uid);
