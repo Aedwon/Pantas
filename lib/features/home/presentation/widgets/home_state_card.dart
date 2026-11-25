@@ -12,7 +12,18 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// The situations that replace the Today checklist (D-63, D-65).
-enum HomeState { assessment, noContent, nothingDue, reviewOnly, dayOff, passed }
+enum HomeState {
+  assessment,
+
+  /// The assessment was started and left. Same card as [assessment], with
+  /// the count of answers saved on the device (C2B_Home, C2B_HomeWide).
+  continueAssessment,
+  noContent,
+  nothingDue,
+  reviewOnly,
+  dayOff,
+  passed,
+}
 
 class HomeStateCard extends StatelessWidget {
   const HomeStateCard({
@@ -23,9 +34,16 @@ class HomeStateCard extends StatelessWidget {
     this.onSecondary,
     this.examDateLabel,
     this.hasExamDate = true,
+    this.answered = 0,
+    this.total = 0,
     this.web,
     super.key,
   });
+
+  /// For [HomeState.continueAssessment]: questions with a saved pick, and
+  /// questions in the saved list.
+  final int answered;
+  final int total;
 
   /// Whether this runs on the web. Null reads the platform the layout uses,
   /// so a widget test's web override reaches the card as it does a screen.
@@ -40,8 +58,13 @@ class HomeStateCard extends StatelessWidget {
   final String? examDateLabel;
   final bool hasExamDate;
 
+  /// The assessment card in either form: Start or Continue.
+  bool get _isAssessment =>
+      state == HomeState.assessment || state == HomeState.continueAssessment;
+
   String get _title => switch (state) {
         HomeState.assessment => 'First, a short assessment',
+        HomeState.continueAssessment => 'Continue the assessment',
         HomeState.noContent => 'Lessons are on the way',
         HomeState.nothingDue || HomeState.reviewOnly => 'Nothing due today',
         HomeState.dayOff => 'Day off',
@@ -51,6 +74,7 @@ class HomeStateCard extends StatelessWidget {
   String get _detail => switch (state) {
         HomeState.assessment => 'We check your strengths and weak spots '
             'first, so your plan is built around you.',
+        HomeState.continueAssessment => '$answered of $total answered.',
         HomeState.noContent =>
           "$examName lessons and questions aren't in Pantas yet, "
               "so there's no plan. You can switch exams in Settings.",
@@ -70,6 +94,7 @@ class HomeStateCard extends StatelessWidget {
 
   String? get _action => switch (state) {
         HomeState.assessment => 'Start Assessment',
+        HomeState.continueAssessment => 'Continue',
         HomeState.noContent => 'Switch Exam',
         HomeState.nothingDue ||
         HomeState.reviewOnly =>
@@ -107,7 +132,7 @@ class HomeStateCard extends StatelessWidget {
       _ => null,
     };
     final big = icon == null;
-    final assessment = state == HomeState.assessment;
+    final assessment = _isAssessment;
     final body = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -207,14 +232,14 @@ class HomeStateCard extends StatelessWidget {
     )) {
       return CallbackShortcuts(
         bindings: {
-          if (state == HomeState.assessment && onPrimary != null)
+          if (_isAssessment && onPrimary != null)
             const SingleActivator(
               LogicalKeyboardKey.enter,
               includeRepeats: false,
             ): onPrimary!,
         },
         child: Focus(
-          autofocus: state == HomeState.assessment,
+          autofocus: _isAssessment,
           child: _wideCard(context),
         ),
       );
@@ -227,8 +252,8 @@ class HomeStateCard extends StatelessWidget {
       ),
     );
     final action = onPrimary == null ? null : _action;
-    if (state == HomeState.assessment || state == HomeState.noContent) {
-      final assessment = state == HomeState.assessment;
+    if (_isAssessment || state == HomeState.noContent) {
+      final assessment = _isAssessment;
       return DecoratedBox(
         decoration: BoxDecoration(
           color: context.colors.surfaceCard,

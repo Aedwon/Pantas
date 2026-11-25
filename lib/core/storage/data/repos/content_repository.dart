@@ -318,6 +318,15 @@ class ContentRepository {
     ]);
   }
 
+  /// The ids among [ids] that name an active question in the bank. Reads
+  /// metadata only, so a saved list can be checked without loading questions.
+  Future<Set<QuestionId>> activeQuestionIdsAmong(
+    Iterable<QuestionId> ids,
+  ) async {
+    final rows = await _selectionRowsByIds(ids.toList());
+    return {for (final row in rows) row.id};
+  }
+
   Future<List<QuestionSelectionRow>> _selectionRowsByIds(
     List<QuestionId> ids,
   ) async {

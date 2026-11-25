@@ -12,6 +12,14 @@ class AppPreferencesRepository {
   static const _openTopicPrefix = 'open_topic_';
   static const _recentLessonsKept = 3;
 
+  /// Every saved assessment starts with this, so an account wipe can clear
+  /// them all by prefix. The rest is `<uid>:<examId>`.
+  static const assessmentProgressKeyPrefix = 'assessment_progress_v1:';
+
+  /// The device key for one account's saved assessment on one exam.
+  static String assessmentProgressKey(String uid, String examId) =>
+      '$assessmentProgressKeyPrefix$uid:$examId';
+
   final AppDatabase _db;
 
   Future<bool> hasCompletedOnboarding() async {
@@ -227,6 +235,10 @@ class AppPreferencesRepository {
       _setDeviceValue('first_flag_announced', 'true');
 
   Future<String?> deviceValue(String key) => _deviceValue(key);
+
+  Future<void> removeDeviceValue(String key) async {
+    await (_db.delete(_db.devicePrefs)..where((p) => p.key.equals(key))).go();
+  }
 
   Future<void> setDeviceValue(String key, String value) =>
       _setDeviceValue(key, value);
