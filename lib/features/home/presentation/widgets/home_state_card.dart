@@ -23,6 +23,7 @@ class HomeStateCard extends StatelessWidget {
     this.onSecondary,
     this.examDateLabel,
     this.hasExamDate = true,
+    this.streakStands = true,
     this.web,
     super.key,
   });
@@ -39,6 +40,10 @@ class HomeStateCard extends StatelessWidget {
   final VoidCallback? onSecondary;
   final String? examDateLabel;
   final bool hasExamDate;
+
+  /// Day off only: whether the stored streak still stands today. False drops
+  /// the "your streak is safe" claim, which would be untrue.
+  final bool streakStands;
 
   String get _title => switch (state) {
         HomeState.assessment => 'First, a short assessment',
@@ -58,10 +63,13 @@ class HomeStateCard extends StatelessWidget {
         HomeState.reviewOnly =>
           'These last days before $examShortName are reviews only, '
               'and none are due today.',
-        HomeState.dayOff =>
-          'Nothing is planned today, and your streak is safe. '
-              "If you feel like it, the next study day's lesson "
-              'can move to today.',
+        HomeState.dayOff => streakStands
+            ? 'Nothing is planned today, and your streak is safe. '
+                "If you feel like it, the next study day's lesson "
+                'can move to today.'
+            : 'Nothing is planned today. '
+                "If you feel like it, the next study day's lesson "
+                'can move to today.',
         HomeState.passed => examDateLabel == null
             ? "Tell us what's next."
             : 'Your $examShortName date was $examDateLabel. '
