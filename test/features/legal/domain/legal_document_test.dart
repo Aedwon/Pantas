@@ -9,8 +9,8 @@ void main() {
     expect(document.updatedAt, legalTextsPublishedAt);
     final text =
         document.sections.map((s) => '${s.heading}\n${s.body}').join('\n');
-    expect(text, contains('This notice covers only accounts that a parent'));
-    expect(text, contains('we do not send new guardian requests'));
+    expect(text, contains('If you are under 18, this notice explains'));
+    expect(text, contains('New sign-ups are for people 18 or older.'));
     expect(text, isNot(contains('Balayon')));
     expect(
       text,
@@ -220,7 +220,7 @@ void main() {
         legalDocumentFallbacks[id]!.sections.map((s) => s.body).join();
     expect(all('terms'), contains('You must be 18 or older to create'));
     expect(all('terms'), isNot(contains('You must be 13 or older')));
-    expect(all('privacy'), contains('An account needs age 18 or older'));
+    expect(all('privacy'), contains('New sign-ups are for people 18 or older'));
     for (final id in ['privacy', 'teens']) {
       expect(all(id), isNot(contains('below 13')));
     }

@@ -188,3 +188,17 @@ Answer: yes. The notice must give the DPO's contact details. It does not have to
 - **NPC Circular 2023-04 (consent).** Only secondary mentions were readable. It does not bear on whether the name is published.
 - **Not read:** the NPC's own PDFs of the Advisory, the IRR and both Circulars (privacy.gov.ph returns 403 to automated reads).
 - **Open point for the Codex round.** The Advisory says "a dedicated telephone number". The notices use the business phone, which is also the support number. If Codex says a separate line is needed, the notice can drop the phone and keep the email and postal address.
+
+## Round 5 (Nov 25)
+
+Codex Sol High critiqued the Nov 25 changes (`critique-2026-11-25-sol-high.md`). Where a line below differs from the Nov 25 section above, this section wins. Nothing is published.
+
+- **Blocker, option C eligibility: applied.** The cutoff is the sending of a request, not the confirmation. The Terms, the Privacy Policy and the Notice for teens now say a guardian-confirmed account keeps working and a request open at closing can still be confirmed before its original link expires.
+- **Major, age check: applied.** The teen age-check bullet and "Why we ask your age" now apply only to a new sign-up that the age check blocks (the device saves only the block and sends nothing). The broad "no record reaches our servers" sentence is gone. The Privacy Policy now says the Notice for teens explains data from earlier guardian requests and confirmed accounts.
+- **Major, DPO phone: ruled.** The business phone stays in the DPO line for now. The name-on-request sentence stays. Optional, his step: a dedicated DPO phone number; until then the business number is listed (Sol High round 5: shared number does not clearly meet NPC Advisory 2017-01).
+- **Major, owner identity: ruled and applied.** His name stays only in the Terms ("Your contract is with ... doing business as ...") and the Privacy Policy (controller), now in Sol High's "doing business as" wording. The Notice for teens names the business, keeps its contact details, and links to the Privacy Policy for the owner's name, as a real link in the app and on the website. The checkout seller line is unchanged. Website homepage needs the seller details (business name, address, phone, email) under RA 11967 Sec. 23(f); website copy is his (decision D3).
+- **Major, false age and purchase authority: applied.** The Terms now say "You must enter your correct age. We may suspend or close your account if we reasonably believe you gave a false age to get access or you do not qualify to use Pantas." and "Only a parent or legal guardian with authority to act for an eligible student under 18 may buy Pro for them."
+- **Minor, legacy request tense: applied.** "We sent them ... to deliver the original request", and "We no longer send, resend, or replace guardian request links. You cannot change the email address on an open request."
+- **Minor, duplicate instruction: applied.** "Continue runs the check." is deleted.
+- **Version stamps and dates:** unchanged (set at go-live).
+- **Biggest remaining risk:** a legacy open request holds an under-18 flag before any consent, and no clear Section 13 basis fits that interval. Wording cannot cure it under the ruling. Prod had 0 open requests at the Nov 25 ship, so no live record is affected.

@@ -11,7 +11,7 @@ Base: the Terms live in the app on main (versions 2026-11-12), the Oct 30 web pa
 
 ## Who we are
 
-Pantas is run by Pantas Online Tutorial Services, a sole proprietorship registered with the Department of Trade and Industry (DTI Business Name No. 8567107). Its owner, Aerol Dwayne Daños Balayon, is the party that contracts with you.
+Your contract is with Aerol Dwayne Daños Balayon, doing business as Pantas Online Tutorial Services (DTI Business Name No. 8567107), a sole proprietorship registered with the Department of Trade and Industry.
 
 Place of business: 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines
 
@@ -26,7 +26,7 @@ Pantas is a study tool for exam practice. You may use it for your own study.
 
 You accept these Terms by confirming them electronically when you set up Pantas. The Privacy Policy and, if a parent or guardian confirmed your account, the Notice for teens explain how we handle data. We ask separately for permission where the law requires it. If you do not agree, do not use Pantas.
 
-You must be 18 or older to create an account for now. The app checks your age at setup and blocks anyone who enters an age below 18. You confirm that the age you enter is your own. If you enter an age that is not yours, you break these Terms, and we may close your account. Refunds follow the Refunds section and the law. A parent or guardian's confirmation applies only to an account confirmed before under-18 sign-up closed, as the Notice for teens explains.
+You must be 18 or older to create an account for now. The app checks your age at setup and blocks anyone who enters an age below 18. You must enter your correct age. We may suspend or close your account if we reasonably believe you gave a false age to get access or you do not qualify to use Pantas. Refunds follow the Refunds section and the law. If a parent or legal guardian already confirmed your account, you can keep using it. If your request was open when under-18 sign-up closed, your guardian can still confirm it before the original link expires, as the Notice for teens explains.
 
 When you use Pantas, you agree to:
 
@@ -86,7 +86,7 @@ Pro access is personal. You cannot transfer it or exchange it for cash. Your ref
 
 **Declaration at checkout.** Every web purchase needs a tick in a box beside the Pay button. Checkout does not start without it, and you can open the Terms without ticking it. A buyer buying for their own account sees: "I'm 18+, authorized to use the payment method, and accept the Terms and refund policy." If a parent or guardian has confirmed the account, the buyer sees: "I'm 18+ and buying for this student as their parent or legal guardian. I'm authorized to use the payment method and accept the Terms and refund policy." "Terms and refund policy" links to these Terms. For every web purchase, we record the declaration with the date, time, Terms version and wording version when checkout starts.
 
-**Students under 18.** If the student is under 18 and a parent or guardian confirmed the account, a parent or legal guardian with authority to act for them must buy in their own name and use a payment method they are allowed to use. We may ask for proof of authority before or after payment. We may cancel unauthorized access. We refund as required by law and account for any payment reversal already made. A parent or legal guardian who did not allow a purchase for an under-18 student's account can ask for a full refund under "Purchases a parent or guardian denies" in Refunds.
+**Students under 18.** Only a parent or legal guardian with authority to act for an eligible student under 18 may buy Pro for them. The buyer must pay in their own name and use a payment method they are allowed to use. We may ask for proof of authority before or after payment. We may cancel unauthorized access. We refund as required by law and account for any payment reversal already made. A parent or legal guardian who did not allow a purchase for an under-18 student's account can ask for a full refund under "Purchases a parent or guardian denies" in Refunds.
 
 ## 5. Refunds
 

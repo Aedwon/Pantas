@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -140,5 +141,28 @@ void main() {
     );
 
     expect(find.text('Legal page not found'), findsOneWidget);
+  });
+
+  testWidgets('the teen notice points to the Privacy Policy with a real link',
+      (tester) async {
+    await tester.pumpApp(
+      const LegalDocumentPage(
+        documentId: 'teens',
+        contact: defaultLegalContact,
+      ),
+    );
+    var found = false;
+    for (final rich in tester.widgetList<RichText>(find.byType(RichText))) {
+      rich.text.visitChildren((span) {
+        if (span is TextSpan &&
+            span.text == 'the Privacy Policy' &&
+            span.recognizer != null) {
+          found = true;
+        }
+        return true;
+      });
+    }
+    expect(found, isTrue);
+    expect(find.textContaining('Balayon', findRichText: true), findsNothing);
   });
 }

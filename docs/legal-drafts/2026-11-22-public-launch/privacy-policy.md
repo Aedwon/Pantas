@@ -10,11 +10,11 @@ Base: the Privacy Policy live in the app on main (version 2026-11-12). Each stat
 
 ## Who this is for
 
-This policy is for people aged 18 and older. An account needs age 18 or older for now. The Notice for teens covers only accounts that a parent or guardian confirmed before under-18 sign-up closed.
+This policy explains how Pantas handles data. New sign-ups are for people 18 or older. See the Notice for teens for the under-18 age check, guardian-confirmed accounts, and requests that were open when under-18 sign-up closed.
 
 ## Who runs Pantas
 
-Pantas Online Tutorial Services controls your data. It is a sole proprietorship registered with the Department of Trade and Industry (DTI Business Name No. 8567107). Its owner, Aerol Dwayne Daños Balayon, is the personal information controller under the Data Privacy Act of 2012. Pantas has designated a Data Protection Officer.
+Aerol Dwayne Daños Balayon, doing business as Pantas Online Tutorial Services (DTI Business Name No. 8567107), a sole proprietorship registered with the Department of Trade and Industry, is the personal information controller and controls your personal data. Pantas has designated a Data Protection Officer.
 
 Place of business: 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines
 
@@ -116,7 +116,7 @@ The schedules above apply to guardian evidence and question reports, with one ex
 
 ## Why we may use your data
 
-- Age check: you agree to it at the age step. Your device uses your age without sending it to our servers and keeps only your age group and the version of the age check notice, or a block if you are under 18. For an adult, your agreement is the basis (Data Privacy Act, Section 13(a)). For an account that a parent or guardian already confirmed, the Notice for teens gives the basis.
+- Age check: you agree to it at the age step. Your device uses your age without sending it to our servers and keeps only your age group and the version of the age check notice, or a block if you are under 18. For an adult, your agreement is the basis (Data Privacy Act, Section 13(a)). The Notice for teens explains how we use data from earlier guardian requests and confirmed accounts.
 - Study records: we ask for your permission to use your answers, results and study records to provide study features (Section 13(a)). You give it at setup, in the same step where you accept the Terms and Privacy Policy. Answers and results can relate to education.
 - Question reports: our legitimate interest in finding and fixing mistakes in questions, and in using report counts to limit misuse (Section 12(f)). We do not use reports to profile you.
 - Account and contact data, and payments: we use the buyer's payment details to complete the purchase and resolve payment problems. We use ordinary account and contact data as needed to provide the service you asked for, answer requests and prevent fraud (Sections 12(b) and 12(f)). Where we rely on legitimate interests, we use only the data needed for those purposes.
