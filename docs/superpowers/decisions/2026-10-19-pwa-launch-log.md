@@ -4545,3 +4545,10 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Checks:** a new website test fails without the line and checks the address and phone match the Privacy Policy and Terms; website tests 191 of 191. One headless render at 390 and 1440 (scratchpad of the r7 session).
 - **Publishes with:** the legal pages at the opening, after his "yes" on the wording.
 
+
+### Nov 25, the sales invoice sentence back in the Terms (CSE release lead r7)
+
+- **Manager, verbatim:** "for the legal texts, the invoice sentence stays. ... Keep "Pantas issues a sales invoice for each web purchase." and make sure no text promises e-invoices or an automatic email invoice." His words (9:20 PM entry): "yes i can issue invoices from my BIR printed invoices, but note that they are physical invoices that I can take a picture of, not e-invoices".
+- **Found:** the sentence was not in the texts. It was removed on Nov 24 at publishing (91ef12a72) because M8 was not met, and a website test forbade it.
+- **Changed:** "Receipts. PayMongo may send you a receipt. Pantas issues a sales invoice for each web purchase." in the signed-off `terms.md`, the app Terms (PR #110, `legal/publish-r1` 053669aca) and the website Terms (pantas-web `legal/public-pages-r1` 0cfb323, also merged into `legal/homepage-seller-r1`). README B4 row updated.
+- **Checks:** a new app test and the flipped website test require the sentence and fail if any legal text (app Terms, Privacy Policy, Notice for teens; website legal pages and homepage) promises an e-invoice, an invoice by email, or an automatic send. No such text exists today. App legal tests 37 of 37, analyze clean, attribution OK; website tests 190 of 190 (191 on the seller branch).
