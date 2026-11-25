@@ -4718,3 +4718,12 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 
 - **Proposed (r9):** prod requests, last 7 days by Manila hour, are lowest 5 to 10 AM and highest 2 to 5 PM (our own test traffic included). Each web update can trigger today's worker defect, so fold the batch (Study title 2 px, report confirmation announced, the Pro flicker fix if it lands) into the opening gate-off build instead of a separate deploy.
 - **Manager, verbatim:** "agreed, fold the batch into the opening gate-off build. If the opening slips past tomorrow, deploy the batch alone at 6 to 7 AM Manila and tell me first."
+
+### Nov 26, P12 resume and offline loops on today's worker: CSE Pro pass; Sub after the quota reset (CSE release lead r9, E-190)
+
+- **Staging build:** 396422457-df61add7eaa5 (main 2c9cf8a87), one Sonnet worker, throwaway Pro account (deleted with its data and debug tokens).
+- **Resume after reload (Pro):** quiz paused at Q7 with 6 answers, Resume from the Quiz tab card kept both, one save at the end; timed mock clock ran 18 s across an 18 s reload gap (3:08:54 to 3:08:36), answers kept, submit, results and review open; a lesson reopens at its top (scroll position not kept, not required).
+- **Offline (Pro):** in session, a cached lesson opens and is marked read, and a lesson quiz runs to results; on reconnect one ingestSession and one batched recordLessonRead go out, 3 sessions on the server, no duplicates; a fresh profile receives them.
+- **Offline boot:** the worker's Playwright `setOffline` run stayed on the splash (canvaskit.js from gstatic blocked). The lead re-ran it with the network really cut (fresh browser launch on the same profile, proxy to a dead port): after two online visits the app boots offline in about 1 s (canvaskit from the browser cache, main.dart.js from the worker). After only one short online visit it does not (main.dart.js not yet cached). Residual, as accepted for opening on today's worker: offline boot depends on the browser keeping the gstatic renderer in its cache; option A serves the renderer from our origin.
+- **Notes:** "Your past mistakes" is empty on a second device for the same Pro account (the first device showed 103); not checked against design, sent to the manager.
+- **Rule 7:** staging 23,987 reads and 1,888 writes before (21:36 UTC), 30,168 and 2,487 after (22:08 UTC). The worker stopped before Sub under the lead's 34,000 line. Sub (Free) runs after the 08:00 UTC reset, with the update loop on the PR #147 build.
