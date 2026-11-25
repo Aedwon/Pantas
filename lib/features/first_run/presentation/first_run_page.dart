@@ -206,7 +206,10 @@ class _FirstRunPageState extends ConsumerState<FirstRunPage> {
   }
 
   Widget _question(
-      BuildContext context, FirstRunProgress p, FirstRunData data) {
+    BuildContext context,
+    FirstRunProgress p,
+    FirstRunData data,
+  ) {
     final live = p.step.questionIndex;
     final index = _look ?? live!;
     final question = data.questions[index];
