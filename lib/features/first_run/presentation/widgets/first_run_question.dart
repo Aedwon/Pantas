@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
