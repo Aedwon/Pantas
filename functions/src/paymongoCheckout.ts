@@ -25,7 +25,8 @@ const WINDOW_MS = 10 * 60_000;
 const CREATING_LEASE_MS = 2 * 60_000;
 // Method values confirmed in PayMongo's docs. Add more (for example dob) through
 // PAYMONGO_PAYMENT_METHODS once the merchant account has them enabled.
-const DEFAULT_METHODS = ['card', 'qrph'];
+// The live PayMongo account is verified for QR Ph only (Nov 25, 2026): web plans are one-time prepaid payments.
+export const DEFAULT_METHODS = ['qrph'];
 // A payment older than this with no grant has missed its webhook; the checkout call completes it.
 const HEAL_AFTER_MS = 10 * 60_000;
 

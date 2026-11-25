@@ -317,13 +317,13 @@ export async function commitPaymongoGrant(db: Firestore, input: {uid: string; ev
           reason: disputeReason, paidAmount: input.paidAmount, refundedTotal: earlyRefunds,
           unusedDays: unusedDaysOf({...grant, revokedAt: now}, now), pulled: [], createdAt: now});
       }
-      // A dispute lost after refunds that arrived first: the chargeback and the refunds together differ from the payment
-      // (the buyer is still owed money, or the owner paid out twice).
-      if (lostId !== undefined && !mixedWon && plan && !priorDisputeFollowUp.exists &&
-          earlyRefunds + (early.disputedAmount ?? input.paidAmount) !== input.paidAmount) {
-        disputeReason = 'disputeLostAfterRefund';
-        transaction.set(disputeFollowUpRef, {paymentId, disputeId: tiedId ?? null, status: 'pending', refundRequired: false,
+      // Every lost dispute goes to the owner, whatever the amounts and the order the events came in: the owner
+      // checks the chargeback and any refunds in the dashboard and closes the follow-up.
+      if (lostId !== undefined && !mixedWon && !priorDisputeFollowUp.exists) {
+        disputeReason = 'disputeLost';
+        transaction.set(disputeFollowUpRef, {paymentId, disputeId: lostId, status: 'pending', refundRequired: false,
           reason: disputeReason, paidAmount: input.paidAmount, refundedTotal: earlyRefunds,
+          disputedAmount: early.disputedAmount ?? null,
           unusedDays: unusedDaysOf({...grant, revokedAt: now}, now), pulled: [], createdAt: now});
       }
       transaction.set(payment, {uid, grantId: grantDocId(paymentId), sessionId: input.sessionId, createdAt: now});
@@ -430,6 +430,14 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
       // Refunds copied onto the task when the account was deleted count toward the balance.
       const counted = {...(follow.get('refunds') as Record<string, number> | undefined), ...refunds};
       noteRefunds(counted, follow.get('paidAmount'));
+      if (input.disputeLost && (!disputeFollow.exists || disputeFollow.get('disputeId') !== (input.disputeId ?? null))) {
+        // No grant to read: the owner gets the loss with what the events carried.
+        disputeReason = 'disputeLost';
+        transaction.set(disputeFollowUp, {paymentId, disputeId: input.disputeId ?? null, status: 'pending',
+          refundRequired: false, reason: disputeReason, paidAmount: follow.get('paidAmount') ?? null,
+          refundedTotal: Object.values(counted).reduce((a, b) => a + b, 0),
+          disputedAmount: input.disputedAmount ?? existing.get('disputedAmount') ?? null, pulled: [], createdAt: now});
+      }
       return {outcome: 'unmatched' as const};
     };
     if (!paid.exists || typeof uid !== 'string') return unmatched();
@@ -463,25 +471,19 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
       disputeReason = reason;
       transaction.set(disputeFollowUp, {paymentId, disputeId: input.disputeId ?? null, status: 'pending',
         refundRequired: false, reason, paidAmount: paidOf(g), refundedTotal: refunded,
+        disputedAmount: input.disputedAmount ?? (earlier.get('disputedAmount') as number | undefined) ?? null,
         unusedDays: unusedDaysOf({...g, revokedAt: g.revokedAt ?? now}, now), pulled, createdAt: now});
     };
-    // A lost dispute plus the refunds already made differ from the payment: the buyer is still owed money, or the owner paid twice. The disputed
-    // amount is read from the event; when it is absent the whole payment is assumed.
-    if (input.disputeLost && grant && !disputeFollow.exists) {
-      const paidAmount = paidOf(grant);
-      const refunded = refundedTotal(grant);
-      if (paidAmount > 0 && refunded + (input.disputedAmount ?? paidAmount) !== paidAmount) {
-        writeDisputeFollowUp('disputeLostAfterRefund', grant, refunded, pulledBy(inputs.grants, input.disputeId ?? ''));
-      }
+    // Every lost dispute goes to the owner, whatever the amounts and the order the events came in (a second
+    // dispute on the same payment reopens the one follow-up). The owner checks the dashboard and closes it.
+    const lostNew = input.disputeLost && (!disputeFollow.exists || disputeFollow.get('disputeId') !== (input.disputeId ?? null));
+    if (lostNew && grant) {
+      writeDisputeFollowUp('disputeLost', grant, refundedTotal(grant), pulledBy(inputs.grants, input.disputeId ?? ''));
     }
-    // The loss came first with no amount (the whole payment was assumed), and the opening now brings the real
-    // amount: the same lost-dispute check runs once with it.
-    if (input.dispute && !input.disputeLost && input.disputeId && input.disputedAmount !== undefined && grant && !disputeFollow.exists &&
-        earlierResolutions?.[input.disputeId] === 'lost' && earlier.get('disputedAmount') === undefined) {
-      const paidAmount = paidOf(grant);
-      if (paidAmount > 0 && refundedTotal(grant) + input.disputedAmount !== paidAmount) {
-        writeDisputeFollowUp('disputeLostAfterRefund', grant, refundedTotal(grant), pulledBy(inputs.grants, input.disputeId));
-      }
+    // An amount that arrives after the follow-up (an opening after its loss) is added to it for the owner.
+    if (input.dispute && !input.disputeLost && input.disputedAmount !== undefined && disputeFollow.exists &&
+        disputeFollow.get('disputeId') === (input.disputeId ?? null) && disputeFollow.get('disputedAmount') == null) {
+      transaction.update(disputeFollowUp, {disputedAmount: input.disputedAmount});
     }
     if (!grant) {markPlain(); return {outcome: 'duplicate' as const, uid};}
     if (grant.state !== 'active' && input.dispute) {
@@ -559,13 +561,8 @@ export async function revokePaymongoPayment(db: Firestore, input: {eventId: stri
     if (!disputeFollow.exists && !disputeReason) {
       if (mixedWon) writeDisputeFollowUp('disputeWithRefund', next, refundedTotal(next), pulled.sort());
       else if (!input.dispute && input.refunds?.length && grant.disputeId && earlierResolutions?.[grant.disputeId] === 'lost') {
-        // A refund after a lost resolution: the refunds and the chargeback together may now exceed the payment.
-        // A chargeback with no outcome on the tombstone cannot exist on prod (test keys only), so a loss is always found here.
-        const paidAmount = paidOf(next);
-        const refunded = refundedTotal(next);
-        if (paidAmount > 0 && refunded + ((earlier.get('disputedAmount') as number | undefined) ?? paidAmount) !== paidAmount) {
-          writeDisputeFollowUp('disputeLostAfterRefund', next, refunded, []);
-        }
+        // A refund after a lost dispute that has no follow-up yet: the owner checks both.
+        writeDisputeFollowUp('disputeLost', next, refundedTotal(next), []);
       }
     }
     transaction.set(revokeEventRef, {eventId, version: version + 1, expireAt: Timestamp.fromMillis(now + EVENT_KEEP_MS)});
