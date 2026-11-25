@@ -1795,3 +1795,17 @@ Lead rulings (rule 4): the image is the SP_Splash lockup at twice its wide size 
 
 Board: https://claude.ai/artifact/8emGUsKPxKrkpqd1rHi2sw (private until he shares it). Handoff: docs/superpowers/handoffs/2026-11-25-link-preview-image-board.md.
 
+## Nov 25, UX design lead: first-run board revision (E-176)
+
+His words (about 9:36 PM Manila): "don't call it taste finished. why even call it that - that's an internal term", "so much space unutilized" (phone "Try Pantas first"), "also please improve text copy - remove redundancies, remove unnecessary text/info", "for the choices, go with your recommendations".
+
+His picks (from the recommendations): lesson A, one fixed lesson per exam; assessment progress B, answers saved on the device as you go, Continue on Home's card.
+
+Lead rulings (rule 4; search: this rulings file's E-165 entry, the E-165 handoff, patterns.md Button placement, the canvas's own approved-board frames RD_Real, QN_Correct, QV_End and QS_End):
+- No user-visible "taste", "trial", "starter", "tutorial" or "guided"; the canvas is renamed "First Run". The overline "Try Pantas" next to Skip stays on the lesson and question screens.
+- "Try Pantas first": the eyebrow and the description line are removed (the title and the steps say it). Three numbered steps fill the screen: "Read a short lesson" (a static crop of the reader: overline, title, first Core Concept sentence), "Answer 3 questions" / "Each answer is explained." (a static crop of the question: stem and two choices, one marked right), "Get your score from the assessment on Home". No illustrations, no durations. Start and Skip stay stacked at the same width and 52 height (the Nov 25 stacked-pair rule).
+- End screen: "You finished the lesson", "2/3 correct", "Take the assessment on Home for your score and study plan."; "in 2 minutes" removed; on wide, Done top right level with the title.
+- Lesson end button: "Answer 3 Questions".
+- Home's Continue card reads "8 of 30 answered." (the leave dialog already says answers are saved on this device).
+
+Board: https://claude.ai/artifact/D3JLTrRGiN8vjnfLrbhoMN, version 1795614653-2f1d. Fresh Sonnet reviewer: one headless render, no unstyled or clipped frame, no internal term outside one exact quote of his in a note. Reviewer findings not taken: "Skip should be a filled secondary button" (patterns.md allows a ghost secondary under the main one, and it already shares width and height); differences inside his unchanged approved frames (math spacing, sample dates) stay as the boards draw them.
