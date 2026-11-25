@@ -57,8 +57,8 @@ const Map<(String, String), double> boardGaps = {
 };
 
 /// Buttons a board he approved after the rule draws full width on a wide
-/// screen, by the value of their `ValueKey<String>`. His decision wins over the pattern; each entry names the
-/// board and his approval.
+/// screen, by the value of their `ValueKey<String>`. His decision wins over
+/// the pattern; each entry names the board and his approval.
 const Set<String> boardFullWidth = {
   // Board A, the Reviews and New questions drawer foot: full-width Start or
   // Resume with Discard centered under it. His pick Nov 25: "yes A lgtm, go
