@@ -39,9 +39,13 @@ void main() {
     final keep = find.widgetWithText(PantasButton, 'Keep Going');
     final leave = find.widgetWithText(PantasButton, 'Leave');
     expect(
-        tester.widget<PantasButton>(keep).variant, PantasButtonVariant.neutral);
-    expect(tester.widget<PantasButton>(leave).variant,
-        PantasButtonVariant.primary);
+      tester.widget<PantasButton>(keep).variant,
+      PantasButtonVariant.neutral,
+    );
+    expect(
+      tester.widget<PantasButton>(leave).variant,
+      PantasButtonVariant.primary,
+    );
     final keepRect = tester.getRect(keep);
     final leaveRect = tester.getRect(leave);
     expect(keepRect.height, greaterThanOrEqualTo(46));
@@ -66,9 +70,9 @@ void main() {
     final leaveRect = tester.getRect(leave);
     expect(keepRect.right, lessThan(leaveRect.left));
     expect(leaveRect.center.dy, closeTo(keepRect.center.dy, 1));
-    final dialog = tester.getRect(find.byKey(const ValueKey(
-      'centered-dialog-surface',
-    )));
+    final dialog = tester.getRect(
+      find.byKey(const ValueKey('centered-dialog-surface')),
+    );
     expect(dialog.right - leaveRect.right, closeTo(24, 1));
     expectWidePlacement(tester);
   });

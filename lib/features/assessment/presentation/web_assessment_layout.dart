@@ -173,7 +173,6 @@ class WebAssessmentLeaveDialog extends StatelessWidget {
                   'Continue from Home.',
               primaryLabel: 'Leave',
               secondaryLabel: 'Keep Going',
-              destructive: false,
               allowEscape: false,
               onConfirm: onLeave,
               onCancel: onKeepGoing,
