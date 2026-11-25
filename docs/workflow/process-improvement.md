@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Staging pass found a broken consent line and misaligned tab titles (Nov 26)
+
+- His words (about 3:35 AM Manila, phone screenshots of staging): "done checking, looks good / some refinements: / - premature newline after privaxy policy link / - Study and Quiz headers have the same spacing from the topmost, but they are both wrong. please align them to look equal to Settings".
+- Wrong: on Terms and Privacy, ", and to Pantas keeping my study records ..." starts on a new line right after the "Privacy Policy" link. The Study and Quiz page titles sit lower from the top than the Settings title.
+- Why it got through: not yet known; the CSE release lead r8 reports the cause for each with its fix, and this entry is updated then.
+- Fix (checks, release lead r8): a test that fails on today's code for each: the consent sentence has no forced break after the link, and the Study, Quiz and Settings titles share one top position at phone and wide (Home checked too). Shown failing first.
+
 ### A Codex audit waited on input and ran nothing, again (Nov 26)
 
 - Words: none from Aedwon. The CSE release lead r8's report (about 1:40 AM Manila): "Its first Codex Sol High audit lost 1 hour: codex waited on input and ran nothing. It is rerunning now with input closed."
