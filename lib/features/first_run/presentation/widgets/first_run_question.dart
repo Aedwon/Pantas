@@ -139,10 +139,11 @@ class FirstRunQuestion extends StatelessWidget {
         ),
         Expanded(
           child: SingleChildScrollView(
+            // ds-board: W04 `.stage` padding 56 40 (the bar floats below).
             padding: EdgeInsets.fromLTRB(
-              wide ? PantasSpace.s24 : PantasLayout.gutterPhone,
-              PantasSpace.s8,
-              wide ? PantasSpace.s24 : PantasLayout.gutterPhone,
+              wide ? PantasSpace.s40 : PantasLayout.gutterPhone,
+              wide ? PantasSpace.s56 : PantasSpace.s8,
+              wide ? PantasSpace.s40 : PantasLayout.gutterPhone,
               PantasSpace.s24,
             ),
             child: Center(
