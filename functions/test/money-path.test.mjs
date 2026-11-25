@@ -1230,12 +1230,14 @@ test('a 25% refund and a lost 50% dispute before fulfillment: born revoked, one 
   const db = firestore();
   const paid = priceCentavos(weekly);
   await revokePaymongoPayment(db, {...halfRefund, refunds: [{id: 'ref_q', amount: paid / 4}], eventId: 'evt_1'}, now + 1000);
-  await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, disputedAmount: paid / 2, eventId: 'evt_2'}, now + 2000));
+  // The loss arrives before the payment record, so it writes and logs the follow-up itself.
+  const lost = await quietly(() => resolvePaymongoDispute(db, {...winEvent, won: false, disputedAmount: paid / 2, eventId: 'evt_2'}, now + 2000));
   const lines = await quietly(() => commitPaymongoGrant(db, {...weeklyPayment, paidAt: now}, now + 3000, []));
   assert.equal(db.rows.get(`users/${uid}/grants/pay_test`).state, 'revoked');
   assert.equal(followUpOf(db).reason, 'disputeLost');
   assert.equal(followUpOf(db).disputedAmount, paid / 2);
-  assert.equal(lines.filter(l => l[0] === 'payment follow-up created disputeLost').length, 1);
+  assert.equal(lost.filter(l => l[0] === 'payment follow-up created disputeLost').length, 1);
+  assert.equal(lines.filter(l => l[0].startsWith('payment follow-up created')).length, 0);
 });
 
 test('a lost dispute with no refunds gives one follow-up, with or without an amount', async () => {
