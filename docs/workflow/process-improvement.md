@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### An internal term reached a board he reviews ("taste finished") (Nov 25)
+
+- His words (about 9:36 PM Manila, on the guided first-run board): "don't call it taste finished. why even call it that - that's an internal term", and on the same board "also please improve text copy - remove redundancies, remove unnecessary text/info".
+- Wrong: the manager's brief called the guided first run "the taste", and the board carried that word into on-screen text ("Taste finished"). The intro screen also repeated what its own button and steps already said.
+- Why it got through: briefs used an internal shorthand, and the board review checked styling and placement but not whether every on-screen word is user language. This is the same kind as the Nov 24 entry on internal codes in chat, now in product copy.
+- Fix (required step, boards and builds): before a board reaches him or a build ships, a reviewer scans every user-visible string for internal terms (lane words such as taste, trial, starter check, T-numbers, U-numbers, ruling codes) and for sentences that repeat the screen. Briefs name the user-facing wording separately from the internal name. A check on the app's own strings for a deny list of internal terms is possible; the UX lead adds it if it can be shown failing on a real string first.
+
 ### Release lead ended its turn after a part report with the next part queued (Nov 25)
 
 - Words: none from Aedwon. The manager's note: "you reported part 1 at 2:44 PM and then stopped, with nothing running. Start part 2 now".
