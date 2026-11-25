@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Wide stacked sign-in buttons did not match in size (Nov 25)
+
+- His words (about 9:36 PM Manila): "also i think there's a regression with the buttons? like that google one, if they're paired with each other, i think it would be more visually pleasing if they're similar in proportions/size or something idk how to best express it", then "sorry i meant that when they're vertically stacked".
+- Wrong: on wide sign-in, Continue (52 high) sat above "Use Google Instead" (44 high), and each took its own natural width, so the stacked pair had two sizes.
+- Why it got through: the placement sweeps (E-158, E-162) and their reviews checked position, order, gap and full width. They never checked that two buttons in one group match each other in size. No rule in patterns.md asked for it, and the sign-in buttons were outside the check (raw TextButtons).
+- Fix (check): patterns.md, Button placement, "Paired buttons stacked one above the other share width and height". The placement check fails a stacked pair whose widths or heights differ by more than 1 px, and the sign-in page runs that check. It was shown failing on the old sign-in. E-175, branch `ux/google-button-padding-r1`.
+
 ### Wide "Use Google Instead" hover box hugged its content (Nov 25)
 
 - His words (about 9:10 PM Manila, wide dark sign-in screenshot, the button hovered): "also i saw this, tell me if you can see the problem".
