@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 
 // The link preview image is the approved splash lockup with no beta mark
-// (board https://claude.ai/artifact/8emGUsKPxKrkpqd1rHi2sw, E-180).
+// (the Link Preview Image board, Main frame; velocity E-180).
 void main() {
   final html = File('web/index.html').readAsStringSync();
 
