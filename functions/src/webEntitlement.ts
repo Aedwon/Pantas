@@ -3,6 +3,7 @@ import {refreshRewardClaims} from './betaReward.js';
 import {enforceAppCheck} from './_appCheck.js';
 import {betaProUntil} from './betaPro.js';
 import {getFirestore, type Firestore} from 'firebase-admin/firestore';
+import {logger} from 'firebase-functions';
 import {HttpsError} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {assertNamedUser} from './_audit.js';
@@ -15,7 +16,9 @@ import {serviceAccountEmail} from './serviceAccounts.js';
 export async function webEntitlement(auth: Parameters<typeof assertNamedUser>[0], db: Firestore, at = Date.now(),
   claimAuth?: Pick<Auth, 'getUser' | 'setCustomUserClaims'>) {
   if (!auth) throw new HttpsError('unauthenticated', 'Authentication is required.');
-  if (claimAuth) await refreshRewardClaims(db, claimAuth, auth.uid, at);
+  // The ledger read below does not depend on the claims copy, and the repair job retries it.
+  if (claimAuth) await refreshRewardClaims(db, claimAuth, auth.uid, at).catch(error =>
+    logger.warn('entitlement claims copy failed; reading the ledger anyway', {uid: auth.uid, error: String(error)}));
   return db.runTransaction(async transaction => {
     const inputs = await readEntitlementInputs(transaction, db, auth.uid);
     return {betaProUntil: betaProUntil(at), grants: [...inputs.grants.values(), ...nativeCoverageRows(inputs, at)].map(row => ({

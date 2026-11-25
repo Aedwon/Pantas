@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import {readdirSync, readFileSync} from 'node:fs';
 import test from 'node:test';
 import {commitRevenueCatAnswer, copyEntitlementClaims} from '../lib/revenuecatClaims.js';
+import {mirrorEntitlementToSync} from '../lib/syncEntitlementMirror.js';
 import {changeBetaPro} from '../lib/betaPro.js';
 import {refreshRewardClaims} from '../lib/betaReward.js';
 import {fakeAuth} from './_paymongo-helpers.mjs';
@@ -61,10 +62,13 @@ test('if the mirror write fails the claim copy fails and stays pending for the r
   const uid = 'mirror-fail'; await fresh(uid);
   await commitRevenueCatAnswer(db, uid, 'f-1', at, {pro: true, proUntil: at + 172800000}, facts);
   const brokenDb = new Proxy(db, {get(target, key) {
-    if (key === 'doc') return (path) => {
-      if (path.endsWith('sync_state/current')) return {update: async () => { throw new Error('write failed'); }};
-      return target.doc(path);
-    };
+    if (key === 'runTransaction') return (run) => target.runTransaction((tx) => run(new Proxy(tx, {get(inner, name) {
+      if (name === 'update') return (ref, ...rest) => {
+        if (ref.path.endsWith('sync_state/current')) throw new Error('write failed');
+        return inner.update(ref, ...rest);
+      };
+      const member = inner[name]; return typeof member === 'function' ? member.bind(inner) : member;
+    }})));
     const value = target[key]; return typeof value === 'function' ? value.bind(target) : value;
   }});
   await assert.rejects(copyEntitlementClaims(brokenDb, plainAuth(), uid), /write failed/);
@@ -92,6 +96,50 @@ test('the reward refresh path mirrors through the same copy', async () => {
   await refreshRewardClaims(db, auth, uid, at);
   assert.equal((await state(uid).get()).get('proUntil'), at + 5000);
   assert.equal((await state(uid).get()).get('entitlementVersion'), 4);
+});
+
+test('a late mirror write with an older version cannot overwrite a newer one', async () => {
+  const uid = 'mirror-late'; await fresh(uid);
+  await mirrorEntitlementToSync(db, uid, {pro: false, proUntil: 0, version: 5});
+  await mirrorEntitlementToSync(db, uid, {pro: true, proUntil: at + 5000, version: 4});
+  const data = (await state(uid).get()).data();
+  assert.equal(data.proUntil, 0);
+  assert.equal(data.entitlementVersion, 5);
+});
+
+const activation = (uid) => ({data: {generationId: 'g2', expectedActiveGenerationId: 'g1'},
+  auth: {uid, token: {pro: true, proUntil: at + 86400000, firebase: {sign_in_provider: 'google.com'}}}, app: {appId: 'test'}});
+const withGeneration = async (uid, entitlement) => {
+  await fresh(uid);
+  await db.doc(`users/${uid}/sync_generations/g1`).set({status: 'active'});
+  await db.doc(`users/${uid}/sync_generations/g2`).set({status: 'staging'});
+  if (entitlement) await db.doc(`users/${uid}/server/entitlement`).set(entitlement);
+};
+
+test('activation writes the mirror from the server entitlement', async () => {
+  const uid = 'mirror-activate'; await withGeneration(uid, {pro: true, proUntil: at + 5000, version: 7});
+  const {activateSyncGeneration} = await import('../lib/index.js');
+  await activateSyncGeneration.run(activation(uid));
+  const data = (await state(uid).get()).data();
+  assert.equal(data.activeGenerationId, 'g2');
+  assert.equal(data.proUntil, at + 5000);
+  assert.equal(data.entitlementVersion, 7);
+});
+
+test('activation is refused when the server entitlement is no longer Pro, even with an old Pro token', async () => {
+  const uid = 'mirror-activate-refund'; await withGeneration(uid, {pro: false, proUntil: 0, version: 8});
+  const {activateSyncGeneration} = await import('../lib/index.js');
+  await assert.rejects(activateSyncGeneration.run(activation(uid)), {code: 'permission-denied'});
+  assert.equal((await state(uid).get()).get('activeGenerationId'), 'g1');
+});
+
+test('activation keeps a newer mirror already written', async () => {
+  const uid = 'mirror-activate-newer'; await withGeneration(uid, {pro: true, proUntil: at + 5000, version: 7});
+  await state(uid).update({proUntil: at + 9000, entitlementVersion: 9});
+  const {activateSyncGeneration} = await import('../lib/index.js');
+  await activateSyncGeneration.run(activation(uid));
+  assert.equal((await state(uid).get()).get('entitlementVersion'), 9);
+  assert.equal((await state(uid).get()).get('proUntil'), at + 9000);
 });
 
 test('activating a generation keeps the pause and the mirrored entitlement', async () => {

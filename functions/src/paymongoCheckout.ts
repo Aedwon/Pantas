@@ -1,5 +1,6 @@
 import {randomUUID, createHash} from 'node:crypto';
-import {getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore} from 'firebase-admin/firestore';
+import {getAuth, type Auth} from 'firebase-admin/auth';
+import {getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore, type Transaction} from 'firebase-admin/firestore';
 import {logger} from 'firebase-functions';
 import {HttpsError} from 'firebase-functions/v2/https';
 import {accountClosed, onAccountCall as onCall} from './_accountAccess.js';
@@ -10,7 +11,8 @@ import {GUARDIAN_DOCUMENT_VERSIONS} from './guardianConsent.js';
 import {allowAtMost} from './_limits.js';
 import type {Grant} from './grants.js';
 import {grantDocId} from './paymongoGrants.js';
-import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
+import {httpPaymongoClient, type PaymongoClient, type PaymongoPayment} from './paymongoClient.js';
+import {fulfillPaidSession} from './paymongoWebhook.js';
 import {priceCentavos, webProduct} from './paymongoPolicy.js';
 import {examCatalog, sittingFor, type CatalogExam, type Sitting} from './revenuecatPasses.js';
 import {timed} from './_timed.js';
@@ -24,6 +26,8 @@ const CREATING_LEASE_MS = 2 * 60_000;
 // Method values confirmed in PayMongo's docs. Add more (for example dob) through
 // PAYMONGO_PAYMENT_METHODS once the merchant account has them enabled.
 const DEFAULT_METHODS = ['card', 'qrph'];
+// A payment older than this with no grant has missed its webhook; the checkout call completes it.
+const HEAL_AFTER_MS = 10 * 60_000;
 
 const NAMES: Record<string, string> = {
   pantas_cs_weekly: 'Pantas Pro, Civil Service, 1 week',
@@ -34,6 +38,8 @@ const NAMES: Record<string, string> = {
 };
 
 export type CheckoutDeps = {client: PaymongoClient; db: Firestore; origin: string; methods: string[];
+  /** Needed to finish a paid session whose webhook never granted. Without it the call only reports the delay. */
+  auth?: Pick<Auth, 'getUser' | 'setCustomUserClaims'>;
   allow?: (uid: string) => Promise<boolean>; catalog?: CatalogExam[]; now?: () => number;
   /** True while prod runs a test key: see checkoutClosed. */
   closedForTestMode?: boolean};
@@ -92,6 +98,10 @@ function declarationFor(snaps: DocumentSnapshot[], data: unknown, now: number): 
 const alreadyPaid = () => new HttpsError('already-exists', 'Your payment was received. Pro will appear shortly.',
   {reason: 'already-paid'});
 
+/** A `creating` reservation still inside its lease belongs to a live attempt. */
+const liveCreating = (row: DocumentSnapshot, now: number) =>
+  row.get('state') === 'creating' && now - Number(row.get('createdAt')) < CREATING_LEASE_MS;
+
 /** A stored declaration is reusable only when it says what the buyer must declare now. */
 const sameDeclaration = (stored: unknown, now: CheckoutDeclaration): boolean => {
   const d = stored && typeof stored === 'object' ? stored as Record<string, unknown> : {};
@@ -127,12 +137,56 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   const pending = deps.db.doc(`users/${uid}/pendingCheckouts/${key}`);
   const referenceNumber = randomUUID();
   const order = deps.db.doc(`paymongoOrders/${referenceNumber}`);
-  const bindingFor = (d: CheckoutDeclaration) => ({uid, product: product.id, createdAt: now, declaration: d,
+  const amountCentavos = priceCentavos(product);
+  // The quoted amount is stored on the order: the webhook checks the payment against it.
+  const bindingFor = (d: CheckoutDeclaration) => ({uid, product: product.id, createdAt: now, amountCentavos, declaration: d,
     ...(sitting ? {examId: product.examId, sitting} : {})});
+  // Earlier-sitting reservations the scan confirmed replaceable: key id to the reference it saw.
+  const replaceable = new Map<string, string>();
+  if (sitting) {
+    // A pass retried after its sitting changed looks under every sitting key. Another key's reservation
+    // counts exactly as the same key's: `creating` within its lease is a pending attempt, and `unissued`
+    // is settled first. Only then is an open, unpaid session returned: the payer pays the price and
+    // sitting it shows, and a pass paid after its sitting is refunded by the late-pass rule. An expired
+    // or paid session is replaced as usual.
+    const others = (await deps.db.collection(`users/${uid}/pendingCheckouts`).where('product', '==', product.id).get())
+      .docs.filter(other => other.id !== key);
+    for (const other of others) {
+      if (liveCreating(other, now)) throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
+    }
+    for (const other of others) {
+      if (other.get('state') === 'unissued' && typeof other.get('unissuedSessionId') === 'string') {
+        await settleUnissued(deps, other.ref, other.get('unissuedSessionId') as string);
+      }
+    }
+    for (const other of others) {
+      if (other.get('state') !== 'open' || typeof other.get('sessionId') !== 'string') continue;
+      const held = {sessionId: other.get('sessionId') as string, reference: other.get('reference') as string, checkoutUrl: other.get('checkoutUrl') as string};
+      const stored = (await deps.db.doc(`paymongoOrders/${held.reference}`).get()).get('declaration');
+      if (await sessionVerdict(deps, uid, held.sessionId, now, sameDeclaration(stored, declaration)) === 'reuse') {
+        const reused = await reuseOpen(deps, other.ref, uid, data, now, held);
+        if (reused) return reused;
+      }
+      replaceable.set(other.id, held.reference);
+    }
+  }
+  // A reservation another sitting key made between the scan above and this write is also a pending attempt.
+  const assertNoOtherReservation = async (transaction: Transaction) => {
+    if (!sitting) return;
+    const rows = await transaction.get(deps.db.collection(`users/${uid}/pendingCheckouts`).where('product', '==', product.id));
+    // The scan's verdict again: an open reservation it did not confirm replaceable (new, or changed
+    // since) may hold a payable link, so no new link is issued.
+    const unconfirmedOpen = (other: DocumentSnapshot) => other.get('state') === 'open' &&
+      typeof other.get('sessionId') === 'string' && replaceable.get(other.id) !== other.get('reference');
+    if (rows.docs.some(other => other.id !== key && (liveCreating(other, now) || other.get('state') === 'unissued' || unconfirmedOpen(other)))) {
+      throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
+    }
+  };
   type Held = {state?: string; unissuedSessionId?: string; sessionId?: string; checkoutUrl?: string; reference?: string; matches: boolean};
   const reserved = await deps.db.runTransaction(async (transaction): Promise<Held | null> => {
     const [previous, ...account] = await transaction.getAll(pending, ...accountRefs(deps.db, uid));
     declaration = declarationFor(account, data, now);
+    await assertNoOtherReservation(transaction);
     if (previous.exists) {
       const held = previous.data()!;
       const lapsed = held.state === 'creating' && !(now - Number(held.createdAt) < CREATING_LEASE_MS);
@@ -157,62 +211,19 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
       return createCheckout(auth, data, deps);
     }
     if (reserved.state !== 'open') throw new HttpsError('aborted', 'Checkout creation is pending. Try again later.');
-    let remote = await deps.client.getCheckoutSession(reserved.sessionId!);
-    const paidAlready = remote.payments.some(p => p.status === 'paid');
-    if (reserved.matches && remote.status === 'active' && !paidAlready) {
-      // Payment and its webhook may have completed since the read above. Read the provider again,
-      // then decide inside a transaction that also reads the grant index and the account state.
-      // A paid session, granted or not, gets no link: the app refreshes the entitlement.
-      const again = await deps.client.getCheckoutSession(reserved.sessionId!);
-      if (again.payments.some(p => p.status === 'paid')) throw alreadyPaid();
-      await deps.db.runTransaction(async transaction => {
-        const [current, ...account] = await transaction.getAll(pending, ...accountRefs(deps.db, uid));
-        declarationFor(account, data, now);
-        const grants = await transaction.get(deps.db.collection('paymongoPayments')
-          .where('sessionId', '==', reserved.sessionId!).limit(1));
-        if (!grants.empty) throw alreadyPaid();
-        if (current.get('reference') !== reserved.reference || current.get('state') !== 'open') {
-          throw new HttpsError('aborted', 'Checkout changed. Try again.');
-        }
-      });
-      return {checkoutUrl: reserved.checkoutUrl!, sessionId: reserved.sessionId!, reference: reserved.reference!};
+    // An open, unpaid session is always reused, even if the price changed since it was created: the
+    // payer pays the price the session shows, and the webhook checks the order's quoted amount.
+    // Legacy orders without a quoted amount are moot: prod has test keys only and test grants are revoked at the live switch.
+    // (A session whose declaration no longer matches is the one exception: it is expired and replaced.)
+    if (await sessionVerdict(deps, uid, reserved.sessionId!, now, reserved.matches) === 'reuse') {
+      const reused = await reuseOpen(deps, pending, uid, data, now, reserved as {sessionId: string; reference: string; checkoutUrl: string});
+      if (reused) return reused;
     }
-    // Never two payable links. PayMongo checkout sessions do not expire on their own, so a session
-    // that is to be replaced is expired first and read again. A refused expiry (400: already
-    // paid, or a payment is pending or processing) or a failed one means the old link may still
-    // be payable: no replacement is made, and the buyer can retry.
-    if (remote.status !== 'expired' && !paidAlready) {
-      try {
-        await deps.client.expireCheckoutSession(reserved.sessionId!);
-        remote = await deps.client.getCheckoutSession(reserved.sessionId!);
-      } catch {
-        logger.warn('Checkout replacement refused: the old session could not be expired', {reason: 'expire-failed'});
-        throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
-      }
-    }
-    // Paid only after the expiry attempt: the buyer paid the old link while we were replacing it.
-    // That payment is theirs whether or not the webhook has granted it yet. No new link is issued
-    // in this request; the app refreshes the entitlement. (A session already paid before this
-    // request is handled below, as before, so a later repeat purchase still works.)
-    if (!paidAlready && remote.payments.some(p => p.status === 'paid')) {
-      throw alreadyPaid();
-    }
-    // A paid session whose webhook has not granted yet must never lead to a second session: the
-    // customer could pay twice. Keep the reservation so the webhook completes the grant.
-    for (const payment of remote.payments.filter(p => p.status === 'paid')) {
-      if (!(await deps.db.doc(`paymongoPayments/${grantDocId(payment.id)}`).get()).exists) {
-        logger.warn('Checkout replacement refused: previous session is paid and its grant is not processed yet', {reason: 'paid-ungranted'});
-        throw new HttpsError('failed-precondition', 'Your payment is being confirmed. Pro will appear shortly.');
-      }
-    }
-    // Replace only a session confirmed expired, or one that was paid and already granted.
-    if (remote.status !== 'expired' && !remote.payments.some(p => p.status === 'paid')) {
-      throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
-    }
-    // Compare-and-swap: only one request can replace a completed/expired checkout.
+    // Compare-and-swap: only one request can replace a completed or expired checkout.
     await deps.db.runTransaction(async transaction => {
       const [current, ...account] = await transaction.getAll(pending, ...accountRefs(deps.db, uid));
       declaration = declarationFor(account, data, now);
+      await assertNoOtherReservation(transaction);
       if (current.get('reference') !== reserved.reference) throw new HttpsError('aborted', 'Checkout changed. Try again.');
       transaction.set(pending, {state: 'creating', reference: referenceNumber, product: product.id, createdAt: now});
       transaction.create(order, bindingFor(declaration));
@@ -229,7 +240,7 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
   let made: string | undefined;
   try {
     const session = await deps.client.createCheckoutSession({uid, product: product.id,
-      name: NAMES[product.id] ?? product.id, amountCentavos: priceCentavos(product),
+      name: NAMES[product.id] ?? product.id, amountCentavos,
       successUrl: `${deps.origin}/pro?checkout=success&ref=${referenceNumber}`, cancelUrl: `${deps.origin}/pro?checkout=cancelled&ref=${referenceNumber}`,
       paymentMethodTypes: deps.methods, referenceNumber});
     made = session.id;
@@ -243,10 +254,13 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
       }
       // Consent or closure may have changed while the session was made: no link then.
       declarationFor(account, data, now);
-      transaction.set(deps.db.doc(`paymongoCheckouts/${session.id}`), {uid, product: product.id, createdAt: now,
-        reference: referenceNumber, declaration, ...(sitting ? {examId: product.examId, sitting} : {})});
+      // Another sitting key may have been reserved or finalized while this call ran (it can outlive its lease):
+      // if one holds a creating (within its lease), open or unissued reservation that is not this call's, no
+      // link is issued. The throw sends this session down the unissued path (expire it, or mark it unissued).
+      await assertNoOtherReservation(transaction);
+      transaction.set(deps.db.doc(`paymongoCheckouts/${session.id}`), {...bindingFor(declaration), reference: referenceNumber});
       transaction.update(order, {sessionId: session.id});
-      transaction.set(pending, {...result, state: 'open', product: product.id, createdAt: now});
+      transaction.set(pending, {...result, state: 'open', product: product.id, createdAt: now, amountCentavos});
     });
     return result;
   } catch (error) {
@@ -259,6 +273,80 @@ export async function createCheckout(auth: Parameters<typeof assertNamedUser>[0]
     }
     throw error;
   }
+}
+
+/**
+ * One verdict for a session an earlier attempt left open, whether it sits under the same key or an
+ * earlier sitting's key. Open and unpaid and `reusable`: reuse it. Open and unpaid but not reusable
+ * (its declaration is out of date), or in an unknown status: expire it and read it again; a link that
+ * may still be payable never leads to a second one. Paid without a grant: refuse as being confirmed,
+ * or heal it once it is older than HEAL_AFTER_MS. Paid with a grant, or expired: the caller replaces it.
+ */
+async function sessionVerdict(deps: CheckoutDeps, uid: string, sessionId: string, now: number,
+  reusable: boolean): Promise<'reuse' | 'replace'> {
+  let remote = await deps.client.getCheckoutSession(sessionId);
+  const paidAlready = remote.payments.some(p => p.status === 'paid');
+  if (reusable && remote.status === 'active' && !paidAlready) return 'reuse';
+  // Never two payable links. PayMongo checkout sessions do not expire on their own, so a session
+  // that is to be replaced is expired first and read again. A refused expiry (400: already
+  // paid, or a payment is pending or processing) or a failed one means the old link may still
+  // be payable: no replacement is made, and the buyer can retry.
+  if (remote.status !== 'expired' && !paidAlready) {
+    try {
+      await deps.client.expireCheckoutSession(sessionId);
+      remote = await deps.client.getCheckoutSession(sessionId);
+    } catch {
+      logger.warn('Checkout replacement refused: the old session could not be expired', {reason: 'expire-failed'});
+      throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
+    }
+  }
+  // Paid only after the expiry attempt: the buyer paid the old link while we were replacing it.
+  // That payment is theirs whether or not the webhook has granted it yet. No new link is issued
+  // in this request; the app refreshes the entitlement. (A session already paid before this
+  // request is handled below, so a later repeat purchase still works.)
+  if (!paidAlready && remote.payments.some(p => p.status === 'paid')) throw alreadyPaid();
+  // A paid session whose webhook has not granted yet must never lead to a second session: the
+  // customer could pay twice. Keep the reservation so the webhook completes the grant.
+  for (const payment of remote.payments.filter(p => p.status === 'paid')) {
+    const recorded = async () => (await deps.db.doc(`paymongoPayments/${grantDocId(payment.id)}`).get()).exists;
+    if (!(await recorded())) {
+      // A heal that just granted this payment is the buyer's payment: no link in this call.
+      if (remote.metadata?.uid === uid && await healPaidPayment(deps, sessionId, payment, now) && await recorded()) throw alreadyPaid();
+      logger.warn('Checkout replacement refused: previous session is paid and its grant is not processed yet', {reason: 'paid-ungranted'});
+      throw new HttpsError('failed-precondition', 'Your payment is being confirmed. Pro will appear shortly.');
+    }
+  }
+  // Replace only a session confirmed expired, or one that was paid and already granted.
+  if (remote.status !== 'expired' && !remote.payments.some(p => p.status === 'paid')) {
+    throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
+  }
+  return 'replace';
+}
+
+/**
+ * Hands out an open session again. Payment and its webhook may have completed since the verdict.
+ * Read the provider again, then decide inside a transaction that also reads the grant index and
+ * the account state. A paid session, granted or not, gets no link: the app refreshes the entitlement.
+ * Returns null when the provider now reports the session expired without a payment.
+ */
+async function reuseOpen(deps: CheckoutDeps, pending: DocumentReference, uid: string, data: unknown, now: number,
+  held: {sessionId: string; reference: string; checkoutUrl: string}): Promise<{checkoutUrl: string; sessionId: string; reference: string} | null> {
+  const again = await deps.client.getCheckoutSession(held.sessionId);
+  if (again.payments.some(p => p.status === 'paid')) throw alreadyPaid();
+  // Expired since the verdict, with no payment: the old link is dead, so the caller replaces it.
+  if (again.status === 'expired') return null;
+  if (again.status !== 'active') throw new HttpsError('unavailable', 'Checkout status is unavailable. Try again later.');
+  await deps.db.runTransaction(async transaction => {
+    const [current, ...account] = await transaction.getAll(pending, ...accountRefs(deps.db, uid));
+    declarationFor(account, data, now);
+    const grants = await transaction.get(deps.db.collection('paymongoPayments')
+      .where('sessionId', '==', held.sessionId).limit(1));
+    if (!grants.empty) throw alreadyPaid();
+    if (current.get('reference') !== held.reference || current.get('state') !== 'open') {
+      throw new HttpsError('aborted', 'Checkout changed. Try again.');
+    }
+  });
+  return {checkoutUrl: held.checkoutUrl, sessionId: held.sessionId, reference: held.reference};
 }
 
 /**
@@ -322,6 +410,24 @@ async function settleUnissued(deps: CheckoutDeps, pending: DocumentReference, se
   });
 }
 
+/**
+ * Completes the grant for a payment PayMongo reports paid that has no grant after HEAL_AFTER_MS,
+ * through the same function the webhook uses. The session and payment are read from PayMongo, never
+ * from the request. The event id `heal_<payment id>` makes a later real webhook a duplicate.
+ */
+async function healPaidPayment(deps: CheckoutDeps, sessionId: string, payment: PaymongoPayment, now: number): Promise<boolean> {
+  if (!deps.auth || payment.paidAt === undefined || now - payment.paidAt <= HEAL_AFTER_MS) return false;
+  try {
+    const status = await fulfillPaidSession({db: deps.db, auth: deps.auth, client: deps.client, catalog: deps.catalog},
+      `heal_${payment.id}`, sessionId, null, () => now);
+    if (status === 200) logger.warn('Checkout completed a paid session whose webhook never granted', {paymentId: payment.id});
+    return status === 200;
+  } catch (error) {
+    logger.error('Checkout could not complete a paid session', {paymentId: payment.id, error});
+    return false;
+  }
+}
+
 /** Deletes the reservation only while it is still `creating` under this attempt's reference. */
 async function releaseReservation(db: Firestore, pending: DocumentReference, reference: string): Promise<void> {
   try {
@@ -339,7 +445,7 @@ export const createPaymongoCheckout = onCall(
   timed('createPaymongoCheckout', request => {
     assertFreshAppCheck(request);
     return createCheckout(request.auth, request.data, {
-      client: httpPaymongoClient(secret('PAYMONGO_SECRET_KEY')), db: getFirestore(),
+      client: httpPaymongoClient(secret('PAYMONGO_SECRET_KEY')), db: getFirestore(), auth: getAuth(),
       closedForTestMode: checkoutClosed(process.env.GCLOUD_PROJECT, secret('PAYMONGO_SECRET_KEY')),
       origin: process.env.PANTAS_APP_ORIGIN ?? 'https://app.pantas.study',
       methods: process.env.PAYMONGO_PAYMENT_METHODS?.split(',').map(m => m.trim()).filter(Boolean) ?? DEFAULT_METHODS,

@@ -102,10 +102,12 @@ test('planGrant: a pass ends at the end of the next published sitting and never 
   assert.equal(planGrant(pass, [], ph('2027-08-09T08:00:00+08:00'), catalog), null);
 });
 
-test('a prepaid subscription starts after existing pass coverage', () => {
+test('a prepaid subscription starts now beside pass coverage and queues behind tier-wide coverage (PAY-06 ruling)', () => {
   const monthly = webProduct('pantas_cs_monthly');
   const pass = grant({product: 'pantas_pass_cse_pro', endsAt: ph('2027-03-14T23:59:59.999+08:00')});
-  assert.equal(planGrant(monthly, [pass], now, catalog).startsAt, pass.endsAt);
+  assert.equal(planGrant(monthly, [pass], now, catalog).startsAt, now);
+  const plan = grant({product: 'pantas_cs_monthly', endsAt: ph('2027-03-20T00:00:00+08:00')});
+  assert.equal(planGrant(monthly, [pass, plan], now, catalog).startsAt, plan.endsAt);
 });
 
 test('coverage includes live grants: subscription, pass, trial; revoked and expired add nothing', () => {

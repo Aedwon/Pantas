@@ -4611,3 +4611,19 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - Aedwon, verbatim: "okay lgtm!" on https://claude.ai/artifact/D3JLTrRGiN8vjnfLrbhoMN (revision E-176: no internal terms, "Try Pantas first" with three steps and previews, tightened copy, lesson A, assessment progress B saved as you go with Continue on Home, matched stacked buttons).
 - Effect: the UX lead builds it 1:1 to the board; it ships before the opening (his "i want it before launch"). The opening follows when it is live.
 - The lesson walk-through standard for CSE (queued 2:55 PM) now has its trigger met (his first-run picks and his console steps); it starts when an Opus lead slot frees, so no more than two leads build at once.
+
+### Nov 25, link-preview image without the beta mark merged to main (CSE release lead r8, E-180)
+
+- **Manager, verbatim:** "The link-preview image is decided. It is his approved splash, the logo and name with no beta mark: board https://claude.ai/artifact/8emGUsKPxKrkpqd1rHi2sw. The decision is in the UX lead's handoff. It ships with the opening; build it."
+- **Change (PR #134, merged 3e701f3a9):** `web/og-image.png` is the board's Main frame rendered at 1200 x 630 (scale 2: mark 240, gap 40, wordmark 84, Geist Bold from `assets/fonts`, headless shell with the keychain flags); `og:image:alt` is now "The Pantas logo". New test `test/web/link_preview_test.dart` fails on the old alt text and on any beta wording in the preview tags, and checks the PNG size.
+- **Checks:** CI 18 of 18 on c03d40c65 (the first run failed the attribution check on the board address in a test comment; removed).
+- **Prod:** not yet. It reaches app.pantas.study with the next web ship (the opening). After that ship, Facebook's Sharing Debugger "Scrape Again" on app.pantas.study refreshes cached previews.
+
+
+### Nov 25, about 11:30 PM Manila: payments un-paused; service worker rule lifted; support channel (operations manager)
+
+- Aedwon, verbatim, answering the manager's four decisions: "1. okay unpause payments / 2. ok / 3. ok / 4. idk".
+- 1, payments: un-paused. Goal: live PayMongo QR Ph for the prepaid plans by the opening (merge the reviewed money-path fixes, QR Ph only at checkout, live keys through a secret prompt to him, one real small payment). Security and billing lead resumes with a blank memory.
+- 2, the Nov 14 rule "No new worker or hosting migration ships" is lifted for one change: the fingerprint-list service worker (release lead's option 1, about 1 day, two Codex Sol High audits).
+- 3, support channel: support@pantas.study, shown in Settings.
+- 4, "idk": the manager checked Cloudflare Email Routing read-only: contact@, dpo@ and support@ all forward to his Gmail (checklist L5 met). External pentest: not now (manager default; revisit after the first paying month).
