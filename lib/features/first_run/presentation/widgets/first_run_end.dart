@@ -1,9 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/rolling_digits.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/session_entry_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
@@ -12,7 +14,9 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
+
+/// P06 `padding-bottom: 9px` under "/3": half of s18, on the spacing scale.
+const double _unitLift = PantasSpace.s18 / 2;
 
 /// "You finished the lesson" (frames P06, P06_EndRM, W06). The score once,
 /// as a count over "/3", the three dots, one line, and the mistakes. No arc,
@@ -118,7 +122,7 @@ class _FirstRunEndState extends State<FirstRunEnd>
         SizedBox(width: wide ? PantasSpace.s2 : PantasSpace.s4),
         Padding(
           // ds-board: P06 `padding-bottom: 9px`
-          padding: EdgeInsets.only(bottom: wide ? PantasSpace.s8 : 9),
+          padding: EdgeInsets.only(bottom: wide ? PantasSpace.s8 : _unitLift),
           child: Text('/3', style: unit),
         ),
       ],
@@ -425,7 +429,7 @@ class _MistakeRow extends StatelessWidget {
       button: true,
       label: '$plain, $subject',
       excludeSemantics: true,
-      child: InkWell(
+      child: PantasTapArea(
         onTap: onTap,
         borderRadius: BorderRadius.circular(PantasRadius.lg),
         child: Padding(

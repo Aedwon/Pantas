@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';

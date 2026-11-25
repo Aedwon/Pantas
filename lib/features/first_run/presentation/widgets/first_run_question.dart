@@ -1,4 +1,3 @@
-import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
@@ -6,6 +5,8 @@ import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
 import 'package:pantas/core/ui/components/new_design/question_card.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
@@ -304,7 +305,7 @@ class _FromLesson extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    return InkWell(
+    return PantasTapArea(
       onTap: onTap,
       borderRadius: BorderRadius.circular(PantasRadius.md),
       child: Padding(

@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 
 /// A count that rolls up a vertical strip of digits, one row per number.
 ///
@@ -93,16 +94,17 @@ class RollingDigits extends StatelessWidget {
     if (fade) {
       clip = ShaderMask(
         blendMode: BlendMode.dstIn,
-        shaderCallback: (rect) => const LinearGradient(
+        shaderCallback: (rect) => LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           // ds-board: P06 `linear-gradient(transparent, #000 18%, #000 82%,
           // transparent)`
-          stops: [0, .18, .82, 1],
+          stops: const [0, .18, .82, 1],
+          // Only the alpha counts in a dstIn mask; any opaque role works.
           colors: [
             Colors.transparent,
-            Colors.black,
-            Colors.black,
+            context.colors.textPrimary,
+            context.colors.textPrimary,
             Colors.transparent,
           ],
         ).createShader(rect),

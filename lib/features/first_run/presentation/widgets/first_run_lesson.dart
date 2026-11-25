@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
