@@ -4524,3 +4524,8 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 
 - Aedwon, verbatim: "logged in with google." This is the real Google sign-in through app.pantas.study that the old Firebase address retirement waited on (checklist S6, ruling A2).
 - On the website homepage seller details (RA 11967 Sec. 23(f)), his words: "agent drafts". An agent drafts; he approves the wording before it publishes (website copy stays his).
+
+### Nov 25, about 9:20 PM Manila: invoices (checklist M8, ruling B4) (operations manager)
+
+- Aedwon, verbatim: "yes i can issue invoices from my BIR printed invoices, but note that they are physical invoices that I can take a picture of, not e-invoices".
+- Effect: M8 is met by hand-written BIR-registered invoices. The Terms sentence "Pantas issues a sales invoice for each web purchase." stays (it promises an invoice, not email or e-invoicing). Workflow: for each web purchase he writes the invoice and sends the buyer a photo; a reminder per purchase belongs in the founder tooling later.
