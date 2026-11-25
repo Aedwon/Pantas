@@ -281,7 +281,9 @@ void main() {
         findsOneWidget,
       );
       expect(
-          find.text('A parent or guardian needs to agree first'), findsNothing);
+        find.text('A parent or guardian needs to agree first'),
+        findsNothing,
+      );
       expect(await AppPreferencesRepository(db).blockedMinimumAge(), 18);
     });
 
