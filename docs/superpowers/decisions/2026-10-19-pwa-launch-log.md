@@ -4619,3 +4619,11 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Checks:** CI 18 of 18 on c03d40c65 (the first run failed the attribution check on the board address in a test comment; removed).
 - **Prod:** not yet. It reaches app.pantas.study with the next web ship (the opening). After that ship, Facebook's Sharing Debugger "Scrape Again" on app.pantas.study refreshes cached previews.
 
+
+### Nov 25, about 11:30 PM Manila: payments un-paused; service worker rule lifted; support channel (operations manager)
+
+- Aedwon, verbatim, answering the manager's four decisions: "1. okay unpause payments / 2. ok / 3. ok / 4. idk".
+- 1, payments: un-paused. Goal: live PayMongo QR Ph for the prepaid plans by the opening (merge the reviewed money-path fixes, QR Ph only at checkout, live keys through a secret prompt to him, one real small payment). Security and billing lead resumes with a blank memory.
+- 2, the Nov 14 rule "No new worker or hosting migration ships" is lifted for one change: the fingerprint-list service worker (release lead's option 1, about 1 day, two Codex Sol High audits).
+- 3, support channel: support@pantas.study, shown in Settings.
+- 4, "idk": the manager checked Cloudflare Email Routing read-only: contact@, dpo@ and support@ all forward to his Gmail (checklist L5 met). External pentest: not now (manager default; revisit after the first paying month).
