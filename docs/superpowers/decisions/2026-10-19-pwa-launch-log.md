@@ -4513,3 +4513,9 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Defect found and fixed (PR #131, merged 787f114b3; not on prod yet, gated prod cannot reach it):** an anonymous visitor opening the mock setup link saw "Something went wrong."; setup now checks the account first and sends them to the Quiz tab's approved sign-up card, as the mock run route does. Test failed first; CI green.
 - **G4 beta surfaces in the gate-off build:** gone on screen: rows 1 to 9, 12 to 15. Not proven (need a tester account): 10, 11, 16 (earned-reward notice and Beta Reward row, kept on purpose by r4 for an earned, unactivated reward). Still shows: row 18, the link-preview image's "BETA" mark and its alt text "The Pantas logo with the words Pantas beta" (a new image is his art; the alt follows the image). Keep: 17, 19.
 - **For the prod ship (his "ship it"):** a prod build from current main without BETA_GATE, the private SELLER_* inputs, the usual rollback and a 30-minute watch (checklist G3, G6). Before it: his legal approval and publication (L1, G2 order), the link-preview image, and his opening day and hour (G1).
+
+### Nov 25, about 9:08 PM Manila: legal publish gate H5, his console steps done (operations manager)
+
+- Google Analytics, property pantas-prod (549551450), Admin, Data retention: event data 2 months, user data 2 months, "Reset on new user activity" off. Seen on his screenshot at 9:07 PM (ruling B1 condition 1).
+- Gmail: labels `hold` and `pay-2y` exist in the inbox that receives Pantas mail. Seen on his screenshot at 9:08 PM (ruling B3).
+- Also his question on longer retention: "yes i want YoY deep dives, particularly measuring how much the release of Pantas has affected/impacted the test takers' performance ... can we do 5 years? but like anonymized". Fable advised keeping GA at 2 months and measuring outcomes with Pantas's own per-sitting counts (backlog requests table, option A, waiting on his yes).
