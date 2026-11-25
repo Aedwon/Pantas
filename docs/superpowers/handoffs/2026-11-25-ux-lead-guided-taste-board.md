@@ -53,3 +53,7 @@ Canvas source files: lead scratchpad `canvas/project/` (disposable; the canvas h
 ## Revision, Nov 25 (E-176)
 
 His comments and picks are in the rulings file, "Nov 25, UX design lead: first-run board revision (E-176)". The canvas is now "First Run" (version 1795614653-2f1d): the Choices page is gone, his picks (one fixed lesson; assessment answers saved as you go with Continue on Home) are on the Flow page as frames 8b and 8c, "Try Pantas first" shows three steps with previews, and the copy is tightened. Next: a spec and plan under WORKFLOW.md with a build estimate, when the manager asks for the build.
+
+## Re-dispatch check, Nov 25 (no new work)
+
+The manager re-sent the E-176 brief at about 10:25 PM Manila (policy 7c6190dd5). The UX lead read the live canvas (version 1795614653-2f1d) instead of redoing it. Every ask holds: a text scan of all 33 frames finds no "taste", "trial", "starter", "tutorial", "guided" or internal code (the only "tutorial" is his own quote in the Sources sticky note, not a screen); "Try Pantas first" carries the three steps with the lesson and question crops; picks A and B are frames 8b and 8c; the phone Start and Skip are both full width and 52 high. The E-176 headless render and fresh Sonnet review stand. No estimate logged, no worker started. Next is unchanged: spec and plan when the manager asks for the build.
