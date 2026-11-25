@@ -186,7 +186,7 @@ These are Aedwon's standing instructions. They apply until he changes them.
 - Screenshots and app captures are headless. No control of his computer.
 - If the laptop overheats, pause the lanes. One build per session.
 - Codex runs only through `codex-pick`, one run at a time across all lanes unless `codex-pick --status` shows room for each (process-improvement entry, Nov 11). Size a long run against one account's 5-hour window and split it.
-- Never route UI work to Codex: building, changing or reviewing screens, components, layout or styling goes to a Claude worker (Aedwon, Nov 12: "if it's UI, never use codex").
+- Never route UI work to Codex: building, changing or reviewing screens, components, layout or styling goes to a Claude worker (Aedwon, Nov 12: "if it's UI, never use codex"). The same holds for Gemini: Gemini models may rewrite lesson content, never UI (Aedwon, Nov 26: "just to be sure i'm authorizing gemini models for rewriting the lessons, not the UI itself. as a rule, Claude is still on UI").
 - Before work starts, log the estimate in the velocity log and start the task timer
   (`tool/velocity/timer.py`). Actuals come only from the timer's output. Status reports carry a
   time estimate.
