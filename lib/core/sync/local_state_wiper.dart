@@ -7,6 +7,9 @@ import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart'
     show customExamIdPrefix;
 
+/// Device-prefs key of an open first run; the first-run store uses it too.
+const firstRunDeviceKey = 'first_run_open_v1';
+
 class SyncLocalStateWiper implements LocalStateWiper {
   SyncLocalStateWiper(
     this._db, {
@@ -102,6 +105,10 @@ class SyncLocalStateWiper implements LocalStateWiper {
                 '${AppPreferencesRepository.assessmentProgressKeyPrefix}%',
               ),
             ))
+          .go();
+      // An open first run belongs to the account that started it.
+      await (_db.delete(_db.devicePrefs)
+            ..where((row) => row.key.equals(firstRunDeviceKey)))
           .go();
       await _db.delete(_db.attemptsLocal).go();
       await _db.delete(_db.assessmentResultsLocal).go();
