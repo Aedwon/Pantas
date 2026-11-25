@@ -1820,3 +1820,7 @@ Lead rulings (rule 4; search: this rulings file's E-165 entry, the E-165 handoff
 - Home's Continue card reads "8 of 30 answered." (the leave dialog already says answers are saved on this device).
 
 Board: https://claude.ai/artifact/D3JLTrRGiN8vjnfLrbhoMN, version 1795614653-2f1d. Fresh Sonnet reviewer: one headless render, no unstyled or clipped frame, no internal term outside one exact quote of his in a note. Reviewer findings not taken: "Skip should be a filled secondary button" (patterns.md allows a ghost secondary under the main one, and it already shares width and height); differences inside his unchanged approved frames (math spacing, sample dates) stay as the boards draw them.
+
+## Nov 25, UX design lead: first-run build, states no board draws (E-179)
+
+Board approved Nov 25 about 10:50 PM Manila ("okay lgtm!", revision E-176). The 19 lead rulings for undrawn states (where the run starts, who sees it, the fixed lesson and questions 0001, 0003, 0002, the shown lesson sections, Check before the explanation, Back, Skip and Esc, resume after reload, offline, Pro, the wide lesson link, the wide mistake row, nothing recorded, assessment progress saved on each pick, the Continue card on every surface, the teal non-destructive Leave, stacked pairs, Reduce Motion, screen names) and the searches behind them are in `docs/superpowers/plans/2026-11-25-first-run-build.md`, "Lead rulings for states no board draws". Board wording kept where the manager's brief paraphrased it: the end count reads "2/3 correct" as drawn, not "2 of 3 right".
