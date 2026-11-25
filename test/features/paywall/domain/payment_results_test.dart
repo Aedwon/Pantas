@@ -20,6 +20,7 @@ void main() {
       PaymentOperationStatus.guardianConfirmationRequired:
           PaymentResult.storeError,
       PaymentOperationStatus.alreadyPaid: PaymentResult.notConfirmedYet,
+      PaymentOperationStatus.checkoutClosed: PaymentResult.storeError,
     };
     expect(cases.keys.toSet(), PaymentOperationStatus.values.toSet());
     for (final entry in cases.entries) {
