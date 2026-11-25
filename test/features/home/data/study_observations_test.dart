@@ -311,7 +311,11 @@ void main() {
       final sender = senderFor(db, (_, p) async {
         calls++;
         if (!online) throw StateError('offline');
-        return <String, Object?>{};
+        return <String, Object?>{
+          'stored': List<int>.generate(readIds(p).length, (i) => i),
+          'unchanged': <int>[],
+          'rejected': <int>[],
+        };
       });
       await expectLater(sender.flush(), throwsStateError);
       expect(await db.select(db.devicePrefs).get(), isEmpty);
@@ -319,6 +323,22 @@ void main() {
       await sender.flush();
       await sender.flush();
       expect(calls, 2);
+    });
+
+    test('an invalid-argument answer to a batch rejects nothing', () async {
+      // An older server, or a rollback, reads a batch as a bad single read.
+      final db = await dbWithReads(3);
+      final sender = senderFor(db, (_, __) async {
+        throw FirebaseFunctionsException(
+          code: 'invalid-argument',
+          message: 'Bad lesson id.',
+        );
+      });
+      await expectLater(
+        sender.flush(),
+        throwsA(isA<FirebaseFunctionsException>()),
+      );
+      expect(await db.select(db.devicePrefs).get(), isEmpty);
     });
 
     test('a rate limit stops the pass without marking anything', () async {

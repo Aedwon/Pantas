@@ -228,7 +228,12 @@ class StudyObservations {
         },
       );
     } catch (error) {
-      if (_isPermanent(error) && await request.isCurrent()) {
+      // Our client never sends a bad envelope, so invalid-argument on a batch
+      // means a server that does not know batches (an older one, or a
+      // rollback). Those reads stay unsent rather than rejected for good.
+      final oldServer = error is FirebaseFunctionsException &&
+          error.code == 'invalid-argument';
+      if (_isPermanent(error) && !oldServer && await request.isCurrent()) {
         await _setReceipts(prefs, {
           for (final row in rows) _receiptKey(_readId(row)): 'rejected',
         });
