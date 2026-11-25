@@ -10,6 +10,12 @@ String mockSimulationTitle(String examId, String name) => switch (examId) {
       _ => '${name.replaceAll(' Practice Paper', '')} simulation',
     };
 
+/// The title a results screen prints for a finished mock. A result from the
+/// server carries only the exam's plain name, so it is run through
+/// [mockSimulationTitle]. The unnamed fallback is not a name to build on.
+String mockResultsTitle(String examId, String name) =>
+    name == 'Mock exam' ? name : mockSimulationTitle(examId, name);
+
 /// Label a blueprint carries in its name when its paper is Pantas-set or
 /// built from reports, not the official format.
 const String mockPracticeLabel =

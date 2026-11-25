@@ -38,7 +38,7 @@ function harness({now = T0, authApi = auth} = {}) {
   let n = 0;
   return {
     sent, now: () => clock, advance: ms => { clock += ms; },
-    deps: {db, auth: authApi, key: KEY, linkOrigin: 'https://app.example.test/', now: () => clock,
+    deps: {db, auth: authApi, requestsOpen: true, key: KEY, linkOrigin: 'https://app.example.test/', now: () => clock,
       token: () => (++n).toString(16).padStart(64, 'a'),
       allow: async () => true, mailer: {send: async m => { sent.push(m); }}},
   };

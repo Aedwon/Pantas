@@ -11,17 +11,33 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 import 'package:pantas/features/guardian/presentation/guardian_screen.dart';
+import 'package:pantas/features/onboarding/domain/age_policy.dart';
 
-/// The student waits here until a parent or guardian confirms. A declined or
-/// expired link looks the same: the student can resend or change the email.
+/// The student waits here until a parent or guardian confirms. While under-18
+/// sign-up is closed (option C, Nov 25) only Check Again shows, since the
+/// server refuses a resend or a new email, and a declined or expired request
+/// ends on the blocked page.
 class GuardianWaitingPage extends ConsumerStatefulWidget {
-  const GuardianWaitingPage({this.onChangeEmail, this.onCleared, super.key});
+  const GuardianWaitingPage({
+    this.onChangeEmail,
+    this.onCleared,
+    this.onBlocked,
+    this.signupOpen,
+    super.key,
+  });
 
   /// Defaults to the contact form.
   final VoidCallback? onChangeEmail;
 
   /// Defaults to resuming onboarding.
   final VoidCallback? onCleared;
+
+  /// The request ended without a yes while sign-up is closed. Defaults to
+  /// onboarding, which resumes on the blocked page.
+  final VoidCallback? onBlocked;
+
+  /// A test seam. Defaults to the age policy.
+  final bool? signupOpen;
 
   @override
   ConsumerState<GuardianWaitingPage> createState() =>
@@ -55,6 +71,20 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
     unawaited(context.push('/guardian/contact'));
   }
 
+  bool get _signupOpen => widget.signupOpen ?? AgePolicy.minorSignupOpen;
+
+  /// Whether the controller just saved the age block, because the request
+  /// ended without a yes while sign-up is closed.
+  Future<bool> _ended() async =>
+      await ref.read(appPreferencesRepositoryProvider).blockedMinimumAge() !=
+      null;
+
+  void _blocked() {
+    final custom = widget.onBlocked;
+    if (custom != null) return custom();
+    context.go('/onboarding');
+  }
+
   void _cleared() {
     final custom = widget.onCleared;
     if (custom != null) return custom();
@@ -70,6 +100,8 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
       final status = await ref.read(guardianControllerProvider).refresh();
       if (!mounted) return;
       if (status.status == GuardianConsentStatus.confirmed) return _cleared();
+      if (await _ended()) return _blocked();
+      if (!mounted) return;
       setState(() => _status = status);
     } on Object catch (error, stack) {
       unawaited(ref.read(telemetryProvider).recordError(error, stack));
@@ -110,6 +142,8 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
         final status = await ref.read(guardianControllerProvider).refresh();
         if (!mounted) return;
         if (status.status == GuardianConsentStatus.confirmed) return _cleared();
+        if (await _ended()) return _blocked();
+        if (!mounted) return;
         setState(() {
           _status = status;
           _notice = _notConfirmed;
@@ -170,16 +204,18 @@ class _GuardianWaitingPageState extends ConsumerState<GuardianWaitingPage> {
           busy: _busy,
           onPressed: _busy ? null : _checkAgain,
         ),
-        PantasButton(
-          label: 'Resend Email',
-          variant: PantasButtonVariant.tertiary,
-          onPressed: _busy ? null : _resend,
-        ),
-        PantasButton(
-          label: 'Change Email',
-          variant: PantasButtonVariant.tertiary,
-          onPressed: _busy ? null : _changeEmail,
-        ),
+        if (_signupOpen) ...[
+          PantasButton(
+            label: 'Resend Email',
+            variant: PantasButtonVariant.tertiary,
+            onPressed: _busy ? null : _resend,
+          ),
+          PantasButton(
+            label: 'Change Email',
+            variant: PantasButtonVariant.tertiary,
+            onPressed: _busy ? null : _changeEmail,
+          ),
+        ],
         // The line always has its place. The group is centered, so a line that
         // appeared only when it had something to say moved the title, the body
         // and the buttons each time.

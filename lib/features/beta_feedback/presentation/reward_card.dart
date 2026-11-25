@@ -13,6 +13,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/features/beta_feedback/application/beta_feedback_providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
+import 'package:pantas/features/paywall/application/paywall_providers.dart';
 
 /// The whole turn-on motion runs on one clock of this length (the crown's
 /// swing is the last thing to finish: 550 ms in, then 1.3 s).
@@ -68,6 +69,9 @@ class _RewardCardState extends ConsumerState<RewardCard>
       return;
     }
     if (!mounted) return;
+    // The reward is grant rows on the server; read them now so Pro shows
+    // without a reload (audit ENT-06).
+    unawaited(ref.read(revenueCatGatewayProvider).restorePurchases());
     setState(() {
       _result = result;
       _working = false;

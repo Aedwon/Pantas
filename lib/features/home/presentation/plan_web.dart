@@ -558,9 +558,10 @@ class PlanWebHistory extends StatelessWidget {
           const SizedBox.shrink()
         else if (hasMore)
           Align(
-            child: WebTextLink(
-              label: loading ? 'Loading' : 'See more',
-              onPressed: loading ? () {} : onMore ?? () {},
+            child: WebButton(
+              label: 'See more',
+              variant: WebButtonVariant.white,
+              onPressed: loading ? null : onMore ?? () {},
             ),
           )
         else

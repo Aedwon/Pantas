@@ -661,27 +661,6 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                           ),
                         ),
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          for (var i = 0; i < total; i++) ...[
-                            Container(
-                              width: PantasSpace.s18,
-                              height: PantasSpace.s4,
-                              decoration: BoxDecoration(
-                                color: i + 1 == position
-                                    ? t.colors.accent
-                                    : t.strongDivider,
-                                borderRadius:
-                                    BorderRadius.circular(PantasRadius.full),
-                              ),
-                            ),
-                            if (i + 1 < total)
-                              const SizedBox(width: PantasSpace.s2),
-                          ],
-                        ],
-                      ),
-                      const SizedBox(width: PantasSpace.s12),
                       Text(
                         '$position of $total',
                         style: PantasType.webSmall

@@ -8,12 +8,13 @@ Timer is the clock in the mock exam: the time left over a thin bar. It changes o
 - `.timer`: inline column, centered, gap 6px.
 - Time: 17/700, tabular figures, `text-primary`. Format `h:mm:ss`, and `m:ss` under one hour.
 - Bar: 120px wide (`size-timer-bar`) by 5px (`size-accuracy-bar`), `fill` track, `accent-fill` fill.
-- Warning: time and bar fill become `warning-text`, and a visible Tag says "5 min left".
+- Warning (under five minutes): time and bar fill become `warning-text`. No tag: the proctor line says the words and the semantics value carries "5 min left" (MK_FiveMin).
+- Last minute: time becomes `danger-text` and the bar fill `danger` (MK_LastMinute, DECISIONS: amber under 5 minutes, red in the last minute). No tag; the semantics value carries "1 min left".
 - Paused: time becomes `text-secondary`, and a gray Tag says "Paused".
 
 ## Variants and props
 - `.timer`, `.timer.is-warning`, `.timer.is-paused`. `.timer__time` holds the clock text. A `.pbar` holds a single `<i style="--value:N">` (ruling 4).
-- The consumer provides the time text, the fraction left and the state. Switch to warning when 5:00 or less remains.
+- The consumer provides the time text, the fraction left and the state. Switch to warning when 5:00 or less remains, and to the last minute when 1:00 or less remains.
 - The warning appears on the clock itself, not as a toast (HANDOFF rule).
 - `.timer--inline`: the time and a 60px bar on one line, for the FocusHeader (usage gap 12).
 
@@ -26,13 +27,13 @@ Minimal markup, from the preview without its documentation scaffolding.
   <div class="pbar" aria-hidden="true">
     <i style="--value:93.4"></i>
   </div>
-  <span class="tag tag--warning">5 min left</span>
 </div>
 ```
 
 ## States
 - Running: `text-primary`, teal bar.
-- Warning (under five minutes): `warning-text` time and bar, and the "5 min left" Tag.
+- Warning (under five minutes): `warning-text` time and bar, no Tag.
+- Last minute: `danger-text` time and `danger` bar, no Tag.
 - Paused: `text-secondary` time and the "Paused" Tag.
 - It is not interactive, so it has no hover, pressed, focus or disabled state.
 

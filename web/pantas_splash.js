@@ -10,10 +10,14 @@
   var GIVE_UP_MS = 8000;
   // A page whose app never starts still ends up uncovered.
   var NEVER_STARTED_MS = 60000;
+  // The spinner row under the wordmark appears from here (board A, Nov 25).
+  var SPINNER_MS = 1500;
+  // The number stays up this long at 100% before its width closes.
+  var NUMBER_CLOSE_MS = 200;
 
   function create(env) {
     var doc = env.document;
-    var state = { shown: false, done: false, gone: false };
+    var state = { shown: false, done: false, gone: false, waited: false, pct: null, closed: false };
     var waiting = [];
 
     // Timeline marks for the speed report. They only record times and can
@@ -46,10 +50,97 @@
       } catch (_) {}
     }
 
+    function setText(id, text) {
+      var el = doc.getElementById(id);
+      if (el) el.textContent = text;
+    }
+
+    // Puts the number on screen: beside the spinner, or after "Loading" when
+    // Reduce Motion is on. Both rows are in the page; the classes pick one.
+    function paintNumber() {
+      var text = state.pct + '%';
+      setText('ps-num', text);
+      setText('ps-lab-n', ' ' + text);
+      doc.documentElement.classList.add('ps-pct');
+    }
+
+    function closeNumber() {
+      if (state.gone) return;
+      doc.documentElement.classList.remove('ps-pct');
+    }
+
+    // Called at 1.5 s: the spinner row appears, with the number if bytes are
+    // already arriving.
+    function showSpinner() {
+      if (state.gone || state.waited) return;
+      state.waited = true;
+      doc.documentElement.classList.add('ps-wait');
+      if (state.pct !== null && !state.closed) paintNumber();
+    }
+
+    // Called by the service worker's count: bytes of the app's files delivered
+    // against the total the build wrote down. 100% comes only with done, when
+    // every file has ended at its exact size; until then the number stops at
+    // 99%. Files that were already stored arrive as done at once and print
+    // nothing. A count that makes no sense prints nothing.
+    function progress(loaded, total, done) {
+      if (!state.shown || state.gone || state.closed) return;
+      if (typeof loaded !== 'number' || typeof total !== 'number') return;
+      if (!isFinite(loaded) || !isFinite(total) || loaded < 0 || total <= 0) return;
+      var pct = done === true ? 100 : Math.min(99, Math.floor((loaded * 100) / total));
+      if (state.pct !== null && pct <= state.pct) return;
+      var first = state.pct === null;
+      state.pct = pct;
+      if (pct >= 100) {
+        state.closed = true;
+        if (first) return;
+        if (state.waited) {
+          paintNumber();
+          env.setTimeout(closeNumber, NUMBER_CLOSE_MS);
+        }
+        return;
+      }
+      if (state.waited) paintNumber();
+    }
+
+    // Called when the worker cannot count any more (a file that is too long, too
+    // short or failed): the number goes at once and does not come back.
+    function stop() {
+      if (!state.shown || state.gone) return;
+      state.closed = true;
+      closeNumber();
+    }
+
+    // One message from the service worker. The worker knows no sizes: it posts
+    // the true bytes delivered, then done at the end of the stream, or stop, or
+    // cached when the file came from the device. The page holds the total the
+    // build stamped. Without a total there is no number. 100% needs done with
+    // exactly the total; any other count hides the number.
+    function message(data) {
+      if (!state.shown || state.gone || !data) return;
+      if (data.stop) {
+        stop();
+        return;
+      }
+      var total = env.loadTotal ? env.loadTotal() : null;
+      if (typeof total !== 'number' || !isFinite(total) || total <= 0) return;
+      if (data.cached) {
+        progress(total, total, true);
+        return;
+      }
+      var loaded = data.loaded;
+      if (typeof loaded !== 'number' || !isFinite(loaded) || loaded < 0) return;
+      if ((data.done === true && loaded !== total) || loaded > total) {
+        stop();
+        return;
+      }
+      progress(loaded, total, data.done === true);
+    }
+
     function removeNow() {
       // The safety timers can fire after the logo has already left.
       if (state.gone) return;
-      doc.documentElement.classList.remove('ps-on', 'ps-out');
+      doc.documentElement.classList.remove('ps-on', 'ps-out', 'ps-wait', 'ps-pct', 'ps-rm');
       var splash = doc.getElementById('pantas-splash');
       if (splash && splash.remove) splash.remove();
       state.gone = true;
@@ -109,6 +200,8 @@
     } else {
       state.shown = true;
       doc.documentElement.classList.add('ps-on');
+      if (env.reducedMotion()) doc.documentElement.classList.add('ps-rm');
+      env.setTimeout(showSpinner, SPINNER_MS);
       loadFont();
       env.setTimeout(giveUp, NEVER_STARTED_MS);
     }
@@ -118,6 +211,9 @@
       isShown: function () {
         return state.shown;
       },
+      message: message,
+      progress: progress,
+      stop: stop,
       ready: ready,
       started: started,
       state: state,
@@ -130,11 +226,13 @@
       FADE_MS: FADE_MS,
       GIVE_UP_MS: GIVE_UP_MS,
       NEVER_STARTED_MS: NEVER_STARTED_MS,
+      SPINNER_MS: SPINNER_MS,
+      NUMBER_CLOSE_MS: NUMBER_CLOSE_MS,
     };
     return;
   }
 
-  root.pantasSplash = create({
+  var splash = (root.pantasSplash = create({
     document: root.document,
     welcome: root.pantasWelcome,
     mark: function (name) {
@@ -156,6 +254,10 @@
         root.requestAnimationFrame(fn);
       });
     },
+    // The size of main.dart.js, written into flutter_bootstrap.js by the build.
+    loadTotal: function () {
+      return root.pantasLoadTotal;
+    },
     reducedMotion: function () {
       try {
         return root.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -163,5 +265,13 @@
         return false;
       }
     },
-  });
+  }));
+
+  // The service worker posts how many bytes of the app's files have arrived.
+  try {
+    root.navigator.serviceWorker.addEventListener('message', function (event) {
+      var data = event && event.data;
+      if (data && data.type === 'pantas-load-progress') splash.message(data);
+    });
+  } catch (_) {}
 })(typeof window !== 'undefined' ? window : globalThis);

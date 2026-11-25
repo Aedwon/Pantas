@@ -137,6 +137,7 @@ and every prod build so far uses it (`lib/app/beta_gate.dart:14-22,36-39`; `LL:3
 | G5 | Installed copies still carrying the gate update. | Open apps take the new build at their next safe point; a copy that stays offline keeps its own gate (`LL:3710`). Not a blocker; expect stragglers. | Integrator | No |
 | G6 | First-hour watch after opening: sign-up, onboarding, quiz save, mock, one live checkout, alarm emails, 401 rate. | Pattern exists in every ship entry (for example `LL:4056`). | Integrator, then manager | Live checkout is **HIS** (real money) |
 | G7 | Rule 9 applies from the moment of opening. | See L6. | Operations manager | **HIS** |
+| G8 | No exam whose takers are under 18 opens before guardian-first sign-up for 13 to 17 is on prod (option C, rulings file "If he chooses C" item 7). | Under-18 sign-up closed on prod Nov 25 (launch log, E-164): minimum age 18, server switch `GUARDIAN_REQUESTS_OPEN` false. Reopening adds collection, so rule 9 is checked before that release. | Integrator, under-13 lead | Opening another exam is **HIS** |
 
 ## Launch sizing proposal (S3, S4)
 

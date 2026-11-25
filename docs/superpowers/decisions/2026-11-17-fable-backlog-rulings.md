@@ -1622,3 +1622,165 @@ Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon'
 ### What needs Aedwon
 
 Nothing new. Rulings 1 and 2 replace D71, which he approved on Nov 8 for the hint line that B5 removed. The lead tells him this, and that a 20-question session shows two rows of marks. He sees both in his visual pass.
+
+## Nov 25, UX design lead: week strip chip names for CSE (finding U14)
+
+Decided by the UX design lead under written rule 4 (in-app copy inside an approved layout). Not a new look.
+
+- Searched: Pantas Redesign `HP_WeekStrip`, `HP_WeekStripLarge`, `HP_WeekFrame`, `HE_ManyLessons`; Pantas Web `HM_NoContent`; ruling D196; finding U14 (`build/audit/ui-2-findings.md` in the qa/cse-release-r1 worktree).
+- His board `HP_WeekStrip` (his pick B, D196) draws the phone chip with a short name, "CSE Pro". Live builds the chip from the catalog short name, "CSE Subprofessional", which does not fit beside the strip and wraps to three lines at 200% text.
+- Ruling: the Home week strip chip says "CSE Pro" and "CSE Subpro", on phone and wide. Every other place keeps the catalog short name. All other exams keep their catalog short name in the chip. Day count and the 200% fallback follow D196 unchanged.
+- Why "CSE Subpro": it follows the board's "CSE Pro" pattern and is the common Philippine shorthand. "CSE-SP" (`HM_NoContent`) is older and does not match the board's spelling.
+- Arithmetic (board worker, Geist metrics): "CSE Subpro" makes a 141.7 px chip block, so four days fit beside it in the 340 px strip; at 200% text the chip goes under the strip with four days.
+- Drawn: canvas "Loading, Reader Line, Week Strip", page 3 Week strip, https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec
+
+## Nov 25, UX design lead: his answers to the loading, reader and week strip board
+
+His words (Nov 25, about 1:35 AM Manila, relayed by the manager in full): "i think B makes sense because the industry uses it and it's more familiar and what users expect. is it possible to add a % number?
+i don't understand the reader line, i just wanted you to maybe remove the lesson indicator on top because it gets so long when there's a lot of lessons in a certain topic, and especially so after the instruction to make the lessons bite-sized. for the thing that indicates how far along you are in the lesson itself, no changes
+also what is this in the week strip?" (with a screenshot of page 3, frames drawn as plain serif text in white boxes).
+
+Board: https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec (version 6).
+
+### 1. Loading: B picked; a real percent is possible
+
+- His pick: B, the small spinner under the wordmark from 1.5 s.
+- Finding: prod serves the app files brotli-compressed through Cloudflare with no Content-Length (checked Nov 25 on `main.dart.js`, `canvaskit/chromium/canvaskit.wasm`, `flutter.js`), so the browser alone does not know the total. Wire sizes about 2.2 MB each for the two big files; decoded 7.6 MB and 5.8 MB.
+- How a real number works: the page already waits for the app's service worker (`pantas_sw.js`) to take control before Flutter starts, so every app file passes through it. The worker can count the decoded bytes it passes on, and the build can write the decoded size of each file the loader fetches before the first frame. Percent = bytes received / that total. Both are measured, so it meets "Never invent a figure". Files already in the worker's cache count as received at once.
+- Limit he must know: the splash shows only on return visits (first visits get the Welcome screen, and the worker does not yet control a first visit). On most return visits the files are already on the device, so no number shows. The number appears on the first open after each update, or after the browser clears its stored files. It covers only the download: after 100% the app still starts up (seconds), so the number hides and the spinner stays.
+- Lead design (drawn as "B with %", page 1 rows 5 and 6): the number sits 8 px under the spinner, 13 px phone and 15 px wide, medium weight, secondary text color, tabular figures; it shows only while bytes are arriving and hides at 100%. Reduce Motion: "Loading 0%" counting up in the existing label spot, then "Loading". Waiting on his look before any build.
+
+### 2. Reader: remove the lesson dashes at the top (wide web)
+
+- What he means: the wide reader top bar draws one 18 x 4 px dash per lesson in the topic (or plan day) beside "3 of 6". It grows with the lesson count. The phone reader has no such row: its top bar shows a short "2 of 5" only for plan days, and the phone progress rail is the in-lesson progress he said not to change.
+- Ruling: remove only the dash row. Keep the lesson title that fades in on scroll, the "N of M" text, the chevron and the lesson list it opens; the "N of M" text is short and is the only way into the lesson list from the top bar. The section line under the bar (in-lesson progress) is unchanged. Phone unchanged.
+- The reader line options A, B and C are retired on the board (page renamed "2 Reader line (retired)").
+
+### 3. Week strip frames rendered unstyled
+
+- Cause: each page 3 frame imported the strip part but did not load the stylesheets in its own head. The design canvas loads stylesheets only from the frame being shown, not from an imported part, so the frames fell back to the browser's default serif. His own boards (`HP_WeekStrip`, `HP_WeekStripLarge`) carry the three stylesheet links in the frame, which is why they render.
+- Fix: the strip part is now a copy of his `HP_WeekFrame` with the chip name as the only new input, and every frame carries his three stylesheet links; the stylesheets are copied server side from the Pantas Redesign canvas (they were already byte-identical). The invented greeting line under the strip is gone. No design change: the chip names follow the U14 ruling above.
+
+Later the same day (manager): section 3 dropped. He never raised the week strip and D196 answers it, so page 3 was removed from the board (version 8) instead of redrawn. The U14 build is the CSE release lead's, already merged (PR #118).
+
+Later (Nov 25, about 3:15 AM Manila), his words on the loading board: "i imagined the spinner and the % text to be on the same line. get a Neon and codex opinion on this". Both advisors (relayed by the manager): one line, spinner left, percent right, 8 px gap, 13 to 14 px medium, fixed-width digits, 40 px under the wordmark. They differ at 100%: A (Gemini Neon) keeps the row centered and closes the number's width over 220 ms so the spinner glides back to center; B (Codex) keeps the spinner fixed at center with the number in a fixed slot to its right, so nothing moves (Codex's stated risk: right-heavy). Reduce Motion: A "Loading 42%" on one line; B "Loading" with "42%" beside it. Both drawn on page 1 of the board (version 10), phone and wide, light and dark, plus Reduce Motion; the stacked percent rows are retired. Waiting on his pick; nothing built.
+
+## Nov 25, UX design lead: paused review sheet bugs and the T9 rows with no board (E-155)
+
+Manager brief, his words (Nov 25, about 3:40 AM Manila): "i've reset limits, please continue finishing UI". Policy read from main at 3ed9828f8.
+
+### Paused review sheet
+
+- (a) "0 of 11", an empty ring and "Start Reviews" for a Reviews session paused at 1 of 11. Root cause: Home stays alive behind the tab bar (indexed shell) and reads its question counts and prepared work only when it loads or when the plan copy changes. A Reviews session started or paused from the Quiz tab does not change the plan, so Home kept the counts it read before the session began. Fix: leaving a quiz part way through publishes a pause revision; Home reads its questions again on it (the plan stays on screen meanwhile). Test: `home_today_refresh_test` "a quiz paused in another tab makes Home read its questions again" fails on the old code.
+  - Not fully explained: the generic "You paused a quiz" notice needs the start to find no Reviews batch, or a second open session. The repository reproduction (stale work, same paused session) resumes the session instead of refusing. His two screenshots are IMG_2843 (Home, 7:18 PM) then IMG_2844 (Quiz tab, later), so at 7:18 another quiz may have been paused and the notice correct. Leads should not cite this as proven to be the same session.
+- (b) Close on the phone Reviews sheet: already removed on main by the borderless buttons change (Nov 24, shipped 9:50 PM Nov 24) and guarded by `sheet_close_rule_test`. His screenshot predates that ship. The wide panel keeps the close glyph at its top right, which `HM_ReviewsPanel` draws (`aria-label="Close"`). Nothing to build.
+
+### T9 rows with no board (37 rows, PR #117 map)
+
+Search per row: `build/audit/t9-noboard-search.md` in the UX lead worktree (Sonnet worker, read only; the lead reviewed every row). Searched for every row: the exports in `web-design/pantas-handoff/` (mobile and web), live Pantas Web for W_ReaderPart, HM_ReviewsPanel and MK_Proctor, `docs/design/DECISIONS.md`, this file, the PWA launch log, the Nov 23 folds record, `docs/ui-audit.md`, `docs/pricing.md`, component READMEs, handoffs Nov 22 to 25.
+
+Answered by a source (build): LI1 phone floating bar 60 high, radius 30 (every QN_* phone board; the token and README say 64); LI3 wide report Cancel and Send 40 high, radius 10, 15 px label (QN_Report web); P17 phone answer keys a bare 15/700 secondary letter in the 30 px column, no circle (QV_MissPro, MK_ReviewQ, QV_Last); U17 no "Saved on this device" hint in the wide mock bar (MK_FiveMin, MK_LastMinute web, MK_Proctor); U22 no "5 min left" tag on the clock (MK_FiveMin, MK_LastMinute; the proctor line and the semantics value carry the words); U23 no header row on wide Performance lists (PF_Subjects, PF_Topics, PF_Lessons web); U29 exam picker error and empty copy and Retry (O_Picker, OB_PickerError, OB_PickerEmpty); U37 header "Text size" (ST_Appearance); U38 tier dialog copy and buttons (CX_TierDialog); U49 the wide drawer footer button full width (HM_ReviewsPanel; the board for the screen beats the general HANDOFF line); U72 no button screen before the paper (HANDOFF line 22), keeping the L_Rules Steps screen, with a stop if the button carries the clock start or a browser gesture; U90 the last minute red (DECISIONS line 187, MK_LastMinute).
+
+Undrawn, no new look (lead decided, build): P11 remove the unused phone Today tap parameter (DP_Drill draws no tap); U25 a day before the plan began shows "No plan on this day." in the PL_DayPast sub line style; U21 a one-block paper (CSE) drops "in this subject": the proctor line reads "5 minutes left." (copy under D191); U26 Pro page loading and error use the skeleton and `StateView` (SY_Error); U32 phone install card copy follows OB_Install: "Keep Pantas one tap away" and "Add it to your Home Screen. Your progress stays the same." (drops the unmeasured "opens faster"); U36 About row names in sentence case as ST_About draws them ("Privacy policy", "Terms of service"), consent wording untouched (legal pause); U40 zero-answer discard uses the MK_Discard dialog with "You haven't answered anything yet. This attempt won't appear in your record, and it doesn't use up a mock attempt."; U52 the wide reader end-of-part quiz button uses `WebButton` secondary, the design system's grey button that matches the phone RD_End fill; U78 sidebar avatar and name show the Skeleton until settings load; U81 the Performance skeleton matches PF_Subjects; U86 keep "Continue with Email" (drawn), the Email row uses the ST_Account "Signed in with" row; U91 the web save-failure line sits on the existing toast surface.
+
+New look, for his board: U24, the wide Home checklist footer band when no measured time exists (the boards print "About 45 min today"; the build cannot, under never invent a figure).
+
+No choice now (left off the board): LI2 each timing matches its own approved board; LI9, P7, P25, U20, U27, U33, U69, U84, U85 Pro, store and charge surfaces wait on the paused payments and legal lanes; U36 the "Send speed and error reports" toggle is consent wording (legal pause); U28, U89 and U86 "I'm 18 now" wait on the paused under-13 lane. P7 and P25 were proposed as board items by the worker; the lead moved them here because both are store surfaces.
+
+### Nov 25 (later), T9 build corrections (UX lead)
+
+- U52: the wide reader end-of-part quiz button uses the design system's `neutral` grey button (the RD_End fill), not `secondary`, which is the teal tint. The ruling's word was wrong; the intended look (grey, as the phone RD_End) stands.
+- U72: kept. "Start the Paper" starts the attempt and its clock ("The clock starts when you tap"). Removing it would start a timed paper without the student's tap, which changes timing behavior, so the HANDOFF line 22 removal does not apply to this screen. No change.
+- Tokens: the phone floating bar is `size-bar` 60 and `radius-bar` 30; the wide bar keeps 64 as `layout-bar-wide` and `radius-bar-wide` 32 (the size family is at its 60-token cap); the wide report buttons use `radius-report` 10. Values edited in design/system/tokens.json and generated, not hand-edited.
+- U86: not built. The signed-in user carries no sign-in provider, so a "Signed in with" row would say "Google" for email-link users. It needs that field first; no new look and no choice for him. Left for the account lane.
+- U26: the Pro page loading state shows skeleton tiles; a failed passes load uses the shared error view with its existing "Could not load your passes." (more specific than the SY_Error line, same look).
+- U49 and U38: already matched their boards on main; tests now guard them.
+
+### Nov 25 (later), paused option A: the Quiz tab card is held; the sheet ships
+
+- Manager hold (Nov 25): Aedwon is asking about button placement on the Quiz tab paused card, so the card (phone and wide) is held, unchanged from live. Board A draws the wide card with no caption and "Discard this session" then Resume at the right end of the foot (the patterns rule: a right-aligned row, secondary then main). Built and held on `ux/paused-review-a-r1` (with the Discard spacing from before Nov 24); the shipping branch `ux/paused-sheet-a-r1` carries only the Home and Quiz tab Reviews and New questions sheets.
+- His wide screenshot: Reviews "0 of 11" with "Questions due today" under it while paused. The paused quiz was not a Reviews session (most likely "Practice this topic" or "Practice weakest topics", which start through the older today path with no Reviews batch), so 0 of 11 is the true count. The card never says which quiz is paused: a copy gap inside board A's layout, settled under rule 4 (manager agreed): when the paused quiz is not the Reviews or New questions session, the card shows one line above Resume, "Paused: <quiz name>" ("Paused: Algebra practice", "Paused: Weakest topics practice", "Paused: Flagged questions"). No line when the rows already show the paused session. Reason: the shortest line that names the quiz Resume will open; his guidance is compressed text. Built with the held card.
+- The same case explains his 7:18 PM Home sheet (generic notice, 0 of 11): another quiz was paused. Board A's "another quiz is paused" state now covers it on the sheet: "Finish or discard your paused quiz first." over a dimmed Start.
+- Released (Nov 25): his words after the wide and phone sheets, "yes A lgtm, go ahead with it". The card ships to board A with the spacing from before Nov 24 (20 above, 24 below the Discard text) and the "Paused: <quiz name>" line, on `ux/paused-card-r2` (on top of `ux/paused-sheet-a-r1`).
+
+
+
+## Nov 25, about 3:50 AM Manila: his picks on the loading and paused-session boards
+
+His words, verbatim (relayed by the operations manager):
+
+> 1. A
+> 2. okay with A. the space on top and bottom of discard in the quiz tab got too small though
+
+- Loading board (https://claude.ai/artifact/MQxxjEmiWjbzwUqaF8h9Ec): A, Neon's centered row. The spinner and the percent share one centered row; the spinner slides back to center when the number hides. Build 1:1 to the board: real decoded bytes counted in the service worker against a size list made at build time, Reduce Motion as drawn.
+- Paused-session board (https://claude.ai/artifact/9MLsiFtEwsdLodfe8eHZig): A. Build 1:1 on the Home Reviews sheet and the Quiz tab card, phone and wide, on top of the E-155 sheet fixes. The board's "another quiz is paused" row (lead decision on that board) comes with it.
+- Discard spacing on the Quiz tab card: build to board A, compared with the version before the Nov 24 Discard centering and the Nov 25 spacing ship; a golden test guards it (process entry, Nov 25).
+- U24 (manager ruling, Nov 25; not put to him): the wide Home checklist footer slot the boards fill with "About 45 min today" shows what is left as real counts, "2 lessons, 18 reviews left" (zero kinds left out, singular for one; "The mock comes first today" on a mock day; empty when nothing is left). Reason: "Never invent a figure" already forbids the time estimate, so removing it is a fix, and the replacement line sits in the existing footer slot, so it is copy inside an approved layout, ours under rule 4 and the Nov 25 process entry. The UX lead's board (https://claude.ai/artifact/A9vWJxf5HnvrvpAtT3xYYq) was a mistake for that reason and is retired unused.
+
+- U24 ruling of Nov 25 WITHDRAWN (manager, Nov 25): Aedwon decided the footer on Oct 31, "Leave it out" (launch log, Oct 31 entry). The footer keeps only the button. The counts line is not shipped.
+
+## Nov 25, UX design lead: wide button placement, code only (E-158)
+
+His words (about 7:25 AM Manila, relayed by the operations manager): "i think the button placement sweep is excessive, isn't there a faster way to determine that without using screenshots", then "okay proceed" to a code-only scan. Rule: design/system/patterns.md, "Button placement" (P2, his pick Nov 7: "go with P2"). Branch `ux/button-placement-r1`.
+
+Search done before each ruling below (process entry, Nov 25, "rulings name their search"): the launch log (`2026-10-19-pwa-launch-log.md`), this rulings file, patterns.md and `docs/ui-audit.md`, for: placement, P2, right end, main last, secondary then main, left-aligned, button order, reversed; and per screen: Take the Exam, View Last Results, QZ_Mock; guardian confirm, I Don't Agree, G_*; Change Exam Date, now studying for, L_ChangeExam; Every Day, I don't know, OnboardingActions; ST_Pro, Restore Purchases; Select All, bookmarks; Add Note, note editor; install card; Start Session, session results; Discard This Mock; Switch Exams, ExamPassed; Continue with Email (and the Nov 10 "Staging Check Fixes" board, S1_Account, option A he chose); MK_SetupCSE, MK_SubmitCSE, practice picker; drawer foot, HM_ReviewsPanel; Use Google Instead, Use a Different Email. His decisions found: P2 (Nov 7); Account signed out option A (Nov 10); board A for the paused Quiz tab card and the Reviews drawer (Nov 25, "yes A lgtm, go ahead with it"). Nothing else of his covers these screens.
+
+Scan: 32 wide button groups and 7 wide full-width single buttons (Sonnet worker, code only, lead reviewed every violation in the code). The full table with file and line is in the handoff note.
+
+Fixed (each with a wide test that failed on the old code):
+- Quiz tab mock card: the action spanned the card (and Change the Setup sat under it, left). Now at the card's right end at natural width, card size 44, Change the Setup first in the same row. The phone board drew a full-width button; the wide card had no board after Nov 7, so the pattern wins.
+- Guardian confirm and waiting (wide): stacked and centered, main first. Now one row at the column's right end, secondary first, main last, 8 apart. patterns.md names guardian confirm. A single action on these pages stays centered (centered layouts).
+- Settings exam change confirmation (wide): the phone board's stack (L_ChangeExam2, 390 wide) showed on wide, main first. Now one centered row, Done then Change Exam Date. No wide board draws this state. The phone keeps its stack.
+- Gaps to 8 px: Account signed-out footer (12; the Nov 10 board he chose places the pair in the footer but does not state a gap, so the pattern's 8 applies), session results (12), mistake note editor (4), paused mock (12), Home passed card (12), Home notice (12), install card (10).
+
+Kept, his decision wins over the pattern:
+- Quiz tab paused card: 16 px between Discard and Resume (board A). Listed as the one exception in the check.
+- Reviews and New questions drawer foot: full-width Start or Resume with Discard centered under it (board A, his pick).
+
+Kept, the pattern allows it: Pro page bottom bar (patterns.md puts Restore Purchases at the left of that row); Settings ghost rows at the left; onboarding footers (the main action stays bottom right; the ghost alternative at the left like Back); bookmarks selection foot (a caption between Select All and Remove, a toolbar, not a pair); sign-in forms (one main button with a text link under it).
+
+Found, not fixed (single buttons, outside the pair scan; for the manager): wide full-width buttons in the mock setup column (MK_SetupCSE), the practice picker panel, the mock paper's Submit (MK_SubmitCSE), and fixed-width Get Started (onboarding welcome) and Done (session results). patterns.md says side panels put the action at the bottom right at natural width, and the boards that drew 100% are older than the rule.
+
+Check: `test/helpers/button_placement.dart` reads the laid-out screen and fails on a wide pair whose main button is not last, whose gap is not 8 (board exceptions listed with his approval), that is stretched, that sits neither at the right end nor centered in its box, or that is stacked phone-style; and on a lone button spanning its box. It runs on every wide screen golden (`screen_harness.dart`) and in the tests above. Shown failing on the old mock card (5 states), guardian (2) and exam change (1) before the fixes. Tuned on the 32 screen goldens: filter chips were false alarms (choices, not actions) and are left out; a card foot band with no text is judged by its padding; the Home golden showed the phone card at 1440 because the card ignored the test's web override, fixed in the card (no change on the real web).
+
+## Nov 25, UX design lead: wide full-width single buttons (E-162)
+
+Manager ruling (rule 4), relayed in the brief: "Search done: I searched the launch log and the rulings file for "full-width" and "full width". No decision of his covers these single buttons. The boards that draw them (MK_SetupCSE, MK_SubmitCSE, onboarding welcome, results) predate his Nov 7 placement rule. Under the Nov 25 process entry, the pattern wins over an older board. His request also covered "the CTAs in general" (Nov 25, 4:35 AM)." His words (Nov 25, about 4:35 AM Manila): "was this never addressed? particularly the placement of discard resume (basically the CTAs in general)?". Rule: design/system/patterns.md, "Button placement" ("Never a full-width button on a wide screen"; centered layouts; side panels and drawers; results pages) and design/system/README.md decision 149 (fine print right-aligned under its button on wide).
+
+Built on `ux/button-placement-r2`, wide only, phone unchanged:
+- Mock setup column, "Start the Mock Exam": right end of the column at natural width; "The clock starts when you click." right-aligned under it (decision 149).
+- Practice picker panel, "Start": the panel's right end at natural width.
+- Mock paper side panel, "Submit the Exam": the panel's right end at natural width.
+- Onboarding welcome after Back, "Get Started": centered at natural width (was stretched to a fixed 260 px box). The first-visit HTML welcome is not touched.
+- Session results, "Done": top right, level with the title. Lead decision on a state no board draws (search: this rulings file and the launch log for "session results", "Session finished", "Start Session", "Done"; patterns.md results rule): the title and its line stay centered, because the page is a centered layout (gauge, answer dots); Done sits at the title line's right end; "Start Session N", when there is one, stays centered under the duration line at natural width (centered layout, single action). Both keep their 1700 ms fade.
+
+Kept, his decision wins over the pattern: the Reviews and New questions drawer's full-width Start or Resume (board A, "yes A lgtm, go ahead with it"). It carries the key `drawer-foot-start`, the check's one full-width exception.
+
+Check: `test/helpers/button_placement.dart` now also fails any wide button built with `expand: true` (its width set by its parent: a column, a panel or a fixed box), unless listed in `boardFullWidth`. The painted-box test had missed all five: three sit in columns with no painted box, two were stretched to fixed boxes. Shown failing on today's code: the mock setup and session results screen goldens at 1440 ("is full width (440 px ...)", "(192 px ...)"), and the new wide tests for the picker, Submit and Get Started (worker report, below in the handoff).
+
+## Nov 25, UX design lead: first run guided taste board (E-165)
+
+His words, verbatim, Nov 25 (relayed by the manager):
+- 2:15 PM: "i think we have a missing 'tutorial' step in the onboarding, a sort of getting users to try the core features but guided, if you know what i mean. do you understand this? so that they don't need to go through a long assessment / i think this would help hook people into the app more. wdyt?"
+- 2:45 PM, after three advisors (Gemini 4 Neon xhigh, Codex GPT 6.2 Sol High, Fable 5.2) answered: "i want it before launch but i think we should still require the assessment for more accurate display of score in the home / a taste of the app is the purpose so that they get it, but for the further stuff, like overall accuracy display, an assessment is still required. the point of why i raised this is that so users try out the core features of the app (studying > quizzing) before they commit to a long test, but the long test still is required to get better accurate results. we can add their trial score too if you think that can help"
+- Later, before seeing the board: "someone can optionally skip the tutorial / after it, they should be at Home greeted by take the assessment as it is now"
+
+His call overrides the advisors: all three advised making the assessment optional; it stays required for the score.
+
+Decided by him (drawn as the design, not options): the taste has a Skip. After the taste, finished or skipped, Home opens as it does today, with the "First, a short assessment" card.
+
+Searched before the rulings below: Pantas Redesign and Pantas Web boards O_Name, O_Days, O_Picker, OB_Welcome, OB_Name, OB_Days, OB_Picker, HE_BeforeAssessment, HM_BeforeAssessment, AS_Question, AS_Leave, AS_Results, QN_Correct, QN_Wrong, QV_EndLowB, QV_EndPerfectB, QS_EndLow, QS_EndPerfect, RD_Real, W_Reader, DK_Home, DK_Reader, DK_Quiz, HM_DayStart; specs `2026-05-11-assessment-flow-design.md` and `2026-05-16-onboarding-exam-selection-design.md`; decisions, specs and handoffs on main for "tutorial", "guided taste", "trial score", "first win" (no hits). No board draws a taste or answers how its answers count.
+
+Lead rulings (rule 4):
+1. Taste answers do not count toward the assessment. The assessment keeps its length (up to 30 questions) and leaves out the taste's questions so none repeats. Why: the taste questions come minutes after a lesson on the same topic, with the explanation shown after each, so they measure short-term recall, not where the learner starts (learning versus performance, Soderstrom and Bjork 2015 review; strong). His stated priority is the accurate score. Fable advised reusing them to shorten the test; not followed for that reason. Cost: the assessment is not shorter.
+2. Trial score: shown once, on the taste's end screen, in the approved session-end form ("2/3 correct", QV_End and QS_End boards), never a percent or a readiness figure. Home's card stays as it is now (his words). Taste answers enter no score and no Accuracy figure. The lesson counts as read.
+3. The taste is one bite-sized lesson, then 3 questions, each followed by its explanation (his "studying > quizzing"; advisors said 2 to 8).
+4. Skip: a "Skip" text button at the right of the header on the intro and every taste screen; it goes straight to Home with no confirm, since nothing is lost. Esc does the same on wide. The taste has no Close.
+5. Intro screen after setup: "Try Pantas first", "Read one short lesson, then answer 3 questions. You see each answer right away.", Start (main) and Skip (ghost), following the onboarding step layout. The end screen keeps the session-end layout and its Done (results-page placement in patterns.md).
+6. Reduce Motion: the end count shows its final number at once; reader and quiz screens follow their boards' Reduce Motion.
+
+Open for him on the board: (a) which lesson the taste uses (a fixed starter lesson, recommended, or the learner picks a subject); (b) leaving the assessment loses progress (below).
+
+Problem found in code (main at the time of this entry): the assessment holds answers in memory and saves only after the last question. Leaving through the dialog ("Your answers so far won't be kept. You can start again from Home."), browser Back, a reload or closing the app loses every answer. With the assessment as the one gate to the score, this is put to him as a choice: keep, or save answers on the device and resume from Home's card (recommended).
+
+Board (E-165): https://claude.ai/artifact/D3JLTrRGiN8vjnfLrbhoMN (private until he shares it). Refinement of ruling 4 after review: the intro screen's Skip is the ghost button under Start (phone) or before Start (wide); the header Skip is on the lesson and question screens only, so no screen shows two Skips. The wide Home frames and the wide leave dialog follow patterns.md and the live app (assessment button at the right end; Keep Going, then red Leave), not the pre-Nov 7 board order.

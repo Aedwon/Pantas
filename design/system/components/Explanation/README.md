@@ -10,7 +10,7 @@ Explanation tells the learner why the correct answer is correct. It appears afte
 - Card `.xcard`: `surface-card`, radius `radius-xl` (18), padding `space-24`, gap `space-18`, 1px `edge-card` edge.
 - Head: gap `space-12`. Key: 32px circle (`size-opt-badge`), `accent-fill`, letter 15/700 in `on-accent`. Label: 13/600, uppercase, +0.02em, `text-secondary`.
 - Body: 17/1.55 in `reader-body`.
-- Phone `.xpl-phone`: gap `space-12`, top padding `space-12`, 0.5px `divider` rule above. Key column 30px (`size-opt-badge-phone`). Label 13/500 `text-secondary`. Body 15/1.5 `text-primary`.
+- Phone `.xpl-phone`: gap `space-12`, top padding `space-12`, 0.5px `divider` rule above. Key column 30px (`size-opt-badge-phone`): the letter alone, 15/700 `text-secondary`, centered, no circle, for both "Correct answer" and "Your pick" (QV_MissPro, MK_ReviewQ, QV_Last). Label 13/500 `text-secondary`. Body 15/1.5 `text-primary`.
 - CHANGE: the board drew the card at radius 20. It is `radius-xl` (18).
 - The phone text size (15/1.5) follows the phone board.
 - Wide body: `web-explanation` (17/400/1.55, `reader-body`), scaled by `--reader-scale` (R2-O01, O02).

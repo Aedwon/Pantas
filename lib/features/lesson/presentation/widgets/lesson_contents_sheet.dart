@@ -3,6 +3,7 @@ import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/lesson_label.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
@@ -105,11 +106,11 @@ class LessonContentsSheet extends ConsumerWidget {
       ],
     );
     return Padding(
-      padding: const EdgeInsets.fromLTRB(
+      padding: EdgeInsets.fromLTRB(
         PantasSpace.s20,
         PantasSpace.s8,
         PantasSpace.s20,
-        PantasSpace.s32,
+        PantasSheet.bottomRest(context),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,

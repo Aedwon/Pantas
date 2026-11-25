@@ -1,6 +1,6 @@
 import {accountClosed, accountHandler} from './_accountAccess.js';
 import {createHmac, randomBytes} from 'node:crypto';
-import {defineInt, defineString} from 'firebase-functions/params';
+import {defineBoolean, defineInt, defineString} from 'firebase-functions/params';
 import {appSecrets, secret} from './_secrets.js';
 import {getAuth, type Auth} from 'firebase-admin/auth';
 import {FieldPath, FieldValue, getFirestore, type DocumentReference, type DocumentSnapshot, type Firestore, type Query, type QueryDocumentSnapshot, type QuerySnapshot, type Transaction} from 'firebase-admin/firestore';
@@ -28,6 +28,15 @@ export const guardianMailFrom = defineString('GUARDIAN_MAIL_FROM', {default: ''}
 export const guardianLinkOrigin = defineString('GUARDIAN_LINK_ORIGIN', {default: ''});
 /** Most guardian emails the whole service sends per Philippine day. */
 export const guardianDailyCap = defineInt('GUARDIAN_DAILY_SEND_CAP', {default: 500});
+
+/**
+ * Option C (Nov 25): under-18 sign-up is closed. While this is false, `sendLink` refuses every send
+ * (first send, resend and change of email) before it reads or writes anything. A missing value means
+ * closed. Reopen only when guardian-first sign-up for 13 to 17 ships.
+ */
+export const guardianRequestsOpen = defineBoolean('GUARDIAN_REQUESTS_OPEN', {default: false});
+/** The reason the client recognizes in the refusal details. */
+export const MINOR_SIGNUP_CLOSED_REASON = 'minor-signup-closed';
 
 export const GUARDIAN_WINDOW_MS = 7 * 86_400_000;
 const DAY_MS = 86_400_000;
@@ -66,6 +75,8 @@ export type ConsentDeps = {
   mailer: GuardianMailer;
   linkOrigin: string;
   dailyCap?: number;
+  /** Whether new guardian requests are accepted. Undefined means closed. */
+  requestsOpen?: boolean;
   /** Error-level alert sink. Defaults to the error log. */
   alert?: (message: string) => void;
   now?: () => number;
@@ -246,6 +257,10 @@ export async function getStatus(request: AppRequest, deps: ConsentDeps): Promise
  * Email: it revokes any earlier link, so only the newest one can ever work.
  */
 export async function sendLink(request: AppRequest, deps: ConsentDeps): Promise<{expiresAt: number; maskedEmail: string}> {
+  // First, so a refused call reads and writes nothing, and no limiter or counter moves.
+  if (deps.requestsOpen !== true) {
+    throw new HttpsError('failed-precondition', 'New guardian requests are closed.', {reason: MINOR_SIGNUP_CLOSED_REASON});
+  }
   const uid = requireCaller(request);
   const data = (request.data ?? {}) as Record<string, unknown>;
   const guardianName = cleanName(data.guardianName, true) as string;
@@ -834,6 +849,7 @@ function runtimeDeps(): ConsentDeps {
       {apiKey: () => secret('GUARDIAN_MAIL_API_KEY'), from: () => guardianMailFrom.value()}).send(message)},
     linkOrigin,
     dailyCap: guardianDailyCap.value(),
+    requestsOpen: guardianRequestsOpen.value(),
     auth: getAuth(),
   };
 }

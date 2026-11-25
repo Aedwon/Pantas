@@ -140,7 +140,7 @@ const namingStudent = rows => [...rows].filter(([path, body]) =>
 /** A request sent through the real send, then replaced once, so there is a revoked link and two manage links. */
 async function sentTwice() {
   const s = store();
-  const deps = {db: s.db, key: 'key', now: () => T0, allow: async () => true,
+  const deps = {db: s.db, requestsOpen: true, key: 'key', now: () => T0, allow: async () => true,
     mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test'};
   const send = (n, now) => guardian.sendLink({auth: {uid: 'student'}, app,
     data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}},
@@ -250,7 +250,7 @@ test('replacement cleanup preserves later requests and the original replacement 
   const s = pending();
   const send = (token, now) => guardian.sendLink({auth: {uid: 'student'}, app,
     data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}},
-  {...s.deps, token: () => token.repeat(64), now: () => now});
+  {...s.deps, requestsOpen: true, token: () => token.repeat(64), now: () => now});
   await send('b', T0 + DAY);
   await send('c', T0 + 2 * DAY);
   await guardian.purgeGuardianRecords(s.db, T0 + 8 * DAY - 1);
@@ -295,7 +295,7 @@ test('cleanup pages through more than one batch and is safe to repeat', async ()
 test('the contact-linked send counter expires with the unanswered request', async () => {
   const s = store();
   const emailHash = guardian.hashValue('key', 'email', 'maria@gmail.com');
-  const deps = {db: s.db, key: 'key', now: () => T0, token: () => 'a'.repeat(64),
+  const deps = {db: s.db, requestsOpen: true, key: 'key', now: () => T0, token: () => 'a'.repeat(64),
     allow: async () => true, mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test'};
   await guardian.sendLink({auth: {uid: 'student'}, app,
     data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}}, deps);
@@ -419,7 +419,7 @@ test('an adult mark survives the expiry and the decline of a request, and still 
   const s = store({[consentPath]: adult});
   await guardian.purgeGuardianRecords(s.db, T0 + 7 * DAY);
   assert.deepEqual(s.rows.get(consentPath), {ageGroup: 'adult', adultSince: T0 + DAY});
-  const deps = {db: s.db, key: 'key', now: () => T0 + 8 * DAY, allow: async () => true,
+  const deps = {db: s.db, requestsOpen: true, key: 'key', now: () => T0 + 8 * DAY, allow: async () => true,
     mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test'};
   await assert.rejects(guardian.sendLink({auth: {uid: 'student'}, app,
     data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}}, deps), error => error.code === 'failed-precondition');
@@ -542,7 +542,7 @@ test('a retained token cannot be joined to the decline evidence by time', async 
 
 test('a send counts the student under a keyed hash, and nothing under the account survives a decline', async () => {
   const s = store();
-  const {allow: _ignored, ...rest} = {db: s.db, key: 'key', now: () => T0, allow: undefined,
+  const {allow: _ignored, ...rest} = {db: s.db, requestsOpen: true, key: 'key', now: () => T0, allow: undefined,
     mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test', token: () => 'a'.repeat(64)};
   await guardian.sendLink({auth: {uid: 'student'}, app, rawRequest: {ip: '10.0.0.1'},
     data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}}, rest);
@@ -703,7 +703,7 @@ test('an answer whose clock crosses expiry between its reads is refused as expir
 
 test('the status, adult and answer limiters are kept under keyed hashes with a cleanup time, and the cleanup deletes them', async () => {
   const s = store();
-  const deps = {db: s.db, key: 'key', now: () => T0, mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test'};
+  const deps = {db: s.db, requestsOpen: true, key: 'key', now: () => T0, mailer: {send: async () => {}}, linkOrigin: 'https://app.example.test'};
   await guardian.getStatus({auth: {uid: 'student'}, app, data: {}}, deps);
   await guardian.markAdult({auth: {uid: 'student'}, app, data: {}}, deps);
   await guardian.readRequest({auth: {uid: 'visitor-x'}, app, data: {token: 'a'.repeat(64)}}, deps);
@@ -757,4 +757,34 @@ test('C5 pass condition: after a decline or an expiry only the decline evidence 
   await guardian.purgeGuardianRecords(expired.db, T0 + 60_000 + 7 * DAY);
   assert.deepEqual(namingStudent(expired.rows), []);
   assert.equal([...expired.rows.keys()].filter(path => path.startsWith('users/student/')).length, 0);
+});
+
+// Option C (Nov 25): under-18 sign-up is closed. A refused send writes and reads nothing.
+test('a closed server refuses every send before it reads or writes anything', async () => {
+  for (const requestsOpen of [undefined, false]) {
+    const s = store();
+    let allowCalls = 0;
+    let mails = 0;
+    const deps = {db: s.db, key: 'key', now: () => T0, requestsOpen, linkOrigin: 'https://app.example.test',
+      allow: async () => { allowCalls++; return true; }, mailer: {send: async () => { mails++; }}};
+    await assert.rejects(guardian.sendLink({auth: {uid: 'student'}, app, rawRequest: {ip: '10.0.0.1'},
+      data: {guardianName: 'Maria', guardianEmail: 'maria@gmail.com'}}, deps), error => {
+      assert.equal(error.code, 'failed-precondition');
+      assert.deepEqual(error.details, {reason: 'minor-signup-closed'});
+      return true;
+    });
+    assert.equal(s.rows.size, 0, 'no consent, token, limiter or counter row');
+    assert.deepEqual(s.reads, []);
+    assert.equal(s.transactions(), 0);
+    assert.equal(allowCalls, 0);
+    assert.equal(mails, 0);
+  }
+});
+
+test('a closed server still answers a request that is already open', async () => {
+  const s = pending();
+  assert.equal(s.deps.requestsOpen, undefined);
+  await guardian.answerRequest(request({token: s.token, decision: 'confirm', agreed: true,
+    documentVersions: versions, noticeWordingVersion: '2026-11-12'}), s.deps);
+  assert.equal(s.rows.get(consentPath).status, 'confirmed');
 });

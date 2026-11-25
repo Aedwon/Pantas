@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
@@ -16,6 +17,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -23,8 +25,9 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-/// The width from which the sign-in screens use the laptop boards.
-const signInWideFrom = 720.0;
+/// The width from which the sign-in screens use the laptop boards: the same
+/// 1024 as the app, so a tablet in portrait sees one layout all the way in.
+const signInWideFrom = PantasLayout.bpTabletLandscape;
 
 const supportEmail = 'support@pantas.study';
 
@@ -645,9 +648,10 @@ class SignInButton extends StatelessWidget {
           ),
         ),
     };
-    return SizedBox(
+    final button = SizedBox(
       height: PantasSize.btnPhone,
-      width: double.infinity,
+      // HANDOFF: no full-width buttons on wide; they take their natural width.
+      width: style.wide ? null : double.infinity,
       child: PressScale(
         child: TextButton(
           // ds-raw: brand provider button with logo content
@@ -679,6 +683,7 @@ class SignInButton extends StatelessWidget {
         ),
       ),
     );
+    return style.wide ? Center(child: button) : button;
   }
 }
 
@@ -699,9 +704,9 @@ class SignInTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    final button = SizedBox(
       height: PantasSize.targetTouch,
-      width: double.infinity,
+      width: style.wide ? null : double.infinity,
       child: TextButton(
         // ds-raw: brand provider button with logo content
         onPressed: onPressed,
@@ -731,6 +736,7 @@ class SignInTextButton extends StatelessWidget {
           ),
         ),
         child: Row(
+          mainAxisSize: style.wide ? MainAxisSize.min : MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (icon != null) ...[
@@ -742,6 +748,7 @@ class SignInTextButton extends StatelessWidget {
         ),
       ),
     );
+    return style.wide ? Center(child: button) : button;
   }
 }
 
@@ -809,7 +816,14 @@ class _LinkLineState extends State<LinkLine> {
   @override
   Widget build(BuildContext context) => Text.rich(
         TextSpan(
-          style: widget.style.small.copyWith(height: 1.5),
+          // The line is the link's tap area: at least 24 px high
+          // (`target-pointer-min`), where 1.5 gave 19.5.
+          style: widget.style.small.copyWith(
+            height: math.max(
+              1.5,
+              PantasSize.targetPointerMin / widget.style.small.fontSize!,
+            ),
+          ),
           children: [
             TextSpan(text: widget.prefix),
             TextSpan(

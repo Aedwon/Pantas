@@ -13,17 +13,19 @@ import 'package:pantas/core/storage/track_scope.dart';
 import 'package:pantas/core/time/study_days.dart';
 import 'package:pantas/core/ui/components/day_row.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-
 import 'package:pantas/features/onboarding/presentation/exam_picker_screen.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
 import 'package:pantas/features/settings/presentation/pages/exam_page.dart';
 import 'package:pantas/features/settings/settings.dart';
 
+import '../../../helpers/button_placement.dart';
+import '../../../helpers/ds_matrix.dart';
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 
@@ -210,10 +212,65 @@ void main() {
       findsNothing,
     );
     expect(find.text('Count Them'), findsNothing);
+    // Board L_ChangeExam2: the two stacked buttons sit 6 px apart (U11).
+    Rect buttonOf(String label) => tester.getRect(
+          find.ancestor(
+            of: find.text(label),
+            matching: find.byType(PantasButton),
+          ),
+        );
+    expect(
+      buttonOf('Done').top - buttonOf('Change Exam Date').bottom,
+      6,
+    );
     await tester.tap(find.text('Done'));
     await tester.pumpAndSettle();
     expect(find.text('Study days'), findsOneWidget);
     expect(find.text("You're now studying for DOST"), findsNothing);
+  });
+
+  // patterns.md, Button placement (centered layouts): on wide the pair is
+  // one centered row, Done first and Change Exam Date last. Until Nov 25 the
+  // phone's stack showed on wide too, main first.
+  testWidgets('wide: Done then Change Exam Date, one centered row',
+      (tester) async {
+    await loadDsFonts();
+    tester.view
+      ..physicalSize = const Size(1440, 900)
+      ..devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    final router = GoRouter(
+      initialLocation: '/settings/exam',
+      routes: [
+        settingsCarryOverRoute(),
+        GoRoute(path: '/settings/exam', builder: (_, __) => const ExamPage()),
+        GoRoute(
+          path: '/settings/exam/change',
+          builder: (_, __) => const ChangeExamPage(),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        ...createOverrides(),
+        carryableCountProvider.overrideWith((ref, id) async => 0),
+      ],
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Exam'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('DOST'));
+    await tester.pumpAndSettle();
+    expect(find.text("You're now studying for DOST"), findsOneWidget);
+    expectWidePlacement(tester);
+    final done = tester.getRect(find.text('Done'));
+    final change = tester.getRect(find.text('Change Exam Date'));
+    expect(done.center.dy, closeTo(change.center.dy, 1));
+    expect(done.right, lessThan(change.left));
   });
 
   testWidgets('the exam page has the active exam and four setting rows',

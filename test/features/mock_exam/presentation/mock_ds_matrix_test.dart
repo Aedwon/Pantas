@@ -547,7 +547,7 @@ void main() {
             hydratedMockQuestionProvider.overrideWith((ref, id) => _hydrated()),
           ],
         );
-        expect(find.text('5 min left'), findsOneWidget);
+        expect(find.text('5 min left'), findsNothing);
         expect(tester.takeException(), isNull);
       });
     }
@@ -638,7 +638,7 @@ void main() {
         overrides: overrides,
       );
       await tester.pump();
-      expect(find.text('5 min left'), findsOneWidget);
+      expect(find.text('5 min left'), findsNothing);
       expect(
         find.bySemanticsLabel('5 minutes left in this subject.'),
         findsOneWidget,

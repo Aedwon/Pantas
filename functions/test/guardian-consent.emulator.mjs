@@ -24,7 +24,7 @@ function harness({now = T0} = {}) {
   let n = 0;
   return {
     sent, now: () => clock, advance: ms => { clock += ms; },
-    deps: {db, key: KEY, linkOrigin: 'https://app.example.test/', now: () => clock,
+    deps: {db, requestsOpen: true, key: KEY, linkOrigin: 'https://app.example.test/', now: () => clock,
       token: () => (++n).toString(16).padStart(64, '0'),
       allow: async () => true,
       mailer: {send: async m => { sent.push(m); }}},

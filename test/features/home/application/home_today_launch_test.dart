@@ -14,11 +14,13 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
+import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/home/presentation/home_today_screen.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
@@ -249,35 +251,46 @@ void main() {
         );
 
         if (exit == 'paused') {
-          // 7W-11: a paused quiz is named, with Resume and Discard, not
-          // reported as a failure that Try Again could never fix.
+          // Board A (Nov 25): another paused quiz is named in one line and
+          // Start is dimmed. It is never reported as a failure that Try Again
+          // could never fix, and the sheet does not offer to discard a quiz
+          // it does not show.
           for (var i = 0;
-              i < 80 && find.text('Discard this session').evaluate().isEmpty;
+              i < 80 && find.text(pausedQuizBlockLine).evaluate().isEmpty;
               i++) {
             await tester.pump(const Duration(milliseconds: 20));
             await tester.runAsync(
               () => Future<void>.delayed(const Duration(milliseconds: 2)),
             );
           }
+          expect(find.text(pausedQuizBlockLine), findsOneWidget);
           expect(find.text('Could not start your quiz.'), findsNothing);
           expect(find.text('Try Again'), findsNothing);
-          expect(find.text('Resume'), findsOneWidget);
+          expect(find.text('Discard this session'), findsNothing);
           final paused = await tester.runAsync(
             () => QuizSessionRepository(db)
                 .activeFor(userId: 'local', examId: 'e'),
           );
           expect(paused!.id, 'paused');
           expect(paused.quitAt, isNull);
-          await tester.tap(find.text('Discard this session'));
+          // The student discards it on the Quiz tab; Home reads again.
+          await tester.runAsync(
+            () => QuizSessionRepository(db).quitAllOpen(
+              userId: 'local',
+              examId: 'e',
+              quitAt: DateTime(2026),
+            ),
+          );
+          container.read(quizPausedRevisionProvider.notifier).publishPause();
           for (var i = 0;
-              i < 80 && find.text('Discard this session').evaluate().isNotEmpty;
+              i < 80 && find.text(pausedQuizBlockLine).evaluate().isNotEmpty;
               i++) {
             await tester.pump(const Duration(milliseconds: 20));
             await tester.runAsync(
               () => Future<void>.delayed(const Duration(milliseconds: 2)),
             );
           }
-          expect(find.text('Discard this session'), findsNothing);
+          expect(find.text(pausedQuizBlockLine), findsNothing);
           await tester.tap(
             find.text(
               kind == TodayQuestionKind.reviews

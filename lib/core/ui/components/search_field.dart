@@ -22,6 +22,7 @@ class SearchField extends StatefulWidget {
     this.controller,
     this.onEditingChanged,
     this.titleInset = 0,
+    this.titleTop = 0,
     this.fieldEntryDelay,
     this.autofocus = false,
     this.outlined = false,
@@ -35,6 +36,10 @@ class SearchField extends StatefulWidget {
   final TextEditingController? controller;
   final ValueChanged<bool>? onEditingChanged;
   final double titleInset;
+
+  /// Space above the title, inside the part that collapses when the field
+  /// takes focus (the boards' empty row above a tab title).
+  final double titleTop;
   final Duration? fieldEntryDelay;
   final bool autofocus;
   final bool outlined;
@@ -284,6 +289,7 @@ class _SearchFieldState extends State<SearchField> {
             child: Padding(
               padding: EdgeInsets.only(
                 left: widget.titleInset,
+                top: widget.titleTop,
                 bottom: PantasSpace.s14,
               ),
               child: Text(

@@ -1,4 +1,5 @@
 import 'package:pantas/core/ui/components/onboarding_frame.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
@@ -29,6 +30,44 @@ class GuardianScreen extends StatelessWidget {
   /// Content between the text and the actions.
   final List<Widget> children;
   final List<Widget> actions;
+
+  /// Wide web: two or more buttons, given main first as the phone stacks
+  /// them, are one row at the column's right end, secondary first and main
+  /// last, 8 apart (patterns.md, Button placement: "a stacked phone-style
+  /// pair on a wide page (guardian confirm ...) becomes a right-aligned
+  /// row"). A line before or after them (a save failure, a notice) stays
+  /// centered.
+  List<Widget> _wideActions() {
+    final first = actions.indexWhere((a) => a is PantasButton);
+    final last = actions.lastIndexWhere((a) => a is PantasButton);
+    // A single action in this centered column stays centered (patterns.md,
+    // centered layouts).
+    if (first < 0 || first == last) {
+      return [
+        for (final (i, a) in actions.indexed) ...[
+          if (i > 0) const SizedBox(height: PantasSpace.s4),
+          Center(child: a),
+        ],
+      ];
+    }
+    return [
+      for (final a in actions.sublist(0, first)) ...[
+        Center(child: a),
+        const SizedBox(height: PantasSpace.s4),
+      ],
+      Wrap(
+        alignment: WrapAlignment.end,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        spacing: PantasSpace.s8,
+        runSpacing: PantasSpace.s8,
+        children: actions.sublist(first, last + 1).reversed.toList(),
+      ),
+      for (final a in actions.sublist(last + 1)) ...[
+        const SizedBox(height: PantasSpace.s4),
+        Center(child: a),
+      ],
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,11 +104,13 @@ class GuardianScreen extends StatelessWidget {
         ],
         if (actions.isNotEmpty) ...[
           const SizedBox(height: PantasSpace.s28),
-          for (final (i, action) in actions.indexed) ...[
-            if (i > 0) const SizedBox(height: PantasSpace.s4),
-            // Wide web buttons hug their label; center them under the text.
-            if (wide) Center(child: action) else action,
-          ],
+          if (wide)
+            ..._wideActions()
+          else
+            for (final (i, action) in actions.indexed) ...[
+              if (i > 0) const SizedBox(height: PantasSpace.s4),
+              action,
+            ],
         ],
       ],
     );

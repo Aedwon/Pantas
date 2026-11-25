@@ -126,6 +126,89 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Manager ruled on the Home footer without finding his Oct 31 decision (Nov 25)
+
+- His words: "didn't we remove 2" (about the manager's list item "Home footer: About 45 min today becomes real counts").
+- Wrong: the manager ruled that the wide Home footer would show "3 lessons, 18 reviews left" in place of the time estimate, built it and queued it to ship. On Oct 31 he had already decided "Leave it out": the footer keeps only the button. The live app already matched his decision, so the change would have added something he had removed.
+- Why it got through: the manager ruled under rule 4 from the lead's summary ("used to show About 45 min today") and did not search the launch log or rulings first. This is the same kind as the Nov 23 entry (deciding or asking without searching), now on the manager's own rulings.
+- Cost: the counts line reached prod inside #124 (7:07 AM Manila); the release lead rolled prod back at 7:11 AM, which also pulled the Quiz tab card and the T9 fixes until a reship (his question: "why do they take this long").
+- Fix (required step, manager and leads): every rule-4 ruling names the search done before it (launch log, rulings file, boards, with the terms searched) in the message that gives the ruling. A ruling that names no search is not acted on. The release lead dropped the U24 branch before shipping. No check can tell a decided question from an open one.
+
+### UX lead sat idle on a finished CI step with no live watcher (Nov 25)
+
+- Words: none from Aedwon. The manager's note: "you've been idle since 7:58 AM. You ended your turn while the CI goldens ran, with no watcher."
+- Wrong: the lead started `gh run watch` in the background and ended its turn without registering it with the thread (T3 `t3_background_wait`). The session ended, the watcher stopped with it, and the goldens run finished unseen; about 1 h 37 min passed before the manager asked.
+- Why it got through: a background command looked like a watcher, but in T3 only a registered wait keeps the thread alive to hear it finish.
+- Fix (required step): before ending a turn on CI, a goldens run or any other background wait, start the watcher in the background and register it with `t3_background_wait` in the same turn; the turn's last line names the run and that a registered watcher is on it.
+
+### Walk-through lesson rewrite still too compressed (Nov 25)
+
+- His words: "i found some lessons could use more detail, or a sort of \"walk you through it\" type of teaching" (Signed Integers and Substitution, three screenshots), then on the manager's sample rewrite: "close, but not as detailed as I'd like. you are allowed to have numbers in core concept".
+- Wrong: the sample kept each rule to one or two worked numbers and still skipped the reasoning behind each move: why a rule works, what goes wrong without it, and checking the answer.
+- Why it got through: the lesson style guide sets the reading level (Grade 5) but no depth standard, so "plain" was read as "short". The sample also aimed at the current lesson's length.
+- Fix (required step until a depth standard is approved and added to docs/content/lesson-style-guide.md): a math lesson rewrite walks through every rule with numbers in Core Concept, shows each arithmetic and sign move on its own line, says why the move works, shows the common wrong move next to the right one, and ends worked examples with a check. The manager's next sample follows this, and his reaction sets the standard.
+
+### Wide Quiz tab paused card still breaks the button placement rule he set (Nov 25)
+
+- His words (about 4:35 AM Manila, wide dark screenshot of the Quiz tab paused card: caption and "Discard this session" on one line, Resume at the bottom left): "was this never addressed? particularly the placement of discard resume (basically the CTAs in general)? i think i've raised this before, and that's also why DS4 i believe was added / i want answers first before you change anything".
+- Wrong: he raised button placement on Nov 7 ("worth considering their placement. especially when there are two of them") and chose P2 (right end, main last). That choice is why the design system was built. On Nov 10 he raised desktop placement again ("awkward"). The design system has a rule for exactly this card (patterns.md: "A stacked phone-style pair on a wide page (guardian confirm, paused quiz notice) becomes a right-aligned row, secondary then main"). The live wide card still puts Resume at the bottom left.
+- Why it got through: builds and side-by-side reviews compared each screen only to its drawn board. This card's board (QZ_Resume, approved Oct 2) predates the Nov 7 rule. The Nov 24 borderless-buttons work and the Discard centering both matched the old board and never checked patterns.md. Nothing swept the wide screens for P2 after the system shipped.
+- Fix (required steps):
+  1. Every UI build brief and every side-by-side review checks design/system/patterns.md (placement, spacing, buttons) as well as the board. Where a board drawn before Nov 7 conflicts with a pattern, the pattern wins, and the review names the rule.
+  2. A one-time sweep of every wide screen for placement against patterns.md, results listed for the manager. It starts only after he answers; he asked for answers before changes.
+  A placement check in code may be possible later (widget tests asserting button order and alignment on wide cards); none is promised until it is shown failing on this card.
+- Done (Nov 25, UX lead, E-158): step 2 ran as a code-only scan at his request ("isn't there a faster way to determine that without using screenshots", then "okay proceed"). Check added, as this entry asked: `test/helpers/button_placement.dart` (on `ux/button-placement-r1`) fails a wide pair that is out of order, off 8 px (board exceptions listed with his approval), stretched, neither at the right end nor centered, or stacked phone-style; it runs on every wide screen golden. Shown failing on the old mock card, guardian and exam-change screens before their fixes. Results and rulings: the rulings file, "Nov 25, UX design lead: wide button placement, code only (E-158)".
+
+### Two lead sessions shipped the same PRs at once (Nov 25)
+
+- Words: none from Aedwon. The manager's note: "Your workers already shipped ENT-06 at 19:40 UTC, and the reader with #117 at 19:48 UTC ... Don't redeploy #117."
+- Wrong: the manager's fresh-memory tasks started a second CSE release lead session (r5) on the same three PRs while the r4 session still owned them. r5 shipped ENT-06 and then #117; r4's ship worker was at the same time building ENT-06 from an older main commit. Had it reached prod, it would have rolled #117 off prod. r4 stopped it at staging after reading the launch log.
+- Why it got through: nothing tied a PR to one owning session, and a ship brief's rollback point was checked once at the start, not right before the deploy.
+- Fix (required steps): (1) a PR has one integrating session; the manager names it, and a lead that finds another session acting on its PRs stops its own ships and asks. (2) Every ship brief checks, immediately before the prod deploy, that app.pantas.study still serves the build recorded as the rollback point, and stops without deploying if it does not (in the r4 #121 brief).
+
+### Discard spacing in the Quiz tab shrank after a spacing ship (Nov 25)
+
+- His words (about 3:50 AM Manila): "the space on top and bottom of discard in the quiz tab got too small though".
+- Wrong: the vertical space above and below Discard on the Quiz tab's paused card is smaller than he expects. It most likely came from the Nov 24 Discard centering or the Nov 25 Study and Quiz spacing ship, but the cause is not confirmed yet.
+- Why it got through: the Nov 24 borderless buttons change (commit baac08a99, shipped to prod 9:50 PM Nov 24), not the Discard centering or the Nov 25 spacing ship. It moved every phone text button to the board's text sizes. Discard on the Quiz tab paused card became the 15/600 line in a 24 px box, so the space around its text fell from 20.5 px above and 24.5 px below (a 52 px tertiary button, 6 px under Resume) to 12 and 10 (measured on headless renders of both versions, Nov 25). The new values matched the QZ_Resume board ("12 under Resume"), so the side-by-side board review passed it: the board itself draws the tighter spacing, and nothing compared the card with how it looked before. His call from using the app beats the board here (manager ruling, Nov 25): the build restores 20 above and 24 below the text and the reference canvas changes to match (the Quiz tab card is held while he answers a placement question).
+- Fix (required step, already in the Nov 23 entry, now applied to spacing): a spacing change is compared side by side with the board at phone and wide for every card it touches, not only the card it targets. Added, because the board itself was tighter than what he was used to: a change that shrinks the space around a control he already uses is also compared with the live version before it, and any loss over 4 px is shown to him on the capture sheet before it ships. Checks: `quiz_tab_paused_spacing_test` (fails on the shrunk spacing: 20 above and 24 below the Discard text) and the `quiz_tab_paused` golden sheet at 390 and 1440.
+
+### Week strip put in front of him though he never raised it and a board already answered it (Nov 25)
+
+- His words: "what was the reason why i'm being made to choose for the week strip? was it a complaint from me?"
+- Wrong: the long CSE exam name in the Home week strip was finding U14 from an agent UI audit, not his complaint. His approved week strip board (D196) already draws the short name. Even so, the manager's E-149 brief asked for "2 options". The UX lead correctly found no choice, but still drew the section on the board sent to him, and the manager opened that board for him and explained the section.
+- Why it got through: this is the same kind as the Nov 23 entry (boards built as options for questions already answered). Rule 4 made the lead search first, but nothing stopped an answered item from reaching him on a board, and the manager wrote "options" into the brief before anyone had searched.
+- Fix (required steps, moved up from the Nov 23 entry):
+  1. The manager's brief never asks for options. It asks the lead to search first and to draw options only for what no board, spec or ruling answers.
+  2. Before the manager opens a board for him or relays one, it removes every section that holds no choice for him. Answered items are built to their source and reported to him only as an outcome once they are live.
+  3. Every item put to him names where it came from: his own words (quoted), or an agent finding (named as such).
+  No check can tell an open question from an answered one.
+
+### Reader request turned into a redesign he did not ask for (Nov 25)
+
+- His words: "i don't understand the reader line, i just wanted you to maybe remove the lesson indicator on top because it gets so long when there's a lot of lessons in a certain topic, and especially so after the instruction to make the lessons bite-sized. for the thing that indicates how far along you are in the lesson itself, no changes". His original request words are not recorded on main; the manager's brief (E-149) said only "reader progress bar replacement, 2 or 3 options".
+- Wrong: the UX lead drew three options to replace the in-lesson section line on wide web. He wanted one thing removed (the lesson indicator at the top that grows with the number of lessons in a topic) and the in-lesson progress left alone.
+- Why it got through: the manager paraphrased his request into a design task, and the lead designed from the paraphrase. This is the same kind as the Nov 24 entry on a paraphrased ruling, so it moves up from "relay in his exact words" (operations-manager.md) to a required step with a stop.
+- Fix (required step, manager and every lead): every brief that carries a request from Aedwon has a line "His words:" with his exact words, pasted. A lead that gets a brief without that line asks the manager for it before starting work. The lead's first line back restates what he asked for in one plain sentence. No check can judge whether a paraphrase kept his meaning.
+
+### Lead threads reused with large old context (Nov 24)
+
+- His words: "process improvement: you are reusing lead threads that have lots of context from previous tasks. i think that's inefficient. we should save tokens. as the operations manager it's your job to make the process efficient. propose a solution and i'll approve ot". Approved: "ok approved".
+- Wrong: the manager sent the paused-session board task to the UX lead thread, which already held about 540 items of unrelated work, and the old CSE and security leads had grown past 2,000 items. Each reply rereads that whole history, which spends his Claude usage on old context.
+- Why it got through: the Nov 16 routing rule only moved work to a fresh lead above 1,000 items or outside the lane, so a thread could carry hundreds of items of finished work into every new task.
+- Fix (required steps, manager and every lead; replaces the 1,000-item test in operations-manager.md):
+  1. Every new task starts with a blank memory: send it with `t3_thread_send` and `freshContext: true` (same thread and worktree, no old chat), or launch a new lead for a new lane. The brief carries everything the task needs.
+  2. Every task ends with a short handoff note on main in `docs/superpowers/handoffs/` (what changed, where the work is saved, what is left). The next fresh session reads the note, not the old chat.
+  3. A task that runs long (about 3 hours of steady work, or past about 300 thread items) writes its note and restarts itself with a blank memory.
+  4. The manager does the same: it restarts from a handoff note when its own thread gets long.
+
+### A new quiz bar design reached prod without his visual check (Nov 24)
+
+- His words: "where did this come from? why is there now those dashes", then "lol that looks terrible. what else did you ship that I should know?" (about the one-mark-per-question quiz bar, phone screenshot, about 7:15 PM Manila).
+- Wrong: the core loops polish spec (B2 marks in the session bar, flying into results; B5 fewer words) was designed by the UX lead while he was away, approved by a Gemini and Fable council, built, and shipped to prod in the 5:54 PM release under his standing "ship it". No board he approved draws the marks, and he never saw them before they were live.
+- Why it got through: the standing "ship it" was read as covering every merged change, including new visual designs that only a council had approved. The council path was meant for build-versus-board doubts, not for new looks. Nothing separated "built to a board he approved" from "new design he has not seen".
+- Fix (required step for the manager and every lead before a prod ship): list each user-visible UI change in the release and name the board he approved that draws it. A change with no such board (council, Fable or lead designed) does not ship to prod until he has seen it on a board and picked it; it waits behind a flag or stays off main. The standing "ship it" covers only changes built to his approved boards, server work and fixes. No check can tell an approved look from a new one.
+
 ### Ship report packed jargon, internal codes, and hashes into chat (Nov 24)
 
 - His words: "did you read your global instructions, agents.md workflow.md cuz none of your words made sense to me".

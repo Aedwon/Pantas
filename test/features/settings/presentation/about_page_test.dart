@@ -40,8 +40,8 @@ void main() {
     await tester.pumpAppWithProviders(const AboutPage(), overrides: []);
     await tester.pumpAndSettle();
 
-    expect(find.text('Privacy Policy'), findsOneWidget);
-    expect(find.text('Terms of Service'), findsOneWidget);
+    expect(find.text('Privacy policy'), findsOneWidget);
+    expect(find.text('Terms of service'), findsOneWidget);
     expect(
       find.text('Help improve Pantas by sharing usage data'),
       findsOneWidget,

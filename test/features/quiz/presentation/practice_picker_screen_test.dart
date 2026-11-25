@@ -14,6 +14,7 @@ import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/value_wheel.dart';
@@ -300,6 +301,37 @@ void main() {
     }
     expect(calls, 0);
     expect(find.text('Practice running'), findsNothing);
+  });
+
+  testWidgets('the How long sheet draws one grabber, not two', (tester) async {
+    await pump(tester);
+    await tester.tap(find.byKey(const ValueKey('scope-select-t')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('practice-size')));
+    await tester.pumpAndSettle();
+    expect(find.text('How long?'), findsOneWidget);
+    final handles = find.byWidgetPredicate(
+      (w) =>
+          (w is Container &&
+              w.constraints ==
+                  const BoxConstraints.tightFor(width: 36, height: 5)) ||
+          (w is SizedBox && w.width == 36 && w.height == 5),
+    );
+    expect(handles, findsOneWidget);
+  });
+
+  testWidgets('the How long Done text ends 20 px from the sheet edge',
+      (tester) async {
+    await pump(tester);
+    await tester.tap(find.byKey(const ValueKey('scope-select-t')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('practice-size')));
+    await tester.pumpAndSettle();
+    final sheetRight = tester.getRect(find.byType(PantasSheet)).right;
+    expect(
+      tester.getTopRight(find.text('Done')).dx,
+      closeTo(sheetRight - 20, 1),
+    );
   });
 
   for (final brightness in Brightness.values) {
@@ -857,8 +889,8 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('practice-size')));
     await tester.pumpAndSettle();
     expect(find.text('PICKED'), findsNothing);
-    // The system's tertiary button label.
-    expect(tester.widget<Text>(find.text('Adjust')).style!.fontSize, 16);
+    // The phone text button label (`btn--text-phone`, 17/600).
+    expect(tester.widget<Text>(find.text('Adjust')).style!.fontSize, 17);
     expect(
       tester
           .getSize(find.byKey(const ValueKey('practice-summary-divider')))

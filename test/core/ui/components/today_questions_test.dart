@@ -24,6 +24,8 @@ void main() {
     );
   });
 
+  discardGapTests();
+
   for (final scale in [1.0, 2.0]) {
     testWidgets('Today question row opens the shared sheet at scale=$scale',
         (tester) async {
@@ -64,4 +66,43 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+}
+
+// Board A, P_Sheet (own session paused): the Discard line's box is 20.25 high
+// (15 px, line height 1.35) with 16 above it (flex gap 10 + padding 6) and 16
+// below it before the sheet's 34 bottom rest. Its centre is 26.125 from both
+// the Resume button's bottom and the end of the content.
+void discardGapTests() {
+  testWidgets('own-session Discard text centres 26.125 from Resume and the end',
+      (tester) async {
+    await tester.pumpApp(
+      MediaQuery(
+        data: const MediaQueryData(size: Size(390, 844)),
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: TodayQuestionsSheet(
+            title: 'Reviews',
+            done: 1,
+            total: 11,
+            showCount: false,
+            rows: const [Text('Session 1')],
+            startLabel: 'Resume',
+            onStart: () {},
+            onDiscard: () {},
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final resume = tester.getRect(
+      find
+          .ancestor(of: find.text('Resume'), matching: find.byType(InkWell))
+          .first,
+    );
+    final text = tester.getRect(find.text('Discard this session'));
+    final sheet = tester.getRect(find.byType(TodayQuestionsSheet));
+    final bottomRest = sheet.bottom - 34;
+    expect(text.center.dy - resume.bottom, closeTo(26.125, 0.6));
+    expect(bottomRest - text.center.dy, closeTo(26.125, 0.6));
+  });
 }

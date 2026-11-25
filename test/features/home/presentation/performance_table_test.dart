@@ -84,8 +84,9 @@ void main() {
       expect(find.text('Mathematics'), findsOneWidget);
       expect(find.text('1 topic'), findsOneWidget);
       expect(find.text('60%'), findsOneWidget);
-      expect(find.text('SUBJECT'), findsOneWidget);
-      expect(find.text('ACCURACY'), findsOneWidget);
+      // PF_Subjects draws no header row (ruling E-155, U23).
+      expect(find.text('SUBJECT'), findsNothing);
+      expect(find.text('ACCURACY'), findsNothing);
       expect(find.text('SCORE'), findsNothing);
       // The bar is 160 wide on a wide row.
       expect(

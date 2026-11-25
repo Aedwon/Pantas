@@ -17,10 +17,6 @@ Widget testFrame({
   required List<Widget> children,
   required String backLabel,
   required VoidCallback onBack,
-  bool beta = false,
-  String? subline,
-  double headingGap = 24,
-  bool heading = true,
 }) =>
     Scaffold(
       body: SingleChildScrollView(
@@ -32,8 +28,7 @@ Widget testFrame({
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  if (heading) Text(title),
-                  if (subline != null) Text(subline),
+                  Text(title),
                   ...children,
                 ],
               ),
@@ -47,7 +42,6 @@ Widget testFrame({
 class FbHarness {
   FbHarness({
     FakeBetaFeedbackApi? api,
-    FakeBetaImageSource? images,
     DateTime? now,
     this.wide = false,
     this.dark = false,
@@ -55,11 +49,9 @@ class FbHarness {
     this.width,
     this.textScale = 1,
   })  : api = api ?? FakeBetaFeedbackApi(),
-        images = images ?? FakeBetaImageSource(),
         now = now ?? ph(11, 12, 20);
 
   final FakeBetaFeedbackApi api;
-  final FakeBetaImageSource images;
   final DateTime now;
   final bool wide;
   final bool dark;
@@ -103,7 +95,7 @@ class FbHarness {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
-          ...betaOverrides(api: api, images: images, now: now),
+          ...betaOverrides(api: api, now: now),
           ...overrides,
         ],
         child: MaterialApp.router(
