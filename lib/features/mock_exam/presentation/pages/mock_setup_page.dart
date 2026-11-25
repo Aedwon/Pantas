@@ -71,7 +71,11 @@ class _MockSetupPageState extends State<MockSetupPage> {
 
     // MK_SetupCSE and MK_SetupStrict: a green "< Quiz" link, a white table
     // card, a white strict-mode card and a Start button pinned to the bottom.
-    final table = _SetupTable(sections: sections, sectional: isSectional);
+    final table = _SetupTable(
+      sections: sections,
+      sectional: isSectional,
+      showCounts: _showsSectionCounts(blueprint),
+    );
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -276,6 +280,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
     final table = _SetupTable(
       sections: widget.parsedBlueprint.sections,
       sectional: sectional,
+      showCounts: _showsSectionCounts(blueprint),
     );
     final rules = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -429,6 +434,13 @@ class _MockSetupPageState extends State<MockSetupPage> {
     );
   }
 
+  // P10/U58: the CSC publishes no per-area counts for the Subprofessional
+  // level, so Pantas never prints its own division. The 36/36/36/37 split in
+  // the blueprint stays a sampling parameter. Keyed on the exam id because a
+  // blueprint field would need a catalog and parser schema change.
+  bool _showsSectionCounts(MockBlueprint blueprint) =>
+      blueprint.examId != 'exam_cse_sub';
+
   String _simulationTitle(MockBlueprint blueprint) =>
       mockSimulationTitle(blueprint.examId, blueprint.name);
 
@@ -518,9 +530,17 @@ class MockSetupBackLink extends StatelessWidget {
 }
 
 class _SetupTable extends StatelessWidget {
-  const _SetupTable({required this.sections, required this.sectional});
+  const _SetupTable({
+    required this.sections,
+    required this.sectional,
+    this.showCounts = true,
+  });
   final List<BlueprintSection> sections;
   final bool sectional;
+
+  /// False hides the Items column, for a paper whose per-section counts are
+  /// not published.
+  final bool showCounts;
 
   @override
   Widget build(BuildContext context) {
@@ -548,14 +568,15 @@ class _SetupTable extends StatelessWidget {
     return PantasDataTable(
       columns: [
         const PantasTableColumn('Section'),
-        const PantasTableColumn('Items', numeric: true),
+        if (showCounts) const PantasTableColumn('Items', numeric: true),
         if (sectional) const PantasTableColumn('Time', numeric: true),
       ],
       rows: [
         for (final section in sections)
           [
             section.name,
-            figure(section.questionCountFigure, section.questionCount),
+            if (showCounts)
+              figure(section.questionCountFigure, section.questionCount),
             if (sectional)
               figure(
                 section.sectionalMinutesFigure,

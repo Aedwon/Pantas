@@ -38,8 +38,8 @@ void main() {
     }
     final sub = load('cse-sub');
     expect(sub['source'], 'reported');
-    expect(sub['sourceNote'], contains('Placeholder split'));
-    expect(sub['sourceNote'], contains('unconfirmed'));
+    expect(sub['sourceNote'], contains('Advisory No. 10, s. 2026'));
+    expect(sub['sourceNote'], contains('even division'));
 
     final acetSections = load('acet')['sections'] as YamlList;
     final aptitude = acetSections
