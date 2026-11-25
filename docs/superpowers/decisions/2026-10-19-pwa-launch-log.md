@@ -4650,3 +4650,10 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Rule 7:** prod about 3,900 reads and 120 writes this quota day before; deploys and checks under 100. Artifact Registry 349 of 512 MiB before #136 (to recheck).
 - **Also:** payment follow-up alerts on staging and prod; 0 test-mode PayMongo grants on prod. Security lead handoff `docs/superpowers/handoffs/2026-11-26-security-lead-r2-live-payments.md` (PR #140).
 
+
+### Nov 26 (Manila), payment follow-up alert proven on staging (security and billing lead, r2)
+
+- Deploy guide 6b step 1b. Log-based alert "Payment follow-up created (owner action)" made on pantas-staging (16413249398500299830) and pantas-prod (10379763799015995872): severity ERROR on Cloud Run, message "payment follow-up created", owner email channel, 5-minute rate limit, auto-close after 1 day.
+- First staging test (synthetic log line, 17:10:51 UTC) sent no email: it arrived 18 seconds after the policy was made, before the new policy was evaluating. Second test 17:21:32 UTC: email received. Aedwon, verbatim: "yes" (Google Cloud Alerting, 1:22 AM Manila, Inbox, pantas-staging).
+- Rule 7: two log entries and one email, no cost; alert policies are outside any billing SKU (live free-tier check).
+- Next: live PayMongo key at about 9 AM Manila, then the live-key deploy and the owner's real QR Ph payment.
