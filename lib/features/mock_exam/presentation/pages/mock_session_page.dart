@@ -861,12 +861,13 @@ class _MockSessionPageState extends State<MockSessionPage> {
               ],
             if (widget.oneBlock && !widget.state.strictMode) ...[
               const SizedBox(height: PantasSpace.s28),
-              // MK_SubmitCSE: the button fills the panel's width.
-              SizedBox(
-                width: double.infinity,
+              // MK_SubmitCSE drew the button at the panel's full width. The
+              // wide pattern wins (patterns.md, Nov 7 rule): a side panel's
+              // action sits at its bottom right at natural width.
+              Align(
+                alignment: Alignment.centerRight,
                 child: WebButton(
                   label: 'Submit the Exam',
-                  expand: true,
                   onPressed: () => _confirmEndPartEarly(context),
                 ),
               ),

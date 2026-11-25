@@ -7,6 +7,7 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
 
 import '../../../helpers/accessibility.dart';
+import '../../../helpers/button_placement.dart';
 
 void main() {
   for (final brightness in Brightness.values) {
@@ -59,7 +60,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(advanced, 1);
   });
-  testWidgets('wide Get Started is 260 px, like the HTML Welcome (7W-1)',
+  testWidgets('wide Get Started is centered at natural width (patterns.md)',
       (tester) async {
     debugWebPlatformOverride = true;
     addTearDown(() => debugWebPlatformOverride = null);
@@ -69,7 +70,12 @@ void main() {
       viewportSize: const Size(1440, 900),
       disableAnimations: true,
     );
-    expect(tester.getSize(find.byType(WebButton)).width, 260);
+    expectWidePlacement(tester);
+    final start = find.byType(WebButton);
+    // Natural width, not the HTML welcome's fixed 260; centered on the page.
+    expect(tester.getSize(start).width, isNot(260));
+    expect(tester.getSize(start).width, lessThan(400));
+    expect(tester.getCenter(start).dx, closeTo(720, .5));
     expect(tester.takeException(), isNull);
   });
   for (final width in [600.0, 768.0, 900.0, 1023.0]) {

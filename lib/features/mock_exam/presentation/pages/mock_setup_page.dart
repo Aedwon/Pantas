@@ -344,20 +344,26 @@ class _MockSetupPageState extends State<MockSetupPage> {
           ),
         ),
         const SizedBox(height: PantasSpace.s16),
-        // MK_SetupCSE: the button fills the right column and the line under
-        // it is centered.
-        WebButton(
-          label: 'Start the Mock Exam',
-          large: true,
-          expand: true,
-          keyHint: 'Enter',
-          onPressed: () => widget.onStart(_strictMode),
+        // MK_SetupCSE: the board fills the right column and centers the line
+        // under it. The wide pattern wins over that older board (patterns.md,
+        // Nov 7 rule): never a full-width button, so Start sits at the
+        // column's right end at natural width with its fine print right-aligned
+        // under it (design/system/README.md decision 149).
+        Align(
+          alignment: Alignment.centerRight,
+          child: WebButton(
+            label: 'Start the Mock Exam',
+            large: true,
+            keyHint: 'Enter',
+            onPressed: () => widget.onStart(_strictMode),
+          ),
         ),
         const SizedBox(height: PantasSpace.s8),
-        Center(
+        Align(
+          alignment: Alignment.centerRight,
           child: Text(
             'The clock starts when you click.',
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.right,
             style: t.sm,
           ),
         ),
