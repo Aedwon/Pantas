@@ -112,7 +112,8 @@ verification. Card and QR Ph are the current checkout methods.
 ### 6b. The PayMongo live-key switch (money-path audit, Nov 23, 2026)
 
 Until the switch, prod refuses web checkout while its PayMongo key is a test key (PR #89), except for an account with
-the admin claim. The switch itself waits for Aedwon's live keys (checklist M1 to M3). Do these in order, each logged in
+the admin claim. After it, checkout stays admin-only until the opening ship sets `PAYMONGO_CHECKOUT_OPEN=true` (PR #139).
+The switch itself waits for Aedwon's live keys (checklist M1 to M3). Do these in order, each logged in
 the launch log:
 
 0. **Guard first**: the test-checkout guard (PR #89) must be live on prod before anything else here. Check it by
