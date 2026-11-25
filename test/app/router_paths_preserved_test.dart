@@ -75,6 +75,8 @@ void main() {
       // The beta gate and email link sign-in (Nov 6).
       '/beta',
       '/auth/email-link',
+      // The first run, a full-window page that resumes an open run (E-179).
+      '/try',
     ];
     expect(
       collectRoutePaths(includeDebugGallery: false),

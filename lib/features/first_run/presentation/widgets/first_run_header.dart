@@ -30,6 +30,7 @@ class FirstRunHeader extends StatelessWidget {
         style: PantasType.phoneSubhead.copyWith(
           color: colors.textSecondary,
           fontWeight: FontWeight.w600,
+          // ds-board: eyebrow tracking 0.8 wide, 0.3 phone
           letterSpacing: wide ? 0.8 : 0.3,
         ),
       ),

@@ -143,7 +143,7 @@ class FirstRunIntro extends StatelessWidget {
         DecoratedBox(
           decoration: BoxDecoration(
             color: colors.surfaceCard,
-            // ds-board: W02 card radius 16
+            // ds-geometry: W02 card radius 16
             borderRadius: BorderRadius.circular(wide ? 16 : PantasRadius.lg),
           ),
           child: Column(
@@ -273,6 +273,7 @@ class _Crop extends StatelessWidget {
       borderRadius: BorderRadius.circular(PantasRadius.md),
       child: Container(
         width: width,
+        // ds-board: previews 120/160 phone, 104/132 wide
         height: height,
         color: colors.bgPage,
         padding: const EdgeInsets.all(PantasSpace.s12),

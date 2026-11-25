@@ -135,6 +135,7 @@ class _FirstRunLessonState extends ConsumerState<FirstRunLesson> {
                           style: PantasType.phoneSubhead.copyWith(
                             color: colors.textSecondary,
                             fontWeight: FontWeight.w600,
+                            // ds-board: eyebrow tracking .5
                             letterSpacing: .5,
                           ),
                         ),
@@ -143,7 +144,9 @@ class _FirstRunLessonState extends ConsumerState<FirstRunLesson> {
                           lesson.title,
                           narrowRule: false,
                           style: context.type.pageTitle.copyWith(
+                            // ds-board: lesson title line-height 1.08
                             height: 1.08,
+                            // ds-board: lesson title tracking -.5
                             letterSpacing: -.5,
                           ),
                         ),

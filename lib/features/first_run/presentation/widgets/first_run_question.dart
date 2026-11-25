@@ -279,6 +279,7 @@ class _Track extends StatelessWidget {
             Container(
               // ds-board: W04 segments 10x4, gap 3
               width: 10,
+              // ds-board: W04 segments 10x4, gap 3
               height: 4,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(PantasRadius.full),

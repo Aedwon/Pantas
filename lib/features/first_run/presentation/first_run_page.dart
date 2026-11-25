@@ -133,7 +133,10 @@ class _FirstRunPageState extends ConsumerState<FirstRunPage> {
         if (p.step != FirstRunStep.end)
           const SingleActivator(LogicalKeyboardKey.escape): () =>
               unawaited(_leave()),
-        const SingleActivator(LogicalKeyboardKey.enter): () {
+        const SingleActivator(
+          LogicalKeyboardKey.enter,
+          includeRepeats: false,
+        ): () {
           switch (p.step) {
             case FirstRunStep.intro:
               _go(FirstRunStep.lesson);

@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 /// P06 `padding-bottom: 9px` under "/3": half of s18, on the spacing scale.
+// ds-board: P06 padding-bottom 9px under "/3"
 const double _unitLift = PantasSpace.s18 / 2;
 
 /// "You finished the lesson" (frames P06, P06_EndRM, W06). The score once,
@@ -46,9 +47,11 @@ class FirstRunEnd extends StatefulWidget {
 
 class _FirstRunEndState extends State<FirstRunEnd>
     with SingleTickerProviderStateMixin {
-  // ds-board: P06 timeline ends with Done at 2500 ms; W06 ends with the
-  // mistakes block at 1600 ms.
+  // P06 timeline ends with Done at 2500 ms; W06 ends with the mistakes
+  // block at 1600 ms.
+  // ds-board: P06 timeline 2600 ms, ends after Done at 2500 ms
   static const _phoneTimeline = Duration(milliseconds: 2600);
+  // ds-board: W06 timeline 1600 ms, ends at the mistakes block
   static const _wideTimeline = Duration(milliseconds: 1600);
 
   late final AnimationController _entry = AnimationController(
@@ -204,6 +207,7 @@ class _FirstRunEndState extends State<FirstRunEnd>
               'Take the assessment on Home for your score and study plan.',
               textAlign: TextAlign.center,
               style: PantasType.phoneBody
+                  // ds-board: P06 note line-height 1.4
                   .copyWith(color: colors.textSecondary, height: 1.4),
             ),
           ),
@@ -392,6 +396,7 @@ class _Dot extends StatelessWidget {
       child: Container(
         // ds-board: P06 dots 28, W06 30
         width: context.wideWeb ? 30 : 28,
+        // ds-board: P06 dots 28, W06 30
         height: context.wideWeb ? 30 : 28,
         alignment: Alignment.center,
         decoration: BoxDecoration(
