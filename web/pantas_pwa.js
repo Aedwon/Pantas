@@ -86,6 +86,10 @@
     var ready = navigator.serviceWorker
       .register(script)
       .then(function (registration) {
+        // The worker serves this page from its own cache, so a new build reaches
+        // the page only through a new worker. Ask for it now, not at the next
+        // timer; the browser would otherwise check once a day.
+        registration.update().catch(function () {});
         return new Promise(function (resolve) {
           function active() {
             var worker = registration.active;
