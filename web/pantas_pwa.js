@@ -228,7 +228,7 @@
               return Promise.all(
                 names
                   .filter(function (name) {
-                    return name.indexOf('pantas-shell-') === 0;
+                    return name.indexOf('pantas-') === 0;
                   })
                   .map(function (name) {
                     return caches.delete(name);

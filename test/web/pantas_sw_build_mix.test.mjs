@@ -17,6 +17,7 @@ import {mkdtempSync, rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {readFileSync} from 'node:fs';
+import {parseHeaders} from '../../tool/cloudflare-app/compare.mjs';
 import {buildOf, STARTUP, writeBuild} from './fixtures/sw_fixture_build.mjs';
 
 const prodSource = readFileSync(new URL('./fixtures/pantas_sw_prod_a.js', import.meta.url), 'utf8');
@@ -41,12 +42,14 @@ function build(id, options = {}) {
 test.after(() => rmSync(scratch, {recursive: true, force: true}));
 const workerOf = (b) => b.served['pantas_sw.js'];
 
-function basic(body, path = 'x') {
+// The headers the edge sends, from the real prod headers file.
+const edge = parseHeaders(readFileSync(new URL('../../tool/cloudflare-app/headers.prod', import.meta.url), 'utf8'));
+
+// `stored` is the header list a cache kept; without it the edge's headers apply.
+function basic(body, path = 'x', stored = null) {
   const html = path === '' || path === 'index.html';
-  const response = new Response(body, {
-    status: 200,
-    headers: {'Content-Type': html ? 'text/html' : 'application/javascript'},
-  });
+  const headers = new Headers(stored ?? {'Content-Type': html ? 'text/html' : 'application/javascript', ...edge.expected('/' + path)});
+  const response = new Response(body, {status: 200, headers});
   Object.defineProperty(response, 'type', {value: 'basic'});
   return response;
 }
@@ -65,13 +68,13 @@ function world() {
       return {
         match: async (request, options = {}) => {
           const url = options.ignoreSearch ? strip2(keyOf(request)) : keyOf(request);
-          for (const [stored, text] of store) {
-            if ((options.ignoreSearch ? strip2(stored) : stored) === url) return basic(text, strip2(stored).replace(ORIGIN, ''));
+          for (const [stored, {text, headers}] of store) {
+            if ((options.ignoreSearch ? strip2(stored) : stored) === url) return basic(text, strip2(stored).replace(ORIGIN, ''), headers);
           }
           return undefined;
         },
         put: async (request, response) => {
-          store.set(keyOf(request), await response.text());
+          store.set(keyOf(request), {text: await response.text(), headers: [...response.headers]});
         },
         keys: async () => [...store.keys()].map((url) => ({url})),
         delete: async (request) => store.delete(keyOf(request)),
@@ -252,7 +255,7 @@ test('install refuses a build that changed while it ran, and keeps no cache for 
   };
   await assert.rejects(late.install());
   assert.equal(w.events.some((e) => e.event === 'skipWaiting'), false);
-  assert.equal(w.stores.has('pantas-shell-B') && w.stores.get('pantas-shell-B').size > 0, false);
+  assert.equal(w.stores.has(cacheOf('B')) && w.stores.get(cacheOf('B')).size > 0, false);
 });
 
 test('Dart files fetched after a newer deploy are not stored in the older build cache', async () => {
@@ -269,7 +272,7 @@ test('Dart files fetched after a newer deploy are not stored in the older build 
   assert.equal(r.mixed, false, JSON.stringify(r.ids));
 });
 
-const cacheOf = (id) => `pantas-shell-${build(id).served['pantas_sw.js'].match(/"id":"([^"]+)"/)[1]}`;
+const cacheOf = (id) => `pantas-build-${build(id).served['pantas_sw.js'].match(/"id":"([^"]+)"/)[1]}`;
 
 // ---- Rollout from the worker already on phones (prod) to the fixed worker ----
 
@@ -454,4 +457,21 @@ test('credentials and ranges pass through untouched', async () => {
 test('the shipped worker file carries the unstamped marker, so dev keeps today\'s behavior', () => {
   const source = readFileSync(new URL('../../web/pantas_sw.js', import.meta.url), 'utf8');
   assert.match(source, /\/\*pantas-build\*\/ null \/\*end-pantas-build\*\//);
+});
+
+test('a page and files served from the cache carry the edge security headers of the network response', async () => {
+  const w = world();
+  deploy(w, 'B');
+  await takeOver(w, await install(w, 'B'));
+  for (const [path, navigate] of [['', true], ['index.html', false], ['main.dart.js', false], ['sqlite3.wasm', false]]) {
+    const network = await w.network({url: ORIGIN + path});
+    const cached = await w.controller.fetch(path, {navigate});
+    for (const name of ['content-security-policy', 'content-security-policy-report-only', 'x-content-type-options',
+      'referrer-policy', 'permissions-policy', 'strict-transport-security', 'content-type']) {
+      assert.equal(cached.headers.get(name), network.headers.get(name), `${path || 'page'} ${name}`);
+    }
+  }
+  const page = await w.controller.fetch('', {navigate: true});
+  assert.match(page.headers.get('content-security-policy'), /frame-ancestors 'self'/);
+  assert.equal(page.headers.get('x-content-type-options'), 'nosniff');
 });

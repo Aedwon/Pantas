@@ -33,8 +33,10 @@ const BUILD = /*pantas-build*/ null /*end-pantas-build*/;
 const VERSION = new URL(self.location.href).searchParams.get('v') || 'dev';
 const CACHE_PREFIX = 'pantas-shell-';
 // The stamped id, not the URL, names the cache: the browser may run this build's
-// bytes under another build's URL when it checks for an update.
-const CACHE = CACHE_PREFIX + (BUILD ? BUILD.id : VERSION);
+// bytes under another build's URL when it checks for an update. Stamped caches use
+// their own prefix, so today's production worker, which names its cache from the
+// URL, can never fill or reuse one after a rollback to a build that still has it.
+const CACHE = BUILD ? 'pantas-build-' + BUILD.id : CACHE_PREFIX + VERSION;
 // Written last, so a cache that has it holds the whole verified set.
 const COMPLETE = 'pantas-build-complete';
 const SCOPE = self.registration.scope;
@@ -206,7 +208,17 @@ async function fetchVerified(path) {
   }
   const bytes = await response.arrayBuffer();
   if ((await sha256(bytes)) !== BUILD.files[path]) throw new Error('hash mismatch: ' + path);
-  return { path, bytes, type: response.headers.get('Content-Type') };
+  return { path, bytes, headers: storedHeaders(response.headers) };
+}
+
+// The stored copy keeps the edge's headers (security policy, content type,
+// nosniff), minus the ones that describe the wire and not the stored bytes.
+function storedHeaders(source) {
+  const headers = new Headers(source);
+  for (const name of ['Content-Length', 'Content-Encoding', 'Transfer-Encoding', 'Set-Cookie']) {
+    headers.delete(name);
+  }
+  return headers;
 }
 
 // Stores the whole set or nothing, and takes over only after that. A failure
@@ -239,8 +251,8 @@ async function installBuild() {
   await Promise.all(Array.from({ length: Math.min(INSTALL_PARALLEL, paths.length) }, lane));
   try {
     const cache = await caches.open(CACHE);
-    for (const { path, bytes, type } of verified) {
-      await cache.put(SCOPE + path, new Response(bytes, { status: 200, headers: type ? { 'Content-Type': type } : {} }));
+    for (const { path, bytes, headers } of verified) {
+      await cache.put(SCOPE + path, new Response(bytes, { status: 200, headers }));
     }
     await cache.put(SCOPE + COMPLETE, new Response('1'));
   } catch (error) {
