@@ -4536,3 +4536,12 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - Liability cap: the ₱1,000 floor stays (manager explained the unconscionability risk of a lower cap).
 - Legal sign-off: the public-launch texts on legal/publish-r1 are approved as they stand after round 5, including the Nov 25 business-name and option C changes.
 - Opening day and hour: "when ready". Manager reading, consistent with his 2:45 PM "i want it before launch": public sign-up opens (gate-off build to prod, legal texts and website pages published with the version stamps set to that day, link-preview image) as soon as all of these are live or approved: the guided first run (after his board picks), the website homepage seller details (his approval of the draft), and the old Firebase address retirement. This is his "ship it" for the opening; the integrator tells the manager the planned hour before shipping.
+
+### Nov 25, homepage seller details drafted for his approval (CSE release lead r7, E-172); not published
+
+- **His words (Nov 25, about 9:10 PM Manila):** "agent drafts". Website copy is his: he approves the wording before it publishes.
+- **Draft:** pantas-web `legal/homepage-seller-r1` cda02cb (from `legal/public-pages-r1` d09c782), homepage footer only, one line under the founder note: "Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · +63 968 854 2343 · support@pantas.study". Phone and email are tap links; 14 px, muted color, centered.
+- **Source:** the footer line proposed in `docs/legal-drafts/2026-11-22-public-launch/README.md` ("Seller line (D3)") on `legal/publish-r1`; the same facts as the Privacy Policy and Terms. No marketing words. His full name stays only in the Terms and Privacy Policy (Nov 25 decision; Sol High round 5 accepts the Terms carrying the owner's name).
+- **Checks:** a new website test fails without the line and checks the address and phone match the Privacy Policy and Terms; website tests 191 of 191. One headless render at 390 and 1440 (scratchpad of the r7 session).
+- **Publishes with:** the legal pages at the opening, after his "yes" on the wording.
+
