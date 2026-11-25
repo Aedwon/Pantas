@@ -13,6 +13,7 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -303,6 +304,29 @@ void main() {
       await tester.pumpAndSettle();
       return baselineOf(tester, find.text('Settings').first);
     }
+
+    // In a real browser at 390 wide, a plain Text paints this title 2 px below
+    // the same text inside PantasTitle (Quiz and Settings), box and baseline
+    // equal in every widget test. Only a browser run shows it (glyph rows 26
+    // vs 24 at 390 x 844), so the loaded Study title must be a PantasTitle
+    // like the other two.
+    testWidgets(
+        'the loaded Study title is a PantasTitle, as in Quiz and Settings',
+        (tester) async {
+      await phone(
+        tester,
+        const StudyTabHome(),
+        studyOverrides(map: () async => _populated),
+      );
+      await tester.pumpAndSettle();
+      expect(
+        find.ancestor(
+          of: find.text('Study'),
+          matching: find.byType(PantasTitle),
+        ),
+        findsOneWidget,
+      );
+    });
 
     testWidgets('Study, Quiz and Settings paint the title on one baseline', (
       tester,
