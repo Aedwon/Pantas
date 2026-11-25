@@ -150,6 +150,7 @@ pass 15, retire or merge one first.
   1. Every UI build brief and every side-by-side review checks design/system/patterns.md (placement, spacing, buttons) as well as the board. Where a board drawn before Nov 7 conflicts with a pattern, the pattern wins, and the review names the rule.
   2. A one-time sweep of every wide screen for placement against patterns.md, results listed for the manager. It starts only after he answers; he asked for answers before changes.
   A placement check in code may be possible later (widget tests asserting button order and alignment on wide cards); none is promised until it is shown failing on this card.
+
 ### Two lead sessions shipped the same PRs at once (Nov 25)
 
 - Words: none from Aedwon. The manager's note: "Your workers already shipped ENT-06 at 19:40 UTC, and the reader with #117 at 19:48 UTC ... Don't redeploy #117."
