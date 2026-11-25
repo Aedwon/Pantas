@@ -25,6 +25,7 @@ test('the tiny page stays tiny and points at the real address', () => {
   assert.ok(total < 2048, `tiny page is ${total} bytes`);
   const page = read('hosting/retired/index.html');
   assert.match(page, /https:\/\/app\.pantas\.study/);
+  assert.match(page, /startsWith\('pantas-staging'\) \? 'https:\/\/staging\.pantas\.study'/, 'staging goes to staging');
   assert.doesNotMatch(page, /<script[^>]+src=|<link[^>]+stylesheet|<img/, 'loads nothing else');
 });
 
