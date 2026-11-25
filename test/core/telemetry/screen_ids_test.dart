@@ -65,6 +65,12 @@ void main() {
       final listed = routes.listRoutes(Directory('lib/app'));
       expect(listed, isNotEmpty);
       for (final route in listed) {
+        // The first run reports as `other` on purpose (E-179 ruling 19): a
+        // named id needs a functions deploy.
+        if (route.path == '/try') {
+          expect(screenIdFor('/try'), 'other');
+          continue;
+        }
         final id = screenIdFor(_sample(route.path));
         expect(id, isNot('other'), reason: route.path);
         expect(screenIdSet, contains(id));

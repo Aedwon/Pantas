@@ -294,11 +294,11 @@ void main() {
     await navigator.maybePop();
     await tester.pumpAndSettle();
 
-    // AS_Leave copy, exactly as the board draws it.
+    // C2B_Leave copy, exactly as the board draws it.
     expect(find.text('Leave the assessment?'), findsOneWidget);
     expect(
       find.text(
-        "Your answers so far won't be kept. You can start again from Home.",
+        'Your answers are saved on this device. Continue from Home.',
       ),
       findsOneWidget,
     );
@@ -307,7 +307,8 @@ void main() {
     expect(find.text('Stay'), findsNothing);
   });
 
-  testWidgets('leave dialog is a destructive pill pair, Leave the critical',
+  testWidgets(
+      'leave dialog is a side-by-side pill pair, Leave the teal main action',
       (tester) async {
     await tester.pumpAppWithRouter(
       _buildRouter('e1'),
@@ -326,7 +327,7 @@ void main() {
     final leave = tester.widget<PantasButton>(
       find.widgetWithText(PantasButton, 'Leave'),
     );
-    expect(leave.variant, PantasButtonVariant.destructive);
+    expect(leave.variant, PantasButtonVariant.primary);
     // The pair sits side by side, secondary then main, 46 high (btn--dialog).
     final keepRect = tester.getRect(
       find.widgetWithText(PantasButton, 'Keep Going'),

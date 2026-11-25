@@ -25,6 +25,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/assessment/application/assessment_progress_providers.dart';
 import 'package:pantas/features/home/application/home_boundary.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
@@ -783,6 +784,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       examDate: snapshot.digest.examDate,
     );
     final note = homeDayNoteLabel(data);
+    // Answers saved on this device turn the Start card into Continue.
+    final progress = view.kind == HomeTodayKind.assessment
+        ? ref.watch(assessmentProgressProvider(widget.examId)).valueOrNull
+        : null;
     final body = switch (view.kind) {
       HomeTodayKind.checklist => _list(data, view),
       HomeTodayKind.examDay => HomeExamDay(
@@ -796,8 +801,12 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         ),
       HomeTodayKind.assessment || HomeTodayKind.noContent => HomeStateCard(
           state: view.kind == HomeTodayKind.assessment
-              ? HomeState.assessment
+              ? (progress == null
+                  ? HomeState.assessment
+                  : HomeState.continueAssessment)
               : HomeState.noContent,
+          answered: progress?.answered ?? 0,
+          total: progress?.total ?? 0,
           examName: data.examName,
           examShortName: data.examShortName,
           onPrimary: () => view.kind == HomeTodayKind.assessment

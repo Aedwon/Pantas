@@ -1325,8 +1325,13 @@ class WebAnswerOption extends StatelessWidget {
     this.revealFromSelected = false,
     this.badgeProgress = 1,
     this.badgeScale,
+    this.markInBadge = false,
     super.key,
   });
+
+  /// The right or wrong mark sits in the badge, in place of the letter, and
+  /// nothing sits at the right end (the first-run board, frames W04 and W05).
+  final bool markInBadge;
   final bool revealFromSelected;
   final double revealProgress;
   final double badgeProgress;
@@ -1473,19 +1478,27 @@ class WebAnswerOption extends StatelessWidget {
                       ),
               ),
               alignment: Alignment.center,
-              child: Text(
-                letter,
-                style: PantasType.webLink.copyWith(
-                  // ds-board: README type: web-glyph leading 1
-                  height: 1,
-                  fontWeight: filled ? FontWeight.w700 : FontWeight.w600,
-                  color: letterColor,
-                ),
-              ),
+              child: markInBadge && (right || wrong)
+                  ? ExcludeSemantics(
+                      child: Icon(
+                        right ? PantasIcons.check : PantasIcons.close,
+                        size: PantasSize.icon,
+                        color: letterColor,
+                      ),
+                    )
+                  : Text(
+                      letter,
+                      style: PantasType.webLink.copyWith(
+                        // ds-board: README type: web-glyph leading 1
+                        height: 1,
+                        fontWeight: filled ? FontWeight.w700 : FontWeight.w600,
+                        color: letterColor,
+                      ),
+                    ),
             ),
             const SizedBox(width: PantasSpace.s16),
             Expanded(child: child),
-            if (right || wrong) ...[
+            if ((right || wrong) && !markInBadge) ...[
               const SizedBox(width: PantasSpace.s12),
               // The result shows at the right end, and the semantics carry
               // it as words, so the mark is decoration.

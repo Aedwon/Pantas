@@ -15,6 +15,7 @@ import 'content_approval_check.dart';
 import 'custom_subject_tiers.dart';
 import 'design_token_literals.dart';
 import 'figure_classes.dart';
+import 'internal_terms.dart';
 import 'legal_text_drafting.dart';
 import 'lesson_list_exam_scope.dart';
 import 'lesson_minutes_on_screen.dart';
@@ -47,6 +48,7 @@ const allChecks = <Check>[
   QuestionIdLimitsCheck(),
   SessionStoredOrderCheck(),
   FigureClassesCheck(),
+  InternalTermsCheck(),
 ];
 
 void main() {
