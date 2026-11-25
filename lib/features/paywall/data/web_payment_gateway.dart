@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:meta/meta.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/platform/account_access.dart';
 import 'package:pantas/core/platform/callable_options.dart';
@@ -22,6 +25,8 @@ const _webTrialProduct = 'web_trial';
 /// A web trial is a Civil Service Monthly trial that never charges, so it
 /// takes the shape the mobile Monthly trial already has.
 const _trialAsProduct = 'pantas_cs_monthly';
+
+/// The product id the server writes on a tester reward grant.
 
 /// Maps rows of the server grant ledger (`users/{uid}/grants`) into the
 /// app's existing [Entitlement], so no model change is needed (ruling C1
@@ -87,7 +92,10 @@ Entitlement entitlementFromGrants(
       continue;
     }
     final product = productForId(productId);
-    if (product != null) connected.add(_Held(productId, endsAt));
+    // A pass covers its exam only, so it never connects a queued plan.
+    if (product != null && product.kind != ProductKind.pass) {
+      connected.add(_Held(productId, endsAt));
+    }
     if (product?.kind == ProductKind.subscription) {
       subscriptions.add(_Held(productId, endsAt));
     } else if (product?.kind == ProductKind.promotional) {
@@ -198,7 +206,9 @@ class WebPaymentGateway implements RevenueCatPassGateway {
     required WebUrlOpener openUrl,
     PaymentEntitlementState? entitlementState,
     DateTime Function()? now,
-  })  : _callable = callable,
+    bool followClock = false,
+  })  : _followClock = followClock,
+        _callable = callable,
         _readGrants = readGrants,
         _refreshClaims = refreshClaims,
         _openUrl = openUrl,
@@ -212,8 +222,22 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   final WebUrlOpener _openUrl;
   final PaymentEntitlementState _state;
   final DateTime Function() _now;
+
+  /// True in the app: the state is recomputed when a queued grant starts or
+  /// a held one ends. Off by default so a test has no timer left running.
+  final bool _followClock;
   String? _uid;
   int _identityRevision = 0;
+  int _readRequest = 0;
+
+  /// The newest request whose reply was published for this identity.
+  int _publishedRequest = 0;
+
+  /// The ledger rows behind the published state, kept so the state can be
+  /// recomputed when a queued grant starts or a held one ends.
+  List<Map<String, dynamic>> _rows = const [];
+  Timer? _boundary;
+  int _boundaryGeneration = 0;
   bool _googlePlayPlanRenews = false;
 
   /// True only after an owner-bound server reply confirms Play renewal.
@@ -236,13 +260,14 @@ class WebPaymentGateway implements RevenueCatPassGateway {
     await initialize();
     if (_uid != uid) {
       _identityRevision++;
+      _forgetReads();
       _googlePlayPlanRenews = false;
     }
     if ((_uid ?? await _state.readOwner()) != uid) await _state.clear();
     _uid = uid;
     await _state.writeOwner(uid);
     try {
-      await _readEntitlement(uid);
+      await _readEntitlement(uid, _identityRevision);
     } catch (_) {
       // A failed read is no news. Keep what was confirmed before.
     }
@@ -252,12 +277,20 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   Future<void> clearIdentity() async {
     _uid = null;
     _identityRevision++;
+    _forgetReads();
     _googlePlayPlanRenews = false;
     await _state.clear();
   }
 
   @override
   Future<void> logOut() => clearIdentity();
+
+  void _forgetReads() {
+    _boundary?.cancel();
+    _boundary = null;
+    _publishedRequest = 0;
+    _rows = const [];
+  }
 
   /// Reads real end dates without turning past access into current coverage.
   Future<List<WebGrantHistory>> grantHistory() async {
@@ -331,6 +364,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   @override
   Future<PaymentOperationResult> restorePurchases() async {
     final uid = _uid;
+    final revision = _identityRevision;
     if (uid == null) {
       return const PaymentOperationResult.failure(
         status: PaymentOperationStatus.configurationFailure,
@@ -343,7 +377,7 @@ class WebPaymentGateway implements RevenueCatPassGateway {
       // a token that stays behind.
     }
     try {
-      final entitlement = await _readEntitlement(uid);
+      final entitlement = await _readEntitlement(uid, revision);
       if (entitlement == null) {
         return const PaymentOperationResult.failure(
           status: PaymentOperationStatus.operationAlreadyInProgress,
@@ -425,16 +459,84 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   }
 
   /// Reads the ledger for [uid] and keeps it as the confirmed entitlement.
-  /// Returns null when the signed-in account changed while reading.
-  Future<Entitlement?> _readEntitlement(String uid) async {
+  /// Returns null when the account changed since [revision] was taken.
+  ///
+  /// The newest reply that succeeds wins. A reply is dropped only when a
+  /// newer one was already published, and it then answers with that newer
+  /// state. A failed read publishes nothing and drops no other reply.
+  Future<Entitlement?> _readEntitlement(String uid, int revision) async {
+    bool sameAccount() => _uid == uid && _identityRevision == revision;
+    if (!sameAccount()) return null;
+    final request = ++_readRequest;
     final rows = await _readGrants(uid);
-    if (_uid != uid) return null;
-    final entitlement = entitlementFromGrants(rows, at: _now());
+    if (!sameAccount()) return null;
+    if (request < _publishedRequest) return _state.current;
+    _publishedRequest = request;
+    _rows = rows;
+    // One reading of the clock maps the rows and sets the next wake-up, so a
+    // boundary crossed in between cannot be skipped.
+    final at = _now();
+    final entitlement = entitlementFromGrants(rows, at: at);
+    _scheduleBoundary(at);
     await _state.acceptAuthoritative(
       entitlement,
-      shouldContinue: () => _uid == uid,
+      shouldContinue: () => sameAccount() && request >= _publishedRequest,
     );
-    return _uid == uid ? entitlement : null;
+    if (!sameAccount()) return null;
+    return request >= _publishedRequest ? entitlement : _state.current;
+  }
+
+  /// A longest wait, so a long timer never overflows and a changed clock is
+  /// noticed within a day.
+  static const _longestWait = Duration(days: 1);
+
+  /// True when the state follows the clock (see the constructor).
+  @visibleForTesting
+  bool get followsClock => _followClock;
+
+  /// Wakes at the next start or end among the kept rows, as seen at [at].
+  /// At the wake-up it reads the server again, never the kept rows: a grant
+  /// refunded or revoked since the last read must not turn on.
+  void _scheduleBoundary(DateTime at) {
+    _boundary?.cancel();
+    _boundary = null;
+    final generation = ++_boundaryGeneration;
+    if (!_followClock) return;
+    DateTime? next;
+    for (final row in _rows) {
+      if (row['state'] != 'active') continue;
+      for (final key in const ['startsAt', 'endsAt']) {
+        final value = row[key];
+        if (value is! int) continue;
+        final moment = DateTime.fromMillisecondsSinceEpoch(value, isUtc: true);
+        if (moment.isAfter(at) && (next == null || moment.isBefore(next))) {
+          next = moment;
+        }
+      }
+    }
+    if (next == null) return;
+    var wait = next.difference(at);
+    if (wait > _longestWait) wait = _longestWait;
+    if (wait < const Duration(milliseconds: 1)) {
+      wait = const Duration(milliseconds: 1);
+    }
+    final uid = _uid;
+    final revision = _identityRevision;
+    if (uid == null) return;
+    _boundary = Timer(wait, () async {
+      bool sameAccount() => _uid == uid && _identityRevision == revision;
+      if (!sameAccount()) return;
+      try {
+        await _readEntitlement(uid, revision);
+      } catch (_) {
+        // A failed read is no news. Keep what is shown.
+      }
+      // No new wake-up was set (the read failed or was dropped): look for
+      // the next boundary in the rows already kept.
+      if (sameAccount() && generation == _boundaryGeneration) {
+        _scheduleBoundary(_now());
+      }
+    });
   }
 
   @override
@@ -569,6 +671,13 @@ PaymentOperationStatus _statusForError(Object error) {
   // The server's refusal of a checkout without the right declaration.
   if (_declarationKindFrom(error) != null) {
     return PaymentOperationStatus.guardianConfirmationRequired;
+  }
+  // The server does not take payments yet.
+  if (error is FirebaseFunctionsException &&
+      error.code == 'failed-precondition' &&
+      error.details is Map &&
+      (error.details as Map)['reason'] == 'checkout-closed') {
+    return PaymentOperationStatus.checkoutClosed;
   }
   return switch (error.code) {
     'invalid-argument' ||
