@@ -20,11 +20,6 @@ import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
 
 export 'package:pantas/core/ui/web/web_debrief_loading.dart';
 
-/// Side padding of the title, so a long title never runs under Done at the
-/// top right (Done is about 100 px wide; the same room is kept at the left
-/// so the title stays centered).
-const double _doneClearance = 136;
-
 class WebSessionResults extends StatelessWidget {
   const WebSessionResults({
     required this.session,
@@ -164,15 +159,18 @@ class WebSessionResults extends StatelessWidget {
                             children: [
                               // Wide button placement (patterns.md): a results
                               // page puts Done top right, level with the
-                              // title. The title stays centered; its side
-                              // padding keeps a long title clear of Done.
-                              Stack(
-                                alignment: Alignment.center,
+                              // title. The title stays centered.
+                              Row(
+                                // Space a short title leaves goes evenly to
+                                // both sides, so Done still ends the row.
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: _doneClearance,
-                                    ),
+                                  // Equal sides keep the title centered;
+                                  // Done sits at the right end of the row.
+                                  const Expanded(child: SizedBox.shrink()),
+                                  Flexible(
+                                    flex: 2,
                                     child: Text(
                                       misses.isEmpty
                                           ? 'Perfect!'
@@ -181,20 +179,22 @@ class WebSessionResults extends StatelessWidget {
                                       textAlign: TextAlign.center,
                                     ),
                                   ),
-                                  Align(
-                                    alignment: Alignment.centerRight,
-                                    child: appear(
-                                      WebButton(
-                                        key: const ValueKey('results-done'),
-                                        label: 'Done',
-                                        large: true,
-                                        onPressed: nextBusy ? null : onDone,
-                                        variant: next
-                                            ? WebButtonVariant.white
-                                            : WebButtonVariant.primary,
+                                  Expanded(
+                                    child: Align(
+                                      alignment: Alignment.centerRight,
+                                      child: appear(
+                                        WebButton(
+                                          key: const ValueKey('results-done'),
+                                          label: 'Done',
+                                          large: true,
+                                          onPressed: nextBusy ? null : onDone,
+                                          variant: next
+                                              ? WebButtonVariant.white
+                                              : WebButtonVariant.primary,
+                                        ),
+                                        1700,
+                                        300,
                                       ),
-                                      1700,
-                                      300,
                                     ),
                                   ),
                                 ],
