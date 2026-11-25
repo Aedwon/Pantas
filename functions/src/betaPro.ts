@@ -47,6 +47,9 @@ export async function changeBetaPro(request: Pick<CallableRequest, 'auth' | 'app
     if (until === null || now >= until || until > BETA_CUTOFF) {
       throw new HttpsError('failed-precondition', 'The beta has ended.');
     }
+    if ((await tx.get(deps.db.doc(`accountDeletions/${uid}`))).exists) {
+      throw new HttpsError('failed-precondition', 'This account is closed.');
+    }
     const inputs = await readEntitlementInputs(tx, deps.db, uid);
     const id = `beta_${examId}`, previous = inputs.grants.get(id);
     const enabled = data.enabled as boolean;

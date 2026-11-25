@@ -4,6 +4,7 @@ import {getStorage} from 'firebase-admin/storage';
 import {writeAuditLog, type assertNamedUser} from './_audit.js';
 import {deleteGuardianRecords} from './guardianConsent.js';
 import {retirePublicId} from './publicId.js';
+import {webProduct} from './paymongoPolicy.js';
 import {clearPassOwnership} from './revenuecatPasses.js';
 import {skipsMarkerWrite, trialMarker} from './trialMarker.js';
 import {identityMarkers, identityMarkersForUser} from './webTrial.js';
@@ -20,6 +21,35 @@ export type DeletionOptions = {
   requestAuth?: Parameters<typeof assertNamedUser>[0];
   now?: () => number;
 };
+
+const owesRefund = (doc: {get(field: string): unknown}) => doc.get('status') === 'pending' && doc.get('refundRequired') === true;
+
+/**
+ * Rewrites a refund task with only the fields below: no uid, product, exam or other personal
+ * detail. The paid amount and refunds come from the grant when it still exists. The task and the
+ * grant are read and the task is written in one transaction, so a refund that commits at the same
+ * time either lands in the copy or makes this transaction retry; no refund is overwritten.
+ */
+async function keepRefundTask(db: Firestore, ref: FirebaseFirestore.DocumentReference, now: number,
+  grantRef?: FirebaseFirestore.DocumentReference): Promise<boolean> {
+  return db.runTransaction(async transaction => {
+    const doc = await transaction.get(ref);
+    if (!doc.exists || !owesRefund(doc)) return false;
+    const grant = grantRef ? (await transaction.get(grantRef)).data() as {paidAmount?: unknown; refunds?: unknown} | undefined : undefined;
+    const refunds = {...(grant?.refunds as Record<string, number> | undefined),
+      ...(doc.get('refunds') as Record<string, number> | undefined)};
+    const price = webProduct(doc.get('product'))?.webPricePhp;
+    const paidAmount = doc.get('paidAmount') ?? grant?.paidAmount ?? (price ? price * 100 : undefined);
+    const fields: Record<string, unknown> = {paymentId: doc.get('paymentId') ?? doc.id,
+      sessionId: doc.get('sessionId'), eventId: doc.get('eventId'),
+      paidAmount: typeof paidAmount === 'number' && Number.isFinite(paidAmount) ? paidAmount : undefined,
+      refunds: Object.keys(refunds).length ? refunds : undefined, reason: doc.get('reason'),
+      status: 'pending', refundRequired: true, createdAt: doc.get('createdAt') ?? now};
+    for (const key of Object.keys(fields)) if (fields[key] === undefined) delete fields[key];
+    transaction.set(ref, fields);
+    return true;
+  });
+}
 
 /**
  * Deletes everything held for one account, then the Auth user last so that a failed cleanup leaves
@@ -92,12 +122,37 @@ export async function deleteUserData(
   await task.set({destructiveAt}, {merge: true});
   await retirePublicId(db, uid);
   await deleteGuardianRecords(db, uid);
+  // A refund still owed is written first, with the paid amount and the refunds so far, so the
+  // grant ledger can go without losing it. A stop partway leaves the task complete and uid-free.
+  for (const doc of (await db.collection('paymongoFollowUps').where('uid', '==', uid).get()).docs) {
+    if (!owesRefund(doc)) continue;
+    await keepRefundTask(db, doc.ref, now, userRef.collection('grants').doc(doc.id));
+  }
+  // Close pending checkout reservations with the rest of the user tree. The PayMongo
+  // client cannot expire hosted links. A payment on one still reaches the refund queue.
   await db.recursiveDelete(userRef);
   await clearPassOwnership(db, uid);
-  // The payment-to-account index is account data; the grant ledger went with the user tree.
+  // The payment-to-account index keeps one minimal record per payment, with no uid, so a later
+  // redelivery of a fulfilled payment is a duplicate and opens no refund task. Checkout and order
+  // records are cut down the same way. A follow-up that
+  // still owes a refund keeps its payment details without the uid; every other follow-up goes.
   for (const collection of ['paymongoPayments', 'paymongoOrders', 'paymongoCheckouts', 'paymongoFollowUps']) {
-    const payments = await db.collection(collection).where('uid', '==', uid).get();
-    await Promise.all(payments.docs.map((doc) => doc.ref.delete()));
+    const rows = await db.collection(collection).where('uid', '==', uid).get();
+    await Promise.all(rows.docs.map((doc) => {
+      if (collection === 'paymongoPayments') return doc.ref.set({accountDeleted: true, deletedAt: now});
+      // A checkout link stays payable after deletion. Its record keeps only the quote, so a payment on
+      // it reaches the webhook's closed-account path and becomes a refund task.
+      if (collection === 'paymongoCheckouts' || collection === 'paymongoOrders') {
+        const quote = doc.get('amountCentavos');
+        return doc.ref.set({accountDeleted: true, deletedAt: now, product: doc.get('product') ?? null,
+          ...(typeof quote === 'number' ? {amountCentavos: quote} : {})});
+      }
+      // A task closed since the read is no longer owed and goes with the rest.
+      if (collection === 'paymongoFollowUps' && owesRefund(doc)) {
+        return keepRefundTask(db, doc.ref, now).then(kept => kept ? undefined : doc.ref.delete());
+      }
+      return doc.ref.delete();
+    }));
   }
   // trialUsedIdentities contains only keyed hashes and deliberately survives deletion.
 

@@ -183,6 +183,30 @@ test('reaudit 5: removing native coverage re-anchors queued web time', async () 
   assert.equal(record.pro, true);
 });
 
+test('a store subscription expiry moves a queued beta reward earlier and keeps its length', async () => {
+  const uid = 'ra5-reward-native'; await reset(uid);
+  const t0 = Date.parse('2026-10-30T00:00:00Z');
+  const nativeEnd = Date.parse('2026-11-20T00:00:00Z');
+  const YEAR = 365 * 86_400_000;
+  const source = {productId: 'pantas_cs_monthly', entitlementIds: ['pro'], appId: 'app-test',
+    environment: 'production', store: 'play_store', endsAt: nativeEnd, active: true};
+  const deliver = async (id, sources, at) => {
+    const body = {event: {id, type: 'EXPIRATION', app_user_id: uid, app_id: 'app-test', environment: 'PRODUCTION'}};
+    const raw = Buffer.from(JSON.stringify(body)); const t = Math.floor(at / 1000);
+    return reconcileWebhook(body, raw, `t=${t},v1=${createHmac('sha256', 'rc-secret').update(`${t}.`).update(raw).digest('hex')}`, {
+      db, auth: fakeAuth(), appId: 'app-test', firebaseProjectId: 'pantas-prod', signingSecret: 'rc-secret',
+      now: () => at, readCustomer: async () => sources});
+  };
+  assert.equal(await deliver('evt_ra5r_buy', [source], t0), 200);
+  await db.doc(`users/${uid}/grants/beta_reward_exam_cse_pro`).set({source: 'beta_reward', product: 'beta_reward',
+    tier: 'civilService', examId: 'exam_cse_pro', startsAt: nativeEnd, endsAt: nativeEnd + YEAR, state: 'active', createdAt: t0});
+  const later = t0 + 60000;
+  assert.equal(await deliver('evt_ra5r_expire', [{...source, active: false}], later), 200);
+  const reward = await grantDoc(uid, 'beta_reward_exam_cse_pro');
+  assert.equal(reward.startsAt, later);
+  assert.equal(reward.endsAt - reward.startsAt, YEAR);
+});
+
 // Finding 6
 test('reaudit 6: a promotional entitlement counts as coverage and web purchases queue behind it', async () => {
   const uid = 'ra6-promo'; await reset(uid);
