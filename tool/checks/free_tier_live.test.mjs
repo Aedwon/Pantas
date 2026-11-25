@@ -107,10 +107,14 @@ test('alerting: no SKU and no priced SKU is OK; a priced alerting SKU with polic
   assert.equal(status(data({}, {}, priced), 'alerting'), 'OK');
 });
 
-test('reCAPTCHA: the daily caps times 31 days stay at or under 10,000', () => {
+test('reCAPTCHA: staging fits the free tier alone; prod is user traffic up to his approved 1,000 a day', () => {
   assert.equal(status(data({recaptchaCap: 280}, {recaptchaCap: 40}), 'reCAPTCHA'), 'OK');
-  assert.equal(status(data({recaptchaCap: 300}, {recaptchaCap: 300}), 'reCAPTCHA'), 'OVER');
+  // Launch limits (Nov 25, his "yes"): prod 1,000 a day; past 10,000 a month only users can cost money.
+  assert.equal(status(data({recaptchaCap: 1000}, {recaptchaCap: 40}), 'reCAPTCHA'), 'WARN');
+  assert.equal(status(data({recaptchaCap: 1001}, {recaptchaCap: 40}), 'reCAPTCHA'), 'OVER');
+  assert.equal(status(data({recaptchaCap: 280}, {recaptchaCap: 330}), 'reCAPTCHA'), 'OVER');
   assert.equal(status(data({recaptchaCap: -1}, {recaptchaCap: 40}), 'reCAPTCHA'), 'OVER');
+  assert.equal(status(data({recaptchaCap: 280}, {recaptchaCap: -1}), 'reCAPTCHA'), 'OVER');
   assert.match(find(rows(data({recaptchaCap: 280}, {recaptchaCap: 40})), 'reCAPTCHA').detail, /9920 .*free 10000/);
 });
 

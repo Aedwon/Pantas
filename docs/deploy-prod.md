@@ -283,11 +283,11 @@ passes about $20 a month across both projects. Private detail (ids, exact rollba
 
 What is in place:
 
-- **Budget email:** one $20-a-month budget on the whole billing account (prod and staging). Email at
-  $10, at 100% actual and at 100% forecast.
+- **Budget email:** one $40-a-month budget on the whole billing account (prod and staging). Email at
+  $20, at 100% actual and at 100% forecast. Raised from $20 on Nov 25 (launch limits at 500 sign-ups, his "yes").
 - **Automatic cutoff:** a `billing-cutoff` Cloud Run function in each project, on the `billing-cutoff`
   Pub/Sub topic. It removes the billing account from its own project when either:
-  - that project's cutoff budget passes its amount (staging $5; prod $15, which Aedwon raises as the
+  - that project's cutoff budget passes its amount (staging $5; prod $30 since Nov 25, was $15, which Aedwon raises as the
     user base grows), or
   - a usage alarm named `billing-cutoff: ...` opens (Hosting bytes, Storage egress, Firestore reads,
     Firestore writes, each per hour and per day). Alarms react within minutes; budget data lags hours.
@@ -297,10 +297,16 @@ What is in place:
   ruling, Nov 14). On Nov 21, compare them with a week of prod peaks, then wire each one: rename it to
   `billing-cutoff: ...` and add a Pub/Sub notification channel for the `billing-cutoff` topic (first
   grant the project's Monitoring notification agent `roles/pubsub.publisher` on the topic; the agent
-  exists once a Pub/Sub channel is created). Prod's budget cutoff ($15) is live now.
+  exists once a Pub/Sub channel is created). Prod's budget cutoff ($30 since Nov 25; was $15) is live now.
 - **Spend caps:** each project pauses Cloud Run and Cloud Run functions at $5 a month (Google's spend
   cap feature). New function requests pause until the next month or a lift.
-- **Bot-check cap:** reCAPTCHA assessments are limited to 300 a day per project (resets at Pacific midnight).
+- **Bot-check cap:** reCAPTCHA assessments are limited per project per day (resets at Pacific midnight): prod 1,000
+  (Nov 25, launch limits; was 280), staging 40. Prod's App Check token lives 6 hours (Nov 25; was 1 hour), so a
+  signed-in student needs about 4 assessments a day at most. Free up to 10,000 a month, then $8 flat to 100,000.
+- **Sign-in mail:** Resend Free, 100 a day across sign-in, guardian and the website. Prod caps (Nov 25): open 60,
+  reserved 30; guardian mail is closed (option C). Above 80 sign-in mails in a Philippine day the function logs
+  `Sign-in emails passed 80 today`, and the prod alert "Sign-in mail above 80 a day" emails the owner. Moving to
+  Resend Pro ($20 a month) is his call.
 - **Instance caps:** 3 per function, 10 for the payment webhooks, 5 for account deletion (in code).
 - **NPC registration alert:** the daily job counts users whose age group is on file and logs
   `npc registration threshold near <count> of 1000` at 800 or more (NPC Circular 2022-04 makes
