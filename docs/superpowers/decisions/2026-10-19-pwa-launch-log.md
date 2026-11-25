@@ -4591,3 +4591,13 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 ### Nov 25, about 10:20 PM Manila: homepage seller line approved (operations manager)
 
 - Aedwon, verbatim: "yes on that", to the footer line under the founder note: "Pantas Online Tutorial Services · 19 Manuel Roxas St., Poblacion, Norala, South Cotabato 9508, Philippines · +63 968 854 2343 · support@pantas.study" (pantas-web legal/homepage-seller-r1). Publishes with the legal pages at the opening.
+
+### Nov 25, legal Sol High round 6: trial code period and accounts made before publication (CSE release lead r7, E-178)
+
+- **Manager, verbatim:** "yes, run the one Sol High round now. It covers the trial-code expiry fix ("no scheduled expiry" becomes the built 730-day period) and the D5 existing-account line at your recommendation. Name in your report the search you did for D5."
+- **D5 search before drafting:** rulings file "D5. Ruling: option A for launch" (incl. "Finding that affects the launch (check 9)"); legal README "Where the app and the text disagree" (L7 and the 14-day notice item); checklist L1 and L7; signed-off terms.md section 12 and teen-notice.md "Changes to this notice"; the live in-app Terms "Changes to these Terms" on main; the Home notice strip code (home_notices.dart). Terms: D5, 14 days, created before, before publication, re-accept, notice strip. Found: the D5 line was never added; no existing-account notice is built; a Home notice strip exists.
+- **Sol High (codex-pick account b; accounts a and c returned 401, logged out):** 1 Blocker (the Terms line made elapsed time look like acceptance and stretched checkout assent to the account agreement), 1 Major (TTL timing not guaranteed; the pre-Nov 24 sentence covered rows that do not exist), 1 Minor (Terms section 4 "does not give you another trial" read as a permanent bar). All applied with Sol High's wording. Critique: `docs/legal-drafts/2026-11-22-public-launch/critique-2026-11-25b-sol-high.md` on `legal/publish-r1`.
+- **Where:** PR #110 `legal/publish-r1` 6239771ba (signed-off files, app texts, change-summary "Round 6"); pantas-web `legal/public-pages-r1` 734096a, which now also holds the approved homepage seller line (his "yes on that"; `legal/homepage-seller-r1` merged and removed).
+- **Checks:** app legal tests 37 of 37 (review-match: app equals the signed-off files), analyze clean; website tests 192 of 192.
+- **Follow-up, not an opening gate:** a one-time in-app notice of the new Terms for accounts made before publication, with the first display recorded per account. Until an account sees it, its earlier Terms apply.
+- **His check (rule 5):** the three changed passages, in change-summary "Round 6".
