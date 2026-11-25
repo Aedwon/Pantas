@@ -8,7 +8,9 @@
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 dart run build_runner build --delete-conflicting-outputs
-flutter build web --release -t lib/main_staging.dart \
+# --no-web-resources-cdn puts CanvasKit in the build, so the service worker can store it and the
+# app starts offline; the deploy guard refuses a build that loads it from Google's servers.
+flutter build web --release --no-web-resources-cdn -t lib/main_staging.dart \
   --dart-define=APP_CHECK_WEB_SITE_KEY=6Lcp8xUuAAAAAICQRMX8-J2JYzU5dxKsj8Qp3sQa \
   --dart-define=BUILD_NUMBER="$(git rev-list --count HEAD)"
 node tool/web/stamp_worker_version.mjs build/web

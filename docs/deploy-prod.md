@@ -168,7 +168,7 @@ The upload writes server-only content paths, not `betaApplications`.
 ## 8. Build and publish the app (Aedwon-only)
 
 ```sh
-flutter build web --release -t lib/main_prod.dart --dart-define=APP_CHECK_WEB_SITE_KEY=<PROD_PUBLIC_SITE_KEY> \
+flutter build web --release --no-web-resources-cdn -t lib/main_prod.dart --dart-define=APP_CHECK_WEB_SITE_KEY=<PROD_PUBLIC_SITE_KEY> \
   --dart-define=SELLER_TRADING_NAME="<registered business name>" \
   --dart-define=SELLER_PLACE_OF_BUSINESS="<full place of business>" \
   --dart-define=SELLER_PHONE="<business phone>"
@@ -176,9 +176,18 @@ node tool/web/stamp_worker_version.mjs build/web
 tool/cloudflare-app/deploy.sh prod build/web
 ```
 
-The stamp writes the build id and a SHA-256 for every startup file into the service worker. `deploy.sh` runs
-`tool/deploy/check_worker_stamp.mjs` first and refuses an unstamped build or one changed after the stamp. Run the
-stamp again after any change to `build/web`.
+`--no-web-resources-cdn` puts CanvasKit in the build, so the service worker can store it and the app starts with no
+connection. The stamp moves every file a page loads into `b/<id>/` and the page names those URLs; the root keeps only
+the page, the worker, `version.json`, `manifest.json` and the icons. The stamp writes the build id and a SHA-256 for
+every startup file into the service worker. `deploy.sh` runs
+`tool/deploy/check_worker_stamp.mjs` on the folder it stages, before anything is uploaded. The guard refuses an
+unstamped build, one changed after the stamp, one missing a file the app boots from (the database worker, sqlite3.wasm,
+the renderer, the helper scripts) and one built without `--no-web-resources-cdn`. Run the stamp again after any change
+to `build/web`.
+
+**The first release with build folders only rolls forward.** After phones hold it, the guard refuses a build with the
+worker that shipped before (it has no build constant). Roll back by deploying an earlier stamped build; the plan is
+`docs/superpowers/plans/2026-11-25-sw-build-mix-option1.md`, Revision 1.
 
 The Cloudflare Worker serves the app (section 14). Firebase Hosting serves only the tiny page in
 `hosting/retired`, so a release never deploys Hosting.
