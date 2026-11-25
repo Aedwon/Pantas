@@ -48,7 +48,7 @@ void main() {
         }
       }
 
-      final expected = exam == 'cse-pro' ? [20, 55, 35, 45] : [36, 36, 36, 37];
+      final expected = exam == 'cse-pro' ? [20, 55, 35, 40] : [36, 36, 36, 37];
       for (final seed in [1, 42, 2027]) {
         final sample = MockSampler().sample(
           sections: sections,

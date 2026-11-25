@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -84,12 +85,28 @@ void main() {
       testWidgets('paused tab at dark=$dark scale=$scale', (tester) async {
         state = const SessionPanelInProgress(position: 6, total: 10);
         await pump(tester, dark: dark, scale: scale, still: true);
-        expect(
-          find.text('You paused. Every answer was saved.'),
-          findsOneWidget,
-        );
+        // Board A (his pick Nov 25): no sentence.
+        expect(find.textContaining('You paused'), findsNothing);
         expect(find.text('6 of 10'), findsNothing);
         expect(find.text('Resume'), findsOneWidget);
+        // Board A: Discard is centered under the full-width Resume,
+        // at its natural width (a full-width box left-aligns the letters).
+        final discard = tester.renderObject<RenderParagraph>(
+          find.text('Discard this session'),
+        );
+        expect(
+          discard.size.width,
+          lessThanOrEqualTo(
+            discard.getMaxIntrinsicWidth(double.infinity) + 1,
+          ),
+        );
+        expect(
+          tester.getCenter(find.text('Discard this session')).dx,
+          moreOrLessEquals(
+            tester.getCenter(find.text('Resume')).dx,
+            epsilon: 1,
+          ),
+        );
         expect(find.text('3 of 7'), findsOneWidget);
         final row = find.ancestor(
           of: find.text('Customize your own'),

@@ -145,11 +145,13 @@ void main() {
         expect(_bg(tester, 8), c.surfaceCard);
         expect(_bg(tester, 8, states), c.surfaceHover);
         expect(_style(tester, 8).side!.resolve({})!.color, c.borderControl);
-        // Every pair is a button of at least 44.
+        // Every pair is a button of at least 44, but a wide text button
+        // (the tertiary pairs, 5 to 7) is the boards' 42.
         for (var i = 0; i < 9; i++) {
+          final wideText = cell.width >= 1024 && i >= 5 && i <= 7;
           expect(
             tester.getSize(find.byType(TextButton).at(i)).height,
-            greaterThanOrEqualTo(44),
+            greaterThanOrEqualTo(wideText ? 42 : 44),
           );
         }
       },
@@ -287,7 +289,8 @@ void main() {
         ],
       ),
       check: (tester, cell) async {
-        final minimums = [36, 44, 42, 50, 46, 46, 44, 44, 52];
+        // The two phone text sizes have no wide form: they draw as standard.
+        final minimums = [36, 44, 42, 50, 46, 46, 44, 44, 52, 44, 44, 40];
         for (var i = 0; i < PantasButtonSize.values.length; i++) {
           final h = tester.getSize(find.byType(TextButton).at(i)).height;
           // The height is a minimum: it grows when the label wraps.

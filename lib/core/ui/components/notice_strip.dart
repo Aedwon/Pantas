@@ -243,6 +243,8 @@ class NoticeStrip extends StatelessWidget {
                           onPressed: onSecondary,
                           height: PantasSize.btn,
                           fontSize: PantasType.webLink.fontSize,
+                          // An equal half of the pair, as the board draws it.
+                          fullWidth: true,
                         ),
                       ),
                   ],

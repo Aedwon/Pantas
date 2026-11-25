@@ -667,16 +667,42 @@ test('the daily cap warns once at 80 percent, and a zero cap holds everything ba
   assert.equal(zero.mailer.sent.length, 0);
 });
 
-test('the default open cap is 60 and the production file sets 20 and 40', async () => {
+test('the default open cap is 60 and the production file sets 60 and 30', async () => {
   const env = readFileSync(new URL('../.env.pantas-prod', import.meta.url), 'utf8');
-  assert.match(env, /^SIGN_IN_DAILY_SEND_CAP=20$/m);
-  assert.match(env, /^SIGN_IN_DAILY_RESERVED_CAP=40$/m);
+  assert.match(env, /^SIGN_IN_DAILY_SEND_CAP=60$/m);
+  assert.match(env, /^SIGN_IN_DAILY_RESERVED_CAP=30$/m);
   const r = rig();
   for (let i = 0; i < 60; i += 1) await r.send(`u${i}@example.com`);
   await r.send('z@example.com');
   assert.equal(r.mailer.sent.length, 60);
 });
 
+
+// Launch limits (Nov 25, his "yes"): mail stays on Resend Free (100 a day), with one alert when sign-in
+// mails pass 80 in a Philippine day, counting both buckets.
+const passed80 = alerts => alerts.filter(m => m.startsWith('Sign-in emails passed 80 today'));
+
+test('sign-in mail warns once when both buckets together pass 80 in a day', async () => {
+  const alerts = [];
+  const r = rig({send: {openCap: 60, reservedCap: 60, alert: m => alerts.push(m)}});
+  for (let i = 0; i < 25; i += 1) r.db.rows.set(`betaApplications/b${i}`, {email: `beta${i}@example.com`, selected: true});
+  for (let i = 0; i < 60; i += 1) await r.send(`u${i}@example.com`);
+  for (let i = 0; i < 20; i += 1) await r.send(`beta${i}@example.com`);
+  assert.deepEqual(passed80(alerts), [], 'exactly 80 does not warn');
+  await r.send('beta20@example.com');
+  assert.deepEqual(passed80(alerts), ['Sign-in emails passed 80 today (81, both buckets).']);
+  for (let i = 21; i < 25; i += 1) await r.send(`beta${i}@example.com`);
+  assert.equal(passed80(alerts).length, 1, 'once a day');
+});
+
+test('the 80 a day warning starts again on the next Philippine day', async () => {
+  const alerts = [];
+  const r = rig({send: {openCap: 100, alert: m => alerts.push(m)}});
+  for (let i = 0; i < 81; i += 1) await r.send(`u${i}@example.com`);
+  r.clock.advance(24 * 3_600_000);
+  for (let i = 0; i < 81; i += 1) await r.send(`v${i}@example.com`, {auth: caller('anonymous', 'day2')});
+  assert.equal(passed80(alerts).length, 2);
+});
 
 // ------------------------------------------------ stand-ins behave like real challenges
 

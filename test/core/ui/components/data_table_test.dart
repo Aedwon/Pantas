@@ -58,6 +58,34 @@ void main() {
     },
   );
 
+  // U23 (Nov 25): with the header gone, the columns no longer took the
+  // header's width and the rows stopped short of the card.
+  testWidgets('a table without a header spans its width', (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: Scaffold(
+          body: Center(
+            child: SizedBox(
+              width: 600,
+              child: PantasDataTable(
+                columns: columns,
+                rows: rows,
+                showHeader: false,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    expect(find.text('MOCK EXAM'), findsNothing);
+    final table = tester.getRect(find.byKey(const ValueKey('data-table')));
+    expect(table.width, 600);
+    // The last column ends at the card's padding, not part way across.
+    final last = tester.getRect(find.text('68.5%'));
+    expect(table.right - last.right, lessThan(32));
+  });
+
   testWidgets('a sort button reports its column', (tester) async {
     final sorted = <int>[];
     await pumpDs(

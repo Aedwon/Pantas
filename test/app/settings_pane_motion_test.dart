@@ -246,7 +246,7 @@ void main() {
     await tapRow(tester, 'About');
     await tester.pumpAndSettle();
     expect(where(), '/settings/about');
-    await tester.tap(find.text('Privacy Policy'));
+    await tester.tap(find.text('Privacy policy'));
     await tester.pumpAndSettle();
     expect(where(), '/legal/privacy');
     // A student presses Tab once to reach the page, then Esc.

@@ -273,6 +273,10 @@ class _WebSidebarState extends State<WebSidebar> {
     (label: 'Quiz', glyph: PantasIcons.quizTab),
     (label: 'Settings', glyph: PantasIcons.settingsTab),
   ];
+
+  /// Boards `.side`: 22 px of padding above the brand (20 below).
+  // ds-board: X_Side .side padding-top 22
+  static const double _topPadding = PantasSpace.s20 + PantasSpace.s2;
   static const _iconSize = 21.0;
   static const _searchIconSize = 18.0;
   static const _searchLabel = 'Search lessons';
@@ -367,7 +371,7 @@ class _WebSidebarState extends State<WebSidebar> {
         child: Padding(
           padding: const EdgeInsets.fromLTRB(
             PantasSpace.s14,
-            PantasSpace.s20,
+            _topPadding,
             PantasSpace.s14,
             PantasSpace.s20,
           ),
@@ -383,7 +387,11 @@ class _WebSidebarState extends State<WebSidebar> {
                 ),
                 child: Text(
                   'Pantas',
-                  style: PantasType.webH3Lg.copyWith(color: c.textPrimary),
+                  // Boards X_Side and W_QuizTab: -0.02em at 22 px.
+                  style: PantasType.webH3Lg.copyWith(
+                    color: c.textPrimary,
+                    letterSpacing: -PantasType.webH3Lg.fontSize! * 0.02,
+                  ),
                 ),
               ),
               const SizedBox(height: PantasSpace.s4),
@@ -392,9 +400,9 @@ class _WebSidebarState extends State<WebSidebar> {
                 onPressed: widget.onSearch,
                 iconSize: _searchIconSize,
               ),
-              // 4 of the sidebar gap and 10 under the search: the first
-              // destination sits 14 below it.
-              const SizedBox(height: PantasSpace.s14),
+              // Boards: the search has a 14 px margin under it and the
+              // column adds its 4 px gap, so Home sits 18 below.
+              const SizedBox(height: PantasSpace.s14 + PantasSpace.s4),
               // The selected row's fill is one marker that glides from row to
               // row, measured from the rows themselves.
               Stack(

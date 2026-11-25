@@ -9,6 +9,7 @@ How the components combine. The rules here were decided in review (HANDOFF hard 
 - With two buttons, the secondary comes first and the main one last (rightmost).
 - Card buttons are 44px. Dialog, notice and row buttons may be `btn--sm` (42px). A large button (50px) is only for the one action a page exists for.
 - Gap between two buttons: 8px.
+- Paired buttons stacked one above the other share width and height (Aedwon, Nov 25: "when they're vertically stacked"). The pair takes the wider natural width and the main button's height; a side-by-side pair keeps natural widths. Checked on wide screens by the placement check (E-175); phone stacks are unchanged pending a ruling.
 - Never a full-width button on a wide screen. `btn--block` works only below 1024px.
 
 ```

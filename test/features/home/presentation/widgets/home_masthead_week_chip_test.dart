@@ -31,6 +31,7 @@ Future<void> _pump(
   required DateTime now,
   required HomeWeekStripData week,
   double textScale = 1,
+  String examName = 'CSE Pro',
 }) async {
   await tester.pumpWidget(
     ProviderScope(
@@ -38,7 +39,7 @@ Future<void> _pump(
         homeMastheadProvider.overrideWith(
           (ref) async => HomeMastheadData(
             name: 'Aedwon',
-            examShortName: 'CSE Pro',
+            examShortName: examName,
             examDate: ExamDate.onDay(DateTime(2027, 3, 14)),
           ),
         ),
@@ -155,4 +156,36 @@ void main() {
     }
     expect(shown, inInclusiveRange(3, 5));
   });
+
+  // U14 ruling (Nov 25): "CSE Subpro" leaves room for four days beside the
+  // chip on a 390 phone; at 200% text the chip goes under the days (D196).
+  for (final scale in [1.0, 2.0]) {
+    testWidgets('CSE Subpro chip at 390, x$scale', (tester) async {
+      await _pump(
+        tester,
+        width: 390,
+        now: thursday,
+        week: _week(4),
+        textScale: scale,
+        examName: 'CSE Subpro',
+      );
+      expect(tester.takeException(), isNull);
+      final strip = tester.getRect(find.byType(WeekStrip));
+      final chip = tester.getRect(
+        find.byKey(const ValueKey('masthead-exam-chip')),
+      );
+      expect(find.text('CSE Subpro'), findsOneWidget);
+      if (scale == 1) {
+        final days = [
+          for (var i = 0; i < 5; i++)
+            if (find.byKey(ValueKey('week-day-$i')).evaluate().isNotEmpty) i,
+        ];
+        expect(days.length, 4);
+        expect(chip.left, greaterThanOrEqualTo(strip.right - 0.01));
+        expect(chip.top, lessThan(strip.bottom));
+      } else {
+        expect(chip.top, greaterThanOrEqualTo(strip.bottom));
+      }
+    });
+  }
 }

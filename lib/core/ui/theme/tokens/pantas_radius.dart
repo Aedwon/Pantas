@@ -38,8 +38,14 @@ abstract final class PantasRadius {
   /// Dialogs.
   static const double r2xl = 22;
 
-  /// Floating bottom bar (half its 64px height).
-  static const double bar = 32;
+  /// The wide report buttons (QN_Report: Cancel and Send, 10).
+  static const double report = 10;
+
+  /// Phone floating bottom bar (half its 60px height).
+  static const double bar = 30;
+
+  /// Wide floating bottom bar (half its 64px height).
+  static const double barWide = 32;
 
   /// Tags (D188), switches, dots, progress tracks, avatars, the tab bar and
   /// its items, and the pill buttons the approved boards draw: the floating

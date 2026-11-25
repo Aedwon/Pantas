@@ -280,26 +280,6 @@ void main() {
   });
 
   group('beta notice', () {
-    const survey = HomeNotice(
-      kind: HomeNoticeKind.beta,
-      title: '2 of 5 beta days. Ends Nov 22.',
-      detail: 'A day counts when you finish your whole Today plan. '
-          'Reach 5 by Nov 22 and send the exit survey to earn 1 year of Pro.',
-      dismissalToken: 'days:2|2026-11-16',
-      primaryLabel: 'Take the Survey',
-      secondaryLabel: 'Later',
-      route: betaNoticeSurveyRoute,
-    );
-    const days = HomeNotice(
-      kind: HomeNoticeKind.beta,
-      title: '2 of 5 beta days. Ends Nov 22.',
-      detail: 'A day counts when you finish your whole Today plan. '
-          'Reach 5 by Nov 22 to earn 1 year of Pro.',
-      dismissalToken: 'sent:2|2026-11-16',
-      primaryLabel: 'See Your Days',
-      secondaryLabel: 'Later',
-      route: betaNoticeFeedbackRoute,
-    );
     const earned = HomeNotice(
       kind: HomeNoticeKind.beta,
       title: 'You earned 1 year of Pro',
@@ -312,35 +292,27 @@ void main() {
       proIcon: true,
     );
 
-    for (final (notice, label, route) in [
-      (survey, 'Take the Survey', '/settings/beta-feedback/survey'),
-      (days, 'See Your Days', '/settings/beta-feedback'),
-      (earned, 'See Your Reward', '/settings/beta-feedback'),
-    ]) {
-      testWidgets('$label pushes $route and keeps the notice', (tester) async {
-        final calls = _Calls();
-        await show(tester, notice, calls);
-        await tester.tap(find.text(notice.title));
-        await tester.pumpAndSettle();
-        await tester.tap(find.text(label));
-        await tester.pumpAndSettle();
-        expect(calls.routes, [route]);
-        // Opening a page is not a dismissal.
-        expect(find.byType(NoticeStrip), findsOneWidget);
-      });
-    }
+    testWidgets('See Your Reward pushes the reward page and keeps the notice',
+        (tester) async {
+      final calls = _Calls();
+      await show(tester, earned, calls);
+      await tester.tap(find.text(earned.title));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('See Your Reward'));
+      await tester.pumpAndSettle();
+      expect(calls.routes, ['/settings/beta-feedback']);
+      // Opening a page is not a dismissal.
+      expect(find.byType(NoticeStrip), findsOneWidget);
+    });
 
-    testWidgets('Later stores the day token', (tester) async {
-      final prefs = await show(tester, survey, _Calls());
-      await tester.tap(find.text(survey.title));
+    testWidgets('Later stores the earned token for good', (tester) async {
+      final prefs = await show(tester, earned, _Calls());
+      await tester.tap(find.text(earned.title));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Later'));
       await tester.pumpAndSettle();
       expect(find.byType(NoticeStrip), findsNothing);
-      expect(
-        await prefs.deviceValue('home_notice_dismissed_beta'),
-        'days:2|2026-11-16',
-      );
+      expect(await prefs.deviceValue('home_notice_dismissed_beta'), 'earned');
     });
 
     testWidgets('the close button stores the earned token for good',
@@ -350,14 +322,6 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(NoticeStrip), findsNothing);
       expect(await prefs.deviceValue('home_notice_dismissed_beta'), 'earned');
-    });
-
-    testWidgets('days use the calendar icon', (tester) async {
-      await show(tester, survey, _Calls());
-      expect(
-        tester.widget<NoticeStrip>(find.byType(NoticeStrip)).icon,
-        PantasIcons.calendarBlank,
-      );
     });
 
     testWidgets('earned uses the accent Pro mark', (tester) async {
@@ -386,7 +350,7 @@ void main() {
           overrides: [
             appPreferencesRepositoryProvider
                 .overrideWithValue(AppPreferencesRepository(db)),
-            homeNoticeProvider.overrideWith((ref) async => survey),
+            homeNoticeProvider.overrideWith((ref) async => earned),
           ],
           child: MaterialApp(
             theme: buildLightTheme(web: true),
@@ -398,12 +362,12 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(find.byType(HomeWebNotice), findsOneWidget);
-      await tester.tap(find.text(survey.title));
+      await tester.tap(find.text(earned.title));
       await tester.pumpAndSettle();
-      expect(find.text(survey.detail!), findsOneWidget);
-      await tester.tap(find.text('Take the Survey'));
+      expect(find.text(earned.detail!), findsOneWidget);
+      await tester.tap(find.text('See Your Reward'));
       await tester.pumpAndSettle();
-      expect(routes, ['/settings/beta-feedback/survey']);
+      expect(routes, ['/settings/beta-feedback']);
     });
   });
 }

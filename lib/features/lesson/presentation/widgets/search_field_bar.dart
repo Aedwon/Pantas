@@ -9,11 +9,15 @@ class SearchFieldBar extends ConsumerWidget {
     this.onEditingChanged,
     this.entryAnimation = false,
     this.autofocus = false,
+    this.titleTop = 0,
     super.key,
   });
 
   final bool entryAnimation;
   final bool autofocus;
+
+  /// Space above the "Study" title (see [SearchField.titleTop]).
+  final double titleTop;
   final VoidCallback onCancel;
   final ValueChanged<bool>? onEditingChanged;
 
@@ -26,6 +30,7 @@ class SearchFieldBar extends ConsumerWidget {
           fieldEntryDelay:
               entryAnimation ? const Duration(milliseconds: 100) : null,
           titleInset: 4,
+          titleTop: titleTop,
           hint: 'Lessons, topics',
           onChanged: (query) =>
               ref.read(searchQueryProvider.notifier).state = query,

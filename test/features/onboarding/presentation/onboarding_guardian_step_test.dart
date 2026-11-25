@@ -41,6 +41,7 @@ void main() {
   Future<void> pump(
     WidgetTester tester, {
     VoidCallback? sent,
+    VoidCallback? closed,
     Brightness brightness = Brightness.light,
     double scale = 1,
     Size size = const Size(390, 844),
@@ -55,7 +56,10 @@ void main() {
             guardianGatewayProvider.overrideWithValue(gateway),
             telemetryProvider.overrideWithValue(sink),
           ],
-          child: OnboardingGuardianStep(onSent: sent ?? () {}),
+          child: OnboardingGuardianStep(
+            onSent: sent ?? () {},
+            onClosed: closed ?? () {},
+          ),
         ),
         brightness: brightness,
         textScale: scale,
@@ -188,6 +192,21 @@ void main() {
     await tester.tap(find.text('Try Again'));
     await tester.pumpAndSettle();
     expect(sent, 1);
+  });
+
+  testWidgets('a send the server refuses as closed ends on the blocked page',
+      (tester) async {
+    var sent = 0;
+    var closed = 0;
+    gateway.failure = const GuardianSignupClosedException();
+    await pump(tester, sent: () => sent++, closed: () => closed++);
+    await fill(tester);
+    await tester.tap(find.text('Send Link'));
+    await tester.pumpAndSettle();
+    expect(sent, 0);
+    expect(closed, 1);
+    expect(find.text('Could not save your progress.'), findsNothing);
+    expect(await AppPreferencesRepository(db).blockedMinimumAge(), 18);
   });
 
   testWidgets('too many sends says so, not "could not save" (5S-7)',

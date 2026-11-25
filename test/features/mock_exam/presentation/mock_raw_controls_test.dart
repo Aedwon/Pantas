@@ -163,7 +163,13 @@ void main() {
     final shape = style.shape!.resolve({WidgetState.hovered});
     expect(shape, isA<RoundedRectangleBorder>());
     expect(shape, isNot(isA<StadiumBorder>()));
-    expectHitArea(tester, find.byType(WebButton));
+    // A wide text button is the boards' 42 high `.btn3`.
+    expectHitArea(
+      tester,
+      find.byType(WebButton),
+      min: const Size(44, 42),
+      reason: 'wide text button, board .btn3',
+    );
   });
 
   testWidgets('the mock message shows as the system Toast', (tester) async {

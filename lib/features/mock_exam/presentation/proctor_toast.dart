@@ -6,23 +6,33 @@ import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
-String proctorCopyFor(int minutes) {
+/// A one-block paper (CSE) has no subjects with a time of their own, so its
+/// line drops "in this subject" (D191).
+String proctorCopyFor(int minutes, {bool oneBlock = false}) {
   final unit = minutes == 1 ? 'minute' : 'minutes';
-  return '$minutes $unit left in this subject.';
+  return oneBlock
+      ? '$minutes $unit left.'
+      : '$minutes $unit left in this subject.';
 }
 
-const proctorToastDisplayDuration = Duration(seconds: 8);
+/// Board MK_Proctor: the call stays above the bar for 2.5 seconds.
+const proctorToastDisplayDuration = Duration(milliseconds: 2500);
 
 class ProctorToast extends StatefulWidget {
   const ProctorToast({
     required this.minutes,
+    this.oneBlock = false,
     super.key,
   });
 
   final int minutes;
+
+  /// The paper is one block (CSE), so the line does not name a subject.
+  final bool oneBlock;
 
   @override
   State<ProctorToast> createState() => _ProctorToastState();
@@ -50,32 +60,51 @@ class _ProctorToastState extends State<ProctorToast> {
         ? colors.warningText
         : colors.textPrimary;
 
-    final copy = proctorCopyFor(widget.minutes);
+    final copy = proctorCopyFor(widget.minutes, oneBlock: widget.oneBlock);
     return Semantics(
       container: true,
       role: SemanticsRole.status,
       label: copy,
       excludeSemantics: true,
-      child: Container(
-        decoration: BoxDecoration(
-          color: colors.surfaceCard,
-          borderRadius: BorderRadius.circular(PantasRadius.r2xl),
-          border: Border.all(
-            color: colors.edgeCard,
-            width: PantasBorder.hairline,
-          ),
-          boxShadow: context.shadows.popover,
-        ),
-        padding: const EdgeInsets.symmetric(
-          horizontal: PantasSpace.s16,
-          vertical: PantasSpace.s10,
-        ),
+      child: MockToastSurface(
         child: Text(
           copy,
           textAlign: TextAlign.center,
           style: PantasType.webLabel.copyWith(color: color),
         ),
       ),
+    );
+  }
+}
+
+/// The mock's floating surface (board MK_Proctor): a card pill with a hairline
+/// edge and the popover shadow. The proctor call and a failed save sit on it.
+class MockToastSurface extends StatelessWidget {
+  const MockToastSurface({required this.child, super.key});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    return Container(
+      decoration: BoxDecoration(
+        color: colors.surfaceCard,
+        borderRadius: BorderRadius.circular(PantasRadius.r2xl),
+        border: Border.all(
+          color: colors.edgeCard,
+          width: PantasBorder.hairline,
+        ),
+        boxShadow: context.shadows.popover,
+      ),
+      // Board MK_Proctor: a 44 px pill, the content centered.
+      constraints: const BoxConstraints(minHeight: PantasSize.targetTouch),
+      alignment: Alignment.center,
+      padding: const EdgeInsets.symmetric(
+        horizontal: PantasSpace.s16,
+        vertical: PantasSpace.s10,
+      ),
+      child: child,
     );
   }
 }

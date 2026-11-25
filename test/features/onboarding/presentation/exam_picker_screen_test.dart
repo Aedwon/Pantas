@@ -533,8 +533,10 @@ void main() {
       (tester) async {
     await pump(tester, data: Stream.error(StateError('private details')));
     await tester.pumpAndSettle();
-    expect(find.text('Could not load your exams.'), findsOneWidget);
-    expect(find.text('Try Again'), findsOneWidget);
+    // Boards O_Picker and OB_PickerError: one line and a Retry action.
+    expect(find.text('Could not load exams.'), findsOneWidget);
+    expect(find.text('Retry'), findsOneWidget);
+    expect(find.text('Try Again'), findsNothing);
     expect(find.textContaining('private details'), findsNothing);
   });
   testWidgets('failed save keeps selection and retries the operation',

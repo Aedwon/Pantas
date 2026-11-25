@@ -439,6 +439,13 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           key: const ValueKey('guardian'),
           child: OnboardingGuardianStep(
             onBack: _back,
+            // The server closed under-18 sign-up. The block is saved, and the
+            // age step shows it.
+            onClosed: () {
+              if (_step == OnboardingStep.guardian) {
+                _setStep(OnboardingStep.age);
+              }
+            },
             // The link is on its way. The router holds the student on the
             // Waiting screen until a guardian confirms.
             onSent: () {

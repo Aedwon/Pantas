@@ -289,7 +289,13 @@ void main() {
     await tester.tap(find.text('Discard This Mock'));
     await tester.pumpAndSettle();
     expect(find.textContaining('Your 0'), findsNothing);
-    expect(find.textContaining('Nothing is answered yet.'), findsOneWidget);
+    expect(
+      find.text(
+        "You haven't answered anything yet. This attempt won't appear in "
+        "your record, and it doesn't use up a mock attempt.",
+      ),
+      findsOneWidget,
+    );
     expect(
       find.textContaining("doesn't use up a mock attempt"),
       findsOneWidget,

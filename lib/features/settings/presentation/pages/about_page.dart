@@ -160,12 +160,12 @@ class AboutPage extends ConsumerWidget {
           header: 'Legal',
           children: [
             SettingsRow(
-              title: 'Privacy Policy',
+              title: 'Privacy policy',
               divider: true,
               onTap: () => push('/legal/privacy'),
             ),
             SettingsRow(
-              title: 'Terms of Service',
+              title: 'Terms of service',
               onTap: () => push('/legal/terms'),
             ),
           ],

@@ -161,7 +161,12 @@ class WebButton extends StatelessWidget {
     final c = context.webTokens.colors;
     final showKeyHint = keyHintShown(context, keyHint);
     final (pairKind, pairTone) = _pair;
-    final sizeClass = size ??
+    final named = size;
+    // The phone text sizes have no wide form: a wide text button is `.btn3`.
+    final sizeClass = (named == PantasButtonSize.textPhone ||
+                named == PantasButtonSize.textPhoneSm
+            ? PantasButtonSize.standard
+            : named) ??
         (pill
             ? PantasButtonSize.bar
             : large
@@ -1557,7 +1562,8 @@ class WebBottomBar extends StatelessWidget {
     this.onCounterPressed,
     this.leading,
     this.hint,
-    this.track,
+    this.center,
+    this.status,
     this.state = WebBarState.neutral,
     this.wide = false,
     this.compact = false,
@@ -1583,10 +1589,12 @@ class WebBottomBar extends StatelessWidget {
   final Widget? leading;
   final String? hint;
 
-  /// The answer track of a question session (core loops B2). It takes the
-  /// hint's place between the count and the action, and the bar then fits
-  /// its content instead of filling its width.
-  final Widget? track;
+  /// A control on the bar's own center, between the count and the action
+  /// (the quiz flag). It stays centered whatever the widths of the two.
+  final Widget? center;
+
+  /// A result word read once as a status. It is never drawn.
+  final String? status;
   final WebBarState state;
   final bool wide;
   final bool compact;
@@ -1682,7 +1690,7 @@ class WebBottomBar extends StatelessWidget {
             : state == WebBarState.neutral
                 ? PantasDurations.fade
                 : PantasDurations.flip,
-        constraints: const BoxConstraints(minHeight: PantasSize.bar),
+        constraints: const BoxConstraints(minHeight: PantasLayout.barWide),
         padding: EdgeInsets.fromLTRB(
           PantasSpace.s8,
           stacked ? PantasSpace.s8 : PantasSpace.s0,
@@ -1696,7 +1704,7 @@ class WebBottomBar extends StatelessWidget {
             WebBarState.wrong => c.dangerBar
           },
           borderRadius: BorderRadius.circular(
-            stacked ? PantasRadius.xl : PantasRadius.bar,
+            stacked ? PantasRadius.xl : PantasRadius.barWide,
           ),
           border: Border.all(
             color: switch (state) {
@@ -1736,26 +1744,26 @@ class WebBottomBar extends StatelessWidget {
                   ),
                 ],
               )
-            : Row(
-                mainAxisSize: compact || track != null
-                    ? MainAxisSize.min
-                    : MainAxisSize.max,
+            : Stack(
+                alignment: Alignment.center,
                 children: [
-                  if (leading != null) ...[leading!, SizedBox(width: gap)],
-                  counterWidget,
-                  if (track != null)
-                    // Board `.trk`: 8 before, 14 after.
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        left: PantasSpace.s8,
-                        right: PantasSpace.s14,
-                      ),
-                      child: track,
-                    )
-                  else if (!compact || hint != null)
-                    Expanded(child: hintWidget),
-                  if (gap > 0) SizedBox(width: gap),
-                  action,
+                  Row(
+                    mainAxisSize: compact ? MainAxisSize.min : MainAxisSize.max,
+                    children: [
+                      if (leading != null) ...[leading!, SizedBox(width: gap)],
+                      counterWidget,
+                      if (!compact || hint != null) Expanded(child: hintWidget),
+                      if (gap > 0) SizedBox(width: gap),
+                      action,
+                    ],
+                  ),
+                  if (status != null)
+                    Semantics(
+                      liveRegion: true,
+                      label: status,
+                      child: const SizedBox.shrink(),
+                    ),
+                  if (center != null) center!,
                 ],
               ),
       ),
@@ -1995,6 +2003,9 @@ class WebBarArrow extends StatelessWidget {
 /// the link, where a 10 px gap used to be.
 const double webBackLinkPadRight = PantasSpace.s10;
 
+// ds-board: OB_Days, the onboarding back link radius.
+const double _compactBackRadius = 9;
+
 /// Room inside the back link's highlight before its arrow (back link A).
 const double webBackLinkPadLeft = PantasSpace.s8;
 
@@ -2013,10 +2024,16 @@ class WebBackLink extends StatefulWidget {
     this.fontSize,
     this.tightIcon = false,
     this.nudge = true,
+    this.compact = false,
     super.key,
   });
   final String label;
   final VoidCallback onPressed;
+
+  /// The onboarding board's back link (OB_Days): 36 high, radius 9, 4 px
+  /// before the arrow and 10 px after the label, sitting 10 px left of the
+  /// column so the arrow is 6 px outside it.
+  final bool compact;
 
   /// Moves the link into the page margin so the arrow sits 6 px left of the
   /// page edge, as the board's `.back` does. A link in a top bar that already
@@ -2043,13 +2060,22 @@ class _WebBackLinkState extends State<WebBackLink> {
     // The nudge puts the link's left end outside the page's clip, so the ring
     // is drawn in the overlay (5Q-11). Without one the ring is drawn here.
     final overlayRing = widget.nudge && WebBackLinkRing.supported(context);
-    final radius = BorderRadius.circular(PantasRadius.back);
+    final radius = BorderRadius.circular(
+      widget.compact ? _compactBackRadius : PantasRadius.back,
+    );
     final style = TextButton.styleFrom(
       padding: EdgeInsets.only(
-        left: widget.nudge ? webBackLinkPadLeft : PantasSpace.s0,
+        left: widget.compact
+            ? PantasSpace.s4
+            : widget.nudge
+                ? webBackLinkPadLeft
+                : PantasSpace.s0,
         right: webBackLinkPadRight,
       ),
-      minimumSize: const Size(0, PantasSize.back),
+      minimumSize: Size(
+        0,
+        widget.compact ? PantasSpace.s32 + PantasSpace.s4 : PantasSize.back,
+      ),
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       visualDensity: VisualDensity.standard,
       textStyle: PantasType.webRowTitle,
@@ -2108,7 +2134,11 @@ class _WebBackLinkState extends State<WebBackLink> {
       alignment: Alignment.centerLeft,
       child: Transform.translate(
         offset: Offset(
-          widget.nudge ? -(PantasSpace.s6 + webBackLinkPadLeft) : 0,
+          widget.compact
+              ? -PantasSpace.s10
+              : widget.nudge
+                  ? -(PantasSpace.s6 + webBackLinkPadLeft)
+                  : 0,
           0,
         ),
         child: TouchTarget(

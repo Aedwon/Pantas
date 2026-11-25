@@ -1,20 +1,16 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pantas/core/auth/auth_user.dart';
-import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
-import 'package:pantas/features/beta_feedback/presentation/feedback_page.dart';
+import 'package:pantas/features/beta_feedback/presentation/reward_page.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
-import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 
 import 'beta_feedback_fakes.dart';
 import 'feedback_harness.dart';
 
-const _page = FeedbackPage(frame: testFrame);
+const _page = RewardPage(frame: testFrame);
 
 final _now = ph(11, 16, 9);
 
@@ -31,32 +27,6 @@ BetaReward _activated() => fakeReward(
       rewardStartsAt: ph(11, 20),
       rewardEndsAt: ph(11, 20, 12, 0, 2027),
     );
-
-WebPaymentGateway _gateway(void Function() onRead) => WebPaymentGateway(
-      callable: (_, __) async => null,
-      readGrants: (_) async {
-        onRead();
-        return [];
-      },
-      refreshClaims: (_) async {},
-      openUrl: (_) async => true,
-      now: () => DateTime.utc(2026, 11, 20),
-    );
-
-List<Override> _accountOverrides(
-  StateProvider<String> account,
-  WebPaymentGateway gateway,
-) =>
-    [
-      revenueCatGatewayProvider.overrideWithValue(gateway),
-      currentUserProvider.overrideWith(
-        (ref) async => AuthUser(
-          uid: ref.watch(account),
-          email: 'tester@example.com',
-          displayName: 'Tester',
-        ),
-      ),
-    ];
 
 FbHarness _harness({
   BetaReward? reward,
@@ -82,7 +52,7 @@ double _monthScale(WidgetTester tester, int j) => tester
 
 void main() {
   group('eligible', () {
-    testWidgets('phone: the reward card sits above a shorter days card',
+    testWidgets('phone: the reward card, its months and its footnote',
         (tester) async {
       final h = _harness();
       final semantics = tester.ensureSemantics();
@@ -109,22 +79,10 @@ void main() {
       // The twelve months start with the current one: N D J F M A M J J A S O.
       expect(find.text('N'), findsOneWidget);
       expect(find.text('O'), findsOneWidget);
-      // The days card keeps only its count and strip.
-      expect(find.text('5 of 5 days'), findsOneWidget);
-      expect(
-        find.text('A day counts when you finish your whole Today plan.'),
-        findsNothing,
-      );
-      expect(find.textContaining('Count 5 days from'), findsNothing);
-      expect(find.text('Sent'), findsOneWidget);
-      // Missed days show their date.
-      expect(find.text('14'), findsOneWidget);
-      // The feedback box stays below.
-      expect(find.text('SEND FEEDBACK'), findsOneWidget);
-      final reward =
-          tester.getTopLeft(find.text('You earned 1 year of Pro')).dy;
-      final days = tester.getTopLeft(find.text('5 of 5 days')).dy;
-      expect(reward, lessThan(days));
+      // The days card, the feedback box and the sent list are gone.
+      expect(find.textContaining('of 5 days'), findsNothing);
+      expect(find.text('SEND FEEDBACK'), findsNothing);
+      expect(find.text('Sent'), findsNothing);
       semantics.dispose();
     });
 
@@ -164,28 +122,6 @@ void main() {
       await tester.pumpAndSettle();
       expect(opacityOf('Activate 1 Year of Pro'), 1);
     });
-
-    testWidgets('days under the card do not pop on the phone', (tester) async {
-      final h = _harness();
-      await h.pump(tester, _page);
-      expect(find.byType(FbPop), findsNothing);
-    });
-
-    testWidgets('days under the card pop on wide, 60 ms apart', (tester) async {
-      final h = _harness(wide: true);
-      await h.pump(tester, _page, settle: false);
-      await tester.pump();
-      expect(find.byType(FbPop), findsNWidgets(5));
-      await tester.pumpAndSettle();
-    });
-
-    testWidgets('the days card shows the count in 17 px', (tester) async {
-      final h = _harness();
-      await h.pump(tester, _page);
-      final text = tester.widget<Text>(find.text('5 of 5 days'));
-      expect(text.style!.fontSize, 17);
-      expect(text.style!.fontWeight, FontWeight.w600);
-    });
   });
 
   group('activating', () {
@@ -193,7 +129,12 @@ void main() {
       final gate = Completer<BetaRewardActivation>();
       final api = FakeBetaFeedbackApi(reward: _eligible())..activateGate = gate;
       final h = _harness(api: api);
-      await h.pump(tester, _page);
+      final gateway = CountingGateway();
+      await h.pump(
+        tester,
+        _page,
+        overrides: [revenueCatGatewayProvider.overrideWithValue(gateway)],
+      );
       await tester.tap(_activate);
       await tester.pump();
       expect(find.byType(FbSpinner), findsOneWidget);
@@ -213,6 +154,8 @@ void main() {
       );
       await tester.pump();
       await tester.pump();
+      // Pro is read again at once, so it shows without a reload (ENT-06).
+      expect(gateway.restores, 1);
       // Part way: the months fill from the left, one after the other.
       await tester.pump(const Duration(milliseconds: 400));
       expect(_monthScale(tester, 0), greaterThan(0));
@@ -237,92 +180,6 @@ void main() {
         find.byKey(const ValueKey('title-earned')),
       );
       expect(old.opacity, 0);
-    });
-
-    testWidgets('turning it on reads the signed-in account entitlement again',
-        (tester) async {
-      final account = StateProvider<String>((ref) => 'tester');
-      var reads = 0;
-      final gateway = _gateway(() => reads++);
-      await gateway.logIn('tester');
-      expect(reads, 1);
-      final h = _harness();
-      await h.pump(
-        tester,
-        _page,
-        overrides: _accountOverrides(account, gateway),
-      );
-      await tester.tap(_activate);
-      await tester.pumpAndSettle();
-
-      expect(find.text('Pro is on until Nov 20, 2027'), findsOneWidget);
-      expect(reads, 2);
-    });
-
-    testWidgets('an account still loading when Activate is tapped is read',
-        (tester) async {
-      var reads = 0;
-      final gateway = _gateway(() => reads++);
-      await gateway.logIn('tester');
-      expect(reads, 1);
-      final signedIn = Completer<AuthUser?>();
-      final h = _harness();
-      await h.pump(
-        tester,
-        _page,
-        overrides: [
-          revenueCatGatewayProvider.overrideWithValue(gateway),
-          currentUserProvider.overrideWith((ref) => signedIn.future),
-        ],
-      );
-      await tester.tap(_activate);
-      await tester.pump();
-      signedIn.complete(
-        const AuthUser(
-          uid: 'tester',
-          email: 'tester@example.com',
-          displayName: 'Tester',
-        ),
-      );
-      await tester.pumpAndSettle();
-
-      expect(reads, 2, reason: 'a loading moment must not skip the refresh');
-    });
-
-    testWidgets('another account signing in before the reply is not read',
-        (tester) async {
-      final account = StateProvider<String>((ref) => 'a');
-      var reads = 0;
-      final gateway = _gateway(() => reads++);
-      await gateway.logIn('b');
-      expect(reads, 1);
-      final gate = Completer<BetaRewardActivation>();
-      final api = FakeBetaFeedbackApi(reward: _eligible())..activateGate = gate;
-      final h = _harness(api: api);
-      await h.pump(
-        tester,
-        _page,
-        overrides: _accountOverrides(account, gateway),
-      );
-      await tester.tap(_activate);
-      await tester.pump();
-
-      // B signs in while A's activation is still on its way.
-      final container = ProviderScope.containerOf(
-        tester.element(find.byType(Scaffold)),
-      );
-      container.read(account.notifier).state = 'b';
-      await tester.pump();
-      await tester.pump();
-      gate.complete(
-        BetaRewardActivation(
-          startsAt: ph(11, 20),
-          endsAt: ph(11, 20, 12, 0, 2027),
-        ),
-      );
-      await tester.pumpAndSettle();
-
-      expect(reads, 1);
     });
 
     testWidgets('the crown swings once', (tester) async {
@@ -416,22 +273,6 @@ void main() {
           .widgetList<Text>(find.byKey(const ValueKey('month-label-0')))
           .map((t) => t.data);
       expect(labels, ['Dec']);
-    });
-  });
-
-  group('not eligible', () {
-    testWidgets('five days but the deadline passed: the ordinary card',
-        (tester) async {
-      final h = _harness(
-        reward: fakeReward(days: betaDays.take(5).toList()),
-      );
-      await h.pump(tester, _page);
-      expect(find.text('You earned 1 year of Pro'), findsNothing);
-      expect(find.text('5 of 5 days'), findsOneWidget);
-      expect(
-        find.text('A day counts when you finish your whole Today plan.'),
-        findsOneWidget,
-      );
     });
   });
 

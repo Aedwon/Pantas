@@ -11,7 +11,6 @@ import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/app/web_route_shell.dart';
 import 'package:pantas/app/screen_view_tracker.dart';
 import 'package:pantas/app/telemetry_providers.dart';
-import 'package:pantas/core/ui/web/web_layout.dart';
 
 import 'package:pantas/app/build_info.dart';
 import 'package:pantas/app/start_location.dart';
@@ -76,7 +75,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       final atUpdateRequired = state.matchedLocation == '/update-required';
       if (blocked && !atUpdateRequired) return '/update-required';
       if (!blocked && atUpdateRequired) return '/home';
-      if (context.wideWeb && state.uri.path.startsWith('/wrapped/')) {
+      // Wrapped is deferred (HANDOFF): a link to a reveal lands on Record at
+      // every width.
+      if (state.uri.path.startsWith('/wrapped/')) {
         return '/record';
       }
 
@@ -135,6 +136,13 @@ final routerProvider = Provider<GoRouter>((ref) {
                 path.startsWith('/legal/')
             ? null
             : '/guardian/waiting';
+      }
+      if (guardian == GuardianGate.closed) {
+        // Under-18 sign-up is closed and this device is blocked. Onboarding
+        // resumes on the saved blocked page, and nothing else is reachable.
+        return path == '/onboarding' || path.startsWith('/onboarding/')
+            ? null
+            : '/onboarding';
       }
       if (path.startsWith('/guardian/')) {
         return guardian == GuardianGate.needsContact ? '/onboarding' : '/home';

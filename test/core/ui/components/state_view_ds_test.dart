@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
@@ -43,8 +44,8 @@ void main() {
         tester.getSize(find.text('Check your connection and try again.')).width,
         lessThanOrEqualTo(PantasLayout.colListMax),
       );
-      // One 44 high tonal action. It fills the phone width up to the text
-      // measure and keeps its natural width on a wide screen.
+      // One 44 high tonal action at its natural width. The phone draws it as
+      // a pill with 22 px sides (board DT_Error); wide keeps its rectangle.
       final action = tester.widget<PantasButton>(find.byType(PantasButton));
       expect(action.variant, PantasButtonVariant.secondary);
       expect(action.height, PantasSize.btn);
@@ -52,7 +53,9 @@ void main() {
         tester.getSize(find.byType(PantasButton)).height,
         greaterThanOrEqualTo(PantasSize.btn),
       );
-      expect(action.fullWidth, !wide);
+      expect(action.fullWidth, isFalse);
+      expect(action.radius, wide ? isNull : PantasRadius.full);
+      expect(action.horizontalPadding, wide ? 24 : 22);
     },
   );
 

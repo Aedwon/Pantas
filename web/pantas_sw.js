@@ -157,7 +157,8 @@ self.addEventListener('fetch', (event) => {
     return;
   }
   if (isStaticPath(path)) {
-    event.respondWith(cacheFirst(event, request, path));
+    const served = { cached: false };
+    event.respondWith(withProgress(event, path, served, cacheFirst(event, request, path, served)));
   }
 });
 
@@ -217,10 +218,13 @@ async function networkFirst(event, request) {
   }
 }
 
-async function cacheFirst(event, request, path) {
+async function cacheFirst(event, request, path, served = {}) {
   const cache = await caches.open(CACHE);
   const stored = await cache.match(request);
-  if (stored) return stored;
+  if (stored) {
+    served.cached = true;
+    return stored;
+  }
   const response = await fetch(request);
   if (isStorable(response)) {
     event.waitUntil(cache.put(request, response.clone()));
@@ -245,4 +249,104 @@ async function warmDeferredParts(cache, response) {
       })
     );
   } catch (_) {}
+}
+
+// ---- Loading progress (board A, Nov 25) -------------------------------------
+// The page shows a percent while main.dart.js, the biggest file, arrives. This
+// worker knows no sizes, and its bytes never depend on the build. For the
+// network response it passes the body through a counter and posts the true
+// bytes delivered to the page, then done at the end of the stream, or stop on an
+// error. The page holds the total the build stamped and decides what to show.
+// A cache hit is returned as the same stored response and only posts "cached".
+//
+// A rebuilt response skips Chromium's HTTP code cache. That only affects the
+// first load after an update, which has no code cache yet, and the first load
+// after an assets-only deploy, which also misses Cache Storage and so recompiles
+// once. Later loads come from Cache Storage, untouched. Nothing is cloned, nothing waits and no worker task
+// is held open for progress.
+
+const PROGRESS_PATH = 'main.dart.js';
+const PROGRESS_MS = 100;
+const MAX_LOADS = 20;
+const loads = new Map();
+
+// Decided before any await: whether this request is counted at all.
+function pageLoad(event, path) {
+  if (path !== PROGRESS_PATH || !event.clientId) return null;
+  let load = loads.get(event.clientId);
+  if (load) return null;
+  load = {
+    broken: false,
+    client: self.clients.get(event.clientId).catch(() => null),
+  };
+  loads.set(event.clientId, load);
+  if (loads.size > MAX_LOADS) loads.delete(loads.keys().next().value);
+  return load;
+}
+
+function post(load, message) {
+  load.client.then((client) => {
+    try {
+      if (client) client.postMessage({ type: 'pantas-load-progress', ...message });
+    } catch (_) {}
+  });
+}
+
+function fail(load) {
+  if (load.broken) return;
+  load.broken = true;
+  post(load, { stop: true });
+}
+
+function countBody(load, body) {
+  let loaded = 0;
+  let postedAt = -Infinity;
+  const counter = new TransformStream({
+    transform(chunk, controller) {
+      controller.enqueue(chunk);
+      loaded += chunk.byteLength;
+      // At most one progress message per 100 ms; done and stop are never held back.
+      if (load.broken || Date.now() - postedAt < PROGRESS_MS) return;
+      postedAt = Date.now();
+      post(load, { loaded });
+    },
+    flush() {
+      if (!load.broken) post(load, { loaded, done: true });
+    },
+  });
+  // An error or a cancel on either side ends the numbers for this page load.
+  body.pipeTo(counter.writable).catch(() => fail(load));
+  return counter.readable;
+}
+
+// Passes the answer to the page. Other files come back as the same promise,
+// with no extra wait.
+function withProgress(event, path, served, pending) {
+  const load = pageLoad(event, path);
+  if (!load) return pending;
+  return pending.then(
+    (response) => {
+      if (!response || response.status !== 200) {
+        fail(load);
+        return response;
+      }
+      if (served.cached) {
+        post(load, { cached: true });
+        return response;
+      }
+      if (!response.body) {
+        fail(load);
+        return response;
+      }
+      return new Response(countBody(load, response.body), {
+        status: response.status,
+        statusText: response.statusText,
+        headers: response.headers,
+      });
+    },
+    (error) => {
+      fail(load);
+      throw error;
+    }
+  );
 }

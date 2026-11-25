@@ -27,7 +27,6 @@ const _webTrialProduct = 'web_trial';
 const _trialAsProduct = 'pantas_cs_monthly';
 
 /// The product id the server writes on a tester reward grant.
-const _betaRewardProduct = 'beta_reward';
 
 /// Maps rows of the server grant ledger (`users/{uid}/grants`) into the
 /// app's existing [Entitlement], so no model change is needed (ruling C1
@@ -69,13 +68,13 @@ Entitlement entitlementFromGrants(
     }
     final endsAt = DateTime.fromMillisecondsSinceEpoch(end, isUtc: true);
     if (!endsAt.isAfter(at)) continue;
-    final isBetaPro = row['source'] == 'beta' && productId == 'beta_pro';
-    // A tester reward is per exam, for any exam the server rewards.
-    final isReward =
-        row['source'] == 'beta_reward' && productId == _betaRewardProduct;
-    if (isBetaPro || isReward) {
+    // A tester's reward (and the owner's grant) covers its own exam, for any
+    // exam, as the server's coverageAt does (audit ENT-06).
+    final isReward = row['source'] == 'beta_reward';
+    if (isReward || (row['source'] == 'beta' && productId == 'beta_pro')) {
       final examId = row['examId'];
       if (examId is String &&
+          examId.isNotEmpty &&
           (isReward ||
               const {'exam_cse_pro', 'exam_cse_sub'}.contains(examId))) {
         final previous = betaPasses[examId];

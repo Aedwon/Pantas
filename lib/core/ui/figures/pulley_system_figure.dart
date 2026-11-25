@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 
@@ -127,6 +129,17 @@ class _PulleyPainter extends CustomPainter {
       hairline,
     );
 
+    // The two single-wheel setups have their own rope, which runs over or
+    // under the wheel. Anything with more wheels is drawn below.
+    if (fixed == 1 && movable == 0) {
+      _paintSingleFixed(canvas, size, hairline);
+      return;
+    }
+    if (fixed == 0 && movable == 1) {
+      _paintSingleMovable(canvas, size, hairline);
+      return;
+    }
+
     // A fixed pulley beside a movable one sits to the right, so that the
     // rope from the movable pulley rises straight to its near side.
     final both = fixed > 0 && movable > 0;
@@ -189,6 +202,93 @@ class _PulleyPainter extends CustomPainter {
         hairline,
       )
       ..drawRect(Rect.fromLTWH(loadX - 16, loadTop, 32, 24), hairline);
+  }
+
+  /// One rope over the top of a wheel that hangs from the beam. The load
+  /// hangs under the left tangent and the effort pulls down on the right.
+  void _paintSingleFixed(Canvas canvas, Size size, Paint hairline) {
+    const beamY = 12.0;
+    const radius = 15.0;
+    const wheelY = beamY + 10 + radius;
+    final centreX = size.width / 2;
+    final left = centreX - radius;
+    final right = centreX + radius;
+    final loadTop = size.height - 34;
+    const effortBase = wheelY + 51;
+
+    final rope = Path()
+      ..moveTo(left, loadTop)
+      ..lineTo(left, wheelY)
+      ..arcTo(
+        Rect.fromCircle(center: Offset(centreX, wheelY), radius: radius),
+        math.pi,
+        math.pi,
+        false,
+      )
+      ..lineTo(right, effortBase);
+    canvas
+      ..drawLine(Offset(centreX, beamY), Offset(centreX, beamY + 10), hairline)
+      ..drawCircle(Offset(centreX, wheelY), radius, hairline)
+      ..drawPath(rope, hairline)
+      ..drawRect(Rect.fromLTWH(left - 16, loadTop, 32, 24), hairline);
+    _paintArrowhead(canvas, Offset(right, effortBase), down: true);
+  }
+
+  /// One rope tied to the beam, down and under a wheel, and up to a free
+  /// end that is pulled. The load hangs from the axle.
+  void _paintSingleMovable(Canvas canvas, Size size, Paint hairline) {
+    const beamY = 12.0;
+    const radius = 15.0;
+    const axleY = beamY + 46.0;
+    final centreX = size.width / 2;
+    final left = centreX - radius;
+    final right = centreX + radius;
+    final loadTop = size.height - 34;
+    const freeEnd = axleY - 22;
+
+    final rope = Path()
+      ..moveTo(left, beamY)
+      ..lineTo(left, axleY)
+      ..arcTo(
+        Rect.fromCircle(center: const Offset(0, axleY), radius: radius)
+            .shift(Offset(centreX, 0)),
+        math.pi,
+        -math.pi,
+        false,
+      )
+      ..lineTo(right, freeEnd);
+    canvas
+      ..drawCircle(Offset(centreX, axleY), radius, hairline)
+      ..drawPath(rope, hairline)
+      ..drawLine(Offset(centreX, axleY), Offset(centreX, loadTop), hairline)
+      ..drawRect(Rect.fromLTWH(centreX - 16, loadTop, 32, 24), hairline)
+      // The anchor: a filled dot where the rope is tied to the beam.
+      ..drawCircle(
+        Offset(left, beamY),
+        3,
+        Paint()
+          ..style = PaintingStyle.fill
+          ..color = ink,
+      );
+    _paintArrowhead(canvas, Offset(right, freeEnd), down: false);
+  }
+
+  /// A filled arrowhead whose base sits on [base] and whose tip points
+  /// [down] or up.
+  void _paintArrowhead(Canvas canvas, Offset base, {required bool down}) {
+    const length = 11.0;
+    const halfWidth = 4.0;
+    final tipY = base.dy + (down ? length : -length);
+    canvas.drawPath(
+      Path()
+        ..moveTo(base.dx - halfWidth, base.dy)
+        ..lineTo(base.dx + halfWidth, base.dy)
+        ..lineTo(base.dx, tipY)
+        ..close(),
+      Paint()
+        ..style = PaintingStyle.fill
+        ..color = ink,
+    );
   }
 
   @override

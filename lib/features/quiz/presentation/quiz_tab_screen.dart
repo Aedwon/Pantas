@@ -13,7 +13,6 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
-import 'package:pantas/core/ui/components/paused_quiz_notice.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
@@ -65,6 +64,17 @@ final quizTodayCountsProvider = FutureProvider.autoDispose
     newDone: plan.newQuestionIds.length - today.remaining.newQuestionIds.length,
   );
 });
+
+/// Space around "Discard this session" on the phone paused card. His words
+/// (Nov 25): "the space on top and bottom of discard in the quiz tab got too
+/// small though". Board A draws 12 above and 16 below the text; the card
+/// before Nov 24 measured about 20 above and 24 below it, and his call from
+/// using the app wins. The line's 24 px box holds its text 4 px from the top
+/// and flush at the bottom, so 16 and 24 outside the box give 20 and 24.
+// ds-board: his Nov 25 words over board A (20 above the Discard text).
+const double _discardAbove = PantasSpace.s16;
+// ds-board: his Nov 25 words over board A (24 below the Discard text).
+const double _discardBelow = PantasSpace.s24;
 
 class QuizTabScreen extends ConsumerStatefulWidget {
   const QuizTabScreen({this.mockPanel, this.mockReady = true, super.key});
@@ -155,11 +165,12 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         : PantasPage(
             title: 'Quiz',
             bottomInset: PantasLayout.reserveTabbar,
-            // Board QZ_Tab: the title box starts at y 50 and the Today label
-            // 14 px below it.
+            // Board QZ_Tab: the title box starts at y 50 (the same number as
+            // Study) and the Today label 14 px below it. The page scroll adds
+            // 2 px above the title.
             titlePadding: const EdgeInsets.fromLTRB(
               PantasSpace.s4,
-              PantasSpace.s44,
+              PantasPage.tabTitleTop - PantasSpace.s2,
               PantasSpace.s4,
               PantasSpace.s14,
             ),
@@ -277,6 +288,11 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         label: label,
         open: _questionSheet != null && examId != null,
         drawer: true,
+        // Reviews has no count line, so its Close X sits on the one-line
+        // title, as on Home.
+        closeTop: _questionSheet == TodayQuestionKind.reviews
+            ? HomeWebOverlay.oneLineCloseTop
+            : HomeWebOverlay.twoLineCloseTop,
         onDismiss: _dismissQuestions,
         child: _questionSheet != null && examId != null
             ? _questionsSheet(examId)
@@ -288,7 +304,6 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
       label: label,
       open: _questionSheet != null && examId != null,
       onDismiss: _dismissQuestions,
-      closeLabel: 'Close',
       readerContents: true,
       scrollable: false,
       child: _questionSheet != null && examId != null
@@ -303,7 +318,12 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const WebText('Quiz', kind: WebTextKind.h1),
+          // Board W_QuizTab: the h1 carries the same 4 px side inset as
+          // W_Study.
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: PantasSpace.s4),
+            child: WebText('Quiz', kind: WebTextKind.h1),
+          ),
           const SizedBox(height: PantasSpace.s24),
           focus.when(
             loading: () => const QuizPageSkeleton(),
@@ -679,24 +699,29 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             if (state is SessionPanelInProgress) ...[
-                              Row(
+                              // Board A (wide Quiz): no sentence; Discard and
+                              // Resume at the right of the foot, 16 apart. The
+                              // foot wraps, as the board's does. A quiz the
+                              // rows do not show is named above them (rule 4,
+                              // Nov 25).
+                              if (state.pausedName case final name?) ...[
+                                Text('Paused: $name', style: t.sub),
+                                const SizedBox(height: PantasSpace.s12),
+                              ],
+                              Wrap(
+                                alignment: WrapAlignment.end,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                spacing: PantasSpace.s16,
+                                runSpacing: PantasSpace.s8,
                                 children: [
-                                  Expanded(
-                                    child: Text(
-                                      'You paused. Every answer was saved.',
-                                      style: t.sub,
-                                    ),
-                                  ),
-                                  const SizedBox(width: PantasSpace.s16),
                                   _WebDiscardButton(
                                     onPressed: _discarding
                                         ? null
                                         : () => unawaited(_discard(examId)),
                                   ),
+                                  primary,
                                 ],
                               ),
-                              const SizedBox(height: PantasSpace.s16),
-                              primary,
                             ] else if (canStart)
                               Row(
                                 children: [
@@ -849,36 +874,44 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
             }
             final sheet =
                 wide ? HomeWebQuestionsSheet.new : TodayQuestionsSheet.new;
+            // Board A (his pick Nov 25), as on Home.
+            final here = data.pausedHere(kind);
             return sheet(
               title: reviews ? 'Reviews' : 'New questions',
               done: reviews ? data.reviewsDone : data.newDone,
               total: reviews ? data.reviewsTotal : data.newTotal,
               rows: rows,
-              startLabel: reviews ? 'Start Reviews' : 'Start New Questions',
+              startLabel: here
+                  ? 'Resume'
+                  : reviews
+                      ? 'Start Reviews'
+                      : 'Start New Questions',
               busy: _startingQuestions,
-              onStart: (reviews
-                      ? data.reviewSizes.isNotEmpty
-                      : data.newQuestions.isNotEmpty)
-                  ? () => unawaited(_startQuestions(examId, kind, work: data))
-                  : null,
-              failure: !_questionFailed
+              onStart: here
+                  ? () {
+                      _dismissQuestions();
+                      unawaited(_open('/quiz/resume/$examId'));
+                    }
+                  : (reviews
+                          ? data.reviewSizes.isNotEmpty
+                          : data.newQuestions.isNotEmpty)
+                      ? () =>
+                          unawaited(_startQuestions(examId, kind, work: data))
+                      : null,
+              showCount: !reviews,
+              onDiscard: here ? () => unawaited(_discardPaused(examId)) : null,
+              discarding: _discarding,
+              blocked: !here &&
+                  (data.pausedElsewhere(kind) ||
+                      _questionFailed && _questionPaused),
+              failure: !_questionFailed || _questionPaused
                   ? null
-                  : _questionPaused
-                      ? PausedQuizNotice(
-                          onResume: () {
-                            _dismissQuestions();
-                            unawaited(_open('/quiz/resume/$examId'));
-                          },
-                          onDiscard: _discarding
-                              ? null
-                              : () => unawaited(_discardPaused(examId)),
-                        )
-                      : StateView(
-                          message: 'Could not start your quiz.',
-                          onRetry: () => unawaited(
-                            _startQuestions(examId, kind, work: data),
-                          ),
-                        ),
+                  : StateView(
+                      message: 'Could not start your quiz.',
+                      onRetry: () => unawaited(
+                        _startQuestions(examId, kind, work: data),
+                      ),
+                    ),
             );
           },
         );
@@ -893,7 +926,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
           style: PantasType.phoneCallout
               .copyWith(color: context.colors.textPrimary),
         ),
-        value: '$total',
+        value: questionRowCount(done, total),
         valueStyle: PantasType.phoneFootnote
             .copyWith(color: context.colors.textSecondary),
         contentPadding: const EdgeInsets.symmetric(vertical: PantasSpace.s8),
@@ -1138,37 +1171,42 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
               PantasSpace.s16,
               PantasSpace.s14,
               PantasSpace.s16,
-              state is SessionPanelInProgress
-                  ? PantasSpace.s10
-                  : PantasSpace.s16,
+              state is SessionPanelInProgress ? _discardBelow : PantasSpace.s16,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 if (state is SessionPanelInProgress) ...[
-                  Semantics(
-                    liveRegion: true,
-                    child: Text(
-                      'You paused. Every answer was saved.',
-                      style: PantasType.phoneExplanation
-                          .copyWith(color: context.colors.textPrimary)
-                          .copyWith(color: context.colors.textSecondary),
+                  // Board A (paused session, his pick Nov 25): no sentence;
+                  // the Reviews row shows the progress. A quiz the rows do not
+                  // show is named in the line's slot (rule 4, Nov 25).
+                  if (state.pausedName case final name?) ...[
+                    Semantics(
+                      liveRegion: true,
+                      child: Text(
+                        'Paused: $name',
+                        style: PantasType.phoneExplanation
+                            .copyWith(color: context.colors.textSecondary),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: PantasSpace.s14),
+                    const SizedBox(height: PantasSpace.s14),
+                  ],
                   PantasButton(
                     label: 'Resume',
                     onPressed: () => unawaited(_open('/quiz/resume/$examId')),
                   ),
-                  // Board (QZ_Resume): the link sits 6 px lower.
-                  const SizedBox(height: PantasSpace.s6),
-                  PantasButton(
-                    label: 'Discard this session',
-                    kind: PantasButtonKind.tertiary,
-                    tone: PantasButtonTone.accent,
-                    fullWidth: false,
-                    onPressed:
-                        _discarding ? null : () => unawaited(_discard(examId)),
+                  const SizedBox(height: _discardAbove),
+                  // Board A: the 15/600 line is centered under Resume.
+                  Center(
+                    child: PantasButton(
+                      label: 'Discard this session',
+                      kind: PantasButtonKind.tertiary,
+                      tone: PantasButtonTone.accent,
+                      size: PantasButtonSize.textPhoneSm,
+                      onPressed: _discarding
+                          ? null
+                          : () => unawaited(_discard(examId)),
+                    ),
                   ),
                   if (_saveFailed)
                     saveFailureLine(() => unawaited(_discard(examId))),
@@ -1209,6 +1247,9 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
     await _discard(examId);
     if (mounted && !_saveFailed) {
       setState(() => _questionFailed = _questionPaused = false);
+      // The sheet read who was paused when it opened; read it again.
+      final kind = _questionSheet;
+      if (kind != null) _showQuestions(examId, kind);
     }
   }
 
@@ -1224,6 +1265,8 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         examId: examId,
         now: ref.read(nowProvider)(),
       );
+      // Home, alive in its own tab, may be showing this quiz as paused.
+      ref.read(quizPausedRevisionProvider.notifier).publishPause();
       if (mounted) _refresh();
     } catch (_) {
       if (mounted) setState(() => _saveFailed = true);

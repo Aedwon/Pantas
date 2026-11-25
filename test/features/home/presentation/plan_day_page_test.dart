@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/domain/home_today_lesson.dart';
 import 'package:pantas/features/home/presentation/plan_day_page.dart';
@@ -103,6 +104,45 @@ void main() {
 }
 
 void _originalDayTests() {
+  // Board DP_Week: the footer row sits 7 px under the list, with the study
+  // days 13/400 and a teal 13/600 Change on the same baseline (P12).
+  testWidgets('week footer follows the board', (tester) async {
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildLightTheme(),
+        home: MediaQuery(
+          data: const MediaQueryData(disableAnimations: true),
+          child: PlanWeekPage(
+            title: 'Oct 4 – 10',
+            days: [
+              PlanWeekDay(
+                date: DateTime(2026, 10, 5),
+                rest: false,
+                lessonTitles: const ['DNA and genes'],
+              ),
+            ],
+            studyDaysLabel: 'You study daily.',
+            onBack: () {},
+            onDay: (_) {},
+            onChange: () {},
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final change = tester.widget<Text>(find.text('Change'));
+    expect(change.style!.fontSize, 13);
+    expect(change.style!.fontWeight, FontWeight.w600);
+    final label = tester.getRect(find.text('You study daily.'));
+    final link = tester.getRect(find.text('Change'));
+    expect(link.bottom, closeTo(label.bottom, .5));
+    final section = tester.getRect(find.byType(GroupedSection));
+    expect(label.top - section.bottom, closeTo(7, .5));
+    expect(tester.getRect(find.text('Change')).right, closeTo(390 - 32, .5));
+  });
+
   Widget show({bool past = false, bool rest = false}) => MaterialApp(
         theme: buildLightTheme(),
         home: MediaQuery(

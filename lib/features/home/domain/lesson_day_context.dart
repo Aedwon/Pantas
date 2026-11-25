@@ -10,6 +10,7 @@ final class LessonDayContext {
     required List<LessonId> lessonIds,
     required this.index,
     this.moreToDo = false,
+    this.backLabel,
   }) : lessonIds = List.unmodifiable(lessonIds) {
     RangeError.checkValidIndex(index, this.lessonIds, 'index');
   }
@@ -21,4 +22,8 @@ final class LessonDayContext {
   /// New questions or reviews are still on the day's list. The reader then
   /// does not close the last lesson with "That's enough for today." (6U-7).
   final bool moreToDo;
+
+  /// What the reader's back link reads while the plan day sits beneath it:
+  /// the weekday (board DP_DayRead). Null for Home, which keeps its own word.
+  final String? backLabel;
 }

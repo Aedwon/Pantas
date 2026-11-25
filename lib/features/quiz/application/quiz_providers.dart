@@ -263,6 +263,19 @@ final quizLaunchCoordinatorProvider = Provider<QuizLaunchCoordinator>((ref) {
   );
 });
 
+/// Bumped when the student leaves a quiz part way through or discards a
+/// paused one. Screens kept alive in another tab (Home) drew their question
+/// counts before the quiz started or moved on, and read them again on this.
+final quizPausedRevisionProvider =
+    NotifierProvider<QuizPausedRevision, int>(QuizPausedRevision.new);
+
+class QuizPausedRevision extends Notifier<int> {
+  @override
+  int build() => 0;
+
+  void publishPause() => state += 1;
+}
+
 final quizSessionPanelRevisionProvider =
     NotifierProvider<QuizSessionPanelRevision, int>(
   QuizSessionPanelRevision.new,

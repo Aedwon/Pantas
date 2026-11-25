@@ -20,10 +20,7 @@ import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/core/ui/web/web_tokens.dart';
-import 'package:pantas/features/beta_feedback/presentation/exit_survey_page.dart';
-import 'package:pantas/features/beta_feedback/presentation/feedback_page.dart';
-import 'package:pantas/features/beta_feedback/presentation/sent_feedback_page.dart';
+import 'package:pantas/features/beta_feedback/presentation/reward_page.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/legal/legal.dart';
@@ -192,22 +189,7 @@ List<RouteBase> settingsRoutes(Ref ref) => [
       GoRoute(
         path: '/settings/beta-feedback',
         builder: (_, __) => const _TesterOnly(
-          child: FeedbackPage(frame: feedbackFrame),
-        ),
-      ),
-      GoRoute(
-        path: '/settings/beta-feedback/survey',
-        builder: (_, __) => const _TesterOnly(
-          child: ExitSurveyPage(frame: feedbackFrame),
-        ),
-      ),
-      GoRoute(
-        path: '/settings/beta-feedback/sent/:id',
-        builder: (_, state) => _TesterOnly(
-          child: SentFeedbackPage(
-            frame: feedbackFrame,
-            id: state.pathParameters['id']!,
-          ),
+          child: RewardPage(frame: feedbackFrame),
         ),
       ),
       GoRoute(
@@ -273,39 +255,22 @@ List<RouteBase> settingsRoutes(Ref ref) => [
       ),
     ];
 
-/// The Feedback pages in the Settings pane (phone page or wide two-pane).
-/// The pages take this as a function so they never import Settings.
+/// The reward page in the Settings pane (phone page or wide two-pane).
+/// The page takes this as a function so it never imports Settings.
 Widget feedbackFrame({
   required String title,
   required List<Widget> children,
   required String backLabel,
   required VoidCallback onBack,
-  bool beta = false,
-  String? subline,
-  double headingGap = 24,
-  bool heading = true,
 }) =>
-    Builder(
-      builder: (context) => SettingsPanePage(
-        section: 'Feedback',
-        title: title,
-        description: subline,
-        backLabel: backLabel,
-        onBack: onBack,
-        compactTitle: true,
-        bottomInset: 40,
-        noHeading: !heading,
-        hideHeading: !heading,
-        headingGap: headingGap,
-        titleSuffix: beta ? const SettingsBetaMark(top: 4) : null,
-        headingGlyph: beta
-            ? SettingsFeedbackGlyph(
-                size: 22,
-                color: context.webTokens.colors.accent,
-              )
-            : null,
-        children: children,
-      ),
+    SettingsPanePage(
+      section: 'Beta Reward',
+      title: title,
+      backLabel: backLabel,
+      onBack: onBack,
+      compactTitle: true,
+      bottomInset: 40,
+      children: children,
     );
 
 /// A person the server says is not a tester goes back to Settings.
@@ -412,7 +377,9 @@ class _ChangeExamPageState extends ConsumerState<ChangeExamPage> {
           final outcome = switchOutcome(from, to, entitlement);
           if (!context.mounted) return;
           if (outcome.kind == SwitchKind.passWarning) {
-            final ends = entitlement.passes[from.id]!;
+            // A reward is exam-scoped like a pass (audit ENT-06).
+            final ends =
+                entitlement.passes[from.id] ?? entitlement.betaPasses[from.id]!;
             final confirmed = await _confirmSwitch(
               context,
               title: 'Your pass stays with ${from.shortName}',

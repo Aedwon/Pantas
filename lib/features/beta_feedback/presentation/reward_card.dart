@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/theme_names.dart';
@@ -15,7 +14,6 @@ import 'package:pantas/features/beta_feedback/application/beta_feedback_provider
 import 'package:pantas/features/beta_feedback/domain/beta_feedback_models.dart';
 import 'package:pantas/features/beta_feedback/presentation/fb_kit.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
-import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 
 /// The whole turn-on motion runs on one clock of this length (the crown's
 /// swing is the last thing to finish: 550 ms in, then 1.3 s).
@@ -62,8 +60,6 @@ class _RewardCardState extends ConsumerState<RewardCard>
     if (_working || _on) return;
     setState(() => _working = true);
     final BetaRewardActivation result;
-    final gateway = ref.read(revenueCatGatewayProvider);
-    final uid = await _signedInUid();
     try {
       result = await ref.read(betaFeedbackApiProvider).activate();
     } on Exception {
@@ -73,13 +69,9 @@ class _RewardCardState extends ConsumerState<RewardCard>
       return;
     }
     if (!mounted) return;
-    // The year is on the server now. Read the same account's coverage again
-    // so this session shows Pro without a reload. If another account signed
-    // in meanwhile, leave it alone.
-    if (uid != null && await _signedInUid() == uid && mounted) {
-      unawaited(_refreshEntitlement(gateway));
-    }
-    if (!mounted) return;
+    // The reward is grant rows on the server; read them now so Pro shows
+    // without a reload (audit ENT-06).
+    unawaited(ref.read(revenueCatGatewayProvider).restorePurchases());
     setState(() {
       _result = result;
       _working = false;
@@ -90,25 +82,6 @@ class _RewardCardState extends ConsumerState<RewardCard>
       unawaited(_clock.forward(from: 0));
     }
     ref.invalidate(betaRewardProvider);
-  }
-
-  /// The signed-in account, waiting for the auth state if it is still
-  /// loading, so a loading moment never skips the refresh for the same
-  /// account. Unknown (an error) counts as no account.
-  Future<String?> _signedInUid() async {
-    try {
-      return (await ref.read(currentUserProvider.future))?.uid;
-    } on Object {
-      return null;
-    }
-  }
-
-  Future<void> _refreshEntitlement(RevenueCatGateway gateway) async {
-    try {
-      await gateway.restorePurchases();
-    } on Object {
-      // No news. The next read of the account picks the reward up.
-    }
   }
 
   /// Progress, 0 to 1, of a piece that starts [start] ms in and takes [ms].

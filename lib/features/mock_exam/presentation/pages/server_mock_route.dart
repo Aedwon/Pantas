@@ -25,6 +25,7 @@ import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.da
 import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
 import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
+import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_skeletons.dart';
 
@@ -481,7 +482,9 @@ class _ServerMockRouteState extends ConsumerState<ServerMockRoute>
           bottom: 100,
           child: Material(
             color: Colors.transparent,
-            child: saveFailureLine(() => unawaited(session.retry())),
+            child: MockToastSurface(
+              child: saveFailureLine(() => unawaited(session.retry())),
+            ),
           ),
         ),
       ],
