@@ -52,13 +52,15 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 - Get a written brief, do one job, return a short summary (pass or fail, errors, files touched).
 - Never talk to Aedwon, never merge, and never start work outside their brief.
 
-## Lanes (current as of November 25, 8 AM Manila)
+## Lanes (current as of November 26, 2 AM Manila)
 
-Manager: `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926` (restarted blank Nov 25).
-Active: CSE release lead r6, integrator, content fixes then ships `mcp:launch:55d23bdfde1cbdbac9638f0f42400f367a941a688ddb9d6bea85cda3646e2cd2`;
-UX lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (wide button placement sweep, code only).
-Parked: lesson walk-through lead `mcp:launch:6fcf82ba3dd0d64d320c20b9d5b7dff27f1315495e1704252607c246f86f05dd` (spec done; waits on his picks).
-Paused by him: security and billing lead r2 `mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5`; legal texts, payments, under-13, PSHS-NCE, QG Phase 2, dots.
+Manager: `mcp:launch:00976645432b2f793e42bfeeea73583c727484762376837beea722b8a3c65b8d` (restarted blank Nov 26 from `docs/superpowers/handoffs/2026-11-26-operations-manager.md`; bound schedules rebound to it).
+Old manager, retired (do not message): `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926`.
+Active: CSE release lead r8, integrator, service worker fix, P12 loop runs, payment PR merges, then the opening ship `mcp:launch:55d23bdfde1cbdbac9638f0f42400f367a941a688ddb9d6bea85cda3646e2cd2`;
+UX lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (guided first run and the support@ Settings row);
+security and billing lead r2 `mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5` (alert email test, live PayMongo key Nov 26 morning, first real payment; handoff PR #140).
+Parked: lesson walk-through lead `mcp:launch:6fcf82ba3dd0d64d320c20b9d5b7dff27f1315495e1704252607c246f86f05dd` (approved; starts when a lead slot frees).
+Paused by him: under-13 (keep 13 to 17 closed), PSHS-NCE (go/no-go Dec 8), QG Phase 2, dots.
 Retired for length (do not message): CSE release lead r2 to r5 `mcp:launch:89c734558b...`, old CSE release lead `mcp:launch:b14e5d0e...`, old security lead `mcp:bc3317cf...`.
 The table below is the Nov 17 history.
 

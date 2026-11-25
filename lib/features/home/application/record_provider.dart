@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:drift/drift.dart' show BooleanExpressionOperators, Constant;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
+import 'package:pantas/core/storage/data/repos/streak_repository.dart';
 import 'package:pantas/core/storage/domain/attempt_origins.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/time/local_day.dart';
@@ -15,6 +17,7 @@ import 'package:pantas/features/mock_exam/application/server_mock_results_provid
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/domain/models/session_origin.dart';
+import 'package:pantas/features/quiz/domain/streak/streak_evaluator.dart';
 import 'package:pantas/features/roadmap/application/roadmap_providers.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
@@ -32,6 +35,7 @@ class StudentRecord {
     required this.bestMockPercent,
     required this.accuracySeries,
     required this.mocks,
+    this.latestWeekIsCurrent = true,
   });
 
   final int weeksIn;
@@ -53,6 +57,25 @@ class StudentRecord {
   /// through one point is not a trend and drawing it would be a shape the
   /// data does not have.
   final List<({DateTime weekStart, double accuracy})> accuracySeries;
+
+  /// Whether the last point of [accuracySeries] is the week that holds today,
+  /// by the same week the series groups by. Weeks with no answers are not in
+  /// the series, so the last point can be an older week.
+  final bool latestWeekIsCurrent;
+
+  /// What the headline figure is a figure of: "this week", or the week's start
+  /// date in the format the axis uses.
+  String get accuracyHeadlineLabel => latestWeekIsCurrent
+      ? 'this week'
+      : 'week of ${_axisDate(accuracySeries.last.weekStart)}';
+
+  /// The label under the line's last point.
+  String get accuracyLastPointLabel => latestWeekIsCurrent
+      ? 'This week'
+      : _axisDate(accuracySeries.last.weekStart);
+
+  static String _axisDate(DateTime day) =>
+      DateFormat('MMM d', 'en_US').format(day);
 
   /// Newest first. Empty until a mock has been submitted.
   final List<({DateTime takenOn, int percent, String blueprintName})> mocks;
@@ -179,7 +202,20 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   }
 
   // 2. Streaks
-  final dayStreak = streakRow?.current ?? 0;
+  // The stored count only changes when a session completes, so it is read
+  // against today by the evaluator's own rule (P10/U61). Never written here.
+  final dayStreak = streakRow == null
+      ? 0
+      : streakOn(
+          StreakSnapshot(
+            current: streakRow.current,
+            longest: streakRow.longest,
+            lastActiveDate: streakRow.lastActiveDate,
+            freezesRemaining: streakRow.freezesRemaining,
+          ),
+          now,
+          (await ref.watch(userSettingsProvider.future)).studyDays,
+        );
   final longestStreak = streakRow?.longest ?? 0;
   DateTime? streakStartedOn;
 
@@ -377,6 +413,9 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
     longestStreak: longestStreak,
     bestMockPercent: bestMockPercent,
     accuracySeries: accuracySeries,
+    latestWeekIsCurrent: accuracySeries.isNotEmpty &&
+        accuracySeries.last.weekStart ==
+            PantasDates.weekStart(DateTime(now.year, now.month, now.day)),
     mocks: mocksList,
   );
 });

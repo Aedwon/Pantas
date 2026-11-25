@@ -1832,3 +1832,8 @@ His "ok" (relayed by the manager) to support@pantas.study shown in Settings as t
 Searched: every Settings board in `docs/design/boards/` (ST_*, 74 files) for "support", "contact", "help", "mailto" and "pantas.study"; hits only ST_About ("Get in touch": Send feedback, Facebook group; "Contact our data protection officer", which opens the mail app) and ST_Privacy (points to that officer row). No board draws a support row.
 
 Ruling (rule 4): About, first row of the board's "Get in touch" group, above Send feedback: "Email support", value "support@pantas.study", the same value row as Send feedback, opening the mail app with an empty message like the officer row (external icon on the phone, none on wide, as both rows do). Why: the plainest existing row style, in the group the board already uses for contact, with no new component. The address comes from the seller facts constant, so it stays the one address the app shows elsewhere.
+
+
+### Nov 26, UX design lead: side-by-side review rulings (E-179)
+
+A fresh Sonnet reviewer rendered every board frame headless at 390 and 1440 and compared it with the CI goldens: 18 must-fix and 9 minor. All must-fix and minor M1, M2, M5 and the focus move were fixed. Kept by lead ruling: the explanation label "Correct answer" (the design system's Explanation README governs over the board's lowercase, which copied an older board); the Home Continue button keeps the live card's size (same component as the live "Start Assessment" card); the leave dialog keeps the shared dialog's width; the intro previews stay static crops as drawn, with a test that ties them to the content source. Phone bar right arrow in dark uses the dim text color, since the board's #1D1D1F on the dark page fails contrast.

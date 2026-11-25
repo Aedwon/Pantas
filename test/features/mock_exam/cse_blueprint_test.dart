@@ -7,6 +7,7 @@ import 'package:pantas/core/content/content_database.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/content/repos/mock_blueprint_repo.dart';
 import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
+import 'package:pantas/features/mock_exam/domain/mock_title.dart';
 
 import '../../helpers/prebuilt_content.dart';
 
@@ -70,6 +71,8 @@ void main() {
     expect(bp.totalPublishedItems, published);
     expect(bp.source, BlueprintSource.reported);
     expect(bp.sourceNote, contains('weights'));
+    // P10: both CSE papers are Pantas-set, so the setup screen labels them.
+    expect(mockPracticeLabelFor(bp.name), isNotNull);
     return BlueprintSection.parseList(bp.sectionsJson);
   }
 
@@ -138,8 +141,8 @@ void main() {
       expectEvenWeights(s, 'cse_sub');
     }
     final bp = (await repo.byExam('exam_cse_sub')).single;
-    expect(bp.sourceNote, contains('Placeholder'));
-    expect(bp.sourceNote, contains('2020'));
+    expect(bp.sourceNote, contains('Advisory No. 10, s. 2026'));
+    expect(bp.sourceNote, contains('even division'));
   });
 }
 

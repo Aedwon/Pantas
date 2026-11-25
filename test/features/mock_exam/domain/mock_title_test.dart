@@ -34,4 +34,24 @@ void main() {
       expect(mockResultsTitle('exam_custom_1', 'Mock exam'), 'Mock exam');
     });
   });
+
+  // P10: a name that carries the practice label never repeats it on a line
+  // that already sits next to the exam name.
+  group('mockNameWithoutLabel', () {
+    test('drops the label and keeps the exam name', () {
+      expect(
+        mockNameWithoutLabel(
+          'CSE Professional ($mockPracticeLabel)',
+        ),
+        'CSE Professional',
+      );
+    });
+
+    test('leaves a name with no label alone', () {
+      expect(
+        mockNameWithoutLabel('UPCAT Practice Paper'),
+        'UPCAT Practice Paper',
+      );
+    });
+  });
 }

@@ -176,7 +176,7 @@ class RecordPage extends StatelessWidget {
                         ),
                         const SizedBox(height: PantasSpace.s10),
                         Text(
-                          'Your line starts after two weeks of answers.',
+                          'Your line starts after two weeks with answers.',
                           style: context.type.footnote,
                           textAlign: TextAlign.center,
                         ),
@@ -195,7 +195,7 @@ class RecordPage extends StatelessWidget {
                             ),
                             const SizedBox(width: PantasSpace.s6),
                             Text(
-                              'this week',
+                              record.accuracyHeadlineLabel,
                               style: context.type.footnote,
                             ),
                           ],
@@ -213,7 +213,7 @@ class RecordPage extends StatelessWidget {
                               style: context.type.footnote,
                             ),
                             Text(
-                              'This week',
+                              record.accuracyLastPointLabel,
                               style: context.type.footnote,
                             ),
                           ],
