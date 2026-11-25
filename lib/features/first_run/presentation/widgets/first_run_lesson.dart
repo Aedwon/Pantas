@@ -115,11 +115,11 @@ class _FirstRunLessonState extends ConsumerState<FirstRunLesson> {
             child: SingleChildScrollView(
               controller: _scroll,
               padding: EdgeInsets.fromLTRB(
-                wide ? PantasSpace.s24 : 20,
+                wide ? PantasSpace.s24 : PantasSpace.s20,
                 PantasSpace.s18,
-                wide ? PantasSpace.s24 : 20,
+                wide ? PantasSpace.s24 : PantasSpace.s20,
                 // ds-board: P03 content padding 22/20/44
-                44,
+                PantasSpace.s44,
               ),
               child: Center(
                 child: ConstrainedBox(

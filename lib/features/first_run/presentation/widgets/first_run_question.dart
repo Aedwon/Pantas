@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -164,14 +165,15 @@ class FirstRunQuestion extends StatelessWidget {
         const SizedBox(width: PantasSpace.s24),
         SizedBox(
           // ds-board: W04 aside card width
-          width: 360,
+          width: PantasLayout.colListMax,
           child: _Slide(
             child: Container(
               padding: const EdgeInsets.all(PantasSpace.s24),
               decoration: BoxDecoration(
                 color: colors.surfaceCard,
                 // ds-board: W04 aside radius 20
-                borderRadius: BorderRadius.circular(20),
+                borderRadius:
+                    BorderRadius.circular(PantasRadius.xl + PantasSpace.s2),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -228,7 +230,9 @@ class FirstRunQuestion extends StatelessWidget {
         PantasSpace.s0,
         inset,
         // ds-board: P04 bar bottom 26
-        26 + MediaQuery.viewPaddingOf(context).bottom,
+        PantasSpace.s24 +
+            PantasSpace.s2 +
+            MediaQuery.viewPaddingOf(context).bottom,
       ),
       child: FloatingBar(
         state: state,
@@ -270,7 +274,7 @@ class _Track extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           for (var i = 0; i < 3; i++) ...[
-            if (i > 0) const SizedBox(width: 3),
+            if (i > 0) const SizedBox(width: PantasSpace.s6 / 2),
             Container(
               // ds-board: W04 segments 10x4, gap 3
               width: 10,
@@ -340,7 +344,7 @@ class _Slide extends StatelessWidget {
       tween: Tween(begin: 0, end: 1),
       // ds-board: W04 `slidein .5s cubic-bezier(.2,.9,.3,1)`
       duration: const Duration(milliseconds: 500),
-      curve: const Cubic(.2, .9, .3, 1),
+      curve: PantasCurves.enter,
       builder: (context, t, child) => Opacity(
         opacity: t.clamp(0, 1),
         child: Transform.translate(

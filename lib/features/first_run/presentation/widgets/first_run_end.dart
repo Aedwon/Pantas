@@ -223,7 +223,7 @@ class _FirstRunEndState extends State<FirstRunEnd>
               padding: const EdgeInsets.fromLTRB(
                 PantasLayout.gutterPhone,
                 // ds-board: P06 title top
-                56,
+                PantasSpace.s56,
                 PantasLayout.gutterPhone,
                 PantasSpace.s24,
               ),
@@ -358,7 +358,7 @@ class _MistakeRow extends StatelessWidget {
             children: [
               SizedBox(
                 // ds-board: P06 mark column 22
-                width: 22,
+                width: PantasSpace.s20 + PantasSpace.s2,
                 child: Icon(
                   PantasIcons.close,
                   size: PantasSpace.s16,

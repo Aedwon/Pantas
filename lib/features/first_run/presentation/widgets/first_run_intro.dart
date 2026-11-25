@@ -3,6 +3,7 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -33,8 +34,8 @@ class FirstRunIntro extends StatelessWidget {
               child: SingleChildScrollView(
                 padding: const EdgeInsets.fromLTRB(
                   PantasSpace.s16,
-                  // ds-board: P02 top spacer 52 plus body padding 24
-                  76,
+                  // P02: top spacer 52 plus body padding 24
+                  PantasSpace.s56 + PantasSpace.s20,
                   PantasSpace.s16,
                   PantasSpace.s16,
                 ),
@@ -80,7 +81,10 @@ class FirstRunIntro extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: 640),
             child: SingleChildScrollView(
               // ds-board: W02 padding-top 64
-              padding: const EdgeInsets.only(top: 64, bottom: PantasSpace.s40),
+              padding: const EdgeInsets.only(
+                top: PantasSpace.s56 + PantasSpace.s8,
+                bottom: PantasSpace.s40,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -190,8 +194,8 @@ class _Step extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(
         // ds-board: P02 rows 14/16, W02 18/20
-        vertical: wide ? 18 : 14,
-        horizontal: wide ? 20 : PantasSpace.s16,
+        vertical: wide ? PantasSpace.s18 : PantasSpace.s14,
+        horizontal: wide ? PantasSpace.s20 : PantasSpace.s16,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -265,12 +269,12 @@ class _Crop extends StatelessWidget {
         padding: const EdgeInsets.all(PantasSpace.s12),
         child: ShaderMask(
           blendMode: BlendMode.dstIn,
-          shaderCallback: (rect) => const LinearGradient(
+          shaderCallback: (rect) => LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             // ds-board: bottom fade mask
-            stops: [0.6, 1],
-            colors: [Colors.black, Colors.transparent],
+            stops: const [0.6, 1],
+            colors: [colors.textPrimary, Colors.transparent],
           ).createShader(rect),
           child: OverflowBox(
             alignment: Alignment.topLeft,
@@ -405,7 +409,7 @@ class _SlideIn extends StatelessWidget {
       tween: Tween(begin: 0, end: 1),
       // ds-board: W02 `push .4s cubic-bezier(.2,.9,.3,1)`
       duration: const Duration(milliseconds: 400),
-      curve: const Cubic(.2, .9, .3, 1),
+      curve: PantasCurves.enter,
       builder: (context, t, child) => Opacity(
         opacity: t.clamp(0, 1),
         child:
