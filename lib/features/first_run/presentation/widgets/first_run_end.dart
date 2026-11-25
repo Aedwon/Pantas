@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
+import 'package:pantas/core/ui/components/rolling_digits.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
@@ -41,26 +42,34 @@ class FirstRunEnd extends StatefulWidget {
 
 class _FirstRunEndState extends State<FirstRunEnd>
     with SingleTickerProviderStateMixin {
-  // ds-board: P06 timeline: Done ends at 2500 ms
+  // ds-board: P06 timeline ends with Done at 2500 ms; W06 ends with the
+  // mistakes block at 1600 ms.
+  static const _phoneTimeline = Duration(milliseconds: 2600);
+  static const _wideTimeline = Duration(milliseconds: 1600);
+
   late final AnimationController _entry = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 2600),
+    duration: _phoneTimeline,
   );
   late final _motion = SessionEntryMotion(_entry);
   bool? _still;
+  bool? _wide;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     final still = MediaQuery.disableAnimationsOf(context);
-    if (still == _still) return;
+    final wide = context.wideWeb;
+    if (still == _still && wide == _wide) return;
     _still = still;
+    _wide = wide;
+    _entry.duration = wide ? _wideTimeline : _phoneTimeline;
     if (still) {
       _entry
         ..stop()
         ..value = 1;
     } else {
-      _entry.forward();
+      _entry.forward(from: 0);
     }
   }
 
@@ -77,30 +86,58 @@ class _FirstRunEndState extends State<FirstRunEnd>
           if (!widget.outcomes[i]) i,
       ];
 
-  /// The count rolls from 0 to the score from 400 ms to 1600 ms.
-  Widget _count(TextStyle numeral, TextStyle unit) => AnimatedBuilder(
-        animation: _entry,
-        builder: (context, _) {
-          final ms = _entry.value * _entry.duration!.inMilliseconds;
-          final t = ((ms - 400) / 1200).clamp(0.0, 1.0);
-          final shown = (_score * PantasCurves.house.transform(t)).round();
-          return Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.baseline,
-            textBaseline: TextBaseline.alphabetic,
-            children: [
-              Text('$shown', style: numeral),
-              Text('/3', style: unit),
-            ],
-          );
-        },
-      );
+  /// The count rolls up a strip of rows from 0 to the score. P06: 400 ms
+  /// wait, then 1200 ms on the gauge ease. W06: 300 ms, then 1200 ms on the
+  /// enter ease. Both end by 1600 ms of their own timeline.
+  Widget _count(TextStyle numeral, TextStyle unit, {required bool wide}) {
+    final total = _entry.duration!.inMilliseconds;
+    final start = wide ? 300 : 400;
+    final roll = _entry.drive(
+      Tween<double>(begin: 0, end: _score.toDouble()).chain(
+        CurveTween(
+          curve: Interval(
+            start / total,
+            (start + 1200) / total,
+            curve: wide ? PantasCurves.enter : PantasCurves.gauge,
+          ),
+        ),
+      ),
+    );
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        RollingDigits(
+          count: roll,
+          last: _score,
+          style: numeral,
+          // ds-board: P06 rows 64, W06 80
+          rowHeight: wide ? 80 : 64,
+          fade: true,
+        ),
+        SizedBox(width: wide ? PantasSpace.s2 : PantasSpace.s4),
+        Padding(
+          // ds-board: P06 `padding-bottom: 9px`
+          padding: EdgeInsets.only(bottom: wide ? PantasSpace.s8 : 9),
+          child: Text('/3', style: unit),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final wide = context.wideWeb;
     final colors = context.colors;
-    final title = _motion.appear(
+    // W06 draws the title, the line and Done at once; P06 staggers them.
+    Widget phoneOnly(
+      Widget child,
+      int start,
+      int duration, {
+      double rise = 0,
+    }) =>
+        wide ? child : _motion.appear(child, start, duration, rise: rise);
+    final title = phoneOnly(
       Semantics(
         header: true,
         child: Text(
@@ -114,9 +151,16 @@ class _FirstRunEndState extends State<FirstRunEnd>
       380,
       rise: 6,
     );
-    final numeral = (wide ? PantasType.webBigNumeral : PantasType.phoneDisplayL)
-        .copyWith(color: colors.textPrimary);
+    // ds-board: P06 count 60, W06 76, letter spacing -.03em
+    final numeralSize = wide ? 76.0 : 60.0;
+    final numeral = PantasType.phoneDisplayM.copyWith(
+      fontSize: numeralSize,
+      letterSpacing: -.03 * numeralSize,
+      color: colors.textPrimary,
+    );
     final unit = PantasType.phoneTitle2.copyWith(
+      // ds-board: P06 total 24, W06 28
+      fontSize: wide ? 28 : 24,
       color: colors.textSecondary,
       fontWeight: FontWeight.w600,
     );
@@ -127,7 +171,7 @@ class _FirstRunEndState extends State<FirstRunEnd>
           excludeSemantics: true,
           child: Column(
             children: [
-              _count(numeral, unit),
+              _count(numeral, unit, wide: wide),
               Text(
                 'correct',
                 style: PantasType.phoneBody.copyWith(
@@ -144,12 +188,12 @@ class _FirstRunEndState extends State<FirstRunEnd>
           children: [
             for (var i = 0; i < widget.outcomes.length; i++) ...[
               if (i > 0) const SizedBox(width: PantasSpace.s10),
-              _motion.pop(i, _Dot(number: i + 1, right: widget.outcomes[i])),
+              _dot(i, wide: wide),
             ],
           ],
         ),
         const SizedBox(height: PantasSpace.s20),
-        _motion.appear(
+        phoneOnly(
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s12),
             child: Text(
@@ -164,11 +208,11 @@ class _FirstRunEndState extends State<FirstRunEnd>
         ),
         if (_misses.isNotEmpty) ...[
           const SizedBox(height: PantasSpace.s32),
-          _motion.appear(_mistakes(context, wide: wide), 1620, 380, rise: 8),
+          _mistakesBlock(context, wide: wide),
         ],
       ],
     );
-    final done = _motion.appear(
+    final done = phoneOnly(
       wide
           ? WebButton(label: 'Done', keyHint: 'Enter', onPressed: widget.onDone)
           : PantasButton(
@@ -250,10 +294,45 @@ class _FirstRunEndState extends State<FirstRunEnd>
     );
   }
 
+  Widget _mistakesBlock(BuildContext context, {required bool wide}) {
+    final block = _mistakes(context, wide: wide);
+    // ds-board: W06 `up .5s 1.1s cubic-bezier(.2,.9,.3,1)`, 10 px
+    if (wide) {
+      return _motion.appear(
+        block,
+        1100,
+        500,
+        rise: 10,
+        curve: PantasCurves.enter,
+      );
+    }
+    return _motion.appear(block, 1620, 380, rise: 8);
+  }
+
+  Widget _dot(int i, {required bool wide}) {
+    final dot = _Dot(
+      key: ValueKey('end-dot-${i + 1}'),
+      number: i + 1,
+      right: widget.outcomes[i],
+    );
+    // ds-board: W06 `pop .4s` at .30, .38 and .46 s on the spring ease
+    return wide
+        ? _motion.pop(
+            i,
+            dot,
+            start: 300,
+            step: 80,
+            grow: 240,
+            curve: PantasCurves.spring,
+          )
+        : _motion.pop(i, dot);
+  }
+
   Widget _mistakes(BuildContext context, {required bool wide}) {
     final colors = context.colors;
     final misses = _misses;
     return Column(
+      key: const ValueKey('end-mistakes'),
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Row(
@@ -295,7 +374,7 @@ class _FirstRunEndState extends State<FirstRunEnd>
 }
 
 class _Dot extends StatelessWidget {
-  const _Dot({required this.number, required this.right});
+  const _Dot({required this.number, required this.right, super.key});
 
   final int number;
   final bool right;

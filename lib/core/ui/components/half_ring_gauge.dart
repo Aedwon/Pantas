@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/rolling_digits.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
@@ -453,19 +454,7 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
       color: context.colors.textPrimary,
       fontFeatures: const [FontFeature.tabularFigures()],
     );
-    final scaler = MediaQuery.textScalerOf(context);
     final countHeight = wide ? _wideQuizCountHeight : _quizCountHeight;
-    final extent = countHeight * scaler.scale(fontSize) / fontSize;
-    final measure = TextPainter(
-      text: TextSpan(
-        text: '${math.max(widget.correct!, _count.value.ceil())}',
-        style: style,
-      ),
-      textDirection: Directionality.of(context),
-      textScaler: scaler,
-    )..layout();
-    final width = measure.width;
-    measure.dispose();
     return SizedBox(
       height: countHeight,
       child: FittedBox(
@@ -476,46 +465,11 @@ class _HalfRingGaugeState extends State<HalfRingGauge>
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              ClipRect(
-                child: SizedBox(
-                  width: width,
-                  height: extent,
-                  child: OverflowBox(
-                    alignment: Alignment.topCenter,
-                    maxHeight: double.infinity,
-                    child: Transform.translate(
-                      key: const ValueKey('quiz-count-strip'),
-                      offset: Offset(0, -_count.value * extent),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          // Keep only the current number and its neighbors.
-                          // Preserve the board's absolute offset with a spacer.
-                          SizedBox(
-                            height:
-                                math.max(0, _count.value.floor() - 1) * extent,
-                          ),
-                          for (var i = math.max(0, _count.value.floor() - 1);
-                              i <=
-                                  math.min(
-                                    math.max(
-                                      widget.correct!,
-                                      _count.value.ceil(),
-                                    ),
-                                    _count.value.ceil() + 1,
-                                  );
-                              i++)
-                            SizedBox(
-                              height: extent,
-                              child: Center(
-                                child: Text('$i', style: style),
-                              ),
-                            ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+              RollingDigits(
+                count: _count,
+                last: widget.correct!,
+                style: style,
+                rowHeight: countHeight,
               ),
               const SizedBox(width: PantasSpace.s4),
               Padding(
