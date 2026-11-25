@@ -35,6 +35,11 @@ import {serviceAccountEmail} from './serviceAccounts.js';
  */
 export const signInOpenCap = defineInt('SIGN_IN_DAILY_SEND_CAP', {default: 60});
 export const signInReservedCap = defineInt('SIGN_IN_DAILY_RESERVED_CAP', {default: 40});
+/**
+ * Launch limits (Nov 25, his "yes"): mail stays on Resend Free, 100 a day across sign-in, guardian and
+ * the website. One alert when sign-in mails, both buckets together, pass this many in a Philippine day.
+ */
+export const SIGN_IN_DAILY_ALERT = 80;
 
 export const CODE_TTL_MS = 10 * 60_000;
 /** A challenge is useless once its code has expired. `purgeAt` (the TTL field) leaves a day of margin. */
@@ -228,6 +233,7 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
   const at = now();
   const day = phDay(at);
   const dayRef = deps.db.doc(`signInLimits/global-${bucket}-${day}`);
+  const otherDayRef = deps.db.doc(`signInLimits/global-${reserved ? 'open' : 'reserved'}-${day}`);
   // Counts for one mailbox over one Philippine day: codes mailed, and challenges that ran out of tries.
   const mailboxDayRef = deps.db.doc(mailboxDayPath(emailKey, day));
 
@@ -235,8 +241,9 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
   // for a reason that depends on the recipient, a challenge with no code stands in for it, so the
   // reply cannot be used to learn who is signed up, selected, or recently emailed.
   const slot = await deps.db.runTransaction<Slot>(async transaction => {
-    const [cached, snapshot, dayDoc, mailboxDay] = await Promise.all(
-      [transaction.get(cacheRef), transaction.get(limitRef), transaction.get(dayRef), transaction.get(mailboxDayRef)]);
+    const [cached, snapshot, dayDoc, mailboxDay, otherDay] = await Promise.all(
+      [transaction.get(cacheRef), transaction.get(limitRef), transaction.get(dayRef), transaction.get(mailboxDayRef),
+        transaction.get(otherDayRef)]);
     const askedAt = millis(cached.get('sentAt'));
     const askedId: unknown = cached.get('challengeId');
     if (askedAt > 0 && typeof askedId === 'string' && at - askedAt < RESEND_COOLDOWN_MS) {
@@ -279,6 +286,12 @@ export async function sendSignInCode(request: Req, deps: RequestDeps):
     if (sentToday < threshold && sentToday + 1 >= threshold) {
       (deps.alert ?? ((m: string) => console.error(m)))(
         `Sign-in emails (${bucket} bucket) reached 80% of the daily cap (${sentToday + 1} of ${cap}).`);
+    }
+    // For a log-based alert: match the text `Sign-in emails passed 80 today`.
+    const bothBuckets = sentToday + Number(otherDay.get('count') ?? 0);
+    if (bothBuckets <= SIGN_IN_DAILY_ALERT && bothBuckets + 1 > SIGN_IN_DAILY_ALERT) {
+      (deps.alert ?? ((m: string) => console.error(m)))(
+        `Sign-in emails passed ${SIGN_IN_DAILY_ALERT} today (${bothBuckets + 1}, both buckets).`);
     }
     transaction.set(challengeRef, {
       emailKey, email, codeHash, requesterUid: uid, attempts: 0,
