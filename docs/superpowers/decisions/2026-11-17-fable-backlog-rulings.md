@@ -1757,3 +1757,28 @@ Built on `ux/button-placement-r2`, wide only, phone unchanged:
 Kept, his decision wins over the pattern: the Reviews and New questions drawer's full-width Start or Resume (board A, "yes A lgtm, go ahead with it"). It carries the key `drawer-foot-start`, the check's one full-width exception.
 
 Check: `test/helpers/button_placement.dart` now also fails any wide button built with `expand: true` (its width set by its parent: a column, a panel or a fixed box), unless listed in `boardFullWidth`. The painted-box test had missed all five: three sit in columns with no painted box, two were stretched to fixed boxes. Shown failing on today's code: the mock setup and session results screen goldens at 1440 ("is full width (440 px ...)", "(192 px ...)"), and the new wide tests for the picker, Submit and Get Started (worker report, below in the handoff).
+
+## Nov 25, UX design lead: first run guided taste board (E-165)
+
+His words, verbatim, Nov 25 (relayed by the manager):
+- 2:15 PM: "i think we have a missing 'tutorial' step in the onboarding, a sort of getting users to try the core features but guided, if you know what i mean. do you understand this? so that they don't need to go through a long assessment / i think this would help hook people into the app more. wdyt?"
+- 2:45 PM, after three advisors (Gemini 4 Neon xhigh, Codex GPT 6.2 Sol High, Fable 5.2) answered: "i want it before launch but i think we should still require the assessment for more accurate display of score in the home / a taste of the app is the purpose so that they get it, but for the further stuff, like overall accuracy display, an assessment is still required. the point of why i raised this is that so users try out the core features of the app (studying > quizzing) before they commit to a long test, but the long test still is required to get better accurate results. we can add their trial score too if you think that can help"
+- Later, before seeing the board: "someone can optionally skip the tutorial / after it, they should be at Home greeted by take the assessment as it is now"
+
+His call overrides the advisors: all three advised making the assessment optional; it stays required for the score.
+
+Decided by him (drawn as the design, not options): the taste has a Skip. After the taste, finished or skipped, Home opens as it does today, with the "First, a short assessment" card.
+
+Searched before the rulings below: Pantas Redesign and Pantas Web boards O_Name, O_Days, O_Picker, OB_Welcome, OB_Name, OB_Days, OB_Picker, HE_BeforeAssessment, HM_BeforeAssessment, AS_Question, AS_Leave, AS_Results, QN_Correct, QN_Wrong, QV_EndLowB, QV_EndPerfectB, QS_EndLow, QS_EndPerfect, RD_Real, W_Reader, DK_Home, DK_Reader, DK_Quiz, HM_DayStart; specs `2026-05-11-assessment-flow-design.md` and `2026-05-16-onboarding-exam-selection-design.md`; decisions, specs and handoffs on main for "tutorial", "guided taste", "trial score", "first win" (no hits). No board draws a taste or answers how its answers count.
+
+Lead rulings (rule 4):
+1. Taste answers do not count toward the assessment. The assessment keeps its length (up to 30 questions) and leaves out the taste's questions so none repeats. Why: the taste questions come minutes after a lesson on the same topic, with the explanation shown after each, so they measure short-term recall, not where the learner starts (learning versus performance, Soderstrom and Bjork 2015 review; strong). His stated priority is the accurate score. Fable advised reusing them to shorten the test; not followed for that reason. Cost: the assessment is not shorter.
+2. Trial score: shown once, on the taste's end screen, in the approved session-end form ("2/3 correct", QV_End and QS_End boards), never a percent or a readiness figure. Home's card stays as it is now (his words). Taste answers enter no score and no Accuracy figure. The lesson counts as read.
+3. The taste is one bite-sized lesson, then 3 questions, each followed by its explanation (his "studying > quizzing"; advisors said 2 to 8).
+4. Skip: a "Skip" text button at the right of the header on the intro and every taste screen; it goes straight to Home with no confirm, since nothing is lost. Esc does the same on wide. The taste has no Close.
+5. Intro screen after setup: "Try Pantas first", "Read one short lesson, then answer 3 questions. You see each answer right away.", Start (main) and Skip (ghost), following the onboarding step layout. The end screen keeps the session-end layout and its Done (results-page placement in patterns.md).
+6. Reduce Motion: the end count shows its final number at once; reader and quiz screens follow their boards' Reduce Motion.
+
+Open for him on the board: (a) which lesson the taste uses (a fixed starter lesson, recommended, or the learner picks a subject); (b) leaving the assessment loses progress (below).
+
+Problem found in code (main at the time of this entry): the assessment holds answers in memory and saves only after the last question. Leaving through the dialog ("Your answers so far won't be kept. You can start again from Home."), browser Back, a reload or closing the app loses every answer. With the assessment as the one gate to the score, this is put to him as a choice: keep, or save answers on the device and resume from Home's card (recommended).
