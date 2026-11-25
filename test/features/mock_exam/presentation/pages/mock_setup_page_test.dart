@@ -358,7 +358,9 @@ void main() {
       expect(find.text('ITEMS'), findsNothing);
       expect(find.text('145 total items · 2 hr 40 min'), findsOneWidget);
       expect(
-          find.textContaining('20 personal-information items'), findsOneWidget);
+        find.textContaining('20 personal-information items'),
+        findsOneWidget,
+      );
     });
   }
 

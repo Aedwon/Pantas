@@ -8,7 +8,7 @@ import 'package:pantas/features/quiz/domain/streak/streak_evaluator.dart';
 // evaluator's own scenarios: study days Monday to Friday, 2 Oct 2026 is a
 // Friday.
 void main() {
-  final weekdays = StudyDays([1, 2, 3, 4, 5]);
+  final weekdays = StudyDays(const [1, 2, 3, 4, 5]);
   StreakSnapshot stored({int freezes = 1, DateTime? last}) => StreakSnapshot(
         current: 5,
         longest: 7,

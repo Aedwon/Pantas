@@ -107,8 +107,10 @@ void main() {
           ),
         ),
       );
-      expect(find.textContaining('your streak is safe'),
-          stands ? findsOneWidget : findsNothing);
+      expect(
+        find.textContaining('your streak is safe'),
+        stands ? findsOneWidget : findsNothing,
+      );
       expect(find.textContaining('Nothing is planned today'), findsOneWidget);
       expect(find.textContaining('next study day'), findsOneWidget);
     });

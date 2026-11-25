@@ -50,7 +50,7 @@ void main() {
     final window = ResolvedMetricsWindow(
       window: MetricsWindow.allTime,
       start: null,
-      end: DateTime.utc(2026, 7, 1),
+      end: DateTime.utc(2026, 7),
       sessionCount: 1,
       minSessionCount: 1,
     );

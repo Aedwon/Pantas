@@ -83,7 +83,7 @@ void main() {
         bestMockPercent: null,
         accuracySeries: [
           (weekStart: DateTime(2026, 9, 6), accuracy: 52),
-          (weekStart: DateTime(2026, 11, 1), accuracy: 61),
+          (weekStart: DateTime(2026, 11), accuracy: 61),
         ],
         latestWeekIsCurrent: current,
         mocks: const [],
