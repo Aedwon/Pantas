@@ -4713,3 +4713,8 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Prod (20:56 to 20:58 UTC, 4:58 AM Manila):** rollback point checked right before (Worker b3d2f5a6, build 4099224322-dcb87dad01a9). Content first: P10 mock text (root `content/cse-key-fixes-r1` a7cc22b6b plus main's three files; export from main's tools): 6 update, 1,475 unchanged, 0 lesson, question or Pro changes; re-plan 0 differences. Web build 1774060561-cb80f572cf8a from main 2c9cf8a87 (lib/main_prod.dart, BETA_GATE=true, SCREEN_COUNTS=true, SELLER_* loaded privately, lengths only); Worker d2a72e17-f423-4042-8d8d-e953a2a992bd; compare 92 of 92. 30-minute watch to 21:28 UTC: no ERROR or 5xx on any prod Cloud Run service.
 - **Rollback:** `Pantas-private/releases/2026-11-26-first-run-ship/rollback.md` (web: Worker b3d2f5a6; content: re-upload the branch at 498874194).
 
+
+### Nov 26, about 5:45 AM Manila: next batched web update rides the opening build (manager, CSE release lead r9)
+
+- **Proposed (r9):** prod requests, last 7 days by Manila hour, are lowest 5 to 10 AM and highest 2 to 5 PM (our own test traffic included). Each web update can trigger today's worker defect, so fold the batch (Study title 2 px, report confirmation announced, the Pro flicker fix if it lands) into the opening gate-off build instead of a separate deploy.
+- **Manager, verbatim:** "agreed, fold the batch into the opening gate-off build. If the opening slips past tomorrow, deploy the batch alone at 6 to 7 AM Manila and tell me first."
