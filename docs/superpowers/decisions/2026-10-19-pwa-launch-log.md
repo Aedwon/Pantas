@@ -4605,3 +4605,9 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 ### Nov 25, about 10:30 PM Manila: trial codes stay at 730 days (operations manager)
 
 - Aedwon asked "can't it be forever"; the manager explained ruling D7 (pseudonymous codes are personal data; Section 11(e) retention; 730 days covers four CSE sittings). His words, verbatim: "okay let's settle with 2 years". The texts word it as a 730-day schedule (the fix in the current Sol High round).
+
+### Nov 25, about 10:50 PM Manila: guided first-run board approved (operations manager)
+
+- Aedwon, verbatim: "okay lgtm!" on https://claude.ai/artifact/D3JLTrRGiN8vjnfLrbhoMN (revision E-176: no internal terms, "Try Pantas first" with three steps and previews, tightened copy, lesson A, assessment progress B saved as you go with Continue on Home, matched stacked buttons).
+- Effect: the UX lead builds it 1:1 to the board; it ships before the opening (his "i want it before launch"). The opening follows when it is live.
+- The lesson walk-through standard for CSE (queued 2:55 PM) now has its trigger met (his first-run picks and his console steps); it starts when an Opus lead slot frees, so no more than two leads build at once.
