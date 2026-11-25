@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
@@ -24,10 +23,13 @@ class HomeStateCard extends StatelessWidget {
     this.onSecondary,
     this.examDateLabel,
     this.hasExamDate = true,
-    this.web = kIsWeb,
+    this.web,
     super.key,
   });
-  final bool web;
+
+  /// Whether this runs on the web. Null reads the platform the layout uses,
+  /// so a widget test's web override reaches the card as it does a screen.
+  final bool? web;
   final HomeState state;
   final String examName;
   final String examShortName;
@@ -131,7 +133,7 @@ class HomeStateCard extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Wrap(
               alignment: WrapAlignment.end,
-              spacing: 12,
+              spacing: 8,
               runSpacing: 8,
               children: [
                 if (state == HomeState.passed && onSecondary != null)
@@ -199,7 +201,10 @@ class HomeStateCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isWideWebLayout(width: MediaQuery.sizeOf(context).width, web: web)) {
+    if (isWideWebLayout(
+      width: MediaQuery.sizeOf(context).width,
+      web: web ?? context.webPlatform,
+    )) {
       return CallbackShortcuts(
         bindings: {
           if (state == HomeState.assessment && onPrimary != null)

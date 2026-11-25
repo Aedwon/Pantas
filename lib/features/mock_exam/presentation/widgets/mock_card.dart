@@ -264,18 +264,32 @@ class MockCard extends StatelessWidget {
                       Text(rule, style: t.sub),
                   ],
                   const SizedBox(height: PantasSpace.s24),
-                  _MockActionButton(
-                    label: label,
-                    onPressed: callback,
-                    outlined: state == MockCardState.waiting,
-                  ),
-                  if (state == MockCardState.customReady &&
-                      onChangeSetup != null)
-                    WebButton(
-                      label: 'Change the Setup',
-                      onPressed: onChangeSetup,
-                      variant: WebButtonVariant.tertiary,
+                  // P2 (patterns.md, Button placement): the action at the
+                  // card's right end at natural width; a custom mock's
+                  // Change the Setup comes first in the same row.
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Wrap(
+                      alignment: WrapAlignment.end,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: PantasSpace.s8,
+                      runSpacing: PantasSpace.s8,
+                      children: [
+                        if (state == MockCardState.customReady &&
+                            onChangeSetup != null)
+                          WebButton(
+                            label: 'Change the Setup',
+                            onPressed: onChangeSetup,
+                            variant: WebButtonVariant.tertiary,
+                          ),
+                        _MockActionButton(
+                          label: label,
+                          onPressed: callback,
+                          outlined: state == MockCardState.waiting,
+                        ),
+                      ],
                     ),
+                  ),
                 ],
               ),
             ),
@@ -387,8 +401,8 @@ class _MockActionButton extends StatelessWidget {
         label: label,
         onPressed: onPressed,
         kind: outlined ? PantasButtonKind.white : PantasButtonKind.secondary,
-        size: PantasButtonSize.lg,
-        expand: true,
+        // Card buttons are 44 (patterns.md); 50 is for a page's one action.
+        size: PantasButtonSize.standard,
       );
 }
 

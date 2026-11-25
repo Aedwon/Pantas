@@ -220,7 +220,7 @@ class _QuizNoteEditorState extends State<QuizNoteEditor> {
                     label: _existing ? 'Cancel' : 'Not Now',
                     onPressed: _busy ? null : widget.onCancel,
                   ),
-                  const SizedBox(width: PantasSpace.s4),
+                  const SizedBox(width: PantasSpace.s8),
                   _NoteButton(
                     label: _existing ? 'Update' : 'Add Note',
                     solid: true,
