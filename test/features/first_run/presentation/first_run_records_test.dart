@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 
@@ -62,7 +61,9 @@ void main() {
     );
     expect(rows, isEmpty);
     await tester.drag(
-        find.byType(SingleChildScrollView), const Offset(0, -3000));
+      find.byType(SingleChildScrollView),
+      const Offset(0, -3000),
+    );
     await tester.pump(const Duration(milliseconds: 50));
     await tester.runAsync(
       () => Future<void>.delayed(const Duration(milliseconds: 200)),

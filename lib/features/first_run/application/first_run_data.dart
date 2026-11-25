@@ -35,17 +35,17 @@ final firstRunReadDwellProvider = Provider<Duration>((ref) => readDwellFloor);
 final firstRunDataProvider =
     FutureProvider.family<FirstRunData, String>((ref, examId) async {
   final content = firstRunContentFor(examId);
-  if (content == null) throw StateError('No first run for $examId');
+  if (content == null) throw StateError('No fixed lesson for $examId');
   final repo = ref.watch(contentRepositoryProvider);
   final lesson = await ref.watch(lessonByIdProvider(content.lessonId).future);
-  if (lesson == null) throw StateError('First run lesson is missing');
+  if (lesson == null) throw StateError('Fixed lesson is missing');
   final byId = await repo.questionsByIds(content.questionIds);
   final questions = [
     for (final id in content.questionIds)
       if (byId[id] case final q?)
         q.copyWith(choices: orderChoicesFor(q.id, q.choices))
       else
-        throw StateError('First run question $id is missing'),
+        throw StateError('Fixed question $id is missing'),
   ];
   final topic = await repo.topicById(lesson.topicId);
   final subject =

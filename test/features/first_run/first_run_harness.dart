@@ -3,9 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/core/auth/auth_state.dart';
-import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/auth/auth_user.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/lesson.dart';
@@ -77,12 +77,24 @@ final FirstRunData fixtureData = FirstRunData(
   subjectName: 'Mathematics',
   topicName: 'Arithmetic & Number Sense',
   questions: [
-    _q('q1', 'What is 3/8 expressed as a percentage?',
-        [('3.75%', false), ('37.5%', true), ('375%', false)], 'Divide 3 by 8.'),
-    _q('q2', 'A wholesaler gives a 15% discount. What fraction is paid?',
-        [('17/20', true), ('3/20', false), ('3/2', false)], 'Pay 85%.'),
-    _q('q3', 'Express 0.25 as a fraction.',
-        [('1/5', false), ('1/4', true), ('2/5', false)], 'Quarter.'),
+    _q(
+      'q1',
+      'What is 3/8 expressed as a percentage?',
+      [('3.75%', false), ('37.5%', true), ('375%', false)],
+      'Divide 3 by 8.',
+    ),
+    _q(
+      'q2',
+      'A wholesaler gives a 15% discount. What fraction is paid?',
+      [('17/20', true), ('3/20', false), ('3/2', false)],
+      'Pay 85%.',
+    ),
+    _q(
+      'q3',
+      'Express 0.25 as a fraction.',
+      [('1/5', false), ('1/4', true), ('2/5', false)],
+      'Quarter.',
+    ),
   ],
 );
 

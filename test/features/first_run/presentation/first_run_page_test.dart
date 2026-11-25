@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
-import 'package:pantas/features/first_run/application/first_run_data.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/features/first_run/application/first_run_data.dart';
 import 'package:pantas/features/first_run/domain/first_run_progress.dart';
 
 import '../../../helpers/button_placement.dart';
@@ -73,8 +73,10 @@ void main() {
   });
 
   group('lesson', () {
-    Future<FirstRunRig> toLesson(WidgetTester tester,
-        {double width = 390}) async {
+    Future<FirstRunRig> toLesson(
+      WidgetTester tester, {
+      double width = 390,
+    }) async {
       final rig = await pumpFirstRun(
         tester,
         width: width,
@@ -115,7 +117,9 @@ void main() {
       await tester.tap(find.text('Answer 3 Questions'));
       await tester.pumpAndSettle();
       expect(
-          find.text('What is 3/8 expressed as a percentage?'), findsOneWidget);
+        find.text('What is 3/8 expressed as a percentage?'),
+        findsOneWidget,
+      );
       expect(find.text('1 of 3'), findsOneWidget);
     });
   });

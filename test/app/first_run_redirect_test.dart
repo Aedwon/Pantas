@@ -11,7 +11,6 @@ import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
-import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/first_run/application/first_run_data.dart';
 import 'package:pantas/features/notifications/application/notifications_providers.dart';
