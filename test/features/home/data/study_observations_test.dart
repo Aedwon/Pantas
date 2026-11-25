@@ -11,6 +11,12 @@ import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/features/home/data/study_api.dart';
 import 'package:pantas/features/home/data/study_observations.dart';
 
+/// The lesson ids in one batched `recordLessonRead` payload.
+List<String> readIds(Map<String, Object?> p) => [
+      for (final read in p['reads']! as List<Object?>)
+        (read! as Map<String, Object?>)['lessonId']! as String,
+    ];
+
 void main() {
   test('a rejected observation does not prevent later real observations',
       () async {
@@ -24,7 +30,7 @@ void main() {
             ),
           );
     }
-    final sent = <String>[];
+    final calls = <List<String>>[];
     final sender = StudyObservations(
       db,
       coreToken: 'c',
@@ -33,24 +39,33 @@ void main() {
         examId: 'e',
         isCurrent: () async => true,
         api: StudyApi((_, p) async {
-          sent.add(p['lessonId']! as String);
-          if (p['lessonId'] == 'bad') {
-            throw FirebaseFunctionsException(
-              code: 'invalid-argument',
-              message: 'Retired lesson',
-            );
-          }
-          return <String, Object?>{};
+          final ids = readIds(p);
+          calls.add(ids);
+          // The server rejects the retired lesson and keeps the other.
+          return <String, Object?>{
+            'stored': [ids.indexOf('good')],
+            'unchanged': <int>[],
+            'rejected': [ids.indexOf('bad')],
+          };
         }),
       ),
     );
-    await expectLater(
-      sender.flush(),
-      throwsA(isA<FirebaseFunctionsException>()),
-    );
-    expect(sent, ['bad', 'good']);
     await sender.flush();
-    expect(sent, ['bad', 'good']);
+    expect(calls, [
+      ['bad', 'good'],
+    ]);
+    await sender.flush();
+    expect(calls, hasLength(1), reason: 'both rows have a receipt now');
+    final receipts = await db.select(db.devicePrefs).get();
+    final byKey = {for (final r in receipts) r.key: r.value};
+    expect(
+      byKey.entries.where((e) => e.key.contains('lesson_bad_')).single.value,
+      'rejected',
+    );
+    expect(
+      byKey.entries.where((e) => e.key.contains('lesson_good_')).single.value,
+      '1',
+    );
   });
 
   for (final code in ['permission-denied', 'failed-precondition']) {
@@ -128,7 +143,7 @@ void main() {
     expect(sent, ['good']);
   });
 
-  test('rate limit stops the flush before the next observation', () async {
+  test('rate limit surfaces from the one batched call', () async {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
     for (final id in ['first', 'second']) {
@@ -148,7 +163,7 @@ void main() {
         examId: 'e',
         isCurrent: () async => true,
         api: StudyApi((_, p) async {
-          sent.add(p['lessonId']! as String);
+          sent.addAll(readIds(p));
           throw FirebaseFunctionsException(
             code: 'resource-exhausted',
             message: 'Quota',
@@ -160,7 +175,7 @@ void main() {
       sender.flush(),
       throwsA(isA<FirebaseFunctionsException>()),
     );
-    expect(sent, ['first']);
+    expect(sent, ['first', 'second'], reason: 'both reads in one call');
   });
 
   test('stored lesson reads retry with original owner and earliest actual time',
@@ -198,14 +213,133 @@ void main() {
     expect(sent, hasLength(2));
     expect(sent.first, sent.last);
     expect(
-      sent.last['readAt'],
-      DateTime.utc(2026, 10, 24).millisecondsSinceEpoch,
+      (sent.last['reads']! as List<Object?>).single,
+      {
+        'lessonId': 'lesson',
+        'readAt': DateTime.utc(2026, 10, 24).millisecondsSinceEpoch,
+      },
     );
     expect(sent.last['expectedUid'], 'original');
     current = false;
     await expectLater(sender.flush(), throwsStateError);
     expect(sent, hasLength(2));
   });
+  group('a first sync of many lesson reads', () {
+    Future<AppDatabase> dbWithReads(int count) async {
+      final db = AppDatabase(NativeDatabase.memory());
+      addTearDown(db.close);
+      await db.batch(
+        (b) => b.insertAll(db.lessonProgressLocal, [
+          for (var i = 0; i < count; i++)
+            LessonProgressLocalCompanion.insert(
+              lessonId: 'l$i',
+              readAt: DateTime.utc(2026, 10, 24, 0, 0, i),
+            ),
+        ]),
+      );
+      return db;
+    }
+
+    StudyObservations senderFor(
+      AppDatabase db,
+      Future<Object?> Function(String, Map<String, Object?>) call,
+    ) =>
+        StudyObservations(
+          db,
+          coreToken: 'c',
+          request: StudyRequest(
+            uid: 'u',
+            examId: 'e',
+            isCurrent: () async => true,
+            api: StudyApi(call),
+          ),
+        );
+
+    test('N reads up to 200 make one call, 201 make two', () async {
+      for (final (count, calls) in [(1, 1), (50, 1), (200, 1), (201, 2)]) {
+        final db = await dbWithReads(count);
+        final sizes = <int>[];
+        final sender = senderFor(db, (name, p) async {
+          expect(name, 'recordLessonRead');
+          sizes.add(readIds(p).length);
+          return <String, Object?>{
+            'stored': List<int>.generate(readIds(p).length, (i) => i),
+            'unchanged': <int>[],
+            'rejected': <int>[],
+          };
+        });
+        await sender.flush();
+        expect(sizes.length, calls, reason: '$count reads');
+        expect(sizes.reduce((a, b) => a + b), count);
+        expect(sizes.every((s) => s <= 200), isTrue);
+        await sender.flush();
+        expect(sizes.length, calls, reason: 'every row has a receipt');
+      }
+    });
+
+    test('each row gets its own receipt and a rejected one blocks no other',
+        () async {
+      final db = await dbWithReads(5);
+      var calls = 0;
+      final sender = senderFor(db, (_, p) async {
+        calls++;
+        return <String, Object?>{
+          'stored': [0, 4],
+          'unchanged': [1, 2],
+          'rejected': [3],
+        };
+      });
+      await sender.flush();
+      final receipts = {
+        for (final r in await db.select(db.devicePrefs).get()) r.key: r.value,
+      };
+      String receiptFor(String id) => receipts.entries
+          .singleWhere((e) => e.key.contains('lesson_${id}_'))
+          .value;
+      expect(
+        [for (var i = 0; i < 5; i++) receiptFor('l$i')],
+        ['1', '1', '1', 'rejected', '1'],
+      );
+      await sender.flush();
+      expect(calls, 1);
+    });
+
+    test('a failed call leaves the reads unsent for the next sync', () async {
+      final db = await dbWithReads(3);
+      var online = false;
+      var calls = 0;
+      final sender = senderFor(db, (_, p) async {
+        calls++;
+        if (!online) throw StateError('offline');
+        return <String, Object?>{};
+      });
+      await expectLater(sender.flush(), throwsStateError);
+      expect(await db.select(db.devicePrefs).get(), isEmpty);
+      online = true;
+      await sender.flush();
+      await sender.flush();
+      expect(calls, 2);
+    });
+
+    test('a rate limit stops the pass without marking anything', () async {
+      final db = await dbWithReads(201);
+      var calls = 0;
+      final sender = senderFor(db, (_, __) async {
+        calls++;
+        throw FirebaseFunctionsException(
+          code: 'resource-exhausted',
+          message: 'Slow down',
+        );
+      });
+      await expectLater(
+        sender.flush(),
+        throwsA(isA<FirebaseFunctionsException>()),
+      );
+      expect(calls, 1, reason: 'the second chunk is not tried');
+      expect(await db.select(db.devicePrefs).get(), isEmpty);
+    });
+  });
+
   test('a receipt is read once and a sent row is never loaded', () async {
     final db = AppDatabase(NativeDatabase.memory());
     addTearDown(db.close);
@@ -282,7 +416,7 @@ void main() {
             examId: 'e',
             isCurrent: () async => true,
             api: StudyApi((_, p) async {
-              sent.add(p['lessonId']! as String);
+              sent.addAll(readIds(p));
               await gate.future;
               return <String, Object?>{};
             }),
@@ -317,7 +451,7 @@ void main() {
             examId: 'e',
             isCurrent: () async => current,
             api: StudyApi((_, p) async {
-              sent.add(p['lessonId']! as String);
+              sent.addAll(readIds(p));
               return <String, Object?>{};
             }),
           ),
@@ -352,8 +486,11 @@ void main() {
         examId: 'e',
         isCurrent: () async => true,
         api: StudyApi((endpoint, p) async {
-          sent.add('$endpoint:${p['lessonId'] ?? p['sessionId']}');
-          if (p['lessonId'] == 'old') await gate.future;
+          final lessons = p['reads'] == null ? <String>[] : readIds(p);
+          sent.add(
+            '$endpoint:${lessons.isEmpty ? p['sessionId'] : lessons.join(',')}',
+          );
+          if (lessons.contains('old')) await gate.future;
           return <String, Object?>{};
         }),
       ),
