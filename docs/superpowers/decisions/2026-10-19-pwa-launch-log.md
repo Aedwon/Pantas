@@ -4529,3 +4529,10 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 
 - Aedwon, verbatim: "yes i can issue invoices from my BIR printed invoices, but note that they are physical invoices that I can take a picture of, not e-invoices".
 - Effect: M8 is met by hand-written BIR-registered invoices. The Terms sentence "Pantas issues a sales invoice for each web purchase." stays (it promises an invoice, not email or e-invoicing). Workflow: for each web purchase he writes the invoice and sends the buyer a photo; a reminder per purchase belongs in the founder tooling later.
+
+### Nov 25, about 9:25 PM Manila: legal texts approved; opening "when ready" (operations manager)
+
+- Aedwon, verbatim: "okay keep 1k then. / okay with invoices / legal is fully approved / when ready / checking the first-run board now".
+- Liability cap: the ₱1,000 floor stays (manager explained the unconscionability risk of a lower cap).
+- Legal sign-off: the public-launch texts on legal/publish-r1 are approved as they stand after round 5, including the Nov 25 business-name and option C changes.
+- Opening day and hour: "when ready". Manager reading, consistent with his 2:45 PM "i want it before launch": public sign-up opens (gate-off build to prod, legal texts and website pages published with the version stamps set to that day, link-preview image) as soon as all of these are live or approved: the guided first run (after his board picks), the website homepage seller details (his approval of the draft), and the old Firebase address retirement. This is his "ship it" for the opening; the integrator tells the manager the planned hour before shipping.
