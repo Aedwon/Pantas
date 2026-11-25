@@ -14,7 +14,7 @@
 import {existsSync, readdirSync, readFileSync, statSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {buildFolder, fingerprints, listHash, workerBuild} from '../web/stamp_worker_version.mjs';
+import {buildFolder, FIXED_ADDRESS, fingerprints, listHash, workerBuild} from '../web/stamp_worker_version.mjs';
 
 // What the app cannot boot without, inside the build folder.
 const REQUIRED = [
@@ -71,7 +71,7 @@ export function stampProblems(dir) {
     else if (!(build.base + name in build.files)) problems.push(`required file missing from the worker's list: ${build.base}${name}`);
   }
   for (const name of listFiles(dir)) {
-    if (LOADED_AT_ROOT.test(name)) problems.push(`${name} is at the root: every file a page loads belongs in ${build.base}`);
+    if (LOADED_AT_ROOT.test(name) && !FIXED_ADDRESS.includes(name)) problems.push(`${name} is at the root: every file a page loads belongs in ${build.base}`);
   }
   if (existsSync(join(dir, build.base, 'flutter_bootstrap.js'))) {
     const bootstrap = readFileSync(join(dir, build.base, 'flutter_bootstrap.js'), 'utf8');

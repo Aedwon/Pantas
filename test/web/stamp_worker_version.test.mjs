@@ -160,6 +160,38 @@ test('restamping a build changed inside its folder moves it back and stamps it a
   assert.ok(!read(dir, 'index.html').includes(first));
 });
 
+test('a font url() in the page styles follows the folder, so the welcome screen finds its fonts', () => {
+  const dir = build('code');
+  mkdirSync(join(dir, 'assets/assets/fonts'), {recursive: true});
+  writeFileSync(join(dir, 'assets/assets/fonts/Geist-Regular.ttf'), 'ttf');
+  writeFileSync(join(dir, 'index.html'),
+    "<style>@font-face { src: url('assets/assets/fonts/Geist-Regular.ttf') format('truetype'); }</style>" +
+    '<style>.x { background: url(icons/Icon-192.png) }</style><script src="flutter_bootstrap.js"></script>');
+  const version = stamp(dir);
+  const page = read(dir, 'index.html');
+  assert.ok(page.includes(`url('b/${version}/assets/assets/fonts/Geist-Regular.ttf')`), page);
+  assert.ok(page.includes('url(icons/Icon-192.png)'), 'a file at the root keeps its address');
+  assert.ok(existsSync(join(dir, `b/${version}/assets/assets/fonts/Geist-Regular.ttf`)));
+  assert.equal(stamp(dir), version, 'stamping again is stable');
+  assert.ok(read(dir, 'index.html').includes(`url('b/${version}/assets/assets/fonts/Geist-Regular.ttf')`));
+});
+
+const PURCHASES = 'assets/packages/purchases_flutter/assets/web/purchases_js_hybrid_mappings.js';
+
+test('the one file a package asks for by a fixed root address stays there, and is in the startup set', () => {
+  const dir = build('code');
+  mkdirSync(join(dir, 'assets/packages/purchases_flutter/assets/web'), {recursive: true});
+  writeFileSync(join(dir, PURCHASES), 'purchases');
+  writeFileSync(join(dir, 'assets/FontManifest.json'), '[]');
+  const version = stamp(dir);
+  assert.equal(read(dir, PURCHASES), 'purchases');
+  assert.ok(!existsSync(join(dir, `b/${version}/${PURCHASES}`)));
+  assert.equal(stampedOf(dir).files[PURCHASES], sha('purchases'));
+  assert.ok(existsSync(join(dir, `b/${version}/assets/FontManifest.json`)), 'other assets still move');
+  assert.equal(stamp(dir), version);
+  assert.equal(read(dir, PURCHASES), 'purchases');
+});
+
 // ---- The fingerprint list (service worker build mix, E-184) ----
 
 test('the stamp writes the build id and the SHA-256 of every startup file, keyed by final path', () => {

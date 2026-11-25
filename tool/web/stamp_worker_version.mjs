@@ -41,7 +41,11 @@ const ROOT_FILES = new Set([
   PAGE, WORKER, 'version.json', 'manifest.json', 'favicon.png', 'og-image.png', 'README.md', '.last_build_id',
   'flutter_service_worker.js',
 ]);
-const atRoot = name => ROOT_FILES.has(name) || name.startsWith('icons/');
+// A package asks for this file by a fixed address relative to the page (purchases_flutter's
+// web plugin hard-codes it), so it cannot follow the folder. It is in the startup set, so a
+// controlled page gets the copy its build verified.
+export const FIXED_ADDRESS = ['assets/packages/purchases_flutter/assets/web/purchases_js_hybrid_mappings.js'];
+const atRoot = name => ROOT_FILES.has(name) || name.startsWith('icons/') || FIXED_ADDRESS.includes(name);
 
 function files(dir, root = dir) {
   if (!existsSync(dir)) return [];
@@ -90,7 +94,7 @@ export function startupSet(dir) {
   const folder = buildFolder(dir);
   const canvasKit = new Set(localCanvasKit(dir, folder) ? Object.values(VARIANTS).flat() : []);
   return files(dir).filter(path => {
-    if (!folder || !path.startsWith(folder)) return ROOT_SET.has(path) || path.startsWith('icons/');
+    if (!folder || !path.startsWith(folder)) return ROOT_SET.has(path) || path.startsWith('icons/') || FIXED_ADDRESS.includes(path);
     const name = path.slice(folder.length);
     if (EXCLUDED.has(name) || name.endsWith('.map')) return false;
     return EXACT.has(name) || PARTS.test(name) || HELPERS.test(name) || name.startsWith('assets/') || canvasKit.has(name);
@@ -198,8 +202,11 @@ export function stamp(dir) {
   const moved = files(dir).filter(name => !atRoot(name));
   const movedSet = new Set(moved);
   const pagePath = join(dir, PAGE);
-  writeFileSync(pagePath, readFileSync(pagePath, 'utf8').replace(
-    /\b(src|href)="([^"#?]+)"/g, (all, attribute, target) => (movedSet.has(target) ? `${attribute}="${folder}${target}"` : all)));
+  const follow = target => (movedSet.has(target) ? folder + target : target);
+  // Scripts and links, and url() in the page's own styles (the welcome and splash fonts).
+  writeFileSync(pagePath, readFileSync(pagePath, 'utf8')
+    .replace(/\b(src|href)="([^"#?]+)"/g, (all, attribute, target) => `${attribute}="${follow(target)}"`)
+    .replace(/\burl\((['"]?)([^'")#?]+)\1\)/g, (all, quote, target) => `url(${quote}${follow(target)}${quote})`));
   for (const name of moved) move(dir, name, folder + name);
   // Last: every file is final, so these are the hashes the worker verifies.
   const list = fingerprints(dir);

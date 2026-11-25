@@ -363,7 +363,7 @@ jobs:
         # tool/checks/free_tier_live.mjs, by hand: CI has no cloud login. Never make this non-blocking.
         run: |
           git fetch --no-tags --depth=1 origin +refs/heads/main:refs/remotes/origin/main
-          node --test tool/checks/*.test.mjs tool/cloudflare-app/*.test.mjs tool/deploy/*.test.mjs tool/payments/*.test.mjs
+          node --test test/web/*.test.mjs tool/checks/*.test.mjs tool/cloudflare-app/*.test.mjs tool/deploy/*.test.mjs tool/payments/*.test.mjs
           node tool/checks/free_tier.mjs
 
       - name: Save the emulator jars
