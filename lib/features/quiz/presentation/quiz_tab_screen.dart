@@ -165,9 +165,9 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         : PantasPage(
             title: 'Quiz',
             bottomInset: PantasLayout.reserveTabbar,
-            // Board QZ_Tab: the title box starts at y 50 (the same number as
-            // Study) and the Today label 14 px below it. The page scroll adds
-            // 2 px above the title.
+            // The title top is the one Settings and Study share
+            // (PantasPage.tabTitleTop). The page scroll adds 2 px above the
+            // title, and the Today label sits 14 px below it.
             titlePadding: const EdgeInsets.fromLTRB(
               PantasSpace.s4,
               PantasPage.tabTitleTop - PantasSpace.s2,
