@@ -5,12 +5,15 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {checkoutClosed, createCheckout} from '../lib/paymongoCheckout.js';
 
-test('checkout is closed only on pantas-prod with a key that is not live', () => {
-  assert.equal(checkoutClosed('pantas-prod', 'sk_test_abc'), true);
-  assert.equal(checkoutClosed('pantas-prod', ''), true);
-  assert.equal(checkoutClosed('pantas-prod', 'sk_live_abc'), false);
-  assert.equal(checkoutClosed('pantas-staging', 'sk_test_abc'), false);
-  assert.equal(checkoutClosed(undefined, 'sk_test_abc'), false);
+test('checkout is closed only on pantas-prod with a key that is not live, or before the opening', () => {
+  assert.equal(checkoutClosed('pantas-prod', 'sk_test_abc', 'true'), true);
+  assert.equal(checkoutClosed('pantas-prod', '', 'true'), true);
+  assert.equal(checkoutClosed('pantas-prod', 'sk_live_abc', 'true'), false);
+  // Live key, opening not yet shipped: only the admin account may pay (the owner's real test payment).
+  assert.equal(checkoutClosed('pantas-prod', 'sk_live_abc', undefined), true);
+  assert.equal(checkoutClosed('pantas-prod', 'sk_live_abc', 'false'), true);
+  assert.equal(checkoutClosed('pantas-staging', 'sk_test_abc', undefined), false);
+  assert.equal(checkoutClosed(undefined, 'sk_test_abc', undefined), false);
 });
 
 const untouchable = new Proxy({}, {get: () => { throw new Error('the database must not be touched'); }});

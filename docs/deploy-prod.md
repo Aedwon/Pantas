@@ -112,7 +112,8 @@ verification. Card and QR Ph are the current checkout methods.
 ### 6b. The PayMongo live-key switch (money-path audit, Nov 23, 2026)
 
 Until the switch, prod refuses web checkout while its PayMongo key is a test key (PR #89), except for an account with
-the admin claim. The switch itself waits for Aedwon's live keys (checklist M1 to M3). Do these in order, each logged in
+the admin claim. After it, checkout stays admin-only until the opening ship sets `PAYMONGO_CHECKOUT_OPEN=true` (PR #139).
+The switch itself waits for Aedwon's live keys (checklist M1 to M3). Do these in order, each logged in
 the launch log:
 
 0. **Guard first**: the test-checkout guard (PR #89) must be live on prod before anything else here. Check it by
@@ -126,7 +127,9 @@ the launch log:
    example with a late pass payment through the test webhook. Confirm the email arrives, and log the proof in the
    launch log. Then make the same alert on prod. Do not do step 2 until both are done.
 2. **Set the live keys** (`PANTAS_PAYMENT_SECRETS`: `sk_live_` key and the live webhook's signing secret), then deploy
-   functions with the pinned CLI. The checkout opens by itself once the key is live.
+   functions with the pinned CLI. Checkout stays limited to the admin account: it opens to everyone only when
+   the opening ship sets `PAYMONGO_CHECKOUT_OPEN=true` in `functions/.env.pantas-prod` and redeploys
+   `createPaymongoCheckout` (lead ruling, Nov 26, 2026).
 3. **Revoke the test-mode grants** from step 1 through the grant revocation path (never in the Firestore console),
    then refresh those accounts' claims. Confirm no PayMongo grant without a live payment remains.
 4. **Register the live webhook** for `checkout_session.payment.paid`, `payment.refunded`, `payment.refund.updated`,
