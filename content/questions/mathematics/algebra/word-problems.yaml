@@ -89,7 +89,7 @@ questions:
           This reports the decimal form of $10\%$ as a volume. Converting the percentage is a valid first step. Check that it is multiplied by the total volume.
       - text: '$9\text{ liters}$'
         rationale: |
-          This subtracts the vinegar amount from 10 liters. The question asks for the vinegar amount.
+          This subtracts the vinegar from the 10 liters. Taking away the part can feel like the next step. Check what the question asks for: the vinegar itself.
       - text: '$10\text{ liters}$'
         rationale: |
           This reports the entire solution volume. Vinegar is part of that solution. Check that only $10\%$ of the volume is vinegar.

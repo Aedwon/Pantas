@@ -87,12 +87,12 @@ Choose the correct form: "The company announced (its / his) new policy yesterday
 
 ### #3: Antecedents Joined by And
 
-Choose the correct form: "Liza and Carlo finished (her / their) project early."
+Choose the correct form: "Liza and Carlo, who share one project, finished (her / their) project early."
 
 **Solution:**
 
-1. Liza and Carlo are two people joined by *and*.
-2. Use *their*: "Liza and Carlo finished their project early."
+1. Liza and Carlo share the project.
+2. Use *their* to show that the project belongs to both. "Liza and Carlo, who share one project, finished their project early."
 
 ### #4: An Unclear Reference
 

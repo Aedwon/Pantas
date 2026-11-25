@@ -1698,9 +1698,9 @@
     "lesson": "lesson-algebra-work-rate-problems"
   },
   "q-algebra-word-problems-0004": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "8176a0d6990cb095f59ebd86c901a6fca7a66bbc93e75ae67bff067aa2fcc74e",
+    "approvedAt": "2026-11-25",
+    "evidence": "docs/content/verification/cse-key-fixes-r6.md",
+    "hash": "25fe609611144e90b12edf7492d96452bc370fc83e728afd8682e795756e3263",
     "lesson": "lesson-algebra-mixture-word-problems"
   },
   "q-algebra-word-problems-0005": {
@@ -2676,9 +2676,9 @@
     "lesson": "lesson-arithmetic-number-sense-least-common-multiple"
   },
   "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0011": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/arithmetic-number-sense.md",
-    "hash": "771ad0deae3cf5162f212a1c73dd6e72d6d2803799cc05bafd5ab35b622811b4",
+    "approvedAt": "2026-11-25",
+    "evidence": "docs/content/verification/cse-key-fixes-r6.md",
+    "hash": "67f82dab23ebf7623c1b019eb903b6bb08011b4425b514044099143477aab57c",
     "lesson": "lesson-arithmetic-number-sense-greatest-common-factor"
   },
   "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0012": {
@@ -13614,9 +13614,9 @@
     "lesson": "lesson-grammar-and-structure-matching-forms-in-lists"
   },
   "q-grammar-and-structure-parallelism-0010": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "a8749dde05609171eafb765490aac786ed8978cf4af8cefaa96ea72dd6141076",
+    "approvedAt": "2026-11-25",
+    "evidence": "docs/content/verification/cse-key-fixes-r6.md",
+    "hash": "b7205969969e02c025fb38c953c0815fb7f5994de89db25fff9991a2c8216464",
     "lesson": "lesson-grammar-and-structure-matching-forms-in-lists"
   },
   "q-grammar-and-structure-parallelism-0011": {
@@ -13998,9 +13998,9 @@
     "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents"
   },
   "q-grammar-and-structure-pronoun-antecedent-agreement-0007": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "55ca24e12f3e2bbc6cef0f6191e40a5cf840be00b440fcfd805748f1eb46ac69",
+    "approvedAt": "2026-11-25",
+    "evidence": "docs/content/verification/cse-key-fixes-r6.md",
+    "hash": "7727722c7c6bcee95fdacc8dfeda49a0a8ee5ab3de9341a1b8c6ed3475b0342c",
     "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents"
   },
   "q-grammar-and-structure-pronoun-antecedent-agreement-0008": {
@@ -14178,9 +14178,9 @@
     "lesson": "lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes"
   },
   "q-grammar-and-structure-punctuation-and-capitalization-0014": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "cd6172167592bfd59fc6e4d244909267532fbc2f62725d327d91e5303fc4b184",
+    "approvedAt": "2026-11-25",
+    "evidence": "docs/content/verification/cse-key-fixes-r6.md",
+    "hash": "64ce826632d4b53e3c84a69363ab17048bd6ecb2c151228561c6d310b9dcf5ae",
     "lesson": "lesson-grammar-and-structure-commas-with-openings-and-extra-information"
   },
   "q-grammar-and-structure-punctuation-and-capitalization-0015": {
@@ -14934,9 +14934,9 @@
     "lesson": "lesson-language-application-subject-and-verb-checks"
   },
   "q-language-application-error-identification-0017": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/language-application.md",
-    "hash": "62ede6d9921ed23bce13a9781eb2a6480b719ef657416eda8db87273c589f18c",
+    "approvedAt": "2026-11-25",
+    "evidence": "docs/content/verification/cse-key-fixes-r6.md",
+    "hash": "2545e66e435ca8041f443ea551fe4957e7d92349b12930afdeeb880d3773cc45",
     "lesson": "lesson-language-application-modifiers-and-matching-forms"
   },
   "q-language-application-error-identification-0018": {
@@ -25020,9 +25020,9 @@
     "lesson": "lesson-vocabulary-word-partners-feeling-and-grammar"
   },
   "q-vocabulary-context-clues-0020": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/vocabulary.md",
-    "hash": "abbcfb1121a1f9b3881569b32bfc089434f1cf7cd10808cd3485d4444b8c07d8",
+    "approvedAt": "2026-11-25",
+    "evidence": "docs/content/verification/cse-key-fixes-r6.md",
+    "hash": "af24fa8c2868400171f071acd2d60ac3bbd11a42c06ed8071663bf11fdeac189",
     "lesson": "lesson-vocabulary-contrast-and-inference-clues"
   },
   "q-vocabulary-context-clues-0021": {
@@ -25248,9 +25248,9 @@
     "lesson": "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi"
   },
   "q-vocabulary-root-words-prefixes-suffixes-0017": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-exam-tags.md",
-    "hash": "d8fa5e8f059c9c23133ca56ad373edb6bd8d027d8ea1e66bda1844a956b9f9f1",
+    "approvedAt": "2026-11-25",
+    "evidence": "docs/content/verification/cse-key-fixes-r6.md",
+    "hash": "77ed1c3e945e9720de307697f5ba8e4d17570100f7e9424ae791d5148c8ab0c6",
     "lesson": "lesson-vocabulary-english-word-elements"
   },
   "q-vocabulary-root-words-prefixes-suffixes-0018": {
@@ -25380,9 +25380,9 @@
     "lesson": "lesson-vocabulary-letters-sounds-and-vowel-order"
   },
   "q-vocabulary-spelling-rules-0014": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-exam-tags.md",
-    "hash": "455dcceb01005db35cb62c30efaa6e67794a501292e0a4e3534c151c1b6bd696",
+    "approvedAt": "2026-11-25",
+    "evidence": "docs/content/verification/cse-key-fixes-r6.md",
+    "hash": "f1ef9a9c842b9cef2583847d940f89c5f38d26e67cc1fecd55cdf19ccdbb2f13",
     "lesson": "lesson-vocabulary-silent-e-with-suffixes"
   },
   "q-vocabulary-spelling-rules-0015": {
@@ -25398,9 +25398,9 @@
     "lesson": "lesson-vocabulary-baybay-ng-hiram-na-salita"
   },
   "q-vocabulary-spelling-rules-0017": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-exam-tags.md",
-    "hash": "2e8386edc102198349d3827e0b64d92fd0b35919b023387abfe64f9d4ac49615",
+    "approvedAt": "2026-11-25",
+    "evidence": "docs/content/verification/cse-key-fixes-r6.md",
+    "hash": "cec26ca4b27051c5d18e7bf3af67776345cb5a6c2c3c071b3db4448c4906c074",
     "lesson": "lesson-vocabulary-letters-sounds-and-vowel-order"
   },
   "q-vocabulary-spelling-rules-0018": {

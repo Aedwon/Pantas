@@ -309,7 +309,7 @@ questions:
         correct: true
       - text: "The students, who missed the test, must report today."
         rationale: |
-          The commas make "who missed the test" extra information about all the students. This says all the students missed the test and must report. Use the clause without commas to pick out only the students who missed it.
+          The commas make "who missed the test" extra information about all the students, so this says all of them missed the test and must report. Paired commas often look correct around a "who" clause. Check: leave out the commas when the clause picks out only some of the group.
       - text: "The students who, missed the test, must report today."
         rationale: |
           This separates "who" from its verb. Two commas make the extra group look balanced. Check: keep the entire identifying clause together.

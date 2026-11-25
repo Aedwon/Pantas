@@ -315,7 +315,7 @@ questions:
         correct: true
       - text: "Managing"
         rationale: |
-          The word "manage" drops its final e before "-ing," so "managing" is spelled correctly.
+          This word is spelled correctly. You may think the e of "manage" must stay before "-ing." Check: "manage" drops its final e before "-ing," so "managing" is right.
       - text: "Courageous"
         rationale: |
           This assumes every vowel-starting suffix requires dropping e. That shortcut works for many -ing forms. Check the established spelling "courageous."
@@ -387,7 +387,7 @@ questions:
           This applies i-before-e to an exception. The familiar rhyme may seem general. Check the established spelling "seize."
       - text: "Seise"
         rationale: |
-          "Seise" is a legal term for giving someone possession of property. Here the goalkeeper is trying to take hold of the ball, so the word is "seize."
+          "Seise" is a real legal word for giving someone possession of property, so it can look correct. Here the goalkeeper is trying to take hold of the ball. Check the meaning the sentence needs: that word is "seize."
       - text: "Seizee"
         rationale: |
           This adds a second final e. A long vowel may seem to need an extra written vowel. Check the standard five-letter form.

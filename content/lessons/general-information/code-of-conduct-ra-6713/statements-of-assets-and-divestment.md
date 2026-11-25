@@ -172,51 +172,51 @@ $$
 
 ### #3: Constitutional and National Elective Officials
 
-The Vice President must file financial declarations. Which statutory filing office applies?
+The Vice President must file financial declarations. Which statutory repository receives the SALN?
 
 **Solution:**
 
 1. The Vice President is a constitutional and national elective official.
-2. The filing destination is the **national office of the Ombudsman**.
+2. The statutory repository for the Vice President is the **national office of the Ombudsman**.
 
 ### #4: The Two Legislative Chambers
 
-A senator and a member of the House of Representatives must file their declarations. Where does each file under RA $6713$?
+A senator and a member of the House of Representatives must file their declarations. Which statutory repository receives each SALN?
 
 **Solution:**
 
-1. A senator files with the **Secretary of the Senate**.
-2. A House member files with the **Secretary of the House of Representatives**.
+1. The statutory repository for a senator is the **Secretary of the Senate**.
+2. The statutory repository for a House member is the **Secretary of the House of Representatives**.
 3. The specific legislative rule applies to each member's own chamber.
 
 ### #5: Justices and Judges
 
-A Supreme Court justice and a trial court judge must file their declarations. Which statutory destination applies to each?
+A Supreme Court justice and a trial court judge must file their declarations. Which statutory repository receives each SALN?
 
 **Solution:**
 
-1. The justice files with the **Clerk of Court of the Supreme Court**.
-2. The judge files with the **Court Administrator**. The two judicial destinations are distinct.
+1. The statutory repository for a justice is the **Clerk of Court of the Supreme Court**.
+2. The statutory repository for a judge is the **Court Administrator**.
 
 ### #6: National Executive and Military Filers
 
-A national executive official, an army colonel, and an army major must file their declarations. Where does each file under the statute?
+A national executive official, an army colonel, and an army major must file their declarations. Which statutory repository receives each SALN?
 
 **Solution:**
 
-1. The national executive official files with the **Office of the President**.
-2. The colonel also files with the **Office of the President**. Colonel is included in the higher-rank category.
-3. The major is below colonel and files with the **Deputy Ombudsman in the proper region**.
+1. The statutory repository for a national executive official is the **Office of the President**.
+2. The statutory repository for a colonel is the **Office of the President**. Colonel is included in the higher-rank category.
+3. The statutory repository for a major is the **Deputy Ombudsman in the proper region**. A major ranks below a colonel.
 
 ### #7: Local and Remaining Categories
 
-A city employee and a covered employee who falls outside all the specifically named filing categories must file declarations. Which statutory offices receive them?
+A city employee and a covered employee who falls outside all the specifically named filing categories must file declarations. Which statutory repository receives each SALN?
 
 **Solution:**
 
-1. The city employee is a local government employee and files with the **Deputy Ombudsman in the proper region**.
-2. The employee in the remaining category files with the **CSC**.
-3. Do not send every covered employee to the same office.
+1. The statutory repository for a city employee is the **Deputy Ombudsman in the proper region**.
+2. The statutory repository for an employee in the remaining category is the **CSC**.
+3. The law names different repositories for different roles.
 
 ### #8: Family Coverage Boundaries
 
@@ -297,9 +297,9 @@ A journalist requests a SALN received $8$ years ago. When does a statement becom
 
 **Solution:**
 
-1. Copies become available after $10$ working days from filing.
+1. Copying opens $10$ working days after filing, or $10$ working days after the final agency deadline at an Ombudsman repository.
 2. Statements stay available for $10$ years after receipt. An $8$-year-old statement is within that period.
-3. The statement remains available under this rule. A reasonable fee covers copying, mailing, and certification.
+3. The journalist may request a copy under the repository's rules and pay the fee.
 
 ### #16: A Statement Still Needed as Evidence
 
@@ -336,9 +336,9 @@ A reviewing body finds an incomplete statement. Separately, a House committee is
 
 > Only the copying period here is stated in working days.
 
-Initial and separation filings use $30$ days. April $30$ is the annual deadline. Copying begins after $10$ working days from filing.
+Initial and separation filings use $30$ days. April $30$ is the annual deadline. Under RA 6713, the copying period is $10$ working days from filing. For Ombudsman repositories, the earliest release is $10$ working days after the final agency submission deadline, once the SALN has been processed and recorded.
 
-### #2: Sending Every Filing to the CSC
+### #2: Treating the CSC as the Only Repository
 
 > Match the office to the filer's category.
 

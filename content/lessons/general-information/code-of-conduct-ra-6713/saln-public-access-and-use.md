@@ -17,7 +17,11 @@ keyPoints:
 
 ### Public Access and Use Limits
 
-Filed statements are open for inspection during reasonable hours upon a valid and lawful request under the repository's rules. RA 6713 makes copies available after $10$ working days from filing. The Ombudsman makes SALNs in its repositories available for inspection and copying once they are processed and recorded, at least $10$ working days after the final agency submission deadline. A reasonable fee covers copying, mailing, and certification.
+Anyone may make a lawful request to inspect a filed statement during reasonable hours, following the repository's rules.
+
+RA 6713 allows copies $10$ working days after filing. The Ombudsman releases the SALNs it keeps once they are recorded, and not before $10$ working days after the final agency deadline.
+
+A reasonable fee covers copying, mailing, and certification.
 
 Statements stay available to the public for $10$ years after receipt. After that, they may be destroyed unless needed in an ongoing investigation. Destruction is allowed, not required. The Ombudsman keeps and digitizes the SALNs already in its files.
 
@@ -33,9 +37,9 @@ A journalist requests a SALN received $8$ years ago. When does a statement becom
 
 **Solution:**
 
-1. Under RA 6713, the copying period is $10$ working days from filing. For Ombudsman repositories, the earliest release is $10$ working days after the final agency submission deadline, once the SALN has been processed and recorded.
+1. Copying opens $10$ working days after filing, or $10$ working days after the final agency deadline at an Ombudsman repository.
 2. Statements stay available for $10$ years after receipt. An $8$-year-old statement is within that period.
-3. The journalist can request a copy from the repository. Getting a copy depends on a lawful request, the repository's access rules, and payment of the applicable fee.
+3. The journalist may request a copy under the repository's rules and pay the fee.
 
 ### #2: A Statement Still Needed as Evidence
 
