@@ -4601,3 +4601,7 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Checks:** app legal tests 37 of 37 (review-match: app equals the signed-off files), analyze clean; website tests 192 of 192.
 - **Follow-up, not an opening gate:** a one-time in-app notice of the new Terms for accounts made before publication, with the first display recorded per account. Until an account sees it, its earlier Terms apply.
 - **His check (rule 5):** the three changed passages, in change-summary "Round 6".
+
+### Nov 25, about 10:30 PM Manila: trial codes stay at 730 days (operations manager)
+
+- Aedwon asked "can't it be forever"; the manager explained ruling D7 (pseudonymous codes are personal data; Section 11(e) retention; 730 days covers four CSE sittings). His words, verbatim: "okay let's settle with 2 years". The texts word it as a 730-day schedule (the fix in the current Sol High round).
