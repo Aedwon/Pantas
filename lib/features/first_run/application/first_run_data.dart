@@ -23,6 +23,10 @@ class FirstRunData {
   final String topicName;
 
   /// "Mathematics · Arithmetic": the topic name up to its first "&".
+  ///
+  /// Frames W03, W04 and W02 draw "MATHEMATICS · ARITHMETIC" for the topic
+  /// "Arithmetic & Number Sense". The cut at "&" is exact for this one fixed
+  /// lesson only; a topic with another shape would need its own wording.
   String get eyebrow => '$subjectName · ${topicName.split(' & ').first}';
 }
 

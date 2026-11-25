@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/onboarding_frame.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -73,45 +74,53 @@ class FirstRunIntro extends StatelessWidget {
         ),
       );
 
-  Widget _wide(BuildContext context) => Align(
-        alignment: Alignment.topCenter,
-        child: _SlideIn(
-          child: ConstrainedBox(
-            // ds-board: W02 column 640
-            constraints: const BoxConstraints(maxWidth: 640),
-            child: SingleChildScrollView(
-              // ds-board: W02 padding-top 64
-              padding: const EdgeInsets.only(
-                top: PantasSpace.s56 + PantasSpace.s8,
-                bottom: PantasSpace.s40,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  _body(context, wide: true),
-                  const SizedBox(height: PantasSpace.s28),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      WebButton(
-                        label: 'Skip',
-                        kind: PantasButtonKind.tertiary,
-                        keyHint: 'Esc',
-                        onPressed: onSkip,
-                      ),
-                      const SizedBox(width: PantasSpace.s8),
-                      WebButton(
-                        label: 'Start',
-                        keyHint: 'Enter',
-                        onPressed: onStart,
-                      ),
-                    ],
+  Widget _wide(BuildContext context) => Column(
+        children: [
+          // Frames W02 and W02D draw the same 64 px logo row as W01.
+          const OnboardingTopBar(),
+          Expanded(
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: _SlideIn(
+                child: ConstrainedBox(
+                  // ds-board: W02 column 640
+                  constraints: const BoxConstraints(maxWidth: 640),
+                  child: SingleChildScrollView(
+                    // ds-board: W02 body padding 40 plus section padding-top 64
+                    padding: const EdgeInsets.only(
+                      top: PantasSpace.s40 + PantasSpace.s56 + PantasSpace.s8,
+                      bottom: PantasSpace.s40,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        _body(context, wide: true),
+                        const SizedBox(height: PantasSpace.s28),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            WebButton(
+                              label: 'Skip',
+                              kind: PantasButtonKind.tertiary,
+                              keyHint: 'Esc',
+                              onPressed: onSkip,
+                            ),
+                            const SizedBox(width: PantasSpace.s8),
+                            WebButton(
+                              label: 'Start',
+                              keyHint: 'Enter',
+                              onPressed: onStart,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ],
+                ),
               ),
             ),
           ),
-        ),
+        ],
       );
 
   Widget _body(BuildContext context, {required bool wide}) {

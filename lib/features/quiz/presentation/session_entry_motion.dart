@@ -8,8 +8,15 @@ class SessionEntryMotion {
   final AnimationController controller;
 
   /// Fades [child] in and rises it by [rise] px. [start] and [duration] are in
-  /// milliseconds of the timeline.
-  Widget appear(Widget child, int start, int duration, {double rise = 0}) =>
+  /// milliseconds of the timeline. [curve] is the house ease unless a frame
+  /// draws another.
+  Widget appear(
+    Widget child,
+    int start,
+    int duration, {
+    double rise = 0,
+    Curve curve = PantasCurves.house,
+  }) =>
       AnimatedBuilder(
         animation: controller,
         child: child,
@@ -18,7 +25,7 @@ class SessionEntryMotion {
                       start) /
                   duration)
               .clamp(0.0, 1.0);
-          final value = PantasCurves.house.transform(t);
+          final value = curve.transform(t);
           return IgnorePointer(
             ignoring: t == 0,
             child: Transform.translate(
@@ -29,20 +36,29 @@ class SessionEntryMotion {
         },
       );
 
-  /// Pops the circle for question [index]: 90 ms after the one before it.
-  Widget pop(int index, Widget child) => AnimatedBuilder(
+  /// Pops the circle for question [index]: [step] ms after the one before it,
+  /// from [start]. It grows to 1.12 in [grow] ms, then settles in [settle].
+  Widget pop(
+    int index,
+    Widget child, {
+    int start = 400,
+    int step = 90,
+    int grow = 260,
+    int settle = 160,
+    Curve curve = PantasCurves.popB,
+  }) =>
+      AnimatedBuilder(
         animation: controller,
         child: child,
         builder: (context, child) {
           final elapsed =
               controller.value * controller.duration!.inMilliseconds -
-                  400 -
-                  index * 90;
+                  start -
+                  index * step;
           final before = elapsed < 0;
-          final first = (elapsed / 260).clamp(0.0, 1.0);
-          final last = ((elapsed - 260) / 160).clamp(0.0, 1.0);
-          const curve = PantasCurves.popB;
-          final scale = elapsed <= 260
+          final first = (elapsed / grow).clamp(0.0, 1.0);
+          final last = ((elapsed - grow) / settle).clamp(0.0, 1.0);
+          final scale = elapsed <= grow
               ? .4 + .72 * curve.transform(first)
               : 1.12 - .12 * curve.transform(last);
           return IgnorePointer(
@@ -50,7 +66,7 @@ class SessionEntryMotion {
             child: Opacity(
               opacity: before
                   ? 0
-                  : elapsed <= 260
+                  : elapsed <= grow
                       ? curve.transform(first).clamp(0.0, 1.0)
                       : 1,
               child: Transform.scale(scale: scale, child: child),

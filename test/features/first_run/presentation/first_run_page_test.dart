@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
+import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/features/first_run/application/first_run_data.dart';
 import 'package:pantas/features/first_run/domain/first_run_progress.dart';
 
@@ -44,6 +45,25 @@ void main() {
       expect(skip.left, lessThan(start.left));
       expect(find.text('Esc'), findsOneWidget);
       expect(find.text('Enter'), findsOneWidget);
+    });
+
+    testWidgets('wide draws the Pantas logo and word above the column',
+        (tester) async {
+      await pumpFirstRun(tester, width: 1440);
+      final logo = tester.getRect(find.byType(PantasLogo));
+      final word = tester.getRect(find.text('Pantas'));
+      final heading = tester.getRect(find.text('Try Pantas first'));
+      // Frame W02: the 64 px header row of W01, 28 px logo, then the word.
+      expect(logo.size, const Size.square(28));
+      expect(logo.center.dy, 32);
+      expect(word.left, greaterThan(logo.right));
+      expect(word.center.dy, closeTo(32, 2));
+      expect(heading.top, greaterThan(64));
+    });
+
+    testWidgets('the phone intro has no logo row', (tester) async {
+      await pumpFirstRun(tester);
+      expect(find.byType(PantasLogo), findsNothing);
     });
 
     testWidgets('Start opens the lesson', (tester) async {
@@ -138,6 +158,21 @@ void main() {
       expect(find.text('Divide 3 by 8.'), findsOneWidget);
       expect(find.byTooltip('Next question'), findsOneWidget);
       expect(await rig.stored(tester), contains('"checked":["q1"]'));
+    });
+
+    // Frames P04 and W04. The wide eyebrow is the subject and the topic name
+    // up to its "&" ("Arithmetic & Number Sense"), which is exact for the one
+    // fixed lesson only.
+    testWidgets('the phone question eyebrow is the subject alone',
+        (tester) async {
+      await pumpFirstRun(tester, progressJson: q1);
+      expect(find.text('MATHEMATICS'), findsOneWidget);
+      expect(find.text('MATHEMATICS · ARITHMETIC'), findsNothing);
+    });
+
+    testWidgets('the wide question eyebrow adds the topic', (tester) async {
+      await pumpFirstRun(tester, width: 1440, progressJson: q1);
+      expect(find.text('MATHEMATICS · ARITHMETIC'), findsOneWidget);
     });
 
     testWidgets('Check is off until a choice is picked', (tester) async {
