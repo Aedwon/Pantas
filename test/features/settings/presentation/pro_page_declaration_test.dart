@@ -36,7 +36,8 @@ const _guardianLabel =
     'Terms and refund policy.';
 const _link = 'Terms and refund policy';
 const _buy = 'Buy 1 Month for ₱149';
-// Web plans are prepaid, so web never says "subscription" (integrator ruling, Nov 26).
+// Web plans are prepaid, so web never says "subscription"
+// (integrator ruling, Nov 26).
 const _generic = "We couldn't start your payment. Try again.";
 
 final _guardianSignal = StateProvider<bool>((ref) => false);
