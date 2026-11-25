@@ -173,6 +173,10 @@ node tool/web/stamp_worker_version.mjs build/web
 tool/cloudflare-app/deploy.sh prod build/web
 ```
 
+The stamp writes the build id and a SHA-256 for every startup file into the service worker. `deploy.sh` runs
+`tool/deploy/check_worker_stamp.mjs` first and refuses an unstamped build or one changed after the stamp. Run the
+stamp again after any change to `build/web`.
+
 The Cloudflare Worker serves the app (section 14). Firebase Hosting serves only the tiny page in
 `hosting/retired`, so a release never deploys Hosting.
 

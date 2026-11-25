@@ -132,5 +132,10 @@ export function stamp(dir) {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log(`Service worker version: ${stamp(process.argv[2] ?? 'build/web')}`);
+  const dir = process.argv[2] ?? 'build/web';
+  console.log(`Service worker version: ${stamp(dir)}`);
+  const inSet = new Set(startupSet(dir));
+  const bytes = [...inSet].reduce((sum, name) => sum + statSync(join(dir, name)).size, 0);
+  console.log(`Startup set: ${inSet.size} files, ${(bytes / 1048576).toFixed(1)} MB`);
+  console.log(`Left out: ${files(dir).filter(name => !inSet.has(name)).join(', ')}`);
 }

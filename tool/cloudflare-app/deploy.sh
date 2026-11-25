@@ -12,6 +12,8 @@ case "$env" in staging|prod) ;; *) echo "staging or prod" >&2; exit 2;; esac
 here="$(cd "$(dirname "$0")" && pwd)"
 src="$(cd "${2:-$here/../../build/web}" && pwd)"
 test -f "$src/index.html" || { echo "$src has no index.html; build first" >&2; exit 1; }
+# Refuse a build whose service worker was not stamped for exactly these files (E-184).
+node "$here/../deploy/check_worker_stamp.mjs" "$src"
 rm -rf "$here/dist" && mkdir "$here/dist"
 cp -R "$src/." "$here/dist/"
 # Firebase's reserved /__/ files are served by Firebase through the forwarding, never from here.
