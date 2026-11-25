@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
@@ -292,7 +293,7 @@ class _SearchFieldState extends State<SearchField> {
                 top: widget.titleTop,
                 bottom: PantasSpace.s14,
               ),
-              child: Text(
+              child: PantasTitle(
                 widget.title!,
                 style: PantasType.phoneLargeTitle.copyWith(
                   color: colors.textPrimary,

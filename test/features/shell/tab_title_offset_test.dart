@@ -2,12 +2,18 @@
 // state, 20 px under the top of the screen, the height of the Settings title
 // (his staging pass, 26 November, superseding the 50 px of the boards).
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
+import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -17,7 +23,10 @@ import 'package:pantas/features/lesson/domain/use_cases/build_study_map.dart';
 import 'package:pantas/features/lesson/presentation/learn_tab_home.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
+import 'package:pantas/features/settings/presentation/settings_home_page.dart';
+import 'package:pantas/features/settings/settings.dart';
 
+import '../../helpers/in_memory_database.dart';
 import '../lesson/presentation/fake_open_topic.dart';
 
 const _exam = Exam(
@@ -239,6 +248,94 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(quizTitleTop(tester), boardTitleTop);
+    });
+  });
+
+  // His call (26 November, real browser, 390 wide): the Study title's letters
+  // sat 2 px below Quiz and Settings although the boxes matched. The painted
+  // alphabetic baseline of the real Geist font is what the eye compares, so
+  // this holds the baseline, not only the box.
+  group('Tab title glyph baseline (phone)', () {
+    setUpAll(() async {
+      final loader = FontLoader('Geist');
+      for (final f in ['Regular', 'Medium', 'SemiBold', 'Bold']) {
+        final bytes = File('assets/fonts/Geist-$f.ttf').readAsBytesSync();
+        loader.addFont(Future.value(ByteData.sublistView(bytes)));
+      }
+      await loader.load();
+    });
+
+    double baselineOf(WidgetTester tester, Finder text) {
+      final box = tester.renderObject<RenderParagraph>(text);
+      return box.localToGlobal(Offset.zero).dy +
+          box.computeDistanceToActualBaseline(TextBaseline.alphabetic);
+    }
+
+    Future<double> study(WidgetTester tester) async {
+      await phone(
+        tester,
+        const StudyTabHome(),
+        studyOverrides(map: () async => _populated),
+      );
+      await tester.pumpAndSettle();
+      return baselineOf(tester, find.text('Study'));
+    }
+
+    Future<double> quiz(WidgetTester tester) async {
+      await phone(
+        tester,
+        const QuizTabScreen(),
+        quizOverrides(focus: () async => const ActiveExamFocus.selected(_exam)),
+      );
+      await tester.pumpAndSettle();
+      return baselineOf(tester, find.text('Quiz').first);
+    }
+
+    Future<double> settings(WidgetTester tester) async {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      await phone(tester, const SettingsHomePage(), [
+        appDatabaseProvider.overrideWithValue(db),
+        userSettingsProvider.overrideWith(
+          (ref) async => UserSettings.defaults(),
+        ),
+        isAnonymousProvider.overrideWith((ref) async => true),
+      ]);
+      await tester.pumpAndSettle();
+      return baselineOf(tester, find.text('Settings').first);
+    }
+
+    // In a real browser at 390 wide, a plain Text paints this title 2 px below
+    // the same text inside PantasTitle (Quiz and Settings), box and baseline
+    // equal in every widget test. Only a browser run shows it (glyph rows 26
+    // vs 24 at 390 x 844), so the loaded Study title must be a PantasTitle
+    // like the other two.
+    testWidgets(
+        'the loaded Study title is a PantasTitle, as in Quiz and Settings',
+        (tester) async {
+      await phone(
+        tester,
+        const StudyTabHome(),
+        studyOverrides(map: () async => _populated),
+      );
+      await tester.pumpAndSettle();
+      expect(
+        find.ancestor(
+          of: find.text('Study'),
+          matching: find.byType(PantasTitle),
+        ),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('Study, Quiz and Settings paint the title on one baseline', (
+      tester,
+    ) async {
+      final s = await study(tester);
+      final q = await quiz(tester);
+      final t = await settings(tester);
+      expect(q, t, reason: 'Quiz vs Settings');
+      expect(s, t, reason: 'Study vs Settings');
     });
   });
 
