@@ -13,6 +13,7 @@ import 'package:pantas/app/theme.dart';
 import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 
 class _Gateway extends Mock implements AuthGateway {}
 
@@ -822,6 +823,39 @@ void main() {
       await tester.pumpWidget(const SizedBox.shrink());
       await pumpPage(tester);
       expect(widthOf(SignInButton), greaterThan(_phone.width - 80));
+    });
+
+    // His Nov 25 screenshot: on hover the wide "Use Google Instead" tint
+    // hugged the G and the label with no inside padding. A wide text button
+    // keeps the design system's 14 beside its content (Button README, .btn3)
+    // and stays centered under the main button.
+    testWidgets('wide text buttons keep 14 px inside and stay centered',
+        (tester) async {
+      await pumpPage(tester, size: _laptop);
+      void check(String label, {bool icon = false}) {
+        final button = find.ancestor(
+          of: find.text(label),
+          matching: find.byType(TextButton),
+        );
+        final box = tester.getRect(button);
+        final start = tester
+            .getRect(icon ? find.byType(GoogleMark) : find.text(label))
+            .left;
+        final end = tester.getRect(find.text(label)).right;
+        expect(start - box.left, closeTo(PantasSpace.s14, .5), reason: label);
+        expect(box.right - end, closeTo(PantasSpace.s14, .5), reason: label);
+        final main = tester.getRect(
+          find.descendant(
+            of: find.byType(SignInButton),
+            matching: find.byType(TextButton),
+          ),
+        );
+        expect(box.center.dx, closeTo(main.center.dx, .5), reason: label);
+      }
+
+      check('Use Google Instead', icon: true);
+      await goToCode(tester);
+      check('Use a Different Email');
     });
 
     testWidgets('an inline link line is at least 24 px high', (tester) async {

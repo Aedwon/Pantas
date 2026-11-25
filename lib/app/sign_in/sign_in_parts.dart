@@ -713,7 +713,15 @@ class SignInTextButton extends StatelessWidget {
         style: ButtonStyle(
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           minimumSize: const WidgetStatePropertyAll(Size.zero),
-          padding: const WidgetStatePropertyAll(EdgeInsets.zero),
+          // Wide, the button hugs its content, so it keeps the design
+          // system's 14 beside the label (Button README, .btn3); without it
+          // the hover tint ends at the G and the last letter. Phone fills
+          // the column and centers its content, so it needs none.
+          padding: WidgetStatePropertyAll(
+            style.wide
+                ? const EdgeInsets.symmetric(horizontal: PantasSpace.s14)
+                : EdgeInsets.zero,
+          ),
           animationDuration: MediaQuery.disableAnimationsOf(context)
               ? Duration.zero
               : PantasDurations.short2,
