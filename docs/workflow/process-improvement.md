@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Wide "Use Google Instead" hover box hugged its content (Nov 25)
+
+- His words (about 9:10 PM Manila, wide dark sign-in screenshot, the button hovered): "also i saw this, tell me if you can see the problem".
+- Wrong: on wide web the sign-in text buttons ("Use Google Instead", "Use a Different Email") had no inside padding. The hover tint started at the Google mark's left edge and ended at the last letter. Centering was correct.
+- Why it got through: (1) the Nov 22 fix for U46 made these buttons natural width but kept the zero padding that only worked while they filled the 420 column; its test checked only that the width was under 400. (2) The buttons are raw TextButtons (ds-raw, brand logo content), so they skip PantasButton's built-in padding and the wide placement check, which finds only WebButton and PantasButton and checks order, gap, width and place, never inside padding. (3) At rest the button is transparent, so a resting golden or a side-by-side review shows nothing wrong; the defect shows only on hover. (4) The sign-in board draws the button full width, so comparing with the board could not give the padding; it comes from the design system's wide text button (14 beside the label).
+- Fix (check): a sign-in test that fails on the old code (0 px inside, 14 expected), and an inside-padding rule in `test/helpers/button_placement.dart`: a wide button that paints a hover box and is not stretched must keep at least 8 px between its edges and its content. The rule covers raw TextButtons too, and the sign-in page now runs the placement check. E-170, branch `ux/google-button-padding-r1`.
+
 ### Release lead ended its turn after a part report with the next part queued (Nov 25)
 
 - Words: none from Aedwon. The manager's note: "you reported part 1 at 2:44 PM and then stopped, with nothing running. Start part 2 now".
