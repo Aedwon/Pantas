@@ -3273,6 +3273,305 @@
           "mistakeNote": "Delays the 15-day Rule 43 period until the client reads the denial instead of counting from earlier notice to counsel."
         }
       ]
+    },
+    "lesson-environment-management-disaster-risk-and-readiness": {
+      "proactive-not-reactive": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0004",
+          "wrongChoice": "Waiting for damage before starting all disaster planning",
+          "mistakeNote": "Makes disaster management purely reactive after damage instead of proactive risk reduction before harm."
+        }
+      ],
+      "mitigation-works-with-remaining-hazard": [
+        {
+          "questionId": "q-environment-management-disaster-risk-reduction-and-management-0007",
+          "wrongChoice": "Mitigation succeeds only when the hazard can no longer occur.",
+          "mistakeNote": "Assumes mitigation fails unless the natural hazard completely disappears instead of cutting expected harm."
+        }
+      ],
+      "pre-disaster-purpose-split": [
+        {
+          "questionId": "q-environment-management-disaster-risk-reduction-and-management-0009",
+          "wrongChoice": "Preparedness, then prevention and mitigation",
+          "mistakeNote": "Swaps pre-disaster areas by labeling flood-control works as preparedness instead of prevention and mitigation."
+        }
+      ]
+    },
+    "lesson-environment-management-disaster-response-and-recovery": {
+      "evacuation-during-danger-is-response": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0031",
+          "wrongChoice": "The employee is correct because response begins only after homes are destroyed.",
+          "mistakeNote": "Delays disaster response until homes collapse instead of classifying active-danger evacuation as urgent life protection."
+        }
+      ],
+      "safer-rebuilding-stays-recovery": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0032",
+          "wrongChoice": "The evaluator is correct because safer designs rule out recovery.",
+          "mistakeNote": "Excludes safer post-disaster rebuilding from recovery simply because upgraded designs also reduce future risk."
+        }
+      ],
+      "post-storm-deliveries-versus-repairs": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0034",
+          "wrongChoice": "Classify urgent deliveries as recovery and post-emergency repairs as response.",
+          "mistakeNote": "Reverses post-storm response and recovery by treating urgent survival deliveries as recovery instead of response."
+        }
+      ]
+    },
+    "lesson-environment-management-choosing-a-disaster-management-area": {
+      "rescue-never-replaces-prevention": [
+        {
+          "questionId": "q-environment-management-disaster-risk-reduction-and-management-0001",
+          "wrongChoice": "It is complete because rescue and rebuilding replace prevention and readiness.",
+          "mistakeNote": "Treats post-disaster rescue and rebuilding as a complete program that replaces pre-disaster prevention and readiness."
+        }
+      ],
+      "all-four-phases-stay-needed": [
+        {
+          "questionId": "q-environment-management-disaster-risk-reduction-and-management-0001",
+          "wrongChoice": "It should remove rescue because proactive risk reduction is the only phase.",
+          "mistakeNote": "Mistakes proactive emphasis in RA 10121 for deleting emergency rescue instead of keeping all four DRRM areas."
+        }
+      ],
+      "recovery-can-reduce-future-risk": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0036",
+          "wrongChoice": "Adopt the rule because recovery must restore the exact conditions that existed before damage.",
+          "mistakeNote": "Forces recovery to copy pre-disaster conditions instead of allowing safer rebuilding that cuts future risk."
+        }
+      ]
+    },
+    "lesson-environment-management-local-environmental-problems": {
+      "match-evidence-to-habitat-loss": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0003",
+          "wrongChoice": "Water pollution from an identified discharge",
+          "mistakeNote": "Mislabels lost wildlife food, shelter, and space as water pollution when no polluted discharge is described."
+        }
+      ],
+      "proximity-never-proves-source": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0006",
+          "wrongChoice": "The nearest establishment must have caused the pollution.",
+          "mistakeNote": "Assumes proximity plus a bad smell proves an establishment polluted the stream without inspections or testing."
+        }
+      ],
+      "no-tests-never-proves-safety": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0006",
+          "wrongChoice": "The absence of test results proves that the stream is safe.",
+          "mistakeNote": "Treats missing water test results as proof of clean water instead of an evidence gap requiring testing."
+        }
+      ]
+    },
+    "lesson-environment-management-government-environmental-responses": {
+      "mrf-sorts-and-recovers": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0007",
+          "wrongChoice": "Storing mixed waste solely to delay its final disposal",
+          "mistakeNote": "Reduces a materials recovery facility to mixed-trash storage instead of sorting and recovering materials."
+        }
+      ],
+      "denr-emb-leads-pollution-control": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0005",
+          "wrongChoice": "Local governments acting as the Environmental Management Bureau",
+          "mistakeNote": "Confuses local government environmental duties with DENR's national pollution-control work through EMB."
+        }
+      ],
+      "paper-rule-not-proof": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0014",
+          "wrongChoice": "A rule was published, but officials did not check collection or dumping.",
+          "mistakeNote": "Treats publishing an ordinance on paper as proof of success without checking enforcement or reduced dumping."
+        }
+      ]
+    },
+    "lesson-environment-management-climate-change-and-its-effects": {
+      "weather-not-climate": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0001",
+          "wrongChoice": "A long-term shift in seasonal rainfall patterns",
+          "mistakeNote": "Confuses a multi-year shift in seasonal rainfall patterns with short-term daily weather."
+        }
+      ],
+      "social-versus-economic-effects": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0008",
+          "wrongChoice": "Children lose access to their regular lessons.",
+          "mistakeNote": "Misclassifies disrupted school lessons as an economic effect instead of a social effect."
+        }
+      ],
+      "single-flood-needs-multi-cause-check": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0013",
+          "wrongChoice": "The flood alone establishes climate change as its only cause.",
+          "mistakeNote": "Uses a single flood event as sole proof of climate change while ignoring blocked drains and land use."
+        }
+      ]
+    },
+    "lesson-environment-management-climate-adaptation-and-mitigation": {
+      "water-storage-is-adaptation": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0004",
+          "wrongChoice": "Mitigation, because all water projects remove greenhouse gases",
+          "mistakeNote": "Mislabels dry-season water storage as mitigation on the false claim that all water projects remove emissions."
+        }
+      ],
+      "forest-carbon-is-mitigation": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0010",
+          "wrongChoice": "Adaptation, because every forest project mainly protects people from flooding",
+          "mistakeNote": "Labels a project protecting stored forest carbon as adaptation instead of mitigation by its stated goal."
+        }
+      ],
+      "separate-action-from-effect": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0019",
+          "wrongChoice": "Both actions support only adaptation, and both effects are only economic because they involve a public building.",
+          "mistakeNote": "Collapses distinct actions and impacts at one site into a single climate label."
+        }
+      ]
+    },
+    "lesson-environment-management-national-climate-framework": {
+      "coping-capacity-shapes-vulnerability": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0012",
+          "wrongChoice": "Similar flooding means both communities must have equal vulnerability.",
+          "mistakeNote": "Judges climate vulnerability by flood height alone while ignoring housing strength and shelter access."
+        }
+      ],
+      "assess-risk-before-picking-projects": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0016",
+          "wrongChoice": "Select projects solely because another municipality uses them.",
+          "mistakeNote": "Copies another municipality's climate projects instead of using a local impact and vulnerability assessment."
+        }
+      ],
+      "invitations-alone-not-mainstreaming": [
+        {
+          "questionId": "q-environment-management-environmental-problems-and-climate-change-0015",
+          "wrongChoice": "Treat the meeting invitations as proof that everyone's needs are already met.",
+          "mistakeNote": "Stops gender mainstreaming at meeting invitations instead of checking whether warnings and shelters reach everyone."
+        }
+      ]
+    },
+    "lesson-environment-management-species-habitats-and-ecosystems": {
+      "species-versus-habitat": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0001",
+          "wrongChoice": "A group of living things of the same kind",
+          "mistakeNote": "Confuses a species (same kind of living thing) with a habitat (living place supplying food, water, shelter, space)."
+        }
+      ],
+      "hunting-ban-alone-misses-clearing": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0006",
+          "wrongChoice": "Focus only on enforcing the hunting ban.",
+          "mistakeNote": "Relies solely on a hunting ban while continuing forest clearing removes food plants and fragments wildlife."
+        }
+      ],
+      "land-clearing-reaches-water": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0012",
+          "wrongChoice": "The soil enters the water, but only conditions on land can change because the clearing occurred on land.",
+          "mistakeNote": "Assumes clearing riverbank plants harms only land while missing sediment clouding water and blocking light."
+        }
+      ]
+    },
+    "lesson-environment-management-protecting-threatened-species": {
+      "control-waste-not-just-boundaries": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0008",
+          "wrongChoice": "Expand the habitat boundary while allowing the waste to keep entering.",
+          "mistakeNote": "Widens map boundaries instead of controlling the harmful discharge entering threatened aquatic habitat."
+        }
+      ],
+      "critical-habitat-outside-nipas": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0013",
+          "wrongChoice": "Habitat protection must wait until the site is included in NIPAS.",
+          "mistakeNote": "Delays protection until NIPAS inclusion instead of applying RA 9147 critical-habitat designation outside NIPAS."
+        }
+      ],
+      "breeding-needs-safe-habitat": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0014",
+          "wrongChoice": "Keep breeding as the only conservation action because producing young replaces the need for habitat protection.",
+          "mistakeNote": "Treats conservation breeding as replacing protection and restoration of natural release habitat."
+        }
+      ]
+    },
+    "lesson-environment-management-conserving-natural-resources": {
+      "renewable-still-needs-limits": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0015",
+          "wrongChoice": "Renewable resources may be used without limits because they replace themselves.",
+          "mistakeNote": "Assumes self-renewing resources cannot run short even when harvested faster than natural recovery."
+        }
+      ],
+      "reuse-cuts-mineral-extraction": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0004",
+          "wrongChoice": "Minerals recover as quickly as forests when use stops.",
+          "mistakeNote": "Assumes nonrenewable minerals replenish on a forest time scale instead of requiring reuse to cut extraction."
+        }
+      ],
+      "conservation-permits-lawful-use": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0015",
+          "wrongChoice": "Conservation requires the same complete ban for all resources and places.",
+          "mistakeNote": "Equates resource conservation with a total ban everywhere instead of lawful use suited to recovery."
+        }
+      ]
+    },
+    "lesson-environment-management-protected-area-management": {
+      "buffer-zone-protects-not-unrestricted": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0005",
+          "wrongChoice": "To serve as an unrestricted area for activities banned inside",
+          "mistakeNote": "Treats a buffer zone as an unrestricted border strip instead of an adjacent protective zone."
+        }
+      ],
+      "zoning-versus-buffer-zone": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0009",
+          "wrongChoice": "Buffer-zone management outside the area",
+          "mistakeNote": "Confuses internal activity zoning inside a protected area with external buffer-zone care outside it."
+        }
+      ],
+      "outside-nipas-still-protected": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0021",
+          "wrongChoice": "The site must first become a NIPAS wildlife sanctuary before critical-habitat protection can apply.",
+          "mistakeNote": "Requires NIPAS wildlife-sanctuary status first instead of applying RA 9147 critical-habitat protection outside NIPAS."
+        }
+      ]
+    },
+    "lesson-environment-management-choosing-environmental-options": {
+      "public-goal-never-waives-law": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0017",
+          "wrongChoice": "Choose the cheapest proposal because public benefit removes protection rules.",
+          "mistakeNote": "Assumes a needed public service cancels habitat-protection laws in favor of the cheapest proposal."
+        }
+      ],
+      "check-cleared-site-risks": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0016",
+          "wrongChoice": "Accept it because avoiding forest clearing proves that all environmental effects are harmless.",
+          "mistakeNote": "Skips runoff, erosion, and legal checks on already cleared land because no new forest is cut."
+        }
+      ],
+      "labels-never-prove-safety": [
+        {
+          "questionId": "q-environment-management-species-resources-and-environmental-decisions-0019",
+          "wrongChoice": "Accept the treatment because the word natural establishes that it is safe for wildlife.",
+          "mistakeNote": "Treats a natural marketing label as proof of wildlife safety without test evidence or legal review."
+        }
+      ]
     }
   }
 }
