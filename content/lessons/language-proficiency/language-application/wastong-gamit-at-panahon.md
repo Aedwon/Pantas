@@ -14,23 +14,94 @@ keyPoints:
 ---
 ## Core Concept
 
-### Filipino: Wastong Gamit at Kayarian
+### Salitang Akma sa Gamit
 
-Suriin ang **pandiwa** (verb), **pang-abay** (adverb), **panghalip** (pronoun), at **pang-ugnay** (connector). Dapat malinaw ang tinutukoy ng panghalip. Dapat ding akma ang pang-ugnay sa ugnayan ng mga ideya.
+Alamin muna kung ano ang gamit ng salita sa pangungusap:
 
-Ang **pang-uri** (adjective) ay naglalarawan ng **pangngalan** (noun). Ang pang-abay ay nagbibigay-turing sa pandiwa, pang-uri, o kapwa pang-abay. Ang *kahapon* ay nagsasaad ng panahon; ang *dito* ay nagsasaad ng lugar.
+- Ang **pang-abay** (adverb) ay nagbibigay-turing sa pandiwa, pang-uri, o kapwa pang-abay. Ang *kahapon* ay nagsasaad ng panahon; ang *dito* ay nagsasaad ng lugar.
+- Ang **pang-uri** (adjective) ay naglalarawan ng **pangngalan** (noun).
+- Ang **panghalip** (pronoun) ay dapat may malinaw na tinutukoy. Sa "Sinabi ni Ana kay Lea na natuwa siya," hindi malinaw kung sino si *siya*.
+- Ang **pang-ugnay** (connector) ay dapat akma sa ugnayan ng mga ideya.
+- Ang *baka*, *marahil*, at *maaari* ay nagpapakita ng posibilidad. Hindi nito sinasabing tiyak na mangyayari ang isang bagay.
 
-Ang *baka, marahil,* at *maaari* ay nagpapakita ng posibilidad. Hindi nito sinasabing tiyak na mangyayari ang isang bagay.
+Suriin natin ang "Marahil ay dadalaw si Tita sa bahay bukas.":
 
-Maaaring magpahayag ang pandiwa ng kilos, pangyayari, o karanasan. Kilos ang *sumulat si Lea*.
+- *marahil*: maaari lamang itong mangyari, kaya posibilidad.
+- *bukas*: nagsasaad ng panahon.
+- *sa bahay*: nagsasaad ng lugar.
 
-Pangyayari ang *lumindol kagabi*. Karanasan ang *natuwa si Lea sa balita*.
+:::pair #posibilidad-hindi-panahon
+Right: Sa "Marahil ay dadalaw si Tita sa bahay bukas," ang *marahil* ang nagpapahayag ng posibilidad.
+Wrong: Ang *bukas* ang nagpapahayag ng posibilidad.
+Ang *bukas* ay panahon. Nasa hinaharap ang kilos, ngunit hindi lahat ng kilos sa hinaharap ay posibilidad lamang.
+:::
 
-Piliin ang anyong akma sa panahon. Naganap na ang *sumulat*, nagaganap ang *sumusulat*, at magaganap pa ang *susulat*. Gayundin, tapos na ang *lumindol* at *natuwa*, ngunit magaganap pa ang *lilindol* at *matutuwa*.
+:::check
+Alin ang salitang nagpapahayag ng posibilidad? "Maaaring bumalik ang inspektor sa Huwebes."
+:::answer
+*Maaaring.* Hindi nito sinasabing tiyak na babalik ang inspektor. Ang *Huwebes* ay panahon.
+:::
+
+### Salitang Magkasingkahulugan
+
+Ang mga salitang magkasingkahulugan ay halos pareho ang kahulugan sa pangungusap. Palitan ang salita at tingnan kung hindi nagbago ang diwa.
+
+Suriin natin ang "Mabilis ang takbo ng bus.":
+
+- Palitan ang *mabilis* ng *matulin*: "Matulin ang takbo ng bus."
+- Hindi nagbago ang diwa, kaya magkasingkahulugan ang dalawa.
+
+:::check
+Alin ang kasingkahulugan ng *matapang* sa "Matapang ang bumbero"? *(duwag / magiting)*
+:::answer
+*Magiting.* Halos pareho ang kahulugan nito sa *matapang*. Ang *duwag* ay kabaligtaran.
+:::
+
+### Kilos, Pangyayari, at Karanasan
+
+Ang **pandiwa** (verb) ay maaaring magpahayag ng kilos, pangyayari, o karanasan. Itanong ang mga ito:
+
+- Sinasadya ba ng gumagawa? Kilos ito: *sumulat si Lea*.
+- Nangyari lamang ba, at walang sadyang gumawa? Pangyayari ito: *lumindol kagabi*.
+- Naramdaman o naranasan ba? Karanasan ito: *natuwa si Lea sa balita*.
+
+:::check
+Alin ang karanasan: *(Nagluto si Ben ng sopas. / Bumagyo kagabi. / Natakot si Ben sa kulog.)*
+:::answer
+*Natakot si Ben sa kulog.* Damdamin ang naranasan ni Ben. Ang *nagluto* ay kilos, at ang *bumagyo* ay pangyayari.
+:::
+
+### Panahon ng Pandiwa
+
+Piliin ang anyong akma sa panahon:
+
+- Naganap na: *sumulat*, *lumindol*, *natuwa*.
+- Nagaganap: *sumusulat*, *lumilindol*, *natutuwa*.
+- Magaganap pa: *susulat*, *lilindol*, *matutuwa*.
+
+Basahin ang buong pangungusap. Ang paulit-ulit na gawain, gaya ng may *tuwing*, ay gumagamit ng anyong nagaganap.
+
+Punan natin ang "Mamaya ay ______ si Gil sa kaibigan niya.", mga pagpipilian: *tumawag*, *tumatawag*, *tatawag*.
+
+- *Mamaya*: hindi pa nagaganap ang kilos.
+- Ang magaganap pa ay *tatawag*.
+- Buong pangungusap: "Mamaya ay tatawag si Gil sa kaibigan niya."
+
+:::pair #panahon-ng-karanasan
+Right: Kahapon ay natuwa si Gil sa balita.
+Wrong: Kahapon ay matutuwa si Gil sa balita.
+Ang *matutuwa* ay para sa karanasang hindi pa nangyayari. Naganap na ang tuwa kahapon, kaya *natuwa*.
+:::
+
+:::check
+Piliin ang anyo: Kanina ay ______ ang bata sa bakod. *(tumalon / tatalon)*
+:::answer
+*Tumalon.* Ang *kanina* ay lumipas na, kaya naganap na ang kilos.
+:::
 
 ## Examples
 
-### #1: Kilos at Panahon
+### #1: Pagpili ng Pangungusap
 
 Piliin ang wastong pangungusap.
 
@@ -44,18 +115,25 @@ Piliin ang wastong pangungusap.
 
 **Solution:**
 
-1. Ang *bukas* ay tumutukoy sa panahong darating.
-2. Ang **pupunta** ay kilos na magaganap pa. Piliin ang **(B)**.
+1. Ang *bukas* ay hindi pa dumarating, kaya gagawin pa ang kilos.
+2. **(A)** *pumunta* ay naganap na. **(C)** at **(D)** ay may *kahapon*, kaya salungat sa *bukas*.
+3. **(B)** *pupunta* ay magaganap pa.
 
-### #2: Pangyayari at Karanasan
+Piliin ang **(B)**.
+
+**Check:** Basahin ang **(B)** nang buo: "Bukas ay pupunta ako sa opisina." Hindi pa nangyayari ang pagpunta, tugma sa *bukas*.
+
+### #2: Pagpili ng Anyo ng Pandiwa
 
 Piliin ang angkop na anyo: "Kagabi ay (lumindol / lilindol) sa bayan. (Natuwa / Matutuwa) si Nena nang malaman niyang ligtas ang pamilya niya."
 
 **Solution:**
 
-1. Naganap na ang pangyayari kagabi. Gamitin ang **lumindol**.
-2. Naranasan na ni Nena ang tuwa nang malaman niya ang balita. Gamitin ang **natuwa**.
-3. Ang *lilindol* at *matutuwa* ay tumutukoy sa hindi pa nagaganap.
+1. *Kagabi ay lumindol / lilindol*: naganap na ang lindol kagabi, kaya **lumindol**.
+2. *Natuwa / Matutuwa si Nena*: naranasan na niya ang tuwa nang malaman ang balita, kaya **natuwa**.
+3. Ang *lilindol* at *matutuwa* ay para sa hindi pa nagaganap.
+
+**Check:** Basahin ang buo: "Kagabi ay lumindol sa bayan. Natuwa si Nena nang malaman niyang ligtas ang pamilya niya." Parehong naganap na.
 
 ### #3: Posibilidad, Panahon, at Lugar
 
@@ -72,10 +150,12 @@ Aling salita ang nagpapahayag ng posibilidad sa patlang? "______ umulan mamaya r
 **Solution:**
 
 1. Ang hinihingi ay salitang nagsasaad ng maaaring mangyari.
-2. Piliin ang **baka**, sagot **(B)**.
-3. Ang *mamaya* ay nagsasaad ng panahon. Ang *rito* ay nagsasaad ng lugar.
+2. **(A)** *Kahapon* ay panahon. **(C)** *Dito* ay lugar. **(D)** *Tiyak na* ay hindi posibilidad.
+3. Piliin ang **(B)** *Baka*.
 
-### #4: Magkasingkahulugan
+**Check:** Basahin: "Baka umulan mamaya rito." Maaaring umulan, at ang *mamaya* at *rito* ay panahon at lugar.
+
+### #4: Salitang Magkapareho ang Diwa
 
 Alin ang kasingkahulugan ng salitang nakadiin sa pangungusap: "**Maligaya** ang mga empleyado sa magandang balita"?
 
@@ -89,8 +169,20 @@ Alin ang kasingkahulugan ng salitang nakadiin sa pangungusap: "**Maligaya** ang 
 
 **Solution:**
 
-Ang **masaya**, sagot **(A)**, ay kasingkahulugan ng *maligaya*.
+1. Ang pangungusap ay naglalarawan ng damdamin ng mga empleyado sa magandang balita.
 
-## Speed Tricks & Shortcuts
+:::try
+Tapusin ang huling hakbang: alin sa mga pagpipilian ang pareho ang diwa ng *maligaya*?
+:::answer
+Ang sagot ay **(A) masaya**.
 
-Sa mga pangungusap na Filipino, itugma ang anyo ng pandiwa sa panahon at diwa. Suriin din kung malinaw ang tinutukoy ng bawat panghalip.
+**Check:** Palitan ang salita: "Masaya ang mga empleyado sa magandang balita." Hindi nagbago ang diwa.
+:::
+
+## Traps to Watch For
+
+:::checklist
+- Salitang tanda ng posibilidad (*baka*, *marahil*, *maaari*): hindi ito ang salita ng panahon o lugar tulad ng *bukas* o *dito*. {#posibilidad-hindi-panahon}
+- Kilos na tapos na kagabi o kahapon: piliin ang anyong naganap na (*natuwa*), hindi ang magaganap pa (*matutuwa*). {#panahon-ng-karanasan}
+- Panghalip na hindi malinaw ang tinutukoy: sabihin kung sino o ano ang tinutukoy bago pumili. {#salitang-akma-sa-gamit}
+:::
