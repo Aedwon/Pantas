@@ -22,7 +22,7 @@ A **connector** joins clauses and shows how their ideas relate:
 - **Reason** (such as *because, since*): explains why something happened. *"We stayed inside because it was raining."*
 - **Contrast** (such as *although, even though, though*): introduces a fact that goes against the expected result. *"Although she was tired, she finished her homework."*
 
-**Use one connector for one link.** A subordinating connector (*although, because*) already joins one dependent clause to one main clause. A coordinating connector (*but, so*) joins two independent clauses. Using both for one link is an error, as in *"Although it rained, but we walked"* or *"Because the store was closed, so we went home."* Keep one connector for the link.
+**Use one connector for one link.** A subordinating connector (*although, because*) already joins one dependent clause to one main clause. A coordinating connector (*but, so*) joins two independent clauses. Using both for one link is an error, as in *"Although it rained, but we walked"* or *"Because the store was closed, so we went home."*
 
 :::why
 Why does *"Because it rained, so we stayed inside"* fail? *Because* makes *"it rained"* wait for a main clause, while *so* expects a main clause before it. Drop *so* so *"we stayed inside"* serves as the main clause.
