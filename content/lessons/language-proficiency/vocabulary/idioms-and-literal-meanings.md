@@ -20,10 +20,10 @@ An **idiom** is a familiar expression whose meaning may differ from the meanings
 
 A **literal** meaning is the direct meaning of the words. The same words can be literal in one setting and an idiom in another. Read what happens around the phrase to decide.
 
-We read *back to square one* against its sentence.
+We read *back to square one* in context.
 
 - Sentence: “After failing the exam three times, Maria decided to go back to square one and restart her review.”
-- So *back to square one* means to start over: “After failing the exam three times, Maria decided to start her review over.”
+- *Restart* is the clue: *back to square one* means to start over: “After failing the exam three times, Maria decided to start her review over.”
 
 :::pair #start-over
 Right: *Back to square one* means to start over.

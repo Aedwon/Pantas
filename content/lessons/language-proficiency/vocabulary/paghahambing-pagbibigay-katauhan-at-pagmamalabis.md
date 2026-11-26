@@ -18,7 +18,7 @@ keyPoints:
 
 Ang **tayutay** (figure of speech) ay masining na paggamit ng salita.
 
-Sa bawat halimbawa, karaniwang hanapin ang salitang panulad para mapili ang tayutay:
+Sa bawat halimbawa, tingnan ang salitang may diin: may salitang panulad ba o wala?
 
 1. **Pagtutulad** (simile): matalinghagang naghahambing gamit ang salitang panulad gaya ng *parang*, *tulad ng*, *gaya ng*, o *kasing-*. Halimbawa: "Ang tinig ni Ana ay **parang** banayad na agos ng ilog."
 2. **Pagwawangis** (metaphor): tuwirang ipinapantay ang isang bagay sa iba nang walang salitang panulad. Halimbawa: "Ang guro ay **ilaw** ng silid-aralan."
@@ -37,7 +37,7 @@ Ang sagot ay **pagwawangis**. Tuwirang ipinantay ang buhay sa gulong nang walang
 
 ### Pagbibigay-katauhan at Pagmamalabis
 
-Sa bawat halimbawa, hanapin ang kilos ng tao o ang sobrang paglalarawan para mapili ang tayutay:
+Sa bawat halimbawa, tingnan ang salitang may diin: kilos ba ito ng tao o sobrang paglalarawan?
 
 1. **Pagbibigay-katauhan** (personification): pagbibigay ng kilos o katangian ng tao sa bagay na hindi tao. Halimbawa: "**Ngumiti** ang araw habang **sumasayaw** ang mga dahon."
 2. **Pagmamalabis** (hyperbole): sadyang pagsobra sa paglalarawan. Halimbawa: "Parang isang **bundok** ang bigat ng bag ko!" (Karaniwan lamang ang bigat ng bag, ngunit pinalabis ito.)
@@ -135,7 +135,8 @@ D) Pagwawangis
 
 **Solution:**
 
-1. Ang pagyakap ay kilos ng tao.2. Binigyan ng kilos ng tao ang gabi. Ito ay pagbibigay-katauhan. Sagot: **C**.
+1. Ang pagyakap ay kilos ng tao.
+2. Binigyan ng kilos ng tao ang gabi. Ito ay pagbibigay-katauhan. Sagot: **C**.
 
 **Check:** Palitan ng literal na pandiwa: "Dumilim na sa tahimik na bayan." Wala nang kilos ng tao, kaya nawala ang tayutay.
 
@@ -165,7 +166,7 @@ Ang sagot ay **D**, **Pagbibigay-katauhan**. Ang *humihikbi* ay kilos ng tao, at
 
 ## Speed Tricks & Shortcuts
 
-Karaniwang hanapin ang panulad sa matalinghagang paghahambing, tuwirang pagpapantay, kilos ng tao, o sadyang pagsobra.
+Hanapin ang panulad sa matalinghagang paghahambing, tuwirang pagpapantay, kilos ng tao, o sadyang pagsobra.
 
 ## Traps to Watch For
 

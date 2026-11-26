@@ -80,9 +80,9 @@ A public notice calls for formal wording. *Get going* is too casual.
 :::
 
 :::check
-“Staff may ___ supplies.” Both words mean the same. Which fits a formal notice: *purchase* or *buy*?
+“Staff may ___ supplies.” Both words mean the same. Which fits a formal notice: *purchase* or *pick up*?
 :::answer
-The answer is *purchase*. “Staff may purchase supplies” is formal. *Buy* is neutral.
+The answer is *purchase*. “Staff may purchase supplies” is formal. *Pick up* is casual.
 :::
 
 ## Examples
