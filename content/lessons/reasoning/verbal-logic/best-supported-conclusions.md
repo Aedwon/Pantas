@@ -85,7 +85,7 @@ You cannot predict choices under equal supply when access was unequal. Report on
 :::
 
 :::check
-Ana's pupils scored higher on short tests and Ben's pupils scored higher on long tests, with no test counts. Does that prove Ana's pupils scored higher overall?
+Ana's pupils did better on short tests and Ben's on long tests, with no test counts. Does that prove Ana's did better overall?
 :::answer
 The answer is **no (the records do not tell us)**. Depending on how many tests of each length were taken, either group could lead overall.
 :::

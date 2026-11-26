@@ -58,7 +58,7 @@ Why do phrases like "at least" or "closed boundary" trap learners? They describe
 :::
 
 :::check
-Four figures are shown: a square, a small rectangle, a large rectangle, and a slanted parallelogram. "Has four sides" fits all four. What rule groups three and excludes the parallelogram?
+Four figures are shown: a square, two rectangles, and a slanted parallelogram. "Has four sides" fits all four. What rule groups three and excludes the parallelogram?
 :::answer
 The answer is **four square corners** (right angles). The first three have square corners, while the slanted parallelogram does not.
 :::

@@ -84,7 +84,7 @@ The blank shows a **square with both diagonals (an X inside)**.
 
 **Check:** Each completed row keeps every mark from cells $1$ and $2$ without dropping anything, so the blank keeps both diagonals.
 
-### #2: Shaded Squares in a Grid
+### #2: Shaded Squares
 
 A $2 \times 3$ matrix uses squares. Row $1$ shows a small bottom-half black square, a small top-half black square, and a small fully black square.
 

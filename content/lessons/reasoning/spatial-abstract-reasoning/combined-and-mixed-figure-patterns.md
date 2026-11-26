@@ -95,7 +95,7 @@ The correct choice is **A (Extra-large white triangle)**.
 
 **Check:** Check all three tracks in choice A: triangle outline stays the same, size steps up to extra large, and fill alternates from black to white.
 
-### #2: Circles and Squares in a Row
+### #2: Circles and Squares
 
 The series shows a circle with $1$ dot, a white square, a circle with $2$ dots, and a black square. These are followed by a circle with $3$ dots, a white square, a circle with $4$ dots, and a blank. What belongs in the blank?
 
