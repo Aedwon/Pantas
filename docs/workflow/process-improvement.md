@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### UX lead answered a worker's completion with no action (Nov 26, repeat)
+
+- Words: none from Aedwon. The manager's note: "you have been idle since 3:15 PM with the renderer not done."
+- Wrong: the reader-parts worker of E-196 finished; its completion notice arrived as a system message and the UX lead ended the turn with no action, though the plan's next step (fixes, goldens, review) needed nothing from anyone. About 1 h passed idle.
+- Why it got through: the Nov 25 entries cover a part report treated as a stop and a background command left unregistered. Here the trigger was a worker's completion notice, read as a message needing no reply. A worker started with the Agent tool cannot be registered with `t3_background_wait`, so no registered wait existed to keep the thread working.
+- Fix (required step, every lead, moved up from the Nov 25 entries): a worker or background completion notice is the cue for the plan's next step in the same turn; never answer one with no action while the plan has a next step. For each Agent-tool worker, also start a background command that waits on its result (its commit on the branch or its report file) and register that command with `t3_background_wait`, so an idle turn cannot end unseen. No check can tell an intended stop from a missed one.
+
 ### Homepage Free card: a silent spacer left a hole (Nov 26)
 
 - His words (about 2:50 PM Manila, wide screenshot of the built homepage section): "looks terrible, please optimize better".
