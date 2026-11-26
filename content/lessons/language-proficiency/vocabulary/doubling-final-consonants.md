@@ -121,7 +121,7 @@ D) begininning
 
 The spelling is **beginning**. Answer: **A**.
 
-**Check:** *Begin* + *n* + *-ing* puts *nn* in the middle.
+**Check:** Test *begining*. The stress falls on *gin*, so one *n* is too few.
 
 ### #3: An Unstressed Final Syllable
 
@@ -143,7 +143,7 @@ D) vissiting
 
 The spelling is **visiting**. Answer: **C**.
 
-**Check:** *Visit* + *-ing* has a single *t*: *vis-it-ing*.
+**Check:** Test *visitting*. The stress is on *vis*, so a second *t* is not needed.
 
 ### #4: Two More Words
 

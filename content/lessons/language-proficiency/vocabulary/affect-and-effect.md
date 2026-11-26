@@ -104,7 +104,7 @@ D) effected
 2. C and D are verbs, and A, *affect*, is usually a verb. This leaves B.
 3. The noun *effect* means a result. Answer: **B**: "The new schedule had a positive effect on attendance."
 
-**Check:** Put *result* in the same spot: "a positive result" fits, so the gap needs a noun.
+**Check:** Say it as a result: "The result was better attendance." The gap names that result, so it is a noun.
 
 ### #3: Bringing About Change
 

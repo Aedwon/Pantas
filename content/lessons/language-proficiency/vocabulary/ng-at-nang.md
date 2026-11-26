@@ -140,7 +140,7 @@ D) may
 
 1. Ang *hapon* ay bahagi ng araw, kaya **ng**: "Nagsimula ang programa sa alas-tres ng hapon." Sagot: **B**.
 
-**Check:** Hindi kilos ang *hapon*, kaya hindi *nang*.
+**Check:** Sinasabi ng *hapon* kung anong bahagi ng araw ang alas-tres, kaya *ng*.
 
 ### #5: Oras at Paulit-ulit na Kilos
 

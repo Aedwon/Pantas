@@ -72,7 +72,7 @@ Finish the last step: what is Rico's role?
 :::answer
 Rico is the receiver. He **received the gift from Nina**. The answer is **B**.
 
-**Check:** Test D: Rico cannot return a gift he never had, so D does not fit.
+**Check:** Test D: returning would be a separate action after receiving. The question asks what Rico did when Nina gave it to him, so D does not fit.
 :::
 
 ## Traps to Watch For

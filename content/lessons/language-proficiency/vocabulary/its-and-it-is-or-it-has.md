@@ -20,7 +20,7 @@ keyPoints:
 
 - The office changed its hours.
 
-**It's** is a short form of *it is* or *it has*. We expand *open* and *been approved* to see which:
+**It's** is a short form of *it is* or *it has*. We expand *it's* in *It's open* and *It's been approved* to see which:
 
 - It's open. (It is open.)
 - It's been approved. (It has been approved.)
@@ -85,9 +85,9 @@ The sentence reads: "The university updated its guidelines regarding artificial 
 
 **Check:** Ask who owns the guidelines. The university does, and *its* names that owner.
 
-### #2: A Difficult Week
+### #2: Changing Weather
 
-Choose the pair that completes the sentence correctly: "______ clear that ______ been a difficult week."
+Choose the pair that completes the sentence correctly: "______ clear that ______ gotten colder."
 
 A) Its; its
 
@@ -104,9 +104,9 @@ D) It's; it's
 :::try
 Finish the last step: decide the second blank and choose the pair.
 :::answer
-The answer is **D**, *It's; it's*. The second blank expands to *it has*: "It has been a difficult week." Nothing belongs to anyone, so *its* does not fit.
+The answer is **D**, *It's; it's*. The second blank expands to *it has*: "It has gotten colder." Nothing belongs to anyone, so *its* does not fit.
 
-**Check:** Expand both: "It is clear that it has been a difficult week." Written short: "It's clear that it's been a difficult week."
+**Check:** Expand both: "It is clear that it has gotten colder." Written short: "It's clear that it's gotten colder."
 :::
 
 ## Speed Tricks & Shortcuts

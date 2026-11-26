@@ -20,8 +20,8 @@ A word can have more than one meaning.
 
 We compare *fast* and *bank* in context.
 
-- *Fast* can mean quick: “a fast train.” In *to fast*, it means to go without food: “They fast on Fridays.”
-- *Bank* can mean a business that handles money: “She paid the bill at the bank.” It can also mean land beside a river: “Reeds grew on the bank.”
+- *Fast* can mean quick: “A fast train passed us.” In *to fast*, it means to go without food: “They fast on Fridays.”
+- *Bank* can mean a business that handles money: “She paid the bill at the bank.” It can mean land beside a river: “Reeds grew on the bank.”
 
 :::pair #fast-meaning
 Right: The monks decided to fast for three days, taking no food. Here *fast* means to avoid eating.
@@ -109,12 +109,12 @@ D) beginner
 **Solution:**
 
 1. After *will*, the sentence needs a verb.
-2. *Begin* names an action, so the replacement must keep that action and its job.
+2. *Begin* names an action, so the replacement must keep that action.
 
 :::try
 Finish the last step: which choice fits both the grammar and the meaning?
 :::answer
-The answer is **B**, **start**. *Start* is a verb that means the same as *begin*. *Finish* is also a verb, but it means to end. *Beginning* and *beginner* are nouns here.
+The answer is **B**, **start**. *Start* is a verb that means the same as *begin*, and *will* takes the base form. *Finish* is also a verb, but it means to end. *Beginning* is not the base form, and *beginner* is a noun.
 
 **Check:** Read it back: "The class will start the project on Monday." The meaning and grammar stay the same.
 :::

@@ -20,7 +20,7 @@ A **noun** names a person, place, thing, or idea. An **adjective** describes a n
 
 The suffix **-ful** often means "full of" or "having." *Helpful* describes someone or something that gives help, so it is an adjective.
 
-The suffix **-less** means "without." *Careless* describes someone who does not take enough care.
+The suffix **-less** often means "without." *Careless* describes someone who does not take enough care.
 
 :::pair #ful-less
 Right: *Helpful* has *-ful*, which means having. *Careless* has *-less*, which means lacking.
@@ -94,7 +94,7 @@ D) an adjective meaning full of thought
 :::try
 Finish the last step: what does the suffix mean, and which choice gives the job and meaning of *thoughtless* in this sentence?
 :::answer
-The base is *thought*, and the suffix is *-less*, which means "without." *Thoughtless* describes the remark, so it is an adjective meaning without thought. The answer is **C**.
+The base is *thought*, and the suffix is *-less*, which here means "without," as in *careless*. *Thoughtless* describes the remark as lacking consideration, so it is an adjective meaning without thought. The answer is **C**.
 
 **Check:** "Ana was hurt by the remark made without thought" keeps the meaning.
 :::

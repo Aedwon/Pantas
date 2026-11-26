@@ -32,7 +32,7 @@ Wrong: Every initial *un* means *not*, so *uncle* means "not cle."
 :::
 
 :::why
-For *un-* meaning *not*, the prefix changes the meaning of a real base word. If nothing real is left after the opening letters, there is no prefix to read.
+For *un-* meaning *not*, the prefix changes the meaning of a real base word. If no free-standing word is left after the opening letters, there is no *un-* prefix to read.
 :::
 
 :::check

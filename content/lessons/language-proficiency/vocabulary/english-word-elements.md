@@ -18,7 +18,7 @@ keyPoints:
 
 - **mal-** suggests bad, badly, or faulty: *malfunction*, *malpractice*.
 - **bene-/ben-** suggests good or well: *benevolent*, *benefit*.
-- **omni-** means all: *omnivorous*, eating all foods.
+- **omni-** means all: *omnivorous*, eating both plants and animals.
 - **chron-/chrono-** relates to time: *chronology*.
 - **pseudo-** means false or imitation: *pseudoscience*.
 - **circum-** means around, and **locut-** relates to speaking: *circumlocution*.
@@ -49,7 +49,7 @@ Wrong: *Omniscient* means all-powerful.
 :::
 
 :::check
-A man's cough returned again and again for months. The doctor called it a *chronic* cough. Using *chron-* and the sentence, what does *chronic* mean?
+A man's cough returned for months. The doctor called it a *chronic* cough. Using *chron-* and the sentence, what does *chronic* mean?
 :::answer
 The answer is lasting a long time. *Chron-* relates to time, and a cough that goes on for months lasts a long time.
 :::
@@ -73,7 +73,7 @@ D) fast
 1. *Pseudo-* means false or imitation.
 2. **Pseudoscientific** describes science that is not genuine. Answer: **B**.
 
-**Check:** *False* + *scientific* fits the whole word.
+**Check:** “Pseudoscientific claims” only look scientific, so *false* fits.
 
 ### #2: Parts and Context Together
 

@@ -23,8 +23,7 @@ A **literal** meaning is the direct meaning of the words. The same words can be 
 We read *back to square one* against its sentence.
 
 - Sentence: “After failing the exam three times, Maria decided to go back to square one and restart her review.”
-- *Restart* shows what happens.
-- So *back to square one* means to start over: Maria decided to start over.
+- So *back to square one* means to start over: “After failing the exam three times, Maria decided to start her review over.”
 
 :::pair #start-over
 Right: *Back to square one* means to start over.
@@ -45,7 +44,7 @@ Ngayon, basahin natin ang *naghigpit ng sinturon* sa pangungusap nito.
 
 - Pangungusap: “Bumaba ang kita ng pamilya, kaya naghigpit sila ng sinturon at ipinagpaliban ang pagbili ng bagong kagamitan.”
 - Bumaba ang kita, at ipinagpaliban ang bili.
-- Kaya ang *naghigpit ng sinturon* ay nagtipid: nagtipid ang pamilya.
+- Kaya ang *naghigpit ng sinturon* ay nagtipid: “Bumaba ang kita ng pamilya, kaya nagtipid sila at ipinagpaliban ang pagbili ng bagong kagamitan.”
 
 :::pair #naghigpit-ng-sinturon
 Right: Ang *naghigpit ng sinturon* ay nagtipid.
@@ -78,7 +77,7 @@ D) To give up permanently
 1. Mark lost his work and must start again.
 2. **Back to square one** means to return to the beginning. Answer: **B**.
 
-**Check:** Put *had to start again* in place of *was back to square one*: “After losing his unsaved research paper, Mark knew he had to start again.”
+**Check:** Put *had to start again* in: “After losing his unsaved research paper, Mark knew he had to start again.”
 
 ### #2: The Same Words Used Literally
 
@@ -97,7 +96,7 @@ D) He forgot the rules of the game.
 1. The sentence describes a piece moving on a game board.
 2. The words name an actual move, so the meaning is literal. Answer: **C**: Mark moved his piece to the first space.
 
-**Check:** Put *went back to the start space* in place of the phrase. The sentence still fits.
+**Check:** Read “Mark moved his piece back to the first space on the board.” A board has spaces, so the words are literal.
 
 ### #3: Sawikain sa Pangungusap
 

@@ -93,7 +93,7 @@ Finish the last step: which choice names the job *lovely* does?
 :::answer
 The answer is **C**, **it describes the garden**. *Lovely* tells what kind of garden it is, so it describes a noun and is an adjective despite its *-ly* ending.
 
-**Check:** Remove *lovely*: "A garden surrounded the house" still works, so *lovely* only describes.
+**Check:** Compare "A lovely garden surrounded the house" with "The garden was lovely." In both, *lovely* tells what the garden was like.
 :::
 
 ## Traps to Watch For

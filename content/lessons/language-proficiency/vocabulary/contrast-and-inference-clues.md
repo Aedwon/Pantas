@@ -58,8 +58,8 @@ The answer is wordy. Ana used few words, and the speaker is her opposite: "Unlik
 We work out the meaning of *wary* from actions.
 
 - Sentence: “Lina was **wary** of the offer: she checked its terms twice and refused to sign until her questions were answered.”
-- Checking the terms twice and delaying signing show caution.
-- So *wary* means cautious: Lina was cautious about the offer.
+- Checking twice and refusing to sign show caution.
+- So *wary* means cautious: “Lina was cautious about the offer: she checked its terms twice and refused to sign until her questions were answered.”
 
 :::check
 “The old house was **dilapidated**; the roof had caved in and the windows were shattered.” What does *dilapidated* mean?
@@ -86,7 +86,7 @@ D) angry
 1. *Unlike* sets Simon against his sister, who loved meeting people.
 2. So **gregarious** means sociable. Answer: **A**.
 
-**Check:** Put *sociable* in place of the bold word: “Unlike his sociable sister, who loved meeting people and attending parties, Simon preferred quiet isolation.” The contrast holds.
+**Check:** Put *sociable* in: “Unlike his sociable sister, who loved meeting people and attending parties, Simon preferred quiet isolation.” The contrast holds.
 
 ### #2: Meaning from Details
 
@@ -102,10 +102,10 @@ D) false promises
 
 **Solution:**
 
-1. The phrases are familiar and have been repeated many times.
+1. The phrases are familiar and repeated.
 2. Clichéd statements are worn-out sayings. Answer: **C**.
 
-**Check:** Put *clichéd statements* in place of the bold word: “The politician's speech was full of clichéd statements; the audience yawned at the repetitive, familiar phrases they had heard many times before.” It fits.
+**Check:** Put *clichéd statements* in: “The politician's speech was full of clichéd statements; the audience yawned at the repetitive, familiar phrases they had heard many times before.” It fits.
 
 ### #3: Filipino Context
 

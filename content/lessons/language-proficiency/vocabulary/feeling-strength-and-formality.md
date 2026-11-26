@@ -30,7 +30,7 @@ We choose between two words for careful spending.
 :::pair #approving-tone
 Right: She was frugal.
 Wrong: She was stingy.
-*Stingy* is about spending, but it sounds critical. Helping neighbors is approved.
+*Stingy* sounds critical, but the sentence approves.
 :::
 
 :::check
@@ -41,7 +41,7 @@ The answer is *determined*. *Admired* shows approval, *determined* sounds positi
 
 ### Intensity
 
-**Intensity** is the strength of a meaning. *Annoyed* means bothered or a little angry. *Furious* means very angry.
+**Intensity** is the strength of a meaning. *Annoyed* means bothered or a little angry.
 
 We replace *annoyed* in this sentence: “The clerk was annoyed by a minor interruption but resumed work calmly.”
 
@@ -52,7 +52,7 @@ We replace *annoyed* in this sentence: “The clerk was annoyed by a minor inter
 :::pair #mild-intensity
 Right: The clerk was bothered by a minor interruption.
 Wrong: The clerk was enraged by a minor interruption.
-The clerk *resumed work calmly*, so the anger is mild. *Enraged* is too strong.
+*Enraged* is too strong for a clerk who resumed work calmly.
 :::
 
 :::check
@@ -80,9 +80,9 @@ A public notice calls for formal wording. *Get going* is too casual.
 :::
 
 :::check
-“Staff may ___ supplies.” Both words mean buy. Which fits a formal notice: *purchase* or *snap up*?
+“Staff may ___ supplies.” Both words mean the same. Which fits a formal notice: *purchase* or *buy*?
 :::answer
-The answer is *purchase*. “Staff may purchase supplies” is formal. *Snap up* is casual.
+The answer is *purchase*. “Staff may purchase supplies” is formal. *Buy* is neutral.
 :::
 
 ## Examples
@@ -106,7 +106,7 @@ D) fire up
 1. A formal notice needs official wording.
 2. **Commence** means begin and is formal. The answer is **A**: “The examination will commence at 8:00 a.m.”
 
-**Check:** *Commence* is formal, like the notice.
+**Check:** “The examination will kick off at 8:00 a.m.” is too casual for the notice.
 
 ### #2: Keeping a Positive Tone
 
@@ -125,7 +125,7 @@ D) bony
 1. *Praised* shows a positive tone.
 2. **Slender** describes a thin build with a positive tone. The answer is **B**: “The article praised the athlete's slender build.”
 
-**Check:** *Slender* is positive, unlike *skinny* and *bony*.
+**Check:** “The article praised the athlete's skinny build” sounds critical, so *skinny* fails.
 
 ### #3: Before the Quiz
 

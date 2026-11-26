@@ -42,7 +42,7 @@ The answer is one. The letters *ie* together make one vowel sound, so *field* ha
 
 The rhyme “i before e except after c” helps with words such as *believe*, *receive*, and *deceive*. It does not work for every English word.
 
-We check the vowel order in both words.
+We check the vowel order in *believe* and *receive*.
 
 - *Believe*: no c before the pair, so *ie* gives *believe*.
 - *Receive*: c before the pair, so *ei* gives *receive*.
@@ -88,7 +88,7 @@ D) niece
 :::try
 Finish the checking: check the other three words and name the misspelled one.
 :::answer
-The answer is **B**, *percieve*, which is misspelled. A *c* comes before the pair, so the standard spelling is *perceive*, with *ei*. *Sleigh* uses *ei* because the pair makes the long-*a* sound, and *niece* has no c before the pair, so both are correct.
+The answer is **B**, *percieve*. It has the long-*e* sound and a *c* before the pair, so the rhyme hints at *ei*: *perceive*. *Sleigh* is correct because *ei* spells its long-*a* sound. *Niece* has the long-*e* sound and no c before the pair, so *ie* is correct.
 
 **Check:** Spell B as *perceive*. It now matches *receive*.
 :::

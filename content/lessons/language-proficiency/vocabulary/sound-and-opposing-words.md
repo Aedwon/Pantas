@@ -99,7 +99,7 @@ D) Oxymoron
 1. Say **bang** aloud. It imitates the sudden noise it names.
 2. A word that imitates a sound is onomatopoeia, so "The firecracker went bang beside the gate" uses it. Answer: **A**.
 
-**Check:** Replace *bang* with *happened*: no noise is imitated, so the device is gone.
+**Check:** Replace *went bang* with *exploded*: "The firecracker exploded beside the gate." No noise is imitated, so the device is gone.
 
 ### #3: The Meeting
 

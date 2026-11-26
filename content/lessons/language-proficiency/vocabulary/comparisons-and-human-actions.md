@@ -53,9 +53,9 @@ Now we test a line that has a human action.
 - So it is personification.
 
 :::pair #as-if-personification
-Right: “The boards groaned, as if complaining” gives the boards the ability to complain, so it is personification.
-Wrong: “The boards groaned, as if complaining” gives the boards the ability to complain through an explicit comparison.
-Ask what the boards are made to do.
+Right: The device that gives the boards the ability to complain is personification.
+Wrong: The device that gives the boards the ability to complain is an explicit comparison.
+*As if* only introduces the image. Ask what the boards are made to do.
 :::
 
 :::check

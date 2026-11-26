@@ -37,9 +37,9 @@ English still pairs *heavy* with *rain*.
 :::
 
 :::check
-Which pairing sounds natural in standard English: *heavy traffic* or *thick traffic*?
+Which pairing is the usual one in standard English for a large number of cars on the road: *heavy traffic* or *strong traffic*?
 :::answer
-The answer is *heavy traffic*. A large amount of traffic takes *heavy*.
+The answer is *heavy traffic*. A large amount takes *heavy*, and *strong traffic* is not the usual pairing.
 :::
 
 ### Antonyms
@@ -105,28 +105,28 @@ D) general
 
 **Check:** "The directions were precise" says the reverse of "The directions were vague."
 
-### #3: A Cup of Coffee
+### #3: Trying Hard
 
-Which phrase sounds most natural in standard English for coffee with a very intense flavor?
+Which phrase sounds most natural in standard English for trying hard to arrive on time?
 
-A) heavy coffee
+A) do an effort
 
-B) strong coffee
+B) make an effort
 
-C) mighty coffee
+C) take an effort
 
-D) hard coffee
+D) hold an effort
 
 **Solution:**
 
-1. Test each choice with *coffee*.
+1. Test each choice with *effort*.
 
 :::try
 Finish the last step: which choice is the natural English pairing?
 :::answer
-The answer is **B**, **strong coffee**. Coffee with an intense flavor takes *strong*, not *heavy*, *mighty*, or *hard*.
+The answer is **B**, **make an effort**. English pairs *effort* with *make*, not *do*, *take*, or *hold*.
 
-**Check:** "I need a cup of strong coffee." It sounds natural in standard English.
+**Check:** "We must make an effort to arrive on time." It sounds natural in standard English.
 :::
 
 ## Speed Tricks & Shortcuts

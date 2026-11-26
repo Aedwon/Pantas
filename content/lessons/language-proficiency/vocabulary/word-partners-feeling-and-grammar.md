@@ -19,14 +19,14 @@ keyPoints:
 - **Word partners:** some words often appear together. In *file a complaint*, *file* means submit, not smooth a surface.
 - **Connotation:** a word can carry a feeling beyond its basic meaning. *Slim* and *scrawny* both suggest being thin, but *scrawny* suggests being too thin.
 
-Let's use the partners *fee* and *invoice* to read *charged* in this sentence: “The hotel charged the guest for an extra night, and the fee appeared on the final invoice.”
+Let's use the context clues *fee* and *invoice* to read *charged* in this sentence: “The hotel charged the guest for an extra night, and the fee appeared on the final invoice.”
 
-- The partners point to *billed*: “The hotel billed the guest for an extra night, and the fee appeared on the final invoice.”
+- The clues point to *billed*: “The hotel billed the guest for an extra night, and the fee appeared on the final invoice.”
 
 :::pair #charged-partner
 Right: The hotel charged the guest for an extra night, and the fee appeared on the final invoice. Here *charged* means billed.
 Wrong: The hotel charged the guest for an extra night, and the fee appeared on the final invoice. Here *charged* means accused.
-The partner words *fee* and *invoice* point to billing. *Accused* usually goes with a crime.
+The context clues *fee* and *invoice* point to billing. *Accused* usually goes with a crime.
 :::
 
 :::check
@@ -97,7 +97,7 @@ The answer is **B**, **deliver**. *Serve* can mean bring food or work as a duty.
 ## Traps to Watch For
 
 :::checklist
-- A word with a partner: let the partner pick the meaning, as *fee* and *invoice* pick *billed*. {#charged-partner}
+- A word with context clues: let the clues pick the meaning, as *fee* and *invoice* pick *billed*. {#charged-partner}
 - A replacement word: keep the same job, such as a verb for a verb. {#furnish-grammar}
 - A word with more than one meaning: use the detail around it, as *only if* picks *limited*. {#qualified-meaning}
 :::

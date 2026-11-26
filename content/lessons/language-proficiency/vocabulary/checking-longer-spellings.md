@@ -82,9 +82,9 @@ D) preferrd
 :::try
 Finish the spelling of *prefer* with *-ed* and choose the correct option.
 :::answer
-The answer is **B**, *preferred*. The base ends in one stressed vowel letter plus one consonant, so its final *r* doubles before *-ed*.
+The answer is **B**, *preferred*: "Yesterday, Ana preferred the window seat." The base ends in one stressed vowel letter plus one consonant, so its final *r* doubles before *-ed*.
 
-**Check:** Read it back: "Yesterday, Ana preferred the window seat." Base *prefer*, doubled *r*, ending *-ed*.
+**Check:** Compare *prefered*. At the join of *prefer* and *-ed*, the second *r* is missing.
 :::
 
 ## Speed Tricks & Shortcuts
