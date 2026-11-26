@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/accuracy_bar.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_layout_theme.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
@@ -62,6 +63,7 @@ void main() {
     WidgetTester tester, {
     required double width,
     int level = 0,
+    bool pro = true,
   }) async {
     final web = width >= 1024;
     tester.view
@@ -76,7 +78,7 @@ void main() {
           web: web,
           child: PerformancePage(
             data: data,
-            pro: true,
+            pro: pro,
             paused: false,
             initialLevel: level,
             onTopic: (_) {},
@@ -139,6 +141,32 @@ void main() {
     expect(bar.right, lessThan(percent.left));
     expect(bar.right, lessThanOrEqualTo(card.right - 20 - 16));
   });
+
+  // Aedwon, Nov 26: "overall as its own column is a waste of space imo".
+  // Overall sits above the tabs as on the phone, and the list takes the full
+  // content width.
+  for (final (label, level, pro) in [
+    ('Subjects', 0, true),
+    ('Topics', 1, true),
+    ('Lessons', 2, true),
+    ('Free Subjects', 0, false),
+  ]) {
+    testWidgets('wide $label: Overall is above the tabs, no second column',
+        (tester) async {
+      await show(tester, width: 1440, level: level, pro: pro);
+      expect(tester.takeException(), isNull);
+      // The board's "OVERALL" eyebrow column is gone.
+      expect(find.text('OVERALL'), findsNothing);
+      final gauge = tester.getRect(find.text('Overall accuracy'));
+      final tabs = tester.getRect(find.byType(WebSegmentedControl));
+      final table = tester.getRect(find.byKey(const ValueKey('data-table')));
+      expect(gauge.bottom, lessThan(tabs.top));
+      // The list is not squeezed into a main column beside the gauge.
+      expect(table.width, greaterThan(1000));
+      // The gauge sits centered over the list, as on the phone.
+      expect(gauge.center.dx, closeTo(table.center.dx, 2));
+    });
+  }
 
   testWidgets('a phone row shows the percent and the count', (tester) async {
     await show(tester, width: 390, level: 2);
