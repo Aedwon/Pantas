@@ -16,9 +16,9 @@ keyPoints:
 
 ### Synonyms, Antonyms, and Direction
 
-**Synonyms** have similar meanings (*clear* and *understandable*). **Antonyms** have opposite meanings (*clear* and *confusing*).
+**Synonyms** have similar meanings (*big* and *large*). **Antonyms** have opposite meanings (*big* and *tiny*).
 
-Before looking at choices, read the question carefully to see whether it asks for the **closest** meaning or the **opposite** meaning. Even when a synonym sounds smooth inside the original sentence, it is the wrong answer if the prompt asks for the opposite.
+Before looking at choices, read the question to see whether it asks for the **closest** meaning or the **opposite** meaning. Even when a synonym sounds smooth inside the original sentence, it is the wrong answer if the prompt asks for the opposite.
 
 :::pair #check-opposite-direction
 Right: For the opposite of **clear** in "The instructions were **clear**, leaving no doubt," choose *confusing*.
@@ -26,7 +26,7 @@ Wrong: Choose *understandable* or *straightforward* because it fits the sentence
 *Understandable* and *straightforward* match the sentence idea, yet the prompt asks for the opposite of *clear*.
 :::
 
-Context also settles words with the same sound or spelling. *Their* shows ownership (*their coats*), *there* points to a place (*in there*), and *they're* means *they are*. A word with one spelling can also change meaning by context, as in *a river bank* versus *a bank that lends money*.
+Context also settles words that sound alike. *Their* shows ownership (*their coats*), *there* points to a place (*in there*), and *they're* means *they are*.
 
 :::check
 Choose the word opposite in meaning to **brief** in "The clerk gave a **brief** reply": *(short / lengthy / polite)*.
@@ -47,7 +47,7 @@ Many words break into three parts:
 Check that the remaining part is a real base word before treating letters as a prefix. In *unit* or *under*, *un-* is just part of the root, not the prefix meaning *not*.
 
 :::why
-Why do exams test *unhelpful* with choices like "full of helpful guidance"? Both *help* and *-ful* carry a strong positive idea. Reading only the end of the word makes you miss *un-*, which flips the meaning to negative.
+Why do exams test *unhelpful* with choices like "full of helpful guidance"? *Help* is a positive idea, and *-ful* means full of it. Reading only the end of the word makes you miss *un-*, which flips the meaning to negative.
 :::
 
 :::pair #read-every-word-part
@@ -83,15 +83,17 @@ In "The witness was **untruthful** when the officer asked about the missing key,
 
 Choose the word opposite in meaning to the word in bold: "The speaker's tone was **calm**, and nobody in the hall felt worried."
 (A) peaceful
-(B) agitated
-(C) quiet
+
+(B) quiet
+
+(C) agitated
+
 (D) steady
 
 **Solution:**
 
 1. Read the context clue: *nobody felt worried* shows **calm** means relaxed.
-2. Check the prompt's direction: it asks for the word **opposite** in meaning.
-3. Match the opposite of relaxed: **agitated**, choice **(B)**.
+2. The prompt asks for the **opposite**, so choose **(C) agitated**: "The speaker's tone was agitated."
 
 **Check:** Place *agitated* against the clue: an agitated tone would leave people worried, directly reversing "calm, and nobody felt worried."
 
@@ -109,7 +111,7 @@ Finish the last step: choose *their*, *there*, or *they're* for the second blank
 :::answer
 *There*: "The clerks placed their folders over there by the door." *There* names a place, while *they're* expands to *they are*, which would make "over they are by the door."
 
-**Check:** Test ownership and place directly: "folders belonging to them" = *their*, and "in that place" = *there*.
+**Check:** Read it aloud and swap *there* for *in that place*: "over in that place by the door." It still makes sense.
 :::
 
 ## Speed Tricks & Shortcuts

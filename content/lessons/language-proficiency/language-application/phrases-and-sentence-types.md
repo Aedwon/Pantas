@@ -17,12 +17,12 @@ keyPoints:
 
 ### Word Groups Inside a Sentence
 
-A **phrase** is a word group without its own subject-and-verb pair, such as *after the lengthy staff meeting* or *during the annual staff review*. Words like *after* and *during* can open a phrase when only a noun follows.
+A **phrase** is a word group without its own subject-and-verb pair, such as *after the school program* or *during the long walk*. Words like *after* and *during* can open a phrase when only a noun follows.
 
-A **clause** has both a subject and a finite verb:
+A **clause** usually has a subject and a verb:
 
-- **Independent clause:** can stand alone as a complete thought (*the clerk resigned yesterday*).
-- **Dependent clause:** has a subject and verb, yet begins with a joining word like *because, although, when,* or *if*, so it cannot stand alone (*because the clerk resigned*).
+- **Independent clause:** can stand alone as a complete thought (*the rain stopped*).
+- **Dependent clause:** has a subject and verb, yet begins with a joining word like *because, although, when,* or *if*, so it cannot stand alone (*because the rain stopped*).
 
 :::pair #phrase-vs-dependent
 Right: *Because the clerk resigned* is a dependent clause (subject: *the clerk*; verb: *resigned*).
@@ -41,7 +41,7 @@ Is *before the morning shift* a phrase, a dependent clause, or an independent cl
 :::answer
 *A phrase.* There is no verb inside *before the morning shift*.
 
-**Check:** A clause needs a subject and a verb. *The morning shift* is a noun group, and no verb follows it.
+**Check:** Add a verb: *before the morning shift began* has a subject and a verb, so it would be a clause. As written, it has no verb.
 :::
 
 ### Counting Clauses
@@ -79,7 +79,9 @@ Classify this sentence: "The clerk waited because the printer jammed."
 
 Classify each word group as a phrase, an independent clause, or a dependent clause:
 (a) during the annual review
+
 (b) while the clerk checked the files
+
 (c) the clerk checked the files
 
 **Solution:**
@@ -94,6 +96,7 @@ Classify each word group as a phrase, an independent clause, or a dependent clau
 
 Classify each sentence:
 (a) The manager reviewed the forms and signed the log.
+
 (b) The manager reviewed the forms, and the clerk filed them.
 
 **Solution:**

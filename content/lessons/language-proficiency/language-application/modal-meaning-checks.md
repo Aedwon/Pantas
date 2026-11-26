@@ -21,8 +21,8 @@ Common matches between modal and meaning:
 
 - **Ability:** *can* ("Rosa **can** swim across the pool.")
 - **Permission:** *may* or *can* ("You **may** leave the room now.")
-- **Requirement or firm conclusion:** *must* ("Under this policy, staff **must** register visitors.")
-- **Possibility:** *might* or *may* ("The delayed shipment **might** arrive tomorrow.")
+- **Requirement or firm conclusion:** *must* ("By law, drivers **must** wear seat belts.")
+- **Possibility:** *might* or *may* ("It **might** rain tomorrow.")
 
 :::why
 Why do policy and forecast items test *must* against *might*? Both take the exact same base verb after them, so grammar alone cannot pick the winner. Only the clue in the sentence (*under this policy* versus *only a possibility*) tells them apart.
@@ -42,11 +42,9 @@ Choose the modal that fits: After months of practice, Ben *(can / must)* play th
 **Check:** Swap in *is able to*: "Ben is able to play the whole song." The meaning stays the same.
 :::
 
-### Keeping the Base Verb After a Modal
+### After a Modal
 
 A **base verb** is the plain verb with no *to* and no endings like *-s*, *-ed*, or *-ing* (*register, arrive, leave*). Core modals (*can, may, must, might, could, should*) take the bare base verb directly, even when the subject is singular (*She **must register***, not *must registers*).
-
-Unlike phrases such as *have to* or *ought to*, core modals take no *to* after them.
 
 :::pair #modal-plus-to
 Right: "The delayed shipment might arrive tomorrow."
@@ -76,9 +74,8 @@ Choose the modal that fits each sentence: (a) Ability: "Marco *(can / must)* lif
 
 **Solution:**
 
-1. Sentence (a) asks for ability, so choose **can**.
-2. Sentence (b) gives permission, so choose **may**.
-3. Check the verbs after both modals: *lift* and *sit* are bare base verbs.
+1. Sentence (a) asks for ability: "Marco **can** lift that crate."
+2. Sentence (b) gives permission: "You **may** sit in the front row."
 
 **Check:** Read each meaning aloud: "Marco is able to lift it" matches *can*, and "You are allowed to sit there" matches *may*.
 
@@ -96,7 +93,7 @@ Choose the correct form: "Under the new safety rule, technicians *(must wear / m
 
 ### #3: Meaning and Form Together
 
-Choose the form that gives permission: "Residents *(may park / may to park / may parking / must park)* here after six."
+Choose the correct form: "Residents *(may park / may to park / may parking / must park)* here after six if they wish."
 
 **Solution:**
 

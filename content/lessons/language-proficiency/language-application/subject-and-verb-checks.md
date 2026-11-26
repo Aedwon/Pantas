@@ -17,14 +17,14 @@ keyPoints:
 
 ### Subjects With Added Detail
 
-The **subject** tells who or what the sentence is about, and the **head** is its main word. Phrases starting with *of*, *along with*, *together with*, or describing phrases like *imported for the team* usually only add detail. Cover those added details so you match the verb to the head.
+The **subject** tells who or what the sentence is about, and the **head** is its main word. Phrases starting with *of*, *along with*, *together with*, or describing phrases like *stacked by the door* usually only add detail. Cover those added details so you match the verb to the head.
 
 <!-- ILLUSTRATION: the sentence "The box [of tools stacked by the door] is open." with "[of tools stacked by the door]" grayed and bracketed as "added detail", "box" labeled "head, singular", and a teal arrow from "box" to "is" -->
 
 Look at "The box of tools stacked by the door **is** open." Ask what is open: *the box*. Cover *of tools* and *stacked by the door*, then match singular *box* to singular *is*.
 
 :::why
-Why does a phrase like *along with her friends* leave a singular subject singular? Joining subjects with *and* makes one plural pair, but *along with* and *as well as* do not join them. They stay outside the subject head.
+Why does a phrase like *along with her friends* leave a singular subject singular? Joining subjects with *and* usually makes one plural pair, but *along with* and *as well as* do not join them. They stay outside the subject head.
 :::
 
 :::pair #nearest-noun
@@ -75,11 +75,11 @@ When the panel acts as one unit in American English, singular *is presenting* an
 :::
 
 :::check
-Choose the correct verb: Neither the supervisor nor the clerks *(has / have)* signed the log.
+Choose the correct verb: Either the driver or the guards *(is / are)* waiting at the gate.
 :::answer
-*Have*: "Neither the supervisor nor the clerks have signed the log." The nearer subject *clerks* is plural, so match *have* to *clerks*.
+*Are*: "Either the driver or the guards are waiting at the gate." The nearer subject *guards* is plural, so match *are* to *guards*.
 
-**Check:** Flip the order: "Neither the clerks nor the supervisor has signed the log." Now the singular *supervisor* is nearer, so *has* fits.
+**Check:** Cover the farther subject: "The guards are waiting at the gate." The nearer subject sets the verb.
 :::
 
 ## Examples
@@ -105,8 +105,7 @@ Decide whether there is an error: "The budget committee has finished its review 
 
 1. The subject *the budget committee* is one group acting as a unit.
 2. Under American English rules, the singular verb *has finished* matches that unit.
-3. The singular pronoun *its* also matches that single unit.
-4. Every part matches, so "The budget committee has finished its review of the quarterly expenses" has **no error**.
+3. Every part matches: **no error**.
 
 **Check:** Replace *the budget committee* with *it*: "It has finished its review." Both *has* and *its* match *it*.
 
@@ -129,7 +128,7 @@ Finish the last step: should the second verb be *knows* or *know*?
 
 ## Speed Tricks & Shortcuts
 
-Find the verb first, then ask who or what does it. Cover an *of*, *in*, *on*, or *along with* phrase before checking whether the head is singular or plural. After *some*, *most*, *all*, or *half*, check the noun after *of*.
+Find the verb first, then ask who or what does it. Cover an *in*, *on*, or *along with* phrase. Usually cover an *of* phrase too, except after *some*, *most*, *all*, or *half*, where the noun after *of* decides.
 
 ## Traps to Watch For
 

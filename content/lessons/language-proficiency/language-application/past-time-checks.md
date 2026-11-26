@@ -38,16 +38,16 @@ Choose the correct form: The signed forms *(were mailed / are being mailed)* to 
 **Aspect** shows whether an action was ongoing or already done at a past moment. Use the **past progressive** (*was* or *were* plus *-ing*) when an action was still in progress as another past event happened: "Mina **was checking** the files when the alarm rang."
 
 :::check
-The lights went out at ten, before the clerk finished. Choose the right form: At ten, she *(was filing / had filed)* the receipts.
+Choose the right form: When the lights went out at ten, she *(was filing / filed)* the receipts and was still on the last stack.
 :::answer
-*Was filing*: "At ten, she was filing the receipts." She had not finished, so the filing was still in progress when the lights went out.
+*Was filing*: "When the lights went out at ten, she was filing the receipts and was still on the last stack." The filing was still in progress when the lights went out.
 
-**Check:** Join the two events with *when*: "She was filing the receipts when the lights went out." The two actions overlap.
+**Check:** Start with *While*: "While she was filing the receipts, the lights went out." The two actions overlap.
 :::
 
 ### Order of Two Past Events
 
-The **past perfect** uses *had* plus a **past participle** (the form used after *have, has,* or *had*). Regular past participles end in *-ed* (*reviewed, finished*), while irregular ones vary (*written* from *write*, *gone* from *go*, *caught* from *catch*).
+The **past perfect** uses *had* plus a **past participle** (the form used after *have, has,* or *had*). Regular past participles end in *-ed* (*reviewed, finished*).
 
 <!-- ILLUSTRATION: timeline with two points: earlier X labeled "had already resolved (past perfect)" to the left of later X labeled "finished inspecting (simple past)" -->
 
@@ -68,7 +68,7 @@ After *had*, use the past participle *reviewed*, not the base verb *review*.
 :::pair #which-event-gets-had
 Right: "By the time the committee finished inspecting, the team had already resolved the errors."
 Wrong: "By the time the committee had finished inspecting, the team already resolved the errors."
-The resolving finished first, and the inspection is the later point. Put *had* on the earlier action, not the later one.
+The resolving came first. To mark it, put *had* on the earlier action, not the later one.
 :::
 
 :::check
@@ -83,12 +83,12 @@ Choose the right verb form: Before the doors opened, the staff *(had arrange / h
 
 ### #1: Time Clue and Who Does the Action
 
-Choose the correct form: "Last Friday, the packages *(were sorted / are being sorted / have sorted)* by the night crew."
+Choose the correct form: "Last Friday, the packages *(were sorted / will be sorted / sorted)* by the night crew."
 
 **Solution:**
 
-1. Check the time clue: *last Friday* places the finished event in the past, ruling out *are being sorted*.
-2. Check who acts: packages cannot sort anything, so passive voice is needed, ruling out *have sorted*.
+1. Check the time clue: *last Friday* places the finished event in the past.
+2. Check who acts: packages cannot sort anything, so passive voice is needed.
 3. Choose **were sorted**: "Last Friday, the packages were sorted by the night crew."
 
 **Check:** Turn it active to test: "The night crew sorted the packages last Friday." Both time and passive meaning match.
@@ -124,7 +124,7 @@ Change **already repaired** to **had already repaired**: "The guests arrived at 
 
 ## Speed Tricks & Shortcuts
 
-Look for time clues (*yesterday, last Tuesday*) first, check every *had + verb* pair for a true past participle, and put *had* only on the earlier completed event.
+Look for time clues first, check every *had + verb* pair for a participle, and when order is asked, put *had* on the earlier event.
 
 ## Traps to Watch For
 

@@ -17,9 +17,9 @@ keyPoints:
 
 An **independent clause** can stand alone as a complete sentence. Three common ways to join two independent clauses:
 
-1. A period plus a capital letter: "Mika was the cashier on duty. She counted the receipts."
-2. A semicolon: "Mika was the cashier on duty; she counted the receipts." (Use it when the ideas are closely linked.)
-3. A comma plus a coordinating joining word (*for, and, nor, but, or, yet, so*): "Mika was the cashier on duty, and she counted the receipts."
+1. A period plus a capital letter: "Rico missed the jeepney. He walked to school."
+2. A semicolon: "Rico missed the jeepney; he walked to school." (Use it when the ideas are closely linked.)
+3. A comma plus a coordinating joining word (*for, and, nor, but, or, yet, so*): "Rico missed the jeepney, so he walked to school."
 
 In standard writing, a comma alone between two independent clauses creates a **comma splice**. Leaving out punctuation and joining words creates a **run-on**. Lowercasing the first letter after a period is also an error.
 
@@ -39,11 +39,12 @@ Two complete sentences need a mark between them, and the new sentence starts wit
 Which sentence is punctuated correctly?
 
 (a) The bus arrived late, the meeting started on time.
+
 (b) The bus arrived late; the meeting started on time.
 :::answer
 Sentence (b): "The bus arrived late; the meeting started on time." Both halves can stand alone, so the comma in (a) cannot join them.
 
-**Check:** Read each half alone: "The bus arrived late." "The meeting started on time." Both are complete, so the semicolon is enough.
+**Check:** Add *but* after the comma in (a): "The bus arrived late, but the meeting started on time." A comma plus a joining word works, so the bare comma was the fault.
 :::
 
 ### Other Linking Words and Clauses
@@ -53,7 +54,7 @@ Words like *however*, *therefore*, *meanwhile*, and *instead* are transition adv
 Put a **semicolon** (or period) before *however* and a comma after it: "The road was flooded; **however,** the bus still left."
 
 :::why
-Why does a comma before *however* fail when a comma before *but* works? Only the seven coordinating words (*for, and, nor, but, or, yet, so*) can join two independent clauses after a comma. Transition words like *however* modify the second clause, so the first clause still needs a semicolon or period before it.
+Why does a comma before *however* fail when a comma before *but* works? In standard writing, only the seven coordinating words (*for, and, nor, but, or, yet, so*) can join two independent clauses after a comma. Transition words like *however* modify the second clause, so the first clause still needs a semicolon or period before it.
 :::
 
 :::pair #however-splice
@@ -65,15 +66,17 @@ Both sides of *however* are complete clauses. Put a semicolon before *however*, 
 A **dependent clause** (*because the office closed*) joins an independent clause differently. Add a comma when the dependent clause comes first ("Because the office closed, we left"), and usually skip the comma when it comes second ("We left because the office closed").
 
 :::check
-Which part of this sentence must change? "The file was complete, therefore, the clerk approved it."
+Which part of this sentence must change? "The file was complete, consequently, the clerk approved it."
 
-(a) The comma before *therefore*
-(b) The comma after *therefore*
+(a) The comma before *consequently*
+
+(b) The comma after *consequently*
+
 (c) Nothing
 :::answer
-Part (a). Both sides are complete clauses, and *therefore* is a transition word, so change the first comma to a semicolon: "The file was complete; therefore, the clerk approved it."
+Part (a). Both sides are complete clauses, and *consequently* is a transition word like *however*, so change the first comma to a semicolon: "The file was complete; consequently, the clerk approved it."
 
-**Check:** Take out *therefore*. "The file was complete, the clerk approved it" is still a comma splice, so the first comma is the problem.
+**Check:** Swap in *and*: "The file was complete, and the clerk approved it." A comma can come before *and*, but not before *consequently*.
 :::
 
 ## Examples
@@ -82,6 +85,7 @@ Part (a). Both sides are complete clauses, and *therefore* is a transition word,
 
 Fix the punctuation in each sentence:
 (a) The office closed early, the storm became stronger.
+
 (b) The office closed early. the storm became stronger.
 
 **Solution:**
@@ -89,7 +93,7 @@ Fix the punctuation in each sentence:
 1. In (a), both halves can stand alone, so the comma alone creates a comma splice. Fix: "The office closed early; the storm became stronger."
 2. In (b), the period ends the first sentence, so the next one needs a capital: "The office closed early. **The** storm became stronger."
 
-**Check:** Read each half alone: "The office closed early." "The storm became stronger." Both are complete.
+**Check:** Add *and* after the comma in (a). A comma plus a joining word is correct, so the bare comma was the fault.
 
 ### #2: One Long Sentence
 
@@ -107,7 +111,7 @@ Correct: "The printer jammed twice; however, the report was finished on time."
 
 ### #3: Two Facts, One Sentence
 
-Join these two facts into one sentence without adding a cause or result: "The server crashed at noon." "The technician restarted it."
+Join these two facts with punctuation only: "The server crashed at noon." "The technician restarted it."
 
 **Solution:**
 
@@ -117,12 +121,14 @@ Join these two facts into one sentence without adding a cause or result: "The se
 Finish the last step: which version joins them correctly?
 
 (a) The server crashed at noon, the technician restarted it.
+
 (b) The server crashed at noon; the technician restarted it.
+
 (c) The server crashed at noon, so the technician restarted it.
 :::answer
-Version (b): "The server crashed at noon; the technician restarted it." A semicolon joins two independent clauses. Version (a) is a comma splice, and (c) adds a result.
+Version (b): "The server crashed at noon; the technician restarted it." A semicolon joins two independent clauses. Version (a) is a comma splice, and (c) uses the joining word *so*, not punctuation only.
 
-**Check:** Test each side of the semicolon as its own sentence: "The server crashed at noon." "The technician restarted it." Both are complete, and no cause or result was added.
+**Check:** Swap the semicolon for a period: "The server crashed at noon. The technician restarted it." Both halves stay complete sentences.
 :::
 
 ## Speed Tricks & Shortcuts

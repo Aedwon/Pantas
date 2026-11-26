@@ -49,7 +49,7 @@ Choose the correct pronoun: The supervisor asked Maya and *(I / me)* to check th
 
 ### Clear Reference and Singular They
 
-A pronoun is unclear when two names in the sentence could fit it. Neither the first name nor the nearest name wins on its own. Repeat the intended name so the reader does not have to guess.
+A pronoun is unclear when two names in the sentence could fit it. Repeat the intended name so the reader does not have to guess.
 
 :::pair #unclear-pronoun
 Right: "When the supervisor spoke to the manager, the supervisor expressed concern."
@@ -60,11 +60,11 @@ Either man could express concern. Repeating *the supervisor* removes the second 
 **Singular they** (*they, them, their, theirs*) refers to one person whose gender is unknown or does not need to be stated. Modern standard English accepts "Each student has brought **their** book." Keep the singular verb *has* with *each*, keep the past participle *brought* after *has*, and use possessive *their* (not *them*) before a noun.
 
 :::check
-Choose the sentence in standard modern English: (A) "Each clerk have filed their report." (B) "Each clerk has filed their report."
+Choose the sentence in standard modern English: (A) "Each nurse have signed their form." (B) "Each nurse has signed their form."
 :::answer
-(B): "Each clerk has filed their report." *Each clerk* takes singular *has*, and singular *their* fits one unspecified clerk.
+(B): "Each nurse has signed their form." *Each nurse* takes singular *has*, and singular *their* fits one unspecified nurse.
 
-**Check:** Read the start alone: "Each clerk has filed." *Each* is singular, so *has* fits.
+**Check:** Remove *Each nurse* and use *she*: "She has signed her form." One person takes *has*.
 :::
 
 ## Examples
@@ -87,20 +87,22 @@ Correct: "The auditor who reviewed the report shared the summary with Carlos and
 
 Choose the correct sentence:
 (A) Each driver have parked their van.
+
 (B) Each driver has parked their van.
-(C) Each driver has parked them van.
+
+(C) Each driver has park their van.
 
 **Solution:**
 
 1. Singular *each* needs singular *has*, ruling out *have* in (A).
-2. Before the noun *van*, use possessive *their*, ruling out object *them* in (C).
+2. After *has*, use the past participle *parked*, ruling out *park* in (C).
 3. Choose **(B)**: "Each driver has parked their van."
 
 **Check:** Test each part on its own: "Each driver has parked" and "their van." Both are standard English.
 
 ### #3: One Pronoun, Two People
 
-Ana and Liza are both women, and Liza noticed the page. Make the pronoun clear in "After Ana handed the folder to Liza, she noticed a missing page."
+Ana and Liza are both women, and the one who got the folder noticed the page. Make the pronoun clear in "After Ana handed the folder to Liza, she noticed a missing page."
 
 **Solution:**
 
@@ -123,6 +125,6 @@ Drop the other noun in pairs like *you and me*, replace *who/whom* with *he/him*
 
 :::checklist
 - *Who* or *whom* before a verb: test with *he* or *she* inside that clause and use *who* as subject. {#who-vs-whom}
-- A pronoun after *between*, *to*, or *with*: drop the other person and choose object *me*. {#object-after-preposition}
+- A pronoun after *between*, *to*, or *with*: drop the other person and choose the object form. {#object-after-preposition}
 - Two people who fit *he* or *she*: repeat the intended name instead of guessing by word order. {#unclear-pronoun}
 :::

@@ -19,7 +19,7 @@ keyPoints:
 
 A **modifier** is a word or phrase that describes another word. Place it right beside the word it describes so the meaning stays clear.
 
-When a sentence opens with an *-ing* or *after*-action phrase, the noun right after the comma should be the person or thing doing that action. Put limiting words like *only* right beside the word they limit (*to Paolo only*, not *only Lina*, when only the receiver is limited). Place a *that*-clause right after the noun it describes.
+When a sentence opens with an *-ing* or *after*-action phrase, the noun right after the comma should be the person or thing doing that action. Put limiting words like *only* right beside the word they limit (*sells fruit only*, not *only sells fruit*, when only fruit is limited). Place a *that*-clause right after the noun it describes.
 
 :::pair #dangling-opening
 Right: "After inspecting the roof, the engineer approved repairs."
@@ -28,18 +28,18 @@ Repairs cannot inspect a roof. Name the person who did the inspecting right afte
 :::
 
 :::check
-Which sentence means the coach praised Ben and no one else: "Only the coach praised Ben" or "The coach praised Ben only"?
+Which sentence means the teacher graded the quizzes and nothing else: "The teacher only graded the quizzes" or "The teacher graded only the quizzes"?
 :::answer
-"The coach praised Ben only." Placing *only* beside *Ben* limits who was praised.
+"The teacher graded only the quizzes." Placing *only* beside *the quizzes* limits what was graded.
 
-**Check:** In the other sentence, *only* sits beside *the coach*. It would mean nobody but the coach praised Ben.
+**Check:** In the other sentence, *only* sits beside *graded*. It could mean the teacher did nothing but grade.
 :::
 
 ### Parallel Lists and Comparisons
 
 **Parallel structure** means items doing the same job share the same grammar form. Match base verbs with base verbs (*submit, update, and review*) and *-ing* forms with *-ing* forms (*reading and watching*).
 
-Comparisons must also compare the same kind of thing. Compare a rating to another rating (*higher than those of the older models*), not a rating to the physical models themselves.
+Comparisons must also compare the same kind of thing. Compare a rating to another rating (*higher than those of the older models*), not a rating to the physical models themselves. Use *that of* with one item and *those of* with several.
 
 :::why
 Why do exams reject "The rating of the new panel is higher than the older models"? A number (rating) cannot be higher than a piece of hardware (models). Adding *that of* or *those of* keeps both sides equal in kind.
@@ -58,9 +58,9 @@ Compare a rating with ratings (*those of the older models*), not with the physic
 :::
 
 :::check
-Choose the matching comparison: "The battery life of this phone is longer than *(last year's model / that of last year's model)*."
+Choose the matching comparison: "The battery life of this phone is longer than *(that of / those of)* last year's model."
 :::answer
-*That of last year's model*: "The battery life of this phone is longer than that of last year's model." *That of* stands for *the battery life of*, so battery life compares with battery life.
+*That of*: "The battery life of this phone is longer than that of last year's model." *That of* stands for *the battery life of* one model, so battery life compares with battery life.
 
 **Check:** Put the full words back: "longer than the battery life of last year's model." Both sides now name a battery life.
 :::
@@ -69,7 +69,7 @@ Choose the matching comparison: "The battery life of this phone is longer than *
 
 For **word form**, check the blank's job. Use an adjective before a noun (*a clear rule*) and an adverb to describe a verb (*explain clearly*).
 
-Watch close pairs and repeated words too. *Affect* is usually a verb meaning influence an existing thing (*adversely affect performance*), while *effect* is usually a noun meaning result (as a verb, *effect* means cause or bring about). Also drop needless repeated words: *return* already means go back, so cut *back* from *return back*.
+Watch close pairs and repeated words too. *Affect* is usually a verb meaning influence an existing thing (*affect grades*), while *effect* is usually a noun meaning result (as a verb, *effect* means cause or bring about). Also drop needless repeated words: *return* already means go back, so cut *back* from *return back*.
 
 :::check
 Choose the correct word: "Heavy rain can *(affect / effect)* the schedule of the buses."
@@ -104,20 +104,20 @@ Correct two errors in "The team must finalize the budget, inspect the hall, and 
 
 Correct: "The team must finalize the budget, inspect the hall, and check the lights, or delays will affect the event."
 
-**Check:** Read the parallel list alone: "must finalize, inspect, and check." Read the result clause: "delays will affect the event." Both match form and meaning.
+**Check:** Read the list: "must finalize, inspect, and check." Then the end: "delays will affect the event."
 
 ### #3: One Sentence, Two Problems
 
-Revise this sentence so it compares like with like and removes repeated meaning: "The cost of the new printer is lower than the old printer, so the office will repeat the order again."
+Revise this sentence: "The cost of the new printer is lower than the old printer, so the office will repeat the order again."
 
 **Solution:**
 
 1. The sentence compares *cost* to *the old printer* instead of to its cost. Change the comparison target to **that of the old printer**.
 
 :::try
-Finish the last step: which word is repeated in meaning, and what is the full revised sentence?
+Finish the last step: what else must change, and what is the full revised sentence?
 :::answer
-*Again* repeats what *repeat* already says. Delete it: "The cost of the new printer is lower than that of the old printer, so the office will repeat the order."
+*Again* repeats what *repeat* already says, so a correct version says "a second time" only once. Model: "The cost of the new printer is lower than that of the old printer, so the office will repeat the order."
 
 **Check:** Read the revised sentence: cost compares with cost, and *repeat the order* still means ordering a second time.
 :::

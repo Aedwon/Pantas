@@ -26,7 +26,7 @@
   },
   "lesson-language-application-pronoun-reference-checks": {
     "who-vs-whom": [{"questionId": "q-language-application-error-identification-0006", "wrongChoice": "No error", "mistakeNote": "Accepts an object form as the subject of a clause."}],
-    "object-after-preposition": [{"questionId": "q-language-application-error-identification-0013", "wrongChoice": "I,", "mistakeNote": "Uses a subject form after the preposition between."}],
+    "object-after-preposition": [{"questionId": "q-language-application-error-identification-0013", "wrongChoice": "No error", "mistakeNote": "Accepts a subject form as a preposition's object."}],
     "unclear-pronoun": [{"questionId": "q-language-application-error-identification-0007", "wrongChoice": "No error", "mistakeNote": "Assumes the context shows which of two men the pronoun means."}]
   },
   "lesson-language-application-subject-and-verb-checks": {
