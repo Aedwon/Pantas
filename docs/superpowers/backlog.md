@@ -23,6 +23,9 @@ Status words: LIVE (on prod and verified), BUILDING, BOARD (waiting on his look)
 
 | Asked (Manila) | His request, short | Status | Owner |
 |---|---|---|---|
+| Nov 26 2:07 PM | Website Free and Pro section: round 4 card with his own list wording, "No ads" on the Free card; "update the Pro texts in other places as well" | APPROVED; building for the Saturday opening (website: UX lead; in-app Pro wording: release lead r9, capture sheet to him) | UX lead, release lead r9 |
+| Nov 26 1:30 PM | Wide Performance page: clipped rows, missing percent, Overall column; "(X)" instead of "X answered" | Sheet PASSED 2:07 PM ("okay with the performance page"); rides the Saturday opening | release lead r9 |
+| Nov 26 1:50 PM | BIR badge on the website: "okay take it off", then "yes delete" the stored image | DONE (removed from board and opening; image deleted) | UX lead |
 | Nov 26 12:40 PM | Homepage: wording approved ("okay with your recommendations"); one CTA on screen at a time; top bar must not shrink on scroll; remove the bottom section; ask Fable too | BOARD next (UX lead, Fable opinion first); publish at the Saturday opening | UX lead, release lead r9 |
 | Nov 26 12:30 PM | Opening: "make it Saturday 6 AM"; homepage beta wording "change it accordingly" (draft to him before publishing); legal Round 6 "ok" | Opening SCHEDULED Sat Nov 28 6:00 AM; homepage wording DRAFTING; legal Round 6 APPROVED | release lead r9 |
 | Nov 26 12:05 PM | Walk-through examples: connect each example to its source, finish every chain, no added words ("yes that's it!" on the target); "i allow you to work on lessons with claude until Gemini's reset comes" | BUILDING (Claude stopgap on math until 12:55 PM, then Gemini) | walk-through Gemini lead, manager |
