@@ -39,7 +39,7 @@ Which sentence means the teacher graded the quizzes and nothing else: "The teach
 
 **Parallel structure** means items doing the same job share the same grammar form. Match base verbs with base verbs (*submit, update, and review*) and *-ing* forms with *-ing* forms (*reading and watching*).
 
-Comparisons must also compare the same kind of thing. Compare a rating to another rating (*higher than those of the older models*), not a rating to the physical models themselves. Use *that of* with one item and *those of* with several.
+Comparisons must also compare the same kind of thing. Compare a rating to another rating (*higher than those of the older models*), not a rating to the physical models themselves. *That of* stands for a singular noun (*the rating of*), and *those of* for a plural one (*the ratings of*).
 
 :::why
 Why do exams reject "The rating of the new panel is higher than the older models"? A number (rating) cannot be higher than a piece of hardware (models). Adding *that of* or *those of* keeps both sides equal in kind.
@@ -60,7 +60,7 @@ Compare a rating with ratings (*those of the older models*), not with the physic
 :::check
 Choose the matching comparison: "The battery life of this phone is longer than *(that of / those of)* last year's model."
 :::answer
-*That of*: "The battery life of this phone is longer than that of last year's model." *That of* stands for *the battery life of* one model, so battery life compares with battery life.
+*That of*: "The battery life of this phone is longer than that of last year's model." *That of* stands for *the battery life of*, a singular noun, so battery life compares with battery life.
 
 **Check:** Put the full words back: "longer than the battery life of last year's model." Both sides now name a battery life.
 :::

@@ -55,10 +55,10 @@ Sundin ang tatlong hakbang:
 2. Bilangin ang mga sugnay na makapag-iisa.
 3. Bilangin ang mga sugnay na di-makapag-iisa.
 
-Suriin natin ang "Kapag umulan, hindi natuloy ang laro.":
+Suriin natin ang "Kapag umulan, hindi matutuloy ang laro.":
 
 - *kapag umulan*: bitin, kaya 1 di-makapag-iisa.
-- *hindi natuloy ang laro*: buo, kaya 1 makapag-iisa.
+- *hindi matutuloy ang laro*: buo, kaya 1 makapag-iisa.
 - Ang bilang ay 1 at 1, kaya **hugnayan**.
 
 Suriin ang "Nagluto si Lina at nag-igib si Tito.":

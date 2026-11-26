@@ -69,7 +69,7 @@ Wrong: "The study counted forty kinds. A student began a study of park birds."
 :::check
 Put in order: (A) "That change saved the school money." (B) "The school switched to solar panels last year."
 :::answer
-The answer is B, then A. *That change* in (A) points to the switch to solar panels in (B).
+The answer is B, then A. *That change* in (A) points to the switch to solar panels in (B): "The school switched to solar panels last year. That change saved the school money."
 :::
 
 ## Examples
@@ -128,12 +128,13 @@ Arrange the sentences in the best order.
 **Solution:**
 
 1. (A) says "These grants." Which grants? It needs an earlier sentence.
+
 :::try
 Finish the last step: what is the full order?
 :::answer
-The answer is B, A, C. (B) names "science grants" and makes sense alone. *The equipment* in (C) points to "new lab equipment" in (A), so (C) comes after (A).
+The answer is B, A, C. (B) names "science grants" and makes sense alone. *The equipment* in (C) points to "new lab equipment" in (A), so (C) comes after (A): "Last year the district set aside money for science grants. These grants let schools buy new lab equipment. Teachers said the equipment made experiments safer."
 
-**Check:** Read the order aloud. The grants come first, then what they buy, then what teachers said about it.
+**Check:** Each pointing phrase (*These grants*, *the equipment*) now comes after the sentence that names it.
 :::
 
 ## Speed Tricks & Shortcuts
