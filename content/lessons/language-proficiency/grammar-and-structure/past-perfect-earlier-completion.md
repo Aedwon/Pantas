@@ -23,7 +23,7 @@ keyPoints:
 
 <!-- ILLUSTRATION: horizontal timeline showing Event 1 marked "had cooked (earlier past, finished first)" before Event 2 marked "guests arrived (later past)", both to the left of "now" -->
 
-*Had* stays the same for every subject (*I had, she had, they had*). Put *had* on the action that was already finished at the later past point.
+*Had* stays the same for every subject. Put *had* on the action that was already finished at the later past point.
 
 :::pair #mark-earlier-past
 Right: By the time the guests arrived, she had cooked the entire meal.
@@ -78,19 +78,19 @@ Correct: "By the time the bus left, Ben had bought his ticket."
 
 ### #2: Two Past Actions in One Sentence
 
-Complete "When Rita reached the shop at 6:30, it ___ at six" with *closed* or *had closed*.
+Complete "When Rita reached the shop, the owner ___ home" with *went* or *had gone*. The owner was already gone.
 
 **Solution:**
 
-1. Identify the two past actions: *reached* and *closed*.
+1. Identify the two past actions: *reached* and the owner leaving.
 2. Place the two actions on a timeline.
 
 :::try
 Finish the last step: which form fits, and why?
 :::answer
-The answer is **had closed**. No word like *before* shows the order, so *had* marks the closing as finished before Rita arrived.
+The answer is **had gone**. The owner left before Rita reached the shop, so *had* marks leaving as finished first.
 
-**Check:** The sentence "When Rita reached the shop at 6:30, it had closed at six" reads in true order; plain *closed* would read as if both events happened together.
+**Check:** "When Rita reached the shop, the owner had gone home" fits the meaning. Plain *went* would suggest he left after she arrived.
 :::
 
 ## Speed Tricks & Shortcuts

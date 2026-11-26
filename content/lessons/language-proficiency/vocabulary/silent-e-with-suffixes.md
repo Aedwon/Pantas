@@ -143,5 +143,5 @@ Choice **C**, **excitement**. *-ment* starts with a consonant, and *excite* is n
 :::checklist
 - Vowel suffix with no soft sound to keep: often drop the *e*, as in *hoping*. A few words, such as *dyeing*, keep it. {#vowel-suffixes-and-soft-sounds}
 - Silent *e* after *c* or *g* before *-able* or *-ous*: usually keep the *e* for the soft sound, as in *noticeable* and *courageous*. {#soft-g}
-- Some consonant suffixes: drop the *e* in *truly* and *argument*. {#truly}
+- A few exceptions: drop the *e* in *truly* and *argument*. {#truly}
 :::

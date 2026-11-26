@@ -98,7 +98,7 @@ Ang sagot ay **A**. May kasunod na pangalang *Liza at Ben* ang unang patlang, ka
 
 ## Speed Tricks & Shortcuts
 
-Tingnan ang kasunod.
+Tingnan kung pangalan ang kasunod agad.
 
 ## Traps to Watch For
 

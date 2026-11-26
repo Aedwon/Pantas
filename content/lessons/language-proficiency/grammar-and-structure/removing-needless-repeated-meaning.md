@@ -39,9 +39,9 @@ Warnings come at different times, and some repeated words add meaning. Cut *adva
 :::
 
 :::check
-Revise: *"Please repeat the instructions again."*
+Revise: *"The team will assemble together at noon."*
 :::answer
-The answer is **"Please repeat the instructions."** *Repeat* already means say again, so *again* adds nothing and the request stays the same.
+The answer is **"The team will assemble at noon."** *Assemble* already means come together, so *together* adds nothing and the plan stays the same.
 :::
 
 ### Checking Before You Cut

@@ -90,6 +90,7 @@ The answer is **C**, **provide**. *Furnish* can mean put furniture in a room or 
 ## Speed Tricks & Shortcuts
 
 **Put the choice back.** Check the full sentence for meaning and grammar.
+
 ## Traps to Watch For
 
 :::checklist

@@ -97,9 +97,9 @@ Revise *"Preparing the final report for the committee"* into a complete formal s
 1. *Preparing* alone is nonfinite: it shows no time, so the group is not a sentence.
 
 :::try
-Finish the last step: use *the coordinator* as the subject, then test by shifting the time.
+Finish the last step: add a subject and a finite verb, then test by shifting the time.
 :::answer
-**The coordinator is preparing the final report for the committee.** *The coordinator* is the subject, and *is* supplies present tense.
+**The coordinator is preparing the final report for the committee.** *The coordinator* is the subject, and *is* supplies present tense. Any subject with a finite verb works.
 
 **Check:** Shift the sentence to past time: *"The coordinator was preparing the final report for the committee."* *Is* changes to *was*, confirming a real finite verb is present.
 :::

@@ -64,6 +64,7 @@ The answer is *chilly*. It matches a mild feeling, while *freezing* means extrem
 ### Register
 
 **Register** is the level of formality that fits a situation. *Commence* is formal, *start* is neutral, and *kick off* is casual.
+
 First ask who will read the sentence and why it was written. Then choose the word whose meaning and setting both fit.
 
 We replace *kick off* in a public notice: “Processing will kick off after the briefing.”

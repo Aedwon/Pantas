@@ -38,9 +38,9 @@ The answer is *cold*, *crept*, and *closer*. All three start with the *k* sound,
 **Onomatopoeia** uses a word that sounds like the sound it names, such as *buzz* or *clang*.
 
 :::check
-Which word in "Bees hummed in the garden" imitates its noise?
+Which word in "Frogs croaked in the garden" imitates its noise?
 :::answer
-The answer is *hummed*. It sounds like the buzzing noise it names, so it is onomatopoeia.
+The answer is *croaked*. It sounds like the noise it names, so it is onomatopoeia.
 :::
 
 ### Oxymoron

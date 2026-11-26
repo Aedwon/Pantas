@@ -48,9 +48,9 @@ Ang *tuwing Sabado* ay gawaing inuulit linggo-linggo, hindi tapos o katatapos la
 :::
 
 :::check
-Alin ang gawaing umiiral na: *(Magpupulong ang grupo tuwing Lunes simula sa susunod na buwan. / Nagpupulong ang grupo tuwing Lunes.)*?
+Sa "Nagdidilig ng halaman si Lola tuwing umaga," imperpektibo o kontemplatibo ang *nagdidilig*?
 :::answer
-Ang sagot ay **Nagpupulong ang grupo tuwing Lunes.** May *tuwing* ang dalawa, ngunit umiiral na ang gawain sa ikalawa kaya imperpektibo ang *nagpupulong*. Binabalak pa lamang ang una.
+Ang sagot ay **Imperpektibo**. Paulit-ulit at umiiral na ang gawain, kaya hindi ito kontemplatibo.
 :::
 
 ### Nagpapatuloy na Kilos sa Nakaraan

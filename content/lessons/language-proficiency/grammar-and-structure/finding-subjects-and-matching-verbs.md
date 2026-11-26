@@ -135,12 +135,13 @@ Finish the last step: is *quality* singular or plural, and which verb matches it
 
 ## Speed Tricks & Shortcuts
 
-Find the subject before you choose the verb. Cover a phrase that adds a detail, such as one starting with *of*, *on*, *in* or *with*, then check number and person.
+Find the subject first. Cover a phrase that adds a detail, such as one starting with *of*, *on*, *in* or *with*, then check number and person.
 
-Exceptions such as *some*, *most*, *all*, *half*, or *a lot*: the noun after *of* decides the verb. "Some of the money is missing." "Some of the students are absent."
+Some words are exceptions: with *some*, *most*, *all*, *half* or *a lot*, the noun after *of* decides the verb. "Some of the money is missing." "Some of the students are absent."
+
 ## Traps to Watch For
 
 :::checklist
 - Singular third-person subject with a regular present verb: add *-s*, as in "The dog barks." {#verb-s}
-- A phrase between the subject and the verb: otherwise cover it and match the head, as in "The box of chocolates is on the table." {#nearest-noun}
+- A phrase between the subject and the verb: cover it and match the head, as in "The box of chocolates is on the table." {#nearest-noun}
 :::

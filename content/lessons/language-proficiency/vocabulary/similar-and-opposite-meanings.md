@@ -22,9 +22,9 @@ A **synonym** is a word or phrase with the same or a closely related meaning in 
 Words with close meanings can differ in strength. They can also sound more formal, friendly, or harsh. Choose the word that keeps the meaning and fits the sentence.
 
 :::check
-Which word is a synonym of *audacious*: *daring*, *polite*, *tired*, or *mild*?
+Which word is a synonym of *bold*: *daring*, *polite*, *tired*, or *mild*?
 :::answer
-The answer is *daring*. Both words mean bold and willing to take risks.
+The answer is *daring*. Both words mean willing to take risks.
 :::
 
 ### Word Pairings

@@ -65,9 +65,9 @@ Hindi pinapangalanan ng *Naku* ang isang damdamin tulad ng salitang *kaba*, hind
 :::
 
 :::check
-Sa "Hala! Nahulog ang baso dahil sa hangin," alin ang pandamdam: *Hala*, *dahil*, o *sa*?
+Sa "Hala! Nahulog ang baso sa sahig," alin ang pandamdam: *Hala*, *baso*, o *sa*?
 :::answer
-Ang sagot ay **Hala**. Nagpapahayag ito ng pagkagulat o reaksiyon. Pangatnig ang *dahil* at pang-ukol ang *sa*.
+Ang sagot ay **Hala**. Nagpapahayag ito ng pagkagulat o reaksiyon. Pang-ukol ang *sa* na iniuugnay ang *sahig* sa pagkahulog.
 :::
 
 ## Examples

@@ -38,9 +38,9 @@ The exchange has two sides. Each word tells what one side does.
 :::
 
 :::check
-If Carlo teaches a lesson to Mia, what does Mia do in that same exchange?
+If Dina lends a pen to Leo, which verb names Leo's role: *borrows* or *lends*?
 :::answer
-The answer is *learn*. Mia learns the lesson from Carlo. *Teach* and *learn* are two sides of one exchange.
+The answer is *borrows*. Leo takes the pen from Dina. *Lend* and *borrow* are two sides of one exchange.
 :::
 
 ## Examples

@@ -44,7 +44,7 @@ The answer is **Interjection**. *Oops* expresses a sudden reaction and stands in
 
 A **subject** tells who or what a clause is about. A **clause** has a subject and a verb (commands leave *you* understood). A **phrase** works as one part without a subject-verb pair.
 
-A **subordinate clause** usually has its own subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting. Some grammars also count *before leaving* (subject understood) as one; this lesson does not. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
+A **subordinate clause** usually has its own subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting. *Before leaving* is a non-finite clause; this lesson groups it with phrases. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
 
 Words like *before*, *after*, and *until* can do two jobs. Compare a noun phrase with a clause after *before*:
 

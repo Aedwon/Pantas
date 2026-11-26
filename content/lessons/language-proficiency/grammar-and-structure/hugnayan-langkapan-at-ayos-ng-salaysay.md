@@ -61,7 +61,7 @@ Ang sagot ay **Langkapan**. Dalawa ang sugnay na makapag-iisa (*Nag-aral si Liza
 
 ### Ayos ng Salaysay at mga Pananda
 
-Sa pagsasalaysay, pumili ng **panandang pangkasunod** (sequence word) na tugma sa pagkakasunod ng oras. Halimbawa, sa pagtatanim ni Mia:
+Sa pagsasalaysay, pumili ng **pananda** (sequence marker) na tugma sa pagkakasunod ng oras. Sa pagtatanim ni Mia:
 
 1. Simula (*una*, *sa simula*): "**Una**, naghukay si Mia ng butas."
 2. Kasunod (*pagkatapos*, *kasunod*, *saka*): "**Pagkatapos**, itinanim niya ang buto."
@@ -74,9 +74,9 @@ Ang *sa huli* ay para lamang sa pangwakas na pangyayari. Kapag inilagay ito sa u
 :::
 
 :::check
-Alin ang bagay sa patlang: "Una, naghugas si Ben ng gulay. Pagkatapos, ___. Sa huli, inihain niya ang sinigang." *(naglagay siya ng gulay sa kaldero / naghugas ulit siya / kumain ang pamilya)*
+Alin ang bagay sa patlang: "Una, naghugas si Ben ng gulay. ___, naglagay siya ng gulay sa kaldero. Sa huli, inihain niya ang sinigang." *(Kasunod / Panghuli / Sa simula)*
 :::answer
-Ang sagot ay **naglagay siya ng gulay sa kaldero**. Kasunod ito ng paghuhugas at bago ang paghahain. Ang *naghugas ulit* ay kabilang sa simula, at ang *kumain* ay pagkatapos ng paghahain.
+Ang sagot ay **Kasunod**. Gitnang hakbang ang paglalagay sa kaldero, kaya pananda ng kasunod na pangyayari ang bagay. Para sa wakas ang *panghuli* at para sa simula ang *sa simula*.
 :::
 
 ## Examples
@@ -95,7 +95,8 @@ Tukuyin ang uri ng pangungusap: "Umuwi ang bata dahil umuulan na."
 
 ### #2: Pagbuo ng Langkapan
 
-Pagsamahin sa isang langkapan ang mga diwa: nag-aral si Liza; may pagsusulit siya; naghanda si Ben para sa ulat.
+Pagsamahin sa isang langkapan ang mga diwa, at gamitin ang *dahil* sa dahilan: nag-aral si Liza; may pagsusulit siya; naghanda si Ben para sa ulat.
+
 **Solution:**
 
 1. Iugnay ang dahilan gamit ang *dahil*: "Nag-aral si Liza dahil may pagsusulit siya."

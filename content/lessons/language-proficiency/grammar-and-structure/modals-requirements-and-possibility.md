@@ -119,7 +119,7 @@ Finish the job: what do *must* and *might* express?
 :::answer
 *Must* is **a strong conclusion from evidence**: the dark lights and locked door show what is very likely true now. *Might* is **possibility**: opening at noon is uncertain.
 
-**Check:** Replace *must be closed* with *is probably closed*: the meaning fits the clues, whereas *has to be closed* would state a rule.
+**Check:** Replace *must be closed* with *is probably closed*: the meaning fits the clues, whereas *has to be closed* would usually state a rule.
 :::
 
 ## Speed Tricks & Shortcuts

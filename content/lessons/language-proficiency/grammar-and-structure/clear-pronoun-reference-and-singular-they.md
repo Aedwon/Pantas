@@ -78,9 +78,9 @@ Proximity does not fix an unclear pronoun. When either person could own the pain
 :::
 
 :::check
-Sam alone passed. Repeat the name in "Alex told Sam that they had passed."
+Sam alone passed. Rewrite "Alex told Sam that they had passed" clearly.
 :::answer
-The answer is **"Alex told Sam that Sam had passed."** Repeating *Sam* names who passed and removes ambiguity.
+The answer is **"Alex told Sam that Sam had passed."** Repeating *Sam* names who passed and removes ambiguity. Any rewrite that names who passed also works.
 :::
 
 ## Examples
