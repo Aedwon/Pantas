@@ -16,48 +16,128 @@ keyPoints:
 
 ## Core Concept
 
-Article XI, Section $1$ says that public office is a public trust. Public officers and employees must answer to the people. They must do their work honestly, responsibly, and well.
+### Public Office as a Public Trust
 
-They must be loyal to the country and act fairly. They must also lead modest lives. Their office exists to serve the public.
+Article XI, Section $1$, says that **public office is a public trust**. Every public officer and employee must answer to the people at all times.
 
-### Who May Be Impeached
+Section $1$ sets clear daily standards:
 
-**Impeachment** is the process for charging certain high officers so they can be tried for removal. A charge is not a **conviction**, a decision finding the officer guilty.
+1. Serve the people with utmost responsibility, integrity, loyalty, and efficiency.
+2. Act with patriotism and justice.
+3. Lead **modest lives**, without living in luxury off public power.
 
-Article XI, Section $2$ lists the officers covered:
+Holding office is a public service duty, never a private prize or family asset.
 
-- The President and Vice-President
-- Members of the Supreme Court
-- Members of the Constitutional Commissions: the Civil Service Commission, Commission on Elections, and Commission on Audit
-- The Ombudsman
+Test how Section $1$ judges two acts by a municipal treasurer:
 
-Other public officers may be removed as provided by law, but not by impeachment. Cabinet Secretaries and trial court judges are not on this list. Neither are legislators or Deputy Ombudsmen.
+1. Recording permit fees accurately and treating all taxpayers equally honors responsibility, integrity, and justice.
+2. Letting relatives cut ahead in line for city contracts breaks the public trust.
+
+:::pair #public-trust-duty
+Right: Public office is a public trust requiring responsible service to the people and modest living at all times.
+Wrong: Treating public office as a private entitlement after winning an election, or putting family interests first.
+Winning an election grants a temporary public duty, never private ownership or family preference.
+:::
+
+:::check
+A newly elected governor tells reporters that voters gave him total personal control over provincial funds for $3$ years without answering to anyone. Does this match Article XI, Section $1$?
+:::answer
+The answer is **No**. Public office is a public trust, so officers must answer to the people at all times.
+:::
+
+### The Closed Five-Office Impeachment List
+
+**Impeachment** is the formal process for charging certain high officers so the Senate can try them for removal. Charging is not **conviction**, a Senate verdict of guilt.
+
+Article XI, Section $2$, names a closed list of $5$ office categories:
+
+1. The President
+2. The Vice-President
+3. Members of the Supreme Court
+4. Members of the Constitutional Commissions (CSC, COMELEC, and COA)
+5. The Ombudsman
+
+Other public officers may be removed **as provided by law**, not by impeachment. Senators, Representatives, Cabinet Secretaries, lower-court judges, governors, mayors, and Deputy Ombudsmen sit outside this list.
+
+:::why
+Why limit impeachment to $5$ categories? Impeachment shields top constitutional posts from quick firing, while ordinary laws cover other officials.
+:::
+
+Apply Section $2$ to three officials facing complaints:
+
+1. A COMELEC Member belongs to a Constitutional Commission, so impeachment applies.
+2. A Supreme Court Associate Justice is a Member of the Supreme Court, so impeachment applies.
+3. A Cabinet Secretary sits outside the $5$ categories, so removal follows other statutes.
+
+:::pair #closed-office-list
+Right: Only the President, Vice-President, Supreme Court Members, Constitutional Commission Members, and Ombudsman face impeachment.
+Wrong: Treating all judicial officers, including lower-court judges, as impeachable whenever a serious ground is alleged.
+Only Members of the Supreme Court are on the judicial list, never Regional Trial Court or Court of Appeals judges.
+:::
+
+:::pair #outside-list-lawful-removal
+Right: Officers outside Section $2$'s list still face removal through other processes provided by law.
+Wrong: Claiming officers outside Section $2$'s list are permanently immune from removal regardless of misconduct.
+Being outside impeachment never grants immunity; other lawful removal procedures still apply.
+:::
+
+:::check
+Separate verified complaints target a Deputy Ombudsman and a Member of the Commission on Audit (COA). Which official falls under Article XI, Section $2$?
+:::answer
+The answer is **The Member of the Commission on Audit**. COA is a Constitutional Commission in Section $2$, while Deputy Ombudsmen face removal under other laws.
+:::
 
 ## Examples
 
-### #1: President as an Impeachable Officer
+### #1: Testing Public-Trust Conduct
 
-Is the President among the officers who may be removed through impeachment under Article XI, Section $2$?
-
-**Solution:**
-
-1. Section $2$ includes the President.
-2. The President may be impeached, subject to the constitutional grounds and process.
-
-### #2: Trial Court Judge
-
-May a Regional Trial Court judge be removed through impeachment under Article XI?
+An agency head hides bidding schedules, uses official vans for weekend resorts, and claims efficiency excuses favors for friends. Which Section $1$ duties are broken?
 
 **Solution:**
 
-1. The judicial officers on the impeachment list are Members of the Supreme Court.
-2. A Regional Trial Court judge is not on that list.
-3. Removal must follow another process provided by law.
+1. Under Section $1$, officers must answer to the people and serve with integrity and responsibility.
+2. Using government vans for personal resorts breaks modest-living standards.
+3. Favoring friends breaks integrity and justice, which efficiency cannot excuse.
+
+Answer: The official violates integrity, justice, accountability, and modest living under Section $1$.
+
+**Check:** Section $1$ requires every listed duty together, so efficiency never excuses favoritism.
+
+### #2: Appointed Commissioners vs. Elected Officials
+
+A student claims only elected officials face impeachment, so a Civil Service Commissioner cannot be impeached. Check that claim against Section $2$.
+
+**Solution:**
+
+1. Section $2$ covers elected leaders (President and Vice-President) and appointed high officers.
+2. Supreme Court Members, CSC, COMELEC, COA Members, and the Ombudsman are appointed and listed.
+3. A Civil Service Commissioner is therefore impeachable.
+
+Answer: The student is wrong because CSC Members are expressly listed in Section $2$.
+
+**Check:** Check the $5$ named categories, not whether the office is elected or appointed.
+
+### #3: Checking Office Before Ground
+
+Bribery complaints are filed against a Sandiganbayan Justice and an Associate Justice of the Supreme Court. Decide who may be impeached under Section $2$.
+
+**Solution:**
+
+1. Under Section $2$, both a listed office and a listed ground are required.
+2. A Sandiganbayan Justice sits on a special lower court, not the Supreme Court.
+
+:::try
+Finish the last step: rule on the Associate Justice and explain how the Sandiganbayan Justice can still be removed.
+:::answer
+The answer is **Only the Supreme Court Associate Justice may be impeached, while the Sandiganbayan Justice faces removal as provided by law.** Alleging bribery never adds a lower-court judge to Section $2$'s closed office list.
+
+**Check:** Match the Sandiganbayan Justice to non-Supreme Court judges and the Associate Justice to Supreme Court Members.
+:::
 
 ## Traps to Watch For
 
-### #1: A High Title Is Not Enough
-
-> Check the officer list before checking the accusation.
-
-Cabinet Secretaries, legislators, and trial court judges are not impeachable officers. Supreme Court Members are on the list.
+:::checklist
+- Public trust: treat office as service to the people at all times, not private or family gain. {#public-trust-duty}
+- Closed office list: check all $5$ listed categories, and exclude lower-court judges and legislators. {#closed-office-list}
+- Outside the list: officers not on the list still face lawful removal under other statutes. {#outside-list-lawful-removal}
+:::

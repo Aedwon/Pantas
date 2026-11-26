@@ -15,36 +15,117 @@ keyPoints:
 
 ## Core Concept
 
-### Articles VI to VIII: The Three Departments
+### Articles VI, VII, and VIII in Order
 
-**Article VI: The Legislative Department.** Legislative power means the power to make laws. Congress has this power and consists of the Senate and House of Representatives. Some lawmaking power is reserved to the people through the Constitution's rules on initiative and referendum, ways for people to propose or vote on laws directly.
+The three co-equal branches sit in order across Articles VI, VII, and VIII: **make laws, carry out laws, judge disputes**.
 
-**Article VII: The Executive Department.** Executive power is placed in the President. It includes carrying out the laws. This article also gives rules about the President and Vice-President, including who may hold office and how long they may serve.
+1. **Article VI: The Legislative Department** vests lawmaking power in Congress (Senate and House), aside from initiative and referendum.
+2. **Article VII: The Executive Department** vests executive power in the President, plus rules for President and Vice-President.
+3. **Article VIII: The Judicial Department** vests judicial power in the Supreme Court and lower courts to decide disputes and check grave abuse.
 
-**Article VIII: The Judicial Department.** Judicial power is placed in the Supreme Court and lower courts established by law. It includes deciding actual disputes over rights that can be enforced in court. It also includes checking grave abuse of discretion, a serious misuse of power, by any government branch or body.
+Use **VI = Legislative, VII = Executive, VIII = Judicial** whenever you check branch articles.
 
-The article titles locate the departments. They do not mean that each department may use its power without constitutional limits.
+Trace $1$ health bill through Articles VI, VII, and VIII:
+
+1. Congress writes and passes the law under **Article VI**.
+2. The President enforces the law through agencies under **Article VII**.
+3. Courts decide a challenge to an agency fine under **Article VIII**.
+
+:::pair #branch-article-sequence
+Right: Follow the exact branch sequence VI (Legislative), VII (Executive), VIII (Judicial).
+Wrong: Swapping the order to Executive, Legislative, Judicial, or Legislative, Judicial, Executive.
+Laws are made first (VI), carried out second (VII), and judged in court third (VIII).
+:::
+
+:::pair #department-headings-distinct
+Right: Match the Executive Department to Article VII and the Judicial Department to Article VIII.
+Wrong: Assigning the Executive Department to Article VIII or the Judicial Department to Article XIII.
+Each branch sits in VI to VIII, separate from Social Justice in XIII.
+:::
+
+:::check
+A student opens Article VIII for Vice-Presidential succession, and Article VI for the Supreme Court's $15$-Member size. What error happened?
+:::answer
+The answer is **Wrong department articles**. Succession sits in Article VII (Executive), while Supreme Court size sits in Article VIII (Judicial).
+:::
+
+### Titles Locate Topics, Not Specific Rules
+
+An article heading tells **where** a department sits. It never lists every power, qualification, deadline, or limit inside that article.
+
+For example, Article VI's title never shows Section $24$'s rule that revenue bills originate in the House. Nor does it show Section $27(1)$'s $\dfrac{2}{3}$ veto override, or Article VII, Section $2$'s $40$-year age rule.
+
+:::why
+Why check the exact section after locating the article? Branches share checks and strict limits inside the text that a short heading hides.
+:::
+
+Test a claim that Article VII's title lets the President declare martial law indefinitely:
+
+1. The heading locates executive rules in Article VII without granting unlimited power.
+2. Article VII, Section $18$, limits martial law to invasion or rebellion, capped at $60$ days initially.
+
+:::pair #heading-not-unlimited-power
+Right: Use an article heading only to locate the branch, then apply the specific section's limits.
+Wrong: Claiming an article heading grants unlimited branch power or lets Congress disregard specific section rules.
+Article titles are index labels, while exact sections control what each branch may do.
+:::
+
+:::check
+An official cites Article VIII's heading ("The Judicial Department") to claim courts can pass national income tax rates on their own. Does that work?
+:::answer
+The answer is **No**. Article VIII's heading only locates judicial rules; Section $1$ limits courts to judicial power, not lawmaking.
+:::
 
 ## Examples
 
-### #1: A Title Does Not Supply a Qualification
+### #1: Restoring the Branch Sequence
 
-A reviewer knows that Article VII is titled The Executive Department. Is that title alone enough to state every constitutional qualification for President?
+A flawed chart lists: "Article VI: Judicial, Article VII: Legislative, Article VIII: Executive." Correct each pairing and state the order rule.
 
 **Solution:**
 
-1. The title tells the reviewer where to find executive-department rules.
-2. It does not list the qualifications for President.
-3. The reviewer must read or recall the actual provision. The title alone is not enough.
+1. Article VI covers The Legislative Department (making laws).
+2. Article VII covers The Executive Department (carrying out laws).
+3. Article VIII covers The Judicial Department (deciding disputes).
 
-## Speed Tricks & Shortcuts
+Answer: VI is Legislative, VII is Executive, and VIII is Judicial.
 
-Articles VI, VII, and VIII place the lawmaking, executive, and judicial departments in that order. Use that sequence to check a department-location answer.
+**Check:** Match how a law moves: made (VI), enforced (VII), and interpreted (VIII).
+
+### #2: Checking Limits Inside Article VII
+
+Someone sees Article VII's title ("The Executive Department") and claims the President can appoint Supreme Court Justices without a Judicial and Bar Council list. Explain why the title fails.
+
+**Solution:**
+
+1. Article VII's title only points to the Executive Department article.
+2. Article VIII, Section $9$, requires selection from at least $3$ nominees prepared by the Judicial and Bar Council.
+
+Answer: The title is only a topic label and never overrides specific appointment limits.
+
+**Check:** Look past the article title to the exact section governing the power.
+
+### #3: Heading vs. Specific Rule in Article VI
+
+A legislator argues Article VI's title lets Congress increase the President's recommended national budget during deliberation. Apply the title-versus-section rule (Article VI, Section $25(1)$).
+
+**Solution:**
+
+1. Locate the topic: legislative power and budget rules sit in Article VI.
+2. Check Section $25(1)$: it bars Congress from increasing appropriations recommended by the President.
+
+:::try
+Finish the last step: rule on the legislator's claim and explain what Article VI's heading actually does.
+:::answer
+The answer is **The legislator's claim fails because Article VI's heading only locates legislative rules, while Section $25(1)$ sets the budget limit.** A title never lets Congress ignore a specific constitutional restriction inside the article.
+
+**Check:** Separate locating the topic (Article VI heading) from applying the binding rule (Section $25(1)$).
+:::
 
 ## Traps to Watch For
 
-### #1: A Title Is Not the Full Rule
-
-> Finding the article does not finish a question about its rules.
-
-Use the title to locate the topic. Then check the actual power, requirement, procedure, or exception asked about.
+:::checklist
+- Branch sequence: remember VI is Legislative, VII is Executive, and VIII is Judicial in order. {#branch-article-sequence}
+- Department match: keep Executive in Article VII and Judicial in Article VIII, separate from XIII. {#department-headings-distinct}
+- Title vs. rule: use an article heading only to locate the branch, then check the exact section limit. {#heading-not-unlimited-power}
+:::
