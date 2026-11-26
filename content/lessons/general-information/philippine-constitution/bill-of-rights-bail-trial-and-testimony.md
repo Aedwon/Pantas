@@ -17,30 +17,134 @@ keyPoints:
 
 ## Core Concept
 
-Section $13$ protects **bail**, security for temporary release while ensuring that the person returns to court. Before conviction, its stated exception concerns a charge punishable by **reclusion perpetua**, a severe prison penalty, when evidence of guilt is strong. Both conditions matter.
+### Sections $13$ and $15$: Bail and Habeas Corpus Suspension
 
-To understand the next bail rule, first know **habeas corpus**. This is a court remedy for checking whether detention is lawful. A writ orders the custodian to bring the detained person before the court so the detention can be examined.
+**Bail** is security for temporary release to ensure court appearance. Under Section $13$, all persons before conviction have a right to bail, with one exception. Bail may be denied only when both hold:
 
-Suspending the **privilege of the writ** temporarily limits access to release through this remedy. Section $15$ allows suspension only during invasion or rebellion when public safety requires it. Suspension does not remove the separate right to bail.
+1. The charge carries *reclusion perpetua* (a severe prison penalty), and
+2. The evidence of guilt is strong.
 
-Excessive bail is forbidden. The right to bail remains protected even when the privilege of the writ of habeas corpus is suspended.
+Excessive bail is barred. Section $15$ governs the **writ of habeas corpus**, a court order checking whether detention is lawful. Its privilege may be suspended **only in invasion or rebellion, when public safety requires it**. Under Section $13$, **bail stays protected** even during suspension.
 
-Section $14$ protects an accused person's fair criminal trial. It includes innocence until guilt is proved, a chance to answer with a lawyer, knowledge of the charge, and a speedy, impartial, public trial. It also protects meeting opposing witnesses and obtaining court orders for defense witnesses and evidence.
+Test a murder charge (*reclusion perpetua*) with weak proof during a *habeas corpus* suspension:
 
-Section $15$ is the section on suspension of the habeas corpus privilege explained above. Both the emergency condition and the public-safety need must be met.
+1. Check bail: the penalty fits, yet weak proof keeps bail open.
+2. Check suspension: Section $13$ keeps bail intact under Section $15$.
 
-Section $16$ requires cases to be handled and resolved without unreasonable delay. It covers courts, quasi-judicial bodies, and administrative bodies. **Administrative bodies** are government offices handling matters under the law.
+:::pair #bail-both-conditions
+Right: Denying bail before conviction needs both *reclusion perpetua* and strong evidence of guilt.
+Wrong: Denying bail solely because the charge carries *reclusion perpetua*.
+The heavy penalty alone fails when evidence of guilt is weak.
+:::
 
-Section $17$ protects against being forced to give testimony against oneself. **Testimony** is a statement revealing what a person knows, such as an admission of guilt.
+:::check
+A detainee faces a six-year prison charge with strong prosecution proof. Can bail be denied under Section $13$?
+:::answer
+The answer is **No**. Denying bail before conviction requires an offense punishable by *reclusion perpetua* as well as strong evidence of guilt.
+:::
+
+### Sections $14$ and $16$: Fair Trial and Speedy Disposition
+
+Section $14(2)$ gives an accused person fair criminal-trial rights:
+
+- Presumption of innocence,
+- Right to be heard by self and counsel, and to know the charge,
+- A speedy, impartial, and public trial, and
+- Meeting witnesses face to face, plus **compulsory process** (orders for defense witnesses and evidence).
+
+Section $16$ guarantees **speedy disposition of cases** before **all judicial, quasi-judicial, or administrative bodies**. It covers non-criminal agencies whether or not a person is detained.
+
+Test a civil service complaint stalled at a board for five years:
+
+1. Check the forum: the board is an administrative or quasi-judicial body.
+2. Apply Section $16$: speedy disposition applies outside criminal courts.
+
+:::pair #speedy-disposition-all-bodies
+Right: Section $16$ covers judicial, quasi-judicial, and administrative bodies alike.
+Wrong: Limiting speedy disposition only to courts hearing criminal prosecutions.
+Section $16$ expressly names quasi-judicial and administrative bodies directly.
+:::
+
+:::check
+A licensing board stalls a renewal case for four years, claiming Section $16$ covers only jailed criminal defendants. Is it right?
+:::answer
+The answer is **No**. Section $16$ covers quasi-judicial and administrative bodies for anyone with a case, detained or not.
+:::
+
+### Section $17$: Self-Incrimination
+
+Section $17$ states that **no person shall be compelled to be a witness against himself**. This bars **compelled self-incrimination**, forcing someone to give **testimony** (a statement revealing what they know) admitting guilt.
+
+Test an investigator forcing a clerk to sign a statement admitting theft:
+
+1. Check the demand: forcing an admission of guilt seeks compelled testimony.
+2. Apply Section $17$: the clerk may refuse to testify against themselves.
+
+:::why
+Why bar forced self-incrimination? The government must prove guilt with lawful evidence instead of forcing suspects or witnesses to incriminate themselves.
+:::
+
+:::pair #self-incrimination-forced-testimony
+Right: Forcing a statement admitting guilt breaks Section $17$'s ban on compelled self-incrimination.
+Wrong: Confusing forced self-incriminating testimony with the ban on excessive bail.
+Bail governs temporary release, while Section $17$ bars forced testimony against oneself.
+:::
+
+:::check
+A legislative committee orders an accountant to read aloud a signed confession of embezzlement. Which right lets the accountant refuse?
+:::answer
+The answer is **Protection against compelled self-incrimination**. Article III, Section $17$ bars forcing any person to testify against themselves.
+:::
 
 ## Examples
 
 ### #1: The Bail Exception
 
-Before conviction, a person is charged with an offense punishable by reclusion perpetua, and the evidence of guilt is strong. Does the stated constitutional exception to bail apply?
+An accused awaiting trial faces a charge punishable by *reclusion perpetua*. After a hearing, the judge finds proof weak yet denies bail due to the penalty. Did the judge follow Section $13$?
 
 **Solution:**
 
-1. Section $13$ names offenses punishable by reclusion perpetua in its exception.
-2. It also requires strong evidence of guilt.
-3. Both conditions are given, so the stated exception applies.
+1. Check timing: before conviction, bail is a right unless the exception holds.
+2. Check both parts: *reclusion perpetua* applies, yet strong evidence of guilt is missing.
+
+Answer: No, denying bail also requires strong evidence of guilt.
+
+**Check:** Both Section $13$ conditions must hold together.
+
+### #2: Habeas Corpus Suspension and Bail
+
+During an invasion, officials validly suspend the *habeas corpus* privilege for public safety. A detainee on a bailable charge seeks bail, and a prosecutor claims suspension ended bail too. How do Sections $13$ and $15$ apply?
+
+**Solution:**
+
+1. Check Section $15$: invasion plus public safety supports suspending *habeas corpus*.
+2. Check Section $13$: suspension does not impair the right to bail.
+
+Answer: Suspension stands, yet bail stays protected under Section $13$.
+
+**Check:** Suspending *habeas corpus* limits that remedy while leaving bail governed by Section $13$.
+
+### #3: Board Delay and Forced Confession
+
+A city permits board stalls a contractor's dispute for three years. A board investigator also demands that the contractor take the stand and confess to bribery. Which rights answer the stall and forced confession?
+
+**Solution:**
+
+1. Answer the stall: Section $16$ guarantees speedy disposition before administrative and quasi-judicial bodies.
+2. Answer the forced confession: Section $17$ bars compelling anyone to testify against themselves.
+
+:::try
+Finish the last step: name both protections and explain why the non-criminal board setting removes neither right.
+:::answer
+The answer is **Speedy disposition of cases (Section $16$) and protection against compelled self-incrimination (Section $17$).** Section $16$ covers administrative boards directly, and Section $17$ bars forced incriminating testimony in any inquiry.
+
+**Check:** Neither protection is limited to criminal trials in regular courts.
+:::
+
+## Traps to Watch For
+
+:::checklist
+- Charged with *reclusion perpetua* or *habeas corpus* suspended: deny bail only with strong evidence too, and keep bail intact during suspension. {#bail-both-conditions}
+- Agency delays a non-criminal case: Section $16$ covers administrative and quasi-judicial bodies. {#speedy-disposition-all-bodies}
+- Official demands an admission of guilt: apply Section $17$, not excessive bail. {#self-incrimination-forced-testimony}
+:::

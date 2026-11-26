@@ -1,0 +1,329 @@
+{
+  "lessons": {
+    "lesson-philippine-constitution-bill-of-rights-due-process-and-equal-protection": {
+      "article-three-count": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0001",
+          "wrongChoice": "15 sections",
+          "mistakeNote": "Stops the count at Section 15 (habeas corpus) before the final seven provisions."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0001",
+          "wrongChoice": "20 sections",
+          "mistakeNote": "Stops the count at Section 20 (debt) and misses Sections 21 and 22."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0001",
+          "wrongChoice": "25 sections",
+          "mistakeNote": "Extends the count past Section 22, where Article III ends."
+        }
+      ],
+      "due-process-vs-equal-protection": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0002",
+          "wrongChoice": "Equal protection of the laws",
+          "mistakeNote": "Confuses equal protection with due process when lawful steps before deprivation are asked."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0023",
+          "wrongChoice": "The law does not require a court hearing for every application",
+          "mistakeNote": "Mistakes a due-process hearing issue for an equal-protection grouping defect."
+        }
+      ],
+      "all-four-grouping-tests": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0023",
+          "wrongChoice": "The law treats all members of each group alike",
+          "mistakeNote": "Treats uniform rules within each group as curing an unrelated distinction between groups."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0023",
+          "wrongChoice": "The law continues to apply to future applicants",
+          "mistakeNote": "Treats future application alone as justifying a distinction unrelated to the law's purpose."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-search-and-arrest-warrants": {
+      "judge-determines-probable-cause": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0014",
+          "wrongChoice": "Verbal approval from a local chief officer",
+          "mistakeNote": "Substitutes a local chief officer's verbal approval for a judge's probable-cause determination."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0027",
+          "wrongChoice": "The objection is incorrect because the prosecutor alone determines probable cause for the warrant",
+          "mistakeNote": "Assumes a prosecutor's finding replaces the judge's independent probable-cause review."
+        }
+      ],
+      "arrest-warrant-records": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0027",
+          "wrongChoice": "The objection is correct because every arrest warrant requires that personal questioning",
+          "mistakeNote": "Transfers the search-warrant personal-examination rule to every arrest warrant."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-arrest-in-an-officers-presence": {
+      "presence-needs-no-warrant": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0034",
+          "wrongChoice": "Both acts require warrants even when the officer personally witnesses the offense.",
+          "mistakeNote": "Overlooks the warrantless-arrest exception when an offense is committed in the officer's presence."
+        }
+      ],
+      "search-follows-lawful-arrest": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0034",
+          "wrongChoice": "The arrest is allowed, but a search of the person always needs a separate warrant.",
+          "mistakeNote": "Misses that a lawful arrest permits searching the arrested person for weapons or evidence without a separate warrant."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0036",
+          "wrongChoice": "It permits no search of the arrested person without an additional search warrant.",
+          "mistakeNote": "Falsely requires an additional search warrant to search the arrested person after a lawful arrest."
+        }
+      ],
+      "search-limited-to-person": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0036",
+          "wrongChoice": "It permits a search of any place whenever the officer first makes a lawful arrest.",
+          "mistakeNote": "Turns a limited search of the arrested person into unlimited power to search any place."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-hot-pursuit-arrests": {
+      "hot-pursuit-immediacy": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0028",
+          "wrongChoice": "The exception applies because officers may pursue any unsolved offense without a warrant",
+          "mistakeNote": "Drops the immediacy requirement by treating any old or unsolved offense as hot pursuit."
+        }
+      ],
+      "need-not-witness-crime": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0028",
+          "wrongChoice": "The exception fails only because the officer did not witness the theft",
+          "mistakeNote": "Confuses hot pursuit with an in-presence arrest by requiring the officer to witness the crime."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0037",
+          "wrongChoice": "The officer must personally witness the entire offense before making the arrest.",
+          "mistakeNote": "Confuses hot pursuit with an offense in the officer's presence instead of personally known post-crime facts."
+        }
+      ],
+      "personal-knowledge-not-tip": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0028",
+          "wrongChoice": "The exception applies because any report of theft supplies personal knowledge",
+          "mistakeNote": "Treats an unverified report as supplying personal knowledge of facts for probable cause."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-consent-and-private-messages": {
+      "silence-not-consent": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0025",
+          "wrongChoice": "Following an officer's order always establishes informed consent",
+          "mistakeNote": "Treats obedience to an officer's order under pressure as free consent."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0025",
+          "wrongChoice": "Consent is established whenever the person does not physically resist",
+          "mistakeNote": "Mistakes lack of physical resistance under pressure for clear, voluntary consent."
+        }
+      ],
+      "exclusion-any-proceeding": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0024",
+          "wrongChoice": "The letters may be used because the case is not criminal",
+          "mistakeNote": "Limits the exclusionary rule to criminal cases instead of any proceeding."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-expression-and-public-action": {
+      "article-three-speech": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0003",
+          "wrongChoice": "Article XIII",
+          "mistakeNote": "Substitutes Social Justice and Human Rights (Article XIII) for the Bill of Rights (Article III)."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0003",
+          "wrongChoice": "Article II",
+          "mistakeNote": "Selects general State Principles and Policies instead of the specific Bill of Rights guarantees."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0003",
+          "wrongChoice": "Article IV",
+          "mistakeNote": "Selects the Citizenship article instead of Article III where speech and press sit."
+        }
+      ],
+      "petition-vs-information": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0019",
+          "wrongChoice": "The right to information on matters of public concern",
+          "mistakeNote": "Confuses asking officials to act on a complaint with requesting access to public records."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-religion-abode-and-travel": {
+      "religious-test-political-rights": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0020",
+          "wrongChoice": "The prohibition against involuntary servitude",
+          "mistakeNote": "Confuses requiring religious membership to vote with forced labor."
+        }
+      ],
+      "abode-needs-court-order": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0026",
+          "wrongChoice": "National security automatically allows officials to choose a person's residence",
+          "mistakeNote": "Transfers national security, a travel ground, to forced relocation under liberty of abode."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0026",
+          "wrongChoice": "Residence and travel may be restricted under identical conditions",
+          "mistakeNote": "Treats Section 6's distinct abode and travel rules as identical."
+        }
+      ],
+      "abode-restriction-not-absolute": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0026",
+          "wrongChoice": "Liberty of abode permits no restrictions even with a lawful court order",
+          "mistakeNote": "Overstates liberty of abode as absolute even when a law and a lawful court order permit restriction."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-information-and-association": {
+      "info-check-legal-limit": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0022",
+          "wrongChoice": "Deny the entire request because any claim of confidentiality is final",
+          "mistakeNote": "Treats an office's bare claim as final without checking whether a law actually limits access."
+        }
+      ],
+      "association-lawful-purpose": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0018",
+          "wrongChoice": "An association whose unlawful purpose becomes protected simply by calling itself a union",
+          "mistakeNote": "Treats the 'union' label as overriding Section 8's requirement of a lawful purpose."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-property-courts-and-investigation": {
+      "just-compensation-always": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0021",
+          "wrongChoice": "No payment because the road serves the public",
+          "mistakeNote": "Treats public use as an excuse to avoid paying just compensation under Section 9."
+        }
+      ],
+      "court-access-and-legal-help": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0038",
+          "wrongChoice": "Permission to file satisfies the Constitution even if poverty is the sole reason for denying legal help.",
+          "mistakeNote": "Collapses free access to file and adequate legal assistance into one protection."
+        }
+      ],
+      "waiver-needs-writing-and-counsel": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0029",
+          "wrongChoice": "The waiver is sufficient because a written signature replaces the need for counsel",
+          "mistakeNote": "Treats a written signature alone as replacing counsel's required presence under Section 12(1)."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-bail-trial-and-testimony": {
+      "bail-both-conditions": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0030",
+          "wrongChoice": "The exception applies whenever the charge carries reclusion perpetua",
+          "mistakeNote": "Relies on the charged penalty alone and drops Section 13's strong-evidence requirement."
+        }
+      ],
+      "speedy-disposition-all-bodies": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0039",
+          "wrongChoice": "It covers only courts hearing criminal prosecutions.",
+          "mistakeNote": "Confuses Section 16's speedy disposition with criminal-trial rules and drops administrative bodies."
+        }
+      ],
+      "self-incrimination-forced-testimony": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0040",
+          "wrongChoice": "The protection against excessive bail",
+          "mistakeNote": "Confuses forced incriminating testimony with security for temporary release."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-detention-and-punishment": {
+      "servitude-needs-conviction": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0042",
+          "wrongChoice": "Forced labor is described as punishment rather than voluntary work.",
+          "mistakeNote": "Focuses on the word 'punishment' without checking whether due conviction occurred."
+        }
+      ],
+      "debt-and-poll-tax": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0041",
+          "wrongChoice": "The protection applies only if the unpaid obligation comes from a private loan.",
+          "mistakeNote": "Leaves out Section 20's express protection for nonpayment of a poll tax."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0041",
+          "wrongChoice": "Any unpaid tax permits imprisonment because the protection concerns debt alone.",
+          "mistakeNote": "Overlooks that Section 20 expressly protects nonpayment of a poll tax."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-double-jeopardy": {
+      "complaint-not-jeopardy": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0043",
+          "wrongChoice": "The rule requires a complaint but no further steps.",
+          "mistakeNote": "Drops court authority, arraignment, valid plea, and protected ending from double jeopardy."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0032",
+          "wrongChoice": "Double jeopardy begins with any complaint even before arraignment and plea",
+          "mistakeNote": "Assumes a complaint alone triggers double jeopardy without arraignment, plea, and a protected end."
+        }
+      ],
+      "law-and-ordinance": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0032",
+          "wrongChoice": "The second prosecution is allowed because the two laws have different sources",
+          "mistakeNote": "Overlooks that Section 21 expressly bars dual prosecution of the same act under a law and an ordinance."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0032",
+          "wrongChoice": "Only a prior conviction can bar the second prosecution",
+          "mistakeNote": "Ignores that Section 21 makes both conviction and acquittal under either law a bar under the other."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-prohibited-laws": {
+      "ex-post-facto-vs-attainder": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0033",
+          "wrongChoice": "Bill of attainder and ex post facto law",
+          "mistakeNote": "Reverses the two terms between retroactive penalty increase and legislative punishment without trial."
+        }
+      ],
+      "one-law-both-bans": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0044",
+          "wrongChoice": "Only the bill-of-attainder prohibition applies.",
+          "mistakeNote": "Catches legislative punishment without trial but misses retroactive punishment of lawful acts."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0044",
+          "wrongChoice": "Only the ex-post-facto prohibition applies.",
+          "mistakeNote": "Catches retroactive criminalization but misses direct punishment without a judicial trial."
+        }
+      ]
+    }
+  }
+}

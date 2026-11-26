@@ -15,46 +15,107 @@ keyPoints:
 
 ## Core Concept
 
-Another search exception is freely given, valid **consent**, permission to search. It must be clear, specific, informed, and free from threats or pressure. Mere silence or submission to armed officers does not by itself show free consent.
+### Consent Searches Under Section $2$
 
-The circumstances must show that the permission was valid. A lawful arrest does not allow an unlimited search of any place. Each warrant exception has its own conditions.
+A warrantless search may be valid when the person gives **consent** (permission to search). Under Article III, Section $2$, valid consent must be clear, specific, informed, and free from threats or pressure.
 
-Section $3$ protects private messages and correspondence, such as letters. It allows intrusion upon lawful court order. It also allows an exception when public safety or order requires it, as provided by law.
+Test consent when armed officers enter a store, command the owner to unlock a back room, and never explain a right to refuse. The owner unlocks the door in silence:
 
-The **exclusionary rule** keeps evidence obtained in violation of Section $2$ or $3$ from being used for any purpose in any proceeding. First decide whether a violation occurred. Then apply the rule to evidence obtained through it.
+1. Check for clear permission: the owner never spoke or agreed.
+2. Check for pressure: armed officers gave a command without explaining the right to refuse.
+3. Silent obedience under pressure is submission, not free consent.
+
+:::pair #silence-not-consent
+Right: Consent must be clear, specific, informed, and free from pressure.
+Wrong: Treating silence, obeying an officer's command, or lack of physical resistance as free consent.
+Lack of resistance under pressure does not prove free permission to search.
+:::
+
+:::check
+Officers ask a homeowner to inspect a locked drawer, explain the homeowner may refuse, and receive clear spoken and written permission with no pressure. Is that consent valid?
+:::answer
+The answer is **Yes**. The permission is clear, specific, informed, and free from pressure.
+:::
+
+### Privacy of Messages and Correspondence
+
+Article III, Section $3(1)$ protects the **privacy of communication and correspondence**, such as letters and private messages. Intrusion is allowed only:
+
+1. Upon **lawful order of the court**, or
+2. When **public safety or order requires otherwise**, as prescribed by law.
+
+Test a supervisor opening an employee's sealed mail by calling it urgent, with no court order or law allowing it:
+
+1. Check for a lawful court order or legal public-safety rule: neither exists.
+2. Calling a matter urgent does not waive Section $3(1)$.
+
+:::check
+Can an official open a citizen's sealed letters solely by calling the matter urgent, with no court order or enabling law?
+:::answer
+The answer is **No**. Section $3(1)$ requires a lawful court order or a public-safety or order rule prescribed by law.
+:::
+
+### The Exclusionary Rule
+
+Under Article III, Section $3(2)$, any evidence obtained in violation of Section $2$ or Section $3$ is **inadmissible for any purpose in any proceeding**.
+
+Test a phone recording tapped without a court order and offered in a labor board hearing:
+
+1. Check Section $3(1)$: tapping private calls without a court order or enabling law breaks communication privacy.
+2. Apply Section $3(2)$: the labor board must bar the recording, because exclusion covers civil and administrative proceedings too.
+
+:::why
+Why exclude unlawfully seized messages even when they look reliable? If agencies could use illegal searches or mail seizures, privacy rights would lose real protection.
+:::
+
+:::pair #exclusion-any-proceeding
+Right: Evidence taken in violation of Section $2$ or Section $3$ is inadmissible for any purpose in any proceeding, including administrative cases.
+Wrong: Claiming illegally obtained messages may still be used because the proceeding is non-criminal.
+Section $3(2)$ bars unlawfully obtained evidence in criminal, civil, and administrative cases alike.
+:::
+
+:::check
+Officials seize letters in violation of Section $3$ and offer them in a civil service disciplinary hearing. May the hearing officer admit them?
+:::answer
+The answer is **No**. Under Section $3(2)$, unlawfully obtained evidence is barred in any proceeding for any purpose.
+:::
 
 ## Examples
 
 ### #1: Free Consent and Mere Submission
 
-In one case, a person understands a request to inspect a bag and clearly permits that specific search without pressure. In another, armed officers surround a person, order the bag opened, and treat silence as permission. Does silence establish valid consent in the second case?
+In one case, a traveler understands an officer's request to check a suitcase and clearly agrees without pressure. In another, uniformed officers knock late at night, demand that a homeowner unlock a tool shed, and treat the homeowner's silent compliance as permission. Does silence establish consent in the second case?
 
 **Solution:**
 
-1. The first case describes informed, specific permission freely given.
-2. The second describes silence under pressure from armed officers.
-3. Mere submission does not establish free consent. The consent exception does not justify the second search on those facts alone.
+1. Check the first case: clear, informed, specific permission given freely satisfies consent.
+2. Check the second case: officers demanded entry, and the homeowner complied in silence without free agreement.
+
+Answer: No, silence and obedience to officers under pressure do not establish free consent.
+
+**Check:** Free consent requires voluntary, clear permission, so passive submission or lack of physical resistance fails.
 
 ### #2: Unlawfully Obtained Messages
 
-Officials obtain private letters in violation of Section $3$. May those letters be admitted as evidence in an administrative proceeding?
+City investigators intercept an employee's private emails without a court order or any law allowing the intrusion. They later offer the printed emails in a civil service disciplinary hearing, arguing the hearing is not a criminal trial and the messages look genuine. Should the hearing officer admit the emails?
 
 **Solution:**
 
-1. The facts state that Section $3$ was violated.
-2. Its exclusionary rule applies for any purpose in any proceeding.
-3. The letters cannot be admitted in that proceeding.
+1. Check Section $3(1)$: intercepting private emails without a lawful court order or enabling law violates communication privacy.
+2. Apply Section $3(2)$: any evidence obtained in violation of Section $3$ is inadmissible for any purpose in any proceeding.
+
+:::try
+Finish the last step: rule on admitting the emails and explain why reliability and the non-criminal hearing do not allow them.
+:::answer
+The answer is **No, the hearing officer must exclude the emails for any purpose because Section $3(2)$ applies to all proceedings.** Neither the non-criminal administrative setting nor the apparent reliability of the emails cures a Section $3$ violation.
+
+**Check:** Section $3(2)$ covers criminal, civil, and administrative hearings alike, so unlawfully intercepted messages cannot be used in a disciplinary case.
+:::
 
 ## Traps to Watch For
 
-### #1: Silence Is Not Free Consent
-
-> Permission to search must be freely and clearly given.
-
-A person may submit because armed officers create pressure. Silence or lack of resistance does not by itself prove valid consent.
-
-### #2: Privacy Exceptions Need a Legal Basis
-
-> An official's wish to read a message is not a privacy exception.
-
-Look for a lawful court order or a public-safety or public-order need provided for by law. Calling something urgent does not remove privacy.
+:::checklist
+- Suspect obeys armed officers in silence: require clear, voluntary permission, not mere submission or lack of resistance. {#silence-not-consent}
+- Official claims urgency to read messages: require a lawful court order or a public-safety or order rule set by law. {#privacy-of-messages-and-correspondence}
+- Illegal letters offered in an agency case: exclude Section $2$ or $3$ violations for any purpose in any proceeding. {#exclusion-any-proceeding}
+:::

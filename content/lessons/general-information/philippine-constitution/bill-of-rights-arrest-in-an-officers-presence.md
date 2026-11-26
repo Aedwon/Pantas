@@ -14,34 +14,99 @@ keyPoints:
 
 ## Core Concept
 
-Some searches and arrests are lawful without a warrant. An officer may arrest someone who commits an offense in the officer's presence. Following a lawful arrest, the officer may search the person for weapons or evidence under the rule for a search incident to arrest.
+### Warrantless Arrest in an Officer's Presence
+
+Article III, Section $2$ bars unreasonable searches and seizures, so officers normally need a warrant. Under Rule $113$, Section $5$, an officer may arrest without a warrant when an offense happens **in the officer's presence**. This applies when a person has committed, is actually committing, or attempts an offense directly seen or sensed by the officer.
+
+Test a patrol officer who sees a suspect snatch a commuter's phone and immediately arrests the suspect:
+
+1. Check if the officer saw the act: yes, the snatching happened right in front of the officer.
+2. Because the offense occurred in the officer's presence, the warrantless arrest is lawful.
+
+:::pair #presence-needs-no-warrant
+Right: An officer who personally witnesses an offense may arrest the offender immediately without a warrant.
+Wrong: Requiring a warrant even when the officer personally witnesses the offense.
+An offense in the officer's presence is a recognized warrantless-arrest exception under Rule $113$, Section $5$.
+:::
+
+:::check
+A traffic officer sees a driver hand over counterfeit bills at a toll booth and arrests the driver at once. Is the arrest unlawful for lacking a warrant?
+:::answer
+The answer is **No**. The officer personally witnessed the offense, permitting a warrantless arrest.
+:::
+
+### Search Incident to a Lawful Arrest
+
+After a lawful arrest, Rule $126$, Section $13$ allows a **search incident to lawful arrest**. An officer may search the arrested person without a separate warrant for dangerous weapons or evidence.
+
+Check two strict rules for this search:
+
+1. **Order:** The lawful arrest comes first, then the search follows it.
+2. **Scope:** The search covers the arrested person for weapons or evidence, not any place the officer chooses.
+
+Test a search right after an officer witnesses a theft and arrests the suspect:
+
+1. Check order: the lawful arrest came before the search.
+2. Check scope: searching the suspect's pockets for a weapon or stolen cash is valid. Searching the suspect's distant house without a warrant is not.
+
+:::why
+Why search right after a lawful arrest without a judge? Officers must remove hidden weapons for safety and protect evidence on the arrested person from loss.
+:::
+
+:::pair #search-follows-lawful-arrest
+Right: After a lawful arrest, an officer may search the arrested person for weapons or evidence without a separate warrant.
+Wrong: Claiming a search of the arrested person always needs a separate warrant even after a lawful arrest.
+The lawful arrest itself supports searching the arrested person under Rule $126$, Section $13$.
+:::
+
+:::pair #search-limited-to-person
+Right: A search incident to lawful arrest covers the arrested person for weapons or evidence.
+Wrong: Treating a lawful arrest as permission to search any place desired without a warrant.
+The exception is tied to the arrested person, not any place the officer wants to inspect.
+:::
+
+:::check
+After lawfully arresting a pickpocket, an officer searches the suspect's jacket pockets for weapons and stolen cash. Is a separate warrant needed?
+:::answer
+The answer is **No**. Rule $126$, Section $13$ allows searching a lawfully arrested person for weapons or evidence.
+:::
 
 ## Examples
 
 ### #1: An Offense in an Officer's Presence
 
-An officer sees a person commit a theft and immediately arrests that person without a warrant. Does the absence of a warrant alone make this arrest unlawful?
+An officer sees a person commit a theft and immediately arrests that person without a warrant. Does lacking a warrant alone make the arrest unlawful?
 
 **Solution:**
 
-1. An offense committed in the officer's presence is a recognized ground for warrantless arrest.
-2. The officer saw the theft being committed.
-3. The lack of a warrant alone does not make this arrest unlawful.
+1. Check the warrant rule: Article III, Section $2$ allows recognized warrant exceptions.
+2. Check Rule $113$, Section $5$: the officer personally saw the theft happening.
+
+Answer: No, an offense committed in the officer's presence permits a warrantless arrest.
+
+**Check:** Direct observation of the offense satisfies the presence exception, so no arrest warrant is needed.
 
 ### #2: A Search After Lawful Arrest
 
-After lawfully arresting a person for an offense committed in the officer's presence, an officer searches that person for weapons and evidence. Is a separate search warrant always needed for that search?
+A city inspector and a police officer watch a vendor sell fake tax stamps to a buyer. The officer arrests the vendor at once without a warrant and empties the vendor's apron pocket to seize the remaining stamps. The officer then tries to enter the vendor's parked van two blocks away without a warrant. Which acts are lawful, and where does the search limit end?
 
 **Solution:**
 
-1. A search of the person following a lawful arrest is a recognized exception.
-2. The stated arrest is lawful, and the search concerns weapons and evidence on that person.
-3. A separate warrant is not required under these facts. This does not allow a search of any place the officer wishes.
+1. Test the arrest: watching the illegal sale satisfies Rule $113$, Section $5$'s presence rule.
+2. Test the apron-pocket search: after a lawful arrest, Rule $126$, Section $13$ allows searching the arrested person for evidence or weapons without a separate warrant.
+
+:::try
+Finish the last step: rule on entering the parked van two blocks away without a warrant and state the scope limit.
+:::answer
+The answer is **The arrest and apron-pocket search are lawful, while entering the distant van without a warrant is not.** A search incident to lawful arrest covers only the arrested person for weapons or evidence, not distant places.
+
+**Check:** Rule $126$, Section $13$ ties the search to the arrested person, so searching a distant van still requires a warrant or another valid exception.
+:::
 
 ## Traps to Watch For
 
-### #1: A Warrant Exception Has Conditions
-
-> A missing warrant does not settle every search or arrest question.
-
-Check the facts against a recognized exception. An offense in an officer's presence can justify arrest. Hot pursuit requires a just-committed offense and personal knowledge supporting probable cause.
+:::checklist
+- Missing warrant at an arrest: check if the officer witnessed the offense happen before calling it unlawful. {#presence-needs-no-warrant}
+- Search after lawful arrest: verify the arrest came first, then allow searching the person without a separate warrant. {#search-follows-lawful-arrest}
+- Officer claims power to search anywhere after arrest: limit the search to the arrested person, not any place desired. {#search-limited-to-person}
+:::

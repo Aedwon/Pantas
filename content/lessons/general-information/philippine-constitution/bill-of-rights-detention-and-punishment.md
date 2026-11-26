@@ -14,11 +14,60 @@ keyPoints:
 
 ## Core Concept
 
-Section $18$ bars detention solely for political beliefs. It also bans **involuntary servitude**, forced work against one's will, except as punishment after due conviction for a crime.
+### Section $18$: Political Beliefs and Involuntary Servitude
 
-Section $19$ bans excessive fines and cruel, degrading, or inhuman punishment. Such punishment attacks basic human dignity. The companion lesson, Article III, Part $4$, explains the constitutional death-penalty wording and the statutory ban under Republic Act No. $9346$.
+Article III, Section $18(1)$ states that **no person shall be detained solely by reason of his political beliefs and aspirations**. Holding unpopular opinions is never a lawful ground for detention, though it does not excuse a separate crime.
 
-Section $20$ bars imprisonment for debt or nonpayment of a **poll tax**, a tax charged per person. This does not excuse a separate crime merely because money is involved.
+Section $18(2)$ bans **involuntary servitude** (forced labor against one's will). The sole exception is **punishment for a crime after due conviction**.
+
+Test Section $18(2)$ when an officer orders forced labor for an accused person awaiting trial:
+
+1. Check if forced labor is involuntary servitude: yes.
+2. Check for due conviction: an accusation or pending trial is not a conviction, so the exception fails.
+
+:::why
+Why require due conviction before forced work? Until a court convicts someone, the person is presumed innocent and cannot be punished on an accusation alone.
+:::
+
+:::pair #servitude-needs-conviction
+Right: Involuntary servitude is allowed only as punishment for a crime after due conviction.
+Wrong: Treating forced labor as valid simply because an official calls it punishment before conviction.
+Calling the work punishment sets the context, yet Section $18(2)$ still requires due conviction.
+:::
+
+:::check
+After a lawful criminal conviction, a final court sentence includes prison labor. Does Section $18(2)$ permit it?
+:::answer
+The answer is **Yes**. Section $18(2)$ expressly allows involuntary servitude as punishment after due conviction.
+:::
+
+### Sections $19$ and $20$: Punishment, Debt, and Poll Tax
+
+Article III, Section $19(1)$ bars **excessive fines** and **cruel, degrading, or inhuman punishment**. It also bars the death penalty unless Congress provides for it for compelling reasons involving heinous crimes. The companion lesson, Article III, Part $4$, explains that wording and the statutory ban under Republic Act No. $9346$. Section $19(2)$ directs laws to penalize abuse of detainees and substandard prison conditions.
+
+Test Section $19(1)$ on a town ordinance setting a $500,000$-peso fine and public whipping for littering:
+
+1. Check the fine: $500,000$ pesos for littering is an excessive fine.
+2. Check the penalty: public whipping is cruel, degrading, and inhuman punishment, so both break Section $19(1)$.
+
+Article III, Section $20$ states: **No person shall be imprisoned for debt or non-payment of a poll tax.** A **poll tax** is a fixed tax charged per person.
+
+Apply Section $20$ to two cases:
+
+1. Unpaid private loan with no fraud: creditors may collect in civil court, yet cannot jail the borrower.
+2. Unpaid poll tax with no separate crime: Section $20$ bars jail for unpaid poll tax too, and nonpayment alone proves no separate crime.
+
+:::pair #debt-and-poll-tax
+Right: Section $20$ bars imprisonment for both debt and nonpayment of a poll tax.
+Wrong: Limiting Section $20$ to private loans and allowing imprisonment for an unpaid poll tax.
+Section $20$ expressly names nonpayment of a poll tax alongside debt.
+:::
+
+:::check
+Can a local official jail a resident solely for not paying a community poll tax?
+:::answer
+The answer is **No**. Article III, Section $20$ expressly bars imprisonment for nonpayment of a poll tax.
+:::
 
 ## Examples
 
@@ -28,14 +77,46 @@ A person cannot pay a personal loan. No fraud or other crime is alleged. May the
 
 **Solution:**
 
-1. Section $20$ bars imprisonment for debt.
-2. The facts describe only failure to pay a loan.
-3. Imprisonment solely for that unpaid debt is prohibited. The debt may still be collected through lawful means.
+1. Apply Section $20$: no person may be imprisoned for debt.
+2. Check the facts: only failure to pay a loan is shown, with no separate crime.
+
+Answer: No, imprisonment solely for unpaid debt is prohibited, though lawful civil collection remains allowed.
+
+**Check:** Section $20$ bars jail for unpaid debt without erasing the debt itself.
+
+### #2: Unpaid Poll Tax
+
+A barangay treasurer warns a resident with an unpaid community poll tax that the resident will be jailed by Friday. No fraud or other offense is alleged. May the resident be jailed solely for the unpaid poll tax?
+
+**Solution:**
+
+1. Identify the obligation: a fixed community tax per person is a **poll tax**.
+2. Apply Section $20$: the Constitution bars imprisonment for debt or nonpayment of a poll tax.
+
+Answer: No, Section $20$ bars imprisonment solely for failing to pay a poll tax.
+
+**Check:** Poll-tax nonpayment stands alongside debt in Section $20$ and proves no separate crime by itself.
+
+### #3: Forced Labor Before Conviction
+
+Police detain a suspect on a robbery complaint while prosecutors prepare for trial. Before any court hears the case or enters judgment, a jail supervisor orders the detainee to clear roadside brush without pay as punishment. Does Section $18(2)$'s punishment exception allow that order?
+
+**Solution:**
+
+1. Identify the work: unpaid forced brush clearing against the detainee's will is **involuntary servitude**.
+2. Check Section $18(2)$: forced labor as punishment is allowed only after a court's due conviction for a crime.
+
+:::try
+Finish the last step: rule on the jail supervisor's order and explain why calling the work punishment does not satisfy Section $18(2)$.
+:::answer
+The answer is **No, the forced labor breaks Section $18(2)$ because the detainee has no due conviction for a crime.** Calling forced work "punishment" names the Section $18(2)$ exception, yet that exception fails without a court conviction.
+
+**Check:** An accused awaiting trial is presumed innocent, so forced labor as punishment applies only after due conviction.
+:::
 
 ## Traps to Watch For
 
-### #1: Debt Is Not a Separate Crime
-
-> Failure to pay a debt alone is not a ground for imprisonment.
-
-Section $20$ protects against imprisonment for debt or unpaid poll tax. It does not prevent punishment for a separate crime proved through a fair trial.
+:::checklist
+- Forced labor ordered on an accusation: require due conviction for a crime under Section $18(2)$. {#servitude-needs-conviction}
+- Threatened jail for unpaid poll tax: Section $20$ bars imprisonment for both private debt and nonpayment of a poll tax. {#debt-and-poll-tax}
+:::

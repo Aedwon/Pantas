@@ -15,36 +15,93 @@ keyPoints:
 
 ## Core Concept
 
-### Section $4$: Expression and Public Action
+### Speech, Expression, and the Press
 
-**Speech and expression** cover sharing ideas through words and other forms, such as signs or art. Look for government action that blocks or punishes the sharing of ideas, including criticism of officials.
+Article III, Section $4$ bars laws abridging **freedom of speech**, **expression**, or **the press**. **Speech and expression** cover sharing ideas through spoken words, writing, signs, symbols, or art. **Press freedom** protects reporting and publishing news and opinions, even when they criticize officials.
 
-**Press freedom** protects publishing and reporting news and views. A ban on a report simply because it criticizes an official raises a press-freedom issue. A report need not praise the government to receive protection.
+These freedoms also have lawful limits. Identify the act and check the reason and legal basis for any restriction. Calling an act expression does not settle whether a restriction is valid.
 
-**Peaceful assembly** means gathering peacefully with others to express a shared view. Check that the gathering is peaceful and that the restriction concerns the gathering. This protection does not give permission for violence.
+Test a town ordinance banning a local newsletter from printing an editorial on budget delays:
 
-A **petition for redress** asks the government to fix a wrong or respond to a complaint. Residents submitting a request for action on unsafe roads are petitioning the government. The right to ask does not promise that the request will be granted.
+1. Locate the guarantee: speech and press protections sit in Article III, Section $4$, not Article II (state policies), IV (citizenship), or XIII (social justice).
+2. Check the restriction: banning peaceful criticism of public policy lacks a valid legal limit and breaks Section $4$.
 
-These freedoms have lawful limits. Identify the activity and check the reason and legal basis for the restriction. Calling an act expression does not settle whether a restriction is valid.
+:::pair #article-three-speech
+Right: Article III, Section $4$ protects speech, expression, and the press.
+Wrong: Placing speech and press under Article II (state policies), Article IV (citizenship), or Article XIII (social justice and human rights).
+Only Article III lists the Bill of Rights guarantees against government limits on expression.
+:::
+
+:::check
+A city official orders a newspaper to pull an article solely because it criticizes a new city tax. Which article and section protect the paper?
+:::answer
+The answer is **Article III, Section $4$**. Press freedom protects publishing criticism of government policy.
+:::
+
+### Peaceful Assembly and Petition for Redress
+
+Article III, Section $4$ also protects the right of the people **peaceably to assemble** and **petition the government for redress of grievances**.
+
+- **Peaceful assembly** means gathering peacefully with others to share views or protest. It does not protect violence or riots.
+- **Petition for redress of grievances** means asking the government to fix a wrong, enforce a duty, or address a complaint. The right protects asking without punishment, though it does not force officials to grant the request.
+
+Apply both definitions to parents who sign a letter asking the school board to place crossing guards outside a school:
+
+1. Check whether they are requesting copies of public records (Section $7$ information): no, they are asking officials to act.
+2. Check what they are doing: asking officials to fix a safety problem is a **petition for redress** under Section $4$.
+
+:::why
+Why does Section $4$ protect petitions even when officials may disagree with them? Citizens need a safe way to report problems and ask for action without fear of retaliation.
+:::
+
+:::pair #petition-vs-information
+Right: Asking officials to act on a complaint is the right to petition for redress of grievances.
+Wrong: Mistaking a complaint asking officials to act for the right to information on matters of public concern.
+Asking for government action is petitioning under Section $4$; asking to inspect public records is information under Section $7$.
+:::
+
+:::check
+Factory workers hold a peaceful march outside city hall and hand the mayor a signed letter seeking safer crosswalks. Which two Section $4$ rights are exercised?
+:::answer
+The answer is **Peaceful assembly and petition for redress of grievances**. Gathering peacefully is assembly, and handing over a request to fix a problem is a petition.
+:::
 
 ## Examples
 
 ### #1: Speech and the Press
 
-An official bans a newspaper's peaceful criticism of public policy solely because it embarrasses the official. Which Section $4$ freedoms are most directly involved?
+An official bans a newspaper's peaceful criticism of public policy solely because it embarrasses the official. Which constitutional article and freedoms are most directly involved?
 
 **Solution:**
 
-1. The criticism expresses a view on public policy.
-2. Publishing it in a newspaper also involves the press.
-3. The ban raises freedom of speech and expression and freedom of the press.
+1. Locate the guarantee in the $1987$ Constitution: civil liberties belong in Article III, the Bill of Rights.
+2. Name the Section $4$ rights: sharing policy views involves speech and expression, and printing them in a paper involves the press.
+3. Check the official's reason: mere embarrassment does not justify banning criticism.
+
+Answer: Article III, Section $4$ freedoms of speech, expression, and the press.
+
+**Check:** Speech and press protections sit in Article III (not Article II, IV, or XIII) and shield peaceful criticism of public policy.
 
 ### #2: Gathering and Petitioning
 
-Residents peacefully gather and submit a request that officials repair a dangerous bridge. Officials ban both acts solely because they dislike the complaint. Which rights are involved?
+Residents peacefully gather outside a municipal hall and submit a written request asking officials to repair a dangerous bridge. Officials ban both acts solely because they dislike the complaint. Which rights protect the residents, and does Section $4$ guarantee the bridge will be repaired?
 
 **Solution:**
 
-1. The peaceful gathering involves the right of peaceful assembly.
-2. Asking officials to fix the problem involves petition for redress.
-3. Section $4$ protects both activities. It does not guarantee approval of the request.
+1. Identify the gathering: meeting peacefully to voice a shared concern is the right of peaceful assembly under Section $4$.
+2. Identify the written request: asking officials to repair the bridge is a petition for redress of grievances, not a request for public records.
+
+:::try
+Finish the last step: state whether Section $4$ protects both acts and whether it guarantees that officials must grant the repair request.
+:::answer
+The answer is **Section $4$ protects both peaceful assembly and the petition for redress, though it does not guarantee that officials will grant the request.** Officials cannot punish residents for gathering peacefully and asking for action, even though the decision still depends on lawful government action.
+
+**Check:** Asking officials to fix a problem falls under Section $4$'s petition right, distinct from Section $7$'s right to inspect public records.
+:::
+
+## Traps to Watch For
+
+:::checklist
+- Question asks which article protects speech and press: choose Article III (Bill of Rights), not Articles II, IV, or XIII. {#article-three-speech}
+- Residents ask officials to fix a problem: match asking for action to petition for redress, not the right to information. {#petition-vs-information}
+:::

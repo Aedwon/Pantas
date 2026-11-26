@@ -18,19 +18,84 @@ keyPoints:
 
 ## Core Concept
 
-Article III of the $1987$ Constitution is the **Bill of Rights**. Its $22$ sections protect people against unlawful government action. A section number tells where to look, but the rule and its limits tell how to answer a case.
+### The Scope of Article III
 
-### Section $1$: Due Process and Equal Protection
+Article III of the $1987$ Constitution is the **Bill of Rights**. It holds $22$ sections, from Section $1$ through Section $22$, protecting people from unlawful government acts.
 
-**Due process** requires fair and lawful government action before taking life, liberty, or property. For a question about the steps taken, ask whether the person had notice and a real chance to answer. Also check whether the action has a lawful basis.
+1. Sections $1$ to $11$ cover civil and political rights.
+2. Sections $12$ to $22$ protect suspects and the accused, ending with double jeopardy in Section $21$ and prohibited laws in Section $22$.
 
-These are basic checks. The exact steps required depend on the kind of case. Do not assume that every government action requires the same kind of hearing.
+Locate two sample issues inside Article III's $22$ sections:
 
-**Equal protection** requires fair treatment under the law. People in similar situations should be treated alike. Different treatment requires a valid reason connected to the law's purpose.
+1. An arrest-warrant question belongs in the first half, under Section $2$ (Sections $1$ to $11$).
+2. A double-jeopardy question belongs in the second half, under Section $21$ (Sections $12$ to $22$).
 
-For a law that groups people, check whether the groups have real differences. The grouping must fit the law's purpose, apply beyond present conditions, and treat everyone in the same group alike. A difference unrelated to the purpose does not justify the grouping.
+:::pair #article-three-count
+Right: Article III has $22$ sections.
+Wrong: Stopping at $15$ sections or $20$ sections, or counting $25$ sections.
+Sections $15$ and $20$ sit inside the article, while Sections $21$ and $22$ finish it.
+:::
 
-These are basic tests for lawful grouping. Some kinds of unequal treatment require stricter court review. A case about an unfair grouping raises a different issue from a case about lack of notice.
+:::check
+Which section ends Article III of the $1987$ Constitution, and which half of the article holds it?
+:::answer
+The answer is **Section $22$, in the accused-protection half**. Sections $12$ through $22$ protect suspects and the accused, ending with prohibited laws in Section $22$.
+:::
+
+### Section $1$: Due Process
+
+Under Article III, Section $1$, no person may lose life, liberty, or property without **due process of law**. Due process requires a lawful basis and fair steps, usually notice and a real chance to answer.
+
+Test due process on a city revoking a vendor's license without notice:
+
+1. Check what is taken: a business license is protected property.
+2. Check the steps: no notice and no chance to answer means due process failed.
+
+The exact steps depend on the case, so not every matter needs a full court trial.
+
+:::why
+Why require notice and a chance to answer? Fair notice lets a person point out errors before losing rights, and a lawful basis blocks arbitrary action.
+:::
+
+:::check
+A town office tears down a stall with no lawful basis, notice, or hearing. Which Section $1$ guarantee is missing?
+:::answer
+The answer is **Due process**. Section $1$ requires lawful basis, notice, and a chance to be heard before taking property.
+:::
+
+### Section $1$: Equal Protection
+
+Article III, Section $1$ also guarantees **equal protection of the laws**. People in similar situations must be treated alike. A law may treat groups differently only when the grouping meets four tests:
+
+1. It rests on real differences.
+2. It fits the law's purpose.
+3. It applies beyond present conditions.
+4. It treats everyone inside each group alike.
+
+These are basic tests for lawful grouping, though some kinds of unequal treatment require stricter court review.
+
+Test a law giving scholarships to students with top grades, while excluding students who wear blue shoes:
+
+1. Check if shoe color relates to academic merit: no.
+2. Because the distinction fails to fit the law's purpose, the grouping violates equal protection.
+
+:::pair #due-process-vs-equal-protection
+Right: Match missing notice or hearing to due process, and unfair grouping to equal protection.
+Wrong: Calling a missing hearing an equal-protection issue, or picking equal protection when lawful process is asked.
+Both sit in Section $1$, so check whether the facts show bad procedure or unfair grouping.
+:::
+
+:::pair #all-four-grouping-tests
+Right: Check all four grouping tests, including whether the difference fits the law's purpose.
+Wrong: Treating uniform rules inside each group or future application as enough to cure an unrelated distinction.
+All four tests must pass together.
+:::
+
+:::check
+A city gives aid to one group of low-income renters and denies it to an identical group based on birth month. Which test fails?
+:::answer
+The answer is **Fit with the law's purpose**. Birth month has no link to housing need.
+:::
 
 ## Examples
 
@@ -40,7 +105,12 @@ How many sections make up Article III of the $1987$ Constitution?
 
 **Solution:**
 
-Article III contains $22$ sections, from Section $1$ through Section $22$.
+1. Start at Section $1$ (due process and equal protection).
+2. Count through Section $22$ (prohibited laws).
+
+Answer: $22$ sections.
+
+**Check:** Sections $1$ to $11$ give $11$ sections, and Sections $12$ to $22$ give $11$ more, making $11 + 11 = 22$ sections total.
 
 ### #2: Notice and a Hearing
 
@@ -48,24 +118,34 @@ A government office takes a person's property without a lawful basis, notice, or
 
 **Solution:**
 
-1. The case concerns the government's basis and steps for taking property.
-2. The person had no notice or chance to be heard.
-3. These facts point to due process.
+1. Check what is affected: the government took property.
+2. Check what failed: lawful basis, notice, and a chance to answer.
+
+Answer: Due process under Article III, Section $1$.
+
+**Check:** The defect is missing lawful basis and fair steps before taking property, which is due process rather than group classification.
 
 ### #3: Unequal Treatment
 
-A law gives different treatment to two groups. Their difference has no connection to the law's purpose. Which protection should be checked?
+A town ordinance gives a tax discount to hardware stores owned by town-born residents. Resident owners who moved there as adults get no discount. Every owner inside each group gets the same treatment, and the rule applies to future applicants too. Which requirement of a valid grouping fails?
 
 **Solution:**
 
-1. Compare the grouping with the law's purpose.
-2. The stated difference does not support that purpose.
-3. The case raises equal protection under Section $1$.
+1. Note that similar resident hardware-store owners receive different tax treatment.
+2. Check the four grouping tests: equal treatment inside each group and future scope pass, yet childhood birthplace has no link to running a store.
+
+:::try
+Finish the last step: state which grouping test fails and explain why equal treatment inside each group and future scope do not save the ordinance.
+:::answer
+The answer is **Fit with the law's purpose fails because birthplace has no connection to the business-tax discount.** Treating every owner inside each group alike and applying to future applicants cannot cure an unrelated difference, because all four tests must pass together.
+
+**Check:** A valid classification under Section $1$ requires a real difference tied to the law's purpose, and birthplace fails that link.
+:::
 
 ## Traps to Watch For
 
-### #1: Due Process and Equal Protection Differ
-
-> A hearing problem and an unfair grouping are different issues.
-
-Check notice, a chance to answer, and lawful government action for due process. Compare groups and the reason for different treatment for equal protection.
+:::checklist
+- Counting Article III sections: count Section $1$ through Section $22$ ($22$ sections). {#article-three-count}
+- Section $1$ case: link notice and hearing defects to due process, and group differences to equal protection. {#due-process-vs-equal-protection}
+- Grouping law looks consistent: verify all four tests, including fit with the law's purpose. {#all-four-grouping-tests}
+:::
