@@ -17,8 +17,6 @@ keyPoints:
 
 ### Pantukoy, Pangngalan, at Panghalip
 
-Nagbabago ang tungkulin ng isang salita ayon sa gamit nito sa pangungusap.
-
 - Ang **pantukoy** (determiner) ay nagpapakilala sa kasunod na pangalan, gaya ng *ang*, *ang mga*, *si*, at *sina* sa "ang guro" at "si Liza."
 - Ang **pangngalan** (noun) ay ngalan ng tao, bagay, hayop, lugar, o ideya. Itanong kung ano o sino ang pinapangalanan: sa "Masipag ang guro," ang *guro* ay ngalan ng tao.
 - Ang **panghalip** (pronoun) ay pamalit sa pangngalan upang hindi ito ulit-ulitin. Sa "Pumunta siya sa palengke," ang *siya* ay humahalili sa pangalan ng tao.
@@ -87,11 +85,7 @@ Sa "**Ang** masipag na **guro** ay ngumiti at umupo **siya**," tukuyin ang bahag
 
 **Solution:**
 
-1. Ang *Ang* ay nagpapakilala sa *guro*, kaya **pantukoy** ito.
-2. Ang *guro* ay ngalan ng tao, kaya **pangngalan** ito.
-3. Ang *siya* ay pumapalit sa ngalan ng guro, kaya **panghalip** ito.
-
-Pantukoy ang *Ang*, pangngalan ang *guro*, at panghalip ang *siya*: "**Ang** masipag na **guro** ay ngumiti at umupo **siya**."
+Pantukoy ang *Ang* (nagpapakilala sa *guro*), pangngalan ang *guro* (ngalan ng tao), at panghalip ang *siya* (pumapalit sa guro): "**Ang** masipag na **guro** ay ngumiti at umupo **siya**."
 
 **Check:** Palitan ang *siya* ng *ang guro*: buo pa rin ang "umupo ang guro," kaya *guro* ang tinutukoy ng *siya*.
 
@@ -111,7 +105,7 @@ Sa tradisyonal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitan
 
 **Solution:**
 
-1. Hanapin ang *ang nagtanong* sa dulo ng pangungusap, kasunod ng *sa harap ng klase*.
+1. Hanapin ang *ang nagtanong* sa dulo.
 
 :::try
 Tapusin ang huling hakbang: ano ang ginagawa ng *ang nagtanong* sa pangungusap, at ano ang gamit nito sa itinakdang pag-uuri?
@@ -123,12 +117,12 @@ Ang sagot ay **Pandiwaring gamit na pangngalan**: "Sinagot ng guro sa harap ng k
 
 ## Speed Tricks & Shortcuts
 
-Suriin ang salita ayon sa papel nito sa pangungusap. Itanong ang kilos para sa pandiwa, at kung tao o bagay ang tinutukoy ng anyong mula sa pandiwa.
+Itanong ang kilos para sa pandiwa, at kung tao o bagay ang tinutukoy ng anyong mula sa pandiwa.
 
 ## Traps to Watch For
 
 :::checklist
-- Salitang kasunod ng pantukoy gaya ng *ang bata*: unang palatandaan ito ng pangngalan, kaya tiyaking ngalan ng pinag-uusapan ito. {#bata-pangngalan-hindi-pang-uri}
+- Salitang kasunod ng pantukoy gaya ng *ang bata*: tiyaking ngalan ng pinag-uusapan ito. {#bata-pangngalan-hindi-pang-uri}
 - Salitang nagsasabi ng nangyari gaya ng *kumain*: ito ang kilos mismo, kaya pandiwa ito. {#pandiwa-kilos-hindi-pangngalan}
 - Anyong mula sa pandiwa pagkatapos ng *ang* na walang pangngalang kasunod, gaya ng *ang nahimatay*: kung tao ang tinutukoy, sa tradisyonal na pag-uuri ay pandiwaring gamit na pangngalan ito, hindi kilos ng gumagawa o lugar. {#pandiwari-bilang-pangngalan}
 :::

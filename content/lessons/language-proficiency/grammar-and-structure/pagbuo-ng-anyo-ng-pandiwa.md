@@ -118,7 +118,7 @@ Inuulit ang *ba*, at **Kontemplatibo** ang *magbabasa*: "Magbabasa sila ng ulat 
 
 ## Speed Tricks & Shortcuts
 
-Tukuyin muna kung nasa pangkat ng *mag-* o *-um-* ang pandiwa. Sa mga ugat na ito, nananatili ang *mag-* sa kontemplatibo at idinadagdag ang inuulit na bahagi (*maglilinis*); sa *-um-*, inaalis ang *-um-* at inilalagay ang inuulit na bahagi bago ang buong ugat (*kakain*).
+Sa mga ugat na ito, nananatili ang *mag-* sa kontemplatibo at idinadagdag ang inuulit na bahagi (*maglilinis*); sa *-um-*, inaalis ang *-um-* at inilalagay ang inuulit na bahagi bago ang buong ugat (*kakain*).
 
 ## Traps to Watch For
 

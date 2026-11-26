@@ -110,8 +110,7 @@ Sabi ni Lea: "Ipinadala ng guro ang paanyaya kay Lea." Palitan ng panghalip ang 
 
 **Solution:**
 
-1. Tatanggap ng paanyaya si Lea, kaya anyong **sa** ang kailangan.
-2. Suriin ang bilang at panauhan ng tatanggap.
+1. Tatanggap ng paanyaya si Lea, kaya anyong **sa** ang kailangan; suriin ang bilang at panauhan niya.
 
 :::try
 Tapusin ang huling hakbang: anong anyong *sa* ang ipapalit sa "kay Lea"?

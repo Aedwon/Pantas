@@ -56,8 +56,7 @@ Ang sagot ay **Tayo**. Kasama sa pupunta ang kausap na si Ben.
 
 ### Walang Kasarian ang Siya, Niya, at Kaniya
 
-Hindi tulad ng Ingles na may *he*, *she*, at *it*, ang *siya*, *niya*, at *kaniya* sa Filipino ay **hindi nagsasaad ng kasarian**. Pareho ang anyo para sa babae o lalaki, at ginagamit ito para sa tao at kung minsan sa alagang hayop. Para sa bagay na malapit o tinutukoy ngayon, maaaring gamitin ang *ito*, gaya ng *it* sa Ingles: "Mabigat ang bag. Dala ko ito."
-
+Hindi tulad ng Ingles na may *he*, *she*, at *it*, ang *siya*, *niya*, at *kaniya* sa Filipino ay **hindi nagsasaad ng kasarian**. Pareho ang anyo para sa babae o lalaki, at ginagamit ito para sa tao at kung minsan sa alagang hayop.
 :::why
 Bakit iisa ang *siya* para sa babae at lalaki? Sa balarilang Filipino, ang anyo ng panghalip ay sumusunod sa bilang at papel (*ang*, *ng*, o *sa*), hindi sa kasarian ng taong tinutukoy.
 :::
@@ -83,8 +82,7 @@ Si Omar ang may-ari ng payong. Piliin ang tamang panghalip sa sasabihin niya: "_
 **Solution:**
 
 1. Tingnan ang ayos: nasa unahan ang patlang para sa may-ari, bago ang *ang payong na nasa upuan*.
-2. Si Omar mismo ang nagsasalita at nagmamay-ari, kaya hindi tama ang *kanila* (ibang mga tao).
-3. Hindi rin maaaring gamitin ang *ako* o *ko* sa puwestong ito, kaya piliin ang **Akin**: "**Akin** ang payong na nasa upuan."
+2. Hindi rin maaaring gamitin ang *ako* o *ko* sa puwestong ito, kaya piliin ang **Akin**: "**Akin** ang payong na nasa upuan."
 
 **Check:** Ang "*Ako* ang payong na nasa upuan" ay nagsasabing ang nagsasalita ang payong.
 
@@ -118,7 +116,7 @@ Ang sagot ay **ninyo**: "Salamat po sa tulong ninyo." Magalang na anyo ito para 
 
 ## Speed Tricks & Shortcuts
 
-Sa dalawang ayos na itinuro rito, tingnan ang puwesto sa pagmamay-ari (*aklat ko* laban sa *Akin ang aklat*). Tanungin kung kasama ang kausap para sa *tayo* laban sa *kami*, at piliin ang *siya, niya,* o *kaniya* ayon sa papel, hindi sa kasarian.
+Tingnan ang puwesto sa pagmamay-ari (*aklat ko* laban sa *Akin ang aklat*), kung kasama ang kausap (*tayo* o *kami*), at piliin ang *siya, niya,* o *kaniya* ayon sa papel, hindi sa kasarian.
 
 ## Traps to Watch For
 

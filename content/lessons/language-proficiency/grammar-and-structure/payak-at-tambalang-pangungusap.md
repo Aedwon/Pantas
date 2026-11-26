@@ -68,7 +68,7 @@ Sa tambalang pangungusap, ang **pangatnig na magkatimbang** (coordinating conjun
 :::pair #pangatnig-sa-pagpipilian
 Right: Para sa pagpipilian: "Maaari kang magpasa sa tanggapan, **o** maaari kang magpadala sa koreo."
 Wrong: Gamitin ang **at**, **ngunit**, o **dahil** sa pangungusap na humihingi ng pagpipilian.
-Nagdaragdag ang *at*, nagsasalungat ang *ngunit*, at nagbibigay ng dahilan ang *dahil*. Sa pangungusap na ito, ipinakikita ng *o* ang mga pagpipilian.
+Sa pangungusap na ito, ipinakikita ng *o* ang mga pagpipilian.
 :::
 
 :::check
@@ -85,9 +85,8 @@ Tukuyin ang uri ng pangungusap: "Kumakanta at sumasayaw sina Lea at Omar sa enta
 
 **Solution:**
 
-1. Hanapin ang simuno: *sina Lea at Omar*.
-2. Hanapin ang panaguri: *kumakanta at sumasayaw sa entablado*.
-3. Iisa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Payak** ang "[Kumakanta at sumasayaw sina Lea at Omar sa entablado]."
+1. Simuno: *sina Lea at Omar*; panaguri: *kumakanta at sumasayaw sa entablado*.
+2. Iisa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Payak** ang "[Kumakanta at sumasayaw sina Lea at Omar sa entablado]."
 
 **Check:** Iisa ang simuno ng dalawang kilos, kaya iisang sugnay lamang ito.
 
@@ -98,8 +97,7 @@ Tukuyin ang uri ng pangungusap: "Maaga kaming dumating ngunit sarado ang tindaha
 **Solution:**
 
 1. Hatiin sa pangatnig na *ngunit*: unang bahagi ay "Maaga kaming dumating," ikalawa ay "sarado ang tindahan."
-2. Basahin nang hiwalay ang bawat panig: parehong may simuno, panaguri, at buong diwa.
-3. Dalawa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Tambalan** ang "[Maaga kaming dumating] **ngunit** [sarado ang tindahan]."
+2. Dalawa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Tambalan** ang "[Maaga kaming dumating] **ngunit** [sarado ang tindahan]."
 
 **Check:** Lagyan ng tuldok sa halip ng *ngunit*: "Maaga kaming dumating. Sarado ang tindahan." Parehong buo.
 
@@ -109,7 +107,7 @@ Idinadagdag lamang ng manunulat ang ginawa ni Ben, walang dahilan, salungatan, o
 
 **Solution:**
 
-1. Basahin ang ginawa ni Ana at ni Ben: dalawang gawain, parehong naganap.
+1. Dalawang gawain ang naganap.
 
 :::try
 Tapusin ang huling hakbang: aling pangatnig (*at, ngunit, o,* o *dahil*) ang angkop?
@@ -121,7 +119,7 @@ Ang sagot ay **At**: "Nagdilig si Ana ng halaman, **at** nagwalis si Ben ng baku
 
 ## Speed Tricks & Shortcuts
 
-Hatiin ang pangungusap sa gitnang pangatnig at basahin nang mag-isa ang bawat panig. Kung parehong nakatatayo nang buo ang dalawang panig, pinagdurugtong ng pangatnig na tulad ng *at*, *ngunit*, o *o*, at walang sugnay na di-makapag-iisa sa alinmang panig, tambalan ito.
+Hatiin sa gitnang pangatnig (*at*, *ngunit*, *o*) at basahin nang mag-isa ang bawat panig. Kung parehong buo ang dalawa at walang di-makapag-iisa, tambalan ito.
 
 ## Traps to Watch For
 

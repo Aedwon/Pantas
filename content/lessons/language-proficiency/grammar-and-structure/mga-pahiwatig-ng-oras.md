@@ -87,9 +87,8 @@ Ilipat sa hulihan ang pahiwatig ng oras sa "Ngayon ay nagsasanay ang koro." Alin
 
 **Solution:**
 
-1. Hanapin ang pahiwatig ng oras sa unahan: *Ngayon*.
-2. Tanggalin ang *ay* at ilagay ang *ngayon* sa hulihan nang hindi binabago ang *nagsasanay*.
-3. Buuin ang pangungusap: "**Nagsasanay ang koro ngayon.**"
+1. Tanggalin ang *ay* at ilagay ang *ngayon* sa hulihan nang hindi binabago ang *nagsasanay*.
+2. Buuin ang pangungusap: "**Nagsasanay ang koro ngayon.**"
 
 **Check:** Nagaganap pa ang *nagsasanay*, at kasalukuyan pa rin ang *ngayon*.
 
@@ -123,7 +122,7 @@ Ang sagot ay **Imperpektibo**: "**Naglalaba** pa si Rita nang tumawag ang kaibig
 
 ## Speed Tricks & Shortcuts
 
-Huwag tumingin sa *kahapon*, *ngayon*, o *bukas* lamang. Basahin ang buong pangungusap: hanapin ang *tuwing* para sa dalas ng kilos, at tingnan kung nagpapatuloy pa ang kilos (*nagsusulat pa*, *habang*) sa isang nakaraang tagpo.
+Basahin ang buong pangungusap: hanapin ang *tuwing* para sa dalas ng kilos, at tingnan kung nagpapatuloy pa ang kilos (*nagsusulat pa*, *habang*) sa isang nakaraang tagpo.
 
 ## Traps to Watch For
 

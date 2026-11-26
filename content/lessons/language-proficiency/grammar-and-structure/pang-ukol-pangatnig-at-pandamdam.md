@@ -78,7 +78,7 @@ Sa "Nagdala si Ben ng regalo **para kay** Lea," anong bahagi ng pananalita ang m
 
 **Solution:**
 
-1. Tingnan ang kasunod ng *para kay*: ang pangalan ng taong si *Lea*.
+1. Tingnan ang kasunod ng *para kay*: *Lea*.
 2. Iniuugnay ng *para kay* ang pangngalan sa ibang bahagi, kaya **pang-ukol** ito: "Nagdala si Ben ng regalo **para kay** Lea."
 
 **Check:** Kapag pinalitan ng *at*, nagdurugtong na lamang ito ng dalawang pangngalan: "regalo at Lea."

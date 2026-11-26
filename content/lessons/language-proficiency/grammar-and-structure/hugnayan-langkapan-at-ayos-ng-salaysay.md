@@ -26,7 +26,7 @@ Pagdugtungin ang isang buong diwa at ang dahilan nito gamit ang *dahil* o *sapag
 :::pair #hugnayan-laban-sa-tambalan
 Right: Ang "Umuwi ang bata dahil umuulan na" ay **Hugnayan**.
 Wrong: Tawaging **Tambalan** o **Payak** ang "Umuwi ang bata dahil umuulan na."
-Ikinakabit ng *dahil* ang dahilan sa pangunahing sugnay. Kaya hindi ito tambalan o payak.
+Ikinakabit ng *dahil* ang dahilan sa pangunahing sugnay.
 :::
 
 :::check
@@ -76,11 +76,11 @@ Ang *sa huli* ay para lamang sa pangwakas na pangyayari. Kapag inilagay ito sa u
 :::check
 Mga ginawa ni Ben sa pagluluto: inihain niya ang sinigang; naghugas siya ng gulay; naglagay siya ng gulay sa kaldero. Alin ang tamang salaysay?
 
-(A) Sa simula, naghugas siya ng gulay. Kasunod, naglagay siya ng gulay sa kaldero. Panghuli, inihain niya ang sinigang.
+(A) Sa simula, naghugas; kasunod, naglagay sa kaldero; panghuli, inihain.
 
-(B) Sa simula, inihain niya ang sinigang. Kasunod, naghugas siya ng gulay. Panghuli, naglagay siya ng gulay sa kaldero.
+(B) Sa simula, inihain; kasunod, naghugas; panghuli, naglagay sa kaldero.
 
-(C) Sa simula, naglagay siya ng gulay sa kaldero. Kasunod, inihain niya ang sinigang. Panghuli, naghugas siya ng gulay.
+(C) Sa simula, naglagay sa kaldero; kasunod, inihain; panghuli, naghugas.
 :::answer
 Ang sagot ay **A**: "Sa simula, naghugas si Ben ng gulay. Kasunod, naglagay siya ng gulay sa kaldero. Panghuli, inihain niya ang sinigang."
 
@@ -95,9 +95,8 @@ Tukuyin ang uri ng pangungusap: "Natuwa ang guro dahil nanalo ang koponan."
 
 **Solution:**
 
-1. Hanapin ang sugnay na makapag-iisa: "Natuwa ang guro."
-2. Suriin ang "dahil nanalo ang koponan": may *dahil* sa unahan, kaya di-makapag-iisa ito.
-3. Isang makapag-iisa at isang di-makapag-iisa: **Hugnayan** ang "[Natuwa ang guro] [**dahil nanalo ang koponan**]."
+1. May *dahil* sa unahan ang "dahil nanalo ang koponan," kaya di-makapag-iisa ito.
+2. Isang makapag-iisa at isang di-makapag-iisa: **Hugnayan** ang "[Natuwa ang guro] [**dahil nanalo ang koponan**]."
 
 **Check:** Basahin nang mag-isa ang bawat sugnay: buo ang *Natuwa ang guro*, hindi buo ang *dahil nanalo ang koponan*.
 
@@ -108,7 +107,7 @@ Pagsamahin sa isang langkapan ang mga diwa, at gamitin ang *dahil* sa dahilan: n
 **Solution:**
 
 1. Iugnay ang dahilan gamit ang *dahil*: "Nag-aral si Liza dahil may pagsusulit siya."
-2. Idagdag ang ikalawang buong diwa gamit ang *at*, at bilangin ang mga sugnay: dalawang makapag-iisa at isang di-makapag-iisa.
+2. Idagdag ang ikalawang buong diwa gamit ang *at*.
 3. **Langkapan** ang "[Nag-aral si Liza] [**dahil may pagsusulit siya**], at [naghanda si Ben para sa ulat]."
 
 **Check:** Buo ang *Nag-aral si Liza* at ang *naghanda si Ben para sa ulat* kapag binasa nang mag-isa.
@@ -137,7 +136,7 @@ Ang sagot ay **B**: "Sa simula, nagrehistro siya. Kasunod, ipinasa niya ang mga 
 
 ## Speed Tricks & Shortcuts
 
-Isang makapag-iisa na may di-makapag-iisa ay hugnayan; dalawa o higit pang makapag-iisa na may di-makapag-iisa ay langkapan.
+Isang makapag-iisa at di-makapag-iisa: hugnayan; dalawa o higit pang makapag-iisa at di-makapag-iisa: langkapan.
 
 ## Traps to Watch For
 

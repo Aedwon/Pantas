@@ -83,8 +83,7 @@ Piliin ang tamang pananda sa patlang: "Umawit ______ estudyante ng kundiman."
 **Solution:**
 
 1. Suriin ang pandiwa: ang *umawit* ay may *-um-*, kaya nakapokus sa tagaganap ito.
-2. Itanong kung sino ang umawit: ang estudyante.
-3. Gamitin ang panandang paksa: "Umawit **ang** estudyante ng kundiman."
+2. Gamitin ang panandang paksa: "Umawit **ang** estudyante ng kundiman."
 
 **Check:** *Ang estudyante* ang paksa (gumawa) at *ng kundiman* ang inawit.
 
@@ -123,6 +122,6 @@ Sa mga pangngalan, hanapin muna ang *ang*, *si*, *ang mga*, o *sina* upang makuh
 ## Traps to Watch For
 
 :::checklist
-- Pandiwang nakapokus sa tagaganap gaya ng *kumain*: gamitin ang *ang*, *si*, *ang mga*, o *sina* para sa gumagawang pangngalan sa halip na *ng*; panghalip na *siya* ang walang pananda. {#paksa-may-ang-o-si}
+- Pandiwang nakapokus sa tagaganap gaya ng *kumain*: gamitin ang *ang*, *si*, *ang mga*, o *sina* para sa gumagawang pangngalan sa halip na *ng*. {#paksa-may-ang-o-si}
 - Paglipat ng paksa sa layon: panatilihin ang tapos na kilos (*sinulat*) at huwag palitan ng *sinusulat* o *susulatin*. {#panatilihin-ang-aspekto}
 :::

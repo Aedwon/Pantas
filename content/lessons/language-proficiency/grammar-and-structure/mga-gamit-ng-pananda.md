@@ -70,7 +70,7 @@ Tukuyin ang papel ng pariralang may *ng* sa bawat pangungusap: (a) "Nagdala ang 
 
 **Solution:**
 
-1. Sa (a), *ang kawani* ang paksa at nagdadala, kaya **bagay na dinala** (layon na hindi paksa) ang *ng papel*: "Nagdala ang kawani **ng papel**."
+1. Sa (a), *ang kawani* ang paksa at nagdadala, kaya **bagay na dinala** ang *ng papel*: "Nagdala ang kawani **ng papel**."
 2. Sa (b), *ang papel* ang paksa at dinadala, kaya **gumagawa ng kilos** ang *ng kawani*: "Dinala **ng kawani** ang papel."
 3. Sa (c), nakakabit ang *ng paaralan* sa pangngalang *bakod*, kaya **pagmamay-ari** ito: "Mataas ang bakod **ng paaralan**."
 
@@ -105,7 +105,7 @@ Ang sagot ay **Tagatanggap ng gantimpala**: "Ibinigay ng guro ang gantimpala **s
 
 ## Speed Tricks & Shortcuts
 
-Basahin ang buong pangungusap bago tukuyin ang pananda. Sa *ng*, suriin ang pandiwa upang makita kung layon o gumagawa ito; para sa pagmamay-ari o ugnayan, tingnan kung aling pangngalan ang kinakabitan ng pariralang may *ng*. Sa tatlong gamit ng *sa* dito, itanong kung *saan* (lugar/direksiyon) o *kanino* (tagatanggap).
+Sa *ng*, suriin ang pandiwa upang makita kung layon o gumagawa ito; para sa pagmamay-ari o ugnayan, tingnan kung aling pangngalan ang kinakabitan ng pariralang may *ng*. Sa tatlong gamit ng *sa* dito, itanong kung *saan* (lugar/direksiyon) o *kanino* (tagatanggap).
 
 ## Traps to Watch For
 
