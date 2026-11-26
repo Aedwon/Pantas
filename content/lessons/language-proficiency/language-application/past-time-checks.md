@@ -13,41 +13,117 @@ keyPoints:
 ---
 ## Core Concept
 
-### Time and Verb Forms
+### Finished Past Actions and Passive Voice
 
-**Tense** places an action in time. The simple past describes a finished past action: *She finished yesterday*. It can also report events in order: *She entered, sat down, and opened her notebook*.
+**Tense** places an action in time. Use the **simple past** for a finished past event marked by clues like *yesterday* or *last week*, or for events told in order: "She finished yesterday."
 
-**Aspect** shows whether an action is ongoing or already complete at a given point. The past progressive uses *was* or *were* plus an *-ing* form: *She was reading when I called*. The reading was in progress when the call happened.
+Check who does the action. When the subject receives the action instead of doing it, use passive *was* or *were* plus a past participle: "The documents **were delivered** by the courier yesterday." Documents cannot deliver themselves, and *yesterday* keeps the verb in the past.
 
-The past perfect uses *had* plus a **past participle**. This is the verb form used after *have, has,* or *had*. Regular verbs often end in *-ed*, as in *finished*; irregular forms include *written* from *write* and *gone* from *go*.
+:::pair #past-time-clue
+Right: "The documents were delivered by the courier yesterday."
+Wrong: "The documents are being delivered by the courier yesterday."
+*Yesterday* marks a finished past event, so present ongoing *are being delivered* does not fit.
+:::
 
-Use the past perfect to make an earlier past action clear: *She had finished before the meeting began*. Do not use it for every past action. Simple past can be enough when words such as *before* or *after* already make the order clear.
+:::check
+Choose the correct form: The signed forms *(were mailed / will be mailed)* to the office yesterday.
+:::answer
+The answer is **Were mailed**. *Yesterday* places the finished action in the past, and *forms* receives the action.
+:::
+
+### Ongoing Past Actions
+
+**Aspect** shows whether an action was ongoing or already done at a past moment. Use the **past progressive** (*was* or *were* plus *-ing*) when an action was still in progress as another past event happened: "Mina **was checking** the files when the alarm rang."
+
+:::check
+The clerk stopped halfway through her work. Choose the right form: When the power went out, she *(was typing / had typed)* the report.
+:::answer
+The answer is **Was typing**. Stopping halfway shows the typing was still in progress when the power went out.
+:::
+
+### Earlier Past Actions with Had
+
+The **past perfect** uses *had* plus a **past participle** (the form used after *have, has,* or *had*). Regular past participles end in *-ed* (*reviewed, finished*), while irregular ones vary (*written* from *write*, *gone* from *go*, *caught* from *catch*).
+
+<!-- ILLUSTRATION: timeline with two points: earlier X labeled "had already resolved (past perfect)" to the left of later X labeled "finished inspecting (simple past)" -->
+
+Use *had* + past participle on the **earlier** of two past events when a sentence highlights that earlier completion: "The analysts **had reviewed** the data before they caught the error."
+
+Do not add *had* to every past action. When *before* or *after* already makes the order clear, simple past can be enough unless a question specifically asks for past perfect to mark earlier completion. Never put *had* on the later event instead of the earlier one.
+
+:::why
+Why does *had review* fail even when the timeline needs past perfect? Helping verbs like *had* never take the plain base verb. They always lock in the past participle (*reviewed*).
+:::
+
+:::pair #participle-after-had
+Right: "The analysts had reviewed the data before they caught the error."
+Wrong: Accept "The analysts had review the data before they caught the error" as No error.
+After *had*, use the past participle *reviewed*, never the base verb *review*.
+:::
+
+:::pair #which-event-gets-had
+Right: "By the time the committee finished inspecting, the team had already resolved the errors."
+Wrong: Change *finished inspecting* to *had finished inspecting* while leaving *already resolved* in simple past.
+The resolving finished first, and the inspection is the later point. Put *had* on the earlier action, not the later one.
+:::
+
+:::check
+Choose the right verb form: Before the doors opened, the staff *(had arrange / had arranged)* all the chairs.
+:::answer
+The answer is **Had arranged**. After *had*, use the past participle *arranged*.
+:::
 
 ## Examples
 
-### #1: Simple Past and Earlier Past
+### #1: Time Clue and Who Does the Action
 
-Choose the forms that fit: "Yesterday, Carlo (finished / finishes) the report. By the time the meeting began, he (had sent / sends) it to the team."
-
-**Solution:**
-
-1. *Yesterday* places the completed action in the past. Use **finished**.
-2. Sending happened before the meeting began. **Had sent** makes that earlier past action clear.
-3. *Sent* is the past participle of *send*.
-
-### #2: Ongoing Past Action
-
-Choose the best form: "At the moment the alarm rang, Mina (was checking / had checked) the files. She stopped halfway through her check and left."
+Choose the correct form: "Last Friday, the packages *(were sorted / are being sorted / have sorted)* by the night crew."
 
 **Solution:**
 
-1. Mina had not completed the check. She stopped halfway through it.
-2. Use **was checking** for the action in progress when the alarm rang.
+1. Check the time clue: *last Friday* places the finished event in the past, ruling out *are being sorted*.
+2. Check who acts: packages cannot sort anything, so passive voice is needed, ruling out *have sorted*.
+3. Choose **were sorted**.
+
+**Check:** Turn it active to test: "The night crew sorted the packages last Friday." Both time and passive meaning match.
+
+### #2: Checking the Participle After Had
+
+Identify the error: "Before the rain began, the volunteers had take all the boxes inside."
+
+**Solution:**
+
+1. *Had take* uses the past-perfect helper *had* followed by the base verb *take*.
+2. The past participle of *take* is **taken**.
+3. Change *had take* to **had taken**.
+
+**Check:** Test with *have*: "I have taken it" sounds right, while "I have take it" does not.
+
+### #3: Marking the Earlier Past Action
+
+A question asks you to use past perfect to show the repair finished before the guests arrived: "By the time the guests arrived at the hall, the crew already repaired the sound system."
+
+**Solution:**
+
+1. Find the two past actions: *arrived* and *repaired*.
+2. Decide which action finished first: repairing the sound system happened before the guests arrived.
+
+:::try
+Finish the last step: which verb group must change, and what should replace it?
+:::answer
+The answer is change **already repaired** to **had already repaired**. That puts the past perfect on the earlier completed action while leaving *arrived* as the later reference point.
+
+**Check:** Place them on a timeline: first *crew had repaired*, then *guests arrived*. The *had* sits on the earlier event.
+:::
+
+## Speed Tricks & Shortcuts
+
+Look for time clues (*yesterday, last Tuesday*) first, check every *had + verb* pair for a true past participle, and put *had* only on the earlier completed event.
 
 ## Traps to Watch For
 
-### #1: Using Past Perfect Everywhere
-
-> An action being in the past does not by itself require *had*.
-
-Use simple past for finished past events. Use past perfect when an earlier past action needs to be made clear.
+:::checklist
+- A finished past clue like *yesterday*: use a past form, never present progressive. {#past-time-clue}
+- A base verb after *had*: switch it to the past participle (*had reviewed*, *had taken*). {#participle-after-had}
+- Two past events in one sentence: put *had* on the earlier completed action, not the later one. {#which-event-gets-had}
+:::
