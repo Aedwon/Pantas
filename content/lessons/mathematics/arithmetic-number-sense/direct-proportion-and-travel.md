@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-direct-proportion-and-travel"
 title: "Direct Proportion and Travel"
-summary: "Set up equal ratios in the same order and cross-multiply."
+summary: "Set up equal ratios in the same order and match units in travel problems."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 isActive: true
@@ -14,93 +14,163 @@ keyPoints:
 ---
 ## Core Concept
 
-A **ratio** compares two quantities by division. It can be written as $2:3$ or $\dfrac{2}{3}$ when the denominator is not $0$.
+### What Direct Proportion Means
 
-A **proportion** says that two ratios are equal.
+A **ratio** compares two amounts by division. You can write the ratio of $2$ to $3$ as $2:3$ or $\dfrac{2}{3}$.
 
-### Direct, Inverse, and Partitive Proportion
-
-In a **direct proportion**, two quantities keep the same ratio. If $y$ is directly proportional to $x$, then:
+In a **direct proportion**, two quantities keep the same ratio as they grow or shrink. If $y$ is directly proportional to $x$, then:
 
 $$y=kx$$
 
-The number $k$ is a constant, so its value does not change. When $k>0$, making $x$ larger makes $y$ larger by the same scale factor.
+Here $k$ is a fixed number called a constant. When $k>0$, doubling $x$ doubles $y$, and for every nonzero value $x\neq 0$, the ratio $\dfrac{y}{x}$ stays equal to $k$.
 
-### Equal Ratios and Cross-Multiplication
+For example, in $y=3x$, the pairs $(1,3)$, $(2,6)$, and $(5,15)$ all give the same ratio:
 
-When two ratios are equal, you can cross-multiply. For nonzero $B$ and $D$:
+$$\dfrac{3}{1}=\dfrac{6}{2}=\dfrac{15}{5}=3$$
+
+:::pair #increasing-not-direct
+Right: $y=3x$ is direct proportion because $\dfrac{y}{x}=3$ stays constant.
+Wrong: $y=x+3$ is direct proportion because $y$ goes up when $x$ goes up.
+Going up together is not enough. In $y=x+3$, the pairs $(1,4)$ and $(2,5)$ have different ratios, $\dfrac{4}{1}=4$ and $\dfrac{5}{2}=2.5$.
+:::
+
+:::check
+Does the table $(x,y)=(2,10)$ and $(5,25)$ show direct proportion?
+:::answer
+The answer is yes. Both ratios equal $5$, since $\dfrac{10}{2}=5$ and $\dfrac{25}{5}=5$.
+:::
+
+### Equal Ratios and Cross-Multiplying
+
+A **proportion** says that two ratios are equal. When two ratios are equal, their cross products are equal. For nonzero $B$ and $D$:
 
 $$\dfrac{A}{B}=\dfrac{C}{D}$$
 
-so:
-
 $$AD=BC$$
 
-Use this only after you have set up two equal ratios in the same order.
+Keep both ratios in the exact same order, such as $\dfrac{\text{blue}}{\text{yellow}}$ on both sides.
+
+Suppose blue and yellow paint mix in a $3:2$ ratio, and you have $15$ liters of blue paint. How much yellow paint do you need? Write both fractions as $\dfrac{\text{blue}}{\text{yellow}}$.
+
+$$\dfrac{3}{2}=\dfrac{15}{x}$$
+
+Cross-multiply.
+
+$$3x=2\times15=30$$
+
+Divide by $3$.
+
+$$x=\dfrac{30}{3}=10$$
+
+You need $10$ liters of yellow paint.
+
+:::pair #reverse-ratio-order
+Right: $\dfrac{3}{2}=\dfrac{15}{x}$, giving $x=10$ liters
+Wrong: $\dfrac{3}{2}=\dfrac{x}{15}$, giving $x=22.5$ liters
+The wrong setup put blue on top in the first ratio and yellow on top in the second. Match the top and bottom labels on both sides.
+:::
+
+:::why
+Why does cross-multiplying work? Multiplying both sides of $\dfrac{A}{B}=\dfrac{C}{D}$ by $BD$ clears both denominators at once and leaves $AD=BC$.
+:::
+
+:::check
+A map scale is $1\text{ cm}:12\text{ km}$. How many kilometers does $3.5\text{ cm}$ represent?
+:::answer
+The answer is $42\text{ km}$. Write $\dfrac{1}{12}=\dfrac{3.5}{x}$, so $x=12\times3.5=42\text{ km}$.
+:::
 
 ### Distance, Rate, and Time
 
-**Rate** tells how much distance is covered in one unit of time. Distance, rate, and time are connected by:
+**Rate** tells how far something moves in one unit of time. Distance, rate, and time follow this formula:
 
 $$d=rt$$
 
-Here $d$ is distance, $r$ is rate, and $t$ is time. The time unit in the rate must match the time unit used for $t$.
+Here $d$ is distance, $r$ is rate, and $t$ is time. At a fixed rate, distance and time are directly proportional: twice the time covers twice the distance. For a fixed distance, rate and time are inversely proportional because $rt=d$ stays constant.
 
-At a fixed rate, distance and time are directly proportional. For a fixed distance, rate and time are inversely proportional because $rt=d$ stays constant.
+The time unit in $t$ must match the time unit in $r$. If speed is in kilometers per hour, convert minutes to hours before multiplying by dividing by $60$. If you get a decimal number of hours, multiply by $60$ to turn it into minutes.
+
+Try finding the distance traveled at $50\text{ km/h}$ for $48$ minutes. First change $48$ minutes to hours.
+
+$$t=\dfrac{48}{60}=0.8\text{ hour}$$
+
+Now multiply rate by time.
+
+$$d=50\times0.8=40\text{ km}$$
+
+:::pair #hours-to-minutes
+Right: $0.8\text{ hour}=0.8\times60=48\text{ minutes}$
+Wrong: $0.8\text{ hour}=80\text{ minutes}$
+An hour has $60$ minutes, not $100$. Always multiply decimal hours by $60$ to get minutes.
+:::
+
+:::check
+How many minutes does it take to travel $24\text{ km}$ at $32\text{ km/h}$?
+:::answer
+The answer is $45\text{ minutes}$. First $t=\dfrac{24}{32}=0.75\text{ hour}$, and $0.75\times60=45\text{ minutes}$.
+:::
 
 ## Examples
 
-### #1: Basic Direct Proportion
+### #1: Scaling a Recipe
 
 A bakery uses $4$ cups of flour to make $24$ large muffins. At this rate, how many cups of flour are needed for $84$ large muffins?
 
 **Solution:**
 
-1. The flour-to-muffin ratio stays the same.
+1. Both ratios compare cups of flour to number of muffins. Put flour on top and muffins on the bottom in both fractions.
 
 $$\dfrac{4}{24}=\dfrac{x}{84}$$
 
 2. Cross-multiply.
 
-$$24x=4\times84=336$$
+$$24x=4\times84$$
 
-3. Divide by $24$.
+$$24x=336$$
 
-$$x=14$$
+3. Divide both sides by $24$.
+
+$$x=\dfrac{336}{24}=14$$
 
 The bakery needs $14$ cups of flour.
 
-### #2: Distance, Rate, and Time
+**Check:** Find the unit rate. Dividing $24\div4=6$ muffins per cup. Then $84\div6=14$ cups, which matches.
 
-A service vehicle must travel $240$ kilometers. If it travels at a constant rate of $80$ kilometers per hour, how long will the trip take?
+### #2: Distance, Rate, and Time with Unit Conversion
+
+On a road trip, a bus travels $108\text{ kilometers}$ at a steady speed of $45\text{ kilometers per hour}$. How many hours and minutes does the trip take?
 
 **Solution:**
 
-1. Use $d=rt$ with $d=240$ and $r=80$.
+1. Use $d=rt$ with $d=108$ and $r=45$.
 
-$$240=80t$$
+$$108=45t$$
 
-2. Divide by $80$.
+2. Divide by $45$ to find the time in hours.
 
-$$t=\dfrac{240}{80}=3$$
+$$t=\dfrac{108}{45}=2.4\text{ hours}$$
 
-The trip will take $3$ hours.
+3. Split $2.4$ hours into $2$ whole hours and $0.4$ hour.
+
+:::try
+Finish the last step: convert $0.4$ hour into minutes and write the total time.
+:::answer
+The answer is $2\text{ hours}$ and $24\text{ minutes}$. Multiply $0.4\times60=24\text{ minutes}$.
+
+**Check:** Check $2\text{ hours}$ and $24\text{ minutes}$ at $45\text{ km/h}$. Two hours covers $2\times45=90\text{ km}$, and $24\text{ minutes}$ is $\dfrac{24}{60}=\dfrac{2}{5}$ of an hour, which covers $\dfrac{2}{5}\times45=18\text{ km}$. Adding $90+18=108\text{ km}$, which matches.
+:::
 
 ## Speed Tricks & Shortcuts
 
-- **Keep ratio order the same.** If the first ratio is flour to muffins, the second ratio must also be flour to muffins.
+In exam questions, **simplify** means write an equal fraction or expression in a simpler form.
+
+- **Simplify before cross-multiplying.** Before cross-multiplying $\dfrac{4}{24}=\dfrac{x}{84}$, simplify $\dfrac{4}{24}$ to $\dfrac{1}{6}$ first. Dividing $84\div6=14$ is much faster than multiplying $4\times84$ and dividing by $24$.
 - **Distance shortcut.** For a fixed distance, a higher rate means less time. Check that your answer moves in that direction.
 
 ## Traps to Watch For
 
-### #1: Assuming Every Same-Direction Change Is Direct Proportion
-
-> Two quantities increasing together does not prove direct proportion.
-
-Direct proportion needs a constant ratio $\dfrac{y}{x}$. If that ratio changes, the relationship is not direct proportion.
-
-### #2: Mixing Time Units
-
-> Match the time unit in the rate with the time unit in the problem.
-
-A rate in kilometers per hour must use time in hours unless you convert the units first.
+:::checklist
+- Two quantities increasing together: check that the ratio $\dfrac{y}{x}$ stays constant for every nonzero $x$ before calling it direct proportion. {#increasing-not-direct}
+- Setting up two equal ratios: put the matching labels in the same top and bottom spots on both sides. {#reverse-ratio-order}
+- Converting decimal hours to minutes: multiply by $60$, so $0.8\text{ hour}$ is $48\text{ minutes}$. {#hours-to-minutes}
+:::

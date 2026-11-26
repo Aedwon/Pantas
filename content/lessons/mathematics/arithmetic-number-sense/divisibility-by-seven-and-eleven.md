@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven"
 title: "Divisibility by Seven and Eleven"
-summary: "Reduce a number to test divisibility by 7 or 11."
+summary: "Use double-and-subtract for 7 and alternating digit sums for 11."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 isActive: true
@@ -16,39 +16,106 @@ keyPoints:
 
 ### Rule for $7$
 
-Remove the last digit and double it. Subtract that doubled value from the number formed by the remaining digits.
+To test if a number is divisible by $7$:
 
-The original number is divisible by $7$ exactly when the result is divisible by $7$. You may repeat the test. A result of $0$ or a negative multiple of $7$ also passes.
+1. Remove the last digit.
+2. Double that removed digit.
+3. Subtract the doubled amount from the number made by the remaining digits.
+4. Check if the result is $0$ or a multiple of $7$ (positive or negative, such as $-7$ or $-14$).
+
+If the result is still large, repeat the three steps on the new number.
+
+Try $343$. Remove the last digit $3$, leaving $34$. Double $3$ to get $6$, then subtract from $34$.
+
+$$34-6=28$$
+
+Since $28=7\times4$, $343$ is divisible by $7$.
+
+:::pair #subtract-without-doubling
+Right: for $343$, double $3$ first: $34-2(3)=34-6=28$
+Wrong: for $343$, subtract $3$ directly: $34-3=31$
+Always multiply the removed last digit by $2$ before subtracting.
+:::
+
+Make sure you subtract from the digits *without* the last digit ($34-6=28$), not from the full original number ($343-6=337$).
+
+:::why
+Write the original number as $10a+b$, where $b$ is the last digit, so $10(a-2b)=10a-20b=(10a+b)-21b$. Since $21b$ is a multiple of $7$, $10a+b$ is divisible by $7$ whenever $a-2b$ is. In reverse, if $10a+b$ is divisible by $7$, then $10(a-2b)$ is too, and because $10$ has no factor of $7$, $a-2b$ must also be divisible by $7$.
+:::
+
+:::check
+Test $203$ for divisibility by $7$ using one step of the rule.
+:::answer
+The answer is yes, $203$ is divisible by $7$. Remove $3$ and double it to get $6$, then $20-6=14$, and $14=7\times2$.
+:::
 
 ### Rule for $11$
 
-Add the digits in alternating positions into two groups. Find the difference between the two totals.
+To test if a number is divisible by $11$, split the digits into two alternating groups (the first, third, fifth, and so on in one group; the second, fourth, sixth, and so on in the other).
 
-If the difference is $0$ or a multiple of $11$, the original number is divisible by $11$. Either subtraction order works.
+<!-- ILLUSTRATION: six digit boxes for 3, 5, 4, 2, b, 1 in a row; teal top arcs link the 1st, 3rd, and 5th digits (3, 4, b) labeled "odd positions: 3 + 4 + b"; gray bottom arcs link the 2nd, 4th, and 6th digits (5, 2, 1) labeled "even positions: 5 + 2 + 1" -->
 
-The original lesson's Example #6 is Example #2 here.
+1. Add the digits in each alternating group.
+2. Subtract one group total from the other (either order works).
+3. If the difference is $0$ or a multiple of $11$ (such as $11$, $-11$, or $22$), the number is divisible by $11$.
+
+:::pair #total-sum-for-eleven
+Right: for $1,234$, use alternating positions: $(1+3)-(2+4)=4-6=-2$
+Wrong: for $1,234$, add all digits or adjacent pairs: $1+2+3+4=10$ or $(1+2)-(3+4)=-4$
+Total digit sums test $3$ and $9$, not $11$. Skip every other digit so odd positions ($1,3,5,\dots$) go in one group and even positions ($2,4,6,\dots$) go in the other.
+:::
+
+Try $2,728$. The odd-position sum is $2+2=4$, and the even-position sum is $7+8=15$. Subtract: $4-15=-11$, which is a multiple of $11$, so $2,728$ passes.
+
+A difference of $0$ also passes. The number $0$ is divisible by every nonzero integer because $0\div b=0$ with remainder $0$. (Remember that dividing *by* $0$ is undefined, so $0$ can be the dividend, never the divisor.)
+
+:::pair #zero-is-divisible
+Right: $0\div11=0$, so a difference of $0$ passes the test for $11$
+Wrong: $0$ cannot be divided by $11$, so a difference of $0$ fails
+Every nonzero integer divides $0$ evenly. Only dividing *by* $0$ is undefined.
+:::
+
+:::why
+Why does $0$ pass the $11$ test? Because $0=11\times0$, leaving no remainder. For example, $1,331$ has alternating sums $1+3=4$ and $3+1=4$, difference $4-4=0$, and $1,331=11\times121$.
+:::
+
+:::check
+Is $9,174$ divisible by $11$?
+:::answer
+The answer is yes. Alternating sums are $9+7=16$ and $1+4=5$. Their difference is $16-5=11$, which is a multiple of $11$.
+:::
 
 ## Examples
 
-### #1: Testing for $7$
+### #1: Repeating the Test for $7$
 
-Is $203$ divisible by $7$?
+Is $2,541$ divisible by $7$?
 
 **Solution:**
 
-1. Double the last digit.
+1. Remove the last digit $1$ from $2,541$ and double it.
 
-$$2\times3=6$$
+$$2\times1=2$$
 
-2. Subtract from the remaining number.
+2. Subtract $2$ from the remaining digits, $254$.
 
-$$20-6=14$$
+$$254-2=252$$
 
-3. Check whether the result is a multiple of $7$.
+3. Repeat on $252$. Remove the last digit $2$ and double it.
 
-$$14=7\times2$$
+$$2\times2=4$$
 
-4. The result passes, so $203$ is divisible by $7$.
+4. Subtract $4$ from the remaining digits, $25$.
+
+$$25-4=21$$
+
+5. Check whether $21$ is a multiple of $7$.
+
+$$21=7\times3$$
+
+Yes, $2,541$ is divisible by $7$.
+
+**Check:** Divide directly: $2,541\div7=363$ with no remainder.
 
 ### #2: A Zero Difference for $11$
 
@@ -56,27 +123,31 @@ The six-digit number $3a42b1$ is divisible by $11$. If $a=5$, what is the value 
 
 **Solution:**
 
-1. Substitute $a=5$. The number is $3542b1$.
-2. Add alternating digits.
+1. Replace $a$ with $5$. The number is $3542b1$.
+2. Add the alternating digits in two groups.
 
 $$3+4+b=7+b$$
 
 $$5+2+1=8$$
 
-3. Subtract the totals.
+3. Subtract the second total from the first total.
 
 $$(7+b)-8=b-1$$
 
-4. Since $b$ is a digit, $b-1$ ranges from $-1$ to $8$. Only $0$ in this range is a multiple of $11$.
+4. Since $b$ is a digit from $0$ to $9$, $b-1$ goes from $-1$ to $8$. The only multiple of $11$ in that range is $0$.
 
-$$b-1=0$$
+:::try
+Finish the last step: solve $b-1=0$ for $b$.
+:::answer
+The answer is $b=1$. Adding $1$ to both sides gives $b=1$.
 
-$$b=1$$
+**Check:** Put $b=1$ into $3542b1$ to get $354,211$. Alternating sums are $3+4+1=8$ and $5+2+1=8$, difference $8-8=0$. Direct division gives $354,211\div11=32,201$.
+:::
 
 ## Traps to Watch For
 
-### #1: Forgetting Zero
-
-> Every nonzero integer divides $0$, but division by $0$ is undefined.
-
-A difference of $0$ passes the test for $11$. Rejecting that difference would give the wrong missing digit in Example #6.
+:::checklist
+- Testing for $7$: remove the last digit, double it, then subtract from the remaining digits. {#subtract-without-doubling}
+- Testing for $11$: add digits in alternating positions, not all digits or adjacent pairs. {#total-sum-for-eleven}
+- Getting a difference of $0$: count $0$ as passing, because $0$ is divisible by every nonzero integer. {#zero-is-divisible}
+:::

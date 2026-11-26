@@ -5,8 +5,8 @@ summary: "Evaluate nested groups from the inside out."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 isActive: true
-part: 3
-partCount: 3
+part: 4
+partCount: 4
 ordering: 3
 keyPoints:
   - 'Evaluate nested groups from the inside out.'
@@ -14,15 +14,97 @@ keyPoints:
 ---
 ## Core Concept
 
-First, evaluate **G**rouping symbols or **P**arentheses. This includes parentheses $()$, square brackets $[]$, curly braces $\{\}$, and fraction bars.
+### Nested Grouping Symbols
+
+Grouping symbols tell you which part of an expression to work out first. They include parentheses $()$, square brackets $[]$, curly braces $\{\}$, and fraction bars.
+
+In exam questions, **simplify** means write an equal expression in a simpler form, and **evaluate** means find the final number answer.
+
+When one group sits inside another, work from the innermost group outward. Inside each group, still follow the order of operations: powers and roots, then multiplication and division, then addition and subtraction.
+
+Try a two-layer example: evaluate $50-2\times[3+2\times(4-7)^2]$.
+
+Start with the inner parentheses, then apply the exponent:
+
+$$4-7=-3$$
+
+$$(-3)^2=9$$
+
+Next finish inside the square brackets, multiplying before adding:
+
+$$2\times 9=18$$
+
+$$3+18=21$$
+
+Multiply outside, then subtract last:
+
+$$2\times 21=42$$
+
+$$50-42=8$$
+
+Now look at what happens when multiplication sits right next to a squared group, as in $4\times(8-3)^2$.
+
+:::pair #multiply-into-power
+Right: $4\times (8-3)^2=4\times 5^2=4\times 25=100$
+Wrong: $4\times (8-3)^2=(4\times 5)^2=20^2=400$
+The exponent $2$ applies only to the parentheses right before it, not to the $4$ outside. Square $5$ first, then multiply by $4$.
+:::
+
+:::check
+Evaluate $3\times [2+(9-5)]$.
+:::answer
+The answer is $18$. Do the inner parentheses first ($9-5=4$), add inside the brackets ($2+4=6$), then multiply ($3\times 6=18$).
+:::
+
+### Fraction Bars as Grouping Symbols
+
+A fraction bar groups the entire top (**numerator**) and the entire bottom (**denominator**) as if each wore its own parentheses:
+
+$$\dfrac{\text{numerator}}{\text{denominator}}=(\text{numerator})\div(\text{denominator})$$
+
+Work out the whole numerator and the whole denominator before dividing. Inside each part, powers and multiplication still go before addition and subtraction.
+
+Try this example: evaluate $\dfrac{4^2+6\times 2}{10-3\times 2}$.
+
+First evaluate the numerator:
+
+$$4^2+6\times 2=16+12=28$$
+
+Next evaluate the denominator:
+
+$$10-3\times 2=10-6=4$$
+
+Now divide:
+
+$$\dfrac{28}{4}=7$$
+
+:::why
+Why can you not divide $48$ by $6$ first in $\dfrac{48}{6+2}$? The bar sits under all of $6+2$, so the whole sum $8$ is the divisor. Dividing by $6$ first breaks the group apart.
+:::
+
+:::pair #fraction-bar-not-grouped
+Right: $\dfrac{48}{6+2}=48\div 8=6$
+Wrong: $\dfrac{48}{6+2}=48\div 6+2=8+2=10$
+The wrong line treated the fraction bar like an ordinary division sign without parentheses. Finish the full denominator $6+2=8$ before dividing $48$.
+:::
+
+:::pair #subtract-inside-denominator
+Right: $10-3\times 2=10-6=4$, so $\dfrac{28}{4}=7$
+Wrong: $10-3\times 2=7\times 2=14$, so $\dfrac{28}{14}=2$
+Order of operations still applies inside a grouped denominator. Multiply $3\times 2=6$ before subtracting from $10$.
+:::
+
+:::check
+Evaluate $\dfrac{30}{3+2}-1$.
+:::answer
+The answer is $5$. Finish the denominator first ($3+2=5$), divide ($30\div 5=6$), then subtract ($6-1=5$).
+:::
 
 ## Examples
 
 ### #1: Nested Grouping Symbols
 
-In exam questions, **simplify** means write an equivalent expression in a simpler form.
-
-Simplify: $2[5+3(4-2)^2]-10$.
+Simplify $2[5+3(4-2)^2]-10$.
 
 **Solution:**
 
@@ -30,13 +112,13 @@ Simplify: $2[5+3(4-2)^2]-10$.
 
 $$4-2=2$$
 
-2. Evaluate the exponent.
+2. Evaluate the exponent on that result.
 
 $$2^2=4$$
 
 3. Multiply inside the brackets.
 
-$$3\times4=12$$
+$$3\times 4=12$$
 
 4. Add inside the brackets.
 
@@ -46,33 +128,54 @@ $$5+12=17$$
 
 $$2(17)-10=34-10=24$$
 
+The answer is $24$.
+
+**Check:** Work backward from $24$: adding $10$ gives $34$, dividing by $2$ gives $17$, subtracting $5$ gives $12$, and dividing by $3$ gives $4=2^2=(4-2)^2$.
+
 ### #2: Fraction Bars as Grouping Symbols
 
-What is the value of $\dfrac{3^2+4\times5}{6-2^3+4}$?
+What is the value of $\dfrac{3^2+4\times 5}{6-2^3+4}$?
 
 **Solution:**
 
-1. Treat the numerator and denominator as grouped expressions.
-2. Evaluate the numerator.
+1. Evaluate the power in the numerator.
 
-$$3^2+4\times5=9+20=29$$
+$$3^2=9$$
 
-3. Evaluate the denominator from left to right after the exponent.
+2. Multiply inside the numerator.
 
-$$6-2^3+4=6-8+4=2$$
+$$4\times 5=20$$
 
-4. Divide the two results.
+3. Add the parts of the numerator.
 
-$$\dfrac{29}{2}$$
+$$9+20=29$$
+
+4. Evaluate the denominator as one group: power first, then add and subtract from left to right.
+
+$$6-2^3+4=6-8+4$$
+
+$$-2+4=2$$
+
+:::try
+Finish the last step: divide the numerator $29$ by the denominator $2$.
+:::answer
+The answer is $\dfrac{29}{2}$ (or $14.5$). Putting $29$ over $2$ gives the fraction $\dfrac{29}{2}$.
+
+**Check:** Multiplying $14.5\times 2$ gives $29$, which matches the numerator $9+20=29$.
+:::
 
 ## Speed Tricks & Shortcuts
 
-Addition and subtraction signs can help you see large additive terms. In an expression such as
+When there are no grouping symbols around them, plus and minus signs split a long line into separate pieces. In $5\times 4-3^2+20\div 5$, you can work out the three pieces at once:
 
-$$5\times4-3^2+20\div5,$$
+$$20-9+4=15$$
 
-you can evaluate the higher-priority pieces first:
+Do this only when you do not break a group or a higher-priority operation.
 
-$$20-9+4=15.$$
+## Traps to Watch For
 
-This is safe as long as you do not break apart an operation that has higher priority or ignore grouping symbols.
+:::checklist
+- Number outside a squared group: apply the exponent to the group first, then multiply. {#multiply-into-power}
+- Expression above or below a fraction bar: finish the whole top and whole bottom before dividing. {#fraction-bar-not-grouped}
+- Operations inside a fraction's top or bottom: multiply and divide before adding or subtracting. {#subtract-inside-denominator}
+:::

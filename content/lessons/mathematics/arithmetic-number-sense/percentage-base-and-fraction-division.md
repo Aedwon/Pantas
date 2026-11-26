@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-percentage-base-and-fraction-division"
 title: "Percentage Base and Fraction Division"
-summary: "Find a percentage part or its base."
+summary: "Identify the percentage base and divide fractions to find a rate."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 isActive: true
@@ -14,11 +14,17 @@ keyPoints:
 ---
 ## Core Concept
 
-### Percentage Amount, Rate, and Base
+### Percentage Part, Rate, and Base
 
-The **base** is the whole or reference amount from which a percentage is taken. The **part** is the amount found by taking that percentage. The **rate** tells how much of the base to take.
+Every percent problem connects three numbers. The **base** is the whole or reference amount.
 
-Use the decimal form of the rate in these equations:
+The **part** is the share taken from that base. The **rate** tells what fraction or percent of the base you take.
+
+<!-- ILLUSTRATION: horizontal bar labeled "Base = 200 (100%)" split into a shaded left part labeled "Part = 60 (Rate = 30%)" and an unshaded right part labeled "140 (70%)" -->
+
+In "$30\%$ of $200$ is $60$," the base is $200$, the rate is $30\%$ (or $0.30$), and the part is $60$. Notice that the base sits right after the word "of."
+
+Change the rate to a decimal before using these three formulas:
 
 $$\text{Part}=\text{Rate}\times\text{Base}$$
 
@@ -26,39 +32,103 @@ $$\text{Base}=\dfrac{\text{Part}}{\text{Rate}}$$
 
 $$\text{Rate}=\dfrac{\text{Part}}{\text{Base}}$$
 
-Finding the base by division needs a nonzero rate. Finding the rate needs a nonzero base.
+Try finding the base when $40\%$ of a number is $72$. Here the part is $72$, the rate is $0.40$, and the base is unknown.
 
-Look for the amount after "of." In "$30\%$ of $200$," the base is $200$. In "what percent of $80$ is $20$," the base is $80$ and the part is $20$.
+$$\text{Base}=\dfrac{72}{0.40}$$
 
-### Dividing Fractions
+Move both decimal points $2$ places right to divide by a whole number.
 
-The **reciprocal** of a nonzero fraction is found by swapping its numerator and denominator. A fraction times its reciprocal equals $1$.
+$$\text{Base}=\dfrac{7,200}{40}=180$$
 
-To divide by a fraction, multiply by its reciprocal. Multiplying both numbers in the division by that reciprocal makes the divisor $1$ and keeps the answer unchanged.
+You can only divide by a nonzero rate or a nonzero base.
+
+:::why
+Why does dividing the part by the rate give the base? Because $\text{Part}=\text{Rate}\times\text{Base}$. Dividing both sides by the rate undoes the multiplication and leaves the base alone.
+:::
+
+:::pair #wrong-percentage-base
+Right: $15\%$ of the whole set $=0.15\times180=27$
+Wrong: $15\%$ of the whole set $=0.15\times72=10.8$
+Here $72$ is only the $40\%$ part already answered, not the whole set. Always find the base before taking another percent of it.
+:::
+
+:::check
+If $25\%$ of a number is $45$, what is the number?
+:::answer
+The answer is $180$. Divide the part by the decimal rate: $45\div0.25=4,500\div25=180$.
+:::
+
+### Dividing Fractions to Find a Rate
+
+The **reciprocal** of a nonzero fraction swaps its top and bottom numbers. For example, the reciprocal of $\dfrac{5}{8}$ is $\dfrac{8}{5}$. Any nonzero fraction times its reciprocal equals $1$.
+
+To divide by a fraction, multiply by its reciprocal:
 
 $$\dfrac{a}{b}\div\dfrac{c}{d}=\dfrac{a}{b}\times\dfrac{d}{c}$$
 
-Here, $b$ and $d$ must not be $0$. The divisor must also be nonzero, so $c$ must not be $0$.
+Here $b$, $c$, and $d$ cannot be $0$.
+
+Suppose a problem asks: what percent of $\dfrac{4}{5}$ is $\dfrac{3}{5}$? The number after "of" is the base, so the base is $\dfrac{4}{5}$ and the part is $\dfrac{3}{5}$.
+
+1. Divide the part by the base to find the rate.
+
+$$\text{Rate}=\dfrac{3}{5}\div\dfrac{4}{5}$$
+
+2. Multiply by the reciprocal of $\dfrac{4}{5}$.
+
+$$\text{Rate}=\dfrac{3}{5}\times\dfrac{5}{4}=\dfrac{15}{20}=\dfrac{3}{4}=0.75$$
+
+3. Change the decimal to a percent by multiplying by $100\%$.
+
+$$0.75\times100\%=75\%$$
+
+:::pair #percent-decimal-shift
+Right: $0.75\times100\%=75\%$
+Wrong: $0.75\times100\%=7.5\%$
+Multiplying by $100$ moves the decimal point $2$ places right, not $1$. A rate of $7.5\%$ would be $0.075$.
+:::
+
+:::why
+Why does multiplying by the reciprocal work? Writing $\dfrac{3}{5}\div\dfrac{4}{5}$ as a big fraction and multiplying top and bottom by $\dfrac{5}{4}$ turns the bottom into $\dfrac{4}{5}\times\dfrac{5}{4}=1$. Only the top remains: $\dfrac{3}{5}\times\dfrac{5}{4}$.
+:::
+
+:::check
+What percent of $\dfrac{3}{4}$ is $\dfrac{3}{10}$?
+:::answer
+The answer is $40\%$. Divide $\dfrac{3}{10}\div\dfrac{3}{4}=\dfrac{3}{10}\times\dfrac{4}{3}=\dfrac{2}{5}=0.40$, then multiply by $100\%$ to get $40\%$.
+:::
 
 ## Examples
 
-### #1: Finding the Percentage Base
+In exam questions, **simplify** means write an equal fraction or expression in a simpler form.
 
-If $40\%$ of a number is $72$, what is $15\%$ of the same number?
+### #1: Finding a Base Before Another Percent
+
+After completing $40\%$ of a practice set, a student has answered $72$ questions. How many questions equal $15\%$ of the entire set?
 
 **Solution:**
 
-1. Let $x$ be the unknown base. The known part is $72$ and the rate is $0.40$.
+1. Let $B$ be the total number of questions in the set. The part $72$ equals $40\%$ of $B$.
 
-$$72=0.40x$$
+$$\text{Base}=\dfrac{72}{0.40}$$
 
-2. Divide the part by the rate.
+2. Divide to find the full set size.
 
-$$x=72\div0.40=180$$
+$$\text{Base}=\dfrac{7,200}{40}=180$$
 
-3. Find $15\%$ of that same base.
+:::pair #stop-at-the-base
+Right: find $15\%$ of $180$, so $0.15\times180=27$
+Wrong: answer with $180$
+The question asks for $15\%$ of the entire set, not the full size of the set. Check what the final sentence asks before picking your answer.
+:::
+
+3. Multiply the base by $0.15$ to find $15\%$ of the entire set.
 
 $$0.15\times180=27$$
+
+There are $27$ questions.
+
+**Check:** Compare the percents: $15\%$ is less than half of $40\%$ (half of $40\%$ is $20\%$, which is $36$ questions). So $27$ questions is slightly less than $36$, which makes sense.
 
 ### #2: Fraction Division to Find a Rate
 
@@ -66,44 +136,40 @@ What percent of $\dfrac{5}{8}$ is $\dfrac{1}{4}$?
 
 **Solution:**
 
-1. The base is $\dfrac{5}{8}$. Divide the part by the base to find the decimal rate $P$.
+1. Identify the base after "of." The base is $\dfrac{5}{8}$ and the part is $\dfrac{1}{4}$.
 
-$$P=\dfrac{1}{4}\div\dfrac{5}{8}$$
+$$\text{Rate}=\dfrac{1}{4}\div\dfrac{5}{8}$$
 
-2. Multiply by the reciprocal of the divisor.
+2. Multiply by the reciprocal of $\dfrac{5}{8}$.
 
-$$P=\dfrac{1}{4}\times\dfrac{8}{5}$$
+$$\text{Rate}=\dfrac{1}{4}\times\dfrac{8}{5}$$
 
-3. Multiply and simplify.
+3. Multiply numerators and denominators, then simplify.
 
-$$P=\dfrac{8}{20}=\dfrac{2}{5}=0.4$$
+$$\text{Rate}=\dfrac{8}{20}=\dfrac{2}{5}=0.40$$
 
-4. Convert the decimal rate to a percentage.
+:::try
+Finish the last step: change the decimal rate $0.40$ to a percent.
+:::answer
+The answer is $40\%$. Multiply $0.40\times100\%=40\%$.
 
-$$0.4\times100=40$$
-
-5. The answer is $40\%$.
+**Check:** Compare $\dfrac{1}{4}$ and $\dfrac{5}{8}$ using a common denominator of $8$. Since $\dfrac{1}{4}=\dfrac{2}{8}$, the question asks what percent $2$ eighths is of $5$ eighths. That is $\dfrac{2}{5}=40\%$.
+:::
 
 ## Speed Tricks & Shortcuts
 
 ### Switch the Percent and the Base
 
-For numbers $x$ and $y$, $x\%$ of $y$ equals $y\%$ of $x$. Both calculations multiply $x$ by $y$ and divide by $100$.
-
-For example, $16\%$ of $25$ equals $25\%$ of $16$. The second form may be easier because $25\%$ is one-fourth.
-
-$$16\div4=4$$
+For any two numbers $x$ and $y$, $x\%$ of $y$ equals $y\%$ of $x$. For example, $16\%$ of $25$ equals $25\%$ of $16$. Since $25\%$ is one-fourth, $16\div4=4$.
 
 ### Find $10\%$ First
 
-To find $15\%$ mentally, find $10\%$, then half of that amount for $5\%$. Add the two parts.
-
-For $80$, $10\%$ is $8$ and $5\%$ is $4$. So $15\%$ of $80$ is $12$.
+To find $15\%$ mentally, find $10\%$, take half of it for $5\%$, and add them. For $180$, $10\%$ is $18$ and $5\%$ is $9$, so $15\%$ is $18+9=27$.
 
 ## Traps to Watch For
 
-### #1: Using the Wrong Base
-
-> Find the reference amount before multiplying.
-
-In "$40\%$ of $180$," the base is $180$. Using $40$ as the base changes what the question asks.
+:::checklist
+- Finding a new percent from a given part: divide the part by its rate to get the base first, then take the new percent of that base. {#wrong-percentage-base}
+- Stopping after finding the base: re-read what the question asks before choosing your final number. {#stop-at-the-base}
+- Changing a decimal rate to a percent: move the decimal point $2$ places right, so $0.75$ becomes $75\%$. {#percent-decimal-shift}
+:::

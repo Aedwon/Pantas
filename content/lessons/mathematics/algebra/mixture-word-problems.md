@@ -13,62 +13,153 @@ keyPoints:
 ---
 ## Core Concept
 
-### Mixture Problems
+### Finding the Pure Amount
 
-Track the pure part, such as alcohol, salt, or sugar. **Concentration** tells what fraction or percent of the mixture is that pure part.
+A solution has two parts: the **pure substance** (such as salt, sugar, or alcohol) and the liquid holding it. **Concentration** tells what percent of the whole mixture is that pure substance.
 
-**Percent** means per hundred. Divide a percent number by $100$ to write it as a decimal:
+**Percent** means per hundred. Divide a percent by $100$ to write it as a decimal:
 
-$$20\%=\dfrac{20}{100}=0.20$$
+$$10\%=\dfrac{10}{100}=0.10$$
 
-Use that decimal in the pure-amount formula:
+Multiply that decimal by the total volume to find the pure amount:
 
 $$\text{pure amount}=\text{concentration}\times\text{total amount}$$
 
-When mixing without losing liquid or pure material, add the starting pure amounts to get the final pure amount. In the mixture example, assume the liquid amounts also add.
+Pure water has $0\%$ salt or sugar ($0.00$). A pure substance has $100\%$ concentration ($1.00$).
+
+Try this example. A store has $10$ liters of a $10\%$ vinegar solution. How much pure vinegar is inside?
+
+$$0.10\times 10=1$$
+
+There is $1$ liter of pure vinegar.
+
+:::check
+How many liters of pure sugar are in $12$ liters of a $25\%$ sugar solution?
+:::answer
+The answer is $3$ liters. Multiply $0.25\times 12=3$.
+:::
+
+### Balancing Pure Amounts When Mixing
+
+When two solutions are mixed under the standard assumption that volumes add and no liquid or pure material is lost, both the volumes and the pure amounts add up:
+
+$$\text{pure}_1+\text{pure}_2=\text{pure}_{\text{final}}$$
+
+Under that model assumption, the final volume is the sum of the two starting volumes.
+
+<!-- ILLUSTRATION: two beakers pouring into one larger beaker. Left beaker: "8 L at 50%" with "0.50(8) = 4 L pure". Middle beaker: "x L at 20%" with "0.20x L pure". Right beaker: "(8 + x) L at 30%" with "0.30(8 + x) L pure" -->
+
+Try this example. A teacher needs $20$ liters of a $20\%$ salt solution by mixing a $30\%$ solution and a $10\%$ solution. Let $x$ be the liters of the $30\%$ solution. Then the $10\%$ solution has volume $20-x$.
+
+$$0.30x+0.10(20-x)=0.20(20)$$
+
+$$0.30x+2-0.10x=4$$
+
+$$0.20x+2=4$$
+
+$$0.20x=2$$
+
+$$x=10$$
+
+She needs $10$ liters of the $30\%$ solution.
+
+:::pair #omit-original-volume
+Right: $0.50(8)+0.20x=0.30(8+x)$
+Wrong: $0.50(8)+0.20x=0.30x$
+The final mixture holds both the original $8$ liters and the added $x$ liters, so its total volume is $8+x$, not $x$ alone.
+:::
+
+:::pair #report-final-volume
+Right: $12\times 0.25=3$, final volume $=3\div 0.10=30$ liters, so added water is $30-12=18$ liters.
+Wrong: $12\times 0.25=3$, final volume $=3\div 0.10=30$ liters, so the answer is $30$ liters.
+When adding pure water to dilute $12$ liters of a $25\%$ solution to a $10\%$ solution, $30$ liters is the new total. Subtract the starting $12$ liters to report only the water added.
+:::
+
+:::check
+A shop has $4$ liters of a $50\%$ solution and adds $x$ liters of a $10\%$ solution to make a $20\%$ solution. What expression gives the pure amount in the final mixture?
+:::answer
+The answer is $0.20(4+x)$. Multiply the final concentration $0.20$ by the combined volume $4+x$.
+:::
 
 ## Examples
 
-### #1: Mixture Problem
+### #1: Mixing Two Solutions
 
 How many liters of a $20\%$ alcohol solution must be added to $8$ liters of a $50\%$ alcohol solution to make a $30\%$ alcohol solution? Assume the volumes add and no liquid or alcohol is lost.
 
 **Solution:**
 
-1. Let $x$ be the liters of the $20\%$ solution to add.
-2. Divide each percent number by $100$.
+1. Let $x$ be the liters of the $20\%$ solution to add. Then the final volume is $x+8$ liters.
+2. Convert each percent to a decimal.
 
-$$20\%=0.20$$
+$$20\%=0.20,\qquad 50\%=0.50,\qquad 30\%=0.30$$
 
-$$50\%=0.50,\qquad30\%=0.30$$
-
-3. The starting pure alcohol amounts are $0.20x$ liters and $0.50(8)$ liters. The final volume is $x+8$ liters.
-4. Set the starting pure alcohol equal to the final pure alcohol.
+3. Set the starting pure alcohol equal to the final pure alcohol.
 
 $$0.20x+0.50(8)=0.30(x+8)$$
 
-5. Multiply and open the parentheses.
+4. Multiply $0.50(8)$ on the left side.
+
+$$0.20x+4=0.30(x+8)$$
+
+5. Expand the right side.
 
 $$0.20x+4=0.30x+2.4$$
 
-6. Subtract $0.20x$ and $2.4$ from both sides.
+6. Subtract $0.20x$ from both sides.
+
+$$4=0.10x+2.4$$
+
+7. Subtract $2.4$ from both sides.
 
 $$1.6=0.10x$$
 
-7. Divide by $0.10$.
+8. Divide by $0.10$.
 
 $$x=16$$
 
-8. Check the pure alcohol and total volume.
+Add $16$ liters of the $20\%$ solution.
 
-$$0.20(16)+4=7.2$$
+**Check:** The pure alcohol is $0.20(16)+4=3.2+4=7.2$ liters, and the total volume is $16+8=24$ liters. Dividing gives $\dfrac{7.2}{24}=0.30$, or $30\%$.
 
-$$16+8=24$$
+### #2: Diluting With Pure Water
 
-$$\dfrac{7.2}{24}=0.30$$
+How many liters of pure water must be added to $15$ liters of a $20\%$ salt solution to dilute it into a $12\%$ salt solution? Assume the volumes add and no liquid or salt is lost.
 
-9. Add $16$ liters of the $20\%$ solution.
+**Solution:**
+
+1. Find the pure salt in the starting $15$ liters.
+
+$$0.20(15)=3$$
+
+2. Pure water adds $0$ salt, so the final mixture still holds $3$ liters of salt. Let $w$ be the liters of water added, so the final volume is $15+w$.
+
+$$0.12(15+w)=3$$
+
+3. Expand the left side.
+
+$$1.8+0.12w=3$$
+
+4. Subtract $1.8$ from both sides.
+
+$$0.12w=1.2$$
+
+:::try
+Finish the last step: divide $1.2$ by $0.12$ to find how many liters of water to add.
+:::answer
+The answer is $10$ liters. Dividing $1.2\div 0.12=10$ gives $w=10$.
+
+**Check:** Adding $10$ liters of water makes a final volume of $15+10=25$ liters. With $3$ liters of pure salt, $\dfrac{3}{25}=0.12$, or $12\%$.
+:::
 
 ## Speed Tricks & Shortcuts
 
-Before solving a mixture problem, check which amount should be larger. Here $30\%$ is closer to $20\%$ than to $50\%$. The mixture therefore needs more of the weaker solution than of the stronger one.
+Before solving, check which starting concentration sits closer to the target. In the first example, $30\%$ is closer to $20\%$ than to $50\%$, so the mixture must use more of the $20\%$ solution ($16$ liters) than of the $50\%$ solution ($8$ liters).
+
+## Traps to Watch For
+
+:::checklist
+- Final mixture volume: add both starting volumes together, as in $0.30(8+x)$. {#omit-original-volume}
+- Diluting with water: subtract the starting volume from the final total to report only the water added. {#report-final-volume}
+- Pure water or pure substance: use $0\%$ ($0.00$) for pure water and $100\%$ ($1.00$) for a pure substance. {#finding-the-pure-amount}
+:::

@@ -1,0 +1,1123 @@
+{
+  "lessons": {
+    "lesson-algebra-age-word-problems": {
+      "change-both-ages": [
+        {
+          "questionId": "q-algebra-word-problems-0007",
+          "wrongChoice": "$18\\text{ years old}$",
+          "mistakeNote": "Omits the mother's six-year increase, giving 4a = 3(a + 6) instead of 4a + 6 = 3(a + 6)."
+        }
+      ],
+      "wrong-person-or-time": [
+        {
+          "questionId": "q-algebra-word-problems-0001",
+          "wrongChoice": "$14\\text{ years old}$",
+          "mistakeNote": "Reports Ben's age (m + 4 = 14) instead of Maya's age (m = 10)."
+        },
+        {
+          "questionId": "q-algebra-word-problems-0011",
+          "wrongChoice": "$12\\text{ years old}$",
+          "mistakeNote": "Reports Carlo's age four years ago instead of his current age."
+        }
+      ]
+    },
+    "lesson-algebra-motion-meeting-and-separation": {
+      "speed-over-distance": [
+        {
+          "questionId": "q-algebra-word-problems-0002",
+          "wrongChoice": "$0.67\\text{ hours}$",
+          "mistakeNote": "Divides speed by distance (30 / 45) instead of distance by speed (45 / 30)."
+        }
+      ],
+      "subtract-instead-of-add": [
+        {
+          "questionId": "q-algebra-word-problems-0014",
+          "wrongChoice": "$18\\text{ hours}$",
+          "mistakeNote": "Subtracts 35 - 25 = 10 km/h (chase rate) instead of adding 25 + 35 = 60 km/h for opposite directions."
+        }
+      ],
+      "average-speeds-mistake": [
+        {
+          "questionId": "q-algebra-word-problems-0014",
+          "wrongChoice": "$6\\text{ hours}$",
+          "mistakeNote": "Averages the two speeds (30 km/h) before dividing 180 km instead of adding both speeds (60 km/h)."
+        }
+      ]
+    },
+    "lesson-algebra-motion-chase-problems": {
+      "add-speeds-in-chase": [
+        {
+          "questionId": "q-algebra-word-problems-0008",
+          "wrongChoice": "$0.4\\text{ hour}$",
+          "mistakeNote": "Adds 60 + 40 = 100 km/h instead of subtracting 60 - 40 = 20 km/h for a same-direction chase."
+        }
+      ],
+      "use-only-chaser-speed": [
+        {
+          "questionId": "q-algebra-word-problems-0008",
+          "wrongChoice": "$\\dfrac{2}{3}\\text{ hour}$",
+          "mistakeNote": "Divides the 40 km head start by the van's 60 km/h speed alone, ignoring that the jeepney keeps moving."
+        }
+      ],
+      "head-start-clock": [
+        {
+          "questionId": "q-algebra-word-problems-0008",
+          "wrongChoice": "$3\\text{ hours}$",
+          "mistakeNote": "Includes the jeepney's 1-hour head start (2 + 1 = 3) when the question asks for hours after the van starts."
+        }
+      ]
+    },
+    "lesson-algebra-work-rate-problems": {
+      "average-work-times": [
+        {
+          "questionId": "q-algebra-word-problems-0003",
+          "wrongChoice": "$4.5\\text{ hours}$",
+          "mistakeNote": "Averages the solo times (6 + 3)/2 = 4.5 instead of adding work rates 1/6 + 1/3."
+        }
+      ],
+      "rate-not-time": [
+        {
+          "questionId": "q-algebra-word-problems-0009",
+          "wrongChoice": "$\\dfrac{5}{24}\\text{ hour}$",
+          "mistakeNote": "Reports Bea's hourly work rate (5/24) instead of taking its reciprocal (24/5 = 4.8 hours)."
+        }
+      ],
+      "subtract-solo-times": [
+        {
+          "questionId": "q-algebra-word-problems-0009",
+          "wrongChoice": "$5\\text{ hours}$",
+          "mistakeNote": "Subtracts solo times directly (8 - 3 = 5) instead of subtracting rates (1/3 - 1/8)."
+        }
+      ]
+    },
+    "lesson-algebra-mixture-word-problems": {
+      "omit-original-volume": [
+        {
+          "questionId": "q-algebra-word-problems-0020",
+          "wrongChoice": "Use $0.30x$ on the right.",
+          "mistakeNote": "Omits the original 8 liters from the final volume, writing 0.30x instead of 0.30(8 + x)."
+        }
+      ],
+      "report-final-volume": [
+        {
+          "questionId": "q-algebra-word-problems-0016",
+          "wrongChoice": "$30\\text{ liters}$",
+          "mistakeNote": "Reports the final diluted volume (30 L) instead of subtracting the starting 12 L to get the added water (18 L)."
+        }
+      ]
+    },
+    "lesson-algebra-coin-and-digit-problems": {
+      "missing-coin-value": [
+        {
+          "questionId": "q-algebra-word-problems-0006",
+          "wrongChoice": "$5f+10t=20$",
+          "mistakeNote": "Sets the peso value expression 5f + 10t equal to the coin count (20) instead of the total peso value (160)."
+        }
+      ],
+      "reversed-digits": [
+        {
+          "questionId": "q-algebra-word-problems-0019",
+          "wrongChoice": "$48$",
+          "mistakeNote": "Reverses the tens and units digits, reporting 48 instead of 84."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-operation-priority-and-left-to-right": {
+      "power-not-product": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0016",
+          "wrongChoice": "$13$",
+          "mistakeNote": "Evaluates 2^3 as 2 * 3 = 6 instead of 2 * 2 * 2 = 8, giving 7 + 6 = 13."
+        }
+      ],
+      "multiply-before-divide": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0001",
+          "wrongChoice": "$3$",
+          "mistakeNote": "Multiplies 3 * 2 = 6 before dividing 18 / 3 in 18 / 3 * 2, breaking left-to-right order."
+        }
+      ],
+      "add-before-subtract": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0002",
+          "wrongChoice": "$6$",
+          "mistakeNote": "Adds 5 + 4 = 9 before subtracting from 15 in 15 - 5 + 4, breaking left-to-right order."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-grouping-and-fraction-bars": {
+      "multiply-into-power": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0004",
+          "wrongChoice": "$400$",
+          "mistakeNote": "Multiplies 4 * 5 = 20 before squaring in 4 * (8 - 3)^2, giving 20^2 = 400 instead of 4 * 25 = 100."
+        }
+      ],
+      "fraction-bar-not-grouped": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0018",
+          "wrongChoice": "$A=B$",
+          "mistakeNote": "Treats 48 / (6 + 2) as 48 / 6 + 2, ignoring the grouping effect of the fraction bar."
+        }
+      ],
+      "subtract-inside-denominator": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0009",
+          "wrongChoice": "$2$",
+          "mistakeNote": "Subtracts 10 - 3 = 7 before multiplying by 2 in the denominator of (4^2 + 6*2)/(10 - 3*2), giving 28/14 = 2."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-real-number-sets": {
+      "negative-whole-number": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0001",
+          "wrongChoice": "$-1$",
+          "mistakeNote": "Includes negative integers among whole numbers instead of keeping whole numbers nonnegative."
+        }
+      ],
+      "perfect-square-root": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0002",
+          "wrongChoice": "$\\sqrt{9}$",
+          "mistakeNote": "Assumes any number with a radical sign is irrational, missing that sqrt(9) = 3 is rational."
+        }
+      ],
+      "decimal-is-irrational": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0002",
+          "wrongChoice": "$0.75$",
+          "mistakeNote": "Treats a terminating decimal (0.75 = 3/4) as irrational."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-imaginary-unit-and-powers": {
+      "imaginary-part-coefficient": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0016",
+          "wrongChoice": "$-4i$",
+          "mistakeNote": "Gives the entire imaginary term -4i instead of the real coefficient b = -4 in a + bi."
+        }
+      ],
+      "last-digit-power-of-i": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0006",
+          "wrongChoice": "$-i$",
+          "mistakeNote": "Divides only the last digit 7 by 4 for i^57 instead of dividing the whole exponent 57 by 4."
+        }
+      ],
+      "negative-root-product": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0014",
+          "wrongChoice": "$3$",
+          "mistakeNote": "Drops i / treats negative square roots as positive real roots in sqrt(-36)*sqrt(-4)/sqrt(-16), getting 3 instead of 3i."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-complex-products-and-quotients": {
+      "i-squared-sign": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0008",
+          "wrongChoice": "$2 - 7i$",
+          "mistakeNote": "Treats i^2 as +1 instead of -1 in (3 + 2i)(4 - 5i), giving 12 - 10 - 7i = 2 - 7i."
+        }
+      ],
+      "missing-cross-terms": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0008",
+          "wrongChoice": "$12 - 10i$",
+          "mistakeNote": "Omits the cross terms (-15i and +8i) and replaces i^2 with i."
+        }
+      ],
+      "conjugate-denominator-sign": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0011",
+          "wrongChoice": "$\\dfrac{5}{4}+\\dfrac{5}{4}i$",
+          "mistakeNote": "Evaluates the conjugate product (3 - i)(3 + i) as 9 - 1 = 8 instead of 9 + 1 = 10."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-commutative-and-associative-properties": {
+      "order-vs-grouping": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0001",
+          "wrongChoice": "$(3 + 5) + 4 = 3 + (5 + 4)$"
+        }
+      ],
+      "subtraction-order": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0004",
+          "wrongChoice": "Subtraction is commutative because the numerical value remains 2."
+        }
+      ],
+      "division-grouping": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0010",
+          "wrongChoice": "Division is not commutative, so changing the order of operands alters the result."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-identities-and-like-terms": {
+      "zero-multiplication": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0022",
+          "wrongChoice": "$-17+0=-17;\\ (-17)(0)=0$"
+        }
+      ],
+      "unlike-exponents": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0023",
+          "wrongChoice": "$-5$"
+        }
+      ],
+      "swapped-letters": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0024",
+          "wrongChoice": "$3xy+5yx+5x^2$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-additive-and-multiplicative-inverses": {
+      "reciprocal-sign": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0002",
+          "wrongChoice": "$\\dfrac{7}{4}$"
+        }
+      ],
+      "opposite-vs-reciprocal": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0002",
+          "wrongChoice": "$\\dfrac{4}{7}$"
+        }
+      ],
+      "zero-has-no-reciprocal": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0020",
+          "wrongChoice": "$r=0$ is the required number."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-distribution-and-common-factors": {
+      "first-term-only": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0003",
+          "wrongChoice": "$12x + 7$"
+        }
+      ],
+      "negative-times-negative": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0006",
+          "wrongChoice": "$-2x - 10$"
+        }
+      ],
+      "keep-one-inside": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0016",
+          "wrongChoice": "$17(99)+1$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-prime-factors-and-powers": {
+      "one-is-not-prime": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0016",
+          "wrongChoice": "$1$ is the smallest prime."
+        }
+      ],
+      "stop-at-composite": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0001",
+          "wrongChoice": "$2^2 \\times 9 \\times 5$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-greatest-common-factor": {
+      "gcf-larger-exponent": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0020",
+          "wrongChoice": "Use $2^4\\times3^2\\times5$."
+        }
+      ],
+      "gcf-unshared-prime": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0007",
+          "wrongChoice": "$2,520$"
+        }
+      ],
+      "gcf-groups-vs-items": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0008",
+          "wrongChoice": "$48$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-least-common-multiple": {
+      "lcm-product-trap": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0003",
+          "wrongChoice": "$864$"
+        }
+      ],
+      "lcm-gcf-swap": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0003",
+          "wrongChoice": "$12$"
+        }
+      ],
+      "product-rule-missing": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0010",
+          "wrongChoice": "$6$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-same-remainder-numbers": {
+      "subtract-remainder": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0021",
+          "wrongChoice": "$N=36k-2$"
+        }
+      ],
+      "product-instead-of-lcm": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0021",
+          "wrongChoice": "$N=216k+2$"
+        }
+      ],
+      "forget-remainder": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0018",
+          "wrongChoice": "$120$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-decimal-and-percent-conversions": {
+      "drop-whole-part": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0023",
+          "wrongChoice": "$\\dfrac{11}{40}$"
+        }
+      ],
+      "wrong-place-count": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0022",
+          "wrongChoice": "$\\dfrac{5}{8}$"
+        }
+      ],
+      "one-place-shift": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0018",
+          "wrongChoice": "Divide $2.5$ by $10$ only."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-fractions-and-mixed-forms": {
+      "divide-upside-down": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0001",
+          "wrongChoice": "$\\dfrac{800}{3}\\%$"
+        }
+      ],
+      "one-shift-to-percent": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0024",
+          "wrongChoice": "$0.4375$ and $4.375\\%$"
+        }
+      ],
+      "forget-percent-divide": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0025",
+          "wrongChoice": "$13.375$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-adding-and-multiplying-fractions": {
+      "leave-unsimplified": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0004",
+          "wrongChoice": "$\\dfrac{6}{9}$"
+        }
+      ],
+      "multiply-top-add-bottom": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0021",
+          "wrongChoice": "$\\dfrac{21}{17}$"
+        }
+      ],
+      "add-instead-of-multiply": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0021",
+          "wrongChoice": "$\\dfrac{71}{60}$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-multiplying-and-dividing-decimals": {
+      "count-both-decimal-places": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0027",
+          "wrongChoice": "$28.2$"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0026",
+          "wrongChoice": "$3.6$"
+        }
+      ],
+      "extra-leading-zero": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0026",
+          "wrongChoice": "$0.0036$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-percentage-base-and-fraction-division": {
+      "wrong-percentage-base": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0020",
+          "wrongChoice": "$10.8$"
+        }
+      ],
+      "percent-decimal-shift": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0012",
+          "wrongChoice": "$5.5\\%$"
+        }
+      ],
+      "stop-at-the-base": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0020",
+          "wrongChoice": "$180$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-successive-percentages-and-increases": {
+      "add-successive-percents": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0013",
+          "wrongChoice": "$\\text{₱}\\dfrac{16800}{23}$"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0014",
+          "wrongChoice": "$2.5\\%$"
+        }
+      ],
+      "apply-second-to-original": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0005",
+          "wrongChoice": "$\\text{₱}977.50$"
+        }
+      ],
+      "percent-more-as-of": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0019",
+          "wrongChoice": "Their multipliers are $1.20$ and $1.20$."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-direct-proportion-and-travel": {
+      "increasing-not-direct": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0016",
+          "wrongChoice": "$y=x+3$"
+        }
+      ],
+      "reverse-ratio-order": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0002",
+          "wrongChoice": "$18$ liters"
+        }
+      ],
+      "hours-to-minutes": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0012",
+          "wrongChoice": "$80$ minutes"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work": {
+      "direct-instead-of-inverse": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0017",
+          "wrongChoice": "$8\\dfrac{1}{3}$ hours"
+        }
+      ],
+      "constant-product-not-sum": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0018",
+          "wrongChoice": "$2+8=4+6$"
+        }
+      ],
+      "use-total-not-remaining": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0019",
+          "wrongChoice": "$24$ days"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0021",
+          "wrongChoice": "$27$ days"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-partitive-proportion-and-differences": {
+      "add-parts-to-amount": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0004",
+          "wrongChoice": "$19$ passengers"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0020",
+          "wrongChoice": "$33$ meters"
+        }
+      ],
+      "one-share-not-total": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0020",
+          "wrongChoice": "$49$ meters"
+        }
+      ],
+      "reverse-ratio-order": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0011",
+          "wrongChoice": "$11 : 9$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-last-digit-divisibility": {
+      "add-digits-for-four": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0002",
+          "wrongChoice": "Use the digit sum; the number passes."
+        }
+      ],
+      "last-two-for-eight": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0007",
+          "wrongChoice": "$k = 3$"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0007",
+          "wrongChoice": "$k = 5$"
+        }
+      ],
+      "ending-zero-passes-ten": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0022",
+          "wrongChoice": "$0$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-digit-sums-and-six": {
+      "three-instead-of-nine": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0003",
+          "wrongChoice": "$3$"
+        }
+      ],
+      "ends-in-six-for-six": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0004",
+          "wrongChoice": "$24,536$"
+        }
+      ],
+      "only-even-middle-digit": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0021",
+          "wrongChoice": "$8$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven": {
+      "subtract-without-doubling": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0016",
+          "wrongChoice": "$31$"
+        }
+      ],
+      "total-sum-for-eleven": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0006",
+          "wrongChoice": "$d=2$"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0018",
+          "wrongChoice": "Use $(1+2)+(3+4)$ instead."
+        }
+      ],
+      "zero-is-divisible": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0001",
+          "wrongChoice": "$0$ cannot be divided by nonzero integers."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-coprime-divisibility-tests": {
+      "overlapping-factors": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0005",
+          "wrongChoice": "Use $4$ and $6$; shared factors do not matter."
+        }
+      ],
+      "pass-only-one-test": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0010",
+          "wrongChoice": "$a = 4, b = 9$"
+        }
+      ],
+      "stop-at-first-case": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0012",
+          "wrongChoice": "$0$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-finding-number-patterns": {
+      "repeat-last-difference": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0023",
+          "wrongChoice": "$58$"
+        }
+      ],
+      "wrong-square-step": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0025",
+          "wrongChoice": "$52$"
+        }
+      ],
+      "repeat-same-operation": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0024",
+          "wrongChoice": "$608$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-odd-and-even-position-patterns": {
+      "reverse-position-order": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0029",
+          "wrongChoice": "$3,32$"
+        }
+      ],
+      "mix-position-groups": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0030",
+          "wrongChoice": "$22$"
+        }
+      ],
+      "copy-wrong-step": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0030",
+          "wrongChoice": "$38$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-arithmetic-sequence-terms": {
+      "off-by-one-steps": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0001",
+          "wrongChoice": "$65$"
+        }
+      ],
+      "report-difference-not-term": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0006",
+          "wrongChoice": "$4$"
+        }
+      ],
+      "forget-plus-one": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0021",
+          "wrongChoice": "$38$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-arithmetic-series-sums": {
+      "omit-divide-by-two": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0003",
+          "wrongChoice": "$350$"
+        }
+      ],
+      "wrong-step-count-in-sum": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0003",
+          "wrongChoice": "$190$"
+        }
+      ],
+      "extra-half-on-middle-term": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0019",
+          "wrongChoice": "The sum is $42$."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-geometric-sequence-terms": {
+      "check-only-first-difference": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0002",
+          "wrongChoice": "Arithmetic, difference 3"
+        }
+      ],
+      "confuse-first-term-with-ratio": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0002",
+          "wrongChoice": "Geometric, ratio 3"
+        }
+      ],
+      "wrong-exponent-on-ratio": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0004",
+          "wrongChoice": "$192$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-finite-geometric-series": {
+      "omit-sum-denominator": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0008",
+          "wrongChoice": "$1210$"
+        }
+      ],
+      "report-last-term-not-sum": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0008",
+          "wrongChoice": "$405$"
+        }
+      ],
+      "add-count-instead-of-multiply": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0026",
+          "wrongChoice": "$23$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-infinite-geometric-series": {
+      "alternating-signs-diverge": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0007",
+          "wrongChoice": "$5 - 5 + 5 - 5 + \\dots$"
+        }
+      ],
+      "add-ratio-in-denominator": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0005",
+          "wrongChoice": "$9$"
+        }
+      ],
+      "divide-by-ratio-only": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0005",
+          "wrongChoice": "$36$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-harmonic-sequence-terms": {
+      "forget-final-reciprocal": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0016",
+          "wrongChoice": "$15$"
+        }
+      ],
+      "wrong-step-count-harmonic": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0016",
+          "wrongChoice": "$\\dfrac{1}{19}$"
+        }
+      ],
+      "flip-difference-instead": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0016",
+          "wrongChoice": "$\\dfrac{1}{4}$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-fibonacci-type-sequence-terms": {
+      "stop-at-earlier-term": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0018",
+          "wrongChoice": "$12$"
+        }
+      ],
+      "double-instead-of-add-prior-two": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0018",
+          "wrongChoice": "$24$"
+        }
+      ],
+      "add-instead-of-work-backward": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0022",
+          "wrongChoice": "$76$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-markup-on-cost": {
+      "markup-only-not-price": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0001",
+          "wrongChoice": "$\\text{₱}200.00$"
+        }
+      ],
+      "markup-is-not-profit": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0002",
+          "wrongChoice": "Php $160$"
+        }
+      ],
+      "wrong-percentage-base": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0006",
+          "wrongChoice": "$25\\%$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-commission-and-sales-tax": {
+      "wrong-commission-base": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0005",
+          "wrongChoice": "$\\text{₱}3,800.00$"
+        }
+      ],
+      "subtract-sales-tax": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0021",
+          "wrongChoice": "Php $2,820$"
+        }
+      ],
+      "stop-before-adding-tax": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0021",
+          "wrongChoice": "Php $3,000$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-simple-interest": {
+      "interest-instead-of-total": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0008",
+          "wrongChoice": "$\\text{₱}3,750.00$"
+        }
+      ],
+      "months-as-years": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0003",
+          "wrongChoice": "$\\text{₱}10,800.00$"
+        }
+      ],
+      "months-as-decimal-years": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0008",
+          "wrongChoice": "$\\text{₱}54,500.00$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-compound-interest": {
+      "simple-instead-of-compound": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0016",
+          "wrongChoice": "$1200$"
+        }
+      ],
+      "wrong-quarterly-period-rate": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0018",
+          "wrongChoice": "$1.04$"
+        }
+      ],
+      "rule-of-72-direction": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0020",
+          "wrongChoice": "$\\dfrac{1}{8}\\text{ year}$"
+        }
+      ]
+    },
+    "lesson-data-interpretation-table-values-and-totals": {
+      "missing-unit-scale": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0013",
+          "wrongChoice": "$25$"
+        }
+      ],
+      "wrong-column-entry": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0001",
+          "wrongChoice": "$46000$"
+        }
+      ],
+      "reverse-difference-order": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0007",
+          "wrongChoice": "$-550$"
+        }
+      ]
+    },
+    "lesson-data-interpretation-chart-scales-and-differences": {
+      "ignore-axis-unit": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0018",
+          "wrongChoice": "It represents $2.4$ visitors."
+        }
+      ],
+      "subtract-ticks-wrong-side": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0024",
+          "wrongChoice": "$5,000$ liters"
+        }
+      ],
+      "add-instead-of-subtract-chart": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0023",
+          "wrongChoice": "$600$ applications"
+        }
+      ]
+    },
+    "lesson-data-interpretation-averages-and-pie-chart-shares": {
+      "skip-zero-in-average": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0016",
+          "wrongChoice": "$15$"
+        }
+      ],
+      "total-instead-of-average": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0005",
+          "wrongChoice": "$28$ million pesos"
+        }
+      ],
+      "sum-instead-of-remaining-slice": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0022",
+          "wrongChoice": "$360,000$ pesos"
+        }
+      ]
+    },
+    "lesson-data-interpretation-percentage-change": {
+      "divide-by-new-value": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0001",
+          "wrongChoice": "$20\\%$"
+        }
+      ],
+      "label-change-as-percent": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0001",
+          "wrongChoice": "$10\\%$"
+        }
+      ],
+      "percent-from-zero": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0013",
+          "wrongChoice": "The percentage increase is exactly $100\\%$."
+        }
+      ]
+    },
+    "lesson-data-interpretation-percentages-and-ratios-of-groups": {
+      "other-part-as-total": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0006",
+          "wrongChoice": "$150\\%$"
+        }
+      ],
+      "reverse-ratio-order": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0002",
+          "wrongChoice": "$3:2$"
+        }
+      ],
+      "mismatched-ratio-units": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0018",
+          "wrongChoice": "$1:500$"
+        }
+      ]
+    },
+    "lesson-data-interpretation-unit-rates-and-direct-proportion": {
+      "wrong-unit-rate-order": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0022",
+          "wrongChoice": "$0.16$ pesos"
+        }
+      ],
+      "missing-hour-conversion": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0021",
+          "wrongChoice": "$7$ pages"
+        }
+      ],
+      "reverse-direct-scale": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0024",
+          "wrongChoice": "$300$ liters"
+        }
+      ]
+    },
+    "lesson-data-interpretation-inverse-proportion-and-ratio-parts": {
+      "total-instead-of-additional-machines": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0026",
+          "wrongChoice": "$12$ machines"
+        }
+      ],
+      "scale-time-like-direct": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0025",
+          "wrongChoice": "$7\\dfrac{1}{2}$ hours"
+        }
+      ],
+      "divide-equally-instead-of-ratio": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0028",
+          "wrongChoice": "$120$ folders"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-signed-integer-operations": {
+      "subtract-negative": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0021",
+          "wrongChoice": "$-25$"
+        }
+      ],
+      "quotient-sign": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0021",
+          "wrongChoice": "$13$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-substituting-negative-numbers": {
+      "exponent-scope": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0008",
+          "wrongChoice": "$19$"
+        }
+      ],
+      "minus-before-negative": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0008",
+          "wrongChoice": "$-1$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-discounted-prices": {
+      "price-not-discount": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0004",
+          "wrongChoice": "$\\text{₱}120.00$"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0009",
+          "wrongChoice": "$\\text{₱}725.00$"
+        }
+      ],
+      "successive-discounts": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0009",
+          "wrongChoice": "$\\text{₱}4,250.00$"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0019",
+          "wrongChoice": "The equivalent discount is $30\\%$."
+        }
+      ]
+    }
+  }
+}

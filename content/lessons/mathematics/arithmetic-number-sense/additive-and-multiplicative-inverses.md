@@ -14,56 +14,143 @@ keyPoints:
 ---
 ## Core Concept
 
-### Inverse Property
+### Additive Inverse
 
-An **additive inverse** is a number with the opposite sign. The additive inverse of $a$ is $-a$. Their sum is $0$.
+The **additive inverse** (or **opposite**) of a number is the number with the opposite sign. A number and its additive inverse always add to $0$, the additive identity.
+
+$$5+(-5)=0$$
+
+$$(-8)+8=0$$
+
+In symbols:
 
 $$a+(-a)=0$$
 
-For $a\ne0$, the **multiplicative inverse** of $a$ is $\dfrac{1}{a}$. Their product is $1$. For a nonzero fraction, switch its numerator and denominator to find this inverse.
+Notice that $0$ is its own additive inverse, because $0+0=0$.
 
-$$a\times\dfrac{1}{a}=1$$
+:::check
+What is the additive inverse of $-\dfrac{5}{6}$?
+:::answer
+The answer is $\dfrac{5}{6}$. Adding $-\dfrac{5}{6}+\dfrac{5}{6}$ gives $0$.
+:::
 
-Zero has no multiplicative inverse. Multiplying $0$ by any real number gives $0$, never $1$. Division by $0$ is undefined.
+### Multiplicative Inverse
+
+For any nonzero number, the **multiplicative inverse** (or **reciprocal**) is the number that multiplies with it to give $1$, the multiplicative identity.
+
+For a nonzero whole number $a$, write it over $1$ and flip it to $\dfrac{1}{a}$. For a nonzero fraction, switch its numerator and denominator and keep the same sign.
+
+$$4\times \dfrac{1}{4}=1$$
+
+$$\left(\dfrac{2}{5}\right)\times \left(\dfrac{5}{2}\right)=\dfrac{10}{10}=1$$
+
+$$\left(-\dfrac{4}{7}\right)\times \left(-\dfrac{7}{4}\right)=\dfrac{28}{28}=1$$
+
+Only two numbers are their own reciprocals: $1\times 1=1$ and $(-1)\times(-1)=1$.
+
+In symbols, for $a\ne 0$:
+
+$$a\times \dfrac{1}{a}=1$$
+
+:::why
+Why does the reciprocal of a negative number stay negative? To get positive $1$ from multiplication, both numbers must share the same sign. Multiplying a negative number by a positive number gives $-1$, not $1$.
+:::
+
+:::pair #reciprocal-sign
+Right: the multiplicative inverse of $-\dfrac{4}{7}$ is $-\dfrac{7}{4}$
+Wrong: the multiplicative inverse of $-\dfrac{4}{7}$ is $\dfrac{7}{4}$
+Flipping the fraction is right, but dropping the minus sign gives $\left(-\dfrac{4}{7}\right)\left(\dfrac{7}{4}\right)=-1$ instead of $1$.
+:::
+
+:::pair #opposite-vs-reciprocal
+Right: the multiplicative inverse of $-\dfrac{4}{7}$ is $-\dfrac{7}{4}$
+Wrong: the multiplicative inverse of $-\dfrac{4}{7}$ is $\dfrac{4}{7}$
+Changing the sign without flipping gives the additive inverse. Always check that the product is $1$.
+:::
+
+:::check
+What is the multiplicative inverse of $-5$?
+:::answer
+The answer is $-\dfrac{1}{5}$. Write $-5$ as $-\dfrac{5}{1}$, flip it, and keep the minus sign: $(-5)\left(-\dfrac{1}{5}\right)=1$.
+:::
+
+### Why Zero Has No Multiplicative Inverse
+
+Multiplying $0$ by any real number always gives $0$, never $1$. So the equation $0\times r=1$ has no real solution.
+
+That is why $0$ has no multiplicative inverse. Division by $0$ is **undefined** for the same reason.
+
+:::pair #zero-has-no-reciprocal
+Right: $0$ has no multiplicative inverse
+Wrong: the multiplicative inverse of $0$ is $0$
+Zero is its own additive inverse because $0+0=0$. For multiplication, $0\times 0=0$, not $1$.
+:::
+
+:::check
+Can any real number $r$ make $0\times r=1$ true?
+:::answer
+The answer is no. Multiplying $0$ by any real number always equals $0$.
+:::
 
 ## Examples
 
-### #1: Two Kinds of Inverse
+### #1: Testing Zero in an Inverse Equation
 
-What is the additive inverse of the multiplicative inverse of $-\dfrac{2}{3}$?
+A student looks for a real number $r$ such that $0r=1$. Which statement is correct?
 
-- A. $\dfrac{3}{2}$
-- B. $-\dfrac{3}{2}$
-- C. $\dfrac{2}{3}$
-- D. $-\dfrac{2}{3}$
-
-**Solution:**
-
-1. Switch the numerator and denominator. Keep the negative sign. Check the product.
-
-$$\left(-\dfrac{2}{3}\right)\left(-\dfrac{3}{2}\right)=1$$
-
-2. Find the additive inverse by changing the sign. Check the sum.
-
-$$-\dfrac{3}{2}+\dfrac{3}{2}=0$$
-
-3. The answer is A, $\dfrac{3}{2}$.
-
-### #2: Zero Has No Multiplicative Inverse
-
-Which statement is correct?
-
-- A. The multiplicative inverse of $0$ is $0$.
-- B. The multiplicative inverse of $0$ is $1$.
-- C. The number $0$ has no multiplicative inverse.
-- D. Every real number has a multiplicative inverse.
+- A. $r=0$ is the required number.
+- B. $r=1$ is the required number.
+- C. $r=-1$ is the required number.
+- D. No real number exists.
 
 **Solution:**
 
-A multiplicative inverse must give a product of $1$. Multiplying any real number by $0$ gives $0$. The answer is C.
+1. Test $r=0$:
+
+$$0\times 0=0$$
+
+2. Test $r=1$ and $r=-1$:
+
+$$0\times 1=0$$
+
+$$0\times (-1)=0$$
+
+3. Any real number times $0$ equals $0$, never $1$. So $0r=1$ has no solution.
+
+The answer is D.
+
+**Check:** Finding a multiplicative inverse of $0$ is the same as trying to compute $\dfrac{1}{0}$, which is undefined.
+
+### #2: Two Kinds of Inverse
+
+What is the additive inverse of the multiplicative inverse of $-\dfrac{5}{8}$?
+
+**Solution:**
+
+1. Start with the inner request: find the multiplicative inverse of $-\dfrac{5}{8}$. Flip the numerator and denominator and keep the minus sign.
+
+$$-\dfrac{8}{5}$$
+
+2. Check that the product with $-\dfrac{5}{8}$ is $1$:
+
+$$\left(-\dfrac{5}{8}\right)\left(-\dfrac{8}{5}\right)=1$$
+
+:::try
+Finish the last step: find the additive inverse of $-\dfrac{8}{5}$.
+:::answer
+The answer is $\dfrac{8}{5}$. Change the sign of $-\dfrac{8}{5}$ to get its opposite, $\dfrac{8}{5}$.
+
+**Check:** Add the two numbers from the last step: $-\dfrac{8}{5}+\dfrac{8}{5}=0$. Both inverses hold: the product is $1$, and the sum is $0$.
+:::
 
 ## Speed Tricks & Shortcuts
 
-### Additive Inverses
+In a long sum, opposite numbers such as $5$ and $-5$ add to $0$. Swap and regroup terms to bring these pairs together first, keeping the sign in front of each term.
 
-In a sum, opposite terms such as $5$ and $-5$ combine to $0$. You may swap and regroup terms in a sum to bring these pairs together. Keep the sign attached to each term.
+## Traps to Watch For
+
+:::checklist
+- Multiplicative inverse of a negative number: flip the fraction and keep the minus sign, so $-\dfrac{4}{7}$ becomes $-\dfrac{7}{4}$. {#reciprocal-sign}
+- Mixing up the two inverses: opposite sign adds to $0$, while flipped fraction multiplies to $1$. {#opposite-vs-reciprocal}
+- Multiplicative inverse of $0$: none exists, because $0$ times any real number is $0$. {#zero-has-no-reciprocal}
+:::

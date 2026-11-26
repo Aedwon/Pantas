@@ -14,19 +14,97 @@ keyPoints:
 ---
 ## Core Concept
 
-A **sequence** is an ordered list of numbers called **terms**. A **series** is a sum of terms from a sequence. The dots in a list mean that it continues.
+A **sequence** is an ordered list of numbers called **terms**. A **series** is a sum of terms from a sequence. As before, $a_1$ is the first term, $a_n$ is the $n^{\text{th}}$ term, and $n$ is the position.
 
-A **geometric sequence** is made by multiplying each term by the same number. This number is the **common ratio** $r$. Divide a term by the nonzero term before it to find $r$.
+### Identifying a Geometric Sequence and Ratio
 
-The symbol $a_1$ means the first term. The symbol $a_n$ means the term in position $n$. When finding a sum, $n$ is the number of terms being added.
+A **geometric sequence** multiplies each term by the same constant number to make the next term. That multiplier is the **common ratio** $r$. Divide any term by the nonzero term right before it to find $r$, and check more than one pair so you are sure the ratio stays constant.
 
-In a geometric sequence, reaching position $n$ takes $n-1$ multiplications by $r$:
+Check the sequence $3,6,12,24,48,\dots$.
+
+$$6\div3=2$$
+
+$$12\div6=2$$
+
+$$24\div12=2$$
+
+Every quotient equals $2$, so the sequence is geometric with $r=2$.
+
+A geometric sequence can also shrink when $r$ is a fraction between $0$ and $1$, or switch signs when $r$ is negative. Check $81,27,9,3,\dots$:
+
+$$27\div81=\dfrac{1}{3},\quad9\div27=\dfrac{1}{3}$$
+
+Here $r=\dfrac{1}{3}$. Because consecutive ratios always match, any three consecutive terms $a_1,a_2,a_3$ satisfy $\dfrac{a_2}{a_1}=\dfrac{a_3}{a_2}$, or $a_2^2=a_1a_3$. For example, in $4,x,36$:
+
+$$x^2=4\times36=144$$
+
+So $x=12$ (or $x=-12$ if negative terms are allowed).
+
+:::pair #check-only-first-difference
+Right: For $3,6,12,24,\dots$, $6\div3=2$ and $12\div6=2$, so it is geometric with ratio $2$.
+Wrong: For $3,6,12,24,\dots$, $6-3=3$, so it is arithmetic with difference $3$.
+The first jump is $+3$, but the next jump is $12-6=6$. Check at least two consecutive pairs before naming the type.
+:::
+
+:::pair #confuse-first-term-with-ratio
+Right: $r=\dfrac{6}{3}=2$
+Wrong: $r=a_1=3$
+The number $3$ is the first term $a_1$, not the multiplier. Divide a term by the term before it to get $r=2$.
+:::
+
+:::check
+Find the common ratio of the geometric sequence $5,15,45,135,\dots$.
+:::answer
+The answer is $3$. Divide neighboring terms: $15\div5=3$ and $45\div15=3$.
+:::
+
+### Finding Any Geometric Term
+
+Starting from $a_1$, each step multiplies by $r$ one more time. Reaching position $n$ takes $n-1$ multiplications by $r$:
 
 $$a_n=a_1r^{n-1}$$
 
-The first term is $a_1$ itself. For later terms, the formula also works when $r=0$: every term after the first is $0$.
+For terms after the first, this formula also works when $r=0$: every term after $a_1$ is $0$.
+
+Find the sixth term of the geometric sequence with $a_1=3$ and $r=2$.
+
+1. Subtract $1$ from $n=6$ to find the exponent.
+
+$$n-1=6-1=5$$
+
+2. Raise $r=2$ to the fifth power.
+
+$$2^5=2\times2\times2\times2\times2=32$$
+
+3. Multiply by $a_1=3$.
+
+$$a_6=3\times32=96$$
+
+Try the same steps when $r$ is a fraction. Find the fifth term of $81,27,9,3,\dots$, where $a_1=81$ and $r=\dfrac{1}{3}$.
+
+$$a_5=81\left(\dfrac{1}{3}\right)^{5-1}=81\left(\dfrac{1}{3}\right)^4$$
+
+$$a_5=81\times\dfrac{1}{81}=1$$
+
+:::why
+Why is the exponent $n-1$ instead of $n$? You start at $a_1$ with $0$ multiplications by $r$, so $a_2$ multiplies once ($r^1$), $a_3$ multiplies twice ($r^2$), and $a_6$ multiplies five times ($r^5$).
+:::
+
+:::pair #wrong-exponent-on-ratio
+Right: $a_6=3(2^{6-1})=3(2^5)=96$
+Wrong: $a_6=3(2^6)=3(64)=192$
+Using exponent $6$ multiplies by $2$ one extra time. Always use exponent $n-1=5$.
+:::
+
+:::check
+A geometric sequence has $a_1=4$ and $r=3$. What is its fourth term?
+:::answer
+The answer is $108$. Use exponent $4-1=3$: $a_4=4(3^3)=4(27)=108$.
+:::
 
 ## Examples
+
+In exam questions, **evaluate** means find the final number answer.
 
 ### #1: Geometric Sequence with Alternating Signs
 
@@ -34,7 +112,32 @@ Find the $8^{\text{th}}$ term of the geometric sequence $3,-6,12,-24,\dots$.
 
 **Solution:**
 
-1. The common ratio is $r=-2$, and $a_1=3$.
-2. Use the geometric-term formula.
+1. Read $a_1=3$ and divide the second term by the first to find $r$.
 
-$$a_8=3(-2)^7=-384$$
+$$r=\dfrac{-6}{3}=-2$$
+
+Check with the next pair: $\dfrac{12}{-6}=-2$.
+
+2. Find the exponent for the $8^{\text{th}}$ term.
+
+$$n-1=8-1=7$$
+
+3. Evaluate $(-2)^7$. An odd power of a negative number is negative.
+
+$$(-2)^7=-128$$
+
+:::try
+Finish the last step: multiply $a_1=3$ by $(-2)^7=-128$.
+:::answer
+The answer is $-384$. Multiplying $3\times(-128)$ gives $-384$.
+
+**Check:** Watch the sign and size step by step. The terms alternate $+,-,+,-$, so every even position is negative, and doubling $3$ seven times gives $3,6,12,24,48,96,192,384$. Position $8$ is $-384$.
+:::
+
+## Traps to Watch For
+
+:::checklist
+- Checking if a sequence is arithmetic or geometric: test at least two consecutive pairs ($6\div3=2$ and $12\div6=2$). {#check-only-first-difference}
+- Finding the common ratio $r$: divide a term by the term before it instead of copying $a_1$ ($r=6\div3=2$). {#confuse-first-term-with-ratio}
+- Finding the $n^{\text{th}}$ geometric term: raise $r$ to $n-1$, not $n$ ($a_6=3\times2^5=96$). {#wrong-exponent-on-ratio}
+:::

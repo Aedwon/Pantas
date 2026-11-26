@@ -13,21 +13,71 @@ keyPoints:
 ---
 ## Core Concept
 
-### Motion Problems
+### Closing a Head-Start Gap
 
-**Rate** tells how much distance is covered in each unit of time. Distance equals rate times time:
+**Rate** tells how much distance an object covers in each unit of time. **Kph** means kilometers per hour, and **km** means kilometers. Distance equals rate times time:
 
 $$d=rt$$
 
-Here $d$ is distance, $r$ is rate, and $t$ is time. Keep the units matched: a rate in kilometers per hour needs time in hours. **Kph** means kilometers per hour, and **km** means kilometers.
+Keep units matched: a rate in kph needs distance in km and time in hours.
 
-For a same-direction chase, subtract the slower speed from the faster speed. The faster object must be behind for the gap to close. If the object behind is no faster, it cannot catch the one ahead at those speeds.
+In a **chase problem**, two objects move in the same direction along the same straight path. The faster object starts behind and catches the slower one ahead. If the object behind is no faster, it can never close the gap.
 
-Use the starting gap as $d$ and the relative speed as $r$ in $d=rt$ to find when a gap closes. For objects starting together and moving apart, use their final separation as $d$.
+<!-- ILLUSTRATION: horizontal straight road showing slower vehicle ahead at 40 km mark moving right at 40 kph and faster vehicle at 0 km mark moving right at 60 kph; bracket from 0 to 40 km labeled "head start = 40 km"; note below "gap shrinks by 60 - 40 = 20 km each hour" -->
+
+When a problem gives a time head start instead of a distance, multiply the slower speed by the head-start time to find the starting gap $d$. Then subtract the slower speed from the faster speed to get the closing rate:
+
+$$r_{\text{close}}=r_{\text{fast}}-r_{\text{slow}}$$
+
+Use the starting gap as $d$ and the closing rate as $r$ in $d=rt$.
+
+Try this example. A jeepney leaves a terminal at $40$ kph. One hour later, a van follows in the same direction at $60$ kph. How many hours after the van starts will it catch the jeepney?
+
+First find the jeepney's $1$-hour head start:
+
+$$40\times 1=40$$
+
+Next find how fast the van closes the $40\text{ km}$ gap:
+
+$$60-40=20$$
+
+Now divide the gap by the closing rate:
+
+$$t=\dfrac{40}{20}=2$$
+
+The van catches up $2$ hours after it starts.
+
+:::why
+Why do we subtract the speeds? In $1$ hour, the van drives $60$ km forward while the jeepney also drives $40$ km forward. So the gap shrinks by only $60-40=20$ km each hour.
+:::
+
+:::pair #add-speeds-in-chase
+Right: $r_{\text{close}}=60-40=20$ kph, so $t=\dfrac{40}{20}=2$ hours
+Wrong: $r_{\text{close}}=60+40=100$ kph, so $t=\dfrac{40}{100}=0.4$ hour
+Adding speeds works when objects move toward each other. In a same-direction chase, the target keeps moving away, so subtract the speeds.
+:::
+
+:::pair #use-only-chaser-speed
+Right: $r_{\text{close}}=60-40=20$ kph, so $t=\dfrac{40}{20}=2$ hours
+Wrong: $r=60$ kph, so $t=\dfrac{40}{60}=\dfrac{2}{3}$ hour
+Dividing by $60$ treats the jeepney as standing still. Subtract the jeepney's $40$ kph speed because it keeps moving forward.
+:::
+
+:::pair #head-start-clock
+Right: the van takes $2$ hours after it starts, so the answer is $2$ hours.
+Wrong: total time is $2+1=3$ hours, so the answer is $3$ hours.
+Check when the question starts the clock. "After the van starts" asks for $2$ hours, while $3$ hours counts from when the jeepney left.
+:::
+
+:::check
+A cyclist rides at $15$ kph with a $10\text{ km}$ head start. A second cyclist chases along the same straight road at $20$ kph. How many hours will the second cyclist take to catch up?
+:::answer
+The answer is $2$ hours. Subtract the speeds: $20-15=5$ kph. Divide the gap by the closing rate: $10\div 5=2$.
+:::
 
 ## Examples
 
-### #1: Motion Problem, Chase
+### #1: Catching Up After a Head Start
 
 A motorcycle travels at a constant $70$ kph. A car behind it travels in the same direction along the same straight road at a constant $90$ kph. If the motorcycle has a $40$ km lead when the chase begins, how many hours will the car take to catch it?
 
@@ -37,18 +87,28 @@ A motorcycle travels at a constant $70$ kph. A car behind it travels in the same
 
 $$90-70=20$$
 
-2. Let $t$ be the hours after the chase begins. The car must close a $40$ km gap.
+2. Let $t$ be the hours after the chase begins. Use $d=rt$ with the $40\text{ km}$ gap.
 
 $$40=20t$$
 
-3. Divide by $20$.
+:::try
+Finish the last step: divide $40$ by $20$ to find how many hours the car takes.
+:::answer
+The answer is $2$ hours. Dividing $40\div 20=2$ gives $t=2$.
 
-$$t=2$$
-
-4. The car catches the motorcycle after $2$ hours.
+**Check:** In $2$ hours, the car travels $90\times 2=180$ km and the motorcycle travels $70\times 2=140$ km. The car covers $180-140=40$ km more, closing the $40\text{ km}$ lead.
+:::
 
 ## Speed Tricks & Shortcuts
 
-For motion at steady speeds along the same straight path, use relative speed. Add speeds for opposite-direction separation or for moving toward each other. In a same-direction chase, subtract the slower speed from the faster speed.
+When a chase problem asks for the **distance** from the start instead of the time, find the chase time $t$ first. Then multiply the chaser's speed by $t$, not by the total time including the head start.
 
-The faster object must start behind to catch the slower one. Use the gap at the start of the chase, not a distance traveled before it starts.
+For example, if the van drives at $60$ kph for $2$ hours to catch the jeepney, the catch-up distance is $60\times 2=120$ km.
+
+## Traps to Watch For
+
+:::checklist
+- Same-direction chase: subtract the slower speed from the faster speed, so $r_{\text{close}}=r_{\text{fast}}-r_{\text{slow}}$. {#add-speeds-in-chase}
+- Moving target ahead: never divide the gap by the chaser's speed alone because the target keeps moving. {#use-only-chaser-speed}
+- Starting the clock: check whether the question asks for chase time or total time since the first start. {#head-start-clock}
+:::
