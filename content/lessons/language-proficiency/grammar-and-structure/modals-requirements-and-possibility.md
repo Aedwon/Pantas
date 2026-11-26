@@ -25,7 +25,7 @@ Keep four closely related modal meanings separate in rules and notices. Typical 
 4. **Optional (not required):** *do not have to* (or *does not have to*) leaves the choice open: "Applicants **do not have to** bring a sheet."
 
 :::why
-Why do *must* and *have to* split apart with *not*? *Must not* bans an action completely, while *do not have to* removes the rule so you may skip it or do it.
+Why do *must* and *have to* split apart with *not*? In a rule or notice, *must not* bans an action completely, while *do not have to* removes the rule so you may skip it or do it.
 :::
 
 :::pair #optional-vs-banned
@@ -91,6 +91,8 @@ A notice states that bringing a calculator is optional. Choose the sentence that
 2. Rule out *must not* (ban), *have to* (rule), and *should* (advice).
 3. Choose **"Students do not have to bring a calculator."**
 
+**Check:** Ask whether a student may leave the calculator at home. Yes, so the notice is optional.
+
 ### #2: Identifying Possibility in Context
 
 In "The storm may reach the coast by night," determine what *may* expresses.
@@ -98,7 +100,7 @@ In "The storm may reach the coast by night," determine what *may* expresses.
 **Solution:**
 
 1. Check the subject *the storm*: an event arriving, not a person asking to enter or showing past skill.
-2. Match *may* before *reach*: it presents arrival as uncertain, expressing **possibility**.
+2. *May* presents arrival as uncertain, so it expresses **possibility**: "The storm **may** reach the coast by night."
 
 **Check:** Replace *may* with *might* ("The storm might reach the coast by night"): the uncertain prediction stays intact, confirming possibility.
 
@@ -108,7 +110,7 @@ Read: "The lights are off and the door is locked, so the shop must be closed. Th
 
 **Solution:**
 
-1. Take the two modal phrases one at a time: *must be closed* and *might open it at noon*.
+1. The first sentence gives clues: *the lights are off* and *the door is locked*.
 
 :::try
 Finish the job: what does each phrase express?
@@ -120,12 +122,12 @@ Strong conclusion from evidence: **"The shop must be closed."** The dark lights 
 
 ## Speed Tricks & Shortcuts
 
-Separate *must not* (ban) from *do not have to* (optional), and ask whether *must* gives a rule or draws a conclusion from clues.
+In a rule or notice, separate *must not* (ban) from *do not have to* (optional). When *must* has clues, ask whether it states a belief or gives an instruction.
 
 ## Traps to Watch For
 
 :::checklist
 - Optional action vs. ban or rule: use *do not have to* for optional, since *must not*, *have to*, and *should* change the meaning. {#optional-vs-banned}
 - *May*, *might*, or *could* in a prediction: read it as possibility when no permission or past skill fits. {#might-shows-possibility}
-- *Must* with evidence clues (*lights are on*, *so*): read it as a strong conclusion, not an obligation. {#must-conclusion-vs-rule}
+- *Must* with evidence clues (*lights are on*, *so*): read it as a strong conclusion (a belief), not an instruction. {#must-conclusion-vs-rule}
 :::

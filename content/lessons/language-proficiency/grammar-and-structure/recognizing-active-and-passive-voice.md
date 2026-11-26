@@ -19,7 +19,7 @@ keyPoints:
 
 First find the **subject** and the whole **verb group**. In **active voice**, the subject usually does the action: "The dog **chased** the ball."
 
-In **passive voice**, the verb group is *be* + a past participle, and the subject is the one affected: "The ball **was chased** by the dog." The **agent** (the doer, *the dog*) may follow *by* or be left out.
+This lesson covers the common **passive voice**, where the verb group is *be* + a past participle and the subject is the one affected: "The ball **was chased** by the dog." The **agent** (the doer, *the dog*) may follow *by* or be left out. The participle can name an action (*was chased*) or a state (*is loved*).
 
 Judge voice by the whole verb group, not by the object or the doer after *by*. An active subject does not always act: in *The clerk received a pass*, the subject receives, yet the verb group is active.
 
@@ -32,7 +32,7 @@ Look at the whole verb group, not the object or the doer after *by*.
 :::check
 Is "The chef cooked the meal" active or passive voice?
 :::answer
-The answer is **Active voice**. The subject *the chef* performs the cooking action.
+The answer is **Active voice**. The verb group is just *cooked*, with no *be* + past participle, so it is active.
 :::
 
 ### The Be + Past Participle Pattern
@@ -46,7 +46,7 @@ Watch out for **linking constructions**. A form of *be* plus an adjective descri
 :::pair #be-plus-adjective
 Right: "She is happy" is not passive because *is* links the subject to an adjective.
 Wrong: Think *happy* must be a past participle whenever it follows a form of *be*.
-Check whether the word after *be* names an action done to the subject (*was invited*) or describes a state (*is happy*).
+Check whether the word after *be* is a participle (*was invited*, *is loved*) or an adjective that describes the subject (*is happy*).
 :::
 
 :::check
@@ -66,7 +66,7 @@ Why do formal notices often use passive voice? When readers need to know what ch
 :::pair #keep-unknown-agent-passive
 Right: If the notice asks for present perfect passive and the doer is unknown, write "The access codes have been changed."
 Wrong: Invent a doer ("The administrator has changed the access codes") or use simple past ("The access codes were changed").
-Do not invent an actor when the doer is unknown. *Were changed* is also passive, but for a change that matters now, *have been changed* (present perfect) links it to now.
+Do not invent an actor when the doer is unknown. *Were changed* is also passive, but it is simple past, and the notice asks for present perfect (*have been changed*).
 :::
 
 :::check
@@ -87,6 +87,8 @@ Label each sentence: (a) "The nurse checked the chart." (b) "The chart was check
 2. **Passive voice**: "The chart was checked by the nurse." *Was checked* is *be* + a past participle.
 3. **Linking, not passive**: "He is calm." *Is* links *he* to the adjective *calm*.
 
+**Check:** *Was checked* names something done to the chart, while *calm* only describes *he*.
+
 ### #2: Tense and Voice Together
 
 In "By the time the manager reviewed it, the report had already been submitted by the intern," identify the tense and voice of *had already been submitted*.
@@ -95,29 +97,29 @@ In "By the time the manager reviewed it, the report had already been submitted b
 
 1. Find the verb group: *had ... been submitted*.
 2. *Had* plus *been* shows **past perfect**.
-3. *Been submitted* is *be* + a past participle, so the voice is **passive**: "the report had already been submitted by the intern."
+3. *Been submitted* is *be* + a past participle, so the voice is **passive**: "By the time the manager reviewed it, the report had already been submitted by the intern."
 
 **Check:** Change it to active: "the intern had already submitted the report." The tense stays past perfect.
 
 ### #3: A Notice About the Lobby Doors
 
-A notice must report that the lobby doors are now locked and that this matters now. Nobody knows who locked them. Choose between "The guard has locked the lobby doors" and "The lobby doors have been locked."
+A notice must report that the lobby doors are now locked and that this matters now. Nobody knows who locked them. Choose between "The lobby doors will be locked" and "The lobby doors have been locked."
 
 **Solution:**
 
-1. Read both sentences against what the notice knows.
+1. Neither sentence names a doer, so the missing actor cannot decide.
 
 :::try
 Finish the last step: which sentence fits, and why?
 :::answer
-The answer is **"The lobby doors have been locked."** *Have been locked* is passive (be + past participle) in the present perfect, so it links the change to now. It names no doer, so it invents no actor.
+The answer is **"The lobby doors have been locked."** *Have been locked* is passive (be + past participle) in the present perfect, so it links the locking to now. *Will be locked* is passive too, but it looks ahead.
 
-**Check:** The other sentence names *the guard*, a doer the notice does not know.
+**Check:** A reader can try the doors at this moment, and only *have been locked* matches what they find.
 :::
 
 ## Speed Tricks & Shortcuts
 
-First find the subject and the whole verb group. Then look for *be* plus a past participle that names an action, not an adjective.
+First find the subject and the whole verb group. Then look for *be* plus a past participle (an action or a state, as in *was chased* or *is loved*), not an adjective such as *calm*.
 
 ## Traps to Watch For
 

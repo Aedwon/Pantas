@@ -27,13 +27,13 @@ Semi-modals like *have to* and *ought to* include *to*, while the verb a true mo
 :::pair #base-form-after-modal
 Right: The assistant can prepare the minutes without help.
 Wrong: The assistant can prepares (or *can prepared*, or *can preparing*) the minutes without help.
-Even with a singular subject like *the assistant*, never add *-s*, *-ed*, or *-ing* after *can*.
+Even with a singular subject like *the assistant*, the verb right after *can* takes no *-s*, *-ed*, or *-ing*.
 :::
 
 :::pair #no-to-after-modal
 Right: The new clerk can answer routine inquiries without assistance.
 Wrong: The new clerk can to answer (or *answers*, or *answering*) routine inquiries without assistance.
-True modals like *can* take the bare base form *answer*, never *to* plus a verb (*to answer*), an *-s* ending (*answers*), or an *-ing* form (*answering*).
+The verb right after a true modal like *can* is the bare base form *answer*, not *to answer*, *answers*, or *answering*.
 :::
 
 :::check
@@ -96,28 +96,34 @@ Complete "The pilot can ___ the plane in strong wind" with *lands*, *landing*, *
 
 ### #2: Ability and Formal Permission
 
-Choose each modal: (a) Present ability: "Maria *(can / must)* solve the problem now." (b) Past ability: "Before college, she *(could / may)* speak three languages." (c) Formal permission: "*(May / Must)* I enter the room?"
+Choose each modal: (a) Present ability: "Maria *(can / must)* solve the problem now." (b) Past ability: "Before college, she *(could / may)* speak three languages." (c) Formal permission, a student asking the principal: "*(May / Must)* I leave early?"
 
 **Solution:**
 
 1. Present ability pairs with **can**: "Maria **can** solve the problem now."
 2. General past ability pairs with **could**: "Before college, she **could** speak three languages."
-3. Formal permission pairs with **May**: "**May** I enter the room?"
+3. Formal permission pairs with **May**: "**May** I leave early?"
 
-### #3: Reading Three Sentences with Could
+**Check:** Only (c) asks to be allowed to do something. (a) and (b) say what someone is able to do.
 
-Choose the sentence using *could* to request permission: "She could dance well as a child," "The bus could stop here," or "Could I take this seat?"
+### #3: Reading Two Questions with Could
+
+Dan asks two questions. Choose the one that requests permission:
+
+(A) At the library desk, he asks the clerk, "Could I use the scanner?"
+
+(B) Looking at the night sky, he asks his sister, "Could I see Mars from here?"
 
 **Solution:**
 
-1. Check "She could dance well as a child": it states general past ability.
+1. Both questions begin with *Could I*, so the opening words cannot decide.
 
 :::try
-Finish the job: say what *could* does in the other two sentences, then choose the permission request.
+Finish the job: say who is asked and what is asked in each question, then choose the permission request.
 :::answer
-"The bus could stop here" states a possibility. The permission request is **"Could I take this seat?"** The speaker is politely asking someone to allow the use of the seat.
+**(A)** Dan asks the clerk to allow him to use the scanner, so it is a permission request. In (B), nobody is asked to allow anything; Dan wonders whether seeing Mars is possible.
 
-**Check:** Swap *Could* for *May* ("May I take this seat?"): it still asks permission cleanly, whereas swapping *may* into "She could dance" breaks the past-ability meaning.
+**Check:** Add *please*: "Could I use the scanner, please?" sounds natural, while "Could I see Mars from here, please?" does not.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -127,7 +133,7 @@ First check form: the verb a modal such as *can, could, may,* or *will* governs 
 ## Traps to Watch For
 
 :::checklist
-- Verb after a true modal like *can*: keep the bare base form, never adding *-s*, *-ed*, or *-ing*. {#base-form-after-modal}
-- Putting *to* after a true modal: drop *to* after *can*, *could*, *may*, or *must* (*can answer*, not *can to answer*). {#no-to-after-modal}
+- Verb right after a true modal like *can*: keep the bare base form, with no *-s*, *-ed*, or *-ing*. {#base-form-after-modal}
+- Putting *to* right after a true modal: drop *to* after *can*, *could*, *may*, or *must* (*can answer*, not *can to answer*). {#no-to-after-modal}
 - Spotting *could* for permission: pick a request asking to be allowed to act, not past ability or possibility. {#could-permission-vs-ability}
 :::

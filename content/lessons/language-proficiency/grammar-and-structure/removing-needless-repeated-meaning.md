@@ -39,9 +39,9 @@ Warnings come at different times, and some repeated words add meaning. Cut *adva
 :::
 
 :::check
-Revise: *"The team will assemble together at noon."*
+Which single word can you remove from *"The team will assemble together at noon"* and keep the rest of the sentence?
 :::answer
-The answer is **"The team will assemble at noon."** *Assemble* already means come together, so *together* adds nothing and the plan stays the same.
+The answer is **together**: "The team will assemble at noon." *Assemble* already means come together, so *together* adds nothing and the plan stays the same.
 :::
 
 ### Checking Before You Cut
@@ -87,13 +87,12 @@ Shorten *"The store gave staff prior notice two days before the sale."* Why can 
 
 **Solution:**
 
-1. *Prior* means given ahead of time.
-2. *"Two days before the sale"* already tells when the notice arrived.
-3. So *prior* repeats that timing. Cut it.
+1. *Prior* means given ahead of time, and *two days before the sale* already says that.
+2. So *prior* repeats the timing. Cut it.
 
 Correct sentence: **"The store gave staff notice two days before the sale."**
 
-**Check:** Read the short sentence: it still says the notice came early.
+**Check:** Ask what exact time is still given: two days before the sale.
 
 ### #3: Boiling Hot Soup
 
@@ -101,14 +100,14 @@ An editor wants to shorten *"The soup was boiling hot."* The writer meant only t
 
 **Solution:**
 
-1. Name what each word tells the reader.
+1. *Hot* tells the reader how much heat the soup has.
 
 :::try
 Finish the last step: state what the editor should check before deleting *hot*, and whether the cut is safe.
 :::answer
 The answer is **Whether "boiling" alone gives the meaning the writer meant.** *Boiling* alone could mean the soup was bubbling, so the cut may not keep the writer's meaning. To say only that it was very hot, write **"The soup was extremely hot."**
 
-**Check:** Cover *hot*: *"The soup was boiling"* could mean the soup was bubbling. *"The soup was extremely hot"* has no such doubt.
+**Check:** Test the result: *"The soup was extremely hot"* does not imply bubbles.
 :::
 
 ## Speed Tricks & Shortcuts

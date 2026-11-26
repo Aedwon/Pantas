@@ -16,7 +16,7 @@ keyPoints:
 
 ### Correlative Conjunctions: Matching Both Sides
 
-**Correlative conjunctions** work in pairs (such as *either...or*, *neither...nor*, *not only...but also*, *both...and*). Match the grammatical form right after each half:
+**Correlative conjunctions** work in pairs (such as *either...or*, *neither...nor*, *not only...but also*, *both...and*). Make the two parts the pair joins match in grammatical form:
 
 1. Two adjectives: *"The policy is not only practical but also affordable."*
 2. Two *to + verb* phrases: *"She wanted both to travel and to save money."*
@@ -79,7 +79,10 @@ Identify and fix the error: *"He is both intelligent and he works hard."*
 1. Find the pair: *both...and*.
 2. After *both* sits the adjective *intelligent*; after *and* sits the clause *he works hard*.
 3. Replace the clause with a matching adjective: **"He is both intelligent and hardworking."**
-### #2: Moving a Misplaced Connector
+
+**Check:** Read each description after *is*: *is intelligent* and *is hardworking* match.
+
+### #2: Moving *Either* for Clarity
 
 Revise *"He either wanted to win the race or to finish in the top three"* so *either* and *or* introduce the two goals.
 
@@ -87,6 +90,9 @@ Revise *"He either wanted to win the race or to finish in the top three"* so *ei
 
 1. After *either* sits *wanted to win the race*; after *or* sits *to finish*.
 2. Move *either* after the shared verb: *"He wanted either to win the race or to finish in the top three."*
+
+**Check:** Read each goal after *wanted*: *wanted to win the race* and *wanted to finish in the top three*.
+
 ### #3: Fixing Two Errors in One Passage
 
 Fix both errors in: *"The room is neither dark nor it is small. The rent is lower than the apartment next door."*
@@ -96,11 +102,15 @@ Fix both errors in: *"The room is neither dark nor it is small. The rent is lowe
 1. In sentence 1, *neither* is followed by the adjective *dark* and *nor* by the clause *it is small*. Replace the clause: *"The room is neither dark nor small."*
 
 :::try
-Finish the last step: which rewrite of sentence 2 is fair: (A) *"The rent is lower than living in the apartment next door."* or (B) *"The rent is lower than the rent for the apartment next door."*?
+Finish the last step: which rewrite of sentence 2 is fair?
+
+(A) *"The rent is lower than the deposit for the apartment next door."*
+
+(B) *"The rent is lower than the rent for the apartment next door."*
 :::answer
 **B: "The rent is lower than the rent for the apartment next door."** Now a rent is compared with a rent.
 
-**Check:** In A, the right side is an activity, not a rent.
+**Check:** In A, the right side is a deposit, so the rent is compared with a different cost.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -110,7 +120,7 @@ Compare what follows each half of a paired connector. For *than* and *as*, name 
 ## Traps to Watch For
 
 :::checklist
-- Correlative pairs (*not only...but also*, *both...and*): match the exact grammatical form after each connector. {#mismatched-correlative-pair}
+- Correlative pairs (*not only...but also*, *both...and*): make the two parts they join match in form. {#mismatched-correlative-pair}
 - Two choices after *either* or *neither*: make them match, such as *online* and *by mail*. Moving the connector can show them more clearly; if they already match (*either to win or to lose*), leave it. {#misplaced-correlative-connector}
 - Comparisons with *than* or *as*: compare like with like, such as two costs, two people, or two *-ing* activities. {#comparing-unlike-things}
 :::

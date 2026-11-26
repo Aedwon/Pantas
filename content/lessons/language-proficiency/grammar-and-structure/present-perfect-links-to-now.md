@@ -54,7 +54,7 @@ Why does "We arrived last month and have lived here ever since" change verb form
 :::pair #still-true-now
 Right: We arrived last month and have lived here ever since.
 Wrong: We had lived here until last month, and then we left.
-*Had lived* describes a stay that already ended. When a situation continues into now, use *have* or *has* plus the past participle.
+Here the words *until last month* and *then we left* show that the stay ended. When a situation continues into now, use *have* or *has* plus the past participle.
 :::
 
 :::check
@@ -73,7 +73,7 @@ For one dated event in a finished past time (*yesterday, last week, in 2022*), c
 :::pair #finished-past-time
 Right: The committee submitted its report yesterday afternoon.
 Wrong: The committee has submitted (or *has submit*) its report yesterday afternoon.
-*Yesterday afternoon* names a finished past period, so use simple past (*submitted*). *Has* also needs a past participle, not *submit*.
+*Yesterday afternoon* names a finished past period. Here, between *submitted* and *has submitted*, choose *submitted*. *Has* also needs a past participle, not *submit*.
 :::
 
 :::check
@@ -119,12 +119,12 @@ Finish the last step: which sentence fits both timelines, and why do its two ver
 :::answer
 The answer is **"Dan joined the club in May and has been a member ever since."** *Joined* places the joining in the finished past, and *has been* links the ongoing membership to now.
 
-**Check:** Test each clause: *joined in May* matches a completed event, and *has been a member ever since* confirms he is still a member now.
+**Check:** Ask whether Dan is on the member list today. Yes, so *has been a member* fits.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Read the time clue first. For one dated event in a finished past time (*yesterday*, *last month*), choose simple past over present perfect. A link to now (*since June*, *ever since*) takes *has* or *have* plus a past participle. An open period like *this week* often takes present perfect, but simple past can fit a completed event (*She wrote a letter this week*).
+Read the time clue first. For one dated event in a finished past time (*yesterday*, *last month*), choose simple past over present perfect. A link to now (*since June*, *ever since*) takes *has* or *have* plus a past participle once you check that the reference point is now. An open period like *this week* often takes present perfect, but simple past can fit a completed event (*She wrote a letter this week*).
 
 ## Traps to Watch For
 

@@ -20,7 +20,7 @@ keyPoints:
 - **-ing gerunds:** *"Her hobbies include painting, dancing, and singing."* *"The recipe requires chopping onions, mincing garlic, and boiling water."*
 - **Infinitives (to + verb):** *"The coach told the team to run faster, to jump higher, and to try harder."*
 - **Nouns or noun phrases:** *"The committee values accuracy, fairness, and transparency."* *-ing* words used as ordinary nouns (*budgeting*, *marketing*) count as nouns and can sit beside other noun phrases, as in *"The workshop covers budgeting, marketing, and sales strategy."*
-- **Matching verb tenses in a compound predicate:** *"She opened the folder, checked the total, and signed the form."* Finite verbs sharing a subject keep the same tense when they describe the same time.
+- **Matching verb tenses in a compound predicate:** *"She opened the folder, checked the total, and signed the form."* Actions in a single sequence like this one often use the same tense.
 
 In these lists, usually avoid mixing in a full clause (*"tools will be bought"*), a *how-to* clause (*"how to plan sales"*), or a new verb predicate that changes the meaning.
 
@@ -72,7 +72,7 @@ Revise *"We can choose between taking the bus and a taxi will pick us up"* so bo
 1. After *between*, the first option is an *-ing* phrase (*taking the bus*), while the second is a full clause (*a taxi will pick us up*).
 2. Change the second option to a matching *-ing* phrase: **"We can choose between taking the bus and taking a taxi."**
 
-**Check:** Read both sides after *between*: *"between taking the bus"* and *"between taking a taxi."* Both use *-ing* phrases.
+**Check:** Ask *"What can we choose?"* Both *taking the bus* and *taking a taxi* work as answers.
 
 ### #3: Reading a Clerk's Three Actions
 
@@ -81,14 +81,13 @@ Find the hidden error in *"Yesterday the clerk sorted the mail, counts the cash,
 **Solution:**
 
 1. Separate the three actions after *"the clerk"*: (1) *sorted the mail*, (2) *counts the cash*, (3) *locked the safe*.
-2. Compare the three items.
 
 :::try
 Finish the last step: name the item that does not match and give the fix.
 :::answer
 Change *counts* to **counted**. Items (1) and (3) are simple past, and item (2) is the outlier in simple present. Changing item (1) or (3) to present would break *Yesterday*. Changing *counts* gives **"Yesterday the clerk sorted the mail, counted the cash, and locked the safe."**
 
-**Check:** Read *"Yesterday the clerk"* before each verb: *sorted*, *counted*, *locked*. All three are past.
+**Check:** Pair each action with *Yesterday*: *Yesterday he sorted the mail*, *Yesterday he counted the cash*, *Yesterday he locked the safe*. Each fits.
 :::
 
 ## Speed Tricks & Shortcuts

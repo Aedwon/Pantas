@@ -82,6 +82,8 @@ Identify and fix the error: *"The store closed early, the clerks went home."*
 
 Corrected sentence: **"The store closed early; the clerks went home."**
 
+**Check:** Use a period instead: "The store closed early. The clerks went home." Both clauses stand alone.
+
 ### #2: Why a Semicolon Fails Before a Phrase
 
 Why is the semicolon faulty in *"The boat sank; during the storm"*?
@@ -115,12 +117,12 @@ Finish the last step: select the correct choice, and say why the others fail.
 :::answer
 The answer is **(C) "The panel included Dr. Cruz, a surgeon; Ms. Lim, a teacher; and Mr. Ong, a pilot."** Choice (A) uses only commas, so the three guests blur into six items. Choice (B) splits each name from its job with a semicolon.
 
-**Check:** Bracket each guest in (C): *[Dr. Cruz, a surgeon]*, *[Ms. Lim, a teacher]*, *[Mr. Ong, a pilot]*. Commas stay inside; semicolons sit between the brackets.
+**Check:** Count the dividers in (C): two semicolons separate the three guests, and each guest keeps one comma inside.
 :::
 
 ## Speed Tricks & Shortcuts
 
-For a semicolon between clauses, cover it and test both sides as standalone sentences; if either side needs the other, drop the semicolon. For complex lists, bracket each item, then put semicolons between brackets.
+For a semicolon between clauses, cover it and test both sides as standalone sentences; if either side needs the other, drop the semicolon. When commas blur the items, bracket each item, then put semicolons between brackets.
 
 ## Traps to Watch For
 

@@ -68,42 +68,44 @@ Putting *almost* before the verb (*almost rode*, *almost displayed*) can say the
 :::
 
 :::check
-Tess caught every tray, and none hit the floor. Which wording is clearer for that scene: *"Tess dropped almost every tray"* or *"Tess almost dropped every tray"*?
+Each tray nearly slipped from Tess's hands, but she caught them all. Which wording is clearer for that scene: *"Tess almost dropped every tray"* or *"Tess nearly dropped each tray, but she caught them all"*?
 :::answer
-The answer is **"Tess almost dropped every tray."** In this scene each drop nearly happened but did not, and *almost* before *dropped* fits that. *Dropped almost every tray* would say that nearly all of them fell.
+The answer is **"Tess nearly dropped each tray, but she caught them all."** It shows that each drop nearly happened and none did. *Almost dropped every tray* leaves its scope open: it could mean the whole stack or each tray.
 :::
 
 ## Examples
 
 ### #1: Restricting a Day With Only
 
-A ticket admits a guest on Saturday and no other day. Which states that clearly: *"The ticket admits only a guest on Saturday"* or *"The ticket admits a guest on Saturday only"*?
+A coupon works at the café in March and in no other month. Which states that clearly: *"The coupon works only at the café in March"* or *"The coupon works at the café in March only"*?
 
 **Solution:**
 
-1. The restricted detail is the day (*Saturday*).
-2. *"Only a guest"* limits who enters.
-3. **"The ticket admits a guest on Saturday only"** states the restriction clearly.
+1. The restricted detail is the month (*March*).
+2. *"Only at the café"* limits where the coupon works.
+3. **"The coupon works at the café in March only"** states the restriction clearly.
 
-**Check:** Ask "What happens on Sunday?" That sentence rules out other days.
+**Check:** Ask "What about April?" That sentence rules out other months.
 
 ### #2: Almost and How Often
 
-Which says the cyclists rode on nearly every day, not every day: *"Almost all the cyclists rode to school every day"* or *"The cyclists rode to school almost every day"*?
+Which says the club met on nearly every Friday, not every Friday: *"Almost all the members met every Friday"* or *"The club met almost every Friday"*?
 
 **Solution:**
 
-1. *"Almost all the cyclists"* limits how many cyclists rode.
-2. *"Almost every day"* limits how often they rode.
-3. **"The cyclists rode to school almost every day"** matches "nearly every day."
+1. *"Almost all the members"* limits how many members met.
+2. *"Almost every Friday"* limits how often they met.
+3. **"The club met almost every Friday"** matches "nearly every Friday."
+
+**Check:** Ask whether one Friday can pass without a meeting. Yes, so *almost every Friday* is right.
 
 ### #3: A Bakery Shelf
 
 A baker started with 40 loaves and sold all but two. Which sentence says that clearly?
 
-(a) *"Nearly every baker sold all the loaves."*
+(a) *"The baker nearly sold all the loaves."*
 
-(b) *"The baker sold all the loaves for nearly the whole morning."*
+(b) *"The baker sold all the loaves nearly every day."*
 
 (c) *"The baker sold nearly all the loaves."*
 
@@ -114,7 +116,7 @@ A baker started with 40 loaves and sold all but two. Which sentence says that cl
 :::try
 Finish the last step: choose the sentence, and say what *nearly* limits in each option.
 :::answer
-**(c) "The baker sold nearly all the loaves."** *Nearly* sits directly before *all the loaves*, so it limits the number of loaves sold. In (a) it limits the bakers, and in (b) it limits the time.
+**(c) "The baker sold nearly all the loaves."** *Nearly* sits directly before *all the loaves*, so it limits the number of loaves sold. In (a) it sits before the verb and can say the selling nearly happened, and in (b) it limits how often.
 
 **Check:** Swapping in *"almost all"* keeps the meaning.
 :::

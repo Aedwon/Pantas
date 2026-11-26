@@ -53,23 +53,23 @@ Even without a written subject, *close* is paired with understood *you*, so the 
 :::
 
 :::check
-What is the understood subject in "Please sign the attendance sheet"?
+Which group has an understood subject: "Pass the salt, please" or "Mina passed the salt"?
 :::answer
-The answer is **You**. The request is addressed to the listener, so "(You) please sign the attendance sheet" has *you* as its implied subject.
+The answer is **"Pass the salt, please."** It has no written subject, so the listener (*you*) is the understood subject. "Mina passed the salt" writes its subject, *Mina*.
 :::
 
 ## Examples
 
 ### #1: Two Word Groups
 
-Classify these word groups as a prepositional phrase or an independent clause: (a) "under the old bridge"; (b) "the cat slept."
+Classify these word groups as a prepositional phrase or an independent clause: (a) "near the red gate"; (b) "the bus stopped."
 
 **Solution:**
 
-1. Check (a): *under* is a preposition followed by *the old bridge*, with no verb and no subject-verb pair, so it is a **prepositional phrase**.
-2. Check (b): *the cat* is the subject and *slept* is its verb, expressing a complete thought, so it is an **independent clause**.
+1. (a) is a **prepositional phrase**: *near* is a preposition followed by *the red gate*, with no verb and no subject-verb pair: "**near the red gate**."
+2. (b) is an **independent clause**: *the bus* is the subject and *stopped* is its verb, expressing a complete thought: "**the bus stopped**."
 
-**Check:** Try putting each group alone with a period: "Under the old bridge." leaves the reader asking what happened there (phrase), whereas "The cat slept." states a complete event (independent clause).
+**Check:** Try each group alone with a period: "Near the red gate." leaves the reader asking what happened there, whereas "The bus stopped." states a complete event.
 
 ### #2: One Word Group on Its Own
 
@@ -80,9 +80,9 @@ Is "beside the quiet lake" a phrase or a clause: (A) Prepositional phrase, (B) I
 1. Scan the words for a verb: *beside* (preposition), *the* (article), *quiet* (adjective), *lake* (noun). There is no verb.
 2. Rule out (B) Independent clause and (C) Dependent clause, because the full clauses compared here need a subject-verb pair.
 3. Rule out (D) Main verb phrase, because there is no verb.
-4. Choose **(A) Prepositional phrase**.
+4. Choose **(A) Prepositional phrase**: "We camped **beside the quiet lake**."
 
-**Check:** Test adding a clause before it: "We camped beside the quiet lake." Here *beside the quiet lake* works as one location unit answering *where*, confirming it is a prepositional phrase.
+**Check:** Ask *where did we camp?* The whole group *beside the quiet lake* answers it as one location unit.
 
 ### #3: Open the Window
 
@@ -96,9 +96,9 @@ How do we classify the group of words "Open the window"?
 :::try
 Finish the last step: is "Open the window" a phrase, a dependent clause, or an independent clause, and why?
 :::answer
-The answer is **Independent clause; implied subject.** Because *open* pairs with the understood subject *you* and gives a complete instruction, it stands alone as a full sentence without needing another clause.
+The answer is **Independent clause; implied subject.** In "**Open** the window," the verb *open* pairs with the understood subject (*you*, not written) and gives a complete instruction, so it stands alone without another clause.
 
-**Check:** Write the understood word in front: "You open the window." With *you* visible, the subject (*you*) and verb (*open*) stand out clearly as a complete independent clause.
+**Check:** Read "Open the window." alone with a period. It is a complete instruction, so it needs no other clause.
 :::
 
 ## Speed Tricks & Shortcuts

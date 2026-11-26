@@ -54,24 +54,24 @@ The answer is **Their**. Both Mara and Jun share the room, and *their* sits befo
 
 ### Mixed Antecedents with Or and Nor
 
-When *or* or *nor* joins a singular noun and a plural noun ("Neither the coach nor the players..."), formal style usually makes the pronoun agree with the **nearer** noun. A pronoun for a singular person can also force an unstated gender (*his*, *her*).
+When *or* or *nor* joins a singular noun and a plural noun ("Neither the coach nor the players..."), a formal task may follow the convention that the pronoun agrees with the **nearer** noun. A singular pronoun (*his*, *her*) fits only one of the people named and can force an unstated gender.
 
 If the pronoun sounds awkward, name the people directly, use *their own*, or rewrite with an article (*the* or *a*) when one shared set of items is meant.
 
 :::why
-Why is *his* wrong in "Neither the coach nor the players brought his own required equipment"? The nearer noun, *players*, is plural, so *his* does not agree, and it guesses the coach's gender. *Their own* keeps each person's own equipment.
+Why is *his* wrong in "Neither the coach nor the players brought his own required equipment"? *His* fits only the coach, not the players, and it guesses the coach's gender. *Their own* covers everyone and keeps each person's own equipment.
 :::
 
 :::pair #mixed-nor-forced-gender
 Right: "Neither the coach nor the players brought their own required equipment."
 Wrong: "Neither the coach nor the players brought his own required equipment."
-Formal style matches the nearer noun, *players*, which is plural, so *his* does not agree and forces male gender. *Their* agrees.
+*His* fails to cover both the coach and the players, and it forces male gender. *Their* covers both. It also matches the nearer noun, *players*, a convention a formal task may specify.
 :::
 
 :::check
-Which fits: (A) "Neither the guard nor the drivers wore its badges." or (B) "Neither the guard nor the drivers wore their badges."?
+In "Neither the guard nor the drivers wore their badges," which people can *their* refer to: only the drivers, or both the guard and the drivers?
 :::answer
-The answer is **(B)**. The nearer noun, *drivers*, is plural, so *their* agrees. *Its* treats people as an object.
+**Both the guard and the drivers.** *Their* can cover a singular person and a plural group at once, so no one named is left out. A singular *his* or *her* would leave out the drivers.
 :::
 
 ## Examples
@@ -84,6 +84,8 @@ Choose what fits each rule: (a) Treating *class* as one unit: "The class finishe
 
 1. In (a), one class with one shared project takes **its**: "The class finished its project early."
 2. In (b), separate homes belong to individual members: "The committee **returned to their homes**."
+
+**Check:** *Its* belongs to the class as one group, and *their* belongs to the people in the committee.
 
 ### #2: Joined Antecedents
 
@@ -99,28 +101,28 @@ In "Tess and Raul, who share one garden, watered ______ garden at dawn," choose 
 
 ### #3: A Group Inside a Longer Sentence
 
-Treating *choir* as one unit, fill the blank with *its*, *their*, or *his*: "The choir performed on Friday. The director said the choir was proud of ______ performance."
+Treating any group as one unit, fill each blank with *its*, *her*, or *their*: "The clinic opened on Monday. Dr. Sol said the clinic had met ______ goal, and she kept ______ notes in a folder."
 
 **Solution:**
 
-1. Find the word the blank points back to: *the choir*.
+1. The first blank follows *the clinic had met*, and the second follows *she kept*.
 
 :::try
-Finish the last step: which pronoun fills the blank, and why?
+Finish the last step: which pronoun fills each blank, and why?
 :::answer
-The answer is **Its**: "The choir performed on Friday. The director said the choir was proud of its performance." One unit takes *its*, not *their* (separate members) or *his* (one male person).
+The answer is **its** and **her**: "The clinic opened on Monday. Dr. Sol said the clinic had met **its** goal, and she kept **her** notes in a folder." The clinic is one unit, so it takes *its*; Dr. Sol is one person, so she takes *her*. *Their* would suit separate members.
 
-**Check:** *Its* stands for *the choir's*.
+**Check:** Put each noun back: *the clinic's goal* and *Dr. Sol's notes*.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Check if a group acts as one unit (*its*) or separate members (*their*). Treat *and*-joined names as plural (*their*). In mixed *or/nor* sentences, formal style usually matches the nearer noun; use *their own* or rewrite with *the* when one shared set is meant.
+Check if a group acts as one unit (*its*) or separate members (*their*). Treat *and*-joined names as plural (*their*). In mixed *or/nor* sentences, make the pronoun cover everyone named (*their own*) or rewrite with *the* when one shared set is meant; a formal task may also specify the nearer noun.
 
 ## Traps to Watch For
 
 :::checklist
 - Collective noun acting as one organization unit: use *its*, reserving *their* for contexts pointing to separate members. {#group-unit-vs-members}
 - Two people joined by *and*: include both with *their*, rather than matching only the first or nearest name. {#joined-by-and-one-person}
-- Mixed singular and plural antecedents with *or/nor*: formal style usually matches the nearer noun; use *their own* or rewrite with *the* for one shared set. {#mixed-nor-forced-gender}
+- Mixed singular and plural antecedents with *or/nor*: use a pronoun that covers everyone named (*their own*) or rewrite with *the* for one shared set; a formal task may specify the nearer noun. {#mixed-nor-forced-gender}
 :::

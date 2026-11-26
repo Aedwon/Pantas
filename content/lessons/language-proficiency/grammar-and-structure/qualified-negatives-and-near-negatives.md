@@ -73,45 +73,45 @@ Wrong: Read it as *"The employee never requests any extra time."*
 :::
 
 :::check
-Does *"Lea seldom misses a meeting"* mean she never misses one?
+A log shows Omar late for work on one day out of thirty. Which statement does the log support: *"Omar seldom arrives late"* or *"Omar never arrives late"*?
 :::answer
-The answer is **No**. *Seldom* means rarely, so an occasional absence is still possible.
+The answer is **"Omar seldom arrives late."** One late day in thirty is rare but not zero, so *seldom* fits and *never* does not.
 :::
 
 ## Examples
 
 ### #1: Reading a Qualified Negative
 
-A writer wants to describe a schedule as fairly reasonable without strong praise. Which sentence keeps that meaning?
+A weather note wants to say that April snow is fairly common, without saying it always happens. Which sentence keeps that meaning?
 
-(A) "The schedule is unreasonable and should be rejected outright."
+(A) "Snow in April is rare."
 
-(B) "The schedule is perfectly reasonable in every respect."
+(B) "Snow in April happens every year without fail."
 
-(C) "The schedule is not unreasonable."
+(C) "Snow in April is not uncommon."
 
 **Solution:**
 
-1. (A) keeps only *unreasonable*, flipping the judgment negative.
-2. (B) pushes it to absolute praise (*perfectly reasonable*).
-3. (C) *not unreasonable* sits in the middle: fairly reasonable.
+1. (A) says the opposite: April snow almost never happens.
+2. (B) pushes it to always (*every year without fail*).
+3. (C) *not uncommon* sits in the middle: fairly common.
 
-The correct sentence is **(C)**: "The schedule is not unreasonable."
+The correct sentence is **(C)**: "Snow in April is not uncommon."
 
-**Check:** Say it as *fairly reasonable*: "The schedule is fairly reasonable." The cautious meaning holds.
+**Check:** Say it as *fairly common*: "Snow in April is fairly common." The cautious meaning holds.
 
 ### #2: Editing a Near-Negative for Formal English
 
-In standard formal English, revise *"I can't hardly hear you from over here"* while keeping the intended meaning.
+In standard formal English, revise *"He couldn't barely stay awake in class"* while keeping the intended meaning.
 
 **Solution:**
 
-1. *Hardly* already means *almost not*.
-2. Change *can't* to *can* so *hardly* expresses the small amount of hearing cleanly.
+1. *Barely* already means *only just*.
+2. Change *couldn't* to *could* so *barely* expresses the narrow margin cleanly.
 
-Correct sentence: **"I can hardly hear you from over here."**
+Correct sentence: **"He could barely stay awake in class."**
 
-**Check:** *Barely* still means very little hearing.
+**Check:** Swap in *scarcely*: "He could scarcely stay awake in class." The meaning stays: only just awake.
 
 ### #3: Reading Two Office Memos
 
@@ -119,14 +119,14 @@ One memo says, *"The clerk barely caught the last train."* Another says, *"We se
 
 **Solution:**
 
-1. Find the key word in each memo: *barely* and *seldom*.
+1. In the first memo, *barely* describes *caught*, so ask what happened to the last train.
 
 :::try
-Finish the job: what does *barely* say about the train? Does the one cancellation contradict the memo?
+Finish the job: did the clerk catch the train? Then say whether the one cancellation contradicts the second memo.
 :::answer
 The answer is **The clerk caught the train, but only just; and no, one cancellation does not contradict the memo.**
 
-**Check:** *Barely* means only just, so the clerk caught the train and did not miss it. *Seldom* means rarely, so one cancellation fits; only *never* would be contradicted.
+**Check:** Nineteen of the twenty briefings still ran, so *seldom* is true and *never* would be false.
 :::
 
 ## Speed Tricks & Shortcuts

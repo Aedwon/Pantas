@@ -69,29 +69,31 @@ The answer is **Logging and answering**. *Sort* is a base verb after *helps new 
 
 Choose the sentence with correct parallel structure:
 
-(A) "The manual explains how to install, updating, and repairing the software."
+(A) "The video shows how to measure, mixing, and baking the dough."
 
-(B) "The manual explains how to install, update, and repair the software."
+(B) "The video shows how to measure, mix, and bake the dough."
 
 **Solution:**
 
 1. Find the shared lead-in words: *how to*.
-2. Test each verb after *how to* in (A): *how to install* works, while *how to updating* and *how to repairing* do not.
-3. In (B), *how to install*, *how to update*, and *how to repair* all work.
+2. Test each verb after *how to* in (A): *how to measure* works, while *how to mixing* and *how to baking* do not.
+3. In (B), *how to measure*, *how to mix*, and *how to bake* all work.
 
-The correct sentence is **(B)**: "The manual explains how to install, update, and repair the software."
+The correct sentence is **(B)**: "The video shows how to measure, mix, and bake the dough."
+
+**Check:** Read one revised verb after the lead-in: *how to bake the dough* sounds complete.
 
 ### #2: When a Shared Word Does Not Fit
 
-Fix the missing word in *"She has a strong interest and talent for music."*
+Fix the missing word in *"He felt great pride and responsibility for his team."*
 
 **Solution:**
 
-1. Read the shared preposition *for* after each noun: *"interest for music"* and *"talent for music."*
-2. *Talent for music* works, while *interest* needs *in* (*"interest in music"*).
-3. Keep the right preposition on the first noun: *"She has a strong interest in and talent for music."*
+1. Read the shared preposition *for* after each noun: *"pride for his team"* and *"responsibility for his team."*
+2. *Responsibility for his team* works, while *pride* needs *in* (*"pride in his team"*).
+3. Keep the right preposition on the first noun: *"He felt great pride in and responsibility for his team."*
 
-**Check:** Read each half alone: *"interest in music"* and *"talent for music."* Both sound natural and complete.
+**Check:** Try the same test on *"belief and hope for peace"*: *belief for peace* fails, so write *"belief in and hope for peace."*
 
 ### #3: Fixing a Longer List
 
@@ -103,7 +105,7 @@ Identify and fix the parallelism error: *"The clinic lets patients book visits, 
 2. Test each item after *"lets patients"*.
 
 :::try
-Finish the last step: fix the list.
+Finish the last step: replace only *paying* and *checking* in the frame "The clinic lets patients book visits, ____ fees, and ____ results."
 :::answer
 The answer is **Change "paying" and "checking" to "pay" and "check."** The finished sentence is **"The clinic lets patients book visits, pay fees, and check results."**
 

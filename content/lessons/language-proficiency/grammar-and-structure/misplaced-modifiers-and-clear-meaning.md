@@ -70,7 +70,9 @@ The toy has a missing wheel. Revise *"The clerk gave a toy to the girl with a mi
 
 1. Find the modifier: *with a missing wheel*.
 2. Notice it sits after *the girl*, making the girl seem to have a missing wheel.
-3. Move it right after *a toy*: **"The clerk gave the girl a toy with a missing wheel."**
+3. Keep the word order and move only the modifier right after *a toy*: **"The clerk gave a toy with a missing wheel to the girl."**
+
+**Check:** Ask which noun now gets the detail. *A missing wheel* belongs to the toy, and the girl has none.
 
 ### #2: Preserving Which Object Is Damaged
 
@@ -81,6 +83,8 @@ Which sentence identifies a chipped glass, not a chipped tray: *"A waiter carrie
 1. In *"A waiter carried the glass on a chipped tray,"* *chipped* describes *tray*.
 2. In *"A waiter carried the chipped glass on a tray,"* *chipped* sits right before *glass*.
 3. The second sentence keeps the intended meaning: **"A waiter carried the chipped glass on a tray."**
+
+**Check:** Ask which noun now gets the detail. *Chipped* belongs to the glass, and the tray is plain.
 
 ### #3: Fixing Two Modifier Targets in One Passage
 
@@ -96,7 +100,7 @@ Finish the last step: which rewrite of sentence 2 makes *"wrapped in foil"* desc
 :::answer
 **B: "Waiting at the station, we heard a whistle. We bought a snack wrapped in foil from the vendor."** *Wrapped in foil* follows *snack*, with *the vendor* no longer between them. In A, the opener would describe *we*.
 
-**Check:** Match each modifier to its noun: *"Waiting at the station, we..."* (people wait) and *"...snack wrapped in foil"* (the snack is wrapped).
+**Check:** Ask what is wrapped in foil: the snack, not the vendor. Ask what stayed the same: we still bought it from the vendor.
 :::
 
 ## Speed Tricks & Shortcuts

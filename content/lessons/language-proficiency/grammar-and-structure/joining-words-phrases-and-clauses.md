@@ -40,7 +40,7 @@ The answer is **Interjection**. *Oops* expresses a sudden reaction and stands in
 
 ### A Phrase or a Clause After a Joining Word
 
-A **subject** tells who or what a clause is about. In this lesson, a **clause** has a subject and a verb that shows tense (commands leave *you* understood). A **phrase** works as one part without a subject-verb pair.
+A **subject** tells who or what a clause is about. In this lesson, a **clause** has a subject and a finite verb, such as a tensed verb or a modal like *must* (commands leave *you* understood). A **phrase** works as one part without a subject-verb pair.
 
 A **subordinate clause** usually has its own subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting. A group like *before leaving* has no tense; another lesson covers it. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
 
@@ -49,7 +49,7 @@ Words like *before*, *after*, and *until* can do two jobs. Compare a noun phrase
 1. Preposition, noun phrase *dinner* with no verb: "We met **before** dinner."
 2. Subordinating conjunction, clause with subject *we* and verb *finished*: "We left **before** we finished dinner."
 
-<!-- ILLUSTRATION: two stacked sentences comparing "before": top "We met before [dinner]" with [dinner] bracketed and labeled "noun phrase -> preposition"; bottom "We left before [we finished dinner]" with "we" labeled "subject", "finished" labeled "verb", and [we finished dinner] labeled "clause -> subordinating conjunction" -->
+<!-- ILLUSTRATION: two stacked sentences comparing "before": top "We met before [dinner]" with [dinner] bracketed and labeled "noun phrase -> preposition"; bottom "We left [before we finished dinner]" with the whole bracket labeled "subordinate clause -> before is a subordinating conjunction", and inside it "we" labeled "subject" and "finished" labeled "verb" -->
 
 :::why
 Why does traditional school grammar place *before* in two classes? A preposition links a noun phrase to a sentence, while a conjunction links a whole clause. Reading past the first noun to check for a verb reveals which job it does.
@@ -75,21 +75,21 @@ Identify the parts of speech of **Yikes** and **but**: "**Yikes!** The pot is ho
 
 **Solution:**
 
-1. *Yikes* stands apart and shows sudden alarm, so it is an **interjection**.
-2. *Leo wanted a snack* and *the jar was empty* are both complete clauses.
-3. *But* joins two equal clauses, so it is a **conjunction**.
+1. *Yikes* stands apart and shows sudden alarm, so it is an **interjection**: "**Yikes!** The pot is hot."
+2. *Leo wanted a snack* and *the jar was empty* are both complete clauses, so *but* is a **conjunction**: "Leo wanted a snack, **but** the jar was empty."
+
+**Check:** Read each clause alone: "Leo wanted a snack." "The jar was empty." Each stands alone, so *but* joins equal parts.
 
 ### #2: Preposition or Subordinating Conjunction
 
-In traditional school grammar, identify **before** in each sentence: "We met **before** dinner." "We left **before** it rained."
+In traditional school grammar, identify **after** in each sentence: "We walked home **after** class." "We walked home **after** the bell rang."
 
 **Solution:**
 
-1. First, *dinner* follows *before* with no verb, so *before* is a **preposition**.
-2. Second, *it* (subject) and *rained* (verb) follow *before*, so *before it rained* is a subordinate clause.
-3. So *before* is a **subordinating conjunction**.
+1. First, *class* follows *after* with no verb, so *after* is a **preposition**: "We walked home **after** class."
+2. Second, *the bell* (subject) and *rang* (verb) follow *after*, so *after the bell rang* is a subordinate clause and *after* is a **subordinating conjunction**: "We walked home **after** the bell rang."
 
-**Check:** Count the verbs: "We met before dinner" has one; "We left before it rained" has two.
+**Check:** Count the verbs: "We walked home after class" has one; "We walked home after the bell rang" has two.
 
 ### #3: Four Words in One Sentence
 
@@ -104,7 +104,7 @@ In school grammar, identify **(1) very**, **(2) patient**, **(3) calmly**, and *
 :::try
 Finish the last step: is **(4) until** a preposition or a conjunction?
 :::answer
-The answer is **Conjunction** (a subordinating conjunction). *The rain* is a subject and *stopped* is a verb, so *until the rain stopped* is the subordinate clause.
+The answer is **Conjunction** (a subordinating conjunction): "The very patient guests calmly waited **until** the rain stopped." *The rain* is a subject and *stopped* is a verb, so *until the rain stopped* is the subordinate clause.
 
 **Check:** Stopping at *the rain* would miss the verb *stopped*; reading the full group "until the rain stopped" confirms a subject-verb clause.
 :::

@@ -56,7 +56,7 @@ Does "My brother is repairing his bike this week" mean the repair is underway th
 The answer is **Underway this week**. *Is* plus *-ing* (*repairing*) shows an action in progress around now, and *this week* names the period.
 :::
 
-### State Verbs Take Simple Forms
+### State Verbs Usually Take Simple Forms
 
 Verbs like *know, own, believe, belong, understand,* and *seem* describe a **state**, not a step-by-step action. They usually take a simple form ("I **know** how to use the filing system"), not present progressive ("I am knowing").
 
@@ -86,11 +86,11 @@ Choose the forms: (a) "On every school day, the guard *(opens / opened / open)* 
 
 **Solution:**
 
-1. In (a), *every school day* marks the duty as repeated, so choose **opens**: "On every school day, the guard **opens** the gate."
+1. In (a), *every school day* marks the duty as repeated and the stem says it continues now, so choose **opens**: "On every school day, the guard **opens** the gate."
 2. In (b), the sentence states a general truth, so choose **melts**: "Ice **melts** when it gets warm."
 3. In (c), a fixed timetable uses simple present for tomorrow, so choose **leaves**: "The last bus **leaves** at nine tomorrow."
 
-**Check:** Each clue fits: habit, truth, schedule.
+**Check:** In (a), *opened* would end the duty in the past, but the stem says it continues now.
 
 ### #2: Action Now Versus Project This Month
 
@@ -98,11 +98,10 @@ A student eating lunch says "I am studying for the exam this week." Name the ten
 
 **Solution:**
 
-1. *Am studying* uses *am* + *-ing*, which is **present progressive**.
-2. Present progressive also covers longer projects ongoing around the present, marked here by *this week*.
-3. So he does not need to be studying at the exact second he speaks.
+1. *This week* marks a longer project around the present, not this second.
+2. So *am* + *-ing* is **present progressive**: "I **am studying** for the exam this week."
 
-**Check:** *Right now* means this second; *this week* means a longer project.
+**Check:** He is eating lunch as he speaks, yet the sentence is true because the studying continues around now.
 
 ### #3: Choosing the Right Verb Form
 
@@ -123,12 +122,12 @@ The answer is **(D) "The office needs two printers."** *Need* describes a state 
 
 ## Speed Tricks & Shortcuts
 
-Use simple present for habits, truths, timetables, and state verbs; use *am/is/are + -ing* for actions going on now or around now.
+Use simple present for habits, truths, and timetables, and usually for a verb in its state sense; use *am/is/are + -ing* for actions going on now or around now.
 
 ## Traps to Watch For
 
 :::checklist
 - Habit clues like *every working day* for a duty that continues now: choose simple present (*sorts*), not past *-ed*, *is + base*, or bare *-ing*. {#habit-wrong-tense}
 - Present progressive with *this week* or *this month*: it covers projects around the present, even outside this exact second. {#wider-present-project}
-- State verbs like *know* or *belong*: usually use simple present, not *-ing*. {#stative-verb-progressive}
+- State verbs like *know* or *belong* in their state sense: usually use simple present, not *-ing*. {#stative-verb-progressive}
 :::

@@ -51,7 +51,7 @@ Why are both sentences right with *before*? The word *before* already tells the 
 :::pair #before-already-orders
 Right: "She finished the report before her boss asked for it" is grammatical because *before* clearly orders the two past events.
 Wrong: Claim that any action that happened first must always use past perfect instead, or that the later event must always use past perfect instead of simple past.
-With *before*, simple past is grammatical because the order is already clear. Past perfect marks an action already finished at a later past point, but it is not required.
+Simple past often works if the time word already gives the order. Past perfect marks an action already finished at a later past point, but it is not required.
 :::
 
 :::check
@@ -74,6 +74,8 @@ Choose the past-perfect form to make earlier completion explicit: "By the time t
 
 Correct: "By the time the bus left, Ben had bought his ticket."
 
+**Check:** Ask which event had already finished when the bus left: buying the ticket.
+
 ### #2: Two Past Actions in One Sentence
 
 Complete "When Rita reached the shop, the owner ___ home" with *went* or *had gone*. The owner was already gone.
@@ -81,14 +83,14 @@ Complete "When Rita reached the shop, the owner ___ home" with *went* or *had go
 **Solution:**
 
 1. Identify the two past actions: *reached* and the owner leaving.
-2. Place the two actions on a timeline.
+2. Mark Rita's arrival as the later past point: *reached the shop*.
 
 :::try
 Finish the last step: which form fits, and why?
 :::answer
-The answer is **had gone**. The owner left before Rita reached the shop, so *had* marks leaving as finished first.
+The answer is **had gone**: "When Rita reached the shop, the owner **had gone** home." The owner left before Rita reached the shop, so *had* marks leaving as finished first.
 
-**Check:** "When Rita reached the shop, the owner had gone home" fits the meaning. Plain *went* would suggest he left after she arrived.
+**Check:** Swap in *went*: "the owner went home" would suggest he left after she arrived.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -99,5 +101,5 @@ Put two past events on a timeline. Use *had* + past participle on the action com
 
 :::checklist
 - A prompt that asks for the past-perfect form: put *had* + past participle on the action finished first. {#mark-earlier-past}
-- A sentence with *before* or *after* joining two simple past verbs: accept simple past when the connector already makes event order clear. {#before-already-orders}
+- A sentence with *before* or *after* joining two simple past verbs: simple past often works if the time word already gives the order. {#before-already-orders}
 :::

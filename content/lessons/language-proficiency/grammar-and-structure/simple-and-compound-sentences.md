@@ -76,25 +76,27 @@ The answer is **Two, joined by a comma and "but"**, so the sentence is **Compoun
 
 ### #1: Checking Joined Subjects and Verbs
 
-Classify *"The teacher and her students prepared and rehearsed the play."*
+Classify *"The manager and her assistants reviewed and approved the budget."*
 
 **Solution:**
 
-1. *The teacher and her students* is one compound subject.
-2. *Prepared and rehearsed* is one compound verb sharing that subject.
-3. With one independent clause and zero dependent clauses, the sentence is **Simple**.
+1. *The manager and her assistants* is one compound subject.
+2. *Reviewed and approved* is one compound verb sharing that subject.
+3. With one independent clause and zero dependent clauses, the sentence is **Simple**: "[The manager and her assistants reviewed and approved the budget.]"
 
-**Check:** Split at the second *and*: *rehearsed the play* has no subject.
+**Check:** Split at the second *and*: *approved the budget* has no subject.
 
 ### #2: Two Parts With a Semicolon
 
-Classify *"The clinic reopened; appointments resumed."*
+Classify *"The bell rang; the students left."*
 
 **Solution:**
 
-1. *"The clinic reopened"* has subject *the clinic* and verb *reopened*, so it stands alone.
-2. *"Appointments resumed"* has subject *appointments* and verb *resumed*, so it also stands alone.
-3. Two independent clauses and zero dependent clauses make the sentence **Compound**.
+1. *"The bell rang"* has subject *the bell* and verb *rang*, so it stands alone.
+2. *"The students left"* has subject *the students* and verb *left*, so it also stands alone.
+3. Two independent clauses and zero dependent clauses make the sentence **Compound**: "[The bell rang]; [the students left]."
+
+**Check:** Replace the semicolon with a period: "The bell rang. The students left." Both read as full sentences.
 
 ### #3: Classifying After a Deletion
 
@@ -121,6 +123,6 @@ Split at a joining word (*and, but, so*) or a semicolon and test each side alone
 
 :::checklist
 - Using *and* to join two nouns or two verbs: verify each side has its own subject and finite verb before calling it compound. {#compound-parts-still-simple}
-- Sentences joined by *but*, *so*, or a semicolon: test both sides alone so you do not pick simple or complex. {#but-so-semicolon-are-compound}
+- Sentences joined by *but*, *so*, or a semicolon: test that both sides stand alone and neither holds a dependent clause, so you do not pick simple or complex. {#but-so-semicolon-are-compound}
 - Swapping *and* for *while* or *when*: remember subordinating words create a dependent clause, not a compound sentence. {#compound-subject-not-compound}
 :::

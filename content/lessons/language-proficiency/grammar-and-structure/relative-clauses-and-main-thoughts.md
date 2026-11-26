@@ -65,15 +65,15 @@ The answer is **found**: "The clerk [who checked my form] **found** an error." *
 
 ### #1: Describing a Volunteer
 
-In *"The volunteer who repaired the bench returned today,"* classify *"who repaired the bench,"* name the noun it describes, and explain why there are no commas.
+In *"The runner who won the race thanked her coach,"* classify *"who won the race,"* name the noun it describes, and explain why there are no commas.
 
 **Solution:**
 
-1. *Who repaired the bench* has subject *who* and finite verb *repaired* linked to *volunteer*, so it is a **dependent relative clause**.
-2. It describes *the volunteer*.
-3. It identifies which volunteer returned, so it is essential and takes no commas.
+1. *Who won the race* has subject *who* and finite verb *won* linked to *runner*, so it is a **dependent relative clause**.
+2. It describes *the runner*.
+3. It identifies which runner thanked her coach, so it is essential and takes no commas: "The runner who won the race thanked her coach."
 
-**Check:** Outer frame: *"The volunteer returned today."* *Returned* matches *the volunteer*.
+**Check:** Outer frame: *"The runner thanked her coach."* *Thanked* matches *the runner*.
 
 ### #2: Choosing Who or Whom
 
@@ -93,12 +93,12 @@ In *"The pilot who flew the storm route landed safely,"* find the relative claus
 
 **Solution:**
 
-1. *Who flew the storm route* starts with *who* and describes *the pilot*, so it is a dependent relative clause.
+1. *Who* starts a relative clause that describes *the pilot*.
 
 :::try
-Finish the last step: name the independent clause and its main verb, and say why.
+Finish the last step: mark where the relative clause ends, then name the independent clause and its main verb, and say why.
 :::answer
-The answer is **The whole sentence**: "The pilot [who flew the storm route] **landed** safely." The main verb is *landed*. *The pilot* is the main subject, and *flew* belongs to the bracketed relative clause inside the subject.
+The answer is **The whole sentence**: "The pilot [who flew the storm route] **landed** safely." The relative clause is *who flew the storm route*, and the main verb is *landed*. *The pilot* is the main subject, and *flew* belongs to the bracketed relative clause inside the subject.
 
 **Check:** *"The pilot landed safely"* keeps the main subject and verb.
 :::

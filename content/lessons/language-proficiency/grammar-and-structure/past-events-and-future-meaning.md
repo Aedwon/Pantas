@@ -39,7 +39,7 @@ The answer is **Filed**. *Last Friday* sets a past timeline, so the verb stays i
 
 **Simple future** is the common school label for *will* plus the base form of a verb when it points to the future: "She **will write** a letter tomorrow." Use it for things such as a prediction, a promise, a future fact, or a decision made as you speak.
 
-Never add *-s*, *-ed*, or *-ing* to the verb after *will*. Always use the plain base form (*will close*, *will help*).
+The verb that *will* governs stays in its plain base form (*will close*, *will help*), with no *-s*, *-ed*, or *-ing*. In longer groups, that verb is *be* or *have* (*will be closing*, *will have closed*).
 
 :::pair #will-is-simple-future
 Right: In "She will write a letter tomorrow," *will write* is simple future.
@@ -50,7 +50,7 @@ Here, *tomorrow* shows future meaning, so *will write* is simple future, not pre
 :::check
 Choose the correct form: I think the office *(will close / will closes)* early tomorrow.
 :::answer
-The answer is **Will close**. *Tomorrow* points to the future, and *will* always takes the plain base form *close*.
+The answer is **Will close**. *Tomorrow* points to the future, and the verb *will* governs takes the plain base form *close*.
 :::
 
 ### Verbs Across Clauses
@@ -99,8 +99,8 @@ Identify the verb tense in "We will visit the museum on Friday."
 **Solution:**
 
 1. Find the full verb group before *the museum*: *will visit*.
-2. Check the helper *will*: it marks a future action.
-3. Match the form *will* + base verb to its label: **simple future**.
+2. Check the helper *will*: here, *will visit* looks ahead to Friday.
+3. Match the form *will* + base verb to its label, **simple future**: "We **will visit** the museum on Friday."
 
 **Check:** Swap *on Friday* for *tomorrow*: "We will visit the museum tomorrow" still points forward.
 
@@ -117,7 +117,7 @@ Finish the job: check the second clause, then say whether the shift is justified
 :::answer
 The answer is **No, the shift is not justified.** Both clauses share the clue *last Saturday*, which is past, so *paint* must become *painted*: **"We cleaned the room last Saturday, and we painted the walls last Saturday."**
 
-**Check:** Swap the second clue: with *next Saturday*, *will paint* would fit; with *last Saturday*, only *painted* does.
+**Check:** Swap the second clue: with *next Saturday*, *will paint* would fit; with *last Saturday*, *painted* keeps both actions in the same simple past pattern.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -128,6 +128,6 @@ Spot every time word first (*yesterday*, *last week*, *now*, *tomorrow*). Usuall
 
 :::checklist
 - A past clue like *yesterday*: put every verb for that time in a past form that fits its action. {#keep-stated-past-time}
-- A verb with *will* plus the base form for a future time: label it simple future, and never add *-s* or *-ed*. {#will-is-simple-future}
+- A verb with *will* plus the base form for a future time: label it simple future, and keep the verb *will* governs in its base form (no *-s* or *-ed*). {#will-is-simple-future}
 - Two clauses joined by *and* with different time clues: allow the tense to shift with the timeline. {#justified-tense-shift}
 :::
