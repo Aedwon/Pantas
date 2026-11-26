@@ -129,6 +129,7 @@ The sentence is **Compound-complex**. It has three independent clauses and one d
 ## Speed Tricks & Shortcuts
 
 Keep two counts: independent clauses and dependent clauses.
+
 ## Traps to Watch For
 
 :::checklist

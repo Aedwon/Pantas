@@ -52,7 +52,7 @@ Why does *everybody* take a singular verb when it refers to many people? English
 :::pair #indefinite-singular-verb
 Right: "Everybody in the room is seated," and "Nothing about the missing files seems to make sense."
 Wrong: "Everybody in the room are seated," or "Nothing about the missing files seem to make sense."
-Do not use *are* just because *everybody* means many people, and do not match the plural word *files* in the *about*-phrase. Both subjects stay singular.
+Do not use *are* because *everybody* means many people, or match the plural *files*. Both subjects stay singular.
 :::
 
 :::check
@@ -63,7 +63,7 @@ The answer is **Needs**. Set aside *in both offices*; *everybody* is grammatical
 
 ### Words Like All, Some, Most, and None
 
-With *all*, *some*, *most*, *half*, and *a lot* followed by *of*, look at the noun inside the *of*-phrase to pick the verb. Compare one amount with separate items:
+With words such as *all*, *some*, *most*, *half*, and *a lot* followed by *of*, look at the noun inside the *of*-phrase to pick the verb. Compare one amount with separate items:
 
 1. Uncountable (mass) noun, one amount: "Most of the water **has** evaporated."
 2. Plural countable noun, separate items: "Some of the cookies **are** gone."
@@ -91,7 +91,7 @@ Choose the natural form for each context: (a) Under standard American English tr
 **Solution:**
 
 1. In (a), the committee acts as one unit under American English, so choose singular **has**.
-2. In (b), *among themselves* shows members acting separately, so British English uses plural **are**.
+2. In (b), *among themselves* shows members acting separately, so British English can use plural **are**.
 
 Correct: (a) "The committee has reached a decision." (b) "The team are arguing among themselves."
 

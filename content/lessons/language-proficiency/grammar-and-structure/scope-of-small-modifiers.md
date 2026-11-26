@@ -44,7 +44,7 @@ Neither rigid claim holds. *Only* limits actions, amounts, or phrases as well as
 :::
 
 :::check
-What does *only* limit in *"Only Ben ate the soup"* and *"Ben ate only the soup,"* respectively?
+What does *only* limit in each sentence: *"Only Ben ate the soup"* and *"Ben ate only the soup"*?
 :::answer
 The answer is **The eater; the food**. *Only Ben* limits who ate, and *only the soup* limits what Ben ate.
 :::
@@ -99,20 +99,20 @@ Which says the cyclists rode on nearly every day, not every day: *"Almost all th
 
 **Check:** That sentence means nearly every day, with a few left out.
 
-### #3: Keeping the Meaning of a Quantity
+### #3: A Bakery Shelf
 
-The baker started with a full shelf, and only two loaves were left. Why do (a) *"Almost every baker sold all the loaves"* and (b) *"The baker sold all the loaves for almost the whole morning"* fail? Write a sentence with *almost* that explains the sale.
+The baker's full shelf is down to two loaves. Why do (a) *"Nearly every baker sold all the loaves"* and (b) *"The baker sold all the loaves for nearly the whole morning"* fail? Write one sentence with *nearly*, *baker*, *sold* and *loaves* that explains the sale.
 
 **Solution:**
 
-1. Read what *almost* sits beside in each option.
+1. Read what *nearly* sits beside in each option.
 
 :::try
 Finish the last step: write the sentence that explains the sale, and say why it works.
 :::answer
-**"The baker sold almost all the loaves."** Putting *almost* directly before *all the loaves* limits the number of loaves sold. Option (a) limits the bakers and option (b) limits the time.
+**"The baker sold nearly all the loaves."** Putting *nearly* directly before *all the loaves* limits the number of loaves sold. Option (a) limits the bakers and option (b) limits the time.
 
-**Check:** Swapping in *"nearly all"* keeps the meaning.
+**Check:** Swapping in *"almost all"* keeps the meaning.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -47,9 +47,9 @@ Change the voice of each sentence and keep its tense and aspect:
 - Ongoing present: "The crew **is repairing** the road." -> "The road **is being repaired** by the crew."
 
 :::pair #preserve-tense-and-aspect
-Right: "The committee approved the new budget" becomes "The new budget was approved by the committee."
-Wrong: Shift to present ("The new budget is approved by the committee during its meetings") or ongoing ("A famous author was writing the novel").
-Simple past stays simple past (*was approved*, *wrote*), not present or *-ing*.
+Right: "The novel was written by a famous author" becomes "A famous author wrote the novel."
+Wrong: Shift to ongoing ("A famous author was writing the novel").
+Simple past stays simple past (*was written*, *wrote*), not *-ing* or present.
 :::
 
 :::check

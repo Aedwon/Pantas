@@ -78,7 +78,7 @@ In standard formal English, revise: *"She doesn't want no help with the project.
 
 Correct sentence: **"She doesn't want any help with the project."**
 
-**Check:** Confirm one negative (*doesn't*), preserved refusal of help, and unchanged present tense (*doesn't*, not *didn't*).
+**Check:** One negative (*doesn't*), the same refusal, and present tense unchanged.
 
 ### #2: Reading Negative Concord Without Flipping Meaning
 

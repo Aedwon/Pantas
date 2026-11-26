@@ -29,7 +29,7 @@ Also check connector placement. *Either* before a shared verb is allowed but can
 :::pair #mismatched-correlative-pair
 Right: Change *"it was educational"* to *"educational"* in *"The festival was not only fun but also it was educational."*
 Wrong: Change *"it was educational"* to *"to educate people,"* or change *"fun"* to *"enjoyably."*
-*Fun* is an adjective. A *to + verb* phrase (*to educate people*) or an adverb (*enjoyably*) still mismatches the adjective form.
+Match *fun*, an adjective: *to educate people* fails, and *enjoyably* leaves the clause *it was educational*.
 :::
 
 :::pair #misplaced-correlative-connector

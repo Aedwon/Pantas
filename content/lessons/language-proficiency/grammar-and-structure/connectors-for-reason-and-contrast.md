@@ -57,7 +57,7 @@ The answer is **After *open***. *"Although the shop was open, we left without bu
 
 In formal writing, a dependent clause standing alone with a period is a **fragment**, an incomplete sentence: *"Although the teacher explained the lesson twice."*
 
-To fix a dependent-clause fragment, attach a true **independent clause** with a subject, finite verb, and no subordinating word at the front. Adding another dependent clause (*while, because*), a noun phrase (*our journey back home*), or a prepositional phrase (*after losing*) still leaves a fragment.
+To fix a dependent-clause fragment, attach a true **independent clause** with a subject, finite verb, and no subordinating word at the front. Adding another dependent clause (*while, because*), a noun phrase, or a prepositional phrase still leaves a fragment.
 
 :::pair #fragment-is-not-sentence
 Right: In formal prose, *"Although the teacher explained the lesson twice"* is **a dependent-clause fragment**.

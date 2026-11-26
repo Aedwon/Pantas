@@ -27,13 +27,13 @@ An opening phrase is fine when the main subject can logically do that action (*"
 :::pair #passive-or-later-pronoun
 Right: *"After finishing the marathon, she enjoyed a warm bath."*
 Wrong: Write *"After finishing the marathon, a warm bath was enjoyed by her."* or *"After finishing the marathon, the warmth of the bath amazed her."*
-Putting *her* in *"by her"* or *"amazed her"* does not fix the phrase. The runner must be the main subject (*she*).
+*By her* and *amazed her* do not fix the phrase. While it stays a phrase, the runner must be the main subject (*she*).
 :::
 
 :::pair #activity-noun-subject
 Right: *"Excited about the trip, we packed the suitcases a week early."* and *"Exhausted from the hike, the campers quickly pitched their tents."*
 Wrong: Write *"Excited about the trip, packing the suitcases was finished a week early."* or *"Exhausted from the long hike, pitching the tents took the campers an hour."*
-Making an activity (*packing*, *pitching*) the main subject leaves the phrase dangling, since activities cannot feel excited or tired. Name the people (*we*, *the campers*) as the main subject.
+Making an activity (*packing*, *pitching*) the main subject leaves the phrase dangling, since activities cannot feel excited or tired. Name the people (*we*, *the campers*) instead.
 :::
 
 :::check
@@ -113,12 +113,12 @@ The answer is **(B) "As Marco crossed the bridge, the strong wind blew his hat a
 
 ## Speed Tricks & Shortcuts
 
-Read the opening phrase and check the main subject. If it does not fit, change the main subject or turn the phrase into a full clause.
+Check the opening phrase against the main subject. If it does not fit, change the subject or make the phrase a clause.
 
 ## Traps to Watch For
 
 :::checklist
-- Putting the doer in *by her* or an object: make the doer the main subject. {#passive-or-later-pronoun}
+- Doer only in *by her* or an object: while the opener stays a phrase, make the doer the main subject. {#passive-or-later-pronoun}
 - Using an activity noun like *packing* or *pitching* as the main subject: name the people doing or feeling the phrase. {#activity-noun-subject}
 - Opening with *while* or *after* plus an *-ing* word: add a subject inside the opening clause, or match the main subject. {#while-ing-no-subject}
 :::

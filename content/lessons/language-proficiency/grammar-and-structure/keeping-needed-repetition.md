@@ -52,7 +52,7 @@ Wrong: Claim *again* means *"It says the instruction has never been repeated."* 
 :::
 
 :::check
-A pilot announced a gate change, then repeated it twice. Now a late passenger asks. Should *again* stay in *"Please repeat the gate change again for the late passenger"*?
+A pilot announced a gate change, then repeated it twice. Now a late passenger asks. By that timeline, should *again* stay in *"Please repeat the gate change again for the late passenger"*?
 :::answer
 The answer is **Yes**. The pilot already repeated the announcement twice, so *again* points to a further repeat.
 :::
@@ -70,11 +70,11 @@ No earlier repetition has occurred. For concise formal writing, revise: *"Could 
 
 Correct sentence: **"Could you please repeat what you just said?"**
 
-**Check:** Confirm the revised sentence still asks for the exact same words and that no prior repeat was missed.
+**Check:** The revised sentence still asks for the same words.
 
 ### #2: Keeping "Again" After an Earlier Repeat
 
-Mara read a notice aloud. At Ben's request, she repeated it. Ben still could not hear. Does *again* add meaning in *"Please repeat it again"*?
+Mara read a notice aloud. At Ben's request, she repeated it. Ben still could not hear. By that timeline, does *again* add meaning in *"Please repeat it again"*?
 
 **Solution:**
 

@@ -23,7 +23,7 @@ In *"The volunteer who repaired the bench returned today,"* *who repaired the be
 Pick the relative word by job and commas:
 
 - **Who vs. whom:** Use *who* as the clause subject (*the volunteer who repaired the bench*). In formal prose, use *whom* as the object of a verb or preposition (*the volunteer whom the mayor thanked*).
-- **That vs. which (formal American style):** *That* is a common choice, without commas, for an essential clause telling which thing is meant (*"The bench that sits by the gate is dry."*). *Which* can do either job, so the commas show extra side detail about an already clear noun (*"The front bench, which was painted yesterday, is dry."*). *That* never follows a comma in a non-defining clause.
+- **That vs. which (formal American style):** *That* is a common choice, without commas, for an essential clause telling which thing is meant (*"The bench that sits by the gate is dry."*). *Which* can do either job, so the commas show extra side detail about an already clear noun (*"The front bench, which was painted yesterday, is dry."*). *That* never follows a comma before an extra-detail clause.
 
 :::pair #relative-is-dependent
 Right: In *"The volunteer who repaired the bench returned today,"* *"who repaired the bench"* is a **Dependent clause**.
@@ -34,7 +34,7 @@ Wrong: Classify *"who repaired the bench"* as an **Independent clause**, a **Pre
 :::check
 Which fits better in formal prose: *"The report, (that / which) arrived this morning, is on your desk"*?
 :::answer
-The answer is **which**. The commas mark extra detail, and *that* is not used after a comma in a non-defining clause.
+The answer is **which**. The commas mark extra detail, and *that* is not used after a comma before an extra-detail clause.
 :::
 
 ### Finding the Main Thought Around a Relative Clause

@@ -33,7 +33,7 @@ After *customer*, *covered in cheese* attaches to the customer; at the front bef
 :::check
 The car, not the owner, has a dented door. Revise *"The mechanic showed a car to the owner with a dented door."*
 :::answer
-The answer is **"The mechanic showed the owner a car with a dented door."** Putting *with a dented door* right after *a car* connects the dented door to the car.
+The answer is **"The mechanic showed the owner a car with a dented door."** Putting *with a dented door* right after *a car* connects the dented door to the car. Any order with *with a dented door* right after *a car* works.
 :::
 
 ### Keeping the Intended Meaning When Revising
@@ -98,7 +98,7 @@ The visitors walk into the room, and the bread is wrapped in a napkin. Check thi
 :::try
 Finish the last step: rewrite sentence 2 so *"wrapped in a napkin"* clearly describes *bread*.
 :::answer
-**"Entering the room, we smelled fresh bread. We received bread wrapped in a napkin from the baker."** Putting *wrapped in a napkin* right after *bread* removes *the baker* from between them.
+**"Entering the room, we smelled fresh bread. We received bread wrapped in a napkin from the baker."** Putting *wrapped in a napkin* right after *bread* removes *the baker* from between them. Any order with the phrase right after *bread* works.
 
 **Check:** Match each modifier to its noun: *"Entering the room, we..."* (people enter) and *"...bread wrapped in a napkin"* (bread is wrapped). Both fit the prompt.
 :::

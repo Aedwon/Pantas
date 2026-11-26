@@ -27,9 +27,9 @@ Joining two independent clauses with only a comma is a **comma splice**: *"The c
 Condition: a semicolon that joins clauses needs an **independent clause on both sides**. Do not put one before a dependent clause (*"; because she visits..."*), before a phrase (*"; after regular servicing"*), or right after *and* (*"and;"*).
 
 :::pair #comma-splice-same-topic
-Right: Fix *"The concert was amazing, everyone stayed until the end"* by replacing the comma with a semicolon (;).
+Right: Fix *"The concert was amazing, everyone stayed until the end"* to **"The concert was amazing; everyone stayed until the end."**
 Wrong: Keep the comma because both clauses concern the same concert.
-Sharing a topic does not let a comma alone join two complete clauses in formal writing. Test both halves as standalone sentences.
+Sharing a topic does not let a comma alone join two complete clauses in formal writing.
 :::
 
 :::pair #semicolon-before-dependent-part
@@ -65,7 +65,7 @@ All commas blur the pairs into six places, while semicolons inside each pair spl
 :::check
 Each city in *"The delegates came from Calamba, Laguna, Vigan, Ilocos Sur, and Malolos, Bulacan"* comes with its province. Where do the semicolons go?
 :::answer
-The answer is **After *Laguna* and after *Ilocos Sur***. Each city-province pair keeps its internal comma, and semicolons divide the three pairs.
+The answer is **"The delegates came from Calamba, Laguna; Vigan, Ilocos Sur; and Malolos, Bulacan."** Each pair keeps its internal comma, and semicolons divide the pairs.
 :::
 
 ## Examples

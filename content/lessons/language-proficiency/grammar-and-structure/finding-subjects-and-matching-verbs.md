@@ -41,7 +41,7 @@ Three verbs have their own forms in the present.
 - *I have*, *you have*, *we have*, *they have*, but *he has*, *she has*, *it has*
 - *I do*, *you do*, *we do*, *they do*, but *he does*, *she does*, *it does*
 
-Most other verbs follow one rule in the simple present. With a singular third-person subject, add *-s*, *-es* or *-ies*: *she works*, *he watches*, *she studies*. With every other subject, use the plain verb: *I work*, *they watch*.
+Most other verbs follow one rule in the simple present. With a singular third-person subject, add *-s* or *-es*, or change *y* to *ies*: *she works*, *he watches*, *she studies*. With every other subject, use the plain verb: *I work*, *they watch*.
 
 :::pair #verb-s
 Right: The dog barks every morning.
@@ -137,11 +137,10 @@ Finish the last step: is *quality* singular or plural, and which verb matches it
 
 Find the subject before you choose the verb. Cover a phrase that adds a detail, such as one starting with *of*, *on*, *in* or *with*, then check number and person.
 
-One exception: after *some*, *most*, *all*, *half*, or *a lot*, the noun after *of* decides the verb. "Some of the money is missing." "Some of the students are absent." The next part of this topic covers these words.
-
+Exceptions such as *some*, *most*, *all*, *half*, or *a lot*: the noun after *of* decides the verb. "Some of the money is missing." "Some of the students are absent."
 ## Traps to Watch For
 
 :::checklist
 - Singular third-person subject with a regular present verb: add *-s*, as in "The dog barks." {#verb-s}
-- A phrase between the subject and the verb: cover it and match the head, as in "The box of chocolates is on the table." {#nearest-noun}
+- A phrase between the subject and the verb: otherwise cover it and match the head, as in "The box of chocolates is on the table." {#nearest-noun}
 :::

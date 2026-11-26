@@ -18,7 +18,7 @@ keyPoints:
 
 A **dependent clause** cannot stand alone. Put a comma right after an opening one that has its own subject and verb: *"Because she was tired, she rested."*
 
-An **opening phrase** usually takes a comma after the whole phrase: *"After the meeting, we went home."* A short, clear opening (*"Yesterday we met"*) may skip it. An opening clause with its own subject and verb cannot.
+An **opening phrase** usually takes a comma after the whole phrase: *"After the meeting, we went home."* A short, clear opening (*"Yesterday we met"*) may skip it. An opening clause with its own subject and verb normally takes one.
 
 Put the opening comma at the **end** of the opening group, never inside it (*"After, the meeting"*) or between subject and verb (*"we, went home"*).
 
@@ -40,7 +40,7 @@ The answer is **After *sheets***. *"Before the proctor collected the sheets"* is
 
 **Restrictive (identifying):** tells **which** ones out of a group (words such as *who*, *which*, or *that*, **no commas**).
 
-Compare extra detail about an only brother with a clause that picks out some students:
+Compare extra detail with a clause that picks out some students:
 
 1. *"My brother, who lives in Cebu, is visiting this week."*
 2. *"The students who missed the test must report today."*

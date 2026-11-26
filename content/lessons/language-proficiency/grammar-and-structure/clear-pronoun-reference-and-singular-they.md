@@ -49,7 +49,7 @@ The answer is **Their**. *Somebody* is one unspecified person, so *their* fits w
 Singular *they* changes the pronoun, not the verb attached to *everybody*. Match each verb to its own subject:
 
 1. *Everybody*, *everyone*, *each*, and *somebody* take a **singular** verb (*is, has*).
-2. *They* always takes plural verb forms in general (such as *are*, *have*, and plain verbs without *-s*), even when referring to one person.
+2. *They* always takes plural verb forms (such as *are*, *have*, and plain verbs without *-s*), even when referring to one person.
 
 :::why
 Why write "Everybody **has** said they **are** ready"? Each verb agrees with its own subject. *Everybody* is grammatically singular (*has*), while *they* always pairs with *are*.
@@ -78,7 +78,7 @@ Proximity does not fix an unclear pronoun. When either person could own the pain
 :::
 
 :::check
-Sam alone passed. Rewrite "Alex told Sam that they had passed" clearly.
+Sam alone passed. Repeat the name in "Alex told Sam that they had passed."
 :::answer
 The answer is **"Alex told Sam that Sam had passed."** Repeating *Sam* names who passed and removes ambiguity.
 :::

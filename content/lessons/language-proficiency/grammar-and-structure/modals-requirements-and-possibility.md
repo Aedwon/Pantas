@@ -70,7 +70,7 @@ Besides giving a rule, **must** can express a **strong conclusion** based on clu
 The speaker is not ordering anyone to use the room. Instead, the clues show what is very likely true right now.
 
 :::pair #must-conclusion-vs-rule
-Right: In "Could I use the meeting room?" "The reservation sheet is signed and the lights are on, so someone must be using the room," *could* asks permission and *must* states a strong conclusion from evidence.
+Right: In "Could I use the meeting room?" *could* asks permission. In "The sheet is signed and the lights are on, so someone must be using the room," *must* states a strong conclusion.
 Wrong: Read *must* as an obligation to use the room, or read *could* as general ability in the past.
 The signed sheet and lit room are evidence for what is happening now, not a rule. And *Could I use...* asks polite permission.
 :::
@@ -93,7 +93,7 @@ A notice states that bringing a printed reference sheet is optional. Choose the 
 2. Rule out *must not* (ban), *have to* (rule), and *should* (advice).
 3. Choose **"Applicants do not have to bring a sheet."**
 
-**Check:** Bringing a sheet is allowed (not *must not*), not required (not *have to*), and not even advised (not *should*).
+**Check:** Bringing a sheet is allowed (not *must not*), not required (not *have to*), and *should* adds advice the notice does not state.
 
 ### #2: Identifying Possibility in Context
 
@@ -106,20 +106,20 @@ In "The delivery might arrive after the office closes," determine what *might* e
 
 **Check:** Replace *might* with *may* ("The delivery may arrive after the office closes"): the uncertain prediction stays intact, confirming possibility.
 
-### #3: Two Modals in One Exchange
+### #3: Two Modals in One Notice
 
-Read: "Could I borrow the projector?" "The cable is plugged in and the screen is bright, so someone must be using the projector." What do *could* and *must* express?
+Read: "The lights are off and the door is locked, so the shop must be closed. The owner might open it at noon." What do *must* and *might* express?
 
 **Solution:**
 
-1. Read both lines of the exchange.
+1. Split the notice into its two sentences.
 
 :::try
-Finish the job: what do *could* and *must* express in this exchange?
+Finish the job: what do *must* and *might* express?
 :::answer
-*Could* makes a **polite permission request**: the speaker asks to be allowed to borrow the projector. *Must* is **a strong conclusion from evidence**: the plugged-in cable and bright screen show what is very likely true now.
+*Must* is **a strong conclusion from evidence**: the dark lights and locked door show what is very likely true now. *Might* is **possibility**: opening at noon is uncertain.
 
-**Check:** Replace *must be using* with *is probably using*: the meaning fits the clues smoothly, whereas *is required to use* makes no sense.
+**Check:** Replace *must be closed* with *is probably closed*: the meaning fits the clues, whereas *has to be closed* would state a rule.
 :::
 
 ## Speed Tricks & Shortcuts

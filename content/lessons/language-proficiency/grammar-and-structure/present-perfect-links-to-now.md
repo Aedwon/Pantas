@@ -33,7 +33,7 @@ Read the full verb group, not just *written*. Present *has* or *have* plus a pas
 :::check
 Choose the right form: The nurses *(have cleaned / have clean)* the ward today.
 :::answer
-The answer is **Have cleaned**. After *have*, always use the past participle (*cleaned*), never the base form (*clean*).
+The answer is **Have cleaned**. After helper *have*, use the past participle (*cleaned*), never the base form (*clean*).
 :::
 
 ### Linking the Past to Now
@@ -108,11 +108,11 @@ Choose the right verb form: "The mayor ___ (open) the new bridge last Friday."
 
 ### #3: Choosing Between Three Sentences
 
-Dan joined the club in May and is still a member. Choose the correct sentence: "Dan joins the club in May and has been a member ever since," "Dan had been a member until May, and then he left," or "Dan joined the club in May and has been a member ever since."
+Dan's club membership began in May and continues today. Choose the correct sentence: "Dan joins the club in May and has been a member ever since," "Dan had been a member until May, and then he left," or "Dan joined the club in May and has been a member ever since."
 
 **Solution:**
 
-1. Check whether the membership ended or still continues: he is *still a member*, ruling out *had been ... and then he left*.
+1. Check whether the membership ended or still continues: it *continues today*, ruling out *had been ... and then he left*.
 
 :::try
 Finish the last step: which sentence fits both timelines, and why do its two verbs differ?

@@ -53,13 +53,13 @@ Compare a fragment with a sentence:
 :::pair #long-infinitive-still-fragment
 Right: *"The unit plans to revise the policy."* is a complete formal sentence.
 Wrong: Pick *"To revise the policy before the next inspection."*, *"To have the policy revised before the inspection."*, or *"To revise the policy and to notify all employees."* as a complete formal sentence.
-Look for a stated subject paired with a tense-carrying finite verb like *plans*; if every verb in the group starts with *to* and no finite verb appears, the group is a fragment.
+Look for a stated subject paired with a tense-carrying finite verb like *plans*; if no finite verb appears, the group is a fragment.
 :::
 
 :::check
-Can *"To verify every receipt before the audit begins"* stand alone as a complete formal sentence?
+Can *"To verify every receipt before noon"* stand alone as a complete formal sentence?
 :::answer
-The answer is **No**. *To verify* is an infinitive with no finite main verb, and *"before the audit begins"* is a dependent clause, so no main clause exists.
+The answer is **No**. *To verify* is an infinitive, and no finite verb appears, so there is no main clause.
 :::
 
 ## Examples

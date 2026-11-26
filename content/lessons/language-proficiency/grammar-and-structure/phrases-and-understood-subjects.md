@@ -103,7 +103,7 @@ The answer is **Independent clause; implied subject.** Because *open* pairs with
 
 ## Speed Tricks & Shortcuts
 
-Look for the verb first. In these examples, a group with no verb is a phrase, not a clause. If the group is an order or polite request that starts with a plain action verb (not *Let's*), supply *you* in front to reveal the full independent clause.
+Look for the verb first. In these examples, a group with no verb is a phrase, not a clause. If the group is an order or polite request, supply *you* in front to reveal the full independent clause.
 
 ## Traps to Watch For
 

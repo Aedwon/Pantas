@@ -46,7 +46,7 @@ The answer is **Can fix**. After *can*, use the bare base verb *fix* with no *-s
 
 Use **can** for present or general ability: "She **can type** sixty words a minute." Use **could** for general ability in the past: "I **could type** before I entered college."
 
-For a single past success rather than general skill, writers usually prefer *was able to* or *managed to* over *could*.
+In affirmative sentences, a single past success usually takes *was able to* or *managed to*, not *could*.
 
 :::check
 Choose the form: Before school started, Lina *(can / could)* already read short books.
@@ -108,7 +108,7 @@ Choose each modal: (a) Present ability: "Maria *(can / must)* solve the problem 
 
 ### #3: Reading Three Sentences with Could
 
-Choose the sentence using *could* to request permission: "She could dance well as a child," "It could rain by noon," or "Could I take this seat?"
+Choose the sentence using *could* to request permission: "She could dance well as a child," "The bus could stop here," or "Could I take this seat?"
 
 **Solution:**
 
@@ -117,7 +117,7 @@ Choose the sentence using *could* to request permission: "She could dance well a
 :::try
 Finish the job: say what *could* does in the other two sentences, then choose the permission request.
 :::answer
-"It could rain by noon" states a possibility. The permission request is **"Could I take this seat?"** The speaker is politely asking someone to allow the use of the seat.
+"The bus could stop here" states a possibility. The permission request is **"Could I take this seat?"** The speaker is politely asking someone to allow the use of the seat.
 
 **Check:** Swap *Could* for *May* ("May I take this seat?"): it still asks permission cleanly, whereas swapping *may* into "She could dance" breaks the past-ability meaning.
 :::

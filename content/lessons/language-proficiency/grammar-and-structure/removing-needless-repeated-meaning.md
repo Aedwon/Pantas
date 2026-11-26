@@ -39,9 +39,9 @@ Warnings come at different times, and some repeated words add meaning. Cut *adva
 :::
 
 :::check
-Revise: *"Please combine the two reports together."*
+Revise: *"Please repeat the instructions again."*
 :::answer
-The answer is **"Please combine the two reports."** *Combine* already means join together, so *together* adds nothing and the request stays the same.
+The answer is **"Please repeat the instructions."** *Repeat* already means say again, so *again* adds nothing and the request stays the same.
 :::
 
 ### Checking Before You Cut
@@ -61,7 +61,7 @@ There is no automatic rule forcing one word out of every related pair. Judge wha
 :::
 
 :::check
-Which revision keeps the meeting time without extra words in *"The meeting starts at 3 p.m. in the afternoon"*?
+Cut words only, and keep *3 p.m.*, in *"The meeting starts at 3 p.m. in the afternoon."* What is the revision?
 :::answer
 The answer is **"The meeting starts at 3 p.m."** The time *3 p.m.* already states the afternoon, so *in the afternoon* repeats it.
 :::
@@ -70,28 +70,28 @@ The answer is **"The meeting starts at 3 p.m."** The time *3 p.m.* already state
 
 ### #1: Cutting a Repeated Word Without Changing the Action
 
-Revise for concise formal writing: *"Please return back the library books by Friday."*
+Revise for concise formal writing: *"Please combine the two forms together."*
 
 **Solution:**
 
-1. *Return* already means bring or give back.
-2. Drop *back* while keeping the action (*return*) and the deadline (*by Friday*).
+1. *Combine* already means join together.
+2. Drop *together* while keeping the action (*combine*) and its object (*the two forms*).
 
-Correct sentence: **"Please return the library books by Friday."**
+Correct sentence: **"Please combine the two forms."**
 
-**Check:** Read the new sentence: it still asks to bring the books back by Friday.
+**Check:** Read the new sentence: it still asks to join the forms.
 
 ### #2: Finding Why a Timing Word Repeats
 
-The agency gave residents *"advance warning several days before a road closure."* For a shorter version, why can *advance* be removed?
+The store gave staff *"prior notice two days before the sale."* For a shorter version, why can *prior* be removed?
 
 **Solution:**
 
-1. *Advance* means given ahead of time.
-2. *"Several days before a road closure"* already tells when the warning arrived.
-3. Therefore, *advance* repeats timing already stated in that phrase.
+1. *Prior* means given ahead of time.
+2. *"Two days before the sale"* already tells when the notice arrived.
+3. Therefore, *prior* repeats timing already stated in that phrase.
 
-**Check:** Cover *advance*: *"warning several days before a road closure"* still tells the reader the warning came early.
+**Check:** Cover *prior*: *"notice two days before the sale"* still tells the reader the notice came early.
 
 ### #3: Shortening a Pair of Related Words
 

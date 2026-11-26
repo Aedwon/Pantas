@@ -17,7 +17,7 @@ keyPoints:
 
 ### Simple Past for Completed Events
 
-**Simple past** places an event in past time: "She **wrote** a memo yesterday." Regular verbs add *-d* or *-ed* (*walked*, *finished*), while irregular verbs change form (*wrote*, *ate*, *bought*).
+**Simple past** places an event in past time: "She **wrote** a memo yesterday." Regular verbs add *-d* or *-ed* (*walked*, *finished*), while most irregular verbs change form (*wrote*, *ate*, *bought*).
 
 The past forms of *be* are *was* (with *I, he, she, it*, or a singular noun) and *were* (with *you, we, they*, or a plural noun). Check the time clue in the sentence before choosing the verb:
 
@@ -122,12 +122,12 @@ The answer is **No, the shift is not justified.** Both clauses share the clue *l
 
 ## Speed Tricks & Shortcuts
 
-Spot every time word first (*yesterday*, *last week*, *now*, *tomorrow*). Keep verbs in the same tense when they share one time, and allow a shift whenever a new time word moves the event to a different time.
+Spot every time word first (*yesterday*, *last week*, *now*, *tomorrow*). Usually keep verbs in the same tense when they share one time, and allow a shift whenever a new time word moves the event to a different time.
 
 ## Traps to Watch For
 
 :::checklist
-- A past clue like *yesterday*: put every verb for that time in a past form that fits its action. Match the forms for completed actions. {#keep-stated-past-time}
+- A past clue like *yesterday*: put every verb for that time in a past form that fits its action. {#keep-stated-past-time}
 - A verb with *will* plus the base form for a future time: label it simple future, and never add *-s* or *-ed*. {#will-is-simple-future}
 - Two clauses joined by *and* with different time clues: allow the tense to shift with the timeline. {#justified-tense-shift}
 :::

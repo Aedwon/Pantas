@@ -64,33 +64,33 @@ The answer is **Yes**. *Before* shows that measuring came first, so *measured* a
 
 ### #1: Showing Earlier Completion Before a Past Point
 
-Choose the past-perfect form to make earlier completion explicit: "By the time the guests arrived, she ___ the entire meal."
+Choose the past-perfect form to make earlier completion explicit: "By the time the bus left, Ben ___ his ticket."
 
 **Solution:**
 
-1. Find the later past point: *the guests arrived* (simple past).
-2. Check when cooking happened: it was already complete by the time they arrived.
-3. Build past perfect with *had* plus the past participle *cooked*: **had cooked**.
+1. Find the later past point: *the bus left* (simple past).
+2. Check when buying happened: it was already complete by the time the bus left.
+3. Build past perfect with *had* plus the past participle *bought*: **had bought**.
 
-Correct: "By the time the guests arrived, she had cooked the entire meal."
+Correct: "By the time the bus left, Ben had bought his ticket."
 
-**Check:** *The guests arrived* sets the past reference point, and *had cooked* directly marks cooking as finished before that arrival.
+**Check:** *The bus left* sets the past reference point, and *had bought* marks buying as finished before that.
 
 ### #2: Two Past Actions in One Sentence
 
-Why is "He locked the gate before the guard arrived" grammatical in standard English?
+Complete "When Rita reached the shop at 6:30, it ___ at six" with *closed* or *had closed*.
 
 **Solution:**
 
-1. Identify the two past actions: *locked* (Action 1) and *arrived* (Action 2).
+1. Identify the two past actions: *reached* and *closed*.
 2. Place the two actions on a timeline.
 
 :::try
-Finish the last step: why does simple past *locked* work here without needing *had locked*?
+Finish the last step: which form fits, and why?
 :::answer
-The answer is **"*Before*" clearly orders the two past events.** Both verbs stay in the past, and *before* already shows that locking the gate happened earlier than the guard's arrival.
+The answer is **had closed**. No word like *before* shows the order, so *had* marks the closing as finished before Rita arrived.
 
-**Check:** Point directly to *before* and the two past verbs *locked* and *arrived*: *before* fixes *locked* as the earlier event, so simple past is unambiguous.
+**Check:** The sentence "When Rita reached the shop at 6:30, it had closed at six" reads in true order; plain *closed* would read as if both events happened together.
 :::
 
 ## Speed Tricks & Shortcuts

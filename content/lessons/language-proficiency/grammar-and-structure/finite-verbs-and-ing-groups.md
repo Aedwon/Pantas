@@ -51,7 +51,7 @@ Why do standalone *-ing* groups look like full sentences? An action word like *r
 :::pair #ing-group-not-clause
 Right: In a formal task requiring a complete sentence, *"running quickly through the park"* is **A nonfinite verb group**.
 Wrong: Classify *"running quickly through the park"* as an **Independent finite clause**, a **Dependent finite clause**, or a **Prepositional phrase**.
-Without a finite helper like *is* or *was*, *running* carries no tense, so the group cannot be any kind of finite clause. And because *running quickly* leads the whole group, *through the park* is only part of it, not the whole label.
+Without a finite helper like *is* or *was*, *running* carries no tense, so the group cannot be any kind of finite clause. The group is led by *running*, not by *through*, so it is not a prepositional phrase.
 :::
 
 :::check
@@ -97,7 +97,7 @@ Revise *"Preparing the final report for the committee"* into a complete formal s
 1. *Preparing* alone is nonfinite: it shows no time, so the group is not a sentence.
 
 :::try
-Finish the last step: write the complete sentence, then test it by shifting the time.
+Finish the last step: use *the coordinator* as the subject, then test by shifting the time.
 :::answer
 **The coordinator is preparing the final report for the committee.** *The coordinator* is the subject, and *is* supplies present tense.
 

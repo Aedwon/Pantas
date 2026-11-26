@@ -62,9 +62,9 @@ What does *"Mia barely passed the test"* mean: *"Mia failed the test"* or *"Mia 
 The answer is **Mia passed, but only just**. *Barely* marks a narrow pass, not a failure.
 :::
 
-### Seldom Means Rarely, Not Never
+### The Word Seldom
 
-**Seldom** means **not often** or **rarely**. Unlike *never*, it still allows the action to happen occasionally. *"The employee seldom requests an extension"* means the employee **rarely** requests extra time, not **never** or **regularly**.
+**Seldom** means **not often** or **rarely**. Unlike *never*, it still allows the action to happen occasionally.
 
 :::pair #seldom-as-never
 Right: *"The employee seldom requests an extension"* means *"The employee rarely requests extra time."*
@@ -113,14 +113,18 @@ Correct sentence: **"I can hardly hear you from over here."**
 
 ### #3: Reading Two Office Memos
 
-The clerk wrote, *"I scarcely managed to finish the audit."* A memo says, *"We seldom cancel Friday briefings,"* and its schedule shows one cancellation in twenty briefings.
+One memo says, *"The clerk barely caught the last train."* Another says, *"We seldom cancel Friday briefings,"* and its schedule shows one cancellation in twenty briefings.
+
+**Solution:**
+
+1. Find the key word in each memo: *barely* and *seldom*.
 
 :::try
-What does *scarcely* say about the audit? Does the one cancellation contradict the memo?
+Finish the job: what does *barely* say about the train? Does the one cancellation contradict the memo?
 :::answer
-The answer is **The clerk finished the audit, but only just; and no, one cancellation does not contradict the memo.**
+The answer is **The clerk caught the train, but only just; and no, one cancellation does not contradict the memo.**
 
-**Check:** *Managed to finish* shows the audit was done, so *scarcely* signals only just, not failure. *Seldom* means rarely, so one cancellation fits; only *never* would be contradicted.
+**Check:** *Barely* means almost not, so the clerk caught the train with almost no time to spare, not missed it. *Seldom* means rarely, so one cancellation fits; only *never* would be contradicted.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -132,5 +136,5 @@ Read *not unexpected* as unsurprising, and *seldom* as *rarely*. Read *hardly*, 
 :::checklist
 - Qualified negative (*not unexpected*, *not unreasonable*): read a softened positive (*unsurprising*, *fairly reasonable*) as the common meaning, and ask how strong the statement is in context. {#qualified-negative-extremes}
 - Near-negative (*hardly*, *scarcely*, *barely*): when both words express the same negative idea, keep just one in formal English (*can't* to *can*, *no* to *any*). {#not-with-near-negative}
-- *Seldom*: means *rarely*, never *never*. {#seldom-as-never}
+- *Seldom*: read it as *rarely*, not as *never*. {#seldom-as-never}
 :::

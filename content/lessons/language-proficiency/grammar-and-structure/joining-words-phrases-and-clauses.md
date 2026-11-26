@@ -25,7 +25,7 @@ The remaining three classes in traditional school grammar connect words or expre
 :::pair #location-phrase-adverb
 Right: In "The cat hid under the table," *under* is a preposition.
 Wrong: Label *under* an adverb because "under the table" tells where the cat hid.
-The full phrase tells where, so test *under* by itself. Because *under* takes the noun phrase *the table* after it, *under* is a preposition.
+The full phrase tells where, so test *under* by itself. It takes the noun phrase *the table*, so it is a preposition.
 :::
 
 :::pair #but-linking-clauses
@@ -44,7 +44,7 @@ The answer is **Interjection**. *Oops* expresses a sudden reaction and stands in
 
 A **subject** tells who or what a clause is about. A **clause** has a subject and a verb (commands leave *you* understood). A **phrase** works as one part without a subject-verb pair.
 
-A **subordinate clause** usually has its own subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting. Some use an *-ing* verb with the subject understood, as in *before leaving*. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
+A **subordinate clause** usually has its own subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting. Some grammars also count *before leaving* (subject understood) as one; this lesson does not. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
 
 Words like *before*, *after*, and *until* can do two jobs. Compare a noun phrase with a clause after *before*:
 
@@ -59,7 +59,7 @@ Why does traditional school grammar place *before* in two classes? A preposition
 
 :::pair #phrase-or-clause
 Right: In "We left before we finished dinner," *before* is a subordinating conjunction.
-Wrong: Label *before* a preposition because "before dinner" is a prepositional phrase.
+Wrong: Label *before* a preposition because the noun *dinner* appears after it.
 Because *we* (subject) and *finished* (verb) follow *before*, it introduces a subordinate clause.
 :::
 

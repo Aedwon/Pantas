@@ -16,7 +16,7 @@ keyPoints:
 
 ### What Makes a Clause Independent
 
-In an ordinary statement, a **clause** has a stated subject and a **finite verb** (a verb that carries tense and matches its subject, such as *slept* or *arrives*). A command like *Close the door* leaves its subject understood, and a group like *after leaving* has no finite verb.
+In an ordinary statement, a **clause** has a stated subject and a **finite verb** (a verb that carries tense and matches its subject, such as *slept* or *arrives*). A command like *Close the door* leaves its subject understood, and *after leaving*, with no finite verb, is not a clause here.
 
 An **independent clause**, also called a **main clause**, gives a complete thought and can stand alone as a sentence. Even a short group is independent when it has a subject, a finite verb, and no word leaving the reader waiting: *"The cat slept."* *"She finished her homework."*
 
@@ -34,7 +34,7 @@ The answer is **Independent clause**. *Our neighbor* is the subject, *waved* is 
 
 ### Dependent Clauses and Subordinating Words
 
-A **dependent clause** (subordinate clause) in an ordinary statement has a subject and finite verb, yet cannot stand alone. A **subordinating conjunction** (such as *although, because, since, when, while, if, until, after, before*) usually introduces it and makes it lean on a main clause. Some have no connector: in *"I thought you knew,"* *you knew* is dependent.
+A **dependent clause** (subordinate clause) in an ordinary statement has a subject and finite verb, yet cannot stand alone in its sentence. A **subordinating conjunction** (such as *although, because, since, when, while, if, until, after, before*) usually introduces it and makes it lean on a main clause. Some have no connector: in *"I thought you knew,"* *you knew* is dependent.
 
 In *"Although she was tired,"* *although* leaves you waiting for what happened next. Pair it with a main clause: *"Although she was tired, she finished her homework."*
 
@@ -61,7 +61,7 @@ The answer is **Since**. It introduces *"the concert ended late"* and makes it d
 1. Noun group only, no finite verb: *"After the bus trip"* is a prepositional phrase.
 2. Subject paired with a finite verb: *"After the bus arrived"* has subject *the bus* and finite verb *arrived*, so it contains a dependent clause.
 
-Watch for event nouns such as *trip* or *journey*: after *the bus*, they act as nouns, not finite verbs.
+Event nouns such as *trip* or *journey* act as nouns after *the bus*, not finite verbs.
 
 <!-- ILLUSTRATION: two stacked groups starting with "After": top "After [the bus trip]" with "the bus trip" bracketed and labeled "noun group, no finite verb -> prepositional phrase"; bottom "After [the bus] [arrived]" with "the bus" labeled "subject", "arrived" labeled "finite verb", and the whole group labeled "dependent clause" -->
 
@@ -123,7 +123,8 @@ Finish the last step: which group has a verb that changes when the time changes?
 
 ## Speed Tricks & Shortcuts
 
-Run two checks. First, find a subject paired with a finite verb, not an event noun like *trip* or *journey*. Second, keep any opening connector (*although, when, since*) in the stand-alone test.
+Run two checks: find a subject paired with a finite verb, not an event noun like *trip* or *journey*, and keep any opening connector (*although, when, since*) in the stand-alone test.
+
 ## Traps to Watch For
 
 :::checklist

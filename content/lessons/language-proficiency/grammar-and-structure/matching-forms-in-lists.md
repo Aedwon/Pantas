@@ -27,27 +27,27 @@ In these lists, avoid mixing in a full clause (*"tools will be bought"*), a *how
 <!-- ILLUSTRATION: three-row parallel alignment chart under the shared lead-in "Her hobbies include": row 1 "painting (-ing)", row 2 "dancing (-ing)" with "to dance" crossed out beside it, row 3 "singing (-ing)", each aligned with a teal checkmark -->
 
 :::pair #fix-only-two-items
-Right: In *"Her hobbies include painting, to dance, and singing,"* **Change *to dance* to *dancing*.**
+Right: Fix *"Her hobbies include painting, to dance, and singing"* to **"Her hobbies include painting, dancing, and singing."**
 Wrong: Change *painting* to *to paint*, or change *singing* to *to sing*.
-Changing *painting* leaves *singing* odd; changing *singing* leaves *painting* odd. Compare all three items and fix the one outlier.
+Changing *painting* or *singing* breaks two matches. Fix only the outlier.
 :::
 
 :::pair #changing-meaning-in-pair
 Right: Revise *"She enjoys hiking and to swim"* to *"She enjoys hiking and swimming."*
 Wrong: Revise it to *"She enjoys hiking and swims in the lake."* or *"She enjoys hiking and to swim in the lake."*
-*"And swims"* makes *swims* a second main verb for *she*, so it no longer says she enjoys swimming. Keep both activities in the *-ing* form after *enjoys*.
+*"And swims"* makes *swims* a second main verb, so she no longer enjoys swimming. *"And to swim"* does not match *hiking*. Keep both in *-ing* form after *enjoys*.
 :::
 
 :::pair #noun-list-vs-clause
-Right: Fix *"The report covers the company's history, analyzing its financial growth, and its plans for the future"* by **deleting *analyzing***.
+Right: Fix *"The report covers the company's history, analyzing its financial growth, and its plans for the future"* to **"The report covers the company's history, its financial growth, and its plans for the future."**
 Wrong: Change *its plans for the future* to *planning for the future*, or change *analyzing its financial growth* to *it grew financially*.
-Two items (*the company's history* and *its plans for the future*) are noun phrases, and *it grew financially* inserts a full clause. Deleting *analyzing* makes all three matching noun phrases.
+Two items are noun phrases, and *it grew financially* inserts a full clause. Deleting *analyzing* makes all three match.
 :::
 
 :::check
-Which option matches the two *-ing* items in *"The camp teaches swimming, climbing, and ___"*: *"to paddle"*, *"how to paddle"*, or *"paddling"*?
+Which option matches the two *-ing* items in *"The class teaches reading, writing, and ___"*: *"to count"*, *"how to count"*, or *"counting"*?
 :::answer
-The answer is **paddling**. *Swimming* and *climbing* are *-ing* forms, so *paddling* matches them.
+The answer is **counting**. *Reading* and *writing* are *-ing* forms, so *counting* matches them.
 :::
 
 ## Examples
@@ -77,19 +77,19 @@ Revise *"We must choose between repairing the roof and a new roof will be instal
 
 ### #3: Reading a Clerk's Three Actions
 
-Find the hidden error in *"Yesterday the clerk opened the drawer, counts the cash, and locked the safe."*
+Find the hidden error in *"Yesterday the clerk sorted the mail, counts the cash, and locked the safe."*
 
 **Solution:**
 
-1. Separate the three actions after *"the clerk"*: (1) *opened the drawer*, (2) *counts the cash*, (3) *locked the safe*.
+1. Separate the three actions after *"the clerk"*: (1) *sorted the mail*, (2) *counts the cash*, (3) *locked the safe*.
 2. Compare the three items.
 
 :::try
 Finish the last step: name the item that does not match and give the fix.
 :::answer
-**Change *counts* to *counted*.** Items (1) and (3) are simple past, and item (2) is the outlier in simple present. Changing item (1) or (3) to present would break *Yesterday*. Changing *counts* gives **"Yesterday the clerk opened the drawer, counted the cash, and locked the safe."**
+**Change *counts* to *counted*.** Items (1) and (3) are simple past, and item (2) is the outlier in simple present. Changing item (1) or (3) to present would break *Yesterday*. Changing *counts* gives **"Yesterday the clerk sorted the mail, counted the cash, and locked the safe."**
 
-**Check:** Read *"Yesterday the clerk"* before each verb: *opened*, *counted*, *locked*. All three are past.
+**Check:** Read *"Yesterday the clerk"* before each verb: *sorted*, *counted*, *locked*. All three are past.
 :::
 
 ## Speed Tricks & Shortcuts

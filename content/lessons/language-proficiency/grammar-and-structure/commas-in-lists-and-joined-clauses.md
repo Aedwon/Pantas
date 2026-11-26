@@ -20,7 +20,7 @@ Use commas to separate three or more items in a list: *"I bought apples, bananas
 
 The comma right before *and* or *or* is the **serial comma** (Oxford comma). Some style rules require it and some leave it out, so follow the rule given in the question. Always keep it if leaving it out makes the items run together.
 
-Never place a comma between a verb and its object or after *and*.
+In a simple list, do not put a comma right after the verb or right after *and*.
 
 :::pair #comma-between-verb-and-list
 Right: "I bought apples, bananas, and oranges."
@@ -61,9 +61,9 @@ Put the boundary comma before *and*, not after it. Never place a comma between t
 :::
 
 :::check
-Should you add a comma before *but* in *"The clerk checked the form but forgot to sign it"*?
+In an ordinary statement, should you add a comma before *and* in *"The guard locked the gate and left"*?
 :::answer
-The answer is **No**. *Forgot to sign it* shares the subject *the clerk*, so *and* or *but* joins two verbs in one clause, not two independent clauses.
+The answer is **No**. *Left* shares the subject *the guard*, so *and* joins two verbs in one clause, not two independent clauses.
 :::
 
 ## Examples
@@ -119,12 +119,12 @@ The answer is **(D) Both (A) and (C).** In (C), *"The cook chopped the onions"* 
 
 ## Speed Tricks & Shortcuts
 
-In an ordinary statement with no interruption or special pause, cover the joining word (*for, and, nor, but, or, yet,* or *so*) and read the right side alone. A second subject and verb takes a comma before the joining word (a very short, closely connected pair may skip it). A second verb for the same subject takes none. After *nor*, the verb may come first (*nor did she write*).
+In an ordinary statement with no interruption or special pause, cover the joining word (*for, and, nor, but, or, yet,* or *so*) and read the right side alone. A second subject and verb takes a comma before the joining word (a very short, closely connected pair may skip it). A second verb for the same subject takes none.
 
 ## Traps to Watch For
 
 :::checklist
-- List of three or more items: put commas between items, and before *and* when the style calls for it or it prevents a misread, never after the verb or after *and*. {#comma-between-verb-and-list}
+- Simple list of three or more items: put commas between items, and before *and* when the style calls for it or it prevents a misread, not right after the verb or right after *and*. {#comma-between-verb-and-list}
 - Joining two independent clauses with *and* or *but*: put the comma before the joining word, never after it or after the subject. {#comma-after-joining-word}
 - Two verbs sharing one subject in an ordinary statement: leave out the comma when the second part has no separate subject. {#joining-two-independent-clauses}
 :::

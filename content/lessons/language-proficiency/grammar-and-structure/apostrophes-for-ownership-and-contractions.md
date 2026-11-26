@@ -31,7 +31,7 @@ Wrong: "Marias book was left on the table." or "Marias' book was left on the tab
 :::
 
 :::check
-Write ownership for several students: *"the *(student's / students' / students's)* lockers."*
+Write ownership for several students: "the *(student's / students' / students's)* lockers."
 :::answer
 The answer is **Students'**. The plural owner *students* already ends in *s*, so add only an apostrophe after *s*.
 :::
@@ -73,7 +73,7 @@ Wrong: "The company announced it's new product line yesterday." or "The company 
 :::
 
 :::check
-Choose the right form: *"The dog wagged *(its / it's)* tail."*
+Choose the right form: "The dog wagged *(its / it's)* tail."
 :::answer
 The answer is **Its**. *"Wagged it is tail"* fails, and the sentence shows ownership.
 :::
@@ -90,7 +90,7 @@ Show ownership for: (a) the book belonging to Maria; (b) the room used by severa
 2. For (b), *teachers* is plural ending in *s*, so add *'*: **"the teachers' room."**
 3. For (c), *children* is plural without *s*, so add *'s*: **"the children's books."**
 
-**Check:** Cover the ending after each owner: *Maria* (one), *teachers* (many + *s*), *children* (many, no *s*). Each ending matches.
+**Check:** Each ending matches its owner: *Maria* (one), *teachers* (many + *s*), *children* (many, no *s*).
 
 ### #2: Expanding a Contraction
 

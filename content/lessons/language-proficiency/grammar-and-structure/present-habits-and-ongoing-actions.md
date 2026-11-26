@@ -82,31 +82,31 @@ The answer is **Prefers**. *Prefer* states a steady liking, so it takes simple p
 
 ### #1: Habit, Truth, and Fixed Schedule
 
-Choose the forms: (a) "On every working day, the records officer *(sorts / sorted / is sort)* the incoming mail." (b) "Water *(boils / boiled)* at its boiling point." (c) "Tomorrow's briefing *(starts / started)* at noon."
+Choose the forms: (a) "On every school day, the guard *(opens / opened / open)* the gate." (b) "Ice *(melts / melted)* when it gets warm." (c) "The last bus *(leaves / left)* at nine tomorrow."
 
 **Solution:**
 
-1. In (a), *every working day* marks a duty that continues now, so choose **sorts**: "On every working day, the records officer **sorts** the incoming mail."
-2. In (b), the sentence states a general truth, so choose **boils**: "Water **boils** at its boiling point."
-3. In (c), a fixed timetable uses simple present for tomorrow, so choose **starts**: "Tomorrow's briefing **starts** at noon."
+1. In (a), *every school day* marks a duty that continues now, so choose **opens**: "On every school day, the guard **opens** the gate."
+2. In (b), the sentence states a general truth, so choose **melts**: "Ice **melts** when it gets warm."
+3. In (c), a fixed timetable uses simple present for tomorrow, so choose **leaves**: "The last bus **leaves** at nine tomorrow."
 
 **Check:** Each clue fits: habit, truth, schedule.
 
 ### #2: Action Now Versus Project This Month
 
-A writer eating lunch says "I am writing a novel this month." Name the tense and say why it fits.
+A student eating lunch says "I am studying for the exam this week." Name the tense and say why it fits.
 
 **Solution:**
 
-1. *Am writing* uses *am* + *-ing*, which is **present progressive**.
-2. Present progressive also covers longer projects ongoing around the present, marked here by *this month*.
-3. So she does not need to be writing at the exact second she speaks.
+1. *Am studying* uses *am* + *-ing*, which is **present progressive**.
+2. Present progressive also covers longer projects ongoing around the present, marked here by *this week*.
+3. So he does not need to be studying at the exact second he speaks.
 
-**Check:** *Right now* means this second; *this month* means a longer project.
+**Check:** *Right now* means this second; *this week* means a longer project.
 
 ### #3: Choosing the Right Verb Form
 
-A manager describes the equipment the office needs right now. Choose the correct sentence: (A) "The office is needing two printers." (B) "The office needed two printers." (C) "The office will need two printers." (D) "The office needs two printers."
+A manager describes the office's situation right now. Choose the correct sentence: (A) "The office is needing two printers." (B) "The office needed two printers." (C) "The office will need two printers." (D) "The office needs two printers."
 
 **Solution:**
 

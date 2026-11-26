@@ -17,7 +17,7 @@ keyPoints:
 
 ### Simple Sentences, Even With Compound Parts
 
-Here a **clause** has a finite verb and its subject (in a command, *you* is understood). An **independent clause** gives a complete thought and stands alone (*"The supervisor signed the request."*). A **dependent clause** cannot stand alone. It often starts with a subordinating word such as *although, because,* or *when* (*"Although the supervisor signed the request"*), but the connector can be left out (*"I know we won"*).
+Here a **clause** has a finite verb and its subject (in a command, *you* is understood). An **independent clause** gives a complete thought and stands alone (*"The supervisor signed the request."*). A **dependent clause** cannot stand alone as a sentence's main clause. It often starts with a subordinating word such as *although, because,* or *when* (*"Although the supervisor signed the request"*), but the connector can be left out (*"I know we won"*).
 
 A **complex sentence** has one independent clause and at least one dependent clause. A **compound-complex sentence** has two or more independent clauses and at least one dependent clause.
 
@@ -48,7 +48,7 @@ Ways to join them:
 1. A comma plus a **coordinating conjunction** (*for, and, nor, but, or, yet, so*): *"She wanted to travel abroad, but she could not afford the airfare."* *"The rain stopped, so we went outside to play."*
 2. A **semicolon** (;) alone between two linked independent clauses: *"The clinic reopened; appointments resumed."*
 
-Do not count infinitives such as *to travel abroad* or *to play*, because they are not finite clauses. Another lesson treats them as nonfinite clauses. *So* meaning "therefore" joins two independent clauses.
+Do not count infinitives such as *to travel abroad* or *to play*, because they are not finite clauses. *So* meaning "therefore" joins two independent clauses.
 
 :::why
 Why does a semicolon make a compound sentence without *and* or *but*? A semicolon joins two independent clauses of equal rank. Both *"The clinic reopened"* and *"appointments resumed"* stand alone with a period, giving two independent clauses and zero dependent clauses.
@@ -84,7 +84,7 @@ Classify *"The teacher and her students prepared and rehearsed the play."*
 2. *Prepared and rehearsed* is one compound verb sharing that subject.
 3. With one independent clause and zero dependent clauses, the sentence is **Simple**.
 
-**Check:** Split at *and*: neither half is a full clause.
+**Check:** Split at the second *and*: *rehearsed the play* has no subject.
 
 ### #2: Compound Sentence With a Semicolon
 

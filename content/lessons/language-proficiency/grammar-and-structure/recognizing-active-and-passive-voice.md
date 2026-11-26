@@ -21,7 +21,7 @@ First find the **subject** and the **verb**. In **active voice**, the subject do
 
 In **passive voice**, the subject receives the action: "The ball **was chased** by the dog." The **agent** (the doer, *the dog*) may follow *by* or be left out.
 
-Judge voice by the grammatical subject and the whole verb group, not by the object or the doer after *by*. Some active verbs name a state (*The clerk knows the code*), so ask how an active version would say the same thing:
+Judge voice by the grammatical subject and the whole verb group, not by the object or the doer after *by*. A state verb is still active: in *The clerk knows the code*, the subject is not receiving an action. Compare:
 
 - "The dog chased the ball." (Subject = *the dog*, which acts -> active.)
 - "The ball was chased by the dog." (Subject = *the ball*, which receives -> passive.)

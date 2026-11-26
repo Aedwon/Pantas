@@ -117,7 +117,7 @@ Finish the last step: fix the title before *Lim's* and write the full corrected 
 :::answer
 The answer is **"The report was ready; its final section needed President Lim's approval."** *President* sits directly before *Lim*, so it takes a capital *P*.
 
-**Check:** Verify four fixes: (1) *The* opens the sentence, (2) the semicolon joins two complete clauses, (3) *its* shows ownership without an apostrophe, and (4) *President Lim's* capitalizes both title and name.
+**Check:** Four fixes: *The* opens the sentence, the semicolon joins two clauses, *its* needs no apostrophe, and *President Lim's* has both capitals.
 :::
 
 ## Speed Tricks & Shortcuts
