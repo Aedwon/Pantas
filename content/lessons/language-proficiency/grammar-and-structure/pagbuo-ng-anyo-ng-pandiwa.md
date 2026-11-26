@@ -101,19 +101,19 @@ Isinulat ng kawani, "Bukas ay magtatakbo kami matapos magluto." Kung ang pandiwa
 
 ### #3: Dalawang Pandiwa sa Tala
 
-Sa tala ay nakasulat, "Kasasara lang nila ng tanggapan. Magbabasa sila ng ulat bukas." Suriin ang aspekto ng *kasasara* at *magbabasa*.
+Sa tala ay nakasulat, "Kasasara lang nila ng tanggapan. Nagbabasa na sila ng ulat." Suriin ang aspekto ng *kasasara* at *nagbabasa*.
 
 **Solution:**
 
 1. Suriin ang *kasasara lang*: ang *ka-*, inulit na *sa*, at *lang* ay nagpapakitang katatapos lamang ang pagsara, kaya **perpektibong katatapos** ito.
-2. Suriin ang *magbabasa* sa "Magbabasa sila ng ulat bukas."
+2. Suriin ang *nagbabasa* sa "Nagbabasa na sila ng ulat."
 
 :::try
-Tapusin ang huling hakbang: anong bahagi ng *magbabasa* ang inuulit, at anong aspekto ito?
+Tapusin ang huling hakbang: anong bahagi ng *nagbabasa* ang inuulit, at anong aspekto ito?
 :::answer
-Inuulit ang *ba*, at **Kontemplatibo** ang *magbabasa*: "Magbabasa sila ng ulat bukas." Gumagamit ito ng panlaping *mag-* (hindi *nag-*) kasama ng inulit na *ba*, kaya gagawin pa ito.
+Inuulit ang *ba*, at **Imperpektibo** ang *nagbabasa*: "Nagbabasa na sila ng ulat." Gumagamit ito ng panlaping *nag-* kasama ng inulit na *ba*, kaya nagpapatuloy ang kilos.
 
-**Check:** Ihambing ang dalawang panlapi: ang nagpapatuloy na anyo ay *nagbabasa* (*nag-* + *ba*), habang ang *magbabasa* (*mag-* + *ba*) ay nakatuon sa kilos na gagawin pa.
+**Check:** Palitan ang *nag-* ng *mag-*: *magbabasa* ang lalabas, at kontemplatibo na iyon dahil ang panlapi ang nagbago, hindi ang inuulit na *ba*.
 :::
 
 ## Speed Tricks & Shortcuts

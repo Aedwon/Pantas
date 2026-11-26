@@ -97,7 +97,7 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Sumulat** ang mga mag-
 
 1. Itanong ang ginawa ng **paksa** (subject) na *ang mga mag-aaral*: *sumulat*, kaya **pandiwa** ito: "**Sumulat** ang mga mag-aaral ng liham."
 
-**Check:** Ngalan ng bagay ang *liham*, kaya hindi ito ang kilos.
+**Check:** Palitan ang oras: "**Susulat** ang mga mag-aaral ng liham." Nagbago ang anyo ng *sumulat* ayon sa oras, kaya kilos ito.
 
 ### #3: Pangungusap Tungkol sa Guro
 
@@ -105,7 +105,7 @@ Sa tradisyonal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitan
 
 **Solution:**
 
-1. Hanapin ang *ang nagtanong* sa dulo.
+1. Hanapin ang pandiwa: *sinagot*.
 
 :::try
 Tapusin ang huling hakbang: ano ang ginagawa ng *ang nagtanong* sa pangungusap, at ano ang gamit nito sa itinakdang pag-uuri?

@@ -41,7 +41,7 @@ Use *their* before a noun (*their project*), and *theirs* alone ("The project is
 :::pair #joined-by-and-one-person
 Right: In "Sofia and her sister compared their schedules," *their* refers to both Sofia and her sister.
 Wrong: Say *their* refers only to Sofia (first named) or only to her sister (named closest).
-Antecedents joined by *and* form a plural pair.
+Two different people joined by *and* form a plural pair.
 :::
 
 :::check
@@ -83,7 +83,7 @@ Choose what fits each rule: (a) Treating *class* as one unit: "The class finishe
 1. In (a), one class with one shared project takes **its**: "The class finished its project early."
 2. In (b), separate homes belong to individual members: "The committee **returned to their homes**."
 
-**Check:** *Its* belongs to the class as one group, and *their* belongs to the people in the committee.
+**Check:** Swap in *the class's project* and *the members' homes*: each reads naturally in place of *its project* and *their homes*.
 
 ### #2: Joined Antecedents
 
@@ -99,7 +99,7 @@ In "Tess and Raul, who share one garden, watered ______ garden at dawn," choose 
 
 ### #3: A Group Inside a Longer Sentence
 
-Treating any group as one unit, fill each blank with *its*, *her*, or *their*: "The clinic opened on Monday. Dr. Sol said the clinic had met ______ goal, and she kept ______ notes in a folder."
+Treating any group as one unit, fill each blank with *its*, *her*, or *their*: "The clinic opened on Monday. Dr. Sol said the clinic had met ______ goal, and she kept ______ notes in a folder." The clinic set the goal, and the notes are Dr. Sol's own.
 
 **Solution:**
 
@@ -115,7 +115,7 @@ The answer is **its** and **her**: "The clinic opened on Monday. Dr. Sol said th
 
 ## Speed Tricks & Shortcuts
 
-Check if a group acts as one unit (*its*) or separate members (*their*). Treat *and*-joined names as plural (*their*).
+Check if a group acts as one unit (*its*) or separate members (*their*). Treat *and*-joined names of two different people as plural (*their*).
 
 ## Traps to Watch For
 

@@ -129,5 +129,5 @@ In a rule or notice, separate *must not* (ban) from *do not have to* (optional).
 :::checklist
 - Optional action vs. ban or rule: use *do not have to* for optional, since *must not*, *have to*, and *should* change the meaning. {#optional-vs-banned}
 - *May*, *might*, or *could* in a prediction: read it as possibility when no permission or past skill fits. {#might-shows-possibility}
-- *Must* with evidence clues (*lights are on*, *so*): read it as a strong conclusion (a belief), not an instruction. {#must-conclusion-vs-rule}
+- *Must* with evidence clues (*lights are on*, *so*): ask whether it states a belief (strong conclusion) or gives an instruction. {#must-conclusion-vs-rule}
 :::

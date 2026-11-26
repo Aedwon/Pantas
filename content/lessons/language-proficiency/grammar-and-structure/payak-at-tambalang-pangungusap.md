@@ -103,11 +103,11 @@ Tukuyin ang uri ng pangungusap: "Maaga kaming dumating ngunit sarado ang tindaha
 
 ### #3: Pagtutugma ng Pangatnig
 
-Idinadagdag lamang ng manunulat ang ginawa ni Ben, walang dahilan, salungatan, o pagpipilian. Aling pangatnig ang angkop sa patlang: "Nagdilig si Ana ng halaman, ___ nagwalis si Ben ng bakuran"?
+Sa ulat ni Mia, magkahiwalay na gawain ang nakalista, at parehong natapos. Aling pangatnig ang angkop sa patlang: "Nagdilig si Ana ng halaman, ___ nagwalis si Ben ng bakuran"?
 
 **Solution:**
 
-1. Dalawang gawain ang naganap.
+1. Markahan ang dalawang sugnay: "[Nagdilig si Ana ng halaman], ___ [nagwalis si Ben ng bakuran]."
 
 :::try
 Tapusin ang huling hakbang: aling pangatnig (*at, ngunit, o,* o *dahil*) ang angkop?

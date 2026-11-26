@@ -81,7 +81,7 @@ Mara read a notice aloud. At Ben's request, she repeated it. Ben still could not
 1. Count prior readings: (1) first reading, (2) first repeat for Ben.
 2. Ben now wants a **second** repeat, so *again* adds that further step and can stay: **"Please repeat it again."**
 
-**Check:** Without *again*, "Please repeat it" would ask for a first repeat. With *again*, it asks Mara for one more.
+**Check:** In this timeline Mara has already repeated the notice once, so *again* makes it explicit that she is asked for one more repeat.
 
 ### #3: Reading a Longer Timeline
 
@@ -96,7 +96,7 @@ Finish the last step: delete one word and keep the same meaning.
 :::answer
 **"Could you repeat the drill for Sam?"** The coach has not repeated the drill yet, so *repeat* alone asks for the first repeat.
 
-**Check:** *Repeat the drill* asks for a first repeat, and *repeat the drill again* asks for a second. Sam needs the first.
+**Check:** The coach has explained the drill once and never repeated it, so *again* would add no extra repeat for Sam.
 :::
 
 ## Speed Tricks & Shortcuts

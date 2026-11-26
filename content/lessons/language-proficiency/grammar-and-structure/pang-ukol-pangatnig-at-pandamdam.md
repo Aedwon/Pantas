@@ -81,7 +81,7 @@ Sa "Nagdala si Ben ng regalo **para kay** Lea," anong bahagi ng pananalita ang m
 1. Tingnan ang kasunod ng *para kay*: *Lea*.
 2. Iniuugnay ng *para kay* ang pangngalan sa ibang bahagi, kaya **pang-ukol** ito: "Nagdala si Ben ng regalo **para kay** Lea."
 
-**Check:** Kapag pinalitan ng *at*, nagdurugtong na lamang ito ng dalawang pangngalan: "regalo at Lea."
+**Check:** Itanong: "Para kanino ang regalo?" *Para kay Lea.*
 
 ### #2: Pagkilala sa Pangatnig
 
@@ -96,18 +96,18 @@ Sa "Malamig ang hangin **ngunit** mainit ang sikat ng araw," anong bahagi ng pan
 
 ### #3: Salita sa Simula ng Pangungusap
 
-Sa "**Hay!** Naayos na ang gripo," paano gumagana ang *Hay*?
+Sa "**Sayang!** Nabasag ang baso" at "**Sayang** ang pagkain kung itatapon," alin ang gumagamit ng *Sayang* bilang pandamdam?
 
 **Solution:**
 
-1. Tingnan kung may bagay o taong pinapangalanan ang *Hay* sa pangungusap.
+1. Tingnan ang kasunod: *Nabasag ang baso* sa una, *ang pagkain kung itatapon* sa ikalawa.
 
 :::try
-Tapusin ang huling hakbang: anong bahagi ng pananalita ang *Hay* batay sa gamit nito?
+Tapusin ang huling hakbang: aling pangungusap ang gumagamit ng *Sayang* bilang pandamdam?
 :::answer
-Ang sagot ay **Pandamdam**: "**Hay!** Naayos na ang gripo." Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita, at walang pinapangalanan.
+Ang sagot ay **ang una**: "**Sayang!** Nabasag ang baso." Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita. Sa ikalawa, inilalarawan ng *sayang* ang pagkain.
 
-**Check:** Basahin nang mag-isa ang *Hay!*, at kapag inalis ito, buo pa rin ang "Naayos na ang gripo."
+**Check:** Alisin ang *Sayang* sa una: buo pa rin ang "Nabasag ang baso." Alisin ito sa ikalawa: bitin ang "ang pagkain kung itatapon."
 :::
 
 ## Speed Tricks & Shortcuts

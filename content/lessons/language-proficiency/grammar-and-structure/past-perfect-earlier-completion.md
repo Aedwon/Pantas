@@ -74,7 +74,7 @@ Choose the past-perfect form to make earlier completion explicit: "By the time t
 
 Correct: "By the time the bus left, Ben had bought his ticket."
 
-**Check:** Ask which event had already finished when the bus left: buying the ticket.
+**Check:** Retell it as two ordered events: first Ben bought the ticket, then the bus left.
 
 ### #2: Two Past Actions in One Sentence
 

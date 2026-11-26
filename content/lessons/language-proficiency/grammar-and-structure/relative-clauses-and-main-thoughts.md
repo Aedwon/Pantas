@@ -61,7 +61,7 @@ The answer is **found**: "The clerk [who checked my form] **found** an error." *
 
 ## Examples
 
-### #1: Describing a Volunteer
+### #1: Describing a Runner
 
 In *"The runner who won the race thanked her coach,"* classify *"who won the race,"* name the noun it describes, and explain why there are no commas.
 

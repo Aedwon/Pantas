@@ -109,7 +109,7 @@ Which group contains a finite clause: *"Until the doors opened"* or *"Until the 
 
 **Solution:**
 
-1. Mark the words after *Until* in each group.
+1. Set *Until* apart in each group: *Until* | *the doors opened* and *Until* | *the opening ceremony*.
 
 :::try
 Finish the last step: which group has a verb that changes when the time changes?

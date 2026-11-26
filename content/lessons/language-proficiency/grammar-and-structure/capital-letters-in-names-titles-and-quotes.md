@@ -101,7 +101,7 @@ Fix the quotes: *He said, "please wait here." The word "Weather" appears twice.*
 
 Corrected text: **He said, "Please wait here." The word "weather" appears twice.**
 
-**Check:** *Please wait here* works alone as a complete sentence, so it needs the capital. *Weather* alone is not a sentence.
+**Check:** Read *He said* alone, then *Please wait here* alone. Then read *The word weather appears twice*: *weather* sits mid-sentence.
 
 ### #3: Fixing Multiple Errors Together
 

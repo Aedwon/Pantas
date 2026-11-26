@@ -10,7 +10,7 @@ partCount: 6
 ordering: 9
 keyPoints:
   - "Piliin ang aspekto ayon sa kalagayan ng kilos."
-  - "Panatilihin ang anyo ng pandiwa kung bilang lamang ng paksa ang nagbago."
+  - "Karaniwang panatilihin ang anyo ng pandiwa kung bilang lamang ng paksa ang nagbago."
 ---
 ## Core Concept
 
@@ -41,7 +41,7 @@ Ang sagot ay **Naghuhugas**. Nagaganap pa at hindi pa tapos ang paghuhugas ni Ma
 
 ### Bilang ng Paksa at Anyo ng Pandiwa
 
-Ang **paksa** (subject) ang pinag-uusapan sa pangungusap, gaya ng *ang kawani* (isahan) o *ang mga kawani* (maramihan).
+Ang **paksa** (subject) ang pinag-uusapan sa pangungusap.
 
 Sa ibang wika tulad ng Ingles, nagbabago ang pandiwa kapag naging maramihan ang paksa. Sa Filipino, karaniwang hindi nagbabago ang aspekto ng pandiwa dahil lamang dumami ang paksa:
 
@@ -74,7 +74,7 @@ Ang sagot ay **A**: "Sumulat ng liham ang mga mag-aaral." Dinagdagan lamang ng *
 
 ### #1: Pagpili ng Aspekto Ayon sa Pangyayari
 
-Nasa mesa si Rico at hindi pa tapos sa pagtahi ng kurtina. Aling anyo ang angkop sa pangungusap: "___ pa si Rico ng kurtina habang tumatawag ang kapatid niya"?
+Nasa mesa si Rico at hindi pa tapos sa pagtahi ng kurtina. Aling anyo ng *tahi* ang angkop: *(tumahi / tumatahi / tatahi)* sa "___ pa si Rico ng kurtina habang tumatawag ang kapatid niya"?
 
 **Solution:**
 
@@ -104,20 +104,20 @@ Punan ng angkop na anyo ng *linis* ang bawat patlang: "___ si Lea ng silid kagab
 2. Nagaganap pa ngayon ang ikalawa: "**Naglilinis** pa siya ng bintana ngayon."
 
 :::try
-Alin ang akma sa ikatlong patlang: *naglilinis* o *maglilinis*? Ano ang buong pangungusap?
+Alin ang akma sa ikatlong patlang: *kalilinis lamang* o *maglilinis*? Ano ang buong pangungusap?
 :::answer
 Ang sagot ay **Maglilinis**: "Maglilinis si Ben ng bakuran bukas ng umaga."
 
-**Check:** Ang *bukas* ay oras na darating pa, kaya hindi ito *naglilinis*.
+**Check:** Ang *bukas* ay oras na darating pa, kaya hindi ito *kalilinis lamang*, na katatapos pa lamang.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Itanong muna kung tapos na, nagaganap pa, o gagawin pa ang kilos. Kapag bilang lamang ng paksa ang binago, panatilihin ang pandiwa.
+Itanong muna kung tapos na, nagaganap pa, o gagawin pa ang kilos. Kapag bilang lamang ng paksa ang binago, karaniwang panatilihin ang pandiwa.
 
 ## Traps to Watch For
 
 :::checklist
 - Nagpapatuloy na kilos gaya ng hindi pa tapos sa hapag: piliin ang imperpektibo (*kumakain*), hindi *kumain*, *kakain*, o *kakakain lamang*. {#aspekto-ayon-sa-kalagayan}
-- Maramihang paksa na may *mga*: panatilihin ang anyo ng pandiwa dahil bilang lamang ng paksa ang nagbago. {#bilang-ng-paksa-at-pandiwa}
+- Maramihang paksa na may *mga*: karaniwang panatilihin ang anyo ng pandiwa dahil bilang lamang ng paksa ang nagbago. {#bilang-ng-paksa-at-pandiwa}
 :::

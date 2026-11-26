@@ -108,7 +108,7 @@ Sinabi ni Lea sa kaibigan niya, "Salamat sa tulong mo." Paano niya ito sasabihin
 1. Hanapin ang panghalip sa linya para sa kaibigan: *mo*.
 
 :::try
-Tapusin ang huling hakbang: punan ang patlang para sa guro ng anyong *ng* para sa guro (hindi pinaikli): "Salamat po sa tulong ___."
+Tapusin ang huling hakbang: punan ang patlang ng buong magalang na anyong *ng* mula sa seryeng *kayo, ninyo, inyo*: "Salamat po sa tulong ___."
 :::answer
 Ang sagot ay **ninyo**: "Salamat po sa tulong ninyo." Magalang na anyo ito para sa iisang kausap.
 

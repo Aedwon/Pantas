@@ -110,12 +110,12 @@ The answer is **Conjunction** (a subordinating conjunction): "The very patient g
 
 ## Speed Tricks & Shortcuts
 
-After *before*, *after*, *since*, or *until*, a noun phrase means preposition; a subject and verb mean subordinating conjunction.
+After *before*, *after*, *since*, or *until*, a noun phrase means preposition; a subject with a finite verb means subordinating conjunction.
 
 ## Traps to Watch For
 
 :::checklist
 - Place or time phrase like "under the table": classify the opening word as a preposition when a noun phrase follows it. {#location-phrase-adverb}
 - Joining word like *but* between two clauses: classify it as a conjunction rather than a preposition or adverb. {#but-linking-clauses}
-- *Before*, *after*, or *until* followed by a noun: keep reading for a verb before calling it a preposition. {#phrase-or-clause}
+- *Before*, *after*, or *until* followed by a noun: keep reading for a subject with a finite verb before calling it a preposition. {#phrase-or-clause}
 :::

@@ -77,11 +77,11 @@ What is the problem in *"Having finished the report, the printer jammed"*?
 2. The main subject is *the printer*, not a person who finished.
 3. So *"Having finished the report, the printer jammed"* **dangles**: the person who finished is never named.
 
-**Check:** Ask a reader who finished the report. The sentence gives no person, so the reader cannot tell.
+**Check:** Name a person as the main subject: *"Having finished the report, Sam left."* Now the reader knows Sam finished it.
 
 ### #2: Fixing With the Main Subject
 
-Revise *"Hoping to win the race, my shoes were laced tightly"* so the runner who laced them is the main subject.
+I was the runner and laced my own shoes. Revise *"Hoping to win the race, my shoes were laced tightly"* so the runner is the main subject.
 
 **Solution:**
 

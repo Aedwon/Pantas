@@ -90,7 +90,7 @@ Finish each sentence with ownership: (a) The bike belongs to Leo. It is ___ bike
 2. For (b), *players* is plural ending in *s*, so add *'*: **"It is the players' bus."**
 3. For (c), *men* is plural without *s*, so add *'s*: **"They are the men's coats."**
 
-**Check:** Count the owners: one (*Leo's*), several (*players'*), several (*men's*). Each apostrophe sits where that number requires.
+**Check:** Spell each owner alone: *Leo*, *players*, *men*. Only *players* already ends in *s*, so only it takes a bare apostrophe.
 
 ### #2: Expanding a Contraction
 
@@ -99,7 +99,7 @@ In *"It's been a long day,"* what does *it's* mean?
 **Solution:**
 
 1. Test *it is*: *"It is been a long day"* fails.
-2. Test *it has*: **"It has been a long day"** fits, so *it's* means *it has*.
+2. Test *it has*: *it's* means *it has*, because **"It has been a long day"** fits.
 
 **Check:** Read *"It has been a long day."* The helping verb *has* pairs directly with *been*.
 
@@ -117,7 +117,7 @@ Choose the form that completes the sentence: *"The bakery changed ___ opening ho
 
 **Solution:**
 
-1. Read each choice in the blank before *opening hours*.
+1. Read each choice in the blank between *changed* and *opening hours*.
 
 :::try
 Finish the last step: choose the form that completes the sentence.

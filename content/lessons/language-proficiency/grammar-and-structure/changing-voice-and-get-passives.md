@@ -16,7 +16,7 @@ keyPoints:
 
 ### Switching Between Active and Passive Voice
 
-To change active to passive for an action like approving a budget, move the **object** (what receives the action) into the subject spot. Only an active clause with an object or prepositional object can do this ("The child slept" has none). Use the matching form of *be* plus the past participle, and add *by* plus the agent if needed.
+To change active to passive for an action like approving a budget, move the **object** (what receives the action) into the subject spot. Only an active clause with an object and a verb that allows a passive can do this ("The child slept" has no object, and *have lunch* has no passive). Use the matching form of *be* plus the past participle, and add *by* plus the agent if needed.
 
 <!-- ILLUSTRATION: two stacked sentences showing role swap: top "The committee [actor] approved [simple past] the new budget [receiver]." with crossing arrows to bottom "The new budget [subject] was approved [simple past passive] by the committee [agent]." -->
 
@@ -130,7 +130,7 @@ The answer is **"The wooden fence was damaged during the typhoon."** Only *got* 
 
 ## Speed Tricks & Shortcuts
 
-To change voice, swap the doer and receiver (to active only when the doer is named), then keep the time and aspect. With *get*, ask whether the subject receives an action: *get* + a participle naming that action is a *get*-passive, while *get* + adjective shows a change (*became*).
+To change voice, swap the doer and receiver (to active only when the doer is named, to passive only when the verb allows it), then keep the time and aspect. With *get*, ask whether the subject receives an action: *get* + a participle naming that action is a *get*-passive, while *get* + adjective shows a change (*became*).
 
 ## Traps to Watch For
 

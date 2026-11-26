@@ -85,7 +85,7 @@ Label each sentence: (a) "The nurse checked the chart." (b) "The chart was check
 2. **Passive voice**: "The chart was checked by the nurse." *Was checked* is *be* + a past participle.
 3. **Linking, not passive**: "He is calm." *Is* links *he* to the adjective *calm*.
 
-**Check:** *Was checked* names something done to the chart, while *calm* only describes *he*.
+**Check:** Only (b) can be rewritten with its actor as subject ("The nurse checked the chart"). *Calm* has no actor.
 
 ### #2: Tense and Voice Together
 
@@ -117,7 +117,7 @@ The answer is **"The lobby doors have been locked."** *Have been locked* is pass
 
 ## Speed Tricks & Shortcuts
 
-Find the whole verb group, then look for *be* plus a past participle (an action or a state, as in *was chased* or *is loved*), not an adjective such as *calm*.
+Find the whole verb group. A *be*-passive is *be* plus a past participle (*was chased*, *is loved*), not an adjective describing a state, such as *calm* or *broken*.
 
 ## Traps to Watch For
 

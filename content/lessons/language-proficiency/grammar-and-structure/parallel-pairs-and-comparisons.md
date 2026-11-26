@@ -102,7 +102,7 @@ Fix both errors in: *"The room is neither dark nor it is small. The rent is lowe
 1. In sentence 1, *neither* is followed by the adjective *dark* and *nor* by the clause *it is small*. Replace the clause: *"The room is neither dark nor small."*
 
 :::try
-Finish the last step: which rewrite of sentence 2 is fair?
+Finish the last step: the writer compares what it costs to rent each apartment for one month. Which rewrite of sentence 2 is fair?
 
 (A) *"The rent is lower than the deposit for the apartment next door."*
 

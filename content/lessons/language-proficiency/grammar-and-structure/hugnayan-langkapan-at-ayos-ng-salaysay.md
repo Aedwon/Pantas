@@ -131,7 +131,7 @@ Tapusin ang salaysay. Alin ang tamang kasunod na dalawang pangungusap?
 :::answer
 Ang sagot ay **B**: "Sa simula, nagrehistro siya. Kasunod, ipinasa niya ang mga papel. Panghuli, kinuha niya ang resibo."
 
-**Check:** Patunay ang resibo na natanggap ang papel, kaya nauna ang pagpasa: *kasunod* ang una at *panghuli* ang ikalawa.
+**Check:** Basahin nang paayos: nagrehistro sa simula, ipinasa ang papel sa gitna, at kinuha ang resibo sa wakas.
 :::
 
 ## Speed Tricks & Shortcuts

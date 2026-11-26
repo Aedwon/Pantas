@@ -112,7 +112,7 @@ Tapusin ang huling hakbang: alin ang angkop sa "___ ni Marco ang aklat": *binili
 :::answer
 Ang sagot ay **Binili**: "Binili ni Marco ang aklat." Nakapokus ito sa layon at tapos na ang kilos; ginaganap ang *binibili* at gagawin pa ang *bibilhin*.
 
-**Check:** Nasa *ang aklat* na ang *ang*, at *ni Marco* na ang gumawa.
+**Check:** Ang pangngalang may *ang* na ngayon ay *aklat*, hindi na si Marco.
 :::
 
 ## Speed Tricks & Shortcuts

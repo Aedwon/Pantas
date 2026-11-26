@@ -111,12 +111,11 @@ Classify: *"When the alarm sounded, the guards locked the gate, and the visitors
 
 1. *When the alarm sounded* is **one dependent clause**.
 2. *The guards locked the gate* is independent clause 1.
-3. *The visitors waited outside* is independent clause 2.
 
 :::try
-Finish the last step: find the last clause, then combine the counts to name the sentence type.
+Finish the last steps: find the other clauses, then combine the counts to name the sentence type.
 :::answer
-The last clause is *the manager stayed calm*, independent clause 3. So the sentence has three independent clauses and one dependent clause: "[When the alarm sounded] (dependent), [the guards locked the gate] (independent 1), and [the visitors waited outside] (independent 2), but [the manager stayed calm] (independent 3)." It is **Compound-complex**.
+The other clauses are *the visitors waited outside*, independent clause 2, and *the manager stayed calm*, independent clause 3. So the sentence has three independent clauses and one dependent clause: "[When the alarm sounded] (dependent), [the guards locked the gate] (independent 1), and [the visitors waited outside] (independent 2), but [the manager stayed calm] (independent 3)." It is **Compound-complex**.
 
 **Check:** Remove *"When the alarm sounded,"* and three full statements remain.
 :::

@@ -113,14 +113,14 @@ Suriin ang "Ipinanghiwa ni Carlo ng gulay ang kutsilyo" at "Ikinabahala ni Carlo
 
 **Solution:**
 
-1. Hanapin ang paksa sa bawat pangungusap.
+1. Markahan ang mga pananda: "Ipinanghiwa **ni** Carlo **ng** gulay **ang** kutsilyo." "Ikinabahala **ni** Carlo **ang** ulat."
 
 :::try
 Tapusin: ano ang papel ng paksa sa bawat pangungusap, at ano ang pokus ng bawat pandiwa?
 :::answer
 Kagamitan: "Ipinanghiwa ni Carlo ng gulay **ang kutsilyo**," dahil ginamit ito sa paghiwa. Sanhi: "Ikinabahala ni Carlo **ang ulat**," dahil iyon ang dahilan ng pagkabahala.
 
-**Check:** Itanong: "Bakit nabahala si Carlo?" Ang sagot ay *ang ulat*.
+**Check:** Itanong: "Ano ang ginamit ni Carlo sa paghiwa?" *Ang kutsilyo.* Itanong: "Bakit nabahala si Carlo?" *Ang ulat.*
 :::
 
 ## Speed Tricks & Shortcuts

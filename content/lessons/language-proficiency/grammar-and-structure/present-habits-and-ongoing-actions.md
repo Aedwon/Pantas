@@ -88,7 +88,7 @@ Choose the forms: (a) "On every school day, the guard *(opens / opened / open)* 
 2. In (b), the sentence states a general truth, so choose **melts**: "Ice **melts** when it gets warm."
 3. In (c), a fixed timetable uses simple present for tomorrow, so choose **leaves**: "The last bus **leaves** at nine tomorrow."
 
-**Check:** In (a), *opened* would end the duty in the past, but the stem says it continues now.
+**Check:** In (a), *opened* places the description in the past, while *opens* gives the current duty the stem states.
 
 ### #2: Action Now Versus Project This Month
 

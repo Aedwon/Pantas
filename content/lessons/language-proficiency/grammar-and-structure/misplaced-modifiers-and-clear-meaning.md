@@ -80,7 +80,7 @@ Which sentence identifies a chipped glass, not a chipped tray: *"A waiter carrie
 1. In *"A waiter carried the glass on a chipped tray,"* *chipped* describes *tray*.
 2. The second sentence, with *chipped* right before *glass*, keeps the intended meaning: **"A waiter carried the chipped glass on a tray."**
 
-**Check:** Ask which noun now gets the detail. *Chipped* belongs to the glass, and the tray is plain.
+**Check:** Ask which noun now gets the detail. *Chipped* belongs to the glass, and the sentence says nothing about the tray.
 
 ### #3: Fixing Two Modifier Targets in One Passage
 

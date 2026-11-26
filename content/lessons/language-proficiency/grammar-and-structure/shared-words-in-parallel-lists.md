@@ -81,17 +81,17 @@ Choose the sentence with correct parallel structure:
 
 The correct sentence is **(B)**: "The video shows how to measure, mix, and bake the dough."
 
-**Check:** Read one revised verb after the lead-in: *how to bake the dough* sounds complete.
+**Check:** Fix only *baking* and keep *mixing*: *how to measure, mixing, and bake* is still broken, so all three verbs needed the base form.
 
 ### #2: When a Shared Word Does Not Fit
 
-Fix the missing word in *"He felt great pride and responsibility for his team."*
+Fix the missing word in *"He felt great trust and responsibility for his team."*
 
 **Solution:**
 
-1. Read the shared preposition *for* after each noun: *"pride for his team"* and *"responsibility for his team."*
-2. *Responsibility for his team* works, while *pride* needs *in* (*"pride in his team"*).
-3. Keep the right preposition on the first noun: *"He felt great pride in and responsibility for his team."*
+1. Read the shared preposition *for* after each noun: *"trust for his team"* and *"responsibility for his team."*
+2. *Responsibility for his team* works, while *trust* needs *in* (*"trust in his team"*).
+3. Keep the right preposition on the first noun: *"He felt great trust in and responsibility for his team."*
 
 **Check:** Try the same test on *"belief and hope for peace"*: *belief for peace* fails, so write *"belief in and hope for peace."*
 

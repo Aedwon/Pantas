@@ -100,7 +100,7 @@ Choose the pronouns: (a) "The boys left *(his / their)* bags at the gate." (b) G
 1. In (a), *the boys* is plural: "The boys left **their** bags at the gate."
 2. In (b), *each* points to one unspecified player: "Each of the players must bring **their** shoes."
 
-**Check:** In (a), *their* stands for several boys. In (b), it stands for one unnamed player.
+**Check:** Swap in *the boys' bags* and *each player's shoes* for *their bags* and *their shoes*: both still read correctly.
 
 ### #2: Combining Everybody and Singular They
 

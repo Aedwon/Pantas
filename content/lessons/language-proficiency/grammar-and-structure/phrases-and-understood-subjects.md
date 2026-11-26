@@ -98,7 +98,7 @@ Finish the last step: is "Open the window" a phrase, a dependent clause, or an i
 :::answer
 The answer is **Independent clause; implied subject.** In "**Open** the window," the verb *open* pairs with the understood subject (*you*, not written) and gives a complete instruction, so it stands alone without another clause.
 
-**Check:** Read "Open the window." alone with a period. It is a complete instruction, so it needs no other clause.
+**Check:** Add a name: "Sam, open the window." *Sam* is the person spoken to, the understood *you*.
 :::
 
 ## Speed Tricks & Shortcuts
