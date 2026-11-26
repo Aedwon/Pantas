@@ -117,5 +117,5 @@ After *before*, *after*, *since*, or *until*, a noun phrase means preposition; a
 :::checklist
 - Place or time phrase like "under the table": classify the opening word as a preposition when a noun phrase follows it. {#location-phrase-adverb}
 - Joining word like *but* between two clauses: classify it as a conjunction rather than a preposition or adverb. {#but-linking-clauses}
-- *Before*, *after*, or *until* followed by a noun: keep reading for a subject with a finite verb before calling it a preposition. {#phrase-or-clause}
+- *Before*, *after*, or *until* followed by a noun: keep reading for a subject and finite verb before calling it a preposition. {#phrase-or-clause}
 :::

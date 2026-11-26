@@ -112,7 +112,7 @@ Ang sagot ay **ang una**: "**Sayang!** Nabasag ang baso." Tuwiran nitong ipinaha
 
 ## Speed Tricks & Shortcuts
 
-Itanong kung ano ang ginagawa ng salita. Kung iniuugnay nito ang pangngalan o **panghalip** (pronoun) sa ibang bahagi (*para sa mga bisita*), pang-ukol ito; kung dalawang bahagi ang pinagdurugtong (*at*, *ngunit*, *dahil*), pangatnig ito; kung reaksiyon lamang (*Naku!*, *Aray!*), pandamdam ito.
+Itanong ang ginagawa ng salita. Kung iniuugnay nito ang pangngalan o **panghalip** (pronoun) sa ibang bahagi (*para sa mga bisita*), pang-ukol ito; kung dalawang bahagi ang pinagdurugtong (*at*, *ngunit*, *dahil*), pangatnig ito; kung reaksiyon lamang (*Naku!*, *Aray!*), pandamdam ito.
 
 ## Traps to Watch For
 

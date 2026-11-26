@@ -123,6 +123,6 @@ Split at a joining word (*and, but, so*) or a semicolon and test each side alone
 
 :::checklist
 - Using *and* to join two nouns or two verbs: verify each side has its own subject and finite verb before calling it compound. {#compound-parts-still-simple}
-- Sentences joined by *but*, *so*, or a semicolon: test that both sides stand alone and neither holds a dependent clause, so you do not pick simple or complex. {#but-so-semicolon-are-compound}
+- Sentences joined by *but*, *so*, or a semicolon: test that both sides stand alone and neither holds a dependent clause. {#but-so-semicolon-are-compound}
 - Swapping *and* for *while* or *when*: remember subordinating words create a dependent clause, not a compound sentence. {#compound-subject-not-compound}
 :::

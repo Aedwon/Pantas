@@ -81,7 +81,7 @@ In *"The driver is loading the boxes to deliver before leaving,"* identify which
 
 1. Find the main subject: *The driver*.
 2. Look at the main verb group *is loading*: *is* carries present tense and agrees with *the driver*, while *loading* is an *-ing* participle.
-3. Check the remaining action words: *to deliver* is an infinitive and *leaving* is an *-ing* verb form after *before*, so neither has a tense of its own.
+3. Check the remaining action words: *to deliver* is an infinitive and *leaving* is an *-ing* verb form after *before*, so neither carries tense.
 
 The word that supplies the finite verb form is **is**: "The driver **is** loading the boxes to deliver before leaving."
 

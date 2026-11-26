@@ -47,8 +47,7 @@ The answer is **Edit**. *Plan* and *draft* are base verbs after *how to*, so *ed
 
 ### Checking Every Item in a Longer List
 
-When a sentence mixes forms after a shared verb or preposition, check every listed item. Fixing only one broken item leaves the remaining odd item out of balance.
-
+When a sentence mixes forms after a shared verb or preposition, check every listed item.
 Look at *"The app helps users track expenses, setting budgets, and saving money."* After *helps users*, *track* is a base verb, while *setting* and *saving* use *-ing*. Both *-ing* verbs must become base verbs: *"The app helps users track expenses, set budgets, and save money."*
 
 :::pair #partial-list-fix

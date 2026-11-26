@@ -52,8 +52,7 @@ The answer is **Their**. Both Mara and Jun share the room, and *their* sits befo
 
 ### Mixed Antecedents with Or and Nor
 
-When *or* or *nor* joins a singular noun and a plural noun ("Neither the coach nor the players..."), a formal task may follow the convention that the pronoun agrees with the **nearer** noun. A singular pronoun (*his*, *her*) fits only one of the people named and can force an unstated gender.
-
+When *or* or *nor* joins a singular noun and a plural noun ("Neither the coach nor the players..."), a formal task may follow the convention that the pronoun agrees with the **nearer** noun.
 If the pronoun sounds awkward, name the people directly, use *their own*, or rewrite with an article (*the* or *a*) when one shared set of items is meant.
 
 :::why

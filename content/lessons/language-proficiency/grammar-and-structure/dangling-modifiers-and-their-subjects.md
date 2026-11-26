@@ -77,7 +77,7 @@ What is the problem in *"Having finished the report, the printer jammed"*?
 2. The main subject is *the printer*, not a person who finished.
 3. So *"Having finished the report, the printer jammed"* **dangles**: the person who finished is never named.
 
-**Check:** Name a person as the main subject: *"Having finished the report, Sam left."* Now the reader knows Sam finished it.
+**Check:** Name a person as the subject: *"Having finished the report, Sam left."* Now Sam is the finisher.
 
 ### #2: Fixing With the Main Subject
 

@@ -35,7 +35,7 @@ Match *fun*, an adjective: *to educate people* fails, and *enjoyably* leaves the
 :::pair #misplaced-correlative-connector
 Right: *"Applicants may submit either online or by mail."*
 Wrong: *"Applicants may either submit online or a mailed application."*
-*A mailed application* is a noun phrase, so it does not match *submit online*. Make the two choices match: *online* and *by mail*.
+*A mailed application* is a noun phrase, so it does not match *submit online*.
 :::
 
 :::check
