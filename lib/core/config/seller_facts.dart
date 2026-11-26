@@ -3,7 +3,6 @@
 /// `--dart-define=SELLER_TRADING_NAME=...`, `SELLER_PLACE_OF_BUSINESS=...` and
 /// `SELLER_PHONE=...`. They belong to Aedwon. A missing fact shows as a visible
 /// bracket, and a public release build refuses to start while one remains.
-const sellerProprietor = 'Aerol Dwayne Daños Balayon';
 const sellerEmail = 'support@pantas.study';
 
 const _placeholderTradingName = '[registered business name]';
@@ -21,8 +20,9 @@ class SellerFacts {
   final String placeOfBusiness;
   final String phone;
 
-  /// The line beside Pay, in the legal lane's Nov 23 wording.
-  String get line => 'Sold by $sellerProprietor, trading as $tradingName'
+  /// The line beside Pay. It shows the business name, not the owner's name
+  /// (his Nov 25 words); the Terms name the owner as the contracting party.
+  String get line => 'Sold by $tradingName'
       ' · $placeOfBusiness · $phone · $sellerEmail';
 
   /// The words in front of the email address, for the mail link.

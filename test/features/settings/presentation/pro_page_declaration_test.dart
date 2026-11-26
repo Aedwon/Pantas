@@ -284,8 +284,8 @@ void main() {
         (w) =>
             w is RichText &&
             w.text.toPlainText() ==
-                'Sold by Aerol Dwayne Daños Balayon, trading as '
-                    '[registered business name] · [full place of business] · '
+                'Sold by [registered business name] · '
+                    '[full place of business] · '
                     '[business phone] · support@pantas.study',
       );
       expect(line, findsOneWidget);

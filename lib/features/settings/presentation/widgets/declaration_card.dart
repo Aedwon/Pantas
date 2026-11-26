@@ -136,7 +136,7 @@ class _TermsLinkState extends State<_TermsLink> {
   }
 }
 
-/// The seller line beside Pay (ruling D3): the proprietor, trading name, place,
+/// The seller line beside Pay (ruling D3): the business name, place,
 /// phone and support email. The email is a mail link. A fact that is missing
 /// shows as a visible bracket.
 class SellerLine extends StatefulWidget {
