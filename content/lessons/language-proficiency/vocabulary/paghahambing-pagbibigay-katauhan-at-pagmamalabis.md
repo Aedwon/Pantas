@@ -14,47 +14,59 @@ keyPoints:
 ---
 ## Core Concept
 
-### Sawikain at Tayutay
+### Pagtutulad at Pagwawangis
 
-Ang **tayutay** (figure of speech) ay masining na paggamit ng salita. Maaari itong maghambing, magbigay-buhay sa isang bagay, o magpalabis ng paglalarawan.
+Ang **tayutay** (figure of speech) ay masining na paggamit ng salita. Maaari itong maghambing, magbigay ng kilos ng tao sa hindi tao, o magpalabis ng paglalarawan.
 
-Sa **pagtutulad** (simile), may paghahambing na gumagamit ng *parang*, *tulad ng*, o *gaya ng*. Sa **pagwawangis** (metaphor), tuwirang itinuturing na ibang bagay ang inilalarawan.
+May dalawang karaniwang paraan ng paghahambing:
 
-Ang **pagbibigay-katauhan** o **personipikasyon** (personification) ay pagbibigay ng kilos o katangiang pantao sa hindi tao. Ang **pagmamalabis** (hyperbole) ay sadyang pagsobra sa paglalarawan.
+1. **Pagtutulad** (simile): naghahambing gamit ang salitang panulad gaya ng *parang*, *tulad ng*, *gaya ng*, o *kasing-*. Halimbawa: "Ang tinig ni Ana ay **parang** banayad na agos ng ilog."
+2. **Pagwawangis** (metaphor): tuwirang ipinapantay ang isang bagay sa iba nang walang salitang panulad. Halimbawa: "Ang guro ay **ilaw** ng silid-aralan."
 
-Maaaring magkaiba nang kaunti ang tawag sa ilang aklat. Tingnan kung paano ginamit ang mga salita bago pumili ng sagot.
+Tingnan kung may salitang panulad sa paghahambing bago pumili ng sagot.
+
+:::pair #tulad-hindi-wangis
+Right: Pagtutulad ang "kasingganda ng mga bituin" dahil may panandang panulad na *kasing-*.
+Wrong: Pagwawangis ang "kasingganda ng mga bituin" dahil iniuugnay ang mga mata sa bituin.
+May salitang panulad ang pagtutulad. Walang salitang panulad ang pagwawangis.
+:::
+
+:::check
+Pagtutulad ba o pagwawangis ang "Ang buhay ay isang gulong"?
+:::answer
+Ang sagot ay **pagwawangis**. Tuwirang ipinantay ang buhay sa gulong nang walang salitang panulad.
+:::
+
+### Pagbibigay-katauhan at Pagmamalabis
+
+Bukod sa paghahambing, may dalawa pang karaniwang tayutay:
+
+1. **Pagbibigay-katauhan** (personification): pagbibigay ng kilos o katangian ng tao sa bagay na hindi tao. Halimbawa: "**Ngumiti** ang araw habang **sumasayaw** ang mga dahon."
+2. **Pagmamalabis** (hyperbole): sadyang pagsobra sa paglalarawan. Halimbawa: "Parang isang **bundok** ang bigat ng bag ko!" (Karaniwan lamang ang bigat ng bag, ngunit pinalabis ito.)
 
 :::pair #labis-hindi-tulad
-Right: Ang "Parang isang bundok ang bigat ng bag ko!" ay pagmamalabis, dahil karaniwan lamang ang bigat ng bag.
-Wrong: Pagtutulad
+Right: Pagmamalabis ang "Parang isang bundok ang bigat ng bag ko!" dahil sadyang labis ang paglalarawan sa karaniwang bigat ng bag.
+Wrong: Pagtutulad ang "Parang isang bundok ang bigat ng bag ko!" dahil may salitang *parang*.
 Kahit may *parang*, sadyang sobra ang paglalarawan. Pagmamalabis ito.
 :::
 
-:::pair #tulad-hindi-wangis
-Right: Ang "kasing-ganda ng mga bituin" ay pagtutulad.
-Wrong: Pagwawangis
-May salitang pang-ihambing ang pagtutulad. Wala nito ang pagwawangis.
-:::
-
-:::pair #wangis-hindi-tulad
-Right: Ang "Ang guro ay ilaw ng silid-aralan" ay pagwawangis.
-Wrong: Pagtutulad
-Walang *parang* o *gaya ng*. Tuwirang ipinantay ang guro sa ilaw.
-:::
-
 :::pair #katauhan-hindi-hambing
-Right: Ang ibinigay sa araw at mga dahon ay kilos ng tao.
-Wrong: Tahasang paghahambing
-Walang paghahambing sa "Ngumiti ang araw." Kilos ng tao ang ibinigay sa araw.
+Right: Sa "Ngumiti ang araw habang sumasayaw ang mga dahon," kilos ng tao ang ibinigay sa araw at mga dahon kaya pagbibigay-katauhan ito.
+Wrong: Sa "Ngumiti ang araw habang sumasayaw ang mga dahon," tahasang paghahambing ang ibinigay sa araw at mga dahon.
+Walang paghahambing o salitang panulad sa pangungusap. Kilos ng tao ang ibinigay sa hindi tao.
+:::
+
+:::check
+Pagbibigay-katauhan ba o pagmamalabis ang "Sumisigaw ang hangin sa gitna ng bagyo"?
+:::answer
+Ang sagot ay **pagbibigay-katauhan**. Kilos ng tao ang pagsigaw na ibinigay sa hangin.
 :::
 
 ## Examples
 
 ### #1: Pagmamalabis
 
-Tutukuyin natin ang tayutay sa pahayag ng may-ari ng tindahan.
-
-Malaki ang kinita ng tindahan ngayong buwan. Sinabi ng may-ari, “Umuulan ng salapi sa negosyo ko.” Anong tayutay ang pinakamalinaw na ginamit?
+Malaki ang kinita ng tindahan ngayong buwan. Sinabi ng may-ari, "Umuulan ng salapi sa negosyo ko." Anong tayutay ang pinakamalinaw na ginamit?
 
 A) Pagtutulad  
 B) Pagmamalabis  
@@ -70,9 +82,7 @@ D) Pagbibigay-katauhan
 
 ### #2: Pagtutulad
 
-Tutukuyin natin ang tayutay sa paglalarawan sa tinig ni Ana.
-
-“Ang tinig ni Ana ay parang banayad na agos ng ilog.” Anong tayutay ang ginamit?
+"Ang tinig ni Ana ay parang banayad na agos ng ilog." Anong tayutay ang ginamit?
 
 A) Pagmamalabis  
 B) Pagtutulad  
@@ -84,13 +94,11 @@ D) Pagwawangis
 1. Inihahambing ang tinig sa banayad na agos ng ilog gamit ang *parang*.
 2. Ang ganitong paghahambing ay pagtutulad. Sagot: **B**.
 
-**Check:** Alisin ang *parang*. Mawawala ang pagtutulad.
+**Check:** Alisin ang *parang*. Mawawala ang palatandaan ng pagtutulad.
 
 ### #3: Pagwawangis
 
-Tutukuyin natin ang tayutay sa paglalarawan kay Liza.
-
-“Si Liza ang ilaw ng aming pangkat sa panahon ng problema.” Anong tayutay ang ginamit?
+"Si Liza ang ilaw ng aming pangkat sa panahon ng problema." Anong tayutay ang ginamit?
 
 A) Pagwawangis  
 B) Pagtutulad  
@@ -99,16 +107,14 @@ D) Pagbibigay-katauhan
 
 **Solution:**
 
-1. Tuwirang tinawag na ilaw si Liza. Ipinapakita nito na nagbibigay siya ng gabay.
+1. Tuwirang tinawag na ilaw si Liza. Ipinakikita nito na nagbibigay siya ng gabay.
 2. Ang tuwirang paghahambing na ito ay pagwawangis. Sagot: **A**.
 
-**Check:** Walang salitang pang-ihambing sa pangungusap.
+**Check:** Walang salitang panulad sa pangungusap, at tuwirang ipinantay si Liza sa ilaw.
 
 ### #4: Pagbibigay-katauhan
 
-Tutukuyin natin ang tayutay sa paglalarawan sa gabi.
-
-“Niyakap ng gabi ang tahimik na bayan.” Anong tayutay ang ginamit?
+"Niyakap ng gabi ang tahimik na bayan." Anong tayutay ang ginamit?
 
 A) Pagtutulad  
 B) Pagmamalabis  
@@ -120,25 +126,37 @@ D) Pagwawangis
 1. Ang pagyakap ay kilos ng tao. Hindi literal na yumayakap ang gabi.
 2. Binigyan ng kilos ng tao ang gabi. Ito ay pagbibigay-katauhan. Sagot: **C**.
 
-**Check:** Ang gabi ay hindi tao, pero may kilos ng tao.
+**Check:** Ang gabi ay hindi tao, ngunit may kilos ng tao.
+
+### #5: Kilos ng Tao sa Kalikasan
+
+"Ngumiti ang araw habang sumasayaw ang mga dahon." Anong tayutay ang ginamit sa pangungusap?
+
+A) Pagtutulad  
+B) Pagwawangis  
+C) Pagmamalabis  
+D) Pagbibigay-katauhan
+
+**Solution:**
+
+1. Walang salitang panulad, walang tuwirang pagpapantay ng dalawang bagay, at walang sadyang pagsobra ng sukat.
 
 :::try
-Anong tayutay ang “Ngumiti ang araw habang sumasayaw ang mga dahon”?
+Tapusin ang huling hakbang: anong katangian ang ibinigay sa araw at mga dahon, at aling tayutay ang sagot?
 :::answer
-Ang sagot ay pagbibigay-katauhan. Kilos ng tao ang ibinigay sa araw at sa mga dahon.
+Ang sagot ay **D**, **Pagbibigay-katauhan**. Kilos ng tao ang pagngiti at pagsayaw na ibinigay sa araw at mga dahon.
 
-**Check:** Walang paghahambing at walang pagsobra.
+**Check:** Hindi maaaring ngumiti o sumayaw ang araw at mga dahon sa totoong buhay, kaya kilos ng tao ang ikinabit sa mga ito.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Sa Filipino, hanapin muna ang paghahambing, kilos, o pagsobra sa paglalarawan. Pagkatapos, itugma ito sa pangalan ng tayutay.
+Hanapin muna kung may salitang panulad, tuwirang pagpapantay, kilos ng tao sa hindi tao, o sadyang pagsobra. Pagkatapos, itugma ito sa pangalan ng tayutay.
 
 ## Traps to Watch For
 
 :::checklist
-- Kahit may *parang*, pagmamalabis ito kung sadyang sobra ang paglalarawan. {#labis-hindi-tulad}
-- May salitang pang-ihambing ang pagtutulad. {#tulad-hindi-wangis}
-- Tuwirang ipinapantay sa pagwawangis, walang *parang*. {#wangis-hindi-tulad}
-- Kilos ng tao sa hindi tao ang pagbibigay-katauhan. {#katauhan-hindi-hambing}
+- May salitang panulad gaya ng *kasingganda ng mga bituin*: pagtutulad ito, hindi pagwawangis. {#tulad-hindi-wangis}
+- Sobrang paglalarawan kahit may *parang* gaya ng "Parang isang bundok ang bigat ng bag ko!": pagmamalabis ito, hindi pagtutulad. {#labis-hindi-tulad}
+- Kilos ng tao sa hindi tao gaya ng "Ngumiti ang araw": pagbibigay-katauhan ito, hindi paghahambing. {#katauhan-hindi-hambing}
 :::

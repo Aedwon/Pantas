@@ -14,11 +14,16 @@ keyPoints:
 ---
 ## Core Concept
 
-Ang **kabilaan** (affixes on both sides) ay may panlapi sa unahan at hulihan. Sa *kabataan*, nasa magkabilang panig ng *bata* ang *ka-* at *-an*. Tumutukoy ang salita sa mga bata o sa panahon ng pagiging bata.
+### Panlaping Kabilaan
 
-Ang **laguhan** (prefix, infix, and suffix together) ay may panlapi sa unahan, loob, at hulihan. Sa *pinagsumikapan*, makikita ang *pinag-*, *-um-*, at *-an* sa paligid ng ugat na *sikap*. Ang bagay na pinagsumikapan ay pinaglaanan ng pagsisikap.
+Ang **kabilaan** (affixes on both sides) ay may panlapi sa unahan at hulihan ng salitang-ugat, at walang panlapi sa loob.
 
-Hanapin ang ugat na nagpapaliwanag sa kahulugan ng buong salita. Huwag magtanggal ng mga letra dahil lamang nasa unahan o hulihan ang mga ito.
+Suriin ang salitang *kabataan*:
+
+1. Salitang-ugat: *bata*.
+2. Unlapi sa unahan: *ka-*.
+3. Hulapi sa hulihan: *-an*.
+4. Walang panlapi sa loob ng *bata*, kaya kabilaan ito.
 
 :::pair #kabilaan-ka-an
 Right: Ang panlapi sa *kabataan* ay *ka-* at *-an*.
@@ -26,17 +31,41 @@ Wrong: Ang panlapi sa *kabataan* ay *pag-* at *-an*.
 Tingnan ang mga letra sa unahan ng *bata*. Ang nandoon ay *ka-*.
 :::
 
+:::check
+Sa salitang *kasaganaan* (mula sa *sagana*), ano ang dalawang panlapi sa magkabilang panig ng ugat?
+:::answer
+Ang sagot ay **ka- at -an**. Nasa unahan ng *sagana* ang *ka-* at nasa hulihan ang *-an*.
+:::
+
+### Panlaping Laguhan
+
+Ang **laguhan** (prefix, infix, and suffix together) ay may panlapi sa unahan, loob, at hulihan ng salitang-ugat.
+
+Suriin ang salitang *pinagsumikapan*:
+
+1. Salitang-ugat: *sikap*.
+2. Unlapi sa unahan: *pinag-*.
+3. Gitlapi sa loob ng ugat: *-um-*.
+4. Hulapi sa hulihan: *-an*.
+5. May panlapi sa lahat ng tatlong puwesto, kaya laguhan ito.
+
+Hanapin muna ang salitang-ugat bago bilangin ang mga puwesto ng panlapi. Huwag magtanggal ng mga letra dahil lamang nasa unahan o hulihan ang mga ito.
+
 :::pair #laguhan-hindi-kabilaan
 Right: Laguhan ang *pinagsumikapan*.
 Wrong: Kabilaan ang *pinagsumikapan*.
 Ang kabilaan ay unahan at hulihan lamang. May *-um-* din sa loob ng *sikap*.
 :::
 
+:::check
+Kabilaan ba o laguhan ang *kalayaan* (mula sa *laya*)?
+:::answer
+Ang sagot ay **kabilaan**. Nasa unahan ng *laya* ang *ka-* at nasa hulihan ang *-an*, at walang panlapi sa loob nito.
+:::
+
 ## Examples
 
 ### #1: Panlapi sa Magkabilang Panig
-
-Maghahanap tayo ng salitang may panlapi sa unahan at hulihan.
 
 Aling salita ang may panlaping kabilaan?
 
@@ -54,9 +83,7 @@ D) bahay
 
 ### #2: Panlaping Laguhan
 
-Tutukuyin natin ang uri ng panlapi sa **pinagsumikapan**.
-
-Anong uri ng panlapi ang makikita sa salitang nakadiin: **pinagsumikapan**?
+Anong uri ng panlapi ang makikita sa salitang nakaitim: **pinagsumikapan**?
 
 A) unlapi lamang  
 B) gitlapi lamang  
@@ -70,18 +97,31 @@ D) laguhan
 
 **Check:** Bilangin ang puwesto. Unahan, loob, at hulihan ang may panlapi.
 
-:::try
-Anong uri ng panlapi ang nasa *kabataan*?
-:::answer
-Ang sagot ay kabilaan. Ang *ka-* ay nasa unahan ng *bata*, at ang *-an* ay nasa hulihan.
+### #3: Pagsuri sa Uri ng Panlapi
 
-**Check:** Walang panlapi sa loob ng *bata*, kaya hindi ito laguhan.
+Sa salitang **kabataan**, anong uri ng panlapi ang ginamit?
+
+A) unlapi lamang  
+B) gitlapi lamang  
+C) kabilaan  
+D) laguhan
+
+**Solution:**
+
+1. Hanapin muna ang salitang-ugat ng *kabataan*: ang ugat ay *bata*.
+
+:::try
+Tapusin ang huling hakbang: tukuyin ang mga panlapi sa paligid ng *bata* at piliin ang tamang uri ng panlapi.
+:::answer
+Ang sagot ay **C**, **kabilaan**. Nasa unahan ang *ka-* at nasa hulihan ang *-an*, at walang panlapi sa loob ng *bata*.
+
+**Check:** Kung laguhan ito, dapat may dagdag na panlapi sa loob ng *bata*, ngunit dalawa lamang ang puwesto ng panlapi.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Sa kabilaan, nasa unahan at hulihan ang panlapi, gaya ng *ka-* at *-an* sa *kabataan*. {#kabilaan-ka-an}
-- Kung may panlapi rin sa loob, laguhan ito. {#laguhan-hindi-kabilaan}
-- Hanapin muna ang ugat bago bilangin ang puwesto.
+- Panlapi sa unahan at hulihan lamang gaya ng *ka-* at *-an* sa *kabataan*: kabilaan ito. {#kabilaan-ka-an}
+- Panlapi sa unahan, loob, at hulihan gaya ng *pinagsumikapan*: laguhan ito, hindi kabilaan. {#laguhan-hindi-kabilaan}
+- Pagsuri ng puwesto: hanapin muna ang salitang-ugat bago bilangin ang unahan, loob, at hulihan. {#panlaping-laguhan}
 :::

@@ -13,13 +13,16 @@ keyPoints:
 ---
 ## Core Concept
 
-### Sila vs. Sina
+### Sila at Sina
 
-Ang **sila** ay **panghalip** (pronoun). Pumapalit ito sa mga pangalan ng dalawa o higit pang tao: "Umalis sila."
+Ang **sila** ay **panghalip** (pronoun) na pumapalit sa mga pangalan ng dalawa o higit pang tao: "Umalis **sila** nang maaga." Walang kasunod na pangalan ng tao pagkatapos ng *sila*.
 
-Ang **sina** ay ginagamit bago ang dalawa o higit pang pangalan ng tao: "Sina Ana at Lito ay dumating."
+Ang **sina** ay **pananda** (marker) na ginagamit bago ang dalawa o higit pang pangalan ng tao: "**Sina** Ana at Lito ay dumating."
 
-Sa pormal na pagsulat, gamitin ang *sina* bago ang mga pangalan. Gamitin ang *sila* kung ang salita mismo ang pumapalit sa mga pangalan.
+Sa pormal na pagsulat, sundin ang dalawang hakbang na ito:
+
+1. Tingnan ang kasunod ng salita: may mga pangalan ba ng tao pagkatapos nito?
+2. Kung may kasunod na mga pangalan, gamitin ang *sina*. Kung pumapalit lamang ito sa mga pangalan, gamitin ang *sila*.
 
 :::pair #bago-ang-pangalan
 Right: Sina Pedro, Ana, at Miguel ang mga kasapi ng grupong ito.
@@ -33,11 +36,15 @@ Wrong: Nagtapos sina Elena at Ricardo kahapon. Sina ay naghahanap na ng trabaho.
 Walang pangalang kasunod. Pamalit sa dalawang tao ang kailangan, kaya *sila*.
 :::
 
+:::check
+Piliin ang tamang salita: "Naghanda *(sila / sina)* Marco at Joy para sa ulat."
+:::answer
+Ang sagot ay **sina**. May kasunod na mga pangalan (*Marco at Joy*), kaya *sina* ang tamang pananda.
+:::
+
 ## Examples
 
 ### #1: Bago ang mga Pangalan
-
-Pupunan natin ang patlang sa pangungusap tungkol sa pagsusulit.
 
 ______ Maria, Jose, at Juan ay naghanda para sa pagsusulit.
 
@@ -55,8 +62,6 @@ D) Ang
 
 ### #2: Pamalit sa mga Pangalan
 
-Pupunan natin ang ikalawang pangungusap tungkol kina Ana at Lito.
-
 Maagang dumating sina Ana at Lito. ______ ang unang pumasok sa silid.
 
 A) Sila  
@@ -66,27 +71,35 @@ D) Ang
 
 **Solution:**
 
-1. Pumapalit ang patlang sa mga pangalang *Ana at Lito*.
+1. Pumapalit ang patlang sa mga pangalang *Ana at Lito*, at walang pangalang kasunod nito.
 2. Gamitin ang panghalip na **sila**. Sagot: **A**.
 
 **Check:** Basahin: "Sila ang unang pumasok sa silid." Walang pangalang kasunod.
 
-:::try
-Punan ang patlang: "Dumating ______ Liza at Ben. ______ ang mga tagapagsalita."
+### #3: Pagsasama ng Sina at Sila
+
+Piliin ang tamang pares: "Dumating ______ Liza at Ben. ______ ang mga tagapagsalita."
 
 A) sina; Sila  
 B) sila; Sina  
 C) sina; Sina  
 D) sila; Sila
-:::answer
-Ang sagot ay **A**. Pangalan ang kasunod sa una, kaya *sina*. Pumapalit sa mga pangalan ang ikalawa, kaya *sila*.
 
-**Check:** Basahin: "Dumating sina Liza at Ben. Sila ang mga tagapagsalita."
+**Solution:**
+
+1. Sa unang patlang, may kasunod na mga pangalang *Liza at Ben*, kaya **sina** ang kailangan.
+
+:::try
+Tapusin ang huling hakbang: ano ang tamang salita sa ikalawang patlang at aling letra ang sagot?
+:::answer
+Ang sagot ay **A**. Pumapalit sa mga pangalan ang ikalawang patlang at walang pangalang kasunod, kaya **Sila** ang gamit.
+
+**Check:** Basahin: "Dumating sina Liza at Ben. Sila ang mga tagapagsalita." May pangalan pagkatapos ng *sina*, at pamalit sa dalawang tao ang *Sila*.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Sa *sila* at *sina*, tingnan ang kasunod. May mga pangalan bang kasunod, o pumapalit ang salita sa mga pangalan?
+Tingnan ang kasunod ng patlang. May mga pangalan bang kasunod, o pumapalit ang salita sa mga pangalan?
 
 ## Traps to Watch For
 

@@ -14,17 +14,14 @@ keyPoints:
 ---
 ## Core Concept
 
-### Mga Panlapi sa Filipino
+### Pagtukoy sa Salitang-Ugat
 
-Ang **salitang-ugat** (root word) ang nagdadala ng pangunahing kahulugan. Ang **panlapi** (affix) ay idinadagdag dito upang makabuo ng salita.
+Ang **salitang-ugat** (root word) ang nagdadala ng pangunahing kahulugan. Ang **panlapi** (affix) ay idinadagdag dito upang makabuo ng bagong salita.
 
-Ang **unlapi** (prefix) ay nasa unahan, gaya ng *pag-* sa *pag-ibig*. Ang **gitlapi** (infix) ay nasa loob, gaya ng *-um-* sa *sumulat*. Ang **hulapi** (suffix) ay nasa hulihan, gaya ng *-an* sa *sulatan*.
+Upang makuha ang salitang-ugat, alisin ang lahat ng panlapi hanggang matira ang pinakamaikling salitang may pangunahing kahulugan:
 
-Sa *sumulat*, ang ugat ay *sulat*. Sa "Sumulat siya ng liham," ang *-um-* ay tumutulong bumuo ng salitang nagsasaad ng kilos ng gumawa. Dito, tapos na ang pagsulat.
-
-Sa *sinulat*, ang ugat ay *sulat* din. Sa "Sinulat niya ang liham," ang *-in-* ay tumutulong ipakita ang nagawang kilos. Ang liham ang binibigyang-pansin.
-
-Hindi iisa ang gamit ng isang panlapi sa lahat ng salita. Basahin ang buong pangungusap upang malaman ang kahulugan at gamit nito.
+- Sa *pinaghirapan*: alisin ang *pinag-* sa unahan at *-an* sa hulihan -> ang salitang-ugat ay **hirap**.
+- Sa *ginawa*: alisin ang *-in-* sa loob -> ang salitang-ugat ay **gawa**.
 
 :::pair #ugat-hindi-panlapi
 Right: Ang salitang-ugat ng *pinaghirapan* ay *hirap*.
@@ -38,13 +35,39 @@ Wrong: Ang salitang-ugat ng *ginawa* ay *ginawa*.
 Ang buong salita ay may panlapi pa. Alisin ang *-in-* upang makuha ang *gawa*.
 :::
 
+:::check
+Ano ang salitang-ugat ng *sulatan*?
+:::answer
+Ang sagot ay **sulat**. Ang *-an* sa hulihan ay panlapi lamang, at ang *sulat* ang may pangunahing kahulugan.
+:::
+
+### Unlapi, Gitlapi, at Hulapi
+
+Tinatawag ang panlapi ayon sa puwesto nito sa salitang-ugat:
+
+1. **Unlapi** (prefix) sa unahan ng ugat: *pag-* + *ibig* = *pag-ibig*; *um-* + *alis* = *umalis*.
+2. **Gitlapi** (infix) sa loob ng ugat: *s* + *-um-* + *ulat* = *sumulat*; *s* + *-um-* + *ayaw* = *sumayaw*.
+3. **Hulapi** (suffix) sa hulihan ng ugat: *sulat* + *-an* = *sulatan*.
+
+Hindi iisa ang gamit o puwesto ng isang panlapi sa lahat ng salita. Sa *sumayaw*, gitlapi ang *-um-* dahil nasa loob ito ng *sayaw*, ngunit sa *umalis*, unlapi ang *um-* dahil nasa unahan ito ng *alis*.
+
+:::pair #puwesto-ng-um
+Right: Gitlapi ang *-um-* sa *sumayaw* dahil nasa loob ng *sayaw*, ngunit unlapi ang *um-* sa *umalis* dahil nasa unahan ng *alis*.
+Wrong: Palaging unlapi ang *um-* sa lahat ng salita.
+Ang puwesto sa unahan o loob ng ugat ang batayan ng pangalan ng panlapi, hindi ang mga titik lamang.
+:::
+
+:::check
+Sa salitang *ginawa*, anong uri ng panlapi ang *-in-* at bakit?
+:::answer
+Ang sagot ay **gitlapi**. Nakasingit ang *-in-* sa loob ng salitang-ugat na *gawa*.
+:::
+
 ## Examples
 
-### #1: Finding a Root
+### #1: Paghanap ng Salitang-Ugat
 
-Hahanapin natin ang salitang-ugat ng isang salitang may panlapi.
-
-Tukuyin ang salitang-ugat ng salitang nakadiin: **pinagsumikapan**.
+Tukuyin ang salitang-ugat ng salitang nakaitim: **pinagsumikapan**.
 
 A) sikap  
 B) pinag  
@@ -58,22 +81,35 @@ D) sikapan
 
 **Check:** Alisin ang *pinag-*, *-um-*, at *-an*. Ang natira ay *sikap*.
 
-:::try
-Tukuyin ang salitang-ugat ng *pinaghirapan*.
-:::answer
-Ang sagot ay *hirap*. Ang *pinag-* at *-an* ay panlapi.
+### #2: Pagbabalik sa Salitang-Ugat
 
-**Check:** Alisin ang dalawang panlapi, at *hirap* ang natira.
+Tukuyin ang salitang-ugat ng salitang nakaitim: **pinaghirapan**.
+
+A) pinag  
+B) naghirap  
+C) hirap  
+D) hirapan
+
+**Solution:**
+
+1. Hanapin ang mga panlapi sa unahan at hulihan: makikita ang *pinag-* sa unahan at *-an* sa hulihan.
+
+:::try
+Tapusin ang huling hakbang: ano ang natitirang salitang-ugat kapag inalis ang mga panlaping ito?
+:::answer
+Ang sagot ay **C**, **hirap**. Ito ang pinakamaliit na bahaging nagdadala ng pangunahing kahulugan.
+
+**Check:** Ibalik ang mga panlapi sa ugat: *pinag-* + *hirap* + *-an* = *pinaghirapan*.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Sa Filipino, hanapin muna ang salitang-ugat. Pagkatapos, tingnan ang puwesto ng bawat panlapi at ang kahulugan ng buong salita.
+Hanapin muna ang salitang-ugat na nagdadala ng pangunahing kahulugan. Pagkatapos, tingnan kung nasa unahan, loob, o hulihan nito ang bawat panlapi.
 
 ## Traps to Watch For
 
 :::checklist
-- Ang unlapi sa unahan ay hindi ugat, gaya ng *pinag* sa *pinaghirapan*. {#ugat-hindi-panlapi}
-- Ang buong salitang may panlapi ay hindi ugat, gaya ng *ginawa*. {#ugat-hindi-buo}
-- Tingnan kung nasa unahan, loob, o hulihan ang panlapi.
+- Panlapi sa unahan gaya ng *pinag-* sa *pinaghirapan*: huwag itong gawing ugat; hanapin ang *hirap*. {#ugat-hindi-panlapi}
+- Buong salitang may panlapi gaya ng *ginawa*: alisin ang *-in-* upang makuha ang ugat na *gawa*. {#ugat-hindi-buo}
+- Parehong anyo gaya ng *um-* sa *umalis* at *-um-* sa *sumayaw*: tingnan kung nasa unahan o loob ng ugat ang panlapi. {#puwesto-ng-um}
 :::
