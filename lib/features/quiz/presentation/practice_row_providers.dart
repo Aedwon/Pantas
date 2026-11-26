@@ -2,6 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/features/home/application/study_remote_providers.dart'
+    show studyCoreEpochProvider;
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
 /// One month, matching the row's own copy: "28 you've got wrong in the last
@@ -61,6 +63,10 @@ final flagSummaryProvider = FutureProvider<FlagSummary>((ref) async {
 /// questions the student has, in this exam.
 final quizPracticeCountsProvider = FutureProvider.autoDispose
     .family<({int mistakes, int flags}), ExamId>((ref, examId) async {
+  // Rows another device wrote reach the local tables through a sync pull, with
+  // no feature repository involved. This moves once per settled pull, so a
+  // pull that lands while the tab is open recounts.
+  await ref.watch(studyCoreEpochProvider.future);
   final mistakes = await recentMistakeCount(ref, examId);
   final flags = await ref.watch(questionFlagsRepositoryProvider).flaggedIds();
   final topicIds = (await ref.watch(scopedTopicsProvider(examId).future))
