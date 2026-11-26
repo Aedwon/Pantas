@@ -19,17 +19,19 @@ keyPoints:
 Ang **sugnay** (clause) ay pangkat ng mga salitang may **panaguri** (predicate) at karaniwang may **paksa** (subject). May dalawang uri ito:
 
 - Ang **sugnay na makapag-iisa** (independent clause) ay buo ang diwa. Nakatatayo itong mag-isa.
-- Ang **sugnay na di-makapag-iisa** (dependent clause) ay bitin ang diwa dahil may **pang-ugnay** (connector) sa unahan, gaya ng *dahil*, *kapag*, *habang*, o *sapagkat*. Kailangan nito ng karugtong.
+- Ang **sugnay na di-makapag-iisa** (dependent clause) ay bitin ang diwa dahil karaniwang may **pang-ugnay** (connector) sa unahan, gaya ng *dahil*, *kapag*, *habang*, o *sapagkat*. Kailangan nito ng karugtong.
 
 Suriin ang dalawang sugnay na ito:
 
 1. "Nagluto si Lina." May panaguri (*nagluto*) at paksa (*si Lina*), at buo ang diwa. Makapag-iisa ito.
 2. "dahil nagluto si Lina": pareho ang mga salita, pero may *dahil* sa unahan. Bitin ang diwa, kaya di-makapag-iisa ito.
 
+Ang **parirala** (phrase) ay pangkat ng salitang walang panaguri, kaya hindi ito sugnay.
+
 :::pair #parirala-hindi-sugnay
 Right: Ang "sa loob ng bagong tanggapan" ay parirala, hindi sugnay.
 Wrong: Ang "sa loob ng bagong tanggapan" ay sugnay na di-makapag-iisa.
-Ang parirala ay pangkat ng salitang walang panaguri. Walang panaguri rito, kaya hindi ito sugnay.
+Walang panaguri rito, kaya hindi ito sugnay.
 :::
 
 :::check
@@ -78,9 +80,9 @@ Bitin ang *habang nagluluto si Lina*, kaya may di-makapag-iisa. Kung isang buong
 :::
 
 :::check
-Ano ang kayarian: "Nagbasa si Ruth, at nagsulat si Paolo habang tahimik ang silid."
+Ano ang kayarian: "Nagbasa si Ruth at nagsulat si Paolo kapag tahimik ang silid."
 :::answer
-**Langkapan.** Dalawa ang makapag-iisa (*nagbasa si Ruth* at *nagsulat si Paolo*) at isa ang di-makapag-iisa (*habang tahimik ang silid*).
+**Langkapan.** Dalawa ang makapag-iisa (*nagbasa si Ruth* at *nagsulat si Paolo*) at isa ang di-makapag-iisa (*kapag tahimik ang silid*).
 :::
 
 ## Examples
@@ -120,7 +122,7 @@ Ano ang kayarian ng pangungusap na ito? "Nang matapos ang pulong, umuwi si Mara 
 
 Langkapan ang pangungusap.
 
-**Check:** Alisin ang *nang matapos ang pulong*. Buo pa rin ang dalawang natirang sugnay, kaya ang inalis ang bitin.
+**Check:** Alisin ang *nang matapos ang pulong*. Buo pa rin ang dalawang natirang sugnay, kaya bitin ang inalis.
 
 ### #3: Pangungusap na May Pang-ugnay
 
@@ -129,12 +131,11 @@ Ano ang kayarian ng pangungusap na ito? "Magbabayad ako ng upa kapag may sahod n
 **Solution:**
 
 1. Ang *kapag may sahod na* ay may pang-ugnay sa unahan. Di-makapag-iisa ito.
-2. Ang *Magbabayad ako ng upa* ay buo ang diwa. Makapag-iisa ito.
 
 :::try
-Tapusin ang huling hakbang: ilan ang bawat uri ng sugnay, at ano ang kayarian?
+Tapusin: ano ang kalagayan ng natitirang bahagi, at ano ang kayarian?
 :::answer
-Isang makapag-iisa at isang di-makapag-iisa, kaya **hugnayan** ang pangungusap.
+Buo ang diwa ng *Magbabayad ako ng upa*, kaya makapag-iisa ito. Isang makapag-iisa at isang di-makapag-iisa, kaya **hugnayan** ang pangungusap.
 
 **Check:** Ilipat ang bitin na sugnay sa unahan: "Kapag may sahod na, magbabayad ako ng upa." Pareho ang bilang ng sugnay.
 :::
@@ -143,5 +144,5 @@ Isang makapag-iisa at isang di-makapag-iisa, kaya **hugnayan** ang pangungusap.
 
 :::checklist
 - Pangkat ng salitang walang panaguri, gaya ng *sa loob ng bagong tanggapan*: parirala ito, hindi sugnay. {#parirala-hindi-sugnay}
-- Dalawang buong diwa na may sugnay ring may *habang*, *kapag*, o *dahil*: bilangin ang lahat, langkapan ito (hindi tambalan). {#bilangin-ang-lahat-ng-sugnay}
+- Dalawang buong diwa na may bitin na sugnay ring may *habang*, *kapag*, o *dahil*: bilangin ang lahat, langkapan ito (hindi tambalan). {#bilangin-ang-lahat-ng-sugnay}
 :::

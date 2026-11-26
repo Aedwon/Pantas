@@ -16,7 +16,7 @@ keyPoints:
 
 ### Word Combinations
 
-**Collocations** are words commonly used together, such as *strong evidence* and *make a decision*. Grammar alone may not decide between choices. The usual word partner also matters. *Choose the best completion* means pick the choice that fits the blank in meaning, grammar and usual word use.
+**Collocations** are words commonly used together, such as *strong evidence* and *make a decision*. Grammar alone may not decide between choices. The usual word partner also matters.
 
 Let's fill the blank in "The storm brought ______ rain."
 
@@ -28,7 +28,7 @@ The storm brought heavy rain.
 :::pair #wrong-partner
 Right: The committee must make a decision.
 Wrong: The committee must do a decision.
-*Do* is a general action word, but the usual partner of *decision* is *make*.
+*Do* fits some nouns, such as *homework*, but the usual partner of *decision* is *make*.
 :::
 
 :::check
@@ -84,26 +84,26 @@ Choose **(A)**: "The panel found strong evidence that the records had been chang
 
 **Check:** Say each choice with *evidence*. Only *strong evidence* sounds natural.
 
-### #2: At the Reception Desk
+### #2: A Day at Home
 
-Choose the best completion: "Please keep an ______ on the reception desk while I help the visitor."
+Choose the best completion: "Mina stayed home because she felt ______ the weather."
 
-(A) ear
+(A) under
 
-(B) eye
+(B) over
 
-(C) arm
+(C) behind
 
-(D) elbow
+(D) beside
 
 **Solution:**
 
-1. The idiom is *keep an ______ on*.
-2. It means watch or look after.
+1. The idiom is *feel ______ the weather*.
+2. It means feel slightly ill.
 
-Choose **(B)**: "Please keep an eye on the reception desk while I help the visitor."
+Choose **(A)**: "Mina stayed home because she felt under the weather."
 
-**Check:** The sentence asks someone to watch the desk. *Keep an eye on* means exactly that.
+**Check:** The sentence gives a reason for staying home. *Under the weather* means feeling unwell.
 
 ### #3: A Deal by Friday
 
@@ -127,7 +127,7 @@ Finish the last step: which choice is the usual partner of *agreement*?
 :::answer
 The answer is **(B) reach**: "The two sides hope to reach an agreement by Friday."
 
-**Check:** Say each choice with *agreement*. *Do an agreement* and *say an agreement* sound wrong.
+**Check:** Say each choice with *agreement*. *Do*, *say* and *hold* do not usually go with *agreement*.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -137,6 +137,6 @@ Reread the completed sentence. Check meaning, grammar, and natural word use toge
 ## Traps to Watch For
 
 :::checklist
-- A blank before a noun such as *decision*: choose its usual partner (*make a decision*), not a general action word. {#wrong-partner}
+- A blank before a noun such as *decision*: choose its usual partner (*make a decision*). A general word such as *do* may not fit. {#wrong-partner}
 - An idiom with a familiar word such as *eye*: read the whole expression for its meaning (*keep an eye on* means watch). {#idiom-by-parts}
 :::

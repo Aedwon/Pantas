@@ -15,7 +15,7 @@ keyPoints:
 
 ### Joining Two Independent Clauses
 
-An **independent clause** can stand alone as a complete sentence. Join two independent clauses in one of three standard ways:
+An **independent clause** can stand alone as a complete sentence. Three common ways to join two independent clauses:
 
 1. A period plus a capital letter: "Mika was the cashier on duty. She counted the receipts."
 2. A semicolon: "Mika was the cashier on duty; she counted the receipts." (Use this when the ideas are closely linked and you do not want to add a cause or result word like *because* or *so*.)
@@ -32,7 +32,7 @@ Both halves can stand alone, so a comma by itself cannot join them.
 :::pair #run-on-or-case
 Right: "Mika was the cashier on duty. She counted the receipts."
 Wrong: "Mika was the cashier on duty she counted the receipts."
-Never run two complete sentences together with no mark, and always capitalize the word after a period.
+Never run two complete sentences together with no mark, and start each new sentence with a capital letter.
 :::
 
 :::check
@@ -75,8 +75,8 @@ Identify the error in each sentence:
 
 **Solution:**
 
-1. In (a), both halves can stand alone, so the comma alone creates a comma splice. Replace the comma with a semicolon or period.
-2. In (b), the period ends the first sentence, so *the* must start with a capital letter: **The**.
+1. In (a), both halves can stand alone, so the comma alone creates a comma splice. Fix: "The office closed early; the storm became stronger."
+2. In (b), the period ends the first sentence, so the next one needs a capital: "The office closed early. **The** storm became stronger."
 
 **Check:** Read each half alone: "The office closed early." "The storm became stronger." Both are complete sentences, confirming they need a semicolon, period, or comma plus *and/but/so*.
 
@@ -90,11 +90,11 @@ Identify the faulty segment: "The company expanded its operations into three new
 2. Check the right side: *initial profits remained below expectations* can also stand alone.
 3. Because *however* cannot join two independent clauses with only a comma, the error sits in **into three new regions,** (change the comma to a semicolon).
 
-**Check:** Replace *however* with a semicolon alone: "The company expanded its operations into three new regions; initial profits remained below expectations." Both halves remain complete clauses.
+**Check:** Read the fix: "The company expanded its operations into three new regions; however, initial profits remained below expectations." Both halves are complete clauses.
 
 ### #3: Joining Without Adding Cause or Result
 
-A question gives two facts: "Mika was the cashier on duty." "She counted the receipts." You must join them into one sentence without adding a cause or result.
+Join these two facts into one sentence without adding a cause or result: "The server crashed at noon." "The technician restarted it."
 
 **Solution:**
 
@@ -102,16 +102,16 @@ A question gives two facts: "Mika was the cashier on duty." "She counted the rec
 2. Words like *because* or *so* would add a cause or result, so avoid them.
 
 :::try
-Finish the last step: write the one-sentence version using the punctuation mark that joins two linked clauses directly.
+Finish the last step: write one correct one-sentence version.
 :::answer
-The answer is **"Mika was the cashier on duty; she counted the receipts."** A semicolon joins two independent clauses without adding a cause or result.
+The answer is **"The server crashed at noon; the technician restarted it."** A semicolon joins two independent clauses without adding a cause or result. A comma plus *and* also works.
 
-**Check:** Test each side of the semicolon as its own sentence: "Mika was the cashier on duty." "She counted the receipts." Both are complete, and no cause or result was added.
+**Check:** Test each side of the semicolon as its own sentence: "The server crashed at noon." "The technician restarted it." Both are complete, and no cause or result was added.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Cover the joining word (*however, therefore*) and read both sides. If both sides stand alone as complete sentences, you need a period, a semicolon, or a comma plus *and/but/so*.
+Cover the transition word (*however, therefore*) and read both sides. If both stand alone, join them with a semicolon or period.
 
 ## Traps to Watch For
 

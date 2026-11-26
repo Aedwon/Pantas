@@ -18,7 +18,7 @@ keyPoints:
 
 In **sentence completion**, you choose words for a blank. *Choose the best completion* means pick the choice that fits the blank in meaning and grammar. Read the whole sentence before looking at the choices.
 
-*Although, despite,* and *however* show contrast. *Because* introduces a reason. *Therefore* introduces a result, while *for example* introduces a case that explains a broader idea.
+Words such as *although, despite,* and *however* show contrast. *Because* introduces a reason. *Therefore* introduces a result, while *for example* introduces a case that explains a broader idea.
 
 Do not choose from a signal word alone. Read the ideas on both sides of it. They must make sense together.
 
@@ -51,7 +51,7 @@ Let's fill both blanks in "Because the room was ______, we opened the windows an
 
 1. *Because* gives a reason. Opening the windows is the result.
 2. The clearest clue is the windows. The room was *stuffy*.
-3. Fresh air in a stuffy room brings *relief*.
+3. Fresh air in a stuffy room leaves people *relieved*.
 4. Read both words in the sentence.
 
 Because the room was stuffy, we opened the windows and felt relieved afterward.
@@ -63,9 +63,9 @@ Wrong: The manager's ordinary plan to scrap every old rule met widespread opposi
 :::
 
 :::check
-Choose the best pair: "Although the new clerk felt ______ on the first day, she was ______ by the end of the week." *(uneasy, comfortable / comfortable, uneasy / uneasy, hesitant)*
+Choose the best pair: "Although the new clerk felt ______ on the first day, weeks of practice left her ______ by the end." *(uneasy, comfortable / comfortable, uneasy / uneasy, hesitant)*
 :::answer
-*uneasy, comfortable*. *Although* sets a change from the first day to the end of the week. A clerk who starts uneasy becomes comfortable.
+*uneasy, comfortable*. *Although* sets a contrast, and practice brings comfort. A clerk who starts uneasy becomes comfortable.
 :::
 
 ## Examples
@@ -133,7 +133,7 @@ Choose **(A) For example**: "Some office supplies can be reused. For example, a 
 
 **Check:** *In contrast* and *Instead* would set the folder against the first sentence. Here the folder supports it.
 
-### #4: Preparation and Nerves
+### #4: A Presentation
 
 Choose the best pair: "Despite her ______ preparation, she felt ______ before the presentation."
 
@@ -147,8 +147,7 @@ Choose the best pair: "Despite her ______ preparation, she felt ______ before th
 
 **Solution:**
 
-1. *Despite* calls for an unexpected contrast.
-2. So the second word must go against the first.
+1. *Despite* calls for contrast.
 
 :::try
 Finish the last step: choose the pair.
@@ -165,7 +164,7 @@ Predict the meaning and word form before reading the choices. This helps you set
 ## Traps to Watch For
 
 :::checklist
-- *Far from*, *although* or *despite* before a blank: choose a word that goes against the other idea (an opposite, not a synonym). {#synonym-after-far-from}
+- *Far from*, *although* or *despite* before a blank: choose a word that usually goes against the other idea (an opposite, not a synonym). {#synonym-after-far-from}
 - Two or more blanks: fill every blank, then read the whole sentence. {#one-blank-only}
 - A choice that sounds grammatical: still test it against the signal word and the ideas it connects. {#signal-words}
 :::

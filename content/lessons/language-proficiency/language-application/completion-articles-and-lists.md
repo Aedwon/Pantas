@@ -37,9 +37,9 @@ Wrong: a unopened box
 :::
 
 :::check
-Choose the pair, which means pick the option that fits both blanks: "A driver left ___ umbrella on the bus. The next day, the driver came back for ___ umbrella." *(an, the / a, the / the, an)*
+Choose the pair: "Mia gave ___ honest answer. Everyone trusted ___ answer." *(an, the / a, the / the, an)*
 :::answer
-*an, the*. *Umbrella* begins with a vowel sound, so the first blank takes *an*. The second mention points to the same umbrella, so it takes *the*.
+*an, the*. *Honest* begins with a vowel sound (the *h* is silent), so the first blank takes *an*. The second mention points to the same answer, so it takes *the*.
 :::
 
 ### Prepositions in Fixed Phrases
@@ -56,7 +56,7 @@ The nurse is good at calming patients.
 :::pair #preposition-pattern
 Right: She is interested in music.
 Wrong: She is interested on music.
-Each word keeps its own preposition. *On* fits other phrases, such as *focused on*, but not *interested*.
+Many words keep one usual preposition. *On* fits other phrases, such as *focused on*, but not *interested*.
 :::
 
 :::check
@@ -114,48 +114,48 @@ Choose **(B)**: "The assistant is responsible for updating the visitor log."
 
 ### #2: Articles and Context
 
-Choose the correct pair: "A courier brought an envelope to my desk. I opened ______ envelope and found ______ unsigned form inside."
+Choose the correct pair: "A teacher gave Ben a worksheet. He finished ______ worksheet before ______ unit test."
 
-(A) an, a
+(A) a, the
 
 (B) the, an
 
-(C) a, the
+(C) a, an
 
 (D) the, a
 
 **Solution:**
 
-1. The first blank points to the envelope already introduced. Use **the**.
-2. The form is new. *Unsigned* begins with a vowel sound, so use **an**.
+1. The first blank points to the worksheet already introduced. Use **the**.
+2. The test is new. *Unit* begins with a consonant sound, so use **a**.
 
-Choose **(B)**: "I opened the envelope and found an unsigned form inside."
+Choose **(D)**: "He finished the worksheet before a unit test."
 
-**Check:** The envelope appeared in the first sentence, so *the* fits. The form appears for the first time, so it cannot take *the*.
+**Check:** The worksheet appeared in the first sentence, so *the* fits. The test appears for the first time, so it cannot take *the*.
 
-### #3: A List of Duties
+### #3: A Comparison of Habits
 
-Choose the best completion: "The position requires answering calls, preparing reports, and ______ records."
+Choose the best completion: "Ken prefers walking to ______ the bus."
 
-(A) file
+(A) ride
 
-(B) filing
+(B) riding
 
-(C) filed
+(C) to ride
 
-(D) to file
+(D) rode
 
 **Solution:**
 
-1. Look at the first two items in the list.
-2. Name the form they share.
+1. *Prefers* compares two activities.
+2. Name the form of the first activity.
 
 :::try
 Finish the last step: which choice has that form?
 :::answer
-The answer is **(B) filing**: "The position requires answering calls, preparing reports, and filing records."
+The answer is **(B) riding**: "Ken prefers walking to riding the bus."
 
-**Check:** The three items now read as one list: *answering*, *preparing*, *filing*. Each ends in *-ing*.
+**Check:** *Walking* and *riding* both end in *-ing*, so the two activities match.
 :::
 
 ## Traps to Watch For

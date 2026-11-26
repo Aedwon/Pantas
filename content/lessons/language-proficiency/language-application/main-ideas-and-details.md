@@ -59,9 +59,9 @@ It sounds like safety, but the text never says it. A supporting detail must be a
 :::
 
 :::check
-Read: "The bakery changed its counter so lines move faster. It opens a second register at noon and sets a basket by the door for pre-paid orders." Which detail supports the main point: "A second register opens at noon" or "Its bread costs less"?
+Read: "The school garden saves water with rain barrels. A barrel under each roof catches rain, and a short hose lets students water the plants without using the tap." Which detail supports the main point: "A barrel under each roof catches rain" or "The garden has won a prize"?
 :::answer
-The answer is "A second register opens at noon." The text states it, and a second register helps lines move. Nothing in the text says the bread costs less.
+The answer is "A barrel under each roof catches rain." The text states it, and it saves water. Nothing in the text says the garden won a prize.
 :::
 
 ## Examples
@@ -85,19 +85,20 @@ What is the main idea?
 
 **Check:** Say the point in your own words: digital forms help. That matches (B).
 
-### #2: Main Point in an Opinion
+### #2: Main Point in a Story
 
-Read: "The town should add benches along the riverside path. Many older walkers need to rest every few minutes. Benches would also give families a place to stop and watch the water."
+Read: "Mario's bike chain kept slipping on the hill. He cleaned the chain, added oil, and tightened the bolts. Now the bike climbs smoothly."
 
-What does the writer want, and why?
+What is the main idea?
 
 **Solution:**
 
-1. The first line states the claim: "The town should add benches along the riverside path."
-2. The next lines give reasons: "Many older walkers need to rest every few minutes" and "a place to stop and watch the water."
-3. The writer wants benches added, because older walkers need rests and families need a place to stop.
+1. The first line states the problem: the chain kept slipping.
+2. The next line gives the fixes: "cleaned the chain," "added oil" and "tightened the bolts."
+3. The last line gives the result: the bike climbs smoothly.
+4. Mario fixed the slipping chain, and the bike now climbs smoothly.
 
-**Check:** Ask "why benches?" after the claim. Both reasons answer it.
+**Check:** Each fix answers the problem in the first line.
 
 ### #3: Main Idea in a Description
 
@@ -105,7 +106,7 @@ Read: "Many people think night markets only sell food. In fact, one market near 
 
 What is the main idea?
 
-(A) Night markets never sell food.
+(A) The pier market sells handmade goods at low prices.
 (B) One pier market sells many kinds of goods and lets visitors see the makers.
 (C) All night markets sell handmade goods.
 (D) The pier market is the oldest in town.
@@ -118,7 +119,7 @@ What is the main idea?
 :::try
 Finish the last step: which choice covers both details and adds no claim?
 :::answer
-The answer is (B). It names the goods and the makers. (A) and (C) claim more than the text says, and (D) is not mentioned.
+The answer is (B). It names the goods and the makers. (A) adds low prices, (C) claims all night markets, and (D) is not mentioned.
 
 **Check:** Test (B) against each detail. Both fit it. Each other choice has a part with no line to support it.
 :::
@@ -130,6 +131,6 @@ Ask what every detail points to. Then check that your answer is not bigger than 
 ## Traps to Watch For
 
 :::checklist
-- A main-idea choice with "all," "every" or "replace": pick the one as large as the text, not larger (stay inside the text). {#widening-the-claim}
-- A detail that sounds true: use it only if the text states it (the stated line). {#claim-not-in-text}
+- A main-idea choice with "all," "every" or "replace": pick the one as large as the text, not larger, unless the text says so. {#widening-the-claim}
+- A detail that sounds true: use it only if the text states it. {#claim-not-in-text}
 :::

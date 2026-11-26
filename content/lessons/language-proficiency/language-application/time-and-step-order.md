@@ -70,7 +70,7 @@ The answer is C, B, A. Sealing needs the letter inside, and mailing needs the en
 
 ### #1: Ordering a Procedure
 
-Arrange the steps in the best order. **Arrange** means put them in order.
+Arrange the steps in the best order.
 
 (A) Finally, submit the signed form to the records desk.
 (B) Check the completed fields for errors before signing.
@@ -99,7 +99,7 @@ Arrange the sentences in time order.
 
 1. (B) "At opening time that morning" is the earliest time.
 2. (C) "An hour after finding it" counts from the discovery in (B).
-3. (A) "By noon" completes the account.
+3. (A) "By noon" is the latest time.
 4. The order is B, C, A.
 
 **Check:** Read the three in order. Each event happens because of the one before it.
@@ -115,19 +115,17 @@ Arrange the sentences in the best order.
 **Solution:**
 
 1. (B) has "Before dawn," the earliest clue.
-2. (C) has "At nine," which is later than dawn.
-
 :::try
-Finish the last step: where does (A) go, and which event does *afterward* follow?
+Finish the last step: put all three in order.
 :::answer
-The answer is B, C, A. *Afterward* follows the timing in (C), because the team packs the equipment after it has used it.
+The answer is B, C, A. (C) has "At nine," which is later than dawn. *Afterward* follows the timing in (C), because the team packs the equipment after it has used it.
 
 **Check:** Packing the equipment before the timing would mean packing it before it was used.
 :::
 
 ## Speed Tricks & Shortcuts
 
-For steps, ask what must already be done. A form must be signed before it can be submitted as a signed form.
+For steps, ask what must already be done.
 
 ## Traps to Watch For
 

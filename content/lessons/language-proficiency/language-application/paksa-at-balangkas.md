@@ -114,14 +114,11 @@ Gumawa ng balangkas.
 **Solution:**
 
 1. Ang *telepono* ang paksa. Ang unang pangungusap ang pangunahing ideya: "Pinadadali ng telepono ang pagpapadala ng balita."
-2. Ang ikalawang pangungusap ay detalye: pagtawag sa malayong kamag-anak.
 
 :::try
-Tapusin ang balangkas: ano ang huling detalye mula sa ikatlong pangungusap?
+Tapusin ang balangkas: ano ang mga detalye?
 :::answer
-Detalye: **Pagpapadala ng larawan at mensahe.**
-
-Ang buong balangkas: Pangunahing ideya: Tulong ng telepono sa pagpapadala ng balita. Detalye: Pagtawag sa malayong kamag-anak. Detalye: Pagpapadala ng larawan at mensahe.
+Ang buong balangkas: Pangunahing ideya: Tulong ng telepono sa pagpapadala ng balita. Detalye: **Pagtawag sa malayong kamag-anak.** Detalye: **Pagpapadala ng larawan at mensahe.**
 
 **Check:** Bawat detalye ay galing sa isang pangungusap ng talata, at wala itong idinagdag.
 :::

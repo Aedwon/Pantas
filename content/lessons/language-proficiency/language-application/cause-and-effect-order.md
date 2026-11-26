@@ -15,7 +15,7 @@ keyPoints:
 
 ### Cause Then Effect
 
-A **cause** explains why something happens. An **effect** is the result. A word such as *as a result*, *therefore*, *so* or *consequently* points back to a cause, so it comes after the cause.
+A **cause** explains why something happens. An **effect** is the result. A word such as *as a result*, *therefore* or *consequently* points back to a cause, so it comes after the cause.
 
 Let's order these two sentences:
 
@@ -114,10 +114,9 @@ Which order makes the link clear?
 **Solution:**
 
 1. (A) starts with *As a result*, which points back. It cannot come first.
-2. (A) throws away the stock, which is the final effect.
 
 :::try
-Finish the last step: put all three sentences in order.
+Put all three sentences in order.
 :::answer
 The answer is **C → B → A**. The unit stopped (C), so the temperature rose (B), so the stock was thrown away (A).
 

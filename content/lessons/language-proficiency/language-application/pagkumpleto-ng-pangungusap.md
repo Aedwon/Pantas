@@ -87,9 +87,9 @@ Likas sa ilang salita ang *matinding*, ngunit hindi nakababasa ng papel ang tulo
 :::
 
 :::check
-Piliin ang parirala: Pinuri ang koponan dahil sa kanilang ______. *(mahusay na laro / mahusay na pinto)*
+Piliin ang parirala: Nanalo ang koponan dahil sa kanilang ______. *(mahusay na pagsasanay / mahusay na pagkatalo)*
 :::answer
-*Mahusay na laro.* Likas ang pariralang ito, at pinupuri ang koponan sa laro, hindi sa pinto.
+*Mahusay na pagsasanay.* Likas na magkasama ang *mahusay* at *pagsasanay*, at maaari itong maging dahilan ng panalo. Hindi dahilan ng panalo ang pagkatalo.
 :::
 
 ## Examples
@@ -151,20 +151,19 @@ Piliin ang pariralang likas at akma: "Nawalan ng kuryente ang barangay dahil sa 
 **Solution:**
 
 1. Ang pangungusap ay naghahanap ng dahilan ng pagkawala ng kuryente.
-2. Ang *malakas na ngiti* ay hindi nakapagpapawala ng kuryente.
 
 :::try
-Tapusin ang huling hakbang: alin sa dalawang natitirang parirala ang likas, at ano ang buong pangungusap?
+Tapusin: alin ang likas at akma, at ano ang buong pangungusap?
 :::answer
-Ang sagot ay **(A)**: "Nawalan ng kuryente ang barangay dahil sa malakas na bagyo."
+Ang *malakas na ngiti* ay hindi nakapagpapawala ng kuryente. Ang sagot ay **(A)**: "Nawalan ng kuryente ang barangay dahil sa malakas na bagyo."
 
-**Check:** Ang *malalim* ay karaniwang para sa lalim ng tubig o ng damdamin, hindi para sa bagyo.
+**Check:** Karaniwang sinasabi ang *malalim* sa lalim, gaya ng baha, hindi sa bagyo.
 :::
 
 ## Traps to Watch For
 
 :::checklist
 - *Kahapon* o iba pang pahiwatig na lumipas na: piliin ang anyong tapos na (*ipinadala*), hindi ang gagawin pa (*ipapadala*). {#anyo-ayon-sa-panahon}
-- Ideyang salungat sa inaasahan: piliin ang *ngunit*, hindi ang *kaya* o *dahil*. {#pang-ugnay-ng-pagsalungat}
+- Ideyang salungat sa inaasahan: piliin ang pagsalungat, gaya ng *ngunit*, hindi ang *kaya* o *dahil*. {#pang-ugnay-ng-pagsalungat}
 - Pariralang likas ang tunog: basahin pa rin ang kahulugan ng buong pangungusap. {#likas-at-akma-sa-kahulugan}
 :::

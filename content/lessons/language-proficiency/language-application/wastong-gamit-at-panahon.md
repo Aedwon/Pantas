@@ -18,11 +18,11 @@ keyPoints:
 
 Alamin muna kung ano ang gamit ng salita sa pangungusap:
 
-- Ang **pang-abay** (adverb) ay nagbibigay-turing sa pandiwa, pang-uri, o kapwa pang-abay. Ang *kahapon* ay nagsasaad ng panahon; ang *dito* ay nagsasaad ng lugar.
-- Ang **pang-uri** (adjective) ay naglalarawan ng **pangngalan** (noun).
+- Ang **pang-abay** (adverb) ay nagbibigay-turing sa **pandiwa** (verb), **pang-uri** (adjective), o kapwa pang-abay. Ang *kahapon* ay nagsasaad ng panahon; ang *dito* ay nagsasaad ng lugar.
+- Ang pang-uri ay karaniwang naglalarawan ng **pangngalan** (noun).
 - Ang **panghalip** (pronoun) ay dapat may malinaw na tinutukoy. Sa "Sinabi ni Ana kay Lea na natuwa siya," hindi malinaw kung sino si *siya*.
 - Ang **pang-ugnay** (connector) ay dapat akma sa ugnayan ng mga ideya.
-- Ang *baka*, *marahil*, at *maaari* ay nagpapakita ng posibilidad. Hindi nito sinasabing tiyak na mangyayari ang isang bagay.
+- Ang mga salitang gaya ng *baka*, *marahil*, at *maaari* ay nagpapakita ng posibilidad. Hindi nito sinasabing tiyak na mangyayari ang isang bagay.
 
 Suriin natin ang "Marahil ay dadalaw si Tita sa bahay bukas.":
 
@@ -37,9 +37,9 @@ Ang *bukas* ay panahon. Nasa hinaharap ang kilos, ngunit hindi lahat ng kilos sa
 :::
 
 :::check
-Alin ang salitang nagpapahayag ng posibilidad? "Maaaring bumalik ang inspektor sa Huwebes."
+Alin ang hindi tiyak na mangyayari: *(Bumalik ang inspektor noong Huwebes. / Maaaring bumalik ang inspektor sa Huwebes.)*
 :::answer
-*Maaaring.* Hindi nito sinasabing tiyak na babalik ang inspektor. Ang *Huwebes* ay panahon.
+*Maaaring bumalik ang inspektor sa Huwebes.* Ang *maaaring* ay nagpapakita ng posibilidad, kaya hindi tiyak na babalik siya. Nangyari na ang isa pa.
 :::
 
 ### Salitang Magkasingkahulugan
@@ -59,7 +59,7 @@ Alin ang kasingkahulugan ng *matapang* sa "Matapang ang bumbero"? *(duwag / magi
 
 ### Kilos, Pangyayari, at Karanasan
 
-Ang **pandiwa** (verb) ay maaaring magpahayag ng kilos, pangyayari, o karanasan. Itanong ang mga ito:
+Ang pandiwa ay maaaring magpahayag ng kilos, pangyayari, o karanasan. Itanong ang mga ito:
 
 - Sinasadya ba ng gumagawa? Kilos ito: *sumulat si Lea*.
 - Nangyari lamang ba, at walang sadyang gumawa? Pangyayari ito: *lumindol kagabi*.
@@ -79,7 +79,7 @@ Piliin ang anyong akma sa panahon:
 - Nagaganap: *sumusulat*, *lumilindol*, *natutuwa*.
 - Magaganap pa: *susulat*, *lilindol*, *matutuwa*.
 
-Basahin ang buong pangungusap. Ang paulit-ulit na gawain, gaya ng may *tuwing*, ay gumagamit ng anyong nagaganap.
+Basahin ang buong pangungusap. Ang paulit-ulit na gawain, gaya ng may *tuwing*, ay karaniwang gumagamit ng anyong nagaganap.
 
 Punan natin ang "Mamaya ay ______ si Gil sa kaibigan niya.", mga pagpipilian: *tumawag*, *tumatawag*, *tatawag*.
 
@@ -94,7 +94,7 @@ Ang *matutuwa* ay para sa karanasang hindi pa nangyayari. Naganap na ang tuwa ka
 :::
 
 :::check
-Piliin ang anyo: Kanina ay ______ ang bata sa bakod. *(tumalon / tatalon)*
+Piliin ang anyo: Kanina ay ______ ang bata sa bakod. *(tumalon / tumatalon / tatalon)*
 :::answer
 *Tumalon.* Ang *kanina* ay lumipas na, kaya naganap na ang kilos.
 :::
@@ -121,8 +121,7 @@ Piliin ang wastong pangungusap.
 
 Piliin ang **(B)**.
 
-**Check:** Basahin ang **(B)** nang buo: "Bukas ay pupunta ako sa opisina." Hindi pa nangyayari ang pagpunta, tugma sa *bukas*.
-
+**Check:** Basahin ang **(B)** nang buo: "Bukas ay pupunta ako sa opisina."
 ### #2: Pagpili ng Anyo ng Pandiwa
 
 Piliin ang angkop na anyo: "Kagabi ay (lumindol / lilindol) sa bayan. (Natuwa / Matutuwa) si Nena nang malaman niyang ligtas ang pamilya niya."
@@ -131,7 +130,6 @@ Piliin ang angkop na anyo: "Kagabi ay (lumindol / lilindol) sa bayan. (Natuwa / 
 
 1. *Kagabi ay lumindol / lilindol*: naganap na ang lindol kagabi, kaya **lumindol**.
 2. *Natuwa / Matutuwa si Nena*: naranasan na niya ang tuwa nang malaman ang balita, kaya **natuwa**.
-3. Ang *lilindol* at *matutuwa* ay para sa hindi pa nagaganap.
 
 **Check:** Basahin ang buo: "Kagabi ay lumindol sa bayan. Natuwa si Nena nang malaman niyang ligtas ang pamilya niya." Parehong naganap na.
 
@@ -169,10 +167,10 @@ Alin ang kasingkahulugan ng salitang nakadiin sa pangungusap: "**Maligaya** ang 
 
 **Solution:**
 
-1. Ang pangungusap ay naglalarawan ng damdamin ng mga empleyado sa magandang balita.
+1. Palitan ang *maligaya* ng bawat pagpipilian at tingnan kung nagbago ang diwa.
 
 :::try
-Tapusin ang huling hakbang: alin sa mga pagpipilian ang pareho ang diwa ng *maligaya*?
+Tapusin: alin ang hindi nagbago ang diwa?
 :::answer
 Ang sagot ay **(A) masaya**.
 

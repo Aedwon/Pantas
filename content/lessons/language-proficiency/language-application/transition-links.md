@@ -33,7 +33,7 @@ The answer is *therefore*. Resting often is a result of the steep trail, not a c
 
 ### Placing a Transition Sentence
 
-A transition sentence answers an idea before it. Put that idea first.
+A sentence that starts with *however* or *for example* answers an idea before it. Put that idea first.
 
 Put in order:
 
@@ -45,8 +45,8 @@ Put in order:
 3. The order is B, then A.
 
 :::pair #contrast-before-claim
-Right: "The team trained for months. However, it lost the first game."
-Wrong: "However, it lost the first game. The team trained for months."
+Right: "The old map showed a short road. However, that road had been closed for years."
+Wrong: "However, that road had been closed for years. The old map showed a short road."
 *However* needs a claim to go against. With nothing before it, the contrast has no first part.
 :::
 
@@ -64,7 +64,7 @@ The answer is (B). It states the general idea. (A) is a case of that idea.
 
 ### Transitions Do Not Fix Position
 
-A transition does not give an exact position by itself. *However* can be the second sentence or the fourth. Read the meaning of the sentences it connects. A pronoun can also begin a paragraph if the reader already knows who or what it means.
+A transition does not give an exact position by itself. *However* can be the second sentence or the fourth. Read the meaning of the sentences it connects.
 
 Where does *however* go?
 
@@ -73,8 +73,8 @@ Where does *however* go?
 (C) "However, too much water rots the roots."
 
 1. (C) goes against (B): the plant needs water, but not too much.
-2. So *however* sits right after (B), as the third sentence.
-3. The meaning sets the place, not the word.
+2. So *however* sits right after (B).
+3. The order is A, B, C: "The plant needs light. It also needs water. However, too much water rots the roots."
 
 :::check
 Can a sentence that begins with *therefore* be the fourth sentence of a paragraph?
@@ -84,9 +84,9 @@ The answer is yes. It follows the sentence that gives the cause, wherever that s
 
 ## Examples
 
-### #1: General Idea and Illustration
+### #1: Documents for Readers
 
-Arrange the sentences in the best order. **Arrange** means put them in order.
+Arrange the sentences in the best order.
 
 (A) For example, a large-print copy can help a reader who struggles with small text.
 (B) This larger copy presents the same information in an easier-to-read form.
@@ -101,7 +101,7 @@ Arrange the sentences in the best order. **Arrange** means put them in order.
 
 **Check:** Read it in order. The idea comes first, then the example, then a sentence about that example.
 
-### #2: Reading a Contrast
+### #2: A Staff Policy
 
 Read: "Many staff members supported the new policy. **However**, not everyone agreed with it."
 
@@ -126,12 +126,11 @@ Arrange the sentences in the best order.
 **Solution:**
 
 1. (B) states a general idea and does not look back, so it opens.
-2. *For example* in (A) introduces a case, so it follows the idea in (B).
 
 :::try
-Finish the last step: where does (C) go, and what does *therefore* show?
+Finish the last step: put all three in order.
 :::answer
-The answer is B, A, C. *Therefore* shows a result: because of the evening hours in (A), workers can still get care.
+The answer is B, A, C. *For example* in (A) introduces a case, so it follows the idea in (B). *Therefore* shows a result: because of the evening hours in (A), workers can still get care.
 
 **Check:** Read the order aloud. Idea, example, then the result of that example.
 :::

@@ -27,9 +27,9 @@ On which day is a book returned at 4 p.m. on Thursday counted?
 3. The line gives the day: Friday.
 
 :::pair #wrong-day
-Right: "The pool is closed on Saturday. Lockers will be emptied when it reopens on Sunday." The lockers are emptied on Sunday.
-Wrong: The lockers are emptied on Saturday.
-Saturday is in the text, but it belongs to the closing. The line about the lockers names the day.
+Right: "Sign-up ends on Wednesday. Results will be posted on Friday." The results are posted on Friday.
+Wrong: The results are posted on Wednesday.
+Wednesday is in the text, but it belongs to the sign-up. The line about the results names the day.
 :::
 
 :::check
@@ -55,8 +55,8 @@ Two clues that point the same way support an idea. One clue that fits many ideas
 :::
 
 :::pair #adding-a-guess
-Right: From "The clerk compared the label with the log, then handed the box to the courier": she checked the delivery details.
-Wrong: She found a mistake in the log.
+Right: From "The nurse read the chart twice, then gave the medicine": she checked the chart first.
+Wrong: She found a mistake in the chart.
 The text never says she found a mistake. Checking something does not mean finding a problem.
 :::
 
@@ -68,19 +68,19 @@ The answer is that it is raining. The dripping coat, the shaken umbrella and the
 
 ## Examples
 
-### #1: Important Detail in a Notice
+### #1: A Bakery Notice
 
-Read: "The records desk will close at noon on Friday for equipment repairs. Requests received after noon will be processed on Monday. Online submission will remain open."
+Read: "The bakery will stop taking walk-in orders at 2 p.m. on Saturday for inventory. Orders placed after 2 p.m. will be baked on Monday. The phone line will stay open."
 
-When will a request received on Friday afternoon be processed?
+When will an order placed on Saturday evening be baked?
 
 **Solution:**
 
-1. The line that fits is "Requests received after noon will be processed on Monday."
-2. Friday afternoon is after noon, so the request is in that group.
+1. The line that fits is "Orders placed after 2 p.m. will be baked on Monday."
+2. Saturday evening is after 2 p.m., so the order is in that group.
 3. The line gives the day: Monday.
 
-**Check:** "Online submission will remain open" says where requests can be sent. It does not say when they are processed.
+**Check:** "The phone line will stay open" says how orders can be placed. It does not say when they are baked.
 
 ### #2: Nina at the Office
 
@@ -127,6 +127,6 @@ Return to the text for every answer. Keep apart what the text states and what it
 ## Traps to Watch For
 
 :::checklist
-- A question about a day, time or number: use the line that names it, not the nearest day in the text (the day in that line). {#wrong-day}
+- A question about a day, time or number: use the line that names it, not the nearest day in the text. {#wrong-day}
 - An answer that adds a reason, result or fact: drop it unless a line supports it (no guess). {#adding-a-guess}
 :::

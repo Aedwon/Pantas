@@ -28,13 +28,13 @@ Which sentence opens?
 2. (B) names the hikers and what they do. It makes sense alone.
 3. (B) opens, and (A) follows.
 
+A story or a set of steps can still open with an event or action, not a broad statement. A pronoun can open only when something outside the set, such as a title, already names it.
+
 :::pair #reference-before-source
 Right: "The shop's water bill doubled. After that increase, the owner checked the pipes."
 Wrong: "After that increase, the owner checked the pipes. The shop's water bill doubled."
 *That increase* points back to the bill. If the pointing sentence comes first, nothing is there to point to.
 :::
-
-A story or a set of steps can still open with an event or action, not a broad statement. A pronoun can open a paragraph when its meaning is already known.
 
 :::check
 Which sentence opens? (A) "Those boxes were stacked by the window." (B) "The new teacher unpacked six boxes of books."
@@ -44,7 +44,7 @@ The answer is (B). It names the boxes. *Those boxes* in (A) needs an earlier sen
 
 ### Following Reference Words
 
-**Reference words**, such as *it, this, these* and *they*, point to something already named. A noun with *the*, *that* or *those* can point back too, as in *the study* or *those replies*. If a sentence says *this problem*, ask what problem. The sentence that names it comes earlier.
+**Reference words**, such as *it, this, these* and *they*, point to something already named. A noun with *the*, *that* or *those* can point back too, as in *the study* or *those replies*. If a sentence says *this problem*, ask what problem. The sentence that names it usually comes earlier.
 
 Put in order:
 
@@ -73,7 +73,7 @@ The answer is B, then A. *That change* in (A) points to the switch to solar pane
 
 ### #1: Building a Reference Chain
 
-Arrange the sentences into a coherent paragraph. **Arrange** means put the sentences in order. **Coherent** means the ideas connect clearly.
+Arrange the sentences into a coherent paragraph.
 
 (A) This competition led to conflicts between the groups.
 (B) As the settlements grew, competition for these resources increased.
@@ -118,12 +118,10 @@ Arrange the sentences in the best order.
 **Solution:**
 
 1. (A) says "These grants." Which grants? It needs an earlier sentence.
-2. (B) names "science grants" and makes sense alone, so it opens.
-
 :::try
-Finish the last step: which sentence does *the equipment* in (C) point to, and what is the full order?
+Finish the last step: what is the full order?
 :::answer
-The answer is B, A, C. *The equipment* in (C) points to "new lab equipment" in (A), so (C) comes after (A).
+The answer is B, A, C. (B) names "science grants" and makes sense alone. *The equipment* in (C) points to "new lab equipment" in (A), so (C) comes after (A).
 
 **Check:** Read the order aloud. The grants come first, then what they buy, then what teachers said about it.
 :::
@@ -136,6 +134,6 @@ Find the sentence that needs no other sentence. Then follow each pointing phrase
 
 :::checklist
 - A sentence that starts with *this*, *that* or *these*: put the sentence that names the thing first (name, then pointer). {#reference-before-source}
-- A phrase such as *the study* or *those replies*: treat it as a link, and put the first mention before it (first mention, then phrase). {#the-noun-link}
-- No pointing word and no broad statement: a story or steps may open with an event, and a pronoun may open when its meaning is known (follow the links the text gives). {#choosing-the-opening-sentence}
+- A phrase such as *the study* or *those replies* that names a noun introduced elsewhere in the set: put the first mention before it (first mention, then phrase). {#the-noun-link}
+- No pointing word and no broad statement: a story or steps may open with an event (follow the links the text gives). {#choosing-the-opening-sentence}
 :::

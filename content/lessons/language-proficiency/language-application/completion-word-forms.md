@@ -17,9 +17,9 @@ keyPoints:
 
 ### The Job of the Blank
 
-A **subject** is the person or thing the sentence says something about. A **verb** expresses an action or a state. In *The clerk works*, *the clerk* is the subject and *works* is the verb. A verb may have several words, as in *was working* or *had finished*.
+A **subject** is the person or thing the sentence says something about. A **verb** expresses an action or a state. In *The clerk works* and *The clerk is helpful*, *the clerk* is the subject. *Works* and *is* are the verbs. A verb may have several words, as in *was working* or *had finished*.
 
-**Word form** means the kind of word and the shape it takes. A **noun** names a person, place, thing, or idea. An **adjective** describes a noun. An **adverb** often describes a verb or adjective. Use *a clear answer* but *answer clearly*. The blank's job helps you choose the form. *Choose the best completion* means pick the choice that fits the blank in meaning and grammar.
+**Word form** means the kind of word and the shape it takes. A **noun** names a person, place, thing, or idea. An **adjective** describes a noun. An **adverb** often describes a verb or adjective. Use *a clear answer* but *answer clearly*. The blank's job helps you choose the form.
 
 Let's fill the blank in "The nurse spoke ______ to the patient." *(gentle / gently)*
 
@@ -33,7 +33,7 @@ The nurse spoke gently to the patient.
 :::pair #wrong-job
 Right: The mayor spoke calmly.
 Wrong: The mayor spoke calm.
-*Calm* describes a noun, and *spoke* is an action. An adverb tells how the mayor spoke. A word with the right idea can still have the wrong form.
+*Calm* describes a noun, and *spoke* is an action. An adverb tells how the mayor spoke.
 :::
 
 :::check
@@ -67,9 +67,9 @@ Choose the verb: "My cousins ______ in Davao." *(live / lives)*
 
 ### Choosing the Form After a Verb
 
-Some verbs take a certain form after them. Use *want to go*, with *to* plus the base verb. The **base form** is the plain form, such as *go*, *leave*, or *talk*.
+Some verbs take a certain form after them. Use *want to go*, with *to* plus the base verb. Verbs such as *hope* and *decide* work the same way. The **base form** is the plain form, such as *go*, *leave*, or *talk*.
 
-Use *enjoy reading*, with an *-ing* form. Learn these patterns with the first verb. A pattern that fits *want* may not fit *enjoy*.
+Use *enjoy reading*, with an *-ing* form, as with *avoid*. Learn these patterns with the first verb. A pattern that fits *want* may not fit *enjoy*.
 
 Let's fill the blanks in "Mina wants ______ early, but she enjoys ______ with her coworkers." *(leave, talk)*
 
@@ -92,7 +92,7 @@ Choose the form: "The manager decided ______ the meeting." *(to cancel / canceli
 
 ## Examples
 
-### #1: Main Verb and Word Form
+### #1: A Proposal
 
 Choose the best completion: "Yesterday, the committee ______ the proposal after months of review."
 
@@ -113,7 +113,7 @@ Choose **(C) approved**: "Yesterday, the committee approved the proposal after m
 
 **Check:** *Approval* is a noun and *approving* has no helping verb, so neither can be the main verb.
 
-### #2: Agreement
+### #2: A Supply Cabinet
 
 Choose the best completion: "Each evening, the nurses ______ the supply cabinet."
 
@@ -134,35 +134,35 @@ Choose **(B)**: "Each evening, the nurses check the supply cabinet."
 
 **Check:** Read the subject and verb alone: "The nurses check." *Check* fits a plural subject.
 
-### #3: Forms After Verbs
+### #3: A Camp Trip
 
-Choose the correct pair: "The new staff hope ______ the system, and they avoid ______ mistakes."
+Choose the correct pair: "The campers hope ______ the lake, and they avoid ______ in the dark."
 
-(A) to learn, making
+(A) to reach, walking
 
-(B) learning, to make
+(B) reaching, to walk
 
-(C) to learn, to make
+(C) to reach, to walk
 
-(D) learn, make
+(D) reach, walk
 
 **Solution:**
 
-1. *Hope* is the first verb. It takes *to* plus the base verb: *to learn*.
+1. *Hope* is the first verb. It takes *to* plus the base verb: *to reach*.
 2. *Avoid* is the second verb. Find the form it takes.
 
 :::try
 Finish the last step: which choice gives the form that follows *avoid*?
 :::answer
-The answer is **(A) to learn, making**: "The new staff hope to learn the system, and they avoid making mistakes." *Avoid* takes an *-ing* form, *making*.
+The answer is **(A) to reach, walking**: "The campers hope to reach the lake, and they avoid walking in the dark." *Avoid* takes an *-ing* form, *walking*.
 
-**Check:** Read it back. "Avoid making mistakes" sounds right. "Avoid to make mistakes" does not.
+**Check:** Read it back. "Avoid walking in the dark" sounds right. "Avoid to walk in the dark" does not.
 :::
 
 ## Traps to Watch For
 
 :::checklist
 - A blank that describes a verb: use an adverb (*spoke calmly*), even when a noun or adjective has the right idea. {#wrong-job}
-- A plural subject in the present: use the plain verb, with no *-s* (*the cooks taste*). {#plural-subject-s}
+- A plural subject in the present: use the plain verb, with no *-s* (*the cooks taste*; with *be*, *are*). {#plural-subject-s}
 - A verb followed by another verb: use the form that first verb takes (*want to join*). {#verb-pattern}
 :::

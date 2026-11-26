@@ -15,7 +15,7 @@ keyPoints:
 
 ### A Finished Past Action
 
-Check time as well as meaning. Simple past describes a finished past action: *She sent it yesterday*. A time clue such as *yesterday* or *last week* places the action in the past. *Choose the best completion* means pick the choice that fits the blank in meaning and grammar.
+Check time as well as meaning. Simple past describes a finished past action: *She sent it yesterday*. A time clue such as *yesterday* or *last week* places the action in the past.
 
 Let's fill the blank in "Yesterday, Ana ______ (walk) to the bank."
 
@@ -50,8 +50,8 @@ Let's fill the blank in "When the bell rang, the students ______ (take) a test."
 When the bell rang, the students were taking a test.
 
 :::pair #had-for-unfinished
-Right: When the manager walked in, the clerk was counting the cash.
-Wrong: When the manager walked in, the clerk had counted the cash.
+Right: When the manager walked in, the clerk was counting the cash. (still counting)
+Wrong: When the manager walked in, the clerk had counted the cash. (still counting)
 *Had counted* says the counting was already finished. The clerk was still in the middle of it.
 :::
 
@@ -76,14 +76,14 @@ By the time the guests arrived, the cook had prepared the soup.
 Do not add *had* to every past verb. If you only report a finished event, simple past may be enough.
 
 :::check
-Choose the form: "By the time the meeting began, Rico ______ the report to everyone." *(had sent / sends / will send)*
+Choose the form: "By the time the meeting began, Rico ______ his slides." *(had printed / prints / will print)*
 :::answer
-*had sent*. Sending happened before the meeting began, so use *had* plus the participle.
+*had printed*. Printing happened before the meeting began, so use *had* plus the participle.
 :::
 
 ## Examples
 
-### #1: Earlier Past and Ongoing Past
+### #1: A Form at the Desk
 
 Choose the best forms: "By the time the desk opened, I ______ the form. When the clerk called my name, I ______ the instructions and stopped halfway through."
 
@@ -98,7 +98,7 @@ For the second blank: (had read / was reading / will read / read tomorrow).
 
 "By the time the desk opened, I had finished the form. When the clerk called my name, I was reading the instructions and stopped halfway through."
 
-**Check:** Read the timeline: finish the form, then the desk opens, then the clerk calls. Each form fits its place. Simple past is not offered for the first blank here.
+**Check:** Read the timeline: finish the form, then the desk opens, then the clerk calls. Simple past can also show an earlier action when the order is clear, but it is not offered for the first blank.
 
 ### #2: A Repair
 
@@ -121,34 +121,34 @@ Choose **(B)**: "Last week, the technician fixed the printer and told us it was 
 
 **Check:** *Fixes* is present, *had fix* has no participle, and *fixing* has no helping verb. Only *fixed* fits.
 
-### #3: A Power Cut
+### #3: A Night Cleaner
 
-Choose the best completion: "When the storm cut the power, the clerk ______ the day's sales and had entered only half of them."
+Choose the best completion: "When the guard arrived at six, the cleaner ______ the hallway. She finished it at seven."
 
-(A) was recording
+(A) was mopping
 
-(B) had recorded
+(B) had mopped
 
-(C) records
+(C) mops
 
-(D) will record
+(D) will mop
 
 **Solution:**
 
-1. Two past events: the power was cut, and the clerk recorded the sales.
-2. She had entered only half of them, so the recording was not finished.
+1. The guard arrived at one moment in the past.
+2. Compare that moment with the time she finished.
 
 :::try
-Finish the last step: choose the form for an action that was in progress.
+Finish the last step: choose the form.
 :::answer
-The answer is **(A) was recording**: "When the storm cut the power, the clerk was recording the day's sales and had entered only half of them."
+The answer is **(A) was mopping**: "When the guard arrived at six, the cleaner was mopping the hallway. She finished it at seven." The mopping was still going on at six.
 
-**Check:** *Had recorded* would mean the work was done, and "only half" says it was not.
+**Check:** *Had mopped* would put the finish before six, but she finished at seven.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Use the strongest clue first. A verb pattern, a reference to a known object, or a clear time clue can narrow the choices.
+Use the strongest clue first. A verb pattern or a clear time clue can narrow the choices.
 
 ## Traps to Watch For
 

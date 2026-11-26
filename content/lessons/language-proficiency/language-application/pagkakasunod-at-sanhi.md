@@ -16,7 +16,7 @@ keyPoints:
 
 ### Mga Salitang Tumutukoy sa Nabanggit Na
 
-Ang *ito*, *iyon*, *niya*, *siya*, at *sila* ay maaaring tumukoy sa taong o bagay na nabanggit na. Ang *dito* ay maaaring tumukoy sa lugar na nabanggit na. Kaya may naunang pangungusap na pinagmumulan ang pangungusap na may ganitong salita.
+Ang *ito*, *iyon*, *niya*, *siya*, at *sila* ay maaaring tumukoy sa tao o bagay na nabanggit na. Ang *dito* ay maaaring tumukoy sa lugar na nabanggit na. Kaya karaniwang may naunang pangungusap na pinagmumulan ang pangungusap na may ganitong salita.
 
 Basahin ang dalawang linya:
 
@@ -58,13 +58,13 @@ Ang ayos ay **B, A, C**.
 :::pair #ito-ay-may-naunang-binanggit
 Right: Nagreklamo ang mga residente tungkol sa sirang ilaw. Dahil sa reklamong ito, nagtakda ng pulong ang kapitan.
 Wrong: Dahil sa reklamong ito, nagtakda ng pulong ang kapitan. Nagreklamo ang mga residente tungkol sa sirang ilaw.
-Ang *reklamong ito* ay tumutukoy sa reklamong hindi pa nabanggit. Gayundin ang *pulong na iyon*: ilagay muna ang pulong bago ang pangungusap na tumutukoy rito.
+Ang *reklamong ito* ay tumutukoy sa reklamong hindi pa nabanggit.
 :::
 
 :::check
-Ayusin: (1) Sa wakas, tumubo ang buto. (2) Una, nagtanim si Liza ng buto. (3) Pagkatapos nito, dinilig niya ang lupa araw-araw.
+Ayusin: (1) Sa wakas, tumubo ang buto. (2) Nagtanim si Liza ng buto sa paso. (3) Pagkatapos nito, dinilig niya ang lupa araw-araw.
 :::answer
-Ang ayos ay **2, 3, 1**. May *una* ang (2). Ang *nito* sa (3) ay ang pagtatanim, kaya kasunod ito. May *sa wakas* ang (1), kaya huli ito.
+Ang ayos ay **2, 3, 1**. Walang tinutukoy na hindi pa nabanggit ang (2), kaya simula ito. Ang *nito* sa (3) ay ang pagtatanim, kaya kasunod ito. May *sa wakas* ang (1), kaya huli ito.
 :::
 
 ### Sanhi at Bunga
@@ -84,9 +84,9 @@ Ang paghinto ay ang bunga. Itanong ang "Bakit?" upang makuha ang sanhi.
 :::
 
 :::check
-Sa "Nabasag ang baso kaya nagwalis si Ana.", ano ang sanhi ng pagwawalis?
+Pagsamahin gamit ang *dahil*: "Nabasag ang baso kaya nagwalis si Ana."
 :::answer
-*Nabasag ang baso.* Ito ang sagot sa "Bakit nagwalis si Ana?" at nauna sa *kaya*.
+*Nagwalis si Ana dahil nabasag ang baso.* Ang *nabasag ang baso* ang sagot sa "Bakit nagwalis si Ana?", kaya ito ang kasunod ng *dahil*.
 :::
 
 ## Examples
@@ -138,12 +138,11 @@ Ayusin ang mga pangungusap.
 **Solution:**
 
 1. **(A)**: may *dahil dito*, kaya may nauna nang pangyayaring pinagmulan.
-2. **(C)**: may *kinabukasan*, kaya may nauna ring pangyayari.
 
 :::try
-Tapusin ang huling hakbang: aling pangungusap ang pinagmulan ng *dahil dito*, at ano ang buong ayos?
+Tapusin: aling pangungusap ang pinagmulan ng *dahil dito*, at ano ang buong ayos?
 :::answer
-Ang ayos ay **B, A, C**. Ang baha sa (B) ang tinutukoy ng *dahil dito*, at ang *kinabukasan* ay sumunod sa pagpapaskil.
+Ang ayos ay **B, A, C**. Ang baha sa (B) ang tinutukoy ng *dahil dito*. May *kinabukasan* ang (C), kaya sumunod ito sa pagpapaskil.
 
 **Check:** Basahin ayon sa ayos: baha, abiso, pagdaan ng mga traysikel. Bawat pangungusap ay may nauna nang pinagmulan.
 :::
@@ -151,7 +150,7 @@ Ang ayos ay **B, A, C**. Ang baha sa (B) ang tinutukoy ng *dahil dito*, at ang *
 ## Traps to Watch For
 
 :::checklist
-- Pangungusap na may *ito*, *iyon*, o *dito*: ilagay pagkatapos ng pangungusap na binabanggit nito (reklamo muna, saka "reklamong ito"). {#ito-ay-may-naunang-binanggit}
+- Pangungusap na may *ito*, *iyon*, o *dito*: karaniwang ilagay pagkatapos ng pangungusap na binabanggit nito (reklamo muna, saka "reklamong ito"). {#ito-ay-may-naunang-binanggit}
 - Dalawang pangyayaring may *kaya* o *dahil*: itanong ang "Bakit?". Ang sagot ang sanhi, hindi ang resulta. {#bunga-hindi-sanhi}
 - Tanong sa sanhi: gamitin lamang ang dahilang nasa talata. {#sanhi-at-bunga}
 :::

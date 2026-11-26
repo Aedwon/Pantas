@@ -13,11 +13,11 @@ keyPoints:
 ---
 ## Core Concept
 
-**Modal verbs** (*can, may, must, might, could, should*) add meanings such as ability, permission, requirement, or possibility. Check two things in every modal item: the meaning and the verb form right after it.
+**Modal verbs** (such as *can, may, must, might, could, should*) add meanings such as ability, permission, requirement, or possibility. Check two things in every modal item: the meaning and the verb form right after it.
 
 ### Choosing the Modal for the Meaning
 
-Match the modal to what the sentence asks for:
+Common matches between modal and meaning:
 
 - **Ability:** *can* ("Rosa **can** swim across the pool.")
 - **Permission:** *may* or *can* ("You **may** leave the room now.")
@@ -31,13 +31,13 @@ Why do policy and forecast items test *must* against *might*? Both take the exac
 :::pair #modal-meaning
 Right: "Under this policy, staff must register visitors at reception."
 Wrong: "Under this policy, staff might register visitors at reception."
-*Might* only shows possibility. A rule or policy requires *must*.
+Here *might* shows only possibility. A rule or policy calls for *must*.
 :::
 
 :::check
-Choose the modal that shows only a possibility: The power *(must / might)* come back before noon.
+Choose the modal that shows ability: The new printer *(can / must)* print forty pages a minute.
 :::answer
-The answer is **Might**. *Might* expresses possibility, while *must* states a requirement or firm conclusion.
+The answer is **Can**. *Can* expresses ability, while *must* states a requirement or firm conclusion.
 :::
 
 ### Keeping the Base Verb After a Modal
@@ -55,13 +55,13 @@ Modals like *might* and *must* connect straight to the base verb. Do not copy *t
 :::pair #modal-verb-ending
 Right: "Under this policy, staff must register visitors at reception."
 Wrong: "Under this policy, staff must registers visitors at reception."
-Never add *-s*, *-ed*, or *-ing* after a modal. Keep the plain base verb *register*.
+Never add *-s*, *-ed*, or *-ing* to the verb right after a modal. Keep the plain base verb *register*.
 :::
 
 :::check
-Choose the correct form: Every applicant *(must submit / must to submit / must submitting)* one signed copy.
+Choose the correct form: New staff *(should arrive / should to arrive / should arrives)* before eight.
 :::answer
-The answer is **Must submit**. *Must* expresses the rule and takes the bare base verb *submit*.
+The answer is **Should arrive**. *Should* takes the bare base verb *arrive*, with no *to* and no ending.
 :::
 
 ## Examples
@@ -86,25 +86,24 @@ Choose the form that expresses a policy requirement cleanly: "Under the new safe
 
 1. The phrase *under the new safety rule* asks for a requirement, which fits **must**.
 2. A modal takes the bare base verb directly, with no *to* and no *-s* ending.
-3. Combine the modal and base verb: **must wear**.
+3. Combine them: "technicians **must wear** goggles inside the lab."
 
-**Check:** Read the clause aloud: "technicians must wear goggles." It states a rule clearly and uses the plain verb *wear*.
+**Check:** Read it aloud: it states a rule clearly and uses the plain verb *wear*.
 
-### #3: Possibility Without Extra Words or Endings
+### #3: Meaning and Form Together
 
-Choose the revision that expresses only a possibility and uses the right verb form: "The courier *(might arrive / must arrive / might arriving / might to arrive)* before five."
+Choose the form that gives permission and uses the right verb form: "Residents *(may park / may to park / may parking / must park)* here after six."
 
 **Solution:**
 
-1. The prompt asks for only a possibility, so choose **might** over *must*.
-2. Check what follows *might*: a core modal needs a bare base verb, never *-ing* or *to*.
+1. Check the meaning first, then the word right after the modal.
 
 :::try
 Finish the last step: write the complete correct form for the blank.
 :::answer
-The answer is **Might arrive**. *Might* shows possibility, and *arrive* is the plain base verb with no *to* or *-ing*.
+The answer is **May park**. *May* gives permission, while *must* states a requirement. *Park* is the plain base verb with no *to* or *-ing*.
 
-**Check:** Read "The courier might arrive before five." *Might* leaves the arrival open as a chance, and *arrive* follows directly.
+**Check:** Read "Residents may park here after six." *May* allows the action, and *park* follows directly.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -114,7 +113,7 @@ Split every modal check into two fast questions: does the modal match the meanin
 ## Traps to Watch For
 
 :::checklist
-- A policy or rule vs a mere chance: pick *must* for a requirement and *might* for a possibility. {#modal-meaning}
+- A policy or rule vs a mere chance: usually pick *must* for a requirement and *might* for a possibility. {#modal-meaning}
 - *To* placed after *must* or *might*: drop *to* and connect the modal straight to the base verb. {#modal-plus-to}
 - An *-s* or *-ing* ending on the verb after a modal: strip the ending back to the base verb. {#modal-verb-ending}
 :::
