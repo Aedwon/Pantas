@@ -40,8 +40,7 @@ The answer is to reveal a secret. Dana wants the plan kept private, so *spill th
 
 ### Filipino Idioms (Sawikain)
 
-Ang **sawikain** (idiom) ay pahayag na may nakasanayang kahulugan. Maaaring iba ito sa tuwirang kahulugan ng bawat salita. Ang *naghigpit ng sinturon* ay maaaring mangahulugang nagtipid.
-
+Ang **sawikain** (idiom) ay pahayag na may nakasanayang kahulugan. Maaaring iba ito sa tuwirang kahulugan ng bawat salita.
 Ngayon, basahin natin ang *naghigpit ng sinturon* sa pangungusap nito.
 
 - Pangungusap: “Bumaba ang kita ng pamilya, kaya naghigpit sila ng sinturon at ipinagpaliban ang pagbili ng bagong kagamitan.”
@@ -98,7 +97,7 @@ D) He forgot the rules of the game.
 1. The sentence describes a piece moving on a game board.
 2. The words name an actual move, so the meaning is literal. Answer: **C**: Mark moved his piece to the first space.
 
-**Check:** The setting is a game board.
+**Check:** Put *went back to the start space* in place of the phrase. The sentence still fits.
 
 ### #3: Sawikain sa Pangungusap
 

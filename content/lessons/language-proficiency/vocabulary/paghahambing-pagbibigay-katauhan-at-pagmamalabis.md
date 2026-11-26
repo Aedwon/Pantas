@@ -17,7 +17,7 @@ keyPoints:
 ### Pagtutulad at Pagwawangis
 
 Ang **tayutay** (figure of speech) ay masining na paggamit ng salita.
-Hanapin ang salitang panulad para mapili ang tayutay:
+Karaniwang hanapin ang salitang panulad para mapili ang tayutay:
 
 1. **Pagtutulad** (simile): naghahambing gamit ang salitang panulad gaya ng *parang*, *tulad ng*, *gaya ng*, o *kasing-*. Halimbawa: "Ang tinig ni Ana ay **parang** banayad na agos ng ilog."
 2. **Pagwawangis** (metaphor): tuwirang ipinapantay ang isang bagay sa iba nang walang salitang panulad. Halimbawa: "Ang guro ay **ilaw** ng silid-aralan."
@@ -82,9 +82,9 @@ D) Pagbibigay-katauhan
 
 **Check:** Walang salitang panulad. Sobra lamang ang dami.
 
-### #2: Ang Tinig ni Ana
+### #2: Ang Ngiti ng Bata
 
-"Ang tinig ni Ana ay parang banayad na agos ng ilog." Anong tayutay ang ginamit?
+"Ang ngiti ng bata ay tulad ng sikat ng araw sa umaga." Anong tayutay ang ginamit?
 
 A) Pagmamalabis
 
@@ -96,10 +96,10 @@ D) Pagwawangis
 
 **Solution:**
 
-1. Inihahambing ang tinig sa banayad na agos ng ilog gamit ang *parang*.
+1. Inihahambing ang ngiti sa sikat ng araw gamit ang *tulad ng*.
 2. Ang ganitong paghahambing ay pagtutulad. Sagot: **B**.
 
-**Check:** May *parang*, at hindi pinalabis ang tinig.
+**Check:** May *tulad ng*, at hindi pinalabis ang ngiti.
 
 ### #3: Si Liza
 
@@ -153,7 +153,7 @@ D) Pagbibigay-katauhan
 
 **Solution:**
 
-1. Hanapin ang salitang kilos.
+1. Hanapin ang pandiwa.
 
 :::try
 Tapusin ang huling hakbang: aling tayutay ang ginamit, at aling salita ang nagpapakita nito?
@@ -165,7 +165,7 @@ Ang sagot ay **D**, **Pagbibigay-katauhan**. Ang *humihikbi* ay kilos ng tao, at
 
 ## Speed Tricks & Shortcuts
 
-Hanapin ang panulad, tuwirang pagpapantay, kilos ng tao, o sadyang pagsobra.
+Karaniwang hanapin ang panulad, tuwirang pagpapantay, kilos ng tao, o sadyang pagsobra.
 
 ## Traps to Watch For
 

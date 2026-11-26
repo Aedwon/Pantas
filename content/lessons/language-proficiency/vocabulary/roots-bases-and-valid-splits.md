@@ -85,7 +85,7 @@ Finish the last step: check the other three splits. Which one is valid, and why?
 :::answer
 The answer is **B**. In C, *ther* is not a base. In D, *it* is a real word, but *unit* does not mean "not it," so both splits fail. In B, *play* is a meaningful base, and *re-* changes it to "play again," so the split explains the whole word.
 
-**Check:** Join the parts of B. *Re-* plus *play* gives *replay*, which means "play again."
+**Check:** Try it in a sentence: "Please replay the song" means play the song again, so *re-* fits.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -96,6 +96,6 @@ Use word parts to narrow the meaning. Then read the whole sentence to check your
 
 :::checklist
 - The stem for a suffix: take the form before it, such as *helpful* for *-ness*. {#stem-before-suffix}
-- Matching starting letters: check that removing them leaves a real base, as *happy* does and *cle* does not. {#valid-splits-and-false-prefixes}
+- Starting letters such as *un-* meaning *not*: check that removing them leaves a real base, as *happy* does and *cle* does not. {#valid-splits-and-false-prefixes}
 - *Inflammable*: the *in-* comes from *inflame* ("cause to catch fire"), not "not." {#inflammable}
 :::

@@ -30,7 +30,7 @@ Wrong: If the office bought a printer from a supplier, the supplier bought the p
 The office is the buyer, so the supplier is on the other side of the exchange and sold it.
 :::
 
-Switch the viewpoint the same way for borrow and lend.
+Do the same for borrow and lend.
 
 :::pair #borrow-lend
 Right: If Ana borrows a book from Ben, Ben lends the book to Ana.
@@ -43,7 +43,7 @@ The exchange has two sides. Each word tells what one side does.
 :::
 
 :::check
-If Dina lends a pen to Leo, which verb names Leo's role: *borrows* or *lends*?
+If Dina lends a pen to Leo, which verb names Leo's role: *borrows*, *returns*, or *lends*?
 :::answer
 The answer is *borrows*. Leo takes the pen from Dina. *Lend* and *borrow* are two sides of one exchange.
 :::
@@ -72,7 +72,7 @@ Finish the last step: what is Rico's role?
 :::answer
 Rico is the receiver. He **received the gift from Nina**. The answer is **B**.
 
-**Check:** Switch back to Nina's view: Nina gave the gift to Rico. The exchange is the same.
+**Check:** Test D: Rico cannot return a gift he never had, so D does not fit.
 :::
 
 ## Traps to Watch For

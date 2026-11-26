@@ -65,7 +65,7 @@ The answer is off. With only two states allowed, ruling out *on* leaves *off*.
 
 ### #1: The Exam Record
 
-A record marks each student as either pass or fail, with no other mark. Maya's mark is not **pass**. Which opposite of the word in bold must describe her mark in this record?
+A record gives each student one of only two marks, and **pass** is one of them. Maya's mark is not pass. Which opposite of the word in bold must be her mark?
 
 A) weak
 
@@ -77,10 +77,10 @@ D) fail
 
 **Solution:**
 
-1. The record allows only *pass* or *fail*.
+1. The record allows only *pass* and its opposite.
 2. Ruling out *pass* leaves **fail**: Maya is marked fail. The answer is **D**.
 
-**Check:** Weak, absent, and average are not marks in this record, so A, B, and C cannot be the label.
+**Check:** Weak, absent, and average would be a third mark, but the record has only two.
 
 ### #2: The Box
 
@@ -109,6 +109,7 @@ The answer is **D**: from "The box is not large," the exact size is not given. *
 ## Speed Tricks & Shortcuts
 
 For opposites, check the relationship. Are there middle levels, or only two allowed states?
+
 ## Traps to Watch For
 
 :::checklist

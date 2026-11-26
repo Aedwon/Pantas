@@ -83,7 +83,7 @@ D) niece
 
 **Solution:**
 
-1. In *achieve*, no c comes before the pair, so *ie* is right.
+1. In *achieve*, no c comes right before the pair, so *ie* is right.
 
 :::try
 Finish the checking: check the other three words and name the misspelled one.

@@ -88,7 +88,7 @@ Isulat ang baybay sa Filipino ng *cuenta* mula sa simula, at piliin ang sagot.
 :::answer
 Ang sagot ay **B**. Palitan ng *k* ang *c*: *kuenta*. Isingit ang *w* bago ang *e*: **kuwenta**.
 
-**Check:** Nanatili ang *u* at ang huling *a*, kaya hindi *kwenta* o *kuenta*.
+**Check:** Nanatili ang *u* at may *w* bago ang *e*, kaya hindi *kwenta* o *kuenta*.
 :::
 
 ## Speed Tricks & Shortcuts

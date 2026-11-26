@@ -32,7 +32,7 @@ We test this on a line that has no *like* or *as*.
 :::pair #metaphor-or-simile
 Right: “The classroom was a zoo” is a metaphor, because it says one thing is another.
 Wrong: “The classroom was a zoo” is a simile.
-A simile compares with a marker such as *like* or *as*. This line calls the classroom a zoo directly.
+A simile usually compares with a marker such as *like* or *as*. This line calls the classroom a zoo directly.
 :::
 
 :::check
@@ -41,7 +41,7 @@ A simile compares with a marker such as *like* or *as*. This line calls the clas
 The answer is “Her hands were like ice.” It compares two different things with *like*. “The sky was a blue blanket” calls the sky a blanket directly, so it is a metaphor.
 :::
 
-### Personification and Hyperbole
+### Two More Figures
 
 - **Personification:** gives a human action or quality to something nonhuman: “Opportunity knocked.”
 - **Hyperbole:** makes something seem much greater or smaller than it really is: “I've told you a million times.”
@@ -83,7 +83,7 @@ D) Simile
 1. Whispering is a human action, and the wind cannot speak.
 2. Giving it to the wind creates personification. Answer: **C**: “The wind whispered through the dark forest.”
 
-**Check:** The human action named in the sentence is whispering.
+**Check:** Swap *whispered* for *blew softly*: no human action is left, so no personification.
 
 ### #2: Metaphor
 
@@ -102,7 +102,7 @@ D) Onomatopoeia
 1. The line presents hope as a bird, directly.
 2. So it is a metaphor. Answer: **A**: “Hope is a bird that carries us beyond our fear.”
 
-**Check:** The line says hope *is* a bird, so it names one thing as another.
+**Check:** Add *like*: "Hope is like a bird" would be a simile.
 
 ### #3: The Moonlit Lake
 
@@ -110,7 +110,7 @@ D) Onomatopoeia
 
 A) Simile
 
-B) Hyperbole
+B) Metaphor
 
 C) Oxymoron
 
@@ -118,7 +118,7 @@ D) Personification
 
 **Solution:**
 
-1. The sentence compares two different things, a calm lake and a mirror.
+1. The sentence sets a calm lake beside a mirror.
 
 :::try
 Finish the last step: choose the device.

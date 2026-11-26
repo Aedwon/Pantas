@@ -16,8 +16,7 @@ keyPoints:
 
 ### Definitions and Examples
 
-A **context clue** is information near an unfamiliar word that helps you work out its likely meaning. Context may only narrow the choices.
-
+A **context clue** is information near an unfamiliar word that helps you work out its likely meaning.
 - **Definition or restatement:** the text explains the word in another way.
 - **Example:** the text gives examples of what the word includes.
 
@@ -46,7 +45,7 @@ The answer is tools. The examples are all tools for preparing food.
 We read the meaning of *sanction* from the sentence.
 
 - Sentence: “The committee's **sanction** allowed the policy to proceed, since it had full official approval.”
-- So *sanction* means approval here: “The committee's approval allowed the policy to proceed.”
+- *Full official approval* says it was allowed, so *sanction* means approval here: “The committee's approval allowed the policy to proceed.”
 
 :::pair #sentence-meaning
 Right: *Sanction* means approval here.

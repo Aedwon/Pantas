@@ -48,7 +48,7 @@ Wasteful describes the son. The bold word describes the shopkeeper.
 :::check
 “Unlike the **verbose** speaker, Ana used few words.” What does *verbose* mean?
 :::answer
-The answer is wordy. Ana used few words, and the speaker is her opposite.
+The answer is wordy. Ana used few words, and the speaker is her opposite: "Unlike the wordy speaker, Ana used few words."
 :::
 
 ### Inference Clues
@@ -59,12 +59,12 @@ We work out the meaning of *wary* from actions.
 
 - Sentence: “Lina was **wary** of the offer: she checked its terms twice and refused to sign until her questions were answered.”
 - Checking the terms twice and delaying signing show caution.
-- So *wary* means cautious: Lina was cautious of the offer.
+- So *wary* means cautious: Lina was cautious about the offer.
 
 :::check
 “The old house was **dilapidated**; the roof had caved in and the windows were shattered.” What does *dilapidated* mean?
 :::answer
-The answer is run-down or falling apart. A caved-in roof and shattered windows show severe damage.
+The answer is run-down or falling apart. A caved-in roof and shattered windows show severe damage: "The old house was run-down; the roof had caved in and the windows were shattered."
 :::
 
 ## Examples
@@ -140,5 +140,5 @@ Ang sagot ay **B**, *itinago*. Tumalikod siya upang hindi makita ang luha, kaya 
 :::checklist
 - *Unlike* or *in contrast to*: find who the bold word describes, then take the opposite of the other side. {#contrast-target}
 - A trait that fits the other person: it belongs to the other side, not to the bold word. {#contrast-other-side}
-- *However* or *therefore*: read the whole passage before you choose. {#inference-clues}
+- A signal word such as *however*: read the whole passage. {#inference-clues}
 :::

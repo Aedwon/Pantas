@@ -23,7 +23,7 @@ Wrong: In "unfair treatment," *unfair* means not finished.
 The prefix *un-* means *not*, and the base is *fair*.
 :::
 
-Not every opening group of letters is a prefix. For *un-* meaning *not*, a real word must be left, as *fair* is in *unfair*. *Uncle* does not mean "not cle." Other prefixes can attach to parts that cannot stand alone, such as *in-* in *include*.
+Not every opening group of letters is a prefix. For *un-* meaning *not*, a real word must be left, as *fair* is in *unfair*. *Uncle* does not mean "not cle." Other prefixes can attach to parts that cannot stand alone.
 
 :::pair #real-prefix
 Right: *Uncle* has no base *cle*, so *un-* is not a prefix.

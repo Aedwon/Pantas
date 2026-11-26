@@ -22,7 +22,7 @@ Ang **sina** ay **pananda** (marker) na ginagamit bago ang pangalan ng mga tao: 
 Para mapili ang *sila* sa "Umalis sila nang maaga" at ang *sina* sa "Sina Ana at Lito ay dumating," sundin ang dalawang hakbang:
 
 1. Tingnan ang kasunod agad ng salita: pangalan ba ng tao?
-2. Kung mga pangalan ang kasunod, gamitin ang *sina*. Kung wala, gamitin ang *sila*.
+2. Kung mga pangalan ang kasunod ng paksa, gamitin ang *sina*. Kung wala, gamitin ang *sila*.
 
 :::pair #bago-ang-pangalan
 Right: Sina Pedro, Ana, at Miguel ang mga kasapi ng grupong ito.
@@ -61,6 +61,8 @@ D) Ang
 1. Sinusundan ang patlang ng mga pangalan ng tao.
 2. Gamitin ang **sina**: "Sina Maria, Jose, at Juan ay naghanda para sa pagsusulit." Sagot: **B**.
 
+**Check:** Kung aalisin ang mga pangalan, *sila* ang matitira: "Sila ay naghanda para sa pagsusulit."
+
 ### #2: Sa Silid
 
 Punan ang patlang: "Maagang dumating sina Ana at Lito. ______ ang unang pumasok sa silid."
@@ -78,11 +80,11 @@ D) Ang
 1. Tumutukoy ang patlang kina *Ana at Lito*, at walang pangalang kasunod.
 2. Gamitin ang panghalip na **sila**: "Maagang dumating sina Ana at Lito. Sila ang unang pumasok sa silid." Sagot: **A**.
 
-**Check:** Hindi puwede ang *sina* dahil walang pangalang kasunod.
+**Check:** Basahin gamit ang *sina*: "Sina ang unang pumasok" ay kulang dahil walang pangalan.
 
 ### #3: Sa Hardin
 
-Piliin ang tamang pares: "Kumain ______ sa hardin matapos magluto ______ Dan at Rita."
+Piliin ang tamang pares: "Matapos magluto ______ Dan at Rita, kumain ______ sa hardin."
 
 A) sina; sila
 
@@ -99,9 +101,9 @@ D) sila; sila
 :::try
 Tapusin ang mga hakbang: ano ang tamang salita sa bawat patlang at aling letra ang sagot?
 :::answer
-Ang sagot ay **B**. Walang pangalang kasunod ang unang patlang, at tumutukoy ito kina *Dan at Rita*, kaya **sila**. May kasunod na pangalan ang ikalawang patlang, kaya **sina**.
+Ang sagot ay **A**. May kasunod na pangalan ang unang patlang, kaya **sina**. Walang pangalang kasunod ang ikalawang patlang, at tumutukoy ito kina *Dan at Rita* na nabanggit na, kaya **sila**.
 
-**Check:** Basahin: "Kumain sila sa hardin matapos magluto sina Dan at Rita." May pangalan pagkatapos ng *sina*, at wala pagkatapos ng *sila*.
+**Check:** Basahin: "Matapos magluto sina Dan at Rita, kumain sila sa hardin." Kung *sina* ang ikalawa, kulang ang pangungusap dahil walang pangalang kasunod.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -111,6 +113,6 @@ Tingnan kung pangalan ang kasunod agad.
 ## Traps to Watch For
 
 :::checklist
-- Bago ang mga pangalan: gamitin ang *sina*, tulad ng "Sina Pedro at Ana." {#bago-ang-pangalan}
-- Walang kasunod na pangalan: gamitin ang *sila*, tulad ng "Sila ay naghahanap ng trabaho." {#pamalit}
+- Paksang bago ang mga pangalan: gamitin ang *sina*, tulad ng "Sina Pedro at Ana." {#bago-ang-pangalan}
+- Paksang walang kasunod na pangalan: gamitin ang *sila*, tulad ng "Sila ay naghahanap ng trabaho." {#pamalit}
 :::

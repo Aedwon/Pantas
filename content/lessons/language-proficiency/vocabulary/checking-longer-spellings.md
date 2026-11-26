@@ -25,7 +25,7 @@ We split *beginning* into its beats.
 
 Now we check the ending of *beginning*.
 
-- *Begin* ends in a stressed vowel plus one consonant. Before *-ing* or *-ed*, that consonant usually doubles, but not *w*, *x*, or *y*.
+- *Begin* ends in one stressed vowel letter plus one consonant. Before a vowel suffix such as *-ing*, *-ed*, or *-ence*, that consonant usually doubles, but not *w*, *x*, or *y*.
 - So the final *n* doubles before *-ing*: *begin* + *n* + *-ing* gives *beginning*.
 
 :::pair #known-base
@@ -45,7 +45,7 @@ Use this process for a long word:
 Now we apply the process to *occurrence*.
 
 - Say it: *oc-cur-rence*. Split it: *occur* + *-ence*.
-- *Occur* ends in a stressed vowel plus one consonant, so its *r* doubles.
+- *Occur* ends in one stressed vowel letter plus one consonant, so its *r* doubles.
 - *occur* + *r* + *-ence* gives *occurrence*.
 
 :::pair #doubled-pairs
@@ -57,7 +57,7 @@ The spoken sound does not show a doubled letter. Check each pair: *cc* and *mm* 
 :::check
 Add *-ing* to *regret* and write the new word.
 :::answer
-The answer is *regretting*. The base *regret* ends in a stressed vowel plus one consonant, so its final *t* doubles before *-ing*.
+The answer is *regretting*. The base *regret* ends in one stressed vowel letter plus one consonant, so its final *t* doubles before *-ing*.
 :::
 
 ## Examples
@@ -82,7 +82,7 @@ D) preferrd
 :::try
 Finish the spelling of *prefer* with *-ed* and choose the correct option.
 :::answer
-The answer is **B**, *preferred*. The base ends in a stressed vowel plus one consonant, so its final *r* doubles before *-ed*.
+The answer is **B**, *preferred*. The base ends in one stressed vowel letter plus one consonant, so its final *r* doubles before *-ed*.
 
 **Check:** Read it back: "Yesterday, Ana preferred the window seat." Base *prefer*, doubled *r*, ending *-ed*.
 :::
@@ -91,8 +91,7 @@ The answer is **B**, *preferred*. The base ends in a stressed vowel plus one con
 
 Compare related forms such as *begin/beginning* and *refer/referred*. Say the base aloud to find its stressed syllable before deciding whether to double the last letter.
 
-Break a long word into spoken parts. Use a known base to check letters that are hard to hear. Check the ending separately.
-
+Break a long word into spoken parts. Use a known base to check letters that are hard to hear.
 ## Traps to Watch For
 
 :::checklist

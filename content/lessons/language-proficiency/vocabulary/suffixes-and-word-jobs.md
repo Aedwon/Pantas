@@ -66,8 +66,8 @@ D) Helpful means without help; quickly means without speed.
 
 **Solution:**
 
-1. *-Ful* gives *helpful* the idea of giving help. It describes the clerk, so it is an adjective.
-2. *-Ly* makes *quickly* tell how the clerk answered. It is an adverb.
+1. *-ful* gives *helpful* the idea of giving help. It describes the clerk, so it is an adjective.
+2. *-ly* makes *quickly* tell how the clerk answered. It is an adverb.
 3. Only B gives both jobs correctly. Answer: **B**.
 
 **Check:** Replace the words in bold: "The clerk who gives help answered fast." Both meaning and grammar match **B**.
@@ -86,14 +86,14 @@ D) It names a group of houses.
 
 **Solution:**
 
-1. The ending *-ly* does not settle the job. See how **lovely** is used in the sentence.
+1. See how **lovely** is used in the sentence.
 
 :::try
 Finish the last step: which choice names the job *lovely* does?
 :::answer
 The answer is **C**, **it describes the garden**. *Lovely* tells what kind of garden it is, so it describes a noun and is an adjective despite its *-ly* ending.
 
-**Check:** "A lovely garden surrounded the house." *Lovely* describes the noun *garden*, not an action.
+**Check:** Remove *lovely*: "A garden surrounded the house" still works, so *lovely* only describes.
 :::
 
 ## Traps to Watch For

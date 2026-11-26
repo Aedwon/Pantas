@@ -22,7 +22,7 @@ Hanapin natin ang kahulugan ng *gumuho* sa pangungusap na ito:
 
 - "Gumuho ang kaniyang mga pangarap dahil sa sakuna."
 - Hindi gusali ang gumuho. Ang mga pangarap ang nasira.
-- Kasingkahulugan ng *gumuho* rito: *nawasak*.
+- Kasingkahulugan ng *gumuho* rito ay *nawasak*: "Nawasak ang kaniyang mga pangarap dahil sa sakuna."
 
 :::pair #kasingkahulugan
 Right: Gumuho ang kaniyang mga pangarap dahil sa sakuna. Ang *gumuho* ay kasingkahulugan ng *nawasak*.
@@ -80,22 +80,22 @@ D) nagsimula
 
 ### #2: Kasalungat na Kahulugan
 
-Alin ang kasalungat ng salitang may makapal na titik na **maralita**?
+Alin ang kasalungat ng salitang may makapal na titik na **malinis**?
 
-A) mahirap
+A) maayos
 
-B) mayaman
+B) marumi
 
-C) masipag
+C) mabango
 
-D) tamad
+D) makinis
 
 **Solution:**
 
-1. Ang **maralita** ay tumutukoy sa taong mahirap.
-2. Ang kasalungat nito ay **mayaman**. Ang sagot ay **B**.
+1. Ang **malinis** ay walang dumi.
+2. Ang kasalungat nito ay **marumi**. Ang sagot ay **B**.
 
-**Check:** Magkabaligtad ang kalagayan ng *mahirap* at *mayaman*.
+**Check:** Walang dumi ang malinis, at may dumi ang marumi.
 
 ### #3: Kasalungat ng Damdamin
 

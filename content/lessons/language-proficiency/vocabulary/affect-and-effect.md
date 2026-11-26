@@ -20,9 +20,9 @@ Check both the meaning and the job needed in the sentence.
 
 A **verb** tells an action or state, such as *change* or *seem*. A **noun** names a person, place, thing, or idea, such as *teacher* or *result*.
 
-**Affect** usually means "to influence." It is a verb, as in "Rain can affect travel."
+**Affect** usually means "to influence." It is usually a verb, as in "Rain can affect travel."
 
-**Effect** usually means "a result." It is a noun.
+**Effect** usually means "a result." It is usually a noun.
 
 :::pair #influence-verb
 Right: The drought will affect the crop yield.
@@ -41,7 +41,7 @@ After *will*, the verb stays in its base form. Do not add *-s*.
 :::check
 Choose the correct word: Heavy traffic can *(affect / effect)* our arrival time.
 :::answer
-The answer is *affect*. The sentence means influence, and *can* needs the base form.
+The answer is *affect*. The sentence means influence, so it needs the verb.
 :::
 
 ### Less Common Uses
@@ -59,7 +59,7 @@ The mediator made the agreement happen. Here *affected* means influenced.
 In psychology, *affect* can be a noun for the outward signs of emotion, such as a person's voice and face.
 
 :::check
-Choose the correct word: During the exam, the patient showed a flat *(affect / effect)* with little facial expression.
+Choose the correct word: During the exam, the patient showed a flat *(affect / effect)* with little emotion in his voice.
 :::answer
 The answer is *affect*. In psychology, the noun *affect* names outward signs of emotion.
 :::

@@ -38,7 +38,7 @@ Spell *hop* plus *-ing* and *box* plus *-ing*.
 The answers are *hopping* and *boxing*. *Hop* ends in *o* plus *p*, so *p* doubles; *box* ends in *x*, so it does not double.
 :::
 
-### Stress in Longer Words
+### Longer Words
 
 In most longer words, double only if the last syllable is stressed.
 
@@ -145,7 +145,7 @@ The spelling is **visiting**. Answer: **C**.
 
 **Check:** *Visit* + *-ing* has a single *t*: *vis-it-ing*.
 
-### #4: Limits of Doubling
+### #4: Two More Words
 
 We choose the pair in which *fix* plus *-ing* and *play* plus *-ing* are both spelled correctly.
 

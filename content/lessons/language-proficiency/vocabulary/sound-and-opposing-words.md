@@ -19,8 +19,7 @@ keyPoints:
 
 **Alliteration** repeats the same starting sound, usually a consonant, in nearby words, as in *busy bees buzzed*. Sound matters in alliteration, not just spelling.
 
-Let's mark the repeated starting sound: **P**eter **P**iper **p**icked a **p**eck of **p**ickled **p**eppers. Every marked word starts with the *p* sound.
-
+Let's mark the repeated starting sound: **P**eter **P**iper **p**icked a **p**eck of **p**ickled **p**eppers.
 :::pair #repeated-sound
 Right: "Peter Piper picked a peck of pickled peppers" is alliteration.
 Wrong: "Peter Piper picked a peck of pickled peppers" is onomatopoeia.
@@ -56,7 +55,7 @@ The phrase joins two opposing words. It does not simply stretch the truth.
 :::
 
 :::check
-Which two words in "a cruel kindness" oppose each other?
+Which two words in "Her cruel kindness surprised everyone" oppose each other?
 :::answer
 The answer is *cruel* and *kindness*. Joining opposing words makes an oxymoron.
 :::
@@ -77,8 +76,10 @@ D) Oxymoron
 
 **Solution:**
 
-1. Several nearby words begin with the same *s* sound.
+1. Mark the starting sound: **S**ilver **s**nakes **s**ilently **s**lid across the **s**and.
 2. Repeating a starting consonant sound is alliteration. Answer: **A**.
+
+**Check:** Five of the seven words start with the *s* sound.
 
 ### #2: The Firecracker
 
@@ -96,6 +97,8 @@ D) Oxymoron
 
 1. Say **bang** aloud. It imitates the sudden noise it names.
 2. A word that imitates a sound is onomatopoeia, so "The firecracker went bang beside the gate" uses it. Answer: **A**.
+
+**Check:** Replace *bang* with *happened*: no noise is imitated, so the device is gone.
 
 ### #3: The Meeting
 
@@ -118,7 +121,7 @@ Finish the last step: compare the two meanings and choose the device.
 :::answer
 *Organized* means arranged in order, and *chaos* means complete disorder. These meanings oppose each other, so “organized chaos” is an oxymoron. The answer is **C**.
 
-**Check:** *Organized* and *chaos* pull in opposite directions within one phrase. That clash marks an oxymoron.
+**Check:** Nothing can be organized and in complete disorder at once, so the two words clash.
 :::
 
 ## Speed Tricks & Shortcuts

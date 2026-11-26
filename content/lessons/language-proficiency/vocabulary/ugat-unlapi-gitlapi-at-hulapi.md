@@ -86,28 +86,28 @@ D) sikapan
 
 **Check:** Ibalik ang mga panlapi: `pinag-` + `s<um>ikap` + `-an` = *pinagsumikapan*.
 
-### #2: Ang Pinaghintayan
+### #2: Ang Tinawagan
 
-Tukuyin ang salitang-ugat ng salitang may makapal na titik: **pinaghintayan**.
+Tukuyin ang salitang-ugat ng salitang may makapal na titik: **tinawagan**.
 
-A) pinag
+A) tinawag
 
-B) naghintay
+B) tawagan
 
-C) hintay
+C) tawag
 
-D) hintayan
+D) tawa
 
 **Solution:**
 
-1. Hanapin ang mga panlapi ng **pinaghintayan**.
+1. Hanapin ang mga panlapi ng **tinawagan**.
 
 :::try
 Tapusin ang huling hakbang: alisin ang mga panlapi, at piliin ang salitang-ugat.
 :::answer
-Nasa unahan ang *pinag-* at nasa hulihan ang *-an*. Kapag inalis ang mga ito, matitira ang *hintay*, ang bahaging nagdadala ng pangunahing kahulugan. Ang sagot ay **C**.
+Nasa loob ang *-in-* at nasa hulihan ang *-an*. Kapag inalis ang mga ito, matitira ang *tawag*, ang bahaging nagdadala ng pangunahing kahulugan. Ang sagot ay **C**.
 
-**Check:** Ibalik ang mga panlapi sa ugat: *pinag-* + *hintay* + *-an* = *pinaghintayan*.
+**Check:** Ibalik ang mga panlapi sa ugat: `t<in>awag` + `-an` = *tinawagan*.
 :::
 
 ## Speed Tricks & Shortcuts

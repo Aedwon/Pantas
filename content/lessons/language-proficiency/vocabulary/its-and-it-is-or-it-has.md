@@ -47,12 +47,12 @@ The answer is *its*. *It is license* does not fit. The license belongs to the co
 
 ### It's as It Is or It Has
 
-*It's* can mean *it is* or *it has*. Expand it to see which one fits.
+*It's* can mean *it is* or *it has*.
 
 :::pair #has-not-owner
-Right: It's been confirmed that the company lost its license.
-Wrong: Its been confirmed that the company lost its license.
-*It has been confirmed* is the first clause, so it needs *it's*. The license belongs to the company, so write *its license*.
+Right: It's been confirmed that the shop raised its prices.
+Wrong: Its been confirmed that the shop raised its prices.
+*It has been confirmed* is the first clause, so it needs *it's*. The prices belong to the shop, so write *its prices*.
 :::
 
 :::check
@@ -117,6 +117,6 @@ Expand *it's* to *it is* or *it has*.
 
 :::checklist
 - A word before a noun that shows ownership: use *its*, with no apostrophe, as in "its settings." {#owner-apostrophe}
-- The word *its* with an apostrophe after the *s*: it is not a word, so write *its*. {#extra-apostrophe}
+- The word *its* with an apostrophe after the *s*: *its'* is not a word, so write *its*. {#extra-apostrophe}
 - A gap that means *it is* or *it has*: use *it's*, as in "It's been confirmed." {#has-not-owner}
 :::

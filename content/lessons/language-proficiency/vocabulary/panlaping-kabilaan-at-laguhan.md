@@ -32,9 +32,9 @@ Tingnan ang mga letra sa unahan ng *bata*. Ang nandoon ay *ka-*.
 :::
 
 :::check
-Sa salitang *kasaganaan* (mula sa *sagana*), ano ang dalawang panlapi sa magkabilang panig ng ugat?
+Sa salitang *paaralan* (mula sa *aral*), ano ang dalawang panlapi sa magkabilang panig ng ugat?
 :::answer
-Ang sagot ay **ka- at -an**. Nasa unahan ng *sagana* ang *ka-* at nasa hulihan ang *-an*.
+Ang sagot ay **pa- at -an**. Nasa unahan ng *aral* ang *pa-* at nasa hulihan ang *-an*.
 :::
 
 ### Panlaping Laguhan
@@ -67,7 +67,7 @@ Ang sagot ay **kabilaan**. Nasa unahan ng *laya* ang *ka-* at nasa hulihan ang *
 
 Aling salita ang may panlaping kabilaan?
 
-A) kabataan
+A) kaligtasan
 
 B) pag-ibig
 
@@ -77,8 +77,8 @@ D) bahay
 
 **Solution:**
 
-1. Ang ugat ng *kabataan* ay *bata*.
-2. Nasa unahan ang *ka-* at nasa hulihan ang *-an*, kaya kabilaan ang **kabataan**. Sagot: **A**.
+1. Ang ugat ng *kaligtasan* ay *ligtas*.
+2. Nasa unahan ang *ka-* at nasa hulihan ang *-an*, kaya kabilaan ang **kaligtasan**. Sagot: **A**.
 
 **Check:** Ang *pag-ibig* ay may unlapi lamang. Ang *sumulat* ay may gitlapi lamang. Ang *bahay* ay walang panlapi.
 
@@ -99,7 +99,7 @@ D) laguhan
 1. Sa pagsusuri sa paaralan, ang ugat ay *sikap*. May *pinag-* sa unahan, *-um-* sa loob, at *-an* sa hulihan.
 2. May panlapi sa tatlong puwesto, kaya **laguhan** ito. Sagot: **D**.
 
-**Check:** Unahan, loob, hulihan: tatlo.
+**Check:** Kung walang *-um-*, dalawang puwesto lamang ang matitira.
 
 ### #3: Pagsuri sa Uri ng Panlapi
 

@@ -39,7 +39,7 @@ Wrong: *Malicious* means benevolent.
 We split *omniscient* and read the first part.
 
 - *Omni-* means all.
-- The rest of the word relates to knowing.
+- *-scient-* relates to knowing, as in *science*.
 - So *omniscient* means all-knowing.
 
 :::pair #omni-all-what
@@ -93,7 +93,7 @@ D) angry shouting
 
 **Check:** An indirect, wordy reply fits an official who dodges.
 
-### #3: Contrasting Elements
+### #3: Two Words in Context
 
 A doctor treated the child for **malnutrition**. The school thanked its **benefactor**, who paid for the new library. Which pair gives the meanings of the words in bold, in order?
 
@@ -114,7 +114,7 @@ Finish the last step: use the word parts and the sentences to choose the right p
 :::answer
 The answer is **A**, *poor nourishment; someone who gives help or money*. *Mal-* suggests bad or faulty, while *bene-* suggests good or well, and the library gift shows giving.
 
-**Check:** Put each meaning back: "treated the child for poor nourishment" fits *malnutrition*, and "thanked its someone who gives help or money" fits *benefactor* as a giver.
+**Check:** Put each meaning back: "treated the child for poor nourishment" fits *malnutrition*, and "thanked the giver of help or money, who paid for the new library" fits *benefactor*.
 :::
 
 ## Traps to Watch For

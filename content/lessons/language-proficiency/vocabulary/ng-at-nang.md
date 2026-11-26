@@ -18,17 +18,17 @@ keyPoints:
 
 Magkaiba ang gamit ng **ng** at **nang**.
 
-Basahin natin ang kasunod na salita sa bawat pangungusap upang makita kung bakit **ng** ang gamit:
+Basahin natin ang kasunod na salita sa bawat pangungusap upang makita kung bakit **ng** ang gamit sa mga halimbawang ito:
 
 1. **Bagay na tinutukoy ng kilos**: "Kumain **ng** mangga si Ana."
-2. **Pagmamay-ari o ugnayan**: "Malinis ang bahay **ng** guro." Kanino ang bahay?
+2. **Pagmamay-ari o ugnayan**: "Malinis ang bahay **ng** guro."
 3. **Dami o sukat ng bagay**: "Bumili siya **ng** tatlong kilo **ng** bigas."
 4. **Bahagi ng araw sa oras**: "Magsisimula tayo sa alas-singko **ng** hapon."
 
 :::pair #pagmamay-ari
 Right: Ang bahay ng aking lola ay malapit sa simbahan.
 Wrong: Ang bahay nang aking lola ay malapit sa simbahan.
-Pag-aari ng lola ang bahay. Ang *ng* ang nagpapakita ng ugnayang ito.
+Pag-aari ng lola ang bahay.
 :::
 
 :::pair #dami
@@ -56,7 +56,7 @@ May iba pang gamit ang *nang*, gaya ng katumbas ng *upang*.
 :::pair #noong
 Right: Nang dumating ang bus, tumayo ang mga pasahero.
 Wrong: Ng dumating ang bus, tumayo ang mga pasahero.
-Katumbas ng *noong* ang *nang* dito. Hindi ito *ng*.
+Katumbas ng *noong* ang *nang* dito.
 :::
 
 :::check
@@ -122,6 +122,8 @@ D) may
 1. Ang *tatlong kilo* ay nagsasabi ng dami o sukat.
 2. Gamitin ang **ng**: "Bumili si Liza ng tatlong kilo ng bigas." Sagot: **B**.
 
+**Check:** Hindi paraan ng pagbili ang *bigas*, kaya hindi *nang*.
+
 ### #4: Pahayag ng Oras
 
 Punan ang patlang: "Nagsimula ang programa sa alas-tres ______ hapon."
@@ -136,9 +138,9 @@ D) may
 
 **Solution:**
 
-1. Gamitin ang **ng**: "Nagsimula ang programa sa alas-tres ng hapon." Sagot: **B**.
+1. Ang *hapon* ay bahagi ng araw, kaya **ng**: "Nagsimula ang programa sa alas-tres ng hapon." Sagot: **B**.
 
-**Check:** Ang *hapon* ay bahagi ng araw, kaya *ng* ang ginagamit sa oras.
+**Check:** Hindi kilos ang *hapon*, kaya hindi *nang*.
 
 ### #5: Oras at Paulit-ulit na Kilos
 

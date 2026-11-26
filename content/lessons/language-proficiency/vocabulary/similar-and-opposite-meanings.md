@@ -17,8 +17,7 @@ keyPoints:
 
 ### Synonyms
 
-A **synonym** is a word or phrase with the same or a closely related meaning in a sentence. Synonyms do not fit every sentence in the same way.
-
+A **synonym** is a word or phrase with the same or a closely related meaning in a sentence.
 Words with close meanings can differ in strength. Choose the word that keeps the meaning and fits the sentence.
 
 :::check
@@ -29,7 +28,7 @@ The answer is *daring*: "She made a daring move and took a big risk." Both words
 
 ### Word Pairings
 
-A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. For a large amount, *heavy* is a usual partner.
+A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. For a large amount, *heavy* is a usual partner. For an intense flavor, *strong* is, as in *strong tea*.
 
 :::pair #heavy-rain
 Right: The road closed during heavy rain.
@@ -38,7 +37,7 @@ Wrong: The road closed during powerful rain.
 :::
 
 :::check
-Which pairing sounds natural in standard English: *heavy traffic* or *strong traffic*?
+Which pairing sounds natural in standard English: *heavy traffic* or *thick traffic*?
 :::answer
 The answer is *heavy traffic*. A large amount of traffic takes *heavy*.
 :::
@@ -85,24 +84,26 @@ D) rigid
 2. *Eternal* and *rigid* do not mean that, and *glowing* is about light.
 3. **Fleeting** has the closest meaning. The answer is **B**.
 
-### #2: The Word Mitigate
+**Check:** Read it in a sentence: "The rainbow was ephemeral, gone in minutes." *Fleeting* fits.
 
-Select the word most nearly opposite to the word in bold: **mitigate**.
+### #2: The Word Vague
 
-A) aggravate
+Select the word most nearly opposite to the word in bold: **vague**.
 
-B) alleviate
+A) precise
 
-C) placate
+B) unclear
 
-D) isolate
+C) hazy
+
+D) general
 
 **Solution:**
 
-1. *Alleviate* and *placate* ease or calm. They are not opposites.
-2. **Aggravate** can mean to make it worse or more severe. The answer is **A**.
+1. *Unclear*, *hazy*, and *general* are close to *vague*. They are not opposites.
+2. **Precise** means exact and clear. The answer is **A**.
 
-**Check:** "The delay will aggravate the problem" makes it worse, the reverse of *mitigate*.
+**Check:** "The directions were precise" says the reverse of "The directions were vague."
 
 ### #3: A Cup of Coffee
 

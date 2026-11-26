@@ -25,7 +25,7 @@ Let's add *-ing* to each base:
 - *Manage* + *-ing*: drop the *e*, giving *managing*.
 - *Hope* + *-ing*: drop the *e*, giving *hoping*.
 
-Sometimes *e* stays to help keep a sound. In *noticeable*, the *e* stays after *c*. This keeps the soft *s* sound of *c*. After *g*, *courage* keeps its *e* before *-ous* the same way.
+Sometimes *e* stays before *a* or *o* to help keep a sound. In *noticeable*, the *e* stays after *c*. This keeps the soft *s* sound of *c*. After *g*, *courage* keeps its *e* before *-ous* the same way.
 
 :::pair #soft-g
 Right: *Courageous* is spelled correctly. The *e* stays after *g*.
@@ -39,9 +39,9 @@ Spell *believe* plus *-able*.
 The answer is *believable*. *-able* starts with a vowel and *v* needs no soft sound, so drop the silent *e*.
 :::
 
-### Exceptions Before Consonant Suffixes
+### Consonant Suffixes
 
-Most words keep a final silent *e* before a suffix that starts with a consonant, such as *care* becoming *careful*. Two words are exceptions:
+Most words keep a final silent *e* before a suffix that starts with a consonant, such as *care* becoming *careful*. A few words, such as *true* and *argue*, are exceptions:
 
 - *True* + *-ly*: the *e* drops even though *-ly* begins with a consonant, giving *truly*.
 - *Argue* + *-ment*: the *e* drops too, giving *argument*.
@@ -53,7 +53,7 @@ Wrong: Truely
 :::
 
 :::why
-Learn *truly* and *argument* as exceptions. No simple rule covers them, so memory is the only tool.
+Learn *truly* and *argument* as exceptions. No simple rule covers them, so memory is the main tool.
 :::
 
 :::check
@@ -157,7 +157,7 @@ Choice **C**, **excitement**: *excite* plus *-ment*. *-ment* starts with a conso
 ## Traps to Watch For
 
 :::checklist
-- Vowel suffix with no soft sound to keep: often drop the *e*, as in *hoping*. A few words, such as *dyeing*, keep it. {#vowel-suffixes-and-soft-sounds}
+- Vowel suffix such as *-ing*: often drop the *e*, as in *hoping* and *managing*. {#vowel-suffixes-and-soft-sounds}
 - Silent *e* after *c* or *g* before *-able* or *-ous*: usually keep the *e* for the soft sound, as in *noticeable* and *courageous*. {#soft-g}
-- A few exceptions: drop the *e* in *truly* and *argument*. {#truly}
+- Exceptions such as *truly* and *argument*: drop the *e*. {#truly}
 :::

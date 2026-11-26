@@ -17,9 +17,11 @@ keyPoints:
 ### Suffixes -ful and -less
 
 A **noun** names a person, place, thing, or idea. An **adjective** describes a noun.
+
 The suffix **-ful** often means "full of" or "having." *Helpful* describes someone or something that gives help, so it is an adjective.
 
 The suffix **-less** means "without." *Careless* describes someone who does not take enough care.
+
 :::pair #ful-less
 Right: *Helpful* has *-ful*, which means having. *Careless* has *-less*, which means lacking.
 Wrong: *Helpful* has *-ful*, which means without. *Careless* has *-less*, which means full of.
@@ -69,32 +71,32 @@ D) It forms an adverb telling how an action happens.
 
 **Solution:**
 
-1. **Kindness** names the quality of being kind. Answer: **B**.
+1. *Kind* + *-ness* = *kindness*, the quality of being kind. Answer: **B**.
 
-**Check:** "Her habit of being kind comforted the child" keeps the meaning.
+**Check:** "Her quality of being kind comforted the child" keeps the meaning.
 
-### #2: The Night Guard
+### #2: The Remark
 
-The **sleepless** guard watched the gate all night. Which choice gives the job and meaning of the word in bold?
+Ana was hurt by the **thoughtless** remark. Which choice gives the job and meaning of the word in bold?
 
-A) an adjective meaning full of sleep
+A) a noun naming the quality of thought
 
-B) an adjective meaning without sleep
+B) a noun meaning without thought
 
-C) a noun naming the quality of sleep
+C) an adjective meaning without thought
 
-D) an adverb meaning in a sleepy way
+D) an adjective meaning full of thought
 
 **Solution:**
 
-1. Break **sleepless** into its base and its suffix.
+1. Break **thoughtless** into its base and its suffix.
 
 :::try
-Finish the last step: what does the suffix mean, and which choice gives the job and meaning of *sleepless* in this sentence?
+Finish the last step: what does the suffix mean, and which choice gives the job and meaning of *thoughtless* in this sentence?
 :::answer
-The base is *sleep*, and the suffix is *-less*, which means "without." *Sleepless* describes the guard, so it is an adjective meaning without sleep. The answer is **B**.
+The base is *thought*, and the suffix is *-less*, which means "without." *Thoughtless* describes the remark, so it is an adjective meaning without thought. The answer is **C**.
 
-**Check:** "The guard without sleep watched the gate all night" keeps the meaning.
+**Check:** "Ana was hurt by the remark made without thought" keeps the meaning.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -30,7 +30,7 @@ We choose between two words for careful spending.
 :::pair #approving-tone
 Right: She was frugal.
 Wrong: She was stingy.
-*Stingy* is about spending too, but it sounds critical. The sentence approves.
+*Stingy* is about spending, but it sounds critical. Helping neighbors is approved.
 :::
 
 :::check
@@ -52,7 +52,7 @@ We replace *annoyed* in this sentence: “The clerk was annoyed by a minor inter
 :::pair #mild-intensity
 Right: The clerk was bothered by a minor interruption.
 Wrong: The clerk was enraged by a minor interruption.
-The clerk *resumed work calmly*, so the anger is mild. *Enraged* is far too strong.
+The clerk *resumed work calmly*, so the anger is mild. *Enraged* is too strong.
 :::
 
 :::check
@@ -129,7 +129,7 @@ D) bony
 
 ### #3: Before the Quiz
 
-Marco was **nervous** before the quiz, but he felt calm once it began. Which replacement best keeps the strength of the word in bold?
+Marco was **nervous** before the quiz, but he still smiled and joked with friends. Which replacement best keeps the strength of the word in bold?
 
 A) terrified
 
@@ -146,9 +146,9 @@ D) alarmed
 :::try
 Finish the last step: choose the replacement that keeps the strength of **nervous**.
 :::answer
-The answer is **B**, **uneasy**. Marco felt calm once the quiz began, so the fear was mild. *Uneasy* is mild, *terrified* and *alarmed* are stronger, and *cheerful* is not fear.
+The answer is **B**, **uneasy**. Marco smiled and joked in the same moment, so the fear was mild. *Uneasy* is mild, *terrified* and *alarmed* are stronger, and *cheerful* is not fear.
 
-**Check:** Put *uneasy* back: “Marco was uneasy before the quiz, but he felt calm once it began.” Mild fear fits feeling calm soon after.
+**Check:** Put *uneasy* back: “Marco was uneasy before the quiz, but he still smiled and joked with friends.” Someone terrified would hardly joke, so mild fear fits.
 :::
 
 ## Speed Tricks & Shortcuts
