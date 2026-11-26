@@ -108,7 +108,7 @@ Finish the last step: which one carries the main tense, and what is the bold gro
 
 ## Speed Tricks & Shortcuts
 
-Check the verbs first. An action starting with *to* never supplies the finite main verb, and always match your label (*infinitive phrase* vs. *nonfinite clause*) to the system named in the question.
+Check the verbs first. An action starting with *to* never supplies the finite main verb.
 
 ## Traps to Watch For
 

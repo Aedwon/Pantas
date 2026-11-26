@@ -48,8 +48,7 @@ The answer is **"The note needed President Santos's signature, and the president
 
 ### Quoted Sentences vs. Quoted Words
 
-In stand-alone direct speech, capitalize the first word of a **quoted complete sentence**: *She said, "Please close the door."* The second half of a quote split by *she said* stays lowercase when it continues the same sentence: *"Please," she said, "close the door."*
-
+In stand-alone direct speech, capitalize the first word of a **quoted complete sentence**: *She said, "Please close the door."*
 Keep an **ordinary word mentioned as a word** inside a sentence lowercase (unless it is a proper name, a title, or *I*): *The word "meeting" appears twice.*
 :::pair #quoted-word-capitalized
 Right: "The word \"meeting\" appears twice."

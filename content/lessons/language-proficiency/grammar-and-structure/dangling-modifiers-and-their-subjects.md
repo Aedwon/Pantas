@@ -20,7 +20,7 @@ When a sentence begins with a subjectless opening phrase that describes a person
 
 A **dangling modifier** happens when the main subject is not the one the phrase describes. In *"After finishing the marathon, a warm bath felt amazing,"* the main subject is *a warm bath*, making the sentence say the bath finished the race.
 
-An opening phrase is fine when the main subject names the one it describes (*"Working toward the deadline, the editors requested more time"*).
+An opening phrase is fine when the main subject names the one it describes.
 
 <!-- ILLUSTRATION: two stacked sentences: top "After finishing the marathon, [a warm bath] felt amazing." with a crossed line from "finishing" to "a warm bath" labeled "dangling: bath cannot finish a race"; bottom "After finishing the marathon, [she] enjoyed a warm bath." with a teal arrow from "finishing" to "she" labeled "matching main subject" -->
 

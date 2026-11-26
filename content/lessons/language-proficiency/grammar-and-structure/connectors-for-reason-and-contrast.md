@@ -44,7 +44,7 @@ Compare comma placement by order:
 :::pair #comma-by-clause-order
 Right: *"Because it was raining, we stayed inside."* (comma after *raining*) and *"We stayed inside because it was raining."* (no comma before *because*).
 Wrong: Claim *"No: the comma should be removed entirely"* for the opening clause, or *"Yes: a comma is always required regardless of clause order"* for the second.
-Comma use depends on clause order. Usually put a comma after an opening dependent clause; skip it before a following essential *because* clause.
+Usually put a comma after an opening dependent clause; skip it before a following essential *because* clause.
 :::
 
 :::check
@@ -57,13 +57,12 @@ The answer is **after "open"**. *"Although the shop was open, we left without bu
 
 In formal writing, a dependent clause standing alone with a period is a **fragment**, an incomplete sentence: *"Although the teacher explained the lesson twice."*
 
-To fix a dependent-clause fragment, add a **main clause** that can stand alone, with no subordinating word at the front. For the formal statements here, that means a subject and a finite verb. Adding another dependent clause (*while, because*), a noun phrase, or a prepositional phrase still leaves a fragment.
+To fix a dependent-clause fragment, add a **main clause** that can stand alone, with no subordinating word at the front. Adding another dependent clause (*while, because*), a noun phrase, or a prepositional phrase still leaves a fragment.
 
 :::pair #fragment-is-not-sentence
 Right: In formal prose, *"Although the teacher explained the lesson twice"* is **a dependent-clause fragment**.
 Wrong: Call *"Although the teacher explained the lesson twice"* **a complete independent sentence** or **a run-on with two main clauses**.
-*The teacher explained* has a subject and verb, yet *Although* turns the single clause into a fragment waiting for a main clause. One clause cannot be a run-on.
-:::
+*The teacher explained* has a subject and verb, yet *Although* turns the single clause into a fragment waiting for a main clause.:::
 
 :::pair #two-dependent-clauses
 Right: *"Because the store was closed, we went home."*

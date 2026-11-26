@@ -20,8 +20,7 @@ keyPoints:
 A **part of speech**, or **word class**, names a word's job in a sentence. Traditional school grammar uses eight classes. This lesson covers five, and the next part covers three more.
 
 - **Noun**: names a person, place, thing, or idea (*Maria, city, book, freedom*). In "Maria bought a **book**," *book* names a thing.
-- **Pronoun**: often stands in for a noun phrase (*he, she, they, it, who*). In "Carlos finished his part, and **he** left," *he* stands for *Carlos*. In "**Who** called?" *who* asks which person is meant.
-- **Verb**: states an action, event, or state (*laughed, happen, is, felt*). In "The children **laughed**," *laughed* tells what they did.
+- **Pronoun**: often stands in for a noun phrase (*he, she, they, it, who*). In "Carlos finished his part, and **he** left," *he* stands for *Carlos*.- **Verb**: states an action, event, or state (*laughed, happen, is, felt*). In "The children **laughed**," *laughed* tells what they did.
 - **Adjective**: describes a noun or pronoun (*diligent, light, silly*). In "The **diligent** student smiled," *diligent* describes *student*.
 - **Adverb**: modifies a verb, adjective, another adverb, or a whole statement (*loudly, very, remarkably*). In "She finished **quickly**," *quickly* tells how she finished. In "**Remarkably**, the library reopened," *remarkably* comments on the statement.
 
@@ -61,7 +60,7 @@ The answer is **Verb**. *Water* gives an action command, and *the plants* receiv
 
 ### Words Ending in -ly
 
-Many adverbs end in *-ly*, like *quickly* and *loudly*. Still, *-ly* does not always mark an adverb. Words like *friendly*, *lively*, and *lonely* describe nouns, while adverbs like *often*, *very*, and *fast* (in *ran fast*) have no *-ly*.
+Many adverbs end in *-ly*, like *quickly* and *loudly*. Still, *-ly* does not always mark an adverb. Words like *friendly*, *lively*, and *lonely* describe nouns.
 
 :::why
 Why can an *-ly* word be an adjective? English adds *-ly* to nouns like *friend* to form adjectives (*friendly*), and adds *-ly* to adjectives like *quick* to form adverbs (*quickly*). Checking which word is described separates them.
@@ -125,7 +124,7 @@ The answer is **Adjective**: "The **lovely** garden attracted visitors." *Lovely
 
 ## Speed Tricks & Shortcuts
 
-Check what the word points to in that sentence. Nouns and pronouns name or replace things, verbs state actions or states, adjectives describe nouns, and adverbs modify verbs, adjectives, adverbs, or whole statements.
+Check what the word points to in that sentence. Adjectives describe nouns, and adverbs modify verbs, adjectives, adverbs, or whole statements.
 
 ## Traps to Watch For
 

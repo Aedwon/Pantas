@@ -18,7 +18,7 @@ keyPoints:
 
 In an ordinary statement, a **clause** has a stated subject and a **finite verb** (a verb form that often shows tense or agreement, such as *slept* or *arrives*). A command like *Close the door* leaves its subject understood. This lesson compares finite clauses; *after leaving* has no finite verb.
 
-An **independent clause**, also called a **main clause**, gives a complete thought and can stand alone as a sentence. Even a short group is independent when it has a subject, a finite verb, and no word leaving the reader waiting: *"The cat slept."* *"She finished her homework."*
+An **independent clause**, also called a **main clause**, gives a complete thought and can stand alone as a sentence. Even a short group is independent when it has a subject, a finite verb, and no word leaving the reader waiting: *"The cat slept."*
 
 :::pair #short-clause-is-complete
 Right: Classify *"The cat slept"* as an **Independent clause**.
@@ -34,9 +34,9 @@ Which can stand alone: *"Our neighbor waved to us"* or *"Our neighbor waving to 
 
 ### Dependent Clauses and Subordinating Words
 
-A **dependent clause** (subordinate clause) in an ordinary statement has a subject and finite verb, yet cannot stand alone in its sentence. A **subordinating conjunction** (such as *although, because, since, when, while, if, until, after, before*) usually introduces it and makes it lean on a main clause. Some have no connector: in *"I thought you knew,"* *you knew* is dependent.
+A **dependent clause** (subordinate clause) in an ordinary statement has a subject and finite verb, yet cannot stand alone in its sentence. A **subordinating conjunction** (such as *although, because, since, when, while, if, until, after, before*) usually introduces it and makes it lean on a main clause.
 
-In *"Although she was tired,"* *although* leaves you waiting for what happened next. Pair it with a main clause: *"Although she was tired, she finished her homework."*
+Pair *"Although she was tired"* with a main clause: *"Although she was tired, she finished her homework."*
 
 :::why
 Why does one opening word change a whole clause? Drop *although* from *"Although she was tired"* and *"She was tired"* stands alone. Adding *although* signals that a main clause must go with it, before or after.
@@ -109,7 +109,7 @@ Which group contains a finite clause: *"Until the doors opened"* or *"Until the 
 
 **Solution:**
 
-1. Mark the words after *Until* in each group: *the doors opened* and *the opening ceremony*.
+1. Mark the words after *Until* in each group.
 
 :::try
 Finish the last step: which group has a verb that changes when the time changes?
@@ -126,7 +126,7 @@ For finite clauses, run two checks: find a subject paired with a finite verb, no
 ## Traps to Watch For
 
 :::checklist
-- Short statement with a subject and finite verb: do not call it a phrase or dependent just because it is brief. {#short-clause-is-complete}
+- Short statement with a subject and finite verb: do not call it dependent just because it is brief. {#short-clause-is-complete}
 - Clause starting with *although, since,* or *when*: include the opening word in the stand-alone test. {#subordinator-makes-dependent}
 - Time group with an event noun like *trip* or *journey*: check whether a finite verb is present. {#event-noun-vs-verb}
 :::

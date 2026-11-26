@@ -40,8 +40,7 @@ The answer is **were**. Shifting to present time turns *were* into *are*, while 
 
 ### Standalone -ing Groups
 
-A group built on an *-ing* word without a finite helper verb, such as *"running quickly through the park,"* is a **nonfinite verb group**. It names an action, yet it has no tense-carrying verb.
-
+A group built on an *-ing* word without a finite helper verb, such as *"running quickly through the park,"* is a **nonfinite verb group**.
 Compare *"Running quickly through the park"* (incomplete nonfinite group) with *"Ana is running quickly through the park"* (*Ana* is the subject and *is* supplies the finite tense form).
 
 :::why

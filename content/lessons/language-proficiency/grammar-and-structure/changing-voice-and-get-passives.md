@@ -30,8 +30,7 @@ To switch back, if the passive names the doer, make the doer the subject and reb
 :::pair #swap-roles-correctly
 Right: Changing "The novel was written by a famous author" to active gives "A famous author wrote the novel."
 Wrong: Keep the nouns in place ("The novel wrote a famous author") or reverse them into "The committee was approved by the new budget during the meeting."
-Match the verb to the real doer and real receiver. A novel cannot write an author, and a budget cannot approve a committee.
-:::
+Match the verb to the real doer and real receiver.:::
 
 :::check
 Change to active voice: "The meal was cooked by the chef."
@@ -62,7 +61,7 @@ The answer is **"The forms were checked by the clerk."** Plural *the forms* take
 
 A **get-passive** uses *get* plus a past participle (*got broken*, *got delivered*): "The window **got broken** during the storm."
 
-A *get*-passive is common in speech. In formal reports, replace *get* with a *be*-passive ("The window **was broken** during the storm").
+In formal reports, replace *get* with a *be*-passive ("The window **was broken** during the storm").
 
 *Get* plus an adjective is not passive: "The package **got heavy**" means it became heavy. *Get* plus a participle is passive only when the subject receives an action: "The package **got delivered**" is passive, but "She **got tired**" is not, because *tired* works as an adjective.
 
@@ -130,7 +129,7 @@ The answer is **"The wooden fence was damaged during the typhoon."** Only *got* 
 
 ## Speed Tricks & Shortcuts
 
-To change active to passive, move the receiver into the subject spot. To change passive to active, swap only when the doer is named. Then keep the time and aspect. With *get*, ask whether the subject receives an action: *get* + a participle naming that action is a *get*-passive, while *get* + adjective shows a change (*became*).
+To change voice, swap the doer and receiver (to active only when the doer is named), then keep the time and aspect. With *get*, ask whether the subject receives an action: *get* + a participle naming that action is a *get*-passive, while *get* + adjective shows a change (*became*).
 
 ## Traps to Watch For
 

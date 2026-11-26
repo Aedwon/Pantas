@@ -35,7 +35,7 @@ The answer is **Hers**. No noun follows the blank, so use standalone *hers*.
 :::pair #reject-singular-they
 Right: "Each of the students must submit their essay by Friday."
 Wrong: Reject *their* because every use of *their* requires a plural antecedent.
-Modern formal English uses *their* for one unspecified person too. Do not guess *his* or *her*, or use *its* for a person.
+Modern formal English uses *their* for one unspecified person too.
 :::
 
 :::check
@@ -69,7 +69,7 @@ The answer is **Is, have**. *Somebody* is singular (*is*), and *they* takes *hav
 
 ### Repeating a Name for Clear Reference
 
-A pronoun is often unclear when two names in the sentence could fit it. Neither the first name nor the nearest name wins by default. Repeat the intended name to make the meaning clear.
+A pronoun is often unclear when two names in the sentence could fit it. Repeat the intended name to make the meaning clear.
 
 :::pair #ambiguous-antecedent
 Right: In "Sarah told Michelle that her painting won," *her* is unclear, so name the owner.
