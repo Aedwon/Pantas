@@ -102,9 +102,12 @@ Read: "Because the east entrance was blocked, the post office put up a sign that
 
 Which statement is best supported?
 
-(A) Many people used the side door that morning.  
-(B) The side door is wider than the east entrance.  
-(C) The post office will close early today.  
+(A) Many people used the side door that morning.
+
+(B) The side door is wider than the east entrance.
+
+(C) The post office will close early today.
+
 (D) The east entrance will reopen at noon.
 
 **Solution:**

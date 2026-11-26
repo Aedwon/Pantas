@@ -19,8 +19,10 @@ keyPoints:
 
 Put in order:
 
-(A) "By evening, the roof was finished."  
-(B) "At sunrise, the crew began to lay the tiles."  
+(A) "By evening, the roof was finished."
+
+(B) "At sunrise, the crew began to lay the tiles."
+
 (C) "Two hours after starting, they had covered half the roof."
 
 1. (B) has "At sunrise," the earliest time.
@@ -46,8 +48,10 @@ In a procedure, ask what must be done before the next step can work. A step that
 
 Put in order:
 
-(A) "Hang the wet shirt on the line."  
-(B) "Wash the shirt with soap."  
+(A) "Hang the wet shirt on the line."
+
+(B) "Wash the shirt with soap."
+
 (C) "Fold the dry shirt and put it away."
 
 1. "Hang the wet shirt" needs a shirt that is already wet, so it follows (B).
@@ -72,9 +76,12 @@ The answer is C, B, A. Sealing needs the letter inside, and mailing needs the en
 
 Arrange the steps in the best order.
 
-(A) Finally, submit the signed form to the records desk.  
-(B) Check the completed fields for errors before signing.  
-(C) First, write your name and contact details in the form's fields.  
+(A) Finally, submit the signed form to the records desk.
+
+(B) Check the completed fields for errors before signing.
+
+(C) First, write your name and contact details in the form's fields.
+
 (D) After checking the form, sign it at the bottom.
 
 **Solution:**
@@ -91,8 +98,10 @@ Arrange the steps in the best order.
 
 Arrange the sentences in time order.
 
-(A) By noon, the missing parcel had reached its owner.  
-(B) At opening time that morning, the clerk found an unclaimed parcel.  
+(A) By noon, the missing parcel had reached its owner.
+
+(B) At opening time that morning, the clerk found an unclaimed parcel.
+
 (C) An hour after finding it, she called its owner using the number on its label.
 
 **Solution:**
@@ -108,8 +117,10 @@ Arrange the sentences in time order.
 
 Arrange the sentences in the best order.
 
-(A) Afterward, the team packed the equipment into the van.  
-(B) Before dawn, the team set up the equipment at the field.  
+(A) Afterward, the team packed the equipment into the van.
+
+(B) Before dawn, the team set up the equipment at the field.
+
 (C) At nine, the team began timing the runners.
 
 **Solution:**

@@ -83,6 +83,7 @@ Which order makes the link clear?
 Use **B → A**: "Heavy rain fell for hours without stopping. As a result, several streets were flooded."
 
 **Check:** Read (A) first. *As a result* has nothing to point back to.
+
 ### #2: Canceled Classes
 
 Which order makes the link clear?

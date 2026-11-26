@@ -53,7 +53,7 @@ Ang **pang-ugnay** (connector) ay nagdurugtong ng dalawang ideya. Itanong kung a
 Punan natin ang "Pagod si Dino, ______ nagpatuloy siya sa trabaho.":
 
 - Ang unang ideya ay *pagod si Dino*. Ang ikalawa ay *nagpatuloy siya sa trabaho*.
-- Karaniwang humihinto ang pagod, kaya salungat sa inaasahan ang ikalawa.
+- Karaniwang humihinto ang taong pagod, kaya salungat sa inaasahan ang ikalawa.
 - Pagsalungat ang ugnayan, kaya *ngunit*.
 - Buong pangungusap: "Pagod si Dino, ngunit nagpatuloy siya sa trabaho."
 
@@ -115,6 +115,7 @@ Piliin ang wastong sagot: "Kahapon, ______ ni Lino ang kanyang aplikasyon sa tan
 Piliin ang **(B)**.
 
 **Check:** Basahin ang buong pangungusap: "Kahapon, ipinasa ni Lino ang kanyang aplikasyon sa tanggapan."
+
 ### #2: Ugnayan ng Ideya
 
 Piliin ang angkop na salita: "Malakas ang ulan, ______ ipinagpaliban ang programa."

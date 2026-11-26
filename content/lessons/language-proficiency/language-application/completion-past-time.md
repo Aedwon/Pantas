@@ -73,12 +73,12 @@ Let's fill the blank in "By the time the guests arrived, the cook ______ (prepar
 
 By the time the guests arrived, the cook had prepared the soup.
 
-Do not add *had* to every past verb. If you only report a finished event, simple past may be enough.
+Do not add *had* to every past verb. For one finished event, simple past is often enough.
 
 :::check
-Choose the form: "By the time the meeting began, Rico ______ his slides." *(had printed / prints / will print)*
+Choose the form: "By the time the meeting began, Rico ______ his slides, so he handed them out at once." *(had printed / was printing / will print)*
 :::answer
-*had printed*. Printing happened before the meeting began, so use *had* plus the participle: "By the time the meeting began, Rico had printed his slides."
+*had printed*. He handed the slides out at once, so the printing was finished before the meeting began. Use *had* plus the participle: "By the time the meeting began, Rico had printed his slides, so he handed them out at once."
 :::
 
 ## Examples
@@ -149,6 +149,7 @@ The answer is **(A) was mopping**: "When the guard arrived at six, the cleaner w
 ## Speed Tricks & Shortcuts
 
 Use the strongest clue first.
+
 ## Traps to Watch For
 
 :::checklist

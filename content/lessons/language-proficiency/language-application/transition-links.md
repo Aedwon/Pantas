@@ -37,7 +37,8 @@ A sentence that starts with *however* or *for example* goes against, or gives a 
 
 Put in order:
 
-(A) "However, it lost the first game."  
+(A) "However, it lost the first game."
+
 (B) "The team trained for months."
 
 1. (A) says "However," so it goes against something.
@@ -68,8 +69,10 @@ A transition does not give an exact position by itself. Read the meaning of the 
 
 Where does *however* go?
 
-(A) "The plant needs light."  
-(B) "It also needs water."  
+(A) "The plant needs light."
+
+(B) "It also needs water."
+
 (C) "However, too much water rots the roots."
 
 1. (C) goes against (B): the plant needs water, but not too much.
@@ -88,8 +91,10 @@ The answer is B, A, C. *However* goes against the speed in (B), and *anyway* in 
 
 Arrange the sentences in the best order.
 
-(A) For example, a large-print copy can help a reader who struggles with small text.  
-(B) This larger copy presents the same information in an easier-to-read form.  
+(A) For example, a large-print copy can help a reader who struggles with small text.
+
+(B) This larger copy presents the same information in an easier-to-read form.
+
 (C) Offices can offer documents in forms that meet different readers' needs.
 
 **Solution:**
@@ -112,14 +117,17 @@ What does the word in bold tell you?
 1. The word is **however** in "However, not everyone agreed with it."
 2. It follows "Many staff members supported the new policy," and the two lines go against each other.
 3. So *however* shows contrast.
+
 **Check:** Put *therefore* in its place: "Many supported the policy. Therefore, not everyone agreed." That makes no sense, so contrast fits.
 
 ### #3: Three Linked Sentences
 
 Arrange the sentences in the best order.
 
-(A) For example, the clinic's evening hours let workers visit after their shifts.  
-(B) Clinics can adjust their schedules to fit patients' needs.  
+(A) For example, the clinic's evening hours let workers visit after their shifts.
+
+(B) Clinics can adjust their schedules to fit patients' needs.
+
 (C) Therefore, these workers can still get care.
 
 **Solution:**
@@ -136,7 +144,7 @@ The answer is B, A, C. *For example* in (A) introduces a case, so it follows the
 
 ## Speed Tricks & Shortcuts
 
-Find the sentence that states the general idea or claim. Then place each transition sentence after the idea it answers.
+Find the sentence that states the general idea or claim. Then place each transition sentence after the idea it goes against or gives a case of.
 
 ## Traps to Watch For
 

@@ -45,8 +45,10 @@ Ang *una*, *pagkatapos*, *sumunod*, at *sa wakas* ay tumutulong sa ayos. Tingnan
 
 Ayusin natin ang mga pangungusap na ito:
 
-(A) Pagkatapos nito, isinalang niya ang kaldero.  
-(B) Una, hinugasan ni Aling Rosa ang bigas.  
+(A) Pagkatapos nito, isinalang niya ang kaldero.
+
+(B) Una, hinugasan ni Aling Rosa ang bigas.
+
 (C) Sa wakas, inihain niya ang kanin.
 
 - **(B)**: may *una* at walang tinutukoy na hindi pa nabanggit. Simula ito.
@@ -86,7 +88,7 @@ Ang paghinto ay ang bunga. Itanong ang "Bakit?" upang makuha ang sanhi.
 :::check
 Pagsamahin gamit ang *dahil*: "Nabasag ang baso kaya nagwalis si Ana."
 :::answer
-*Nagwalis si Ana dahil nabasag ang baso.* Ang *nabasag ang baso* ang sagot sa "Bakit nagwalis si Ana?", kaya ito ang kasunod ng *dahil*.
+*Nagwalis si Ana dahil nabasag ang baso.* Ang *nabasag ang baso* ang sagot sa "Bakit nagwalis si Ana?", kaya ito ang kasunod ng *dahil*. Tama rin ang *Dahil nabasag ang baso, nagwalis si Ana.*
 :::
 
 ## Examples
@@ -95,9 +97,12 @@ Pagsamahin gamit ang *dahil*: "Nabasag ang baso kaya nagwalis si Ana."
 
 Ayusin ang mga pangungusap.
 
-(A) Sa wakas, inilagay niya ang nilagdaang liham sa sobre.  
-(B) Una, isinulat ni Lea ang liham.  
-(C) Binasa niya itong muli upang itama ang mali bago niya ito lagdaan.  
+(A) Sa wakas, inilagay niya ang nilagdaang liham sa sobre.
+
+(B) Una, isinulat ni Lea ang liham.
+
+(C) Binasa niya itong muli upang itama ang mali bago niya ito lagdaan.
+
 (D) Nang matapos ang pagwawasto, nilagdaan niya ang liham.
 
 **Solution:**
@@ -115,7 +120,8 @@ Ang ayos ay **B, C, D, A**.
 
 Ayusin ang mga pangungusap. Pagkatapos, pagsamahin ang mga ito gamit ang *dahil*.
 
-(A) Kaya hindi natuloy ang palaro.  
+(A) Kaya hindi natuloy ang palaro.
+
 (B) Malakas ang ulan buong umaga.
 
 **Solution:**
@@ -131,9 +137,11 @@ Ayusin ang mga pangungusap. Pagkatapos, pagsamahin ang mga ito gamit ang *dahil*
 
 Ayusin ang mga pangungusap.
 
-(A) Dahil dito, nagpaskil ang barangay ng abiso.  
-(B) Nagbaha sa kalsada matapos ang malakas na ulan.  
-(C) Kinabukasan, nabasa ng mga drayber ang abiso at nakadaan na ulit ang mga traysikel.
+(A) Dahil dito, nagpaskil ang barangay ng abiso.
+
+(B) Nagbaha sa kalsada matapos ang malakas na ulan.
+
+(C) Kinabukasan, binasa ng mga drayber ang abiso at nakadaan na ulit ang mga traysikel.
 
 **Solution:**
 
@@ -142,7 +150,7 @@ Ayusin ang mga pangungusap.
 :::try
 Tapusin: aling pangungusap ang pinagmulan ng *dahil dito*, at ano ang buong ayos?
 :::answer
-Ang ayos ay **B, A, C**. Ang baha sa (B) ang tinutukoy ng *dahil dito*. Nabasa ng mga drayber ang abiso sa (C), kaya sumunod ito sa (A). Ayos: "Nagbaha sa kalsada matapos ang malakas na ulan. Dahil dito, nagpaskil ang barangay ng abiso. Kinabukasan, nabasa ng mga drayber ang abiso at nakadaan na ulit ang mga traysikel."
+Ang ayos ay **B, A, C**. Ang baha sa (B) ang tinutukoy ng *dahil dito*. Binasa ng mga drayber ang abiso sa (C), kaya sumunod ito sa (A). Ayos: "Nagbaha sa kalsada matapos ang malakas na ulan. Dahil dito, nagpaskil ang barangay ng abiso. Kinabukasan, binasa ng mga drayber ang abiso at nakadaan na ulit ang mga traysikel."
 
 **Check:** Basahin ayon sa ayos: baha, abiso, pagdaan ng mga traysikel. Bawat pangungusap ay may nauna nang pinagmulan.
 :::

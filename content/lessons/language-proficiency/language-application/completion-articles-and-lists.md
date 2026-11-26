@@ -131,7 +131,7 @@ Choose the correct pair: "A teacher gave Ben a worksheet. He finished ______ wor
 
 Choose **(D)**: "He finished the worksheet before a unit test."
 
-**Check:** The worksheet appeared earlier, so *the* fits. The test appears for the first time, so it takes *a* here.
+**Check:** Swap the first article: "He finished a worksheet" no longer points to the worksheet already named.
 
 ### #3: A Comparison of Habits
 

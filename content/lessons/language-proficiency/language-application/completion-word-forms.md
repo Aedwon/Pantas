@@ -20,6 +20,7 @@ keyPoints:
 A **subject** is the person or thing the sentence says something about. A **verb** expresses an action or a state. In *The clerk works* and *The clerk is helpful*, *the clerk* is the subject. *Works* and *is* are the verbs. A verb may have several words, as in *was working* or *had finished*.
 
 **Word form** means the kind of word and the shape it takes. A **noun** names a person, place, thing, or idea. An **adjective** describes a noun. An **adverb** often describes a verb or adjective. Use *a clear answer* but *answer clearly*.
+
 Let's fill the blank in "The nurse spoke ______ to the patient." *(gentle / gently)*
 
 1. *Spoke* is the verb. It is an action.

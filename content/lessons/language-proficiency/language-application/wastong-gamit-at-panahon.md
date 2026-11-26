@@ -39,7 +39,7 @@ Ang *bukas* ay panahon. Nasa hinaharap ang kilos, ngunit hindi lahat ng kilos sa
 :::check
 Alin ang hindi tiyak na mangyayari: *(Darating ang inspektor sa Huwebes. / Siguro ay darating ang inspektor sa Huwebes.)*
 :::answer
-*Siguro ay darating ang inspektor sa Huwebes.* Ang *siguro* ay nagpapakita ng posibilidad, kaya hindi tiyak na darating siya. Tiyak ang isa pang pahayag.
+*Siguro ay darating ang inspektor sa Huwebes.* Ang *siguro* ay nagpapakita ng posibilidad, kaya hindi tiyak na darating siya. Walang salita ng posibilidad ang isa pang pahayag.
 :::
 
 ### Salitang Magkasingkahulugan
