@@ -28,6 +28,7 @@ import 'question_id_limits.dart';
 import 'session_stored_order.dart';
 import 'shell_route_push.dart';
 import 'sync_mutations_typed_read.dart';
+import 'walkthrough_block_spacing_check.dart';
 import 'walkthrough_emphasis_check.dart';
 import 'walkthrough_example_check_line_check.dart';
 import 'walkthrough_example_connection_check.dart';
@@ -45,6 +46,7 @@ const allChecks = <Check>[
   WalkthroughExampleConnectionCheck(),
   WalkthroughFreshInstanceCheck(),
   WalkthroughHardBreakCheck(),
+  WalkthroughBlockSpacingCheck(),
   WalkthroughEmphasisCheck(),
   WalkthroughFenceLineCheck(),
   WalkthroughExampleCheckLineCheck(),

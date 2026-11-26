@@ -4,6 +4,7 @@ import '../checks/check.dart';
 import '../checks/lesson_pool_check.dart';
 import '../checks/lesson_size_check.dart';
 import '../checks/lesson_split_coverage_check.dart';
+import '../checks/walkthrough_block_spacing_check.dart';
 import '../checks/walkthrough_emphasis_check.dart';
 import '../checks/walkthrough_example_check_line_check.dart';
 import '../checks/walkthrough_example_connection_check.dart';
@@ -20,6 +21,7 @@ List<Violation> runLessonChecks(String contentRoot) => [
       ...runWalkthroughExampleConnectionCheck(contentRoot),
       ...runWalkthroughFreshInstanceCheck(contentRoot),
       ...runWalkthroughHardBreakCheck(contentRoot),
+      ...runWalkthroughBlockSpacingCheck(contentRoot),
       ...runWalkthroughEmphasisCheck(contentRoot),
       ...runWalkthroughFenceLineCheck(contentRoot),
       ...runWalkthroughExampleCheckLineCheck(contentRoot),
