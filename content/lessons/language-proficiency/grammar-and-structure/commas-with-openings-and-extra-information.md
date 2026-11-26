@@ -16,16 +16,16 @@ keyPoints:
 
 ### Commas After Opening Clauses and Phrases
 
-A **dependent clause** has a subject and finite verb but cannot stand alone. Put a comma right after an opening dependent clause: *"Because she was tired, she rested."*
+A **dependent clause** cannot stand alone. Put a comma right after an opening one that has its own subject and verb: *"Because she was tired, she rested."*
 
-An **opening phrase** also takes a comma after the whole phrase: *"After the meeting, we went home."* A short opening word or phrase (*"Yesterday we met"*) can skip the comma. A dependent clause cannot.
+An **opening phrase** usually takes a comma after the whole phrase: *"After the meeting, we went home."* A short, clear opening (*"Yesterday we met"*) may skip it. An opening dependent clause cannot.
 
 Put the comma at the **end** of the opening group, never inside it (*"After, the meeting"*) or between subject and verb (*"we, went home"*).
 
 :::pair #splitting-opening-or-subject
 Right: "After the meeting, we went home."
 Wrong: "After, the meeting we went home." or "After the meeting we, went home."
-*After, the meeting* splits the preposition from its noun, and *we, went* splits the subject from its verb. Put one comma after the whole opening group.
+*After, the meeting* splits the preposition from its noun, and *we, went* splits the subject from its verb. Any comma belongs after the whole opening group.
 :::
 
 :::check
@@ -36,10 +36,10 @@ The answer is **After *sheets***. *"Before the proctor collected the sheets"* is
 
 ### Extra Information vs. Identifying Information
 
-Relative clauses work in two ways (use *who* or *which* for extra detail, never *that*):
+Compare extra detail about an only brother with a clause that picks out some students:
 
-1. **Nonrestrictive (extra):** adds a side detail about a person or thing already identified. Use commas (on **both** sides mid-sentence): *"My brother, who lives in Cebu, is visiting this week."*
-2. **Restrictive (identifying):** tells **which** ones out of a group (*who*, *which*, or *that*, **no commas**): *"The students who missed the test must report today."* (Only those students.)
+1. **Nonrestrictive (extra):** adds a side detail about a person or thing already identified. Use a word such as *who* or *which*, never *that*, with commas (on **both** sides mid-sentence): *"My brother, who lives in Cebu, is visiting this week."*
+2. **Restrictive (identifying):** tells **which** ones out of a group (words such as *who*, *which*, or *that*, **no commas**): *"The students who missed the test must report today."* (Only those students.)
 
 <!-- ILLUSTRATION: two stacked sentences comparing comma pairs: top "My brother, who lives in Cebu, is visiting." with "who lives in Cebu" shaded between two teal commas and labeled "only one brother -> extra info"; bottom "The students who missed the test must report." with no commas and a tight bracket from "who missed the test" to "The students" labeled "picks out some students -> identifying" -->
 
@@ -50,13 +50,13 @@ Why do commas change who is meant? With paired commas, you can remove the middle
 :::pair #missing-commas-on-extra-info
 Right: A writer has only one brother: "My brother, who lives in Cebu, is visiting this week."
 Wrong: "My brother who lives in Cebu is visiting this week."
-Because there is only one brother, *who lives in Cebu* is extra detail and needs commas on both sides.
+*Who lives in Cebu* is extra detail about an only brother, so it needs commas on both sides.
 :::
 
 :::pair #commas-on-identifying-clause
 Right: Some students missed the test, and only they must report: "The students who missed the test must report today."
 Wrong: "The students, who missed the test, must report today."
-Commas around *who missed the test* make it extra detail about all the students, saying every student missed the test. Leave out the commas when the clause narrows the group.
+Commas around *who missed the test* make it extra detail about all the students. Leave them out when the clause narrows the group.
 :::
 
 :::check
@@ -102,7 +102,7 @@ Only some applicants submitted incomplete folders, and only they must return on 
 
 **Solution:**
 
-1. Check the meaning: only the applicants with incomplete folders must return, not every applicant.
+1. Check the meaning: only some applicants must return.
 2. Decide whether *who submitted incomplete folders* adds extra detail about all applicants or identifies which subset must return.
 
 :::try
@@ -115,12 +115,12 @@ The answer is **(B) "The applicants who submitted incomplete folders must return
 
 ## Speed Tricks & Shortcuts
 
-Put one comma after an opening dependent clause, and after an opening phrase unless it is short. For *who* or *which*, ask: narrows which one (no commas) or adds a side detail (commas)?
+Put one comma after an opening dependent clause, and after an opening phrase unless it is short and clear. For *who* or *which*, ask: narrows which one (no commas) or adds a side detail (commas)?
 
 ## Traps to Watch For
 
 :::checklist
-- Opening dependent clause or phrase: place one comma after the whole opening (a short phrase may skip it), never inside it or after the main subject. {#splitting-opening-or-subject}
+- Opening dependent clause or phrase: place one comma after the whole opening (a short, clear phrase may skip it), never inside it or after the main subject. {#splitting-opening-or-subject}
 - Extra detail about a person or thing already identified: set it off with commas (both sides mid-sentence). {#missing-commas-on-extra-info}
 - Identifying clause narrowing a group: omit commas so it does not claim all members. {#commas-on-identifying-clause}
 :::

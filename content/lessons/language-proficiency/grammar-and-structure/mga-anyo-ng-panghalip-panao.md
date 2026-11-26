@@ -17,7 +17,7 @@ keyPoints:
 
 ### Anyong Ang: Para sa Taong Itinatampok
 
-Ang **panghalip panao** (personal pronoun) ay salitang pamalit sa ngalan ng tao. Nagbabago ang anyo nito ayon sa papel ng tao sa pangungusap at sa bilang kung isa o marami.
+Ang **panghalip panao** (personal pronoun) ay salitang pamalit sa ngalan ng tao. Nagbabago ang anyo nito ayon sa papel at bilang ng tao.
 
 Gamitin ang anyong **ang** para sa **paksa** (subject): *ako, ikaw, ka, siya, kami, tayo, kayo,* at *sila* (*ikaw* sa unahan, gaya ng "Ikaw ang sumulat"; *ka* sa loob, gaya ng "Sumulat ka"). Palitan ang *si Ana*:
 
@@ -39,10 +39,8 @@ Ang sagot ay **Sila**. Ito ang pamalit sa paksang may *ang mga* o *sina* ("Sila 
 
 Gamitin ang anyong **ng** (*ko, mo, niya, namin, natin, ninyo, nila*) para sa dalawang papel:
 
-1. **May-ari** pagkatapos ng pangngalan: "aklat **ko**," "proyekto **nila**."
+1. **May-ari** pagkatapos ng **pangngalan** (noun): "aklat **ko**," "proyekto **nila**."
 2. **Gumagawa** ng kilos kapag iba ang paksa: "Sinulat **niya** ang ulat." "Ipinakita **niya** ito."
-
-Tiyakin muna kung sino ang gumawa at kung isa o marami siya.
 
 :::pair #bilang-at-gumawa-sa-ng
 Right: "Isang estudyante lamang ang nagdala ng proyekto; ipinakita niya ito sa buong klase."
@@ -69,15 +67,15 @@ Bakit may tatlong anyo para sa iisang tao (*siya, niya, kaniya*)? Sa Filipino, i
 :::
 
 :::pair #anyong-sa-para-sa-tatanggap
-Right: Sa "Ibinigay ng tagapangasiwa sa mga boluntaryo," palitan ang "sa mga boluntaryo" ng *sa kanila*.
+Right: Sa "Ibinigay ng tagapangasiwa ang pagkain sa mga boluntaryo," palitan ang "sa mga boluntaryo" ng *sa kanila*: "Ibinigay ng tagapangasiwa ang pagkain sa kanila."
 Wrong: Piliin ang *sila*, *nila*, o *para sa kaniya* para sa maraming tatanggap.
 Ang mga boluntaryo ang maramihang tatanggap, kaya kailangan ang *sa kanila*, hindi paksang *sila*, **tagaganap** (actor) na *nila*, o isahang *kaniya*.
 :::
 
 :::check
-Palitan ng panghalip ang "kay Ana" sa "Iniabot ni Marco ang susi kay Ana."
+Palitan ng panghalip ang "kay Lito" sa "Iniabot ni Marco ang susi kay Lito."
 :::answer
-Ang sagot ay **Sa kaniya**. Si Ana ang isang taong tumanggap ng susi, kaya anyong *sa* (*sa kaniya*) ang kapalit ng *kay Ana*.
+Ang sagot ay **Sa kaniya**. Si Lito ang isang taong tumanggap ng susi, kaya anyong *sa* (*sa kaniya*) ang kapalit ng *kay Lito*.
 :::
 
 ## Examples
@@ -92,7 +90,7 @@ Alin sa *siya*, *niya*, *kaniya*, at *nila* ang kabilang sa pangkat ng *ang* par
 2. *Niya* at *nila* ay nasa pangkat ng *ng*, habang *kaniya* ay nasa pangkat ng *sa*.
 3. Piliin ang **siya**.
 
-**Check:** Subukan sa simula ng pangungusap: "**Siya** ay dumating" ay wasto, samantalang hindi maaaring pumalit ang *niya* o *kaniya* sa puwestong iyon.
+**Check:** Sa simula ng pangungusap, wasto ang "**Siya** ay dumating" at hindi maaaring pumalit ang *niya* o *kaniya*.
 
 ### #2: Pagpili ng Tamang Panauhan at Bilang sa Anyong Ng
 
@@ -102,11 +100,11 @@ Piliin ang tamang panghalip: "Isang estudyante lamang ang nagdala ng proyekto; i
 
 1. Suriin ang papel ng patlang: *ito* (ang proyekto) ang paksa, kaya kailangan ng tagaganap ang anyong *ng*.
 2. Tukuyin kung sino at ilan ang nagpakita: isang estudyanteng pinag-uusapan (hindi ang nagsasalita at hindi ang kausap).
-3. Piliin ang isahang anyong *ng* para sa pinag-uusapan: **niya**.
+3. Piliin ang isahang anyong *ng* para sa pinag-uusapan: **niya**. "Isang estudyante lamang ang nagdala ng proyekto. Ipinakita **niya** ito sa buong klase."
 
-**Check:** Tiyakin ang tatlong bagay: anyong *ng* (gumawa), isahan (estudyante), at ikatlong panauhan (*niya*).
+**Check:** Anyong *ng* (gumawa), isahan (estudyante), ikatlong panauhan (*niya*).
 
-### #3: Anyong Sa para sa Maraming Tatanggap
+### #3: Paanyaya ng Guro
 
 Palitan ng panghalip ang "sa mga magulang" sa "Ipinadala ng guro sa mga magulang ang paanyaya."
 

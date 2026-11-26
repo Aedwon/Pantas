@@ -17,12 +17,12 @@ keyPoints:
 
 ### Simuno, Panaguri, at Dalawang Uri ng Sugnay
 
-Ang **sugnay** (clause) ay pangkat ng mga salitang may **simuno** (subject) at **panaguri** (predicate). Ang simuno ang pinag-uusapan, at ang panaguri ang nagsasabi tungkol sa simuno. Sa Filipino, maaaring mauna ang panaguri ("Umuwi ang bata.") o mauna ang simuno na may *ay* ("Ang bata ay umuwi.").
+Ang **sugnay** (clause) ay pangkat ng mga salitang may **panaguri** (predicate), at karaniwang may **simuno** (subject). Ang simuno ang pinag-uusapan, at ang panaguri ang nagsasabi tungkol sa simuno. Walang simuno ang ilang sugnay tungkol sa panahon, gaya ng "Umuulan na." Sa Filipino, maaaring mauna ang panaguri ("Umuwi ang bata.") o mauna ang simuno na may *ay* ("Ang bata ay umuwi.").
 
 May dalawang uri ng sugnay:
 
-1. **Sugnay na makapag-iisa** (independent): may simuno at panaguri at buo ang diwa. Halimbawa: "Inayos ng kawani ang pila."
-2. **Sugnay na di-makapag-iisa** (dependent): may simuno at panaguri ngunit bitin ang diwa dahil may pang-ugnay sa unahan tulad ng *dahil*, *kapag*, o *habang*. Halimbawa: "dahil inayos ng kawani ang pila."
+1. **Sugnay na makapag-iisa** (independent): may panaguri at buo ang diwa. Halimbawa: "Inayos ng kawani ang pila."
+2. **Sugnay na di-makapag-iisa** (dependent): may panaguri ngunit bitin ang diwa dahil may **pang-ugnay** (connector) sa unahan tulad ng *dahil*, *kapag*, o *habang*. Halimbawa: "dahil inayos ng kawani ang pila."
 
 :::pair #sugnay-na-makapag-iisa
 Right: "**Inayos ng kawani ang pila.**" ay sugnay na makapag-iisa dahil buo ang diwa nito.
@@ -89,7 +89,7 @@ Tukuyin ang uri ng pangungusap: "Naglilinis at nag-aayos ng silid sina Ana at Be
 2. Hanapin ang panaguri: *naglilinis at nag-aayos ng silid*.
 3. Iisa lamang ang sugnay na makapag-iisa at walang sugnay na di-makapag-iisa, kaya **Payak** ito.
 
-**Check:** Hindi maaaring ihiwalay ang "nag-aayos ng silid" bilang buong pangungusap na may sariling hiwalay na simuno sa unahan; parehong para kina Ana at Ben ang kilos sa iisang sugnay.
+**Check:** Iisa ang simuno ng *naglilinis* at *nag-aayos ng silid*: *sina Ana at Ben*. Kaya iisang sugnay ito.
 
 ### #2: Tambalang Pangungusap
 
@@ -109,14 +109,14 @@ Aling pangatnig ang angkop sa patlang: "Nagdilig si Ana ng halaman, ___ nagwalis
 
 **Solution:**
 
-1. Suriin ang dalawang sugnay: parehong gawaing natapos ang mga ito.
+1. Basahin ang ginawa ni Ana at ni Ben.
 
 :::try
-Tapusin ang huling hakbang: aling pangatnig (*at, ngunit, o,* o *dahil*) ang akma sa patlang?
+Tapusin ang huling hakbang: aling pangatnig (*at, ngunit, o,* o *dahil*) ang nagdaragdag ng ginawa ni Ben?
 :::answer
 Ang sagot ay **At**: "Nagdilig si Ana ng halaman, **at** nagwalis si Ben ng bakuran."
 
-**Check:** Dagdag na gawain ang ikalawang sugnay. Walang salungatan, pagpipilian, o dahilan, kaya *at* ang tungkulin.
+**Check:** Dagdag na gawain ang ikalawang sugnay. Walang salungatan, pagpipilian, o dahilan, kaya *at* ang angkop.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -17,12 +17,12 @@ keyPoints:
 
 ### Tagaganap at Layon
 
-Ang **pokus** (focus) ay ang ugnayan ng **pandiwa** (verb) sa **paksa** (subject) ng pangungusap. Hanapin ang pariralang may *ang, ang mga, si,* o *sina* (ang may *ng* o *ni* ay hindi paksa), saka tukuyin ang pokus ng pandiwa batay sa papel ng paksa:
+Ang **pokus** ay ang ugnayan ng **pandiwa** (verb) sa **paksa** (subject) ng pangungusap. Kapag pangngalan ang paksa, hanapin ang **parirala** (phrase) na may *ang, ang mga, si,* o *sina* (ang may *ng* o *ni* ay hindi paksa), saka tukuyin ang pokus ng pandiwa batay sa papel ng paksa:
 
 1. **Tagaganap** (actor): ang paksa ang gumagawa: "*Nagluto* ng pagkain **si Rosa**."
 2. **Layon** (object): ang paksa ang bagay na ginawan ng kilos: "*Kinain* ng bata **ang mangga**."
 
-Kapag inilipat ang paksa sa layon, panatilihin ang **aspekto** (aspect): "Nagluto ng sopas si Dina" -> "Niluto ni Dina **ang sopas**."
+Kapag inilipat ang paksa sa layon, panatilihin ang **aspekto**: "Nagluto ng sopas si Dina" -> "Niluto ni Dina **ang sopas**."
 
 :::pair #hanapin-ang-may-ang-o-si
 Right: Sa "Nagluto ng pagkain si Rosa," *si Rosa* ang paksa (pokus sa tagaganap); sa "Kinain ng bata ang mangga," *ang mangga* ang paksa (pokus sa layon).
@@ -38,7 +38,7 @@ Ang sagot ay **Sina Liza at Omar; pokus sa tagaganap**. May panandang *sina* ang
 
 ### Ganapan Laban sa Direksiyon
 
-Huwag ibatay ang sagot sa salitang lugar lamang. Tingnan kung saan ginanap ang kilos o ano ang pinuntahan:
+Huwag ibatay ang sagot sa salitang lugar lamang:
 
 1. **Ganapan** (location): ang paksa ang lugar kung saan ginawa ang kilos: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**."
 2. **Direksiyon**: ang paksa ang pinuntahan: "*Pinuntahan* ng mga kawani **ang bakuran**."
@@ -52,9 +52,9 @@ Parehong *ang bakuran* ang paksa, ngunit sa una ay doon nagtanim (ganapan) at sa
 :::
 
 :::check
-Ano ang pokus sa "Pinagdausan ng pulong ang bulwagan": ganapan o direksiyon?
+Ano ang pokus sa "Pinagdausan ng pulong ang kantina": ganapan o direksiyon?
 :::answer
-Ang sagot ay **Ganapan**. Sa bulwagan ginanap ang pulong, hindi ito ang pinuntahan ng paglakad.
+Ang sagot ay **Ganapan**. Sa kantina ginanap ang pulong, hindi ito ang pinuntahan ng paglakad.
 :::
 
 ### Tagatanggap, Kagamitan, at Sanhi
@@ -62,11 +62,11 @@ Ang sagot ay **Ganapan**. Sa bulwagan ginanap ang pulong, hindi ito ang pinuntah
 Gamitin ang tanong na tugma sa papel ng paksa:
 
 1. **Tagatanggap** (beneficiary): sino ang nakinabang? "*Ipinagluto* ng kusinero ng lugaw **ang mga bata**."
-2. **Kagamitan** (instrument): ano ang ginamit? "*Ipinangsulat* ni Teresa ng pangalan **ang lapis**."
-3. **Sanhi** (cause): ano ang dahilan ng damdamin? "*Ikinatuwa* ng mga kawani **ang balita**."
+2. **Kagamitan**: ano ang ginamit? "*Ipinangsulat* ni Teresa ng pangalan **ang lapis**."
+3. **Sanhi**: ano ang dahilan ng damdamin? "*Ikinatuwa* ng mga kawani **ang balita**."
 
 :::why
-Bakit kailangang suriin ang papel ng paksa sa *ipinagluto* at *ipinangsulat*? Magkahawig ang *ipinag-* at *ipinang-*, kaya alamin kung nakinabang ang paksa (*ang mga bata*) o ginamit ito (*ang lapis*).
+Bakit kailangang suriin ang papel ng paksa sa *ipinagluto* at *ipinangsulat*? Magkahawig ang dalawang pandiwa, kaya alamin kung nakinabang ang paksa (*ang mga bata*) o ginamit ito (*ang lapis*).
 :::
 
 :::pair #tagatanggap-kagamitan-at-sanhi
@@ -94,7 +94,7 @@ Baguhin ang "Nagluto ng sopas si Dina" upang maging paksa ang *sopas* at manatil
 
 Sagot: **"Niluto ni Dina ang sopas."**
 
-**Check:** Suriin ang tatlong bahagi: *ang sopas* ang may *ang* (layon), *ni Dina* ang gumawa, at tapos na ang *niluto*.
+**Check:** *Ang sopas* ang may *ang* (layon), *ni Dina* ang gumawa, at tapos na ang *niluto*.
 
 ### #2: Dalawang Lugar na Magkaiba ang Pokus
 
@@ -108,7 +108,7 @@ Paghambingin ang pokus sa "Pinagtaniman ng mga kawani ng gulay ang bakuran" at "
 
 **Check:** Itanong sa bawat isa: "Saan nagtanim?" (*sa bakuran* = ganapan) at "Ano ang pinuntahan?" (*ang bakuran* = direksiyon).
 
-### #3: Tagatanggap Laban sa Kagamitan
+### #3: Dalawang Pandiwa ni Carlo
 
 Suriin ang "Ipinaghanda ni Carlo ng meryenda ang mga panauhin" at "Ipinampunas ni Carlo sa mesa ang basahan." Ano ang pokus ng bawat pandiwa?
 
@@ -127,12 +127,12 @@ Ang sagot ay **Tagatanggap ang una; kagamitan ang ikalawa.** Nakinabang ang mga 
 
 ## Speed Tricks & Shortcuts
 
-Bilugan muna ang may *ang, ang mga, si,* o *sina*, saka itanong ang papel nito: gumawa (*tagaganap*), bagay (*layon*), lugar ng gawain (*ganapan*), pinuntahan (*direksiyon*), nakinabang (*tagatanggap*), ginamit (*kagamitan*), o dahilan (*sanhi*).
+Bilugan muna ang paksa (ang may *ang, ang mga, si,* o *sina*, o panghalip na *siya*), saka itanong ang papel nito: gumawa (*tagaganap*), bagay (*layon*), lugar ng gawain (*ganapan*), pinuntahan (*direksiyon*), nakinabang (*tagatanggap*), ginamit (*kagamitan*), o dahilan (*sanhi*).
 
 ## Traps to Watch For
 
 :::checklist
 - Gumagawang may *ng* o *ni* ("Kinain ng bata ang mangga"): ang may *ang* o *si* ang paksa. {#hanapin-ang-may-ang-o-si}
 - Paksang lugar (*ang bakuran*): ginanapan ng kilos (ganapan) o pinuntahan (direksiyon)? {#ganapan-laban-sa-direksiyon}
-- Unlaping *ipinag-* o *ipinang-*: nakinabang (tagatanggap) o ginamit (kagamitan)? {#tagatanggap-kagamitan-at-sanhi}
+- Pandiwang gaya ng *ipinagluto* o *ipinangsulat*: nakinabang (tagatanggap) o ginamit (kagamitan)? {#tagatanggap-kagamitan-at-sanhi}
 :::

@@ -20,12 +20,12 @@ Ang **pananda** (marker) ay salitang nagpapakita ng papel o ugnayan ng kasunod n
 
 1. **Layon** (object) na hindi **paksa** (subject): "Kumain ang bata **ng mangga**." (Ito ang kinain, habang *ang bata* ang paksa.)
 2. **Tagaganap** (actor) kapag iba ang paksa: "Kinain **ng bata** ang tinapay." (Ang bata ang kumain, habang *ang tinapay* ang paksa.)
-3. **Pagmamay-ari** (possession) o ugnayan: "Malinis ang bahay **ng guro**." (Sinasabi nito kung kanino ang bahay.)
+3. **Pagmamay-ari** o ugnayan: "Malinis ang bahay **ng guro**." (Sinasabi nito kung kanino ang bahay.)
 
-Tandaan na iba ang panandang *ng* sa *nang*: ginagamit ang *nang* sa paraan, oras, o pag-uulit ng kilos, samantalang ang *ng* ang nagmamarka ng pangngalang layon, tagaganap, o may-ari.
+Tandaan na iba ang panandang *ng* sa *nang*. Halimbawa, ginagamit ang *nang* sa paraan, oras, o pag-uulit ng kilos, samantalang ang *ng* ang nagmamarka ng **pangngalan** (noun) na layon, tagaganap, o may-ari.
 
 :::why
-Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi ang *ng* ang nagmamarka ng paksa. Ang anyo ng **pandiwa** (verb) ang nagsasabi kung alin ang paksa (*ang*) at alin ang katulong na bahagi (*ng*).
+Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi ang *ng* ang nagmamarka ng paksa. Ang *ang* ang nagmamarka ng paksa, at ang anyo ng **pandiwa** (verb) ang nagsasabi kung ano ang papel nito, gumawa man o bagay na ginawan.
 :::
 
 :::pair #ng-para-sa-gumagawa
@@ -57,9 +57,9 @@ Ang *ng kawani* ang naghatid, at tao ang *aplikante* na binigyan ng katibayan. S
 :::
 
 :::check
-Ano ang papel ng *sa tanggapan* sa "Pumunta si Ana sa tanggapan"?
+Ano ang papel ng *sa bodega* sa "Lumakad ang mga kawani sa bodega"?
 :::answer
-Ang sagot ay **Direksiyon o patutunguhan**. Sinasagot nito ang tanong na "Saan patungo si Ana?" kasama ng pandiwang *pumunta*.
+Ang sagot ay **Direksiyon o patutunguhan**. Sinasagot nito ang tanong na "Saan patungo ang mga kawani?" kasama ng pandiwang *lumakad*.
 :::
 
 ## Examples
@@ -82,13 +82,13 @@ Piliin ang tamang pananda sa patlang: "Kinain ______ bata ang tinapay."
 
 **Solution:**
 
-1. Tingnan ang pandiwa: *kinain* (**pokus** (focus) sa layon), at ang paksa ay *ang tinapay*.
-2. Ang bata ang gumagawa ng pagkain, ngunit hindi siya ang paksa.
+1. Tingnan ang pandiwa: *kinain* (pokus sa layon), at ang paksa ay *ang tinapay*.
+2. Ang bata ang kumain, ngunit hindi siya ang paksa.
 3. Piliin ang **ng**: "Kinain **ng** bata ang tinapay."
 
 **Check:** Tiyaking isa lamang ang may *ang* (*ang tinapay*), at *ng* ang nasa gumagawa (*ng bata*) upang tumugma sa *kinain*.
 
-### #3: Lugar, Direksiyon, o Tagatanggap ng Sa
+### #3: Gantimpala ng Guro
 
 Sa "Ibinigay ng guro ang gantimpala sa nanalo," ano ang papel ng *sa nanalo*?
 

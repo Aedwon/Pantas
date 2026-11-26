@@ -19,9 +19,9 @@ keyPoints:
 
 Ang **hugnayan** (complex sentence) ay binubuo ng isang **sugnay** (clause) na makapag-iisa (independent) at isa o higit pang sugnay na di-makapag-iisa (dependent). Hindi ito **tambalan** (compound) o **payak** (simple).
 
-Gamitin ang *dahil* o *sapagkat* upang ipakilala ang dahilan:
+Pagdugtungin ang isang buong diwa at ang dahilan nito gamit ang *dahil* o *sapagkat*:
 
-- "Umuwi ang bata **dahil umuulan na**." (Buo ang "Umuwi ang bata." Bitin naman ang "dahil umuulan na" kung nag-iisa.)
+- "[Umuwi ang bata] [**dahil umuulan na**]." (1 makapag-iisa + 1 di-makapag-iisa)
 
 :::pair #hugnayan-laban-sa-tambalan
 Right: Ang "Umuwi ang bata dahil umuulan na" ay **Hugnayan**.
@@ -107,24 +107,24 @@ Pagsamahin sa isang langkapan ang mga diwa: nag-aral si Liza; may pagsusulit siy
 
 ### #3: Ayos ng mga Pananda sa Salaysay
 
-Sa salaysay ng aplikante, nagrehistro siya, ipinasa niya ang mga papel, at kinuha niya ang resibo. Aling hanay ng pananda ang angkop?
+Lagyan ng pananda ang tatlong pangyayari sa salaysay ng aplikante: nagrehistro siya; ipinasa niya ang mga papel; kinuha niya ang resibo.
 
 **Solution:**
 
-1. Unang pangyayari (pagrerehistro) -> *Sa simula*.
-2. Kasunod (pagpasa ng mga papel) -> *kasunod*.
+1. Unang pangyayari: "**Sa simula**, nagrehistro siya."
+2. Kasunod na pangyayari: "**Kasunod**, ipinasa niya ang mga papel."
 
 :::try
-Tapusin ang huling hakbang: anong pananda ang tugma sa pagkuha ng resibo, at ano ang buong hanay?
+Tapusin ang huling hakbang: anong pananda at pangungusap ang tugma sa pagkuha ng resibo?
 :::answer
-Ang sagot ay **Sa simula, kasunod, panghuli**. Maaari ding *sa huli* ang panghuli.
+Ang sagot ay **"Panghuli, kinuha niya ang resibo."** Maaari ding *sa huli* ang panghuli.
 
-**Check:** Tugma ang bawat pananda sa tamang puwesto: *Sa simula* (nagrehistro), *kasunod* (ipinasa), at *panghuli* (kinuha ang resibo).
+**Check:** Basahin ang tatlo nang sunod: "Sa simula, nagrehistro siya. Kasunod, ipinasa niya ang mga papel. Panghuli, kinuha niya ang resibo."
 :::
 
 ## Speed Tricks & Shortcuts
 
-Bilangin muna ang sugnay na makapag-iisa, saka hanapin ang mga sugnay na may *dahil*, *sapagkat*, o *kung*. Isang makapag-iisa at isang di-makapag-iisa ay hugnayan; dalawa o higit pang makapag-iisa na may di-makapag-iisa ay langkapan.
+Bilangin muna ang sugnay na makapag-iisa, saka hanapin ang mga sugnay na may *dahil*, *sapagkat*, o *kung*. Isang makapag-iisa na may isa o higit pang di-makapag-iisa ay hugnayan; dalawa o higit pang makapag-iisa na may di-makapag-iisa ay langkapan.
 
 ## Traps to Watch For
 

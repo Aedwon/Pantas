@@ -17,9 +17,9 @@ keyPoints:
 
 ### Qualified Negatives: "Not Unexpected" and "Not Unreasonable"
 
-Standard English pairs two negatives for a **qualified** (middle-ground) positive meaning. See how *not* softens these three words:
+Two negatives can give a **qualified** (middle-ground) positive meaning. In context, *not* softens these three words:
 
-1. *unexpected* = not expected -> *"not unexpected"* = **somewhat expected** (not guaranteed).
+1. *unexpected* = not expected -> *"not unexpected"* = **unsurprising** (not guaranteed).
 2. *unreasonable* = not reasonable -> *"not unreasonable"* = **fairly reasonable** (not perfect).
 3. *uncommon* = rare -> *"not uncommon"* = **fairly common** (not always).
 
@@ -36,9 +36,9 @@ Dropping *not* flips it negative, while *"perfectly reasonable"* pushes a cautio
 :::
 
 :::check
-What does *"The result was not unexpected"* most nearly mean: *"completely surprising"*, *"somewhat expected"*, or *"guaranteed"*?
+What does *"The report was not inaccurate"* most nearly mean: *"completely wrong"*, *"fairly accurate"*, or *"perfectly accurate"*?
 :::answer
-The answer is **Somewhat expected**. *Not unexpected* rules out surprise without guaranteeing the result.
+The answer is **Fairly accurate**. *Not inaccurate* rules out error without promising perfection.
 :::
 
 ### Near-Negatives: Hardly, Scarcely, and Barely
@@ -48,12 +48,12 @@ The answer is **Somewhat expected**. *Not unexpected* rules out surprise without
 1. *"She has barely started her homework"* = only just begun (not zero, not finished).
 2. *"He crossed the line, though he could scarcely finish the race"* = finished, but with great difficulty.
 
-Pair them with a **positive** verb. Adding *not*, *can't*, *didn't*, or *no* doubles the negative: *"I can hardly hear you."* *"Scarcely any supplies remained."*
+In formal English, use one negative for the same meaning: *"I can hardly hear you."* *"Scarcely any supplies remained."*
 
 :::pair #not-with-near-negative
 Right: *"I can hardly hear you from over here."* and *"Scarcely any supplies remained."*
 Wrong: *"I can't hardly hear you from over here."* or *"Scarcely no supplies remained after the last group left."*
-Adding *can't* or *no* puts a second negative onto a word that already means *almost not*. Drop *can't*, or switch *no* to *any*.
+Adding *can't* or *no* puts a second negative onto a word that already means *almost not*. Change *can't* to *can*, or switch *no* to *any*.
 :::
 
 :::check
@@ -105,32 +105,32 @@ In standard formal English, revise *"I can't hardly hear you from over here"* wh
 **Solution:**
 
 1. *Hardly* already means *almost not*.
-2. Drop *n't* from *can't* so *hardly* expresses the small amount of hearing cleanly.
+2. Change *can't* to *can* so *hardly* expresses the small amount of hearing cleanly.
 
 Correct sentence: **"I can hardly hear you from over here."**
 
 **Check:** Replace *hardly* with *"barely"*: *"I can barely hear you from over here."* That matches very little hearing without changing it to clear hearing or zero hearing.
 
-### #3: Reading Scarcely and Seldom Accurately
+### #3: Reading Two Office Memos
 
-The clerk did finish the audit. Her memo says she *"could scarcely finish the audit."* Another memo says *"The branch seldom cancels briefings."* What does each convey?
+The clerk wrote, *"I scarcely managed to finish the audit."* A branch memo says, *"We seldom cancel Friday briefings,"* and its schedule shows one cancellation.
 
 :::try
-State what *"could scarcely finish the audit"* conveys here, and define *"seldom cancels."*
+What does *scarcely* say about the audit? Does the one cancellation contradict the memo?
 :::answer
-The answer is **She finished the audit, though only with great difficulty; and the branch *rarely* cancels briefings (not never).**
+The answer is **She finished the audit, though only with great difficulty; and no, one cancellation does not contradict the memo.**
 
-**Check:** The audit was finished, so *scarcely* signals great difficulty, not failure; replacing *seldom* with *rarely* keeps occasional cancellations possible rather than zero.
+**Check:** *Managed to finish* shows the audit was done, so *scarcely* signals great difficulty, not failure. *Seldom* means rarely, so one cancellation fits; only *never* would be contradicted.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Keep *not unexpected* in the middle (not surprising, not guaranteed). Read *hardly*, *scarcely*, and *barely* as *almost not* with a positive verb and no second negative, and *seldom* as *rarely*.
+Read *not unexpected* in context as unsurprising, not guaranteed. Read *hardly*, *scarcely*, and *barely* as *almost not*, with no second negative in formal English, and *seldom* as *rarely*.
 
 ## Traps to Watch For
 
 :::checklist
-- Qualified negative (*not unexpected*, *not unreasonable*): keep the middle meaning, not negative or extreme. {#qualified-negative-extremes}
-- Near-negative (*hardly*, *scarcely*, *barely*): use a positive verb, with no second negative like *not* or *no*. {#not-with-near-negative}
+- Qualified negative (*not unexpected*, *not unreasonable*): read the middle meaning in context, not negative or extreme. {#qualified-negative-extremes}
+- Near-negative (*hardly*, *scarcely*, *barely*): in formal English, use one negative, with no second one like *can't* or *no*. {#not-with-near-negative}
 - *Seldom*: means *rarely*, never *never*. {#seldom-as-never}
 :::

@@ -24,7 +24,7 @@ Ang **pang-ukol** (preposition) ay nag-uugnay ng **pangngalan** (noun) o grupo n
 :::pair #pang-ukol-laban-sa-pangatnig
 Right: Sa "Naghanda ang tanggapan ng mga upuan para sa mga bisita," ang *para sa* ay pang-ukol.
 Wrong: Tawaging pangatnig, pang-abay, o pangngalan ang *para sa* sa pangungusap na ito.
-Sinusundan ng pangngalan o pangkat ng pangngalan (*mga bisita*) ang pang-ukol, hindi ng isang kilos at hindi rin ito ang pangngalan mismo.
+Iniuugnay ng pang-ukol ang pangkat ng pangngalan (*mga bisita*); hindi ito kilos o ang pangngalan mismo.
 :::
 
 :::check
@@ -35,15 +35,15 @@ Ang sagot ay **Pang-ukol**. Ipinakikilala ng *tungkol sa* ang pangngalang *kalik
 
 ### Pangatnig: Nagdurugtong ng mga Salita o Sugnay
 
-Ang **pangatnig** (conjunction) ay nagdurugtong ng salita, parirala, o **sugnay** (clause), tulad ng *at, ngunit, o, dahil, sapagkat, upang,* at *kung*:
+Ang **pangatnig** (conjunction) ay nagdurugtong ng salita, **parirala** (phrase), o **sugnay** (clause), tulad ng *at, ngunit, o, dahil, sapagkat, upang,* at *kung*:
 
 - "Nagbasa siya **at** nagsulat." (Pinagdurugtong ng *at* ang dalawang kilos.)
 - "Umuwi siya **dahil** umuulan na." (Pinagdurugtong ng *dahil* ang dalawang sugnay.)
 
-<!-- ILLUSTRATION: dalawang halimbawa sa magkatabing kahon: kaliwa "para sa [mga bisita]" na may tatak na "kasunod: pangkat ng pangngalan -> pang-ukol"; kanan "Nagbasa siya at nagsulat" na may tatak na "nagdurugtong ng dalawang kilos -> pangatnig" -->
+<!-- ILLUSTRATION: dalawang halimbawa sa magkatabing kahon: kaliwa "para sa [mga bisita]" na may tatak na "iniuugnay ang pangkat ng pangngalan sa ibang bahagi -> pang-ukol"; kanan "Nagbasa siya at nagsulat" na may tatak na "nagdurugtong ng dalawang kilos -> pangatnig" -->
 
 :::why
-Paano agad paghiwalayin ang pang-ukol at pangatnig? Tingnan ang kasunod nito. Kung pangkat ng pangngalan ang kasunod (*para sa mga bisita*), pang-ukol ito; kung dalawang salita, kilos, o sugnay ang pinagdurugtong (*nagbasa at nagsulat*), pangatnig ito.
+Paano agad paghiwalayin ang pang-ukol at pangatnig? Itanong kung ano ang ginagawa ng salita. Iniuugnay ng pang-ukol ang pangkat ng pangngalan sa ibang bahagi ng pangungusap (*para sa mga bisita*). Nagdurugtong ang pangatnig ng dalawang bahagi, kahit pangngalan ang dalawa (*papel at lapis*) o kilos (*nagbasa at nagsulat*).
 :::
 
 :::check
@@ -65,9 +65,9 @@ Hindi pinapangalanan ng *Naku* ang isang damdamin tulad ng salitang *kaba*, hind
 :::
 
 :::check
-Sa "**Sayang!** Nahuli tayo sa biyahe," anong bahagi ng pananalita ang salitang nakadiin?
+Sa "**Hala!** Nahulog ang baso," anong bahagi ng pananalita ang salitang nakadiin?
 :::answer
-Ang sagot ay **Pandamdam**. Nagpapahayag ang *Sayang!* ng panghihinayang o reaksiyon.
+Ang sagot ay **Pandamdam**. Nagpapahayag ang *Hala!* ng pagkagulat o reaksiyon.
 :::
 
 ## Examples
@@ -82,7 +82,7 @@ Sa "Naghanda ang tanggapan ng mga upuan **para sa** mga bisita," anong bahagi ng
 2. Suriin ang ugnayan: ipinakikita nitong para sa mga bisita ang inihandang mga upuan.
 3. Dahil iniuugnay nito ang pangkat ng pangngalan sa ibang bahagi ng pangungusap, **pang-ukol** ito.
 
-**Check:** Walang ikalawang kilos na idinugtong ang *para sa*, kaya hindi ito pangatnig; may kasunod itong pangngalang *mga bisita*, kaya pang-ukol ito.
+**Check:** Subukan ang *at*: ang "mga upuan at mga bisita" ay nagdurugtong ng dalawang pangngalan. Iba ang *para sa*: ipinakikita nitong para kanino ang mga upuan.
 
 ### #2: Pagkilala sa Pangatnig
 
@@ -94,9 +94,9 @@ Sa "Malamig ang hangin **ngunit** mainit ang sikat ng araw," anong bahagi ng pan
 2. Parehong sugnay ang mga ito na nagpapakita ng magkasalungat na diwa.
 3. Dahil pinagdurugtong nito ang dalawang sugnay, **pangatnig** ito.
 
-**Check:** Ipinagdurugtong ng *ngunit* ang dalawang sugnay, hindi ang isang pangngalan lamang sa ibang salita.
+**Check:** Ipinagdurugtong ng *ngunit* ang dalawang sugnay.
 
-### #3: Pahayag ng Damdamin o Reaksiyon
+### #3: Salita sa Simula ng Pangungusap
 
 Sa "**Hay!** Naubos na ang tinapay," paano gumagana ang *Hay*?
 
@@ -114,11 +114,11 @@ Ang sagot ay **Pandamdam**. Tuwiran nitong ipinahahayag ang damdamin ng nagsasal
 
 ## Speed Tricks & Shortcuts
 
-Tingnan ang kasunod ng salita. Kung pangngalan o panghalip na tumatanggap o pinag-uusapan (*para sa mga bisita*), pang-ukol ito; kung dalawang bahagi ang pinagdurugtong (*at*, *ngunit*, *dahil*), pangatnig ito; kung biglaang reaksiyon lamang (*Naku!*, *Aray!*), pandamdam ito.
+Itanong kung ano ang ginagawa ng salita. Kung iniuugnay nito ang pangngalan o **panghalip** (pronoun) sa ibang bahagi (*para sa mga bisita*), pang-ukol ito; kung dalawang bahagi ang pinagdurugtong (*at*, *ngunit*, *dahil*), pangatnig ito; kung biglaang reaksiyon lamang (*Naku!*, *Aray!*), pandamdam ito.
 
 ## Traps to Watch For
 
 :::checklist
-- Pariralang gaya ng *para sa mga bisita*: sinusundan ng pangngalan, kaya pang-ukol ang *para sa*, hindi pangatnig o pang-abay. {#pang-ukol-laban-sa-pangatnig}
+- Pariralang gaya ng *para sa mga bisita*: iniuugnay ng *para sa* ang pangngalan sa ibang bahagi, kaya pang-ukol ito, hindi pangatnig o pang-abay. {#pang-ukol-laban-sa-pangatnig}
 - Bulalas gaya ng *Naku!* o *Aray!*: tuwirang pahayag ng damdamin, kaya pandamdam ito, hindi pangngalan o pandiwa. {#pandamdam-laban-sa-pangngalan}
 :::

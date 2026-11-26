@@ -13,26 +13,26 @@ keyPoints:
 ---
 ## Core Concept
 
-### Ugat, Panlapi, at Pag-uulit ng Pantig
+### Ugat, Panlapi, at Pag-uulit
 
-Ang **ugat** (root) ay ang batayang salita na walang dagdag, gaya ng *linis* at *kain*. Ang **panlapi** (affix) ay ikinakabit sa ugat, gaya ng *mag-*, *nag-*, *ka-*, at *-um-*. Ang **pantig** (syllable) ay bahagi ng salitang binibigkas nang isang bugso, gaya ng *li* sa *linis* o *ka* sa *kain*.
+Ang **ugat** (root) ay ang batayang salita na walang dagdag, gaya ng *linis* at *kain*. Ang **panlapi** (affix) ay ikinakabit sa ugat, gaya ng *mag-*, *nag-*, *ka-*, at *-um-*.
 
-Kapag nagsisimula sa katinig ang ugat, inuulit ang unang katinig at patinig nito (*li-* sa *linis*, *ka-* sa *kain*). Kung nagsisimula sa patinig ang ugat tulad ng *alis*, inuulit ang unang patinig (*aalis*, *umaalis*).
+Kapag nagsisimula sa katinig ang ugat, inuulit ang unang katinig at patinig nito (*li-* sa *linis*, *ka-* sa *kain*, *ta-* sa *takbo*). Kung nagsisimula sa patinig ang ugat tulad ng *alis*, inuulit ang unang patinig (*aalis*, *umaalis*).
 
 ### Pangkat na Mag- (Maglinis)
 
-Sa pangkat ng *maglinis*, sumusunod ang tatlong **aspekto** (aspect) sa iisang hulma:
+Sa pangkat ng *maglinis*, sumusunod ang tatlong **aspekto** sa iisang hulma:
 
 1. **Perpektibo** (completed): tapos na, palitan ang *mag-* ng *nag-* -> *naglinis*.
-2. **Imperpektibo** (ongoing): nagpapatuloy, gamitin ang *nag-* at ulitin ang unang pantig -> *naglilinis*.
-3. **Kontemplatibo** (contemplated): gagawin pa, panatilihin ang *mag-* at ulitin ang unang pantig -> *maglilinis*.
+2. **Imperpektibo** (ongoing): nagpapatuloy, gamitin ang *nag-* at ulitin ang unang katinig at patinig -> *naglilinis*.
+3. **Kontemplatibo**: gagawin pa, panatilihin ang *mag-* at ulitin ang unang katinig at patinig -> *maglilinis*.
 
-Para sa katatapos na kilos, gamitin ang *ka-* at pag-uulit ng unang pantig: *kalilinis lang* (o *kadarating lang* mula sa *dating*, kung saan nagiging *r* ang *d* sa gitna ng mga patinig).
+Para sa katatapos na kilos, gamitin ang *ka-* at pag-uulit ng unang katinig at patinig: *kalilinis lang* (o *kadarating lang* mula sa *dating*, kung saan nagiging *r* ang *d* sa gitna ng mga patinig).
 
 :::check
-Ano ang anyong imperpektibo (nagpapatuloy) ng pandiwang *magbasa*?
+Ano ang anyong imperpektibo (nagpapatuloy) ng pandiwang *maglaba*?
 :::answer
-Ang sagot ay **Nagbabasa**. Ginagamit ang *nag-* at inuulit ang unang pantig na *ba* ng ugat na *basa*.
+Ang sagot ay **Naglalaba**. Ginagamit ang *nag-* at inuulit ang *la*, ang unang katinig at patinig ng ugat na *laba*.
 :::
 
 ### Pangkat na -Um- (Kumain)
@@ -40,11 +40,11 @@ Ang sagot ay **Nagbabasa**. Ginagamit ang *nag-* at inuulit ang unang pantig na 
 Iba ang hulma ng pangkat na *kumain*. Ipinapasok ang *-um-* pagkatapos ng unang katinig ng ugat (o sa unahan kung patinig ang simula, gaya ng *umalis*):
 
 1. **Perpektibo**: ugat + *-um-* -> *kumain*.
-2. **Imperpektibo**: *-um-* + pag-uulit ng unang pantig -> *kumakain*.
-3. **Kontemplatibo**: pag-uulit ng unang pantig, walang *-um-* -> *kakain*.
+2. **Imperpektibo**: *-um-* + pag-uulit ng unang katinig at patinig -> *kumakain*.
+3. **Kontemplatibo**: pag-uulit ng unang katinig at patinig, walang *-um-* -> *kakain*.
 
 :::why
-Bakit nawawala ang *-um-* sa *kakain*? Sa pangkat ng *-um-*, sapat na ang pag-uulit ng unang pantig upang ipakitang magaganap pa ang kilos. Hindi nito hinihiram ang *mag-* mula sa ibang pangkat ng pandiwa.
+Bakit nawawala ang *-um-* sa *kakain*? Sa pangkat ng *-um-*, sapat na ang pag-uulit ng unang katinig at patinig upang ipakitang magaganap pa ang kilos. Hindi nito hinihiram ang *mag-* mula sa ibang pangkat ng **pandiwa** (verb).
 :::
 
 :::pair #huwag-ilipat-ang-mag
@@ -68,7 +68,7 @@ Hindi sapat ang pag-uulit upang sabihing nagpapatuloy ang kilos. May pag-uulit d
 :::check
 Ano ang anyong kontemplatibo ng pandiwang nasa pangkat ng *sumulat*?
 :::answer
-Ang sagot ay **Susulat**. Inaalis ang *-um-* at inuulit ang unang pantig na *su* ng ugat na *sulat*.
+Ang sagot ay **Susulat**. Inaalis ang *-um-* at inuulit ang *su*, ang unang katinig at patinig ng ugat na *sulat*.
 :::
 
 ## Examples
@@ -80,8 +80,8 @@ Punan ang mga patlang gamit ang anyong kontemplatibo ng *maglinis* at *kumain*: 
 **Solution:**
 
 1. Tukuyin ang kalagayan: *bukas*, kaya parehong hindi pa nasisimulan (kontemplatibo).
-2. Sa *maglinis*, panatilihin ang *mag-* at ulitin ang unang pantig na *li*: **maglilinis**.
-3. Sa *kumain*, alisin ang *-um-* at ulitin ang unang pantig na *ka*: **kakain**.
+2. Sa *maglinis*, panatilihin ang *mag-* at ulitin ang *li*: **maglilinis**.
+3. Sa *kumain*, alisin ang *-um-* at ulitin ang *ka*: **kakain**.
 
 Sagot: "Bukas ay maglilinis kami ng silid. Pagkatapos ay kakain kami."
 
@@ -101,9 +101,9 @@ Sagot: **Palitan ang *magkakain* ng *kakain*.**
 
 **Check:** Subukin sa iba pang pandiwa sa *-um-*: mula sa *uminom* ay *iinom*, at mula sa *sumulat* ay *susulat* (walang *-um-* sa kontemplatibo). Pareho ang hulma ng *kakain*.
 
-### #3: Pagsusuri ng Dalawang Pandiwang May Pag-uulit
+### #3: Dalawang Pandiwa sa Tala
 
-Sa tala ay nakasulat, "Kasasara lang ng mga kawani ng tanggapan. Magbabasa sila ng ulat bukas." Suriin ang aspekto ng *kasasara* at *magbabasa*.
+Sa tala ay nakasulat, "Kasasara lang nila ng tanggapan. Magbabasa sila ng ulat bukas." Suriin ang aspekto ng *kasasara* at *magbabasa*.
 
 **Solution:**
 
@@ -115,17 +115,17 @@ Tapusin ang huling hakbang: anong aspekto ang *magbabasa*, at bakit hindi ito im
 :::answer
 Ang sagot ay **Perpektibong katatapos ang una; kontemplatibo ang ikalawa.** Gumagamit ang *magbabasa* ng unlaping *mag-* (hindi *nag-*) kasama ng inulit na *ba* at pahiwatig na *bukas*, kaya gagawin pa ito at hindi nagpapatuloy.
 
-**Check:** Ihambing ang dalawang unlapi: ang nagpapatuloy na anyo ay *nagbabasa* (*nag-* + *ba*), habang ang *magbabasa* (*mag-* + *ba*) ay palaging nakatuon sa kilos na gagawin pa.
+**Check:** Ihambing ang dalawang unlapi: ang nagpapatuloy na anyo ay *nagbabasa* (*nag-* + *ba*), habang ang *magbabasa* (*mag-* + *ba*) ay nakatuon sa kilos na gagawin pa.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Tukuyin muna kung nasa pangkat ng *mag-* o *-um-* ang pandiwa. Sa kontemplatibo, ang *mag-* ay nagiging *mag-* + pag-uulit (*maglilinis*), habang ang *-um-* ay nag-aalis ng *-um-* at nag-uulit lamang ng unang pantig (*kakain*).
+Tukuyin muna kung nasa pangkat ng *mag-* o *-um-* ang pandiwa. Sa kontemplatibo, ang *mag-* ay nagiging *mag-* + pag-uulit (*maglilinis*), habang ang *-um-* ay nag-aalis ng *-um-* at nag-uulit lamang ng unang katinig at patinig (*kakain*).
 
 ## Traps to Watch For
 
 :::checklist
 - Pandiwang nasa pangkat ng *-um-* sa kontemplatibo: huwag lagyan ng *mag-* (*kakain*, hindi *magkakain*). {#huwag-ilipat-ang-mag}
 - Pagpili ng gagawin pa sa pangkat ng *kumain*: alisin ang *-um-* upang hindi maging *kumain* o *kumakain*. {#kumain-kontemplatibo-walang-um}
-- Pandiwang may inuulit na pantig: basahin ang buong unlapi (*ka-*, *nag-*, o *mag-*) upang maihiwalay ang katatapos, imperpektibo, at kontemplatibo. {#basahin-ang-buong-pandiwa}
+- Pandiwang may pag-uulit: basahin ang buong unlapi (*ka-*, *nag-*, o *mag-*) upang maihiwalay ang katatapos, imperpektibo, at kontemplatibo. {#basahin-ang-buong-pandiwa}
 :::

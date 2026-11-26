@@ -18,7 +18,7 @@ keyPoints:
 
 Ang **pang-abay na pamanahon** (time adverb) ay salitang nagsasabi kung kailan nangyari, nangyayari, o mangyayari ang kilos. Ilan sa mga karaniwang pahiwatig ang *kahapon* (nakaraan), *ngayon* (kasalukuyan), *bukas* (hinaharap), at *tuwing* (paulit-ulit).
 
-Maaaring ilagay ang pahiwatig ng oras sa unahan ng pangungusap na may *ay*, o ilipat sa hulihan nang walang *ay*. Hindi nagbabago ang oras at **aspekto** (aspect) ng **pandiwa** (verb) kapag inilipat lamang ang puwesto nito:
+Maaaring ilagay ang pahiwatig ng oras sa unahan ng pangungusap na may *ay*, o ilipat sa hulihan nang walang *ay*. Hindi nagbabago ang oras at **aspekto** ng **pandiwa** (verb) kapag inilipat lamang ang puwesto nito:
 
 - Unahan: "**Bukas** ay magsusumite si Elena ng ulat."
 - Hulihan: "Magsusumite si Elena ng ulat **bukas**."
@@ -37,7 +37,7 @@ Ang sagot ay **"Nag-aral si Mia kahapon."** Nanatili ang *kahapon* at ang tapos 
 
 ### Paulit-ulit na Kilos at Pahiwatig na Tuwing
 
-Ginagamit ang **imperpektibo** (ongoing) hindi lamang sa kilos na nangyayari sa mismong sandali ng pagsasalita. Ginagamit din ito para sa paulit-ulit o nakatakdang gawain na may pahiwatig na *tuwing*:
+Ginagamit ang **imperpektibo** (ongoing) hindi lamang sa kilos na nangyayari sa mismong sandali ng pagsasalita. Ginagamit din ito para sa paulit-ulit o nakatakdang gawain. Tanda ng pag-uulit ang *tuwing*:
 
 - "Naglilinis ng bulwagan ang mga kawani **tuwing Sabado**." (Lingguhang iskedyul ito, kaya *naglilinis* ang tamang anyo kahit hindi Sabado ngayon.)
 
@@ -64,13 +64,13 @@ Kapag may kilos na nagpapatuloy pa nang pumasok ang isa pang pangyayari sa nakar
 <!-- ILLUSTRATION: guhit ng oras na may tatak na "kahapon": isang mahabang guhit para sa "nagsusulat pa si Luis" at isang patayong tuldok na tumatama rito na may tatak na "nang dumating ang pinuno", na nagpapakitang nagpapatuloy pa ang pagsulat -->
 
 :::why
-Bakit imperpektibo ang *nagsusulat* kahit may *kahapon* sa pangungusap? Nang dumating ang pinuno kahapon, hindi pa tapos at kasalukuyan pang nangyayari ang pagsusulat ni Luis. Ang *kahapon* ay nagtatakda kung kailan naganap ang tagpo, ngunit ang *nagsusulat pa* ang nagsasabi ng kalagayan ng kilos sa sandaling iyon.
+Bakit imperpektibo ang *nagsusulat* kahit may *kahapon*? Ipinakikita ng *pa* na hindi pa tapos ang pagsusulat nang dumating ang pinuno.
 :::
 
 :::pair #nagpapatuloy-sa-nakaraan
 Right: Sa "Nagsusulat pa ng ulat si Luis nang dumating ang pinuno kahapon," ang *nagsusulat* ay **imperpektibo, dahil nagpapatuloy ang pagsulat nang dumating ang pinuno**.
 Wrong: "**Perpektibo, dahil kahapon naganap ang pangyayari.**" o "**Kontemplatibo, dahil hindi pa tapos ang ulat.**"
-Hindi tapos ang pagsusulat kahit may *kahapon*. Hindi rin ito **kontemplatibo** (contemplated), dahil nagsimula na ito. Nagsusulat na si Luis nang dumating ang pinuno.
+Hindi tapos ang pagsusulat kahit may *kahapon*. Hindi rin ito **kontemplatibo** (not yet begun), dahil nagsimula na ito. Nagsusulat na si Luis nang dumating ang pinuno.
 :::
 
 :::check
@@ -105,7 +105,7 @@ Ilipat sa hulihan ang pahiwatig ng oras sa "Bukas ay magsusumite si Elena ng ula
 
 **Check:** Hindi sinasabing tapos na ang lahat ng paglilinis o katatapos lamang nito; sinasabi ng *tuwing Sabado* na umuulit ito linggo-linggo.
 
-### #3: Nagpapatuloy na Kilos sa Nakaraan
+### #3: Dalawang Pangyayari Kahapon
 
 "Naglalaba pa si Rita nang tumawag ang kaibigan niya kahapon." Ano ang aspekto ng *naglalaba*, at bakit?
 
@@ -129,6 +129,6 @@ Huwag tumingin sa *kahapon*, *ngayon*, o *bukas* lamang. Basahin ang buong pangu
 
 :::checklist
 - Paglipat ng pahiwatig sa hulihan: panatilihin ang parehong pahiwatig at anyo ng pandiwa, tulad ng "Magsusumite si Elena ng ulat bukas." {#panatilihin-ang-oras-at-aspekto}
-- Pahiwatig na *tuwing*: imperpektibo ang pandiwa dahil paulit-ulit ang gawain, hindi dahil natapos o katatapos lamang ito. {#tuwing-paulit-ulit-na-kilos}
+- Pahiwatig na *tuwing*: tanda ito ng pag-uulit, kaya tingnan din ang anyo ng pandiwa at ang buong pangungusap. {#tuwing-paulit-ulit-na-kilos}
 - Salitang *kahapon* na may kasamang kilos na nagpapatuloy (*nagsusulat pa*): imperpektibo ang kilos sa sandaling iyon, hindi perpektibo. {#nagpapatuloy-sa-nakaraan}
 :::

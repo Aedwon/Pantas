@@ -16,7 +16,7 @@ keyPoints:
 
 ### Marking Earlier Completion in the Past
 
-**Past perfect** uses *had* plus a past participle (*had cooked*, *had written*, *had finished*). Use it when two events happened in the past and you want to make clear that the first event was already finished before the second past event or time:
+**Past perfect** uses *had* plus a past participle (*had cooked*, *had written*, *had finished*). Use it to show an action was already complete by a past event or time:
 
 - "By the time the guests arrived, she **had cooked** the entire meal."
 - "She **had written** the letter by noon yesterday."
@@ -27,14 +27,14 @@ keyPoints:
 
 :::pair #mark-earlier-past
 Right: By the time the guests arrived, she had cooked the entire meal.
-Wrong: Use simple past (*cooked*) when past perfect is needed to show earlier completion, or present (*cooks*).
-*Arrived* puts the sequence in the past, so present *cooks* breaks the timeline. Using *had cooked* makes clear that cooking finished before the guests arrived.
+Wrong: Use simple past (*cooked*) when the prompt asks for past perfect, or present (*cooks*).
+*Arrived* puts the sequence in the past, so present *cooks* breaks the timeline. The requested form, *had cooked*, shows cooking finished before the guests arrived.
 :::
 
 :::check
-Choose the past-perfect form for an action finished before a past time: "Ana *(had finished / has finished)* the report before noon yesterday."
+Choose the past-perfect form for an action finished before a past time: "Ana *(had called / has called)* the client before the meeting started yesterday."
 :::answer
-The answer is **Had finished**. *Before noon yesterday* is a past reference point, so earlier completion uses *had* rather than *has*.
+The answer is **Had called**. *Before the meeting started yesterday* is a past reference point, so earlier completion uses *had* rather than *has*.
 :::
 
 ### When Time Words Already Show Order
@@ -100,6 +100,6 @@ When two past events appear together, put them on a mental timeline. Use *had* +
 ## Traps to Watch For
 
 :::checklist
-- A prompt that asks for past perfect or earlier completion: put *had* + past participle on the action finished first, not present or future. {#mark-earlier-past}
+- A prompt that asks for the past-perfect form: put *had* + past participle on the action finished first. {#mark-earlier-past}
 - A sentence with *before* or *after* joining two simple past verbs: accept simple past when the connector already makes event order clear. {#before-already-orders}
 :::

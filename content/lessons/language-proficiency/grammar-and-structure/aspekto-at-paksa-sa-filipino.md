@@ -16,16 +16,16 @@ keyPoints:
 
 ### Pagpili ng Aspekto Ayon sa Kalagayan ng Kilos
 
-Ang **pandiwa** (verb) ay nagsasaad ng kilos. Ang **aspekto** (aspect) ay nagsasabi kung tapos na, nagaganap pa, o gagawin pa ang kilos. May apat na anyo ang aspekto gamit ang salitang-ugat na *kain*:
+Ang **pandiwa** (verb) ay nagsasaad ng kilos. Ang **aspekto** ay nagsasabi kung tapos na, nagaganap pa, o gagawin pa ang kilos. Ihambing ang apat na anyo ng *kain* ayon sa kalagayan ng kilos:
 
 1. **Perpektibo** (completed): tapos na, *kumain* ("Kumain na si Nena kanina.")
 2. **Perpektibong katatapos** (recently completed): katatapos lamang, *kakakain lamang* o *katatapos lamang kumain* ("Kakakain lamang ni Nena bago siya umalis.")
 3. **Imperpektibo** (ongoing): nagaganap pa o paulit-ulit, *kumakain* ("Kumakain pa si Nena habang naghihintay.")
-4. **Kontemplatibo** (contemplated): hindi pa nasisimulan, *kakain* ("Kakain pa lamang siya mamaya.")
+4. **Kontemplatibo**: hindi pa nasisimulan, *kakain* ("Kakain pa lamang siya mamaya.")
 
 <!-- ILLUSTRATION: guhit ng oras para sa kilos na "kain": sa kaliwa "kumain (perpektibo: tapos na)", kasunod ang maikling tuldok na "kakakain lamang (katatapos lang)", sa gitna "kumakain (imperpektibo: nagaganap pa)", at sa kanan "kakain (kontemplatibo: hindi pa nasisimulan)" -->
 
-Iba-iba ang panlapi ng bawat pandiwa (tulad ng *nagluto, nagluluto, magluluto*), kaya suriin kung tapos na, nagaganap pa, o gagawin pa ang kilos sa pangungusap.
+Iba-iba ang **panlapi** (affix) ng bawat pandiwa (tulad ng *nagluto, nagluluto, magluluto*), kaya suriin kung tapos na, nagaganap pa, o gagawin pa ang kilos sa pangungusap.
 
 :::pair #aspekto-ayon-sa-kalagayan
 Right: Hindi pa tapos kumain si Nena: "**Kumakain** pa si Nena habang hinihintay ang kaniyang kasama."
@@ -49,7 +49,7 @@ Sa ibang wika tulad ng Ingles, nagbabago ang pandiwa kapag naging maramihan ang 
 - Maramihan: "**Kumakain** ng tanghalian **ang mga kawani**."
 
 :::why
-Bakit nananatili ang *kumakain* kahit marami na ang kawani? Ipinakikita ng anyo ng pandiwa sa Filipino ang aspekto at **pokus** (focus), hindi ang bilang kung isa o marami ang paksa. Ang *mga* sa paksa lamang ang nagpapakita ng maramihan.
+Bakit nananatili ang *kumakain* kahit marami na ang kawani? Sa dalawang pangungusap na ito, aspekto ang ipinakikita ng pandiwa, hindi ang bilang ng paksa. Hindi kailangang baguhin ang pandiwa kapag dumami ang paksa. Ang *mga* sa paksa ang nagpapakita ng maramihan.
 :::
 
 :::pair #bilang-ng-paksa-at-pandiwa
@@ -92,17 +92,17 @@ Gawing maramihan ang paksa ng "Kumakain ng tanghalian ang kawani." Panatilihin a
 
 ### #3: Tatlong Kalagayan sa Iisang Salitang-Ugat
 
-Punan ang bawat patlang gamit ang *naghanda*, *naghahanda*, o *maghahanda*: "___ na si Lea kagabi kaya tapos na ang ulat. ___ pa siya sa sandaling ito. ___ naman si Ben bukas ng umaga."
+Punan ng angkop na anyo ng *handa* ang bawat patlang: "___ si Lea ng ulat kagabi. ___ pa siya ng talumpati ngayon. ___ si Ben ng meryenda bukas ng umaga."
 
 **Solution:**
 
-1. Tapos na kagabi ang unang kilos, kaya **Naghanda** ang nasa unang patlang.
-2. Nagaganap pa sa sandaling ito ang ikalawa, kaya **Naghahanda** ang nasa ikalawang patlang.
+1. Tapos na kagabi ang unang kilos: "**Naghanda** si Lea ng ulat kagabi."
+2. Nagaganap pa ngayon ang ikalawa: "**Naghahanda** pa siya ng talumpati ngayon."
 
 :::try
-Tapusin ang huling hakbang: aling anyo ang akma para sa ikatlong pangungusap na gagawin pa lamang bukas?
+Tapusin ang huling hakbang: aling anyo ng *handa* ang akma kay Ben, at ano ang buong pangungusap?
 :::answer
-Ang sagot ay **Maghahanda**: "Maghahanda naman si Ben bukas ng umaga."
+Ang sagot ay **Maghahanda**: "Maghahanda si Ben ng meryenda bukas ng umaga."
 
 **Check:** Suriin ang tatlo ayon sa kalagayan: *naghanda* (tapos na kagabi), *naghahanda* (nagaganap pa ngayon), at *maghahanda* (hindi pa nasisimulan bukas).
 :::

@@ -31,15 +31,15 @@ Ang sagot ay **Ang liham**. Ito ang may panandang *ang*, habang *ni Mara* ay may
 
 ### Pokus sa Tagaganap at Pokus sa Layon
 
-Ang **pokus** (focus) ay ang ugnayan ng anyo ng **pandiwa** (verb) at ng papel ng paksa sa kilos. Paghambingin ang **tagaganap** (actor) at **layon** (object) sa iisang kilos (*sulat*, si Mara, liham):
+Ang **pokus** ay ang ugnayan ng anyo ng **pandiwa** (verb) at ng papel ng paksa sa kilos. Paghambingin ang **tagaganap** (actor) at **layon** (object) sa iisang kilos (*sulat*, si Mara, liham):
 
-1. Pokus sa **tagaganap**: ang paksa ang gumagawa (*-um-*, *mag-*, *ma-*, *mang-*): "Sumulat **si Mara** ng liham."
-2. Pokus sa **layon**: ang paksa ang bagay na ginawan (*-in-*, *-in*, *i-*): "Sinulat ni Mara **ang liham**."
+1. Pokus sa **tagaganap**: ang paksa ang gumagawa (halimbawa, *-um-*): "Sumulat **si Mara** ng liham."
+2. Pokus sa **layon**: ang paksa ang bagay na ginawan (halimbawa, *-in-*): "Sinulat ni Mara **ang liham**."
 
 <!-- ILLUSTRATION: dalawang nakapatong na pangungusap: sa itaas "Sumulat si Mara ng liham." na may palaso mula "Sumulat" patungong "si Mara" na may tatak na "paksa: tagaganap"; sa ibaba "Sinulat ni Mara ang liham." na may palaso mula "Sinulat" patungong "ang liham" na may tatak na "paksa: layon" -->
 
 :::why
-Bakit sabay na nagbabago ang pandiwa at pananda? Ipinakikita ng panlapi ng pandiwa kung aling papel ang itinatampok. Kapag pinalitan ang paksa mula sa gumagawa patungo sa bagay, nagbabago rin ang mga pananda kasabay ng paksa.
+Bakit sabay na nagbabago ang pandiwa at pananda? Ipinakikita ng **panlapi** (affix) ng pandiwa kung aling papel ang itinatampok. Kapag pinalitan ang paksa mula sa gumagawa patungo sa bagay, nagbabago rin ang mga pananda kasabay ng paksa.
 :::
 
 :::pair #paksa-may-ang-o-si
@@ -56,7 +56,7 @@ Ang sagot ay **Ang**. Ang *nagluto* ay nakapokus sa tagaganap, kaya *ang kusiner
 
 ### Pagpapanatili ng Aspekto Kapag Nagpalit ng Pokus
 
-Ang **aspekto** (aspect) ng pandiwa ay nagsasabi kung tapos na, ginaganap pa, o gagawin pa lamang ang kilos. Kapag inilipat mo ang paksa mula tagaganap patungong layon, panatilihin ang gumawa at ang parehong aspekto:
+Ang **aspekto** ng pandiwa ay nagsasabi kung tapos na, ginaganap pa, o gagawin pa lamang ang kilos. Kapag inilipat mo ang paksa mula tagaganap patungong layon, panatilihin ang gumawa at ang parehong aspekto:
 
 - Tapos na: "Sumulat si Mara ng liham." -> "Sinulat ni Mara ang liham."
 - Ginaganap pa: "Sumusulat si Mara ng liham." -> "Sinusulat ni Mara ang liham."
@@ -69,9 +69,9 @@ Bagaman naging paksa ang *liham*, binago ng mga maling anyo ang kalagayan ng kil
 :::
 
 :::check
-Gawing paksa ang *sopas* habang pinananatiling tapos na ang kilos: "Nagluto si Mara ng sopas."
+Gawing paksa ang *kape* habang pinananatiling tapos na ang kilos: "Nagtimpla si Mara ng kape."
 :::answer
-Ang sagot ay **"Niluto ni Mara ang sopas."** Naging *ang sopas* ang paksa, nanatiling si Mara ang gumawa (*ni Mara*), at tapos na pa rin ang kilos (*niluto*).
+Ang sagot ay **"Tinimpla ni Mara ang kape."** Naging *ang kape* ang paksa, nanatiling si Mara ang gumawa (*ni Mara*), at tapos na pa rin ang kilos (*tinimpla*).
 :::
 
 ## Examples
@@ -86,7 +86,7 @@ Piliin ang tamang pananda sa patlang: "Kumain ______ bata ng tinapay."
 2. Itanong kung sino ang kumain: ang bata.
 3. Gamitin ang panandang paksa para sa karaniwang ngalan: "Kumain **ang** bata ng tinapay."
 
-**Check:** Tingnan ang papel ng bawat pangngalan: *ang bata* ang paksa (gumawa) at *ng tinapay* ang bagay na kinain, kaya tugma sa *kumain*.
+**Check:** Tingnan ang papel ng bawat parirala: *ang bata* ang paksa (gumawa) at *ng tinapay* ang bagay na kinain, kaya tugma sa *kumain*.
 
 ### #2: Tagaganap Laban sa Layon
 

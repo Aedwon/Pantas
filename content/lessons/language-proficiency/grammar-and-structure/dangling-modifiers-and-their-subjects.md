@@ -16,9 +16,9 @@ keyPoints:
 
 ### Matching an Opening Phrase to the Main Subject
 
-When a sentence begins with a subjectless opening phrase (*"Driving through the mountains,"* *"Exhausted from the hike,"* *"To reach the deadline"*), the opening action attaches to the **main subject** right after the comma.
+When a sentence begins with a subjectless opening phrase (*"Driving through the mountains,"* *"Exhausted from the hike,"* *"To reach the deadline"*), the opening action attaches to the **main subject**, the subject of the main clause.
 
-A **dangling modifier** happens when the implied doer is missing from that main subject spot. In *"After finishing the marathon, a warm bath felt amazing,"* the main subject is *a warm bath*, making the sentence say the bath finished the race.
+A **dangling modifier** happens when the main subject is not the implied doer. In *"After finishing the marathon, a warm bath felt amazing,"* the main subject is *a warm bath*, making the sentence say the bath finished the race.
 
 An opening phrase with a comma is fine when the main subject can logically do that action (*"Working toward the deadline, the editors requested more time"*).
 
@@ -27,7 +27,7 @@ An opening phrase with a comma is fine when the main subject can logically do th
 :::pair #passive-or-later-pronoun
 Right: *"After finishing the marathon, she enjoyed a warm bath."*
 Wrong: Write *"After finishing the marathon, a warm bath was enjoyed by her."* or *"After finishing the marathon, the warmth of the bath amazed her."*
-Putting *her* in *"by her"* or *"amazed her"* does not fix the phrase. The runner must be the main subject right after the comma (*she*).
+Putting *her* in *"by her"* or *"amazed her"* does not fix the phrase. The runner must be the main subject (*she*).
 :::
 
 :::pair #activity-noun-subject
@@ -39,7 +39,7 @@ Making an activity (*packing*, *pitching*) the main subject leaves the phrase da
 :::check
 Does *"Working toward the deadline, the editors requested more time"* have a dangling modifier?
 :::answer
-The answer is **No**. *The editors* sits right after the comma as the main subject, and editors can work toward a deadline.
+The answer is **No**. *The editors* is the main subject, and editors can work toward a deadline.
 :::
 
 ### Two Ways to Fix a Dangling Modifier
@@ -76,10 +76,10 @@ What is the problem in *"Having studied all night, the exam seemed easy"*?
 **Solution:**
 
 1. *"Having studied all night"* needs a person who studied.
-2. The main subject right after the comma is *the exam*, which cannot study.
-3. So **the opening phrase lacks a matching main subject**.
+2. The main subject is *the exam*, which cannot study.
+3. So *"Having studied all night, the exam seemed easy"* **dangles**: *the exam* is the wrong doer.
 
-**Check:** Ask "Who studied all night?" The noun right after the comma is *the exam*, which cannot study, confirming the opening phrase dangles.
+**Check:** Ask "Who studied all night?" The main subject *the exam* cannot study, confirming it dangles.
 
 ### #2: Fixing With the Main Subject
 
@@ -113,12 +113,12 @@ The answer is **(B) "As Marco crossed the bridge, the strong wind blew his hat a
 
 ## Speed Tricks & Shortcuts
 
-Read the opening phrase, stop at the comma, and ask "Who did this?" Check the very next noun group. If it cannot do the action, change the main subject or turn the phrase into a full clause.
+Read the opening phrase and ask "Who did this?" Check the main subject. If it cannot do the action, change the main subject or turn the phrase into a full clause.
 
 ## Traps to Watch For
 
 :::checklist
-- Putting the doer in *by her* or an object: make the doer the main subject right after the comma. {#passive-or-later-pronoun}
+- Putting the doer in *by her* or an object: make the doer the main subject. {#passive-or-later-pronoun}
 - Using an activity noun like *packing* or *pitching* as the main subject: name the people doing or feeling the phrase. {#activity-noun-subject}
 - Opening with *while* or *after* plus an *-ing* word: add a subject inside the opening clause, or match the main subject. {#while-ing-no-subject}
 :::

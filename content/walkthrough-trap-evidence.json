@@ -2727,10 +2727,6 @@
       "basahin-ang-buong-pandiwa": [
         {
           "questionId": "q-grammar-and-structure-tenses-and-voice-0025",
-          "wrongChoice": "Perpektibo lamang ang una dahil may kahapon; imperpektibo ang ikalawa dahil inuulit ang li."
-        },
-        {
-          "questionId": "q-grammar-and-structure-tenses-and-voice-0025",
           "wrongChoice": "Imperpektibo ang una; kontemplatibo ang ikalawa."
         }
       ]
@@ -2744,10 +2740,6 @@
         {
           "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0003",
           "wrongChoice": "Ang pagkain ang paksa; pokus sa layon."
-        },
-        {
-          "questionId": "q-grammar-and-structure-tenses-and-voice-0026",
-          "wrongChoice": "Parehong tagaganap dahil si Mara ang gumagawa ng mga kilos."
         }
       ],
       "ganapan-laban-sa-direksiyon": [
@@ -2768,6 +2760,10 @@
         {
           "questionId": "q-grammar-and-structure-tenses-and-voice-0026",
           "wrongChoice": "Kagamitan ang una dahil ginamit ang mga bisita; tagatanggap ang ikalawa dahil nakinabang ang lapis."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0026",
+          "wrongChoice": "Parehong tagaganap dahil si Mara ang gumagawa ng mga kilos."
         }
       ]
     },

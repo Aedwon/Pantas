@@ -18,8 +18,8 @@ keyPoints:
 
 Ang **pang-uri** (adjective) ay naglalarawan sa **pangngalan** (noun) o **panghalip** (pronoun). Tingnan ang inilalarawan ng *masipag* at *matangkad*:
 
-- "Ang **masipag** na guro ay maagang dumating." (Inilalarawan ng *masipag* ang *guro*, na isang pangngalan.)
-- "Matangkad siya." (Inilalarawan ng *matangkad* ang panghalip na *siya*.)
+- "Ang **masipag** na **guro** ay maagang dumating." (*masipag* -> *guro*, pangngalan)
+- "**Matangkad** **siya**." (*matangkad* -> *siya*, panghalip)
 
 :::pair #matapang-pang-uri-hindi-pang-abay
 Right: Sa "Ang matapang na sundalo ay nagtanggol sa bayan," ang *matapang* ay pang-uri dahil inilalarawan nito ang pangngalang *sundalo*.
@@ -37,8 +37,8 @@ Ang sagot ay **Pang-uri**. Inilalarawan ng *bago* ang pangngalang *bag*.
 
 Ang **pang-abay** (adverb) ay nagbibigay-linaw sa **pandiwa** (verb), pang-uri, o kapuwa pang-abay (*paano, kailan, saan, gaano*). Suriin ang *mabilis* at *lubhang*:
 
-- "**Mabilis** na tumakbo ang atleta." (Sinasabi ng *mabilis* kung paano tumakbo ang atleta.)
-- "**Lubhang** masaya ang mga bata." (Sinasabi ng *lubhang* kung gaano kasaya, kaya pang-uri ang binibigyang-linaw nito.)
+- "**Mabilis** na **tumakbo** ang atleta." (*mabilis* -> *tumakbo*, pandiwa: paano)
+- "**Lubhang** **masaya** ang mga bata." (*lubhang* -> *masaya*, pang-uri: gaano)
 
 <!-- ILLUSTRATION: dalawang nakapatong na parirala para sa "mabilis": sa itaas "mabilis na atleta" na may palaso mula "mabilis" patungong "atleta (pangngalan)" at tatak na "pang-uri"; sa ibaba "mabilis na tumakbo" na may palaso mula "mabilis" patungong "tumakbo (pandiwa)" at tatak na "pang-abay" -->
 
@@ -66,7 +66,7 @@ Ang **pang-abay na panlunan** (place adverb) ay nagsasabi kung saan ginanap ang 
 - Buong pangkat: "Nag-aral siya **sa silid-aklatan**." (Tanong: Saan nag-aral? *Sa silid-aklatan*.)
 
 :::pair #pangkat-na-panlunan
-Right: Sa "Sinuri ng mga kawani ang mga kahon sa bodega," ang *sa bodega* ang pang-abay na panlunan.
+Right: Sa "Sinuri ng mga kawani ang mga kahon sa bodega," sa bodega ginawa ang pagsusuri, kaya ang *sa bodega* ang pang-abay na panlunan.
 Wrong: Piliin ang *ng mga kawani* o *ang mga kahon* bilang pang-abay na panlunan.
 Katabi ng pandiwa ang *ng mga kawani*, ngunit ito ang gumawa ng kilos at ang *ang mga kahon* ang sinuri. Ang *sa bodega* lamang ang sumasagot sa "saan."
 :::
@@ -103,7 +103,7 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Mabilis** na tumakbo a
 
 **Check:** Sinasagot ng *mabilis* ang tanong na "Paano tumakbo ang atleta?", na tanda ng pang-abay.
 
-### #3: Pangkat ng mga Salitang Panlunan
+### #3: Pangungusap Tungkol sa Paglalaro
 
 Sa "Naglaro ang mga bata ng taguan sa bakuran," aling pangkat ang nagsasabi ng lugar ng paglalaro at gumaganap na pang-abay na panlunan?
 
