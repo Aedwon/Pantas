@@ -28,10 +28,12 @@ Policy read: `origin/main` `68c2a5d5e` (then `5810f9bd6`, this session's velocit
 1. Grammar: fix all 52 against the five patterns as a sweep (`walkthrough-work/pattern-checklist.md`), Fable 5.2 high read-only audits with the Codex brief until PASS; Codex b's last room for one final Grammar confirmation, then Vocabulary only if room remains. Same five patterns on Vocabulary before any audit.
 2. `discounted-prices` sample reusing the core's numbers: fix to a fresh instance (his approval was the layout; the text follows the rule), on the samples branch and in the lesson.
 3. The 12 spatial tries that need hand-made figures: no figures invented in text. Leave those tries out; record each in the figure worklist with what the figure must show.
-4. Quiz stem `parts-of-speech.yaml:485`: fix through the question process (blind solve, approve.dart) in its own commit; tell the manager if it is wrong on the live app.
+4. Quiz stem `parts-of-speech.yaml:485`: fix through the question process (blind solve, approve.dart) in its own commit; tell the manager if it is wrong on the live app. Done in `93a971099` (*pagkakakilanlan* to *pitaka*; key unchanged, blind solve AGREE). Manager: not wrong on the live app, so no single fix; it rides with its batch's content upload.
 5. Filipino spelling: only a form citable to KWF. Result: *kuwerdas* is a headword in the KWF Diksiyonaryo (kwfdiksiyonaryo.ph/index.php?query=kuwerdas, "ku•wér•das", from Espanyol *cuerdas*; *kuwenta* likewise), and the rule is the Gabay sa Ortograpiyang Pambansa, "Kaso ng Kambal-Patinig", Unang Kataliwasan (kwfdiksiyonaryo.ph/gabay.php: "Huwag alisin ang unang patinig kapag ang kambal-patinig ay sumusunod sa katinig sa unang pantig ng salita", example cuento ==> kuwento). `baybay-ng-hiram-na-salita` keeps its check unchanged.
 6. E-198 velocity row added on main (`5810f9bd6`).
 Order: Language Application (13 partly done first), Grammar sweep and Fable audits, Vocabulary, Reading Comprehension.
+
+Manager, later in session 3: Vocabulary round 2 Codex audit FAIL, 20 Blockers, 72 Majors, 5 Minors across all 29 (`walkthrough-work/codex-vocab-r2.md`, `54486e786`). Codex b at 98% weekly: no Codex runs until Monday's reset; Fable 5.2 high audits only. Vocabulary findings fold into the same five-pattern sweep as Grammar (`grammar-pattern-brief.md` now covers both topics).
 
 ## Claude lesson lead takeover (Nov 26, 15:31 Manila, E-198)
 

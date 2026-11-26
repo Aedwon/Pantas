@@ -4,7 +4,7 @@ You are a content worker (fixer). Lead: Claude lesson lead (E-198). Read in full
 1. `docs/content/verification/walkthrough-work/worker-rules.md` (the standard and the hard limits; the hard limits bind you).
 2. `docs/content/verification/walkthrough-work/fixer-brief.md` (method).
 3. `docs/content/verification/walkthrough-work/pattern-checklist.md` (P1 to P5).
-4. `docs/content/verification/walkthrough-work/codex-grammar-r5.md`: every row naming one of your lessons, including the "Open round 4 findings" at the top.
+4. The audit report for your topic: Grammar `docs/content/verification/walkthrough-work/codex-grammar-r5.md` (every row naming one of your lessons, including the "Open round 4 findings" at the top); Vocabulary `docs/content/verification/walkthrough-work/codex-vocab-r2.md` (every row naming one of your lessons). Below, "round 5 row" means a row of your topic's report, and the questions folder is your topic's folder under `content/questions/language-proficiency/`.
 5. The approved sample: `git show origin/tools/walkthrough-checks-r1:docs/content/walkthrough-samples/finding-subjects-and-matching-verbs.md`.
 
 Hard limits in short: no subagents; files only with Edit or Write; Bash only for plain read-only commands (grep, ls, cat, git show, git diff, git status, git log, date), no redirection, no scripts, no loops; run no checks; no git writes. Edit only your assigned lessons. Never edit question files or `content/walkthrough-trap-evidence.json`.
