@@ -35,16 +35,18 @@ Here *might* shows only possibility. A rule or policy calls for *must*.
 :::
 
 :::check
-Choose the modal that shows ability: The new printer *(can / must)* print forty pages a minute.
+Choose the modal that fits: After months of practice, Ben *(can / must)* play the whole song without the notes.
 :::answer
-The answer is **Can**. *Can* expresses ability, while *must* states a requirement or firm conclusion.
+*Can*: "After months of practice, Ben can play the whole song without the notes." Practice builds ability. *Must* would state a requirement or a firm conclusion.
+
+**Check:** Swap in *is able to*: "Ben is able to play the whole song." The meaning stays the same.
 :::
 
 ### Keeping the Base Verb After a Modal
 
-A **base verb** is the plain verb with no *to* and no endings like *-s*, *-ed*, or *-ing* (*register, arrive, leave*). Core modals (*can, may, must, might, could, should*) always take the bare base verb directly, even when the subject is singular (*She **must register***, never *must registers*).
+A **base verb** is the plain verb with no *to* and no endings like *-s*, *-ed*, or *-ing* (*register, arrive, leave*). Core modals (*can, may, must, might, could, should*) take the bare base verb directly, even when the subject is singular (*She **must register***, not *must registers*).
 
-Unlike phrases such as *have to* or *ought to*, core modals never take *to* after them.
+Unlike phrases such as *have to* or *ought to*, core modals take no *to* after them.
 
 :::pair #modal-plus-to
 Right: "The delayed shipment might arrive tomorrow."
@@ -55,13 +57,15 @@ Modals like *might* and *must* connect straight to the base verb. Do not copy *t
 :::pair #modal-verb-ending
 Right: "Under this policy, staff must register visitors at reception."
 Wrong: "Under this policy, staff must registers visitors at reception."
-Never add *-s*, *-ed*, or *-ing* to the verb right after a modal. Keep the plain base verb *register*.
+After a core modal, do not add *-s*, *-ed*, or *-ing* to the verb. Keep the plain base verb *register*.
 :::
 
 :::check
-Choose the correct form: New staff *(should arrive / should to arrive / should arrives)* before eight.
+Choose the correct form: New staff *(should bring / should to bring / should brings)* a photo ID.
 :::answer
-The answer is **Should arrive**. *Should* takes the bare base verb *arrive*, with no *to* and no ending.
+*Should bring*: "New staff should bring a photo ID." *Should* takes the bare base verb *bring*, with no *to* and no ending.
+
+**Check:** Swap the subject to *I*. "I should bring a photo ID" keeps the same verb *bring*, so no ending belongs there.
 :::
 
 ## Examples
@@ -80,30 +84,30 @@ Choose the modal that fits each sentence: (a) Ability: "Marco *(can / must)* lif
 
 ### #2: Policy Requirement and Verb Form
 
-Choose the form that expresses a policy requirement cleanly: "Under the new safety rule, technicians *(must wear / might wear / must to wear / must wears)* goggles inside the lab."
+Choose the correct form: "Under the new safety rule, technicians *(must wear / might wear / must to wear / must wears)* goggles inside the lab."
 
 **Solution:**
 
 1. The phrase *under the new safety rule* asks for a requirement, which fits **must**.
 2. A modal takes the bare base verb directly, with no *to* and no *-s* ending.
-3. Combine them: "technicians **must wear** goggles inside the lab."
+3. Combine them: "Under the new safety rule, technicians **must wear** goggles inside the lab."
 
-**Check:** Read it aloud: it states a rule clearly and uses the plain verb *wear*.
+**Check:** Swap in *are required to*: "technicians are required to wear goggles." The meaning stays the same.
 
 ### #3: Meaning and Form Together
 
-Choose the form that gives permission and uses the right verb form: "Residents *(may park / may to park / may parking / must park)* here after six."
+Choose the form that gives permission: "Residents *(may park / may to park / may parking / must park)* here after six."
 
 **Solution:**
 
 1. Check the meaning first, then the word right after the modal.
 
 :::try
-Finish the last step: write the complete correct form for the blank.
+Finish the last step: which form is correct, and what is the finished sentence?
 :::answer
-The answer is **May park**. *May* gives permission, while *must* states a requirement. *Park* is the plain base verb with no *to* or *-ing*.
+*May park*: "Residents may park here after six." *May* gives permission, while *must* states a requirement. *Park* is the plain base verb with no *to* or *-ing*.
 
-**Check:** Read "Residents may park here after six." *May* allows the action, and *park* follows directly.
+**Check:** Swap in *are allowed to*: "Residents are allowed to park here after six." The meaning stays the same.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -1,0 +1,47 @@
+{
+  "lesson-language-application-clause-punctuation-checks": {
+    "comma-splice": [{"questionId": "q-language-application-error-identification-0020", "wrongChoice": "Mika was the cashier on duty, she counted the receipts.", "mistakeNote": "Joins two independent clauses with only a comma."}],
+    "run-on-or-case": [{"questionId": "q-language-application-error-identification-0020", "wrongChoice": "Mika was the cashier on duty she counted the receipts.", "mistakeNote": "Runs two independent clauses together with no mark or joining word."}],
+    "however-splice": [{"questionId": "q-language-application-error-identification-0009", "wrongChoice": "No error", "mistakeNote": "Treats however like a coordinating conjunction, so a comma alone seems enough to join the clauses."}]
+  },
+  "lesson-language-application-modal-meaning-checks": {
+    "modal-meaning": [{"questionId": "q-language-application-error-identification-0021", "wrongChoice": "might register", "mistakeNote": "Uses a possibility modal where the policy states a requirement."}],
+    "modal-plus-to": [{"questionId": "q-language-application-error-identification-0022", "wrongChoice": "might to arrive", "mistakeNote": "Inserts to after the modal might."}],
+    "modal-verb-ending": [{"questionId": "q-language-application-error-identification-0021", "wrongChoice": "must registers", "mistakeNote": "Adds an -s ending to the verb after a modal."}]
+  },
+  "lesson-language-application-modifiers-and-matching-forms": {
+    "dangling-opening": [{"questionId": "q-language-application-error-identification-0018", "wrongChoice": "After inspecting the roof, repairs were approved by the engineer.", "mistakeNote": "Gives the opening action to repairs instead of the engineer."}],
+    "parallel-list": [{"questionId": "q-language-application-error-identification-0002", "wrongChoice": "No error", "mistakeNote": "Accepts a to-plus-verb phrase among base verbs in a list."}],
+    "like-comparison": [{"questionId": "q-language-application-error-identification-0004", "wrongChoice": "No error", "mistakeNote": "Accepts a rating compared with the physical models."}]
+  },
+  "lesson-language-application-past-time-checks": {
+    "past-time-clue": [{"questionId": "q-language-application-error-identification-0019", "wrongChoice": "are being delivered", "mistakeNote": "Uses an ongoing present form with the past clue yesterday."}],
+    "participle-after-had": [{"questionId": "q-language-application-error-identification-0014", "wrongChoice": "No error", "mistakeNote": "Accepts a base verb after had."}],
+    "which-event-gets-had": [{"questionId": "q-language-application-error-identification-0008", "wrongChoice": "finished inspecting the fiscal records,", "mistakeNote": "Changes the later event instead of the earlier one."}]
+  },
+  "lesson-language-application-phrases-and-sentence-types": {
+    "phrase-vs-dependent": [{"questionId": "q-language-application-error-identification-0024", "wrongChoice": "after the lengthy staff meeting", "mistakeNote": "Counts a phrase with no subject and verb as a clause."}],
+    "standalone-clause": [{"questionId": "q-language-application-error-identification-0024", "wrongChoice": "the clerk resigned yesterday", "mistakeNote": "Calls a complete thought dependent."}],
+    "count-all-clauses": [{"questionId": "q-language-application-error-identification-0023", "wrongChoice": "Two independent clauses with no dependent clause", "mistakeNote": "Overlooks the dependent although clause."}]
+  },
+  "lesson-language-application-pronoun-reference-checks": {
+    "who-vs-whom": [{"questionId": "q-language-application-error-identification-0006", "wrongChoice": "No error", "mistakeNote": "Accepts an object form as the subject of a clause."}],
+    "object-after-preposition": [{"questionId": "q-language-application-error-identification-0013", "wrongChoice": "I,", "mistakeNote": "Uses a subject form after the preposition between."}],
+    "unclear-pronoun": [{"questionId": "q-language-application-error-identification-0007", "wrongChoice": "No error", "mistakeNote": "Assumes the context shows which of two men the pronoun means."}]
+  },
+  "lesson-language-application-subject-and-verb-checks": {
+    "nearest-noun": [{"questionId": "q-language-application-error-identification-0001", "wrongChoice": "No error", "mistakeNote": "Misses the singular head every one because plural laptops sits near the verb."}],
+    "mass-noun-some": [{"questionId": "q-language-application-error-identification-0016", "wrongChoice": "Some of the information in these notes are confidential for legal reasons.", "mistakeNote": "Matches the verb to plural notes instead of the mass noun information."}],
+    "collective-unit": [{"questionId": "q-language-application-error-identification-0010", "wrongChoice": "is presenting", "mistakeNote": "Marks a singular verb as an error because a panel has several members."}]
+  },
+  "lesson-language-application-word-meaning-checks": {
+    "check-opposite-direction": [
+      {"questionId": "q-language-application-error-identification-0029", "wrongChoice": "understandable", "mistakeNote": "Picks a similar meaning when the question asks for the opposite."},
+      {"questionId": "q-language-application-error-identification-0029", "wrongChoice": "straightforward", "mistakeNote": "Picks a word that fits the sentence but is not the opposite."}
+    ],
+    "read-every-word-part": [
+      {"questionId": "q-language-application-error-identification-0030", "wrongChoice": "Full of helpful guidance", "mistakeNote": "Reads helpful and ignores the prefix un-."},
+      {"questionId": "q-language-application-error-identification-0030", "wrongChoice": "Able to give useful help", "mistakeNote": "Focuses on help and loses the negative prefix."}
+    ]
+  }
+}

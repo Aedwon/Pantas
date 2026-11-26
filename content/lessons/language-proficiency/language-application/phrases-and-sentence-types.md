@@ -15,7 +15,7 @@ keyPoints:
 
 **Classify** means name the sentence or word-group type by counting its clauses.
 
-### Telling a Phrase from a Clause
+### Word Groups Inside a Sentence
 
 A **phrase** is a word group without its own subject-and-verb pair, such as *after the lengthy staff meeting* or *during the annual staff review*. Words like *after* and *during* can open a phrase when only a noun follows.
 
@@ -39,10 +39,12 @@ Wrong: Count *the clerk resigned yesterday* as a dependent clause.
 :::check
 Is *before the morning shift* a phrase, a dependent clause, or an independent clause?
 :::answer
-The answer is **A phrase**. There is no verb inside *before the morning shift*.
+*A phrase.* There is no verb inside *before the morning shift*.
+
+**Check:** A clause needs a subject and a verb. *The morning shift* is a noun group, and no verb follows it.
 :::
 
-### Counting Clauses to Name Sentence Types
+### Counting Clauses
 
 Count how many independent and dependent clauses appear in the whole sentence:
 
@@ -64,9 +66,11 @@ Wrong: Count it as "Two independent clauses with no dependent clause."
 :::
 
 :::check
-Classify this sentence: "Because the printer jammed, the clerk waited, and the technician checked the tray."
+Classify this sentence: "The clerk waited because the printer jammed."
 :::answer
-The answer is **Compound-complex**. It has one dependent clause (*Because the printer jammed*) and two independent clauses (*the clerk waited* and *the technician checked the tray*).
+*Complex*. It has one independent clause (*The clerk waited*) and one dependent clause (*because the printer jammed*).
+
+**Check:** Read each part alone: "The clerk waited." is complete. "Because the printer jammed." is not.
 :::
 
 ## Examples
@@ -101,17 +105,17 @@ Classify each sentence:
 
 ### #3: Counting Clauses in a Long Sentence
 
-Count the independent and dependent clauses in this sentence and classify it: "Although the rain grew heavier, the drivers stayed on route, and the supervisor tracked each van."
+Count the independent and dependent clauses in this sentence and classify it: "The drivers stayed on route although the rain grew heavier, and the supervisor tracked each van."
 
 **Solution:**
 
-1. Check *Although the rain grew heavier*: subject *rain*, verb *grew*, opens with *although*, so it is $1$ dependent clause.
-2. Check *the drivers stayed on route*: complete thought, so it is $1$ independent clause.
+1. Check *although the rain grew heavier*: subject *rain*, verb *grew*, opens with *although*, so it is $1$ dependent clause.
+2. Check *The drivers stayed on route*: complete thought, so it is $1$ independent clause.
 
 :::try
 Finish the last step: count *the supervisor tracked each van*, state the total clause count, and classify the sentence.
 :::answer
-The answer is **Two independent and one dependent (compound-complex)**. *The supervisor tracked each van* is a second independent clause, making $2$ independent clauses plus $1$ dependent clause.
+Two independent and one dependent, so the sentence is compound-complex. *The supervisor tracked each van* is a second independent clause, making $2$ independent clauses plus $1$ dependent clause.
 
 **Check:** Read each independent clause alone: "The drivers stayed on route." "The supervisor tracked each van." Read the third part: "Although the rain grew heavier" still needs a main clause.
 :::
@@ -124,6 +128,6 @@ Underline every subject-verb pair first. Count how many pairs can stand alone (i
 
 :::checklist
 - A time word like *after* or *during* followed only by nouns: treat it as a phrase, not a clause. {#phrase-vs-dependent}
-- A subject-verb group with no joining word: treat it as an independent clause, not a dependent one. {#standalone-clause}
+- A subject-verb group with no joining word: usually an independent clause, not a dependent one. {#standalone-clause}
 - A long sentence with *although* and *and*: count every subject-verb pair so you do not miss the dependent clause. {#count-all-clauses}
 :::

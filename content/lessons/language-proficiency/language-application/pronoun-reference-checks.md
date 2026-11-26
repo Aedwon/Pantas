@@ -13,21 +13,21 @@ keyPoints:
 ---
 ## Core Concept
 
-A **pronoun** takes the place of a noun. Its **antecedent** is the noun it refers back to. Every pronoun must match its job in the clause and point clearly to one intended noun.
+A **pronoun** takes the place of a noun. Its **antecedent** is the noun it refers back to. A pronoun should match its job in the clause, and one that refers back should point clearly to one intended noun.
 
 ### Subject and Object Pronoun Forms
 
-Subject pronouns (*I, he, she, we, they, who*) perform the verb's action. Object pronouns (*me, him, her, us, them, whom*) receive the action or follow a preposition such as *between, to, for,* or *with*.
+Subject pronouns (such as *I, he, she, we, they, who*) perform the verb's action. Object pronouns (such as *me, him, her, us, them, whom*) receive the action or follow a preposition such as *between, to, for,* or *with*.
 
-To test *who* versus *whom*, look only inside the pronoun's own clause. In "The lead scientist, **who** had conducted fieldwork, spoke," the pronoun performs *had conducted* (like *she had conducted*), so use *who*.
+To test *who* versus *whom*, look only inside the pronoun's own clause. In "The nurse, **who** had finished the shift, left," the pronoun performs *had finished* (like *she had finished*), so use *who*.
 
 :::why
-Why does "Between you and **me**" sound odd to some speakers while being right? People often copy *you and I* from subjects like "You and I left early." Prepositions like *between* always take object forms, just as in "between us" or "between them."
+Why does "Between you and **me**" sound odd to some speakers while being right? People often copy *you and I* from subjects like "You and I left early." In standard English, prepositions like *between* take object forms, just as in "between us" or "between them."
 :::
 
 :::pair #who-vs-whom
 Right: "The lead scientist, who had conducted fieldwork, presented her findings."
-Wrong: Accept "The lead scientist, whom had conducted fieldwork, presented her findings" as No error.
+Wrong: "The lead scientist, whom had conducted fieldwork, presented her findings."
 *Whom* is an object form, yet the pronoun acts as the subject of *had conducted*. Use *who*.
 :::
 
@@ -35,32 +35,36 @@ To test a pair after a preposition, drop the first word and test the pronoun alo
 
 :::pair #object-after-preposition
 Right: "Between you and me, the plan will need board approval."
-Wrong: Accept "Between you and I, the plan will need board approval" as No error.
-*Between* is a preposition, so both words after it are objects and need *me*, not *I*.
+Wrong: "Between you and I, the plan will need board approval."
+*Between* is a preposition, so the pronoun after it takes the object form *me*, not *I*.
 :::
 
 :::check
 Choose the correct pronoun: The supervisor asked Maya and *(I / me)* to check the logs.
 :::answer
-The answer is **Me**. Drop *Maya and*: "The supervisor asked me" is right, so *me* is the object.
+*Me*: "The supervisor asked Maya and me to check the logs." Drop *Maya and*: "The supervisor asked me" is right, so *me* is the object.
+
+**Check:** Swap in another object: "The supervisor asked them to check the logs." *Me* is the same kind of word as *them*.
 :::
 
 ### Clear Reference and Singular They
 
-A pronoun is unclear when two names in the sentence could fit it. Neither the first name nor the nearest name wins on its own. Repeat the intended name so the reader never has to guess.
+A pronoun is unclear when two names in the sentence could fit it. Neither the first name nor the nearest name wins on its own. Repeat the intended name so the reader does not have to guess.
 
 :::pair #unclear-pronoun
 Right: "When the supervisor spoke to the manager, the supervisor expressed concern."
-Wrong: Accept "When the supervisor spoke to the manager, he expressed concern" as No error when both are men.
+Wrong: "When the supervisor spoke to the manager, he expressed concern." (Both are men.)
 Either man could express concern. Repeating *the supervisor* removes the second guess.
 :::
 
-**Singular they** (*they, them, their, theirs*) refers to one person whose gender is unknown or does not need to be stated. Modern standard English accepts "Each applicant has submitted **their** form." Keep the singular verb *has* with *each*, keep the past participle *submitted* after *has*, and use possessive *their* (never *them*) before a noun.
+**Singular they** (*they, them, their, theirs*) refers to one person whose gender is unknown or does not need to be stated. Modern standard English accepts "Each student has brought **their** book." Keep the singular verb *has* with *each*, keep the past participle *brought* after *has*, and use possessive *their* (not *them*) before a noun.
 
 :::check
 Choose the sentence in standard modern English: (A) "Each clerk have filed their report." (B) "Each clerk has filed their report."
 :::answer
-The answer is **(B)**. *Each clerk* takes singular *has*, and singular *their* fits one unspecified clerk.
+(B): "Each clerk has filed their report." *Each clerk* takes singular *has*, and singular *their* fits one unspecified clerk.
+
+**Check:** Read the start alone: "Each clerk has filed." *Each* is singular, so *has* fits.
 :::
 
 ## Examples
@@ -75,28 +79,28 @@ Identify the error: "The auditor whom reviewed the report shared the summary wit
 2. Check *with Carlos and I*: drop *Carlos and* after the preposition *with*.
 3. *With I* is wrong, so change *I* to **me**.
 
+Correct: "The auditor who reviewed the report shared the summary with Carlos and me."
+
 **Check:** Substitute *she* and *me*: "she reviewed the report" and "shared the summary with me." Both fit.
 
-### #2: Confirming Singular They Without Over-Editing
+### #2: Singular They in a Sentence
 
 Choose the correct sentence:
-(A) Each applicant have submitted their form.
-(B) Each applicant has submit their form.
-(C) Each applicant has submitted their form.
-(D) Each applicant has submitted them form.
+(A) Each driver have parked their van.
+(B) Each driver has parked their van.
+(C) Each driver has parked them van.
 
 **Solution:**
 
 1. Singular *each* needs singular *has*, ruling out *have* in (A).
-2. After *has*, use the past participle *submitted*, ruling out *submit* in (B).
-3. Before the noun *form*, use possessive *their*, ruling out object *them* in (D).
-4. Choose **(C)**.
+2. Before the noun *van*, use possessive *their*, ruling out object *them* in (C).
+3. Choose **(B)**: "Each driver has parked their van."
 
-**Check:** Test each part on its own: "Each applicant has submitted" and "their form." Both are standard English.
+**Check:** Test each part on its own: "Each driver has parked" and "their van." Both are standard English.
 
-### #3: Clearing Up an Ambiguous Pronoun
+### #3: One Pronoun, Two People
 
-Both Ana and Liza are women. Liza was the one who noticed the error. Rewrite this sentence clearly: "After Ana handed the folder to Liza, she noticed a missing page."
+Ana and Liza are both women, and Liza noticed the page. Make the pronoun clear in "After Ana handed the folder to Liza, she noticed a missing page."
 
 **Solution:**
 
@@ -104,11 +108,11 @@ Both Ana and Liza are women. Liza was the one who noticed the error. Rewrite thi
 2. Both Ana and Liza could notice a missing page.
 
 :::try
-Finish the last step: rewrite the sentence so it clearly states that Liza noticed the page.
+Finish the last step: what goes in the blank? "After Ana handed the folder to Liza, ___ noticed a missing page."
 :::answer
-The answer is **"After Ana handed the folder to Liza, Liza noticed a missing page."** Repeating *Liza* names the exact person meant.
+*Liza*: "After Ana handed the folder to Liza, Liza noticed a missing page." Repeating *Liza* names the exact person meant.
 
-**Check:** Ask "Who noticed a missing page?" Only *Liza* fits, with no guesswork.
+**Check:** Swap in *Ana*: "After Ana handed the folder to Liza, Ana noticed a missing page." That tells a different story, so the name decides who noticed.
 :::
 
 ## Speed Tricks & Shortcuts

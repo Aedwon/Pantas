@@ -15,35 +15,37 @@ keyPoints:
 
 **Error identification** means finding which part of a sentence breaks a grammar or usage rule, or choosing No error when every part is right.
 
-### Finding the Head Subject
+### Subjects With Added Detail
 
-The **subject** tells who or what the sentence is about, and the **head** is its main word. Phrases starting with *of*, *along with*, *together with*, or describing phrases like *imported for the team* only add detail. Cover those added details so you match the verb to the head.
+The **subject** tells who or what the sentence is about, and the **head** is its main word. Phrases starting with *of*, *along with*, *together with*, or describing phrases like *imported for the team* usually only add detail. Cover those added details so you match the verb to the head.
 
-<!-- ILLUSTRATION: the sentence "Some of the information [in these notes] is confidential." with "[in these notes]" grayed and bracketed as "added detail", "information" labeled "head, mass noun", and a teal arrow from "information" to "is" -->
+<!-- ILLUSTRATION: the sentence "The box [of tools stacked by the door] is open." with "[of tools stacked by the door]" grayed and bracketed as "added detail", "box" labeled "head, singular", and a teal arrow from "box" to "is" -->
 
-Look at "Every one of the new laptops imported for the engineering team **has** arrived." Ask who or what arrived: *every one*. Cover *of the new laptops* and *imported for the engineering team*, then match singular *every one* to singular *has arrived*.
+Look at "The box of tools stacked by the door **is** open." Ask what is open: *the box*. Cover *of tools* and *stacked by the door*, then match singular *box* to singular *is*.
 
 :::why
-Why does a phrase like *along with her friends* leave a singular subject singular? Only *and* joins two subjects into one plural pair. Phrases starting with *along with*, *as well as*, or *of* stay outside the subject head.
+Why does a phrase like *along with her friends* leave a singular subject singular? Joining subjects with *and* makes one plural pair, but *along with* and *as well as* do not join them. They stay outside the subject head.
 :::
 
 :::pair #nearest-noun
 Right: "Every one of the new laptops has arrived."
-Wrong: Accept "Every one of the new laptops have arrived" as No error.
+Wrong: "Every one of the new laptops have arrived."
 Nearby plural *laptops* makes *have* sound familiar, yet singular *every one* is the head and needs *has*.
 :::
 
 :::check
 Choose the correct verb: Each of the new reports *(was / were)* filed on time.
 :::answer
-The answer is **Was**. Cover *of the new reports*; the singular head *each* takes *was*.
+*Was*: "Each of the new reports was filed on time." Cover *of the new reports*; the singular head *each* takes *was*.
+
+**Check:** Read the head and verb alone: "Each was filed on time." It sounds right.
 :::
 
-### Quantifiers Like Some and Most
+### Amounts Before *Of*
 
-After *some*, *most*, *all*, or *half*, the noun right after *of* decides whether the verb is singular or plural. Cover any place or time phrase that follows that noun.
+After words like *some*, *most*, *all*, or *half*, the noun right after *of* decides whether the verb is singular or plural. Cover any place or time phrase that follows that noun.
 
-- Mass noun after *of*: "Some of the information in these notes **is** confidential." (*Information* is one uncounted amount, so use *is*.)
+- Mass noun after *of*: "Some of the rice in these sacks **is** wet." (*Rice* is one uncounted amount, so use *is*.)
 - Plural noun after *of*: "Some of the files in this folder **are** missing." (*Files* is plural, so use *are*.)
 
 :::pair #mass-noun-some
@@ -55,10 +57,12 @@ Wrong: "Some of the information in these notes are confidential for legal reason
 :::check
 Choose the correct verb: Most of the water in those bottles *(is / are)* cold.
 :::answer
-The answer is **Is**. *Water* is a mass noun, and *in those bottles* only adds a location.
+*Is*: "Most of the water in those bottles is cold." *Water* is a mass noun, and *in those bottles* only adds a location.
+
+**Check:** Replace the subject with *it*: "It is cold." One amount takes *is*.
 :::
 
-### Group Nouns and Joined Subjects
+### Other Subjects You Will See
 
 A group noun like *panel*, *committee*, or *team* names several people acting as one unit. In standard American English, treat a group acting as one unit as singular and keep pronouns matching that unit (*The panel is presenting its report*).
 
@@ -66,30 +70,32 @@ With *either...or* or *neither...nor*, match the verb to the nearer subject head
 
 :::pair #collective-unit
 Right: "The research panel is presenting its joint evaluation today." (No error.)
-Wrong: Flag *is presenting* as an error because a panel has several members.
+Wrong: Marking *is presenting* as an error because a panel has several members.
 When the panel acts as one unit in American English, singular *is presenting* and *its* are both right.
 :::
 
 :::check
 Choose the correct verb: Neither the supervisor nor the clerks *(has / have)* signed the log.
 :::answer
-The answer is **Have**. The nearer subject *clerks* is plural, so match *have* to *clerks*.
+*Have*: "Neither the supervisor nor the clerks have signed the log." The nearer subject *clerks* is plural, so match *have* to *clerks*.
+
+**Check:** Flip the order: "Neither the clerks nor the supervisor has signed the log." Now the singular *supervisor* is nearer, so *has* fits.
 :::
 
 ## Examples
 
 ### #1: Added Details Between Head and Verb
 
-Identify the faulty segment: "Each of the training manuals stacked on the top shelf need a new cover."
+Identify the faulty segment: "The row of lockers along the hallway need new locks."
 
 **Solution:**
 
 1. Find the verb: *need*.
-2. Cover the added phrases: *of the training manuals* and *stacked on the top shelf*.
-3. The head subject is *each*, which is singular.
-4. Change *need* to **needs**.
+2. Cover the added phrases: *of lockers* and *along the hallway*.
+3. The head subject is *row*, which is singular.
+4. Change *need* to **needs**: "The row of lockers along the hallway needs new locks."
 
-**Check:** Read the head and verb side by side: "Each needs a new cover." It sounds right.
+**Check:** Read the head and verb side by side: "The row needs new locks." It sounds right.
 
 ### #2: Checking a Group Noun Sentence
 
@@ -100,35 +106,35 @@ Decide whether there is an error: "The budget committee has finished its review 
 1. The subject *the budget committee* is one group acting as a unit.
 2. Under American English rules, the singular verb *has finished* matches that unit.
 3. The singular pronoun *its* also matches that single unit.
-4. Every part matches, so the answer is **No error**.
+4. Every part matches, so "The budget committee has finished its review of the quarterly expenses" has **no error**.
 
 **Check:** Replace *the budget committee* with *it*: "It has finished its review." Both *has* and *its* match *it*.
 
-### #3: Quantifiers with Intervening Details
+### #3: Two Clauses, Two Subjects
 
-Choose the correct verb: "Some of the equipment inside those locked rooms *(needs / need)* repair, and neither the guard nor the managers *(knows / know)* the code."
+Choose the correct verb: "Some of the equipment inside those locked rooms *(needs / need)* repair, and either the managers or the guard *(knows / know)* the code."
 
 **Solution:**
 
 1. In the first clause, cover *inside those locked rooms*. *Equipment* is a mass noun, so choose **needs**.
-2. In the second clause, look after *nor*: the nearer subject is plural *the managers*.
+2. In the second clause, find the two subjects joined by *or*.
 
 :::try
 Finish the last step: should the second verb be *knows* or *know*?
 :::answer
-The answer is **Know**. Plural *managers* sits closer to the verb than *guard*, so it takes *know*.
+*Knows*: "Either the managers or the guard knows the code." The guard sits closer to the verb than the managers, and *guard* is singular.
 
-**Check:** Pair each head directly with its verb: "Some equipment needs repair" and "the managers know the code."
+**Check:** Pair each head directly with its verb: "Some equipment needs repair" and "the guard knows the code."
 :::
 
 ## Speed Tricks & Shortcuts
 
-Find the verb first, then ask who or what does it. Cover every *of*, *in*, *on*, or *along with* phrase before checking whether the head is singular or plural.
+Find the verb first, then ask who or what does it. Cover an *of*, *in*, *on*, or *along with* phrase before checking whether the head is singular or plural. After *some*, *most*, *all*, or *half*, check the noun after *of*.
 
 ## Traps to Watch For
 
 :::checklist
-- A plural noun inside an *of* or *in* phrase: cover the phrase and match the true head. {#nearest-noun}
+- A plural noun inside an *of* or *in* phrase after a singular head: cover the phrase and match the true head. {#nearest-noun}
 - *Some* or *most* before a mass noun and a plural location: match the mass noun right after *of*. {#mass-noun-some}
 - A group noun acting as one unit in American English: keep the singular verb and *its*, and do not invent an error. {#collective-unit}
 :::
