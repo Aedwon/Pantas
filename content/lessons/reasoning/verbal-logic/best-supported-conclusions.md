@@ -25,7 +25,7 @@ Test a conclusion in four steps:
 3. Drop unmeasured groups, causes, or guarantees.
 4. Pick the closest claim.
 
-Find what this survey supports: "A voluntary staff survey received only replies favoring a proposal. The report gives no data on non-respondents."
+Supported claim: "A voluntary staff survey received only replies favoring a proposal. The report gives no data on non-respondents."
 
 - Measured: responding volunteers.
 - Unmeasured: non-respondents.
@@ -45,12 +45,12 @@ The answer is **no (the log does not tell us)**. The same log could happen if ev
 
 ### Checking What the Count Actually Measures
 
-Check *what* was counted, and separate **most** (over half) from **most often** (top share).
+Check *what* was counted; separate **most** (over half) from **most often** (top share).
 
-Find what this count supports: "Residents marked hard crossings. The bakery junction appeared on more maps than any other spot. Crossing trips were not counted."
+Supported claim: "Residents marked hard crossings. The bakery junction appeared on more maps than any other spot. Crossing trips were not counted."
 
-1. Counted: marked maps, not crossing trips.
-2. Top share need not exceed $50\%$: $30$ of $100$ maps across $5$ spots ($30, 20, 20, 15, 15$) wins first place under half.
+1. Counted: marked maps, not trips.
+2. Top share can sit under $50\%$: $30$ of $100$ maps across $5$ spots ($30, 20, 20, 15, 15$) wins first place.
 3. Claim: **The bakery junction was marked most often.**
 
 :::why
@@ -71,9 +71,9 @@ The answer is **no**. Corner A won most often ($40$ of $100$), which is under ha
 
 ### Avoiding Unmeasured Explanations and Combined Totals
 
-Never predict untested fair-access results or overall averages across unknown group sizes.
+Never predict untested equal-access results or averages across unknown group sizes.
 
-Find what this record supports: "A school stocked more print than audio copies of a story, and print had more checkouts."
+Supported claim: "A school stocked more print than audio copies of a story, and print had more checkouts."
 
 - Recorded fact: **Print copies had more recorded loans.**
 - Unmeasured: choices under equal stock.

@@ -40,9 +40,10 @@ When a feature is a count, write the counts as a number sequence and find the di
 
 <!-- ILLUSTRATION: three equal square frames containing circles with 1 dot, 2 dots, and 3 dots, followed by a blank fourth frame -->
 
-1. Look at circles with $1$, $2$, and $3$ dots.
-2. Write the counts: $1, 2, 3$. Each step adds $1$ dot.
-3. Add $1$ to the last count: $3+1=4$ dots.
+Find the next dot count for circles with $1$, $2$, and $3$ dots:
+
+1. Counts $1, 2, 3$ add $1$ dot per step.
+2. Next count: $3+1=4$ dots.
 
 The same method works for polygon sides: triangle ($3$), square ($4$), pentagon ($5$), hexagon ($6$), heptagon ($7$), and octagon ($8$).
 

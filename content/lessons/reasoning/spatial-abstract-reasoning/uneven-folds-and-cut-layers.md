@@ -23,10 +23,10 @@ When a shorter left flap folds right onto a wider sheet (or intersect the reflec
 2. Measure the flap width.
 3. Add them on the folded side, stopping at the right edge.
 
-For a $16\text{ cm}$ sheet with its leftmost $6\text{ cm}$ strip folded right at $6\text{ cm}$:
+Find the $2$-layer overlap on a $16\text{ cm}$ sheet folded right at $6\text{ cm}$:
 
-- The flap ends at $6+6=12\text{ cm}$ ($12 < 16\text{ cm}$), so $6$ to $12\text{ cm}$ has $2$ layers and $12$ to $16\text{ cm}$ stays $1$ layer.
-- Away from creases and edges, a full-depth punch at $10\text{ cm}$ cuts **$2$ layers** ($2$ holes); at $14\text{ cm}$, it cuts **$1$ layer** ($1$ hole).
+- Flap ends at $6+6=12\text{ cm}$ ($<16\text{ cm}$): $6$ to $12\text{ cm}$ has $2$ layers; $12$ to $16\text{ cm}$ has $1$.
+- Off creases and edges, a full-depth punch at $10\text{ cm}$ makes $2$ holes; at $14\text{ cm}$, $1$ hole.
 
 :::pair #guess-overlap-without-measuring
 Right: folding a $6\text{ cm}$ strip right across $6\text{ cm}$ covers $6$ to $12\text{ cm}$; a full-depth punch through both layers at $(10, 3)$ makes **$(2, 3)$ and $(10, 3)$**.

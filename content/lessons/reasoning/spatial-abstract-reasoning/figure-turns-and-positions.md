@@ -94,11 +94,11 @@ An arrow points up, then upper-right, then right, then lower-right. Which direct
 
 **Solution:**
 
-1. Write the clockwise angle of each arrow from up ($0^\circ$): $0^\circ$, $45^\circ$, $90^\circ$, $135^\circ$.
+1. Write each arrow's clockwise angle from up ($0^\circ$): $0^\circ$, $45^\circ$, $90^\circ$, $135^\circ$.
 2. Each step adds $45^\circ$ clockwise.
-3. Find the next angle by adding $45^\circ$ to lower-right ($135^\circ$):
+3. Add $45^\circ$ to $135^\circ$:
 
-$$\text{Next angle}=135^\circ+45^\circ=180^\circ$$
+$$\text{Next}=135^\circ+45^\circ=180^\circ$$
 
 4. $180^\circ$ points straight **down**.
 

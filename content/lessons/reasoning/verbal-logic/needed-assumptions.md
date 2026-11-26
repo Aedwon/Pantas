@@ -48,11 +48,10 @@ Use the **negation test**:
 2. Test that negation against the argument's *stated reason*.
 3. If the stated reason collapses, the assumption is necessary.
 
-Apply the negation test to: "The library should replace its failed reading-room lamps so visitors can read there again."
+Test "Replacement lamps will provide usable light" against: "The library should replace its failed reading-room lamps so visitors can read there again."
 
-- Proposed assumption: "Replacement lamps will provide usable light."
 - Negate it: replacement lamps will *not* provide usable light.
-- Check the stated reason ("so visitors can read there again"): visitors still cannot read there, so the stated reason fails. The assumption is **necessary**.
+- Check the stated reason: visitors still cannot read there, so it collapses. The assumption is **necessary**.
 
 :::why
 Why test the stated reason instead of thinking of other benefits? A plan might look good for another reason, like saving electricity. Necessary-assumption questions test whether the writer's *given* reason still holds when the assumption fails.

@@ -62,7 +62,7 @@ The answer is **The invitations favored one viewpoint.** Accurate quotes cannot 
 
 ### Rewriting a Biased Phrase into Neutral Words
 
-To make a phrase neutral, cut judgment words that tell readers who is wise or foolish, while keeping the topic and audience intact.
+To stay neutral, cut judgment words while keeping the topic and audience intact.
 
 Rewrite neutrally: "a gift for sensible residents" (for a barangay drainage plan).
 

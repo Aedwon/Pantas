@@ -59,10 +59,10 @@ The answer is **$F$**. Inside parentheses, $F \lor T = T$; outside, $T \land F =
 
 Parentheses also show how much a $\neg$ sign covers. In $\neg(P \land Q)$, evaluate $P \land Q$ first and flip the whole result; in $(\neg P) \land Q$, flip only $P$ first.
 
-Compare $\neg(P \land Q)$ and $(\neg P) \land Q$ when $P=F$ and $Q=F$:
+Compare $\neg(P \land Q)$ and $(\neg P) \land Q$ with $P=F$, $Q=F$:
 
-1. For $\neg(P \land Q)$: inside gives $F \land F = F$, then $\neg F = T$.
-2. For $(\neg P) \land Q$: flip $P$ to $\neg F = T$, then compute $T \land F = F$.
+1. $\neg(P \land Q) = \neg(F \land F) = \neg F = T$.
+2. $(\neg P) \land Q = (\neg F) \land F = T \land F = F$.
 
 :::why
 Why do $\neg(P \land Q)$ and $(\neg P) \land Q$ differ? Think of parentheses as a box around one value. A $\neg$ outside the box flips the box's single result, while a $\neg$ inside flips only the letter beside it.
@@ -88,11 +88,9 @@ If $P$ is false, evaluate $\neg P$ and $\neg\neg P$, in that order.
 
 **Solution:**
 
-1. Substitute $P=F$ into $\neg P$:
+1. Substitute $P=F$ into $\neg P$ and $\neg\neg P$:
 
 $$\neg P=\neg F=T$$
-
-2. Negate $\neg P=T$ to find $\neg\neg P$:
 
 $$\neg\neg P=\neg T=F$$
 

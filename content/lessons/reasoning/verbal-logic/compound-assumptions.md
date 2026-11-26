@@ -18,11 +18,11 @@ keyPoints:
 
 A **compound statement** joins parts with *and* or *or*. In logic, **or** is inclusive: one part, the other, or both.
 
-An **and** claim ("$A$ and $B$") holds only when both hold, so it fails if *either* part fails:
+An **and** claim holds only when both parts hold; it fails if *either* fails:
 
 - **"$A$ and $B$"** negates to **"Not $A$ or not $B$."**
 
-Negate the claim: "The loading gate is open and the delivery vehicle is available."
+Negate: "The loading gate is open and the delivery vehicle is available."
 
 1. Parts: gate is open; vehicle is available.
 2. Negate each: gate is closed; vehicle is unavailable.
@@ -35,7 +35,7 @@ Why does *and* turn into *or* when negated? If the gate is closed while the vehi
 :::pair #negate-and-with-and
 Right: negating "The loading gate is open and the delivery vehicle is available" gives **The gate is closed or the vehicle is unavailable.**
 Wrong: The gate is closed and the vehicle is unavailable.
-Requiring both failures misses cases where just one part breaks. One failed part already breaks an *and* claim.
+Requiring both failures misses one-part breaks. One failed part already breaks *and*.
 :::
 
 :::check
@@ -46,20 +46,20 @@ The answer is **no**. An *and* rule requires both parts, so one torn seal makes 
 
 ### Negating an Or Statement
 
-An **inclusive or** ("$A$ or $B$") holds if $A$, $B$, or both hold. It fails only when *both* fail:
+An **inclusive or** holds if $A$, $B$, or both hold; it fails only when *both* fail:
 
 - **"$A$ or $B$"** negates to **"Neither $A$ nor $B$."**
 
-Negate the claim: "The request was submitted online or delivered in person."
+Negate: "The request was submitted online or delivered in person."
 
 1. Options: submitted online; delivered in person.
-2. If submitted in person alone, the notice stays true.
+2. Delivered in person alone keeps the notice true.
 3. Exact negation: **It was neither submitted online nor delivered in person.**
 
 :::pair #negate-or-with-or
 Right: negating "The request was submitted online or delivered in person" gives **It was neither submitted online nor delivered in person.**
 Wrong: It was not submitted online, or it was not delivered in person.
-Keeping *or* lets one original option stay true, such as delivery in person. An *or* claim fails only when *both* options fail.
+Keeping *or* leaves one option true (such as in-person delivery). An *or* claim fails only when *both* fail.
 :::
 
 :::check
@@ -70,19 +70,19 @@ The answer is **The sample came from neither source.** Ruling out one source or 
 
 ### Negating Combined Parts Inside And/Or
 
-When *at least one* sits inside *and*, flip the outer connector and negate each inner part completely.
+When *at least one* sits inside *and*, flip the outer connector and negate both parts.
 
-Negate the claim: "The station has a working battery and at least one of its two memory cards has room."
+Negate: "The station has a working battery and at least one of its two memory cards has room."
 
 1. Flip **and** to **or**.
-2. Negate Part $1$: "the battery fails."
+2. Negate Part $1$: "the station has no working battery."
 3. Negate Part $2$ (*at least one* $\to$ zero): "neither card has room."
-4. Result: **The battery fails or neither card has room.**
+4. Result: **The station has no working battery or neither card has room.**
 
 :::pair #mix-at-least-one-part
-Right: negating "working battery and at least one of its two memory cards has room" gives **The battery fails or neither card has room.**
+Right: negating "the station has a working battery and at least one of its two memory cards has room" gives **The station has no working battery or neither card has room.**
 Wrong: The battery fails or at least one memory card is full.
-With a good battery, one full card, and one card with room, the original still holds. Negate "at least one has room" all the way to "neither has room."
+With a good battery, one full card, and one card with room, the original still holds. Negate "at least one has room" to "neither has room."
 :::
 
 :::check

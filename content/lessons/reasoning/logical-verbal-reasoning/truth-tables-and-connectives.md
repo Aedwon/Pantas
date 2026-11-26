@@ -113,7 +113,7 @@ If $P$ is false and $Q$ is true, evaluate $P \lor Q$.
 
 **Solution:**
 
-1. Substitute $P=F$ and $Q=T$ into $P \lor Q$ and apply the inclusive **or** rule (at least one input is true, $Q=T$):
+1. Substitute $P=F$ and $Q=T$ into $P \lor Q$ (inclusive **or**):
 
 $$P \lor Q = F \lor T = T$$
 

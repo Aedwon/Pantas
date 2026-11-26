@@ -16,12 +16,12 @@ keyPoints:
 
 ### Separating Timing and Association from Cause
 
-Two events happening together or in sequence do not prove one caused the other.
+Two events together or in sequence do not prove cause.
 
 - An **association** means two patterns appear together (busier periods had longer waits). It does *not* prove sole cause, nor that one change fixes everything.
 - **Time order** ($A$ before $B$) supports sequence ("after"), not cause ("because").
 
-Find what this record supports: "After reviewing a request for flexible hours, a supervisor approved it. The record gives no explanation or evidence of her reasons."
+Supported claim: "After reviewing a request for flexible hours, a supervisor approved it. The record gives no explanation or evidence of her reasons."
 
 1. Sequence: reviewed first, approved second.
 2. Supported claim: **She approved the request after reviewing it.**
@@ -43,7 +43,7 @@ The answer is **no**. Same-morning timing supports only "on the morning of the c
 
 A fair causal test changes only one factor while holding others steady. When two things change at once, neither can take sole credit.
 
-Check for a second change in: "A garden's pechay grew faster after students changed its watering schedule. That same week, they moved the trays from shade into sun."
+Spot a second change: "A garden's pechay grew faster after students changed its watering schedule. That same week, they moved the trays from shade into sun."
 
 1. Change $1$: new watering schedule.
 2. Change $2$: more light (**The move also changed the plants' light.**).

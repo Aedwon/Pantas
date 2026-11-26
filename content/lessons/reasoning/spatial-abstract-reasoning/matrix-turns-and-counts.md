@@ -20,9 +20,9 @@ A **figure matrix** is a grid of figures with one blank **cell** (one grid box).
 
 **Rotation** turns a figure around a center point. A **clockwise** turn follows clock hands; a **counterclockwise** turn goes the opposite way. Quarter, eighth, and half turns measure $90^\circ$, $45^\circ$, and $180^\circ$.
 
-1. In a $2 \times 2$ grid, row $1$ turns $90^\circ$ clockwise from up ($0^\circ$) to right ($90^\circ$).
-2. Row $2$ starts pointing down ($180^\circ$).
-3. Turn $90^\circ$ clockwise from $180^\circ$: $180^\circ+90^\circ=270^\circ$, which points **left**.
+Find row $2$'s blank direction in a $2 \times 2$ grid where row $1$ turns $90^\circ$ clockwise from up ($0^\circ$) to right ($90^\circ$) and row $2$ starts down ($180^\circ$):
+
+1. Turn $90^\circ$ clockwise from $180^\circ$: $180^\circ+90^\circ=270^\circ$ (**left**).
 
 Some $3 \times 3$ grids increase the turn step from row to row: row $1$ turns $+45^\circ$ ($0^\circ, 45^\circ, 90^\circ$), row $2$ turns $+90^\circ$ ($0^\circ, 90^\circ, 180^\circ$), and row $3$ turns $+135^\circ$ ($0^\circ, 135^\circ, 270^\circ$ = left). Keep the same step across the whole row.
 
@@ -52,8 +52,9 @@ The answer is **bottom-left**. Row $1$ moves $1$ corner clockwise, and $1$ corne
 
 Write dot or line counts in each cell as numbers, then check each completed row and column.
 
-1. In a $3 \times 3$ grid of circles, row $1$ has $1, 2, 3$ dots; row $2$ has $2, 3, 4$; row $3$ has $3, 4,$ and a blank.
-2. Row $3$ adds $1$ per step ($3 \to 4 \to 5$), and column $3$ adds $1$ per step ($3 \to 4 \to 5$). Both point to **$5$ dots**.
+Find the blank dot count in a $3 \times 3$ grid (row $1$: $1, 2, 3$; row $2$: $2, 3, 4$; row $3$: $3, 4,$ blank):
+
+1. Row $3$ and column $3$ both add $1$ per step ($3 \to 4 \to 5$), giving **$5$ dots**.
 
 :::pair #add-row-and-column-twice
 Right: row $3$ ($3, 4, ?$) and column $3$ ($3, 4, ?$) both give **Circle with five dots**.

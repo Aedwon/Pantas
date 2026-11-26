@@ -89,13 +89,13 @@ Find the next term in the sequence: $4, 9, 14, 19, \ldots$
 
 **Solution:**
 
-1. Find the difference between neighboring terms in $4, 9, 14, 19$:
+1. Subtract neighboring terms:
 
 $$9-4=5,\quad 14-9=5,\quad 19-14=5$$
 
-2. Every step adds $5$. Add $5$ to $19$ for term $5$:
+2. Add $5$ to $19$ for term $5$:
 
-$$\text{Term }5=19+5=24$$
+$$\text{Term 5}=19+5=24$$
 
 The next term is $24$.
 
@@ -107,13 +107,13 @@ Find the next term in the sequence: $2, 6, 18, 54, \ldots$
 
 **Solution:**
 
-1. Divide each term by the term before it in $2, 6, 18, 54$ to test for a constant ratio:
+1. Divide each term by the prior term for a constant ratio:
 
 $$\dfrac{6}{2}=3,\quad \dfrac{18}{6}=3,\quad \dfrac{54}{18}=3$$
 
-2. Every step multiplies by $3$. Multiply $54$ by $3$ for term $5$:
+2. Multiply $54$ by $3$ for term $5$:
 
-$$\text{Term }5=54\times3=162$$
+$$\text{Term 5}=54\times3=162$$
 
 The next term is $162$.
 
@@ -128,7 +128,7 @@ Find the missing term in the sequence: $64, 32, \ldots, 8, 4$.
 1. Compare the first pair and the last pair: $64$ to $32$ halves the number, and $8$ to $4$ halves the number.
 2. Divide $32$ by $2$ for term $3$:
 
-$$\text{Term }3=32\div2=16$$
+$$\text{Term 3}=32\div2=16$$
 
 The missing term is $16$.
 
@@ -140,7 +140,7 @@ Find the next term in the sequence: $2, 3, 5, 8, 12, \ldots$
 
 **Solution:**
 
-1. Subtract each term from the next in $2, 3, 5, 8, 12$ to list the differences:
+1. List the first two differences:
 
 $$3-2=1,\quad 5-3=2$$
 

@@ -57,10 +57,10 @@ A figure has **reflection symmetry** when a straight line, called a **reflection
 
 <!-- ILLUSTRATION: four equal square frames in one row: first square with an internal line at 30 degrees from vertical, second square with one top-center dot, third square with one top-left corner dot and a dashed diagonal reflection axis, fourth square with two dots mirrored across the vertical center line -->
 
-Test the four squares above for reflection symmetry:
+Test the four squares for symmetry:
 
-1. Square $2$ (one top-center dot) folds evenly along a vertical axis.
-2. Square $3$ (one top-left dot) folds evenly along the diagonal through top-left and bottom-right.
+1. Square $2$ (top-center dot) folds evenly along a vertical axis.
+2. Square $3$ (top-left dot) folds evenly along its diagonal.
 3. Square $4$ (two symmetric dots) folds evenly along a vertical axis.
 4. Square $1$ (line tilted at $30^\circ$) matches no axis of the square, so **square $1$** lacks reflection symmetry.
 

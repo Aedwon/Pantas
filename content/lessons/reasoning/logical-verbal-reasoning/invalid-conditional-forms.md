@@ -27,11 +27,11 @@ In "If $P$, then $Q$," $P$ is the **condition** (after *if*) and $Q$ is the **re
 
 This form is **invalid**, because $Q$ can happen from another cause.
 
-Test: "If a card is valid ($P$), entry is allowed ($Q$)."
+Does allowed entry imply a valid card? Rule: "If a card is valid ($P$), entry is allowed ($Q$)."
 
-- Suppose a visitor has an **invalid card, entry allowed** (for example, a guard signed them in).
-- This obeys the rule, because the rule only promises entry for valid cards. It does not ban every other way in.
-- Seeing "entry allowed" ($Q$) does not prove the card is valid ($P$).
+- Suppose a visitor has an **invalid card, entry allowed** (a guard signed them in).
+- This obeys the rule, which promises entry for valid cards without banning other ways in.
+- Seeing "entry allowed" ($Q$) does not prove a valid card ($P$).
 
 :::pair #confirm-result-trap
 Right: "If a student studies hard, they pass; Maria passed; therefore she studied hard" is **Invalid: result confirmed**
@@ -55,11 +55,11 @@ The answer is **no (invalid)**. Living in Luzon is the result ($Q$); Ana could l
 
 This form is **invalid**, because $Q$ can still happen another way when $P$ does not happen.
 
-Test: "If it rains ($P$), the ground gets wet ($Q$). It did not rain (not $P$). Therefore, the ground is not wet (not $Q$)."
+Does no rain imply dry ground? "If it rains ($P$), the ground gets wet ($Q$). It did not rain (not $P$). Therefore, the ground is not wet (not $Q$)."
 
-- Premise $1$ does not say rain is the *only* cause of wet ground.
-- Someone could water the lawn with a hose, leaving the ground wet with no rain.
-- Verdict: the argument is **invalid**.
+- Premise $1$ does not make rain the *only* cause of wet ground.
+- A hose can wet the ground with no rain.
+- Verdict: **invalid**.
 
 :::why
 Why does "not $Q \to$ not $P$" work while "not $P \to$ not $Q$" fails? Picture $P$ as one door into room $Q$. If room $Q$ is empty (not $Q$), nobody walked through door $P$ (not $P$). If nobody used door $P$ (not $P$), someone could still enter through another door.

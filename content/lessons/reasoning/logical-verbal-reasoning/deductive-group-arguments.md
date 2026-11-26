@@ -30,12 +30,12 @@ A **categorical syllogism** is an argument about groups using *all*, *no*, or *s
 
 A conclusion is forced only if every circle picture that fits the premises also fits that conclusion.
 
-Test: "All approved reports are signed. Some submitted reports are approved."
+Find what follows: "All approved reports are signed. Some submitted reports are approved."
 
 - Premise $1$: Put *Approved* inside *Signed*.
-- Premise $2$: Put a mark in the overlap of *Submitted* and *Approved*.
-- Since *Approved* sits inside *Signed*, that mark sits inside *Signed* too.
-- Forced conclusion: **Some submitted reports are signed.** (Not *all* submitted reports.)
+- Premise $2$: Mark the overlap of *Submitted* and *Approved*.
+- Because *Approved* sits inside *Signed*, that mark sits inside *Signed*.
+- Forced conclusion: **Some submitted reports are signed.** (Not *all*.)
 
 :::pair #reverse-all-group
 Right: from "All squares are rectangles," draw *Squares* inside *Rectangles*
@@ -56,7 +56,7 @@ The answer is **A beetle has six legs.** *Insects* sits inside *Six-legged anima
 - **Valid**: if the premises were true, the conclusion would have to be true.
 - **Sound**: valid **and** every premise is true in real life.
 
-Test: "All dogs are animals. All mammals are animals. Therefore, all dogs are mammals."
+Check validity: "All dogs are animals. All mammals are animals. Therefore, all dogs are mammals."
 
 - Premise $1$: Draw *Dogs* inside *Animals*.
 - Premise $2$: Draw *Mammals* inside *Animals*.
