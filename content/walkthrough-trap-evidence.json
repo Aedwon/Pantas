@@ -4179,6 +4179,119 @@
           "mistakeNote": "Uses the common meaning of qualified, not the one the context supports."
         }
       ]
+    },
+    "lesson-language-application-clause-punctuation-checks": {
+      "comma-splice": [{"questionId": "q-language-application-error-identification-0020", "wrongChoice": "Mika was the cashier on duty, she counted the receipts.", "mistakeNote": "Joins two independent clauses with only a comma."}],
+      "run-on-or-case": [{"questionId": "q-language-application-error-identification-0020", "wrongChoice": "Mika was the cashier on duty she counted the receipts.", "mistakeNote": "Runs two independent clauses together with no mark or joining word."}],
+      "however-splice": [{"questionId": "q-language-application-error-identification-0009", "wrongChoice": "No error", "mistakeNote": "Treats however like a coordinating conjunction, so a comma alone seems enough to join the clauses."}]
+    },
+    "lesson-language-application-modal-meaning-checks": {
+      "modal-meaning": [{"questionId": "q-language-application-error-identification-0021", "wrongChoice": "might register", "mistakeNote": "Uses a possibility modal where the policy states a requirement."}],
+      "modal-plus-to": [{"questionId": "q-language-application-error-identification-0022", "wrongChoice": "might to arrive", "mistakeNote": "Inserts to after the modal might."}],
+      "modal-verb-ending": [{"questionId": "q-language-application-error-identification-0021", "wrongChoice": "must registers", "mistakeNote": "Adds an -s ending to the verb after a modal."}]
+    },
+    "lesson-language-application-modifiers-and-matching-forms": {
+      "dangling-opening": [{"questionId": "q-language-application-error-identification-0018", "wrongChoice": "After inspecting the roof, repairs were approved by the engineer.", "mistakeNote": "Gives the opening action to repairs instead of the engineer."}],
+      "parallel-list": [{"questionId": "q-language-application-error-identification-0002", "wrongChoice": "No error", "mistakeNote": "Accepts a to-plus-verb phrase among base verbs in a list."}],
+      "like-comparison": [{"questionId": "q-language-application-error-identification-0004", "wrongChoice": "No error", "mistakeNote": "Accepts a rating compared with the physical models."}]
+    },
+    "lesson-language-application-past-time-checks": {
+      "past-time-clue": [{"questionId": "q-language-application-error-identification-0019", "wrongChoice": "are being delivered", "mistakeNote": "Uses an ongoing present form with the past clue yesterday."}],
+      "participle-after-had": [{"questionId": "q-language-application-error-identification-0014", "wrongChoice": "No error", "mistakeNote": "Accepts a base verb after had."}],
+      "which-event-gets-had": [{"questionId": "q-language-application-error-identification-0008", "wrongChoice": "finished inspecting the fiscal records,", "mistakeNote": "Changes the later event instead of the earlier one."}]
+    },
+    "lesson-language-application-phrases-and-sentence-types": {
+      "phrase-vs-dependent": [{"questionId": "q-language-application-error-identification-0024", "wrongChoice": "after the lengthy staff meeting", "mistakeNote": "Counts a phrase with no subject and verb as a clause."}],
+      "standalone-clause": [{"questionId": "q-language-application-error-identification-0024", "wrongChoice": "the clerk resigned yesterday", "mistakeNote": "Calls a complete thought dependent."}],
+      "count-all-clauses": [{"questionId": "q-language-application-error-identification-0023", "wrongChoice": "Two independent clauses with no dependent clause", "mistakeNote": "Overlooks the dependent although clause."}]
+    },
+    "lesson-language-application-pronoun-reference-checks": {
+      "who-vs-whom": [{"questionId": "q-language-application-error-identification-0006", "wrongChoice": "No error", "mistakeNote": "Accepts an object form as the subject of a clause."}],
+      "object-after-preposition": [{"questionId": "q-language-application-error-identification-0013", "wrongChoice": "No error", "mistakeNote": "Accepts a subject form as a preposition's object."}],
+      "unclear-pronoun": [{"questionId": "q-language-application-error-identification-0007", "wrongChoice": "No error", "mistakeNote": "Assumes the context shows which of two men the pronoun means."}]
+    },
+    "lesson-language-application-subject-and-verb-checks": {
+      "nearest-noun": [{"questionId": "q-language-application-error-identification-0001", "wrongChoice": "No error", "mistakeNote": "Misses the singular head every one because plural laptops sits near the verb."}],
+      "mass-noun-some": [{"questionId": "q-language-application-error-identification-0016", "wrongChoice": "Some of the information in these notes are confidential for legal reasons.", "mistakeNote": "Matches the verb to plural notes instead of the mass noun information."}],
+      "collective-unit": [{"questionId": "q-language-application-error-identification-0010", "wrongChoice": "is presenting", "mistakeNote": "Marks a singular verb as an error because a panel has several members."}]
+    },
+    "lesson-language-application-word-meaning-checks": {
+      "check-opposite-direction": [
+        {"questionId": "q-language-application-error-identification-0029", "wrongChoice": "understandable", "mistakeNote": "Picks a similar meaning when the question asks for the opposite."},
+        {"questionId": "q-language-application-error-identification-0029", "wrongChoice": "straightforward", "mistakeNote": "Picks a word that fits the sentence but is not the opposite."}
+      ],
+      "read-every-word-part": [
+        {"questionId": "q-language-application-error-identification-0030", "wrongChoice": "Full of helpful guidance", "mistakeNote": "Reads helpful and ignores the prefix un-."},
+        {"questionId": "q-language-application-error-identification-0030", "wrongChoice": "Able to give useful help", "mistakeNote": "Focuses on help and loses the negative prefix."}
+      ]
+    },
+    "lesson-language-application-cause-and-effect-order": {
+      "resulting-before-cause": [{"questionId": "q-language-application-paragraph-organization-0011", "wrongChoice": "1, 3, 2, 4", "mistakeNote": "Puts 'The resulting reactions' before the reactions it points back to."}],
+      "cause-first-forced": [{"questionId": "q-language-application-paragraph-organization-0018", "wrongChoice": "2, 4, 3, 1", "mistakeNote": "Forces cause-first order on a narrative that signals result first."}]
+    },
+    "lesson-language-application-completion-articles-and-lists": {
+      "article-by-spelling": [{"questionId": "q-language-application-sentence-completion-0023", "wrongChoice": "the, a", "mistakeNote": "Picks 'a' for 'unused' by spelling instead of its vowel sound."}],
+      "preposition-pattern": [{"questionId": "q-language-application-sentence-completion-0016", "wrongChoice": "on", "mistakeNote": "Borrows 'on' from 'focused on' instead of the partner 'interested in'."}],
+      "mixed-list-form": [{"questionId": "q-language-application-sentence-completion-0024", "wrongChoice": "to notify", "mistakeNote": "Breaks an -ing list with a to-plus-verb item."}]
+    },
+    "lesson-language-application-completion-meaning-clues": {
+      "synonym-after-far-from": [{"questionId": "q-language-application-sentence-completion-0014", "wrongChoice": "poised", "mistakeNote": "Repeats the calm quality after 'Far from being' instead of its opposite."}],
+      "one-blank-only": [{"questionId": "q-language-application-sentence-completion-0003", "wrongChoice": "orthodox ... hostility", "mistakeNote": "Second blank fits but the first blank contradicts 'replace the entire structure'."}]
+    },
+    "lesson-language-application-completion-natural-phrases": {
+      "wrong-partner": [{"questionId": "q-language-application-sentence-completion-0017", "wrongChoice": "do", "mistakeNote": "Uses a general action verb instead of the usual partner 'make a decision'."}],
+      "idiom-by-parts": [{"questionId": "q-language-application-sentence-completion-0025", "wrongChoice": "turn a blind eye to", "mistakeNote": "Picks an eye idiom that means ignore when the sentence needs watch."}]
+    },
+    "lesson-language-application-completion-past-time": {
+      "present-for-past": [{"questionId": "q-language-application-sentence-completion-0018", "wrongChoice": "finds", "mistakeNote": "Uses a present form after the past clue 'Last Tuesday'."}],
+      "had-for-unfinished": [{"questionId": "q-language-application-sentence-completion-0026", "wrongChoice": "had checked", "mistakeNote": "Treats an interrupted, half-done action as finished."}]
+    },
+    "lesson-language-application-completion-word-forms": {
+      "wrong-job": [{"questionId": "q-language-application-sentence-completion-0010", "wrongChoice": "eloquent", "mistakeNote": "Puts an adjective after an action verb where an adverb is needed."}],
+      "plural-subject-s": [{"questionId": "q-language-application-sentence-completion-0021", "wrongChoice": "sorts", "mistakeNote": "Gives a singular verb to the plural subject 'assistants'."}],
+      "verb-pattern": [{"questionId": "q-language-application-sentence-completion-0022", "wrongChoice": "learning ... organizing", "mistakeNote": "Uses an -ing form after 'want', which takes 'to' plus the base verb."}]
+    },
+    "lesson-language-application-details-and-supported-inferences": {
+      "wrong-day": [{"questionId": "q-language-application-paragraph-organization-0023", "wrongChoice": "Before the counter closes on Monday", "mistakeNote": "Takes the day from the closure line instead of the line that names the collection day."}],
+      "adding-a-guess": [{"questionId": "q-language-application-paragraph-organization-0024", "wrongChoice": "She found that the dispatch log contained an error.", "mistakeNote": "Treats checking as finding an error that the text never reports."}]
+    },
+    "lesson-language-application-main-ideas-and-details": {
+      "widening-the-claim": [{"questionId": "q-language-application-paragraph-organization-0021", "wrongChoice": "Replace all online services with telephone calls.", "mistakeNote": "Turns an added option into a full replacement."}],
+      "claim-not-in-text": [{"questionId": "q-language-application-paragraph-organization-0022", "wrongChoice": "The branch has ended all waiting at the counter.", "mistakeNote": "Picks a claim that sounds like the point but is not stated in the text."}]
+    },
+    "lesson-language-application-openings-and-reference-links": {
+      "reference-before-source": [{"questionId": "q-language-application-paragraph-organization-0001", "wrongChoice": "1, 2, 4, 3", "mistakeNote": "Opens with a sentence that says 'that audit' before the audit is introduced."}, {"questionId": "q-language-application-paragraph-organization-0004", "wrongChoice": "1, 2, 3, 4", "mistakeNote": "Puts 'these structural innovations' before the sentence that introduces them."}],
+      "the-noun-link": [{"questionId": "q-language-application-paragraph-organization-0012", "wrongChoice": "2, 4, 3, 1", "mistakeNote": "Places the findings with 'The study' before the sentence that introduces the study."}]
+    },
+    "lesson-language-application-time-and-step-order": {
+      "first-before-next": [{"questionId": "q-language-application-paragraph-organization-0002", "wrongChoice": "1, 2, 4, 3", "mistakeNote": "Puts the step marked 'Next' before the step marked 'First'."}],
+      "prerequisite-step": [{"questionId": "q-language-application-paragraph-organization-0016", "wrongChoice": "1, 2, 4, 3", "mistakeNote": "Removes the cover before the power is isolated."}]
+    },
+    "lesson-language-application-transition-links": {
+      "contrast-before-claim": [{"questionId": "q-language-application-paragraph-organization-0007", "wrongChoice": "1, 2, 4, 3", "mistakeNote": "Opens with 'However' before the methods it contrasts are introduced."}],
+      "example-before-idea": [{"questionId": "q-language-application-paragraph-organization-0003", "wrongChoice": "1, 2, 3, 4", "mistakeNote": "Opens with 'For example' before the general statement it illustrates."}]
+    },
+    "lesson-language-application-kayarian-at-sugnay": {
+      "parirala-hindi-sugnay": [{"questionId": "q-language-application-error-identification-0025", "wrongChoice": "sa loob ng bagong tanggapan", "mistakeNote": "A phrase with no predicate is called a dependent clause."}],
+      "bilangin-ang-lahat-ng-sugnay": [{"questionId": "q-language-application-error-identification-0026", "wrongChoice": "Tambalan dahil walang sugnay na di-makapag-iisa.", "mistakeNote": "Skips the dependent clause that starts with habang."}, {"questionId": "q-language-application-error-identification-0026", "wrongChoice": "Hugnayan dahil iisa ang sugnay na makapag-iisa.", "mistakeNote": "Counts only one independent clause."}]
+    },
+    "lesson-language-application-pagkakasunod-at-sanhi": {
+      "ito-ay-may-naunang-binanggit": [{"questionId": "q-language-application-paragraph-organization-0017", "wrongChoice": "1, 2, 4, 3", "mistakeNote": "Places 'reklamong ito' before the complaint is introduced."}, {"questionId": "q-language-application-paragraph-organization-0017", "wrongChoice": "2, 3, 1, 4", "mistakeNote": "Places 'pulong na iyon' before the meeting is named."}],
+      "bunga-hindi-sanhi": [{"questionId": "q-language-application-paragraph-organization-0025", "wrongChoice": "Humingi siya ng bagong kopya ng listahan.", "mistakeNote": "Names the effect as the cause."}]
+    },
+    "lesson-language-application-pagkumpleto-ng-pangungusap": {
+      "anyo-ayon-sa-panahon": [{"questionId": "q-language-application-sentence-completion-0027", "wrongChoice": "ipapadala", "mistakeNote": "Uses a future form with kahapon."}],
+      "pang-ugnay-ng-pagsalungat": [{"questionId": "q-language-application-sentence-completion-0028", "wrongChoice": "kaya", "mistakeNote": "Uses a result connector where the two ideas contrast."}],
+      "likas-at-akma-sa-kahulugan": [{"questionId": "q-language-application-sentence-completion-0029", "wrongChoice": "matinding tulong", "mistakeNote": "Picks a natural-sounding pair that does not fit the meaning."}]
+    },
+    "lesson-language-application-paksa-at-balangkas": {
+      "sobra-ang-ideya": [{"questionId": "q-language-application-paragraph-organization-0026", "wrongChoice": "Karatula lamang ang kailangan sa bawat tanggapan.", "mistakeNote": "Overstates the main idea with 'lamang'."}],
+      "dagdag-sa-paliwanag": [{"questionId": "q-language-application-paragraph-organization-0026", "wrongChoice": "Hindi na kailangan ang mga kawani sa tamang pila.", "mistakeNote": "Adds a claim the passage never makes."}],
+      "detalye-mula-sa-talata": [{"questionId": "q-language-application-paragraph-organization-0027", "wrongChoice": "Silbi ng talaan: halaga ng gamit at gastos sa pagkukumpuni.", "mistakeNote": "Puts in a detail that is not in the passage."}]
+    },
+    "lesson-language-application-wastong-gamit-at-panahon": {
+      "posibilidad-hindi-panahon": [{"questionId": "q-language-application-error-identification-0027", "wrongChoice": "bukas", "mistakeNote": "Picks a time word as the possibility word."}],
+      "panahon-ng-karanasan": [{"questionId": "q-language-application-error-identification-0028", "wrongChoice": "matutuwa", "mistakeNote": "Uses a future form for an experience that already happened."}]
     }
   }
 }
