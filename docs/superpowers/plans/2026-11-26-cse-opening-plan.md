@@ -107,6 +107,17 @@ puts the beta gate back by switching the app to today's version (about a minute)
 | Past mistakes count right on a second device | App | No new screen; restores the built behavior. Rides only if E holds. |
 | Link-preview image without the beta mark | App metadata | Already on prod since Nov 26 (#134, approved board). |
 
+## After the opening (his "A", Nov 26)
+
+- No prod web update until service worker option A passes its audit and the 48-hour staging soak, unless a fix
+  is urgent and he approves it through the manager. Content uploads (no web build) stay allowed.
+- The walk-through renderer and importer (E-196) is in the opening build only if it reaches the integrator,
+  passes checks and a staging proof by Friday evening, and renders old-format lessons byte-identically.
+  Walk-through lessons then go live as content uploads only.
+- Staging proofs: a first proof of the current candidate (main 118a00ef3, with every merged opening fix)
+  Thursday evening; the final proof of the exact opening build Friday at 8:00 PM Manila (12:00 UTC), after the
+  renderer cutoff.
+
 ## Not part of the opening (recorded so nobody widens scope)
 
 - Service worker option A (after the opening, 48-hour staging soak, clean audit).
