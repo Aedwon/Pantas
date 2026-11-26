@@ -60,7 +60,8 @@ Manager, later in session 3: Vocabulary round 2 Codex audit FAIL, 20 Blockers, 7
 - After that, Math, Language Application and Reading Comprehension get a Claude Fable 5.2 high read-only audit with the same brief, committed as "Batch N audited: PASS (Fable)".
 - After Monday's reset, Codex re-audits every Fable-passed batch before it goes live. Nothing goes live before the renderer lands.
 
-Fable-passed batches waiting for a Codex re-audit: (none yet)
+Fable-passed batches waiting for a Codex re-audit:
+- Batch 4b Language Application (24 lessons): Fable 5.2 high round 2 PASS at `2985cdcd9` (0 Blockers, 0 Majors, 11 Minors, `walkthrough-work/fable-la-r2.md`); the 11 Minors fixed by the lead after it, word counts at or under the pre-sweep baseline, parser 24/24, lesson_checks clean for the topic.
 
 ### Fresh-instance rule (lead, Nov 26)
 

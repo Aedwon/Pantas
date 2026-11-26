@@ -103,15 +103,15 @@ Arrange the sentences in time order.
 
 (B) At opening time that morning, the clerk found an unclaimed parcel.
 
-(C) An hour after finding it, she called its owner using the number on its label.
+(C) An hour after finding it, she called the owner named on its label.
 
 **Solution:**
 
-1. (B) is the earliest time.
+1. (B) has "At opening time," the earliest time.
 2. (C) counts from the discovery in (B).
-3. (A) is the latest time.
+3. (A) has "By noon," the latest time.
 
-At opening time that morning, the clerk found an unclaimed parcel. An hour after finding it, she called its owner using the number on its label. By noon, the missing parcel had reached its owner.
+At opening time that morning, the clerk found an unclaimed parcel. An hour after finding it, she called the owner named on its label. By noon, the missing parcel had reached its owner.
 
 **Check:** Each event follows the last.
 

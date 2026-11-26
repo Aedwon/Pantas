@@ -155,7 +155,7 @@ Piliin ang pariralang likas at akma: "Nawalan ng kuryente ang barangay dahil sa 
 :::try
 Tapusin: alin ang likas at akma, at ano ang buong pangungusap?
 :::answer
-Ang *malakas na ngiti* ay hindi nakapagpapawala ng kuryente. Ang sagot ay **(A)**: "Nawalan ng kuryente ang barangay dahil sa malakas na bagyo."
+Ang sagot ay **(A)**: "Nawalan ng kuryente ang barangay dahil sa malakas na bagyo." Ang *malakas na ngiti* ay hindi nakapagpapawala ng kuryente.
 
 **Check:** Karaniwang sinasabi ang *malalim* sa lalim, gaya ng baha, hindi sa bagyo.
 :::

@@ -31,7 +31,7 @@ Wrong: "The lead scientist, whom had conducted fieldwork, presented her findings
 *Whom* is an object form, yet the pronoun acts as the subject of *had conducted*. Use *who*.
 :::
 
-To test a pair after a preposition, leave out *you and*, then test the pronoun alone. "Between *I*" fails, while "Between *me*" works.
+To test "between you and I", leave out *you and*: "between *I*" fails, "between *me*" works.
 
 :::pair #object-after-preposition
 Right: "Between you and me, the plan will need board approval."

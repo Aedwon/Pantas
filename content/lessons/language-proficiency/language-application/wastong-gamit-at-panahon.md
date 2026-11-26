@@ -68,7 +68,7 @@ Ang pandiwa ay maaaring magpahayag ng kilos, pangyayari, o karanasan. Itanong an
 :::check
 Alin ang karanasan: *(Nagluto si Ben ng sopas. / Bumagyo kagabi. / Natakot si Ben sa kulog.)*
 :::answer
-Damdamin ang naranasan ni Ben. Ang *nagluto* ay kilos, at ang *bumagyo* ay pangyayari. Ang karanasan: "Natakot si Ben sa kulog."
+*Natakot si Ben sa kulog.* Damdamin ang naranasan ni Ben. Ang *nagluto* ay kilos, at ang *bumagyo* ay pangyayari.
 :::
 
 ### Panahon ng Pandiwa

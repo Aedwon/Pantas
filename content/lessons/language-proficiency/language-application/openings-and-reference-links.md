@@ -16,7 +16,8 @@ keyPoints:
 ### Choosing the Opening Sentence
 
 **Paragraph organization** means putting sentences in an order that makes the ideas easy to follow.
-An **opening sentence** often names the topic or situation. It should make sense before the reader sees the other sentences. A sentence with *this*, *that* or *these* points back to an earlier sentence, so it rarely opens a scrambled set.
+
+An **opening sentence** often names the topic or situation. A sentence with *this*, *that* or *these* points back to an earlier sentence, so it rarely opens.
 
 Which sentence opens?
 
@@ -24,9 +25,9 @@ Which sentence opens?
 
 (B) "A group of hikers set out before sunrise to climb the ridge."
 
-1. (A) says "Their boots." Whose boots? No earlier sentence says.
-2. (B) names the hikers and what they do. It makes sense alone.
-3. (B) opens, and (A) follows.
+1. (A) says "Their boots," but no earlier sentence names them.
+2. (B) names the hikers. It makes sense alone.
+3. (B) opens: "A group of hikers set out before sunrise to climb the ridge. Their boots were covered in mud by the time they reached the camp."
 
 A story or a set of steps can still open with an event or action, not a broad statement. A pronoun can open only when something outside the set, such as a title, already names it.
 
@@ -39,7 +40,7 @@ Wrong: "After that increase, the owner checked the pipes. The shop's water bill 
 :::check
 Which sentence opens? (A) "Those boxes were stacked by the window." (B) "The new teacher unpacked six boxes of books."
 :::answer
-The answer is (B). It names the boxes. *Those boxes* in (A) needs an earlier sentence that names them.
+The answer is (B). It names the boxes. *Those boxes* in (A) needs an earlier sentence that names them: "The new teacher unpacked six boxes of books. Those boxes were stacked by the window."
 :::
 
 ### Following Reference Words
@@ -62,7 +63,7 @@ Rain collects on the school roof and runs into a pipe. This water then flows int
 :::pair #the-noun-link
 Right: "A student began a study of park birds. The study counted forty kinds."
 Wrong: "The study counted forty kinds. A student began a study of park birds."
-*The study* is a link even without *this* or *it*.
+*The study* points back to *a study*, so it comes second.
 :::
 
 :::check

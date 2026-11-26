@@ -44,7 +44,7 @@ Choose the modal that fits: After months of practice, Ben *(can / must)* now pla
 
 ### After a Modal
 
-A **base verb** is the plain verb with no *to* and no endings like *-s*, *-ed*, or *-ing* (*register, arrive, leave*). Core modals such as *can, may, must, might, could, should* take the bare base verb directly, even when the subject is singular (*She **must register***, not *must registers*).
+A **base verb** is the plain verb with no *to* and no endings like *-s*, *-ed*, or *-ing* (*register, arrive, leave*). Core modals such as *can, may, must, might, could, should* take the bare base verb directly, even when the subject is singular (*She must register*, not *must registers*).
 
 :::pair #modal-plus-to
 Right: "The delayed shipment might arrive tomorrow."

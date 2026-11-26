@@ -55,9 +55,9 @@ Walang sinabi ang talata tungkol sa tindahan. Sabihin lamang ang laman ng binasa
 :::
 
 :::check
-Sabihin sa sariling salita: "Ang ilog ay pinagkukunan ng tubig at isda ng mga taga-nayon."
+Sabihin sa sariling salita: "Ang ilog ay pinagkukunan ng tubig at isda ng mga taganayon."
 :::answer
-Anumang pangungusap na pareho ang diwa at walang idinagdag ay tama. Halimbawa: **"Kumukuha ng tubig at isda ang mga taga-nayon sa ilog."**
+Anumang pangungusap na pareho ang diwa at walang idinagdag ay tama. Halimbawa: **"Kumukuha ng tubig at isda ang mga taganayon sa ilog."**
 :::
 
 ### Paggawa ng Balangkas

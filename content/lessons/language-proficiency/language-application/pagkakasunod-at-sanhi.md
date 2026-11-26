@@ -106,9 +106,9 @@ Ayusin ang mga pangungusap.
 
 **Solution:**
 
-1. **(B)**: may *una*, at ito ang tinutukoy ng *ito* sa (C).
+1. **(B)**: may *una*, at ang *liham* nito ang tinutukoy ng *ito* sa (C).
 2. **(C)**: kasunod ng (B), bago lagdaan.
-3. **(D)**: tapos na ang pagwawasto.
+3. **(D)**: ang *pagwawasto* ay ang pagtatama sa (C).
 4. **(A)**: may *sa wakas*.
 
 Una, isinulat ni Lea ang liham. Binasa niya itong muli upang itama ang mali bago niya ito lagdaan. Nang matapos ang pagwawasto, nilagdaan niya ang liham. Sa wakas, inilagay niya ang nilagdaang liham sa sobre.
@@ -127,10 +127,9 @@ Ayusin ang mga pangungusap. Pagkatapos, pagsamahin ang mga ito gamit ang *dahil*
 
 1. **(A)**: may *kaya*, kaya ito ang bunga: hindi natuloy ang palaro.
 2. **(B)**: ito ang sagot sa "Bakit?", kaya ito ang sanhi: malakas ang ulan.
-3. Ang ayos ay **B, A**.
-4. Ilagay ang *dahil* sa sanhi: "Hindi natuloy ang palaro dahil malakas ang ulan buong umaga."
+3. Ilagay ang *dahil* sa sanhi: "Hindi natuloy ang palaro dahil malakas ang ulan buong umaga."
 
-**Check:** "Malakas ang ulan buong umaga, kaya hindi natuloy ang palaro." Pareho ang diwa.
+**Check:** Gamit ang *kaya*: "Malakas ang ulan buong umaga, kaya hindi natuloy ang palaro." Pareho ang diwa.
 
 ### #3: Pagsasama ng Dalawang Ugnayan
 
