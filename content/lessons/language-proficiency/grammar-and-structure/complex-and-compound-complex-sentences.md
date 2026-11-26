@@ -63,7 +63,7 @@ The answer is **Compound-complex**. *The students lit candles* and *they continu
 
 ### Clue Words That Start Phrases, Not Clauses
 
-Words like *after, before,* and *since* start phrases or clauses. Check what follows *after*:
+*After, before,* and *since* start phrases or clauses. Check what follows *after*:
 
 - *"After rehearsal, the musicians left."* -> *rehearsal* has no verb, so *"After rehearsal"* is a phrase. One clause remains -> **Simple**.
 - *"After rehearsal ended, the musicians left the hall."* -> *rehearsal* + *ended* forms a dependent clause -> **Complex**.

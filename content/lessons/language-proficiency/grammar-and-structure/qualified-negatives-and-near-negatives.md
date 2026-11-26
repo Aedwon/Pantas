@@ -17,10 +17,10 @@ keyPoints:
 
 ### Qualified Negatives: "Not Unexpected" and "Not Unreasonable"
 
-Standard formal English uses two negatives together on purpose to give a **qualified** (softer, middle-ground) positive meaning. See how *not* softens *unexpected*, *unreasonable*, and *uncommon*:
+Standard English pairs two negatives for a **qualified** (middle-ground) positive meaning. See how *not* softens these three words:
 
 1. *unexpected* = not expected -> *"not unexpected"* = **somewhat expected** (not guaranteed).
-2. *unreasonable* = not reasonable -> *"not unreasonable"* = **fairly reasonable** (not perfect in every respect).
+2. *unreasonable* = not reasonable -> *"not unreasonable"* = **fairly reasonable** (not perfect).
 3. *uncommon* = rare -> *"not uncommon"* = happens sometimes (not always).
 
 <!-- ILLUSTRATION: horizontal strength scale from left to right: "0% (never / none)" -> "just above 0% (hardly, scarcely, barely, seldom)" -> "middle qualified zone (not unexpected, not unreasonable)" -> "100% (guaranteed / perfectly / always)" -->
@@ -43,7 +43,7 @@ The answer is **Somewhat expected**. *Not unexpected* rules out surprise without
 
 ### Near-Negatives: Hardly, Scarcely, and Barely
 
-Words like *hardly*, *scarcely*, and *barely* are **near-negatives** meaning **almost not**, **very little**, or **only with great difficulty** (not zero). Read *barely* and *scarcely* in two sentences:
+*Hardly, scarcely,* and *barely* are **near-negatives** meaning **almost not** or **only with great difficulty** (not zero). Read *barely* and *scarcely*:
 
 1. *"She has barely started her homework"* = she has only just begun (a tiny start, not zero and not finished).
 2. *"He could scarcely finish the race"* = he finished, though only with great difficulty.

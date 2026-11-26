@@ -36,10 +36,10 @@ The answer is **Keep *although* alone**. *"Although the team practiced, it lost.
 
 ### Comma Placement by Clause Order
 
-Compare where the comma goes in two orders of a *because* sentence:
+Compare comma placement by order:
 
-1. **Dependent clause first:** Put a comma after the opening clause. *"Because it was raining, we stayed inside."*
-2. **Essential reason clause second:** Skip the comma before *because*. *"We stayed inside because it was raining."*
+1. **Dependent clause first:** Add a comma after it: *"Because it was raining, we stayed inside."*
+2. **Essential reason second:** Skip the comma: *"We stayed inside because it was raining."*
 
 :::pair #comma-by-clause-order
 Right: *"Because it was raining, we stayed inside."* (comma after *raining*) and *"We stayed inside because it was raining."* (no comma before *because*).

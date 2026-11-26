@@ -37,7 +37,7 @@ Ang sagot ay **Hugnayan**. May isang buong diwa (*Isinara ang tanggapan*) at isa
 
 ### Langkapang Pangungusap
 
-Ang **langkapan** (compound-complex sentence) ay binubuo ng dalawa o higit pang sugnay na makapag-iisa at isa o higit pang sugnay na di-makapag-iisa. Idugtong ang dalawang buong diwa gamit ang *at* at ang dahilan gamit ang *dahil*:
+Ang **langkapan** (compound-complex) ay may dalawa o higit pang makapag-iisa at isang di-makapag-iisang sugnay. Tingnan ang *at* at *dahil*:
 
 - "Umuwi ang bata **at** nagsara ang tindahan **dahil malakas na ang ulan**."
 

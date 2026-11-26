@@ -16,7 +16,7 @@ keyPoints:
 
 ### Correlative Conjunctions: Matching Both Sides
 
-**Correlative conjunctions** work in pairs: *either...or*, *neither...nor*, *not only...but also*, and *both...and*. Look right after the first word and right after the second word. Both sides must share the same grammatical form. Match both halves across three pairs:
+**Correlative conjunctions** work in pairs (*either...or*, *neither...nor*, *not only...but also*, *both...and*). Match the grammatical form right after each half:
 
 1. Two adjectives: *"The policy is not only practical but also affordable."*
 2. Two *to + verb* phrases: *"She wanted both to travel and to save money."*

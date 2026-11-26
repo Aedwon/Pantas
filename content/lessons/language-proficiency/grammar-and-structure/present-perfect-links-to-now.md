@@ -65,10 +65,10 @@ The answer is **Has lived**. Her stay continues into the present, so present per
 
 ### Finished Past Time Uses Simple Past
 
-When a sentence names a finished past time (*yesterday*, *last week*, *in 2022*), use **simple past**, not present perfect. Compare a finished past time with a result linked to now:
+Use **simple past** with a finished past time (*yesterday, last week, in 2022*). Compare finished time with present result:
 
 - "The committee **submitted** its report yesterday afternoon." (*Yesterday afternoon* is finished.)
-- "The committee **has submitted** its report." (Focuses on the present result with no finished past time.)
+- "The committee **has submitted** its report." (Present result, no finished time.)
 
 :::pair #finished-past-time
 Right: The committee submitted its report yesterday afternoon.

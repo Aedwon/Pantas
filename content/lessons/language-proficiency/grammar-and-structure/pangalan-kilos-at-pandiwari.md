@@ -37,7 +37,7 @@ Ang sagot ay **Panghalip**. Humahalili ang *siya* sa pangalan ng taong nagdala n
 
 ### Pandiwa: Kilos, Pangyayari, o Kalagayan
 
-Ang **pandiwa** (verb) ay nagsasaad ng kilos, pangyayari, o kalagayan. Hanapin ang salitang nagsasabi kung ano ang ginawa ng gumagawa o ano ang nangyari. Hanapin ang kilos o pangyayari sa dalawang pangungusap:
+Ang **pandiwa** (verb) ay nagsasaad ng kilos, pangyayari, o kalagayan. Hanapin ang kilos o pangyayari sa dalawang halimbawa:
 
 - "Kumain ang mga bata ng masarap na hapunan." (*Kumain* ang kilos na ginawa ng mga bata.)
 - "Bumuhos ang malakas na ulan." (*Bumuhos* ang pangyayari.)

@@ -39,7 +39,7 @@ The answer is **Had finished**. *Before noon yesterday* is a past reference poin
 
 ### When Time Words Already Show Order
 
-Past perfect is not required for every earlier past event. When a time word such as *before* or *after* already makes the order clear, simple past works for both events. Compare simple past and past perfect with *before*:
+Past perfect is optional when *before* or *after* already shows order. Compare simple past and past perfect with *before*:
 
 - "She **finished** the report before her boss **asked** for it." (Simple past, clear order.)
 - "She **had finished** the report before her boss **asked** for it." (Past perfect, stresses earlier completion.)

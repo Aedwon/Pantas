@@ -46,7 +46,7 @@ A **subject** tells who or what a clause is about. A **clause** has a subject an
 
 A **subordinate clause** has a subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting to learn what happened. A **subordinating conjunction** (*before, after, because, when, until*) introduces a subordinate clause.
 
-Words like *before*, *after*, and *until* can do two jobs. Check what follows *before*:
+*Before*, *after*, and *until* do two jobs. Check what follows *before*:
 
 1. Noun phrase only: "We met **before** dinner." (*dinner* has no verb) -> **preposition**.
 2. Subject and verb: "We left **before** we finished dinner." (*we* = subject, *finished* = verb) -> **subordinating conjunction**.
