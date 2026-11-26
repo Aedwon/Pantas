@@ -23,6 +23,7 @@ Status words: LIVE (on prod and verified), BUILDING, BOARD (waiting on his look)
 
 | Asked (Manila) | His request, short | Status | Owner |
 |---|---|---|---|
+| Nov 26 12:40 PM | Homepage: wording approved ("okay with your recommendations"); one CTA on screen at a time; top bar must not shrink on scroll; remove the bottom section; ask Fable too | BOARD next (UX lead, Fable opinion first); publish at the Saturday opening | UX lead, release lead r9 |
 | Nov 26 12:30 PM | Opening: "make it Saturday 6 AM"; homepage beta wording "change it accordingly" (draft to him before publishing); legal Round 6 "ok" | Opening SCHEDULED Sat Nov 28 6:00 AM; homepage wording DRAFTING; legal Round 6 APPROVED | release lead r9 |
 | Nov 26 12:05 PM | Walk-through examples: connect each example to its source, finish every chain, no added words ("yes that's it!" on the target); "i allow you to work on lessons with claude until Gemini's reset comes" | BUILDING (Claude stopgap on math until 12:55 PM, then Gemini) | walk-through Gemini lead, manager |
 | Nov 26 3:35 AM | Refinements from his staging pass: "premature newline after privaxy policy link"; "Study and Quiz headers ... please align them to look equal to Settings" | LIVE Nov 26 4:58 AM (a 2 px Study letter offset at phone width left for the next batched update) | release lead r8 |
