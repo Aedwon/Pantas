@@ -1,7 +1,7 @@
 ---
 _id: "lesson-grammar-and-structure-phrases-and-understood-subjects"
 title: "Phrases and Understood Subjects"
-summary: "Tell a phrase from a group with a subject and verb."
+summary: "Tell a phrase apart from a clause and spot the implied subject in a command."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 isActive: true
@@ -14,38 +14,100 @@ keyPoints:
 ---
 ## Core Concept
 
-The **subject** tells who or what a clause is about. In “The cat slept,” *the cat* is the subject. The word *slept* is a **verb**, a word that tells an action or state.
+### Phrases Versus Clauses
 
-A **clause** joins a verb with a subject. The subject may be written or understood. In the command “Sit down,” the subject is understood to be *you*.
+A **subject** tells who or what a group of words is about. A **verb** tells the action or state of that subject.
 
-A **phrase** is a group of words that works as one part of a sentence. “Under the old bridge” tells where. It has no subject paired with a verb.
+A **clause** has both a subject and a verb working together: "The cat **slept**." (*The cat* is the subject, and *slept* is the verb.) An **independent clause** can stand alone as a complete sentence.
 
-For basic school questions, start by looking for a subject and a verb. Then check whether the group can stand as a sentence. Verb groups such as “to finish the project” need a closer check, taught below under “The Nonfinite Boundary.”
+A **phrase** is a group of words working as one part of a sentence without a subject paired with a verb: "under the old bridge." It tells where, yet has no verb at all. It is a **prepositional phrase** because it begins with the preposition *under* followed by the noun group *the old bridge*.
+
+A later lesson covers verb forms such as *to finish the project*, which look like verbs yet do not make a full clause on their own.
+
+:::pair #phrase-vs-dependent-clause
+Right: "Under the old bridge" is a prepositional phrase.
+Wrong: Call "under the old bridge" a dependent clause (because it cannot stand alone) or an independent clause (because it gives clear location details).
+A dependent clause still needs a subject and a verb. Because "under the old bridge" has no verb, it is a phrase, not a clause.
+:::
+
+:::check
+Is "after the morning meeting" a phrase or a clause?
+:::answer
+The answer is **A phrase**. *After* introduces the noun group *the morning meeting*, with no subject-verb pair.
+:::
+
+### Commands Have an Understood Subject
+
+In a command such as "Close the door" or "Sit down," the subject is not written out, yet it is still there. The **understood subject** (implied subject) is *you*, the person spoken to: "(You) close the door."
+
+Because a command pairs the understood subject *you* with a real verb (*close*, *sit*) and gives a complete instruction, it is an **independent clause**. It can stand alone as a full sentence.
+
+:::why
+Why do commands leave out *you*? When you speak directly to someone to give an order or polite request, the listener already knows *you* must do the action, so English drops the word unless extra stress is needed.
+:::
+
+:::pair #command-has-understood-you
+Right: "Close the door" is an independent clause with an implied subject (*you*).
+Wrong: Call "Close the door" a dependent clause with a missing main clause, or a noun phrase because it names an action.
+Even without a written subject, *close* is a command verb paired with understood *you*, so the command stands on its own as an independent clause.
+:::
+
+:::check
+What is the understood subject in "Please sign the attendance sheet"?
+:::answer
+The answer is **You**. The request is addressed to the listener, so "(You) please sign the attendance sheet" has *you* as its implied subject.
+:::
 
 ## Examples
 
-### #1: Phrase or Clause
+### #1: Telling a Phrase from an Independent Clause
 
-“Classify” means put each item in the right group. Classify these groups as a phrase or an independent clause: (a) “under the old bridge”; (b) “the cat slept.”
-
-**Solution:**
-
-1. In (a), there is no subject paired with a verb. “Under the old bridge” is a phrase that tells where.
-2. In (b), *the cat* is the subject and *slept* is the verb. The thought is complete, so it is an independent clause.
-
-### #2: An Understood Subject
-
-Is “Please close the door” a complete sentence even though it has no stated subject?
+"Classify" means put each item in the right group. Classify these word groups as a prepositional phrase or an independent clause: (a) "under the old bridge"; (b) "the cat slept."
 
 **Solution:**
 
-1. This is a command. The person being spoken to, *you*, is the understood subject.
-2. *Close* gives the action. The command is a complete sentence.
+1. Check (a): *under* is a preposition followed by *the old bridge*, with no verb and no subject-verb pair, so it is a **prepositional phrase**.
+2. Check (b): *the cat* is the subject and *slept* is its verb, expressing a complete thought, so it is an **independent clause**.
+
+**Check:** Try putting each group alone with a period: "Under the old bridge." leaves the reader asking what happened there (phrase), whereas "The cat slept." states a complete event (independent clause).
+
+### #2: Identifying a Prepositional Phrase on Its Own
+
+Is "under the old bridge" a phrase or a clause: (A) Prepositional phrase, (B) Independent clause, (C) Dependent clause, or (D) Main verb phrase?
+
+**Solution:**
+
+1. Scan the words for a verb: *under* (preposition), *the* (article), *old* (adjective), *bridge* (noun). There is no verb.
+2. Rule out (B) Independent clause and (C) Dependent clause, because every clause needs a subject-verb pair.
+3. Rule out (D) Main verb phrase, because there is no verb.
+4. Choose **(A) Prepositional phrase**.
+
+**Check:** Test adding a clause after it: "We waited under the old bridge." Here *under the old bridge* works as one location unit answering *where*, confirming it is a prepositional phrase.
+
+### #3: Classifying a Complete Command
+
+In "Close the door," what kind of word group is the complete command?
+
+**Solution:**
+
+1. Find the action word: *close* is a command verb telling someone to act (not a noun phrase naming an activity, and not a preposition).
+2. Find who is expected to close the door: the listener, understood *you*.
+
+:::try
+Finish the last step: is "Close the door" a phrase, a dependent clause, or an independent clause, and why?
+:::answer
+The answer is **Independent clause; implied subject.** Because *close* pairs with the understood subject *you* and gives a complete instruction, it stands alone as a full sentence without needing another clause.
+
+**Check:** Write the understood word in front: "You close the door." With *you* visible, the subject (*you*) and verb (*close*) stand out clearly as a complete independent clause.
+:::
+
+## Speed Tricks & Shortcuts
+
+Look for the verb first. No verb means the group is a phrase, never a clause (even if it sounds incomplete like a dependent clause). If the group starts with a plain action verb giving an order or polite request, supply *you* in front to reveal the full independent clause.
 
 ## Traps to Watch For
 
-### #1: Looking Only for a Written Subject
-
-> A command can leave out the subject *you*.
-
-“Sit down” is complete. Do not call every group without a written subject a phrase.
+:::checklist
+- A location group like "under the old bridge": check for a verb before calling any incomplete group a dependent clause. {#phrase-vs-dependent-clause}
+- A command with no written subject like "Close the door": supply understood *you* and treat it as an independent clause. {#command-has-understood-you}
+:::

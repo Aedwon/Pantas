@@ -14,30 +14,101 @@ keyPoints:
 ---
 ## Core Concept
 
-### The Nonfinite Boundary
+### Labeling an Infinitive Group by Grammar System
 
-Basic school books often call “to finish the project” an **infinitive phrase**. It contains the infinitive and the words that go with it. Some grammar books call this a nonfinite clause because someone is understood to do the action.
+An **infinitive** is *to* plus the base form of a verb (*to obtain, to revise, to finish*). An infinitive carries no tense and does not change for singular or plural subjects.
 
-These labels come from different ways of grouping words. Follow the terms named in the question. Under either label, “to finish the project” cannot stand alone as a complete formal sentence.
+Grammar books label a group like *"to obtain a certified copy"* in two ways:
 
-To check a verb group, find the verb that carries the sentence's tense. In “Ana hopes to finish the project,” *hopes* shows present time. The group “to finish the project” tells what Ana hopes to do.
+1. **Basic school grammar:** calls it an **infinitive phrase** (the infinitive plus the words that go with it).
+2. **Modern clause grammar:** may call it a **nonfinite clause** because someone is understood to do the action (*the applicant* will obtain the copy).
+
+Follow the system named in the question. Under either system, an infinitive group has no finite verb, so it cannot be an independent clause, a finite dependent clause, or a complete formal sentence.
+
+:::why
+Why do two books give different labels? School grammar requires a finite verb carrying tense to call a group a clause. Modern syntax counts any verb group with an understood actor as a nonfinite clause. Both agree it cannot stand alone as a sentence.
+:::
+
+:::pair #infinitive-not-finite-clause
+Right: Under basic school grammar, in *"The applicant hopes **to obtain a certified copy** before the office closes,"* the bold group is an **Infinitive phrase**.
+Wrong: Classify *to obtain a certified copy* as an **Independent clause**, a **Finite dependent clause**, or a **Complete formal sentence**.
+Although *the applicant* is understood to act, *to obtain* carries no tense. Without a finite verb, the group cannot be a finite clause or stand as a sentence.
+:::
+
+:::check
+Using basic school grammar, how is **to finish the audit** classified in *"The team plans **to finish the audit** by Friday"*?
+:::answer
+The answer is **Infinitive phrase**. *To finish* carries no tense, and basic school grammar calls an infinitive plus its object a phrase.
+:::
+
+### Complete Sentences Need a Finite Main Verb
+
+Adding extra time words, a passive participle (*to have the policy revised*), or a second infinitive (*to revise ... and to notify ...*) never makes an infinitive group a complete formal sentence.
+
+Compare *"To revise the policy and to notify all employees."* (fragment, zero finite verbs) with *"The unit plans to revise the policy."* (*The unit* is the subject and *plans* is the present-tense finite verb).
+
+:::pair #long-infinitive-still-fragment
+Right: *"The unit plans to revise the policy."* is a complete formal sentence.
+Wrong: Pick *"To revise the policy before the next inspection."*, *"To have the policy revised before the inspection."*, or *"To revise the policy and to notify all employees."* as a complete formal sentence.
+Extra words or paired infinitives can make a goal sound finished. Look for a stated subject paired with a tense-carrying finite verb like *plans*; if every action starts with *to*, the group is a fragment.
+:::
+
+:::check
+Can *"To verify every receipt before the audit begins"* stand alone as a complete formal sentence?
+:::answer
+The answer is **No**. *To verify* is an infinitive with no finite main verb, and *"before the audit begins"* is a dependent clause, so no main clause exists.
+:::
 
 ## Examples
 
-### #1: An Infinitive Group
+### #1: Labeling Under Two Grammar Systems
 
-In “Ana hopes to finish the project,” can “to finish the project” stand alone as a complete formal sentence? Give its label in basic school grammar and in a system that uses nonfinite clauses.
+In *"Ana hopes to finish the project,"* can *"to finish the project"* stand alone as a complete formal sentence? Give its label in basic school grammar and in a system using nonfinite clauses.
 
 **Solution:**
 
-1. *Hopes* shows present time. *To finish* is an infinitive and does not show tense by itself.
-2. “To finish the project” tells what Ana hopes to do. It cannot stand alone as a complete formal sentence.
-3. Basic school grammar calls it an infinitive phrase. A system that uses nonfinite clauses may call it a nonfinite clause with Ana as the understood doer.
+1. *Hopes* supplies present tense and matches *Ana*.
+2. *To finish* is an infinitive with no tense, so *"to finish the project"* cannot stand alone as a formal sentence.
+3. Basic school grammar calls it an **infinitive phrase**; a system using nonfinite clauses calls it a **nonfinite clause** with *Ana* as the understood doer.
+
+**Check:** Drop *Ana hopes* and read *"To finish the project."* With no subject or finite verb, it cannot stand alone under either label.
+
+### #2: Spotting an Infinitive Fragment
+
+Which entry is a complete formal sentence: *"To have the policy revised before the inspection."* or *"The unit plans to revise the policy."*?
+
+**Solution:**
+
+1. In *"To have the policy revised before the inspection,"* *to have* is an infinitive and no finite verb carries tense. It is a fragment.
+2. In *"The unit plans to revise the policy,"* *The unit* is the subject and *plans* is the finite verb.
+3. *"The unit plans to revise the policy."* is the complete formal sentence.
+
+**Check:** Shift the second sentence to past time: *plans* becomes *planned*, proving a finite main verb is present.
+
+### #3: Checking Tense and Label Together
+
+Using basic school grammar, classify the bold words in *"The applicant hopes **to obtain a certified copy** before the office closes,"* and find which verb supplies the main tense.
+
+**Solution:**
+
+1. *To obtain a certified copy* starts with the infinitive *to obtain* and has no tense form.
+2. Basic school grammar calls it an **infinitive phrase**.
+
+:::try
+Finish the last step: find the finite main verb outside the bold group and test it by shifting time.
+:::answer
+The finite main verb is **hopes**. *Hopes* matches *The applicant* in present tense.
+
+**Check:** Shift to past time: *"The applicant hoped to obtain a certified copy before the office closed."* *Hopes* shifts to *hoped*, while *to obtain* stays unchanged.
+:::
+
+## Speed Tricks & Shortcuts
+
+Check the verbs first. An action starting with *to* never supplies the finite main verb, and always match your label (*infinitive phrase* vs. *nonfinite clause*) to the system named in the question.
 
 ## Traps to Watch For
 
-### #1: Mixing Grammar Systems
-
-> The same nonfinite group may have different labels in different books.
-
-“To finish the project” can be called an infinitive phrase or a nonfinite clause. Use the system in the question and check separately whether it can stand as a sentence.
+:::checklist
+- Infinitive group with an understood doer: label it by the system in the question, never as a finite clause or complete sentence. {#infinitive-not-finite-clause}
+- Long or paired infinitive groups like *"To revise ... and to notify ..."*: look for a subject and tense-carrying verb before calling it a sentence. {#long-infinitive-still-fragment}
+:::

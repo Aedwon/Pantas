@@ -8,55 +8,116 @@ isActive: true
 part: 1
 partCount: 4
 ordering: 49
-keyPoints: 
+keyPoints:
   - "Remove repeated meaning that adds nothing useful."
   - "Keep repetition that adds a needed detail or difference."
 ---
 ## Core Concept
 
-### Redundancy
+### Cutting Words That Repeat Meaning
 
-**Redundancy** means repeating a meaning when the extra words add nothing useful. In "Please return back to the office," *return* already means come or go back. If that is the whole meaning, remove *back*.
+**Redundancy** means saying the same thing twice when the extra word adds no useful detail. Common examples are *"free gift"* (a gift is already free) and *"revert back"* (*revert* already means go back).
 
-Two words with similar meanings are not always wrong together. Repetition can add stress or make a difference clear. Read the sentence before cutting words.
+For concise formal writing, cut the empty echo while keeping the full original action and request:
+
+1. *"Please return back the library books by Friday."* -> *Return* already means give back, so cut *back*: *"Please return the library books by Friday."*
+2. *"The two of them collaborated together on the mural."* -> *Collaborated* already means worked together, so cut *together*: *"The two of them collaborated on the mural."*
+3. *"Please give us your honest and truthful opinion."* -> *Truthful* repeats *honest* here, so cut *and truthful*: *"Please give us your honest opinion."*
+
+In *"advance warning several days before a road closure,"* *"several days before a road closure"* already states the early timing, so *advance* adds nothing new and can be cut.
+
+:::pair #adding-more-repeated-words
+Right: Revise *"Please return back the library books by Friday"* to *"Please return the library books by Friday."*
+Wrong: Revise it to *"Please return back again the library books by Friday"* or *"Please keep the library books until Friday and take them home."*
+Adding *again* piles on more repetition, while switching to *keep* alters the required action. Drop only *back*.
+:::
+
+:::pair #blanket-cut-of-timing
+Right: In *"advance warning several days before a road closure,"* cut *advance* because *"Several days before a road closure" already states the timing.*
+Wrong: Claim *advance* must be cut *"because every warning contains the same timing detail"* or *"proves every repeated phrase should be removed in formal writing."*
+Warnings come at different times, and some repeated words add meaning. Cut *advance* here only because *"several days before"* already states that timing.
+:::
+
+:::check
+Revise for concise formal writing: *"The two of them collaborated together on the mural."*
+:::answer
+The answer is **"The two of them collaborated on the mural."** *Collaborated* already means worked together, keeping both people and their shared work.
+:::
+
+### Checking Before You Cut
+
+Never delete a word automatically just because two nearby words have related meanings. First ask: **what meaning does this word add here?**
+
+Compare *"The houses stand in close proximity"* with *"The houses stand in proximity."* *Proximity* means nearness, while *close* adds a strong degree of nearness (very near, not merely nearby). Before cutting *close*, an editor must check whether *close* adds a useful degree of nearness.
+
+:::why
+Why not cut every pair of similar words on sight? Sometimes a second word narrows the degree (*close proximity*) or marks a real difference. Concise editing cuts empty echoes, not helpful details.
+:::
+
+:::pair #blind-deletion-rule
+Right: Before shortening *"in close proximity"* to *"in proximity,"* check *"Whether \"close\" adds a useful degree of nearness."*
+Wrong: Check *"Whether every pair of words with related meanings must lose one word."*
+There is no automatic rule forcing one word out of every related pair. Judge what *close* adds in context first.
+:::
+
+:::check
+Which revision keeps the request for an honest view without extra words in *"Please give us your honest and truthful opinion"*?
+:::answer
+The answer is **"Please give us your honest opinion."** It cuts *truthful* while keeping the request for an honest opinion.
+:::
 
 ## Examples
 
-### #1: Removing Repeated Meaning
+### #1: Cutting a Repeated Word Without Changing the Action
 
-Remove the needless word: "Please return back to the office."
-
-**Solution:**
-
-1. *Return* already gives the meaning "come or go back." Here, *back* adds nothing.
-2. Write: "Please return to the office."
-
-### #2: Removing a Repeated Time Detail
-
-Make this sentence shorter without changing its meaning: "Residents received advance warning several days before the closure."
+"Revise" means write a sentence again to fix an error. Revise for concise formal writing: *"Please return back the library books by Friday."*
 
 **Solution:**
 
-1. "Several days before the closure" already tells when residents received the warning. *Advance* repeats that early timing.
-2. Write: "Residents received warning several days before the closure."
+1. *Return* already means bring or give back.
+2. Drop *back* while keeping the action (*return*) and the deadline (*by Friday*).
 
-### #3: Shortening a Phrase
+Correct sentence: **"Please return the library books by Friday."**
 
-Choose the shorter wording that keeps the location clear: "The records room is in close proximity to the lobby." Use either "near" or "far from."
+**Check:** Read the new sentence: it still asks to bring the books back by Friday, with no repeated meaning.
+
+### #2: Finding Why a Timing Word Repeats
+
+The agency gave residents *"advance warning several days before a road closure."* For a shorter version, why can *advance* be removed?
 
 **Solution:**
 
-1. *Proximity* means nearness. The phrase says that the room is near the lobby.
-2. Write: "The records room is near the lobby." This keeps the location and removes the extra wording.
+1. *Advance* means given ahead of time.
+2. *"Several days before a road closure"* already tells when the warning arrived.
+3. Therefore, *advance* repeats timing already stated in that phrase.
+
+**Check:** Cover *advance*: *"warning several days before a road closure"* still tells the reader the warning came early.
+
+### #3: Deciding Whether a Modifier Adds Degree
+
+An editor shortens *"The houses stand in close proximity"* to *"The houses stand in proximity."* What should the editor check before accepting the change?
+
+**Solution:**
+
+1. Define *proximity*: nearness in space.
+2. Ask what *close* adds: it specifies *how* near (very near, not merely nearby).
+
+:::try
+Finish the last step: state what the editor should check before deleting *close*.
+:::answer
+The answer is **Whether "close" adds a useful degree of nearness.** If very nearness matters in context, keep *close*; judge the meaning, not word count alone.
+
+**Check:** Compare *"near each other"* vs. *"very close to each other."* That difference in degree is what *close* adds to *proximity*.
+:::
 
 ## Speed Tricks & Shortcuts
 
-Before deleting a repeated idea, ask what the sentence loses. Keep a word if it adds a needed detail or difference.
+Cover the suspect word and read the sentence aloud. If another word or phrase already states that exact meaning (*return* + *back*, *advance* + *before*), cut it; if cutting it removes an intended degree or changes the request, keep it.
 
 ## Traps to Watch For
 
-### #1: Keeping Words That Add No Meaning
-
-> In a task asking for fewer words, cut a repeated idea that adds nothing.
-
-"Several days before the closure" already tells us that a warning came early. In that sentence, *advance* can be removed. Do not claim it adds a new time detail.
+:::checklist
+- Verb that already means *back* or *together* (*return*, *collaborate*): drop *back* or *together* without changing the action. {#adding-more-repeated-words}
+- Early-timing word like *advance*: cut it only when another phrase already states that timing. {#blanket-cut-of-timing}
+- Modifiers with related meanings (*close proximity*): check whether the modifier adds a useful degree before cutting it. {#blind-deletion-rule}
+:::

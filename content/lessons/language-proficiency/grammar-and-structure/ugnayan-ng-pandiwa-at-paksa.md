@@ -1,70 +1,138 @@
 ---
 _id: "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
 title: "Ugnayan ng Pandiwa at Paksa"
-summary: "Tukuyin ang pokus batay sa papel ng paksa sa kilos."
+summary: "Hanapin ang paksa na may ang o si at tukuyin ang pokus batay sa papel nito sa kilos."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 isActive: true
 part: 4
 partCount: 4
 ordering: 27
-keyPoints: 
+keyPoints:
   - "Tukuyin ang pokus sa tagaganap at layon."
   - "Ihiwalay ang ganapan sa direksiyon."
   - "Tukuyin ang tagatanggap, kagamitan, at sanhi."
 ---
 ## Core Concept
 
-### Ugnayan ng Pandiwa at Paksa
+### Tagaganap at Layon
 
-Ang **pokus** (voice/focus) ay ugnayan ng pandiwa sa **paksa** (topic) ng pangungusap. Madalas may *ang, ang mga, si,* o *sina* ang paksa. Hanapin ito at itanong kung ano ang papel nito sa kilos.
+Ang **pokus** (focus) ay ang ugnayan ng pandiwa sa **paksa** (topic) ng pangungusap. Hanapin muna ang pariralang may *ang, ang mga, si,* o *sina*: iyon ang paksa, at ang may *ng* o *ni* ay hindi paksa.
 
-Sa pokus sa **tagaganap** (actor), ang paksa ang gumagawa: *Nagluto ng sopas si Ramon.* Sa pokus sa **layon** (object), ang paksa ang bagay na ginawan ng kilos: *Niluto ni Ramon ang sopas.*
+1. **Tagaganap** (actor): ang paksa ang gumagawa: "*Nagluto* ng pagkain **si Rosa**."
+2. **Layon** (object): ang paksa ang bagay na ginawan ng kilos: "*Kinain* ng bata **ang mangga**."
 
-Sa pokus sa **ganapan** (location), ang paksa ang lugar na ginanapan ng kilos: *Pinagtaniman nila ng gulay ang bakuran.* Sa pokus sa **tagatanggap** (beneficiary), ang paksa ang nakikinabang: *Ipinagluto ni Ana ng sopas ang bata.*
+Kapag inilipat ang paksa sa layon, panatilihin ang aspekto: "Nagluto ng sopas si Dina" -> "Niluto ni Dina **ang sopas**."
 
-Sa pokus sa **kagamitan** (instrument), ang paksa ang ginamit: *Ipinangsulat ni Ana ang lapis.* Sa pokus sa **sanhi** (cause), ito ang dahilan ng damdamin o pangyayari: *Ikinatuwa ni Ana ang balita.*
+:::pair #hanapin-ang-may-ang-o-si
+Right: Sa "Kinain ng bata ang mangga," *ang mangga* ang paksa, kaya pokus sa layon (bagay) ang pandiwa.
+Wrong: Sabihing pokus sa tagaganap (*ang bata*) dahil ang bata ang kumain, o gawing paksa ang *ng pagkain* at *ni Mara*.
+Ang pariralang may *ang*, *ang mga*, *si*, o *sina* ang paksa. Kahit tao ang gumawa, kung *ng* o *ni* ang pananda nito (*ng bata*, *ni Mara*), hindi ito ang paksa.
+:::
 
-Sa pokus sa **direksiyon** (direction), ang paksa ang pinuntahan: *Pinuntahan ni Ana ang munisipyo.* Hindi sapat na makakita ng lugar. Alamin kung doon ginawa ang kilos o iyon ang pinuntahan.
+:::check
+Sa "Naglilinis ng bulwagan sina Liza at Omar," ano ang paksa at pokus?
+:::answer
+Ang sagot ay **Sina Liza at Omar; pokus sa tagaganap**. May panandang *sina* ang mga naglilinis, habang may *ng* ang *bulwagan*.
+:::
+
+### Ganapan Laban sa Direksiyon
+
+Huwag ibatay ang sagot sa salitang lugar lamang. Tingnan kung saan ginanap ang kilos o ano ang pinuntahan:
+
+1. **Ganapan** (location): ang paksa ang lugar kung saan ginawa ang kilos: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**."
+2. **Direksiyon** (direction): ang paksa ang pinuntahan: "*Pinuntahan* ng mga kawani **ang bakuran**."
+
+<!-- ILLUSTRATION: dalawang nakapatong na pangungusap na parehong may "ang bakuran": sa itaas "Pinagtaniman ng mga kawani ng gulay ang bakuran." na may tatak na "lugar ng pagtatanim -> ganapan"; sa ibaba "Pinuntahan ng mga kawani ang bakuran." na may tatak na "patutunguhan ng kilos -> direksiyon" -->
+
+:::pair #ganapan-laban-sa-direksiyon
+Right: Ganapan ang pokus sa "Pinagtaniman ng mga kawani ng gulay ang bakuran," at direksiyon ang pokus sa "Pinuntahan ng mga kawani ang bakuran."
+Wrong: Sabihing parehong ganapan dahil parehong lugar ang bakuran, o pagbaligtarin ang dalawa.
+Parehong *ang bakuran* ang paksa, ngunit sa una ay doon nagtanim (ganapan) at sa ikalawa ay iyon ang pinuntahan (direksiyon).
+:::
+
+:::check
+Ano ang pokus sa "Pinagdausan ng pulong ang bulwagan": ganapan o direksiyon?
+:::answer
+Ang sagot ay **Ganapan**. Sa bulwagan ginanap ang pulong, hindi ito ang pinuntahan ng paglakad.
+:::
+
+### Tagatanggap, Kagamitan, at Sanhi
+
+Gamitin ang tanong na tugma sa papel ng paksa:
+
+1. **Tagatanggap** (beneficiary): sino ang nakinabang? "*Ipinagluto* ng kusinero ng lugaw **ang mga bata**."
+2. **Kagamitan** (instrument): ano ang ginamit? "*Ipinangsulat* ni Teresa ng pangalan **ang lapis**."
+3. **Sanhi** (cause): ano ang dahilan ng damdamin? "*Ikinatuwa* ng mga kawani **ang balita**."
+
+:::why
+Bakit kailangang suriin ang papel ng paksa sa *ipinagluto* at *ipinangsulat*? Pareho itong may *ip-* o *ipina-*, kaya alamin kung nakinabang ang paksa (*ang mga bata*) o ginamit ito (*ang lapis*).
+:::
+
+:::pair #tagatanggap-kagamitan-at-sanhi
+Right: Sa "Ipinagluto ni Mara ng lugaw ang mga bisita," tagatanggap ang *ang mga bisita*; sa "Ipinangsulat ni Mara ng mga pangalan ang lapis," kagamitan ang *ang lapis*.
+Wrong: Tawaging tagaganap dahil si Mara o ang kusinero ang nagluto, o sabihing kagamitan ang mga bisita at tagatanggap ang lapis.
+Hindi paksa ang *ni Mara*. Nakinabang *ang mga bisita* (tagatanggap), habang ginamit *ang lapis* (kagamitan).
+:::
+
+:::check
+Ano ang pokus sa "Ikinagalit ng guro ang ingay sa labas"?
+:::answer
+Ang sagot ay **Pokus sa sanhi**. *Ang ingay sa labas* ang paksa at dahilan ng galit ng guro.
+:::
 
 ## Examples
 
-### #1: Tagaganap at Layon
+### #1: Paglipat ng Pokus Nang Walang Bawas sa Kilos
 
-Tukuyin ang pokus sa bawat pangungusap: “Nagluto ng sopas si Ramon.” “Niluto ni Ramon ang sopas.”
-
-**Solution:**
-
-1. Sa una, paksa si Ramon. Siya ang gumawa, kaya pokus sa tagaganap.
-2. Sa ikalawa, paksa ang sopas. Ito ang niluto, kaya pokus sa layon.
-
-### #2: Ganapan at Direksiyon
-
-Tukuyin ang pokus: “Pinagtaniman nila ng gulay ang bakuran.” “Pinuntahan ni Ana ang munisipyo.”
+Baguhin ang "Nagluto ng sopas si Dina" upang maging paksa ang *sopas* at manatiling tapos na ang pagluluto.
 
 **Solution:**
 
-1. Ang bakuran ang paksa sa una. Doon ginawa ang pagtatanim, kaya pokus sa ganapan.
-2. Ang munisipyo ang paksa sa ikalawa. Ito ang pinuntahan, kaya pokus sa direksiyon.
+1. Ilipat ang panandang *ang* sa *sopas* (*ang sopas*), at gawing *ni Dina* ang gumawa.
+2. Palitan ang *nagluto* ng katumbas na tapos na at nakapokus sa layon: **niluto**.
 
-### #3: Tagatanggap, Kagamitan, at Sanhi
+Sagot: **"Niluto ni Dina ang sopas."**
 
-Tukuyin ang pokus: “Ipinagluto ni Ana ng sopas ang bata.” “Ipinangsulat ni Ana ang lapis.” “Ikinatuwa ni Ana ang balita.”
+**Check:** Suriin ang tatlong bahagi: *ang sopas* ang may *ang* (layon), *ni Dina* ang gumawa, at tapos na ang *niluto*.
+
+### #2: Dalawang Lugar na Magkaiba ang Pokus
+
+Paghambingin ang pokus sa "Pinagtaniman ng mga kawani ng gulay ang bakuran" at "Pinuntahan ng mga kawani ang bakuran."
 
 **Solution:**
 
-1. Ang bata ang paksa at nakikinabang sa pagluluto. Pokus sa tagatanggap ang una.
-2. Ang lapis ang paksa at ginamit sa pagsulat. Pokus sa kagamitan ang ikalawa.
-3. Ang balita ang paksa at sanhi ng tuwa. Pokus sa sanhi ang ikatlo.
+1. Pareho ang paksa (*ang bakuran*).
+2. Sa una, sa bakuran nagtanim -> **ganapan**.
+3. Sa ikalawa, bakuran ang tinungo -> **direksiyon**.
+
+**Check:** Itanong sa bawat isa: "Saan nagtanim?" (*sa bakuran* = ganapan) at "Ano ang pinuntahan?" (*ang bakuran* = direksiyon).
+
+### #3: Tagatanggap Laban sa Kagamitan
+
+Suriin ang "Ipinagluto ni Mara ng lugaw ang mga bisita" at "Ipinangsulat ni Mara ng mga pangalan ang lapis." Ano ang pokus ng dalawang pandiwa?
+
+**Solution:**
+
+1. Alisin bilang paksa ang *ni Mara* (may *ni*, hindi *si*), kaya hindi tagaganap ang pokus.
+2. Hanapin ang mga paksang may *ang*: *ang mga bisita* sa una, at *ang lapis* sa ikalawa.
+
+:::try
+Tapusin ang huling hakbang: ano ang papel ng *ang mga bisita* at *ang lapis*, kaya ano ang pokus ng bawat pandiwa?
+:::answer
+Ang sagot ay **Tagatanggap ang una; kagamitan ang ikalawa.** Nakinabang ang mga bisita sa pagluluto (*tagatanggap*), at ginamit ang lapis sa pagsulat (*kagamitan*).
+
+**Check:** Itugma ang paksa sa pandiwa: *ipinagluto* + *ang mga bisita* = nakinabang (tagatanggap); *ipinangsulat* + *ang lapis* = ginamit (kagamitan).
+:::
 
 ## Speed Tricks & Shortcuts
 
-Sa pokus, hanapin muna ang paksa. Pagkatapos, tukuyin ang papel nito sa kilos. Huwag umasa sa panlapi lamang.
+Bilugan muna ang may *ang, ang mga, si,* o *sina*, saka itanong ang papel nito: gumawa (*tagaganap*), bagay (*layon*), lugar ng gawain (*ganapan*), pinuntahan (*direksiyon*), nakinabang (*tagatanggap*), ginamit (*kagamitan*), o dahilan (*sanhi*).
 
 ## Traps to Watch For
 
-### #1: Ang Gumagawa Lagi ang Paksa
-
-> Maaaring iba sa tagaganap ang paksa.
-
-Sa *Niluto ni Ramon ang sopas*, si Ramon ang gumawa ngunit ang sopas ang paksa. Kaya pokus sa layon ang pandiwa.
+:::checklist
+- Pandiwang may *ng* o *ni* sa gumagawa gaya ng "Kinain ng bata ang mangga": piliin ang may *ang* o *si* bilang paksa. {#hanapin-ang-may-ang-o-si}
+- Paksang lugar gaya ng *ang bakuran*: alamin kung doon ginanap ang kilos (ganapan) o iyon ang pinuntahan (direksiyon). {#ganapan-laban-sa-direksiyon}
+- Unlaping *ipina-* o *ipang-*: itanong kung nakinabang ang paksa (tagatanggap) o ginamit ito (kagamitan). {#tagatanggap-kagamitan-at-sanhi}
+:::

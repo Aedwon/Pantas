@@ -14,38 +14,106 @@ keyPoints:
 ---
 ## Core Concept
 
-Ang **pandiwa** (verb) ay salitang nagsasaad ng kilos. Ang **paksa** (topic) ang pinag-uusapan sa pangungusap. Hindi karaniwang nagbabago ang pandiwa dahil lamang isahan o maramihan ang paksa.
+### Pagpili ng Aspekto Ayon sa Kalagayan ng Kilos
 
-Ang **aspekto** (aspect) ay nagpapakita kung tapos na, nagaganap, o hindi pa nasisimulan ang kilos. Sa ugat na *kain*, gamitin ang *kumain* para sa tapos na kilos, *kumakain* para sa nagaganap o paulit-ulit na kilos, at *kakain* para sa hindi pa nasisimulan. Iba-iba ang pagbuo ng mga anyo ayon sa pandiwa, kaya huwag ilapat ang hulma ng *kain* sa lahat ng salita.
+Ang **pandiwa** (verb) ay nagsasaad ng kilos. Ang **aspekto** (aspect) ay nagsasabi kung tapos na, nagaganap pa, o gagawin pa ang kilos. May apat na anyo ang aspekto gamit ang salitang-ugat na *kain*:
 
-Alamin muna ang kalagayan ng kilos. Gamitin ang mga salitang gaya ng *kahapon, ngayon,* at *mamaya* bilang gabay. Hindi sapat ang oras lamang: maaari ring sabihing "Kumain na siya ngayon" kung tapos na ang pagkain.
+1. **Perpektibo** (tapos na): *kumain* ("Kumain na si Nena kanina.")
+2. **Perpektibong katatapos** (katatapos lamang): *kakakain lamang* o *katatapos lamang kumain* ("Kakakain lamang ni Nena bago siya umalis.")
+3. **Imperpektibo** (nagaganap pa o paulit-ulit): *kumakain* ("Kumakain pa si Nena habang naghihintay.")
+4. **Kontemplatibo** (hindi pa nasisimulan): *kakain* ("Kakain pa lamang siya mamaya.")
+
+<!-- ILLUSTRATION: guhit ng oras para sa kilos na "kain": sa kaliwa "kumain (perpektibo: tapos na)", kasunod ang maikling tuldok na "kakakain lamang (katatapos lang)", sa gitna "kumakain (imperpektibo: nagaganap pa)", at sa kanan "kakain (kontemplatibo: hindi pa nasisimulan)" -->
+
+Iba-iba ang panlapi ng bawat pandiwa (tulad ng *nagluto, nagluluto, magluluto*), kaya suriin kung tapos na, nagaganap pa, o gagawin pa ang kilos sa pangungusap.
+
+:::pair #aspekto-ayon-sa-kalagayan
+Right: Hindi pa tapos kumain si Nena: "**Kumakain** pa si Nena habang hinihintay ang kaniyang kasama."
+Wrong: Gamitin ang **Kumain**, **Kakain**, o **Kakakain lamang** kapag nasa hapag pa at hindi pa tapos si Nena.
+Tapos na ang *kumain* at *kakakain lamang*, at hindi pa nagsisimula ang *kakain*. Dahil nagpapatuloy pa ang pagkain, *kumakain* ang tamang anyo.
+:::
+
+:::check
+Nasa kusina pa si Marco at nasa gitna pa ng paghuhugas ng plato. Aling anyo ang angkop: *(naghugas / naghuhugas / maghuhugas)*?
+:::answer
+Ang sagot ay **Naghuhugas**. Nagaganap pa at hindi pa tapos ang paghuhugas ni Marco, kaya imperpektibo ang kailangan.
+:::
+
+### Bilang ng Paksa at Anyo ng Pandiwa
+
+Ang **paksa** (subject) ang pinag-uusapan sa pangungusap, gaya ng *ang kawani* (isahan) o *ang mga kawani* (maramihan).
+
+Sa ibang wika tulad ng Ingles, nagbabago ang pandiwa kapag naging maramihan ang paksa. Sa Filipino, hindi nagbabago ang aspekto ng pandiwa dahil lamang dumami ang paksa:
+
+- Isahan: "**Kumakain** ng tanghalian **ang kawani**."
+- Maramihan: "**Kumakain** ng tanghalian **ang mga kawani**."
+
+:::why
+Bakit nananatili ang *kumakain* kahit marami na ang kawani? Ipinakikita ng anyo ng pandiwa sa Filipino ang aspekto at pokus, hindi ang bilang kung isa o marami ang paksa. Ang *mga* sa paksa lamang ang nagpapakita ng maramihan.
+:::
+
+:::pair #bilang-ng-paksa-at-pandiwa
+Right: Gawing maramihan ang paksa ng "Kumakain ng tanghalian ang kawani": "**Kumakain ng tanghalian ang mga kawani.**"
+Wrong: "**Kumain na ng tanghalian ang mga kawani.**" o "**Kakain pa lamang ng tanghalian ang mga kawani.**"
+Dagdag na *mga* lamang ang pagbabago sa paksa. Kapag pinalitan ang *kumakain* ng *kumain na* o *kakain pa lamang*, binabago nito ang kalagayan ng kilos.
+:::
+
+:::check
+Gawing maramihan ang paksa ng "Sumulat ng liham ang mag-aaral" habang pinananatili ang tapos na kilos.
+:::answer
+Ang sagot ay **"Sumulat ng liham ang mga mag-aaral."** Dinagdagan lamang ng *mga* ang paksa at nanatiling tapos na ang *sumulat*.
+:::
 
 ## Examples
 
-### #1: English at Filipino
+### #1: Pagpili ng Aspekto Ayon sa Pangyayari
 
-Piliin ang wastong anyo sa mga pangungusap sa Ingles: "The child *(eats / eat)* rice." "The children *(eats / eat)* rice." Pagkatapos, gawing maramihan ang paksa ng "Kumakain ang bata ng kanin."
-
-**Solution:**
-
-1. Isahan ang *child*, kaya *eats* ang pandiwa. Maramihan ang *children*, kaya *eat* ang pandiwa.
-2. Sa Filipino, palitan ang *ang bata* ng *ang mga bata*.
-3. "Kumakain ang mga bata ng kanin." Nananatili ang *kumakain* dahil nagaganap pa rin ang kilos.
-
-### #2: Pagpili ng Aspekto
-
-Punan ayon sa kalagayan ng kilos: "___ si Lea kahapon at tapos na siya. ___ siya sa sandaling ito. ___ siya mamaya at hindi pa niya ito nasisimulan." Gamitin ang *kumain, kumakain,* at *kakain*.
+Kasalukuyang nasa hapag si Nena at hindi pa tapos sa pagkain. Aling anyo ang angkop sa pangungusap: "___ pa si Nena habang hinihintay ang kaniyang kasama"?
 
 **Solution:**
 
-1. Tapos na ang unang kilos, kaya *kumain* ang piliin.
-2. Nagaganap ang ikalawa, kaya *kumakain* ang piliin.
-3. Hindi pa nasisimulan ang huli, kaya *kakain* ang piliin.
+1. Basahin ang pahiwatig ng kalagayan: "kasalukuyang nasa hapag" at "hindi pa tapos."
+2. Ibig sabihin, nagsimula na ang pagkain ngunit nagpapatuloy pa ito ngayon.
+3. Piliin ang imperpektibong anyo: "**Kumakain** pa si Nena habang hinihintay ang kaniyang kasama."
+
+**Check:** Kung *kumain* o *kakakain lamang*, tapos na ang pagkain; kung *kakain*, hindi pa siya nagsisimula. Tanging ang *kumakain* ang tugma sa kilos na nagpapatuloy pa.
+
+### #2: Pagbabago ng Bilang ng Paksa
+
+Gawing maramihan ang paksa ng "Kumakain ng tanghalian ang kawani." Panatilihin ang kalagayan ng kilos. Alin ang wastong pagbabago?
+
+**Solution:**
+
+1. Hanapin ang paksang gagawing maramihan: *ang kawani* -> *ang mga kawani*.
+2. Tingnan ang kalagayan ng kilos: nagaganap pa ang *kumakain*, at hinihinging panatilihin ito.
+3. Huwag palitan ang pandiwa: "**Kumakain ng tanghalian ang mga kawani.**"
+
+**Check:** Parehong nagpapatuloy ang pagkain sa isahan (*ang kawani*) at sa maramihan (*ang mga kawani*), at *mga* lamang ang idinagdag.
+
+### #3: Tatlong Kalagayan sa Iisang Salitang-Ugat
+
+Punan ang bawat patlang gamit ang *naghanda*, *naghahanda*, o *maghahanda*: "___ na si Lea kagabi kaya tapos na ang ulat. ___ pa siya sa sandaling ito. ___ naman si Ben bukas ng umaga."
+
+**Solution:**
+
+1. Tapos na kagabi ang unang kilos, kaya **Naghanda** ang nasa unang patlang.
+2. Nagaganap pa sa sandaling ito ang ikalawa, kaya **Naghahanda** ang nasa ikalawang patlang.
+
+:::try
+Tapusin ang huling hakbang: aling anyo ang akma para sa ikatlong pangungusap na gagawin pa lamang bukas?
+:::answer
+Ang sagot ay **Maghahanda**: "Maghahanda naman si Ben bukas ng umaga."
+
+**Check:** Suriin ang tatlo ayon sa kalagayan: *naghanda* (tapos na kagabi), *naghahanda* (nagaganap pa ngayon), at *maghahanda* (hindi pa nasisimulan bukas).
+:::
+
+## Speed Tricks & Shortcuts
+
+Itanong muna kung tapos na, nagaganap pa, o gagawin pa ang kilos bago pumili ng anyo ng pandiwa. Kapag bilang lamang ng paksa ang binago (*ang bata* -> *ang mga bata*), panatilihing buo ang pandiwa.
 
 ## Traps to Watch For
 
-### #1: Paglalapat ng Tuntunin ng Ingles sa Filipino
-
-> Hindi kailangang baguhin ang pandiwa dahil lamang dumami ang paksa.
-
-Wasto ang "Kumain ang bata" at "Kumain ang mga bata." Sa dalawang pangungusap, tapos na ang kilos.
+:::checklist
+- Nagpapatuloy na kilos gaya ng hindi pa tapos sa hapag: piliin ang imperpektibo (*kumakain*), hindi *kumain*, *kakain*, o *kakakain lamang*. {#aspekto-ayon-sa-kalagayan}
+- Maramihang paksa na may *mga*: panatilihin ang anyo ng pandiwa dahil bilang lamang ng paksa ang nagbago. {#bilang-ng-paksa-at-pandiwa}
+:::

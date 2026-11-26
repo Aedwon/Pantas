@@ -1,7 +1,7 @@
 ---
 _id: "lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions"
 title: "Apostrophes for Ownership and Contractions"
-summary: "Form possessives from singular and plural owners using the stated style."
+summary: "Form possessives and contractions accurately, and tell its from it's."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 isActive: true
@@ -14,66 +14,127 @@ keyPoints:
 ---
 ## Core Concept
 
-### Apostrophes
+### Apostrophes for Ownership
 
+An **apostrophe (')** shows ownership. Always name the **owner** first, check whether it is singular or plural, then add the ending:
 
-An **apostrophe** can show possession, meaning who owns something. Add *'s* to a singular noun: "Maria's book." For a plural noun ending in *s*, add only an apostrophe: "the teachers' room."
+1. Singular noun: add *'s*: *Maria* -> *"Maria's book."*
+2. Plural noun ending in *s*: add only *'* after the *s*: *teachers* -> *"the teachers' room."*
+3. Plural noun not ending in *s*: add *'s*: *children* -> *"the children's books."*
 
-For a plural noun that does not end in *s*, add *'s*: "the children's books." Start with the owner, decide whether it is singular or plural, then place the apostrophe.
+For a singular name ending in *s* (such as *James*), most style rules add *'s* (*"James's bag"*), while some allow *"James' bag"*. Follow the rule stated in the question.
 
-For a singular name ending in *s*, many writing rules use *'s*: "James's bag." Other rules allow "James' bag." Follow the rule stated in the task and use it consistently.
+:::pair #singular-name-possessive
+Right: "Maria's book was left on the table."
+Wrong: "Marias book was left on the table." or "Marias' book was left on the table."
+*Marias* drops the apostrophe, while *Marias'* treats *Maria* as plural. Start with singular *Maria* and add *'s*.
+:::
 
-A **contraction** is a shortened form with missing letters. Put the apostrophe where letters were left out: *do not* becomes *don't*.
+:::check
+Write ownership for several students: *"the *(student's / students' / students's)* lockers."*
+:::answer
+The answer is **Students'**. The plural owner *students* already ends in *s*, so add only an apostrophe after *s*.
+:::
 
-**Its** shows possession: "The dog wagged its tail." **It's** means *it is* or *it has*. Unlike a noun such as *Maria*, possessive *its* has no apostrophe.
+### Apostrophes in Contractions
+
+A **contraction** shortens two words by leaving out letters. Put the apostrophe **right where the letters were removed**:
+
+1. *do not* drops *o* -> *don't*.
+2. *it is* drops *i* -> *it's*.
+3. *it has* drops *ha* -> *it's*.
+
+Test *it's* by expanding it to *it is* or *it has*. In *"It's been raining since dawn,"* *"It has been raining"* fits, while *"It is been raining"* does not.
+
+:::pair #contraction-apostrophe-spot
+Right: "I don't want to go outside today."
+Wrong: "I dont want to go outside today." or "I do'nt want to go outside today."
+*Dont* drops the apostrophe, and *do'nt* places it before *n* instead of over the missing *o* in *do not*.
+:::
+
+:::check
+In *"It's been raining since dawn,"* does *it's* mean *it is* or *it has*?
+:::answer
+The answer is **It has**. *"It has been raining since dawn"* fits *been*.
+:::
+
+### Its vs. It's
+
+**Its** (no apostrophe) shows ownership: *"The company announced its new product line yesterday."* **It's** (with an apostrophe) always stands for *it is* or *it has*. Never write *its'*.
+
+:::why
+Why does possessive *its* have no apostrophe? Possessive pronouns such as *his*, *hers*, *ours*, *yours*, *theirs*, and *its* never take apostrophes. Saving the apostrophe for *it's* keeps the contraction distinct.
+:::
+
+:::pair #its-vs-its-contraction
+Right: "The company announced its new product line yesterday."
+Wrong: "The company announced it's new product line yesterday." or "The company announced its' new product line yesterday."
+*"Announced it is new product line"* breaks the sentence, and *its'* is never standard. Ownership for *it* uses *its* with no apostrophe.
+:::
+
+:::check
+Choose the right form: *"The dog wagged *(its / it's)* tail."*
+:::answer
+The answer is **Its**. *"Wagged it is tail"* fails, and the sentence shows ownership.
+:::
 
 ## Examples
 
-### #1: Forming Possessives
+### #1: Singular, Plural, and Irregular Plural Owners
 
-Write each phrase to show ownership: (a) the book belonging to Maria; (b) the room used by several teachers; (c) the books belonging to the children.
-
-**Solution:**
-
-1. *Maria* is singular, so write "Maria's book."
-2. *Teachers* is plural and ends in *s*, so write "the teachers' room."
-3. *Children* is plural but does not end in *s*, so write "the children's books."
-
-### #2: A Name Ending in S
-
-Write "the bag belonging to James" using the rule that adds *'s* to singular names.
+Show ownership for: (a) the book belonging to Maria; (b) the room used by several teachers; (c) the books belonging to the children.
 
 **Solution:**
 
-James is one person, so the stated rule gives "James's bag."
+1. For (a), *Maria* is singular, so add *'s*: **"Maria's book."**
+2. For (b), *teachers* is plural ending in *s*, so add *'*: **"the teachers' room."**
+3. For (c), *children* is plural without *s*, so add *'s*: **"the children's books."**
 
-### #3: A Contraction
+**Check:** Cover the ending after each owner: *Maria* (one), *teachers* (many + *s*), *children* (many, no *s*). Each ending matches.
 
-Shorten "do not" in this sentence: "Please do not enter."
+### #2: Expanding a Contraction
 
-**Solution:**
-
-Replace the missing *o* with an apostrophe: "Please don't enter."
-
-### #4: Its or It's
-
-Choose the correct form: "The company announced (its / it's) new product line."
+In *"It's been raining since dawn,"* what does *it's* mean?
 
 **Solution:**
 
-1. The sentence tells whose product line it is. It needs the possessive *its*.
-2. "It is new product line" and "it has new product line" do not fit. Write: "The company announced its new product line."
+1. Test *it is*: *"It is been raining since dawn"* fails.
+2. Test *it has*: *"It has been raining since dawn"* fits.
+
+Correct answer: **It has**.
+
+**Check:** Read *"It has been raining since dawn."* The helping verb *has* pairs directly with *been*.
+
+### #3: Choosing Between Its and It's
+
+Treat the company as one organization. Choose the possessive form: *"The company announced ___ new product line yesterday."*
+
+(A) Its
+(B) It's
+(C) Its'
+(D) Their
+
+**Solution:**
+
+1. *The company* is one organization (singular *it*), ruling out plural *Their* (D).
+2. The blank shows ownership of the product line, not *it is* or *it has*.
+
+:::try
+Finish the last step: rule out (B) and (C), and name the correct choice.
+:::answer
+The answer is **(A) Its**. (B) expands to *"it is new product line"* (wrong), and (C) *Its'* is invalid; *its* with no apostrophe shows ownership.
+
+**Check:** Test with a possessive noun: *"the company's new product line."* Since singular ownership is needed, **Its** is right.
+:::
 
 ## Speed Tricks & Shortcuts
 
-Expand *it's* to *it is* or *it has*. If neither fits and the meaning is ownership, use *its*.
-
-For a possessive noun, write the owner first. Check whether it is singular, a plural ending in *s*, or another plural.
+Expand *it's* to *it is* or *it has*; if neither fits, use *its*. For noun possessives, write the owner word first, then choose *'s* (singular or irregular plural) or *'* (plural ending in *s*).
 
 ## Traps to Watch For
 
-### #1: Putting the Apostrophe Before Every S
-
-> Find the owner before placing a possessive apostrophe.
-
-"Teacher's" means one teacher owns something. "Teachers'" means several teachers own or share it.
+:::checklist
+- Singular owner such as *Maria*: write *Maria's*, never *Marias* or *Marias'*. {#singular-name-possessive}
+- Contraction such as *don't*: put the apostrophe over the omitted letter, never before *n* or at the end. {#contraction-apostrophe-spot}
+- Ownership for *it*: test *it is* and *it has* first, then use *its* with no apostrophe. {#its-vs-its-contraction}
+:::

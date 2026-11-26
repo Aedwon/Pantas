@@ -14,19 +14,77 @@ keyPoints:
 ---
 ## Core Concept
 
-The **subject** tells who or what a sentence is about. The **verb** tells what the subject does or is. **Subject-verb agreement** means choosing the verb form that fits the subject: "The dog barks" but "The dogs bark."
+### Subjects and Verbs
 
-**Number** means singular or plural. Singular names one person or thing. Plural names more than one.
+The **subject** tells who or what a sentence is about. The **verb** tells what the subject does or is. **Subject-verb agreement** means choosing the verb form that fits the subject.
 
-**Person** shows who is speaking, being spoken to, or being discussed. First person uses *I* or *we*. Second person uses *you*, while third person uses *he, she, it, they,* or names.
+- The dog barks.
+- The dogs bark.
 
-In the present, use *I am*, *you/we/they are*, and *he/she/it is*. Use *I/you/we/they have* but *he/she/it has*. Most other present-tense verbs add *-s* or *-es* with a singular third-person subject: "She works."
+**Number** means singular or plural. A singular subject names one person or thing. A plural subject names more than one.
 
-### Finding the Subject
+### Person
 
-A **phrase** is a group of words that works together as part of a sentence. An *of*-phrase starts with *of*: *of apples*, for example.
+**Person** shows who is speaking, who is spoken to, or who is talked about.
 
-The **head** is the main word in a subject. Ask who or what the sentence describes, then set aside phrases that add details. In "The basket of apples is heavy," the thing called heavy is the basket, so *basket* controls *is*.
+- First person: *I*, *we*
+- Second person: *you*
+- Third person: *he*, *she*, *it*, *they*, or any name or noun
+
+### Matching Present Verbs
+
+Three verbs have their own forms in the present.
+
+- *I am*, *you are*, *we are*, *they are*, *he is*, *she is*, *it is*
+- *I have*, *you have*, *we have*, *they have*, but *he has*, *she has*, *it has*
+- *I do*, *you do*, *we do*, *they do*, but *he does*, *she does*, *it does*
+
+Most other verbs follow one rule. With a singular third-person subject, add *-s* or *-es* to the verb: *she works*, *he watches*. With every other subject, use the plain verb: *I work*, *they watch*.
+
+:::pair #verb-s
+Right: The dog barks every morning.
+Wrong: The dog bark every morning.
+*The dog* is one thing, talked about, so the verb takes *-s*.
+:::
+
+:::why
+Why does a singular subject get the *-s*? English puts the plural *-s* on the noun and the singular *-s* on the verb. So with most nouns, only one word in the pair ends in *-s*: "The dog barks." "The dogs bark."
+:::
+
+:::check
+Choose the correct verb: My sister *(teach / teaches)* in Cebu.
+:::answer
+*Teaches*. "My sister" is one person, talked about, so it is singular third person. Add *-es*.
+:::
+
+### Finding the Head of the Subject
+
+A **phrase** is a group of words that works together as one part of a sentence. Many subjects carry a phrase that adds a detail, such as an *of*-phrase: *of apples*, *of the employees*.
+
+The **head** is the main word of the subject. It controls the verb. The added phrase does not.
+
+<!-- ILLUSTRATION: the sentence "The basket of apples is heavy." with "of apples" grayed and bracketed as "added detail"; a teal arrow from "basket" to "is"; "basket" labeled "head, singular" -->
+
+Find the head in four moves:
+
+1. Find the verb.
+2. Ask who or what does the action, or who or what the sentence describes.
+3. Set aside any phrase that only adds a detail.
+4. Read the head and the verb together. They must match.
+
+In "The basket of apples is heavy," the thing that is heavy is the basket. Set aside *of apples*. Read "The basket is heavy." *Basket* is singular, so *is* is correct.
+
+:::pair #nearest-noun
+Right: The basket of apples is heavy.
+Wrong: The basket of apples are heavy.
+The wrong sentence matched the verb to *apples*, the nearest noun. *Apples* is only part of an added detail.
+:::
+
+:::check
+Choose the correct verb: The members of the committee *(agree / agrees)* on the plan.
+:::answer
+*Agree*. Set aside *of the committee*. The head is *members*, which is plural, so use the plain verb.
+:::
 
 ## Examples
 
@@ -36,28 +94,56 @@ Choose the correct forms: I *(am / is)* ready, and he *(have / has)* the documen
 
 **Solution:**
 
-1. *I* takes *am*.
-2. *He* takes *has* in the present.
-3. Correct: "I am ready, and he has the documents."
+1. The first subject is *I*. *I* always takes *am*.
+2. The second subject is *he*, which is singular third person. In the present, *he* takes *has*.
+3. Read each pair together: "I am," "he has."
 
-### #2: An Intervening Phrase
+Correct: "I am ready, and he has the documents."
+
+**Check:** *Have* goes with *I*, *you*, *we*, and *they*. *Has* goes with *he*, *she*, and *it*. The second subject is *he*, so *has* fits.
+
+### #2: A Phrase in the Middle
 
 Choose the correct verb: The list of items on the shelf *(is / are)* long.
 
 **Solution:**
 
-1. Ask what is long. It is the list.
-2. *Of items* and *on the shelf* add details. The head is *list*.
-3. *List* is singular, so choose *is*.
+1. The verb choice is *is* or *are*.
+2. Ask what is long. It is the list.
+3. Set aside the details: *of items* and *on the shelf*. The head is *list*.
+4. *List* is singular, so choose *is*.
+
+Correct: "The list of items on the shelf is long."
+
+**Check:** Read the head and the verb alone: "The list is long." It sounds right. "The list are long" does not.
+
+### #3: A Plural Noun Before the Verb
+
+Choose the correct verb: The quality of the new office chairs *(was / were)* better than expected.
+
+**Solution:**
+
+1. The verb choice is *was* or *were*.
+2. Ask what was better than expected. It is the quality, not the chairs.
+3. Set aside the detail: *of the new office chairs*. The head is *quality*.
+
+:::try
+Finish the last step: is *quality* singular or plural, and which verb matches it?
+:::answer
+*Quality* is singular, so choose *was*: "The quality of the new office chairs was better than expected."
+
+**Check:** Read the head and the verb alone: "The quality was better than expected." The plural *chairs* sits right before the verb, which is why *were* is tempting.
+:::
 
 ## Speed Tricks & Shortcuts
 
-Find the subject before choosing the English verb. Set aside added details, then check number and person.
+Find the subject before you choose the verb. Cover any phrase that starts with *of*, *on*, *in*, *with*, or a similar word, then check number and person.
+
+One exception: after *some*, *most*, *all*, *half*, or *a lot*, the noun after *of* decides the verb. "Some of the money is missing." "Some of the students are absent." The next part of this topic covers these words.
 
 ## Traps to Watch For
 
-### #1: Matching the Nearest Noun
-
-> A nearby noun may only add a detail about the subject.
-
-"The box of chocolates is on the table" agrees with *box*. The chocolates do not control the verb.
+:::checklist
+- One person or thing as the subject, in the present: add *-s* to the verb, as in "The dog barks." {#verb-s}
+- A phrase between the subject and the verb: cover it and match the head, as in "The box of chocolates is on the table." {#nearest-noun}
+:::

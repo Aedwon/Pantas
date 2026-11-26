@@ -15,49 +15,123 @@ keyPoints:
 ---
 ## Core Concept
 
-A **complex sentence** has one independent clause and at least one dependent clause. "Because the dog barked, the cat ran."
+### Complex Sentences: One Main Clause Plus Dependent Clauses
 
-A **compound-complex sentence** has at least two independent clauses and at least one dependent clause. "Because the dog barked, the cat ran, and it hid under the bed."
+A **complex sentence** has **one independent clause** and **one or more dependent clauses**.
+
+A dependent clause can sit at the front (*"Although the storm was severe, the town suffered minimal damage."*), at the end, or inside the main clause (*"The nurse, while she checked the records, called the patient."*).
+
+Even **two dependent clauses** still make a **complex** sentence when there is only **one** independent clause. In *"If the rain stops when the guests arrive, we will open the hall,"* *If the rain stops* and *when the guests arrive* are dependent, and *we will open the hall* is the one independent clause.
+
+<!-- ILLUSTRATION: two-column clause inventory diagram: left column "Complex = 1 independent + 1 or more dependent" with example "If [the rain stops] (dep) + when [the guests arrive] (dep) + [we will open the hall] (1 indep)"; right column "Compound-complex = 2+ independent + 1+ dependent" with example "When [the bell rang] (dep) + [the students grabbed their bags] (indep 1), and [they rushed out] (indep 2)" -->
+
+:::pair #multiple-dependents-still-complex
+Right: *"If the rain stops when the guests arrive, we will open the hall."* and *"Although the storm was severe, the town suffered minimal damage."* are **Complex**.
+Wrong: Label the first **Compound-complex**, or label the second **Compound**.
+Count independent and dependent clauses separately. Two dependent clauses never make a sentence compound-complex, and an *although*-clause is dependent, never a second main clause.
+:::
+
+:::check
+Classify *"The nurse, while she checked the records, called the patient."*
+:::answer
+The answer is **Complex**. *While she checked the records* is one dependent clause tucked inside one independent clause (*The nurse called the patient*).
+:::
+
+### Compound-Complex Sentences: Two or More Main Clauses Plus Dependent Clauses
+
+A **compound-complex sentence** has **two or more independent clauses** and **at least one dependent clause**.
+
+Split *"When the bell rang, the students grabbed their bags, and they rushed out the door"* into clauses:
+
+1. *When the bell rang* -> dependent clause (starts with *when*).
+2. *The students grabbed their bags* -> independent clause 1.
+3. *They rushed out the door* -> independent clause 2 (own subject *they* and verb *rushed*, joined by *and*).
+
+Two independent clauses plus one dependent clause make the sentence **compound-complex**.
+
+:::pair #missed-second-main-or-dep
+Right: *"When the bell rang, the students grabbed their bags, and they rushed out the door."* is **Compound-complex**.
+Wrong: Label it **Compound** or **Complex**.
+*Compound* skips the opening *when*-clause. *Complex* merges *"they rushed out the door"* into the first main clause, missing the subject *they*.
+:::
+
+:::check
+Classify *"The students lit candles, and they continued studying because the power went out."*
+:::answer
+The answer is **Compound-complex**. *The students lit candles* and *they continued studying* are two independent clauses, plus the dependent clause *because the power went out*.
+:::
+
+### Clue Words That Start Phrases, Not Clauses
+
+Words like *after, before,* and *since* start phrases or clauses. Check what follows:
+
+- *"After rehearsal, the musicians left."* -> *rehearsal* has no verb, so *"After rehearsal"* is a phrase. One clause remains -> **Simple**.
+- *"After rehearsal ended, the musicians left the hall."* -> *rehearsal* + *ended* forms a dependent clause -> **Complex**.
+
+:::pair #after-phrase-vs-clause
+Right: *"After rehearsal, the musicians left."* is simple; *"After rehearsal ended, the musicians left the hall."* is complex.
+Wrong: Pick *"After rehearsal ended, the musicians left the hall."* as a simple sentence starting with *After*.
+*After* can introduce a phrase or a clause. Spot the verb *ended* after *rehearsal*; once a subject and verb appear, the group is a dependent clause.
+:::
+
+:::check
+Classify *"Since the exam was postponed, the students relaxed for the weekend."*
+:::answer
+The answer is **Complex**. *Since* introduces *the exam* + *was postponed* (dependent) paired with *the students relaxed for the weekend* (independent).
+:::
 
 ## Examples
 
-### #1: Complex Sentence
+### #1: Explaining Why a Sentence Is Complex
 
-Classify this sentence: "Although the storm was severe, the town suffered minimal damage."
-
-**Solution:**
-
-1. "Although the storm was severe" has a subject and verb. *Although* makes it depend on another clause.
-2. "The town suffered minimal damage" can stand alone.
-3. One independent clause and one dependent clause make a complex sentence.
-
-### #2: Compound-Complex Sentence
-
-Classify this sentence: "When the bell rang, the students grabbed their bags, and they rushed out the door."
+Which clause inventory explains why *"Because the meeting ran late, the team missed lunch"* is complex?
 
 **Solution:**
 
-1. "When the bell rang" is dependent.
-2. "The students grabbed their bags" is independent.
-3. "They rushed out the door" is also independent.
-4. Two independent clauses and one dependent clause make the sentence compound-complex.
+1. *"Because the meeting ran late"* has subject *the meeting* and verb *ran*, made dependent by *Because*.
+2. *"The team missed lunch"* has no subordinating word and stands alone.
+3. So it has **one independent clause and one dependent clause**.
+
+**Check:** Drop *Because* and *"The meeting ran late"* stands alone, proving *Because* made it dependent.
+
+### #2: Simple vs. Complex Beginning With After
+
+Which sentence is simple: *"After rehearsal, the musicians left."* or *"After the musicians left, the caretaker closed the hall."*?
+
+**Solution:**
+
+1. *"After rehearsal"* has no verb, leaving only *"the musicians left"* (**Simple**).
+2. *"After the musicians left"* has subject *the musicians* and verb *left*, making it dependent (**Complex**).
+
+**Check:** Count subject-verb pairs in sentence 1: only *musicians + left* appears.
+
+### #3: Counting Clauses in a Long Sentence
+
+Classify: *"Since the flight was delayed, the passengers waited in the lounge, and some of them ordered food, but others simply read books."*
+
+**Solution:**
+
+1. *Since the flight was delayed* is **one dependent clause**.
+2. *The passengers waited in the lounge* is independent clause 1.
+3. *Some of them ordered food* adds its own subject and verb as independent clause 2.
+4. *Others simply read books* adds its own subject and verb as independent clause 3.
+
+:::try
+Finish the last step: combine both counts to name the sentence type.
+:::answer
+The sentence is **Compound-complex**. It has three independent clauses and one dependent clause (*Since the flight was delayed*).
+
+**Check:** Remove *"Since the flight was delayed,"* and three full statements joined by *and* and *but* remain; keeping *Since...* adds the dependent clause.
+:::
 
 ## Speed Tricks & Shortcuts
 
-Count independent clauses first. Then check for dependent clauses. The sentence type depends on both counts.
-
-Use words such as *although, because, since, when, if,* and *while* as clues. Check that the word introduces a clause with its own subject and verb. In "She has lived here since Monday," *since Monday* is not a clause.
+Keep two counts: independent clauses and dependent clauses. *Simple* and *complex* have **one** independent clause; *compound* and *compound-complex* have **two or more**.
 
 ## Traps to Watch For
 
-### #1: Relying Only on a Clue Word
-
-> A clue word must actually introduce a dependent clause.
-
-*Since Monday* has no subject and verb. Its presence does not make a sentence complex.
-
-### #2: Counting Only Independent Clauses
-
-> Check for dependent clauses before naming the sentence type.
-
-Two independent clauses alone make a compound sentence. Adding a dependent clause makes it compound-complex.
+:::checklist
+- Two dependent clauses with one main clause: count main clauses separately so you pick complex, not compound-complex. {#multiple-dependents-still-complex}
+- Subordinating word plus *and* or *but*: check for a second subject so you do not pick complex or compound. {#missed-second-main-or-dep}
+- Opening word like *after*, *before*, or *since*: verify a subject and finite verb follow before counting a dependent clause. {#after-phrase-vs-clause}
+:::

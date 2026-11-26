@@ -15,35 +15,120 @@ keyPoints:
 ---
 ## Core Concept
 
-English verb forms help show **tense** and **aspect**. Tense helps show when something happens. Aspect shows whether an action is going on, is complete before a point in time, or has a link to now.
+### Tense, Aspect, and Simple Present
 
-The **base form** is the plain verb form, such as *write, eat,* or *finish*. It has no added *-s, -ed,* or *-ing*.
+English verbs show **tense** (when an action happens) and **aspect** (whether it is a habit, ongoing, or completed).
 
-**Simple present** can show a habit, a general truth, or a scheduled event. Use the base form, adding *-s* or *-es* for *he, she, it,* or a singular noun: "She writes daily." The verb *be* uses *am, is,* or *are*.
+The **base form** is the plain verb with no ending (*write, sort*). **Simple present** uses the base form (adding *-s* or *-es* for *he, she, it*, or a singular noun; *am, is, are* for *be*). Use it for:
 
-**Present progressive** uses *am/is/are + -ing form*. It often shows an action going on now or around now: "She is writing a report." Some verbs that describe states, such as *know* and *own*, usually use a simple form instead: "I know the answer."
+1. Regular habits or duties: "On every working day, the records officer **sorts** the mail."
+2. General truths: "Water **boils** at its boiling point."
+3. Fixed schedules: "Tomorrow's briefing **starts** at noon."
+
+:::pair #habit-wrong-tense
+Right: "On every working day, the records officer sorts the incoming mail."
+Wrong: Choose *sorted*, *is sort*, or *sorting* for a regular duty.
+*Every working day* marks a repeated duty, not a past act (*sorted*). Never pair *is* with a base verb (*is sort*), or leave *-ing* alone (*sorting*) without a helping verb.
+:::
+
+:::check
+Choose the verb for a regular habit: "The clerk usually *(checks / is checking / checked)* passes at the door."
+:::answer
+The answer is **Checks**. *Usually* signals a habit, and singular *the clerk* takes *-s*.
+:::
+
+### Present Progressive: Now or Around Now
+
+**Present progressive** uses *am*, *is*, or *are* plus *-ing* (*is writing, are checking*). Use it for:
+
+1. An action happening right now: "She **is writing** a letter right now."
+2. A wider project ongoing around now (*this week, this month*), even during a break: "I **am writing** a novel this month."
+
+:::pair #wider-present-project
+Right: "I am writing a novel this month" shows a project ongoing around the present.
+Wrong: Claim *am writing* means she must be writing at this exact second.
+Time clues like *this month* widen the present window. A project stays in progress around now even during lunch.
+:::
+
+:::check
+Identify the tense in "She is writing a letter right now."
+:::answer
+The answer is **Present progressive**. *Is* plus *-ing* (*writing*) shows an action happening right now.
+:::
+
+### State Verbs Take Simple Forms
+
+Verbs like *know, own, believe, belong, understand,* and *seem* describe a **state**, not a step-by-step action. Use a simple form ("I **know** how to use the filing system") instead of present progressive ("I am knowing").
+
+Condition: a few verbs shift between state and activity. *Have* is a state in "She **has** a manual" (ownership), yet an activity in "She **is having** lunch" (eating).
+
+:::why
+Why do state verbs like *know* avoid *-ing*? Progressive *-ing* shows an activity unfolding with starts and stops, whereas knowing or owning something holds steady at once.
+:::
+
+:::pair #stative-verb-progressive
+Right: "I know how to use the filing system."
+Wrong: "I am knowing how to use the filing system."
+*Know* describes a current state of knowledge, not an action in progress. Use simple present *know*.
+:::
+
+:::check
+Choose the usual form for current ownership: "The blue binder *(belongs / is belonging)* to the office."
+:::answer
+The answer is **Belongs**. *Belong* states a steady relationship, so it takes simple present rather than progressive.
+:::
 
 ## Examples
 
-### #1: Choosing Simple Present
+### #1: Habit, Truth, and Fixed Schedule
 
-Choose the correct forms: The clerk usually *(checks / is checking)* IDs at the door. Water *(boils / boiled)* at its boiling point. According to tomorrow's fixed schedule, the briefing *(starts / started)* at noon.
-
-**Solution:**
-
-1. *Usually* describes a habit, so choose *checks*.
-2. The statement about water gives a general truth, so choose *boils*.
-3. A fixed schedule can use simple present even for tomorrow. Choose *starts*.
-
-### #2: An Ongoing Action
-
-Choose the correct form: Please wait. The clerk *(checks / is checking)* your record right now.
+Choose the forms: (a) "On every working day, the records officer *(sorts / sorted / is sort)* the incoming mail." (b) "Water *(boils / boiled)* at its boiling point." (c) "Tomorrow's briefing *(starts / started)* at noon."
 
 **Solution:**
 
-1. *Right now* and the request to wait show that the action is going on.
-2. Use *is* and *checking*: "The clerk is checking your record right now."
+1. In (a), *every working day* marks a regular duty, so choose **sorts** (singular *officer*).
+2. In (b), the sentence states a general truth, so choose **boils**.
+3. In (c), a fixed timetable uses simple present for tomorrow, so choose **starts**.
+
+**Check:** Match each clue: *every working day* (habit -> *sorts*), general fact (truth -> *boils*), and *tomorrow's briefing* (schedule -> *starts*).
+
+### #2: Action Now Versus Project This Month
+
+A writer says "I am writing a novel this month" while eating lunch. Name the tense and explain why it fits even though she is not typing right now.
+
+**Solution:**
+
+1. *Am writing* uses *am* + *-ing*, which is **present progressive**.
+2. Present progressive also covers longer projects ongoing around the present, marked here by *this month*.
+3. So she does not need to be writing at the exact second she speaks.
+
+**Check:** Contrast *right now* ("She is writing right now," happening at this second) with *this month* (an ongoing multi-week project).
+
+### #3: State Verb for Current Knowledge
+
+An employee describes her current knowledge, not the process of learning. Choose the correct sentence: (A) "I am knowing how to use the filing system." (B) "I knew how to use the filing system." (C) "I will know how to use the filing system." (D) "I know how to use the filing system."
+
+**Solution:**
+
+1. She describes **current** knowledge, so rule out past *knew* (B) and future *will know* (C).
+2. Choose between simple present *know* and present progressive *am knowing*.
+
+:::try
+Finish the last step: why does *know* take simple present instead of *am knowing*, and which choice is correct?
+:::answer
+The answer is **(D) "I know how to use the filing system."** *Know* describes a current state rather than a step-by-step action, so simple present is standard.
+
+**Check:** Current time rules out *knew* and *will know*, and *know* as a steady mental state pairs with simple present *know*.
+:::
 
 ## Speed Tricks & Shortcuts
 
-Check the time first. Decide whether the sentence describes a habit, past event, future event, ongoing action, or action completed before another point.
+Check the time clue and verb meaning together. Use simple present for habits, truths, timetables, and state verbs; use *am/is/are + -ing* for actions going on now or around now.
+
+## Traps to Watch For
+
+:::checklist
+- Habit clues like *every working day*: choose simple present (*sorts*), not past *-ed*, *is + base*, or bare *-ing*. {#habit-wrong-tense}
+- Present progressive with *this week* or *this month*: it covers projects around the present, even outside this exact second. {#wider-present-project}
+- State verbs like *know* or *belong*: use simple present instead of *-ing*. {#stative-verb-progressive}
+:::

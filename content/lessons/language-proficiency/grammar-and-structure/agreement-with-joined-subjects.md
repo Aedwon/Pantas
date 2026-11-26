@@ -14,47 +14,110 @@ keyPoints:
 ---
 ## Core Concept
 
-A **compound subject** joins subjects. Subjects joined by *and* usually take a plural verb: "Ana and Ben are here." If the words name one person or one unit, singular agreement can fit: "The owner and manager is here" can mean one person with both roles.
+### Subjects Joined by And
 
-With *or, either...or,* and *neither...nor*, the verb usually agrees with the nearer subject. "Neither the teacher nor the students were late." If the result is hard to read, change the wording.
+A **compound subject** joins subjects with *and*, *or*, or *nor*. Subjects joined by *and* usually take a plural verb because they name more than one person or thing: "Ana and Ben **are** here."
+
+One exception: when joined words name **one** person with two roles, or **one** combined unit, use a singular verb: "The owner and manager **is** signing the form." Watch *the*: *the owner and the manager* names two people (plural), while *the owner and manager* names one person (singular).
+
+:::pair #joined-by-and-plural
+Right: "Ana and Ben are already here, waiting by the entrance."
+Wrong: "Ana and Ben is already here, waiting by the entrance."
+Waiting together does not make two people singular. Two people joined by *and* take plural *are*.
+:::
+
+:::check
+The owner is also the manager. Choose the verb: The owner and manager *(is / are)* meeting the staff.
+:::answer
+The answer is **Is**. One person holds both roles, so singular *is* agrees.
+:::
+
+### Agreement with Or and Nor
+
+With *or*, *either...or*, and *neither...nor*, formal English uses the **proximity convention**: the verb matches the head of the **nearer** subject.
+
+1. "Neither the manager nor the employees **were** aware." (Nearer head: *employees*, plural -> *were*.)
+2. "Neither the students nor the teacher **was** late." (Nearer head: *teacher*, singular -> *was*.)
+
+Set aside any detail phrase after the nearer subject. In "Neither the coach nor the players on the visiting team **were** satisfied," cover *on the visiting team* so plural *players* controls *were*.
+
+<!-- ILLUSTRATION: the sentence "Neither the coach nor the players on the visiting team were satisfied." with "the coach" grayed out, "on the visiting team" bracketed as "added detail", and a teal arrow from "players" (labeled "nearer head, plural") to "were" -->
+
+:::pair #proximity-first-subject
+Right: "Neither the manager nor the employees were aware of the change."
+Wrong: "Neither the manager nor the employees was aware of the change."
+*The manager* comes first, yet *employees* sits closer to the verb. Match the nearer subject.
+:::
+
+When *or* or *nor* joins mismatched subjects like *I* and *she*, one verb feels awkward. Rewrite into two clauses so each subject gets its own verb: "Either she is responsible, or I am." Check each clause's verb on its own.
+
+:::why
+Why rewrite awkward *or/nor* sentences into two clauses? One verb cannot match both *she* (*is*) and *I* (*am*) at once. Two clauses let each subject take its natural verb.
+:::
+
+:::pair #split-clause-agreement
+Right: "The students were not late, and the teacher was not late."
+Wrong: "The students were not late, and the teacher were not late."
+Do not repeat *were* in the second clause. Plural *students* takes *were*, and singular *teacher* takes *was*.
+:::
+
+:::check
+Under the formal proximity convention, choose the verb: Neither the students nor the teacher *(was / were)* late.
+:::answer
+The answer is **Was**. Singular *teacher* is closer to the verb, so choose *was*.
+:::
 
 ## Examples
 
-### #1: Subjects Joined by *and*
+### #1: Separate People Versus One Person
 
-Choose the correct verb: The supervisor and the clerk *(is / are)* checking the forms.
-
-**Solution:**
-
-1. Two different people form the subject.
-2. They are joined by *and*, so choose plural *are*.
-
-### #2: One Person with Two Roles
-
-The owner is also the manager. Choose the correct verb: The owner and manager *(is / are)* signing the form.
+Choose each verb: (a) The supervisor and the clerk *(is / are)* checking the forms. (b) Our treasurer and secretary, who handles both jobs alone, *(is / are)* absent.
 
 **Solution:**
 
-1. The subject names one person with two roles.
-2. Choose singular *is*.
+1. In (a), *the supervisor* and *the clerk* are two people joined by *and*, so choose **are**.
+2. In (b), one person handles both jobs, so choose singular **is**.
 
-### #3: Nearer-Subject Agreement
+**Check:** Test pronouns: "They are checking" fits (a), and "She is absent" fits (b).
 
-Choose the correct verb: Neither the manager nor the employees *(was / were)* aware of the change.
+### #2: Rewriting Neither...Nor into Two Clauses
+
+Revise "Neither the students nor the teacher arrived late" into two negative clauses with agreeing *be*-verbs.
 
 **Solution:**
 
-1. The subject nearer the verb is *employees*.
-2. It is plural, so choose *were*.
+1. First clause: *the students* (plural) -> *The students were not late*.
+2. Second clause: *the teacher* (singular) -> *and the teacher was not late*.
+3. Combined: "The students were not late, and the teacher was not late."
+
+**Check:** Check each pair: *students were* (plural) and *teacher was* (singular); both keep the negative meaning.
+
+### #3: Proximity with Added Details and a Group Subject
+
+Using American English and formal proximity, choose the verbs: Neither the coach nor the players on the visiting team *(was / were)* satisfied, even though most of the crowd *(was / were)* supportive as a single group.
+
+**Solution:**
+
+1. In the first clause, look after *nor*: *the players on the visiting team*.
+2. Cover *on the visiting team*. Nearer head *players* is plural, so choose **were**.
+3. In the second clause, *most* refers to *the crowd* treated as one single group.
+
+:::try
+Finish the last step: is the second verb *was* or *were* for *the crowd* as a single group?
+:::answer
+The answer is **Was**. Under the American-English single-group reading, *crowd* is singular, so choose *was*.
+
+**Check:** Pair each head with its verb: "The players were satisfied" and "The crowd was supportive."
+:::
 
 ## Speed Tricks & Shortcuts
 
-With *and*, check whether the words name separate people or one person or unit. With *or/nor*, check the nearer subject.
+With *and*, check if the words name two things (plural) or one unit (singular). With *or* or *nor*, cover added phrases and match the nearer head.
 
 ## Traps to Watch For
 
-### #1: Forcing Awkward Agreement
-
-> Change the wording if mixed subjects make the sentence hard to read.
-
-"Either I or she am responsible" does not follow nearer-subject agreement. "Either she is responsible, or I am" makes each verb clear.
+:::checklist
+- Two names joined by *and* doing one shared activity: keep the verb plural. {#joined-by-and-plural}
+- *Neither...nor* or *either...or*: match the nearer subject's head, not the first subject. {#proximity-first-subject}
+- Rewriting *neither...nor* into two clauses: check each clause's verb separately instead of repeating one form. {#split-clause-agreement}
+:::

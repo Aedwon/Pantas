@@ -16,58 +16,123 @@ keyPoints:
 ---
 ## Core Concept
 
-A **pronoun** stands for a person or thing, as *she, it,* and *they* do. An **antecedent** is the word or phrase the pronoun refers to. In "Maria forgot her umbrella," *Maria* is the antecedent of *her*.
+### Matching Number and Ownership Form
 
-Choose a pronoun that fits the person or thing meant. A singular form refers to one. A plural form refers to more than one: "The girls lost their books."
+A **pronoun** replaces a noun or noun phrase, like *she*, *it*, or *they*. The **antecedent** is the noun it refers back to. In "The girl lost **her** book," *the girl* is the antecedent of *her*.
+
+Match number and kind: use *her*, *his*, or *its* for one (or singular *their* when gender is unknown or unspecified, explained next), and *their* for more than one ("The girls lost **their** books"). Before a noun, use *her* or *their* (*her book*). Alone without a noun after it, use *hers* or *theirs* ("That book is **hers**").
+
+:::check
+The girl uses she/her pronouns. Choose the right form: "The girl lost *(her / hers)* book on the way home."
+:::answer
+The answer is **Her**. A noun (*book*) follows the blank, so use *her* instead of standalone *hers*.
+:::
 
 ### Singular They
 
-**Singular they** refers to one person when gender is unknown or does not matter. It is also used for a person who uses *they* as their pronoun. Its forms include *they, them, their,* and *theirs*.
+**Singular they** (*they, them, their, theirs*) refers to one person whose gender is unknown or irrelevant, or to someone who uses *they*. Modern formal English accepts singular *their* after words like *each*, *somebody*, and *everybody*. Never use *its* for a person. Follow any specific rule if a question asks for *his or her*, and choose *they/their* for gender-neutral wording.
 
-"Everyone must bring their lunch" is accepted modern English. *Everyone* still takes a singular verb: "Everyone is ready." With *they*, use "they are," even when it refers to one person.
+:::pair #reject-singular-they
+Right: "Each of the students must submit their essay by Friday."
+Wrong: Reject *their* because every use of *their* requires a plural antecedent.
+Modern formal English uses *their* for one unspecified person too. Do not guess *his* or *her*, or use *its* for a person.
+:::
 
-*His or her* is also possible in some sentences. It is not always a better choice than *their*. Follow any special rule stated in the task.
+:::check
+Choose the gender-neutral pronoun: "Somebody left *(his / their / its)* umbrella in the room."
+:::answer
+The answer is **Their**. *Somebody* is one unspecified person, so *their* fits without guessing gender or using *its*.
+:::
 
-### Clear Reference
+### Verbs with Everybody and Singular They
 
-"When Mrs. Santos spoke to Anna, she seemed upset" leaves two possible meanings. *She* could mean either person. Repeat the intended name when needed.
+Singular *they* changes the pronoun, not the verb attached to *everybody*. Match each verb to its own subject:
+
+1. *Everybody*, *everyone*, *each*, and *somebody* take a **singular** verb (*is, has*).
+2. *They* always takes plural verb forms in general (such as *are*, *have*, and plain verbs without *-s*), even when referring to one person.
+
+:::why
+Why write "Everybody **has** said they **are** ready"? Each verb agrees directly with the subject beside it. *Everybody* is grammatically singular (*has*), while *they* always pairs with *are*.
+:::
+
+:::pair #everybody-and-they-verbs
+Right: "Everybody has said they are ready."
+Wrong: "Everybody have said they are ready," or "Everybody has said they is ready."
+Check each subject-verb pair separately. *Everybody* takes *has*, and *they* takes *are*.
+:::
+
+:::check
+Choose the verbs: "Everyone in the hall *(has / have)* confirmed they *(is / are)* ready."
+:::answer
+The answer is **Has, are**. *Everyone* is singular (*has*), and *they* takes *are*.
+:::
+
+### Repeating a Name for Clear Reference
+
+A pronoun is unclear when two names in the sentence could fit it. Neither the first name nor the nearest name wins by default. Repeat the intended name to make the meaning clear.
+
+:::pair #ambiguous-antecedent
+Right: In "Sarah told Michelle that her painting won," *her* is unclear, so name the owner.
+Wrong: Say the painting must be Michelle's because *Michelle* is the nearest name.
+Proximity does not fix an unclear pronoun. When either person could own the painting, repeat the owner's name.
+:::
+
+:::check
+Sam alone passed. Rewrite "Alex told Sam that they had passed" clearly.
+:::answer
+The answer is **"Alex told Sam that Sam had passed."** Repeating *Sam* names who passed and removes ambiguity.
+:::
 
 ## Examples
 
-### #1: One Person, Unstated Gender
+### #1: Plural and Gender-Neutral Reference
 
-Choose the natural modern form: "Each of the students must submit (their / its) essay by Friday."
-
-**Solution:**
-
-1. *Each* refers to one student at a time. The student's gender is not given.
-2. Singular *their* can refer to that person. Write: "Each of the students must submit their essay by Friday."
-
-### #2: An Unclear Reference
-
-Make it clear that Anna was upset: "When Mrs. Santos spoke to Anna, she seemed upset."
+Choose the pronouns: (a) "The girls lost *(her / their)* books on the way home." (b) Gender-neutral: "Each of the students must submit *(his / their / its)* essay by Friday."
 
 **Solution:**
 
-1. *She* could refer to Mrs. Santos or Anna.
-2. Repeat the intended name: "When Mrs. Santos spoke to Anna, Anna seemed upset."
+1. In (a), *the girls* is plural, so choose **their**.
+2. In (b), *each* points to one unspecified student, so modern gender-neutral English uses singular **their**.
 
-## Usage Notes
+**Check:** In (a), plural *girls* pairs with *their*; in (b), *each of the students* names one unspecified person, so gender-neutral singular *their* matches it (*his* assumes male gender and *its* names an object).
 
-Find the antecedent before choosing an English pronoun. Check its number, its meaning, and whether the reader can tell who is meant.
+### #2: Combining Everybody and Singular They
 
-Singular *they* does not change the verb after *everyone*. Write "Everyone has said they are ready."
+Choose the correct sentence: (A) "Everybody have said they are ready." (B) "Everybody has said they is ready." (C) "Everybody has said they are ready."
+
+**Solution:**
+
+1. *Everybody* is singular, so it needs *has* (not *have*).
+2. *They* takes *are* (not *is*).
+3. Only **(C) "Everybody has said they are ready"** gets both verbs right.
+
+**Check:** Test each clause: "Everybody has said it" and "They are ready."
+
+### #3: Fixing an Ambiguous Reference
+
+Explain why "When Mrs. Santos spoke to Anna, she seemed upset" is unclear, and rewrite it so Anna was upset.
+
+**Solution:**
+
+1. Both *Mrs. Santos* and *Anna* fit *she*.
+2. Either woman could be the one who seemed upset.
+
+:::try
+Finish the last step: rewrite the sentence so it clearly states that Anna seemed upset.
+:::answer
+The answer is **"When Mrs. Santos spoke to Anna, Anna seemed upset."** Replacing *she* with *Anna* names the exact person meant.
+
+**Check:** Ask "Who seemed upset?" Only *Anna* answers the question, with no guessing by order or proximity.
+:::
+
+## Speed Tricks & Shortcuts
+
+Find the antecedent first. Check number, keep *everybody + singular verb* separate from *they + are*, and repeat a name whenever two people fit one pronoun.
 
 ## Traps to Watch For
 
-### #1: Rejecting Singular They
-
-> Singular *their* can refer to one person.
-
-"Everyone should bring their identification" is accepted modern English. Do not reject it only because *everyone* is singular.
-
-### #2: Choosing Only the Nearest Noun
-
-> A nearby noun is not always the intended antecedent.
-
-Read the whole sentence. With mixed *or/nor* groups, check whether a rewrite can make the meaning clear.
+:::checklist
+- Singular indefinite words like *each* or *somebody*: use singular *their* for gender-neutral reference instead of guessing *his* or *its*. {#reject-singular-they}
+- *Everybody* paired with *they*: keep *everybody* with a singular verb (*has*) and *they* with *are*. {#everybody-and-they-verbs}
+- Two people who fit *she* or *her*: repeat the intended name instead of picking the first or nearest noun. {#ambiguous-antecedent}
+:::

@@ -15,50 +15,122 @@ keyPoints:
 ---
 ## Core Concept
 
-### Sa Filipino: Mga Bahagi ng Pananalita
+### Pantukoy, Pangngalan, at Panghalip
 
-Hindi laging magkatugma ang mga pangkat ng salita sa Filipino at Ingles. Sundin ang paraan ng pag-uuri na binanggit sa tanong. Pagkatapos, suriin ang tungkulin ng salita sa pangungusap.
+Nagbabago ang tungkulin ng isang salita ayon sa gamit nito sa pangungusap. Suriin muna kung ano ang ginagawa ng salita sa mismong pangungusap.
 
-Ang **pantukoy** (marker/article) ay tumutukoy sa kasunod na pangngalan o pangalan. Hanapin ang salitang gaya ng *ang* sa *ang guro* o *si* sa *si Liza*. Hindi ito ang pangalan mismo.
+- Ang **pantukoy** (marker) ay nagpapakilala sa kasunod na pangalan: *ang*, *ang mga*, *si*, at *sina* sa "ang guro" at "si Liza."
+- Ang **pangngalan** (noun) ay ngalan ng tao, bagay, hayop, lugar, o ideya. Itanong kung ano o sino ang pinapangalanan: sa "Masipag ang guro," ang *guro* ay ngalan ng tao.
+- Ang **panghalip** (pronoun) ay pamalit sa pangngalan upang hindi ito ulit-ulitin. Sa "Pumunta siya sa palengke," ang *siya* ay humahalili sa pangalan ng tao.
 
-Ang **pangngalan** (noun) ay ngalan ng tao, bagay, hayop, lugar, o ideya. Itanong kung ano o sino ang pinapangalanan. Sa *Masipag ang guro*, ang *guro* ay tawag sa tao.
+:::pair #bata-pangngalan-hindi-pang-uri
+Right: Sa "Ang bata ay naglaro sa parke kahapon," ang *bata* ay pangngalan dahil ngalan ito ng taong pinag-uusapan pagkatapos ng *ang*.
+Wrong: Tawaging pang-uri o panghalip ang *bata* sa "Ang bata ay naglaro sa parke kahapon."
+Maaaring maging pang-uri ang *bata* kung naglalarawan ng edad (*batang guro*), ngunit dito ay kasunod ito ng *ang* at ngalan mismo ng tao, hindi pamalit sa ibang pangalan.
+:::
 
-Ang **panghalip** (pronoun) ay humahalili sa pangngalan o pangalan. Hanapin kung ano o sino ang tinutukoy nito. Sa *Dumating si Liza. Umupo siya*, ang *siya* ay pumapalit kay Liza.
+:::check
+Sa "Nagdala **siya** ng aklat sa silid," anong bahagi ng pananalita ang salitang nasa bold?
+:::answer
+Ang sagot ay **Panghalip**. Humahalili ang *siya* sa pangalan ng taong nagdala ng aklat.
+:::
 
-Ang **pandiwa** (verb) ay nagsasaad ng kilos, pangyayari, o kalagayan. Sa *Sumulat si Ben*, itanong kung ano ang ginawa ni Ben. Ang *sumulat* ang pandiwa.
+### Pandiwa: Kilos, Pangyayari, o Kalagayan
 
-Ang **pandiwari** (participle) ay katawagang ginagamit sa ilang tradisyunal na balarila. Ito ay anyong mula sa pandiwa na maaaring gamitin na parang pang-uri o pangngalan. Sa *Tinulungan nila ang nasugatan*, ang *nasugatan* ay tumutukoy sa taong nasugatan.
+Ang **pandiwa** (verb) ay nagsasaad ng kilos, pangyayari, o kalagayan. Hanapin ang salitang nagsasabi kung ano ang ginawa ng gumagawa o ano ang nangyari.
 
-Upang suriin ang ganitong gamit, hanapin ang kilos na pinagmulan. Pagkatapos, tingnan kung naglalarawan o tumutukoy na sa tao o bagay ang anyo. Maaaring iba ang tawag dito sa ibang sistema, kaya sundin ang pag-uuring itinakda sa tanong.
+- "Kumain ang mga bata ng masarap na hapunan." (*Kumain* ang kilos na ginawa ng mga bata.)
+- "Bumuhos ang malakas na ulan." (*Bumuhos* ang pangyayari.)
+
+:::pair #pandiwa-kilos-hindi-pangngalan
+Right: Sa "Kumain ang mga bata ng masarap na hapunan," ang *kumain* ay pandiwa dahil sinasabi nito ang kilos.
+Wrong: Tawaging pangngalan o pang-abay ang *kumain* sa pangungusap na ito.
+Ang *pagkain* ay pangngalan ng bagay, ngunit ang *kumain* ay kilos mismo ng mga bata at hindi naglalarawan ng ibang kilos.
+:::
+
+:::check
+Sa "**Sumulat** si Ben ng maikling liham," anong bahagi ng pananalita ang salitang nasa bold?
+:::answer
+Ang sagot ay **Pandiwa**. Sinasabi ng *sumulat* ang kilos na ginawa ni Ben.
+:::
+
+### Pandiwari sa Tradisyonal na Pag-uuri
+
+Ang **pandiwari** (participle) ay anyong mula sa pandiwa na gumaganap bilang pangngalan o pang-uri sa tradisyonal na balarila. Sundin ang dalawang hakbang sa pagsusuri:
+
+1. Hanapin muna ang pangunahing kilos na ginawa sa pangungusap.
+2. Tingnan ang anyong mula sa pandiwa: kung kasunod ito ng pantukoy at tumutukoy sa tao o bagay, gumaganap itong pangngalan.
+
+<!-- ILLUSTRATION: ang pangungusap na "Inihatid ng kawani sa klinika ang nahimatay." na may tatak sa ilalim ng "Inihatid" (pandiwa ng kawani), "sa klinika" (lugar), at "ang nahimatay" (taong tinulungan, pandiwaring gamit na pangngalan) -->
+
+:::why
+Bakit hindi pandiwa ang *nahimatay* sa "Inihatid ng kawani sa klinika ang nahimatay"? Ang pangunahing kilos ng pangungusap ay *inihatid* ng kawani. Ang *ang nahimatay* ay hindi kilos ng kawani kundi ngalan ng taong tinulungan.
+:::
+
+:::pair #pandiwari-bilang-pangngalan
+Right: Sa "Inihatid ng kawani sa klinika ang nahimatay," ang *nahimatay* ay pandiwaring gamit na pangngalan.
+Wrong: Sabihing ito ay pandiwang nagsasaad ng ginawa ng kawani o pang-abay na nagsasaad ng lugar ng kilos.
+Ang ginawa ng kawani ay *inihatid*, at ang lugar ay *sa klinika*. Tumutukoy ang *ang nahimatay* sa taong inihatid.
+:::
+
+:::check
+Sa tradisyonal na pag-uuri, paano ginagamit ang salitang nasa bold sa "Tinulungan ng nars ang **nasugatan**"?
+:::answer
+Ang sagot ay **Pandiwaring gamit na pangngalan**. Mula sa pandiwa ang *nasugatan*, at dito ay tumutukoy ito sa taong tinulungan ng nars.
+:::
 
 ## Examples
 
-### #1: Iba't Ibang Tungkulin
+### #1: Pangngalan, Pantukoy, at Panghalip
 
-Sa “**Ang** masipag na **guro** ay **nagturo** **at** **siya** ay ngumiti,” tukuyin ang bahagi ng pananalita ng bawat salitang nasa bold.
-
-**Solution:**
-
-1. *Ang* ay pantukoy. Tinutukoy nito ang guro.
-2. *Guro* ay pangngalan. Ito ang tawag sa tao.
-3. *Nagturo* ay pandiwa. Ito ang kilos na ginawa.
-4. *At* ay pangatnig. Pinagdurugtong nito ang dalawang bahagi ng pangungusap.
-5. *Siya* ay panghalip. Humahalili ito sa guro.
-
-### #2: Tradisyunal na Pandiwari
-
-Sa tradisyunal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitang nasa bold sa “Tinulungan ng nars ang **nasugatan**”?
+Sa "**Ang** masipag na **guro** ay ngumiti at umupo **siya**," tukuyin ang bahagi ng pananalita ng bawat salitang nasa bold.
 
 **Solution:**
 
-1. Mula sa pandiwa ang *nasugatan*. Dito, tinutukoy nito ang taong nasugatan.
-2. Ginagamit itong parang pangngalan. Sa pag-uuring itinakda sa tanong, ito ay pandiwari.
-3. Hindi ito ang kilos na ginawa ng nars. Ang kilos ng nars ay *tinulungan*.
+1. Ang *Ang* ay nagpapakilala sa *guro*, kaya **pantukoy** ito.
+2. Ang *guro* ay ngalan ng tao, kaya **pangngalan** ito.
+3. Ang *siya* ay pumapalit sa ngalan ng guro, kaya **panghalip** ito.
+
+**Check:** Basahin ang bawat papel: pantukoy (*Ang*) ang nasa unahan ng ngalan (*guro*), at humahalili ang *siya* sa guro sa kasunod na bahagi.
+
+### #2: Pagkilala sa Pandiwa
+
+Tukuyin ang bahagi ng pananalita ng salitang nasa bold: "**Kumain** ang mga bata ng masarap na hapunan."
+
+**Solution:**
+
+1. Hanapin ang paksa: *ang mga bata*.
+2. Itanong kung ano ang ginawa ng mga bata: sila ay kumain.
+3. Sinasabi ng *kumain* ang kilos, kaya **pandiwa** ito.
+
+**Check:** Hindi ngalan ng bagay ang *kumain* tulad ng *hapunan*, at hindi ito naglalarawan ng isa pang kilos. Kilos mismo ito.
+
+### #3: Tradisyonal na Pandiwari
+
+Sa tradisyunal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitang nasa bold sa "Inihatid ng kawani sa klinika ang **nahimatay**"?
+
+**Solution:**
+
+1. Tukuyin ang kilos na ginawa ng kawani: *inihatid*.
+2. Tukuyin ang lugar ng paghahatid: *sa klinika*.
+3. Tingnan ang *ang nahimatay*: mula sa pandiwa ang *nahimatay* at pinapangunahan ng pantukoy na *ang*.
+
+:::try
+Tapusin ang huling hakbang: sino ang tinutukoy ng *ang nahimatay*, at ano ang gamit nito sa itinakdang pag-uuri?
+:::answer
+Ang sagot ay **Pandiwaring gamit na pangngalan**. Tumutukoy ito sa taong inihatid sa klinika, hindi sa kilos ng kawani at hindi sa lugar.
+
+**Check:** Ihiwalay ang tatlong bahagi: *inihatid* (kilos), *sa klinika* (lugar), at *ang nahimatay* (taong tinulungan).
+:::
+
+## Speed Tricks & Shortcuts
+
+Suriin ang salita ayon sa papel nito sa pangungusap, hindi sa hitsura lamang. Hanapin muna ang pantukoy (*ang*, *si*) para sa pangngalan, itanong ang kilos para sa pandiwa, at tingnan kung tumutukoy sa tao o bagay ang anyong mula sa pandiwa.
 
 ## Traps to Watch For
 
-### #1: Iisang Sistema para sa Lahat
-
-> Hindi kailangang magkatugma ang bawat pangkat ng salita sa Filipino at Ingles.
-
-Halimbawa, may pantukoy sa pag-uuring Filipino na itinuro rito. Sundin ang sistemang nasa tanong bago pumili ng katawagan.
+:::checklist
+- Salitang kasunod ng pantukoy gaya ng *ang bata*: ngalan ito ng pinag-uusapan, kaya pangngalan ito. {#bata-pangngalan-hindi-pang-uri}
+- Salitang nagsasabi ng nangyari gaya ng *kumain*: ito ang kilos mismo, kaya pandiwa ito. {#pandiwa-kilos-hindi-pangngalan}
+- Anyong mula sa pandiwa pagkatapos ng *ang* gaya ng *ang nahimatay*: pandiwaring gamit na pangngalan ito, hindi kilos ng gumagawa o lugar. {#pandiwari-bilang-pangngalan}
+:::

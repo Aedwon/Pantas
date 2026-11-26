@@ -1,7 +1,7 @@
 ---
 _id: "lesson-grammar-and-structure-shared-words-in-parallel-lists"
 title: "Shared Words in Parallel Lists"
-summary: "Check how a shared word applies to each parallel item."
+summary: "Check how a shared lead-in word applies to each item in a parallel list."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 isActive: true
@@ -13,35 +13,112 @@ keyPoints:
 ---
 ## Core Concept
 
-A **base verb form** is the plain form of a verb, such as *install, update,* or *troubleshoot*. In “how to install, update, and troubleshoot,” one *to* can apply to all the base verbs. Repeating *to* is also possible: “to install, to update, and to troubleshoot.”
+### Shared Words Before a List
 
-Matching form does not always mean matching visible endings. Find the parts that do the same job. Then check whether their grammar matches and whether a shared word applies to each part.
+A **base verb form** is the plain verb with no ending, such as *install*, *update*, or *repair*. One shared lead-in word, such as *to* or *how to*, can cover every item in a list when the same verb form fits each item.
+
+Look at *"The manual explains how to install, update, and repair the software."* Read *how to* before each verb one by one:
+
+1. *how to install* (base verb)
+2. *how to update* (base verb)
+3. *how to repair* (base verb)
+
+All three verbs fit cleanly after *how to*, so one *how to* covers the whole list.
+
+Condition: a shared word works only if it fits every item. When two items need different prepositions, keep each preposition in place: write *"interest in and talent for music,"* because *interest for music* does not work.
+
+<!-- ILLUSTRATION: branching diagram from a single box "how to" to three aligned rows: "install (base verb)", "update (base verb)", and "repair (base verb)" each with a teal checkmark, with "updating (-ing)" crossed out beside row 2 -->
+
+:::why
+Why does one *to* work for three verbs? Once *how to* opens the list, English carries that same *to* forward to every joined base verb until the list ends.
+:::
+
+:::pair #mixed-form-under-shared-word
+Right: "The manual explains how to install, update, and repair the software."
+Wrong: "The manual explains how to install, updating, and repairing the software."
+Mixing a base verb (*install*) with *-ing* forms (*updating*, *repairing*) breaks the shared *how to*. Test each verb directly after *how to*.
+:::
+
+:::check
+Choose the verb form that fits after *how to*: *"She learned how to plan, draft, and *(edit / editing / edited)* a memo."*
+:::answer
+The answer is **Edit**. *Plan* and *draft* are base verbs after *how to*, so *edit* keeps all three items parallel.
+:::
+
+### Checking Every Item in a Longer List
+
+When a sentence mixes forms after a shared verb or preposition, check every listed item. Fixing only one broken item leaves the remaining odd item out of balance.
+
+Look at *"The app helps users track expenses, setting budgets, and saving money."* After *helps users*, *track* is a base verb, while *setting* and *saving* use *-ing*. Both *-ing* verbs must become base verbs: *"track expenses, set budgets, and save money."*
+
+:::pair #partial-list-fix
+Right: For *"The app helps users track expenses, setting budgets, and saving money,"* change *"setting"* and *"saving"* to *"set"* and *"save."*
+Wrong: Change *"setting"* to *"set"* but keep *"saving money,"* or change only *"track"* to *"tracking."*
+Fixing only *setting* leaves *saving* unmatched. Changing *track* to *tracking* puts an *-ing* form right after *helps users*, which does not fit.
+:::
+
+:::check
+Which word breaks the parallel list in *"The guide helps new clerks sort files, log calls, and answering questions"*?
+:::answer
+The answer is **Answering**. *Sort* and *log* are base verbs after *helps new clerks*, so change *answering* to *answer*.
+:::
 
 ## Examples
 
 ### #1: Choosing the Parallel Sentence
 
-Choose the sentence with correct parallel structure.
+Choose the sentence with correct parallel structure:
 
-(A) “The manual explains how to install the software, updating it, and troubleshoot common errors.”
-
-(B) “The manual explains how to install the software, update it, and troubleshoot common errors.”
+(A) "The manual explains how to install, updating, and repairing the software."
+(B) "The manual explains how to install, update, and repair the software."
 
 **Solution:**
 
-1. In (A), *updating* does not match the base verbs *install* and *troubleshoot*.
-2. In (B), *install, update,* and *troubleshoot* are all base verbs.
-3. The single *to* in *how to install* applies to the whole list. It means how to install, how to update, and how to troubleshoot.
-4. The correct answer is (B).
+1. Find the shared lead-in words: *how to*.
+2. Test each verb after *how to* in (A): *how to install* works, while *how to updating* and *how to repairing* do not.
+3. Test each verb after *how to* in (B): *how to install*, *how to update*, and *how to repair* are all base verbs.
+
+The correct answer is **(B)**.
+
+**Check:** Read *how to* before each verb in (B) one at a time. Every pair forms a clean *how to + base verb* phrase.
+
+### #2: When a Shared Word Does Not Fit
+
+Fix the missing word in *"She has a strong interest and talent for music."*
+
+**Solution:**
+
+1. Read the shared preposition *for* after each noun: *"interest for music"* and *"talent for music."*
+2. *Talent for music* works, while *interest* needs *in* (*"interest in music"*).
+3. Keep the right preposition on the first noun: *"She has a strong interest in and talent for music."*
+
+**Check:** Read each half alone: *"interest in music"* and *"talent for music."* Both sound natural and complete.
+
+### #3: Fixing Every Broken Item After a Shared Verb
+
+Identify and fix the parallelism error: *"The app helps users track expenses, setting budgets, and saving money."*
+
+**Solution:**
+
+1. Find the shared lead-in: *"helps users."*
+2. Check the verb form required after *"helps users"*: base verb (*track*), not *-ing*.
+3. Check the remaining items: *setting budgets* and *saving money* both use *-ing*.
+
+:::try
+Finish the last step: change the broken items so all three match *track*.
+:::answer
+The answer is **Change "setting" and "saving" to "set" and "save."** The parallel list is *"track expenses, set budgets, and save money."*
+
+**Check:** Read *"The app helps users"* before each repaired item: *"track expenses,"* *"set budgets,"* and *"save money."* Every item uses a base verb.
+:::
 
 ## Speed Tricks & Shortcuts
 
-Do not check endings alone. A shared word can apply to several items. In “to read, write, and revise,” the single *to* applies to all the base verbs.
+Read the shared lead-in words separately before every item in the list. Check that each item fits the lead-in and matches the grammatical form of all the other items.
 
 ## Traps to Watch For
 
-### #1: Repeating Every Shared Word
-
-> Parallel items do not always need the same word repeated before each one.
-
-“She wants to read, write, and revise” is parallel. The word *to* applies to each base verb in the list.
+:::checklist
+- Shared *to* or *how to* before a list: test every item right after *to* so *-ing* or *-ed* forms do not slip in. {#mixed-form-under-shared-word}
+- Two or more broken items in a list: check every item from first to last instead of stopping after one fix. {#partial-list-fix}
+:::

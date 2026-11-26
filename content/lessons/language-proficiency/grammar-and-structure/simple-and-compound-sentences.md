@@ -15,48 +15,116 @@ keyPoints:
 ---
 ## Core Concept
 
-A **clause** is a group of words with a subject and a verb. The **subject** tells who or what the clause is about. The **verb** tells what the subject does or is.
-
-An **independent clause** gives a complete thought and can stand as a sentence. "The dog barked" is an independent clause.
-
-A **dependent clause** has a subject and a verb but cannot stand as a complete sentence. "Because the dog barked" leaves the reader waiting for the result.
-
-A **simple sentence** has one independent clause and no dependent clause. "The dog barked." It can have a compound subject or verb: "The dog and the cat played and ran."
-
-A compound subject joins subjects, as in "the dog and the cat." A compound verb joins verbs that share a subject, as in "played and ran." Neither feature alone adds another clause.
-
-A **compound sentence** has at least two independent clauses and no dependent clause. A **coordinating conjunction** joins equal parts, including independent clauses. These conjunctions include *and, but, or, so, for, nor,* and *yet*.
-
-"The dog barked, and the cat ran" is compound. A semicolon can also join independent clauses: "The dog barked; the cat ran."
+### Simple Sentences, Even With Compound Parts
 
 "Classify" means name the sentence type.
 
+A **clause** has a subject and a finite verb. An **independent clause** gives a complete thought and stands alone (*"The supervisor signed the request."*). A **dependent clause** starts with a subordinating word like *although, because,* or *when* and cannot stand alone (*"Although the supervisor signed the request"*).
+
+A **simple sentence** has **one independent clause** and **zero dependent clauses**. A simple sentence can still be long or use *and*:
+
+- **Compound subject:** two subjects sharing one verb (*"The dog and cat played together in the yard."*).
+- **Compound verb:** one subject doing two verbs (*"The teacher prepared and rehearsed the play."*).
+- **Prepositional phrases:** place or time groups with no subject-verb pair (*"Near the harbor, the old warehouse remained empty for several months."*).
+
+None of these adds a second clause, because both sides of *and* share one clause frame.
+
+:::pair #compound-parts-still-simple
+Right: Classify *"The teacher and her students prepared and rehearsed the play."* as **Simple**.
+Wrong: Classify *"The teacher and her students prepared and rehearsed the play."* as **Compound** or **Compound-complex**.
+Two joined subjects and two joined verbs still share one clause. A compound sentence needs two clauses, each with its own subject and finite verb.
+:::
+
+:::check
+Classify *"Near the harbor, the old warehouse behind the fish market remained empty for several months."*
+:::answer
+The answer is **Simple**. *The old warehouse* is the single subject paired with *remained*; the other groups are prepositional phrases with no verbs.
+:::
+
+### Compound Sentences: Two Ways to Join Main Clauses
+
+A **compound sentence** has **two or more independent clauses** and **zero dependent clauses**.
+
+There are two ways to join independent clauses into a compound sentence:
+
+1. A comma plus a **coordinating conjunction** (*for, and, nor, but, or, yet, so*): *"She wanted to travel abroad, but she could not afford the airfare."* *"The rain stopped, so we went outside to play."*
+2. A **semicolon** (;) alone between two linked independent clauses: *"The clinic reopened; appointments resumed."*
+
+Ignore infinitives such as *to travel abroad* or *to play* when counting clauses: *to + verb* is a phrase, not a dependent clause. And *so* meaning "therefore" joins two independent clauses.
+
+:::why
+Why does a semicolon make a compound sentence without *and* or *but*? A semicolon joins two independent clauses of equal rank. Both *"The clinic reopened"* and *"appointments resumed"* stand alone with a period, giving two independent clauses and zero dependent clauses.
+:::
+
+:::pair #but-so-semicolon-are-compound
+Right: *"She wanted to travel abroad, but she could not afford the airfare."* and *"The clinic reopened; appointments resumed."* are **Compound**.
+Wrong: Classify *"She wanted to travel abroad, but she could not afford the airfare."* as **Complex** or **Compound-complex**, or classify *"The clinic reopened; appointments resumed."* as **Simple**.
+*But* is a coordinating connector, not subordinating, and *to travel abroad* is an infinitive phrase. A semicolon joins two full clauses into a compound sentence, not one simple clause.
+:::
+
+:::pair #compound-subject-not-compound
+Right: *"The dog played, and the cat slept."* is a compound sentence.
+Wrong: Pick *"The dog and cat played together in the yard."* or *"The dog played while the cat slept in the yard."* as a compound sentence.
+*"The dog and cat played"* has only one clause with a compound subject. Using *while* makes *"while the cat slept in the yard"* a dependent clause, turning the sentence complex.
+:::
+
+:::check
+Classify *"The rain stopped, so we went outside to play."*
+:::answer
+The answer is **Compound**. *"The rain stopped"* and *"we went outside to play"* are independent clauses joined by *so*, and *to play* is a phrase.
+:::
+
 ## Examples
 
-### #1: Simple with a Compound Subject and Verb
+### #1: Checking Joined Subjects and Verbs
 
-Classify this sentence: "The teacher and her students prepared and rehearsed the play."
-
-**Solution:**
-
-1. *The teacher and her students* form a compound subject. Both do the actions.
-2. *Prepared and rehearsed* share that subject. They stay in the same clause.
-3. There is one independent clause and no dependent clause. The sentence is simple.
-
-### #2: Compound Sentence
-
-Classify this sentence: "She wanted to travel abroad, but she could not afford the airfare."
+Classify *"The teacher and her students prepared and rehearsed the play."*
 
 **Solution:**
 
-1. "She wanted to travel abroad" can stand alone.
-2. "She could not afford the airfare" can also stand alone.
-3. *But* joins two independent clauses. With no dependent clause, the sentence is compound.
+1. *The teacher and her students* is one compound subject.
+2. *Prepared and rehearsed* is one compound verb sharing that subject.
+3. With one independent clause and zero dependent clauses, the sentence is **Simple**.
+
+**Check:** Split at *and*: *"her students"* alone has no verb and *"rehearsed the play"* alone has no subject, confirming one clause.
+
+### #2: Compound Sentence With a Semicolon
+
+Classify *"The clinic reopened; appointments resumed."*
+
+**Solution:**
+
+1. *"The clinic reopened"* has subject *the clinic* and verb *reopened*, so it stands alone.
+2. *"Appointments resumed"* has subject *appointments* and verb *resumed*, so it also stands alone.
+3. Two independent clauses and zero dependent clauses make the sentence **Compound**.
+
+**Check:** Replace the semicolon with a comma and *and*: *"The clinic reopened, and appointments resumed."* Both sides stand complete.
+
+### #3: Classifying After a Deletion
+
+Delete only *"Although the road was flooded"* from *"Although the road was flooded, the truck arrived, and the driver unloaded the supplies."* What structure remains?
+
+**Solution:**
+
+1. Remove the opening words: *"The truck arrived, and the driver unloaded the supplies."*
+2. *"The truck arrived"* is an independent clause.
+
+:::try
+Finish the last step: check the clause after *and*, check for any dependent clause, and name the remaining structure.
+:::answer
+The remaining structure is **Compound**. *"The driver unloaded the supplies"* is a second independent clause with subject *the driver* and verb *unloaded*. Zero dependent clauses remain.
+
+**Check:** Test each surviving half as its own sentence: *"The truck arrived."* *"The driver unloaded the supplies."* Both stand alone, joined by *and*.
+:::
+
+## Speed Tricks & Shortcuts
+
+Split at *and, but, so,* or a semicolon and test each side alone. If both sides stand as full sentences with no subordinating word (*although, when, while, because*), the sentence is compound.
 
 ## Traps to Watch For
 
-### #1: Counting Every And as a New Clause
-
-> A compound subject or verb can stay within one clause.
-
-"The dog and cat played" is simple. The two animals share the verb *played*.
+:::checklist
+- Using *and* to join two nouns or two verbs: verify each side has its own subject and finite verb before calling it compound. {#compound-parts-still-simple}
+- Sentences joined by *but*, *so*, or a semicolon: test both sides alone so you do not pick simple or complex. {#but-so-semicolon-are-compound}
+- Swapping *and* for *while* or *when*: remember subordinating words create a dependent clause, not a compound sentence. {#compound-subject-not-compound}
+:::
