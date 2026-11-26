@@ -65,12 +65,12 @@ The answer is **Possibility**. The speaker is predicting what could happen with 
 
 Besides giving a rule, **must** can express a **strong conclusion** based on clues:
 
-- "The reservation sheet is signed and the lights are on, so someone **must** be using it."
+- "The reservation sheet is signed and the lights are on, so someone **must** be using the room."
 
 The speaker is not ordering anyone to use the room. Instead, the clues show what is very likely true right now.
 
 :::pair #must-conclusion-vs-rule
-Right: In "Could I use the meeting room?" "The reservation sheet is signed and the lights are on, so someone must be using it," *could* asks permission and *must* states a strong conclusion from evidence.
+Right: In "Could I use the meeting room?" "The reservation sheet is signed and the lights are on, so someone must be using the room," *could* asks permission and *must* states a strong conclusion from evidence.
 Wrong: Read *must* as an obligation to use the room, or read *could* as general ability in the past.
 The signed sheet and lit room are evidence for what is happening now, not a rule. And *Could I use...* asks polite permission.
 :::
@@ -93,7 +93,7 @@ A notice states that bringing a printed reference sheet is optional. Choose the 
 2. Rule out *must not* (ban), *have to* (rule), and *should* (advice).
 3. Choose **"Applicants do not have to bring a sheet."**
 
-**Check:** Test both cases: bringing a sheet is still allowed (ruling out *must not*), and nobody is told to bring it (ruling out *have to* and *should*).
+**Check:** Bringing a sheet is allowed (not *must not*), not required (not *have to*), and not even advised (not *should*).
 
 ### #2: Identifying Possibility in Context
 
@@ -108,7 +108,7 @@ In "The delivery might arrive after the office closes," determine what *might* e
 
 ### #3: Two Modals in One Exchange
 
-Read: "Could I borrow the projector?" "The cable is plugged in and the screen is bright, so someone must be using it." What do *could* and *must* express?
+Read: "Could I borrow the projector?" "The cable is plugged in and the screen is bright, so someone must be using the projector." What do *could* and *must* express?
 
 **Solution:**
 
@@ -124,7 +124,7 @@ Finish the job: what do *could* and *must* express in this exchange?
 
 ## Speed Tricks & Shortcuts
 
-Check two signals: negative phrasing and evidence clues. Separate *must not* (ban) from *do not have to* (optional), and ask whether *must* gives a rule or draws a conclusion from clues.
+Separate *must not* (ban) from *do not have to* (optional), and ask whether *must* gives a rule or draws a conclusion from clues.
 
 ## Traps to Watch For
 

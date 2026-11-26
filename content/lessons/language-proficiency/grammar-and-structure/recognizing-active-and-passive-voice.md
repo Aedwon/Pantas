@@ -21,7 +21,7 @@ First find the **subject** and the **verb**. In **active voice**, the subject do
 
 In **passive voice**, the subject receives the action: "The ball **was chased** by the dog." The **agent** (the doer, *the dog*) may follow *by* or be left out.
 
-Judge voice by the grammatical subject, not by the object or the doer after *by*:
+Judge voice by the grammatical subject and the whole verb group, not by the object or the doer after *by*. Some active verbs name a state (*The clerk knows the code*), so ask how an active version would say the same thing:
 
 - "The dog chased the ball." (Subject = *the dog*, which acts -> active.)
 - "The ball was chased by the dog." (Subject = *the ball*, which receives -> passive.)
@@ -67,7 +67,7 @@ Why do formal notices often use passive voice? When readers need to know what ch
 :::
 
 :::pair #keep-unknown-agent-passive
-Right: When the doer is unknown and the result matters now, write "The access codes have been changed."
+Right: If the notice asks for present perfect passive and the doer is unknown, write "The access codes have been changed."
 Wrong: Invent a doer ("The administrator has changed the access codes") or use simple past ("The access codes were changed").
 Never invent an actor when the doer is unknown. *Were changed* is also passive, but for a change that matters now, *have been changed* (present perfect) links it to now.
 :::
@@ -90,7 +90,7 @@ Label each sentence: (a) "The nurse checked the chart." (b) "The chart was check
 2. In (b), the subject *the chart* receives the checking (*was checked*) -> **passive voice**.
 3. In (c), *is* links *he* to the adjective *calm* -> **linking construction**, not passive.
 
-**Check:** Test each verb group: *checked* has no *be* helper (active), *was checked* pairs *be* with a past participle (passive), and *is calm* pairs *be* with an adjective (*very calm*).
+**Check:** Only *was checked* pairs *be* with a past participle.
 
 ### #2: Tense and Voice Together
 
@@ -100,9 +100,9 @@ In "By the time the manager reviewed it, the report had already been submitted b
 
 1. Find the verb group: *had ... been submitted*.
 2. Check the first helper: *had* plus *been* shows **past perfect**.
-3. Check the subject *the report*: it received the submission, so *been submitted* is **passive voice**.
+3. *The report* received the submission, so *been submitted* is **passive voice**.
 
-**Check:** Active form "the intern had already submitted the report" keeps *had submitted* (past perfect) with *the intern* acting.
+**Check:** The active form "the intern had already submitted the report" keeps past perfect.
 
 ### #3: A Notice About the Lobby Doors
 
@@ -122,7 +122,7 @@ The answer is **"The lobby doors have been locked."** *Have been locked* is pass
 
 ## Speed Tricks & Shortcuts
 
-First find the subject and ask whether it acts or receives the action. Next check the full verb group for *be* plus a past participle rather than an adjective.
+First find the subject and the whole verb group. Then ask whether the subject acts or receives the action. Then look for *be* plus a past participle, not an adjective.
 
 ## Traps to Watch For
 

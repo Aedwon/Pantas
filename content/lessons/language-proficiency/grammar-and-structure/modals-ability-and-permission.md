@@ -100,13 +100,13 @@ Choose each modal: (a) Present ability: "Maria *(can / must)* solve the problem 
 
 **Solution:**
 
-1. Present ability pairs with **can**.
-2. General past ability pairs with **could**.
-3. Formal permission pairs with **May**.
+1. Present ability pairs with **can**: "Maria **can** solve the problem now."
+2. General past ability pairs with **could**: "Before college, she **could** speak three languages."
+3. Formal permission pairs with **May**: "**May** I enter the room?"
 
-**Check:** Read each with its meaning: *can solve* (able now), *could speak* (able in the past), and *May I enter* (formal permission).
+**Check:** Each sentence fits its meaning: able now, able in the past, formal permission.
 
-### #3: Spotting Permission Among Other Uses of Could
+### #3: Reading Three Sentences with Could
 
 Choose the sentence using *could* to request permission: "She could dance well as a child," "It could rain by noon," or "Could I take this seat?"
 
@@ -124,7 +124,7 @@ Finish the job: say what *could* does in the other two sentences, then choose th
 
 ## Speed Tricks & Shortcuts
 
-Check modals in two passes. First check form: after a modal such as *can, could, may, might, must, should,* or *will*, allow only the bare base verb (no *-s, -ed, -ing,* or *to*). Next read the full sentence for meaning: ability, permission, or possibility.
+First check form: after a modal such as *can, could, may,* or *will*, allow only the bare base verb. Then read the full sentence for meaning: ability, permission, or possibility.
 
 ## Traps to Watch For
 

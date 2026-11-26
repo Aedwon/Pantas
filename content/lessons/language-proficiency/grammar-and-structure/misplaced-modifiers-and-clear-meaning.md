@@ -40,7 +40,7 @@ The answer is **"The mechanic showed the owner a car with a dented door."** Putt
 
 A clear revision is still wrong if it moves the modifier onto the **wrong person or object** and changes the intended meaning.
 
-If the student wore the jacket, compare *"The teacher, who wore a blue jacket, spoke to the student after class"* with *"The teacher spoke to the student wearing a blue jacket."* The first sentence is smooth, yet it puts the jacket on the teacher instead of the student.
+If the student wore the jacket, compare *"The teacher, who wore a blue jacket, spoke to the student after class"* with *"After class, the teacher spoke to the student wearing a blue jacket."* The first sentence is smooth, yet it puts the jacket on the teacher instead of the student.
 
 The same rule holds for single-word modifiers like *broken*. When the window is damaged, *"A worker on a ladder repaired the broken window"* keeps *broken* on *window*, while *"A worker repaired the window on a broken ladder"* shifts the damage to the ladder.
 
@@ -49,7 +49,7 @@ Why can a smooth sentence still fail? Modifier questions test both clarity and f
 :::
 
 :::pair #smooth-but-wrong-target
-Right: *"The teacher spoke to the student wearing a blue jacket."*
+Right: *"After class, the teacher spoke to the student wearing a blue jacket."*
 Wrong: Choose *"The teacher wearing a blue jacket spoke to the student after class."* or *"The teacher, who wore a blue jacket, spoke to the student after class."* when the student wore the jacket.
 Both wrong options are clear, yet they put the jacket on *the teacher*.
 :::
@@ -72,7 +72,7 @@ The book has a torn cover. Revise *"The librarian handed a book to the student w
 2. Notice it sits after *the student*, making the student seem to have a torn cover.
 3. Move it right after *a book*: **"The librarian handed the student a book with a torn cover."**
 
-**Check:** Read backward from *with a torn cover*: it lands directly on *a book*, matching the prompt.
+**Check:** *With a torn cover* now follows *a book*.
 
 ### #2: Preserving Which Object Is Damaged
 
@@ -105,7 +105,7 @@ Finish the last step: rewrite sentence 2 so *"wrapped in a napkin"* clearly desc
 
 ## Speed Tricks & Shortcuts
 
-Check two things for every modifier: what noun sits right beside it, and whether the prompt says that noun owns the detail.
+For every modifier, ask what word or action it should describe. Then check what the wording puts beside it.
 
 ## Traps to Watch For
 

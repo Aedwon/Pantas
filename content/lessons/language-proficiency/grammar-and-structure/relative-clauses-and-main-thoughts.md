@@ -16,14 +16,14 @@ keyPoints:
 
 ### Relative Clauses and Relative Words
 
-A **relative clause** is a dependent clause that describes a noun or pronoun right before it. Words such as *who, whom, whose, which,* and *that* introduce one.
+A **relative clause** is a dependent clause that often describes a noun or pronoun right before it (this lesson covers that use). Words such as *who, whom, whose, which,* and *that* introduce one.
 
 In *"The volunteer who repaired the bench returned today,"* *who repaired the bench* describes *the volunteer*. Inside it, *who* is the subject and *repaired* is the finite verb.
 
 Pick the relative word by job and commas:
 
 - **Who vs. whom:** Use *who* as the clause subject (*the volunteer who repaired the bench*). In formal prose, use *whom* as the object of a verb or preposition (*the volunteer whom the mayor thanked*).
-- **That vs. which (formal American style):** Use *that* without commas for an essential clause telling which noun is meant (*"The bench that sits by the gate is dry."*). Use *which* with commas for extra side detail about an already clear noun (*"The front bench, which was painted yesterday, is dry."*). Never use *that* after a comma in a non-defining clause.
+- **That vs. which (formal American style):** *That* is a common choice, without commas, for an essential clause telling which thing is meant (*"The bench that sits by the gate is dry."*). *Which* can do either job, so the commas show extra side detail about an already clear noun (*"The front bench, which was painted yesterday, is dry."*). *That* never follows a comma in a non-defining clause.
 
 :::pair #relative-is-dependent
 Right: In *"The volunteer who repaired the bench returned today,"* *"who repaired the bench"* is a **Dependent clause**.
@@ -52,7 +52,7 @@ Why is the whole sentence the independent clause? Drop the embedded relative cla
 :::pair #stop-before-main-verb
 Right: In *"The driver who found the road closed delayed our delivery,"* **The whole sentence** is the independent clause.
 Wrong: Select *"who found the road closed"*, *"The driver who found the road closed"*, or *"Delayed our delivery"* as the independent clause.
-*"The driver who found the road closed"* lacks its main verb, *"Delayed our delivery"* lacks its subject, and *"who found the road closed"* is the dependent relative clause. Pair *the driver* with *delayed* across the full sentence.
+*"The driver who found the road closed"* lacks its main verb, *"Delayed our delivery"* lacks its subject, and *"who found the road closed"* is the dependent relative clause.
 :::
 
 :::check
@@ -83,7 +83,7 @@ Choose the formal form in *"The applicant (who / whom) the committee selected st
 
 1. Isolate the relative clause: *"who/whom the committee selected."*
 2. *The committee* is the subject doing the selecting, so the missing word is the object of *selected*.
-3. Use **whom** for an object in formal prose.
+3. Use **whom** for an object in formal prose: "The applicant **whom** the committee selected starts on Monday."
 
 **Check:** Test with *he* or *him*: *"The committee selected him."* Since *him* fits, *whom* is right.
 
@@ -100,12 +100,12 @@ Finish the last step: name the independent clause and its main verb, and say why
 :::answer
 The answer is **The whole sentence**, with main verb **landed**. *The pilot* is the main subject, and *flew* belongs to the relative clause inside the subject.
 
-**Check:** Cover *"who flew the storm route"* and read *"The pilot landed safely."* Both the main subject and main verb remain.
+**Check:** *"The pilot landed safely"* keeps the main subject and verb.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Bracket the relative clause that starts with *who, whom, which,* or *that* right after a noun. It usually ends right before the main verb. Read outside the brackets to pair the main subject with its main verb.
+Bracket the relative clause after a noun. Read outside the brackets to pair the main subject with its main verb.
 
 ## Traps to Watch For
 

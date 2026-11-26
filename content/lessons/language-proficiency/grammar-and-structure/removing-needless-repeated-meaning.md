@@ -95,7 +95,7 @@ The agency gave residents *"advance warning several days before a road closure."
 
 ### #3: Shortening a Pair of Related Words
 
-An editor shortens *"The soup was boiling hot"* to *"The soup was boiling."* What should the editor check before accepting the change?
+An editor wants to shorten *"The soup was boiling hot."* The writer meant only that it was extremely hot. What should the editor check before deleting *hot*?
 
 **Solution:**
 
@@ -104,14 +104,14 @@ An editor shortens *"The soup was boiling hot"* to *"The soup was boiling."* Wha
 :::try
 Finish the last step: state what the editor should check before deleting *hot*, and whether the cut is safe.
 :::answer
-The answer is **Whether "hot" adds a useful meaning that "boiling" does not already give.** *Boiling* already means very hot, so the cut is safe: **"The soup was boiling."**
+The answer is **Whether "boiling" alone gives the meaning the writer meant.** *Boiling* can also mean the soup was bubbling, so the cut is not safe. To say only that it was very hot, write **"The soup was extremely hot."**
 
-**Check:** Cover *hot*: *"The soup was boiling"* still tells the reader the soup is very hot.
+**Check:** Cover *hot*: *"The soup was boiling"* now claims bubbling, a different detail from temperature.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Cover the suspect word and read the sentence aloud. If another word or phrase already states that exact meaning (*return* + *back*, *advance* + *before*), cut it; if cutting it removes an intended degree or changes the request, keep it.
+Cover the suspect word. If another word or phrase already states that exact meaning (*return* + *back*, *advance* + *before*), cut it; if cutting it removes an intended degree or changes the request, keep it.
 
 ## Traps to Watch For
 

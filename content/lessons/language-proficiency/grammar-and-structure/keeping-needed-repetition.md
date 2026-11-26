@@ -33,7 +33,7 @@ Adding *once more* piles on extra filler, while asking to *change* the words alt
 :::
 
 :::check
-A teacher mumbled a date once, and a student who missed it asks. Which is concise: *"Please repeat again the date"* or *"Please repeat the date"*?
+A teacher mumbled a date once, and a student who missed it asks. Which is concise: *"Please repeat the date again"* or *"Please repeat the date"*?
 :::answer
 The answer is **"Please repeat the date."** No earlier repeat happened yet, so *repeat* alone asks to say it a second time.
 :::

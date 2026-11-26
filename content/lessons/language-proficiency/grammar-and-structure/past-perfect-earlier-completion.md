@@ -55,9 +55,9 @@ With *before*, simple past is grammatical because the order is already clear. Pa
 :::
 
 :::check
-Which event happened first in "The train had left when we reached the station"?
+In "The tailor measured the coat before the client paid," do the two simple past verbs already show which event came first?
 :::answer
-The answer is **The train leaving**. *Had left* shows the earlier past event, while *reached* shows the later past event.
+The answer is **Yes**. *Before* shows that measuring came first, so *measured* and *paid* need no *had*.
 :::
 
 ## Examples
@@ -95,7 +95,7 @@ The answer is **"*Before*" clearly orders the two past events.** Both verbs stay
 
 ## Speed Tricks & Shortcuts
 
-When two past events appear together, put them on a mental timeline. Use *had* + past participle on an action completed before a later past reference point. If *before* or *after* already makes the order unmistakable, simple past is also valid unless the question asks specifically for past perfect.
+Put two past events on a timeline. Use *had* + past participle on the action completed first. If *before* or *after* already makes the order clear, simple past is also valid unless the question asks for past perfect.
 
 ## Traps to Watch For
 

@@ -37,7 +37,7 @@ The answer is **Filed**. *Last Friday* sets a past timeline, so the verb stays i
 
 ### Future Meaning with Will
 
-**Simple future** is the common school label for *will* plus the base form of a verb: "She **will write** a letter tomorrow." Use it for things such as a prediction, a promise, a future fact, or a decision made as you speak.
+**Simple future** is the common school label for *will* plus the base form of a verb when it points to the future: "She **will write** a letter tomorrow." Use it for things such as a prediction, a promise, a future fact, or a decision made as you speak.
 
 Never add *-s*, *-ed*, or *-ing* to the verb after *will*. Always use the plain base form (*will close*, *will help*).
 
@@ -99,25 +99,25 @@ Identify the verb tense in "We will visit the museum on Friday."
 **Solution:**
 
 1. Find the full verb group before *the museum*: *will visit*.
-2. Check the helper *will* and the time clue *on Friday*: both mark a future action.
+2. Check the helper *will*: it marks a future action.
 3. Match the form *will* + base verb to its label: **simple future**.
 
-**Check:** Test *will visit* directly: *will* plus the base verb *visit* points forward to a future action, confirming **simple future** (whereas *has/had visited* use *has/had* for perfect forms and simple past *visited* looks backward).
+**Check:** Swap *on Friday* for *tomorrow*: "We will visit the museum tomorrow" still points forward.
 
 ### #3: Judging a Tense Shift Across Clauses
 
-Decide whether the tense shift in "We cleaned the room on Saturday, and we paint the walls on Saturday" is justified.
+Decide whether the tense shift in "We cleaned the room last Saturday, and we paint the walls last Saturday" is justified.
 
 **Solution:**
 
-1. Check the first clause: *cleaned* matches the time clue *on Saturday*.
+1. Check the first clause: *cleaned* matches the time clue *last Saturday*.
 
 :::try
 Finish the job: check the second clause, then say whether the shift is justified and why.
 :::answer
-The answer is **No, the shift is not justified.** Both clauses share the clue *on Saturday*, which is past, so *paint* must become *painted*: **"We cleaned the room on Saturday, and we painted the walls on Saturday."**
+The answer is **No, the shift is not justified.** Both clauses share the clue *last Saturday*, which is past, so *paint* must become *painted*: **"We cleaned the room last Saturday, and we painted the walls last Saturday."** (*Will paint* would fit a future clue such as *next week*.)
 
-**Check:** Read each verb with its clue: *cleaned on Saturday* and *painted on Saturday* are both past.
+**Check:** Read each verb with its clue: *cleaned last Saturday* and *painted last Saturday* are both past.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -127,7 +127,7 @@ Spot every time word first (*yesterday*, *last week*, *now*, *tomorrow*). Keep v
 ## Traps to Watch For
 
 :::checklist
-- A past clue like *yesterday*: keep every verb in that time in simple past, not present or future. {#keep-stated-past-time}
-- A verb with *will* plus the base form: label it simple future, and never add *-s* or *-ed*. {#will-is-simple-future}
+- A past clue like *yesterday*: put every verb for that time in a past form that fits its action. Match the forms for completed actions. {#keep-stated-past-time}
+- A verb with *will* plus the base form for a future time: label it simple future, and never add *-s* or *-ed*. {#will-is-simple-future}
 - Two clauses joined by *and* with different time clues: allow the tense to shift with the timeline. {#justified-tense-shift}
 :::

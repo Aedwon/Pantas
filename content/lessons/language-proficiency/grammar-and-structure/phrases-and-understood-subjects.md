@@ -18,11 +18,11 @@ keyPoints:
 
 A **subject** tells who or what a group of words is about. A **verb** tells the action or state of that subject.
 
-A **clause** has both a subject and a verb working together: "The cat **slept**." (*The cat* is the subject, and *slept* is the verb.) An **independent clause** can stand alone as a complete sentence. A **dependent clause** has a subject and a verb too, but cannot stand alone: "because the cat slept."
+In this lesson, a **clause** is a full group with both a subject and a verb working together: "The cat **slept**." (*The cat* is the subject, and *slept* is the verb.) An **independent clause** can stand alone as a complete sentence. A **dependent clause** has a subject and a verb too, but cannot stand alone: "because the cat slept."
 
 A **phrase** is a group of words working as one part of a sentence without a subject paired with a verb: "under the old bridge." It tells where, yet has no verb at all. It is a **prepositional phrase** because it begins with the preposition *under* followed by the noun group *the old bridge*.
 
-A later lesson covers verb forms such as *to finish the project*, which look like verbs yet do not make a full clause on their own.
+Later lessons cover verb forms such as *to finish the project* and clauses with words left out.
 
 :::pair #phrase-vs-dependent-clause
 Right: "Under the old bridge" is a prepositional phrase.
@@ -78,15 +78,15 @@ Is "beside the quiet lake" a phrase or a clause: (A) Prepositional phrase, (B) I
 **Solution:**
 
 1. Scan the words for a verb: *beside* (preposition), *the* (article), *quiet* (adjective), *lake* (noun). There is no verb.
-2. Rule out (B) Independent clause and (C) Dependent clause, because every clause needs a subject-verb pair.
+2. Rule out (B) Independent clause and (C) Dependent clause, because the full clauses compared here need a subject-verb pair.
 3. Rule out (D) Main verb phrase, because there is no verb.
 4. Choose **(A) Prepositional phrase**.
 
 **Check:** Test adding a clause before it: "We camped beside the quiet lake." Here *beside the quiet lake* works as one location unit answering *where*, confirming it is a prepositional phrase.
 
-### #3: Classifying an Instruction
+### #3: Open the Window
 
-In "Open the window," what kind of word group is the complete command?
+How do we classify the group of words "Open the window"?
 
 **Solution:**
 

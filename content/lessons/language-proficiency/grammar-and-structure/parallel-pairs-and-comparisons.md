@@ -22,9 +22,9 @@ keyPoints:
 2. Two *to + verb* phrases: *"She wanted both to travel and to save money."*
 3. Two base verbs after *will*: *"The company will neither raise prices nor cut jobs."*
 
-In *"The festival was not only fun but also it was educational,"* *fun* (an adjective) follows *not only*, while *it was educational* (a full clause) follows *but also*. Drop *it was* to leave two adjectives: *"not only fun but also educational."*
+In *"The festival was not only fun but also it was educational,"* *fun* (an adjective) follows *not only*, while *it was educational* (a full clause) follows *but also*. Drop *it was* to leave two adjectives: *"The festival was not only fun but also educational."*
 
-Also check connector placement. In *"Applicants may either submit online or by mail,"* *either* sits before *submit* while *or* sits before *by mail*. Move *either* after *submit*: *"Applicants may submit either online or by mail."*
+Also check connector placement. *Either* before a shared verb is allowed but can hide the contrast. In *"Applicants may either submit online or by mail,"* *either* sits before *submit*, *or* before *by mail*. Moving *either* shows the two ways: *"Applicants may submit either online or by mail."*
 
 :::pair #mismatched-correlative-pair
 Right: Change *"it was educational"* to *"educational"* in *"The festival was not only fun but also it was educational."*
@@ -35,7 +35,7 @@ Wrong: Change *"it was educational"* to *"to educate people,"* or change *"fun"*
 :::pair #misplaced-correlative-connector
 Right: *"Applicants may submit either online or by mail."*
 Wrong: *"Applicants may either submit online or a mailed application."*
-Leaving *either* before *submit* forces a verb phrase (*submit online*) to pair with a noun phrase (*a mailed application*). Put *either* right before the two ways to submit.
+Leaving *either* before *submit* forces a verb phrase to pair with a noun phrase (*a mailed application*). Put *either* before the two ways.
 :::
 
 :::check
@@ -50,7 +50,7 @@ Comparisons with *than* or *as* should compare the same kind of thing or activit
 
 In *"Reading a book is more relaxing than to watch television,"* the left side uses *-ing* (*reading*) while the right switches to *to watch*. Change *to watch* to *watching*: *"Reading a book is more relaxing than watching television."*
 
-Watch for missing nouns too. *"The cost of a bus trip is lower than a taxi"* compares a *cost* with a *vehicle*. State the cost on both sides: *"The cost of a bus trip is lower than the cost of a taxi trip."*
+*"The cost of a bus trip is lower than a taxi"* compares a *cost* with a *vehicle*. State the cost on both sides: *"The cost of a bus trip is lower than the cost of a taxi trip."*
 
 <!-- ILLUSTRATION: two balanced comparison cards joined by "is lower than": left card "The cost of a bus trip" tagged "cost"; right card "the cost of a taxi trip" tagged "cost", with "a taxi driver" and "taking a taxi" crossed out below -->
 
@@ -80,15 +80,13 @@ Identify and fix the error: *"He is both intelligent and he works hard."*
 
 1. Find the pair: *both...and*.
 2. After *both* sits the adjective *intelligent*; after *and* sits the clause *he works hard*.
-3. Replace the clause with a matching adjective: *hardworking*.
+3. Replace the clause with a matching adjective: **"He is both intelligent and hardworking."**
 
-Corrected sentence: **"He is both intelligent and hardworking."**
-
-**Check:** Read *He is* before each word. Both are adjectives.
+**Check:** Both words after *He is* are adjectives.
 
 ### #2: Moving a Misplaced Connector
 
-Revise *"He either wanted to win the race or to finish in the top three"* without changing its meaning.
+Revise *"He either wanted to win the race or to finish in the top three"* so *either* and *or* introduce the two goals.
 
 **Solution:**
 
@@ -103,7 +101,7 @@ Fix both errors in: *"The room is neither dark nor it is small. The rent is lowe
 
 **Solution:**
 
-1. In sentence 1, *neither* is followed by the adjective *dark* and *nor* by the clause *it is small*. Replace the clause: *"neither dark nor small."*
+1. In sentence 1, *neither* is followed by the adjective *dark* and *nor* by the clause *it is small*. Replace the clause: *"The room is neither dark nor small."*
 2. Sentence 2 compares two things with *than*.
 
 :::try
@@ -111,17 +109,17 @@ Finish the last step: rewrite sentence 2 so the comparison is fair.
 :::answer
 The answer is **"The rent is lower than the rent for the apartment next door."** Now a rent is compared with a rent.
 
-**Check:** Name the thing on each side: *rent* and *rent*. Sentence 1 now reads *neither dark nor small*, two adjectives.
+**Check:** Name the thing on each side: *rent* and *rent*.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Cover everything before the first word of a paired connector, then compare what follows each half. For *than* and *as*, name the thing on each side (*cost* vs. *cost*, *-ing* vs. *-ing*).
+Compare what follows each half of a paired connector. For *than* and *as*, name the thing on each side (*cost* vs. *cost*).
 
 ## Traps to Watch For
 
 :::checklist
 - Correlative pairs (*not only...but also*, *both...and*): match the exact grammatical form after each connector. {#mismatched-correlative-pair}
-- Shared verb after *either* or *neither*: move the connector after that verb. If both choices already match (*either to win or to lose*), leave it. {#misplaced-correlative-connector}
+- Shared verb after *either* or *neither*: move the connector after that verb to show the contrast. If both choices already match (*either to win or to lose*), leave it. {#misplaced-correlative-connector}
 - Comparisons with *than* or *as*: compare like with like, such as two costs, two people, or two *-ing* activities. {#comparing-unlike-things}
 :::

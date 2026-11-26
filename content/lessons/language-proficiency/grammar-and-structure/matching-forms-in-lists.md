@@ -15,7 +15,7 @@ keyPoints:
 
 ### Matching Forms in Lists and Pairs
 
-**Parallelism**, or **parallel structure**, means items doing the same job in a list or pair use matching grammatical forms:
+**Parallelism**, or **parallel structure**, means items doing the same job in a list or pair read best in matching grammatical forms:
 
 - **-ing gerunds:** *"Her hobbies include painting, dancing, and singing."* *"The recipe requires chopping onions, mincing garlic, and boiling water."*
 - **Infinitives (*to + verb*):** *"The coach told the team to run faster, to jump higher, and to try harder."*
@@ -45,7 +45,7 @@ Two items (*the company's history* and *its plans for the future*) are noun phra
 :::
 
 :::check
-Which completes *"The camp teaches swimming, climbing, and ___"*: *"to paddle"*, *"how to paddle"*, or *"paddling"*?
+Which option matches the two *-ing* items in *"The camp teaches swimming, climbing, and ___"*: *"to paddle"*, *"how to paddle"*, or *"paddling"*?
 :::answer
 The answer is **paddling**. *Swimming* and *climbing* are *-ing* forms, so *paddling* matches them.
 :::
@@ -94,7 +94,7 @@ Finish the last step: name the item that does not match and give the fix.
 
 ## Speed Tricks & Shortcuts
 
-Stack list items under their shared lead-in words (*"The report covers..."*, *"We must choose between..."*). Read each item after the lead-in to confirm every item uses the same form and keeps the sentence's meaning.
+Read each item after its shared lead-in (*"The report covers..."*, *"We must choose between..."*) and confirm the forms match and the meaning stays.
 
 ## Traps to Watch For
 

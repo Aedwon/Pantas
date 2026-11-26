@@ -17,7 +17,7 @@ keyPoints:
 
 ### Simple Sentences, Even With Compound Parts
 
-A **clause** has a finite verb and its subject (in a command, *you* is understood). An **independent clause** gives a complete thought and stands alone (*"The supervisor signed the request."*). A **dependent clause** cannot stand alone and often starts with a subordinating word such as *although, because,* or *when* (*"Although the supervisor signed the request"*).
+Here a **clause** has a finite verb and its subject (in a command, *you* is understood). An **independent clause** gives a complete thought and stands alone (*"The supervisor signed the request."*). A **dependent clause** cannot stand alone. It often starts with a subordinating word such as *although, because,* or *when* (*"Although the supervisor signed the request"*), but the connector can be left out (*"I know we won"*).
 
 A **complex sentence** has one independent clause and at least one dependent clause. A **compound-complex sentence** has two or more independent clauses and at least one dependent clause.
 
@@ -30,7 +30,7 @@ A **simple sentence** has **one independent clause** and **zero dependent clause
 :::pair #compound-parts-still-simple
 Right: Classify *"The teacher and her students prepared and rehearsed the play."* as **Simple**.
 Wrong: Classify *"The teacher and her students prepared and rehearsed the play."* as **Compound** or **Compound-complex**.
-Two joined subjects and two joined verbs still share one clause. A compound sentence needs two clauses, each with its own subject and finite verb.
+Two joined subjects and two joined verbs still share one clause. A compound sentence needs two clauses.
 :::
 
 :::check
@@ -43,12 +43,12 @@ The answer is **Simple**. *The little boat* is the single subject with the compo
 
 A **compound sentence** has **two or more independent clauses** and **zero dependent clauses**.
 
-Common ways to join independent clauses into a compound sentence:
+Ways to join them:
 
 1. A comma plus a **coordinating conjunction** (*for, and, nor, but, or, yet, so*): *"She wanted to travel abroad, but she could not afford the airfare."* *"The rain stopped, so we went outside to play."*
 2. A **semicolon** (;) alone between two linked independent clauses: *"The clinic reopened; appointments resumed."*
 
-Ignore infinitives such as *to travel abroad* or *to play* when counting clauses: *to + verb* is a phrase, not a dependent clause. And *so* meaning "therefore" joins two independent clauses.
+Do not count infinitives such as *to travel abroad* or *to play*, because they are not finite clauses. Another lesson treats them as nonfinite clauses. *So* meaning "therefore" joins two independent clauses.
 
 :::why
 Why does a semicolon make a compound sentence without *and* or *but*? A semicolon joins two independent clauses of equal rank. Both *"The clinic reopened"* and *"appointments resumed"* stand alone with a period, giving two independent clauses and zero dependent clauses.
@@ -56,8 +56,8 @@ Why does a semicolon make a compound sentence without *and* or *but*? A semicolo
 
 :::pair #but-so-semicolon-are-compound
 Right: *"She wanted to travel abroad, but she could not afford the airfare."* and *"The clinic reopened; appointments resumed."* are **Compound**.
-Wrong: Classify *"She wanted to travel abroad, but she could not afford the airfare."* as **Complex** or **Compound-complex**, or classify *"The clinic reopened; appointments resumed."* as **Simple**.
-*But* is a coordinating connector, not subordinating, and *to travel abroad* is an infinitive phrase. A semicolon joins two full clauses into a compound sentence, not one simple clause.
+Wrong: Classify *"She wanted to travel abroad, but she could not afford the airfare."* as **Complex** or **Compound-complex**, or classify *"The clinic reopened; appointments resumed."* as **Simple** or **Complex**.
+*But* is a coordinating connector, not subordinating, and *to travel abroad* is not a finite clause. A semicolon joins two full clauses into a compound sentence. It is not one simple clause or a subordinator.
 :::
 
 :::pair #compound-subject-not-compound
@@ -84,7 +84,7 @@ Classify *"The teacher and her students prepared and rehearsed the play."*
 2. *Prepared and rehearsed* is one compound verb sharing that subject.
 3. With one independent clause and zero dependent clauses, the sentence is **Simple**.
 
-**Check:** Split at *and*: *"her students"* alone has no verb and *"rehearsed the play"* alone has no subject.
+**Check:** Split at *and*: neither half is a full clause.
 
 ### #2: Compound Sentence With a Semicolon
 
@@ -96,7 +96,7 @@ Classify *"The clinic reopened; appointments resumed."*
 2. *"Appointments resumed"* has subject *appointments* and verb *resumed*, so it also stands alone.
 3. Two independent clauses and zero dependent clauses make the sentence **Compound**.
 
-**Check:** Replace the semicolon with a comma and *and*: *"The clinic reopened, and appointments resumed."*
+**Check:** *"The clinic reopened, and appointments resumed"* reads the same.
 
 ### #3: Classifying After a Deletion
 
@@ -112,12 +112,12 @@ Finish the last step: name the remaining structure.
 :::answer
 The remaining structure is **Compound**. *"The driver unloaded the supplies"* is a second independent clause with subject *the driver* and verb *unloaded*. Zero dependent clauses remain.
 
-**Check:** Test each surviving half as its own sentence: *"The truck arrived."* *"The driver unloaded the supplies."* Both stand alone, joined by *and*.
+**Check:** Both halves stand alone as sentences, joined by *and*.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Split at a joining word (*and, but, so*) or a semicolon and test each side alone. If both sides stand as full sentences with no subordinating word (*although, when, while, because*), the sentence is compound.
+Split at a joining word (*and, but, so*) or a semicolon and test each side alone. If both sides stand as full sentences and neither holds a dependent clause, the sentence is compound. A subordinating word (*although, when, while, because*) is only a clue, so check each side for an embedded clause.
 
 ## Traps to Watch For
 

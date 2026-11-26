@@ -15,7 +15,7 @@ keyPoints:
 
 ### Shared Words Before a List
 
-A **base verb form** is the plain verb with no ending, such as *install*, *update*, or *repair*. One shared lead-in word, such as *to* or *how to*, can cover every item in a list when the same verb form fits each item.
+A **base verb form** is the plain verb with no ending, such as *install*, *update*, or *repair*. Shared lead-in words, such as *to* or *how to*, can cover every item in a list when the same verb form fits each item.
 
 Look at *"The manual explains how to install, update, and repair the software."* Read *how to* before each verb one by one:
 
@@ -25,7 +25,7 @@ Look at *"The manual explains how to install, update, and repair the software."*
 
 All three verbs fit cleanly after *how to*, so one *how to* covers the whole list.
 
-Condition: a shared word works only if it fits every item. When two items need different prepositions, keep each preposition in place: write *"interest in and talent for music,"* because *interest for music* does not work.
+Condition: a shared word must fit every item. When items need different prepositions, keep each: *"interest in and talent for music,"* because *interest for music* does not work.
 
 <!-- ILLUSTRATION: branching diagram from a single box "how to" to three aligned rows: "install (base verb)", "update (base verb)", and "repair (base verb)" each with a teal checkmark, with "updating (-ing)" crossed out beside row 2 -->
 
@@ -49,7 +49,7 @@ The answer is **Edit**. *Plan* and *draft* are base verbs after *how to*, so *ed
 
 When a sentence mixes forms after a shared verb or preposition, check every listed item. Fixing only one broken item leaves the remaining odd item out of balance.
 
-Look at *"The app helps users track expenses, setting budgets, and saving money."* After *helps users*, *track* is a base verb, while *setting* and *saving* use *-ing*. Both *-ing* verbs must become base verbs: *"track expenses, set budgets, and save money."*
+Look at *"The app helps users track expenses, setting budgets, and saving money."* After *helps users*, *track* is a base verb, while *setting* and *saving* use *-ing*. Both *-ing* verbs must become base verbs: *"The app helps users track expenses, set budgets, and save money."*
 
 :::pair #partial-list-fix
 Right: For *"The app helps users track expenses, setting budgets, and saving money,"* change *"setting"* and *"saving"* to *"set"* and *"save."*
@@ -106,9 +106,9 @@ Identify and fix the parallelism error: *"The clinic lets patients book visits, 
 :::try
 Finish the last step: fix the list.
 :::answer
-The answer is **Change "paying" and "checking" to "pay" and "check."** The parallel list is *"book visits, pay fees, and check results."*
+The answer is **Change "paying" and "checking" to "pay" and "check."** The finished sentence is **"The clinic lets patients book visits, pay fees, and check results."**
 
-**Check:** Read *"The clinic lets patients"* before each repaired item: *"book visits,"* *"pay fees,"* and *"check results."* Every item uses a base verb.
+**Check:** *Book*, *pay*, and *check* are all base verbs after *"The clinic lets patients."*
 :::
 
 ## Speed Tricks & Shortcuts

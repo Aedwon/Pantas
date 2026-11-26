@@ -25,7 +25,7 @@ A **collective noun** names a group, like *company*, *class*, *team*, or *commit
 :::pair #group-unit-vs-members
 Right: Treating the company as one unit, "The company announced its new policy yesterday."
 Wrong: "The company announced their new policy yesterday" under a one-unit reading.
-Even though a company has many people, a one-unit reading refers to the organization with *its*. Watch for cues like *their homes* before choosing *their*.
+Even though a company has many people, a one-unit reading refers to the organization with *its*.
 :::
 
 :::check
@@ -56,16 +56,16 @@ The answer is **Their**. Both Mara and Jun share the room, and *their* sits befo
 
 When *or* or *nor* joins a singular noun and a plural noun ("Neither the coach nor the players..."), the pronoun agrees with the **nearer** noun. A pronoun for a singular person can also force an unstated gender (*his*, *her*).
 
-If the pronoun sounds awkward, rewrite with an article (*the* or *a*) or name the people directly.
+If the pronoun sounds awkward, name the people directly, or rewrite with an article (*the* or *a*) when one shared set of items is meant.
 
 :::why
-Why is *his* wrong in "Neither the coach nor the players brought his own required equipment"? The nearer noun, *players*, is plural, so *his* does not agree, and it guesses the coach's gender. Replacing *his own* with *the* keeps the meaning cleanly.
+Why is *his* wrong in "Neither the coach nor the players brought his own required equipment"? The nearer noun, *players*, is plural, so *his* does not agree, and it guesses the coach's gender. *Their own* keeps each person's own equipment.
 :::
 
 :::pair #mixed-nor-forced-gender
-Right: "Neither the coach nor the players brought the required equipment."
+Right: "Neither the coach nor the players brought their own required equipment."
 Wrong: "Neither the coach nor the players brought his own required equipment."
-The nearer noun, *players*, is plural, so *his* does not agree, and it forces male gender. Using *the* avoids both problems.
+The nearer noun, *players*, is plural, so *his* does not agree and forces male gender. *Their* agrees.
 :::
 
 :::check
@@ -82,10 +82,10 @@ Choose what fits each rule: (a) Treating *class* as one unit: "The class finishe
 
 **Solution:**
 
-1. In (a), the class acts as one unit on a shared project, so choose **its**.
-2. In (b), *their homes* points to separate houses of individual members, while one report belongs to the whole unit. Choose **returned to their homes**.
+1. In (a), one class with one shared project takes **its**: "The class finished its project early."
+2. In (b), separate homes belong to individual members: "The committee **returned to their homes**."
 
-**Check:** "Shared project" belongs to one *class* (*its*), while "separate homes" belong to individual members (*their*).
+**Check:** One report belongs to the whole committee; homes belong to its members.
 
 ### #2: Joined Antecedents
 
@@ -101,7 +101,7 @@ In "Tess and Raul, who share one garden, watered ______ garden at dawn," choose 
 
 ### #3: A Group Inside a Longer Sentence
 
-Treating *choir* as one unit, fill the blank with *its*, *their*, or *his*: "The director said the choir was proud of ______ performance."
+Treating *choir* as one unit, fill the blank with *its*, *their*, or *his*: "The choir performed on Friday. The director said the choir was proud of ______ performance."
 
 **Solution:**
 
@@ -110,19 +110,19 @@ Treating *choir* as one unit, fill the blank with *its*, *their*, or *his*: "The
 :::try
 Finish the last step: which pronoun fills the blank, and why?
 :::answer
-The answer is **Its**: "The director said the choir was proud of its performance." One unit takes *its*, not *their* (separate members) or *his* (one male person).
+The answer is **Its**: "The choir performed on Friday. The director said the choir was proud of its performance." One unit takes *its*, not *their* (separate members) or *his* (one male person).
 
 **Check:** Replace *its performance* with *the choir's performance*. The meaning stays the same.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Check if a group acts as one unit (*its*) or separate members (*their*). Treat *and*-joined names as plural (*their*), and match the nearer noun in mixed *or/nor* sentences, or rewrite with *the*.
+Check if a group acts as one unit (*its*) or separate members (*their*). Treat *and*-joined names as plural (*their*), and match the nearer noun in mixed *or/nor* sentences, or rewrite with *the* when one shared set is meant.
 
 ## Traps to Watch For
 
 :::checklist
 - Collective noun acting as one organization unit: use *its*, reserving *their* for contexts pointing to separate members. {#group-unit-vs-members}
 - Two people joined by *and*: include both with *their*, rather than matching only the first or nearest name. {#joined-by-and-one-person}
-- Mixed singular and plural antecedents with *or/nor*: match the nearer noun, or rewrite with *the* so no gender is forced. {#mixed-nor-forced-gender}
+- Mixed singular and plural antecedents with *or/nor*: match the nearer noun (*their own*), or rewrite with *the* when one shared set is meant. {#mixed-nor-forced-gender}
 :::

@@ -41,7 +41,7 @@ Wrong: "She loves reading; because she visits the library every weekend."
 :::check
 Can a semicolon join *"The bus left on time"* and *"with every seat taken"*?
 :::answer
-The answer is **No**. *"With every seat taken"* is a phrase with no subject or finite verb, so it cannot follow a semicolon here.
+The answer is **No**. *"With every seat taken"* has no finite verb and cannot stand alone as a sentence, so it cannot follow a semicolon here.
 :::
 
 ### Separating Complex List Items

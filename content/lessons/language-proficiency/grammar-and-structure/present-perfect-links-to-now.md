@@ -65,7 +65,7 @@ The answer is **Has worked**. The job continues into the present, so present per
 
 ### Finished Past Time Uses Simple Past
 
-Use **simple past** with a finished past time (*yesterday, last week, in 2022*). Compare:
+A dated event in a finished past time (*yesterday, last week, in 2022*) takes **simple past**, not present perfect. Compare:
 
 - "The committee **submitted** its report yesterday afternoon." (*Yesterday afternoon* is finished.)
 - "The committee **has submitted** its report." (Present result, no finished time.)
@@ -91,22 +91,20 @@ Identify the tense in "The team has repaired three roofs this month."
 **Solution:**
 
 1. Find the full verb group: *has repaired*.
-2. Check the helper: present *has* pairs with the past participle *repaired*.
-3. Match the form (*has* + past participle) to its tense: **present perfect**.
+2. Match *has* + past participle *repaired* to its tense: **present perfect**.
 
-**Check:** *Has* plus *repaired*, with *this month* and no finished past time word, confirms **present perfect**.
+**Check:** *Has* plus *repaired* confirms **present perfect**.
 
 ### #2: Choosing Simple Past for a Finished Time
 
-Choose the right verb form: "The mayor ___ the new bridge last Friday."
+Choose the right verb form: "The mayor ___ (open) the new bridge last Friday."
 
 **Solution:**
 
-1. Spot the time clue: *last Friday*.
-2. Decide if that period is finished: last Friday is over.
-3. Rule out present perfect (*has opened*), *has open*, and future (*will open*), leaving simple past **opened**.
+1. Spot the time clue: *last Friday*, a finished time.
+2. Rule out present perfect (*has opened*), *has open*, and future (*will open*), leaving simple past **opened**: "The mayor opened the new bridge last Friday."
 
-**Check:** Pair *last Friday* with a second verb: "I saw it last Friday" also uses simple past.
+**Check:** "I saw it last Friday" also uses simple past.
 
 ### #3: Choosing Between Three Sentences
 
@@ -126,12 +124,12 @@ The answer is **"Dan joined the club in May and has been a member ever since."**
 
 ## Speed Tricks & Shortcuts
 
-Read the time clue first. A finished past time (*yesterday*, *last month*) takes simple past, while a link to now (*since June*, *ever since*, *so far*) takes *has* or *have* plus a past participle. An open period like *this week* usually takes present perfect, but one finished action can use simple past (*She wrote a letter this week*).
+Read the time clue first. A dated event in a finished past time (*yesterday*, *last month*) takes simple past, while a link to now (*since June*, *ever since*, *so far*) takes *has* or *have* plus a past participle. An open period like *this week* often takes present perfect, but simple past also works for a completed event or set of events (*She wrote a letter this week*).
 
 ## Traps to Watch For
 
 :::checklist
 - A verb with *has* or *have* plus a past participle: read the whole group as present perfect, not simple past or past perfect. {#full-verb-group}
 - A situation continuing into now: use *has* or *have* + past participle, not *had*. {#still-true-now}
-- A finished past time like *yesterday afternoon*: choose simple past (*submitted*), never present perfect or *has* + base verb. {#finished-past-time}
+- A dated event in a finished past time like *yesterday afternoon*: choose simple past (*submitted*), never present perfect or *has* + base verb. {#finished-past-time}
 :::
