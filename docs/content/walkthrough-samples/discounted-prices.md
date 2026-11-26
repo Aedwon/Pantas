@@ -71,8 +71,8 @@ $$\text{Price}=800\times0.75=600$$
 <!-- ILLUSTRATION: a horizontal bar labeled "Php 800 = 100%", split into a shaded left part "25%, discount, Php 200" and a right part "75%, you pay, Php 600" -->
 
 :::pair #price-not-discount
-Right: price after the discount $=800-200=600$
-Wrong: price after the discount $=200$
+Right: price after the discount $=$ Php $600$
+Wrong: price after the discount $=$ Php $200$
 Php $200$ is the money taken off. The question asks what you pay.
 :::
 
@@ -96,10 +96,6 @@ The answer is Php $1,020$. You still pay $100\%-15\%=85\%$, and $1,200\times0.85
 2. Take the second discount from that new price.
 
 Find the final price of a Php $1,000$ item after $20\%$ and $10\%$ off:
-
-$$\text{After }20\%\text{ off}=1,000\times0.80=800$$
-
-$$\text{After }10\%\text{ off}=800\times0.90=720$$
 
 :::pair #successive-discounts
 Right: $1,000\times0.80=800$, then $800\times0.90=720$
@@ -173,9 +169,7 @@ The last part, $\dfrac{ab}{100}$, is why the total is less than $a+b$. The secon
 
 Find the single discount percent for $20\%$ and $10\%$ off:
 
-$$\text{Total discount percent}=20+10-\dfrac{20\times10}{100}=28$$
-
-So the equivalent single discount is $28\%$.
+$$\text{Total discount percent}=20+10-\dfrac{20\times10}{100}=28\%$$
 
 ## Traps to Watch For
 

@@ -113,9 +113,7 @@ $$\dfrac{12}{(-2)}=-6$$
 
 $$x^2-3xy+\dfrac{12}{x}=4-(-18)+(-6)$$
 
-6. Subtracting $-18$ is the same as adding $18$.
-
-$$4-(-18)+(-6)=4+18+(-6)$$
+6. Subtracting $-18$ is the same as adding $18$:
 
 :::pair #minus-before-negative
 Right: $4-(-18)+(-6)=4+18+(-6)$
@@ -131,7 +129,7 @@ $$22+(-6)=16$$
 
 The answer is $16$.
 
-**Check:** Factor $x$ out of the first two terms as a second route: $(-2)(-2-9)+\dfrac{12}{(-2)}=(-2)(-11)-6=22-6=16$, which matches.
+**Check:** Check each part's sign and size in $x^2-3xy+\dfrac{12}{x}$: $(-2)^2=+4$, $-3(-2)(3)=+18$, and $\dfrac{12}{(-2)}=-6$. Putting them together gives $4+18-6=16$, which matches.
 
 ### #2: Two Negative Values
 
