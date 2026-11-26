@@ -65,8 +65,6 @@ The answer is *separate*. The middle is *p-a-r*, and the unclear vowel needs the
 
 ### #1: A Long Word in Context
 
-We pick the correct spelling to fill the gap, using the base and the ending.
-
 Choose the correctly spelled word to complete the sentence: “Flooding is a frequent ______ in the area.”
 
 A) occurrence  
@@ -79,18 +77,15 @@ D) ocurrence
 1. Say the word in beats: *uh-kur-uns*. The middle beat is stressed.
 2. The beats do not give every letter.
 3. Recall the base *occur*, with double *c*.
-4. The last syllable of *occur* is stressed. So its final *r* doubles before the ending.
+4. The last syllable of *occur* is stressed, so its final *r* doubles before the ending.
 5. Recall the ending *-ence*. Its weak vowel sounds like *-ance*, so sound cannot choose.
-6. The full word is *occurrence*. Answer: **A**.
-
-**Check:** Only A has *cc*, *rr*, and *-ence*.
 
 :::try
-Choose the correct spelling: *definite* or *definate*? Use the base *finite*.
+Finish the last step: put *occur*, the doubled *r*, and *-ence* together and choose the correct option.
 :::answer
-The answer is *definite*. The base *finite* has *i* in its last part.
+The answer is **A**, *occurrence*.
 
-**Check:** *Finite* is spelled with *i*, and *definite* ends the same way.
+**Check:** Start from the base *occur* (double *c*), double the stressed final *r*, and add *-ence* to get *oc-cur-rence*.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -104,5 +99,5 @@ Break a long word into spoken parts. Use a known base to check letters that are 
 :::checklist
 - A weak vowel you cannot hear: check it against a known base, as in *definite* from *finite*. {#known-base}
 - A word with doubled letters: check each pair, as in *accommodate* with *cc* and *mm*. {#doubled-pairs}
-- A long word: use sound to split it, then recall the standard letters.
+- A long word: use sound to split it, then recall the standard letters. {#checking-longer-words-by-syllable}
 :::

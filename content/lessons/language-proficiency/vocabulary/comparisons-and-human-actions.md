@@ -14,14 +14,12 @@ keyPoints:
 ---
 ## Core Concept
 
-A **figure of speech** uses words to create a comparison, image, sound, or strong effect. A line can show more than one figure. Look for the clearest effect supported by the wording.
+### Comparisons With and Without Like or As
 
-Common figures include:
+A **figure of speech** uses words to create a comparison, image, sound, or strong effect. A line can show more than one figure. Look for the clearest effect supported by the wording.
 
 - **Simile:** compares different things, often with *like* or *as*: “Her voice was like velvet.”
 - **Metaphor:** presents one thing as another to make a comparison: “Time is a thief.”
-- **Personification:** gives a human action or quality to something nonhuman: “Opportunity knocked.”
-- **Hyperbole:** makes something seem much greater or smaller than it really is: “I've told you a million times.” This is exaggeration for effect.
 
 A simile needs a comparison, not just *like* or *as*. “She works as a teacher” states her job without comparing different things.
 
@@ -37,6 +35,17 @@ Right: “The classroom was a zoo” is a metaphor, because it says one thing is
 Wrong: “The classroom was a zoo” is a simile.
 A simile needs *like* or *as* in a comparison. This line has neither.
 :::
+
+:::check
+“She works as a nurse” and “Her hands were like ice.” Which one is a simile?
+:::answer
+The answer is “Her hands were like ice.” It compares two different things with *like*, while “works as a nurse” only states a job.
+:::
+
+### Personification and Hyperbole
+
+- **Personification:** gives a human action or quality to something nonhuman: “Opportunity knocked.”
+- **Hyperbole:** makes something seem much greater or smaller than it really is: “I've told you a million times.” This is exaggeration for effect.
 
 Now we test a line that has a human action.
 
@@ -61,8 +70,6 @@ The answer is hyperbole. A million times greatly overstates the number.
 
 ### #1: Personification
 
-We name the device in a line about the wind.
-
 “The wind whispered through the dark forest.” Which literary device is used most clearly?
 
 A) Metaphor  
@@ -78,8 +85,6 @@ D) Simile
 **Check:** The line has no *like* or *as*, and it names no exaggeration.
 
 ### #2: Metaphor
-
-We name the device in a line about hope.
 
 “Hope is a bird that carries us beyond our fear.” Which literary device is used most clearly?
 
@@ -97,8 +102,6 @@ D) Onomatopoeia
 
 ### #3: Simile
 
-We name the device in a line about a lake.
-
 “The calm lake shone like a mirror under the moon.” Which literary device is used most clearly?
 
 A) Simile  
@@ -108,17 +111,15 @@ D) Personification
 
 **Solution:**
 
-1. The sentence compares the lake with a mirror using *like*.
-2. This comparison is a simile. Answer: **A**.
-
-**Check:** Changing *like a mirror* to *was a mirror* would make it a metaphor.
+1. Look at the words *like a mirror*.
+2. The sentence compares two different things, a calm lake and a mirror, using *like*.
 
 :::try
-“Her smile was as bright as the morning sun.” Name the device.
+Finish the last step: which device makes a comparison using *like* or *as*?
 :::answer
-The answer is simile. *As bright as* compares the smile with the sun.
+The answer is **Simile**, choice **A**.
 
-**Check:** The line does not say the smile *was* the sun.
+**Check:** Changing *like a mirror* to *was a mirror* would make it a metaphor.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -130,19 +131,5 @@ The answer is simile. *As bright as* compares the smile with the sun.
 :::checklist
 - A line that says one thing *is* another: it is a metaphor, even with no *like* or *as*. {#metaphor-or-simile}
 - A line with *as if* and a human action: it is personification. {#as-if-personification}
-- *Like* or *as* alone: check for a comparison of different things before you say simile.
+- *Like* or *as* alone: check for a comparison of different things before you say simile. {#comparisons-with-and-without-like-or-as}
 :::
-
-“She works as a teacher” states a job. It does not compare two different things.
-
-### #2: Choosing Metaphor Without a Comparison
-
-> A sentence without like or as is not always a metaphor.
-
-Look for one thing being presented as another. A plain statement may have no figure at all.
-
-### #3: Calling Every Sound Personification
-
-> A nonhuman thing making a sound is not always personification.
-
-“The bell rang” describes an ordinary sound. “The bell begged us to hurry” gives the bell a human action.

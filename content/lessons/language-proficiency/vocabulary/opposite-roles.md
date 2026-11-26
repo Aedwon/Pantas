@@ -13,21 +13,23 @@ keyPoints:
 ---
 ## Core Concept
 
+### Opposite Sides of One Exchange
+
 **Converse opposites** describe the same relationship from different roles.
 
 If Ana sells a book to Ben, Ben buys the book from Ana. The book and exchange stay the same. The person doing the action changes.
 
 :::pair #same-exchange
-Right: The supplier sold the printer.
-Wrong: The supplier bought the printer.
-The office bought the printer, so the supplier is on the other side. The supplier sold it.
+Right: If the office bought a printer from a supplier, the supplier sold the printer.
+Wrong: If the office bought a printer from a supplier, the supplier bought the printer.
+The office is the buyer, so the supplier is on the other side of the exchange and sold it.
 :::
 
 The same holds for other pairs. One person borrows what another person lends.
 
 :::pair #borrow-lend
-Right: Lend
-Wrong: Return
+Right: If Ana borrows a book from Ben, Ben lends the book to Ana.
+Wrong: If Ana borrows a book from Ben, Ben returns the book to Ana.
 *Borrow* and *lend* are two sides of one exchange. *Return* is a later step, not the other side.
 :::
 
@@ -35,11 +37,15 @@ Wrong: Return
 One exchange has two people. Each word names what one of them does.
 :::
 
+:::check
+If Carlo lends a ladder to Mia, what does Mia do in that same exchange?
+:::answer
+The answer is *borrow*. Mia borrows the ladder from Carlo.
+:::
+
 ## Examples
 
 ### #1: Opposite Roles
-
-We name what Leo did, using what Mara did.
 
 Mara sold a used book to Leo. From Leo's point of view, what did he do?
 

@@ -14,13 +14,12 @@ keyPoints:
 ---
 ## Core Concept
 
-A **context clue** is information near an unfamiliar word that helps you work out its likely meaning. Context may give the exact meaning, or it may only narrow the choices.
+### Definitions and Examples
 
-Common clue types include:
+A **context clue** is information near an unfamiliar word that helps you work out its likely meaning. Context may give the exact meaning, or it may only narrow the choices.
 
 - **Definition or restatement:** the text explains the word in another way.
 - **Example:** the text gives examples that show what the word includes.
-- **Synonym or near-synonym:** a nearby word has the same or almost the same meaning.
 
 We find the meaning from a restatement.
 
@@ -33,6 +32,16 @@ Right: *Candid* means honest.
 Wrong: *Candid* means rude.
 The remarks offended people, but that is their effect. The restatement gives the meaning.
 :::
+
+:::check
+“The chef used various **utensils**, such as spatulas, tongs, and whisks.” What does *utensils* mean?
+:::answer
+The answer is tools. The examples are all tools for preparing food.
+:::
+
+### Nearby Synonyms and Sentence Meaning
+
+- **Synonym or near-synonym:** a nearby word has the same or almost the same meaning.
 
 We find the meaning from the sentence, not from a known meaning.
 
@@ -47,16 +56,14 @@ Wrong: *Sanction* means punishment here.
 :::
 
 :::check
-“The chef used various **utensils**, such as spatulas, tongs, and whisks.” What does *utensils* mean?
+“The instructions were **concise**, giving every rule in brief, clear words.” What does *concise* mean?
 :::answer
-The answer is tools. The examples are all tools for preparing food.
+The answer is brief and clear. The nearby words *brief, clear* explain *concise*.
 :::
 
 ## Examples
 
 ### #1: Definition or Restatement
-
-We find the meaning of *edict* from the words after it.
 
 The king's **edict**, or official command, required all citizens to pay the tax. What does the word in bold most likely mean?
 
@@ -74,8 +81,6 @@ D) secret
 
 ### #2: Examples and a Description
 
-We find the meaning of *nocturnal* from the animal examples.
-
 The forest contains many **nocturnal** animals, such as owls, bats, and flying foxes, that are active after dark. What does the word in bold most likely mean?
 
 A) dangerous  
@@ -92,8 +97,6 @@ D) noisy
 
 ### #3: A Nearby Synonym
 
-We find the meaning of *courteous* from a nearby word.
-
 The clerk was **courteous** throughout the interview. She remained polite even when an applicant spoke rudely. What does the word in bold most likely mean?
 
 A) hurried  
@@ -103,17 +106,14 @@ D) talkative
 
 **Solution:**
 
-1. The nearby word *polite* describes the clerk's behavior again.
-2. *Respectful* has a similar meaning. Answer: **B**.
-
-**Check:** *Polite* and *respectful* can swap places in the sentence.
+1. Look for a word in the next sentence that describes the clerk's behavior again: *polite*.
 
 :::try
-**Ambiguity** is the quality of having more than one possible meaning. What does *ambiguity* mean?
+Finish the last step: which choice is closest in meaning to *polite*?
 :::answer
-The answer is multiple meanings. The sentence defines the word directly.
+The answer is **B**, *respectful*. *Polite* and *respectful* share the same positive behavior.
 
-**Check:** A phrase with two possible meanings is ambiguous.
+**Check:** *Polite* and *respectful* can swap places in the sentence.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -125,5 +125,5 @@ The answer is multiple meanings. The sentence defines the word directly.
 :::checklist
 - A restatement after *or*: take the meaning from it, not from how people react. {#restatement-not-reaction}
 - A word with more than one meaning: pick the meaning the sentence needs. {#sentence-meaning}
-- Words that look alike: check the sentence before you choose.
+- Words that look alike: check the sentence before you choose. {#nearby-synonyms-and-sentence-meaning}
 :::

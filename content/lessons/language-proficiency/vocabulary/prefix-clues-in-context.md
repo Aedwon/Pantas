@@ -20,16 +20,16 @@ A **prefix** is a word part added at the beginning of a word. For example, *un-*
 Use the prefix as a clue. Then check the whole word in the sentence.
 
 :::pair #prefix-meaning
-Right: not fair
-Wrong: not finished
+Right: In "unfair treatment," *unfair* means not fair.
+Wrong: In "unfair treatment," *unfair* means not finished.
 The prefix *un-* means *not*, and the base is *fair*. *Not finished* is the meaning of *incomplete*, a different word.
 :::
 
 Not every opening group of letters is a prefix. *Uncle* does not mean “not cle.” Word parts help only when they belong to the word and give a meaning that fits.
 
 :::pair #real-prefix
-Right: Uncle has no base cle.
-Wrong: Every initial un means not.
+Right: *Uncle* has no base *cle*, so *un-* is not a prefix.
+Wrong: Every initial *un* means *not*, so *uncle* means "not cle."
 *Cle* is not a word, so *un-* is not a prefix in *uncle*. Opening letters alone prove nothing.
 :::
 
@@ -37,11 +37,15 @@ Wrong: Every initial un means not.
 A prefix changes the meaning of a real base word. If nothing real is left after the opening letters, there is no prefix to read.
 :::
 
+:::check
+In "The water was **unsafe** to drink," does *un-* act as a real prefix, and what does *unsafe* mean?
+:::answer
+The answer is yes, *not safe*. *Safe* is a real base word, *un-* means *not*, and *not safe* fits the sentence.
+:::
+
 ## Examples
 
 ### #1: Checking a Prefix in Context
-
-We find the meaning of **incomplete** and check it against the sentence.
 
 The report was **incomplete** because it lacked the final page. Which phrase is closest in meaning to the word in bold?
 

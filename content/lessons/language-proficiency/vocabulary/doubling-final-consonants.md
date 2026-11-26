@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-### Doubling a Final Consonant
+### One-Syllable Words
 
 In many one-syllable words, double the last consonant before *-ing* or *-ed*. The base must end in one vowel letter followed by one consonant letter.
 
@@ -31,6 +31,14 @@ Do not double final *w*, *x*, or *y*.
 
 - *Fix* becomes *fixing*.
 - *Play* becomes *playing*.
+
+:::check
+Spell *hop* plus *-ing* and *box* plus *-ing*.
+:::answer
+The answers are *hopping* and *boxing*. *Hop* ends in *o* plus *p*, so *p* doubles; *box* ends in *x*, so it does not double.
+:::
+
+### Stress in Longer Words
 
 In a longer word, the last syllable must also be stressed.
 
@@ -62,6 +70,12 @@ The stressed last syllable is the one you hear strongly. Doubling the consonant 
 :::
 
 These are useful patterns, not rules for every suffix. Check a standard spelling when the pattern does not settle the answer.
+
+:::check
+Does the final *n* double in *open* plus *-ed*?
+:::answer
+The answer is *no*, write *opened*. *Open* has stress on its first syllable, not its last.
+:::
 
 ## Examples
 
@@ -134,20 +148,18 @@ D) fixing; playing
 
 **Solution:**
 
-1. Look at the last letter of *fix*. It is *x*, so it does not double.
-2. Look at the last letter of *play*. It is *y*, so it does not double.
+1. Check the final letter of *fix*. It is *x*.
+2. Check the final letter of *play*. It is *y*.
 
 :::try
-Finish the last step: which choice shows both words with no doubled letter?
+Finish the last step: apply the *w*, *x*, and *y* rule to both words and choose the right pair.
 :::answer
-Choice **D**. The forms are **fixing** and **playing**.
+The answer is **D**, **fixing; playing**. Final *w*, *x*, and *y* do not double before *-ing*.
 
-**Check:** Final *w*, *x*, and *y* never double before *-ing*.
+**Check:** Neither *fix* nor *play* doubles its last letter, and nothing is dropped before *-ing*.
 :::
 
 ## Traps to Watch For
-
-### #1: Doubling from Letter Shape Alone
 
 :::checklist
 - Longer word ending in one vowel and one consonant: check the stress first, as in *beginning*. {#begin-stress}

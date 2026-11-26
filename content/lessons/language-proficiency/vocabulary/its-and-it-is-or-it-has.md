@@ -55,18 +55,22 @@ Wrong: Its been confirmed that the company lost its license.
 *It has been confirmed* is the first clause. It needs *it's*. The second gap is the owner, so it takes *its*.
 :::
 
+:::check
+In which sentence does *it's* mean *it has*: "It's ready for review" or "It's been delayed"?
+:::answer
+The answer is "It's been delayed." It expands to "It has been delayed."
+:::
+
 ## Examples
 
 ### #1: Showing Ownership
-
-We choose the word that goes before a noun, *guidelines*.
 
 The university updated ______ guidelines regarding artificial intelligence.
 
 A) it's  
 B) its  
 C) its'  
-D) they’re
+D) they're
 
 **Solution:**
 
@@ -78,8 +82,6 @@ D) they’re
 
 ### #2: Short Forms
 
-We choose the pair that fills two gaps in one sentence.
-
 Choose the pair that completes the sentence correctly: "______ clear that ______ been a difficult week."
 
 A) Its; its  
@@ -90,17 +92,14 @@ D) It's; it's
 **Solution:**
 
 1. The first blank means *it is*: "It is clear."
-2. The second blank means *it has*: "It has been a difficult week."
-3. Both blanks are short forms, so both take *it's*. Answer: **D**.
-
-**Check:** Expand both: "It is clear that it has been a difficult week." The sentence reads correctly.
+2. Try expanding the second blank to *it has*: "It has been a difficult week."
 
 :::try
-Finish the last step: choose the words for the gaps in "______ been decided that the office will move ______ files."
+Finish the last step: which choice uses the right form for both blanks?
 :::answer
-The answer is *It's*, then *its*. The first gap means *it has*. The files belong to the office, so the second gap is *its*.
+The answer is **D**, *It's; it's*. Both blanks expand to verb phrases (*it is* and *it has*), so both need *it's*.
 
-**Check:** Expand: "It has been decided that the office will move its files."
+**Check:** Expand both: "It is clear that it has been a difficult week." The sentence reads correctly.
 :::
 
 ## Speed Tricks & Shortcuts

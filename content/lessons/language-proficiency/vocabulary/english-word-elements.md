@@ -61,8 +61,6 @@ The answer is the order of events in time. *Chron-* relates to time.
 
 ### #1: A Prefix Clue
 
-We read the prefix of *pseudoscientific* to find what it adds.
-
 What does the prefix add to the meaning of the word in bold, **pseudoscientific**?
 
 A) ancient  
@@ -78,8 +76,6 @@ D) fast
 **Check:** *Pseudoscience* is false science. The prefix gives the same idea.
 
 ### #2: Parts and Context Together
-
-We split *circumlocution* and check it against the sentence.
 
 The official's reply was criticized for its **circumlocution**. Which meaning best fits the word in bold?
 
@@ -97,8 +93,6 @@ D) angry shouting
 
 ### #3: Contrasting Elements
 
-We read *mal-* and *bene-* in two words.
-
 Which pair best gives the meanings of the words in bold, in order: **malevolent**, **benevolent**?
 
 A) wishing harm; wishing good  
@@ -108,17 +102,14 @@ D) speaking loudly; speaking softly
 
 **Solution:**
 
-1. *Mal-* suggests bad or harmful, while *bene-* suggests good or well.
-2. **Malevolent** means wishing harm, and **benevolent** means wishing good or being kind. Answer: **A**.
-
-**Check:** The two words are opposites, and so are *mal-* and *bene-*.
+1. Split the first letters of each word: *mal-* in **malevolent** and *bene-* in **benevolent**.
 
 :::try
-The historian put the events in **chronological** order, from earliest to latest. What does *chronological* mean?
+Finish the last step: match *mal-* and *bene-* to their meanings and choose the right pair.
 :::answer
-The answer is ordered by time. *Chron-* relates to time.
+The answer is **A**, *wishing harm; wishing good*. *Mal-* suggests bad or harmful, while *bene-* suggests good or well.
 
-**Check:** Earliest to latest is an order of time.
+**Check:** The two words are opposites, and so are *mal-* and *bene-*.
 :::
 
 ## Traps to Watch For
@@ -126,5 +117,5 @@ The answer is ordered by time. *Chron-* relates to time.
 :::checklist
 - *Mal-* and *bene-*: bad and good, never swapped. {#mal-versus-bene}
 - *Omni-*: all, then read the rest of the word to see all of what. {#omni-all-what}
-- One part of a word: check the whole meaning in the sentence.
+- One part of a word: check the whole meaning in the sentence. {#useful-english-word-elements}
 :::

@@ -62,11 +62,15 @@ The mediator made the agreement happen. *Affected* only means influenced.
 
 In psychology, *affect* can be a noun for the outward signs of emotion. A person's voice and face may show a flat affect, with little visible emotion.
 
+:::check
+Choose the correct word: During the exam, the patient showed a flat *(affect / effect)* with little facial expression.
+:::answer
+The answer is *affect*. In psychology, the noun *affect* names outward signs of emotion.
+:::
+
 ## Examples
 
 ### #1: Influence
-
-We fill the gap in a sentence about a drought.
 
 The prolonged drought will severely ______ crop yield.
 
@@ -85,8 +89,6 @@ D) effects
 
 ### #2: A Result
 
-We fill the gap in a sentence about a schedule.
-
 The new schedule had a positive ______ on attendance.
 
 A) affect  
@@ -104,7 +106,7 @@ D) effected
 
 ### #3: Bringing About Change
 
-We choose the sentence that uses the bold word correctly.
+Which sentence uses the word in bold correctly?
 
 A) The rain will **effect** our travel plans.  
 B) The new law **effected** major changes in procedure.  
@@ -121,8 +123,6 @@ D) The delay had a serious **affect** on service.
 
 ### #4: Affect as a Noun
 
-We fill the gap in a sentence from a psychology report.
-
 The psychologist noted the patient's flat ______ during the interview.
 
 A) affect  
@@ -134,16 +134,13 @@ D) effected
 
 1. The word *flat* comes before the gap, and *the patient's* shows a noun is needed. This removes C and D.
 2. The sentence is about the patient's outward signs of emotion.
-3. In psychology, the noun *affect* has this meaning. Answer: **A**.
-
-**Check:** "Flat affect" is the set phrase for little visible emotion.
 
 :::try
-Choose the correct word: The new rule will *(affect / effect)* every driver, and its *(affect / effect)* will be clear next month.
+Finish the last step: in psychology, which noun names outward signs of emotion?
 :::answer
-The answer is *affect*, then *effect*. After *will*, the verb means influence. After *its*, the noun means a result.
+The answer is *affect*, choice **A**. In psychology, *affect* is a noun for outward emotion.
 
-**Check:** Read it back: "will influence every driver" and "its result will be clear."
+**Check:** "Flat affect" is the set phrase for little visible emotion.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -155,5 +152,5 @@ Start with meaning for *affect* and *effect*. Ask whether the sentence means inf
 :::checklist
 - A verb that means influence: use *affect*, in its base form after *will*, as in "will affect travel." {#influence-verb}
 - A verb that means bring about: use *effect*, as in "effected change." {#bring-about}
-- A noun that means a result: use *effect*. In psychology, the noun for outward emotion is *affect*.
+- A noun that means a result: use *effect*. In psychology, the noun for outward emotion is *affect*. {#less-common-uses}
 :::

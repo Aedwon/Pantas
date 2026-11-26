@@ -14,8 +14,9 @@ keyPoints:
 ---
 ## Core Concept
 
+### Contrast Clues
+
 - **Contrast or antonym:** the text shows an opposite idea. Words such as *but*, *unlike*, and *however* can signal this link.
-- **Inference:** you work out a meaning from the situation, actions, or results. To infer means to use given details to reach an idea that is not stated directly.
 
 A sentence can use more than one clue. A signal word helps, but it does not prove the answer by itself.
 
@@ -52,11 +53,25 @@ Wasteful describes the son. The bold word describes the shopkeeper.
 The answer is wordy. Ana used few words, and the speaker is her opposite.
 :::
 
+### Inference Clues
+
+- **Inference:** you work out a meaning from the situation, actions, or results. To infer means to use given details to reach an idea that is not stated directly.
+
+We work out the meaning from actions in a sentence.
+
+- Sentence: “Lina was **wary** of the offer: she checked its terms twice and refused to sign until her questions were answered.”
+- Checking the terms twice and delaying signing show caution.
+- So *wary* means cautious.
+
+:::check
+“The old house was **dilapidated**; the roof had caved in and the windows were shattered.” What does *dilapidated* mean?
+:::answer
+The answer is run-down or falling apart. A caved-in roof and shattered windows show severe damage.
+:::
+
 ## Examples
 
 ### #1: Contrast
-
-We use the word *unlike* to find the meaning of *gregarious*.
 
 Unlike his **gregarious** sister, who loved meeting people and attending parties, Simon preferred quiet isolation. What does the word in bold most likely mean?
 
@@ -74,8 +89,6 @@ D) angry
 
 ### #2: Meaning from Details
 
-We use the repeated phrases to find the meaning of *platitudes*.
-
 The politician's speech was full of **platitudes**; the audience yawned at the repetitive, familiar phrases they had heard many times before. What does the word in bold most likely mean?
 
 A) original ideas  
@@ -92,9 +105,7 @@ D) false promises
 
 ### #3: Filipino Context
 
-Hinahanap natin ang kahulugan ng *ikinubli* mula sa kilos ni Maria.
-
-Pilit na **ikinubli** ni Maria ang kaniyang mga luha sa pamamagitan ng pagtalikod sa kaniyang mga kaibigan. Ano ang malamang na ibig sabihin ng salitang naka-bold?
+Pilit na **ikinubli** ni Maria ang kaniyang mga luha sa pamamagitan ng pagtalikod sa kaniyang mga kaibigan. Ano ang malamang na ibig sabihin ng salitang nakaitim?
 
 A) ipinakita  
 B) itinago  
@@ -104,16 +115,13 @@ D) iniyak
 **Solution:**
 
 1. Tumalikod si Maria upang hindi makita ng mga kaibigan ang kaniyang luha.
-2. Ipinapakita ng kilos na ang **ikinubli** ay nangangahulugang *itinago*. Sagot: **B**.
-
-**Check:** Kapag *itinago* ang inilagay, malinaw ang pangungusap.
 
 :::try
-Lina was **wary** of the offer: she checked its terms twice and refused to sign until her questions were answered. What does *wary* mean?
+Tapusin ang huling hakbang: ano ang kahulugan ng **ikinubli** batay sa kilos ni Maria?
 :::answer
-The answer is cautious. She checked the terms and delayed signing.
+Ang sagot ay **B**, *itinago*. Tumalikod siya upang hindi makita ang luha, kaya itinago niya ito.
 
-**Check:** Put *cautious* in place of the bold word. The sentence still makes sense.
+**Check:** Kapag *itinago* ang inilagay sa pangungusap, malinaw ang diwa nito.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -125,5 +133,5 @@ The answer is cautious. She checked the terms and delayed signing.
 :::checklist
 - *Unlike* or *in contrast to*: find who the bold word describes, then take the opposite of the other side. {#contrast-target}
 - A trait that fits the other person: it belongs to the other side, not to the bold word. {#contrast-other-side}
-- *However*, *this*, *therefore*: read the whole passage before you choose.
+- *However*, *this*, *therefore*: read the whole passage before you choose. {#inference-clues}
 :::

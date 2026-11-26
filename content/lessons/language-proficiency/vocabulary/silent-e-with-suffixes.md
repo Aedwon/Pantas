@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-### Adding Suffixes
+### Vowel Suffixes and Soft Sounds
 
 A **suffix** is a word part added at the end of a base. The **base** is the word or part to which the suffix is added.
 
@@ -25,7 +25,15 @@ A final silent *e* is often dropped before a suffix that begins with a vowel.
 
 Sometimes *e* stays to help keep a sound. In *noticeable*, the *e* stays after *c*. This keeps the sound of *s* heard at the end of *notice*, often called the soft sound of *c*.
 
-Some forms must be learned separately.
+:::check
+Spell *believe* plus *-able*.
+:::answer
+The answer is *believable*. *-able* starts with a vowel and *v* needs no soft sound, so drop the silent *e*.
+:::
+
+### Exceptions Before Consonant Suffixes
+
+Most words keep a final silent *e* before a suffix that starts with a consonant, such as *care* becoming *careful*. Some forms must be learned separately.
 
 - *True* becomes *truly*, even though *-ly* begins with a consonant.
 - *Argue* becomes *argument*, with no final *e* from the base.
@@ -38,6 +46,12 @@ Many words keep the *e* before a suffix that starts with a consonant. *True* is 
 
 :::why
 Learn *truly* and *argument* as exceptions. No simple rule covers them, so memory is the only tool.
+:::
+
+:::check
+Spell *care* plus *-ful* and *true* plus *-ly*.
+:::answer
+The answers are *careful* and *truly*. *Careful* keeps the *e* before a consonant suffix, while *truly* is an exception that drops *e*.
 :::
 
 ## Examples
@@ -110,15 +124,13 @@ D) arguemant
 
 **Solution:**
 
-We build the word from *argue* plus *-ment*.
-
-1. The base is *argue*, and the suffix is *-ment*.
-2. This word is an exception. The final *e* does not stay.
+1. Identify the base and suffix: *argue* plus *-ment*.
+2. Notice that *-ment* begins with a consonant, so check whether *argue* follows the usual rule or is an exception.
 
 :::try
-Finish the last step: which choice is *argue* plus *-ment* with no *e* before the suffix?
+Finish the last step: apply the spelling rule for *argue* plus *-ment* and choose the correct option.
 :::answer
-Choice **C**, **argument**.
+Choice **C**, **argument**. *Argue* is an exception before *-ment* and drops its silent *e*.
 
 **Check:** *Argument* is one of the exceptions to learn, like *truly*.
 :::
@@ -126,8 +138,7 @@ Choice **C**, **argument**.
 ## Traps to Watch For
 
 :::checklist
-- *e* after *c* before *-able*: keep the *e*, as in *noticeable*.
-- Vowel suffix, no sound to protect: drop the *e*, as in *managing*.
-- *True* plus *-ly*: drop the *e*, as in *truly*. {#truly}
-- *Argue* plus *-ment*: drop the *e*, as in *argument*.
+- Vowel suffix with no soft sound to keep: drop the *e*, as in *managing*. {#vowel-suffixes-and-soft-sounds}
+- Silent *e* after *c* before *-able*: keep the *e* for the soft *s* sound, as in *noticeable*. {#vowel-suffixes-and-soft-sounds}
+- Exceptions before *-ly* and *-ment*: drop the *e* in *truly* and *argument*. {#truly}
 :::
