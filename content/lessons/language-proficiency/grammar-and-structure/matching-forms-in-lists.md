@@ -22,7 +22,7 @@ keyPoints:
 - **Nouns or noun phrases:** *"The committee values accuracy, fairness, and transparency."* *-ing* words used as ordinary nouns (*budgeting*, *marketing*) count as nouns and can sit beside other noun phrases, as in *"The workshop covers budgeting, marketing, and sales strategy."*
 - **Matching verb tenses in a compound predicate:** *"She opened the folder, checked the total, and signed the form."* Finite verbs sharing a subject keep the same tense when they describe the same time.
 
-Never mix a list item with a full clause (*"tools will be bought"*), a *how-to* clause (*"how to plan sales"*), or a new verb predicate that changes the meaning.
+In these lists, avoid mixing in a full clause (*"tools will be bought"*), a *how-to* clause (*"how to plan sales"*), or a new verb predicate that changes the meaning.
 
 <!-- ILLUSTRATION: three-row parallel alignment chart under the shared lead-in "Her hobbies include": row 1 "painting (-ing)", row 2 "dancing (-ing)" with "to dance" crossed out beside it, row 3 "singing (-ing)", each aligned with a teal checkmark -->
 
@@ -75,19 +75,19 @@ Revise *"We must choose between repairing the roof and a new roof will be instal
 
 **Check:** Read both sides right after *between*: *"between repairing the roof"* and *"between installing a new roof."* Both use *-ing* phrases.
 
-### #3: Catching a Hidden Mismatch
+### #3: Reading a Clerk's Three Actions
 
 Find the hidden error in *"Yesterday the clerk opened the drawer, counts the cash, and locked the safe."*
 
 **Solution:**
 
 1. Separate the three actions after *"the clerk"*: (1) *opened the drawer*, (2) *counts the cash*, (3) *locked the safe*.
-2. Check the verb tense of each item.
+2. Compare the three items.
 
 :::try
 Finish the last step: name the item that does not match and give the fix.
 :::answer
-**Change *counts* to *counted*.** Items (1) and (3) are simple past, and item (2) is the outlier in simple present. Changing item (1) or (3) to present would break *Yesterday*. Changing *counts* gives three matching past verbs: *opened*, *counted*, *locked*.
+**Change *counts* to *counted*.** Items (1) and (3) are simple past, and item (2) is the outlier in simple present. Changing item (1) or (3) to present would break *Yesterday*. Changing *counts* gives **"Yesterday the clerk opened the drawer, counted the cash, and locked the safe."**
 
 **Check:** Read *"Yesterday the clerk"* before each verb: *opened*, *counted*, *locked*. All three are past.
 :::

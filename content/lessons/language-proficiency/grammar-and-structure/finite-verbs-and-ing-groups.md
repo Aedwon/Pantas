@@ -16,13 +16,13 @@ keyPoints:
 
 ### Finite Verbs Carry Tense
 
-A **finite verb** is a verb form that carries tense (present or past) and matches a subject, such as *walks, walked, is,* or *was*. Compare *"Ana walks home"* with *"Ana walked home"*: the verb changes when time changes.
+A **finite verb** is a verb form that can be the main verb of a clause. It often shows tense (present or past) or agreement with a subject, such as *walks, walked, is,* or *was*. *"Ana walks home"* becomes *"Ana walked home"* when time changes. A modal like *must* is finite but has one form: *"She must go."*
 
-A **nonfinite verb** does not show tense by itself. Three nonfinite forms appear often in sentences:
+A **nonfinite verb** does not show tense by itself. Three common nonfinite forms:
 
 - **-ing participles** used inside progressive verb groups or descriptions (*is preparing*, *running quickly*)
 - **-ing gerunds** acting as nouns, such as after a preposition (*before closing*)
-- **Infinitives** made of *to* plus the base verb (*to submit*, *to finish*)
+- **To-infinitives** made of *to* plus the base verb (*to submit*, *to finish*)
 
 In *"The assistant is preparing the documents to submit before closing,"* the helper **is** carries present tense and matches *the assistant*. *Preparing* and *closing* stay unchanged even if you switch to past time (*was preparing*), and *to submit* has no tense form. So *is* is the finite verb.
 
@@ -90,15 +90,14 @@ The word that supplies the finite verb form is **is**.
 
 ### #3: Completing an -ing Fragment
 
-Revise *"Preparing the final report for the committee"* into a complete formal sentence by adding a subject and a finite verb.
+Revise *"Preparing the final report for the committee"* into a complete formal sentence.
 
 **Solution:**
 
-1. *Preparing* alone is nonfinite, so the group has no subject and no tense.
-2. Add a subject and a tense-carrying verb.
+1. *Preparing* alone is nonfinite: it shows no time, so the group is not a sentence.
 
 :::try
-Finish the last step: write the complete sentence using a finite helper with *preparing*, then test it by shifting the tense.
+Finish the last step: write the complete sentence, then test it by shifting the time.
 :::answer
 **The coordinator is preparing the final report for the committee.** *The coordinator* is the subject, and *is* supplies present tense.
 

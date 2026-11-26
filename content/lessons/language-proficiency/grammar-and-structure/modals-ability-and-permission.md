@@ -37,7 +37,7 @@ True modals like *can* take the bare base form *answer* directly, never *to* plu
 :::
 
 :::check
-Choose the right form: Omar *(can fix / can fixes / can to fix)* the bike easily.
+Choose the right form: Omar *(can fix / can fixes / can to fix)* the bike.
 :::answer
 The answer is **Can fix**. After *can*, use the bare base verb *fix* with no *-s* and no *to*.
 :::
@@ -56,7 +56,7 @@ The answer is **Could**. *Before school started* describes general past ability,
 
 ### Requesting Permission
 
-Three modals ask for permission, from everyday to formal:
+Three common modals ask for permission, from everyday to formal:
 
 1. **Can** (everyday): "**Can** I borrow your pen?"
 2. **Could** (polite request): "**Could** I use this desk?"

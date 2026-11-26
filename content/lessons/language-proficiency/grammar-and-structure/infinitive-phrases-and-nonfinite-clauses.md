@@ -16,17 +16,17 @@ keyPoints:
 
 ### Labeling an Infinitive Group by Grammar System
 
-An **infinitive** is *to* plus the base form of a verb (*to obtain, to revise, to finish*). An infinitive carries no tense and does not change for singular or plural subjects.
+In this lesson, an **infinitive** is *to* plus the base form of a verb (*to obtain, to revise, to finish*). It carries no tense and does not change for singular or plural subjects.
 
-Grammar books label a group like *"to obtain a certified copy"* in two ways:
+Grammar books label the group *to obtain a certified copy* in *"The applicant hopes to obtain a certified copy"* in two ways:
 
 1. **Basic school grammar:** calls it an **infinitive phrase** (the infinitive plus the words that go with it).
-2. **Modern clause grammar:** may call it a **nonfinite clause** because someone is understood to do the action (*the applicant* will obtain the copy).
+2. **Modern clause grammar:** may call it a **nonfinite clause** because it has a verb with no tense and a subject that is stated or understood (*the applicant* will obtain the copy).
 
 Follow the system named in the question. Under either system, an infinitive group has no finite verb, so it cannot be an independent clause, a finite dependent clause, or a complete formal sentence.
 
 :::why
-Why do two books give different labels? School grammar requires a finite verb carrying tense to call a group a clause. Modern syntax counts any verb group with an understood actor as a nonfinite clause. Both agree it cannot stand alone as a sentence.
+Why do two books give different labels? School grammar requires a finite verb carrying tense to call a group a clause. Modern syntax counts a verb group with no tense as a nonfinite clause when its subject is stated or understood. Both agree it cannot stand alone as a sentence.
 :::
 
 :::pair #infinitive-not-finite-clause
@@ -43,14 +43,17 @@ The answer is **Infinitive phrase**. *To submit* carries no tense, and basic sch
 
 ### Complete Sentences Need a Finite Main Verb
 
-Adding extra time words, a passive participle (*to have the policy revised*), or a second infinitive (*to revise ... and to notify ...*) never makes an infinitive group a complete formal sentence.
+Adding extra time words, a passive participle inside the group (*revised* in *to have the policy revised*), or a second infinitive (*to revise ... and to notify ...*) never makes an infinitive group a complete formal sentence.
 
-Compare *"To revise the policy and to notify all employees."* (fragment, zero finite verbs) with *"The unit plans to revise the policy."* (*The unit* is the subject and *plans* is the present-tense finite verb).
+Compare a fragment with a sentence:
+
+- Fragment: *"To revise the policy and to notify all employees."*
+- Sentence: *"The unit plans to revise the policy."*
 
 :::pair #long-infinitive-still-fragment
 Right: *"The unit plans to revise the policy."* is a complete formal sentence.
 Wrong: Pick *"To revise the policy before the next inspection."*, *"To have the policy revised before the inspection."*, or *"To revise the policy and to notify all employees."* as a complete formal sentence.
-Extra words or paired infinitives can make a goal sound finished. Look for a stated subject paired with a tense-carrying finite verb like *plans*; if every verb in the group starts with *to* and no finite verb appears, the group is a fragment.
+Look for a stated subject paired with a tense-carrying finite verb like *plans*; if every verb in the group starts with *to* and no finite verb appears, the group is a fragment.
 :::
 
 :::check
@@ -71,7 +74,7 @@ In *"Ana hopes to finish the project,"* can *"to finish the project"* stand alon
 2. *To finish* is an infinitive with no tense, so *"to finish the project"* cannot stand alone as a formal sentence.
 3. Basic school grammar calls it an **infinitive phrase**; a system using nonfinite clauses calls it a **nonfinite clause** with *Ana* as the understood doer.
 
-**Check:** Drop *Ana hopes* and read *"To finish the project."* With no finite verb, it cannot stand alone.
+**Check:** *"To finish the project."* has no finite verb, so it cannot stand alone.
 
 ### #2: Spotting an Infinitive Fragment
 
@@ -83,7 +86,7 @@ Which entry is a complete formal sentence: *"To have the policy revised before t
 2. In *"The unit plans to revise the policy,"* *The unit* is the subject and *plans* is the finite verb.
 3. *"The unit plans to revise the policy."* is the complete formal sentence.
 
-**Check:** Shift the second sentence to past time: *plans* becomes *planned*, proving a finite main verb is present.
+**Check:** *Plans* becomes *planned* in past time, so it is finite.
 
 ### #3: Checking Tense and Label Together
 

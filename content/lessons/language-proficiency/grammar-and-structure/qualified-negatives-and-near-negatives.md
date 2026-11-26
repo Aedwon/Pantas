@@ -96,7 +96,7 @@ A writer wants to describe a proposal as fairly reasonable without strong praise
 
 The correct answer is **(C)**.
 
-**Check:** Substitute *"not against reason"* for *not unreasonable*: *"The proposal is not against reason"* matches *"fairly reasonable without strong praise."*
+**Check:** *"The proposal is not against reason"* matches *"fairly reasonable without strong praise."*
 
 ### #2: Editing a Near-Negative for Formal English
 
@@ -109,7 +109,7 @@ In standard formal English, revise *"I can't hardly hear you from over here"* wh
 
 Correct sentence: **"I can hardly hear you from over here."**
 
-**Check:** Replace *hardly* with *"barely"*: *"I can barely hear you from over here."* That matches very little hearing without changing it to clear hearing or zero hearing.
+**Check:** Replace *hardly* with *"barely"*: *"I can barely hear you from over here."* That still means very little hearing.
 
 ### #3: Reading Two Office Memos
 
@@ -125,12 +125,12 @@ The answer is **The clerk finished the audit, though only with great difficulty;
 
 ## Speed Tricks & Shortcuts
 
-Read *not unexpected* in context as unsurprising, not guaranteed. Read *hardly*, *scarcely*, and *barely* as *almost not*, with no second negative in formal English, and *seldom* as *rarely*.
+Read *not unexpected* in context as unsurprising, not guaranteed. Read *hardly*, *scarcely*, and *barely* as *almost not*, with no second negative in formal English (keep the same meaning and modal), and *seldom* as *rarely*.
 
 ## Traps to Watch For
 
 :::checklist
-- Qualified negative (*not unexpected*, *not unreasonable*): read the middle meaning in context, not negative or extreme. {#qualified-negative-extremes}
-- Near-negative (*hardly*, *scarcely*, *barely*): in formal English, use one negative, with no second one like *can't* or *no*. {#not-with-near-negative}
+- Qualified negative (*not unexpected*, *not unreasonable*): read a softened positive (*unsurprising*, *fairly reasonable*) unless the context says more. {#qualified-negative-extremes}
+- Near-negative (*hardly*, *scarcely*, *barely*): in formal English, drop the second negative (*can't* to *can*, *no* to *any*) and keep the meaning. {#not-with-near-negative}
 - *Seldom*: means *rarely*, never *never*. {#seldom-as-never}
 :::

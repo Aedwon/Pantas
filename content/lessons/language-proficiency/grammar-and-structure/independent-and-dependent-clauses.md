@@ -16,7 +16,7 @@ keyPoints:
 
 ### What Makes a Clause Independent
 
-A **clause** has a subject and a **finite verb** (a verb that carries tense and matches its subject, such as *slept* or *arrives*).
+In an ordinary statement, a **clause** has a stated subject and a **finite verb** (a verb that carries tense and matches its subject, such as *slept* or *arrives*). A command like *Close the door* leaves its subject understood, and a group like *after leaving* has no finite verb.
 
 An **independent clause**, also called a **main clause**, gives a complete thought and can stand alone as a sentence. Even a short group is independent when it has a subject, a finite verb, and no word leaving the reader waiting: *"The cat slept."* *"She finished her homework."*
 
@@ -34,12 +34,12 @@ The answer is **Independent clause**. *Our neighbor* is the subject, *waved* is 
 
 ### Dependent Clauses and Subordinating Words
 
-A **dependent clause** (subordinate clause) has a subject and finite verb, yet cannot stand alone. A **subordinating conjunction** (such as *although, because, since, when, while, if, until, after, before*) introduces it and makes it lean on a main clause.
+A **dependent clause** (subordinate clause) in an ordinary statement has a subject and finite verb, yet cannot stand alone. A **subordinating conjunction** (such as *although, because, since, when, while, if, until, after, before*) usually introduces it and makes it lean on a main clause. Some have no connector: in *"I thought you knew,"* *you knew* is dependent.
 
-In *"Although she was tired,"* *she* is the subject and *was* is the finite verb, yet *although* leaves you waiting for what happened next. Pair it with a main clause: *"Although she was tired, she finished her homework."*
+In *"Although she was tired,"* *although* leaves you waiting for what happened next. Pair it with a main clause: *"Although she was tired, she finished her homework."*
 
 :::why
-Why does one opening word change a whole clause? Drop *although* from *"Although she was tired"* and *"She was tired"* stands alone. Adding *although* signals that a second clause must follow.
+Why does one opening word change a whole clause? Drop *although* from *"Although she was tired"* and *"She was tired"* stands alone. Adding *although* signals that a main clause must go with it, before or after.
 :::
 
 :::pair #subordinator-makes-dependent
@@ -56,12 +56,12 @@ The answer is **Since**. It introduces *"the concert ended late"* and makes it d
 
 ### Checking After Words Like After, Before, and Since
 
-*After, before, since,* and *until* start either a **prepositional phrase** or a **dependent clause**. Compare what follows *after*:
+*After, before, since,* and *until* start either a **prepositional phrase** or a **dependent clause**. Compare:
 
 1. Noun group only, no finite verb: *"After the bus trip"* is a prepositional phrase.
 2. Subject paired with a finite verb: *"After the bus arrived"* has subject *the bus* and finite verb *arrived*, so it contains a dependent clause.
 
-Watch for event nouns that look like verbs, such as *trip* in *"After the bus trip"* or *journey* in *"During the bus journey."* After *the bus*, those words act as nouns, not finite verbs.
+Watch for event nouns such as *trip* or *journey*: after *the bus*, they act as nouns, not finite verbs.
 
 <!-- ILLUSTRATION: two stacked groups starting with "After": top "After [the bus trip]" with "the bus trip" bracketed and labeled "noun group, no finite verb -> prepositional phrase"; bottom "After [the bus] [arrived]" with "the bus" labeled "subject", "arrived" labeled "finite verb", and the whole group labeled "dependent clause" -->
 
@@ -91,7 +91,7 @@ How is the whole group *"the cat slept"* classified?
 
 The group is an **independent clause**.
 
-**Check:** Put a period after *"The cat slept."* It stands as a complete sentence.
+**Check:** *"The cat slept."* stands as a complete sentence.
 
 ### #2: Finding the Signal Word
 
@@ -103,7 +103,7 @@ In *"Because the road flooded, the bus was late,"* which word signals that the f
 2. Remove *Because*: *"the road flooded"* has subject *the road* and verb *flooded*, and stands alone.
 3. So **Because** is the signal word making the clause dependent.
 
-**Check:** Drop *Because* and *"The road flooded"* stands on its own, confirming *Because* caused the dependence.
+**Check:** *"The road flooded"* stands on its own, so *Because* caused the dependence.
 
 ### #3: Phrase or Clause After a Time Word
 
@@ -111,20 +111,19 @@ Which group contains a finite clause: *"Until the doors opened"* or *"Until the 
 
 **Solution:**
 
-1. Look in each group for a subject paired with a finite verb.
+1. Compare the words after *Until* in each group.
 
 :::try
-Finish the last step: test both groups, and name the one with a finite clause.
+Finish the last step: which group has a verb that changes when the time changes?
 :::answer
 **Until the doors opened** contains the finite clause. *The doors* is the subject, *opened* is the finite verb, and *Until* makes the clause dependent. In *"Until the opening ceremony,"* *ceremony* is a noun, so the group is a prepositional phrase.
 
-**Check:** Ask what the doors did: *"Until the opening ceremony"* does not say, while *"Until the doors opened"* states the action *opened*.
+**Check:** Change the time: *"Until the doors open"* changes the verb, while *"Until the opening ceremony"* has no verb to change.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Run two checks on every group. First, find a subject paired with a finite verb, not an event noun like *trip* or *journey*. Second, keep any opening connector (*although, when, since*) in the stand-alone test.
-
+Run two checks. First, find a subject paired with a finite verb, not an event noun like *trip* or *journey*. Second, keep any opening connector (*although, when, since*) in the stand-alone test.
 ## Traps to Watch For
 
 :::checklist

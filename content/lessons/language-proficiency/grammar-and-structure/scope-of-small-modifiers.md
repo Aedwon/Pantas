@@ -51,24 +51,24 @@ The answer is **The eater; the food**. *Only Ben* limits who ate, and *only the 
 
 ### Almost and Nearly Before Verbs vs. Quantities
 
-Putting **almost** or **nearly** before a **verb** means the action came close, yet did **not** happen:
+Putting **almost** or **nearly** before a **verb** usually means the action came close, yet did **not** happen:
 
 - *"Mara almost missed the train."* -> she nearly missed it, so she caught it.
 - *"The curator almost displayed all the vases."* -> the curator nearly displayed them, yet did not.
 
-Putting **almost** or **nearly** before a **quantity or frequency** (*every day, all the vases*) means most of that group or schedule:
+Putting **almost** or **nearly** before a **quantity or frequency** (*every day, all the vases*) means nearly all of that group or schedule:
 
-- *"The cyclists rode to school almost every day."* -> they rode on most days.
+- *"The cyclists rode to school almost every day."* -> they rode on nearly every day.
 - *"The curator displayed almost all the vases."* -> nearly all of the vases were shown.
 
 :::pair #almost-before-verb-vs-quantity
 Right: *"The cyclists rode to school almost every day."* and *"The curator displayed almost all the vases."*
 Wrong: Write *"The cyclists almost rode to school every day during the term."* or *"The curator almost displayed all the vases during the evening exhibition."*
-Putting *almost* before the verb (*almost rode*, *almost displayed*) says the action never happened. Put *almost* right before *every day* or *all the vases* when the action happened to most items or days.
+Putting *almost* before the verb (*almost rode*, *almost displayed*) says the action never happened. Put *almost* right before *every day* or *all the vases*.
 :::
 
 :::check
-Which says Tess nearly dropped the tray yet held it: *"Tess dropped almost every tray"* or *"Tess almost dropped the tray"*?
+Which says the tray stayed in Tess's hands: *"Tess dropped almost every tray"* or *"Tess almost dropped the tray"*?
 :::answer
 The answer is **"Tess almost dropped the tray."** *Almost* before *dropped* means the drop did not happen.
 :::
@@ -89,19 +89,19 @@ A ticket admits a guest on Saturday and no other day. Which states that clearly:
 
 ### #2: Almost and How Often
 
-Which says the cyclists rode on most days, not every day: *"Almost all the cyclists rode to school every day"* or *"The cyclists rode to school almost every day"*?
+Which says the cyclists rode on nearly every day, not every day: *"Almost all the cyclists rode to school every day"* or *"The cyclists rode to school almost every day"*?
 
 **Solution:**
 
 1. *"Almost all the cyclists"* limits how many cyclists rode.
 2. *"Almost every day"* puts *almost* right before *every day*, limiting how often they rode.
-3. The second sentence matches "most days."
+3. The second sentence matches "nearly every day."
 
-**Check:** Read *"almost every day"* alone: it means most days with some left out.
+**Check:** Read *"almost every day"* alone: it means nearly every day, with a few left out.
 
 ### #3: Keeping the Meaning of a Quantity
 
-The baker sold nearly all the loaves. Why do (a) *"Almost every baker sold all the loaves"* and (b) *"The baker sold all the loaves for almost the whole morning"* fail? Write the sentence that keeps the meaning.
+The baker sold all the loaves except a few. Why do (a) *"Almost every baker sold all the loaves"* and (b) *"The baker sold all the loaves for almost the whole morning"* fail? Write the sentence that keeps the meaning.
 
 **Solution:**
 

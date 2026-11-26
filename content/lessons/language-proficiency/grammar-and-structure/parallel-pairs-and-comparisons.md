@@ -46,7 +46,7 @@ The answer is **Offer**. The shared helping verb *will* governs both base verbs:
 
 ### Comparisons: Comparing Like to Like
 
-Comparisons with *than* or *as* must compare the same kind of thing or activity on both sides.
+Comparisons with *than* or *as* should compare the same kind of thing or activity on both sides.
 
 In *"Reading a book is more relaxing than to watch television,"* the left side uses *-ing* (*reading*) while the right switches to *to watch*. Change *to watch* to *watching*: *"Reading a book is more relaxing than watching television."*
 
@@ -104,7 +104,7 @@ Fix both errors in: *"The room is neither dark nor it is small. The rent is lowe
 **Solution:**
 
 1. In sentence 1, *neither* is followed by the adjective *dark* and *nor* by the clause *it is small*. Replace the clause: *"neither dark nor small."*
-2. Sentence 2 compares *the rent* with *the apartment*.
+2. Sentence 2 compares two things with *than*.
 
 :::try
 Finish the last step: rewrite sentence 2 so the comparison is fair.

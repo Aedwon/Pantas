@@ -41,7 +41,7 @@ Three verbs have their own forms in the present.
 - *I have*, *you have*, *we have*, *they have*, but *he has*, *she has*, *it has*
 - *I do*, *you do*, *we do*, *they do*, but *he does*, *she does*, *it does*
 
-Most other verbs follow one rule. With a singular third-person subject, add *-s* or *-es* to the verb: *she works*, *he watches*. With every other subject, use the plain verb: *I work*, *they watch*.
+Most other verbs follow one rule in the simple present. With a singular third-person subject, add *-s*, *-es* or *-ies*: *she works*, *he watches*, *she studies*. With every other subject, use the plain verb: *I work*, *they watch*.
 
 :::pair #verb-s
 Right: The dog barks every morning.
@@ -50,7 +50,7 @@ Wrong: The dog bark every morning.
 :::
 
 :::why
-Why does a singular subject get the *-s*? English puts the plural *-s* on the noun and the singular *-s* on the verb. So with most nouns, only one word in the pair ends in *-s*: "The dog barks." "The dogs bark."
+Why does a singular third-person subject get the *-s* on a regular present verb? English puts the plural *-s* on the noun and the singular *-s* on the verb. So with most nouns, only one word in the pair ends in *-s*: "The dog barks." "The dogs bark."
 :::
 
 :::check
@@ -67,14 +67,12 @@ The **head** is the main word of the subject. It controls the verb. The added ph
 
 <!-- ILLUSTRATION: the sentence "The basket of apples is heavy." with "of apples" grayed and bracketed as "added detail"; a teal arrow from "basket" to "is"; "basket" labeled "head, singular" -->
 
-Find the head in four moves:
+Find the head of the subject in "The basket of apples is heavy":
 
-1. Find the verb.
-2. Ask who or what does the action, or who or what the sentence describes.
-3. Set aside any phrase that only adds a detail.
-4. Read the head and the verb together. They must match.
-
-In "The basket of apples is heavy," the thing that is heavy is the basket. Set aside *of apples*. Read "The basket is heavy." *Basket* is singular, so *is* is correct.
+1. Find the verb: *is*.
+2. Ask who or what the sentence describes: what is heavy? The basket.
+3. Set aside the phrase that only adds a detail: *of apples*.
+4. Read the head and the verb together: "The basket is heavy." *Basket* is singular, so *is* matches, and "The basket of apples is heavy" is correct.
 
 :::pair #nearest-noun
 Right: The basket of apples is heavy.
@@ -96,7 +94,7 @@ Choose the correct forms: I *(am / is)* ready, and he *(have / has)* the documen
 
 **Solution:**
 
-1. The first subject is *I*. *I* always takes *am*.
+1. The first subject is *I*. With the present of *be*, use *I am*.
 2. The second subject is *he*, which is singular third person. In the present, *he* takes *has*.
 3. Read each pair together: "I am," "he has."
 
@@ -110,10 +108,9 @@ Choose the correct verb: The list of items on the shelf *(is / are)* long.
 
 **Solution:**
 
-1. The verb choice is *is* or *are*.
-2. Ask what is long. It is the list.
-3. Set aside the details: *of items* and *on the shelf*. The head is *list*.
-4. *List* is singular, so choose *is*.
+1. Ask what is long. It is the list.
+2. Set aside the details: *of items* and *on the shelf*. The head is *list*.
+3. *List* is singular, so choose *is*.
 
 Correct: "The list of items on the shelf is long."
 
@@ -125,9 +122,8 @@ Choose the correct verb: The quality of the new office chairs *(was / were)* bet
 
 **Solution:**
 
-1. The verb choice is *was* or *were*.
-2. Ask what was better than expected. It is the quality, not the chairs.
-3. Set aside the detail: *of the new office chairs*. The head is *quality*.
+1. Ask what was better than expected. It is the quality, not the chairs.
+2. Set aside the detail: *of the new office chairs*. The head is *quality*.
 
 :::try
 Finish the last step: is *quality* singular or plural, and which verb matches it?
@@ -139,13 +135,13 @@ Finish the last step: is *quality* singular or plural, and which verb matches it
 
 ## Speed Tricks & Shortcuts
 
-Find the subject before you choose the verb. Cover any phrase that starts with *of*, *on*, *in*, *with*, or a similar word, then check number and person.
+Find the subject before you choose the verb. Cover a phrase that adds a detail, such as one starting with *of*, *on*, *in* or *with*, then check number and person.
 
 One exception: after *some*, *most*, *all*, *half*, or *a lot*, the noun after *of* decides the verb. "Some of the money is missing." "Some of the students are absent." The next part of this topic covers these words.
 
 ## Traps to Watch For
 
 :::checklist
-- One person or thing as the subject, in the present: add *-s* to the verb, as in "The dog barks." {#verb-s}
+- Singular third-person subject with a regular present verb: add *-s*, as in "The dog barks." {#verb-s}
 - A phrase between the subject and the verb: cover it and match the head, as in "The box of chocolates is on the table." {#nearest-noun}
 :::

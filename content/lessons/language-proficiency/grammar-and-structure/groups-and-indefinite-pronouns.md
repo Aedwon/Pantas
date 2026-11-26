@@ -43,7 +43,7 @@ An **indefinite pronoun** refers to people or things without naming them. Singul
 - "Everybody in the auditorium **is** welcome."
 - "Nothing about the missing files **seems** to make sense."
 
-Set aside any added phrase between the pronoun and the verb, such as *in the auditorium* or *about the missing files*. Modern English often uses singular *they* or *their* to refer back to *everybody*, yet the verb paired with *everybody* itself stays singular: "Everybody **has** their own opinion."
+Set aside any added phrase between the pronoun and the verb. Modern English often uses singular *they* or *their* to refer back to *everybody*, yet the verb paired with *everybody* itself stays singular: "Everybody **has** their own opinion."
 
 :::why
 Why does *everybody* take a singular verb when it refers to many people? English grammar treats words built with *-body*, *-one*, or *-thing* as singular, so their verb stays singular even when singular *they* refers back later.
@@ -63,10 +63,10 @@ The answer is **Needs**. Set aside *in both offices*; *everybody* is grammatical
 
 ### Words Like All, Some, Most, and None
 
-With *all*, *some*, *most*, *half*, and *a lot* followed by *of*, look at the noun inside the *of*-phrase to pick the verb.
+With *all*, *some*, *most*, *half*, and *a lot* followed by *of*, look at the noun inside the *of*-phrase to pick the verb. Compare one amount with separate items:
 
-1. Uncountable (mass) noun: "Most of the water **has** evaporated." (*Water* is one amount -> singular *has*.)
-2. Plural countable noun: "Some of the cookies **are** gone." (*Cookies* are separate items -> plural *are*.)
+1. Uncountable (mass) noun, one amount: "Most of the water **has** evaporated."
+2. Plural countable noun, separate items: "Some of the cookies **are** gone."
 
 With *none of*, uncountable nouns always take a singular verb ("None of the water **is** left"). With plural countable nouns, *none of* takes a singular verb in strict formal style ("not one") or a plural verb in general use ("not any").
 
@@ -93,7 +93,9 @@ Choose the natural form for each context: (a) Under standard American English tr
 1. In (a), the committee acts as one unit under American English, so choose singular **has**.
 2. In (b), *among themselves* shows members acting separately, so British English uses plural **are**.
 
-**Check:** Substitute the matching pronoun: "It has reached a decision" (one unit) versus "They are arguing among themselves" (separate members).
+Correct: (a) "The committee has reached a decision." (b) "The team are arguing among themselves."
+
+**Check:** "It has reached a decision" (one unit); "They are arguing" (separate members).
 
 ### #2: Indefinite Pronoun with Singular Their
 
@@ -120,14 +122,14 @@ Choose the correct verbs: Most of the rice in the sacks *(has / have)* been pack
 :::try
 Finish the last step: what noun does *some* refer to in the second clause, and which verb matches it?
 :::answer
-The answer is **Are**. *Some* refers to the plural countable noun *apples*, so the second clause needs plural *are*: "some of the apples in the crate are bruised."
+The answer is **Are**. *Some* refers to the plural countable noun *apples*, so the second clause needs plural *are*: "Most of the rice in the sacks has been packed, and some of the apples in the crate are bruised."
 
 **Check:** Test each noun directly with its verb: "The rice has been packed" and "The apples are bruised." Both agree.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Check collective nouns for one-unit vs. separate-member cues, keep *-body/-one/-thing* pronouns singular, and match the noun after *of* for *all*, *some*, *most*, and *half*.
+Check collective nouns for one-unit or separate-member cues, keep *-body/-one/-thing* pronouns singular, and match the noun after *of* for *all*, *some*, *most*, and *half*.
 
 ## Traps to Watch For
 

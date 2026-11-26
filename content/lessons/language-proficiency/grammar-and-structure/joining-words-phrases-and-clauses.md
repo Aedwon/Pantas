@@ -31,7 +31,7 @@ The full phrase tells where, so test *under* by itself. Because *under* takes th
 :::pair #but-linking-clauses
 Right: In "She wanted to attend the party, but she had too much homework," *but* is a conjunction.
 Wrong: Label *but* a preposition or an adverb because it shows contrast.
-Look at the two groups around *but*. Both groups have a subject and verb, so *but* joins two clauses as a conjunction.
+Both groups around *but* have a subject and verb, so *but* joins two clauses as a conjunction.
 :::
 
 :::check
@@ -44,12 +44,12 @@ The answer is **Interjection**. *Oops* expresses a sudden reaction and stands in
 
 A **subject** tells who or what a clause is about. A **clause** has a subject and a verb (commands leave *you* understood). A **phrase** works as one part without a subject-verb pair.
 
-A **subordinate clause** has a subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
+A **subordinate clause** usually has its own subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting. Some use an *-ing* verb with the subject understood, as in *before leaving*. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
 
-Words like *before*, *after*, and *until* can do two jobs. Check what follows *before*:
+Words like *before*, *after*, and *until* can do two jobs. Compare a noun phrase with a clause after *before*:
 
-1. Noun phrase only: "We met **before** dinner." (*dinner* has no verb) -> **preposition**.
-2. Subject and verb: "We left **before** we finished dinner." (*we* = subject, *finished* = verb) -> **subordinating conjunction**.
+1. Preposition, noun phrase *dinner* with no verb: "We met **before** dinner."
+2. Subordinating conjunction, clause with subject *we* and verb *finished*: "We left **before** we finished dinner."
 
 <!-- ILLUSTRATION: two stacked sentences comparing "before": top "We met before [dinner]" with [dinner] bracketed and labeled "noun phrase -> preposition"; bottom "We left before [we finished dinner]" with "we" labeled "subject", "finished" labeled "verb", and [we finished dinner] labeled "clause -> subordinating conjunction" -->
 
@@ -60,7 +60,7 @@ Why does traditional school grammar place *before* in two classes? A preposition
 :::pair #phrase-or-clause
 Right: In "We left before we finished dinner," *before* is a subordinating conjunction.
 Wrong: Label *before* a preposition because "before dinner" is a prepositional phrase.
-Keep reading past *we*. Because *we* (subject) and *finished* (verb) follow *before*, it introduces a subordinate clause.
+Because *we* (subject) and *finished* (verb) follow *before*, it introduces a subordinate clause.
 :::
 
 :::check
@@ -106,16 +106,16 @@ In school grammar, identify **(1) extremely**, **(2) diligent**, **(3) quietly**
 3. *Quietly* modifies the verb *finished*, so **(3) quietly** is an **adverb**.
 
 :::try
-Finish the last step: look at "the bell rang" after *before* to decide whether **(4) before** is a preposition or a conjunction.
+Finish the last step: is **(4) before** a preposition or a conjunction?
 :::answer
-The answer is **Conjunction** (a subordinating conjunction). *The bell* is a subject and *rang* is a verb, so *before* introduces the subordinate clause *the bell rang*.
+The answer is **Conjunction** (a subordinating conjunction). *The bell* is a subject and *rang* is a verb, so *before the bell rang* is the subordinate clause.
 
-**Check:** Stopping at *the bell* would miss the verb *rang*; reading the full group "the bell rang" confirms a subject-verb clause.
+**Check:** Stopping at *the bell* would miss the verb *rang*; reading the full group "before the bell rang" confirms a subject-verb clause.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Look past *before*, *after*, *since*, and *until*. A noun phrase alone signals a preposition; a subject and verb signal a subordinating conjunction. Alone (*seen it before*), *before* is an adverb.
+Look past *before*, *after*, *since*, and *until*. In these sentences, a noun phrase alone signals a preposition; a subject and verb signal a subordinating conjunction. Alone (*seen it before*), *before* is an adverb.
 
 ## Traps to Watch For
 

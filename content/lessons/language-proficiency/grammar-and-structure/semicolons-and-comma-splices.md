@@ -24,7 +24,7 @@ Joining two independent clauses with only a comma is a **comma splice**: *"The c
 2. Replace the comma with a period (.).
 3. Add a coordinating conjunction (*and, but, so, yet, or, for, nor*) after the comma.
 
-Condition: a semicolon here needs an **independent clause on both sides**. Never put a semicolon before a dependent clause (*"; because she visits..."*), before a phrase (*"; after regular servicing"*), or right after *and* (*"and;"*).
+Condition: a semicolon that joins clauses needs an **independent clause on both sides**. Do not put one before a dependent clause (*"; because she visits..."*), before a phrase (*"; after regular servicing"*), or right after *and* (*"and;"*).
 
 :::pair #comma-splice-same-topic
 Right: Fix *"The concert was amazing, everyone stayed until the end"* by replacing the comma with a semicolon (;).
@@ -53,7 +53,7 @@ In *"We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea,"* each pair
 <!-- ILLUSTRATION: marked-up list "We visited [Manila, Philippines] ; [Tokyo, Japan] ; and [Seoul, Korea]." with each city-country pair bracketed, the internal commas shown in gray, and the boundary semicolons highlighted in teal -->
 
 :::why
-Why switch to semicolons for a list with inside commas? Semicolons act as heavier dividers than commas, so the reader sees three two-part items instead of six separate words.
+Why switch to semicolons for a list with inside commas? Semicolons act as heavier dividers than commas, so the reader sees three two-part items.
 :::
 
 :::pair #semicolons-in-complex-list
@@ -63,7 +63,7 @@ All commas blur the pairs into six places, while semicolons inside each pair spl
 :::
 
 :::check
-Where do the semicolons go in *"The delegates came from Calamba, Laguna / Vigan, Ilocos Sur / and Malolos, Bulacan"*?
+Each city in *"The delegates came from Calamba, Laguna, Vigan, Ilocos Sur, and Malolos, Bulacan"* comes with its province. Where do the semicolons go?
 :::answer
 The answer is **After *Laguna* and after *Ilocos Sur***. Each city-province pair keeps its internal comma, and semicolons divide the three pairs.
 :::
@@ -72,29 +72,29 @@ The answer is **After *Laguna* and after *Ilocos Sur***. Each city-province pair
 
 ### #1: Fixing a Comma Splice
 
-Identify and fix the error: *"The concert was amazing, everyone stayed until the end."*
+Identify and fix the error: *"The store closed early, the clerks went home."*
 
 **Solution:**
 
-1. Test the first half: *"The concert was amazing"* stands alone.
-2. Test the second half: *"everyone stayed until the end"* stands alone.
+1. Test the first half: *"The store closed early"* stands alone.
+2. Test the second half: *"the clerks went home"* stands alone.
 3. Replace the comma splice with a semicolon (;).
 
-Corrected sentence: **"The concert was amazing; everyone stayed until the end."**
+Corrected sentence: **"The store closed early; the clerks went home."**
 
-**Check:** Put a period at the semicolon: *"The concert was amazing."* *"Everyone stayed until the end."* Both are complete sentences.
+**Check:** Put a period at the semicolon: *"The store closed early."* *"The clerks went home."* Both are complete sentences.
 
 ### #2: Why a Semicolon Fails Before a Phrase
 
-Why is the semicolon faulty in *"The machine runs smoothly; after regular servicing"*?
+Why is the semicolon faulty in *"The boat sank; during the storm"*?
 
 **Solution:**
 
-1. *"The machine runs smoothly"* has subject *the machine* and finite verb *runs*, so it is independent.
-2. *"After regular servicing"* has no subject and no finite verb, so it is a phrase.
+1. *"The boat sank"* has subject *the boat* and finite verb *sank*, so it is independent.
+2. *"During the storm"* has no subject and no finite verb, so it is a phrase.
 3. Because the second half is not an independent clause, the semicolon is faulty.
 
-**Check:** Read *"After regular servicing."* alone: it is not a full sentence.
+**Check:** Read *"During the storm."* alone: it is not a full sentence.
 
 ### #3: Choosing the Punctuation for a List
 
@@ -118,7 +118,7 @@ The answer is **(C) "The panel included Dr. Cruz, a surgeon; Ms. Lim, a teacher;
 
 ## Speed Tricks & Shortcuts
 
-Cover the semicolon and test both sides as standalone sentences; if either side needs the other, drop the semicolon. For complex lists, bracket each item, then put semicolons between brackets.
+For a semicolon between clauses, cover it and test both sides as standalone sentences; if either side needs the other, drop the semicolon. For complex lists, bracket each item, then put semicolons between brackets.
 
 ## Traps to Watch For
 

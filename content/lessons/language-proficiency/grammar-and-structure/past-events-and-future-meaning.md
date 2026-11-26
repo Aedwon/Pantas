@@ -55,7 +55,7 @@ The answer is **Will close**. *Tomorrow* points to the future, and *will* always
 
 ### When a Tense Shift Is Correct
 
-Keep one tense for same-time actions; shift tenses when time clues change:
+Usually keep one tense for same-time actions; shift tenses when time clues change:
 
 - Same time: "Yesterday, she **walked** to the store and **bought** bread." (Both are yesterday.)
 - Different times: "I **studied** yesterday, and I **will practice** tomorrow." (Past moves to future.)
@@ -67,7 +67,7 @@ Why is a tense shift allowed in "I studied yesterday, and I will practice tomorr
 :::pair #justified-tense-shift
 Right: "I studied yesterday, and I will practice tomorrow" is justified because the two time clues set different timelines.
 Wrong: Say no, because every coordinated sentence must use one tense throughout.
-Joining two clauses with *and* does not force them into the same time. Only keep one tense when both actions share the same timeline.
+Joining two clauses with *and* does not force them into the same time. Keep one tense when both actions share the same timeline.
 :::
 
 :::check
@@ -94,19 +94,19 @@ Correct: "Yesterday, she walked to the store and bought some bread."
 
 ### #2: Naming a Verb Form
 
-Identify the verb tense in "She will write a letter tomorrow."
+Identify the verb tense in "We will visit the museum on Friday."
 
 **Solution:**
 
-1. Find the full verb group before *a letter*: *will write*.
-2. Check the helper *will* and the time clue *tomorrow*: both mark a future action.
+1. Find the full verb group before *the museum*: *will visit*.
+2. Check the helper *will* and the time clue *on Friday*: both mark a future action.
 3. Match the form *will* + base verb to its label: **simple future**.
 
-**Check:** Test *will write* directly: *will* plus the base verb *write* points forward to a planned or future action *tomorrow*, confirming **simple future** (whereas *has/had written* use *has/had* for perfect forms and simple past *wrote* looks backward).
+**Check:** Test *will visit* directly: *will* plus the base verb *visit* points forward to a future action, confirming **simple future** (whereas *has/had visited* use *has/had* for perfect forms and simple past *visited* looks backward).
 
 ### #3: Judging a Tense Shift Across Clauses
 
-Decide whether the tense shift in "We cleaned the room on Saturday, and we will paint it next week" is justified.
+Decide whether the tense shift in "We cleaned the room on Saturday, and we paint the walls on Saturday" is justified.
 
 **Solution:**
 
@@ -115,9 +115,9 @@ Decide whether the tense shift in "We cleaned the room on Saturday, and we will 
 :::try
 Finish the job: check the second clause, then say whether the shift is justified and why.
 :::answer
-The answer is **Yes, the two time clues set different timelines.** *On Saturday* requires past *cleaned*, while *next week* requires future *will paint*.
+The answer is **No, the shift is not justified.** Both clauses share the clue *on Saturday*, which is past, so *paint* must become *painted*: **"We cleaned the room on Saturday, and we painted the walls on Saturday."**
 
-**Check:** Test the opposite: changing *will paint* to *painted* would clash with *next week*, and changing *cleaned* to *will clean* would clash with *on Saturday*.
+**Check:** Read each verb with its clue: *cleaned on Saturday* and *painted on Saturday* are both past.
 :::
 
 ## Speed Tricks & Shortcuts

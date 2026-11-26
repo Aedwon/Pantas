@@ -20,7 +20,7 @@ keyPoints:
 A **part of speech**, or **word class**, names a word's job in a sentence. Traditional school grammar uses eight classes. This lesson covers five, and the next part covers three more.
 
 - **Noun**: names a person, place, thing, or idea (*Maria, city, book, freedom*). In "Maria bought a **book**," *book* names a thing.
-- **Pronoun**: replaces a noun or name (*he, she, they, it, who*). In "Carlos finished **his** part, and **he** left," *he* stands for *Carlos*.
+- **Pronoun**: often stands in for a noun phrase (*he, she, they, it, who*). In "Carlos finished his part, and **he** left," *he* stands for *Carlos*. In "**Who** called?" *who* asks which person is meant.
 - **Verb**: states an action, event, or state (*laughed, happen, is, felt*). In "The children **laughed**," *laughed* tells what they did.
 - **Adjective**: describes a noun or pronoun (*diligent, light, silly*). In "The **diligent** student smiled," *diligent* describes *student*.
 - **Adverb**: modifies a verb, adjective, another adverb, or a whole statement (*loudly, very, remarkably*). In "She finished **quickly**," *quickly* tells how she finished. In "**Remarkably**, the library reopened," *remarkably* comments on the statement.
@@ -43,9 +43,9 @@ Many English words do more than one job. Read the sentence to check what the wor
 
 Compare *light* in three uses:
 
-1. "Turn on the **light**." *Light* follows *the* and names a thing, so it is a **noun**.
-2. "Please **light** the candle." *Light* gives an action command, so it is a **verb**.
-3. "The bag felt **light**." *Light* follows *felt* and describes *the bag*, so it is an **adjective**.
+1. Noun, after *the*: "Turn on the **light**."
+2. Verb, a command: "Please **light** the candle."
+3. Adjective, describing *the bag*: "The bag felt **light**."
 
 :::pair #class-by-habit
 Right: In "She went for a run every morning," *run* follows *a* as an activity name, so it is a noun.
@@ -91,7 +91,7 @@ Identify the part of speech of each word in bold: "Although Carlos was late, **h
 2. *Difficult* describes *task*, so it is an **adjective**.
 3. *Quickly* tells how he finished, so it is an **adverb**.
 
-**Check:** Swap *Carlos* for *he* ("Carlos finished"), pair *difficult task* (adjective + noun), and pair *finished quickly* (verb + adverb).
+**Check:** Replace *he* with *Carlos* ("Carlos finished") to see who it stands for, pair *difficult task* (adjective + noun), and pair *finished quickly* (verb + adverb).
 
 ### #2: Same Word, Three Jobs
 

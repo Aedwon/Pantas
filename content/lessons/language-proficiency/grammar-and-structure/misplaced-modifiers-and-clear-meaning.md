@@ -40,7 +40,7 @@ The answer is **"The mechanic showed the owner a car with a dented door."** Putt
 
 A clear revision is still wrong if it moves the modifier onto the **wrong person or object** and changes the intended meaning.
 
-Compare *"The teacher, who wore a blue jacket, spoke to the student after class"* with *"The teacher spoke to the student wearing a blue jacket."* The first sentence is smooth, yet it puts the jacket on the teacher instead of the student.
+If the student wore the jacket, compare *"The teacher, who wore a blue jacket, spoke to the student after class"* with *"The teacher spoke to the student wearing a blue jacket."* The first sentence is smooth, yet it puts the jacket on the teacher instead of the student.
 
 The same rule holds for single-word modifiers like *broken*. When the window is damaged, *"A worker on a ladder repaired the broken window"* keeps *broken* on *window*, while *"A worker repaired the window on a broken ladder"* shifts the damage to the ladder.
 
@@ -51,7 +51,7 @@ Why can a smooth sentence still fail? Modifier questions test both clarity and f
 :::pair #smooth-but-wrong-target
 Right: *"The teacher spoke to the student wearing a blue jacket."*
 Wrong: Choose *"The teacher wearing a blue jacket spoke to the student after class."* or *"The teacher, who wore a blue jacket, spoke to the student after class."* when the student wore the jacket.
-Both wrong options are clear, yet they put the jacket on *the teacher*. Check which noun the prompt gives the detail to before picking a smooth sentence.
+Both wrong options are clear, yet they put the jacket on *the teacher*.
 :::
 
 :::check

@@ -38,7 +38,7 @@ The answer is **Have cleaned**. After *have*, always use the past participle (*c
 
 ### Linking the Past to Now
 
-Present perfect connects a past action or state to now. Use it for:
+Present perfect connects a past action or state to now. Common uses:
 
 1. A present result: "She **has finished** the report, so it is ready now."
 2. Experience up to now: "Mara **has visited** Cebu twice."
@@ -48,7 +48,7 @@ Present perfect connects a past action or state to now. Use it for:
 <!-- ILLUSTRATION: horizontal timeline showing "last month" with a solid teal arrow extending to "now" labeled "have lived here ever since (present perfect)", below a marked point at "yesterday afternoon" labeled "submitted (simple past)" -->
 
 :::why
-Why does "We arrived last month and have lived here ever since" change verb forms? Moving happened and ended last month (*arrived*). Living here started then and is still true now (*have lived*).
+Why does "We arrived last month and have lived here ever since" change verb forms? The arrival happened and ended last month (*arrived*). Living here started then and is still true now (*have lived*).
 :::
 
 :::pair #still-true-now
@@ -58,7 +58,7 @@ Wrong: We had lived here until last month, and then we left.
 :::
 
 :::check
-Choose the form for a job continuing to now: "Our neighbor *(has worked / had worked)* at the bank since 2020."
+Choose the form: "Our neighbor *(has worked / had worked)* at the bank since 2020."
 :::answer
 The answer is **Has worked**. The job continues into the present, so present perfect links 2020 to now.
 :::
@@ -86,27 +86,27 @@ The answer is **Arrived**. *Last night* names a finished past time, so choose si
 
 ### #1: Identifying Present Perfect
 
-Identify the tense in "She has written three letters this week."
+Identify the tense in "The team has repaired three roofs this month."
 
 **Solution:**
 
-1. Find the full verb group: *has written*.
-2. Check the helper: present *has* pairs with the past participle *written*.
+1. Find the full verb group: *has repaired*.
+2. Check the helper: present *has* pairs with the past participle *repaired*.
 3. Match the form (*has* + past participle) to its tense: **present perfect**.
 
-**Check:** *Has* plus *written*, with *this week* and no finished past time word, confirms **present perfect**.
+**Check:** *Has* plus *repaired*, with *this month* and no finished past time word, confirms **present perfect**.
 
 ### #2: Choosing Simple Past for a Finished Time
 
-Choose the right verb form: "The committee ___ its report yesterday afternoon."
+Choose the right verb form: "The mayor ___ the new bridge last Friday."
 
 **Solution:**
 
-1. Spot the time clue: *yesterday afternoon*.
-2. Decide if that period is finished: yesterday afternoon is over.
-3. Rule out present perfect (*has submitted*), *has submit*, and future (*will submit*), leaving simple past **submitted**.
+1. Spot the time clue: *last Friday*.
+2. Decide if that period is finished: last Friday is over.
+3. Rule out present perfect (*has opened*), *has open*, and future (*will open*), leaving simple past **opened**.
 
-**Check:** Pair *yesterday afternoon* with a second verb: "I read it yesterday afternoon" also uses simple past.
+**Check:** Pair *last Friday* with a second verb: "I saw it last Friday" also uses simple past.
 
 ### #3: Choosing Between Three Sentences
 

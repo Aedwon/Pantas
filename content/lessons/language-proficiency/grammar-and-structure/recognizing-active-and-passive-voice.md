@@ -73,24 +73,24 @@ Never invent an actor when the doer is unknown. *Were changed* is also passive, 
 :::
 
 :::check
-No one knows who misplaced the files. Which fits better: "Someone lost the files" or "The files were lost"?
+No one knows who misplaced the files. Which fits better: "The cleaner lost the files" or "The files were lost"?
 :::answer
-The answer is **"The files were lost."** Passive voice reports what happened without inventing an unknown actor.
+The answer is **"The files were lost."** Passive voice reports what happened without inventing an actor. *The cleaner* is a doer nobody knows.
 :::
 
 ## Examples
 
 ### #1: Active, Passive, and Linking Clauses
 
-Label each sentence: (a) "The dog chased the ball." (b) "The ball was chased by the dog." (c) "She is happy."
+Label each sentence: (a) "The nurse checked the chart." (b) "The chart was checked by the nurse." (c) "He is calm."
 
 **Solution:**
 
-1. In (a), the subject *the dog* does the chasing -> **active voice**.
-2. In (b), the subject *the ball* receives the chasing (*was chased*) -> **passive voice**.
-3. In (c), *is* links *she* to the adjective *happy* -> **linking construction**, not passive.
+1. In (a), the subject *the nurse* does the checking -> **active voice**.
+2. In (b), the subject *the chart* receives the checking (*was checked*) -> **passive voice**.
+3. In (c), *is* links *he* to the adjective *calm* -> **linking construction**, not passive.
 
-**Check:** Test each verb group: *chased* has no *be* helper (active), *was chased* pairs *be* with a past participle (passive), and *is happy* pairs *be* with an adjective (*very happy*).
+**Check:** Test each verb group: *checked* has no *be* helper (active), *was checked* pairs *be* with a past participle (passive), and *is calm* pairs *be* with an adjective (*very calm*).
 
 ### #2: Tense and Voice Together
 
@@ -104,13 +104,13 @@ In "By the time the manager reviewed it, the report had already been submitted b
 
 **Check:** Active form "the intern had already submitted the report" keeps *had submitted* (past perfect) with *the intern* acting.
 
-### #3: A Notice About a Finished Change
+### #3: A Notice About the Lobby Doors
 
 A notice must report that the lobby doors are now locked and that this matters now. Nobody knows who locked them. Choose between "The guard has locked the lobby doors" and "The lobby doors have been locked."
 
 **Solution:**
 
-1. List what the notice must show: a finished change, and an unknown doer.
+1. Read both sentences against what the notice knows.
 
 :::try
 Finish the last step: which sentence fits, and why?

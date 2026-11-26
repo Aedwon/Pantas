@@ -17,11 +17,11 @@ keyPoints:
 
 ### Simple Sentences, Even With Compound Parts
 
-A **clause** has a subject and a finite verb. An **independent clause** gives a complete thought and stands alone (*"The supervisor signed the request."*). A **dependent clause** starts with a subordinating word like *although, because,* or *when* and cannot stand alone (*"Although the supervisor signed the request"*).
+A **clause** has a finite verb and its subject (in a command, *you* is understood). An **independent clause** gives a complete thought and stands alone (*"The supervisor signed the request."*). A **dependent clause** cannot stand alone and often starts with a subordinating word such as *although, because,* or *when* (*"Although the supervisor signed the request"*).
 
 A **complex sentence** has one independent clause and at least one dependent clause. A **compound-complex sentence** has two or more independent clauses and at least one dependent clause.
 
-A **simple sentence** has **one independent clause** and **zero dependent clauses**. A simple sentence can still be long or use *and*:
+A **simple sentence** has **one independent clause** and **zero dependent clauses**. A simple sentence can still use *and*:
 
 - **Compound subject:** two subjects sharing one verb (*"The dog and cat played together in the yard."*).
 - **Compound verb:** one subject doing two verbs (*"The teacher prepared and rehearsed the play."*).
@@ -84,7 +84,7 @@ Classify *"The teacher and her students prepared and rehearsed the play."*
 2. *Prepared and rehearsed* is one compound verb sharing that subject.
 3. With one independent clause and zero dependent clauses, the sentence is **Simple**.
 
-**Check:** Split at *and*: *"her students"* alone has no verb and *"rehearsed the play"* alone has no subject, confirming one clause.
+**Check:** Split at *and*: *"her students"* alone has no verb and *"rehearsed the play"* alone has no subject.
 
 ### #2: Compound Sentence With a Semicolon
 
@@ -96,7 +96,7 @@ Classify *"The clinic reopened; appointments resumed."*
 2. *"Appointments resumed"* has subject *appointments* and verb *resumed*, so it also stands alone.
 3. Two independent clauses and zero dependent clauses make the sentence **Compound**.
 
-**Check:** Replace the semicolon with a comma and *and*: *"The clinic reopened, and appointments resumed."* Both sides stand complete.
+**Check:** Replace the semicolon with a comma and *and*: *"The clinic reopened, and appointments resumed."*
 
 ### #3: Classifying After a Deletion
 
@@ -117,7 +117,7 @@ The remaining structure is **Compound**. *"The driver unloaded the supplies"* is
 
 ## Speed Tricks & Shortcuts
 
-Split at *and, but, so,* or a semicolon and test each side alone. If both sides stand as full sentences with no subordinating word (*although, when, while, because*), the sentence is compound.
+Split at a joining word (*and, but, so*) or a semicolon and test each side alone. If both sides stand as full sentences with no subordinating word (*although, when, while, because*), the sentence is compound.
 
 ## Traps to Watch For
 

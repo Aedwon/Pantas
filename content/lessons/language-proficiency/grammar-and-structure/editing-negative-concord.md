@@ -18,7 +18,7 @@ keyPoints:
 
 **Standard edited English** is the style expected in formal reports, essays, and exam tasks. To state one negative idea in standard edited English, use **one negative pattern** in the clause.
 
-Words such as *no, nobody, nothing, never,* and *nowhere* already carry a negative meaning. Write the negative in either of two ways:
+Words such as *no, nobody, nothing, never,* and *nowhere* already carry a negative meaning. Two common ways to write one negative idea:
 
 1. Negative verb plus an *any-* word: *"She doesn't want **any** help with the project."* or *"There isn't **anybody** at the office right now."*
 2. Positive verb plus a *no-* word: *"She wants **no** help with the project."* or *"There is **nobody** at the office right now."*
@@ -60,9 +60,9 @@ Wrong: Revise it to *"There is somebody at the office right now, waiting inside.
 :::
 
 :::check
-A speaker says, *"She won't go nowhere tonight."* For an exam testing standard formal English, does this mean she will go somewhere, or does it use dialectal negative concord?
+A speaker who uses negative concord says, *"She won't go nowhere tonight."* Write the formal English version with the same meaning.
 :::answer
-The answer is **It uses dialectal negative concord.** *Won't* and *nowhere* express one negative (she stays home), edited in formal English to *"She won't go anywhere tonight"* or *"She will go nowhere tonight."*
+The answer is **"She won't go anywhere tonight"** (or *"She will go nowhere tonight"*). *Won't* and *nowhere* express one negative, so one pattern remains.
 :::
 
 ## Examples
@@ -107,7 +107,7 @@ In standard formal English, choose the best revision of *"He didn't bring nothin
 :::try
 Finish the last step: compare (B), (C) and (D), and pick the right choice.
 :::answer
-The answer is **(D) "He didn't bring anything to the party."** Choice (B) turns the refusal into a gift. Choice (C) (*didn't bring something special*) denies only one kind of item, whereas *didn't bring anything* says he brought nothing at all.
+The answer is **(D) "He didn't bring anything to the party."** Choice (B) changes bringing nothing to bringing a gift. Choice (C) (*didn't bring something special*) denies only one kind of item, whereas *didn't bring anything* says he brought nothing at all.
 
 **Check:** Swap *didn't bring anything* for *brought nothing*: *"He brought nothing to the party."* Both match the same meaning.
 :::
@@ -119,7 +119,7 @@ Keep the speaker's single negative meaning intact, then edit for formal English 
 ## Traps to Watch For
 
 :::checklist
-- Negative verb plus *no* in formal English: replace *no* with *any* so you keep one negative and preserve the refusal. {#keeping-negative-concord-in-formal}
+- Editing negative concord (negative verb plus *no*) into formal English: replace *no* with *any* to keep one negative and the same meaning. {#keeping-negative-concord-in-formal}
 - Dialectal negative concord (*didn't see nothing*): read it as one negative meaning, never as math cancellation into a positive. {#math-cancellation-on-dialect}
 - Replacing *nobody* in *"isn't nobody"*: use *anybody*, never *somebody* or *somebody specific*. {#erasing-or-narrowing-absence}
 :::

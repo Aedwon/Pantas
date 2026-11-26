@@ -38,7 +38,7 @@ The answer is **A phrase**. *After* introduces the noun group *the morning meeti
 
 ### Commands Have an Understood Subject
 
-In a command such as "Close the door" or "Sit down," the subject is not written out, yet it is still there. The **understood subject** (implied subject) is *you*, the person spoken to: "(You) close the door."
+In a command such as "Close the door" or "Sit down," the subject is usually not written out, yet it is still there. The **understood subject** (implied subject) is *you*, the person spoken to: "(You) close the door."
 
 Because a command pairs the understood subject *you* with a real verb (*close*, *sit*) and gives a complete instruction, it is an **independent clause**.
 
@@ -84,26 +84,26 @@ Is "beside the quiet lake" a phrase or a clause: (A) Prepositional phrase, (B) I
 
 **Check:** Test adding a clause before it: "We camped beside the quiet lake." Here *beside the quiet lake* works as one location unit answering *where*, confirming it is a prepositional phrase.
 
-### #3: Classifying a Complete Command
+### #3: Classifying an Instruction
 
 In "Open the window," what kind of word group is the complete command?
 
 **Solution:**
 
 1. Find the action word: *open* is a command verb telling someone to act.
-2. Find who is expected to open the window: the listener.
+2. Ask who is expected to open the window.
 
 :::try
 Finish the last step: is "Open the window" a phrase, a dependent clause, or an independent clause, and why?
 :::answer
 The answer is **Independent clause; implied subject.** Because *open* pairs with the understood subject *you* and gives a complete instruction, it stands alone as a full sentence without needing another clause.
 
-**Check:** Write the understood word in front: "You open the window." With *you* visible, the subject (*you*) and verb (*close*) stand out clearly as a complete independent clause.
+**Check:** Write the understood word in front: "You open the window." With *you* visible, the subject (*you*) and verb (*open*) stand out clearly as a complete independent clause.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Look for the verb first. No verb means the group is a phrase, never a clause (even if it sounds incomplete like a dependent clause). If the group is an order or polite request that starts with a plain action verb (not *Let's*), supply *you* in front to reveal the full independent clause.
+Look for the verb first. In these examples, a group with no verb is a phrase, not a clause. If the group is an order or polite request that starts with a plain action verb (not *Let's*), supply *you* in front to reveal the full independent clause.
 
 ## Traps to Watch For
 

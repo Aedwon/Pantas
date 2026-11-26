@@ -32,14 +32,14 @@ Wrong: Use simple past (*cooked*) when the prompt asks for past perfect, or pres
 :::
 
 :::check
-Choose the past-perfect form for an action finished before a past time: "Ana *(had called / has called)* the client before the meeting started yesterday."
+Choose the correct form: "Ana *(had called / has called)* the client before the meeting started yesterday."
 :::answer
 The answer is **Had called**. *Before the meeting started yesterday* is a past reference point, so earlier completion uses *had* rather than *has*.
 :::
 
 ### When Time Words Already Show Order
 
-Past perfect is optional when *before* or *after* already shows order. Compare simple past and past perfect with *before*:
+Past perfect is often optional when *before* or *after* already shows order. Compare simple past and past perfect with *before*:
 
 - "She **finished** the report before her boss **asked** for it." (Simple past, clear order.)
 - "She **had finished** the report before her boss **asked** for it." (Past perfect, stresses earlier completion.)
@@ -83,7 +83,7 @@ Why is "He locked the gate before the guard arrived" grammatical in standard Eng
 **Solution:**
 
 1. Identify the two past actions: *locked* (Action 1) and *arrived* (Action 2).
-2. Check the word that joins them.
+2. Place the two actions on a timeline.
 
 :::try
 Finish the last step: why does simple past *locked* work here without needing *had locked*?

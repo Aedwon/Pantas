@@ -89,15 +89,15 @@ Choose what fits each rule: (a) Treating *class* as one unit: "The class finishe
 
 ### #2: Joined Antecedents
 
-In "Liza and Carlo, who share one project, finished ______ project early," choose *their*, *her*, *his*, or *theirs*.
+In "Tess and Raul, who share one garden, watered ______ garden at dawn," choose *their*, *her*, *his*, or *theirs*.
 
 **Solution:**
 
-1. *Liza and Carlo* are joined by *and* and share the project, so rule out *her* and *his*.
-2. The noun *project* follows the blank, so rule out standalone *theirs*.
+1. *Tess and Raul* are joined by *and* and share the garden, so rule out *her* and *his*.
+2. The noun *garden* follows the blank, so rule out standalone *theirs*.
 3. Choose **their**.
 
-**Check:** Swap in *they*: "They finished their project early" fits both owners.
+**Check:** Read the finished sentence: "Tess and Raul watered their garden at dawn."
 
 ### #3: A Group Inside a Longer Sentence
 

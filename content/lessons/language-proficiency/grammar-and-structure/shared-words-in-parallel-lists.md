@@ -30,7 +30,7 @@ Condition: a shared word works only if it fits every item. When two items need d
 <!-- ILLUSTRATION: branching diagram from a single box "how to" to three aligned rows: "install (base verb)", "update (base verb)", and "repair (base verb)" each with a teal checkmark, with "updating (-ing)" crossed out beside row 2 -->
 
 :::why
-Why does one *to* work for three verbs? Once *how to* opens the list, English carries that same *to* forward to every joined base verb until the list ends.
+Why does one *to* work for three verbs? Once *how to* opens the list, English can carry that same *to* forward to every joined base verb in the list.
 :::
 
 :::pair #mixed-form-under-shared-word
@@ -101,7 +101,7 @@ Identify and fix the parallelism error: *"The clinic lets patients book visits, 
 **Solution:**
 
 1. Find the shared lead-in: *"lets patients."*
-2. Check the verb form that fits after *"lets patients"*: *book* is a base verb.
+2. Test each item after *"lets patients"*.
 
 :::try
 Finish the last step: fix the list.

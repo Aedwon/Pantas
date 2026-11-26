@@ -23,7 +23,7 @@ In *"The volunteer who repaired the bench returned today,"* *who repaired the be
 Pick the relative word by job and commas:
 
 - **Who vs. whom:** Use *who* as the clause subject (*the volunteer who repaired the bench*). In formal prose, use *whom* as the object of a verb or preposition (*the volunteer whom the mayor thanked*).
-- **That vs. which:** Use *that* without commas for an essential clause telling which noun is meant (*"The bench that sits by the gate is dry."*). Use *which* with commas for extra side detail about an already clear noun (*"The front bench, which was painted yesterday, is dry."*). Never use *that* after a comma in a non-defining clause.
+- **That vs. which (formal American style):** Use *that* without commas for an essential clause telling which noun is meant (*"The bench that sits by the gate is dry."*). Use *which* with commas for extra side detail about an already clear noun (*"The front bench, which was painted yesterday, is dry."*). Never use *that* after a comma in a non-defining clause.
 
 :::pair #relative-is-dependent
 Right: In *"The volunteer who repaired the bench returned today,"* *"who repaired the bench"* is a **Dependent clause**.
@@ -96,16 +96,16 @@ In *"The pilot who flew the storm route landed safely,"* find the relative claus
 1. *Who flew the storm route* starts with *who* and describes *the pilot*, so it is a dependent relative clause.
 
 :::try
-Finish the last step: name the independent clause, and say why.
+Finish the last step: name the independent clause and its main verb, and say why.
 :::answer
-The answer is **The whole sentence**. *The pilot* is the main subject and *landed* is its main verb, with the relative clause inside the subject.
+The answer is **The whole sentence**, with main verb **landed**. *The pilot* is the main subject, and *flew* belongs to the relative clause inside the subject.
 
 **Check:** Cover *"who flew the storm route"* and read *"The pilot landed safely."* Both the main subject and main verb remain.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Bracket the relative clause that starts with *who, whom, which,* or *that*. It usually ends right before the main verb, or at the end of the sentence if it comes last. Read outside the brackets to pair the main subject with its main verb.
+Bracket the relative clause that starts with *who, whom, which,* or *that* right after a noun. It usually ends right before the main verb. Read outside the brackets to pair the main subject with its main verb.
 
 ## Traps to Watch For
 

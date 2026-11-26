@@ -17,7 +17,7 @@ keyPoints:
 
 ### Requirement, Advice, Ban, and Optional Action
 
-Keep four closely related modal meanings separate in rules and notices:
+Keep four closely related modal meanings separate in rules and notices. Typical forms:
 
 1. **Requirement:** *must* and *have to* state a rule: "Applicants **have to** bring a photo pass." (Use *has to* for singular third person and *had to* for the past.)
 2. **Advice:** *should* recommends an action: "Applicants **should** arrive ten minutes early."
@@ -31,7 +31,7 @@ Why do *must* and *have to* split apart with *not*? *Must not* bans an action co
 :::pair #optional-vs-banned
 Right: When bringing a printed reference sheet is optional, write "Applicants do not have to bring a sheet."
 Wrong: Write "Applicants must not bring a printed sheet," "Applicants have to bring a printed reference sheet," or "Applicants should bring a printed reference sheet."
-*Must not* turns optional into a ban, *have to* makes it a rule, and *should* makes it advice. Only *do not have to* means optional.
+*Must not* turns optional into a ban, *have to* makes it a rule, and *should* makes it advice. Here only *do not have to* means optional.
 :::
 
 :::check
@@ -93,7 +93,7 @@ A notice states that bringing a printed reference sheet is optional. Choose the 
 2. Rule out *must not* (ban), *have to* (rule), and *should* (advice).
 3. Choose **"Applicants do not have to bring a sheet."**
 
-**Check:** Test both cases: bringing a sheet is still allowed (ruling out *must not*), and skipping it is also allowed (ruling out *have to* and *should*).
+**Check:** Test both cases: bringing a sheet is still allowed (ruling out *must not*), and nobody is told to bring it (ruling out *have to* and *should*).
 
 ### #2: Identifying Possibility in Context
 
@@ -112,7 +112,7 @@ Read: "Could I borrow the projector?" "The cable is plugged in and the screen is
 
 **Solution:**
 
-1. Find the clues in the reply: a plugged-in cable and a bright screen.
+1. Read both lines of the exchange.
 
 :::try
 Finish the job: what do *could* and *must* express in this exchange?
@@ -129,7 +129,7 @@ Check two signals: negative phrasing and evidence clues. Separate *must not* (ba
 ## Traps to Watch For
 
 :::checklist
-- Optional action vs. ban or rule: use *do not have to* for optional, never *must not*, *have to*, or *should*. {#optional-vs-banned}
+- Optional action vs. ban or rule: use *do not have to* for optional, since *must not*, *have to*, and *should* change the meaning. {#optional-vs-banned}
 - *May*, *might*, or *could* in a prediction: read it as possibility when no permission or past skill fits. {#might-shows-possibility}
 - *Must* with evidence clues (*lights are on*, *so*): read it as a strong conclusion, not an obligation. {#must-conclusion-vs-rule}
 :::

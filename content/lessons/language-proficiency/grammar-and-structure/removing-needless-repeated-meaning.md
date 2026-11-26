@@ -39,9 +39,9 @@ Warnings come at different times, and some repeated words add meaning. Cut *adva
 :::
 
 :::check
-Revise for concise formal writing: *"Please repeat the instructions again."*
+Revise: *"Please combine the two reports together."*
 :::answer
-The answer is **"Please repeat the instructions."** *Repeat* already means say again, so *again* adds nothing and the request stays the same.
+The answer is **"Please combine the two reports."** *Combine* already means join together, so *together* adds nothing and the request stays the same.
 :::
 
 ### Checking Before You Cut
@@ -79,7 +79,7 @@ Revise for concise formal writing: *"Please return back the library books by Fri
 
 Correct sentence: **"Please return the library books by Friday."**
 
-**Check:** Read the new sentence: it still asks to bring the books back by Friday, with no repeated meaning.
+**Check:** Read the new sentence: it still asks to bring the books back by Friday.
 
 ### #2: Finding Why a Timing Word Repeats
 
@@ -99,12 +99,12 @@ An editor shortens *"The soup was boiling hot"* to *"The soup was boiling."* Wha
 
 **Solution:**
 
-1. Define *boiling*: bubbling because of heat.
+1. Name what each word tells the reader.
 
 :::try
-Finish the last step: state what the editor should check before deleting *hot*.
+Finish the last step: state what the editor should check before deleting *hot*, and whether the cut is safe.
 :::answer
-The answer is **Whether "hot" adds a useful meaning that "boiling" does not already give.** Here it adds none, so the cut is safe. Judge the meaning, not word count alone.
+The answer is **Whether "hot" adds a useful meaning that "boiling" does not already give.** *Boiling* already means very hot, so the cut is safe: **"The soup was boiling."**
 
 **Check:** Cover *hot*: *"The soup was boiling"* still tells the reader the soup is very hot.
 :::

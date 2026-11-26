@@ -79,7 +79,7 @@ Mara read a notice aloud. At Ben's request, she repeated it. Ben still could not
 **Solution:**
 
 1. Count prior readings: (1) first reading, (2) first repeat for Ben.
-2. Ben now wants a **second** repeat, so *again* adds that further step and should stay.
+2. Ben now wants a **second** repeat, so *again* adds that further step and stays: **"Please repeat it again."**
 
 **Check:** Replace *repeat it again* with *"say it one more time after already repeating it."* That matches the timeline directly.
 
@@ -89,7 +89,7 @@ A coach explained a drill once, and no one asked for a repeat. Sam came late. Sh
 
 **Solution:**
 
-1. Track the timeline: one explanation, no repeat yet, then Sam arrives.
+1. List what happened before Sam arrived.
 
 :::try
 Finish the last step: decide whether to keep or cut *again*, and say why.
@@ -106,6 +106,6 @@ Before cutting *again* after *repeat*, count how many times the words were alrea
 ## Traps to Watch For
 
 :::checklist
-- First-time repeat request: cut *again* (never pile on *once more* or change the request into a new idea). {#cutting-or-changing-first-repeat}
+- First-time repeat request: cut *again* (do not pile on *once more* or change the request into a new idea). {#cutting-or-changing-first-repeat}
 - Request after an earlier repeat: keep *again* because it marks a further repeat, not a first repeat or a new instruction. {#missing-prior-repeat}
 :::

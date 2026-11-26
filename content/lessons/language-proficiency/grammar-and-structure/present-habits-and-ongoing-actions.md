@@ -19,7 +19,7 @@ keyPoints:
 
 English verbs show **tense** (when an action happens) and **aspect** (whether it is a habit, ongoing, or completed).
 
-The **base form** is the plain verb with no ending (*write, sort*). **Simple present** uses the base form (adding *-s* or *-es* for *he, she, it*, or a singular noun; *am, is, are* for *be*). Use it for:
+The **base form** is the plain verb with no ending (*write, sort*). **Simple present** uses the base form (adding *-s* or *-es* for *he, she, it*, or a singular noun; *am, is, are* for *be*). Common uses:
 
 1. Regular habits or duties: "On every working day, the records officer **sorts** the mail."
 2. General truths: "Water **boils** at its boiling point."
@@ -32,14 +32,14 @@ Wrong: Choose *sorted*, *is sort*, or *sorting* for a regular duty.
 :::
 
 :::check
-Choose the verb for a regular habit: "The clerk usually *(checks / is checking / checked)* passes at the door."
+Choose the verb: "The clerk usually *(checks / is checking / checked)* passes at the door."
 :::answer
 The answer is **Checks**. *Usually* signals a habit, and singular *the clerk* takes *-s*.
 :::
 
 ### Present Progressive: Now or Around Now
 
-**Present progressive** uses *am*, *is*, or *are* plus *-ing* (*is writing, are checking*). Use it for:
+**Present progressive** uses *am*, *is*, or *are* plus *-ing* (*is writing, are checking*). Common uses:
 
 1. An action happening right now: "She **is writing** a letter right now."
 2. A wider project ongoing around now (*this week, this month*), even during a break: "I **am writing** a novel this month."
@@ -58,7 +58,7 @@ The answer is **Present progressive**. *Is* plus *-ing* (*repairing*) shows an a
 
 ### State Verbs Take Simple Forms
 
-Verbs like *know, own, believe, belong, understand,* and *seem* describe a **state**, not a step-by-step action. Use a simple form ("I **know** how to use the filing system") instead of present progressive ("I am knowing").
+Verbs like *know, own, believe, belong, understand,* and *seem* describe a **state**, not a step-by-step action. They usually take a simple form ("I **know** how to use the filing system"), not present progressive ("I am knowing").
 
 Condition: a few verbs shift between state and activity. *Have* is a state in "She **has** a manual" (ownership), yet an activity in "She **is having** lunch" (eating).
 
@@ -73,9 +73,9 @@ Wrong: "I am knowing how to use the filing system."
 :::
 
 :::check
-Choose the usual form: "The blue binder *(belongs / is belonging)* to the office."
+Choose the usual form: "My sister *(prefers / is preferring)* tea to coffee."
 :::answer
-The answer is **Belongs**. *Belong* states a steady relationship, so it takes simple present rather than progressive.
+The answer is **Prefers**. *Prefer* states a steady liking, so it takes simple present rather than progressive.
 :::
 
 ## Examples
@@ -106,19 +106,19 @@ A writer says "I am writing a novel this month" while eating lunch. Name the ten
 
 ### #3: Choosing the Right Verb Form
 
-A manager says what equipment the office has today. Choose the correct sentence: (A) "The office is owning two printers." (B) "The office owned two printers." (C) "The office will own two printers." (D) "The office owns two printers."
+A manager says what the office needs today. Choose the correct sentence: (A) "The office is needing two printers." (B) "The office needed two printers." (C) "The office will need two printers." (D) "The office needs two printers."
 
 **Solution:**
 
-1. The fact is about **today**, so rule out past *owned* (B) and future *will own* (C).
-2. Choose between simple present *owns* and present progressive *is owning*.
+1. The need is for **today**, so rule out past *needed* (B) and future *will need* (C).
+2. Choose between simple present *needs* and present progressive *is needing*.
 
 :::try
 Finish the last step: which of those two is correct, and why?
 :::answer
-The answer is **(D) "The office owns two printers."** *Own* describes a state rather than a step-by-step action, so simple present is standard.
+The answer is **(D) "The office needs two printers."** *Need* describes a state rather than a step-by-step action, so simple present is standard.
 
-**Check:** Today's time rules out *owned* and *will own*, and *own* as a steady state pairs with simple present *owns*.
+**Check:** Today's time rules out *needed* and *will need*, and *need* as a steady state pairs with simple present *needs*.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -130,5 +130,5 @@ Check the time clue and verb meaning together. Use simple present for habits, tr
 :::checklist
 - Habit clues like *every working day*: choose simple present (*sorts*), not past *-ed*, *is + base*, or bare *-ing*. {#habit-wrong-tense}
 - Present progressive with *this week* or *this month*: it covers projects around the present, even outside this exact second. {#wider-present-project}
-- State verbs like *know* or *belong*: use simple present instead of *-ing*. {#stative-verb-progressive}
+- State verbs like *know* or *belong*: usually use simple present, not *-ing*. {#stative-verb-progressive}
 :::
