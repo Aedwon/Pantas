@@ -1,9 +1,10 @@
+import 'dart:async';
+
+import 'package:drift/drift.dart' show TableUpdateQuery;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
-import 'package:pantas/features/home/application/study_remote_providers.dart'
-    show studyCoreEpochProvider;
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
 /// One month, matching the row's own copy: "28 you've got wrong in the last
@@ -31,9 +32,41 @@ Future<int> recentMistakeCount(Ref ref, ExamId examId) async {
   return ids.length;
 }
 
-final flagCountProvider = FutureProvider<int>(
-  (ref) => ref.watch(questionFlagsRepositoryProvider).flagCount(),
-);
+/// How long a burst of writes to the attempt and flag tables waits for a
+/// quieter moment before the counts are worked out again. A sync pull writes
+/// its rows batch by batch, so a burst gives one recount.
+const practiceRowsDebounce = Duration(milliseconds: 300);
+
+/// Moves whenever a row the practice counts read changes in the local
+/// database: an attempt or a flag, from this device on any route or from a
+/// sync pull. Watching the tables, not call sites, means a session finished
+/// from a lesson, Today or a mock reaches a Quiz tab that stayed alive in the
+/// shell. Notices within [practiceRowsDebounce] of each other give one move.
+final practiceRowsEpochProvider = StreamProvider.autoDispose<int>((ref) {
+  final db = ref.watch(appDatabaseProvider);
+  final out = StreamController<int>()..add(0);
+  var revision = 0;
+  Timer? pending;
+  final updates = db
+      .tableUpdates(
+    TableUpdateQuery.onAllTables([db.attemptsLocal, db.questionFlagsLocal]),
+  )
+      .listen((_) {
+    pending?.cancel();
+    pending = Timer(practiceRowsDebounce, () => out.add(++revision));
+  });
+  ref.onDispose(() {
+    pending?.cancel();
+    unawaited(updates.cancel());
+    unawaited(out.close());
+  });
+  return out.stream;
+});
+
+final flagCountProvider = FutureProvider<int>((ref) async {
+  await ref.watch(practiceRowsEpochProvider.future);
+  return ref.watch(questionFlagsRepositoryProvider).flagCount();
+});
 
 /// What the flagged row says: how many are kept and how many topics they
 /// span.
@@ -47,6 +80,7 @@ class FlagSummary {
 }
 
 final flagSummaryProvider = FutureProvider<FlagSummary>((ref) async {
+  await ref.watch(practiceRowsEpochProvider.future);
   final ids = await ref.watch(questionFlagsRepositoryProvider).flaggedIds();
   if (ids.isEmpty) return FlagSummary.empty;
 
@@ -63,10 +97,9 @@ final flagSummaryProvider = FutureProvider<FlagSummary>((ref) async {
 /// questions the student has, in this exam.
 final quizPracticeCountsProvider = FutureProvider.autoDispose
     .family<({int mistakes, int flags}), ExamId>((ref, examId) async {
-  // Rows another device wrote reach the local tables through a sync pull, with
-  // no feature repository involved. This moves once per settled pull, so a
-  // pull that lands while the tab is open recounts.
-  await ref.watch(studyCoreEpochProvider.future);
+  // Recounts when attempts or flags change locally, from any route or from a
+  // sync pull (a pull writes the same tables).
+  await ref.watch(practiceRowsEpochProvider.future);
   final mistakes = await recentMistakeCount(ref, examId);
   final flags = await ref.watch(questionFlagsRepositoryProvider).flaggedIds();
   final topicIds = (await ref.watch(scopedTopicsProvider(examId).future))
