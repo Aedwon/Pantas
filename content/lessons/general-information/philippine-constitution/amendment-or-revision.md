@@ -81,14 +81,14 @@ The answer is **No**. Under the qualitative test in *Lambino v. COMELEC*, replac
 
 ### #1: Compare the Changes
 
-One proposal changes only an office's term length, leaving basic principles intact. Another replaces presidential government with a parliamentary system. Which is an amendment, and which is a revision?
+Proposal $1$ updates a local reporting deadline in one section without changing basic principles. Proposal $2$ merges the Supreme Court and Congress into one governing assembly. Classify each proposal.
 
 **Solution:**
 
-1. Check the term-length proposal: it changes one specific rule while keeping basic principles intact, so it is an **amendment**.
-2. Check the parliamentary shift: it changes the basic plan of government, so it is a **revision**.
+1. Check Proposal $1$: updating one reporting deadline edits a specific rule while keeping basic principles intact, so it is an **amendment**.
+2. Check Proposal $2$: merging two co-equal branches alters the basic plan of government, so it is a **revision**.
 
-Answer: The first is an amendment; the second is a revision because it changes the basic plan of government.
+Answer: Proposal $1$ is an amendment; Proposal $2$ is a revision because it changes the basic plan of government.
 
 **Check:** Under the qualitative test, altering the form of government is a revision even when few provisions change.
 

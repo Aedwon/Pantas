@@ -94,21 +94,21 @@ Answer: The draft fails because Section $2$ does not list policy dissatisfaction
 
 **Check:** Separate an unpopular lawful policy (not listed) from serious bad-faith abuse (betrayal of public trust).
 
-### #3: Separating Severe Claims From a Verdict
+### #3: Multiple Grounds and House Charges
 
-A verified complaint accuses an impeachable officer of bad-faith favoritism and calls it "deeply grave." A columnist argues no trial is needed given that description. Rule on that claim.
+An impeachable official secretly takes cash to rig agency bid rules in bad faith for a friend's company. One reviewer says one act raises only $1$ ground. Another says the official loses office once the House approves charges. Evaluate both claims.
 
 **Solution:**
 
-1. Naming betrayal of public trust and describing severe harm only frame the accusation.
-2. Under Article XI, Sections $2$ and $3$, the Senate has the sole power to try and decide guilt.
+1. Check the first claim: test whether one set of facts may raise more than one Section $2$ ground.
+2. Check the second claim: compare House initiation of charges with the Senate's role under Article XI, Sections $2$ and $3$.
 
 :::try
-Finish the last step: state whether the officer is convicted and what must happen next.
+Finish the last step: rule on both claims and explain what must still occur before removal.
 :::answer
-The answer is **The officer is not convicted, because the charge still requires proof and a Senate decision.** A complainant's wording never replaces evidence, House charges, and a Senate trial.
+The answer is **Both claims are wrong: one set of facts may raise multiple grounds, and House charges alone never remove an official.** The facts point to both bribery and betrayal of public trust. Under Sections $2$ and $3$, the Senate must still hold a trial, weigh evidence, and vote to convict.
 
-**Check:** Never confuse the seriousness of an accusation with proof or a conviction vote.
+**Check:** Separate House initiation from Senate trial and conviction, and remember one act may raise more than one ground.
 :::
 
 ## Traps to Watch For

@@ -28,7 +28,7 @@ Every Member of the Judiciary must also show proven **competence, integrity, pro
 Screen two applicants for a Supreme Court seat:
 
 1. A natural-born lawyer, age $44$, with $13$ years of practice fails the $15$-year experience rule.
-2. A natural-born judge, age $43$, with $16$ years on a Regional Trial Court passes citizenship, age, and experience.
+2. A natural-born judge, age $47$, with $17$ years on the bench who took bribes fails Section $7(3)$'s integrity rule.
 
 :::pair #supreme-court-all-three
 Right: A Supreme Court Member must meet all three rules: natural-born, age $40$, and $15$ years of Philippine judicial or law practice.
@@ -57,10 +57,10 @@ Compare a Regional Trial Court opening and a Court of Appeals opening:
 Why require natural-born status on lower collegiate courts while letting Congress set trial-court details? Collegiate panels settle major appeals nationwide, whereas Congress tailors trial-court experience to each court tier.
 :::
 
-:::pair #lower-collegiate-natural-born
-Right: Lower collegiate court judges must be natural-born, and Congress sets further qualifications for lower courts.
-Wrong: Applying Supreme Court age and $15$-year rules to every lower court, or barring Congress from adding qualifications.
-Section $7$ reserves the $40$-year and $15$-year rules for the Supreme Court and lets Congress add lower-court rules.
+:::pair #congress-sets-lower-court-rules
+Right: Congress may prescribe further qualifications for lower-court judges beyond citizenship and Philippine Bar membership.
+Wrong: Treating citizenship and Philippine Bar membership as stopping Congress from setting further lower-court qualifications.
+Article VIII, Section $7(2)$ expressly authorizes Congress to prescribe additional qualifications for lower courts.
 :::
 
 :::pair #qualities-beyond-bar
@@ -105,25 +105,25 @@ Answer: No, because lower collegiate courts require natural-born citizenship.
 
 ### #3: Screening Two Supreme Court Candidates
 
-Candidate A is natural-born, age $38$, with $15$ years of Philippine law practice. Candidate B is natural-born, age $43$, with $16$ years as a trial judge. Both have proven competence, integrity, probity, and independence. Who qualifies for the Supreme Court, and why does the other fail?
+Candidate A is natural-born, age $38$, with $15$ years of Philippine law practice. Candidate B is natural-born, age $49$, with $18$ years of Philippine law practice. Both have proven competence, integrity, probity, and independence. Who qualifies for the Supreme Court, and why does the other fail?
 
 **Solution:**
 
-1. Check Candidate A: $15$ years passes, yet age $38$ fails the $40$-year minimum.
-2. Check Candidate B: natural-born status, age $43$ ($\ge 40$), and $16$ years as a lower-court judge ($\ge 15$) all pass.
+1. Check Candidate A against Section $7(1)$: $15$ years passes, yet compare age $38$ to the minimum age.
+2. Check Candidate B against Section $7(1)$: test natural-born status, age $49$, and $18$ years of Philippine law practice.
 
 :::try
 Finish the last step: identify the qualified candidate and explain why Candidate A's $15$ years of practice do not cure age $38$.
 :::answer
 The answer is **Candidate B qualifies for the Supreme Court, while Candidate A fails the $40$-year age rule.** Under Article VIII, Section $7(1)$, citizenship, age $40$, and $15$ years of experience must all pass together. Fifteen years of practice cannot waive age $38$.
 
-**Check:** Candidate B passes $43 \ge 40$ and $16 \ge 15$; Candidate A fails $38 < 40$.
+**Check:** Candidate B passes $49 \ge 40$ and $18 \ge 15$; Candidate A fails $38 < 40$.
 :::
 
 ## Traps to Watch For
 
 :::checklist
 - Supreme Court seats: verify natural-born status, age $40$, and $15$ years of experience together. {#supreme-court-all-three}
-- Lower courts: require natural-born status on lower collegiate courts, and let Congress set further rules. {#lower-collegiate-natural-born}
+- Lower courts: remember Congress sets further qualifications beyond citizenship and Bar membership, while collegiate courts need natural-born status. {#congress-sets-lower-court-rules}
 - Judicial character: Bar membership never replaces proven competence, integrity, probity, and independence. {#qualities-beyond-bar}
 :::

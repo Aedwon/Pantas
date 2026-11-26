@@ -84,14 +84,14 @@ The answer is **No**. Article V, Section $1$ expressly forbids property and lite
 
 ### #1: Election-Day Age
 
-A registered Filipino turns $18$ on election day. By then, residence is $2$ years in the country and $8$ months locally. No disqualification applies. May this person vote?
+A registered Filipino living in Iloilo for $14$ months turns $18$ two days before election day, with no legal disqualification. May she vote in Iloilo?
 
 **Solution:**
 
-1. Check election-day age: turning $18$ meets "at least $18$".
-2. Check residence: $2$ years clears $1$ year nationally, and $8$ months clears $6$ months locally.
+1. Check election-day age: turning $18$ two days earlier meets "at least $18$".
+2. Check residence: $14$ continuous months in Iloilo clears both $1$ year in the Philippines and $6$ months locally.
 
-Answer: Yes, the person meets all minimums, is registered, and has no disqualification.
+Answer: Yes, she meets all minimums, is registered, and has no disqualification.
 
 **Check:** Article V, Section $1$ requires at least $18$ on election day, $1$ national year, and $6$ local months.
 

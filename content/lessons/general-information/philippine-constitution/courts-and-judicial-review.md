@@ -58,14 +58,14 @@ Why exempt judges from confirmation and protect tenure until age $70$? Removing 
 
 :::pair #supreme-court-15-en-banc
 Right: The Supreme Court has $15$ Members (Chief Justice plus $14$ Associates) and hears constitutional challenges en banc.
-Wrong: Counting $14$ Members total, or routing a constitutional challenge to a $3$-member division.
+Wrong: Routing a constitutional challenge to a law to a $3$-member division instead of the Court en banc.
 Divisions of $3$, $5$, or $7$ hear other cases, while constitutional challenges go en banc.
 :::
 
 :::pair #jbc-list-no-confirmation
 Right: The President appoints judges from at least $3$ Judicial and Bar Council nominees without confirmation.
-Wrong: Requiring Commission on Appointments consent for judges, or letting the Council appoint judges directly.
-The Council nominates at least $3$ candidates; the President appoints without confirmation.
+Wrong: Requiring Commission on Appointments consent for judges appointed from the Council list.
+Unlike ambassadors or Cabinet heads, judicial appointments from the Council list need no confirmation.
 :::
 
 :::check
@@ -103,21 +103,21 @@ Answer: Yes, the court may examine grave abuse, though it never replaces valid p
 
 **Check:** Calling an unauthorized act policy cannot block review under Section $1$.
 
-### #3: Judicial Appointment and Hearing Format
+### #3: Advisory Requests and Division Appeals
 
-The Judicial and Bar Council sends $4$ nominees for a Supreme Court seat, and the President appoints $1$. Next month, a proper petition challenges a statute as unconstitutional. Does the new Justice need confirmation, and can a $5$-member division decide it?
+A governor asks the Supreme Court for an advisory opinion on a draft bill before any dispute exists. Separately, a $5$-member division hears a routine land-title appeal raising no constitutional issue. Which action fits Article VIII?
 
 **Solution:**
 
-1. Under Section $9$, appointments from the Council list need no Commission on Appointments consent.
-2. Under Section $4(2)$, challenges to a law's constitutionality must be heard en banc.
+1. Check Article VIII, Section $1$: test whether the draft-bill request involves an actual controversy over legally enforceable rights.
+2. Check Article VIII, Section $4(1)$ and $4(2)$: test whether a routine land-title appeal must go en banc.
 
 :::try
-Finish the last step: answer both questions and explain how divisions differ from en banc hearings.
+Finish the last step: rule on both the advisory request and the $5$-member division appeal.
 :::answer
-The answer is **No confirmation is needed, and a $5$-member division cannot decide the constitutional challenge.** Section $9$ waives confirmation for judges. Section $4(2)$ sends constitutional challenges to all $15$ Members en banc, leaving other cases to divisions of $3$, $5$, or $7$.
+The answer is **The Court declines the advisory request without a proper case, while the $5$-member division may hear the land-title appeal.** Section $1$ requires an actual controversy over enforceable rights. Section $4(1)$ permits divisions of $3$, $5$, or $7$ for non-constitutional cases.
 
-**Check:** Council shortlist appointments skip confirmation, and constitutional challenges require all $15$ Members en banc.
+**Check:** Judicial review needs a proper case, and en banc hearing is required for constitutional challenges rather than ordinary appeals.
 :::
 
 ## Traps to Watch For

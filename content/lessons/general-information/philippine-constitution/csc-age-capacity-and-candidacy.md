@@ -24,10 +24,10 @@ Under Article IX-B, Section $1(1)$, a CSC member must be **at least $35$ years o
 2. Age $34$ on appointment day fails, even if the birthday arrives soon after.
 3. Neither the President nor the Commission on Appointments can waive this minimum.
 
-Check two nominees appointed on June $10$:
+Check two nominees appointed in April:
 
-1. Ana turned $35$ on June $10$, so she passes.
-2. Ben turns $35$ on June $15$, so at appointment he is $34$ and fails.
+1. Ana is $38$ years old on appointment day, so she passes.
+2. Ben is $34$ and will not turn $35$ until October, so at appointment he fails.
 
 :::pair #age-at-appointment
 Right: Measure age on the exact appointment date; the nominee must already be at least $35$.
@@ -36,9 +36,9 @@ Aging during a $7$-year term never cures being under $35$ at appointment.
 :::
 
 :::check
-May the President and the Commission on Appointments waive the $35$-year minimum for a $33$-year-old nominee with $15$ years of bureau leadership?
+Luis turns $35$ on November $3$, the exact morning he takes his CSC appointment. Does he satisfy the age requirement?
 :::answer
-The answer is **No**. Neither the President nor the Commission on Appointments can waive Article IX-B, Section $1(1)$'s $35$-year minimum at appointment.
+The answer is **Yes**. Under Article IX-B, Section $1(1)$, being at least $35$ on the exact appointment date satisfies the minimum age.
 :::
 
 ### Proven Capacity for Public Administration
@@ -49,7 +49,7 @@ This means shown ability to run government work well. Managing public staff, bud
 
 1. The Constitution requires no single degree, job title, or test as sole proof.
 2. A private business title alone or a promise to learn later never proves capacity.
-3. Auditing, diplomacy, or litigation alone never replaces public-administration capacity.
+3. Specialized work outside public management never replaces proven public-administration capacity.
 
 Compare two candidates' records:
 
@@ -63,9 +63,9 @@ Proven means demonstrated before appointment through actual administrative work.
 :::
 
 :::check
-A nominee has $12$ years of appellate litigation work and zero public management record. Does litigation alone prove public-administration capacity?
+A nominee lacks a public-administration degree, yet directed provincial hospital staffing and public budgets for $9$ years. Does lacking that degree bar her?
 :::answer
-The answer is **No**. Appellate litigation alone never substitutes for proven public-administration capacity.
+The answer is **No**. Article IX-B, Section $1(1)$, requires proven capacity for public administration through real work, not any single academic degree.
 :::
 
 ### The Immediately Preceding Election Rule
@@ -93,26 +93,25 @@ Section $1(1)$ bars all candidates in any elective race immediately before appoi
 :::
 
 :::check
-A $42$-year-old natural-born bureau head won a provincial board seat in the immediately preceding election. Can she join the CSC next?
+A $42$-year-old natural-born bureau head ran for mayor two election cycles ago and skipped the immediately preceding election. Does that older race bar her?
 :::answer
-The answer is **No**. Running in the immediately preceding local race bars her despite winning and meeting age rules.
+The answer is **No**. Article IX-B, Section $1(1)$, bars only candidates in the elections immediately preceding appointment, not earlier election cycles.
 :::
 
 ## Examples
 
 ### #1: Checking the Birthday Cutoff
 
-Elena is $34$ on March $1$, her appointment date, and turns $35$ on March $2$. Marco turns $35$ on March $1$. Who meets the age rule?
+Elena is $34$ on March $1$, her appointment date, and turns $35$ on March $2$. Officials argue a $1$-day gap can be waived. Does Elena meet the age rule?
 
 **Solution:**
 
-1. Article IX-B, Section $1(1)$, requires at least age $35$ at appointment.
-2. On March $1$, Marco is $35$ and passes.
-3. On March $1$, Elena is $34$, and a March $2$ birthday cannot fix March $1$.
+1. Article IX-B, Section $1(1)$, requires at least age $35$ on the exact appointment date.
+2. On March $1$, Elena is $34$, and neither the President nor the Commission on Appointments can waive the cutoff.
 
-Answer: Only Marco meets the age requirement at appointment.
+Answer: No, Elena fails because she is $34$ on March $1$ and turning $35$ on March $2$ cannot cure it.
 
-**Check:** Measure age on appointment day itself; $35$ passes and $34$ fails.
+**Check:** Measure age strictly on appointment day; a later birthday never applies retroactively.
 
 ### #2: Screening Administrative Proof
 
@@ -130,19 +129,19 @@ Answer: Only Applicant X meets the proven-capacity requirement.
 
 ### #3: Applying All Qualifications Together
 
-A natural-born citizen is $38$ and ran a regional bureau for $9$ years. In the immediately preceding election, she ran for mayor and lost. Does she qualify for the CSC?
+A natural-born citizen is $46$ and managed a national bureau for $12$ years. In the immediately preceding election, she won a House district seat. Does winning that national election clear her for a CSC seat?
 
 **Solution:**
 
-1. Check citizenship and age: natural-born and $38 \ge 35$ both pass.
-2. Check capacity: $9$ years leading a bureau shows proven public-administration capacity.
+1. Check citizenship, age, and capacity: natural-born status, age $46$ ($\ge 35$), and $12$ years leading a bureau all pass.
+2. Check the candidacy rule: identify whether winning a race in the immediately preceding election creates an exception under Section $1(1)$.
 
 :::try
-Finish the last step: apply the candidacy rule and state whether she qualifies.
+Finish the last step: apply the candidacy rule and state whether she qualifies for the CSC.
 :::answer
-The answer is **No, she is disqualified by her candidacy in the immediately preceding election.** Article IX-B, Section $1(1)$, bars any candidate in that race, winner or loser. Age and administrative credentials never waive this rule.
+The answer is **No, she is disqualified because she was a candidate in the immediately preceding election.** Article IX-B, Section $1(1)$, bars every candidate in that election, winner or loser. Winning the race and strong administrative credentials never waive this rule.
 
-**Check:** Check all four qualifications together; failing one rule disqualifies the nominee.
+**Check:** Test every qualification separately; winning an immediately preceding race still disqualifies the nominee.
 :::
 
 ## Traps to Watch For

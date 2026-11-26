@@ -36,9 +36,9 @@ Section $6$ requires both district registration and $1$ full year of district re
 :::
 
 :::pair #age-measured-election-day
-Right: Minimum ages ($25$, $35$, $40$) are measured on election day, with Representative starting at $25$.
-Wrong: Checking minimum age at candidacy filing, or requiring $35$ for a district Representative.
-Age $35$ is for Senators; Representatives start at $25$, measured on election day.
+Right: Minimum ages ($25$, $35$, $40$) are measured on election day, not when filing candidacy.
+Wrong: Disqualifying a candidate who turns the required age between candidacy filing and election day.
+The Constitution measures each minimum age on the day of the election, never at filing.
 :::
 
 :::check
@@ -55,10 +55,10 @@ Age, registration, and long residence never waive natural-born citizenship.
 
 <!-- ILLUSTRATION: minimum-age ladder 25: Representative; 35: Senator, COMELEC, COA; 40: President, Vice-President, Supreme Court Member, Ombudsman; footer Age alone is not full qualification -->
 
-Check a $43$-year-old natural-born Vice-Presidential candidate who returned from abroad $7$ years before election day:
+Check a $38$-year-old natural-born presidential candidate who has lived in the Philippines for $20$ years and is a registered voter:
 
-1. Citizenship and age ($43 \ge 40$) pass Article VII, Sections $2$ and $3$.
-2. Seven years of Philippine residence falls below the $10$-year rule, so the candidate fails.
+1. Citizenship, registration, and $20$ years of residence pass Article VII, Section $2$.
+2. Age $38$ falls below the $40$-year minimum on election day, so the candidate fails.
 
 :::why
 Why give the Vice-President identical qualifications to the President? The Vice-President can succeed to the presidency anytime, so both need equal standards.

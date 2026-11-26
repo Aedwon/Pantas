@@ -20,7 +20,7 @@ keyPoints:
 
 Articles XIV through XVI cover learning and culture, family, and general national rules:
 
-1. **Article XIV: Education, Science and Technology, Arts, Culture and Sports** protects quality education at all levels. It also covers science, national languages, arts, culture, and sports.
+1. **Article XIV: Education, Science and Technology, Arts, Culture and Sports** protects quality education at all levels. It also covers science, the national language, arts, culture, and sports.
 2. **Article XV: The Family** recognizes the Filipino family as the nation's foundation and protects marriage.
 3. **Article XVI: General Provisions** gathers miscellaneous subjects. Section $1$ describes the **Philippine flag** (red, white, blue, sun, three stars), alongside armed forces, police, mass media, and consumers.
 
@@ -108,17 +108,17 @@ Answer: Open Article XVI (General Provisions) for the flag, because Section $1$ 
 
 ### #3: Future Change vs. Transition Rules
 
-One clause keeps pre-$1987$ treaties effective during the governmental shift. Another sets a $60$-to-$90$-day plebiscite window for voter ratification of proposed amendments. Assign each to Article XVII or Article XVIII.
+One clause sets the schedule for the first elections of Congress and local officials under the $1987$ Constitution. Another sets a $60$-to-$90$-day plebiscite window for voter ratification of proposed amendments. Assign each to Article XVII or Article XVIII.
 
 **Solution:**
 
-1. Keeping pre-$1987$ treaties effective during the shift is a bridge rule in Article XVIII (Transitory Provisions).
-2. Setting a plebiscite window for proposed amendments governs future change in Article XVII (Amendments or Revisions).
+1. Check the $1987$ election schedule: bridging into the first Congress under the $1987$ Constitution belongs to the transition rules.
+2. Check the plebiscite window: voter ratification of future proposed amendments belongs to constitutional change.
 
 :::try
 Finish the last step: name both Articles in order and explain why Article XVII and Article XVIII do not overlap.
 :::answer
-The answer is **The treaty bridge sits in Article XVIII, and the plebiscite window sits in Article XVII.** Article XVIII handled the $1987$ transition, whereas Article XVII governs all future constitutional amendments and revisions.
+The answer is **The first $1987$ election schedule sits in Article XVIII, and the plebiscite window sits in Article XVII.** Article XVIII handled the one-time $1987$ transition (including Section $1$'s first elections), whereas Article XVII governs all future constitutional amendments and revisions.
 
 **Check:** Verify XVII = Amendments or Revisions (future change) and XVIII = Transitory Provisions ($1987$ shift).
 :::

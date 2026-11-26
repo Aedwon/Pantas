@@ -19,7 +19,7 @@ keyPoints:
 
 The $1987$ Constitution divides government power among three co-equal branches so no single office holds total control.
 
-1. **Legislative power** means making laws. Article VI, Section $1$ gives it to Congress, except powers reserved to people through initiative and referendum.
+1. **Legislative power** means making laws. Article VI, Section $1$ gives it to Congress, except powers reserved to people through initiative and referendum. Those let citizens propose or vote on laws directly.
 2. **Executive power** means carrying out laws. Article VII, Section $1$ gives it to the President.
 3. **Judicial power** means settling actual legal disputes and checking grave abuse of government power. Article VIII, Section $1$ gives it to the Supreme Court and lower courts.
 
@@ -80,13 +80,13 @@ The answer is **Commission on Appointments consent**. Under Article VI, Section 
 
 ### #1: Match the Branch
 
-Which branches pass a law, direct an executive department to enforce it, and decide a dispute under it?
+A governor asks which branch writes a new fishing law, which directs coast-guard enforcement, and which decides a harbor rights lawsuit. Match each task to its branch.
 
 **Solution:**
 
-1. Congress passes the law using legislative power under Article VI, Section $1$.
-2. The President directs the department using executive power under Article VII, Section $1$.
-3. Courts decide the dispute using judicial power under Article VIII, Section $1$.
+1. Writing the fishing law uses legislative power in Congress under Article VI, Section $1$.
+2. Directing coast-guard enforcement uses executive power under the President (Article VII, Section $1$).
+3. Deciding the harbor rights lawsuit uses judicial power in the courts (Article VIII, Section $1$).
 
 Answer: Congress (legislative), the President (executive), and the courts (judicial).
 
@@ -107,19 +107,19 @@ Answer: Veto override by Congress and judicial review by the court.
 
 ### #3: Sorting Checks by Action
 
-A cabinet nominee awaits Commission on Appointments consent. Separately, a factory owner files a proper court case claiming a government board acted beyond its legal authority. Which constitutional check applies to each event?
+The House files formal removal charges against an impeachable official, and the Senate prepares for trial. Separately, a factory owner files a proper court case claiming a government board acted beyond its legal authority. Which constitutional check applies to each event?
 
 **Solution:**
 
-1. Check the cabinet nominee: confirming a listed presidential appointee is **Commission on Appointments consent** under Article VII, Section $16$.
-2. Check the court case against the board: reviewing whether a government body acted beyond its authority is **judicial review** under Article VIII, Section $1$.
+1. Check the congressional action: the House charging and the Senate trying an impeachable official falls under Article XI, Section $3$.
+2. Check the court case against the board: reviewing whether a government body acted beyond its authority falls under Article VIII, Section $1$.
 
 :::try
-Finish the last step: state both checks and explain why neither event uses a veto or impeachment.
+Finish the last step: name both checks and explain why neither event uses a veto or appointment consent.
 :::answer
-The answer is **The nominee faces Commission on Appointments consent, and the board faces judicial review.** A veto rejects a bill and impeachment tries an impeachable officer, so neither fits an appointee or a court challenge.
+The answer is **The high official faces impeachment, and the government board faces judicial review.** A veto rejects a bill and appointment consent reviews nominees, so neither fits removing a high official or a court challenge.
 
-**Check:** Match appointments to Commission consent (Article VII, Section $16$) and legal challenges against government acts to judicial review (Article VIII, Section $1$).
+**Check:** Match removal charges and trial to impeachment (Article XI, Section $3$). Match court challenges against government acts to judicial review (Article VIII, Section $1$).
 :::
 
 ## Traps to Watch For

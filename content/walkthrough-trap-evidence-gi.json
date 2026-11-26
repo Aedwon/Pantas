@@ -1043,11 +1043,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0001",
           "wrongChoice": "24 senators elected by district, serving six-year terms with two consecutive terms allowed",
           "mistakeNote": "Confuses nationwide at-large Senate elections with district elections for the House."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0001",
-          "wrongChoice": "24 senators elected nationwide, serving six-year terms with only two terms allowed in a lifetime",
-          "mistakeNote": "Treats the two-consecutive-term limit as a permanent lifetime cap."
         }
       ],
       "house-terms-not-senate": [
@@ -1065,11 +1060,6 @@
       "house-cap-and-party-list": [
         {
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0002",
-          "wrongChoice": "Its membership can never exceed 250, even if a law provides otherwise.",
-          "mistakeNote": "Ignores the constitutional clause allowing a law to fix a different House size."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0002",
           "wrongChoice": "Party-list seats equal 20 percent of district seats alone.",
           "mistakeNote": "Applies the 20 percent party-list share to district seats alone instead of total House membership."
         }
@@ -1081,11 +1071,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0003",
           "wrongChoice": "The bill starts in the Senate because it concerns national revenue.",
           "mistakeNote": "Starts a national revenue bill in the Senate even though Article VI, Section 24 requires House origin."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0003",
-          "wrongChoice": "The bill starts in the House, and the Senate must accept it without amendments.",
-          "mistakeNote": "Denies the Senate's constitutional power to propose or agree to amendments on House-originated bills."
         }
       ],
       "inquiry-rules-and-rights": [
@@ -1107,11 +1092,6 @@
       "war-vote-separate": [
         {
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0019",
-          "wrongChoice": "The President commands the armed forces and alone declares the existence of a state of war.",
-          "mistakeNote": "Gives Congress's exclusive power to declare a state of war to the Commander-in-Chief."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0019",
           "wrongChoice": "The President commands the armed forces; Congress declares a state of war by pooling both Houses' votes for one majority.",
           "mistakeNote": "Pools both Houses' votes into a single majority instead of requiring separate two-thirds votes in joint session."
         }
@@ -1121,11 +1101,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0018",
           "wrongChoice": "The override succeeds because the two Houses together supplied more than two-thirds of their combined membership.",
           "mistakeNote": "Pools House and Senate votes instead of requiring two-thirds of all Members in each House separately."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0018",
-          "wrongChoice": "The override succeeds because a timely veto needs only a simple majority to reverse.",
-          "mistakeNote": "Uses a simple majority instead of the required two-thirds of all Members of each House."
         }
       ],
       "override-exact-two-thirds": [
@@ -1175,11 +1150,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0015",
           "wrongChoice": "30 days initially; report within 48 hours",
           "mistakeNote": "Shortens the 60-day initial martial-law maximum to 30 days."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0015",
-          "wrongChoice": "60 days initially; report within 30 days",
-          "mistakeNote": "Substitutes 30 days for the strict 48-hour deadline to report to Congress."
         }
       ],
       "joint-majority-revocation": [
@@ -1201,11 +1171,6 @@
       "pardon-after-final-judgment": [
         {
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0005",
-          "wrongChoice": "A pardon may remove the result of impeachment if the Senate agrees.",
-          "mistakeNote": "Extends presidential pardon power to impeachment cases despite Article VII, Section 19's exclusion."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0005",
           "wrongChoice": "A pardon may be granted before conviction by final judgment, while amnesty needs no congressional concurrence.",
           "mistakeNote": "Drops the final-conviction requirement for pardon alongside congressional concurrence for amnesty."
         }
@@ -1218,11 +1183,6 @@
         }
       ],
       "treaty-two-thirds-all-senators": [
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0017",
-          "wrongChoice": "Yes, because 15 is more than half of the full Senate.",
-          "mistakeNote": "Substitutes a simple majority of all Senators for the required two-thirds concurrence."
-        },
         {
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0017",
           "wrongChoice": "Yes, because 15 exceeds two-thirds of the 18 Senators present.",
@@ -1246,11 +1206,6 @@
       "supreme-court-15-en-banc": [
         {
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0014",
-          "wrongChoice": "The Court has 14 Members and hears the constitutional challenge en banc.",
-          "mistakeNote": "Counts only the 14 Associate Justices and leaves out the Chief Justice."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0014",
           "wrongChoice": "The Court has 15 Members and must hear the constitutional challenge in a three-member division.",
           "mistakeNote": "Assigns a constitutional challenge to a division instead of the full Court en banc."
         }
@@ -1260,11 +1215,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0009",
           "wrongChoice": "Both ambassadors and judges need Commission on Appointments consent.",
           "mistakeNote": "Requires Commission on Appointments confirmation for judicial appointments."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0009",
-          "wrongChoice": "The Judicial and Bar Council appoints judges directly from its own list.",
-          "mistakeNote": "Confuses the Council's nominating role with the President's appointment power."
         }
       ]
     },
@@ -1286,11 +1236,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0008",
           "wrongChoice": "She fails the age requirement because she must already be 40 when filing her candidacy.",
           "mistakeNote": "Measures the minimum age at candidacy filing instead of on election day."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0006",
-          "wrongChoice": "She fails the age rule because district representatives must be at least 35.",
-          "mistakeNote": "Applies the Senate's 35-year minimum age to a district Representative."
         }
       ],
       "vp-ten-year-residence": [
@@ -1319,12 +1264,7 @@
           "mistakeNote": "Allows naturalized citizenship with long experience despite the natural-born requirement."
         }
       ],
-      "lower-collegiate-natural-born": [
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0024",
-          "wrongChoice": "Every lower-court judge must satisfy the Supreme Court’s age and experience minimums.",
-          "mistakeNote": "Applies Supreme Court age and 15-year experience thresholds to every lower court."
-        },
+      "congress-sets-lower-court-rules": [
         {
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0024",
           "wrongChoice": "Congress cannot set further qualifications once citizenship and Bar membership are met.",
@@ -1357,11 +1297,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0012",
           "wrongChoice": "A CPA with twelve years of auditing experience who is not a lawyer",
           "mistakeNote": "Picks a third CPA when two seats are already CPAs, violating the mixed-profession rule."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0012",
-          "wrongChoice": "A lawyer with nine years of law practice who is not a CPA",
-          "mistakeNote": "Accepts nine years of practice even though Article IX-D, Section 1(1) requires at least ten years."
         }
       ],
       "ombudsman-prior-candidacy": [
@@ -1612,11 +1547,6 @@
           "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0013",
           "wrongChoice": "501",
           "mistakeNote": "Computes a majority from all 1,000 registered voters instead of the 600 votes cast."
-        },
-        {
-          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0013",
-          "wrongChoice": "300",
-          "mistakeNote": "Treats exactly half of the 600 votes cast (300) as a majority instead of 301."
         }
       ],
       "proposal-needs-ratification": [
@@ -1707,11 +1637,6 @@
           "questionId": "q-philippine-constitution-the-civil-service-commission-0002",
           "wrongChoice": "Naturalized citizenship without any additional condition",
           "mistakeNote": "Treats naturalized Philippine citizenship as satisfying the natural-born qualification under Article IX-B, Section 1(1)."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-civil-service-commission-0002",
-          "wrongChoice": "Permanent residency even without Philippine citizenship",
-          "mistakeNote": "Treats permanent residency alone as meeting the constitutional natural-born citizenship requirement."
         }
       ]
     },
@@ -1721,11 +1646,6 @@
           "questionId": "q-philippine-constitution-the-civil-service-commission-0018",
           "wrongChoice": "The later birthday retroactively makes the earlier appointment satisfy the minimum.",
           "mistakeNote": "Allows a birthday after appointment to cure being 34 on the date of appointment."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-civil-service-commission-0003",
-          "wrongChoice": "40 years",
-          "mistakeNote": "Imports the Ombudsman's 40-year minimum instead of the CSC's 35-year minimum."
         }
       ],
       "proven-public-administration": [
@@ -1783,11 +1703,6 @@
           "questionId": "q-philippine-constitution-the-civil-service-commission-0011",
           "wrongChoice": "Synchronized terms",
           "mistakeNote": "Assumes initial seven-, five-, and three-year terms end together instead of creating staggered expirations."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-civil-service-commission-0011",
-          "wrongChoice": "Annual rotation",
-          "mistakeNote": "Confuses staggered seven-, five-, and three-year terms with yearly turnover."
         }
       ]
     },
@@ -1882,11 +1797,6 @@
           "questionId": "q-philippine-constitution-the-civil-service-commission-0027",
           "wrongChoice": "Voting and working to help a political party win are the same activity.",
           "mistakeNote": "Conflates casting a ballot under Article V with banned partisan campaigning under Article IX-B, Section 2(4)."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-civil-service-commission-0027",
-          "wrongChoice": "Civil service employees may campaign if they do so only indirectly.",
-          "mistakeNote": "Overlooks that Article IX-B, Section 2(4) expressly bars both direct and indirect partisan campaigning."
         }
       ]
     },
@@ -1908,11 +1818,6 @@
           "questionId": "q-philippine-constitution-the-civil-service-commission-0012",
           "wrongChoice": "No, funding may be delayed until the CSC changes its decision.",
           "mistakeNote": "Allows budget delays to pressure CSC rulings despite Article IX-A, Section 5's automatic release mandate."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-civil-service-commission-0012",
-          "wrongChoice": "No, fiscal autonomy protects only the salaries of Commission members.",
-          "mistakeNote": "Reduces fiscal autonomy to member salaries instead of protecting the CSC's approved annual budget."
         }
       ],
       "separate-tenure-conflict-bans": [
@@ -2054,11 +1959,6 @@
           "questionId": "q-philippine-constitution-accountability-and-impeachment-0024",
           "wrongChoice": "Immediate conversion into the articles because any endorsement meets the filing threshold",
           "mistakeNote": "Confuses one House Member's endorsement of a citizen complaint with filing by at least one-third of all Members."
-        },
-        {
-          "questionId": "q-philippine-constitution-accountability-and-impeachment-0024",
-          "wrongChoice": "Automatic dismissal because citizens cannot file any impeachment complaint",
-          "mistakeNote": "Ignores Article XI, Section 3(2), allowing any citizen to file a verified complaint endorsed by a House Member."
         }
       ],
       "one-third-direct-articles": [
@@ -2066,11 +1966,6 @@
           "questionId": "q-philippine-constitution-accountability-and-impeachment-0023",
           "wrongChoice": "It must first obtain the same committee review required for a citizen’s endorsed complaint.",
           "mistakeNote": "Requires committee screening on a direct filing by at least one-third of all House Members despite Section 3(4)."
-        },
-        {
-          "questionId": "q-philippine-constitution-accountability-and-impeachment-0023",
-          "wrongChoice": "It immediately becomes a conviction without any Senate impeachment trial.",
-          "mistakeNote": "Confuses direct Articles of Impeachment with a Senate conviction."
         }
       ]
     },
@@ -2118,11 +2013,6 @@
           "questionId": "q-philippine-constitution-accountability-and-impeachment-0028",
           "wrongChoice": "Automatically removing the employee upon receipt of the complaint",
           "mistakeNote": "Treats receiving a complaint as automatic removal instead of investigating and directing performance."
-        },
-        {
-          "questionId": "q-philippine-constitution-accountability-and-impeachment-0028",
-          "wrongChoice": "Treating the delay as beyond review because no completed act exists",
-          "mistakeNote": "Ignores that Section 13(1)-(2) covers failures to act and lets the Ombudsman expedite required duties."
         }
       ],
       "ombudsman-records-without-consent": [
@@ -2139,11 +2029,6 @@
           "questionId": "q-philippine-constitution-the-articles-in-outline-0001",
           "wrongChoice": "19",
           "mistakeNote": "Counts the unnumbered Preamble as a numbered article alongside the 18 Articles."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-articles-in-outline-0001",
-          "wrongChoice": "17",
-          "mistakeNote": "Stops the article count at Article XVII and omits Article XVIII (Transitory Provisions)."
         }
       ],
       "preamble-states-aims": [

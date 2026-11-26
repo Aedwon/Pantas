@@ -48,9 +48,9 @@ Section $2$ expressly places valid Section $1(3)$ electors inside natural-born c
 :::
 
 :::check
-Nardo was born in $1962$ to a Filipino mother and a foreign father. He properly elected Philippine citizenship at age $21$. Does he meet the natural-born rule for President?
+A naturalized citizen has lived in Cebu for $20$ years and holds a law degree. May she be appointed as a Civil Service Commission member?
 :::answer
-The answer is **Yes**. Under Article IV, Section $2$, valid Section $1(3)$ electors are deemed natural-born, satisfying the presidency's natural-born requirement.
+The answer is **No**. Civil Service Commission members must be natural-born citizens under Article IX-B, Section $1$, and naturalization does not grant natural-born status.
 :::
 
 ### Judicial vs. Administrative Naturalization

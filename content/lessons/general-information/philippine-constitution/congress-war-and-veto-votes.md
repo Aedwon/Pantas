@@ -28,9 +28,9 @@ Check a war vote with $24$ Senators and $240$ Representatives in joint session:
 3. Both Houses must reach their own two-thirds mark; pooled totals do not count.
 
 :::pair #war-vote-separate
-Right: The President commands the armed forces, and Congress declares war by two-thirds of both Houses voting separately in joint session.
-Wrong: Letting the President declare war alone, or pooling both Houses' votes into one combined total.
-Meeting together does not merge ballots; each House votes separately.
+Right: In a joint session on war, the Senate and House must each reach two-thirds voting separately.
+Wrong: Pooling both Houses' votes into one combined total because they meet in joint session.
+Meeting together never merges ballots; Article VI, Section $23(1)$ requires separate two-thirds votes.
 :::
 
 :::check
@@ -56,9 +56,9 @@ Why require two-thirds of all Members instead of a simple majority? Passing a la
 :::
 
 :::pair #override-separate-two-thirds
-Right: Each House must separately pass a veto override by two-thirds of all its Members.
-Wrong: Pooling both Houses' votes, or using a simple majority to override a timely veto.
-Article VI, Section $27(1)$ bars both pooled totals and simple-majority overrides.
+Right: Each House must separately reach two-thirds of all its Members to override a veto.
+Wrong: Pooling both Houses' votes into one combined total to reach two-thirds for an override.
+Article VI, Section $27(1)$ counts each House separately against its own full membership.
 :::
 
 :::pair #override-exact-two-thirds
@@ -90,14 +90,14 @@ Answer: No, pooling votes violates the separate-voting rule.
 
 ### #2: Overriding a Veto
 
-A vetoed bill returns to Congress. Suppose the House has $300$ Members and the Senate has $24$. What votes must approve an override?
+A vetoed bill returns to Congress. Suppose the House has $330$ Members and the Senate has $24$. What votes must approve an override?
 
 **Solution:**
 
 1. Take two-thirds of all House Members.
 
 $$
-\dfrac{2}{3}\times300=200
+\dfrac{2}{3}\times330=220
 $$
 
 2. Take two-thirds of all Senators.
@@ -106,25 +106,25 @@ $$
 \dfrac{2}{3}\times24=16
 $$
 
-Answer: At least $200$ House votes and $16$ Senate votes.
+Answer: At least $220$ House votes and $16$ Senate votes.
 
 **Check:** Both Houses count two-thirds of full membership separately, and missing the $30$-day veto deadline makes the bill law as if signed.
 
 ### #3: Present vs. Full Membership
 
-Suppose the House has $270$ Members and the Senate has $24$. On a veto override vote, $21$ Senators attend and $15$ vote yes, while $190$ Representatives vote yes. Does the override pass?
+Suppose the House has $306$ Members and the Senate has $24$. On a veto override, $240$ Representatives attend and $190$ vote yes, while $18$ Senators vote yes. Does the override pass?
 
 **Solution:**
 
-1. Check the House: $\dfrac{2}{3} \times 270 = 180$, so $190$ House votes pass.
-2. Check the Senate: two-thirds of all $24$ Senators is $\dfrac{2}{3} \times 24 = 16$, even with $21$ present.
+1. Check the Senate: $\dfrac{2}{3} \times 24 = 16$, so $18$ Senate votes clear the bar.
+2. Check the House base: Section $27(1)$ counts two-thirds of all $306$ House Members, not just the $240$ attending.
 
 :::try
-Finish the last step: rule whether the override passes and explain why $15$ of $21$ present Senators is not enough.
+Finish the last step: compute the needed House total and rule whether $190$ House votes override the veto.
 :::answer
-The answer is **The override fails because the Senate needs at least $16$ votes.** Section $27(1)$ counts two-thirds of all $24$ Senators, not just the $21$ attending.
+The answer is **No, the veto stands because the House needs $204$ votes, not $190$.** Section $27(1)$ takes $\dfrac{2}{3} \times 306 = 204$ from full House membership. Counting only the $240$ attending Members wrongly lowers the target to $160$.
 
-**Check:** $\dfrac{2}{3} \times 24 = 16$, and $15 < 16$, so the veto stands even though the House cleared $180$.
+**Check:** $190 < 204$, so the override fails in the House even though the Senate passed with $18$.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -135,6 +135,6 @@ Name the body and fraction first. Veto override uses two-thirds of each House's 
 
 :::checklist
 - State of war vote: President commands the military, while Congress declares war voting separately in joint session. {#war-vote-separate}
-- Veto override vote: check two-thirds of all Members in each House separately, never pooled or simple majority. {#override-separate-two-thirds}
+- Veto override vote: count two-thirds of all Members in each House separately, never pooled or present-only. {#override-separate-two-thirds}
 - Override fraction: use two-thirds ($200$ of $300$), not three-fourths ($225$ of $300$). {#override-exact-two-thirds}
 :::

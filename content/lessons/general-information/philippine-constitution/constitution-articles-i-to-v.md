@@ -21,7 +21,7 @@ keyPoints:
 The first two Articles define Philippine space and basic State rules:
 
 1. **Article I: National Territory** defines national land, waters, and airspace. Waters around, between, and connecting islands form internal waters.
-2. **Article II: Declaration of Principles and State Policies** sets State principles and goals. **Sovereignty** belongs to the people, civilian authority leads the military, and government must serve and protect people.
+2. **Article II: Declaration of Principles and State Policies** sets State principles and goals. The Philippines is democratic and republican, so the people hold the highest political authority. **Sovereignty** belongs to the people, civilian authority leads the military, and government must serve and protect people.
 
 An Article II State policy sets a broad goal, such as health or ecology. It never supplies full operating steps, so specific statutes and rules still apply.
 

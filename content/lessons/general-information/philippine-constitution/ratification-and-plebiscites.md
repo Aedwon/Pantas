@@ -33,7 +33,7 @@ Test a plebiscite with $1,200$ registered voters where $800$ votes are cast and 
 
 :::pair #majority-of-votes-cast
 Right: Ratification requires strictly more than half of the **votes cast** on the proposal, not all registered voters.
-Wrong: Using all registered voters as the base, or treating exactly half of the votes cast as enough.
+Wrong: Measuring ratification against all registered voters instead of the votes actually cast.
 Signature minimums use registered voters, whereas Section $4$ ratification uses votes cast.
 :::
 
@@ -98,41 +98,41 @@ Answer: March $2$, $2026$ (day $60$) through April $1$, $2026$ (day $90$).
 
 ### #2: Use Votes Cast
 
-There are $1,000$ registered voters. Of $600$ votes cast on a proposal, $310$ favor it. Is it ratified?
+There are $1,500$ registered voters. Of $700$ votes cast on a proposal, $360$ favor it. Is it ratified?
 
 **Solution:**
 
-1. Find half of the $600$ votes cast:
+1. Find half of the $700$ votes cast:
 
 $$
-\dfrac{600}{2}=300
+\dfrac{700}{2}=350
 $$
 
 2. Compare the favorable votes with half:
 
 $$
-310>300
+360>350
 $$
 
 Answer: Yes, the proposal is ratified because more than half of the votes cast favor it.
 
-**Check:** Section $4$ compares favorable votes against the $600$ votes cast ($310 > 300$), not the $1,000$ registered voters.
+**Check:** Section $4$ compares favorable votes against the $700$ votes cast ($360 > 350$), not the $1,500$ registered voters.
 
-### #3: Find the Defects
+### #3: Checking a Statute and a Plebiscite Date
 
-A convention declares its revision valid without a plebiscite. Separately, an initiative seeks parliamentary government. What fails?
+Congress passes an ordinary statute changing a constitutional age limit without submitting it to voters. Separately, COMELEC certifies an initiative petition sufficient on May $1$ and sets the plebiscite on day $60$ after certification. Which action follows Article XVII, Section $4$?
 
 **Solution:**
 
-1. Check the convention's act against Section $4$: a convention only proposes changes and cannot ratify without voters.
-2. Check the initiative against Section $2$: parliamentary government changes the basic plan of government, making it a revision.
+1. Check the ordinary statute: test whether Congress can alter the Constitution without a plebiscite under Section $4$.
+2. Check day $60$ after May $1$ certification: test both the starting event and whether day $60$ sits inside the permitted window.
 
 :::try
-Finish the last step: state why each act fails Article XVII and name what each one is missing.
+Finish the last step: rule on both the ordinary statute and the day-$60$ plebiscite schedule.
 :::answer
-The answer is **The convention lacks voter ratification in a plebiscite, and the initiative improperly seeks a revision.** Under Section $4$, voters must ratify any change by a majority of votes cast $60$ to $90$ days after approval. Under Section $2$, initiative covers amendments only, so a revision needs Congress or a convention.
+The answer is **The ordinary statute fails without voter ratification, while the day-$60$ plebiscite follows Section $4$.** An ordinary law cannot bypass Article XVII ratification by a majority of votes cast. For an initiative, the $60$-to-$90$-day clock starts at COMELEC certification, and both day $60$ and day $90$ are included.
 
-**Check:** Verify both steps: valid proposal route (Section $1$ or $2$) and timely voter ratification (Section $4$).
+**Check:** Voter ratification is mandatory for every constitutional change, and day $60$ from COMELEC certification sits on the valid opening boundary.
 :::
 
 ## Traps to Watch For

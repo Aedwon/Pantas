@@ -23,7 +23,7 @@ Article IX-B, Section $1(2)$, sets how CSC members enter office and how long the
 2. Appointments require the consent of the **Commission on Appointments (CA)**.
 3. The regular term is **$7$ years without reappointment**.
 
-The Judicial and Bar Council screens judges and Ombudsman nominees, never CSC members. Neither the President nor a unanimous CA vote can grant a second term after a full $7$-year term.
+The Judicial and Bar Council (JBC) screens judges and Ombudsman nominees, never CSC members. Neither the President nor a unanimous CA vote can grant a second term after a full $7$-year term.
 
 Test a proposed appointment after a Commissioner finishes $7$ years:
 
@@ -76,7 +76,7 @@ $$
 The replacement serves only the remaining $3$ years, and cannot serve in an acting role while waiting.
 
 :::pair #staggered-and-unexpired-terms
-Right: Initial $7$-, $5$-, and $3$-year lengths created staggered expirations, and vacancy replacements serve only the remaining years.
+Right: Initial $7$-, $5$-, and $3$-year lengths created staggered terms so CSC seats expire in different years.
 Wrong: Treating the initial $7$-, $5$-, and $3$-year appointments as synchronized terms ending together.
 Different initial lengths ensured seats expire in different years, protecting continuity on the Commission.
 :::
@@ -119,21 +119,21 @@ Answer: The successor serves only the $4$ unexpired years, not a fresh $7$-year 
 
 **Check:** Add served years and replacement years ($3 + 4 = 7$) to verify the original term ends on schedule.
 
-### #3: Reappointment and Acting Designations
+### #3: Filling an Early Vacancy Under Article IX-B
 
-A CSC Chairman finishes a full $7$-year term on February $2$. Separately, a Commissioner retires $1$ year before her term ends. Officials propose giving the Chairman a second $7$-year term for strong performance and naming an acting Commissioner for $6$ months. Evaluate both proposals.
+A CSC Commissioner starts a regular $7$-year term in February $2022$ and resigns in February $2027$ after $5$ full years. The President appoints Director Santos to a fresh $7$-year term without submitting her name to the Commission on Appointments. Identify both constitutional defects.
 
 **Solution:**
 
-1. Check the Chairman's proposal: Article IX-B, Section $1(2)$, sets a $7$-year term without reappointment.
-2. Strong performance does not create an exception to the reappointment ban.
+1. Check the appointment process under Article IX-B, Section $1(2)$: identify who must consent to every CSC appointment.
+2. Compute the predecessor's remaining years from $2022$ to $2029$ after $5$ years served.
 
 :::try
-Finish the last step: evaluate the acting-Commissioner proposal and give the constitutional answer for both proposals.
+Finish the last step: state both constitutional defects and calculate how many years Director Santos may serve once properly appointed.
 :::answer
-The answer is **Both proposals violate Article IX-B, Section $1(2)$.** The Chairman cannot be reappointed after a full $7$-year term. Also, no CSC member may be appointed or designated in a temporary or acting capacity.
+The answer is **The appointment lacks Commission on Appointments consent, and Director Santos can serve only the $2$ unexpired years, not $7$.** Article IX-B, Section $1(2)$, requires CA consent for every CSC appointment and limits vacancy replacements to $7 - 5 = 2$ remaining years.
 
-**Check:** Remember the double rule for vacancies: no acting designation is allowed, and a permanent replacement serves only the unexpired term.
+**Check:** $5 + 2 = 7$ keeps the staggered exit in $2029$, and CA consent is mandatory before permanent appointment.
 :::
 
 ## Traps to Watch For

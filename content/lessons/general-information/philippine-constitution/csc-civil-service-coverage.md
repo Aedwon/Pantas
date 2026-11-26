@@ -56,10 +56,10 @@ An **original charter** is a special law passed by Congress creating the corpora
 Why base GOCC coverage on the creating law? The original charter sets a clear legal line instead of shifting with share ownership.
 :::
 
-Test two state-owned firms:
+Test Harbor Logistics Inc., a port firm formed under general corporation law with $100\%$ state ownership:
 
-1. Water Authority was created by special statute, so it has an original charter and civil service coverage.
-2. Harbor Logistics Inc. registered under general corporation law with $100\%$ state ownership, so it lacks an original charter.
+1. Check how it was created: general corporation law registration supplies no special creating statute.
+2. Result: without an original charter, Harbor Logistics Inc. sits outside the civil service despite $100\%$ state ownership.
 
 :::pair #original-charter-test
 Right: Cover a government corporation only if a special creating law gave it an original charter.
@@ -108,21 +108,21 @@ Answer: No, because the subsidiary lacks an original charter of its own.
 
 **Check:** Inspect the creating law of the specific corporation being tested, not its parent's charter.
 
-### #3: Comparing Two Public Enterprises
+### #3: Tracing Three Employers in One Career
 
-State Grid Corp. was created by Republic Act No. $1234$ to transmit power. State Logistics Inc. incorporated under general corporation law to haul relief goods, and the treasury owns every share. Which firm is covered?
+An accountant worked at a barangay office and a housing authority created by special statute. Later she joined a state-owned hotel formed under general corporation law. Which employers fall inside the civil service under Article IX-B, Section $2(1)$?
 
 **Solution:**
 
-1. State Grid Corp. has an original charter from a special statute.
-2. State Logistics Inc. performs public-style work and is wholly owned, yet formed under general law.
+1. Check the barangay office: classify a barangay under Section $2(1)$'s coverage of government subdivisions.
+2. Check the housing authority and the hotel: compare a special creating statute with general corporation law.
 
 :::try
-Finish the last step: name the covered enterprise and explain why the other is excluded.
+Finish the last step: name which employers fall inside the civil service and explain why the excluded one fails Section $2(1)$.
 :::answer
-The answer is **Only State Grid Corp. is covered, while State Logistics Inc. is excluded.** State Grid Corp. has an original charter from a special law, while general incorporation never creates one even with full state ownership.
+The answer is **The barangay office and the chartered housing authority are covered, while the state-owned hotel is excluded.** Section $2(1)$ covers local subdivisions and GOCCs with original charters from special laws. A hotel formed under general corporation law lacks an original charter despite state ownership.
 
-**Check:** Match special creating law to coverage, and general corporation law to exclusion.
+**Check:** Cover local subdivisions and specially chartered GOCCs, and exclude corporations formed under general corporation law.
 :::
 
 ## Traps to Watch For

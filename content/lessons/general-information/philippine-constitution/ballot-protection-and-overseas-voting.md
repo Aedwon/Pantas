@@ -22,10 +22,10 @@ Article V, Section $2$, directs Congress to secure the **secrecy and sanctity of
 
 Congress must also design unassisted voting for voters with disabilities and those who cannot read. Until then, they vote under existing laws and **COMELEC** (Commission on Elections) rules protecting ballot secrecy.
 
-Test two precinct plans where unassisted machines are unavailable for voters who cannot read:
+Test a town plan requiring voters to show their marked ballots to a booth clerk for verification before dropping them:
 
-1. Precinct A follows COMELEC secrecy rules so voters choose privately: this follows Section $2$'s interim rule.
-2. Precinct B tells voters to announce choices aloud to a clerk: this violates ballot secrecy under Section $2$.
+1. Check secrecy: showing marked choices exposes a voter's private ballot.
+2. Result: the plan violates Article V, Section $2$'s mandate to secure ballot secrecy and sanctity.
 
 :::why
 Why require unassisted voting while keeping interim rules? Helpers risk exposing votes or swaying choices, yet interim secrecy rules prevent excluding voters meantime.
@@ -44,7 +44,7 @@ Article V, Section $1$ bars literacy tests, and Section $2$ preserves interim vo
 :::
 
 :::check
-A local rule lets a relative choose candidates for a voter who uses a wheelchair, even though the voter decides independently. Does that follow Article V, Section $2$?
+A local rule lets a relative pick candidates for a voter who uses a wheelchair, instead of letting the voter choose. Does that follow Article V, Section $2$?
 :::answer
 The answer is **No**. Article V, Section $2$ aims at independent voting for the voter's own choice, not letting someone else pick candidates.
 :::
@@ -101,21 +101,21 @@ Answer: Only Marco may vote abroad; Nadia cannot vote without overseas registrat
 
 **Check:** Overseas voting requires both Philippine citizenship abroad and registration under RA $9189$ and RA $10590$.
 
-### #3: Reviewing Two Precinct Proposals
+### #3: Interim Access and Ballot Sanctity
 
-A town lacks tactile ballots for voters with visual impairments. Official X proposes barring those voters until machines arrive. Official Y proposes letting watchers call out their choices at the table. Evaluate both proposals under Article V, Section $2$.
+In Precinct $1$, an election officer follows COMELEC secrecy rules so a blind voter casts a private ballot while unassisted machines are still pending. In Precinct $2$, local officials enter booths to pressure voters into picking favored candidates. Which precinct obeys Article V, Section $2$?
 
 **Solution:**
 
-1. Check Official X against the interim rule: Section $2$ keeps voters voting under existing laws and COMELEC rules meanwhile.
-2. Check Official Y against ballot secrecy: calling choices aloud exposes the voter's private vote.
+1. Check Precinct $1$: test whether interim voting under COMELEC secrecy rules follows Section $2$ before unassisted tools arrive.
+2. Check Precinct $2$: test entering booths to pressure voters against ballot secrecy and sanctity.
 
 :::try
-Finish the last step: rule on both proposals and state what procedure Article V, Section $2$ requires meanwhile.
+Finish the last step: state which precinct obeys Article V, Section $2$ and explain why the other violates it.
 :::answer
-The answer is **Both proposals violate Article V, Section $2$: voters cannot be excluded, and choices cannot be read aloud.** Until Congress designs unassisted voting, these voters vote under existing laws and COMELEC rules that protect ballot secrecy.
+The answer is **Precinct $1$ obeys Article V, Section $2$, while Precinct $2$ violates ballot secrecy and sanctity.** Section $2$ authorizes interim voting under existing laws and COMELEC secrecy rules until unassisted voting is built. Pressuring voters inside booths destroys both privacy and freedom from interference.
 
-**Check:** Under Section $2$, interim rules must keep access open while preserving ballot secrecy.
+**Check:** Interim rules keep voting open and private, whereas booth pressure breaks both secrecy and sanctity.
 :::
 
 ## Traps to Watch For

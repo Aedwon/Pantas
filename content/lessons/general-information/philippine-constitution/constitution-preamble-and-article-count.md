@@ -28,8 +28,8 @@ Check how a constitutional outline counts its divisions from start to finish:
 
 :::pair #preamble-not-nineteenth-article
 Right: The $1987$ Constitution has an unnumbered Preamble plus $18$ Articles (Article I through Article XVIII).
-Wrong: Counting $19$ articles by treating the Preamble as a numbered article, or stopping at $17$ before Article XVIII.
-The Preamble carries no article number, and Article XVIII (Transitory Provisions) closes the $18$-Article list.
+Wrong: Counting $19$ articles by treating the unnumbered Preamble as a numbered article.
+The Preamble carries no article number, so Article I through Article XVIII totals $18$ Articles.
 :::
 
 :::check
@@ -100,21 +100,21 @@ Answer: Common good and rule of law match the two town policies.
 
 **Check:** Connect community-wide benefit to common good and law-bound officials to rule of law.
 
-### #3: Checking the Preamble's Structural Role
+### #3: Preamble Ideals and Article Headings
 
-A study sheet claims the Preamble is Article $0$ and sets up a fourth commission. It also says it covers $1987$ transition rules. Identify the errors and state its real role.
+A town council restores an old watershed forest for future generations and builds accessible clinics so every resident receives dignified care. Separately, a student reads only the heading "Article V: Suffrage" and claims she now knows every voting deadline and disqualification. Match the town acts to Preamble ideals and test her claim.
 
 **Solution:**
 
-1. Check the numbering: the Preamble is unnumbered, and the $18$ Articles run from Article I through Article XVIII.
-2. Check the commissions and transitions: Article IX governs Constitutional Commissions, while Article XVIII governs Transitory Provisions.
+1. Match restoring a shared natural watershed for future generations to the Preamble's aim for national heritage and resources.
+2. Match accessible, dignified care for every resident to the Preamble's aim for fair treatment and human dignity.
 
 :::try
-Finish the last step: state the Preamble's real role and why knowing it does not replace reading the specific Articles.
+Finish the last step: name both Preamble ideals and explain why reading the heading "Article V: Suffrage" is not enough.
 :::answer
-The answer is **The Preamble states the Filipino people's broad purposes and aims, while specific procedures live inside the $18$ Articles.** Knowing the Preamble guides your purpose, yet you still check the relevant Article for rules and powers.
+The answer is **The watershed reflects patrimony, the clinics reflect a just and humane society, and a title never lists every rule.** An article title only shows where to locate a topic, so the student must still read the specific sections inside Article V.
 
-**Check:** Confirm all three points: Preamble is unnumbered, holds broad aims (not commissions or transitions), and the $18$ Articles carry enforceable rules.
+**Check:** Confirm patrimony (shared heritage and resources), just and humane society (fairness and dignity), and titles as locators rather than full rules.
 :::
 
 ## Traps to Watch For

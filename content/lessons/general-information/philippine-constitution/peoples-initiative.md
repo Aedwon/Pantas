@@ -85,25 +85,25 @@ The answer is **May $2025$**. Article XVII, Section $2$ allows initiative amendm
 
 ### #1: Check Both Signature Rules
 
-Assume $1,000,000$ registered voters nationwide and $40,000$ in one district. What minimums apply to an initiative petition?
+Assume $2,000,000$ registered voters nationwide and $60,000$ in one district. What minimums apply to an initiative petition?
 
 **Solution:**
 
 1. Find the $12\%$ national minimum:
 
 $$
-0.12\times1{,}000{,}000=120{,}000
+0.12\times2{,}000{,}000=240{,}000
 $$
 
 2. Find that district's $3\%$ minimum:
 
 $$
-0.03\times40{,}000=1{,}200
+0.03\times60{,}000=1{,}800
 $$
 
 3. Check every other district's $3\%$ minimum too, since a high national total cannot replace a missing district minimum.
 
-Answer: At least $120,000$ signatures nationwide, $1,200$ in that district, and $3\%$ in every other legislative district.
+Answer: At least $240,000$ signatures nationwide, $1,800$ in that district, and $3\%$ in every other legislative district.
 
 **Check:** Verify $12\%$ nationwide and $3\%$ per district independently, because failing either fails Section $2$.
 

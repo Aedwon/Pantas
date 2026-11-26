@@ -16,7 +16,7 @@ keyPoints:
 
 ### Graft and Corruption
 
-**Graft and corruption** is $1$ combined ground in Article XI, Section $2$. It means misusing public office for an improper private benefit.
+Article XI, Section $2$, lists $6$ grounds: culpable violation of the Constitution, treason, bribery, graft and corruption, other high crimes, and betrayal of public trust. **Graft and corruption** counts as $1$ combined ground covering misuse of public office for an improper private benefit.
 
 Under Republic Act No. $3019$, Section $3(e)$, giving a private party unwarranted advantage through favoritism or bad faith is one example. Criminal laws explain treason, bribery, and graft, yet Congress still tries impeachment separately from criminal courts.
 
@@ -47,7 +47,7 @@ The answer is **Graft and corruption**. Misusing official power in bad faith to 
 
 **Other high crimes** covers serious offenses bearing on fitness for high office (UP College of Law Impeachment Primer). The Constitution gives no closed offense list under this phrase.
 
-Do not assume every illegal act qualifies just because it breaks a law. An alleged ordered killing is grave wrongdoing usable under other high crimes, yet still needs evidence and a Senate decision.
+Do not assume every illegal act qualifies just because it breaks a law. Severe felonies bearing on fitness for office may be invoked under other high crimes, yet still require evidence and a Senate decision.
 
 :::why
 Why leave "other high crimes" without a fixed list? Framers could not predict every grave crime, so the phrase covers severe offenses bearing on fitness for office.

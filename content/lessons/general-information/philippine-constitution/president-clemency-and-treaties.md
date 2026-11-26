@@ -33,14 +33,14 @@ Why require final conviction for pardons and Congress for amnesty? Waiting for f
 :::
 
 :::pair #pardon-after-final-judgment
-Right: A pardon applies only after conviction by final judgment and never covers impeachment.
-Wrong: Granting a pardon before final judgment, or using a pardon to erase impeachment.
-Article VII, Section $19$ requires final conviction and expressly excludes impeachment cases.
+Right: A pardon applies only after conviction by final judgment under Article VII, Section $19$.
+Wrong: Granting a presidential pardon before conviction becomes final judgment.
+Article VII, Section $19$ requires conviction by final judgment before any pardon may issue.
 :::
 
 :::pair #amnesty-needs-all-congress
 Right: Amnesty requires concurrence of a majority of all Members of Congress, including both Houses.
-Wrong: Granting amnesty without Congress, or requiring two-thirds of the Senate alone.
+Wrong: Requiring concurrence of two-thirds of all Senators alone, with no House participation.
 Two-thirds of the Senate applies to treaties; amnesty needs a majority of all Congress Members.
 :::
 
@@ -56,40 +56,37 @@ A **treaty** is an agreement between states. Under Article VII, Section $21$, no
 
 With $24$ Senators, two-thirds is $\dfrac{2}{3} \times 24 = 16$ Senators. That count measures against all $24$ Members regardless of attendance.
 
-Test a treaty vote when $19$ of $24$ Senators attend and $15$ vote yes:
+Test a treaty vote when $20$ of $24$ Senators attend and $17$ vote yes:
 
 1. Compute two-thirds of all $24$ Senators: $\dfrac{2}{3} \times 24 = 16$ votes needed.
-2. Compare $15$ to $16$: $15 < 16$, so the treaty fails even though $15$ exceeds half of $24$.
+2. Compare $17$ to $16$: $17 \ge 16$, so the treaty passes under Article VII, Section $21$.
 
 :::pair #treaty-two-thirds-all-senators
 Right: A treaty requires concurrence by at least two-thirds of all $24$ Senators ($16$ votes).
-Wrong: Treating a simple majority of all Senators, or two-thirds of those present, as enough.
-Article VII, Section $21$ counts two-thirds of all Senators, not attendance.
+Wrong: Counting two-thirds of only the Senators present instead of all $24$ Senators.
+Article VII, Section $21$ counts two-thirds of full Senate membership, not attendance.
 :::
 
 :::check
-Suppose $22$ of $24$ Senators attend a treaty vote and $16$ vote in favor. Does the treaty meet Section $21$?
+Suppose $15$ of $24$ Senators attend a treaty vote and $12$ vote in favor. Does the treaty meet Section $21$?
 :::answer
-The answer is **Yes**. Section $21$ requires at least $\dfrac{2}{3} \times 24 = 16$ votes of all Senators, and $16$ meets that mark.
+The answer is **No**. Although $12$ exceeds two-thirds of the $15$ present, Section $21$ requires at least $\dfrac{2}{3} \times 24 = 16$ votes of all Senators.
 :::
 
 ## Examples
 
-### #1: Emergency Powers and Clemency
+### #1: Pardon, Amnesty, and Election Offenses
 
-During rebellion, the President declares martial law for $90$ days without an extension. A detainee under writ suspension remains uncharged after $3$ days. What limits apply?
-
-Separately, may the President pardon impeachment, pardon an election offense without COMELEC backing, or grant amnesty alone?
+A convicted officer faces impeachment, a mayor convicted of vote-buying seeks a pardon without COMELEC backing, and the President plans an amnesty without Congress. Are any of these clemency acts valid?
 
 **Solution:**
 
-1. Martial law caps at $60$ days initially, with a $48$-hour report, joint revocation, and Supreme Court review.
-2. A detainee under writ suspension must be released if not charged in court within $3$ days.
-3. Pardon excludes impeachment, election-offense pardons need a favorable COMELEC recommendation, and amnesty needs a majority of all Congress Members.
+1. Check Article VII, Section $19$: pardons never cover impeachment, and amnesty needs concurrence of a majority of all Congress Members.
+2. Check Article IX-C, Section $5$: pardoning an election offense requires a favorable COMELEC recommendation.
 
-Answer: Martial law caps at $60$ days with $3$-day charging; none of the three clemency acts are valid alone.
+Answer: None of the three clemency acts is valid.
 
-**Check:** Article VII, Sections $18$ and $19$ and Article IX-C, Section $5$ each impose strict limits.
+**Check:** Check all three limits separately: no impeachment pardon, COMELEC backing for election offenses, and Congress for amnesty.
 
 ### #2: Treaty Concurrence
 
@@ -129,7 +126,7 @@ The answer is **Neither is valid: the amnesty lacks a favorable COMELEC recommen
 ## Traps to Watch For
 
 :::checklist
-- Presidential pardon: require conviction by final judgment, and never apply it to impeachment. {#pardon-after-final-judgment}
+- Presidential pardon and election offenses: require final conviction, exclude impeachment, and get favorable COMELEC backing for election offenses. {#pardon-after-final-judgment}
 - Amnesty vote: require concurrence of a majority of all Members of Congress, not the Senate alone. {#amnesty-needs-all-congress}
-- Treaty concurrence: count two-thirds of all $24$ Senators ($16$ votes), not simple majority or attendance. {#treaty-two-thirds-all-senators}
+- Treaty concurrence: count two-thirds of all $24$ Senators ($16$ votes), never attendance alone. {#treaty-two-thirds-all-senators}
 :::

@@ -17,7 +17,7 @@ keyPoints:
 
 Under Article XI, Section $3(1)$, the House of Representatives has the exclusive power to initiate all cases of impeachment. A **verified complaint** is formally sworn to as true.
 
-Section $3(2)$ and $3(3)$ set the **regular route**. It applies when $1$ House Member files a complaint, or a citizen files with a Member's endorsement:
+Section $3(2)$ and $3(3)$ set the **regular route**. It applies when fewer than $\dfrac{1}{3}$ of all House Members file a complaint, or a citizen files with a Member's endorsement:
 
 1. Include the complaint in the Order of Business within $10$ session days.
 2. Refer it to the proper Committee within $3$ session days after that.
@@ -32,7 +32,7 @@ Track $1$ citizen's verified complaint endorsed by $1$ Representative in a $300$
 
 :::pair #citizen-endorsement-regular-route
 Right: A citizen's verified complaint endorsed by a House Member enters the regular route through committee review and House action.
-Wrong: Treating $1$ Member's endorsement as turning a citizen's complaint straight into the Articles, or dismissing citizen filings outright.
+Wrong: Treating $1$ Member's endorsement as turning a citizen's complaint straight into the Articles of Impeachment.
 Citizens may file with a House Member's endorsement, yet committee review and House voting still apply below $\dfrac{1}{3}$.
 :::
 
@@ -59,7 +59,7 @@ Test a $300$-Member House where $105$ Members sign and file a verified impeachme
 
 :::pair #one-third-direct-articles
 Right: A verified complaint or resolution filed by at least $\dfrac{1}{3}$ of all House Members becomes the Articles of Impeachment for immediate Senate trial.
-Wrong: Requiring committee review on a $\dfrac{1}{3}$ filing, or treating direct filing as an instant conviction without a Senate trial.
+Wrong: Requiring a verified complaint filed by at least $\dfrac{1}{3}$ of all House Members to undergo committee review first.
 Direct filing skips committee review to form the formal charges, while the Senate still holds the trial.
 :::
 
@@ -118,6 +118,7 @@ The answer is **Committee review is skipped, because the resolution itself becom
 ## Traps to Watch For
 
 :::checklist
-- Endorsed citizen complaint: route through committee review and House action, never direct conversion or dismissal. {#citizen-endorsement-regular-route}
+- Endorsed citizen complaint: route through committee review and House action, never direct conversion. {#citizen-endorsement-regular-route}
 - One-third direct filing: forms the Articles without committee review, yet still requires a Senate trial. {#one-third-direct-articles}
+- Filing threshold vs. floor vote: keep the $\dfrac{1}{3}$ direct-filing rule separate from the $\dfrac{1}{3}$ regular-route floor vote. {#the-one-third-direct-filing-route}
 :::

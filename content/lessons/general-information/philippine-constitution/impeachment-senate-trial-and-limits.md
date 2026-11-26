@@ -54,10 +54,10 @@ Under Article XI, Section $3(5)$, no impeachment proceedings may be initiated ag
 Why keep impeachment judgment separate from criminal prison sentences? Impeachment protects public office quickly, while ordinary courts protect full trial rights before imprisonment.
 :::
 
-Apply Sections $3(5)$ and $3(7)$ after the Senate convicts a commissioner of bribery:
+Apply Sections $3(5)$ and $3(7)$ when an official is cleared in April and another complaint arrives in November, or when a commissioner is convicted:
 
-1. The Senate judgment removes the commissioner and disqualifies future public officeholding without imposing jail time.
-2. Prosecutors may then file a separate bribery case in court, and presidential pardon cannot cancel the impeachment.
+1. November sits within $1$ year of April, so Section $3(5)$ bars initiating a second impeachment proceeding.
+2. If the Senate convicts, Section $3(7)$ caps judgment at removal and disqualification, with no Senate prison sentence.
 
 :::pair #judgment-not-criminal-end
 Right: Impeachment stops at removal and disqualification, leaving the convicted officer open to separate criminal prosecution in court.
@@ -66,9 +66,9 @@ The Senate decides removal and disqualification, while ordinary courts try and p
 :::
 
 :::check
-Impeachment proceedings are validly initiated against an official in March $2026$ and later dismissed. Can a second impeachment complaint be initiated against that same official in October $2026$?
+After convicting a commissioner of bribery, a Senator proposes adding $8$ years in prison to the Senate's impeachment judgment. Does Article XI, Section $3(7)$, allow that?
 :::answer
-The answer is **No**. Article XI, Section $3(5)$, bars initiating impeachment against the same official more than once within $1$ year.
+The answer is **No**. Section $3(7)$ limits impeachment judgment strictly to removal from office and disqualification to hold public office, never prison time.
 :::
 
 ## Examples

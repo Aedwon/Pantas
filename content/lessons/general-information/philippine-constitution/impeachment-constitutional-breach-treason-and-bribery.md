@@ -40,9 +40,9 @@ Section $2$ has $5$ office categories and $6$ grounds, with graft and corruption
 :::
 
 :::check
-A complaint charges an impeachable official only with "chronic lateness to meetings." Is that phrase one of the $6$ named grounds in Section $2$?
+A review outline lists graft as ground $4$ and corruption as ground $5$, counting $7$ impeachment grounds in Article XI, Section $2$. What mistake did the outline make?
 :::answer
-The answer is **No**. Section $2$ lists $6$ specific grounds, and ordinary lateness or inefficiency is not a named ground.
+The answer is **It split one combined ground into two**. Section $2$ lists "graft and corruption" as one combined item, giving $6$ named grounds total.
 :::
 
 ### Constitutional Breach, Treason, and Bribery
@@ -110,21 +110,21 @@ Answer: Bribery matches the accusation, while proof and a Senate decision remain
 
 **Check:** Separate identifying the payment-for-favor ground from proving guilt at trial.
 
-### #3: Sorting Two Complaints Under Article XI
+### #3: Promises and Deliberate Breaches Under Section $2$
 
-Complaint A charges an impeachable official with "messy desk filing." Complaint B accuses the official of funding armed enemy fighters during war. Rule on both under Section $2$.
+Complaint A accuses an impeachable official of accepting a written promise of future land shares in exchange for approving a telecom permit. Complaint B accuses another official of deliberately ignoring an explicit constitutional ban on appointing relatives to his commission. Match each complaint to Section $2$ and state what Congress must still do.
 
 **Solution:**
 
-1. Compare Complaint A to Section $2$'s $6$ grounds: messy filing is not a named ground.
-2. Compare Complaint B to Revised Penal Code Article $114$: funding wartime enemies gives aid or comfort.
+1. Check Complaint A: test whether a promise of future value tied to an official act fits Revised Penal Code Article $210$.
+2. Check Complaint B: test whether intentionally disobeying an explicit constitutional rule fits Section $2$.
 
 :::try
-Finish the last step: name the ground for Complaint B and state what Congress must still do.
+Finish the last step: name the Section $2$ ground for each complaint and state whether naming them proves guilt.
 :::answer
-The answer is **Complaint B raises treason, while Complaint A states no named ground, and proof through trial is still needed.** Naming treason starts the constitutional process without proving guilt automatically.
+The answer is **Complaint A raises bribery, Complaint B raises culpable violation of the Constitution, and neither proves guilt without proof and a Senate trial.** Accepting a promise tied to an official act fits bribery. Willful defiance of a constitutional command fits culpable violation, while proof stays with Congress.
 
-**Check:** Verify both steps: treason fits wartime enemy aid, and messy filing sits outside the $6$ grounds.
+**Check:** Confirm both grounds (promise for official act = bribery; willful constitutional breach = culpable violation) and separate accusation from proof.
 :::
 
 ## Traps to Watch For

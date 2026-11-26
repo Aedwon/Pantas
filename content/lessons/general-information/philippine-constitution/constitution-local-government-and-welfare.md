@@ -54,7 +54,7 @@ The answer is **No**. Local autonomy lets local units manage local affairs withi
 Articles XII and XIII move from national wealth to social protection and human rights:
 
 1. **Article XII: National Economy and Patrimony** governs the economy and national resources. Natural resources belong to the State, so check the exact section for land, mines, or corporations.
-2. **Article XIII: Social Justice and Human Rights** covers labor, land reform, urban housing, health, women, and human rights. It also creates the **Commission on Human Rights (CHR)** to investigate civil and political rights violations (Section $18(1)$).
+2. **Article XIII: Social Justice and Human Rights** covers labor, land reform, urban housing, health, women, people's organizations, and human rights. It also creates the **Commission on Human Rights (CHR)** to investigate civil and political rights violations (Section $18(1)$).
 
 :::why
 Why separate Article XII from Article XIII? Article XII focuses on national resources and economic rules, while Article XIII protects workers, farmers, disadvantaged groups, and human rights.
@@ -105,21 +105,21 @@ Answer: Move Ombudsman Remedies to Article XI because specific subject articles 
 
 **Check:** Always prefer the exact dedicated article (XI) over a broad catch-all title (XVI).
 
-### #3: Routing Economy, Social Reform, and CHR
+### #3: Routing Local Units, Resources, and Organizations
 
-Assign three items to Article XII or Article XIII. Check (a) State timberlands, (b) labor unions and wages, and (c) CHR civil-rights probes.
+Assign three items to Article X, Article XII, or Article XIII. Check (a) coastal forest resources, (b) barangay local autonomy rules, and (c) independent people's organizations participating in social reform.
 
 **Solution:**
 
-1. Check item (a): natural resources like timberlands belong to Article XII (National Economy and Patrimony).
-2. Check item (b): labor protection belongs to Article XIII (Social Justice and Human Rights).
+1. Check item (a): natural resources like coastal forests belong to Article XII (National Economy and Patrimony).
+2. Check item (b): barangays and local autonomy belong to Article X (Local Government).
 
 :::try
 Finish the last step: assign item (c) to its Article and explain why it belongs there rather than Article XII.
 :::answer
-The answer is **Assign item (c) to Article XIII, because Article XIII creates the CHR and grants its civil-rights investigative power.** Article XII covers national economy and natural resources, not human-rights bodies.
+The answer is **Assign item (c) to Article XIII, because Article XIII covers social justice and people's organizations.** Article XII governs national resources and the economy, whereas Article XIII protects social reform and disadvantaged groups.
 
-**Check:** Match XII to State resources and economy, and XIII to labor, social reform, and CHR human rights.
+**Check:** Match X to local units, XII to State resources and economy, and XIII to social justice and people's organizations.
 :::
 
 ## Traps to Watch For

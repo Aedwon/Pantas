@@ -33,9 +33,9 @@ Section $13(1)$ allows self-started probes into apparently illegal, unjust, impr
 :::
 
 :::check
-A public hospital buyer repeatedly pays triple price for expired supplies, though no patient filed a complaint. May the Ombudsman start an investigation?
+Citizens complain to the Ombudsman about an impeachable officer's alleged graft. Does the Ombudsman's investigation replace impeachment by Congress?
 :::answer
-The answer is **Yes**. Article XI, Section $13(1)$, authorizes the Ombudsman to investigate on its own initiative without waiting for a complaint.
+The answer is **No**. The Ombudsman may investigate complaints, yet only Congress holds the constitutional power to impeach and remove listed impeachable officers.
 :::
 
 ### Corrective Orders, Records, and Recommendations
@@ -58,8 +58,8 @@ Apply Section $13$ to a registrar who stalls a lawful land-title release for $8$
 
 :::pair #ombudsman-direct-vs-remove
 Right: For an unfinished legal duty, the Ombudsman investigates the omission and directs performance without automatically firing the worker on receipt.
-Wrong: Automatically removing an employee upon complaint receipt, or treating a failure to act as beyond review.
-Failures to act are expressly covered, and investigation precedes any recommended discipline.
+Wrong: Treating the receipt of a complaint as automatically removing the employee before any investigation.
+Investigation precedes any recommended discipline, while Section $13(2)$ expedites the stalled legal duty.
 :::
 
 :::pair #ombudsman-records-without-consent
@@ -69,9 +69,9 @@ Section $13(5)$ empowers the Ombudsman to gather agency records directly during 
 :::
 
 :::check
-An agency clerk stalls a lawful tax-refund voucher for $7$ months and says investigators cannot touch logbooks without her consent. Identify two errors in her claim.
+During a probe of a chartered GOCC's padded fuel contracts, the manager refuses to release vouchers without his signed consent. He also claims the Ombudsman cannot report irregularities to COA. Is he right?
 :::answer
-The answer is **Omissions are covered, and her consent is not required.** Under Section $13$, the Ombudsman investigates failures to act, expedites duties, and examines records directly.
+The answer is **No**. Under Article XI, Section $13$, the Ombudsman covers chartered GOCCs, examines pertinent records without consent, and reports irregularities to COA.
 :::
 
 ## Examples
@@ -102,21 +102,21 @@ Answer: Removal is not automatic, and the Ombudsman may direct performance and e
 
 **Check:** Separate automatic firing (wrong) from directing performance of an unfinished duty (Section $13(2)$).
 
-### #3: Recommending Censure or Prosecution After Investigation
+### #3: Irregular Contracts at a Public Hospital
 
-After examining office files, the Ombudsman finds an agency cashier altered payout logs and recommends **censure** and prosecution. Define censure and explain how it handles records and compliance.
+Ombudsman investigators inspect a public hospital's supply contracts without the purchasing chief's permission and uncover double billing. The chief says reading contracts uninvited broke the rules. He adds that the Ombudsman can issue only a private warning with no follow-up. Rule on both claims.
 
 **Solution:**
 
-1. Under Section $13(5)$, the Ombudsman requests agency records without waiting for the cashier's permission.
-2. Under Section $13(3)$, it recommends sanctions including removal, suspension, demotion, fine, censure, or prosecution.
+1. Check record access under Article XI, Section $13(5)$: test whether the chief's permission is needed to inspect pertinent contracts.
+2. Check remedies under Sections $13(3)$ and $13(4)$: check what reports and sanctions the Ombudsman may pursue after finding double billing.
 
 :::try
-Finish the last step: define censure and state the Ombudsman's duty regarding compliance with its action.
+Finish the last step: rule on both claims and name the remedies and compliance duty available to the Ombudsman.
 :::answer
-The answer is **Censure is formal disapproval, and the Ombudsman must ensure compliance as provided by law.** It gathers records directly and monitors lawful follow-through after recommending sanctions.
+The answer is **Both claims fail: the Ombudsman inspects contracts without consent, reports irregularities to COA, recommends sanctions or prosecution, and ensures lawful compliance.** Section $13(5)$ grants direct access to agency records. Section $13(3)$ covers recommending removal, suspension, demotion, fine, censure, or prosecution, with compliance ensured as provided by law.
 
-**Check:** Verify all three points: no subject consent needed for records, censure means formal disapproval, and compliance follows law.
+**Check:** Verify direct record access, COA reporting, formal sanctions beyond private warnings, and compliance monitoring under law.
 :::
 
 ## Traps to Watch For

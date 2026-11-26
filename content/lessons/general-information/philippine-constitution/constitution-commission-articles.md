@@ -104,19 +104,19 @@ Answer: Keep IX-A through IX-D inside Article IX so Local Government stays Artic
 
 ### #3: Routing Shared vs. Specific Rules
 
-Which Article IX part covers (a) the ban on holding other offices, (b) party-list election rules, and (c) career-service merit hiring?
+Which Article IX part covers (a) salary protection for all three commissions, (b) enforcing election-day precinct rules, and (c) examining agency property records?
 
 **Solution:**
 
-1. Check item (a): a rule binding all three commissions sits in Article IX-A (Common Provisions).
-2. Check item (b): election administration belongs to COMELEC in Article IX-C.
+1. Check item (a): a shared protection binding all three commissions sits in Article IX-A (Common Provisions).
+2. Check items (b) and (c): match election-law enforcement and government property examination to their specific commissions.
 
 :::try
-Finish the last step: assign item (c) to its subdivision and verify the full sequence A-B-C-D.
+Finish the last step: assign items (b) and (c) to their subdivisions and verify the full sequence A-B-C-D.
 :::answer
-The answer is **Career-service merit hiring sits in Article IX-B (Civil Service Commission), completing the sequence IX-A Common Provisions, IX-B CSC, IX-C COMELEC, IX-D COA.** Keep shared rules in A and match each commission to B, C, or D.
+The answer is **Precinct election enforcement sits in Article IX-C (COMELEC), and property-record examination sits in Article IX-D (COA).** That completes the sequence IX-A Common Provisions, IX-B CSC, IX-C COMELEC, and IX-D COA.
 
-**Check:** Verify A = shared rules, B = personnel, C = elections, D = audit.
+**Check:** Verify A = shared rules, B = personnel, C = elections, and D = government accounts and property.
 :::
 
 ## Traps to Watch For
@@ -124,4 +124,5 @@ The answer is **Career-service merit hiring sits in Article IX-B (Civil Service 
 :::checklist
 - Article IX scope: keep CSC, COMELEC, and COA in Article IX, and place CHR in Article XIII. {#article-ix-vs-chr-and-others}
 - IX-A vs. named bodies: reserve IX-A for Common Provisions, and put CSC in B, COMELEC in C, and COA in D. {#ix-a-vs-named-commissions}
+- Lettered sub-parts: IX-A through IX-D stay inside $1$ Article IX, adding zero extra articles to the $18$-Article total. {#subdivisions-stay-inside-article-ix}
 :::

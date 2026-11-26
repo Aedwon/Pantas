@@ -19,7 +19,7 @@ keyPoints:
 
 The three co-equal branches sit in order across Articles VI, VII, and VIII: **make laws, carry out laws, judge disputes**.
 
-1. **Article VI: The Legislative Department** vests lawmaking power in Congress (Senate and House), aside from initiative and referendum.
+1. **Article VI: The Legislative Department** vests lawmaking power in Congress (Senate and House). Some power stays with the people through initiative and referendum, ways to propose or vote on laws directly.
 2. **Article VII: The Executive Department** vests executive power in the President, plus rules for President and Vice-President.
 3. **Article VIII: The Judicial Department** vests judicial power in the Supreme Court and lower courts to decide disputes and check grave abuse.
 

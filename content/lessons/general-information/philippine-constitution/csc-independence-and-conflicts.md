@@ -23,7 +23,7 @@ Article IX-A, Section $1$, creates three **independent Constitutional Commission
 2. The **Commission on Elections (COMELEC)**.
 3. The **Commission on Audit (COA)**.
 
-Agencies like the Securities and Exchange Commission (SEC), planning bodies like NEDA, and departments like DBM are not Article IX Commissions.
+Statutory bodies and executive offices are not Article IX Commissions. Examples include the Securities and Exchange Commission (SEC), the National Economic and Development Authority (NEDA), and the Department of Budget and Management (DBM).
 
 Two financial shields protect the CSC from outside control:
 
@@ -34,10 +34,10 @@ Two financial shields protect the CSC from outside control:
 Why protect salaries and annual fund releases? If budget officials could freeze funds or cut pay, they could pressure CSC rulings.
 :::
 
-Test a finance memo cutting a sitting CSC Commissioner's salary by $10\%$ during a budget shortfall:
+Test a budget memo holding back the CSC's approved office-supply release until an appeal is reconsidered:
 
-1. Article IX-A, Section $3$, fixes member salaries by law and bars any decrease during tenure.
-2. Even during tight budgets, a sitting member's salary cannot be lowered.
+1. Article IX-A, Section $5$, requires automatic and regular release of approved annual CSC appropriations.
+2. Attaching conditions or delaying approved releases breaks fiscal autonomy.
 
 :::pair #only-three-commissions
 Right: Treat only CSC, COMELEC, and COA as Article IX Constitutional Commissions.
@@ -100,34 +100,34 @@ Answer: Only CSC, COMELEC, and COA are Article IX Commissions, and member salari
 
 **Check:** Keep the three Article IX Commissions distinct from statutory agencies and executive departments.
 
-### #2: Private Practice and City Contracts
+### #2: Second Employment and Regulated Business
 
-A sitting CSC Commissioner plans to accept Saturday family-law clients for private fees. The Commissioner also keeps a silent share in a firm bidding on a city supply contract. Which plans break Section $2$?
+A sitting CSC Commissioner accepts a paid weekend post as dean of a private college. The Commissioner also actively manages a private recruitment firm that places clerks into national bureaus. Which plans break Section $2$?
 
 **Solution:**
 
-1. Taking private legal clients is practicing a profession, which is barred during tenure despite private fees.
-2. Holding an indirect financial interest in a city supply contract breaks the ban covering local subdivisions.
+1. Serving as a paid college dean breaks the ban on holding any other office or employment during tenure.
+2. Managing a recruitment firm affected by civil service rules breaks the ban on actively managing an affected business.
 
 Answer: Both plans violate Article IX-A, Section $2$.
 
 **Check:** Test all four bans separately: second job, profession practice, affected business control, and government contract interest.
 
-### #3: Quarterly Fund Holds and Subsidiary Contracts
+### #3: Salary Cuts and Provincial Contracts
 
-A budget bureau freezes the CSC's approved quarterly release until the Commission postpones a personnel audit. Meanwhile, a sitting CSC Commissioner holds a silent $20\%$ stake in a firm bidding on a GOCC subsidiary's catering contract. Rule on both.
+During a revenue drop, a statute lowers sitting CSC Commissioners' monthly salaries by $5\%$ for one year. Meanwhile, a sitting Commissioner holds a silent $15\%$ stake in a contractor bidding on a provincial bridge project. Rule on both.
 
 **Solution:**
 
-1. Under Article IX-A, Section $5$, fiscal autonomy requires automatic and regular release of approved annual CSC appropriations.
-2. Under Section $2$, members cannot hold any direct or indirect financial interest in contracts with GOCCs or their subsidiaries.
+1. Check the salary cut against Article IX-A, Section $3$: test whether a revenue drop allows reducing sitting members' pay.
+2. Check the silent $15\%$ stake against Section $2$: test whether local subdivisions like provinces are covered by the financial-interest ban.
 
 :::try
-Finish the last step: state the constitutional ruling for both the quarterly fund freeze and the silent stake.
+Finish the last step: state the constitutional ruling for both the salary cut and the silent contractor stake.
 :::answer
-The answer is **Both the quarterly fund freeze and the silent stake violate Article IX-A.** Fiscal autonomy bars conditioning or delaying approved CSC releases. Section $2$ also bars indirect financial interests in contracts with any GOCC or its subsidiary.
+The answer is **Both the $5\%$ salary cut and the silent contractor stake violate Article IX-A.** Section $3$ forbids reducing member salaries during tenure, even in a revenue drop. Section $2$ bars any direct or indirect financial interest in contracts with local subdivisions like provinces.
 
-**Check:** Match conditional fund holds to Section $5$ fiscal autonomy, and indirect GOCC-subsidiary interests to Section $2$.
+**Check:** Match salary cuts during tenure to Section $3$, and indirect stakes in provincial contracts to Section $2$.
 :::
 
 ## Traps to Watch For

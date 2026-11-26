@@ -31,9 +31,9 @@ Why cap consecutive terms instead of lifetime terms? Sitting out one cycle break
 :::
 
 :::pair #senate-nationwide-and-terms
-Right: All $24$ Senators are elected nationwide for $6$-year terms, with at most $2$ consecutive terms.
-Wrong: Saying Senators are elected by district, or capping them at $2$ terms in a lifetime.
-District elections belong to district Representatives, and the Senate's $2$-term cap counts consecutive terms only.
+Right: All $24$ Senators are elected nationwide at large under Article VI, Section $2$.
+Wrong: Treating Senators as elected by local legislative district like district Representatives.
+District elections belong to district Representatives, while all $24$ Senators are elected nationwide.
 :::
 
 :::check
@@ -60,9 +60,9 @@ Senate rules are $6$ years and $2$ consecutive terms; House rules are $3$ years 
 :::
 
 :::pair #house-cap-and-party-list
-Right: Law may adjust the $250$-seat base, and the $20\%$ party-list share uses total House membership.
-Wrong: Treating $250$ as an unbreakable ceiling, or taking $20\%$ of district seats alone.
-Article VI, Section $5$ allows Congress to change total size by law and includes party-list seats in the total.
+Right: The $20\%$ party-list share is computed from total House membership, including party-list seats.
+Wrong: Taking $20\%$ of district seats alone instead of total House membership.
+Article VI, Section $5(2)$ includes party-list seats in the total before applying $20\%$.
 :::
 
 :::check
@@ -119,7 +119,7 @@ The answer is **Yes, a law may set $350$ seats, giving at most $70$ party-list s
 ## Traps to Watch For
 
 :::checklist
-- Senate rules: $24$ Senators elected nationwide, $6$-year terms, at most $2$ consecutive terms (not lifetime). {#senate-nationwide-and-terms}
+- Senate election: all $24$ Senators are elected nationwide at large, never by district. {#senate-nationwide-and-terms}
 - House vs. Senate terms: keep $3$ years and $3$ terms for Representatives separate from $6$ years and $2$ terms for Senators. {#house-terms-not-senate}
-- House size and party-list math: law may raise the $250$ base, and $20\%$ uses total House seats. {#house-cap-and-party-list}
+- Party-list share: compute $20\%$ from total House membership, never district seats alone. {#house-cap-and-party-list}
 :::

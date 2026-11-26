@@ -40,9 +40,9 @@ Asking voters whether to call a convention is part of forming the convention rou
 :::
 
 :::check
-A resolution asks voters whether to call a convention while lawmakers debate proposing an amendment themselves. How many proposal routes exist under Article XVII?
+An elected assembly formed solely to rewrite the $1987$ Constitution proposes merging two branches of government. Which Article XVII proposal route is this, and may it propose a revision?
 :::answer
-The answer is **$3$ proposal routes**. Counting Congress, a constitutional convention, and people's initiative gives $3$; voter referral only decides whether to form a convention.
+The answer is **A constitutional convention, and yes, it may propose a revision.** Under Article XVII, Section $1(2)$, a constitutional convention may propose either amendments or revisions.
 :::
 
 ### Congressional Thresholds and All Members
@@ -84,57 +84,56 @@ The answer is **$91$ votes**. Half of all $180$ Members is $\dfrac{180}{2} = 90$
 
 ## Examples
 
-### #1: Match the Route
+### #1: Matching Scope to Route
 
-Which route uses lawmakers, a special drafting body, or voters signing a petition?
+A citizens' group proposes overhauling all three branches via petition, while lawmakers propose a single-section amendment. Which proposal fits its Article XVII route?
 
 **Solution:**
 
-1. Lawmakers acting in the legislature form the **Congress** route (Section $1(1)$).
-2. A special drafting body is a **constitutional convention** (Section $1(2)$).
-3. Voters signing a petition use **people's initiative** for amendments only (Section $2$).
+1. Overhauling all three branches is a revision, whereas people's initiative under Section $2$ covers **amendments only**.
+2. Congress under Section $1(1)$ may propose either amendments or revisions.
 
-Answer: Congress uses lawmakers, a convention uses a special drafting body, and people's initiative uses voters signing a petition.
+Answer: Only the lawmakers' proposal fits; the overhaul requires Congress or a convention.
 
-**Check:** Each of the $3$ routes matches one proposing body or voter petition under Sections $1$ and $2$.
+**Check:** Only Congress and a constitutional convention may propose revisions.
 
 ### #2: Congress Proposes
 
-For a hypothetical congressional voting body with $240$ Members, how many votes are required to propose a constitutional change?
+For a hypothetical congressional voting body with $320$ Members, how many votes are required to propose a constitutional change?
 
 **Solution:**
 
 1. Under Article XVII, Section $1$, Congress needs $\dfrac{3}{4}$ of all Members to propose a change.
-2. Multiply $\dfrac{3}{4}$ by all $240$ Members:
+2. Multiply $\dfrac{3}{4}$ by all $320$ Members:
 
 $$
-\dfrac{3}{4}\times240=180
+\dfrac{3}{4}\times320=240
 $$
 
-Answer: At least $180$ votes are needed. This hypothetical calculation does not decide whether the Houses vote jointly or separately.
+Answer: At least $240$ votes are needed. This hypothetical calculation does not decide whether the Houses vote jointly or separately.
 
-**Check:** Two-thirds ($160$) only calls a convention, whereas proposing a change needs $\dfrac{3}{4}$ ($180$).
+**Check:** Three-fourths of $320$ is $240$, whereas two-thirds would only suffice to call a convention.
 
 ### #3: Calling a Convention
 
-Using a hypothetical membership of $240$, compare calling a convention directly with asking voters whether to call one.
+Using a hypothetical membership of $360$, compare calling a convention directly with asking voters whether to call one.
 
 **Solution:**
 
-1. Under Section $3$, the direct convention call requires $\dfrac{2}{3}$ of all $240$ Members:
+1. Under Section $3$, the direct convention call requires $\dfrac{2}{3}$ of all $360$ Members:
 
 $$
-\dfrac{2}{3}\times240=160
+\dfrac{2}{3}\times360=240
 $$
 
-2. Asking voters requires a majority of all $240$ Members, meaning more than half.
+2. Asking voters requires a majority of all $360$ Members, meaning more than half.
 
 :::try
-Finish the last step: calculate the minimum vote to ask voters whether to call a convention and compare it with $160$.
+Finish the last step: calculate the minimum vote to ask voters whether to call a convention and compare it with $240$.
 :::answer
-The answer is **Asking voters needs at least $121$ votes, compared with $160$ votes for a direct call.** Half of $240$ is $\dfrac{240}{2} = 120$, so a strict majority is $120 + 1 = 121$ votes, $39$ fewer than calling the convention directly.
+The answer is **Asking voters needs at least $181$ votes, compared with $240$ votes for a direct call.** Half of $360$ is $\dfrac{360}{2} = 180$, so a strict majority is $180 + 1 = 181$ votes, $59$ fewer than calling the convention directly.
 
-**Check:** Exactly $120$ is half and fails; $121$ clears a majority of all $240$ Members, while $160$ clears $\dfrac{2}{3}$.
+**Check:** Exactly $180$ is half and fails; $181$ clears a majority of all $360$ Members, while $240$ clears $\dfrac{2}{3}$.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -37,9 +37,9 @@ Check the clocks when the President suspends the writ during rebellion on April 
 2. Anyone arrested under suspension on April $2$ must be charged by April $5$ ($3$ days) or released.
 
 :::pair #sixty-day-initial-limit
-Right: Martial law or writ suspension lasts at most $60$ days initially, with a $48$-hour report to Congress.
-Wrong: Setting a $30$-day or $90$-day initial cap, or allowing $30$ days to report to Congress.
-Section $18$ pairs a $60$-day initial cap with a $48$-hour report deadline.
+Right: Martial law or writ suspension lasts at most $60$ days initially under Article VII, Section $18$.
+Wrong: Setting a $30$-day or $90$-day initial limit instead of $60$ days.
+Check the exact Section $18$ initial cap of $60$ days before any congressional extension.
 :::
 
 :::check

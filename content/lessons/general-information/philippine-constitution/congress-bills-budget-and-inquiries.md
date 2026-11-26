@@ -25,19 +25,19 @@ A **bill** is a proposed law, and to **originate** means to start. Article VI, S
 
 The Senate may propose or agree to amendments on these bills. Under Section $25(1)$, Congress cannot increase the President's recommended appropriations for government operations in the budget.
 
-Test these rules on a tariff bill and the annual budget bill:
+Test Section $24$ on a private bill granting a broadcast franchise to one television company:
 
-1. A tariff bill sets customs duties, so it starts in the House under Section $24$, and the Senate may amend it.
-2. Congress may cut the President's recommended operating budget, yet cannot increase it under Section $25(1)$.
+1. Identify the bill type: a franchise for one private company is a **private bill**.
+2. Apply Section $24$: it must start in the House, and the Senate may propose or agree to amendments.
 
 :::why
 Why start tax and spending bills in the House? District members sit closer to local taxpayers, while Senate amendments keep national review intact.
 :::
 
 :::pair #house-origin-senate-amends
-Right: Listed bills must start in the House, and the Senate may propose or agree to amendments.
-Wrong: Starting a national revenue bill in the Senate, or barring Senate amendments on a House bill.
-House origin controls where a bill starts, while Section $24$ protects Senate amendments.
+Right: Revenue, tariff, and appropriation bills must start in the House before the Senate amends them.
+Wrong: Starting a national revenue or tariff bill in the Senate because it has nationwide scope.
+Article VI, Section $24$ requires all six listed bill types to originate in the House.
 :::
 
 :::pair #no-budget-increase
@@ -73,9 +73,9 @@ Lawmaking opens the inquiry, yet Section $21$ still enforces published rules and
 :::
 
 :::check
-A Senate committee publishes its rules, respects witness rights, and studies customs smuggling. May it originate a new tariff bill in the Senate?
+A House committee publishes its flood-control inquiry rules, yet forces an invited engineer to answer without respecting his constitutional rights. Does publishing the rules satisfy Section $21$?
 :::answer
-The answer is **No**. Even a valid Section $21$ inquiry does not change Section $24$, which requires tariff bills to start in the House.
+The answer is **No**. Article VI, Section $21$ requires both duly published rules and respect for the rights of people appearing in the inquiry.
 :::
 
 ## Examples
@@ -106,21 +106,21 @@ Answer: No, both published rules and respect for rights are required.
 
 **Check:** Under Section $21$, published rules and witnesses' rights bind every legislative inquiry.
 
-### #3: Budget Limit
+### #3: Changing the Operating Budget
 
-Congress proposes to increase the President's recommended appropriations for government operations as specified in the budget by passing a majority vote in each House. Does Article VI, Section $25(1)$ allow this increase?
+The President submits a budget recommending $10$ billion pesos for an agency's operations. One House panel proposes cutting it to $9$ billion pesos, while a Senate amendment proposes raising it to $11$ billion pesos. Which proposal does Article VI, Section $25(1)$ allow?
 
 **Solution:**
 
-1. Identify the target: the proposal raises the President's recommended appropriations for government operations.
-2. Check Article VI, Section $25(1)$: Congress may not increase those recommended appropriations.
+1. Check the House proposal: lowering $10$ billion pesos to $9$ billion pesos reduces recommended operating appropriations.
+2. Check the Senate proposal: raising $10$ billion pesos to $11$ billion pesos exceeds the President's recommendation.
 
 :::try
-Finish the last step: rule on the proposed increase and explain why a majority vote in each House does not allow it.
+Finish the last step: state which proposal Section $25(1)$ allows and explain why the other fails.
 :::answer
-The answer is **No, Article VI, Section $25(1)$ bars Congress from increasing those recommended appropriations.** A majority vote cannot override an express constitutional ban.
+The answer is **Only the $9$-billion-peso cut is allowed, while the $11$-billion-peso increase is barred.** Article VI, Section $25(1)$ bars Congress from increasing the President's recommended appropriations for government operations.
 
-**Check:** Section $25(1)$ lets Congress approve or cut recommended operating appropriations, never raise them.
+**Check:** Section $25(1)$ permits keeping or cutting recommended operating appropriations ($9 < 10$), never raising them ($11 > 10$).
 :::
 
 ## Traps to Watch For

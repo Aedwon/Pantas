@@ -110,21 +110,21 @@ Answer: No, the child was already Filipino from birth through the father and nee
 
 **Check:** Section $1(3)$ election applies only when a pre-$1973$ child needs citizenship through a Filipino mother because the father was an alien.
 
-### #3: Siblings Across the $1973$ Cutoff
+### #3: Boundary Date and Birthplace
 
-Clara was born abroad in $1971$ to a Filipino mother and an alien father. Her brother Diego was born abroad in $1976$ to the same parents. Which sibling must elect Philippine citizenship upon reaching majority?
+Maya was born in Rome on January $18$, $1973$, to a Filipino mother and an Italian father. Paolo was born in Iloilo in $2004$ to two foreign citizens, neither naturalized. Which person is Filipino from birth, and must Maya elect citizenship?
 
 **Solution:**
 
-1. Check Clara: $1971$ is before January $17$, $1973$, and her father was an alien.
-2. Check Diego: $1976$ is after the cutoff, when either Filipino parent passes citizenship from birth.
+1. Check Maya: compare January $18$, $1973$ with the January $17$, $1973$ cutoff and note her Filipino mother.
+2. Check Paolo: test birth inside the Philippines when neither parent is a Philippine citizen.
 
 :::try
-Finish the last step: state which sibling must elect Philippine citizenship and explain why the other does not.
+Finish the last step: state which person is Filipino from birth and explain whether Maya must elect citizenship.
 :::answer
-The answer is **Only Clara must elect Philippine citizenship under Section $1(3)$, while Diego is Filipino from birth.** Clara was born before January $17$, $1973$, to a Filipino mother and an alien father. Diego was born after that date, so his Filipino mother makes him Filipino from birth even abroad.
+The answer is **Only Maya is Filipino from birth, and she needs no election.** Born after January $17$, $1973$, to a Filipino mother, Maya is Filipino from birth under Section $1(2)$ even abroad. Paolo is not Filipino from birth because birthplace alone grants no citizenship under Article IV, Section $1$.
 
-**Check:** Match $1971$ to the pre-$1973$ maternal election rule and $1976$ to the post-$1973$ equal-parent rule.
+**Check:** Match January $18$, $1973$ to the post-$1973$ equal-parent rule, and check parentage rather than Iloilo birthplace for Paolo.
 :::
 
 ## Traps to Watch For

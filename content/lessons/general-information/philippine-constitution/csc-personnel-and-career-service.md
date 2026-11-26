@@ -38,9 +38,9 @@ Article IX-A sets shared rules for all Commissions, while Article IX-B governs t
 :::
 
 :::check
-An examinee wants the specific constitutional rules on civil service hiring and CSC membership. Which subdivision of Article IX should the examinee read first?
+A bureau wants to challenge a national election tally and also adopt new employee promotion rules. Which task falls under Article IX-B?
 :::answer
-The answer is **Article IX-B**. Article IX-A holds shared rules for all three Commissions, while Article IX-B specifically governs the CSC.
+The answer is **Adopting employee promotion rules**. Article IX-B governs the Civil Service Commission as the central personnel agency, whereas elections fall under Article IX-C (COMELEC).
 :::
 
 ### Career Service, Training, and Accountability
@@ -82,19 +82,18 @@ The answer is **Yes**. Article IX-B, Section $3$, directs the CSC to integrate t
 
 ## Examples
 
-### #1: Sorting Article IX Subdivisions
+### #1: Matching Shared Rules vs. CSC Duties
 
-A review sheet divides Article IX into common rules, civil service, elections, and audit. Which subdivision letter matches the CSC, and what does Article IX-A cover?
+A new legal clerk reads one rule governing all three Commissions equally and another naming the Government's central personnel agency. Which subdivision of Article IX holds each rule?
 
 **Solution:**
 
-1. Article IX-B specifically covers the Civil Service Commission.
-2. Article IX-A sets the common provisions for all three Commissions.
-3. Articles IX-C and IX-D cover COMELEC and COA.
+1. Rules applying equally to all three Commissions belong in **Article IX-A** (common provisions).
+2. Naming the CSC as the central personnel agency belongs in **Article IX-B**, Section $3$.
 
-Answer: Article IX-B covers the CSC, while Article IX-A holds the common rules for all three Commissions.
+Answer: Article IX-A holds the shared rules, and Article IX-B holds the CSC's personnel-agency mandate.
 
-**Check:** Match the three Commissions in order: Civil Service (B), Elections (C), and Audit (D).
+**Check:** Use Article IX-A for shared commission rules and Article IX-B for CSC-specific provisions.
 
 ### #2: Career Service and Merit Rewards
 

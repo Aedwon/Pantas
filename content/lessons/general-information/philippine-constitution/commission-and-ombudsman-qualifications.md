@@ -47,21 +47,21 @@ The **Commission on Audit (COA)** is an independent constitutional commission (A
 
 Each COA member must be a **CPA** (certified public accountant) with $10$ auditing years, or a **lawyer** with $10$ practice years. **All Members cannot belong to the same profession.**
 
-The **Ombudsman** investigates complaints against public officials (Article XI, Section $13(1)$). Under Article XI, Section $8$, the Ombudsman must be natural-born, at least $40$ at appointment, and of recognized probity and independence. The Ombudsman needs $10$ years as a Philippine judge or lawyer, and no candidacy in the immediately preceding election.
+The **Ombudsman** investigates complaints against public officials (Article XI, Section $13(1)$). Under Article XI, Section $8$, the Ombudsman must be natural-born, at least $40$ at appointment, and of recognized probity and independence. The Ombudsman must be a Philippine Bar member with $10$ years as a judge or lawyer here. Prior candidates in the immediately preceding election are barred.
 
-Fill a COA vacancy when both sitting members are $10$-year lawyers:
+Fill a COA vacancy when both sitting members are $10$-year CPAs:
 
-1. Adding a third lawyer puts all $3$ in one profession, breaking Section $1(1)$.
-2. The seat needs a CPA with $10$ auditing years.
+1. Adding a third CPA puts all $3$ in one profession, breaking Section $1(1)$.
+2. The seat needs a Philippine Bar member with $10$ years of law practice.
 
 :::why
 Why mix professions on COA? Having both CPAs and lawyers prevents blind spots when auditing government funds.
 :::
 
 :::pair #coa-no-same-profession
-Right: COA members need $10$ years as a CPA or lawyer, and all $3$ cannot share one profession.
-Wrong: Naming a third CPA when two seats hold CPAs, or naming a lawyer with under $10$ years of practice.
-Both rules apply at once: $10$ qualifying years and mixed professions across $3$ seats.
+Right: COA's $3$ members must never all belong to the same profession under Article IX-D, Section $1(1)$.
+Wrong: Naming a third CPA when the two sitting COA members are already CPAs.
+With two CPAs serving, the third seat must go to a $10$-year lawyer to keep professions mixed.
 :::
 
 :::pair #ombudsman-prior-candidacy
@@ -71,9 +71,9 @@ Winning or losing does not matter; prior-election candidacy disqualifies the nom
 :::
 
 :::check
-A $44$-year-old natural-born lawyer with $14$ years of practice won a mayor race in the immediately preceding election. Can he become Ombudsman?
+A $38$-year-old natural-born CPA with $12$ years of auditing experience ran for city councilor in the immediately preceding election. Can she be appointed to COA?
 :::answer
-The answer is **No**. Article XI, Section $8$ bars anyone who ran in the immediately preceding election, winner or loser.
+The answer is **No**. Article IX-D, Section $1(1)$ bars anyone who ran for an elective post in the immediately preceding election.
 :::
 
 ## Examples
@@ -104,21 +104,21 @@ Answer: The Chair lacks $10$ practice years, leaving $3$ qualified lawyers inste
 
 **Check:** COMELEC requires at least $4$ of $7$ members, including the Chair, to have $10$ practice years.
 
-### #3: Filling a COA Seat
+### #3: Checking an Ombudsman and a COMELEC Nominee
 
-Two serving COA members are $15$-year lawyers and not CPAs. Three qualified applicants seek the third seat. Applicant A is a $12$-year lawyer, B is an $8$-year auditing CPA, and C is an $11$-year auditing CPA. Who qualifies?
+Nominee X is a $39$-year-old natural-born Philippine Bar member with $12$ years of practice, nominated as Ombudsman. Nominee Y is a $37$-year-old non-lawyer graduate nominated as a fourth non-lawyer on the $7$-member COMELEC. Do either qualify?
 
 **Solution:**
 
-1. Under Article IX-D, Section $1(1)$, adding A puts all $3$ COA members in one profession.
-2. A CPA applicant needs at least $10$ years of auditing experience.
+1. Check Nominee X under Article XI, Section $8$: compare age $39$ against the Ombudsman minimum age.
+2. Check Nominee Y under Article IX-C, Section $1(1)$: count how many of $7$ COMELEC seats remain for $10$-year lawyers.
 
 :::try
-Finish the last step: name the qualifying applicant and explain why A and B fail.
+Finish the last step: rule on Nominee X and Nominee Y and give the constitutional rule each fails.
 :::answer
-The answer is **Applicant C qualifies, while A breaks the mixed-profession rule and B lacks $10$ years of auditing.** Adding A makes all $3$ members lawyers. Applicant B's $8$ years falls under $10$, leaving C ($11 \ge 10$ years as CPA) eligible.
+The answer is **Neither qualifies: Nominee X is under age $40$, and Nominee Y blocks COMELEC's majority-lawyer rule.** Article XI, Section $8$ sets age $40$ for the Ombudsman. Four non-lawyers leave at most $3$ of $7$ seats for $10$-year lawyers, short of the $4$-member majority.
 
-**Check:** With $2$ lawyers serving, the third COA seat needs a CPA with $10$ auditing years ($11 \ge 10$).
+**Check:** Nominee X fails $39 < 40$, and $3$ lawyers is under a majority of $7$.
 :::
 
 ## Traps to Watch For

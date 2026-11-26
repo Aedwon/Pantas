@@ -54,17 +54,17 @@ The answer is **No**. Serving $4$ years and $3$ months exceeds $4$ years, so Sec
 
 The President controls executive departments, bureaus, and offices and ensures laws are carried out (Section $17$). The President submits the budget within $30$ days from the opening of each regular congressional session (Section $22$).
 
-The **Commission on Appointments** confirms listed presidential appointments under Article VII, Section $16$:
+The **Commission on Appointments** is a body of Senators and Representatives that confirms listed presidential appointments under Article VII, Section $16$:
 
 1. Department heads, ambassadors, other public ministers, and consuls.
 2. Armed forces officers from colonel or naval captain upward, plus Constitutional Commission members.
 
 Judges need no confirmation because they come from a Judicial and Bar Council list (Article VIII, Section $9$). Appointing the **Vice-President** to the Cabinet also needs **no confirmation** (Article VII, Section $3$).
 
-Sort three appointments made on the same day:
+Sort two appointments made on the same day:
 
-1. An ambassador and an army colonel both need Commission on Appointments consent under Section $16$.
-2. The Vice-President named Secretary of Agriculture needs no confirmation under Section $3$.
+1. An army colonel needs Commission on Appointments consent under Section $16$.
+2. A Court of Appeals Justice comes from a Judicial and Bar Council list without confirmation.
 
 :::pair #vp-cabinet-no-confirmation
 Right: Appointing the Vice-President to the Cabinet requires no Commission on Appointments confirmation.
@@ -108,25 +108,25 @@ Answer: The Vice-President becomes President for the rest of the term and is bar
 
 ### #3: Vice-President in the Cabinet
 
-The President appoints the Vice-President as Secretary of Education and names a diplomat as Ambassador to Japan. Which appointment needs Commission on Appointments consent?
+The President appoints the Vice-President as Secretary of Education and names a CPA as Chair of the Commission on Audit. Which appointment needs Commission on Appointments consent?
 
 **Solution:**
 
-1. Ambassadors require Commission on Appointments consent under Article VII, Section $16$.
-2. The Vice-President's Cabinet post falls under Article VII, Section $3$.
+1. Check the Commission on Audit Chair: Constitutional Commission members require Commission on Appointments consent under Article VII, Section $16$.
+2. Check the Vice-President's Cabinet post: evaluate it under Article VII, Section $3$.
 
 :::try
 Finish the last step: state which appointee needs consent and explain why the general Cabinet rule skips the Vice-President.
 :::answer
-The answer is **Only the Ambassador needs Commission consent, while the Vice-President needs no confirmation.** Article VII, Section $3$ expressly exempts the Vice-President when appointed to the Cabinet.
+The answer is **Only the Commission on Audit Chair needs Commission consent, while the Vice-President needs no confirmation.** Article VII, Section $3$ expressly exempts the Vice-President when appointed to the Cabinet.
 
-**Check:** Section $16$ covers ambassadors and ordinary Cabinet heads, whereas Section $3$ exempts the Vice-President.
+**Check:** Section $16$ covers Constitutional Commission chairs and ordinary Cabinet heads, whereas Section $3$ exempts the Vice-President.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Presidential vacancy: the Vice-President becomes President for the full unexpired term. {#vp-succeeds-permanently}
+- Presidential vacancy and terms: Vice-President succeeds permanently and can serve $2$ successive terms, while the President gets no reelection. {#vp-succeeds-permanently}
 - Inherited presidential term: serving over $4$ years as successor bars later presidential election. {#four-year-succession-bar}
-- Vice-President in the Cabinet: expressly exempt from Commission on Appointments confirmation. {#vp-cabinet-no-confirmation}
+- Appointment consent: ambassadors and Cabinet heads need Commission consent, while judges and the Vice-President in the Cabinet do not. {#vp-cabinet-no-confirmation}
 :::

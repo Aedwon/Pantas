@@ -46,9 +46,9 @@ COMELEC has $7$ seats under Article IX-C, while the CSC has $3$ seats under Arti
 :::
 
 :::check
-A proposed law expands the Civil Service Commission to a Chairman and four Commissioners without changing the Constitution. How many total members does Article IX-B actually fix?
+The CSC currently has $1$ Chairman and $1$ Commissioner serving after a retirement. How many vacant Commissioner seats remain to fill?
 :::answer
-The answer is **$3$ members**. Article IX-B, Section $1(1)$, sets the CSC at $1$ Chairman and $2$ Commissioners.
+The answer is **$1$ Commissioner seat**. Article IX-B, Section $1(1)$, sets the CSC at $1$ Chairman and $2$ Commissioners ($3$ total), leaving $1$ seat open.
 :::
 
 ### Natural-Born Citizenship and Its Exception
@@ -69,8 +69,8 @@ Why require natural-born citizenship for CSC leaders? Top constitutional posts r
 
 Test two nominees for the CSC citizenship rule:
 
-1. Nominee A was born abroad in $1980$ to a Filipino father and never needed naturalization, so A is natural-born.
-2. Nominee B came to the Philippines at age $10$ and naturalized at age $25$, so B fails the natural-born rule.
+1. Nominee A was born abroad in $1980$ to a Filipino father and needed no completing act, so A is natural-born.
+2. Nominee B lived in Cebu for $25$ years as a permanent resident without citizenship, so B fails the natural-born rule.
 
 :::pair #natural-born-required
 Right: Require natural-born status, or the Article IV, Section $1(3)$ pre-$1973$ election route, for every CSC seat.
@@ -79,9 +79,9 @@ Naturalized citizens are Philippine citizens, yet they do not hold natural-born 
 :::
 
 :::check
-Clara was born in $1971$ to a Filipino mother and a foreign father. She formally elected Philippine citizenship at majority under Article IV, Section $1(3)$. Does she meet the CSC citizenship rule?
+A naturalized citizen served as a bureau chief for $20$ years with top ratings. Does that civil service record satisfy the CSC citizenship rule?
 :::answer
-The answer is **Yes**. Article IV, Section $2$, expressly deems valid Section $1(3)$ electors to be natural-born citizens.
+The answer is **No**. Article IX-B, Section $1(1)$, requires natural-born citizenship, which naturalization and government experience never replace.
 :::
 
 ## Examples

@@ -119,7 +119,7 @@ Answer: The student is wrong because CSC Members are expressly listed in Section
 
 ### #3: Checking Office Before Ground
 
-Bribery complaints are filed against a Sandiganbayan Justice and an Associate Justice of the Supreme Court. Decide who may be impeached under Section $2$.
+Bribery complaints are filed against a Sandiganbayan Justice and the Ombudsman. Decide who may be impeached under Section $2$.
 
 **Solution:**
 
@@ -127,11 +127,11 @@ Bribery complaints are filed against a Sandiganbayan Justice and an Associate Ju
 2. A Sandiganbayan Justice sits on a special lower court, not the Supreme Court.
 
 :::try
-Finish the last step: rule on the Associate Justice and explain how the Sandiganbayan Justice can still be removed.
+Finish the last step: rule on the Ombudsman and explain how the Sandiganbayan Justice can still be removed.
 :::answer
-The answer is **Only the Supreme Court Associate Justice may be impeached, while the Sandiganbayan Justice faces removal as provided by law.** Alleging bribery never adds a lower-court judge to Section $2$'s closed office list.
+The answer is **Only the Ombudsman may be impeached, while the Sandiganbayan Justice faces removal as provided by law.** Alleging bribery never adds a lower-court judge to Section $2$'s closed office list.
 
-**Check:** Match the Sandiganbayan Justice to non-Supreme Court judges and the Associate Justice to Supreme Court Members.
+**Check:** Match the Sandiganbayan Justice to non-Supreme Court judges and the Ombudsman to Section $2$'s fifth listed category.
 :::
 
 ## Traps to Watch For
