@@ -9,6 +9,7 @@ import 'package:flutter_test/flutter_test.dart' as flutter_test
     show testWidgets;
 import 'package:pantas/core/content/remote/lesson_markdown.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/math_support.dart';
 import 'package:pantas/core/ui/components/reader_blocks.dart';
 import 'package:pantas/core/ui/components/walkthrough_parts.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -164,6 +165,7 @@ Future<void> _pump(
   bool dark = false,
   bool still = false,
   ScrollController? controller,
+  double? width,
   void Function(ReaderResizedNotification)? onResized,
 }) async {
   debugWebPlatformOverride = wide;
@@ -196,7 +198,18 @@ Future<void> _pump(
                 controller: controller,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ContentRenderer(blocks: blocks, readerFigures: true),
+                  child: width == null
+                      ? ContentRenderer(blocks: blocks, readerFigures: true)
+                      : Align(
+                          alignment: Alignment.topLeft,
+                          child: SizedBox(
+                            width: width,
+                            child: ContentRenderer(
+                              blocks: blocks,
+                              readerFigures: true,
+                            ),
+                          ),
+                        ),
                 ),
               ),
             ),
@@ -282,6 +295,60 @@ void main() {
 
     test('leaves a run with no sentence end alone', () {
       final out = boldFirstSentence([_run('No end here')]);
+      expect(out.single['marks'], isNot(contains('strong')));
+    });
+
+    // A closing quote or bracket belongs to the sentence it closes (board
+    // LB_Grammar, third `.wans`).
+    for (final close in ['"', "'", '”', '’', ')']) {
+      for (final stop in ['.', '!', '?']) {
+        test('keeps a closing $close after $stop in the bold', () {
+          final first = 'To agree, choose was$stop$close';
+          final out = boldFirstSentence([_run('$first Then check.')]);
+          expect(out.first['text'], first);
+          expect(out.first['marks'], contains('strong'));
+          expect(out.last['text'], ' Then check.');
+          expect(out.last['marks'], isNot(contains('strong')));
+        });
+      }
+    }
+
+    test('a quote that opens after the stop does not join the bold', () {
+      final out = boldFirstSentence([_run('It is 6. "Next" follows.')]);
+      expect(out.first['text'], 'It is 6.');
+    });
+  });
+
+  group('first sentence of a Why? panel', () {
+    test('is bold when it is a question, maths and the mark included', () {
+      final out = boldFirstQuestion([
+        _run('Why does the exponent go first in '),
+        _run('-3^2', ['latex']),
+        _run('? Powers come first.'),
+      ]);
+      expect(out[0]['marks'], contains('strong'));
+      expect(out[1]['marks'], containsAll(['latex', 'strong']));
+      expect(out[2]['text'], '?');
+      expect(out[2]['marks'], contains('strong'));
+      expect(out[3]['text'], ' Powers come first.');
+      expect(out[3]['marks'], isNot(contains('strong')));
+    });
+
+    test('stays plain when the first sentence is a statement', () {
+      final runs = [_run('Look at the pattern. Why does it work?')];
+      final out = boldFirstQuestion(runs);
+      expect(out, runs);
+      expect(out.single['marks'], isNot(contains('strong')));
+    });
+
+    test('a question that ends in a closing quote is bold', () {
+      final out = boldFirstQuestion([_run('Why the "-s"? Because.')]);
+      expect(out.first['text'], 'Why the "-s"?');
+      expect(out.first['marks'], contains('strong'));
+    });
+
+    test('a panel with no sentence end stays plain', () {
+      final out = boldFirstQuestion([_run('No end here')]);
       expect(out.single['marks'], isNot(contains('strong')));
     });
   });
@@ -930,6 +997,34 @@ void main() {
       await tester.pumpAndSettle();
     });
 
+    testWidgets(
+        'the tint is not drawn while scrolling and is full when it lands',
+        (tester) async {
+      await _pump(tester, _flowLesson());
+      await toChecklist(tester);
+      final scroll =
+          tester.state<ScrollableState>(find.byType(Scrollable).first);
+      await tester.tap(_key('walk-checklist-row-0'));
+      final tint = _key('walk-tint-minus-before-negative');
+      var scrolled = false;
+      var before = scroll.position.pixels;
+      for (var i = 0; i < 80 && tint.evaluate().isEmpty; i++) {
+        await tester.pump(const Duration(milliseconds: 20));
+        if (scroll.position.pixels != before) scrolled = true;
+        before = scroll.position.pixels;
+      }
+      expect(scrolled, isTrue, reason: 'the page scrolls before the tint');
+      expect(tint, findsOneWidget);
+      // The page has stopped, and the tint is at full for its 300 ms hold.
+      final landed = scroll.position.pixels;
+      expect(scroll.position.isScrollingNotifier.value, isFalse);
+      expect(_opacity(tester, tint), 1);
+      await tester.pump(const Duration(milliseconds: 280));
+      expect(scroll.position.pixels, landed);
+      expect(_opacity(tester, tint), 1);
+      await tester.pumpAndSettle();
+    });
+
     testWidgets('a second tap moves the tint to the new target',
         (tester) async {
       await _pump(tester, _flowLesson());
@@ -1001,6 +1096,166 @@ void main() {
         expect(_key('walk-outline-minus-before-negative'), findsNothing);
       });
     });
+  });
+
+  group('review fixes', () {
+    List<TextSpan> leaves(RichText rich) {
+      final out = <TextSpan>[];
+      rich.text.visitChildren((s) {
+        if (s is TextSpan && s.text != null) out.add(s);
+        return true;
+      });
+      return out;
+    }
+
+    String boldOf(RichText rich) => leaves(rich)
+        .where((s) => s.style?.fontWeight == FontWeight.w600)
+        .map((s) => s.text)
+        .join();
+
+    testWidgets('a Why? panel bolds a first sentence that is a question',
+        (tester) async {
+      await _pump(tester, [
+        _p('Core Concept', style: 'h2'),
+        {
+          '_type': 'walkWhy',
+          'body': [
+            _p([
+              _run('Why does the exponent go first in '),
+              _run('-3^2', ['latex']),
+              _run('? Powers come before multiplying.'),
+            ]),
+          ],
+        },
+        {
+          '_type': 'walkWhy',
+          'body': [_p('Look at the pattern. Why does it work?')],
+        },
+      ]);
+      await _tap(tester, _key('walk-why-button').first);
+      await tester.pumpAndSettle();
+      final panel = find.descendant(
+        of: _key('walk-why-panel').first,
+        matching: find.byType(RichText),
+      );
+      // The mark after the maths travels inside the maths box.
+      expect(
+        boldOf(tester.widget<RichText>(panel.first)),
+        startsWith('Why does the exponent go first in'),
+      );
+      expect(
+        boldOf(tester.widget<RichText>(panel.first)),
+        isNot(contains('Powers')),
+      );
+      await _tap(tester, _key('walk-why-button').last);
+      await tester.pumpAndSettle();
+      final plain = find.descendant(
+        of: _key('walk-why-panel').last,
+        matching: find.byType(RichText),
+      );
+      expect(boldOf(tester.widget<RichText>(plain.first)), isEmpty);
+    });
+
+    // The board's `.dm` has margin-bottom 22, so a part under display maths
+    // sits about 27 under the ink. The math box ends about 4 above its ink, so
+    // the box-to-part gap is 24.
+    final latex = {'_type': 'latex', 'body': r'x = \dfrac{1}{2}'};
+    final parts = <String, (Map<String, Object?>, String)>{
+      'Quick Check': (_check('Q?', 'A.'), 'walk-card'),
+      'Try': (_try('Try it.', ['A.']), 'walk-card'),
+      'Why?': (_why('Because.'), 'walk-why-button'),
+      'pair': (_pair('p1'), 'walk-target-p1'),
+      'checklist': (
+        _checklist([('Cue:', 'move.', 'p1')]),
+        'walk-checklist',
+      ),
+    };
+    for (final MapEntry(key: name, value: (part, key)) in parts.entries) {
+      testWidgets('a $name after display maths sits 24 under the maths box',
+          (tester) async {
+        await _pump(tester, [
+          _p('Core Concept', style: 'h2'),
+          _p('Intro.'),
+          latex,
+          part,
+        ]);
+        final math = tester.getRect(find.byType(MathExpression).last);
+        final below = tester.getRect(_key(key).last);
+        expect(below.top - math.bottom, closeTo(24, 0.5));
+      });
+    }
+
+    testWidgets('spacing between ordinary blocks does not change',
+        (tester) async {
+      await _pump(tester, [
+        _p('Core Concept', style: 'h2'),
+        _p('A paragraph.'),
+        _check('Q?', 'A.'),
+        _p('Another paragraph.'),
+        latex,
+        _p('After the maths.'),
+      ]);
+      final paragraph = tester.getRect(_rich('A paragraph.'));
+      final card = tester.getRect(_key('walk-card'));
+      expect(card.top - paragraph.bottom, 16);
+      final math = tester.getRect(find.byType(MathExpression).last);
+      final after = tester.getRect(_rich('After the maths.'));
+      expect(after.top - math.bottom, 8);
+    });
+
+    for (final wide in [false, true]) {
+      testWidgets(
+          'answer lines with fractions do not overlap, '
+          '${wide ? 'wide' : 'phone'}', (tester) async {
+        // A two-line answer with a fraction on each line, laid out at a run of
+        // widths so some width puts the two fractions on lines that follow
+        // one another.
+        var adjacent = 0;
+        for (var width = 260.0; width <= 420; width += 10) {
+          await _pump(
+            tester,
+            [
+              _p('Core Concept', style: 'h2'),
+              _try('Find the amount.', [
+                r'ab $\dfrac{81}{2}$ cd $27 \times \dfrac{3}{2}$ ef gh.',
+              ]),
+            ],
+            wide: wide,
+            width: width,
+          );
+          // The answer stays open from the first width on.
+          if (_key('walk-answer-button').evaluate().isNotEmpty) {
+            await _tap(tester, _key('walk-answer-button'));
+          }
+          await tester.pumpAndSettle();
+          final boxes = find
+              .descendant(
+                of: _key('walk-answer'),
+                matching: find.byType(MathExpression),
+              )
+              .evaluate()
+              .map((e) => tester.getRect(find.byWidget(e.widget)))
+              .toList()
+            ..sort((a, b) => a.top.compareTo(b.top));
+          expect(boxes.length, 2);
+          if (boxes.last.top - boxes.first.top < boxes.first.height / 2) {
+            continue; // Both on one line at this width.
+          }
+          adjacent++;
+          // The second line's math starts below the first line's math.
+          expect(
+            boxes.last.top,
+            greaterThan(boxes.first.bottom),
+            reason: 'at width $width',
+          );
+        }
+        expect(
+          adjacent,
+          greaterThan(0),
+          reason: 'a width put them on two lines',
+        );
+      });
+    }
   });
 }
 

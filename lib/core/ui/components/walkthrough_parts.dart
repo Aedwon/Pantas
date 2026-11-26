@@ -52,13 +52,30 @@ const Duration _scrollDuration = PantasDurations.medium3;
 /// The first sentence of [runs] marked bold, for a revealed answer.
 ///
 /// The sentence ends at the first `.`, `!` or `?` that sits in text (not in
-/// maths) and is followed by a space or the end of its run, so "3.5" does not
-/// end it. Maths before the end is bold too. Runs with no sentence end come
-/// back as they were.
+/// maths), with any closing quote or bracket right after it, and is followed
+/// by a space or the end of its run, so "3.5" does not end it and `"was."`
+/// keeps its quote in the bold. Maths before the end is bold too. Runs with no
+/// sentence end come back as they were.
 List<Map<String, Object?>> boldFirstSentence(
   List<Map<String, Object?>> runs,
-) {
-  final stop = RegExp(r'[.!?](?=\s|$)');
+) =>
+    _boldFirst(runs, onlyQuestion: false);
+
+/// The first sentence of a Why? panel marked bold when it is a question (it
+/// ends with `?`), as the board draws it. A panel that opens with a statement
+/// comes back as it was. The sentence ends as [boldFirstSentence]'s does.
+List<Map<String, Object?>> boldFirstQuestion(
+  List<Map<String, Object?>> runs,
+) =>
+    _boldFirst(runs, onlyQuestion: true);
+
+// The end of a sentence: the mark, then any closing quotes or brackets.
+final _sentenceEnd = RegExp('([.!?])["\'\u201D\u2019)\\]]*(?=\\s|\$)');
+
+List<Map<String, Object?>> _boldFirst(
+  List<Map<String, Object?>> runs, {
+  required bool onlyQuestion,
+}) {
   int? endRun;
   var endAt = 0;
   for (var i = 0; i < runs.length && endRun == null; i++) {
@@ -66,8 +83,9 @@ List<Map<String, Object?>> boldFirstSentence(
     if (marks is List<Object?> && marks.contains('latex')) continue;
     final text = runs[i]['text'];
     if (text is! String) continue;
-    final match = stop.firstMatch(text);
+    final match = _sentenceEnd.firstMatch(text);
     if (match != null) {
+      if (onlyQuestion && match.group(1) != '?') return runs;
       endRun = i;
       endAt = match.end;
     }
@@ -206,6 +224,8 @@ Widget _content(
     readerFigures: true,
     style: style,
     walkthrough: false,
+    // A line with a fraction would otherwise touch the next line's.
+    mathLinePadding: PantasSpace.s2,
   );
   if (body == null && strong == null) return reader;
   final theme = Theme.of(context);
@@ -951,6 +971,14 @@ class _WalkWhyState extends State<WalkWhy> {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    // The board bolds a panel's first sentence when it is a question.
+    final body = [...widget.body];
+    if (body.isNotEmpty && body.first['children'] is List<Object?>) {
+      body[0] = {
+        ...body.first,
+        'children': boldFirstQuestion(_maps(body.first['children'])),
+      };
+    }
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -994,7 +1022,7 @@ class _WalkWhyState extends State<WalkWhy> {
               ),
               child: _content(
                 context,
-                widget.body,
+                body,
                 // ds-board: walk.css .wpanel 17/1.6
                 style: _partType(context, height: 1.6),
               ),

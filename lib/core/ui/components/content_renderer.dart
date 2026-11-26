@@ -67,9 +67,15 @@ class ContentRenderer extends StatelessWidget {
     this.questionStem = false,
     this.openSolutions = false,
     this.walkthrough,
+    this.mathLinePadding = 0,
     super.key,
   }) : assert(blocks != null || text != null, 'Provide blocks or text.');
   final List<Map<String, Object?>>? blocks;
+
+  /// Room above and below every inline formula, so lines that each hold a
+  /// fraction do not touch. The walk-through parts set it; every other
+  /// reader keeps its lines as they were (0).
+  final double mathLinePadding;
 
   /// Whether the lesson is in walk-through mode: example solutions show open
   /// and in step groups. Null reads it from [blocks] (any block whose type
@@ -333,6 +339,7 @@ class ContentRenderer extends StatelessWidget {
           source,
           style: runStyle,
           onErrorFallback: readerFigures ? fallback : null,
+          verticalPadding: mathLinePadding,
         );
         spans.add(
           link != null && span is WidgetSpan
@@ -397,6 +404,7 @@ class ContentRenderer extends StatelessWidget {
             source,
             style: runStyle,
             onErrorFallback: readerFigures ? fallback : null,
+            verticalPadding: mathLinePadding,
           ),
         );
         final label = inlineMathSemantics(source);
@@ -1067,7 +1075,14 @@ class ContentRenderer extends StatelessWidget {
       }
       final style = isBlock ? string(block['style']) : '';
       final type = string(block['_type']);
-      final (above, below) = switch (style) {
+      // A walk-through part under display maths keeps the board's space after
+      // a formula (`.dm` margin-bottom 22, about 27 under the ink): 24 under
+      // the formula's box. Other blocks keep their rhythm.
+      final afterMath = type.startsWith('walk') &&
+          index > 0 &&
+          items[index - 1] is ReaderPlain &&
+          (items[index - 1] as ReaderPlain).block['_type'] == 'latex';
+      final (rhythmAbove, below) = switch (style) {
         // ReaderLayout rhythm: 16 between blocks, h2 40 above and 12 under,
         // h3 28 above and 8 under. Display math has no value in the system
         // and takes the h3 rhythm.
@@ -1086,6 +1101,7 @@ class ContentRenderer extends StatelessWidget {
         _ when list.isNotEmpty && solution => (PantasSpace.s0, PantasSpace.s8),
         _ => (PantasSpace.s0, PantasSpace.s16),
       };
+      final above = afterMath ? PantasSpace.s24 : rhythmAbove;
       var child = dispatch(
         context,
         block,

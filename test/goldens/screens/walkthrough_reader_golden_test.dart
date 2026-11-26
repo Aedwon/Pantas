@@ -212,13 +212,32 @@ void main() {
           still: false,
         );
         await tester.tap(find.byKey(const ValueKey('walk-checklist-row-2')));
-        // The steps open (240 ms), then the tint starts and holds 300 ms.
-        await tester.pump(const Duration(milliseconds: 260));
-        await tester.pump(const Duration(milliseconds: 16));
-        await tester.pump(const Duration(milliseconds: 16));
+        // Play the whole tap-back: the steps open (240 ms) and the page
+        // scrolls to the pair (the surface is taller than the lesson, so it has
+        // nowhere to go). The tint appears only when the scroll has landed.
+        final tint = find.byKey(
+          const ValueKey('walk-tint-minus-before-negative'),
+        );
+        for (var i = 0; i < 200 && tint.evaluate().isEmpty; i++) {
+          await tester.pump(const Duration(milliseconds: 20));
+        }
+        expect(tint, findsOneWidget);
+        // Capture inside the 300 ms hold, once the steps have finished their
+        // opening: every step is shown and the tint is at full.
+        await tester.pump(const Duration(milliseconds: 40));
+        await tester.pump(const Duration(milliseconds: 40));
+        expect(find.byKey(const ValueKey('walk-next-step')), findsNothing);
         expect(
-          find.byKey(const ValueKey('walk-tint-minus-before-negative')),
-          findsOneWidget,
+          tester
+              .widget<FadeTransition>(
+                find.descendant(
+                  of: tint,
+                  matching: find.byType(FadeTransition),
+                ),
+              )
+              .opacity
+              .value,
+          1,
         );
         return target;
       },
