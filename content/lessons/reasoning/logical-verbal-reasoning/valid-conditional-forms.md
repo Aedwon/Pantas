@@ -25,7 +25,7 @@ Two conditional forms are valid:
 - **Modus ponens** (confirming condition): If $P$, then $Q$; $P$; so $Q$.
 - **Modus tollens** (denying result): If $P$, then $Q$; not $Q$; so not $P$.
 
-Examples:
+Compare both forms with everyday statements:
 
 - Modus ponens: "If metal is heated ($P$), it expands ($Q$). This bar was heated ($P$). So it expanded ($Q$)."
 - Modus tollens: "If a shape is a triangle ($P$), it has $3$ sides ($Q$). This shape lacks $3$ sides (not $Q$). So it is not a triangle (not $P$)."

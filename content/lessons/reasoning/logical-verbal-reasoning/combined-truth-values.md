@@ -18,11 +18,11 @@ keyPoints:
 
 **Not** (negation, symbol $\neg$) flips a statement's truth value. If $P$ is $T$, then $\neg P$ is $F$. If $P$ is $F$, then $\neg P$ is $T$.
 
-"Evaluate" means find the truth value of an expression. Apply one negation at a time when two appear in a row:
+"Evaluate" means find the truth value of an expression. With $P=F$, apply one negation at a time to $\neg P$ and $\neg\neg P$:
 
-$$\neg F = T,\quad \neg T = F$$
+$$\neg P=\neg F=T$$
 
-So starting with $P = F$, $\neg P = T$ and $\neg\neg P = \neg T = F$.
+$$\neg\neg P=\neg T=F$$
 
 :::pair #skip-second-negation
 Right: if $P=F$, then $(\neg P, \neg\neg P)$ equals **$(T, F)$**.
@@ -59,7 +59,7 @@ The answer is **$F$**. Inside parentheses, $F \lor T = T$; outside, $T \land F =
 
 Parentheses also show how much a $\neg$ sign covers. In $\neg(P \land Q)$, evaluate $P \land Q$ first and flip the whole result; in $(\neg P) \land Q$, flip only $P$ first.
 
-Test $P=F$ and $Q=F$:
+Compare $\neg(P \land Q)$ and $(\neg P) \land Q$ when $P=F$ and $Q=F$:
 
 1. For $\neg(P \land Q)$: inside gives $F \land F = F$, then $\neg F = T$.
 2. For $(\neg P) \land Q$: flip $P$ to $\neg F = T$, then compute $T \land F = F$.
@@ -88,13 +88,13 @@ If $P$ is false, evaluate $\neg P$ and $\neg\neg P$, in that order.
 
 **Solution:**
 
-1. Negate $P=F$ once.
+1. Substitute $P=F$ into $\neg P$:
 
-$$\neg F = T$$
+$$\neg P=\neg F=T$$
 
-2. Negate that result once more.
+2. Negate $\neg P=T$ to find $\neg\neg P$:
 
-$$\neg T = F$$
+$$\neg\neg P=\neg T=F$$
 
 The ordered results are $(T, F)$.
 

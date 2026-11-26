@@ -47,7 +47,7 @@ The answer is **$T$** (true). The if-part $P$ is false, so $F \rightarrow T = T$
 
 Order matters in $P \rightarrow Q$ and $Q \rightarrow P$, because they swap which letter is the if-part.
 
-Test $P=T$ and $Q=F$:
+Compare $P \rightarrow Q$ and $Q \rightarrow P$ when $P=T$ and $Q=F$:
 
 1. For $P \rightarrow Q$: the if-part is $P=T$ and the then-part is $Q=F$, so $T \rightarrow F = F$.
 2. For $Q \rightarrow P$: the if-part is $Q=F$ and the then-part is $P=T$, so $F \rightarrow T = T$.
@@ -72,12 +72,11 @@ With $P$ false and $Q$ false, evaluate $P \rightarrow Q$ and $Q \rightarrow P$, 
 
 **Solution:**
 
-1. Substitute $P=F$ and $Q=F$ into the first expression: $F \rightarrow F$.
-2. Its if-part is false, so $P \rightarrow Q$ is $T$.
+1. Evaluate $P \rightarrow Q$ by substituting $P=F$ and $Q=F$ (its if-part is false, so it is $T$):
 
-$$F \rightarrow F = T$$
+$$(P \rightarrow Q) = (F \rightarrow F) = T$$
 
-3. Substitute into the reversed expression: $Q \rightarrow P$ is also $F \rightarrow F$, which is $T$.
+2. Substitute into the reversed expression $Q \rightarrow P$: it is also $F \rightarrow F = T$.
 
 The ordered results are $(T, T)$.
 
@@ -89,14 +88,14 @@ With $P$ true and $Q$ false, evaluate $P \rightarrow Q$ and $Q \rightarrow P$, i
 
 **Solution:**
 
-1. Evaluate $P \rightarrow Q$: substitute $P=T$ and $Q=F$.
+1. Evaluate $P \rightarrow Q$ by substituting $P=T$ and $Q=F$:
 
-$$T \rightarrow F = F$$
+$$(P \rightarrow Q) = (T \rightarrow F) = F$$
 
 2. This matches the single false case: true if-part ($T$) and false then-part ($F$).
-3. Evaluate $Q \rightarrow P$: substitute $Q=F$ and $P=T$. Its if-part is false, so it is $T$.
+3. Evaluate $Q \rightarrow P$ by substituting $Q=F$ and $P=T$ (its if-part is false, so it is $T$):
 
-$$F \rightarrow T = T$$
+$$(Q \rightarrow P) = (F \rightarrow T) = T$$
 
 The ordered results are $(F, T)$.
 

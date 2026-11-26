@@ -92,13 +92,13 @@ Find the next letter: $B, D, G, K, \ldots$
 
 1. Convert each letter to its alphabet position ($A=1$ through $Z=26$): $B=2$, $D=4$, $G=7$, and $K=11$.
 
-2. Find the jumps between positions.
+2. Find the jumps between positions $2, 4, 7,$ and $11$:
 
 $$4-2=2,\quad 7-4=3,\quad 11-7=4$$
 
-3. The jumps grow by $1$ each time, so add $5$ next.
+3. The jumps grow by $1$ each time, so add $5$ to $K$'s position ($11$):
 
-$$11+5=16$$
+$$\text{Next position}=11+5=16$$
 
 4. Position $16$ is $P$.
 

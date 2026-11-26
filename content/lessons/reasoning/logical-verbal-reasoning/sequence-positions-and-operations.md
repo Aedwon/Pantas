@@ -91,9 +91,9 @@ Find the next term in the sequence: $2, 9, 4, 12, 6, 15, \ldots$
 1. Label the positions $1$ through $6$. The blank is position $7$ (odd).
 2. Check the odd positions ($1, 3, 5$): $2, 4, 6$. They increase by $2$.
 3. Check the even positions ($2, 4, 6$): $9, 12, 15$. They increase by $3$.
-4. Continue the odd-position list from $6$.
+4. Add $2$ to $6$ (position $5$) for position $7$:
 
-$$6+2=8$$
+$$\text{Term }7=6+2=8$$
 
 The next term is $8$.
 
@@ -105,7 +105,7 @@ Find the next term in the sequence: $3, 6, 8, 16, 18, 36, \ldots$
 
 **Solution:**
 
-1. Write the move between each pair from left to right.
+1. Write each move in $3, 6, 8, 16, 18, 36$ from left to right:
 
 $$3\times2=6,\quad 6+2=8$$
 
@@ -114,9 +114,9 @@ $$8\times2=16,\quad 16+2=18$$
 $$18\times2=36$$
 
 2. The moves alternate $\times2$ and $+2$.
-3. The last move was $\times2$, so add $2$ next.
+3. The last move was $\times2$, so add $2$ to $36$ for term $7$:
 
-$$36+2=38$$
+$$\text{Term }7=36+2=38$$
 
 The next term is $38$.
 
@@ -128,17 +128,17 @@ Find the next term using the simplest two-operation rule that fits every step: $
 
 **Solution:**
 
-1. Test "multiply by $2$, then add $1$" on the first transitions.
+1. Test "multiply by $2$, then add $1$" on $2, 5, 11, 23, 47$:
 
-$$2\times2+1=5,\quad 5\times2+1=11$$
+$$\text{Term }2=2\times2+1=5,\quad \text{Term }3=5\times2+1=11$$
 
-2. Confirm on the rest of the shown terms.
+2. Confirm on terms $4$ and $5$:
 
-$$11\times2+1=23,\quad 23\times2+1=47$$
+$$\text{Term }4=11\times2+1=23,\quad \text{Term }5=23\times2+1=47$$
 
-3. Apply the rule to $47$.
+3. Apply the rule to $47$ for term $6$:
 
-$$47\times2+1=95$$
+$$\text{Term }6=47\times2+1=95$$
 
 The next term is $95$.
 

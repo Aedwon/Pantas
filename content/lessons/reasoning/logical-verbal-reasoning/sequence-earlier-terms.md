@@ -75,17 +75,17 @@ Find the next term in the sequence: $1, 2, 2, 4, 8, 32, \ldots$
 
 **Solution:**
 
-1. Test whether each term is the product of the two terms before it, starting at the third term.
+1. Check terms $3$ and $4$ of $1, 2, 2, 4, 8, 32$ as products of the two preceding terms:
 
-$$1\times2=2,\quad 2\times2=4$$
+$$\text{Term }3=1\times2=2,\quad \text{Term }4=2\times2=4$$
 
-2. Check the remaining shown terms.
+2. Check terms $5$ and $6$:
 
-$$2\times4=8,\quad 4\times8=32$$
+$$\text{Term }5=2\times4=8,\quad \text{Term }6=4\times8=32$$
 
-3. The rule works on every term. Multiply the last two shown terms.
+3. Multiply the last two terms, $8$ and $32$, for term $7$:
 
-$$8\times32=256$$
+$$\text{Term }7=8\times32=256$$
 
 The next term is $256$.
 
@@ -97,15 +97,15 @@ Find the next term in the sequence: $1, 1, 2, 3, 5, 8, \ldots$
 
 **Solution:**
 
-1. Check whether each term after the first two equals the sum of the two terms before it.
+1. Check terms $3$ through $6$ of $1, 1, 2, 3, 5, 8$ as sums of the two preceding terms:
 
-$$1+1=2,\quad 1+2=3$$
+$$\text{Term }3=1+1=2,\quad \text{Term }4=1+2=3$$
 
-$$2+3=5,\quad 3+5=8$$
+$$\text{Term }5=2+3=5,\quad \text{Term }6=3+5=8$$
 
-2. Add the two terms right before the blank.
+2. Add the last two terms, $5$ and $8$, for term $7$:
 
-$$5+8=13$$
+$$\text{Term }7=5+8=13$$
 
 The next term is $13$.
 
@@ -117,11 +117,11 @@ Each term after the first three is the sum of the three terms directly before it
 
 **Solution:**
 
-1. Verify the fourth and fifth terms from the start.
+1. Verify terms $4$ and $5$ of $1, 1, 2, 4, 7$ by adding three preceding terms:
 
-$$1+1+2=4$$
+$$\text{Term }4=1+1+2=4$$
 
-$$1+2+4=7$$
+$$\text{Term }5=1+2+4=7$$
 
 2. Pick the three terms directly before the blank: $2$, $4$, and $7$.
 
