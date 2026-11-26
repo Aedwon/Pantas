@@ -48,7 +48,7 @@ Use the **negation test**:
 2. Test that negation against the argument's *stated reason*.
 3. If the stated reason collapses, the assumption is necessary.
 
-Test: "The library should replace its failed reading-room lamps so visitors can read there again."
+Apply the negation test to: "The library should replace its failed reading-room lamps so visitors can read there again."
 
 - Proposed assumption: "Replacement lamps will provide usable light."
 - Negate it: replacement lamps will *not* provide usable light.

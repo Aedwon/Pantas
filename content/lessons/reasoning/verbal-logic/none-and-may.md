@@ -19,7 +19,7 @@ keyPoints:
 
 **No** and **none** keep two groups completely apart with zero overlap. **"No $A$ are $B$"** means every $A$ is outside $B$, and every $B$ is outside $A$.
 
-Test $1$: "No unregistered vehicles are allowed inside a compound. Every vehicle inside complied with that rule. Vehicle A is inside."
+Find what follows from: "No unregistered vehicles are allowed inside a compound. Every vehicle inside complied with that rule. Vehicle A is inside."
 
 1. *Unregistered* and *allowed inside* share zero members.
 2. Since Vehicle A is inside in compliance, it cannot be unregistered.
@@ -31,7 +31,7 @@ Wrong: Every registered vehicle is inside the compound.
 Being allowed inside does not mean every registered vehicle entered. *No* keeps two groups apart without filling one group with everything eligible.
 :::
 
-Test $2$: "No judge is also listed as a speaker. Some observers are on the judges' list, and no other limits are given."
+Find what follows from: "No judge is also listed as a speaker. Some observers are on the judges' list, and no other limits are given."
 
 1. At least $1$ observer sits on the judges' list.
 2. Because no judge is a speaker, that observer cannot be on the speakers' list.
@@ -57,7 +57,7 @@ The answer is **"For sale and on loan."** Zero overlap means no plant can sit on
 
 **May** means an outcome is *possible*. It neither guarantees the outcome nor rules it out, and it promises nothing when the condition is absent.
 
-Test: "The interview may be postponed if the panel lacks a quorum."
+Find what follows from: "The interview may be postponed if the panel lacks a quorum."
 
 1. Condition: the panel lacks a quorum.
 2. Effect of *may*: **A lack of quorum allows possible postponement.**

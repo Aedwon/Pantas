@@ -67,7 +67,7 @@ In formal logic, **some** means *at least one*, which allows *all*.
 - **"Some $A$ are $B$"** forces **"Some $B$ are $A$"** (the shared member belongs to both).
 - It **never** forces "Some $A$ are not $B$" or "All $B$ are $A$."
 
-Test: "Some inspectors are certified auditors."
+Find what must follow from: "Some inspectors are certified auditors."
 
 1. At least $1$ person is both an inspector and a certified auditor.
 2. That person proves **Some auditors are inspectors.**

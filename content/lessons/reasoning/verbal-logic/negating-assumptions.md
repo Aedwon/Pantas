@@ -23,7 +23,7 @@ When a claim uses *all*, *every*, or *no*, one exception breaks it:
 - **"All $A$ are $B$"** negates to **"At least one $A$ is not $B$."**
 - **"No $A$ are $B$"** negates to **"At least one $A$ is $B$."**
 
-Test: "No temporary employee has access to the archive."
+Negate the claim: "No temporary employee has access to the archive."
 
 1. The rule bars every temporary employee.
 2. One with access breaks it.
@@ -51,7 +51,7 @@ In formal logic, **some** means *at least one* ($1$, several, or even all).
 
 - **"Some $A$ are $B$"** negates to **"No $A$ are $B$."**
 
-Test: "Some branch offices can verify applications without contacting headquarters."
+Negate the claim: "Some branch offices can verify applications without contacting headquarters."
 
 1. Holds if $1$ or more branch offices can verify.
 2. "Not all" still lets $1$ verify.
@@ -73,7 +73,7 @@ The answer is **Every receipt in the folder is signed.** Zero unsigned receipts 
 
 Keep the starting group and property fixed. Never swap sides.
 
-Test: "No sample rejected at intake was listed as accepted in the final log."
+Negate the claim: "No sample rejected at intake was listed as accepted in the final log."
 
 1. Starting group: samples **rejected at intake**.
 2. Forbidden outcome: listed as **accepted** in the final log.

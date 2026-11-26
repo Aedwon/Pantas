@@ -25,7 +25,7 @@ When a shorter left flap folds right onto a wider sheet (or intersect the reflec
 
 For a $16\text{ cm}$ sheet with its leftmost $6\text{ cm}$ strip folded right at $6\text{ cm}$:
 
-- Since $12 < 16\text{ cm}$, the flap covers $6$ to $12\text{ cm}$ ($2$ layers); $12$ to $16\text{ cm}$ stays $1$ layer.
+- The flap ends at $6+6=12\text{ cm}$ ($12 < 16\text{ cm}$), so $6$ to $12\text{ cm}$ has $2$ layers and $12$ to $16\text{ cm}$ stays $1$ layer.
 - Away from creases and edges, a full-depth punch at $10\text{ cm}$ cuts **$2$ layers** ($2$ holes); at $14\text{ cm}$, it cuts **$1$ layer** ($1$ hole).
 
 :::pair #guess-overlap-without-measuring

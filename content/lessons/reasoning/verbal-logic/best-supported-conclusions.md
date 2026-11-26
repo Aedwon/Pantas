@@ -25,7 +25,7 @@ Test a conclusion in four steps:
 3. Drop unmeasured groups, causes, or guarantees.
 4. Pick the closest claim.
 
-Test: "A voluntary staff survey received only replies favoring a proposal. The report gives no data on non-respondents."
+Find what this survey supports: "A voluntary staff survey received only replies favoring a proposal. The report gives no data on non-respondents."
 
 - Measured: responding volunteers.
 - Unmeasured: non-respondents.
@@ -47,7 +47,7 @@ The answer is **no (the log does not tell us)**. The same log could happen if ev
 
 Check *what* was counted, and separate **most** (over half) from **most often** (top share).
 
-Test: "Residents marked hard crossings. The bakery junction appeared on more maps than any other spot. Crossing trips were not counted."
+Find what this count supports: "Residents marked hard crossings. The bakery junction appeared on more maps than any other spot. Crossing trips were not counted."
 
 1. Counted: marked maps, not crossing trips.
 2. Top share need not exceed $50\%$: $30$ of $100$ maps across $5$ spots ($30, 20, 20, 15, 15$) wins first place under half.
@@ -73,7 +73,7 @@ The answer is **no**. Corner A won most often ($40$ of $100$), which is under ha
 
 Never predict untested fair-access results or overall averages across unknown group sizes.
 
-Test: "A school stocked more print than audio copies of a story, and print had more checkouts."
+Find what this record supports: "A school stocked more print than audio copies of a story, and print had more checkouts."
 
 - Recorded fact: **Print copies had more recorded loans.**
 - Unmeasured: choices under equal stock.

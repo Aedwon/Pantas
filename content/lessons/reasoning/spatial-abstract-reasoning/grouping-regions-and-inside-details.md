@@ -116,7 +116,7 @@ Four polygons contain shaded dots: a square with $2$ dots, a rectangle with $2$ 
 **Solution:**
 
 1. List sides and dots: square ($4, 2$), rectangle ($4, 2$), hexagon ($6, 3$), triangle ($3, 2$).
-2. Check the first three: $4=2\times2$, $4=2\times2$, and $6=2\times3$.
+2. Check whether $\text{sides}=2\times\text{dots}$ for the first three: $4=2\times2$ (square), $4=2\times2$ (rectangle), and $6=2\times3$ (hexagon).
 
 :::try
 Finish the last step: test the triangle against the rule that side count is twice the dot count.

@@ -22,7 +22,7 @@ An **and** claim ("$A$ and $B$") holds only when both hold, so it fails if *eith
 
 - **"$A$ and $B$"** negates to **"Not $A$ or not $B$."**
 
-Test: "The loading gate is open and the delivery vehicle is available."
+Negate the claim: "The loading gate is open and the delivery vehicle is available."
 
 1. Parts: gate is open; vehicle is available.
 2. Negate each: gate is closed; vehicle is unavailable.
@@ -50,7 +50,7 @@ An **inclusive or** ("$A$ or $B$") holds if $A$, $B$, or both hold. It fails onl
 
 - **"$A$ or $B$"** negates to **"Neither $A$ nor $B$."**
 
-Test: "The request was submitted online or delivered in person."
+Negate the claim: "The request was submitted online or delivered in person."
 
 1. Options: submitted online; delivered in person.
 2. If submitted in person alone, the notice stays true.
@@ -72,7 +72,7 @@ The answer is **The sample came from neither source.** Ruling out one source or 
 
 When *at least one* sits inside *and*, flip the outer connector and negate each inner part completely.
 
-Test: "The station has a working battery and at least one of its two memory cards has room."
+Negate the claim: "The station has a working battery and at least one of its two memory cards has room."
 
 1. Flip **and** to **or**.
 2. Negate Part $1$: "the battery fails."

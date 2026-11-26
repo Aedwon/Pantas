@@ -50,6 +50,8 @@ When starting cells carry two or three marks, test every position one by one so 
 
 <!-- ILLUSTRATION: three rows of three squares with corner dots: row 1 (top-left and top-right), (top-right and bottom-left), (top-right); row 2 (bottom-left and bottom-right), (top-left and bottom-left), (bottom-left); row 3 (top-left, top-right, bottom-right), (top-left, bottom-left, bottom-right), blank -->
 
+Find the blank cell in the $3 \times 3$ dot matrix above:
+
 1. Row $1$ keeps **top-right**, and row $2$ keeps **bottom-left**.
 2. In row $3$, test all four corners across cell $1$ (top-left, top-right, bottom-right) and cell $2$ (top-left, bottom-left, bottom-right):
    - Top-left: in both cells -> **keep**.

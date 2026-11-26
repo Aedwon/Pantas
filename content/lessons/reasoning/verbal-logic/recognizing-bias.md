@@ -64,7 +64,7 @@ The answer is **The invitations favored one viewpoint.** Accurate quotes cannot 
 
 To make a phrase neutral, cut judgment words that tell readers who is wise or foolish, while keeping the topic and audience intact.
 
-Test: "a gift for sensible residents" (for a barangay drainage plan).
+Rewrite neutrally: "a gift for sensible residents" (for a barangay drainage plan).
 
 1. Cut "gift" (forces praise) and "sensible" (insults critics).
 2. Keep the subject ("drainage plan") and audience ("residents").
