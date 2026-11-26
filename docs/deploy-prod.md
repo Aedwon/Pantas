@@ -132,8 +132,8 @@ the launch log:
    `createPaymongoCheckout` (lead ruling, Nov 26, 2026).
 3. **Revoke the test-mode grants** from step 1 through the grant revocation path (never in the Firestore console),
    then refresh those accounts' claims. Confirm no PayMongo grant without a live payment remains.
-4. **Register the live webhook** for `checkout_session.payment.paid`, `payment.refunded`, `payment.refund.updated`,
-   `refund.succeeded`, `dispute.created` and `dispute.resolved`. If PayMongo does not offer the dispute events for
+4. **Register the live webhook** for `checkout_session.payment.paid`, `payment.refunded` and `payment.refund.updated`
+   (Nov 26: this account rejects `refund.succeeded`, `dispute.created` and `dispute.resolved` as invalid). If PayMongo does not offer the dispute events for
    the account, record that and use the chargeback check in step 7.
 5. **First real payment (M3)**: Aedwon buys the cheapest plan. Confirm the grant, the claims and the receipt. Then
    refund it in the dashboard and confirm access ends. Once, before that, fail the first webhook delivery on purpose
