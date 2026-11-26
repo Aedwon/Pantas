@@ -15,7 +15,7 @@ keyPoints:
 ---
 ## Core Concept
 
-### Simple Sentences, Even With Compound Parts
+### Counting Clauses
 
 Here a **clause** has a finite verb and its subject (in a command, *you* is understood). An **independent clause** gives a complete thought and stands alone (*"The supervisor signed the request."*). A **dependent clause** cannot stand alone as a sentence's main clause. It often starts with a subordinating word such as *although, because,* or *when* (*"Although the supervisor signed the request"*), but the connector can be left out (*"I know we won"*).
 
@@ -34,12 +34,12 @@ Two joined subjects and two joined verbs still share one clause. A compound sent
 :::
 
 :::check
-Classify *"During the storm, the little boat near the dock rocked and creaked."*
+How many independent clauses are in *"During the storm, the little boat near the dock rocked and creaked"*?
 :::answer
-The answer is **Simple**. *The little boat* is the single subject with the compound verb *rocked and creaked*; the other groups are prepositional phrases with no verbs.
+The answer is **One**, so the sentence is **Simple**. *The little boat* is the single subject with the compound verb *rocked and creaked*; the other groups are prepositional phrases with no verbs.
 :::
 
-### Compound Sentences: Common Ways to Join Main Clauses
+### Joining Main Clauses
 
 A **compound sentence** has **two or more independent clauses** and **zero dependent clauses**.
 
@@ -48,8 +48,7 @@ Ways to join them:
 1. A comma plus a **coordinating conjunction** (*for, and, nor, but, or, yet, so*): *"She wanted to travel abroad, but she could not afford the airfare."* *"The rain stopped, so we went outside to play."*
 2. A **semicolon** (;) alone between two linked independent clauses: *"The clinic reopened; appointments resumed."*
 
-Do not count infinitives such as *to travel abroad* or *to play*, because they are not finite clauses. *So* meaning "therefore" joins two independent clauses.
-
+Do not count infinitives such as *to travel abroad* or *to play*, because they are not finite clauses.
 :::why
 Why does a semicolon make a compound sentence without *and* or *but*? A semicolon joins two independent clauses of equal rank. Both *"The clinic reopened"* and *"appointments resumed"* stand alone with a period, giving two independent clauses and zero dependent clauses.
 :::
@@ -67,9 +66,9 @@ Wrong: Pick *"The dog and cat played together in the yard."* or *"The dog played
 :::
 
 :::check
-Classify *"The shop opened early, but few customers came."*
+How many independent clauses are in *"The shop opened early, but few customers came"*, and what joins them?
 :::answer
-The answer is **Compound**. *"The shop opened early"* and *"few customers came"* are independent clauses joined by *but*.
+The answer is **Two, joined by a comma and "but"**, so the sentence is **Compound**. *"The shop opened early"* and *"few customers came"* are independent clauses.
 :::
 
 ## Examples
@@ -86,7 +85,7 @@ Classify *"The teacher and her students prepared and rehearsed the play."*
 
 **Check:** Split at the second *and*: *rehearsed the play* has no subject.
 
-### #2: Compound Sentence With a Semicolon
+### #2: Two Parts With a Semicolon
 
 Classify *"The clinic reopened; appointments resumed."*
 
@@ -95,8 +94,6 @@ Classify *"The clinic reopened; appointments resumed."*
 1. *"The clinic reopened"* has subject *the clinic* and verb *reopened*, so it stands alone.
 2. *"Appointments resumed"* has subject *appointments* and verb *resumed*, so it also stands alone.
 3. Two independent clauses and zero dependent clauses make the sentence **Compound**.
-
-**Check:** *"The clinic reopened, and appointments resumed"* reads the same.
 
 ### #3: Classifying After a Deletion
 
@@ -110,7 +107,7 @@ Delete only *"Although the road was flooded"* from *"Although the road was flood
 :::try
 Finish the last step: name the remaining structure.
 :::answer
-The remaining structure is **Compound**. *"The driver unloaded the supplies"* is a second independent clause with subject *the driver* and verb *unloaded*. Zero dependent clauses remain.
+The remaining structure is **Compound**: "The truck arrived, and the driver unloaded the supplies." *"The driver unloaded the supplies"* is a second independent clause with subject *the driver* and verb *unloaded*. Zero dependent clauses remain.
 
 **Check:** Both halves stand alone as sentences, joined by *and*.
 :::

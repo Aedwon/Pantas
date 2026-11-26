@@ -17,7 +17,7 @@ keyPoints:
 
 ### Forming Present Perfect
 
-A **past participle** is the verb form used after *has, have,* or *had* (and in passives). Regular verbs add *-d* or *-ed* (*finished*, *saved*), sometimes doubling a letter first (*submitted*), while irregular verbs use forms like *written*, *eaten*, and *broken*.
+A **past participle** is the verb form used after *has, have,* or *had*. Regular verbs add *-d* or *-ed* (*finished*, *saved*), sometimes doubling a letter first (*submitted*), while irregular verbs use forms like *written*, *eaten*, and *broken*.
 
 **Present perfect** uses *has* or *have* plus a past participle. Use *has* with *he, she, it*, or a singular noun, and *have* with *I, you, we, they*, or a plural noun:
 
@@ -58,22 +58,22 @@ Wrong: We had lived here until last month, and then we left.
 :::
 
 :::check
-Choose the form: "Our neighbor *(has worked / had worked)* at the bank since 2020."
+Our neighbor still works at the bank. Choose the form: "Our neighbor *(has worked / had worked)* there since 2020."
 :::answer
 The answer is **Has worked**. The job continues into the present, so present perfect links 2020 to now.
 :::
 
-### Finished Past Time Uses Simple Past
+### Finished Past Time
 
-A dated event in a finished past time (*yesterday, last week, in 2022*) takes **simple past**, not present perfect. Compare:
+For one dated event in a finished past time (*yesterday, last week, in 2022*), choose **simple past** over present perfect. Compare:
 
-- "The committee **submitted** its report yesterday afternoon." (*Yesterday afternoon* is finished.)
+- "The committee **submitted** its report yesterday afternoon."
 - "The committee **has submitted** its report." (Present result, no finished time.)
 
 :::pair #finished-past-time
 Right: The committee submitted its report yesterday afternoon.
 Wrong: The committee has submitted (or *has submit*) its report yesterday afternoon.
-*Yesterday afternoon* names a finished past period, so use simple past (*submitted*). Also, *has* never takes a base verb (*submit*).
+*Yesterday afternoon* names a finished past period, so use simple past (*submitted*). *Has* also needs a past participle, not *submit*.
 :::
 
 :::check
@@ -84,25 +84,25 @@ The answer is **Arrived**. *Last night* names a finished past time, so choose si
 
 ## Examples
 
-### #1: Identifying Present Perfect
+### #1: A Verb Group
 
 Identify the tense in "The team has repaired three roofs this month."
 
 **Solution:**
 
 1. Find the full verb group: *has repaired*.
-2. Match *has* + past participle *repaired* to its tense: **present perfect**.
+2. *Has* + past participle *repaired* makes **present perfect**: "The team **has repaired** three roofs this month."
 
-**Check:** *Has* plus *repaired* confirms **present perfect**.
+**Check:** *This month* is still open, so a link to now fits.
 
-### #2: Choosing Simple Past for a Finished Time
+### #2: A Verb and a Time Clue
 
-Choose the right verb form: "The mayor ___ (open) the new bridge last Friday."
+Choose the right verb form for one event: "The mayor ___ the new bridge last Friday." (opened / has opened)
 
 **Solution:**
 
 1. Spot the time clue: *last Friday*, a finished time.
-2. Rule out present perfect (*has opened*), *has open*, and future (*will open*), leaving simple past **opened**: "The mayor opened the new bridge last Friday."
+2. Rule out *has opened*, leaving simple past **opened**: "The mayor opened the new bridge last Friday."
 
 **Check:** "I saw it last Friday" also uses simple past.
 
@@ -112,7 +112,7 @@ Dan's club membership began in May and continues today. Choose the correct sente
 
 **Solution:**
 
-1. Check whether the membership ended or still continues: it *continues today*, ruling out *had been ... and then he left*.
+1. The membership *continues today*, ruling out *had been ... and then he left*.
 
 :::try
 Finish the last step: which sentence fits both timelines, and why do its two verbs differ?
@@ -124,12 +124,12 @@ The answer is **"Dan joined the club in May and has been a member ever since."**
 
 ## Speed Tricks & Shortcuts
 
-Read the time clue first. A dated event in a finished past time (*yesterday*, *last month*) takes simple past, while a link to now (*since June*, *ever since*, *so far*) takes *has* or *have* plus a past participle. An open period like *this week* often takes present perfect, but simple past also works for a completed event or set of events (*She wrote a letter this week*).
+Read the time clue first. For one dated event in a finished past time (*yesterday*, *last month*), choose simple past over present perfect. A link to now (*since June*, *ever since*) takes *has* or *have* plus a past participle. An open period like *this week* often takes present perfect, but simple past can fit a completed event (*She wrote a letter this week*).
 
 ## Traps to Watch For
 
 :::checklist
 - A verb with *has* or *have* plus a past participle: read the whole group as present perfect, not simple past or past perfect. {#full-verb-group}
 - A situation continuing into now: use *has* or *have* + past participle, not *had*. {#still-true-now}
-- A dated event in a finished past time like *yesterday afternoon*: choose simple past (*submitted*), never present perfect or *has* + base verb. {#finished-past-time}
+- One dated event in a finished past time like *yesterday afternoon*: choose simple past (*submitted*) over present perfect; *has* needs a past participle. {#finished-past-time}
 :::

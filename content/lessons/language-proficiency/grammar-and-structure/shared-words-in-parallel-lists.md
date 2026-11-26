@@ -40,7 +40,7 @@ Mixing a base verb (*install*) with *-ing* forms (*updating*, *repairing*) break
 :::
 
 :::check
-Choose the verb form that fits after *how to*: *"She learned how to plan, draft, and *(edit / editing / edited)* a memo."*
+Choose the verb form that fits after *how to*: "She learned how to plan, draft, and *(edit / editing / edited)* a memo."
 :::answer
 The answer is **Edit**. *Plan* and *draft* are base verbs after *how to*, so *edit* keeps all three items parallel.
 :::
@@ -70,17 +70,16 @@ The answer is **Logging and answering**. *Sort* is a base verb after *helps new 
 Choose the sentence with correct parallel structure:
 
 (A) "The manual explains how to install, updating, and repairing the software."
+
 (B) "The manual explains how to install, update, and repair the software."
 
 **Solution:**
 
 1. Find the shared lead-in words: *how to*.
 2. Test each verb after *how to* in (A): *how to install* works, while *how to updating* and *how to repairing* do not.
-3. Test each verb after *how to* in (B): *how to install*, *how to update*, and *how to repair* are all base verbs.
+3. In (B), *how to install*, *how to update*, and *how to repair* all work.
 
-The correct answer is **(B)**.
-
-**Check:** Read *how to* before each verb in (B) one at a time. Every pair forms a clean *how to + base verb* phrase.
+The correct sentence is **(B)**: "The manual explains how to install, update, and repair the software."
 
 ### #2: When a Shared Word Does Not Fit
 

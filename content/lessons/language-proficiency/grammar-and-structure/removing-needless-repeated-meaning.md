@@ -48,7 +48,7 @@ The answer is **"The team will assemble at noon."** *Assemble* already means com
 
 Never delete a word automatically just because two nearby words have related meanings. First ask: **what meaning does this word add here?**
 
-Compare *"The houses stand in close proximity"* with *"The houses stand in proximity."* *Proximity* means nearness, while *close* may add a stronger degree of nearness (very near, not merely nearby). Before cutting *close*, an editor must check whether *close* adds a useful degree of nearness.
+Compare *"The houses stand in close proximity"* with *"The houses stand in proximity."* *Proximity* means nearness, while *close* may add a stronger degree of nearness. Before cutting *close*, an editor must check whether *close* adds a useful degree of nearness.
 
 :::why
 Why not cut every pair of similar words on sight? Sometimes a second word narrows the degree (*close proximity*) or marks a real difference. Concise editing cuts empty echoes, not helpful details.
@@ -68,7 +68,7 @@ The answer is **"The meeting starts at 3 p.m."** The time *3 p.m.* already state
 
 ## Examples
 
-### #1: Cutting a Repeated Word Without Changing the Action
+### #1: A Request to Combine Forms
 
 Revise for concise formal writing: *"Please combine the two forms together."*
 
@@ -81,19 +81,21 @@ Correct sentence: **"Please combine the two forms."**
 
 **Check:** Read the new sentence: it still asks to join the forms.
 
-### #2: Finding Why a Timing Word Repeats
+### #2: A Store Notice
 
-The store gave staff *"prior notice two days before the sale."* For a shorter version, why can *prior* be removed?
+Shorten *"The store gave staff prior notice two days before the sale."* Why can *prior* be removed?
 
 **Solution:**
 
 1. *Prior* means given ahead of time.
 2. *"Two days before the sale"* already tells when the notice arrived.
-3. Therefore, *prior* repeats timing already stated in that phrase.
+3. So *prior* repeats that timing. Cut it.
 
-**Check:** Cover *prior*: *"notice two days before the sale"* still tells the reader the notice came early.
+Correct sentence: **"The store gave staff notice two days before the sale."**
 
-### #3: Shortening a Pair of Related Words
+**Check:** Read the short sentence: it still says the notice came early.
+
+### #3: Boiling Hot Soup
 
 An editor wants to shorten *"The soup was boiling hot."* The writer meant only that it was extremely hot. What should the editor check before deleting *hot*?
 
@@ -104,14 +106,14 @@ An editor wants to shorten *"The soup was boiling hot."* The writer meant only t
 :::try
 Finish the last step: state what the editor should check before deleting *hot*, and whether the cut is safe.
 :::answer
-The answer is **Whether "boiling" alone gives the meaning the writer meant.** *Boiling* can also mean the soup was bubbling, so the cut is not safe. To say only that it was very hot, write **"The soup was extremely hot."**
+The answer is **Whether "boiling" alone gives the meaning the writer meant.** *Boiling* alone could mean the soup was bubbling, so the cut may not keep the writer's meaning. To say only that it was very hot, write **"The soup was extremely hot."**
 
-**Check:** Cover *hot*: *"The soup was boiling"* now claims bubbling, a different detail from temperature.
+**Check:** Cover *hot*: *"The soup was boiling"* could mean the soup was bubbling. *"The soup was extremely hot"* has no such doubt.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Cover the suspect word. If another word or phrase already states that exact meaning (*return* + *back*, *advance* + *before*), cut it; if cutting it removes an intended degree or changes the request, keep it.
+Cover the suspect word. If another word or phrase already states that exact meaning, cut it; if cutting it removes an intended degree or changes the request, keep it.
 
 ## Traps to Watch For
 

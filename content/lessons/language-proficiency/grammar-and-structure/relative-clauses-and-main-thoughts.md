@@ -23,7 +23,7 @@ In *"The volunteer who repaired the bench returned today,"* *who repaired the be
 Pick the relative word by job and commas:
 
 - **Who vs. whom:** Use *who* as the clause subject (*the volunteer who repaired the bench*). In formal prose, use *whom* as the object of a verb or preposition (*the volunteer whom the mayor thanked*).
-- **That vs. which (formal American style):** *That* is a common choice, without commas, for an essential clause telling which thing is meant (*"The bench that sits by the gate is dry."*). *Which* can do either job, so the commas show extra side detail about an already clear noun (*"The front bench, which was painted yesterday, is dry."*). *That* never follows a comma before an extra-detail clause.
+- **That vs. which (formal American style):** *That* is a common choice, without commas, for an essential clause telling which thing is meant (*"The bench that sits by the gate is dry."*). *Which* can do either job, so the commas show extra side detail about an already clear noun (*"The front bench, which was painted yesterday, is dry."*). *That* does not follow a comma before extra detail.
 
 :::pair #relative-is-dependent
 Right: In *"The volunteer who repaired the bench returned today,"* *"who repaired the bench"* is a **Dependent clause**.
@@ -34,7 +34,7 @@ Wrong: Classify *"who repaired the bench"* as an **Independent clause**, a **Pre
 :::check
 Which fits better in formal prose: *"The report, (that / which) arrived this morning, is on your desk"*?
 :::answer
-The answer is **which**. The commas mark extra detail, and *that* is not used after a comma before an extra-detail clause.
+The answer is **which**: "The report, which arrived this morning, is on your desk." The commas mark extra detail, and *that* is not used after a comma before an extra-detail clause.
 :::
 
 ### Finding the Main Thought Around a Relative Clause
@@ -58,7 +58,7 @@ Wrong: Select *"who found the road closed"*, *"The driver who found the road clo
 :::check
 In *"The clerk who checked my form found an error,"* what is the main verb of the independent clause?
 :::answer
-The answer is **found**. *Checked* belongs to *who checked my form*, while *found* tells what *the clerk* did.
+The answer is **found**: "The clerk [who checked my form] **found** an error." *Checked* belongs to *who checked my form*, while *found* tells what *the clerk* did.
 :::
 
 ## Examples
@@ -73,7 +73,7 @@ In *"The volunteer who repaired the bench returned today,"* classify *"who repai
 2. It describes *the volunteer*.
 3. It identifies which volunteer returned, so it is essential and takes no commas.
 
-**Check:** Read the outer frame: *"The volunteer returned today."* The verb *returned* matches *the volunteer*.
+**Check:** Outer frame: *"The volunteer returned today."* *Returned* matches *the volunteer*.
 
 ### #2: Choosing Who or Whom
 
@@ -98,7 +98,7 @@ In *"The pilot who flew the storm route landed safely,"* find the relative claus
 :::try
 Finish the last step: name the independent clause and its main verb, and say why.
 :::answer
-The answer is **The whole sentence**, with main verb **landed**. *The pilot* is the main subject, and *flew* belongs to the relative clause inside the subject.
+The answer is **The whole sentence**: "The pilot [who flew the storm route] **landed** safely." The main verb is *landed*. *The pilot* is the main subject, and *flew* belongs to the bracketed relative clause inside the subject.
 
 **Check:** *"The pilot landed safely"* keeps the main subject and verb.
 :::
@@ -110,7 +110,7 @@ Bracket the relative clause after a noun. Read outside the brackets to pair the 
 ## Traps to Watch For
 
 :::checklist
-- Relative clause starting with *who, which,* or *that* after a noun: classify it as a dependent clause, never as independent or a phrase. {#relative-is-dependent}
+- Relative clause starting with *who, which,* or *that* after a noun: classify it as a dependent clause here, not as independent or a phrase. {#relative-is-dependent}
 - Long subject containing a relative clause: read past the relative clause to connect the main subject to its main verb. {#stop-before-main-verb}
 - Comma vs. no comma on a relative clause: use commas (with *which* or *who*) for extra detail, and no commas for essential identification. {#relative-clauses-and-relative-words}
 :::

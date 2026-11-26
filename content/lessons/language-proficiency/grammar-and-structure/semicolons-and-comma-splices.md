@@ -46,14 +46,14 @@ The answer is **No**. *"With every seat taken"* has no finite verb and cannot st
 
 ### Separating Complex List Items
 
-When list items already contain commas, commas alone blur the items together. Keep commas inside each item and place semicolons between the full items.
+When commas inside list items would make the item boundaries unclear, keep those commas and place semicolons between the full items.
 
 In *"We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea,"* each pair keeps its inside comma, and semicolons divide the pairs.
 
 <!-- ILLUSTRATION: marked-up list "We visited [Manila, Philippines] ; [Tokyo, Japan] ; and [Seoul, Korea]." with each city-country pair bracketed, the internal commas shown in gray, and the boundary semicolons highlighted in teal -->
 
 :::why
-Why switch to semicolons for a list with inside commas? Semicolons act as heavier dividers than commas, so the reader sees three two-part items.
+Why switch to semicolons when inside commas blur the items? Semicolons act as heavier dividers than commas, so the reader sees three two-part items.
 :::
 
 :::pair #semicolons-in-complex-list
@@ -82,8 +82,6 @@ Identify and fix the error: *"The store closed early, the clerks went home."*
 
 Corrected sentence: **"The store closed early; the clerks went home."**
 
-**Check:** Put a period at the semicolon: *"The store closed early."* *"The clerks went home."* Both are complete sentences.
-
 ### #2: Why a Semicolon Fails Before a Phrase
 
 Why is the semicolon faulty in *"The boat sank; during the storm"*?
@@ -92,7 +90,9 @@ Why is the semicolon faulty in *"The boat sank; during the storm"*?
 
 1. *"The boat sank"* has subject *the boat* and finite verb *sank*, so it is independent.
 2. *"During the storm"* has no subject and no finite verb, so it is a phrase.
-3. Because the second half is not an independent clause, the semicolon is faulty.
+3. Because the second half is not an independent clause, the semicolon is faulty. Drop it and join the phrase to the clause.
+
+Corrected sentence: **"The boat sank during the storm."**
 
 **Check:** Read *"During the storm."* alone: it is not a full sentence.
 
@@ -101,7 +101,9 @@ Why is the semicolon faulty in *"The boat sank; during the storm"*?
 Which sentence punctuates the list of three guests correctly?
 
 (A) "The panel included Dr. Cruz, a surgeon, Ms. Lim, a teacher, and Mr. Ong, a pilot."
+
 (B) "The panel included Dr. Cruz; a surgeon, Ms. Lim; a teacher, and Mr. Ong; a pilot."
+
 (C) "The panel included Dr. Cruz, a surgeon; Ms. Lim, a teacher; and Mr. Ong, a pilot."
 
 **Solution:**
@@ -125,5 +127,5 @@ For a semicolon between clauses, cover it and test both sides as standalone sent
 :::checklist
 - Two independent clauses joined by only a comma: fix the comma splice with a semicolon, period, or comma plus joining word. {#comma-splice-same-topic}
 - Semicolon before a *because*-clause or phrase: check that both sides can stand alone as full sentences. {#semicolon-before-dependent-part}
-- List of items with internal commas: keep commas inside each item and put semicolons between items. {#semicolons-in-complex-list}
+- List items with internal commas that blur the item boundaries: keep commas inside each item and put semicolons between items. {#semicolons-in-complex-list}
 :::

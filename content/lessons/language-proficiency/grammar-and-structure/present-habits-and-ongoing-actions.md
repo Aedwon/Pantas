@@ -28,16 +28,16 @@ The **base form** is the plain verb with no ending (*write, sort*). **Simple pre
 :::pair #habit-wrong-tense
 Right: "On every working day, the records officer sorts the incoming mail."
 Wrong: Choose *sorted*, *is sort*, or *sorting* for a regular duty.
-*Every working day* marks a repeated duty that continues now, so a past act (*sorted*) does not fit. *Is sort* and bare *sorting* are not complete verb forms.
+Here the duty continues now, and *every working day* marks it as repeated, so a past act (*sorted*) does not fit.
 :::
 
 :::check
 Choose the verb for a habit that continues now: "The clerk usually *(checks / is checking / checked)* passes at the door."
 :::answer
-The answer is **Checks**. *Usually* signals a habit that continues now, and singular *the clerk* takes *-s*.
+The answer is **Checks**. The stem says the habit continues now, so *checked* is past. Singular *the clerk* takes *-s*.
 :::
 
-### Present Progressive: Now or Around Now
+### Now or Around Now
 
 **Present progressive** uses *am*, *is*, or *are* plus *-ing* (*is writing, are checking*). Common uses:
 
@@ -47,13 +47,13 @@ The answer is **Checks**. *Usually* signals a habit that continues now, and sing
 :::pair #wider-present-project
 Right: "I am writing a novel this month" shows a project ongoing around the present.
 Wrong: Claim *am writing* means I must be writing at this exact second.
-Time clues like *this month* widen the present window. A project stays in progress around now even during lunch.
+Time clues like *this month* widen the present window.
 :::
 
 :::check
-Identify the tense in "My brother is repairing his bike this week."
+Does "My brother is repairing his bike this week" mean the repair is underway this week or was finished last week?
 :::answer
-The answer is **Present progressive**. *Is* plus *-ing* (*repairing*) shows an action in progress around now.
+The answer is **Underway this week**. *Is* plus *-ing* (*repairing*) shows an action in progress around now, and *this week* names the period.
 :::
 
 ### State Verbs Take Simple Forms
@@ -69,7 +69,7 @@ Why do state verbs like *know* avoid *-ing*? Progressive *-ing* shows an activit
 :::pair #stative-verb-progressive
 Right: "I know how to use the filing system."
 Wrong: "I am knowing how to use the filing system."
-*Know* describes a current state of knowledge, not an action in progress. Use simple present *know*.
+*Know* describes a current state of knowledge, not an action in progress.
 :::
 
 :::check
@@ -82,11 +82,11 @@ The answer is **Prefers**. *Prefer* states a steady liking, so it takes simple p
 
 ### #1: Habit, Truth, and Fixed Schedule
 
-Choose the forms: (a) "On every school day, the guard *(opens / opened / open)* the gate." (b) "Ice *(melts / melted)* when it gets warm." (c) "The last bus *(leaves / left)* at nine tomorrow."
+Choose the forms: (a) "On every school day, the guard *(opens / opened / open)* the gate," a duty that continues now. (b) "Ice *(melts / melted)* when it gets warm." (c) "The last bus *(leaves / left)* at nine tomorrow."
 
 **Solution:**
 
-1. In (a), *every school day* marks a duty that continues now, so choose **opens**: "On every school day, the guard **opens** the gate."
+1. In (a), *every school day* marks the duty as repeated, so choose **opens**: "On every school day, the guard **opens** the gate."
 2. In (b), the sentence states a general truth, so choose **melts**: "Ice **melts** when it gets warm."
 3. In (c), a fixed timetable uses simple present for tomorrow, so choose **leaves**: "The last bus **leaves** at nine tomorrow."
 
@@ -118,7 +118,7 @@ Finish the last step: which of those two is correct, and why?
 :::answer
 The answer is **(D) "The office needs two printers."** *Need* describes a state rather than a step-by-step action, so simple present is standard.
 
-**Check:** *Right now* rules out *needed* and *will need*, and *need* as a steady state pairs with simple present *needs*.
+**Check:** "The office is needing two printers" sounds as wrong as "I am knowing," because *need* is a state here.
 :::
 
 ## Speed Tricks & Shortcuts

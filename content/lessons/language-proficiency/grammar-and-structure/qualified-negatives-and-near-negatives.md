@@ -57,7 +57,7 @@ Adding *can't* or *no* puts a second negative onto a word that already means *al
 :::
 
 :::check
-What does *"Mia barely passed the test"* mean: *"Mia failed the test"* or *"Mia passed, but only just"*?
+What does *"Mia barely passed the test"* mean: *"Mia failed the test"*, *"Mia passed easily"*, or *"Mia passed, but only just"*?
 :::answer
 The answer is **Mia passed, but only just**. *Barely* marks a narrow pass, not a failure.
 :::
@@ -82,11 +82,13 @@ The answer is **No**. *Seldom* means rarely, so an occasional absence is still p
 
 ### #1: Reading a Qualified Negative
 
-A writer wants to describe a proposal as fairly reasonable without strong praise. Which sentence keeps that meaning?
+A writer wants to describe a schedule as fairly reasonable without strong praise. Which sentence keeps that meaning?
 
-(A) "The proposal is unreasonable and should be rejected outright."
-(B) "The proposal is perfectly reasonable in every respect."
-(C) "The proposal is not unreasonable."
+(A) "The schedule is unreasonable and should be rejected outright."
+
+(B) "The schedule is perfectly reasonable in every respect."
+
+(C) "The schedule is not unreasonable."
 
 **Solution:**
 
@@ -94,9 +96,9 @@ A writer wants to describe a proposal as fairly reasonable without strong praise
 2. (B) pushes it to absolute praise (*perfectly reasonable*).
 3. (C) *not unreasonable* sits in the middle: fairly reasonable.
 
-The correct answer is **(C)**.
+The correct sentence is **(C)**: "The schedule is not unreasonable."
 
-**Check:** *"The proposal is not against reason"* matches *"fairly reasonable without strong praise."*
+**Check:** Say it as *fairly reasonable*: "The schedule is fairly reasonable." The cautious meaning holds.
 
 ### #2: Editing a Near-Negative for Formal English
 
@@ -109,7 +111,7 @@ In standard formal English, revise *"I can't hardly hear you from over here"* wh
 
 Correct sentence: **"I can hardly hear you from over here."**
 
-**Check:** *"I can barely hear you"* still means very little hearing.
+**Check:** *Barely* still means very little hearing.
 
 ### #3: Reading Two Office Memos
 
@@ -124,7 +126,7 @@ Finish the job: what does *barely* say about the train? Does the one cancellatio
 :::answer
 The answer is **The clerk caught the train, but only just; and no, one cancellation does not contradict the memo.**
 
-**Check:** *Barely* means almost not, so the clerk caught the train with almost no time to spare, not missed it. *Seldom* means rarely, so one cancellation fits; only *never* would be contradicted.
+**Check:** *Barely* means only just, so the clerk caught the train and did not miss it. *Seldom* means rarely, so one cancellation fits; only *never* would be contradicted.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -134,7 +136,7 @@ Read *not unexpected* as unsurprising, and *seldom* as *rarely*. Read *hardly*, 
 ## Traps to Watch For
 
 :::checklist
-- Qualified negative (*not unexpected*, *not unreasonable*): read a softened positive (*unsurprising*, *fairly reasonable*) as the common meaning, and ask how strong the statement is in context. {#qualified-negative-extremes}
+- Qualified negative (*not unexpected*, *not unreasonable*): read a softened positive (*unsurprising*, *fairly reasonable*) as the common meaning. {#qualified-negative-extremes}
 - Near-negative (*hardly*, *scarcely*, *barely*): when both words express the same negative idea, keep just one in formal English (*can't* to *can*, *no* to *any*). {#not-with-near-negative}
 - *Seldom*: read it as *rarely*, not as *never*. {#seldom-as-never}
 :::

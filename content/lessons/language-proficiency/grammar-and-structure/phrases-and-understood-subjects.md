@@ -27,7 +27,7 @@ Later lessons cover verb forms such as *to finish the project* and clauses with 
 :::pair #phrase-vs-dependent-clause
 Right: "Under the old bridge" is a prepositional phrase.
 Wrong: Call "under the old bridge" a dependent clause (because it cannot stand alone) or an independent clause (because it gives clear location details).
-A dependent clause still needs a subject and a verb. Because "under the old bridge" has no verb, it is a phrase, not a clause.
+In this lesson, a clause needs a subject and a verb. "Under the old bridge" is a location phrase: the preposition *under* and its noun group.
 :::
 
 :::check
@@ -49,7 +49,7 @@ Why do commands leave out *you*? When you speak directly to someone to give an o
 :::pair #command-has-understood-you
 Right: "Close the door" is an independent clause with an implied subject (*you*).
 Wrong: Call "Close the door" a dependent clause with a missing main clause, or a noun phrase because it names an action.
-Even without a written subject, *close* is a command verb paired with understood *you*, so the command stands on its own as an independent clause.
+Even without a written subject, *close* is paired with understood *you*, so the command stands on its own as an independent clause.
 :::
 
 :::check
@@ -60,7 +60,7 @@ The answer is **You**. The request is addressed to the listener, so "(You) pleas
 
 ## Examples
 
-### #1: Telling a Phrase from an Independent Clause
+### #1: Two Word Groups
 
 Classify these word groups as a prepositional phrase or an independent clause: (a) "under the old bridge"; (b) "the cat slept."
 
@@ -71,7 +71,7 @@ Classify these word groups as a prepositional phrase or an independent clause: (
 
 **Check:** Try putting each group alone with a period: "Under the old bridge." leaves the reader asking what happened there (phrase), whereas "The cat slept." states a complete event (independent clause).
 
-### #2: Identifying a Prepositional Phrase on Its Own
+### #2: One Word Group on Its Own
 
 Is "beside the quiet lake" a phrase or a clause: (A) Prepositional phrase, (B) Independent clause, (C) Dependent clause, or (D) Main verb phrase?
 
@@ -90,7 +90,7 @@ How do we classify the group of words "Open the window"?
 
 **Solution:**
 
-1. Find the action word: *open* is a command verb telling someone to act.
+1. Find the verb: *open*.
 2. Ask who is expected to open the window.
 
 :::try

@@ -54,7 +54,7 @@ The answer is **The eater; the food**. *Only Ben* limits who ate, and *only the 
 Putting **almost** or **nearly** before a **verb** usually means the action came close, yet did **not** happen. It can also mean the action was mostly done, so a position beside the amount is clearer:
 
 - *"Mara almost missed the train."* -> she nearly missed it, so she caught it.
-- *"The curator almost displayed all the vases."* -> the curator nearly displayed them, yet did not.
+- *"The curator almost displayed all the vases."* -> unclear: she came close to showing them (none shown), or showed most of them.
 
 Putting **almost** or **nearly** before a **quantity or frequency** (*every day, all the vases*) means just short of that whole amount or schedule:
 
@@ -68,9 +68,9 @@ Putting *almost* before the verb (*almost rode*, *almost displayed*) can say the
 :::
 
 :::check
-None of Tess's trays fell. Which wording fits: *"Tess dropped almost every tray"* or *"Tess almost dropped every tray"*?
+Tess caught every tray, and none hit the floor. Which wording is clearer for that scene: *"Tess dropped almost every tray"* or *"Tess almost dropped every tray"*?
 :::answer
-The answer is **"Tess almost dropped every tray."** *Almost* before *dropped* means each drop did not happen.
+The answer is **"Tess almost dropped every tray."** In this scene each drop nearly happened but did not, and *almost* before *dropped* fits that. *Dropped almost every tray* would say that nearly all of them fell.
 :::
 
 ## Examples
@@ -97,20 +97,24 @@ Which says the cyclists rode on nearly every day, not every day: *"Almost all th
 2. *"Almost every day"* limits how often they rode.
 3. **"The cyclists rode to school almost every day"** matches "nearly every day."
 
-**Check:** That sentence means nearly every day, with a few left out.
-
 ### #3: A Bakery Shelf
 
-The baker's full shelf is down to two loaves. Why do (a) *"Nearly every baker sold all the loaves"* and (b) *"The baker sold all the loaves for nearly the whole morning"* fail? Write one sentence with *nearly*, *baker*, *sold* and *loaves* that explains the sale.
+A baker started with 40 loaves and sold all but two. Which sentence says that clearly?
+
+(a) *"Nearly every baker sold all the loaves."*
+
+(b) *"The baker sold all the loaves for nearly the whole morning."*
+
+(c) *"The baker sold nearly all the loaves."*
 
 **Solution:**
 
 1. Read what *nearly* sits beside in each option.
 
 :::try
-Finish the last step: write the sentence that explains the sale, and say why it works.
+Finish the last step: choose the sentence, and say what *nearly* limits in each option.
 :::answer
-**"The baker sold nearly all the loaves."** Putting *nearly* directly before *all the loaves* limits the number of loaves sold. Option (a) limits the bakers and option (b) limits the time.
+**(c) "The baker sold nearly all the loaves."** *Nearly* sits directly before *all the loaves*, so it limits the number of loaves sold. In (a) it limits the bakers, and in (b) it limits the time.
 
 **Check:** Swapping in *"almost all"* keeps the meaning.
 :::
@@ -124,5 +128,5 @@ Box the small word and the word beside it, then check whether it limits the doer
 :::checklist
 - Placing *only* before a noun when restricting a day or time: move *only* beside the time phrase. {#only-before-wrong-part}
 - Treating *only* as locked to one word or only nouns: remember position and context both show its target. {#rigid-only-rules}
-- Placing *almost* before a verb instead of *every* or *all*: put *almost* right before the quantity or frequency word. {#almost-before-verb-vs-quantity}
+- *Almost* before a verb when you mean an amount: put it right before the quantity or frequency word. {#almost-before-verb-vs-quantity}
 :::
