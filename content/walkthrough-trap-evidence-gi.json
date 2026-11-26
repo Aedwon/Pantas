@@ -2560,6 +2560,254 @@
           "mistakeNote": "Drops the required permission from the head of office, branch, or agency."
         }
       ]
+    },
+    "lesson-code-of-conduct-ra-6713-duties-code-coverage": {
+      "temporary-workers-covered": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0032",
+          "wrongChoice": "The Code excludes the appointee because a temporary post is outside both career and non-career coverage.",
+          "mistakeNote": "Excludes temporary appointees even though Section 3(b) explicitly covers permanent and temporary workers."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0032",
+          "wrongChoice": "The Code covers the appointee only after the position becomes a permanent national-department post.",
+          "mistakeNote": "Delays coverage until a worker holds a permanent post instead of covering temporary appointees immediately."
+        }
+      ],
+      "subsidiaries-are-government": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0032",
+          "wrongChoice": "The Code excludes the appointee because subsidiaries are outside its definition of government.",
+          "mistakeNote": "Excludes GOCC subsidiaries even though Section 3(a) places GOCCs and their subsidiaries inside government."
+        }
+      ],
+      "saln-exemption-keeps-duties": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0018",
+          "wrongChoice": "The volunteer is also exempt from the Code's gift restrictions.",
+          "mistakeNote": "Treats Rule XII's SALN filing exemption as lifting the Code's gift bans and conduct rules."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-duties-public-letters": {
+      "working-days-not-calendar": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0001",
+          "wrongChoice": "15 calendar days",
+          "mistakeNote": "Counts calendar days including weekends and holidays instead of the 15 working days set by Section 5(a)."
+        }
+      ],
+      "reply-needs-action-taken": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0012",
+          "wrongChoice": "Only that the office received and logged the communication",
+          "mistakeNote": "Treats a bare receipt log notice as satisfying Section 5(a) without stating the action taken."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0021",
+          "wrongChoice": "Send only a receipt and leave the applicant to identify what is missing.",
+          "mistakeNote": "Sends a bare receipt notice instead of stating action taken and missing requirements."
+        }
+      ],
+      "refer-and-notify-sender": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0022",
+          "wrongChoice": "Forward the request without telling the sender where it went.",
+          "mistakeNote": "Forwards a misdirected letter to the proper office while omitting mandatory notice to the sender."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-duties-reports-and-counter-service": {
+      "forty-five-working-days-report": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0003",
+          "wrongChoice": "15 working days",
+          "mistakeNote": "Applies the 15-working-day public-letter deadline to the annual performance report instead of 45 working days."
+        }
+      ],
+      "counter-prompt-not-fifteen-days": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0023",
+          "wrongChoice": "The delay is allowed because the written-reply period applies to every service.",
+          "mistakeNote": "Applies Section 5(a)'s written-reply period to postpone prompt in-person service required by Section 5(d)."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-duties-document-completion": {
+      "agency-head-sets-period": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0024",
+          "wrongChoice": "Each employee may select a deadline based only on personal workload.",
+          "mistakeNote": "Lets individual workers choose deadlines instead of requiring agency-head rules setting a reasonable period."
+        }
+      ],
+      "three-signatory-limit": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0002",
+          "wrongChoice": "At most four official signatories",
+          "mistakeNote": "Raises Section 5(c)'s practical limit from three signatories to four."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0002",
+          "wrongChoice": "At most five official signatories",
+          "mistakeNote": "Raises Section 5(c)'s practical limit from three signatories to five."
+        }
+      ],
+      "designated-substitute-signer": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0017",
+          "wrongChoice": "The first available employee without regard to rank or designation",
+          "mistakeNote": "Allows any available employee to sign instead of the next-in-rank official, OIC, or written substitute."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-duties-public-record-access": {
+      "no-blanket-waiting-period": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0009",
+          "wrongChoice": "Only after the general thirty-day delay for all document inspection requests",
+          "mistakeNote": "Invents a blanket 30-day waiting period before public inspection during reasonable working hours."
+        }
+      ],
+      "unfinished-not-automatically-secret": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0025",
+          "wrongChoice": "Every record about an unfinished matter is automatically secret.",
+          "mistakeNote": "Treats unfinished status alone as making every record secret without a specific lawful disclosure limit."
+        }
+      ],
+      "embarrassment-not-lawful-ground": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0025",
+          "wrongChoice": "The agency wants to avoid unfavorable public attention.",
+          "mistakeNote": "Treats avoiding public criticism or embarrassment as a lawful basis to refuse public inspection."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-duties-fair-disciplinary-process": {
+      "receipt-does-not-excuse-delay": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0006",
+          "wrongChoice": "Exemption from responsibility if the request was merely acknowledged",
+          "mistakeNote": "Treats acknowledging receipt as removing disciplinary responsibility for failing to state action taken."
+        }
+      ],
+      "complaint-not-automatic-penalty": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0006",
+          "wrongChoice": "Automatic dismissal without notice or a chance to answer the charge",
+          "mistakeNote": "Confuses a disciplinary ground with automatic dismissal lacking notice and hearing."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0033",
+          "wrongChoice": "Impose a penalty once the complaint is received because an accusation establishes failure to reply.",
+          "mistakeNote": "Treats a complaint alone as sufficient proof to punish without notice and hearing."
+        }
+      ],
+      "unfinished-work-not-no-reply": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0033",
+          "wrongChoice": "Treat unfinished work as conclusive proof that no reply was sent, regardless of the dated record.",
+          "mistakeNote": "Confuses unfinished underlying work with failure to send a dated, timely reply."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-duties-private-business-interests": {
+      "indirect-stake-still-barred": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0026",
+          "wrongChoice": "The stake is allowed because it is held through another person.",
+          "mistakeNote": "Assumes holding a financial interest through a nominee escapes Section 7(a)'s ban on indirect stakes."
+        }
+      ],
+      "office-approval-covers-non-signers": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0026",
+          "wrongChoice": "The stake is allowed unless the employee personally signs the approval.",
+          "mistakeNote": "Limits Section 7(a) to the signing official instead of transactions requiring the office's approval."
+        }
+      ],
+      "supervisor-consent-not-law": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0027",
+          "wrongChoice": "The arrangement is allowed because the supervisor approved it.",
+          "mistakeNote": "Treats a supervisor's approval as replacing express permission in law under Section 7(b)(1)."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-duties-private-practice-and-referrals": {
+      "authority-does-not-cure-conflict": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0028",
+          "wrongChoice": "Yes, because valid legal authority removes the separate conflict restriction.",
+          "mistakeNote": "Treats legal permission to practice as waiving Section 7(b)(2)'s separate no-conflict condition."
+        }
+      ],
+      "tendency-to-conflict-barred": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0028",
+          "wrongChoice": "Yes, because only an actual conflict can make private practice prohibited.",
+          "mistakeNote": "Ignores that Section 7(b)(2) bars work that tends to conflict before an actual clash occurs."
+        }
+      ],
+      "assigned-duty-exception-stands": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0030",
+          "wrongChoice": "The referral is necessarily prohibited because every pending transaction defeats every exception.",
+          "mistakeNote": "Assumes a pending office transaction overrides Rule X's exception for referrals required by assigned duties."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-duties-after-leaving-office": {
+      "departure-starts-one-year": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0029",
+          "wrongChoice": "Resignation immediately removes the restriction on matters before the former agency.",
+          "mistakeNote": "Treats resignation as immediately ending the 1-year former-office practice limit."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0031",
+          "wrongChoice": "Retirement ended the restriction because the officer no longer receives a government salary.",
+          "mistakeNote": "Treats ending government pay upon retirement as ending Section 7(b)'s 1-year post-separation limits."
+        }
+      ],
+      "recommendation-ban-continues": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0031",
+          "wrongChoice": "The restriction covers ownership interests but does not cover job recommendations after retirement.",
+          "mistakeNote": "Drops the Section 7(b)(3) recommendation ban during the 1-year post-retirement window."
+        }
+      ],
+      "former-office-matters-only": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0029",
+          "wrongChoice": "The restriction bars all professional work for any private client during that year.",
+          "mistakeNote": "Expands the 1-year former-office matter limit into a total ban on all private professional clients."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-duties-protected-information-and-gifts": {
+      "unpaid-leak-still-barred": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0019",
+          "wrongChoice": "The disclosure is allowed because the employee received no payment.",
+          "mistakeNote": "Assumes sharing confidential work records for an unfair private advantage needs payment to violate Section 7(c)."
+        }
+      ],
+      "low-value-not-favor-shield": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0020",
+          "wrongChoice": "The employee may accept because low value alone establishes a gift exception.",
+          "mistakeNote": "Treats low gift price as overriding Section 3(c)'s bar on gifts given for an official favor."
+        }
+      ],
+      "timing-never-cures-favor-gift": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0020",
+          "wrongChoice": "The employee may accept if the gift arrives after the favorable action.",
+          "mistakeNote": "Treats post-decision delivery as breaking the prohibited link between a gift and an official favor."
+        }
+      ]
     }
   }
 }
