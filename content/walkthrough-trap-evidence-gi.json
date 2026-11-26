@@ -2808,6 +2808,266 @@
           "mistakeNote": "Treats post-decision delivery as breaking the prohibited link between a gift and an official favor."
         }
       ]
+    },
+    "lesson-code-of-conduct-ra-6713-saln-assets-and-business-disclosures": {
+      "unsecured-debts-count": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0023",
+          "wrongChoice": "Report only debts secured by the land because other debts do not affect financial declarations.",
+          "mistakeNote": "Omits unsecured personal loans and credit balances by limiting liabilities to land-secured debts."
+        }
+      ],
+      "consultancy-without-shares": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0023",
+          "wrongChoice": "Report the consultancy only if the employee also owns shares in the private firm.",
+          "mistakeNote": "Confuses a financial connection with share ownership instead of reporting paid consulting work alone."
+        }
+      ],
+      "subtract-debts-for-net-worth": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0024",
+          "wrongChoice": "Add total liabilities to total assets before reporting the net worth.",
+          "mistakeNote": "Adds debts to assets instead of subtracting liabilities from assets to compute net worth."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-saln-filers-and-family-coverage": {
+      "honorary-needs-no-credit": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0025",
+          "wrongChoice": "The work earns service credit even though it does not earn a salary.",
+          "mistakeNote": "Treats unpaid service that earns service credit as honorary despite Rule VII, Section 1 requiring both to be absent."
+        }
+      ],
+      "all-three-child-tests": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0018",
+          "wrongChoice": "An unmarried twenty-year-old child living in the same household",
+          "mistakeNote": "Includes an adult child age 18 or older instead of applying the under-18 cutoff."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012",
+          "wrongChoice": "Only children under twenty-one and all immediate siblings",
+          "mistakeNote": "Raises the child age cutoff above 18 and adds siblings outside Section 8(A)."
+        }
+      ],
+      "no-extended-family-finances": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012",
+          "wrongChoice": "Spouse, parents, adult children, and business partners",
+          "mistakeNote": "Extends SALN household asset and debt coverage to parents, adult children, and business partners."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012",
+          "wrongChoice": "Spouse and all financially dependent extended family members",
+          "mistakeNote": "Replaces Section 8(A)'s spouse-and-minor-child limits with financial dependency of extended relatives."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-saln-relatives-in-government": {
+      "fourth-degree-cap": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0004",
+          "wrongChoice": "Third civil degree",
+          "mistakeNote": "Cuts off relative-in-government disclosure at the third degree instead of the fourth civil degree."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0004",
+          "wrongChoice": "Second civil degree",
+          "mistakeNote": "Narrows relative-in-government disclosure to the second degree instead of the fourth civil degree."
+        }
+      ],
+      "affinity-uses-spouse-degree": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0028",
+          "wrongChoice": "Second degree by affinity because marriage adds a degree to the parent-child relationship.",
+          "mistakeNote": "Adds an extra step for the marriage bond instead of mirroring the spouse's blood degree directly."
+        }
+      ],
+      "marriage-relatives-included": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0028",
+          "wrongChoice": "Outside the covered degrees because only the employee's own blood relatives are included.",
+          "mistakeNote": "Excludes affinity relatives by restricting Section 8(B) disclosure solely to blood relatives."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-saln-filing-dates": {
+      "thirty-days-not-sixty": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0001",
+          "wrongChoice": "60 days",
+          "mistakeNote": "Substitutes Section 9's 60-day divestment period for Section 8(A)'s 30-day initial SALN deadline."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0003",
+          "wrongChoice": "60 days",
+          "mistakeNote": "Substitutes 60 days for the 30-day separation SALN filing deadline."
+        }
+      ],
+      "annual-deadline-april": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0002",
+          "wrongChoice": "December 31",
+          "mistakeNote": "Confuses the December 31 year-end valuation snapshot date with the April 30 annual filing deadline."
+        }
+      ],
+      "authority-within-thirty-days": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0026",
+          "wrongChoice": "Give the authority on the next annual filing date instead of within the entry period.",
+          "mistakeNote": "Defers the mandatory Ombudsman record-access authority until April 30 instead of filing within 30 days of assumption."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-saln-national-legislative-and-judicial-offices": {
+      "each-chamber-own-secretary": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0010",
+          "wrongChoice": "Secretary of the House",
+          "mistakeNote": "Routes senators to the Secretary of the House instead of the Secretary of the Senate."
+        }
+      ],
+      "justices-clerk-not-ombudsman": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0014",
+          "wrongChoice": "Office of the Ombudsman",
+          "mistakeNote": "Routes Supreme Court justices to the Office of the Ombudsman instead of the Clerk of Court of the Supreme Court."
+        }
+      ],
+      "judges-court-administrator": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0015",
+          "wrongChoice": "Office of the Ombudsman",
+          "mistakeNote": "Routes trial-court judges to the Office of the Ombudsman instead of the Court Administrator."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0015",
+          "wrongChoice": "Office of the President",
+          "mistakeNote": "Routes trial-court judges to the Office of the President instead of the Court Administrator."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-saln-executive-military-and-other-offices": {
+      "national-exec-goes-to-op": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0009",
+          "wrongChoice": "Civil Service Commission",
+          "mistakeNote": "Assigns national executive officials to the residual CSC category instead of the Office of the President."
+        }
+      ],
+      "afp-rank-cutoff": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0020",
+          "wrongChoice": "Being any commissioned officer regardless of rank or equivalent grade",
+          "mistakeNote": "Drops Section 8(A)(4)'s colonel or naval captain rank threshold for Office of the President filing."
+        }
+      ],
+      "regional-local-vs-residual-csc": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0013",
+          "wrongChoice": "Civil Service Commission main desk",
+          "mistakeNote": "Routes regional and local employees to the residual CSC instead of their regional Deputy Ombudsman."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-saln-public-access-and-use": {
+      "ten-working-days-copying": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0007",
+          "wrongChoice": "15 working days",
+          "mistakeNote": "Applies a 15-working-day delay instead of Section 8(C)'s 10-working-day copying window."
+        }
+      ],
+      "investigation-blocks-destruction": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0017",
+          "wrongChoice": "Destroy it automatically because ten years have passed",
+          "mistakeNote": "Ignores the Section 8(C) exception prohibiting destruction when a SALN is needed in an ongoing investigation."
+        }
+      ],
+      "no-commercial-resale": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0027",
+          "wrongChoice": "Public inspection permits the business to sell the data once it has paid the copying fee.",
+          "mistakeNote": "Treats payment of Section 8(C) reproduction fees as lifting Section 8(D)'s ban on commercial resale."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-conflict-and-valid-divestment": {
+      "indirect-shares-and-potential-clash": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0021",
+          "wrongChoice": "There is no substantial stockholding because the shares are held indirectly rather than directly.",
+          "mistakeNote": "Excludes indirect shareholdings despite Section 3(f) covering shares owned directly or indirectly."
+        }
+      ],
+      "no-transfer-to-spouse-or-relatives": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0022",
+          "wrongChoice": "A complete transfer of title to the official's spouse with no shares left in the official's name.",
+          "mistakeNote": "Treats a title transfer to a spouse as valid divestment despite Section 3(j)'s exclusion of spouse and relatives."
+        }
+      ],
+      "must-give-up-control-and-shares": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0022",
+          "wrongChoice": "A transfer to an unrelated buyer that leaves the official in control of the interest.",
+          "mistakeNote": "Treats paper transfer to an unrelated buyer as valid divestment even when the official retains control."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-conflict-action-deadlines": {
+      "resign-before-divest": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0019",
+          "wrongChoice": "Resign within 60 days; divest within 30 days",
+          "mistakeNote": "Reverses Section 9's two deadlines by giving 60 days for resignation and 30 days for divestment."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0005",
+          "wrongChoice": "30 days",
+          "mistakeNote": "Applies the 30-day resignation deadline to share divestment instead of 60 days."
+        }
+      ],
+      "calendar-days-section-nine": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0019",
+          "wrongChoice": "Resign within 30 working days; divest within 60 working days",
+          "mistakeNote": "Changes Section 9's calendar-day deadlines into working days."
+        }
+      ],
+      "later-conflict-trigger": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0016",
+          "wrongChoice": "Only at the next annual SALN filing deadline",
+          "mistakeNote": "Delays the conflict-resolution clock until April 30 instead of starting when the mid-service conflict arises."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-saln-review-and-written-opinions": {
+      "timely-but-incomplete-needs-correction": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0029",
+          "wrongChoice": "Accept the statement as complete because timely submission satisfies every review requirement.",
+          "mistakeNote": "Treats timeliness alone as passing Section 10 review despite incomplete entries requiring corrective notice."
+        }
+      ],
+      "protection-extends-to-similar-facts": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0030",
+          "wrongChoice": "Protection applies only to the person who requested the opinion, even when another person's facts are similar.",
+          "mistakeNote": "Restricts Section 10(b) good-faith protection solely to the requester instead of covering others with similar facts."
+        }
+      ],
+      "reliance-must-follow-issuance": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0030",
+          "wrongChoice": "Protection began before issuance because later approval makes every earlier act protected.",
+          "mistakeNote": "Applies an approved written opinion retroactively to shield acts committed before issuance."
+        }
+      ]
     }
   }
 }
