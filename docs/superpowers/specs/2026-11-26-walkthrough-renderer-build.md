@@ -66,6 +66,14 @@ Nested content is a list of ordinary Portable Text blocks produced by the same c
 - The wide held layout (`content_renderer_held.dart`) renders the same parts.
 - Tokens: board variables map to existing color tokens (`--acc` accent, `--acctint`, `--acctext`, `--surf` card, `--edge` separator, `--deep` reader deep, `--sec` secondary). A missing token is added to the theme with a `ds-board` note, not hard-coded.
 
+### Build versus board: lead decisions (rule 4, after the reader build, Nov 26)
+
+Searched: the board's `walk.css` and `reader.css`, `design/system/patterns.md`, the design-system button README and tokens, the standard's UI section. The new parts follow the board; where the board's base layer (`reader.css`) redraws the existing reader, the existing approved reader wins, because the brief is the new parts and old lessons must not change.
+- Kept from the app, not the board: reader paragraph size on phone (17, board 16) and the reader's 16 px paragraph gap (board 18). These are the live reader, outside this build.
+- Buttons are the design-system `WebButton` (tonal and accent tertiary, 44 px). Its hover, press and dark tonal label colors come from design-system tokens; the board's one-step-different hex values for `.wbtn` hover and press, and `--acc` as the dark tonal label, are not copied. The pattern rule (every control a design-system component) wins over a hand-drawn hex.
+- Fixed to the board: "Why?" sits 8 px under its paragraph; the answer line in a walk-through solution lines up with the step text (`.note`).
+- Not drawn on the board, decided: the tap-back scroll takes 420 ms on the app's move curve, then the tint holds 300 ms and fades over 1.2 s; the first sentence of a revealed answer is bolded by the reader.
+
 ### Completion is judged by
 
 - Converter tests written first and shown failing; both converters agree on every lesson in `content/lessons` and every walk-through lesson on `content/lesson-walkthrough-cse-r1` (no error, every target resolves).
