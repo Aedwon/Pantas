@@ -111,20 +111,18 @@ Subtracting a number gives the same answer as adding its opposite. So you can tu
 
 Change each subtraction to adding the opposite:
 
-$$5-(-2)=5+2=7$$
-
 $$3-8=3+(-8)=-5$$
 
 $$(-4)-(-9)=(-4)+9=5$$
-
-:::why
-Look at the pattern: $5-2=3$, then $5-1=4$, then $5-0=5$. Each time you take away $1$ less, the answer goes up by $1$. Keep going to get $5-(-1)=6$ and $5-(-2)=7$.
-:::
 
 :::pair #subtract-negative
 Right: $5-(-2)=5+2=7$
 Wrong: $5-(-2)=5-2=3$
 The wrong line made only one change. It kept the minus sign between the numbers and dropped the minus sign on $2$. Always make both changes.
+:::
+
+:::why
+Look at the pattern: $5-2=3$, then $5-1=4$, then $5-0=5$. Each time you take away $1$ less, the answer goes up by $1$. Keep going to get $5-(-1)=6$ and $5-(-2)=7$.
 :::
 
 :::check
