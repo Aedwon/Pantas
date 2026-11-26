@@ -81,21 +81,21 @@ void main() {
         findsOneWidget,
       );
       expect(find.byType(WebSegmentedControl), findsOneWidget);
-      expect(find.text('Geometry'), findsNothing);
-      await tester.tap(find.text('Mathematics'));
+      expect(find.textContaining('Geometry'), findsNothing);
+      await tester.tap(find.textContaining('Mathematics'));
       await tester.pumpAndSettle();
-      expect(find.text('Geometry'), findsOneWidget);
+      expect(find.textContaining('Geometry'), findsOneWidget);
       // The topic is a row of the same table, set in under its subject.
       expect(find.byType(PantasDataTable), findsOneWidget);
       expect(
-        tester.getTopLeft(find.text('Geometry')).dx,
-        greaterThan(tester.getTopLeft(find.text('Mathematics')).dx),
+        tester.getTopLeft(find.textContaining('Geometry')).dx,
+        greaterThan(tester.getTopLeft(find.textContaining('Mathematics')).dx),
       );
       expect(
-        tester.getTopLeft(find.text('Geometry')).dy,
-        greaterThan(tester.getTopLeft(find.text('Mathematics')).dy),
+        tester.getTopLeft(find.textContaining('Geometry')).dy,
+        greaterThan(tester.getTopLeft(find.textContaining('Mathematics')).dy),
       );
-      expect(find.text('5 answered'), findsOneWidget);
+      expect(find.textContaining('(5)'), findsOneWidget);
       expect(find.text('40%'), findsOneWidget);
       expect(find.text('Subjects'), findsOneWidget);
       expect(tester.takeException(), isNull);
@@ -105,11 +105,11 @@ void main() {
       await show(tester);
       await tester.tap(find.text('Topics'));
       await tester.pumpAndSettle();
-      expect(find.text('5 answered'), findsOneWidget);
+      expect(find.textContaining('(5)'), findsOneWidget);
       await tester.tap(find.text('All subjects'));
       await tester.pumpAndSettle();
-      expect(find.text('Mathematics'), findsWidgets);
-      await tester.tap(find.text('Mathematics').last);
+      expect(find.textContaining('Mathematics'), findsWidgets);
+      await tester.tap(find.textContaining('Mathematics').last);
       await tester.pumpAndSettle();
       await tester.tap(find.text('Weakest first'));
       await tester.pumpAndSettle();
@@ -120,7 +120,7 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.text('Lessons'));
       await tester.pumpAndSettle();
-      expect(find.text('Circles'), findsOneWidget);
+      expect(find.textContaining('Circles'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
     testWidgets('wide topic drawer stats and lesson actions, dark=$dark',
@@ -203,7 +203,7 @@ void main() {
         (tag.decoration! as BoxDecoration).color,
         tokens.colors.accentTint,
       );
-      await tester.tap(find.text('Circles'));
+      await tester.tap(find.textContaining('Circles'));
       expect(opened, 'circles');
       expect(tester.takeException(), isNull);
     });
@@ -211,7 +211,7 @@ void main() {
         (tester) async {
       await show(tester, pro: false);
       expect(find.byType(ProMark), findsNWidgets(2));
-      expect(find.text('Mathematics'), findsOneWidget);
+      expect(find.textContaining('Mathematics'), findsOneWidget);
       expect(find.text('Go deeper with Pro'), findsOneWidget);
       expect(find.byIcon(Icons.lock_outline_rounded), findsOneWidget);
       final icon = tester.getCenter(find.byIcon(Icons.lock_outline_rounded));
@@ -222,7 +222,7 @@ void main() {
       expect(icon.dy, button.dy);
       await tester.tap(find.text('Topics'));
       await tester.pumpAndSettle();
-      expect(find.text('Geometry'), findsNothing);
+      expect(find.textContaining('Geometry'), findsNothing);
       expect(find.text('Unlock with Pro'), findsOneWidget);
     });
   }
@@ -273,7 +273,7 @@ void main() {
         (tester) async {
       await show(tester, still: false);
       expect(tester.getSize(topics).height, 0);
-      await tester.tap(find.text('Mathematics'));
+      await tester.tap(find.textContaining('Mathematics'));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));
       final mid = tester.getSize(topics).height;
@@ -289,9 +289,9 @@ void main() {
 
     testWidgets('reduced motion opens at once', (tester) async {
       await show(tester, still: true);
-      await tester.tap(find.text('Mathematics'));
+      await tester.tap(find.textContaining('Mathematics'));
       await tester.pump();
-      expect(find.text('Geometry'), findsOneWidget);
+      expect(find.textContaining('Geometry'), findsOneWidget);
       expect(tester.getSize(topics).height, greaterThan(0));
       expect(tester.widget<RotationTransition>(rotor()).turns.value, .5);
       expect(tester.hasRunningAnimations, isFalse);

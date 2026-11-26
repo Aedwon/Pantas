@@ -67,7 +67,7 @@ void main() {
       fail = false;
       await tester.tap(find.text('Try Again'));
       await tester.pumpAndSettle();
-      expect(find.text('Mathematics'), findsOneWidget);
+      expect(find.textContaining('Mathematics'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   }
@@ -107,7 +107,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Topics'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Geometry'));
+    await tester.tap(find.textContaining('Geometry'));
     await tester.pumpAndSettle();
     expect(find.byKey(const ValueKey('web-performance-topic')), findsOneWidget);
     expect(find.text('Your performance'), findsOneWidget);
@@ -115,7 +115,7 @@ void main() {
     await tester.sendKeyEvent(LogicalKeyboardKey.escape);
     await tester.pumpAndSettle();
     expect(find.text('Private topic detail'), findsNothing);
-    expect(find.text('Geometry'), findsOneWidget);
+    expect(find.textContaining('Geometry'), findsOneWidget);
   });
   const drawerKey = ValueKey('web-performance-topic');
   double drawerLeft(WidgetTester tester) =>
@@ -131,7 +131,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Topics'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Geometry'));
+    await tester.tap(find.textContaining('Geometry'));
     await tester.pump();
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));

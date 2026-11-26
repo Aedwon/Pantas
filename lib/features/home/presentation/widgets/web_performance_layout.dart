@@ -468,13 +468,17 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       final sub =
           level == 0 ? (topic ? null : _topicCount(row.id)) : row.subtext;
       return [
+        // The answered count is a quiet "(N)" after the name (Aedwon, Nov 26:
+        // "just add (X) as simple as that"), so it wraps with the name and
+        // never takes a column of its own.
         PantasTableCell.text(
           row.title,
           bold: expanded,
           indent: topic ? PantasSpace.s20 : 0,
           subtitle: sub,
+          trailing: '(${row.answered})',
+          semanticLabel: '${row.title}, ${row.answered} answered',
         ),
-        if (level > 0 || topic) '${row.answered} answered' else '',
         PantasTableCell.widget(
           SizedBox(
             width: barWidth,
@@ -489,7 +493,6 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
 
     final columns = [
       PantasTableColumn(['Subject', 'Topic', 'Lesson'][level]),
-      const PantasTableColumn('Answered', numeric: true),
       const PantasTableColumn(''),
       const PantasTableColumn('Accuracy', numeric: true),
       const PantasTableColumn(''),

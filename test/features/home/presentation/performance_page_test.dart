@@ -64,14 +64,15 @@ void main() {
     for (final head in ['SUBJECT', 'ANSWERED', 'ACCURACY']) {
       expect(find.text(head), findsNothing);
     }
-    expect(find.text('Math'), findsWidgets);
+    expect(find.textContaining('Math'), findsWidgets);
     await tester.tap(find.text('Topics'));
     await tester.pumpAndSettle();
     for (final head in ['TOPIC', 'ANSWERED', 'ACCURACY']) {
       expect(find.text(head), findsNothing);
     }
-    // The answered count stays as a column of its own, as PF_Topics draws it.
-    expect(find.text('2 answered'), findsOneWidget);
+    // The answered count is a quiet "(N)" after the name, not a column
+    // (Aedwon, Nov 26).
+    expect(find.textContaining('(2)'), findsOneWidget);
   });
 
   testWidgets('a Free phone shows what the wide page shows', (tester) async {
@@ -104,14 +105,14 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Empty'), findsNothing);
     expect(
-      tester.getTopLeft(find.text('Geometry')).dy,
-      lessThan(tester.getTopLeft(find.text('Algebra')).dy),
+      tester.getTopLeft(find.textContaining('Geometry')).dy,
+      lessThan(tester.getTopLeft(find.textContaining('Algebra')).dy),
     );
     await tester.tap(find.bySemanticsLabel('Sort: Weakest first'));
     await tester.pumpAndSettle();
     expect(
-      tester.getTopLeft(find.text('Algebra')).dy,
-      lessThan(tester.getTopLeft(find.text('Geometry')).dy),
+      tester.getTopLeft(find.textContaining('Algebra')).dy,
+      lessThan(tester.getTopLeft(find.textContaining('Geometry')).dy),
     );
     expect(find.text('Time'), findsNothing);
   });
@@ -124,7 +125,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Go deeper with Pro'), findsOneWidget);
     expect(find.text('Unlock with Pro'), findsOneWidget);
-    expect(find.text('Algebra'), findsNothing);
+    expect(find.textContaining('Algebra'), findsNothing);
   });
   testWidgets('paused access shows paused line rather than selling Pro',
       (tester) async {
@@ -135,14 +136,15 @@ void main() {
     expect(find.text('Connect once to keep using Pro.'), findsOneWidget);
     expect(find.text('Unlock with Pro'), findsNothing);
   });
-  testWidgets('rows read parent, answered count and use the singular',
+  testWidgets('rows read parent and a bracketed count, with the singular',
       (tester) async {
     await tester.pumpWidget(show());
     await tester.pumpAndSettle();
     expect(find.text('2 topics'), findsOneWidget);
     await tester.tap(find.text('Topics'));
     await tester.pumpAndSettle();
-    expect(find.text('Subject · 4 answered'), findsOneWidget);
+    expect(find.text('Subject'), findsWidgets);
+    expect(find.textContaining('(4)'), findsOneWidget);
   });
   testWidgets('Free Subjects view lists subjects and shows the invitation',
       (tester) async {
@@ -150,7 +152,7 @@ void main() {
     // Pro card under the list on every view for a Free account.
     await tester.pumpWidget(show(pro: false));
     await tester.pumpAndSettle();
-    expect(find.text('Math'), findsOneWidget);
+    expect(find.textContaining('Math'), findsOneWidget);
     expect(find.text('Go deeper with Pro'), findsOneWidget);
   });
   testWidgets('Free Topics replaces the list with one card and dims sort',
@@ -159,7 +161,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('Topics'));
     await tester.pumpAndSettle();
-    expect(find.text('Math'), findsNothing);
+    expect(find.textContaining('Math'), findsNothing);
     expect(find.text('1 SUBJECTS'), findsNothing);
     expect(find.text('Go deeper with Pro'), findsOneWidget);
     final dim = tester.widget<Opacity>(
@@ -174,17 +176,17 @@ void main() {
       (tester) async {
     await tester.pumpWidget(show(pro: false));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Math'));
+    await tester.tap(find.textContaining('Math'));
     await tester.pumpAndSettle();
     expect(find.text('Go deeper with Pro'), findsOneWidget);
   });
   testWidgets('Pro tapping a subject lists only its topics', (tester) async {
     await tester.pumpWidget(show());
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Math'));
+    await tester.tap(find.textContaining('Math'));
     await tester.pumpAndSettle();
     expect(find.text('MATH'), findsOneWidget);
-    expect(find.text('Geometry'), findsOneWidget);
+    expect(find.textContaining('Geometry'), findsOneWidget);
   });
 
   // Boards DT_Free, DT_TopicsA: the ring block starts 20 px under the title,
