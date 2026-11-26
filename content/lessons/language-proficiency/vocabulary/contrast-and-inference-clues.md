@@ -105,7 +105,7 @@ D) false promises
 
 ### #3: Filipino Context
 
-Pilit na **ikinubli** ni Maria ang kaniyang mga luha sa pamamagitan ng pagtalikod sa kaniyang mga kaibigan. Ano ang malamang na ibig sabihin ng salitang nakaitim?
+Pilit na **ikinubli** ni Maria ang kaniyang mga luha sa pamamagitan ng pagtalikod sa kaniyang mga kaibigan. Ano ang malamang na ibig sabihin ng salitang binigyang-diin?
 
 A) ipinakita  
 B) itinago  

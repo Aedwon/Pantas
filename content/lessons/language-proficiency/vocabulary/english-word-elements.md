@@ -51,9 +51,9 @@ Wrong: *Omniscient* means all-powerful.
 :::
 
 :::check
-Using *chron-*, what does *chronic* mean in *chronic cough*?
+A man's cough returned again and again for months. The doctor called it a *chronic* cough. Using *chron-* and the sentence, what does *chronic* mean?
 :::answer
-The answer is lasting a long time. *Chron-* relates to time.
+The answer is lasting a long time. *Chron-* relates to time, and a cough that goes on for months lasts a long time.
 :::
 
 ## Examples

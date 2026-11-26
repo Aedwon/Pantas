@@ -17,7 +17,7 @@ keyPoints:
 
 Ang **sila** ay **panghalip** (pronoun) na pumapalit sa mga pangalan ng dalawa o higit pang tao: "Umalis **sila** nang maaga." Karaniwang walang kasunod na pangalan ng tao ang *sila*.
 
-Ang **sina** ay **pananda** (marker) na ginagamit bago ang dalawa o higit pang pangalan ng tao: "**Sina** Ana at Lito ay dumating."
+Ang **sina** ay **pananda** (marker) na ginagamit bago ang pangalan ng mga tao: "**Sina** Ana at Lito ay dumating." Maaari ring isang pangalan lamang ang kasunod, para sa taong iyon at sa mga kasama niya: "Dumating na **sina** Mara."
 
 Sa pormal na pagsulat, sundin ang dalawang hakbang na ito:
 
@@ -76,7 +76,7 @@ D) Ang
 
 **Check:** Hindi puwede ang *sina* dahil walang pangalang kasunod.
 
-### #3: Pagsasama ng Sina at Sila
+### #3: Mga Tagapagsalita
 
 Piliin ang tamang pares: "Dumating ______ Liza at Ben. ______ ang mga tagapagsalita."
 
@@ -87,12 +87,12 @@ D) sila; Sila
 
 **Solution:**
 
-1. Sa unang patlang, may kasunod na mga pangalang *Liza at Ben*, kaya **sina** ang kailangan.
+1. Tingnan kung ano ang kasunod ng bawat patlang.
 
 :::try
-Tapusin ang huling hakbang: ano ang tamang salita sa ikalawang patlang at aling letra ang sagot?
+Tapusin ang mga hakbang: ano ang tamang salita sa bawat patlang at aling letra ang sagot?
 :::answer
-Ang sagot ay **A**. Pumapalit sa mga pangalan ang ikalawang patlang at walang pangalang kasunod, kaya **Sila** ang gamit.
+Ang sagot ay **A**. May kasunod na pangalang *Liza at Ben* ang unang patlang, kaya **sina**. Pumapalit sa mga pangalan ang ikalawang patlang at walang pangalang kasunod, kaya **Sila**.
 
 **Check:** Basahin: "Dumating sina Liza at Ben. Sila ang mga tagapagsalita." May pangalan pagkatapos ng *sina*, at pamalit sa dalawang tao ang *Sila*.
 :::

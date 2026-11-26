@@ -42,10 +42,12 @@ Bukod sa paghahambing, may dalawa pang karaniwang tayutay:
 1. **Pagbibigay-katauhan** (personification): pagbibigay ng kilos o katangian ng tao sa bagay na hindi tao. Halimbawa: "**Ngumiti** ang araw habang **sumasayaw** ang mga dahon."
 2. **Pagmamalabis** (hyperbole): sadyang pagsobra sa paglalarawan. Halimbawa: "Parang isang **bundok** ang bigat ng bag ko!" (Karaniwan lamang ang bigat ng bag, ngunit pinalabis ito.)
 
+May paghahambing din ang halimbawang iyon, gamit ang *parang*. Kung sadyang pagsobra ang itinatanong, pagmamalabis ang sagot.
+
 :::pair #labis-hindi-tulad
 Right: Pagmamalabis ang "Parang isang bundok ang bigat ng bag ko!" dahil sadyang labis ang paglalarawan sa karaniwang bigat ng bag.
 Wrong: Pagtutulad ang "Parang isang bundok ang bigat ng bag ko!" dahil may salitang *parang*.
-Kahit may *parang*, sadyang sobra ang paglalarawan. Pagmamalabis ito.
+Naghahambing ito gamit ang *parang*, ngunit sadyang sobra ang bigat. Pagmamalabis ang tawag sa pagsobrang iyon.
 :::
 
 :::pair #katauhan-hindi-hambing
@@ -126,7 +128,7 @@ D) Pagwawangis
 
 **Check:** Ang gabi ay hindi tao, ngunit may kilos ng tao.
 
-### #5: Kilos ng Tao sa Kalikasan
+### #5: Ulan sa Bubong
 
 "Humihikbi ang ulan sa bubong buong gabi." Anong tayutay ang ginamit?
 
@@ -137,12 +139,12 @@ D) Pagbibigay-katauhan
 
 **Solution:**
 
-1. Hanapin ang salitang kilos: *humihikbi*.
+1. Hanapin ang salitang kilos.
 
 :::try
-Tapusin ang huling hakbang: sino ang karaniwang humihikbi, at aling tayutay ang sagot?
+Tapusin ang huling hakbang: aling tayutay ang ginamit, at aling salita ang nagpapakita nito?
 :::answer
-Ang sagot ay **D**, **Pagbibigay-katauhan**. Tao ang karaniwang humihikbi, at ibinigay ang kilos na ito sa ulan.
+Ang sagot ay **D**, **Pagbibigay-katauhan**. Ang *humihikbi* ay kilos ng tao, at ibinigay ito sa ulan.
 
 **Check:** Walang salitang panulad at walang sadyang pagsobra sa pangungusap.
 :::
@@ -155,6 +157,6 @@ Hanapin muna kung may salitang panulad, tuwirang pagpapantay, kilos ng tao sa hi
 
 :::checklist
 - May salitang panulad gaya ng *kasingganda ng mga bituin*: pagtutulad. Tuwirang pagpapantay na walang panulad gaya ng *ang guro ay ilaw*: pagwawangis. {#tulad-hindi-wangis}
-- Sobrang paglalarawan kahit may *parang* gaya ng "Parang isang bundok ang bigat ng bag ko!": pagmamalabis ito, hindi pagtutulad. {#labis-hindi-tulad}
+- Sadyang pagsobra na may *parang* gaya ng "Parang isang bundok ang bigat ng bag ko!": pagmamalabis ang tawag sa pagsobra, kahit paghahambing din ito. {#labis-hindi-tulad}
 - Kilos ng tao sa hindi tao gaya ng "Ngumiti ang araw": pagbibigay-katauhan ito, hindi paghahambing. {#katauhan-hindi-hambing}
 :::

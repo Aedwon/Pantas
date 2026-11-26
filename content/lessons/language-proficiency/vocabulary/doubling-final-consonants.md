@@ -40,7 +40,7 @@ The answers are *hopping* and *boxing*. *Hop* ends in *o* plus *p*, so *p* doubl
 
 ### Stress in Longer Words
 
-In a longer word, the last syllable must also be stressed.
+In most longer words, the last syllable must also be stressed.
 
 - *Begin* becomes *beginning*.
 - *Refer* becomes *referred*.
@@ -66,7 +66,7 @@ Wrong: Visitting, beginning
 :::
 
 :::why
-The stressed last syllable is the one you hear strongly. Doubling the consonant keeps the vowel before it short. An unstressed last syllable needs no help.
+The stressed last syllable is the one you hear strongly. A doubled consonant is a common spelling clue for a short stressed vowel. An unstressed last syllable needs no help.
 :::
 
 These are useful patterns, not rules for every suffix. Check a standard spelling when the pattern does not settle the answer.
@@ -96,7 +96,7 @@ D) runnning
 
 The spelling is **running**. Answer: **B**.
 
-**Check:** Say *run-ning*. The doubled *n* keeps *u* short.
+**Check:** Say *run-ning*. The doubled *n* is a clue that *u* is short.
 
 ### #2: A Stressed Final Syllable
 
@@ -163,6 +163,6 @@ The answer is **D**, **fixing; playing**. Final *w*, *x*, and *y* do not double 
 
 :::checklist
 - Longer word ending in one vowel and one consonant: check the stress first, as in *beginning*. {#begin-stress}
-- Stressed last syllable before *-ed*: double the final letter, as in *referred*. {#refer-stress}
+- Stressed last syllable ending in one vowel and one consonant: usually double the final letter before *-ed*, as in *referred*. {#refer-stress}
 - Stress on an earlier syllable: keep one letter, as in *visiting*. {#visit-stress}
 :::

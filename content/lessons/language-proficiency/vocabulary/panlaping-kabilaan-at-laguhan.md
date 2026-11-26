@@ -41,7 +41,7 @@ Ang sagot ay **ka- at -an**. Nasa unahan ng *sagana* ang *ka-* at nasa hulihan a
 
 Ang **laguhan** (prefix, infix, and suffix together) ay may panlapi sa unahan, loob, at hulihan ng salitang-ugat.
 
-Suriin natin ang *pinagsumikapan*:
+Sa karaniwang pagsusuri sa paaralan, ganito natin sinusuri ang *pinagsumikapan*:
 
 1. Salitang-ugat: *sikap*.
 2. Unlapi sa unahan: *pinag-*.

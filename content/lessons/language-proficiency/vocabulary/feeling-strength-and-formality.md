@@ -23,14 +23,14 @@ We choose between two words for careful spending.
 
 - Sentence: “Her careful spending left enough money for essentials and for helping neighbors.”
 - The sentence approves of her spending.
-- *Frugal* is approving.
-- *Stingy* is critical.
+- *Frugal* means careful with money, and it sounds approving.
+- *Stingy* means unwilling to spend or give, and it sounds critical.
 - So *frugal* keeps the tone.
 
 :::pair #approving-tone
 Right: She was frugal.
 Wrong: She was stingy.
-*Stingy* has the same basic meaning, but it sounds critical. The sentence approves.
+*Stingy* is about spending too, but it sounds critical. The sentence approves.
 :::
 
 :::check
@@ -46,8 +46,8 @@ The answer is *slender*. *Slender* sounds positive, while *skinny* sounds critic
 We match the strength in this sentence: “The clerk was annoyed by a minor interruption but resumed work calmly.”
 
 - The clerk resumed work calmly, so the anger is mild.
-- *Bothered* is mild.
-- *Enraged* is extreme anger.
+- *Bothered* is mild, and *enraged* is extreme anger.
+- So *bothered* fits: “The clerk was bothered by a minor interruption but resumed work calmly.”
 
 :::pair #mild-intensity
 Right: The clerk was bothered by a minor interruption.

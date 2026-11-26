@@ -20,9 +20,9 @@ Spelling has patterns, but some words must be learned one by one. Use a pattern 
 
 The letters **a, e, i, o, u** are the main **vowel** letters in English. Vowel sounds are made without blocking the flow of air. Sometimes *y* also works as a vowel, as in *my*.
 
-The other letters are **consonant** letters. Consonant sounds usually involve blocking or narrowing the flow of air with the lips, tongue, or teeth. Examples include the sounds of *p*, *t*, and *s*.
+Most other letters usually stand for **consonant** sounds. Consonant sounds usually involve blocking or narrowing the flow of air with the lips, tongue, or teeth. Examples include the sounds of *p*, *t*, and *s*.
 
-A **syllable** is a beat in a word with one main vowel sound. **Stress** is the extra force used to say one syllable.
+A **syllable** is a beat in a word. It usually has one main vowel sound. **Stress** is the extra force used to say one syllable.
 
 - *Begin* has stress on its last syllable.
 - *Visit* has stress on its first syllable.
@@ -73,22 +73,22 @@ The answer is *ceiling*. A *c* comes before the vowel pair, so write *ei*.
 
 We find the misspelled word in a list of four.
 
-A) chief  
-B) concieve  
-C) neighbor  
-D) seize
+A) achieve  
+B) percieve  
+C) sleigh  
+D) weird
 
 **Solution:**
 
-1. In *chief*, no c comes before the pair, so *ie* is right.
-2. *Neighbor* uses *ei* because the pair makes the long-*a* sound.
+1. In *achieve*, no c comes before the pair, so *ie* is right.
+2. *Sleigh* uses *ei* because the pair makes the long-*a* sound.
 
 :::try
-Finish the checking: which word is misspelled, and why?
+Finish the checking: check the other two words and name the misspelled one.
 :::answer
-The answer is **B**, *concieve*, which is misspelled. A *c* comes before the pair, so the standard spelling is *conceive*, with *ei*.
+The answer is **B**, *percieve*, which is misspelled. A *c* comes before the pair, so the standard spelling is *perceive*, with *ei*. *Weird* is a known exception, so it is correct.
 
-**Check:** Spell B as *conceive*. It now matches *receive*.
+**Check:** Spell B as *perceive*. It now matches *receive*.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -98,6 +98,6 @@ Use patterns to check a spelling. For an exception, recall the whole word instea
 ## Traps to Watch For
 
 :::checklist
-- No c before the pair: write *ie*, as in *belief*. {#belief-order}
+- No c before the pair in a long-*e* word: the rhyme hints at *ie*, as in *belief*. Check the usual spelling. {#belief-order}
 - A known exception such as *seize*: keep *ei*, because the rhyme does not cover every word. {#seize-exception}
 :::

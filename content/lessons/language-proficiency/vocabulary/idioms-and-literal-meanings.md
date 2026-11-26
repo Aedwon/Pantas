@@ -33,9 +33,9 @@ Maria restarts her review. She does not quit.
 :::
 
 :::check
-“The reporter promised not to spill the beans.” What does *spill the beans* mean?
+“Dana asked the reporter to keep her plan private, and he promised not to spill the beans.” What does *spill the beans* mean?
 :::answer
-The answer is to reveal a secret. *Spill the beans* is an idiom for telling something meant to stay private.
+The answer is to reveal a secret. Dana wants the plan kept private, so *spill the beans* means telling it.
 :::
 
 ### Filipino Idioms (Sawikain)
@@ -76,7 +76,7 @@ D) To give up permanently
 1. Mark lost his work and must start again.
 2. **Back to square one** means to return to the beginning. Answer: **B**.
 
-**Check:** Put *start again* in place of the phrase. The sentence still makes sense.
+**Check:** Put *had to start again* in place of *was back to square one*: “Mark knew he had to start again.” The meaning stays the same.
 
 ### #2: The Same Words Used Literally
 
@@ -96,7 +96,7 @@ D) He forgot the rules of the game.
 
 ### #3: Sawikain sa Pangungusap
 
-Nagalit agad si Tina sa isang simpleng biro dahil **balat-sibuyas** siya. Ano ang ibig sabihin ng salitang nakaitim?
+Nagalit agad si Tina sa isang simpleng biro dahil **balat-sibuyas** siya. Ano ang ibig sabihin ng salitang binigyang-diin?
 
 A) Madaling masaktan ang damdamin  
 B) Mahilig magluto  

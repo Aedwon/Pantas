@@ -25,7 +25,7 @@ Wrong: In "unfair treatment," *unfair* means not finished.
 The prefix *un-* means *not*, and the base is *fair*. *Not finished* is the meaning of *incomplete*, a different word.
 :::
 
-Not every opening group of letters is a prefix. *Uncle* does not mean "not cle." Word parts help only when they belong to the word and give a meaning that fits.
+Not every opening group of letters is a prefix. Test *un-* meaning *not*: a real word must be left, as *fair* is in *unfair*. *Uncle* does not mean "not cle." Some prefixes attach to parts that cannot stand alone, such as *in-* in *include*.
 
 :::pair #real-prefix
 Right: *Uncle* has no base *cle*, so *un-* is not a prefix.
@@ -34,7 +34,7 @@ Wrong: Every initial *un* means *not*, so *uncle* means "not cle."
 :::
 
 :::why
-A prefix changes the meaning of a real base word. If nothing real is left after the opening letters, there is no prefix to read.
+For *un-* meaning *not*, the prefix changes the meaning of a real base word. If nothing real is left after the opening letters, there is no prefix to read.
 :::
 
 :::check
@@ -56,13 +56,12 @@ D) not needed
 
 **Solution:**
 
-1. Split the word: *in-* plus *correct*.
-2. Here, *in-* means *not*, and *correct* is a real word.
+1. Split the word into its prefix and its base.
 
 :::try
-Finish the last step: put the parts together. Which phrase fits, and does the sentence agree?
+Finish the last step: say what each part means and put them together. Which phrase fits, and does the sentence agree?
 :::answer
-*In-* plus *correct* means not correct. An answer with the wrong date is not correct. The answer is **B**.
+*In-* means *not*, and *correct* is a real word, so *incorrect* means not correct. An answer with the wrong date is not correct. The answer is **B**.
 
 **Check:** Put the phrase in the sentence: "The answer was not correct because it gave the wrong date." It makes sense.
 :::
@@ -74,6 +73,6 @@ Check prefix clues against context. A word part can suggest a meaning. The full 
 ## Traps to Watch For
 
 :::checklist
-- Opening letters like *un-*: check that a real base word is left, as in *uncle*. {#real-prefix}
+- Opening letters like *un-* meaning *not*: check that a real word is left. It is in *unfair*, not in *uncle*. {#real-prefix}
 - A meaning from the prefix: test it in the sentence, as in *unfair* meaning not fair. {#prefix-meaning}
 :::

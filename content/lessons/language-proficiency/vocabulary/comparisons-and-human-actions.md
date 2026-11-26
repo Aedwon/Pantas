@@ -33,7 +33,7 @@ We test this on a line that has no *like* or *as*.
 :::pair #metaphor-or-simile
 Right: “The classroom was a zoo” is a metaphor, because it says one thing is another.
 Wrong: “The classroom was a zoo” is a simile.
-A simile needs *like* or *as* in a comparison. This line has neither.
+A simile compares with a marker such as *like* or *as*. This line calls the classroom a zoo directly.
 :::
 
 :::check
@@ -100,7 +100,7 @@ D) Onomatopoeia
 
 **Check:** The line says *is*, not *is like*.
 
-### #3: Simile
+### #3: The Moonlit Lake
 
 “The calm lake shone like a mirror under the moon.” Which literary device is used most clearly?
 
@@ -111,15 +111,14 @@ D) Personification
 
 **Solution:**
 
-1. Look at the words *like a mirror*.
-2. The sentence compares two different things, a calm lake and a mirror.
+1. The sentence compares two different things, a calm lake and a mirror.
 
 :::try
-Finish the last step: which device makes a comparison using *like* or *as*?
+Finish the last step: look at the words that join the two things and choose the device.
 :::answer
-The answer is **Simile**, choice **A**.
+The answer is **Simile**, choice **A**. The marker *like* joins the lake and the mirror.
 
-**Check:** Changing *like a mirror* to *was a mirror* would make it a metaphor.
+**Check:** Read it back: "The calm lake shone like a mirror under the moon." Rewriting it as "The calm lake was a mirror under the moon" would make it a metaphor.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -129,7 +128,7 @@ The answer is **Simile**, choice **A**.
 ## Traps to Watch For
 
 :::checklist
-- A line that says one thing *is* another: it is a metaphor, even with no *like* or *as*. {#metaphor-or-simile}
-- A line with *as if* and a human action: it is personification. {#as-if-personification}
+- A line that calls one thing another in a nonliteral way: it is a metaphor, even with no *like* or *as*. {#metaphor-or-simile}
+- A line with *as if* that gives a nonhuman thing a human quality or action: it is personification. {#as-if-personification}
 - *Like* or *as* alone: check for a comparison of different things before you say simile. {#comparisons-with-and-without-like-or-as}
 :::

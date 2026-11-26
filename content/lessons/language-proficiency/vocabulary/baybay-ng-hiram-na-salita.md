@@ -15,7 +15,7 @@ keyPoints:
 
 ### Baybay ng mga Hiram na Salita
 
-Ang **hiram na salita** (borrowed word) ay mula sa ibang wika. Sinusunod sa pagbaybay nito ang Ortograpiyang Pambansa ng Komisyon sa Wikang Filipino (KWF).
+Ang **hiram na salita** ay mula sa ibang wika. Sinusunod sa pagbaybay nito ang Ortograpiyang Pambansa ng Komisyon sa Wikang Filipino (KWF).
 
 Sa *cuento*, magkasunod ang *u* at *e* sa unang pantig, at may katinig (*c*) bago ang mga ito. Tinatawag itong **kambal-patinig** (vowel pair).
 
@@ -25,7 +25,7 @@ Baybayin natin ang *cuento* sa Filipino:
 2. Palitan ng *k* ang *c*: *kuento*
 3. Isingit ang *w* bago ang *e*: **kuwento**
 
-Hindi ito tuntunin para sa lahat ng salitang hiram. Para lamang ito sa kambal-patinig na ito sa unang pantig.
+Hindi ito tuntunin para sa lahat ng salitang hiram. Ito ang gamit kapag *ue* ang kambal-patinig pagkatapos ng *c*, gaya ng *cuento* at *cuenta*.
 
 :::pair #huwag-alisin-ang-u
 Right: Ang baybay sa Filipino ng *cuento* ay *kuwento*.
@@ -40,9 +40,9 @@ Isingit ang *w* bago ang *e*. Kulang ang *kuento*.
 :::
 
 :::check
-Sa *cuento*, ano ang ipinapalit sa *c*, at saan isinisingit ang *w*?
+Sa *cuerda*, ano ang ipinapalit sa *c*, at saan isinisingit ang *w*?
 :::answer
-Ang *k* ang ipinapalit sa *c*, at isinisingit ang *w* bago ang *e*.
+Ang *k* ang ipinapalit sa *c*: *kuerda*. Isinisingit ang *w* bago ang *e*: *kuwerda*.
 :::
 
 ## Examples

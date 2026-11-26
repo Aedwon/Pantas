@@ -31,7 +31,7 @@ A **verb** tells an action or state, such as *change* or *seem*. A **noun** name
 :::pair #influence-verb
 Right: The drought will affect the crop yield.
 Wrong: The drought will effect the crop yield.
-The sentence needs a verb that means influence. *Effect* is the result noun.
+The sentence needs a verb that means influence. *Effect* is usually the result noun. As a verb, it means bring about.
 :::
 
 The **base form** of a verb is its plain form, such as *affect*, without endings such as *-s* or *-ed*. Use this form after *will*, *can*, or *may*.
@@ -102,7 +102,7 @@ D) effected
 2. C and D are verbs. A, *affect*, is usually a verb too. This leaves B.
 3. The noun *effect* means a result. Answer: **B**.
 
-**Check:** Read it back: "The schedule had a positive result on attendance." It makes sense.
+**Check:** Read it back: "The new schedule had a positive effect on attendance." The result is good attendance.
 
 ### #3: Bringing About Change
 
@@ -121,7 +121,7 @@ D) The delay had a serious **affect** on service.
 
 **Check:** Replace the bold word in B with "brought about." "The new law brought about major changes" keeps the meaning.
 
-### #4: Affect as a Noun
+### #4: The Nurse's Notes
 
 The nurse recorded the patient's anxious ______ during the visit.
 
@@ -136,11 +136,11 @@ D) effected
 2. Both A and B can be nouns.
 
 :::try
-Finish the last step: which noun fits a note about the patient's emotion?
+Finish the last step: choose A or B.
 :::answer
 The answer is *affect*, choice **A**. In psychology, *affect* is a noun for outward emotion.
 
-**Check:** The nurse records visible signs of anxiety, which is outward emotion, so *affect* fits.
+**Check:** Read it back: "The nurse recorded the patient's anxious affect during the visit." Anxiety shown in face and voice is outward emotion, so *affect* fits.
 :::
 
 ## Speed Tricks & Shortcuts

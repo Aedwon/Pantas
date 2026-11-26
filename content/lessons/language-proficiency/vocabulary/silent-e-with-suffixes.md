@@ -23,7 +23,13 @@ A final silent *e* is often dropped before a suffix that begins with a vowel.
 - *Manage* becomes *managing*.
 - *Hope* becomes *hoping*.
 
-Sometimes *e* stays to help keep a sound. In *noticeable*, the *e* stays after *c*. This keeps the sound of *s* heard at the end of *notice*, often called the soft sound of *c*.
+Sometimes *e* stays to help keep a sound. In *noticeable*, the *e* stays after *c*. This keeps the sound of *s* heard at the end of *notice*, often called the soft sound of *c*. The same holds after *g*: *courage* keeps its *e* before *-ous* to keep the soft *g* sound.
+
+:::pair #soft-g
+Right: *Courageous* is spelled correctly. The *e* stays after *g*.
+Wrong: *Courageous* is misspelled. Drop the *e* before *-ous*.
+Without the *e*, the *g* would sound hard.
+:::
 
 :::check
 Spell *believe* plus *-able*.
@@ -73,7 +79,7 @@ D) managging
 
 The spelling is **managing**. Answer: **B**.
 
-**Check:** Say it: *man-a-jing*. No *e* sound is heard before *-ing*.
+**Check:** *Manage* without its final *e*, plus *-ing*, is *manag* + *ing*. Only one *i* comes before *ng*.
 
 ### #2: Keeping a Silent E
 
@@ -132,13 +138,13 @@ Finish the last step: apply the spelling rule for *excite* plus *-ment* and choo
 :::answer
 Choice **C**, **excitement**. *-ment* starts with a consonant, and *excite* is not one of the exceptions, so it keeps its silent *e*.
 
-**Check:** *Excitement* keeps the *e*, as *careful* does. Only learned exceptions such as *argument* and *truly* drop it.
+**Check:** Read it back: "The staff could not hide their excitement about the new office." *Excitement* keeps the *e*, as *careful* does.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Vowel suffix with no soft sound to keep: drop the *e*, as in *managing*. {#vowel-suffixes-and-soft-sounds}
-- Silent *e* after *c* before *-able*: keep the *e* for the soft *s* sound, as in *noticeable*. {#vowel-suffixes-and-soft-sounds}
+- Vowel suffix with no soft sound to keep: often drop the *e*, as in *managing*. A few words, such as *dyeing*, keep it. {#vowel-suffixes-and-soft-sounds}
+- Silent *e* after *c* or *g* before *-able* or *-ous*: keep the *e* for the soft sound, as in *noticeable* and *courageous*. {#soft-g}
 - Exceptions before *-ly* and *-ment*: drop the *e* in *truly* and *argument*. {#truly}
 :::

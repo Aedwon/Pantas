@@ -18,12 +18,10 @@ keyPoints:
 
 A word can have more than one meaning. Read the whole sentence before choosing its synonym or antonym.
 
-Here is one word with two meanings.
+Here are two words, *fast* and *bank*, with two meanings each.
 
-- *Fast* can mean quick.
-- In *to fast*, it means to go without food for a time.
-- *Bank* can mean a business that handles money.
-- *Bank* can also mean the land beside a river.
+- *Fast* can mean quick. In *to fast*, it means to go without food for a time.
+- *Bank* can mean a business that handles money. It can also mean the land beside a river.
 
 :::pair #fast-meaning
 Right: The monks decided to fast for three days, taking no food. Here *fast* means to avoid eating.
@@ -91,26 +89,26 @@ D) avoiding tasks to reduce effort
 2. He does this to gain favor.
 3. **Giving too much praise to win approval** best fits this behavior. The answer is **B**.
 
-**Check:** Put B into the sentence: praising every idea to gain favor matches giving too much praise to win approval.
+**Check:** Read it back: "The assistant gave too much praise to win approval." That matches praising every idea to gain favor.
 
 ### #3: Keeping the Same Grammar
 
 The committee will **decide** tomorrow. Which word can replace the word in bold without changing the sentence's meaning or grammar?
 
 A) decision  
-B) choice  
+B) postpone  
 C) choose  
 D) decisive
 
 **Solution:**
 
 1. After *will*, the sentence needs a verb.
-2. *Decide* names an action, so the replacement must be a verb with the same meaning.
+2. *Decide* names an action, so the replacement must keep that action and its job.
 
 :::try
 Finish the last step: which choice fits both the grammar and the meaning?
 :::answer
-The answer is **C**, **choose**. *Choose* is a verb that means making a choice, while *decision* and *choice* are nouns and *decisive* is an adjective.
+The answer is **C**, **choose**. *Choose* is a verb that means making a choice. *Postpone* is also a verb, but it means to delay. *Decision* is a noun and *decisive* is an adjective.
 
 **Check:** Read it back: "The committee will choose tomorrow." The meaning and grammar stay the same.
 :::

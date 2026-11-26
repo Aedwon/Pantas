@@ -47,12 +47,12 @@ The answer is *its*. *It is license* does not fit. The license belongs to the co
 
 ### It's as It Is or It Has
 
-The short form *it's* stands for two verbs. Expand it to see which one fits.
+*It's* can mean *it is* or *it has*. Expand it to see which one fits.
 
 :::pair #has-not-owner
 Right: It's been confirmed that the company lost its license.
 Wrong: Its been confirmed that the company lost its license.
-*It has been confirmed* is the first clause. It needs *it's*. The second gap is the owner, so it takes *its*.
+*It has been confirmed* is the first clause, so it needs *it's*. The license belongs to the company, so write *its license*.
 :::
 
 :::check
@@ -78,9 +78,11 @@ D) they're
 2. The guidelines belong to the university. This calls for *its*.
 3. *Its'* is not a standard form, and *they're* means *they are*. Answer: **B**.
 
-**Check:** Replace the blank with *the*. "The university updated the guidelines" keeps the same pattern, so a possessive word fits.
+The sentence reads: "The university updated its guidelines regarding artificial intelligence."
 
-### #2: Short Forms
+**Check:** Swap *its* for *the*: "The university updated the guidelines" keeps the pattern, so a possessive word fits.
+
+### #2: A Difficult Week
 
 Choose the pair that completes the sentence correctly: "______ clear that ______ been a difficult week."
 
@@ -92,14 +94,13 @@ D) It's; it's
 **Solution:**
 
 1. The first blank means *it is*: "It is clear."
-2. Try expanding the second blank to *it has*: "It has been a difficult week."
 
 :::try
-Finish the last step: which choice uses the right form for both blanks?
+Finish the last step: decide the second blank and choose the pair.
 :::answer
-The answer is **D**, *It's; it's*. Both blanks expand to verb phrases (*it is* and *it has*), so both need *it's*.
+The answer is **D**, *It's; it's*. The second blank expands to *it has*: "It has been a difficult week." Nothing belongs to anyone, so *its* does not fit.
 
-**Check:** Expand both: "It is clear that it has been a difficult week." The sentence reads correctly.
+**Check:** Expand both: "It is clear that it has been a difficult week." Written short: "It's clear that it's been a difficult week."
 :::
 
 ## Speed Tricks & Shortcuts

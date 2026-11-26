@@ -34,7 +34,7 @@ Wrong: If Ana borrows a book from Ben, Ben returns the book to Ana.
 :::
 
 :::why
-One exchange has two people. Each word names what one of them does.
+The exchange has two sides. Each word tells what one side does.
 :::
 
 :::check

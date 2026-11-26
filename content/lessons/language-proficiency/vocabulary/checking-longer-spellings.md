@@ -45,20 +45,20 @@ Use this process for a long word:
 
 Now we apply the process to *occurrence*.
 
-- Sound helps us hear the parts.
-- Sound does not give every letter.
-- We must know the base *occur* and the ending *-ence*.
+- Split it: *occur* + *-ence*.
+- The last syllable of *occur* is stressed, so its final *r* doubles.
+- *occur* + *r* + *-ence* gives *occurrence*.
 
 :::pair #doubled-pairs
 Right: The committee will accommodate every request.
 Wrong: The comittee will acommodate every request.
-The spoken sound does not show a doubled letter. Check each pair: *cc*, *mm*, *mm*, *tt*.
+The spoken sound does not show a doubled letter. Check each pair: *cc* and *mm* in *accommodate*, *mm* and *tt* in *committee*.
 :::
 
 :::check
-Which is spelled correctly: *separate* or *seperate*?
+Which is spelled correctly: *regretting* or *regreting*?
 :::answer
-The answer is *separate*. The middle is *p-a-r*, and the unclear vowel needs the standard letters.
+The answer is *regretting*. The last syllable of the base *regret* is stressed, so its final *t* doubles before *-ing*.
 :::
 
 ## Examples
@@ -76,14 +76,14 @@ D) preferrd
 
 1. Say the word in beats: *pri-furd*. The beats do not give every letter.
 2. Recall the base *prefer*.
-3. The last syllable of *prefer* is stressed, so its final *r* doubles before the ending.
+3. The last syllable of *prefer* is stressed.
 
 :::try
-Finish the last step: put *prefer*, the doubled *r*, and *-ed* together and choose the correct option.
+Finish the last step: apply the doubling rule to *prefer* with *-ed* and choose the correct option.
 :::answer
-The answer is **B**, *preferred*.
+The answer is **B**, *preferred*. The stressed final *r* doubles before *-ed*.
 
-**Check:** Start from the base *prefer*, double the stressed final *r*, and add *-ed* to get *pre-ferred*.
+**Check:** Read it back: "Yesterday, Ana preferred the window seat." Base *prefer*, doubled *r*, ending *-ed*.
 :::
 
 ## Speed Tricks & Shortcuts

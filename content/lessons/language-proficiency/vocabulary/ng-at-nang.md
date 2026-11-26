@@ -22,7 +22,7 @@ Ginagamit ang **ng** sa apat na karaniwang ayos:
 
 1. **Bagay na tinutukoy ng kilos**: "Kumain **ng** mangga si Ana." *Mangga* ang kinain.
 2. **Pagmamay-ari o ugnayan**: "Malinis ang bahay **ng** guro." Kanino ang bahay?
-3. **Dami o sukat**: "Bumili siya **ng** tatlong kilo **ng** bigas."
+3. **Dami o sukat ng bagay**: "Bumili siya **ng** tatlong kilo **ng** bigas."
 4. **Bahagi ng araw sa oras**: "Magsisimula tayo sa alas-singko **ng** hapon." Sinasabi ng *hapon* ang bahagi ng araw.
 
 :::pair #pagmamay-ari
@@ -47,9 +47,11 @@ Ang sagot ay **ng**. Tumutukoy ang *dalawang kahon* sa bagay at daming dinala, k
 
 Ginagamit ang **nang** sa tatlong karaniwang ayos:
 
-1. **Paraan ng kilos**: "Tumakbo **nang** mabilis ang aso." Inilalarawan ng *mabilis* kung paano tumakbo ang aso.
+1. **Paraan o tindi ng kilos**: "Tumakbo **nang** mabilis ang aso." Inilalarawan ng *mabilis* kung paano tumakbo ang aso.
 2. **Katumbas ng "noong"**: "**Nang** dumating siya, nagsimula ang pulong."
 3. **Kilos na inuulit**: "Takbo **nang** takbo ang bata sa bakuran."
+
+May iba pang gamit ang *nang*, gaya ng katumbas ng *upang*.
 
 :::pair #noong
 Right: Nang dumating ang bus, tumayo ang mga pasahero.
@@ -145,9 +147,9 @@ D) Nang; nang
 
 **Check:** Palitan ng *noong* ang unang *nang*. Tama pa rin ang kahulugan.
 
-### #6: Bagay, Noong, at Paraan sa Iisang Pangungusap
+### #6: Pangungusap na may Tatlong Patlang
 
-Piliin ang tamang hanay: "Kumain ______ pansit si Ben, at ______ umulan, tumakbo siya ______ mabilis."
+Piliin ang tamang hanay: "Bumili ______ saging si Rosa, at ______ dumating ang guro, nagsalita siya ______ malumanay."
 
 A) ng; nang; nang  
 B) nang; ng; nang  
@@ -156,15 +158,15 @@ D) ng; nang; ng
 
 **Solution:**
 
-1. Bagay na kinain ang *pansit*, kaya *ng* ang unang patlang.
+1. Bagay na binili ang *saging*, kaya *ng* ang unang patlang.
 2. May kahulugang *noong* ang ikalawang patlang, kaya *nang* ang kailangan.
 
 :::try
 Tapusin ang huling hakbang: tukuyin ang ikatlong patlang at piliin ang tamang hanay.
 :::answer
-Ang sagot ay **A**. Sinasabi ng *mabilis* kung paano tumakbo si Ben, kaya *nang* ang ikatlong patlang.
+Ang sagot ay **A**. Sinasabi ng *malumanay* kung paano nagsalita si Rosa, kaya *nang* ang ikatlong patlang.
 
-**Check:** Basahin nang buo: "Kumain ng pansit si Ben, at nang umulan, tumakbo siya nang mabilis." Bagay ang *pansit*, *noong* ang *nang umulan*, at paraan ang *nang mabilis*.
+**Check:** Basahin nang buo: "Bumili ng saging si Rosa, at nang dumating ang guro, nagsalita siya nang malumanay." Bagay ang *saging*, *noong* ang *nang dumating*, at paraan ang *nang malumanay*.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -176,5 +178,5 @@ Tingnan ang buong parirala. Alamin kung bagay, ugnayan, dami, oras, paraan ng ki
 :::checklist
 - Pagmamay-ari, ugnayan, o bahagi ng araw gaya ng alas-tres *ng* hapon: gamitin ang *ng*. {#pagmamay-ari}
 - Dami o sukat ng bagay gaya ng tatlong mangga: gamitin ang *ng*. {#dami}
-- Kahulugang *noong*, paraan ng kilos, o kilos na inuulit: gamitin ang *nang*. {#noong}
+- Kahulugang *noong*, paraan o tindi ng kilos, o kilos na inuulit: karaniwang *nang* ang gamit. {#noong}
 :::
