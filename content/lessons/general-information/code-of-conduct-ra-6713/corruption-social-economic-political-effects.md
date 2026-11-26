@@ -14,74 +14,127 @@ keyPoints:
   - "Recognize political harm to accountability and voting."
   - "Evaluate claims about mixed effects."
 ---
+
 ## Core Concept
 
-### Social, Economic, and Political Effects
+### Social, Economic, and Political Harm
 
-**Social effects** concern people's lives and fair access to help. Aid given to friends can leave needy families without food. Poor households may suffer more because they cannot buy another service.
+Corruption harms communities across three areas, often from a single act:
 
-**Economic effects** concern money, work, and resources. Inflated prices leave less money for useful projects. Poor construction needs repairs, while payoffs and needless steps raise costs and can discourage honest businesses and investors.
+- **Social effects** concern people's lives and fair access to help. Poor households suffer harder when favoritism blocks aid because they cannot buy private care.
+- **Economic effects** concern money, work, and resources. Inflated bills cut project funds, bad work needs repairs, and bribe demands raise costs and discourage honest investors.
+- **Political effects** concern public power and **accountability** (answering for official actions). Serving payers over voters weakens fair decisions and trust in government.
 
-**Political effects** concern public power and accountability. Accountability means answering for one's actions. Officials who serve payers instead of voters weaken fair decisions and trust in government.
+Under **Omnibus Election Code (BP $881$), Section $261(a)$**, **vote buying** and **vote selling** are election offenses. Offering money, food, or goods to influence votes weakens trust in free elections.
 
-Vote buying and selling are election offenses under Omnibus Election Code Section $261(a)$. Benefits are used to influence voting. This can weaken trust that elections express voters' free choices.
+Trace a road-paving payoff across all three effects:
+
+1. Social effect: rural families lose safe road access to clinics and schools.
+2. Economic effect: inflated bills drain town funds and force repeat repairs.
+3. Political effect: citizens doubt officials answer to voters instead of contractors.
+
+Result: One corrupt act can cause social, economic, and political harm together.
 
 <!-- ILLUSTRATION: Center "Corruption" with arms "Social: unfair access, lost trust", "Economic: wasted funds, higher costs", and "Political: weaker accountability, lost election trust". -->
 
-### Weighing the Effects
+:::pair #food-still-vote-buying
+Right: Offering groceries or goods during an election period to influence votes is vote buying under Section $261(a)$.
+Wrong: Treating a vote-buying offer as a lawful gift because the benefit is food instead of money.
+Section $261(a)$ bars any valuable benefit offered to sway votes, in cash or goods.
+:::
 
-“Evaluate” means judge a claim using reasons. Separate the act from its results. One act can cause social, economic, and political harm at once.
+:::check
+During the election period, a volunteer hands out prepaid phone cards to voters who pledge support for a council candidate. Does Section $261(a)$ cover this?
+:::answer
+The answer is **Yes**. Prepaid phone cards are valuable benefits offered to influence votes, and private campaign workers are covered under Section $261(a)$.
+:::
 
-“Classify” means sort into groups. Look at the main harm named: harm to people's lives, resources, or public accountability.
+### Classifying and Evaluating Mixed Effects
+
+**"Classify"** means sort into groups. Match the main harm named: people's lives and access (social), funds and investment (economic), or accountability and voting (political).
+
+**"Evaluate"** means judge a claim using reasons. Separate the act from its results, and check what harms a claim leaves out.
+
+Apply both verbs when a speaker says overlooking bad drainage work hurts only the budget:
+
+1. Classify the repair cost: fixing overlooked defects diverts money from other planned work, keeping economic harm real.
+2. Evaluate the claim: flooded clinics block care (social harm) and weaken voter trust (political harm), so the claim is too narrow.
+
+Result: Later repairs leave real economic waste, and the claim misses social and political harm.
+
+:::why
+Why can a missing school count as economic harm in one question and social harm in another? Classification follows the question's main focus, whether wasted funds or denied education.
+:::
+
+:::pair #not-only-economic-harm
+Right: One corrupt spending act can cause social, economic, and political harm at once.
+Wrong: Claiming an act involving public spending can have only an economic effect.
+Misspent budgets often deny services and weaken accountability alongside financial loss.
+:::
+
+:::pair #repairs-still-waste-funds
+Right: Paying to repair overlooked defects uses public funds and cuts money for other facilities.
+Wrong: Thinking later government repairs erase the economic harm of overlooking defective work.
+Repair spending still uses tax money that could have built other needed facilities.
+:::
+
+:::check
+An official lets a friend's bakery skip fees while rival bakeries face costly delays and shut down. Which main harm does closing honest shops show?
+:::answer
+The answer is **Economic harm**. Unfair business costs driving honest shops to close concern money, jobs, and investment.
+:::
 
 ## Examples
 
-### #1: Social Harm
+### #1: Relief Goods Given to Allies
 
-Aid goes to an official's friends while eligible families go without food. What main effect is shown?
-
-**Solution:**
-Social harm: families lose fair access to needed help.
-
-### #2: Economic Harm
-
-Inflated building bills leave funds for fewer classrooms. Trace the economic harm.
+After a typhoon, a barangay clerk reserves emergency rice packs for political allies while eligible families receive none. What main effect is shown?
 
 **Solution:**
-1. Excess payments use up the building budget.
-2. Less money remains for classrooms. The same budget provides fewer useful buildings.
+
+1. Stated result: eligible families lose fair access to emergency food through favoritism.
+2. Category: harm to people's lives and fair access is a social effect.
+
+Answer: Social harm, because eligible families lose fair access to needed relief.
+
+**Check:** Confirm the focus is access to basic help rather than wasted funds or voting.
+
+### #2: Inflated Classroom Construction
+
+Inflated building bills drain a school board's budget, leaving funds for fewer classrooms and lowering residents' confidence in officials. Trace the chain of effects.
+
+**Solution:**
+
+1. Budget impact: inflated payments consume construction money and leave fewer classrooms built, showing an economic effect.
+2. Public response: visible waste weakens residents' confidence in officials, leading to a political effect.
+
+Answer: Inflated project costs produce fewer classrooms (economic effect) and can lower public trust (political effect).
 
 <!-- ILLUSTRATION: Linked boxes "Inflated project cost", "Fewer classrooms", "Lower trust"; first arrow labeled "economic effect", second "political effect". -->
 
-### #3: Political Harm
+**Check:** Follow the chain from wasted funds (economic) to lost trust (political) without inventing statistics.
 
-An official follows a payer's demands instead of residents' needs. What main effect is shown?
+### #3: Evaluating a Narrow Budget Claim
 
-**Solution:**
-Political accountability weakens because private payments guide public decisions.
-
-### #4: Mixed Effects
-
-Classify these results: families lose aid, repairs waste funds, and voters lose faith in government.
+A buyer takes a payoff to accept weak concrete on a town clinic. Flooding closes patient rooms, repairs use library funds, and voters doubt local oversight. A defender claims only the treasury lost out because the clinic was patched. Evaluate the claim.
 
 **Solution:**
-1. Lost aid shows social harm.
-2. Wasted repair funds show economic harm.
-3. Lost faith in government shows political harm.
 
-### #5: Evaluating a Claim
+1. Repair cost: check whether patching weak concrete with library funds erased economic harm.
+2. Other results: classify the closed clinic rooms and voters' lost faith in oversight.
 
-A speaker says corruption harms only the government budget. Is the claim sound?
+:::try
+Finish the last step: evaluate the defender's claim by naming all three harms shown in the clinic case.
+:::answer
+The answer is **The claim is unsound.** Closed clinic rooms show social harm, and diverted repair funds show economic harm. Doubted oversight shows political harm.
 
-**Solution:**
-1. Lost funds harm the budget.
-2. Denied services harm families, and bought decisions weaken accountability.
-3. The claim leaves out social and political harm. It is too narrow.
+**Check:** Check whether repairs erased costs and whether denied care and lost accountability also occurred.
+:::
 
 ## Traps to Watch For
 
-### #1: Only One Effect
-
-> Choose by the main harm named in the question.
-
-Lost classrooms affect resources and education. The question's focus guides the classification.
+:::checklist
+- Non-cash election gifts: classify food or goods offered to influence votes as vote buying under Section $261(a)$. {#food-still-vote-buying}
+- Spending-only claims: look for denied services and lost accountability alongside budget loss. {#not-only-economic-harm}
+- Later repair fixes: count repair costs as real economic loss because they divert funds from other work. {#repairs-still-waste-funds}
+:::

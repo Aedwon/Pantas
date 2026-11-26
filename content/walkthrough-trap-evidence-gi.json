@@ -3068,6 +3068,144 @@
           "mistakeNote": "Applies an approved written opinion retroactively to shield acts committed before issuance."
         }
       ]
+    },
+    "lesson-code-of-conduct-ra-6713-corruption-public-trust-and-bribery": {
+      "honest-error-not-corruption": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0001",
+          "wrongChoice": "Any error made while carrying out a public duty",
+          "mistakeNote": "Treats an honest work mistake as corruption without showing misuse of public office for private gain."
+        }
+      ],
+      "office-not-election-reward": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0002",
+          "wrongChoice": "Treating office resources as a reward for winning an election",
+          "mistakeNote": "Treats office resources as a personal prize for winning an election instead of public property held in trust."
+        }
+      ],
+      "supporters-never-first": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0002",
+          "wrongChoice": "Giving supporters first access to a public service",
+          "mistakeNote": "Favors political supporters ahead of other citizens instead of serving public needs fairly."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-corruption-graft-and-information": {
+      "unwarranted-benefit-stands-alone": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0014",
+          "wrongChoice": "The colleague is right because unwarranted private benefits are outside Section 3(e)",
+          "mistakeNote": "Excludes unwarranted private benefits from Section 3(e) unless public financial loss is also proved."
+        }
+      ],
+      "not-every-investment-barred": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0015",
+          "wrongChoice": "Every public employee is forbidden to hold any investment",
+          "mistakeNote": "Expands Section 3(h) from interests tied to official intervention or legal bans into a total ban on all private investments."
+        }
+      ],
+      "early-release-still-barred": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0016",
+          "wrongChoice": "The disclosure is permitted because the information will eventually become public",
+          "mistakeNote": "Treats eventual public release as excusing premature disclosure of confidential office data under Section 3(k)."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-corruption-plunder-and-kickbacks": {
+      "wealth-alone-not-plunder": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0017",
+          "wrongChoice": "The officer's wealth alone proves plunder regardless of its source",
+          "mistakeNote": "Treats wealth reaching ₱50,000,000 as proving plunder without ill-gotten origin or covered serial acts."
+        }
+      ],
+      "mutual-gain-hides-public-harm": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0021",
+          "wrongChoice": "A payoff becomes harmless if the officer and the payer both benefit from their arrangement.",
+          "mistakeNote": "Ignores lost public services and unfair bidding whenever both dealmakers gain from a kickback."
+        }
+      ],
+      "no-direct-payment-needed": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0021",
+          "wrongChoice": "The public cannot be harmed unless every resident directly hands money to the officer.",
+          "mistakeNote": "Assumes residents suffer no harm from a kickback unless they personally pay money to the officer."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-corruption-red-tape-and-fixers": {
+      "delay-not-payoff": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0022",
+          "wrongChoice": "The repeated delay by itself proves that an employee has accepted money from a fixer.",
+          "mistakeNote": "Treats repeated slow service alone as proof of a payoff instead of red tape lacking payment evidence."
+        }
+      ],
+      "red-tape-not-fixing": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0022",
+          "wrongChoice": "Ineffective procedures count as fixing even without access used to secure a paid advantage.",
+          "mistakeNote": "Confuses ineffective office procedures with fixing even when nobody used access for a paid advantage."
+        }
+      ],
+      "keep-fees-public": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0013",
+          "wrongChoice": "Keep the fees unpublished so staff can adjust them for each applicant",
+          "mistakeNote": "Leaves fees unpublished instead of posting official rules and fees publicly to block invented charges."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-corruption-social-economic-political-effects": {
+      "food-still-vote-buying": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0012",
+          "wrongChoice": "A lawful gift because the benefit is food rather than money",
+          "mistakeNote": "Limits vote buying under Section 261(a) to cash instead of covering food or goods offered to influence votes."
+        }
+      ],
+      "not-only-economic-harm": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0019",
+          "wrongChoice": "The claim is sound because an act involving public spending can have only an economic effect",
+          "mistakeNote": "Treats public-spending corruption as causing only economic loss while missing denied services and lost accountability."
+        }
+      ],
+      "repairs-still-waste-funds": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0020",
+          "wrongChoice": "The repairs prove that the original payoff had no economic effect because government workers can correct the defects",
+          "mistakeNote": "Assumes later government repairs erase the economic waste of overlooking defective construction."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-corruption-state-response": {
+      "impeachment-high-officials-only": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0008",
+          "wrongChoice": "Both are grounds, so every public employee must be removed through impeachment",
+          "mistakeNote": "Extends impeachment beyond Article XI, Section 2's specified high officials to every public employee."
+        }
+      ],
+      "saln-not-proof-of-lawful-wealth": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0023",
+          "wrongChoice": "It replaces investigation because filing the statement proves that every reported asset is lawful.",
+          "mistakeNote": "Treats filing a SALN as proving every asset lawful instead of opening reported wealth and debts to checks."
+        }
+      ],
+      "small-price-never-excuses-favor": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-corruption-and-its-effects-0018",
+          "wrongChoice": "A small gift sent with a request to move an application ahead of others",
+          "mistakeNote": "Treats small gift value as satisfying Section 3(c) even when linked to an official favor."
+        }
+      ]
     }
   }
 }

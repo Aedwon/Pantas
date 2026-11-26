@@ -14,38 +14,143 @@ keyPoints:
   - "Recognize prohibited interests and harmful contracts under Sections 3(h) and 3(g)."
   - "Distinguish the confidential information rules in RA 3019 and RA 6713."
 ---
+
 ## Core Concept
 
-### Graft and Protected Information
+### Benefits, Partiality, and Harmful Contracts
 
-**Graft and corrupt practices** include these acts under RA $3019$, Section $3$:
+**RA $3019$**, Section $3$, defines corrupt acts by public officers:
 
-- Section $3(b)$: seeking or receiving benefits connected with a government contract or transaction the officer must handle under law.
-- Section $3(e)$: causing undue injury to a party, including the government, or giving a private party unwarranted benefits while doing official duties. This must involve manifest partiality, evident bad faith, or gross inexcusable negligence.
-- Section $3(h)$: holding a financial interest in a transaction the officer officially handles, or an interest forbidden by law.
-- Section $3(k)$: giving valuable confidential information gained through office to unauthorized people, or releasing it before its authorized release date.
+- **Section $3(b)$**: seeking or receiving a gift or benefit in a government deal needing the officer's official action.
+- **Section $3(e)$**: causing **undue injury** (actual loss) or giving **unwarranted benefits** (unjustified advantages) in official duties. This requires **manifest partiality** (favoritism), **evident bad faith** (dishonesty), or **gross inexcusable negligence** (extreme carelessness).
+- **Section $3(g)$**: entering a contract manifestly and grossly disadvantageous to the government, even without profit.
 
-**Undue injury** means actual loss or damage. **Unwarranted benefits** are advantages with no proper basis. These are separate grounds under Section $3(e)$.
+Undue injury and unwarranted benefits are separate grounds. Honest errors fail Section $3(e)$.
 
-**Manifest partiality** means clear favoritism. **Evident bad faith** means clearly dishonest intent. **Gross inexcusable negligence** means extreme carelessness with no excuse.
+Test Section $3(e)$ when a treasurer skips bidding and hires her brother's shop at market rates:
 
-Section $3(g)$ also covers clearly and greatly harmful government contracts even without private profit. Each clause has conditions. A bad result alone does not prove every condition.
+1. Conduct: skipping bidding shows manifest partiality.
+2. Ground: an unwarranted edge meets Section $3(e)$ without proved loss.
 
-**Confidential information** is information kept from public release. RA $6713$, Section $7(c)$ separately bans disclosing or misusing protected office information for private benefit, unfair advantage, or harm to the public interest. Check this purpose condition when applying that rule.
+Result: Section $3(e)$ covers unwarranted benefits alone.
+
+:::why
+Why does Section $3(g)$ cover grossly harmful contracts without personal profit? Terrible deals drain public funds whether or not the officer took a cut.
+:::
+
+:::pair #unwarranted-benefit-stands-alone
+Right: Section $3(e)$ covers unwarranted private benefits from manifest partiality without proved public financial loss.
+Wrong: Treating unwarranted private benefits as outside Section $3(e)$ unless the government proves a loss.
+Undue injury and unwarranted benefits are separate grounds in Section $3(e)$.
+:::
+
+:::check
+A works chief asks a bridge builder for a $5\%$ personal fee to sign a billing voucher. Which RA $3019$ clause fits?
+:::answer
+The answer is **Section $3(b)$**. Seeking a personal benefit tied to an official transaction requiring intervention falls under Section $3(b)$.
+:::
+
+### Prohibited Financial Interests
+
+**Section $3(h)$** bars directly or indirectly holding a financial interest in a business or contract where the officer intervenes officially.
+
+It also bars holding any interest forbidden by the Constitution or law. Legal investments outside official work and legal bans stay allowed.
+
+Test Section $3(h)$ when an engineer owns gravel-firm shares and grades its road bid:
+
+1. Stake: shares create a financial interest in the gravel firm.
+2. Role: grading its bid is official intervention.
+
+Result: Holding shares while intervening in the bid breaks Section $3(h)$.
+
+:::pair #not-every-investment-barred
+Right: Section $3(h)$ bars interests in deals the officer handles, or interests forbidden by law.
+Wrong: Assuming RA $3019$ forbids every public worker from owning any private investment.
+Lawful shares unrelated to your official work or legal bans do not break Section $3(h)$.
+:::
+
+:::check
+A health clerk buys $10$ shares of a public telecom firm with no business before her office. Does Section $3(h)$ bar those shares?
+:::answer
+The answer is **No**. Section $3(h)$ targets interests tied to official intervention or legal bans, not unrelated holdings.
+:::
+
+### Protected Information Under Two Laws
+
+**Confidential information** is non-public office data restricted from release.
+
+**RA $3019$, Section $3(k)$** bars giving valuable confidential data to unauthorized people, or releasing it before its authorized date. Cash payment is unnecessary.
+
+**RA $6713$, Section $7(c)$** bars misusing protected office data for private gain, undue advantage, or public harm. Check that purpose under RA $6713$.
+
+Test Section $3(k)$ when a customs analyst emails an unreleased audit draft to an importer $3$ days early for free:
+
+1. Timing and recipient: confidential data went early to an unauthorized person.
+2. Pay: Section $3(k)$ applies with zero cash paid.
+
+Result: Early unpaid disclosure breaks Section $3(k)$.
+
+:::pair #early-release-still-barred
+Right: Releasing valuable confidential data early breaks Section $3(k)$ even if it becomes public later.
+Wrong: Thinking confidential office data may be shared early because it will eventually become public.
+Early release gives unauthorized people an unfair head start forbidden by Section $3(k)$.
+:::
+
+:::check
+A zoning aide gives an unposted map to a friend free so he can buy cheap lots before rezoning opens. Which RA $6713$ rule checks that purpose?
+:::answer
+The answer is **RA $6713$, Section $7(c)$**. It bars misusing protected office data to give anyone an undue advantage.
+:::
 
 ## Examples
 
-### #1: Contract Gift
+### #1: Bad Lease With No Proved Profit
 
-An officer accepts a supplier's gift in connection with a government contract the officer must handle under law. Which RA $3019$ clause fits?
+A port head signs a $10$-year lease at triple market rates for old cranes, with no proof of personal gain. Which RA $3019$ clause applies?
 
 **Solution:**
-Section $3(b)$ covers the benefit tied to that official transaction.
+
+1. Terms: triple price for old gear is manifestly and grossly disadvantageous to the government.
+2. Profit: Section $3(g)$ applies without profit.
+
+Answer: Section $3(g)$ covers the contract.
+
+**Check:** Personal profit is unneeded under Section $3(g)$.
+
+### #2: Meal Request and Free Leak
+
+A bid officer asks a vendor for free catering while reviewing its bid. A clerk emails an unreleased shortlist to a broker free. Match both.
+
+**Solution:**
+
+1. Request: seeking a benefit tied to an official review fits Section $3(b)$.
+2. Email: leaking confidential data early to an unauthorized broker fits Section $3(k)$ without pay.
+
+Answer: Section $3(b)$ covers the request, and Section $3(k)$ covers the leak.
+
+**Check:** Match benefit requests to Section $3(b)$ and unauthorized or early leaks to Section $3(k)$.
+
+### #3: Favored Award and Secret Shares
+
+A panel director steers a software deal to a startup through clear favoritism at a matching price. Auditors learn he secretly co-owns it. Which clauses apply?
+
+**Solution:**
+
+1. Shares: owning part of a firm while reviewing its deal breaks Section $3(h)$.
+2. Award: test whether steering the award at a matching price triggers Section $3(e)$.
+
+:::try
+Finish the last step: apply Section $3(e)$ to favoritism at a matching price, and name both clauses.
+:::answer
+The answer is **Both Section $3(h)$ and Section $3(e)$ apply.** Manifest partiality giving an unwarranted benefit meets Section $3(e)$ without an overpriced bid. Co-owning the startup breaks Section $3(h)$.
+
+**Check:** Pair official action in owned firms with Section $3(h)$ and partiality benefits with Section $3(e)$.
+:::
 
 ## Traps to Watch For
 
-### #1: Only Cash Counts
-
-> Benefits and misuse take other forms.
-
-Favoritism and information leaks can fall under RA $3019$. Check the clause's conditions. For RA $6713$, Section $7(c)$, also check the prohibited purpose.
+:::checklist
+- Unwarranted benefits: apply Section $3(e)$ even without proved public loss. {#unwarranted-benefit-stands-alone}
+- Private investments: check for official action or a legal ban under Section $3(h)$. {#not-every-investment-barred}
+- Future public release: never share confidential files before release under Section $3(k)$. {#early-release-still-barred}
+:::
