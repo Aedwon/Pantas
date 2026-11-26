@@ -74,6 +74,16 @@ Searched: the board's `walk.css` and `reader.css`, `design/system/patterns.md`, 
 - Fixed to the board: "Why?" sits 8 px under its paragraph; the answer line in a walk-through solution lines up with the step text (`.note`).
 - Not drawn on the board, decided: the tap-back scroll takes 420 ms on the app's move curve, then the tint holds 300 ms and fades over 1.2 s; the first sentence of a revealed answer is bolded by the reader.
 
+### Side-by-side review rulings (fresh Sonnet reviewer, build 587048e86, Nov 26)
+
+Fixed with tests: first-sentence bold ends after a closing quote; a Why? panel that opens with a question bolds it, as the board does; revealed answers with inline fractions no longer overlap; the tap-back golden shows the landed state with the tint at full; parts keep the board's space after display maths.
+Accepted, not fixed (rule 4, lead; searched the board files, the spec, patterns.md):
+- Maths in a bold answer lead stays regular weight: the maths renderer has no bold weight for numbers. The words carry the bold.
+- Phone cards and checklist rows run 3 to 4 px shorter than the board, and the phone side gutter is 24 (board 20): both follow from the live reader's text metrics and padding, kept per the decision above. Every row stays over 44 px.
+- `|-15|` gets operator spacing, a line can break between "(" and its maths, and a long display formula shrinks to fit instead of wrapping: all are the live reader's maths behavior for every lesson, outside this build. Content can write `\lvert -15 \rvert`; noted for the lesson leads.
+- The board's figures (number line, jump, discount bar, exponent, sentence head) are not in the samples as files, only as `ILLUSTRATION` comments; drawing them is content work for the lesson leads, outside the renderer.
+- The checkmark inside the filled teal disc uses the page color in dark mode (board #10201C has no token; the design lint rejects literals).
+
 ### Completion is judged by
 
 - Converter tests written first and shown failing; both converters agree on every lesson in `content/lessons` and every walk-through lesson on `content/lesson-walkthrough-cse-r1` (no error, every target resolves).
