@@ -26,7 +26,7 @@ Pagdugtungin ang isang buong diwa at ang dahilan nito gamit ang *dahil* o *sapag
 :::pair #hugnayan-laban-sa-tambalan
 Right: Ang "Umuwi ang bata dahil umuulan na" ay **Hugnayan**.
 Wrong: Tawaging **Tambalan** o **Payak** ang "Umuwi ang bata dahil umuulan na."
-Ikinakabit ng *dahil* ang dahilan sa pangunahing sugnay. Hindi tambalan ito dahil di-makapag-iisa ang ikalawang sugnay, at hindi payak dahil may dalawang sugnay.
+Di-makapag-iisa ang ikalawang sugnay, kaya hindi tambalan; dalawa ang sugnay, kaya hindi payak.
 :::
 
 :::check
@@ -70,7 +70,7 @@ Sa pagsasalaysay, pumili ng **pananda ng pagkakasunod** (sequence marker) na tug
 :::pair #ayos-ng-pananda-sa-salaysay
 Right: Para sa unang paghahanda, kasunod na pagsusuri, at pangwakas na pagpasa: "**Una**, inihanda ang ulat. **Pagkatapos**, sinuri ito. **Sa huli**, ipinasa ito."
 Wrong: "**Una, sa huli, pagkatapos**" o "**Sa huli, pagkatapos nito, una**."
-Ang *sa huli* ay para lamang sa pangwakas na pangyayari. Kapag inilagay ito sa unahan o gitna, nagkakabaligtad ang ayos ng salaysay.
+Ang *sa huli* ay para lamang sa pangwakas na pangyayari.
 :::
 
 :::check
@@ -136,7 +136,7 @@ Ang sagot ay **B**: "Sa simula, nagrehistro siya. Kasunod, ipinasa niya ang mga 
 
 ## Speed Tricks & Shortcuts
 
-Isang makapag-iisa na may di-makapag-iisa: hugnayan; dalawa o higit pang makapag-iisa na may di-makapag-iisa: langkapan.
+Isang makapag-iisa na may di-makapag-iisa: hugnayan; dalawa o higit pang makapag-iisa at di-makapag-iisa: langkapan.
 
 ## Traps to Watch For
 

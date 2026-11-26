@@ -26,7 +26,7 @@ Gamitin ang anyong **ang** para sa **paksa** (subject), halimbawa *ako, ikaw, ka
 :::pair #pangkat-ng-ang
 Right: Kabilang ang *siya* sa pangkat ng *ang* ("Siya ay dumating").
 Wrong: Piliin ang *niya* o *kaniya* bilang anyong *ang*.
-Iisang tao ang maaaring tukuyin ng tatlong anyo (*siya, niya, kaniya*), ngunit *siya* lamang ang nasa pangkat ng *ang*.
+Sa tatlong anyo (*siya, niya, kaniya*), *siya* lamang ang nasa pangkat ng *ang*.
 :::
 
 :::check
@@ -69,7 +69,7 @@ Bakit may tatlong anyo para sa iisang tao (*siya, niya, kaniya*)? Sa mga halimba
 :::pair #anyong-sa-para-sa-tatanggap
 Right: Sa "Ibinigay ng tagapangasiwa ang pagkain sa mga boluntaryo," palitan ang "sa mga boluntaryo" ng *sa kanila*: "Ibinigay ng tagapangasiwa ang pagkain sa kanila."
 Wrong: Piliin ang *sila*, *nila*, o *para sa kaniya* para sa maraming tatanggap.
-Ang mga boluntaryo ang maramihang tatanggap, kaya kailangan ang *sa kanila*, hindi paksang *sila*, gumagawang *nila*, o isahang *kaniya*.
+Maramihang tatanggap ang mga boluntaryo, kaya *sa kanila*, hindi *sila*, *nila*, o *kaniya*.
 :::
 
 :::check
