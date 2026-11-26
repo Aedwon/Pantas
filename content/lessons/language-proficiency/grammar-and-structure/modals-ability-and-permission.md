@@ -127,6 +127,7 @@ Finish the job: say who is asked and what is asked in each question, then choose
 ## Speed Tricks & Shortcuts
 
 First check form: the verb a modal such as *can, could, may,* or *will* governs uses the bare base form.
+
 ## Traps to Watch For
 
 :::checklist

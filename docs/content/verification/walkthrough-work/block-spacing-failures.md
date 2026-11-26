@@ -1,0 +1,6 @@
+language-proficiency/grammar-and-structure/modals-ability-and-permission.md:130 | heading: "## Traps to Watch For"
+language-proficiency/grammar-and-structure/pronouns-for-groups-and-joined-antecedents.md:119 | heading: "## Traps to Watch For"
+language-proficiency/grammar-and-structure/shared-words-in-parallel-lists.md:118 | heading: "## Traps to Watch For"
+language-proficiency/grammar-and-structure/simple-and-compound-sentences.md:121 | heading: "## Traps to Watch For"
+language-proficiency/grammar-and-structure/qualified-negatives-and-near-negatives.md:21 | numbered item: "1. *unexpected* = not expected -> *"not unexpected"* = **unsurprising** (not guaranteed)."
+language-proficiency/language-application/pagkakasunod-at-sanhi.md:41 | numbered item: "1. Hanapin ang simula: ang pangungusap na may *una* o walang tinutukoy na hindi pa nabanggit."

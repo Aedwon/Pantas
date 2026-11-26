@@ -18,6 +18,7 @@ keyPoints:
 ### Qualified Negatives: "Not Unexpected" and "Not Unreasonable"
 
 Two negatives can give a **qualified** (middle-ground) positive meaning.
+
 1. *unexpected* = not expected -> *"not unexpected"* = **unsurprising** (not guaranteed).
 2. *unreasonable* = not reasonable -> *"not unreasonable"* = **fairly reasonable** (not perfect).
 3. *uncommon* = rare -> *"not uncommon"* = **fairly common** (not always).

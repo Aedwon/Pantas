@@ -115,6 +115,7 @@ The answer is **Change "paying" and "checking" to "pay" and "check."** The finis
 ## Speed Tricks & Shortcuts
 
 Read the shared lead-in words separately before every item in the list.
+
 ## Traps to Watch For
 
 :::checklist

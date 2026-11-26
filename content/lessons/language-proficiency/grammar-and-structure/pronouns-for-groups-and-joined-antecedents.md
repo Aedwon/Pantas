@@ -116,6 +116,7 @@ The answer is **its** and **her**: "The clinic opened on Monday. Dr. Sol said th
 ## Speed Tricks & Shortcuts
 
 Check if a group acts as one unit (*its*) or separate members (*their*). Treat *and*-joined names as plural (*their*).
+
 ## Traps to Watch For
 
 :::checklist

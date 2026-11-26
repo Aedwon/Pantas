@@ -118,6 +118,7 @@ The remaining structure is **Compound**: "The truck arrived, and the driver unlo
 ## Speed Tricks & Shortcuts
 
 Split at a joining word (*and, but, so*) or a semicolon and test each side alone. If both sides stand as full sentences and neither holds a dependent clause, the sentence is compound.
+
 ## Traps to Watch For
 
 :::checklist

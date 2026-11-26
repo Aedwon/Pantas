@@ -38,6 +38,7 @@ Ang larawan. Ito ang bagay na nabanggit na sa unang pangungusap.
 ### Pagkakasunod-sunod ng mga Pangungusap
 
 Ang *una*, *pagkatapos*, *sumunod*, at *sa wakas* ay tumutulong sa ayos.
+
 1. Hanapin ang simula: ang pangungusap na may *una* o walang tinutukoy na hindi pa nabanggit.
 2. Ilagay sa kasunod ang pangungusap na tumutukoy sa nabanggit na pangyayari.
 3. Ilagay sa dulo ang may *sa wakas* o ang bunga ng lahat.
