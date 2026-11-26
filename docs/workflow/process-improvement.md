@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Manager ran build and content workers from its own thread (Nov 26)
+
+- His words (about 12:20 PM Manila): "why do I keep approving things here, did you spawn subagents here instead of spawning another claude lead for the CSE content rewrite".
+- Wrong: on Nov 26 the manager started workers from the manager thread for lane work: two Gemini Hydrogen tasks to finish the walk-through checks branch, and three Claude Sonnet tasks to rewrite math lessons during his "work on lessons with claude until Gemini's reset" window. Their approvals and results landed in the thread he uses to talk to the manager.
+- Why it got through: operations-manager.md says the manager "Does no build work itself. Small one-off jobs (consult Fable, log an approval, write a brief) go to a short delegated task." The manager read "short" as permission for any job under an hour, and judged a new lead too slow for a 40-minute window.
+- Fix (required step, manager): the manager starts no worker that writes code, content or tests. That work goes to a lead: the lane's own lead, or a fresh lead launched for it (a fresh Claude lead for a Claude-only window, briefed with the stop time). Manager delegated tasks are limited to advice (Fable consults), housekeeping he set as standing (disk cleanup) and read-only checks. No check can tell a build task from a consult at dispatch.
+
 ### Walk-through examples still show math without saying where it comes from (Nov 26, repeat)
 
 - His words (about 12:05 PM Manila, screenshot of the board round 2 sample "Put a Negative Value in Parentheses"): "i read this in the boards, this is the exact thing i'm concerned and as to why i wanted the walk-through type lessons. notice what's missing here? there was not enough context given here. where's the expression from? if those were examples they should at least say $3x$ becomes $3(-2)=6$ etc. do you get what i mean? the lessons should be clearly assisting the user to understand logic". Then (about 12:15 PM): "for example: you could say, Let's substitute x=-2 to the terms 3x x^2 and 12/x, and that would be clearer". His "3(-2)=6" is a typing slip; the value is -6.
