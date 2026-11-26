@@ -38,9 +38,9 @@ It is tempting to mark $F \rightarrow F$ as false because both inputs are false.
 :::
 
 :::check
-If $P$ is false and $Q$ is true, evaluate $P \rightarrow Q$.
+If $P$ is true and $Q$ is true, evaluate $P \rightarrow Q$.
 :::answer
-The answer is **$T$** (true). The if-part $P$ is false, so $F \rightarrow T = T$.
+The answer is **$T$** (true). Both parts are true, so $T \rightarrow T = T$ and the promise is kept.
 :::
 
 ### Swapping the Direction
@@ -100,19 +100,19 @@ The ordered results are $(F, T)$.
 
 ### #3: Full Conditional Column
 
-Find the truth values of $P \rightarrow Q$ across all four combinations of $(P, Q)$: $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$.
+Find the truth values of $Q \rightarrow P$ across all four combinations of $(P, Q)$: $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$.
 
 **Solution:**
 
-1. Row $1$ $(T, T)$: true if-part and true then-part give $T \rightarrow T = T$.
-2. Row $2$ $(T, F)$: true if-part and false then-part give the one false case, $T \rightarrow F = F$.
+1. Row $1$ $(T, T)$: $Q \rightarrow P$ is $T \rightarrow T = T$.
+2. Row $2$ $(T, F)$: the if-part $Q$ is false, so $F \rightarrow T = T$.
 
 :::try
 Finish the last step: evaluate rows $3$ $(F, T)$ and $4$ $(F, F)$, then write all four values in order.
 :::answer
-The answer is **$T, F, T, T$**. Both $(F, T)$ and $(F, F)$ have a false if-part, so both give $T$.
+The answer is **$T, T, F, T$**. Row $3$ gives $Q \rightarrow P = T \rightarrow F = F$, the one false case. Row $4$ gives $F \rightarrow F = T$.
 
-**Check:** Out of the $4$ rows, exactly $1$ row is $F$ (row $2$, $T \rightarrow F$) and the other $3$ rows are $T$.
+**Check:** Out of the $4$ rows, exactly $1$ row is $F$ (row $3$) and the other $3$ rows are $T$.
 :::
 
 ## Speed Tricks & Shortcuts

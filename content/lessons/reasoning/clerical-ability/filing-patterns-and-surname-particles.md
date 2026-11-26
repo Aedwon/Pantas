@@ -70,9 +70,9 @@ Ignoring spaces is a comparison step only. Keep the recorded spelling and spaces
 :::
 
 :::check
-Using one-unit surname particles with spaces ignored only for comparison, which comes first: *Dela Torre* or *Delgado*?
+Using one-unit surname particles with spaces ignored only for comparison, which comes first: *Dela Paz* or *Delfin*?
 :::answer
-The answer is **Dela Torre**. Comparing *delatorre* and *delgado*, the fourth letter *a* comes before *g*.
+The answer is **Dela Paz**. Comparing *delapaz* and *delfin*, the fourth letter *a* comes before *f*.
 :::
 
 ## Examples
@@ -106,19 +106,19 @@ A system treats surname particles as part of one surname unit and ignores spaces
 
 ### #3: Given-Name-First Rule
 
-This registry explicitly compares given name first and surname second. Which entry comes last: *Reyes, Alma*, *Santos, Belen*, *Reyes, Zoe*, or *Santos, Cora*?
+This registry explicitly compares given name first and surname second. Which entry comes last: *Cruz, Mara*, *Lopez, Ian*, *Cruz, Nina*, or *Lopez, Hugo*?
 
 **Solution:**
 
 1. Check the primary unit stated in the question: compare given names first, not surnames.
-2. List the given names: *Alma*, *Belen*, *Zoe*, *Cora*.
+2. List the given names: *Mara*, *Ian*, *Nina*, *Hugo*.
 
 :::try
 Finish the last step: put the four given names in alphabetical order and name the entry that comes last.
 :::answer
-The answer is **Reyes, Zoe**. In given-name order (*Alma*, *Belen*, *Cora*, *Zoe*), *Zoe* comes last.
+The answer is **Cruz, Nina**. In given-name order (*Hugo*, *Ian*, *Mara*, *Nina*), *Nina* comes last.
 
-**Check:** All three other given names (*Alma*, *Belen*, and *Cora*) begin with letters before *Z*, so *Zoe* stays last regardless of surname.
+**Check:** All three other given names (*Hugo*, *Ian*, and *Mara*) begin with letters before *N*, so *Nina* stays last regardless of surname.
 :::
 
 ## Traps to Watch For

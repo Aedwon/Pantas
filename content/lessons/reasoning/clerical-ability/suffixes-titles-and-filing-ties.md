@@ -107,20 +107,20 @@ A registry files by surname, then given name, and omits titles from the filing k
 
 ### #3: Full Name Tie with City
 
-Sort by surname, given name, middle initial, then city. Ignore surname spaces only when comparing. Which comes first: *Delgado, Aaron A., Manila*, *De la Vega, Ana L., Davao*, *De la Vega, Ana M., Baguio*, or *De la Vega, Ana L., Cebu*?
+Sort by surname, given name, middle initial, then city. Ignore surname spaces only when comparing. Which comes first: *Delgado, Aaron A., Manila*, *De la Rosa, Joy P., Tarlac*, *De la Rosa, Joy T., Albay*, or *De la Rosa, Joy P., Naga*?
 
 **Solution:**
 
-1. Unit $1$: *delavega* precedes *delgado* ($a$ before $g$). Drop *Delgado, Aaron A., Manila*.
-2. Unit $2$: the remaining three tie on *Ana*.
-3. Unit $3$: *L.* precedes *M.*, so drop *De la Vega, Ana M., Baguio*.
+1. Unit $1$: *delarosa* precedes *delgado* ($a$ before $g$). Drop *Delgado, Aaron A., Manila*.
+2. Unit $2$: the remaining three tie on *Joy*.
+3. Unit $3$: *P.* precedes *T.*, so drop *De la Rosa, Joy T., Albay*.
 
 :::try
 Finish the last step: compare Unit $4$ for the remaining two records to pick the first entry.
 :::answer
-The answer is **De la Vega, Ana L., Cebu**. Both remaining records match on every name unit, and *Cebu* precedes *Davao*.
+The answer is **De la Rosa, Joy P., Naga**. Both remaining records match on every name unit, and *Naga* precedes *Tarlac*.
 
-**Check:** Earlier units eliminated *Aaron* (by surname) and *Baguio* (by middle initial) before Unit $4$, leaving *Cebu* before *Davao* on the city tie-break.
+**Check:** Earlier units eliminated *Aaron* (by surname) and *Albay* (by middle initial) before Unit $4$, leaving *Naga* before *Tarlac* on the city tie-break.
 :::
 
 ## Traps to Watch For

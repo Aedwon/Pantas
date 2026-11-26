@@ -136,25 +136,25 @@ The missing term is $16$.
 
 ### #4: Changing Differences
 
-Find the next term in the sequence: $2, 3, 5, 8, 12, \ldots$
+Find the next term in the sequence: $4, 6, 9, 13, 18, \ldots$
 
 **Solution:**
 
 1. List the first two differences:
 
-$$3-2=1,\quad 5-3=2$$
+$$6-4=2,\quad 9-6=3$$
 
-$$8-5=3,\quad 12-8=4$$
+$$13-9=4,\quad 18-13=5$$
 
-2. The differences are $1, 2, 3, 4$, so each gap increases by $1$.
-3. Find the next gap: $4+1=5$.
+2. The differences are $2, 3, 4, 5$, so each gap increases by $1$.
+3. Find the next gap: $5+1=6$.
 
 :::try
-Finish the last step: add the next gap to $12$.
+Finish the last step: add the next gap to $18$.
 :::answer
-The answer is $17$. Add $5$ to the last term: $12+5=17$.
+The answer is $24$. Add $6$ to the last term: $18+6=24$.
 
-**Check:** The differences $1, 2, 3, 4, 5$ increase by $1$ at every step, and $17-12=5$.
+**Check:** The differences $2, 3, 4, 5, 6$ increase by $1$ at every step, and $24-18=6$.
 :::
 
 ## Traps to Watch For

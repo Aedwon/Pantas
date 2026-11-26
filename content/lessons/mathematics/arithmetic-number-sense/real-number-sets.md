@@ -97,7 +97,7 @@ Irrational numbers sit inside Real numbers beside Rational numbers, never inside
 Which statement is false?
 
 A) Every integer is rational.
-B) $\sqrt{16}$ is irrational.
+B) $\sqrt{49}$ is irrational.
 C) Every irrational number is real.
 D) A repeating nonterminating decimal is rational.
 
@@ -109,9 +109,9 @@ D) A repeating nonterminating decimal is rational.
 :::try
 Finish the last step: check statements B and D, and state which choice is the false statement.
 :::answer
-The answer is B. Since $16$ is a perfect square, $\sqrt{16}=4$ is rational, so B is false. Statement D is true because a repeating decimal like $0.333\dots=\dfrac{1}{3}$ can be written as an integer fraction.
+The answer is B. Since $49$ is a perfect square, $\sqrt{49}=7$ is rational, so B is false. Statement D is true because a repeating decimal like $0.333\dots=\dfrac{1}{3}$ can be written as an integer fraction.
 
-**Check:** Re-read B: $\sqrt{16}=4=\dfrac{4}{1}$ is an integer fraction, so it cannot be irrational.
+**Check:** Re-read B: $\sqrt{49}=7=\dfrac{7}{1}$ is an integer fraction, so it cannot be irrational.
 :::
 
 ## Traps to Watch For

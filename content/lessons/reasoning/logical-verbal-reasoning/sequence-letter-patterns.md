@@ -134,19 +134,19 @@ The next letter is **$S$**.
 
 ### #4: Wraparound Letter Pattern
 
-Find the next letter in this cyclic alphabet sequence: $W, Y, A, C, \ldots$
+Find the next letter in this cyclic alphabet sequence: $X, Z, B, D, \ldots$
 
 **Solution:**
 
-1. Convert each letter to its position: $W=23$, $Y=25$, $A=1$, $C=3$.
-2. Check each move: $23+2=25$ ($Y$), $25+2=27 \to 27-26=1$ ($A$), and $1+2=3$ ($C$).
+1. Convert each letter to its position: $X=24$, $Z=26$, $B=2$, $D=4$.
+2. Check each move: $24+2=26$ ($Z$), $26+2=28 \to 28-26=2$ ($B$), and $2+2=4$ ($D$).
 
 :::try
-Finish the last step: add $2$ to $C$ ($3$) and give the matching letter.
+Finish the last step: add $2$ to $D$ ($4$) and give the matching letter.
 :::answer
-The answer is **$E$**. Position $3+2=5$, and the $5$th letter is $E$.
+The answer is **$F$**. Position $4+2=6$, and the $6$th letter is $F$.
 
-**Check:** Count $2$ steps forward from $C$: $D$ ($1$), $E$ ($2$). Both the number sum and finger count give $E$.
+**Check:** Count $2$ steps forward from $D$: $E$ ($1$), $F$ ($2$). Both the number sum and finger count give $F$.
 :::
 
 ## Speed Tricks & Shortcuts

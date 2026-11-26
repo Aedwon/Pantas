@@ -143,22 +143,22 @@ The answer is **(B) Reject**.
 
 ### #4: Double Analogy
 
-Puppy is to dog as foal is to ______, while petal is to flower as ______ is to tree.
+Kitten is to cat as chick is to ______, while wheel is to car as ______ is to house.
 
-(A) Horse, leaf (B) Horse, forest (C) Cow, leaf (D) Goat, root
+(A) Hen, roof (B) Hen, village (C) Fox, roof (D) Duck, door
 
 **Solution:**
 
-1. First pair: a puppy grows into a dog, so a foal grows into a **horse**.
-2. Drop (C) and (D), since neither starts with *horse*.
-3. Second pair: a petal is part of a flower.
+1. First pair: a kitten grows into a cat, so a chick grows into a **hen**.
+2. Drop (C) and (D), since neither starts with *hen*.
+3. Second pair: ask how a wheel relates to a car.
 
 :::try
-Finish the last step: compare *leaf* and *forest* to match part-to-whole for *tree*.
+Finish the last step: test *roof* and *village* against that relation for *house*.
 :::answer
-The answer is **(A) Horse, leaf**. A leaf is part of a tree, while a forest holds many trees.
+The answer is **(A) Hen, roof**. A wheel is part of a car, and a roof is part of a house. A village holds many houses.
 
-**Check:** Both completed halves hold in order: *foal : horse* and *leaf : tree*.
+**Check:** Both completed halves hold in order: *chick : hen* and *roof : house*.
 :::
 
 ## Speed Tricks & Shortcuts

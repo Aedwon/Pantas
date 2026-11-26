@@ -82,9 +82,9 @@ The wrong pair treats **or** as exclusive when both inputs are true. Inclusive *
 :::
 
 :::check
-Which pair $(P, Q)$ makes inclusive $P \lor Q$ false?
+A sign says "Bring a pen or a pencil." Ana brings both. Under inclusive **or**, is "she brings a pen or a pencil" true or false?
 :::answer
-The answer is **$(F, F)$**. Inclusive **or** is false only when both inputs are false.
+The answer is **true**. Both parts are true, and inclusive **or** is true when at least one part is true, including both.
 :::
 
 ## Examples
@@ -123,19 +123,19 @@ The value of $P \lor Q$ is $T$ (true).
 
 ### #3: Unknown Input with Inclusive Or
 
-$P$ is true and $Q$ is not known. Evaluate inclusive $P \lor Q$ for all possible values of $Q$.
+$Q$ is false and $P$ is not known. Evaluate inclusive $P \lor Q$ for all possible values of $P$.
 
 **Solution:**
 
-1. $Q$ can only be $T$ or $F$, so test both cases.
-2. Case $1$ ($Q=T$): $T \lor T = T$.
+1. $P$ can only be $T$ or $F$, so test both cases.
+2. Case $1$ ($P=T$): $T \lor F = T$.
 
 :::try
-Finish the last step: evaluate $P \lor Q$ in Case $2$ when $Q=F$, then state what happens for either value of $Q$.
+Finish the last step: evaluate $P \lor Q$ in Case $2$ when $P=F$, then state what happens for either value of $P$.
 :::answer
-The answer is **$T$ (true) for either value of $Q$**. When $Q=F$, $T \lor F = T$ because $P$ is already $T$.
+The answer is **the result matches $P$**: $T$ when $P=T$, and $F$ when $P=F$. In Case $2$, $F \lor F = F$ because neither input is true.
 
-**Check:** Inclusive **or** needs just one $T$ input, so knowing $P=T$ settles the result without knowing $Q$.
+**Check:** With $Q=F$, no $T$ input comes from $Q$, so $P$ alone decides the result.
 :::
 
 ## Speed Tricks & Shortcuts

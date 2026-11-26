@@ -42,9 +42,9 @@ Extra zeros on the left change how wide the label looks, not its value. Ignore l
 :::
 
 :::check
-In ascending consecutive numeric filing, which file number comes immediately before $5000$?
+In ascending numeric filing, which file number comes first: $48$ or $9$?
 :::answer
-The answer is $4999$. One consecutive step before $5000$ is $5000 - 1 = 4999$.
+The answer is $9$. By full value, $9 < 48$, even though $4$ is the smaller first digit.
 :::
 
 ### Decimal Filing Order

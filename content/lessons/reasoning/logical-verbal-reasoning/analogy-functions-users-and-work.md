@@ -130,22 +130,20 @@ The answer is **(A) Hammer**.
 
 ### #4: Reversed Direction
 
-Novel is to author as symphony is to ______.
+Play is to playwright as invention is to ______.
 
-(A) Conductor (B) Orchestra (C) Composer (D) Concert
+(A) Factory (B) Inventor (C) Customer (D) Machine
 
 **Solution:**
 
-1. Sentence: "A novel is written by an author."
-2. Drop (D): a concert is an event, not a creator.
-3. Drop (A) and (B): a conductor leads musicians and an orchestra performs, without writing the work.
+1. Sentence: "A play is written by a playwright."
 
 :::try
-Finish the last step: match *author* to the creator in choice (C).
+Finish the solution: test each choice in the same direction and pick the answer.
 :::answer
-The answer is **(C) Composer**. A symphony is written by a composer, matching the work-to-creator direction.
+The answer is **(B) Inventor**. An invention is made by an inventor. A factory is a place, a customer buys, and a machine can be the invention itself.
 
-**Check:** Both pairs place the finished work first (*novel*, *symphony*) and the writer second (*author*, *composer*).
+**Check:** Both pairs place the finished work first (*play*, *invention*) and the maker second (*playwright*, *inventor*).
 :::
 
 ## Speed Tricks & Shortcuts

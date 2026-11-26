@@ -76,9 +76,9 @@ Wrong: **Caballero, Ana** first because *Ana* comes before *Nora*
 :::
 
 :::check
-Using surname, then given name, which comes first: *Santos, Marco* or *Santos, Luisa*?
+Using surname, then given name, which comes first: *Garcia, Nico* or *Garcia, Beth*?
 :::answer
-The answer is **Santos, Luisa**. Both share *Santos*, and *Luisa* comes before *Marco*.
+The answer is **Garcia, Beth**. Both share *Garcia*, and *Beth* comes before *Nico*.
 :::
 
 ## Examples

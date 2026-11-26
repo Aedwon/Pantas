@@ -37,9 +37,9 @@ In $\text{YYYY-MM-DD}$, the middle two digits are always the month and the last 
 :::
 
 :::check
-In $\text{YYYY-MM-DD}$ format, what calendar date is $2025\text{-}09\text{-}04$?
+In $\text{YYYY-MM-DD}$ format, what calendar date is $2025\text{-}08\text{-}06$?
 :::answer
-The answer is **September $4$, $2025$**. The year is $2025$, the middle number $09$ is September, and the last number $04$ is day $4$.
+The answer is **August $6$, $2025$**. The year is $2025$, the middle number $08$ is August, and the last number $06$ is day $6$.
 :::
 
 ### Using the Stated Date Format and Direction

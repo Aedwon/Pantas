@@ -145,22 +145,21 @@ The answer is **(A) Flour**.
 
 ### #4: Whole to Contents
 
-Which pair best matches the ordered relationship in "Library is to books"?
+Which pair best matches the ordered relationship in "Zoo is to animals"?
 
-(A) Borrower is to books (B) Pages is to novel (C) Archive is to records (D) Catalog is to librarian
+(A) Vet is to animals (B) Chapter is to book (C) Orchard is to trees (D) Farmer is to crops
 
 **Solution:**
 
-1. Sentence: "A library holds books."
-2. Drop (A) and (D): borrower and librarian name users, not contents.
-3. Drop (B): *pages* go inside a *novel*, reversing the direction.
+1. Sentence: "A zoo holds animals."
+2. Drop (A) and (D): a vet and a farmer name workers, not contents.
 
 :::try
-Finish the last step: test choice (C) in the sentence "______ holds ______."
+Finish the last step: test choices (B) and (C) in the sentence "______ holds ______."
 :::answer
-The answer is **(C) Archive is to records**. An archive holds records, keeping the container-to-contents direction.
+The answer is **(C) Orchard is to trees**. An orchard holds trees, keeping the container-to-contents direction. A chapter goes inside a book, reversing it.
 
-**Check:** Flipping (B) gives "Pages hold a novel," which is false.
+**Check:** Flipping (B) gives "A chapter holds a book," which is false.
 :::
 
 ## Speed Tricks & Shortcuts

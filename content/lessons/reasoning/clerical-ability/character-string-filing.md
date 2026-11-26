@@ -87,7 +87,7 @@ A filing system compares codes as character strings from left to right. Digits u
 
 **Check:** Do not read $10$ and $2$ as whole numbers. Stop at the first differing digit ($1$ vs. $2$), which puts $\text{A-10}$ first.
 
-### #2: Letters, Digits, and Shorter Prefix Together
+### #2: Letters, Digits, and Different Lengths Together
 
 Reference codes are filed character by character from left to right in ascending order. If one code is the exact beginning of another, the shorter code comes first. Arrange $\text{N-7}$, $\text{N-62}$, $\text{N-6}$, and $\text{P-10}$.
 

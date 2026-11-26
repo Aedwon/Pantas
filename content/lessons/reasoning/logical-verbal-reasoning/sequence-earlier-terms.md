@@ -113,24 +113,24 @@ The next term is $13$.
 
 ### #3: Three-Term Addition Pattern
 
-Each term after the first three is the sum of the three terms directly before it. Find the next term: $1, 1, 2, 4, 7, \ldots$
+Each term after the first three is the sum of the three terms directly before it. Find the next term: $2, 3, 4, 9, 16, \ldots$
 
 **Solution:**
 
 1. Verify terms $4$ and $5$ by adding three prior terms:
 
-$$\text{Term 4}=1+1+2=4$$
+$$\text{Term 4}=2+3+4=9$$
 
-$$\text{Term 5}=1+2+4=7$$
+$$\text{Term 5}=3+4+9=16$$
 
-2. Pick the three terms directly before the blank: $2$, $4$, and $7$.
+2. Pick the three terms directly before the blank: $4$, $9$, and $16$.
 
 :::try
 Finish the last step: add those three terms to find the sixth term.
 :::answer
-The answer is $13$. Add the last three terms: $2+4+7=13$.
+The answer is $29$. Add the last three terms: $4+9+16=29$.
 
-**Check:** Subtract the last two terms back from $13$: $13-7-4=2$, which matches the third-to-last term.
+**Check:** Subtract the last two terms back from $29$: $29-16-9=4$, which matches the third-to-last term.
 :::
 
 ## Traps to Watch For

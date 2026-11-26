@@ -119,13 +119,11 @@ Given "If a pass is stamped, boarding is allowed," which situation obeys the rul
 **Solution:**
 
 1. Drop Option $3$: a stamped pass with forbidden boarding breaks the original rule.
-2. Drop Option $1$: it has a stamped pass, so it cannot show boarding allowed *without* a stamped pass.
-3. Drop Option $2$: boarding is forbidden there, so it cannot show boarding allowed without a stamped pass.
 
 :::try
-Finish the last step: check the remaining option and explain why it obeys the rule while breaking the reverse claim.
+Finish the solution: test Options $1$, $2$, and $4$, and pick the one that obeys the rule while showing boarding allowed without a stamp.
 :::answer
-The answer is **Option $4$: Unstamped pass, boarding allowed**. Because the pass is unstamped, the rule makes no promise, while showing allowed boarding without a stamped pass.
+The answer is **Option $4$: Unstamped pass, boarding allowed**. Option $1$ has a stamp, and Option $2$ forbids boarding, so neither shows boarding allowed without a stamp. In Option $4$ the pass is unstamped, so the rule makes no promise.
 
 **Check:** In Option $4$, the unstamped pass leaves "if stamped, then allowed" unbroken (true), while allowing boarding with an unstamped pass breaks "if allowed, then stamped" (false).
 :::

@@ -110,7 +110,7 @@ Place these records in reverse chronological order: July $8$, $2024$; July $21$,
 
 ### #3: Primary Number First, Date Second
 
-A registry compares integer file number in ascending order, then date in newest-first order when file numbers match. Which record comes first: File $18$, $2024\text{-}12\text{-}20$; File $18$, $2025\text{-}01\text{-}08$; File $21$, $2025\text{-}01\text{-}10$; or File $21$, $2024\text{-}12\text{-}15$?
+A registry compares integer file number in ascending order, then date in newest-first order when file numbers match. Which record comes first: File $18$, $2024\text{-}11\text{-}25$; File $18$, $2025\text{-}02\text{-}04$; File $21$, $2025\text{-}02\text{-}10$; or File $21$, $2024\text{-}11\text{-}19$?
 
 **Solution:**
 
@@ -118,11 +118,11 @@ A registry compares integer file number in ascending order, then date in newest-
 2. Both remaining records are File $18$, so move to the secondary date key.
 
 :::try
-Finish the last step: compare $2024\text{-}12\text{-}20$ and $2025\text{-}01\text{-}08$ under newest-first order to choose which record comes first.
+Finish the last step: compare $2024\text{-}11\text{-}25$ and $2025\text{-}02\text{-}04$ under newest-first order to choose which record comes first.
 :::answer
-The answer is **File $18$, $2025\text{-}01\text{-}08$**. For newest-first order, year $2025$ is newer than year $2024$.
+The answer is **File $18$, $2025\text{-}02\text{-}04$**. For newest-first order, year $2025$ is newer than year $2024$.
 
-**Check:** File $21$, $2025\text{-}01\text{-}10$ has the newest date overall, but the primary key (file number $18$ vs. $21$) decides the order before dates are checked; inside File $18$, $2025$ is newer than $2024$.
+**Check:** File $21$, $2025\text{-}02\text{-}10$ has the newest date overall, but the primary key (file number $18$ vs. $21$) decides the order before dates are checked; inside File $18$, $2025$ is newer than $2024$.
 :::
 
 ## Traps to Watch For
