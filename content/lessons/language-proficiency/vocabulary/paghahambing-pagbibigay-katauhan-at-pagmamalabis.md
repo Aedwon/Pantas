@@ -17,6 +17,7 @@ keyPoints:
 ### Pagtutulad at Pagwawangis
 
 Ang **tayutay** (figure of speech) ay masining na paggamit ng salita.
+
 Karaniwang hanapin ang salitang panulad para mapili ang tayutay:
 
 1. **Pagtutulad** (simile): naghahambing gamit ang salitang panulad gaya ng *parang*, *tulad ng*, *gaya ng*, o *kasing-*. Halimbawa: "Ang tinig ni Ana ay **parang** banayad na agos ng ilog."
@@ -153,7 +154,7 @@ D) Pagbibigay-katauhan
 
 **Solution:**
 
-1. Hanapin ang pandiwa.
+1. Hanapin ang salitang kilos.
 
 :::try
 Tapusin ang huling hakbang: aling tayutay ang ginamit, at aling salita ang nagpapakita nito?

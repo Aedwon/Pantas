@@ -17,6 +17,7 @@ keyPoints:
 ### Definitions and Examples
 
 A **context clue** is information near an unfamiliar word that helps you work out its likely meaning.
+
 - **Definition or restatement:** the text explains the word in another way.
 - **Example:** the text gives examples of what the word includes.
 

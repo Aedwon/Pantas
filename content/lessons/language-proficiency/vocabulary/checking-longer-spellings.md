@@ -25,7 +25,7 @@ We split *beginning* into its beats.
 
 Now we check the ending of *beginning*.
 
-- *Begin* ends in one stressed vowel letter plus one consonant. Before a vowel suffix such as *-ing*, *-ed*, or *-ence*, that consonant usually doubles, but not *w*, *x*, or *y*.
+- *Begin* ends in one stressed vowel letter plus one consonant. Before a vowel suffix such as *-ing* or *-ed*, that consonant usually doubles, but not *w*, *x*, or *y*.
 - So the final *n* doubles before *-ing*: *begin* + *n* + *-ing* gives *beginning*.
 
 :::pair #known-base
@@ -45,7 +45,7 @@ Use this process for a long word:
 Now we apply the process to *occurrence*.
 
 - Say it: *oc-cur-rence*. Split it: *occur* + *-ence*.
-- *Occur* ends in one stressed vowel letter plus one consonant, so its *r* doubles.
+- *Occur* ends in one stressed vowel letter plus one consonant, and the stress stays on *cur* in *occurrence*, so its *r* doubles.
 - *occur* + *r* + *-ence* gives *occurrence*.
 
 :::pair #doubled-pairs
@@ -89,9 +89,10 @@ The answer is **B**, *preferred*. The base ends in one stressed vowel letter plu
 
 ## Speed Tricks & Shortcuts
 
-Compare related forms such as *begin/beginning* and *refer/referred*. Say the base aloud to find its stressed syllable before deciding whether to double the last letter.
+Compare related forms such as *begin/beginning* and *refer/referred*. Say the base aloud to find its stressed syllable.
 
 Break a long word into spoken parts. Use a known base to check letters that are hard to hear.
+
 ## Traps to Watch For
 
 :::checklist

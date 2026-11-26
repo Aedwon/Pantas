@@ -21,7 +21,7 @@ Ang **sina** ay **pananda** (marker) na ginagamit bago ang pangalan ng mga tao: 
 Para mapili ang *sila* sa "Umalis sila nang maaga" at ang *sina* sa "Sina Ana at Lito ay dumating," sundin ang dalawang hakbang:
 
 1. Tingnan ang kasunod agad ng salita: pangalan ba ng tao?
-2. Kung mga pangalan ang kasunod ng paksa, gamitin ang *sina*. Kung wala, gamitin ang *sila*.
+2. Kung mga pangalan ang kasunod, gamitin ang *sina*. Kung wala, gamitin ang *sila*.
 
 :::pair #bago-ang-pangalan
 Right: Sina Pedro, Ana, at Miguel ang mga kasapi ng grupong ito.
