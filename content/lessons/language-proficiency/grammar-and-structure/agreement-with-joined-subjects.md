@@ -46,7 +46,7 @@ Set aside detail phrases. In "Neither the coach nor the players on the visiting 
 :::pair #proximity-first-subject
 Right: "Neither the manager nor the employees were aware of the change."
 Wrong: "Neither the manager nor the employees was aware of the change."
-*The manager* comes first, yet *employees* sits closer to the verb. Match the nearer subject.
+*The manager* comes first, yet *employees* sits closer to the verb. By the convention, match the nearer subject.
 :::
 
 When *or* or *nor* joins mismatched subjects like *I* and *she*, one verb feels awkward. Rewrite into two clauses so each subject gets its own verb: "Either she is responsible, or I am."
@@ -58,7 +58,7 @@ Why rewrite awkward *or/nor* sentences into two clauses? One verb cannot match b
 :::pair #split-clause-agreement
 Right: "The students were not late, and the teacher was not late."
 Wrong: "The students were not late, and the teacher were not late."
-Do not repeat *were* in the second clause. Plural *students* takes *were*, and singular *teacher* takes *was*.
+Plural *students* takes *were*, and singular *teacher* takes *was*.
 :::
 
 :::check
@@ -82,15 +82,15 @@ Choose each verb: (a) The supervisor and the clerk *(is / are)* checking the for
 
 ### #2: Rewriting Neither...Nor into Two Clauses
 
-Revise "Neither the students nor the teacher arrived late" into two negative clauses with agreeing *be*-verbs.
+Revise "Neither the cooks nor the waiter arrived early" into two negative clauses with agreeing *be*-verbs.
 
 **Solution:**
 
-1. First clause: *the students* (plural) -> *The students were not late*.
-2. Second clause: *the teacher* (singular) -> *and the teacher was not late*.
-3. Combined: "The students were not late, and the teacher was not late."
+1. First clause: *the cooks* (plural) -> *The cooks were not early*.
+2. Second clause: *the waiter* (singular) -> *and the waiter was not early*.
+3. Combined: "The cooks were not early, and the waiter was not early."
 
-**Check:** *Students were*, *teacher was*; both keep the negative meaning.
+**Check:** *Cooks were*, *waiter was*; both keep the negative meaning.
 
 ### #3: Two Clauses with Or and Nor
 

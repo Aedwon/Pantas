@@ -142,6 +142,6 @@ Some words are exceptions: with *some*, *most*, *all*, *half* or *a lot*, the no
 ## Traps to Watch For
 
 :::checklist
-- Singular third-person subject with a regular present verb: add its third-person ending (*-s*, *-es*, or *y* to *ies*), as in "The dog barks." {#verb-s}
+- Singular third-person subject with a regular present verb: add its third-person ending, as in "The dog barks." {#verb-s}
 - A phrase between the subject and the verb: cover it and match the head, as in "The box of chocolates is on the table." {#nearest-noun}
 :::

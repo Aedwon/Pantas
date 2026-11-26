@@ -25,7 +25,7 @@ Put the opening comma at the **end** of the opening group, never inside it (*"Af
 :::pair #splitting-opening-or-subject
 Right: "After the meeting, we went home."
 Wrong: "After, the meeting we went home." or "After the meeting we, went home."
-*After, the meeting* splits the preposition from its noun, and *we, went* splits the subject from its verb. Any comma belongs after the whole opening group.
+*After, the meeting* splits the preposition from its noun, and *we, went* splits the subject from its verb. The opening comma belongs after the whole opening group.
 :::
 
 :::check

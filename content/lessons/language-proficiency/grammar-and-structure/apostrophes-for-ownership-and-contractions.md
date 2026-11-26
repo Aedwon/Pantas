@@ -44,7 +44,7 @@ A **contraction** drops letters. Put the apostrophe **where letters drop** in *d
 2. *it is* drops *i* -> *it's*.
 3. *it has* drops *ha* -> *it's*.
 
-Test *it's* by expanding it to *it is* or *it has*. In *"It's been raining since dawn,"* *"It has been raining"* fits, while *"It is been raining"* does not.
+Test *it's* by expanding it to *it is* or *it has*.
 
 :::pair #contraction-apostrophe-spot
 Right: "I don't want to go outside today."
@@ -90,40 +90,43 @@ Show ownership for: (a) the book belonging to Maria; (b) the room used by severa
 2. For (b), *teachers* is plural ending in *s*, so add *'*: **"the teachers' room."**
 3. For (c), *children* is plural without *s*, so add *'s*: **"the children's books."**
 
-**Check:** Each ending matches its owner: *Maria* (one), *teachers* (many + *s*), *children* (many, no *s*).
+**Check:** *Maria* (one), *teachers* (many + *s*), *children* (many, no *s*).
 
 ### #2: Expanding a Contraction
 
-In *"It's been raining since dawn,"* what does *it's* mean?
+In *"It's been a long day,"* what does *it's* mean?
 
 **Solution:**
 
-1. Test *it is*: *"It is been raining since dawn"* fails.
-2. Test *it has*: *"It has been raining since dawn"* fits.
+1. Test *it is*: *"It is been a long day"* fails.
+2. Test *it has*: *"It has been a long day"* fits.
 
 Correct answer: **It has**.
 
-**Check:** Read *"It has been raining since dawn."* The helping verb *has* pairs directly with *been*.
+**Check:** Read *"It has been a long day."* The helping verb *has* pairs directly with *been*.
 
 ### #3: Choosing Between Its and It's
 
-Treat the school as one organization. Choose the form that completes the sentence: *"The school painted ___ front gate last week."*
+Choose the form that completes the sentence: *"The bakery changed ___ opening hours last week."*
 
 (A) Its
+
 (B) It's
+
 (C) Its'
-(D) Their
+
+(D) It has
 
 **Solution:**
 
-1. The blank comes before the noun *front gate*, and *the school* is one organization (singular *it*).
+1. *The bakery* is one organization.
 
 :::try
 Finish the last step: choose the form that completes the sentence.
 :::answer
-The answer is **(A) Its**: **"The school painted its front gate last week."** The gate belongs to the school, so ownership is needed, and plural *Their* does not fit one organization. (B) expands to *"it is front gate"* (wrong), and (C) *Its'* is invalid; *its* with no apostrophe shows ownership.
+The answer is **(A) Its**: **"The bakery changed its opening hours last week."** The hours belong to the bakery, so ownership is needed. (B) expands to *"it is opening hours"* and (D) to *"it has opening hours"*, and neither fits. (C) *Its'* is invalid; *its* with no apostrophe shows ownership.
 
-**Check:** Swap in a possessive noun: *"the school's front gate."* It means the same, so **Its** is right.
+**Check:** Swap in a possessive noun: *"the bakery's opening hours."* It means the same, so **Its** is right.
 :::
 
 ## Speed Tricks & Shortcuts

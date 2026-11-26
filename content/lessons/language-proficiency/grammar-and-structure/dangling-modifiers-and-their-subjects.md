@@ -49,8 +49,6 @@ Fix a dangling opening phrase in two ways:
 1. **Change the main subject:** *"Rushing to catch the bus, my coffee spilled"* -> *"Rushing to catch the bus, **I** spilled my coffee."*
 2. **Turn the phrase into a full clause:** *"While approaching the gate, the barking of a dog startled Liza"* -> *"As **Liza approached** the gate, the barking of a dog startled her."*
 
-*While* or *after* before an *-ing* word dangles unless the main subject is the doer: *"While walking home, Ben found a wallet."*
-
 :::why
 Why can *"As Liza approached the gate, the barking of a dog startled her"* have a different main subject? *"As Liza approached the gate"* is a full clause with its own subject *Liza* and verb *approached*, so *the barking* does not take over Liza's action.
 :::
@@ -71,26 +69,24 @@ The answer is **"While Ana walked to class, a bird landed on her shoulder."** Na
 
 ### #1: Diagnosing a Dangling Modifier
 
-What is the problem in *"Having studied all night, the exam seemed easy"*?
+What is the problem in *"Having finished the report, the printer jammed"*?
 
 **Solution:**
 
-1. *"Having studied all night"* needs a person who studied.
-2. The main subject is *the exam*, not a person who studied.
-3. So *"Having studied all night, the exam seemed easy"* **dangles**: the person who studied is never named.
-
-**Check:** Ask who studied all night: the sentence never says.
+1. *"Having finished the report"* needs a person who finished it.
+2. The main subject is *the printer*, not a person who finished.
+3. So *"Having finished the report, the printer jammed"* **dangles**: the person who finished is never named.
 
 ### #2: Fixing With the Main Subject
 
-Revise *"Rushing to catch the bus, my coffee spilled everywhere"* so the runner is the main subject.
+Revise *"Hoping to win the race, my shoes were laced tightly"* so the runner is the main subject.
 
 **Solution:**
 
-1. Identify who was rushing: *I*.
-2. Put *I* right after the comma: **"Rushing to catch the bus, I spilled my coffee everywhere."**
+1. Identify who was hoping: *I*.
+2. Put *I* right after the comma: **"Hoping to win the race, I laced my shoes tightly."**
 
-**Check:** *I* is the one rushing; *my coffee* is not.
+**Check:** *I* is the one hoping; *my shoes* are not.
 
 ### #3: Comparing Two Openings
 

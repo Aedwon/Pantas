@@ -59,7 +59,7 @@ What part of speech is **water** in "Please **water** the plants after school"?
 The answer is **Verb**. *Water* gives an action command, and *the plants* receive it.
 :::
 
-### Checking the Job, Not the Ending
+### Words Ending in -ly
 
 Many adverbs end in *-ly*, like *quickly* and *loudly*. Still, *-ly* does not always mark an adverb. Words like *friendly*, *lively*, and *lonely* describe nouns, while adverbs like *often*, *very*, and *fast* (in *ran fast*) have no *-ly*.
 
@@ -83,27 +83,27 @@ The answer is **Adjective**. *Costly* ends in *-ly*, yet it describes the noun *
 
 ### #1: Pronoun, Adjective, and Adverb
 
-Identify the part of speech of each word in bold: "Although Carlos was late, **he** finished the **difficult** task **quickly**."
+Identify the part of speech of each word in bold: "Although Rosa was tired, **she** finished the **long** report **calmly**."
 
 **Solution:**
 
-1. *He* stands for *Carlos*, so it is a **pronoun**.
-2. *Difficult* describes *task*, so it is an **adjective**.
-3. *Quickly* tells how he finished, so it is an **adverb**.
+1. *She* stands for *Rosa*, so it is a **pronoun**.
+2. *Long* describes *report*, so it is an **adjective**.
+3. *Calmly* tells how she finished, so it is an **adverb**.
 
-**Check:** Replace *he* with *Carlos* ("Carlos finished") to see who it stands for, pair *difficult task* (adjective + noun), and pair *finished quickly* (verb + adverb).
+**Check:** Replace *she* with *Rosa* ("Rosa finished") to see who it stands for, pair *long report* (adjective + noun), and pair *finished calmly* (verb + adverb).
 
 ### #2: Same Word, Three Jobs
 
-Identify the part of speech of **light** in each sentence: "Turn on the **light**." "Please **light** the candle." "The bag felt **light**."
+Identify the part of speech of **light** in each sentence: "The bag is **light**." "Please **light** the stove." "Turn off the **light**."
 
 **Solution:**
 
-1. First, *light* follows *the* and names a thing, so it is a **noun**.
-2. Second, *light* directs the action, so it is a **verb**.
-3. Third, *light* describes the weight of *the bag*, so it is an **adjective**.
+1. First, *light* describes *the bag*, so it is an **adjective**.
+2. Second, *light* is what you do to the stove, so it is a **verb**.
+3. Third, *light* names a thing after *the*, so it is a **noun**.
 
-**Check:** Swap words with one job: "Turn on the *lamp*" (noun), "Please *ignite* the candle" (verb), and "The bag felt *heavy*" (adjective).
+**Check:** Swap words with one job: "The bag is *heavy*" (adjective), "Please *start* the stove" (verb), and "Turn off the *lamp*" (noun).
 
 ### #3: Two Words to Classify
 

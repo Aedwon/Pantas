@@ -23,9 +23,9 @@ A **pronoun** replaces a noun or noun phrase, like *she*, *it*, or *they*. The *
 Match number and kind: use *her*, *his*, or *its* for one (or singular *their*, explained next), and *their* for more than one ("The girls lost **their** books"). Before a noun, use *her* or *their* (*her book*). Alone without a noun after it, use *hers* or *theirs* ("That book is **hers**").
 
 :::check
-Maya uses she/her pronouns. Choose the right form: "Maya left *(her / hers)* jacket at school."
+Choose the right form: "The blue bag is *(her / hers)*."
 :::answer
-The answer is **Her**. A noun (*jacket*) follows the blank, so use *her* instead of standalone *hers*.
+The answer is **Hers**. No noun follows the blank, so use standalone *hers*.
 :::
 
 ### Singular They
@@ -39,7 +39,7 @@ Modern formal English uses *their* for one unspecified person too. Do not guess 
 :::
 
 :::check
-Choose the gender-neutral pronoun: "Somebody left *(his / their / its)* umbrella in the room."
+Choose the gender-neutral pronoun: "Somebody dropped *(his / their / its)* pen in the hall."
 :::answer
 The answer is **Their**. *Somebody* is one unspecified person, so *their* fits without guessing gender or using *its*.
 :::
@@ -52,7 +52,7 @@ Singular *they* changes the pronoun, not the verb attached to *everybody*. Match
 2. *They* always takes plural verb forms (such as *are*, *have*, and plain verbs without *-s*), even when referring to one person.
 
 :::why
-Why write "Everybody **has** said they **are** ready"? Each verb agrees with its own subject. *Everybody* is grammatically singular (*has*), while *they* always pairs with *are*.
+Why write "Everybody **has** said they **are** ready"? Each verb agrees with its own subject. *Everybody* is grammatically singular (*has*), while *they* pairs with *are* in the present.
 :::
 
 :::pair #everybody-and-they-verbs
@@ -78,54 +78,52 @@ Proximity does not fix an unclear pronoun. When either person could own the pain
 :::
 
 :::check
-Sam alone passed. Which sentence says so clearly: "Alex told Sam that they had passed" or "Alex told Sam that Sam had passed"?
+Mia alone was late. Which sentence says so clearly: "Lea told Mia that she was late" or "Lea told Mia that Mia was late"?
 :::answer
-The answer is **"Alex told Sam that Sam had passed."** Repeating *Sam* names who passed. In the first sentence, *they* could mean Alex, Sam, or both.
+The answer is **"Lea told Mia that Mia was late."** Repeating *Mia* names who was late. In the first sentence, *she* could mean Lea or Mia.
 :::
 
 ## Examples
 
 ### #1: Plural and Gender-Neutral Reference
 
-Choose the pronouns: (a) "The girls lost *(her / their)* books on the way home." (b) Gender-neutral: "Each of the students must submit *(his / their / its)* essay by Friday."
+Choose the pronouns: (a) "The boys left *(his / their)* bags at the gate." (b) Gender-neutral: "Each of the players must bring *(his / their / its)* shoes."
 
 **Solution:**
 
-1. In (a), *the girls* is plural: "The girls lost **their** books on the way home."
-2. In (b), *each* points to one unspecified student: "Each of the students must submit **their** essay by Friday."
-
-**Check:** Plural *girls* pairs with *their*. *Each of the students* is one unspecified person, so singular *their* fits.
+1. In (a), *the boys* is plural: "The boys left **their** bags at the gate."
+2. In (b), *each* points to one unspecified player: "Each of the players must bring **their** shoes."
 
 ### #2: Combining Everybody and Singular They
 
-Choose the correct sentence: (A) "Everybody have said they are ready." (B) "Everybody has said they is ready." (C) "Everybody has said they are ready."
+Choose the correct sentence: (A) "Somebody have said they are ready." (B) "Somebody has said they is ready." (C) "Somebody has said they are ready."
 
 **Solution:**
 
-1. *Everybody* is singular, so it needs *has* (not *have*).
+1. *Somebody* is singular, so it needs *has* (not *have*).
 2. *They* takes *are* (not *is*).
-3. Only **(C) "Everybody has said they are ready"** gets both verbs right.
+3. Only **(C) "Somebody has said they are ready"** gets both verbs right.
 
-**Check:** Test each clause: "Everybody has said it" and "They are ready."
+**Check:** Test each clause: "Somebody has said it" and "They are ready."
 
 ### #3: Fixing an Ambiguous Reference
 
-Explain why "When Mrs. Santos spoke to Anna, she seemed upset" is unclear, and fix it so Anna was upset.
+Explain why "When Mr. Lim called Ben, he sounded tired" is unclear, and fix it so Ben sounded tired.
 
 **Solution:**
 
-1. Both *Mrs. Santos* and *Anna* fit *she*, so either woman could be the one who seemed upset.
+1. Both *Mr. Lim* and *Ben* fit *he*, so either man could be the one who sounded tired.
 
 :::try
-Finish the last step: which sentence clearly states that Anna seemed upset?
+Finish the last step: which sentence clearly states that Ben sounded tired?
 
-(A) "When Mrs. Santos spoke to Anna, the woman seemed upset."
+(A) "When Mr. Lim called Ben, the man sounded tired."
 
-(B) "When Mrs. Santos spoke to Anna, Anna seemed upset."
+(B) "When Mr. Lim called Ben, Ben sounded tired."
 :::answer
-The answer is **(B) "When Mrs. Santos spoke to Anna, Anna seemed upset."** Replacing *she* with *Anna* names the exact person meant. In (A), *the woman* still fits either person.
+The answer is **(B) "When Mr. Lim called Ben, Ben sounded tired."** Replacing *he* with *Ben* names the exact person meant. In (A), *the man* still fits either person.
 
-**Check:** Ask "Who seemed upset?" Only *Anna* answers the question, with no guessing by order or proximity.
+**Check:** Ask "Who sounded tired?" Only *Ben* answers the question, with no guessing by order or proximity.
 :::
 
 ## Speed Tricks & Shortcuts

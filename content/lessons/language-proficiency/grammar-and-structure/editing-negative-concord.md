@@ -68,27 +68,25 @@ The answer is **"She won't go anywhere tonight."** *Won't* and *nowhere* express
 
 ### #1: Revising a Negative Statement for Formal English
 
-In standard formal English, revise: *"She doesn't want no help with the project."*
+In standard formal English, revise: *"The clerk didn't give us no receipts."*
 
 **Solution:**
 
-1. Find the meaning and time: present refusal of help.
-2. Replace *no* with *any* after *doesn't* so one negative pattern remains.
+1. Find the meaning and time: past refusal to give receipts.
+2. Replace *no* with *any* after *didn't* so one negative pattern remains.
 
-Correct sentence: **"She doesn't want any help with the project."**
-
-**Check:** One negative (*doesn't*), the same refusal, and present tense unchanged.
+Correct sentence: **"The clerk didn't give us any receipts."**
 
 ### #2: Reading Negative Concord Without Flipping Meaning
 
-In a dialect that uses negative concord, what does *"I didn't see nothing unusual that night"* mean?
+In a dialect that uses negative concord, what does *"We never saw nobody at the gate"* mean?
 
 **Solution:**
 
-1. Spot the two negatives: *didn't* and *nothing*.
-2. Under negative concord, both reinforce one single negative idea: **"The speaker saw no unusual thing."**
+1. Spot the two negatives: *never* and *nobody*.
+2. Under negative concord, both reinforce one single negative idea: **"We saw nobody at the gate."**
 
-**Check:** Rewrite in standard formal English: *"I didn't see anything unusual that night."* Both versions mean no unusual thing was seen.
+**Check:** Rewrite in standard formal English: *"We never saw anybody at the gate."* Both versions mean no one was seen.
 
 ### #3: Preserving Scope and Register
 

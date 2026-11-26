@@ -31,13 +31,13 @@ The answer is **"They flew to Cebu in March."** *They* begins the sentence, *Ceb
 
 Under the standard convention, capitalize a formal title such as *President* **directly before a person's name**: *"President Reyes"* or *"President Cruz."*
 
-Use lowercase for a **generic job role** without a name after it: *"the president"* or *"the doctor."*
+In this style, a **generic job role** without a name after it stays lowercase: *"the president"* or *"the doctor."*
 <!-- ILLUSTRATION: two stacked sentences: top "We met President Reyes yesterday." with a teal bracket linking capital "President" directly to "Reyes" labeled "title before a name"; bottom "We met the president yesterday." with lowercase "president" after "the" labeled "generic job role, no name" -->
 
 :::pair #title-before-name-vs-role
 Right: "We met President Reyes yesterday." and (as a generic role) "We met the president yesterday."
 Wrong: "We met president Reyes yesterday at the company office." or "We met the President yesterday during the afternoon visit."
-Before *Reyes*, *President* sits right in front of a name and takes a capital *P*. After *the* with no name, *president* is a generic job role and stays lowercase.
+Before *Reyes*, *President* sits right in front of a name and takes a capital *P*. After *the* with no name, *president* is a generic role and stays lowercase here.
 :::
 
 :::check
@@ -75,51 +75,47 @@ The answer is **The teacher wrote the word "garden" on the board.** The quote is
 
 Choose the correctly capitalized sentence:
 
-(A) "We met president Reyes yesterday at the company office."
+(A) "I called mayor Lopez this morning."
 
-(B) "We met President reyes yesterday at the company office."
+(B) "I called Mayor lopez this morning."
 
-(C) "We met President Reyes yesterday."
+(C) "I called Mayor Lopez this morning."
 
 **Solution:**
 
-1. (A) leaves *president* lowercase before *Reyes*.
-2. (B) leaves the surname *reyes* lowercase.
-3. (C) capitalizes sentence-start *We*, before-name title *President*, and surname *Reyes*.
+1. (A) leaves *mayor* lowercase before *Lopez*.
+2. (B) leaves the surname *lopez* lowercase.
+3. (C) capitalizes sentence-start *I*, before-name title *Mayor*, and surname *Lopez*.
 
-The correct answer is **(C)**: "We met President Reyes yesterday."
-
-**Check:** The capitalized title *President* comes directly before the name *Reyes*.
+The correct answer is **(C)**: "I called Mayor Lopez this morning."
 
 ### #2: Quoted Sentence vs. Quoted Word
 
-Fix the quotes: *She said, "please close the door." The word "Meeting" appears twice.*
+Fix the quotes: *He said, "please wait here." The word "Weather" appears twice.*
 
 **Solution:**
 
-1. *"Please close the door"* is a full sentence, so capitalize *Please*.
-2. *"Meeting"* is one quoted word inside a sentence, so lowercase it to *meeting*.
+1. *"Please wait here"* is a full sentence, so capitalize *Please*.
+2. *"Weather"* is one quoted word inside a sentence, so lowercase it to *weather*.
 
-Corrected text: **She said, "Please close the door." The word "meeting" appears twice.**
-
-**Check:** Read each quote alone: a full sentence starts with a capital, one ordinary word stays lowercase.
+Corrected text: **He said, "Please wait here." The word "weather" appears twice.**
 
 ### #3: Fixing Multiple Errors Together
 
-Use the before-name title rule to fix every error in: *"the report was ready, it's final section needed president Lim's approval."*
+Fix every error in: *"the mayor met senator Garcia on friday and said, "the clinic opens soon.""*
 
 **Solution:**
 
 1. Capitalize sentence start *The*.
-2. Replace the comma splice with a semicolon (;).
-3. Use possessive *its* (not contraction *it's*).
+2. Capitalize the day *Friday*.
+3. Capitalize *The* to open the quoted sentence.
 
 :::try
-Finish the last step: fix the title before *Lim's* and write the full corrected sentence.
+Finish the last step: fix the title before *Garcia* and write the full corrected sentence.
 :::answer
-The answer is **"The report was ready; its final section needed President Lim's approval."** *President* sits directly before *Lim*, so it takes a capital *P*.
+The answer is **"The mayor met Senator Garcia on Friday and said, "The clinic opens soon.""** *Senator* sits directly before *Garcia*, so it takes a capital *S*.
 
-**Check:** Take away the name: *"needed the president's approval"* has a lowercase *p*. The capital depends on *Lim* coming right after.
+**Check:** Take away the name: *"met the senator"* has a lowercase *s*. The capital depends on *Garcia* coming right after.
 :::
 
 ## Speed Tricks & Shortcuts

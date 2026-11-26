@@ -49,13 +49,13 @@ Change the voice of each sentence and keep its tense and aspect:
 :::pair #preserve-tense-and-aspect
 Right: "The novel was written by a famous author" becomes "A famous author wrote the novel."
 Wrong: Shift to ongoing ("A famous author was writing the novel").
-Simple past stays simple past (*was written*, *wrote*), not *-ing* or present.
+Simple past stays simple past (*was written*, *wrote*).
 :::
 
 :::check
-Change to passive voice in past time: "The clerk checked the forms."
+Change to passive voice in past time, keeping *the clerk*: "The clerk checked the forms."
 :::answer
-The answer is **"The forms were checked by the clerk."** Plural *the forms* takes *were* plus *checked*.
+The answer is **"The forms were checked by the clerk."** Plural *the forms* takes *were* plus *checked*, and *by the clerk* keeps the doer.
 :::
 
 ### Get-Passives Versus Be-Passives
@@ -86,30 +86,28 @@ The answer is **"The bike got stolen."** It is a get-passive: *stolen* is a past
 
 ### #1: Passive to Active Without Losing Tense
 
-Rewrite in active voice while keeping the completed past action: "The novel was written by a famous author."
+Rewrite in active voice while keeping the completed past action: "The report was typed by an intern."
 
 **Solution:**
 
-1. Move *a famous author* to the subject spot and *the novel* after the verb.
-2. Match simple past *was written* to simple past *wrote*.
+1. Move *an intern* to the subject spot and *the report* after the verb.
+2. Match simple past *was typed* to simple past *typed*.
 
-Correct: "A famous author wrote the novel."
-
-**Check:** Turn it back: *the novel* becomes the subject and *wrote* becomes *was written*.
+Correct: "An intern typed the report."
 
 ### #2: Active to Passive Without Losing Tense
 
-Rewrite in passive voice while keeping the past event: "The committee approved the new budget."
+Rewrite in passive voice while keeping the past event: "The mayor signed the new law."
 
 **Solution:**
 
-1. Move *the new budget* to the subject spot.
-2. Form the simple past passive *was approved* to agree with singular *the new budget*.
-3. Add *by the committee* for the agent.
+1. Move *the new law* to the subject spot.
+2. Form the simple past passive *was signed* to agree with singular *the new law*.
+3. Add *by the mayor* for the agent.
 
-Correct: "The new budget was approved by the committee."
+Correct: "The new law was signed by the mayor."
 
-**Check:** Both sentences keep *the committee* as approver and the verb in simple past.
+**Check:** Both sentences keep *the mayor* as signer and the verb in simple past.
 
 ### #3: A Line from a Storm Report
 
@@ -121,9 +119,9 @@ Look at "The wooden fence got damaged during the typhoon."
 2. Check the verb group: *got* plus the past participle *damaged* names that action, so the clause is a **get-passive**.
 
 :::try
-Finish the last step: rewrite the sentence for a formal report.
+Finish the last step: replace only *got* to make the sentence formal.
 :::answer
-The answer is **"The wooden fence was damaged during the typhoon."** Replace past *got* with singular past *was*, keeping *damaged* and past time unchanged.
+The answer is **"The wooden fence was damaged during the typhoon."** Replace past *got* with singular past *was*, keeping *damaged* and past time unchanged. Rewriting it as active ("The typhoon damaged the wooden fence") is also formal but changes more than *got*.
 
 **Check:** Check all three points: *the wooden fence* receives the action, *was damaged* keeps simple past time, and *was* replaces informal *got*.
 :::

@@ -15,7 +15,7 @@ keyPoints:
 ---
 ## Core Concept
 
-### Complex Sentences: One Main Clause Plus Dependent Clauses
+### Where Dependent Clauses Sit
 
 A **simple** sentence has one independent clause and no dependent clause. A **compound** sentence has two or more independent clauses and no dependent clause.
 
@@ -34,22 +34,18 @@ Two dependent clauses with only one main clause make a complex sentence, and an 
 :::
 
 :::check
-How many independent and how many dependent clauses are in *"The driver, because the road was closed, took another route."*?
+Count the independent and dependent clauses in *"The driver, because the road was closed, took another route."*
 :::answer
 One independent clause (*The driver took another route*) and one dependent clause (*because the road was closed*) tucked inside it. That makes the sentence **complex**.
 :::
 
-### Compound-Complex Sentences: Two or More Main Clauses Plus Dependent Clauses
+### Joining Main Clauses
 
 A **compound-complex sentence** has **two or more independent clauses** and **at least one dependent clause**.
 
-Split *"When the bell rang, the students grabbed their bags, and they rushed out the door"* into clauses:
+Mark the clauses in *"When the bell rang, the students grabbed their bags, and they rushed out the door"*:
 
-1. *When the bell rang* -> dependent clause.
-2. *The students grabbed their bags* -> independent clause 1.
-3. *They rushed out the door* -> independent clause 2 (own subject *they* and verb *rushed*, joined by *and*).
-
-Marked in the sentence: "[When the bell rang] (dependent), [the students grabbed their bags] (independent 1), and [they rushed out the door] (independent 2)." Two independent clauses plus one dependent clause make it **compound-complex**.
+"[When the bell rang] (dependent), [the students grabbed their bags] (independent 1), and [they rushed out the door] (independent 2)."
 
 :::pair #missed-second-main-or-dep
 Right: *"When the bell rang, the students grabbed their bags, and they rushed out the door."* is **Compound-complex**.
@@ -58,9 +54,9 @@ Wrong: Label it **Compound** or **Complex**.
 :::
 
 :::check
-How many independent and how many dependent clauses are in *"The students lit candles, and they continued studying because the power went out."*?
+Count the independent and dependent clauses in *"The tide rose, and the boats stayed at the dock because the wind was strong."*
 :::answer
-Two independent clauses (*The students lit candles* and *they continued studying*) and one dependent clause (*because the power went out*). That makes the sentence **compound-complex**.
+Two independent clauses (*The tide rose* and *the boats stayed at the dock*) and one dependent clause (*because the wind was strong*). That makes the sentence **compound-complex**.
 :::
 
 ### Clue Words That Can Start Phrases or Clauses
@@ -77,53 +73,53 @@ Wrong: Pick *"After rehearsal ended, the musicians left the hall."* as a simple 
 :::
 
 :::check
-Classify *"Since the exam was postponed, the students relaxed for the weekend."*
+Classify *"Before the guests arrived, the hosts set the table."*
 :::answer
-The answer is **Complex**. *Since* introduces *the exam* + *was postponed* (dependent) paired with *the students relaxed for the weekend* (independent).
+The answer is **Complex**. *Before* introduces *the guests* + *arrived* (dependent) paired with *the hosts set the table* (independent).
 :::
 
 ## Examples
 
 ### #1: Explaining Why a Sentence Is Complex
 
-Which clause inventory explains why *"Because the meeting ran late, the team missed lunch"* is complex?
+Which clause inventory explains why *"Because the printer jammed, the staff left early"* is complex?
 
 **Solution:**
 
-1. *"Because the meeting ran late"* has subject *the meeting* and verb *ran*, made dependent by *Because*.
-2. *"The team missed lunch"* has no subordinating word and stands alone.
+1. *"Because the printer jammed"* has subject *the printer* and verb *jammed*, made dependent by *Because*.
+2. *"The staff left early"* has no subordinating word and stands alone.
 3. So it has **one independent clause and one dependent clause**.
 
-**Check:** Drop *Because* and *"The meeting ran late"* stands alone.
+**Check:** Drop *Because* and *"The printer jammed"* stands alone.
 
 ### #2: Simple vs. Complex Beginning With After
 
-Which sentence is simple: *"After rehearsal, the musicians left."* or *"After the musicians left, the caretaker closed the hall."*?
+Which sentence is simple: *"Since Monday, the clinic has opened early."* or *"Since the clerk resigned, the clinic has opened late."*?
 
 **Solution:**
 
-1. *"After rehearsal"* has no verb, so *"After rehearsal, the musicians left."* has one clause: **Simple**.
-2. *"After the musicians left"* has subject *the musicians* and verb *left*, so it is dependent: *"After the musicians left, the caretaker closed the hall."* is **Complex**.
+1. *"Since Monday"* has no verb, so *"Since Monday, the clinic has opened early."* has one clause: **Simple**.
+2. *"Since the clerk resigned"* has subject *the clerk* and verb *resigned*, so it is dependent: *"Since the clerk resigned, the clinic has opened late."* is **Complex**.
 
 **Check:** Sentence 1 has only one subject-verb pair.
 
 ### #3: Counting Clauses in a Long Sentence
 
-Classify: *"Since the flight was delayed, the passengers waited in the lounge, and some of them ordered food, but others simply read books."*
+Classify: *"When the alarm sounded, the guards locked the gate, and the visitors waited outside, but the manager stayed calm."*
 
 **Solution:**
 
-1. *Since the flight was delayed* is **one dependent clause**.
-2. *The passengers waited in the lounge* is independent clause 1.
-3. *Some of them ordered food* adds its own subject and verb as independent clause 2.
-4. *Others simply read books* adds its own subject and verb as independent clause 3.
+1. *When the alarm sounded* is **one dependent clause**.
+2. *The guards locked the gate* is independent clause 1.
+3. *The visitors waited outside* is independent clause 2.
+4. *The manager stayed calm* is independent clause 3.
 
 :::try
 Finish the last step: combine both counts to name the sentence type.
 :::answer
-The sentence is **Compound-complex**. It has three independent clauses and one dependent clause (*Since the flight was delayed*).
+The sentence is **Compound-complex**. It has three independent clauses and one dependent clause (*When the alarm sounded*).
 
-**Check:** Remove *"Since the flight was delayed,"* and three full statements remain.
+**Check:** Remove *"When the alarm sounded,"* and three full statements remain.
 :::
 
 ## Speed Tricks & Shortcuts

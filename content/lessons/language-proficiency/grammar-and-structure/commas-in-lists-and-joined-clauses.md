@@ -57,7 +57,7 @@ Why does a comma usually go before *and* when a second subject follows? A comma 
 :::pair #comma-after-joining-word
 Right: "She studied hard, and she passed the exam."
 Wrong: "She studied hard and, she passed the exam." or "She studied hard and she, passed the exam."
-In a plain statement like this, the boundary comma goes before *and*, not after it. A comma between *she* and *passed* has no job here.
+In a plain statement like this, the boundary comma goes before *and*, not after it.
 :::
 
 :::check
@@ -93,8 +93,7 @@ Add a comma where needed: *"The clerk checked the form and the applicant signed 
 
 Correct sentence: **"The clerk checked the form, and the applicant signed it."**
 
-**Check:** Read both sides alone: *"The clerk checked the form."* *"The applicant signed it."* Both work, so a comma belongs here.
-
+**Check:** Read both sides alone: *"The clerk checked the form."* *"The applicant signed it."*
 ### #3: Choosing the Correct Punctuation
 
 Choose the correctly punctuated sentence:
@@ -115,7 +114,7 @@ Choose the correctly punctuated sentence:
 :::try
 Finish the last step: check both halves of (C) around *and*, and name the correct choice.
 :::answer
-The answer is **(D) Both (A) and (C).** In (C), *"The cook chopped the onions"* and *"he fried them"* are two independent clauses, so the comma before *and* is right; in (A), one subject shares two verbs with no comma.
+The answer is **(D) Both (A) and (C):** (A) "The cook chopped and fried the onions." and (C) "The cook chopped the onions, and he fried them." In (C), *"The cook chopped the onions"* and *"he fried them"* are two independent clauses, so the comma before *and* is right; in (A), one subject shares two verbs with no comma.
 
 **Check:** (A) has no subject after *and*; (C) has *he*.
 :::

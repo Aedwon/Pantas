@@ -22,7 +22,7 @@ A **connector** joins clauses and shows how their ideas relate:
 - **Reason** (such as *because, since*): explains why something happened. *"We stayed inside because it was raining."*
 - **Contrast** (such as *although, even though, though*): introduces a fact that goes against the expected result. *"Although she was tired, she finished her homework."*
 
-**Use one connector for one link.** A subordinating connector (*although, because*) already joins one dependent clause to one main clause. A coordinating connector (*but, so*) joins two independent clauses. Using both for one link is an error, as in *"Although it rained, but we walked"* or *"Because the store was closed, so we went home."* Keep one connector for the link: *"Although it rained, we walked"* or *"It rained, but we walked."*
+**Use one connector for one link.** A subordinating connector (*although, because*) already joins one dependent clause to one main clause. A coordinating connector (*but, so*) joins two independent clauses. Using both for one link is an error, as in *"Although it rained, but we walked"* or *"Because the store was closed, so we went home."* Keep one connector for the link.
 
 :::why
 Why does *"Because it rained, so we stayed inside"* fail? *Because* makes *"it rained"* wait for a main clause, while *so* expects a main clause before it. Drop *so* so *"we stayed inside"* serves as the main clause.
@@ -72,35 +72,35 @@ Both clauses start with subordinating words (*because, while, although*). Joinin
 :::
 
 :::check
-Which completes *"If the records are accurate, ___"* as a full sentence: *"the totals will match"* or *"when the totals finally match"*?
+Which completes *"Since the office was closed, ___"* as a full sentence: *"we called the next day"* or *"because the clerk was ill"*?
 :::answer
-The answer is **the totals will match**: **"If the records are accurate, the totals will match."** *The totals* is the subject and *will match* is the finite verb with no subordinating word at the front.
+The answer is **we called the next day**: **"Since the office was closed, we called the next day."** *We* is the subject and *called* is the finite verb with no subordinating word at the front.
 :::
 
 ## Examples
 
 ### #1: Fixing a Fragment Split by a Period
 
-Revise *"Although the manager reviewed the proposal carefully. She still had questions."* into one complete formal sentence.
+Revise *"Although the nurse checked the chart twice. She found a mistake."* into one complete formal sentence.
 
 **Solution:**
 
 1. *Although* makes the first group a dependent fragment.
-2. *"She still had questions"* is an independent clause.
-3. Join them with a comma: *"Although the manager reviewed the proposal carefully, she still had questions."*
+2. *"She found a mistake"* is an independent clause.
+3. Join them with a comma: *"Although the nurse checked the chart twice, she found a mistake."*
 
-**Check:** Cover the *although* clause; *"she still had questions"* stands alone.
+**Check:** Cover the *although* clause; *"she found a mistake"* stands alone.
 
 ### #2: Checking Comma Order
 
-Decide whether the comma placement is right in (a) *"Because it was raining, we stayed inside."* and (b) *"We stayed inside because it was raining."*
+Decide whether the comma placement is right in (a) *"Because the road flooded, the bus stopped."* and (b) *"The bus stopped because the road flooded."*
 
 **Solution:**
 
-1. In (a), the *because* clause comes first, so the comma after *raining* is right.
+1. In (a), the *because* clause comes first, so the comma after *flooded* is right.
 2. In (b), the main clause comes first and the reason clause is essential, so no comma before *because* is right.
 
-**Check:** Move the *because* clause in (b) to the front; a comma follows *raining*, as in (a).
+**Check:** Move the *because* clause in (b) to the front; a comma follows *flooded*, as in (a).
 
 ### #3: Completing an Opening Clause
 
@@ -115,7 +115,7 @@ Finish the last step: test (b) and (c), then write the full sentence.
 :::answer
 **Even though the bus was late, the students arrived on time.** (b) starts with *because*, adding a second dependent clause. In (c), *students* is the subject and *arrived* is the finite verb with no subordinating word.
 
-**Check:** Drop *"Even though the bus was late,"* and read *"The students arrived on time."* It stands alone as a main clause.
+**Check:** Drop *"Even though the bus was late,"* and *"The students arrived on time."* stands alone.
 :::
 
 ## Speed Tricks & Shortcuts
