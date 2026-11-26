@@ -29,6 +29,7 @@ import 'session_stored_order.dart';
 import 'shell_route_push.dart';
 import 'sync_mutations_typed_read.dart';
 import 'walkthrough_emphasis_check.dart';
+import 'walkthrough_example_check_line_check.dart';
 import 'walkthrough_example_connection_check.dart';
 import 'walkthrough_fence_line_check.dart';
 import 'walkthrough_fresh_instance_check.dart';
@@ -46,6 +47,7 @@ const allChecks = <Check>[
   WalkthroughHardBreakCheck(),
   WalkthroughEmphasisCheck(),
   WalkthroughFenceLineCheck(),
+  WalkthroughExampleCheckLineCheck(),
   ShellRoutePushCheck(),
   SyncMutationsTypedReadCheck(),
   MockBlueprintTopicsCheck(),
