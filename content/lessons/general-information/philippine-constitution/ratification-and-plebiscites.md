@@ -16,15 +16,68 @@ keyPoints:
 
 ## Core Concept
 
-### The People's Final Vote
+### Ratification by a Majority of Votes Cast
 
-**Ratification** means the people's approval of the proposed change. A **plebiscite** is a direct vote on a public question. Under Article XVII, Section $4$, ratification requires a majority of votes cast, meaning votes actually given on the proposal.
+Article XVII puts proposals in Section $1$, initiative in Section $2$, calling a convention in Section $3$, and ratification in Section $4$.
 
-The plebiscite must be held $60$ to $90$ days after approval by Congress or the convention. For initiative, that period starts when the Commission on Elections, or COMELEC, certifies that the petition is sufficient.
+**Ratification** means the people's approval of a proposed change. A **plebiscite** is a direct vote on a public question. Recall from Citizenship and Suffrage that qualified, registered voters vote in it.
 
-Recall from Citizenship and Suffrage that **suffrage** means the right to vote. Qualified, registered voters vote in the plebiscite. Registered voters are voters listed in the official voting records.
+Under Article XVII, Section $4$, ratification requires a **majority of the votes cast**. That means more than half of votes actually cast on the proposal. Congress, a convention, or an ordinary law cannot skip voter ratification.
 
 <!-- ILLUSTRATION: three proposal routes labeled Congress, constitutional convention, and people's initiative (amendments only), all leading to plebiscite, then majority approval, then valid change -->
+
+Test a plebiscite with $1,200$ registered voters where $800$ votes are cast and $401$ favor the proposal:
+
+1. Find half of the $800$ votes cast: $\dfrac{800}{2} = 400$ votes.
+2. Compare favorable votes with half: $401 > 400$, so the proposal passes even though $401$ is below half of $1,200$ registered voters.
+
+:::pair #majority-of-votes-cast
+Right: Ratification requires strictly more than half of the **votes cast** on the proposal, not all registered voters.
+Wrong: Using all registered voters as the base, or treating exactly half of the votes cast as enough.
+Signature minimums use registered voters, whereas Section $4$ ratification uses votes cast.
+:::
+
+:::pair #proposal-needs-ratification
+Right: Any proposal by Congress, a convention, or initiative needs voter ratification in a plebiscite; an ordinary law cannot replace Article XVII.
+Wrong: Letting a convention declare its revision valid without a plebiscite, or letting delegates ratify it with a second vote.
+Approval by the proposing body only finishes the proposal step; voters ratify in a plebiscite.
+:::
+
+:::check
+In a plebiscite with $900$ registered voters, $500$ votes are cast and $250$ favor the proposal. Is it ratified?
+:::answer
+The answer is **No**. Half of $500$ votes cast is $250$, and a majority requires more than half, so at least $251$ favorable votes are needed.
+:::
+
+### The $60$-to-$90$-Day Plebiscite Window
+
+Under Section $4$, the plebiscite must be held $60$ to $90$ days after the proper starting event. Both day $60$ and day $90$ are included.
+
+Check which starting event applies:
+
+1. For Congress or convention proposals: count $60$ to $90$ days after **approval** by Congress or the convention.
+2. For people's initiative: count $60$ to $90$ days after **COMELEC** certifies that the petition is sufficient.
+
+Test two schedules. Convention A sets a plebiscite $45$ days after approval. Initiative B starts gathering signatures on May $1$, gets COMELEC certification on July $1$, and sets voting $75$ days after July $1$:
+
+1. Check Convention A: $45$ days is earlier than day $60$, so it violates Section $4$.
+2. Check Initiative B: start at July $1$ certification, not May $1$; $75$ days sits inside $60$ to $90$ days, so it passes.
+
+:::why
+Why set a $60$-to-$90$-day window? Sixty days gives voters time to study the proposal, while $90$ days prevents stalling a finished proposal.
+:::
+
+:::pair #initiative-clock-start
+Right: For an initiative petition, start the $60$-to-$90$-day plebiscite window at COMELEC's certification of sufficiency.
+Wrong: Starting the $60$-to-$90$-day clock when organizers announce the petition or collect the first signature.
+Until COMELEC certifies sufficiency, signatures are unverified and the plebiscite clock has not started.
+:::
+
+:::check
+Congress approves an amendment, and COMELEC sets the plebiscite on the $95$th day after approval. Does that date follow Section $4$?
+:::answer
+The answer is **No**. Section $4$ sets day $90$ after approval as the latest permitted day, so day $95$ is too late.
+:::
 
 ## Examples
 
@@ -35,9 +88,13 @@ A convention approves a change on January $1$, $2026$. What is the plebiscite wi
 **Solution:**
 
 1. Count January $2$ as day $1$. January $31$ is day $30$, and February $28$ is day $58$.
-2. Day $60$ is March $2$. Day $90$ is April $1$. The window includes both dates.
+2. Day $60$ is March $2$, and day $90$ is April $1$. Both boundary dates are included.
 
 <!-- ILLUSTRATION: timeline labeled January 1, 2026 approval (day 0), March 2 (day 60), April 1 (day 90), with the permitted window shaded between days 60 and 90 -->
+
+Answer: March $2$, $2026$ (day $60$) through April $1$, $2026$ (day $90$).
+
+**Check:** $(31 - 1) + 28 + 2 = 60$ days to March $2$, plus $30$ more days equals $90$ days to April $1$.
 
 ### #2: Use Votes Cast
 
@@ -45,19 +102,21 @@ There are $1,000$ registered voters. Of $600$ votes cast on a proposal, $310$ fa
 
 **Solution:**
 
-1. Find half of the votes cast.
+1. Find half of the $600$ votes cast:
 
 $$
 \dfrac{600}{2}=300
 $$
 
-2. Compare the favorable votes with half.
+2. Compare the favorable votes with half:
 
 $$
 310>300
 $$
 
-3. The proposal is ratified. More than half of the votes cast favor it.
+Answer: Yes, the proposal is ratified because more than half of the votes cast favor it.
+
+**Check:** Section $4$ compares favorable votes against the $600$ votes cast ($310 > 300$), not the $1,000$ registered voters.
 
 ### #3: Find the Defects
 
@@ -65,25 +124,21 @@ A convention declares its revision valid without a plebiscite. Separately, an in
 
 **Solution:**
 
-1. The convention skipped ratification by voters.
-2. The initiative seeks a revision, which that route cannot propose.
+1. Check the convention's act against Section $4$: a convention only proposes changes and cannot ratify without voters.
+2. Check the initiative against Section $2$: parliamentary government changes the basic plan of government, making it a revision.
+
+:::try
+Finish the last step: state why each act fails Article XVII and name what each one is missing.
+:::answer
+The answer is **The convention lacks voter ratification in a plebiscite, and the initiative improperly seeks a revision.** Under Section $4$, voters must ratify any change by a majority of votes cast $60$ to $90$ days after approval. Under Section $2$, initiative covers amendments only, so a revision needs Congress or a convention.
+
+**Check:** Verify both steps: valid proposal route (Section $1$ or $2$) and timely voter ratification (Section $4$).
+:::
 
 ## Traps to Watch For
 
-### #1: Wrong Starting Event
-
-> Start the clock at approval or certification, as applicable.
-
-For initiative, gathering signatures does not start the plebiscite window.
-
-### #2: Registered Voter Total
-
-> Ratification uses votes cast.
-
-Do not use all registered voters as its base. Signature requirements do use registered voters.
-
-### #3: Proposal Alone
-
-> A proposal still needs the people's approval.
-
-Congress or a convention cannot complete constitutional change alone.
+:::checklist
+- Initiative plebiscite clock: start the $60$-to-$90$-day count at COMELEC certification, not signature gathering. {#initiative-clock-start}
+- Ratification majority: require more than half of **votes cast**, not registered voters. {#majority-of-votes-cast}
+- Proposal without a vote: never treat convention or congressional approval as valid without voter ratification. {#proposal-needs-ratification}
+:::

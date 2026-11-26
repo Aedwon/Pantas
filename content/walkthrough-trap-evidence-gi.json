@@ -1411,6 +1411,273 @@
           "mistakeNote": "Treats meeting the legal-experience rule as waiving the separate bar on prior candidacy."
         }
       ]
+    },
+    "lesson-philippine-constitution-citizenship-by-parentage": {
+      "birthplace-alone": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0001",
+          "wrongChoice": "All persons born in the Philippines, regardless of their parents' citizenship",
+          "mistakeNote": "Treats Philippine birthplace alone as granting citizenship regardless of the parents' citizenship."
+        }
+      ],
+      "either-parent-no-naturalization": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0006",
+          "wrongChoice": "He must be naturalized because his mother was an alien.",
+          "mistakeNote": "Requires naturalization when the father was Filipino at birth instead of applying Article IV, Section 1(2)."
+        }
+      ],
+      "post-1973-no-election": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0006",
+          "wrongChoice": "He must elect Philippine citizenship at majority because he was born abroad.",
+          "mistakeNote": "Applies the pre-January 17, 1973 maternal election rule to a child born abroad in 2004."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-natural-born-and-naturalized-citizens": {
+      "naturalized-not-natural-born": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0008",
+          "wrongChoice": "Yes, because every Philippine citizen meets the citizenship requirement for every public office.",
+          "mistakeNote": "Assumes any Philippine citizen qualifies for offices like Civil Service Commissioner that require natural-born status."
+        },
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0002",
+          "wrongChoice": "A person who becomes a citizen after completing naturalization",
+          "mistakeNote": "Treats naturalization as producing natural-born citizenship under Article IV, Section 2."
+        }
+      ],
+      "proper-election-is-natural-born": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0007",
+          "wrongChoice": "As a naturalized citizen because she performed an act to elect citizenship",
+          "mistakeNote": "Classifies a valid Section 1(3) elector as naturalized despite Section 2's express rule."
+        }
+      ],
+      "two-naturalization-age-rules": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0021",
+          "wrongChoice": "RA 9139 uses age 21 at filing for all applicants born in the Philippines.",
+          "mistakeNote": "Carries Commonwealth Act 473's 21-year minimum age into RA 9139 instead of using age 18 at filing."
+        },
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0021",
+          "wrongChoice": "Commonwealth Act 473 uses age 18 at the hearing in every case.",
+          "mistakeNote": "Swaps RA 9139's 18-year age minimum into Commonwealth Act 473 instead of age 21 at the hearing."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-keeping-and-regaining-citizenship": {
+      "marriage-keeps-citizenship": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0003",
+          "wrongChoice": "It is lost as soon as the marriage takes place.",
+          "mistakeNote": "Treats marriage to a foreign citizen as automatic loss of Philippine citizenship despite Article IV, Section 4."
+        },
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0003",
+          "wrongChoice": "It is suspended until the marriage ends.",
+          "mistakeNote": "Claims marriage to a foreign citizen suspends Philippine citizenship instead of keeping it intact."
+        }
+      ],
+      "candidacy-sworn-renunciation": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0018",
+          "wrongChoice": "Personally submit proof of the citizenship oath before an authorized officer when filing candidacy, without separately renouncing foreign citizenship.",
+          "mistakeNote": "Substitutes the RA 9225 reacquisition oath for the separate sworn foreign renunciation required by Section 5(2) at filing."
+        }
+      ],
+      "dual-citizenship-vs-allegiance": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0016",
+          "wrongChoice": "The two citizenships alone establish harmful dual allegiance under Article IV, Section 5.",
+          "mistakeNote": "Equates holding two citizenships by birth laws with voluntary dual allegiance under Article IV, Section 5."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-domestic-voting-qualifications": {
+      "local-residence-separate": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0012",
+          "wrongChoice": "The citizen qualifies because long Philippine residence cancels the local residence rule.",
+          "mistakeNote": "Lets twelve years of Philippine residence excuse falling short of six months in the place of voting."
+        }
+      ],
+      "age-and-residence-on-election-day": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0019",
+          "wrongChoice": "Registration must be refused because the citizen is not yet eighteen on the application date.",
+          "mistakeNote": "Measures the 18-year voting minimum at registration filing instead of on election day under RA 8189, Section 9."
+        }
+      ],
+      "no-literacy-or-property-test": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0020",
+          "wrongChoice": "She cannot vote because she must pass a reading test or own land.",
+          "mistakeNote": "Imposes literacy and property conditions forbidden by Article V, Section 1."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-ballot-protection-and-overseas-voting": {
+      "ballot-secrecy-and-sanctity": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0017",
+          "wrongChoice": "Their votes must always be announced publicly so officials can check them.",
+          "mistakeNote": "Exposes voters' choices publicly in violation of Article V, Section 2 ballot secrecy."
+        }
+      ],
+      "interim-voting-without-exclusion": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0017",
+          "wrongChoice": "Exclusion is allowed because reading ability is a constitutional voting qualification.",
+          "mistakeNote": "Excludes voters who cannot read instead of applying existing interim laws and COMELEC secrecy rules."
+        }
+      ],
+      "overseas-voting-conditions": [
+        {
+          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0014",
+          "wrongChoice": "Every Filipino abroad may vote without registration because citizenship is enough.",
+          "mistakeNote": "Skips overseas voter eligibility and registration required under RA 9189 as amended by RA 10590."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-amendment-or-revision": {
+      "amendment-vs-revision-meaning": [
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0002",
+          "wrongChoice": "A replacement of the basic plan of government",
+          "mistakeNote": "Defines an amendment as replacing the basic plan of government, which is a revision."
+        }
+      ],
+      "qualitative-test-short-proposal": [
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0003",
+          "wrongChoice": "An amendment because it changes only a few provisions",
+          "mistakeNote": "Uses provision count alone and ignores the qualitative change to the basic plan of government."
+        },
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0003",
+          "wrongChoice": "An amendment because it concerns only the form of government",
+          "mistakeNote": "Treats a change in the form of government as an amendment instead of a revision."
+        }
+      ],
+      "classify-before-ratification": [
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0003",
+          "wrongChoice": "Neither an amendment nor a revision until voters approve it",
+          "mistakeNote": "Delays classifying a proposal until ratification instead of checking valid proposal routes beforehand."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-congress-and-constitutional-conventions": {
+      "three-proposal-routes": [
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0001",
+          "wrongChoice": "Two",
+          "mistakeNote": "Omits people's initiative when counting Article XVII proposal routes."
+        },
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0001",
+          "wrongChoice": "Four",
+          "mistakeNote": "Counts asking voters whether to call a convention as a fourth proposal route."
+        }
+      ],
+      "match-congressional-fractions": [
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0004",
+          "wrongChoice": "Two-thirds of all its Members",
+          "mistakeNote": "Substitutes the two-thirds convention-call threshold for the three-fourths proposal threshold."
+        },
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0005",
+          "wrongChoice": "A majority of all its Members",
+          "mistakeNote": "Substitutes the majority voter-referral vote for the two-thirds vote to call a convention directly."
+        }
+      ],
+      "count-all-members": [
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0004",
+          "wrongChoice": "Three-fourths of the Members present",
+          "mistakeNote": "Uses only Members present instead of all Members as required by Article XVII, Section 1."
+        },
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0017",
+          "wrongChoice": "150",
+          "mistakeNote": "Computes three-fourths of the 200 Members present (150) instead of all 240 Members (180)."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-peoples-initiative": {
+      "initiative-amendments-only": [
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0009",
+          "wrongChoice": "All three routes may propose both amendments and revisions",
+          "mistakeNote": "Allows people's initiative to propose revisions despite Article XVII, Section 2 limiting it to amendments."
+        }
+      ],
+      "national-12-every-district-3": [
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0008",
+          "wrongChoice": "No district minimum once the nationwide requirement is met",
+          "mistakeNote": "Drops the mandatory 3% per-district signature requirement once 12% nationwide is reached."
+        },
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0008",
+          "wrongChoice": "At least three percent in any one district",
+          "mistakeNote": "Limits the 3% signature rule to a single district instead of every legislative district."
+        }
+      ],
+      "both-five-year-limits": [
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0011",
+          "wrongChoice": "They were barred for five years after ratification in 1987 and could then occur yearly",
+          "mistakeNote": "Drops Section 2's ongoing once-every-five-years limit after the initial five-year bar."
+        },
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0011",
+          "wrongChoice": "They were barred for three years after ratification in 1987 and are allowed once every three years afterward",
+          "mistakeNote": "Substitutes three-year intervals for Section 2's five-year initial bar and five-year spacing."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-ratification-and-plebiscites": {
+      "majority-of-votes-cast": [
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0013",
+          "wrongChoice": "501",
+          "mistakeNote": "Computes a majority from all 1,000 registered voters instead of the 600 votes cast."
+        },
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0013",
+          "wrongChoice": "300",
+          "mistakeNote": "Treats exactly half of the 600 votes cast (300) as a majority instead of 301."
+        }
+      ],
+      "proposal-needs-ratification": [
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0010",
+          "wrongChoice": "The convention delegates through a second vote",
+          "mistakeNote": "Lets convention delegates ratify their own proposal instead of voters in a plebiscite."
+        },
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0020",
+          "wrongChoice": "A convention approves the revision and declares it valid without a plebiscite",
+          "mistakeNote": "Treats a convention's approval as valid without voter ratification in a plebiscite."
+        }
+      ],
+      "initiative-clock-start": [
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0016",
+          "wrongChoice": "Organizers announce the petition",
+          "mistakeNote": "Starts the 60-to-90-day initiative plebiscite period at petition announcement instead of COMELEC certification."
+        },
+        {
+          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0016",
+          "wrongChoice": "Organizers collect the first signature",
+          "mistakeNote": "Starts the 60-to-90-day initiative plebiscite period at the first signature instead of COMELEC certification."
+        }
+      ]
     }
   }
 }
