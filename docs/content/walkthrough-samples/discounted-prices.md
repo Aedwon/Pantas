@@ -139,7 +139,7 @@ The final selling price is Php $1,200$.
 
 ### #2: Successive Discounts
 
-A laptop listed at Php $30,000$ is given successive trade discounts of $20\%$ and $10\%$. What is the net price of the laptop?
+A laptop listed at Php $30,000$ is given successive trade discounts of $20\%$ and $15\%$. What is the net price of the laptop?
 
 The **net price** is the price after every discount.
 
@@ -149,14 +149,14 @@ The **net price** is the price after every discount.
 
 $$\text{After }20\%\text{ off}=30,000\times0.80=24,000$$
 
-2. Second discount: you still pay $100\%-10\%=90\%$ of the new price, Php $24,000$.
+2. Second discount: you still pay $100\%-15\%=85\%$ of the new price, Php $24,000$.
 
 :::try
-Finish the last step: find $90\%$ of Php $24,000$.
+Finish the last step: find $85\%$ of Php $24,000$.
 :::answer
-The answer is Php $21,600$. Multiply $24,000\times0.90=21,600$.
+The answer is Php $20,400$. Multiply $24,000\times0.85=20,400$.
 
-**Check:** The total discount is $30,000-21,600=8,400$. That is $\dfrac{8,400}{30,000}=0.28$, or $28\%$. It is less than $20\%+10\%=30\%$, as it should be.
+**Check:** The total discount is $30,000-20,400=9,600$. That is $\dfrac{9,600}{30,000}=0.32$, or $32\%$. It is less than $20\%+15\%=35\%$, as it should be.
 :::
 
 ## Speed Tricks & Shortcuts
