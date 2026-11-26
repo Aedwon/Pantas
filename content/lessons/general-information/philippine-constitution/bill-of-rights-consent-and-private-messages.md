@@ -50,9 +50,9 @@ Test a supervisor opening an employee's sealed mail by calling it urgent, with n
 2. Calling a matter urgent does not waive Section $3(1)$.
 
 :::check
-Can an official open a citizen's sealed letters solely by calling the matter urgent, with no court order or enabling law?
+Investigators obtain a lawful court order from a judge to inspect a suspect's sealed private messages. Does Section $3(1)$ permit that inspection?
 :::answer
-The answer is **No**. Section $3(1)$ requires a lawful court order or a public-safety or order rule prescribed by law.
+The answer is **Yes**. Section $3(1)$ allows inspecting private communication upon a lawful order of the court.
 :::
 
 ### The Exclusionary Rule

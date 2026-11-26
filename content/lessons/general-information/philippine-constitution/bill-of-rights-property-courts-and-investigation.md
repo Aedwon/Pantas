@@ -92,9 +92,9 @@ Both writing and counsel's presence are mandatory under Section $12(1)$.
 :::
 
 :::check
-Police let an indigent suspect sign a written waiver without a lawyer present. Is it valid?
+A suspect tells police aloud, with a lawyer listening, that she waives her right to silence without signing anything. Is it valid?
 :::answer
-The answer is **No**. Section $12(1)$ requires both writing and counsel's presence.
+The answer is **No**. Section $12(1)$ requires both a written waiver and the presence of counsel.
 :::
 
 ## Examples

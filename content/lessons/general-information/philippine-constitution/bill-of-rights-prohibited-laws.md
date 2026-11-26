@@ -63,9 +63,9 @@ Punishing an identified group without trial breaks the bill-of-attainder ban, an
 :::
 
 :::check
-A law names members of a club and fines them without a trial for lawful meetings held last year. Which Section $22$ bans apply?
+A new statute raises prison terms for last year's illegal fishing while still requiring a full court trial. Which Section $22$ ban applies?
 :::answer
-The answer is **Both bans**. It punishes an identified group without trial (bill of attainder) and punishes earlier lawful acts (*ex post facto* law).
+The answer is **Only the *ex post facto* ban**. The law increases past penalties retroactively, yet courts still conduct the trial.
 :::
 
 ## Examples

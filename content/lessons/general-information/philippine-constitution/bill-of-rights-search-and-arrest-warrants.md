@@ -54,9 +54,9 @@ Test a warrant naming "$14$ Rizal Street" and ordering officers to seize "any il
 2. Check the items: "any illegal items" is too broad, so the warrant fails the particular description rule.
 
 :::check
-A search warrant gives an exact house address yet allows seizing "any papers or goods." Which requirement fails?
+A search warrant lists three exact laptop serial numbers yet states "any warehouse in Quezon City" as the location. Which requirement fails?
 :::answer
-The answer is **Particular description of the things to be seized**. Section $2$ bars general warrants.
+The answer is **Particular description of the place to be searched**. Both the place and the items must be specific.
 :::
 
 ### Arrest Warrant Review
@@ -77,9 +77,9 @@ Search warrants need personal examination under oath; arrest warrants allow pers
 :::
 
 :::check
-May a judge issue an arrest warrant after personally reviewing sufficient written evidence without questioning witnesses?
+A judge signs an arrest warrant relying solely on a prosecutor's bare conclusion without reading the supporting affidavits. Does that satisfy Section $2$?
 :::answer
-The answer is **Yes**. Personal review of sufficient records satisfies Section $2$ for an arrest warrant.
+The answer is **No**. The judge must personally evaluate sufficient supporting evidence instead of rubber-stamping a prosecutor's conclusion.
 :::
 
 ## Examples

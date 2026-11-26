@@ -44,9 +44,9 @@ Check every step from charge and plea through the ending before barring a second
 :::
 
 :::check
-A prosecutor files a complaint, then withdraws it before arraignment. Does double jeopardy bar refiling the charge?
+An accused enters a valid plea in a proper court and is acquitted after trial. Can prosecutors retry the same offense?
 :::answer
-The answer is **No**. Without arraignment and a valid plea, double jeopardy never attached.
+The answer is **No**. A valid charge, proper court, arraignment, plea, and acquittal trigger double jeopardy under Section $21$.
 :::
 
 ### Included Offenses and Law vs. Ordinance
